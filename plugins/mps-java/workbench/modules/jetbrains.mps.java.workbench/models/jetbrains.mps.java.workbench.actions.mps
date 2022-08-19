@@ -62,6 +62,8 @@
     <import index="1ka" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.typechecking(MPS.Core/)" />
     <import index="mk90" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.progress(MPS.Core/)" />
     <import index="yyf4" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.util(MPS.OpenAPI/)" />
+    <import index="vn06" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.refactoring(MPS.IDEA/)" />
+    <import index="t2f2" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.java.refactoring(MPS.IDEA/)" />
     <import index="cj4x" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor(MPS.Editor/)" implicit="true" />
     <import index="4hrd" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.vfs(MPS.Platform/)" implicit="true" />
     <import index="tprs" ref="r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)" implicit="true" />
@@ -228,6 +230,7 @@
       <concept id="1068498886292" name="jetbrains.mps.baseLanguage.structure.ParameterDeclaration" flags="ir" index="37vLTG" />
       <concept id="1068498886294" name="jetbrains.mps.baseLanguage.structure.AssignmentExpression" flags="nn" index="37vLTI" />
       <concept id="1225271177708" name="jetbrains.mps.baseLanguage.structure.StringType" flags="in" index="17QB3L" />
+      <concept id="1225271283259" name="jetbrains.mps.baseLanguage.structure.NPEEqualsExpression" flags="nn" index="17R0WA" />
       <concept id="4972933694980447171" name="jetbrains.mps.baseLanguage.structure.BaseVariableDeclaration" flags="ng" index="19Szcq">
         <child id="5680397130376446158" name="type" index="1tU5fm" />
       </concept>
@@ -455,6 +458,7 @@
         <child id="1144104376918" name="parameter" index="1xVPHs" />
       </concept>
       <concept id="1179409122411" name="jetbrains.mps.lang.smodel.structure.Node_ConceptMethodCall" flags="nn" index="2qgKlT" />
+      <concept id="7453996997717780434" name="jetbrains.mps.lang.smodel.structure.Node_GetSConceptOperation" flags="nn" index="2yIwOk" />
       <concept id="2396822768958367367" name="jetbrains.mps.lang.smodel.structure.AbstractTypeCastExpression" flags="nn" index="$5XWr">
         <child id="6733348108486823193" name="leftExpression" index="1m5AlR" />
         <child id="3906496115198199033" name="conceptArgument" index="3oSUPX" />
@@ -485,10 +489,14 @@
       <concept id="3562215692195599741" name="jetbrains.mps.lang.smodel.structure.SLinkImplicitSelect" flags="nn" index="13MTOL">
         <reference id="3562215692195600259" name="link" index="13MTZf" />
       </concept>
+      <concept id="6677504323281689838" name="jetbrains.mps.lang.smodel.structure.SConceptType" flags="in" index="3bZ5Sz">
+        <reference id="6677504323281689839" name="conceptDeclaraton" index="3bZ5Sy" />
+      </concept>
       <concept id="1139613262185" name="jetbrains.mps.lang.smodel.structure.Node_GetParentOperation" flags="nn" index="1mfA1w" />
       <concept id="1139621453865" name="jetbrains.mps.lang.smodel.structure.Node_IsInstanceOfOperation" flags="nn" index="1mIQ4w">
         <child id="1177027386292" name="conceptArgument" index="cj9EA" />
       </concept>
+      <concept id="6870613620390542976" name="jetbrains.mps.lang.smodel.structure.ConceptAliasOperation" flags="ng" index="3n3YKJ" />
       <concept id="1171999116870" name="jetbrains.mps.lang.smodel.structure.Node_IsNullOperation" flags="nn" index="3w_OXm" />
       <concept id="1172008320231" name="jetbrains.mps.lang.smodel.structure.Node_IsNotNullOperation" flags="nn" index="3x8VRR" />
       <concept id="1144100932627" name="jetbrains.mps.lang.smodel.structure.OperationParm_Inclusion" flags="ng" index="1xIGOp" />
@@ -2019,7 +2027,7 @@
         <node concept="3cpWs8" id="5U9rQri5Gja" role="3cqZAp">
           <node concept="3cpWsn" id="5U9rQri5Gjb" role="3cpWs9">
             <property role="TrG5h" value="methodsToRefactor" />
-            <property role="3TUv4t" value="false" />
+            <property role="3TUv4t" value="true" />
             <node concept="2I9FWS" id="5U9rQri5Gjc" role="1tU5fm">
               <ref role="2I9WkF" to="tpee:fzclF7W" resolve="BaseMethodDeclaration" />
             </node>
@@ -2030,6 +2038,22 @@
                 </node>
               </node>
             </node>
+          </node>
+        </node>
+        <node concept="3cpWs8" id="nsS9FvJw3q" role="3cqZAp">
+          <node concept="3cpWsn" id="nsS9FvJw3t" role="3cpWs9">
+            <property role="TrG5h" value="changeVisibilityFor" />
+            <node concept="10Nm6u" id="nsS9FvJRTj" role="33vP2m" />
+            <node concept="3bZ5Sz" id="3Ka6WCsMnXK" role="1tU5fm">
+              <ref role="3bZ5Sy" to="tpee:gFTlX_I" resolve="Visibility" />
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs8" id="3GMkPCUsuHe" role="3cqZAp">
+          <node concept="3cpWsn" id="3GMkPCUsuHh" role="3cpWs9">
+            <property role="TrG5h" value="isChangeMandatory" />
+            <node concept="10P_77" id="3GMkPCUsuHc" role="1tU5fm" />
+            <node concept="3clFbT" id="3GMkPCUsLsU" role="33vP2m" />
           </node>
         </node>
         <node concept="3clFbF" id="5U9rQri5Gjg" role="3cqZAp">
@@ -2081,43 +2105,125 @@
                               <node concept="1bVj0M" id="5wEedBrK6cg" role="37wK5m">
                                 <node concept="3clFbS" id="5wEedBrK6ch" role="1bW5cS">
                                   <node concept="3clFbF" id="5U9rQri5Gjy" role="3cqZAp">
-                                    <node concept="37vLTI" id="5U9rQri5Gjz" role="3clFbG">
-                                      <node concept="37vLTw" id="3GM_nagT$Sm" role="37vLTJ">
+                                    <node concept="2OqwBi" id="nsS9FvUpA0" role="3clFbG">
+                                      <node concept="37vLTw" id="3GM_nagT$Sm" role="2Oq$k0">
                                         <ref role="3cqZAo" node="5U9rQri5Gjb" resolve="methodsToRefactor" />
                                       </node>
-                                      <node concept="2YIFZM" id="5U9rQri5Gj_" role="37vLTx">
-                                        <ref role="1Pybhc" to="89o2:7nrhK3uHecP" resolve="MethodRefactoringUtils" />
-                                        <ref role="37wK5l" to="89o2:7nrhK3uHedz" resolve="findOverridingMethods" />
-                                        <node concept="2OqwBi" id="wCH7Eoi01h" role="37wK5m">
-                                          <node concept="2OqwBi" id="wCH7EohY2j" role="2Oq$k0">
-                                            <node concept="Xjq3P" id="wCH7EohWH9" role="2Oq$k0">
+                                      <node concept="X8dFx" id="nsS9FvUDfz" role="2OqNvi">
+                                        <node concept="2YIFZM" id="5U9rQri5Gj_" role="25WWJ7">
+                                          <ref role="37wK5l" to="89o2:7nrhK3uHedz" resolve="findOverridingMethods" />
+                                          <ref role="1Pybhc" to="89o2:7nrhK3uHecP" resolve="MethodRefactoringUtils" />
+                                          <node concept="2OqwBi" id="wCH7Eoi01h" role="37wK5m">
+                                            <node concept="2OqwBi" id="wCH7EohY2j" role="2Oq$k0">
+                                              <node concept="Xjq3P" id="wCH7EohWH9" role="2Oq$k0">
+                                                <ref role="1HBi2w" node="5U9rQri5GeR" resolve="ChangeMethodSignatureDialog" />
+                                              </node>
+                                              <node concept="2OwXpG" id="wCH7EohZ8g" role="2OqNvi">
+                                                <ref role="2Oxat5" node="5wEedBrIoaZ" resolve="myProject" />
+                                              </node>
+                                            </node>
+                                            <node concept="2pIyA9" id="wCH7Eoi1wp" role="2OqNvi">
+                                              <node concept="1pGfFk" id="wCH7Eoi1zh" role="2ShVmc">
+                                                <ref role="37wK5l" to="z1c3:~Project$ProjectScope.&lt;init&gt;(jetbrains.mps.project.Project)" resolve="ProjectScope" />
+                                              </node>
+                                            </node>
+                                          </node>
+                                          <node concept="2OqwBi" id="5U9rQri5GjA" role="37wK5m">
+                                            <node concept="2OwXpG" id="5U9rQri5GjB" role="2OqNvi">
+                                              <ref role="2Oxat5" node="5U9rQri5Gh1" resolve="myDeclaration" />
+                                            </node>
+                                            <node concept="Xjq3P" id="5U9rQri5GjC" role="2Oq$k0">
                                               <ref role="1HBi2w" node="5U9rQri5GeR" resolve="ChangeMethodSignatureDialog" />
                                             </node>
-                                            <node concept="2OwXpG" id="wCH7EohZ8g" role="2OqNvi">
-                                              <ref role="2Oxat5" node="5wEedBrIoaZ" resolve="myProject" />
-                                            </node>
                                           </node>
-                                          <node concept="2pIyA9" id="wCH7Eoi1wp" role="2OqNvi">
-                                            <node concept="1pGfFk" id="wCH7Eoi1zh" role="2ShVmc">
-                                              <ref role="37wK5l" to="z1c3:~Project$ProjectScope.&lt;init&gt;(jetbrains.mps.project.Project)" resolve="Project.ProjectScope" />
+                                          <node concept="2ShNRf" id="5U9rQri5GjG" role="37wK5m">
+                                            <node concept="1pGfFk" id="5U9rQri5GjH" role="2ShVmc">
+                                              <ref role="37wK5l" to="mk8z:~ProgressMonitorAdapter.&lt;init&gt;(com.intellij.openapi.progress.ProgressIndicator)" resolve="ProgressMonitorAdapter" />
+                                              <node concept="37vLTw" id="2BHiRxgm8md" role="37wK5m">
+                                                <ref role="3cqZAo" node="5U9rQri5Gjr" resolve="indicator" />
+                                              </node>
                                             </node>
                                           </node>
                                         </node>
-                                        <node concept="2OqwBi" id="5U9rQri5GjA" role="37wK5m">
-                                          <node concept="2OwXpG" id="5U9rQri5GjB" role="2OqNvi">
-                                            <ref role="2Oxat5" node="5U9rQri5Gh1" resolve="myDeclaration" />
+                                      </node>
+                                    </node>
+                                  </node>
+                                  <node concept="3clFbH" id="nsS9FvKd7n" role="3cqZAp" />
+                                  <node concept="3SKdUt" id="nsS9FvKkq5" role="3cqZAp">
+                                    <node concept="1PaTwC" id="nsS9FvKkq6" role="1aUNEU">
+                                      <node concept="3oM_SD" id="nsS9FvKnpB" role="1PaTwD">
+                                        <property role="3oM_SC" value="Use" />
+                                      </node>
+                                      <node concept="3oM_SD" id="nsS9FvKsvv" role="1PaTwD">
+                                        <property role="3oM_SC" value="same" />
+                                      </node>
+                                      <node concept="3oM_SD" id="nsS9FvL0OV" role="1PaTwD">
+                                        <property role="3oM_SC" value="read" />
+                                      </node>
+                                      <node concept="3oM_SD" id="nsS9FvLibR" role="1PaTwD">
+                                        <property role="3oM_SC" value="action" />
+                                      </node>
+                                    </node>
+                                  </node>
+                                  <node concept="3clFbJ" id="nsS9FvK565" role="3cqZAp">
+                                    <node concept="3clFbS" id="nsS9FvK566" role="3clFbx">
+                                      <node concept="3clFbF" id="nsS9FvMwal" role="3cqZAp">
+                                        <node concept="37vLTI" id="nsS9FvM_dG" role="3clFbG">
+                                          <node concept="37vLTw" id="nsS9FvMwaj" role="37vLTJ">
+                                            <ref role="3cqZAo" node="nsS9FvJw3t" resolve="changeVisibilityFor" />
                                           </node>
-                                          <node concept="Xjq3P" id="5U9rQri5GjC" role="2Oq$k0">
-                                            <ref role="1HBi2w" node="5U9rQri5GeR" resolve="ChangeMethodSignatureDialog" />
+                                          <node concept="2OqwBi" id="3Ka6WCsMbob" role="37vLTx">
+                                            <node concept="2OqwBi" id="nsS9FvMDF6" role="2Oq$k0">
+                                              <node concept="1PxgMI" id="nsS9FvMDF7" role="2Oq$k0">
+                                                <node concept="chp4Y" id="nsS9FvMDF8" role="3oSUPX">
+                                                  <ref role="cht4Q" to="tpee:h9B3isZ" resolve="IVisible" />
+                                                </node>
+                                                <node concept="2OqwBi" id="nsS9FvMDF9" role="1m5AlR">
+                                                  <node concept="37vLTw" id="nsS9FvMDFa" role="2Oq$k0">
+                                                    <ref role="3cqZAo" node="5U9rQri5Gh4" resolve="myParameters" />
+                                                  </node>
+                                                  <node concept="liA8E" id="nsS9FvMDFb" role="2OqNvi">
+                                                    <ref role="37wK5l" to="89o2:7nrhK3uHcOn" resolve="getDeclaration" />
+                                                  </node>
+                                                </node>
+                                              </node>
+                                              <node concept="3TrEf2" id="nsS9FvMDFc" role="2OqNvi">
+                                                <ref role="3Tt5mk" to="tpee:h9B3oxE" resolve="visibility" />
+                                              </node>
+                                            </node>
+                                            <node concept="2yIwOk" id="3Ka6WCsMi$2" role="2OqNvi" />
                                           </node>
                                         </node>
-                                        <node concept="2ShNRf" id="5U9rQri5GjG" role="37wK5m">
-                                          <node concept="1pGfFk" id="5U9rQri5GjH" role="2ShVmc">
-                                            <ref role="37wK5l" to="mk8z:~ProgressMonitorAdapter.&lt;init&gt;(com.intellij.openapi.progress.ProgressIndicator)" resolve="ProgressMonitorAdapter" />
-                                            <node concept="37vLTw" id="2BHiRxgm8md" role="37wK5m">
-                                              <ref role="3cqZAo" node="5U9rQri5Gjr" resolve="indicator" />
+                                      </node>
+                                      <node concept="3clFbF" id="3GMkPCUsZ6j" role="3cqZAp">
+                                        <node concept="37vLTI" id="3GMkPCUt6Ty" role="3clFbG">
+                                          <node concept="2OqwBi" id="3GMkPCUtxBd" role="37vLTx">
+                                            <node concept="37vLTw" id="3GMkPCUtjr3" role="2Oq$k0">
+                                              <ref role="3cqZAo" node="5U9rQri5Gh4" resolve="myParameters" />
+                                            </node>
+                                            <node concept="liA8E" id="3GMkPCUu$6N" role="2OqNvi">
+                                              <ref role="37wK5l" to="89o2:3GMkPCUuadp" resolve="isMandatoryVisibilityChange" />
                                             </node>
                                           </node>
+                                          <node concept="37vLTw" id="3GMkPCUsZ6h" role="37vLTJ">
+                                            <ref role="3cqZAo" node="3GMkPCUsuHh" resolve="isChangeMandatory" />
+                                          </node>
+                                        </node>
+                                      </node>
+                                    </node>
+                                    <node concept="1Wc70l" id="nsS9FvK56K" role="3clFbw">
+                                      <node concept="2OqwBi" id="nsS9FvK56L" role="3uHU7w">
+                                        <node concept="37vLTw" id="nsS9FvK56M" role="2Oq$k0">
+                                          <ref role="3cqZAo" node="5U9rQri5Gjb" resolve="methodsToRefactor" />
+                                        </node>
+                                        <node concept="3GX2aA" id="nsS9FvK56N" role="2OqNvi" />
+                                      </node>
+                                      <node concept="2OqwBi" id="nsS9FvK56O" role="3uHU7B">
+                                        <node concept="37vLTw" id="nsS9FvK56P" role="2Oq$k0">
+                                          <ref role="3cqZAo" node="5U9rQri5Gh4" resolve="myParameters" />
+                                        </node>
+                                        <node concept="liA8E" id="nsS9FvK56Q" role="2OqNvi">
+                                          <ref role="37wK5l" to="89o2:7nrhK3uHcOC" resolve="isVisibilityChanged" />
                                         </node>
                                       </node>
                                     </node>
@@ -2162,6 +2268,171 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbH" id="2L8VmqqbeMD" role="3cqZAp" />
+        <node concept="3cpWs8" id="3GMkPCUzp5e" role="3cqZAp">
+          <node concept="3cpWsn" id="3GMkPCUzp5h" role="3cpWs9">
+            <property role="TrG5h" value="changeVisibility" />
+            <node concept="10P_77" id="3GMkPCUzp5c" role="1tU5fm" />
+            <node concept="3clFbT" id="3GMkPCU$16y" role="33vP2m" />
+          </node>
+        </node>
+        <node concept="3clFbJ" id="2L8VmqqbkVS" role="3cqZAp">
+          <node concept="3clFbS" id="2L8VmqqbkVU" role="3clFbx">
+            <node concept="3cpWs8" id="2L8VmqqcSUx" role="3cqZAp">
+              <node concept="3cpWsn" id="2L8VmqqcSUy" role="3cpWs9">
+                <property role="TrG5h" value="message" />
+                <node concept="17QB3L" id="2L8VmqqcR1R" role="1tU5fm" />
+                <node concept="2YIFZM" id="3GMkPCUv17a" role="33vP2m">
+                  <ref role="1Pybhc" to="t2f2:~JavaRefactoringBundle" resolve="JavaRefactoringBundle" />
+                  <ref role="37wK5l" to="t2f2:~JavaRefactoringBundle.message(java.lang.String,java.lang.Object...)" resolve="message" />
+                  <node concept="Xl_RD" id="3GMkPCUv9z0" role="37wK5m">
+                    <property role="Xl_RC" value="dialog.message.overriding.methods.with.weaken.visibility" />
+                  </node>
+                  <node concept="2OqwBi" id="3GMkPCUvTKC" role="37wK5m">
+                    <node concept="37vLTw" id="3GMkPCUvJBs" role="2Oq$k0">
+                      <ref role="3cqZAo" node="nsS9FvJw3t" resolve="changeVisibilityFor" />
+                    </node>
+                    <node concept="3n3YKJ" id="3GMkPCUw5zq" role="2OqNvi" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbH" id="3GMkPCU$E$u" role="3cqZAp" />
+            <node concept="3clFbF" id="3GMkPCU$So0" role="3cqZAp">
+              <node concept="37vLTI" id="3GMkPCU_5wz" role="3clFbG">
+                <node concept="37vLTw" id="3GMkPCU$SnY" role="37vLTJ">
+                  <ref role="3cqZAo" node="3GMkPCUzp5h" resolve="changeVisibility" />
+                </node>
+                <node concept="3clFbC" id="3GMkPCU_wYh" role="37vLTx">
+                  <node concept="10M0yZ" id="3GMkPCUA9JF" role="3uHU7w">
+                    <ref role="3cqZAo" to="jkm4:~Messages.YES" resolve="YES" />
+                    <ref role="1PxDUh" to="jkm4:~Messages" resolve="Messages" />
+                  </node>
+                  <node concept="2YIFZM" id="3GMkPCUAfOt" role="3uHU7B">
+                    <ref role="37wK5l" to="jkm4:~Messages.showYesNoDialog(com.intellij.openapi.project.Project,java.lang.String,java.lang.String,javax.swing.Icon)" resolve="showYesNoDialog" />
+                    <ref role="1Pybhc" to="jkm4:~Messages" resolve="Messages" />
+                    <node concept="2OqwBi" id="3GMkPCUAsq1" role="37wK5m">
+                      <node concept="37vLTw" id="3GMkPCUAfOu" role="2Oq$k0">
+                        <ref role="3cqZAo" node="5wEedBrIoaZ" resolve="myProject" />
+                      </node>
+                      <node concept="liA8E" id="3GMkPCUAF$y" role="2OqNvi">
+                        <ref role="37wK5l" to="z1c4:~MPSProject.getProject()" resolve="getProject" />
+                      </node>
+                    </node>
+                    <node concept="37vLTw" id="3GMkPCUAfOv" role="37wK5m">
+                      <ref role="3cqZAo" node="2L8VmqqcSUy" resolve="message" />
+                    </node>
+                    <node concept="2YIFZM" id="3GMkPCUAfOw" role="37wK5m">
+                      <ref role="1Pybhc" to="vn06:~RefactoringBundle" resolve="RefactoringBundle" />
+                      <ref role="37wK5l" to="vn06:~RefactoringBundle.message(java.lang.String)" resolve="message" />
+                      <node concept="Xl_RD" id="3GMkPCUAfOx" role="37wK5m">
+                        <property role="Xl_RC" value="changeSignature.refactoring.name" />
+                      </node>
+                    </node>
+                    <node concept="2YIFZM" id="3GMkPCUAfOy" role="37wK5m">
+                      <ref role="37wK5l" to="jkm4:~Messages.getQuestionIcon()" resolve="getQuestionIcon" />
+                      <ref role="1Pybhc" to="jkm4:~Messages" resolve="Messages" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="1Wc70l" id="3GMkPCUCI0a" role="3clFbw">
+            <node concept="3fqX7Q" id="3GMkPCUD1wV" role="3uHU7w">
+              <node concept="37vLTw" id="3GMkPCUD1wX" role="3fr31v">
+                <ref role="3cqZAo" node="3GMkPCUsuHh" resolve="isChangeMandatory" />
+              </node>
+            </node>
+            <node concept="3y3z36" id="3Ka6WCsRg6Q" role="3uHU7B">
+              <node concept="37vLTw" id="nsS9FvLTzW" role="3uHU7B">
+                <ref role="3cqZAo" node="nsS9FvJw3t" resolve="changeVisibilityFor" />
+              </node>
+              <node concept="10Nm6u" id="3Ka6WCsRp7g" role="3uHU7w" />
+            </node>
+          </node>
+          <node concept="3eNFk2" id="3GMkPCUDh3g" role="3eNLev">
+            <node concept="3clFbS" id="3GMkPCUDh3h" role="3eOfB_">
+              <node concept="3SKdUt" id="3GMkPCUDBj6" role="3cqZAp">
+                <node concept="1PaTwC" id="3GMkPCUDBj7" role="1aUNEU">
+                  <node concept="3oM_SD" id="3GMkPCUDG$q" role="1PaTwD">
+                    <property role="3oM_SC" value="TODO" />
+                  </node>
+                  <node concept="3oM_SD" id="3GMkPCUDG$s" role="1PaTwD">
+                    <property role="3oM_SC" value="internationalization" />
+                  </node>
+                </node>
+              </node>
+              <node concept="3cpWs8" id="3GMkPCUMV2K" role="3cqZAp">
+                <node concept="3cpWsn" id="3GMkPCUMV2L" role="3cpWs9">
+                  <property role="TrG5h" value="cancel" />
+                  <node concept="10P_77" id="3GMkPCUMSzD" role="1tU5fm" />
+                  <node concept="3clFbC" id="3GMkPCUMV2M" role="33vP2m">
+                    <node concept="2YIFZM" id="3GMkPCUMV2N" role="3uHU7B">
+                      <ref role="37wK5l" to="jkm4:~Messages.showYesNoDialog(com.intellij.openapi.project.Project,java.lang.String,java.lang.String,javax.swing.Icon)" resolve="showYesNoDialog" />
+                      <ref role="1Pybhc" to="jkm4:~Messages" resolve="Messages" />
+                      <node concept="2OqwBi" id="3GMkPCUMV2O" role="37wK5m">
+                        <node concept="37vLTw" id="3GMkPCUMV2P" role="2Oq$k0">
+                          <ref role="3cqZAo" node="5wEedBrIoaZ" resolve="myProject" />
+                        </node>
+                        <node concept="liA8E" id="3GMkPCUMV2Q" role="2OqNvi">
+                          <ref role="37wK5l" to="z1c4:~MPSProject.getProject()" resolve="getProject" />
+                        </node>
+                      </node>
+                      <node concept="3cpWs3" id="3GMkPCUMV2R" role="37wK5m">
+                        <node concept="Xl_RD" id="3GMkPCUMV2S" role="3uHU7w">
+                          <property role="Xl_RC" value="'. Proceed?" />
+                        </node>
+                        <node concept="3cpWs3" id="3GMkPCUMV2T" role="3uHU7B">
+                          <node concept="Xl_RD" id="3GMkPCUMV2U" role="3uHU7B">
+                            <property role="Xl_RC" value="Overriding methods visibility will be reduced to '" />
+                          </node>
+                          <node concept="2OqwBi" id="3GMkPCUMV2V" role="3uHU7w">
+                            <node concept="37vLTw" id="3GMkPCUMV2W" role="2Oq$k0">
+                              <ref role="3cqZAo" node="nsS9FvJw3t" resolve="changeVisibilityFor" />
+                            </node>
+                            <node concept="3n3YKJ" id="3GMkPCUMV2X" role="2OqNvi" />
+                          </node>
+                        </node>
+                      </node>
+                      <node concept="2YIFZM" id="3GMkPCUMV2Y" role="37wK5m">
+                        <ref role="1Pybhc" to="vn06:~RefactoringBundle" resolve="RefactoringBundle" />
+                        <ref role="37wK5l" to="vn06:~RefactoringBundle.message(java.lang.String)" resolve="message" />
+                        <node concept="Xl_RD" id="3GMkPCUMV2Z" role="37wK5m">
+                          <property role="Xl_RC" value="changeSignature.refactoring.name" />
+                        </node>
+                      </node>
+                      <node concept="2YIFZM" id="3GMkPCUMV30" role="37wK5m">
+                        <ref role="37wK5l" to="jkm4:~Messages.getQuestionIcon()" resolve="getQuestionIcon" />
+                        <ref role="1Pybhc" to="jkm4:~Messages" resolve="Messages" />
+                      </node>
+                    </node>
+                    <node concept="10M0yZ" id="3GMkPCUQRGr" role="3uHU7w">
+                      <ref role="3cqZAo" to="jkm4:~Messages.NO" resolve="NO" />
+                      <ref role="1PxDUh" to="jkm4:~Messages" resolve="Messages" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="3clFbH" id="3GMkPCUM48z" role="3cqZAp" />
+              <node concept="3clFbJ" id="3GMkPCUMfPr" role="3cqZAp">
+                <node concept="3clFbS" id="3GMkPCUMfPt" role="3clFbx">
+                  <node concept="3cpWs6" id="3GMkPCUMoBk" role="3cqZAp" />
+                </node>
+                <node concept="37vLTw" id="3GMkPCUMgdG" role="3clFbw">
+                  <ref role="3cqZAo" node="3GMkPCUMV2L" resolve="cancel" />
+                </node>
+              </node>
+            </node>
+            <node concept="3y3z36" id="3GMkPCUDs4B" role="3eO9$A">
+              <node concept="10Nm6u" id="3GMkPCUDvrh" role="3uHU7w" />
+              <node concept="37vLTw" id="3GMkPCUDmB2" role="3uHU7B">
+                <ref role="3cqZAo" node="nsS9FvJw3t" resolve="changeVisibilityFor" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbH" id="nsS9Fvz3hN" role="3cqZAp" />
         <node concept="3clFbF" id="5U9rQri5GjM" role="3cqZAp">
           <node concept="2OqwBi" id="5U9rQri5GjN" role="3clFbG">
             <node concept="37vLTw" id="3GM_nagTr1r" role="2Oq$k0">
@@ -2313,6 +2584,19 @@
                       </node>
                       <node concept="37vLTw" id="3LbosG4bumh" role="37wK5m">
                         <ref role="3cqZAo" node="3LbosG4amQp" resolve="defaultValues" />
+                      </node>
+                      <node concept="22lmx$" id="nsS9FvOdPk" role="37wK5m">
+                        <node concept="17R0WA" id="nsS9FvOmaO" role="3uHU7w">
+                          <node concept="37vLTw" id="nsS9FvOqjv" role="3uHU7w">
+                            <ref role="3cqZAo" node="5U9rQri5Gh1" resolve="myDeclaration" />
+                          </node>
+                          <node concept="2GrUjf" id="nsS9FvOifv" role="3uHU7B">
+                            <ref role="2Gs0qQ" node="5U9rQri5GjY" resolve="method" />
+                          </node>
+                        </node>
+                        <node concept="37vLTw" id="nsS9FvzmcQ" role="3uHU7B">
+                          <ref role="3cqZAo" node="3GMkPCUzp5h" resolve="changeVisibility" />
+                        </node>
                       </node>
                     </node>
                   </node>

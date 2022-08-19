@@ -70,7 +70,7 @@ public class AddParameterWithDefault_Test extends BaseTransformationTest {
         ListSequence.fromList(usages).addElement(getNodeById("3613779214163202948"));
 
         // Create refactoring and add usages
-        ChangeMethodSignatureRefactoring ref = new ChangeMethodSignatureRefactoring(params, getNodeById("3613779214163202937"), defaultValues);
+        ChangeMethodSignatureRefactoring ref = new ChangeMethodSignatureRefactoring(params, getNodeById("3613779214163202937"), defaultValues, false);
         ref.setUsages(usages);
 
         ref.doRefactoring();

@@ -8,6 +8,9 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import org.jetbrains.mps.openapi.language.SConcept;
+import java.util.Objects;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.SNodeMatcher;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -48,6 +51,53 @@ public class ChangeMethodSignatureParameters {
   public boolean isVisibilityChanged() {
     return SNodeOperations.getConcept(SLinkOperations.getTarget(SNodeOperations.cast(this.myMethod, CONCEPTS.IVisible$zu), LINKS.visibility$Yyua)) != SNodeOperations.getConcept(SLinkOperations.getTarget(SNodeOperations.cast(this.myOldMethod, CONCEPTS.IVisible$zu), LINKS.visibility$Yyua));
   }
+
+  /**
+   * Returns true if the change of visibility compared to original method could induce some mandatory visibility
+   *  updates from children.
+   * 
+   * For instance, changing from public to protected will not enforce children to be protected (user can should between
+   * propagating or not), while changing from protected to public may enforce children to change (if their visibility is
+   * set to protected, it will be forced to public)
+   */
+  public boolean isMandatoryVisibilityChange() {
+    return isMandatoryVisibilityUpdate(SNodeOperations.getConcept(SLinkOperations.getTarget(SNodeOperations.cast(this.myOldMethod, CONCEPTS.IVisible$zu), LINKS.visibility$Yyua)));
+  }
+  /**
+   * Returns true if the given visibility has to be updated to keep a valid state.
+   * 
+   * For instance, an method overriding a protected method must be at least be protected
+   * (public/protected/package-private).
+   * 
+   * @param currentVisibility visibility before change
+   * @return wether this visibility has to be updated for sure
+   */
+  public boolean isMandatoryVisibilityUpdate(SConcept currentVisibility) {
+    SConcept newVisibilityConcept = SNodeOperations.getConcept(SLinkOperations.getTarget(SNodeOperations.cast(this.myMethod, CONCEPTS.IVisible$zu), LINKS.visibility$Yyua));
+    if (Objects.equals(currentVisibility, newVisibilityConcept)) {
+      return false;
+    }
+
+    if (SConceptOperations.isExactly(SNodeOperations.asSConcept(newVisibilityConcept), CONCEPTS.PrivateVisibility$l0)) {
+      return false;
+    }
+
+    // If new parent is protected, there cannot be private descendants
+    boolean isPrivate = SConceptOperations.isExactly(SNodeOperations.asSConcept(currentVisibility), CONCEPTS.PrivateVisibility$l0);
+    if (SConceptOperations.isExactly(SNodeOperations.asSConcept(newVisibilityConcept), CONCEPTS.ProtectedVisibility$hr)) {
+      return isPrivate;
+    }
+
+    // Same for package private, cannot be private/protected
+    boolean isProtected = SConceptOperations.isExactly(SNodeOperations.asSConcept(currentVisibility), CONCEPTS.ProtectedVisibility$hr);
+    if (newVisibilityConcept == null) {
+      return isPrivate || isProtected;
+    }
+
+    // Same for public, no way to be anything but public
+    boolean isPackagePrivate = currentVisibility == null;
+    return isPackagePrivate || isPrivate || isProtected;
+  }
   public boolean isReturnValueChanged() {
     return !(new SNodeMatcher().match(SLinkOperations.getTarget(this.myMethod, LINKS.returnType$5xoi), SLinkOperations.getTarget(this.myOldMethod, LINKS.returnType$5xoi)));
   }
@@ -60,5 +110,7 @@ public class ChangeMethodSignatureParameters {
 
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IVisible$zu = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, "jetbrains.mps.baseLanguage.structure.IVisible");
+    /*package*/ static final SConcept PrivateVisibility$l0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9586f0cL, "jetbrains.mps.baseLanguage.structure.PrivateVisibility");
+    /*package*/ static final SConcept ProtectedVisibility$hr = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af958b686L, "jetbrains.mps.baseLanguage.structure.ProtectedVisibility");
   }
 }

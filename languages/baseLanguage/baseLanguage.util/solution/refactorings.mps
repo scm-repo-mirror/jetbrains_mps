@@ -161,6 +161,7 @@
       <concept id="1068498886292" name="jetbrains.mps.baseLanguage.structure.ParameterDeclaration" flags="ir" index="37vLTG" />
       <concept id="1068498886294" name="jetbrains.mps.baseLanguage.structure.AssignmentExpression" flags="nn" index="37vLTI" />
       <concept id="1225271177708" name="jetbrains.mps.baseLanguage.structure.StringType" flags="in" index="17QB3L" />
+      <concept id="1225271221393" name="jetbrains.mps.baseLanguage.structure.NPENotEqualsExpression" flags="nn" index="17QLQc" />
       <concept id="1225271283259" name="jetbrains.mps.baseLanguage.structure.NPEEqualsExpression" flags="nn" index="17R0WA" />
       <concept id="1225271408483" name="jetbrains.mps.baseLanguage.structure.IsNotEmptyOperation" flags="nn" index="17RvpY" />
       <concept id="4972933694980447171" name="jetbrains.mps.baseLanguage.structure.BaseVariableDeclaration" flags="ng" index="19Szcq">
@@ -308,12 +309,23 @@
         <child id="2546654756694997556" name="reference" index="92FcQ" />
         <child id="3106559687488913694" name="line" index="2XjZqd" />
       </concept>
+      <concept id="5858074156537516430" name="jetbrains.mps.baseLanguage.javadoc.structure.ReturnBlockDocTag" flags="ng" index="x79VA">
+        <property id="5858074156537516431" name="text" index="x79VB" />
+      </concept>
       <concept id="6832197706140896242" name="jetbrains.mps.baseLanguage.javadoc.structure.FieldDocComment" flags="ng" index="z59LJ" />
+      <concept id="6832197706140518104" name="jetbrains.mps.baseLanguage.javadoc.structure.DocMethodParameterReference" flags="ng" index="zr_55" />
+      <concept id="6832197706140518103" name="jetbrains.mps.baseLanguage.javadoc.structure.BaseParameterReference" flags="ng" index="zr_5a">
+        <reference id="6832197706140518108" name="param" index="zr_51" />
+      </concept>
       <concept id="5349172909345501395" name="jetbrains.mps.baseLanguage.javadoc.structure.BaseDocComment" flags="ng" index="P$AiS">
         <child id="8465538089690331502" name="body" index="TZ5H$" />
         <child id="5383422241790532083" name="tags" index="3nqlJM" />
       </concept>
       <concept id="5349172909345532724" name="jetbrains.mps.baseLanguage.javadoc.structure.MethodDocComment" flags="ng" index="P$JXv" />
+      <concept id="8465538089690881930" name="jetbrains.mps.baseLanguage.javadoc.structure.ParameterBlockDocTag" flags="ng" index="TUZQ0">
+        <property id="8465538089690881934" name="text" index="TUZQ4" />
+        <child id="6832197706140518123" name="parameter" index="zr_5Q" />
+      </concept>
       <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA">
         <child id="8970989240999019149" name="part" index="1dT_Ay" />
       </concept>
@@ -452,7 +464,9 @@
       <concept id="2644386474300074836" name="jetbrains.mps.lang.smodel.structure.ConceptIdRefExpression" flags="nn" index="35c_gC">
         <reference id="2644386474300074837" name="conceptDeclaration" index="35c_gD" />
       </concept>
-      <concept id="6677504323281689838" name="jetbrains.mps.lang.smodel.structure.SConceptType" flags="in" index="3bZ5Sz" />
+      <concept id="6677504323281689838" name="jetbrains.mps.lang.smodel.structure.SConceptType" flags="in" index="3bZ5Sz">
+        <reference id="6677504323281689839" name="conceptDeclaraton" index="3bZ5Sy" />
+      </concept>
       <concept id="1154546920561" name="jetbrains.mps.lang.smodel.structure.OperationParm_ConceptList" flags="ng" index="3gmYPX">
         <child id="1154546920563" name="concept" index="3gmYPZ" />
       </concept>
@@ -7046,6 +7060,368 @@
       </node>
       <node concept="3Tm1VV" id="7nrhK3uHcOE" role="1B3o_S" />
       <node concept="10P_77" id="7nrhK3uHcOD" role="3clF45" />
+    </node>
+    <node concept="2tJIrI" id="3GMkPCUujdV" role="jymVt" />
+    <node concept="3clFb_" id="3GMkPCUuadp" role="jymVt">
+      <property role="TrG5h" value="isMandatoryVisibilityChange" />
+      <node concept="3clFbS" id="3GMkPCUuads" role="3clF47">
+        <node concept="3cpWs6" id="3GMkPCUubrn" role="3cqZAp">
+          <node concept="1rXfSq" id="3GMkPCUucm2" role="3cqZAk">
+            <ref role="37wK5l" node="3Ka6WCsNzI6" resolve="isMandatoryVisibilityUpdate" />
+            <node concept="2OqwBi" id="3GMkPCUucEU" role="37wK5m">
+              <node concept="2yIwOk" id="3GMkPCUucEV" role="2OqNvi" />
+              <node concept="2OqwBi" id="3GMkPCUucEW" role="2Oq$k0">
+                <node concept="1PxgMI" id="3GMkPCUucEX" role="2Oq$k0">
+                  <node concept="2OqwBi" id="3GMkPCUucEY" role="1m5AlR">
+                    <node concept="2OwXpG" id="3GMkPCUucEZ" role="2OqNvi">
+                      <ref role="2Oxat5" node="7nrhK3uHcPi" resolve="myOldMethod" />
+                    </node>
+                    <node concept="Xjq3P" id="3GMkPCUucF0" role="2Oq$k0" />
+                  </node>
+                  <node concept="chp4Y" id="3GMkPCUucF1" role="3oSUPX">
+                    <ref role="cht4Q" to="tpee:h9B3isZ" resolve="IVisible" />
+                  </node>
+                </node>
+                <node concept="3TrEf2" id="3GMkPCUucF2" role="2OqNvi">
+                  <ref role="3Tt5mk" to="tpee:h9B3oxE" resolve="visibility" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="3GMkPCUu98g" role="1B3o_S" />
+      <node concept="10P_77" id="3GMkPCUuacG" role="3clF45" />
+      <node concept="P$JXv" id="3GMkPCUuiqx" role="lGtFl">
+        <node concept="TZ5HA" id="3GMkPCUuiqy" role="TZ5H$">
+          <node concept="1dT_AC" id="3GMkPCUuiqz" role="1dT_Ay">
+            <property role="1dT_AB" value="Returns true if the change of visibility compared to original method could induce some mandatory visibility" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="3GMkPCUuljM" role="TZ5H$">
+          <node concept="1dT_AC" id="3GMkPCUuljN" role="1dT_Ay">
+            <property role="1dT_AB" value=" updates from children." />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="3GMkPCUukwX" role="TZ5H$">
+          <node concept="1dT_AC" id="3GMkPCUukwY" role="1dT_Ay">
+            <property role="1dT_AB" value="" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="3GMkPCUukx3" role="TZ5H$">
+          <node concept="1dT_AC" id="3GMkPCUukx4" role="1dT_Ay">
+            <property role="1dT_AB" value="For instance, changing from public to protected will not enforce children to be protected (user can should between" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="3GMkPCUumTn" role="TZ5H$">
+          <node concept="1dT_AC" id="3GMkPCUumTo" role="1dT_Ay">
+            <property role="1dT_AB" value="propagating or not), while changing from protected to public may enforce children to change (if their visibility is" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="3GMkPCUuouZ" role="TZ5H$">
+          <node concept="1dT_AC" id="3GMkPCUuov0" role="1dT_Ay">
+            <property role="1dT_AB" value="set to protected, it will be forced to public)" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="3clFb_" id="3Ka6WCsNzI6" role="jymVt">
+      <property role="TrG5h" value="isMandatoryVisibilityUpdate" />
+      <node concept="3clFbS" id="3Ka6WCsNzI9" role="3clF47">
+        <node concept="3cpWs8" id="3Ka6WCsNCiy" role="3cqZAp">
+          <node concept="3cpWsn" id="3Ka6WCsNCiz" role="3cpWs9">
+            <property role="TrG5h" value="newVisibilityConcept" />
+            <node concept="3bZ5Sz" id="3Ka6WCsNCfm" role="1tU5fm">
+              <ref role="3bZ5Sy" to="tpee:gFTlX_I" resolve="Visibility" />
+            </node>
+            <node concept="2OqwBi" id="3Ka6WCsNCi$" role="33vP2m">
+              <node concept="2yIwOk" id="3Ka6WCsNCi_" role="2OqNvi" />
+              <node concept="2OqwBi" id="3Ka6WCsNCiA" role="2Oq$k0">
+                <node concept="1PxgMI" id="3Ka6WCsNCiB" role="2Oq$k0">
+                  <node concept="2OqwBi" id="3Ka6WCsNCiC" role="1m5AlR">
+                    <node concept="2OwXpG" id="3Ka6WCsNCiD" role="2OqNvi">
+                      <ref role="2Oxat5" node="7nrhK3uHcPf" resolve="myMethod" />
+                    </node>
+                    <node concept="Xjq3P" id="3Ka6WCsNCiE" role="2Oq$k0" />
+                  </node>
+                  <node concept="chp4Y" id="3Ka6WCsNCiF" role="3oSUPX">
+                    <ref role="cht4Q" to="tpee:h9B3isZ" resolve="IVisible" />
+                  </node>
+                </node>
+                <node concept="3TrEf2" id="3Ka6WCsNCiG" role="2OqNvi">
+                  <ref role="3Tt5mk" to="tpee:h9B3oxE" resolve="visibility" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbJ" id="3Ka6WCsN_cv" role="3cqZAp">
+          <node concept="17R0WA" id="3Ka6WCsOwXN" role="3clFbw">
+            <node concept="37vLTw" id="3Ka6WCsOxtQ" role="3uHU7w">
+              <ref role="3cqZAo" node="3Ka6WCsNCiz" resolve="newVisibilityConcept" />
+            </node>
+            <node concept="37vLTw" id="3Ka6WCsOwaj" role="3uHU7B">
+              <ref role="3cqZAo" node="3Ka6WCsN$v5" resolve="targetVisibility" />
+            </node>
+          </node>
+          <node concept="3clFbS" id="3Ka6WCsN_cx" role="3clFbx">
+            <node concept="3cpWs6" id="3Ka6WCsNDOD" role="3cqZAp">
+              <node concept="3clFbT" id="3Ka6WCsNE0h" role="3cqZAk" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbH" id="3Ka6WCsOkCd" role="3cqZAp" />
+        <node concept="3clFbJ" id="3Ka6WCsNJ4R" role="3cqZAp">
+          <node concept="3clFbS" id="3Ka6WCsNJ4T" role="3clFbx">
+            <node concept="3cpWs6" id="3Ka6WCsNMrf" role="3cqZAp">
+              <node concept="3clFbT" id="3Ka6WCsNMAS" role="3cqZAk" />
+            </node>
+          </node>
+          <node concept="2OqwBi" id="3Ka6WCsOeEM" role="3clFbw">
+            <node concept="37vLTw" id="3Ka6WCsNJPB" role="2Oq$k0">
+              <ref role="3cqZAo" node="3Ka6WCsNCiz" resolve="newVisibilityConcept" />
+            </node>
+            <node concept="3O6GUB" id="3Ka6WCsOf0m" role="2OqNvi">
+              <node concept="chp4Y" id="3Ka6WCsOfkO" role="3QVz_e">
+                <ref role="cht4Q" to="tpee:gFTm6Wc" resolve="PrivateVisibility" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbH" id="3Ka6WCsO6Gu" role="3cqZAp" />
+        <node concept="3SKdUt" id="3Ka6WCsONdb" role="3cqZAp">
+          <node concept="1PaTwC" id="3Ka6WCsONdc" role="1aUNEU">
+            <node concept="3oM_SD" id="3Ka6WCsONQw" role="1PaTwD">
+              <property role="3oM_SC" value="If" />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsONQy" role="1PaTwD">
+              <property role="3oM_SC" value="new" />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsONQ_" role="1PaTwD">
+              <property role="3oM_SC" value="parent" />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsONQD" role="1PaTwD">
+              <property role="3oM_SC" value="is" />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsONQI" role="1PaTwD">
+              <property role="3oM_SC" value="protected," />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsONQO" role="1PaTwD">
+              <property role="3oM_SC" value="there" />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsONQV" role="1PaTwD">
+              <property role="3oM_SC" value="cannot" />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsONR3" role="1PaTwD">
+              <property role="3oM_SC" value="be" />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsONRc" role="1PaTwD">
+              <property role="3oM_SC" value="private" />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsONRm" role="1PaTwD">
+              <property role="3oM_SC" value="descendants" />
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs8" id="3Ka6WCsO1H1" role="3cqZAp">
+          <node concept="3cpWsn" id="3Ka6WCsO1H2" role="3cpWs9">
+            <property role="TrG5h" value="isPrivate" />
+            <node concept="10P_77" id="3Ka6WCsO1y7" role="1tU5fm" />
+            <node concept="2OqwBi" id="3Ka6WCsObHM" role="33vP2m">
+              <node concept="37vLTw" id="3Ka6WCsO1H5" role="2Oq$k0">
+                <ref role="3cqZAo" node="3Ka6WCsN$v5" resolve="targetVisibility" />
+              </node>
+              <node concept="3O6GUB" id="3Ka6WCsOcQi" role="2OqNvi">
+                <node concept="chp4Y" id="3Ka6WCsOdAD" role="3QVz_e">
+                  <ref role="cht4Q" to="tpee:gFTm6Wc" resolve="PrivateVisibility" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbJ" id="3Ka6WCsO4ae" role="3cqZAp">
+          <node concept="3clFbS" id="3Ka6WCsO4ag" role="3clFbx">
+            <node concept="3cpWs6" id="3Ka6WCsO5m1" role="3cqZAp">
+              <node concept="37vLTw" id="3Ka6WCsO5JQ" role="3cqZAk">
+                <ref role="3cqZAo" node="3Ka6WCsO1H2" resolve="isPrivate" />
+              </node>
+            </node>
+          </node>
+          <node concept="2OqwBi" id="3Ka6WCsOq6W" role="3clFbw">
+            <node concept="37vLTw" id="3Ka6WCsO4ng" role="2Oq$k0">
+              <ref role="3cqZAo" node="3Ka6WCsNCiz" resolve="newVisibilityConcept" />
+            </node>
+            <node concept="3O6GUB" id="3Ka6WCsOqwQ" role="2OqNvi">
+              <node concept="chp4Y" id="3Ka6WCsOqGo" role="3QVz_e">
+                <ref role="cht4Q" to="tpee:gFTmbq6" resolve="ProtectedVisibility" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbH" id="3Ka6WCsO0Xl" role="3cqZAp" />
+        <node concept="3SKdUt" id="3Ka6WCsONYD" role="3cqZAp">
+          <node concept="1PaTwC" id="3Ka6WCsONYE" role="1aUNEU">
+            <node concept="3oM_SD" id="3Ka6WCsOOE0" role="1PaTwD">
+              <property role="3oM_SC" value="Same" />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsOOE2" role="1PaTwD">
+              <property role="3oM_SC" value="for" />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsOOE5" role="1PaTwD">
+              <property role="3oM_SC" value="package" />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsOOE9" role="1PaTwD">
+              <property role="3oM_SC" value="private," />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsOOEe" role="1PaTwD">
+              <property role="3oM_SC" value="cannot" />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsOOEk" role="1PaTwD">
+              <property role="3oM_SC" value="be" />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsOOEr" role="1PaTwD">
+              <property role="3oM_SC" value="private/protected" />
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs8" id="3Ka6WCsO7fq" role="3cqZAp">
+          <node concept="3cpWsn" id="3Ka6WCsO7ft" role="3cpWs9">
+            <property role="TrG5h" value="isProtected" />
+            <node concept="10P_77" id="3Ka6WCsO7fo" role="1tU5fm" />
+            <node concept="2OqwBi" id="3Ka6WCsOzCH" role="33vP2m">
+              <node concept="37vLTw" id="3Ka6WCsO9rB" role="2Oq$k0">
+                <ref role="3cqZAo" node="3Ka6WCsN$v5" resolve="targetVisibility" />
+              </node>
+              <node concept="3O6GUB" id="3Ka6WCsO$iL" role="2OqNvi">
+                <node concept="chp4Y" id="3Ka6WCsO$ug" role="3QVz_e">
+                  <ref role="cht4Q" to="tpee:gFTmbq6" resolve="ProtectedVisibility" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbJ" id="3Ka6WCsOmb1" role="3cqZAp">
+          <node concept="3clFbS" id="3Ka6WCsOmb3" role="3clFbx">
+            <node concept="3cpWs6" id="3Ka6WCsOAi3" role="3cqZAp">
+              <node concept="22lmx$" id="3Ka6WCsOBQE" role="3cqZAk">
+                <node concept="37vLTw" id="3Ka6WCsOClo" role="3uHU7w">
+                  <ref role="3cqZAo" node="3Ka6WCsO7ft" resolve="isProtected" />
+                </node>
+                <node concept="37vLTw" id="3Ka6WCsOAW5" role="3uHU7B">
+                  <ref role="3cqZAo" node="3Ka6WCsO1H2" resolve="isPrivate" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbC" id="3Ka6WCsO_iJ" role="3clFbw">
+            <node concept="10Nm6u" id="3Ka6WCsO_DK" role="3uHU7w" />
+            <node concept="37vLTw" id="3Ka6WCsOmKj" role="3uHU7B">
+              <ref role="3cqZAo" node="3Ka6WCsNCiz" resolve="newVisibilityConcept" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbH" id="3Ka6WCsOCwU" role="3cqZAp" />
+        <node concept="3SKdUt" id="3Ka6WCsOPpT" role="3cqZAp">
+          <node concept="1PaTwC" id="3Ka6WCsOPpU" role="1aUNEU">
+            <node concept="3oM_SD" id="3Ka6WCsOPBX" role="1PaTwD">
+              <property role="3oM_SC" value="Same" />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsOPBZ" role="1PaTwD">
+              <property role="3oM_SC" value="for" />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsOPC2" role="1PaTwD">
+              <property role="3oM_SC" value="public," />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsOPC6" role="1PaTwD">
+              <property role="3oM_SC" value="no" />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsOPCb" role="1PaTwD">
+              <property role="3oM_SC" value="way" />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsOPCh" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsOPCo" role="1PaTwD">
+              <property role="3oM_SC" value="be" />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsOPCw" role="1PaTwD">
+              <property role="3oM_SC" value="anything" />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsOPCD" role="1PaTwD">
+              <property role="3oM_SC" value="but" />
+            </node>
+            <node concept="3oM_SD" id="3Ka6WCsOPDa" role="1PaTwD">
+              <property role="3oM_SC" value="public" />
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs8" id="3Ka6WCsOD$J" role="3cqZAp">
+          <node concept="3cpWsn" id="3Ka6WCsOD$M" role="3cpWs9">
+            <property role="TrG5h" value="isPackagePrivate" />
+            <node concept="10P_77" id="3Ka6WCsOD$H" role="1tU5fm" />
+            <node concept="3clFbC" id="3Ka6WCsOGFi" role="33vP2m">
+              <node concept="10Nm6u" id="3Ka6WCsOH4M" role="3uHU7w" />
+              <node concept="37vLTw" id="3Ka6WCsOFT6" role="3uHU7B">
+                <ref role="3cqZAo" node="3Ka6WCsN$v5" resolve="targetVisibility" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs6" id="3Ka6WCsOIit" role="3cqZAp">
+          <node concept="22lmx$" id="3Ka6WCsOLza" role="3cqZAk">
+            <node concept="37vLTw" id="3Ka6WCsOLOp" role="3uHU7w">
+              <ref role="3cqZAo" node="3Ka6WCsO7ft" resolve="isProtected" />
+            </node>
+            <node concept="22lmx$" id="3Ka6WCsOKdr" role="3uHU7B">
+              <node concept="37vLTw" id="3Ka6WCsOJcB" role="3uHU7B">
+                <ref role="3cqZAo" node="3Ka6WCsOD$M" resolve="isPackagePrivate" />
+              </node>
+              <node concept="37vLTw" id="3Ka6WCsOKC2" role="3uHU7w">
+                <ref role="3cqZAo" node="3Ka6WCsO1H2" resolve="isPrivate" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="3Ka6WCsNyY2" role="1B3o_S" />
+      <node concept="10P_77" id="3Ka6WCsNzHX" role="3clF45" />
+      <node concept="37vLTG" id="3Ka6WCsN$v5" role="3clF46">
+        <property role="TrG5h" value="currentVisibility" />
+        <node concept="3bZ5Sz" id="3Ka6WCsN$v4" role="1tU5fm">
+          <ref role="3bZ5Sy" to="tpee:gFTlX_I" resolve="Visibility" />
+        </node>
+      </node>
+      <node concept="P$JXv" id="3GMkPCUudYA" role="lGtFl">
+        <node concept="TZ5HA" id="3GMkPCUudYB" role="TZ5H$">
+          <node concept="1dT_AC" id="3GMkPCUudYC" role="1dT_Ay">
+            <property role="1dT_AB" value="Returns true if the given visibility has to be updated to keep a valid state." />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="3GMkPCUuekO" role="TZ5H$">
+          <node concept="1dT_AC" id="3GMkPCUuekP" role="1dT_Ay">
+            <property role="1dT_AB" value="" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="3GMkPCUuf7N" role="TZ5H$">
+          <node concept="1dT_AC" id="3GMkPCUuf7O" role="1dT_Ay">
+            <property role="1dT_AB" value="For instance, an method overriding a protected method must be at least be protected" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="3GMkPCUuftk" role="TZ5H$">
+          <node concept="1dT_AC" id="3GMkPCUuftl" role="1dT_Ay">
+            <property role="1dT_AB" value="(public/protected/package-private)." />
+          </node>
+        </node>
+        <node concept="TUZQ0" id="3GMkPCUudYD" role="3nqlJM">
+          <property role="TUZQ4" value="visibility before change" />
+          <node concept="zr_55" id="3GMkPCUudYF" role="zr_5Q">
+            <ref role="zr_51" node="3Ka6WCsN$v5" resolve="targetVisibility" />
+          </node>
+        </node>
+        <node concept="x79VA" id="3GMkPCUudYG" role="3nqlJM">
+          <property role="x79VB" value="wether this visibility has to be updated for sure" />
+        </node>
+      </node>
     </node>
     <node concept="3clFb_" id="7nrhK3uHcOY" role="jymVt">
       <property role="TrG5h" value="isReturnValueChanged" />
@@ -27578,6 +27954,12 @@
         </node>
       </node>
     </node>
+    <node concept="312cEg" id="nsS9FvzPmz" role="jymVt">
+      <property role="TrG5h" value="myChangeVisibility" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm6S6" id="nsS9FvzPm$" role="1B3o_S" />
+      <node concept="10P_77" id="nsS9FvzPmA" role="1tU5fm" />
+    </node>
     <node concept="2tJIrI" id="38AIgLOLRbE" role="jymVt" />
     <node concept="3clFbW" id="38AIgLOLvG8" role="jymVt">
       <node concept="3cqZAl" id="38AIgLOLvG9" role="3clF45" />
@@ -27622,6 +28004,19 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbF" id="nsS9FvGrAb" role="3cqZAp">
+          <node concept="37vLTI" id="nsS9FvGsWn" role="3clFbG">
+            <node concept="37vLTw" id="nsS9FvGtCT" role="37vLTx">
+              <ref role="3cqZAo" node="nsS9FvzJI$" resolve="changeVisibility" />
+            </node>
+            <node concept="2OqwBi" id="nsS9FvGrPG" role="37vLTJ">
+              <node concept="Xjq3P" id="nsS9FvGrA9" role="2Oq$k0" />
+              <node concept="2OwXpG" id="nsS9FvGskj" role="2OqNvi">
+                <ref role="2Oxat5" node="nsS9FvzPmz" resolve="myChangeVisibility" />
+              </node>
+            </node>
+          </node>
+        </node>
       </node>
       <node concept="37vLTG" id="38AIgLOLvGf" role="3clF46">
         <property role="TrG5h" value="parameters" />
@@ -27646,6 +28041,10 @@
           </node>
         </node>
       </node>
+      <node concept="37vLTG" id="nsS9FvzJI$" role="3clF46">
+        <property role="TrG5h" value="changeVisibility" />
+        <node concept="10P_77" id="nsS9FvzN45" role="1tU5fm" />
+      </node>
     </node>
     <node concept="3clFbW" id="7nrhK3uHecw" role="jymVt">
       <node concept="3cqZAl" id="7nrhK3uHec_" role="3clF45" />
@@ -27668,6 +28067,7 @@
               </node>
             </node>
           </node>
+          <node concept="3clFbT" id="nsS9FvGnbo" role="37wK5m" />
         </node>
       </node>
       <node concept="37vLTG" id="7nrhK3uHecx" role="3clF46">
@@ -27770,60 +28170,118 @@
         </node>
         <node concept="3clFbJ" id="7nrhK3uHe8D" role="3cqZAp">
           <node concept="3clFbS" id="7nrhK3uHe8E" role="3clFbx">
-            <node concept="3clFbJ" id="7nrhK3uHe8F" role="3cqZAp">
-              <node concept="2OqwBi" id="7nrhK3uHe8X" role="3clFbw">
-                <node concept="2OqwBi" id="7nrhK3uHe8Y" role="2Oq$k0">
-                  <node concept="2OwXpG" id="7nrhK3uHe8Z" role="2OqNvi">
-                    <ref role="2Oxat5" node="7nrhK3uHe7Q" resolve="myParameters" />
-                  </node>
-                  <node concept="Xjq3P" id="7nrhK3uHe90" role="2Oq$k0" />
+            <node concept="3cpWs8" id="3Ka6WCsVueL" role="3cqZAp">
+              <node concept="3cpWsn" id="3Ka6WCsVueM" role="3cpWs9">
+                <property role="TrG5h" value="currentMethodConcept" />
+                <node concept="3bZ5Sz" id="3Ka6WCsVsjV" role="1tU5fm">
+                  <ref role="3bZ5Sy" to="tpee:gFTlX_I" resolve="Visibility" />
                 </node>
-                <node concept="liA8E" id="7nrhK3uHe91" role="2OqNvi">
-                  <ref role="37wK5l" node="7nrhK3uHcOC" resolve="isVisibilityChanged" />
+                <node concept="2OqwBi" id="3Ka6WCsVueN" role="33vP2m">
+                  <node concept="2OqwBi" id="3Ka6WCsVueO" role="2Oq$k0">
+                    <node concept="3TrEf2" id="3Ka6WCsVueP" role="2OqNvi">
+                      <ref role="3Tt5mk" to="tpee:h9B3oxE" resolve="visibility" />
+                    </node>
+                    <node concept="1PxgMI" id="3Ka6WCsVueQ" role="2Oq$k0">
+                      <node concept="chp4Y" id="3Ka6WCsVueR" role="3oSUPX">
+                        <ref role="cht4Q" to="tpee:h9B3isZ" resolve="IVisible" />
+                      </node>
+                      <node concept="2OqwBi" id="3Ka6WCsVueS" role="1m5AlR">
+                        <node concept="2OwXpG" id="3Ka6WCsVueT" role="2OqNvi">
+                          <ref role="2Oxat5" node="7nrhK3uHe7T" resolve="myDeclaration" />
+                        </node>
+                        <node concept="Xjq3P" id="3Ka6WCsVueU" role="2Oq$k0" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="2yIwOk" id="3Ka6WCsVueV" role="2OqNvi" />
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbJ" id="7nrhK3uHe8F" role="3cqZAp">
+              <node concept="22lmx$" id="3Ka6WCsS5Hu" role="3clFbw">
+                <node concept="2OqwBi" id="3Ka6WCsSHw1" role="3uHU7w">
+                  <node concept="37vLTw" id="3Ka6WCsSpKr" role="2Oq$k0">
+                    <ref role="3cqZAo" node="7nrhK3uHe7Q" resolve="myParameters" />
+                  </node>
+                  <node concept="liA8E" id="3Ka6WCsT1gd" role="2OqNvi">
+                    <ref role="37wK5l" node="3Ka6WCsNzI6" resolve="isMandatoryVisibilityUpdate" />
+                    <node concept="37vLTw" id="3Ka6WCsVueW" role="37wK5m">
+                      <ref role="3cqZAo" node="3Ka6WCsVueM" resolve="concept" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="37vLTw" id="nsS9Fv$vMW" role="3uHU7B">
+                  <ref role="3cqZAo" node="nsS9FvzPmz" resolve="myChangeVisibility" />
                 </node>
               </node>
               <node concept="3clFbS" id="7nrhK3uHe8G" role="3clFbx">
-                <node concept="3clFbF" id="7nrhK3uHe8H" role="3cqZAp">
-                  <node concept="37vLTI" id="7nrhK3uHe8I" role="3clFbG">
-                    <node concept="2OqwBi" id="3CI8DupHIhJ" role="37vLTx">
-                      <node concept="2OqwBi" id="7nrhK3uHe8P" role="2Oq$k0">
-                        <node concept="1PxgMI" id="7nrhK3uHe8Q" role="2Oq$k0">
-                          <node concept="chp4Y" id="714IaVdH0HU" role="3oSUPX">
-                            <ref role="cht4Q" to="tpee:h9B3isZ" resolve="IVisible" />
-                          </node>
-                          <node concept="2OqwBi" id="7nrhK3uHe8R" role="1m5AlR">
-                            <node concept="liA8E" id="7nrhK3uHe8V" role="2OqNvi">
-                              <ref role="37wK5l" node="7nrhK3uHcOn" resolve="getDeclaration" />
-                            </node>
-                            <node concept="2OqwBi" id="7nrhK3uHe8S" role="2Oq$k0">
-                              <node concept="Xjq3P" id="7nrhK3uHe8U" role="2Oq$k0" />
-                              <node concept="2OwXpG" id="7nrhK3uHe8T" role="2OqNvi">
-                                <ref role="2Oxat5" node="7nrhK3uHe7Q" resolve="myParameters" />
-                              </node>
-                            </node>
-                          </node>
-                        </node>
-                        <node concept="3TrEf2" id="7nrhK3uHe8W" role="2OqNvi">
-                          <ref role="3Tt5mk" to="tpee:h9B3oxE" resolve="visibility" />
-                        </node>
-                      </node>
-                      <node concept="1$rogu" id="3CI8DupHIBE" role="2OqNvi" />
+                <node concept="3cpWs8" id="nsS9Fv_7W4" role="3cqZAp">
+                  <node concept="3cpWsn" id="nsS9Fv_7W5" role="3cpWs9">
+                    <property role="TrG5h" value="newVisibility" />
+                    <node concept="3Tqbb2" id="nsS9Fv_4M4" role="1tU5fm">
+                      <ref role="ehGHo" to="tpee:gFTlX_I" resolve="Visibility" />
                     </node>
-                    <node concept="2OqwBi" id="7nrhK3uHe8J" role="37vLTJ">
-                      <node concept="3TrEf2" id="7nrhK3uHe8O" role="2OqNvi">
-                        <ref role="3Tt5mk" to="tpee:h9B3oxE" resolve="visibility" />
-                      </node>
-                      <node concept="1PxgMI" id="7nrhK3uHe8K" role="2Oq$k0">
-                        <node concept="chp4Y" id="714IaVdH0J8" role="3oSUPX">
+                    <node concept="2OqwBi" id="nsS9Fv_7W6" role="33vP2m">
+                      <node concept="1PxgMI" id="nsS9Fv_7W7" role="2Oq$k0">
+                        <node concept="chp4Y" id="nsS9Fv_7W8" role="3oSUPX">
                           <ref role="cht4Q" to="tpee:h9B3isZ" resolve="IVisible" />
                         </node>
-                        <node concept="2OqwBi" id="7nrhK3uHe8L" role="1m5AlR">
-                          <node concept="2OwXpG" id="7nrhK3uHe8M" role="2OqNvi">
-                            <ref role="2Oxat5" node="7nrhK3uHe7T" resolve="myDeclaration" />
+                        <node concept="2OqwBi" id="nsS9Fv_7W9" role="1m5AlR">
+                          <node concept="liA8E" id="nsS9Fv_7Wa" role="2OqNvi">
+                            <ref role="37wK5l" node="7nrhK3uHcOn" resolve="getDeclaration" />
                           </node>
-                          <node concept="Xjq3P" id="7nrhK3uHe8N" role="2Oq$k0" />
+                          <node concept="2OqwBi" id="nsS9Fv_7Wb" role="2Oq$k0">
+                            <node concept="Xjq3P" id="nsS9Fv_7Wc" role="2Oq$k0" />
+                            <node concept="2OwXpG" id="nsS9Fv_7Wd" role="2OqNvi">
+                              <ref role="2Oxat5" node="7nrhK3uHe7Q" resolve="myParameters" />
+                            </node>
+                          </node>
                         </node>
                       </node>
+                      <node concept="3TrEf2" id="nsS9Fv_7We" role="2OqNvi">
+                        <ref role="3Tt5mk" to="tpee:h9B3oxE" resolve="visibility" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="3clFbJ" id="nsS9FvACkl" role="3cqZAp">
+                  <node concept="3clFbS" id="nsS9FvACkn" role="3clFbx">
+                    <node concept="3clFbF" id="7nrhK3uHe8H" role="3cqZAp">
+                      <node concept="37vLTI" id="7nrhK3uHe8I" role="3clFbG">
+                        <node concept="2OqwBi" id="3CI8DupHIhJ" role="37vLTx">
+                          <node concept="37vLTw" id="nsS9Fv_7Wf" role="2Oq$k0">
+                            <ref role="3cqZAo" node="nsS9Fv_7W5" resolve="newVisibility" />
+                          </node>
+                          <node concept="1$rogu" id="3CI8DupHIBE" role="2OqNvi" />
+                        </node>
+                        <node concept="2OqwBi" id="nsS9FvDN8d" role="37vLTJ">
+                          <node concept="3TrEf2" id="nsS9FvDN8e" role="2OqNvi">
+                            <ref role="3Tt5mk" to="tpee:h9B3oxE" resolve="visibility" />
+                          </node>
+                          <node concept="1PxgMI" id="nsS9FvDN8f" role="2Oq$k0">
+                            <node concept="chp4Y" id="nsS9FvDN8g" role="3oSUPX">
+                              <ref role="cht4Q" to="tpee:h9B3isZ" resolve="IVisible" />
+                            </node>
+                            <node concept="2OqwBi" id="nsS9FvDN8h" role="1m5AlR">
+                              <node concept="2OwXpG" id="nsS9FvDN8i" role="2OqNvi">
+                                <ref role="2Oxat5" node="7nrhK3uHe7T" resolve="myDeclaration" />
+                              </node>
+                              <node concept="Xjq3P" id="nsS9FvDN8j" role="2Oq$k0" />
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="17QLQc" id="3Ka6WCsJReU" role="3clFbw">
+                    <node concept="2OqwBi" id="nsS9FvCxQ3" role="3uHU7B">
+                      <node concept="37vLTw" id="nsS9FvAVOo" role="2Oq$k0">
+                        <ref role="3cqZAo" node="nsS9Fv_7W5" resolve="newVisibility" />
+                      </node>
+                      <node concept="2yIwOk" id="nsS9FvCQ09" role="2OqNvi" />
+                    </node>
+                    <node concept="37vLTw" id="3Ka6WCsXg7J" role="3uHU7w">
+                      <ref role="3cqZAo" node="3Ka6WCsVueM" resolve="currentMethodConcept" />
                     </node>
                   </node>
                 </node>

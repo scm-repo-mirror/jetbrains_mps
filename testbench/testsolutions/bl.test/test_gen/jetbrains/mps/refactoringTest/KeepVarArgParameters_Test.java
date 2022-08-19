@@ -77,7 +77,7 @@ public class KeepVarArgParameters_Test extends BaseTransformationTest {
         }));
 
         // Create refactoring and add usages
-        ChangeMethodSignatureRefactoring ref = new ChangeMethodSignatureRefactoring(params, getNodeById("6365792264556597660"), defaultValues);
+        ChangeMethodSignatureRefactoring ref = new ChangeMethodSignatureRefactoring(params, getNodeById("6365792264556597660"), defaultValues, false);
         ref.setUsages(usages);
 
         ref.doRefactoring();

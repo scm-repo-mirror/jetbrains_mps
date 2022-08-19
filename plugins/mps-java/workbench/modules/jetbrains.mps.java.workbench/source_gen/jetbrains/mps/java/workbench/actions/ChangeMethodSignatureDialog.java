@@ -28,26 +28,31 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import jetbrains.mps.ide.messages.Icons;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import java.util.ArrayList;
+import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
+import org.jetbrains.mps.openapi.language.SConcept;
 import com.intellij.openapi.progress.ProgressManager;
 import com.intellij.openapi.progress.Task;
 import com.intellij.openapi.progress.ProgressIndicator;
 import org.jetbrains.mps.openapi.module.ModelAccess;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.baseLanguage.util.plugin.refactorings.MethodRefactoringUtils;
 import jetbrains.mps.progress.ProgressMonitorAdapter;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import com.intellij.java.refactoring.JavaRefactoringBundle;
+import com.intellij.openapi.ui.Messages;
+import com.intellij.refactoring.RefactoringBundle;
 import java.util.Map;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
+import java.util.Objects;
 import org.jetbrains.mps.openapi.event.SPropertyChangeEvent;
 import org.jetbrains.mps.openapi.event.SReferenceChangeEvent;
 import org.jetbrains.mps.openapi.event.SNodeAddEvent;
 import org.jetbrains.mps.openapi.event.SNodeRemoveEvent;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 /*package*/ class ChangeMethodSignatureDialog extends RefactoringDialog implements SNodeChangeListener {
   private SNode myDeclaration;
@@ -157,15 +162,40 @@ import org.jetbrains.mps.openapi.language.SConcept;
    */
   @Override
   protected void doRefactoringAction() {
-    final Wrappers._T<List<SNode>> methodsToRefactor = new Wrappers._T<List<SNode>>(new ArrayList<SNode>());
+    final List<SNode> methodsToRefactor = new ArrayList<SNode>();
+    final Wrappers._T<SConcept> changeVisibilityFor = new Wrappers._T<SConcept>(null);
+    final Wrappers._boolean isChangeMandatory = new Wrappers._boolean(false);
     ProgressManager.getInstance().run(new Task.Modal(getProject(), "Search for overriding methods", true) {
       @Override
       public void run(@NotNull final ProgressIndicator indicator) {
         ModelAccess modelAccess = ChangeMethodSignatureDialog.this.myProject.getRepository().getModelAccess();
-        modelAccess.runReadAction(() -> methodsToRefactor.value = MethodRefactoringUtils.findOverridingMethods(ChangeMethodSignatureDialog.this.myProject.new ProjectScope(), ChangeMethodSignatureDialog.this.myDeclaration, new ProgressMonitorAdapter(indicator)));
+        modelAccess.runReadAction(() -> {
+          ListSequence.fromList(methodsToRefactor).addSequence(ListSequence.fromList(MethodRefactoringUtils.findOverridingMethods(ChangeMethodSignatureDialog.this.myProject.new ProjectScope(), ChangeMethodSignatureDialog.this.myDeclaration, new ProgressMonitorAdapter(indicator))));
+
+          // Use same read action
+          if (myParameters.isVisibilityChanged() && ListSequence.fromList(methodsToRefactor).isNotEmpty()) {
+            changeVisibilityFor.value = SNodeOperations.getConcept(SLinkOperations.getTarget(SNodeOperations.cast(myParameters.getDeclaration(), CONCEPTS.IVisible$zu), LINKS.visibility$Yyua));
+            isChangeMandatory.value = myParameters.isMandatoryVisibilityChange();
+          }
+        });
       }
     });
-    ListSequence.fromList(methodsToRefactor.value).addElement(myDeclaration);
+
+    boolean changeVisibility = false;
+    if (changeVisibilityFor.value != null && !(isChangeMandatory.value)) {
+      String message = JavaRefactoringBundle.message("dialog.message.overriding.methods.with.weaken.visibility", SConceptOperations.conceptAlias(changeVisibilityFor.value));
+
+      changeVisibility = Messages.showYesNoDialog(myProject.getProject(), message, RefactoringBundle.message("changeSignature.refactoring.name"), Messages.getQuestionIcon()) == Messages.YES;
+    } else if (changeVisibilityFor.value != null) {
+      // TODO internationalization
+      boolean cancel = Messages.showYesNoDialog(myProject.getProject(), "Overriding methods visibility will be reduced to '" + SConceptOperations.conceptAlias(changeVisibilityFor.value) + "'. Proceed?", RefactoringBundle.message("changeSignature.refactoring.name"), Messages.getQuestionIcon()) == Messages.NO;
+
+      if (cancel) {
+        return;
+      }
+    }
+
+    ListSequence.fromList(methodsToRefactor).addElement(myDeclaration);
 
     // Get default values for new parameters (if any)
     final Wrappers._T<Map<SNode, SNode>> defaultValues = new Wrappers._T<Map<SNode, SNode>>(MapSequence.fromMap(new HashMap<SNode, SNode>()));
@@ -174,8 +204,8 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
     // Create refactorings
     myRefactorings = ListSequence.fromList(new ArrayList<ChangeMethodSignatureRefactoring>());
-    for (SNode method : ListSequence.fromList(methodsToRefactor.value)) {
-      ListSequence.fromList(myRefactorings).addElement(new ChangeMethodSignatureRefactoring(this.myParameters, method, defaultValues.value));
+    for (SNode method : ListSequence.fromList(methodsToRefactor)) {
+      ListSequence.fromList(myRefactorings).addElement(new ChangeMethodSignatureRefactoring(this.myParameters, method, defaultValues.value, changeVisibility || Objects.equals(method, myDeclaration)));
     }
 
 
@@ -241,9 +271,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink body$5xQk = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body");
+    /*package*/ static final SContainmentLink visibility$Yyua = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
   }
 
   private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IVisible$zu = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, "jetbrains.mps.baseLanguage.structure.IVisible");
     /*package*/ static final SConcept StubStatementList$v6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4975dc2bdcfa0c49L, "jetbrains.mps.baseLanguage.structure.StubStatementList");
   }
 }
