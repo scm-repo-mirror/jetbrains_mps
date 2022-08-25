@@ -293,7 +293,11 @@ public final class Renamer {
         //       see MRI.withNewName(), moduleNameMatch condition
         // We respect shared module dir/file scenario here (force NameMatch.NONE if same as in myPrimaryRename)
         nested.add(ModuleRenameInfo.nested(am, am.getDescriptorFile(), baseName, myPrimaryRename));
-      } else if (am.getModuleName().startsWith(baseName)) {
+      } else if (am.getModuleName().startsWith(baseName) && am.getModuleName().length() > baseName.length() && am.getModuleName().charAt(baseName.length()) == '.') {
+        // XXX use of ends with '.' condition is questionable, there are scenarios when it's desired to use prefix without dot (e.g. rename of mymodule.smodel
+        // to include rename of mymodule.smodelTests. OTOH, might not be desired for rename of "mymodule" when there's unrelated "mymoduleothername.keepasis",
+        // at least without a mechanism for a user to opt out (e.g. by checkbox in the dialog that shows 'related' modules).
+        // For now, just treat 'baseName' + '.' as prefix to match to minimize confusion (rename of related is a new concept in 2022.2)
         // FIXME in fact, there could be other nested modules under 'related' one, need to account for this scenario, too
         //   e.g rename of a solution as primary target, with sibling language that has similar name and few nested modules.
         //   I expect number of such cases to be rare (provided we now match names by 'startsWith' only, and solution names are usually
