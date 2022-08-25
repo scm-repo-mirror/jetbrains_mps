@@ -51,11 +51,17 @@
     <import index="dush" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)" />
     <import index="vndm" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.language(MPS.Core/)" />
     <import index="eqyk" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.plugins.tool(MPS.Platform/)" />
+    <import index="82uw" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.function(JDK/)" />
+    <import index="57ty" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.messages(MPS.Platform/)" />
+    <import index="et5u" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.messages(MPS.Core/)" />
     <import index="tpce" ref="r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
       <concept id="1080223426719" name="jetbrains.mps.baseLanguage.structure.OrExpression" flags="nn" index="22lmx$" />
+      <concept id="1082485599095" name="jetbrains.mps.baseLanguage.structure.BlockStatement" flags="nn" index="9aQIb">
+        <child id="1082485599096" name="statements" index="9aQI4" />
+      </concept>
       <concept id="7485977462274819189" name="jetbrains.mps.baseLanguage.structure.FormatOperation" flags="ng" index="2cAKMz">
         <child id="7485977462274819664" name="arguments" index="2cAKU6" />
       </concept>
@@ -179,6 +185,7 @@
       </concept>
       <concept id="1068580123157" name="jetbrains.mps.baseLanguage.structure.Statement" flags="nn" index="3clFbH" />
       <concept id="1068580123159" name="jetbrains.mps.baseLanguage.structure.IfStatement" flags="nn" index="3clFbJ">
+        <child id="1082485599094" name="ifFalseStatement" index="9aQIa" />
         <child id="1068580123160" name="condition" index="3clFbw" />
         <child id="1068580123161" name="ifTrue" index="3clFbx" />
         <child id="1206060520071" name="elsifClauses" index="3eNLev" />
@@ -2987,6 +2994,215 @@
             <node concept="17QB3L" id="4P2_rTQdPp3" role="1tU5fm" />
           </node>
         </node>
+        <node concept="3cpWs8" id="3hOGm7r3$nU" role="3cqZAp">
+          <node concept="3cpWsn" id="3hOGm7r3$nV" role="3cpWs9">
+            <property role="TrG5h" value="msgConsumer" />
+            <node concept="3uibUv" id="3hOGm7r3$nT" role="1tU5fm">
+              <ref role="3uigEE" to="82uw:~Consumer" resolve="Consumer" />
+              <node concept="3uibUv" id="3hOGm7r3zD0" role="11_B2D">
+                <ref role="3uigEE" to="smoa:~Renamer$RenameProblem" resolve="RenameProblem" />
+              </node>
+            </node>
+            <node concept="2ShNRf" id="3hOGm7r3$nW" role="33vP2m">
+              <node concept="YeOm9" id="3hOGm7r3$nX" role="2ShVmc">
+                <node concept="1Y3b0j" id="3hOGm7r3$nY" role="YeSDq">
+                  <property role="2bfB8j" value="true" />
+                  <property role="373rjd" value="true" />
+                  <ref role="1Y3XeK" to="82uw:~Consumer" resolve="Consumer" />
+                  <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
+                  <node concept="312cEg" id="3hOGm7r4eIx" role="jymVt">
+                    <property role="TrG5h" value="msgHandler" />
+                    <property role="3TUv4t" value="true" />
+                    <node concept="3Tm6S6" id="3hOGm7r4eIy" role="1B3o_S" />
+                    <node concept="3uibUv" id="3hOGm7r47gT" role="1tU5fm">
+                      <ref role="3uigEE" to="et5u:~IMessageHandler" resolve="IMessageHandler" />
+                    </node>
+                    <node concept="2ShNRf" id="3hOGm7r48iB" role="33vP2m">
+                      <node concept="1pGfFk" id="3hOGm7r48iC" role="2ShVmc">
+                        <property role="373rjd" value="true" />
+                        <ref role="37wK5l" to="57ty:~DefaultMessageHandler.&lt;init&gt;(com.intellij.openapi.project.Project)" resolve="DefaultMessageHandler" />
+                        <node concept="2OqwBi" id="3hOGm7r48iD" role="37wK5m">
+                          <node concept="37vLTw" id="3hOGm7r48iE" role="2Oq$k0">
+                            <ref role="3cqZAo" node="2sTGsLqeK$D" resolve="myProject" />
+                          </node>
+                          <node concept="liA8E" id="3hOGm7r48iF" role="2OqNvi">
+                            <ref role="37wK5l" to="z1c4:~MPSProject.getProject()" resolve="getProject" />
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="2tJIrI" id="3hOGm7r4e7k" role="jymVt" />
+                  <node concept="3Tm1VV" id="3hOGm7r3$nZ" role="1B3o_S" />
+                  <node concept="3clFb_" id="3hOGm7r3$o0" role="jymVt">
+                    <property role="TrG5h" value="accept" />
+                    <node concept="3Tm1VV" id="3hOGm7r3$o1" role="1B3o_S" />
+                    <node concept="3cqZAl" id="3hOGm7r3$o2" role="3clF45" />
+                    <node concept="37vLTG" id="3hOGm7r3$o3" role="3clF46">
+                      <property role="TrG5h" value="p" />
+                      <node concept="3uibUv" id="3hOGm7r3$o4" role="1tU5fm">
+                        <ref role="3uigEE" to="smoa:~Renamer$RenameProblem" resolve="RenameProblem" />
+                      </node>
+                    </node>
+                    <node concept="3clFbS" id="3hOGm7r3$o5" role="3clF47">
+                      <node concept="3cpWs8" id="3hOGm7r4_W1" role="3cqZAp">
+                        <node concept="3cpWsn" id="3hOGm7r4_W2" role="3cpWs9">
+                          <property role="TrG5h" value="msg" />
+                          <node concept="3uibUv" id="3hOGm7r4_W3" role="1tU5fm">
+                            <ref role="3uigEE" to="et5u:~Message" resolve="Message" />
+                          </node>
+                        </node>
+                      </node>
+                      <node concept="3clFbJ" id="3hOGm7r4ojf" role="3cqZAp">
+                        <node concept="3clFbC" id="3hOGm7r4u33" role="3clFbw">
+                          <node concept="Rm8GO" id="3hOGm7r4xas" role="3uHU7w">
+                            <ref role="Rm8GQ" to="smoa:~Renamer$RenameProblem$Severity.CRITICAL" resolve="CRITICAL" />
+                            <ref role="1Px2BO" to="smoa:~Renamer$RenameProblem$Severity" resolve="Severity" />
+                          </node>
+                          <node concept="2OqwBi" id="3hOGm7r4r1W" role="3uHU7B">
+                            <node concept="37vLTw" id="3hOGm7r4pYx" role="2Oq$k0">
+                              <ref role="3cqZAo" node="3hOGm7r3$o3" resolve="p" />
+                            </node>
+                            <node concept="liA8E" id="3hOGm7r4squ" role="2OqNvi">
+                              <ref role="37wK5l" to="smoa:~Renamer$RenameProblem.getSeverity()" resolve="getSeverity" />
+                            </node>
+                          </node>
+                        </node>
+                        <node concept="3clFbS" id="3hOGm7r4ojh" role="3clFbx">
+                          <node concept="3clFbF" id="3hOGm7r4COa" role="3cqZAp">
+                            <node concept="37vLTI" id="3hOGm7r4Exq" role="3clFbG">
+                              <node concept="2ShNRf" id="3hOGm7r4Gq9" role="37vLTx">
+                                <node concept="1pGfFk" id="3hOGm7r4QfS" role="2ShVmc">
+                                  <property role="373rjd" value="true" />
+                                  <ref role="37wK5l" to="et5u:~Message.&lt;init&gt;(jetbrains.mps.messages.MessageKind,java.lang.Class,java.lang.String)" resolve="Message" />
+                                  <node concept="Rm8GO" id="3hOGm7r5smG" role="37wK5m">
+                                    <ref role="Rm8GQ" to="et5u:~MessageKind.ERROR" resolve="ERROR" />
+                                    <ref role="1Px2BO" to="et5u:~MessageKind" resolve="MessageKind" />
+                                  </node>
+                                  <node concept="3VsKOn" id="3hOGm7r5zI$" role="37wK5m">
+                                    <ref role="3VsUkX" node="29N7xYwTGoM" resolve="RenameModuleDialog" />
+                                  </node>
+                                  <node concept="2OqwBi" id="3hOGm7r5CP_" role="37wK5m">
+                                    <node concept="37vLTw" id="3hOGm7r5BF9" role="2Oq$k0">
+                                      <ref role="3cqZAo" node="3hOGm7r3$o3" resolve="p" />
+                                    </node>
+                                    <node concept="liA8E" id="3hOGm7r5E43" role="2OqNvi">
+                                      <ref role="37wK5l" to="smoa:~Renamer$RenameProblem.getPresentation()" resolve="getPresentation" />
+                                    </node>
+                                  </node>
+                                </node>
+                              </node>
+                              <node concept="37vLTw" id="3hOGm7r4CO9" role="37vLTJ">
+                                <ref role="3cqZAo" node="3hOGm7r4_W2" resolve="msg" />
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                        <node concept="3eNFk2" id="3hOGm7r4SaV" role="3eNLev">
+                          <node concept="3clFbC" id="3hOGm7r4Y75" role="3eO9$A">
+                            <node concept="2OqwBi" id="3hOGm7r4Viu" role="3uHU7B">
+                              <node concept="37vLTw" id="3hOGm7r4Uez" role="2Oq$k0">
+                                <ref role="3cqZAo" node="3hOGm7r3$o3" resolve="p" />
+                              </node>
+                              <node concept="liA8E" id="3hOGm7r4WsF" role="2OqNvi">
+                                <ref role="37wK5l" to="smoa:~Renamer$RenameProblem.getSeverity()" resolve="getSeverity" />
+                              </node>
+                            </node>
+                            <node concept="Rm8GO" id="3hOGm7r55qe" role="3uHU7w">
+                              <ref role="Rm8GQ" to="smoa:~Renamer$RenameProblem$Severity.NON_CRITICAL" resolve="NON_CRITICAL" />
+                              <ref role="1Px2BO" to="smoa:~Renamer$RenameProblem$Severity" resolve="Severity" />
+                            </node>
+                          </node>
+                          <node concept="3clFbS" id="3hOGm7r4SaX" role="3eOfB_">
+                            <node concept="3clFbF" id="3hOGm7r57SY" role="3cqZAp">
+                              <node concept="37vLTI" id="3hOGm7r59nt" role="3clFbG">
+                                <node concept="2ShNRf" id="3hOGm7r5b6E" role="37vLTx">
+                                  <node concept="1pGfFk" id="3hOGm7r5kX7" role="2ShVmc">
+                                    <property role="373rjd" value="true" />
+                                    <ref role="37wK5l" to="et5u:~Message.&lt;init&gt;(jetbrains.mps.messages.MessageKind,java.lang.Class,java.lang.String)" resolve="Message" />
+                                    <node concept="Rm8GO" id="3hOGm7r5q3Y" role="37wK5m">
+                                      <ref role="Rm8GQ" to="et5u:~MessageKind.WARNING" resolve="WARNING" />
+                                      <ref role="1Px2BO" to="et5u:~MessageKind" resolve="MessageKind" />
+                                    </node>
+                                    <node concept="3VsKOn" id="3hOGm7r5FHw" role="37wK5m">
+                                      <ref role="3VsUkX" node="29N7xYwTGoM" resolve="RenameModuleDialog" />
+                                    </node>
+                                    <node concept="2OqwBi" id="3hOGm7r5FHx" role="37wK5m">
+                                      <node concept="37vLTw" id="3hOGm7r5FHy" role="2Oq$k0">
+                                        <ref role="3cqZAo" node="3hOGm7r3$o3" resolve="p" />
+                                      </node>
+                                      <node concept="liA8E" id="3hOGm7r5FHz" role="2OqNvi">
+                                        <ref role="37wK5l" to="smoa:~Renamer$RenameProblem.getPresentation()" resolve="getPresentation" />
+                                      </node>
+                                    </node>
+                                  </node>
+                                </node>
+                                <node concept="37vLTw" id="3hOGm7r57SX" role="37vLTJ">
+                                  <ref role="3cqZAo" node="3hOGm7r4_W2" resolve="msg" />
+                                </node>
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                        <node concept="9aQIb" id="3hOGm7r5J_3" role="9aQIa">
+                          <node concept="3clFbS" id="3hOGm7r5J_4" role="9aQI4">
+                            <node concept="3clFbF" id="3hOGm7r5LgP" role="3cqZAp">
+                              <node concept="37vLTI" id="3hOGm7r5LgQ" role="3clFbG">
+                                <node concept="2ShNRf" id="3hOGm7r5LgR" role="37vLTx">
+                                  <node concept="1pGfFk" id="3hOGm7r5LgS" role="2ShVmc">
+                                    <property role="373rjd" value="true" />
+                                    <ref role="37wK5l" to="et5u:~Message.&lt;init&gt;(jetbrains.mps.messages.MessageKind,java.lang.Class,java.lang.String)" resolve="Message" />
+                                    <node concept="Rm8GO" id="3hOGm7r5NUh" role="37wK5m">
+                                      <ref role="Rm8GQ" to="et5u:~MessageKind.INFORMATION" resolve="INFORMATION" />
+                                      <ref role="1Px2BO" to="et5u:~MessageKind" resolve="MessageKind" />
+                                    </node>
+                                    <node concept="3VsKOn" id="3hOGm7r5LgU" role="37wK5m">
+                                      <ref role="3VsUkX" node="29N7xYwTGoM" resolve="RenameModuleDialog" />
+                                    </node>
+                                    <node concept="2OqwBi" id="3hOGm7r5LgV" role="37wK5m">
+                                      <node concept="37vLTw" id="3hOGm7r5LgW" role="2Oq$k0">
+                                        <ref role="3cqZAo" node="3hOGm7r3$o3" resolve="p" />
+                                      </node>
+                                      <node concept="liA8E" id="3hOGm7r5LgX" role="2OqNvi">
+                                        <ref role="37wK5l" to="smoa:~Renamer$RenameProblem.getPresentation()" resolve="getPresentation" />
+                                      </node>
+                                    </node>
+                                  </node>
+                                </node>
+                                <node concept="37vLTw" id="3hOGm7r5LgY" role="37vLTJ">
+                                  <ref role="3cqZAo" node="3hOGm7r4_W2" resolve="msg" />
+                                </node>
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                      <node concept="3clFbF" id="3hOGm7r5RRE" role="3cqZAp">
+                        <node concept="2OqwBi" id="3hOGm7r5U3A" role="3clFbG">
+                          <node concept="37vLTw" id="3hOGm7r5RRC" role="2Oq$k0">
+                            <ref role="3cqZAo" node="3hOGm7r4eIx" resolve="msgHandler" />
+                          </node>
+                          <node concept="liA8E" id="3hOGm7r5V6n" role="2OqNvi">
+                            <ref role="37wK5l" to="et5u:~IMessageHandler.handle(jetbrains.mps.messages.IMessage)" resolve="handle" />
+                            <node concept="37vLTw" id="3hOGm7r5XA0" role="37wK5m">
+                              <ref role="3cqZAo" node="3hOGm7r4_W2" resolve="msg" />
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="2AHcQZ" id="3hOGm7r3$o6" role="2AJF6D">
+                      <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+                    </node>
+                  </node>
+                  <node concept="3uibUv" id="3hOGm7r3$o7" role="2Ghqu4">
+                    <ref role="3uigEE" to="smoa:~Renamer$RenameProblem" resolve="RenameProblem" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs8" id="4$oa5rtwh0q" role="3cqZAp">
           <node concept="3cpWsn" id="4$oa5rtwh0r" role="3cpWs9">
             <property role="TrG5h" value="rr" />
@@ -3003,7 +3219,9 @@
                 <node concept="37vLTw" id="4$oa5rtwh0v" role="37wK5m">
                   <ref role="3cqZAo" node="29N7xYwTGoV" resolve="myModule" />
                 </node>
-                <node concept="10Nm6u" id="4$oa5rtwlu5" role="37wK5m" />
+                <node concept="37vLTw" id="6V540Zws9FL" role="37wK5m">
+                  <ref role="3cqZAo" node="3hOGm7r3$nV" resolve="msgConsumer" />
+                </node>
               </node>
             </node>
           </node>

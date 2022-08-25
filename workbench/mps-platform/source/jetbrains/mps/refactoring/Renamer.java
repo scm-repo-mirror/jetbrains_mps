@@ -652,7 +652,7 @@ public final class Renamer {
   }
 
 
-  interface RenameProblem {
+  public interface RenameProblem {
     enum Severity {
       CRITICAL, // critical means that the fs state is left broken and needs to be somehow restored
       NON_CRITICAL,

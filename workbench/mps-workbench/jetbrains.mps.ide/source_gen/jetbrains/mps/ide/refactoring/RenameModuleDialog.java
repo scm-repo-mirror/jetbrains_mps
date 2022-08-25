@@ -12,7 +12,12 @@ import jetbrains.mps.ide.IdeBundle;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import org.jetbrains.mps.openapi.module.SModule;
+import java.util.function.Consumer;
 import jetbrains.mps.refactoring.Renamer;
+import jetbrains.mps.messages.IMessageHandler;
+import jetbrains.mps.ide.messages.DefaultMessageHandler;
+import jetbrains.mps.messages.Message;
+import jetbrains.mps.messages.MessageKind;
 import javax.swing.JComponent;
 import com.intellij.ui.components.JBPanel;
 import java.awt.BorderLayout;
@@ -71,7 +76,23 @@ public class RenameModuleDialog extends RenameDialog {
   @Override
   protected void doRefactoringAction() {
     final String newModuleName = getCurrentValue();
-    final Renamer rr = new Renamer(myProject, myModule, null);
+    Consumer<Renamer.RenameProblem> msgConsumer = new Consumer<Renamer.RenameProblem>() {
+      private final IMessageHandler msgHandler = new DefaultMessageHandler(myProject.getProject());
+
+      @Override
+      public void accept(Renamer.RenameProblem p) {
+        Message msg;
+        if (p.getSeverity() == Renamer.RenameProblem.Severity.CRITICAL) {
+          msg = new Message(MessageKind.ERROR, RenameModuleDialog.class, p.getPresentation());
+        } else if (p.getSeverity() == Renamer.RenameProblem.Severity.NON_CRITICAL) {
+          msg = new Message(MessageKind.WARNING, RenameModuleDialog.class, p.getPresentation());
+        } else {
+          msg = new Message(MessageKind.INFORMATION, RenameModuleDialog.class, p.getPresentation());
+        }
+        msgHandler.handle(msg);
+      }
+    };
+    final Renamer rr = new Renamer(myProject, myModule, msgConsumer);
     myProject.getModelAccess().runReadAction(() -> rr.collectRenames());
     rr.prepareRename(newModuleName);
     if (rr.hasPrimaryRename() || rr.hasDependantRenames()) {
