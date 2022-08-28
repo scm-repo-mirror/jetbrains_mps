@@ -293,7 +293,7 @@ public final class Renamer {
         //       see MRI.withNewName(), moduleNameMatch condition
         // We respect shared module dir/file scenario here (force NameMatch.NONE if same as in myPrimaryRename)
         nested.add(ModuleRenameInfo.nested(am, am.getDescriptorFile(), baseName, myPrimaryRename));
-      } else if (am.getModuleName().startsWith(baseName) && am.getModuleName().length() > baseName.length() && am.getModuleName().charAt(baseName.length()) == '.') {
+      } else if (ModuleRenameInfo.isNamespacePrefix(am.getModuleName(), baseName)) {
         // XXX use of ends with '.' condition is questionable, there are scenarios when it's desired to use prefix without dot (e.g. rename of mymodule.smodel
         // to include rename of mymodule.smodelTests. OTOH, might not be desired for rename of "mymodule" when there's unrelated "mymoduleothername.keepasis",
         // at least without a mechanism for a user to opt out (e.g. by checkbox in the dialog that shows 'related' modules).
