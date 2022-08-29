@@ -80,6 +80,15 @@ public class Generator extends ReloadableModuleBase {
   @Override
   public void attach(@NotNull SRepository repository) {
     super.attach(repository);
+    if (mySourceLanguage == null) {
+      // This is to address scenario when Language and itw owned Generator modules get instantiated separately
+      // and later registered with a repository (e.g. module rename). There's no mySourceLanguage during construction
+      // time, and if language is registered first, no chance for setSourceLanguageInstance() either.
+      // Perhaps, improved setSourceLanguageInstance() approach would be better, with explicit Generator->Language bond moment,
+      // but this would require extra thought (need the story of modules registration clean and precise, don't want extra hussle
+      // of instanceof Language/Generator and special handling outside these classes)
+      mySourceLanguage = (Language) mySourceLanguage0.getSourceModuleReference().resolve(getRepository());
+    }
     if (mySourceLanguage != null) {
       mySourceLanguage.register(this);
     }
@@ -87,6 +96,10 @@ public class Generator extends ReloadableModuleBase {
 
   @Override
   public void dispose() {
+    if (mySourceLanguage == null && getRepository() != null) {
+      // XXX not sure I need to keep this value in the field in dispose(), OTOH don't see how could it hurt
+      mySourceLanguage = (Language) mySourceLanguage0.getSourceModuleReference().resolve(getRepository());
+    }
     if (mySourceLanguage != null) {
       mySourceLanguage.unregister(this);
     }
@@ -94,6 +107,9 @@ public class Generator extends ReloadableModuleBase {
   }
 
   /*package*/ void setSourceLanguageInstance(@Nullable Language language) {
+    if (mySourceLanguage == language) {
+      return;
+    }
     if (language == null && mySourceLanguage != null) {
       // XXX perhaps, shall unregister regardless of language == null.
       //     Is it possible that Generator instance had mySourceLanguage module set != null, and then re-set to another != null, without null in between?
