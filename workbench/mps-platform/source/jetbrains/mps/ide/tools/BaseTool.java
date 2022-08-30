@@ -208,7 +208,13 @@ public abstract class BaseTool {
   }
 
   public void registerLater() {
-    ThreadUtils.runInUIThreadNoWait(() -> DumbService.getInstance(getProject()).runWhenSmart(this::register));
+    ThreadUtils.runInUIThreadNoWait(() -> {
+      final Project project = getProject();
+      if (project.isDisposed()) {
+        return;
+      }
+      DumbService.getInstance(project).runWhenSmart(this::register);
+    });
   }
 
   public final void register() {
