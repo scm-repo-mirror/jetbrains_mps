@@ -828,6 +828,7 @@ public final class ModuleMaker {
       // walk graph of JMs
       if (!withDeps.needsCompile(initial)) {
         // FIXME report "nothing to make"
+        tracer.done(); // XXX move to finally{}?
         return;
       }
     }
