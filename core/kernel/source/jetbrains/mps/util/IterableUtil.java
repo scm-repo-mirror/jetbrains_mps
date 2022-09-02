@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -163,5 +163,16 @@ public class IterableUtil {
       index++;
     }
     return -1;
+  }
+
+  public static int count(Iterable<?> data) {
+    if (data instanceof Collection) {
+      return ((Collection<?>) data).size();
+    }
+    int rv = 0;
+    for (Iterator<?> it = data.iterator(); it.hasNext(); rv++) {
+      it.next();
+    }
+    return rv;
   }
 }

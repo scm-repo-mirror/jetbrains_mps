@@ -2563,6 +2563,52 @@
       <node concept="3cqZAl" id="7K_WrSLbaUZ" role="3clF45" />
       <node concept="3Tm1VV" id="7K_WrSLbaV0" role="1B3o_S" />
       <node concept="3clFbS" id="7K_WrSLbaV1" role="3clF47">
+        <node concept="3SKdUt" id="2eOFkuR57kR" role="3cqZAp">
+          <node concept="1PaTwC" id="2eOFkuR57kS" role="1aUNEU">
+            <node concept="3oM_SD" id="2eOFkuR5bCy" role="1PaTwD">
+              <property role="3oM_SC" value="when" />
+            </node>
+            <node concept="3oM_SD" id="2eOFkuR5bC$" role="1PaTwD">
+              <property role="3oM_SC" value="no" />
+            </node>
+            <node concept="3oM_SD" id="2eOFkuR5bCB" role="1PaTwD">
+              <property role="3oM_SC" value="option" />
+            </node>
+            <node concept="3oM_SD" id="2eOFkuR5bCF" role="1PaTwD">
+              <property role="3oM_SC" value="for" />
+            </node>
+            <node concept="3oM_SD" id="2eOFkuR5bCK" role="1PaTwD">
+              <property role="3oM_SC" value="properties" />
+            </node>
+            <node concept="3oM_SD" id="2eOFkuR5bCQ" role="1PaTwD">
+              <property role="3oM_SC" value="supplied," />
+            </node>
+            <node concept="3oM_SD" id="2eOFkuR5bCX" role="1PaTwD">
+              <property role="3oM_SC" value="assume" />
+            </node>
+            <node concept="3oM_SD" id="2eOFkuR5bD5" role="1PaTwD">
+              <property role="3oM_SC" value="old" />
+            </node>
+            <node concept="3oM_SD" id="2eOFkuR5bDK" role="1PaTwD">
+              <property role="3oM_SC" value="BaseGeneratorTest.assertMatch()" />
+            </node>
+            <node concept="3oM_SD" id="2eOFkuR5bDU" role="1PaTwD">
+              <property role="3oM_SC" value="behavior" />
+            </node>
+            <node concept="3oM_SD" id="2eOFkuR5bE5" role="1PaTwD">
+              <property role="3oM_SC" value="of" />
+            </node>
+            <node concept="3oM_SD" id="2eOFkuR5bEh" role="1PaTwD">
+              <property role="3oM_SC" value="matching" />
+            </node>
+            <node concept="3oM_SD" id="2eOFkuR5bEV" role="1PaTwD">
+              <property role="3oM_SC" value="user" />
+            </node>
+            <node concept="3oM_SD" id="2eOFkuR5bF9" role="1PaTwD">
+              <property role="3oM_SC" value="values" />
+            </node>
+          </node>
+        </node>
         <node concept="1VxSAg" id="1NpV1yWVm_I" role="3cqZAp">
           <ref role="37wK5l" node="7K_WrSLbaVv" resolve="ModelMatcher" />
           <node concept="Rm8GO" id="1NpV1yWUZ1a" role="37wK5m">
@@ -2573,9 +2619,9 @@
             <ref role="1Px2BO" node="7K_WrSLbbhi" resolve="MatchOptions" />
             <ref role="Rm8GQ" node="7K_WrSLbb_n" resolve="ASSOCIATION_SAME_TARGET_PTR" />
           </node>
-          <node concept="Rm8GO" id="1NpV1yWVgCU" role="37wK5m">
+          <node concept="Rm8GO" id="2eOFkuR5Grc" role="37wK5m">
+            <ref role="Rm8GQ" node="7K_WrSLbbp8" resolve="PROPERTY_USER_VALUE" />
             <ref role="1Px2BO" node="7K_WrSLbbhi" resolve="MatchOptions" />
-            <ref role="Rm8GQ" node="7K_WrSLbbx0" resolve="PROPERTY_PERSISTENCE_VALUE" />
           </node>
         </node>
       </node>

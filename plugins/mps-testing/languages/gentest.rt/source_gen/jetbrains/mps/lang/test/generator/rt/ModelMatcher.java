@@ -27,7 +27,8 @@ public final class ModelMatcher {
   private final List<MatchOptions> myOptions;
 
   public ModelMatcher() {
-    this(MatchOptions.AGGREGATION_SAME_ORDER, MatchOptions.ASSOCIATION_SAME_TARGET_PTR, MatchOptions.PROPERTY_PERSISTENCE_VALUE);
+    // when no option for properties supplied, assume old BaseGeneratorTest.assertMatch() behavior of matching user values
+    this(MatchOptions.AGGREGATION_SAME_ORDER, MatchOptions.ASSOCIATION_SAME_TARGET_PTR, MatchOptions.PROPERTY_USER_VALUE);
   }
 
   public ModelMatcher(MatchOptions... options) {

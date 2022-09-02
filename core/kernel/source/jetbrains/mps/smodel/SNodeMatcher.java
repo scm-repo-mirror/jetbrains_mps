@@ -4,6 +4,7 @@
 package jetbrains.mps.smodel;
 
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
+import jetbrains.mps.util.IterableUtil;
 import jetbrains.mps.util.Pair;
 import jetbrains.mps.util.SNodePresentationComparator;
 import org.jetbrains.annotations.NotNull;
@@ -12,8 +13,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
+import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.model.SReference;
 
 import java.util.ArrayList;
@@ -192,6 +195,26 @@ public class SNodeMatcher implements BiPredicate<SNode, SNode> {
   public interface AssociationMatchStrategy {
     // pre: at least one of nodes has 'link' association
     boolean match(@NotNull SNode node1, @NotNull SNode node2, @NotNull SReferenceLink link);
+
+    default boolean matchLinkTarget(SNode n1, SNode n2) {
+      if (n1 == null || n2 == null) {
+        return false; // both null - no match, it's link target, we expect it to resolve to something
+      }
+      if (!n1.getConcept().equals(n2.getConcept())) {
+        return false;
+      }
+      if (!new HashSet<>(IterableUtil.asCollection(n1.getProperties())).equals(new HashSet<>(IterableUtil.asCollection(n2.getProperties())))) {
+        return false;
+      }
+      if (IterableUtil.count(n1.getReferences()) != IterableUtil.count(n2.getReferences())) {
+        return false;
+      }
+      if (IterableUtil.count(n1.getChildren()) != IterableUtil.count(n2.getChildren())) {
+        return false;
+      }
+      // FIXME revisit, perhaps, shall use approach similar to that in NodesMatcher and its obscure myMap
+      return true;
+    }
   }
 
   /**
@@ -202,7 +225,25 @@ public class SNodeMatcher implements BiPredicate<SNode, SNode> {
     public boolean match(@NotNull SNode node1, @NotNull SNode node2, @NotNull SReferenceLink link) {
       final SReference r1 = node1.getReference(link);
       final SReference r2 = node2.getReference(link);
-      return r1 != null && r2 != null && Objects.equals(r1.getTargetNodeReference(), r2.getTargetNodeReference());
+      if (r1 == null || r2 == null) {
+        assert r1 != null || r2 != null : "at least one node is supposed to have the link";
+        return false;
+      }
+      final SNodeReference t1 = r1.getTargetNodeReference();
+      final SNodeReference t2 = r2.getTargetNodeReference();
+      if (Objects.equals(t1, t2)) {
+        return true;
+      }
+      final SModel m1 = r1.getSourceNode().getModel();
+      final SModel m2 = r2.getSourceNode().getModel();
+      if (m1 != null && m2 != null) {
+        // references within respective models of their sources
+        if (m1.getReference().equals(t1.getModelReference()) && m2.getReference().equals(t2.getModelReference())) {
+          return matchLinkTarget(m1.getNode(t1.getNodeId()), m2.getNode(t2.getNodeId()));
+        }
+        // fall through
+      }
+      return false;
     }
   }
 
@@ -215,7 +256,19 @@ public class SNodeMatcher implements BiPredicate<SNode, SNode> {
     public boolean match(@NotNull SNode node1, @NotNull SNode node2, @NotNull SReferenceLink link) {
       final SNode target1 = node1.getReferenceTarget(link);
       final SNode target2 = node2.getReferenceTarget(link);
-      return target1 == target2;
+      if (target1 == target2) {
+        return true;
+      }
+      final SModel m1 = node1.getModel();
+      final SModel m2 = node2.getModel();
+      if (m1 == null || m2 == null) {
+        return false;
+      }
+      if (m1 == target1.getModel() && m2 == target2.getModel()) {
+        // local (same model) targets
+        return matchLinkTarget(target1, target2);
+      }
+      return false;
     }
   }
 
