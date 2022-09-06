@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.refactoring;
 
+import com.intellij.openapi.util.registry.Registry;
 import jetbrains.mps.extapi.persistence.FileDataSource;
 import jetbrains.mps.ide.IdeBundle;
 import jetbrains.mps.library.ModulesMiner;
@@ -753,8 +754,10 @@ public final class Renamer {
     for (ModuleRenameInfo m : renames) {
       builder.append("<li>");
       builder.append(m.module.getModuleName());
-      Function<NameMatch, String> f = x -> x == NameMatch.NONE ? "no" : "yes";
-      builder.append(String.format(" (name: %s, file: %s, folder: %s)", f.apply(m.moduleNameMatch), f.apply(m.moduleFileMatch), f.apply(m.moduleDirMatch)));
+      if (Registry.is("mps.module.rename.show.details", false)) {
+        Function<NameMatch, String> f = Enum::name;
+        builder.append(String.format(" (name: %s, file: %s, folder: %s)", f.apply(m.moduleNameMatch), f.apply(m.moduleFileMatch), f.apply(m.moduleDirMatch)));
+      }
       builder.append("</li>");
     }
     builder.append("</ul>");
