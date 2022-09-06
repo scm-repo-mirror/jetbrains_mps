@@ -221,27 +221,7 @@ public abstract class MessageList implements IMessageList, SearchHistoryStorage,
           updateMessageCounters(message, 1);
         }
 
-        int messagesToRemove = 0;
-        if (myMessages.size() > MessageList.this.myMaxListSize) {
-          for (int i = myMessages.size() - MessageList.this.myMaxListSize; i > 0; i--) {
-            IMessage toRemove = myMessages.remove();
-            updateMessageCounters(toRemove, -1);
-            if (isVisible(toRemove)) {
-              messagesToRemove++;
-            }
-          }
-          if (messagesToRemove > myModel.getSize()) {
-            messagesToRemove = myModel.getSize();
-          }
-          messagesToAdd = messagesToAdd.subList(
-              Math.max(messagesToAdd.size() - MessageList.this.myMaxListSize, 0),
-              messagesToAdd.size());
-        }
-
-        if (messagesToRemove > 0) {
-          myModel.removeFirst(messagesToRemove);
-        }
-        myModel.addAll(messagesToAdd);
+        messagesToAdd = safelyAdd(messagesToAdd);
 
         int maxWidth = -1;
         for (IMessage message : messagesToAdd) {
@@ -280,6 +260,31 @@ public abstract class MessageList implements IMessageList, SearchHistoryStorage,
         if (m.getHintObject() != null) {
           myHintObjects += delta;
         }
+      }
+
+      private List<IMessage> safelyAdd(List<IMessage> messagesToAdd) {
+        int messagesToRemove = 0;
+        if (myMessages.size() > MessageList.this.myMaxListSize) {
+          for (int i = myMessages.size() - MessageList.this.myMaxListSize; i > 0; i--) {
+            IMessage toRemove = myMessages.remove();
+            updateMessageCounters(toRemove, -1);
+            if (isVisible(toRemove)) {
+              messagesToRemove++;
+            }
+          }
+          if (messagesToRemove > myModel.getSize()) {
+            messagesToRemove = myModel.getSize();
+          }
+          messagesToAdd = messagesToAdd.subList(
+              Math.max(messagesToAdd.size() - MessageList.this.myMaxListSize, 0),
+              messagesToAdd.size());
+        }
+
+        if (messagesToRemove > 0) {
+          myModel.removeFirst(messagesToRemove);
+        }
+        myModel.addAll(messagesToAdd);
+        return messagesToAdd;
       }
     });
   }
@@ -582,6 +587,10 @@ public abstract class MessageList implements IMessageList, SearchHistoryStorage,
       }
     }
     myList.setFixedCellWidth(width);
+
+    messagesToAdd = messagesToAdd.subList(
+        Math.max(messagesToAdd.size() - MessageList.this.myMaxListSize, 0),
+        messagesToAdd.size());
 
     myModel.addAll(messagesToAdd);
   }
