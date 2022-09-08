@@ -30,8 +30,8 @@
     <import index="g3l6" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.extapi.model(MPS.Core/)" />
     <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
     <import index="90d" ref="r:421d64ed-8024-497f-aeab-8bddeb389dd2(jetbrains.mps.lang.extension.methods)" implicit="true" />
-    <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" implicit="true" />
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" implicit="true" />
+    <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" implicit="true" />
     <import index="z1c4" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.project(MPS.Platform/)" implicit="true" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
   </imports>
@@ -390,8 +390,8 @@
   </node>
   <node concept="sE7Ow" id="1NpV1yX0Em2">
     <property role="TrG5h" value="ReorderModelRoots" />
-    <property role="2uzpH1" value="Re-arrange Model Roots" />
-    <property role="1WHSii" value="Change order or root nodes in a model" />
+    <property role="2uzpH1" value="Reorder Root Nodes" />
+    <property role="1WHSii" value="Change order of root nodes in a model" />
     <property role="2YLI8m" value="6u2MFnph2wS/none" />
     <node concept="1DS2jV" id="1NpV1yX0FE2" role="1NuT2Z">
       <property role="TrG5h" value="selectedModel" />
@@ -421,6 +421,28 @@
             </node>
           </node>
         </node>
+        <node concept="3cpWs8" id="ylrE0Pyf3l" role="3cqZAp">
+          <node concept="3cpWsn" id="ylrE0Pyf3m" role="3cpWs9">
+            <property role="TrG5h" value="modelIcon" />
+            <node concept="10Q1$e" id="ylrE0PytOU" role="1tU5fm">
+              <node concept="3uibUv" id="ylrE0Py1QW" role="10Q1$1">
+                <ref role="3uigEE" to="dxuu:~Icon" resolve="Icon" />
+              </node>
+            </node>
+            <node concept="2ShNRf" id="ylrE0PyugN" role="33vP2m">
+              <node concept="3$_iS1" id="ylrE0PyVeB" role="2ShVmc">
+                <node concept="3$GHV9" id="ylrE0PyVeD" role="3$GQph">
+                  <node concept="3cmrfG" id="ylrE0PyVkD" role="3$I4v7">
+                    <property role="3cmrfH" value="1" />
+                  </node>
+                </node>
+                <node concept="3uibUv" id="ylrE0PyV05" role="3$_nBY">
+                  <ref role="3uigEE" to="dxuu:~Icon" resolve="Icon" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs8" id="1NpV1yXtkMx" role="3cqZAp">
           <node concept="3cpWsn" id="1NpV1yXtkMy" role="3cpWs9">
             <property role="TrG5h" value="roots" />
@@ -431,21 +453,34 @@
               </node>
             </node>
             <node concept="2OqwBi" id="1NpV1yXtkMz" role="33vP2m">
-              <node concept="2OqwBi" id="1NpV1yXtkM$" role="2Oq$k0">
-                <node concept="2OqwBi" id="1NpV1yXtkM_" role="2Oq$k0">
-                  <node concept="2WthIp" id="1NpV1yXtkMA" role="2Oq$k0" />
-                  <node concept="1DTwFV" id="1NpV1yXtkMB" role="2OqNvi">
-                    <ref role="2WH_rO" node="1NpV1yX0FS4" resolve="project" />
-                  </node>
-                </node>
-                <node concept="liA8E" id="1NpV1yXtkMC" role="2OqNvi">
-                  <ref role="37wK5l" to="z1c3:~Project.getModelAccess()" resolve="getModelAccess" />
-                </node>
-              </node>
               <node concept="liA8E" id="1NpV1yXtkMD" role="2OqNvi">
                 <ref role="37wK5l" to="lui2:~ModelAccess.computeReadAction(java.util.function.Supplier)" resolve="computeReadAction" />
                 <node concept="1bVj0M" id="1NpV1yXtkME" role="37wK5m">
                   <node concept="3clFbS" id="1NpV1yXtkMF" role="1bW5cS">
+                    <node concept="3clFbF" id="ylrE0PzcR_" role="3cqZAp">
+                      <node concept="37vLTI" id="ylrE0PzqpC" role="3clFbG">
+                        <node concept="AH0OO" id="ylrE0PzhK5" role="37vLTJ">
+                          <node concept="3cmrfG" id="ylrE0PziYc" role="AHEQo">
+                            <property role="3cmrfH" value="0" />
+                          </node>
+                          <node concept="37vLTw" id="ylrE0PzcRz" role="AHHXb">
+                            <ref role="3cqZAo" node="ylrE0Pyf3m" resolve="modelIcon" />
+                          </node>
+                        </node>
+                        <node concept="2OqwBi" id="ylrE0PzrRX" role="37vLTx">
+                          <node concept="2YIFZM" id="ylrE0PzrRY" role="2Oq$k0">
+                            <ref role="37wK5l" to="sn11:5UC$YgehaLf" resolve="getInstance" />
+                            <ref role="1Pybhc" to="sn11:192HKKPMXeL" resolve="GlobalIconManager" />
+                          </node>
+                          <node concept="liA8E" id="ylrE0PzrRZ" role="2OqNvi">
+                            <ref role="37wK5l" to="sn11:192HKKPOd$O" resolve="getIconFor" />
+                            <node concept="37vLTw" id="ylrE0PzrS0" role="37wK5m">
+                              <ref role="3cqZAo" node="1NpV1yXv07L" resolve="model" />
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
                     <node concept="3cpWs8" id="1NpV1yXtkMG" role="3cqZAp">
                       <node concept="3cpWsn" id="1NpV1yXtkMH" role="3cpWs9">
                         <property role="TrG5h" value="rv" />
@@ -522,6 +557,17 @@
                   </node>
                 </node>
               </node>
+              <node concept="2OqwBi" id="1NpV1yXtkM$" role="2Oq$k0">
+                <node concept="2OqwBi" id="1NpV1yXtkM_" role="2Oq$k0">
+                  <node concept="2WthIp" id="1NpV1yXtkMA" role="2Oq$k0" />
+                  <node concept="1DTwFV" id="1NpV1yXtkMB" role="2OqNvi">
+                    <ref role="2WH_rO" node="1NpV1yX0FS4" resolve="project" />
+                  </node>
+                </node>
+                <node concept="liA8E" id="1NpV1yXtkMC" role="2OqNvi">
+                  <ref role="37wK5l" to="z1c3:~Project.getModelAccess()" resolve="getModelAccess" />
+                </node>
+              </node>
             </node>
           </node>
         </node>
@@ -572,7 +618,7 @@
             <node concept="liA8E" id="6yChgC1ymRE" role="2OqNvi">
               <ref role="37wK5l" to="jkm4:~DialogWrapper.setTitle(java.lang.String)" resolve="setTitle" />
               <node concept="Xl_RD" id="6yChgC1yn23" role="37wK5m">
-                <property role="Xl_RC" value="Reorder model roots" />
+                <property role="Xl_RC" value="Reorder Root Nodes" />
               </node>
             </node>
           </node>
@@ -613,16 +659,12 @@
             </node>
             <node concept="liA8E" id="6yChgC1Aavs" role="2OqNvi">
               <ref role="37wK5l" node="6yChgC1zFoA" resolve="setNorthPanelIcon" />
-              <node concept="2OqwBi" id="6yChgC1Ad4A" role="37wK5m">
-                <node concept="2YIFZM" id="6yChgC1AcOA" role="2Oq$k0">
-                  <ref role="37wK5l" to="sn11:5UC$YgehaLf" resolve="getInstance" />
-                  <ref role="1Pybhc" to="sn11:192HKKPMXeL" resolve="GlobalIconManager" />
+              <node concept="AH0OO" id="ylrE0Pz_x_" role="37wK5m">
+                <node concept="3cmrfG" id="ylrE0Pz_AH" role="AHEQo">
+                  <property role="3cmrfH" value="0" />
                 </node>
-                <node concept="liA8E" id="6yChgC1AdnG" role="2OqNvi">
-                  <ref role="37wK5l" to="sn11:192HKKPOd$O" resolve="getIconFor" />
-                  <node concept="37vLTw" id="6yChgC1AdqX" role="37wK5m">
-                    <ref role="3cqZAo" node="1NpV1yXv07L" resolve="model" />
-                  </node>
+                <node concept="37vLTw" id="ylrE0Pyf3r" role="AHHXb">
+                  <ref role="3cqZAo" node="ylrE0Pyf3m" resolve="modelIcon" />
                 </node>
               </node>
             </node>
