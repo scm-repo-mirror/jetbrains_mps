@@ -716,6 +716,9 @@
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
+    <copy todir="${build.tmp}/java/out/mps-persistence">
+      <fileset dir="${projectHome}/core/kotlin-stub/res" />
+    </copy>
   </target>
   
   <target name="java.compile.platform-persistence-only" depends="java.compile.mps-annotations, java.compile.mps-openapi, java.compile.mps-logging, java.compile.util-core, java.compile.mps-smodel, java.compile.mps-closures, java.compile.mps-collections, java.compile.mps-tuples, java.compile.mps-references, java.compile.mps-project, java.compile.mps-core-components, java.compile.mps-behavior-api, java.compile.mps-behavior-runtime, java.compile.mps-messaging, java.compile.mps-boot-util, java.compile.feeback-context, java.compile.constraints-runtime, java.compile.vfs, java.compile.mps-kernel, java.compile.mps-persistence">

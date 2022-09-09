@@ -50331,6 +50331,22 @@
           </node>
         </node>
       </node>
+      <node concept="3_5H9E" id="7LmwL_T_e0u" role="398b2p">
+        <node concept="3LXTmp" id="7LmwL_T_e0w" role="3_5H9R">
+          <node concept="398BVA" id="7LmwL_T_e1b" role="3LXTmr">
+            <ref role="398BVh" node="6IJvZDkyhr7" resolve="projectHome" />
+            <node concept="2Ry0Ak" id="7LmwL_T_e1h" role="iGT6I">
+              <property role="2Ry0Am" value="core" />
+              <node concept="2Ry0Ak" id="7LmwL_T_e1m" role="2Ry0An">
+                <property role="2Ry0Am" value="kotlin-stub" />
+                <node concept="2Ry0Ak" id="7LmwL_T_e1r" role="2Ry0An">
+                  <property role="2Ry0Am" value="res" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
       <node concept="2sjeV3" id="6FsijxbeNYk" role="nCB5Z">
         <ref role="2sjeV2" node="6FsijxbeNOG" resolve="objectweb.asm" />
       </node>
