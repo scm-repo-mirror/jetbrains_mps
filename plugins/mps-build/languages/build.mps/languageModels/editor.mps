@@ -2463,13 +2463,13 @@
     </node>
     <node concept="3EZMnI" id="3XLirLm_IHP" role="6VMZX">
       <node concept="3F0ifn" id="3XLirLm_JrW" role="3EZMnx">
-        <property role="3F0ifm" value="Experimental functionality, use with care" />
+        <property role="3F0ifm" value="Experimental functionality, use with care (MPSI-36)" />
         <ref role="1k5W1q" to="o2va:7UAfeVQSDww" resolve="comment" />
       </node>
       <node concept="3EZMnI" id="3XLirLm_IX_" role="3EZMnx">
         <node concept="VPM3Z" id="3XLirLm_IXB" role="3F10Kt" />
         <node concept="3F0ifn" id="3XLirLm_NSV" role="3EZMnx">
-          <property role="3F0ifm" value="Turn on MPSI-36 support:" />
+          <property role="3F0ifm" value="Use single MPS Make task:" />
         </node>
         <node concept="3F0A7n" id="3XLirLm_J36" role="3EZMnx">
           <ref role="1NtTu8" to="kdzh:3XLirLmzCUO" resolve="useMakeTask" />

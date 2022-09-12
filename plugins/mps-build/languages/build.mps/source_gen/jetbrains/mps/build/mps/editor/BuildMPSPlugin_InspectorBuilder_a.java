@@ -60,7 +60,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
   private EditorCell createConstant_0() {
-    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "Experimental functionality, use with care");
+    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "Experimental functionality, use with care (MPSI-36)");
     editorCell.setCellId("Constant_q8whwb_0");
     Style style = new StyleImpl();
     new commentStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
@@ -79,7 +79,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
   private EditorCell createConstant_1() {
-    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "Turn on MPSI-36 support:");
+    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "Use single MPS Make task:");
     editorCell.setCellId("Constant_q8whwb_1");
     editorCell.setDefaultText("");
     return editorCell;
