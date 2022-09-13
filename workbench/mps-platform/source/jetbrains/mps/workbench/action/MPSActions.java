@@ -28,6 +28,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 // FIXME make a CoreComponent, so that BaseApplicationPlugin.dispose doesn't need to
+// FIXME doesn't have any state, just a set of utility methods no reason to be CoreComponent.
+// BaseApplicationPlugin could keep this code itself
 public class MPSActions {
   private static final Logger LOG = Logger.getLogger(MPSActions.class);
 

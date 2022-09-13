@@ -22,13 +22,16 @@ import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
+import com.intellij.openapi.actionSystem.KeyboardShortcut;
 import com.intellij.openapi.actionSystem.Presentation;
+import com.intellij.openapi.actionSystem.Shortcut;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.ui.popup.JBPopupFactory;
 import com.intellij.openapi.ui.popup.ListPopup;
 import com.intellij.ui.awt.RelativePoint;
 import jetbrains.mps.editor.runtime.cells.ReadOnlyUtil;
 import jetbrains.mps.editor.runtime.commands.EditorCommand;
+import jetbrains.mps.ide.actions.MPSActionPlaces;
 import jetbrains.mps.ide.actions.MPSActions;
 import jetbrains.mps.intentions.IntentionsManager;
 import jetbrains.mps.intentions.IntentionsManager.QueryDescriptor;
@@ -79,6 +82,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public class IntentionsSupport {
   private static final long INTENTION_SHOW_DELAY = 1000;
 
+  // MPS-extensions tries to modify this field (and myLightBulb) through reflection
   private final AbstractAction myShowIntentionsAction;
   private final Point myLightBulbLocation = new Point();
   private final LightBulbMenu myLightBulb;
@@ -91,22 +95,36 @@ public class IntentionsSupport {
   public IntentionsSupport(@NotNull EditorComponent editor) {
     myEditor = editor;
 
-    myLightBulb = new LightBulbMenu() {
-      @Override
-      public void activate() {
-        getModelAccess().runReadAction(() -> checkAndShowMenu());
+    final AnAction ideaActionRegistration = ActionManager.getInstance().getActionOrStub(MPSActions.EDITOR_SHOW_INTENTIONS_POPUP_ACTION);
+    KeyStroke firstKeyStroke = null;
+    for (Shortcut shortcut : ideaActionRegistration.getShortcutSet().getShortcuts()) {
+      if (!shortcut.isKeyboard()) {
+        continue;
       }
-    };
+      if (shortcut instanceof KeyboardShortcut) {
+        firstKeyStroke = ((KeyboardShortcut) shortcut).getFirstKeyStroke();
+        break;
+      }
+    }
+    if (firstKeyStroke == null) {
+      // fallback
+      firstKeyStroke = KeyStroke.getKeyStroke("alt ENTER");
+    }
+
+    myLightBulb = new LightBulbMenu(firstKeyStroke, this::checkAndShowMenu);
 
     myEditor.getViewport().addChangeListener(e -> adjustLightBulbLocation());
 
     myShowIntentionsAction = new AbstractAction() {
       @Override
       public void actionPerformed(ActionEvent e) {
-        getModelAccess().runReadAction(() -> checkAndShowMenu());
+        checkAndShowMenu();
       }
     };
-    myEditor.registerKeyboardAction(myShowIntentionsAction, KeyStroke.getKeyStroke("alt ENTER"), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+
+    // FIXME check 47d64cfa and MPS-31891. Likely we need to switch to use idea's actions not only to keep shortcut,
+    //       just requires some deep understanding of DataContext to integrate it with our thread to update intentions menu
+    myEditor.registerKeyboardAction(myShowIntentionsAction, firstKeyStroke, JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
     final FocusAdapter focusListener = new FocusAdapter() {
       @Override
@@ -148,15 +166,17 @@ public class IntentionsSupport {
   }
 
   private void checkAndShowMenu() {
-    if (isInconsistentEditor()) {
-      return;
-    }
-    final SModel model = myEditor.getSelectedNode() == null ? null : myEditor.getSelectedNode().getModel();
-    if (ReadOnlyUtil.isSelectionReadOnlyInEditor(myEditor) || model == null || SModelOperations.isReadOnly(model)) {
-      return;
-    }
+    getModelAccess().runReadAction(() -> {
+      if (isInconsistentEditor()) {
+        return;
+      }
+      final SModel model = myEditor.getSelectedNode() == null ? null : myEditor.getSelectedNode().getModel();
+      if (ReadOnlyUtil.isSelectionReadOnlyInEditor(myEditor) || model == null || SModelOperations.isReadOnly(model)) {
+        return;
+      }
 
-    showIntentionsMenu();
+      showIntentionsMenu();
+    });
   }
 
   private void stopIntentionThread() {
@@ -308,25 +328,21 @@ public class IntentionsSupport {
     }
   }
 
+  // invoked with model read
   private void showIntentionsMenu() {
     final EditorContext editorContext = myEditor.getEditorContext();
-    ListPopup popup = new ModelAccessHelper(getModelAccess()).runReadAction(() -> {
-      DataContext dataContext = DataManager.getInstance().getDataContext(editorContext.getNodeEditorComponent());
-      BaseGroup group = getIntentionsGroup(dataContext);
-      if (group == null) {
-        return null;
-      }
-      return JBPopupFactory.getInstance().createActionGroupPopup(
+    DataContext dataContext = DataManager.getInstance().getDataContext(editorContext.getNodeEditorComponent());
+    BaseGroup group = getIntentionsGroup(dataContext);
+    if (group == null) {
+      return;
+    }
+    ListPopup popup = JBPopupFactory.getInstance().createActionGroupPopup(
           "Intentions",
           group,
           dataContext,
           JBPopupFactory.ActionSelectionAid.SPEEDSEARCH,
-          false);
-    });
-
-    if (popup == null) {
-      return;
-    }
+          false,
+          MPSActionPlaces.MPS_EDITOR_INTENTIONS_POPUP);
 
     final EditorCell selectedCell = editorContext.getSelectedCell();
     int x = selectedCell.getX();

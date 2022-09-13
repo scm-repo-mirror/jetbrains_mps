@@ -98,4 +98,10 @@
 
     <customizableActionGroupProvider implementation="jetbrains.mps.ide.editor.MPSEditorCustomizableActionGroupProvider"/>
   </extensions>
+
+  <actions>
+    <action id="MPS.Editor.ShowIntentionMenu" class="com.intellij.openapi.actionSystem.EmptyAction" text="Show Intention Popup">
+      <keyboard-shortcut first-keystroke="alt ENTER" keymap="$default"/>
+    </action>
+  </actions>
 </idea-plugin>
