@@ -108,7 +108,7 @@
   
   <target name="generate" depends="declare-mps-tasks, fetchDependencies">
     <echo message="generating" />
-    <generate fork="true" logLevel="${mps.ant.log}">      
+    <generate fork="true" targetJavaVersion="11" logLevel="${mps.ant.log}">      
       <settings refid="m2m-defaults" />
       <library file="${artifacts.mpsBootstrapCore}/languages/mps-stubs.jar" />
       <chunk>

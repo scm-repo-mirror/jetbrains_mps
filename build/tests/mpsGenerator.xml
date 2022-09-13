@@ -1460,7 +1460,7 @@
   
   <target name="generate" depends="declare-mps-tasks, fetchDependencies">
     <echo message="generating" />
-    <generate fork="true" logLevel="${mps.ant.log}">      
+    <generate fork="true" targetJavaVersion="11" logLevel="${mps.ant.log}">      
       <settings refid="m2m-defaults" />
       <plugin path="${artifacts.mps}/lib/mps-workbench.jar" />
       <plugin path="${artifacts.mps}/plugins/mps-build" />
@@ -1631,7 +1631,7 @@
   <target name="java.compile.jetbrains.mps.baseLanguage.overloadedOperators.sandbox" depends="fetchDependencies">
     <mkdir dir="${basedir}/languages/baseLanguage/overloadedOperators/solutions/jetbrains.mps.baseLanguage.overloadedOperators.sandbox/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.overloadedOperators.sandbox" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.overloadedOperators.sandbox" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.overloadedOperators.sandbox" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/baseLanguage/overloadedOperators/solutions/jetbrains.mps.baseLanguage.overloadedOperators.sandbox/source_gen" />
@@ -1669,7 +1669,7 @@
   
   <target name="java.compile.jetbrains.mps.generator.tests" depends="java.compile.jetbrains.mps.generator.crossmodel.sandbox, java.compile.jetbrains.mps.generator.test.crossmodel.entity, java.compile.jetbrains.mps.generator.test.crossmodel.entity#5533782486491461718, java.compile.jetbrains.mps.generator.test.crossmodel.property, java.compile.jetbrains.mps.generator.test.crossmodel.property#5533782486491461721, java.compile.jetbrains.mps.generator.test.crossmodel.property#g2, java.compile.jetbrains.mps.transformation.test.inputLang.generator01, java.compile.jetbrains.mps.transformation.test.inputLang.generator02, java.compile.jetbrains.mps.transformation.test.inputLang.generator03, java.compile.jetbrains.mps.transformation.test.inputLang.generator04, java.compile.jetbrains.mps.transformation.test.inputLang.generator05, fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.generator.tests" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.generator.tests" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.generator.tests" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src path="${basedir}/testbench/testsolutions/generator.test/test_gen/" />
       <classpath>
@@ -1742,7 +1742,7 @@
   <target name="java.compile.jetbrains.mps.transformation.test.inputLang" depends="java.compile.jetbrains.mps.transformation.test.outputLang, fetchDependencies">
     <mkdir dir="${basedir}/languages/languageDesign/generator/test/inputLang/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/generator/test/inputLang/source_gen" />
@@ -1803,7 +1803,7 @@
   <target name="java.compile.jetbrains.mps.transformation.test.inputLang#1195164860857" depends="java.compile.jetbrains.mps.transformation.test.inputLang, java.compile.jetbrains.mps.transformation.test.outputLang, fetchDependencies">
     <mkdir dir="${basedir}/languages/languageDesign/generator/test/inputLang/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang#1195164860857" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang#1195164860857" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang#1195164860857" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/generator/test/inputLang/generator/source_gen" />
@@ -1863,7 +1863,7 @@
   <target name="java.compile.jetbrains.mps.transformation.test.inputLang.generator01" depends="java.compile.jetbrains.mps.transformation.test.inputLang, fetchDependencies">
     <mkdir dir="${basedir}/languages/languageDesign/generator/test/inputLangGen1/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang.generator01" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang.generator01" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang.generator01" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/generator/test/inputLangGen1/source_gen" />
@@ -1921,7 +1921,7 @@
   <target name="java.compile.jetbrains.mps.transformation.test.inputLang.generator02" depends="java.compile.jetbrains.mps.transformation.test.inputLang, fetchDependencies">
     <mkdir dir="${basedir}/languages/languageDesign/generator/test/inputLangGen2/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang.generator02" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang.generator02" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang.generator02" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/generator/test/inputLangGen2/source_gen" />
@@ -1979,7 +1979,7 @@
   <target name="java.compile.jetbrains.mps.transformation.test.inputLang.generator03" depends="java.compile.jetbrains.mps.transformation.test.inputLang, java.compile.jetbrains.mps.transformation.test.outputLang, fetchDependencies">
     <mkdir dir="${basedir}/languages/languageDesign/generator/test/inputLangGen3/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang.generator03" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang.generator03" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang.generator03" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/generator/test/inputLangGen3/source_gen" />
@@ -2039,7 +2039,7 @@
   <target name="java.compile.jetbrains.mps.transformation.test.inputLang.generator04" depends="java.compile.jetbrains.mps.transformation.test.inputLang, fetchDependencies">
     <mkdir dir="${basedir}/languages/languageDesign/generator/test/inputLangGen4/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang.generator04" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang.generator04" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang.generator04" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/generator/test/inputLangGen4/source_gen" />
@@ -2097,7 +2097,7 @@
   <target name="java.compile.jetbrains.mps.transformation.test.inputLang.generator05" depends="java.compile.jetbrains.mps.transformation.test.inputLang, fetchDependencies">
     <mkdir dir="${basedir}/languages/languageDesign/generator/test/inputLangGen5/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang.generator05" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang.generator05" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang.generator05" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/generator/test/inputLangGen5/source_gen" />
@@ -2155,7 +2155,7 @@
   <target name="java.compile.jetbrains.mps.transformation.test.outputLang" depends="fetchDependencies">
     <mkdir dir="${basedir}/languages/languageDesign/generator/test/outputLang/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.transformation.test.outputLang" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.transformation.test.outputLang" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.transformation.test.outputLang" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/generator/test/outputLang/source_gen" />
@@ -2210,7 +2210,7 @@
   <target name="java.compile.jetbrains.mps.transformation.test.outputLang#1209603905948" depends="java.compile.jetbrains.mps.transformation.test.outputLang, fetchDependencies">
     <mkdir dir="${basedir}/languages/languageDesign/generator/test/outputLang/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.transformation.test.outputLang#1209603905948" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.transformation.test.outputLang#1209603905948" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.transformation.test.outputLang#1209603905948" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/generator/test/outputLang/generator/source_gen" />
@@ -2265,7 +2265,7 @@
   <target name="java.compile.jetbrains.mps.traceInfo.testWeavingGenerated.data" depends="fetchDependencies">
     <mkdir dir="${basedir}/languages/languageDesign/traceinfo/testWeavingGenerated.data/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.traceInfo.testWeavingGenerated.data" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.traceInfo.testWeavingGenerated.data" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.traceInfo.testWeavingGenerated.data" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/traceinfo/testWeavingGenerated.data/source_gen" />
@@ -2324,7 +2324,7 @@
   <target name="java.compile.jetbrains.mps.traceInfo.testWeavingGenerated.data#6186432342008486849" depends="java.compile.jetbrains.mps.traceInfo.testWeavingGenerated.data, fetchDependencies">
     <mkdir dir="${basedir}/languages/languageDesign/traceinfo/testWeavingGenerated.data/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.traceInfo.testWeavingGenerated.data#6186432342008486849" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.traceInfo.testWeavingGenerated.data#6186432342008486849" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.traceInfo.testWeavingGenerated.data#6186432342008486849" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/traceinfo/testWeavingGenerated.data/generator/source_gen" />
@@ -2382,7 +2382,7 @@
   <target name="java.compile.jetbrains.mps.traceInfo.testWeavingInterpreted.data" depends="fetchDependencies">
     <mkdir dir="${basedir}/languages/languageDesign/traceinfo/testWeavingInterpreted.data/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.traceInfo.testWeavingInterpreted.data" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.traceInfo.testWeavingInterpreted.data" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.traceInfo.testWeavingInterpreted.data" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/traceinfo/testWeavingInterpreted.data/source_gen" />
@@ -2441,7 +2441,7 @@
   <target name="java.compile.jetbrains.mps.traceInfo.testWeavingInterpreted.data#2819311507031176971" depends="java.compile.jetbrains.mps.traceInfo.testWeavingInterpreted.data, fetchDependencies">
     <mkdir dir="${basedir}/languages/languageDesign/traceinfo/testWeavingInterpreted.data/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.traceInfo.testWeavingInterpreted.data#2819311507031176971" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.traceInfo.testWeavingInterpreted.data#2819311507031176971" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.traceInfo.testWeavingInterpreted.data#2819311507031176971" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/traceinfo/testWeavingInterpreted.data/generator/source_gen" />
@@ -2499,7 +2499,7 @@
   <target name="java.compile.jetbrains.mps.generator.test.crossmodel.entity" depends="java.compile.jetbrains.mps.generator.test.crossmodel.property, fetchDependencies">
     <mkdir dir="${basedir}/languages/languageDesign/generator/test/entity/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.generator.test.crossmodel.entity" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.generator.test.crossmodel.entity" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.generator.test.crossmodel.entity" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/generator/test/entity/source_gen" />
@@ -2551,7 +2551,7 @@
   <target name="java.compile.jetbrains.mps.generator.test.crossmodel.entity#5533782486491461718" depends="java.compile.jetbrains.mps.generator.test.crossmodel.entity, java.compile.jetbrains.mps.generator.test.crossmodel.property, java.compile.jetbrains.mps.generator.test.crossmodel.property#5533782486491461721, fetchDependencies">
     <mkdir dir="${basedir}/languages/languageDesign/generator/test/entity/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.generator.test.crossmodel.entity#5533782486491461718" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.generator.test.crossmodel.entity#5533782486491461718" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.generator.test.crossmodel.entity#5533782486491461718" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/generator/test/entity/generator/source_gen" />
@@ -2604,7 +2604,7 @@
   <target name="java.compile.jetbrains.mps.generator.test.crossmodel.property" depends="fetchDependencies">
     <mkdir dir="${basedir}/languages/languageDesign/generator/test/property/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.generator.test.crossmodel.property" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.generator.test.crossmodel.property" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.generator.test.crossmodel.property" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/generator/test/property/source_gen" />
@@ -2645,7 +2645,7 @@
   <target name="java.compile.jetbrains.mps.generator.test.crossmodel.property#5533782486491461721" depends="java.compile.jetbrains.mps.generator.test.crossmodel.property, fetchDependencies">
     <mkdir dir="${basedir}/languages/languageDesign/generator/test/property/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.generator.test.crossmodel.property#5533782486491461721" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.generator.test.crossmodel.property#5533782486491461721" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.generator.test.crossmodel.property#5533782486491461721" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/generator/test/property/generator/source_gen" />
@@ -2687,7 +2687,7 @@
   <target name="java.compile.jetbrains.mps.generator.crossmodel.sandbox" depends="java.compile.jetbrains.mps.generator.test.crossmodel.entity, java.compile.jetbrains.mps.generator.test.crossmodel.property, fetchDependencies">
     <mkdir dir="${basedir}/languages/languageDesign/generator/test/crossmodel/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.generator.crossmodel.sandbox" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.generator.crossmodel.sandbox" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.generator.crossmodel.sandbox" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/generator/test/crossmodel/source_gen" />
@@ -2738,7 +2738,7 @@
   <target name="java.compile.jetbrains.mps.generator.test.crossmodel.property#g2" depends="java.compile.jetbrains.mps.generator.test.crossmodel.property, fetchDependencies">
     <mkdir dir="${basedir}/languages/languageDesign/generator/test/property/gen2/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.generator.test.crossmodel.property#g2" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.generator.test.crossmodel.property#g2" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.generator.test.crossmodel.property#g2" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/generator/test/property/gen2/source_gen" />
@@ -2777,7 +2777,7 @@
   <target name="java.compile.jetbrains.mps.traceInfo.testWeaving" depends="java.compile.jetbrains.mps.traceInfo.testWeavingGenerated.data, java.compile.jetbrains.mps.traceInfo.testWeavingInterpreted.data, fetchDependencies">
     <mkdir dir="${basedir}/testbench/testsolutions/traceInfo.testWeaving/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.traceInfo.testWeaving" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.traceInfo.testWeaving" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.traceInfo.testWeaving" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/testbench/testsolutions/traceInfo.testWeaving/source_gen" />
@@ -2845,7 +2845,7 @@
   <target name="java.compile.jetbrains.mps.generator.xmodel.build.test" depends="fetchDependencies">
     <mkdir dir="${basedir}/testbench/modules/xmodel.build/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.generator.xmodel.build.test" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.generator.xmodel.build.test" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.generator.xmodel.build.test" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/testbench/modules/xmodel.build/source_gen" />

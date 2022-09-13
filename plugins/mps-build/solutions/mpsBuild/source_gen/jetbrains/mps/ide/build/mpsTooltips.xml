@@ -283,7 +283,7 @@
   
   <target name="generate" depends="declare-mps-tasks, fetchDependencies">
     <echo message="generating" />
-    <generate fork="true" logLevel="${mps.ant.log}">      
+    <generate fork="true" targetJavaVersion="11" logLevel="${mps.ant.log}">      
       <settings refid="m2m-defaults" />
       <library file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/closures.runtime.jar" />
       <library file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/collections.runtime.jar" />
@@ -432,7 +432,7 @@
   <target name="java.compile.jetbrains.mps.lang.editor.tooltips" depends="java.compile.jetbrains.mps.lang.editor.tooltips.runtime, fetchDependencies">
     <mkdir dir="${mps_home}/plugins/mps-tooltips/languages/tooltips/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.editor.tooltips" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.editor.tooltips" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.editor.tooltips" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/plugins/mps-tooltips/languages/tooltips/source_gen" />
@@ -496,7 +496,7 @@
   <target name="java.compile.jetbrains.mps.lang.editor.tooltips#0361794385526429345" depends="java.compile.jetbrains.mps.lang.editor.tooltips, java.compile.jetbrains.mps.lang.editor.tooltips.runtime, fetchDependencies">
     <mkdir dir="${mps_home}/plugins/mps-tooltips/languages/tooltips/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.editor.tooltips#0361794385526429345" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.editor.tooltips#0361794385526429345" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.editor.tooltips#0361794385526429345" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/plugins/mps-tooltips/languages/tooltips/generator/source_gen" />
@@ -562,7 +562,7 @@
   <target name="java.compile.jetbrains.mps.lang.editor.tooltips.runtime" depends="fetchDependencies">
     <mkdir dir="${mps_home}/plugins/mps-tooltips/languages/tooltips.runtime/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.editor.tooltips.runtime" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.editor.tooltips.runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.editor.tooltips.runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/plugins/mps-tooltips/languages/tooltips.runtime/source_gen" />

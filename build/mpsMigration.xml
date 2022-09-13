@@ -360,7 +360,7 @@
   
   <target name="generate" depends="declare-mps-tasks, fetchDependencies">
     <echo message="generating" />
-    <generate fork="true" logLevel="${mps.ant.log}">      
+    <generate fork="true" targetJavaVersion="11" logLevel="${mps.ant.log}">      
       <settings refid="m2m-defaults" />
       <plugin path="${artifacts.mpsCore}/mps-core" />
       <plugin path="${artifacts.mpsPlugins}/mps-modelchecker" />
@@ -558,7 +558,7 @@
   <target name="java.compile.jetbrains.mps.migration.workbench" depends="fetchDependencies">
     <mkdir dir="${plugin_home}/solutions/migration.workbench/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.migration.workbench" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.migration.workbench" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.migration.workbench" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${plugin_home}/solutions/migration.workbench/source_gen" />
@@ -617,7 +617,7 @@
   <target name="java.compile.jetbrains.mps.ide.mpsmigration" depends="fetchDependencies">
     <mkdir dir="${mps_home}/plugins/mps-project-migrations/solution/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.ide.mpsmigration" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.ide.mpsmigration" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.ide.mpsmigration" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/plugins/mps-project-migrations/solution/source_gen" />

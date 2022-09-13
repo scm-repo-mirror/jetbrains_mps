@@ -92,7 +92,7 @@
   
   <target name="java.compile.vcs-ide" depends="fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/vcs-ide" />
-    <javac2 destdir="${build.tmp}/java/out/vcs-ide" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/vcs-ide" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src path="${mps_home}/plugins/mps-vcs/solutions/jetbrains.mps.ide.vcs/source_gen" />
       <classpath>

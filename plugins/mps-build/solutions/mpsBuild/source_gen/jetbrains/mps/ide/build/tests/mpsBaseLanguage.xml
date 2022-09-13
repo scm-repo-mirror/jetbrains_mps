@@ -769,7 +769,7 @@
   
   <target name="generate" depends="declare-mps-tasks, fetchDependencies">
     <echo message="generating" />
-    <generate fork="true" logLevel="${mps.ant.log}">      
+    <generate fork="true" targetJavaVersion="11" logLevel="${mps.ant.log}">      
       <settings refid="m2m-defaults" />
       <plugin path="${artifacts.mps}/plugins/mps-core" />
       <plugin path="${artifacts.mps}/plugins/mps-testing" />
@@ -923,7 +923,7 @@
   
   <target name="java.compile.jetbrains.mps.baseLanguage.unittest" depends="fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.unittest" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.unittest" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.unittest" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src path="${basedir}/testbench/testsolutions/bl.unittest/test_gen/" />
       <classpath>
@@ -981,7 +981,7 @@
   
   <target name="java.compile.jetbrains.mps.baseLanguage.closures.unittest" depends="fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.closures.unittest" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.closures.unittest" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.closures.unittest" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src path="${basedir}/testbench/testsolutions/bl.closures.unittest/test_gen/" />
       <classpath>
@@ -1038,7 +1038,7 @@
   
   <target name="java.compile.closures.test" depends="fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/closures.test" />
-    <javac2 destdir="${build.tmp}/java/out/closures.test" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/closures.test" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src path="${basedir}/testbench/testsolutions/closures.test/test_gen/" />
       <classpath>
@@ -1081,7 +1081,7 @@
   
   <target name="java.compile.jetbrains.mps.baseLanguage.testRefs" depends="fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.testRefs" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.testRefs" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.testRefs" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src path="${basedir}/testbench/modules/jetbrains.mps.baseLanguage.testRefs/test_gen/" />
       <classpath>
@@ -1141,7 +1141,7 @@
   <target name="java.compile.jetbrains.mps.baseLanguage.testRefs.testLang" depends="fetchDependencies">
     <mkdir dir="${basedir}/testbench/modules/jetbrains.mps.baseLanguage.testRefs.testLang/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.testRefs.testLang" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.testRefs.testLang" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.testRefs.testLang" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/testbench/modules/jetbrains.mps.baseLanguage.testRefs.testLang/source_gen" />
@@ -1200,7 +1200,7 @@
   <target name="java.compile.jetbrains.mps.baseLanguage.testRefs.testLang#01" depends="java.compile.jetbrains.mps.baseLanguage.testRefs.testLang, fetchDependencies">
     <mkdir dir="${basedir}/testbench/modules/jetbrains.mps.baseLanguage.testRefs.testLang/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.testRefs.testLang#01" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.testRefs.testLang#01" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.testRefs.testLang#01" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/testbench/modules/jetbrains.mps.baseLanguage.testRefs.testLang/generator/source_gen" />
@@ -1257,7 +1257,7 @@
   
   <target name="java.compile.jetbrains.mps.baseLanguageInternal.test" depends="fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguageInternal.test" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguageInternal.test" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguageInternal.test" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src path="${basedir}/testbench/testsolutions/bl.internal.test/test_gen/" />
       <classpath>
@@ -1315,7 +1315,7 @@
   
   <target name="java.compile.jetbrains.mps.baseLanguage.doubleDispatch.test" depends="fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.doubleDispatch.test" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.doubleDispatch.test" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.doubleDispatch.test" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src path="${basedir}/testbench/testsolutions/bl.doubleDispatch.test/test_gen/" />
       <classpath>
@@ -1372,7 +1372,7 @@
   
   <target name="java.compile.jetbrains.mps.baseLanguage.regexp.unittest" depends="fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.regexp.unittest" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.regexp.unittest" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.regexp.unittest" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src path="${basedir}/testbench/testsolutions/regexp.unittest/test_gen/" />
       <classpath>
@@ -1390,7 +1390,7 @@
   <target name="java.compile.jetbrains.mps.baseLanguage.tuples.test" depends="fetchDependencies">
     <mkdir dir="${basedir}/testbench/testsolutions/bl.tuples.test/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.tuples.test" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.tuples.test" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.tuples.test" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/testbench/testsolutions/bl.tuples.test/source_gen" />
@@ -1412,7 +1412,7 @@
   <target name="java.compile.collections_unittest" depends="fetchDependencies">
     <mkdir dir="${basedir}/testbench/testsolutions/collections_unittest/tests_gen" />
     <mkdir dir="${build.tmp}/java/out/collections_unittest" />
-    <javac2 destdir="${build.tmp}/java/out/collections_unittest" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/collections_unittest" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/testbench/testsolutions/collections_unittest/tests_gen" />
@@ -1433,7 +1433,7 @@
   <target name="java.compile.internalCollections.test" depends="fetchDependencies">
     <mkdir dir="${basedir}/testbench/testsolutions/bl.internalCollections.test/source_gen" />
     <mkdir dir="${build.tmp}/java/out/internalCollections.test" />
-    <javac2 destdir="${build.tmp}/java/out/internalCollections.test" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/internalCollections.test" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/testbench/testsolutions/bl.internalCollections.test/source_gen" />
@@ -1496,7 +1496,7 @@
   <target name="java.compile.collections_trove.test" depends="java.compile.internalCollections.test, fetchDependencies">
     <mkdir dir="${basedir}/testbench/testsolutions/collections_trove.test/source_gen" />
     <mkdir dir="${build.tmp}/java/out/collections_trove.test" />
-    <javac2 destdir="${build.tmp}/java/out/collections_trove.test" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/collections_trove.test" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/testbench/testsolutions/collections_trove.test/source_gen" />

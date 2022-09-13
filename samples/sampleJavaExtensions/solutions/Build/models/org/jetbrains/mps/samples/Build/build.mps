@@ -144,7 +144,7 @@
     <property role="TrG5h" value="build" />
     <property role="2DA0ip" value="../../" />
     <node concept="2_Ic$z" id="3pzB6wN3oyw" role="3989C9">
-      <property role="TZNOO" value="" />
+      <property role="TZNOO" value="11" />
     </node>
     <node concept="m$_wf" id="7BdheMmR0kP" role="3989C9">
       <property role="m$_wk" value="org.jetbrains.mps.samples.sampleJavaExtensions" />

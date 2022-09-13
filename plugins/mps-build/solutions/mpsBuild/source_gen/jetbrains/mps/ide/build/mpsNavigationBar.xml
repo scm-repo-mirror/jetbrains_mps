@@ -91,7 +91,7 @@
   <target name="java.compile.navbar" depends="fetchDependencies">
     <mkdir dir="${plugin_home}/sources" />
     <mkdir dir="${build.tmp}/java/out/navbar" />
-    <javac2 destdir="${build.tmp}/java/out/navbar" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/navbar" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${plugin_home}/sources" />

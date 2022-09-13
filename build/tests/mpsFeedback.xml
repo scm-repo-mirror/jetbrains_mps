@@ -223,7 +223,7 @@
   
   <target name="generate" depends="declare-mps-tasks, fetchDependencies">
     <echo message="generating" />
-    <generate fork="true" logLevel="${mps.ant.log}">      
+    <generate fork="true" targetJavaVersion="11" logLevel="${mps.ant.log}">      
       <settings refid="m2m-defaults" />
       <plugin path="${artifacts.mps}/plugins/mps-core" />
       <plugin path="${artifacts.mps}/plugins/mps-testing" />
@@ -363,7 +363,7 @@
   <target name="java.compile.messages.customization" depends="fetchDependencies">
     <mkdir dir="${basedir}/samples/messagesCustomization/languages/messages.customization/source_gen" />
     <mkdir dir="${build.tmp}/java/out/messages.customization" />
-    <javac2 destdir="${build.tmp}/java/out/messages.customization" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/messages.customization" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/samples/messagesCustomization/languages/messages.customization/source_gen" />
@@ -426,7 +426,7 @@
   <target name="java.compile.messages.sandbox" depends="java.compile.messages.customization, fetchDependencies">
     <mkdir dir="${basedir}/samples/messagesCustomization/solutions/sandbox/source_gen" />
     <mkdir dir="${build.tmp}/java/out/messages.sandbox" />
-    <javac2 destdir="${build.tmp}/java/out/messages.sandbox" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/messages.sandbox" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/samples/messagesCustomization/solutions/sandbox/source_gen" />

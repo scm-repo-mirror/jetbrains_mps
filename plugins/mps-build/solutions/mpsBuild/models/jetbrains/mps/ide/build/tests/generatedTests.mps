@@ -149,7 +149,7 @@
       <property role="2_Ic$B" value="true" />
       <property role="3fwGa$" value="IntelliJ" />
       <property role="2_GNG2" value="1024" />
-      <property role="TZNOO" value="" />
+      <property role="TZNOO" value="11" />
       <node concept="3qWCbU" id="7U3WUIDPa6L" role="2_Ic$A">
         <property role="3qWCbO" value="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
       </node>

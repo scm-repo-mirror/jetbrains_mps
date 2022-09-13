@@ -432,7 +432,7 @@
   
   <target name="generate" depends="declare-mps-tasks, fetchDependencies">
     <echo message="generating" />
-    <generate fork="true" logLevel="${mps.ant.log}">      
+    <generate fork="true" targetJavaVersion="11" logLevel="${mps.ant.log}">      
       <settings refid="m2m-defaults" />
       <library file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/closures.runtime.jar" />
       <library file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/collections.runtime.jar" />
@@ -611,7 +611,7 @@
   
   <target name="java.compile.vcs-core" depends="fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/vcs-core" />
-    <javac2 destdir="${build.tmp}/java/out/vcs-core" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/vcs-core" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <pathelement path="${mps_home}/plugins/mps-vcs/vcs-core/modules/jetbrains.mps.ide.vcs.core/source_gen" />
@@ -647,7 +647,7 @@
   
   <target name="java.compile.vcs-platform" depends="java.compile.vcs-core, fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/vcs-platform" />
-    <javac2 destdir="${build.tmp}/java/out/vcs-platform" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/vcs-platform" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src path="${mps_home}/plugins/mps-vcs/vcs-platform/solutions/jetbrains.mps.ide.vcs.platform/source_gen" />
       <classpath>
@@ -694,7 +694,7 @@
   <target name="java.compile.jetbrains.mps.ide.vcs.modelmetadata" depends="fetchDependencies">
     <mkdir dir="${mps_home}/plugins/mps-vcs/vcs-platform/languages/modelmetadata/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.ide.vcs.modelmetadata" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.ide.vcs.modelmetadata" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.ide.vcs.modelmetadata" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/plugins/mps-vcs/vcs-platform/languages/modelmetadata/source_gen" />

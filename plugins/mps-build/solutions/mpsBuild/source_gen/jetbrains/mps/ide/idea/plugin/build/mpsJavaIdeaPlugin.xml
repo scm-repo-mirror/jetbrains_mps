@@ -109,7 +109,7 @@
   
   <target name="java.compile.mps-java-idea" depends="fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/mps-java-idea" />
-    <javac2 destdir="${build.tmp}/java/out/mps-java-idea" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/mps-java-idea" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <pathelement path="${mps_home}/IdeaPlugin/mps-java/debugger/src" />

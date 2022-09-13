@@ -88,7 +88,7 @@
   <target name="java.compile.migration-platform" depends="fetchDependencies">
     <mkdir dir="${plugin_home}/migration-platform/solutions/component/source_gen" />
     <mkdir dir="${build.tmp}/java/out/migration-platform" />
-    <javac2 destdir="${build.tmp}/java/out/migration-platform" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/migration-platform" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${plugin_home}/migration-platform/solutions/component/source_gen" />

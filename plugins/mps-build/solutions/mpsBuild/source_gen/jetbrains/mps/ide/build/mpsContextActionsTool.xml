@@ -356,7 +356,7 @@
   
   <target name="generate" depends="declare-mps-tasks, fetchDependencies">
     <echo message="generating" />
-    <generate fork="true" logLevel="${mps.ant.log}">      
+    <generate fork="true" targetJavaVersion="11" logLevel="${mps.ant.log}">      
       <settings refid="m2m-defaults" />
       <library file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/closures.runtime.jar" />
       <library file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/collections.runtime.jar" />
@@ -524,7 +524,7 @@
   <target name="java.compile.jetbrains.mps.editor.contextActionsTool.pluginSolution" depends="java.compile.jetbrains.mps.editor.contextActionsTool.lang.menus.runtime, fetchDependencies">
     <mkdir dir="${mps_home}/plugins/mps-context-actions/modules/pluginSolution/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.editor.contextActionsTool.pluginSolution" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.editor.contextActionsTool.pluginSolution" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.editor.contextActionsTool.pluginSolution" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/plugins/mps-context-actions/modules/pluginSolution/source_gen" />
@@ -577,7 +577,7 @@
   <target name="java.compile.jetbrains.mps.editor.contextActionsTool.lang.menus" depends="java.compile.jetbrains.mps.editor.contextActionsTool.pluginSolution, fetchDependencies">
     <mkdir dir="${mps_home}/plugins/mps-context-actions/modules/lang.menus/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.editor.contextActionsTool.lang.menus" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.editor.contextActionsTool.lang.menus" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.editor.contextActionsTool.lang.menus" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/plugins/mps-context-actions/modules/lang.menus/source_gen" />
@@ -648,7 +648,7 @@
   <target name="java.compile.jetbrains.mps.editor.contextActionsTool.lang.menus#6917971026853604122" depends="java.compile.jetbrains.mps.editor.contextActionsTool.lang.menus, fetchDependencies">
     <mkdir dir="${mps_home}/plugins/mps-context-actions/modules/lang.menus/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.editor.contextActionsTool.lang.menus#6917971026853604122" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.editor.contextActionsTool.lang.menus#6917971026853604122" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.editor.contextActionsTool.lang.menus#6917971026853604122" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/plugins/mps-context-actions/modules/lang.menus/generator/source_gen" />
@@ -715,7 +715,7 @@
   <target name="java.compile.jetbrains.mps.editor.contextActionsTool.lang.menus.runtime" depends="fetchDependencies">
     <mkdir dir="${mps_home}/plugins/mps-context-actions/modules/runtime/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.editor.contextActionsTool.lang.menus.runtime" />
-    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.editor.contextActionsTool.lang.menus.runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.editor.contextActionsTool.lang.menus.runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/plugins/mps-context-actions/modules/runtime/source_gen" />

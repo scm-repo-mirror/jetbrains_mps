@@ -277,7 +277,7 @@
   
   <target name="generate" depends="declare-mps-tasks, fetchDependencies">
     <echo message="generating" />
-    <generate fork="true" logLevel="${mps.ant.log}">      
+    <generate fork="true" targetJavaVersion="11" logLevel="${mps.ant.log}">      
       <settings refid="m2m-defaults" />
       <plugin path="${artifacts.mpsCore}/mps-core" />
       <plugin path="${artifacts.mpsTesting}/mps-testing" />
@@ -461,7 +461,7 @@
   <target name="java.compile.mps-modelchecker" depends="fetchDependencies">
     <mkdir dir="${mps_home}/plugins/mps-modelchecker/platform/source_gen" />
     <mkdir dir="${build.tmp}/java/out/mps-modelchecker" />
-    <javac2 destdir="${build.tmp}/java/out/mps-modelchecker" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/mps-modelchecker" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <pathelement path="${mps_home}/plugins/mps-modelchecker/source" />
@@ -514,7 +514,7 @@
   <target name="java.compile.mps-memtool" depends="fetchDependencies">
     <mkdir dir="${mps_home}/plugins/mps-memtool/source" />
     <mkdir dir="${build.tmp}/java/out/mps-memtool" />
-    <javac2 destdir="${build.tmp}/java/out/mps-memtool" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/mps-memtool" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/plugins/mps-memtool/source" />
@@ -562,7 +562,7 @@
   <target name="java.compile.mps-samples" depends="fetchDependencies">
     <mkdir dir="${mps_home}/plugins/mps-samples/sources" />
     <mkdir dir="${build.tmp}/java/out/mps-samples" />
-    <javac2 destdir="${build.tmp}/java/out/mps-samples" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/mps-samples" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/plugins/mps-samples/sources" />

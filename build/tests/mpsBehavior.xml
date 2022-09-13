@@ -702,7 +702,7 @@
   
   <target name="generate" depends="declare-mps-tasks, fetchDependencies">
     <echo message="generating" />
-    <generate fork="true" logLevel="${mps.ant.log}">      
+    <generate fork="true" targetJavaVersion="11" logLevel="${mps.ant.log}">      
       <settings refid="m2m-defaults" />
       <plugin path="${artifacts.mps}/plugins/mps-core" />
       <plugin path="${artifacts.mps}/plugins/mps-testing" />
@@ -826,7 +826,7 @@
   <target name="java.compile.BHL1" depends="java.compile.UtilSolution, fetchDependencies">
     <mkdir dir="${basedir}/testbench/modules/testBehavior/languages/L1/source_gen" />
     <mkdir dir="${build.tmp}/java/out/BHL1" />
-    <javac2 destdir="${build.tmp}/java/out/BHL1" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/BHL1" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/testbench/modules/testBehavior/languages/L1/source_gen" />
@@ -865,7 +865,7 @@
   <target name="java.compile.BHL2" depends="java.compile.UtilSolution, fetchDependencies">
     <mkdir dir="${basedir}/testbench/modules/testBehavior/languages/L2/source_gen" />
     <mkdir dir="${build.tmp}/java/out/BHL2" />
-    <javac2 destdir="${build.tmp}/java/out/BHL2" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/BHL2" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/testbench/modules/testBehavior/languages/L2/source_gen" />
@@ -904,7 +904,7 @@
   <target name="java.compile.BHL3" depends="java.compile.UtilSolution, fetchDependencies">
     <mkdir dir="${basedir}/testbench/modules/testBehavior/languages/L3/source_gen" />
     <mkdir dir="${build.tmp}/java/out/BHL3" />
-    <javac2 destdir="${build.tmp}/java/out/BHL3" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/BHL3" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/testbench/modules/testBehavior/languages/L3/source_gen" />
@@ -943,7 +943,7 @@
   <target name="java.compile.BHL4" depends="java.compile.UtilSolution, fetchDependencies">
     <mkdir dir="${basedir}/testbench/modules/testBehavior/languages/L4/source_gen" />
     <mkdir dir="${build.tmp}/java/out/BHL4" />
-    <javac2 destdir="${build.tmp}/java/out/BHL4" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/BHL4" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/testbench/modules/testBehavior/languages/L4/source_gen" />
@@ -982,7 +982,7 @@
   <target name="java.compile.BHL5" depends="java.compile.UtilSolution, fetchDependencies">
     <mkdir dir="${basedir}/testbench/modules/testBehavior/languages/L5/source_gen" />
     <mkdir dir="${build.tmp}/java/out/BHL5" />
-    <javac2 destdir="${build.tmp}/java/out/BHL5" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/BHL5" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/testbench/modules/testBehavior/languages/L5/source_gen" />
@@ -1021,7 +1021,7 @@
   <target name="java.compile.BHL6" depends="java.compile.UtilSolution, fetchDependencies">
     <mkdir dir="${basedir}/testbench/modules/testBehavior/languages/L6/source_gen" />
     <mkdir dir="${build.tmp}/java/out/BHL6" />
-    <javac2 destdir="${build.tmp}/java/out/BHL6" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/BHL6" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/testbench/modules/testBehavior/languages/L6/source_gen" />
@@ -1060,7 +1060,7 @@
   <target name="java.compile.BHL7" depends="java.compile.UtilSolution, fetchDependencies">
     <mkdir dir="${basedir}/testbench/modules/testBehavior/languages/L7/source_gen" />
     <mkdir dir="${build.tmp}/java/out/BHL7" />
-    <javac2 destdir="${build.tmp}/java/out/BHL7" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/BHL7" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/testbench/modules/testBehavior/languages/L7/source_gen" />
@@ -1099,7 +1099,7 @@
   <target name="java.compile.UtilSolution" depends="fetchDependencies">
     <mkdir dir="${basedir}/testbench/modules/testBehavior/solutions/UtilSolution/source_gen" />
     <mkdir dir="${build.tmp}/java/out/UtilSolution" />
-    <javac2 destdir="${build.tmp}/java/out/UtilSolution" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/UtilSolution" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/testbench/modules/testBehavior/solutions/UtilSolution/source_gen" />
@@ -1117,7 +1117,7 @@
   <target name="java.compile.TestBehavior" depends="java.compile.BHL1, java.compile.BHL2, java.compile.BHL3, java.compile.BHL4, java.compile.BHL5, java.compile.BHL6, java.compile.BHL7, java.compile.UtilSolution, fetchDependencies">
     <mkdir dir="${basedir}/testbench/modules/testBehavior/solutions/TestBehavior/source_gen" />
     <mkdir dir="${build.tmp}/java/out/TestBehavior" />
-    <javac2 destdir="${build.tmp}/java/out/TestBehavior" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/TestBehavior" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/testbench/modules/testBehavior/solutions/TestBehavior/source_gen" />
@@ -1181,7 +1181,7 @@
   <target name="java.compile.TestBehaviorReflective" depends="java.compile.BHL1, java.compile.BHL2, java.compile.BHL3, java.compile.BHL4, java.compile.BHL5, java.compile.BHL6, java.compile.BHL7, java.compile.UtilSolution, fetchDependencies">
     <mkdir dir="${basedir}/testbench/modules/testBehavior/solutions/TestBehaviorReflective/source_gen" />
     <mkdir dir="${build.tmp}/java/out/TestBehaviorReflective" />
-    <javac2 destdir="${build.tmp}/java/out/TestBehaviorReflective" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/TestBehaviorReflective" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/testbench/modules/testBehavior/solutions/TestBehaviorReflective/source_gen" />

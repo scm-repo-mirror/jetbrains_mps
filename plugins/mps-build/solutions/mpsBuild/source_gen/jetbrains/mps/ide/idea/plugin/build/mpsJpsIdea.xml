@@ -93,7 +93,7 @@
   <target name="java.compile.mps-core-jps-plugin" depends="fetchDependencies">
     <mkdir dir="${mps_home}/IdeaPlugin/mps-core/jps-plugin/src" />
     <mkdir dir="${build.tmp}/java/out/mps-core-jps-plugin" />
-    <javac2 destdir="${build.tmp}/java/out/mps-core-jps-plugin" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/mps-core-jps-plugin" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/IdeaPlugin/mps-core/jps-plugin/src" />
@@ -140,7 +140,7 @@
   <target name="java.compile.mps-java-jps-plugin" depends="java.compile.mps-core-jps-plugin, fetchDependencies">
     <mkdir dir="${mps_home}/IdeaPlugin/mps-java/jps-plugin/src" />
     <mkdir dir="${build.tmp}/java/out/mps-java-jps-plugin" />
-    <javac2 destdir="${build.tmp}/java/out/mps-java-jps-plugin" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+    <javac2 destdir="${build.tmp}/java/out/mps-java-jps-plugin" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/IdeaPlugin/mps-java/jps-plugin/src" />
