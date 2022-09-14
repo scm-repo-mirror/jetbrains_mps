@@ -19,22 +19,18 @@ import com.intellij.ide.DataManager;
 import com.intellij.openapi.actionSystem.ActionGroup;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.AnAction;
-import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.DataContext;
-import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.openapi.actionSystem.KeyboardShortcut;
-import com.intellij.openapi.actionSystem.Presentation;
 import com.intellij.openapi.actionSystem.Shortcut;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.ui.popup.JBPopupFactory;
 import com.intellij.openapi.ui.popup.ListPopup;
 import com.intellij.ui.awt.RelativePoint;
+import jetbrains.mps.editor.intentions.IntentionMenuProducer;
 import jetbrains.mps.editor.runtime.cells.ReadOnlyUtil;
-import jetbrains.mps.editor.runtime.commands.EditorCommand;
 import jetbrains.mps.ide.actions.MPSActionPlaces;
 import jetbrains.mps.ide.actions.MPSActions;
 import jetbrains.mps.intentions.IntentionsManager;
-import jetbrains.mps.intentions.IntentionsManager.QueryDescriptor;
 import jetbrains.mps.intentions.LightBulbMenu;
 import jetbrains.mps.intentions.icons.Icons;
 import jetbrains.mps.intentions.icons.IntentionIconProvider;
@@ -42,21 +38,11 @@ import jetbrains.mps.nodeEditor.EditorComponent.EditorDisposeListener;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Label;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.selection.SelectionListener;
-import jetbrains.mps.openapi.intentions.IntentionExecutable;
 import jetbrains.mps.openapi.intentions.Kind;
-import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.smodel.SModelOperations;
-import jetbrains.mps.smodel.SNodeUndoableAction;
-import jetbrains.mps.smodel.SNodeUndoableAction.VFSChange;
-import jetbrains.mps.smodel.UndoRunnable;
 import jetbrains.mps.typechecking.TypecheckingFacade;
-import jetbrains.mps.util.Pair;
-import jetbrains.mps.workbench.action.BaseAction;
-import jetbrains.mps.workbench.action.BaseGroup;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;
-import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.module.ModelAccess;
 
 import javax.swing.AbstractAction;
@@ -69,16 +55,12 @@ import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
 
+/**
+ * Responsible for UI elements of Intentions popup menu and integration with EditorComponent.
+ * To build actual ActionGroup delegates to {@link jetbrains.mps.editor.intentions.IntentionMenuProducer}
+ */
 public class IntentionsSupport {
   private static final long INTENTION_SHOW_DELAY = 1000;
 
@@ -92,8 +74,12 @@ public class IntentionsSupport {
   @NotNull
   private final EditorComponent myEditor;
 
+  private IntentionMenuProducer myMenuProducer;
+
   public IntentionsSupport(@NotNull EditorComponent editor) {
     myEditor = editor;
+
+    myMenuProducer = new IntentionMenuProducer(editor);
 
     final AnAction ideaActionRegistration = ActionManager.getInstance().getActionOrStub(MPSActions.EDITOR_SHOW_INTENTIONS_POPUP_ACTION);
     KeyStroke firstKeyStroke = null;
@@ -163,6 +149,20 @@ public class IntentionsSupport {
       }
     };
     myEditor.addDisposeListener(disposeListener);
+  }
+
+  /**
+   * Use default implementation to build actions of intentions menu popup.
+   */
+  /*package*/ void resetMenuProducer() {
+    myMenuProducer = new IntentionMenuProducer(myEditor);
+  }
+
+  /**
+   * Override default logic to build actions of intentions menu popup.
+   */
+  /*package*/ void setMenuProducer(@NotNull IntentionMenuProducer menuProducer) {
+    myMenuProducer = menuProducer;
   }
 
   private void checkAndShowMenu() {
@@ -253,86 +253,11 @@ public class IntentionsSupport {
     return getInsertedPosition(viewRect, myLightBulb.getPreferredSize(), new Point(x, y));
   }
 
-  private AnAction getIntentionGroup(final IntentionExecutable intention, final SNode node) {
-    Icon icon = new IntentionIconProvider(intention.getDescriptor().getKind()).getIcon();
-    String text = intention.getDescription(node, myEditor.getEditorContext());
-
-    final IntentionCommand ic = new IntentionCommand(text, intention, node);
-
-    List<AnAction> intentionActions = new ArrayList<>();
-    for (IntentionActionsProvider provider : IntentionActionsProvider.EP_NAME.getExtensionList()) {
-      intentionActions.addAll(Arrays.asList(provider.getIntentionActions(intention)));
-    }
-
-    if (intentionActions.isEmpty()) {
-      return new BaseAction(text, null, icon) {
-        @Override
-        protected void doExecute(AnActionEvent e, Map<String, Object> params) {
-          IntentionsSupport.this.getModelAccess().executeCommandInEDT(ic);
-        }
-      };
-    } else {
-      DefaultActionGroup intentionActionGroup = new DefaultActionGroup(text, true) {
-        @Override
-        public void actionPerformed(AnActionEvent e) {
-          IntentionsSupport.this.getModelAccess().executeCommandInEDT(ic);
-        }
-      };
-      intentionActionGroup.getTemplatePresentation().setPerformGroup(true);
-      intentionActionGroup.addAll(intentionActions);
-      intentionActionGroup.getTemplatePresentation().setIcon(icon);
-      return intentionActionGroup;
-    }
-
-  }
-
-  private BaseGroup getIntentionsGroup(final DataContext dataContext) {
-    // intentions
-    List<Pair<IntentionExecutable, SNode>> groupItems = new ArrayList<>(getEnabledIntentions());
-
-    // actions as intentions
-    List<AnAction> actions = new ArrayList<>();
-    collectActionsAsIntentions(ActionManager.getInstance().getAction(MPSActions.ACTIONS_AS_INTENTIONS_GROUP), actions, dataContext);
-
-    if (groupItems.isEmpty() && actions.isEmpty()) {
-      return null;
-    }
-    BaseGroup group = new BaseGroup("");
-    for (final Pair<IntentionExecutable, SNode> pair : groupItems) {
-      group.add(getIntentionGroup(pair.o1, pair.o2));
-    }
-    group.addAll(actions);
-    return group;
-  }
-
-  private void collectActionsAsIntentions(AnAction action, List<AnAction> actions, DataContext dataContext) {
-    if (action instanceof ActionGroup) {
-      for (AnAction child : ((ActionGroup) action).getChildren(null)) {
-        collectActionsAsIntentions(child, actions, dataContext);
-      }
-    } else if (action instanceof BaseAction) {
-      Presentation presentation = action.getTemplatePresentation().clone();
-      if (presentation.getIcon() == null) {
-        presentation.setIcon(Icons.REAL_INTENTION);
-      }
-      // clone() is vital not to get into Presentation.assertNotTemplatePresentation() troubles
-      // However, setIcon for a non-template presentation seems to be no-op, therefore we modify template first,
-      // and then get a clone for setVisible() inside update() to work. This didn't work (no icon is shown for the
-      // action, but doesn't throw any assert, and I leave this code in a futile attempt to address this defect later.
-      //noinspection UseOfClone
-      presentation = presentation.clone();
-      action.update(new AnActionEvent(null, dataContext, "", presentation, ActionManager.getInstance(), 0));
-      if (presentation.isVisible()) {
-        actions.add(action);
-      }
-    }
-  }
-
   // invoked with model read
   private void showIntentionsMenu() {
     final EditorContext editorContext = myEditor.getEditorContext();
     DataContext dataContext = DataManager.getInstance().getDataContext(editorContext.getNodeEditorComponent());
-    BaseGroup group = getIntentionsGroup(dataContext);
+    ActionGroup group = myMenuProducer.getIntentionsGroup(dataContext);
     if (group == null) {
       return;
     }
@@ -354,73 +279,8 @@ public class IntentionsSupport {
     popup.show(relativePoint);
   }
 
-  private Set<Pair<IntentionExecutable, SNode>> getEnabledIntentions() {
-    final Set<Pair<IntentionExecutable, SNode>> result = new LinkedHashSet<>();
-    final SNode node = myEditor.getSelectedNode();
-    final EditorContext editorContext = myEditor.getEditorContext();
-    if (node != null) {
-      final QueryDescriptor query = new QueryDescriptor();
-      query.setEnabledOnly(true);
-      if (myEditor.getTypecheckingSession() != null) {
-        final Collection<Pair<IntentionExecutable, SNode>> availableIntentions =
-            TypecheckingFacade
-                .getFromContext()
-                .computeWithSession(myEditor.getTypecheckingSession(),
-                                    (session) -> IntentionsManager
-                                                  .getInstance()
-                                                  .getAvailableIntentions(query, node, editorContext));
-        result.addAll(availableIntentions);
-      }
-    }
-    return result;
-  }
-
   private ModelAccess getModelAccess() {
     return myEditor.getRepository().getModelAccess();
-  }
-
-  // UndoRunnable to make sure Edit->Undo shows name of the intention. No idea if could use group id.
-  private class IntentionCommand extends EditorCommand implements UndoRunnable {
-    private String myText;
-    private IntentionExecutable myIntention;
-    private SNode myNode;
-
-    /*package*/ IntentionCommand(String text, IntentionExecutable intention, SNode node) {
-      super(myEditor.getCommandContext());
-      myText = text;
-      myIntention = intention;
-      myNode = node;
-    }
-
-    @Nullable
-    @Override
-    public String getName() {
-      return myText;
-    }
-
-    @Override
-    protected void doExecute() {
-      myIntention.execute(myNode, myEditor.getEditorContext());
-    }
-
-    @Override
-    public Iterable<SNode> getVirtualFileNodes(SNodeUndoableAction action) {
-      // This is weird code, indeed. I don't quite understand the logic behind EditorCommand.getVirtualFileNodes()
-      // in conjunction with getAssociatedVfsChange() processing in UndoActionsCollector - what's the purpose of
-      // EC.getVirtualFileNodes() implementation - to give "quick" answer with a node we know for sure got a virtual file?
-      // If yes, why doesn't it account for add/remove root scenarios when it's completely different root node (or virtual file)?
-      // The logic in UndoActionsCollector that tolerates only single !NOT_CHANGED node/file during Undo is not clear, either,
-      // I wonder if these implementations (EditorCommand and UndoActionsCollector) are related/dependant.
-      SNode changed = null;
-      if (action.getAssociatedVfsChange() != VFSChange.NOT_CHANGED) {
-        changed = action.getAffectedNode();
-      }
-      if (changed == null) {
-        return super.getVirtualFileNodes(action);
-      } else {
-        return Collections.singleton(changed.getContainingRoot());
-      }
-    }
   }
 
   private class IntentionsThread extends Thread {
@@ -451,7 +311,7 @@ public class IntentionsSupport {
           return;
         }
 
-        final Kind intentionKind = new ModelAccessHelper(getModelAccess()).runReadAction(() -> {
+        final Kind intentionKind = getModelAccess().computeReadAction(() -> {
           // TODO check for ActionsAsIntentions
           if (myEditor.getTypecheckingSession() == null) {
             return null;

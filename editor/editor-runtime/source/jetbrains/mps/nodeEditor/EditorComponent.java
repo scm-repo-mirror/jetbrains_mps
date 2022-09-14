@@ -53,6 +53,7 @@ import com.intellij.util.ui.UIUtil;
 import gnu.trove.THashSet;
 import jetbrains.mps.classloading.ClassLoaderManager;
 import jetbrains.mps.classloading.DeployListener;
+import jetbrains.mps.editor.intentions.IntentionMenuProducer;
 import jetbrains.mps.editor.runtime.HighlightUsagesSupport;
 import jetbrains.mps.editor.runtime.cells.ReadOnlyUtil;
 import jetbrains.mps.editor.runtime.commands.EditorCommand;
@@ -140,6 +141,7 @@ import org.jetbrains.annotations.ApiStatus.ScheduledForRemoval;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.annotations.Internal;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -2507,6 +2509,19 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   public synchronized TypecheckingSession getTypecheckingSession() {
     Handle handle = myTypecheckingSessionHandle;
     return handle != null ? handle.session() : null;
+  }
+
+  /**
+   * Internal API to control the way intention popup menu looks like, intended for use from MPS-extensions project
+   * @param menuProducer use {@code null} to reset to default
+   */
+  @Internal
+  public void setIntentionMenuProducer(@Nullable IntentionMenuProducer menuProducer) {
+    if (menuProducer == null) {
+      myIntentionsSupport.resetMenuProducer();
+    } else {
+      myIntentionsSupport.setMenuProducer(menuProducer);
+    }
   }
 
   /**
