@@ -21,14 +21,13 @@ import jetbrains.mps.ide.ThreadUtils;
 import jetbrains.mps.ide.migration.MigrationSetup;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.migration.global.ProjectMigration;
+import jetbrains.mps.smodel.ModelReadRunnable;
 import jetbrains.mps.testbench.junit.suites.BaseProjectsTest;
-import jetbrains.mps.util.IterableUtil;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class NoPendingMigrationsTest extends BaseProjectsTest {
   private final static Logger LOG = Logger.getLogger(NoPendingMigrationsTest.class);
@@ -52,21 +51,17 @@ public class NoPendingMigrationsTest extends BaseProjectsTest {
     boolean[] migrationRequired = new boolean[]{false,false};
     List<String> projectMigrations = new ArrayList<>();
     List<String> moduleMigrations = new ArrayList<>();
-    Exception exception = ThreadUtils.runInUIThreadAndWait(() -> {
+    Runnable prepare = () -> {
       final MigrationSetup migrationManager = new MigrationSetup(getContextProject());
       migrationRequired[0] = migrationManager.importVersionsUpdateRequired();
       migrationRequired[1] = migrationManager.isMigrationRequired();
       if (migrationRequired[1]) {
-        projectMigrations.addAll(IterableUtil.asCollection(migrationManager.getProjectMigrations())
-            .stream().map(ProjectMigration::getDescription)
-            .collect(Collectors.toList()));
-        getContextProject().getModelAccess().runReadAction(() -> {
-          moduleMigrations.addAll(migrationManager.getModuleMigrations()
-              .stream().map(it -> it.getScriptReference().resolve(getContextProject(),false).getCaption())
-              .collect(Collectors.toList()));
-        });
+        migrationManager.getProjectMigrations().stream().map(ProjectMigration::getDescription).forEach(projectMigrations::add);
+        migrationManager.getModuleMigrations()
+                        .stream().map(it -> it.getScriptReference().resolve(getContextProject(),false).getCaption()).forEach(moduleMigrations::add);
       }
-    });
+    };
+    Exception exception = ThreadUtils.runInUIThreadAndWait(new ModelReadRunnable(getContextProject().getRepository(), prepare));
     if (exception != null) {
       throw new RuntimeException(exception);
     }

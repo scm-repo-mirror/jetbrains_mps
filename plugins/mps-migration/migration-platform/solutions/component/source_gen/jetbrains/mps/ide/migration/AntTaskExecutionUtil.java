@@ -25,6 +25,7 @@ public class AntTaskExecutionUtil {
    */
   @Nullable
   public static Boolean migrate(final Project project, boolean haltOnPrecheckFailure) throws Exception {
+    // FWIW, MigrationWorker starts this in EDT
     final AtomicReference<Boolean> rv = new AtomicReference<>(null);
 
     MigrationExecutorImpl tracingExecutor = new MigrationExecutorImpl(project) {
@@ -44,7 +45,8 @@ public class AntTaskExecutionUtil {
       }
     };
 
-    MigrationSetup setup = new MigrationSetup(project);
+    // XXX MigrationSetup needs model read, though this looks odd, indeed.
+    MigrationSetup setup = project.getModelAccess().computeReadAction(() -> new MigrationSetup(project));
     MigrationSession session = new MigrationSessionImpl(project, setup, new MigrationCheckerImpl(project, setup), tracingExecutor, true, true, true);
     ProgressMonitorAdapter progress = new ProgressMonitorAdapter(new EmptyProgressIndicator());
 
@@ -59,6 +61,7 @@ public class AntTaskExecutionUtil {
         if (LOG.isErrorLevel()) {
           LOG.error(error.getMessage());
         }
+        // FIXME migration error that expects model read - very nice, indeed.
         project.getRepository().getModelAccess().runReadAction(() -> error.logProblems(new LogHandler(Logger.getLogger(AntTaskExecutionUtil.class))));
 
         rv.set(Boolean.FALSE);

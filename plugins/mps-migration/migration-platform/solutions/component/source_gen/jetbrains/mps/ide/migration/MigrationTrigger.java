@@ -17,6 +17,7 @@ import jetbrains.mps.make.IMakeService;
 import jetbrains.mps.make.IMakeNotificationListener;
 import jetbrains.mps.make.MakeNotification;
 import com.intellij.openapi.project.Project;
+import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.make.MakeServiceComponent;
 import com.intellij.openapi.application.ApplicationManager;
@@ -121,17 +122,20 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
 
   private volatile boolean myMigrationRunning = false;
 
-  public MigrationTrigger(Project ideaProject, MPSProject p, MPSCoreComponents mpsCore) {
+  public MigrationTrigger(Project ideaProject) {
     super(ideaProject);
     // FIXME doesn't need to be a project component. Perhaps, not even a project Service. Shall get activated
     //      by listeners attached by a StartupActivity
-    myMpsProject = p;
+    myMpsProject = ProjectHelper.fromIdeaProjectOrFail(ideaProject);
     myProperties = MigrationProperties.getInstance(ideaProject);
+    final MPSCoreComponents mpsCore = MPSCoreComponents.getInstance();
     myLanguageRegistry = mpsCore.getPlatform().findComponent(LanguageRegistry.class);
     myMake = mpsCore.getPlatform().findComponent(MakeServiceComponent.class).get();
     myReloadManager = ApplicationManager.getApplication().getComponent(ReloadManager.class);
-    myProjectMigrationSetup = new MigrationSetup(p);
-    myNotifications = new MigrationNotificationsSupport(ideaProject, p, myLanguageRegistry) {
+    // FIXME odd model read grab, but need it as MS walks project modules. Have to move this field initialization away
+    //      from cons (or fix this crap otherwise; just need to deal with myVersionUpdater first)
+    myProjectMigrationSetup = myMpsProject.getModelAccess().computeReadAction(() -> new MigrationSetup(myMpsProject));
+    myNotifications = new MigrationNotificationsSupport(ideaProject, myMpsProject, myLanguageRegistry) {
       @Override
       public void runAssistant() {
         myPostponedState.set(null);
@@ -237,7 +241,7 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
     checkMigrationNeededOnModuleChange(modules2Check);
   }
 
-  private void checkMigrationNeededOnModuleChange(Iterable<SModule> modules) {
+  private void checkMigrationNeededOnModuleChange(@NotNull Iterable<SModule> modules) {
     if (myMigrationBlock.isMigrationForbiddenWithout(MigrationNotificationsSupport.NOT_DEPLOYED)) {
       return;
     }
@@ -258,7 +262,7 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
     }
   }
 
-  private PostponedState getNewMigrations(Iterable<SModule> modules2Check) {
+  private PostponedState getNewMigrations(@NotNull Iterable<SModule> modules2Check) {
     PostponedState current = PostponedState.current(new MigrationSetup(myMpsProject, modules2Check));
     PostponedState saved = myPostponedState.get();
     if (saved != null) {
@@ -292,12 +296,16 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
               syncRefresh();
             }
           });
-          PostponedState newState = PostponedState.current(new MigrationSetup(myMpsProject));
+          final MigrationSetup migrationSetup = myMpsProject.getModelAccess().computeReadAction(() -> new MigrationSetup(myMpsProject));
+          // XXX compare to MT.getNewMigrations(). This one is getActualMigrations()
+          //     I don't see a point of using PostponedState here, why not MigrationSetup directly? Just for
+          //    myPostponedState.set()? 
+          PostponedState newState = PostponedState.current(migrationSetup);
 
           if (myPostponedState.get() == null || force) {
             boolean hasSomethingToApply = newState.hasSomethingToApply();
             if (hasSomethingToApply) {
-              final Tuples._2<MigrationResult, MigrationError> result = runMigration(newState.hasVersionUpdate(), newState.hasMigrations());
+              final Tuples._2<MigrationResult, MigrationError> result = runMigration(migrationSetup);
               if (result._0() == MigrationResult.POSTPONED) {
                 myPostponedState.set(newState);
                 myNotifications.showRequired();
@@ -450,10 +458,15 @@ __switch__:
     FINISHED()
   }
 
-  private Tuples._2<MigrationResult, MigrationError> runMigration(boolean updateVersions, boolean migrate) {
+  private Tuples._2<MigrationResult, MigrationError> runMigration(MigrationSetup migrationSetup) {
     myMigrationRunning = true;
     try {
-      MigrationSessionImpl session = new MigrationSessionImpl(myMpsProject, new MigrationSetup(myMpsProject), true, updateVersions, migrate);
+      // FIXME logic copied from PostponedState. Don't see a reason though to pass this explicitly
+      //      into MigrationSessionImpl as long as we pass MigrationSetup there as well.
+      final boolean updateVersions = migrationSetup.importVersionsUpdateRequired();
+      // aka PostponedState.hasMigrations()
+      final boolean migrate = migrationSetup.isMigrationRequired();
+      MigrationSessionImpl session = new MigrationSessionImpl(myMpsProject, migrationSetup, true, updateVersions, migrate);
       final MigrationWizard wizard = new MigrationWizard(myProject, session);
       boolean finished = wizard.showAndGet();
       MigrationError errors = session.getError();
