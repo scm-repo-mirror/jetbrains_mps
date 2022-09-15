@@ -335,7 +335,7 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
         } finally {
           myMigrationBlock.unblockMigrationsCheck(scheduledBlockCause);
         }
-      }, ModalityState.NON_MODAL);
+      }, ModalityState.NON_MODAL, myProject.getDisposed());
     });
   }
 

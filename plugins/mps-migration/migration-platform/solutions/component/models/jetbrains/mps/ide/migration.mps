@@ -2445,7 +2445,7 @@
                         <ref role="1Pybhc" to="bd8o:~ApplicationManager" resolve="ApplicationManager" />
                       </node>
                       <node concept="liA8E" id="1AzqgyAhmh6" role="2OqNvi">
-                        <ref role="37wK5l" to="bd8o:~Application.invokeLater(java.lang.Runnable,com.intellij.openapi.application.ModalityState)" resolve="invokeLater" />
+                        <ref role="37wK5l" to="bd8o:~Application.invokeLater(java.lang.Runnable,com.intellij.openapi.application.ModalityState,com.intellij.openapi.util.Condition)" resolve="invokeLater" />
                         <node concept="1bVj0M" id="1AzqgyAhmlf" role="37wK5m">
                           <node concept="3clFbS" id="1AzqgyAhmlg" role="1bW5cS">
                             <node concept="3J1_TO" id="3wDJmuvOCiv" role="3cqZAp">
@@ -2991,6 +2991,14 @@
                         <node concept="10M0yZ" id="6zzmSE2rmJ0" role="37wK5m">
                           <ref role="1PxDUh" to="bd8o:~ModalityState" resolve="ModalityState" />
                           <ref role="3cqZAo" to="bd8o:~ModalityState.NON_MODAL" resolve="NON_MODAL" />
+                        </node>
+                        <node concept="2OqwBi" id="6KYDQEnzJIH" role="37wK5m">
+                          <node concept="37vLTw" id="6KYDQEnzGcz" role="2Oq$k0">
+                            <ref role="3cqZAo" to="1m72:~AbstractProjectComponent.myProject" resolve="myProject" />
+                          </node>
+                          <node concept="liA8E" id="6KYDQEnzQ_c" role="2OqNvi">
+                            <ref role="37wK5l" to="1m72:~ComponentManager.getDisposed()" resolve="getDisposed" />
+                          </node>
                         </node>
                       </node>
                     </node>
