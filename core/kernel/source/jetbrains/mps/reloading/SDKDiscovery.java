@@ -16,6 +16,7 @@
 package jetbrains.mps.reloading;
 
 import com.intellij.openapi.util.text.StringUtil;
+import jetbrains.mps.file.Files;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.util.SystemInfo;
 import jetbrains.mps.vfs.IFileSystem;
@@ -99,28 +100,32 @@ public class SDKDiscovery {
       }
     } else if (isModularRuntime(javaHome)) {
       String jrtBase = getPath(javaHome) + JrtIoFileSystem.JDK_PATH_SEPARATOR + IFileSystem.SEPARATOR;
-      List<String> modules = readModulesFromReleaseFile(javaHome);
-      // XXX this seems to be dead code, isModularRuntime() here true iff isFile() == true (isExplodedModularRuntime branch is above)
-      //     and there could be no "release" file under another File (in java.io)
-      if (modules != null) {
-        for (String module : modules) {
-          result.add(new QualifiedPath(VFSManager.JRT_FS, jrtBase + module));
-        }
-      } else {
-        // JrtIoFile#getChildren
-        java.nio.file.FileSystem jrtfs = FileSystems.getFileSystem(URI.create("jrt:/"));
-        Path jdkRoot = jrtfs.getPath("modules");
-        if (java.nio.file.Files.isDirectory(jdkRoot)) {
-          try (DirectoryStream<Path> ds = java.nio.file.Files.newDirectoryStream(jdkRoot)) {
-            for (Path p : ds) {
-              // see JrtIoFile#getPath.
-              // JrtIoFile#getPathInJDK() doesn't include "modules" part, which is hardcoded in JrtIoFile#getRealFile, hence p.getFileName only
-              result.add(new QualifiedPath(VFSManager.JRT_FS, jrtBase + p.getFileName().toString()));
+      try {
+        List<String> modules = Files.readModulesFromReleaseFile(javaHome);
+        // XXX this seems to be dead code, isModularRuntime() here true iff isFile() == true (isExplodedModularRuntime branch is above)
+        //     and there could be no "release" file under another File (in java.io)
+        if (modules != null) {
+          for (String module : modules) {
+            result.add(new QualifiedPath(VFSManager.JRT_FS, jrtBase + module));
+          }
+        } else {
+          // JrtIoFile#getChildren
+          java.nio.file.FileSystem jrtfs = FileSystems.getFileSystem(URI.create("jrt:/"));
+          Path jdkRoot = jrtfs.getPath("modules");
+          if (java.nio.file.Files.isDirectory(jdkRoot)) {
+            try (DirectoryStream<Path> ds = java.nio.file.Files.newDirectoryStream(jdkRoot)) {
+              for (Path p : ds) {
+                // see JrtIoFile#getPath.
+                // JrtIoFile#getPathInJDK() doesn't include "modules" part, which is hardcoded in JrtIoFile#getRealFile, hence p.getFileName only
+                result.add(new QualifiedPath(VFSManager.JRT_FS, jrtBase + p.getFileName().toString()));
+              }
+            } catch (IOException e) {
+              LOG.warning(String.format("Can't read %s", jdkRoot), e);
             }
-          } catch (IOException e) {
-            LOG.warning(String.format("Can't read %s", jdkRoot), e);
           }
         }
+      } catch (IOException | IllegalArgumentException ex) {
+        LOG.info("Can't process modular Java runtime", ex);
       }
     } else {
       for (File root : getJdkClassesRoots(javaHome, !new File(javaHome, "jre").exists())) {
@@ -138,28 +143,6 @@ public class SDKDiscovery {
     return result;
   }
 
-
-  /**
-   * Tries to load the list of modules in the JDK from the 'release' file. Returns null if the 'release' file is not there
-   * or doesn't contain the expected information.
-   */
-  @Nullable
-  private static List<String> readModulesFromReleaseFile(File jrtBaseDir) {
-    File releaseFile = new File(jrtBaseDir, "release");
-    if (releaseFile.isFile()) {
-      Properties p = new Properties();
-      try (FileInputStream stream = new FileInputStream(releaseFile)) {
-        p.load(stream);
-        String modules = p.getProperty("MODULES");
-        if (modules != null) {
-          return StringUtil.split(StringUtil.unquoteString(modules), " ", true, true);
-        }
-      } catch (IOException | IllegalArgumentException e) {
-        LOG.info("read 'release' file", e);
-      }
-    }
-    return null;
-  }
 
   private static String getPath(File jarFile) {
     return PathUtil.toSystemIndependent(jarFile.getAbsolutePath());

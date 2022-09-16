@@ -32,7 +32,6 @@
     <orderEntry type="module" module-name="components" />
     <orderEntry type="module" module-name="kernel-resources" />
     <orderEntry type="module" module-name="vcs-platform" />
-    <orderEntry type="module" module-name="boot-util" />
     <orderEntry type="module" module-name="vfs-tracking" />
   </component>
 </module>
