@@ -15,12 +15,10 @@ import java.util.HashSet;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import java.util.ArrayList;
 import jetbrains.mps.baseLanguage.execution.api.Java_Command;
-import jetbrains.mps.util.PathManager;
-import jetbrains.mps.util.ClassPathReader;
-import jetbrains.mps.internal.collections.runtime.ISelector;
-import java.io.File;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.LinkedHashSet;
+import jetbrains.mps.util.PathManager;
+import java.io.File;
 import jetbrains.mps.string.Strings;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 
@@ -72,18 +70,6 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
     final SModuleReference moduleWithExecutors = MODULE_WITH_EXECUTORS();
     final List<String> classpath = ListSequence.fromList(new LinkedList<String>());
     // WithPlatformTestExecutor starts IDEA, therefore needs it in CP
-    ListSequence.fromList(classpath).addSequence(ListSequence.fromList(collectFromLibFolder()).distinct());
-    if (PathManager.isFromSources()) {
-      final String homePath = com.intellij.openapi.application.PathManager.getHomePath();
-      // it is needed only for sources, as far as I see
-      List<String> auxCP = new ClassPathReader(homePath).read();
-      ListSequence.fromList(classpath).addSequence(ListSequence.fromList(auxCP).select(new ISelector<String, String>() {
-        public String select(String it) {
-          return new File(homePath, it).getAbsolutePath();
-        }
-      }));
-    }
-
     ListSequence.fromList(classpath).addSequence(ListSequence.fromList(collectFromLibFolder()).distinct());
     // Module classpath would get managed by IdeaEnvironment based on set of modules to load
     //  

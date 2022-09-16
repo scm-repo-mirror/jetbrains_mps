@@ -15,65 +15,29 @@
  */
 package jetbrains.mps.util;
 
-import com.intellij.openapi.diagnostic.Logger;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
-import java.util.Scanner;
-import java.util.stream.Collectors;
 
 /**
  * Utility to parse special idea.additional.classpath.txt file.
+ * @deprecated no-op, not in use, scheduled for removal; no replacement. If necessary, set "idea.additional.classpath" directly
  */
+@Deprecated(since = "2022.2", forRemoval = true)
 public final class ClassPathReader {
-  private static final Logger LOG = Logger.getInstance(ClassPathReader.class);
-
-  private final File myAdditionalCPFile;
-  private final List<String> myTypes;
 
   public ClassPathReader(@NotNull String homePath, @NotNull List<ClassType> types) {
-    myAdditionalCPFile = calcFileLocation(homePath);
-    myTypes = types.stream()
-                   .map(ClassType::getTypeString)
-                   .collect(Collectors.toList());
   }
 
   public ClassPathReader(@NotNull String homePath) {
     this(homePath, Arrays.asList(ClassType.values()));
   }
 
-  private File calcFileLocation(@NotNull String homePath) {
-    return new File(new File(homePath, "build"), "idea.additional.classpath.txt");
-  }
-
   @NotNull
   public List<String> read() {
-    List<String> result = new ArrayList<>();
-    if (myAdditionalCPFile.exists()) {
-      try (Scanner sc = new Scanner(myAdditionalCPFile, Charset.defaultCharset().name())) {
-        boolean skipMode = false;
-        while (sc.hasNextLine()) {
-          String line = sc.nextLine().trim();
-          if (line.startsWith(":")) {
-            skipMode = !myTypes.contains(line.substring(1));
-            continue;
-          }
-
-          if (!skipMode) {
-            result.add(line);
-          }
-        }
-      } catch (FileNotFoundException e) {
-        LOG.error("Problem while parsing class path", e);
-      }
-    } else {
-      LOG.debug("The file with additional class path could not be found");
-    }
-    return result;
+    System.err.println("ClassPathReader is no-op, don't use");
+    return Collections.emptyList();
   }
 }

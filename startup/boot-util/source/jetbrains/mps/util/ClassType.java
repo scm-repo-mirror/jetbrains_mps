@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,12 +19,11 @@ package jetbrains.mps.util;
  * Represents the type of library paths MPS has.
  * These are used in stubs, also in class paths (for example to run ant we pass jdk-tools paths).
  *
- * @see jetbrains.mps.reloading.CommonPaths
+ * See {@code jetbrains.mps.reloading.CommonPaths}
  */
 public enum ClassType {
   JDK("jdk"),
-  JDK_TOOLS("jdk-tools"),
-  ASPECTS("aspects"); // although not queried, keep as long as idea.additional.classpath.txt lists additional cp entries for ':aspects'
+  JDK_TOOLS("jdk-tools");
 
   private final String myTypeString;
 
