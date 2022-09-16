@@ -1915,10 +1915,13 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   public static Object varMacro_Value_10_1(final TemplateVarContext _context) {
     DependenciesHelper helper = DependenciesHelper.get(_context, _context.getNode(), "build.mps");
-    String artifact = "util";
+    String artifact = "org.jdom";
+    // as of 22.2, org.jdom gives 3rd-party-rt.jar ([ant-mps-common] dependency),
+    // and we assume util.jar that hosts com.intellij.openapi...PathManager, necessary for ant-mps.jar, is next to 3rd-party-rt.jar
     SNode jar = helper.getArtifact(artifact);
     if ((jar != null)) {
-      return helper.getLocation(jar).replace("/util.jar", "");
+      String libLocation = helper.getLocation(jar);
+      return libLocation.substring(0, libLocation.lastIndexOf('/'));
     }
     if (!(ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.macros$r8_A)).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {

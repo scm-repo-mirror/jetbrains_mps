@@ -751,9 +751,6 @@
       <node concept="nCB5N" id="3oXfwtXq$Rp" role="nCB5Z">
         <ref role="nCB5Y" to="ffeo:3dkXFAFkSFA" resolve="mps-persistence" />
       </node>
-      <node concept="nCB5N" id="1M_KWzLa0Y5" role="nCB5Z">
-        <ref role="nCB5Y" to="ffeo:5d$B_bnZPNh" resolve="mps-boot-util" />
-      </node>
       <node concept="nCB5N" id="16Vg0jOdc9o" role="nCB5Z">
         <ref role="nCB5Y" to="ffeo:1FaKCGJSzMQ" resolve="mps-tool" />
       </node>

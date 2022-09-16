@@ -14,6 +14,6 @@
     <orderEntry type="library" name="Ant" level="project" />
     <orderEntry type="library" name="com.intellij.openapi" level="project" />
     <orderEntry type="module" module-name="ant-mps-common" exported="" />
-    <orderEntry type="module" module-name="openapi" />
+    <orderEntry type="module" module-name="mps-annotations" />
   </component>
 </module>
