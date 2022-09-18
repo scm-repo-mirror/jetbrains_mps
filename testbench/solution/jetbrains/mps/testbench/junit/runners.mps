@@ -1747,49 +1747,85 @@
         <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
       </node>
       <node concept="3clFbS" id="2BGPXkEw6UF" role="3clF47">
-        <node concept="3clFbJ" id="2BGPXkEw7cy" role="3cqZAp">
-          <node concept="3clFbS" id="2BGPXkEw7c$" role="3clFbx">
-            <node concept="3cpWs8" id="2BGPXkEwKmB" role="3cqZAp">
-              <node concept="3cpWsn" id="2BGPXkEwKmC" role="3cpWs9">
-                <property role="TrG5h" value="newProject" />
-                <node concept="3uibUv" id="2BGPXkEwKmy" role="1tU5fm">
-                  <ref role="3uigEE" to="z1c3:~Project" resolve="Project" />
-                </node>
-                <node concept="1rXfSq" id="2BGPXkExet2" role="33vP2m">
-                  <ref role="37wK5l" node="2BGPXkExbae" resolve="openProjectIfNotAlreadyOpened" />
-                  <node concept="37vLTw" id="2BGPXkExg72" role="37wK5m">
-                    <ref role="3cqZAo" node="2BGPXkEwEdb" resolve="env" />
-                  </node>
+        <node concept="3cpWs8" id="1K1$g4lZ1Oq" role="3cqZAp">
+          <node concept="3cpWsn" id="1K1$g4lZ1Or" role="3cpWs9">
+            <property role="TrG5h" value="th" />
+            <node concept="3uibUv" id="1K1$g4lZ1Os" role="1tU5fm">
+              <ref role="3uigEE" to="wyt6:~Exception" resolve="Exception" />
+            </node>
+            <node concept="10Nm6u" id="1K1$g4lZ2zI" role="33vP2m" />
+          </node>
+        </node>
+        <node concept="3J1_TO" id="1K1$g4lYZtU" role="3cqZAp">
+          <node concept="3uVAMA" id="1K1$g4lZ0cm" role="1zxBo5">
+            <node concept="XOnhg" id="1K1$g4lZ0cn" role="1zc67B">
+              <property role="TrG5h" value="ex" />
+              <node concept="nSUau" id="1K1$g4lZ0co" role="1tU5fm">
+                <node concept="3uibUv" id="1K1$g4lZ0rz" role="nSUat">
+                  <ref role="3uigEE" to="wyt6:~Exception" resolve="Exception" />
                 </node>
               </node>
             </node>
-            <node concept="3cpWs6" id="2BGPXkEw7fy" role="3cqZAp">
-              <node concept="1rXfSq" id="2BGPXkEw8mf" role="3cqZAk">
-                <ref role="37wK5l" node="5A5jZrz7gt7" resolve="construct" />
-                <node concept="2OqwBi" id="25EyDeze7SY" role="37wK5m">
-                  <node concept="37vLTw" id="25EyDeze7M0" role="2Oq$k0">
-                    <ref role="3cqZAo" node="2BGPXkEwEdb" resolve="env" />
+            <node concept="3clFbS" id="1K1$g4lZ0cp" role="1zc67A">
+              <node concept="3clFbF" id="1K1$g4lZ2Nw" role="3cqZAp">
+                <node concept="37vLTI" id="1K1$g4lZ3kf" role="3clFbG">
+                  <node concept="10Nm6u" id="1K1$g4lZ3$8" role="37vLTx" />
+                  <node concept="37vLTw" id="1K1$g4lZ2Nv" role="37vLTJ">
+                    <ref role="3cqZAo" node="1K1$g4lZ1Or" resolve="th" />
                   </node>
-                  <node concept="liA8E" id="25EyDeze87b" role="2OqNvi">
-                    <ref role="37wK5l" to="79ha:8Pnvxgloc_" resolve="getPlatform" />
-                  </node>
-                </node>
-                <node concept="37vLTw" id="2BGPXkEwK_d" role="37wK5m">
-                  <ref role="3cqZAo" node="2BGPXkEwKmC" resolve="newProject" />
                 </node>
               </node>
             </node>
           </node>
-          <node concept="1rXfSq" id="2BGPXkEw7dR" role="3clFbw">
-            <ref role="37wK5l" node="2BGPXkEwcbv" resolve="isApplicable" />
+          <node concept="3clFbS" id="1K1$g4lYZtW" role="1zxBo7">
+            <node concept="3clFbJ" id="2BGPXkEw7cy" role="3cqZAp">
+              <node concept="3clFbS" id="2BGPXkEw7c$" role="3clFbx">
+                <node concept="3cpWs8" id="2BGPXkEwKmB" role="3cqZAp">
+                  <node concept="3cpWsn" id="2BGPXkEwKmC" role="3cpWs9">
+                    <property role="TrG5h" value="newProject" />
+                    <node concept="3uibUv" id="2BGPXkEwKmy" role="1tU5fm">
+                      <ref role="3uigEE" to="z1c3:~Project" resolve="Project" />
+                    </node>
+                    <node concept="1rXfSq" id="2BGPXkExet2" role="33vP2m">
+                      <ref role="37wK5l" node="2BGPXkExbae" resolve="openProjectIfNotAlreadyOpened" />
+                      <node concept="37vLTw" id="2BGPXkExg72" role="37wK5m">
+                        <ref role="3cqZAo" node="2BGPXkEwEdb" resolve="env" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="3cpWs6" id="2BGPXkEw7fy" role="3cqZAp">
+                  <node concept="1rXfSq" id="2BGPXkEw8mf" role="3cqZAk">
+                    <ref role="37wK5l" node="5A5jZrz7gt7" resolve="construct" />
+                    <node concept="2OqwBi" id="25EyDeze7SY" role="37wK5m">
+                      <node concept="37vLTw" id="25EyDeze7M0" role="2Oq$k0">
+                        <ref role="3cqZAo" node="2BGPXkEwEdb" resolve="env" />
+                      </node>
+                      <node concept="liA8E" id="25EyDeze87b" role="2OqNvi">
+                        <ref role="37wK5l" to="79ha:8Pnvxgloc_" resolve="getPlatform" />
+                      </node>
+                    </node>
+                    <node concept="37vLTw" id="2BGPXkEwK_d" role="37wK5m">
+                      <ref role="3cqZAo" node="2BGPXkEwKmC" resolve="newProject" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="1rXfSq" id="2BGPXkEw7dR" role="3clFbw">
+                <ref role="37wK5l" node="2BGPXkEwcbv" resolve="isApplicable" />
+              </node>
+            </node>
           </node>
         </node>
         <node concept="YS8fn" id="2BGPXkEw8zK" role="3cqZAp">
           <node concept="2ShNRf" id="2BGPXkEw8Dk" role="YScLw">
             <node concept="1pGfFk" id="2BGPXkEw9eH" role="2ShVmc">
-              <ref role="37wK5l" to="wyt6:~IllegalStateException.&lt;init&gt;(java.lang.String)" resolve="IllegalStateException" />
+              <ref role="37wK5l" to="wyt6:~IllegalStateException.&lt;init&gt;(java.lang.String,java.lang.Throwable)" resolve="IllegalStateException" />
               <node concept="Xl_RD" id="2BGPXkEw9fN" role="37wK5m">
                 <property role="Xl_RC" value="Strategy is not applicable -- cannot create project" />
+              </node>
+              <node concept="37vLTw" id="1K1$g4lZ45K" role="37wK5m">
+                <ref role="3cqZAo" node="1K1$g4lZ1Or" resolve="th" />
               </node>
             </node>
           </node>
@@ -1841,17 +1877,22 @@
             <node concept="3uibUv" id="2BGPXkExbjS" role="1tU5fm">
               <ref role="3uigEE" to="guwi:~File" resolve="File" />
             </node>
-            <node concept="2OqwBi" id="4447aFimGcw" role="33vP2m">
-              <node concept="2ShNRf" id="2BGPXkExbjT" role="2Oq$k0">
-                <node concept="1pGfFk" id="2BGPXkExbjU" role="2ShVmc">
-                  <ref role="37wK5l" to="guwi:~File.&lt;init&gt;(java.lang.String)" resolve="File" />
-                  <node concept="37vLTw" id="2BGPXkExbjV" role="37wK5m">
-                    <ref role="3cqZAo" node="5A5jZrz76OD" resolve="myProjectPath" />
+            <node concept="2OqwBi" id="1K1$g4lY8W2" role="33vP2m">
+              <node concept="2OqwBi" id="4447aFimGcw" role="2Oq$k0">
+                <node concept="2ShNRf" id="2BGPXkExbjT" role="2Oq$k0">
+                  <node concept="1pGfFk" id="2BGPXkExbjU" role="2ShVmc">
+                    <ref role="37wK5l" to="guwi:~File.&lt;init&gt;(java.lang.String)" resolve="File" />
+                    <node concept="37vLTw" id="2BGPXkExbjV" role="37wK5m">
+                      <ref role="3cqZAo" node="5A5jZrz76OD" resolve="myProjectPath" />
+                    </node>
                   </node>
                 </node>
+                <node concept="liA8E" id="4447aFimJwc" role="2OqNvi">
+                  <ref role="37wK5l" to="guwi:~File.getAbsoluteFile()" resolve="getAbsoluteFile" />
+                </node>
               </node>
-              <node concept="liA8E" id="4447aFimJwc" role="2OqNvi">
-                <ref role="37wK5l" to="guwi:~File.getAbsoluteFile()" resolve="getAbsoluteFile" />
+              <node concept="liA8E" id="1K1$g4lY9DD" role="2OqNvi">
+                <ref role="37wK5l" to="guwi:~File.getCanonicalFile()" resolve="getCanonicalFile" />
               </node>
             </node>
           </node>
@@ -1936,6 +1977,9 @@
         <node concept="3uibUv" id="2BGPXkExge1" role="1tU5fm">
           <ref role="3uigEE" to="79ha:HKKzfMjqRV" resolve="Environment" />
         </node>
+      </node>
+      <node concept="3uibUv" id="1K1$g4lYYWp" role="Sfmx6">
+        <ref role="3uigEE" to="guwi:~IOException" resolve="IOException" />
       </node>
     </node>
     <node concept="2tJIrI" id="5A5jZrz76Fx" role="jymVt" />
