@@ -2431,6 +2431,9 @@
             <node concept="1bldCd" id="rD7wKOcTC" role="39821P">
               <ref role="3$exzV" node="rD7wKO5Iy" resolve="MPS.TextGen" />
             </node>
+            <node concept="1bldCd" id="3wNjdew08sH" role="39821P">
+              <ref role="3$exzV" node="HHlBn9$wJ2" resolve="org.jdom" />
+            </node>
           </node>
           <node concept="3_J27D" id="10txAzI7sE7" role="Nbhlr">
             <node concept="3Mxwew" id="10txAzI7te9" role="3MwsjC">
@@ -3975,6 +3978,53 @@
           <node concept="3bR9La" id="3NkcTj4z_7b" role="1SiIV1">
             <property role="3bR36h" value="true" />
             <ref role="3bR37D" node="44LXwdzyvTi" resolve="Annotations" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="HHlBn9$zly" role="3bR37C">
+          <node concept="3bR9La" id="HHlBn9$zvc" role="1SiIV1">
+            <ref role="3bR37D" node="HHlBn9$wJ2" resolve="org.jdom" />
+          </node>
+        </node>
+      </node>
+      <node concept="1E1JtA" id="HHlBn9$wJ2" role="2G$12L">
+        <property role="TrG5h" value="org.jdom" />
+        <property role="3LESm3" value="f647e48e-4568-4f4c-b48a-1546492c6a2e" />
+        <property role="2GAjPV" value="true" />
+        <property role="BnDLt" value="true" />
+        <node concept="1SiIV0" id="HHlBn9$$FX" role="3bR37C">
+          <node concept="3bR9La" id="HHlBn9$$FY" role="1SiIV1">
+            <ref role="3bR37D" node="mXGwHwhVPj" resolve="JDK" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="HHlBn9$Byp" role="3bR37C">
+          <node concept="1BurEX" id="HHlBn9$Byq" role="1SiIV1">
+            <node concept="398BVA" id="HHlBn9$Byr" role="1BurEY">
+              <ref role="398BVh" node="3CewbsuA8IN" resolve="platform_lib" />
+              <node concept="2Ry0Ak" id="HHlBn9$BPE" role="iGT6I">
+                <property role="2Ry0Am" value="util.jar" />
+              </node>
+            </node>
+            <node concept="3yrxFa" id="HHlBn9$Byt" role="2gdwQb">
+              <ref role="3yrxFb" node="5DAo_J9amU0" />
+            </node>
+          </node>
+        </node>
+        <node concept="398BVA" id="HHlBn9$xzf" role="3LF7KH">
+          <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
+          <node concept="2Ry0Ak" id="HHlBn9$xQj" role="iGT6I">
+            <property role="2Ry0Am" value="languages" />
+            <node concept="2Ry0Ak" id="HHlBn9$xZP" role="2Ry0An">
+              <property role="2Ry0Am" value="core" />
+              <node concept="2Ry0Ak" id="HHlBn9$y9n" role="2Ry0An">
+                <property role="2Ry0Am" value="stub" />
+                <node concept="2Ry0Ak" id="HHlBn9$yJo" role="2Ry0An">
+                  <property role="2Ry0Am" value="jdom" />
+                  <node concept="2Ry0Ak" id="HHlBn9$z2r" role="2Ry0An">
+                    <property role="2Ry0Am" value="org.jdom.msd" />
+                  </node>
+                </node>
+              </node>
+            </node>
           </node>
         </node>
       </node>

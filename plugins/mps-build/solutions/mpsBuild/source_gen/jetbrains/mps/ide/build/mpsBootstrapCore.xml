@@ -188,6 +188,7 @@
       <zipfileset file="${mps_home}/languages/core/stub/Eclipse.ECJ/Eclipse.ECJ.msd" prefix="modules/Eclipse.ECJ" />
       <zipfileset file="${mps_home}/languages/core/stub/MPS.Generator/MPS.Generator.msd" prefix="modules/MPS.Generator" />
       <zipfileset file="${mps_home}/languages/core/stub/MPS.TextGen/MPS.TextGen.msd" prefix="modules/MPS.TextGen" />
+      <zipfileset file="${mps_home}/languages/core/stub/jdom/org.jdom.msd" prefix="modules/org.jdom" />
     </jar>
     <mkdir dir="${build.layout}/languages/devkits" />
     <mkdir dir="${build.tmp}/default/jetbrains.mps.devkit.bootstrap-languages.jar" />
@@ -16530,6 +16531,7 @@
         <module file="${mps_home}/core/aspects/feedback/jetbrains.mps.lang.feedback.problem.rules.msd" />
         <module file="${mps_home}/core/aspects/feedback/jetbrains.mps.lang.feedback.problem.structure.msd" />
         <module file="${mps_home}/core/aspects/feedback/jetbrains.mps.lang.messages.api.msd" />
+        <module file="${mps_home}/languages/core/stub/jdom/org.jdom.msd" />
       </chunk>
       <chunk bootstrap="true">
         <module file="${mps_home}/languages/baseLanguage/closures/runtime/closures.runtime.msd" bootstrap="true" />
