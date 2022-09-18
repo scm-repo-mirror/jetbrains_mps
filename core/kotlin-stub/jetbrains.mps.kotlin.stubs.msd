@@ -5,11 +5,11 @@
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />
     </modelRoot>
-    <modelRoot contentPath="${mps_home}/plugins/mps-core/lib/kotlinx-metadata-jvm-0.4.2.jar!/" type="java_classes">
-      <sourceRoot location="." />
+    <modelRoot contentPath="${mps_home}/plugins/mps-core/lib" type="java_classes">
+      <sourceRoot location="kotlinx-metadata-jvm-0.4.2.jar" />
     </modelRoot>
-    <modelRoot contentPath="${mps_home}/plugins/mps-core/lib/kotlin-stdlib-1.7.0.jar!/" type="java_classes">
-      <sourceRoot location="." />
+    <modelRoot contentPath="${mps_home}/plugins/mps-kotlin/lib" type="java_classes">
+      <sourceRoot location="kotlin-stdlib-1.7.0.jar" />
     </modelRoot>
   </models>
   <facets>
@@ -19,8 +19,8 @@
     <facet pluginId="jetbrains.mps.kotlin" type="ideaPlugin" />
   </facets>
   <stubModelEntries>
-    <stubModelEntry path="${module}/classes" />
     <stubModelEntry path="${mps_home}/plugins/mps-core/lib/kotlinx-metadata-jvm-0.4.2.jar" />
+    <stubModelEntry path="${mps_home}/plugins/mps-kotlin/lib/kotlin-stdlib-1.7.0.jar" />
   </stubModelEntries>
   <sourcePath />
   <dependencies>
