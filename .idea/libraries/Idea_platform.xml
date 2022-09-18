@@ -12,7 +12,6 @@
       <root url="jar://$PROJECT_DIR$/lib/testFramework.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/tests_bootstrap.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/dom-impl.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/intellij-test-discovery.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/3rd-party-rt.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/app.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/util_rt.jar!/" />

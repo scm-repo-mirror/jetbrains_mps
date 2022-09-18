@@ -19,6 +19,7 @@ import com.intellij.openapi.actionSystem.ActionGroup;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.pom.Navigatable;
 import com.intellij.ui.LayeredIcon;
+import gnu.trove.THashMap;
 import jetbrains.mps.icons.MPSIcons.Nodes;
 import jetbrains.mps.ide.actions.MPSActionPlaces;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.DataTree;
@@ -39,7 +40,6 @@ import jetbrains.mps.smodel.ModelReadRunnable;
 import jetbrains.mps.util.NameUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.coverage.gnu.trove.THashMap;
 
 import javax.swing.Icon;
 import javax.swing.event.TreeSelectionEvent;
