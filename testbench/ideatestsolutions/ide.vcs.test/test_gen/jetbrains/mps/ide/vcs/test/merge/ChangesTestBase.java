@@ -23,7 +23,6 @@ import com.intellij.openapi.application.ModalityState;
 import org.junit.Before;
 import java.io.File;
 import jetbrains.mps.vcs.changesmanager.CurrentDifferenceRegistry;
-import jetbrains.mps.ide.platform.watching.ReloadManager;
 import com.intellij.openapi.vcs.impl.projectlevelman.AllVcses;
 import org.junit.Assume;
 import com.intellij.openapi.vcs.VcsShowConfirmationOption;
@@ -31,6 +30,7 @@ import com.intellij.openapi.vcs.ProjectLevelVcsManager;
 import com.intellij.openapi.vcs.impl.ProjectLevelVcsManagerImpl;
 import com.intellij.openapi.vcs.FileStatusManager;
 import org.junit.After;
+import com.intellij.openapi.util.Disposer;
 import jetbrains.mps.vcs.diff.ChangeSet;
 import org.junit.Assert;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -124,7 +124,7 @@ public abstract class ChangesTestBase implements EnvironmentAware {
     myIdeaProject = ourProject.getProject();
     myChangeListManager = ChangeListManagerImpl.getInstanceImpl(myIdeaProject);
     CurrentDifferenceRegistry.getInstance(myIdeaProject).getCommandQueue().setHadExceptions(false);
-    myWaitHelper = new ChangesManagerTestWaitHelper(myIdeaProject, ApplicationManager.getApplication().getComponent(ReloadManager.class));
+    myWaitHelper = new ChangesManagerTestWaitHelper(myIdeaProject);
     myWaitHelper.waitForDiffRegistry();
 
     myGitVcs = AllVcses.getInstance(myIdeaProject).getByName("Git");
@@ -154,7 +154,7 @@ public abstract class ChangesTestBase implements EnvironmentAware {
     revertDiskChangesAndWait(getTestModelFile(), false);
     revertMemChangesAndWait(false);
     Assume.assumeFalse(CurrentDifferenceRegistry.getInstance(myIdeaProject).getCommandQueue().hadExceptions());
-    myWaitHelper.dispose();
+    Disposer.dispose(myWaitHelper);
   }
 
   protected MPSProject getProject() {

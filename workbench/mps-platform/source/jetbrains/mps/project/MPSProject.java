@@ -22,6 +22,7 @@ import com.intellij.openapi.fileEditor.ex.FileEditorManagerEx;
 import com.intellij.openapi.project.ex.ProjectManagerEx;
 import com.intellij.openapi.util.InvalidDataException;
 import com.intellij.openapi.vcs.changes.ChangeListManager;
+import com.intellij.openapi.vcs.changes.VcsDirtyScopeManager;
 import com.intellij.openapi.vfs.VfsUtil;
 import com.intellij.openapi.vfs.VirtualFile;
 import jetbrains.mps.extapi.module.SRepositoryRegistry;
@@ -41,6 +42,7 @@ import org.jetbrains.mps.openapi.module.ModelAccess;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Represents a project based on the idea platform project
@@ -182,7 +184,14 @@ public class MPSProject extends ProjectBase implements FileBasedProject, Project
       // VfsUtil.markDirtyAndRefresh relies on LocalFileSystem (eventually delegates to RefreshQueue), while our
       // BaseIdeaFileSystem.refresh uses IDEA's RefreshQueue directly. No idea what's right here.
       VfsUtil.markDirtyAndRefresh(false, true, true, ideaFiles.toArray(new VirtualFile[0]));
-      ChangeListManager.getInstance(myProject).scheduleUpdate();
+      // we used to rely on ChangeListManager.scheduleUpdate() of uncertain origin (uses of the method trace back to 1ca3d72f),
+      // but according to Aleksey Pivovarov, it's no-op, and we'd rather stick to VcsDirtyScopeManager
+      // VcsDirtyScopeManager doesn't need read/write or a specific thread, but as long as I want it to run
+      // *after* vfs refresh, I keep it here, inside invokeLater(). XXX Perhaps, have to change invokeLater to some
+      //   async job scheduler, just too afraid to do it with 22.2 next door.
+      // FIXME In fact, Aleksey Pivovarov suggests VCS has to pick up VFS changes automatically, perhaps, we could just
+      //       use async markDirtyAndRefresh() then?
+      VcsDirtyScopeManager.getInstance(myProject).filesDirty(Collections.emptyList(), ideaFiles);
     });
   }
 }
