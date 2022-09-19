@@ -22,7 +22,6 @@
     <import index="4are" ref="r:88da44e4-ffd4-490b-bf61-1da15124dd34(jetbrains.mps.debugger.java.runtime.evaluation.proxies)" />
     <import index="qgwr" ref="r:f326a98e-32f7-47a0-ba29-239107a89ca4(jetbrains.mps.debugger.java.api.evaluation)" />
     <import index="dcbi" ref="r:ea2e6d1f-eab5-4a08-8299-1abe57148f37(jetbrains.mps.debugger.java.api.evaluation.proxies)" />
-    <import index="2647" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.tests(MPS.IDEA/)" />
     <import index="frkw" ref="b387285c-3448-452c-b3bb-a3f8de8eaf08/java:com.sun.jdi(JDK-tools/)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
   </imports>
@@ -10060,10 +10059,10 @@
         <node concept="RB8Gr" id="20$jV_kGyw5" role="wGSsB">
           <node concept="wGYZG" id="20$jV_kGyw6" role="wGRaC">
             <node concept="3uibUv" id="20$jV_kGywa" role="wGYZH">
-              <ref role="3uigEE" to="2647:~ExternalClasspathClassLoader" resolve="ExternalClasspathClassLoader" />
+              <ref role="3uigEE" to="wyt6:~ClassLoader" resolve="ClassLoader" />
             </node>
             <node concept="3uibUv" id="20$jV_kGyw9" role="wGYZI">
-              <ref role="3uigEE" to="2647:~ExternalClasspathClassLoader" resolve="ExternalClasspathClassLoader" />
+              <ref role="3uigEE" to="wyt6:~ClassLoader" resolve="ClassLoader" />
             </node>
           </node>
         </node>
