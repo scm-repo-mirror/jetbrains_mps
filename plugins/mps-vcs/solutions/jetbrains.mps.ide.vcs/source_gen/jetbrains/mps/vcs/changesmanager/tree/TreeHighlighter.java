@@ -431,7 +431,7 @@ public class TreeHighlighter implements TreeMessageOwner, LafManagerListener {
   private TreeMessage getMessage(@Nullable ChangeType type, Feature feature) {
     CurrentDifference modelDif = myRegistry.getExistingCurDifference(feature.getModelReference());
     if (modelDif == null || !(modelDif.isTracked())) {
-      return getMessage(FileStatus.UNKNOWN);
+      return getMessage((type == null ? FileStatus.NOT_CHANGED : FileStatus.UNKNOWN));
     }
     if (modelDif.isConflicted()) {
       return getMessage(FileStatus.MERGED_WITH_CONFLICTS);
