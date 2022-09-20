@@ -835,72 +835,86 @@
   </root>
   <root nodeRef="r:b038209d-51a9-4919-b6e5-4fafce96fa00(jetbrains.mps.kotlin.behavior)/1387846870915454655">
     <file name="KtEnvironmentConfig.java">
-      <node id="1387846870915456067" at="28,0,29,0" concept="11" trace="isImportRoot#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
-      <node id="1387846870916235098" at="42,0,43,0" concept="11" trace="getName#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
-      <node id="6665403664156484901" at="47,32,48,19" concept="13" />
-      <node id="1387846870917061846" at="52,62,53,92" concept="14" />
-      <node id="1387846870916249528" at="53,92,54,140" concept="13" />
-      <node id="1387846870917067743" at="58,40,59,67" concept="14" />
-      <node id="1387846870916263519" at="60,73,61,76" concept="13" />
-      <node id="1387846870916526240" at="62,7,63,40" concept="14" />
-      <node id="1387846870916274528" at="63,40,64,67" concept="13" />
-      <node id="6665403664156490879" at="71,32,72,22" concept="13" />
-      <node id="1387846870917055411" at="76,62,77,63" concept="14" />
-      <node id="1387846870917052718" at="77,63,78,75" concept="13" />
-      <node id="419267039271028518" at="82,40,83,74" concept="12" />
-      <node id="419267039271031886" at="83,74,84,172" concept="13" />
-      <node id="1387846870915454655" at="89,0,90,0" concept="16" trace="IKotlinRoot$wS" />
-      <node id="1387846870915454655" at="90,0,91,0" concept="16" trace="IClassLike$go" />
-      <node id="1387846870915454655" at="91,0,92,0" concept="16" trace="IIdentifier$wg" />
-      <node id="1387846870915454655" at="95,0,96,0" concept="16" trace="name$MnvL" />
-      <node id="6665403664156474377" at="33,0,35,0" concept="11" trace="getEnvName#()Ljava/lang/String;" />
-      <node id="1387846870916258886" at="59,67,62,7" concept="10" />
-      <node id="6665403664156484889" at="45,0,50,0" concept="11" trace="getEnvName#()Ljava/lang/String;" />
-      <node id="1387846870916246530" at="51,0,56,0" concept="11" trace="isImportRoot#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
-      <node id="6665403664156490874" at="69,0,74,0" concept="11" trace="getEnvName#()Ljava/lang/String;" />
-      <node id="1387846870916279768" at="75,0,80,0" concept="11" trace="isImportRoot#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
-      <node id="1387846870916279788" at="81,0,86,0" concept="11" trace="getName#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
-      <node id="1387846870916246553" at="57,0,66,0" concept="11" trace="getName#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
-      <node id="1387846870915582840" at="68,0,87,0" concept="16" trace="Kotlin" />
-      <node id="1387846870915460086" at="44,0,67,0" concept="16" trace="Jvm" />
-      <scope id="1387846870915456067" at="28,0,29,0">
+      <node id="3198366222480318596" at="18,0,19,0" concept="16" trace="jvmForbiddenChars" />
+      <node id="1387846870915456067" at="31,0,32,0" concept="11" trace="isImportRoot#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <node id="1387846870916235098" at="45,0,46,0" concept="11" trace="getName#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
+      <node id="6665403664156484901" at="51,32,52,19" concept="13" />
+      <node id="1387846870917061846" at="56,62,57,92" concept="14" />
+      <node id="1387846870916249528" at="57,92,58,140" concept="13" />
+      <node id="1387846870916526240" at="62,40,63,80" concept="14" />
+      <node id="3198366222480397277" at="64,73,65,81" concept="14" />
+      <node id="3198366222480292127" at="65,81,66,139" concept="12" />
+      <node id="3198366222480304415" at="67,51,68,21" concept="13" />
+      <node id="3198366222480398889" at="69,9,70,0" concept="15" />
+      <node id="3198366222480569042" at="70,0,71,85" concept="14" />
+      <node id="3198366222480576408" at="71,85,72,150" concept="12" />
+      <node id="3198366222480614829" at="72,150,73,0" concept="15" />
+      <node id="1387846870917067743" at="73,0,74,69" concept="14" />
+      <node id="3198366222480545148" at="74,69,75,34" concept="13" />
+      <node id="3198366222481849314" at="76,7,77,0" concept="15" />
+      <node id="3198366222480631682" at="77,0,78,67" concept="13" />
+      <node id="6665403664156490879" at="85,32,86,22" concept="13" />
+      <node id="1387846870917055411" at="90,62,91,63" concept="14" />
+      <node id="1387846870917052718" at="91,63,92,75" concept="13" />
+      <node id="419267039271028518" at="96,40,97,74" concept="12" />
+      <node id="419267039271031886" at="97,74,98,172" concept="13" />
+      <node id="1387846870915454655" at="103,0,104,0" concept="16" trace="IKotlinRoot$wS" />
+      <node id="1387846870915454655" at="104,0,105,0" concept="16" trace="IClassLike$go" />
+      <node id="1387846870915454655" at="105,0,106,0" concept="16" trace="IIdentifier$wg" />
+      <node id="1387846870915454655" at="109,0,110,0" concept="16" trace="name$MnvL" />
+      <node id="6665403664156474377" at="36,0,38,0" concept="11" trace="getEnvName#()Ljava/lang/String;" />
+      <node id="3198366222480288841" at="66,139,69,9" concept="10" />
+      <node id="6665403664156484889" at="49,0,54,0" concept="11" trace="getEnvName#()Ljava/lang/String;" />
+      <node id="1387846870916246530" at="55,0,60,0" concept="11" trace="isImportRoot#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <node id="6665403664156490874" at="83,0,88,0" concept="11" trace="getEnvName#()Ljava/lang/String;" />
+      <node id="1387846870916279768" at="89,0,94,0" concept="11" trace="isImportRoot#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <node id="1387846870916279788" at="95,0,100,0" concept="11" trace="getName#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
+      <node id="3198366222480261608" at="63,80,76,7" concept="10" />
+      <node id="1387846870916246553" at="61,0,80,0" concept="11" trace="getName#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
+      <node id="1387846870915582840" at="82,0,101,0" concept="16" trace="Kotlin" />
+      <node id="1387846870915460086" at="47,0,81,0" concept="16" trace="Jvm" />
+      <scope id="1387846870915456067" at="31,0,32,0">
         <var name="current" id="1387846870915456149" />
         <var name="parent" id="1387846870915462805" />
       </scope>
-      <scope id="1387846870916235098" at="42,0,43,0">
+      <scope id="1387846870916235098" at="45,0,46,0">
         <var name="named" id="1387846870916235611" />
       </scope>
-      <scope id="6665403664156484898" at="47,32,48,19" />
-      <scope id="1387846870916258888" at="60,73,61,76" />
-      <scope id="6665403664156490878" at="71,32,72,22" />
-      <scope id="6665403664156474377" at="33,0,35,0" />
-      <scope id="1387846870916246549" at="52,62,54,140" />
-      <scope id="1387846870916279775" at="76,62,78,75" />
-      <scope id="1387846870916279793" at="82,40,84,172">
+      <scope id="6665403664156484898" at="51,32,52,19" />
+      <scope id="3198366222480288843" at="67,51,68,21" />
+      <scope id="6665403664156490878" at="85,32,86,22" />
+      <scope id="6665403664156474377" at="36,0,38,0" />
+      <scope id="1387846870916246549" at="56,62,58,140" />
+      <scope id="1387846870916279775" at="90,62,92,75" />
+      <scope id="1387846870916279793" at="96,40,98,172">
         <var name="name" id="419267039271028519" />
       </scope>
-      <scope id="6665403664156484889" at="45,0,50,0" />
-      <scope id="1387846870916246530" at="51,0,56,0">
+      <scope id="6665403664156484889" at="49,0,54,0" />
+      <scope id="1387846870916246530" at="55,0,60,0">
         <var name="current" id="1387846870916246531" />
         <var name="parent" id="1387846870916246533" />
       </scope>
-      <scope id="6665403664156490874" at="69,0,74,0" />
-      <scope id="1387846870916279768" at="75,0,80,0">
+      <scope id="6665403664156490874" at="83,0,88,0" />
+      <scope id="1387846870916279768" at="89,0,94,0">
         <var name="current" id="1387846870916279769" />
         <var name="parent" id="1387846870916279771" />
       </scope>
-      <scope id="1387846870916279788" at="81,0,86,0">
+      <scope id="1387846870916279788" at="95,0,100,0">
         <var name="named" id="1387846870916279791" />
       </scope>
-      <scope id="1387846870916246568" at="58,40,64,67" />
-      <scope id="1387846870916246553" at="57,0,66,0">
+      <scope id="3198366222480261610" at="64,73,75,34">
+        <var name="capitalized" id="3198366222480576409" />
+        <var name="name" id="3198366222480292128" />
+      </scope>
+      <scope id="1387846870916246568" at="62,40,78,67" />
+      <scope id="1387846870916246553" at="61,0,80,0">
         <var name="named" id="1387846870916246557" />
       </scope>
-      <unit id="1387846870915454655" at="94,0,97,0" name="jetbrains.mps.kotlin.behavior.KtEnvironmentConfig$PROPS" />
-      <unit id="1387846870915454655" at="88,0,93,0" name="jetbrains.mps.kotlin.behavior.KtEnvironmentConfig$CONCEPTS" />
-      <unit id="1387846870916279766" at="68,35,86,3" name="jetbrains.mps.kotlin.behavior.KtEnvironmentConfig$2" />
-      <unit id="1387846870916246512" at="44,32,66,3" name="jetbrains.mps.kotlin.behavior.KtEnvironmentConfig$1" />
-      <unit id="1387846870915454655" at="16,0,98,0" name="jetbrains.mps.kotlin.behavior.KtEnvironmentConfig" />
+      <unit id="1387846870915454655" at="108,0,111,0" name="jetbrains.mps.kotlin.behavior.KtEnvironmentConfig$PROPS" />
+      <unit id="1387846870915454655" at="102,0,107,0" name="jetbrains.mps.kotlin.behavior.KtEnvironmentConfig$CONCEPTS" />
+      <unit id="1387846870916279766" at="82,35,100,3" name="jetbrains.mps.kotlin.behavior.KtEnvironmentConfig$2" />
+      <unit id="1387846870916246512" at="47,32,80,3" name="jetbrains.mps.kotlin.behavior.KtEnvironmentConfig$1" />
+      <unit id="1387846870915454655" at="17,0,112,0" name="jetbrains.mps.kotlin.behavior.KtEnvironmentConfig" />
     </file>
   </root>
   <root nodeRef="r:b038209d-51a9-4919-b6e5-4fafce96fa00(jetbrains.mps.kotlin.behavior)/1394400792925489649">
