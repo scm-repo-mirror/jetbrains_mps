@@ -1330,6 +1330,16 @@
                       </node>
                     </node>
                   </node>
+                  <node concept="2pNNFK" id="5bkJoUO73ZE" role="3o6s8t">
+                    <property role="qg3DV" value="true" />
+                    <property role="2pNNFO" value="arg" />
+                    <node concept="2pNUuL" id="5bkJoUO73ZF" role="2pNNFR">
+                      <property role="2pNUuO" value="value" />
+                      <node concept="2pMdtt" id="5bkJoUO73ZG" role="2pMdts">
+                        <property role="2pMdty" value="--add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED" />
+                      </node>
+                    </node>
+                  </node>
                   <node concept="2pNNFK" id="4zcjQqfL2LA" role="3o6s8t">
                     <property role="qg3DV" value="true" />
                     <property role="2pNNFO" value="arg" />

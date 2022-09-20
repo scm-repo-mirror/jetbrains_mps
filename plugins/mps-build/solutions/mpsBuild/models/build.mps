@@ -38189,6 +38189,9 @@
     <node concept="26Ea6D" id="mJdekH$8Dn" role="2hID6k">
       <property role="26Ea6C" value="--add-opens=java.desktop/sun.awt.windows=ALL-UNNAMED" />
     </node>
+    <node concept="26Ea6D" id="5bkJoUO7YgF" role="2hID6k">
+      <property role="26Ea6C" value="--add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED" />
+    </node>
     <node concept="26Ea6D" id="mJdekH$8Ei" role="2hID6k">
       <property role="26Ea6C" value="--add-opens=java.desktop/sun.awt=ALL-UNNAMED" />
     </node>
