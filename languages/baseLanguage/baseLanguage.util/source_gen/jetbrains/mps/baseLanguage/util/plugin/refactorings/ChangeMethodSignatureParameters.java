@@ -54,6 +54,12 @@ public class ChangeMethodSignatureParameters {
   public boolean isVisibilityChanged() {
     return SNodeOperations.getConcept(SLinkOperations.getTarget(SNodeOperations.cast(this.myMethod, CONCEPTS.IVisible$zu), LINKS.visibility$Yyua)) != SNodeOperations.getConcept(SLinkOperations.getTarget(SNodeOperations.cast(this.myOldMethod, CONCEPTS.IVisible$zu), LINKS.visibility$Yyua));
   }
+  public boolean isValidArgumentCount(int argCount) {
+    boolean withArity = SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(this.myOldMethod, LINKS.parameter$5xBj)).last(), LINKS.type$a1UY), CONCEPTS.VariableArityType$KF);
+    int parameterSize = ListSequence.fromList(SLinkOperations.getChildren(this.myOldMethod, LINKS.parameter$5xBj)).count();
+    // Arity: last parameter has 0 or more args (> size - 1), otherwise it must match exactly
+    return (withArity ? argCount >= parameterSize - 1 : argCount == parameterSize);
+  }
 
   /**
    * Returns true if the change of visibility compared to original method could induce some mandatory visibility
@@ -140,6 +146,7 @@ public class ChangeMethodSignatureParameters {
   private static final class LINKS {
     /*package*/ static final SContainmentLink parameter$5xBj = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter");
     /*package*/ static final SContainmentLink visibility$Yyua = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
+    /*package*/ static final SContainmentLink type$a1UY = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
     /*package*/ static final SContainmentLink throwsItem$CdW$ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x10f383d6949L, "throwsItem");
     /*package*/ static final SContainmentLink body$5xQk = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body");
     /*package*/ static final SContainmentLink returnType$5xoi = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1fdL, "returnType");
@@ -147,6 +154,7 @@ public class ChangeMethodSignatureParameters {
 
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IVisible$zu = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, "jetbrains.mps.baseLanguage.structure.IVisible");
+    /*package*/ static final SConcept VariableArityType$KF = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11c08f42e7bL, "jetbrains.mps.baseLanguage.structure.VariableArityType");
     /*package*/ static final SConcept PrivateVisibility$l0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9586f0cL, "jetbrains.mps.baseLanguage.structure.PrivateVisibility");
     /*package*/ static final SConcept ProtectedVisibility$hr = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af958b686L, "jetbrains.mps.baseLanguage.structure.ProtectedVisibility");
   }

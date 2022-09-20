@@ -79,6 +79,11 @@ public class ChangeMethodSignatureRefactoring {
     for (SNode node : ListSequence.fromList(this.myUsages)) {
       MethodCallAdapter call = new MethodCallAdapter(node);
       List<SNode> oldArgs = ListSequence.fromListWithValues(new ArrayList<SNode>(), call.getMethodArguments());
+      // Only apply that if the call is valid
+      if (!(myParameters.isValidArgumentCount(ListSequence.fromList(oldArgs).count()))) {
+        continue;
+      }
+
       call.removeArguments();
       for (SNode parameter : ListSequence.fromList(SLinkOperations.getChildren(this.myParameters.getDeclaration(), LINKS.parameter$5xBj))) {
         int index = ListSequence.fromList(this.myParameters.getIdList()).indexOf(parameter.getNodeId().toString());
