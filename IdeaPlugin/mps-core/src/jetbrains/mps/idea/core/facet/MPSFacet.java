@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package jetbrains.mps.idea.core.facet;
 
 import com.intellij.ProjectTopics;
@@ -29,7 +28,6 @@ import com.intellij.util.messages.MessageBusConnection;
 import jetbrains.mps.ide.messages.MessagesViewTool;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.vfs.FileSystemBridge;
-import jetbrains.mps.ide.vfs.IdeaFileSystem;
 import jetbrains.mps.idea.core.MPSBundle;
 import jetbrains.mps.idea.core.project.SolutionIdea;
 import jetbrains.mps.messages.MessageKind;
@@ -57,6 +55,8 @@ public class MPSFacet extends Facet<MPSFacetConfiguration> {
     myMpsProject = ProjectHelper.fromIdeaProject(module.getProject());
     configuration.setFacet(this);
     MessageBusConnection busConnection = module.getProject().getMessageBus().connect(this);
+    // FIXME bad smell: according to MPS-34809 stacktrace, IDEA does initFacet() without the need
+    //       for this hack!
     busConnection.subscribe(ProjectTopics.MODULES, new ModuleListener() {
       @Override
       public void moduleAdded(@NotNull Project project, @NotNull Module module) {
@@ -73,6 +73,11 @@ public class MPSFacet extends Facet<MPSFacetConfiguration> {
       SolutionDescriptor solutionDescriptor = getConfiguration().createSolutionDescriptor();
       final FileSystemBridge fsb = myMpsProject.getFileSystem();
       final IFile df = fsb.fromVirtualFile(getModule().getModuleFile());
+      // for whatever reason, getConfiguration().createSolutionDescriptor() doesn't set module namespace.
+      //     It seems SolutionIdea relied on explicit setMD() call and Solution.doSetModuleDescriptor() to
+      //     update module reference. Now, for module reference constructed properly right away, set namespace here,
+      //     although there's definitely better place, I just don't know the one.
+      solutionDescriptor.setNamespace(getModule().getName());
       Solution solution = new SolutionIdea(getModule(), solutionDescriptor, df);
 
       com.intellij.openapi.project.Project project = getModule().getProject();
@@ -99,7 +104,6 @@ public class MPSFacet extends Facet<MPSFacetConfiguration> {
       new ModuleDependencyVersions(myMpsProject.getComponent(LanguageRegistry.class), myMpsProject.getRepository()).update(mySolution);
 
       LOG.info(MPSBundle.message("facet.module.loaded", MPSFacet.this.mySolution.getModuleName()));
-      IdeaPluginDescriptor descriptor = PluginManager.getPlugin(PluginManager.getPluginByClassName(MPSFacet.class.getName()));
     });
   }
 

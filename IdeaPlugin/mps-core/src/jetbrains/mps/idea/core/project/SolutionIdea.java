@@ -92,6 +92,7 @@ public class SolutionIdea extends Solution {
   private final SolutionIdea.MyLibrariesListener myLibrariesListener = new MyLibrariesListener();
 
   // FIXME Not sure there's need for descriptor file for this module; supposed to fix MPS-26338.
+  //       FTR, descriptorFile was removed deliberately, see 207abf6e881(MPS-26448)
   public SolutionIdea(@NotNull Module module, SolutionDescriptor descriptor, IFile descriptorFile) {
     super(descriptor, descriptorFile);
 
@@ -103,8 +104,6 @@ public class SolutionIdea extends Solution {
     // updateModelSet() which sends modelAdded events
     addModuleListener(PsiModelReloadListener.getInstance(myModule.getProject()).getModuleListener());
 
-    // TODO: simply set solution descriptor local variable?
-    setModuleDescriptor(descriptor);
     myConnection = myModule.getProject().getMessageBus().connect();
     myConnection.subscribe(ProjectTopics.PROJECT_ROOTS, new MyModuleRootListener());
     myConnection.subscribe(FacetManager.FACETS_TOPIC, new MyFacetManagerAdapter());
@@ -123,6 +122,8 @@ public class SolutionIdea extends Solution {
       }
     }
     projectLibraryTable.addListener(myLibrariesListener);
+    // used to be part of setModuleDescriptor() call
+    updateJDKSolutionIfNeeded();
   }
 
   @Override
