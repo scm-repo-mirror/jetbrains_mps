@@ -2,13 +2,13 @@ How to develop MPS plugin for IntelliJ IDEA
 
 1. Setup
 
-    - download latest stable IntelliJ IDEA CE for working with this project
+    - download the latest stable IntelliJ IDEA CE for working with this project
         NOTE: this is important, you should use IDEA Community Edition (not Ultimate) because of some platform prefixes
         hardcoded inside this project. You will not be able to compile/test this project successfully (completely) using
         IDEA Ultimate without modifying sources.
 
     - install MPS plugin(s) into IDEA CE
-        Some parts of this project were written using MPS plugin (bootstrap), so you should installed this plugin in
+        Some parts of this project were written using MPS plugin (bootstrap), so you should install this plugin in
         order to successfully open the project. If you open the project having no MPS plugin installed, you will most
         probably see an error message like: "facet cannot be loaded".
 
