@@ -30,7 +30,7 @@ How to develop MPS plugin for IntelliJ IDEA
                 - open IdeaPlugin project from the MPS sources
                 - ignore "Error Loading Project: Cannot load 4 facets" error message & other possible errors
                 - perform all project settings configuration steps (see below)
-                - open "Ant build" tool and run "IDEA-plugin-compile/install-plugin" Ant target
+                - open "Ant build" tool and run "MPS-as-IDEA-plugin/install-plugin" Ant target
                 - wait for the ant process to build & deploy fresh MPS plugin into IDEA CE you are running now
                 - from the Version Control view revert any changes made in project files by IDEA CE till this
                   moment (MPS plugins were not available, so some libraries may be corrupted)
@@ -39,8 +39,11 @@ How to develop MPS plugin for IntelliJ IDEA
     - configure project settings
             - open IdeaPlugin project from the MPS sources
             - open "Project Structure" dialog
-                - inside "Project Settings/Project" page ensure that project SDK ("JB JDK 17") is configured. If not, configure
-                  new java SDK named "JB JDK 17" & pointing to JetBrains JDK 17 by pressing on "New" button
+                - inside "Project Settings/Project" page ensure that project SDK ("JB JDK 11") is configured. If not, configure
+                  new java SDK named "JB JDK 11" & pointing to JetBrains JDK 11 by pressing on "New" button
+                  NOTE: despite use of Java 17 for Big MPS, we still build IdeaPlugin with Java 11. Once IDEA
+                  switches to Java 17 as the only Java (expected in 2022.3), we don't need to maintain Java 11
+                  compatibility for IdeaPlugin.
                 - inside "Platform Settings/SDKs" create new IntelliJ Platform Plugin SDK named "IDEA IC" & base on
                   project SDK created above
 
@@ -103,6 +106,15 @@ How to develop MPS plugin for IntelliJ IDEA
         * runTests          - executing unit-tests
         * uninstall-plugin  - removing MPS4IDEA plugin(s) from the current IDEA CE platform
         * zip               - create a single .zip file containing all MPS4IDEA plugins
+
+    - to get more details about JPS build process, set -Dmps.jps.debug=true or -Dmps.jps.debugExtra=true in
+      Compiler preferences, build process VM options
+    - To debug JPS build process, turn on Debug Build Process (Cmd-Shift-A, find Action), then Build/Make project
+      (with Cmd-F9). JSP will stop and show port number to connect to.
+      Use separate IDEA instance (could be the one with Big MPS sources) to connect and debug.
+      FWIW, -Dcompiler.process.debug.port= (as per Intellij Platform Plugin SDK,
+      https://plugins.jetbrains.com/docs/intellij/external-builder-api.html) didn't work for running instance
+      (IDEA with MPS plugin installed, when I want to debug JPS build issues with the project itself).
 
 4. Project structure
     Short introduction into MPS4IDEA plugin project structure
