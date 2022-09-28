@@ -57,6 +57,7 @@ import jetbrains.mps.build.mps.behavior.BuildMps_Generator__BehaviorDescriptor;
 import java.util.LinkedHashMap;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.build.behavior.BuildSourcePath__BehaviorDescriptor;
 import jetbrains.mps.build.mps.behavior.BuildMps_Module__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
@@ -740,7 +741,7 @@ public final class ModuleChecker {
             continue;
           }
           for (SourceRoot sr : ((DefaultModelRoot) mr).getSourceRoots(SourceRootKinds.SOURCES)) {
-            String path = sr.getAbsolutePath().getPath();
+            IFile path = sr.getAbsolutePath();
             SNode p = convertPath(path);
             if (p == null) {
               continue;
@@ -756,7 +757,7 @@ public final class ModuleChecker {
               // We used to imply model roots reside under a parent folder of a module descriptor file (in contentOf_BuildMpsLayout_ModuleSources).
               // Now, we just extracted the logic here and make the name of the deployment folder explicit.
               // FIXME in fact, we shall reference these names inside generated/copied module descriptors and stop implying they match names in the original descriptor source
-              deployName = moduleRelativePathHelper.makeRelative(path);
+              deployName = moduleRelativePathHelper.makeRelative(path.getPath());
             } catch (RelativePathHelper.PathException ex) {
               report(String.format("Failed to make model root path %s relative to module %s, using default folder name for deployment", sr, moduleRelativePathHelper.getBasePath()), ex);
               deployName = "models";
@@ -808,7 +809,7 @@ public final class ModuleChecker {
         if (tf != null) {
           IFile testsOutputPath = tf.getTestsOutputPath();
           if (testsOutputPath != null) {
-            buildModuleFacade.addTestSources(convertPath(testsOutputPath.getPath()), true);
+            buildModuleFacade.addTestSources(convertPath(testsOutputPath), true);
           }
         }
         // use new approach for all sources. I was eager to switch to SModule and JMF for a long time (see comments, below)
@@ -834,8 +835,7 @@ public final class ModuleChecker {
       IFile testsPathFile = TestsFacetImpl.getTestsOutputPath(myModuleDescriptor, myModuleDescriptorFile);
       boolean hasTests = SNodeOperations.isInstanceOf(myModule, CONCEPTS.BuildMps_Solution$R7) && (boolean) BuildMps_Solution__BehaviorDescriptor.hasTestsSources_id6ogfLD6evrW.invoke(SNodeOperations.cast(myModule, CONCEPTS.BuildMps_Solution$R7));
       if (testsPathFile != null && hasTests) {
-        String testPath = testsPathFile.getPath();
-        SNode p = convertPath(testPath);
+        SNode p = convertPath(testsPathFile);
         buildModuleFacade.addTestSources(p, true);
       }
     }
@@ -973,93 +973,112 @@ public final class ModuleChecker {
 
     // java stubs: jars
     for (String path : myModuleDescriptor.getJavaLibs()) {
-      SNode p = convertPath(path);
-      if (p == null) {
-        continue;
-      }
+      // path is complete file location (expanded by descriptor persistence)
+      // here we translate it to {BuildProject macro}/path (==BuildSourcePath.getRelativePath())
+      // there could be few macro that match the path (e.g. mps_home=.;platform_lib=./lib; both match
+      // java library initially specified as ${mps_home}/lib/mps-whatever.jar. Moreover, platform_lib wins 
+      // as .first because it's longer. To avoid confusion why descriptor file states mps_home and build script 
+      // uses platform_lib, we have to consider all path alternatives here.
+      // Likely, it's scenario specific to MPS own build, I don't expect user builds to be that complicated.
+      try {
+        List<SNode> p = myPathConverter.convertPath(path);
+        if (ListSequence.fromList(p).isEmpty()) {
 
-      final String relPath = BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(p);
-      if (path.endsWith(".jar")) {
-        // XXX hack to avoid exposing huge varying lists of jars from stub modules like MPS.Core or MPS.IDEA
-        // we check if there's hand-written (not extracted) re-exported dependency on a java module that re-exports at least 1 java library
-        // ('java module' is here just as it's the only way for an MPS module to depend on 'java library'; alternatively would need BuildMps_ModuleDependencyOnJavaLibrary, which 
-        // would probably be be better solution). We assume that this dependency would cover jars manifested in the module descriptor.
-        // TODO try BuildMps_ModuleDependencyOnJavaLibrary alternative, there could be a 'wildcard' flag to indicate this particular scenario
-        boolean nonAutoDepToExportedJavaLib = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(module, LINKS.dependencies$j8Lj), CONCEPTS.BuildMps_ModuleDependencyOnJavaModule$MK)).any(new IWhereFilter<SNode>() {
-          public boolean accept(SNode it) {
-            return SPropertyOperations.getBoolean(it, PROPS.reexport$RnCo) && (SLinkOperations.getTarget(it, LINKS.javaLibLocation$cmtb) == null) && Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(it, LINKS.module$RnRp), LINKS.dependencies$eBQR), CONCEPTS.BuildSource_JavaDependencyLibrary$TO)).any(new IWhereFilter<SNode>() {
-              public boolean accept(SNode l) {
-                return SPropertyOperations.getBoolean(l, PROPS.reexport$1qdl);
-              }
-            });
-          }
-        });
-        final boolean extractedAsJavaModule = Sequence.fromIterable(SNodeOperations.ofConcept(BuildMps_Module__BehaviorDescriptor.getDependenciesUnwrapped_id3QtfwKhgryb.invoke(module), CONCEPTS.BuildMps_ModuleDependencyOnJavaModule$MK)).any(new IWhereFilter<SNode>() {
-          public boolean accept(SNode it) {
-            return (SLinkOperations.getTarget(it, LINKS.javaLibLocation$cmtb) != null) && Objects.equals(BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(it, LINKS.javaLibLocation$cmtb)), relPath);
-          }
-        });
-        if (type.doCheck) {
-          boolean extractedJar = Sequence.fromIterable(SNodeOperations.ofConcept(BuildMps_Module__BehaviorDescriptor.getDependenciesUnwrapped_id3QtfwKhgryb.invoke(module), CONCEPTS.BuildMps_ModuleDependencyJar$Rm)).any(new IWhereFilter<SNode>() {
-            public boolean accept(SNode it) {
-              return Objects.equals(BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(it, LINKS.path$yTVo)), relPath);
-            }
-          });
-          if (!(extractedJar)) {
-            if (!(extractedAsJavaModule) && !(nonAutoDepToExportedJavaLib)) {
-              report("Java library jar should be extracted into build script: " + relPath);
-            }
-          }
+          continue;
         }
 
-        if (type.doPartialImport) {
-          SNode extr = ListSequence.fromList(previous).findFirst(new IWhereFilter<SNode>() {
+        final List<String> allRelativePathVariants = ListSequence.fromList(p).select(new ISelector<SNode, String>() {
+          public String select(SNode it) {
+            return (String) BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(it);
+          }
+        }).toListSequence();
+        if (path.endsWith(".jar")) {
+          // XXX hack to avoid exposing huge varying lists of jars from stub modules like MPS.Core or MPS.IDEA
+          // we check if there's hand-written (not extracted) re-exported dependency on a java module that re-exports at least 1 java library
+          // ('java module' is here just as it's the only way for an MPS module to depend on 'java library'; alternatively would need BuildMps_ModuleDependencyOnJavaLibrary, which 
+          // would probably be be better solution). We assume that this dependency would cover jars manifested in the module descriptor.
+          // TODO try BuildMps_ModuleDependencyOnJavaLibrary alternative, there could be a 'wildcard' flag to indicate this particular scenario
+          boolean nonAutoDepToExportedJavaLib = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(module, LINKS.dependencies$j8Lj), CONCEPTS.BuildMps_ModuleDependencyOnJavaModule$MK)).any(new IWhereFilter<SNode>() {
             public boolean accept(SNode it) {
-              return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.dependency$u_ko), CONCEPTS.BuildMps_ModuleDependencyJar$Rm) && Objects.equals(BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(it, LINKS.dependency$u_ko), CONCEPTS.BuildMps_ModuleDependencyJar$Rm), LINKS.path$yTVo)), relPath);
+              return SPropertyOperations.getBoolean(it, PROPS.reexport$RnCo) && (SLinkOperations.getTarget(it, LINKS.javaLibLocation$cmtb) == null) && Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(it, LINKS.module$RnRp), LINKS.dependencies$eBQR), CONCEPTS.BuildSource_JavaDependencyLibrary$TO)).any(new IWhereFilter<SNode>() {
+                public boolean accept(SNode l) {
+                  return SPropertyOperations.getBoolean(l, PROPS.reexport$1qdl);
+                }
+              });
             }
           });
-          if (extr == null) {
-            //  if there was extracted dependency to a java module that manifests itself as provider of this java lib, remove it from 'previous' list
-            extr = ListSequence.fromList(previous).findFirst(new IWhereFilter<SNode>() {
+          final boolean extractedAsJavaModule = Sequence.fromIterable(SNodeOperations.ofConcept(BuildMps_Module__BehaviorDescriptor.getDependenciesUnwrapped_id3QtfwKhgryb.invoke(module), CONCEPTS.BuildMps_ModuleDependencyOnJavaModule$MK)).any(new IWhereFilter<SNode>() {
+            public boolean accept(SNode it) {
+              return (SLinkOperations.getTarget(it, LINKS.javaLibLocation$cmtb) != null) && ListSequence.fromList(allRelativePathVariants).contains(BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(it, LINKS.javaLibLocation$cmtb)));
+            }
+          });
+          if (type.doCheck) {
+            boolean extractedJar = Sequence.fromIterable(SNodeOperations.ofConcept(BuildMps_Module__BehaviorDescriptor.getDependenciesUnwrapped_id3QtfwKhgryb.invoke(module), CONCEPTS.BuildMps_ModuleDependencyJar$Rm)).any(new IWhereFilter<SNode>() {
               public boolean accept(SNode it) {
-                return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.dependency$u_ko), CONCEPTS.BuildMps_ModuleDependencyOnJavaModule$MK) && (SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(it, LINKS.dependency$u_ko), CONCEPTS.BuildMps_ModuleDependencyOnJavaModule$MK), LINKS.javaLibLocation$cmtb) != null) && Objects.equals(BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(it, LINKS.dependency$u_ko), CONCEPTS.BuildMps_ModuleDependencyOnJavaModule$MK), LINKS.javaLibLocation$cmtb)), relPath);
+                return ListSequence.fromList(allRelativePathVariants).contains(BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(it, LINKS.path$yTVo)));
               }
             });
+            if (!(extractedJar)) {
+              if (!(extractedAsJavaModule) && !(nonAutoDepToExportedJavaLib)) {
+                report(String.format("Java library jar \n%s\n should be extracted into build script,\n e.g. like %s", path, allRelativePathVariants));
+              }
+            }
           }
 
-          if (extr == null) {
-            // add extracted dep only if there's no hand-crafter dependency to java module that provides classes of the jar in question
-            if (!(extractedAsJavaModule)) {
-              extr = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x64bd442e1cf7aaeeL, "jetbrains.mps.build.mps.structure.BuildMps_ExtractedModuleDependency"));
-              SNode jar = SModelOperations.createNewNode(SNodeOperations.getModel(module), null, CONCEPTS.BuildMps_ModuleDependencyJar$Rm);
-              SLinkOperations.setTarget(jar, LINKS.path$yTVo, p);
-              SLinkOperations.setTarget(extr, LINKS.dependency$u_ko, jar);
-              ListSequence.fromList(SLinkOperations.getChildren(module, LINKS.dependencies$j8Lj)).addElement(extr);
+          if (type.doPartialImport) {
+            SNode extr = ListSequence.fromList(previous).findFirst(new IWhereFilter<SNode>() {
+              public boolean accept(SNode it) {
+                return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.dependency$u_ko), CONCEPTS.BuildMps_ModuleDependencyJar$Rm) && ListSequence.fromList(allRelativePathVariants).contains(BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(it, LINKS.dependency$u_ko), CONCEPTS.BuildMps_ModuleDependencyJar$Rm), LINKS.path$yTVo)));
+              }
+            });
+            if (extr == null) {
+              //  if there was extracted dependency to a java module that manifests itself as provider of this java lib, remove it from 'previous' list
+              extr = ListSequence.fromList(previous).findFirst(new IWhereFilter<SNode>() {
+                public boolean accept(SNode it) {
+                  return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.dependency$u_ko), CONCEPTS.BuildMps_ModuleDependencyOnJavaModule$MK) && (SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(it, LINKS.dependency$u_ko), CONCEPTS.BuildMps_ModuleDependencyOnJavaModule$MK), LINKS.javaLibLocation$cmtb) != null) && ListSequence.fromList(allRelativePathVariants).contains(BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(it, LINKS.dependency$u_ko), CONCEPTS.BuildMps_ModuleDependencyOnJavaModule$MK), LINKS.javaLibLocation$cmtb)));
+                }
+              });
             }
-          } else {
-            if (!(extractedAsJavaModule)) {
-              // previous.remove() means "keep the dependency", but as long as there's hand-crafted java module dependency that manifest the jar,
-              // not reason to keep extracted one for the same jar
-              ListSequence.fromList(previous).removeElement(extr);
+
+            if (extr == null) {
+              // add extracted dep only if there's no hand-crafter dependency to java module that provides classes of the jar in question
+              if (!(extractedAsJavaModule)) {
+                extr = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x64bd442e1cf7aaeeL, "jetbrains.mps.build.mps.structure.BuildMps_ExtractedModuleDependency"));
+                SNode jar = SModelOperations.createNewNode(SNodeOperations.getModel(module), null, CONCEPTS.BuildMps_ModuleDependencyJar$Rm);
+                // take any, expect user to modify with an alternative if needed
+                SLinkOperations.setTarget(jar, LINKS.path$yTVo, ListSequence.fromList(p).first());
+                SLinkOperations.setTarget(extr, LINKS.dependency$u_ko, jar);
+                ListSequence.fromList(SLinkOperations.getChildren(module, LINKS.dependencies$j8Lj)).addElement(extr);
+              }
+            } else {
+              if (!(extractedAsJavaModule)) {
+                // previous.remove() means "keep the dependency", but as long as there's hand-crafted java module dependency that manifest the jar,
+                // not reason to keep extracted one for the same jar
+                ListSequence.fromList(previous).removeElement(extr);
+              }
             }
           }
-        }
-      } else if (path.endsWith("/classes")) {
-        if (type.doCheck) {
-          if (!(Sequence.fromIterable(SNodeOperations.ofConcept(BuildMps_Module__BehaviorDescriptor.getDependenciesUnwrapped_id3QtfwKhgryb.invoke(module), CONCEPTS.BuildMps_ModuleDependencyOnJavaModule$MK)).any(new IWhereFilter<SNode>() {
-            public boolean accept(SNode it) {
-              return (SLinkOperations.getTarget(it, LINKS.javaLibLocation$cmtb) != null) && Objects.equals(BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(it, LINKS.javaLibLocation$cmtb)), relPath);
+        } else if (path.endsWith("/classes")) {
+          if (type.doCheck) {
+            if (!(Sequence.fromIterable(SNodeOperations.ofConcept(BuildMps_Module__BehaviorDescriptor.getDependenciesUnwrapped_id3QtfwKhgryb.invoke(module), CONCEPTS.BuildMps_ModuleDependencyOnJavaModule$MK)).any(new IWhereFilter<SNode>() {
+              public boolean accept(SNode it) {
+                return (SLinkOperations.getTarget(it, LINKS.javaLibLocation$cmtb) != null) && ListSequence.fromList(allRelativePathVariants).contains(BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(it, LINKS.javaLibLocation$cmtb)));
+              }
+            }))) {
+              String message = String.format("Java library location \n%s\n should be extracted into build script as Java Module dependency,\ne.g. like %s", path, allRelativePathVariants);
+              myReporter.handle(Message.createMessage(MessageKind.WARNING, getClass().getName(), message, SNodeOperations.getPointer(myModule)));
             }
-          }))) {
-            String message = "Java library location should be extracted into build script as Java Module dependency: " + relPath;
-            myReporter.handle(Message.createMessage(MessageKind.WARNING, getClass().getName(), message, SNodeOperations.getPointer(myModule)));
           }
+
+          // just ignore for now. To remove a hack in JavaModuleFacetImpl.getLibraryClassPath, i'd like to specify classes location explicitly with java libs.
+          // the plan is to support general FS locations here, likely with another BM_ModuleDependency that is capable to reference 'java module'
+        } else {
+          report("only jar stub libraries are supported, found: " + path);
         }
 
-        // just ignore for now. To remove a hack in JavaModuleFacetImpl.getLibraryClassPath, i'd like to specify classes location explicitly with java libs.
-        // the plan is to support general FS locations here, likely with another BM_ModuleDependency that is capable to reference 'java module'
-      } else {
-        report("only jar stub libraries are supported, found: " + path);
+      } catch (PathConverter.PathConvertException ex) {
+        report("Failed to convert path " + path, ex);
+        // ignore, try next
       }
     }
   }
