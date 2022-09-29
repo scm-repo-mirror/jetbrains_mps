@@ -27,6 +27,7 @@ import jetbrains.mps.generator.plan.PlanIdentity;
 import jetbrains.mps.generator.runtime.TemplateMappingConfiguration;
 import jetbrains.mps.generator.runtime.TemplateModel;
 import jetbrains.mps.generator.runtime.TemplateModule;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.messages.IMessageHandler;
 import jetbrains.mps.messages.LogHandler;
 import jetbrains.mps.messages.Message;
@@ -35,7 +36,6 @@ import jetbrains.mps.smodel.SLanguageHierarchy;
 import jetbrains.mps.smodel.language.GeneratorRuntime;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.smodel.language.LanguageRuntime;
-import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SLanguage;
@@ -43,10 +43,8 @@ import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
@@ -163,7 +161,7 @@ public class RegularPlanBuilder implements GenerationPlanBuilder {
         return tm -> !l.equals(tm.getSourceLanguage().getIdentity()) && tm.getTargetLanguages().contains(l);
       }
 
-    };
+    }
     return new TSB();
   }
 
@@ -199,64 +197,55 @@ public class RegularPlanBuilder implements GenerationPlanBuilder {
   public ModelGenerationPlan wrapUp(@NotNull PlanIdentity planIdentity) {
     HashSet<TemplateModule> explicitlyMentioned = new HashSet<>();
     mySteps.forEach(s -> s.reportInvolvedGenerators(explicitlyMentioned));
-    HashSet<TemplateModule> availableAsExt = new HashSet<>(myEngagedGenerators);
-    class S implements Comparable<S> {
-      public final TemplateModule generator;
-      private final Collection<TemplateModule> directlyExtendedGenerators;
-      private final Collection<S> transitiveExtendedGenerators = new ArrayList<>();
-      public S(TemplateModule g) {
+    final HashSet<TemplateModule> availableAsExt = new HashSet<>(myEngagedGenerators);
+    class S {
+      private final TemplateModule generator;
+      private final Collection<SModuleReference> directlyExtendedGenerators;
+      public S(TemplateModule g, Collection<SModuleReference> extendedGenerators) {
         generator = g;
-        directlyExtendedGenerators = generator.getExtendedGenerators();
+        directlyExtendedGenerators = extendedGenerators;
       }
 
-      void prepare(HashMap<TemplateModule, S> allModules) {
-        for (TemplateModule tm : directlyExtendedGenerators) {
-          final S s = allModules.get(tm);
-          if (s != null) {
-            transitiveExtendedGenerators.add(s);
-          }
-        }
+      TemplateModule generator() {
+        return generator;
       }
 
       Collection<SModuleReference> directlyExtendedGenerators() {
-        return directlyExtendedGenerators.stream().map(GeneratorRuntime::getModuleReference).collect(Collectors.toList());
+        return directlyExtendedGenerators;
+      }
+    }
+    // topological sort
+    final class TopoSort {
+      private final HashSet<TemplateModule> visited = new HashSet<>();
+      final List<S> topoOrder = new ArrayList<>();
+
+      void depthFirst(TemplateModule tm) {
+        visited.add(tm);
+        final Collection<TemplateModule> extGen = tm.getExtendedGenerators();
+        for (TemplateModule etm : extGen) {
+          if (visited(etm)) {
+            continue;
+          }
+          depthFirst(etm);
+        }
+        // we've already visited all dependencies; if this TM is of interest (among availableAsExt), record it in the ordered list
+        if (availableAsExt.contains(tm)) {
+          topoOrder.add(new S(tm, extGen.stream().map(GeneratorRuntime::getModuleReference).collect(Collectors.toList())));
+        }
       }
 
-      boolean dependsFrom(final S other) {
-        // Have to be transitive, given C -> B -> A, shall answer A < B, B < C, and A < C
-        //    not to face issues like https://youtrack.jetbrains.com/issue/MPS-27394
-        return directlyExtendedGenerators.contains(other.generator) || transitiveExtendedGenerators.stream().anyMatch(e -> e.dependsFrom(other));
+      boolean visited(TemplateModule tm) {
+        return visited.contains(tm);
       }
+    }
 
-      @Override
-      public int compareTo(@NotNull S o) {
-        if (o == this) {
-          return 0;
-        }
-        // this needs o, then o < this
-        if (dependsFrom(o)) {
-          return -1;
-        }
-        // if o needs this, then o > this
-        if (o.dependsFrom(this)) {
-          return 1;
-        }
-        // otherwise, we don't care
-        return 0;
+    TopoSort ts = new TopoSort();
+    for (TemplateModule ttt : availableAsExt) {
+      if (ts.visited(ttt)) {
+        continue;
       }
+      ts.depthFirst(ttt);
     }
-    S[] topoOrder = new S[availableAsExt.size()]; // it's partial topo ordering, just for extended generators mentioned directly
-    int i = 0;
-    HashMap<TemplateModule, S> m = new HashMap<>();
-    for (TemplateModule extCandidate : availableAsExt) {
-      final S s = new S(extCandidate);
-      topoOrder[i++] = s;
-      m.put(extCandidate, s);
-    }
-    for (S s : topoOrder) {
-      s.prepare(m);
-    }
-    Arrays.sort(topoOrder);
     // It's intentional (though not necessarily right) that we look into generators extended directly only, not transitive closure.
     // The idea is that given C extends B extends A, and A.withExtensions and C among availableExt and no B whatsoever, I don't want C to show up.
     //
@@ -284,8 +273,8 @@ public class RegularPlanBuilder implements GenerationPlanBuilder {
      * For B: C
      * For E: G, F
      */
-    for (S s : topoOrder) {
-      final SModuleReference tmr = s.generator.getModuleReference();
+    for (S s : ts.topoOrder) {
+      final SModuleReference tmr = s.generator().getModuleReference();
       // FIXME quite ineffective way to deal with LanguageRuntime.getGenerators producing new instance of TemplateModule each time asked.
       // XXX with no interpreted generators instantiated from LR.getGenerators, can get rid of this code.
       if (explicitlyMentioned.stream().anyMatch(em -> em.getModuleReference().equals(tmr))) {
@@ -299,7 +288,7 @@ public class RegularPlanBuilder implements GenerationPlanBuilder {
       }
       Collection<SModuleReference> directlyExtendedGenerators = s.directlyExtendedGenerators();
       for (StepEntry se : mySteps) {
-        if (!se.registerIfIntersects(directlyExtendedGenerators, s.generator)) {
+        if (!se.registerIfIntersects(directlyExtendedGenerators, s.generator())) {
           break;
         }
       }
