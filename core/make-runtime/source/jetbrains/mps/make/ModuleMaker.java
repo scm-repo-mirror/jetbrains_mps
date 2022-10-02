@@ -1020,9 +1020,6 @@ public final class ModuleMaker {
     if (myExplicitRequestECJ) {
       jcImpl = JavaCompilerImpl.eclipseCompiler();
     } else {
-      if (RuntimeFlags.useLegacyJavaCompiler()) {
-        throw new IllegalStateException("Support for legacy ECJ integration has been dropped");
-      }
       if (RuntimeFlags.useEclipseJavaCompiler()) {
         try {
           jcImpl = JavaCompilerImpl.eclipseCompiler();

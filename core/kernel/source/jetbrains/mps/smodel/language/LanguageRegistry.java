@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.smodel.language;
 
-import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.classloading.ClassLoaderManager;
 import jetbrains.mps.classloading.DeployListener;
 import jetbrains.mps.components.ComponentHost;
@@ -188,28 +187,17 @@ public final class LanguageRegistry implements CoreComponent, DeployListener {
     try {
       final Class<?> rtClass = l.getOwnClass(rtClassName);
       if (LanguageRuntime.class.isAssignableFrom(rtClass)) {
-        return rtClass.asSubclass(LanguageRuntime.class).newInstance();
+        return rtClass.asSubclass(LanguageRuntime.class).getDeclaredConstructor().newInstance();
       }
-      if (RuntimeFlags.isUseInterpretedLanguages()) {
-        LOG.error(String.format("Incompatible language runtime class for module %s; resort to interpreted runtime", l.getModuleName()));
-        return new InterpretedLanguageRuntime(l);
-      } else {
-        LOG.error(String.format("Incompatible language runtime class for module %s; returning null", l.getModuleName()));
-        return null;
-      }
-    } catch (ClassNotFoundException ex) {
+      LOG.error(String.format("Incompatible language runtime class for module %s; returning null", l.getModuleName()));
+      return null;
+    } catch (NoSuchMethodException | ClassNotFoundException ex) {
       // would like to have error + exception here, but there are tests (e.g. ModulesReloadTest) that legitimately expect non-compiled modules
       // and no distinction between source and deployed modules. Now, we try to load any module added to the global repository, even if it's
       // a source module just added to a project. Once we tell deployed modules from sources (two distinct repositories would likely suffice),
-      // AND LanguageRegistry listens to the proper one, we can have an error here.
-      if (RuntimeFlags.isUseInterpretedLanguages()) {
-        LOG.debug(String.format("Missing language runtime class for module %s (make failed?); resort to interpreted runtime", l.getModuleName()));
-        return new InterpretedLanguageRuntime(l);
-      } else {
-        LOG.warning(String.format("Missing language runtime class for module %s (make failed?); returning null", l.getModuleName()));
-        return null;
-      }
-    } catch (InstantiationException | IllegalAccessException e) {
+      LOG.warning(String.format("Missing language runtime class for module %s (make failed?); returning null", l.getModuleName()));
+      return null;
+    } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
       LOG.error(String.format("Failed to load language %s", l.getModuleName()), e);
       return null;
     }

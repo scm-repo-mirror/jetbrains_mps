@@ -31,7 +31,6 @@ public final class RuntimeFlags {
   private static boolean ourMergeDriverMode = false;
   private static Boolean ourCastException = null;
   private static Boolean ourEclipseJavaCompiler = null;
-  private static Boolean ourLegacyJavaCompiler = null;
   private static Boolean ourModuleActivators = null;
   private static Boolean ourLegacyLoadModels = null; // has to become false by default if my testing proves it ok
 
@@ -118,19 +117,6 @@ public final class RuntimeFlags {
       ourEclipseJavaCompiler = "ecj".equalsIgnoreCase(System.getProperty("mps.compiler.java"));
     }
     return ourEclipseJavaCompiler;
-  }
-
-  /**
-   * With use of {@link javax.tools.JavaCompiler} API in MPS 2021.1, MPS can use any compiler available
-   * through the API. However, if you need to do compilation the way it was prior to 2021.1,
-   * you can still resort to legacy, ECJ-backed mechanism, iby {@code "mps.compiler.java=ecjlegacy"} system property
-   * @return true to resort to ECJ compilation by means of direct use of ECJ classes
-   */
-  public static boolean useLegacyJavaCompiler() {
-    if (ourLegacyJavaCompiler == null) {
-      ourLegacyJavaCompiler = "ecjlegacy".equalsIgnoreCase(System.getProperty("mps.compiler.java"));
-    }
-    return ourLegacyJavaCompiler;
   }
 
   /**
