@@ -11503,6 +11503,42 @@
                 </node>
               </node>
             </node>
+            <node concept="3clFbF" id="4p4S9Z5$qsA" role="3cqZAp">
+              <node concept="2OqwBi" id="4p4S9Z5$qsB" role="3clFbG">
+                <node concept="37vLTw" id="4p4S9Z5$qsC" role="2Oq$k0">
+                  <ref role="3cqZAo" node="46IpDBbXRUx" resolve="myAdditionalJvmArgs" />
+                </node>
+                <node concept="TSZUe" id="4p4S9Z5$qsD" role="2OqNvi">
+                  <node concept="Xl_RD" id="4p4S9Z5$qsE" role="25WWJ7">
+                    <property role="Xl_RC" value="--add-opens=java.desktop/com.apple.eawt=ALL-UNNAMED" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="4p4S9Z5$tsy" role="3cqZAp">
+              <node concept="2OqwBi" id="4p4S9Z5$tsz" role="3clFbG">
+                <node concept="37vLTw" id="4p4S9Z5$ts$" role="2Oq$k0">
+                  <ref role="3cqZAo" node="46IpDBbXRUx" resolve="myAdditionalJvmArgs" />
+                </node>
+                <node concept="TSZUe" id="4p4S9Z5$ts_" role="2OqNvi">
+                  <node concept="Xl_RD" id="4p4S9Z5$tsA" role="25WWJ7">
+                    <property role="Xl_RC" value="--add-opens=java.desktop/com.apple.eawt.event=ALL-UNNAMED" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="4p4S9Z5$uQM" role="3cqZAp">
+              <node concept="2OqwBi" id="4p4S9Z5$uQN" role="3clFbG">
+                <node concept="37vLTw" id="4p4S9Z5$uQO" role="2Oq$k0">
+                  <ref role="3cqZAo" node="46IpDBbXRUx" resolve="myAdditionalJvmArgs" />
+                </node>
+                <node concept="TSZUe" id="4p4S9Z5$uQP" role="2OqNvi">
+                  <node concept="Xl_RD" id="4p4S9Z5$uQQ" role="25WWJ7">
+                    <property role="Xl_RC" value="--add-opens=java.desktop/com.apple.laf=ALL-UNNAMED" />
+                  </node>
+                </node>
+              </node>
+            </node>
             <node concept="3clFbF" id="39EhqqoHrDT" role="3cqZAp">
               <node concept="2OqwBi" id="39EhqqoHrDU" role="3clFbG">
                 <node concept="37vLTw" id="39EhqqoHrDV" role="2Oq$k0">
@@ -11619,6 +11655,30 @@
                 <node concept="TSZUe" id="39EhqqoHH_L" role="2OqNvi">
                   <node concept="Xl_RD" id="39EhqqoHMDH" role="25WWJ7">
                     <property role="Xl_RC" value="--add-opens=java.desktop/sun.awt.image=ALL-UNNAMED" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="4p4S9Z5$zzd" role="3cqZAp">
+              <node concept="2OqwBi" id="4p4S9Z5$zze" role="3clFbG">
+                <node concept="37vLTw" id="4p4S9Z5$zzf" role="2Oq$k0">
+                  <ref role="3cqZAo" node="46IpDBbXRUx" resolve="myAdditionalJvmArgs" />
+                </node>
+                <node concept="TSZUe" id="4p4S9Z5$zzg" role="2OqNvi">
+                  <node concept="Xl_RD" id="4p4S9Z5$zzh" role="25WWJ7">
+                    <property role="Xl_RC" value="--add-opens=java.desktop/sun.awt.windows=ALL-UNNAMED" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="4p4S9Z5$AyY" role="3cqZAp">
+              <node concept="2OqwBi" id="4p4S9Z5$AyZ" role="3clFbG">
+                <node concept="37vLTw" id="4p4S9Z5$Az0" role="2Oq$k0">
+                  <ref role="3cqZAo" node="46IpDBbXRUx" resolve="myAdditionalJvmArgs" />
+                </node>
+                <node concept="TSZUe" id="4p4S9Z5$Az1" role="2OqNvi">
+                  <node concept="Xl_RD" id="4p4S9Z5$Az2" role="25WWJ7">
+                    <property role="Xl_RC" value="--add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED" />
                   </node>
                 </node>
               </node>

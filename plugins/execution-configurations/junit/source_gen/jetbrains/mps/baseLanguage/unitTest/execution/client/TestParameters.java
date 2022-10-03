@@ -65,6 +65,9 @@ public final class TestParameters {
       ListSequence.fromList(myAdditionalJvmArgs).addElement("--add-opens=java.base/sun.nio.ch=ALL-UNNAMED");
       ListSequence.fromList(myAdditionalJvmArgs).addElement("--add-opens=java.base/sun.security.ssl=ALL-UNNAMED");
       ListSequence.fromList(myAdditionalJvmArgs).addElement("--add-opens=java.base/sun.security.util=ALL-UNNAMED");
+      ListSequence.fromList(myAdditionalJvmArgs).addElement("--add-opens=java.desktop/com.apple.eawt=ALL-UNNAMED");
+      ListSequence.fromList(myAdditionalJvmArgs).addElement("--add-opens=java.desktop/com.apple.eawt.event=ALL-UNNAMED");
+      ListSequence.fromList(myAdditionalJvmArgs).addElement("--add-opens=java.desktop/com.apple.laf=ALL-UNNAMED");
       ListSequence.fromList(myAdditionalJvmArgs).addElement("--add-opens=java.desktop/java.awt=ALL-UNNAMED");
       ListSequence.fromList(myAdditionalJvmArgs).addElement("--add-opens=java.desktop/java.awt.dnd.peer=ALL-UNNAMED");
       ListSequence.fromList(myAdditionalJvmArgs).addElement("--add-opens=java.desktop/java.awt.event=ALL-UNNAMED");
@@ -75,6 +78,8 @@ public final class TestParameters {
       ListSequence.fromList(myAdditionalJvmArgs).addElement("--add-opens=java.desktop/javax.swing.text.html=ALL-UNNAMED");
       ListSequence.fromList(myAdditionalJvmArgs).addElement("--add-opens=java.desktop/sun.awt.datatransfer=ALL-UNNAMED");
       ListSequence.fromList(myAdditionalJvmArgs).addElement("--add-opens=java.desktop/sun.awt.image=ALL-UNNAMED");
+      ListSequence.fromList(myAdditionalJvmArgs).addElement("--add-opens=java.desktop/sun.awt.windows=ALL-UNNAMED");
+      ListSequence.fromList(myAdditionalJvmArgs).addElement("--add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED");
       ListSequence.fromList(myAdditionalJvmArgs).addElement("--add-opens=java.desktop/sun.awt=ALL-UNNAMED");
       ListSequence.fromList(myAdditionalJvmArgs).addElement("--add-opens=java.desktop/sun.font=ALL-UNNAMED");
       ListSequence.fromList(myAdditionalJvmArgs).addElement("--add-opens=java.desktop/sun.java2d=ALL-UNNAMED");
