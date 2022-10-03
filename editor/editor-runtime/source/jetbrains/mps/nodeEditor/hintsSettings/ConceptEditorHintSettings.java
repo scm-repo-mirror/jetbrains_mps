@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,6 +23,7 @@ import jetbrains.mps.smodel.language.LanguageRuntime;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SLanguage;
 
+import java.util.ArrayDeque;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -31,8 +32,8 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Semen Alperovich
- * 05 15, 2013
+ * @author Semen Alperovich
+ * @since MPS 3.0
  */
 public final class ConceptEditorHintSettings {
   private final Map<String, Map<ConceptEditorHint, Boolean>> mySettings = new ConcurrentHashMap<>();
@@ -49,7 +50,15 @@ public final class ConceptEditorHintSettings {
   }
 
   private void init(@NotNull LanguageRegistry languageRegistry, @NotNull Iterable<SLanguage> languages) {
-    for (SLanguage slanguage : languages) {
+    ArrayDeque<SLanguage> q = new ArrayDeque<>();
+    languages.forEach(q::addLast);
+    HashSet<SLanguage> seen = new HashSet<>();
+    // XXX unfortunately, no suitable LanguageRegistry.withAvailableLanguages() operation
+    while (!q.isEmpty()) {
+      SLanguage slanguage = q.removeFirst();
+      if (!seen.add(slanguage)) {
+        continue;
+      }
       LanguageRuntime language = languageRegistry.getLanguage(slanguage);
       EditorAspectDescriptor editorDescriptor = language.getAspect(EditorAspectDescriptor.class);
       if (editorDescriptor instanceof EditorHintsProvider) {
@@ -59,6 +68,7 @@ public final class ConceptEditorHintSettings {
             put(lang, hint, false);
           }
         }
+        ((EditorHintsProvider) editorDescriptor).employsHintsFrom(q::addLast);
       }
     }
   }

@@ -77,10 +77,8 @@
     <import index="sn11" ref="r:836426ab-a6f4-4fa3-9a9c-34c02ed6ab5d(jetbrains.mps.ide.icons)" />
     <import index="82uw" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.function(JDK/)" />
     <import index="1ka" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.typechecking(MPS.Core/)" />
-    <import index="ev0w" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.typechecking.backend(MPS.Core/)" />
     <import index="9eyi" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.lang.editor.menus.transformation(MPS.Editor/)" />
     <import index="uddc" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.menus.transformation(MPS.Editor/)" />
-    <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
     <import index="y4ob" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor.menus(MPS.Editor/)" />
     <import index="clxi" ref="r:1797d8fa-0ead-4018-8649-d2ee4016be0a(jetbrains.mps.datatransfer)" />
     <import index="tprs" ref="r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)" implicit="true" />
@@ -10568,10 +10566,10 @@
                                 <ref role="3uigEE" to="c17a:~SLanguage" resolve="SLanguage" />
                               </node>
                             </node>
-                            <node concept="2YIFZM" id="5T8kb3IAXpv" role="33vP2m">
-                              <ref role="37wK5l" to="y4ob:~MenuUtil.getUsedAndDependentLanguages(org.jetbrains.mps.openapi.model.SModel)" resolve="getUsedAndDependentLanguages" />
+                            <node concept="2YIFZM" id="1rXiJR4IoF4" role="33vP2m">
+                              <ref role="37wK5l" to="y4ob:~MenuUtil.getUsedLanguages(org.jetbrains.mps.openapi.model.SModel)" resolve="getUsedLanguages" />
                               <ref role="1Pybhc" to="y4ob:~MenuUtil" resolve="MenuUtil" />
-                              <node concept="37vLTw" id="5T8kb3IAXpw" role="37wK5m">
+                              <node concept="37vLTw" id="1rXiJR4IoF5" role="37wK5m">
                                 <ref role="3cqZAo" node="4gWmQVtBE7S" resolve="currentModel" />
                               </node>
                             </node>
