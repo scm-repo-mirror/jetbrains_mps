@@ -555,7 +555,7 @@
   <node concept="2S6QgY" id="6nA1THMkjeN">
     <property role="3GE5qa" value="annotation" />
     <property role="TrG5h" value="AnnotateFile" />
-    <ref role="2ZfgGC" to="hcm8:Fn6l2J$ezS" resolve="IKotlinRoot" />
+    <ref role="2ZfgGC" to="hcm8:Fn6l2J$ezS" resolve="IKotlinFile" />
     <node concept="2S6ZIM" id="6nA1THMkjeO" role="2ZfVej">
       <node concept="3clFbS" id="6nA1THMkjeP" role="2VODD2">
         <node concept="3clFbF" id="6nA1THMkjeQ" role="3cqZAp">

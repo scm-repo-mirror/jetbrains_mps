@@ -144,6 +144,10 @@
     <property role="34LRSv" value="object" />
     <property role="R4oN_" value="object declaration" />
     <property role="3GE5qa" value="statement.object" />
+    <property role="19KtqR" value="true" />
+    <node concept="PrWs8" id="74Z9X$ygq8V" role="PzmwI">
+      <ref role="PrY4T" node="74Z9X$ygekT" resolve="IKotlinRoot" />
+    </node>
     <node concept="PrWs8" id="2yYXHtl6JEn" role="PzmwI">
       <ref role="PrY4T" node="2yYXHtl6Jjj" resolve="IDeclaration" />
     </node>
@@ -158,6 +162,9 @@
     </node>
     <node concept="PrWs8" id="6cg9X74Le1C" role="PzmwI">
       <ref role="PrY4T" node="6cg9X74Le0Z" resolve="IVisible" />
+    </node>
+    <node concept="1QGGSu" id="5sECd$vml1F" role="rwd14">
+      <property role="1iqoE4" value="${module}/icons/objectKotlin.svg" />
     </node>
   </node>
   <node concept="PlHQZ" id="2yYXHtl6JdA">
@@ -322,6 +329,9 @@
     </node>
     <node concept="PrWs8" id="6ov$ndRmCbY" role="PzmwI">
       <ref role="PrY4T" node="18X2O0Fy6BI" resolve="IStatementHolder" />
+    </node>
+    <node concept="1QGGSu" id="58ySuOXMdg9" role="rwd14">
+      <property role="1iqoE4" value="${module}/icons/classInitializerKotlin.svg" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6Jem">
@@ -710,7 +720,7 @@
     <property role="3GE5qa" value="root" />
     <property role="19KtqR" value="true" />
     <node concept="PrWs8" id="3CHKp3dufe" role="PzmwI">
-      <ref role="PrY4T" node="Fn6l2J$ezS" resolve="IKotlinRoot" />
+      <ref role="PrY4T" node="Fn6l2J$ezS" resolve="IKotlinFile" />
     </node>
     <node concept="PrWs8" id="oITd3IthGo" role="PzmwI">
       <ref role="PrY4T" node="oITd3Ithrr" resolve="IKotlinRunnable" />
@@ -719,7 +729,7 @@
       <ref role="PrY4T" node="18X2O0Fy6BI" resolve="IStatementHolder" />
     </node>
     <node concept="1QGGSu" id="4xtEcGT2API" role="rwd14">
-      <property role="1iqoE4" value="${module}/lib/kotlin_script.png" />
+      <property role="1iqoE4" value="${module}/icons/kotlin_script.svg" />
     </node>
   </node>
   <node concept="PlHQZ" id="2yYXHtl6JfN">
@@ -825,6 +835,9 @@
     <node concept="PrWs8" id="6f3juM$y3Rt" role="PzmwI">
       <ref role="PrY4T" node="213J8chjiEQ" resolve="IVariableIdentifier" />
     </node>
+    <node concept="1QGGSu" id="58ySuOXMg16" role="rwd14">
+      <property role="1iqoE4" value="${module}/icons/value.svg" />
+    </node>
   </node>
   <node concept="PlHQZ" id="2yYXHtl6Jg6">
     <property role="EcuMT" value="2936055411798373382" />
@@ -891,6 +904,9 @@
     </node>
     <node concept="PrWs8" id="6TRHYuCE24Q" role="PzmwI">
       <ref role="PrY4T" node="6TRHYuCB$BU" resolve="IAnnotated" />
+    </node>
+    <node concept="1QGGSu" id="58ySuOXMcXP" role="rwd14">
+      <property role="1iqoE4" value="${module}/icons/classInitializerKotlin.svg" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6Jgu">
@@ -1182,6 +1198,7 @@
     <property role="34LRSv" value="class" />
     <property role="R4oN_" value="class declaration" />
     <property role="3GE5qa" value="declaration.class" />
+    <property role="19KtqR" value="true" />
     <node concept="1TJgyj" id="2yYXHtl6Jty" role="1TKVEi">
       <property role="IQ2ns" value="2936055411798374242" />
       <property role="20kJfa" value="modifier" />
@@ -1199,6 +1216,9 @@
     </node>
     <node concept="PrWs8" id="71DDynMG8Rj" role="PzmwI">
       <ref role="PrY4T" node="71DDynMG2ea" resolve="IConstructorDeclaration" />
+    </node>
+    <node concept="1QGGSu" id="5sECd$vmc2j" role="rwd14">
+      <property role="1iqoE4" value="${module}/icons/classKotlin.svg" />
     </node>
   </node>
   <node concept="PlHQZ" id="2yYXHtl6JhF">
@@ -1473,6 +1493,9 @@
     <node concept="PrWs8" id="6TRHYuCE250" role="PzmwI">
       <ref role="PrY4T" node="6TRHYuCB$BU" resolve="IAnnotated" />
     </node>
+    <node concept="1QGGSu" id="58ySuOXMhPn" role="rwd14">
+      <property role="1iqoE4" value="${module}/icons/typeAlias.svg" />
+    </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6Jj_">
     <property role="EcuMT" value="2936055411798373605" />
@@ -1716,6 +1739,9 @@
     <node concept="PrWs8" id="6Ijh6DJzcM2" role="PzmwI">
       <ref role="PrY4T" node="xpyqH1FtXg" resolve="IThisReceiverProvider" />
     </node>
+    <node concept="1QGGSu" id="58ySuOXMi0n" role="rwd14">
+      <property role="1iqoE4" value="${module}/icons/lambda.svg" />
+    </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6Jks">
     <property role="EcuMT" value="2936055411798373660" />
@@ -1794,7 +1820,7 @@
       <ref role="20lvS9" node="2yYXHtl6Jjj" resolve="IDeclaration" />
     </node>
     <node concept="PrWs8" id="213J8cgO98$" role="PzmwI">
-      <ref role="PrY4T" node="Fn6l2J$ezS" resolve="IKotlinRoot" />
+      <ref role="PrY4T" node="Fn6l2J$ezS" resolve="IKotlinFile" />
     </node>
     <node concept="PrWs8" id="oITd3IthGk" role="PzmwI">
       <ref role="PrY4T" node="oITd3Ithrr" resolve="IKotlinRunnable" />
@@ -1803,7 +1829,7 @@
       <ref role="PrY4T" node="213J8chg1H9" resolve="IDeclarationHolder" />
     </node>
     <node concept="1QGGSu" id="4xtEcGSY$wQ" role="rwd14">
-      <property role="1iqoE4" value="${module}/lib/kotlin_file.png" />
+      <property role="1iqoE4" value="${module}/icons/kotlin.svg" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6JkE">
@@ -1919,6 +1945,9 @@
       <property role="IQ2nx" value="1243006380188597514" />
       <property role="TrG5h" value="isReadOnly" />
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+    </node>
+    <node concept="1QGGSu" id="58ySuOXMfKp" role="rwd14">
+      <property role="1iqoE4" value="${module}/icons/value.svg" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6Jl1">
@@ -2095,6 +2124,9 @@
     <node concept="PrWs8" id="auY8gv0MWK" role="PzmwI">
       <ref role="PrY4T" node="2mD64u3yQho" resolve="IInferencePart" />
     </node>
+    <node concept="1QGGSu" id="58ySuOXMfrD" role="rwd14">
+      <property role="1iqoE4" value="${module}/icons/value.svg" />
+    </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6JlR">
     <property role="EcuMT" value="2936055411798373751" />
@@ -2168,6 +2200,9 @@
     </node>
     <node concept="PrWs8" id="6TRHYuCE24I" role="PzmwI">
       <ref role="PrY4T" node="6TRHYuCB$BU" resolve="IAnnotated" />
+    </node>
+    <node concept="1QGGSu" id="58ySuOXMiq1" role="rwd14">
+      <property role="1iqoE4" value="${module}/icons/objectKotlin.svg" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6Jm9">
@@ -2323,6 +2358,9 @@
     <property role="EcuMT" value="2936055411801306477" />
     <property role="3GE5qa" value="declaration.class" />
     <property role="TrG5h" value="IClassDeclaration" />
+    <node concept="PrWs8" id="74Z9X$ygqGM" role="PrDN$">
+      <ref role="PrY4T" node="74Z9X$ygekT" resolve="IKotlinRoot" />
+    </node>
     <node concept="PrWs8" id="6cg9X74gsdj" role="PrDN$">
       <ref role="PrY4T" node="6TRHYuCB$BU" resolve="IAnnotated" />
     </node>
@@ -2350,6 +2388,9 @@
     <node concept="PrWs8" id="6VSCWXCaksS" role="PrDN$">
       <ref role="PrY4T" node="6VSCWXCakph" resolve="IInheritExplicitly" />
     </node>
+    <node concept="t5JxF" id="74Z9X$yfB_T" role="lGtFl">
+      <property role="t5JxN" value="optionally rootable class declaration" />
+    </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtlhVmE">
     <property role="EcuMT" value="2936055411801306538" />
@@ -2357,6 +2398,7 @@
     <property role="TrG5h" value="EnumClassDeclaration" />
     <property role="34LRSv" value="enum class" />
     <property role="R4oN_" value="enum class declaration" />
+    <property role="19KtqR" value="true" />
     <ref role="1TJDcQ" node="2yYXHtl6JhD" resolve="ClassDeclaration" />
     <node concept="1TJgyj" id="213J8cgCzX9" role="1TKVEi">
       <property role="IQ2ns" value="2324909103759114057" />
@@ -2386,6 +2428,9 @@
         <property role="t5JxN" value="cannot override enum" />
       </node>
     </node>
+    <node concept="1QGGSu" id="5sECd$vmkoc" role="rwd14">
+      <property role="1iqoE4" value="${module}/icons/enumKotlin.svg" />
+    </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtli8qZ">
     <property role="EcuMT" value="2936055411801360063" />
@@ -2393,6 +2438,7 @@
     <property role="TrG5h" value="InterfaceDeclaration" />
     <property role="34LRSv" value="interface" />
     <property role="R4oN_" value="interface declaration" />
+    <property role="19KtqR" value="true" />
     <node concept="1TJgyi" id="4q11fqJYbqW" role="1TKVEl">
       <property role="IQ2nx" value="5080347312211408572" />
       <property role="TrG5h" value="isFunctional" />
@@ -2400,6 +2446,9 @@
     </node>
     <node concept="PrWs8" id="213J8cgMj09" role="PzmwI">
       <ref role="PrY4T" node="2yYXHtlhVlH" resolve="IClassDeclaration" />
+    </node>
+    <node concept="1QGGSu" id="5sECd$vmki4" role="rwd14">
+      <property role="1iqoE4" value="${module}/icons/interfaceKotlin.svg" />
     </node>
   </node>
   <node concept="PlHQZ" id="2yYXHtlqd9D">
@@ -3665,9 +3714,9 @@
   <node concept="PlHQZ" id="Fn6l2J$ezS">
     <property role="EcuMT" value="781120894705658104" />
     <property role="3GE5qa" value="root" />
-    <property role="TrG5h" value="IKotlinRoot" />
-    <node concept="PrWs8" id="5N0i2C12TgG" role="PrDN$">
-      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    <property role="TrG5h" value="IKotlinFile" />
+    <node concept="PrWs8" id="74Z9X$ygeIw" role="PrDN$">
+      <ref role="PrY4T" node="74Z9X$ygekT" resolve="IKotlinRoot" />
     </node>
     <node concept="1TJgyj" id="5N0i2C1hH3l" role="1TKVEi">
       <property role="IQ2ns" value="2936055411798374534" />
@@ -4267,6 +4316,17 @@
       <property role="20kJfa" value="constructor" />
       <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" node="2yYXHtl6Jgo" resolve="PrimaryConstructor" />
+    </node>
+  </node>
+  <node concept="PlHQZ" id="74Z9X$ygekT">
+    <property role="EcuMT" value="8160284863354692921" />
+    <property role="3GE5qa" value="root" />
+    <property role="TrG5h" value="IKotlinRoot" />
+    <node concept="PrWs8" id="74Z9X$yghka" role="PrDN$">
+      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    </node>
+    <node concept="PrWs8" id="58ySuOXQ$EN" role="PrDN$">
+      <ref role="PrY4T" node="7DyvjiA1ZY9" resolve="ISignatureScopeProvider" />
     </node>
   </node>
 </model>

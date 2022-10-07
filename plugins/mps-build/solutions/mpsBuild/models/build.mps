@@ -51474,6 +51474,51 @@
             <ref role="1Busuk" node="3HV74$ebibC" resolve="jetbrains.mps.lang.text" />
           </node>
         </node>
+        <node concept="3rtmxn" id="58ySuOXA$Ye" role="3bR31x">
+          <node concept="3LXTmp" id="58ySuOXA$Yf" role="3rtmxm">
+            <node concept="398BVA" id="58ySuOXA$Yg" role="3LXTmr">
+              <ref role="398BVh" node="1fy59xXoa5p" resolve="plugin_home" />
+              <node concept="2Ry0Ak" id="58ySuOXA$Yh" role="iGT6I">
+                <property role="2Ry0Am" value="languages" />
+                <node concept="2Ry0Ak" id="58ySuOXA$Yi" role="2Ry0An">
+                  <property role="2Ry0Am" value="kotlin" />
+                </node>
+              </node>
+            </node>
+            <node concept="3qWCbU" id="58ySuOXA$Yk" role="3LXTna">
+              <property role="3qWCbO" value="icons/**, resources/**" />
+            </node>
+          </node>
+        </node>
+        <node concept="1yeLz9" id="1t5XQsnxn4B" role="1TViLv">
+          <property role="TrG5h" value="jetbrains.mps.kotlin.fileGenerator" />
+          <property role="3LESm3" value="f3582614-1f1a-40a3-b97a-586e7bf16203" />
+          <node concept="1BupzO" id="1t5XQsnxn4V" role="3bR31x">
+            <property role="3ZfqAx" value="generator/templates" />
+            <property role="1Hdu6h" value="true" />
+            <property role="1HemKv" value="true" />
+            <node concept="3LXTmp" id="1t5XQsnxn4W" role="1HemKq">
+              <node concept="398BVA" id="1t5XQsnxn4C" role="3LXTmr">
+                <ref role="398BVh" node="1fy59xXoa5p" resolve="plugin_home" />
+                <node concept="2Ry0Ak" id="1t5XQsnxn4D" role="iGT6I">
+                  <property role="2Ry0Am" value="languages" />
+                  <node concept="2Ry0Ak" id="1t5XQsnxn4E" role="2Ry0An">
+                    <property role="2Ry0Am" value="kotlin" />
+                    <node concept="2Ry0Ak" id="1t5XQsnxn4F" role="2Ry0An">
+                      <property role="2Ry0Am" value="generator" />
+                      <node concept="2Ry0Ak" id="1t5XQsnxn4G" role="2Ry0An">
+                        <property role="2Ry0Am" value="templates" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="3qWCbU" id="1t5XQsnxn4X" role="3LXTna">
+                <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="1SiIV0" id="13B1jmVzaAP" role="3bR37C">
           <node concept="3bR9La" id="13B1jmVzaAQ" role="1SiIV1">
             <ref role="3bR37D" node="3qkjbZn4_1I" resolve="jetbrains.mps.lang.constraints.rules.kinds" />

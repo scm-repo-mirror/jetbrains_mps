@@ -11966,7 +11966,7 @@
   <node concept="PKFIW" id="5N0i2C12Uf9">
     <property role="3GE5qa" value="root" />
     <property role="TrG5h" value="IKotlinRootHeader" />
-    <ref role="1XX52x" to="hcm8:Fn6l2J$ezS" resolve="IKotlinRoot" />
+    <ref role="1XX52x" to="hcm8:Fn6l2J$ezS" resolve="IKotlinFile" />
     <node concept="3EZMnI" id="5N0i2C1ciaM" role="2wV5jI">
       <node concept="VPM3Z" id="5N0i2C1ciaN" role="3F10Kt" />
       <node concept="VPXOz" id="5N0i2C1ciaO" role="3F10Kt">
@@ -12026,7 +12026,7 @@
                     <node concept="2OqwBi" id="54Gi6NCwLZY" role="3cqZAk">
                       <node concept="pncrf" id="54Gi6NCwLNz" role="2Oq$k0" />
                       <node concept="2qgKlT" id="54Gi6NCwMob" role="2OqNvi">
-                        <ref role="37wK5l" to="hez:4f4W8JpDCGu" resolve="getPackageName" />
+                        <ref role="37wK5l" to="hez:74Z9X$ygjTm" resolve="getPackageName" />
                       </node>
                     </node>
                   </node>
@@ -12635,7 +12635,7 @@
   </node>
   <node concept="3ICUPy" id="54Gi6NCzW7e">
     <property role="3GE5qa" value="root" />
-    <ref role="aqKnT" to="hcm8:Fn6l2J$ezS" resolve="IKotlinRoot" />
+    <ref role="aqKnT" to="hcm8:Fn6l2J$ezS" resolve="IKotlinFile" />
     <node concept="1Qtc8_" id="54Gi6NCzWDO" role="IW6Ez">
       <node concept="3eGOoe" id="54Gi6NCzWH$" role="1Qtc8$" />
       <node concept="IWgqT" id="54Gi6NCzWRo" role="1Qtc8A">
