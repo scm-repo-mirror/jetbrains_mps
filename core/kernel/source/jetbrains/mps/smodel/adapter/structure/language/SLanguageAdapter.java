@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.smodel.adapter.structure.language;
 
-import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.adapter.structure.FormatException;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.adapter.structure.concept.SConceptAdapterById;
@@ -31,17 +30,9 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SDataType;
 import org.jetbrains.mps.openapi.language.SLanguage;
-import org.jetbrains.mps.openapi.module.SDependency;
-import org.jetbrains.mps.openapi.module.SDependencyScope;
-import org.jetbrains.mps.openapi.module.SModule;
-import org.jetbrains.mps.openapi.module.SModuleId;
-import org.jetbrains.mps.openapi.module.SModuleReference;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
 
 public abstract class SLanguageAdapter implements SLanguage {
   public static final String ID_DELIM = ":";
@@ -106,16 +97,6 @@ public abstract class SLanguageAdapter implements SLanguage {
       }
     }
     return result;
-  }
-
-  @Override
-  public Iterable<SModuleReference> getLanguageRuntimes() {
-    LanguageRuntime runtime = getLanguageDescriptor();
-    if (runtime == null) {
-      return Collections.emptySet();
-    }
-    // for a single use of the deprecated method (Generator module deps), I don't care about bootstrap scenarios
-    return runtime.getRuntimeModules();
   }
 
   public int getLanguageVersion() {

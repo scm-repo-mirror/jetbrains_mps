@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,7 +53,9 @@ public interface SLanguage {
    * Returns true if this language is fully-functional.
    * Typically, user code should not care about this
    * Can return false, for example, if the language is absent
+   * @deprecated {@code SLanguage} is an identity object, consult {@code LanguageRegistry} instead
    */
+  @Deprecated(since = "2022.3")
   boolean isValid();
 
   /**
@@ -63,7 +65,9 @@ public interface SLanguage {
    * @deprecated {@code SLanguage} is an identity object, use {@code LanguageRuntime#getRuntimeModules()} instead
    */
   @Deprecated(forRemoval = true, since = "2021.2")
-  Iterable<SModuleReference> getLanguageRuntimes();
+  default Iterable<SModuleReference> getLanguageRuntimes() {
+    throw new UnsupportedOperationException("SLanguage.getLanguageRuntimes() method has been deprecated and scheduled for removal");
+  }
 
   /**
    * The optional reference to a module containing the sources for the language. This is useful, for example, when showing

@@ -240,13 +240,11 @@ public class Generator extends ReloadableModuleBase {
     // mySourceLanguage0.getLanguageRuntimes() gives RTs for deployed languages only, but I don't care. Not sure I need these
     // RT dependencies here at all.
     // XXX The idea is to move RT dependencies into Generator, as various generators may need different runtime, but for the
-    // time being we have to deal with RT modules specified for a Langugae.
+    // time being we have to deal with RT modules specified for a Language.
     final LinkedHashSet<SModuleReference> languageRuntimes = new LinkedHashSet<>();
     if (mySourceLanguage != null) {
       languageRuntimes.addAll(mySourceLanguage.getRuntimeModulesReferences());
     }
-    // intersect with deployed information, if any
-    mySourceLanguage0.getLanguageRuntimes().forEach(languageRuntimes::add);
     for (SModuleReference rt : languageRuntimes) {
       rv.add(new SDependencyImpl(rt, repo, SDependencyScope.RUNTIME, false));
     }
