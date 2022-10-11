@@ -328,7 +328,7 @@ public class TransientModelsModule extends AbstractModule implements TransientSM
     }
 
     @Override
-    public final jetbrains.mps.smodel.SModel getSModelInternal() {
+    public jetbrains.mps.smodel.SModel getSModel() {
       if (mySModel != null) {
         return mySModel;
       }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -211,7 +211,7 @@ final class TestModelFactory {
   }
 
   // FIXME node add/remove operations don't require EditableSModelBase to dispatch events any more, and we may get back SModelBase as superclass
-  // however, at the moment, ther are still casts in #clearEditableChanged() and #isEditableChanged and unless we drop these,
+  // however, at the moment, there are still casts in #clearEditableChanged() and #isEditableChanged and unless we drop these,
   // the class has to be of EditableSModel
   @Deprecated(since = "3.3", forRemoval = true)
   private static class TestModelBase extends EditableSModelBase {
@@ -225,7 +225,7 @@ final class TestModelFactory {
     }
 
     @Override
-    public jetbrains.mps.smodel.SModel getSModelInternal() {
+    public jetbrains.mps.smodel.SModel getSModel() {
       return myModelData;
     }
 

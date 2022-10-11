@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,7 +41,7 @@ public abstract class LazyEditableSModelBase extends EditableSModelBase {
   }
 
   @Override
-  public final SModel getSModelInternal() {
+  public final SModel getSModel() {
     ModelLoadingState oldState = getLoadingState();
     SModel res = myLoadSupport.getModel(ModelLoadingState.INTERFACE_LOADED);
     if (res == null) {
