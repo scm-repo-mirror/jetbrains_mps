@@ -269,6 +269,7 @@ public final class Renamer {
     // distinguish nested modules vs siblings/related
     myNestedRenames = new ArrayList<>();
     myRelatedRenames = new ArrayList<>();
+    final boolean ignoreRelatedRenames = Registry.is("mps.module.rename.related.ignore", false);
     // nested reside *under* module dir of initial module AND share the name
     final ArrayList<ModuleRenameInfo> nested = new ArrayList<>();
     // related do not live under module dir, but share the name
@@ -297,7 +298,7 @@ public final class Renamer {
         //       see MRI.withNewName(), moduleNameMatch condition
         // We respect shared module dir/file scenario here (force NameMatch.NONE if same as in myPrimaryRename)
         nested.add(ModuleRenameInfo.nested(am, am.getDescriptorFile(), baseName, myPrimaryRename));
-      } else if (ModuleRenameInfo.isNamespacePrefix(am.getModuleName(), baseName)) {
+      } else if (!ignoreRelatedRenames && ModuleRenameInfo.isNamespacePrefix(am.getModuleName(), baseName)) {
         // XXX use of ends with '.' condition is questionable, there are scenarios when it's desired to use prefix without dot (e.g. rename of mymodule.smodel
         // to include rename of mymodule.smodelTests. OTOH, might not be desired for rename of "mymodule" when there's unrelated "mymoduleothername.keepasis",
         // at least without a mechanism for a user to opt out (e.g. by checkbox in the dialog that shows 'related' modules).
@@ -306,6 +307,7 @@ public final class Renamer {
         //   e.g rename of a solution as primary target, with sibling language that has similar name and few nested modules.
         //   I expect number of such cases to be rare (provided we now match names by 'startsWith' only, and solution names are usually
         //   more elaborate(longer) than language's
+        //   e.g. see MPS-34735
         related.add(ModuleRenameInfo.related(am, am.getDescriptorFile(), baseName));
       }
     }
