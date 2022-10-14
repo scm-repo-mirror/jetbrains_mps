@@ -179,7 +179,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return TargetDeclaration__BehaviorDescriptor.getTargetFqName_idLXloLaM9s9.invoke(SNodeOperations.getNodeAncestor(_context.getOriginalCopiedInputNode(_context.getNode()), CONCEPTS.TargetDeclaration$Kf, true, false)) + "." + SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL);
   }
   public static Object referenceMacro_GetReferent_0_0(final ReferenceMacroContext _context) {
-    return (String) IWillBeClassifier__BehaviorDescriptor.classifierName_id3ZSHU3pg$b_.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.facet$oEqf));
+    return NameUtil.longNameFromNamespaceAndShortName(SModelOperations.getModelName(SNodeOperations.getModel(SLinkOperations.getTarget(_context.getNode(), LINKS.facet$oEqf))), IWillBeClassifier__BehaviorDescriptor.classifierName_id3ZSHU3pg$b_.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.facet$oEqf)));
   }
   public static Object referenceMacro_GetReferent_1_0(final ReferenceMacroContext _context) {
     return Sequence.fromIterable(ClassConcept__BehaviorDescriptor.constructors_id4_LVZ3pCvsd.invoke(_context.getOutputNodeByInputNodeAndMappingLabel(_context.getNode(), "TargetDeclaration_class"))).first();

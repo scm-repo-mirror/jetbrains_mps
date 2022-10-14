@@ -19,9 +19,8 @@ import java.util.LinkedHashSet;
 import java.util.Queue;
 import jetbrains.mps.internal.collections.runtime.QueueSequence;
 import java.util.LinkedList;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
@@ -55,11 +54,7 @@ public final class FacetDeclaration__BehaviorDescriptor extends BaseBHDescriptor
       SNode fd = QueueSequence.fromQueue(queue).removeFirstElement();
       if (!(SetSequence.fromSet(result).contains(fd))) {
         SetSequence.fromSet(result).addElement(fd);
-        QueueSequence.fromQueue(queue).addSequence(ListSequence.fromList(SLinkOperations.getChildren(fd, LINKS.extended$lkD8)).select(new ISelector<SNode, SNode>() {
-          public SNode select(SNode it) {
-            return SLinkOperations.getTarget(it, LINKS.facet$Asbo);
-          }
-        }));
+        QueueSequence.fromQueue(queue).addSequence(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(fd, LINKS.extended$lkD8), LINKS.facet$Asbo)));
       }
     }
     return result;
@@ -71,16 +66,8 @@ public final class FacetDeclaration__BehaviorDescriptor extends BaseBHDescriptor
       SNode fd = QueueSequence.fromQueue(queue).removeFirstElement();
       if (!(SetSequence.fromSet(result).contains(fd))) {
         SetSequence.fromSet(result).addElement(fd);
-        QueueSequence.fromQueue(queue).addSequence(ListSequence.fromList(SLinkOperations.getChildren(fd, LINKS.required$ll7a)).select(new ISelector<SNode, SNode>() {
-          public SNode select(SNode it) {
-            return SLinkOperations.getTarget(it, LINKS.facet$Asbo);
-          }
-        }));
-        QueueSequence.fromQueue(queue).addSequence(ListSequence.fromList(SLinkOperations.getChildren(fd, LINKS.optional$llmb)).select(new ISelector<SNode, SNode>() {
-          public SNode select(SNode it) {
-            return SLinkOperations.getTarget(it, LINKS.facet$Asbo);
-          }
-        }));
+        QueueSequence.fromQueue(queue).addSequence(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(fd, LINKS.required$ll7a), LINKS.facet$Asbo)));
+        QueueSequence.fromQueue(queue).addSequence(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(fd, LINKS.optional$llmb), LINKS.facet$Asbo)));
       }
     }
     return result;

@@ -6,10 +6,10 @@ import jetbrains.mps.smodel.runtime.ModuleRuntime;
 import jetbrains.mps.components.ComponentHost;
 import jetbrains.mps.make.facet.FacetRegistry;
 import jetbrains.mps.make.facet.IFacet;
-import org.jetbrains.mps.openapi.language.SLanguage;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.core.plugin.Generate_Facet;
 import jetbrains.mps.lang.core.plugin.TextGen_Facet;
+import org.jetbrains.mps.openapi.language.SLanguage;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class ModuleActivator implements ModuleRuntime.Activator {
   private final ComponentHost myPlatform;
