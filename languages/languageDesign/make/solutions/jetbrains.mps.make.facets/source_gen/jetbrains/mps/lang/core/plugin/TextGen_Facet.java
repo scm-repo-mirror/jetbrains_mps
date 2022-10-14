@@ -68,7 +68,7 @@ import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 
 public class TextGen_Facet extends IFacet.Stub {
   private List<ITarget> targets = ListSequence.fromList(new ArrayList<ITarget>());
-  private IFacet.Name name = new IFacet.Name("jetbrains.mps.lang.core.TextGen");
+  private IFacet.Name name = new IFacet.Name("jetbrains.mps.make.facets.TextGen");
   public TextGen_Facet() {
     ListSequence.fromList(targets).addElement(new Target_configure());
     ListSequence.fromList(targets).addElement(new Target_textGen());
@@ -81,7 +81,7 @@ public class TextGen_Facet extends IFacet.Stub {
     return null;
   }
   public Iterable<IFacet.Name> required() {
-    return Sequence.fromArray(new IFacet.Name[]{new IFacet.Name("jetbrains.mps.lang.core.Generate"), new IFacet.Name("jetbrains.mps.make.facets.Make")});
+    return Sequence.fromArray(new IFacet.Name[]{new IFacet.Name("jetbrains.mps.make.facets.Generate"), new IFacet.Name("jetbrains.mps.make.facets.Make")});
   }
   public Iterable<IFacet.Name> extended() {
     return null;
@@ -93,7 +93,7 @@ public class TextGen_Facet extends IFacet.Stub {
     return new TargetProperties();
   }
   public static class Target_configure implements ITargetEx {
-    private static final ITarget.Name name = new ITarget.Name("jetbrains.mps.lang.core.TextGen.configure");
+    private static final ITarget.Name name = new ITarget.Name("jetbrains.mps.make.facets.TextGen.configure");
     public Target_configure() {
     }
     public IJob createJob() {
@@ -125,7 +125,7 @@ public class TextGen_Facet extends IFacet.Stub {
       return null;
     }
     public Iterable<ITarget.Name> before() {
-      return Sequence.fromArray(new ITarget.Name[]{new ITarget.Name("jetbrains.mps.lang.core.TextGen.textGen"), new ITarget.Name("jetbrains.mps.lang.core.TextGen.textGenToMemory")});
+      return Sequence.fromArray(new ITarget.Name[]{new ITarget.Name("jetbrains.mps.make.facets.TextGen.textGen"), new ITarget.Name("jetbrains.mps.make.facets.TextGen.textGenToMemory")});
     }
     public ITarget.Name getName() {
       return name;
@@ -155,7 +155,7 @@ public class TextGen_Facet extends IFacet.Stub {
     }
   }
   public static class Target_textGen implements ITargetEx2 {
-    private static final ITarget.Name name = new ITarget.Name("jetbrains.mps.lang.core.TextGen.textGen");
+    private static final ITarget.Name name = new ITarget.Name("jetbrains.mps.make.facets.TextGen.textGen");
     public Target_textGen() {
     }
     public IJob createJob() {
@@ -434,7 +434,7 @@ public class TextGen_Facet extends IFacet.Stub {
       return null;
     }
     public Iterable<ITarget.Name> after() {
-      return Sequence.fromArray(new ITarget.Name[]{new ITarget.Name("jetbrains.mps.lang.core.Generate.generate"), new ITarget.Name("jetbrains.mps.lang.core.TextGen.configure")});
+      return Sequence.fromArray(new ITarget.Name[]{new ITarget.Name("jetbrains.mps.make.facets.Generate.generate"), new ITarget.Name("jetbrains.mps.make.facets.TextGen.configure")});
     }
     public Iterable<ITarget.Name> notBefore() {
       return null;
@@ -500,7 +500,7 @@ public class TextGen_Facet extends IFacet.Stub {
     }
   }
   public static class Target_textGenToMemory implements ITargetEx2 {
-    private static final ITarget.Name name = new ITarget.Name("jetbrains.mps.lang.core.TextGen.textGenToMemory");
+    private static final ITarget.Name name = new ITarget.Name("jetbrains.mps.make.facets.TextGen.textGenToMemory");
     public Target_textGenToMemory() {
     }
     public IJob createJob() {
@@ -563,7 +563,7 @@ public class TextGen_Facet extends IFacet.Stub {
       return null;
     }
     public Iterable<ITarget.Name> after() {
-      return Sequence.fromArray(new ITarget.Name[]{new ITarget.Name("jetbrains.mps.lang.core.Generate.generate"), new ITarget.Name("jetbrains.mps.lang.core.TextGen.configure")});
+      return Sequence.fromArray(new ITarget.Name[]{new ITarget.Name("jetbrains.mps.make.facets.Generate.generate"), new ITarget.Name("jetbrains.mps.make.facets.TextGen.configure")});
     }
     public Iterable<ITarget.Name> notBefore() {
       return null;
@@ -607,23 +607,23 @@ public class TextGen_Facet extends IFacet.Stub {
     }
     public void storeValues(Map<String, String> store, IPropertiesPool properties) {
       {
-        ITarget.Name name = new ITarget.Name("jetbrains.mps.lang.core.TextGen.textGen");
+        ITarget.Name name = new ITarget.Name("jetbrains.mps.make.facets.TextGen.textGen");
         if (properties.hasProperties(name)) {
           Target_textGen.Parameters props = properties.properties(name, Target_textGen.Parameters.class);
-          MapSequence.fromMap(store).put("jetbrains.mps.lang.core.TextGen.textGen.generateDebugInfo", String.valueOf(props.generateDebugInfo()));
-          MapSequence.fromMap(store).put("jetbrains.mps.lang.core.TextGen.textGen.dependenciesCache", null);
+          MapSequence.fromMap(store).put("jetbrains.mps.make.facets.TextGen.textGen.generateDebugInfo", String.valueOf(props.generateDebugInfo()));
+          MapSequence.fromMap(store).put("jetbrains.mps.make.facets.TextGen.textGen.dependenciesCache", null);
         }
       }
     }
     public void loadValues(Map<String, String> store, IPropertiesPool properties) {
       try {
         {
-          ITarget.Name name = new ITarget.Name("jetbrains.mps.lang.core.TextGen.textGen");
+          ITarget.Name name = new ITarget.Name("jetbrains.mps.make.facets.TextGen.textGen");
           Target_textGen.Parameters props = properties.properties(name, Target_textGen.Parameters.class);
-          if (MapSequence.fromMap(store).containsKey("jetbrains.mps.lang.core.TextGen.textGen.generateDebugInfo")) {
-            props.generateDebugInfo(Boolean.valueOf(MapSequence.fromMap(store).get("jetbrains.mps.lang.core.TextGen.textGen.generateDebugInfo")));
+          if (MapSequence.fromMap(store).containsKey("jetbrains.mps.make.facets.TextGen.textGen.generateDebugInfo")) {
+            props.generateDebugInfo(Boolean.valueOf(MapSequence.fromMap(store).get("jetbrains.mps.make.facets.TextGen.textGen.generateDebugInfo")));
           }
-          if (MapSequence.fromMap(store).containsKey("jetbrains.mps.lang.core.TextGen.textGen.dependenciesCache")) {
+          if (MapSequence.fromMap(store).containsKey("jetbrains.mps.make.facets.TextGen.textGen.dependenciesCache")) {
             props.dependenciesCache(null);
           }
         }

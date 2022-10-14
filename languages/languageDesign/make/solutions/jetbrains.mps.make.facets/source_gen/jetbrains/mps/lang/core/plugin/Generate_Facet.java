@@ -57,7 +57,7 @@ import jetbrains.mps.internal.collections.runtime.MapSequence;
 
 public class Generate_Facet extends IFacet.Stub {
   private List<ITarget> targets = ListSequence.fromList(new ArrayList<ITarget>());
-  private IFacet.Name name = new IFacet.Name("jetbrains.mps.lang.core.Generate");
+  private IFacet.Name name = new IFacet.Name("jetbrains.mps.make.facets.Generate");
   public Generate_Facet() {
     ListSequence.fromList(targets).addElement(new Target_checkParameters());
     ListSequence.fromList(targets).addElement(new Target_configure());
@@ -83,7 +83,7 @@ public class Generate_Facet extends IFacet.Stub {
     return new TargetProperties();
   }
   public static class Target_checkParameters implements ITargetEx2 {
-    private static final ITarget.Name name = new ITarget.Name("jetbrains.mps.lang.core.Generate.checkParameters");
+    private static final ITarget.Name name = new ITarget.Name("jetbrains.mps.make.facets.Generate.checkParameters");
     public Target_checkParameters() {
     }
     public IJob createJob() {
@@ -148,7 +148,7 @@ public class Generate_Facet extends IFacet.Stub {
     }
   }
   public static class Target_configure implements ITargetEx2 {
-    private static final ITarget.Name name = new ITarget.Name("jetbrains.mps.lang.core.Generate.configure");
+    private static final ITarget.Name name = new ITarget.Name("jetbrains.mps.make.facets.Generate.configure");
     public Target_configure() {
     }
     public IJob createJob() {
@@ -217,7 +217,7 @@ public class Generate_Facet extends IFacet.Stub {
       return null;
     }
     public Iterable<ITarget.Name> after() {
-      return Sequence.fromArray(new ITarget.Name[]{new ITarget.Name("jetbrains.mps.lang.core.Generate.checkParameters")});
+      return Sequence.fromArray(new ITarget.Name[]{new ITarget.Name("jetbrains.mps.make.facets.Generate.checkParameters")});
     }
     public Iterable<ITarget.Name> notBefore() {
       return null;
@@ -300,7 +300,7 @@ public class Generate_Facet extends IFacet.Stub {
     }
   }
   public static class Target_preloadModels implements ITargetEx2 {
-    private static final ITarget.Name name = new ITarget.Name("jetbrains.mps.lang.core.Generate.preloadModels");
+    private static final ITarget.Name name = new ITarget.Name("jetbrains.mps.make.facets.Generate.preloadModels");
     public Target_preloadModels() {
     }
     public IJob createJob() {
@@ -347,13 +347,13 @@ public class Generate_Facet extends IFacet.Stub {
       return null;
     }
     public Iterable<ITarget.Name> after() {
-      return Sequence.fromArray(new ITarget.Name[]{new ITarget.Name("jetbrains.mps.lang.core.Generate.configure")});
+      return Sequence.fromArray(new ITarget.Name[]{new ITarget.Name("jetbrains.mps.make.facets.Generate.configure")});
     }
     public Iterable<ITarget.Name> notBefore() {
       return null;
     }
     public Iterable<ITarget.Name> before() {
-      return Sequence.fromArray(new ITarget.Name[]{new ITarget.Name("jetbrains.mps.lang.core.Generate.generate")});
+      return Sequence.fromArray(new ITarget.Name[]{new ITarget.Name("jetbrains.mps.make.facets.Generate.generate")});
     }
     public ITarget.Name getName() {
       return name;
@@ -387,7 +387,7 @@ public class Generate_Facet extends IFacet.Stub {
     }
   }
   public static class Target_generate implements ITargetEx2 {
-    private static final ITarget.Name name = new ITarget.Name("jetbrains.mps.lang.core.Generate.generate");
+    private static final ITarget.Name name = new ITarget.Name("jetbrains.mps.make.facets.Generate.generate");
     public Target_generate() {
     }
     public IJob createJob() {
@@ -496,7 +496,7 @@ public class Generate_Facet extends IFacet.Stub {
       return null;
     }
     public Iterable<ITarget.Name> after() {
-      return Sequence.fromArray(new ITarget.Name[]{new ITarget.Name("jetbrains.mps.lang.core.Generate.configure")});
+      return Sequence.fromArray(new ITarget.Name[]{new ITarget.Name("jetbrains.mps.make.facets.Generate.configure")});
     }
     public Iterable<ITarget.Name> notBefore() {
       return null;
@@ -540,35 +540,35 @@ public class Generate_Facet extends IFacet.Stub {
     }
     public void storeValues(Map<String, String> store, IPropertiesPool properties) {
       {
-        ITarget.Name name = new ITarget.Name("jetbrains.mps.lang.core.Generate.configure");
+        ITarget.Name name = new ITarget.Name("jetbrains.mps.make.facets.Generate.configure");
         if (properties.hasProperties(name)) {
           Target_configure.Variables props = properties.properties(name, Target_configure.Variables.class);
-          MapSequence.fromMap(store).put("jetbrains.mps.lang.core.Generate.configure.saveTransient", String.valueOf(props.saveTransient()));
-          MapSequence.fromMap(store).put("jetbrains.mps.lang.core.Generate.configure.generationOptions", null);
-          MapSequence.fromMap(store).put("jetbrains.mps.lang.core.Generate.configure.parametersProvider", null);
-          MapSequence.fromMap(store).put("jetbrains.mps.lang.core.Generate.configure.transientModelsProvider", null);
-          MapSequence.fromMap(store).put("jetbrains.mps.lang.core.Generate.configure.customPlan", null);
+          MapSequence.fromMap(store).put("jetbrains.mps.make.facets.Generate.configure.saveTransient", String.valueOf(props.saveTransient()));
+          MapSequence.fromMap(store).put("jetbrains.mps.make.facets.Generate.configure.generationOptions", null);
+          MapSequence.fromMap(store).put("jetbrains.mps.make.facets.Generate.configure.parametersProvider", null);
+          MapSequence.fromMap(store).put("jetbrains.mps.make.facets.Generate.configure.transientModelsProvider", null);
+          MapSequence.fromMap(store).put("jetbrains.mps.make.facets.Generate.configure.customPlan", null);
         }
       }
     }
     public void loadValues(Map<String, String> store, IPropertiesPool properties) {
       try {
         {
-          ITarget.Name name = new ITarget.Name("jetbrains.mps.lang.core.Generate.configure");
+          ITarget.Name name = new ITarget.Name("jetbrains.mps.make.facets.Generate.configure");
           Target_configure.Variables props = properties.properties(name, Target_configure.Variables.class);
-          if (MapSequence.fromMap(store).containsKey("jetbrains.mps.lang.core.Generate.configure.saveTransient")) {
-            props.saveTransient(Boolean.valueOf(MapSequence.fromMap(store).get("jetbrains.mps.lang.core.Generate.configure.saveTransient")));
+          if (MapSequence.fromMap(store).containsKey("jetbrains.mps.make.facets.Generate.configure.saveTransient")) {
+            props.saveTransient(Boolean.valueOf(MapSequence.fromMap(store).get("jetbrains.mps.make.facets.Generate.configure.saveTransient")));
           }
-          if (MapSequence.fromMap(store).containsKey("jetbrains.mps.lang.core.Generate.configure.generationOptions")) {
+          if (MapSequence.fromMap(store).containsKey("jetbrains.mps.make.facets.Generate.configure.generationOptions")) {
             props.generationOptions(null);
           }
-          if (MapSequence.fromMap(store).containsKey("jetbrains.mps.lang.core.Generate.configure.parametersProvider")) {
+          if (MapSequence.fromMap(store).containsKey("jetbrains.mps.make.facets.Generate.configure.parametersProvider")) {
             props.parametersProvider(null);
           }
-          if (MapSequence.fromMap(store).containsKey("jetbrains.mps.lang.core.Generate.configure.transientModelsProvider")) {
+          if (MapSequence.fromMap(store).containsKey("jetbrains.mps.make.facets.Generate.configure.transientModelsProvider")) {
             props.transientModelsProvider(null);
           }
-          if (MapSequence.fromMap(store).containsKey("jetbrains.mps.lang.core.Generate.configure.customPlan")) {
+          if (MapSequence.fromMap(store).containsKey("jetbrains.mps.make.facets.Generate.configure.customPlan")) {
             props.customPlan(null);
           }
         }

@@ -655,11 +655,11 @@
                           </node>
                           <node concept="liA8E" id="6SVxhiG6gnT" role="2OqNvi">
                             <ref role="37wK5l" to="vqh0:~ModuleMaker.dependencies(jetbrains.mps.make.java.BLDependenciesCache)" resolve="dependencies" />
-                            <node concept="2bn25q" id="6SVxhiG6h09" role="37wK5m">
-                              <node concept="2bn25r" id="6SVxhiG6h07" role="2Oq$k0">
+                            <node concept="2bn25q" id="21X1I$hw7Ea" role="37wK5m">
+                              <node concept="2bn25r" id="21X1I$hw7E8" role="2Oq$k0">
                                 <ref role="2bn25l" to="tpcq:5L5h3brvDHA" resolve="textGen" />
                               </node>
-                              <node concept="2sxana" id="6SVxhiG6h08" role="2OqNvi">
+                              <node concept="2sxana" id="21X1I$hw7E9" role="2OqNvi">
                                 <ref role="2sxfKC" to="tpcq:6SVxhiG5Qz5" resolve="dependenciesCache" />
                               </node>
                             </node>
@@ -2128,6 +2128,23 @@
         <ref role="3uigEE" to="ud0o:5mqBoD3U3U8" resolve="IFacet" />
       </node>
     </node>
+    <node concept="312cEg" id="21X1I$hvdE3" role="jymVt">
+      <property role="TrG5h" value="generateFacet" />
+      <node concept="3Tm6S6" id="21X1I$hvcKB" role="1B3o_S" />
+      <node concept="3uibUv" id="21X1I$hvd_k" role="1tU5fm">
+        <ref role="3uigEE" to="ud0o:5mqBoD3U3U8" resolve="IFacet" />
+      </node>
+    </node>
+    <node concept="312cEg" id="21X1I$hvbmO" role="jymVt">
+      <property role="eg7rD" value="false" />
+      <property role="TrG5h" value="textgenFacet" />
+      <property role="34CwA1" value="false" />
+      <property role="3TUv4t" value="false" />
+      <node concept="3Tm6S6" id="21X1I$hvbmP" role="1B3o_S" />
+      <node concept="3uibUv" id="21X1I$hvbmQ" role="1tU5fm">
+        <ref role="3uigEE" to="ud0o:5mqBoD3U3U8" resolve="IFacet" />
+      </node>
+    </node>
     <node concept="2tJIrI" id="273sq7WoW3c" role="jymVt" />
     <node concept="3clFbW" id="273sq7WoVcf" role="jymVt">
       <node concept="3cqZAl" id="273sq7WoVci" role="3clF45" />
@@ -2237,17 +2254,43 @@
                 </node>
               </node>
             </node>
-            <node concept="3cpWs8" id="3Ch7xrck7xL" role="3cqZAp">
-              <node concept="3cpWsn" id="3Ch7xrck7xM" role="3cpWs9">
-                <property role="TrG5h" value="langCore" />
-                <node concept="3uibUv" id="3Ch7xrck7pC" role="1tU5fm">
-                  <ref role="3uigEE" to="c17a:~SLanguage" resolve="SLanguage" />
-                </node>
-                <node concept="pHN19" id="3Ch7xrck7xN" role="33vP2m">
-                  <node concept="2V$Bhx" id="3Ch7xrck7xO" role="2V$M_3">
-                    <property role="2V$B1T" value="ceab5195-25ea-4f22-9b92-103b95ca8c0c" />
-                    <property role="2V$B1Q" value="jetbrains.mps.lang.core" />
+            <node concept="3clFbF" id="21X1I$hvfFi" role="3cqZAp">
+              <node concept="37vLTI" id="21X1I$hvgDR" role="3clFbG">
+                <node concept="2OqwBi" id="21X1I$hvC4G" role="37vLTx">
+                  <node concept="2OqwBi" id="21X1I$hv_su" role="2Oq$k0">
+                    <node concept="2v9SQr" id="21X1I$hvwJ2" role="2Oq$k0">
+                      <ref role="2v9SMg" to="tpcq:5L5h3brvz7i" resolve="Generate" />
+                    </node>
+                    <node concept="liA8E" id="21X1I$hvBbK" role="2OqNvi">
+                      <ref role="37wK5l" to="wyt6:~Class.getDeclaredConstructor(java.lang.Class...)" resolve="getDeclaredConstructor" />
+                    </node>
                   </node>
+                  <node concept="liA8E" id="21X1I$hvDmd" role="2OqNvi">
+                    <ref role="37wK5l" to="t6h5:~Constructor.newInstance(java.lang.Object...)" resolve="newInstance" />
+                  </node>
+                </node>
+                <node concept="37vLTw" id="21X1I$hvfFg" role="37vLTJ">
+                  <ref role="3cqZAo" node="21X1I$hvdE3" resolve="generateFacet" />
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="21X1I$hvhHz" role="3cqZAp">
+              <node concept="37vLTI" id="21X1I$hvioA" role="3clFbG">
+                <node concept="2OqwBi" id="21X1I$hvGR$" role="37vLTx">
+                  <node concept="2OqwBi" id="21X1I$hvDU4" role="2Oq$k0">
+                    <node concept="2v9SQr" id="21X1I$hvz6F" role="2Oq$k0">
+                      <ref role="2v9SMg" to="tpcq:5L5h3brvDH_" resolve="TextGen" />
+                    </node>
+                    <node concept="liA8E" id="21X1I$hvGjA" role="2OqNvi">
+                      <ref role="37wK5l" to="wyt6:~Class.getDeclaredConstructor(java.lang.Class...)" resolve="getDeclaredConstructor" />
+                    </node>
+                  </node>
+                  <node concept="liA8E" id="21X1I$hvIIq" role="2OqNvi">
+                    <ref role="37wK5l" to="t6h5:~Constructor.newInstance(java.lang.Object...)" resolve="newInstance" />
+                  </node>
+                </node>
+                <node concept="37vLTw" id="21X1I$hvhHx" role="37vLTJ">
+                  <ref role="3cqZAo" node="21X1I$hvbmO" resolve="textgenFacet" />
                 </node>
               </node>
             </node>
@@ -2297,6 +2340,23 @@
                 </node>
               </node>
             </node>
+            <node concept="3SKdUt" id="21X1I$hv7wW" role="3cqZAp">
+              <node concept="1PaTwC" id="21X1I$hv7wX" role="1aUNEU" />
+            </node>
+            <node concept="3cpWs8" id="3Ch7xrck7xL" role="3cqZAp">
+              <node concept="3cpWsn" id="3Ch7xrck7xM" role="3cpWs9">
+                <property role="TrG5h" value="langCore" />
+                <node concept="3uibUv" id="3Ch7xrck7pC" role="1tU5fm">
+                  <ref role="3uigEE" to="c17a:~SLanguage" resolve="SLanguage" />
+                </node>
+                <node concept="pHN19" id="3Ch7xrck7xN" role="33vP2m">
+                  <node concept="2V$Bhx" id="3Ch7xrck7xO" role="2V$M_3">
+                    <property role="2V$B1T" value="ceab5195-25ea-4f22-9b92-103b95ca8c0c" />
+                    <property role="2V$B1Q" value="jetbrains.mps.lang.core" />
+                  </node>
+                </node>
+              </node>
+            </node>
             <node concept="3clFbF" id="1xyXZDdv1$J" role="3cqZAp">
               <node concept="2OqwBi" id="1xyXZDdv2zl" role="3clFbG">
                 <node concept="liA8E" id="1xyXZDdv3uE" role="2OqNvi">
@@ -2310,6 +2370,38 @@
                 </node>
                 <node concept="37vLTw" id="1PwNLcbMWCT" role="2Oq$k0">
                   <ref role="3cqZAo" node="3Ch7xrckpNq" resolve="myFacetRegistry" />
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="21X1I$hv8Hl" role="3cqZAp">
+              <node concept="2OqwBi" id="21X1I$hv9e3" role="3clFbG">
+                <node concept="37vLTw" id="21X1I$hv8Hj" role="2Oq$k0">
+                  <ref role="3cqZAo" node="3Ch7xrckpNq" resolve="myFacetRegistry" />
+                </node>
+                <node concept="liA8E" id="21X1I$hva4l" role="2OqNvi">
+                  <ref role="37wK5l" to="ud0o:3Ch7xrc0mSJ" resolve="register" />
+                  <node concept="37vLTw" id="21X1I$hvaxv" role="37wK5m">
+                    <ref role="3cqZAo" node="3Ch7xrck7xM" resolve="langCore" />
+                  </node>
+                  <node concept="37vLTw" id="21X1I$hvjVc" role="37wK5m">
+                    <ref role="3cqZAo" node="21X1I$hvdE3" resolve="generateFacet" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="21X1I$hvlnM" role="3cqZAp">
+              <node concept="2OqwBi" id="21X1I$hvlnN" role="3clFbG">
+                <node concept="37vLTw" id="21X1I$hvlnO" role="2Oq$k0">
+                  <ref role="3cqZAo" node="3Ch7xrckpNq" resolve="myFacetRegistry" />
+                </node>
+                <node concept="liA8E" id="21X1I$hvlnP" role="2OqNvi">
+                  <ref role="37wK5l" to="ud0o:3Ch7xrc0mSJ" resolve="register" />
+                  <node concept="37vLTw" id="21X1I$hvlnQ" role="37wK5m">
+                    <ref role="3cqZAo" node="3Ch7xrck7xM" resolve="langCore" />
+                  </node>
+                  <node concept="37vLTw" id="21X1I$hvlnR" role="37wK5m">
+                    <ref role="3cqZAo" node="21X1I$hvbmO" resolve="textgenFacet" />
+                  </node>
                 </node>
               </node>
             </node>
@@ -2448,6 +2540,32 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbF" id="21X1I$hvnpt" role="3cqZAp">
+          <node concept="2OqwBi" id="21X1I$hvnVI" role="3clFbG">
+            <node concept="37vLTw" id="21X1I$hvnpr" role="2Oq$k0">
+              <ref role="3cqZAo" node="3Ch7xrckpNq" resolve="myFacetRegistry" />
+            </node>
+            <node concept="liA8E" id="21X1I$hvoW3" role="2OqNvi">
+              <ref role="37wK5l" to="ud0o:5mqBoD3U4px" resolve="unregister" />
+              <node concept="37vLTw" id="21X1I$hvql4" role="37wK5m">
+                <ref role="3cqZAo" node="21X1I$hvbmO" resolve="textgenFacet" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="21X1I$hvrN4" role="3cqZAp">
+          <node concept="2OqwBi" id="21X1I$hvrN5" role="3clFbG">
+            <node concept="37vLTw" id="21X1I$hvrN6" role="2Oq$k0">
+              <ref role="3cqZAo" node="3Ch7xrckpNq" resolve="myFacetRegistry" />
+            </node>
+            <node concept="liA8E" id="21X1I$hvrN7" role="2OqNvi">
+              <ref role="37wK5l" to="ud0o:5mqBoD3U4px" resolve="unregister" />
+              <node concept="37vLTw" id="21X1I$hvrN8" role="37wK5m">
+                <ref role="3cqZAo" node="21X1I$hvdE3" resolve="generateFacet" />
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3clFbF" id="3Ch7xrckTPv" role="3cqZAp">
           <node concept="37vLTI" id="3Ch7xrckUqU" role="3clFbG">
             <node concept="10Nm6u" id="3Ch7xrckURW" role="37vLTx" />
@@ -2469,6 +2587,22 @@
             <node concept="10Nm6u" id="3Ch7xrckYlp" role="37vLTx" />
             <node concept="37vLTw" id="3Ch7xrckXlY" role="37vLTJ">
               <ref role="3cqZAo" node="3Ch7xrckpNz" resolve="makeFacet" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="21X1I$hvKbD" role="3cqZAp">
+          <node concept="37vLTI" id="21X1I$hvKVq" role="3clFbG">
+            <node concept="10Nm6u" id="21X1I$hvMOg" role="37vLTx" />
+            <node concept="37vLTw" id="21X1I$hvKbB" role="37vLTJ">
+              <ref role="3cqZAo" node="21X1I$hvbmO" resolve="textgenFacet" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="21X1I$hvO2M" role="3cqZAp">
+          <node concept="37vLTI" id="21X1I$hvPQV" role="3clFbG">
+            <node concept="10Nm6u" id="21X1I$hvQt2" role="37vLTx" />
+            <node concept="37vLTw" id="21X1I$hvO2K" role="37vLTJ">
+              <ref role="3cqZAo" node="21X1I$hvdE3" resolve="generateFacet" />
             </node>
           </node>
         </node>
