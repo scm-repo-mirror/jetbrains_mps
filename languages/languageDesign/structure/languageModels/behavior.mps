@@ -51,7 +51,6 @@
         <reference id="1225194472831" name="overriddenMethod" index="13i0hy" />
       </concept>
       <concept id="1225194691553" name="jetbrains.mps.lang.behavior.structure.ThisNodeExpression" flags="nn" index="13iPFW" />
-      <concept id="1703835097132541506" name="jetbrains.mps.lang.behavior.structure.ThisConceptExpression" flags="ng" index="1fM9EW" />
     </language>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
       <concept id="1080223426719" name="jetbrains.mps.baseLanguage.structure.OrExpression" flags="nn" index="22lmx$" />
@@ -317,7 +316,6 @@
       <concept id="1145383075378" name="jetbrains.mps.lang.smodel.structure.SNodeListType" flags="in" index="2I9FWS">
         <reference id="1145383142433" name="elementConcept" index="2I9WkF" />
       </concept>
-      <concept id="1181949435690" name="jetbrains.mps.lang.smodel.structure.Concept_NewInstance" flags="nn" index="LFhST" />
       <concept id="1171315804604" name="jetbrains.mps.lang.smodel.structure.Model_RootsOperation" flags="nn" index="2RRcyG">
         <child id="6750920497477046361" name="conceptArgument" index="3MHsoP" />
       </concept>
@@ -5522,49 +5520,6 @@
         </node>
       </node>
     </node>
-    <node concept="13i0hz" id="6NcFj35FbEV" role="13h7CS">
-      <property role="TrG5h" value="isApplicable" />
-      <property role="13i0it" value="true" />
-      <node concept="3Tm1VV" id="6NcFj35FbEW" role="1B3o_S" />
-      <node concept="10P_77" id="6NcFj35Feng" role="3clF45" />
-      <node concept="3clFbS" id="6NcFj35FbEY" role="3clF47">
-        <node concept="3cpWs6" id="6NcFj35Fenj" role="3cqZAp">
-          <node concept="3clFbT" id="6NcFj35Fenl" role="3cqZAk">
-            <property role="3clFbU" value="true" />
-          </node>
-        </node>
-      </node>
-      <node concept="37vLTG" id="6NcFj35Fenh" role="3clF46">
-        <property role="TrG5h" value="candidate" />
-        <node concept="3Tqbb2" id="6NcFj35Feni" role="1tU5fm">
-          <ref role="ehGHo" to="tpce:h0PkWnZ" resolve="AbstractConceptDeclaration" />
-        </node>
-      </node>
-      <node concept="P$JXv" id="7IH442d05If" role="lGtFl">
-        <node concept="TZ5HI" id="7IH442d05Ig" role="3nqlJM">
-          <node concept="TZ5HA" id="7IH442d05Ih" role="3HnX3l">
-            <node concept="1dT_AC" id="7IH442d05Jt" role="1dT_Ay">
-              <property role="1dT_AB" value="use canBeAppliedToNode" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="7IH442d05Iq" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
-        <node concept="2B6LJw" id="2sePq$_siJI" role="2B76xF">
-          <ref role="2B6OnR" to="wyt6:~Deprecated.since()" resolve="since" />
-          <node concept="Xl_RD" id="2sePq$_siJH" role="2B70Vg">
-            <property role="Xl_RC" value="3.3" />
-          </node>
-        </node>
-        <node concept="2B6LJw" id="2sePq$_siJJ" role="2B76xF">
-          <ref role="2B6OnR" to="wyt6:~Deprecated.forRemoval()" resolve="forRemoval" />
-          <node concept="3clFbT" id="2sePq$_siJK" role="2B70Vg">
-            <property role="3clFbU" value="true" />
-          </node>
-        </node>
-      </node>
-    </node>
     <node concept="13i0hz" id="7IH442d05tK" role="13h7CS">
       <property role="TrG5h" value="canBeAppliedToNode" />
       <property role="13i0it" value="true" />
@@ -5573,17 +5528,8 @@
       <node concept="10P_77" id="7IH442d05tM" role="3clF45" />
       <node concept="3clFbS" id="7IH442d05tN" role="3clF47">
         <node concept="3cpWs6" id="7IH442d05tO" role="3cqZAp">
-          <node concept="2OqwBi" id="7IH442d05T6" role="3cqZAk">
-            <node concept="2OqwBi" id="7IH442d05LV" role="2Oq$k0">
-              <node concept="1fM9EW" id="1u_ffTozKdL" role="2Oq$k0" />
-              <node concept="LFhST" id="7IH442d05QR" role="2OqNvi" />
-            </node>
-            <node concept="2qgKlT" id="7IH442d065_" role="2OqNvi">
-              <ref role="37wK5l" node="6NcFj35FbEV" resolve="isApplicable" />
-              <node concept="37vLTw" id="7IH442d067m" role="37wK5m">
-                <ref role="3cqZAo" node="7IH442d05tQ" resolve="candidate" />
-              </node>
-            </node>
+          <node concept="3clFbT" id="F6gkAZ$n7u" role="3cqZAk">
+            <property role="3clFbU" value="true" />
           </node>
         </node>
       </node>

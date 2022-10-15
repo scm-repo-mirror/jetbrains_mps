@@ -29,10 +29,10 @@ public final class ConceptEditorDeclaration__BehaviorDescriptor extends BaseBHDe
 
   public static final SMethod<SNode> getBaseConcept_id2hxg_BDjKM8 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getBaseConcept").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2621449412040133768L).languageId(0x8389f407dc1158b7L, 0xc72da2b97cce4447L).build2();
   public static final SMethod<Void> setBaseConcept_id5r_35Ihc58c = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setBaseConcept").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6261424444345963020L).languageId(0x8389f407dc1158b7L, 0xc72da2b97cce4447L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
-  public static final SMethod<Boolean> isApplicable_id6NcFj35FbEV = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isApplicable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7839831476331657915L).languageId(0x8389f407dc1158b7L, 0xc72da2b97cce4447L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Boolean> canBeAppliedToNode_id7IH442d05tK = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("canBeAppliedToNode").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8911797107065640816L).languageId(0x8389f407dc1158b7L, 0xc72da2b97cce4447L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Void> createDefaultEditor_id2$SWsiCt8Y$ = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("createDefaultEditor").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2970389781192937380L).languageId(0xa83a7ff23bde13baL, 0x18bc659203a64e29L).build2(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getBaseConcept_id2hxg_BDjKM8, setBaseConcept_id5r_35Ihc58c, isApplicable_id6NcFj35FbEV, createDefaultEditor_id2$SWsiCt8Y$);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getBaseConcept_id2hxg_BDjKM8, setBaseConcept_id5r_35Ihc58c, canBeAppliedToNode_id7IH442d05tK, createDefaultEditor_id2$SWsiCt8Y$);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -43,7 +43,7 @@ public final class ConceptEditorDeclaration__BehaviorDescriptor extends BaseBHDe
   /*package*/ static void setBaseConcept_id5r_35Ihc58c(@NotNull SNode __thisNode__, SNode baseConcept) {
     SLinkOperations.setTarget(__thisNode__, LINKS.conceptDeclaration$HJmJ, baseConcept);
   }
-  /*package*/ static boolean isApplicable_id6NcFj35FbEV(@NotNull SNode __thisNode__, SNode candidate) {
+  /*package*/ static boolean canBeAppliedToNode_id7IH442d05tK(@NotNull SAbstractConcept __thisConcept__, SNode candidate) {
     return Sequence.fromIterable(SNodeOperations.ofConcept(AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspects_id4G9PD8$NvPM.invoke(candidate, SModuleOperations.getAspect(SNodeOperations.getModel(candidate).getModule(), "editor")), CONCEPTS.ConceptEditorDeclaration$BH)).isEmpty();
   }
   /*package*/ static void createDefaultEditor_id2$SWsiCt8Y$(@NotNull SNode __thisNode__, boolean multiline) {
@@ -74,8 +74,6 @@ public final class ConceptEditorDeclaration__BehaviorDescriptor extends BaseBHDe
       case 1:
         setBaseConcept_id5r_35Ihc58c(node, (SNode) parameters[0]);
         return null;
-      case 2:
-        return (T) ((Boolean) isApplicable_id6NcFj35FbEV(node, (SNode) parameters[0]));
       case 3:
         createDefaultEditor_id2$SWsiCt8Y$(node, ((boolean) (Boolean) parameters[0]));
         return null;
@@ -91,6 +89,8 @@ public final class ConceptEditorDeclaration__BehaviorDescriptor extends BaseBHDe
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
+      case 2:
+        return (T) ((Boolean) canBeAppliedToNode_id7IH442d05tK(concept, (SNode) parameters[0]));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
