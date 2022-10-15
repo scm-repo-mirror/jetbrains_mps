@@ -113,7 +113,7 @@ public final class AbstractConceptDeclaration__BehaviorDescriptor extends BaseBH
     }
     return null;
   }
-  /*package*/ static Iterable<SNode> findConceptAspects_id4G9PD8$NvPM(@NotNull final SNode __thisNode__, @NotNull SModel model) {
+  /*package*/ static Iterable<SNode> findConceptAspects_id4G9PD8$NvPM(@NotNull final SNode __thisNode__, SModel model) {
     return ListSequence.fromList(SModelOperations.roots(model, CONCEPTS.IConceptAspect$Z3)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return ListSequence.fromList(IConceptAspect__BehaviorDescriptor.getBaseConceptCollection_id4$$3zrO3UBG.invoke(it)).contains(__thisNode__);
