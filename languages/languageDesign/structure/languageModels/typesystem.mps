@@ -27,6 +27,7 @@
     <import index="9anm" ref="r:6f374023-1b4e-4a80-8bf6-2cc3148faa52(jetbrains.mps.lang.editor.plugin)" />
     <import index="tpcc" ref="r:00000000-0000-4000-0000-011c89590290(jetbrains.mps.lang.structure.plugin)" />
     <import index="yg2w" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util.containers(MPS.Core/)" />
+    <import index="mg3u" ref="r:0799ed23-f21a-4dba-ac61-5b80d66bec13(jetbrains.mps.lang.behavior.plugin)" />
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" implicit="true" />
     <import index="1i04" ref="r:3270011d-8b2d-4938-8dff-d256a759e017(jetbrains.mps.lang.behavior.structure)" implicit="true" />
   </imports>
@@ -51,10 +52,6 @@
       <concept id="1197027756228" name="jetbrains.mps.baseLanguage.structure.DotExpression" flags="nn" index="2OqwBi">
         <child id="1197027771414" name="operand" index="2Oq$k0" />
         <child id="1197027833540" name="operation" index="2OqNvi" />
-      </concept>
-      <concept id="1083260308424" name="jetbrains.mps.baseLanguage.structure.EnumConstantReference" flags="nn" index="Rm8GO">
-        <reference id="1083260308426" name="enumConstantDeclaration" index="Rm8GQ" />
-        <reference id="1144432896254" name="enumClass" index="1Px2BO" />
       </concept>
       <concept id="1145552977093" name="jetbrains.mps.baseLanguage.structure.GenericNewExpression" flags="nn" index="2ShNRf">
         <child id="1145553007750" name="creator" index="2ShVmc" />
@@ -6028,10 +6025,22 @@
                 <ref role="1YBMHb" node="hrWhnTt" resolve="conceptDecl" />
               </node>
               <node concept="2qgKlT" id="1$X$vL9L8iQ" role="2OqNvi">
-                <ref role="37wK5l" to="tpcn:7g4OXB0ykew" resolve="findConceptAspect" />
-                <node concept="Rm8GO" id="1$X$vL9L8iR" role="37wK5m">
-                  <ref role="1Px2BO" to="w1kc:~LanguageAspect" resolve="LanguageAspect" />
-                  <ref role="Rm8GQ" to="w1kc:~LanguageAspect.BEHAVIOR" resolve="BEHAVIOR" />
+                <ref role="37wK5l" to="tpcn:7g4OXB0yku$" resolve="findConceptAspect" />
+                <node concept="1qvjxa" id="pjHD4NdE$X" role="37wK5m">
+                  <ref role="1quiSB" to="mg3u:2LiUEk8oQ$g" resolve="behavior" />
+                  <node concept="2OqwBi" id="pjHD4NdQ79" role="1qvjxb">
+                    <node concept="2JrnkZ" id="pjHD4NdMJO" role="2Oq$k0">
+                      <node concept="2OqwBi" id="pjHD4NdFBP" role="2JrQYb">
+                        <node concept="1YBJjd" id="pjHD4NdFoy" role="2Oq$k0">
+                          <ref role="1YBMHb" node="hrWhnTt" resolve="conceptDecl" />
+                        </node>
+                        <node concept="I4A8Y" id="pjHD4NdJnp" role="2OqNvi" />
+                      </node>
+                    </node>
+                    <node concept="liA8E" id="pjHD4NdTQz" role="2OqNvi">
+                      <ref role="37wK5l" to="mhbf:~SModel.getModule()" resolve="getModule" />
+                    </node>
+                  </node>
                 </node>
               </node>
             </node>

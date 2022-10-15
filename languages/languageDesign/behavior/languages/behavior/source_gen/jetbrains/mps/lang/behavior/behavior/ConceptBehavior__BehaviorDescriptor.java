@@ -33,8 +33,8 @@ import java.util.HashSet;
 import java.util.Queue;
 import jetbrains.mps.internal.collections.runtime.QueueSequence;
 import java.util.LinkedList;
-import jetbrains.mps.smodel.LanguageAspect;
-import jetbrains.mps.util.NameUtil;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -154,7 +154,7 @@ public final class ConceptBehavior__BehaviorDescriptor extends BaseBHDescriptor 
     }
     List<SNode> result = new ArrayList<SNode>();
     for (SNode concept : conceptResult) {
-      SNode behavior = SNodeOperations.cast(AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspect_id7g4OXB0ykew.invoke(concept, LanguageAspect.BEHAVIOR), CONCEPTS.ConceptBehavior$2);
+      SNode behavior = SNodeOperations.cast(AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspect_id7g4OXB0yku$.invoke(concept, SModuleOperations.getAspect(SNodeOperations.getModel(concept).getModule(), "behavior")), CONCEPTS.ConceptBehavior$2);
       if (behavior != null) {
         ListSequence.fromList(result).addElement(behavior);
       }
@@ -168,7 +168,7 @@ public final class ConceptBehavior__BehaviorDescriptor extends BaseBHDescriptor 
     SLinkOperations.setTarget(__thisNode__, LINKS.concept$u6dL, baseConcept);
   }
   /*package*/ static String getBehaviorFqName_id66HNO1XTVFW(@NotNull SNode __thisNode__) {
-    return NameUtil.getModelLongName(SNodeOperations.getModel(__thisNode__)) + "." + SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.concept$u6dL), PROPS.name$MnvL) + BehaviorMethodNames.BEHAVIOR_DESCRIPTOR_SUFFIX;
+    return SModelOperations.getModelName(SNodeOperations.getModel(__thisNode__)) + "." + SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.concept$u6dL), PROPS.name$MnvL) + BehaviorMethodNames.BEHAVIOR_DESCRIPTOR_SUFFIX;
   }
 
   /*package*/ ConceptBehavior__BehaviorDescriptor() {

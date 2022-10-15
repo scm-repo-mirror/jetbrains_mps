@@ -22,8 +22,9 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
 import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import org.jetbrains.mps.openapi.model.SModel;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.LanguageAspect;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -78,9 +79,10 @@ public final class ConceptType__BehaviorDescriptor extends BaseBHDescriptor {
     }
   }
   /*package*/ static Iterable<SNode> getBehaviorMethods_id6IkKv2hCcXi(@NotNull SNode __thisNode__) {
-    // Get only those declared at this concept level, as signatures do not clash we dont need overriden ones
+    // Get only those declared at this concept level, as signatures do not clash we don't need overridden ones
     // Alternative: getVisibleConceptMethods
-    return ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspect_id7g4OXB0ykew.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.concept$PItp), LanguageAspect.BEHAVIOR), CONCEPTS.ConceptBehavior$2), LINKS.method$w_in)).where(new IWhereFilter<SNode>() {
+    SModel behAspectModel = SModuleOperations.getAspect(SNodeOperations.getModel(SLinkOperations.getTarget(__thisNode__, LINKS.concept$PItp)).getModule(), "behavior");
+    return ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspect_id7g4OXB0yku$.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.concept$PItp), behAspectModel), CONCEPTS.ConceptBehavior$2), LINKS.method$w_in)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return (SLinkOperations.getTarget(it, LINKS.overriddenMethod$quKH) != null);
       }

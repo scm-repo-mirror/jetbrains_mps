@@ -6,21 +6,18 @@ import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
-import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.smodel.LanguageAspect;
-import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.module.SModule;
+import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.model.SModel;
 import java.util.List;
 import java.util.Set;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.util.Pair;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.smodel.Language;
-import jetbrains.mps.kernel.model.SModelUtil;
 import org.jetbrains.mps.openapi.module.SModuleId;
 import jetbrains.mps.project.ModuleId;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -31,6 +28,7 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import java.util.ArrayList;
 import jetbrains.mps.lang.behavior.behavior.ConceptMethodDeclaration__BehaviorDescriptor;
@@ -51,8 +49,6 @@ import org.jetbrains.mps.openapi.language.SReferenceLink;
 public final class AbstractConceptDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
 
-  /*package*/ static final SMethod<SModel> getAspectModel_id7g4OXB0yli3 = new SMethodBuilder<SModel>(new SJavaCompoundTypeImpl((Class<SModel>) ((Class) Object.class))).name("getAspectModel").modifiers(0, AccessPrivileges.PRIVATE).concept(CONCEPT).baseMethodId(8360039740498072707L).languageId(0x8389f407dc1158b7L, 0xc72da2b97cce4447L).build2(SMethodBuilder.createJavaParameter(LanguageAspect.class, ""));
-  public static final SMethod<SNode> findConceptAspect_id7g4OXB0ykew = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("findConceptAspect").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8360039740498068384L).languageId(0x8389f407dc1158b7L, 0xc72da2b97cce4447L).build2(SMethodBuilder.createJavaParameter(LanguageAspect.class, ""));
   public static final SMethod<Void> setLanguageIdFromModule_id7NTi8jM8SJY = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setLanguageIdFromModule").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(9005308665739316222L).languageId(0x8389f407dc1158b7L, 0xc72da2b97cce4447L).build2(SMethodBuilder.createJavaParameter(SModule.class, ""));
   public static final SMethod<SNode> findConceptAspect_id7g4OXB0yku$ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("findConceptAspect").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8360039740498069412L).languageId(0x8389f407dc1158b7L, 0xc72da2b97cce4447L).build2(SMethodBuilder.createJavaParameter((Class<SModel>) ((Class) Object.class), ""));
   public static final SMethod<Iterable<SNode>> findConceptAspects_id4G9PD8$NvPM = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("findConceptAspects").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5407088750806039922L).languageId(0x8389f407dc1158b7L, 0xc72da2b97cce4447L).build2(SMethodBuilder.createJavaParameter((Class<SModel>) ((Class) Object.class), ""));
@@ -74,29 +70,11 @@ public final class AbstractConceptDeclaration__BehaviorDescriptor extends BaseBH
   public static final SMethod<Pair<Set<SNode>, Set<SNode>>> getInLanguageAndNotInLanguageAncestors_id54xSEBmK0MK = new SMethodBuilder<Pair<Set<SNode>, Set<SNode>>>(new SJavaCompoundTypeImpl(Pair.class)).name("getInLanguageAndNotInLanguageAncestors").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5846203010383875248L).languageId(0x8389f407dc1158b7L, 0xc72da2b97cce4447L).build2();
   public static final SMethod<Boolean> is_id4MKjpUYmGW0 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("is").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5526002086977392384L).languageId(0x8389f407dc1158b7L, 0xc72da2b97cce4447L).build2(SMethodBuilder.createJavaParameter(SAbstractConcept.class, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getAspectModel_id7g4OXB0yli3, findConceptAspect_id7g4OXB0ykew, setLanguageIdFromModule_id7NTi8jM8SJY, findConceptAspect_id7g4OXB0yku$, findConceptAspects_id4G9PD8$NvPM, getPresentation_id280s3ZNTXNS, getAvailableConceptMethods_idhEwILGo, getVisibleConceptMethods_idwrIPXhfIPX, getVirtualConceptMethods_idhEwILHM, getNotImplementedConceptMethods_idhEwILIz, getLinkDeclarations_idhEwILKK, getReferenceLinkDeclarations_idhEwILL0, getAggregationLinkDeclarations_idhEwILLp, getPropertyDeclarations_idhEwILLM, isSubconceptOf_id73yVtVlWOga, isSubconceptOf_id4UTtJHK9fEJ, getImmediateSuperconcepts_idhMuxyK2, getAllSuperConcepts_id2A8AB0rAWpG, collectSuperConcepts_id2A8AB0rB3NH, computeInHierarchy_id3CiBrVcn5fe, getInLanguageAndNotInLanguageAncestors_id54xSEBmK0MK, is_id4MKjpUYmGW0);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(setLanguageIdFromModule_id7NTi8jM8SJY, findConceptAspect_id7g4OXB0yku$, findConceptAspects_id4G9PD8$NvPM, getPresentation_id280s3ZNTXNS, getAvailableConceptMethods_idhEwILGo, getVisibleConceptMethods_idwrIPXhfIPX, getVirtualConceptMethods_idhEwILHM, getNotImplementedConceptMethods_idhEwILIz, getLinkDeclarations_idhEwILKK, getReferenceLinkDeclarations_idhEwILL0, getAggregationLinkDeclarations_idhEwILLp, getPropertyDeclarations_idhEwILLM, isSubconceptOf_id73yVtVlWOga, isSubconceptOf_id4UTtJHK9fEJ, getImmediateSuperconcepts_idhMuxyK2, getAllSuperConcepts_id2A8AB0rAWpG, collectSuperConcepts_id2A8AB0rB3NH, computeInHierarchy_id3CiBrVcn5fe, getInLanguageAndNotInLanguageAncestors_id54xSEBmK0MK, is_id4MKjpUYmGW0);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  @Deprecated(since = "3.3", forRemoval = true)
-  /*package*/ static SModel getAspectModel_id7g4OXB0yli3(@NotNull SNode __thisNode__, LanguageAspect aspect) {
-    // [MM] this usage of LanguageAspect is reviewed
-    Language language = SModelUtil.getDeclaringLanguage(__thisNode__);
-    if (language == null) {
-      return null;
-    }
-    SModel md = aspect.get(language);
-    if (md == null) {
-      return null;
-    }
-    return md;
-  }
-  @Deprecated(since = "3.3", forRemoval = true)
-  /*package*/ static SNode findConceptAspect_id7g4OXB0ykew(@NotNull SNode __thisNode__, LanguageAspect aspect) {
-    SModel model = AbstractConceptDeclaration__BehaviorDescriptor.getAspectModel_id7g4OXB0yli3.invoke(__thisNode__, aspect);
-    return AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspect_id7g4OXB0yku$.invoke(__thisNode__, model);
-  }
   /*package*/ static void setLanguageIdFromModule_id7NTi8jM8SJY(@NotNull SNode __thisNode__, SModule m) {
     SModuleId mid = m.getModuleId();
     assert mid instanceof ModuleId.Regular;
@@ -137,7 +115,8 @@ public final class AbstractConceptDeclaration__BehaviorDescriptor extends BaseBH
     List<SNode> allSupers = Sequence.fromIterable(AbstractConceptDeclaration__BehaviorDescriptor.getAllSuperConcepts_id2A8AB0rAWpG.invoke(__thisNode__, ((boolean) true))).toListSequence();
     ListSequence.fromList(allSupers).addElement(SNodeOperations.getNode("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1133920641626"));
     for (SNode concept : allSupers) {
-      SNode behaviour = SNodeOperations.cast(AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspect_id7g4OXB0ykew.invoke(concept, LanguageAspect.BEHAVIOR), CONCEPTS.ConceptBehavior$2);
+      SModel bma = SModuleOperations.getAspect(SNodeOperations.getModel(concept).getModule(), "behavior");
+      SNode behaviour = SNodeOperations.cast(AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspect_id7g4OXB0yku$.invoke(concept, bma), CONCEPTS.ConceptBehavior$2);
       if (behaviour != null) {
         for (SNode method : SLinkOperations.getChildren(behaviour, LINKS.method$w_in)) {
           if (SLinkOperations.getTarget(method, LINKS.overriddenMethod$quKH) != null) {
@@ -169,7 +148,8 @@ public final class AbstractConceptDeclaration__BehaviorDescriptor extends BaseBH
   /*package*/ static List<SNode> getVirtualConceptMethods_idhEwILHM(@NotNull SNode __thisNode__) {
     List<SNode> methods = new ArrayList<SNode>();
     for (SNode concept : AbstractConceptDeclaration__BehaviorDescriptor.getAllSuperConcepts_id2A8AB0rAWpG.invoke(__thisNode__, ((boolean) false))) {
-      SNode behaviour = SNodeOperations.cast(AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspect_id7g4OXB0ykew.invoke(concept, LanguageAspect.BEHAVIOR), CONCEPTS.ConceptBehavior$2);
+      SModel bma = SModuleOperations.getAspect(SNodeOperations.getModel(concept).getModule(), "behavior");
+      SNode behaviour = SNodeOperations.cast(AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspect_id7g4OXB0yku$.invoke(concept, bma), CONCEPTS.ConceptBehavior$2);
       if (behaviour != null) {
         for (SNode method : SLinkOperations.getChildren(behaviour, LINKS.method$w_in)) {
           if ((boolean) ConceptMethodDeclaration__BehaviorDescriptor.isVirtual_id6WSEafdhbZX.invoke(method)) {
@@ -186,7 +166,8 @@ public final class AbstractConceptDeclaration__BehaviorDescriptor extends BaseBH
     List<SNode> concepts = ListSequence.fromListWithValues(new ArrayList<SNode>(), AbstractConceptDeclaration__BehaviorDescriptor.getAllSuperConcepts_id2A8AB0rAWpG.invoke(__thisNode__, ((boolean) false)));
     ListSequence.fromList(concepts).addElement(__thisNode__);
     for (SNode concept : concepts) {
-      SNode behavior = SNodeOperations.cast(AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspect_id7g4OXB0ykew.invoke(concept, LanguageAspect.BEHAVIOR), CONCEPTS.ConceptBehavior$2);
+      SModel bma = SModuleOperations.getAspect(SNodeOperations.getModel(concept).getModule(), "behavior");
+      SNode behavior = SNodeOperations.cast(AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspect_id7g4OXB0yku$.invoke(concept, bma), CONCEPTS.ConceptBehavior$2);
       for (SNode method : SLinkOperations.getChildren(behavior, LINKS.method$w_in)) {
         if (SPropertyOperations.getBoolean(method, PROPS.isAbstract$qvtK)) {
           ListSequence.fromList(abstractMethods).addElement(method);
@@ -347,45 +328,41 @@ public final class AbstractConceptDeclaration__BehaviorDescriptor extends BaseBH
     }
     switch (methodIndex) {
       case 0:
-        return (T) ((SModel) getAspectModel_id7g4OXB0yli3(node, (LanguageAspect) parameters[0]));
-      case 1:
-        return (T) ((SNode) findConceptAspect_id7g4OXB0ykew(node, (LanguageAspect) parameters[0]));
-      case 2:
         setLanguageIdFromModule_id7NTi8jM8SJY(node, (SModule) parameters[0]);
         return null;
-      case 3:
+      case 1:
         return (T) ((SNode) findConceptAspect_id7g4OXB0yku$(node, (SModel) parameters[0]));
-      case 4:
+      case 2:
         return (T) ((Iterable<SNode>) findConceptAspects_id4G9PD8$NvPM(node, (SModel) parameters[0]));
-      case 5:
+      case 3:
         return (T) ((String) getPresentation_id280s3ZNTXNS(node));
-      case 6:
+      case 4:
         return (T) ((List<SNode>) getAvailableConceptMethods_idhEwILGo(node, (SNode) parameters[0]));
-      case 7:
+      case 5:
         return (T) ((Iterable<SNode>) getVisibleConceptMethods_idwrIPXhfIPX(node, (SNode) parameters[0]));
-      case 8:
+      case 6:
         return (T) ((List<SNode>) getVirtualConceptMethods_idhEwILHM(node));
-      case 9:
+      case 7:
         return (T) ((List<SNode>) getNotImplementedConceptMethods_idhEwILIz(node));
-      case 10:
+      case 8:
         return (T) ((List<SNode>) getLinkDeclarations_idhEwILKK(node));
-      case 11:
+      case 9:
         return (T) ((List<SNode>) getReferenceLinkDeclarations_idhEwILL0(node));
-      case 12:
+      case 10:
         return (T) ((List<SNode>) getAggregationLinkDeclarations_idhEwILLp(node));
-      case 13:
+      case 11:
         return (T) ((List<SNode>) getPropertyDeclarations_idhEwILLM(node));
-      case 14:
+      case 12:
         return (T) ((Boolean) isSubconceptOf_id73yVtVlWOga(node, (SNode) parameters[0]));
-      case 15:
+      case 13:
         return (T) ((Boolean) isSubconceptOf_id4UTtJHK9fEJ(node, (SAbstractConcept) parameters[0]));
-      case 17:
+      case 15:
         return (T) ((Iterable<SNode>) getAllSuperConcepts_id2A8AB0rAWpG(node, ((boolean) (Boolean) parameters[0])));
-      case 19:
+      case 17:
         return (T) ((SNode) computeInHierarchy_id3CiBrVcn5fe(node, (_FunctionTypes._return_P1_E0<? extends SNode, ? super SNode>) parameters[0]));
-      case 20:
+      case 18:
         return (T) ((Pair<Set<SNode>, Set<SNode>>) getInLanguageAndNotInLanguageAncestors_id54xSEBmK0MK(node));
-      case 21:
+      case 19:
         return (T) ((Boolean) is_id4MKjpUYmGW0(node, (SAbstractConcept) parameters[0]));
       default:
         throw new BHMethodNotFoundException(this, method);
@@ -399,7 +376,7 @@ public final class AbstractConceptDeclaration__BehaviorDescriptor extends BaseBH
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
-      case 18:
+      case 16:
         collectSuperConcepts_id2A8AB0rB3NH(concept, (SNode) parameters[0], (Set<SNode>) parameters[1]);
         return null;
       default:
