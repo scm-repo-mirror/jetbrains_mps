@@ -16,6 +16,7 @@
     <import index="6oz7" ref="r:87ca99dc-4ebb-4b25-aad1-a314895ec01e(jetbrains.mps.ide.mpsmigration.v_2017_1)" />
     <import index="gqsl" ref="r:ca90fd1c-881a-4295-9491-6851600bff7d(jetbrains.mps.ide.mpsmigration.v_2021_2)" />
     <import index="2xfj" ref="r:c6fba34e-4357-4714-9dd8-1533e4f5e3d6(jetbrains.mps.ide.mpsmigration.v_2021_3)" />
+    <import index="dbfg" ref="r:f2e11908-db0f-48eb-8e2d-578735933578(jetbrains.mps.ide.mpsmigration.v_2022_3)" />
   </imports>
   <registry>
     <language id="ef7bf5ac-d06c-4342-b11d-e42104eb9343" name="jetbrains.mps.lang.plugin.standalone">
@@ -391,6 +392,25 @@
               <node concept="2OqwBi" id="17Hpi_3Xd_z" role="37wK5m">
                 <node concept="2WthIp" id="17Hpi_3Xd_$" role="2Oq$k0" />
                 <node concept="2BZ7hE" id="17Hpi_3Xd__" role="2OqNvi">
+                  <ref role="2WH_rO" node="30LZLzbjgjd" resolve="myMigrations" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="X4wh$r$724" role="3cqZAp">
+          <node concept="2OqwBi" id="X4wh$r$rnO" role="3clFbG">
+            <node concept="2ShNRf" id="X4wh$r$720" role="2Oq$k0">
+              <node concept="HV5vD" id="X4wh$r$rhW" role="2ShVmc">
+                <property role="373rjd" value="true" />
+                <ref role="HV5vE" to="dbfg:X4wh$ry6pk" resolve="Migrations_2022_3" />
+              </node>
+            </node>
+            <node concept="liA8E" id="X4wh$r$sFX" role="2OqNvi">
+              <ref role="37wK5l" to="dbfg:17Hpi_3QukE" resolve="offerInto" />
+              <node concept="2OqwBi" id="X4wh$r$sPA" role="37wK5m">
+                <node concept="2WthIp" id="X4wh$r$sG$" role="2Oq$k0" />
+                <node concept="2BZ7hE" id="X4wh$r$sW5" role="2OqNvi">
                   <ref role="2WH_rO" node="30LZLzbjgjd" resolve="myMigrations" />
                 </node>
               </node>

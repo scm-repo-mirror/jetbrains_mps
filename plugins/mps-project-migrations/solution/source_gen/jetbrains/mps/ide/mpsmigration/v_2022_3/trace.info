@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<debug-info version="2">
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123140:jetbrains.mps.baseLanguage.structure.ConstructorDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1082113931046:jetbrains.mps.baseLanguage.structure.ContinueStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123155:jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1144226303539:jetbrains.mps.baseLanguage.structure.ForeachStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123159:jetbrains.mps.baseLanguage.structure.IfStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123165:jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242864:jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242878:jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/6329021646629104954:jetbrains.mps.baseLanguage.structure.SingleLineComment" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070475587102:jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" />
+  <root nodeRef="r:f2e11908-db0f-48eb-8e2d-578735933578(jetbrains.mps.ide.mpsmigration.v_2022_3)/1100146153821333076">
+    <file name="Migrations_2022_3.java">
+      <node id="1291799896031618352" at="9,61,10,54" concept="2" />
+      <node id="1291799896031618346" at="9,0,12,0" concept="5" trace="offerInto#(Ljava/util/Deque;)V" />
+      <scope id="1291799896031618350" at="9,61,10,54" />
+      <scope id="1291799896031618346" at="9,0,12,0">
+        <var name="migrations" id="1291799896031618351" />
+      </scope>
+      <unit id="1100146153821333076" at="8,0,14,0" name="jetbrains.mps.ide.mpsmigration.v_2022_3.Migrations_2022_3" />
+    </file>
+  </root>
+  <root nodeRef="r:f2e11908-db0f-48eb-8e2d-578735933578(jetbrains.mps.ide.mpsmigration.v_2022_3)/1100146153821333600">
+    <file name="ExplicitJavaFacetSettings.java">
+      <node id="1100146153821356952" at="13,38,14,58" concept="9" />
+      <node id="1100146153821365649" at="18,34,19,66" concept="7" />
+      <node id="1100146153821419587" at="24,66,25,54" concept="6" />
+      <node id="1100146153821450798" at="26,41,27,17" concept="1" />
+      <node id="1100146153821506420" at="29,59,30,96" concept="8" />
+      <node id="1100146153821502009" at="30,96,31,17" concept="1" />
+      <node id="1100146153821563137" at="32,7,33,62" concept="6" />
+      <node id="1100146153821599973" at="34,24,35,17" concept="1" />
+      <node id="1100146153821629714" at="36,7,37,77" concept="6" />
+      <node id="1100146153821738518" at="37,77,38,105" concept="8" />
+      <node id="1100146153821745713" at="38,105,39,106" concept="8" />
+      <node id="1100146153821801677" at="39,106,40,129" concept="8" />
+      <node id="1100146153821695546" at="40,129,41,39" concept="2" />
+      <node id="1100146153821751551" at="41,39,42,47" concept="2" />
+      <node id="1100146153821776477" at="42,47,43,53" concept="2" />
+      <node id="1100146153821795567" at="43,53,44,126" concept="8" />
+      <node id="1143252510935005972" at="44,126,45,73" concept="8" />
+      <node id="1100146153821607017" at="46,27,47,41" concept="2" />
+      <node id="1100146153821670272" at="48,7,49,21" concept="2" />
+      <node id="1100146153821685146" at="49,21,50,15" concept="2" />
+      <node id="1100146153821809263" at="51,5,52,16" concept="7" />
+      <node id="1100146153821356319" at="13,0,16,0" concept="0" trace="ExplicitJavaFacetSettings#()V" />
+      <node id="1100146153821432889" at="25,54,28,7" concept="4" />
+      <node id="1100146153821589181" at="33,62,36,7" concept="4" />
+      <node id="1100146153821717052" at="45,73,48,7" concept="4" />
+      <node id="1100146153821365640" at="17,0,21,0" concept="5" trace="getDescription#()Ljava/lang/String;" />
+      <node id="1100146153821455000" at="28,7,32,7" concept="4" />
+      <node id="1100146153821394526" at="23,45,51,5" concept="3" />
+      <node id="1100146153821367818" at="22,0,54,0" concept="5" trace="doExecute#(Ljetbrains/mps/project/Project;)Z" />
+      <scope id="1100146153821356323" at="13,38,14,58" />
+      <scope id="1100146153821365646" at="18,34,19,66" />
+      <scope id="1100146153821432891" at="26,41,27,17" />
+      <scope id="1100146153821589183" at="34,24,35,17" />
+      <scope id="1100146153821717054" at="46,27,47,41" />
+      <scope id="1100146153821455002" at="29,59,31,17" />
+      <scope id="1100146153821356319" at="13,0,16,0" />
+      <scope id="1100146153821365640" at="17,0,21,0" />
+      <scope id="1100146153821394528" at="24,66,50,15">
+        <var name="ideaMF" id="1100146153821629715" />
+        <var name="jmf" id="1100146153821563138" />
+        <var name="sd" id="1100146153821419588" />
+      </scope>
+      <scope id="1100146153821394526" at="23,45,51,5">
+        <var name="s" id="1100146153821394529" />
+      </scope>
+      <scope id="1100146153821367824" at="23,45,52,16" />
+      <scope id="1100146153821367818" at="22,0,54,0">
+        <var name="project" id="1100146153821367822" />
+      </scope>
+      <unit id="1100146153821333600" at="12,0,55,0" name="jetbrains.mps.ide.mpsmigration.v_2022_3.ExplicitJavaFacetSettings" />
+    </file>
+  </root>
+</debug-info>
+
