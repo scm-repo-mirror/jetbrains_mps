@@ -10,8 +10,7 @@
     </modelRoot>
   </models>
   <facets>
-    <facet type="java"/>
-    <facet pluginId="com.intellij" type="ideaPlugin" />
+    <facet type="java" compile="ext" classes="provided" ext="no"/>
   </facets>
   <stubModelEntries>
     <stubModelEntry path="${mps_home}/lib/mps-editor.jar" />

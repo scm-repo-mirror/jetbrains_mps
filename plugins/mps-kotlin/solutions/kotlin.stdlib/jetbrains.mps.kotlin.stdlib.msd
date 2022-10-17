@@ -2,8 +2,7 @@
 <solution name="jetbrains.mps.kotlin.stdlib" uuid="b50d89c0-0fb9-4105-b652-222148c26a9b" moduleVersion="0" compileInMPS="false">
   <readOnlyStubs/>
   <facets>
-    <facet type="java"/>
-    <facet pluginId="jetbrains.mps.kotlin" type="ideaPlugin" />
+    <facet type="java" compile="ext" classes="provided" ext="no"/>
   </facets>
   <stubModelEntries>
     <stubModelEntry path="${mps_home}/plugins/mps-kotlin/lib/kotlin-stdlib-common-1.7.0.jar" />

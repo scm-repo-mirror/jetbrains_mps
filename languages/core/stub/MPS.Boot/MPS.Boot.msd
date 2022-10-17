@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="MPS.Boot" uuid="3a8d80d2-32d9-f1f2-4443-6a1111e12ef3" moduleVersion="0" pluginKind="NONE" compileInMPS="false">
+<solution name="MPS.Boot" uuid="3a8d80d2-32d9-f1f2-4443-6a1111e12ef3" moduleVersion="0" compileInMPS="false">
   <readOnlyStubs/>
   <models>
     <modelRoot contentPath="${platform_lib}" type="java_classes">
@@ -16,8 +16,7 @@
     </modelRoot>
   </models>
   <facets>
-    <facet type="java"/>
-    <facet pluginId="com.intellij" type="ideaPlugin" />
+    <facet type="java" compile="ext" classes="provided" ext="no"/>
   </facets>
   <stubModelEntries>
     <stubModelEntry path="${platform_lib}/util.jar" />
