@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ import jetbrains.mps.project.Project;
 import jetbrains.mps.project.SModuleOperations;
 import jetbrains.mps.project.Solution;
 import jetbrains.mps.project.facets.JavaModuleFacet;
+import jetbrains.mps.project.facets.JavaModuleFacetImpl;
 import jetbrains.mps.project.structure.modules.Dependency;
 import jetbrains.mps.project.structure.modules.LanguageDescriptor;
 import jetbrains.mps.project.structure.modules.SolutionDescriptor;
@@ -290,6 +291,8 @@ public class TestMakeOnRealProject implements EnvironmentAware {
     runtimeSolutionDescriptorFile.createNewFile();
     Solution solution = (Solution) new GeneralModuleFactory().instantiate(solutionDescriptor, runtimeSolutionDescriptorFile);
     myProject.addModule(solution);
+    // FIXME not a nice fix, but with defaults gone in JMFI (5e979634), need to provide some values
+    solution.getFacet(JavaModuleFacetImpl.class).setGeneratedClassesLocation(runtimeSolutionDescriptorFile.getParent().findChild("cls_gen"));
     solution.save();
     return solution;
   }
@@ -311,6 +314,7 @@ public class TestMakeOnRealProject implements EnvironmentAware {
     // XXX it's fine to use GeneralModuleFactory, not ModuleRepositoryFacade, as there are no generators to care about
     Language language = (Language) new GeneralModuleFactory().instantiate(d, descriptorFile);
     myProject.addModule(language);
+    language.getFacet(JavaModuleFacetImpl.class).setGeneratedClassesLocation(descriptorFile.getParent().findChild("cls_gen"));
     language.save();
     return language;
   }
@@ -331,6 +335,7 @@ public class TestMakeOnRealProject implements EnvironmentAware {
     
     final Solution rv = (Solution) new GeneralModuleFactory().instantiate(solutionDescriptor, descriptorFile);
     myProject.addModule(rv);
+    rv.getFacet(JavaModuleFacetImpl.class).setGeneratedClassesLocation(descriptorFile.getParent().findChild("cls_gen"));
     rv.save();
     final SModel m1 = rv.getModelRoots().iterator().next().createModel("m1");
     new ModelImports(m1).addUsedLanguage(MetaAdapterFactory.getLanguage(myCreatedLanguage.getModuleReference()));
