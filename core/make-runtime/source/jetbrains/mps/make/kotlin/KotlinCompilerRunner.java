@@ -1,5 +1,6 @@
 package jetbrains.mps.make.kotlin;
 
+import jetbrains.mps.compiler.JavaCompilerOptionsComponent.JavaVersion;
 import jetbrains.mps.make.CompositeTracer;
 import jetbrains.mps.make.ModuleMaker.JM;
 import jetbrains.mps.util.PathManager;
@@ -88,10 +89,13 @@ public class KotlinCompilerRunner {
    */
   private File mySessionFile;
   private final CompositeTracer myTracer;
+  @NotNull
+  private JavaVersion myJavaVersion;
   private CompileServiceSession mySession;
 
-  public KotlinCompilerRunner(CompositeTracer messageHandler, KotlinCompilerOptions kotlinCompilerOptions) {
+  public KotlinCompilerRunner(CompositeTracer messageHandler, KotlinCompilerOptions kotlinCompilerOptions, @NotNull JavaVersion javaVersion) {
     myTracer = messageHandler;
+    myJavaVersion = javaVersion;
 
     // Session and client file
     try {
@@ -131,6 +135,8 @@ public class KotlinCompilerRunner {
 
       // We pass module data through a build file
       final String[] compilerArgs = new String[]{
+          // Use same target java version as java compiler
+          "-jvm-target=" + myJavaVersion.getCompilerVersion(),
           "-Xreport-output-files=true",
           "-Xbuild-file=" + KotlinBuildFileSerialization.createBuildFile(modulesToCompile).getAbsolutePath()
       };

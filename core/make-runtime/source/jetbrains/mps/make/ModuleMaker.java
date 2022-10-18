@@ -18,6 +18,7 @@ package jetbrains.mps.make;
 import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.compiler.JavaCompilerOptions;
 import jetbrains.mps.compiler.JavaCompilerOptionsComponent;
+import jetbrains.mps.compiler.JavaCompilerOptionsComponent.JavaVersion;
 import jetbrains.mps.make.ModuleAnalyzer.ModuleAnalyzerResult;
 import jetbrains.mps.make.dependencies.graph.Graph;
 import jetbrains.mps.make.dependencies.graph.IVertex;
@@ -914,7 +915,10 @@ public final class ModuleMaker {
         final CompositeTracer kotlinSubTracer = cycleTracer.subTracer(1, SubProgressKind.AS_COMMENT);
         if (analysisResult.hasKotlinToCompile) {
           if (kotlinCompilerRunner == null) {
-            kotlinCompilerRunner = new KotlinCompilerRunner(myTracer, myKotlinCompilerOptions);
+            final JavaVersion javaVersion = myCompilerOptions == null || myCompilerOptions.getTargetJavaVersion() == null
+                                   ? JavaCompilerOptionsComponent.DEFAULT_JAVA_VERSION
+                                   : myCompilerOptions.getTargetJavaVersion();
+            kotlinCompilerRunner = new KotlinCompilerRunner(myTracer, myKotlinCompilerOptions, javaVersion);
           }
 
           kotlinSubTracer.start(KOTLIN_COMPILE_MSG, 1);
