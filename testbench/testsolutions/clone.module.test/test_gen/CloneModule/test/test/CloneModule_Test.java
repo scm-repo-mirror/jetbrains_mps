@@ -11,7 +11,7 @@ import jetbrains.mps.project.MPSProject;
 import org.junit.Test;
 import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.project.Solution;
-import jetbrains.mps.classloading.IdeaPluginModuleFacet;
+import jetbrains.mps.project.facets.JavaModuleFacet;
 import org.junit.Assert;
 import jetbrains.mps.generator.CustomGenerationModuleFacet;
 import jetbrains.mps.smodel.Language;
@@ -64,9 +64,11 @@ public class CloneModule_Test extends EnvironmentAwareTestCase {
   public void test_cloneFacets() throws Exception {
     Solution copyFacetsModule = as_i3fixg_a0a0a31(testModule(resolveSolution(FACETS), MPSExtentions.DOT_SOLUTION), Solution.class);
 
-    IdeaPluginModuleFacet ideaPluginModuleFacet = copyFacetsModule.getFacet(IdeaPluginModuleFacet.class);
-    Assert.assertNotNull(ideaPluginModuleFacet);
-    Assert.assertEquals("test.plugin.id", ideaPluginModuleFacet.getPluginId());
+    JavaModuleFacet jmf = copyFacetsModule.getFacet(JavaModuleFacet.class);
+    Assert.assertNotNull(jmf);
+    Assert.assertEquals(JavaModuleFacet.Compile.MPS, jmf.getCompile());
+    // module used to have ideaPlugin facet, which means it got ManagedByContributor during migration
+    Assert.assertEquals(JavaModuleFacet.LoadClasses.ManagedByContributor, jmf.getLoadClasses());
 
     CustomGenerationModuleFacet customGenerationModuleFacet = copyFacetsModule.getFacet(CustomGenerationModuleFacet.class);
     Assert.assertNotNull(customGenerationModuleFacet);
@@ -104,7 +106,7 @@ public class CloneModule_Test extends EnvironmentAwareTestCase {
   @Before
   public void setUp() {
     project = ((MPSProject) myEnvironment.openProject(new File(PROJECT_PATH)));
-    executeUnderLock(() -> clonedModulesDirectory = IFileUtil.createTmpDir());
+    executeUnderLock(() -> clonedModulesDirectory = IFileUtil.createTmpDir(project.getFileSystem()));
   }
   @After
   public void tearDown() {
