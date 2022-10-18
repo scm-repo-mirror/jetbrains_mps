@@ -30,6 +30,7 @@ import com.intellij.openapi.util.SystemInfo;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.wm.impl.welcomeScreen.FlatWelcomeFrame;
+import com.intellij.openapi.wm.impl.welcomeScreen.NewWelcomeScreen;
 import jetbrains.mps.workbench.action.BaseAction;
 
 import java.io.File;
@@ -42,18 +43,11 @@ public class OpenMPSProjectAction extends BaseAction {
     setDisableOnNoProject(false);
   }
 
-
   @Override
   protected void doUpdate(AnActionEvent e, Map<String, Object> _params) {
     super.doUpdate(e, _params);
     Presentation presentation = e.getPresentation();
-    if (FlatWelcomeFrame.USE_TABBED_WELCOME_SCREEN) {
-      presentation.setIcon(AllIcons.Welcome.Open);
-      presentation.setSelectedIcon(AllIcons.Welcome.OpenSelected);
-      presentation.setText(ActionsBundle.message("action.Tabbed.WelcomeScreen.OpenProject.text"));
-    } else {
-      presentation.setIcon(AllIcons.Actions.Menu_open);
-    }
+    presentation.setIcon(AllIcons.Actions.MenuOpen);
   }
 
   @SuppressWarnings("UnstableApiUsage")
@@ -81,6 +75,26 @@ public class OpenMPSProjectAction extends BaseAction {
 
     if (OpenMPSProjectTrustProjectHelper.checkTrust(virtualFile, currentProject)) {
       ProjectUtil.openProject(virtualFile.getPath(), currentProject, false);
+    }
+  }
+
+  public static class OnMPSWelcomeScreen extends OpenMPSProjectAction {
+    @Override
+    protected void doUpdate(AnActionEvent e, Map<String, Object> _params) {
+      super.doUpdate(e, _params);
+      Presentation presentation = e.getPresentation();
+      if (!NewWelcomeScreen.isNewWelcomeScreen(e)) {
+        presentation.setEnabledAndVisible(false);
+        return;
+      }
+      if (FlatWelcomeFrame.USE_TABBED_WELCOME_SCREEN) {
+        presentation.setIcon(AllIcons.Welcome.Open);
+        presentation.setSelectedIcon(AllIcons.Welcome.OpenSelected);
+        presentation.setText(ActionsBundle.message("action.Tabbed.WelcomeScreen.OpenProject.text"));
+      }
+      else {
+        presentation.setIcon(AllIcons.Actions.MenuOpen);
+      }
     }
   }
 }
