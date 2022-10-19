@@ -15,6 +15,9 @@
  */
 package jetbrains.mps.project.dependency;
 
+import jetbrains.mps.project.AbstractModule;
+import jetbrains.mps.project.DevKit;
+import jetbrains.mps.project.Solution;
 import jetbrains.mps.project.dependency.GlobalModuleDependenciesManager.ErrorHandler;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.LanguageModuleScanner;
@@ -81,6 +84,16 @@ public final class UsedModulesCollector {
 
     if (includeNonReexport) {
       // XXX always wondered why is this double if. Check 754e7d88 for answer. Perhaps, it's time to bring this code back here?
+      if (module instanceof AbstractModule && module.getRepository() != null) {
+        final SRepository contextRepo = module.getRepository();
+        for (SModuleReference devkit : ((AbstractModule) module).collectLanguagesAndDevkits().devkits) {
+          final SModule dk = devkit.resolve(contextRepo);
+          if (false == dk instanceof DevKit) {
+            continue;
+          }
+          result.addAll(((DevKit) dk).getExportedSolutions());
+        }
+      }
       if (runtimes) {
         collectRuntimeOfUsedLanguages(module, result);
       }
