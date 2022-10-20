@@ -14,6 +14,7 @@
     <import index="alof" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.project(MPS.Platform/)" />
     <import index="4nm9" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.project(MPS.IDEA/)" />
     <import index="wwv5" ref="r:6c6710f1-72ef-4241-9ac5-bafd05beea2c(jetbrains.mps.kotlin.stubs.commonStubs)" />
+    <import index="8kdf" ref="r:bdaa2532-d0d0-46ce-8145-d47be9b807a4(jetbrains.mps.kotlin.stubs.jvmStubs)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
   </imports>
   <registry>
@@ -508,6 +509,416 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="2ntakj1pRru" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+  </node>
+  <node concept="312cEu" id="10KGttbTQqd">
+    <property role="TrG5h" value="KotlinJvmStubModelRootEntry" />
+    <property role="3GE5qa" value="" />
+    <node concept="3Tm1VV" id="10KGttbTQqe" role="1B3o_S" />
+    <node concept="3uibUv" id="10KGttbTQqf" role="EKbjA">
+      <ref role="3uigEE" to="3fr7:~ModelRootEntry" resolve="ModelRootEntry" />
+      <node concept="3uibUv" id="10KGttbTQqg" role="11_B2D">
+        <ref role="3uigEE" to="8kdf:55ogKyAFQhr" resolve="KotlinJvmStubModelRoot" />
+      </node>
+    </node>
+    <node concept="3uibUv" id="10KGttbTQqh" role="EKbjA">
+      <ref role="3uigEE" to="3fr7:~ModelRootEntryExt" resolve="ModelRootEntryExt" />
+    </node>
+    <node concept="312cEg" id="10KGttbTQqi" role="jymVt">
+      <property role="TrG5h" value="myRoot" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm6S6" id="10KGttbTQqj" role="1B3o_S" />
+      <node concept="3uibUv" id="10KGttbTQqk" role="1tU5fm">
+        <ref role="3uigEE" to="8kdf:55ogKyAFQhr" resolve="KotlinJvmStubModelRoot" />
+      </node>
+    </node>
+    <node concept="312cEg" id="10KGttbTQql" role="jymVt">
+      <property role="TrG5h" value="myRootData" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm6S6" id="10KGttbTQqm" role="1B3o_S" />
+      <node concept="3uibUv" id="10KGttbTQqn" role="1tU5fm">
+        <ref role="3uigEE" to="v2y9:~FileBasedModelRootEntry" resolve="FileBasedModelRootEntry" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="10KGttbTQqo" role="jymVt" />
+    <node concept="3clFbW" id="10KGttbTQqp" role="jymVt">
+      <node concept="3cqZAl" id="10KGttbTQqq" role="3clF45" />
+      <node concept="3Tm1VV" id="10KGttbTQqr" role="1B3o_S" />
+      <node concept="3clFbS" id="10KGttbTQqs" role="3clF47">
+        <node concept="3clFbF" id="10KGttbTQqt" role="3cqZAp">
+          <node concept="37vLTI" id="10KGttbTQqu" role="3clFbG">
+            <node concept="37vLTw" id="10KGttbTQqv" role="37vLTJ">
+              <ref role="3cqZAo" node="10KGttbTQql" resolve="myRootData" />
+            </node>
+            <node concept="2ShNRf" id="10KGttbTQqw" role="37vLTx">
+              <node concept="1pGfFk" id="10KGttbTQqx" role="2ShVmc">
+                <ref role="37wK5l" to="v2y9:~FileBasedModelRootEntry.&lt;init&gt;(jetbrains.mps.project.MPSProject,jetbrains.mps.extapi.persistence.FileBasedModelRoot)" resolve="FileBasedModelRootEntry" />
+                <node concept="37vLTw" id="10KGttbTQqy" role="37wK5m">
+                  <ref role="3cqZAo" node="10KGttbTQqC" resolve="project" />
+                </node>
+                <node concept="37vLTw" id="10KGttbTQqz" role="37wK5m">
+                  <ref role="3cqZAo" node="10KGttbTQqE" resolve="root" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="10KGttbTQq$" role="3cqZAp">
+          <node concept="37vLTI" id="10KGttbTQq_" role="3clFbG">
+            <node concept="37vLTw" id="10KGttbTQqA" role="37vLTJ">
+              <ref role="3cqZAo" node="10KGttbTQqi" resolve="myRoot" />
+            </node>
+            <node concept="37vLTw" id="10KGttbTQqB" role="37vLTx">
+              <ref role="3cqZAo" node="10KGttbTQqE" resolve="root" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="37vLTG" id="10KGttbTQqC" role="3clF46">
+        <property role="TrG5h" value="project" />
+        <node concept="3uibUv" id="10KGttbTQqD" role="1tU5fm">
+          <ref role="3uigEE" to="z1c3:~MPSProject" resolve="MPSProject" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="10KGttbTQqE" role="3clF46">
+        <property role="TrG5h" value="root" />
+        <node concept="3uibUv" id="10KGttbTQqF" role="1tU5fm">
+          <ref role="3uigEE" to="8kdf:55ogKyAFQhr" resolve="KotlinJvmStubModelRoot" />
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="10KGttbTQqG" role="jymVt" />
+    <node concept="3clFb_" id="10KGttbTQqH" role="jymVt">
+      <property role="TrG5h" value="getModelRoot" />
+      <node concept="3Tm1VV" id="10KGttbTQqI" role="1B3o_S" />
+      <node concept="2AHcQZ" id="10KGttbTQqJ" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+      </node>
+      <node concept="3uibUv" id="10KGttbTQqK" role="3clF45">
+        <ref role="3uigEE" to="8kdf:55ogKyAFQhr" resolve="KotlinJvmStubModelRoot" />
+      </node>
+      <node concept="3clFbS" id="10KGttbTQqL" role="3clF47">
+        <node concept="3clFbF" id="10KGttbTQqM" role="3cqZAp">
+          <node concept="37vLTw" id="10KGttbTQqN" role="3clFbG">
+            <ref role="3cqZAo" node="10KGttbTQqi" resolve="myRoot" />
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="10KGttbTQqO" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="10KGttbTQqP" role="jymVt">
+      <property role="TrG5h" value="getDetailsText" />
+      <node concept="3Tm1VV" id="10KGttbTQqQ" role="1B3o_S" />
+      <node concept="2AHcQZ" id="10KGttbTQqR" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+      </node>
+      <node concept="17QB3L" id="10KGttbTQqS" role="3clF45" />
+      <node concept="3clFbS" id="10KGttbTQqT" role="3clF47">
+        <node concept="3clFbF" id="10KGttbTQqU" role="3cqZAp">
+          <node concept="2OqwBi" id="10KGttbTQqV" role="3clFbG">
+            <node concept="37vLTw" id="10KGttbTQqW" role="2Oq$k0">
+              <ref role="3cqZAo" node="10KGttbTQql" resolve="myRootData" />
+            </node>
+            <node concept="liA8E" id="10KGttbTQqX" role="2OqNvi">
+              <ref role="37wK5l" to="v2y9:~FileBasedModelRootEntry.getDetailsText()" resolve="getDetailsText" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="10KGttbTQqY" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="10KGttbTQqZ" role="jymVt">
+      <property role="TrG5h" value="isValid" />
+      <node concept="3Tm1VV" id="10KGttbTQr0" role="1B3o_S" />
+      <node concept="10P_77" id="10KGttbTQr1" role="3clF45" />
+      <node concept="3clFbS" id="10KGttbTQr2" role="3clF47">
+        <node concept="3clFbF" id="10KGttbTQr3" role="3cqZAp">
+          <node concept="2OqwBi" id="10KGttbTQr4" role="3clFbG">
+            <node concept="37vLTw" id="10KGttbTQr5" role="2Oq$k0">
+              <ref role="3cqZAo" node="10KGttbTQql" resolve="myRootData" />
+            </node>
+            <node concept="liA8E" id="10KGttbTQr6" role="2OqNvi">
+              <ref role="37wK5l" to="v2y9:~FileBasedModelRootEntry.isValid()" resolve="isValid" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="10KGttbTQr7" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="10KGttbTQr8" role="jymVt">
+      <property role="TrG5h" value="getEditor" />
+      <node concept="3Tm1VV" id="10KGttbTQr9" role="1B3o_S" />
+      <node concept="2AHcQZ" id="10KGttbTQra" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+      </node>
+      <node concept="3uibUv" id="10KGttbTQrb" role="3clF45">
+        <ref role="3uigEE" to="3fr7:~ModelRootEntryEditor" resolve="ModelRootEntryEditor" />
+      </node>
+      <node concept="3clFbS" id="10KGttbTQrc" role="3clF47">
+        <node concept="3clFbF" id="10KGttbTQrd" role="3cqZAp">
+          <node concept="2OqwBi" id="10KGttbTQre" role="3clFbG">
+            <node concept="37vLTw" id="10KGttbTQrf" role="2Oq$k0">
+              <ref role="3cqZAo" node="10KGttbTQql" resolve="myRootData" />
+            </node>
+            <node concept="liA8E" id="10KGttbTQrg" role="2OqNvi">
+              <ref role="37wK5l" to="v2y9:~FileBasedModelRootEntry.getEditor()" resolve="getEditor" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="10KGttbTQrh" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="10KGttbTQri" role="jymVt">
+      <property role="TrG5h" value="addModelRootEntryListener" />
+      <node concept="3Tm1VV" id="10KGttbTQrj" role="1B3o_S" />
+      <node concept="3cqZAl" id="10KGttbTQrk" role="3clF45" />
+      <node concept="37vLTG" id="10KGttbTQrl" role="3clF46">
+        <property role="TrG5h" value="listener" />
+        <node concept="3uibUv" id="10KGttbTQrm" role="1tU5fm">
+          <ref role="3uigEE" to="3fr7:~ModelRootEntry$ModelRootEntryListener" resolve="ModelRootEntryListener" />
+        </node>
+        <node concept="2AHcQZ" id="10KGttbTQrn" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="10KGttbTQro" role="3clF47">
+        <node concept="3clFbF" id="10KGttbTQrp" role="3cqZAp">
+          <node concept="2OqwBi" id="10KGttbTQrq" role="3clFbG">
+            <node concept="37vLTw" id="10KGttbTQrr" role="2Oq$k0">
+              <ref role="3cqZAo" node="10KGttbTQql" resolve="myRootData" />
+            </node>
+            <node concept="liA8E" id="10KGttbTQrs" role="2OqNvi">
+              <ref role="37wK5l" to="v2y9:~FileBasedModelRootEntry.addModelRootEntryListener(org.jetbrains.mps.openapi.ui.persistence.ModelRootEntry$ModelRootEntryListener)" resolve="addModelRootEntryListener" />
+              <node concept="37vLTw" id="10KGttbTQrt" role="37wK5m">
+                <ref role="3cqZAo" node="10KGttbTQrl" resolve="listener" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="10KGttbTQru" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="10KGttbTQrv" role="jymVt">
+      <property role="TrG5h" value="removeModelRootEntryListener" />
+      <node concept="3Tm1VV" id="10KGttbTQrw" role="1B3o_S" />
+      <node concept="3cqZAl" id="10KGttbTQrx" role="3clF45" />
+      <node concept="37vLTG" id="10KGttbTQry" role="3clF46">
+        <property role="TrG5h" value="listener" />
+        <node concept="3uibUv" id="10KGttbTQrz" role="1tU5fm">
+          <ref role="3uigEE" to="3fr7:~ModelRootEntry$ModelRootEntryListener" resolve="ModelRootEntryListener" />
+        </node>
+        <node concept="2AHcQZ" id="10KGttbTQr$" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="10KGttbTQr_" role="3clF47">
+        <node concept="3clFbF" id="10KGttbTQrA" role="3cqZAp">
+          <node concept="2OqwBi" id="10KGttbTQrB" role="3clFbG">
+            <node concept="37vLTw" id="10KGttbTQrC" role="2Oq$k0">
+              <ref role="3cqZAo" node="10KGttbTQql" resolve="myRootData" />
+            </node>
+            <node concept="liA8E" id="10KGttbTQrD" role="2OqNvi">
+              <ref role="37wK5l" to="v2y9:~FileBasedModelRootEntry.removeModelRootEntryListener(org.jetbrains.mps.openapi.ui.persistence.ModelRootEntry$ModelRootEntryListener)" resolve="removeModelRootEntryListener" />
+              <node concept="37vLTw" id="10KGttbTQrE" role="37wK5m">
+                <ref role="3cqZAo" node="10KGttbTQry" resolve="listener" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="10KGttbTQrF" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="10KGttbTQrG" role="jymVt">
+      <property role="TrG5h" value="getDetailsComponent" />
+      <node concept="3Tm1VV" id="10KGttbTQrH" role="1B3o_S" />
+      <node concept="2AHcQZ" id="10KGttbTQrI" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+      </node>
+      <node concept="3uibUv" id="10KGttbTQrJ" role="3clF45">
+        <ref role="3uigEE" to="dxuu:~JComponent" resolve="JComponent" />
+      </node>
+      <node concept="3clFbS" id="10KGttbTQrK" role="3clF47">
+        <node concept="3clFbF" id="10KGttbTQrL" role="3cqZAp">
+          <node concept="2OqwBi" id="10KGttbTQrM" role="3clFbG">
+            <node concept="37vLTw" id="10KGttbTQrN" role="2Oq$k0">
+              <ref role="3cqZAo" node="10KGttbTQql" resolve="myRootData" />
+            </node>
+            <node concept="liA8E" id="10KGttbTQrO" role="2OqNvi">
+              <ref role="37wK5l" to="v2y9:~FileBasedModelRootEntry.getDetailsComponent()" resolve="getDetailsComponent" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="10KGttbTQrP" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="10KGttbTQrQ" role="jymVt">
+      <property role="TrG5h" value="setForegroundColor" />
+      <node concept="3Tm1VV" id="10KGttbTQrR" role="1B3o_S" />
+      <node concept="3cqZAl" id="10KGttbTQrS" role="3clF45" />
+      <node concept="37vLTG" id="10KGttbTQrT" role="3clF46">
+        <property role="TrG5h" value="color" />
+        <node concept="3uibUv" id="10KGttbTQrU" role="1tU5fm">
+          <ref role="3uigEE" to="z60i:~Color" resolve="Color" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="10KGttbTQrV" role="3clF47">
+        <node concept="3clFbF" id="10KGttbTQrW" role="3cqZAp">
+          <node concept="2OqwBi" id="10KGttbTQrX" role="3clFbG">
+            <node concept="37vLTw" id="10KGttbTQrY" role="2Oq$k0">
+              <ref role="3cqZAo" node="10KGttbTQql" resolve="myRootData" />
+            </node>
+            <node concept="liA8E" id="10KGttbTQrZ" role="2OqNvi">
+              <ref role="37wK5l" to="v2y9:~FileBasedModelRootEntry.setForegroundColor(java.awt.Color)" resolve="setForegroundColor" />
+              <node concept="37vLTw" id="10KGttbTQs0" role="37wK5m">
+                <ref role="3cqZAo" node="10KGttbTQrT" resolve="color" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="10KGttbTQs1" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="10KGttbTQs2" role="jymVt">
+      <property role="TrG5h" value="resetForegroundColor" />
+      <node concept="3Tm1VV" id="10KGttbTQs3" role="1B3o_S" />
+      <node concept="3cqZAl" id="10KGttbTQs4" role="3clF45" />
+      <node concept="3clFbS" id="10KGttbTQs5" role="3clF47">
+        <node concept="3clFbF" id="10KGttbTQs6" role="3cqZAp">
+          <node concept="2OqwBi" id="10KGttbTQs7" role="3clFbG">
+            <node concept="37vLTw" id="10KGttbTQs8" role="2Oq$k0">
+              <ref role="3cqZAo" node="10KGttbTQql" resolve="myRootData" />
+            </node>
+            <node concept="liA8E" id="10KGttbTQs9" role="2OqNvi">
+              <ref role="37wK5l" to="v2y9:~FileBasedModelRootEntry.resetForegroundColor()" resolve="resetForegroundColor" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="10KGttbTQsa" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="10KGttbTQsb" role="jymVt">
+      <property role="TrG5h" value="dispose" />
+      <node concept="3Tm1VV" id="10KGttbTQsc" role="1B3o_S" />
+      <node concept="3cqZAl" id="10KGttbTQsd" role="3clF45" />
+      <node concept="3clFbS" id="10KGttbTQse" role="3clF47">
+        <node concept="3clFbF" id="10KGttbTQsf" role="3cqZAp">
+          <node concept="2OqwBi" id="10KGttbTQsg" role="3clFbG">
+            <node concept="37vLTw" id="10KGttbTQsh" role="2Oq$k0">
+              <ref role="3cqZAo" node="10KGttbTQql" resolve="myRootData" />
+            </node>
+            <node concept="liA8E" id="10KGttbTQsi" role="2OqNvi">
+              <ref role="37wK5l" to="v2y9:~FileBasedModelRootEntry.dispose()" resolve="dispose" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="10KGttbTQsj" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+  </node>
+  <node concept="312cEu" id="10KGttbTQsk">
+    <property role="TrG5h" value="KotlinJvmStubModelRootEntryFactory" />
+    <property role="3GE5qa" value="" />
+    <node concept="3Tm1VV" id="10KGttbTQsl" role="1B3o_S" />
+    <node concept="3uibUv" id="10KGttbTQsm" role="EKbjA">
+      <ref role="3uigEE" to="3fr7:~ModelRootEntryFactory" resolve="ModelRootEntryFactory" />
+      <node concept="3uibUv" id="10KGttbTQsn" role="11_B2D">
+        <ref role="3uigEE" to="8kdf:55ogKyAFQhr" resolve="KotlinJvmStubModelRoot" />
+      </node>
+    </node>
+    <node concept="312cEg" id="10KGttbTQso" role="jymVt">
+      <property role="TrG5h" value="myProject" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm6S6" id="10KGttbTQsp" role="1B3o_S" />
+      <node concept="3uibUv" id="10KGttbTQsq" role="1tU5fm">
+        <ref role="3uigEE" to="z1c3:~MPSProject" resolve="MPSProject" />
+      </node>
+    </node>
+    <node concept="3clFbW" id="10KGttbTQsr" role="jymVt">
+      <node concept="3cqZAl" id="10KGttbTQss" role="3clF45" />
+      <node concept="3Tm1VV" id="10KGttbTQst" role="1B3o_S" />
+      <node concept="3clFbS" id="10KGttbTQsu" role="3clF47">
+        <node concept="3clFbF" id="10KGttbTQsv" role="3cqZAp">
+          <node concept="37vLTI" id="10KGttbTQsw" role="3clFbG">
+            <node concept="2YIFZM" id="10KGttbTQsx" role="37vLTx">
+              <ref role="37wK5l" to="alof:~ProjectHelper.fromIdeaProjectOrFail(com.intellij.openapi.project.Project)" resolve="fromIdeaProjectOrFail" />
+              <ref role="1Pybhc" to="alof:~ProjectHelper" resolve="ProjectHelper" />
+              <node concept="37vLTw" id="10KGttbTQsy" role="37wK5m">
+                <ref role="3cqZAo" node="10KGttbTQs$" resolve="ideaProject" />
+              </node>
+            </node>
+            <node concept="37vLTw" id="10KGttbTQsz" role="37vLTJ">
+              <ref role="3cqZAo" node="10KGttbTQso" resolve="myProject" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="37vLTG" id="10KGttbTQs$" role="3clF46">
+        <property role="TrG5h" value="ideaProject" />
+        <node concept="3uibUv" id="10KGttbTQs_" role="1tU5fm">
+          <ref role="3uigEE" to="4nm9:~Project" resolve="Project" />
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="10KGttbTQsA" role="jymVt" />
+    <node concept="3clFb_" id="10KGttbTQsC" role="jymVt">
+      <property role="TrG5h" value="getModelRootEntry" />
+      <node concept="3Tm1VV" id="10KGttbTQsD" role="1B3o_S" />
+      <node concept="2AHcQZ" id="10KGttbTQsE" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+      </node>
+      <node concept="3uibUv" id="10KGttbTQsF" role="3clF45">
+        <ref role="3uigEE" to="3fr7:~ModelRootEntry" resolve="ModelRootEntry" />
+        <node concept="3uibUv" id="10KGttbTQsG" role="11_B2D">
+          <ref role="3uigEE" to="8kdf:55ogKyAFQhr" resolve="KotlinJvmStubModelRoot" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="10KGttbTQsH" role="3clF46">
+        <property role="TrG5h" value="root" />
+        <node concept="3uibUv" id="10KGttbTQsI" role="1tU5fm">
+          <ref role="3uigEE" to="8kdf:55ogKyAFQhr" resolve="KotlinJvmStubModelRoot" />
+        </node>
+        <node concept="2AHcQZ" id="10KGttbTQsJ" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="10KGttbTQsK" role="3clF47">
+        <node concept="3cpWs6" id="10KGttbTQsL" role="3cqZAp">
+          <node concept="2ShNRf" id="10KGttbTQsM" role="3cqZAk">
+            <node concept="1pGfFk" id="10KGttbTQsN" role="2ShVmc">
+              <ref role="37wK5l" node="10KGttbTQqp" resolve="KotlinCommonStubModelRootEntry" />
+              <node concept="37vLTw" id="10KGttbTQsO" role="37wK5m">
+                <ref role="3cqZAo" node="10KGttbTQso" resolve="myProject" />
+              </node>
+              <node concept="37vLTw" id="10KGttbTQsP" role="37wK5m">
+                <ref role="3cqZAo" node="10KGttbTQsH" resolve="root" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="10KGttbTQsQ" role="2AJF6D">
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>

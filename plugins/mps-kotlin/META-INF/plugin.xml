@@ -16,6 +16,8 @@
     <!-- UI entry for kotlin roots -->
     <mps.modelRootEntry rootType="kotlin_common" title="Kotlin Common"
                         className="jetbrains.mps.kotlin.idePlugin.rootEntry.KotlinCommonStubModelRootEntryFactory"/>
+    <mps.modelRootEntry rootType="kotlin_jvm" title="Kotlin JVM"
+                        className="jetbrains.mps.kotlin.idePlugin.rootEntry.KotlinJvmStubModelRootEntryFactory"/>
 
     <!-- Metadata file types + indexing facility -->
     <fileType extensions="kotlin_metadata;kotlin_builtins;knm" name="KOTLIN_METADATA" fieldName="INSTANCE"
