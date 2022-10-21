@@ -46,7 +46,6 @@ import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SaveOptions;
 import org.jetbrains.mps.openapi.module.FacetsFacade;
 import org.jetbrains.mps.openapi.module.SDependency;
-import org.jetbrains.mps.openapi.module.SDependencyScope;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleFacet;
 import org.jetbrains.mps.openapi.module.SModuleId;
@@ -485,6 +484,15 @@ public abstract class AbstractModule extends SModuleBase implements EditableSMod
 
     Map<String, Memento> config = new HashMap<>();
     for (ModuleFacetDescriptor facetDescriptors : descriptor.getModuleFacetDescriptors()) {
+      if (config.containsKey(facetDescriptors.getType())) {
+        // with JMF holding non-trivial defaults, I've faced few hard to debug issues with duplicated facet entries.
+        //  FTR, the fact MD.myFacets is a Set doesn't help here, as
+        //    (a) ModuleFacetDescriptor doesn't override equals()
+        //    (b) even if it would, duplicating facet descriptors are generally not the same (duplicates usually bear no
+        //        settings at all, while the first one comes with <classes> and path
+        LOG.error(String.format("Module %s comes with duplicated facet %s, ignored", getModuleName(), facetDescriptors.getType()));
+        continue;
+      }
       config.put(facetDescriptors.getType(), facetDescriptors.getMemento());
     }
 

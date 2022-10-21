@@ -74,6 +74,8 @@ public class ModuleDescriptor implements CopyableDescriptor<ModuleDescriptor>  {
   private int myModuleVersion;
 
   private final Collection<ModelRootDescriptor> myModelRoots = new LinkedHashSet<>();
+  // use of LinkedHashSet is a bit confusing, as it doesn't prevent duplicating facets of the same type,
+  // only duplicating MFD with same identity, which is generally a programming error we better to catch than to ignore silently.
   private final Collection<ModuleFacetDescriptor> myFacets = new LinkedHashSet<>();
   private final Collection<Dependency> myDependencies = new LinkedHashSet<>();
   private final Collection<SModuleReference> myUsedDevkits = new LinkedHashSet<>();
