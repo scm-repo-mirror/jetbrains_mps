@@ -68,7 +68,6 @@
     <pathelement location="${artifacts.mpsTrueBootstrap}/ant-mps.jar" />
     <fileset dir="${artifacts.IDEA}/lib">
       <include name="util.jar" />
-      <include name="3rd-party-rt.jar" />
     </fileset>
   </path>
   
