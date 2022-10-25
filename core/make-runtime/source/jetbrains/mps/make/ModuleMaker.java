@@ -57,7 +57,6 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -90,8 +89,6 @@ import java.util.stream.Stream;
  * fixme check multiple computations of the same modules' dependencies (time wasting)
  */
 public final class ModuleMaker {
-  public final static Comparator<SModule> MODULE_BY_NAME_COMPARATOR = Comparator.comparing(SModule::getModuleName);
-
   private final static String BUILDING_MODULES_MSG = "Building %d Modules";
   private final static String KOTLIN_COMPILE_MSG = "Kotlin Compilation";
   private final static String CYCLE_FORMAT_MSG = "Cycle #%d: [%s]";
@@ -977,31 +974,6 @@ public final class ModuleMaker {
     });
 
     return compilationOutput.getCompilationResult();
-  }
-
-
-  /**
-   * @deprecated check {@link #make(Collection, ProgressMonitor, JavaCompilerOptions)} for details
-   */
-  @Deprecated(forRemoval = true, since = "2021.3")
-  @NotNull
-  public MPSCompilationResult make(final Collection<? extends SModule> modules, @NotNull final ProgressMonitor monitor) {
-    return make(modules, monitor, null);
-  }
-
-  /**
-   * @deprecated replace with sequence of {@code options()}, {@code prepare()} and {@code make()} calls, where
-   *    only {@code prepare()} needs model access over modules.
-   *    Single use in MPS through make(), above.
-   */
-  @Deprecated(forRemoval = true, since = "2021.3")
-  @NotNull
-  public MPSCompilationResult make(final Collection<? extends SModule> modules, @NotNull final ProgressMonitor monitor,
-                                   @Nullable final JavaCompilerOptions compilerOptions) {
-    options(compilerOptions);
-    monitor.start("", 3);
-    prepare(modules, false, monitor.subTask(2));
-    return make(monitor.subTask(1));
   }
 
   private String getCycleString(int cycleNumber, Collection<? extends BaseModuleContainer.JavaModule> modulesInCycle) {
