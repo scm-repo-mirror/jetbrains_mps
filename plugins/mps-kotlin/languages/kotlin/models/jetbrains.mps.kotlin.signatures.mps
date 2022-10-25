@@ -172,9 +172,7 @@
       <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ng" index="1B3ioH">
         <child id="1178549979242" name="visibility" index="1B3o_S" />
       </concept>
-      <concept id="1107796713796" name="jetbrains.mps.baseLanguage.structure.Interface" flags="ig" index="3HP615">
-        <child id="1107797138135" name="extendedInterface" index="3HQHJm" />
-      </concept>
+      <concept id="1107796713796" name="jetbrains.mps.baseLanguage.structure.Interface" flags="ig" index="3HP615" />
       <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
         <child id="8356039341262087992" name="line" index="1aUNEU" />
       </concept>
@@ -199,13 +197,9 @@
     <language id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc">
       <concept id="5349172909345501395" name="jetbrains.mps.baseLanguage.javadoc.structure.BaseDocComment" flags="ng" index="P$AiS">
         <child id="8465538089690331502" name="body" index="TZ5H$" />
-        <child id="5383422241790532083" name="tags" index="3nqlJM" />
       </concept>
       <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA">
         <child id="8970989240999019149" name="part" index="1dT_Ay" />
-      </concept>
-      <concept id="8465538089690331492" name="jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag" flags="ng" index="TZ5HI">
-        <child id="2667874559098216723" name="text" index="3HnX3l" />
       </concept>
       <concept id="8970989240999019143" name="jetbrains.mps.baseLanguage.javadoc.structure.TextCommentLinePart" flags="ng" index="1dT_AC">
         <property id="8970989240999019144" name="text" index="1dT_AB" />
@@ -1668,28 +1662,6 @@
       <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
     </node>
     <node concept="3Tm1VV" id="5q426iHsD7T" role="1B3o_S" />
-  </node>
-  <node concept="3HP615" id="5q426iHFv4D">
-    <property role="3GE5qa" value="" />
-    <property role="TrG5h" value="_VariableSignature" />
-    <node concept="2tJIrI" id="5Q5$eZnLs4C" role="jymVt" />
-    <node concept="3uibUv" id="5q426iHFvpO" role="3HQHJm">
-      <ref role="3uigEE" node="18X2O0FJocj" resolve="MemberSignature" />
-    </node>
-    <node concept="3UR2Jj" id="5Q5$eZnL065" role="lGtFl">
-      <node concept="TZ5HA" id="5Q5$eZnL066" role="TZ5H$">
-        <node concept="1dT_AC" id="5Q5$eZnL067" role="1dT_Ay">
-          <property role="1dT_AB" value="" />
-        </node>
-      </node>
-      <node concept="TZ5HI" id="5Q5$eZnLtWw" role="3nqlJM">
-        <node concept="TZ5HA" id="5Q5$eZnLtWx" role="3HnX3l" />
-      </node>
-    </node>
-    <node concept="2AHcQZ" id="5Q5$eZnLtWy" role="2AJF6D">
-      <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
-    </node>
-    <node concept="3Tm1VV" id="5Q5$eZnZA0i" role="1B3o_S" />
   </node>
   <node concept="3HP615" id="18X2O0FJocj">
     <property role="TrG5h" value="MemberSignature" />

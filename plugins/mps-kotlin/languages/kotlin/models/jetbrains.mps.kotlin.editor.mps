@@ -1730,32 +1730,6 @@
       </node>
     </node>
   </node>
-  <node concept="24kQdi" id="2yYXHtl6JZI">
-    <property role="3GE5qa" value="expression.literal.numeric" />
-    <ref role="1XX52x" to="hcm8:2yYXHtl6Jfm" resolve="LongLiteral" />
-    <node concept="3EZMnI" id="2yYXHtl6JZJ" role="2wV5jI">
-      <node concept="l2Vlx" id="2yYXHtl6JZK" role="2iSdaV" />
-      <node concept="3F0A7n" id="2yYXHtl6JZL" role="3EZMnx">
-        <ref role="1NtTu8" to="hcm8:2yYXHtl6Jqd" resolve="value" />
-        <node concept="VPRnO" id="1$jFvlE0QZp" role="3F10Kt">
-          <property role="VOm3f" value="true" />
-        </node>
-      </node>
-    </node>
-  </node>
-  <node concept="24kQdi" id="2yYXHtl6JZM">
-    <property role="3GE5qa" value="expression.literal.numeric" />
-    <ref role="1XX52x" to="hcm8:2yYXHtl6Jfn" resolve="UnsignedLiteral" />
-    <node concept="3EZMnI" id="2yYXHtl6JZN" role="2wV5jI">
-      <node concept="l2Vlx" id="2yYXHtl6JZO" role="2iSdaV" />
-      <node concept="3F0A7n" id="2yYXHtl6JZP" role="3EZMnx">
-        <ref role="1NtTu8" to="hcm8:2yYXHtl6Jqf" resolve="value" />
-        <node concept="VPRnO" id="1$jFvlE0RNB" role="3F10Kt">
-          <property role="VOm3f" value="true" />
-        </node>
-      </node>
-    </node>
-  </node>
   <node concept="24kQdi" id="2yYXHtl6K0p">
     <property role="3GE5qa" value="expression" />
     <ref role="1XX52x" to="hcm8:2yYXHtl6Jfy" resolve="ParenthesizedExpression" />
@@ -7014,15 +6988,6 @@
       <property role="TrG5h" value="IClassBody_Insert_Transform" />
     </node>
   </node>
-  <node concept="24kQdi" id="213J8cgR8Cw">
-    <property role="3GE5qa" value="declaration.class.member" />
-    <ref role="1XX52x" to="hcm8:213J8cgR8Cm" resolve="EmptyClassMemberDeclaration" />
-    <node concept="3F0ifn" id="213J8cgR8Cy" role="2wV5jI">
-      <node concept="VPxyj" id="213J8cgR8C_" role="3F10Kt">
-        <property role="VOm3f" value="true" />
-      </node>
-    </node>
-  </node>
   <node concept="3ICUPy" id="213J8cgTfsl">
     <property role="3GE5qa" value="declaration.class" />
     <ref role="aqKnT" to="hcm8:2yYXHtl6JhD" resolve="ClassDeclaration" />
@@ -7240,11 +7205,6 @@
         </node>
       </node>
     </node>
-  </node>
-  <node concept="22mcaB" id="213J8cgYr1I">
-    <property role="3GE5qa" value="declaration.class.member" />
-    <ref role="aqKnT" to="hcm8:213J8cgR8Cm" resolve="EmptyClassMemberDeclaration" />
-    <node concept="22hDWj" id="213J8cgYr1J" role="22hAXT" />
   </node>
   <node concept="3ICUPy" id="213J8ch2bAc">
     <property role="3GE5qa" value="declaration.class.companion" />
@@ -9749,11 +9709,6 @@
       </node>
     </node>
     <node concept="3VyMlK" id="6cg9X74qZec" role="3ft7WO" />
-  </node>
-  <node concept="22mcaB" id="6cg9X74sk7M">
-    <property role="3GE5qa" value="expression.literal.numeric" />
-    <ref role="aqKnT" to="hcm8:2yYXHtl6Jfm" resolve="LongLiteral" />
-    <node concept="22hDWj" id="6cg9X74sk7N" role="22hAXT" />
   </node>
   <node concept="3ICUPy" id="6cg9X74yYxe">
     <property role="3GE5qa" value="expression.literal.numeric" />
@@ -18500,11 +18455,6 @@
       </node>
     </node>
   </node>
-  <node concept="22mcaB" id="5yEpxXLD1Ji">
-    <property role="3GE5qa" value="expression.literal.string" />
-    <ref role="aqKnT" to="hcm8:2yYXHtl6Jhu" resolve="MultiLineStringLiteral" />
-    <node concept="22hDWj" id="5yEpxXLD1N7" role="22hAXT" />
-  </node>
   <node concept="24kQdi" id="5yEpxXLH_1a">
     <property role="3GE5qa" value="expression.literal.string" />
     <ref role="1XX52x" to="hcm8:5yEpxXL_wWK" resolve="StringLiteralLine" />
@@ -19792,11 +19742,6 @@
       </node>
       <node concept="3eGOoe" id="1oDhglvlexx" role="1Qtc8$" />
     </node>
-  </node>
-  <node concept="22mcaB" id="4C0aQlHpYSu">
-    <property role="3GE5qa" value="expression.literal.numeric" />
-    <ref role="aqKnT" to="hcm8:2yYXHtl6Jfn" resolve="UnsignedLiteral" />
-    <node concept="22hDWj" id="4C0aQlHpYWR" role="22hAXT" />
   </node>
   <node concept="1h_SRR" id="4C0aQlHuwUC">
     <property role="3GE5qa" value="expression.literal.numeric" />

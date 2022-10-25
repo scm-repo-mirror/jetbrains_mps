@@ -143,28 +143,6 @@
         <child id="1199569916463" name="body" index="1bW5cS" />
       </concept>
     </language>
-    <language id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc">
-      <concept id="5349172909345501395" name="jetbrains.mps.baseLanguage.javadoc.structure.BaseDocComment" flags="ng" index="P$AiS">
-        <child id="8465538089690331502" name="body" index="TZ5H$" />
-        <child id="5383422241790532083" name="tags" index="3nqlJM" />
-      </concept>
-      <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA">
-        <child id="8970989240999019149" name="part" index="1dT_Ay" />
-      </concept>
-      <concept id="8465538089690331492" name="jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag" flags="ng" index="TZ5HI">
-        <child id="2667874559098216723" name="text" index="3HnX3l" />
-      </concept>
-      <concept id="2217234381367190443" name="jetbrains.mps.baseLanguage.javadoc.structure.SeeBlockDocTag" flags="ng" index="VUp57">
-        <child id="2217234381367190458" name="reference" index="VUp5m" />
-      </concept>
-      <concept id="2217234381367530212" name="jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocReference" flags="ng" index="VXe08">
-        <reference id="2217234381367530213" name="classifier" index="VXe09" />
-      </concept>
-      <concept id="8970989240999019143" name="jetbrains.mps.baseLanguage.javadoc.structure.TextCommentLinePart" flags="ng" index="1dT_AC">
-        <property id="8970989240999019144" name="text" index="1dT_AB" />
-      </concept>
-      <concept id="2068944020170241612" name="jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocComment" flags="ng" index="3UR2Jj" />
-    </language>
     <language id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation">
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -214,9 +192,6 @@
         <reference id="2644386474301421078" name="conceptDeclaration" index="359W_E" />
         <reference id="2644386474301421079" name="linkDeclaration" index="359W_F" />
       </concept>
-      <concept id="2644386474300074836" name="jetbrains.mps.lang.smodel.structure.ConceptIdRefExpression" flags="nn" index="35c_gC">
-        <reference id="2644386474300074837" name="conceptDeclaration" index="35c_gD" />
-      </concept>
       <concept id="1180636770613" name="jetbrains.mps.lang.smodel.structure.SNodeCreator" flags="nn" index="3zrR0B">
         <child id="1180636770616" name="createdType" index="3zrR0E" />
       </concept>
@@ -239,7 +214,6 @@
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
       <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
         <property id="1193676396447" name="virtualPackage" index="3GE5qa" />
-        <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
       </concept>
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
@@ -481,70 +455,6 @@
           </node>
         </node>
       </node>
-    </node>
-  </node>
-  <node concept="312cEu" id="4mCQDm_xBe4">
-    <property role="TrG5h" value="KtToJavaEngine" />
-    <property role="3GE5qa" value="deprecated" />
-    <node concept="3Tm1VV" id="4mCQDm_xBe5" role="1B3o_S" />
-    <node concept="3uibUv" id="4mCQDm_xBfc" role="1zkMxy">
-      <ref role="3uigEE" to="d5k6:4mCQDm_ptZa" resolve="TypeConverterEngineWithClass" />
-      <node concept="3Tqbb2" id="4mCQDm_xCpN" role="11_B2D">
-        <ref role="ehGHo" to="hcm8:2yYXHtl6Jh1" resolve="IType" />
-      </node>
-      <node concept="3Tqbb2" id="4mCQDm_xCpM" role="11_B2D">
-        <ref role="ehGHo" to="tpee:fz3vP1H" resolve="Type" />
-      </node>
-    </node>
-    <node concept="3clFbW" id="4mCQDm_xCx8" role="jymVt">
-      <node concept="3cqZAl" id="4mCQDm_xCxd" role="3clF45" />
-      <node concept="3Tm1VV" id="4mCQDm_xCxe" role="1B3o_S" />
-      <node concept="3clFbS" id="4mCQDm_xCxo" role="3clF47">
-        <node concept="XkiVB" id="4mCQDm_xCxp" role="3cqZAp">
-          <ref role="37wK5l" to="d5k6:4mCQDm_pyb_" resolve="TypeConverterEngineWithClass" />
-          <node concept="35c_gC" id="4mCQDm_xD4F" role="37wK5m">
-            <ref role="35c_gD" to="hcm8:2yYXHtl6Jjv" resolve="ClassType" />
-          </node>
-          <node concept="359W_D" id="4mCQDm_xDxh" role="37wK5m">
-            <ref role="359W_E" to="hcm8:2yYXHtl6Jjv" resolve="ClassType" />
-            <ref role="359W_F" to="hcm8:5LVUgW$gbdV" resolve="class" />
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="2tJIrI" id="4L0QGs2nHjc" role="jymVt" />
-    <node concept="2tJIrI" id="4mCQDm_$3JU" role="jymVt" />
-    <node concept="3UR2Jj" id="4mCQDm__8mC" role="lGtFl">
-      <node concept="TZ5HA" id="4mCQDm__8mD" role="TZ5H$">
-        <node concept="1dT_AC" id="4mCQDm__8mE" role="1dT_Ay">
-          <property role="1dT_AB" value="Class provider handling for kotlin to java type conversion." />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="4mCQDm__9sJ" role="TZ5H$">
-        <node concept="1dT_AC" id="4mCQDm__9sK" role="1dT_Ay">
-          <property role="1dT_AB" value="" />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="4mCQDm__9XJ" role="TZ5H$">
-        <node concept="1dT_AC" id="4mCQDm__9XK" role="1dT_Ay">
-          <property role="1dT_AB" value="Mirror JavaToKtEngine" />
-        </node>
-      </node>
-      <node concept="TZ5HI" id="117xv0QsifI" role="3nqlJM">
-        <node concept="TZ5HA" id="117xv0QsifJ" role="3HnX3l">
-          <node concept="1dT_AC" id="117xv0QsiYQ" role="1dT_Ay">
-            <property role="1dT_AB" value="" />
-          </node>
-        </node>
-      </node>
-      <node concept="VUp57" id="117xv0QskqM" role="3nqlJM">
-        <node concept="VXe08" id="117xv0Qsl5o" role="VUp5m">
-          <ref role="VXe09" node="117xv0Qrpm9" resolve="KtToJavaConversion" />
-        </node>
-      </node>
-    </node>
-    <node concept="2AHcQZ" id="117xv0QsifK" role="2AJF6D">
-      <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
     </node>
   </node>
   <node concept="312cEu" id="1t03WazlpG0">

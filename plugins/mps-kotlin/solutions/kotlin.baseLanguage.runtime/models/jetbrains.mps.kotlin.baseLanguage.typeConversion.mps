@@ -78,7 +78,6 @@
       <concept id="1145552977093" name="jetbrains.mps.baseLanguage.structure.GenericNewExpression" flags="nn" index="2ShNRf">
         <child id="1145553007750" name="creator" index="2ShVmc" />
       </concept>
-      <concept id="1070462154015" name="jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" flags="ig" index="Wx3nA" />
       <concept id="1070475354124" name="jetbrains.mps.baseLanguage.structure.ThisExpression" flags="nn" index="Xjq3P" />
       <concept id="1070475926800" name="jetbrains.mps.baseLanguage.structure.StringLiteral" flags="nn" index="Xl_RD">
         <property id="1070475926801" name="value" index="Xl_RC" />
@@ -231,15 +230,6 @@
       </concept>
       <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA">
         <child id="8970989240999019149" name="part" index="1dT_Ay" />
-      </concept>
-      <concept id="8465538089690331492" name="jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag" flags="ng" index="TZ5HI">
-        <child id="2667874559098216723" name="text" index="3HnX3l" />
-      </concept>
-      <concept id="2217234381367190443" name="jetbrains.mps.baseLanguage.javadoc.structure.SeeBlockDocTag" flags="ng" index="VUp57">
-        <child id="2217234381367190458" name="reference" index="VUp5m" />
-      </concept>
-      <concept id="2217234381367530212" name="jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocReference" flags="ng" index="VXe08">
-        <reference id="2217234381367530213" name="classifier" index="VXe09" />
       </concept>
       <concept id="8970989240999019143" name="jetbrains.mps.baseLanguage.javadoc.structure.TextCommentLinePart" flags="ng" index="1dT_AC">
         <property id="8970989240999019144" name="text" index="1dT_AB" />
@@ -2628,164 +2618,6 @@
           <property role="1dT_AB" value="Converter than creates a node of the provided concept." />
         </node>
       </node>
-    </node>
-  </node>
-  <node concept="312cEu" id="4mCQDm_yPpU">
-    <property role="3GE5qa" value="impl" />
-    <property role="TrG5h" value="TypeConversionService" />
-    <node concept="Wx3nA" id="4mCQDm__Tx1" role="jymVt">
-      <property role="TrG5h" value="INSTANCE" />
-      <node concept="3Tm6S6" id="4mCQDm__Tte" role="1B3o_S" />
-      <node concept="3uibUv" id="4mCQDm__T$v" role="1tU5fm">
-        <ref role="3uigEE" node="4mCQDm_yPpU" resolve="TypeConversionService" />
-      </node>
-    </node>
-    <node concept="2tJIrI" id="4mCQDm__TpO" role="jymVt" />
-    <node concept="2RhdJD" id="4mCQDm__arN" role="jymVt">
-      <property role="2RkwnN" value="ktToJava" />
-      <node concept="3Tm1VV" id="4mCQDm__arO" role="1B3o_S" />
-      <node concept="2RoN1w" id="4mCQDm__arP" role="2RnVtd">
-        <node concept="3wEZqW" id="4mCQDm__arQ" role="3wFrgM" />
-        <node concept="3xqBd$" id="4mCQDm__arR" role="3xrYvX">
-          <node concept="3Tm6S6" id="4mCQDm__arS" role="3xqFEP" />
-        </node>
-      </node>
-      <node concept="3uibUv" id="4mCQDm__arT" role="2RkE6I">
-        <ref role="3uigEE" to="3hq4:4mCQDm_xBe4" resolve="KtToJavaEngine" />
-      </node>
-    </node>
-    <node concept="2RhdJD" id="4mCQDm__ai2" role="jymVt">
-      <property role="2RkwnN" value="javaToKt" />
-      <node concept="3Tm1VV" id="4mCQDm__ai3" role="1B3o_S" />
-      <node concept="2RoN1w" id="4mCQDm__ai4" role="2RnVtd">
-        <node concept="3wEZqW" id="4mCQDm__ai5" role="3wFrgM" />
-        <node concept="3xqBd$" id="4mCQDm__ai6" role="3xrYvX">
-          <node concept="3Tm6S6" id="4mCQDm__ai7" role="3xqFEP" />
-        </node>
-      </node>
-      <node concept="3uibUv" id="4mCQDm__aiy" role="2RkE6I">
-        <ref role="3uigEE" to="akzu:6zWVWr2aCAr" resolve="JavaToKtEngine" />
-      </node>
-    </node>
-    <node concept="2tJIrI" id="4mCQDm__aIM" role="jymVt" />
-    <node concept="3clFbW" id="4mCQDm__aJN" role="jymVt">
-      <node concept="3cqZAl" id="4mCQDm__aJP" role="3clF45" />
-      <node concept="3Tmbuc" id="4mCQDm__T$H" role="1B3o_S" />
-      <node concept="3clFbS" id="4mCQDm__aJR" role="3clF47">
-        <node concept="3clFbF" id="4mCQDm__W6P" role="3cqZAp">
-          <node concept="1rXfSq" id="4mCQDm__W6O" role="3clFbG">
-            <ref role="37wK5l" node="4mCQDm__aN8" resolve="setup" />
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="2tJIrI" id="4mCQDm__aLh" role="jymVt" />
-    <node concept="3clFb_" id="4mCQDm__aN8" role="jymVt">
-      <property role="TrG5h" value="setup" />
-      <node concept="3clFbS" id="4mCQDm__aNb" role="3clF47">
-        <node concept="3clFbF" id="4mCQDm__aPp" role="3cqZAp">
-          <node concept="37vLTI" id="4mCQDm__b95" role="3clFbG">
-            <node concept="2ShNRf" id="4mCQDm__baJ" role="37vLTx">
-              <node concept="1pGfFk" id="4mCQDm__bYC" role="2ShVmc">
-                <property role="373rjd" value="true" />
-                <ref role="37wK5l" to="3hq4:4mCQDm_xCx8" resolve="KtToJavaEngine" />
-              </node>
-            </node>
-            <node concept="338YkY" id="4mCQDm__aPo" role="37vLTJ">
-              <ref role="338YkT" node="4mCQDm__arN" resolve="ktToJava" />
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="4mCQDm__owQ" role="3cqZAp">
-          <node concept="37vLTI" id="4mCQDm__owR" role="3clFbG">
-            <node concept="2ShNRf" id="4mCQDm__owS" role="37vLTx">
-              <node concept="1pGfFk" id="4mCQDm__owT" role="2ShVmc">
-                <property role="373rjd" value="true" />
-                <ref role="37wK5l" to="akzu:4mCQDm_u2Zw" resolve="JavaToKtEngine" />
-              </node>
-            </node>
-            <node concept="338YkY" id="4mCQDm__owU" role="37vLTJ">
-              <ref role="338YkT" node="4mCQDm__ai2" resolve="javaToKt" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="3Tmbuc" id="4mCQDm__aMm" role="1B3o_S" />
-      <node concept="3cqZAl" id="4mCQDm__aMZ" role="3clF45" />
-    </node>
-    <node concept="2tJIrI" id="4mCQDm__T$Z" role="jymVt" />
-    <node concept="2YIFZL" id="4mCQDm_CkK3" role="jymVt">
-      <property role="TrG5h" value="getInstance" />
-      <node concept="3clFbS" id="4mCQDm_CkK5" role="3clF47">
-        <node concept="3clFbJ" id="4mCQDm_CkK6" role="3cqZAp">
-          <node concept="3clFbC" id="4mCQDm_CkK7" role="3clFbw">
-            <node concept="10Nm6u" id="4mCQDm_CkK8" role="3uHU7w" />
-            <node concept="37vLTw" id="4mCQDm_CkK9" role="3uHU7B">
-              <ref role="3cqZAo" node="4mCQDm__Tx1" resolve="INSTANCE" />
-            </node>
-          </node>
-          <node concept="3clFbS" id="4mCQDm_CkKa" role="3clFbx">
-            <node concept="3clFbF" id="4mCQDm_CkKb" role="3cqZAp">
-              <node concept="37vLTI" id="4mCQDm_CkKc" role="3clFbG">
-                <node concept="2ShNRf" id="4mCQDm_CkKd" role="37vLTx">
-                  <node concept="1pGfFk" id="4mCQDm_CkKe" role="2ShVmc">
-                    <property role="373rjd" value="true" />
-                    <ref role="37wK5l" node="4mCQDm__aJN" resolve="TypeConversionService" />
-                  </node>
-                </node>
-                <node concept="37vLTw" id="4mCQDm_CkKf" role="37vLTJ">
-                  <ref role="3cqZAo" node="4mCQDm__Tx1" resolve="INSTANCE" />
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbH" id="4mCQDm_CkKg" role="3cqZAp" />
-        <node concept="3cpWs6" id="4mCQDm_CkKh" role="3cqZAp">
-          <node concept="37vLTw" id="4mCQDm_CkKi" role="3cqZAk">
-            <ref role="3cqZAo" node="4mCQDm__Tx1" resolve="INSTANCE" />
-          </node>
-        </node>
-      </node>
-      <node concept="3uibUv" id="4mCQDm_CkKj" role="3clF45">
-        <ref role="3uigEE" node="4mCQDm_yPpU" resolve="TypeConversionService" />
-      </node>
-      <node concept="3Tm1VV" id="4mCQDm_CkKk" role="1B3o_S" />
-      <node concept="P$JXv" id="bbFPPuett_" role="lGtFl">
-        <node concept="TZ5HA" id="bbFPPuettA" role="TZ5H$">
-          <node concept="1dT_AC" id="bbFPPuettB" role="1dT_Ay">
-            <property role="1dT_AB" value="Get the conversion service. This is probably a temporary API, use with caution." />
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="3Tm1VV" id="4mCQDm_yPpV" role="1B3o_S" />
-    <node concept="3UR2Jj" id="bbFPPuetcO" role="lGtFl">
-      <node concept="TZ5HA" id="bbFPPuetcP" role="TZ5H$">
-        <node concept="1dT_AC" id="bbFPPuetcQ" role="1dT_Ay">
-          <property role="1dT_AB" value="Service holding type conversion engine from and to kotlin and baseLanguage." />
-        </node>
-      </node>
-      <node concept="TZ5HI" id="117xv0Qsg_q" role="3nqlJM">
-        <node concept="TZ5HA" id="117xv0Qsg_r" role="3HnX3l">
-          <node concept="1dT_AC" id="117xv0QssbP" role="1dT_Ay">
-            <property role="1dT_AB" value="replace by specific classes" />
-          </node>
-        </node>
-      </node>
-      <node concept="VUp57" id="117xv0QsslY" role="3nqlJM">
-        <node concept="VXe08" id="117xv0Qsssh" role="VUp5m">
-          <ref role="VXe09" to="akzu:77yS8CrUJ$d" resolve="JavaToKtConversion" />
-        </node>
-      </node>
-      <node concept="VUp57" id="117xv0QssxD" role="3nqlJM">
-        <node concept="VXe08" id="117xv0QssA4" role="VUp5m">
-          <ref role="VXe09" to="3hq4:117xv0Qrpm9" resolve="KtToJavaConversion" />
-        </node>
-      </node>
-    </node>
-    <node concept="2AHcQZ" id="117xv0Qsg_s" role="2AJF6D">
-      <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
     </node>
   </node>
   <node concept="312cEu" id="77yS8CrVhTV">

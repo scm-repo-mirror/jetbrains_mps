@@ -168,9 +168,6 @@
       <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA">
         <child id="8970989240999019149" name="part" index="1dT_Ay" />
       </concept>
-      <concept id="8465538089690331492" name="jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag" flags="ng" index="TZ5HI">
-        <child id="2667874559098216723" name="text" index="3HnX3l" />
-      </concept>
       <concept id="2217234381367190443" name="jetbrains.mps.baseLanguage.javadoc.structure.SeeBlockDocTag" flags="ng" index="VUp57">
         <property id="2217234381367190444" name="text" index="VUp50" />
         <child id="2217234381367190458" name="reference" index="VUp5m" />
@@ -391,33 +388,6 @@
           </node>
         </node>
       </node>
-    </node>
-    <node concept="2tJIrI" id="bbFPPueCoa" role="jymVt" />
-    <node concept="2tJIrI" id="bbFPPueCr0" role="jymVt" />
-    <node concept="3clFb_" id="5g3vQLJAYac" role="jymVt">
-      <property role="TrG5h" value="getReceiver" />
-      <node concept="3clFbS" id="5g3vQLJAYaf" role="3clF47">
-        <node concept="3clFbF" id="5g3vQLJAYNA" role="3cqZAp">
-          <node concept="10Nm6u" id="5g3vQLJAYN_" role="3clFbG" />
-        </node>
-      </node>
-      <node concept="3Tm1VV" id="5g3vQLJAYag" role="1B3o_S" />
-      <node concept="3uibUv" id="5g3vQLJAXZt" role="3clF45">
-        <ref role="3uigEE" node="26mUjU3_v7T" resolve="FunctionReceiver" />
-      </node>
-      <node concept="P$JXv" id="5g3vQLJAYr6" role="lGtFl">
-        <node concept="TZ5HI" id="5g3vQLJAYr7" role="3nqlJM">
-          <node concept="TZ5HA" id="5g3vQLJAYr8" role="3HnX3l">
-            <node concept="1dT_AC" id="5g3vQLJAYx_" role="1dT_Ay">
-              <property role="1dT_AB" value="replaced with getReceiverType" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="5g3vQLJAYr9" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
-      </node>
-      <node concept="2JFqV2" id="5g3vQLJAYCs" role="2frcjj" />
     </node>
     <node concept="2tJIrI" id="5g3vQLJAXPK" role="jymVt" />
     <node concept="3clFb_" id="26mUjU3DTOx" role="jymVt">
@@ -1244,100 +1214,6 @@
           <property role="1dT_AB" value="Abstraction of a function parameter declaration." />
         </node>
       </node>
-    </node>
-  </node>
-  <node concept="3HP615" id="26mUjU3_v7T">
-    <property role="3GE5qa" value="function" />
-    <property role="TrG5h" value="FunctionReceiver" />
-    <node concept="3clFb_" id="26mUjU3Eta5" role="jymVt">
-      <property role="TrG5h" value="getClassifier" />
-      <node concept="3clFbS" id="26mUjU3Eta8" role="3clF47" />
-      <node concept="3Tm1VV" id="26mUjU3Eta9" role="1B3o_S" />
-      <node concept="2sp9CU" id="26mUjU3EsZi" role="3clF45" />
-      <node concept="P$JXv" id="bbFPPueIM9" role="lGtFl">
-        <node concept="TZ5HA" id="bbFPPueIMa" role="TZ5H$">
-          <node concept="1dT_AC" id="bbFPPueIMb" role="1dT_Ay">
-            <property role="1dT_AB" value="Reference to the class hosting the function. No restriction is set of concept kind, but references should be usable" />
-          </node>
-        </node>
-        <node concept="TZ5HA" id="bbFPPueJFS" role="TZ5H$">
-          <node concept="1dT_AC" id="bbFPPueJFT" role="1dT_Ay">
-            <property role="1dT_AB" value="as comparable keys (refA == refB implies classifierA == classifierB)." />
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="bbFPPuePn1" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-      </node>
-    </node>
-    <node concept="2tJIrI" id="bbFPPueKqA" role="jymVt" />
-    <node concept="3clFb_" id="26mUjU3_LcK" role="jymVt">
-      <property role="TrG5h" value="getTypeParameters" />
-      <node concept="3clFbS" id="26mUjU3_LcN" role="3clF47" />
-      <node concept="3Tm1VV" id="26mUjU3_LcO" role="1B3o_S" />
-      <node concept="A3Dl8" id="26mUjU3Ea5h" role="3clF45">
-        <node concept="3uibUv" id="69s32WIWbZ_" role="A3Ik2">
-          <ref role="3uigEE" node="26mUjU3_L7_" resolve="TypeParameterDeclaration" />
-        </node>
-      </node>
-      <node concept="P$JXv" id="bbFPPueJU7" role="lGtFl">
-        <node concept="TZ5HA" id="bbFPPueJU8" role="TZ5H$">
-          <node concept="1dT_AC" id="bbFPPueJU9" role="1dT_Ay">
-            <property role="1dT_AB" value="Returns the type parameters of the class." />
-          </node>
-        </node>
-        <node concept="VUp57" id="bbFPPueKd4" role="3nqlJM">
-          <node concept="VXe08" id="bbFPPueKij" role="VUp5m">
-            <ref role="VXe09" node="26mUjU3_L7_" resolve="TypeParameterDeclaration" />
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="bbFPPueQgF" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-      </node>
-    </node>
-    <node concept="3Tm1VV" id="26mUjU3_v7U" role="1B3o_S" />
-    <node concept="3UR2Jj" id="bbFPPueEyP" role="lGtFl">
-      <node concept="TZ5HA" id="bbFPPueEyQ" role="TZ5H$">
-        <node concept="1dT_AC" id="bbFPPueEyR" role="1dT_Ay">
-          <property role="1dT_AB" value="Abstraction of the receiver of a function. It usually have the semantics of a class supported by the type system" />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="bbFPPueECM" role="TZ5H$">
-        <node concept="1dT_AC" id="bbFPPueECN" role="1dT_Ay">
-          <property role="1dT_AB" value="(by default IClassType)." />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="bbFPPueGZ$" role="TZ5H$">
-        <node concept="1dT_AC" id="bbFPPueGZ_" role="1dT_Ay">
-          <property role="1dT_AB" value="" />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="bbFPPueGZM" role="TZ5H$">
-        <node concept="1dT_AC" id="bbFPPueGZN" role="1dT_Ay">
-          <property role="1dT_AB" value="No restrictions is set on classifier concept as Kotlin may encounter classes of external languages (java, javascript," />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="bbFPPueIaI" role="TZ5H$">
-        <node concept="1dT_AC" id="bbFPPueIaJ" role="1dT_Ay">
-          <property role="1dT_AB" value="dsl...). Support for such concepts should be implemented in the typesystem (you may refer to baseLanguage/kotlin" />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="bbFPPueIAl" role="TZ5H$">
-        <node concept="1dT_AC" id="bbFPPueIAm" role="1dT_Ay">
-          <property role="1dT_AB" value="interoperability languages for examples)." />
-        </node>
-      </node>
-      <node concept="TZ5HI" id="5g3vQLJuGSC" role="3nqlJM">
-        <node concept="TZ5HA" id="5g3vQLJuGSD" role="3HnX3l">
-          <node concept="1dT_AC" id="5g3vQLJuH07" role="1dT_Ay">
-            <property role="1dT_AB" value="should use IType instead" />
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="2AHcQZ" id="5g3vQLJuGSE" role="2AJF6D">
-      <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
     </node>
   </node>
   <node concept="3HP615" id="26mUjU3_L7_">

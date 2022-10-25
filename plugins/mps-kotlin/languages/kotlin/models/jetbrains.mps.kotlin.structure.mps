@@ -261,7 +261,7 @@
       <property role="IQ2ns" value="2936055411798373930" />
       <property role="20kJfa" value="_body" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <ref role="20lvS9" node="18X2O0FvKeM" resolve="FunctionBody" />
+      <ref role="20lvS9" node="18X2O0Fy6BI" resolve="IStatementHolder" />
       <node concept="asaX9" id="1yTI8p9rT_O" role="lGtFl" />
     </node>
     <node concept="PrWs8" id="6TRHYuCE24U" role="PzmwI">
@@ -286,7 +286,7 @@
     </node>
     <node concept="1TJgyj" id="2yYXHtl6JoP" role="1TKVEi">
       <property role="IQ2ns" value="2936055411798373941" />
-      <property role="20kJfa" value="body_" />
+      <property role="20kJfa" value="_body" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <ref role="20lvS9" node="2yYXHtl6JfB" resolve="FlexibleBlock" />
       <node concept="asaX9" id="6gam351VuNq" role="lGtFl" />
@@ -319,7 +319,7 @@
     </node>
     <node concept="1TJgyj" id="2yYXHtl6Jp0" role="1TKVEi">
       <property role="IQ2ns" value="2936055411798373952" />
-      <property role="20kJfa" value="body_" />
+      <property role="20kJfa" value="_body" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <ref role="20lvS9" node="2yYXHtl6JfB" resolve="FlexibleBlock" />
       <node concept="asaX9" id="6gam351VcUV" role="lGtFl" />
@@ -643,17 +643,11 @@
     <property role="EcuMT" value="2936055411798373334" />
     <property role="TrG5h" value="LongLiteral" />
     <property role="R4oN_" value="long literal" />
-    <property role="3GE5qa" value="expression.literal.numeric" />
+    <property role="3GE5qa" value="deprecated" />
     <node concept="1TJgyi" id="2yYXHtl6Jqd" role="1TKVEl">
       <property role="IQ2nx" value="2936055411798374029" />
       <property role="TrG5h" value="value" />
       <ref role="AX2Wp" node="2yYXHtl6Jqc" resolve="long" />
-    </node>
-    <node concept="PrWs8" id="4gvOB2uWefm" role="PzmwI">
-      <ref role="PrY4T" node="2yYXHtl6Jjg" resolve="IExpression" />
-    </node>
-    <node concept="PrWs8" id="5G5goncbChs" role="PzmwI">
-      <ref role="PrY4T" node="6563FJLeShn" resolve="IStaticType" />
     </node>
     <node concept="asaX9" id="4C0aQlHpZIm" role="lGtFl">
       <property role="YLQ7P" value="replaced with a 'long' marker in int expressions (NumericalBaseLiteral)" />
@@ -664,7 +658,7 @@
     <property role="TrG5h" value="UnsignedLiteral" />
     <property role="34LRSv" value="unsigned" />
     <property role="R4oN_" value="unsigned literal" />
-    <property role="3GE5qa" value="expression.literal.numeric" />
+    <property role="3GE5qa" value="deprecated" />
     <node concept="1TJgyi" id="2yYXHtl6Jqf" role="1TKVEl">
       <property role="IQ2nx" value="2936055411798374031" />
       <property role="TrG5h" value="value" />
@@ -924,7 +918,7 @@
     </node>
     <node concept="1TJgyj" id="2yYXHtl6JrP" role="1TKVEi">
       <property role="IQ2ns" value="2936055411798374133" />
-      <property role="20kJfa" value="body_" />
+      <property role="20kJfa" value="_body" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <ref role="20lvS9" node="2yYXHtl6JfB" resolve="FlexibleBlock" />
       <node concept="asaX9" id="6gam351dm4D" role="lGtFl" />
@@ -987,7 +981,7 @@
     </node>
     <node concept="1TJgyj" id="2yYXHtl6Jsa" role="1TKVEi">
       <property role="IQ2ns" value="2936055411798374154" />
-      <property role="20kJfa" value="body_" />
+      <property role="20kJfa" value="_body" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <ref role="20lvS9" node="2yYXHtl6JfB" resolve="FlexibleBlock" />
       <node concept="asaX9" id="6gam351cSMT" role="lGtFl" />
@@ -1031,7 +1025,7 @@
     <node concept="1TJgyj" id="4gvOB2uNEqT" role="1TKVEi">
       <property role="IQ2ns" value="4908873499999643321" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="inheritance_" />
+      <property role="20kJfa" value="_inheritance" />
       <ref role="20lvS9" node="2yYXHtl6JjL" resolve="IInheritanceModifier" />
       <node concept="t5JxF" id="2AtO9a5slV$" role="lGtFl" />
       <node concept="asaX9" id="11vq$BtY4kY" role="lGtFl">
@@ -1042,7 +1036,7 @@
       <property role="IQ2ns" value="2936055411806083462" />
       <property role="20kJfa" value="_body" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <ref role="20lvS9" node="18X2O0FvKeM" resolve="FunctionBody" />
+      <ref role="20lvS9" node="18X2O0Fy6BI" resolve="IStatementHolder" />
       <node concept="asaX9" id="1yTI8p9q5_X" role="lGtFl">
         <property role="YLQ7P" value="statements integrated in here" />
       </node>
@@ -1174,19 +1168,13 @@
     <property role="TrG5h" value="MultiLineStringLiteral" />
     <property role="34LRSv" value="&quot;&quot;&quot;" />
     <property role="R4oN_" value="multi line string literal" />
-    <property role="3GE5qa" value="expression.literal.string" />
+    <property role="3GE5qa" value="deprecated" />
     <node concept="1TJgyj" id="2yYXHtl6Jtj" role="1TKVEi">
       <property role="IQ2ns" value="2936055411798374227" />
       <property role="20kJfa" value="content___" />
       <property role="20lbJX" value="fLJekj6/_1__n" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <ref role="20lvS9" node="4S7WpD150Cp" resolve="IStringLiteralPart" />
-    </node>
-    <node concept="PrWs8" id="4gvOB2uWefo" role="PzmwI">
-      <ref role="PrY4T" node="2yYXHtl6Jjg" resolve="IExpression" />
-    </node>
-    <node concept="PrWs8" id="3cpjc8KvRML" role="PzmwI">
-      <ref role="PrY4T" node="3cpjc8KvMTX" resolve="IStringLiteral" />
     </node>
     <node concept="asaX9" id="5yEpxXLJ2jO" role="lGtFl">
       <property role="YLQ7P" value="merged into StringLiteral" />
@@ -1405,7 +1393,7 @@
     <property role="3GE5qa" value="expression.control.try" />
     <node concept="1TJgyj" id="2yYXHtl6Jva" role="1TKVEi">
       <property role="IQ2ns" value="2936055411798374346" />
-      <property role="20kJfa" value="block_" />
+      <property role="20kJfa" value="_block" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <ref role="20lvS9" node="2yYXHtl6JfB" resolve="FlexibleBlock" />
       <node concept="asaX9" id="6gam351NcXq" role="lGtFl" />
@@ -1517,7 +1505,7 @@
       <property role="IQ2ns" value="2936055411798374427" />
       <property role="20kJfa" value="_body" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <ref role="20lvS9" node="18X2O0FvKeM" resolve="FunctionBody" />
+      <ref role="20lvS9" node="18X2O0Fy6BI" resolve="IStatementHolder" />
       <node concept="asaX9" id="1yTI8p9sj3S" role="lGtFl" />
     </node>
     <node concept="PrWs8" id="6TRHYuCE24W" role="PzmwI">
@@ -1635,7 +1623,7 @@
     <property role="3GE5qa" value="declaration.class.constructor" />
     <node concept="1TJgyj" id="2yYXHtl6Jxa" role="1TKVEi">
       <property role="IQ2ns" value="2936055411798374474" />
-      <property role="20kJfa" value="block_" />
+      <property role="20kJfa" value="_block" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <ref role="20lvS9" node="2yYXHtl6JfB" resolve="FlexibleBlock" />
       <node concept="asaX9" id="6gam351Mvkq" role="lGtFl" />
@@ -1676,14 +1664,6 @@
         <property role="t5JxN" value="TODO only valid as child of inline function" />
       </node>
     </node>
-    <node concept="1TJgyi" id="27wMicCA_z0" role="1TKVEl">
-      <property role="IQ2nx" value="2441172150877051072" />
-      <property role="TrG5h" value="variance_old" />
-      <ref role="AX2Wp" node="27wMicCAy69" resolve="VarianceModifier" />
-      <node concept="asaX9" id="28CvMylfSMA" role="lGtFl">
-        <property role="YLQ7P" value="The property was moved to concept &quot;jetbrains.mps.kotlin.structure.ITypeParameter&quot;" />
-      </node>
-    </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6Jkn">
     <property role="EcuMT" value="2936055411798373655" />
@@ -1694,7 +1674,7 @@
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="1TJgyj" id="2yYXHtl6Jxt" role="1TKVEi">
       <property role="IQ2ns" value="2936055411798374493" />
-      <property role="20kJfa" value="statements_" />
+      <property role="20kJfa" value="_statements" />
       <property role="20lbJX" value="fLJekj5/_0__n" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <ref role="20lvS9" node="2yYXHtl6Jcy" resolve="IStatement" />
@@ -1775,7 +1755,7 @@
     <property role="3GE5qa" value="expression.control.try" />
     <node concept="1TJgyj" id="2yYXHtl6JxI" role="1TKVEi">
       <property role="IQ2ns" value="2936055411798374510" />
-      <property role="20kJfa" value="block_" />
+      <property role="20kJfa" value="_block" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <ref role="20lvS9" node="2yYXHtl6JfB" resolve="FlexibleBlock" />
       <node concept="asaX9" id="6gam351NeLk" role="lGtFl" />
@@ -2225,7 +2205,7 @@
       <property role="IQ2ns" value="2936055411798374716" />
       <property role="20kJfa" value="_body" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <ref role="20lvS9" node="18X2O0FvKeM" resolve="FunctionBody" />
+      <ref role="20lvS9" node="18X2O0Fy6BI" resolve="IStatementHolder" />
       <node concept="asaX9" id="1yTI8p9rGSH" role="lGtFl" />
     </node>
     <node concept="PrWs8" id="4gvOB2uWeeV" role="PzmwI">
@@ -2921,16 +2901,6 @@
       <ref role="PrY4T" node="2yYXHtl6Jcy" resolve="IStatement" />
     </node>
   </node>
-  <node concept="1TIwiD" id="18X2O0FvKeM">
-    <property role="EcuMT" value="1314219036497609650" />
-    <property role="3GE5qa" value="expression.function" />
-    <property role="TrG5h" value="FunctionBody" />
-    <property role="R4oN_" value="function body" />
-    <node concept="asaX9" id="1yTI8p9rEuL" role="lGtFl" />
-    <node concept="PrWs8" id="18X2O0Fyb4o" role="PzmwI">
-      <ref role="PrY4T" node="18X2O0Fy6BI" resolve="IStatementHolder" />
-    </node>
-  </node>
   <node concept="PlHQZ" id="18X2O0Fy6BI">
     <property role="EcuMT" value="1314219036498225646" />
     <property role="3GE5qa" value="scopes" />
@@ -2997,7 +2967,7 @@
     </node>
     <node concept="1TJgyi" id="18X2O0FAD2n" role="1TKVEl">
       <property role="IQ2nx" value="1314219036499415191" />
-      <property role="TrG5h" value="isDeconstructing" />
+      <property role="TrG5h" value="_isDeconstructing" />
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
       <node concept="asaX9" id="4FOkRjXyzsn" role="lGtFl">
         <property role="YLQ7P" value="Integrated in IDeconstructingDeclarations" />
@@ -3558,7 +3528,7 @@
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="1TJgyj" id="2yYXHtl6Jt2" role="1TKVEi">
       <property role="IQ2ns" value="2936055411798374210" />
-      <property role="20kJfa" value="body_" />
+      <property role="20kJfa" value="_body" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <ref role="20lvS9" node="2yYXHtl6JfB" resolve="FlexibleBlock" />
       <node concept="asaX9" id="6gam351cDRC" role="lGtFl" />
