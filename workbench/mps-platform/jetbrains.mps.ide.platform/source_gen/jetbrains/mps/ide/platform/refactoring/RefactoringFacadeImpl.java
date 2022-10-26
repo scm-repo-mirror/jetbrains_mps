@@ -19,13 +19,10 @@ import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import javax.swing.JOptionPane;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import com.intellij.ide.DataManager;
-import java.util.List;
-import org.jetbrains.mps.openapi.model.SModel;
-import java.util.ArrayList;
 
 @GeneratedClass(node = "r:986938bb-bdb1-4307-b062-e4647a4db0f9(jetbrains.mps.ide.platform.refactoring)/2183214647889839513", model = "r:986938bb-bdb1-4307-b062-e4647a4db0f9(jetbrains.mps.ide.platform.refactoring)")
 public class RefactoringFacadeImpl implements RefactoringFacade {
-  protected final Logger myLog = Logger.getLogger(this.getClass());
+  private static final Logger LOG = Logger.getLogger(RefactoringFacadeImpl.class);
   public RefactoringFacadeImpl() {
   }
   public void executeSimple(final RefactoringContext context) {
@@ -35,13 +32,17 @@ public class RefactoringFacadeImpl implements RefactoringFacade {
       try {
         refactoring.refactor(context);
       } catch (Throwable t) {
-        myLog.error("An exception occurred while trying to execute refactoring " + refactoring.getUserFriendlyName() + ". Models could have been corrupted.", t);
+        if (LOG.isErrorLevel()) {
+          LOG.error(String.format("An exception occurred while trying to execute refactoring %s. Models could have been corrupted.", refactoring.getUserFriendlyName()), t);
+        }
       }
     });
     try {
       refactoring.doWhenDone(context);
     } catch (Throwable t) {
-      myLog.error("An error occurred in dgoWhenDone(), refactoring: " + refactoring.getUserFriendlyName(), t);
+      if (LOG.isErrorLevel()) {
+        LOG.error(String.format("An error occurred in dgoWhenDone(), refactoring: %s", refactoring.getUserFriendlyName()), t);
+      }
     }
   }
   private void doExecuteNoDialog(final RefactoringContext refactoringContext) {
@@ -49,7 +50,7 @@ public class RefactoringFacadeImpl implements RefactoringFacade {
   }
   public void execute(final RefactoringContext refactoringContext) {
     ThreadUtils.assertEDT();
-    myLog.assertLog(refactoringContext.getSelectedProject().getModelAccess().canRead(), "Read access");
+    assert refactoringContext.getSelectedProject().getModelAccess().canRead() : "Read access";
     boolean success = refactoringContext.getRefactoring().init(refactoringContext);
     if (success) {
       findUsagesAndRun(refactoringContext);
@@ -82,7 +83,9 @@ public class RefactoringFacadeImpl implements RefactoringFacade {
           result.value = new SearchResults();
         }
       } catch (Throwable t) {
-        myLog.error(t);
+        if (LOG.isErrorLevel()) {
+          LOG.error("Find usages failed", t);
+        }
       }
     });
     return result.value;
@@ -92,6 +95,7 @@ public class RefactoringFacadeImpl implements RefactoringFacade {
       ApplicationManager.getApplication().invokeLater(new Runnable() {
         @Override
         public void run() {
+          // FIXME we've got Project here (in RefactoringContext), can't we use it instead of DataContext and FRAME?
           int promptResult = JOptionPane.showConfirmDialog(MPSCommonDataKeys.FRAME.getData(DataManager.getInstance().getDataContext()), "An exception occurred during searching affected nodes. Do you want to continue anyway?", "Exception", JOptionPane.YES_NO_OPTION);
           if (promptResult == JOptionPane.YES_OPTION) {
             executeInUI(new SearchResults(), refactoringContext);
@@ -107,7 +111,7 @@ public class RefactoringFacadeImpl implements RefactoringFacade {
       @Override
       public void run() {
         refactoringContext.setUsages(usages);
-        if (!(usages.getSearchResults().isEmpty())) {
+        if (!(usages.getSearchResults2().isEmpty())) {
           showRefactoring(refactoringContext, usages);
         } else {
           doExecuteNoDialog(refactoringContext);
@@ -128,18 +132,6 @@ public class RefactoringFacadeImpl implements RefactoringFacade {
         });
       }
     };
-    List<SModel> modelsToGenerate = getModelsToGenerate(refactoringContext.getRefactoring(), refactoringContext);
-    RefactoringAccessEx.getInstance().showRefactoringView(refactoringContext, okAction, searchResults, !(modelsToGenerate.isEmpty()), refactoringContext.getRefactoring().getUserFriendlyName());
-  }
-  @NotNull
-  private List<SModel> getModelsToGenerate(final IRefactoring refactoring, final RefactoringContext context) {
-    List<SModel> result = new ArrayList<SModel>();
-    try {
-      result = refactoring.getModelsToGenerate(context);
-    } catch (Throwable t) {
-      myLog.error("An error occurred while trying to collect models to generate from refactoring " + refactoring.getUserFriendlyName() + ". No models will be generated", t);
-    }
-
-    return result;
+    RefactoringAccessEx.getInstance().showRefactoringView(refactoringContext, okAction, null, searchResults, null, refactoringContext.getRefactoring().getUserFriendlyName());
   }
 }

@@ -215,7 +215,7 @@ public class InlineMethodDialog extends RefactoringDialog {
             performRefactoring(usages);
           }
         };
-        RefactoringAccessEx.getInstance().showRefactoringView(getProject(), refactoringViewAction, usages, false, "refactoring");
+        RefactoringAccessEx.getInstance().showRefactoringView(getProject(), refactoringViewAction, null, usages, null, "refactoring");
       }
       close(DialogWrapper.OK_EXIT_CODE);
     }

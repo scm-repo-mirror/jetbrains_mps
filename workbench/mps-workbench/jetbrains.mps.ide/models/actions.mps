@@ -19,7 +19,6 @@
     <use id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core" version="-1" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
-    <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="-1" />
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="-1" />
     <use id="acfc188d-d5d6-4598-b370-6f4a983f05b2" name="jetbrains.mps.baseLanguage.methodReferences" version="0" />
   </languages>
@@ -33134,7 +33133,7 @@
                                   <node concept="3clFbF" id="4lvnFqUUVYC" role="3cqZAp">
                                     <node concept="2OqwBi" id="4lvnFqUUVYD" role="3clFbG">
                                       <node concept="liA8E" id="4lvnFqUUVYF" role="2OqNvi">
-                                        <ref role="37wK5l" to="u42p:3g3N8kb3vlF" resolve="showRefactoringView" />
+                                        <ref role="37wK5l" to="u42p:7DGCeT2L$54" resolve="showRefactoringView" />
                                         <node concept="2OqwBi" id="4lvnFqUUXRs" role="37wK5m">
                                           <node concept="2WthIp" id="4lvnFqUUXRt" role="2Oq$k0">
                                             <ref role="32nkFo" node="4lvnFqUUUhO" resolve="FindRootableConceptsWithoutIcons" />
@@ -33182,6 +33181,7 @@
                                             </node>
                                           </node>
                                         </node>
+                                        <node concept="10Nm6u" id="47EQkcJaiA0" role="37wK5m" />
                                         <node concept="2ShNRf" id="4lvnFqUUZD$" role="37wK5m">
                                           <node concept="1pGfFk" id="4lvnFqUUZD_" role="2ShVmc">
                                             <ref role="37wK5l" to="g4jo:J2bOg02Hcb" resolve="SearchResults" />
@@ -33199,9 +33199,7 @@
                                             <node concept="3Tqbb2" id="4pHdMIMl_Ks" role="1pMfVU" />
                                           </node>
                                         </node>
-                                        <node concept="3clFbT" id="4lvnFqUUVZ2" role="37wK5m">
-                                          <property role="3clFbU" value="false" />
-                                        </node>
+                                        <node concept="10Nm6u" id="47EQkcJaggo" role="37wK5m" />
                                         <node concept="Xl_RD" id="4lvnFqUUVZ3" role="37wK5m">
                                           <property role="Xl_RC" value="Safe Delete" />
                                         </node>

@@ -16367,19 +16367,18 @@
                     <ref role="37wK5l" to="u42p:1dH5fOG2bPt" resolve="getInstance" />
                   </node>
                   <node concept="liA8E" id="3JD6rrJwd0C" role="2OqNvi">
-                    <ref role="37wK5l" to="u42p:3g3N8kb3vlF" resolve="showRefactoringView" />
+                    <ref role="37wK5l" to="u42p:7DGCeT2L$54" resolve="showRefactoringView" />
                     <node concept="1rXfSq" id="1nl8jG9KH6B" role="37wK5m">
                       <ref role="37wK5l" to="u42p:5wEedBrKLQY" resolve="getProject" />
                     </node>
                     <node concept="37vLTw" id="3GM_nagTxS9" role="37wK5m">
                       <ref role="3cqZAo" node="3JD6rrJwd0j" resolve="refactoringViewAction" />
                     </node>
+                    <node concept="10Nm6u" id="47EQkcJ5Sis" role="37wK5m" />
                     <node concept="37vLTw" id="3GM_nagTtUH" role="37wK5m">
                       <ref role="3cqZAo" node="3JD6rrJwkan" resolve="usages" />
                     </node>
-                    <node concept="3clFbT" id="3JD6rrJwd0J" role="37wK5m">
-                      <property role="3clFbU" value="false" />
-                    </node>
+                    <node concept="10Nm6u" id="47EQkcJ5Wru" role="37wK5m" />
                     <node concept="Xl_RD" id="3JD6rrJwd0K" role="37wK5m">
                       <property role="Xl_RC" value="refactoring" />
                     </node>

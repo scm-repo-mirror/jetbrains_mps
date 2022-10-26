@@ -63,7 +63,7 @@ public class ScriptsUtil {
         refactoringViewItem.close();
         context.getOutputWindow().activate();
       }
-    }, sr, false, "refactor");
+    }, null, sr, null, "refactor");
   }
 
   private static SearchResults<SNode> nodesToRefactoringResult(Iterable<SNode> nodes) {

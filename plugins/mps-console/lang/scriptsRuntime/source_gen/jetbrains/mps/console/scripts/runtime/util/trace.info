@@ -42,7 +42,7 @@
       <node id="6636597128305957335" at="46,40,56,11" concept="3" />
       <node id="7432464101918327596" at="44,80,62,11" concept="1" />
       <node id="7349810439587240215" at="44,0,66,0" concept="4" trace="performAction#(Ljetbrains/mps/ide/platform/refactoring/RefactoringViewItem;)V" />
-      <node id="7349810439587220704" at="42,73,66,30" concept="1" />
+      <node id="7349810439587220704" at="42,73,66,35" concept="1" />
       <node id="2377091791517276422" at="40,0,68,0" concept="8" trace="refactor#(Ljetbrains/mps/console/tool/ConsoleContext;Ljava/lang/Iterable;Ljetbrains/mps/baseLanguage/closures/runtime/_FunctionTypes/_void_P1_E0;)V" />
       <scope id="422748824979040443" at="34,63,35,13" />
       <scope id="6636597128306280474" at="50,54,51,47" />
@@ -91,7 +91,7 @@
       <scope id="7349810439587240215" at="44,0,66,0">
         <var name="refactoringViewItem" id="7349810439587240218" />
       </scope>
-      <scope id="2377091791517276425" at="40,161,66,30">
+      <scope id="2377091791517276425" at="40,161,66,35">
         <var name="projectRepo" id="7432464101918303985" />
         <var name="sr" id="7349810439588411782" />
       </scope>

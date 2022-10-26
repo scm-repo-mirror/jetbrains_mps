@@ -12,8 +12,8 @@ import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.ide.platform.refactoring.RefactoringViewAction;
 import jetbrains.mps.ide.findusages.model.SearchResults;
-import jetbrains.mps.refactoring.framework.RefactoringContext;
 import jetbrains.mps.ide.findusages.model.SearchTask;
+import jetbrains.mps.refactoring.framework.RefactoringContext;
 import jetbrains.mps.ide.project.ProjectHelper;
 import com.intellij.openapi.ui.Messages;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -52,16 +52,6 @@ public class RefactoringAccessImpl extends RefactoringAccessEx implements Applic
     ModelOrNodeChooser rv = new ModelOrNodeChooser(project);
     rv.select(node);
     return rv;
-  }
-
-  @Deprecated
-  public void showRefactoringView(Project project, RefactoringViewAction callback, SearchResults searchResults, boolean hasModelsToGenerate, String name) {
-    showRefactoringView(project, callback, null, searchResults, null, name);
-  }
-
-  @Deprecated
-  public void showRefactoringView(RefactoringContext refactoringContext, RefactoringViewAction callback, SearchResults searchResults, boolean hasModelsToGenerate, String name) {
-    showRefactoringView(refactoringContext, callback, null, searchResults, null, name);
   }
 
   @Override
