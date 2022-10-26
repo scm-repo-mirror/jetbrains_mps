@@ -10,7 +10,6 @@ public final class Mac_KeymapChanges extends BaseKeymapChanges {
   public Mac_KeymapChanges() {
     add("jetbrains.mps.ide.actions.NewElement_Action", "ctrl N");
     add("jetbrains.mps.ide.actions.NewElement_Action", "ctrl ENTER");
-    add("jetbrains.mps.ide.actions.SafeDelete_Action", "meta DELETE");
     add("jetbrains.mps.ide.actions.ShowClassInHierarchy_Action", "ctrl H");
     add("jetbrains.mps.ide.actions.ShowConceptInHierarchy_Action", "ctrl H");
     replace("jetbrains.mps.ide.actions.FindTextInProject_Action", "ctrl alt shift F");

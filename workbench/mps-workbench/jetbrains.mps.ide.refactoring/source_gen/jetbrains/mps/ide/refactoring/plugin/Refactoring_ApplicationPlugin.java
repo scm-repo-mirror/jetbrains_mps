@@ -7,6 +7,8 @@ import com.intellij.openapi.extensions.PluginId;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.actions.ModelActions_ActionGroup;
 import jetbrains.mps.ide.actions.TouchBarDefault_shift_ActionGroup;
+import jetbrains.mps.ide.actions.NodeActions_ActionGroup;
+import jetbrains.mps.ide.actions.PackageActions_ActionGroup;
 import java.util.List;
 import jetbrains.mps.plugins.actions.BaseKeymapChanges;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -25,11 +27,16 @@ public class Refactoring_ApplicationPlugin extends BaseApplicationPlugin {
 
   public void createGroups() {
     // actions w/o parameters
+    addAction(new DeleteNode_Action());
     addAction(new MoveModel_Action());
     addAction(new MoveNodes_Action());
     addAction(new RenameNode_Action());
+    addAction(new SafeDelete_Action());
     // groups
+    addGroup(new Contribite2NodeActions_ActionGroup(this));
+    addGroup(new Contribute2PackageActions_ActionGroup(this));
     addGroup(new CoreNodeRefactorings_ActionGroup(this));
+    addGroup(new EditorActionsAddition_ActionGroup(this));
     addGroup(new ModelRefactoring_ActionGroup(this));
     addGroup(new TouchBarDefault_shift_move_ActionGroup(this));
     addGroup(new TouchBarDefault_shift_rename_ActionGroup(this));
@@ -38,11 +45,16 @@ public class Refactoring_ApplicationPlugin extends BaseApplicationPlugin {
     insertGroupIntoAnother(ModelRefactoring_ActionGroup.ID, ModelActions_ActionGroup.ID, ModelActions_ActionGroup.LABEL_ID_refactoring);
     insertGroupIntoAnother(TouchBarDefault_shift_rename_ActionGroup.ID, TouchBarDefault_shift_ActionGroup.ID, TouchBarDefault_shift_ActionGroup.LABEL_ID_rename);
     insertGroupIntoAnother(TouchBarDefault_shift_move_ActionGroup.ID, TouchBarDefault_shift_ActionGroup.ID, TouchBarDefault_shift_ActionGroup.LABEL_ID_move);
+    insertGroupIntoAnother(Contribite2NodeActions_ActionGroup.ID, NodeActions_ActionGroup.ID, NodeActions_ActionGroup.LABEL_ID_deletion);
+    insertGroupIntoAnother(Contribute2PackageActions_ActionGroup.ID, PackageActions_ActionGroup.ID, PackageActions_ActionGroup.LABEL_ID_deletion);
     insertGroupIntoAnother(CoreNodeRefactorings_ActionGroup.ID, "jetbrains.mps.ide.platform.actions.NodeRefactoring_ActionGroup", null);
+    insertGroupIntoAnother(EditorActionsAddition_ActionGroup.ID, "jetbrains.mps.ide.editor.actions.EditorActions_ActionGroup", null);
   }
   public List<BaseKeymapChanges> initKeymaps() {
     List<BaseKeymapChanges> res = ListSequence.fromList(new ArrayList<BaseKeymapChanges>());
-    ListSequence.fromList(res).addElement(new Default_KeymapChanges());
+    ListSequence.fromList(res).addElement(new Refactoring_Default_KeymapChanges());
+    ListSequence.fromList(res).addElement(new Refactoring_Mac_10_5_KeymapChanges());
+    ListSequence.fromList(res).addElement(new Refactoring_Mac_KeymapChanges());
     return res;
   }
 }

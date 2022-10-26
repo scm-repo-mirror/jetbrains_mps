@@ -40,7 +40,6 @@ public class Ide_ApplicationPlugin extends BaseApplicationPlugin {
     addAction(new CopyNode_Action());
     addAction(new CutNode_Action());
     addAction(new DeleteModules_Action());
-    addAction(new DeleteNode_Action());
     addAction(new DeletePropertyAction_Action());
     addAction(new DeleteReferenceAction_Action());
     addAction(new ExpandNode_Action());
@@ -91,7 +90,6 @@ public class Ide_ApplicationPlugin extends BaseApplicationPlugin {
     addAction(new RenamePackage_Action());
     addAction(new RevertMemoryChanges_Action());
     addAction(new SafeDeleteModuleDependency_Action());
-    addAction(new SafeDelete_Action());
     addAction(new SetBookmarkNoNumber_Action());
     addAction(new SetNodePackage_Action());
     addAction(new SetVirtualFolder_Action());
@@ -125,7 +123,6 @@ public class Ide_ApplicationPlugin extends BaseApplicationPlugin {
     addGroup(new DebugActions_ActionGroup(this));
     addGroup(new DevkitActions_ActionGroup(this));
     addGroup(new Edit_ActionGroup(this));
-    addGroup(new EditorActionsAddition_ActionGroup(this));
     addGroup(new EditorInternal_ActionGroup(this));
     addGroup(new EditorPopupEx_ActionGroup(this));
     addGroup(new EditorPopup_Show_ActionGroup(this));
@@ -249,7 +246,6 @@ public class Ide_ApplicationPlugin extends BaseApplicationPlugin {
     insertGroupIntoAnother(Favorites_ActionGroup.ID, NodeActions_ActionGroup.ID, NodeActions_ActionGroup.LABEL_ID_favorites);
     insertGroupIntoAnother(View_ActionGroup.ID, "ViewMenu", null);
     insertGroupIntoAnother(StructurePopup_ActionGroup.ID, "GoToEditorPopupAddition_ActionGroupother", null);
-    insertGroupIntoAnother(EditorActionsAddition_ActionGroup.ID, "jetbrains.mps.ide.editor.actions.EditorActions_ActionGroup", null);
   }
   public List<BaseKeymapChanges> initKeymaps() {
     List<BaseKeymapChanges> res = ListSequence.fromList(new ArrayList<BaseKeymapChanges>());

@@ -16,6 +16,7 @@ public class NodeActions_ActionGroup extends GeneratedActionGroup {
   public static final String LABEL_ID_find = ID + "find";
   public static final String LABEL_ID_refactoring = ID + "refactoring";
   public static final String LABEL_ID_favorites = ID + "favorites";
+  public static final String LABEL_ID_deletion = ID + "deletion";
   public static final String LABEL_ID_debug = ID + "debug";
   public static final String LABEL_ID_gotoConceptAspects = ID + "gotoConceptAspects";
   public static final String LABEL_ID_showIn = ID + "showIn";
@@ -48,8 +49,7 @@ public class NodeActions_ActionGroup extends GeneratedActionGroup {
     NodeActions_ActionGroup.this.addSeparator();
     addNamedAnchor(LABEL_ID_favorites);
     NodeActions_ActionGroup.this.addSeparator();
-    NodeActions_ActionGroup.this.addAction("jetbrains.mps.ide.actions.DeleteNode_Action");
-    NodeActions_ActionGroup.this.addAction("jetbrains.mps.ide.actions.SafeDelete_Action");
+    addNamedAnchor(LABEL_ID_deletion);
     NodeActions_ActionGroup.this.addSeparator();
     addNamedAnchor(LABEL_ID_debug);
     NodeActions_ActionGroup.this.addSeparator();

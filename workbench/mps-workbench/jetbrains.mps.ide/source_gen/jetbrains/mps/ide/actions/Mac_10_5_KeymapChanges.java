@@ -19,7 +19,6 @@ public final class Mac_10_5_KeymapChanges extends BaseKeymapChanges {
     replace("jetbrains.mps.ide.actions.FindTextInProject_Action", "ctrl alt shift F");
     replace("jetbrains.mps.ide.actions.GoToModel_Action", "meta shift O");
     replace("jetbrains.mps.ide.actions.GoToModule_Action", "meta alt O");
-    replace("jetbrains.mps.ide.actions.SafeDelete_Action", "meta DELETE");
     replace("jetbrains.mps.ide.actions.ShowClassInHierarchy_Action", "ctrl H");
     replace("jetbrains.mps.ide.actions.ShowConceptInHierarchy_Action", "ctrl H");
     replace("jetbrains.mps.ide.actions.ShowNodeInfo_Action", "ctrl Q");

@@ -15,7 +15,6 @@ public final class Default_KeymapChanges extends BaseKeymapChanges {
     add("jetbrains.mps.ide.actions.CopyNode_Action", "ctrl C");
     add("jetbrains.mps.ide.actions.CutNode_Action", "ctrl X");
     add("jetbrains.mps.ide.actions.DeleteModules_Action", " DELETE");
-    add("jetbrains.mps.ide.actions.DeleteNode_Action", " DELETE");
     add("jetbrains.mps.ide.actions.DeletePropertyAction_Action", " DELETE");
     add("jetbrains.mps.ide.actions.DeleteReferenceAction_Action", " DELETE");
     add("jetbrains.mps.ide.actions.FastFindNodeUsages_Action", "alt F7");
@@ -43,7 +42,6 @@ public final class Default_KeymapChanges extends BaseKeymapChanges {
     add("jetbrains.mps.ide.actions.RenameModule_Action", "shift F6");
     add("jetbrains.mps.ide.actions.RenameModulesVirtualFolder_Action", "shift F6");
     add("jetbrains.mps.ide.actions.RenamePackage_Action", "shift F6");
-    add("jetbrains.mps.ide.actions.SafeDelete_Action", "alt DELETE");
     add("jetbrains.mps.ide.actions.SetBookmarkNoNumber_Action", " F11");
     add("jetbrains.mps.ide.actions.ShowBookmarksDialog_Action", "shift F11");
     add("jetbrains.mps.ide.actions.ShowClassInHierarchy_Action", "ctrl H");
