@@ -4,6 +4,8 @@
   <languages>
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="-1" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
+    <use id="c7fb639f-be78-4307-89b0-b5959c3fa8c8" name="jetbrains.mps.lang.text" version="0" />
+    <use id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core" version="2" />
   </languages>
   <imports>
     <import index="gola" ref="847a3235-09f9-403c-b6a9-1c294a212e92/java:org.apache.tools.ant(Ant/)" />
@@ -292,6 +294,7 @@
         <child id="2546654756694997556" name="reference" index="92FcQ" />
         <child id="3106559687488913694" name="line" index="2XjZqd" />
       </concept>
+      <concept id="6832197706140896242" name="jetbrains.mps.baseLanguage.javadoc.structure.FieldDocComment" flags="ng" index="z59LJ" />
       <concept id="6832197706140518104" name="jetbrains.mps.baseLanguage.javadoc.structure.DocMethodParameterReference" flags="ng" index="zr_55" />
       <concept id="6832197706140518103" name="jetbrains.mps.baseLanguage.javadoc.structure.BaseParameterReference" flags="ng" index="zr_5a">
         <reference id="6832197706140518108" name="param" index="zr_51" />
@@ -1382,6 +1385,31 @@
         <property role="3clFbU" value="true" />
       </node>
     </node>
+    <node concept="312cEg" id="1$mDfZ_uyJm" role="jymVt">
+      <property role="TrG5h" value="myOpenPackages" />
+      <property role="34CwA1" value="false" />
+      <property role="3TUv4t" value="false" />
+      <node concept="10P_77" id="1$mDfZ_uyJn" role="1tU5fm" />
+      <node concept="3Tm6S6" id="1$mDfZ_uyJo" role="1B3o_S" />
+      <node concept="3clFbT" id="1$mDfZ_uyJp" role="33vP2m" />
+      <node concept="z59LJ" id="1$mDfZ_uTHp" role="lGtFl">
+        <node concept="TZ5HA" id="1$mDfZ_uTHq" role="TZ5H$">
+          <node concept="1dT_AC" id="1$mDfZ_uTHr" role="1dT_Ay">
+            <property role="1dT_AB" value="whether to specify (platform-specific) set of --add-opens arguments" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="1$mDfZ_v6RA" role="TZ5H$">
+          <node concept="1dT_AC" id="1$mDfZ_v6RB" role="1dT_Ay">
+            <property role="1dT_AB" value="Necessary for workers with IdeaEnvironment &amp;&amp; myFork == true, MpsEnvironment seems to work fine without these." />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="1$mDfZ_v7wX" role="TZ5H$">
+          <node concept="1dT_AC" id="1$mDfZ_v7wY" role="1dT_Ay">
+            <property role="1dT_AB" value="false by default for compatibility reasons, likely need to change to true once all MpsEnv tasks have it set explicitly" />
+          </node>
+        </node>
+      </node>
+    </node>
     <node concept="312cEg" id="4vDU0BPy5F9" role="jymVt">
       <property role="TrG5h" value="myWorkerClass" />
       <node concept="3Tm6S6" id="4vDU0BPxYwB" role="1B3o_S" />
@@ -1769,6 +1797,28 @@
       <node concept="37vLTG" id="6DTB6TKcQbR" role="3clF46">
         <property role="TrG5h" value="value" />
         <node concept="10P_77" id="6DTB6TKcQbQ" role="1tU5fm" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="1$mDfZ_yH4c" role="jymVt" />
+    <node concept="3clFb_" id="1$mDfZ_zcl8" role="jymVt">
+      <property role="TrG5h" value="setOpenPackages" />
+      <node concept="3clFbS" id="1$mDfZ_zclb" role="3clF47">
+        <node concept="3clFbF" id="1$mDfZ_ztYL" role="3cqZAp">
+          <node concept="37vLTI" id="1$mDfZ_zC$k" role="3clFbG">
+            <node concept="37vLTw" id="1$mDfZ_zI1E" role="37vLTx">
+              <ref role="3cqZAo" node="1$mDfZ_zoU2" resolve="v" />
+            </node>
+            <node concept="37vLTw" id="1$mDfZ_ztYK" role="37vLTJ">
+              <ref role="3cqZAo" node="1$mDfZ_uyJm" resolve="myOpenPackages" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="1$mDfZ_yZ1X" role="1B3o_S" />
+      <node concept="3cqZAl" id="1$mDfZ_zbKO" role="3clF45" />
+      <node concept="37vLTG" id="1$mDfZ_zoU2" role="3clF46">
+        <property role="TrG5h" value="v" />
+        <node concept="10P_77" id="1$mDfZ_zoU1" role="1tU5fm" />
       </node>
     </node>
     <node concept="2tJIrI" id="1_4F7FNq2W_" role="jymVt" />
@@ -3778,6 +3828,201 @@
                     </node>
                   </node>
                 </node>
+              </node>
+            </node>
+            <node concept="3clFbJ" id="1$mDfZ_vQBv" role="3cqZAp">
+              <node concept="3clFbS" id="1$mDfZ_vQBx" role="3clFbx">
+                <node concept="3SKdUt" id="1$mDfZ_EzUq" role="3cqZAp">
+                  <node concept="1PaTwC" id="1$mDfZ_EzUr" role="1aUNEU">
+                    <node concept="3oM_SD" id="1$mDfZ_EEOH" role="1PaTwD">
+                      <property role="3oM_SC" value="list" />
+                    </node>
+                    <node concept="3oM_SD" id="1$mDfZ_EEOJ" role="1PaTwD">
+                      <property role="3oM_SC" value="taken" />
+                    </node>
+                    <node concept="3oM_SD" id="1$mDfZ_EEOM" role="1PaTwD">
+                      <property role="3oM_SC" value="from" />
+                    </node>
+                    <node concept="3oM_SD" id="1$mDfZ_EEOQ" role="1PaTwD">
+                      <property role="3oM_SC" value="MPS" />
+                    </node>
+                    <node concept="3oM_SD" id="1$mDfZ_EEOV" role="1PaTwD">
+                      <property role="3oM_SC" value="own" />
+                    </node>
+                    <node concept="3oM_SD" id="1$mDfZ_EEP8" role="1PaTwD">
+                      <property role="3oM_SC" value="run" />
+                    </node>
+                    <node concept="3oM_SD" id="1$mDfZ_EEP1" role="1PaTwD">
+                      <property role="3oM_SC" value="configuration" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="3cpWs8" id="1$mDfZ_w7W8" role="3cqZAp">
+                  <node concept="3cpWsn" id="1$mDfZ_w7W6" role="3cpWs9">
+                    <property role="3TUv4t" value="true" />
+                    <property role="TrG5h" value="packages" />
+                    <node concept="10Q1$e" id="1$mDfZ_weE6" role="1tU5fm">
+                      <node concept="3uibUv" id="1$mDfZ_weE3" role="10Q1$1">
+                        <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+                      </node>
+                    </node>
+                    <node concept="2BsdOp" id="1$mDfZ_wBBj" role="33vP2m">
+                      <node concept="Xl_RD" id="1$mDfZ_wKzQ" role="2BsfMF">
+                        <property role="Xl_RC" value="java.base/java.io" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_wYfI" role="2BsfMF">
+                        <property role="Xl_RC" value="java.base/java.lang" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_A2Ui" role="2BsfMF">
+                        <property role="Xl_RC" value="java.base/java.lang.reflect" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_AnAA" role="2BsfMF">
+                        <property role="Xl_RC" value="java.base/java.net" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_ArG4" role="2BsfMF">
+                        <property role="Xl_RC" value="java.base/java.nio" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_ArGa" role="2BsfMF">
+                        <property role="Xl_RC" value="java.base/java.nio.charset" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_AvLQ" role="2BsfMF">
+                        <property role="Xl_RC" value="java.base/java.text" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_AvLY" role="2BsfMF">
+                        <property role="Xl_RC" value="java.base/java.time" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_AvM7" role="2BsfMF">
+                        <property role="Xl_RC" value="java.base/java.util" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_AvMh" role="2BsfMF">
+                        <property role="Xl_RC" value="java.base/java.util.concurrent" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_AvMs" role="2BsfMF">
+                        <property role="Xl_RC" value="java.base/java.util.concurrent.atomic" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_AvMC" role="2BsfMF">
+                        <property role="Xl_RC" value="java.base/jdk.internal.vm" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_AvMP" role="2BsfMF">
+                        <property role="Xl_RC" value="java.base/sun.nio.ch" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_AvN3" role="2BsfMF">
+                        <property role="Xl_RC" value="java.base/sun.security.ssl" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_AvNi" role="2BsfMF">
+                        <property role="Xl_RC" value="java.base/sun.security.util" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_AvNy" role="2BsfMF">
+                        <property role="Xl_RC" value="java.desktop/com.apple.eawt" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_AvNN" role="2BsfMF">
+                        <property role="Xl_RC" value="java.desktop/com.apple.eawt.event" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_CuqJ" role="2BsfMF">
+                        <property role="Xl_RC" value="java.desktop/com.apple.laf" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_Cur2" role="2BsfMF">
+                        <property role="Xl_RC" value="java.desktop/sun.awt.X11" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_Curm" role="2BsfMF">
+                        <property role="Xl_RC" value="java.desktop/java.awt" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_CurF" role="2BsfMF">
+                        <property role="Xl_RC" value="java.desktop/java.awt.dnd.peer" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_DiUT" role="2BsfMF">
+                        <property role="Xl_RC" value="java.desktop/java.awt.event" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_DiVi" role="2BsfMF">
+                        <property role="Xl_RC" value="java.desktop/java.awt.image" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_Cus1" role="2BsfMF">
+                        <property role="Xl_RC" value="java.desktop/java.awt.peer" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_Cuso" role="2BsfMF">
+                        <property role="Xl_RC" value="java.desktop/javax.swing" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_DXSt" role="2BsfMF">
+                        <property role="Xl_RC" value="java.desktop/javax.swing.plaf.basic" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_DXSS" role="2BsfMF">
+                        <property role="Xl_RC" value="java.desktop/javax.swing.text.html" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_DXTk" role="2BsfMF">
+                        <property role="Xl_RC" value="java.desktop/sun.awt.datatransfer" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_DXTL" role="2BsfMF">
+                        <property role="Xl_RC" value="java.desktop/sun.awt.image" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_DXUf" role="2BsfMF">
+                        <property role="Xl_RC" value="java.desktop/sun.awt.windows" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_DXUI" role="2BsfMF">
+                        <property role="Xl_RC" value="java.desktop/sun.awt" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_DXVe" role="2BsfMF">
+                        <property role="Xl_RC" value="java.desktop/sun.font" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_F9ys" role="2BsfMF">
+                        <property role="Xl_RC" value="java.desktop/sun.java2d" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_F9yZ" role="2BsfMF">
+                        <property role="Xl_RC" value="java.desktop/sun.swing" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_DXVJ" role="2BsfMF">
+                        <property role="Xl_RC" value="jdk.attach/sun.tools.attach" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_FzZm" role="2BsfMF">
+                        <property role="Xl_RC" value="jdk.compiler/com.sun.tools.javac.api" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_FzZV" role="2BsfMF">
+                        <property role="Xl_RC" value="jdk.internal.jvmstat/sun.jvmstat.monitor" />
+                      </node>
+                      <node concept="Xl_RD" id="1$mDfZ_F$0x" role="2BsfMF">
+                        <property role="Xl_RC" value="jdk.jdi/com.sun.tools.jdi" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="1DcWWT" id="1$mDfZ_xdPc" role="3cqZAp">
+                  <node concept="3clFbS" id="1$mDfZ_xdPe" role="2LFqv$">
+                    <node concept="3clFbF" id="1$mDfZ_xJGJ" role="3cqZAp">
+                      <node concept="2OqwBi" id="1$mDfZ_xOoB" role="3clFbG">
+                        <node concept="37vLTw" id="1$mDfZ_xJGH" role="2Oq$k0">
+                          <ref role="3cqZAo" node="3ufQioQQtqL" resolve="commandLine" />
+                        </node>
+                        <node concept="liA8E" id="1$mDfZ_xW9r" role="2OqNvi">
+                          <ref role="37wK5l" to="33ny:~List.add(java.lang.Object)" resolve="add" />
+                          <node concept="3cpWs3" id="1$mDfZ_HaeY" role="37wK5m">
+                            <node concept="Xl_RD" id="1$mDfZ_Hjv8" role="3uHU7w">
+                              <property role="Xl_RC" value="=ALL-UNNAMED" />
+                            </node>
+                            <node concept="3cpWs3" id="1$mDfZ_Gz43" role="3uHU7B">
+                              <node concept="Xl_RD" id="1$mDfZ_y68s" role="3uHU7B">
+                                <property role="Xl_RC" value="--add-opens=" />
+                              </node>
+                              <node concept="37vLTw" id="1$mDfZ_H4oe" role="3uHU7w">
+                                <ref role="3cqZAo" node="1$mDfZ_xdPf" resolve="p" />
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="3cpWsn" id="1$mDfZ_xdPf" role="1Duv9x">
+                    <property role="TrG5h" value="p" />
+                    <node concept="3uibUv" id="1$mDfZ_xocC" role="1tU5fm">
+                      <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+                    </node>
+                  </node>
+                  <node concept="37vLTw" id="1$mDfZ_x_xD" role="1DdaDG">
+                    <ref role="3cqZAo" node="1$mDfZ_w7W6" resolve="packages" />
+                  </node>
+                </node>
+              </node>
+              <node concept="37vLTw" id="1$mDfZ_vXLi" role="3clFbw">
+                <ref role="3cqZAo" node="1$mDfZ_uyJm" resolve="myOpenPackages" />
               </node>
             </node>
             <node concept="3clFbF" id="3ufQioQQts1" role="3cqZAp">
@@ -9059,6 +9304,14 @@
           <node concept="1rXfSq" id="7zEA_IIJM57" role="3clFbG">
             <ref role="37wK5l" node="3ufQioQQtjQ" resolve="setFailOnError" />
             <node concept="3clFbT" id="7zEA_IIJMPO" role="37wK5m">
+              <property role="3clFbU" value="true" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="1$mDfZ_txWO" role="3cqZAp">
+          <node concept="1rXfSq" id="1$mDfZ_zRzG" role="3clFbG">
+            <ref role="37wK5l" node="1$mDfZ_zcl8" resolve="setOpenPackages" />
+            <node concept="3clFbT" id="1$mDfZ_zSAU" role="37wK5m">
               <property role="3clFbU" value="true" />
             </node>
           </node>

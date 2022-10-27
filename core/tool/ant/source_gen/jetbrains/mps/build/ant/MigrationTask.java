@@ -28,6 +28,7 @@ public class MigrationTask extends MpsLoadTask {
     myProps = new MigrateTaskProperties(myWhatToDo).setPreCheckFailureHalt(true).setMakeDistribModules(true);
     // makeDistribModules==true here is for backwards compatibility
     setFailOnError(true);
+    setOpenPackages(true);
   }
 
   public void setProject(String project) {
