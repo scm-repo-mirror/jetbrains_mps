@@ -107,7 +107,9 @@
       <concept id="1068580123136" name="jetbrains.mps.baseLanguage.structure.StatementList" flags="sn" stub="5293379017992965193" index="3clFbS">
         <child id="1068581517665" name="statement" index="3cqZAp" />
       </concept>
-      <concept id="1068580123137" name="jetbrains.mps.baseLanguage.structure.BooleanConstant" flags="nn" index="3clFbT" />
+      <concept id="1068580123137" name="jetbrains.mps.baseLanguage.structure.BooleanConstant" flags="nn" index="3clFbT">
+        <property id="1068580123138" name="value" index="3clFbU" />
+      </concept>
       <concept id="1068580123140" name="jetbrains.mps.baseLanguage.structure.ConstructorDeclaration" flags="ig" index="3clFbW" />
       <concept id="1068580320020" name="jetbrains.mps.baseLanguage.structure.IntegerConstant" flags="nn" index="3cmrfG">
         <property id="1068580320021" name="value" index="3cmrfH" />
@@ -1884,6 +1886,14 @@
             </node>
             <node concept="37vLTw" id="1Vi5mb_opYQ" role="37vLTJ">
               <ref role="3cqZAo" node="1Vi5mb_opw$" resolve="myProperties" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="1$mDfZ_HSRW" role="3cqZAp">
+          <node concept="1rXfSq" id="1$mDfZ_HSRU" role="3clFbG">
+            <ref role="37wK5l" to="644x:1$mDfZ_zcl8" resolve="setOpenPackages" />
+            <node concept="3clFbT" id="1$mDfZ_HSVl" role="37wK5m">
+              <property role="3clFbU" value="true" />
             </node>
           </node>
         </node>
