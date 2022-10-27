@@ -40036,6 +40036,12 @@
               <property role="2Ry0Am" value="plugins" />
               <node concept="2Ry0Ak" id="EpEP7iii3G" role="2Ry0An">
                 <property role="2Ry0Am" value="mps-devkit" />
+                <node concept="2Ry0Ak" id="2G1T8W6QPWV" role="2Ry0An">
+                  <property role="2Ry0Am" value="languages" />
+                  <node concept="2Ry0Ak" id="2G1T8W6QPX0" role="2Ry0An">
+                    <property role="2Ry0Am" value="mpsdevkit" />
+                  </node>
+                </node>
               </node>
             </node>
           </node>
@@ -40047,8 +40053,14 @@
           <property role="2Ry0Am" value="plugins" />
           <node concept="2Ry0Ak" id="5sovPIfS$nh" role="2Ry0An">
             <property role="2Ry0Am" value="mps-devkit" />
-            <node concept="2Ry0Ak" id="5sovPIfS$ni" role="2Ry0An">
-              <property role="2Ry0Am" value="jetbrains.mps.ide.mpsdevkit.msd" />
+            <node concept="2Ry0Ak" id="2G1T8W6QPW_" role="2Ry0An">
+              <property role="2Ry0Am" value="languages" />
+              <node concept="2Ry0Ak" id="2G1T8W6QPWE" role="2Ry0An">
+                <property role="2Ry0Am" value="mpsdevkit" />
+                <node concept="2Ry0Ak" id="2G1T8W6QPWF" role="2Ry0An">
+                  <property role="2Ry0Am" value="jetbrains.mps.ide.mpsdevkit.msd" />
+                </node>
+              </node>
             </node>
           </node>
         </node>
@@ -40170,8 +40182,14 @@
               <property role="2Ry0Am" value="plugins" />
               <node concept="2Ry0Ak" id="73GUf$umt$i" role="2Ry0An">
                 <property role="2Ry0Am" value="mps-devkit" />
-                <node concept="2Ry0Ak" id="73GUf$umt$j" role="2Ry0An">
-                  <property role="2Ry0Am" value="solution" />
+                <node concept="2Ry0Ak" id="2G1T8W6QPX2" role="2Ry0An">
+                  <property role="2Ry0Am" value="languages" />
+                  <node concept="2Ry0Ak" id="2G1T8W6QPXh" role="2Ry0An">
+                    <property role="2Ry0Am" value="mpsdevkit" />
+                    <node concept="2Ry0Ak" id="2G1T8W6QPXw" role="2Ry0An">
+                      <property role="2Ry0Am" value="models" />
+                    </node>
+                  </node>
                 </node>
               </node>
             </node>

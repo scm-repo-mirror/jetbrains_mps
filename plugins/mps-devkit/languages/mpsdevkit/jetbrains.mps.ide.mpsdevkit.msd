@@ -3,10 +3,10 @@
   <compileInIDEA />
   <models>
     <modelRoot contentPath="${module}" type="default">
-      <sourceRoot location="solution" />
+      <sourceRoot location="models" />
     </modelRoot>
     <modelRoot contentPath="${module}" type="java_classes">
-      <sourceRoot location="classes" />
+      <sourceRoot location="../../classes" />
     </modelRoot>
   </models>
   <facets>
@@ -16,7 +16,7 @@
     <facet type="tests" />
   </facets>
   <stubModelEntries>
-    <stubModelEntry path="${module}/classes" />
+    <stubModelEntry path="${module}../../classes" />
   </stubModelEntries>
   <sourcePath />
   <dependencies>

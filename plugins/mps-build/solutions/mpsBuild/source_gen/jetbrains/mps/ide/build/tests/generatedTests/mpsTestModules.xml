@@ -2241,13 +2241,13 @@
         <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.core.jar" />
         <fileset file="${artifacts.mps}/languages/workbench/jetbrains.mps.lang.core.pluginSolution.jar" />
         <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.editor.jar" />
-        <fileset file="${artifacts.mps}/plugins/mps-devkit/languages/languageDesign/jetbrains.mps.lang.migration.pluginSolution.jar" />
+        <fileset file="${artifacts.mps}/plugins/mps-devkit/languages/jetbrains.mps.lang.migration.pluginSolution.jar" />
         <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.modelapi.jar" />
         <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.scopes.runtime.jar" />
         <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.smodel.jar" />
         <fileset file="${artifacts.mps}/languages/runtimes/jetbrains.mps.lang.smodel.query.runtime.jar" />
         <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.structure.jar" />
-        <fileset file="${artifacts.mps}/plugins/mps-devkit/languages/languageDesign/jetbrains.mps.lang.structure.pluginSolution.jar" />
+        <fileset file="${artifacts.mps}/plugins/mps-devkit/languages/jetbrains.mps.lang.structure.pluginSolution.jar" />
         <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.traceable.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -2451,8 +2451,8 @@
       <pathelement location="${artifacts.mps}/languages/workbench/jetbrains.mps.lang.core.pluginSolution.jar" />
       <pathelement location="${artifacts.mps}/plugins/mps-build/languages/build/jetbrains.mps.build.mps.testManifest.jar" />
       <pathelement location="${artifacts.mps}/plugins/mps-core/languages/languageDesign/jetbrains.mps.lang.migration.util.jar" />
-      <pathelement location="${artifacts.mps}/plugins/mps-devkit/languages/languageDesign/jetbrains.mps.lang.migration.pluginSolution.jar" />
-      <pathelement location="${artifacts.mps}/plugins/mps-devkit/languages/languageDesign/jetbrains.mps.lang.structure.pluginSolution.jar" />
+      <pathelement location="${artifacts.mps}/plugins/mps-devkit/languages/jetbrains.mps.lang.migration.pluginSolution.jar" />
+      <pathelement location="${artifacts.mps}/plugins/mps-devkit/languages/jetbrains.mps.lang.structure.pluginSolution.jar" />
       <pathelement location="${artifacts.mps}/plugins/mps-make/languages/jetbrains.mps.ide.make.jar" />
       <pathelement location="${artifacts.mps}/plugins/mps-migration/solutions/jetbrains.mps.migration.component.jar" />
       <pathelement location="${artifacts.mps}/plugins/mps-testing/languages/baseLanguage/jetbrains.mps.baseLanguage.unitTest.jar" />

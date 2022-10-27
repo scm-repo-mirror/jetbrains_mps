@@ -124,12 +124,12 @@
         <sources jar="." descriptor="jetbrains.mps.ide.mpsdevkit.msd" />
       </module>
     </echoxml>
-    <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-devkit-solution">
-      <fileset dir="${mps_home}/plugins/mps-devkit/solution" includes="**/*.mps, **/*.mpsr, **/.model" />
+    <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-devkit-languages-mpsdevkit-models">
+      <fileset dir="${mps_home}/plugins/mps-devkit/languages/mpsdevkit/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-devkit/languages/jetbrains.mps.ide.mpsdevkit.jar" duplicate="preserve">
-      <zipfileset file="${mps_home}/plugins/mps-devkit/jetbrains.mps.ide.mpsdevkit.msd" prefix="module" />
-      <zipfileset dir="${build.tmp}/customProcessors/copyModels/plugins-mps-devkit-solution" prefix="module/solution" />
+      <zipfileset file="${mps_home}/plugins/mps-devkit/languages/mpsdevkit/jetbrains.mps.ide.mpsdevkit.msd" prefix="module" />
+      <zipfileset dir="${build.tmp}/customProcessors/copyModels/plugins-mps-devkit-languages-mpsdevkit-models" prefix="module/models" />
       <fileset dir="${build.tmp}/default/jetbrains.mps.ide.mpsdevkit.jar" />
     </jar>
     <mkdir dir="${build.tmp}/default/jetbrains.mps.ide.devkit.editor.jar" />
@@ -1026,7 +1026,7 @@
       <chunk>
         <module file="${mps_home}/plugins/mps-devkit/languages/pluginSolutions/baseLanguage/jetbrains.mps.baseLanguage.pluginSolution.msd" />
         <module file="${mps_home}/plugins/mps-devkit/languages/editor/jetbrains.mps.ide.devkit.editor.msd" />
-        <module file="${mps_home}/plugins/mps-devkit/jetbrains.mps.ide.mpsdevkit.msd" />
+        <module file="${mps_home}/plugins/mps-devkit/languages/mpsdevkit/jetbrains.mps.ide.mpsdevkit.msd" />
         <module file="${mps_home}/plugins/mps-devkit/languages/pluginSolutions/lang.actions/jetbrains.mps.lang.actions.pluginSolution.msd" />
         <module file="${mps_home}/plugins/mps-devkit/languages/pluginSolutions/lang.dataFlow/jetbrains.mps.lang.dataFlow.pluginSolution.msd" />
         <module file="${mps_home}/plugins/mps-devkit/languages/pluginSolutions/lang.generator/jetbrains.mps.lang.generator.pluginSolution.msd" />
@@ -1789,7 +1789,7 @@
   <target name="cleanSources">
     <delete dir="${mps_home}/plugins/mps-devkit/languages/pluginSolutions/baseLanguage/source_gen" />
     <delete dir="${mps_home}/plugins/mps-devkit/languages/editor/source_gen" />
-    <delete dir="${mps_home}/plugins/mps-devkit/source_gen" />
+    <delete dir="${mps_home}/plugins/mps-devkit/languages/mpsdevkit/source_gen" />
     <delete dir="${mps_home}/plugins/mps-devkit/languages/pluginSolutions/lang.actions/source_gen" />
     <delete dir="${mps_home}/plugins/mps-devkit/languages/pluginSolutions/lang.dataFlow/source_gen" />
     <delete dir="${mps_home}/plugins/mps-devkit/languages/pluginSolutions/lang.generator/source_gen" />
