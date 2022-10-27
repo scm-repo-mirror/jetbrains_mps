@@ -36,6 +36,7 @@
         <property id="1229194968596" name="caretPosition" index="LIFWa" />
         <property id="1229194968595" name="cellId" index="LIFWd" />
         <property id="1932269937152561478" name="useLabelSelection" index="OXtK3" />
+        <property id="1229432188737" name="isLastPosition" index="ZRATv" />
       </concept>
       <concept id="4531408400486526326" name="jetbrains.mps.lang.test.structure.WarningStatementReference" flags="ng" index="2PQEqo" />
       <concept id="4531408400484511853" name="jetbrains.mps.lang.test.structure.ReportErrorStatementReference" flags="ng" index="2PYRI3" />
@@ -80,6 +81,15 @@
         <property id="2936055411806090009" name="isReadonly" index="1Xb$ne" />
         <child id="2936055411798374330" name="assignment" index="1XD05H" />
       </concept>
+      <concept id="1314219036498225646" name="jetbrains.mps.kotlin.structure.IStatementHolder" flags="ng" index="THmaI">
+        <child id="1314219036498225649" name="statements" index="THmaL" />
+      </concept>
+      <concept id="6565639133219057675" name="jetbrains.mps.kotlin.structure.IArguments" flags="ng" index="TWioa">
+        <child id="6565639133219057676" name="arguments" index="TWiod" />
+      </concept>
+      <concept id="7027413324315184167" name="jetbrains.mps.kotlin.structure.ILambdaAsArgument" flags="ng" index="3$8iW8">
+        <child id="2936055411798374269" name="lambda" index="1XD06E" />
+      </concept>
       <concept id="4662566628538083705" name="jetbrains.mps.kotlin.structure.FunctionCallExpression" flags="ng" index="1NbEFs" />
       <concept id="2936055411798373622" name="jetbrains.mps.kotlin.structure.ConstructorSuperSpecifier" flags="ng" index="1XD08x">
         <reference id="2324909103760693884" name="target" index="KYurZ" />
@@ -90,10 +100,19 @@
         <child id="1314219036499436525" name="declaration" index="TDYyH" />
       </concept>
       <concept id="2936055411798373481" name="jetbrains.mps.kotlin.structure.ClassDeclaration" flags="ng" index="1XD0aY" />
+      <concept id="2936055411798373428" name="jetbrains.mps.kotlin.structure.FunctionDeclaration" flags="ng" index="1XD0bz" />
       <concept id="2936055411798373439" name="jetbrains.mps.kotlin.structure.AbstractFunctionCall" flags="ng" index="1XD0bC">
         <reference id="1991556721072067817" name="function" index="AarEw" />
       </concept>
+      <concept id="2936055411798373784" name="jetbrains.mps.kotlin.structure.ThisExpression" flags="ng" index="1XD0df" />
       <concept id="2936055411798373745" name="jetbrains.mps.kotlin.structure.VariableDeclaration" flags="ng" index="1XD0eA" />
+      <concept id="2936055411798373753" name="jetbrains.mps.kotlin.structure.ValueArgument" flags="ng" index="1XD0eI">
+        <child id="2936055411798374692" name="expression" index="1XD0ZN" />
+      </concept>
+      <concept id="2936055411798373655" name="jetbrains.mps.kotlin.structure.LambdaLiteral" flags="ng" index="1XD0f0">
+        <child id="4032162997650628191" name="_thisTypeHolder_hack" index="Sxo2X" />
+        <child id="4032162997650633732" name="_itTypeHolder_hack" index="SxqFA" />
+      </concept>
       <concept id="2936055411798373673" name="jetbrains.mps.kotlin.structure.KotlinFile" flags="ng" index="1XD0fY">
         <child id="2936055411798374537" name="declarations" index="1XD0Tu" />
       </concept>
@@ -364,6 +383,74 @@
             <ref role="KYurZ" node="1CUeZUoeI3Q" resolve="MySuperClass" />
           </node>
         </node>
+      </node>
+    </node>
+  </node>
+  <node concept="LiM7Y" id="7ZVfWV59r4a">
+    <property role="TrG5h" value="LambdaInCallParenthesis" />
+    <node concept="1qefOq" id="7ZVfWV59rbW" role="25YQCW">
+      <node concept="1XD0fY" id="7ZVfWV59rbV" role="1qenE9">
+        <property role="TrG5h" value="FunctionCallLambda" />
+        <node concept="1XD0bz" id="7ZVfWV59rkN" role="1XD0Tu">
+          <property role="TrG5h" value="main" />
+          <node concept="1NbEFs" id="7ZVfWV59s5m" role="THmaL">
+            <ref role="AarEw" to="0:~.with&lt;2&gt;(0,Function1&lt;0,1&gt;)" resolve="with" />
+            <node concept="1XD0eI" id="7ZVfWV5hIG7" role="TWiod">
+              <node concept="1XD0k7" id="7ZVfWV5hIOz" role="1XD0ZN">
+                <property role="1XD01k" value="3" />
+              </node>
+            </node>
+            <node concept="1XD0eI" id="7ZVfWV5hIwz" role="TWiod">
+              <node concept="1XD0f0" id="7ZVfWV5hIBV" role="1XD0ZN">
+                <node concept="1XD0df" id="7ZVfWV5hIBW" role="Sxo2X" />
+                <node concept="1XD0df" id="7ZVfWV5hIBX" role="SxqFA" />
+                <node concept="7CXmI" id="7ZVfWV5hV1U" role="lGtFl">
+                  <node concept="29bkU" id="7ZVfWV5hV1V" role="7EUXB">
+                    <node concept="2PQEqo" id="7ZVfWV5hV24" role="3lydCh">
+                      <ref role="39XzEq" to="lrl3:1A1RTX76O39" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="LIFWc" id="7ZVfWV5i4Z7" role="lGtFl">
+                  <property role="ZRATv" value="true" />
+                  <property role="OXtK3" value="true" />
+                  <property role="p6zMq" value="1" />
+                  <property role="p6zMs" value="1" />
+                  <property role="LIFWd" value="Constant_fmrng2_b0" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="1XD08$" id="7ZVfWV59rkP" role="ICcUN" />
+          <node concept="1XD0l2" id="7ZVfWV59rkQ" role="2BPcuh" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="7ZVfWV5hIWu" role="25YQFr">
+      <node concept="1XD0fY" id="7ZVfWV5hIXx" role="1qenE9">
+        <property role="TrG5h" value="FunctionCallLambda" />
+        <node concept="1XD0bz" id="7ZVfWV5hIXy" role="1XD0Tu">
+          <property role="TrG5h" value="main" />
+          <node concept="1NbEFs" id="7ZVfWV5hIXz" role="THmaL">
+            <ref role="AarEw" to="0:~.with&lt;2&gt;(0,Function1&lt;0,1&gt;)" resolve="with" />
+            <node concept="1XD0eI" id="7ZVfWV5hIX$" role="TWiod">
+              <node concept="1XD0k7" id="7ZVfWV5hIX_" role="1XD0ZN">
+                <property role="1XD01k" value="3" />
+              </node>
+            </node>
+            <node concept="1XD0f0" id="7ZVfWV5hJ00" role="1XD06E">
+              <node concept="1XD0df" id="7ZVfWV5hJ01" role="Sxo2X" />
+              <node concept="1XD0df" id="7ZVfWV5hJ02" role="SxqFA" />
+            </node>
+          </node>
+          <node concept="1XD08$" id="7ZVfWV5hIXE" role="ICcUN" />
+          <node concept="1XD0l2" id="7ZVfWV5hIXF" role="2BPcuh" />
+        </node>
+      </node>
+    </node>
+    <node concept="3clFbS" id="7ZVfWV5hJ7Y" role="LjaKd">
+      <node concept="1MTqDA" id="7ZVfWV5hJaa" role="3cqZAp">
+        <ref role="1DyUlj" to="lrl3:1A1RTX774F6" />
       </node>
     </node>
   </node>
