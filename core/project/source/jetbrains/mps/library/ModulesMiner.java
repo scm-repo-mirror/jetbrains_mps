@@ -459,6 +459,7 @@ public final class ModulesMiner {
         if (".".equals(cpEntry)) {
           it.set(moduleHome.getPath());
         } else if (!cpEntry.isEmpty()) {
+          // XXX what about ../lib/myhandcrafted.jar scenario, why can't I use this for CP?
           StringBuilder moduleHomePath = new StringBuilder();
           if (IFileUtil.isJarFile(moduleHome)) {
             moduleHomePath.append(IFileUtil.stepIntoJar(moduleHome).getPath());
