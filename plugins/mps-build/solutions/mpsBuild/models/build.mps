@@ -45864,6 +45864,7 @@
       <property role="2_Ic$$" value="true" />
       <property role="3fwGa$" value="IntelliJ" />
       <property role="2_Ic$B" value="true" />
+      <property role="TZNOO" value="11" />
       <node concept="3qWCbU" id="2BofZ0X9ZtL" role="2_Ic$A">
         <property role="3qWCbO" value="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
       </node>
@@ -50920,6 +50921,11 @@
     <property role="TrG5h" value="mpsSpellCheckPlugin" />
     <property role="2DA0ip" value="../../../../" />
     <property role="turDy" value="mpsSpellCheckPlugin.xml" />
+    <node concept="2_Ic$z" id="2_gL36dFKNJ" role="3989C9">
+      <property role="2_Ic$$" value="true" />
+      <property role="TZNOO" value="11" />
+      <property role="1ck6Xt" value="true" />
+    </node>
     <node concept="10PD9b" id="5fSnYiNjTYP" role="10PD9s" />
     <node concept="1E1JtA" id="3SKb_4JujfJ" role="3989C9">
       <property role="BnDLt" value="true" />
