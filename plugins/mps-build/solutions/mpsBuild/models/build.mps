@@ -39433,6 +39433,11 @@
             <ref role="3bR37D" node="7Kfy9QB6L6C" resolve="jetbrains.mps.lang.generator" />
           </node>
         </node>
+        <node concept="1SiIV0" id="kmdkKUo2qj" role="3bR37C">
+          <node concept="3bR9La" id="kmdkKUo2qk" role="1SiIV1">
+            <ref role="3bR37D" node="l1L199LeP5" resolve="jetbrains.mps.ide.refactoring" />
+          </node>
+        </node>
       </node>
       <node concept="1E1JtA" id="5c5foM6wxNr" role="2G$12L">
         <property role="BnDLt" value="true" />

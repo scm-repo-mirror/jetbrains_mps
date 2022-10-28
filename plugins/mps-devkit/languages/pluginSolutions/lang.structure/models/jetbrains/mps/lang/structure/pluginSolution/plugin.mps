@@ -27,7 +27,6 @@
     <import index="tpcn" ref="r:00000000-0000-4000-0000-011c8959028b(jetbrains.mps.lang.structure.behavior)" />
     <import index="tpcc" ref="r:00000000-0000-4000-0000-011c89590290(jetbrains.mps.lang.structure.plugin)" />
     <import index="u42p" ref="r:986938bb-bdb1-4307-b062-e4647a4db0f9(jetbrains.mps.ide.platform.refactoring)" />
-    <import index="o2jy" ref="r:5a764b6f-e05f-4050-b22c-cbcad1577f1b(jetbrains.mps.ide.refactoring)" />
     <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" />
     <import index="qkt" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.actionSystem(MPS.IDEA/)" />
     <import index="z1c4" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.project(MPS.Platform/)" />
@@ -78,6 +77,7 @@
     <import index="g1qu" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.util.ui(MPS.IDEA/)" />
     <import index="z60i" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.awt(JDK/)" />
     <import index="75ov" ref="r:cdd4fc54-626c-4040-b1f7-5bc8bfd2ee53(jetbrains.mps.lang.generator.helper)" />
+    <import index="6tbz" ref="r:e7c3bc1e-bce9-494c-bef3-a2cbdbbaff66(jetbrains.mps.ide.refactoring)" />
     <import index="tprs" ref="r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)" implicit="true" />
     <import index="90d" ref="r:421d64ed-8024-497f-aeab-8bddeb389dd2(jetbrains.mps.lang.extension.methods)" implicit="true" />
     <import index="tpeu" ref="r:00000000-0000-4000-0000-011c895902fa(jetbrains.mps.lang.smodel.behavior)" implicit="true" />
@@ -15841,7 +15841,7 @@
       <property role="TrG5h" value="myChooser" />
       <node concept="3Tm6S6" id="4rbk1n1vfor" role="1B3o_S" />
       <node concept="3uibUv" id="4rbk1n1vfot" role="1tU5fm">
-        <ref role="3uigEE" to="o2jy:5nwF1Zq1bYu" resolve="NodeHierarchyChooser" />
+        <ref role="3uigEE" to="6tbz:5nwF1Zq1bYu" resolve="NodeHierarchyChooser" />
       </node>
     </node>
     <node concept="312cEg" id="4rbk1n1vfoP" role="jymVt">
@@ -16018,7 +16018,7 @@
                 <ref role="3cqZAo" node="4rbk1n1vfoq" resolve="myChooser" />
               </node>
               <node concept="liA8E" id="4i$rYBcS7iW" role="2OqNvi">
-                <ref role="37wK5l" to="o2jy:5nwF1Zq1bZ1" resolve="getSelectedObject" />
+                <ref role="37wK5l" to="6tbz:5nwF1Zq1bZ1" resolve="getSelectedObject" />
               </node>
             </node>
           </node>
@@ -16209,7 +16209,7 @@
             </node>
             <node concept="2ShNRf" id="5e7X3XCvjL3" role="37vLTx">
               <node concept="1pGfFk" id="5e7X3XCvjL4" role="2ShVmc">
-                <ref role="37wK5l" to="o2jy:5nwF1Zq1bYw" resolve="NodeHierarchyChooser" />
+                <ref role="37wK5l" to="6tbz:5nwF1Zq1bYw" resolve="NodeHierarchyChooser" />
                 <node concept="37vLTw" id="5e7X3XCvjL5" role="37wK5m">
                   <ref role="3cqZAo" node="2z9SX9bts1e" resolve="myProject" />
                 </node>
@@ -16352,7 +16352,7 @@
               <ref role="3cqZAo" node="4rbk1n1vfoq" resolve="myChooser" />
             </node>
             <node concept="liA8E" id="4_ns_JEQTrA" role="2OqNvi">
-              <ref role="37wK5l" to="o2jy:3u6nf1joHbB" resolve="getPreferredFocusedComponent" />
+              <ref role="37wK5l" to="6tbz:3u6nf1joHbB" resolve="getPreferredFocusedComponent" />
             </node>
           </node>
         </node>
