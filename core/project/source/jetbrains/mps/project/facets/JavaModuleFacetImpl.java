@@ -21,6 +21,8 @@ import jetbrains.mps.logging.Logger;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.MementoWithFS;
 import jetbrains.mps.project.Solution;
+import jetbrains.mps.project.structure.modules.GeneratorDescriptor;
+import jetbrains.mps.project.structure.modules.LanguageDescriptor;
 import jetbrains.mps.project.structure.modules.ModuleDescriptor;
 import jetbrains.mps.project.structure.modules.ModuleFacetDescriptor;
 import jetbrains.mps.project.structure.modules.SolutionKind;
@@ -369,5 +371,22 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
       }
     }
     return null;
+  }
+
+  /**
+   * To replace MD.isCompileInMPS() calls for scenarios where no SModule/SModuleFacet is instantiated
+   */
+  @TestOnly
+  public static boolean isCompileInMPS(ModuleDescriptor descriptor) {
+    final ModuleFacetDescriptor fd = descriptor.getModuleFacetDescriptors().stream().filter(d -> FACET_TYPE.equals(d.getType())).findFirst().orElse(null);
+    if (fd == null) {
+      return false;
+    }
+    if (descriptor instanceof LanguageDescriptor || descriptor instanceof GeneratorDescriptor) {
+      // XXX implicitly compileInMPS, although why don't we make it explicit, after all?
+      return true;
+    }
+    final String compileValue = fd.getMemento().get(KEY_COMPILE);
+    return Compile.fromPersistenceValue(compileValue, Compile.None) == Compile.MPS;
   }
 }

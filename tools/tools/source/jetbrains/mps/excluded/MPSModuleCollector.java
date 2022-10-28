@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -102,7 +102,7 @@ class MPSModuleCollector {
         // don't handle devkits at the moment, and they are not 'compiledInMPS', anyway
         continue;
       }
-      if (!md.getCompileInMPS()) {
+      if (!JavaModuleFacetImpl.isCompileInMPS(md)) {
         // may face UOE here if some unexpected MPS module descriptor is in the project, though
         // I doubt myDescriptorIO would let aus get that far
         continue;
