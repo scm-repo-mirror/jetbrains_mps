@@ -443,28 +443,6 @@
       <unit id="2482360940803573298" at="28,0,128,0" name="jetbrains.mps.ide.refactoring.RenameModuleDialog" />
     </file>
   </root>
-  <root nodeRef="r:5a764b6f-e05f-4050-b22c-cbcad1577f1b(jetbrains.mps.ide.refactoring)/5101259057297948769">
-    <file name="OptionDialog.java">
-      <node id="5101259057297974332" at="14,98,15,47" concept="9" />
-      <node id="5101259057297974340" at="15,47,16,207" concept="9" />
-      <node id="5101259057297974358" at="16,207,17,18" concept="10" />
-      <node id="5101259057297948771" at="12,0,14,0" concept="2" trace="OptionDialog#()V" />
-      <node id="5101259057297974329" at="14,0,19,0" concept="14" trace="showDialog#(Ljetbrains/mps/project/Project;Ljava/lang/String;Ljava/lang/String;Z)I" />
-      <scope id="5101259057297948774" at="12,25,12,25" />
-      <scope id="5101259057297948771" at="12,0,14,0" />
-      <scope id="5101259057297974331" at="14,98,17,18">
-        <var name="option" id="5101259057297974341" />
-        <var name="options" id="5101259057297974333" />
-      </scope>
-      <scope id="5101259057297974329" at="14,0,19,0">
-        <var name="initialValue" id="5101259057297974366" />
-        <var name="project" id="5101259057297974360" />
-        <var name="text" id="5101259057297974362" />
-        <var name="title" id="5101259057297974364" />
-      </scope>
-      <unit id="5101259057297948769" at="10,0,20,0" name="jetbrains.mps.ide.refactoring.OptionDialog" />
-    </file>
-  </root>
   <root nodeRef="r:5a764b6f-e05f-4050-b22c-cbcad1577f1b(jetbrains.mps.ide.refactoring)/6188135140808769438">
     <file name="NodeHierarchyChooser.java">
       <node id="6188135140808769526" at="25,0,26,0" concept="5" trace="myTree" />
