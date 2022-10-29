@@ -33,6 +33,8 @@ public class Refactoring_ApplicationPlugin extends BaseApplicationPlugin {
     addAction(new DeleteNode_Action());
     addAction(new MoveModel_Action());
     addAction(new MoveNodes_Action());
+    addAction(new RenameModel_Action());
+    addAction(new RenameModule_Action());
     addAction(new RenameNode_Action());
     addAction(new SafeDelete_Action());
     // groups

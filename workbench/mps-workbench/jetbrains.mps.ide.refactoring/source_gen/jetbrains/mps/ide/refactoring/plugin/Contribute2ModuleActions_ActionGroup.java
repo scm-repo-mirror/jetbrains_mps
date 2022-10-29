@@ -13,6 +13,6 @@ public class Contribute2ModuleActions_ActionGroup extends GeneratedActionGroup {
     super("Contribute2ModuleActions", ID, plugin);
     setIsInternal(false);
     setPopup(false);
-    Contribute2ModuleActions_ActionGroup.this.addAction("jetbrains.mps.ide.actions.RenameModule_Action");
+    Contribute2ModuleActions_ActionGroup.this.addAction("jetbrains.mps.ide.refactoring.plugin.RenameModule_Action");
   }
 }
