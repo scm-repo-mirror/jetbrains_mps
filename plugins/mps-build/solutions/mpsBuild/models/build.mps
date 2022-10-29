@@ -1990,6 +1990,10 @@
     <node concept="398b33" id="1tWbYFNh9Av" role="3989C9">
       <property role="TrG5h" value="mps-test" />
       <node concept="398b2D" id="1tWbYFNh9A$" role="398b2p">
+        <node concept="nFU4i" id="5IInaM36FEy" role="nFU4p">
+          <property role="3LZaj6" value="4zlO3QTanjS/source" />
+          <property role="nFU4j" value="sources" />
+        </node>
         <node concept="nFU4i" id="1tWbYFNh9AC" role="nFU4p">
           <property role="nFU4j" value="source_gen" />
           <property role="3LZaj6" value="source" />
