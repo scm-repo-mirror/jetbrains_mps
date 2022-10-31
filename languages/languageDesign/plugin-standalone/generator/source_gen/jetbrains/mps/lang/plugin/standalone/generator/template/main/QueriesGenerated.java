@@ -21,6 +21,7 @@ import jetbrains.mps.lang.plugin.behavior.PreferencesComponentDeclaration__Behav
 import jetbrains.mps.lang.plugin.generator.util.PluginNameUtils;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.generator.template.ReferenceMacroContext;
+import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
@@ -136,6 +137,13 @@ public class QueriesGenerated extends QueryProviderBase {
     } else {
       return _context.getOutputNodeByInputNodeAndMappingLabel(applicationPluginNode, "map_ApplicationPluginClass");
     }
+  }
+  public static Object referenceMacro_GetReferent_4_0(final ReferenceMacroContext _context) {
+    // there's tool.createSuperType():node<Type>
+    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(_context.getNode(), LINKS.tool$ptRB), CONCEPTS.TabbedToolDeclaration$ug)) {
+      return new SNodePointer("742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.plugins.tool(MPS.Platform/)", "~GeneratedTool");
+    }
+    return new SNodePointer("742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.tools(MPS.Platform/)", "~BaseTool");
   }
   public static Object referenceMacro_GetReferent_7_0(final ReferenceMacroContext _context) {
     return _context.getOutputNodeByInputNodeAndMappingLabel(_context.getNode(), "map_ActionConstructor");
@@ -725,17 +733,18 @@ public class QueriesGenerated extends QueryProviderBase {
   private final Map<String, ReferenceTargetQuery> rtqMethods = new HashMap<String, ReferenceTargetQuery>();
   {
     rtqMethods.put("7167571922052020448", new RTQ(0, "PluginClass"));
-    rtqMethods.put("8540716876878811474", new RTQ(1, "GeneratedAction_Template"));
-    rtqMethods.put("5779258782777977182", new RTQ(2, "GeneratedAction_Template"));
-    rtqMethods.put("8540716876878811523", new RTQ(3, "MainGeneratedGroup"));
-    rtqMethods.put("1370142512206465070", new RTQ(4, "MainGeneratedGroup"));
-    rtqMethods.put("1370142512206465093", new RTQ(5, "ID"));
-    rtqMethods.put("4042687513231504091", new RTQ(6, "KeymapChanges"));
-    rtqMethods.put("6062029294753276831", new RTQ(7, "Object"));
-    rtqMethods.put("6769912430829060553", new RTQ(8, "TabDescriptor_Template"));
-    rtqMethods.put("1238672255067", new RTQ(9, "AbandonRuleInputException"));
-    rtqMethods.put("1238672255143", new RTQ(10, "Object"));
-    rtqMethods.put("808558577750840228", new RTQ(11, "Object"));
+    rtqMethods.put("2482070339557535012", new RTQ(1, "BaseTool"));
+    rtqMethods.put("8540716876878811474", new RTQ(2, "GeneratedAction_Template"));
+    rtqMethods.put("5779258782777977182", new RTQ(3, "GeneratedAction_Template"));
+    rtqMethods.put("8540716876878811523", new RTQ(4, "MainGeneratedGroup"));
+    rtqMethods.put("1370142512206465070", new RTQ(5, "MainGeneratedGroup"));
+    rtqMethods.put("1370142512206465093", new RTQ(6, "ID"));
+    rtqMethods.put("4042687513231504091", new RTQ(7, "KeymapChanges"));
+    rtqMethods.put("6062029294753276831", new RTQ(8, "Object"));
+    rtqMethods.put("6769912430829060553", new RTQ(9, "TabDescriptor_Template"));
+    rtqMethods.put("1238672255067", new RTQ(10, "AbandonRuleInputException"));
+    rtqMethods.put("1238672255143", new RTQ(11, "Object"));
+    rtqMethods.put("808558577750840228", new RTQ(12, "Object"));
   }
   @NotNull
   @Override
@@ -755,26 +764,28 @@ public class QueriesGenerated extends QueryProviderBase {
         case 0:
           return QueriesGenerated.referenceMacro_GetReferent_3_0(ctx);
         case 1:
-          return QueriesGenerated.referenceMacro_GetReferent_7_0(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_4_0(ctx);
         case 2:
-          return QueriesGenerated.referenceMacro_GetReferent_7_1(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_7_0(ctx);
         case 3:
-          return QueriesGenerated.referenceMacro_GetReferent_7_2(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_7_1(ctx);
         case 4:
-          return QueriesGenerated.referenceMacro_GetReferent_7_3(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_7_2(ctx);
         case 5:
-          return QueriesGenerated.referenceMacro_GetReferent_7_4(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_7_3(ctx);
         case 6:
-          return QueriesGenerated.referenceMacro_GetReferent_7_5(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_7_4(ctx);
         case 7:
-          return QueriesGenerated.referenceMacro_GetReferent_7_6(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_7_5(ctx);
         case 8:
-          return QueriesGenerated.referenceMacro_GetReferent_8_0(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_7_6(ctx);
         case 9:
-          return QueriesGenerated.referenceMacro_GetReferent_8_1(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_8_0(ctx);
         case 10:
-          return QueriesGenerated.referenceMacro_GetReferent_8_2(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_8_1(ctx);
         case 11:
+          return QueriesGenerated.referenceMacro_GetReferent_8_2(ctx);
+        case 12:
           return QueriesGenerated.referenceMacro_GetReferent_8_3(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
@@ -786,6 +797,7 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SConcept ProjectPluginDeclaration$IW = MetaAdapterFactory.getConcept(0xef7bf5acd06c4342L, 0xb11de42104eb9343L, 0x6b059b0986f2052L, "jetbrains.mps.lang.plugin.standalone.structure.ProjectPluginDeclaration");
     /*package*/ static final SConcept ApplicationPluginDeclaration$W1 = MetaAdapterFactory.getConcept(0xef7bf5acd06c4342L, 0xb11de42104eb9343L, 0x6b059b0986f2058L, "jetbrains.mps.lang.plugin.standalone.structure.ApplicationPluginDeclaration");
     /*package*/ static final SConcept StandalonePluginDescriptor$4y = MetaAdapterFactory.getConcept(0xef7bf5acd06c4342L, 0xb11de42104eb9343L, 0x685ef16bc1750e9cL, "jetbrains.mps.lang.plugin.standalone.structure.StandalonePluginDescriptor");
+    /*package*/ static final SConcept TabbedToolDeclaration$ug = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x51d51510f17223c5L, "jetbrains.mps.lang.plugin.structure.TabbedToolDeclaration");
     /*package*/ static final SConcept ActionGroupDeclaration$VO = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181da058d2L, "jetbrains.mps.lang.plugin.structure.ActionGroupDeclaration");
     /*package*/ static final SConcept ActionDeclaration$T0 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, "jetbrains.mps.lang.plugin.structure.ActionDeclaration");
     /*package*/ static final SConcept InterfaceGroup$yq = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1186ae0bf01L, "jetbrains.mps.lang.plugin.structure.InterfaceGroup");
