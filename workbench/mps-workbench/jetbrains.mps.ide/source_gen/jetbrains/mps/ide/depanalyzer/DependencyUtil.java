@@ -30,10 +30,18 @@ import java.util.Set;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 
 @GeneratedClass(node = "r:e9e5ee4e-8216-40bc-b13e-6f1480c626c5(jetbrains.mps.ide.depanalyzer)/978271742633844808", model = "r:e9e5ee4e-8216-40bc-b13e-6f1480c626c5(jetbrains.mps.ide.depanalyzer)")
-public class DependencyUtil {
+public final class DependencyUtil {
   private boolean myNeedRuntime;
   private final SRepository myRepo;
-  /*package*/ DependencyUtil(SRepository repo) {
+
+  public DependencyUtil(SRepository repo) {
+    // although we access this class from the same package only, has to be public
+    // as there's ModuleDependenciesTest, which is loaded by *another* module CL
+    // and Java doesn't tolerate accessing a package scoped method of a class 
+    // that is in the same package but is in a different jar and classloader.
+    // XXX would be nice to check once I move these classes out of app CL (out of mps-workbench) 
+    // to a module CL, if our module CL could be more relaxed on this (I doubt that, as it's Java 
+    // restriction, rather than that of CL, though)
     myRepo = repo;
   }
   public DependencyUtil trackRuntime(boolean needRuntime) {
@@ -103,7 +111,7 @@ public class DependencyUtil {
         if (!(module instanceof AbstractModule)) {
           break;
         }
-        DevkitDescriptor devkit = as_he47wm_a0a1a3d0g(((AbstractModule) module).getModuleDescriptor(), DevkitDescriptor.class);
+        DevkitDescriptor devkit = as_he47wm_a0a1a3d0h(((AbstractModule) module).getModuleDescriptor(), DevkitDescriptor.class);
         if (devkit == null) {
           break;
         }
@@ -122,7 +130,7 @@ public class DependencyUtil {
             }
             ListSequence.fromList(result).addElement(regularDependencyPresentation(dep));
           }
-          addDeps(result, as_he47wm_a0b0b0b0e3a6(module, Language.class).getRuntimeModulesReferences(), Role.RuntimeDependency, LinkType.ExportsRuntime);
+          addDeps(result, as_he47wm_a0b0b0b0e3a7(module, Language.class).getRuntimeModulesReferences(), Role.RuntimeDependency, LinkType.ExportsRuntime);
         }
         break;
 
@@ -158,7 +166,7 @@ public class DependencyUtil {
           addUsedLanguagesAndDevkitsOf(module, result, false);
         }
         if (module instanceof Generator) {
-          ListSequence.fromList(result).addElement(new DepLink((as_he47wm_a0a0a0a0a0a1a6d0g(module, Generator.class)).sourceLanguage().getSourceModuleReference(), Role.RuntimeDependency, LinkType.GeneratorLanguage));
+          ListSequence.fromList(result).addElement(new DepLink((as_he47wm_a0a0a0a0a0a1a6d0h(module, Generator.class)).sourceLanguage().getSourceModuleReference(), Role.RuntimeDependency, LinkType.GeneratorLanguage));
         }
         break;
 
@@ -166,13 +174,13 @@ public class DependencyUtil {
         // dependency from generator to its source language
         addExtendedLanguages(module, Role.SourceLanguage, result);
         if (myNeedRuntime) {
-          addDeps(result, as_he47wm_a0b0a0c0h3a6(module, Language.class).getRuntimeModulesReferences(), Role.RuntimeDependency, LinkType.ExportsRuntime);
+          addDeps(result, as_he47wm_a0b0a0c0h3a7(module, Language.class).getRuntimeModulesReferences(), Role.RuntimeDependency, LinkType.ExportsRuntime);
         }
         break;
 
       case DependencyLanguage:
         addExtendedLanguages(module, Role.DependencyLanguage, result);
-        addDeps(result, as_he47wm_a0b0b0i3a6(module, Language.class).getRuntimeModulesReferences(), Role.RuntimeDependency, LinkType.ExportsRuntime);
+        addDeps(result, as_he47wm_a0b0b0i3a7(module, Language.class).getRuntimeModulesReferences(), Role.RuntimeDependency, LinkType.ExportsRuntime);
         break;
 
       default:
@@ -339,19 +347,19 @@ public class DependencyUtil {
       return super._1();
     }
   }
-  private static <T> T as_he47wm_a0a1a3d0g(Object o, Class<T> type) {
+  private static <T> T as_he47wm_a0a1a3d0h(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
-  private static <T> T as_he47wm_a0b0b0b0e3a6(Object o, Class<T> type) {
+  private static <T> T as_he47wm_a0b0b0b0e3a7(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
-  private static <T> T as_he47wm_a0a0a0a0a0a1a6d0g(Object o, Class<T> type) {
+  private static <T> T as_he47wm_a0a0a0a0a0a1a6d0h(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
-  private static <T> T as_he47wm_a0b0a0c0h3a6(Object o, Class<T> type) {
+  private static <T> T as_he47wm_a0b0a0c0h3a7(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
-  private static <T> T as_he47wm_a0b0b0i3a6(Object o, Class<T> type) {
+  private static <T> T as_he47wm_a0b0b0i3a7(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
 }
