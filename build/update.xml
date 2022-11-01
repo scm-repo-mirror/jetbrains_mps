@@ -422,11 +422,11 @@
 
     <channel id="MPS222" name="MPS 2022.2" status="release"
              url="https://www.jetbrains.com/mps/download"
-             feedback="http://youtrack.jetbrains.net"
+             feedback="https://youtrack.jetbrains.com/issues/MPS"
              majorVersion="2022" minorVersoin="2">
-      <build number="222.3345.1195" version="2022.2 RC1">
-        <message>JetBrains MPS 2022.2 RC1 is now available.</message>
-        <button name="Download" url="https://www.jetbrains.com/mps/nextversion/" download="true"/>
+      <build number="222.3345.1295" version="2022.2">
+        <message>JetBrains MPS 2022.2 is now available.</message>
+        <button name="Download" url="https://www.jetbrains.com/mps/download" download="true"/>
       </build>
     </channel>
 
