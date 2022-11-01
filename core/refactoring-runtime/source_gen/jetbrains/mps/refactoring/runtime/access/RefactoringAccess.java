@@ -11,6 +11,8 @@ import jetbrains.mps.refactoring.framework.IRefactoringTarget;
 import java.util.List;
 import java.util.Arrays;
 import java.util.Collection;
+import jetbrains.mps.project.Project;
+import jetbrains.mps.project.ProjectManager;
 
 @GeneratedClass(node = "r:4c8c6241-8bf4-4d04-84a1-f7fd7fcbdc2c(jetbrains.mps.refactoring.runtime.access)/3705010080987885620", model = "r:4c8c6241-8bf4-4d04-84a1-f7fd7fcbdc2c(jetbrains.mps.refactoring.runtime.access)")
 public abstract class RefactoringAccess {
@@ -145,8 +147,27 @@ public abstract class RefactoringAccess {
   }
 
 
+  /**
+   * 
+   * @deprecated use getInstance(Project) instead. Remove once mbeddr switches to 2022.3 and can use new API
+   */
+  @Deprecated(forRemoval = true, since = "2022.3")
   public static RefactoringAccess getInstance() {
-    return ourInstance;
+    // I don't expect RA instance to be different per project, just need context to access component instance
+    List<Project> openedProjects = ProjectManager.getInstance().getOpenedProjects();
+    if (openedProjects.isEmpty()) {
+      return null;
+    }
+    return getInstance(openedProjects.get(0));
+  }
+
+  public static RefactoringAccess getInstance(Project project) {
+    RefactoringAccess instance = (project == null ? null : project.getComponent(RefactoringAccess.class));
+    if (instance == null) {
+      // legacy fallback, remove once project is mandatory and there's registration for component is in place.
+      instance = ourInstance;
+    }
+    return instance;
   }
 
   protected static void setInstance(RefactoringAccess instance) {
