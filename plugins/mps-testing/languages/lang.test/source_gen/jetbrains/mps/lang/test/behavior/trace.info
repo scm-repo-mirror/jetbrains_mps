@@ -1979,10 +1979,10 @@
       <node id="2754172450389421795" at="30,0,31,0" concept="12" trace="attachReference_id2wBFdLy8qmn" />
       <node id="2754172450389421795" at="31,0,32,0" concept="12" trace="getReference_id7eBNsYUkslm" />
       <node id="2754172450389421795" at="33,0,34,0" concept="12" trace="BH_METHODS" />
-      <node id="8000313307342884301" at="38,109,39,85" concept="9" />
+      <node id="8000313307342884301" at="38,109,39,146" concept="9" />
       <node id="428590876651661060" at="41,103,42,129" concept="0" />
       <node id="8489045168661156818" at="42,129,43,260" concept="3" />
-      <node id="8489045168661156826" at="43,260,44,183" concept="3" />
+      <node id="8489045168661156826" at="43,260,44,127" concept="3" />
       <node id="8333855927540240984" at="46,84,47,72" concept="9" />
       <node id="2754172450389421795" at="54,114,55,21" concept="3" />
       <node id="2754172450389421795" at="59,114,60,49" concept="8" />
@@ -1998,8 +1998,9 @@
       <node id="2754172450389421795" at="91,48,92,22" concept="9" />
       <node id="2754172450389421795" at="97,40,98,19" concept="9" />
       <node id="2754172450389421795" at="102,0,103,0" concept="12" trace="ReportErrorStatement$v1" />
-      <node id="2754172450389421795" at="106,0,107,0" concept="12" trace="errorRef$Yjyj" />
-      <node id="2754172450389421795" at="107,0,108,0" concept="12" trace="declaration$oKj7" />
+      <node id="2754172450389421795" at="103,0,104,0" concept="12" trace="Rule$DP" />
+      <node id="2754172450389421795" at="107,0,108,0" concept="12" trace="errorRef$Yjyj" />
+      <node id="2754172450389421795" at="108,0,109,0" concept="12" trace="declaration$oKj7" />
       <node id="2754172450389421795" at="35,0,37,0" concept="13" trace="___init___#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="2754172450389421795" at="50,0,52,0" concept="2" trace="NodeErrorCheckOperation__BehaviorDescriptor#()V" />
       <node id="2754172450389421795" at="38,0,41,0" concept="13" trace="canAttachReference_id2wBFdLy7HtS#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
@@ -2016,7 +2017,7 @@
       <node id="2754172450389421795" at="58,0,76,0" concept="7" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
       <scope id="2754172450389421795" at="35,63,35,63" />
       <scope id="2754172450389421795" at="50,61,50,61" />
-      <scope id="8202121391116566686" at="38,109,39,85" />
+      <scope id="8202121391116566686" at="38,109,39,146" />
       <scope id="8333855927540240583" at="46,84,47,72" />
       <scope id="2754172450389421795" at="54,114,55,21" />
       <scope id="2754172450389421795" at="61,26,62,56" />
@@ -2036,7 +2037,7 @@
         <var name="__thisNode__" id="2754172450389421795" />
         <var name="reference" id="8202121391116566687" />
       </scope>
-      <scope id="8489045168661005392" at="41,103,44,183" />
+      <scope id="8489045168661005392" at="41,103,44,127" />
       <scope id="2754172450389421795" at="46,0,49,0">
         <var name="__thisNode__" id="2754172450389421795" />
       </scope>
@@ -2067,9 +2068,9 @@
         <var name="node" id="2754172450389421795" />
         <var name="parameters" id="2754172450389421795" />
       </scope>
-      <unit id="2754172450389421795" at="101,0,104,0" name="jetbrains.mps.lang.test.behavior.NodeErrorCheckOperation__BehaviorDescriptor$CONCEPTS" />
-      <unit id="2754172450389421795" at="105,0,109,0" name="jetbrains.mps.lang.test.behavior.NodeErrorCheckOperation__BehaviorDescriptor$LINKS" />
-      <unit id="2754172450389421795" at="26,0,110,0" name="jetbrains.mps.lang.test.behavior.NodeErrorCheckOperation__BehaviorDescriptor" />
+      <unit id="2754172450389421795" at="101,0,105,0" name="jetbrains.mps.lang.test.behavior.NodeErrorCheckOperation__BehaviorDescriptor$CONCEPTS" />
+      <unit id="2754172450389421795" at="106,0,110,0" name="jetbrains.mps.lang.test.behavior.NodeErrorCheckOperation__BehaviorDescriptor$LINKS" />
+      <unit id="2754172450389421795" at="26,0,111,0" name="jetbrains.mps.lang.test.behavior.NodeErrorCheckOperation__BehaviorDescriptor" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c89590380(jetbrains.mps.lang.test.behavior)/2754172450389427103">

@@ -815,7 +815,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.super_(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x6cbc57bb7a195a9aL);
     b.origin("r:00000000-0000-4000-0000-011c89590388(jetbrains.mps.lang.test.structure)/1215507671101");
     b.version(3);
-    b.aggregate("errorRef", 0x75cf259aa047ff15L).target(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x3ee2cbee8b19b06dL).optional(true).ordered(true).multiple(false).origin("8489045168660938517").done();
+    b.aggregate("errorRef", 0x75cf259aa047ff15L).target(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x6abc06f5f4afab9dL).optional(true).ordered(true).multiple(false).origin("8489045168660938517").done();
     b.alias("has error");
     return b.create();
   }

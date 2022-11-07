@@ -27,19 +27,19 @@ import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfoPartEx;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.lang.editor.generator.internal.AbstractCellMenuPart_Generic_Group;
 import java.util.List;
-import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Set;
-import jetbrains.mps.findUsages.FindUsagesManager;
-import java.util.Collections;
-import jetbrains.mps.progress.EmptyProgressMonitor;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
-import jetbrains.mps.internal.collections.runtime.ISelector;
+import java.util.HashSet;
+import jetbrains.mps.findUsages.FindUsagesManager;
+import jetbrains.mps.progress.EmptyProgressMonitor;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.typesystem.behavior.MessageStatement__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.openapi.editor.menus.EditorMenuDescriptor;
 import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
@@ -59,6 +59,7 @@ import jetbrains.mps.lang.core.behavior.PropertyAttribute__BehaviorDescriptor;
 import jetbrains.mps.nodeEditor.EditorManager;
 import jetbrains.mps.openapi.editor.update.AttributeKind;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class NodeErrorCheckOperation_EditorBuilder_a extends AbstractEditorBuilder {
@@ -138,7 +139,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
     private void installCellInfo(SNode child, EditorCell editorCell, boolean isEmpty) {
       if (editorCell.getSubstituteInfo() == null || editorCell.getSubstituteInfo() instanceof DefaultSubstituteInfo) {
-        editorCell.setSubstituteInfo(new CompositeSubstituteInfo(getEditorContext(), new AggregationCellContext(myNode, child, LINKS.errorRef$Yjyj, CONCEPTS.ReportErrorStatementReference$s6), new SubstituteInfoPartExt[]{new NodeErrorCheckOperation_generic_cellMenu_kzyi6r_a0b0(), new SChildSubstituteInfoPartEx(editorCell)}));
+        editorCell.setSubstituteInfo(new CompositeSubstituteInfo(getEditorContext(), new AggregationCellContext(myNode, child, LINKS.errorRef$Yjyj, CONCEPTS.IRuleReference$nO), new SubstituteInfoPartExt[]{new NodeErrorCheckOperation_generic_cellMenu_kzyi6r_a0b0(), new SChildSubstituteInfoPartEx(editorCell)}));
       }
       if (editorCell.getSRole() == null) {
         editorCell.setSRole(LINKS.errorRef$Yjyj);
@@ -166,30 +167,39 @@ import org.jetbrains.mps.openapi.language.SConcept;
       }
 
       protected List<?> createParameterObjects(SNode node, EditorContext editorContext) {
-        SAbstractConcept concept = CONCEPTS.ReportErrorStatement$v1;
         AbstractModule module = ((AbstractModule) SNodeOperations.getModel(node).getModule());
-        Set<SNode> errorInstances = FindUsagesManager.getInstance().findInstances(module.getScope(), Collections.singleton(concept), true, new EmptyProgressMonitor());
-        return SetSequence.fromSet(errorInstances).toListSequence().select(new ISelector<SNode, SNode>() {
-          public SNode select(SNode it) {
-            return SNodeOperations.cast(it, CONCEPTS.ReportErrorStatement$v1);
-          }
-        }).toListSequence();
+        Set<SAbstractConcept> cs = SetSequence.fromSetAndArray(new HashSet<SAbstractConcept>(), CONCEPTS.ReportErrorStatement$v1, CONCEPTS.Rule$DP);
+        Set<SNode> errorInstances = FindUsagesManager.getInstance().findInstances(module.getScope(), cs, true, new EmptyProgressMonitor());
+        return SetSequence.fromSet(errorInstances).toListSequence();
 
       }
       protected void handleAction(Object parameterObject, SNode node, SModel model, EditorContext editorContext) {
         this.handleAction_impl((SNode) parameterObject, node, model, editorContext);
       }
       private void handleAction_impl(SNode parameterObject, SNode node, SModel model, EditorContext editorContext) {
-        SLinkOperations.setTarget(node, LINKS.errorRef$Yjyj, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x3ee2cbee8b19b06dL, "jetbrains.mps.lang.test.structure.ReportErrorStatementReference")));
-        SLinkOperations.setTarget(SLinkOperations.getTarget(node, LINKS.errorRef$Yjyj), LINKS.declaration$oKj7, parameterObject);
+        if (SNodeOperations.isInstanceOf(parameterObject, CONCEPTS.ReportErrorStatement$v1)) {
+          SLinkOperations.setTarget(node, LINKS.errorRef$Yjyj, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x3ee2cbee8b19b06dL, "jetbrains.mps.lang.test.structure.ReportErrorStatementReference")));
+          SLinkOperations.setTarget(SLinkOperations.getTarget(node, LINKS.errorRef$Yjyj), LINKS.declaration$oKj7, parameterObject);
+        } else if (SNodeOperations.isInstanceOf(parameterObject, CONCEPTS.Rule$DP)) {
+          SLinkOperations.setTarget(node, LINKS.errorRef$Yjyj, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x6abc06f5f4af0d67L, "jetbrains.mps.lang.test.structure.UnknownRuleReference")));
+          SLinkOperations.setTarget(SLinkOperations.getTarget(node, LINKS.errorRef$Yjyj), LINKS.declaration$oKj7, parameterObject);
+        } else {
+          throw new IllegalArgumentException("Unrecognized parameter object " + SNodeOperations.present(parameterObject));
+        }
       }
       protected boolean isReferentPresentation() {
         return false;
       }
       protected String getMatchingText(Object _parameterObject) {
         final SNode parameterObject = (SNode) _parameterObject;
-        SNode errorStatement = parameterObject;
-        return MessageStatement__BehaviorDescriptor.getName_id1oFBbRehoLP.invoke(errorStatement);
+        if (SNodeOperations.isInstanceOf(parameterObject, CONCEPTS.ReportErrorStatement$v1)) {
+          SNode errorStatement = SNodeOperations.as(parameterObject, CONCEPTS.ReportErrorStatement$v1);
+          return MessageStatement__BehaviorDescriptor.getName_id1oFBbRehoLP.invoke(errorStatement);
+        } else if (SNodeOperations.isInstanceOf(parameterObject, CONCEPTS.Rule$DP)) {
+          return SPropertyOperations.getString(SNodeOperations.as(parameterObject, CONCEPTS.Rule$DP), PROPS.name$MnvL);
+        } else {
+          throw new IllegalArgumentException("Unrecognized parameter object " + SNodeOperations.present(parameterObject));
+        }
       }
 
       @Override
@@ -293,8 +303,9 @@ import org.jetbrains.mps.openapi.language.SConcept;
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept ReportErrorStatementReference$s6 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x3ee2cbee8b19b06dL, "jetbrains.mps.lang.test.structure.ReportErrorStatementReference");
+    /*package*/ static final SInterfaceConcept IRuleReference$nO = MetaAdapterFactory.getInterfaceConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x6abc06f5f4afab9dL, "jetbrains.mps.lang.test.structure.IRuleReference");
     /*package*/ static final SConcept ReportErrorStatement$v1 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x111b251a62aL, "jetbrains.mps.lang.typesystem.structure.ReportErrorStatement");
+    /*package*/ static final SConcept Rule$DP = MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x6530303593586de2L, "jetbrains.mps.lang.constraints.rules.structure.Rule");
     /*package*/ static final SConcept PropertyAttribute$Gb = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da56L, "jetbrains.mps.lang.core.structure.PropertyAttribute");
   }
 }
