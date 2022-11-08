@@ -341,10 +341,14 @@ public class PluginLoaderRegistry implements Disposable {
    */
   private void update() {
     if (myUpdateIsScheduledInEDT.compareAndSet(false, true)) {
-      // FIXME this is quite suspicious code, I believe assert in runTaskLater() from 350d930e
-      //       was about assumptions at the time of the writing ("Do I understand invocation scenario right?"),
-      //       rather than "we need to have platform read access here to satisfy API X".
-      ApplicationManager.getApplication().runReadAction(this::runTaskLater);
+      // no idea which executor/thread pool to use, e.g. seen uses of AppExecutorUtil.getAppExecutorService()
+      ApplicationManager.getApplication().executeOnPooledThread(() -> {
+        // we need to get out of application read since it is impossible to #invokeAndWait from read, lets postpone
+        LOG.debug("running the task later");
+        ProgressIndicator globalProgressIndicator = ProgressManager.getGlobalProgressIndicator();
+        // trying to pass the current indicator, for example this helps us to reload plugins within the global project open indicator
+        runTask(globalProgressIndicator);
+      });
     }
   }
 
@@ -370,15 +374,6 @@ public class PluginLoaderRegistry implements Disposable {
         update();
       }
     }
-  }
-
-  // we need to get out of application read since it is impossible to #invokeAndWait from read, lets postpone
-  private void runTaskLater() {
-    assert (ApplicationManager.getApplication().isReadAccessAllowed());
-    LOG.debug("running the task later");
-    ProgressIndicator globalProgressIndicator = ProgressManager.getGlobalProgressIndicator();
-    // trying to pass the current indicator, for example this helps us to reload plugins within the global project open indicator
-    ApplicationManager.getApplication().executeOnPooledThread(() -> runTask(globalProgressIndicator));
   }
 
   // now we are not in read
