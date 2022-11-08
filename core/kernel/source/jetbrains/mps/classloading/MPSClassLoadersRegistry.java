@@ -268,8 +268,10 @@ class MPSClassLoadersRegistry {
         @Override
         public void release(@NotNull Object requestor) {
           myBlockingRequestors.remove(requestor);
-          if (myBlockingRequestors.isEmpty()) {
-            doDispose();
+          synchronized (DisposeSession.this) {
+            if (isNotBlocked() && isReadyToDispose()) {
+              doDispose();
+            }
           }
         }
       };
@@ -290,6 +292,11 @@ class MPSClassLoadersRegistry {
         if (isNotBlocked()) {
           doDispose();
         } // else we wait for the last #release
+      }
+
+      // shall answer true iff readyToDispose() was signaled
+      private boolean isReadyToDispose() {
+        return myPlanningDisposalTime != null;
       }
 
       private boolean isNotBlocked() {
