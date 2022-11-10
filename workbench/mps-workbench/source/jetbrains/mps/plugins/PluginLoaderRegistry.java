@@ -125,6 +125,9 @@ public class PluginLoaderRegistry implements Disposable {
   }
 
   private Set<PluginContributor> createPluginContributors(Collection<ReloadableModule> modules) {
+    if (modules.isEmpty()) {
+      return Collections.emptySet();
+    }
     List<ReloadableModule> sortedModules = new PluginSorter(modules).sortByDependencies();
 
     List<PluginContributor> contributors = new ArrayList<>();
@@ -245,6 +248,9 @@ public class PluginLoaderRegistry implements Disposable {
   }
 
   private Set<PluginContributor> calcContributorsToUnload(Set<PluginContributor> currentContributors, Set<ReloadableModule> toUnload) {
+    if (toUnload.isEmpty()) {
+      return Collections.emptySet();
+    }
     List<PluginContributor> toUnloadContributors = new ArrayList<>();
     for (PluginContributor contributor : currentContributors) {
       if (contributor instanceof ModulePluginContributor) {
@@ -393,12 +399,12 @@ public class PluginLoaderRegistry implements Disposable {
     }
     if (oldIndicator != null && oldIndicator.isShowing()) {
       // let's run under the old indicator
-      LOG.trace("running with the old");
+      LOG.trace("running with the old PI");
       task.run(oldIndicator);
     } else {
       // usually this section is called after rebuild/make
       // we have no indicator -- lets create one
-      LOG.trace("running with the new");
+      LOG.trace("queued with the new PI");
       task.queue();
     }
   }
@@ -476,7 +482,7 @@ public class PluginLoaderRegistry implements Disposable {
             Snapshot snapshot = myAccumulation.reset();
             try {
               // this is in clm transaction, so we do not get any updates on the delta with modules
-              Delta<ReloadableModule> moduleDelta = snapshot.getModuleDelta();
+              Delta<PluginContributor> moduleDelta = snapshot.getModuleDelta();
               Delta<PluginLoader> loadersDelta = snapshot.getLoaderDelta();
 
               if (loadersDelta.isEmpty() && moduleDelta.isEmpty()) {
@@ -485,8 +491,8 @@ public class PluginLoaderRegistry implements Disposable {
               }
               monitor.advance(1);
 
-              Set<PluginContributor> toUnloadContributors = calcContributorsToUnload(myCurrentContributors, moduleDelta.toUnload);
-              Set<PluginContributor> toLoadContributors = createPluginContributors(moduleDelta.toLoad);
+              Set<PluginContributor> toUnloadContributors = moduleDelta.toUnload;
+              Set<PluginContributor> toLoadContributors = moduleDelta.toLoad;
               List<PluginContributor> notifyToUnload;
               List<PluginContributor> notifyToLoad;
               if (loadersDelta.isEmpty()) {
@@ -591,6 +597,7 @@ public class PluginLoaderRegistry implements Disposable {
       }
     }
 
+    @SuppressWarnings("UnstableApiUsage")
     private void clearIDEASerializationCaches() {
       try {
         Optional<JdomSerializer> jdomSerializer = ServiceLoader.load(JdomSerializer.class, JdomSerializer.class.getClassLoader()).findFirst();
@@ -600,6 +607,7 @@ public class PluginLoaderRegistry implements Disposable {
       }
   }
 
+    @SuppressWarnings("UnstableApiUsage")
     private void clearIDEMenusFromOurActionRefs() {
       try {
         WindowManagerEx windowManager = WindowManagerEx.getInstanceEx();
@@ -649,26 +657,35 @@ public class PluginLoaderRegistry implements Disposable {
       Set<ReloadableModule> unloadedModules = classLoaders2Dispose.stream()
                                                           .map(ModuleClassLoader::getModule)
                                                           .collect(Collectors.toSet());
-      final Set<ReloadableModule> pm = getPluginModules(unloadedModules);
-      if (pm.isEmpty()) {
+      // XXX SModule instance here is already detached, and therefore bears no JavaModuleFacet, therefore we can't use
+      // getPluginModules to reduce the set (unless we'd like a hack similar to one removed in SModuleOperations in fc50fd1b)
+      //final Set<ReloadableModule> pm = getPluginModules(unloadedModules);
+      final Set<PluginContributor> pc2unload = calcContributorsToUnload(myCurrentContributors, unloadedModules);
+      final String m = "onUnloaded. Total: %d modules, matched contributors: %d. Thread: %s";
+      LOG.trace(String.format(m, unloadedModules.size(), pc2unload.size(), Thread.currentThread()));
+      if (pc2unload.isEmpty()) {
         // fine, there's nothing for us to do here, well except for clearIDEAIconsGlobalCache() considerations,
         // but I don't feel it's right to assume PluginLoaderRegistry, responsible for MPS plugin management, to
         // be responsible for general CL come and go story.
         callback.release(PluginLoaderRegistry.this);
         return;
       }
+
       // I don't filter classLoaders2Dispose to match plugin modules as there's no way to 'release' subset only.
       // Besides, these CLs are likely dependant between each other anyway, why bother.
       // Moreover, update() uses these to refresh various caches, so it's highly likely we need to clear all these.
-      myAccumulation.onUnload(pm, classLoaders2Dispose, () -> callback.release(PluginLoaderRegistry.this));
+      myAccumulation.onUnload(pc2unload, classLoaders2Dispose, () -> callback.release(PluginLoaderRegistry.this));
       update();
     }
 
     @Override
     public void onLoaded(@NotNull Set<ReloadableModule> loadedModules, @NotNull ProgressMonitor monitor) {
       final Set<ReloadableModule> pm = getPluginModules(loadedModules);
-      if (!pm.isEmpty()) {
-        myAccumulation.onLoad(pm);
+      // FIXME isDeployed() check in createPluginContributor is not necessary if we do it here, not in postponed UT.update()
+      final Set<PluginContributor> pc2load = createPluginContributors(pm);
+
+      if (!pc2load.isEmpty()) {
+        myAccumulation.onLoad(pc2load);
         update();
       }
     }
@@ -678,13 +695,13 @@ public class PluginLoaderRegistry implements Disposable {
 
   // access to all data members is synchronized through access methods
   static class EventAccumulation {
-    private final Delta<ReloadableModule> myDelta = new Delta<>();
+    private final Delta<PluginContributor> myDelta = new Delta<>();
     private final List<ModuleClassLoader> myCLsToBeDisposed = new ArrayList<>(); // to be disposed in the next invocation of UpdatingTask#update
     private final Queue<Runnable> myPostRunnableQueue = new LinkedList<>();
 
     private final Delta<PluginLoader> myLoaderDelta = new Delta<>();
 
-    synchronized void onUnload(Set<ReloadableModule> unloadedModules, @NotNull Set<ModuleClassLoader> disposingCLs, @Nullable Runnable postRunnable) {
+    synchronized void onUnload(Set<PluginContributor> unloadedModules, @NotNull Set<ModuleClassLoader> disposingCLs, @Nullable Runnable postRunnable) {
       myDelta.unload(unloadedModules);
       myCLsToBeDisposed.addAll(disposingCLs);
       if (postRunnable != null) {
@@ -692,7 +709,7 @@ public class PluginLoaderRegistry implements Disposable {
       }
     }
 
-    synchronized void onLoad(Set<ReloadableModule> loadedModules) {
+    synchronized void onLoad(Set<PluginContributor> loadedModules) {
       myDelta.load(loadedModules);
     }
 
@@ -726,12 +743,12 @@ public class PluginLoaderRegistry implements Disposable {
   }
 
   final static class Snapshot {
-    private final Delta<ReloadableModule> myModuleDelta;
+    private final Delta<PluginContributor> myModuleDelta;
     private final Delta<PluginLoader> myLoaderDelta;
     private final List<ModuleClassLoader> myClassLoaders;
     private final List<Runnable> myPostRun;
 
-    Snapshot(Delta<ReloadableModule> md, Delta<PluginLoader> pld, List<ModuleClassLoader> cbd, List<Runnable> postRun) {
+    Snapshot(Delta<PluginContributor> md, Delta<PluginLoader> pld, List<ModuleClassLoader> cbd, List<Runnable> postRun) {
       myModuleDelta = md;
       myLoaderDelta = pld;
       myClassLoaders = cbd;
@@ -739,7 +756,7 @@ public class PluginLoaderRegistry implements Disposable {
     }
 
     @NotNull
-    Delta<ReloadableModule> getModuleDelta() {
+    Delta<PluginContributor> getModuleDelta() {
       return myModuleDelta;
     }
 

@@ -211,7 +211,7 @@ public abstract class Project implements MPSModuleOwner, IProject {
 
   @NotNull
   public String toString() {
-    return "MPS Project [" + myName + "] " + (myDisposed ? ", disposed]" : "]");
+    return "MPS Project [" + myName + "] " + (myDisposed ? ", disposed" : "");
   }
 
   /**

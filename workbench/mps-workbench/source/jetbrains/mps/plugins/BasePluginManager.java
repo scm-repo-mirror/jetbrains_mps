@@ -69,7 +69,7 @@ public abstract class BasePluginManager<T> implements PluginLoader {
       return false;
     }
     int size = contributors.size();
-    LOG.debug("Loading plugins from " + size + " contributors [" + this + "]");
+    LOG.debug(String.format("[%s] to instantiate plugins from %d contributors", this, size));
     final Map<PluginContributor, T> plugins = createPlugins(contributors);
     synchronized (myPluginsLock) {
       plugins.forEach((contributor, plugin) -> {
@@ -77,7 +77,7 @@ public abstract class BasePluginManager<T> implements PluginLoader {
           LOG.error("", new IllegalArgumentException(this + ": contributor " + contributor + " is already registered"));
         }
 
-        LOG.debug("loading plugin from the contributor " + contributor);
+        LOG.trace("loading plugin from the contributor " + contributor);
         myContributorToPlugin.put(contributor, plugin);
       });
       List<T> notNullPlugins = plugins.values().stream().filter(Objects::nonNull).collect(Collectors.toList());
@@ -150,8 +150,13 @@ public abstract class BasePluginManager<T> implements PluginLoader {
   private T createPluginChecked(PluginContributor contributor) {
     T plugin = null;
     try {
+      // FIXME I'm not certain keeping null for PC is a good idea. Indeed, we ensure consistent
+      //       modules/PC come and go, but is it necessary? Moreover, hasPluginsFor() is not in use,
+      //       the only place we check this consistency is unloadPlugins
       plugin = createPlugin(contributor);
-      LOG.trace(this + ": creating plugin " + plugin + " from the contributor " + contributor);
+      if (plugin != null && LOG.isTraceLevel()) {
+        LOG.trace(String.format("[%s] instantiated plugin %s from the contributor %s", this, plugin, contributor));
+      }
     } catch (LinkageError le) {
       LOG.error(this + ": contributor " + contributor + " threw a linkage error during plugin creation ", le);
     } catch (VirtualMachineError virtualMachineError) {
