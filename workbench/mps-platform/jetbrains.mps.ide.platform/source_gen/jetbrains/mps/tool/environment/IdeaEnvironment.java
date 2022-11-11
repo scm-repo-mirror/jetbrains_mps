@@ -251,18 +251,15 @@ public final class IdeaEnvironment extends EnvironmentBase {
         List<Project> openedProjects = new ArrayList<Project>(pm.getOpenedProjects());
         for (final Project project : openedProjects) {
           if (project instanceof MPSProject) {
-            // MPSProject need to be disposed outside writeAction to prevent exception:
-            // java.lang.IllegalStateException: Must not call closeProject() from under write action
-            // because fireProjectClosing() listeners must have a chance to do something useful
-            // TODO: find way to put MPSProject#dispose() under writeAction
-            // FIXME ^^^^
-            project.dispose();
+            // FIXME refactor do avoid code duplication with closeProject
+            // Perhaps, shall use IDEA's Project manager here directly, and then check if any
+            // MPSProject left open
+            com.intellij.openapi.project.Project ideaProject = ((MPSProject) project).getProject();
+            FileEditorManagerEx.getInstanceEx(ideaProject).closeAllFiles();
+            ProjectManagerEx.getInstanceEx().closeAndDispose(ideaProject);
           } else {
-            application.runWriteAction(new Runnable() {
-              public void run() {
-                project.dispose();
-              }
-            });
+            // no idea why there's a need to add write action for project dispose. isn't write-ready thread enough?
+            project.dispose();
           }
         }
         application.runWriteAction(new Runnable() {

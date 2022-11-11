@@ -31,6 +31,9 @@ import java.io.IOException;
   }
 
   public void dispose() {
+    // FIXME clear() would never work, as it disposes projects before removing the listener that
+    //      modifies the set of the projects. Seems that even if I need to keep this class, clear()
+    //      code have to be done in an IdeaEnvironment.doDispose() fashion, i.e Env to dispose/close projects
     clear();
     myProjectManager.removeProjectListener(this);
   }
