@@ -31,7 +31,7 @@ public abstract class EnvironmentBase implements Environment {
 
   protected final EnvironmentConfig myConfig;
   private boolean myInitialized;
-  private final ProjectContainer myContainer = new ProjectContainer();
+  private ProjectContainer myProjectContainer;
   private ClassLoader myRootClassLoader = null;
 
   public static void initializeLog4j() {
@@ -65,6 +65,7 @@ public abstract class EnvironmentBase implements Environment {
       throw new EnvironmentInitializedTwiceException();
     }
     myRootClassLoader = createRootClassLoader();
+    myProjectContainer = new ProjectContainer(mpsPlatform);
     initMacros(mpsPlatform.findComponent(PathMacros.class));
     if (LOG.isInfoLevel()) {
       LOG.info("Initializing libraries");
@@ -137,7 +138,7 @@ public abstract class EnvironmentBase implements Environment {
   @Nullable
   public final Project getOpenedProject(@NotNull File projectFile) {
     checkInitialized();
-    return myContainer.getProject(projectFile);
+    return myProjectContainer.getProject(projectFile);
   }
 
   @Override

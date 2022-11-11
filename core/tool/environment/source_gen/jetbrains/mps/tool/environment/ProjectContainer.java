@@ -7,29 +7,32 @@ import jetbrains.mps.project.ProjectManagerListener;
 import jetbrains.mps.logging.Logger;
 import java.util.Set;
 import jetbrains.mps.project.Project;
+import jetbrains.mps.project.ProjectManager;
+import jetbrains.mps.components.ComponentHost;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.LinkedHashSet;
-import jetbrains.mps.project.ProjectManager;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.NotNull;
 import java.io.File;
 import jetbrains.mps.project.FileBasedProject;
-import jetbrains.mps.util.EqualUtil;
+import java.util.Objects;
 import java.io.IOException;
 
 @GeneratedClass(node = "r:2876f1ee-0b45-4db5-8c09-0682cdee5c67(jetbrains.mps.tool.environment)/623745604705880298", model = "r:2876f1ee-0b45-4db5-8c09-0682cdee5c67(jetbrains.mps.tool.environment)")
 /*package*/ class ProjectContainer implements ProjectManagerListener {
   private static final Logger LOG = Logger.getLogger(ProjectContainer.class);
-  private Set<Project> myProjects;
+  private final Set<Project> myProjects;
+  private final ProjectManager myProjectManager;
 
-  public ProjectContainer() {
+  /*package*/ ProjectContainer(ComponentHost platform) {
     myProjects = SetSequence.fromSet(new LinkedHashSet<Project>());
-    ProjectManager.getInstance().addProjectListener(this);
+    myProjectManager = platform.findComponent(ProjectManager.class);
+    myProjectManager.addProjectListener(this);
   }
 
   public void dispose() {
     clear();
-    ProjectManager.getInstance().removeProjectListener(this);
+    myProjectManager.removeProjectListener(this);
   }
 
   private void clear() {
@@ -82,7 +85,7 @@ import java.io.IOException;
     File projectFile = project.getProjectFile();
     try {
       String myProjectPath = projectFile.getCanonicalPath();
-      return EqualUtil.equals(myProjectPath, path.getCanonicalPath());
+      return Objects.equals(myProjectPath, path.getCanonicalPath());
     } catch (IOException e) {
       if (LOG.isErrorLevel()) {
         LOG.error("Cannot access the project file in container", e);

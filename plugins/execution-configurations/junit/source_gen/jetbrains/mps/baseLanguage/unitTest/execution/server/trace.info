@@ -688,7 +688,7 @@
       <node id="7690045930174744332" at="131,0,134,0" concept="9" trace="createFailedRequestForClass#(Ljava/lang/String;Ljava/lang/Exception;)Lorg/junit/runner/Request;" />
       <node id="7690045930174711083" at="135,0,138,0" concept="9" trace="createFailedRequestForMethod#(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)Lorg/junit/runner/Request;" />
       <node id="1831019415300437289" at="157,0,160,0" concept="3" trace="InProcessEnvironment#()V" />
-      <node id="6757459382751173725" at="164,80,167,9" concept="8" />
+      <node id="6757459382751173725" at="164,101,167,9" concept="8" />
       <node id="6388125092640136484" at="186,30,189,7" concept="8" />
       <node id="1831019415300414017" at="189,7,192,7" concept="8" />
       <node id="6139940957876744273" at="58,57,62,9" concept="8" />
@@ -784,7 +784,7 @@
         <var name="testFqName" id="7690045930174711070" />
       </scope>
       <scope id="1831019415300437289" at="157,0,160,0" />
-      <scope id="6757459382751147091" at="164,80,167,9" />
+      <scope id="6757459382751147091" at="164,101,167,9" />
       <scope id="1831019415300414025" at="193,11,196,46">
         <var name="projectPath" id="1831019415300414027" />
         <var name="testedPath" id="1831019415300414033" />

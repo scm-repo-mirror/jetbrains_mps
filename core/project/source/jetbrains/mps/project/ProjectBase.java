@@ -61,7 +61,7 @@ import java.util.stream.Stream;
  */
 public abstract class ProjectBase extends Project {
   private static final Logger LOG = Logger.getLogger(ProjectBase.class);
-  private final ProjectManager myProjectManager = ProjectManager.getInstance();
+  protected final ProjectManager myProjectManager;
 
   protected final ComponentHost myPlatform;
 
@@ -79,6 +79,8 @@ public abstract class ProjectBase extends Project {
     super(name);
     myModuleLoader = new ProjectModuleLoader(this); // fixme: avoid
     myPlatform = mpsPlatform;
+    // the only reason I keep the field is to manifest we register/unregister project instance into the same PM instance
+    myProjectManager = mpsPlatform.findComponent(ProjectManager.class);
   }
 
   @NotNull
@@ -290,7 +292,7 @@ public abstract class ProjectBase extends Project {
 
   @Override
   public boolean isOpened() {
-    return ProjectManager.getInstance().getOpenedProjects().contains(this);
+    return myProjectManager.getOpenedProjects().contains(this);
   }
 
   /**

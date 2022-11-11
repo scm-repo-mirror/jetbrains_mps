@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,8 @@
  */
 package jetbrains.mps.project;
 
+import jetbrains.mps.components.CoreComponent;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -27,12 +29,23 @@ import java.util.concurrent.CopyOnWriteArrayList;
  *
  * TODO must be core component not singleton
  */
-public final class ProjectManager {
-  private static final ProjectManager INSTANCE = new ProjectManager();
+public final class ProjectManager implements CoreComponent {
+  private static ProjectManager INSTANCE;
   private final List<ProjectManagerListener> myListeners = new CopyOnWriteArrayList<>();
 
   public static ProjectManager getInstance() {
+    Logger.getLogger(ProjectManager.class).warnDeprecatedUse("ProjectManager is CoreComponent, use ComponentHost to access its instance");
     return INSTANCE;
+  }
+
+  @Override
+  public void init() {
+    INSTANCE = this;
+  }
+
+  @Override
+  public void dispose() {
+    INSTANCE = null;
   }
 
   private final List<Project> myOpenedProjects = new ArrayList<>();

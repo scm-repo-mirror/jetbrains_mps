@@ -24,9 +24,9 @@ import com.intellij.openapi.vfs.newvfs.impl.VfsRootAccess;
 import jetbrains.mps.project.MPSProject;
 import com.intellij.openapi.util.Disposer;
 import com.intellij.openapi.application.Application;
+import jetbrains.mps.project.ProjectManager;
 import java.util.List;
 import java.util.ArrayList;
-import jetbrains.mps.project.ProjectManager;
 import com.intellij.openapi.application.ModalityState;
 import jetbrains.mps.ide.ThreadUtils;
 import com.intellij.util.ui.UIUtil;
@@ -227,13 +227,17 @@ public final class IdeaEnvironment extends EnvironmentBase {
     application.invokeAndWait(new Runnable() {
       @Override
       public void run() {
-        List<Project> openedProjects = new ArrayList<Project>(ProjectManager.getInstance().getOpenedProjects());
+        // XXX why PM from MPS, not from IDEA? We're in IDEA env, after all. Do we care
+        //    about non-MPS projects?
+        ProjectManager pm = getPlatform().findComponent(ProjectManager.class);
+        List<Project> openedProjects = new ArrayList<Project>(pm.getOpenedProjects());
         for (final Project project : openedProjects) {
           if (project instanceof MPSProject) {
             // MPSProject need to be disposed outside writeAction to prevent exception:
             // java.lang.IllegalStateException: Must not call closeProject() from under write action
             // because fireProjectClosing() listeners must have a chance to do something useful
             // TODO: find way to put MPSProject#dispose() under writeAction
+            // FIXME ^^^^
             project.dispose();
           } else {
             application.runWriteAction(new Runnable() {

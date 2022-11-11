@@ -20,7 +20,6 @@
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
     <import index="tp5g" ref="r:00000000-0000-4000-0000-011c89590388(jetbrains.mps.lang.test.structure)" />
     <import index="tp5o" ref="r:00000000-0000-4000-0000-011c89590380(jetbrains.mps.lang.test.behavior)" />
-    <import index="q7tw" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:org.apache.log4j(MPS.Core/)" />
     <import index="j8aq" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.module(MPS.Core/)" />
     <import index="79ha" ref="r:2876f1ee-0b45-4db5-8c09-0682cdee5c67(jetbrains.mps.tool.environment)" />
     <import index="3qmy" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.classloading(MPS.Core/)" />
@@ -4441,12 +4440,19 @@
               </node>
             </node>
             <node concept="2OqwBi" id="5R7ko6d0PW6" role="1DdaDG">
-              <node concept="2YIFZM" id="5R7ko6d0PKs" role="2Oq$k0">
-                <ref role="37wK5l" to="z1c3:~ProjectManager.getInstance()" resolve="getInstance" />
-                <ref role="1Pybhc" to="z1c3:~ProjectManager" resolve="ProjectManager" />
-              </node>
               <node concept="liA8E" id="5R7ko6d0R$H" role="2OqNvi">
                 <ref role="37wK5l" to="z1c3:~ProjectManager.getOpenedProjects()" resolve="getOpenedProjects" />
+              </node>
+              <node concept="2OqwBi" id="2iqAsxGkJIc" role="2Oq$k0">
+                <node concept="1rXfSq" id="2iqAsxGkILP" role="2Oq$k0">
+                  <ref role="37wK5l" to="ew0j:~AbstractEnvironment.getPlatform()" resolve="getPlatform" />
+                </node>
+                <node concept="liA8E" id="2iqAsxGkKHv" role="2OqNvi">
+                  <ref role="37wK5l" to="wyuk:~ComponentHost.findComponent(java.lang.Class)" resolve="findComponent" />
+                  <node concept="3VsKOn" id="2iqAsxGkMM0" role="37wK5m">
+                    <ref role="3VsUkX" to="z1c3:~ProjectManager" resolve="ProjectManager" />
+                  </node>
+                </node>
               </node>
             </node>
           </node>

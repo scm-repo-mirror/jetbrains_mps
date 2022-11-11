@@ -28,6 +28,7 @@ import jetbrains.mps.library.LibraryInitializer;
 import jetbrains.mps.persistence.PersistenceRegistry;
 import jetbrains.mps.project.ModelsAutoImportsManager;
 import jetbrains.mps.project.PathMacros;
+import jetbrains.mps.project.ProjectManager;
 import jetbrains.mps.project.io.DescriptorIOFacade;
 import jetbrains.mps.project.structure.DescriptorModelComponent;
 import jetbrains.mps.project.structure.GeneratorDescriptorModelProvider;
@@ -75,6 +76,7 @@ public final class MPSCore extends ComponentPlugin implements ComponentHost {
   private ModelsAutoImportsManager myAutoImportsManager;
   private DescriptorIOFacade myModuleDescriptorFacade;
   private VFSManager myVFSManager;
+  private ProjectManager myProjectManager;
 
   /**
    * made package-private
@@ -107,6 +109,7 @@ public final class MPSCore extends ComponentPlugin implements ComponentHost {
     myPathMacros = null;
     myExtensionRegistry = null;
     myVFSManager = null;
+    myProjectManager = null;
     myInitialized = false;
   }
 
@@ -143,6 +146,8 @@ public final class MPSCore extends ComponentPlugin implements ComponentHost {
                                       new GeneratorDescriptorModelProvider(),
                                       new GenericDescriptorModelProvider()));
     init(new TypeRegistry());
+
+    myProjectManager = init(new ProjectManager());
 
     init(new ResolverComponent());
     init(new ValidationSettings());
@@ -244,6 +249,9 @@ public final class MPSCore extends ComponentPlugin implements ComponentHost {
     }
     if (VFSManager.class.equals(componentClass)) {
       return componentClass.cast(myVFSManager);
+    }
+    if (ProjectManager.class == componentClass) {
+      return componentClass.cast(myProjectManager);
     }
     return null;
   }

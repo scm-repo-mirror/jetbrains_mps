@@ -161,7 +161,7 @@ public class NodeWrappersTestsContributor implements TestsContributor {
     @NotNull
     @Override
     public Project openProject(@NotNull File projectFile) {
-      for (Project project : ProjectManager.getInstance().getOpenedProjects()) {
+      for (Project project : getPlatform().findComponent(ProjectManager.class).getOpenedProjects()) {
         if (projectHasPath(project, projectFile)) {
           return project;
         }

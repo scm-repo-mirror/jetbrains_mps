@@ -237,6 +237,7 @@ public abstract class Project implements MPSModuleOwner, IProject {
     @NotNull
     @Override
     public Iterable<SModule> getModules() {
+      // XXX access ProjectManager from ProjectBase. Too many superclasses for Project, imo
       List<Project> openProjects = ProjectManager.getInstance().getOpenedProjects();
       assert openProjects.contains(Project.this) : "trying to get scope on a not-yet-loaded project";
 

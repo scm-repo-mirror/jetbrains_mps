@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ import jetbrains.mps.make.MakeServiceComponent;
 import jetbrains.mps.project.Project;
 
 /**
- * Idea platform has the same mechanism in {@link com.intellij.ide.SaveAndSyncHandlerImpl}
+ * Idea platform has the same mechanism in {@link com.intellij.ide.SaveAndSyncHandler}
  * however it does not work for us (poor editor subsystem platform integration?)
  * <p>
  * SO this class is a delegate: it saves everything whenever the platform saves everything.
@@ -42,8 +42,9 @@ public class IdeMPSFileSaver implements FileDocumentManagerListener {
     // be interested as well.
 
     if (ProjectManager.getInstance().getOpenProjects().length > 0) {
-      Runnable saveRepo = () -> jetbrains.mps.project.ProjectManager.getInstance().getOpenedProjects().stream().map(Project::getRepository).map(SaveRepositoryCommand::new).forEach(SaveRepositoryCommand::execute);
       final MPSCoreComponents coreComponents = MPSCoreComponents.getInstance();
+      jetbrains.mps.project.ProjectManager mpsPM = coreComponents.getPlatform().findComponent(jetbrains.mps.project.ProjectManager.class);
+      Runnable saveRepo = () -> mpsPM.getOpenedProjects().stream().map(Project::getRepository).map(SaveRepositoryCommand::new).forEach(SaveRepositoryCommand::execute);
       final MakeServiceComponent makeService = coreComponents.getPlatform().findComponent(MakeServiceComponent.class);
       if (makeService != null && makeService.isSessionActive()) {
         ApplicationManager.getApplication().invokeLater(saveRepo);

@@ -2779,13 +2779,21 @@
       <property role="34CwA1" value="false" />
       <property role="eg7rD" value="false" />
       <property role="TrG5h" value="myProjects" />
-      <property role="3TUv4t" value="false" />
+      <property role="3TUv4t" value="true" />
       <node concept="3Tm6S6" id="yBZlauH8zH" role="1B3o_S" />
       <node concept="2hMVRd" id="yBZlauH8zI" role="1tU5fm">
         <node concept="3uibUv" id="yBZlauH8zJ" role="2hN53Y">
           <ref role="3uigEE" to="z1c3:~Project" resolve="Project" />
         </node>
       </node>
+    </node>
+    <node concept="312cEg" id="2iqAsxGjyn8" role="jymVt">
+      <property role="TrG5h" value="myProjectManager" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3uibUv" id="2iqAsxGjyk1" role="1tU5fm">
+        <ref role="3uigEE" to="z1c3:~ProjectManager" resolve="ProjectManager" />
+      </node>
+      <node concept="3Tm6S6" id="2iqAsxGj$bY" role="1B3o_S" />
     </node>
     <node concept="2tJIrI" id="yBZlauH8zK" role="jymVt" />
     <node concept="3clFbW" id="yBZlauH8zL" role="jymVt">
@@ -2805,11 +2813,28 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbF" id="2iqAsxGj$l5" role="3cqZAp">
+          <node concept="37vLTI" id="2iqAsxGj$Gy" role="3clFbG">
+            <node concept="2OqwBi" id="2iqAsxGj_2D" role="37vLTx">
+              <node concept="37vLTw" id="2iqAsxGj$RV" role="2Oq$k0">
+                <ref role="3cqZAo" node="2iqAsxGjt6F" resolve="platform" />
+              </node>
+              <node concept="liA8E" id="2iqAsxGj_d7" role="2OqNvi">
+                <ref role="37wK5l" to="wyuk:~ComponentHost.findComponent(java.lang.Class)" resolve="findComponent" />
+                <node concept="3VsKOn" id="2iqAsxGj_Yr" role="37wK5m">
+                  <ref role="3VsUkX" to="z1c3:~ProjectManager" resolve="ProjectManager" />
+                </node>
+              </node>
+            </node>
+            <node concept="37vLTw" id="2iqAsxGj$l3" role="37vLTJ">
+              <ref role="3cqZAo" node="2iqAsxGjyn8" resolve="myProjectManager" />
+            </node>
+          </node>
+        </node>
         <node concept="3clFbF" id="6ylsT8BFimo" role="3cqZAp">
           <node concept="2OqwBi" id="6ylsT8BFipK" role="3clFbG">
-            <node concept="2YIFZM" id="6ylsT8BFipe" role="2Oq$k0">
-              <ref role="1Pybhc" to="z1c3:~ProjectManager" resolve="ProjectManager" />
-              <ref role="37wK5l" to="z1c3:~ProjectManager.getInstance()" resolve="getInstance" />
+            <node concept="37vLTw" id="2iqAsxGjA$V" role="2Oq$k0">
+              <ref role="3cqZAo" node="2iqAsxGjyn8" resolve="myProjectManager" />
             </node>
             <node concept="liA8E" id="6ylsT8BFis4" role="2OqNvi">
               <ref role="37wK5l" to="z1c3:~ProjectManager.addProjectListener(jetbrains.mps.project.ProjectManagerListener)" resolve="addProjectListener" />
@@ -2818,7 +2843,12 @@
           </node>
         </node>
       </node>
-      <node concept="3Tm1VV" id="yBZlauH8zU" role="1B3o_S" />
+      <node concept="37vLTG" id="2iqAsxGjt6F" role="3clF46">
+        <property role="TrG5h" value="platform" />
+        <node concept="3uibUv" id="2iqAsxGjt6E" role="1tU5fm">
+          <ref role="3uigEE" to="wyuk:~ComponentHost" resolve="ComponentHost" />
+        </node>
+      </node>
     </node>
     <node concept="2tJIrI" id="yBZlauH8zV" role="jymVt" />
     <node concept="3clFb_" id="yBZlauH8zW" role="jymVt">
@@ -2833,13 +2863,12 @@
         </node>
         <node concept="3clFbF" id="6ylsT8BFiud" role="3cqZAp">
           <node concept="2OqwBi" id="6ylsT8BFivG" role="3clFbG">
-            <node concept="2YIFZM" id="6ylsT8BFiv4" role="2Oq$k0">
-              <ref role="1Pybhc" to="z1c3:~ProjectManager" resolve="ProjectManager" />
-              <ref role="37wK5l" to="z1c3:~ProjectManager.getInstance()" resolve="getInstance" />
-            </node>
             <node concept="liA8E" id="6ylsT8BFiy6" role="2OqNvi">
               <ref role="37wK5l" to="z1c3:~ProjectManager.removeProjectListener(jetbrains.mps.project.ProjectManagerListener)" resolve="removeProjectListener" />
               <node concept="Xjq3P" id="6ylsT8BFiyU" role="37wK5m" />
+            </node>
+            <node concept="37vLTw" id="2iqAsxGjALL" role="2Oq$k0">
+              <ref role="3cqZAo" node="2iqAsxGjyn8" resolve="myProjectManager" />
             </node>
           </node>
         </node>
@@ -3221,8 +3250,8 @@
             </node>
             <node concept="3cpWs6" id="7iFq8OZTgez" role="3cqZAp">
               <node concept="2YIFZM" id="2BGPXkEulfF" role="3cqZAk">
-                <ref role="1Pybhc" to="18ew:~EqualUtil" resolve="EqualUtil" />
-                <ref role="37wK5l" to="18ew:~EqualUtil.equals(java.lang.Object,java.lang.Object)" resolve="equals" />
+                <ref role="1Pybhc" to="33ny:~Objects" resolve="Objects" />
+                <ref role="37wK5l" to="33ny:~Objects.equals(java.lang.Object,java.lang.Object)" resolve="equals" />
                 <node concept="37vLTw" id="2BGPXkEumf1" role="37wK5m">
                   <ref role="3cqZAo" node="7iFq8OZTgeo" resolve="myProjectPath" />
                 </node>
@@ -3354,16 +3383,10 @@
     <node concept="312cEg" id="yBZlauHaA8" role="jymVt">
       <property role="34CwA1" value="false" />
       <property role="eg7rD" value="false" />
-      <property role="TrG5h" value="myContainer" />
-      <property role="3TUv4t" value="true" />
+      <property role="TrG5h" value="myProjectContainer" />
       <node concept="3Tm6S6" id="yBZlauGXHh" role="1B3o_S" />
       <node concept="3uibUv" id="yBZlauGZuM" role="1tU5fm">
         <ref role="3uigEE" node="yBZlauH8zE" resolve="ProjectContainer" />
-      </node>
-      <node concept="2ShNRf" id="yBZlauIr5Q" role="33vP2m">
-        <node concept="1pGfFk" id="yBZlauIrKj" role="2ShVmc">
-          <ref role="37wK5l" node="yBZlauH8zL" resolve="ProjectContainer" />
-        </node>
       </node>
     </node>
     <node concept="312cEg" id="3x_lgCAcKqs" role="jymVt">
@@ -3588,6 +3611,21 @@
             </node>
             <node concept="1rXfSq" id="3x_lgCAcKqC" role="37vLTx">
               <ref role="37wK5l" node="3x_lgCAcjqZ" resolve="createRootClassLoader" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="2iqAsxGkeDV" role="3cqZAp">
+          <node concept="37vLTI" id="2iqAsxGkfi7" role="3clFbG">
+            <node concept="2ShNRf" id="2iqAsxGkjp9" role="37vLTx">
+              <node concept="1pGfFk" id="2iqAsxGkjoN" role="2ShVmc">
+                <ref role="37wK5l" node="yBZlauH8zL" resolve="ProjectContainer" />
+                <node concept="37vLTw" id="2iqAsxGkk1c" role="37wK5m">
+                  <ref role="3cqZAo" node="1Pvl5nre0KE" resolve="mpsPlatform" />
+                </node>
+              </node>
+            </node>
+            <node concept="37vLTw" id="2iqAsxGkeDT" role="37vLTJ">
+              <ref role="3cqZAo" node="yBZlauHaA8" resolve="myProjectContainer" />
             </node>
           </node>
         </node>
@@ -4364,7 +4402,7 @@
         <node concept="3cpWs6" id="r3D6QYaVAT" role="3cqZAp">
           <node concept="2OqwBi" id="r3D6QYaVAU" role="3cqZAk">
             <node concept="37vLTw" id="r3D6QYaVAV" role="2Oq$k0">
-              <ref role="3cqZAo" node="yBZlauHaA8" resolve="myContainer" />
+              <ref role="3cqZAo" node="yBZlauHaA8" resolve="myProjectContainer" />
             </node>
             <node concept="liA8E" id="r3D6QYaVAW" role="2OqNvi">
               <ref role="37wK5l" node="yBZlauH8$V" resolve="getProject" />
