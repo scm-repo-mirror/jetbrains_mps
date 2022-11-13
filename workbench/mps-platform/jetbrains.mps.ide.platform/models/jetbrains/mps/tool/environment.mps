@@ -15,7 +15,6 @@
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
     <import index="79ha" ref="r:2876f1ee-0b45-4db5-8c09-0682cdee5c67(jetbrains.mps.tool.environment)" />
-    <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
     <import index="3a50" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide(MPS.Platform/)" />
     <import index="1m72" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.components(MPS.IDEA/)" />
     <import index="nos0" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.project.ex(MPS.IDEA/)" />
@@ -3384,14 +3383,11 @@
         </node>
         <node concept="3SKdUt" id="4xXBKS7INHU" role="3cqZAp">
           <node concept="1PaTwC" id="ATZLwXor29" role="1aUNEU">
-            <node concept="3oM_SD" id="ATZLwXor2a" role="1PaTwD">
-              <property role="3oM_SC" value="There's" />
+            <node concept="3oM_SD" id="hMlWX6qLaE" role="1PaTwD">
+              <property role="3oM_SC" value="I" />
             </node>
-            <node concept="3oM_SD" id="ATZLwXor2b" role="1PaTwD">
-              <property role="3oM_SC" value="no" />
-            </node>
-            <node concept="3oM_SD" id="ATZLwXor2c" role="1PaTwD">
-              <property role="3oM_SC" value="evidence" />
+            <node concept="3oM_SD" id="hMlWX6qLbU" role="1PaTwD">
+              <property role="3oM_SC" value="expect" />
             </node>
             <node concept="3oM_SD" id="ATZLwXor2d" role="1PaTwD">
               <property role="3oM_SC" value="invokeAndWait()" />
@@ -3400,7 +3396,7 @@
               <property role="3oM_SC" value="above" />
             </node>
             <node concept="3oM_SD" id="ATZLwXor2f" role="1PaTwD">
-              <property role="3oM_SC" value="won't" />
+              <property role="3oM_SC" value="to" />
             </node>
             <node concept="3oM_SD" id="ATZLwXor2g" role="1PaTwD">
               <property role="3oM_SC" value="pump" />
@@ -3417,35 +3413,8 @@
             <node concept="3oM_SD" id="ATZLwXor2k" role="1PaTwD">
               <property role="3oM_SC" value="model" />
             </node>
-            <node concept="3oM_SD" id="ATZLwXor2l" role="1PaTwD">
-              <property role="3oM_SC" value="events," />
-            </node>
-            <node concept="3oM_SD" id="ATZLwXor2m" role="1PaTwD">
-              <property role="3oM_SC" value="why" />
-            </node>
-            <node concept="3oM_SD" id="ATZLwXor2n" role="1PaTwD">
-              <property role="3oM_SC" value="do" />
-            </node>
-            <node concept="3oM_SD" id="ATZLwXor2o" role="1PaTwD">
-              <property role="3oM_SC" value="it" />
-            </node>
-            <node concept="3oM_SD" id="ATZLwXor2p" role="1PaTwD">
-              <property role="3oM_SC" value="again?" />
-            </node>
-          </node>
-        </node>
-        <node concept="1X3_iC" id="4xXBKS7INr1" role="lGtFl">
-          <property role="3V$3am" value="statement" />
-          <property role="3V$3ak" value="f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123136/1068581517665" />
-          <node concept="3clFbF" id="4_TMdeLkOnK" role="8Wnug">
-            <node concept="2OqwBi" id="4_TMdeLkOnL" role="3clFbG">
-              <node concept="2YIFZM" id="2mki3EciHAZ" role="2Oq$k0">
-                <ref role="37wK5l" to="w1kc:~ModelAccess.instance()" resolve="instance" />
-                <ref role="1Pybhc" to="w1kc:~ModelAccess" resolve="ModelAccess" />
-              </node>
-              <node concept="liA8E" id="4_TMdeLkOnO" role="2OqNvi">
-                <ref role="37wK5l" to="w1kc:~ModelCommandExecutor.flushEventQueue()" resolve="flushEventQueue" />
-              </node>
+            <node concept="3oM_SD" id="hMlWX6qLd$" role="1PaTwD">
+              <property role="3oM_SC" value="events" />
             </node>
           </node>
         </node>
@@ -3471,7 +3440,7 @@
         </node>
         <node concept="TZ5HA" id="78Cs0ext7j2" role="TZ5H$">
           <node concept="1dT_AC" id="78Cs0ext7j3" role="1dT_Ay">
-            <property role="1dT_AB" value="For instance if you wait for the end of poststartup activities -- extract a new method" />
+            <property role="1dT_AB" value="For instance if you wait for the end of post-startup activities -- extract a new method" />
           </node>
         </node>
         <node concept="TZ5HA" id="78Cs0ext7ji" role="TZ5H$">

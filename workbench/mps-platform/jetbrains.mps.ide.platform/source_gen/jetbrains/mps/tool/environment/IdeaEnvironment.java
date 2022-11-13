@@ -353,7 +353,7 @@ public final class IdeaEnvironment extends EnvironmentBase {
    * BIG GUN
    * Only use when absolutely necessary.
    * Please wrap an invocation of this method into a method which is clear what it waits for
-   * For instance if you wait for the end of poststartup activities -- extract a new method
+   * For instance if you wait for the end of post-startup activities -- extract a new method
    * #waitForPostStartupActivitiesToEnd.
    * 
    * Otherwise it will be hard to perceive what exactly your code waits for
@@ -362,7 +362,7 @@ public final class IdeaEnvironment extends EnvironmentBase {
   public void flushAllEvents() {
     checkInitialized();
     ApplicationManager.getApplication().invokeAndWait(() -> PlatformTestUtil.dispatchAllEventsInIdeEventQueue(), ModalityState.NON_MODAL);
-    // There's no evidence invokeAndWait() above won't pump all the pending model events, why do it again?
+    // I expect invokeAndWait() above to pump all the pending model events
   }
 
   @Override

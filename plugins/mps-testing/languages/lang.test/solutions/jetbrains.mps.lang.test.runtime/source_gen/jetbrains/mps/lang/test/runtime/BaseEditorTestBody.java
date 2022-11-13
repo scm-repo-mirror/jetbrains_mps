@@ -16,7 +16,8 @@ import java.util.List;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
+import java.util.concurrent.atomic.AtomicReference;
+import jetbrains.mps.smodel.ModelWriteRunnable;
 import jetbrains.mps.lang.test.matcher.NodesMatcher;
 import jetbrains.mps.lang.test.matcher.NodeDifference;
 import org.junit.Assert;
@@ -50,6 +51,7 @@ import jetbrains.mps.workbench.action.ActionUtils;
 import com.intellij.openapi.actionSystem.ActionPlaces;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.ActionManager;
+import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import javax.swing.SwingUtilities;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.EditorCell_Collection;
@@ -62,7 +64,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /**
  * Common ancestor for all generated EditorTestCase instances
- * TODO must be moved up to the platform level: the MPSNodeEditor is availalbe only in ide
+ * TODO must be moved up to the platform level: the MPSNodeEditor is available only in ide
  */
 public abstract class BaseEditorTestBody extends BaseTestBody {
   private static final Logger LOG = Logger.getLogger(BaseEditorTestBody.class);
@@ -152,10 +154,9 @@ public abstract class BaseEditorTestBody extends BaseTestBody {
   }
 
   protected void checkAssertion() throws Throwable {
-    final Wrappers._T<Throwable> throwable = new Wrappers._T<Throwable>(null);
-    flushEvents();
+    final AtomicReference<Throwable> throwable = new AtomicReference<>();
     // FIXME why do we need model write here?
-    ThreadUtils.runInUIThreadAndWait(() -> myProject.getModelAccess().runWriteAction(() -> {
+    ThreadUtils.runInUIThreadAndWait(new ModelWriteRunnable(myProject.getModelAccess(), () -> {
       if (myResult != null) {
         try {
           SNode editedNode = myBefore;
@@ -172,13 +173,12 @@ public abstract class BaseEditorTestBody extends BaseTestBody {
             myFinish.assertSelectionIsTheSame(myCurrentEditorComponent, (Map<SNode, SNode>) nm.getMap());
           }
         } catch (Throwable t) {
-          throwable.value = t;
+          throwable.set(t);
         }
       }
     }));
-    flushEvents();
-    if (throwable.value != null) {
-      throw throwable.value;
+    if (throwable.get() != null) {
+      throw throwable.get();
     }
   }
 
@@ -347,21 +347,17 @@ public abstract class BaseEditorTestBody extends BaseTestBody {
 
   private void flushEDTEvents() throws InvocationTargetException, InterruptedException {
     // wait for all events currently in EDT queue
+    // FIXME why SwingUtilities here and ThreadUtils in other methods?
+    // FIXME why not App.invokeAndWait+dispatchAllEventsInIdeEventQueue as IdeaEnv does it?
     SwingUtilities.invokeAndWait(new Runnable() {
       @Override
       public void run() {
         // empty task
       }
     });
-    // flushing model events
-    flushEvents();
-  }
-
-  private void flushEvents() {
-    // XXX MA.flushEventQueue has been commented out intentionally, don't bring it back unless you've got a bullet-proof justification
-    //     There's no flushEventQueue() in openapi.MA and I don't want to introduce one unless utterly necessary.
-    //     It it comes to a point we need to flush model events AND empty EDT cmd of flushEDTEvents is not sufficient, we may
-    //     consider doing smth like myProject.getModelAccess().runWriteInEDT() here, with some synchronization primitive.
+    // Here, we used to MA.flushEventQueue() to pump model events, but e233bccef proved we don't need to care.
+    // It it comes to a point we need to flush model events AND empty EDT cmd of flushEDTEvents is not sufficient, we may
+    // consider doing smth like myProject.getModelAccess().runWriteInEDT() here, with some synchronization primitive.
   }
 
   protected void switchToInspector() throws InvocationTargetException, InterruptedException {
