@@ -63,7 +63,7 @@ public class CalcSNodeStatistic_Action extends BaseAction {
       public void run(@NotNull ProgressIndicator indicator) {
         final ProgressMonitorAdapter progress = new ProgressMonitorAdapter(indicator);
         ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getModelAccess().runReadAction(() -> {
-          Iterable<? extends SModule> modules = ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getModulesWithGenerators();
+          Iterable<SModule> modules = ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getScope().getModules();
           if (LOG.isWarningLevel()) {
             LOG.warning("Modules: " + Sequence.fromIterable(modules).count());
           }
@@ -78,7 +78,7 @@ public class CalcSNodeStatistic_Action extends BaseAction {
 
           progress.start("Traversing models...", Sequence.fromIterable(models).count());
           for (SModel m : Sequence.fromIterable(models)) {
-            progress.step(m.getModelName());
+            progress.step(m.getName().getValue());
             for (SNode node : Sequence.fromIterable(SNodeUtil.getDescendants(m))) {
               int propertiesCount = IterableUtil.asCollection(node.getProperties()).size();
               MapSequence.fromMap(propertiesStatistic).put(propertiesCount, (MapSequence.fromMap(propertiesStatistic).containsKey(propertiesCount) ? MapSequence.fromMap(propertiesStatistic).get(propertiesCount) + 1 : 1));

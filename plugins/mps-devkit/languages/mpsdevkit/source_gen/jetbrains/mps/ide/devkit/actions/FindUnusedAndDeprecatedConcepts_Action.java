@@ -93,7 +93,7 @@ public class FindUnusedAndDeprecatedConcepts_Action extends BaseAction {
         final ProgressMonitor monitor = new ProgressMonitorAdapter(indicator);
 
         List<SNodeReference> concepts = new ModelAccessHelper(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getModelAccess()).runReadAction(() -> {
-          Iterable<? extends SModule> modules = ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getModulesWithGenerators();
+          Iterable<SModule> modules = ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getScope().getModules();
           int totalWork = Sequence.fromIterable(modules).count() * 2;
           // iterate all modules: 1/2, + 1/8 + 1/4 + 1/8
           monitor.start("Find unused  and deprecated concepts", totalWork);

@@ -104,6 +104,7 @@ public abstract class Project implements MPSModuleOwner, IProject {
   @NotNull
   @Deprecated
   public final Iterable<? extends SModule> getModules() {
+    // in use from mbeddr
     return getProjectModules();
   }
 
@@ -122,15 +123,6 @@ public abstract class Project implements MPSModuleOwner, IProject {
       }
     });
     return result;
-  }
-
-  /**
-   * @deprecated use {@link #getProjectModulesWithGenerators()} instead
-   */
-  @Deprecated
-  @NotNull
-  public final Iterable<? extends SModule> getModulesWithGenerators() {
-    return getProjectModulesWithGenerators();
   }
 
   // AP todo remove from Project
@@ -164,6 +156,7 @@ public abstract class Project implements MPSModuleOwner, IProject {
    */
   @Deprecated(since = "2021.3", forRemoval = true)
   public final Iterable<SModel> getProjectModels() {
+    // uses in mbeddr!
     List<SModel> result = new ArrayList<>();
 
     for (SModule module : getProjectModules()) {
@@ -206,6 +199,7 @@ public abstract class Project implements MPSModuleOwner, IProject {
    * closes and disposes the project
    */
   public void dispose() {
+    // FIXME what does 'removeModule' mean here?!
     getRepository().getModelAccess().runWriteAction(() -> getProjectModules().forEach(this::removeModule));
     myRepository.dispose();
     myDisposed = true;

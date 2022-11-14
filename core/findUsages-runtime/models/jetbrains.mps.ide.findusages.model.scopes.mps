@@ -2205,12 +2205,17 @@
       </node>
       <node concept="3clFbS" id="7rEOvdELBFL" role="3clF47">
         <node concept="1DcWWT" id="7rEOvdELBFM" role="3cqZAp">
-          <node concept="2OqwBi" id="7rEOvdELIGE" role="1DdaDG">
-            <node concept="37vLTw" id="7rEOvdELIGD" role="2Oq$k0">
-              <ref role="3cqZAo" node="7rEOvdELBFI" resolve="project" />
+          <node concept="2OqwBi" id="2c9NoV5Hq4z" role="1DdaDG">
+            <node concept="2OqwBi" id="7rEOvdELIGE" role="2Oq$k0">
+              <node concept="37vLTw" id="7rEOvdELIGD" role="2Oq$k0">
+                <ref role="3cqZAo" node="7rEOvdELBFI" resolve="project" />
+              </node>
+              <node concept="liA8E" id="7rEOvdELIGF" role="2OqNvi">
+                <ref role="37wK5l" to="z1c3:~Project.getScope()" resolve="getScope" />
+              </node>
             </node>
-            <node concept="liA8E" id="7rEOvdELIGF" role="2OqNvi">
-              <ref role="37wK5l" to="z1c3:~Project.getModulesWithGenerators()" resolve="getModulesWithGenerators" />
+            <node concept="liA8E" id="2c9NoV5HqoY" role="2OqNvi">
+              <ref role="37wK5l" to="z1c3:~Project$ProjectScope.getModules()" resolve="getModules" />
             </node>
           </node>
           <node concept="3cpWsn" id="7rEOvdELBFS" role="1Duv9x">

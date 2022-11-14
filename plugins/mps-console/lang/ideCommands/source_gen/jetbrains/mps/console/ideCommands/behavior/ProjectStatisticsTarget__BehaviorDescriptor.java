@@ -19,10 +19,10 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.model.SModel;
-import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.mps.openapi.model.SNodeUtil;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
@@ -42,15 +42,15 @@ public final class ProjectStatisticsTarget__BehaviorDescriptor extends BaseBHDes
   /*package*/ static Iterable<Tuples._2<String, Integer>> getStat_id6vMIJHUBlVT(@NotNull SNode __thisNode__, ConsoleContext context) {
     List<Tuples._2<String, Integer>> result = ListSequence.fromList(new ArrayList<Tuples._2<String, Integer>>());
 
-    Iterable<? extends SModule> modules = context.getProject().getModulesWithGenerators();
-    Iterable<SModel> models = Sequence.fromIterable(modules).translate(new ITranslator2<SModule, SModel>() {
+    List<SModule> modules = context.getProject().getProjectModulesWithGenerators();
+    Iterable<SModel> models = ListSequence.fromList(modules).translate(new ITranslator2<SModule, SModel>() {
       public Iterable<SModel> translate(SModule it) {
         return it.getModels();
       }
     });
 
-    ListSequence.fromList(result).addElement(MultiTuple.<String,Integer>from("Modules", Sequence.fromIterable(modules).count()));
-    ListSequence.fromList(result).addElement(MultiTuple.<String,Integer>from("Non-packaged modules", Sequence.fromIterable(modules).where(new IWhereFilter<SModule>() {
+    ListSequence.fromList(result).addElement(MultiTuple.<String,Integer>from("Modules", ListSequence.fromList(modules).count()));
+    ListSequence.fromList(result).addElement(MultiTuple.<String,Integer>from("Non-packaged modules", ListSequence.fromList(modules).where(new IWhereFilter<SModule>() {
       public boolean accept(SModule it) {
         return it.isPackaged();
       }
@@ -65,12 +65,8 @@ public final class ProjectStatisticsTarget__BehaviorDescriptor extends BaseBHDes
     return result;
   }
   /*package*/ static Iterable<SNode> getNodes_id4x3U0fq41hN(@NotNull SNode __thisNode__, ConsoleContext context) {
-    Iterable<? extends SModule> modules = context.getProject().getModules();
-    return Sequence.fromIterable(modules).translate(new ITranslator2<SModule, SModel>() {
-      public Iterable<SModel> translate(SModule it) {
-        return it.getModels();
-      }
-    }).translate(new ITranslator2<SModel, SNode>() {
+    Iterable<SModel> models = context.getProject().getScope().getModels();
+    return Sequence.fromIterable(models).translate(new ITranslator2<SModel, SNode>() {
       public Iterable<SNode> translate(SModel it) {
         return SNodeUtil.getDescendants(it);
       }
