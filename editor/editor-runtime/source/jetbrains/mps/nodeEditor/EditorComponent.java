@@ -138,7 +138,6 @@ import jetbrains.mps.util.Reference;
 import jetbrains.mps.workbench.ActionPlace;
 import jetbrains.mps.workbench.action.ActionUtils;
 import jetbrains.mps.workbench.action.BaseAction;
-import org.jetbrains.annotations.ApiStatus.ScheduledForRemoval;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -1917,17 +1916,6 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   }
 
   @Override
-  public EditorCell findNodeCellWithRole(SNode node, String role) {
-    EditorCell rootCell = findNodeCell(node);
-    if (rootCell == null) {
-      return null;
-    }
-    // FIXME why not CellFinderUtil.findChildByCondition? Seem to be identical code.
-    // FIXME why cast, does any client of this method use this internal interface?
-    return (EditorCell) findNodeCellWithRole(rootCell, role, node);
-  }
-
-  @Override
   public jetbrains.mps.openapi.editor.cells.EditorCell findNodeCellWithRole(SNode node, @Nullable SReferenceLink link) {
     if (node == null || link == null) {
       return null;
@@ -1949,26 +1937,6 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
       return null;
     }
     return CellFinderUtil.findChildByCondition(rootCell, new AggregationCellCondition(node, link), true, true);
-  }
-
-  private jetbrains.mps.openapi.editor.cells.EditorCell findNodeCellWithRole(jetbrains.mps.openapi.editor.cells.EditorCell rootCell, String role,
-                                                                             SNode node) {
-    if (role == null) {
-      return null;
-    }
-    if (role.equals(rootCell.getRole()) && node == rootCell.getSNode()) {
-      return rootCell;
-    }
-    if (rootCell instanceof EditorCell_Collection) {
-      EditorCell_Collection collection = (EditorCell_Collection) rootCell;
-      for (jetbrains.mps.openapi.editor.cells.EditorCell child : collection) {
-        jetbrains.mps.openapi.editor.cells.EditorCell result = findNodeCellWithRole(child, role, node);
-        if (result != null) {
-          return result;
-        }
-      }
-    }
-    return null;
   }
 
   @Override
