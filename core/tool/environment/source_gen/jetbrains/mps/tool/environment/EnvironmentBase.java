@@ -34,16 +34,6 @@ public abstract class EnvironmentBase implements Environment {
   private ProjectContainer myProjectContainer;
   private ClassLoader myRootClassLoader = null;
 
-  public static void initializeLog4j() {
-    System.err.println("Stop using EnvironmentBase.initializeLog4j. MPS has switched to JUL.");
-    try {
-      Log4jInitializer.init();
-    } catch (Exception e) {
-      System.err.println("Could not initialize log4j");
-      e.printStackTrace(System.err);
-    }
-  }
-
   public static void initializeLog() {
     try {
       LogInitializer.init();
