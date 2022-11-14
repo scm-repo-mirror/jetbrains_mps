@@ -104,8 +104,10 @@ public class MPSProject extends ProjectBase implements FileBasedProject, Project
   @NotNull
   @Override
   public String getName() {
-    return getProject().getName();
+    // have to keep method here to avoid broken references in mbeddr
+    return super.getName();
   }
+
 
   @Override
   public void save() {

@@ -181,7 +181,6 @@
     <language id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging">
       <concept id="2034914114981261497" name="jetbrains.mps.baseLanguage.logging.structure.LogLowLevelStatement" flags="ng" index="RRSsy">
         <property id="2034914114981261751" name="severity" index="RRSoG" />
-        <child id="2034914114981261755" name="throwable" index="RRSow" />
         <child id="2034914114981261753" name="message" index="RRSoy" />
       </concept>
     </language>
@@ -554,75 +553,6 @@
         <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
       </node>
     </node>
-    <node concept="2tJIrI" id="1RTSjGsuc$S" role="jymVt" />
-    <node concept="3clFb_" id="2doG_VG59H$" role="jymVt">
-      <property role="1EzhhJ" value="false" />
-      <property role="TrG5h" value="getName" />
-      <property role="DiZV1" value="false" />
-      <node concept="3Tm1VV" id="2doG_VG59H_" role="1B3o_S" />
-      <node concept="3uibUv" id="2doG_VG59HA" role="3clF45">
-        <ref role="3uigEE" to="wyt6:~String" resolve="String" />
-      </node>
-      <node concept="3clFbS" id="2doG_VG59HB" role="3clF47">
-        <node concept="3J1_TO" id="29ovBt4ZZH2" role="3cqZAp">
-          <node concept="3clFbS" id="29ovBt4ZZH4" role="1zxBo7">
-            <node concept="3cpWs6" id="29ovBt4ZZIc" role="3cqZAp">
-              <node concept="2OqwBi" id="29ovBt5012h" role="3cqZAk">
-                <node concept="2OqwBi" id="29ovBt500PC" role="2Oq$k0">
-                  <node concept="37vLTw" id="29ovBt4ZZIV" role="2Oq$k0">
-                    <ref role="3cqZAo" node="15VbAzMFhGt" resolve="myProjectFile" />
-                  </node>
-                  <node concept="liA8E" id="29ovBt500WH" role="2OqNvi">
-                    <ref role="37wK5l" to="guwi:~File.getCanonicalFile()" resolve="getCanonicalFile" />
-                  </node>
-                </node>
-                <node concept="liA8E" id="29ovBt501hS" role="2OqNvi">
-                  <ref role="37wK5l" to="guwi:~File.getName()" resolve="getName" />
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="3uVAMA" id="29ovBt4ZZH5" role="1zxBo5">
-            <node concept="XOnhg" id="29ovBt4ZZH7" role="1zc67B">
-              <property role="3TUv4t" value="false" />
-              <property role="TrG5h" value="e" />
-              <node concept="nSUau" id="xvs04dGzE4" role="1tU5fm">
-                <node concept="3uibUv" id="29ovBt501oO" role="nSUat">
-                  <ref role="3uigEE" to="guwi:~IOException" resolve="IOException" />
-                </node>
-              </node>
-            </node>
-            <node concept="3clFbS" id="29ovBt4ZZHb" role="1zc67A">
-              <node concept="RRSsy" id="3jYQuSB36LZ" role="3cqZAp">
-                <property role="RRSoG" value="gZ5fh_4/error" />
-                <node concept="Xl_RD" id="29ovBt501AO" role="RRSoy">
-                  <property role="Xl_RC" value="Got while accessing the project file" />
-                </node>
-                <node concept="37vLTw" id="29ovBt501AQ" role="RRSow">
-                  <ref role="3cqZAo" node="29ovBt4ZZH7" resolve="e" />
-                </node>
-              </node>
-              <node concept="3cpWs6" id="29ovBt50dde" role="3cqZAp">
-                <node concept="2OqwBi" id="2doG_VG59HD" role="3cqZAk">
-                  <node concept="37vLTw" id="3lw7SQDAwZ9" role="2Oq$k0">
-                    <ref role="3cqZAo" node="15VbAzMFhGt" resolve="myProjectFile" />
-                  </node>
-                  <node concept="liA8E" id="2doG_VG59HF" role="2OqNvi">
-                    <ref role="37wK5l" to="guwi:~File.getName()" resolve="getName" />
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="3tYsUK_p6qJ" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-      <node concept="2AHcQZ" id="3lw7SQDAx3c" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-      </node>
-    </node>
     <node concept="2tJIrI" id="1RTSjGsudyR" role="jymVt" />
     <node concept="3clFb_" id="15VbAzMFkQg" role="jymVt">
       <property role="1EzhhJ" value="false" />
@@ -696,7 +626,7 @@
                     <property role="373rjd" value="true" />
                     <ref role="37wK5l" to="y8s3:~ProjectDescriptor.&lt;init&gt;(java.lang.String)" resolve="ProjectDescriptor" />
                     <node concept="1rXfSq" id="6wBM5jhYByu" role="37wK5m">
-                      <ref role="37wK5l" node="2doG_VG59H$" resolve="getName" />
+                      <ref role="37wK5l" to="z1c3:~Project.getName()" resolve="getName" />
                     </node>
                   </node>
                 </node>

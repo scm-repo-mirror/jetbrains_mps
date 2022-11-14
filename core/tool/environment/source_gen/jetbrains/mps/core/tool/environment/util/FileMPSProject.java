@@ -5,22 +5,20 @@ package jetbrains.mps.core.tool.environment.util;
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.project.ProjectBase;
 import jetbrains.mps.project.FileBasedProject;
-import jetbrains.mps.logging.Logger;
 import java.io.File;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.core.platform.Platform;
 import jetbrains.mps.util.MacroHelper;
 import jetbrains.mps.util.MacrosFactory;
-import java.io.IOException;
 import jetbrains.mps.project.structure.project.ProjectDescriptor;
 import jetbrains.mps.project.persistence.ProjectDescriptorPersistence;
+import java.io.IOException;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.IFileSystem;
 import jetbrains.mps.vfs.VFSManager;
 
 @GeneratedClass(node = "r:a139668a-5a0e-46e2-a802-102190e497e5(jetbrains.mps.core.tool.environment.util)/2546981710035458892", model = "r:a139668a-5a0e-46e2-a802-102190e497e5(jetbrains.mps.core.tool.environment.util)")
 public class FileMPSProject extends ProjectBase implements FileBasedProject {
-  private static final Logger LOG = Logger.getLogger(FileMPSProject.class);
   private final File myProjectFile;
 
   public FileMPSProject(@NotNull File file, @NotNull Platform mpsPlatform) {
@@ -33,19 +31,6 @@ public class FileMPSProject extends ProjectBase implements FileBasedProject {
   private MacroHelper createMacroHelper() {
     // todo [MM] investigate why it fails when using just path (where those . and .. come from)
     return MacrosFactory.forProjectFile(projectHome());
-  }
-
-  @Override
-  @NotNull
-  public String getName() {
-    try {
-      return myProjectFile.getCanonicalFile().getName();
-    } catch (IOException e) {
-      if (LOG.isErrorLevel()) {
-        LOG.error("Got while accessing the project file", e);
-      }
-      return myProjectFile.getName();
-    }
   }
 
   @Override

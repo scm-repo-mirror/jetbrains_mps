@@ -87,9 +87,7 @@ public abstract class Project implements MPSModuleOwner, IProject {
     return myRepository.getModelAccess();
   }
 
-  // FIXME why it's deprecated?! why there's name argument in the cons then?
   @NotNull
-  @Deprecated(since = "3.4", forRemoval = true)
   public String getName() {
     return myName;
   }
