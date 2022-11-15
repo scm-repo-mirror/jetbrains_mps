@@ -21,7 +21,6 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Property;
 import jetbrains.mps.nodeEditor.cells.TransactionalPropertyAccessor;
 import jetbrains.mps.nodeEditor.selection.SelectionInfoImpl;
 import jetbrains.mps.openapi.editor.EditorComponentState;
-import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.cells.CellInfo;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.EditorCell_Collection;
@@ -49,8 +48,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-// FIXME public just for the sake of InspectorEditorComponent from j.m.ne.inspector package
-public class Memento implements EditorComponentState {
+class Memento implements EditorComponentState {
   private final List<SelectionInfo> mySelectionStack = new ArrayList<>();
 
   private final Set<CellInfo> myCollectionsWithEnabledBraces = new HashSet<>();
@@ -76,14 +74,6 @@ public class Memento implements EditorComponentState {
   @Override
   public void clearSessionState() {
     mySaveSessionState = false;
-  }
-
-  /**
-   * @deprecated our own package-local cons, remove at earlier convenience
-   */
-  @Deprecated(forRemoval = true)
-  Memento(EditorContext context, boolean saveEditedNode) {
-    this((EditorComponent) context.getEditorComponent(), saveEditedNode);
   }
 
   public Memento( EditorComponent nodeEditor, boolean saveEditedNode) {

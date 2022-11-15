@@ -94,6 +94,7 @@ import jetbrains.mps.nodeEditor.configuration.EditorConfigurationBuilder;
 import jetbrains.mps.nodeEditor.deletionApprover.DeletionApproverImpl;
 import jetbrains.mps.nodeEditor.highlighter.EditorComponentCreateListener;
 import jetbrains.mps.nodeEditor.highlighter.EditorHighlighter;
+import jetbrains.mps.nodeEditor.inspector.InspectorEditorComponent;
 import jetbrains.mps.nodeEditor.keymaps.AWTKeymapHandler;
 import jetbrains.mps.nodeEditor.keymaps.KeymapHandler;
 import jetbrains.mps.nodeEditor.leftHighlighter.LeftEditorHighlighter;
@@ -1637,7 +1638,8 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   @NotNull
   @Override
   public EditorComponentState captureState() {
-    return new Memento(this, false);
+    // XXX not sure I understand the reason it's essential not to keep node reference for regular EditorComponent
+    return new Memento(this, this instanceof InspectorEditorComponent);
   }
 
   @Override
