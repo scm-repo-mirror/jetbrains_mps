@@ -157,7 +157,10 @@ public final class StaticReference extends SReferenceBase {
     }
     targetNode = commandContext(targetModel).resolveUnregistered(targetNodeId);
     if (targetNode == null) {
-      report.warn("target model '" + targetModel.getReference() + "' doesn't contain node with id=" + getTargetNodeId());
+      final SNode sn = getSourceNode();
+      final String m = "Model %s, node %s can't resolve node with id=%s in target model '%s'";
+      final SModelReference sm = sn.getReference().getModelReference();
+      report.warn(String.format(m, sm == null ? sm : sm.getName(), sn.getNodeId(), getTargetNodeId(), targetModel.getReference()));
     }
 
     return targetNode;
