@@ -14550,6 +14550,11 @@
               </node>
             </node>
           </node>
+          <node concept="1SiIV0" id="pGvv1v$s8A" role="3bR37C">
+            <node concept="3bR9La" id="pGvv1v$s8B" role="1SiIV1">
+              <ref role="3bR37D" node="7Kfy9QB6LaO" resolve="jetbrains.mps.lang.structure" />
+            </node>
+          </node>
         </node>
         <node concept="1SiIV0" id="3qkjbZn80QU" role="3bR37C">
           <node concept="3bR9La" id="3qkjbZn80QV" role="1SiIV1">
