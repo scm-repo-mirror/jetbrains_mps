@@ -146,11 +146,6 @@
     <applicationService serviceImplementation="com.intellij.packaging.impl.artifacts.InvalidArtifactType"/>
     <!-- End of same registrations as in JavaPlugin.xml -->
 
-    <!--Editor-->
-    <applicationConfigurable groupId="editor" groupWeight="200" instance="jetbrains.mps.nodeEditor.EditorSettingsConfigurable"
-                             bundle="jetbrains.mps.nodeEditor.resources.EditorSettingsBundle" key="title.editor.settings"
-                             id="mps.editor.settings" order="before preferences.editor"/>
-
     <!-- Global Code Style -->
     <projectConfigurable parentId="preferences.sourceCode" displayName="MPS" instance="jetbrains.mps.ide.codeStyle.CodeStyleSettingsConfigurable" />
     <projectConfigurable groupId="build" groupWeight="110" instance="jetbrains.mps.ide.compiler.CompilerSettingsConfigurable" order="after project"

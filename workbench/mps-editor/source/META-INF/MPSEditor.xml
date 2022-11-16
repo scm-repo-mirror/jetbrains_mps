@@ -95,6 +95,10 @@
     <mps.editorWarningsProvider implementation="jetbrains.mps.ide.editor.warningPanel.UnresolvedModelImportsProvider"/>
 
     <customizableActionGroupProvider implementation="jetbrains.mps.ide.editor.MPSEditorCustomizableActionGroupProvider"/>
+    <!--Editor-->
+    <applicationConfigurable groupId="editor" groupWeight="200" instance="jetbrains.mps.nodeEditor.EditorSettingsConfigurable"
+                             bundle="jetbrains.mps.nodeEditor.resources.EditorSettingsBundle" key="title.editor.settings"
+                             id="mps.editor.settings" order="before preferences.editor"/>
     <!--Editor Hints-->
     <projectConfigurable groupId="editor" groupWeight="180" dynamic="true"
                          instance="jetbrains.mps.nodeEditor.hintsSettings.ConceptEditorHintConfigurable"
