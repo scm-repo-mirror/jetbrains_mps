@@ -152,6 +152,9 @@ public abstract class BaseNodeEditor implements Editor {
       if (MPSEditorDataKeys.MPS_EDITOR.is(dataId)) {
         return BaseNodeEditor.this;
       }
+      // FIXME I believe next keys, namely MPS_PROJECT and PROJECT, have to be part of DataProvider in
+      //       MPSFileNodeEditor's component. Indeed, we've got MPSProject here, and it's not a big deal, but
+      //       OTOH EditorPanel is additional JPanel with no true value.
       if (MPSCommonDataKeys.MPS_PROJECT.is(dataId)) {
         // we need this much, LocationRule & MPSProjectRule works due to this + delegation
         return myProject;
@@ -160,14 +163,10 @@ public abstract class BaseNodeEditor implements Editor {
         // we do not need this much but why not
         return ProjectHelper.toIdeaProject(myProject);
       }
-      Object data = BaseNodeEditor.this.getData(dataId);
-      if (data != null) {
-        return data;
-      }
-      // fixme kind of strange to delegate to descendant in this framework though I am scared to remove this
-      // +100500, quite odd for EC to care about VIRTUAL_FILE_ARRAY
-      NodeEditorComponent editorComponent = getCurrentEditorComponent();
-      return editorComponent == null ? null : editorComponent.getData(dataId);
+      // give BaseNodeEditor subclasses a chance to contribute to DataContext without
+      // need to inject another Component into hierarchy.
+      // TODO if (BaseNodeEditor.this instanceof DataProvider) cast+invoke or at least default impl for getData
+      return BaseNodeEditor.this.getData(dataId);
     }
   }
 

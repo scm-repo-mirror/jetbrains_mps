@@ -170,6 +170,10 @@ public class NodeEditorComponent extends EditorComponent {
   @Nullable
   @Override
   public Object getData(@NotNull @NonNls String dataId) {
+    // FIXME there's a promise in IDEA that VIRTUAL_FILE_ARRAY is provided automatically when there's
+    //  a value for VIRTUAL_FILE. However, I'm afraid to remove this code without thorough check for
+    //  MPS-24343 fix (f5e279db). Perhaps, the fact we give VF_ARRAY based on active edited node
+    //  (unlike VF for editor, which is the same), is essential to fix Cut action?
     if (PlatformDataKeys.VIRTUAL_FILE_ARRAY.is(dataId)) {
       return getVirtualFile() != null ? new VirtualFile[]{getVirtualFile()} : new VirtualFile[0];
     }
