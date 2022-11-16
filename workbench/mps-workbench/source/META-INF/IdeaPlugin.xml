@@ -151,10 +151,6 @@
                              bundle="jetbrains.mps.nodeEditor.resources.EditorSettingsBundle" key="title.editor.settings"
                              id="mps.editor.settings" order="before preferences.editor"/>
 
-    <!--Editor Hints-->
-    <projectConfigurable groupId="editor" groupWeight="180" dynamic="true"
-                         instance="jetbrains.mps.nodeEditor.hintsSettings.ConceptEditorHintConfigurable"
-                         displayName="Editor hints" order="after preferences.sourceCode" nonDefaultProject="true"/>
     <!-- Global Code Style -->
     <projectConfigurable parentId="preferences.sourceCode" displayName="MPS" instance="jetbrains.mps.ide.codeStyle.CodeStyleSettingsConfigurable" />
     <projectConfigurable groupId="build" groupWeight="110" instance="jetbrains.mps.ide.compiler.CompilerSettingsConfigurable" order="after project"

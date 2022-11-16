@@ -79,14 +79,12 @@
       <implementation-class>com.intellij.openapi.fileEditor.FileEditorDataProviderManager</implementation-class>
     </component>
 
-    <component>
-      <implementation-class>jetbrains.mps.nodeEditor.hintsSettings.ConceptEditorHintSettingsComponent</implementation-class>
-    </component>
   </project-components>
 
   <extensions defaultExtensionNs="com.intellij">
     <applicationService serviceImplementation="jetbrains.mps.nodeEditor.EditorSettings"/>
     <applicationService serviceImplementation="jetbrains.mps.intentions.IntentionsManager"/>
+    <projectService serviceImplementation="jetbrains.mps.nodeEditor.hintsSettings.ConceptEditorHintSettingsComponent" />
 
     <fileEditorProvider implementation="jetbrains.mps.ide.editor.MPSFileNodeEditorProvider"/>
 
@@ -97,6 +95,10 @@
     <mps.editorWarningsProvider implementation="jetbrains.mps.ide.editor.warningPanel.UnresolvedModelImportsProvider"/>
 
     <customizableActionGroupProvider implementation="jetbrains.mps.ide.editor.MPSEditorCustomizableActionGroupProvider"/>
+    <!--Editor Hints-->
+    <projectConfigurable groupId="editor" groupWeight="180" dynamic="true"
+                         instance="jetbrains.mps.nodeEditor.hintsSettings.ConceptEditorHintConfigurable"
+                         displayName="Editor Hints" order="after preferences.sourceCode" nonDefaultProject="true"/>
   </extensions>
 
   <actions>
