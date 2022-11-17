@@ -15,7 +15,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.annotations.Nullable;
 import org.jdom.Element;
 import jetbrains.mps.project.Project;
-import javax.swing.JScrollBar;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
@@ -136,13 +135,11 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
   }
 
   protected void scrollToBottom() {
-    JScrollBar scrollBar = myEditor.getVerticalScrollBar();
-    scrollBar.setValue(scrollBar.getMaximum());
+    myEditor.scrollToBottom();
   }
 
   public void scrollToTop() {
-    JScrollBar scrollBar = myEditor.getVerticalScrollBar();
-    scrollBar.setValue(scrollBar.getMinimum());
+    myEditor.scrollToTop();
   }
 
   protected void createEditor() {

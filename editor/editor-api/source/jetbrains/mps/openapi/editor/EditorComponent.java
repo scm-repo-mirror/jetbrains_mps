@@ -91,6 +91,18 @@ public interface EditorComponent {
   void scrollToCell(@NotNull EditorCell cell);
 
   /**
+   * Position component so that its head/start is visible
+   * @since 2022.3
+   */
+  default void scrollToTop() {}
+
+  /**
+   * Position component so that its tail/end is visible
+   * @since 2022.3
+   */
+  default void scrollToBottom() {}
+
+  /**
    * Can be called update editor in accordance with actual state of the currently
    * edited node.
    * <p/>

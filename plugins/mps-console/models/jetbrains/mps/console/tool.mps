@@ -4751,37 +4751,13 @@
       <property role="od$2w" value="false" />
       <property role="DiZV1" value="false" />
       <node concept="3clFbS" id="2bn98YD3YWy" role="3clF47">
-        <node concept="3cpWs8" id="2bn98YD3YWI" role="3cqZAp">
-          <node concept="3cpWsn" id="2bn98YD3YWJ" role="3cpWs9">
-            <property role="TrG5h" value="scrollBar" />
-            <node concept="3uibUv" id="2bn98YD3YWK" role="1tU5fm">
-              <ref role="3uigEE" to="dxuu:~JScrollBar" resolve="JScrollBar" />
+        <node concept="3clFbF" id="3uQ7hSw$N7p" role="3cqZAp">
+          <node concept="2OqwBi" id="2bn98YD3YWL" role="3clFbG">
+            <node concept="37vLTw" id="2bn98YD50lJ" role="2Oq$k0">
+              <ref role="3cqZAo" node="6ysF3v1j_8_" resolve="myEditor" />
             </node>
-            <node concept="2OqwBi" id="2bn98YD3YWL" role="33vP2m">
-              <node concept="37vLTw" id="2bn98YD50lJ" role="2Oq$k0">
-                <ref role="3cqZAo" node="6ysF3v1j_8_" resolve="myEditor" />
-              </node>
-              <node concept="liA8E" id="2bn98YD3YWN" role="2OqNvi">
-                <ref role="37wK5l" to="exr9:~EditorComponent.getVerticalScrollBar()" resolve="getVerticalScrollBar" />
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="2bn98YD3YWO" role="3cqZAp">
-          <node concept="2OqwBi" id="2bn98YD3YWP" role="3clFbG">
-            <node concept="37vLTw" id="2bn98YD3YWQ" role="2Oq$k0">
-              <ref role="3cqZAo" node="2bn98YD3YWJ" resolve="scrollBar" />
-            </node>
-            <node concept="liA8E" id="2bn98YD3YWR" role="2OqNvi">
-              <ref role="37wK5l" to="dxuu:~JScrollBar.setValue(int)" resolve="setValue" />
-              <node concept="2OqwBi" id="2bn98YD3YWS" role="37wK5m">
-                <node concept="37vLTw" id="2bn98YD3YWT" role="2Oq$k0">
-                  <ref role="3cqZAo" node="2bn98YD3YWJ" resolve="scrollBar" />
-                </node>
-                <node concept="liA8E" id="2bn98YD3YWU" role="2OqNvi">
-                  <ref role="37wK5l" to="dxuu:~JScrollBar.getMaximum()" resolve="getMaximum" />
-                </node>
-              </node>
+            <node concept="liA8E" id="2bn98YD3YWN" role="2OqNvi">
+              <ref role="37wK5l" to="exr9:~EditorComponent.scrollToBottom()" resolve="scrollToBottom" />
             </node>
           </node>
         </node>
@@ -4793,37 +4769,13 @@
     <node concept="3clFb_" id="1Uph_vtT2Hw" role="jymVt">
       <property role="TrG5h" value="scrollToTop" />
       <node concept="3clFbS" id="1Uph_vtT2Hz" role="3clF47">
-        <node concept="3cpWs8" id="1Uph_vtTahc" role="3cqZAp">
-          <node concept="3cpWsn" id="1Uph_vtTahd" role="3cpWs9">
-            <property role="TrG5h" value="scrollBar" />
-            <node concept="3uibUv" id="1Uph_vtTahe" role="1tU5fm">
-              <ref role="3uigEE" to="dxuu:~JScrollBar" resolve="JScrollBar" />
+        <node concept="3clFbF" id="3uQ7hSw_wWH" role="3cqZAp">
+          <node concept="2OqwBi" id="1Uph_vtTahf" role="3clFbG">
+            <node concept="37vLTw" id="1Uph_vtTahg" role="2Oq$k0">
+              <ref role="3cqZAo" node="6ysF3v1j_8_" resolve="myEditor" />
             </node>
-            <node concept="2OqwBi" id="1Uph_vtTahf" role="33vP2m">
-              <node concept="37vLTw" id="1Uph_vtTahg" role="2Oq$k0">
-                <ref role="3cqZAo" node="6ysF3v1j_8_" resolve="myEditor" />
-              </node>
-              <node concept="liA8E" id="1Uph_vtTahh" role="2OqNvi">
-                <ref role="37wK5l" to="exr9:~EditorComponent.getVerticalScrollBar()" resolve="getVerticalScrollBar" />
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="1Uph_vtTahi" role="3cqZAp">
-          <node concept="2OqwBi" id="1Uph_vtTahj" role="3clFbG">
-            <node concept="37vLTw" id="1Uph_vtTahk" role="2Oq$k0">
-              <ref role="3cqZAo" node="1Uph_vtTahd" resolve="scrollBar" />
-            </node>
-            <node concept="liA8E" id="1Uph_vtTahl" role="2OqNvi">
-              <ref role="37wK5l" to="dxuu:~JScrollBar.setValue(int)" resolve="setValue" />
-              <node concept="2OqwBi" id="1Uph_vtTahm" role="37wK5m">
-                <node concept="37vLTw" id="1Uph_vtTahn" role="2Oq$k0">
-                  <ref role="3cqZAo" node="1Uph_vtTahd" resolve="scrollBar" />
-                </node>
-                <node concept="liA8E" id="1Uph_vtThwH" role="2OqNvi">
-                  <ref role="37wK5l" to="dxuu:~JScrollBar.getMinimum()" resolve="getMinimum" />
-                </node>
-              </node>
+            <node concept="liA8E" id="1Uph_vtTahh" role="2OqNvi">
+              <ref role="37wK5l" to="exr9:~EditorComponent.scrollToTop()" resolve="scrollToTop" />
             </node>
           </node>
         </node>

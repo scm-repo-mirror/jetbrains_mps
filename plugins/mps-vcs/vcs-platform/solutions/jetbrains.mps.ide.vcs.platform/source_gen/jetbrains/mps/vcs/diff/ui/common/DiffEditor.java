@@ -387,8 +387,6 @@ public class DiffEditor implements EditorMessageOwner {
 
     @Nullable
     private List<DiffEditorChangeLayer> myLayers;
-    private JScrollPane myScrollPane;
-
 
     public MyInspectorEditorComponent(@NotNull SRepository repository, boolean rightToLeft) {
       super(repository, new EditorConfigurationBuilder().rightToLeft(rightToLeft).showSelectionLine(false).showLightBulb(false).build());
@@ -408,12 +406,7 @@ public class DiffEditor implements EditorMessageOwner {
       JScrollPane scrollPane = super.createScrollPane();
       scrollPane.setBorder(JBUI.Borders.empty());
       scrollPane.setViewportBorder(JBUI.Borders.empty());
-      myScrollPane = scrollPane;
       return scrollPane;
-    }
-
-    private JScrollPane getScrollPane() {
-      return myScrollPane;
     }
 
     @Override
@@ -433,7 +426,6 @@ public class DiffEditor implements EditorMessageOwner {
     private CommandContextWithVF myCommandContext;
     @Nullable
     private List<DiffEditorChangeLayer> myLayers;
-    private JScrollPane myScrollPane;
 
     public MainEditorComponent(SRepository repository, boolean rightToLeft) {
       super(repository, new EditorConfigurationBuilder().showErrorsGutter(true).showSelectionLine(false).rightToLeft(rightToLeft).showLightBulb(false).build());
@@ -448,13 +440,7 @@ public class DiffEditor implements EditorMessageOwner {
       JScrollPane scrollPane = super.createScrollPane();
       scrollPane.setBorder(JBUI.Borders.empty());
       scrollPane.setViewportBorder(JBUI.Borders.empty());
-      myScrollPane = scrollPane;
       return scrollPane;
-    }
-
-    @Nullable
-    private JScrollPane getScrollPane() {
-      return myScrollPane;
     }
 
     @Override

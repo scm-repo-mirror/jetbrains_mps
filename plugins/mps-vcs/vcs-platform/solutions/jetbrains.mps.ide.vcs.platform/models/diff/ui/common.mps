@@ -13080,7 +13080,7 @@
                 <ref role="3cqZAo" node="42hl10VHayV" resolve="myInspectorComponent" />
               </node>
               <node concept="liA8E" id="7mKZPtWQ2qA" role="2OqNvi">
-                <ref role="37wK5l" node="7mKZPtWNTgm" resolve="getScrollPane" />
+                <ref role="37wK5l" to="exr9:~EditorComponent.getScrollPane()" resolve="getScrollPane" />
               </node>
             </node>
             <node concept="2OqwBi" id="7mKZPtWQer8" role="3K4GZi">
@@ -13088,7 +13088,7 @@
                 <ref role="3cqZAo" node="42hl10VHayP" resolve="myMainEditorComponent" />
               </node>
               <node concept="liA8E" id="7mKZPtWQomn" role="2OqNvi">
-                <ref role="37wK5l" node="7mKZPtWKm4E" resolve="getScrollPane" />
+                <ref role="37wK5l" to="exr9:~EditorComponent.getScrollPane()" resolve="getScrollPane" />
               </node>
             </node>
             <node concept="37vLTw" id="7mKZPtWPCES" role="3K4Cdx">
@@ -13130,14 +13130,6 @@
           <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
         </node>
       </node>
-      <node concept="312cEg" id="7mKZPtWNK2o" role="jymVt">
-        <property role="TrG5h" value="myScrollPane" />
-        <node concept="3Tm6S6" id="7mKZPtWNK2p" role="1B3o_S" />
-        <node concept="3uibUv" id="7mKZPtWNK2q" role="1tU5fm">
-          <ref role="3uigEE" to="dxuu:~JScrollPane" resolve="JScrollPane" />
-        </node>
-      </node>
-      <node concept="2tJIrI" id="7poVolquPXC" role="jymVt" />
       <node concept="2tJIrI" id="1Zi6V71Itre" role="jymVt" />
       <node concept="3clFbW" id="1UUFr_mXhb6" role="jymVt">
         <property role="TrG5h" value="InspectorEditorComponent" />
@@ -13296,16 +13288,6 @@
               </node>
             </node>
           </node>
-          <node concept="3clFbF" id="7mKZPtWOqKg" role="3cqZAp">
-            <node concept="37vLTI" id="7mKZPtWOz3N" role="3clFbG">
-              <node concept="37vLTw" id="7mKZPtWOILa" role="37vLTx">
-                <ref role="3cqZAo" node="76PQpE9Pdp0" resolve="scrollPane" />
-              </node>
-              <node concept="37vLTw" id="7mKZPtWOqKe" role="37vLTJ">
-                <ref role="3cqZAo" node="7mKZPtWNK2o" resolve="myScrollPane" />
-              </node>
-            </node>
-          </node>
           <node concept="3cpWs6" id="76PQpE9Pdpd" role="3cqZAp">
             <node concept="37vLTw" id="76PQpE9Pdpe" role="3cqZAk">
               <ref role="3cqZAo" node="76PQpE9Pdp0" resolve="scrollPane" />
@@ -13315,21 +13297,6 @@
         <node concept="2AHcQZ" id="1UUFr_mXrvz" role="2AJF6D">
           <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
-      </node>
-      <node concept="2tJIrI" id="7mKZPtWNTbL" role="jymVt" />
-      <node concept="3clFb_" id="7mKZPtWNTgm" role="jymVt">
-        <property role="TrG5h" value="getScrollPane" />
-        <node concept="3clFbS" id="7mKZPtWNTgn" role="3clF47">
-          <node concept="3clFbF" id="7mKZPtWNTgo" role="3cqZAp">
-            <node concept="37vLTw" id="7mKZPtWNTgp" role="3clFbG">
-              <ref role="3cqZAo" node="7mKZPtWNK2o" resolve="myScrollPane" />
-            </node>
-          </node>
-        </node>
-        <node concept="3uibUv" id="7mKZPtWNTgq" role="3clF45">
-          <ref role="3uigEE" to="dxuu:~JScrollPane" resolve="JScrollPane" />
-        </node>
-        <node concept="3Tm6S6" id="7mKZPtWQpbO" role="1B3o_S" />
       </node>
       <node concept="2tJIrI" id="7poVolqxf1d" role="jymVt" />
       <node concept="3clFb_" id="7poVolqxp5f" role="jymVt">
@@ -13422,13 +13389,6 @@
         </node>
         <node concept="2AHcQZ" id="7poVolq89XA" role="2AJF6D">
           <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-        </node>
-      </node>
-      <node concept="312cEg" id="7mKZPtWJk_5" role="jymVt">
-        <property role="TrG5h" value="myScrollPane" />
-        <node concept="3Tm6S6" id="7mKZPtWJ6_q" role="1B3o_S" />
-        <node concept="3uibUv" id="7mKZPtWJjdv" role="1tU5fm">
-          <ref role="3uigEE" to="dxuu:~JScrollPane" resolve="JScrollPane" />
         </node>
       </node>
       <node concept="2tJIrI" id="4CGE8md9hY1" role="jymVt" />
@@ -13608,16 +13568,6 @@
               </node>
             </node>
           </node>
-          <node concept="3clFbF" id="7mKZPtWJ$jg" role="3cqZAp">
-            <node concept="37vLTI" id="7mKZPtWJDUo" role="3clFbG">
-              <node concept="37vLTw" id="7mKZPtWJTwp" role="37vLTx">
-                <ref role="3cqZAo" node="76PQpE9LJCc" resolve="scrollPane" />
-              </node>
-              <node concept="37vLTw" id="7mKZPtWJ$je" role="37vLTJ">
-                <ref role="3cqZAo" node="7mKZPtWJk_5" resolve="myScrollPane" />
-              </node>
-            </node>
-          </node>
           <node concept="3cpWs6" id="2WRsZZH3aX8" role="3cqZAp">
             <node concept="37vLTw" id="2WRsZZH3aX9" role="3cqZAk">
               <ref role="3cqZAo" node="76PQpE9LJCc" resolve="scrollPane" />
@@ -13626,24 +13576,6 @@
         </node>
         <node concept="2AHcQZ" id="6zJKhveZsoQ" role="2AJF6D">
           <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-        </node>
-      </node>
-      <node concept="2tJIrI" id="7mKZPtWJXKA" role="jymVt" />
-      <node concept="3clFb_" id="7mKZPtWKm4E" role="jymVt">
-        <property role="TrG5h" value="getScrollPane" />
-        <node concept="3clFbS" id="7mKZPtWKm4H" role="3clF47">
-          <node concept="3clFbF" id="7mKZPtWKElr" role="3cqZAp">
-            <node concept="37vLTw" id="7mKZPtWKElq" role="3clFbG">
-              <ref role="3cqZAo" node="7mKZPtWJk_5" resolve="myScrollPane" />
-            </node>
-          </node>
-        </node>
-        <node concept="3uibUv" id="7mKZPtWKk4b" role="3clF45">
-          <ref role="3uigEE" to="dxuu:~JScrollPane" resolve="JScrollPane" />
-        </node>
-        <node concept="3Tm6S6" id="7mKZPtWQs$y" role="1B3o_S" />
-        <node concept="2AHcQZ" id="4oC3tFDCf$d" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
         </node>
       </node>
       <node concept="2tJIrI" id="3uyMLt62pYU" role="jymVt" />

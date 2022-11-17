@@ -40,10 +40,8 @@ import com.intellij.openapi.ui.popup.Balloon;
 import com.intellij.openapi.ui.popup.Balloon.Position;
 import com.intellij.openapi.vfs.VirtualFileManager;
 import com.intellij.openapi.wm.IdeFrame;
-import com.intellij.openapi.wm.IdeGlassPane;
 import com.intellij.openapi.wm.WindowManager;
 import com.intellij.openapi.wm.ex.StatusBarEx;
-import com.intellij.ui.components.JBScrollBar;
 import com.intellij.ui.components.JBScrollPane;
 import com.intellij.ui.components.JBScrollPane.Flip;
 import com.intellij.util.io.URLUtil;
@@ -167,7 +165,6 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import javax.swing.plaf.ScrollBarUI;
 import javax.swing.text.DefaultEditorKit;
 import java.awt.Adjustable;
 import java.awt.BorderLayout;
@@ -710,9 +707,9 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
 
     myMessagesGutter = new MessagesGutter(this, editorConfiguration.rightToLeft);
     if (editorConfiguration.showErrorsGutter) {
-      getVerticalScrollBar().setPersistentUI(myMessagesGutter);
+      myVerticalScrollBar.setPersistentUI(myMessagesGutter);
     } else {
-      getVerticalScrollBar().setPersistentUI(new ButtonlessScrollBarUI() {
+      myVerticalScrollBar.setPersistentUI(new ButtonlessScrollBarUI() {
         @Override
         public boolean alwaysShowTrack() {
           return true;
@@ -783,7 +780,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     return new FontSizeChangingScrollPane();
   }
 
-  JScrollPane getScrollPane() {
+  public JScrollPane getScrollPane() {
     assert hasUI();
     return myScrollPane;
   }
@@ -901,12 +898,11 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   }
 
   public JViewport getViewport() {
-    assert hasUI();
-    return myScrollPane.getViewport();
+    return getScrollPane().getViewport();
   }
 
   public int getHorizontalScrollBarOffset() {
-    JScrollBar bar = myScrollPane.getHorizontalScrollBar();
+    JScrollBar bar = getScrollPane().getHorizontalScrollBar();
     return bar != null && bar.isVisible() ? bar.getPreferredSize().height : 0;
   }
 
@@ -932,10 +928,14 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     getViewport().setViewPosition(point);
   }
 
+
+  /**
+   * use {@code getScrollPane().getVerticalScrollBar()} if utterly necessary
+   */
+  @Deprecated(since = "2022.3", forRemoval = true)
   @NotNull
-  public MyScrollBar getVerticalScrollBar() {
-    assert hasUI();
-    return myVerticalScrollBar;
+  public JScrollBar getVerticalScrollBar() {
+    return getScrollPane().getVerticalScrollBar();
   }
 
   @Override
@@ -2249,6 +2249,18 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     }
   }
 
+  @Override
+  public void scrollToTop() {
+    JScrollBar scrollBar = getScrollPane().getVerticalScrollBar();
+    scrollBar.setValue(scrollBar.getMinimum());
+  }
+
+  @Override
+  public void scrollToBottom() {
+    JScrollBar scrollBar = getScrollPane().getVerticalScrollBar();
+    scrollBar.setValue(scrollBar.getMaximum());
+  }
+
   public void ensureSelectionVisible() {
     if (getSelectedCell() == null) {
       return;
@@ -3296,44 +3308,6 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
       myInputMethodRequests = new InputMethodRequestsImpl(this);
     }
     return myInputMethodRequests;
-  }
-
-  class MyScrollBar extends JBScrollBar implements IdeGlassPane.TopComponent {
-    private ScrollBarUI myPersistentUI;
-
-    MyScrollBar(int orientation) {
-      super(orientation);
-    }
-
-    void setPersistentUI(ScrollBarUI ui) {
-      myPersistentUI = ui;
-      setUI(ui);
-    }
-
-    @Override
-    public boolean canBePreprocessed(MouseEvent e) {
-      return JBScrollPane.canBePreprocessed(e, this);
-    }
-
-    @Override
-    public void setUI(ScrollBarUI ui) {
-      if (myPersistentUI == null) {
-        myPersistentUI = ui;
-      }
-      super.setUI(myPersistentUI);
-      setOpaque(false);
-    }
-
-    @Override
-    public String getToolTipText(MouseEvent mouseEvent) {
-      if (getUI() instanceof MessagesGutter) {
-        // FIXME odd direct use of MessagesGutter; need to get rid of in ScrollBarUI subclass(es?), too.
-        //       I'm not sure ScrollBarUI is the one to report tooltips, we'd rather stick to JComponent
-        //       and use ScrollBarUI just to find out editor location.
-        return ((MessagesGutter) getUI()).getMPSTooltipText(mouseEvent);
-      }
-      return null;
-    }
   }
 
   /**
