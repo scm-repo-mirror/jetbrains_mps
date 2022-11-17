@@ -167,7 +167,6 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.text.DefaultEditorKit;
 import java.awt.Adjustable;
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
@@ -457,6 +456,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     myKbdHandlersStack = new LinkedList<>();
     myKbdHandlersStack.push(new EditorComponentKeyboardHandler(myKeymapHandler));
 
+    // XXX I wonder if these kb actions need a transition to IDEA actions, like Escape, Fold, Find, etc?
     registerKeyboardAction(new AbstractAction() {
       @Override
       public void actionPerformed(ActionEvent e) {
@@ -1340,7 +1340,12 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     return myLeftHighlighter;
   }
 
+  /**
+   * @deprecated don't use outside of MPS implementation, it's impl detail not to be dependent of;
+   *             clients shall interact with the search panel through CellActionType.FINDxxx
+   */
   @NotNull
+  @Deprecated(since = "2022.3")
   public SearchPanel getSearchPanel() {
     // FIXME seems that need to introduce an abstraction of SearchPanel, like EditorInspector, with no ties to Swing or
     //  [mps-ui].AbstractSearchPanel
@@ -1351,7 +1356,14 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     return mySearchPanel;
   }
 
+  /**
+   * @deprecated just to discourage its uses outside of MPS implementation
+   */
+  @Deprecated(since = "2022.3")
   public boolean isSearchPanelVisible() {
+    // FIXME there's 1 suspicious use in [mps-workbench], PasteNode_Action.
+    //       perhaps, has to be not just isVisible, but also isTextFieldFocused(), i.e. rather "isInSearchPanel" condition.
+    //       Anyway, PaseNode_Action shall definitely not use the method directly (some CellActionType, perhaps?)
     return mySearchPanel != null && mySearchPanel.isVisible();
   }
 

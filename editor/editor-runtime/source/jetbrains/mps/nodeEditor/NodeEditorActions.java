@@ -757,46 +757,57 @@ public class NodeEditorActions {
     }
   }
 
-  public static class FindTextInEditor extends AbstractCellAction {
-    public FindTextInEditor() {
+  private static abstract class SearchPanelAction extends AbstractCellAction {
+    protected SearchPanelAction() {
       super(false);
     }
 
-    @Override
-    public void execute(EditorContext context) {
-      ((jetbrains.mps.nodeEditor.EditorComponent) context.getEditorComponent()).getSearchPanel().activate();
+    protected final SearchPanel getSearchPanel(EditorContext context) {
+      //noinspection deprecation
+      return ((jetbrains.mps.nodeEditor.EditorComponent) context.getEditorComponent()).getSearchPanel();
     }
   }
 
-  public static class FindNextTextInEditor extends AbstractCellAction {
-    public FindNextTextInEditor() {
-      super(false);
-    }
-
-    @Override
-    public boolean canExecute(EditorContext context) {
-      return ((jetbrains.mps.nodeEditor.EditorComponent) context.getEditorComponent()).getSearchPanel().isVisible();
-    }
-
+  public static class FindTextInEditor extends SearchPanelAction {
     @Override
     public void execute(EditorContext context) {
-      ((jetbrains.mps.nodeEditor.EditorComponent) context.getEditorComponent()).getSearchPanel().goToNext();
+      getSearchPanel(context).activate();
     }
   }
 
-  public static final class FindPrevTextInEditor extends AbstractCellAction {
-    public FindPrevTextInEditor() {
-      super(false);
-    }
-
+  public static class FindNextTextInEditor extends SearchPanelAction {
     @Override
     public boolean canExecute(EditorContext context) {
-      return ((jetbrains.mps.nodeEditor.EditorComponent) context.getEditorComponent()).getSearchPanel().isVisible();
+      return getSearchPanel(context).isVisible();
     }
 
     @Override
     public void execute(EditorContext context) {
-      ((jetbrains.mps.nodeEditor.EditorComponent) context.getEditorComponent()).getSearchPanel().goToPrevious();
+      getSearchPanel(context).goToNext();
+    }
+  }
+
+  public static final class FindPrevTextInEditor extends SearchPanelAction {
+    @Override
+    public boolean canExecute(EditorContext context) {
+      return getSearchPanel(context).isVisible();
+    }
+
+    @Override
+    public void execute(EditorContext context) {
+      getSearchPanel(context).goToPrevious();
+    }
+  }
+
+  public static class CancelFindTextInEditor extends SearchPanelAction {
+    @Override
+    public boolean canExecute(EditorContext context) {
+      return getSearchPanel(context).isVisible();
+    }
+
+    @Override
+    public void execute(EditorContext context) {
+      getSearchPanel(context).deactivate();
     }
   }
 }

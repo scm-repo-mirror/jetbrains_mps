@@ -103,6 +103,7 @@ class EditorComponentActions {
     myActionMap.put(CellActionType.FIND, new NodeEditorActions.FindTextInEditor());
     myActionMap.put(CellActionType.FIND_NEXT, new NodeEditorActions.FindNextTextInEditor());
     myActionMap.put(CellActionType.FIND_PREV, new NodeEditorActions.FindPrevTextInEditor());
+    myActionMap.put(CellActionType.FIND_STOP, new NodeEditorActions.CancelFindTextInEditor());
   }
 
 

@@ -87,4 +87,5 @@ public enum CellActionType {
   FIND,
   FIND_NEXT,
   FIND_PREV,
+  FIND_STOP,
 }
