@@ -2394,14 +2394,17 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
 
   @Override
   public boolean getScrollableTracksViewportWidth() {
-    assert hasUI();
-    return myScrollPane.getViewport().getWidth() > getPreferredSize().width;
+    assert hasUI(); // XXX perhaps, no need for assert here, with instanceof, it's just 'false'.
+    // EditorComponentImpl from IDEA does getParent(), Swing classes use SwingUtilities, I'd stick to latter.
+    final Container parent = SwingUtilities.getUnwrappedParent(this);
+    return parent instanceof JViewport && parent.getWidth() > getPreferredSize().width;
   }
 
   @Override
   public boolean getScrollableTracksViewportHeight() {
     assert hasUI();
-    return myScrollPane.getViewport().getHeight() > getPreferredSize().height;
+    final Container parent = SwingUtilities.getUnwrappedParent(this);
+    return parent instanceof JViewport && parent.getHeight() > getPreferredSize().height;
   }
 
   @Override
@@ -3319,22 +3322,6 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
       }
       super.setUI(myPersistentUI);
       setOpaque(false);
-    }
-
-    @Override
-    public int getUnitIncrement(int direction) {
-      assert hasUI();
-      JViewport vp = myScrollPane.getViewport();
-      Rectangle vr = vp.getViewRect();
-      return getScrollableUnitIncrement(vr, SwingConstants.VERTICAL, direction);
-    }
-
-    @Override
-    public int getBlockIncrement(int direction) {
-      assert hasUI();
-      JViewport vp = myScrollPane.getViewport();
-      Rectangle vr = vp.getViewRect();
-      return getScrollableBlockIncrement(vr, SwingConstants.VERTICAL, direction);
     }
 
     @Override
