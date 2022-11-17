@@ -5,6 +5,7 @@ package jetbrains.mps.nodeEditor;
 
 import javax.swing.JComponent;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -17,15 +18,23 @@ import java.util.Map.Entry;
  * @author Artem Tikhomirov
  */
 final class EditorComponentDecoration extends JPanel {
+  private final JPanel myContentAndMessages;
   private boolean myIsInFiguresHierarchy = false;
 
   private JPanel myUpperPanel = null;
-  // FIXME remove this transition code
+  // FIXME remove this transition code, "upper" components is just bad design
   private final Map<String, JComponent> myUpperComponents = new HashMap<>();
+
+  private final EditorMessagesPanel myMessageHandler;
 
   EditorComponentDecoration() {
     setMinimumSize(new Dimension(0, 0));
     setLayout(new BorderLayout());
+    myMessageHandler = new EditorMessagesPanel();
+    // FIXME deal with myUpperPanel that occupies NORTH and get rid of this additional Panel
+    myContentAndMessages = new JPanel(new BorderLayout());
+    myContentAndMessages.add(myMessageHandler, BorderLayout.NORTH);
+    add(myContentAndMessages, BorderLayout.CENTER);
   }
 
   boolean isInFiguresHierarchy() {
@@ -50,6 +59,20 @@ final class EditorComponentDecoration extends JPanel {
   public void removeNotify() {
     myIsInFiguresHierarchy = false;
     super.removeNotify();
+  }
+
+  EditorMessagesPanel getMessagePanel() {
+    return myMessageHandler;
+  }
+
+  /**
+   * @return panel height, or 0 if not visible
+   */
+  int getMessagePanelHeight() {
+    if (myMessageHandler.isVisible()) {
+      return myMessageHandler.getPreferredSize().height;
+    }
+    return 0;
   }
 
   void addTopPanel(JComponent component, String id) {
@@ -83,5 +106,9 @@ final class EditorComponentDecoration extends JPanel {
       // component added without id
       myUpperPanel.remove(component);
     }
+  }
+
+  void addMainView(JScrollPane scrollPane) {
+    myContentAndMessages.add(scrollPane, BorderLayout.CENTER);
   }
 }

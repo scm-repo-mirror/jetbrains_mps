@@ -321,13 +321,12 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   private MyScrollBar myVerticalScrollBar;
   //TODO: make @NotNull after separating UI-less logic into AbstractEditorComponent class
   private EditorComponentDecoration myContainer;
-  private final EditorMessagesPanel myMessageHandler;
 
   protected EditorCell myRootCell;
-  private int myShiftX = 15;
-  private int myShiftY = 10;
+  private final int myShiftX = 15;
+  private final int myShiftY = 10;
 
-  private SelectionManagerImpl mySelectionManager = new SelectionManagerImpl(this);
+  private final SelectionManagerImpl mySelectionManager = new SelectionManagerImpl(this);
   @NotNull
   private final CommandContextImpl myCommandContext;
   private final UpdaterImpl myUpdater;
@@ -395,7 +394,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     myCommandContext = createCommandContext();
     myUpdater = createUpdater(myCommandContext);
     myHighlightManager = new NodeHighlightManager(this);
-    myMessageHandler = new EditorMessagesPanel(this);
+
 
     if (ApplicationManager.getApplication() != null && ApplicationManager.getApplication().getComponent(MPSCoreComponents.class) != null) {
       myClassLoaderManager = ApplicationManager.getApplication().getComponent(MPSCoreComponents.class).getClassLoaderManager();
@@ -698,12 +697,8 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
 
     myContainer = new EditorComponentDecoration();
 
-    myMessageHandler.init();
-    JPanel contentAndMessages = new JPanel(new BorderLayout());
-    contentAndMessages.add(myScrollPane, BorderLayout.CENTER);
-    contentAndMessages.add(myMessageHandler, BorderLayout.NORTH);
-
-    myContainer.add(contentAndMessages, BorderLayout.CENTER);
+    myContainer.getMessagePanel().init(this); // FIXME this one is ugly, eventually ECD would be responsibility of Project-aware code.
+    myContainer.addMainView(myScrollPane);
 
     myMessagesGutter = new MessagesGutter(this, editorConfiguration.rightToLeft);
     if (editorConfiguration.showErrorsGutter) {
@@ -907,13 +902,12 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   }
 
   public int getScrollPaneOffset() {
+    // XXX likely need to move whole method into EditorComponentDecoration
     int offset = 0;
     if (mySearchPanel != null && mySearchPanel.isVisible()) {
       offset += mySearchPanel.getPreferredSize().height;
     }
-    if (myMessageHandler.isVisible()) {
-      offset += myMessageHandler.getPreferredSize().height;
-    }
+    offset += myContainer.getMessagePanelHeight();
     return offset;
   }
 
@@ -1189,7 +1183,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     }
     myEditorComponentSettings.reset();
     clearModelDisposedTrace();
-    myMessageHandler.clear();
+    myContainer.getMessagePanel().clearAndHide();
 
     getModelAccess().runReadAction(() -> {
       if (node != null) {
@@ -3019,7 +3013,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   @NotNull
   @Override
   public IMessageHandler getMessageHandler() {
-    return myMessageHandler;
+    return myContainer.getMessagePanel();
   }
 
   private static class MyBaseAction extends BaseAction implements DumbAware {
