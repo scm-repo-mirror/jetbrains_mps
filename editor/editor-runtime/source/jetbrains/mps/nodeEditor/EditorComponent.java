@@ -29,7 +29,6 @@ import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.actionSystem.Separator;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.editor.colors.EditorColors;
-import com.intellij.openapi.editor.colors.EditorColorsListener;
 import com.intellij.openapi.editor.colors.EditorColorsManager;
 import com.intellij.openapi.editor.ex.EditorSettingsExternalizable;
 import com.intellij.openapi.editor.ex.util.EditorUtil;
@@ -45,7 +44,6 @@ import com.intellij.openapi.wm.ex.StatusBarEx;
 import com.intellij.ui.components.JBScrollPane;
 import com.intellij.ui.components.JBScrollPane.Flip;
 import com.intellij.util.io.URLUtil;
-import com.intellij.util.messages.MessageBusConnection;
 import com.intellij.util.ui.ButtonlessScrollBarUI;
 import com.intellij.util.ui.UIUtil;
 import gnu.trove.THashSet;
@@ -212,16 +210,17 @@ import java.util.stream.Collectors;
 
 /*
  * There are a lot of casts of {@code openapi.EditorComponent} to {@code nodeEditor.EditorComponent} implementation.
- * To get rid of odd "hierarchy inversion" with {@link #getExternalComponent()}, there are two possible approaches:
+ * To get rid of odd "hierarchy inversion" with {@link #getExternalComponent()}, there are three possible approaches:
  *  1. Keep this EC extends JComponent + openapi.EC, extract 'EditorComponentDecorator' == myContainer
- *     ECD to aggregate EC (as it's now)
+ *     ECD to aggregate EC (as it's now). Minimize access ECD, try not to access it through this EC component.
  *  2. Make this nodeEditor.EC == myContainer (panel with scrollpane) + openapi.EC,
  *     extract 'AbstractEditorComponent', JComponent+Scrollable. Aggregate AEC.
+ *     Likely would ruin scenarios when external listeners added to EC, background get changed or coordinates re-calculated.
  *  3. This class not JComponent, aggregate UI. Makes it right as removes confusion of EC being Swing element (it's rather a
- *     'controller' for UI element
+ *     'controller' for UI element.
+ *     Seems next to impossible, as there are hundreds of uses of nodeEditor.EC as JComponent (color, coordinates, icons/components, etc)
  *  Keep in mind headless EC story and a need to keep DataProvider separate (preferably, not in
  *  [editor-runtime] but in [mps-editor]
- *  Both (1) and (2) have drawback tha
  */
 public abstract class EditorComponent extends JComponent implements Scrollable, DataProvider,
                                                                     jetbrains.mps.openapi.editor.EditorComponent {
@@ -234,8 +233,6 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   private String myDefaultPopupGroupId = MPSActions.EDITOR_POPUP_GROUP;
   private InputMethodRequests myInputMethodRequests;
   protected volatile Handle myTypecheckingSessionHandle;
-  @Nullable
-  private MessageBusConnection myMessageBusConnection;
 
   public static void turnOnAliasingIfPossible(Graphics2D g) {
     if (!RenderingHints.VALUE_TEXT_ANTIALIAS_OFF.equals(AntialiasingType.getKeyForCurrentScope(true))) {
@@ -255,10 +252,10 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
 
   private final Object myAdditionalPaintersLock = new Object();
 
-  private Map<jetbrains.mps.openapi.editor.cells.EditorCell, Boolean> myCollapseStates = new HashMap<>();
-  private Set<EditorCell> myBracesEnabledCells = new HashSet<>();
+  private final Map<jetbrains.mps.openapi.editor.cells.EditorCell, Boolean> myCollapseStates = new HashMap<>();
+  private final Set<EditorCell> myBracesEnabledCells = new HashSet<>();
 
-  private CellTracker myCellTracker = new CellTracker();
+  private final CellTracker myCellTracker = new CellTracker();
 
   private boolean myDisposed = false;
   // additional debugging field
@@ -267,7 +264,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
 
   private DeletionApproverImpl myDeletionApprover;
 
-  private Set<AdditionalPainter> myAdditionalPainters = new TreeSet<>((o1, o2) -> {
+  private final Set<AdditionalPainter> myAdditionalPainters = new TreeSet<>((o1, o2) -> {
     if (o1.isAbove(o2, EditorComponent.this)) {
       return 1;
     }
@@ -276,11 +273,11 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     }
     return o1.equals(o2) ? 0 : Integer.signum(System.identityHashCode(o1) - System.identityHashCode(o2));
   });
-  private Map<Object, AdditionalPainter> myItemsToAdditionalPainters = new HashMap<>();
+  private final Map<Object, AdditionalPainter> myItemsToAdditionalPainters = new HashMap<>();
 
   private final List<LeftMarginMouseListener> myLeftMarginPressListeners = new ArrayList<>(0);
 
-  private EditorSettingsListener mySettingsListener = () -> getModelAccess().runReadInEDT(() -> {
+  private final EditorSettingsListener mySettingsListener = () -> getModelAccess().runReadInEDT(() -> {
     if (isDisposed()) {
       return;
     }
@@ -316,8 +313,6 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
 
   //TODO: make @NotNull after separating UI-less logic into AbstractEditorComponent class
   private JScrollPane myScrollPane;
-  //TODO: make @NotNull after separating UI-less logic into AbstractEditorComponent class
-  private MyScrollBar myVerticalScrollBar;
   //TODO: make @NotNull after separating UI-less logic into AbstractEditorComponent class
   private EditorComponentDecoration myContainer;
 
@@ -566,16 +561,6 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     attachListeners();
     enablePasteFromHistory();
 
-    if (ApplicationManager.getApplication() != null) {
-      myMessageBusConnection = ApplicationManager.getApplication().getMessageBus().connect();
-      myMessageBusConnection.subscribe(
-          EditorColorsManager.TOPIC, (EditorColorsListener) scheme -> {
-            EditorComponent.this.update();
-            EditorComponent.this.setBackground(StyleRegistry.getInstance().getEditorBackground());
-          }
-      );
-    }
-
     if (configuration.withUI) {
       createUI(configuration);
     }
@@ -659,14 +644,14 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   // - let HeadlessEditorComponent extend AbstractEditorComponent
   // - make this method again a part of constructor for this class
   private void createUI(EditorConfiguration editorConfiguration) {
-    myVerticalScrollBar = new MyScrollBar(Adjustable.VERTICAL);
+    MyScrollBar verticalScrollBar = new MyScrollBar(Adjustable.VERTICAL);
 
     myScrollPane = createScrollPane();
     if (editorConfiguration.rightToLeft) {
       myScrollPane.putClientProperty(JBScrollPane.Flip.class, Flip.HORIZONTAL);
     }
     myScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-    myScrollPane.setVerticalScrollBar(myVerticalScrollBar);
+    myScrollPane.setVerticalScrollBar(verticalScrollBar);
     myScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
     myScrollPane.setViewportView(this);
     myScrollPane.getViewport().addChangeListener(new ChangeListener() {
@@ -703,9 +688,9 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
 
     myMessagesGutter = new MessagesGutter(this, editorConfiguration.rightToLeft);
     if (editorConfiguration.showErrorsGutter) {
-      myVerticalScrollBar.setPersistentUI(myMessagesGutter);
+      verticalScrollBar.setPersistentUI(myMessagesGutter);
     } else {
-      myVerticalScrollBar.setPersistentUI(new ButtonlessScrollBarUI() {
+      verticalScrollBar.setPersistentUI(new ButtonlessScrollBarUI() {
         @Override
         public boolean alwaysShowTrack() {
           return true;
@@ -1652,10 +1637,6 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     fireEditorWillBeDisposed();
     myDisposed = true;
     myDisposedTrace = new Throwable("Editor was disposed by: ");
-
-    if (myMessageBusConnection != null) {
-      myMessageBusConnection.disconnect();
-    }
 
     releaseTypecheckingSession(false);
 

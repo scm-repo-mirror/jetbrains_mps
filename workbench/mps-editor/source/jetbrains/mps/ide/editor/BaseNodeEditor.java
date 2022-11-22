@@ -17,9 +17,13 @@ package jetbrains.mps.ide.editor;
 
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.actionSystem.DataProvider;
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.editor.Document;
+import com.intellij.openapi.editor.colors.EditorColorsListener;
+import com.intellij.openapi.editor.colors.EditorColorsManager;
 import com.intellij.openapi.wm.IdeFocusManager;
 import com.intellij.ui.components.JBScrollPane;
+import com.intellij.util.messages.MessageBusConnection;
 import com.intellij.util.ui.JBUI;
 import jetbrains.mps.ide.ThreadUtils;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
@@ -36,6 +40,7 @@ import jetbrains.mps.openapi.editor.EditorComponentState;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.EditorState;
 import jetbrains.mps.openapi.editor.extensions.EditorExtensionUtil;
+import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import jetbrains.mps.project.Project;
 import org.jdom.Element;
 import org.jetbrains.annotations.NonNls;
@@ -64,12 +69,27 @@ public abstract class BaseNodeEditor implements Editor {
   private SNodeReference myCurrentlyEditedNode = null;
   protected final Map<TaskType, PrioritizedTask> myType2TaskMap = new HashMap<>();
   private boolean mySelected;
+  @Nullable
+  private MessageBusConnection myMessageBusConnection;
+
 
   public BaseNodeEditor(@NotNull Project mpsProject) {
     myProject = mpsProject;
     myEditorPanel.setLayout(new BorderLayout());
     myEditorPanel.setBorder(new EmptyBorder(JBUI.emptyInsets()));
     myComponent.add(myEditorPanel, BorderLayout.CENTER);
+    if (ApplicationManager.getApplication() != null) {
+      myMessageBusConnection = ApplicationManager.getApplication().getMessageBus().connect();
+      myMessageBusConnection.subscribe(
+          EditorColorsManager.TOPIC, (EditorColorsListener) scheme -> {
+            if (myEditorComponent != null) {
+              // XXX no idea why update comes first, and backround change next
+              myEditorComponent.update();
+              myEditorComponent.setBackground(StyleRegistry.getInstance().getEditorBackground());
+            }
+          }
+      );
+    }
     showEditor();
   }
 
@@ -130,6 +150,10 @@ public abstract class BaseNodeEditor implements Editor {
 
   @Override
   public void dispose() {
+    if (myMessageBusConnection != null) {
+      myMessageBusConnection.disconnect();
+      myMessageBusConnection = null;
+    }
     setEditorComponent(null);
   }
 
