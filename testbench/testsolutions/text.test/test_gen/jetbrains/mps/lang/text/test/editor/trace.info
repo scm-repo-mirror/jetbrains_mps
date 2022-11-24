@@ -113,6 +113,92 @@
       <unit id="2823219366503239304" at="13,0,41,0" name="jetbrains.mps.lang.text.test.editor.SelectWordAndLine_Test" />
     </file>
   </root>
+  <root nodeRef="r:6cf522f1-8af4-45dd-b0f5-721b6e5caab5(jetbrains.mps.lang.text.test.editor@tests)/3933599066549256954">
+    <file name="HandleNoWordLinePrevious_Test.java">
+      <node id="3933599066549256954" at="18,42,19,25" concept="5" />
+      <node id="3933599066549256954" at="23,64,24,36" concept="1" />
+      <node id="3933599066549256954" at="29,52,30,19" concept="5" />
+      <node id="3933599066549256954" at="34,51,35,72" concept="1" />
+      <node id="3933599066549256976" at="35,72,36,77" concept="1" />
+      <node id="3933599066549262753" at="36,77,37,77" concept="1" />
+      <node id="3933599066549262761" at="37,77,38,73" concept="1" />
+      <node id="3933599066549262693" at="38,73,39,72" concept="1" />
+      <node id="3933599066549256954" at="15,0,17,0" concept="4" trace="ourParamCache" />
+      <node id="3933599066549256954" at="18,0,21,0" concept="0" trace="HandleNoWordLinePrevious_Test#()V" />
+      <node id="3933599066549256954" at="29,0,32,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="3933599066549256954" at="22,0,26,0" concept="2" trace="test_HandleNoWordLinePrevious#()V" />
+      <node id="3933599066549256954" at="33,0,41,0" concept="2" trace="testMethodImpl#()V" />
+      <scope id="3933599066549256954" at="18,42,19,25" />
+      <scope id="3933599066549256954" at="23,64,24,36" />
+      <scope id="3933599066549256954" at="29,52,30,19" />
+      <scope id="3933599066549256954" at="18,0,21,0" />
+      <scope id="3933599066549256954" at="29,0,32,0">
+        <var name="owner" id="3933599066549256954" />
+      </scope>
+      <scope id="3933599066549256954" at="22,0,26,0" />
+      <scope id="3933599066549256954" at="34,51,39,72" />
+      <scope id="3933599066549256954" at="33,0,41,0" />
+      <unit id="3933599066549256954" at="27,0,42,0" name="jetbrains.mps.lang.text.test.editor.HandleNoWordLinePrevious_Test$TestBody" />
+      <unit id="3933599066549256954" at="13,0,43,0" name="jetbrains.mps.lang.text.test.editor.HandleNoWordLinePrevious_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:6cf522f1-8af4-45dd-b0f5-721b6e5caab5(jetbrains.mps.lang.text.test.editor@tests)/3933599066549272444">
+    <file name="HandleNoWordLineNext_Test.java">
+      <node id="3933599066549272444" at="18,38,19,25" concept="5" />
+      <node id="3933599066549272444" at="23,60,24,36" concept="1" />
+      <node id="3933599066549272444" at="29,52,30,19" concept="5" />
+      <node id="3933599066549272444" at="34,51,35,72" concept="1" />
+      <node id="3933599066549272466" at="35,72,36,73" concept="1" />
+      <node id="3933599066549272470" at="36,73,37,74" concept="1" />
+      <node id="3933599066549272472" at="37,74,38,72" concept="1" />
+      <node id="3933599066549272444" at="15,0,17,0" concept="4" trace="ourParamCache" />
+      <node id="3933599066549272444" at="18,0,21,0" concept="0" trace="HandleNoWordLineNext_Test#()V" />
+      <node id="3933599066549272444" at="29,0,32,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="3933599066549272444" at="22,0,26,0" concept="2" trace="test_HandleNoWordLineNext#()V" />
+      <node id="3933599066549272444" at="33,0,40,0" concept="2" trace="testMethodImpl#()V" />
+      <scope id="3933599066549272444" at="18,38,19,25" />
+      <scope id="3933599066549272444" at="23,60,24,36" />
+      <scope id="3933599066549272444" at="29,52,30,19" />
+      <scope id="3933599066549272444" at="18,0,21,0" />
+      <scope id="3933599066549272444" at="29,0,32,0">
+        <var name="owner" id="3933599066549272444" />
+      </scope>
+      <scope id="3933599066549272444" at="22,0,26,0" />
+      <scope id="3933599066549272444" at="34,51,38,72" />
+      <scope id="3933599066549272444" at="33,0,40,0" />
+      <unit id="3933599066549272444" at="27,0,41,0" name="jetbrains.mps.lang.text.test.editor.HandleNoWordLineNext_Test$TestBody" />
+      <unit id="3933599066549272444" at="13,0,42,0" name="jetbrains.mps.lang.text.test.editor.HandleNoWordLineNext_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:6cf522f1-8af4-45dd-b0f5-721b6e5caab5(jetbrains.mps.lang.text.test.editor@tests)/3933599066549281447">
+    <file name="HandleNoWordLineInMiddle_Test.java">
+      <node id="3933599066549281447" at="18,42,19,25" concept="5" />
+      <node id="3933599066549281447" at="23,64,24,36" concept="1" />
+      <node id="3933599066549281447" at="29,52,30,19" concept="5" />
+      <node id="3933599066549281447" at="34,51,35,72" concept="1" />
+      <node id="3933599066549281473" at="35,72,36,74" concept="1" />
+      <node id="3933599066549281874" at="36,74,37,74" concept="1" />
+      <node id="3933599066549281882" at="37,74,38,74" concept="1" />
+      <node id="3933599066549281475" at="38,74,39,72" concept="1" />
+      <node id="3933599066549281447" at="15,0,17,0" concept="4" trace="ourParamCache" />
+      <node id="3933599066549281447" at="18,0,21,0" concept="0" trace="HandleNoWordLineInMiddle_Test#()V" />
+      <node id="3933599066549281447" at="29,0,32,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="3933599066549281447" at="22,0,26,0" concept="2" trace="test_HandleNoWordLineInMiddle#()V" />
+      <node id="3933599066549281447" at="33,0,41,0" concept="2" trace="testMethodImpl#()V" />
+      <scope id="3933599066549281447" at="18,42,19,25" />
+      <scope id="3933599066549281447" at="23,64,24,36" />
+      <scope id="3933599066549281447" at="29,52,30,19" />
+      <scope id="3933599066549281447" at="18,0,21,0" />
+      <scope id="3933599066549281447" at="29,0,32,0">
+        <var name="owner" id="3933599066549281447" />
+      </scope>
+      <scope id="3933599066549281447" at="22,0,26,0" />
+      <scope id="3933599066549281447" at="34,51,39,72" />
+      <scope id="3933599066549281447" at="33,0,41,0" />
+      <unit id="3933599066549281447" at="27,0,42,0" name="jetbrains.mps.lang.text.test.editor.HandleNoWordLineInMiddle_Test$TestBody" />
+      <unit id="3933599066549281447" at="13,0,43,0" name="jetbrains.mps.lang.text.test.editor.HandleNoWordLineInMiddle_Test" />
+    </file>
+  </root>
   <root nodeRef="r:6cf522f1-8af4-45dd-b0f5-721b6e5caab5(jetbrains.mps.lang.text.test.editor@tests)/4676474846002003779">
     <file name="SelectRows1_Test.java">
       <node id="4676474846002003779" at="18,29,19,25" concept="5" />
