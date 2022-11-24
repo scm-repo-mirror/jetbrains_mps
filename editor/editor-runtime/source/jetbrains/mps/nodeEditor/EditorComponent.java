@@ -345,6 +345,9 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   @Nullable
   private PlatformEditorEmulation myPlatformEditorEmulation;
 
+  // true when conditions to send componentCreated event were met and the event has been sent
+  private boolean myCreateNotified = false;
+
   public EditorComponent(@NotNull SRepository repository) {
     this(repository, EditorConfigurationBuilder.buildDefault());
   }
@@ -1188,9 +1191,6 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
 
       // respect notifiesCreation() for the sake of mbeddr.SPreferencesEditorComponent (until it migrates to 22.3)
       final boolean notifyCreateDispose = myEditorConfiguration.notifyCreateDispose || notifiesCreation();
-      if (myNode != null && notifyCreateDispose) {
-        notifyDisposal();
-      }
 
       final boolean needNewTypecheckingSession = updateContainingRoot(node);
       if (needNewTypecheckingSession) {
@@ -1220,8 +1220,9 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
         refreshContentHighlighter();
       }
 
-      if (myNode != null && notifyCreateDispose) {
+      if (!myCreateNotified && myNode != null && notifyCreateDispose) {
         notifyCreation();
+        myCreateNotified = true;
       }
     });
   }
@@ -1585,6 +1586,10 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     assertInEDT();
     if (myDisposed) {
       throw new IllegalStateException(myDisposedTrace);
+    }
+    if (myCreateNotified) {
+      notifyDisposal();
+      myCreateNotified = false; // not needed, just like to be pedantic
     }
     if (myPlatformEditorEmulation != null) {
       removeMouseListener(myPlatformEditorEmulation.getMouseListener());

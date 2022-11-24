@@ -64,83 +64,7 @@ public class EditorCheckerComponent implements Disposable {
     // FIXME move outside of [typesystemIntegration] module at least to [mps-editor], just need to find an
     //   App component to piggy-back.
     final DynamicComponentWarden dcw = cc.getPlatform().findComponent(DynamicComponentWarden.class);
-    myComponentTracker = dcw.publish(EditorComponentTrackService.class, new EditorComponentTrackService() {
-      private final LinkedHashSet<EditorComponent> myEditorComponents = new LinkedHashSet<>();
-
-      private LanguageRegistryListener myReloadListener;
-
-      @Override
-      public void editorComponentCreated(@NotNull Project project, @NotNull EditorComponent editorComponent) {
-        if (myEditorComponents.isEmpty()) {
-          installReloadListener();
-        }
-        myEditorComponents.add(editorComponent);
-        final com.intellij.openapi.project.Project ideaProject = ProjectHelper.toIdeaProject((jetbrains.mps.project.Project) project);
-        if (ideaProject != null && editorComponent instanceof jetbrains.mps.nodeEditor.EditorComponent) {
-          EditorComponentCreateListener listener = ideaProject.getMessageBus().syncPublisher(EditorComponentCreateListener.EDITOR_COMPONENT_CREATION);
-          listener.editorComponentCreated((jetbrains.mps.nodeEditor.EditorComponent) editorComponent);
-        }
-      }
-
-      @Override
-      public void editorComponentDisposed(@NotNull Project project, @NotNull EditorComponent editorComponent) {
-        assert myEditorComponents.contains(editorComponent);
-        myEditorComponents.remove(editorComponent);
-        if (myEditorComponents.isEmpty()) {
-          uninstallReloadListener();
-        }
-        final com.intellij.openapi.project.Project ideaProject = ProjectHelper.toIdeaProject((jetbrains.mps.project.Project) project);
-        if (ideaProject != null && editorComponent instanceof jetbrains.mps.nodeEditor.EditorComponent) {
-          EditorComponentCreateListener listener = ideaProject.getMessageBus().syncPublisher(EditorComponentCreateListener.EDITOR_COMPONENT_CREATION);
-          listener.editorComponentDisposed((jetbrains.mps.nodeEditor.EditorComponent) editorComponent);
-        }
-      }
-
-      private void installReloadListener() {
-        myReloadListener = new LanguageRegistryListener() {
-          @Override
-          public void afterLanguagesLoaded(Iterable<LanguageRuntime> languages) {
-            // myEditorComponents - perhaps, copy-on-write (to sync), and/or per project?
-            for(final EditorComponent ec : new ArrayList<>(myEditorComponents)) {
-              if (ec.isDisposed()) {
-                continue;
-              }
-              final EditorContext ctx = ec.getEditorContext();
-              final SRepository ecRepo = ctx.getRepository();
-              ecRepo.getModelAccess().runReadInEDT(() -> {
-                // condition copied from EC.isNodeDisposed(), although I'm not sure it's necessary or could not be
-                // handled by rebuildEditorContent() itself. In fact, I don't even sure rebuildEditorContent() contract
-                // (EDT + model read) has to be provided from outside. It's EC that nows SRepository and EDT requirements, anyway
-                if (ec.isDisposed() || !SNodeUtil.isAccessible(ec.getEditedNode(), ecRepo)) {
-                  return;
-                }
-                final NodeSubstituteChooser nodeSubstituteChooser;
-                if (ec instanceof jetbrains.mps.nodeEditor.EditorComponent) {
-                  nodeSubstituteChooser = ((jetbrains.mps.nodeEditor.EditorComponent) ec).getNodeSubstituteChooser();
-                } else {
-                  nodeSubstituteChooser = null;
-                }
-                ec.rebuildEditorContent();
-                if (nodeSubstituteChooser != null) {
-                  nodeSubstituteChooser.clearContent();
-                }
-              });
-            }
-          }
-        };
-        getLanguageRegistry().addRegistryListener(myReloadListener);
-      }
-
-      private void uninstallReloadListener() {
-        getLanguageRegistry().removeRegistryListener(myReloadListener);
-        myReloadListener = null;
-      }
-
-      @Nullable
-      private LanguageRegistry getLanguageRegistry() {
-        return MPSCoreComponents.getInstance().getPlatform().findComponent(LanguageRegistry.class);
-      }
-    });
+    myComponentTracker = dcw.publish(EditorComponentTrackService.class, new EditorComponentTracker());
   }
 
   @Override
@@ -157,6 +81,85 @@ public class EditorCheckerComponent implements Disposable {
     if (myComponentTracker != null) {
       myComponentTracker.discard();
       myComponentTracker = null;
+    }
+  }
+
+  // FIXME find proper place for the class ([mps-editor]). Need a place where can register a CoreComponent impl
+  private static class EditorComponentTracker implements EditorComponentTrackService {
+    private final LinkedHashSet<EditorComponent> myEditorComponents = new LinkedHashSet<>();
+
+    private LanguageRegistryListener myReloadListener;
+
+    @Override
+    public void editorComponentCreated(@NotNull Project project, @NotNull EditorComponent editorComponent) {
+      if (myEditorComponents.isEmpty()) {
+        installReloadListener();
+      }
+      myEditorComponents.add(editorComponent);
+      final com.intellij.openapi.project.Project ideaProject = ProjectHelper.toIdeaProject((jetbrains.mps.project.Project) project);
+      if (ideaProject != null && editorComponent instanceof jetbrains.mps.nodeEditor.EditorComponent) {
+        EditorComponentCreateListener listener = ideaProject.getMessageBus().syncPublisher(EditorComponentCreateListener.EDITOR_COMPONENT_CREATION);
+        listener.editorComponentCreated((jetbrains.mps.nodeEditor.EditorComponent) editorComponent);
+      }
+    }
+
+    @Override
+    public void editorComponentDisposed(@NotNull Project project, @NotNull EditorComponent editorComponent) {
+      assert myEditorComponents.contains(editorComponent);
+      myEditorComponents.remove(editorComponent);
+      if (myEditorComponents.isEmpty()) {
+        uninstallReloadListener();
+      }
+      final com.intellij.openapi.project.Project ideaProject = ProjectHelper.toIdeaProject((jetbrains.mps.project.Project) project);
+      if (ideaProject != null && editorComponent instanceof jetbrains.mps.nodeEditor.EditorComponent) {
+        EditorComponentCreateListener listener = ideaProject.getMessageBus().syncPublisher(EditorComponentCreateListener.EDITOR_COMPONENT_CREATION);
+        listener.editorComponentDisposed((jetbrains.mps.nodeEditor.EditorComponent) editorComponent);
+      }
+    }
+
+    private void installReloadListener() {
+      myReloadListener = new LanguageRegistryListener() {
+        @Override
+        public void afterLanguagesLoaded(Iterable<LanguageRuntime> languages) {
+          // myEditorComponents - perhaps, copy-on-write (to sync), and/or per project?
+          for(final EditorComponent ec : new ArrayList<>(myEditorComponents)) {
+            if (ec.isDisposed()) {
+              continue;
+            }
+            final EditorContext ctx = ec.getEditorContext();
+            final SRepository ecRepo = ctx.getRepository();
+            ecRepo.getModelAccess().runReadInEDT(() -> {
+              // condition copied from EC.isNodeDisposed(), although I'm not sure it's necessary or could not be
+              // handled by rebuildEditorContent() itself. In fact, I don't even sure rebuildEditorContent() contract
+              // (EDT + model read) has to be provided from outside. It's EC that nows SRepository and EDT requirements, anyway
+              if (ec.isDisposed() || !SNodeUtil.isAccessible(ec.getEditedNode(), ecRepo)) {
+                return;
+              }
+              final NodeSubstituteChooser nodeSubstituteChooser;
+              if (ec instanceof jetbrains.mps.nodeEditor.EditorComponent) {
+                nodeSubstituteChooser = ((jetbrains.mps.nodeEditor.EditorComponent) ec).getNodeSubstituteChooser();
+              } else {
+                nodeSubstituteChooser = null;
+              }
+              ec.rebuildEditorContent();
+              if (nodeSubstituteChooser != null) {
+                nodeSubstituteChooser.clearContent();
+              }
+            });
+          }
+        }
+      };
+      getLanguageRegistry().addRegistryListener(myReloadListener);
+    }
+
+    private void uninstallReloadListener() {
+      getLanguageRegistry().removeRegistryListener(myReloadListener);
+      myReloadListener = null;
+    }
+
+    @Nullable
+    private LanguageRegistry getLanguageRegistry() {
+      return MPSCoreComponents.getInstance().getPlatform().findComponent(LanguageRegistry.class);
     }
   }
 }

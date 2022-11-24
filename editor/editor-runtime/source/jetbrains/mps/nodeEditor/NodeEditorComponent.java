@@ -139,7 +139,6 @@ public class NodeEditorComponent extends EditorComponent {
 
   @Override
   public void dispose() {
-    notifyDisposal();
     InspectorTool inspectorTool = getInspectorTool();
     if (inspectorTool != null && inspectorTool.getInspector() != null) {
       if (inspectorTool.getInspector().getEditedNode() == this.getLastInspectedNode()) {
