@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <solution name="jetbrains.mps.git4idea.stubs" uuid="f57286e3-4e19-4d8d-8045-3900761f6530" moduleVersion="0" compileInMPS="false">
   <models>
-    <modelRoot contentPath="${mps_home}/plugins/git4idea/lib" type="java_classes">
+    <modelRoot contentPath="${mps_home}/plugins/vcs-git/lib" type="java_classes">
       <sourceRoot location="git4idea-rt.jar" />
-      <sourceRoot location="git4idea.jar" />
+      <sourceRoot location="vcs-git.jar" />
     </modelRoot>
   </models>
   <facets>
@@ -12,8 +12,8 @@
     </facet>
   </facets>
   <stubModelEntries>
-    <stubModelEntry path="${mps_home}/plugins/git4idea/lib/git4idea-rt.jar" />
-    <stubModelEntry path="${mps_home}/plugins/git4idea/lib/git4idea.jar" />
+    <stubModelEntry path="${mps_home}/plugins/vcs-git/lib/git4idea-rt.jar" />
+    <stubModelEntry path="${mps_home}/plugins/vcs-git/lib/vcs-git.jar" />
   </stubModelEntries>
   <sourcePath />
   <dependencies>

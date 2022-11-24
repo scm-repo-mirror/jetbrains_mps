@@ -56,11 +56,11 @@ public class Launcher {
 
   private static String getFsNotifierDir() {
     if (SystemInfo.isWindows) {
-      return "win";
+      return "win" + File.separatorChar + System.getProperty("os.arch");
     } else if (SystemInfo.isMac) {
       return "mac";
     } else if (SystemInfo.isLinux) {
-      return "linux";
+      return "linux" + File.separatorChar + System.getProperty("os.arch");
     }
 
     return null;

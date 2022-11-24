@@ -67,11 +67,11 @@ teamcity-info.xml
 /plugins/properties-resource-bundle-editor
 /plugins/terminal
 /plugins/emojipicker
-/plugins/settings-repository
+/plugins/settingsRepository
 /plugins/tasks
-/plugins/git4idea
-/plugins/svn4idea
-/plugins/github
+/plugins/vcs-git
+/plugins/vcs-svn
+/plugins/vcs-github
 /plugins/ant
 /plugins/sh
 /plugins/vcs-changeReminder

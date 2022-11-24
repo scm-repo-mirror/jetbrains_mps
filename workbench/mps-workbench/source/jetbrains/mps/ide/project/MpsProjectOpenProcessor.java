@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.ide.project;
 
+import com.intellij.ide.impl.OpenProjectTask;
 import com.intellij.ide.impl.ProjectUtil;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
@@ -51,7 +52,7 @@ public class MpsProjectOpenProcessor extends ProjectOpenProcessor {
   public Project doOpenProject(@NotNull VirtualFile virtualFile, Project projectToClose, boolean forceOpenInNewFrame) {
     String filePath = virtualFile.getPath();
     if (OpenMPSProjectTrustProjectHelper.checkTrust(virtualFile, projectToClose)) {
-      return ProjectUtil.openProject(filePath, projectToClose, forceOpenInNewFrame);
+      return ProjectUtil.openProject(virtualFile.toNioPath(), OpenProjectTask.build().withProjectToClose(projectToClose).withForceOpenInNewFrame(forceOpenInNewFrame));
     } else {
       return null;
     }

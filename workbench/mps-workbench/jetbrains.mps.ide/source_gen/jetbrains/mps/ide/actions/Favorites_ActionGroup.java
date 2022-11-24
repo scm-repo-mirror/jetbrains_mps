@@ -16,6 +16,7 @@ public class Favorites_ActionGroup extends GeneratedActionGroup {
     super("Favorites", ID, plugin);
     setIsInternal(false);
     setPopup(false);
-    Favorites_ActionGroup.this.addAction(ActionManager.getInstance().getAction("AddToFavorites"));
+    // TODO: 223FIX
+    //Favorites_ActionGroup.this.addAction(ActionManager.getInstance().getAction("AddToFavorites"));
   }
 }

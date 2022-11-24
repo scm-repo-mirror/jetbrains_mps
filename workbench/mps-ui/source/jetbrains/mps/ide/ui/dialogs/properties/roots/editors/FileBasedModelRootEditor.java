@@ -5,14 +5,10 @@ package jetbrains.mps.ide.ui.dialogs.properties.roots.editors;
 
 import com.intellij.icons.AllIcons.Actions;
 import com.intellij.icons.AllIcons.Nodes;
-import com.intellij.ide.util.treeView.AbstractTreeBuilder;
-import com.intellij.ide.util.treeView.AbstractTreeStructure;
-import com.intellij.ide.util.treeView.NodeDescriptor;
 import com.intellij.idea.ActionsBundle;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
-import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.openapi.actionSystem.DataProvider;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.openapi.actionSystem.Presentation;
@@ -23,7 +19,6 @@ import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory;
 import com.intellij.openapi.fileChooser.FileSystemTree;
 import com.intellij.openapi.fileChooser.actions.NewFolderAction;
 import com.intellij.openapi.fileChooser.ex.FileSystemTreeImpl;
-import com.intellij.openapi.fileChooser.impl.FileTreeBuilder;
 import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.roots.ui.configuration.actions.IconWithTextAction;
 import com.intellij.openapi.util.Disposer;
@@ -49,14 +44,12 @@ import org.jetbrains.mps.openapi.ui.persistence.ModelRootEntryEditor;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeCellRenderer;
 import java.awt.BorderLayout;
 import java.awt.LayoutManager;
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -156,16 +149,7 @@ public class FileBasedModelRootEditor implements ModelRootEntryEditor {
       }
     };
 
-    myFileSystemTree = new FileSystemTreeImpl(null, myDescriptor, myTree, getModelRootEntryCellRenderer(), init, null) {
-      @Override
-      protected AbstractTreeBuilder createTreeBuilder(JTree tree, DefaultTreeModel treeModel,
-                                                      AbstractTreeStructure treeStructure,
-                                                      Comparator<? super NodeDescriptor<?>> comparator,
-                                                      FileChooserDescriptor descriptor,
-                                                      @Nullable Runnable onInitialized) {
-        return new MyFileTreeBuilder(tree, treeModel, treeStructure, comparator, descriptor, onInitialized);
-      }
-    };
+    myFileSystemTree = new FileSystemTreeImpl(null, myDescriptor, myTree, getModelRootEntryCellRenderer(), init, null);
     myFileSystemTree.showHiddens(true);
     Disposer.register(myFileBasedModelRootEntry, myFileSystemTree);
 
@@ -248,22 +232,6 @@ public class FileBasedModelRootEditor implements ModelRootEntryEditor {
         return myFileSystemTree;
       }
       return null;
-    }
-  }
-
-  private static class MyFileTreeBuilder extends FileTreeBuilder {
-    public MyFileTreeBuilder(JTree tree,
-        DefaultTreeModel treeModel,
-        AbstractTreeStructure treeStructure,
-        Comparator<? super NodeDescriptor<?>> comparator,
-        FileChooserDescriptor descriptor,
-        @Nullable Runnable onInitialized) {
-      super(tree, treeModel, treeStructure, comparator, descriptor, onInitialized);
-    }
-
-    @Override
-    protected boolean isAlwaysShowPlus(NodeDescriptor nodeDescriptor) {
-      return false; // need this in order to not show plus for empty directories
     }
   }
 

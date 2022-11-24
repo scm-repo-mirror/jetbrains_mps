@@ -194,7 +194,7 @@ public abstract class EditorCell_Basic implements EditorCell, Entry<jetbrains.mp
   @Override
   public Collection<CellActionType> getAvailableActions() {
     final Collection<CellActionType> result = new ArrayList<>(myActionMap.size());
-    myActionMap.forEachKey(value -> result.add(CellActionType.values()[value]));
+    myActionMap.forEach(value -> result.add(CellActionType.values()[value]));
     return result;
   }
 

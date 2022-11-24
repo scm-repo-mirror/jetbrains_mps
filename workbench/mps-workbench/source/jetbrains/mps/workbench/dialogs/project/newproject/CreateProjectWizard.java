@@ -481,9 +481,10 @@ public final class CreateProjectWizard extends DialogWrapper {
 
     int exitCode = GeneralSettings.OPEN_PROJECT_NEW_WINDOW;
     if (myCurrentProject != null) {
-      exitCode = ProjectUtil.confirmOpenNewProject(true);
+      // TODO: 223FIX
+//      exitCode = ProjectUtil.confirmOpenNewProject(true);
       if (exitCode == GeneralSettings.OPEN_PROJECT_SAME_WINDOW) {
-        ProjectUtil.closeAndDispose(myCurrentProject);
+        ProjectManager.getInstance().closeAndDispose(myCurrentProject);
       }
     }
     boolean openInNewFrame = exitCode == GeneralSettings.OPEN_PROJECT_NEW_WINDOW;

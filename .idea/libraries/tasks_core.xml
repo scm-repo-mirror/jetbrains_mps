@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="gnu.trove">
+  <library name="tasks-core">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/util_rt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/plugins/tasks/lib/tasks-core.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

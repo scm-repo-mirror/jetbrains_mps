@@ -4,6 +4,7 @@ package jetbrains.mps.tool.environment;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.logging.Logger;
+import kotlinx.coroutines.future.FutureKt;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.util.PlatformUtils;
 import jetbrains.mps.ide.MPSCoreComponents;
@@ -383,7 +384,7 @@ public final class IdeaEnvironment extends EnvironmentBase {
 
     public void wait0(long time, TimeUnit units) {
       try {
-        getStartupManager().getAllActivitiesPassedFuture().get(time, units);
+        FutureKt.asCompletableFuture(getStartupManager().getAllActivitiesPassedFuture()).get(time, units);
       } catch (InterruptedException | TimeoutException | ExecutionException e) {
         if (LOG.isErrorLevel()) {
           LOG.error("got while waiting for startup activities to finish", e);

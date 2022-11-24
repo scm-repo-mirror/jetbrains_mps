@@ -5,7 +5,7 @@ package jetbrains.mps.ide.httpsupport.manager.plugin;
 import jetbrains.mps.annotations.GeneratedClass;
 import org.jetbrains.io.CustomPortServerManagerBase;
 import com.intellij.openapi.util.registry.RegistryValue;
-import com.intellij.application.options.RegistryManager;
+import com.intellij.openapi.util.registry.RegistryManager;
 import com.intellij.openapi.util.registry.RegistryValueListener;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.ide.BuiltInServerManager;

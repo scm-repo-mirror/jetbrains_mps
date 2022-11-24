@@ -116,7 +116,7 @@ public class DirectoryIndexExcludeUpdater implements ProjectComponent {
 
   private boolean isExcluded(VirtualFile dir) {
     for (DirectoryIndexExcludePolicy ep : myExcludePolicies) {
-      if (Arrays.asList(ep.getExcludeRootsForProject()).contains(dir)) {
+      if (Arrays.asList(ep.getExcludeUrlsForProject()).contains(dir.getUrl())) {
         return true;
       }
     }

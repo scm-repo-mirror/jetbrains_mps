@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.workbench.actions.welcomeScreen;
 
+import com.intellij.ide.impl.OpenProjectTask;
 import com.intellij.ide.impl.ProjectUtil;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -58,7 +59,7 @@ public class OpenSampleProjectAction extends AnAction {
     VirtualFile result = FileChooser.chooseFile(descriptor, currentProject, samplesFolder);
     if (result != null) {
       if (OpenMPSProjectTrustProjectHelper.checkTrust(result, currentProject)) {
-        ProjectUtil.openProject(result.getPath(), currentProject, false);
+        ProjectUtil.openProject(result.toNioPath(), OpenProjectTask.build().withProjectToClose(currentProject).withForceOpenInNewFrame(false));
       }
     }
   }

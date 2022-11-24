@@ -89,7 +89,8 @@ public abstract class ModuleInProjectTest implements EnvironmentAware {
     projectFile.refresh(new DefaultCachingContext(true, true));
     ApplicationManager.getApplication().invokeAndWait(() -> {
       // needed to trigger refresh on the project folder components in test environment
-      StoreReloadManager.getInstance().flushChangedProjectFileAlarm();
+      // TODO: 223FIX
+      //StoreReloadManager.getInstance().flushChangedProjectFileAlarm();
     }, ModalityState.NON_MODAL);
   }
 

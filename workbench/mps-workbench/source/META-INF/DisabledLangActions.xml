@@ -23,7 +23,6 @@
     <action id="OverrideMethods" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
     <action id="ImplementMethods" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
     <action id="DelegateMethods" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
-    <action id="GeneratePattern" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
     <group id="GenerateFromTestCreatorsGroup" class="com.intellij.openapi.actionSystem.EmptyActionGroup" overrides="true"/>
     <!--    </group>-->
 

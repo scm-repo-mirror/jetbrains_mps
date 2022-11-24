@@ -5,8 +5,8 @@
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />
     </modelRoot>
-    <modelRoot contentPath="${mps_home}/plugins/svn4idea/lib" type="java_classes">
-      <sourceRoot location="svn4idea.jar" />
+    <modelRoot contentPath="${mps_home}/plugins/vcs-svn/lib" type="java_classes">
+      <sourceRoot location="vcs-svn.jar" />
     </modelRoot>
   </models>
   <facets>

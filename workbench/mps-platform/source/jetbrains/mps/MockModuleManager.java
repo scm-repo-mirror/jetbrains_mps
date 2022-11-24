@@ -25,6 +25,8 @@ import com.intellij.openapi.module.UnloadedModuleDescription;
 import com.intellij.openapi.project.Project;
 import com.intellij.util.graph.Graph;
 import jetbrains.mps.ide.project.ProjectHelper;
+import kotlin.Unit;
+import kotlin.coroutines.Continuation;
 import org.jdom.JDOMException;
 import org.jetbrains.annotations.ApiStatus.ScheduledForRemoval;
 import org.jetbrains.annotations.NotNull;
@@ -175,8 +177,14 @@ final class MockModuleManager extends ModuleManager {
     return null;
   }
 
+  @Nullable
   @Override
-  public void setUnloadedModules(@NotNull List<String> unloadedModuleNames) {
+  public Object setUnloadedModules(@NotNull List<String> list, @NotNull Continuation<? super Unit> continuation) {
+    return null;
+  }
+
+  @Override
+  public void setUnloadedModulesSync(@NotNull List<String> list) {
 
   }
 }

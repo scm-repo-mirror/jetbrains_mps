@@ -18,6 +18,7 @@ package jetbrains.mps.workbench.actions;
 import com.intellij.DynamicBundle;
 import com.intellij.icons.AllIcons;
 import com.intellij.ide.IdeBundle;
+import com.intellij.ide.impl.OpenProjectTask;
 import com.intellij.ide.actions.OpenFileAction;
 import com.intellij.ide.impl.ProjectUtil;
 import com.intellij.idea.ActionsBundle;
@@ -84,7 +85,7 @@ public class OpenMPSProjectAction extends BaseAction {
 
     if (OpenMPSProjectFileChooserDescriptor.isMpsProjectDirectory(virtualFile) || OpenMPSProjectFileChooserDescriptor.isMpsProjectFile(virtualFile)) {
       if (OpenMPSProjectTrustProjectHelper.checkTrust(virtualFile, currentProject)) {
-        ProjectUtil.openProject(virtualFile.getPath(), currentProject, false);
+        ProjectUtil.openProject(virtualFile.toNioPath(), OpenProjectTask.build().withProjectToClose(currentProject).withForceOpenInNewFrame(false));
       }
     } else {
       if (virtualFile.isDirectory()) {

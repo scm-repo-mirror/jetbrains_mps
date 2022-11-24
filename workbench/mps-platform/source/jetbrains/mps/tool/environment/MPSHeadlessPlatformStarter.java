@@ -3,14 +3,14 @@
  */
 package jetbrains.mps.tool.environment;
 
-import com.intellij.idea.MainImpl;
-import com.intellij.idea.StartupUtil;
 import com.intellij.openapi.application.Application;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ApplicationStarter;
+import jetbrains.mps.util.PlatformStarter;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -47,12 +47,7 @@ public final class MPSHeadlessPlatformStarter implements ApplicationStarter {
     @NotNull
     /*package*/ Application createApp() {
       try {
-        StartupUtil.start(MAIN_CLASS.getName(),
-                          true, // Since 2022.1, IDEA takes isHeadless explicitly (although still uses Main.isHeadless())
-                          true, // XXX if start() fails, Main.showMessage reports an error, and needs to detect
-                                // isHeadless || isCommandLine from Main e.g. not to show message dialog on TC
-                          new String[]{MPSHeadlessPlatformStarter.CMD_NAME},
-                          new LinkedHashMap<>());
+        PlatformStarter.startApplication();
       } catch (Exception e) {
         throw new RuntimeException("FAILED TO START CMDLINE IJ", e);
       }
@@ -68,11 +63,11 @@ public final class MPSHeadlessPlatformStarter implements ApplicationStarter {
       return ApplicationManager.getApplication();
     }
 
-    private final Class<MainImpl> MAIN_CLASS = MainImpl.class;
+
   }
 
   @Override
-  public void main(@NotNull String[] args) {
+  public void main(@NotNull List<String> args) {
     Holder.IT.signalInitialized();
   }
 
