@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -169,7 +169,8 @@ public class MPSFacetConfiguration implements FacetConfiguration, PersistentStat
           sourceRoots.add(ideaFS.fromVirtualFile(sourceFolder));
         }
 
-        modelRootDescriptors.add(DefaultModelRoot.createDescriptor(contentRoot, sourceRoots.toArray(new IFile[0])));
+        final IFile[] sr = sourceRoots.toArray(new IFile[0]);
+        modelRootDescriptors.add(DefaultModelRoot.createDescriptor(contentRoot, sr.length > 0 ? sr : new IFile[] { contentRoot }));
       }
 
       myState.setModelRootDescriptors(modelRootDescriptors);
