@@ -24859,6 +24859,9 @@
       <node concept="2sjeV3" id="4FnSglbVp1l" role="nCB5Z">
         <ref role="2sjeV2" node="4YmhUESdVsA" resolve="com.intellij.openapi" />
       </node>
+      <node concept="2sjeV3" id="29qIO8rmzpe" role="nCB5Z">
+        <ref role="2sjeV2" node="16Vg0jOcomR" resolve="idea-libraries" />
+      </node>
     </node>
     <node concept="1E1JtD" id="2eDSGe9d1pJ" role="3989C9">
       <property role="BnDLt" value="true" />
@@ -41149,7 +41152,7 @@
         <node concept="398223" id="1Zf1t7r6_nr" role="39821P">
           <node concept="3_J27D" id="1Zf1t7r6_nt" role="Nbhlr">
             <node concept="3Mxwew" id="1Zf1t7r6_nK" role="3MwsjC">
-              <property role="3MwjfP" value="github" />
+              <property role="3MwjfP" value="vcs-github" />
             </node>
           </node>
           <node concept="2HvfSZ" id="1Zf1t7r6_nM" role="39821P">
@@ -41157,7 +41160,7 @@
               <node concept="2Ry0Ak" id="1Zf1t7r6_nT" role="iGT6I">
                 <property role="2Ry0Am" value="plugins" />
                 <node concept="2Ry0Ak" id="1Zf1t7r6_nY" role="2Ry0An">
-                  <property role="2Ry0Am" value="github" />
+                  <property role="2Ry0Am" value="vcs-github" />
                 </node>
               </node>
             </node>
@@ -41205,7 +41208,7 @@
         <node concept="398223" id="6ek1Cjkv_Hf" role="39821P">
           <node concept="3_J27D" id="6ek1Cjkv_Hh" role="Nbhlr">
             <node concept="3Mxwew" id="6ek1Cjkv_I0" role="3MwsjC">
-              <property role="3MwjfP" value="settings-repository" />
+              <property role="3MwjfP" value="settingsRepository" />
             </node>
           </node>
           <node concept="2HvfSZ" id="6ek1Cjkv_HM" role="39821P">
@@ -41213,7 +41216,7 @@
               <node concept="2Ry0Ak" id="6ek1Cjkv_HT" role="iGT6I">
                 <property role="2Ry0Am" value="plugins" />
                 <node concept="2Ry0Ak" id="6ek1Cjkv_HY" role="2Ry0An">
-                  <property role="2Ry0Am" value="settings-repository" />
+                  <property role="2Ry0Am" value="settingsRepository" />
                 </node>
               </node>
             </node>
@@ -44813,6 +44816,13 @@
         <node concept="3yqFpY" id="7TqXBxc99Ir" role="25yagT">
           <node concept="3yqFqT" id="7TqXBxc99Is" role="3yqFpW">
             <ref role="3yqFr6" node="4tNwrSpam8q" resolve="lib" />
+          </node>
+        </node>
+      </node>
+      <node concept="25yagZ" id="29qIO8rWVaT" role="PiKyV">
+        <node concept="3yqFpY" id="29qIO8rWVaU" role="25yagT">
+          <node concept="3yqFqT" id="29qIO8rWVaV" role="3yqFpW">
+            <ref role="3yqFr6" node="29qIO8qTH80" resolve="lib" />
           </node>
         </node>
       </node>
