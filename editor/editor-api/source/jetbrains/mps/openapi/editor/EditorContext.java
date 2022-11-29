@@ -114,7 +114,7 @@ public interface EditorContext {
   @Nullable
   EditorPanelManager getEditorPanelManager();
 
-  default DeletionApprover getDeletionOfficer() {
+  default DeletionApprover getDeletionApprover() {
     return new DummyDeletionApprover();
   }
 }

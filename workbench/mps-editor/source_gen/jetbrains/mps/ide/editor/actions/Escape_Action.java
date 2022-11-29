@@ -53,7 +53,7 @@ public class Escape_Action extends BaseAction {
     if (cancelFindAction != null && cancelFindAction.canExecute(((EditorContext) MapSequence.fromMap(_params).get("editorContext")))) {
       return true;
     }
-    return ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getHighlightManager().hasMessages(((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getHighlightMessagesOwner()) || ((EditorContext) MapSequence.fromMap(_params).get("editorContext")).getDeletionOfficer().getCellsApprovedForDeletion().size() > 0;
+    return ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getHighlightManager().hasMessages(((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getHighlightMessagesOwner()) || ((EditorContext) MapSequence.fromMap(_params).get("editorContext")).getDeletionApprover().getCellsApprovedForDeletion().size() > 0;
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
@@ -101,7 +101,7 @@ public class Escape_Action extends BaseAction {
     } else {
       check_h8krww_a0a0h0a(selectionManager.getSelection());
     }
-    DeletionApprover da = ((EditorContext) MapSequence.fromMap(_params).get("editorContext")).getDeletionOfficer();
+    DeletionApprover da = ((EditorContext) MapSequence.fromMap(_params).get("editorContext")).getDeletionApprover();
     if (da.getCellsApprovedForDeletion().size() > 0) {
       da.clear();
     }

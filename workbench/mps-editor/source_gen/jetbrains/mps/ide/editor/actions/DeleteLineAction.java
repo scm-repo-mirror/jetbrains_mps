@@ -32,7 +32,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
   /*package*/ static void execute(final EditorContext editorContext, EditorCell currentSelectedCell) {
     Optional<EditorCell> cellToDeleteOptional = findCellToDelete(currentSelectedCell);
     cellToDeleteOptional.ifPresent((EditorCell cellToDelete) -> {
-      editorContext.getDeletionOfficer().approveForDeletion(cellToDelete);
+      editorContext.getDeletionApprover().approveForDeletion(cellToDelete);
       EditorComponent editorComponent = editorContext.getEditorComponent();
       editorComponent.getActionHandler().executeAction(cellToDelete, CellActionType.DELETE);
     });

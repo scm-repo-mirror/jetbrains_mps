@@ -41,7 +41,7 @@ public class DeletionApproverUtil {
     if (nodeCell == null) {
       return false;
     }
-    final DeletionApprover deletionOfficer = context.getDeletionOfficer();
+    final DeletionApprover deletionOfficer = context.getDeletionApprover();
     if (!deletionOfficer.isApprovedForDeletion(nodeCell) &&
         !context.getSelectionManager().getSelection().isExactlyCoveringCell(nodeCell)) {
       deletionOfficer.approveForDeletion(nodeCell);
@@ -59,7 +59,7 @@ public class DeletionApproverUtil {
       return false;
     }
     EditorCell nodeCell = getNodeCell(context, node, cellId);
-    return nodeCell != null && context.getDeletionOfficer().isApprovedForDeletion(nodeCell);
+    return nodeCell != null && context.getDeletionApprover().isApprovedForDeletion(nodeCell);
   }
 
   //todo this logic is partially copied from SelectionManagerImpl, find the way to share the code

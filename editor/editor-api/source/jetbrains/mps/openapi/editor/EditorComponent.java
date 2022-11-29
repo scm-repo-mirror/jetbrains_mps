@@ -16,7 +16,6 @@
 package jetbrains.mps.openapi.editor;
 
 import jetbrains.mps.messages.IMessageHandler;
-import jetbrains.mps.openapi.editor.DeletionApprover.DummyDeletionApprover;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
@@ -141,11 +140,11 @@ public interface EditorComponent {
 
   /**
    * @deprecated not part of EditorComponent (swing/ui), rather EditorContext (interaction with user),
-   *             use {@link EditorContext#getDeletionOfficer()} instead
+   *             use {@link EditorContext#getDeletionApprover()} instead
    */
   @Deprecated(since = "2022.3", forRemoval = true)
   default DeletionApprover getDeletionApprover() {
-    return getEditorContext().getDeletionOfficer();
+    return getEditorContext().getDeletionApprover();
   }
 
   /**

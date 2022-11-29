@@ -341,7 +341,7 @@ public class EditorContext implements jetbrains.mps.openapi.editor.EditorContext
   }
 
   @Override
-  public DeletionApprover getDeletionOfficer() {
+  public DeletionApprover getDeletionApprover() {
     // impl in EditorComponent was synchronized over EC instance. I don't see a point.
     // We access editor code mainly in EDT, especially user-interaction code like deletion.
     if (EditorSettings.getInstance().isUseTwoStepDeletion()) {
@@ -351,7 +351,7 @@ public class EditorContext implements jetbrains.mps.openapi.editor.EditorContext
       }
       return myDeletionApprover;
     } else {
-      return jetbrains.mps.openapi.editor.EditorContext.super.getDeletionOfficer();
+      return jetbrains.mps.openapi.editor.EditorContext.super.getDeletionApprover();
     }
   }
 }

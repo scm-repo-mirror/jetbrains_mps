@@ -3226,6 +3226,6 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   public DeletionApprover getDeletionApprover() {
     // keep the method to avoid broken references from MPS code.
     // I admire javadoc, btw ;)
-    return getEditorContext().getDeletionOfficer();
+    return getEditorContext().getDeletionApprover();
   }
 }

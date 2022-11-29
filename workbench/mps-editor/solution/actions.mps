@@ -5569,7 +5569,7 @@
                 </node>
               </node>
               <node concept="liA8E" id="77HFTazQECC" role="2OqNvi">
-                <ref role="37wK5l" to="cj4x:~EditorContext.getDeletionOfficer()" resolve="getDeletionOfficer" />
+                <ref role="37wK5l" to="cj4x:~EditorContext.getDeletionApprover()" resolve="getDeletionApprover" />
               </node>
             </node>
           </node>
@@ -5838,7 +5838,7 @@
                       </node>
                     </node>
                     <node concept="liA8E" id="6IcVGWoQ05b" role="2OqNvi">
-                      <ref role="37wK5l" to="cj4x:~EditorContext.getDeletionOfficer()" resolve="getDeletionOfficer" />
+                      <ref role="37wK5l" to="cj4x:~EditorContext.getDeletionApprover()" resolve="getDeletionApprover" />
                     </node>
                   </node>
                   <node concept="liA8E" id="4ogYUrdiOA0" role="2OqNvi">
@@ -14542,7 +14542,7 @@
                           <ref role="3cqZAo" node="4Otqc4bkuub" resolve="editorContext" />
                         </node>
                         <node concept="liA8E" id="3T6cOs0Co73" role="2OqNvi">
-                          <ref role="37wK5l" to="cj4x:~EditorContext.getDeletionOfficer()" resolve="getDeletionOfficer" />
+                          <ref role="37wK5l" to="cj4x:~EditorContext.getDeletionApprover()" resolve="getDeletionApprover" />
                         </node>
                       </node>
                       <node concept="liA8E" id="3T6cOs0CoxC" role="2OqNvi">
