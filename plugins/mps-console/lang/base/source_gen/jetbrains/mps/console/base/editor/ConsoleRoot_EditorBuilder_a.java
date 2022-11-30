@@ -55,7 +55,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     editorCell.setBig(true);
     setCellContext(editorCell);
     Style style = new StyleImpl();
-    new ReadOnlyStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new ReadOnlyStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     editorCell.addEditorCell(createConstant_0());
     editorCell.addEditorCell(createConstant_1());
@@ -306,7 +306,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
         editorCell.setSRole(LINKS.commandHolder$LTfs);
       }
       Style style = new StyleImpl();
-      new ReadOnlyStyleClass(getEditorContext(), getNode()).unapply(style, editorCell);
+      new ReadOnlyStyleClass(this).unapply(style, editorCell);
       editorCell.getStyle().putAll(style);
     }
     @Override

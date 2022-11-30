@@ -78,7 +78,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "problem kind");
     editorCell.setCellId("Constant_fd2qmk_a0");
     Style style = new StyleImpl();
-    new ProblemKindStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new ProblemKindStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
     return editorCell;

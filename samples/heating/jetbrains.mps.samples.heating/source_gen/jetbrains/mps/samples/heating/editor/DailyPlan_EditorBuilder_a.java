@@ -160,7 +160,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "customizing the");
     editorCell.setCellId("Constant_dgzt1x_a2a");
     Style style = new StyleImpl();
-    new CommentStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new CommentStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     DeleteCustomizes.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.setDefaultText("");
@@ -203,7 +203,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
         editorCell.setSRole(LINKS.customizes$o_Bh);
       }
       Style style = new StyleImpl();
-      new FieldStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new FieldStyleClass(this).apply(style, editorCell);
       editorCell.getStyle().putAll(style);
     }
     @Override
@@ -244,7 +244,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "plan");
     editorCell.setCellId("Constant_dgzt1x_d2a");
     Style style = new StyleImpl();
-    new CommentStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new CommentStyleClass(this).apply(style, editorCell);
     style.set(StyleAttributes.INDENT_LAYOUT_NEW_LINE, true);
     editorCell.getStyle().putAll(style);
     DeleteCustomizes.setCellActions(editorCell, myNode, getEditorContext());

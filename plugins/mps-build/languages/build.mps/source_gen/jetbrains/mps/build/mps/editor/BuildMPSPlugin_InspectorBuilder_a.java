@@ -63,7 +63,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "Experimental functionality, use with care (MPSI-36)");
     editorCell.setCellId("Constant_q8whwb_0");
     Style style = new StyleImpl();
-    new commentStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new commentStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
     return editorCell;

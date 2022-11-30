@@ -86,7 +86,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
       editorCell.setDefaultText("<no name>");
       editorCell.setCellId("methodName");
       Style style = new StyleImpl();
-      new MethodNameStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new MethodNameStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.STRIKE_OUT, _StyleParameter_QueryFunction_8989zw_a0a0());
       editorCell.getStyle().putAll(style);
       editorCell.setSubstituteInfo(new CompositeSubstituteInfo(getEditorContext(), new PropertyCellContext(myNode, property), new SubstituteInfoPartExt[]{new BaseMethodDeclaration_name_postfixCellMenu_8989zw_a0a0(), new SChildSubstituteInfoPartEx(editorCell)}));

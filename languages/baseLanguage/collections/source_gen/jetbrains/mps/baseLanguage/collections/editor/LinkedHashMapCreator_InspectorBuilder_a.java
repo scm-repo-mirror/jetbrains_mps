@@ -82,7 +82,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setDefaultText("<no order>");
       editorCell.setCellId("property_order");
       Style style = new StyleImpl();
-      new KeyWordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new KeyWordStyleClass(this).apply(style, editorCell);
       editorCell.getStyle().putAll(style);
       editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));
       setCellContext(editorCell);

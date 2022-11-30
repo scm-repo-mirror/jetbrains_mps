@@ -126,7 +126,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       EditorCell_Property editorCell = EditorCell_RefPresentation.create(getEditorContext(), myNode, myReferencingNode, IReferentPresentationProvider.getDefaultPresentation(LINKS.memberDeclaration$D783));
       editorCell.setCellId("ReferencePresentation_6elrvu_a0a0");
       Style style = new StyleImpl();
-      new ReferenceOnConceptualFeatureStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new ReferenceOnConceptualFeatureStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.AUTO_DELETABLE, true);
       editorCell.getStyle().putAll(style);
       return editorCell;

@@ -60,7 +60,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "super");
     editorCell.setCellId("Constant_5h1hwz_a0");
     Style style = new StyleImpl();
-    new KeywordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new KeywordStyleClass(this).apply(style, editorCell);
     style.set(StyleAttributes.NAVIGATABLE_SREFERENCE, LINKS.constructor$vAAY);
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");

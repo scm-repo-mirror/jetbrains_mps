@@ -45,7 +45,7 @@ import jetbrains.mps.kotlin.editor.KotlinStyles_StyleSheet.KeywordStyleClass;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "expect");
     editorCell.setCellId("Constant_lw5hr8_a0");
     Style style = new StyleImpl();
-    new KeywordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new KeywordStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
     return editorCell;

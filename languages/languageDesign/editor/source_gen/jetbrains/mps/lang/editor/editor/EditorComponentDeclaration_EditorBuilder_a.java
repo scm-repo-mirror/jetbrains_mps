@@ -496,7 +496,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
         editorCell.setDefaultText("<no name>");
         editorCell.setCellId("property_name1");
         Style style = new StyleImpl();
-        new ReferenceOnConceptStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new ReferenceOnConceptStyleClass(this).apply(style, editorCell);
         editorCell.getStyle().putAll(style);
         editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));
         setCellContext(editorCell);

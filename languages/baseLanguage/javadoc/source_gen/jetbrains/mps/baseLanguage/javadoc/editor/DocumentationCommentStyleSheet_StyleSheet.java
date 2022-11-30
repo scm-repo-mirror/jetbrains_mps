@@ -40,7 +40,7 @@ public class DocumentationCommentStyleSheet_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new JavaDocTagStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new JavaDocTagStyleClass(this).apply(style, editorCell);
     }
 
   }
@@ -54,7 +54,7 @@ public class DocumentationCommentStyleSheet_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new CommentStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new CommentStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.FONT_STYLE, MPSFonts.BOLD_ITALIC);
     }
 

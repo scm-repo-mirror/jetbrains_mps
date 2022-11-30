@@ -146,7 +146,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
         editorCell.setSRole(LINKS.oldEnum$mg5q);
       }
       Style style = new StyleImpl();
-      new CommentStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new CommentStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.READ_ONLY, true);
       editorCell.getStyle().putAll(style);
     }

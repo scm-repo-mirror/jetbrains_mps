@@ -65,7 +65,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setDefaultText("");
       editorCell.setCellId("property_text");
       Style style = new StyleImpl();
-      new TODOStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new TODOStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.SPELLCHECK, true);
       editorCell.getStyle().putAll(style);
       HandleInsert.setCellActions(editorCell, myNode, getEditorContext());

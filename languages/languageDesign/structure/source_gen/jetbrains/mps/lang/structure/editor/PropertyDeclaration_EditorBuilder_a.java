@@ -114,9 +114,9 @@ import org.jetbrains.mps.openapi.language.SConcept;
         editorCell = EditorCell_Property.create(getEditorContext(), modelAccessor, myNode);
         editorCell.setCellId("name");
         Style style = new StyleImpl();
-        new FieldStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new FieldStyleClass(this).apply(style, editorCell);
         if (_StyleParameter_QueryFunction_lnae77_a0a0()) {
-          new CommentStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+          new CommentStyleClass(this).apply(style, editorCell);
         }
         style.set(StyleAttributes.FONT_STYLE, MPSFonts.BOLD);
         editorCell.getStyle().putAll(style);

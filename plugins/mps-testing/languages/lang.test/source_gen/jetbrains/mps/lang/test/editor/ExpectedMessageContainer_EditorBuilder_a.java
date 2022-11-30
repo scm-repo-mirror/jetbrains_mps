@@ -65,7 +65,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "with message");
     editorCell.setCellId("Constant_if1x99_a0");
     Style style = new StyleImpl();
-    new NodeOperationStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new NodeOperationStyleClass(this).apply(style, editorCell);
     style.set(StyleAttributes.EDITABLE, false);
     style.set(StyleAttributes.SELECTABLE, false);
     editorCell.getStyle().putAll(style);

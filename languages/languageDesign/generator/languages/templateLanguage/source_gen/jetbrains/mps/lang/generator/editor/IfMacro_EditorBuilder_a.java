@@ -82,7 +82,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "$IF$");
     editorCell.setCellId("Constant_t4g6n2_a0a");
     Style style = new StyleImpl();
-    new macroStartStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new macroStartStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     if (true) {
       editorCell.getStyle().set(StyleAttributes.FOCUS_POLICY, FocusPolicy.ATTRACTS_FOCUS);
@@ -121,7 +121,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "$ELSE$");
     editorCell.setCellId("Constant_t4g6n2_a1a");
     Style style = new StyleImpl();
-    new macroStartStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new macroStartStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
     return editorCell;

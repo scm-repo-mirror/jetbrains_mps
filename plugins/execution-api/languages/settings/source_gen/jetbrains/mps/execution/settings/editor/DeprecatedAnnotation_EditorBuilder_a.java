@@ -86,7 +86,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "@Deprecated");
     editorCell.setCellId("Constant_lchw91_a0a");
     Style style = new StyleImpl();
-    new AnnotationStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new AnnotationStyleClass(this).apply(style, editorCell);
     style.set(StyleAttributes.FONT_STYLE, MPSFonts.PLAIN);
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");

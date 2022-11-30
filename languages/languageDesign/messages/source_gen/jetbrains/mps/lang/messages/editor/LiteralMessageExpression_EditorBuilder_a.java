@@ -82,7 +82,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setDefaultText("");
       editorCell.setCellId("MSG_PROP");
       Style style = new StyleImpl();
-      new MessageLiteralStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new MessageLiteralStyleClass(this).apply(style, editorCell);
       editorCell.getStyle().putAll(style);
       MessageExpression_Actions.setCellActions(editorCell, myNode, getEditorContext());
       editorCell.addKeyMap(new LiteralMessageExpression_KeyMap());

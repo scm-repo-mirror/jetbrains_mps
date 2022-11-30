@@ -172,7 +172,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
         editorCell.setDefaultText("<no label>");
         editorCell.setCellId("property_label");
         Style style = new StyleImpl();
-        new InequationLabelStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new InequationLabelStyleClass(this).apply(style, editorCell);
         style.set(StyleAttributes.EDITABLE, false);
         editorCell.getStyle().putAll(style);
         editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));

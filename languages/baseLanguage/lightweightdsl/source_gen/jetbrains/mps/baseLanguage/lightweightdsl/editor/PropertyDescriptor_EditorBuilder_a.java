@@ -289,7 +289,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
       EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "<modifiers>");
       editorCell.setCellId("Constant_ram8ac_a5a");
       Style style = new StyleImpl();
-      new CommentStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new CommentStyleClass(this).apply(style, editorCell);
       editorCell.getStyle().putAll(style);
       editorCell.setDefaultText("");
       return editorCell;

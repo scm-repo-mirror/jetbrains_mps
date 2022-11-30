@@ -71,7 +71,7 @@ public class RunConfigurations_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new operationStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new operationStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.PUNCTUATION_LEFT, true);
       style.set(StyleAttributes.PUNCTUATION_RIGHT, true);
       style.set(StyleAttributes.MATCHING_LABEL, "operation.brace");
@@ -88,7 +88,7 @@ public class RunConfigurations_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new operationStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new operationStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.PUNCTUATION_LEFT, true);
       style.set(StyleAttributes.MATCHING_LABEL, "operation.brace");
     }
@@ -104,7 +104,7 @@ public class RunConfigurations_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new FieldStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new FieldStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.FONT_STYLE, MPSFonts.PLAIN);
     }
 

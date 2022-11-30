@@ -39,7 +39,7 @@ import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.StringLite
       setCellContext(bigCell);
     }
     Style style = new StyleImpl();
-    new StringLiteralStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new StringLiteralStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     return editorCell;
   }

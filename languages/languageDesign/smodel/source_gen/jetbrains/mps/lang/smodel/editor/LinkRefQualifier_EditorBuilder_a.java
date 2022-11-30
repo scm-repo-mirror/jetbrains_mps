@@ -134,7 +134,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
         editorCell.setDefaultText("<no role>");
         editorCell.setCellId("property_role");
         Style style = new StyleImpl();
-        new ref_link_roleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new ref_link_roleStyleClass(this).apply(style, editorCell);
         style.set(StyleAttributes.AUTO_DELETABLE, true);
         editorCell.getStyle().putAll(style);
         editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));

@@ -76,13 +76,13 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     editorCell.setAction(CellActionType.BACKSPACE, EmptyCellAction.getInstance());
     editorCell.setCellId("ModelAccess_ilv66b_a0");
     Style style = new StyleImpl();
-    new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new testStyleStyleClass(this).apply(style, editorCell);
     new testKey_StyleKey().apply(style);
     if (_StyleParameter_QueryFunction_ilv66b_a2a0()) {
-      new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new testStyleStyleClass(this).apply(style, editorCell);
     }
     if (_StyleParameter_QueryFunction_ilv66b_a3a0()) {
-      new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new testStyleStyleClass(this).apply(style, editorCell);
     }
     style.set(StyleAttributes.getInstance().<String>getAttribute("jetbrains.mps.lang.editor.test.generation", "testStringAttribute"), _StyleParameter_QueryFunction_ilv66b_a4a0());
     style.set(StyleAttributes.AUTO_DELETABLE, true);
@@ -167,7 +167,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     style.set(StyleAttributes.POSITION, "indented");
     style.set(StyleAttributes.SHOW_BOUNDARIES_IN, ShowBoundariesArea.GUTTER_AND_EDITOR);
     style.set(StyleAttributes.TABLE_COMPONENT, TableComponent.VERTICAL_COLLECTION);
-    new testStyleStyleClass(getEditorContext(), getNode()).unapply(style, editorCell);
+    new testStyleStyleClass(this).unapply(style, editorCell);
     new testKey_StyleKey().unapply(style);
     style.set(StyleAttributes.UNDERLINED, false);
     style.set(StyleAttributes.UNDERLINED, _StyleParameter_QueryFunction_ilv66b_a09a0());

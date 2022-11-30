@@ -80,7 +80,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
       editorCell.setDefaultText("<no label>");
       editorCell.setCellId("property_label");
       Style style = new StyleImpl();
-      new InequationLabelStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new InequationLabelStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.INDENT_LAYOUT_NEW_LINE, true);
       editorCell.getStyle().putAll(style);
       editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));

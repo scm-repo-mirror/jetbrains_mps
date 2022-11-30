@@ -25,7 +25,7 @@ public class KajakStyles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new KeyWordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new KeyWordStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.DARK_MAGENTA));
       style.set(StyleAttributes.FONT_STYLE, MPSFonts.BOLD_ITALIC);
     }

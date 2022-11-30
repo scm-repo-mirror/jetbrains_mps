@@ -137,7 +137,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
         editorCell.setDefaultText("<no name>");
         editorCell.setCellId("property_name");
         Style style = new StyleImpl();
-        new FieldStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new FieldStyleClass(this).apply(style, editorCell);
         style.set(StyleAttributes.PADDING_RIGHT, new Padding(0.0, Measure.SPACES));
         style.set(StyleAttributes.AUTO_DELETABLE, true);
         editorCell.getStyle().putAll(style);

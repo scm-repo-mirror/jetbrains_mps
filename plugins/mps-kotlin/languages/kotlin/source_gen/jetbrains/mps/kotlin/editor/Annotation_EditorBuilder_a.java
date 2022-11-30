@@ -160,7 +160,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
         editorCell.setDefaultText("<no name>");
         editorCell.setCellId("property_name");
         Style style = new StyleImpl();
-        new AnnotationStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new AnnotationStyleClass(this).apply(style, editorCell);
         editorCell.getStyle().putAll(style);
         editorCell.setSubstituteInfo(new CompositeSubstituteInfo(getEditorContext(), new PropertyCellContext(myNode, property), new SubstituteInfoPartExt[]{new ReplaceWith_IAnnotation_cellMenu_mr1gse_a0a0a0(), new SChildSubstituteInfoPartEx(editorCell)}));
         setCellContext(editorCell);
@@ -205,7 +205,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
   private EditorCell createComponent_0() {
     EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "jetbrains.mps.kotlin.editor.TypeArguments_Component");
     Style style = new StyleImpl();
-    new AnnotationStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new AnnotationStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     return editorCell;
   }

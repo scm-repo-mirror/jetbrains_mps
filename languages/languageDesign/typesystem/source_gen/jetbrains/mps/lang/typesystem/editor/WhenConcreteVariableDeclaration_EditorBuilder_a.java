@@ -59,7 +59,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setBig(true);
       setCellContext(editorCell);
       Style style = new StyleImpl();
-      new LocalVariableStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new LocalVariableStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.PADDING_RIGHT, new Padding(0.0, Measure.SPACES));
       editorCell.getStyle().putAll(style);
       editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));

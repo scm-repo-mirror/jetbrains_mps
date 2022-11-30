@@ -40,7 +40,7 @@ public class Styles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new KeywordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new KeywordStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.FONT_STYLE, MPSFonts.ITALIC);
     }
 
@@ -70,7 +70,7 @@ public class Styles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new KeywordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new KeywordStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.FONT_STYLE, MPSFonts.BOLD);
     }
 
@@ -85,7 +85,7 @@ public class Styles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new KeywordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new KeywordStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.FONT_STYLE, MPSFonts.BOLD_ITALIC);
       style.set(StyleAttributes.EDITABLE, true);
       style.set(StyleAttributes.PUNCTUATION_RIGHT, true);
@@ -162,7 +162,7 @@ public class Styles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new mappingRuleDeclarationStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new mappingRuleDeclarationStyleClass(this).apply(style, editorCell);
     }
 
   }
@@ -192,7 +192,7 @@ public class Styles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new ParenthesisStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new ParenthesisStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.PUNCTUATION_RIGHT, true);
       style.set(StyleAttributes.PUNCTUATION_LEFT, true);
     }
@@ -208,7 +208,7 @@ public class Styles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new ParenthesisStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new ParenthesisStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.PUNCTUATION_LEFT, true);
     }
 

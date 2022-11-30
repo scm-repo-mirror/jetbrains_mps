@@ -79,7 +79,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "get output");
     editorCell.setCellId("Constant_3dlbxb_a0");
     Style style = new StyleImpl();
-    new genContext_operationStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new genContext_operationStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     editorCell.setTransformationMenuLookup(new DefaultTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), CONCEPTS.GenerationContextOp_Base$yi));
     editorCell.setDefaultText("");
@@ -106,7 +106,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
       editorCell.setSRole(LINKS.label$V_zA);
     }
     Style style = new StyleImpl();
-    new mappingLabelReferenceStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new mappingLabelReferenceStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     editorCell.setSubstituteInfo(new SReferenceSubstituteInfo(editorCell, referenceLink));
     Iterable<SNode> referenceAttributes = SNodeOperations.ofConcept(new IAttributeDescriptor.AllAttributes().list(myNode), CONCEPTS.LinkAttribute$v_);

@@ -115,7 +115,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, ".");
     editorCell.setCellId("dot");
     Style style = new StyleImpl();
-    new DotStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new DotStyleClass(this).apply(style, editorCell);
     style.set(StyleAttributes.INDENT_LAYOUT_ON_NEW_LINE, _StyleParameter_QueryFunction_t2jtrp_a0b0());
     style.set(StyleAttributes.INDENT_LAYOUT_INDENT, _StyleParameter_QueryFunction_t2jtrp_a1b0());
     editorCell.getStyle().putAll(style);

@@ -259,7 +259,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "(reexport)");
     editorCell.setCellId("reexportKeyword");
     Style style = new StyleImpl();
-    new keywordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new keywordStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     delete_javaDepReexport.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.setDefaultText("");

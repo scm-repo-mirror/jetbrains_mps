@@ -97,7 +97,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setCellId("property_name");
       Style style = new StyleImpl();
       if (_StyleParameter_QueryFunction_lfy4ev_a0b0()) {
-        new FieldStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new FieldStyleClass(this).apply(style, editorCell);
       }
       editorCell.getStyle().putAll(style);
       editorCell.setTransformationMenuLookup(new NamedTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), CONCEPTS.VariableDeclaration$DF, "jetbrains.mps.kotlin.editor.VariableDeclaration_AddType_Transform"));
@@ -135,7 +135,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, ":");
     editorCell.setCellId("Constant_lfy4ev_a2a");
     Style style = new StyleImpl();
-    new ColonStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new ColonStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     VariableDeclaration_RemoveType.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.setDefaultText("");

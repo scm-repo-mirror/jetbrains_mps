@@ -55,7 +55,7 @@ public class SModelStyles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new KeywordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new KeywordStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(new Color(12093184)));
     }
 

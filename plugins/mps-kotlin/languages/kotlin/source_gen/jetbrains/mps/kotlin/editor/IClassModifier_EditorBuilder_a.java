@@ -39,7 +39,7 @@ import jetbrains.mps.kotlin.editor.KotlinStyles_StyleSheet.KeywordStyleClass;
       setCellContext(bigCell);
     }
     Style style = new StyleImpl();
-    new KeywordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new KeywordStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     return editorCell;
   }

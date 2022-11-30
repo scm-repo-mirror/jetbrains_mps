@@ -51,7 +51,7 @@ public class Collections_Style_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new AngleBracketStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new AngleBracketStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.PUNCTUATION_LEFT, true);
       style.set(StyleAttributes.PUNCTUATION_RIGHT, true);
     }
@@ -67,7 +67,7 @@ public class Collections_Style_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new AngleBracketStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new AngleBracketStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.PUNCTUATION_LEFT, true);
     }
 

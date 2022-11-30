@@ -111,7 +111,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setSRole(LINKS.applicableConcept$n7Dv);
     }
     Style style = new StyleImpl();
-    new ReferenceOnConceptStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new ReferenceOnConceptStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     if (true) {
       editorCell.getStyle().set(StyleAttributes.FOCUS_POLICY, FocusPolicy.FIRST_EDITABLE_CELL);
@@ -180,7 +180,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "condition");
     editorCell.setCellId("Constant_fdnaen_b0");
     Style style = new StyleImpl();
-    new GeneratorKeyWordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new GeneratorKeyWordStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
     return editorCell;

@@ -38,7 +38,7 @@ public class KotlinStyles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new LeftParenStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new LeftParenStyleClass(this).apply(style, editorCell);
     }
 
   }
@@ -52,7 +52,7 @@ public class KotlinStyles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new RightParenStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new RightParenStyleClass(this).apply(style, editorCell);
     }
 
   }
@@ -66,7 +66,7 @@ public class KotlinStyles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.DotStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.DotStyleClass(this).apply(style, editorCell);
     }
 
   }
@@ -80,7 +80,7 @@ public class KotlinStyles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new LeftBracketStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new LeftBracketStyleClass(this).apply(style, editorCell);
     }
 
   }
@@ -94,7 +94,7 @@ public class KotlinStyles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new RightBracketStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new RightBracketStyleClass(this).apply(style, editorCell);
     }
 
   }
@@ -108,7 +108,7 @@ public class KotlinStyles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new LeftBraceStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new LeftBraceStyleClass(this).apply(style, editorCell);
     }
 
   }
@@ -122,7 +122,7 @@ public class KotlinStyles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new RightBraceStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new RightBraceStyleClass(this).apply(style, editorCell);
     }
 
   }
@@ -152,7 +152,7 @@ public class KotlinStyles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new DotStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new DotStyleClass(this).apply(style, editorCell);
     }
 
   }
@@ -166,7 +166,7 @@ public class KotlinStyles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new LParenthesisStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new LParenthesisStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.PUNCTUATION_LEFT, true);
     }
 
@@ -181,7 +181,7 @@ public class KotlinStyles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new RParenthesisStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new RParenthesisStyleClass(this).apply(style, editorCell);
     }
 
   }
@@ -210,7 +210,7 @@ public class KotlinStyles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new KeyWordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new KeyWordStyleClass(this).apply(style, editorCell);
     }
 
   }
@@ -285,7 +285,7 @@ public class KotlinStyles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.AnnotationStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.AnnotationStyleClass(this).apply(style, editorCell);
     }
 
   }

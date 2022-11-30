@@ -67,7 +67,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "require");
     editorCell.setCellId("Constant_7hmin7_a0");
     Style style = new StyleImpl();
-    new CommandStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new CommandStyleClass(this).apply(style, editorCell);
     style.set(StyleAttributes.EDITABLE, false);
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");

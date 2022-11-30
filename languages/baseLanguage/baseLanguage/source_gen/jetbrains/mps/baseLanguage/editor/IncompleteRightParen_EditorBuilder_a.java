@@ -94,7 +94,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
     editorCell.setAction(CellActionType.BACKSPACE, EmptyCellAction.getInstance());
     editorCell.setCellId("ReadOnlyModelAccessor_lnoz1c_b0");
     Style style = new StyleImpl();
-    new RightParenStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new RightParenStyleClass(this).apply(style, editorCell);
     style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.red));
     style.set(StyleAttributes.EDITABLE, false);
     editorCell.getStyle().putAll(style);

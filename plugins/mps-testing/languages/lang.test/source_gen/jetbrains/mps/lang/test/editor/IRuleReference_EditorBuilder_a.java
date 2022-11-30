@@ -52,7 +52,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     editorCell.setBig(true);
     setCellContext(editorCell);
     Style style = new StyleImpl();
-    new AnnotationNodeStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new AnnotationNodeStyleClass(this).apply(style, editorCell);
     style.set(StyleAttributes.NAVIGATABLE_SREFERENCE, LINKS.declaration$oKj7);
     style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.blue));
     style.set(StyleAttributes.EDITABLE, false);

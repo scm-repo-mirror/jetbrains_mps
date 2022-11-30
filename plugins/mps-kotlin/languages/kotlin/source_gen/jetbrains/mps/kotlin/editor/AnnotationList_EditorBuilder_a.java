@@ -86,7 +86,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     Style style = new StyleImpl();
     style.set(StyleAttributes.PUNCTUATION_RIGHT, true);
     if (_StyleParameter_QueryFunction_lyjlq7_a1a0()) {
-      new AnnotationStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new AnnotationStyleClass(this).apply(style, editorCell);
     }
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
@@ -164,11 +164,11 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, ":");
     editorCell.setCellId("Constant_lyjlq7_b1a");
     Style style = new StyleImpl();
-    new ColonStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new ColonStyleClass(this).apply(style, editorCell);
     style.set(StyleAttributes.PUNCTUATION_LEFT, true);
     style.set(StyleAttributes.PUNCTUATION_RIGHT, true);
     if (_StyleParameter_QueryFunction_lyjlq7_a2b1a()) {
-      new AnnotationStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new AnnotationStyleClass(this).apply(style, editorCell);
     }
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
@@ -181,7 +181,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "[");
     editorCell.setCellId("Constant_lyjlq7_c0");
     Style style = new StyleImpl();
-    new LBracketStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new LBracketStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
     return editorCell;
@@ -264,7 +264,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "]");
     editorCell.setCellId("Constant_lyjlq7_e0");
     Style style = new StyleImpl();
-    new RBracketStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new RBracketStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
     return editorCell;

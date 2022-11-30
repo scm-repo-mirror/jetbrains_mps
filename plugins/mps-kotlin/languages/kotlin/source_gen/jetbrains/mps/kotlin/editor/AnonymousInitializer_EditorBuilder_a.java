@@ -46,7 +46,7 @@ import jetbrains.mps.kotlin.editor.KotlinStyles_StyleSheet.KeywordStyleClass;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "init");
     editorCell.setCellId("Constant_k9ux5n_a0");
     Style style = new StyleImpl();
-    new KeywordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new KeywordStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
     return editorCell;

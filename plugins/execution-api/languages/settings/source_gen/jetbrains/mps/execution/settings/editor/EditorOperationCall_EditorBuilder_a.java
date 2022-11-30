@@ -138,7 +138,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     private EditorCell createComponent_0() {
       EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "jetbrains.mps.lang.core.editor.alias");
       Style style = new StyleImpl();
-      new operationStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new operationStyleClass(this).apply(style, editorCell);
       editorCell.getStyle().putAll(style);
       return editorCell;
     }
@@ -147,7 +147,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "(");
     editorCell.setCellId("Constant_jn1wx6_b0");
     Style style = new StyleImpl();
-    new leftOperationBraceStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new leftOperationBraceStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
     return editorCell;
@@ -252,7 +252,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, ")");
     editorCell.setCellId("Constant_jn1wx6_d0");
     Style style = new StyleImpl();
-    new rightOperationBraceStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new rightOperationBraceStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
     return editorCell;

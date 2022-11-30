@@ -164,7 +164,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "Note, it's not recommended to rely on priority rules, the idea of a Generation Plan is to control order explicitly and from outside, rather than delegate this control to generators");
     editorCell.setCellId("Constant_34tr3z_4");
     Style style = new StyleImpl();
-    new CommentStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new CommentStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
     return editorCell;

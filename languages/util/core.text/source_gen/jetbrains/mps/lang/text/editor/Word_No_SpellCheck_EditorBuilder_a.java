@@ -93,7 +93,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setDefaultText("");
       editorCell.setCellId("property_value");
       Style style = new StyleImpl();
-      new WordTextStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new WordTextStyleStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.FIRST_POSITION_ALLOWED, true);
       style.set(StyleAttributes.LAST_POSITION_ALLOWED, true);
       style.set(StyleAttributes.UNDERLINED, _StyleParameter_QueryFunction_3k1enl_a2b0());

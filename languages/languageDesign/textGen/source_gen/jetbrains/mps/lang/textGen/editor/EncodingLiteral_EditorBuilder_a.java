@@ -73,7 +73,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setDefaultText("<no encoding>");
       editorCell.setCellId("property_encoding");
       Style style = new StyleImpl();
-      new StringLiteralStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new StringLiteralStyleClass(this).apply(style, editorCell);
       editorCell.getStyle().putAll(style);
       editorCell.setSubstituteInfo(new CompositeSubstituteInfo(getEditorContext(), new PropertyCellContext(myNode, property), new SubstituteInfoPartExt[]{new ReplaceWith_EncodingLiteral_cellMenu_djrnp4_a0a0(), new SChildSubstituteInfoPartEx(editorCell)}));
       setCellContext(editorCell);

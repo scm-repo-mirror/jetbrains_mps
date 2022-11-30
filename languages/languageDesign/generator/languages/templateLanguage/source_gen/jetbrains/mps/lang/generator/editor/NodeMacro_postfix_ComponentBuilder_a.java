@@ -176,7 +176,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
         editorCell.setDefaultText("<no name>");
         editorCell.setCellId("NM_property_name");
         Style style = new StyleImpl();
-        new mappingLabelReferenceStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new mappingLabelReferenceStyleClass(this).apply(style, editorCell);
         editorCell.getStyle().putAll(style);
         editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));
         setCellContext(editorCell);
@@ -200,7 +200,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     EditorManager manager = EditorManager.getInstanceFromContext(getEditorContext());
     EditorCell editorCell = getUpdateSession().getAttributedCell(AttributeKind.NODE, myNode);
     Style style = new StyleImpl();
-    new nodeUnderMacroStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new nodeUnderMacroStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     return editorCell;
   }

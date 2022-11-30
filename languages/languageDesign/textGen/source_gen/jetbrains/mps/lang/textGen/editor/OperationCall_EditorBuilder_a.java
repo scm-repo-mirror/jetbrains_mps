@@ -148,7 +148,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
         editorCell.setDefaultText("<no operationName>");
         editorCell.setCellId("property_operationName");
         Style style = new StyleImpl();
-        new TextGenOperationStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new TextGenOperationStyleClass(this).apply(style, editorCell);
         editorCell.getStyle().putAll(style);
         editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));
         setCellContext(editorCell);

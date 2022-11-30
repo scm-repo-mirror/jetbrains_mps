@@ -84,7 +84,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setDefaultText("<no qualifier>");
       editorCell.setCellId("property_qualifier");
       Style style = new StyleImpl();
-      new KeyWordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new KeyWordStyleClass(this).apply(style, editorCell);
       editorCell.getStyle().putAll(style);
       editorCell.setSubstituteInfo(new CompositeSubstituteInfo(getEditorContext(), new PropertyCellContext(myNode, property), new SubstituteInfoPartExt[]{new ReplaceWith_TargetDependency_cellMenu_x08tk8_a0a0(), new SChildSubstituteInfoPartEx(editorCell)}));
       setCellContext(editorCell);

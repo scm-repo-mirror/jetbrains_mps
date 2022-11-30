@@ -30,7 +30,7 @@ public class Styles_StyleSheet {
       style.set(StyleAttributes.FONT_STYLE, MPSFonts.BOLD);
       style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.darkGray));
       if (_StyleParameter_QueryFunction_kkd5s1_a3a()) {
-        new deprecatedStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new deprecatedStyleClass(this).apply(style, editorCell);
       }
     }
 

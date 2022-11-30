@@ -32,10 +32,10 @@ public class TextStyles_StyleSheet {
     @Override
     public void apply(Style style, EditorCell editorCell) {
       if (_StyleParameter_QueryFunction_vsrnlz_a0a()) {
-        new BaseWordTextStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new BaseWordTextStyleStyleClass(this).apply(style, editorCell);
       }
       if (_StyleParameter_QueryFunction_vsrnlz_a1a()) {
-        new CommentWordTextStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new CommentWordTextStyleStyleClass(this).apply(style, editorCell);
       }
     }
 

@@ -136,7 +136,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
         editorCell.setDefaultText("<no role>");
         editorCell.setCellId("property_role");
         Style style = new StyleImpl();
-        new ReferenceOnConceptualFeatureStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new ReferenceOnConceptualFeatureStyleClass(this).apply(style, editorCell);
         style.set(StyleAttributes.PADDING_RIGHT, new Padding(0.0, Measure.SPACES));
         editorCell.getStyle().putAll(style);
         editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));

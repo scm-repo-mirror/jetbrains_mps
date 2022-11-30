@@ -199,7 +199,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, ".");
     editorCell.setCellId("Constant_62ivzp_b0");
     Style style = new StyleImpl();
-    new DotStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new DotStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     StaticFieldReference_DeleteToDot.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.setDefaultText("");
@@ -276,7 +276,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
         editorCell.setDefaultText("<no name>");
         editorCell.setCellId("property_name1");
         Style style = new StyleImpl();
-        new StaticFieldStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new StaticFieldStyleClass(this).apply(style, editorCell);
         editorCell.getStyle().putAll(style);
         if (true) {
           editorCell.getStyle().set(StyleAttributes.FOCUS_POLICY, FocusPolicy.ATTRACTS_FOCUS);

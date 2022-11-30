@@ -99,7 +99,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
         editorCell.setSRole(LINKS.propertySpec$wjsm);
       }
       Style style = new StyleImpl();
-      new KeyWordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new KeyWordStyleClass(this).apply(style, editorCell);
       editorCell.getStyle().putAll(style);
     }
     @Override

@@ -75,7 +75,7 @@ public class BaseLanguageStyle_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new KeyWordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new KeyWordStyleClass(this).apply(style, editorCell);
     }
 
   }
@@ -220,7 +220,7 @@ public class BaseLanguageStyle_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new VariableNameStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new VariableNameStyleClass(this).apply(style, editorCell);
     }
 
   }
@@ -346,7 +346,7 @@ public class BaseLanguageStyle_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new AnyBracketStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new AnyBracketStyleClass(this).apply(style, editorCell);
       new PARENTH_StyleKey().apply(style);
       style.set(StyleAttributes.MATCHING_LABEL, "parenthesis");
     }
@@ -362,7 +362,7 @@ public class BaseLanguageStyle_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new ParenthesisStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new ParenthesisStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.PUNCTUATION_RIGHT, true);
     }
 
@@ -377,7 +377,7 @@ public class BaseLanguageStyle_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new LeftParenStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new LeftParenStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.PUNCTUATION_LEFT, true);
     }
 
@@ -392,7 +392,7 @@ public class BaseLanguageStyle_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new ParenthesisStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new ParenthesisStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.PUNCTUATION_LEFT, true);
     }
 
@@ -407,7 +407,7 @@ public class BaseLanguageStyle_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new AnyBracketStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new AnyBracketStyleClass(this).apply(style, editorCell);
       new BRACES_StyleKey().apply(style);
       style.set(StyleAttributes.MATCHING_LABEL, "brace");
     }
@@ -423,7 +423,7 @@ public class BaseLanguageStyle_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new BraceStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new BraceStyleClass(this).apply(style, editorCell);
     }
 
   }
@@ -437,7 +437,7 @@ public class BaseLanguageStyle_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new BraceStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new BraceStyleClass(this).apply(style, editorCell);
     }
 
   }
@@ -451,7 +451,7 @@ public class BaseLanguageStyle_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new AnyBracketStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new AnyBracketStyleClass(this).apply(style, editorCell);
       new BRACKETS_StyleKey().apply(style);
       style.set(StyleAttributes.MATCHING_LABEL, "bracket");
     }
@@ -467,7 +467,7 @@ public class BaseLanguageStyle_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new BracketStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new BracketStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.PUNCTUATION_RIGHT, true);
     }
 
@@ -482,7 +482,7 @@ public class BaseLanguageStyle_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new BracketStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new BracketStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.PUNCTUATION_LEFT, true);
     }
 
@@ -497,7 +497,7 @@ public class BaseLanguageStyle_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new AnyBracketStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new AnyBracketStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.MATCHING_LABEL, "angleBracket");
     }
 
@@ -512,7 +512,7 @@ public class BaseLanguageStyle_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new AngleBracketStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new AngleBracketStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.PUNCTUATION_RIGHT, true);
     }
 
@@ -527,7 +527,7 @@ public class BaseLanguageStyle_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new AngleBracketStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new AngleBracketStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.PUNCTUATION_LEFT, true);
       style.set(StyleAttributes.PUNCTUATION_RIGHT, true);
     }
@@ -636,7 +636,7 @@ public class BaseLanguageStyle_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new ConceptNameStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new ConceptNameStyleClass(this).apply(style, editorCell);
     }
 
   }

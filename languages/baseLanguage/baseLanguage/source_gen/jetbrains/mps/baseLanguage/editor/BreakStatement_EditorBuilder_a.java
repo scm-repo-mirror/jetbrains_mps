@@ -102,7 +102,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "break");
     editorCell.setCellId("Constant_xk0l2m_a0");
     Style style = new StyleImpl();
-    new KeyWordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new KeyWordStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     editorCell.setTransformationMenuLookup(new DefaultTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), CONCEPTS.BreakStatement$WM));
     editorCell.setDefaultText("");
@@ -127,7 +127,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setDefaultText("<no label>");
       editorCell.setCellId("property_label");
       Style style = new StyleImpl();
-      new LabelStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new LabelStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.SELECTABLE, true);
       style.set(StyleAttributes.EDITABLE, true);
       editorCell.getStyle().putAll(style);
@@ -259,7 +259,7 @@ __switch__:
         editorCell.setSRole(LINKS.loopLabelReference$_Wnw);
       }
       Style style = new StyleImpl();
-      new VariableNameStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new VariableNameStyleClass(this).apply(style, editorCell);
       editorCell.getStyle().putAll(style);
     }
     @Override
@@ -284,7 +284,7 @@ __switch__:
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, ";");
     editorCell.setCellId("Constant_xk0l2m_d0");
     Style style = new StyleImpl();
-    new SemicolonStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new SemicolonStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
     return editorCell;

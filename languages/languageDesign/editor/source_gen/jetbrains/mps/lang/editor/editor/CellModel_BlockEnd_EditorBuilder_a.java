@@ -59,7 +59,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setBig(true);
       setCellContext(editorCell);
       Style style = new StyleImpl();
-      new rootCellModelStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new rootCellModelStyleStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.blue));
       style.set(StyleAttributes.NULL_TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.blue));
       editorCell.getStyle().putAll(style);

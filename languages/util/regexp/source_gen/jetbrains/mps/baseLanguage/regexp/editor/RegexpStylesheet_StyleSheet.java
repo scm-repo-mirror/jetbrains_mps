@@ -38,7 +38,7 @@ public class RegexpStylesheet_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new RegexpBraceStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new RegexpBraceStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.PUNCTUATION_RIGHT, true);
     }
 
@@ -53,7 +53,7 @@ public class RegexpStylesheet_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new RegexpBraceStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new RegexpBraceStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.PUNCTUATION_LEFT, true);
     }
 

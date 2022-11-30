@@ -98,7 +98,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setDefaultText("<no icon>");
       editorCell.setCellId("property_iconPath");
       Style style = new StyleImpl();
-      new StringLiteralStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new StringLiteralStyleClass(this).apply(style, editorCell);
       editorCell.getStyle().putAll(style);
       editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));
       setCellContext(editorCell);

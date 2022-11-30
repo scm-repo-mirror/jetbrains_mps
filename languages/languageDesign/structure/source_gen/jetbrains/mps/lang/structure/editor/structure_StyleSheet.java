@@ -45,7 +45,7 @@ public class structure_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new KeyWordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new KeyWordStyleClass(this).apply(style, editorCell);
     }
 
   }
@@ -75,7 +75,7 @@ public class structure_StyleSheet {
     @Override
     public void apply(Style style, EditorCell editorCell) {
       if (_StyleParameter_QueryFunction_170rll_a0d()) {
-        new GrayOutStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new GrayOutStyleClass(this).apply(style, editorCell);
       }
     }
 
@@ -94,7 +94,7 @@ public class structure_StyleSheet {
     @Override
     public void apply(Style style, EditorCell editorCell) {
       if (_StyleParameter_QueryFunction_170rll_a0e()) {
-        new GrayOutStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new GrayOutStyleClass(this).apply(style, editorCell);
       }
     }
 

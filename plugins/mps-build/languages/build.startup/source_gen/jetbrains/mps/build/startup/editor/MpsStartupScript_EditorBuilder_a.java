@@ -140,7 +140,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "script name is defined in branding:");
     editorCell.setCellId("Constant_gszs7u_a1a0");
     Style style = new StyleImpl();
-    new commentStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new commentStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
     return editorCell;

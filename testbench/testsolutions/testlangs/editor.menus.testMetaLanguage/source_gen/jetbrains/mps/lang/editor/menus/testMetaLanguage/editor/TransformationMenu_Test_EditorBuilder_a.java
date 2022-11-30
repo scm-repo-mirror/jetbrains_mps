@@ -101,7 +101,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setSRole(LINKS.conceptDeclaration$h3E);
     }
     Style style = new StyleImpl();
-    new ReferenceOnConceptStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new ReferenceOnConceptStyleClass(this).apply(style, editorCell);
     style.set(StyleAttributes.INDENT_LAYOUT_NEW_LINE, true);
     style.set(StyleAttributes.DRAW_BORDER, true);
     editorCell.getStyle().putAll(style);

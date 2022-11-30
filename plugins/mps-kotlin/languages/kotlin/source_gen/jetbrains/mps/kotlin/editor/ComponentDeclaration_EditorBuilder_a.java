@@ -98,7 +98,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setCellId("property_name");
       Style style = new StyleImpl();
       if (_StyleParameter_QueryFunction_kze313_a0b0()) {
-        new FieldStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new FieldStyleClass(this).apply(style, editorCell);
       }
       style.set(StyleAttributes.NAVIGATABLE_SREFERENCE, LINKS.deconstructingOperator$ZV8Z);
       editorCell.getStyle().putAll(style);
@@ -137,7 +137,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, ":");
     editorCell.setCellId("Constant_kze313_a2a");
     Style style = new StyleImpl();
-    new ColonStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new ColonStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     VariableDeclaration_RemoveType.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.setDefaultText("");

@@ -220,14 +220,14 @@ import org.jetbrains.mps.openapi.language.SConcept;
       Style style = new StyleImpl();
       style.set(StyleAttributes.LAYOUT_CONSTRAINT, "noflow");
       style.set(StyleAttributes.PUNCTUATION_LEFT, true);
-      new testParentStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
-      new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new testParentStyleStyleClass(this).apply(style, editorCell);
+      new testStyleStyleClass(this).apply(style, editorCell);
       new testKey_StyleKey().apply(style);
       if (_StyleParameter_QueryFunction_i8r80j_a2a0a(prevNode, nextNode)) {
-        new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new testStyleStyleClass(this).apply(style, editorCell);
       }
       if (_StyleParameter_QueryFunction_i8r80j_a3a0a(prevNode, nextNode)) {
-        new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new testStyleStyleClass(this).apply(style, editorCell);
       }
       style.set(StyleAttributes.getInstance().<String>getAttribute("jetbrains.mps.lang.editor.test.generation", "testStringAttribute"), _StyleParameter_QueryFunction_i8r80j_a4a0a(prevNode, nextNode));
       style.set(StyleAttributes.AUTO_DELETABLE, true);
@@ -312,7 +312,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       style.set(StyleAttributes.POSITION, "indented");
       style.set(StyleAttributes.SHOW_BOUNDARIES_IN, ShowBoundariesArea.GUTTER_AND_EDITOR);
       style.set(StyleAttributes.TABLE_COMPONENT, TableComponent.VERTICAL_COLLECTION);
-      new testStyleStyleClass(getEditorContext(), getNode()).unapply(style, editorCell);
+      new testStyleStyleClass(this).unapply(style, editorCell);
       new testKey_StyleKey().unapply(style);
       style.set(StyleAttributes.UNDERLINED, false);
       style.set(StyleAttributes.UNDERLINED, _StyleParameter_QueryFunction_i8r80j_a09a0a(prevNode, nextNode));
@@ -556,7 +556,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "parentStyleClass");
       editorCell.setCellId("Constant_i8r80j_d1a0a");
       Style style = new StyleImpl();
-      new testParentStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new testParentStyleStyleClass(this).apply(style, editorCell);
       editorCell.getStyle().putAll(style);
       editorCell.setDefaultText("");
       return editorCell;
@@ -565,13 +565,13 @@ import org.jetbrains.mps.openapi.language.SConcept;
       EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "AllStyleClassItems");
       editorCell.setCellId("Constant_i8r80j_e1a0a");
       Style style = new StyleImpl();
-      new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new testStyleStyleClass(this).apply(style, editorCell);
       new testKey_StyleKey().apply(style);
       if (_StyleParameter_QueryFunction_i8r80j_a2e1a0a()) {
-        new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new testStyleStyleClass(this).apply(style, editorCell);
       }
       if (_StyleParameter_QueryFunction_i8r80j_a3e1a0a()) {
-        new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new testStyleStyleClass(this).apply(style, editorCell);
       }
       style.set(StyleAttributes.getInstance().<String>getAttribute("jetbrains.mps.lang.editor.test.generation", "testStringAttribute"), _StyleParameter_QueryFunction_i8r80j_a4e1a0a());
       style.set(StyleAttributes.AUTO_DELETABLE, true);
@@ -656,7 +656,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       style.set(StyleAttributes.POSITION, "indented");
       style.set(StyleAttributes.SHOW_BOUNDARIES_IN, ShowBoundariesArea.GUTTER_AND_EDITOR);
       style.set(StyleAttributes.TABLE_COMPONENT, TableComponent.VERTICAL_COLLECTION);
-      new testStyleStyleClass(getEditorContext(), getNode()).unapply(style, editorCell);
+      new testStyleStyleClass(this).unapply(style, editorCell);
       new testKey_StyleKey().unapply(style);
       style.set(StyleAttributes.UNDERLINED, false);
       style.set(StyleAttributes.UNDERLINED, _StyleParameter_QueryFunction_i8r80j_a09e1a0a());
@@ -1022,7 +1022,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       EditorCell_Error editorCell = new EditorCell_Error(getEditorContext(), myNode, "");
       editorCell.setCellId("Error_i8r80j_d4a0a");
       Style style = new StyleImpl();
-      new testParentStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new testParentStyleStyleClass(this).apply(style, editorCell);
       editorCell.getStyle().putAll(style);
       return editorCell;
     }
@@ -1030,13 +1030,13 @@ import org.jetbrains.mps.openapi.language.SConcept;
       EditorCell_Error editorCell = new EditorCell_Error(getEditorContext(), myNode, "");
       editorCell.setCellId("Error_i8r80j_e4a0a");
       Style style = new StyleImpl();
-      new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new testStyleStyleClass(this).apply(style, editorCell);
       new testKey_StyleKey().apply(style);
       if (_StyleParameter_QueryFunction_i8r80j_a2e4a0a()) {
-        new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new testStyleStyleClass(this).apply(style, editorCell);
       }
       if (_StyleParameter_QueryFunction_i8r80j_a3e4a0a()) {
-        new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new testStyleStyleClass(this).apply(style, editorCell);
       }
       style.set(StyleAttributes.getInstance().<String>getAttribute("jetbrains.mps.lang.editor.test.generation", "testStringAttribute"), _StyleParameter_QueryFunction_i8r80j_a4e4a0a());
       style.set(StyleAttributes.AUTO_DELETABLE, true);
@@ -1121,7 +1121,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       style.set(StyleAttributes.POSITION, "indented");
       style.set(StyleAttributes.SHOW_BOUNDARIES_IN, ShowBoundariesArea.GUTTER_AND_EDITOR);
       style.set(StyleAttributes.TABLE_COMPONENT, TableComponent.VERTICAL_COLLECTION);
-      new testStyleStyleClass(getEditorContext(), getNode()).unapply(style, editorCell);
+      new testStyleStyleClass(this).unapply(style, editorCell);
       new testKey_StyleKey().unapply(style);
       style.set(StyleAttributes.UNDERLINED, false);
       style.set(StyleAttributes.UNDERLINED, _StyleParameter_QueryFunction_i8r80j_a09e4a0a());
@@ -1549,7 +1549,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setAction(CellActionType.BACKSPACE, EmptyCellAction.getInstance());
       editorCell.setCellId("ModelAccess_i8r80j_d7a0a");
       Style style = new StyleImpl();
-      new testParentStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new testParentStyleStyleClass(this).apply(style, editorCell);
       editorCell.getStyle().putAll(style);
       editorCell.setDefaultText("");
       return editorCell;
@@ -1570,13 +1570,13 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setAction(CellActionType.BACKSPACE, EmptyCellAction.getInstance());
       editorCell.setCellId("ModelAccess_i8r80j_e7a0a");
       Style style = new StyleImpl();
-      new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new testStyleStyleClass(this).apply(style, editorCell);
       new testKey_StyleKey().apply(style);
       if (_StyleParameter_QueryFunction_i8r80j_a2e7a0a()) {
-        new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new testStyleStyleClass(this).apply(style, editorCell);
       }
       if (_StyleParameter_QueryFunction_i8r80j_a3e7a0a()) {
-        new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new testStyleStyleClass(this).apply(style, editorCell);
       }
       style.set(StyleAttributes.getInstance().<String>getAttribute("jetbrains.mps.lang.editor.test.generation", "testStringAttribute"), _StyleParameter_QueryFunction_i8r80j_a4e7a0a());
       style.set(StyleAttributes.AUTO_DELETABLE, true);
@@ -1661,7 +1661,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       style.set(StyleAttributes.POSITION, "indented");
       style.set(StyleAttributes.SHOW_BOUNDARIES_IN, ShowBoundariesArea.GUTTER_AND_EDITOR);
       style.set(StyleAttributes.TABLE_COMPONENT, TableComponent.VERTICAL_COLLECTION);
-      new testStyleStyleClass(getEditorContext(), getNode()).unapply(style, editorCell);
+      new testStyleStyleClass(this).unapply(style, editorCell);
       new testKey_StyleKey().unapply(style);
       style.set(StyleAttributes.UNDERLINED, false);
       style.set(StyleAttributes.UNDERLINED, _StyleParameter_QueryFunction_i8r80j_a09e7a0a());
@@ -2046,7 +2046,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setAction(CellActionType.BACKSPACE, EmptyCellAction.getInstance());
       editorCell.setCellId("ReadOnlyModelAccessor_i8r80j_c01a0a");
       Style style = new StyleImpl();
-      new testParentStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new testParentStyleStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.EDITABLE, false);
       editorCell.getStyle().putAll(style);
       return editorCell;
@@ -2061,13 +2061,13 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setAction(CellActionType.BACKSPACE, EmptyCellAction.getInstance());
       editorCell.setCellId("ReadOnlyModelAccessor_i8r80j_d01a0a");
       Style style = new StyleImpl();
-      new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new testStyleStyleClass(this).apply(style, editorCell);
       new testKey_StyleKey().apply(style);
       if (_StyleParameter_QueryFunction_i8r80j_a2d01a0a()) {
-        new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new testStyleStyleClass(this).apply(style, editorCell);
       }
       if (_StyleParameter_QueryFunction_i8r80j_a3d01a0a()) {
-        new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new testStyleStyleClass(this).apply(style, editorCell);
       }
       style.set(StyleAttributes.getInstance().<String>getAttribute("jetbrains.mps.lang.editor.test.generation", "testStringAttribute"), _StyleParameter_QueryFunction_i8r80j_a4d01a0a());
       style.set(StyleAttributes.AUTO_DELETABLE, true);
@@ -2152,7 +2152,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       style.set(StyleAttributes.POSITION, "indented");
       style.set(StyleAttributes.SHOW_BOUNDARIES_IN, ShowBoundariesArea.GUTTER_AND_EDITOR);
       style.set(StyleAttributes.TABLE_COMPONENT, TableComponent.VERTICAL_COLLECTION);
-      new testStyleStyleClass(getEditorContext(), getNode()).unapply(style, editorCell);
+      new testStyleStyleClass(this).unapply(style, editorCell);
       new testKey_StyleKey().unapply(style);
       style.set(StyleAttributes.UNDERLINED, false);
       style.set(StyleAttributes.UNDERLINED, _StyleParameter_QueryFunction_i8r80j_a09d01a0a());
@@ -2662,7 +2662,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
           editorCell = EditorCell_Property.create(getEditorContext(), modelAccessor, myNode);
           editorCell.setCellId("TransactionalProperty_i8r80j_d31a0a");
           Style style = new StyleImpl();
-          new testParentStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+          new testParentStyleStyleClass(this).apply(style, editorCell);
           editorCell.getStyle().putAll(style);
           editorCell.setDefaultText("<no theProperty>");
           setCellContext(editorCell);
@@ -2697,13 +2697,13 @@ import org.jetbrains.mps.openapi.language.SConcept;
           editorCell = EditorCell_Property.create(getEditorContext(), modelAccessor, myNode);
           editorCell.setCellId("TransactionalProperty_i8r80j_e31a0a");
           Style style = new StyleImpl();
-          new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+          new testStyleStyleClass(this).apply(style, editorCell);
           new testKey_StyleKey().apply(style);
           if (_StyleParameter_QueryFunction_i8r80j_a2e31a0a()) {
-            new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+            new testStyleStyleClass(this).apply(style, editorCell);
           }
           if (_StyleParameter_QueryFunction_i8r80j_a3e31a0a()) {
-            new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+            new testStyleStyleClass(this).apply(style, editorCell);
           }
           style.set(StyleAttributes.getInstance().<String>getAttribute("jetbrains.mps.lang.editor.test.generation", "testStringAttribute"), _StyleParameter_QueryFunction_i8r80j_a4e31a0a());
           style.set(StyleAttributes.AUTO_DELETABLE, true);
@@ -2788,7 +2788,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
           style.set(StyleAttributes.POSITION, "indented");
           style.set(StyleAttributes.SHOW_BOUNDARIES_IN, ShowBoundariesArea.GUTTER_AND_EDITOR);
           style.set(StyleAttributes.TABLE_COMPONENT, TableComponent.VERTICAL_COLLECTION);
-          new testStyleStyleClass(getEditorContext(), getNode()).unapply(style, editorCell);
+          new testStyleStyleClass(this).unapply(style, editorCell);
           new testKey_StyleKey().unapply(style);
           style.set(StyleAttributes.UNDERLINED, false);
           style.set(StyleAttributes.UNDERLINED, _StyleParameter_QueryFunction_i8r80j_a09e31a0a());
@@ -3385,7 +3385,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       EditorCell_Collection editorCell = handler.createCells(new CellLayout_Horizontal(), false);
       editorCell.setCellId("RNLLWR_refNodeList_children2");
       Style style = new StyleImpl();
-      new testParentStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new testParentStyleStyleClass(this).apply(style, editorCell);
       editorCell.getStyle().putAll(style);
       editorCell.setSRole(handler.getElementSRole());
       return editorCell;
@@ -3473,13 +3473,13 @@ import org.jetbrains.mps.openapi.language.SConcept;
       EditorCell_Collection editorCell = handler.createCells(new CellLayout_Horizontal(), false);
       editorCell.setCellId("RNLLWR_refNodeList_children3");
       Style style = new StyleImpl();
-      new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new testStyleStyleClass(this).apply(style, editorCell);
       new testKey_StyleKey().apply(style);
       if (_StyleParameter_QueryFunction_i8r80j_a2a3q0a0()) {
-        new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new testStyleStyleClass(this).apply(style, editorCell);
       }
       if (_StyleParameter_QueryFunction_i8r80j_a3a3q0a0()) {
-        new testStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new testStyleStyleClass(this).apply(style, editorCell);
       }
       style.set(StyleAttributes.getInstance().<String>getAttribute("jetbrains.mps.lang.editor.test.generation", "testStringAttribute"), _StyleParameter_QueryFunction_i8r80j_a4a3q0a0());
       style.set(StyleAttributes.AUTO_DELETABLE, true);
@@ -3564,7 +3564,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       style.set(StyleAttributes.POSITION, "indented");
       style.set(StyleAttributes.SHOW_BOUNDARIES_IN, ShowBoundariesArea.GUTTER_AND_EDITOR);
       style.set(StyleAttributes.TABLE_COMPONENT, TableComponent.VERTICAL_COLLECTION);
-      new testStyleStyleClass(getEditorContext(), getNode()).unapply(style, editorCell);
+      new testStyleStyleClass(this).unapply(style, editorCell);
       new testKey_StyleKey().unapply(style);
       style.set(StyleAttributes.UNDERLINED, false);
       style.set(StyleAttributes.UNDERLINED, _StyleParameter_QueryFunction_i8r80j_a09a3q0a0());

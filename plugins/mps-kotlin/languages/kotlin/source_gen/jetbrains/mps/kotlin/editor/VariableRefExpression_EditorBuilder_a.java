@@ -136,7 +136,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
         editorCell.setCellId("property_name");
         Style style = new StyleImpl();
         if (_StyleParameter_QueryFunction_yhqwn2_a0a0a0()) {
-          new FieldStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+          new FieldStyleClass(this).apply(style, editorCell);
         }
         style.set(StyleAttributes.AUTO_DELETABLE, true);
         editorCell.getStyle().putAll(style);

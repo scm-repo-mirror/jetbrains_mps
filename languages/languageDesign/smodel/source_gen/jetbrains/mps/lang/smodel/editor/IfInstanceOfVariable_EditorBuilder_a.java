@@ -88,7 +88,7 @@ import org.jetbrains.mps.openapi.language.SReferenceLink;
       editorCell.setDefaultText("<no name>");
       editorCell.setCellId("property_name");
       Style style = new StyleImpl();
-      new LocalVariableStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new LocalVariableStyleClass(this).apply(style, editorCell);
       editorCell.getStyle().putAll(style);
       editorCell.setSubstituteInfo(new CompositeSubstituteInfo(getEditorContext(), new PropertyCellContext(myNode, property), new SubstituteInfoPartExt[]{new IfInstanceOfVariable_name_postfixCellMenu_7qsf43_a0a0(), new SChildSubstituteInfoPartEx(editorCell)}));
       setCellContext(editorCell);

@@ -157,7 +157,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
   private EditorCell createComponent_0() {
     EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "jetbrains.mps.lang.core.editor.alias");
     Style style = new StyleImpl();
-    new KeywordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new KeywordStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     return editorCell;
   }
@@ -259,7 +259,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
       EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "package");
       editorCell.setCellId("Constant_72kg18_a0d0");
       Style style = new StyleImpl();
-      new KeywordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new KeywordStyleClass(this).apply(style, editorCell);
       editorCell.getStyle().putAll(style);
       editorCell.setDefaultText("");
       return editorCell;

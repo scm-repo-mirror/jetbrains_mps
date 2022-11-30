@@ -65,7 +65,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setDefaultText("<no kind>");
       editorCell.setCellId("property_kind");
       Style style = new StyleImpl();
-      new keywordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new keywordStyleClass(this).apply(style, editorCell);
       editorCell.getStyle().putAll(style);
       editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));
       setCellContext(editorCell);

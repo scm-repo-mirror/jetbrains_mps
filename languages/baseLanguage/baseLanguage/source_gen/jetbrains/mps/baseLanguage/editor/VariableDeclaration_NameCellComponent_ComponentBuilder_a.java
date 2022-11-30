@@ -81,7 +81,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
       editorCell.setDefaultText("<no name>");
       editorCell.setCellId("VDNCC_property_name");
       Style style = new StyleImpl();
-      new VariableNameStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new VariableNameStyleClass(this).apply(style, editorCell);
       editorCell.getStyle().putAll(style);
       if (nodeCondition_j36akn_a0()) {
         editorCell.getStyle().set(StyleAttributes.FOCUS_POLICY, FocusPolicy.FIRST_EDITABLE_CELL);

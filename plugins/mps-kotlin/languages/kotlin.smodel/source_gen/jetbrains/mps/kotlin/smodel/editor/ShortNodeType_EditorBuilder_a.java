@@ -92,7 +92,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setSRole(LINKS.concept$qJcX);
     }
     Style style = new StyleImpl();
-    new ConceptRefStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new ConceptRefStyleClass(this).apply(style, editorCell);
     style.set(StyleAttributes.INDENT_LAYOUT_NO_WRAP, true);
     editorCell.getStyle().putAll(style);
     editorCell.setSubstituteInfo(new SReferenceSubstituteInfoSmartReferenceDecorator(new SReferenceSubstituteInfo(editorCell, referenceLink)));

@@ -114,7 +114,7 @@ public class transformationTest_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new AnyBracketStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new AnyBracketStyleClass(this).apply(style, editorCell);
       new PARENTH_StyleKey().apply(style);
       style.set(StyleAttributes.MATCHING_LABEL, "parenthesis");
     }
@@ -130,7 +130,7 @@ public class transformationTest_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new ParenthesisStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new ParenthesisStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.PUNCTUATION_RIGHT, true);
     }
 
@@ -145,7 +145,7 @@ public class transformationTest_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new ParenthesisStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new ParenthesisStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.PUNCTUATION_LEFT, true);
     }
 
@@ -160,7 +160,7 @@ public class transformationTest_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new LeftParenStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new LeftParenStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.PUNCTUATION_LEFT, true);
     }
 

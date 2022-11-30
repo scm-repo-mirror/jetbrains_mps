@@ -80,7 +80,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "default menu for");
     editorCell.setCellId("Constant_9zto5v_a0");
     Style style = new StyleImpl();
-    new EditorKeyWordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new EditorKeyWordStyleClass(this).apply(style, editorCell);
     style.set(StyleAttributes.NAVIGATABLE_NODE, _StyleParameter_QueryFunction_9zto5v_a0a0());
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");

@@ -150,7 +150,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "->");
     editorCell.setCellId("Constant_qbjpyy_b0");
     Style style = new StyleImpl();
-    new ArrowStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new ArrowStyleClass(this).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     editorCell.setTransformationMenuLookup(new NamedTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), CONCEPTS.IStatementHolder$84, "jetbrains.mps.kotlin.editor.StatementHolder_InsertStatement"));
     editorCell.setDefaultText("");

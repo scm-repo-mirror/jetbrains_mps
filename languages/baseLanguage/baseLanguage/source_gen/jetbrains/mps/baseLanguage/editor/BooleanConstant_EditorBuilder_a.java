@@ -57,7 +57,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setBig(true);
       setCellContext(editorCell);
       Style style = new StyleImpl();
-      new KeyWordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new KeyWordStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.AUTO_DELETABLE, true);
       editorCell.getStyle().putAll(style);
       DeleteBooleanConstantWithUnmatchedParen.setCellActions(editorCell, myNode, getEditorContext());

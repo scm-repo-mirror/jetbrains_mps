@@ -57,7 +57,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setBig(true);
       setCellContext(editorCell);
       Style style = new StyleImpl();
-      new FieldStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new FieldStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.EDITABLE, false);
       editorCell.getStyle().putAll(style);
       editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));

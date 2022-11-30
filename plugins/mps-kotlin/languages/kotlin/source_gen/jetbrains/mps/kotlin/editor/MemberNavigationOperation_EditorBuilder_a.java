@@ -112,7 +112,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "::");
     editorCell.setCellId("Constant_1t6igp_b0");
     Style style = new StyleImpl();
-    new DotReferenceStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new DotReferenceStyleClass(this).apply(style, editorCell);
     style.set(StyleAttributes.PUNCTUATION_LEFT, true);
     style.set(StyleAttributes.PUNCTUATION_RIGHT, true);
     editorCell.getStyle().putAll(style);

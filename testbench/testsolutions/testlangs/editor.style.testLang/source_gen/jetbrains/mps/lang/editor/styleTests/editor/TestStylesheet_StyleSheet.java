@@ -38,7 +38,7 @@ public class TestStylesheet_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new priorityStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new priorityStyleStyleClass(this).apply(style, editorCell);
     }
 
   }
@@ -69,7 +69,7 @@ public class TestStylesheet_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new priorityStyleCopyStyleClass(getEditorContext(), getNode()).unapply(style, editorCell);
+      new priorityStyleCopyStyleClass(this).unapply(style, editorCell);
     }
 
   }

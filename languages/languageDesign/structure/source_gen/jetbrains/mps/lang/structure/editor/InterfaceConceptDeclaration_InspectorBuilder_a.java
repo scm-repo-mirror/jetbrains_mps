@@ -149,7 +149,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setDefaultText("<no URL>");
       editorCell.setCellId("property_oldHelpURL");
       Style style = new StyleImpl();
-      new UrlStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new UrlStyleClass(this).apply(style, editorCell);
       editorCell.getStyle().putAll(style);
       editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));
       setCellContext(editorCell);

@@ -66,7 +66,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.setDefaultText("<no visibleName>");
       editorCell.setCellId("property_visibleName");
       Style style = new StyleImpl();
-      new FieldStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new FieldStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.NAVIGATABLE_SREFERENCE, LINKS.getter$1vvk);
       style.set(StyleAttributes.EDITABLE, false);
       editorCell.getStyle().putAll(style);

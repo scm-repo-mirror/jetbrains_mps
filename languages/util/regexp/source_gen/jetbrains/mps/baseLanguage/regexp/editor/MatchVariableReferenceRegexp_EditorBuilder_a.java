@@ -75,7 +75,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "\\");
     editorCell.setCellId("Constant_7j6yq4_a0");
     Style style = new StyleImpl();
-    new RegexpBraceStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    new RegexpBraceStyleClass(this).apply(style, editorCell);
     style.set(StyleAttributes.PUNCTUATION_RIGHT, true);
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");

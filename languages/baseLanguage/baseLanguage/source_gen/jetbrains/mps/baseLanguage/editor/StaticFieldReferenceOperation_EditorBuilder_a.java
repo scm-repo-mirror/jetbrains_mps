@@ -139,7 +139,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
         editorCell.setDefaultText("<no name>");
         editorCell.setCellId("property_name");
         Style style = new StyleImpl();
-        new StaticFieldStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+        new StaticFieldStyleClass(this).apply(style, editorCell);
         style.set(StyleAttributes.AUTO_DELETABLE, true);
         editorCell.getStyle().putAll(style);
         if (true) {

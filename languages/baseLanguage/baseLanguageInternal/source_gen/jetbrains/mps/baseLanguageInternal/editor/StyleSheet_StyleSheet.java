@@ -54,7 +54,7 @@ public class StyleSheet_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new BracketStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new BracketStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.FONT_STYLE, MPSFonts.PLAIN);
       style.set(StyleAttributes.SELECTABLE, false);
     }
