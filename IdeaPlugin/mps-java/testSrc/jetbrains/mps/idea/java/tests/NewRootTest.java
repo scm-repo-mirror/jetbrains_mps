@@ -16,7 +16,7 @@
 package jetbrains.mps.idea.java.tests;
 
 import com.intellij.facet.FacetManager;
-import com.intellij.ide.projectView.impl.AbstractProjectViewPSIPane;
+import com.intellij.ide.projectView.impl.AbstractProjectViewPaneWithAsyncSupport;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ModalityState;
@@ -68,8 +68,10 @@ public class NewRootTest extends DataMPSFixtureTestCase {
 
   public void testCreateBLClass() {
     Project project = getMpsFixture().getProject();
-    Ref<AbstractProjectViewPSIPane> pane = new Ref<>();
-    ApplicationManager.getApplication().runReadAction(() -> pane.set(myStructure.createPane()));
+    Ref<AbstractProjectViewPaneWithAsyncSupport> pane = new Ref<>();
+    ApplicationManager.getApplication().runReadAction(() -> {
+      pane.set((AbstractProjectViewPaneWithAsyncSupport) myStructure.createPane());
+    });
 
     MPSPsiModel psiModel = new ModelAccessHelper(getMpsFixture().getModelAccess()).runReadAction(() -> {
       SModule solution = FacetManager.getInstance(getMpsFixture().getModule()).getFacetByType(MPSFacetType.ID).getSolution();
