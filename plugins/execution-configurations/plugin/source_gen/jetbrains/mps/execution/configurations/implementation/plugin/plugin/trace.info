@@ -4127,114 +4127,120 @@
   </root>
   <root nodeRef="r:8aafee6a-4721-443e-8020-e8986ed3f25a(jetbrains.mps.execution.configurations.implementation.plugin.plugin)/6391517972808447783">
     <file name="RemoteSettingsEditor.java">
-      <node id="6391517972808447872" at="24,0,25,0" concept="6" trace="myHostTextField" />
-      <node id="6391517972808447875" at="25,0,26,0" concept="6" trace="myPortTextField" />
-      <node id="6391517972808447878" at="26,0,27,0" concept="6" trace="myCommandLineTextField" />
-      <node id="6391517972808447881" at="27,0,28,0" concept="6" trace="myPort" />
-      <node id="6391517972808447884" at="28,0,29,0" concept="6" trace="myHost" />
-      <node id="6391517972808447887" at="29,0,30,0" concept="6" trace="myCommandLine" />
-      <node id="6391517972808447894" at="30,33,31,31" concept="16" />
-      <node id="6391517972808447897" at="31,31,32,47" concept="10" />
-      <node id="6391517972808447902" at="32,47,33,39" concept="5" />
-      <node id="6391517972808447907" at="33,39,34,45" concept="5" />
-      <node id="6391517972808447912" at="34,45,35,58" concept="10" />
-      <node id="6391517972808447917" at="35,58,36,37" concept="5" />
-      <node id="6391517972808447922" at="36,37,37,42" concept="5" />
-      <node id="6391517972808447927" at="37,42,38,38" concept="5" />
-      <node id="6391517972808447932" at="38,38,39,57" concept="5" />
-      <node id="6391517972808447938" at="39,57,40,65" concept="5" />
-      <node id="6391517972808447944" at="40,65,41,45" concept="5" />
-      <node id="6391517972808447949" at="41,45,42,46" concept="5" />
-      <node id="6391517972808447954" at="42,46,43,46" concept="5" />
-      <node id="6391517972808447959" at="43,46,44,67" concept="5" />
-      <node id="6391517972808447966" at="44,67,45,63" concept="5" />
-      <node id="6391517972808447971" at="45,63,46,67" concept="5" />
-      <node id="6391517972808447978" at="46,67,47,63" concept="5" />
-      <node id="6391517972808447983" at="47,63,48,96" concept="5" />
-      <node id="6391517972808447990" at="48,96,49,70" concept="5" />
-      <node id="6391517972808447999" at="51,37,52,39" concept="5" />
-      <node id="6391517972808448005" at="52,39,53,50" concept="5" />
-      <node id="6391517972808448013" at="53,50,54,44" concept="5" />
-      <node id="6391517972808448017" at="54,44,55,50" concept="5" />
-      <node id="6391517972808448026" at="57,37,58,36" concept="5" />
-      <node id="6391517972808448031" at="58,36,59,37" concept="5" />
-      <node id="6391517972808448036" at="59,37,60,50" concept="5" />
-      <node id="6391517972808448045" at="62,42,63,71" concept="11" />
-      <node id="6391517972808448055" at="65,55,66,36" concept="5" />
-      <node id="6391517972808448061" at="66,36,67,32" concept="5" />
-      <node id="6391517972808448067" at="67,32,68,44" concept="5" />
-      <node id="6391517972808448071" at="68,44,69,25" concept="5" />
-      <node id="6391517972808448079" at="71,55,72,33" concept="5" />
-      <node id="6391517972808448084" at="72,33,73,29" concept="5" />
-      <node id="6391517972808447800" at="79,41,80,27" concept="5" />
-      <node id="6391517972808447802" at="80,27,81,137" concept="5" />
-      <node id="6391517972808447819" at="84,57,85,27" concept="5" />
-      <node id="6391517972808447846" at="93,11,94,38" concept="11" />
-      <node id="6391517972808447838" at="95,41,96,42" concept="19" />
-      <node id="6391517972808447863" at="101,26,102,20" concept="11" />
-      <node id="6391517972808447865" at="103,7,104,47" concept="11" />
-      <node id="6391517972808447790" at="76,0,78,0" concept="3" trace="MyKeyAdapter#()V" />
-      <node id="6391517972808447825" at="89,0,91,0" concept="3" trace="MyDefaultFormatter#()V" />
-      <node id="6391517972808448041" at="62,0,65,0" concept="9" trace="formClientCommandLine#()Ljava/lang/String;" />
-      <node id="6391517972808447858" at="100,79,103,7" concept="8" />
-      <node id="6391517972808448073" at="71,0,75,0" concept="9" trace="apply#(Ljetbrains/mps/debugger/java/api/settings/DebugConnectionSettings;)V" />
-      <node id="6391517972808447813" at="83,0,87,0" concept="9" trace="propertyChange#(Ljava/beans/PropertyChangeEvent;)V" />
-      <node id="6391517972808448022" at="57,0,62,0" concept="9" trace="updateUiFromFields#()V" />
-      <node id="6391517972808447794" at="78,0,83,0" concept="9" trace="keyReleased#(Ljava/awt/event/KeyEvent;)V" />
-      <node id="6391517972808447835" at="92,68,97,7" concept="20" />
-      <node id="6391517972808447995" at="51,0,57,0" concept="9" trace="updateFieldsFromUi#()V" />
-      <node id="6391517972808448049" at="65,0,71,0" concept="9" trace="reset#(Ljetbrains/mps/debugger/java/api/settings/DebugConnectionSettings;)V" />
-      <node id="6391517972808447851" at="99,0,106,0" concept="9" trace="valueToString#(Ljava/lang/Object;)Ljava/lang/String;" />
-      <node id="6391517972808447829" at="91,0,99,0" concept="9" trace="stringToValue#(Ljava/lang/String;)Ljava/lang/Object;" />
-      <node id="6391517972808447890" at="30,0,51,0" concept="3" trace="RemoteSettingsEditor#()V" />
-      <scope id="6391517972808447793" at="76,28,76,28" />
-      <scope id="6391517972808447828" at="89,34,89,34" />
-      <scope id="6391517972808448044" at="62,42,63,71" />
-      <scope id="6391517972808447818" at="84,57,85,27" />
-      <scope id="6391517972808447845" at="93,11,94,38" />
-      <scope id="6391517972808447837" at="95,41,96,42" />
-      <scope id="6391517972808447862" at="101,26,102,20" />
-      <scope id="6391517972808448078" at="71,55,73,29" />
-      <scope id="6391517972808447790" at="76,0,78,0" />
-      <scope id="6391517972808447799" at="79,41,81,137" />
-      <scope id="6391517972808447825" at="89,0,91,0" />
-      <scope id="6391517972808447836" at="95,7,97,7">
+      <node id="6391517972808447872" at="27,0,28,0" concept="6" trace="myHostTextField" />
+      <node id="6391517972808447875" at="28,0,29,0" concept="6" trace="myPortTextField" />
+      <node id="6391517972808447878" at="29,0,30,0" concept="6" trace="myCommandLineTextField" />
+      <node id="7212500460942260183" at="30,0,31,0" concept="6" trace="myPortOk" />
+      <node id="7212500460942274485" at="31,0,32,0" concept="6" trace="myPortBad" />
+      <node id="6391517972808447881" at="32,0,33,0" concept="6" trace="myPort" />
+      <node id="6391517972808447884" at="33,0,34,0" concept="6" trace="myHost" />
+      <node id="6391517972808447887" at="34,0,35,0" concept="6" trace="myCommandLine" />
+      <node id="6391517972808447894" at="36,33,37,31" concept="16" />
+      <node id="7212500460942403954" at="37,31,38,80" concept="10" />
+      <node id="7212500460942303224" at="38,80,39,77" concept="5" />
+      <node id="7212500460942336368" at="39,77,40,91" concept="5" />
+      <node id="6391517972808447897" at="40,91,41,47" concept="10" />
+      <node id="6391517972808447902" at="41,47,42,39" concept="5" />
+      <node id="6391517972808447907" at="42,39,43,45" concept="5" />
+      <node id="6391517972808447912" at="43,45,44,58" concept="10" />
+      <node id="6391517972808447917" at="44,58,45,37" concept="5" />
+      <node id="6391517972808447922" at="45,37,46,42" concept="5" />
+      <node id="6391517972808447927" at="46,42,47,38" concept="5" />
+      <node id="6391517972808447932" at="47,38,48,57" concept="5" />
+      <node id="6391517972808447938" at="48,57,49,65" concept="5" />
+      <node id="6391517972808447944" at="49,65,50,45" concept="5" />
+      <node id="6391517972808447949" at="50,45,51,46" concept="5" />
+      <node id="6391517972808447954" at="51,46,52,46" concept="5" />
+      <node id="6391517972808447959" at="52,46,53,67" concept="5" />
+      <node id="6391517972808447966" at="53,67,54,63" concept="5" />
+      <node id="6391517972808447971" at="54,63,55,67" concept="5" />
+      <node id="6391517972808447978" at="55,67,56,63" concept="5" />
+      <node id="6391517972808447983" at="56,63,57,96" concept="5" />
+      <node id="6391517972808447990" at="57,96,58,70" concept="5" />
+      <node id="6391517972808447999" at="60,37,61,39" concept="5" />
+      <node id="6391517972808448005" at="61,39,62,50" concept="5" />
+      <node id="6391517972808448013" at="62,50,63,44" concept="5" />
+      <node id="6391517972808448017" at="63,44,64,50" concept="5" />
+      <node id="6391517972808448026" at="66,37,67,36" concept="5" />
+      <node id="6391517972808448031" at="67,36,68,37" concept="5" />
+      <node id="6391517972808448036" at="68,37,69,50" concept="5" />
+      <node id="6391517972808448045" at="71,42,72,71" concept="11" />
+      <node id="6391517972808448055" at="74,55,75,36" concept="5" />
+      <node id="6391517972808448061" at="75,36,76,32" concept="5" />
+      <node id="6391517972808448067" at="76,32,77,44" concept="5" />
+      <node id="6391517972808448071" at="77,44,78,25" concept="5" />
+      <node id="6391517972808448079" at="80,55,81,33" concept="5" />
+      <node id="6391517972808448084" at="81,33,82,29" concept="5" />
+      <node id="6391517972808447800" at="88,41,89,27" concept="5" />
+      <node id="6391517972808447802" at="89,27,90,92" concept="5" />
+      <node id="6391517972808447819" at="93,57,94,27" concept="5" />
+      <node id="6391517972808447846" at="102,11,103,38" concept="11" />
+      <node id="6391517972808447838" at="104,41,105,42" concept="19" />
+      <node id="6391517972808447863" at="110,26,111,20" concept="11" />
+      <node id="6391517972808447865" at="112,7,113,47" concept="11" />
+      <node id="6391517972808447790" at="85,0,87,0" concept="3" trace="MyKeyAdapter#()V" />
+      <node id="6391517972808447825" at="98,0,100,0" concept="3" trace="MyDefaultFormatter#()V" />
+      <node id="6391517972808448041" at="71,0,74,0" concept="9" trace="formClientCommandLine#()Ljava/lang/String;" />
+      <node id="6391517972808447858" at="109,79,112,7" concept="8" />
+      <node id="6391517972808448073" at="80,0,84,0" concept="9" trace="apply#(Ljetbrains/mps/debugger/java/api/settings/DebugConnectionSettings;)V" />
+      <node id="6391517972808447813" at="92,0,96,0" concept="9" trace="propertyChange#(Ljava/beans/PropertyChangeEvent;)V" />
+      <node id="6391517972808448022" at="66,0,71,0" concept="9" trace="updateUiFromFields#()V" />
+      <node id="6391517972808447794" at="87,0,92,0" concept="9" trace="keyReleased#(Ljava/awt/event/KeyEvent;)V" />
+      <node id="6391517972808447835" at="101,68,106,7" concept="20" />
+      <node id="6391517972808447995" at="60,0,66,0" concept="9" trace="updateFieldsFromUi#()V" />
+      <node id="6391517972808448049" at="74,0,80,0" concept="9" trace="reset#(Ljetbrains/mps/debugger/java/api/settings/DebugConnectionSettings;)V" />
+      <node id="6391517972808447851" at="108,0,115,0" concept="9" trace="valueToString#(Ljava/lang/Object;)Ljava/lang/String;" />
+      <node id="6391517972808447829" at="100,0,108,0" concept="9" trace="stringToValue#(Ljava/lang/String;)Ljava/lang/Object;" />
+      <node id="6391517972808447890" at="36,0,60,0" concept="3" trace="RemoteSettingsEditor#()V" />
+      <scope id="6391517972808447793" at="85,28,85,28" />
+      <scope id="6391517972808447828" at="98,34,98,34" />
+      <scope id="6391517972808448044" at="71,42,72,71" />
+      <scope id="6391517972808447818" at="93,57,94,27" />
+      <scope id="6391517972808447845" at="102,11,103,38" />
+      <scope id="6391517972808447837" at="104,41,105,42" />
+      <scope id="6391517972808447862" at="110,26,111,20" />
+      <scope id="6391517972808448078" at="80,55,82,29" />
+      <scope id="6391517972808447790" at="85,0,87,0" />
+      <scope id="6391517972808447799" at="88,41,90,92" />
+      <scope id="6391517972808447825" at="98,0,100,0" />
+      <scope id="6391517972808447836" at="104,7,106,7">
         <var name="e" id="6391517972808447843" />
       </scope>
-      <scope id="6391517972808448025" at="57,37,60,50" />
-      <scope id="6391517972808448041" at="62,0,65,0" />
-      <scope id="6391517972808447998" at="51,37,55,50" />
-      <scope id="6391517972808448054" at="65,55,69,25" />
-      <scope id="6391517972808448073" at="71,0,75,0">
+      <scope id="6391517972808448025" at="66,37,69,50" />
+      <scope id="6391517972808448041" at="71,0,74,0" />
+      <scope id="6391517972808447998" at="60,37,64,50" />
+      <scope id="6391517972808448054" at="74,55,78,25" />
+      <scope id="6391517972808448073" at="80,0,84,0">
         <var name="settings" id="6391517972808448076" />
       </scope>
-      <scope id="6391517972808447813" at="83,0,87,0">
+      <scope id="6391517972808447813" at="92,0,96,0">
         <var name="evt" id="6391517972808447816" />
       </scope>
-      <scope id="6391517972808447857" at="100,79,104,47" />
-      <scope id="6391517972808448022" at="57,0,62,0" />
-      <scope id="6391517972808447794" at="78,0,83,0">
+      <scope id="6391517972808447857" at="109,79,113,47" />
+      <scope id="6391517972808448022" at="66,0,71,0" />
+      <scope id="6391517972808447794" at="87,0,92,0">
         <var name="e" id="6391517972808447797" />
       </scope>
-      <scope id="6391517972808447834" at="92,68,97,7" />
-      <scope id="6391517972808447995" at="51,0,57,0" />
-      <scope id="6391517972808448049" at="65,0,71,0">
+      <scope id="6391517972808447834" at="101,68,106,7" />
+      <scope id="6391517972808447995" at="60,0,66,0" />
+      <scope id="6391517972808448049" at="74,0,80,0">
         <var name="settings" id="6391517972808448052" />
       </scope>
-      <scope id="6391517972808447851" at="99,0,106,0">
+      <scope id="6391517972808447851" at="108,0,115,0">
         <var name="value" id="6391517972808447854" />
       </scope>
-      <scope id="6391517972808447829" at="91,0,99,0">
+      <scope id="6391517972808447829" at="100,0,108,0">
         <var name="text" id="6391517972808447832" />
       </scope>
-      <scope id="6391517972808447893" at="30,33,49,70">
+      <scope id="6391517972808447893" at="36,33,58,70">
+        <var name="cs" id="7212500460942403955" />
         <var name="formatter" id="6391517972808447913" />
         <var name="listener" id="6391517972808447898" />
       </scope>
-      <scope id="6391517972808447890" at="30,0,51,0" />
-      <unit id="6391517972808447786" at="75,0,88,0" name="jetbrains.mps.execution.configurations.implementation.plugin.plugin.RemoteSettingsEditor$MyKeyAdapter" />
-      <unit id="6391517972808447822" at="88,0,107,0" name="jetbrains.mps.execution.configurations.implementation.plugin.plugin.RemoteSettingsEditor$MyDefaultFormatter" />
-      <unit id="6391517972808447783" at="23,0,108,0" name="jetbrains.mps.execution.configurations.implementation.plugin.plugin.RemoteSettingsEditor" />
+      <scope id="6391517972808447890" at="36,0,60,0" />
+      <unit id="6391517972808447786" at="84,0,97,0" name="jetbrains.mps.execution.configurations.implementation.plugin.plugin.RemoteSettingsEditor$MyKeyAdapter" />
+      <unit id="6391517972808447822" at="97,0,116,0" name="jetbrains.mps.execution.configurations.implementation.plugin.plugin.RemoteSettingsEditor$MyDefaultFormatter" />
+      <unit id="6391517972808447783" at="26,0,117,0" name="jetbrains.mps.execution.configurations.implementation.plugin.plugin.RemoteSettingsEditor" />
     </file>
   </root>
   <root nodeRef="r:8aafee6a-4721-443e-8020-e8986ed3f25a(jetbrains.mps.execution.configurations.implementation.plugin.plugin)/6883107143361156570">
