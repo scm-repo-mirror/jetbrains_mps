@@ -13,6 +13,7 @@
     <import index="vciu" ref="r:42fb31e7-122b-4950-aa58-2f5f6e5595ce(jetbrains.mps.kotlin.overloading)" />
     <import index="1p8r" ref="r:966de44c-de72-437f-889f-78347a061f0c(jetbrains.mps.kotlin.api.declaration)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
+    <import index="2q9i" ref="r:764c4c95-d567-4a0e-99be-3892becb007f(jetbrains.mps.kotlin.api.members)" />
     <import index="hcm8" ref="r:72a7bf00-0175-42ca-b99b-fe8519b6a16f(jetbrains.mps.kotlin.structure)" implicit="true" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
   </imports>
@@ -58,11 +59,19 @@
       <concept id="5858074156537516430" name="jetbrains.mps.baseLanguage.javadoc.structure.ReturnBlockDocTag" flags="ng" index="x79VA">
         <property id="5858074156537516431" name="text" index="x79VB" />
       </concept>
+      <concept id="6832197706140518104" name="jetbrains.mps.baseLanguage.javadoc.structure.DocMethodParameterReference" flags="ng" index="zr_55" />
+      <concept id="6832197706140518103" name="jetbrains.mps.baseLanguage.javadoc.structure.BaseParameterReference" flags="ng" index="zr_5a">
+        <reference id="6832197706140518108" name="param" index="zr_51" />
+      </concept>
       <concept id="5349172909345501395" name="jetbrains.mps.baseLanguage.javadoc.structure.BaseDocComment" flags="ng" index="P$AiS">
         <child id="8465538089690331502" name="body" index="TZ5H$" />
         <child id="5383422241790532083" name="tags" index="3nqlJM" />
       </concept>
       <concept id="5349172909345532724" name="jetbrains.mps.baseLanguage.javadoc.structure.MethodDocComment" flags="ng" index="P$JXv" />
+      <concept id="8465538089690881930" name="jetbrains.mps.baseLanguage.javadoc.structure.ParameterBlockDocTag" flags="ng" index="TUZQ0">
+        <property id="8465538089690881934" name="text" index="TUZQ4" />
+        <child id="6832197706140518123" name="parameter" index="zr_5Q" />
+      </concept>
       <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA">
         <child id="8970989240999019149" name="part" index="1dT_Ay" />
       </concept>
@@ -86,6 +95,9 @@
       </concept>
     </language>
     <language id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections">
+      <concept id="1151688443754" name="jetbrains.mps.baseLanguage.collections.structure.ListType" flags="in" index="_YKpA">
+        <child id="1151688676805" name="elementType" index="_ZDj9" />
+      </concept>
       <concept id="1151689724996" name="jetbrains.mps.baseLanguage.collections.structure.SequenceType" flags="in" index="A3Dl8">
         <child id="1151689745422" name="elementType" index="A3Ik2" />
       </concept>
@@ -141,6 +153,79 @@
       </node>
     </node>
     <node concept="2tJIrI" id="7KVUDZaN2_I" role="jymVt" />
+    <node concept="3clFb_" id="3neenocSnne" role="jymVt">
+      <property role="TrG5h" value="filterReceiverTypes" />
+      <node concept="3clFbS" id="3neenocSnnh" role="3clF47" />
+      <node concept="3Tm1VV" id="3neenocSnni" role="1B3o_S" />
+      <node concept="_YKpA" id="3neenocSnSO" role="3clF45">
+        <node concept="3uibUv" id="2k7NUUJYXA7" role="_ZDj9">
+          <ref role="3uigEE" to="2q9i:18X2O0FJIBL" resolve="SourcedSignature" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2AGMd0x36F8" role="3clF46">
+        <property role="TrG5h" value="receiverType" />
+        <node concept="3Tqbb2" id="2AGMd0x37a8" role="1tU5fm">
+          <ref role="ehGHo" to="hcm8:2yYXHtl6Jh1" resolve="IType" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="3neenocSnsx" role="3clF46">
+        <property role="TrG5h" value="entries" />
+        <node concept="A3Dl8" id="2k7NUUK0GLp" role="1tU5fm">
+          <node concept="A3Dl8" id="2k7NUUK0GS6" role="A3Ik2">
+            <node concept="3uibUv" id="2k7NUUK0GS8" role="A3Ik2">
+              <ref role="3uigEE" to="2q9i:18X2O0FJIBL" resolve="SourcedSignature" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="37vLTG" id="4tHJhwChX13" role="3clF46">
+        <property role="TrG5h" value="contextNode" />
+        <node concept="3Tqbb2" id="4tHJhwChXyJ" role="1tU5fm" />
+      </node>
+      <node concept="P$JXv" id="2AGMd0x39oi" role="lGtFl">
+        <node concept="TUZQ0" id="2AGMd0x39ol" role="3nqlJM">
+          <property role="TUZQ4" value="receiver type" />
+          <node concept="zr_55" id="2AGMd0x39on" role="zr_5Q">
+            <ref role="zr_51" node="2AGMd0x36F8" resolve="targetType" />
+          </node>
+        </node>
+        <node concept="TUZQ0" id="2AGMd0x39oo" role="3nqlJM">
+          <property role="TUZQ4" value="list of signature scopes" />
+          <node concept="zr_55" id="2AGMd0x39oq" role="zr_5Q">
+            <ref role="zr_51" node="3neenocSnsx" resolve="entries" />
+          </node>
+        </node>
+        <node concept="x79VA" id="2AGMd0x39ou" role="3nqlJM">
+          <property role="x79VB" value="list of all selected signatures" />
+        </node>
+        <node concept="TZ5HA" id="2k7NUUJYXqx" role="TZ5H$">
+          <node concept="1dT_AC" id="2k7NUUJYXqy" role="1dT_Ay">
+            <property role="1dT_AB" value="For each list of signatures, select the one that comply to the receiver type. Among each list, if there exist" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="2k7NUUJYXH6" role="TZ5H$">
+          <node concept="1dT_AC" id="2k7NUUJYXH7" role="1dT_Ay">
+            <property role="1dT_AB" value="some subtyping relationship, the signature with the type closest to the receiver type is kept while the other is" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="2k7NUUJYXJS" role="TZ5H$">
+          <node concept="1dT_AC" id="2k7NUUJYXJT" role="1dT_Ay">
+            <property role="1dT_AB" value="discarded." />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="2k7NUUJYXWw" role="TZ5H$">
+          <node concept="1dT_AC" id="2k7NUUJYXWx" role="1dT_Ay">
+            <property role="1dT_AB" value="" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="2k7NUUJYXWE" role="TZ5H$">
+          <node concept="1dT_AC" id="2k7NUUJYXWF" role="1dT_Ay">
+            <property role="1dT_AB" value="After that, subsequent similar signatures are ignored." />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="3neenocSnhk" role="jymVt" />
     <node concept="3clFb_" id="5g3vQLJReIz" role="jymVt">
       <property role="TrG5h" value="getIntermediateType" />
       <node concept="37vLTG" id="5g3vQLJRf1z" role="3clF46">
