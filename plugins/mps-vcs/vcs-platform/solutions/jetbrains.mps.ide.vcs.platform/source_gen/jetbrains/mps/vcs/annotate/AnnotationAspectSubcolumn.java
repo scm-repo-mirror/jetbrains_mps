@@ -4,7 +4,7 @@ package jetbrains.mps.vcs.annotate;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.vcs.history.CommitsGraphNode;
-import java.awt.FontMetrics;
+import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ILeftCombinator;
 
@@ -32,10 +32,10 @@ import jetbrains.mps.internal.collections.runtime.ILeftCombinator;
     return myWidth;
   }
 
-  public void computeWidth(final FontMetrics fontMetrics, Iterable<CommitsGraphNode> graphNodes) {
+  public void computeWidth(final _FunctionTypes._return_P1_E0<? extends Integer, ? super String> textWidthFunc, Iterable<CommitsGraphNode> graphNodes) {
     myWidth = Sequence.fromIterable(graphNodes).foldLeft(0, new ILeftCombinator<CommitsGraphNode, Integer>() {
       public Integer combine(Integer s, CommitsGraphNode graphNode) {
-        return Math.max(s, fontMetrics.stringWidth(getText(graphNode)));
+        return Math.max(s, textWidthFunc.invoke(getText(graphNode)));
       }
     });
   }

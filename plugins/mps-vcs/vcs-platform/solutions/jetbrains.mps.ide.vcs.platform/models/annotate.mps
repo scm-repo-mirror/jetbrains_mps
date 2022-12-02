@@ -12,6 +12,7 @@
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="2" />
     <use id="c7fb639f-be78-4307-89b0-b5959c3fa8c8" name="jetbrains.mps.lang.text" version="0" />
     <use id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples" version="0" />
+    <use id="acfc188d-d5d6-4598-b370-6f4a983f05b2" name="jetbrains.mps.baseLanguage.methodReferences" version="0" />
   </languages>
   <imports>
     <import index="bfxj" ref="r:5744ed46-c83f-47cd-94ce-f24d1f92d6a1(jetbrains.mps.vcs.diff)" />
@@ -376,9 +377,16 @@
       <concept id="4079382982702596667" name="jetbrains.mps.baseLanguage.checkedDots.structure.CheckedDotExpression" flags="nn" index="2EnYce" />
     </language>
     <language id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures">
+      <concept id="1199542442495" name="jetbrains.mps.baseLanguage.closures.structure.FunctionType" flags="in" index="1ajhzC">
+        <child id="1199542457201" name="resultType" index="1ajl9A" />
+        <child id="1199542501692" name="parameterType" index="1ajw0F" />
+      </concept>
       <concept id="1199569711397" name="jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral" flags="nn" index="1bVj0M">
         <child id="1199569906740" name="parameter" index="1bW2Oz" />
         <child id="1199569916463" name="body" index="1bW5cS" />
+      </concept>
+      <concept id="1225797177491" name="jetbrains.mps.baseLanguage.closures.structure.InvokeFunctionOperation" flags="nn" index="1Bd96e">
+        <child id="1225797361612" name="parameter" index="1BdPVh" />
       </concept>
     </language>
     <language id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc">
@@ -405,6 +413,13 @@
         <property id="8970989240999019144" name="text" index="1dT_AB" />
       </concept>
       <concept id="2068944020170241612" name="jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocComment" flags="ng" index="3UR2Jj" />
+    </language>
+    <language id="acfc188d-d5d6-4598-b370-6f4a983f05b2" name="jetbrains.mps.baseLanguage.methodReferences">
+      <concept id="237887375562511215" name="jetbrains.mps.baseLanguage.methodReferences.structure.MethodReference" flags="ng" index="37Ijox" />
+      <concept id="3507059745126391419" name="jetbrains.mps.baseLanguage.methodReferences.structure.IMethodReference" flags="ng" index="3UZKCU">
+        <reference id="237887375562511297" name="method" index="37Ijqf" />
+        <child id="962278442658307079" name="target" index="wWaWy" />
+      </concept>
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
       <concept id="1177026924588" name="jetbrains.mps.lang.smodel.structure.RefConcept_Reference" flags="nn" index="chp4Y">
@@ -2549,61 +2564,78 @@
     <node concept="3clFb_" id="4FpwSCZueck" role="jymVt">
       <property role="TrG5h" value="computeSubcolumnWidths" />
       <node concept="3clFbS" id="4FpwSCZuecn" role="3clF47">
-        <node concept="3SKdUt" id="6gnWJiGCb3Y" role="3cqZAp">
-          <node concept="1PaTwC" id="6gnWJiGCb3Z" role="1aUNEU">
-            <node concept="3oM_SD" id="6gnWJiGCi2P" role="1PaTwD">
-              <property role="3oM_SC" value="FIXME" />
+        <node concept="3cpWs8" id="6gnWJiGGSAz" role="3cqZAp">
+          <node concept="3cpWsn" id="6gnWJiGGSA$" role="3cpWs9">
+            <property role="TrG5h" value="ecSettings" />
+            <node concept="3uibUv" id="6gnWJiGGOlH" role="1tU5fm">
+              <ref role="3uigEE" to="cj4x:~EditorComponentSettings" resolve="EditorComponentSettings" />
             </node>
-            <node concept="3oM_SD" id="6gnWJiGCi2R" role="1PaTwD">
-              <property role="3oM_SC" value="use" />
-            </node>
-            <node concept="3oM_SD" id="6gnWJiGCi33" role="1PaTwD">
-              <property role="3oM_SC" value="font" />
-            </node>
-            <node concept="3oM_SD" id="6gnWJiGCi37" role="1PaTwD">
-              <property role="3oM_SC" value="metrics" />
-            </node>
-            <node concept="3oM_SD" id="6gnWJiGCi3c" role="1PaTwD">
-              <property role="3oM_SC" value="from" />
-            </node>
-            <node concept="3oM_SD" id="6gnWJiGCi3i" role="1PaTwD">
-              <property role="3oM_SC" value="EC.getEditorComponentSettings()," />
-            </node>
-            <node concept="3oM_SD" id="6gnWJiGCi3p" role="1PaTwD">
-              <property role="3oM_SC" value="just" />
-            </node>
-            <node concept="3oM_SD" id="6gnWJiGCi3x" role="1PaTwD">
-              <property role="3oM_SC" value="need" />
-            </node>
-            <node concept="3oM_SD" id="6gnWJiGCi3E" role="1PaTwD">
-              <property role="3oM_SC" value="to" />
-            </node>
-            <node concept="3oM_SD" id="6gnWJiGCi3O" role="1PaTwD">
-              <property role="3oM_SC" value="change" />
-            </node>
-            <node concept="3oM_SD" id="6gnWJiGClbl" role="1PaTwD">
-              <property role="3oM_SC" value="AnnotationAspectSubcolumn" />
-            </node>
-            <node concept="3oM_SD" id="6gnWJiGClbx" role="1PaTwD">
-              <property role="3oM_SC" value="api" />
+            <node concept="2OqwBi" id="6gnWJiGGSA_" role="33vP2m">
+              <node concept="2OqwBi" id="6gnWJiGGSAA" role="2Oq$k0">
+                <node concept="1rXfSq" id="6gnWJiGGSAB" role="2Oq$k0">
+                  <ref role="37wK5l" to="px75:~AbstractLeftColumn.getLeftEditorHighlighter()" resolve="getLeftEditorHighlighter" />
+                </node>
+                <node concept="liA8E" id="6gnWJiGGSAC" role="2OqNvi">
+                  <ref role="37wK5l" to="px75:~LeftEditorHighlighter.getEditorComponent()" resolve="getEditorComponent" />
+                </node>
+              </node>
+              <node concept="liA8E" id="6gnWJiGGSAD" role="2OqNvi">
+                <ref role="37wK5l" to="exr9:~EditorComponent.getEditorComponentSettings()" resolve="getEditorComponentSettings" />
+              </node>
             </node>
           </node>
         </node>
-        <node concept="3cpWs8" id="6UMzIotS34g" role="3cqZAp">
-          <node concept="3cpWsn" id="6UMzIotS34h" role="3cpWs9">
-            <property role="TrG5h" value="metrics" />
-            <node concept="3uibUv" id="6UMzIotS34i" role="1tU5fm">
-              <ref role="3uigEE" to="z60i:~FontMetrics" resolve="FontMetrics" />
+        <node concept="3cpWs8" id="6gnWJiGHAaY" role="3cqZAp">
+          <node concept="3cpWsn" id="6gnWJiGHAaZ" role="3cpWs9">
+            <property role="TrG5h" value="font" />
+            <node concept="3uibUv" id="6gnWJiGHw4j" role="1tU5fm">
+              <ref role="3uigEE" to="z60i:~Font" resolve="Font" />
             </node>
-            <node concept="2OqwBi" id="1axvNamiDxo" role="33vP2m">
-              <node concept="2YIFZM" id="1axvNamiDek" role="2Oq$k0">
-                <ref role="37wK5l" to="g51k:~FontRegistry.getInstance()" resolve="getInstance" />
-                <ref role="1Pybhc" to="g51k:~FontRegistry" resolve="FontRegistry" />
+            <node concept="2OqwBi" id="6gnWJiGHAb0" role="33vP2m">
+              <node concept="37vLTw" id="6gnWJiGHAb1" role="2Oq$k0">
+                <ref role="3cqZAo" node="6gnWJiGGSA$" resolve="ecSettings" />
               </node>
-              <node concept="liA8E" id="1axvNamiDZ9" role="2OqNvi">
-                <ref role="37wK5l" to="g51k:~FontRegistry.getFontMetrics(java.awt.Font)" resolve="getFontMetrics" />
-                <node concept="1rXfSq" id="5hjrk$$FQCk" role="37wK5m">
-                  <ref role="37wK5l" node="5hjrk$$F$eP" resolve="getEditorFont" />
+              <node concept="liA8E" id="6gnWJiGHAb2" role="2OqNvi">
+                <ref role="37wK5l" to="cj4x:~EditorComponentSettings.getDefaultFont()" resolve="getDefaultFont" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs8" id="6gnWJiGEecC" role="3cqZAp">
+          <node concept="3cpWsn" id="6gnWJiGEecD" role="3cpWs9">
+            <property role="TrG5h" value="efm" />
+            <node concept="3uibUv" id="6gnWJiGEecE" role="1tU5fm">
+              <ref role="3uigEE" to="f4zo:~EditorFontMetrics" resolve="EditorFontMetrics" />
+            </node>
+            <node concept="2OqwBi" id="6gnWJiGGG9Z" role="33vP2m">
+              <node concept="37vLTw" id="6gnWJiGGSAE" role="2Oq$k0">
+                <ref role="3cqZAo" node="6gnWJiGGSA$" resolve="editorComponentSettings" />
+              </node>
+              <node concept="liA8E" id="6gnWJiGGLVE" role="2OqNvi">
+                <ref role="37wK5l" to="f4zo:~EditorFontMetricsProvider.getFontMetrics(java.lang.String,int,int)" resolve="getFontMetrics" />
+                <node concept="2OqwBi" id="6gnWJiGHMUd" role="37wK5m">
+                  <node concept="37vLTw" id="6gnWJiGHAb3" role="2Oq$k0">
+                    <ref role="3cqZAo" node="6gnWJiGHAaZ" resolve="defaultFont" />
+                  </node>
+                  <node concept="liA8E" id="6gnWJiGHW$9" role="2OqNvi">
+                    <ref role="37wK5l" to="z60i:~Font.getName()" resolve="getName" />
+                  </node>
+                </node>
+                <node concept="2OqwBi" id="6gnWJiGIex7" role="37wK5m">
+                  <node concept="37vLTw" id="6gnWJiGI9Di" role="2Oq$k0">
+                    <ref role="3cqZAo" node="6gnWJiGHAaZ" resolve="defaultFont" />
+                  </node>
+                  <node concept="liA8E" id="6gnWJiGInLQ" role="2OqNvi">
+                    <ref role="37wK5l" to="z60i:~Font.getStyle()" resolve="getStyle" />
+                  </node>
+                </node>
+                <node concept="2OqwBi" id="6gnWJiGIAFI" role="37wK5m">
+                  <node concept="37vLTw" id="6gnWJiGIy3g" role="2Oq$k0">
+                    <ref role="3cqZAo" node="6gnWJiGHAaZ" resolve="defaultFont" />
+                  </node>
+                  <node concept="liA8E" id="6gnWJiGIIdG" role="2OqNvi">
+                    <ref role="37wK5l" to="z60i:~Font.getSize()" resolve="getSize" />
+                  </node>
                 </node>
               </node>
             </node>
@@ -2621,8 +2653,11 @@
                 </node>
                 <node concept="liA8E" id="lIjSl53Pzn" role="2OqNvi">
                   <ref role="37wK5l" node="lIjSl53CXA" resolve="computeWidth" />
-                  <node concept="37vLTw" id="3GM_nagTuhQ" role="37wK5m">
-                    <ref role="3cqZAo" node="6UMzIotS34h" resolve="metrics" />
+                  <node concept="37Ijox" id="6gnWJiGEZlo" role="37wK5m">
+                    <ref role="37Ijqf" to="f4zo:~EditorFontMetrics.getWidth(java.lang.String)" resolve="getWidth" />
+                    <node concept="37vLTw" id="6gnWJiGEZlp" role="wWaWy">
+                      <ref role="3cqZAo" node="6gnWJiGEecD" resolve="efm" />
+                    </node>
                   </node>
                   <node concept="2OqwBi" id="2C9v71r18MU" role="37wK5m">
                     <node concept="2OqwBi" id="4rNEqb8WN5g" role="2Oq$k0">
@@ -2693,12 +2728,15 @@
             </node>
             <node concept="2OqwBi" id="6UMzIotS34z" role="37vLTx">
               <node concept="37vLTw" id="3GM_nagTteK" role="2Oq$k0">
-                <ref role="3cqZAo" node="6UMzIotS34h" resolve="metrics" />
+                <ref role="3cqZAo" node="6gnWJiGEecD" resolve="efm" />
               </node>
               <node concept="liA8E" id="6UMzIotS3DQ" role="2OqNvi">
-                <ref role="37wK5l" to="z60i:~FontMetrics.stringWidth(java.lang.String)" resolve="stringWidth" />
-                <node concept="Xl_RD" id="6UMzIotS3DR" role="37wK5m">
-                  <property role="Xl_RC" value=" " />
+                <ref role="37wK5l" to="f4zo:~EditorFontMetrics.getWidth(char,int)" resolve="getWidth" />
+                <node concept="1Xhbcc" id="6gnWJiGJnwj" role="37wK5m">
+                  <property role="1XhdNS" value=" " />
+                </node>
+                <node concept="3cmrfG" id="6gnWJiGJybF" role="37wK5m">
+                  <property role="3cmrfH" value="1" />
                 </node>
               </node>
             </node>
@@ -5673,13 +5711,12 @@
                         <node concept="37vLTw" id="2BHiRxgm8BB" role="37wK5m">
                           <ref role="3cqZAo" node="lIjSl53CYk" resolve="s" />
                         </node>
-                        <node concept="2OqwBi" id="lIjSl53CYH" role="37wK5m">
+                        <node concept="2OqwBi" id="6gnWJiGDOMs" role="37wK5m">
                           <node concept="37vLTw" id="2BHiRxghgs1" role="2Oq$k0">
                             <ref role="3cqZAo" node="lIjSl53CXI" resolve="fontMetrics" />
                           </node>
-                          <node concept="liA8E" id="lIjSl53CYJ" role="2OqNvi">
-                            <ref role="37wK5l" to="z60i:~FontMetrics.stringWidth(java.lang.String)" resolve="stringWidth" />
-                            <node concept="1rXfSq" id="4hiugqyyU6L" role="37wK5m">
+                          <node concept="1Bd96e" id="6gnWJiGDOYI" role="2OqNvi">
+                            <node concept="1rXfSq" id="4hiugqyyU6L" role="1BdPVh">
                               <ref role="37wK5l" node="lIjSl53fqN" resolve="getText" />
                               <node concept="37vLTw" id="2BHiRxgkZ0G" role="37wK5m">
                                 <ref role="3cqZAo" node="lIjSl53CYm" resolve="graphNode" />
@@ -5710,9 +5747,10 @@
         </node>
       </node>
       <node concept="37vLTG" id="lIjSl53CXI" role="3clF46">
-        <property role="TrG5h" value="fontMetrics" />
-        <node concept="3uibUv" id="lIjSl53CYb" role="1tU5fm">
-          <ref role="3uigEE" to="z60i:~FontMetrics" resolve="FontMetrics" />
+        <property role="TrG5h" value="textWidthFunc" />
+        <node concept="1ajhzC" id="6gnWJiGDMvW" role="1tU5fm">
+          <node concept="10Oyi0" id="6gnWJiGDNvN" role="1ajl9A" />
+          <node concept="17QB3L" id="6gnWJiGDNIF" role="1ajw0F" />
         </node>
       </node>
       <node concept="37vLTG" id="lIjSl53CXL" role="3clF46">

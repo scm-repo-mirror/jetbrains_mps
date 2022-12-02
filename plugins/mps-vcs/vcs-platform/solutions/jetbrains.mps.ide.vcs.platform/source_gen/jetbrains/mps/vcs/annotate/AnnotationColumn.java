@@ -36,6 +36,8 @@ import jetbrains.mps.nodeEditor.cells.FontRegistry;
 import java.awt.FontMetrics;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.ILeftCombinator;
+import jetbrains.mps.openapi.editor.EditorComponentSettings;
+import jetbrains.mps.openapi.editor.cells.EditorFontMetrics;
 import java.awt.event.MouseEvent;
 import java.awt.Cursor;
 import org.jetbrains.annotations.NotNull;
@@ -268,10 +270,11 @@ public final class AnnotationColumn extends AbstractLeftColumn {
   }
 
   private void computeSubcolumnWidths() {
-    // FIXME use font metrics from EC.getEditorComponentSettings(), just need to change AnnotationAspectSubcolumn api
-    FontMetrics metrics = FontRegistry.getInstance().getFontMetrics(getEditorFont());
+    EditorComponentSettings ecSettings = getLeftEditorHighlighter().getEditorComponent().getEditorComponentSettings();
+    Font font = ecSettings.getDefaultFont();
+    final EditorFontMetrics efm = ecSettings.getFontMetrics(font.getName(), font.getStyle(), font.getSize());
     for (AnnotationAspectSubcolumn aspectSubcolumn : ListSequence.fromList(myAspectSubcolumns)) {
-      aspectSubcolumn.computeWidth(metrics, CollectionSequence.fromCollection(myEditorAnnotation.getLineAnnotations()).select(new ISelector<LineAnnotation, CommitsGraphNode>() {
+      aspectSubcolumn.computeWidth((String p1) -> efm.getWidth(p1), CollectionSequence.fromCollection(myEditorAnnotation.getLineAnnotations()).select(new ISelector<LineAnnotation, CommitsGraphNode>() {
         public CommitsGraphNode select(LineAnnotation it) {
           return it.getRevisionsGraphNode();
         }
@@ -281,7 +284,7 @@ public final class AnnotationColumn extends AbstractLeftColumn {
         }
       }));
     }
-    mySubcolumnInterval = metrics.stringWidth(" ");
+    mySubcolumnInterval = efm.getWidth(' ', 1);
   }
 
   @Override
