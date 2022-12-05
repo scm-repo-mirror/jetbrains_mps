@@ -6,7 +6,6 @@ package jetbrains.mps.tool.environment;
 import com.intellij.openapi.application.Application;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ApplicationStarter;
-import jetbrains.mps.util.PlatformStarter;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.LinkedHashMap;
@@ -47,7 +46,8 @@ public final class MPSHeadlessPlatformStarter implements ApplicationStarter {
     @NotNull
     /*package*/ Application createApp() {
       try {
-        PlatformStarter.startApplication();
+        Class.forName("jetbrains.mps.util.PlatformStarter").getMethod("startApplication").invoke(null);
+//        PlatformStarter.startApplication();
       } catch (Exception e) {
         throw new RuntimeException("FAILED TO START CMDLINE IJ", e);
       }
