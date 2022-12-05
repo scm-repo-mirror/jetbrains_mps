@@ -509,6 +509,9 @@
         <reference id="5455284157993910961" name="concept" index="2pJxaS" />
         <child id="5455284157993911099" name="values" index="2pJxcM" />
       </concept>
+      <concept id="6985522012210254362" name="jetbrains.mps.lang.quotation.structure.NodeBuilderPropertyExpression" flags="nn" index="WxPPo">
+        <child id="6985522012210254363" name="expression" index="WxPPp" />
+      </concept>
     </language>
     <language id="446c26eb-2b7b-4bf0-9b35-f83fa582753e" name="jetbrains.mps.lang.modelapi">
       <concept id="4733039728785194814" name="jetbrains.mps.lang.modelapi.structure.NamedNodeReference" flags="ng" index="ZC_QK">
@@ -7877,9 +7880,11 @@
               <node concept="2pJPEk" id="1jlY2aid8Mx" role="3clFbG">
                 <node concept="2pJPED" id="1jlY2aid8Qf" role="2pJPEn">
                   <ref role="2pJxaS" to="tpf8:2vVmcK3ii$G" resolve="LoopMacroNamespaceAccessor" />
-                  <node concept="2pJxcG" id="1jlY2aid8SG" role="2pJxcM">
+                  <node concept="2pJxcG" id="3PMETvmeRFc" role="2pJxcM">
                     <ref role="2pJxcJ" to="tpf8:1jlY2aid0ux" resolve="variable" />
-                    <node concept="2ZBlsa" id="1jlY2aid8Vo" role="28ntcv" />
+                    <node concept="WxPPo" id="3PMETvmeQ6i" role="28ntcv">
+                      <node concept="2ZBlsa" id="3PMETvmeS3N" role="WxPPp" />
+                    </node>
                   </node>
                 </node>
               </node>

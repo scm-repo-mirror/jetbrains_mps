@@ -6516,11 +6516,7 @@
           <uo k="s:originTrace" v="n:4427790052271578569" />
           <node concept="3cpWs3" id="ut" role="3cqZAk">
             <uo k="s:originTrace" v="n:5419945706537163341" />
-            <node concept="Xl_RD" id="uu" role="3uHU7w">
-              <property role="Xl_RC" value="/plugins/mps-kotlin/kotlinc" />
-              <uo k="s:originTrace" v="n:5419945706537163609" />
-            </node>
-            <node concept="3cpWs3" id="uv" role="3uHU7B">
+            <node concept="3cpWs3" id="uu" role="3uHU7B">
               <uo k="s:originTrace" v="n:5419945706537157003" />
               <node concept="3cpWs3" id="uw" role="3uHU7B">
                 <uo k="s:originTrace" v="n:5419945706537149131" />
@@ -6546,6 +6542,10 @@
                 <ref role="1PxDUh" node="2O" resolve="KotlincMacroHelper" />
                 <uo k="s:originTrace" v="n:5419945706537160699" />
               </node>
+            </node>
+            <node concept="Xl_RD" id="uv" role="3uHU7w">
+              <property role="Xl_RC" value="/plugins/mps-kotlin/kotlinc" />
+              <uo k="s:originTrace" v="n:5419945706537163609" />
             </node>
           </node>
         </node>
