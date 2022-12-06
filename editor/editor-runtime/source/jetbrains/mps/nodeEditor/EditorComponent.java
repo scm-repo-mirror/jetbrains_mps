@@ -2374,7 +2374,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
 
     turnOnAliasingIfPossible(g);
 
-    g.setColor(StyleRegistry.getInstance().getEditorBackground());
+    g.setColor(getStyleRegistry().getEditorBackground());
     Rectangle bounds = g.getClipBounds();
 
     g.fillRect(bounds.x, bounds.y, bounds.width, bounds.height);

@@ -40,7 +40,6 @@ import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.ActionPlaces;
 import com.intellij.ui.JBColor;
 import java.awt.Color;
-import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import org.jetbrains.mps.openapi.model.SNode;
 import javax.swing.border.CompoundBorder;
 import javax.swing.JComponent;
@@ -173,7 +172,7 @@ public final class PopupWithNodeEditorUI implements Disposable {
       myLocationLabel.setIcon(node.myModuleIcon);
       myCountLabel.setText((index + 1) + " of " + myImplNodes.size());
       myUIEditorComponent.editNode(node.myNode);
-      myUIEditorComponent.setBackground(new JBColor(new Color(255, 255, 225), StyleRegistry.getInstance().getEditorBackground()));
+      myUIEditorComponent.setBackground(new JBColor(new Color(255, 255, 225), myUIEditorComponent.getStyleRegistry().getEditorBackground()));
       myUIEditorComponent.repaint();
       myNodeChooser.updateUI();
       myPopup.setCaption("Definition of " + node.myNode.getPresentation());
@@ -205,7 +204,7 @@ public final class PopupWithNodeEditorUI implements Disposable {
       myNodeChooser.setVisible(false);
       ImplementationNode node = myImplNodes.get(0);
       myLabel.setIcon(node.myNodeIcon);
-      myLabel.setForeground(StyleRegistry.getInstance().getEditorForeground());
+      myLabel.setForeground(myUIEditorComponent.getStyleRegistry().getEditorForeground());
       myLabel.setText(node.myNodePresentation);
       myLabel.setBorder(new CompoundBorder(IdeBorderFactory.createRoundedBorder(), JBUI.Borders.empty(0, 5, 2, 5)));
       myLabel.setVisible(true);

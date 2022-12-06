@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,11 +43,9 @@ import jetbrains.mps.nodeEditor.NodeHighlightManager;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.message.EditorMessageOwner;
 import jetbrains.mps.openapi.editor.message.SimpleEditorMessage;
-import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.smodel.ModelReadRunnable;
-import jetbrains.mps.util.Computable;
 import jetbrains.mps.util.Pair;
 import jetbrains.mps.workbench.MPSDataKeys;
 import jetbrains.mps.workbench.action.ActionUtils;
@@ -69,6 +67,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class TypeSystemTraceTree extends MPSTree implements DataProvider {
@@ -84,12 +83,16 @@ public class TypeSystemTraceTree extends MPSTree implements DataProvider {
   private final NodeHighlightManager myHighlightManager;
   private EditorMessageOwner myMessageOwner;
 
+  // declare colors for PresentationKind of AbstractOperation
+  private final Map<String, Color> myOperationPresentationColors;
+
   public TypeSystemTraceTree(Project mpsProject, SNode node, TypeSystemTracePanel parent, EditorComponent editorComponent) {
     myProject = mpsProject;
     myContextTracker = new TypecheckingContextTracker(node.getContainingRoot());
     myParent = parent;
     myEditorComponent = editorComponent;
     mySelectedNode = node;
+    myOperationPresentationColors = TypeSystemTraceTreeNode.initColors(editorComponent.getStyleRegistry());
     initNodes(node);
 
     setGenerationMode(TraceSettings.isGenerationMode());
@@ -172,7 +175,7 @@ public class TypeSystemTraceTree extends MPSTree implements DataProvider {
       }
     }
     final boolean hasAnError = hasAnErrorAsConsequence(operation);
-    TypeSystemTraceTreeNode result = new TypeSystemTraceTreeNode(operation, myContextTracker.getCurrentState(), myEditorComponent) {
+    TypeSystemTraceTreeNode result = new TypeSystemTraceTreeNode(operation, myOperationPresentationColors) {
       @Override
       public void doUpdatePresentation() {
         super.doUpdatePresentation();
@@ -183,6 +186,10 @@ public class TypeSystemTraceTree extends MPSTree implements DataProvider {
         }
       }
     };
+    List<SNode> variables = operation.getVariables();
+    if (variables != null) {
+      result.setTooltipText(PresentationUtil.getVariablesTooltipPresentation(myEditorComponent, variables, myContextTracker.getCurrentState()));
+    }
     for (TypeSystemTraceTreeNode node : children) {
       result.add(node);
     }
@@ -410,10 +417,10 @@ public class TypeSystemTraceTree extends MPSTree implements DataProvider {
   }
 
   private class SelectedNodeEditorMessage extends DefaultEditorMessage {
-    private EditorCell myCell;
+    private final EditorCell myCell;
 
     public SelectedNodeEditorMessage(EditorCell cell, String message) {
-      super(cell.getSNode(), StyleRegistry.getInstance().getSimpleColor(new Color(192, 255, 255)), message, myMessageOwner);
+      super(cell.getSNode(), cell.getEditorComponent().getStyleRegistry().getSimpleColor(new Color(192, 255, 255)), message, myMessageOwner);
       this.myCell = cell;
     }
 
@@ -514,7 +521,7 @@ public class TypeSystemTraceTree extends MPSTree implements DataProvider {
           continue;
         }
         if (showParent) {
-          TypeSystemTraceTreeNode treeNode = new TypeSystemTraceTreeNode(operation, myContextTracker.getCurrentState(), myEditorComponent) {
+          TypeSystemTraceTreeNode treeNode = new TypeSystemTraceTreeNode(operation, myOperationPresentationColors) {
             @Override
             public void doUpdatePresentation() {
               super.doUpdatePresentation();
@@ -523,6 +530,10 @@ public class TypeSystemTraceTree extends MPSTree implements DataProvider {
               }
             }
           };
+          List<SNode> variables = operation.getVariables();
+          if (variables != null) {
+            treeNode.setTooltipText(PresentationUtil.getVariablesTooltipPresentation(myEditorComponent, variables, myContextTracker.getCurrentState()));
+          }
           for (MPSTreeNode node : children) {
             treeNode.add(node);
           }

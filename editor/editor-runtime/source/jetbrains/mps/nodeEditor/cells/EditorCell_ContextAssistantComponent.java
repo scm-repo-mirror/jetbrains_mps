@@ -23,7 +23,6 @@ import jetbrains.mps.openapi.editor.EditorComponent;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.assist.ContextAssistant;
 import jetbrains.mps.openapi.editor.cells.CellTraversalUtil;
-import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 
@@ -45,7 +44,7 @@ public class EditorCell_ContextAssistantComponent extends EditorCell_ComponentBa
     super(editorContext, node);
     myRightMargin = editorContext.getEditorComponent().getEditorComponentSettings().getRightMargin();
     myPanel = new ContextAssistantPanel();
-    myPanel.setBackground(StyleRegistry.getInstance().getEditorBackground());
+    myPanel.setBackground(editorContext.getEditorComponent().getStyleRegistry().getEditorBackground());
     myPanel.setEscapeAction(new RequestFocusInEditorAction(editorContext.getEditorComponent()));
     myPanel.getComponent().setVisible(false);
     myController = new ContextAssistantController(editorContext, myPanel);

@@ -35172,9 +35172,13 @@
                               </node>
                             </node>
                             <node concept="2OqwBi" id="3qrPRT3AEMx" role="37wK5m">
-                              <node concept="2YIFZM" id="3qrPRT3AEMy" role="2Oq$k0">
-                                <ref role="1Pybhc" to="hox0:~StyleRegistry" resolve="StyleRegistry" />
-                                <ref role="37wK5l" to="hox0:~StyleRegistry.getInstance()" resolve="getInstance" />
+                              <node concept="2OqwBi" id="7Vo8tJ$$Omq" role="2Oq$k0">
+                                <node concept="37vLTw" id="7Vo8tJ$$Ejy" role="2Oq$k0">
+                                  <ref role="3cqZAo" node="3qrPRT3_rKz" resolve="myUIEditorComponent" />
+                                </node>
+                                <node concept="liA8E" id="7Vo8tJ$$Ucr" role="2OqNvi">
+                                  <ref role="37wK5l" to="exr9:~EditorComponent.getStyleRegistry()" resolve="getStyleRegistry" />
+                                </node>
                               </node>
                               <node concept="liA8E" id="3qrPRT3AEMz" role="2OqNvi">
                                 <ref role="37wK5l" to="hox0:~StyleRegistry.getEditorBackground()" resolve="getEditorBackground" />
@@ -35432,9 +35436,13 @@
                 <node concept="liA8E" id="3U_x1J2fQ6i" role="2OqNvi">
                   <ref role="37wK5l" to="dxuu:~JComponent.setForeground(java.awt.Color)" resolve="setForeground" />
                   <node concept="2OqwBi" id="3U_x1J2fTPy" role="37wK5m">
-                    <node concept="2YIFZM" id="3U_x1J2fTD2" role="2Oq$k0">
-                      <ref role="37wK5l" to="hox0:~StyleRegistry.getInstance()" resolve="getInstance" />
-                      <ref role="1Pybhc" to="hox0:~StyleRegistry" resolve="StyleRegistry" />
+                    <node concept="2OqwBi" id="7Vo8tJ$_D$U" role="2Oq$k0">
+                      <node concept="37vLTw" id="7Vo8tJ$_xlV" role="2Oq$k0">
+                        <ref role="3cqZAo" node="3qrPRT3_rKz" resolve="myUIEditorComponent" />
+                      </node>
+                      <node concept="liA8E" id="7Vo8tJ$_JH0" role="2OqNvi">
+                        <ref role="37wK5l" to="exr9:~EditorComponent.getStyleRegistry()" resolve="getStyleRegistry" />
+                      </node>
                     </node>
                     <node concept="liA8E" id="3U_x1J2fU7Y" role="2OqNvi">
                       <ref role="37wK5l" to="hox0:~StyleRegistry.getEditorForeground()" resolve="getEditorForeground" />

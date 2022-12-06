@@ -21,27 +21,22 @@ import jetbrains.mps.ide.ui.tree.MPSTreeNode;
 import jetbrains.mps.newTypesystem.operation.AbstractOperation;
 import jetbrains.mps.newTypesystem.operation.PresentationKind;
 import jetbrains.mps.newTypesystem.state.State;
-import jetbrains.mps.nodeEditor.EditorComponent;
 import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import org.jetbrains.mps.openapi.model.SNode;
 
 import java.awt.Color;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-public class TypeSystemTraceTreeNode extends MPSTreeNode {
-  private static final Map<String, Color> COLOR_MAP = initColors();
+/*package*/ class TypeSystemTraceTreeNode extends MPSTreeNode {
+  private final Map<String, Color> myPresentationColors;
 
-  public TypeSystemTraceTreeNode(AbstractOperation userObject, State state, EditorComponent editorComponent) {
+  public TypeSystemTraceTreeNode(AbstractOperation userObject, Map<String, Color> presentationColors) {
     super(userObject);
+    myPresentationColors = presentationColors;
     AbstractOperation operation = userObject;
     this.setAutoExpandable(true);
     this.setIcon(IdeIcons.DEFAULT_ICON);
-    List<SNode> variables = operation.getVariables();
-    if (variables != null) {
-      setTooltipText(PresentationUtil.getVariablesTooltipPresentation(editorComponent, variables, state));
-    }
     String nodeId = operation.getPresentation();
     SNode source = operation.getSource();
     if (source != null) {
@@ -51,14 +46,6 @@ public class TypeSystemTraceTreeNode extends MPSTreeNode {
     }
     setNodeIdentifier(nodeId);
     setText(operation.getPresentation());
-  }
-
-  public TypeSystemTraceTreeNode(AbstractOperation userObject) {
-    super(userObject);
-    AbstractOperation operation = userObject;
-    setNodeIdentifier(operation.getPresentation());
-    this.setAutoExpandable(true);
-    this.setIcon(IdeIcons.DEFAULT_ICON);
   }
 
   @Override
@@ -72,13 +59,11 @@ public class TypeSystemTraceTreeNode extends MPSTreeNode {
 
   private Color getOperationColor(AbstractOperation difference) {
     String colorId = difference.getPresentationKind();
-    Color color = TypeSystemTraceTreeNode.COLOR_MAP.get(colorId);
-    return color != null ? color : JBColor.BLACK;
+    return myPresentationColors.getOrDefault(colorId, JBColor.BLACK);
   }
 
-  private static Map<String, Color> initColors() {
+  /*package*/ static Map<String, Color> initColors(final StyleRegistry styleRegistry) {
     Map<String, Color> result = new HashMap<>();
-    final StyleRegistry styleRegistry = StyleRegistry.getInstance();
     result.put(PresentationKind.EQUATION_ADDED, styleRegistry.getSimpleColor(new Color(6751077)));
     result.put(PresentationKind.RELATION_ADDED, styleRegistry.getSimpleColor(new Color(119)));
     result.put(PresentationKind.RELATION_REMOVED, styleRegistry.getSimpleColor(new Color(1144763)));

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -288,10 +288,10 @@ public class TypeSystemStateTree extends MPSTree implements DataProvider {
   }
 
   private class TypeEditorMessage extends DefaultEditorMessage {
-    private EditorCell myCell;
+    private final EditorCell myCell;
 
     public TypeEditorMessage(EditorCell cell, String message) {
-      super(cell.getSNode(), StyleRegistry.getInstance().getSimpleColor(Color.blue), message, myMessageOwner);
+      super(cell.getSNode(), cell.getEditorComponent().getStyleRegistry().getSimpleColor(Color.blue), message, myMessageOwner);
       this.myCell = cell;
     }
 
