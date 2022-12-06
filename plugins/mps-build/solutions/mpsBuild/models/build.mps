@@ -38460,39 +38460,6 @@
           </node>
         </node>
         <node concept="398223" id="4O0hKJpjIV_" role="39821P">
-          <node concept="3981dx" id="496s5VbGNvc" role="39821P">
-            <node concept="3_J27D" id="496s5VbGNvd" role="Nbhlr">
-              <node concept="3Mxwew" id="496s5VbGNve" role="3MwsjC">
-                <property role="3MwjfP" value="jetbrains.mps.ide.mpsdevkit.jar" />
-              </node>
-            </node>
-            <node concept="398223" id="496s5VbGNvg" role="39821P">
-              <node concept="3_J27D" id="496s5VbGNvh" role="Nbhlr">
-                <node concept="3Mxwew" id="496s5VbGNvi" role="3MwsjC">
-                  <property role="3MwjfP" value="META-INF" />
-                </node>
-              </node>
-              <node concept="1kK7hY" id="496s5VbGNvj" role="39821P">
-                <ref role="1kK7hZ" node="5sovPIfS$nd" resolve="jetbrains.mps.ide.mpsdevkit" />
-                <node concept="1cIVw3" id="496s5VbGNvl" role="3SGgvt">
-                  <property role="1cIVw0" value="." />
-                </node>
-                <node concept="1cIVw3" id="496s5VbGNvm" role="2JVP1x">
-                  <property role="1cIVw0" value="jetbrains.mps.ide.mpsdevkit.msd" />
-                </node>
-              </node>
-            </node>
-            <node concept="398223" id="496s5VbGNvn" role="39821P">
-              <node concept="3_J27D" id="496s5VbGNvo" role="Nbhlr">
-                <node concept="3Mxwew" id="496s5VbGNvp" role="3MwsjC">
-                  <property role="3MwjfP" value="module" />
-                </node>
-              </node>
-              <node concept="3$exzU" id="496s5VbGNvq" role="39821P">
-                <ref role="3$exzV" node="5sovPIfS$nd" resolve="jetbrains.mps.ide.mpsdevkit" />
-              </node>
-            </node>
-          </node>
           <node concept="L2wRC" id="6xsKswgwduf" role="39821P">
             <ref role="L2wRA" node="6xsKswgwdcs" resolve="jetbrains.mps.ide.devkit.editor" />
           </node>
@@ -38554,6 +38521,9 @@
                 </node>
               </node>
             </node>
+          </node>
+          <node concept="L2wRC" id="5Oo5nbuoFxI" role="39821P">
+            <ref role="L2wRA" node="5sovPIfS$nd" resolve="jetbrains.mps.ide.mpsdevkit" />
           </node>
         </node>
       </node>
