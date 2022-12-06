@@ -236,7 +236,7 @@ public class InspectorTool extends BaseTool implements EditorInspector, ProjectC
       if (MPSEditorDataKeys.EDITOR_COMPONENT.is(dataId)) {
         return myInspectorComponent;
       }
-      if (MPSEditorDataKeys.MPS_PROJECT.is(dataId)) {
+      if (MPSCommonDataKeys.MPS_PROJECT.is(dataId)) {
         return ProjectHelper.fromIdeaProject(getProject());
       }
       return super.getData(dataId);

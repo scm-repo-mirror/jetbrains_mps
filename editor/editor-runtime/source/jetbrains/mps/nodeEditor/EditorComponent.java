@@ -2872,7 +2872,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     if (MPSCommonDataKeys.NODES.is(dataId)) {
       return isInSubstituteChooser || isInSearchPanel ? null : getSelectedNodes();
     }
-    if (dataId.equals(MPSEditorDataKeys.CONTEXT_MODEL.getName())) {
+    if (dataId.equals(MPSCommonDataKeys.CONTEXT_MODEL.getName())) {
       return runRead(() -> {
         SNode node = getRootCell().getSNode();
         if (node == null) {
@@ -2885,9 +2885,9 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
         return model;
       });
     }
-    if (dataId.equals(MPSEditorDataKeys.CONTEXT_MODULE.getName())) {
+    if (dataId.equals(MPSCommonDataKeys.CONTEXT_MODULE.getName())) {
       return runRead(() -> {
-        SModel model = MPSEditorDataKeys.CONTEXT_MODEL.getData(this);
+        SModel model = MPSCommonDataKeys.CONTEXT_MODEL.getData(this);
         return model == null ? null : model.getModule();
       });
     }
