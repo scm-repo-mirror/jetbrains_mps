@@ -133,10 +133,7 @@
         <exclude name="**/*.exe" />
         <exclude name="**/*.bat" />
       </zipfileset>
-      <zipfileset file="${basedir}/bin/win/fsnotifier.exe" prefix="MPS ${mpsBootstrapCore.version}/bin/win" filemode="755" />
-      <zipfileset file="${basedir}/bin/win/restarter.exe" prefix="MPS ${mpsBootstrapCore.version}/bin/win" filemode="755" />
-      <zipfileset file="${basedir}/bin/win/runnerw.exe" prefix="MPS ${mpsBootstrapCore.version}/bin/win" filemode="755" />
-      <zipfileset file="${basedir}/bin/win/WinProcessListHelper.exe" prefix="MPS ${mpsBootstrapCore.version}/bin/win" filemode="755" />
+      <zipfileset dir="${basedir}/bin/win/amd64" prefix="MPS ${mpsBootstrapCore.version}/bin/win" />
       <zipfileset file="${basedir}/bin/linux/amd64/libdbm.so" prefix="MPS ${mpsBootstrapCore.version}/bin/linux" />
       <zipfileset file="${basedir}/bin/linux/amd64/fsnotifier" prefix="MPS ${mpsBootstrapCore.version}/bin/linux" filemode="755" />
       <zipfileset file="${basedir}/bin/linux/restart.py" prefix="MPS ${mpsBootstrapCore.version}/bin/linux" filemode="755" />
@@ -244,15 +241,9 @@
     </copy>
     <zip destfile="${build.layout}/${mps.build.number}-windows.zip">
       <zipfileset dir="${artifacts.mps}" prefix="MPS ${mpsBootstrapCore.version}" />
-      <zipfileset dir="${basedir}/bin/win" prefix="MPS ${mpsBootstrapCore.version}/bin">
-        <exclude name="**/*.exe" />
-        <exclude name="**/*.bat" />
-      </zipfileset>
+      <zipfileset file="${basedir}/bin/win/breakgen*" prefix="MPS ${mpsBootstrapCore.version}/bin" />
+      <zipfileset dir="${basedir}/bin/win/amd64" prefix="MPS ${mpsBootstrapCore.version}/bin" />
       <zipfileset file="${basedir}/build/resources/mps.ico" prefix="MPS ${mpsBootstrapCore.version}/bin" />
-      <zipfileset file="${basedir}/bin/win/fsnotifier.exe" prefix="MPS ${mpsBootstrapCore.version}/bin" filemode="755" />
-      <zipfileset file="${basedir}/bin/win/restarter.exe" prefix="MPS ${mpsBootstrapCore.version}/bin" filemode="755" />
-      <zipfileset file="${basedir}/bin/win/runnerw.exe" prefix="MPS ${mpsBootstrapCore.version}/bin" filemode="755" />
-      <zipfileset file="${basedir}/bin/win/WinProcessListHelper.exe" prefix="MPS ${mpsBootstrapCore.version}/bin" filemode="755" />
       <zipfileset dir="${basedir}/plugins/laf-win10" prefix="MPS ${mpsBootstrapCore.version}/plugins/laf-win10" />
       <zipfileset dir="${build.tmp}/deps/jbr-windows-x64.tar.gz1/jbr" prefix="MPS ${mpsBootstrapCore.version}/jbr" />
       <zipfileset dir="${build.tmp}/default/_dl__lbrace_build.number_rbrace_-windows.zip_f755" filemode="755" prefix="MPS ${mpsBootstrapCore.version}/bin" />

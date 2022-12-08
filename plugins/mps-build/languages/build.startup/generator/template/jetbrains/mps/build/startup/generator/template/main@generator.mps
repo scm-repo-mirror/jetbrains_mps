@@ -1545,6 +1545,19 @@
                   </node>
                 </node>
               </node>
+              <node concept="3o6iSG" id="2RmwjkvbkgN" role="3o6s8t" />
+              <node concept="2pNNFK" id="2RmwjkvbjLM" role="3o6s8t">
+                <property role="2pNNFO" value="key" />
+                <node concept="3o6iSG" id="2RmwjkvbjLN" role="3o6s8t">
+                  <property role="3o6i5n" value="jna.boot.library.path" />
+                </node>
+              </node>
+              <node concept="2pNNFK" id="2RmwjkvbjLD" role="3o6s8t">
+                <property role="2pNNFO" value="string" />
+                <node concept="3o6iSG" id="2RmwjkvbkAb" role="3o6s8t">
+                  <property role="3o6i5n" value="$APP_PACKAGE/Contents/lib/jna" />
+                </node>
+              </node>
               <node concept="3o6iSG" id="1QEui$pG8AI" role="3o6s8t" />
               <node concept="2pNNFK" id="1QEui$pG8Gh" role="3o6s8t">
                 <property role="2pNNFO" value="key" />

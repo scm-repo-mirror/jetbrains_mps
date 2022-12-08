@@ -145,6 +145,9 @@
         <key>idea.paths.selector</key>
         <string>MPS$version.major$.$version.minor$</string>
         
+        <key>jna.boot.library.path</key>
+        <string>$APP_PACKAGE/Contents/lib/jna</string>
+        
         <key>idea.vendor.name</key>
         <string>JetBrains</string>
         
