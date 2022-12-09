@@ -220,6 +220,7 @@
       <concept id="1145383075378" name="jetbrains.mps.lang.smodel.structure.SNodeListType" flags="in" index="2I9FWS">
         <reference id="1145383142433" name="elementConcept" index="2I9WkF" />
       </concept>
+      <concept id="8329979535468945057" name="jetbrains.mps.lang.smodel.structure.Node_PresentationOperation" flags="ng" index="2Iv5rx" />
       <concept id="1883223317721008708" name="jetbrains.mps.lang.smodel.structure.IfInstanceOfStatement" flags="nn" index="Jncv_">
         <reference id="1883223317721008712" name="nodeConcept" index="JncvD" />
         <child id="1883223317721008709" name="body" index="Jncv$" />
@@ -1516,8 +1517,27 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
+    <node concept="2tJIrI" id="2$1CHwGHowe" role="jymVt" />
     <node concept="3uibUv" id="5exxG3kU1cx" role="1zkMxy">
       <ref role="3uigEE" to="1p8r:6czvyFyngzY" resolve="DefaultTypeParameterDeclaration" />
+    </node>
+    <node concept="3clFb_" id="2$1CHwGHqOl" role="jymVt">
+      <property role="TrG5h" value="toString" />
+      <node concept="3Tm1VV" id="2$1CHwGHqOm" role="1B3o_S" />
+      <node concept="17QB3L" id="2$1CHwGH$Me" role="3clF45" />
+      <node concept="3clFbS" id="2$1CHwGHqOq" role="3clF47">
+        <node concept="3clFbF" id="2$1CHwGHuC0" role="3cqZAp">
+          <node concept="2OqwBi" id="2$1CHwGHwjw" role="3clFbG">
+            <node concept="37vLTw" id="2$1CHwGHuBX" role="2Oq$k0">
+              <ref role="3cqZAo" node="4W0pdSCM4Ao" resolve="myTypeVariableDeclaration" />
+            </node>
+            <node concept="2Iv5rx" id="2$1CHwGHyt6" role="2OqNvi" />
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2$1CHwGHqOr" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" />
+      </node>
     </node>
   </node>
   <node concept="312cEu" id="3lDDPlnaJYk">

@@ -30,6 +30,9 @@
       <concept id="1080736578640" name="jetbrains.mps.lang.editor.structure.BaseEditorComponent" flags="ig" index="2wURMF">
         <child id="1080736633877" name="cellModel" index="2wV5jI" />
       </concept>
+      <concept id="6718020819487620873" name="jetbrains.mps.lang.editor.structure.TransformationMenuReference_Named" flags="ng" index="A1WHu">
+        <reference id="6718020819487620874" name="menu" index="A1WHt" />
+      </concept>
       <concept id="1164824717996" name="jetbrains.mps.lang.editor.structure.CellMenuDescriptor" flags="ng" index="OXEIz">
         <child id="1164824815888" name="cellMenuPart" index="OY2wv" />
       </concept>
@@ -44,6 +47,7 @@
       </concept>
       <concept id="1186414860679" name="jetbrains.mps.lang.editor.structure.EditableStyleClassItem" flags="ln" index="VPxyj" />
       <concept id="1186414928363" name="jetbrains.mps.lang.editor.structure.SelectableStyleSheetItem" flags="ln" index="VPM3Z" />
+      <concept id="1186414949600" name="jetbrains.mps.lang.editor.structure.AutoDeletableStyleClassItem" flags="ln" index="VPRnO" />
       <concept id="1630016958697344083" name="jetbrains.mps.lang.editor.structure.IMenu_Concept" flags="ng" index="2ZABuq">
         <reference id="6591946374543067572" name="conceptDeclaration" index="aqKnT" />
         <child id="5991739802479788259" name="type" index="22hAXT" />
@@ -72,6 +76,7 @@
         <child id="1198512004906" name="focusPolicyApplicable" index="cStSX" />
         <child id="1142887637401" name="renderingCondition" index="pqm2j" />
         <child id="1164826688380" name="menuDescriptor" index="P5bDN" />
+        <child id="4202667662392416064" name="transformationMenu" index="3vIgyS" />
       </concept>
       <concept id="1073389446423" name="jetbrains.mps.lang.editor.structure.CellModel_Collection" flags="sn" stub="3013115976261988961" index="3EZMnI">
         <child id="1106270802874" name="cellLayout" index="2iSdaV" />
@@ -549,6 +554,46 @@
       <ref role="3XGfJA" to="5m2i:1Uhah3hD3DG" resolve="constant" />
     </node>
     <node concept="22hDWj" id="1Uhah3hEXZ6" role="22hAXT" />
+  </node>
+  <node concept="24kQdi" id="2$1CHwG_G61">
+    <property role="3GE5qa" value="types" />
+    <ref role="1XX52x" to="5m2i:7an2tsI0MdE" resolve="JavaTypeVariableReferenceType" />
+    <node concept="3EZMnI" id="27wMicCxzmr" role="2wV5jI">
+      <node concept="1iCGBv" id="27wMicCxzmy" role="3EZMnx">
+        <ref role="1NtTu8" to="5m2i:7an2tsI0MdH" resolve="typeVariable" />
+        <node concept="1sVBvm" id="27wMicCxzm$" role="1sWHZn">
+          <node concept="3F0A7n" id="27wMicCxzmI" role="2wV5jI">
+            <property role="1Intyy" value="true" />
+            <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
+          </node>
+        </node>
+        <node concept="A1WHu" id="6ov$ndQK0jY" role="3vIgyS">
+          <ref role="A1WHt" to="r5qz:1Izr$$X6IDv" resolve="INullableType_SetNullable_Transform" />
+        </node>
+        <node concept="VPRnO" id="6kJ$aPSY4SK" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="3F0ifn" id="6ov$ndQJZpy" role="3EZMnx">
+        <property role="3F0ifm" value="?" />
+        <node concept="pkWqt" id="6ov$ndQJZpC" role="pqm2j">
+          <node concept="3clFbS" id="6ov$ndQJZpD" role="2VODD2">
+            <node concept="3clFbF" id="6ov$ndQJZtG" role="3cqZAp">
+              <node concept="2OqwBi" id="6ov$ndQJZG9" role="3clFbG">
+                <node concept="pncrf" id="6ov$ndQJZtF" role="2Oq$k0" />
+                <node concept="3TrcHB" id="6ov$ndQJZXq" role="2OqNvi">
+                  <ref role="3TsBF5" to="hcm8:5q426iHwzIm" resolve="isNullable" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="11L4FC" id="6ov$ndQLatY" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="l2Vlx" id="27wMicCxzmu" role="2iSdaV" />
+    </node>
   </node>
 </model>
 

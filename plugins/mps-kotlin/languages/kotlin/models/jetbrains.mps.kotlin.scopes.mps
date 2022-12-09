@@ -21,7 +21,6 @@
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
     <import index="nww" ref="r:f44f82b0-1fd9-4105-a80c-2fa6e5033003(jetbrains.mps.kotlin.signatures)" />
-    <import index="1p8r" ref="r:966de44c-de72-437f-889f-78347a061f0c(jetbrains.mps.kotlin.api.declaration)" />
     <import index="2q9i" ref="r:764c4c95-d567-4a0e-99be-3892becb007f(jetbrains.mps.kotlin.api.members)" />
     <import index="mx11" ref="r:fa9de6a8-90b7-4d2a-a9a9-a40c05cf603b(jetbrains.mps.kotlin.api.types.identifiers)" />
   </imports>
@@ -275,7 +274,6 @@
       <concept id="540871147943773365" name="jetbrains.mps.baseLanguage.collections.structure.SingleArgumentSequenceOperation" flags="nn" index="25WWJ4">
         <child id="540871147943773366" name="argument" index="25WWJ7" />
       </concept>
-      <concept id="1226516258405" name="jetbrains.mps.baseLanguage.collections.structure.HashSetCreator" flags="nn" index="2i4dXS" />
       <concept id="1151688443754" name="jetbrains.mps.baseLanguage.collections.structure.ListType" flags="in" index="_YKpA">
         <child id="1151688676805" name="elementType" index="_ZDj9" />
       </concept>
@@ -1094,8 +1092,8 @@
         <node concept="3clFbF" id="27wMicCJjFC" role="3cqZAp">
           <node concept="37vLTI" id="27wMicCJjOn" role="3clFbG">
             <node concept="2ShNRf" id="27wMicCJjUm" role="37vLTx">
-              <node concept="HV5vD" id="27wMicDmlgk" role="2ShVmc">
-                <ref role="HV5vE" to="hez:27wMicCxyJQ" resolve="NodeTypeVarSubs" />
+              <node concept="1pGfFk" id="7DSH8smmUSm" role="2ShVmc">
+                <ref role="37wK5l" to="hez:7DSH8smmnSl" resolve="NodeTypeVarSubs" />
               </node>
             </node>
             <node concept="338YkY" id="27wMicCJjFB" role="37vLTJ">
@@ -1175,16 +1173,9 @@
               <ref role="338YkT" node="27wMicCITc8" resolve="substitutions" />
             </node>
             <node concept="liA8E" id="27wMicD5Z8g" role="2OqNvi">
-              <ref role="37wK5l" to="hez:27wMicCCjIt" resolve="expand" />
+              <ref role="37wK5l" to="hez:2$1CHwGB4QJ" resolve="expand" />
               <node concept="37vLTw" id="27wMicD5Zhc" role="37wK5m">
                 <ref role="3cqZAo" node="27wMicD5Yw4" resolve="original" />
-              </node>
-              <node concept="2ShNRf" id="6QVUYzaFZmn" role="37wK5m">
-                <node concept="2i4dXS" id="6QVUYzaFZlL" role="2ShVmc">
-                  <node concept="3uibUv" id="4W0pdSD8bXs" role="HW$YZ">
-                    <ref role="3uigEE" to="1p8r:26mUjU3_L7_" resolve="TypeParameterDeclaration" />
-                  </node>
-                </node>
               </node>
             </node>
           </node>

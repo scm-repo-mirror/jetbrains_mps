@@ -64,9 +64,6 @@
       <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ng" index="2AJDlI">
         <child id="1188208488637" name="annotation" index="2AJF6D" />
       </concept>
-      <concept id="2820489544401957797" name="jetbrains.mps.baseLanguage.structure.DefaultClassCreator" flags="nn" index="HV5vD">
-        <reference id="2820489544401957798" name="classifier" index="HV5vE" />
-      </concept>
       <concept id="1154032098014" name="jetbrains.mps.baseLanguage.structure.AbstractLoopStatement" flags="nn" index="2LF5Ji">
         <child id="1154032183016" name="body" index="2LFqv$" />
       </concept>
@@ -301,7 +298,6 @@
       <concept id="1226511727824" name="jetbrains.mps.baseLanguage.collections.structure.SetType" flags="in" index="2hMVRd">
         <child id="1226511765987" name="elementType" index="2hN53Y" />
       </concept>
-      <concept id="1226516258405" name="jetbrains.mps.baseLanguage.collections.structure.HashSetCreator" flags="nn" index="2i4dXS" />
       <concept id="1224414427926" name="jetbrains.mps.baseLanguage.collections.structure.SequenceCreator" flags="nn" index="kMnCb">
         <child id="1224414456414" name="elementType" index="kMuH3" />
       </concept>
@@ -1818,9 +1814,8 @@
         <node concept="3clFbF" id="5L2mPNEyBUH" role="3cqZAp">
           <node concept="37vLTI" id="5L2mPNEyDqR" role="3clFbG">
             <node concept="2ShNRf" id="5L2mPNEyDI2" role="37vLTx">
-              <node concept="HV5vD" id="5L2mPNEyF$W" role="2ShVmc">
-                <property role="373rjd" value="true" />
-                <ref role="HV5vE" to="hez:27wMicCxyJQ" resolve="NodeTypeVarSubs" />
+              <node concept="1pGfFk" id="7DSH8smmUob" role="2ShVmc">
+                <ref role="37wK5l" to="hez:7DSH8smmnSl" resolve="NodeTypeVarSubs" />
               </node>
             </node>
             <node concept="338YkY" id="5L2mPNEyBUF" role="37vLTJ">
@@ -2015,16 +2010,9 @@
               <ref role="338YkT" node="27wMicCITc8" resolve="substitutions" />
             </node>
             <node concept="liA8E" id="27wMicD5Z8g" role="2OqNvi">
-              <ref role="37wK5l" to="hez:27wMicCCjIt" resolve="expand" />
+              <ref role="37wK5l" to="hez:2$1CHwGB4QJ" resolve="expand" />
               <node concept="37vLTw" id="27wMicD5Zhc" role="37wK5m">
                 <ref role="3cqZAo" node="27wMicD5Yw4" resolve="original" />
-              </node>
-              <node concept="2ShNRf" id="6QVUYzaFZmn" role="37wK5m">
-                <node concept="2i4dXS" id="6QVUYzaFZlL" role="2ShVmc">
-                  <node concept="3uibUv" id="4W0pdSD8bXs" role="HW$YZ">
-                    <ref role="3uigEE" to="1p8r:26mUjU3_L7_" resolve="TypeParameterDeclaration" />
-                  </node>
-                </node>
               </node>
             </node>
           </node>
