@@ -31995,7 +31995,12 @@
       <node concept="3clFbS" id="3HHsmlLHrXM" role="3clF47">
         <node concept="3clFbF" id="3HHsmlLHvVc" role="3cqZAp">
           <node concept="2OqwBi" id="3HHsmlLHw87" role="3clFbG">
-            <node concept="13iPFW" id="3HHsmlLHvV6" role="2Oq$k0" />
+            <node concept="2OqwBi" id="NGujb3fCak" role="2Oq$k0">
+              <node concept="13iPFW" id="3HHsmlLHvV6" role="2Oq$k0" />
+              <node concept="3TrEf2" id="NGujb3fCnj" role="2OqNvi">
+                <ref role="3Tt5mk" to="hcm8:abwK8jcYWk" resolve="type" />
+              </node>
+            </node>
             <node concept="2qgKlT" id="3HHsmlLHwr6" role="2OqNvi">
               <ref role="37wK5l" node="1ODRHGtugRP" resolve="getCompanionInstanceScope" />
               <node concept="37vLTw" id="3HHsmlLHw$N" role="37wK5m">
