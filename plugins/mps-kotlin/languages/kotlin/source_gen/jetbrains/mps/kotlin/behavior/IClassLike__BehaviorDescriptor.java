@@ -86,7 +86,7 @@ public final class IClassLike__BehaviorDescriptor extends BaseBHDescriptor {
       }).select(new ISelector<SNode, SourcedSignature>() {
         public SourcedSignature select(SNode it) {
           // Regular function signature
-          return new FunctionSignature(KotlinFunctionDeclaration.of(it), (TypeExpander) null).toSourced(it, null);
+          return new FunctionSignature(KotlinFunctionDeclaration.of(it), (TypeExpander) null).toSourced(it);
         }
       });
     });

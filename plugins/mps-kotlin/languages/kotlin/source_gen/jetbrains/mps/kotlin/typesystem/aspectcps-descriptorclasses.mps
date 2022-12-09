@@ -6893,7 +6893,7 @@
                     <node concept="2ShNRf" id="wC" role="37wK5m">
                       <uo k="s:originTrace" v="n:7162518405730539208" />
                       <node concept="1pGfFk" id="wE" role="2ShVmc">
-                        <ref role="37wK5l" to="hez:1pHfrwZyNdJ" resolve="CallReceiver" />
+                        <ref role="37wK5l" to="hez:1pHfrwZyNdJ" resolve="SimpleCallReceiver" />
                         <uo k="s:originTrace" v="n:7162518405730538716" />
                         <node concept="37vLTw" id="wF" role="37wK5m">
                           <ref role="3cqZAo" node="wx" resolve="typeRef" />

@@ -51,7 +51,7 @@ public final class EnumClassDeclaration__BehaviorDescriptor extends BaseBHDescri
         public Iterable<SourcedSignature> translate(final SNode it) {
           return Sequence.fromIterable(PropertySignature.signaturesOf(it, false)).select(new ISelector<PropertySignature, SourcedSignature>() {
             public SourcedSignature select(PropertySignature sig) {
-              return sig.toSourced(it, null);
+              return sig.toSourced(it);
             }
           });
         }

@@ -16,21 +16,18 @@ import jetbrains.mps.kotlin.api.declaration.ParameterDeclaration;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.kotlin.scopes.signed.ScopeCollector;
 import jetbrains.mps.kotlin.scopes.SignatureFilter;
 import jetbrains.mps.kotlin.signatures.FunctionSignature;
 import jetbrains.mps.kotlin.scopes.signed.ConstructorsScope;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
-import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class FunctionCallExpression__BehaviorDescriptor extends BaseBHDescriptor {
@@ -46,11 +43,7 @@ public final class FunctionCallExpression__BehaviorDescriptor extends BaseBHDesc
   }
 
   /*package*/ static CallReceiver getReceiver_id5D4bOjrrgiZ(@NotNull SNode __thisNode__) {
-    TypeReference reference = Sequence.fromIterable(IThisReceiverProvider__BehaviorDescriptor.getThisTypeReferences_idxpyqH1FuA0.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.receiver$fya4))).skip(SPropertyOperations.getInteger(__thisNode__, PROPS.receiverIndex$ELkw)).first();
-    if (reference == null) {
-      return null;
-    }
-    return new CallReceiver(reference, true, false);
+    return new ImplicitCallReceiver(__thisNode__);
   }
   /*package*/ static Iterable<SignatureScope> getFunctionScopeParts_id6dAo8EmAhT7(@NotNull SAbstractConcept __thisConcept__, SNode referenceNode, SNode contextNode, SContainmentLink containment) {
     ScopeCollector collector = new ScopeCollector(new SignatureFilter<FunctionSignature>(FunctionSignature.class));
@@ -128,13 +121,8 @@ public final class FunctionCallExpression__BehaviorDescriptor extends BaseBHDesc
   }
 
   private static final class LINKS {
-    /*package*/ static final SReferenceLink receiver$fya4 = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x40b4c3a5339a6979L, 0x6b93446a6f90602eL, "receiver");
     /*package*/ static final SReferenceLink function$Weyv = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af43fL, 0x1ba36e493d8ad4e9L, "function");
     /*package*/ static final SContainmentLink primaryConstructor$QvZc = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, 0x2043bc8310e45225L, "primaryConstructor");
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty receiverIndex$ELkw = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x40b4c3a5339a6979L, 0x6b93446a6f906849L, "receiverIndex");
   }
 
   private static final class CONCEPTS {

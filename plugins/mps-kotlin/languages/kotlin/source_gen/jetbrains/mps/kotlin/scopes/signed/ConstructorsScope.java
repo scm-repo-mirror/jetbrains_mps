@@ -19,10 +19,9 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.kotlin.signatures.FunctionSignature;
 import jetbrains.mps.kotlin.behavior.KotlinFunctionDeclaration;
 import jetbrains.mps.kotlin.api.members.TypeExpander;
-import jetbrains.mps.kotlin.behavior.IClassLike__BehaviorDescriptor;
-import jetbrains.mps.kotlin.behavior.IConstructorDeclaration__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.kotlin.behavior.ClassDeclaration__BehaviorDescriptor;
+import jetbrains.mps.kotlin.behavior.IClassLike__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
@@ -60,7 +59,7 @@ public class ConstructorsScope implements SignatureScope {
 
     return ListSequence.fromList(result).select(new ISelector<SNode, SourcedSignature>() {
       public SourcedSignature select(SNode it) {
-        return new SourcedSignature(it, new FunctionSignature(KotlinFunctionDeclaration.of(it), (TypeExpander) null), IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(IConstructorDeclaration__BehaviorDescriptor.getConstructedClass_id7WpE6U5evQG.invoke(it), ((boolean) false)));
+        return new SourcedSignature(it, new FunctionSignature(KotlinFunctionDeclaration.of(it), (TypeExpander) null));
       }
     });
   }

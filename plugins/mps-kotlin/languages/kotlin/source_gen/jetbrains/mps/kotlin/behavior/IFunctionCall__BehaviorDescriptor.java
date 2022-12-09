@@ -65,8 +65,9 @@ public final class IFunctionCall__BehaviorDescriptor extends BaseBHDescriptor {
     return false;
   }
   /*package*/ static Iterable<SignatureScope> getFunctionScopeParts_id6dAo8EmAhT7(@NotNull SAbstractConcept __thisConcept__, SNode referenceNode, SNode contextNode, SContainmentLink containment) {
-    // default: assumes the node is already created and receiver not null
-    return SignatureScopeHelper.getFunctionScopeParts(IFunctionCall__BehaviorDescriptor.getReceiver_id5D4bOjrrgiZ.invoke(SNodeOperations.as(referenceNode, CONCEPTS.IFunctionCall$Sf)), contextNode);
+    // default: assumes the node is already created and simple non null receiver
+    SimpleCallReceiver receiver = as_mubngw_a0a1a02(IFunctionCall__BehaviorDescriptor.getReceiver_id5D4bOjrrgiZ.invoke(SNodeOperations.as(referenceNode, CONCEPTS.IFunctionCall$Sf)), SimpleCallReceiver.class);
+    return SignatureScopeHelper.getFunctionScopeParts(receiver, contextNode);
   }
 
   /*package*/ IFunctionCall__BehaviorDescriptor() {
@@ -121,6 +122,9 @@ public final class IFunctionCall__BehaviorDescriptor extends BaseBHDescriptor {
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
+  }
+  private static <T> T as_mubngw_a0a1a02(Object o, Class<T> type) {
+    return (type.isInstance(o) ? (T) o : null);
   }
 
   private static final class CONCEPTS {

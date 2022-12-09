@@ -12,7 +12,6 @@
     <use id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples" version="0" />
     <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="5" />
     <use id="acfc188d-d5d6-4598-b370-6f4a983f05b2" name="jetbrains.mps.baseLanguage.methodReferences" version="0" />
-    <use id="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" name="jetbrains.mps.lang.actions" version="4" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
   <imports>
@@ -34,8 +33,6 @@
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
     <import index="kdsm" ref="r:4d5ec8ef-7006-453c-a8cf-f9897337b08c(jetbrains.mps.kotlin.api.extension)" />
     <import index="jyou" ref="r:ca03e632-3f02-43dd-8ea4-ad134e38a5a2(jetbrains.mps.kotlin.plugin)" />
-    <import index="5b0" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.presentation(MPS.Core/)" />
-    <import index="ze1i" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.runtime(MPS.Core/)" />
   </imports>
   <registry>
     <language id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples">
@@ -6395,6 +6392,7 @@
   <node concept="312cEu" id="2t96AMoHiRy">
     <property role="3GE5qa" value="" />
     <property role="TrG5h" value="SignatureScopeHelper" />
+    <node concept="3Tm1VV" id="2t96AMoHiRz" role="1B3o_S" />
     <node concept="2YIFZL" id="qzPrsXWYzW" role="jymVt">
       <property role="TrG5h" value="getFunctionScopeParts" />
       <node concept="3clFbS" id="qzPrsXWYzX" role="3clF47">
@@ -6642,7 +6640,6 @@
         </node>
       </node>
     </node>
-    <node concept="3Tm1VV" id="2t96AMoHiRz" role="1B3o_S" />
     <node concept="2tJIrI" id="3HHsmlLENAg" role="jymVt" />
     <node concept="2YIFZL" id="7XIUL68C964" role="jymVt">
       <property role="TrG5h" value="getVariablesScope" />

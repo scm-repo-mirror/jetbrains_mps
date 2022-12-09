@@ -651,13 +651,13 @@
       <node id="8480058639847277918" at="39,44,40,116" concept="9" />
       <node id="8939835910401552790" at="43,45,44,117" concept="9" />
       <node id="8480058639847298727" at="47,41,48,113" concept="9" />
-      <node id="8402416827417640121" at="51,42,52,111" concept="8" />
+      <node id="8402416827417640121" at="51,42,52,117" concept="8" />
       <node id="8402416827417651725" at="53,27,54,18" concept="9" />
       <node id="6342719664762768785" at="55,5,56,39" concept="9" />
       <node id="8480058639847447844" at="59,54,60,104" concept="9" />
       <node id="8480058639847270315" at="22,0,25,0" concept="1" trace="NodeFunctionCall#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="5080347312208301471" at="28,105,31,5" concept="6" />
-      <node id="8402416827417643626" at="52,111,55,5" concept="6" />
+      <node id="8402416827417643626" at="52,117,55,5" concept="6" />
       <node id="8480058639847271472" at="34,0,38,0" concept="7" trace="getModifierFilter#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
       <node id="8480058639847271478" at="38,0,42,0" concept="7" trace="getArguments#()Ljava/lang/Iterable;" />
       <node id="8939835910401548978" at="42,0,46,0" concept="7" trace="getTypeArguments#()Ljava/lang/Iterable;" />

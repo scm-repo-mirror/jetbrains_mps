@@ -26,7 +26,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 public final class FunctionCallTarget__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x40b4c3a5339a64d3L, "jetbrains.mps.kotlin.structure.FunctionCallTarget");
 
-  public static final SMethod<CallReceiver> getReceiver_id5D4bOjrrgiZ = new SMethodBuilder<CallReceiver>(new SJavaCompoundTypeImpl(CallReceiver.class)).name("getReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6504375734615475391L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<SimpleCallReceiver> getReceiver_id5D4bOjrrgiZ = new SMethodBuilder<SimpleCallReceiver>(new SJavaCompoundTypeImpl(SimpleCallReceiver.class)).name("getReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6504375734615475391L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<Iterable<SignatureScope>> getFunctionScopeParts_id6dAo8EmAhT7 = new SMethodBuilder<Iterable<SignatureScope>>(new SJavaCompoundTypeImpl((Class<Iterable<SignatureScope>>) ((Class) Object.class))).name("getFunctionScopeParts").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7162518405727723079L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(SContainmentLink.class, ""));
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getReceiver_id5D4bOjrrgiZ, getFunctionScopeParts_id6dAo8EmAhT7);
@@ -34,13 +34,13 @@ public final class FunctionCallTarget__BehaviorDescriptor extends BaseBHDescript
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static CallReceiver getReceiver_id5D4bOjrrgiZ(@NotNull SNode __thisNode__) {
-    return CallReceiver.ofNavTarget(__thisNode__);
+  /*package*/ static SimpleCallReceiver getReceiver_id5D4bOjrrgiZ(@NotNull SNode __thisNode__) {
+    return SimpleCallReceiver.ofNavTarget(__thisNode__);
   }
   /*package*/ static Iterable<SignatureScope> getFunctionScopeParts_id6dAo8EmAhT7(@NotNull SAbstractConcept __thisConcept__, SNode referenceNode, SNode contextNode, SContainmentLink containment) {
     SNode parent = SNodeOperations.as((((referenceNode == null) ? contextNode : SNodeOperations.getParent(referenceNode))), CONCEPTS.NavigationOperation$4I);
 
-    return SignatureScopeHelper.getFunctionScopeParts(CallReceiver.of(SLinkOperations.getTarget(parent, LINKS.operand$YS5t)), contextNode);
+    return SignatureScopeHelper.getFunctionScopeParts(SimpleCallReceiver.of(SLinkOperations.getTarget(parent, LINKS.operand$YS5t)), contextNode);
   }
 
   /*package*/ FunctionCallTarget__BehaviorDescriptor() {
@@ -59,7 +59,7 @@ public final class FunctionCallTarget__BehaviorDescriptor extends BaseBHDescript
     }
     switch (methodIndex) {
       case 0:
-        return (T) ((CallReceiver) getReceiver_id5D4bOjrrgiZ(node));
+        return (T) ((SimpleCallReceiver) getReceiver_id5D4bOjrrgiZ(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

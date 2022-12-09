@@ -28,9 +28,9 @@ public final class ForStatement__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Void> collectSpecificScope_id1yTI8p9qmpS = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("collectSpecificScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1781658014498514552L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Boolean> isChildVariableAssignable_idCy8Bus9qei = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isChildVariableAssignable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(730183986703606674L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<String> getFunctionName_id4nn3FPlEjh5 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getFunctionName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5032507314958578757L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
-  public static final SMethod<CallReceiver> getReceiver_id5D4bOjrrgiZ = new SMethodBuilder<CallReceiver>(new SJavaCompoundTypeImpl(CallReceiver.class)).name("getReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6504375734615475391L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<SimpleCallReceiver> getReceiver_id5D4bOjrrgiZ = new SMethodBuilder<SimpleCallReceiver>(new SJavaCompoundTypeImpl(SimpleCallReceiver.class)).name("getReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6504375734615475391L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<Iterable<Argument>> getArguments_id1VI7K1jROBX = new SMethodBuilder<Iterable<Argument>>(new SJavaCompoundTypeImpl((Class<Iterable<Argument>>) ((Class) Object.class))).name("getArguments").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2228752951862577661L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
-  public static final SMethod<CallReceiver> getVariablesReceiver_id4FOkRjXx8jV = new SMethodBuilder<CallReceiver>(new SJavaCompoundTypeImpl(CallReceiver.class)).name("getVariablesReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5401033615058699515L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<SimpleCallReceiver> getVariablesReceiver_id4FOkRjXx8jV = new SMethodBuilder<SimpleCallReceiver>(new SJavaCompoundTypeImpl(SimpleCallReceiver.class)).name("getVariablesReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5401033615058699515L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<SNode> getVariablesReceiverType_id75chmMYhcwP = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getVariablesReceiverType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8163976557866829877L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(collectSpecificScope_id1yTI8p9qmpS, isChildVariableAssignable_idCy8Bus9qei, getFunctionName_id4nn3FPlEjh5, getReceiver_id5D4bOjrrgiZ, getArguments_id1VI7K1jROBX, getVariablesReceiver_id4FOkRjXx8jV, getVariablesReceiverType_id75chmMYhcwP);
@@ -48,14 +48,14 @@ public final class ForStatement__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static String getFunctionName_id4nn3FPlEjh5(@NotNull SNode __thisNode__) {
     return "iterator";
   }
-  /*package*/ static CallReceiver getReceiver_id5D4bOjrrgiZ(@NotNull SNode __thisNode__) {
-    return CallReceiver.of(SLinkOperations.getTarget(__thisNode__, LINKS.in$_8gh));
+  /*package*/ static SimpleCallReceiver getReceiver_id5D4bOjrrgiZ(@NotNull SNode __thisNode__) {
+    return SimpleCallReceiver.of(SLinkOperations.getTarget(__thisNode__, LINKS.in$_8gh));
   }
   /*package*/ static Iterable<Argument> getArguments_id1VI7K1jROBX(@NotNull SNode __thisNode__) {
     return Argument.none;
   }
-  /*package*/ static CallReceiver getVariablesReceiver_id4FOkRjXx8jV(@NotNull SNode __thisNode__) {
-    return new CallReceiver(new InferredTypeReference(__thisNode__, ForStatementKeys.NEXT_FUNCTION_RET), true, false);
+  /*package*/ static SimpleCallReceiver getVariablesReceiver_id4FOkRjXx8jV(@NotNull SNode __thisNode__) {
+    return new SimpleCallReceiver(new InferredTypeReference(__thisNode__, ForStatementKeys.NEXT_FUNCTION_RET), true, false);
   }
   /*package*/ static SNode getVariablesReceiverType_id75chmMYhcwP(@NotNull SNode __thisNode__) {
     return null;
@@ -84,11 +84,11 @@ public final class ForStatement__BehaviorDescriptor extends BaseBHDescriptor {
       case 2:
         return (T) ((String) getFunctionName_id4nn3FPlEjh5(node));
       case 3:
-        return (T) ((CallReceiver) getReceiver_id5D4bOjrrgiZ(node));
+        return (T) ((SimpleCallReceiver) getReceiver_id5D4bOjrrgiZ(node));
       case 4:
         return (T) ((Iterable<Argument>) getArguments_id1VI7K1jROBX(node));
       case 5:
-        return (T) ((CallReceiver) getVariablesReceiver_id4FOkRjXx8jV(node));
+        return (T) ((SimpleCallReceiver) getVariablesReceiver_id4FOkRjXx8jV(node));
       case 6:
         return (T) ((SNode) getVariablesReceiverType_id75chmMYhcwP(node));
       default:

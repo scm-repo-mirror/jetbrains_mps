@@ -768,7 +768,9 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         return props_ForStatement;
       case LanguageConceptSwitch.FunctionCallExpression:
         if (props_FunctionCallExpression == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x40b4c3a5339a6979L);
+          cpb.deprecateProperty(0x6b93446a6f906849L, "_receiverIndex");
+          cpb.deprecateAssociation(0x6b93446a6f90602eL, "_receiver");
           cpb.shortDesc("call expression");
           cpb.rawPresentation("FunctionCallExpression");
           props_FunctionCallExpression = cpb.create();

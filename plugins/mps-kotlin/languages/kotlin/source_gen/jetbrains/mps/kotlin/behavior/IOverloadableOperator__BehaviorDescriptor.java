@@ -11,15 +11,22 @@ import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import jetbrains.mps.kotlin.api.declaration.FunctionDeclaration;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScope;
+import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScopeHelper;
+import jetbrains.mps.kotlin.scopes.SignatureFilter;
+import jetbrains.mps.kotlin.signatures.FunctionSignature;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class IOverloadableOperator__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x45d70ebd55a93439L, "jetbrains.mps.kotlin.structure.IOverloadableOperator");
@@ -27,8 +34,9 @@ public final class IOverloadableOperator__BehaviorDescriptor extends BaseBHDescr
   public static final SMethod<SReferenceLink> getTargetLink_id5D4bOjrrcOr = new SMethodBuilder<SReferenceLink>(new SJavaCompoundTypeImpl(SReferenceLink.class)).name("getTargetLink").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6504375734615461147L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<SAbstractConcept> getModifierFilter_id5D4bOjruyUS = new SMethodBuilder<SAbstractConcept>(new SJavaCompoundTypeImpl((Class<SAbstractConcept>) ((Class) Object.class))).name("getModifierFilter").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6504375734616338104L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<FunctionDeclaration> getFunctionDescriptor_id26mUjU3xhgD = new SMethodBuilder<FunctionDeclaration>(new SJavaCompoundTypeImpl(FunctionDeclaration.class)).name("getFunctionDescriptor").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2420378304462001193L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<Iterable<SignatureScope>> getFunctionScopeParts_id6dAo8EmAhT7 = new SMethodBuilder<Iterable<SignatureScope>>(new SJavaCompoundTypeImpl((Class<Iterable<SignatureScope>>) ((Class) Object.class))).name("getFunctionScopeParts").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7162518405727723079L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(SContainmentLink.class, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getTargetLink_id5D4bOjrrcOr, getModifierFilter_id5D4bOjruyUS, getFunctionDescriptor_id26mUjU3xhgD);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getTargetLink_id5D4bOjrrcOr, getModifierFilter_id5D4bOjruyUS, getFunctionDescriptor_id26mUjU3xhgD, getFunctionScopeParts_id6dAo8EmAhT7);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -41,6 +49,16 @@ public final class IOverloadableOperator__BehaviorDescriptor extends BaseBHDescr
   }
   /*package*/ static FunctionDeclaration getFunctionDescriptor_id26mUjU3xhgD(@NotNull SNode __thisNode__) {
     return KotlinFunctionDeclaration.of(SLinkOperations.getTarget(__thisNode__, LINKS.provider$q4XC));
+  }
+  /*package*/ static Iterable<SignatureScope> getFunctionScopeParts_id6dAo8EmAhT7(@NotNull SAbstractConcept __thisConcept__, SNode referenceNode, SNode contextNode, SContainmentLink containment) {
+    SimpleCallReceiver receiver = as_aac98x_a0a0a41(IFunctionCall__BehaviorDescriptor.getReceiver_id5D4bOjrrgiZ.invoke(SNodeOperations.as(referenceNode, CONCEPTS.IFunctionCall$Sf)), SimpleCallReceiver.class);
+
+    return SignatureScopeHelper.getFunctionScopeParts(receiver, contextNode, new SignatureFilter<FunctionSignature>(FunctionSignature.class) {
+      @Override
+      protected boolean accept(FunctionSignature signature, SNode source) {
+        return FunctionDeclaration.hasModifier(signature.getFunctionDeclaration(), CONCEPTS.OperatorFunctionModifier$Pf);
+      }
+    });
   }
 
   /*package*/ IOverloadableOperator__BehaviorDescriptor() {
@@ -76,6 +94,8 @@ public final class IOverloadableOperator__BehaviorDescriptor extends BaseBHDescr
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
+      case 3:
+        return (T) ((Iterable<SignatureScope>) getFunctionScopeParts_id6dAo8EmAhT7(concept, (SNode) parameters[0], (SNode) parameters[1], (SContainmentLink) parameters[2]));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -92,6 +112,9 @@ public final class IOverloadableOperator__BehaviorDescriptor extends BaseBHDescr
   public SAbstractConcept getConcept() {
     return CONCEPT;
   }
+  private static <T> T as_aac98x_a0a0a41(Object o, Class<T> type) {
+    return (type.isInstance(o) ? (T) o : null);
+  }
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink provider$q4XC = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x45d70ebd55a93439L, 0x3b847d7171e0e680L, "provider");
@@ -99,5 +122,6 @@ public final class IOverloadableOperator__BehaviorDescriptor extends BaseBHDescr
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept OperatorFunctionModifier$Pf = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3c0L, "jetbrains.mps.kotlin.structure.OperatorFunctionModifier");
+    /*package*/ static final SInterfaceConcept IFunctionCall$Sf = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5a442f44db6c8a2cL, "jetbrains.mps.kotlin.structure.IFunctionCall");
   }
 }

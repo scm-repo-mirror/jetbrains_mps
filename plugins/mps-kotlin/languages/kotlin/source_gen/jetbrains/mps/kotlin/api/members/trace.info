@@ -54,20 +54,12 @@
       <node id="1314219036501797361" at="51,25,52,17" concept="6" />
       <node id="1314219036501797361" at="56,36,57,30" concept="6" />
       <node id="1314219036501797361" at="59,46,60,29" concept="1" />
-      <node id="1314219036501797361" at="64,0,65,0" concept="2" trace="myReceiver" />
-      <node id="1314219036501797361" at="65,30,66,27" concept="6" />
-      <node id="1314219036501797361" at="68,42,69,28" concept="1" />
-      <node id="1314219036501797361" at="71,42,72,24" concept="1" />
-      <node id="1314219036501797361" at="72,24,73,17" concept="6" />
-      <node id="1314219036501797361" at="77,26,78,29" concept="6" />
-      <node id="1314219036501797361" at="80,36,81,28" concept="1" />
-      <node id="1314219036501801036" at="93,84,94,27" concept="1" />
-      <node id="6234117012687247117" at="94,27,95,33" concept="1" />
-      <node id="6430562889898190121" at="95,33,96,31" concept="1" />
-      <node id="7751614607567880875" at="100,25,101,37" concept="6" />
-      <node id="7751614607567919483" at="106,42,107,90" concept="6" />
-      <node id="7751614607567923734" at="108,5,109,17" concept="6" />
-      <node id="2668329653431712215" at="112,28,113,42" concept="6" />
+      <node id="1314219036501801036" at="71,68,72,27" concept="1" />
+      <node id="6234117012687247117" at="72,27,73,33" concept="1" />
+      <node id="7751614607567880875" at="77,25,78,37" concept="6" />
+      <node id="7751614607567919483" at="83,42,84,90" concept="6" />
+      <node id="7751614607567923734" at="85,5,86,17" concept="6" />
+      <node id="2668329653431712215" at="89,28,90,42" concept="6" />
       <node id="1314219036501797361" at="23,0,26,0" concept="5" trace="getSource#()Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="1314219036501797361" at="26,0,29,0" concept="5" trace="_setSource#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="1314219036501797361" at="35,0,38,0" concept="5" trace="get#()Lorg/jetbrains/mps/openapi/model/SNode;" />
@@ -76,24 +68,17 @@
       <node id="1314219036501797361" at="47,0,50,0" concept="5" trace="_setSignature#(Ljetbrains/mps/kotlin/signatures/MemberSignature;)V" />
       <node id="1314219036501797361" at="56,0,59,0" concept="5" trace="get#()Ljetbrains/mps/kotlin/signatures/MemberSignature;" />
       <node id="1314219036501797361" at="59,0,62,0" concept="5" trace="set#(Ljetbrains/mps/kotlin/signatures/MemberSignature;)V" />
-      <node id="1314219036501797361" at="65,0,68,0" concept="5" trace="getReceiver#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="1314219036501797361" at="68,0,71,0" concept="5" trace="_setReceiver#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <node id="1314219036501797361" at="77,0,80,0" concept="5" trace="get#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="1314219036501797361" at="80,0,83,0" concept="5" trace="set#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <node id="7751614607567901084" at="105,37,108,5" concept="4" />
-      <node id="2668329653431711516" at="112,0,115,0" concept="5" trace="toString#()Ljava/lang/String;" />
+      <node id="7751614607567901084" at="82,37,85,5" concept="4" />
+      <node id="2668329653431711516" at="89,0,92,0" concept="5" trace="toString#()Ljava/lang/String;" />
       <node id="1314219036501797361" at="29,0,33,0" concept="5" trace="setSource#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="1314219036501797361" at="50,0,54,0" concept="5" trace="setSignature#(Ljetbrains/mps/kotlin/signatures/MemberSignature;)Ljetbrains/mps/kotlin/signatures/MemberSignature;" />
-      <node id="1314219036501797361" at="71,0,75,0" concept="5" trace="setReceiver#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="7751614607567880867" at="99,0,103,0" concept="5" trace="hashCode#()I" />
-      <node id="1314219036501800179" at="93,0,98,0" concept="0" trace="SourcedSignature#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/kotlin/signatures/MemberSignature;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <node id="7751614607567880876" at="104,0,111,0" concept="5" trace="equals#(Ljava/lang/Object;)Z" />
+      <node id="1314219036501800179" at="71,0,75,0" concept="0" trace="SourcedSignature#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/kotlin/signatures/MemberSignature;)V" />
+      <node id="7751614607567880867" at="76,0,80,0" concept="5" trace="hashCode#()I" />
+      <node id="7751614607567880876" at="81,0,88,0" concept="5" trace="equals#(Ljava/lang/Object;)Z" />
       <node id="1314219036501797361" at="33,42,41,6" concept="6" />
       <node id="1314219036501797361" at="54,55,62,6" concept="6" />
-      <node id="1314219036501797361" at="75,44,83,6" concept="6" />
       <node id="1314219036501797361" at="33,0,43,0" concept="5" trace="refToSource#()Ljetbrains/mps/references/Reference;" />
       <node id="1314219036501797361" at="54,0,64,0" concept="5" trace="refToSignature#()Ljetbrains/mps/references/Reference;" />
-      <node id="1314219036501797361" at="75,0,85,0" concept="5" trace="refToReceiver#()Ljetbrains/mps/references/Reference;" />
       <scope id="1314219036501797361" at="23,28,24,25" />
       <scope id="1314219036501797361" at="26,40,27,26" />
       <scope id="1314219036501797361" at="35,26,36,27" />
@@ -102,16 +87,12 @@
       <scope id="1314219036501797361" at="47,53,48,29" />
       <scope id="1314219036501797361" at="56,36,57,30" />
       <scope id="1314219036501797361" at="59,46,60,29" />
-      <scope id="1314219036501797361" at="65,30,66,27" />
-      <scope id="1314219036501797361" at="68,42,69,28" />
-      <scope id="1314219036501797361" at="77,26,78,29" />
-      <scope id="1314219036501797361" at="80,36,81,28" />
-      <scope id="7751614607567880872" at="100,25,101,37" />
-      <scope id="7751614607567901086" at="106,42,107,90" />
-      <scope id="2668329653431711519" at="112,28,113,42" />
+      <scope id="7751614607567880872" at="77,25,78,37" />
+      <scope id="7751614607567901086" at="83,42,84,90" />
+      <scope id="2668329653431711519" at="89,28,90,42" />
       <scope id="1314219036501797361" at="29,40,31,17" />
       <scope id="1314219036501797361" at="50,63,52,17" />
-      <scope id="1314219036501797361" at="71,42,73,17" />
+      <scope id="1314219036501800183" at="71,68,73,33" />
       <scope id="1314219036501797361" at="23,0,26,0" />
       <scope id="1314219036501797361" at="26,0,29,0">
         <var name="value" id="1314219036501797361" />
@@ -128,45 +109,29 @@
       <scope id="1314219036501797361" at="59,0,62,0">
         <var name="value" id="1314219036501797361" />
       </scope>
-      <scope id="1314219036501797361" at="65,0,68,0" />
-      <scope id="1314219036501797361" at="68,0,71,0">
-        <var name="value" id="1314219036501797361" />
-      </scope>
-      <scope id="1314219036501797361" at="77,0,80,0" />
-      <scope id="1314219036501797361" at="80,0,83,0">
-        <var name="value" id="1314219036501797361" />
-      </scope>
-      <scope id="1314219036501800183" at="93,84,96,31" />
-      <scope id="2668329653431711516" at="112,0,115,0" />
+      <scope id="2668329653431711516" at="89,0,92,0" />
       <scope id="1314219036501797361" at="29,0,33,0">
         <var name="value" id="1314219036501797361" />
       </scope>
       <scope id="1314219036501797361" at="50,0,54,0">
         <var name="value" id="1314219036501797361" />
       </scope>
-      <scope id="1314219036501797361" at="71,0,75,0">
-        <var name="value" id="1314219036501797361" />
-      </scope>
-      <scope id="7751614607567880867" at="99,0,103,0" />
-      <scope id="7751614607567880882" at="105,37,109,17" />
-      <scope id="1314219036501800179" at="93,0,98,0">
-        <var name="receiver" id="7345386200895772390" />
+      <scope id="1314219036501800179" at="71,0,75,0">
         <var name="signature" id="6234117012687246863" />
         <var name="source" id="1314219036501800221" />
       </scope>
-      <scope id="7751614607567880876" at="104,0,111,0">
+      <scope id="7751614607567880867" at="76,0,80,0" />
+      <scope id="7751614607567880882" at="82,37,86,17" />
+      <scope id="7751614607567880876" at="81,0,88,0">
         <var name="obj" id="7751614607567880880" />
       </scope>
       <scope id="1314219036501797361" at="33,42,41,6" />
       <scope id="1314219036501797361" at="54,55,62,6" />
-      <scope id="1314219036501797361" at="75,44,83,6" />
       <scope id="1314219036501797361" at="33,0,43,0" />
       <scope id="1314219036501797361" at="54,0,64,0" />
-      <scope id="1314219036501797361" at="75,0,85,0" />
       <unit id="1314219036501797361" at="34,15,41,5" name="jetbrains.mps.kotlin.api.members.SourcedSignature$1" />
       <unit id="1314219036501797361" at="55,15,62,5" name="jetbrains.mps.kotlin.api.members.SourcedSignature$2" />
-      <unit id="1314219036501797361" at="76,15,83,5" name="jetbrains.mps.kotlin.api.members.SourcedSignature$3" />
-      <unit id="1314219036501797361" at="21,0,116,0" name="jetbrains.mps.kotlin.api.members.SourcedSignature" />
+      <unit id="1314219036501797361" at="21,0,93,0" name="jetbrains.mps.kotlin.api.members.SourcedSignature" />
     </file>
   </root>
   <root nodeRef="r:764c4c95-d567-4a0e-99be-3892becb007f(jetbrains.mps.kotlin.api.members)/2441172150883529248">

@@ -28,7 +28,7 @@ public final class MultiLambdaParameter__BehaviorDescriptor extends BaseBHDescri
 
   public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1213877396640L).languageId(0x9b92103b95ca8c0cL, 0xceab519525ea4f22L).build2();
   public static final SMethod<Iterable<SNode>> getVariables_id1xjvXvOr9B8 = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getVariables").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1752885245472709064L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
-  public static final SMethod<CallReceiver> getVariablesReceiver_id4FOkRjXx8jV = new SMethodBuilder<CallReceiver>(new SJavaCompoundTypeImpl(CallReceiver.class)).name("getVariablesReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5401033615058699515L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<SimpleCallReceiver> getVariablesReceiver_id4FOkRjXx8jV = new SMethodBuilder<SimpleCallReceiver>(new SJavaCompoundTypeImpl(SimpleCallReceiver.class)).name("getVariablesReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5401033615058699515L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPresentation_idhEwIMiw, getVariables_id1xjvXvOr9B8, getVariablesReceiver_id4FOkRjXx8jV);
 
@@ -45,9 +45,9 @@ public final class MultiLambdaParameter__BehaviorDescriptor extends BaseBHDescri
   /*package*/ static Iterable<SNode> getVariables_id1xjvXvOr9B8(@NotNull SNode __thisNode__) {
     return SLinkOperations.getChildren(__thisNode__, LINKS.variables$EO9Z);
   }
-  /*package*/ static CallReceiver getVariablesReceiver_id4FOkRjXx8jV(@NotNull SNode __thisNode__) {
+  /*package*/ static SimpleCallReceiver getVariablesReceiver_id4FOkRjXx8jV(@NotNull SNode __thisNode__) {
     // Deconstruct on inferred type of lambda parameter
-    return CallReceiver.of(__thisNode__, true, false, null);
+    return SimpleCallReceiver.of(__thisNode__, true, false, null);
   }
 
   /*package*/ MultiLambdaParameter__BehaviorDescriptor() {
@@ -70,7 +70,7 @@ public final class MultiLambdaParameter__BehaviorDescriptor extends BaseBHDescri
       case 1:
         return (T) ((Iterable<SNode>) getVariables_id1xjvXvOr9B8(node));
       case 2:
-        return (T) ((CallReceiver) getVariablesReceiver_id4FOkRjXx8jV(node));
+        return (T) ((SimpleCallReceiver) getVariablesReceiver_id4FOkRjXx8jV(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

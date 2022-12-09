@@ -50,11 +50,6 @@ public class TypeMembersVisitor extends SuperTypesGenericVisitor implements Sign
   }
   private final SignatureFilter<? extends MemberSignature> filter;
 
-  /**
-   * Only the initial receiver is taken in account for signatures, as it is 
-   */
-  private SNode initialReceiver = null;
-
   public TypeMembersVisitor() {
     // Take all members by default
     this(MemberSignature.class);
@@ -105,7 +100,7 @@ public class TypeMembersVisitor extends SuperTypesGenericVisitor implements Sign
   protected void insertSignature(SNode source, MemberSignature signature) {
     SNode context = MapSequence.fromMap(signaturesHolder).get(signature);
     if (context == null || context == getCurrentType()) {
-      ListSequence.fromList(getMembers()).addElement(new SourcedSignature(source, signature, initialReceiver));
+      ListSequence.fromList(getMembers()).addElement(new SourcedSignature(source, signature));
     }
 
     // Hide members if signature defined
@@ -116,10 +111,6 @@ public class TypeMembersVisitor extends SuperTypesGenericVisitor implements Sign
 
   @Override
   public SNode expandType(SNode type) {
-    if (initialReceiver == null) {
-      initialReceiver = type;
-    }
-
     return this.expandWithCollectedSubstitutions(type);
   }
 

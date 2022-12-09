@@ -64,7 +64,7 @@ public class KindPriorityPropertyScope implements SignatureScope {
     if (declaration.getSignature() instanceof PropertySignature && ((PropertySignature) declaration.getSignature()).getKind() != priority) {
       // Look for a priority kind first
       // TODO keeping the same or null source means we need to ensure the SIGNATURE status is properly handled and returned
-      if (contains(new SourcedSignature(declaration.getSource(), stubProducer.stub(SNodeOperations.cast(declaration.getSource(), CONCEPTS.INamedConcept$Kd), priority), declaration.getReceiver())) != SignatureScope.ContainmentStatus.NO) {
+      if (contains(new SourcedSignature(declaration.getSource(), stubProducer.stub(SNodeOperations.cast(declaration.getSource(), CONCEPTS.INamedConcept$Kd), priority))) != SignatureScope.ContainmentStatus.NO) {
         // Setter has priority
         return SignatureScope.ContainmentStatus.NO;
       }
@@ -80,7 +80,7 @@ public class KindPriorityPropertyScope implements SignatureScope {
     }
 
     // First search for exact match in setters
-    SignatureScope.ContainmentStatus hasWithPriority = nestedScope.contains(new SourcedSignature(source, stubProducer.stub(SNodeOperations.cast(source, CONCEPTS.INamedConcept$Kd), priority), null));
+    SignatureScope.ContainmentStatus hasWithPriority = nestedScope.contains(new SourcedSignature(source, stubProducer.stub(SNodeOperations.cast(source, CONCEPTS.INamedConcept$Kd), priority)));
     if (hasWithPriority == SignatureScope.ContainmentStatus.YES) {
       return true;
     } else if (hasWithPriority == SignatureScope.ContainmentStatus.SIGNATURE) {
@@ -90,7 +90,7 @@ public class KindPriorityPropertyScope implements SignatureScope {
 
     // Then try with the getters
     AccessorKind lowPriorityKind = (priority == AccessorKind.GETTER ? AccessorKind.SETTER : AccessorKind.GETTER);
-    return nestedScope.contains(new SourcedSignature(source, stubProducer.stub(SNodeOperations.cast(source, CONCEPTS.INamedConcept$Kd), lowPriorityKind), null)) == SignatureScope.ContainmentStatus.YES;
+    return nestedScope.contains(new SourcedSignature(source, stubProducer.stub(SNodeOperations.cast(source, CONCEPTS.INamedConcept$Kd), lowPriorityKind))) == SignatureScope.ContainmentStatus.YES;
   }
 
   public interface StubSignatureProducer {

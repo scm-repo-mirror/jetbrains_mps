@@ -13,7 +13,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 public interface MemberSignature {
   String getDescriptionText();
 
-  default SourcedSignature toSourced(SNode source, SNode externalReceiver) {
-    return new SourcedSignature(source, this, externalReceiver);
+  default SourcedSignature toSourced(SNode source) {
+    return new SourcedSignature(source, this);
   }
 }

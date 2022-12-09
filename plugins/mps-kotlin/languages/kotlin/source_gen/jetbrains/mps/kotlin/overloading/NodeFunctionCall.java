@@ -9,7 +9,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.kotlin.behavior.TypeReference;
-import jetbrains.mps.kotlin.behavior.CallReceiver;
+import jetbrains.mps.kotlin.behavior.SimpleCallReceiver;
 import jetbrains.mps.kotlin.api.declaration.FunctionDeclaration;
 
 /**
@@ -49,7 +49,7 @@ public class NodeFunctionCall implements FunctionCall {
   }
   @Override
   public TypeReference getReceiverType() {
-    CallReceiver receiver = IFunctionCall__BehaviorDescriptor.getReceiver_id5D4bOjrrgiZ.invoke(myFunctionCall);
+    SimpleCallReceiver receiver = IFunctionCall__BehaviorDescriptor.getReceiver_id5D4bOjrrgiZ.invoke(myFunctionCall);
     if (receiver == null) {
       return null;
     }

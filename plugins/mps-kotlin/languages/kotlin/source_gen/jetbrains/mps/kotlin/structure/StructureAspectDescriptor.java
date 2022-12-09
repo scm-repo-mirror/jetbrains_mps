@@ -1527,8 +1527,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.parent(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4d0L);
     b.origin("r:72a7bf00-0175-42ca-b99b-fe8519b6a16f(jetbrains.mps.kotlin.structure)/4662566628538083705");
     b.version(3);
-    b.property("receiverIndex", 0x6b93446a6f906849L).type(PrimitiveTypeId.INTEGER).origin("7751614607563712585").done();
-    b.associate("receiver", 0x6b93446a6f90602eL).target(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x85989ab41addf50L).optional(true).origin("7751614607563710510").done();
+    b.property("_receiverIndex", 0x6b93446a6f906849L).type(PrimitiveTypeId.INTEGER).origin("7751614607563712585").done();
+    b.associate("_receiver", 0x6b93446a6f90602eL).target(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x85989ab41addf50L).optional(true).origin("7751614607563710510").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForFunctionCallTarget() {

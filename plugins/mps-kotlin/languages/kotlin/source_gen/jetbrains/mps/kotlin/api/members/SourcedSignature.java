@@ -61,39 +61,16 @@ public class SourcedSignature {
       }
     };
   }
-  private SNode myReceiver;
-  public SNode getReceiver() {
-    return this.myReceiver;
-  }
-  private void _setReceiver(SNode value) {
-    this.myReceiver = value;
-  }
-  private SNode setReceiver(SNode value) {
-    _setReceiver(value);
-    return value;
-  }
-  private Reference<SNode> refToReceiver() {
-    return new Reference<SNode>() {
-      public SNode get() {
-        return getReceiver();
-      }
-      public void set(SNode value) {
-        _setReceiver(value);
-      }
-    };
-  }
 
   /**
    * Creates a new sourced signature
    * 
    * @param source object providing the signature
    * @param signature object representing an unique signature
-   * @param receiver receiver of the signature (if it is implicitely the receiver for 'this', can be null)
    */
-  public SourcedSignature(SNode source, MemberSignature signature, SNode receiver) {
+  public SourcedSignature(SNode source, MemberSignature signature) {
     this.setSource(source);
     this.setSignature(signature);
-    this.setReceiver(receiver);
   }
 
   @Override

@@ -68,19 +68,19 @@ public class FilterSignatureCollector implements SignatureCollector {
   }
 
   @Override
-  public <T extends MemberSignature> void addDeclaration(final SNode declaration, final SNode receiverType, Class<T> signatureKind, _FunctionTypes._return_P0_E0<? extends Iterable<T>> signatureProducer) {
+  public <T extends MemberSignature> void addDeclaration(final SNode declaration, SNode receiverType, Class<T> signatureKind, _FunctionTypes._return_P0_E0<? extends Iterable<T>> signatureProducer) {
     if (!(getFilter().acceptKind(signatureKind)) || !(getFilter().acceptReceiver(receiverType))) {
       return;
     }
     Sequence.fromIterable(signatureProducer.invoke()).visitAll(new IVisitor<T>() {
       public void visit(T it) {
-        insertSignature(declaration, it, receiverType);
+        insertSignature(declaration, it);
       }
     });
   }
 
   @Override
-  public <T extends MemberSignature, U extends SNode> void addDeclarations(Iterable<U> nodes, final SNode receiverType, Class<T> signatureKind, final _FunctionTypes._return_P1_E0<? extends Iterable<T>, ? super U> signatureProducer) {
+  public <T extends MemberSignature, U extends SNode> void addDeclarations(Iterable<U> nodes, SNode receiverType, Class<T> signatureKind, final _FunctionTypes._return_P1_E0<? extends Iterable<T>, ? super U> signatureProducer) {
     if (!(getFilter().acceptKind(signatureKind)) || !(getFilter().acceptReceiver(receiverType))) {
       return;
     }
@@ -88,17 +88,17 @@ public class FilterSignatureCollector implements SignatureCollector {
       public void visit(final U node) {
         Sequence.fromIterable(signatureProducer.invoke(node)).visitAll(new IVisitor<T>() {
           public void visit(T sig) {
-            insertSignature(node, sig, receiverType);
+            insertSignature(node, sig);
           }
         });
       }
     });
   }
 
-  protected void insertSignature(SNode source, MemberSignature signature, SNode receiverType) {
+  protected void insertSignature(SNode source, MemberSignature signature) {
     if (!(getFilter().acceptSignature(signature, source))) {
       return;
     }
-    ListSequence.fromList(getCollected()).addElement(new SourcedSignature(source, signature, receiverType));
+    ListSequence.fromList(getCollected()).addElement(new SourcedSignature(source, signature));
   }
 }

@@ -25,7 +25,7 @@ public final class LocalPropertyDeclaration__BehaviorDescriptor extends BaseBHDe
 
   public static final SMethod<Void> populateStatementDeclarations_id2ZbCiJacEjm = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateStatementDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3444023549502858454L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""));
   public static final SMethod<Boolean> isDeconstructing_id7RZWrHVbnio = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isDeconstructing").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(9079241161329964184L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
-  public static final SMethod<CallReceiver> getVariablesReceiver_id4FOkRjXx8jV = new SMethodBuilder<CallReceiver>(new SJavaCompoundTypeImpl(CallReceiver.class)).name("getVariablesReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5401033615058699515L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<SimpleCallReceiver> getVariablesReceiver_id4FOkRjXx8jV = new SMethodBuilder<SimpleCallReceiver>(new SJavaCompoundTypeImpl(SimpleCallReceiver.class)).name("getVariablesReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5401033615058699515L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<List<SNode>> getDeclarations_id7RZWrHVaXCH = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(9079241161329859117L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<SNode> getVariablesReceiverType_id75chmMYhcwP = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getVariablesReceiverType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8163976557866829877L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
@@ -40,8 +40,8 @@ public final class LocalPropertyDeclaration__BehaviorDescriptor extends BaseBHDe
   /*package*/ static boolean isDeconstructing_id7RZWrHVbnio(@NotNull SNode __thisNode__) {
     return ((boolean) IDeconstructingDeclarations__BehaviorDescriptor.isDeconstructed_id4FOkRjXxnrt.invoke(__thisNode__));
   }
-  /*package*/ static CallReceiver getVariablesReceiver_id4FOkRjXx8jV(@NotNull SNode __thisNode__) {
-    return CallReceiver.of(SLinkOperations.getTarget(__thisNode__, LINKS.assignment$nl1j), true, false, PropertyInitializerKeys.ASSIGNED_TYPE);
+  /*package*/ static SimpleCallReceiver getVariablesReceiver_id4FOkRjXx8jV(@NotNull SNode __thisNode__) {
+    return SimpleCallReceiver.of(SLinkOperations.getTarget(__thisNode__, LINKS.assignment$nl1j), true, false, PropertyInitializerKeys.ASSIGNED_TYPE);
   }
   /*package*/ static List<SNode> getDeclarations_id7RZWrHVaXCH(@NotNull SNode __thisNode__) {
     return SLinkOperations.getChildren(__thisNode__, LINKS.variables$EO9Z);
@@ -71,7 +71,7 @@ public final class LocalPropertyDeclaration__BehaviorDescriptor extends BaseBHDe
       case 1:
         return (T) ((Boolean) isDeconstructing_id7RZWrHVbnio(node));
       case 2:
-        return (T) ((CallReceiver) getVariablesReceiver_id4FOkRjXx8jV(node));
+        return (T) ((SimpleCallReceiver) getVariablesReceiver_id4FOkRjXx8jV(node));
       case 3:
         return (T) ((List<SNode>) getDeclarations_id7RZWrHVaXCH(node));
       case 4:

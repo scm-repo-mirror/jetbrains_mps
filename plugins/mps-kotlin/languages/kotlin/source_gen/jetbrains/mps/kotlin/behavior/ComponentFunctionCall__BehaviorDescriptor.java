@@ -45,7 +45,7 @@ public final class ComponentFunctionCall__BehaviorDescriptor extends BaseBHDescr
     return LINKS.classParameter$QN8K;
   }
   /*package*/ static CallReceiver getReceiver_id5D4bOjrrgiZ(@NotNull SNode __thisNode__) {
-    return CallReceiver.ofNavTarget(__thisNode__);
+    return SimpleCallReceiver.ofNavTarget(__thisNode__);
   }
   /*package*/ static FunctionDeclaration getFunctionDescriptor_id26mUjU3xhgD(@NotNull SNode __thisNode__) {
     if ((SLinkOperations.getTarget(__thisNode__, LINKS.classParameter$QN8K) == null)) {
