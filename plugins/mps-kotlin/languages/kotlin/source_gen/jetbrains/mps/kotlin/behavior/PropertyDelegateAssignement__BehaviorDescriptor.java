@@ -34,7 +34,7 @@ public final class PropertyDelegateAssignement__BehaviorDescriptor extends BaseB
 
   public static final SMethod<String> getFunctionName_id4nn3FPlEjh5 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getFunctionName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5032507314958578757L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<SReferenceLink> getTargetLink_id5D4bOjrrcOr = new SMethodBuilder<SReferenceLink>(new SJavaCompoundTypeImpl(SReferenceLink.class)).name("getTargetLink").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6504375734615461147L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
-  public static final SMethod<SimpleCallReceiver> getReceiver_id5D4bOjrrgiZ = new SMethodBuilder<SimpleCallReceiver>(new SJavaCompoundTypeImpl(SimpleCallReceiver.class)).name("getReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6504375734615475391L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<MemberReceiver> getReceiver_id5D4bOjrrgiZ = new SMethodBuilder<MemberReceiver>(new SJavaCompoundTypeImpl(MemberReceiver.class)).name("getReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6504375734615475391L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<Iterable<Argument>> getArguments_id1VI7K1jROBX = new SMethodBuilder<Iterable<Argument>>(new SJavaCompoundTypeImpl((Class<Iterable<Argument>>) ((Class) Object.class))).name("getArguments").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2228752951862577661L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<SAbstractConcept> getModifierFilter_id5D4bOjruyUS = new SMethodBuilder<SAbstractConcept>(new SJavaCompoundTypeImpl((Class<SAbstractConcept>) ((Class) Object.class))).name("getModifierFilter").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6504375734616338104L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<FunctionDeclaration> getFunctionDescriptor_id26mUjU3xhgD = new SMethodBuilder<FunctionDeclaration>(new SJavaCompoundTypeImpl(FunctionDeclaration.class)).name("getFunctionDescriptor").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2420378304462001193L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
@@ -50,8 +50,8 @@ public final class PropertyDelegateAssignement__BehaviorDescriptor extends BaseB
   /*package*/ static SReferenceLink getTargetLink_id5D4bOjrrcOr(@NotNull SNode __thisNode__) {
     return LINKS.valueFunction$rFto;
   }
-  /*package*/ static SimpleCallReceiver getReceiver_id5D4bOjrrgiZ(@NotNull SNode __thisNode__) {
-    return SimpleCallReceiver.of(SLinkOperations.getTarget(__thisNode__, LINKS.delegate$Qxkl));
+  /*package*/ static MemberReceiver getReceiver_id5D4bOjrrgiZ(@NotNull SNode __thisNode__) {
+    return MemberReceiver.of(SLinkOperations.getTarget(__thisNode__, LINKS.delegate$Qxkl));
   }
   /*package*/ static Iterable<Argument> getArguments_id1VI7K1jROBX(@NotNull SNode __thisNode__) {
     // https://kotlinlang.org/docs/delegated-properties.html#property-delegate-requirements
@@ -96,7 +96,7 @@ public final class PropertyDelegateAssignement__BehaviorDescriptor extends BaseB
       case 1:
         return (T) ((SReferenceLink) getTargetLink_id5D4bOjrrcOr(node));
       case 2:
-        return (T) ((SimpleCallReceiver) getReceiver_id5D4bOjrrgiZ(node));
+        return (T) ((MemberReceiver) getReceiver_id5D4bOjrrgiZ(node));
       case 3:
         return (T) ((Iterable<Argument>) getArguments_id1VI7K1jROBX(node));
       case 4:

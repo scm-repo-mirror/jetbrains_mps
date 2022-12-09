@@ -14,8 +14,8 @@ import jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -26,7 +26,7 @@ public final class ITypeParameter__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x4da39967d13161a1L, "jetbrains.mps.kotlin.structure.ITypeParameter");
 
   public static final SMethod<SNode> getThisType_id2J12cYiFgTM = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getThisType").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3152810901748125298L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
-  public static final SMethod<TypeParameterDeclaration> getDescriptor_id28CvMylflrH = new SMethodBuilder<TypeParameterDeclaration>(new SJavaCompoundTypeImpl(TypeParameterDeclaration.class)).name("getDescriptor").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2461357008637220589L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<TypeParameterDeclaration> getDescriptor_id28CvMylflrH = new SMethodBuilder<TypeParameterDeclaration>(new SJavaCompoundTypeImpl(TypeParameterDeclaration.class)).name("getDescriptor").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2461357008637220589L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getThisType_id2J12cYiFgTM, getDescriptor_id28CvMylflrH);
 
@@ -35,6 +35,10 @@ public final class ITypeParameter__BehaviorDescriptor extends BaseBHDescriptor {
 
   /*package*/ static SNode getThisType_id2J12cYiFgTM(@NotNull SNode __thisNode__, boolean nullable) {
     return createTypeParameterReference_vnz5gl_a0a0(__thisNode__, nullable);
+  }
+  @Nullable
+  /*package*/ static TypeParameterDeclaration getDescriptor_id28CvMylflrH(@NotNull SNode __thisNode__) {
+    return null;
   }
 
   /*package*/ ITypeParameter__BehaviorDescriptor() {
@@ -54,6 +58,8 @@ public final class ITypeParameter__BehaviorDescriptor extends BaseBHDescriptor {
     switch (methodIndex) {
       case 0:
         return (T) ((SNode) getThisType_id2J12cYiFgTM(node, ((boolean) (Boolean) parameters[0])));
+      case 1:
+        return (T) ((TypeParameterDeclaration) getDescriptor_id28CvMylflrH(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

@@ -16,14 +16,15 @@ import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.kotlin.behavior.InferredTypeReference;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.kotlin.behavior.InferredTypeReference;
 import jetbrains.mps.kotlin.scopes.SignatureFilter;
 import jetbrains.mps.kotlin.signatures.FunctionSignature;
 import java.util.List;
 import jetbrains.mps.kotlin.scopes.signed.SignatureScope;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
+import jetbrains.mps.kotlin.behavior.ReceiverTypeHelper;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.kotlin.scopes.signed.HidingBySignatureScope;
 import jetbrains.mps.kotlin.scopes.signed.SignatureScopeAsScope;
@@ -54,12 +55,16 @@ public class FunctionMemberTarget_Constraints extends BaseConstraintsDescriptor 
             SNode context = (((_context.getReferenceNode() == null) ? _context.getContextNode() : SNodeOperations.getParent(_context.getReferenceNode())));
 
             // Compute type in isolation, otherwise type may be null`
-            SNode type = new InferredTypeReference(SLinkOperations.getTarget(SNodeOperations.as(context, CONCEPTS.MemberNavigationOperation$7I), LINKS.operand$YS5t)).compute();
+            SNode operand = SLinkOperations.getTarget(SNodeOperations.as(context, CONCEPTS.MemberNavigationOperation$7I), LINKS.operand$YS5t);
+            SNode type = new InferredTypeReference(operand).compute();
             SignatureFilter<FunctionSignature> filter = new SignatureFilter<>(FunctionSignature.class);
 
             // Regardless of using a static type or not, we need instance functions
             List<SignatureScope> list = Sequence.fromIterable(IType__BehaviorDescriptor.getInstanceScopes_id1ODRHGtuist.invoke(type, filter, _context.getContextNode(), ((boolean) true))).toListSequence();
-            ListSequence.fromList(list).addElement(IType__BehaviorDescriptor.getStaticScope_id1ODRHGtufGw.invoke(type, filter, _context.getContextNode()));
+            if (ReceiverTypeHelper.isStaticReceiver(operand)) {
+              ListSequence.fromList(list).addElement(IType__BehaviorDescriptor.getFullStaticScope_id7ZA3QJnL$CF.invoke(type, filter, _context.getContextNode()));
+            }
+
             SignatureScope scope = HidingBySignatureScope.of(list);
             return new SignatureScopeAsScope(scope, CONCEPTS.IFunctionDeclaration$ZB);
           }

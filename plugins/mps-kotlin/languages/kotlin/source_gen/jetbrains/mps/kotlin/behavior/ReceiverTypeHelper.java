@@ -24,6 +24,10 @@ public class ReceiverTypeHelper {
     return false;
   }
 
+  public static SNode getStaticReceiver(SNode expression) {
+    return (isStaticReceiver(expression) ? SLinkOperations.getTarget(SNodeOperations.as(expression, CONCEPTS.ReceiverType$$f), LINKS.type$NVFj) : null);
+  }
+
   private static final class CONCEPTS {
     /*package*/ static final SConcept ReceiverType$$f = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af541L, "jetbrains.mps.kotlin.structure.ReceiverType");
   }

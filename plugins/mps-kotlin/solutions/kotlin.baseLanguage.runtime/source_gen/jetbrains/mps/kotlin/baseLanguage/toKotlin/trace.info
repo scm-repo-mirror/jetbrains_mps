@@ -260,14 +260,16 @@
       <node id="5692660834326147630" at="47,8,48,18" concept="7" />
       <node id="5692660834326210297" at="52,207,53,216" concept="7" />
       <node id="5692660834326223268" at="54,5,55,214" concept="7" />
-      <node id="5692660834326028670" at="59,0,60,0" concept="10" trace="name$MnvL" />
-      <node id="5692660834326028670" at="63,0,64,0" concept="10" trace="bound$aZCB" />
-      <node id="5692660834326028670" at="64,0,65,0" concept="10" trace="auxBounds$jgLr" />
+      <node id="2954821879878511104" at="59,28,60,62" concept="7" />
+      <node id="5692660834326028670" at="64,0,65,0" concept="10" trace="name$MnvL" />
+      <node id="5692660834326028670" at="68,0,69,0" concept="10" trace="bound$aZCB" />
+      <node id="5692660834326028670" at="69,0,70,0" concept="10" trace="auxBounds$jgLr" />
       <node id="5692660834326038393" at="24,0,27,0" concept="1" trace="JavaTypeParameterDeclaration#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="5692660834326086142" at="39,48,42,5" concept="4" />
       <node id="1173053494706269572" at="44,0,47,0" concept="5" trace="select#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="5692660834326149145" at="51,44,54,5" concept="4" />
       <node id="8773483383504910908" at="32,0,36,0" concept="5" trace="getName#()Ljava/lang/String;" />
+      <node id="2954821879878495509" at="58,0,62,0" concept="5" trace="toString#()Ljava/lang/String;" />
       <node id="5692660834326029058" at="27,0,32,0" concept="5" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
       <node id="1173053494706152491" at="42,5,47,8" concept="2" />
       <node id="5692660834326029070" at="50,0,57,0" concept="5" trace="getVariance#()Lorg/jetbrains/mps/openapi/language/SEnumerationLiteral;" />
@@ -278,6 +280,7 @@
       <scope id="5692660834326086144" at="40,91,41,147" />
       <scope id="1173053494706269572" at="44,39,45,48" />
       <scope id="5692660834326149147" at="52,207,53,216" />
+      <scope id="2954821879878495514" at="59,28,60,62" />
       <scope id="5692660834326038393" at="24,0,27,0">
         <var name="typeVariableDeclaration" id="5692660834326038619" />
       </scope>
@@ -286,16 +289,17 @@
       </scope>
       <scope id="8773483383504910908" at="32,0,36,0" />
       <scope id="5692660834326029074" at="51,44,55,214" />
+      <scope id="2954821879878495509" at="58,0,62,0" />
       <scope id="5692660834326029058" at="27,0,32,0" />
       <scope id="5692660834326029070" at="50,0,57,0" />
       <scope id="5692660834326029068" at="38,39,48,18">
         <var name="bounds" id="5692660834326066368" />
       </scope>
       <scope id="5692660834326029064" at="36,0,50,0" />
-      <unit id="5692660834326028670" at="58,0,61,0" name="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaTypeParameterDeclaration$PROPS" />
+      <unit id="5692660834326028670" at="63,0,66,0" name="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaTypeParameterDeclaration$PROPS" />
       <unit id="1173053494706269572" at="43,157,47,5" name="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaTypeParameterDeclaration$1" />
-      <unit id="5692660834326028670" at="62,0,66,0" name="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaTypeParameterDeclaration$LINKS" />
-      <unit id="5692660834326028670" at="22,0,67,0" name="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaTypeParameterDeclaration" />
+      <unit id="5692660834326028670" at="67,0,71,0" name="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaTypeParameterDeclaration$LINKS" />
+      <unit id="5692660834326028670" at="22,0,72,0" name="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaTypeParameterDeclaration" />
     </file>
   </root>
   <root nodeRef="r:13fdb710-e0ae-40a1-880c-e26a8ee8d411(jetbrains.mps.kotlin.baseLanguage.toKotlin)/6585624606749943178">

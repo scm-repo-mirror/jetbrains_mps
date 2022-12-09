@@ -17,6 +17,7 @@ public interface FunctionCall {
   Iterable<Argument> getArguments();
   Iterable<SNode> getTypeArguments();
   SReferenceLink getTargetLink();
-  TypeReference getReceiverType();
+  Iterable<TypeReference> getReceiverTypes();
   FunctionDeclaration getFunctionDescriptor();
+  boolean isNullSafe();
 }

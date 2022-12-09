@@ -9,7 +9,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.kotlin.behavior.TypeReference;
-import jetbrains.mps.kotlin.behavior.SimpleCallReceiver;
+import jetbrains.mps.kotlin.behavior.MemberReceiver;
 import jetbrains.mps.kotlin.api.declaration.FunctionDeclaration;
 
 /**
@@ -18,7 +18,7 @@ import jetbrains.mps.kotlin.api.declaration.FunctionDeclaration;
  */
 public class NodeFunctionCall implements FunctionCall {
   private final SNode myFunctionCall;
-  private SNode receiverType;
+
   public NodeFunctionCall(SNode functionCall) {
     myFunctionCall = functionCall;
   }
@@ -48,15 +48,19 @@ public class NodeFunctionCall implements FunctionCall {
     return (SReferenceLink) IFunctionCall__BehaviorDescriptor.getTargetLink_id5D4bOjrrcOr.invoke(myFunctionCall);
   }
   @Override
-  public TypeReference getReceiverType() {
-    SimpleCallReceiver receiver = IFunctionCall__BehaviorDescriptor.getReceiver_id5D4bOjrrgiZ.invoke(myFunctionCall);
+  public Iterable<TypeReference> getReceiverTypes() {
+    MemberReceiver receiver = IFunctionCall__BehaviorDescriptor.getReceiver_id5D4bOjrrgiZ.invoke(myFunctionCall);
     if (receiver == null) {
       return null;
     }
-    return receiver.getTypeReference();
+    return receiver.getTypeReferences();
   }
   @Override
   public FunctionDeclaration getFunctionDescriptor() {
     return IFunctionCall__BehaviorDescriptor.getFunctionDescriptor_id26mUjU3xhgD.invoke(myFunctionCall);
+  }
+  @Override
+  public boolean isNullSafe() {
+    return (boolean) IFunctionCall__BehaviorDescriptor.isNullSafe_idAd0bnVTsgC.invoke(myFunctionCall);
   }
 }

@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.kotlin.behavior.NodeTypeVarSubs;
-import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.IMapping;
 import jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
@@ -19,6 +18,7 @@ import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
+import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -29,8 +29,7 @@ public class check_IType_bounds_NonTypesystemRule extends AbstractNonTypesystemR
   public check_IType_bounds_NonTypesystemRule() {
   }
   public void applyRule(final SNode type, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    NodeTypeVarSubs subs = new NodeTypeVarSubs();
-    IType__BehaviorDescriptor.populateSubstitutions_id4f4W8JpwgWV.invoke(type, subs);
+    NodeTypeVarSubs subs = new NodeTypeVarSubs(type);
 
     for (IMapping<TypeParameterDeclaration, SNode> entry : MapSequence.fromMap(subs.getMap())) {
       SNode specified = SLinkOperations.getTarget(SNodeOperations.as(entry.value(), CONCEPTS.TypeProjection$5e), LINKS.type$x3no);

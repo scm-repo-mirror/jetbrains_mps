@@ -960,6 +960,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.IDataflowPassToChild:
         if (props_IDataflowPassToChild == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.deprecated(true);
           props_IDataflowPassToChild = cpb.create();
         }
         return props_IDataflowPassToChild;

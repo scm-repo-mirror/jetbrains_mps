@@ -10,9 +10,6 @@ import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
-import jetbrains.mps.internal.collections.runtime.SetSequence;
-import java.util.HashSet;
-import jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration;
 
 /**
  * Class that resolve direct supertypes (with substituted types) of a given type.
@@ -88,7 +85,7 @@ public class DirectSuperTypesVisitor implements SuperTypesVisitor {
 
   @Override
   public SNode expandWithCollectedSubstitutions(SNode original) {
-    return getSubstitutions().expand(original, SetSequence.fromSet(new HashSet<TypeParameterDeclaration>()));
+    return getSubstitutions().expand(original);
   }
 
   public static List<SNode> get(SNode type) {

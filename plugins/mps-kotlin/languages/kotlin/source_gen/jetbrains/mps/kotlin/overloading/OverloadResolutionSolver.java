@@ -6,14 +6,15 @@ import jetbrains.mps.kotlin.api.extension.KotlinTypesystem;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.kotlin.scopes.signed.SignatureScope;
+import java.util.List;
 import jetbrains.mps.kotlin.plugin.ExtensionsHelper;
 import jetbrains.mps.kotlin.api.declaration.FunctionDeclaration;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.kotlin.behavior.TypeReference;
-import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
-import jetbrains.mps.kotlin.signatures.FunctionSignature;
 import jetbrains.mps.internal.collections.runtime.ISelector;
+import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
+import jetbrains.mps.kotlin.signatures.FunctionSignature;
 import jetbrains.mps.kotlin.api.members.SourcedSignature;
 import jetbrains.mps.kotlin.signatures.MemberSignature;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
@@ -31,8 +32,8 @@ public class OverloadResolutionSolver {
   private final SNode myContextNode;
   private final _FunctionTypes._return_P0_E0<? extends Iterable<SignatureScope>> myScopeProvider;
 
-  private SNode myCachedReceiverType = null;
-  private boolean isReceiverTypeComputed = false;
+  private List<SNode> myCachedReceiverTypes = null;
+  private boolean areReceiverTypeComputed = false;
 
   public OverloadResolutionSolver(FunctionCall call, SNode contextNode, _FunctionTypes._return_P0_E0<? extends Iterable<SignatureScope>> scopeProvider) {
     myCall = call;
@@ -53,16 +54,18 @@ public class OverloadResolutionSolver {
     }
 
     // Compute receiver type before as inside typesystem it may break
-    if (!(isReceiverTypeComputed)) {
-      isReceiverTypeComputed = true;
-      TypeReference receiverType = myCall.getReceiverType();
-      if (receiverType != null) {
-        myCachedReceiverType = receiverType.compute();
-      }
+    if (!(areReceiverTypeComputed)) {
+      areReceiverTypeComputed = true;
+      Iterable<TypeReference> receiverType = myCall.getReceiverTypes();
+      myCachedReceiverTypes = Sequence.fromIterable(receiverType).where(new NotNullWhereFilter<TypeReference>()).select(new ISelector<TypeReference, SNode>() {
+        public SNode select(TypeReference it) {
+          return it.compute();
+        }
+      }).toListSequence();
     }
 
     // Actual resolution
-    Tuples._3<FunctionDeclaration, Boolean, Boolean> resolution = overloadResolver.selectOverloadCandidate(myCall, myCachedReceiverType, myContextNode, nodes);
+    Tuples._3<FunctionDeclaration, Boolean, Boolean> resolution = overloadResolver.selectOverloadCandidate(myCall, myCachedReceiverTypes, myContextNode, nodes);
 
     FunctionDeclaration res = resolution._0();
     if (res != null) {

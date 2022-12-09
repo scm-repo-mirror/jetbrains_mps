@@ -17,6 +17,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.ISelector;
+import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -37,7 +38,7 @@ public final class ITypeParameters__BehaviorDescriptor extends BaseBHDescriptor 
       public TypeParameterDeclaration select(SNode it) {
         return (TypeParameterDeclaration) ITypeParameter__BehaviorDescriptor.getDescriptor_id28CvMylflrH.invoke(it);
       }
-    });
+    }).where(new NotNullWhereFilter<TypeParameterDeclaration>());
   }
 
   /*package*/ ITypeParameters__BehaviorDescriptor() {

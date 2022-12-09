@@ -23,7 +23,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 public final class OverloadedPostfixUnaryExpression__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x1eee1f0053e59e8fL, "jetbrains.mps.kotlin.structure.OverloadedPostfixUnaryExpression");
 
-  public static final SMethod<SimpleCallReceiver> getReceiver_id5D4bOjrrgiZ = new SMethodBuilder<SimpleCallReceiver>(new SJavaCompoundTypeImpl(SimpleCallReceiver.class)).name("getReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6504375734615475391L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<MemberReceiver> getReceiver_id5D4bOjrrgiZ = new SMethodBuilder<MemberReceiver>(new SJavaCompoundTypeImpl(MemberReceiver.class)).name("getReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6504375734615475391L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<Iterable<Argument>> getArguments_id1VI7K1jROBX = new SMethodBuilder<Iterable<Argument>>(new SJavaCompoundTypeImpl((Class<Iterable<Argument>>) ((Class) Object.class))).name("getArguments").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2228752951862577661L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getReceiver_id5D4bOjrrgiZ, getArguments_id1VI7K1jROBX);
@@ -31,8 +31,8 @@ public final class OverloadedPostfixUnaryExpression__BehaviorDescriptor extends 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static SimpleCallReceiver getReceiver_id5D4bOjrrgiZ(@NotNull SNode __thisNode__) {
-    return SimpleCallReceiver.of(SLinkOperations.getTarget(__thisNode__, LINKS.operand$YS5t));
+  /*package*/ static MemberReceiver getReceiver_id5D4bOjrrgiZ(@NotNull SNode __thisNode__) {
+    return MemberReceiver.of(SLinkOperations.getTarget(__thisNode__, LINKS.operand$YS5t));
   }
   /*package*/ static Iterable<Argument> getArguments_id1VI7K1jROBX(@NotNull SNode __thisNode__) {
     return Argument.none;
@@ -54,7 +54,7 @@ public final class OverloadedPostfixUnaryExpression__BehaviorDescriptor extends 
     }
     switch (methodIndex) {
       case 0:
-        return (T) ((SimpleCallReceiver) getReceiver_id5D4bOjrrgiZ(node));
+        return (T) ((MemberReceiver) getReceiver_id5D4bOjrrgiZ(node));
       case 1:
         return (T) ((Iterable<Argument>) getArguments_id1VI7K1jROBX(node));
       default:

@@ -15,15 +15,19 @@ import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.kotlin.behavior.InferredTypeReference;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.kotlin.behavior.InferredTypeReference;
 import jetbrains.mps.kotlin.scopes.SignatureFilter;
 import jetbrains.mps.kotlin.signatures.PropertySignature;
+import java.util.List;
 import jetbrains.mps.kotlin.scopes.signed.SignatureScope;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
+import jetbrains.mps.kotlin.behavior.ReceiverTypeHelper;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.kotlin.scopes.signed.KindPriorityPropertyScope;
 import jetbrains.mps.kotlin.scopes.signed.HidingBySignatureScope;
-import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
 import jetbrains.mps.kotlin.signatures.AccessorKind;
 import jetbrains.mps.kotlin.scopes.signed.SignatureScopeAsScope;
 import java.util.HashMap;
@@ -51,12 +55,19 @@ public class PropertyMemberTarget_Constraints extends BaseConstraintsDescriptor 
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
             // Compute type in isolation, otherwise type may be null
-            SNode type = new InferredTypeReference(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.MemberNavigationOperation$7I, true, false), LINKS.operand$YS5t)).compute();
+            SNode operand = SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.MemberNavigationOperation$7I, true, false), LINKS.operand$YS5t);
+            SNode type = new InferredTypeReference(operand).compute();
 
             SignatureFilter<PropertySignature> filter = new SignatureFilter<PropertySignature>(PropertySignature.class);
 
+            // Regardless of using a static type or not, we need instance functions
+            List<SignatureScope> list = Sequence.fromIterable(IType__BehaviorDescriptor.getInstanceScopes_id1ODRHGtuist.invoke(type, filter, _context.getContextNode(), ((boolean) true))).toListSequence();
+            if (ReceiverTypeHelper.isStaticReceiver(operand)) {
+              ListSequence.fromList(list).addElement(IType__BehaviorDescriptor.getFullStaticScope_id7ZA3QJnL$CF.invoke(type, filter, _context.getContextNode()));
+            }
+
             // Return a custom scope that prioritize setter over getters (if setter: type is MutableProperty rather than just Property)
-            SignatureScope sigScope = KindPriorityPropertyScope.of(HidingBySignatureScope.of(IType__BehaviorDescriptor.getInstanceScopes_id1ODRHGtuist.invoke(type, filter, _context.getContextNode(), ((boolean) true))), AccessorKind.SETTER, null);
+            SignatureScope sigScope = KindPriorityPropertyScope.of(HidingBySignatureScope.of(list), AccessorKind.SETTER, null);
 
             return new SignatureScopeAsScope(sigScope, CONCEPTS.IVariableIdentifier$v2);
           }

@@ -13,6 +13,7 @@ import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import jetbrains.mps.kotlin.api.generics.TypeVarSubs;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.kotlin.api.types.identifiers.TypeKey;
+import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
@@ -20,12 +21,16 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.kotlin.api.types.identifiers.ClassTypeKey;
+import org.jetbrains.annotations.ApiStatus;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class ShortNodeType__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xeb56ebf4df56438eL, 0xaf06fc1cd08b495aL, 0x6192a85328793883L, "jetbrains.mps.kotlin.smodel.structure.ShortNodeType");
@@ -35,8 +40,9 @@ public final class ShortNodeType__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Void> populateSubstitutions_id4f4W8JpwgWV = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSubstitutions").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4883292379416694587L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(TypeVarSubs.class, ""));
   public static final SMethod<SNodeReference> getJavaClassPointer_idAa0Z14eCoU = new SMethodBuilder<SNodeReference>(new SJavaCompoundTypeImpl((Class<SNodeReference>) ((Class) Object.class))).name("getJavaClassPointer").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(687366223599142458L).languageId(0xaf06fc1cd08b495aL, 0xeb56ebf4df56438eL).build2();
   public static final SMethod<TypeKey> shallowId_idJmO2PmZtH5 = new SMethodBuilder<TypeKey>(new SJavaCompoundTypeImpl(TypeKey.class)).name("shallowId").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(853098072584870725L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<_FunctionTypes._return_P0_E0<? extends SNode>> createConstructor_id2$1CHwF$28b = new SMethodBuilder<_FunctionTypes._return_P0_E0<? extends SNode>>(new SJavaCompoundTypeImpl((Class<_FunctionTypes._return_P0_E0<? extends SNode>>) ((Class) Object.class))).name("createConstructor").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2954821879859257867L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getConceptType_id28CvMylq0Pm, toString_id4nn3FPlZH$r, populateSubstitutions_id4f4W8JpwgWV, getJavaClassPointer_idAa0Z14eCoU, shallowId_idJmO2PmZtH5);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getConceptType_id28CvMylq0Pm, toString_id4nn3FPlZH$r, populateSubstitutions_id4f4W8JpwgWV, getJavaClassPointer_idAa0Z14eCoU, shallowId_idJmO2PmZtH5, createConstructor_id2$1CHwF$28b);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -62,6 +68,17 @@ public final class ShortNodeType__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static TypeKey shallowId_idJmO2PmZtH5(@NotNull SNode __thisNode__) {
     // Need to use the same one as NodeType
     return new ClassTypeKey(new SNodePointer("r:e4815086-4c30-49cb-8870-1731d8a054ca(jetbrains.mps.kotlin.smodel.structure)", "8163976557869562761"));
+  }
+  @ApiStatus.Experimental
+  /*package*/ static _FunctionTypes._return_P0_E0<? extends SNode> createConstructor_id2$1CHwF$28b(@NotNull final SNode __thisNode__) {
+    return () -> {
+      SNode callExpression = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x40b4c3a5339a64d3L, "jetbrains.mps.kotlin.structure.FunctionCallTarget"));
+      callExpression.setReference(LINKS.function$Weyv, new SNodePointer("r:4cc53280-f3bd-4909-ac6e-932df5f37f0f(jetbrains.mps.kotlin.smodel.runtime.lib)", "4636219349448146803"));
+      SLinkOperations.setNewChild(callExpression, LINKS.lambda$U$kC, null);
+
+      // Should this be supported with callOperation?
+      return createNavigationOperation_7xg5x8_a5a0a0f(createReceiverType_7xg5x8_a0a0a5a0a0f(SLinkOperations.getTarget(__thisNode__, LINKS.concept$qJcX)), callExpression);
+    };
   }
 
   /*package*/ ShortNodeType__BehaviorDescriptor() {
@@ -90,6 +107,8 @@ public final class ShortNodeType__BehaviorDescriptor extends BaseBHDescriptor {
         return (T) ((SNodeReference) getJavaClassPointer_idAa0Z14eCoU(node));
       case 4:
         return (T) ((TypeKey) shallowId_idJmO2PmZtH5(node));
+      case 5:
+        return (T) ((_FunctionTypes._return_P0_E0<? extends SNode>) createConstructor_id2$1CHwF$28b(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -123,13 +142,36 @@ public final class ShortNodeType__BehaviorDescriptor extends BaseBHDescriptor {
     n0.setReferenceTarget(LINKS.concept$PItp, p0);
     return n0.getResult();
   }
+  private static SNode createNavigationOperation_7xg5x8_a5a0a0f(SNode p0, SNode p1) {
+    SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.NavigationOperation$4I);
+    n0.forChild(LINKS.operand$YS5t).initNode(p0, CONCEPTS.IExpression$2i, true);
+    n0.forChild(LINKS.target$C6zp).initNode(p1, CONCEPTS.INavigationTarget$Ae, true);
+    return n0.getResult();
+  }
+  private static SNode createReceiverType_7xg5x8_a0a0a5a0a0f(SNode p0) {
+    SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.ReceiverType$$f);
+    {
+      SNodeBuilder n1 = n0.forChild(LINKS.type$NVFj).init(CONCEPTS.ConceptType$Jb);
+      n1.setReferenceTarget(LINKS.concept$PItp, p0);
+    }
+    return n0.getResult();
+  }
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink concept$qJcX = MetaAdapterFactory.getReferenceLink(0xeb56ebf4df56438eL, 0xaf06fc1cd08b495aL, 0x6192a85328793883L, 0x6192a85328793d3eL, "concept");
+    /*package*/ static final SReferenceLink function$Weyv = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af43fL, 0x1ba36e493d8ad4e9L, "function");
+    /*package*/ static final SContainmentLink lambda$U$kC = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6186632f85a74c27L, 0x28bef6d7551af77dL, "lambda");
     /*package*/ static final SReferenceLink concept$PItp = MetaAdapterFactory.getReferenceLink(0xeb56ebf4df56438eL, 0xaf06fc1cd08b495aL, 0x22287f28956a12d2L, 0x22287f28956a1e69L, "concept");
+    /*package*/ static final SContainmentLink operand$YS5t = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb790956f20L, 0x11400bb790956f23L, "operand");
+    /*package*/ static final SContainmentLink target$C6zp = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af450L, 0x28bef6d7551af73bL, "target");
+    /*package*/ static final SContainmentLink type$NVFj = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af541L, 0x28bef6d7551af8c0L, "type");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ConceptType$Jb = MetaAdapterFactory.getConcept(0xeb56ebf4df56438eL, 0xaf06fc1cd08b495aL, 0x22287f28956a12d2L, "jetbrains.mps.kotlin.smodel.structure.ConceptType");
+    /*package*/ static final SConcept NavigationOperation$4I = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af450L, "jetbrains.mps.kotlin.structure.NavigationOperation");
+    /*package*/ static final SInterfaceConcept IExpression$2i = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4d0L, "jetbrains.mps.kotlin.structure.IExpression");
+    /*package*/ static final SInterfaceConcept INavigationTarget$Ae = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3b6L, "jetbrains.mps.kotlin.structure.INavigationTarget");
+    /*package*/ static final SConcept ReceiverType$$f = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af541L, "jetbrains.mps.kotlin.structure.ReceiverType");
   }
 }

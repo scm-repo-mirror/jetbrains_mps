@@ -2577,7 +2577,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.class_(false, false, false);
     // extends: jetbrains.mps.kotlin.structure.PostfixUnaryExpression
     b.super_(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb790956fd8L);
-    b.parent(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x61460ebbf13b4fa5L);
     b.origin("r:72a7bf00-0175-42ca-b99b-fe8519b6a16f(jetbrains.mps.kotlin.structure)/1243006380187810093");
     b.version(3);
     b.aggregate("target", 0x28bef6d7551af73bL).target(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af535L).optional(false).ordered(true).multiple(false).origin("1243006380187810095").done();
@@ -2848,7 +2847,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.kotlin", "ParenthesizedExpression", 0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3e2L);
     b.class_(false, false, false);
     b.parent(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4d0L);
-    b.parent(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x61460ebbf13b4fa5L);
     b.origin("r:72a7bf00-0175-42ca-b99b-fe8519b6a16f(jetbrains.mps.kotlin.structure)/2936055411798373346");
     b.version(3);
     b.aggregate("nested", 0x28bef6d7551af699L).target(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4d0L).optional(false).ordered(true).multiple(false).origin("2936055411798374041").done();

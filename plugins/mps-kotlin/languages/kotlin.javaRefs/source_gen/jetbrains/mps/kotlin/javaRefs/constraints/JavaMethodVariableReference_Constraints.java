@@ -28,7 +28,6 @@ import jetbrains.mps.scope.EmptyScope;
 import jetbrains.mps.kotlin.scopes.SignatureFilter;
 import jetbrains.mps.kotlin.signatures.PropertySignature;
 import jetbrains.mps.kotlin.scopes.signed.SignatureScope;
-import jetbrains.mps.kotlin.scopes.signed.CompositeSignatureScope;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
 import jetbrains.mps.kotlin.scopes.signed.HidingBySignatureScope;
 import jetbrains.mps.kotlin.scopes.signed.SignatureScopeAsScope;
@@ -80,7 +79,7 @@ public class JavaMethodVariableReference_Constraints extends BaseConstraintsDesc
               SignatureFilter<PropertySignature> filter = new GetterFilter();
               SignatureScope typeScope;
               if ((boolean) context._1()) {
-                typeScope = CompositeSignatureScope.of(IType__BehaviorDescriptor.getStaticScope_id1ODRHGtufGw.invoke(type, filter, _context.getContextNode()), IType__BehaviorDescriptor.getCompanionInstanceScope_id1ODRHGtugRP.invoke(type, filter, _context.getContextNode()));
+                typeScope = IType__BehaviorDescriptor.getFullStaticScope_id7ZA3QJnL$CF.invoke(type, filter, _context.getContextNode());
               } else {
                 typeScope = HidingBySignatureScope.of(IType__BehaviorDescriptor.getInstanceScopes_id1ODRHGtuist.invoke(type, filter, _context.getContextNode(), ((boolean) false)));
               }

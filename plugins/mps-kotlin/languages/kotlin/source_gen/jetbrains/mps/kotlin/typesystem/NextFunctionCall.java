@@ -44,13 +44,17 @@ public class NextFunctionCall implements FunctionCall {
     return LINKS.nextFunction$fFHf;
   }
   @Override
-  public TypeReference getReceiverType() {
+  public Iterable<TypeReference> getReceiverTypes() {
     // Get receiver type from the for statement
-    return new InferredTypeReference(myForStatement, ForStatementKeys.ITERATOR_FUNCTION_RET);
+    return Sequence.<TypeReference>singleton(new InferredTypeReference(myForStatement, ForStatementKeys.ITERATOR_FUNCTION_RET));
   }
   @Override
   public FunctionDeclaration getFunctionDescriptor() {
     return KotlinFunctionDeclaration.of(SLinkOperations.getTarget(myForStatement, LINKS.nextFunction$fFHf));
+  }
+  @Override
+  public boolean isNullSafe() {
+    return false;
   }
 
   private static final class CONCEPTS {

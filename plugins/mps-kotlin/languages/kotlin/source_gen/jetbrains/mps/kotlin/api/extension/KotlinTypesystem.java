@@ -19,7 +19,7 @@ public interface KotlinTypesystem {
    * 
    * @return function to apply or null, plus two booleans indicating ambiguity and failure respectively
    */
-  Tuples._3<FunctionDeclaration, Boolean, Boolean> selectOverloadCandidate(FunctionCall call, SNode computedReceiverType, SNode contextNode, Iterable<FunctionDeclaration> candidates);
+  Tuples._3<FunctionDeclaration, Boolean, Boolean> selectOverloadCandidate(FunctionCall call, Iterable<SNode> computedReceiverType, SNode contextNode, Iterable<FunctionDeclaration> candidates);
 
   /**
    * For each list of signatures, select the one that comply to the receiver type. Among each list, if there exist

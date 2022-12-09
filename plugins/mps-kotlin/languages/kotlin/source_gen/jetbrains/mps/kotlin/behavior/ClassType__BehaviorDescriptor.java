@@ -15,6 +15,7 @@ import jetbrains.mps.kotlin.scopes.signed.SignatureScope;
 import jetbrains.mps.kotlin.scopes.SignatureFilter;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration;
+import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
@@ -25,14 +26,21 @@ import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
+import org.jetbrains.annotations.ApiStatus;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Collections;
+import org.jetbrains.mps.openapi.model.SReference;
+import jetbrains.mps.smodel.action.SNodeFactoryOperations;
+import jetbrains.mps.kotlin.api.declaration.FunctionDeclaration;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import jetbrains.mps.smodel.builder.SNodeBuilder;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class ClassType__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4dfL, "jetbrains.mps.kotlin.structure.ClassType");
@@ -40,11 +48,12 @@ public final class ClassType__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Void> visitHierarchy_id5q426iHtYvR = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("visitHierarchy").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6234117012687677431L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SuperTypesVisitor.class, ""));
   public static final SMethod<Void> populateTypeSignatures_id5q426iHK5S9 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSignature").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6234117012692426249L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""));
   public static final SMethod<SignatureScope> getStaticScope_id1ODRHGtufGw = new SMethodBuilder<SignatureScope>(new SJavaCompoundTypeImpl(SignatureScope.class)).name("getStaticScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2101455733818719008L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureFilter.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
-  public static final SMethod<SignatureScope> getCompanionInstanceScope_id1ODRHGtugRP = new SMethodBuilder<SignatureScope>(new SJavaCompoundTypeImpl(SignatureScope.class)).name("getCompanionInstanceScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2101455733818723829L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureFilter.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<SNode> getCompanionType_id13qggQDnK5I = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getCompanionType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1214354576461726062L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<SNode> getClassifier_id7an2tsIdpk7 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getClassifier").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8257079261604975879L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<Iterable<TypeParameterDeclaration>> getTypeParameters_id7an2tsIdpkM = new SMethodBuilder<Iterable<TypeParameterDeclaration>>(new SJavaCompoundTypeImpl((Class<Iterable<TypeParameterDeclaration>>) ((Class) Object.class))).name("getTypeParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8257079261604975922L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<_FunctionTypes._return_P0_E0<? extends SNode>> createConstructor_id2$1CHwF$28b = new SMethodBuilder<_FunctionTypes._return_P0_E0<? extends SNode>>(new SJavaCompoundTypeImpl((Class<_FunctionTypes._return_P0_E0<? extends SNode>>) ((Class) Object.class))).name("createConstructor").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2954821879859257867L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(visitHierarchy_id5q426iHtYvR, populateTypeSignatures_id5q426iHK5S9, getStaticScope_id1ODRHGtufGw, getCompanionInstanceScope_id1ODRHGtugRP, getClassifier_id7an2tsIdpk7, getTypeParameters_id7an2tsIdpkM);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(visitHierarchy_id5q426iHtYvR, populateTypeSignatures_id5q426iHK5S9, getStaticScope_id1ODRHGtufGw, getCompanionType_id13qggQDnK5I, getClassifier_id7an2tsIdpk7, getTypeParameters_id7an2tsIdpkM, createConstructor_id2$1CHwF$28b);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -107,10 +116,11 @@ public final class ClassType__BehaviorDescriptor extends BaseBHDescriptor {
     });
   }
   /*package*/ static SignatureScope getStaticScope_id1ODRHGtufGw(@NotNull SNode __thisNode__, SignatureFilter<?> filter, SNode contextNode) {
-    return (SignatureScope) IClassLike__BehaviorDescriptor.getNestedConstructorsScope_id3HHsmlLCHdO.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.class$ExdX), filter);
+    return (SignatureScope) IClassLike__BehaviorDescriptor.getStaticScope_id3HHsmlLCHdO.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.class$ExdX), filter);
   }
-  /*package*/ static SignatureScope getCompanionInstanceScope_id1ODRHGtugRP(@NotNull SNode __thisNode__, SignatureFilter<?> filter, SNode contextNode) {
-    return (SignatureScope) IClassLike__BehaviorDescriptor.getCompanionInstanceScope_id3HHsmlLCHeX.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.class$ExdX), filter);
+  @ApiStatus.Experimental
+  /*package*/ static SNode getCompanionType_id13qggQDnK5I(@NotNull SNode __thisNode__) {
+    return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(IClassLike__BehaviorDescriptor.getCompanion_id1dpU28wP77w.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.class$ExdX)), ((boolean) false));
   }
   /*package*/ static SNode getClassifier_id7an2tsIdpk7(@NotNull SNode __thisNode__) {
     return SLinkOperations.getTarget(__thisNode__, LINKS.class$ExdX);
@@ -123,6 +133,38 @@ public final class ClassType__BehaviorDescriptor extends BaseBHDescriptor {
       }
     }
     return Sequence.fromIterable(Collections.<TypeParameterDeclaration>emptyList());
+  }
+  @ApiStatus.Experimental
+  /*package*/ static _FunctionTypes._return_P0_E0<? extends SNode> createConstructor_id2$1CHwF$28b(@NotNull final SNode __thisNode__) {
+    SReference ref = SNodeOperations.getReference(__thisNode__, LINKS.class$ExdX);
+
+    // Some defaults
+    if (BuiltIn.INT.isReferedBy(ref)) {
+      return () -> createIntegerLiteral_km6jsf_a0a0a0d0g();
+    } else if (BuiltIn.STRING.isReferedBy(ref)) {
+      return () -> SNodeFactoryOperations.createNewNode(CONCEPTS.StringLiteral$V8, null);
+    }
+
+    // SAM conversion
+    final FunctionDeclaration functionalFunction = InterfaceDeclaration__BehaviorDescriptor.getFunctionalFunction_id5g3vQLJJVGs.invoke(SNodeOperations.as(SLinkOperations.getTarget(__thisNode__, LINKS.class$ExdX), CONCEPTS.InterfaceDeclaration$fL));
+    if (functionalFunction != null) {
+      final NodeTypeVarSubs subs = new NodeTypeVarSubs(__thisNode__);
+      return () -> FunctionTypeToLambdaHelper.createLambda(functionalFunction.getParameters(), subs);
+    }
+
+    final SNode constructor = Sequence.fromIterable(IClassLike__BehaviorDescriptor.getConstructors_id2NtWm0y9fFa.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.class$ExdX))).first();
+    if (constructor != null) {
+      return () -> {
+        return createFunctionCallExpression_km6jsf_a0a0a0k0g(constructor, ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.typeProjections$vhti)).select(new ISelector<SNode, SNode>() {
+          public SNode select(SNode it) {
+            // This could be computed is a smarter way (in+out => nothing, ...)
+            SNode type = SLinkOperations.getTarget(SNodeOperations.as(it, CONCEPTS.TypeProjection$5e), LINKS.type$x3no);
+            return ((type != null) ? type : createNullableType_km6jsf_a0c0a0a0b0a0a0a0k0g(BuiltIn.ANY.toClassType()));
+          }
+        }));
+      };
+    }
+    return null;
   }
 
   /*package*/ ClassType__BehaviorDescriptor() {
@@ -149,11 +191,13 @@ public final class ClassType__BehaviorDescriptor extends BaseBHDescriptor {
       case 2:
         return (T) ((SignatureScope) getStaticScope_id1ODRHGtufGw(node, (SignatureFilter<?>) parameters[0], (SNode) parameters[1]));
       case 3:
-        return (T) ((SignatureScope) getCompanionInstanceScope_id1ODRHGtugRP(node, (SignatureFilter<?>) parameters[0], (SNode) parameters[1]));
+        return (T) ((SNode) getCompanionType_id13qggQDnK5I(node));
       case 4:
         return (T) ((SNode) getClassifier_id7an2tsIdpk7(node));
       case 5:
         return (T) ((Iterable<TypeParameterDeclaration>) getTypeParameters_id7an2tsIdpkM(node));
+      case 6:
+        return (T) ((_FunctionTypes._return_P0_E0<? extends SNode>) createConstructor_id2$1CHwF$28b(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -182,15 +226,47 @@ public final class ClassType__BehaviorDescriptor extends BaseBHDescriptor {
   public SAbstractConcept getConcept() {
     return CONCEPT;
   }
+  private static SNode createIntegerLiteral_km6jsf_a0a0a0d0g() {
+    SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.IntegerLiteral$7a);
+    n0.setProperty(PROPS.value$x4lo, "0");
+    return n0.getResult();
+  }
+  private static SNode createFunctionCallExpression_km6jsf_a0a0a0k0g(SNode p0, Iterable<? extends SNode> p1) {
+    SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.FunctionCallExpression$EQ);
+    n0.setReferenceTarget(LINKS.function$Weyv, p0);
+    n0.forChild(LINKS.typeArguments$86s6).initNodeList(p1, CONCEPTS.IType$Ni);
+    return n0.getResult();
+  }
+  private static SNode createNullableType_km6jsf_a0c0a0a0b0a0a0a0k0g(SNode p0) {
+    SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.NullableType$E0);
+    n0.forChild(LINKS.type$Tm0J).initNode(p0, CONCEPTS.IType$Ni, true);
+    return n0.getResult();
+  }
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink class$ExdX = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5c7be90f2440b378L, 0x5c7be90f2440b37bL, "class");
     /*package*/ static final SContainmentLink superclasses$6CkZ = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6ef8a3cf68294651L, 0x1ba36e493d40fea5L, "superclasses");
     /*package*/ static final SContainmentLink members$gqdV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc8310a1ff68L, 0x2043bc8310a1ff69L, "members");
+    /*package*/ static final SContainmentLink typeProjections$vhti = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5b1dd60162c97579L, 0x5b1dd60162c9757cL, "typeProjections");
+    /*package*/ static final SContainmentLink type$x3no = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3ccL, 0x28bef6d7551af67fL, "type");
+    /*package*/ static final SReferenceLink function$Weyv = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af43fL, 0x1ba36e493d8ad4e9L, "function");
+    /*package*/ static final SContainmentLink typeArguments$86s6 = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x241317ddbda99714L, 0x5b1dd60162c9757cL, "typeArguments");
+    /*package*/ static final SContainmentLink type$Tm0J = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28b83021333e575L, 0x28b83021333ef14L, "type");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IInheritExplicitly$UG = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6ef8a3cf68294651L, "jetbrains.mps.kotlin.structure.IInheritExplicitly");
     /*package*/ static final SInterfaceConcept ITypeParameters$G$ = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7556a4df5L, "jetbrains.mps.kotlin.structure.ITypeParameters");
+    /*package*/ static final SConcept StringLiteral$V8 = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4fbL, "jetbrains.mps.kotlin.structure.StringLiteral");
+    /*package*/ static final SConcept InterfaceDeclaration$fL = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7554886bfL, "jetbrains.mps.kotlin.structure.InterfaceDeclaration");
+    /*package*/ static final SConcept TypeProjection$5e = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3ccL, "jetbrains.mps.kotlin.structure.TypeProjection");
+    /*package*/ static final SConcept IntegerLiteral$7a = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3d0L, "jetbrains.mps.kotlin.structure.IntegerLiteral");
+    /*package*/ static final SConcept FunctionCallExpression$EQ = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x40b4c3a5339a6979L, "jetbrains.mps.kotlin.structure.FunctionCallExpression");
+    /*package*/ static final SInterfaceConcept IType$Ni = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af441L, "jetbrains.mps.kotlin.structure.IType");
+    /*package*/ static final SConcept NullableType$E0 = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28b83021333e575L, "jetbrains.mps.kotlin.structure.NullableType");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$x4lo = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3d0L, 0x28bef6d7551af683L, "value");
   }
 }

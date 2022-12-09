@@ -55,6 +55,11 @@ public class JavaTypeParameterDeclaration extends DefaultTypeParameterDeclaratio
     return SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x21e0c923289a2189L, "jetbrains.mps.kotlin.structure.VarianceModifier"), 0x21e0c923289a2222L, "inv");
   }
 
+  @Override
+  public String toString() {
+    return SNodeOperations.present(myTypeVariableDeclaration);
+  }
+
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }

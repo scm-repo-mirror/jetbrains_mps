@@ -6,9 +6,6 @@ import jetbrains.mps.kotlin.behavior.NodeTypeVarSubs;
 import jetbrains.mps.references.Reference;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
-import jetbrains.mps.internal.collections.runtime.SetSequence;
-import java.util.HashSet;
-import jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration;
 
 /**
  * Visit superclasses but collect substitutions along the way
@@ -49,6 +46,6 @@ public class SuperTypesGenericVisitor extends SuperTypesVisitorImpl {
 
   @Override
   public SNode expandWithCollectedSubstitutions(SNode original) {
-    return getSubstitutions().expand(original, SetSequence.fromSet(new HashSet<TypeParameterDeclaration>()));
+    return getSubstitutions().expand(original);
   }
 }

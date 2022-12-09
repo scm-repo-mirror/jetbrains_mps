@@ -59,7 +59,7 @@ public class JavaMemberTarget_Constraints extends BaseConstraintsDescriptor {
             // Receiver scope is not handled here but on kotlin side (as java has no receiver function)
             SignatureFilter<FunctionSignature> filter = new SignatureFilter<FunctionSignature>(FunctionSignature.class);
             List<SignatureScope> list = Sequence.fromIterable(IType__BehaviorDescriptor.getInstanceScopes_id1ODRHGtuist.invoke(type, filter, _context.getContextNode(), ((boolean) false))).toListSequence();
-            ListSequence.fromList(list).addElement(IType__BehaviorDescriptor.getStaticScope_id1ODRHGtufGw.invoke(type, filter, _context.getContextNode()));
+            ListSequence.fromList(list).addElement(IType__BehaviorDescriptor.getFullStaticScope_id7ZA3QJnL$CF.invoke(type, filter, _context.getContextNode()));
 
             return new SignatureScopeAsScope(CompositeSignatureScope.of(list), CONCEPTS.GenericDeclaration$bC);
           }

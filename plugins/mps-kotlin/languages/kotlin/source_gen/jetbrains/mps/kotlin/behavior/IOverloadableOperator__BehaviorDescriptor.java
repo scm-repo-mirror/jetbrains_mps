@@ -51,7 +51,7 @@ public final class IOverloadableOperator__BehaviorDescriptor extends BaseBHDescr
     return KotlinFunctionDeclaration.of(SLinkOperations.getTarget(__thisNode__, LINKS.provider$q4XC));
   }
   /*package*/ static Iterable<SignatureScope> getFunctionScopeParts_id6dAo8EmAhT7(@NotNull SAbstractConcept __thisConcept__, SNode referenceNode, SNode contextNode, SContainmentLink containment) {
-    SimpleCallReceiver receiver = as_aac98x_a0a0a41(IFunctionCall__BehaviorDescriptor.getReceiver_id5D4bOjrrgiZ.invoke(SNodeOperations.as(referenceNode, CONCEPTS.IFunctionCall$Sf)), SimpleCallReceiver.class);
+    MemberReceiver receiver = IFunctionCall__BehaviorDescriptor.getReceiver_id5D4bOjrrgiZ.invoke(SNodeOperations.as(referenceNode, CONCEPTS.IFunctionCall$Sf));
 
     return SignatureScopeHelper.getFunctionScopeParts(receiver, contextNode, new SignatureFilter<FunctionSignature>(FunctionSignature.class) {
       @Override
@@ -111,9 +111,6 @@ public final class IOverloadableOperator__BehaviorDescriptor extends BaseBHDescr
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
-  }
-  private static <T> T as_aac98x_a0a0a41(Object o, Class<T> type) {
-    return (type.isInstance(o) ? (T) o : null);
   }
 
   private static final class LINKS {

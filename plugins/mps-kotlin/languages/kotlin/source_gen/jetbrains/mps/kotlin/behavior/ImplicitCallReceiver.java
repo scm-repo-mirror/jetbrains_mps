@@ -9,7 +9,7 @@ import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
-public class ImplicitCallReceiver implements CallReceiver {
+public class ImplicitCallReceiver implements MemberReceiver {
   private final SNode myNode;
 
   public ImplicitCallReceiver(SNode sourceNode) {
@@ -23,13 +23,6 @@ public class ImplicitCallReceiver implements CallReceiver {
         return (Iterable<TypeReference>) IThisReceiverProvider__BehaviorDescriptor.getThisTypeReferences_idxpyqH1FuA0.invoke(it);
       }
     });
-  }
-
-  @Deprecated
-  @Override
-  public boolean isExternal() {
-    // Implicit: all types are external
-    return true;
   }
 
   private static final class CONCEPTS {

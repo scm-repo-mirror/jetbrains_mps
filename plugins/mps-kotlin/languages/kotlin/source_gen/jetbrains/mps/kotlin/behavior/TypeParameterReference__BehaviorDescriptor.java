@@ -43,9 +43,13 @@ public final class TypeParameterReference__BehaviorDescriptor extends BaseBHDesc
   /*package*/ static void visitHierarchy_id5q426iHtYvR(@NotNull SNode __thisNode__, SuperTypesVisitor visitor) {
     if (visitor.enterType(__thisNode__)) {
       // Bounds if any
-      List<SNode> upperBounds = ITypeParameter__BehaviorDescriptor.getDescriptor_id28CvMylflrH.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.parameter$ofYr)).getUpperBounds();
-      for (SNode bound : ListSequence.fromList(upperBounds)) {
-        IType__BehaviorDescriptor.visitHierarchy_id5q426iHtYvR.invoke(bound, visitor);
+      TypeParameterDeclaration descriptor = ITypeParameter__BehaviorDescriptor.getDescriptor_id28CvMylflrH.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.parameter$ofYr));
+      List<SNode> upperBounds = null;
+      if (descriptor != null) {
+        upperBounds = descriptor.getUpperBounds();
+        for (SNode bound : ListSequence.fromList(upperBounds)) {
+          IType__BehaviorDescriptor.visitHierarchy_id5q426iHtYvR.invoke(bound, visitor);
+        }
       }
 
       if (ListSequence.fromList(upperBounds).isEmpty()) {

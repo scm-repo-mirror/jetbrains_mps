@@ -4,24 +4,43 @@ package jetbrains.mps.kotlin.behavior;
 
 import jetbrains.mps.kotlin.api.generics.TypeVarSubs;
 import org.jetbrains.mps.openapi.model.SNode;
-import java.util.Set;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.internal.collections.runtime.IVisitor;
+import jetbrains.mps.internal.collections.runtime.SetSequence;
+import java.util.HashSet;
 import jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration;
+import java.util.Set;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.List;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 
 public class NodeTypeVarSubs extends TypeVarSubs<SNode> {
+  public NodeTypeVarSubs() {
+    // no-op by default
+  }
+
+  public NodeTypeVarSubs(SNode... populatingTypes) {
+    Sequence.fromIterable(Sequence.fromArray(populatingTypes)).visitAll(new IVisitor<SNode>() {
+      public void visit(SNode it) {
+        IType__BehaviorDescriptor.populateSubstitutions_id4f4W8JpwgWV.invoke(it, NodeTypeVarSubs.this);
+      }
+    });
+  }
+
+  public SNode expand(SNode type) {
+    return expand(type, SetSequence.fromSet(new HashSet<TypeParameterDeclaration>()));
+  }
+
   public SNode expand(SNode type, Set<TypeParameterDeclaration> visited) {
     {
       final SNode reference = type;
-      if (SNodeOperations.isInstanceOf(reference, CONCEPTS.TypeParameterReference$ya)) {
+      if (SNodeOperations.isInstanceOf(reference, CONCEPTS.ITypeParameterReference$9i)) {
         return substitute(reference, visited);
       }
     }
@@ -45,6 +64,7 @@ public class NodeTypeVarSubs extends TypeVarSubs<SNode> {
 
   private SNode substitute(SNode ref, Set<TypeParameterDeclaration> visited) {
     TypeParameterDeclaration parameter = ITypeParameterReference__BehaviorDescriptor.getParameter_id4W0pdSD7eWM.invoke(ref);
+
     if (!(has(parameter)) || SetSequence.fromSet(visited).contains(parameter)) {
       return ref;
     }
@@ -70,7 +90,6 @@ public class NodeTypeVarSubs extends TypeVarSubs<SNode> {
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept TypeParameterReference$ya = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x21e0c9232886358dL, "jetbrains.mps.kotlin.structure.TypeParameterReference");
     /*package*/ static final SInterfaceConcept ITypeParameterReference$9i = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x4f0064de291cef24L, "jetbrains.mps.kotlin.structure.ITypeParameterReference");
     /*package*/ static final SConcept TypeProjection$5e = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3ccL, "jetbrains.mps.kotlin.structure.TypeProjection");
     /*package*/ static final SInterfaceConcept INullableType$$I = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af542L, "jetbrains.mps.kotlin.structure.INullableType");

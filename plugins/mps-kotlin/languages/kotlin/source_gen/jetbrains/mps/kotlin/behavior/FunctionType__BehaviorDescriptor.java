@@ -14,6 +14,7 @@ import jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.kotlin.api.members.SignatureCollector;
 import jetbrains.mps.kotlin.api.types.identifiers.TypeKey;
+import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
@@ -28,6 +29,7 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Collections;
 import jetbrains.mps.kotlin.api.types.identifiers.FunctionType;
+import org.jetbrains.annotations.ApiStatus;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -46,8 +48,9 @@ public final class FunctionType__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<String> toString_id4nn3FPlZH$r = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("toString").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5032507314964191515L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
   public static final SMethod<Iterable<TypeParameterDeclaration>> getTypeParameters_id1VI7K1kLcNv = new SMethodBuilder<Iterable<TypeParameterDeclaration>>(new SJavaCompoundTypeImpl((Class<Iterable<TypeParameterDeclaration>>) ((Class) Object.class))).name("getTypeParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2228752951877618911L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<TypeKey> shallowId_idJmO2PmZtH5 = new SMethodBuilder<TypeKey>(new SJavaCompoundTypeImpl(TypeKey.class)).name("shallowId").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(853098072584870725L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<_FunctionTypes._return_P0_E0<? extends SNode>> createConstructor_id2$1CHwF$28b = new SMethodBuilder<_FunctionTypes._return_P0_E0<? extends SNode>>(new SJavaCompoundTypeImpl((Class<_FunctionTypes._return_P0_E0<? extends SNode>>) ((Class) Object.class))).name("createConstructor").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2954821879859257867L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(visitHierarchy_id5q426iHtYvR, getTypeParameters_id7an2tsIdpkM, getInheritedType_id5q426iHvzD9, populateTypeSignatures_id5q426iHK5S9, getDetailedPresentation_id22G2W3WJ92t, toString_id4nn3FPlZH$r, getTypeParameters_id1VI7K1kLcNv, shallowId_idJmO2PmZtH5);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(visitHierarchy_id5q426iHtYvR, getTypeParameters_id7an2tsIdpkM, getInheritedType_id5q426iHvzD9, populateTypeSignatures_id5q426iHK5S9, getDetailedPresentation_id22G2W3WJ92t, toString_id4nn3FPlZH$r, getTypeParameters_id1VI7K1kLcNv, shallowId_idJmO2PmZtH5, createConstructor_id2$1CHwF$28b);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -109,6 +112,10 @@ public final class FunctionType__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static TypeKey shallowId_idJmO2PmZtH5(@NotNull SNode __thisNode__) {
     return new FunctionType(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.parameters$jkhy)).count());
   }
+  @ApiStatus.Experimental
+  /*package*/ static _FunctionTypes._return_P0_E0<? extends SNode> createConstructor_id2$1CHwF$28b(@NotNull final SNode __thisNode__) {
+    return () -> FunctionTypeToLambdaHelper.createLambda(SLinkOperations.collect(SLinkOperations.getChildren(__thisNode__, LINKS.parameters$jkhy), LINKS.type$69zk));
+  }
 
   /*package*/ FunctionType__BehaviorDescriptor() {
   }
@@ -143,6 +150,8 @@ public final class FunctionType__BehaviorDescriptor extends BaseBHDescriptor {
         return (T) ((Iterable<TypeParameterDeclaration>) getTypeParameters_id1VI7K1kLcNv(node));
       case 7:
         return (T) ((TypeKey) shallowId_idJmO2PmZtH5(node));
+      case 8:
+        return (T) ((_FunctionTypes._return_P0_E0<? extends SNode>) createConstructor_id2$1CHwF$28b(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
