@@ -818,7 +818,6 @@
       <excludeFolder url="file://$MODULE_DIR$/../../plugins/mps-vcs/vcs-platform/languages/modelmetadata/classes_gen" />
     </content>
     <content url="file://$MODULE_DIR$/../../plugins/testModules">
-      <sourceFolder url="file://$MODULE_DIR$/../../plugins/testModules/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/test_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../plugins/testModules/testSubstituteType/languages/testAnnotatedType/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../plugins/testModules/testSubstituteType/languages/testOverridingRule/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../plugins/testModules/testSubstituteType/languages/testOverridingType/source_gen" isTestSource="false" />
@@ -828,7 +827,6 @@
       <sourceFolder url="file://$MODULE_DIR$/../../plugins/testModules/testSubtyping/languages/testSubtypingA/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../plugins/testModules/testSubtyping/languages/testSubtypingB/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../plugins/testModules/testSubtyping/solutions/testSubtypingTest/test_gen" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/../../plugins/testModules/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../plugins/testModules/testSubstituteType/languages/testAnnotatedType/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../plugins/testModules/testSubstituteType/languages/testOverridingRule/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../plugins/testModules/testSubstituteType/languages/testOverridingType/classes_gen" />
@@ -1465,6 +1463,7 @@
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/testsolutions/regexp.unittest/test_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/testsolutions/smodel.unittest/tests_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/testsolutions/test.test/test_gen" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../testbench/testsolutions/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/test_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/testsolutions/testlangs/editor.formsTests.testLang/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/testsolutions/testlangs/editor.menus.contextAssistant.extension.testLanguage/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/testsolutions/testlangs/editor.menus.contextAssistant.testLanguage/source_gen" isTestSource="false" />
@@ -1537,6 +1536,7 @@
       <excludeFolder url="file://$MODULE_DIR$/../../testbench/testsolutions/regexp.unittest/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../testbench/testsolutions/smodel.unittest/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../testbench/testsolutions/test.test/classes_gen" />
+      <excludeFolder url="file://$MODULE_DIR$/../../testbench/testsolutions/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../testbench/testsolutions/testlangs/editor.formsTests.testLang/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../testbench/testsolutions/testlangs/editor.menus.contextAssistant.extension.testLanguage/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../testbench/testsolutions/testlangs/editor.menus.contextAssistant.testLanguage/classes_gen" />

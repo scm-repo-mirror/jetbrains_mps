@@ -249,22 +249,22 @@
     </echoxml>
     <jar destfile="${build.layout}/jetbrains.mps.baseLanguage.closures.test.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.closures.test" />
-      <fileset dir="${basedir}/plugins/testModules/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test" includes="icons/**, resources/**" />
-      <fileset dir="${basedir}/plugins/testModules/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/source_gen" includes="**/trace.info, **/exports, **/*.mps, **/checkpoints" />
+      <fileset dir="${basedir}/testbench/testsolutions/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test" includes="icons/**, resources/**" />
+      <fileset dir="${basedir}/testbench/testsolutions/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/source_gen" includes="**/trace.info, **/exports, **/*.mps, **/checkpoints" />
       <fileset dir="${build.tmp}/default/jetbrains.mps.baseLanguage.closures.test.jar" />
     </jar>
-    <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-testModules-testClosures-solutions-jetbrains.mps.baseLanguage.closures.test-models">
-      <fileset dir="${basedir}/plugins/testModules/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/models" includes="**/*.mps, **/*.mpsr, **/.model" />
+    <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-testClosures-solutions-jetbrains.mps.baseLanguage.closures.test-models">
+      <fileset dir="${basedir}/testbench/testsolutions/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/jetbrains.mps.baseLanguage.closures.test-src.jar" duplicate="preserve">
-      <fileset dir="${basedir}/plugins/testModules/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/source_gen">
+      <fileset dir="${basedir}/testbench/testsolutions/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/source_gen">
         <exclude name="**/trace.info" />
         <exclude name="**/exports" />
         <exclude name="**/checkpoints" />
         <exclude name="**/*.mps" />
       </fileset>
-      <zipfileset file="${basedir}/plugins/testModules/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/jetbrains.mps.baseLanguage.closures.test.msd" prefix="module" />
-      <zipfileset dir="${build.tmp}/customProcessors/copyModels/plugins-testModules-testClosures-solutions-jetbrains.mps.baseLanguage.closures.test-models" prefix="module/models" />
+      <zipfileset file="${basedir}/testbench/testsolutions/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/jetbrains.mps.baseLanguage.closures.test.msd" prefix="module" />
+      <zipfileset dir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-testClosures-solutions-jetbrains.mps.baseLanguage.closures.test-models" prefix="module/models" />
     </jar>
     <mkdir dir="${build.tmp}/default/jetbrains.mps.baseLanguage.testRefs.jar" />
     <mkdir dir="${build.tmp}/default/jetbrains.mps.baseLanguage.testRefs.jar/META-INF" />
@@ -953,7 +953,7 @@
         <module file="${basedir}/testbench/testsolutions/collections_trove.test/collections_trove.test.msd" />
         <module file="${basedir}/testbench/testsolutions/collections_unittest/collections_unittest.msd" />
         <module file="${basedir}/testbench/testsolutions/bl.internalCollections.test/internalCollections.test.msd" />
-        <module file="${basedir}/plugins/testModules/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/jetbrains.mps.baseLanguage.closures.test.msd" />
+        <module file="${basedir}/testbench/testsolutions/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/jetbrains.mps.baseLanguage.closures.test.msd" />
         <module file="${basedir}/testbench/testsolutions/bl.closures.unittest/jetbrains.mps.baseLanguage.closures.unittest.msd" />
         <module file="${basedir}/testbench/testsolutions/bl.doubleDispatch.test/jetbrains.mps.baseLanguage.doubleDispatch.test.msd" />
         <module file="${basedir}/testbench/testsolutions/jetbrains.mps.baseLanguage.methodReferences.test/jetbrains.mps.baseLanguage.methodReferences.test.msd" />
@@ -1134,13 +1134,13 @@
   </target>
   
   <target name="java.compile.jetbrains.mps.baseLanguage.closures.test" depends="fetchDependencies">
-    <mkdir dir="${basedir}/plugins/testModules/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/source_gen" />
+    <mkdir dir="${basedir}/testbench/testsolutions/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.closures.test" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.closures.test" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
       <src>
-        <path location="${basedir}/plugins/testModules/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/source_gen" />
-        <pathelement path="${basedir}/plugins/testModules/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/test_gen/" />
+        <path location="${basedir}/testbench/testsolutions/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/source_gen" />
+        <pathelement path="${basedir}/testbench/testsolutions/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/test_gen/" />
       </src>
       <classpath>
         <fileset file="${artifacts.mps}/lib/mps-core.jar" />
@@ -1191,8 +1191,8 @@
       </classpath>
     </javac2>
     <copy todir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.closures.test">
-      <fileset dir="${basedir}/plugins/testModules/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/source_gen" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
-      <fileset dir="${basedir}/plugins/testModules/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/test_gen/" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
+      <fileset dir="${basedir}/testbench/testsolutions/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/source_gen" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
+      <fileset dir="${basedir}/testbench/testsolutions/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/test_gen/" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
     </copy>
   </target>
   
@@ -1901,13 +1901,13 @@
     <delete dir="${basedir}/testbench/testsolutions/collections_trove.test/source_gen" />
     <delete dir="${basedir}/testbench/testsolutions/collections_unittest/tests_gen" />
     <delete dir="${basedir}/testbench/testsolutions/bl.internalCollections.test/source_gen" />
-    <delete dir="${basedir}/plugins/testModules/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/source_gen" />
+    <delete dir="${basedir}/testbench/testsolutions/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/source_gen" />
     <delete dir="${basedir}/testbench/modules/jetbrains.mps.baseLanguage.testRefs.testLang/source_gen" />
     <delete dir="${basedir}/testbench/modules/jetbrains.mps.baseLanguage.testRefs.testLang/generator/source_gen" />
     <delete dir="${basedir}/testbench/testsolutions/bl.tuples.test/source_gen" />
     <delete dir="${basedir}/testbench/testsolutions/closures.test/test_gen" />
     <delete dir="${basedir}/testbench/testsolutions/bl.internalCollections.test/test_gen" />
-    <delete dir="${basedir}/plugins/testModules/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/test_gen" />
+    <delete dir="${basedir}/testbench/testsolutions/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/test_gen" />
     <delete dir="${basedir}/testbench/testsolutions/bl.closures.unittest/test_gen" />
     <delete dir="${basedir}/testbench/testsolutions/bl.doubleDispatch.test/test_gen" />
     <delete dir="${basedir}/testbench/testsolutions/regexp.unittest/test_gen" />

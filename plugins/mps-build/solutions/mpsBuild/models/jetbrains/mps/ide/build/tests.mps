@@ -3016,9 +3016,9 @@
         <property role="BnDLt" value="true" />
         <node concept="55IIr" id="2j4NQWLGvNV" role="3LF7KH">
           <node concept="2Ry0Ak" id="2j4NQWLGvNW" role="iGT6I">
-            <property role="2Ry0Am" value="plugins" />
+            <property role="2Ry0Am" value="testbench" />
             <node concept="2Ry0Ak" id="2j4NQWLGvNX" role="2Ry0An">
-              <property role="2Ry0Am" value="testModules" />
+              <property role="2Ry0Am" value="testsolutions" />
               <node concept="2Ry0Ak" id="2j4NQWLGvNY" role="2Ry0An">
                 <property role="2Ry0Am" value="testClosures" />
                 <node concept="2Ry0Ak" id="2j4NQWLGvNZ" role="2Ry0An">
@@ -3038,9 +3038,9 @@
           <node concept="3LXTmp" id="2j4NQWLGvO3" role="3rtmxm">
             <node concept="55IIr" id="2j4NQWLGvO4" role="3LXTmr">
               <node concept="2Ry0Ak" id="2j4NQWLGvO5" role="iGT6I">
-                <property role="2Ry0Am" value="plugins" />
+                <property role="2Ry0Am" value="testbench" />
                 <node concept="2Ry0Ak" id="2j4NQWLGvO6" role="2Ry0An">
-                  <property role="2Ry0Am" value="testModules" />
+                  <property role="2Ry0Am" value="testsolutions" />
                   <node concept="2Ry0Ak" id="2j4NQWLGvO7" role="2Ry0An">
                     <property role="2Ry0Am" value="testClosures" />
                     <node concept="2Ry0Ak" id="2j4NQWLGvO8" role="2Ry0An">
@@ -3080,9 +3080,9 @@
           <node concept="3LXTmp" id="2j4NQWLGvS4" role="1HemKq">
             <node concept="55IIr" id="2j4NQWLGvRW" role="3LXTmr">
               <node concept="2Ry0Ak" id="2j4NQWLGvRX" role="iGT6I">
-                <property role="2Ry0Am" value="plugins" />
+                <property role="2Ry0Am" value="testbench" />
                 <node concept="2Ry0Ak" id="2j4NQWLGvRY" role="2Ry0An">
-                  <property role="2Ry0Am" value="testModules" />
+                  <property role="2Ry0Am" value="testsolutions" />
                   <node concept="2Ry0Ak" id="2j4NQWLGvRZ" role="2Ry0An">
                     <property role="2Ry0Am" value="testClosures" />
                     <node concept="2Ry0Ak" id="2j4NQWLGvS0" role="2Ry0An">
