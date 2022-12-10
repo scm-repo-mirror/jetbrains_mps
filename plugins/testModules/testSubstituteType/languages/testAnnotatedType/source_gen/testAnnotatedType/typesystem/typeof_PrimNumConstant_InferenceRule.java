@@ -11,10 +11,10 @@ import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class typeof_PrimNumConstant_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_PrimNumConstant_InferenceRule() {
@@ -23,7 +23,7 @@ public class typeof_PrimNumConstant_InferenceRule extends AbstractInferenceRule_
     {
       SNode _nodeToCheck_1029348928467 = primitiveConstant;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:d9c7d7eb-2b42-4829-a0ae-81b54923bc48(testAnnotatedType.typesystem)", "1470921783545367408", 0, null);
-      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:d9c7d7eb-2b42-4829-a0ae-81b54923bc48(testAnnotatedType.typesystem)", "1470921783545367273", true), (SNode) _quotation_createNode_wml952_a1a0c0a0b(SPropertyOperations.getString(primitiveConstant, PROPS.isFloat$3JH3)), _info_12389875345);
+      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:d9c7d7eb-2b42-4829-a0ae-81b54923bc48(testAnnotatedType.typesystem)", "1470921783545367273", true), (SNode) createPrimIntType_wml952_a1a0c0a0b(SPropertyOperations.getString(primitiveConstant, PROPS.isFloat$3JH3)), _info_12389875345);
     }
   }
   public SAbstractConcept getApplicableConcept() {
@@ -35,31 +35,35 @@ public class typeof_PrimNumConstant_InferenceRule extends AbstractInferenceRule_
   public boolean overrides() {
     return false;
   }
-  private static SNode _quotation_createNode_wml952_a1a0c0a0b(Object parameter_1) {
-    SNode quotedNode_2 = null;
-    SNode quotedNode_3 = null;
-    SNode quotedNode_4 = null;
-    SNode quotedNode_5 = null;
-    SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, "testAnnotatedType"), 0x58e32a0782be609eL, "PrimIntType"));
-    quotedNode_2 = nb.getResult();
-    SNodeBuilder nb1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, "testAnnotatedType"), 0x58e32a0782be61ecL, "SubstituteAnnotation"));
-    quotedNode_3 = nb1.getResult();
-    SNodeBuilder nb2 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, "testAnnotatedType"), 0x58e32a0782beb1c7L, "PresenceCondition"));
-    quotedNode_4 = nb2.getResult();
-    SNodeAccessUtil.setPropertyValue(quotedNode_4, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), (String) parameter_1);
-    quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x58e32a0782be61ecL, 0x58e32a0782beb1c4L, "condition"), quotedNode_4);
-    SNodeBuilder nb3 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, "testAnnotatedType"), 0x58e32a0782beb1bdL, "PrimFloatType"));
-    quotedNode_5 = nb3.getResult();
-    quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x58e32a0782be61ecL, 0x58e32a0782beb1baL, "substitute"), quotedNode_5);
-    quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute"), quotedNode_3);
-    return quotedNode_2;
+  private static SNode createPrimIntType_wml952_a1a0c0a0b(String p0) {
+    SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.PrimIntType$Ur);
+    {
+      SNodeBuilder n1 = n0.forChild(LINKS.smodelAttribute$KJ43).init(CONCEPTS.SubstituteAnnotation$zn);
+      {
+        SNodeBuilder n2 = n1.forChild(LINKS.condition$U0U$).init(CONCEPTS.PresenceCondition$hi);
+        n2.setProperty(PROPS.name$MnvL, p0);
+      }
+      n1.forChild(LINKS.substitute$TTD5).init(CONCEPTS.PrimFloatType$2h);
+    }
+    return n0.getResult();
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty isFloat$3JH3 = MetaAdapterFactory.getProperty(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x1469c391a09a5eefL, 0x1469c391a09a5ef0L, "isFloat");
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept PrimNumConstant$bz = MetaAdapterFactory.getConcept(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x1469c391a09a5eefL, "testAnnotatedType.structure.PrimNumConstant");
+    /*package*/ static final SConcept PrimIntType$Ur = MetaAdapterFactory.getConcept(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x58e32a0782be609eL, "testAnnotatedType.structure.PrimIntType");
+    /*package*/ static final SConcept SubstituteAnnotation$zn = MetaAdapterFactory.getConcept(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x58e32a0782be61ecL, "testAnnotatedType.structure.SubstituteAnnotation");
+    /*package*/ static final SConcept PresenceCondition$hi = MetaAdapterFactory.getConcept(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x58e32a0782beb1c7L, "testAnnotatedType.structure.PresenceCondition");
+    /*package*/ static final SConcept PrimFloatType$2h = MetaAdapterFactory.getConcept(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x58e32a0782beb1bdL, "testAnnotatedType.structure.PrimFloatType");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink smodelAttribute$KJ43 = MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute");
+    /*package*/ static final SContainmentLink condition$U0U$ = MetaAdapterFactory.getContainmentLink(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x58e32a0782be61ecL, 0x58e32a0782beb1c4L, "condition");
+    /*package*/ static final SContainmentLink substitute$TTD5 = MetaAdapterFactory.getContainmentLink(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x58e32a0782be61ecL, 0x58e32a0782beb1baL, "substitute");
   }
 }

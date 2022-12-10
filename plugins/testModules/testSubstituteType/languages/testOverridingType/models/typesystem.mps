@@ -2,13 +2,12 @@
 <model ref="r:d8c6e16f-e698-4fc4-9c7f-4a279bcfaaf0(testOverridingType.typesystem)">
   <persistence version="9" />
   <languages>
-    <use id="394e3857-3256-4e8b-9601-5abe7ad354d9" name="testOverridingType" version="0" />
-    <use id="2f74e72e-3e3d-480e-bae1-cc709d588366" name="testAnnotatedType" version="0" />
     <devkit ref="00000000-0000-4000-0000-1de82b3a4936(jetbrains.mps.devkit.aspect.typesystem)" />
   </languages>
   <imports>
-    <import index="tp5x" ref="r:c0db73ed-f604-44cb-9fd9-3e3424a144b7(testAnnotatedType.structure)" implicit="true" />
     <import index="mdms" ref="r:b840b070-fa0a-4e7f-8980-8fcd6f3fd146(testOverridingType.structure)" implicit="true" />
+    <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
+    <import index="tp5x" ref="r:c0db73ed-f604-44cb-9fd9-3e3424a144b7(testAnnotatedType.structure)" implicit="true" />
     <import index="5myg" ref="r:7e57b061-76da-4008-a734-67f3e97231e2(testAnnotatedType.behavior)" implicit="true" />
   </imports>
   <registry>
@@ -42,25 +41,28 @@
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
       </concept>
     </language>
-    <language id="2f74e72e-3e3d-480e-bae1-cc709d588366" name="testAnnotatedType">
-      <concept id="6405009306797629932" name="testAnnotatedType.structure.SubstituteAnnotation" flags="ng" index="3qnkJF">
-        <child id="6405009306797650362" name="substitute" index="3qnpIX" />
-        <child id="6405009306797650372" name="condition" index="3qnpJ3" />
-      </concept>
-      <concept id="6405009306797650375" name="testAnnotatedType.structure.PresenceCondition" flags="ng" index="3qnpJ0" />
-    </language>
     <language id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation">
-      <concept id="1196350785110" name="jetbrains.mps.lang.quotation.structure.AbstractAntiquotation" flags="ng" index="2c44t0">
-        <property id="6489343236075007666" name="label" index="3hQQBS" />
-        <child id="1196350785111" name="expression" index="2c44t1" />
+      <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
+        <reference id="5455284157994012188" name="link" index="2pIpSl" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
-      <concept id="1196350785113" name="jetbrains.mps.lang.quotation.structure.Quotation" flags="nn" index="2c44tf">
-        <child id="1196350785114" name="quotedNode" index="2c44tc" />
+      <concept id="5455284157993911077" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitProperty" flags="ng" index="2pJxcG">
+        <reference id="5455284157993911078" name="property" index="2pJxcJ" />
+        <child id="1595412875168045201" name="initValue" index="28ntcv" />
       </concept>
-      <concept id="4056363777117001481" name="jetbrains.mps.lang.quotation.structure.StringToTypedValueMigrationInfo" flags="ng" index="AAgTk">
-        <property id="2173356959483005420" name="stringValueMigrated" index="3qcH_f" />
+      <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
+        <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
       </concept>
-      <concept id="1196866233735" name="jetbrains.mps.lang.quotation.structure.PropertyAntiquotation" flags="ng" index="2EMmih" />
+      <concept id="5455284157993863840" name="jetbrains.mps.lang.quotation.structure.NodeBuilderNode" flags="nn" index="2pJPED">
+        <reference id="5455284157993910961" name="concept" index="2pJxaS" />
+        <child id="5455284157993911099" name="values" index="2pJxcM" />
+      </concept>
+      <concept id="6985522012210254362" name="jetbrains.mps.lang.quotation.structure.NodeBuilderPropertyExpression" flags="nn" index="WxPPo">
+        <child id="6985522012210254363" name="expression" index="WxPPp" />
+      </concept>
+      <concept id="8182547171709738802" name="jetbrains.mps.lang.quotation.structure.NodeBuilderList" flags="nn" index="36be1Y">
+        <child id="8182547171709738803" name="nodes" index="36be1Z" />
+      </concept>
     </language>
     <language id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem">
       <concept id="7307171874933646339" name="jetbrains.mps.lang.typesystem.structure.SupersedeConceptFunction" flags="ig" index="2bjmSp" />
@@ -106,21 +108,9 @@
       </concept>
     </language>
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
-      <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
-        <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
-      </concept>
-      <concept id="3364660638048049750" name="jetbrains.mps.lang.core.structure.PropertyAttribute" flags="ng" index="A9Btg">
-        <property id="1757699476691236117" name="name_DebugInfo" index="2qtEX9" />
-        <property id="1341860900487648621" name="propertyId" index="P4ACc" />
-      </concept>
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
-    </language>
-    <language id="394e3857-3256-4e8b-9601-5abe7ad354d9" name="testOverridingType">
-      <concept id="1870027727456337728" name="testOverridingType.structure.ErrorType" flags="ig" index="1QQtcf" />
-      <concept id="6572489169071322609" name="testOverridingType.structure.OverridingPrimIntType" flags="ig" index="3ZFLBy" />
-      <concept id="6572489169071322628" name="testOverridingType.structure.OverridingPrimFloatType" flags="ig" index="3ZFLCn" />
     </language>
   </registry>
   <node concept="1YbPZF" id="5GQb1e$AjRw">
@@ -128,26 +118,41 @@
     <node concept="3clFbS" id="5GQb1e$AjRx" role="18ibNy">
       <node concept="1Z5TYs" id="5GQb1e$Arxq" role="3cqZAp">
         <node concept="mw_s8" id="5GQb1e$Ary9" role="1ZfhKB">
-          <node concept="2c44tf" id="5GQb1e$Ary5" role="mwGJk">
-            <node concept="3ZFLBy" id="5GQb1e$Ar_Y" role="2c44tc">
-              <node concept="3qnkJF" id="5GQb1e$ArAl" role="lGtFl">
-                <node concept="3qnpJ0" id="5GQb1e$ArB3" role="3qnpJ3">
-                  <node concept="2EMmih" id="5GQb1e$ArB6" role="lGtFl">
-                    <property role="P4ACc" value="ceab5195-25ea-4f22-9b92-103b95ca8c0c/1169194658468/1169194664001" />
-                    <property role="2qtEX9" value="name" />
-                    <property role="3hQQBS" value="PresenceCondition" />
-                    <property role="3qcH_f" value="true" />
-                    <node concept="2OqwBi" id="5GQb1e$ArDv" role="2c44t1">
-                      <node concept="1YBJjd" id="5GQb1e$ArBg" role="2Oq$k0">
-                        <ref role="1YBMHb" node="5GQb1e$AjRz" resolve="overridingPrimNumConstant" />
+          <node concept="2pJPEk" id="4g8mUCG2D6$" role="mwGJk">
+            <node concept="2pJPED" id="4g8mUCG2D6q" role="2pJPEn">
+              <ref role="2pJxaS" to="mdms:5GQb1e$AjnL" resolve="OverridingPrimIntType" />
+              <node concept="2pIpSj" id="4g8mUCG2D6y" role="2pJxcM">
+                <ref role="2pIpSl" to="tpck:4uZwTti3__2" resolve="smodelAttribute" />
+                <node concept="36be1Y" id="4g8mUCG2D6z" role="28nt2d">
+                  <node concept="2pJPED" id="4g8mUCG2D6r" role="36be1Z">
+                    <ref role="2pJxaS" to="tp5x:5zzawu2JA7G" resolve="SubstituteAnnotation" />
+                    <node concept="2pIpSj" id="4g8mUCG2D6v" role="2pJxcM">
+                      <ref role="2pIpSl" to="tp5x:5zzawu2JF74" resolve="condition" />
+                      <node concept="2pJPED" id="4g8mUCG2D6s" role="28nt2d">
+                        <ref role="2pJxaS" to="tp5x:5zzawu2JF77" resolve="PresenceCondition" />
+                        <node concept="2pJxcG" id="4g8mUCG2D6t" role="2pJxcM">
+                          <ref role="2pJxcJ" to="tpck:h0TrG11" />
+                          <node concept="WxPPo" id="4g8mUCG2D6u" role="28ntcv">
+                            <node concept="2OqwBi" id="5GQb1e$ArDv" role="WxPPp">
+                              <node concept="1YBJjd" id="5GQb1e$ArBg" role="2Oq$k0">
+                                <ref role="1YBMHb" node="5GQb1e$AjRz" resolve="overridingPrimNumConstant" />
+                              </node>
+                              <node concept="3TrcHB" id="5GQb1e$ArSB" role="2OqNvi">
+                                <ref role="3TsBF5" to="tp5x:1hDKT6wA_VK" resolve="isFloat" />
+                              </node>
+                            </node>
+                          </node>
+                        </node>
                       </node>
-                      <node concept="3TrcHB" id="5GQb1e$ArSB" role="2OqNvi">
-                        <ref role="3TsBF5" to="tp5x:1hDKT6wA_VK" resolve="isFloat" />
+                    </node>
+                    <node concept="2pIpSj" id="4g8mUCG2D6x" role="2pJxcM">
+                      <ref role="2pIpSl" to="tp5x:5zzawu2JF6U" resolve="substitute" />
+                      <node concept="2pJPED" id="4g8mUCG2D6w" role="28nt2d">
+                        <ref role="2pJxaS" to="mdms:5GQb1e$Ajo4" resolve="OverridingPrimFloatType" />
                       </node>
                     </node>
                   </node>
                 </node>
-                <node concept="3ZFLCn" id="5GQb1e$ArTn" role="3qnpIX" />
               </node>
             </node>
           </node>
@@ -275,8 +280,10 @@
           <node concept="3clFbS" id="1BNF4XJaBRQ" role="9aQI4">
             <node concept="1Z5TYs" id="1BNF4XJaBWr" role="3cqZAp">
               <node concept="mw_s8" id="1BNF4XJaCUW" role="1ZfhKB">
-                <node concept="2c44tf" id="1BNF4XJaCUS" role="mwGJk">
-                  <node concept="1QQtcf" id="1BNF4XJaDEB" role="2c44tc" />
+                <node concept="2pJPEk" id="4g8mUCG2D8r" role="mwGJk">
+                  <node concept="2pJPED" id="4g8mUCG2D8q" role="2pJPEn">
+                    <ref role="2pJxaS" to="mdms:1BNF4XJaBX0" resolve="ErrorType" />
+                  </node>
                 </node>
               </node>
               <node concept="mw_s8" id="1BNF4XJaBWu" role="1ZfhK$">

@@ -96,9 +96,7 @@
       </concept>
     </language>
     <language id="0cf935df-4699-4e9c-a132-fa109541cba3" name="jetbrains.mps.build.mps">
-      <concept id="6503355885715333289" name="jetbrains.mps.build.mps.structure.BuildMpsAspect" flags="ng" index="2igEWh">
-        <property id="6503355885715353788" name="bootstrap" index="2igJW4" />
-      </concept>
+      <concept id="6503355885715333289" name="jetbrains.mps.build.mps.structure.BuildMpsAspect" flags="ng" index="2igEWh" />
       <concept id="1500819558095907805" name="jetbrains.mps.build.mps.structure.BuildMps_Group" flags="ng" index="2G$12M">
         <child id="1500819558095907806" name="modules" index="2G$12L" />
       </concept>
@@ -1522,9 +1520,7 @@
         </node>
       </node>
     </node>
-    <node concept="2igEWh" id="2j4NQWLGvQ0" role="1hWBAP">
-      <property role="2igJW4" value="true" />
-    </node>
+    <node concept="2igEWh" id="2j4NQWLGvQ0" role="1hWBAP" />
     <node concept="22LTRH" id="2j4NQWLGvQ1" role="1hWBAP">
       <property role="TrG5h" value="mpsTestModules" />
       <node concept="22LTRF" id="2j4NQWLGvPD" role="22LTRK">

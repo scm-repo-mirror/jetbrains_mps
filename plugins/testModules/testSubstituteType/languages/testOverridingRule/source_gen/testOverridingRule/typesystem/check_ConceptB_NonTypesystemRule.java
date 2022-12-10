@@ -7,14 +7,16 @@ import jetbrains.mps.lang.typesystem.runtime.NonTypesystemRule_Runtime;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
-import jetbrains.mps.lang.pattern.GeneratedMatchingPattern;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.PropertyMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.builder.SNodeBuilder;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.lang.pattern.AbstractGeneratedPattern;
+import jetbrains.mps.lang.pattern.NodeMatcherBuilder;
+import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_ConceptB_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -27,18 +29,11 @@ public class check_ConceptB_NonTypesystemRule extends AbstractNonTypesystemRule_
     return false;
   }
   public void applyRule(final SNode conceptB, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    {
-      SNode matchedNode_umd1d4_a0 = conceptB;
+    SNode nodeToMatch = conceptB;
+    if (new Pattern_pcg0eq_a0a0a2().match(nodeToMatch)) {
       {
-        boolean matches_umd1d4_a0a = false;
-        GeneratedMatchingPattern matchingPattern_umd1d4_a0a = new Pattern_pcg0eq_a0b0b0a0c(_quotation_createNode_pcg0eq_a0a0b0b0a0c());
-        matches_umd1d4_a0a = matchingPattern_umd1d4_a0a.match(matchedNode_umd1d4_a0);
-        if (matches_umd1d4_a0a) {
-          {
-            final MessageTarget errorTarget = new PropertyMessageTarget(PROPS.conceptBProp$6cDO);
-            IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(matchedNode_umd1d4_a0, "error from ConceptB", "r:05c5940c-484d-4321-945d-0e467fc18ae8(testOverridingRule.typesystem)", "8837437332634520441", null, errorTarget);
-          }
-        }
+        final MessageTarget errorTarget = new PropertyMessageTarget(PROPS.conceptBProp$6cDO);
+        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(conceptB, "error from ConceptB", "r:05c5940c-484d-4321-945d-0e467fc18ae8(testOverridingRule.typesystem)", "8837437332634520441", null, errorTarget);
       }
     }
   }
@@ -51,17 +46,23 @@ public class check_ConceptB_NonTypesystemRule extends AbstractNonTypesystemRule_
   public boolean overrides() {
     return false;
   }
-  private static SNode _quotation_createNode_pcg0eq_a0a0b0b0a0c() {
-    SNode quotedNode_1 = null;
-    SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x38be1c36cdf64e3cL, 0xb9db14f88a11fa03L, "testOverridingRule"), 0x7aa4e26e6874caa4L, "ConceptB"));
-    quotedNode_1 = nb.getResult();
-    nb.setProperty(MetaAdapterFactory.getProperty(0x38be1c36cdf64e3cL, 0xb9db14f88a11fa03L, 0x7aa4e26e6874ca31L, 0x7aa4e26e6874ca74L, "conceptAProp"), "v");
-    nb.setProperty(MetaAdapterFactory.getProperty(0x38be1c36cdf64e3cL, 0xb9db14f88a11fa03L, 0x7aa4e26e6874caa4L, 0x7aa4e26e6874caa5L, "conceptBProp"), "applicableValueB");
-    return quotedNode_1;
+  private static class Pattern_pcg0eq_a0a0a2 extends AbstractGeneratedPattern {
+    public Pattern_pcg0eq_a0a0a2() {
+      NodeMatcherBuilder n0 = new NodeMatcherBuilder().init(CONCEPTS.ConceptB$eR);
+      n0.setPropertyVariable(PROPS.conceptAProp$3daD);
+      n0.setProperty(PROPS.conceptBProp$6cDO, "applicableValueB");
+      setMatcher(n0.getMatcher());
+    }
+    @Nullable
+    public static String getAprop(SNode rootNode) {
+      SNode container = SNodeOperations.as(rootNode, CONCEPTS.ConceptB$eR);
+      return container.getProperty(PROPS.conceptAProp$3daD);
+    }
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty conceptBProp$6cDO = MetaAdapterFactory.getProperty(0x38be1c36cdf64e3cL, 0xb9db14f88a11fa03L, 0x7aa4e26e6874caa4L, 0x7aa4e26e6874caa5L, "conceptBProp");
+    /*package*/ static final SProperty conceptAProp$3daD = MetaAdapterFactory.getProperty(0x38be1c36cdf64e3cL, 0xb9db14f88a11fa03L, 0x7aa4e26e6874ca31L, 0x7aa4e26e6874ca74L, "conceptAProp");
   }
 
   private static final class CONCEPTS {

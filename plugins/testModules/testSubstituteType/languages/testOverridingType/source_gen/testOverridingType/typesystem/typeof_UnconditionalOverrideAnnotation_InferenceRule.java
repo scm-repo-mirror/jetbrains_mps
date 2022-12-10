@@ -13,8 +13,8 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_UnconditionalOverrideAnnotation_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -35,7 +35,7 @@ public class typeof_UnconditionalOverrideAnnotation_InferenceRule extends Abstra
       {
         SNode _nodeToCheck_1029348928467 = SNodeOperations.getParent(overrideAnnotation);
         EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:d8c6e16f-e698-4fc4-9c7f-4a279bcfaaf0(testOverridingType.typesystem)", "1870027727456337691", 0, null);
-        typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:d8c6e16f-e698-4fc4-9c7f-4a279bcfaaf0(testOverridingType.typesystem)", "1870027727456337596", true), (SNode) _quotation_createNode_ldhnbc_a1a0c0a0a0a2(), _info_12389875345);
+        typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:d8c6e16f-e698-4fc4-9c7f-4a279bcfaaf0(testOverridingType.typesystem)", "1870027727456337596", true), (SNode) createErrorType_ldhnbc_a1a0c0a0a0a2(), _info_12389875345);
       }
     }
   }
@@ -48,11 +48,9 @@ public class typeof_UnconditionalOverrideAnnotation_InferenceRule extends Abstra
   public boolean supersedesAttributed(final SNode overrideAnnotation, IsApplicableStatus status) {
     return true;
   }
-  private static SNode _quotation_createNode_ldhnbc_a1a0c0a0a0a2() {
-    SNode quotedNode_1 = null;
-    SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x394e385732564e8bL, 0x96015abe7ad354d9L, "testOverridingType"), 0x19f3ac4f6f2a7f40L, "ErrorType"));
-    quotedNode_1 = nb.getResult();
-    return quotedNode_1;
+  private static SNode createErrorType_ldhnbc_a1a0c0a0a0a2() {
+    SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.ErrorType$x$);
+    return n0.getResult();
   }
 
   private static final class LINKS {
@@ -62,5 +60,6 @@ public class typeof_UnconditionalOverrideAnnotation_InferenceRule extends Abstra
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept UnconditionalOverrideAnnotation$2L = MetaAdapterFactory.getConcept(0x394e385732564e8bL, 0x96015abe7ad354d9L, 0x19f3ac4f6f2a050aL, "testOverridingType.structure.UnconditionalOverrideAnnotation");
+    /*package*/ static final SConcept ErrorType$x$ = MetaAdapterFactory.getConcept(0x394e385732564e8bL, 0x96015abe7ad354d9L, 0x19f3ac4f6f2a7f40L, "testOverridingType.structure.ErrorType");
   }
 }
