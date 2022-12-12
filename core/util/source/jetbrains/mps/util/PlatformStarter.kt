@@ -42,6 +42,8 @@ class PlatformStarter {
                     // TODO i'm quite unsure what this CMD_NAME purpose is, if headless is its only purpose we can perhaps remove it as the setFlags above does that already
                     startApplication(listOf<String>(CMD_NAME), appStarter, this@runBlocking, Thread.currentThread())
                 }
+
+                awaitCancellation()
             }
             /*
             StartupUtil.start(MAIN_CLASS.getName(),
