@@ -6,6 +6,9 @@ import jetbrains.mps.annotations.GeneratedClass;
 import javax.swing.event.TreeExpansionListener;
 import javax.swing.JTree;
 import javax.swing.event.TreeExpansionEvent;
+import javax.swing.tree.TreeModel;
+import com.intellij.ui.tree.AsyncTreeModel;
+import javax.swing.tree.TreePath;
 import javax.swing.tree.DefaultTreeModel;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.ide.icons.GlobalIconManager;
@@ -45,7 +48,12 @@ public abstract class ModelTreeBuilder implements TreeExpansionListener {
   }
   protected abstract void initTreeNode(ModelTreeNode node);
   protected void notifyNodeStructureChanged(ModelTreeNode modelTreeNode) {
-    ((DefaultTreeModel) myTree.getModel()).nodeStructureChanged(modelTreeNode);
+    TreeModel m = myTree.getModel();
+    if (m instanceof AsyncTreeModel) {
+      ((AsyncTreeModel) m).treeStructureChanged(new TreePath(modelTreeNode.getPath()));
+    } else {
+      ((DefaultTreeModel) m).nodeStructureChanged(modelTreeNode);
+    }
   }
   public static ModelTreeNode createSModelTreeNode(SModel descriptor) {
     String label = descriptor.getName().getValue();

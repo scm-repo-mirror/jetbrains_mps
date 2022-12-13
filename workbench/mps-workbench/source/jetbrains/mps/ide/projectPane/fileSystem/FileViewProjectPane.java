@@ -83,6 +83,7 @@ import javax.swing.JComponent;
 import javax.swing.JScrollPane;
 import javax.swing.KeyStroke;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 import java.awt.event.ActionEvent;
@@ -350,8 +351,7 @@ public class FileViewProjectPane extends AbstractProjectViewPane implements Data
     if (tree == null) {
       return null;
     }
-    DefaultTreeModel treeModel = tree.getModel();
-    MPSTreeNode rootTreeNode = (MPSTreeNode) treeModel.getRoot();
+    MPSTreeNode rootTreeNode = (MPSTreeNode) tree.getModel().getRoot();
     return getNode(rootTreeNode, file);
   }
 

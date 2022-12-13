@@ -21,9 +21,11 @@ import com.intellij.openapi.actionSystem.ActionGroup;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.ActionPlaces;
 import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.util.Disposer;
 import com.intellij.openapi.wm.IdeFocusManager;
 import com.intellij.ui.DoubleClickListener;
 import com.intellij.ui.TreeUIHelper;
+import com.intellij.ui.tree.AsyncTreeModel;
 import com.intellij.util.ui.tree.WideSelectionTreeUI;
 import com.intellij.util.ui.update.MergingUpdateQueue;
 import com.intellij.util.ui.update.Update;
@@ -32,6 +34,7 @@ import jetbrains.mps.ide.ThreadUtils;
 import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.concurrency.Promise;
 
 import javax.swing.AbstractAction;
 import javax.swing.JPopupMenu;
@@ -43,6 +46,9 @@ import javax.swing.event.TreeModelEvent;
 import javax.swing.event.TreeModelListener;
 import javax.swing.event.TreeWillExpandListener;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.ExpandVetoException;
+import javax.swing.tree.MutableTreeNode;
+import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 import java.awt.Graphics;
@@ -58,6 +64,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeoutException;
 
 public abstract class MPSTree extends DnDAwareTree implements Disposable {
   public static final String PATH = "path";
@@ -65,6 +73,7 @@ public abstract class MPSTree extends DnDAwareTree implements Disposable {
   protected static final Logger LOG = Logger.getLogger(MPSTree.class);
 
   public static final String TREE_PATH_SEPARATOR = "/";
+  private final DefaultTreeModel myDefaultTreeModel;
 
   private int myTooltipManagerRecentInitialDelay;
   private boolean myAutoExpandEnabled = true;
@@ -81,10 +90,13 @@ public abstract class MPSTree extends DnDAwareTree implements Disposable {
 
   private boolean myDisposed = false;
 
-  protected MPSTree() {
+  private MPSTree(DefaultTreeModel defaultTreeModel, Disposable disposable) {
     // TreeModel instance shall be the same during lifetime of the MPSTree instance
     // otherwise TreeModelListener instances attached to the model get lost
-    super(new DefaultTreeModel(null));
+//    super(new DefaultTreeModel(null));
+    super(new AsyncTreeModel(defaultTreeModel, disposable));
+    Disposer.register(this, disposable);
+    myDefaultTreeModel = defaultTreeModel;
 
     new MPSTreeSpeedSearch(this);
 
@@ -158,6 +170,15 @@ public abstract class MPSTree extends DnDAwareTree implements Disposable {
     clear();
   }
 
+  protected MPSTree() {
+    this(new DefaultTreeModel(null), new Disposable() {
+      @Override
+      public void dispose() {
+        //Adapter to allow this MPSTree to be a disposable parent to the AsyncModel, which demands a Disposable instance to be passed in the constructor
+      }
+    });
+  }
+
   /**
    * Initialization sequence common for each node initialized in the tree.
    * Shall invoke {@link MPSTreeNode#doInit()} to perform actual initialization, does this through appropriate runnable
@@ -193,7 +214,7 @@ public abstract class MPSTree extends DnDAwareTree implements Disposable {
     if (!myLoadingDisabled && node.isLoadingEnabled()) {
       progressNode = new TextTreeNode("loading...");
       node.add(progressNode);
-      getModel().nodeStructureChanged(node);
+      getAsyncTreeModel().treeStructureChanged(new TreePath(node.getPath()));
       expandPath(new TreePath(progressNode.getPath()));
 
       Graphics g = getGraphics();
@@ -210,7 +231,7 @@ public abstract class MPSTree extends DnDAwareTree implements Disposable {
     }
 
     // initialization of a node is supposed to update its children, notify structure had likely changed
-    getModel().nodeStructureChanged(node);
+    getAsyncTreeModel().treeStructureChanged(new TreePath(node.getPath()));
   }
 
   public void addTreeNodeListener(MPSTreeNodeListener listener) {
@@ -508,6 +529,7 @@ public abstract class MPSTree extends DnDAwareTree implements Disposable {
   }
 
   public void selectNode(TreeNode node) {
+    final TreeNode originalNode = node;
     List<TreeNode> nodes = new ArrayList<>();
     while (node != null) {
       nodes.add(0, node);
@@ -518,7 +540,16 @@ public abstract class MPSTree extends DnDAwareTree implements Disposable {
     }
     TreePath path = new TreePath(nodes.toArray());
     setSelectionPath(path);
-    scrollRowToVisible(getRowForPath(path));
+    scrollPathToVisible(path);
+  }
+
+  @Override
+  public void expandPath(TreePath path) {
+    // Only expand if not a leaf!
+    TreeModel model = getDFTreeModel();
+    if(path != null && model != null && !model.isLeaf(path.getLastPathComponent())) {
+      setExpandedState(path, true);
+    }
   }
 
   /**
@@ -603,13 +634,21 @@ public abstract class MPSTree extends DnDAwareTree implements Disposable {
     setRootNode(new TextTreeNode("Empty"));
   }
 
+  public AsyncTreeModel getAsyncTreeModel() {
+    return (AsyncTreeModel) super.getModel();
+  }
+
+  public DefaultTreeModel getDFTreeModel() {
+    return myDefaultTreeModel;
+  }
+
   @Override
-  public DefaultTreeModel getModel() {
+  public TreeModel getModel() {
     // we explicitly set DefaultTreeModel during construction of MPSTree,
     // this method serves the purpose of convenient cast and as a reminder not to change
     // TreeModel during lifecycle of MPSTree as it used to be. Same TreeModel instance is important
     // to keep set of listeners attached to the tree model.
-    return (DefaultTreeModel) super.getModel();
+    return super.getModel();
   }
 
   private void setRootNode(@Nullable MPSTreeNode root) {
@@ -624,7 +663,7 @@ public abstract class MPSTree extends DnDAwareTree implements Disposable {
       root.addThisAndChildren();
     }
 
-    getModel().setRoot(root);
+    getDFTreeModel().setRoot(root);
   }
 
   private String pathToString(TreePath path) {

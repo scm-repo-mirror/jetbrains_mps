@@ -15,6 +15,8 @@
  */
 package jetbrains.mps.ide.ui.tree.smodel;
 
+import com.intellij.ui.tree.AsyncTreeModel;
+import com.intellij.ui.tree.TreeVisitor;
 import jetbrains.mps.ide.icons.GlobalIconManager;
 import jetbrains.mps.ide.ui.tree.MPSTreeChildOrder;
 import jetbrains.mps.ide.ui.tree.MPSTreeNode;
@@ -34,6 +36,7 @@ import org.jetbrains.mps.util.Condition;
 
 import javax.swing.Icon;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreePath;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -160,7 +163,7 @@ public class SModelTreeNode extends MPSTreeNode implements TreeElement {
       myRootGroups.add(index, groupTreeNode);
 
       if (myInitialized || myInitializing) {
-        DefaultTreeModel treeModel = getTree().getModel();
+        DefaultTreeModel treeModel = getTree().getDFTreeModel();
         treeModel.insertNodeInto(groupTreeNode, this, index + myChildModelTreeNodes.size());
       }
     } else {
@@ -182,7 +185,7 @@ public class SModelTreeNode extends MPSTreeNode implements TreeElement {
       }
 
       if (myInitialized || myInitializing) {
-        DefaultTreeModel treeModel = getTree().getModel();
+        DefaultTreeModel treeModel = getTree().getDFTreeModel();
         treeModel.insertNodeInto(groupTreeNode, parent, index);
       } else {
         parent.insert(groupTreeNode, index);
@@ -191,7 +194,7 @@ public class SModelTreeNode extends MPSTreeNode implements TreeElement {
   }
 
   public void groupBecameEmpty(SNodeGroupTreeNode node) {
-    DefaultTreeModel treeModel = getTree().getModel();
+    DefaultTreeModel treeModel = getTree().getDFTreeModel();
 
     myRootGroups.remove(node);
 
@@ -320,8 +323,7 @@ public class SModelTreeNode extends MPSTreeNode implements TreeElement {
         }
       }
 
-      final DefaultTreeModel treeModel = getTree().getModel();
-      treeModel.nodeStructureChanged(this);
+      getTree().getAsyncTreeModel().treeStructureChanged(new TreePath(this.getPath()));
     } finally {
       myInitialized = true;
       myInitializing = false;
@@ -336,7 +338,7 @@ public class SModelTreeNode extends MPSTreeNode implements TreeElement {
   public void insertRoots(Set<SNode> addedRoots) {
     if (addedRoots.isEmpty()) return;
 
-    DefaultTreeModel treeModel = getTree().getModel();
+    DefaultTreeModel treeModel = getTree().getDFTreeModel();
 
     final ArrayList<SNode> allRoots = new ArrayList<>();
     for (SNode root1 : getModel().getRootNodes()) {
