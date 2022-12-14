@@ -923,6 +923,9 @@
         <node concept="3uibUv" id="5q426iHsDld" role="1tU5fm">
           <ref role="3uigEE" node="5q426iHsD7S" resolve="AccessorKind" />
         </node>
+        <node concept="2AHcQZ" id="7ZA3QJo7SJ4" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
       </node>
     </node>
     <node concept="2tJIrI" id="LTtTkxKjRt" role="jymVt" />
@@ -955,6 +958,9 @@
         <property role="TrG5h" value="kind" />
         <node concept="3uibUv" id="LTtTkxKgk5" role="1tU5fm">
           <ref role="3uigEE" node="5q426iHsD7S" resolve="AccessorKind" />
+        </node>
+        <node concept="2AHcQZ" id="7ZA3QJo7TDl" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
         </node>
       </node>
     </node>

@@ -801,36 +801,20 @@
                 <node concept="3clFbS" id="3dMaGAcho51" role="3clFbx">
                   <node concept="3clFbF" id="3dMaGAchpiP" role="3cqZAp">
                     <node concept="37vLTI" id="3dMaGAchpKL" role="3clFbG">
-                      <node concept="2YIFZM" id="3dMaGAchqO5" role="37vLTx">
-                        <ref role="37wK5l" to="sjya:3HHsmlLE5Rg" resolve="of" />
-                        <ref role="1Pybhc" to="sjya:6Ijh6DJSIpY" resolve="CompositeSignatureScope" />
-                        <node concept="2OqwBi" id="3dMaGAchseu" role="37wK5m">
-                          <node concept="37vLTw" id="3dMaGAchrA9" role="2Oq$k0">
-                            <ref role="3cqZAo" node="3lDDPlne4uZ" resolve="type" />
-                          </node>
-                          <node concept="2qgKlT" id="3dMaGAchsPZ" role="2OqNvi">
-                            <ref role="37wK5l" to="hez:1ODRHGtufGw" resolve="getStaticScope" />
-                            <node concept="37vLTw" id="3dMaGAchtea" role="37wK5m">
-                              <ref role="3cqZAo" node="3dMaGAchj_B" resolve="filter" />
-                            </node>
-                            <node concept="2rP1CM" id="43crDgAEiwf" role="37wK5m" />
-                          </node>
-                        </node>
-                        <node concept="2OqwBi" id="3dMaGAchu5W" role="37wK5m">
-                          <node concept="37vLTw" id="3dMaGAchtJ0" role="2Oq$k0">
-                            <ref role="3cqZAo" node="3lDDPlne4uZ" resolve="type" />
-                          </node>
-                          <node concept="2qgKlT" id="3dMaGAchurK" role="2OqNvi">
-                            <ref role="37wK5l" to="hez:1ODRHGtugRP" resolve="getCompanionInstanceScope" />
-                            <node concept="37vLTw" id="3dMaGAchuMh" role="37wK5m">
-                              <ref role="3cqZAo" node="3dMaGAchj_B" resolve="filter" />
-                            </node>
-                            <node concept="2rP1CM" id="43crDgAEjts" role="37wK5m" />
-                          </node>
-                        </node>
-                      </node>
                       <node concept="37vLTw" id="3dMaGAchpiN" role="37vLTJ">
                         <ref role="3cqZAo" node="3dMaGAchmQa" resolve="typeScope" />
+                      </node>
+                      <node concept="2OqwBi" id="7ZA3QJnM59Q" role="37vLTx">
+                        <node concept="37vLTw" id="7ZA3QJnM59R" role="2Oq$k0">
+                          <ref role="3cqZAo" node="3lDDPlne4uZ" resolve="type" />
+                        </node>
+                        <node concept="2qgKlT" id="7ZA3QJnM59S" role="2OqNvi">
+                          <ref role="37wK5l" to="hez:7ZA3QJnL$CF" resolve="getFullStaticScope" />
+                          <node concept="37vLTw" id="7ZA3QJnM59T" role="37wK5m">
+                            <ref role="3cqZAo" node="3dMaGAchj_B" resolve="filter" />
+                          </node>
+                          <node concept="2rP1CM" id="7ZA3QJnM5uk" role="37wK5m" />
+                        </node>
                       </node>
                     </node>
                   </node>
@@ -1074,36 +1058,20 @@
                 <node concept="3clFbS" id="3dMaGAchFe2" role="3clFbx">
                   <node concept="3clFbF" id="3dMaGAchFe3" role="3cqZAp">
                     <node concept="37vLTI" id="3dMaGAchFe4" role="3clFbG">
-                      <node concept="2YIFZM" id="3dMaGAchFe5" role="37vLTx">
-                        <ref role="1Pybhc" to="sjya:6Ijh6DJSIpY" resolve="CompositeSignatureScope" />
-                        <ref role="37wK5l" to="sjya:3HHsmlLE5Rg" resolve="of" />
-                        <node concept="2OqwBi" id="3dMaGAchFe6" role="37wK5m">
-                          <node concept="37vLTw" id="3dMaGAchFe7" role="2Oq$k0">
-                            <ref role="3cqZAo" node="3dMaGAchFdw" resolve="type" />
-                          </node>
-                          <node concept="2qgKlT" id="3dMaGAchFe8" role="2OqNvi">
-                            <ref role="37wK5l" to="hez:1ODRHGtufGw" resolve="getStaticScope" />
-                            <node concept="37vLTw" id="3dMaGAchFe9" role="37wK5m">
-                              <ref role="3cqZAo" node="3dMaGAchFdT" resolve="filter" />
-                            </node>
-                            <node concept="2rP1CM" id="43crDgAEkGc" role="37wK5m" />
-                          </node>
-                        </node>
-                        <node concept="2OqwBi" id="3dMaGAchFea" role="37wK5m">
-                          <node concept="37vLTw" id="3dMaGAchFeb" role="2Oq$k0">
-                            <ref role="3cqZAo" node="3dMaGAchFdw" resolve="type" />
-                          </node>
-                          <node concept="2qgKlT" id="3dMaGAchFec" role="2OqNvi">
-                            <ref role="37wK5l" to="hez:1ODRHGtugRP" resolve="getCompanionInstanceScope" />
-                            <node concept="37vLTw" id="3dMaGAchFed" role="37wK5m">
-                              <ref role="3cqZAo" node="3dMaGAchFdT" resolve="filter" />
-                            </node>
-                            <node concept="2rP1CM" id="43crDgAEloq" role="37wK5m" />
-                          </node>
-                        </node>
-                      </node>
                       <node concept="37vLTw" id="3dMaGAchFee" role="37vLTJ">
                         <ref role="3cqZAo" node="3dMaGAchFdZ" resolve="typeScope" />
+                      </node>
+                      <node concept="2OqwBi" id="7ZA3QJnM5ZN" role="37vLTx">
+                        <node concept="37vLTw" id="7ZA3QJnM5ZO" role="2Oq$k0">
+                          <ref role="3cqZAo" node="3dMaGAchFdw" resolve="type" />
+                        </node>
+                        <node concept="2qgKlT" id="7ZA3QJnM5ZP" role="2OqNvi">
+                          <ref role="37wK5l" to="hez:7ZA3QJnL$CF" resolve="getFullStaticScope" />
+                          <node concept="37vLTw" id="7ZA3QJnM5ZQ" role="37wK5m">
+                            <ref role="3cqZAo" node="3dMaGAchFdT" resolve="filter" />
+                          </node>
+                          <node concept="2rP1CM" id="7ZA3QJnM6N4" role="37wK5m" />
+                        </node>
                       </node>
                     </node>
                   </node>
@@ -1727,7 +1695,7 @@
                     <ref role="3cqZAo" node="bbFPPu54mP" resolve="type" />
                   </node>
                   <node concept="2qgKlT" id="3dMaGAcgJCg" role="2OqNvi">
-                    <ref role="37wK5l" to="hez:1ODRHGtufGw" resolve="getStaticScope" />
+                    <ref role="37wK5l" to="hez:7ZA3QJnL$CF" resolve="getFullStaticScope" />
                     <node concept="37vLTw" id="3dMaGAcgK9J" role="37wK5m">
                       <ref role="3cqZAo" node="3dMaGAcgxBc" resolve="filter" />
                     </node>
@@ -1882,36 +1850,20 @@
                 <node concept="3clFbS" id="1Uhah3hFzwF" role="3clFbx">
                   <node concept="3clFbF" id="1Uhah3hFzwG" role="3cqZAp">
                     <node concept="37vLTI" id="1Uhah3hFzwH" role="3clFbG">
-                      <node concept="2YIFZM" id="1Uhah3hFzwI" role="37vLTx">
-                        <ref role="1Pybhc" to="sjya:6Ijh6DJSIpY" resolve="CompositeSignatureScope" />
-                        <ref role="37wK5l" to="sjya:3HHsmlLE5Rg" resolve="of" />
-                        <node concept="2OqwBi" id="1Uhah3hFzwJ" role="37wK5m">
-                          <node concept="37vLTw" id="1Uhah3hFzwK" role="2Oq$k0">
-                            <ref role="3cqZAo" node="1Uhah3hFzw8" resolve="type" />
-                          </node>
-                          <node concept="2qgKlT" id="1Uhah3hFzwL" role="2OqNvi">
-                            <ref role="37wK5l" to="hez:1ODRHGtufGw" resolve="getStaticScope" />
-                            <node concept="37vLTw" id="1Uhah3hFzwM" role="37wK5m">
-                              <ref role="3cqZAo" node="1Uhah3hFzwx" resolve="filter" />
-                            </node>
-                            <node concept="2rP1CM" id="1Uhah3hFzwN" role="37wK5m" />
-                          </node>
-                        </node>
-                        <node concept="2OqwBi" id="1Uhah3hFzwO" role="37wK5m">
-                          <node concept="37vLTw" id="1Uhah3hFzwP" role="2Oq$k0">
-                            <ref role="3cqZAo" node="1Uhah3hFzw8" resolve="type" />
-                          </node>
-                          <node concept="2qgKlT" id="1Uhah3hFzwQ" role="2OqNvi">
-                            <ref role="37wK5l" to="hez:1ODRHGtugRP" resolve="getCompanionInstanceScope" />
-                            <node concept="37vLTw" id="1Uhah3hFzwR" role="37wK5m">
-                              <ref role="3cqZAo" node="1Uhah3hFzwx" resolve="filter" />
-                            </node>
-                            <node concept="2rP1CM" id="1Uhah3hFzwS" role="37wK5m" />
-                          </node>
-                        </node>
-                      </node>
                       <node concept="37vLTw" id="1Uhah3hFzwT" role="37vLTJ">
                         <ref role="3cqZAo" node="1Uhah3hFzwC" resolve="typeScope" />
+                      </node>
+                      <node concept="2OqwBi" id="7ZA3QJnM1BU" role="37vLTx">
+                        <node concept="37vLTw" id="7ZA3QJnM1BV" role="2Oq$k0">
+                          <ref role="3cqZAo" node="1Uhah3hFzw8" resolve="type" />
+                        </node>
+                        <node concept="2qgKlT" id="7ZA3QJnM1BW" role="2OqNvi">
+                          <ref role="37wK5l" to="hez:7ZA3QJnL$CF" resolve="getFullStaticScope" />
+                          <node concept="37vLTw" id="7ZA3QJnM1BX" role="37wK5m">
+                            <ref role="3cqZAo" node="1Uhah3hFzwx" resolve="filter" />
+                          </node>
+                          <node concept="2rP1CM" id="7ZA3QJnM3Xh" role="37wK5m" />
+                        </node>
                       </node>
                     </node>
                   </node>
