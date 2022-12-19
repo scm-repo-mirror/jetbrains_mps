@@ -153,6 +153,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     deps.aggregatedLanguage(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, "jetbrains.mps.lang.smodel");
     deps.aggregatedLanguage(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, "jetbrains.mps.lang.core");
     deps.aggregatedLanguage(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, "jetbrains.mps.lang.pattern");
+    deps.aggregatedLanguage(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, "jetbrains.mps.baseLanguage.classifiers");
   }
 
   @Override
@@ -1601,6 +1602,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.typesystem", "TypesystemQuickFix", 0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11b36163865L);
     b.class_(false, false, true);
     b.parent(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11a3afa8c0dL);
+    b.parent(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bc6b2af5L);
     b.origin("r:00000000-0000-4000-0000-011c895902b4(jetbrains.mps.lang.typesystem.structure)/1216383170661");
     b.version(3);
     b.aggregate("executeBlock", 0x11b361a1836L).target(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11b3617feddL).optional(false).ordered(true).multiple(false).origin("1216383424566").done();
@@ -1608,6 +1610,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.aggregate("setSelectionBlock", 0x335fe1d0b7494de7L).target(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x335fe1d0b7494a6dL).optional(true).ordered(true).multiple(false).origin("3701925705266318823").done();
     b.aggregate("quickFixArgument", 0x11b361ae27eL).target(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11b361afb76L).optional(true).ordered(true).multiple(true).origin("1216383476350").done();
     b.aggregate("quickFixField", 0x70489eee847aabdfL).target(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x70489eee8478e93eL).optional(true).ordered(true).multiple(true).origin("8090891477833133023").done();
+    b.aggregate("methodDeclaration", 0x118c255bfb5L).target(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bd6ee3c3L).optional(true).ordered(true).multiple(true).origin("1205851242421").done();
     b.alias("Quick Fix");
     return b.create();
   }

@@ -165,6 +165,7 @@
       <concept id="1630016958697057551" name="jetbrains.mps.lang.editor.structure.IMenuPartParameterized" flags="ng" index="2ZBHr6">
         <child id="1630016958697057552" name="parameterType" index="2ZBHrp" />
       </concept>
+      <concept id="1214406454886" name="jetbrains.mps.lang.editor.structure.TextBackgroundColorStyleClassItem" flags="ln" index="30gYXW" />
       <concept id="1233758997495" name="jetbrains.mps.lang.editor.structure.PunctuationLeftStyleClassItem" flags="ln" index="11L4FC" />
       <concept id="1233759184865" name="jetbrains.mps.lang.editor.structure.PunctuationRightStyleClassItem" flags="ln" index="11LMrY" />
       <concept id="3383245079137382180" name="jetbrains.mps.lang.editor.structure.StyleClass" flags="ig" index="14StLt" />
@@ -4344,6 +4345,22 @@
       <node concept="3F1sOY" id="hGQj3nU" role="3EZMnx">
         <ref role="1NtTu8" to="tpd4:hGQ6xwQ" resolve="executeBlock" />
       </node>
+      <node concept="3F0ifn" id="3AueY_N$Uve" role="3EZMnx" />
+      <node concept="3F0ifn" id="66ZZ2RilY8o" role="3EZMnx">
+        <property role="3F0ifm" value="additional methods" />
+        <node concept="VPM3Z" id="66ZZ2RilY8p" role="3F10Kt">
+          <property role="VOm3f" value="false" />
+        </node>
+        <node concept="30gYXW" id="66ZZ2RilY8q" role="3F10Kt">
+          <property role="Vb096" value="fLwANPp/orange" />
+        </node>
+      </node>
+      <node concept="3F0ifn" id="4ZYGtWRrRwZ" role="3EZMnx" />
+      <node concept="3F2HdR" id="66ZZ2RilY8t" role="3EZMnx">
+        <ref role="1NtTu8" to="tpd4:hz2lrYP" resolve="methodDeclaration" />
+        <node concept="2iRkQZ" id="66ZZ2RilY8u" role="2czzBx" />
+      </node>
+      <node concept="3F0ifn" id="3AueY_N$UvC" role="3EZMnx" />
       <node concept="2iRkQZ" id="i2ICyh1" role="2iSdaV" />
     </node>
   </node>
