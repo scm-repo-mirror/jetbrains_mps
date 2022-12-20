@@ -66,6 +66,10 @@
       <concept id="1068580320020" name="jetbrains.mps.baseLanguage.structure.IntegerConstant" flags="nn" index="3cmrfG">
         <property id="1068580320021" name="value" index="3cmrfH" />
       </concept>
+      <concept id="1068581242864" name="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" flags="nn" index="3cpWs8">
+        <child id="1068581242865" name="localVariableDeclaration" index="3cpWs9" />
+      </concept>
+      <concept id="1068581242863" name="jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration" flags="nr" index="3cpWsn" />
       <concept id="1068581517677" name="jetbrains.mps.baseLanguage.structure.VoidType" flags="in" index="3cqZAl" />
       <concept id="1107461130800" name="jetbrains.mps.baseLanguage.structure.Classifier" flags="ng" index="3pOWGL">
         <child id="5375687026011219971" name="member" index="jymVt" unordered="true" />
@@ -567,26 +571,32 @@
         <property role="TrG5h" value="doExecute" />
         <node concept="3Tm1VV" id="T8OkJRadXS" role="1B3o_S" />
         <node concept="3clFbS" id="T8OkJRadXT" role="3clF47">
-          <node concept="3clFbF" id="T8OkJRadXU" role="3cqZAp">
-            <node concept="2OqwBi" id="T8OkJRadXV" role="3clFbG">
-              <node concept="Xjq3P" id="T8OkJRadXW" role="2Oq$k0" />
-              <node concept="2OwXpG" id="T8OkJRadXX" role="2OqNvi">
-                <ref role="2Oxat5" node="T8OkJRadXO" resolve="field" />
-                <node concept="raruj" id="T8OkJRadXY" role="lGtFl" />
-                <node concept="1ZhdrF" id="T8OkJRadXZ" role="lGtFl">
-                  <property role="2qtEX8" value="fieldDeclaration" />
-                  <property role="P3scX" value="f3061a53-9226-4cc5-a443-f952ceaf5816/1197029447546/1197029500499" />
-                  <node concept="3$xsQk" id="T8OkJRadY0" role="3$ytzL">
-                    <node concept="3clFbS" id="T8OkJRadY1" role="2VODD2">
-                      <node concept="3clFbF" id="T8OkJRadY2" role="3cqZAp">
-                        <node concept="2OqwBi" id="T8OkJRadY3" role="3clFbG">
-                          <node concept="1iwH7S" id="T8OkJRadY4" role="2Oq$k0" />
-                          <node concept="1iwH70" id="T8OkJRadY5" role="2OqNvi">
-                            <ref role="1iwH77" node="T8OkJRa3UD" resolve="map_ClassifierField" />
-                            <node concept="2OqwBi" id="T8OkJRadY6" role="1iwH7V">
-                              <node concept="30H73N" id="T8OkJRadY7" role="2Oq$k0" />
-                              <node concept="3TrEf2" id="T8OkJRadY8" role="2OqNvi">
-                                <ref role="3Tt5mk" to="tp4f:hEBZ7lN" resolve="field" />
+          <node concept="3cpWs8" id="12vn9obfaIx" role="3cqZAp">
+            <node concept="3cpWsn" id="12vn9obfaIy" role="3cpWs9">
+              <property role="TrG5h" value="o" />
+              <node concept="3uibUv" id="12vn9obfaIz" role="1tU5fm">
+                <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
+              </node>
+              <node concept="2OqwBi" id="T8OkJRadXV" role="33vP2m">
+                <node concept="Xjq3P" id="T8OkJRadXW" role="2Oq$k0" />
+                <node concept="2OwXpG" id="T8OkJRadXX" role="2OqNvi">
+                  <ref role="2Oxat5" node="T8OkJRadXO" resolve="field" />
+                  <node concept="raruj" id="T8OkJRadXY" role="lGtFl" />
+                  <node concept="1ZhdrF" id="T8OkJRadXZ" role="lGtFl">
+                    <property role="2qtEX8" value="fieldDeclaration" />
+                    <property role="P3scX" value="f3061a53-9226-4cc5-a443-f952ceaf5816/1197029447546/1197029500499" />
+                    <node concept="3$xsQk" id="T8OkJRadY0" role="3$ytzL">
+                      <node concept="3clFbS" id="T8OkJRadY1" role="2VODD2">
+                        <node concept="3clFbF" id="T8OkJRadY2" role="3cqZAp">
+                          <node concept="2OqwBi" id="T8OkJRadY3" role="3clFbG">
+                            <node concept="1iwH7S" id="T8OkJRadY4" role="2Oq$k0" />
+                            <node concept="1iwH70" id="T8OkJRadY5" role="2OqNvi">
+                              <ref role="1iwH77" node="T8OkJRa3UD" resolve="map_ClassifierField" />
+                              <node concept="2OqwBi" id="T8OkJRadY6" role="1iwH7V">
+                                <node concept="30H73N" id="T8OkJRadY7" role="2Oq$k0" />
+                                <node concept="3TrEf2" id="T8OkJRadY8" role="2OqNvi">
+                                  <ref role="3Tt5mk" to="tp4f:hEBZ7lN" resolve="field" />
+                                </node>
                               </node>
                             </node>
                           </node>

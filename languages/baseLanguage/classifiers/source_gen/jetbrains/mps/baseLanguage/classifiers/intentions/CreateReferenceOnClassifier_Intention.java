@@ -70,6 +70,8 @@ public final class CreateReferenceOnClassifier_Intention extends AbstractIntenti
     }
 
 
+
+
     @Override
     public IntentionDescriptor getDescriptor() {
       return CreateReferenceOnClassifier_Intention.this;

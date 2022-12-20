@@ -182,11 +182,11 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c89590354(jetbrains.mps.lang.intentions.generator.baseLanguage.template.main@generator)/1214003319584">
     <file name="QueriesGenerated.java">
-      <node id="6620706402222880345" at="184,93,185,159" concept="5" />
+      <node id="6620706402222880345" at="184,93,185,149" concept="5" />
       <node id="6620706402222880342" at="729,79,730,64" concept="1" />
       <node id="6620706402222880342" at="775,16,776,70" concept="5" />
       <node id="6620706402222880343" at="184,0,187,0" concept="8" trace="referenceMacro_GetReferent_8_0#(Ljetbrains/mps/generator/template/ReferenceMacroContext;)Ljava/lang/Object;" />
-      <scope id="6620706402222880344" at="184,93,185,159" />
+      <scope id="6620706402222880344" at="184,93,185,149" />
       <scope id="6620706402222880342" at="775,16,776,70" />
       <scope id="6620706402222880343" at="184,0,187,0">
         <var name="_context" id="6620706402222880343" />
