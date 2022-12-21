@@ -885,6 +885,26 @@
                     <node concept="2pNUuL" id="oY$DTc6Q1L" role="2pNNFR">
                       <property role="2pNUuO" value="value" />
                       <node concept="2pMdtt" id="oY$DTc6Q1M" role="2pMdts">
+                        <property role="2pMdty" value="-Djava.system.class.loader=com.intellij.util.lang.PathClassLoader" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="2pNNFK" id="2lmZTm18$9_" role="3o6s8t">
+                    <property role="2pNNFO" value="arg" />
+                    <property role="qg3DV" value="true" />
+                    <node concept="2pNUuL" id="2lmZTm18$9A" role="2pNNFR">
+                      <property role="2pNUuO" value="value" />
+                      <node concept="2pMdtt" id="2lmZTm18$9B" role="2pMdts">
+                        <property role="2pMdty" value="-Djna.boot.library.path=${artifacts.mps}/lib/jna" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="2pNNFK" id="2lmZTm18$6E" role="3o6s8t">
+                    <property role="2pNNFO" value="arg" />
+                    <property role="qg3DV" value="true" />
+                    <node concept="2pNUuL" id="2lmZTm18$6F" role="2pNNFR">
+                      <property role="2pNUuO" value="value" />
+                      <node concept="2pMdtt" id="2lmZTm18$6G" role="2pMdts">
                         <property role="2pMdty" value="-ea" />
                       </node>
                     </node>
