@@ -44074,6 +44074,25 @@
             </node>
           </node>
         </node>
+        <node concept="1SiIV0" id="HwplGM9LE5" role="3bR37C">
+          <node concept="1BurEX" id="HwplGM9LE6" role="1SiIV1">
+            <node concept="398BVA" id="HwplGM9LDV" role="1BurEY">
+              <ref role="398BVh" node="ymnOULASEN" resolve="mps_home" />
+              <node concept="2Ry0Ak" id="HwplGM9LDW" role="iGT6I">
+                <property role="2Ry0Am" value="plugins" />
+                <node concept="2Ry0Ak" id="HwplGM9LDX" role="2Ry0An">
+                  <property role="2Ry0Am" value="mps-testing" />
+                  <node concept="2Ry0Ak" id="HwplGM9LDY" role="2Ry0An">
+                    <property role="2Ry0Am" value="lib" />
+                    <node concept="2Ry0Ak" id="HwplGM9LDZ" role="2Ry0An">
+                      <property role="2Ry0Am" value="junit-platform-reporting-1.9.1.jar" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
       </node>
     </node>
     <node concept="m$_wf" id="ymnOULATpW" role="3989C9">

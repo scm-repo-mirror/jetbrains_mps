@@ -59,6 +59,8 @@
     <import index="zi5z" ref="63b449db-0918-4a4a-a891-2c430ab133e4/java:org.junit.platform.commons(org.junit.junit5/)" />
     <import index="u8jp" ref="63b449db-0918-4a4a-a891-2c430ab133e4/java:org.junit.jupiter.migrationsupport.rules(org.junit.junit5/)" />
     <import index="tp6m" ref="r:00000000-0000-4000-0000-011c895903a2(jetbrains.mps.lang.test.runtime)" />
+    <import index="7c1v" ref="63b449db-0918-4a4a-a891-2c430ab133e4/java:org.junit.platform.reporting.legacy.xml(org.junit.junit5/)" />
+    <import index="eoo2" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.nio.file(JDK/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -671,6 +673,29 @@
               <node concept="2ShNRf" id="HwplGM7neK" role="37wK5m">
                 <node concept="1pGfFk" id="HwplGM7neL" role="2ShVmc">
                   <ref role="37wK5l" to="pzze:5gsHVKBei_z" resolve="JUnit5TestExecutionListener" />
+                </node>
+              </node>
+              <node concept="2ShNRf" id="HwplGM8DhX" role="37wK5m">
+                <node concept="1pGfFk" id="HwplGM9cMC" role="2ShVmc">
+                  <property role="373rjd" value="true" />
+                  <ref role="37wK5l" to="7c1v:~LegacyXmlReportGeneratingListener.&lt;init&gt;(java.nio.file.Path,java.io.PrintWriter)" resolve="LegacyXmlReportGeneratingListener" />
+                  <node concept="2YIFZM" id="HwplGM9ksU" role="37wK5m">
+                    <ref role="37wK5l" to="eoo2:~Path.of(java.lang.String,java.lang.String...)" resolve="of" />
+                    <ref role="1Pybhc" to="eoo2:~Path" resolve="Path" />
+                    <node concept="Xl_RD" id="HwplGM9lup" role="37wK5m">
+                      <property role="Xl_RC" value="." />
+                    </node>
+                  </node>
+                  <node concept="2ShNRf" id="HwplGM9w5G" role="37wK5m">
+                    <node concept="1pGfFk" id="HwplGM9_UI" role="2ShVmc">
+                      <property role="373rjd" value="true" />
+                      <ref role="37wK5l" to="guwi:~PrintWriter.&lt;init&gt;(java.io.OutputStream)" resolve="PrintWriter" />
+                      <node concept="10M0yZ" id="HwplGM9oCw" role="37wK5m">
+                        <ref role="1PxDUh" to="wyt6:~System" resolve="System" />
+                        <ref role="3cqZAo" to="wyt6:~System.out" resolve="out" />
+                      </node>
+                    </node>
+                  </node>
                 </node>
               </node>
               <node concept="37vLTw" id="HwplGM7neR" role="37wK5m">

@@ -3,6 +3,7 @@
   <models>
     <modelRoot contentPath="${mps_home}/plugins/mps-testing/lib" type="java_classes">
       <sourceRoot location="." />
+      <sourceRoot location="junit-platform-reporting-1.9.1.jar" />
     </modelRoot>
   </models>
   <facets>
@@ -21,6 +22,7 @@
     <stubModelEntry path="${mps_home}/plugins/mps-testing/lib/junit-platform-launcher-1.9.1.jar" />
     <stubModelEntry path="${mps_home}/plugins/mps-testing/lib/junit-vintage-engine-5.9.1.jar" />
     <stubModelEntry path="${mps_home}/plugins/mps-testing/lib/opentest4j-1.2.0.jar" />
+    <stubModelEntry path="${mps_home}/plugins/mps-testing/lib/junit-platform-reporting-1.9.1.jar" />
   </stubModelEntries>
   <sourcePath />
   <dependencies>

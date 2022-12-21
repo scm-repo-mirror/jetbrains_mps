@@ -13,6 +13,9 @@ import org.junit.platform.launcher.core.LauncherConfig;
 import org.junit.platform.launcher.Launcher;
 import org.junit.platform.launcher.core.LauncherFactory;
 import jetbrains.mps.lang.test.junit5.tcutil.JUnit5TestExecutionListener;
+import org.junit.platform.reporting.legacy.xml.LegacyXmlReportGeneratingListener;
+import java.nio.file.Path;
+import java.io.PrintWriter;
 import org.junit.platform.launcher.LauncherDiscoveryRequest;
 import java.util.List;
 import org.junit.platform.engine.DiscoverySelector;
@@ -61,7 +64,7 @@ public class JUnit5LauncherWorker extends WorkerBase {
   private void launchTests(Project project, FailureDetector failureDetector) throws PreconditionViolationException {
     LauncherConfig launcherConfig = LauncherConfig.builder().build();
     Launcher launcher = LauncherFactory.openSession(launcherConfig).getLauncher();
-    launcher.execute(buildRequest(collectTestClasses(project)), new JUnit5TestExecutionListener(), failureDetector);
+    launcher.execute(buildRequest(collectTestClasses(project)), new JUnit5TestExecutionListener(), new LegacyXmlReportGeneratingListener(Path.of("."), new PrintWriter(System.out)), failureDetector);
   }
 
   private LauncherDiscoveryRequest buildRequest(final List<Class<?>> testClasses) {
