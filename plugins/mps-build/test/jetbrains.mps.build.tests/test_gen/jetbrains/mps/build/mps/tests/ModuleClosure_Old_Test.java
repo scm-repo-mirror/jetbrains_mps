@@ -16,8 +16,8 @@ import java.util.HashSet;
 import jetbrains.mps.build.mps.util.MPSModulesPartitioner;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.After;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -85,10 +85,10 @@ public class ModuleClosure_Old_Test extends EnvironmentAwareTestCase {
     Assert.assertTrue(SetSequence.fromSet(clAsSet).contains(rt));
     Assert.assertTrue(SetSequence.fromSet(clAsSet).contains(l));
   }
-  @Before
+  @BeforeEach
   public void setUp() {
   }
-  @After
+  @AfterEach
   public void tearDown() {
   }
 

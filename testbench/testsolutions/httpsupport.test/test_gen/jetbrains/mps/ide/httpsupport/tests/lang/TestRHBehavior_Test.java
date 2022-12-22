@@ -4,10 +4,11 @@ package jetbrains.mps.ide.httpsupport.tests.lang;
 
 import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
-import org.junit.ClassRule;
+import org.junit.jupiter.api.extension.RegisterExtension;
+import jetbrains.mps.lang.test.runtime.TestParametersCacheExtension;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Test;
-import org.junit.BeforeClass;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeAll;
 import org.jetbrains.ide.BuiltInServerManager;
 import org.jetbrains.builtInWebServer.BuiltInServerOptions;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
@@ -25,11 +26,11 @@ import jetbrains.mps.ide.httpsupport.tests.plugin.testConverter_Converter;
 
 @MPSLaunch
 public class TestRHBehavior_Test extends BaseTransformationTest {
-  @ClassRule
-  public static final TestParametersCache ourParamCache = new TestParametersCache(TestRHBehavior_Test.class, "${mps_home}", "r:9e9ac0ea-b755-4d57-b406-d0cd74445963(jetbrains.mps.ide.httpsupport.tests.lang@tests)", false);
+  @RegisterExtension
+  private static final TestParametersCacheExtension ourParametersCacheExtension = new TestParametersCacheExtension(new TestParametersCache(TestRHBehavior_Test.class, "${mps_home}", "r:9e9ac0ea-b755-4d57-b406-d0cd74445963(jetbrains.mps.ide.httpsupport.tests.lang@tests)", false));
 
   public TestRHBehavior_Test() {
-    super(ourParamCache);
+    super(ourParametersCacheExtension.getParametersCache());
   }
 
   @Test
@@ -85,7 +86,7 @@ public class TestRHBehavior_Test extends BaseTransformationTest {
     new TestBody(this).test_testRHConflicts();
   }
 
-  @BeforeClass
+  @BeforeAll
   public static void beforeTests() {
     BuiltInServerManager.getInstance().waitForStart();
     // Without this option DefaultWebServerPathHandler.process() will process all unhandled requests

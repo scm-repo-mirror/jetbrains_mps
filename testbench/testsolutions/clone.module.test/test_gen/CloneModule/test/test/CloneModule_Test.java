@@ -19,10 +19,10 @@ import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SModel;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import java.io.File;
 import jetbrains.mps.util.IFileUtil;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import jetbrains.mps.project.validation.MessageCollectProcessor;
 import jetbrains.mps.project.validation.ModuleValidationProblem;
 import jetbrains.mps.project.validation.ValidationUtil;
@@ -103,12 +103,12 @@ public class CloneModule_Test extends EnvironmentAwareTestCase {
       Assert.assertFalse("Same accesory model references", originalAccesoryModel.getReference().equals(clonedAccesoryModel.getReference()));
     }
   }
-  @Before
+  @BeforeEach
   public void setUp() {
     project = ((MPSProject) myEnvironment.openProject(new File(PROJECT_PATH)));
     executeUnderLock(() -> clonedModulesDirectory = IFileUtil.createTmpDir(project.getFileSystem()));
   }
-  @After
+  @AfterEach
   public void tearDown() {
     executeUnderLock(() -> clonedModulesDirectory.delete());
     myEnvironment.closeProject(project);

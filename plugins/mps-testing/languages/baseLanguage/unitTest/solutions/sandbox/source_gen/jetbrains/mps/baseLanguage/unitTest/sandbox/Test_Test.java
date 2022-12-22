@@ -5,8 +5,8 @@ package jetbrains.mps.baseLanguage.unitTest.sandbox;
 import jetbrains.mps.logging.Logger;
 import org.junit.Test;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.After;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 
 public class Test_Test {
   private static final Logger LOG = Logger.getLogger(Test_Test.class);
@@ -21,11 +21,11 @@ public class Test_Test {
   public void test_test2() throws Exception {
     Assert.assertTrue(true);
   }
-  @Before
+  @BeforeEach
   public void setUp() {
     System.err.println("setup test!!");
   }
-  @After
+  @AfterEach
   public void tearDown() {
     System.err.println("teardown test!!");
   }

@@ -9,13 +9,13 @@ import org.junit.Test;
 import jetbrains.mps.build.mps.util.MPSModulesClosure;
 import org.junit.Assert;
 import jetbrains.mps.internal.collections.runtime.Sequence;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -398,7 +398,7 @@ public class MPSModuleClosureTest_Test extends EnvironmentAwareTestCase {
     Assert.assertTrue(!(Sequence.fromIterable(genDeps).contains(l2)));
     Assert.assertTrue(!(Sequence.fromIterable(genDeps).contains(l21)));
   }
-  @Before
+  @BeforeEach
   public void setUp() {
     // sln uses l1, dvk and lies in the separate project 'project2'
     // l1 uses l2, has rt1 as runtime
@@ -452,7 +452,7 @@ public class MPSModuleClosureTest_Test extends EnvironmentAwareTestCase {
     SLinkOperations.setTarget(SLinkOperations.addNewChild(dvk, LINKS.exports$Qvxv, CONCEPTS.BuildMps_DevKitExportLanguage$EV), LINKS.language$qqxl, l3);
     SLinkOperations.setTarget(SLinkOperations.addNewChild(l3, LINKS.runtime$lxKd, CONCEPTS.BuildMps_ModuleSolutionRuntime$b5), LINKS.solution$3MS, rt3);
   }
-  @After
+  @AfterEach
   public void tearDown() {
   }
 

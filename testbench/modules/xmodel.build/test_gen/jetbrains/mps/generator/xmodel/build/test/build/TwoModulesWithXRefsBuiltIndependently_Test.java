@@ -15,7 +15,7 @@ import jetbrains.mps.ant.execution.Ant_Command;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.execution.api.commands.ProcessHandlerBuilder;
 import org.junit.Assert;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import jetbrains.mps.tool.environment.IdeaEnvironment;
 
 /**
@@ -82,7 +82,7 @@ public class TwoModulesWithXRefsBuiltIndependently_Test extends EnvironmentAware
       Assert.fail("Exception during execution.");
     }
   }
-  @Before
+  @BeforeEach
   public void setUp() {
     // Need IdeaEnvironment here because ant command uses IDEA's PathMacros, not that of MPS core.
     assert myEnvironment instanceof IdeaEnvironment;

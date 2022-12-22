@@ -6,9 +6,9 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.testbench.EnvironmentAwareTestCase;
 import jetbrains.mps.project.Project;
 import org.junit.Test;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import java.io.File;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Assert;
 import com.intellij.execution.process.ProcessHandler;
 import jetbrains.mps.util.MacrosFactory;
@@ -48,11 +48,11 @@ public class RunCodeFromSolution_Test extends EnvironmentAwareTestCase {
   public void test_useRegistryInDummyPlugin() throws Exception {
     runAndCheck(PROJECT_PATH, "testDummyPlugin.xml");
   }
-  @Before
+  @BeforeEach
   public void setUp() {
     myProject = myEnvironment.openProject(new File(PROJECT_PATH));
   }
-  @After
+  @AfterEach
   public void tearDown() {
     myEnvironment.closeProject(myProject);
   }

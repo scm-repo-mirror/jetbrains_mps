@@ -4,9 +4,10 @@ package TestConstraints.test;
 
 import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
-import org.junit.ClassRule;
+import org.junit.jupiter.api.extension.RegisterExtension;
+import jetbrains.mps.lang.test.runtime.TestParametersCacheExtension;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -17,11 +18,11 @@ import jetbrains.mps.project.ProjectBase;
 
 @MPSLaunch
 public class ConstraintsInvocation_Test extends BaseTransformationTest {
-  @ClassRule
-  public static final TestParametersCache ourParamCache = new TestParametersCache(ConstraintsInvocation_Test.class, "${mps_home}", "r:63c35524-f256-4fdd-b128-2c53748bdd7c(TestConstraints.test@tests)", false);
+  @RegisterExtension
+  private static final TestParametersCacheExtension ourParametersCacheExtension = new TestParametersCacheExtension(new TestParametersCache(ConstraintsInvocation_Test.class, "${mps_home}", "r:63c35524-f256-4fdd-b128-2c53748bdd7c(TestConstraints.test@tests)", false));
 
   public ConstraintsInvocation_Test() {
-    super(ourParamCache);
+    super(ourParametersCacheExtension.getParametersCache());
   }
 
   @Test

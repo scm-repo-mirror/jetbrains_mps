@@ -4,9 +4,10 @@ package jetbrains.mps.lang.typesystem.dataFlow;
 
 import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
-import org.junit.ClassRule;
+import org.junit.jupiter.api.extension.RegisterExtension;
+import jetbrains.mps.lang.test.runtime.TestParametersCacheExtension;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -18,11 +19,11 @@ import jetbrains.mps.lang.test.runtime.CheckExpectedMessageRunnable;
 
 @MPSLaunch
 public class TypesystemDataFlow_Test_Test extends BaseTransformationTest {
-  @ClassRule
-  public static final TestParametersCache ourParamCache = new TestParametersCache(TypesystemDataFlow_Test_Test.class, "${mps_home}", "r:492b107a-8575-4936-a6cc-bbf97899a142(jetbrains.mps.lang.typesystem.dataFlow@tests)", false);
+  @RegisterExtension
+  private static final TestParametersCacheExtension ourParametersCacheExtension = new TestParametersCacheExtension(new TestParametersCache(TypesystemDataFlow_Test_Test.class, "${mps_home}", "r:492b107a-8575-4936-a6cc-bbf97899a142(jetbrains.mps.lang.typesystem.dataFlow@tests)", false));
 
   public TypesystemDataFlow_Test_Test() {
-    super(ourParamCache);
+    super(ourParametersCacheExtension.getParametersCache());
   }
 
   @Test

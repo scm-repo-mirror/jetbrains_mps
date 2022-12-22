@@ -19,7 +19,7 @@ import javax.swing.Icon;
 import org.jetbrains.mps.openapi.model.SModelName;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import jetbrains.mps.smodel.MPSModuleRepository;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -81,7 +81,7 @@ public class TestPackagedLanguage_Test extends EnvironmentAwareTestCase {
       Assert.assertEquals(SPropertyOperations.getString(SNodeOperations.cast(ListSequence.fromList(SModelOperations.roots(libraryModel, null)).first(), CONCEPTS.INamedConcept$Kd), PROPS.name$MnvL), "DummyLibraryClass");
     });
   }
-  @Before
+  @BeforeEach
   public void setUp() {
     // FIXME in fact, shall access project instance MpsTestsSuite runnner has created from mps.test.modules list
     projectRepository = myEnvironment.getPlatform().findComponent(MPSModuleRepository.class);

@@ -4,9 +4,10 @@ package messages.sandbox.mB;
 
 import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
-import org.junit.ClassRule;
+import org.junit.jupiter.api.extension.RegisterExtension;
+import jetbrains.mps.lang.test.runtime.TestParametersCacheExtension;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -20,11 +21,11 @@ import jetbrains.mps.smodel.SNodePointer;
 
 @MPSLaunch
 public class RulesCanBeParent_Test extends BaseTransformationTest {
-  @ClassRule
-  public static final TestParametersCache ourParamCache = new TestParametersCache(RulesCanBeParent_Test.class, "${mps_home}", "r:85fb8fd8-b1c6-4933-b652-a58a1ce85393(messages.sandbox.mB@tests)", false);
+  @RegisterExtension
+  private static final TestParametersCacheExtension ourParametersCacheExtension = new TestParametersCacheExtension(new TestParametersCache(RulesCanBeParent_Test.class, "${mps_home}", "r:85fb8fd8-b1c6-4933-b652-a58a1ce85393(messages.sandbox.mB@tests)", false));
 
   public RulesCanBeParent_Test() {
-    super(ourParamCache);
+    super(ourParametersCacheExtension.getParametersCache());
   }
 
   @Test

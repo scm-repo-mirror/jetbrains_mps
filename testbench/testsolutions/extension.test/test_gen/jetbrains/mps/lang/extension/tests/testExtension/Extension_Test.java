@@ -14,7 +14,7 @@ import jetbrains.mps.lang.extension.tests.plugin.LazyTestObject;
 import jetbrains.mps.internal.collections.runtime.IterableUtils;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import com.intellij.openapi.application.ex.ApplicationManagerEx;
 import com.intellij.openapi.application.ApplicationAdapter;
 
@@ -58,7 +58,7 @@ public class Extension_Test {
     }, false), ", ");
     Assert.assertEquals("salam, dunya", string);
   }
-  @After
+  @AfterEach
   public void tearDown() {
     if (TEST_OBJECT != null) {
       Assert.assertFalse(TEST_OBJECT.isShutDown());

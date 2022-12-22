@@ -18,7 +18,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.lang.test.matcher.NodesMatcher;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import java.io.File;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -232,7 +232,7 @@ public class SmartRefAttrMigration_Test extends EnvironmentAwareTestCase {
       Assert.assertNotNull(SLinkOperations.getTarget(rpCell, LINKS.referentPresentation$jfwN));
     });
   }
-  @Before
+  @BeforeEach
   public void setUp() {
     // I don't care to close the project (a) can do it on per-test basis in BTestCase (no BeforeClass), (b) there are too many tests in this class
     // (c) PushEnvironmentRunnerBuilder is not yet capable to invoke static setEnvironment (so that we could have static project field
