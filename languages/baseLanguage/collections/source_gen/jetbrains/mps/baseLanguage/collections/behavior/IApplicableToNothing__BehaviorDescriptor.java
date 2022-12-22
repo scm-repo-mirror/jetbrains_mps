@@ -23,10 +23,11 @@ import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import jetbrains.mps.smodel.builder.SNodeBuilder;
+import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class IApplicableToNothing__BehaviorDescriptor extends BaseBHDescriptor {
@@ -77,17 +78,8 @@ public final class IApplicableToNothing__BehaviorDescriptor extends BaseBHDescri
     return SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(concept), CONCEPTS.IApplicableToNothing$j7) && !(SConceptOperations.isExactly(SNodeOperations.asSConcept(concept), CONCEPTS.IApplicableToNothing$j7));
   }
   /*package*/ static SNode expectedOperandType_id5xvLnyYzY1Q(@NotNull SNode __thisNode__, SNode elementType) {
-    SNode jt = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1129e737f02L, "jetbrains.mps.lang.typesystem.structure.JoinType"));
-    for (SNode et : IApplicableToNothing__BehaviorDescriptor.getAllApplicableTypes_id5cL0w3DYWgB.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(__thisNode__)))) {
-      if ((et != null)) {
-        SNode rt = SNodeOperations.copyNode(et);
-        if (ListSequence.fromList(SNodeOperations.getChildren(rt)).isNotEmpty()) {
-          SNodeOperations.replaceWithAnother(ListSequence.fromList(SNodeOperations.getChildren(rt)).first(), SNodeOperations.copyNode(elementType));
-        }
-        ListSequence.fromList(SLinkOperations.getChildren(jt, LINKS.argument$Iuyp)).addElement(rt);
-      }
-    }
-    return jt;
+    // Do not use getAllApplicableTypes as we do not really care at this point. Constraints and scopes would report the issue should the operator not be applicable anymore.
+    return createSequenceType_hry4nn_a1a3(elementType);
   }
 
   /*package*/ IApplicableToNothing__BehaviorDescriptor() {
@@ -139,12 +131,19 @@ public final class IApplicableToNothing__BehaviorDescriptor extends BaseBHDescri
   public SAbstractConcept getConcept() {
     return CONCEPT;
   }
+  private static SNode createSequenceType_hry4nn_a1a3(SNode p0) {
+    SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.SequenceType$_s);
+    n0.forChild(LINKS.elementType$KpjL).initNode(p0, CONCEPTS.Type$bu, true);
+    return n0.getResult();
+  }
 
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IApplicableToNothing$j7 = MetaAdapterFactory.getInterfaceConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x53310200e8d9eaf6L, "jetbrains.mps.baseLanguage.collections.structure.IApplicableToNothing");
+    /*package*/ static final SConcept SequenceType$_s = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c260e9444L, "jetbrains.mps.baseLanguage.collections.structure.SequenceType");
+    /*package*/ static final SConcept Type$bu = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink argument$Iuyp = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1129e737f02L, 0x1129e73a76aL, "argument");
+    /*package*/ static final SContainmentLink elementType$KpjL = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c260e9444L, 0x10c260ee40eL, "elementType");
   }
 }
