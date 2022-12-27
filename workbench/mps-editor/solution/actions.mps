@@ -5594,7 +5594,7 @@
                   <ref role="37wK5l" to="cj4x:~DeletionApprover.getCellsApprovedForDeletion()" resolve="getCellsApprovedForDeletion" />
                 </node>
                 <node concept="37vLTw" id="77HFTazQECD" role="2Oq$k0">
-                  <ref role="3cqZAo" node="77HFTazQECz" resolve="deletionOfficer" />
+                  <ref role="3cqZAo" node="77HFTazQECz" resolve="da" />
                 </node>
               </node>
               <node concept="liA8E" id="iz0IZTxRG$" role="2OqNvi">

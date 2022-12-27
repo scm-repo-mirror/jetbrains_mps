@@ -393,7 +393,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="av3ZwHUXz7" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" />
+        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
         <node concept="2B6LJw" id="av3ZwHUXFC" role="2B76xF">
           <ref role="2B6OnR" to="wyt6:~Deprecated.since()" resolve="since" />
           <node concept="Xl_RD" id="av3ZwHUXGi" role="2B70Vg">
@@ -631,7 +631,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="av3ZwHUH7f" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="av3ZwHULLY" role="jymVt" />
@@ -702,7 +702,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="av3ZwHUH7n" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="av3ZwHUOw7" role="jymVt" />
@@ -745,7 +745,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="av3ZwHUH7v" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
   </node>

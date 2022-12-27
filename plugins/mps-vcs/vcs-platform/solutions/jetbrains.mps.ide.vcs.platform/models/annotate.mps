@@ -2609,13 +2609,13 @@
             </node>
             <node concept="2OqwBi" id="6gnWJiGGG9Z" role="33vP2m">
               <node concept="37vLTw" id="6gnWJiGGSAE" role="2Oq$k0">
-                <ref role="3cqZAo" node="6gnWJiGGSA$" resolve="editorComponentSettings" />
+                <ref role="3cqZAo" node="6gnWJiGGSA$" resolve="ecSettings" />
               </node>
               <node concept="liA8E" id="6gnWJiGGLVE" role="2OqNvi">
                 <ref role="37wK5l" to="f4zo:~EditorFontMetricsProvider.getFontMetrics(java.lang.String,int,int)" resolve="getFontMetrics" />
                 <node concept="2OqwBi" id="6gnWJiGHMUd" role="37wK5m">
                   <node concept="37vLTw" id="6gnWJiGHAb3" role="2Oq$k0">
-                    <ref role="3cqZAo" node="6gnWJiGHAaZ" resolve="defaultFont" />
+                    <ref role="3cqZAo" node="6gnWJiGHAaZ" resolve="font" />
                   </node>
                   <node concept="liA8E" id="6gnWJiGHW$9" role="2OqNvi">
                     <ref role="37wK5l" to="z60i:~Font.getName()" resolve="getName" />
@@ -2623,7 +2623,7 @@
                 </node>
                 <node concept="2OqwBi" id="6gnWJiGIex7" role="37wK5m">
                   <node concept="37vLTw" id="6gnWJiGI9Di" role="2Oq$k0">
-                    <ref role="3cqZAo" node="6gnWJiGHAaZ" resolve="defaultFont" />
+                    <ref role="3cqZAo" node="6gnWJiGHAaZ" resolve="font" />
                   </node>
                   <node concept="liA8E" id="6gnWJiGInLQ" role="2OqNvi">
                     <ref role="37wK5l" to="z60i:~Font.getStyle()" resolve="getStyle" />
@@ -2631,7 +2631,7 @@
                 </node>
                 <node concept="2OqwBi" id="6gnWJiGIAFI" role="37wK5m">
                   <node concept="37vLTw" id="6gnWJiGIy3g" role="2Oq$k0">
-                    <ref role="3cqZAo" node="6gnWJiGHAaZ" resolve="defaultFont" />
+                    <ref role="3cqZAo" node="6gnWJiGHAaZ" resolve="font" />
                   </node>
                   <node concept="liA8E" id="6gnWJiGIIdG" role="2OqNvi">
                     <ref role="37wK5l" to="z60i:~Font.getSize()" resolve="getSize" />
@@ -5713,7 +5713,7 @@
                         </node>
                         <node concept="2OqwBi" id="6gnWJiGDOMs" role="37wK5m">
                           <node concept="37vLTw" id="2BHiRxghgs1" role="2Oq$k0">
-                            <ref role="3cqZAo" node="lIjSl53CXI" resolve="fontMetrics" />
+                            <ref role="3cqZAo" node="lIjSl53CXI" resolve="textWidthFunc" />
                           </node>
                           <node concept="1Bd96e" id="6gnWJiGDOYI" role="2OqNvi">
                             <node concept="1rXfSq" id="4hiugqyyU6L" role="1BdPVh">

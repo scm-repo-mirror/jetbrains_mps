@@ -1315,7 +1315,7 @@
                                       <node concept="liA8E" id="rD7wLijWt" role="2OqNvi">
                                         <ref role="37wK5l" to="dush:~PersistenceFacade.createModelReference(org.jetbrains.mps.openapi.module.SModuleReference,org.jetbrains.mps.openapi.model.SModelId,org.jetbrains.mps.openapi.model.SModelName)" resolve="createModelReference" />
                                         <node concept="37vLTw" id="rD7wLijWu" role="37wK5m">
-                                          <ref role="3cqZAo" node="rD7wLdbaV" resolve="newGnuTroveModue" />
+                                          <ref role="3cqZAo" node="rD7wLdbaV" resolve="newGnuTroveModule" />
                                         </node>
                                         <node concept="2OqwBi" id="rD7wLijWv" role="37wK5m">
                                           <node concept="37vLTw" id="rD7wLijWw" role="2Oq$k0">
@@ -1910,7 +1910,7 @@
                     </node>
                   </node>
                   <node concept="37vLTw" id="rD7wLhQXp" role="3clFbw">
-                    <ref role="3cqZAo" node="rD7wLh5vj" resolve="dependencyTextgen" />
+                    <ref role="3cqZAo" node="rD7wLh5vj" resolve="dependencyOrgJdom" />
                   </node>
                 </node>
                 <node concept="3clFbJ" id="rD7wLi4Pw" role="3cqZAp">
@@ -1942,7 +1942,7 @@
                     </node>
                   </node>
                   <node concept="37vLTw" id="rD7wLi7sI" role="3clFbw">
-                    <ref role="3cqZAo" node="rD7wLh5vf" resolve="dependencyGenerator" />
+                    <ref role="3cqZAo" node="rD7wLh5vf" resolve="dependencyGnuTrove" />
                   </node>
                 </node>
                 <node concept="3clFbF" id="rD7wLpEN0" role="3cqZAp">
@@ -1999,7 +1999,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="4d56NT0KhkY" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="4d56NT0KxIq" role="jymVt" />
@@ -2016,7 +2016,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="4d56NT0Ky0c" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="4d56NT0Ke9m" role="jymVt" />

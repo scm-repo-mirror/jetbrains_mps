@@ -131,7 +131,7 @@
                       <node concept="2pJPED" id="4g8mUCG2D6s" role="28nt2d">
                         <ref role="2pJxaS" to="tp5x:5zzawu2JF77" resolve="PresenceCondition" />
                         <node concept="2pJxcG" id="4g8mUCG2D6t" role="2pJxcM">
-                          <ref role="2pJxcJ" to="tpck:h0TrG11" />
+                          <ref role="2pJxcJ" to="tpck:h0TrG11" resolve="name" />
                           <node concept="WxPPo" id="4g8mUCG2D6u" role="28ntcv">
                             <node concept="2OqwBi" id="5GQb1e$ArDv" role="WxPPp">
                               <node concept="1YBJjd" id="5GQb1e$ArBg" role="2Oq$k0">

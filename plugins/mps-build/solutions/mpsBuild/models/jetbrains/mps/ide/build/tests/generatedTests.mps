@@ -673,13 +673,13 @@
       </node>
     </node>
     <node concept="13uUGR" id="2j4NQWLGvPJ" role="1l3spa">
-      <ref role="13uUGO" to="ffeo:6eCuTcwOnJO" />
+      <ref role="13uUGO" to="ffeo:6eCuTcwOnJO" resolve="IDEA" />
       <node concept="398BVA" id="2j4NQWLGvPK" role="13uUGP">
         <ref role="398BVh" node="2j4NQWLGvPO" resolve="idea_home" />
       </node>
     </node>
     <node concept="2sgV4H" id="2j4NQWLGvPL" role="1l3spa">
-      <ref role="1l3spb" to="ffeo:3IKDaVZmzS6" />
+      <ref role="1l3spb" to="ffeo:3IKDaVZmzS6" resolve="mps" />
       <node concept="398BVA" id="2j4NQWLGvPM" role="2JcizS">
         <ref role="398BVh" node="2j4NQWLGvPN" resolve="mps_home" />
       </node>
