@@ -43,7 +43,7 @@ public final class FunctionMethodDeclaration__BehaviorDescriptor extends BaseBHD
     return _quotation_createNode_c7xn2w_a1a0(params, SNodeOperations.copyNode(SLinkOperations.getTarget(__thisNode__, LINKS.returnType$5xoi)));
   }
   /*package*/ static boolean canBeInterfaceMember_id2zJQqQIUx2B(@NotNull SAbstractConcept __thisConcept__) {
-    return false;
+    return true;
   }
 
   /*package*/ FunctionMethodDeclaration__BehaviorDescriptor() {

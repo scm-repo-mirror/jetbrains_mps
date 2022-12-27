@@ -14,9 +14,9 @@ import java.util.Iterator;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.smodel.SNodePointer;
 import java.util.Objects;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
 import jetbrains.mps.baseLanguage.closures.behavior.FunctionMethodDeclaration__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
@@ -74,10 +74,12 @@ public class ClosureLiteralAdapterBuilder {
     return null;
   }
   private SNode findAdapterClassDeclaration(SNode literal, final SNode annInst) {
-    return ListSequence.fromList(SModelOperations.nodesIncludingImported(SNodeOperations.getModel(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(literal), CONCEPTS.IMethodCall$M9), LINKS.baseMethodDeclaration$pyYw)), CONCEPTS.ClassConcept$bK)).findFirst(new IWhereFilter<SNode>() {
+    final String searched = SPropertyOperations.getString(SNodeOperations.cast(SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(annInst, LINKS.value$uK2B)).first(), LINKS.value$Y7om), CONCEPTS.StringLiteral$xu), PROPS.value$w7MM);
+
+    return ListSequence.fromList(SModelOperations.nodesIncludingImported(SNodeOperations.getModel(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(literal), CONCEPTS.IMethodCall$M9), LINKS.baseMethodDeclaration$pyYw)), CONCEPTS.Classifier$Ix)).findFirst(new IWhereFilter<SNode>() {
       @Override
       public boolean accept(SNode cls) {
-        return SPropertyOperations.getString(cls, PROPS.name$MnvL).equals(SPropertyOperations.getString(SNodeOperations.cast(SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(annInst, LINKS.value$uK2B)).first(), LINKS.value$Y7om), CONCEPTS.StringLiteral$xu), PROPS.value$w7MM));
+        return (SNodeOperations.isInstanceOf(cls, CONCEPTS.ClassConcept$bK) || SNodeOperations.isInstanceOf(cls, CONCEPTS.Interface$db)) && SPropertyOperations.getString(cls, PROPS.name$MnvL).equals(searched);
       }
     });
   }
@@ -94,8 +96,10 @@ public class ClosureLiteralAdapterBuilder {
     /*package*/ static final SInterfaceConcept IMethodCall$M9 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, "jetbrains.mps.baseLanguage.structure.IMethodCall");
     /*package*/ static final SConcept TypeVariableReference$WL = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102467229d8L, "jetbrains.mps.baseLanguage.structure.TypeVariableReference");
     /*package*/ static final SInterfaceConcept HasAnnotation$Dg = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, "jetbrains.mps.baseLanguage.structure.HasAnnotation");
-    /*package*/ static final SConcept ClassConcept$bK = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
     /*package*/ static final SConcept StringLiteral$xu = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, "jetbrains.mps.baseLanguage.structure.StringLiteral");
+    /*package*/ static final SConcept Classifier$Ix = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept Interface$db = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+    /*package*/ static final SConcept ClassConcept$bK = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
     /*package*/ static final SConcept FunctionMethodDeclaration$ee = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x42d79e63a78a7784L, "jetbrains.mps.baseLanguage.closures.structure.FunctionMethodDeclaration");
   }
 
@@ -115,7 +119,7 @@ public class ClosureLiteralAdapterBuilder {
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
     /*package*/ static final SProperty value$w7MM = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value");
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }
