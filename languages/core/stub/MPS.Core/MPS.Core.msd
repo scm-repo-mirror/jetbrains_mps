@@ -17,8 +17,10 @@
       <sourceRoot location="util_rt.jar" />
       <sourceRoot location="3rd-party-rt.jar" />
       <PackageScope>
+        <!-- References to gnu.trove and org.jdom stubs in MPS.Core has been migrated in 2022.3; keep for one release and remove these in 2023.1 or .2 -->
         <include prefix="gnu.trove."/> <!-- trove4j.jar -->
         <include prefix="org.jdom."/> <!-- jdom.jar -->
+        <!-- Uses of log4j has been removed in 2022.2; we can drop this stubs now -->
         <include prefix="org.apache.log4j."/> <!-- log4j.jar -->
       </PackageScope>
     </modelRoot>

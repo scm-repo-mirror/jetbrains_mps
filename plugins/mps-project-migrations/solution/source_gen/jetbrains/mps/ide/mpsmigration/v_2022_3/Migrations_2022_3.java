@@ -8,6 +8,7 @@ import jetbrains.mps.migration.global.ProjectMigration;
 public class Migrations_2022_3 {
   public void offerInto(Deque<ProjectMigration> migrations) {
     migrations.offer(new ExplicitJavaFacetSettings());
+    migrations.offer(new SplitMPSCoreStub2());
   }
 
 }
