@@ -183,6 +183,7 @@ public final class IdeaEnvironment extends EnvironmentBase {
       // Force GraphicsEnvironment to cache headless false state before TestApplicationManager resets it to true
       System.setProperty("java.awt.headless", Boolean.FALSE.toString());
       GraphicsEnvironment.isHeadless();
+      System.setProperty("java.awt.headless", Boolean.TRUE.toString());
       myIdeaApplication = TestApplicationManager.getInstance();
     } else {
       myIdeaApplication = MPSHeadlessPlatformStarter.Holder.IT.createApp();
