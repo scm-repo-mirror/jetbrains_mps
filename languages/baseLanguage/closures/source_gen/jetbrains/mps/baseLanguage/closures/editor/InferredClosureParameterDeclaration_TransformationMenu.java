@@ -116,7 +116,7 @@ public class InferredClosureParameterDeclaration_TransformationMenu extends Tran
         SNode createdNode = getSubstituteItem().createNode(pattern);
         final SNode newNode = createParameterDeclaration_juactr_a0a0a0a(SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL), createdNode);
         // Remap parameters
-        ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.ClosureLiteral$rp, false, false), CONCEPTS.VariableReference$TC, false, new SAbstractConcept[]{})).where((SNode it) -> SLinkOperations.getTarget(it, LINKS.variableDeclaration$N1XG) == _context.getNode()).visitAll((SNode it) -> SLinkOperations.setTarget(it, LINKS.variableDeclaration$N1XG, newNode));
+        ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.ClosureLiteral$rp, false, false), CONCEPTS.VariableReference$TC, false, new SAbstractConcept[]{})).where((it) -> SLinkOperations.getTarget(it, LINKS.variableDeclaration$N1XG) == _context.getNode()).visitAll((it) -> SLinkOperations.setTarget(it, LINKS.variableDeclaration$N1XG, newNode));
         SNodeOperations.replaceWithAnother(_context.getNode(), newNode);
       }
 

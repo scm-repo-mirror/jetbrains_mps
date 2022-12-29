@@ -9,6 +9,7 @@ public enum Values {
   CHUNK_OF_STATEMENTS("chunk_of_statements"),
   RETURN_TYPE("return_type"),
   LITERAL("literal"),
+  LITERAL_TYPE("literal_type"),
   LITERAL_TARGET("literal_target"),
   TYPE_MAP("type_map"),
   ADAPTABLE("adaptable"),

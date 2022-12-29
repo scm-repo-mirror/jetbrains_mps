@@ -140,7 +140,6 @@
       </concept>
     </language>
     <language id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures">
-      <concept id="1046929382682558545" name="jetbrains.mps.baseLanguage.closures.structure.ClosureLiteralType" flags="ig" index="9cv3F" />
       <concept id="1199542442495" name="jetbrains.mps.baseLanguage.closures.structure.FunctionType" flags="in" index="1ajhzC">
         <child id="1199542457201" name="resultType" index="1ajl9A" />
         <child id="1199542501692" name="parameterType" index="1ajw0F" />
@@ -400,11 +399,11 @@
       <property role="TrG5h" value="myCallback" />
       <property role="3TUv4t" value="true" />
       <node concept="3Tm6S6" id="7j2UX07aLic" role="1B3o_S" />
-      <node concept="9cv3F" id="7qWwyLT0LFO" role="1tU5fm">
-        <node concept="3uibUv" id="7qWwyLT0LFP" role="1ajw0F">
+      <node concept="1ajhzC" id="3FS7wUTocr8" role="1tU5fm">
+        <node concept="3uibUv" id="3FS7wUTocr9" role="1ajw0F">
           <ref role="3uigEE" to="hyam:~ActionEvent" resolve="ActionEvent" />
         </node>
-        <node concept="3cqZAl" id="7qWwyLT0LFQ" role="1ajl9A" />
+        <node concept="3cqZAl" id="3FS7wUTocra" role="1ajl9A" />
       </node>
       <node concept="2AHcQZ" id="7j2UX07aLih" role="2AJF6D">
         <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
@@ -535,11 +534,11 @@
       </node>
       <node concept="37vLTG" id="7j2UX07aLgy" role="3clF46">
         <property role="TrG5h" value="callback" />
-        <node concept="9cv3F" id="7qWwyLT0LJG" role="1tU5fm">
-          <node concept="3uibUv" id="7qWwyLT0LJH" role="1ajw0F">
+        <node concept="1ajhzC" id="3FS7wUTocGS" role="1tU5fm">
+          <node concept="3uibUv" id="3FS7wUTocGT" role="1ajw0F">
             <ref role="3uigEE" to="hyam:~ActionEvent" resolve="ActionEvent" />
           </node>
-          <node concept="3cqZAl" id="7qWwyLT0LJI" role="1ajl9A" />
+          <node concept="3cqZAl" id="3FS7wUTocGU" role="1ajl9A" />
         </node>
         <node concept="2AHcQZ" id="7j2UX07aLgD" role="2AJF6D">
           <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />

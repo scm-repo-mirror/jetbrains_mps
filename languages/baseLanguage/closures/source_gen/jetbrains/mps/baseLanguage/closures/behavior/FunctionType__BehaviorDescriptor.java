@@ -150,7 +150,7 @@ with_meet:
     for (SNode pt : SLinkOperations.getChildren(__thisNode__, LINKS.parameterType$qJs$)) {
       ListSequence.fromList(SLinkOperations.getChildren(ct, LINKS.parameter$oqG$)).addElement(ClassifierTypeUtil.asBoundType(ClassifierTypeUtil.getTypeCoercedToClassifierType(pt), false));
     }
-    for (SNode tt : ListSequence.fromList(FunctionType__BehaviorDescriptor.getNormalizedThrowsTypes_id2ZrgyPlTDZP.invoke(__thisNode__)).sort((SNode t) -> {
+    for (SNode tt : ListSequence.fromList(FunctionType__BehaviorDescriptor.getNormalizedThrowsTypes_id2ZrgyPlTDZP.invoke(__thisNode__)).sort((t) -> {
       String key = Classifier__BehaviorDescriptor.getNestedName_id7q4lzBFjvIX.invoke(SLinkOperations.getTarget(SNodeOperations.as(t, CONCEPTS.ClassifierType$bL), LINKS.classifier$cxMr));
       return (key != null ? key : BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(t));
     }, true)) {
@@ -172,7 +172,7 @@ with_meet:
     for (SNode pt : SLinkOperations.getChildren(__thisNode__, LINKS.parameterType$qJs$)) {
       ListSequence.fromList(SLinkOperations.getChildren(ct, LINKS.parameter$oqG$)).addElement(ClassifierTypeUtil.unbounded(ClassifierTypeUtil.getTypeCoercedToClassifierType(pt)));
     }
-    for (SNode tt : ListSequence.fromList(FunctionType__BehaviorDescriptor.getNormalizedThrowsTypes_id2ZrgyPlTDZP.invoke(__thisNode__)).sort((SNode t) -> {
+    for (SNode tt : ListSequence.fromList(FunctionType__BehaviorDescriptor.getNormalizedThrowsTypes_id2ZrgyPlTDZP.invoke(__thisNode__)).sort((t) -> {
       String key = Classifier__BehaviorDescriptor.getNestedName_id7q4lzBFjvIX.invoke(SLinkOperations.getTarget(SNodeOperations.as(t, CONCEPTS.ClassifierType$bL), LINKS.classifier$cxMr));
       return (key != null ? key : BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(t));
     }, true)) {
@@ -202,7 +202,7 @@ with_meet:
     for (SNode pt : SLinkOperations.getChildren(sample, LINKS.parameterType$qJs$)) {
       ListSequence.fromList(SLinkOperations.getChildren(ct, LINKS.parameter$oqG$)).addElement(ClassifierTypeUtil.asBoundType(ClassifierTypeUtil.getTypeCoercedToClassifierType(pt), false));
     }
-    for (SNode tt : ListSequence.fromList(FunctionType__BehaviorDescriptor.getNormalizedThrowsTypes_id2ZrgyPlTDZP.invoke(sample)).sort((SNode t) -> {
+    for (SNode tt : ListSequence.fromList(FunctionType__BehaviorDescriptor.getNormalizedThrowsTypes_id2ZrgyPlTDZP.invoke(sample)).sort((t) -> {
       String key = Classifier__BehaviorDescriptor.getNestedName_id7q4lzBFjvIX.invoke(SLinkOperations.getTarget(SNodeOperations.as(t, CONCEPTS.ClassifierType$bL), LINKS.classifier$cxMr));
       return (key != null ? key : BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(t));
     }, true)) {

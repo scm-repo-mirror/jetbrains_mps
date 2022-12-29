@@ -15,6 +15,7 @@ import jetbrains.mps.lang.typesystem.runtime.HUtil;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import java.util.Iterator;
+import jetbrains.mps.baseLanguage.closures.constraints.ClassifierTypeUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typechecking.TypecheckingFacade;
@@ -65,7 +66,7 @@ public class FunctionType_subtypeOf_FunctionType_InequationReplacementRule exten
           SNode _nodeToCheck_1029348928467 = equationInfo.getNodeWithError();
           EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c89590337(jetbrains.mps.baseLanguage.closures.typesystem)", "2240912231949269595", 0, null);
           _info_12389875345.getOuterRulesIdFromInfo(equationInfo);
-          typeCheckingContext.createGreaterThanInequality((SNode) paramTypeLeft_var, (SNode) paramTypeRight_var, false, true, _info_12389875345);
+          typeCheckingContext.createGreaterThanInequality((SNode) ClassifierTypeUtil.unbounded(paramTypeLeft_var), (SNode) ClassifierTypeUtil.unbounded(paramTypeRight_var), false, true, _info_12389875345);
         }
       }
     }
@@ -106,7 +107,7 @@ public class FunctionType_subtypeOf_FunctionType_InequationReplacementRule exten
         while (paramTypeLeft_it.hasNext() && paramTypeRight_it.hasNext()) {
           paramTypeLeft_var = paramTypeLeft_it.next();
           paramTypeRight_var = paramTypeRight_it.next();
-          result_14532009 = result_14532009 && TypecheckingFacade.getFromContext().isStrongSubtype((SNode) paramTypeRight_var, (SNode) paramTypeLeft_var);
+          result_14532009 = result_14532009 && TypecheckingFacade.getFromContext().isStrongSubtype((SNode) ClassifierTypeUtil.unbounded(paramTypeRight_var), (SNode) ClassifierTypeUtil.unbounded(paramTypeLeft_var));
         }
       }
       SNode rightThrows = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1129e737f02L, "jetbrains.mps.lang.typesystem.structure.JoinType"));

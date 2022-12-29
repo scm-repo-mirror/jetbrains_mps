@@ -202,9 +202,6 @@
       <property role="IQ2ns" value="1200830928149" />
       <ref role="20lvS9" to="tpee:fz3vP1J" resolve="Expression" />
     </node>
-    <node concept="PrWs8" id="7uACA5S6Vcl" role="PzmwI">
-      <ref role="PrY4T" node="7uACA5S6Tbz" resolve="IIncompatibleWithJavaLambda" />
-    </node>
   </node>
   <node concept="1TIwiD" id="hwBqR26">
     <property role="R5$K7" value="true" />
@@ -275,9 +272,6 @@
       <property role="20lbJX" value="fLJekj4/1" />
       <property role="IQ2ns" value="1228997959377" />
       <ref role="20lvS9" to="tpee:fz3vP1J" resolve="Expression" />
-    </node>
-    <node concept="PrWs8" id="7uACA5S6V0L" role="PzmwI">
-      <ref role="PrY4T" node="7uACA5S6Tbz" resolve="IIncompatibleWithJavaLambda" />
     </node>
   </node>
   <node concept="1TIwiD" id="hT9QNxK">

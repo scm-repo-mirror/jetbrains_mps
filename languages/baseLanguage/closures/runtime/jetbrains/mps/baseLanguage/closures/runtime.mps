@@ -213,9 +213,13 @@
       <concept id="6832197706140896242" name="jetbrains.mps.baseLanguage.javadoc.structure.FieldDocComment" flags="ng" index="z59LJ" />
       <concept id="5349172909345501395" name="jetbrains.mps.baseLanguage.javadoc.structure.BaseDocComment" flags="ng" index="P$AiS">
         <child id="8465538089690331502" name="body" index="TZ5H$" />
+        <child id="5383422241790532083" name="tags" index="3nqlJM" />
       </concept>
       <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA">
         <child id="8970989240999019149" name="part" index="1dT_Ay" />
+      </concept>
+      <concept id="8465538089690331492" name="jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag" flags="ng" index="TZ5HI">
+        <child id="2667874559098216723" name="text" index="3HnX3l" />
       </concept>
       <concept id="8970989240999019143" name="jetbrains.mps.baseLanguage.javadoc.structure.TextCommentLinePart" flags="ng" index="1dT_AC">
         <property id="8970989240999019144" name="text" index="1dT_AB" />
@@ -243,6 +247,18 @@
       <node concept="3clFbS" id="7w8CYsT5wfW" role="3clF47" />
     </node>
     <node concept="3Tm1VV" id="7w8CYsT5wfX" role="1B3o_S" />
+    <node concept="3UR2Jj" id="7opIUaudAHE" role="lGtFl">
+      <node concept="TZ5HI" id="7opIUaudAHF" role="3nqlJM">
+        <node concept="TZ5HA" id="7opIUaudAHG" role="3HnX3l">
+          <node concept="1dT_AC" id="7opIUaudAP5" role="1dT_Ay">
+            <property role="1dT_AB" value="not necessary anymore after changes to closures generation" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2AHcQZ" id="7opIUaudAHH" role="2AJF6D">
+      <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
+    </node>
   </node>
   <node concept="Qs71p" id="3jCxiSsHc3_">
     <property role="TrG5h" value="Outcome" />

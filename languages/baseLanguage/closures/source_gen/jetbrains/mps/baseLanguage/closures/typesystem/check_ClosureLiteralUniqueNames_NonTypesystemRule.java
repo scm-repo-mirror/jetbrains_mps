@@ -27,7 +27,7 @@ public class check_ClosureLiteralUniqueNames_NonTypesystemRule extends AbstractN
   }
   public void applyRule(final SNode closureLiteral, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     final Set<String> names = SetSequence.fromSet(new HashSet<String>());
-    ListSequence.fromList(SLinkOperations.getChildren(closureLiteral, LINKS.parameter$b4Y3)).visitAll((SNode it) -> {
+    ListSequence.fromList(SLinkOperations.getChildren(closureLiteral, LINKS.parameter$b4Y3)).visitAll((it) -> {
       if (SetSequence.fromSet(names).contains(SPropertyOperations.getString(it, PROPS.name$MnvL))) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();

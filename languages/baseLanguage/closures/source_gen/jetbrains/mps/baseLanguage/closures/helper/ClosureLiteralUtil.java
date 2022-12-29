@@ -17,11 +17,20 @@ import java.util.Iterator;
 import java.util.Map;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.generator.template.TemplateQueryContext;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.baseLanguage.closures.constraints.ClassifierTypeUtil;
+import jetbrains.mps.typechecking.TypecheckingFacade;
+import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
+import jetbrains.mps.baseLanguage.closures.util.FunctionalInterfaceHelper;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPointerOperations;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.baseLanguage.util.BaseLanguageEnvironmentHelper;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.scope.ModelsScope;
+import java.util.Set;
+import jetbrains.mps.internal.collections.runtime.SetSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -80,12 +89,95 @@ public class ClosureLiteralUtil {
     }
     return result;
   }
-  public static boolean canTargetJavaLambda(final SNode node, SNode targetType, TemplateQueryContext genContext) {
+
+  public static Iterable<SNode> parameterList(SNode closure, ClosureContext context, TemplateQueryContext genContext) {
+    return parameterList(closure, context, SLinkOperations.getChildren(context.getActualType(), LINKS.parameterType$qJs$), genContext);
+  }
+
+  public static Iterable<SNode> parameterList(SNode closure, ClosureContext context, Iterable<SNode> parameterTypes, TemplateQueryContext genContext) {
+    List<SNode> res = ListSequence.fromList(new ArrayList<SNode>());
+
+    {
+      Iterator<SNode> methodParamType_it = Sequence.fromIterable(parameterTypes).iterator();
+      Iterator<SNode> methodParam_it = ListSequence.fromList(SLinkOperations.getChildren(context.getMethod(), LINKS.parameter$5xBj)).iterator();
+      Iterator<SNode> closureParam_it = ListSequence.fromList(SLinkOperations.getChildren(closure, LINKS.parameter$b4Y3)).iterator();
+      SNode methodParamType_var;
+      SNode methodParam_var;
+      SNode closureParam_var;
+      while (methodParamType_it.hasNext() && methodParam_it.hasNext() && closureParam_it.hasNext()) {
+        methodParamType_var = methodParamType_it.next();
+        methodParam_var = methodParam_it.next();
+        closureParam_var = closureParam_it.next();
+        SNode newpd = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e94L, "jetbrains.mps.baseLanguage.structure.ParameterDeclaration"));
+        if (SNodeOperations.isInstanceOf(methodParamType_var, CONCEPTS.PrimitiveType$sR) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(methodParam_var, LINKS.type$a1UY), CONCEPTS.PrimitiveType$sR)) {
+          SLinkOperations.setTarget(newpd, LINKS.type$a1UY, methodParamType_var);
+        } else {
+          // This is needed as function type has been recovered before generators ran, and we might be past the point type can be generated down to classifier types on their own
+          SNode coerced = ClassifierTypeUtil.getTypeCoercedToClassifierType(methodParamType_var);
+          SLinkOperations.setTarget(newpd, LINKS.type$a1UY, SNodeOperations.cast(FunctionTypeUtil.unmeet(FunctionTypeUtil.unbound(coerced)), CONCEPTS.Type$bu));
+        }
+        SPropertyOperations.set(newpd, PROPS.name$MnvL, SPropertyOperations.getString(closureParam_var, PROPS.name$MnvL));
+        SPropertyOperations.set(newpd, PROPS.isFinal$gvTP, SPropertyOperations.getBoolean(closureParam_var, PROPS.isFinal$gvTP));
+        ListSequence.fromList(SLinkOperations.getChildren(newpd, LINKS.annotation$K49I)).addSequence(ListSequence.fromList(SLinkOperations.getChildren(closureParam_var, LINKS.annotation$K49I)));
+        ListSequence.fromList(res).addElement(newpd);
+      }
+    }
+
+    if (ListSequence.fromList(SLinkOperations.getChildren(context.getMethod(), LINKS.parameter$5xBj)).count() > ListSequence.fromList(SLinkOperations.getChildren(closure, LINKS.parameter$b4Y3)).count()) {
+      genContext.showErrorMessage(closure, "Method parameters count doesn't match closure parameters count: " + SNodeOperations.present(context.getMethod()));
+    }
+
+    return res;
+  }
+
+  /**
+   * Returns an object containing all information needed to generate a closure (target class, target method, using yield...)
+   * 
+   * @see jetbrains.mps.baseLanguage.closures.helper.ClosureContext for data contained
+   * @return context information about the closure
+   */
+  public static ClosureContext applicableContext(TemplateQueryContext genContext, SNode closure) {
+    SNode targetType = (SNode) Values.LITERAL_TARGET.get(genContext, closure);
+    SNode functionType = (SNode) Values.LITERAL_TYPE.get(genContext, closure);
+
+    // TODO is this fallback necessary?
+    if ((functionType == null)) {
+      functionType = SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(closure), CONCEPTS.FunctionType$9U);
+    }
+
+    Tuples._2<SNode, String> functionalMethod = FunctionalInterfaceHelper.getFunctionalMethod(SLinkOperations.getTarget(targetType, LINKS.classifier$cxMr));
+    boolean inferredFromContext = isEmptyString(functionalMethod._1());
+
+    // No valid method found -> default to function type if possible
+    if (!(inferredFromContext)) {
+      targetType = FunctionType__BehaviorDescriptor.getRuntimeType_idhTOJ6nH.invoke(functionType);
+      functionalMethod = FunctionalInterfaceHelper.getFunctionalMethod(SPointerOperations.resolveNode(FunctionType__BehaviorDescriptor.getRuntimeClassifier_id6GFpWnVllMc.invoke(functionType), closure.getModel().getRepository()));
+
+      // Still no valid method: error
+      if (isNotEmptyString(functionalMethod._1())) {
+        genContext.showErrorMessage(closure, "cannot calculate type for closure literal");
+        return null;
+      }
+    }
+
+    boolean canTargetJavaLambda = canTargetJavaLambda(closure, targetType, genContext);
+    boolean hasYieldStatement = hasYieldStatement(closure);
+    return new ClosureContext(targetType, functionalMethod._0(), functionType, canTargetJavaLambda, hasYieldStatement, inferredFromContext);
+  }
+
+  public static boolean canTargetJavaLambda(final SNode node, @NotNull SNode targetType, TemplateQueryContext genContext) {
     if (!(new BaseLanguageEnvironmentHelper().getLanguageLevel(genContext.getOriginalInputModel()).doTargetLambda())) {
       return false;
     }
 
-    if ((targetType == null) || !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(targetType, LINKS.classifier$cxMr), CONCEPTS.Interface$db))) {
+    // Only interfaces
+    if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(targetType, LINKS.classifier$cxMr), CONCEPTS.Interface$db))) {
+      return false;
+    }
+
+    // Raw type do not seem to mix well
+    // Note: the typesystem may go too easy on those, and seem to add some defaults from time to time, making this condition only partially working. Additionally, there might not be a need to check all descendants, but instead perhaps only a subset that makes the compilation impossible
+    if (containsRawTypes(targetType)) {
       return false;
     }
 
@@ -105,11 +197,11 @@ public class ClosureLiteralUtil {
     }
 
     // Scope conflict
-    Iterable<String> names = ListSequence.fromList(SNodeOperations.getNodeDescendants(node, CONCEPTS.VariableDeclaration$Y0, false, new SAbstractConcept[]{CONCEPTS.IClassifier$MF, CONCEPTS.ClosureLiteral$rp})).select((SNode it) -> SPropertyOperations.getString(it, PROPS.name$MnvL)).where((String it) -> it != null);
+    Iterable<String> names = ListSequence.fromList(SNodeOperations.getNodeDescendants(node, CONCEPTS.VariableDeclaration$Y0, false, new SAbstractConcept[]{CONCEPTS.IClassifier$MF, CONCEPTS.ClosureLiteral$rp})).select((it) -> SPropertyOperations.getString(it, PROPS.name$MnvL)).where((it) -> it != null);
     final Scope scope = ModelsScope.getScope(SNodeOperations.getParent(node), node, CONCEPTS.VariableDeclaration$Y0);
 
     // Any name defined in parent scope -> need anonymous class
-    if (scope != null && Sequence.fromIterable(names).any((String it) -> {
+    if (scope != null && Sequence.fromIterable(names).any((it) -> {
       SNode resolved = scope.resolve(node, it);
       return resolved != null && (SNodeOperations.isInstanceOf(resolved, CONCEPTS.LocalVariableDeclaration$41) || SNodeOperations.isInstanceOf(resolved, CONCEPTS.ParameterDeclaration$RG));
     })) {
@@ -117,6 +209,30 @@ public class ClosureLiteralUtil {
     }
 
     return true;
+  }
+
+  public static String suggestName(String originalName, SNode contextNode, Scope parentScope, Set<String> forbidden) {
+    int endIndex = originalName.length() - 1;
+    while (endIndex >= 0 && Character.isDigit(originalName.charAt(endIndex))) {
+      endIndex--;
+    }
+    String prefix = originalName.substring(0, endIndex + 1);
+    int index = (endIndex == originalName.length() - 1 ? 0 : Integer.parseInt(originalName.substring(endIndex + 1)));
+    String name = (index == 0 ? prefix : prefix + index);
+    while ((parentScope.resolve(contextNode, name) != null) || SetSequence.fromSet(forbidden).contains(name)) {
+      index++;
+      name = (index == 0 ? prefix : prefix + index);
+    }
+    return name;
+  }
+
+  public static boolean containsRawTypes(SNode type) {
+    for (SNode nestedType : SNodeOperations.getNodeDescendants(type, CONCEPTS.ClassifierType$bL, true, new SAbstractConcept[]{})) {
+      if (ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(nestedType, LINKS.classifier$cxMr), LINKS.typeVariableDeclaration$Lipp)).isNotEmpty() && ListSequence.fromList(SLinkOperations.getChildren(nestedType, LINKS.parameter$oqG$)).isEmpty()) {
+        return true;
+      }
+    }
+    return false;
   }
 
   private static boolean containsForwardReferences(SNode member, SNode node, final SConcept testedConcept) {
@@ -127,7 +243,13 @@ public class ClosureLiteralUtil {
     final int index = SNodeOperations.getIndexInParent(member);
     final SNode classifier = SNodeOperations.getNodeAncestor(member, CONCEPTS.IClassifier$MF, false, false);
 
-    return ListSequence.fromList(SNodeOperations.getNodeDescendants(node, CONCEPTS.VariableReference$TC, false, new SAbstractConcept[]{})).where((SNode it) -> SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.variableDeclaration$N1XG), SNodeOperations.asSConcept(testedConcept)) && SNodeOperations.getNodeAncestor(SLinkOperations.getTarget(it, LINKS.variableDeclaration$N1XG), CONCEPTS.Classifier$Ix, false, false) == classifier && SNodeOperations.getIndexInParent(SLinkOperations.getTarget(it, LINKS.variableDeclaration$N1XG)) >= index).isNotEmpty();
+    return ListSequence.fromList(SNodeOperations.getNodeDescendants(node, CONCEPTS.VariableReference$TC, false, new SAbstractConcept[]{})).where((it) -> SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.variableDeclaration$N1XG), SNodeOperations.asSConcept(testedConcept)) && SNodeOperations.getNodeAncestor(SLinkOperations.getTarget(it, LINKS.variableDeclaration$N1XG), CONCEPTS.Classifier$Ix, false, false) == classifier && SNodeOperations.getIndexInParent(SLinkOperations.getTarget(it, LINKS.variableDeclaration$N1XG)) >= index).isNotEmpty();
+  }
+  private static boolean isEmptyString(String str) {
+    return str == null || str.isEmpty();
+  }
+  private static boolean isNotEmptyString(String str) {
+    return str != null && str.length() > 0;
   }
 
   private static final class CONCEPTS {
@@ -139,6 +261,8 @@ public class ClosureLiteralUtil {
     /*package*/ static final SConcept LocalVariableDeclaration$41 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
     /*package*/ static final SConcept VoidType$BF = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc6bf96dL, "jetbrains.mps.baseLanguage.structure.VoidType");
     /*package*/ static final SConcept Type$bu = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
+    /*package*/ static final SConcept PrimitiveType$sR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f0ad8bde4L, "jetbrains.mps.baseLanguage.structure.PrimitiveType");
+    /*package*/ static final SConcept FunctionType$9U = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a4d19ffL, "jetbrains.mps.baseLanguage.closures.structure.FunctionType");
     /*package*/ static final SConcept Interface$db = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
     /*package*/ static final SInterfaceConcept IIncompatibleWithJavaLambda$v8 = MetaAdapterFactory.getInterfaceConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x77a6a261781b92e3L, "jetbrains.mps.baseLanguage.closures.structure.IIncompatibleWithJavaLambda");
     /*package*/ static final SInterfaceConcept IClassifierMember$Na = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x66c71d82c2eb113eL, "jetbrains.mps.baseLanguage.structure.IClassifierMember");
@@ -146,6 +270,7 @@ public class ClosureLiteralUtil {
     /*package*/ static final SConcept FieldDeclaration$ie = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
     /*package*/ static final SConcept VariableDeclaration$Y0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
     /*package*/ static final SInterfaceConcept IClassifier$MF = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x66c71d82c2eb113dL, "jetbrains.mps.baseLanguage.structure.IClassifier");
+    /*package*/ static final SConcept ClassifierType$bL = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
     /*package*/ static final SConcept Classifier$Ix = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
   }
 
@@ -157,6 +282,7 @@ public class ClosureLiteralUtil {
     /*package*/ static final SContainmentLink type$a1UY = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
     /*package*/ static final SContainmentLink typeVariableDeclaration$Lipp = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102463b447aL, 0x102463bb98eL, "typeVariableDeclaration");
     /*package*/ static final SContainmentLink parameter$oqG$ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x102419671abL, "parameter");
+    /*package*/ static final SContainmentLink parameterType$qJs$ = MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a4d19ffL, 0x1174a4e013cL, "parameterType");
     /*package*/ static final SContainmentLink parameter$b4Y3 = MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf02c34L, "parameter");
     /*package*/ static final SContainmentLink annotation$K49I = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation");
   }

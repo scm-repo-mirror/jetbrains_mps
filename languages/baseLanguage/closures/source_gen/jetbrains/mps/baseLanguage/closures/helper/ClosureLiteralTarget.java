@@ -37,18 +37,27 @@ public class ClosureLiteralTarget {
   public ClosureLiteralTarget(TemplateQueryContext genContext) {
     this.genContext = genContext;
   }
-  public void setTarget(SNode literal, SNode targetIface) {
-    SNode targetIfaceErase = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(SNodeOperations.getConcept(targetIface)));
-    SLinkOperations.setTarget(targetIfaceErase, LINKS.classifier$cxMr, SLinkOperations.getTarget(targetIface, LINKS.classifier$cxMr));
-    matchTypeParameters(literal, targetIfaceErase, SLinkOperations.getChildren(targetIface, LINKS.parameter$oqG$));
-    Values.LITERAL.set(genContext, targetIfaceErase, literal);
-    Values.LITERAL_TARGET.set(genContext, literal, targetIfaceErase);
+  public void setTarget(SNode literal, SNode targetIface, SNode actualType) {
+    SNode meth = getFunctionMethod(literal, targetIface);
+    if ((meth != null)) {
+      // This is only applicable if there's an existing function
+      // TODO if not, it is probably only applicable for Object as a target, maybe an error is necessary
+      SNode targetIfaceErase = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(SNodeOperations.getConcept(targetIface)));
+      SLinkOperations.setTarget(targetIfaceErase, LINKS.classifier$cxMr, SLinkOperations.getTarget(targetIface, LINKS.classifier$cxMr));
+      matchTypeParameters(meth, literal, targetIfaceErase, SLinkOperations.getChildren(targetIface, LINKS.parameter$oqG$));
+
+      targetIface = targetIfaceErase;
+    }
+
+    Values.LITERAL.set(genContext, targetIface, literal);
+    Values.LITERAL_TARGET.set(genContext, literal, targetIface);
+    Values.LITERAL_TYPE.set(genContext, literal, actualType);
 
     if (Values.LITERAL_RETURN_DEPEDENCY.isSet(genContext, literal)) {
       List<SNode> dependants = (List<SNode>) Values.LITERAL_RETURN_DEPEDENCY.get(genContext, literal);
       final SNode type = resolveIfaceReturnType(targetIface);
 
-      ListSequence.fromList(dependants).visitAll((SNode it) -> FunctionTypeUtil.prepAdaptations(genContext, type, it));
+      ListSequence.fromList(dependants).visitAll((it) -> FunctionTypeUtil.prepAdaptations(genContext, type, it));
       ListSequence.fromList(dependants).clear();
     }
   }
@@ -90,8 +99,7 @@ public class ClosureLiteralTarget {
     return null;
   }
 
-  private void matchTypeParameters(SNode literal, SNode targetIfaceErase, List<SNode> reifiedTargetIfaceTypeParams) {
-    SNode meth = getFunctionMethod(literal, targetIfaceErase);
+  private void matchTypeParameters(SNode meth, SNode literal, SNode targetIfaceErase, List<SNode> reifiedTargetIfaceTypeParams) {
     SNode funType = SNodeOperations.cast(TypecheckingFacade.getFromContext().getTypeOf(literal), CONCEPTS.FunctionType$9U);
     TypeMatcher matcher = new TypeMatcher();
 

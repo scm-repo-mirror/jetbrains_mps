@@ -6,7 +6,6 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.Iterator;
 import java.util.Queue;
-import jetbrains.mps.baseLanguage.closures.runtime.AdapterClass;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import java.util.Deque;
 import jetbrains.mps.internal.collections.runtime.impl.NullLinkedListSequence;
@@ -178,7 +177,7 @@ public class LinkedListSequence<T> extends AbstractListSequence<T> implements IL
     return (ILinkedListSequence<T>) super.removeSequence(seq);
   }
   @Override
-  public ILinkedListSequence<T> removeWhere(@AdapterClass(value = "IWhereFilter") _FunctionTypes._return_P1_E0<? extends Boolean, ? super T> filter) {
+  public ILinkedListSequence<T> removeWhere(_FunctionTypes._return_P1_E0<? extends Boolean, ? super T> filter) {
     return (ILinkedListSequence<T>) super.removeWhere(filter);
   }
   @Override

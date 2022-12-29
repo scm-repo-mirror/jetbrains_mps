@@ -6,7 +6,6 @@ import jetbrains.mps.internal.collections.runtime.impl.NullSetSequence;
 import jetbrains.mps.internal.collections.runtime.impl.NullSequence;
 import jetbrains.mps.internal.collections.runtime.impl.BasicSequence;
 import java.util.Arrays;
-import jetbrains.mps.baseLanguage.closures.runtime.AdapterClass;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import java.util.Collections;
 
@@ -48,7 +47,7 @@ public abstract class Sequence<T> extends AbstractSequence<T> implements ISequen
     }
     return new BasicSequence<U>(Arrays.asList(array));
   }
-  public static <U> ISequence<U> fromClosure(@AdapterClass(value = "ISequenceClosure") _FunctionTypes._return_P0_E0<? extends Iterable<U>> cls) {
+  public static <U> ISequence<U> fromClosure(_FunctionTypes._return_P0_E0<? extends Iterable<U>> cls) {
     return Sequence.fromIterable(cls.invoke());
   }
   public static <U> ISequence<U> fromIterable(Iterable<U> iterable) {

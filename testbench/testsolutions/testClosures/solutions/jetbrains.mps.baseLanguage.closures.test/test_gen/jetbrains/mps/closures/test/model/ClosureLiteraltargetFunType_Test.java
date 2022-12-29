@@ -56,7 +56,7 @@ public class ClosureLiteraltargetFunType_Test extends BaseTransformationTest {
         TemplateQueryContext genContext = TestBody.this.getContext();
         SNode literal = getNodeById("6374750171056867612");
         SNode funtype = getNodeById("6374750171056867639");
-        new ClosureLiteralTarget(genContext).setTarget(literal, FunctionType__BehaviorDescriptor.getDeclarationRuntimeType_idhTOKQzf.invoke(funtype));
+        new ClosureLiteralTarget(genContext).setTarget(literal, FunctionType__BehaviorDescriptor.getDeclarationRuntimeType_idhTOKQzf.invoke(funtype), _quotation_createNode_7325qm_c0a3a0a1a3h());
         TestBody.this.assertLiteralTarget(genContext, literal, _quotation_createNode_7325qm_c0a4a0a1a3h());
       });
     }
@@ -76,6 +76,16 @@ public class ClosureLiteraltargetFunType_Test extends BaseTransformationTest {
       SNode target = (SNode) Values.LITERAL_TARGET.get(gencontext, literal);
 
       Assert.assertTrue(new SNodeMatcher().match(expected, target));
+    }
+    private static SNode _quotation_createNode_7325qm_c0a3a0a1a3h() {
+      SNode quotedNode_1 = null;
+      SNode quotedNode_2 = null;
+      SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xfd3920347849419dL, 0x907112563d152375L, "jetbrains.mps.baseLanguage.closures"), 0x1174a4d19ffL, "FunctionType"));
+      quotedNode_1 = nb.getResult();
+      SNodeBuilder nb1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc6bf96dL, "VoidType"));
+      quotedNode_2 = nb1.getResult();
+      quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a4d19ffL, 0x1174a4d5371L, "resultType"), quotedNode_2);
+      return quotedNode_1;
     }
     private static SNode _quotation_createNode_7325qm_c0a4a0a1a3h() {
       SNode quotedNode_1 = null;

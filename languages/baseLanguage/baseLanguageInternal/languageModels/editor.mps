@@ -2200,6 +2200,9 @@
       <node concept="3F0ifn" id="V$JF6GPg05" role="3EZMnx">
         <property role="3F0ifm" value="-&gt;" />
       </node>
+      <node concept="3F1sOY" id="7PdaJru2AXO" role="3EZMnx">
+        <ref role="1NtTu8" to="tp68:2SO3lBM826m" resolve="returnType" />
+      </node>
       <node concept="3F0ifn" id="V$JF6GVmRA" role="3EZMnx">
         <property role="3F0ifm" value="{" />
         <ref role="1k5W1q" to="tpen:hFD5onb" resolve="LeftBrace" />

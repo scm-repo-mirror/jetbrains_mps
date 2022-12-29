@@ -122,7 +122,6 @@
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
     </language>
     <language id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures">
-      <concept id="1046929382682558545" name="jetbrains.mps.baseLanguage.closures.structure.ClosureLiteralType" flags="ig" index="9cv3F" />
       <concept id="1199542442495" name="jetbrains.mps.baseLanguage.closures.structure.FunctionType" flags="in" index="1ajhzC">
         <child id="1199542457201" name="resultType" index="1ajl9A" />
       </concept>
@@ -680,8 +679,8 @@
         </node>
         <node concept="mw_s8" id="36aT086WY6_" role="1ZfhKB">
           <node concept="2c44tf" id="36aT086WY6A" role="mwGJk">
-            <node concept="9cv3F" id="36aT086WY6B" role="2c44tc">
-              <node concept="3uibUv" id="36aT086X0WC" role="1ajl9A">
+            <node concept="1ajhzC" id="3FS7wUToIRE" role="2c44tc">
+              <node concept="3uibUv" id="3FS7wUToIRF" role="1ajl9A">
                 <ref role="3uigEE" to="wyt6:~String" resolve="String" />
               </node>
             </node>

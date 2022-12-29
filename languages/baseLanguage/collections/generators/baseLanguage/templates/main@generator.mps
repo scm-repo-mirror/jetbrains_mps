@@ -808,38 +808,6 @@
             <node concept="2ShNRf" id="3612de$tQrm" role="37wK5m">
               <node concept="1pGfFk" id="3612de$tQrn" role="2ShVmc">
                 <ref role="37wK5l" to="urs3:1JuK1K9lRL" resolve="NotNullWhereFilter" />
-                <node concept="33vP2l" id="3612de$tQro" role="1pMfVU">
-                  <node concept="29HgVG" id="3612de$tQrp" role="lGtFl">
-                    <node concept="3NFfHV" id="3612de$tQrq" role="3NFExx">
-                      <node concept="3clFbS" id="3612de$tQrr" role="2VODD2">
-                        <node concept="3clFbF" id="3612de$tQrs" role="3cqZAp">
-                          <node concept="2YIFZM" id="3612de$tQrt" role="3clFbG">
-                            <ref role="37wK5l" to="tp2g:hwak6Ex" resolve="copyTypeRecursively" />
-                            <ref role="1Pybhc" to="tp2g:hv18zCR" resolve="ClassifierTypeUtil" />
-                            <node concept="2YIFZM" id="3612de$tQru" role="37wK5m">
-                              <ref role="1Pybhc" to="tp2g:hv18zCR" resolve="ClassifierTypeUtil" />
-                              <ref role="37wK5l" to="tp2g:hv18AMC" resolve="getTypeCoercedToClassifierType" />
-                              <node concept="2OqwBi" id="3612de$tQrv" role="37wK5m">
-                                <node concept="1PxgMI" id="3612de$tQrw" role="2Oq$k0">
-                                  <node concept="chp4Y" id="3612de$tQrx" role="3oSUPX">
-                                    <ref role="cht4Q" to="tp2q:gKA3Dh4" resolve="SequenceType" />
-                                  </node>
-                                  <node concept="2OqwBi" id="3612de$tQry" role="1m5AlR">
-                                    <node concept="30H73N" id="3612de$tQrz" role="2Oq$k0" />
-                                    <node concept="3JvlWi" id="3612de$tQr$" role="2OqNvi" />
-                                  </node>
-                                </node>
-                                <node concept="3TrEf2" id="3612de$tQr_" role="2OqNvi">
-                                  <ref role="3Tt5mk" to="tp2q:gKA3Ige" resolve="elementType" />
-                                </node>
-                              </node>
-                            </node>
-                          </node>
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                </node>
               </node>
             </node>
             <node concept="raruj" id="3612de$tQrF" role="lGtFl" />
@@ -849,6 +817,9 @@
               <node concept="10Nm6u" id="3612de$tQrC" role="10QFUP" />
               <node concept="3uibUv" id="3612de$tQrD" role="10QFUM">
                 <ref role="3uigEE" to="urs3:5Ffu4tBUx5R" resolve="ISequence" />
+                <node concept="3uibUv" id="4XT$oYP_Vqj" role="11_B2D">
+                  <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
+                </node>
               </node>
             </node>
           </node>

@@ -5,7 +5,6 @@ package jetbrains.mps.internal.collections.runtime;
 import java.io.Serializable;
 import java.util.Deque;
 import java.util.Iterator;
-import jetbrains.mps.baseLanguage.closures.runtime.AdapterClass;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.internal.collections.runtime.impl.NullDequeSequence;
 import java.util.LinkedList;
@@ -132,7 +131,7 @@ public class DequeSequence<T> extends AbstractQueueSequence<T> implements IDeque
     return (IDequeSequence<T>) super.removeSequence(seq);
   }
   @Override
-  public IDequeSequence<T> removeWhere(@AdapterClass(value = "IWhereFilter") _FunctionTypes._return_P1_E0<? extends Boolean, ? super T> filter) {
+  public IDequeSequence<T> removeWhere(_FunctionTypes._return_P1_E0<? extends Boolean, ? super T> filter) {
     return (IDequeSequence<T>) super.removeWhere(filter);
   }
   @Override

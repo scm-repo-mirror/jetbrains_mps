@@ -191,6 +191,9 @@ with_meet:
     SNode rtype = TypecheckingFacade.getFromContext().getTypeOf(rexpr);
     SNode rFType = SNodeOperations.as(rtype, CONCEPTS.FunctionType$9U);
     SNode rCType = SNodeOperations.as(rtype, CONCEPTS.ClassifierType$bL);
+    if ((rFType == null) && (rCType == null)) {
+      return;
+    }
 
     // Expected scenario: right type is a function type and left type is likely compatible with it
     if ((rFType != null) && SNodeOperations.isInstanceOf(rexpr, CONCEPTS.ClosureLiteral$rp)) {
@@ -200,7 +203,7 @@ with_meet:
       if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(leftFunctionType, LINKS.resultType$2oOC), CONCEPTS.VoidType$BF)) || SNodeOperations.isInstanceOf(SLinkOperations.getTarget(rFType, LINKS.resultType$2oOC), CONCEPTS.VoidType$BF) || !(HasReturnedExpressionPredicate.it.testClosure(SNodeOperations.cast(rexpr, CONCEPTS.ClosureLiteral$rp)))) {
 
         // Regular dependency
-        new ClosureLiteralTarget(genContext).setTarget(SNodeOperations.cast(rexpr, CONCEPTS.ClosureLiteral$rp), ((lCType != null) ? lCType : FunctionType__BehaviorDescriptor.getDeclarationRuntimeType_idH4u0Q2K3hM.invoke(lFType, rFType)));
+        new ClosureLiteralTarget(genContext).setTarget(SNodeOperations.cast(rexpr, CONCEPTS.ClosureLiteral$rp), ((lCType != null) ? lCType : FunctionType__BehaviorDescriptor.getDeclarationRuntimeType_idH4u0Q2K3hM.invoke(lFType, rFType)), rFType);
         return;
       }
     }

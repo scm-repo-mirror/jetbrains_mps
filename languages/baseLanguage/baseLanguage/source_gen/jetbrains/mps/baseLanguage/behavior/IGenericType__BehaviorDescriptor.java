@@ -33,10 +33,11 @@ public final class IGenericType__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<SNode> expandGenerics_id3zZky3wFPhu = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("expandGenerics").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4107091686347199582L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter((Class<Map<SNode, SNode>>) ((Class) Object.class), ""));
   public static final SMethod<SNode> eraseGenerics_id4qyz6djw13y = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("eraseGenerics").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5089784887112634594L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
   public static final SMethod<SNode> expandGenerics_id3$PgO9fYTB5 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("expandGenerics").modifiers(8, AccessPrivileges.PROTECTED).concept(CONCEPT).baseMethodId(4122274986016348613L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter((Class<Map<SNode, SNode>>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<List<SNode>>) ((Class) Object.class), ""));
+  public static final SMethod<SNode> expandGenerics_id7Gunk0ZqeQo = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("expandGenerics").modifiers(1, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8871630846489587096L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<Map<SNode, SNode>>) ((Class) Object.class), ""));
   public static final SMethod<SNode> expandGenericDescendants_id3zZky3wIhhm = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("expandGenericDescendants").modifiers(8, AccessPrivileges.PROTECTED).concept(CONCEPT).baseMethodId(4107091686347838550L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<Map<SNode, SNode>>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<List<SNode>>) ((Class) Object.class), ""));
   public static final SMethod<Void> walkDescendants_id77p1ap9WcZw = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("walkDescendants").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8203593308483669984L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<_FunctionTypes._return_P2_E0<? extends Boolean, ? super SNode, ? super Queue<SNode>>>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(collectGenericSubstitutions_id3zZky3wF74h, expandGenerics_id3zZky3wFPhu, eraseGenerics_id4qyz6djw13y, expandGenerics_id3$PgO9fYTB5, expandGenericDescendants_id3zZky3wIhhm, walkDescendants_id77p1ap9WcZw);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(collectGenericSubstitutions_id3zZky3wF74h, expandGenerics_id3zZky3wFPhu, eraseGenerics_id4qyz6djw13y, expandGenerics_id3$PgO9fYTB5, expandGenerics_id7Gunk0ZqeQo, expandGenericDescendants_id3zZky3wIhhm, walkDescendants_id77p1ap9WcZw);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -52,6 +53,15 @@ public final class IGenericType__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static SNode expandGenerics_id3$PgO9fYTB5(@NotNull SNode __thisNode__, Map<SNode, SNode> substitutions, List<SNode> expTrace) {
     return IGenericType__BehaviorDescriptor.expandGenericDescendants_id3zZky3wIhhm.invoke(__thisNode__, SNodeOperations.copyNode(__thisNode__), substitutions, expTrace);
+  }
+  /*package*/ static SNode expandGenerics_id7Gunk0ZqeQo(@NotNull SAbstractConcept __thisConcept__, SNode type, Map<SNode, SNode> substitutions) {
+    {
+      final SNode generic = type;
+      if (SNodeOperations.isInstanceOf(generic, CONCEPTS.IGenericType$13)) {
+        return IGenericType__BehaviorDescriptor.expandGenerics_id3zZky3wFPhu.invoke(generic, substitutions);
+      }
+    }
+    return type;
   }
   /*package*/ static SNode expandGenericDescendants_id3zZky3wIhhm(@NotNull SNode __thisNode__, SNode expanded, final Map<SNode, SNode> substitutions, final List<SNode> expTrace) {
     IGenericType__BehaviorDescriptor.walkDescendants_id77p1ap9WcZw.invoke(__thisNode__, expanded, new _FunctionTypes._return_P2_E0<Boolean, SNode, Queue<SNode>>() {
@@ -103,9 +113,9 @@ public final class IGenericType__BehaviorDescriptor extends BaseBHDescriptor {
         return (T) ((SNode) eraseGenerics_id4qyz6djw13y(node));
       case 3:
         return (T) ((SNode) expandGenerics_id3$PgO9fYTB5(node, (Map<SNode, SNode>) parameters[0], (List<SNode>) parameters[1]));
-      case 4:
-        return (T) ((SNode) expandGenericDescendants_id3zZky3wIhhm(node, (SNode) parameters[0], (Map<SNode, SNode>) parameters[1], (List<SNode>) parameters[2]));
       case 5:
+        return (T) ((SNode) expandGenericDescendants_id3zZky3wIhhm(node, (SNode) parameters[0], (Map<SNode, SNode>) parameters[1], (List<SNode>) parameters[2]));
+      case 6:
         walkDescendants_id77p1ap9WcZw(node, (SNode) parameters[0], (_FunctionTypes._return_P2_E0<? extends Boolean, ? super SNode, ? super Queue<SNode>>) parameters[1]);
         return null;
       default:
@@ -120,6 +130,8 @@ public final class IGenericType__BehaviorDescriptor extends BaseBHDescriptor {
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
+      case 4:
+        return (T) ((SNode) expandGenerics_id7Gunk0ZqeQo(concept, (SNode) parameters[0], (Map<SNode, SNode>) parameters[1]));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

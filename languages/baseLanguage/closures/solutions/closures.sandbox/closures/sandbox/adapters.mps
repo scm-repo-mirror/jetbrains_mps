@@ -17,17 +17,6 @@
       </concept>
       <concept id="1202948039474" name="jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation" flags="nn" index="liA8E" />
       <concept id="1465982738277781862" name="jetbrains.mps.baseLanguage.structure.PlaceholderMember" flags="nn" index="2tJIrI" />
-      <concept id="1188207840427" name="jetbrains.mps.baseLanguage.structure.AnnotationInstance" flags="nn" index="2AHcQZ">
-        <reference id="1188208074048" name="annotation" index="2AI5Lk" />
-        <child id="1188214630783" name="value" index="2B76xF" />
-      </concept>
-      <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ng" index="2AJDlI">
-        <child id="1188208488637" name="annotation" index="2AJF6D" />
-      </concept>
-      <concept id="1188214545140" name="jetbrains.mps.baseLanguage.structure.AnnotationInstanceValue" flags="ng" index="2B6LJw">
-        <reference id="1188214555875" name="key" index="2B6OnR" />
-        <child id="1188214607812" name="value" index="2B70Vg" />
-      </concept>
       <concept id="4678410916365116210" name="jetbrains.mps.baseLanguage.structure.DefaultModifier" flags="ng" index="2JFqV2" />
       <concept id="1197027756228" name="jetbrains.mps.baseLanguage.structure.DotExpression" flags="nn" index="2OqwBi">
         <child id="1197027771414" name="operand" index="2Oq$k0" />
@@ -185,15 +174,6 @@
           <node concept="17QB3L" id="5j9sOBs3buC" role="1ajw0F" />
           <node concept="10Oyi0" id="5j9sOBs3buD" role="1ajl9A" />
         </node>
-        <node concept="2AHcQZ" id="2uAWGxT7Z7T" role="2AJF6D">
-          <ref role="2AI5Lk" to="qbve:7w8CYsT5wfS" resolve="AdapterClass" />
-          <node concept="2B6LJw" id="2uAWGxT7Z7U" role="2B76xF">
-            <ref role="2B6OnR" to="qbve:7w8CYsT5wfT" resolve="value" />
-            <node concept="Xl_RD" id="2uAWGxT7Z7W" role="2B70Vg">
-              <property role="Xl_RC" value="AdapterDemo" />
-            </node>
-          </node>
-        </node>
       </node>
       <node concept="3cqZAl" id="2uAWGxT7Z7I" role="3clF45" />
       <node concept="3Tm1VV" id="2uAWGxT7Z7J" role="1B3o_S" />
@@ -209,15 +189,6 @@
           </node>
           <node concept="16syzq" id="5j9sOBs3bvi" role="1ajl9A">
             <ref role="16sUi3" node="25RNw_CdbjR" resolve="T" />
-          </node>
-        </node>
-        <node concept="2AHcQZ" id="25RNw_CdbjX" role="2AJF6D">
-          <ref role="2AI5Lk" to="qbve:7w8CYsT5wfS" resolve="AdapterClass" />
-          <node concept="2B6LJw" id="25RNw_CdbjY" role="2B76xF">
-            <ref role="2B6OnR" to="qbve:7w8CYsT5wfT" resolve="value" />
-            <node concept="Xl_RD" id="25RNw_Cdbk0" role="2B70Vg">
-              <property role="Xl_RC" value="GenericAdapter" />
-            </node>
           </node>
         </node>
       </node>

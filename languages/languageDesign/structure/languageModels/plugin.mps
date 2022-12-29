@@ -86,7 +86,6 @@
       </concept>
     </language>
     <language id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures">
-      <concept id="1046929382682558545" name="jetbrains.mps.baseLanguage.closures.structure.ClosureLiteralType" flags="ig" index="9cv3F" />
       <concept id="1199542442495" name="jetbrains.mps.baseLanguage.closures.structure.FunctionType" flags="in" index="1ajhzC">
         <child id="1199542457201" name="resultType" index="1ajl9A" />
         <child id="1199542501692" name="parameterType" index="1ajw0F" />
@@ -127,14 +126,14 @@
   </registry>
   <node concept="vrV6u" id="6UyJMA9FNHS">
     <property role="TrG5h" value="NodeRenamer" />
-    <node concept="9cv3F" id="5_glQXufNeH" role="luc8K">
-      <node concept="3uibUv" id="5_glQXufNeI" role="1ajw0F">
+    <node concept="1ajhzC" id="3FS7wUToIRZ" role="luc8K">
+      <node concept="3uibUv" id="3FS7wUToIS0" role="1ajw0F">
         <ref role="3uigEE" to="cj4x:~EditorContext" resolve="EditorContext" />
       </node>
-      <node concept="3Tqbb2" id="5_glQXufNeJ" role="1ajw0F" />
-      <node concept="17QB3L" id="5_glQXufNeK" role="1ajw0F" />
-      <node concept="17QB3L" id="5_glQXufNeL" role="1ajw0F" />
-      <node concept="10P_77" id="5_glQXufNeM" role="1ajl9A" />
+      <node concept="3Tqbb2" id="3FS7wUToIS1" role="1ajw0F" />
+      <node concept="17QB3L" id="3FS7wUToIS2" role="1ajw0F" />
+      <node concept="17QB3L" id="3FS7wUToIS3" role="1ajw0F" />
+      <node concept="10P_77" id="3FS7wUToIS4" role="1ajl9A" />
     </node>
   </node>
   <node concept="3vrhyV" id="2LiUEk8oQ$g">
