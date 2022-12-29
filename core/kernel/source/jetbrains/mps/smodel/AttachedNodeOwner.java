@@ -249,22 +249,22 @@ final class AttachedNodeOwner extends SNodeOwner {
   }
 
   @Override
-  /*package*/ void fireReferenceChange(SNode node, SReferenceLink l, org.jetbrains.mps.openapi.model.SReference oldRef, org.jetbrains.mps.openapi.model.SReference newRef) {
-    // XXX is it true we need to register immature even in update mode?
-    commandContext().associationSet(newRef);
+  /*package*/ void fireReferenceChange(SNode node, SReferenceLink l, AssociationData oldRef, AssociationData newRef) {
+    // FIXME is it true we need to register immature even in update mode?
+    commandContext().associationSet(node, l, newRef);
     if (myModel.isUpdateMode()) {
       return;
     }
     if (oldRef != null) {
-      myModel.fireReferenceRemovedEvent(oldRef);
+      myModel.fireReferenceRemovedEvent(node.toAPI(l, oldRef));
     }
     if (newRef != null) {
-      myModel.fireReferenceAddedEvent(newRef);
+      myModel.fireReferenceAddedEvent(node.toAPI(l, newRef));
     }
     // referenceChanged(l, oldRef, newRef);
     final ModelEventDispatch md = myEventDispatch;
     if (md != null) {
-      md.fireReferenceChange(node, l, oldRef, newRef);
+      md.fireReferenceChange(node, l, oldRef == null ? null : node.toAPI(l, oldRef), newRef == null ? null : node.toAPI(l, newRef));
     }
   }
 

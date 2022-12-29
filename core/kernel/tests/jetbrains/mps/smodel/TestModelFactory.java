@@ -36,7 +36,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeAccessListener;
 import org.jetbrains.mps.openapi.model.SNodeChangeListener;
 import org.jetbrains.mps.openapi.model.SNodeId;
-import org.jetbrains.mps.openapi.model.SReference;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleId;
 import org.jetbrains.mps.openapi.module.SRepository;
@@ -413,7 +412,7 @@ final class TestModelFactory {
         }
 
         @Override
-        public void associationSet(SReference association) {
+        public void associationSet(SNode node, SReferenceLink link, AssociationData association) {
         }
 
         @Nullable

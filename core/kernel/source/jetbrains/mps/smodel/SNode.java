@@ -17,7 +17,9 @@ package jetbrains.mps.smodel;
 
 import jetbrains.mps.extapi.model.ResolveInfoExt;
 import jetbrains.mps.logging.Logger;
+import jetbrains.mps.smodel.AssociationData.DirectNode;
 import jetbrains.mps.smodel.AssociationData.DynamicPtr;
+import jetbrains.mps.smodel.AssociationData.IndirectNodePtr;
 import jetbrains.mps.smodel.AssociationData.SNodeAssociationUpdate;
 import jetbrains.mps.util.containers.EmptyIterable;
 import org.jetbrains.annotations.NotNull;
@@ -451,7 +453,7 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode, SNodeAssoci
   }
 
 
-  private SReference toAPI(SReferenceLink link, Object associationData) {
+  /*package*/ SReference toAPI(SReferenceLink link, Object associationData) {
     // both arguments not null
     if (associationData instanceof DynamicPtr) {
       return new DynamicReference(link, this, (DynamicPtr) associationData);
@@ -669,7 +671,17 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode, SNodeAssoci
   @Override
   public void setReferenceTarget(@NotNull SReferenceLink role, @Nullable org.jetbrains.mps.openapi.model.SNode target) {
     assertCanChange();
-    final SReference newValue = target == null ? null : SReference.create(role, this, target);
+    final AssociationData newValue;
+    if (target == null) {
+      newValue = null; // basically, == dropReference() without extra assertCanChange
+    } else {
+      if (getModel() != null && target.getModel() != null) {
+        // 'mature' reference
+        newValue = new IndirectNodePtr(target.getModel().getReference(), target.getNodeId(), target.getName());
+      } else {
+        newValue = new DirectNode(target);
+      }
+    }
     doSetAssociation(role, newValue);
   }
 
@@ -694,7 +706,7 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode, SNodeAssoci
   @Override
   public void setReference(@NotNull SReferenceLink role, @NotNull SNodeReference target) {
     assertCanChange();
-    doSetAssociation(role, SReference.create(role, this, target, null));
+    doSetAssociation(role, new IndirectNodePtr(target.getModelReference(), target.getNodeId(), null));
   }
 
   @Override
@@ -730,7 +742,8 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode, SNodeAssoci
   }
 
   // clear or replace an SReference
-  private void doSetAssociation(/*not null*/ SReferenceLink role, /*nullable*/ SReference newValue) {
+  // package visibility for undoable actions
+  /*package*/ void doSetAssociation(/*not null*/ SReferenceLink role, /*nullable*/ AssociationData newValue) {
     AssociationData oldValue = null;
     int i = 1, x = myReferences.length, empty = x;
     for (; i < x; i+=2) {
@@ -750,10 +763,10 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode, SNodeAssoci
     }
     if (i < x) {
       // found existing, just replace
-      myOwner.performUndoableAction(new RemoveReferenceAtUndoableAction(this, toAPI(role, oldValue)));
+      myOwner.performUndoableAction(new RemoveReferenceAtUndoableAction(this, role, oldValue));
       if (newValue != null) {
-        myReferences[i] = newValue.getData();
-        myOwner.performUndoableAction(new InsertReferenceAtUndoableAction(this, newValue));
+        myReferences[i] = newValue;
+        myOwner.performUndoableAction(new InsertReferenceAtUndoableAction(this, role, newValue));
       } else {
         // drop
         myReferences[i-1] = null;
@@ -770,23 +783,23 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode, SNodeAssoci
           myReferences = EMPTY_OBJECT_ARRAY;
         }
       }
-      myOwner.fireReferenceChange(this, role, toAPI(role, oldValue), newValue);
+      myOwner.fireReferenceChange(this, role, oldValue, newValue);
       return;
     }
     assert i >= x && newValue != null; // in fact, with +=2, it's i > x
     if (empty < x) {
       // there's available slot
       myReferences[empty-1] = role;
-      myReferences[empty] = newValue.getData();
+      myReferences[empty] = newValue;
     } else {
       // no space available, storage have to grow. Allocate 2 slots (x2 Objects) right away
       Object[] newArray = new Object[x + 4];
       System.arraycopy(myReferences, 0, newArray, 0, x);
       newArray[x] = role;
-      newArray[x+1] = newValue.getData();
+      newArray[x+1] = newValue;
       myReferences = newArray;
     }
-    myOwner.performUndoableAction(new InsertReferenceAtUndoableAction(this, newValue));
+    myOwner.performUndoableAction(new InsertReferenceAtUndoableAction(this, role, newValue));
     myOwner.fireReferenceChange(this, role, null, newValue);
   }
 
@@ -801,7 +814,7 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode, SNodeAssoci
     assert toAdd == null || toAdd.getSourceNode() == this;
     assert toAdd == null || role.equals(toAdd.getLink());
     assertCanChange();
-    doSetAssociation(role, (SReference) toAdd);
+    doSetAssociation(role, toAdd == null ? null : ((SReference) toAdd).getData());
   }
 
   @Override

@@ -22,10 +22,10 @@ import jetbrains.mps.util.Computable;
 import jetbrains.mps.util.ComputeRunnable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeId;
-import org.jetbrains.mps.openapi.model.SReference;
 
 import java.util.IdentityHashMap;
 import java.util.Map;
@@ -251,12 +251,12 @@ public abstract class ModelAccess extends AbstractModelAccess implements ModelCo
     }
 
     @Override
-    public void associationSet(SReference association) {
-      if (association instanceof StaticReference && ((StaticReference) association).isDirect()) {
+    public void associationSet(SNode node, SReferenceLink link, AssociationData association) {
+      if (association != null && association.isDirectNode()) {
         if (myIR == null) {
           myIR = new ImmatureReferences();
         }
-        myIR.add((StaticReference) association);
+        myIR.add(node, link);
       }
     }
 
