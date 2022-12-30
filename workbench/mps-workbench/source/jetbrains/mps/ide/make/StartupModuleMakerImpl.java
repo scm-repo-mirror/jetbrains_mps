@@ -112,7 +112,7 @@ public final class StartupModuleMakerImpl extends StartupModuleMaker implements 
     maker.options(JavaCompilerOptionsComponent.getInstance().getJavaCompilerOptions(myMPSProject))
          .kotlinCompileCache(new KotlinCompileCacheHandlerImpl(IMessageHandler.NULL_HANDLER))
          .kotlinOptions(new KotlinCompilerOptions(clientFile));
-    final ReloadManager reloadManager = ApplicationManager.getApplication().getComponent(ReloadManager.class);
+    final ReloadManager reloadManager = ReloadManager.getInstance();
     reloadManager.computeNoReload(() -> {
       monitor.start("", 5);
       final ArrayList<SModule> modules = new ArrayList<>(100);

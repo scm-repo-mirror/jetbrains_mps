@@ -116,10 +116,7 @@ public final class ModelMergeConflictTracker implements StartupActivity.Backgrou
           }
           return null;
         };
-        ApplicationManager.getApplication().invokeLater(() -> {
-          ReloadManager reloadManager = ApplicationManager.getApplication().getComponent(ReloadManager.class);
-          reloadManager.computeNoReload(conflictableReload);
-        }, ModalityState.defaultModalityState(), myProject.getProject().getDisposed());
+        ApplicationManager.getApplication().invokeLater(() -> ReloadManager.getInstance().computeNoReload(conflictableReload), ModalityState.defaultModalityState(), myProject.getProject().getDisposed());
       }
     }
   }

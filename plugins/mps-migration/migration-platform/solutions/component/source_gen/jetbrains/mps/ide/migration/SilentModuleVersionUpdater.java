@@ -9,7 +9,6 @@ import jetbrains.mps.smodel.ModelsEventsCollector;
 import jetbrains.mps.smodel.event.SModelEventVisitor;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.ide.platform.watching.ReloadManager;
-import com.intellij.openapi.application.ApplicationManager;
 import jetbrains.mps.smodel.RepoListenerRegistrar;
 import java.util.List;
 import org.jetbrains.mps.openapi.module.SModule;
@@ -45,7 +44,7 @@ import jetbrains.mps.ide.platform.watching.ReloadListener;
   public SilentModuleVersionUpdater(MPSProject mpsProject, _FunctionTypes._return_P0_E0<? extends Boolean> isUnderMigration) {
     myMpsProject = mpsProject;
     myIsUnderMigration = isUnderMigration;
-    myReloadManager = ApplicationManager.getApplication().getComponent(ReloadManager.class);
+    myReloadManager = ReloadManager.getInstance();
   }
 
   public void attach() {

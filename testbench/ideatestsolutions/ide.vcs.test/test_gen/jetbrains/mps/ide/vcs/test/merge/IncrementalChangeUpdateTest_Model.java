@@ -113,7 +113,7 @@ public class IncrementalChangeUpdateTest_Model extends ChangesTestBase {
     // chance to send out DataSource.changed event till the moment DiffRegistry completes ChangesTracking.update(false) for the modified file. As long as ChangesTracking cares about changes of model 
     // against 'repository' revision (BaseVersionUtil.getBaseVersionModel() -> getBaseVersionContent() -> change.getBeforeRevision()), there are no differences with in-memory model content and
     // myDiff.getChangeSet is empty. With the flush(), we try to force model notice its changes (i.e. reload based on changedContent), giving ChangesTracking.update code a chance to build actual changeset.
-    ApplicationManager.getApplication().getComponent(ReloadManager.class).flush();
+    ReloadManager.getInstance().flush();
     myEnv.flushAllEvents();
     updateChangeListManager();
     myWaitHelper.waitForDiffRegistry();

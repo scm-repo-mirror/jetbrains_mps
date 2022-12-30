@@ -230,7 +230,7 @@ public class ConvertPackageToModel extends AnAction {
         }
 
         // we want psi stub models to be up-to-date with regard to those deletions
-        ApplicationManager.getApplication().getComponent(ReloadManager.class).flush();
+        ReloadManager.getInstance().flush();
       }
     });
 

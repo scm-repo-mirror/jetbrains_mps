@@ -158,7 +158,8 @@ public class ProjectPane extends BaseLogicalViewProjectPane implements ProjectVi
         rebuild();
       }
     };
-    ApplicationManager.getApplication().getComponent(ReloadManager.class).addReloadListener(myReloadListener);
+    // XXX provided we add a listener, perhaps, shall keep instance in a field or introduce a method to take Disposable with listener (IDEA style)
+    ReloadManager.getInstance().addReloadListener(myReloadListener);
     // I'm using RegistryValues, not regular PersistentStateComponent properties to keep settings as I'd like to see statistics if anyone modifies
     // these settings, and, if yes, how.
     myShowDescriptorModelsAction = new ToggleAndRebuildAction(this, "@descriptor models in Generators", "mps.ProjectPane.show.descriptor.generator");
@@ -172,7 +173,7 @@ public class ProjectPane extends BaseLogicalViewProjectPane implements ProjectVi
   @Override
   public void dispose() {
     myUpdateQueue.dispose();
-    ApplicationManager.getApplication().getComponent(ReloadManager.class).removeReloadListener(myReloadListener);
+    ReloadManager.getInstance().removeReloadListener(myReloadListener);
     super.dispose();
   }
 

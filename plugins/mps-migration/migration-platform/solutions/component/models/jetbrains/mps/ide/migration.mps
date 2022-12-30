@@ -1017,17 +1017,9 @@
             <node concept="37vLTw" id="35TwGP_JSp0" role="37vLTJ">
               <ref role="3cqZAo" node="3ksDZ_I0fFv" resolve="myReloadManager" />
             </node>
-            <node concept="2OqwBi" id="35TwGP_JSp1" role="37vLTx">
-              <node concept="2YIFZM" id="35TwGP_JTg6" role="2Oq$k0">
-                <ref role="1Pybhc" to="bd8o:~ApplicationManager" resolve="ApplicationManager" />
-                <ref role="37wK5l" to="bd8o:~ApplicationManager.getApplication()" resolve="getApplication" />
-              </node>
-              <node concept="liA8E" id="35TwGP_JSp3" role="2OqNvi">
-                <ref role="37wK5l" to="1m72:~ComponentManager.getComponent(java.lang.Class)" resolve="getComponent" />
-                <node concept="3VsKOn" id="35TwGP_JSp5" role="37wK5m">
-                  <ref role="3VsUkX" to="2eq1:491od_XJZeq" resolve="ReloadManager" />
-                </node>
-              </node>
+            <node concept="2YIFZM" id="3mWeFTSphoT" role="37vLTx">
+              <ref role="37wK5l" to="2eq1:3mWeFTSoQZV" resolve="getInstance" />
+              <ref role="1Pybhc" to="2eq1:491od_XJZeq" resolve="ReloadManager" />
             </node>
           </node>
         </node>
@@ -13861,17 +13853,9 @@
             <node concept="37vLTw" id="1guuOICK$da" role="37vLTJ">
               <ref role="3cqZAo" node="1guuOICKrqI" resolve="myReloadManager" />
             </node>
-            <node concept="2OqwBi" id="1guuOICK$d8" role="37vLTx">
-              <node concept="2YIFZM" id="1guuOICK$dc" role="2Oq$k0">
-                <ref role="1Pybhc" to="bd8o:~ApplicationManager" resolve="ApplicationManager" />
-                <ref role="37wK5l" to="bd8o:~ApplicationManager.getApplication()" resolve="getApplication" />
-              </node>
-              <node concept="liA8E" id="1guuOICK$d6" role="2OqNvi">
-                <ref role="37wK5l" to="1m72:~ComponentManager.getComponent(java.lang.Class)" resolve="getComponent" />
-                <node concept="3VsKOn" id="1guuOICK$de" role="37wK5m">
-                  <ref role="3VsUkX" to="2eq1:491od_XJZeq" resolve="ReloadManager" />
-                </node>
-              </node>
+            <node concept="2YIFZM" id="3mWeFTSqSik" role="37vLTx">
+              <ref role="37wK5l" to="2eq1:3mWeFTSoQZV" resolve="getInstance" />
+              <ref role="1Pybhc" to="2eq1:491od_XJZeq" resolve="ReloadManager" />
             </node>
           </node>
         </node>

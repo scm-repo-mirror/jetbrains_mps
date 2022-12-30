@@ -20,13 +20,13 @@ import com.intellij.openapi.project.Project;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.make.MakeServiceComponent;
-import com.intellij.openapi.application.ApplicationManager;
 import java.util.List;
 import org.jetbrains.mps.openapi.module.SModule;
 import java.util.function.Consumer;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import jetbrains.mps.RuntimeFlags;
 import com.intellij.openapi.startup.StartupManager;
+import com.intellij.openapi.application.ApplicationManager;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.util.IStatus;
@@ -127,7 +127,7 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
     final MPSCoreComponents mpsCore = MPSCoreComponents.getInstance();
     myLanguageRegistry = mpsCore.getPlatform().findComponent(LanguageRegistry.class);
     myMake = mpsCore.getPlatform().findComponent(MakeServiceComponent.class).get();
-    myReloadManager = ApplicationManager.getApplication().getComponent(ReloadManager.class);
+    myReloadManager = ReloadManager.getInstance();
     myNotifications = new MigrationNotificationsSupport(ideaProject, myMpsProject, myLanguageRegistry) {
       @Override
       public void runAssistant() {

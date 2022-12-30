@@ -30,7 +30,6 @@
     <import index="jlff" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.vfs(MPS.IDEA/)" />
     <import index="79ha" ref="r:2876f1ee-0b45-4db5-8c09-0682cdee5c67(jetbrains.mps.tool.environment)" />
     <import index="4hrd" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.vfs(MPS.Platform/)" />
-    <import index="1m72" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.components(MPS.IDEA/)" />
     <import index="guwi" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.io(JDK/)" />
     <import index="lcr" ref="r:d634c129-ecb4-4acd-bd8c-5f057c144ffa(jetbrains.mps.vcs.changesmanager)" />
     <import index="dush" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)" />
@@ -11479,20 +11478,12 @@
       <node concept="3clFbS" id="xjl$fQQZd7" role="3clF47">
         <node concept="3clFbF" id="4EFFxri_s13" role="3cqZAp">
           <node concept="2OqwBi" id="4EFFxri_t2r" role="3clFbG">
-            <node concept="2OqwBi" id="4EFFxri_srB" role="2Oq$k0">
-              <node concept="2YIFZM" id="4EFFxri_s6s" role="2Oq$k0">
-                <ref role="37wK5l" to="bd8o:~ApplicationManager.getApplication()" resolve="getApplication" />
-                <ref role="1Pybhc" to="bd8o:~ApplicationManager" resolve="ApplicationManager" />
-              </node>
-              <node concept="liA8E" id="4EFFxri_sH_" role="2OqNvi">
-                <ref role="37wK5l" to="1m72:~ComponentManager.getComponent(java.lang.Class)" resolve="getComponent" />
-                <node concept="3VsKOn" id="4g0Mut8_mCf" role="37wK5m">
-                  <ref role="3VsUkX" to="2eq1:491od_XJZeq" resolve="ReloadManager" />
-                </node>
-              </node>
-            </node>
             <node concept="liA8E" id="4EFFxri_tcE" role="2OqNvi">
               <ref role="37wK5l" to="2eq1:4SUKy4FU8kE" resolve="flush" />
+            </node>
+            <node concept="2YIFZM" id="3mWeFTSphoT" role="2Oq$k0">
+              <ref role="37wK5l" to="2eq1:3mWeFTSoQZV" resolve="getInstance" />
+              <ref role="1Pybhc" to="2eq1:491od_XJZeq" resolve="ReloadManager" />
             </node>
           </node>
         </node>
@@ -13099,20 +13090,12 @@
         </node>
         <node concept="3clFbF" id="6RqhSZRQqIf" role="3cqZAp">
           <node concept="2OqwBi" id="6RqhSZRQsWD" role="3clFbG">
-            <node concept="2OqwBi" id="6RqhSZRQrGg" role="2Oq$k0">
-              <node concept="2YIFZM" id="6RqhSZRQrg4" role="2Oq$k0">
-                <ref role="37wK5l" to="bd8o:~ApplicationManager.getApplication()" resolve="getApplication" />
-                <ref role="1Pybhc" to="bd8o:~ApplicationManager" resolve="ApplicationManager" />
-              </node>
-              <node concept="liA8E" id="6RqhSZRQsuQ" role="2OqNvi">
-                <ref role="37wK5l" to="1m72:~ComponentManager.getComponent(java.lang.Class)" resolve="getComponent" />
-                <node concept="3VsKOn" id="6RqhSZRQsFv" role="37wK5m">
-                  <ref role="3VsUkX" to="2eq1:491od_XJZeq" resolve="ReloadManager" />
-                </node>
-              </node>
-            </node>
             <node concept="liA8E" id="6RqhSZRQt$t" role="2OqNvi">
               <ref role="37wK5l" to="2eq1:4SUKy4FU8kE" resolve="flush" />
+            </node>
+            <node concept="2YIFZM" id="3mWeFTSqpmq" role="2Oq$k0">
+              <ref role="37wK5l" to="2eq1:3mWeFTSoQZV" resolve="getInstance" />
+              <ref role="1Pybhc" to="2eq1:491od_XJZeq" resolve="ReloadManager" />
             </node>
           </node>
         </node>

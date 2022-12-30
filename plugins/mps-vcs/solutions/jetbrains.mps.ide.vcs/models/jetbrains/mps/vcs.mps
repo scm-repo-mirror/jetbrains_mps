@@ -4176,26 +4176,6 @@
                     <ref role="37wK5l" to="bd8o:~Application.invokeLater(java.lang.Runnable,com.intellij.openapi.application.ModalityState,com.intellij.openapi.util.Condition)" resolve="invokeLater" />
                     <node concept="1bVj0M" id="3DUvbXCgnva" role="37wK5m">
                       <node concept="3clFbS" id="3DUvbXCgnvb" role="1bW5cS">
-                        <node concept="3cpWs8" id="cgxpp$laex" role="3cqZAp">
-                          <node concept="3cpWsn" id="cgxpp$laey" role="3cpWs9">
-                            <property role="TrG5h" value="reloadManager" />
-                            <node concept="3uibUv" id="cgxpp$labJ" role="1tU5fm">
-                              <ref role="3uigEE" to="2eq1:491od_XJZeq" resolve="ReloadManager" />
-                            </node>
-                            <node concept="2OqwBi" id="cgxpp$laez" role="33vP2m">
-                              <node concept="2YIFZM" id="cgxpp$lae$" role="2Oq$k0">
-                                <ref role="1Pybhc" to="bd8o:~ApplicationManager" resolve="ApplicationManager" />
-                                <ref role="37wK5l" to="bd8o:~ApplicationManager.getApplication()" resolve="getApplication" />
-                              </node>
-                              <node concept="liA8E" id="cgxpp$lae_" role="2OqNvi">
-                                <ref role="37wK5l" to="1m72:~ComponentManager.getComponent(java.lang.Class)" resolve="getComponent" />
-                                <node concept="3VsKOn" id="cgxpp$laeA" role="37wK5m">
-                                  <ref role="3VsUkX" to="2eq1:491od_XJZeq" resolve="ReloadManager" />
-                                </node>
-                              </node>
-                            </node>
-                          </node>
-                        </node>
                         <node concept="3clFbF" id="491od_Zf0wl" role="3cqZAp">
                           <node concept="2OqwBi" id="491od_Zf2J9" role="3clFbG">
                             <node concept="liA8E" id="491od_Zf6pF" role="2OqNvi">
@@ -4204,8 +4184,9 @@
                                 <ref role="3cqZAo" node="491od_ZnGEY" resolve="conflictableReload" />
                               </node>
                             </node>
-                            <node concept="37vLTw" id="cgxpp$laK4" role="2Oq$k0">
-                              <ref role="3cqZAo" node="cgxpp$laey" resolve="reloadManager" />
+                            <node concept="2YIFZM" id="3mWeFTSq9mk" role="2Oq$k0">
+                              <ref role="37wK5l" to="2eq1:3mWeFTSoQZV" resolve="getInstance" />
+                              <ref role="1Pybhc" to="2eq1:491od_XJZeq" resolve="ReloadManager" />
                             </node>
                           </node>
                         </node>

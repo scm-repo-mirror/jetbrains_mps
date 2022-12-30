@@ -290,8 +290,7 @@
       <node id="220823262716344390" at="109,33,110,68" concept="7" />
       <node id="220823262716370909" at="111,54,112,62" concept="3" />
       <node id="4774203567250524925" at="116,11,117,22" concept="8" />
-      <node id="220823262716011425" at="119,63,120,110" concept="7" />
-      <node id="4774203567248246805" at="120,110,121,60" concept="3" />
+      <node id="4093906047203395978" at="118,10,119,203" concept="3" />
       <node id="5008401335905588149" at="37,0,39,0" concept="2" trace="ModelMergeConflictTracker#()V" />
       <node id="220823262715667744" at="42,67,45,5" concept="5" />
       <node id="220823262715758935" at="55,0,58,0" concept="2" trace="LoadSaveProblemsListener#(Ljetbrains/mps/project/MPSProject;)V" />
@@ -299,15 +298,14 @@
       <node id="220823262715828073" at="91,126,94,9" concept="5" />
       <node id="220823262716355237" at="110,68,113,17" concept="5" />
       <node id="220823262715673306" at="69,0,73,0" concept="6" trace="stopListening#(Lorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <node id="4093906047203395978" at="118,10,122,87" concept="3" />
       <node id="4757360427194674042" at="109,0,115,0" concept="6" trace="run#()V" />
       <node id="4757360427194645935" at="107,168,115,15" concept="3" />
       <node id="5008401335905588459" at="40,0,50,0" concept="6" trace="runActivity#(Lcom/intellij/openapi/project/Project;)V" />
       <node id="220823262715673295" at="59,0,69,0" concept="6" trace="startListening#(Lorg/jetbrains/mps/openapi/model/SModel;)V" />
       <node id="220823262716170602" at="104,91,116,11" concept="5" />
       <node id="4774203567250524861" at="97,42,118,10" concept="7" />
-      <node id="220823262716396999" at="76,83,123,7" concept="5" />
-      <node id="220823262715725747" at="75,0,125,0" concept="6" trace="problemsDetected#(Lorg/jetbrains/mps/openapi/model/SModel;Ljava/lang/Iterable;)V" />
+      <node id="220823262716396999" at="76,83,120,7" concept="5" />
+      <node id="220823262715725747" at="75,0,122,0" concept="6" trace="problemsDetected#(Lorg/jetbrains/mps/openapi/model/SModel;Ljava/lang/Iterable;)V" />
       <scope id="5008401335905588152" at="37,38,37,38" />
       <scope id="220823262715667746" at="43,29,44,13" />
       <scope id="220823262715758939" at="55,74,56,29" />
@@ -316,9 +314,6 @@
       <scope id="220823262715828075" at="92,69,93,17" />
       <scope id="220823262716355239" at="111,54,112,62" />
       <scope id="5008401335905588149" at="37,0,39,0" />
-      <scope id="4213817562888239051" at="119,63,121,60">
-        <var name="reloadManager" id="220823262716011426" />
-      </scope>
       <scope id="220823262715758935" at="55,0,58,0">
         <var name="mpsProject" id="220823262715761799" />
       </scope>
@@ -346,19 +341,19 @@
         <var name="projectRepo" id="4757360427194448934" />
         <var name="vcsHelper" id="220823262716620808" />
       </scope>
-      <scope id="220823262716397001" at="77,44,122,87">
+      <scope id="220823262716397001" at="77,44,119,203">
         <var name="conflictableReload" id="4774203567250524862" />
         <var name="conflictingModelFiles" id="220823262715821617" />
         <var name="modelInConflict" id="220823262716151422" />
       </scope>
-      <scope id="220823262715725756" at="76,83,123,7" />
-      <scope id="220823262715725747" at="75,0,125,0">
+      <scope id="220823262715725756" at="76,83,120,7" />
+      <scope id="220823262715725747" at="75,0,122,0">
         <var name="model" id="220823262715725751" />
         <var name="problems" id="220823262715725753" />
       </scope>
       <unit id="4757360427194674042" at="108,60,115,13" name="jetbrains.mps.vcs.ModelMergeConflictTracker$LoadSaveProblemsListener$1" />
-      <unit id="5008401335905593027" at="52,0,126,0" name="jetbrains.mps.vcs.ModelMergeConflictTracker$LoadSaveProblemsListener" />
-      <unit id="5008401335905583648" at="35,0,127,0" name="jetbrains.mps.vcs.ModelMergeConflictTracker" />
+      <unit id="5008401335905593027" at="52,0,123,0" name="jetbrains.mps.vcs.ModelMergeConflictTracker$LoadSaveProblemsListener" />
+      <unit id="5008401335905583648" at="35,0,124,0" name="jetbrains.mps.vcs.ModelMergeConflictTracker" />
     </file>
   </root>
   <root nodeRef="r:cd7c9d90-25b3-4a54-a510-a0bcc7072c1d(jetbrains.mps.vcs)/7314351270975557769">

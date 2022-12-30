@@ -1629,17 +1629,9 @@
                 </node>
               </node>
             </node>
-            <node concept="2OqwBi" id="2zBI34Hngmc" role="2Oq$k0">
-              <node concept="2YIFZM" id="2zBI34HngDN" role="2Oq$k0">
-                <ref role="37wK5l" to="bd8o:~ApplicationManager.getApplication()" resolve="getApplication" />
-                <ref role="1Pybhc" to="bd8o:~ApplicationManager" resolve="ApplicationManager" />
-              </node>
-              <node concept="liA8E" id="2zBI34Hngme" role="2OqNvi">
-                <ref role="37wK5l" to="1m72:~ComponentManager.getComponent(java.lang.Class)" resolve="getComponent" />
-                <node concept="3VsKOn" id="2zBI34Hngmg" role="37wK5m">
-                  <ref role="3VsUkX" node="491od_XJZeq" resolve="ReloadManager" />
-                </node>
-              </node>
+            <node concept="2YIFZM" id="3mWeFTSphoT" role="2Oq$k0">
+              <ref role="37wK5l" node="3mWeFTSoQZV" resolve="getInstance" />
+              <ref role="1Pybhc" node="491od_XJZeq" resolve="ReloadManager" />
             </node>
           </node>
         </node>
@@ -8591,6 +8583,56 @@
   <node concept="312cEu" id="491od_XJZeq">
     <property role="TrG5h" value="ReloadManager" />
     <property role="1sVAO0" value="true" />
+    <node concept="2tJIrI" id="3mWeFTSoQ0V" role="jymVt" />
+    <node concept="2YIFZL" id="3mWeFTSoQZV" role="jymVt">
+      <property role="TrG5h" value="getInstance" />
+      <node concept="3clFbS" id="3mWeFTSoQZY" role="3clF47">
+        <node concept="3SKdUt" id="3mWeFTSoVud" role="3cqZAp">
+          <node concept="1PaTwC" id="3mWeFTSoVue" role="1aUNEU">
+            <node concept="3oM_SD" id="3mWeFTSoVwW" role="1PaTwD">
+              <property role="3oM_SC" value="towards" />
+            </node>
+            <node concept="3oM_SD" id="3mWeFTSoVwY" role="1PaTwD">
+              <property role="3oM_SC" value="replacing" />
+            </node>
+            <node concept="3oM_SD" id="3mWeFTSoVx1" role="1PaTwD">
+              <property role="3oM_SC" value="App" />
+            </node>
+            <node concept="3oM_SD" id="3mWeFTSoVx5" role="1PaTwD">
+              <property role="3oM_SC" value="Component" />
+            </node>
+            <node concept="3oM_SD" id="3mWeFTSoVxa" role="1PaTwD">
+              <property role="3oM_SC" value="with" />
+            </node>
+            <node concept="3oM_SD" id="3mWeFTSoVxg" role="1PaTwD">
+              <property role="3oM_SC" value="a" />
+            </node>
+            <node concept="3oM_SD" id="3mWeFTSoVxn" role="1PaTwD">
+              <property role="3oM_SC" value="Service" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="3mWeFTSoRht" role="3cqZAp">
+          <node concept="2OqwBi" id="3mWeFTSoUOz" role="3clFbG">
+            <node concept="2YIFZM" id="3mWeFTSoRif" role="2Oq$k0">
+              <ref role="37wK5l" to="bd8o:~ApplicationManager.getApplication()" resolve="getApplication" />
+              <ref role="1Pybhc" to="bd8o:~ApplicationManager" resolve="ApplicationManager" />
+            </node>
+            <node concept="liA8E" id="3mWeFTSoV37" role="2OqNvi">
+              <ref role="37wK5l" to="1m72:~ComponentManager.getComponent(java.lang.Class)" resolve="getComponent" />
+              <node concept="3VsKOn" id="3mWeFTSoVlX" role="37wK5m">
+                <ref role="3VsUkX" node="491od_XJZeq" resolve="ReloadManager" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="3mWeFTSoQGz" role="1B3o_S" />
+      <node concept="3uibUv" id="3mWeFTSoQXc" role="3clF45">
+        <ref role="3uigEE" node="491od_XJZeq" resolve="ReloadManager" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="3mWeFTSoQge" role="jymVt" />
     <node concept="3clFb_" id="491od_XK1Qh" role="jymVt">
       <property role="1EzhhJ" value="false" />
       <property role="TrG5h" value="runReload" />
