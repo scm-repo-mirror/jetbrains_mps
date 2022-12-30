@@ -20,7 +20,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
+import jetbrains.mps.smodel.adapter.BootstrapAdapterFactory;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 @MPSLaunch
@@ -247,9 +247,9 @@ public class SNodeGetReferencesOperation_Test extends BaseTransformationTest {
     }
 
     public String addUnspecifiedReference(SNode input, SNode referenceTarget) {
-      String referenceName = "unspecifiedReference";
-      SNodeAccessUtil.setReferenceTarget(input, referenceName, referenceTarget);
-      return referenceName;
+      SReferenceLink fakeAssociation = BootstrapAdapterFactory.getReferenceLink(0, 0, 0, 0, "unspecifiedReference");
+      input.setReferenceTarget(fakeAssociation, referenceTarget);
+      return fakeAssociation.getName();
     }
     private static String check_s3ecl5_a8a0a1a8n(SReferenceLink checkedDotOperand) {
       if (null != checkedDotOperand) {

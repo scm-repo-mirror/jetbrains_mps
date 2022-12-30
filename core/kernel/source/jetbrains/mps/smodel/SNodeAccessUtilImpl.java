@@ -54,11 +54,6 @@ public class SNodeAccessUtilImpl extends SNodeAccessUtil {
   }
 
   @Override
-  protected boolean hasPropertyImpl(org.jetbrains.mps.openapi.model.SNode node, String name) {
-    return hasPropertyImpl(node, ((ConceptMetaInfoConverter) node.getConcept()).convertProperty(name));
-  }
-
-  @Override
   public Object getPropertyValueImpl(org.jetbrains.mps.openapi.model.SNode node, SProperty property) {
     if (RuntimeFlags.isMergeDriverMode()) {
       // FIXME why don't we use another SNodeAccessUtilImpl in merge driver mode, instead of this gruesome 'if'?
@@ -132,11 +127,6 @@ public class SNodeAccessUtilImpl extends SNodeAccessUtil {
     ReferenceConstraintsDescriptor descriptor;
     descriptor = constraintsDescriptor.getReference(referenceLink);
     return descriptor;
-  }
-
-  @Override
-  public String getPropertyImpl(org.jetbrains.mps.openapi.model.SNode node, String name) {
-    return getPropertyImpl(node, ((ConceptMetaInfoConverter) node.getConcept()).convertProperty(name));
   }
 
   @Override
@@ -242,10 +232,6 @@ public class SNodeAccessUtilImpl extends SNodeAccessUtil {
     //todo for symmetry.Not yet used
     //RS: WHY there is no logic that invokes constraints like in SNodeAccessUtilImpl#setReferenceTargetImpl ???
     node.setReference(referenceLink, reference);
-  }
-
-  protected void setReferenceImpl(org.jetbrains.mps.openapi.model.SNode node, String role, @Nullable org.jetbrains.mps.openapi.model.SReference reference) {
-    setReferenceImpl(node, ((ConceptMetaInfoConverter) node.getConcept()).convertAssociation(role), reference);
   }
 
   @Override

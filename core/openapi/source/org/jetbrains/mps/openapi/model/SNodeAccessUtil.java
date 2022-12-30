@@ -35,11 +35,6 @@ public abstract class SNodeAccessUtil {
     return myInstance.hasPropertyImpl(node, property);
   }
 
-  @Deprecated
-  public static boolean hasProperty(SNode node, String name) {
-    return myInstance.hasPropertyImpl(node, name);
-  }
-
   public static Object getPropertyValue(SNode node, SProperty property) {
     return myInstance.getPropertyValueImpl(node, property);
   }
@@ -51,11 +46,6 @@ public abstract class SNodeAccessUtil {
   @Deprecated
   public static String getProperty(SNode node, SProperty property) {
     return myInstance.getPropertyImpl(node, property);
-  }
-
-  @Deprecated
-  public static String getProperty(SNode node, String name) {
-    return myInstance.getPropertyImpl(node, name);
   }
 
   /**
@@ -73,6 +63,7 @@ public abstract class SNodeAccessUtil {
 
   @Deprecated
   public static void setProperty(SNode node, String propertyName, String propertyValue) {
+    // 1 use in mbeddr
     myInstance.setPropertyImpl(node, propertyName, propertyValue);
   }
 
@@ -82,6 +73,7 @@ public abstract class SNodeAccessUtil {
 
   @Deprecated
   public static void setReferenceTarget(SNode node, String role, @Nullable SNode target) {
+    // 2 uses in mbeddr
     myInstance.setReferenceTargetImpl(node, role, target);
   }
 
@@ -90,18 +82,12 @@ public abstract class SNodeAccessUtil {
    */
   @Deprecated(since = "2022.3", forRemoval = true)
   public static void setReference(SNode node, SReferenceLink referenceLink, @Nullable org.jetbrains.mps.openapi.model.SReference reference) {
-    //todo for symmetry. Not yet used
+    // was in use from SLinkOperations prior to 2022.3
     myInstance.setReferenceImpl(node, referenceLink, reference);
   }
 
   public static void setAssociation(@NotNull SNode node, @NotNull SReferenceLink referenceLink, @Nullable SNodeReference target) {
     myInstance.setAssociationImpl(node, referenceLink, target);
-  }
-
-  @Deprecated
-  public static void setReference(SNode node, String role, @Nullable org.jetbrains.mps.openapi.model.SReference reference) {
-    //todo for symmetry. Not yet used
-    myInstance.setReferenceImpl(node, role, reference);
   }
 
   //-------impl--------
@@ -118,13 +104,9 @@ public abstract class SNodeAccessUtil {
 
   protected abstract boolean hasPropertyImpl(SNode node, SProperty property);
 
-  protected abstract boolean hasPropertyImpl(SNode node, String name);
-
   protected abstract Object getPropertyValueImpl(SNode node, SProperty property);
 
   protected abstract String getPropertyImpl(SNode node, SProperty property);
-
-  protected abstract String getPropertyImpl(SNode node, String name);
 
   protected abstract void setPropertyValueImpl(SNode node, SProperty property, Object propertyValue);
 
@@ -139,6 +121,4 @@ public abstract class SNodeAccessUtil {
   protected abstract void setReferenceImpl(SNode node, SReferenceLink referenceLink, SReference reference);
 
   protected abstract void setAssociationImpl(SNode node, SReferenceLink referenceLink, SNodeReference target);
-
-  protected abstract void setReferenceImpl(SNode node, String role, SReference reference);
 }
