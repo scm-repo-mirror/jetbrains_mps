@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2012 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
  */
 package org.jetbrains.mps.openapi.model;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
@@ -84,9 +85,17 @@ public abstract class SNodeAccessUtil {
     myInstance.setReferenceTargetImpl(node, role, target);
   }
 
+  /**
+   * @deprecated Methods that take SReference are deprecated, use counterparts with SNode or SNodeReference
+   */
+  @Deprecated(since = "2022.3", forRemoval = true)
   public static void setReference(SNode node, SReferenceLink referenceLink, @Nullable org.jetbrains.mps.openapi.model.SReference reference) {
     //todo for symmetry. Not yet used
     myInstance.setReferenceImpl(node, referenceLink, reference);
+  }
+
+  public static void setAssociation(@NotNull SNode node, @NotNull SReferenceLink referenceLink, @Nullable SNodeReference target) {
+    myInstance.setAssociationImpl(node, referenceLink, target);
   }
 
   @Deprecated
@@ -128,6 +137,8 @@ public abstract class SNodeAccessUtil {
   protected abstract void setReferenceTargetImpl(SNode node, String role, SNode target);
 
   protected abstract void setReferenceImpl(SNode node, SReferenceLink referenceLink, SReference reference);
+
+  protected abstract void setAssociationImpl(SNode node, SReferenceLink referenceLink, SNodeReference target);
 
   protected abstract void setReferenceImpl(SNode node, String role, SReference reference);
 }

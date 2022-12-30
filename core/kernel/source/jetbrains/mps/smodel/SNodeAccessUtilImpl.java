@@ -32,6 +32,7 @@ import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SType;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
+import org.jetbrains.mps.openapi.model.SNodeReference;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -243,8 +244,18 @@ public class SNodeAccessUtilImpl extends SNodeAccessUtil {
     node.setReference(referenceLink, reference);
   }
 
-  public void setReferenceImpl(org.jetbrains.mps.openapi.model.SNode node, String role, @Nullable org.jetbrains.mps.openapi.model.SReference reference) {
+  protected void setReferenceImpl(org.jetbrains.mps.openapi.model.SNode node, String role, @Nullable org.jetbrains.mps.openapi.model.SReference reference) {
     setReferenceImpl(node, ((ConceptMetaInfoConverter) node.getConcept()).convertAssociation(role), reference);
+  }
+
+  @Override
+  protected void setAssociationImpl(SNode node, SReferenceLink referenceLink, SNodeReference target) {
+    if (target == null) {
+      node.dropReference(referenceLink);
+    } else {
+      //FIXME WHY there is no logic that invokes constraints like in SNodeAccessUtilImpl#setReferenceTargetImpl ???
+      node.setReference(referenceLink, target);
+    }
   }
 
   private static class InProgressThreadLocal<T> extends ThreadLocal<Set<Pair<org.jetbrains.mps.openapi.model.SNode, T>>> {

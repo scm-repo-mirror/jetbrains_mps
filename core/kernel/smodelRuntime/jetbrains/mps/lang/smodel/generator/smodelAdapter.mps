@@ -5662,28 +5662,17 @@
           </node>
           <node concept="3clFbS" id="OjQ__FOrMw" role="3clFbx">
             <node concept="3clFbF" id="OjQ__FOs4E" role="3cqZAp">
-              <node concept="2YIFZM" id="OjQ__FOs6h" role="3clFbG">
-                <ref role="37wK5l" to="mhbf:~SNodeAccessUtil.setReference(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.language.SReferenceLink,org.jetbrains.mps.openapi.model.SReference)" resolve="setReference" />
+              <node concept="2YIFZM" id="7wYqT78yYne" role="3clFbG">
+                <ref role="37wK5l" to="mhbf:~SNodeAccessUtil.setAssociation(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.language.SReferenceLink,org.jetbrains.mps.openapi.model.SNodeReference)" resolve="setAssociation" />
                 <ref role="1Pybhc" to="mhbf:~SNodeAccessUtil" resolve="SNodeAccessUtil" />
-                <node concept="37vLTw" id="OjQ__FOs7o" role="37wK5m">
+                <node concept="37vLTw" id="7wYqT78yYnf" role="37wK5m">
                   <ref role="3cqZAo" node="OjQ__FOrDZ" resolve="node" />
                 </node>
-                <node concept="37vLTw" id="OjQ__FOsfr" role="37wK5m">
+                <node concept="37vLTw" id="7wYqT78yYng" role="37wK5m">
                   <ref role="3cqZAo" node="OjQ__FOrGu" resolve="role" />
                 </node>
-                <node concept="2YIFZM" id="OjQ__FOtbp" role="37wK5m">
-                  <ref role="1Pybhc" to="w1kc:~SReference" resolve="SReference" />
-                  <ref role="37wK5l" to="w1kc:~SReference.create(org.jetbrains.mps.openapi.language.SReferenceLink,org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.model.SNodeReference,java.lang.String)" resolve="create" />
-                  <node concept="37vLTw" id="OjQ__FOtbq" role="37wK5m">
-                    <ref role="3cqZAo" node="OjQ__FOrGu" resolve="role" />
-                  </node>
-                  <node concept="37vLTw" id="OjQ__FOtbr" role="37wK5m">
-                    <ref role="3cqZAo" node="OjQ__FOrDZ" resolve="node" />
-                  </node>
-                  <node concept="37vLTw" id="OjQ__FOtbs" role="37wK5m">
-                    <ref role="3cqZAo" node="OjQ__FOrIH" resolve="targetPointer" />
-                  </node>
-                  <node concept="10Nm6u" id="OjQ__FOtwi" role="37wK5m" />
+                <node concept="37vLTw" id="7wYqT78yYyL" role="37wK5m">
+                  <ref role="3cqZAo" node="OjQ__FOrIH" resolve="targetPointer" />
                 </node>
               </node>
             </node>

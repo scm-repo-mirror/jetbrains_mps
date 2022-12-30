@@ -14,7 +14,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.constraints.ModelConstraints;
 import jetbrains.mps.smodel.adapter.MetaAdapterByDeclaration;
 import org.jetbrains.mps.openapi.model.SNodeReference;
-import jetbrains.mps.smodel.SReference;
+import org.jetbrains.mps.openapi.model.SReference;
 import java.util.Objects;
 import java.util.List;
 import jetbrains.mps.util.IterableUtil;
@@ -100,13 +100,13 @@ public final class SLinkOperations {
 
   public static SNodeReference setPointer(SNode node, SReferenceLink role, SNodeReference targetPointer) {
     if (node != null && targetPointer != null) {
-      SNodeAccessUtil.setReference(node, role, SReference.create(role, node, targetPointer, null));
+      SNodeAccessUtil.setAssociation(node, role, targetPointer);
     }
     return targetPointer;
   }
   public static SNodeReference getPointer(SNode node, SReferenceLink role) {
     if (node != null) {
-      org.jetbrains.mps.openapi.model.SReference reference = node.getReference(role);
+      SReference reference = node.getReference(role);
       if (reference != null) {
         return reference.getTargetNodeReference();
       }
@@ -115,7 +115,7 @@ public final class SLinkOperations {
   }
   public static boolean hasPointer(SNode node, SReferenceLink role, SNodeReference targetPointer) {
     if (node != null) {
-      org.jetbrains.mps.openapi.model.SReference reference = node.getReference(role);
+      SReference reference = node.getReference(role);
       if (reference != null) {
         return Objects.equals(targetPointer, reference.getTargetNodeReference());
       } else {
@@ -181,42 +181,42 @@ public final class SLinkOperations {
     }
     return IterableUtil.asList(children);
   }
-  public static SNode findLinkDeclaration(org.jetbrains.mps.openapi.model.SReference reference) {
+  public static SNode findLinkDeclaration(SReference reference) {
     if (reference == null) {
       return null;
     }
     return findLinkDeclaration(reference.getLink());
   }
-  public static SNode getTargetNode(org.jetbrains.mps.openapi.model.SReference reference) {
+  public static SNode getTargetNode(SReference reference) {
     if (reference == null) {
       return null;
     }
     return reference.getTargetNode();
   }
-  public static String getRole(org.jetbrains.mps.openapi.model.SReference reference) {
+  public static String getRole(SReference reference) {
     if (reference == null) {
       return null;
     }
     return reference.getLink().getName();
   }
-  public static SReferenceLink getRefLink(org.jetbrains.mps.openapi.model.SReference reference) {
+  public static SReferenceLink getRefLink(SReference reference) {
     if (reference == null) {
       return null;
     }
     return reference.getLink();
   }
-  public static String getResolveInfo(org.jetbrains.mps.openapi.model.SReference reference) {
+  public static String getResolveInfo(SReference reference) {
     if (reference == null) {
       return null;
     }
-    return ((SReference) reference).getResolveInfo();
+    return ((jetbrains.mps.smodel.SReference) reference).getResolveInfo();
   }
   /**
    * Tells if a reference resorts to scopes to find out its target (unlike 'static' reference that keeps complete target node identity)
    * This is provisional code to get rid of DynamicReference class uses, as it exposes MPS implementation detail.
    * There's no counterpart in smodel language as I hope to get rid of this check eventually
    */
-  public static boolean isDynamic(org.jetbrains.mps.openapi.model.SReference reference) {
+  public static boolean isDynamic(SReference reference) {
     return reference instanceof DynamicReference;
   }
 
