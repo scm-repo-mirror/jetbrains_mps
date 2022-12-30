@@ -11,9 +11,6 @@
 
   <application-components>
     <component>
-      <implementation-class>jetbrains.mps.watching.WatchedRootsUpdater</implementation-class>
-    </component>
-    <component>
       <implementation-class>jetbrains.mps.library.AdditionalLibrariesManager</implementation-class>
     </component>
     <component>
@@ -112,6 +109,7 @@
     <applicationService serviceInterface="jetbrains.mps.ide.platform.watching.FileSystemListenersContainer"
                         serviceImplementation="jetbrains.mps.ide.vfs.WatchingFileSystemListenersContainer" />
     <applicationService serviceImplementation="jetbrains.mps.ide.generator.TransientSwapOwnerComponent" />
+    <applicationService serviceImplementation="jetbrains.mps.watching.WatchedRootsUpdater" />
 
     <notificationGroup id="jetbrains.mps.ide.make.StartupModuleMaker" displayType="STICKY_BALLOON" key="smm.group.name" bundle="jetbrains.mps.ide.make.Messages"/>
     <applicationService serviceImplementation="jetbrains.mps.ide.generator.GeneratorCacheComponent"/>
@@ -124,6 +122,8 @@
 
   <applicationListeners>
     <listener class="jetbrains.mps.watching.ModelFocusSynchronizer" topic="com.intellij.ide.FrameStateListener"/>
+    <listener class="jetbrains.mps.watching.WatchedRootsUpdater$ProjectListener" topic="com.intellij.openapi.project.ProjectManagerListener"
+              activeInHeadlessMode="false" activeInTestMode="false"/>
   </applicationListeners>
   <projectListeners>
     <listener class="jetbrains.mps.ide.bookmark.BookmarksUIComponent$EditorComponentListener"
