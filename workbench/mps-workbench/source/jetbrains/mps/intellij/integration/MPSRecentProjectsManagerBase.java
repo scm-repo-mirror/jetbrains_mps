@@ -5,6 +5,7 @@ package jetbrains.mps.intellij.integration;
 
 import com.intellij.ide.RecentProjectsManagerBase;
 import com.intellij.ide.impl.OpenProjectTask;
+import com.intellij.ide.impl.ProjectUtil;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.project.Project;
 import jetbrains.mps.ide.bookmark.BookmarkManager;
@@ -37,26 +38,14 @@ class MPSRecentProjectsManagerBase extends RecentProjectsManagerBase {
     }
 
     final OpenProjectTask localOpenProjectOptions = openProjectOptions;
-    CompletableFuture<com.intellij.openapi.project.Project> pFuture = new CompletableFuture<com.intellij.openapi.project.Project>();
-    ApplicationManager.getApplication().invokeLater(new Runnable() {
-      @Override
-      public void run() {
-        if (OpenMPSProjectTrustProjectHelper.checkTrust(projectFile, null)) {
-          final CompletableFuture<Project> projectCompletableFuture = MPSRecentProjectsManagerBase.super.openProject(projectFile, localOpenProjectOptions);
-          projectCompletableFuture.whenComplete((project, throwable) -> {
-                                                    if (throwable != null) {
-                                                      LOG.error(throwable);
-                                                      pFuture.complete(null);
-                                                    } else {
-                                                      pFuture.complete(project);
-                                                    }
-          });
-        } else {
-          pFuture.complete(null);
-        }
-      }
-    });
 
-    return pFuture;
+    return CompletableFuture.supplyAsync(() -> {
+      if (OpenMPSProjectTrustProjectHelper.checkTrust(projectFile, null)) {
+        //return MPSRecentProjectsManagerBase.super.openProject(projectFile, localOpenProjectOptions);
+        return ProjectUtil.openProject(projectFile, localOpenProjectOptions);
+      } else {
+        return null;
+      }
+    }, ApplicationManager.getApplication()::invokeLater);
   }
 }
