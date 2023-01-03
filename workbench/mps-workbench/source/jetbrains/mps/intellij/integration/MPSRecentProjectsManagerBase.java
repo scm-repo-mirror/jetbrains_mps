@@ -5,12 +5,14 @@ package jetbrains.mps.intellij.integration;
 
 import com.intellij.ide.RecentProjectsManagerBase;
 import com.intellij.ide.impl.OpenProjectTask;
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.project.Project;
 import jetbrains.mps.workbench.actions.OpenMPSProjectTrustProjectHelper;
 import org.jetbrains.annotations.NotNull;
 
 import java.nio.file.Path;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ForkJoinPool;
 
 /**
  * Avoid creation of .idea/project_name.iml file on project opening
@@ -23,6 +25,7 @@ import java.util.concurrent.CompletableFuture;
  * end up in creation of module in {@link com.intellij.platform.PlatformProjectConfigurator#configureProject} saved in .idea/project_name.iml
  */
 class MPSRecentProjectsManagerBase extends RecentProjectsManagerBase {
+
   @NotNull
   @Override
   public CompletableFuture<Project> openProject(@NotNull Path projectFile, @NotNull OpenProjectTask openProjectOptions) {
@@ -31,11 +34,18 @@ class MPSRecentProjectsManagerBase extends RecentProjectsManagerBase {
       openProjectOptions = OpenProjectTask.withProjectToClose(openProjectOptions.getProjectToClose(), openProjectOptions.getForceOpenInNewFrame());
     }
 
-    if (OpenMPSProjectTrustProjectHelper.checkTrust(projectFile, null)) {
-      return super.openProject(projectFile, openProjectOptions);
-    } else {
-      return CompletableFuture.completedFuture(null);
-    }
+    final OpenProjectTask localOpenProjectOptions = openProjectOptions;
 
+    final CompletableFuture<Boolean> trustResult =
+        CompletableFuture.supplyAsync(() -> OpenMPSProjectTrustProjectHelper.checkTrust(projectFile, null), ApplicationManager.getApplication()::invokeLater);
+
+    return trustResult.thenComposeAsync(trusted -> {
+                                          if (trusted) {
+                                            return MPSRecentProjectsManagerBase.super.openProject(projectFile, localOpenProjectOptions);
+                                          } else {
+                                            return CompletableFuture.completedFuture(null);
+                                          }
+                                        }, ForkJoinPool.commonPool()
+    );
   }
 }
