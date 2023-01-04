@@ -33,7 +33,4 @@ public class SubstituteMenuVariableDeclaration_SubstituteMenu extends Substitute
   }
 
 
-
-
-
 }

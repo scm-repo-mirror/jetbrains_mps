@@ -198,7 +198,6 @@ public class InferenceRule_add_OverridesConceptFunction extends TransformationMe
     }
   }
 
-
   private static final class LINKS {
     /*package*/ static final SContainmentLink overridesFun$YeyF = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2f5efaL, 0x5dbc5aa1b944adaL, "overridesFun");
     /*package*/ static final SContainmentLink body$e68K = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, 0x108bbd29b4aL, "body");

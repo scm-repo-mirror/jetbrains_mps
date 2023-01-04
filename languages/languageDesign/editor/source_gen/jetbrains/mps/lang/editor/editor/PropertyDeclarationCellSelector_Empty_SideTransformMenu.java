@@ -45,6 +45,4 @@ public class PropertyDeclarationCellSelector_Empty_SideTransformMenu extends Tra
     return result;
   }
 
-
-
 }

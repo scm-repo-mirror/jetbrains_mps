@@ -33,7 +33,4 @@ public class CellMenuPart_ReplaceChild_CustomChildConcept_SubstituteMenu extends
   }
 
 
-
-
-
 }

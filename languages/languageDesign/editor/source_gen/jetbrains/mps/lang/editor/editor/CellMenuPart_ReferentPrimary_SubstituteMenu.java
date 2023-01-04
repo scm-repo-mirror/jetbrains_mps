@@ -33,7 +33,4 @@ public class CellMenuPart_ReferentPrimary_SubstituteMenu extends SubstituteMenuB
   }
 
 
-
-
-
 }

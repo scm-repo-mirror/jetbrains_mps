@@ -33,7 +33,4 @@ public class QueryFunction_RefPresentation_SubstituteMenu extends SubstituteMenu
   }
 
 
-
-
-
 }

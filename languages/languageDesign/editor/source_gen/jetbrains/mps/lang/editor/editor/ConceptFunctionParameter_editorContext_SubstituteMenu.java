@@ -33,7 +33,4 @@ public class ConceptFunctionParameter_editorContext_SubstituteMenu extends Subst
   }
 
 
-
-
-
 }

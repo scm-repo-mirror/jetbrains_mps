@@ -33,7 +33,4 @@ public class StubEditorCellModel_SubstituteMenu extends SubstituteMenuBase {
   }
 
 
-
-
-
 }

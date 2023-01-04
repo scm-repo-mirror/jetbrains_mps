@@ -33,7 +33,4 @@ public class TransformationMenuPart_Placeholder_SubstituteMenu extends Substitut
   }
 
 
-
-
-
 }

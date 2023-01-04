@@ -150,7 +150,6 @@ public class CellModel_RefNodeList_UsesFoldingMenu extends TransformationMenuBas
 
   }
 
-
   private static final class PROPS {
     /*package*/ static final SProperty usesFolding$20NL = MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1098c8cf48aL, 0x10e3892b1d5L, "usesFolding");
   }

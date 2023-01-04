@@ -33,7 +33,4 @@ public class ConceptFunctionParameter_prevNode_SubstituteMenu extends Substitute
   }
 
 
-
-
-
 }

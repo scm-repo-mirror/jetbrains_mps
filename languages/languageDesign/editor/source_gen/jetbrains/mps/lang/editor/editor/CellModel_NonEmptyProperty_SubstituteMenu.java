@@ -33,7 +33,4 @@ public class CellModel_NonEmptyProperty_SubstituteMenu extends SubstituteMenuBas
   }
 
 
-
-
-
 }
