@@ -33,7 +33,7 @@ public class AddConstructorNotAllowed2_Test extends BaseTransformationTest {
     @Override
     public void testMethodImpl() throws Exception {
       initEditorComponent("346011455443120472", "346011455443120476");
-      typeString("publicvoidaaa()");
+      typeString("publicvoid aaa()");
     }
   }
 }

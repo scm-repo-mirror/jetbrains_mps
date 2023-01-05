@@ -33,7 +33,7 @@ public class AddInterfaceNotAllowed_Test extends BaseTransformationTest {
     @Override
     public void testMethodImpl() throws Exception {
       initEditorComponent("346011455438296734", "346011455438296738");
-      typeString("publicvoidinterface");
+      typeString("publicvoid interface");
     }
   }
 }

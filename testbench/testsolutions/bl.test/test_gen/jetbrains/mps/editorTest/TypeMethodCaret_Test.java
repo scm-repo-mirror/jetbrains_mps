@@ -33,7 +33,7 @@ public class TypeMethodCaret_Test extends BaseTransformationTest {
     @Override
     public void testMethodImpl() throws Exception {
       initEditorComponent("9032151315009630216", "3378334413599967885");
-      typeString("publicstaticvoidmain(");
+      typeString("publicstaticvoid main(");
     }
   }
 }
