@@ -16707,6 +16707,14 @@
     <ref role="3gUMe" to="tp2c:4bnBAeByBu4" resolve="FunctionMethodDeclaration" />
     <node concept="3clFb_" id="2uAWGxT7EY$" role="13RCb5">
       <property role="TrG5h" value="invoke" />
+      <node concept="15s5l7" id="12bhiuVQYiR" role="lGtFl">
+        <property role="1eyWvh" value="FLAVOUR_ISSUE_KIND=&quot;typesystem (typesystem)&quot;;FLAVOUR_MESSAGE=&quot;Error: type Type is not a subtype of java.lang.Throwable&quot;;FLAVOUR_RULE_ID=&quot;[r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/1215105338790]&quot;;" />
+        <property role="huDt6" value="Error: type Type is not a subtype of java.lang.Throwable" />
+      </node>
+      <node concept="15s5l7" id="12bhiuVQWZE" role="lGtFl">
+        <property role="1eyWvh" value="FLAVOUR_ISSUE_KIND=&quot;constraints (cannot be child)&quot;;FLAVOUR_MESSAGE=&quot;Node '(instance of DefaultModifier)' cannot be child of node 'invoke'&quot;;FLAVOUR_RULE_ID=&quot;[r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)/1164142520228621412]&quot;;" />
+        <property role="huDt6" value="Node '(instance of DefaultModifier)' cannot be child of node 'invoke'" />
+      </node>
       <node concept="2JFqV2" id="3a8RrRTpgp$" role="2frcjj">
         <node concept="1W57fq" id="3a8RrRTpgCj" role="lGtFl">
           <node concept="3IZrLx" id="3a8RrRTpgCm" role="3IZSJc">

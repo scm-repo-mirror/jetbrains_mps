@@ -31,7 +31,6 @@ import com.intellij.openapi.actionSystem.ToggleAction;
 import com.intellij.openapi.project.DumbAware;
 import jetbrains.mps.ide.icons.IdeIcons;
 import com.intellij.openapi.actionSystem.AnActionEvent;
-import java.util.function.Supplier;
 import com.intellij.openapi.diff.DiffBundle;
 import com.intellij.openapi.actionSystem.Presentation;
 import org.jetbrains.annotations.NotNull;
@@ -185,7 +184,7 @@ public abstract class RootDifferencePaneBase implements RootDifferencePane, Prop
 
   private class SyncScrollingAction extends ToggleAction implements DumbAware {
     private SyncScrollingAction() {
-      super((Supplier<String>) () -> DiffBundle.message("synchronize.scrolling", new Object[0]), Presentation.NULL_STRING, IdeIcons.SYNC_SCROLLING);
+      super(() -> DiffBundle.message("synchronize.scrolling", new Object[0]), Presentation.NULL_STRING, IdeIcons.SYNC_SCROLLING);
     }
     @Override
     public boolean isSelected(@NotNull AnActionEvent p1) {

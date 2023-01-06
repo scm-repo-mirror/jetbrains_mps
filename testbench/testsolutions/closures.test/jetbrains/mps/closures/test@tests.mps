@@ -561,6 +561,7 @@
         <child id="5633809102336885320" name="fromIndex" index="3b24Rf" />
       </concept>
       <concept id="1201792049884" name="jetbrains.mps.baseLanguage.collections.structure.TranslateOperation" flags="nn" index="3goQfb" />
+      <concept id="7775192435301616820" name="jetbrains.mps.baseLanguage.collections.structure.ToStreamOperation" flags="ng" index="1l$wjB" />
       <concept id="1165525191778" name="jetbrains.mps.baseLanguage.collections.structure.GetFirstOperation" flags="nn" index="1uHKPH" />
       <concept id="1240687580870" name="jetbrains.mps.baseLanguage.collections.structure.JoinOperation" flags="nn" index="3uJxvA">
         <child id="1240687658305" name="delimiter" index="3uJOhx" />
@@ -14775,9 +14776,7 @@
                         <node concept="37vLTw" id="2KTDc52DVkq" role="2Oq$k0">
                           <ref role="3cqZAo" node="2KTDc52DVfI" resolve="it" />
                         </node>
-                        <node concept="liA8E" id="2KTDc52DVrp" role="2OqNvi">
-                          <ref role="37wK5l" to="33ny:~Collection.stream()" resolve="stream" />
-                        </node>
+                        <node concept="1l$wjB" id="7pAZOJ150sK" role="2OqNvi" />
                       </node>
                       <node concept="liA8E" id="2KTDc52DVA5" role="2OqNvi">
                         <ref role="37wK5l" to="1ctc:~Stream.anyMatch(java.util.function.Predicate)" resolve="anyMatch" />
@@ -14902,9 +14901,7 @@
                         <node concept="37vLTw" id="2KTDc52LrNF" role="2Oq$k0">
                           <ref role="3cqZAo" node="2KTDc52LrN_" resolve="it" />
                         </node>
-                        <node concept="liA8E" id="2KTDc52LrNG" role="2OqNvi">
-                          <ref role="37wK5l" to="33ny:~Collection.stream()" resolve="stream" />
-                        </node>
+                        <node concept="1l$wjB" id="7pAZOJ151aV" role="2OqNvi" />
                       </node>
                       <node concept="liA8E" id="2KTDc52LrNH" role="2OqNvi">
                         <ref role="37wK5l" to="1ctc:~Stream.anyMatch(java.util.function.Predicate)" resolve="anyMatch" />

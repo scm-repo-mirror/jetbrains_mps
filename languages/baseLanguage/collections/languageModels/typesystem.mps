@@ -14833,6 +14833,10 @@
       <property role="TrG5h" value="inferFilteringOperation" />
       <node concept="3clFbS" id="4Iwp2tSBDEQ" role="3clF47">
         <node concept="3clFbF" id="4Iwp2tSBHZI" role="3cqZAp">
+          <node concept="15s5l7" id="7pAZOJ19Rbd" role="lGtFl">
+            <property role="1eyWvh" value="FLAVOUR_ISSUE_KIND=&quot;typesystem (typesystem)&quot;;FLAVOUR_MESSAGE=&quot;Error: type node&lt;&gt; is not a subtype of node&lt;Type&gt;&quot;;FLAVOUR_RULE_ID=&quot;[r:00000000-0000-4000-0000-011c8959034a(jetbrains.mps.lang.quotation.typesystem)/6019047980178724615]&quot;;" />
+            <property role="huDt6" value="Error: type node&lt;&gt; is not a subtype of node&lt;Type&gt;" />
+          </node>
           <node concept="1rXfSq" id="4Iwp2tSBHZG" role="3clFbG">
             <ref role="37wK5l" node="4Iwp2tSBzXf" resolve="infer" />
             <node concept="37vLTw" id="4Iwp2tSBEaY" role="37wK5m">

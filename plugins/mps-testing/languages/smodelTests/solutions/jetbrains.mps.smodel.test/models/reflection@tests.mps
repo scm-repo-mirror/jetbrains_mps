@@ -123,6 +123,7 @@
       <concept id="1107461130800" name="jetbrains.mps.baseLanguage.structure.Classifier" flags="ng" index="3pOWGL">
         <child id="5375687026011219971" name="member" index="jymVt" unordered="true" />
       </concept>
+      <concept id="1171903607971" name="jetbrains.mps.baseLanguage.structure.WildCardType" flags="in" index="3qTvmN" />
       <concept id="1107535904670" name="jetbrains.mps.baseLanguage.structure.ClassifierType" flags="in" index="3uibUv">
         <reference id="1107535924139" name="classifier" index="3uigEE" />
         <child id="1109201940907" name="parameter" index="11_B2D" />
@@ -1121,12 +1122,14 @@
         <property role="TrG5h" value="expected" />
         <node concept="3uibUv" id="2LDtYz_p5Ie" role="1tU5fm">
           <ref role="3uigEE" to="wyt6:~Iterable" resolve="Iterable" />
+          <node concept="3qTvmN" id="2H1iQD73sAP" role="11_B2D" />
         </node>
       </node>
       <node concept="37vLTG" id="2VYdUfnp8_u" role="3clF46">
         <property role="TrG5h" value="actual" />
         <node concept="3uibUv" id="2LDtYz_p5Nn" role="1tU5fm">
           <ref role="3uigEE" to="wyt6:~Iterable" resolve="Iterable" />
+          <node concept="3qTvmN" id="2H1iQD73sPV" role="11_B2D" />
         </node>
       </node>
     </node>

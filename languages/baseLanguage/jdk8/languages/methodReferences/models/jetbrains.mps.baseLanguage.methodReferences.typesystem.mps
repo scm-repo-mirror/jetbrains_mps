@@ -2941,7 +2941,9 @@
           <node concept="3cpWsn" id="5_jVsjdIfA8" role="3cpWs9">
             <property role="TrG5h" value="signatureParameters" />
             <node concept="_YKpA" id="5_jVsjdIfA1" role="1tU5fm">
-              <node concept="3Tqbb2" id="5_jVsjdIgbn" role="_ZDj9" />
+              <node concept="3Tqbb2" id="5_jVsjdIgbn" role="_ZDj9">
+                <ref role="ehGHo" to="tpee:fz3vP1H" resolve="Type" />
+              </node>
             </node>
             <node concept="2OqwBi" id="5_jVsjdeVe6" role="33vP2m">
               <node concept="1rXfSq" id="4GHzns22BPx" role="2Oq$k0">

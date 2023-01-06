@@ -25,6 +25,7 @@
     <import index="ospv" ref="r:54a768d9-9f11-4443-98d8-70ab3a783c52(jetbrains.mps.findUsages)" />
     <import index="yctd" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.findUsages(MPS.Core/)" />
     <import index="1ctc" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.stream(JDK/)" />
+    <import index="tp2v" ref="r:00000000-0000-4000-0000-011c8959032b(jetbrains.mps.baseLanguage.collections.typesystem)" />
     <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" implicit="true" />
   </imports>
   <registry>
@@ -33205,12 +33206,20 @@
                   </node>
                 </node>
                 <node concept="7CXmI" id="5aCBbpDfGgm" role="lGtFl">
-                  <node concept="2DdRWr" id="5aCBbpDfGgn" role="7EUXB">
-                    <node concept="MGsTx" id="5aCBbpDfGgo" role="MJxsd">
-                      <ref role="39XzEq" to="tpeh:5bMTuDbXcyD" />
+                  <node concept="2DdRWr" id="5FFqzecScSx" role="7EUXB">
+                    <node concept="MGsTx" id="5FFqzecScSy" role="MJxsd">
+                      <ref role="39XzEq" to="tp2v:20SdAGC9Xay" />
                     </node>
-                    <node concept="1DMPye" id="5aCBbpDfGgp" role="1DMPz9">
-                      <property role="1DMPyf" value="Error: type list&lt;int&gt; is not a subtype of list&lt;string&gt;" />
+                    <node concept="1DMPye" id="5FFqzecScSz" role="1DMPz9">
+                      <property role="1DMPyf" value="Error: type int is not a subtype of string" />
+                    </node>
+                  </node>
+                  <node concept="2DdRWr" id="5FFqzecScS$" role="7EUXB">
+                    <node concept="MGsTx" id="5FFqzecScS_" role="MJxsd">
+                      <ref role="39XzEq" to="tp2v:20SdAGC9XaB" />
+                    </node>
+                    <node concept="1DMPye" id="5FFqzecScSA" role="1DMPz9">
+                      <property role="1DMPyf" value="Error: type string is not a subtype of int" />
                     </node>
                   </node>
                 </node>
@@ -33744,12 +33753,20 @@
                     <node concept="10Oyi0" id="1GyyBA22ydC" role="HW$YZ" />
                   </node>
                   <node concept="7CXmI" id="1GyyBA22HyK" role="lGtFl">
-                    <node concept="2DdRWr" id="1GyyBA22IvF" role="7EUXB">
-                      <node concept="MGsTx" id="1GyyBA22IvG" role="MJxsd">
-                        <ref role="39XzEq" to="tpeh:5ZbU$b1J6Iq" />
+                    <node concept="2DdRWr" id="5FFqzecSmkT" role="7EUXB">
+                      <node concept="MGsTx" id="5FFqzecSmkU" role="MJxsd">
+                        <ref role="39XzEq" to="tp2v:20SdAGC9Xay" />
                       </node>
-                      <node concept="1DMPye" id="1GyyBA22IvH" role="1DMPz9">
-                        <property role="1DMPyf" value="Error: type list&lt;int&gt; is not a subtype of list&lt;string&gt;" />
+                      <node concept="1DMPye" id="5FFqzecSmkV" role="1DMPz9">
+                        <property role="1DMPyf" value="Error: type int is not a subtype of string" />
+                      </node>
+                    </node>
+                    <node concept="2DdRWr" id="5FFqzecSmkW" role="7EUXB">
+                      <node concept="MGsTx" id="5FFqzecSmkX" role="MJxsd">
+                        <ref role="39XzEq" to="tp2v:20SdAGC9XaB" />
+                      </node>
+                      <node concept="1DMPye" id="5FFqzecSmkY" role="1DMPz9">
+                        <property role="1DMPyf" value="Error: type string is not a subtype of int" />
                       </node>
                     </node>
                   </node>

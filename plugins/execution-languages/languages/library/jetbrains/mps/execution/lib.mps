@@ -110,6 +110,9 @@
         <property id="1176718929932" name="isFinal" index="3TUv4t" />
         <child id="1068431790190" name="initializer" index="33vP2m" />
       </concept>
+      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ng" index="366HgL">
+        <property id="1513279640906337053" name="inferTypeParams" index="373rjd" />
+      </concept>
       <concept id="1109279763828" name="jetbrains.mps.baseLanguage.structure.TypeVariableDeclaration" flags="ng" index="16euLQ" />
       <concept id="1109279851642" name="jetbrains.mps.baseLanguage.structure.GenericDeclaration" flags="ng" index="16eOlS">
         <child id="1109279881614" name="typeVariableDeclaration" index="16eVyc" />
@@ -2228,6 +2231,7 @@
             </node>
             <node concept="2ShNRf" id="1htmYMks_O$" role="33vP2m">
               <node concept="1pGfFk" id="1htmYMksAMd" role="2ShVmc">
+                <property role="373rjd" value="true" />
                 <ref role="37wK5l" node="4sYvxkKOO0T" resolve="ClonableList" />
                 <node concept="37vLTw" id="1htmYMksC9n" role="37wK5m">
                   <ref role="3cqZAo" node="4sYvxkKOO0H" resolve="myData" />

@@ -284,7 +284,7 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
     return unwrappedGroups;
   }
 
-  private static List<ModifiedNodesGroup> createUnwrappedMoves(LongestCommonSubsequenceFinder finder, final List<SNodeId> unwrappedIds, UnwrappedMovesGroup movesGroup) {
+  private static List<ModifiedNodesGroup> createUnwrappedMoves(LongestCommonSubsequenceFinder<?> finder, final List<SNodeId> unwrappedIds, UnwrappedMovesGroup movesGroup) {
 
     final Iterable<SNodeId> commonIds = ListSequence.fromList(finder.getCommonIndices()).select(new ISelector<Tuples._2<Integer, Integer>, SNodeId>() {
       public SNodeId select(Tuples._2<Integer, Integer> it) {
@@ -305,7 +305,7 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
     return result;
   }
 
-  private List<ModifiedNodesGroup> createWrappedNotMoveGroups(LongestCommonSubsequenceFinder finder, final List<SNodeId> wrappedIds, final boolean isNew) {
+  private List<ModifiedNodesGroup> createWrappedNotMoveGroups(LongestCommonSubsequenceFinder<?> finder, final List<SNodeId> wrappedIds, final boolean isNew) {
     final List<ModifiedNodesGroup> wrappedNotMoveGroups = ListSequence.fromList(new ArrayList<ModifiedNodesGroup>());
 
     ListSequence.fromList(finder.getDifferentIndices()).visitAll(new IVisitor<Tuples._2<Tuples._2<Integer, Integer>, Tuples._2<Integer, Integer>>>() {

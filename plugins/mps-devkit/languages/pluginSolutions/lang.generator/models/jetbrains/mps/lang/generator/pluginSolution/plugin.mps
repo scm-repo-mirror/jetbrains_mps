@@ -313,6 +313,7 @@
         <child id="1199569906740" name="parameter" index="1bW2Oz" />
         <child id="1199569916463" name="body" index="1bW5cS" />
       </concept>
+      <concept id="8992394414545679616" name="jetbrains.mps.baseLanguage.closures.structure.ClosureVarType" flags="ig" index="3VYd8j" />
     </language>
     <language id="443f4c36-fcf5-4eb6-9500-8d06ed259e3e" name="jetbrains.mps.baseLanguage.classifiers">
       <concept id="1213999088275" name="jetbrains.mps.baseLanguage.classifiers.structure.DefaultClassifierFieldDeclaration" flags="ig" index="2BZ0e9" />
@@ -377,7 +378,6 @@
       <concept id="3562215692195599741" name="jetbrains.mps.lang.smodel.structure.SLinkImplicitSelect" flags="nn" index="13MTOL">
         <reference id="3562215692195600259" name="link" index="13MTZf" />
       </concept>
-      <concept id="6677504323281689838" name="jetbrains.mps.lang.smodel.structure.SConceptType" flags="in" index="3bZ5Sz" />
       <concept id="1176109685393" name="jetbrains.mps.lang.smodel.structure.Model_RootsIncludingImportedOperation" flags="nn" index="3lApI0">
         <child id="6750920497477143611" name="conceptArgument" index="3MHPDn" />
       </concept>
@@ -6204,7 +6204,7 @@
               </node>
               <node concept="37vLTG" id="5PsMh9oEh_7" role="1bW2Oz">
                 <property role="TrG5h" value="c" />
-                <node concept="3bZ5Sz" id="5PsMh9oEijb" role="1tU5fm" />
+                <node concept="3VYd8j" id="1MjNio5QjLz" role="1tU5fm" />
               </node>
             </node>
           </node>
@@ -6571,7 +6571,7 @@
               </node>
               <node concept="37vLTG" id="7S2IGmHMbl3" role="1bW2Oz">
                 <property role="TrG5h" value="c" />
-                <node concept="3bZ5Sz" id="5PsMh9oEp$B" role="1tU5fm" />
+                <node concept="3VYd8j" id="1MjNio5Q0H3" role="1tU5fm" />
               </node>
             </node>
           </node>

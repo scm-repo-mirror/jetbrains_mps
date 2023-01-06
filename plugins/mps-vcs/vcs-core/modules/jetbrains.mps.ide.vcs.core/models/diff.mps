@@ -217,6 +217,7 @@
       <concept id="1107461130800" name="jetbrains.mps.baseLanguage.structure.Classifier" flags="ng" index="3pOWGL">
         <child id="5375687026011219971" name="member" index="jymVt" unordered="true" />
       </concept>
+      <concept id="1171903607971" name="jetbrains.mps.baseLanguage.structure.WildCardType" flags="in" index="3qTvmN" />
       <concept id="1171903916106" name="jetbrains.mps.baseLanguage.structure.UpperBoundType" flags="in" index="3qUE_q">
         <child id="1171903916107" name="bound" index="3qUE_r" />
       </concept>
@@ -26913,6 +26914,7 @@
         <property role="TrG5h" value="finder" />
         <node concept="3uibUv" id="42HD3FSXhH1" role="1tU5fm">
           <ref role="3uigEE" to="unno:4k3fuHGtfwF" resolve="LongestCommonSubsequenceFinder" />
+          <node concept="3qTvmN" id="7AIxirf3NC6" role="11_B2D" />
         </node>
       </node>
       <node concept="37vLTG" id="42HD3FSXDjA" role="3clF46">
@@ -27319,6 +27321,7 @@
         <property role="TrG5h" value="finder" />
         <node concept="3uibUv" id="42HD3FSM6fZ" role="1tU5fm">
           <ref role="3uigEE" to="unno:4k3fuHGtfwF" resolve="LongestCommonSubsequenceFinder" />
+          <node concept="3qTvmN" id="7AIxirf40yz" role="11_B2D" />
         </node>
       </node>
       <node concept="37vLTG" id="42HD3FSM6g0" role="3clF46">

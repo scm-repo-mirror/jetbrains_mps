@@ -154,6 +154,9 @@
         <property id="521412098689998745" name="nonStatic" index="2bfB8j" />
         <child id="5375687026011219971" name="member" index="jymVt" unordered="true" />
       </concept>
+      <concept id="1171903916106" name="jetbrains.mps.baseLanguage.structure.UpperBoundType" flags="in" index="3qUE_q">
+        <child id="1171903916107" name="bound" index="3qUE_r" />
+      </concept>
       <concept id="7812454656619025412" name="jetbrains.mps.baseLanguage.structure.LocalMethodCall" flags="nn" index="1rXfSq" />
       <concept id="1107535904670" name="jetbrains.mps.baseLanguage.structure.ClassifierType" flags="in" index="3uibUv">
         <reference id="1107535924139" name="classifier" index="3uigEE" />
@@ -526,7 +529,9 @@
         <property role="TrG5h" value="nodes" />
         <property role="3TUv4t" value="true" />
         <node concept="_YKpA" id="L4W0vZ_02a" role="1tU5fm">
-          <node concept="3Tqbb2" id="L4W0vZ_02g" role="_ZDj9" />
+          <node concept="3qUE_q" id="2H1iQD6rOQe" role="_ZDj9">
+            <node concept="3Tqbb2" id="2H1iQD6rSb4" role="3qUE_r" />
+          </node>
         </node>
       </node>
       <node concept="3cqZAl" id="L4W0vZ_00r" role="3clF45" />

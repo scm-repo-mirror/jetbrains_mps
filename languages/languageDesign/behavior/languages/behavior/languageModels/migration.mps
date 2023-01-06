@@ -268,12 +268,8 @@
       <concept id="1203518072036" name="jetbrains.mps.baseLanguage.collections.structure.SmartClosureParameterDeclaration" flags="ig" index="Rh6nW" />
       <concept id="1160600644654" name="jetbrains.mps.baseLanguage.collections.structure.ListCreatorWithInit" flags="nn" index="Tc6Ow" />
       <concept id="1160666733551" name="jetbrains.mps.baseLanguage.collections.structure.AddAllElementsOperation" flags="nn" index="X8dFx" />
-      <concept id="7125221305512719026" name="jetbrains.mps.baseLanguage.collections.structure.CollectionType" flags="in" index="3vKaQO" />
       <concept id="1202120902084" name="jetbrains.mps.baseLanguage.collections.structure.WhereOperation" flags="nn" index="3zZkjj" />
       <concept id="1202128969694" name="jetbrains.mps.baseLanguage.collections.structure.SelectOperation" flags="nn" index="3$u5V9" />
-      <concept id="5686963296372573083" name="jetbrains.mps.baseLanguage.collections.structure.AbstractContainerType" flags="in" index="3O5elB">
-        <child id="5686963296372573084" name="elementType" index="3O5elw" />
-      </concept>
     </language>
   </registry>
   <node concept="3SyAh_" id="1u_ffToswSU">
@@ -826,8 +822,8 @@
       <property role="TrG5h" value="getApplicableNodes" />
       <node concept="37vLTG" id="1u_ffTotb8A" role="3clF46">
         <property role="TrG5h" value="allInstances" />
-        <node concept="3vKaQO" id="1u_ffTotb7a" role="1tU5fm">
-          <node concept="3Tqbb2" id="1u_ffTotb7b" role="3O5elw" />
+        <node concept="A3Dl8" id="2H1iQD70rE8" role="1tU5fm">
+          <node concept="3Tqbb2" id="2H1iQD70rEa" role="A3Ik2" />
         </node>
       </node>
       <node concept="3Tm6S6" id="1u_ffTot9Yj" role="1B3o_S" />

@@ -64,6 +64,9 @@
         <child id="1206060644605" name="statementList" index="3eOfB_" />
       </concept>
       <concept id="1081506762703" name="jetbrains.mps.baseLanguage.structure.GreaterThanExpression" flags="nn" index="3eOSWO" />
+      <concept id="1171903916106" name="jetbrains.mps.baseLanguage.structure.UpperBoundType" flags="in" index="3qUE_q">
+        <child id="1171903916107" name="bound" index="3qUE_r" />
+      </concept>
       <concept id="1107535904670" name="jetbrains.mps.baseLanguage.structure.ClassifierType" flags="in" index="3uibUv">
         <reference id="1107535924139" name="classifier" index="3uigEE" />
       </concept>
@@ -296,7 +299,9 @@
         <node concept="mw_s8" id="qgIopNibLY" role="1ZfhKB">
           <node concept="2c44tf" id="qgIopNibLZ" role="mwGJk">
             <node concept="3vKaQO" id="7b2SisHTZcV" role="2c44tc">
-              <node concept="3Tqbb2" id="7b2SisHTZcX" role="3O5elw" />
+              <node concept="3qUE_q" id="6mv8VzUhMsA" role="3O5elw">
+                <node concept="3Tqbb2" id="7b2SisHTZcX" role="3qUE_r" />
+              </node>
             </node>
           </node>
         </node>

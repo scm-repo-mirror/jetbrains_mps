@@ -46,7 +46,6 @@ import com.intellij.openapi.actionSystem.ToggleAction;
 import com.intellij.openapi.project.DumbAware;
 import jetbrains.mps.ide.icons.IdeIcons;
 import com.intellij.openapi.actionSystem.AnActionEvent;
-import java.util.function.Supplier;
 import com.intellij.openapi.diff.DiffBundle;
 import jetbrains.mps.workbench.action.BaseGroup;
 import com.intellij.openapi.actionSystem.AnAction;
@@ -241,7 +240,7 @@ public class MergeRootsPane implements PropertyChangeListener {
 
   private class SyncScrollingAction extends ToggleAction implements DumbAware {
     private SyncScrollingAction() {
-      super((Supplier<String>) () -> DiffBundle.message("synchronize.scrolling", new Object[0]), IdeIcons.SYNC_SCROLLING);
+      super(() -> DiffBundle.message("synchronize.scrolling", new Object[0]), IdeIcons.SYNC_SCROLLING);
     }
     @Override
     public boolean isSelected(@NotNull AnActionEvent p1) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="-b5jkzi9zuxyfknvem1f0l51krqxjidr">
+<product version="3" modelHash="-2392ciz66yigetlkyj7fqvyl60h7xuc">
   <files names="ExtensionDescriptor.java:LogBuilder.java:MigrationScriptBuilder.java:MoveNodeRefactoringLogParticipant.java:SerializingParticipantState.java" />
 </product>
 

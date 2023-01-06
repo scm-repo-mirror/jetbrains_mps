@@ -2817,6 +2817,11 @@
             </node>
           </node>
         </node>
+        <node concept="1SiIV0" id="EkFhnBKulH" role="3bR37C">
+          <node concept="3bR9La" id="EkFhnBKulI" role="1SiIV1">
+            <ref role="3bR37D" to="ffeo:7Kfy9QB6L0h" resolve="jetbrains.mps.baseLanguage.collections" />
+          </node>
+        </node>
       </node>
     </node>
     <node concept="398rNT" id="6gfB34Blde$" role="1l3spd">

@@ -4315,7 +4315,7 @@
           </node>
           <node concept="3clFbS" id="42jv0_nFYRm" role="3clFbx">
             <node concept="3cpWs6" id="42jv0_nG3P7" role="3cqZAp">
-              <node concept="15s5l7" id="63Jhkac78P7" role="lGtFl">
+              <node concept="15s5l7" id="17QotHTeTg0" role="lGtFl">
                 <property role="1eyWvh" value="FLAVOUR_ISSUE_KIND=&quot;typesystem (typesystem)&quot;;FLAVOUR_MESSAGE=&quot;Error: type sequence&lt;node&lt;&gt;&gt; is not comparable with java.util.Collection&quot;;FLAVOUR_RULE_ID=&quot;[r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/6469607165247478858]&quot;;" />
                 <property role="huDt6" value="Error: type sequence&lt;node&lt;&gt;&gt; is not comparable with java.util.Collection" />
               </node>

@@ -11724,16 +11724,12 @@
                       <node concept="3clFbS" id="7vRyxXUZtMa" role="1bW5cS">
                         <node concept="3clFbF" id="7vRyxXUZBS$" role="3cqZAp">
                           <node concept="2ShNRf" id="7vRyxXUZBSy" role="3clFbG">
-                            <node concept="Tc6Ow" id="7vRyxXUZFdX" role="2ShVmc">
-                              <node concept="3Tqbb2" id="7vRyxXUZK5t" role="HW$YZ">
-                                <ref role="ehGHo" to="hcm8:27wMicCxzmd" resolve="TypeParameterReference" />
-                              </node>
-                            </node>
+                            <node concept="Tc6Ow" id="7vRyxXUZFdX" role="2ShVmc" />
                           </node>
                         </node>
                       </node>
                       <node concept="gl6BB" id="7vRyxXUZvP5" role="1bW2Oz">
-                        <property role="TrG5h" value="index" />
+                        <property role="TrG5h" value="i_" />
                         <node concept="2jxLKc" id="7vRyxXUZvP6" role="1tU5fm" />
                       </node>
                     </node>
@@ -11745,14 +11741,6 @@
                     <ref role="3cqZAo" node="7vRyxXUWJO8" resolve="reference" />
                   </node>
                 </node>
-              </node>
-              <node concept="15s5l7" id="7vRyxXV0lpM" role="lGtFl">
-                <property role="1eyWvh" value="FLAVOUR_ISSUE_KIND=&quot;typesystem (typesystem)&quot;;FLAVOUR_MESSAGE=&quot;Error: type org.jetbrains.mps.openapi.model.SNode is not a subtype of node&lt;TypeParameterReference&gt;&quot;;FLAVOUR_RULE_ID=&quot;[r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/3216938209399927516,r:00000000-0000-4000-0000-011c89590337(jetbrains.mps.baseLanguage.closures.typesystem)/6271186418884779179,r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/8014486391927774132]&quot;;" />
-                <property role="huDt6" value="Error: type org.jetbrains.mps.openapi.model.SNode is not a subtype of node&lt;TypeParameterReference&gt;" />
-              </node>
-              <node concept="15s5l7" id="7vRyxXV0i11" role="lGtFl">
-                <property role="1eyWvh" value="FLAVOUR_ISSUE_KIND=&quot;typesystem (typesystem)&quot;;FLAVOUR_MESSAGE=&quot;Error: type org.jetbrains.mps.openapi.model.SNode is not a subtype of node&lt;TypeParameterReference&gt;&quot;;FLAVOUR_RULE_ID=&quot;[r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/3216938209399927516,r:00000000-0000-4000-0000-011c89590337(jetbrains.mps.baseLanguage.closures.typesystem)/6271186418884779179,r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/8014486391927774132]&quot;;" />
-                <property role="huDt6" value="Error: type org.jetbrains.mps.openapi.model.SNode is not a subtype of node&lt;TypeParameterReference&gt;" />
               </node>
             </node>
           </node>

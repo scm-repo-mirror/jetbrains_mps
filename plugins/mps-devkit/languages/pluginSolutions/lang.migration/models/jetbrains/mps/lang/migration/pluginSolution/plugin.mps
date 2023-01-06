@@ -1468,6 +1468,47 @@
             </node>
           </node>
         </node>
+        <node concept="3cpWs8" id="1jNyE7GYcS9" role="3cqZAp">
+          <node concept="3cpWsn" id="1jNyE7GYcSa" role="3cpWs9">
+            <property role="TrG5h" value="seq" />
+            <node concept="A3Dl8" id="1jNyE7GYaVm" role="1tU5fm">
+              <node concept="3uibUv" id="1jNyE7GYaV_" role="A3Ik2">
+                <ref role="3uigEE" node="112yVMI$YQ8" resolve="SerializingParticipantState" />
+                <node concept="3qTvmN" id="1jNyE7GYaVA" role="11_B2D" />
+                <node concept="3qTvmN" id="1jNyE7GYaVB" role="11_B2D" />
+                <node concept="3Tqbb2" id="1jNyE7GYaVC" role="11_B2D" />
+                <node concept="3Tqbb2" id="1jNyE7GYaVD" role="11_B2D" />
+              </node>
+            </node>
+            <node concept="2OqwBi" id="1jNyE7GYcSb" role="33vP2m">
+              <node concept="2OqwBi" id="1jNyE7GYcSc" role="2Oq$k0">
+                <node concept="2O5UvJ" id="1jNyE7GYcSd" role="2Oq$k0">
+                  <ref role="2O5UnU" to="4ugc:3KqYwoBJieG" resolve="MoveNodeParticipantEP" />
+                </node>
+                <node concept="SfwO_" id="1jNyE7GYcSe" role="2OqNvi" />
+              </node>
+              <node concept="3$u5V9" id="1jNyE7GYcSf" role="2OqNvi">
+                <node concept="1bVj0M" id="1jNyE7GYcSg" role="23t8la">
+                  <node concept="3clFbS" id="1jNyE7GYcSh" role="1bW5cS">
+                    <node concept="3cpWs6" id="1jNyE7GYcSi" role="3cqZAp">
+                      <node concept="2YIFZM" id="1jNyE7GYcSj" role="3cqZAk">
+                        <ref role="37wK5l" node="3r9sVr9Sor1" resolve="create" />
+                        <ref role="1Pybhc" node="112yVMI$YQ8" resolve="SerializingParticipantState" />
+                        <node concept="37vLTw" id="1jNyE7GYcSk" role="37wK5m">
+                          <ref role="3cqZAo" node="1jNyE7GYcSl" resolve="participant" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="Rh6nW" id="1jNyE7GYcSl" role="1bW2Oz">
+                    <property role="TrG5h" value="participant" />
+                    <node concept="2jxLKc" id="1jNyE7GYcSm" role="1tU5fm" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs8" id="3r9sVr9SwHF" role="3cqZAp">
           <node concept="3cpWsn" id="3r9sVr9SwHG" role="3cpWs9">
             <property role="TrG5h" value="participantStates" />
@@ -1483,32 +1524,8 @@
             </node>
             <node concept="2OqwBi" id="3r9sVr9SC58" role="33vP2m">
               <node concept="2OqwBi" id="3r9sVr9WnWF" role="2Oq$k0">
-                <node concept="2OqwBi" id="3r9sVr9SwHH" role="2Oq$k0">
-                  <node concept="2OqwBi" id="3r9sVr9SwHJ" role="2Oq$k0">
-                    <node concept="2O5UvJ" id="3r9sVr9SwHK" role="2Oq$k0">
-                      <ref role="2O5UnU" to="4ugc:3KqYwoBJieG" resolve="MoveNodeParticipantEP" />
-                    </node>
-                    <node concept="SfwO_" id="3r9sVr9SwHL" role="2OqNvi" />
-                  </node>
-                  <node concept="3$u5V9" id="3r9sVr9SwHV" role="2OqNvi">
-                    <node concept="1bVj0M" id="3r9sVr9SwHW" role="23t8la">
-                      <node concept="3clFbS" id="3r9sVr9SwHX" role="1bW5cS">
-                        <node concept="3cpWs6" id="3r9sVr9WnqG" role="3cqZAp">
-                          <node concept="2YIFZM" id="7Ui8EnOPKMM" role="3cqZAk">
-                            <ref role="37wK5l" node="3r9sVr9Sor1" resolve="create" />
-                            <ref role="1Pybhc" node="112yVMI$YQ8" resolve="SerializingParticipantState" />
-                            <node concept="37vLTw" id="3r9sVr9WnqJ" role="37wK5m">
-                              <ref role="3cqZAo" node="3r9sVr9SwI1" resolve="participant" />
-                            </node>
-                          </node>
-                        </node>
-                      </node>
-                      <node concept="Rh6nW" id="3r9sVr9SwI1" role="1bW2Oz">
-                        <property role="TrG5h" value="participant" />
-                        <node concept="2jxLKc" id="3r9sVr9SwI2" role="1tU5fm" />
-                      </node>
-                    </node>
-                  </node>
+                <node concept="37vLTw" id="1jNyE7GYcSn" role="2Oq$k0">
+                  <ref role="3cqZAo" node="1jNyE7GYcSa" resolve="seq" />
                 </node>
                 <node concept="3zZkjj" id="3r9sVr9WoBD" role="2OqNvi">
                   <node concept="1bVj0M" id="3r9sVr9WoBF" role="23t8la">

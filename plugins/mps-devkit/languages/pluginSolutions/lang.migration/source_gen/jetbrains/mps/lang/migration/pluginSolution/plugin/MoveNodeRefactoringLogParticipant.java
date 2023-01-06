@@ -11,7 +11,7 @@ import jetbrains.mps.smodel.structure.Extension;
 import jetbrains.mps.refactoring.participant.RefactoringParticipant;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.smodel.structure.ExtensionPoint;
-import jetbrains.mps.internal.collections.runtime.ISelector;
+import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.List;
 import org.jetbrains.mps.openapi.module.SRepository;
@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import org.jetbrains.mps.openapi.module.SearchScope;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import jetbrains.mps.lang.migration.runtime.base.MigrationModuleUtil;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.ide.findusages.model.SearchResults;
 import jetbrains.mps.ide.findusages.model.SearchResult;
 import jetbrains.mps.refactoring.participant.RefactoringSession;
@@ -48,8 +47,8 @@ public class MoveNodeRefactoringLogParticipant extends RefactoringParticipantBas
     }
     public Iterable<RefactoringParticipant.PersistentRefactoringParticipant<?, ?, ?, ?>> get() {
       // here lazyness is important because extension objects should never be saved for long time
-      return Sequence.fromIterable(new ExtensionPoint<MoveNodeRefactoringParticipant<?, ?>>("jetbrains.mps.refactoring.participant.MoveNodeParticipantEP").getObjects()).ofType(RefactoringParticipant.PersistentRefactoringParticipant.class).select(new ISelector<RefactoringParticipant.PersistentRefactoringParticipant, RefactoringParticipant.PersistentRefactoringParticipant<?, ?, ?, ?>>() {
-        public RefactoringParticipant.PersistentRefactoringParticipant<?, ?, ?, ?> select(RefactoringParticipant.PersistentRefactoringParticipant it) {
+      return Sequence.fromIterable(new ExtensionPoint<MoveNodeRefactoringParticipant<?, ?>>("jetbrains.mps.refactoring.participant.MoveNodeParticipantEP").getObjects()).ofType(RefactoringParticipant.PersistentRefactoringParticipant.class).select(new _FunctionTypes._return_P1_E0<RefactoringParticipant.PersistentRefactoringParticipant<?, ?, ?, ?>, RefactoringParticipant.PersistentRefactoringParticipant>() {
+        public RefactoringParticipant.PersistentRefactoringParticipant<?, ?, ?, ?> invoke(RefactoringParticipant.PersistentRefactoringParticipant it) {
           return (RefactoringParticipant.PersistentRefactoringParticipant<?, ?, ?, ?>) it;
         }
       });
@@ -90,11 +89,7 @@ public class MoveNodeRefactoringLogParticipant extends RefactoringParticipantBas
   @Override
   public List<List<RefactoringParticipant.Change<SNodeReference, SNodeReference>>> getChanges(List<SNodeReference> initialStates, SRepository repository, List<RefactoringParticipant.Option> selectedOptions, SearchScope searchScope, ProgressMonitor progressMonitor) {
     if (!(isApplicable(initialStates, repository)) || !(ListSequence.fromList(selectedOptions).contains(OPTION))) {
-      return ListSequence.fromList(initialStates).select(new ISelector<SNodeReference, List<RefactoringParticipant.Change<SNodeReference, SNodeReference>>>() {
-        public List<RefactoringParticipant.Change<SNodeReference, SNodeReference>> select(SNodeReference it) {
-          return ((List<RefactoringParticipant.Change<SNodeReference, SNodeReference>>) ListSequence.fromList(new ArrayList<RefactoringParticipant.Change<SNodeReference, SNodeReference>>()));
-        }
-      }).toListSequence();
+      return ListSequence.fromList(initialStates).select((SNodeReference it) -> ((List<RefactoringParticipant.Change<SNodeReference, SNodeReference>>) ListSequence.fromList(new ArrayList<RefactoringParticipant.Change<SNodeReference, SNodeReference>>()))).toList();
     }
     for (SModule module : Sequence.fromIterable(searchScope.getModules())) {
       if (MigrationModuleUtil.isModuleMigrateable(module) && !(MigrationModuleUtil.allDependenciesActual(module))) {
@@ -110,23 +105,12 @@ public class MoveNodeRefactoringLogParticipant extends RefactoringParticipantBas
   public List<RefactoringParticipant.Change<SNodeReference, SNodeReference>> getChanges(SNodeReference initialState, SRepository repository, final List<RefactoringParticipant.Option> selectedOptions, final SearchScope searchScope) {
     final SNode sourceNode = initialState.resolve(repository);
     final SModule sourceModule = SNodeOperations.getModel(sourceNode).getModule();
-    final List<SerializingParticipantState<?, ?, SNode, SNode>> participantStates = Sequence.fromIterable(new ExtensionPoint<MoveNodeRefactoringParticipant<?, ?>>("jetbrains.mps.refactoring.participant.MoveNodeParticipantEP").getObjects()).select(new ISelector<MoveNodeRefactoringParticipant<?, ?>, SerializingParticipantState<?, ?, SNode, SNode>>() {
-      public SerializingParticipantState<?, ?, SNode, SNode> select(MoveNodeRefactoringParticipant<?, ?> participant) {
-        return SerializingParticipantState.create(participant);
-      }
-    }).where(new IWhereFilter<SerializingParticipantState<?, ?, SNode, SNode>>() {
-      public boolean accept(SerializingParticipantState<?, ?, SNode, SNode> it) {
-        return it != null;
-      }
-    }).toListSequence();
+    Iterable<SerializingParticipantState<?, ?, SNode, SNode>> seq = Sequence.fromIterable(new ExtensionPoint<MoveNodeRefactoringParticipant<?, ?>>("jetbrains.mps.refactoring.participant.MoveNodeParticipantEP").getObjects()).select((MoveNodeRefactoringParticipant<?, ?> participant) -> SerializingParticipantState.create(participant));
+    final List<SerializingParticipantState<?, ?, SNode, SNode>> participantStates = Sequence.fromIterable(seq).where((SerializingParticipantState<?, ?, SNode, SNode> it) -> it != null).toList();
     if (ListSequence.fromList(participantStates).isEmpty()) {
       return ListSequence.fromList(new ArrayList<RefactoringParticipant.Change<SNodeReference, SNodeReference>>());
     }
-    final List<SNode> initialStates = ListSequence.fromList(participantStates).select(new ISelector<SerializingParticipantState<?, ?, SNode, SNode>, SNode>() {
-      public SNode select(SerializingParticipantState<?, ?, SNode, SNode> it) {
-        return it.getSerializedInitial(sourceNode);
-      }
-    }).toListSequence();
+    final List<SNode> initialStates = ListSequence.fromList(participantStates).select((SerializingParticipantState<?, ?, SNode, SNode> it) -> it.getSerializedInitial(sourceNode)).toList();
 
     // todo: write guard migration with 'execute after'
 

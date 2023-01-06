@@ -898,8 +898,14 @@
               <node concept="1bVj0M" id="1d2BQ0ZPlxS" role="37wK5m">
                 <node concept="3clFbS" id="1d2BQ0ZPlxU" role="1bW5cS">
                   <node concept="3clFbF" id="1d2BQ0ZPmXz" role="3cqZAp">
-                    <node concept="37vLTw" id="1d2BQ0ZPmXy" role="3clFbG">
-                      <ref role="3cqZAo" node="1d2BQ0ZPmhc" resolve="it" />
+                    <node concept="1PxgMI" id="2H1iQD70oMl" role="3clFbG">
+                      <property role="1BlNFB" value="true" />
+                      <node concept="chp4Y" id="2H1iQD70pAE" role="3oSUPX">
+                        <ref role="cht4Q" to="48vp:1d2BQ0ZMYc5" resolve="KotlinFileClassifierType" />
+                      </node>
+                      <node concept="37vLTw" id="1d2BQ0ZPmXy" role="1m5AlR">
+                        <ref role="3cqZAo" node="1d2BQ0ZPmhc" resolve="it" />
+                      </node>
                     </node>
                   </node>
                 </node>
@@ -1239,14 +1245,6 @@
                     </node>
                   </node>
                   <node concept="3clFbF" id="4L0QGs2nneK" role="3cqZAp">
-                    <node concept="15s5l7" id="4L0QGs2nneL" role="lGtFl">
-                      <property role="1eyWvh" value="FLAVOUR_ISSUE_KIND=&quot;typesystem (typesystem)&quot;;FLAVOUR_MESSAGE=&quot;Error: type org.jetbrains.mps.openapi.model.SNode is not a subtype of node&lt;IType&gt;&quot;;FLAVOUR_RULE_ID=&quot;[r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/3216938209399927487,r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/5977092449933510825]&quot;;" />
-                      <property role="huDt6" value="Error: type org.jetbrains.mps.openapi.model.SNode is not a subtype of node&lt;IType&gt;" />
-                    </node>
-                    <node concept="15s5l7" id="4L0QGs2nneM" role="lGtFl">
-                      <property role="1eyWvh" value="FLAVOUR_ISSUE_KIND=&quot;typesystem (typesystem)&quot;;FLAVOUR_MESSAGE=&quot;Error: Incompatible method signature&quot;;FLAVOUR_RULE_ID=&quot;[r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/2234318170389157992]&quot;;" />
-                      <property role="huDt6" value="Error: Incompatible method signature" />
-                    </node>
                     <node concept="2YIFZM" id="117xv0QrrXL" role="3clFbG">
                       <ref role="37wK5l" to="3hq4:4L0QGs2lAME" resolve="convertProjectionsInto" />
                       <ref role="1Pybhc" to="3hq4:117xv0Qrpm9" resolve="KtToJavaConversion" />
@@ -1372,14 +1370,6 @@
                     </node>
                   </node>
                   <node concept="3clFbF" id="4L0QGs2n4yz" role="3cqZAp">
-                    <node concept="15s5l7" id="4L0QGs2niAI" role="lGtFl">
-                      <property role="1eyWvh" value="FLAVOUR_ISSUE_KIND=&quot;typesystem (typesystem)&quot;;FLAVOUR_MESSAGE=&quot;Error: type org.jetbrains.mps.openapi.model.SNode is not a subtype of node&lt;IType&gt;&quot;;FLAVOUR_RULE_ID=&quot;[r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/3216938209399927487,r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/5977092449933510825]&quot;;" />
-                      <property role="huDt6" value="Error: type org.jetbrains.mps.openapi.model.SNode is not a subtype of node&lt;IType&gt;" />
-                    </node>
-                    <node concept="15s5l7" id="4L0QGs2nh_G" role="lGtFl">
-                      <property role="1eyWvh" value="FLAVOUR_ISSUE_KIND=&quot;typesystem (typesystem)&quot;;FLAVOUR_MESSAGE=&quot;Error: Incompatible method signature&quot;;FLAVOUR_RULE_ID=&quot;[r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/2234318170389157992]&quot;;" />
-                      <property role="huDt6" value="Error: Incompatible method signature" />
-                    </node>
                     <node concept="2YIFZM" id="117xv0QrrXM" role="3clFbG">
                       <ref role="37wK5l" to="3hq4:4L0QGs2lAME" resolve="convertProjectionsInto" />
                       <ref role="1Pybhc" to="3hq4:117xv0Qrpm9" resolve="KtToJavaConversion" />
@@ -1608,8 +1598,14 @@
               <node concept="1bVj0M" id="117xv0Qr8eN" role="37wK5m">
                 <node concept="3clFbS" id="117xv0Qr8eO" role="1bW5cS">
                   <node concept="3clFbF" id="117xv0Qr8eP" role="3cqZAp">
-                    <node concept="37vLTw" id="117xv0Qr8eQ" role="3clFbG">
-                      <ref role="3cqZAo" node="117xv0Qr8eR" resolve="it" />
+                    <node concept="1PxgMI" id="7pAZOJ1aidz" role="3clFbG">
+                      <property role="1BlNFB" value="true" />
+                      <node concept="chp4Y" id="7pAZOJ1ajWn" role="3oSUPX">
+                        <ref role="cht4Q" to="48vp:1d2BQ0ZMYc5" resolve="KotlinFileClassifierType" />
+                      </node>
+                      <node concept="37vLTw" id="117xv0Qr8eQ" role="1m5AlR">
+                        <ref role="3cqZAo" node="117xv0Qr8eR" resolve="it" />
+                      </node>
                     </node>
                   </node>
                 </node>

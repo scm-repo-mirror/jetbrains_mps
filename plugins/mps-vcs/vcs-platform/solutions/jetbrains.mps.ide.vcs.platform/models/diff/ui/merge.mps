@@ -4088,30 +4088,24 @@
         <node concept="3clFbS" id="3ELCs8FfyN_" role="3clF47">
           <node concept="XkiVB" id="3ELCs8FfC06" role="3cqZAp">
             <ref role="37wK5l" to="qkt:~ToggleAction.&lt;init&gt;(java.util.function.Supplier,javax.swing.Icon)" resolve="ToggleAction" />
-            <node concept="10QFUN" id="6ZQU9LwP69l" role="37wK5m">
-              <node concept="3uibUv" id="6ZQU9LwPdDi" role="10QFUM">
-                <ref role="3uigEE" to="82uw:~Supplier" resolve="Supplier" />
-                <node concept="17QB3L" id="6ZQU9LwPm7e" role="11_B2D" />
-              </node>
-              <node concept="1bVj0M" id="2wTEqNKAvTw" role="10QFUP">
-                <node concept="3clFbS" id="2wTEqNKAvTy" role="1bW5cS">
-                  <node concept="3clFbF" id="2wTEqNKAw0u" role="3cqZAp">
-                    <node concept="2YIFZM" id="2wTEqNK_8ON" role="3clFbG">
-                      <ref role="1Pybhc" to="ok99:~DiffBundle" resolve="DiffBundle" />
-                      <ref role="37wK5l" to="ok99:~DiffBundle.message(java.lang.String,java.lang.Object...)" resolve="message" />
-                      <node concept="Xl_RD" id="2wTEqNK_8OO" role="37wK5m">
-                        <property role="Xl_RC" value="synchronize.scrolling" />
-                      </node>
-                      <node concept="2ShNRf" id="2wTEqNKA$0q" role="37wK5m">
-                        <node concept="3$_iS1" id="2wTEqNKAO8A" role="2ShVmc">
-                          <node concept="3$GHV9" id="2wTEqNKAO8C" role="3$GQph">
-                            <node concept="3cmrfG" id="2wTEqNKAQC1" role="3$I4v7">
-                              <property role="3cmrfH" value="0" />
-                            </node>
+            <node concept="1bVj0M" id="2wTEqNKAvTw" role="37wK5m">
+              <node concept="3clFbS" id="2wTEqNKAvTy" role="1bW5cS">
+                <node concept="3clFbF" id="2wTEqNKAw0u" role="3cqZAp">
+                  <node concept="2YIFZM" id="2wTEqNK_8ON" role="3clFbG">
+                    <ref role="1Pybhc" to="ok99:~DiffBundle" resolve="DiffBundle" />
+                    <ref role="37wK5l" to="ok99:~DiffBundle.message(java.lang.String,java.lang.Object...)" resolve="message" />
+                    <node concept="Xl_RD" id="2wTEqNK_8OO" role="37wK5m">
+                      <property role="Xl_RC" value="synchronize.scrolling" />
+                    </node>
+                    <node concept="2ShNRf" id="2wTEqNKA$0q" role="37wK5m">
+                      <node concept="3$_iS1" id="2wTEqNKAO8A" role="2ShVmc">
+                        <node concept="3$GHV9" id="2wTEqNKAO8C" role="3$GQph">
+                          <node concept="3cmrfG" id="2wTEqNKAQC1" role="3$I4v7">
+                            <property role="3cmrfH" value="0" />
                           </node>
-                          <node concept="3uibUv" id="2wTEqNKAMmb" role="3$_nBY">
-                            <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
-                          </node>
+                        </node>
+                        <node concept="3uibUv" id="2wTEqNKAMmb" role="3$_nBY">
+                          <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
                         </node>
                       </node>
                     </node>

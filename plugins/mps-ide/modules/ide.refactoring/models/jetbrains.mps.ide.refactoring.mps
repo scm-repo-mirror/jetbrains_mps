@@ -1358,6 +1358,7 @@
                 </node>
                 <node concept="2ShNRf" id="3$KqHszOsD8" role="33vP2m">
                   <node concept="1pGfFk" id="3$KqHszOsAt" role="2ShVmc">
+                    <property role="373rjd" value="true" />
                     <ref role="37wK5l" to="9erk:~SearchResults.&lt;init&gt;(jetbrains.mps.ide.findusages.findalgorithm.finders.SearchedObjects,java.util.List)" resolve="SearchResults" />
                     <node concept="2OqwBi" id="4f1p$bqs1gS" role="37wK5m">
                       <node concept="37vLTw" id="4f1p$bqs0to" role="2Oq$k0">
@@ -1369,22 +1370,14 @@
                     </node>
                     <node concept="2OqwBi" id="3$KqHszOWTH" role="37wK5m">
                       <node concept="2OqwBi" id="3$KqHszOzr5" role="2Oq$k0">
-                        <node concept="1eOMI4" id="3$KqHszOz0r" role="2Oq$k0">
-                          <node concept="2ShNRf" id="4f1p$bqs8DZ" role="1eOMHV">
-                            <node concept="Tc6Ow" id="4f1p$bqsgDw" role="2ShVmc">
-                              <node concept="3uibUv" id="4f1p$bqsjQK" role="HW$YZ">
-                                <ref role="3uigEE" to="9erk:~SearchResult" resolve="SearchResult" />
-                                <node concept="3uibUv" id="4f1p$bqszmQ" role="11_B2D">
-                                  <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
-                                </node>
+                        <node concept="2ShNRf" id="4f1p$bqs8DZ" role="2Oq$k0">
+                          <node concept="Tc6Ow" id="4f1p$bqsgDw" role="2ShVmc">
+                            <node concept="2OqwBi" id="4f1p$bqs7$U" role="I$8f6">
+                              <node concept="37vLTw" id="4f1p$bqs7$V" role="2Oq$k0">
+                                <ref role="3cqZAo" node="3$KqHszOIRX" resolve="searchResults" />
                               </node>
-                              <node concept="2OqwBi" id="4f1p$bqs7$U" role="I$8f6">
-                                <node concept="37vLTw" id="4f1p$bqs7$V" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="3$KqHszOIRX" resolve="searchResults" />
-                                </node>
-                                <node concept="liA8E" id="4f1p$bqs7$W" role="2OqNvi">
-                                  <ref role="37wK5l" to="9erk:~SearchResults.getSearchResults2()" resolve="getSearchResults2" />
-                                </node>
+                              <node concept="liA8E" id="4f1p$bqs7$W" role="2OqNvi">
+                                <ref role="37wK5l" to="9erk:~SearchResults.getSearchResults2()" resolve="getSearchResults2" />
                               </node>
                             </node>
                           </node>

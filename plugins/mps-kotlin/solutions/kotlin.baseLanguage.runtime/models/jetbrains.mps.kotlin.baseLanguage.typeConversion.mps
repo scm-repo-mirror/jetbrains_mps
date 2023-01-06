@@ -315,10 +315,6 @@
     <property role="TrG5h" value="TypeConverter" />
     <node concept="3clFb_" id="4mCQDm_lEb5" role="jymVt">
       <property role="TrG5h" value="convert" />
-      <node concept="15s5l7" id="4mCQDm_F3GV" role="lGtFl">
-        <property role="1eyWvh" value="FLAVOUR_ISSUE_KIND=&quot;typesystem (typesystem)&quot;;FLAVOUR_MESSAGE=&quot;Error: The type (instance of TypeVariableReference) is not a valid substitute for the bounded parameter S&quot;;FLAVOUR_RULE_ID=&quot;[r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/6871159928248660343]&quot;;" />
-        <property role="huDt6" value="Error: The type (instance of TypeVariableReference) is not a valid substitute for the bounded parameter S" />
-      </node>
       <node concept="37vLTG" id="4mCQDm_lEcI" role="3clF46">
         <property role="TrG5h" value="source" />
         <node concept="16syzq" id="4mCQDm_lEd9" role="1tU5fm">

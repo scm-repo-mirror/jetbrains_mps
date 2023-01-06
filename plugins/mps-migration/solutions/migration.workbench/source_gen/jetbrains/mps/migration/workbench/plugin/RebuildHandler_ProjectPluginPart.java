@@ -98,7 +98,7 @@ public class RebuildHandler_ProjectPluginPart extends ProjectPluginPart {
               }));
             });
             if (inputRes != null) {
-              makeService.make(session, (Iterable<? extends IResource>) (Iterable<IResource>) inputRes);
+              makeService.make(session, inputRes);
             } else {
               makeService.closeSession(session);
             }

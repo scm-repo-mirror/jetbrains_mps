@@ -319,6 +319,10 @@
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
+      <concept id="4222318806802425298" name="jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation" flags="ng" index="15s5l7">
+        <property id="8575328350543493365" name="message" index="huDt6" />
+        <property id="2423417345669755629" name="filter" index="1eyWvh" />
+      </concept>
     </language>
     <language id="c7fb639f-be78-4307-89b0-b5959c3fa8c8" name="jetbrains.mps.lang.text">
       <concept id="155656958578482948" name="jetbrains.mps.lang.text.structure.Word" flags="nn" index="3oM_SD">
@@ -3070,6 +3074,49 @@
         <node concept="3clFbS" id="112yVMI_EAY" role="3clF47">
           <node concept="3clFbJ" id="112yVMIA2_N" role="3cqZAp">
             <node concept="3clFbS" id="112yVMIA2_P" role="3clFbx">
+              <node concept="3SKdUt" id="12bhiuVFNwX" role="3cqZAp">
+                <node concept="1PaTwC" id="12bhiuVFNwY" role="1aUNEU">
+                  <node concept="3oM_SD" id="12bhiuVFQ7O" role="1PaTwD">
+                    <property role="3oM_SC" value="Suppressed:" />
+                  </node>
+                  <node concept="3oM_SD" id="12bhiuVFQ7Q" role="1PaTwD">
+                    <property role="3oM_SC" value="java" />
+                  </node>
+                  <node concept="3oM_SD" id="12bhiuVFQ7T" role="1PaTwD">
+                    <property role="3oM_SC" value="compiler" />
+                  </node>
+                  <node concept="3oM_SD" id="12bhiuVFQ7X" role="1PaTwD">
+                    <property role="3oM_SC" value="will" />
+                  </node>
+                  <node concept="3oM_SD" id="12bhiuVFQ82" role="1PaTwD">
+                    <property role="3oM_SC" value="ignore" />
+                  </node>
+                  <node concept="3oM_SD" id="12bhiuVFQ88" role="1PaTwD">
+                    <property role="3oM_SC" value="generics" />
+                  </node>
+                  <node concept="3oM_SD" id="12bhiuVFQ8f" role="1PaTwD">
+                    <property role="3oM_SC" value="anyway," />
+                  </node>
+                  <node concept="3oM_SD" id="12bhiuVFQ8n" role="1PaTwD">
+                    <property role="3oM_SC" value="since" />
+                  </node>
+                  <node concept="3oM_SD" id="12bhiuVFQ8w" role="1PaTwD">
+                    <property role="3oM_SC" value="a" />
+                  </node>
+                  <node concept="3oM_SD" id="12bhiuVFQ8E" role="1PaTwD">
+                    <property role="3oM_SC" value="raw" />
+                  </node>
+                  <node concept="3oM_SD" id="12bhiuVFQaj" role="1PaTwD">
+                    <property role="3oM_SC" value="type" />
+                  </node>
+                  <node concept="3oM_SD" id="12bhiuVFQav" role="1PaTwD">
+                    <property role="3oM_SC" value="is" />
+                  </node>
+                  <node concept="3oM_SD" id="12bhiuVFQaG" role="1PaTwD">
+                    <property role="3oM_SC" value="used" />
+                  </node>
+                </node>
+              </node>
               <node concept="3clFbJ" id="5DMHUkpe2gN" role="3cqZAp">
                 <node concept="3clFbS" id="5DMHUkpe2gP" role="3clFbx">
                   <node concept="3SKdUt" id="4SG2RcUCvYK" role="3cqZAp">
@@ -3104,6 +3151,10 @@
                     <node concept="1bVj0M" id="5DMHUkpe4Dc" role="23t8la">
                       <node concept="3clFbS" id="5DMHUkpe4Dd" role="1bW5cS">
                         <node concept="3clFbF" id="5DMHUkpe5ok" role="3cqZAp">
+                          <node concept="15s5l7" id="12bhiuVGu3Q" role="lGtFl">
+                            <property role="1eyWvh" value="FLAVOUR_ISSUE_KIND=&quot;typesystem (typesystem)&quot;;FLAVOUR_MESSAGE=&quot;Error: type java.lang.Object is not a subtype of @RecursiveParticipantApplied.I&quot;;FLAVOUR_RULE_ID=&quot;[r:00000000-0000-4000-0000-011c8959032b(jetbrains.mps.baseLanguage.collections.typesystem)/7668447476859120518]&quot;;" />
+                            <property role="huDt6" value="Error: type java.lang.Object is not a subtype of @RecursiveParticipantApplied.I" />
+                          </node>
                           <node concept="1Wc70l" id="1FSMaHegktn" role="3clFbG">
                             <node concept="1Wc70l" id="5DMHUkpei3T" role="3uHU7B">
                               <node concept="17R0WA" id="5DMHUkpeejM" role="3uHU7B">
@@ -3142,21 +3193,6 @@
                               </node>
                             </node>
                             <node concept="2OqwBi" id="1FSMaHeglSi" role="3uHU7w">
-                              <node concept="1eOMI4" id="1FSMaHehlzI" role="2Oq$k0">
-                                <node concept="10QFUN" id="1FSMaHehlzJ" role="1eOMHV">
-                                  <node concept="2OqwBi" id="1FSMaHehlzF" role="10QFUP">
-                                    <node concept="Xjq3P" id="1FSMaHehlzG" role="2Oq$k0" />
-                                    <node concept="liA8E" id="1FSMaHehlzH" role="2OqNvi">
-                                      <ref role="37wK5l" node="5z_gLGerhdI" resolve="getInitialStates" />
-                                    </node>
-                                  </node>
-                                  <node concept="_YKpA" id="1FSMaHehm4w" role="10QFUM">
-                                    <node concept="3uibUv" id="1FSMaHehmhw" role="_ZDj9">
-                                      <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
-                                    </node>
-                                  </node>
-                                </node>
-                              </node>
                               <node concept="BjQpj" id="1FSMaHegncL" role="2OqNvi">
                                 <node concept="2OqwBi" id="1FSMaHegnMI" role="25WWJ7">
                                   <node concept="37vLTw" id="1FSMaHegnMJ" role="2Oq$k0">
@@ -3165,6 +3201,12 @@
                                   <node concept="liA8E" id="1FSMaHegnMK" role="2OqNvi">
                                     <ref role="37wK5l" node="5z_gLGerhdI" resolve="getInitialStates" />
                                   </node>
+                                </node>
+                              </node>
+                              <node concept="2OqwBi" id="1FSMaHehlzF" role="2Oq$k0">
+                                <node concept="Xjq3P" id="1FSMaHehlzG" role="2Oq$k0" />
+                                <node concept="liA8E" id="1FSMaHehlzH" role="2OqNvi">
+                                  <ref role="37wK5l" node="5z_gLGerhdI" resolve="getInitialStates" />
                                 </node>
                               </node>
                             </node>

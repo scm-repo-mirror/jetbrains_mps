@@ -335,9 +335,6 @@
         <property id="521412098689998745" name="nonStatic" index="2bfB8j" />
         <child id="5375687026011219971" name="member" index="jymVt" unordered="true" />
       </concept>
-      <concept id="1171903916106" name="jetbrains.mps.baseLanguage.structure.UpperBoundType" flags="in" index="3qUE_q">
-        <child id="1171903916107" name="bound" index="3qUE_r" />
-      </concept>
       <concept id="7812454656619025416" name="jetbrains.mps.baseLanguage.structure.MethodDeclaration" flags="ng" index="1rXfSm">
         <property id="8355037393041754995" name="isNative" index="2aFKle" />
       </concept>
@@ -10280,24 +10277,8 @@
                                                 <node concept="37vLTw" id="3GM_nagTrxV" role="37wK5m">
                                                   <ref role="3cqZAo" node="1AfPmE4ty$3" resolve="session" />
                                                 </node>
-                                                <node concept="10QFUN" id="7eHFHBMUTHZ" role="37wK5m">
-                                                  <node concept="10QFUN" id="7eHFHBMUTHV" role="10QFUP">
-                                                    <node concept="37vLTw" id="7eHFHBMUTHW" role="10QFUP">
-                                                      <ref role="3cqZAo" node="7tZeFupJF6F" resolve="inputRes" />
-                                                    </node>
-                                                    <node concept="A3Dl8" id="7eHFHBMUTHX" role="10QFUM">
-                                                      <node concept="3uibUv" id="7eHFHBMUTHY" role="A3Ik2">
-                                                        <ref role="3uigEE" to="yo81:5mqBoD3U3WC" resolve="IResource" />
-                                                      </node>
-                                                    </node>
-                                                  </node>
-                                                  <node concept="A3Dl8" id="7eHFHBMUTG7" role="10QFUM">
-                                                    <node concept="3qUE_q" id="7eHFHBMUTG8" role="A3Ik2">
-                                                      <node concept="3uibUv" id="7eHFHBMUTG9" role="3qUE_r">
-                                                        <ref role="3uigEE" to="yo81:5mqBoD3U3WC" resolve="IResource" />
-                                                      </node>
-                                                    </node>
-                                                  </node>
+                                                <node concept="37vLTw" id="7eHFHBMUTHW" role="37wK5m">
+                                                  <ref role="3cqZAo" node="7tZeFupJF6F" resolve="inputRes" />
                                                 </node>
                                               </node>
                                             </node>

@@ -288,9 +288,6 @@
         <child id="5375687026011219971" name="member" index="jymVt" unordered="true" />
       </concept>
       <concept id="1171903607971" name="jetbrains.mps.baseLanguage.structure.WildCardType" flags="in" index="3qTvmN" />
-      <concept id="1171903916106" name="jetbrains.mps.baseLanguage.structure.UpperBoundType" flags="in" index="3qUE_q">
-        <child id="1171903916107" name="bound" index="3qUE_r" />
-      </concept>
       <concept id="7812454656619025416" name="jetbrains.mps.baseLanguage.structure.MethodDeclaration" flags="ng" index="1rXfSm">
         <property id="8355037393041754995" name="isNative" index="2aFKle" />
       </concept>
@@ -10741,40 +10738,10 @@
                 </node>
               </node>
             </node>
-            <node concept="1eOMI4" id="XAmMeko_l9" role="37wK5m">
-              <node concept="10QFUN" id="XAmMeko_la" role="1eOMHV">
-                <node concept="2ShNRf" id="XAmMeko_l1" role="10QFUP">
-                  <node concept="2HTt$P" id="XAmMeko_l2" role="2ShVmc">
-                    <node concept="37vLTw" id="ZyaJRS2jpm" role="2HTEbv">
-                      <ref role="3cqZAo" node="XAmMekmAtI" resolve="participant" />
-                    </node>
-                    <node concept="3uibUv" id="XAmMeko_l4" role="2HTBi0">
-                      <ref role="3uigEE" to="5nvm:3KqYwoBIxpF" resolve="RefactoringParticipant" />
-                      <node concept="3qTvmN" id="XAmMeko_l5" role="11_B2D" />
-                      <node concept="3qTvmN" id="XAmMeko_l6" role="11_B2D" />
-                      <node concept="16syzq" id="ZyaJRS0G1P" role="11_B2D">
-                        <ref role="16sUi3" node="ZyaJRS07vF" resolve="IP" />
-                      </node>
-                      <node concept="16syzq" id="ZyaJRS0Gz2" role="11_B2D">
-                        <ref role="16sUi3" node="ZyaJRS0aNf" resolve="FP" />
-                      </node>
-                    </node>
-                  </node>
-                </node>
-                <node concept="A3Dl8" id="XAmMeko_kU" role="10QFUM">
-                  <node concept="3qUE_q" id="XAmMeko_kV" role="A3Ik2">
-                    <node concept="3uibUv" id="XAmMeko_kW" role="3qUE_r">
-                      <ref role="3uigEE" to="5nvm:3KqYwoBIxpF" resolve="RefactoringParticipant" />
-                      <node concept="3qTvmN" id="XAmMeko_kX" role="11_B2D" />
-                      <node concept="3qTvmN" id="XAmMeko_kY" role="11_B2D" />
-                      <node concept="16syzq" id="ZyaJRS0ETl" role="11_B2D">
-                        <ref role="16sUi3" node="ZyaJRS07vF" resolve="IP" />
-                      </node>
-                      <node concept="16syzq" id="ZyaJRS0Fte" role="11_B2D">
-                        <ref role="16sUi3" node="ZyaJRS0aNf" resolve="FP" />
-                      </node>
-                    </node>
-                  </node>
+            <node concept="2ShNRf" id="XAmMeko_l1" role="37wK5m">
+              <node concept="2HTt$P" id="XAmMeko_l2" role="2ShVmc">
+                <node concept="37vLTw" id="ZyaJRS2jpm" role="2HTEbv">
+                  <ref role="3cqZAo" node="XAmMekmAtI" resolve="participant" />
                 </node>
               </node>
             </node>

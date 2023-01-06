@@ -421,6 +421,10 @@
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
+      <concept id="4222318806802425298" name="jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation" flags="ng" index="15s5l7">
+        <property id="8575328350543493365" name="message" index="huDt6" />
+        <property id="2423417345669755629" name="filter" index="1eyWvh" />
+      </concept>
     </language>
     <language id="90746344-04fd-4286-97d5-b46ae6a81709" name="jetbrains.mps.lang.migration">
       <concept id="5820409521797704955" name="jetbrains.mps.lang.migration.structure.ProducedDataDeclaration" flags="ng" index="qMTd$">
@@ -1427,6 +1431,10 @@
           </node>
         </node>
         <node concept="3cpWs6" id="2xBjkA9jIS6" role="3cqZAp">
+          <node concept="15s5l7" id="17QotHTfhAd" role="lGtFl">
+            <property role="1eyWvh" value="FLAVOUR_ISSUE_KIND=&quot;typesystem (typesystem)&quot;;FLAVOUR_MESSAGE=&quot;Error: type node&lt;&gt; is not a subtype of node&lt;SubstituteMenuPart_AddConcept&gt;&quot;;FLAVOUR_RULE_ID=&quot;[r:00000000-0000-4000-0000-011c8959032b(jetbrains.mps.baseLanguage.collections.typesystem)/2321665441773241218,r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/1185363921400]&quot;;" />
+            <property role="huDt6" value="Error: type node&lt;&gt; is not a subtype of node&lt;SubstituteMenuPart_AddConcept&gt;" />
+          </node>
           <node concept="2YIFZM" id="2Bx95kmvCoZ" role="3cqZAk">
             <ref role="1Pybhc" to="moux:hpHLh7Fj1$" resolve="CommandUtil" />
             <ref role="37wK5l" to="moux:6H$fNdLyI$k" resolve="instances" />
