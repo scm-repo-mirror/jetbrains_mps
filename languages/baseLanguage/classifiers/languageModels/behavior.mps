@@ -1530,6 +1530,28 @@
       </node>
       <node concept="3Tm1VV" id="hJrszy8" role="1B3o_S" />
     </node>
+    <node concept="13i0hz" id="441vB8LNFML" role="13h7CS">
+      <property role="13i0it" value="true" />
+      <property role="TrG5h" value="requiresAllFieldMembersPrivate" />
+      <node concept="3Tm1VV" id="441vB8LNFMM" role="1B3o_S" />
+      <node concept="10P_77" id="441vB8LNFMN" role="3clF45" />
+      <node concept="3clFbS" id="441vB8LNFMO" role="3clF47">
+        <node concept="3clFbF" id="441vB8LNFMP" role="3cqZAp">
+          <node concept="3clFbT" id="441vB8LNFMQ" role="3clFbG" />
+        </node>
+      </node>
+    </node>
+    <node concept="13i0hz" id="441vB8LJxAr" role="13h7CS">
+      <property role="13i0it" value="true" />
+      <property role="TrG5h" value="requiresAllMethodMembersPrivate" />
+      <node concept="3Tm1VV" id="441vB8LJxAs" role="1B3o_S" />
+      <node concept="10P_77" id="441vB8LJBu$" role="3clF45" />
+      <node concept="3clFbS" id="441vB8LJxAu" role="3clF47">
+        <node concept="3clFbF" id="441vB8LJB_0" role="3cqZAp">
+          <node concept="3clFbT" id="441vB8LJB$Z" role="3clFbG" />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="13h7C7" id="hEERyT0">
     <property role="3GE5qa" value="Fields" />
