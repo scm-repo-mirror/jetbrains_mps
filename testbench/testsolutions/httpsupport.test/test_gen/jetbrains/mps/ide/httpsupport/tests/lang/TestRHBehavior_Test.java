@@ -9,6 +9,7 @@ import jetbrains.mps.lang.test.runtime.TestParametersCache;
 import org.junit.Test;
 import org.junit.BeforeClass;
 import org.jetbrains.ide.BuiltInServerManager;
+import org.jetbrains.builtInWebServer.BuiltInServerOptions;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
 import jetbrains.mps.ide.httpsupport.tests.plugin.PingStorage;
@@ -87,6 +88,10 @@ public class TestRHBehavior_Test extends BaseTransformationTest {
   @BeforeClass
   public static void beforeTests() {
     BuiltInServerManager.getInstance().waitForStart();
+    // Without this option DefaultWebServerPathHandler.process() will process all unhandled requests
+    // resulting in UNAUTHORIZED (401) HTTP status code. This test was originally written with the 
+    // assumption that HTTP 404 status (not found) will be returned in this case. 
+    BuiltInServerOptions.getInstance().allowUnsignedRequests = true;
   }
 
   /*package*/ static class TestBody extends BaseTestBody {

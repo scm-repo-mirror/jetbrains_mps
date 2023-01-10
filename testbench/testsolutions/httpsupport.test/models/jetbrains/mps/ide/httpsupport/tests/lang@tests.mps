@@ -18,6 +18,7 @@
     <import index="i7mp" ref="r:539fc94d-6594-4105-bb3c-60718c110a18(jetbrains.mps.ide.httpsupport.tests.plugin)" />
     <import index="e5vs" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:org.jetbrains.ide(MPS.IDEA/)" />
     <import index="tpeh" ref="r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)" />
+    <import index="l13q" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:org.jetbrains.builtInWebServer(MPS.IDEA/)" />
   </imports>
   <registry>
     <language id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test">
@@ -73,6 +74,9 @@
         <child id="1197027771414" name="operand" index="2Oq$k0" />
         <child id="1197027833540" name="operation" index="2OqNvi" />
       </concept>
+      <concept id="1197029447546" name="jetbrains.mps.baseLanguage.structure.FieldReferenceOperation" flags="nn" index="2OwXpG">
+        <reference id="1197029500499" name="fieldDeclaration" index="2Oxat5" />
+      </concept>
       <concept id="1145552977093" name="jetbrains.mps.baseLanguage.structure.GenericNewExpression" flags="nn" index="2ShNRf">
         <child id="1145553007750" name="creator" index="2ShVmc" />
       </concept>
@@ -116,6 +120,9 @@
       </concept>
       <concept id="1068580123136" name="jetbrains.mps.baseLanguage.structure.StatementList" flags="sn" stub="5293379017992965193" index="3clFbS">
         <child id="1068581517665" name="statement" index="3cqZAp" />
+      </concept>
+      <concept id="1068580123137" name="jetbrains.mps.baseLanguage.structure.BooleanConstant" flags="nn" index="3clFbT">
+        <property id="1068580123138" name="value" index="3clFbU" />
       </concept>
       <concept id="1068580320020" name="jetbrains.mps.baseLanguage.structure.IntegerConstant" flags="nn" index="3cmrfG">
         <property id="1068580320021" name="value" index="3cmrfH" />
@@ -1443,6 +1450,148 @@
             </node>
             <node concept="liA8E" id="1zPxZDfuG5G" role="2OqNvi">
               <ref role="37wK5l" to="e5vs:~BuiltInServerManager.waitForStart()" resolve="waitForStart" />
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="7XG5B_GS0OG" role="3cqZAp">
+          <node concept="1PaTwC" id="7XG5B_GS0OH" role="1aUNEU">
+            <node concept="3oM_SD" id="7XG5B_GS0Rb" role="1PaTwD">
+              <property role="3oM_SC" value="Without" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS0Sb" role="1PaTwD">
+              <property role="3oM_SC" value="this" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS0Tc" role="1PaTwD">
+              <property role="3oM_SC" value="option" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS1ai" role="1PaTwD">
+              <property role="3oM_SC" value="DefaultWebServerPathHandler.process()" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS1bl" role="1PaTwD">
+              <property role="3oM_SC" value="will" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS1mt" role="1PaTwD">
+              <property role="3oM_SC" value="process" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS1pv" role="1PaTwD">
+              <property role="3oM_SC" value="all" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS1pC" role="1PaTwD">
+              <property role="3oM_SC" value="unhandled" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS55d" role="1PaTwD">
+              <property role="3oM_SC" value="requests" />
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="7XG5B_GS1xn" role="3cqZAp">
+          <node concept="1PaTwC" id="7XG5B_GS1x9" role="1aUNEU">
+            <node concept="3oM_SD" id="7XG5B_GS4ZO" role="1PaTwD">
+              <property role="3oM_SC" value="resulting" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS1Rm" role="1PaTwD">
+              <property role="3oM_SC" value="in" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS1Tl" role="1PaTwD">
+              <property role="3oM_SC" value="UNAUTHORIZED" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS1RV" role="1PaTwD">
+              <property role="3oM_SC" value="(401)" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS22p" role="1PaTwD">
+              <property role="3oM_SC" value="HTTP" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS278" role="1PaTwD">
+              <property role="3oM_SC" value="status" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS58x" role="1PaTwD">
+              <property role="3oM_SC" value="code." />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS5cT" role="1PaTwD">
+              <property role="3oM_SC" value="This" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS2G0" role="1PaTwD">
+              <property role="3oM_SC" value="test" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS2HZ" role="1PaTwD">
+              <property role="3oM_SC" value="was" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS2Ss" role="1PaTwD">
+              <property role="3oM_SC" value="originally" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS2I3" role="1PaTwD">
+              <property role="3oM_SC" value="written" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS2K4" role="1PaTwD">
+              <property role="3oM_SC" value="with" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS2L8" role="1PaTwD">
+              <property role="3oM_SC" value="the" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS2Lf" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="7XG5B_GS5fT" role="3cqZAp">
+          <node concept="1PaTwC" id="7XG5B_GS5fv" role="1aUNEU">
+            <node concept="3oM_SD" id="7XG5B_GS5fu" role="1PaTwD">
+              <property role="3oM_SC" value="assumption" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS2Nj" role="1PaTwD">
+              <property role="3oM_SC" value="that" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS319" role="1PaTwD">
+              <property role="3oM_SC" value="HTTP" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS36A" role="1PaTwD">
+              <property role="3oM_SC" value="404" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS37N" role="1PaTwD">
+              <property role="3oM_SC" value="status" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS391" role="1PaTwD">
+              <property role="3oM_SC" value="(not" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS3be" role="1PaTwD">
+              <property role="3oM_SC" value="found)" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS32j" role="1PaTwD">
+              <property role="3oM_SC" value="will" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS5no" role="1PaTwD">
+              <property role="3oM_SC" value="be" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS5nY" role="1PaTwD">
+              <property role="3oM_SC" value="returned" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS3mT" role="1PaTwD">
+              <property role="3oM_SC" value="in" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS3mY" role="1PaTwD">
+              <property role="3oM_SC" value="this" />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS3o2" role="1PaTwD">
+              <property role="3oM_SC" value="case." />
+            </node>
+            <node concept="3oM_SD" id="7XG5B_GS5GX" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="7XG5B_GRZC4" role="3cqZAp">
+          <node concept="37vLTI" id="7XG5B_GS0Cx" role="3clFbG">
+            <node concept="3clFbT" id="7XG5B_GS0F7" role="37vLTx">
+              <property role="3clFbU" value="true" />
+            </node>
+            <node concept="2OqwBi" id="7XG5B_GRZUd" role="37vLTJ">
+              <node concept="2YIFZM" id="7XG5B_GRZHJ" role="2Oq$k0">
+                <ref role="37wK5l" to="l13q:~BuiltInServerOptions.getInstance()" resolve="getInstance" />
+                <ref role="1Pybhc" to="l13q:~BuiltInServerOptions" resolve="BuiltInServerOptions" />
+              </node>
+              <node concept="2OwXpG" id="7XG5B_GS0fV" role="2OqNvi">
+                <ref role="2Oxat5" to="l13q:~BuiltInServerOptions.allowUnsignedRequests" resolve="allowUnsignedRequests" />
+              </node>
             </node>
           </node>
         </node>
