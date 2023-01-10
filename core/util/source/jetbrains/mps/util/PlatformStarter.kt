@@ -16,7 +16,14 @@ class PlatformStarter {
     companion object {
         private const val CMD_NAME = "mps-inspect" // important for that to end with 'inspect' see com.intellij.idea.Main
         @JvmStatic
-        fun startApplication() {
+        fun startApplication() =
+            doStartApplication()
+
+        @JvmStatic
+        fun startApplicationAsync() =
+            Thread(::doStartApplication).start()
+
+        private fun doStartApplication() {
             val appInitPreparationActivity = StartUpMeasurer.startActivity("app initialization preparation")
 
             // TODO isHeadless: set either with java.awt.headless flag in system property, or with arg of less than 20 chars ending by "inspect"

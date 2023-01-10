@@ -8,7 +8,6 @@ import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ApplicationStarter;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
@@ -46,7 +45,7 @@ public final class MPSHeadlessPlatformStarter implements ApplicationStarter {
     @NotNull
     /*package*/ Application createApp() {
       try {
-        Class.forName("jetbrains.mps.util.PlatformStarter").getMethod("startApplication").invoke(null);
+        Class.forName("jetbrains.mps.util.PlatformStarter").getMethod("startApplicationAsync").invoke(null);
 //        PlatformStarter.startApplication();
       } catch (Exception e) {
         throw new RuntimeException("FAILED TO START CMDLINE IJ", e);
