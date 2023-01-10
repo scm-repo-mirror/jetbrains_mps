@@ -7,12 +7,12 @@ import jetbrains.mps.tool.environment.Environment;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.textgen.trace.TraceInfoProvider;
 import org.jetbrains.annotations.NotNull;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import java.io.File;
 import jetbrains.mps.util.PathManager;
 import jetbrains.mps.textgen.trace.DefaultTraceInfoProvider;
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 import org.junit.Assert;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.textgen.trace.TraceInfo;
@@ -48,13 +48,24 @@ public class TraceInfoTest implements EnvironmentAware {
     myEnv = env;
   }
 
-  @Before
+  @BeforeEach
   public void setUp() {
-    myProject = myEnv.openProject(new File(PathManager.getHomePath() + "/languages/languageDesign/traceinfo"));
+    File projectDir = null;
+    String homePath = PathManager.getHomePath();
+    if (!(new File(homePath, "build.number").exists())) {
+      // we're running from sources
+      projectDir = new File(homePath + "/languages/languageDesign/traceinfo");
+
+    } else {
+      // we're running from "module tests" 
+      projectDir = new File(homePath + "/../../../../languages/languageDesign/traceinfo");
+    }
+
+    myProject = myEnv.openProject(projectDir);
     myTraceProvider = new DefaultTraceInfoProvider(myProject.getRepository());
   }
 
-  @After
+  @AfterEach
   public void tearDown() {
     myEnv.closeProject(myProject);
     myProject = null;
