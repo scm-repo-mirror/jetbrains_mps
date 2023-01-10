@@ -54,7 +54,7 @@ public class CollectTests_Action extends BaseAction {
   private static final Icon ICON = null;
 
   public CollectTests_Action() {
-    super("Collect Tests", "", ICON);
+    super("Collect Tests [obsolete]", "[deprecated] [obsolete] Collect tests into a ModuleSuite. DONT USE!", ICON);
     this.setIsAlwaysVisible(false);
     this.setExecuteOutsideCommand(true);
   }

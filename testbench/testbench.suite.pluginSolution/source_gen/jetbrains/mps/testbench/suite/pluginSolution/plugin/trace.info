@@ -18,8 +18,8 @@
   <root nodeRef="r:2697625c-4713-4f72-ac5a-260e305311d8(jetbrains.mps.testbench.suite.pluginSolution.plugin)/5487985028841967992">
     <file name="CollectTests_Action.java">
       <node id="5487985028841967992" at="54,0,55,0" concept="12" trace="ICON" />
-      <node id="5487985028841967992" at="56,32,57,37" concept="13" />
-      <node id="5487985028841967992" at="57,37,58,35" concept="3" />
+      <node id="5487985028841967992" at="56,32,57,115" concept="13" />
+      <node id="5487985028841967992" at="57,115,58,35" concept="3" />
       <node id="5487985028841967992" at="58,35,59,40" concept="3" />
       <node id="5487985028841967992" at="62,32,63,16" concept="9" />
       <node id="2943507526128132149" at="66,87,67,133" concept="8" />
