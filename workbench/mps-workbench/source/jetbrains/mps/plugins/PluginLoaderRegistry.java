@@ -47,6 +47,7 @@ import jetbrains.mps.smodel.MPSModuleRepository;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.smodel.runtime.ModuleDeploymentChange;
 import jetbrains.mps.smodel.runtime.ModuleDeploymentListener;
+import jetbrains.mps.smodel.runtime.ModuleRuntime;
 import jetbrains.mps.smodel.tempmodel.TempModule;
 import jetbrains.mps.util.JavaNameUtil;
 import org.jetbrains.annotations.NotNull;
@@ -133,7 +134,7 @@ public class PluginLoaderRegistry implements Disposable {
     if (modules.isEmpty()) {
       return Collections.emptySet();
     }
-    List<ReloadableModule> sortedModules = new PluginSorter(modules).sortByDependencies();
+    List<ReloadableModule> sortedModules = PluginSorter.sortByDependencies(modules);
 
     List<PluginContributor> contributors = new ArrayList<>();
     for (ReloadableModule module : sortedModules) {
@@ -479,6 +480,12 @@ public class PluginLoaderRegistry implements Disposable {
         // and MA of global repo is not the one to lock here. However, if we eventually move to MPSModuleRepository
         // being the one responsible for modules with CL (aka 'deployed'), this approach might be still valid.
         myModelAccess.runReadAction(() -> {
+          // XXX readAction here is necessary for runTransaction not to get into deadlock (uses of runTransaction from CLM
+          //     usually got writeAction already, so if a read attempts to start inside runTransaction, we could face a deadlock
+          //     (first thread holds write and waits for transaction, another got transaction, and waiting for read).
+          //     However, once we move to ModuleRuntime, I expect this code not to require model access at all. Nevertheless, in case
+          //     there's some bad code (like SNodeOperations.getNode, accessing global repo), need to switch from lock() to tryLock()
+          //     for scenarios inside CLM to be ready for possible abuse and to prevent deadlock.
           myClassLoaderManager.runTransaction(() -> {
             // NOTE: when we call #reset we are bound to process those changes, otherwise we lose them
             // for instance, that is the reason we cannot call #checkCancelled here
@@ -661,17 +668,22 @@ public class PluginLoaderRegistry implements Disposable {
     @Override
     public void deploymentStateChanged(@NotNull ModuleDeploymentChange change) {
       final Runnable releaseCLs = change.acquireRemovedTrackingLock();
-//      System.out.println("deploymentStateChanged>>>");
+      System.out.println("deploymentStateChanged>>> " + Thread.currentThread());
       AtomicInteger added = new AtomicInteger(0);
       AtomicInteger addedWE = new AtomicInteger(0);
       AtomicInteger removed = new AtomicInteger(0);
       AtomicInteger removedWE = new AtomicInteger(0);
       AtomicInteger reloaded = new AtomicInteger(0);
       AtomicInteger reloadedWE = new AtomicInteger(0);
+      // XXX no real use for hash set here, for pc2load, as we just fill with new instances,
+      //     however, it's just too much pain now to change Delta api to accommodate Collection
+      final LinkedHashSet<PluginContributor> pc2load = new LinkedHashSet<>();
+      final LinkedHashSet<ModuleRuntime> mr2Unload = new LinkedHashSet<>();
       change.forEachAdded(t -> {
         added.incrementAndGet();
         if (t.withExtensions()) {
           addedWE.incrementAndGet();
+          pc2load.add(new ModulePluginContributor2(t));
         }
       });
       change.forEachRemoved(t -> {
@@ -684,10 +696,23 @@ public class PluginLoaderRegistry implements Disposable {
         reloaded.incrementAndGet();
         if (t.withExtensions()) {
           reloadedWE.incrementAndGet();
+          // FIXME access to myCurrentContributors here is bad. Though we just read here, we have to guard it to prevent read
+          // in parallel with a write from within an update.
+          mr2Unload.add(t);
         }
       });
-//      System.out.printf("\tadded: %d/%d; removed: %d/%d; reloaded: %d/%d\n", added.get(), addedWE.get(), removed.get(), removedWE.get(), reloaded.get(), reloadedWE.get());
-//      System.out.println("<<<deploymentStateChanged");
+      if (!pc2load.isEmpty()) {
+//        myAccumulation.onLoad(pc2load);
+      }
+      if (!mr2Unload.isEmpty()) {
+//        myAccumulation.onUnload();
+      }
+      if (!pc2load.isEmpty() || !mr2Unload.isEmpty()) {
+//        update();
+      }
+
+      System.out.printf("\tadded: %d/%d; removed: %d/%d; reloaded: %d/%d\n", added.get(), addedWE.get(), removed.get(), removedWE.get(), reloaded.get(), reloadedWE.get());
+      System.out.println("<<<deploymentStateChanged");
       releaseCLs.run();
     }
 
@@ -703,7 +728,7 @@ public class PluginLoaderRegistry implements Disposable {
       //final Set<ReloadableModule> pm = getPluginModules(unloadedModules);
       final Set<PluginContributor> pc2unload = calcContributorsToUnload(myCurrentContributors, unloadedModules);
       final String m = "onUnloaded. Total: %d modules, matched contributors: %d. Thread: %s";
-      LOG.trace(String.format(m, unloadedModules.size(), pc2unload.size(), Thread.currentThread()));
+      System.out.println(String.format(m, unloadedModules.size(), pc2unload.size(), Thread.currentThread()));
       if (pc2unload.isEmpty()) {
         // fine, there's nothing for us to do here, well except for clearIDEAIconsGlobalCache() considerations,
         // but I don't feel it's right to assume PluginLoaderRegistry, responsible for MPS plugin management, to
@@ -724,6 +749,8 @@ public class PluginLoaderRegistry implements Disposable {
       final Set<ReloadableModule> pm = getPluginModules(loadedModules);
       // FIXME isDeployed() check in createPluginContributor is not necessary if we do it here, not in postponed UT.update()
       final Set<PluginContributor> pc2load = createPluginContributors(pm);
+      final String m = "onLoaded. Total: %d modules, matched contributors: %d. Thread: %s";
+      System.out.println(String.format(m, loadedModules.size(), pc2load.size(), Thread.currentThread()));
 
       if (!pc2load.isEmpty()) {
         myAccumulation.onLoad(pc2load);

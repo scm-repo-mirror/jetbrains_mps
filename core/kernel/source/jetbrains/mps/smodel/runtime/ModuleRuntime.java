@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.smodel.runtime;
 
+import jetbrains.mps.classloading.ModuleClassLoader;
 import jetbrains.mps.components.ComponentHost;
 import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -22,8 +23,12 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.annotations.Internal;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.net.URL;
 import java.util.Arrays;
 
 /**
@@ -66,11 +71,36 @@ public final class ModuleRuntime {
   }
 
   /**
-   * PROVISIONAL API, DON'T USE OUTSIDE OF MPS
-   * Need to transit from SModule deployment listeners to ModuleRuntime deployment listeners.
-   * Eventually, I'd like to make ModuleRuntime responsible to contribute extensions itself, rather than to use listeners and ask MR if it has any.
-   * I.e. generated activator of a solution tells PluginLoaderRegistry "here I am, use me"
+   * PROVISIONAL API, DON'T USE OUTSIDE PluginLoaderRegistry code
    */
+  public Class<?> getOwnClass(@NotNull String fqn) throws ClassNotFoundException {
+    if (myModuleClassLoader instanceof ModuleClassLoader) {
+      return ((ModuleClassLoader) myModuleClassLoader).loadOwnClass(fqn);
+    }
+    return myModuleClassLoader.loadClass(fqn);
+  }
+
+  /**
+   * PROVISIONAL API, DON'T USE OUTSIDE PluginLoaderRegistry code
+   * FIXME
+   */
+  @NotNull
+  public InputStream getOwnResource(@NotNull String fqn) throws IOException {
+    // FIXME ModuleClassLoader (or MPSModuleClassLoader) needs dedicated method to access resources from 'self' only
+    //       check protected findResource()
+    final URL resource = myModuleClassLoader.getResource(fqn);
+    if (resource != null) {
+      return resource.openStream();
+    }
+    throw new FileNotFoundException(fqn);
+  }
+
+    /**
+     * PROVISIONAL API, DON'T USE OUTSIDE OF MPS
+     * Need to transit from SModule deployment listeners to ModuleRuntime deployment listeners.
+     * Eventually, I'd like to make ModuleRuntime responsible to contribute extensions itself, rather than to use listeners and ask MR if it has any.
+     * I.e. generated activator of a solution tells PluginLoaderRegistry "here I am, use me"
+     */
   public boolean withExtensions() {
     return myProvidesExtensions;
   }

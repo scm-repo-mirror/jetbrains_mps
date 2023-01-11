@@ -542,6 +542,8 @@ public final class LanguageRegistry implements CoreComponent, DeployListener {
   @Override
   public void onLoaded(@NotNull Set<ReloadableModule> loadedModules, @NotNull ProgressMonitor monitor) {
     monitor.start("Language Runtime", 5);
+    // XXX likely, would need to use PluginSorter here to sort loaded modules to get their activators running in proper order
+    // (i.e. to respect dependencies)
     Set<LanguageRuntime> loadedRuntimes = new LinkedHashSet<>();
     Set<SModuleReference> rtNotificationNew = new HashSet<>();
     try {

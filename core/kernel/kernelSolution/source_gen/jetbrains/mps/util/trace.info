@@ -566,44 +566,53 @@
   </root>
   <root nodeRef="r:61e3d524-8c49-4491-b5e3-f6d6e9364527(jetbrains.mps.util)/5755638771828906585">
     <file name="ModuleNameUtil.java">
-      <node id="3701865296869575263" at="18,37,19,24" concept="12" />
-      <node id="3701865296869576277" at="21,37,22,24" concept="12" />
-      <node id="3701865296869576351" at="24,35,25,22" concept="12" />
-      <node id="3701865296869576432" at="27,38,28,25" concept="12" />
-      <node id="3701865296869580155" at="29,5,30,0" concept="14" />
-      <node id="3701865296869576520" at="30,0,31,20" concept="12" />
-      <node id="5755638771828834267" at="34,59,35,47" concept="11" />
-      <node id="3748108773957060242" at="35,47,36,40" concept="11" />
-      <node id="5755638771828834273" at="36,40,37,113" concept="11" />
-      <node id="5755638771828834278" at="37,113,38,67" concept="11" />
-      <node id="5755638771828834283" at="38,67,39,48" concept="12" />
-      <node id="5755638771828906587" at="14,0,16,0" concept="3" trace="ModuleNameUtil#()V" />
-      <node id="3701865296869575261" at="17,54,20,5" concept="9" />
-      <node id="3701865296869576275" at="20,5,23,5" concept="9" />
-      <node id="3701865296869576349" at="23,5,26,5" concept="9" />
-      <node id="3701865296869576430" at="26,5,29,5" concept="9" />
-      <node id="5755638771828834261" at="34,0,41,0" concept="16" trace="getModuleShortName#(Lorg/jetbrains/mps/openapi/module/SModule;)Ljava/lang/String;" />
-      <node id="3701865296869566538" at="17,0,33,0" concept="16" trace="getModuleType#(Lorg/jetbrains/mps/openapi/module/SModule;)Ljava/lang/String;" />
-      <scope id="5755638771828906590" at="14,27,14,27" />
-      <scope id="3701865296869575262" at="18,37,19,24" />
-      <scope id="3701865296869576276" at="21,37,22,24" />
-      <scope id="3701865296869576350" at="24,35,25,22" />
-      <scope id="3701865296869576431" at="27,38,28,25" />
-      <scope id="5755638771828906587" at="14,0,16,0" />
-      <scope id="5755638771828834266" at="34,59,39,48">
-        <var name="moduleName" id="5755638771828834268" />
-        <var name="normalShortName" id="5755638771828834279" />
-        <var name="sharp" id="3748108773957060243" />
-        <var name="shortName" id="5755638771828834274" />
-      </scope>
-      <scope id="5755638771828834261" at="34,0,41,0">
+      <node id="3701865296869575263" at="19,37,20,24" concept="12" />
+      <node id="3701865296869576277" at="22,37,23,24" concept="12" />
+      <node id="3701865296869576351" at="25,35,26,22" concept="12" />
+      <node id="3701865296869576432" at="28,38,29,25" concept="12" />
+      <node id="3701865296869580155" at="30,5,31,0" concept="14" />
+      <node id="3701865296869576520" at="31,0,32,20" concept="12" />
+      <node id="2890281390541475080" at="35,59,36,59" concept="12" />
+      <node id="2890281390541471133" at="38,71,39,50" concept="11" />
+      <node id="2890281390541485827" at="40,29,41,26" concept="5" />
+      <node id="2890281390541471139" at="42,5,43,40" concept="11" />
+      <node id="2890281390541471146" at="43,40,44,113" concept="11" />
+      <node id="2890281390541471160" at="44,113,45,67" concept="11" />
+      <node id="2890281390541471165" at="45,67,46,48" concept="12" />
+      <node id="5755638771828906587" at="15,0,17,0" concept="3" trace="ModuleNameUtil#()V" />
+      <node id="3701865296869575261" at="18,54,21,5" concept="9" />
+      <node id="3701865296869576275" at="21,5,24,5" concept="9" />
+      <node id="3701865296869576349" at="24,5,27,5" concept="9" />
+      <node id="3701865296869576430" at="27,5,30,5" concept="9" />
+      <node id="5755638771828834261" at="35,0,38,0" concept="16" trace="getModuleShortName#(Lorg/jetbrains/mps/openapi/module/SModule;)Ljava/lang/String;" />
+      <node id="2890281390541481115" at="39,50,42,5" concept="9" />
+      <node id="2890281390541471131" at="38,0,48,0" concept="16" trace="getModuleShortName#(Lorg/jetbrains/mps/openapi/module/SModuleReference;)Ljava/lang/String;" />
+      <node id="3701865296869566538" at="18,0,34,0" concept="16" trace="getModuleType#(Lorg/jetbrains/mps/openapi/module/SModule;)Ljava/lang/String;" />
+      <scope id="5755638771828906590" at="15,27,15,27" />
+      <scope id="3701865296869575262" at="19,37,20,24" />
+      <scope id="3701865296869576276" at="22,37,23,24" />
+      <scope id="3701865296869576350" at="25,35,26,22" />
+      <scope id="3701865296869576431" at="28,38,29,25" />
+      <scope id="5755638771828834266" at="35,59,36,59" />
+      <scope id="2890281390541481117" at="40,29,41,26" />
+      <scope id="5755638771828906587" at="15,0,17,0" />
+      <scope id="5755638771828834261" at="35,0,38,0">
         <var name="module" id="5755638771828834262" />
       </scope>
-      <scope id="3701865296869566544" at="17,54,31,20" />
-      <scope id="3701865296869566538" at="17,0,33,0">
+      <scope id="2890281390541471132" at="38,71,46,48">
+        <var name="moduleName" id="2890281390541471134" />
+        <var name="normalShortName" id="2890281390541471161" />
+        <var name="sharp" id="2890281390541471140" />
+        <var name="shortName" id="2890281390541471147" />
+      </scope>
+      <scope id="2890281390541471131" at="38,0,48,0">
+        <var name="moduleRef" id="2890281390541471170" />
+      </scope>
+      <scope id="3701865296869566544" at="18,54,32,20" />
+      <scope id="3701865296869566538" at="18,0,34,0">
         <var name="module" id="3701865296869570270" />
       </scope>
-      <unit id="5755638771828906585" at="12,0,42,0" name="jetbrains.mps.util.ModuleNameUtil" />
+      <unit id="5755638771828906585" at="13,0,49,0" name="jetbrains.mps.util.ModuleNameUtil" />
     </file>
   </root>
   <root nodeRef="r:61e3d524-8c49-4491-b5e3-f6d6e9364527(jetbrains.mps.util)/8018595893829093050">

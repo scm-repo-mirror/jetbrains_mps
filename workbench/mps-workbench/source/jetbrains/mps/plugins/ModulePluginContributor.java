@@ -27,7 +27,7 @@ import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.openapi.FileSystem;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.mps.openapi.module.SModule;
+import org.jetbrains.mps.openapi.module.SModuleReference;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,11 +39,11 @@ public class ModulePluginContributor extends PluginContributor {
   private static final String PROJECT_PLUGIN_SUFFIX = "_ProjectPlugin";
   private static final String APP_PLUGIN_SUFFIX = "_ApplicationPlugin";
 
-  private static String getProjectPluginClassName(SModule module) {
+  /*package*/ static String getProjectPluginClassName(SModuleReference module) {
     return String.format("%s%s%s%s", module.getModuleName(), PLUGIN_STRING, ModuleNameUtil.getModuleShortName(module), PROJECT_PLUGIN_SUFFIX);
   }
 
-  private static String getApplicationPluginClassName(SModule module) {
+  /*package*/ static String getApplicationPluginClassName(SModuleReference module) {
     return String.format("%s%s%s%s", module.getModuleName(), PLUGIN_STRING, ModuleNameUtil.getModuleShortName(module), APP_PLUGIN_SUFFIX);
   }
 
@@ -66,7 +66,7 @@ public class ModulePluginContributor extends PluginContributor {
     Properties cfg = getComponentStartupConfiguration();
     if (cfg == null || (pluginClassName = cfg.getProperty("init.application")) == null) {
       // fallback to legacy, name convention approach
-      pluginClassName = getApplicationPluginClassName(myModule);
+      pluginClassName = getApplicationPluginClassName(myModule.getModuleReference());
       nameByConvention = true;
     }
     return pluginClassName == null ? null : createPlugin(BaseApplicationPlugin.class, pluginClassName, nameByConvention);
@@ -79,7 +79,7 @@ public class ModulePluginContributor extends PluginContributor {
     Properties cfg = getComponentStartupConfiguration();
     if (cfg == null || (pluginClassName = cfg.getProperty("init.project")) == null) {
       // fallback to legacy, name convention approach
-      pluginClassName = getProjectPluginClassName(myModule);
+      pluginClassName = getProjectPluginClassName(myModule.getModuleReference());
       nameByConvention = true;
     }
     return pluginClassName == null ? null : createPlugin(BaseProjectPlugin.class, pluginClassName, nameByConvention);
