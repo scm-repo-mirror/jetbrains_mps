@@ -117,6 +117,10 @@ public class ThreadWatcher implements Output {
       builder.append("|(Keep\\-Alive.*)");
       builder.append("|(AnimatorThread)");
 
+      // Kotlin coroutines threads
+      builder.append("|(DefaultDispatcher-worker-.*)");
+      builder.append("|(kotlinx.coroutines.DefaultExecutor)");
+
       // RMI specific threads (used by KotlinCompilerRunner)
       builder.append("|(RMI .*)");
 
