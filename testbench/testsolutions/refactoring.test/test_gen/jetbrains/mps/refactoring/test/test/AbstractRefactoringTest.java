@@ -37,7 +37,7 @@ public abstract class AbstractRefactoringTest extends EnvironmentAwareTestCase {
   }
 
   @BeforeEach
-  protected void setUp() throws Exception {
+  protected void openProject() throws Exception {
     String dirPrefix = NameUtil.toConstantName(NameUtil.toValidIdentifier(getClass().getSimpleName()));
     File tempDir = Files.createTempDirectory(dirPrefix).toFile();
     projectTempDir = tempDir.getCanonicalPath();
@@ -46,7 +46,7 @@ public abstract class AbstractRefactoringTest extends EnvironmentAwareTestCase {
   }
 
   @AfterEach
-  protected void tearDown() throws Exception {
+  protected void closeProject() throws Exception {
     myEnvironment.closeProject(project);
     com.intellij.openapi.util.io.FileUtil.delete(new File(projectTempDir));
   }

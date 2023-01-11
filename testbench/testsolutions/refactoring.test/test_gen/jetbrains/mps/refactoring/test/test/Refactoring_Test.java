@@ -41,12 +41,13 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.baseLanguage.behavior.ClassConcept__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ISelector;
+import org.junit.jupiter.api.BeforeEach;
+import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.project.validation.ValidationUtil;
 import jetbrains.mps.project.validation.StructureChecker;
 import org.jetbrains.mps.openapi.util.Processor;
 import jetbrains.mps.util.Reference;
 import jetbrains.mps.ide.ThreadUtils;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
@@ -153,6 +154,13 @@ public class Refactoring_Test extends AbstractRefactoringTest {
       })));
     });
   }
+  @BeforeEach
+  public void setUp() {
+    project.getModelAccess().runReadAction(() -> {
+      myTargetLanguage = PersistenceFacade.getInstance().createModuleReference("bf13acef-3fb7-4e3b-882a-bc94b7e487b3(TargetLanguage)").resolve(project.getRepository());
+      mySourceLanguage = PersistenceFacade.getInstance().createModuleReference("0e4cf406-fc7e-4ee7-a6f3-93f8c8dbdc64(SourceLanguage)").resolve(project.getRepository());
+    });
+  }
 
 
   public Refactoring_Test() {
@@ -183,15 +191,6 @@ public class Refactoring_Test extends AbstractRefactoringTest {
     if (!(ref.isNull())) {
       throw new RuntimeException(ref.get());
     }
-  }
-
-  public void setUp() throws Exception {
-    // XXX can't use beforeTest as it doesn't call super.setUp()!
-    super.setUp();
-    project.getModelAccess().runReadAction(() -> {
-      myTargetLanguage = PersistenceFacade.getInstance().createModuleReference("bf13acef-3fb7-4e3b-882a-bc94b7e487b3(TargetLanguage)").resolve(project.getRepository());
-      mySourceLanguage = PersistenceFacade.getInstance().createModuleReference("0e4cf406-fc7e-4ee7-a6f3-93f8c8dbdc64(SourceLanguage)").resolve(project.getRepository());
-    });
   }
 
   private static final class LINKS {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="werzr2d64nst452m8pn0jc3veyentr">
+<product version="3" modelHash="bt5i2lydf67lscqmxjhxxs5rkig6u0x">
   <files names="AbstractRefactoringTest.java:HeadlessRefactoringUI.java:MoveConceptRefactoring_Test.java:Refactoring_Test.java" />
 </product>
 
