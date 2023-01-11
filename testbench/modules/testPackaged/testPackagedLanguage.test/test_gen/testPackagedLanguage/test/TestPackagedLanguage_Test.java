@@ -5,7 +5,7 @@ package testPackagedLanguage.test;
 import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.testbench.EnvironmentAwareTestCase;
 import org.jetbrains.mps.openapi.module.SRepository;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.junit.Assert;
 import jetbrains.mps.smodel.Language;

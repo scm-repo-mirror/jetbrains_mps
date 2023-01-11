@@ -7,7 +7,7 @@ import jetbrains.mps.testbench.EnvironmentAwareTestCase;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.project.MPSProject;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.junit.Assert;
 import jetbrains.mps.lang.structure.util.SmartRefAttributeUtil;

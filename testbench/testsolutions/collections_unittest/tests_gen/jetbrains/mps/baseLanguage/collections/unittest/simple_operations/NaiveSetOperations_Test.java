@@ -6,7 +6,7 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ISequenceClosure;
 import java.util.Iterator;
 import jetbrains.mps.baseLanguage.closures.runtime.YieldingIterator;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.Assert;
 import java.util.HashSet;
 import java.util.HashMap;

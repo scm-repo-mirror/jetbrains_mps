@@ -4,7 +4,7 @@ package jetbrains.mps.generator.xmodel.build.test.build;
 
 import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.testbench.EnvironmentAwareTestCase;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import com.intellij.execution.process.ProcessAdapter;
 import com.intellij.execution.process.ProcessEvent;
 import com.intellij.openapi.util.Key;

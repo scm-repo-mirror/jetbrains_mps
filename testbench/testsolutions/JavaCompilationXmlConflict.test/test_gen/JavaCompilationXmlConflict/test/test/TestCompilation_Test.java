@@ -4,7 +4,7 @@ package JavaCompilationXmlConflict.test.test;
 
 import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.testbench.EnvironmentAwareTestCase;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import jetbrains.mps.project.Project;
 import java.io.File;
 import jetbrains.mps.make.ModuleMaker;

@@ -4,7 +4,7 @@ package jetbrains.mps.build.mps.tests;
 
 import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.testbench.EnvironmentAwareTestCase;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;

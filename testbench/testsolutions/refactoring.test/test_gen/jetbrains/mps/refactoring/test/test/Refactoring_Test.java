@@ -4,7 +4,7 @@ package jetbrains.mps.refactoring.test.test;
 
 import jetbrains.mps.MPSLaunch;
 import org.jetbrains.mps.openapi.module.SModule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import org.junit.Assert;

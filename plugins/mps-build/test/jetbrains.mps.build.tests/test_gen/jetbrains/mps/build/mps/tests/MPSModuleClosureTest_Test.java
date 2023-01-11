@@ -5,7 +5,7 @@ package jetbrains.mps.build.mps.tests;
 import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.testbench.EnvironmentAwareTestCase;
 import org.jetbrains.mps.openapi.model.SNode;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import jetbrains.mps.build.mps.util.MPSModulesClosure;
 import org.junit.Assert;
 import jetbrains.mps.internal.collections.runtime.Sequence;

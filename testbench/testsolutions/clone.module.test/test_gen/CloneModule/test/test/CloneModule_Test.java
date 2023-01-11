@@ -8,7 +8,7 @@ import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.project.MPSProject;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.project.Solution;
 import jetbrains.mps.project.facets.JavaModuleFacet;

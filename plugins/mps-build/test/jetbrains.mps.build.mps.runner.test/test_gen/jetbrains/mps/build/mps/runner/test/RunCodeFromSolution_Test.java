@@ -5,7 +5,7 @@ package jetbrains.mps.build.mps.runner.test;
 import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.testbench.EnvironmentAwareTestCase;
 import jetbrains.mps.project.Project;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import java.io.File;
 import org.junit.jupiter.api.AfterEach;

@@ -12,6 +12,9 @@
     <use id="1a8554c4-eb84-43ba-8c34-6f0d90c6e75a" name="jetbrains.mps.lang.smodel.query" version="-1" />
     <use id="63650c59-16c8-498a-99c8-005c7ee9515d" name="jetbrains.mps.lang.access" version="-1" />
     <use id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging" version="-1" />
+    <use id="c7fb639f-be78-4307-89b0-b5959c3fa8c8" name="jetbrains.mps.lang.text" version="0" />
+    <use id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core" version="2" />
+    <use id="446c26eb-2b7b-4bf0-9b35-f83fa582753e" name="jetbrains.mps.lang.modelapi" version="0" />
   </languages>
   <imports>
     <import index="guwi" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.io(JDK/)" />
@@ -74,10 +77,12 @@
     <import index="lfzw" ref="r:cc08a4fa-e4f1-443c-b8f2-4a41972141bb(jetbrains.mps.refactoring.participant.plugin)" />
     <import index="et5u" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.messages(MPS.Core/)" />
     <import index="wwqx" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.logging(MPS.Core/)" />
-    <import index="f3o1" ref="r:4e3bafe1-1c8c-4aa2-ba02-dfb8dad32daa(SourceLanguage.behavior)" implicit="true" />
-    <import index="k2t0" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.checkers(MPS.Core/)" implicit="true" />
-    <import index="ew0j" ref="920eaa0e-ecca-46bc-bee7-4e5c59213dd6/java:jetbrains.mps.tool.environment(Testbench/)" implicit="true" />
-    <import index="4rvk" ref="r:7cb72aee-d3e2-47e9-9964-3abda6a73a9a(jetbrains.mps.make.service)" implicit="true" />
+    <import index="79ha" ref="r:2876f1ee-0b45-4db5-8c09-0682cdee5c67(jetbrains.mps.tool.environment)" />
+    <import index="k2t0" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.checkers(MPS.Core/)" />
+    <import index="4rvk" ref="r:7cb72aee-d3e2-47e9-9964-3abda6a73a9a(jetbrains.mps.make.service)" />
+    <import index="f3o1" ref="r:4e3bafe1-1c8c-4aa2-ba02-dfb8dad32daa(SourceLanguage.behavior)" />
+    <import index="ew0j" ref="920eaa0e-ecca-46bc-bee7-4e5c59213dd6/java:jetbrains.mps.tool.environment(Testbench/)" />
+    <import index="yqm7" ref="63b449db-0918-4a4a-a891-2c430ab133e4/java:org.junit.jupiter.api(org.junit.junit5/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -7696,11 +7701,6 @@
         <ref role="3uigEE" to="wyt6:~Exception" resolve="Exception" />
       </node>
       <node concept="3clFbS" id="4Srvtk83b9n" role="3clF47">
-        <node concept="3clFbF" id="4Srvtk83dhM" role="3cqZAp">
-          <node concept="3nyPlj" id="4Srvtk83dhK" role="3clFbG">
-            <ref role="37wK5l" to="u132:~TestCase.setUp()" resolve="setUp" />
-          </node>
-        </node>
         <node concept="3cpWs8" id="4Srvtk82VDi" role="3cqZAp">
           <node concept="3cpWsn" id="4Srvtk82VDj" role="3cpWs9">
             <property role="TrG5h" value="dirPrefix" />
@@ -7713,10 +7713,12 @@
               <node concept="2YIFZM" id="4Rb4I4dmpJ2" role="37wK5m">
                 <ref role="1Pybhc" to="18ew:~NameUtil" resolve="NameUtil" />
                 <ref role="37wK5l" to="18ew:~NameUtil.toValidIdentifier(java.lang.String)" resolve="toValidIdentifier" />
-                <node concept="2OqwBi" id="4Rb4I4dmq0x" role="37wK5m">
-                  <node concept="Xjq3P" id="4Rb4I4dmpK_" role="2Oq$k0" />
-                  <node concept="liA8E" id="4Rb4I4dmsay" role="2OqNvi">
-                    <ref role="37wK5l" to="u132:~TestCase.getName()" resolve="getName" />
+                <node concept="2OqwBi" id="76_s2Q$CXqD" role="37wK5m">
+                  <node concept="1rXfSq" id="76_s2Q$CWnQ" role="2Oq$k0">
+                    <ref role="37wK5l" to="wyt6:~Object.getClass()" resolve="getClass" />
+                  </node>
+                  <node concept="liA8E" id="76_s2Q$CZrl" role="2OqNvi">
+                    <ref role="37wK5l" to="wyt6:~Class.getSimpleName()" resolve="getSimpleName" />
                   </node>
                 </node>
               </node>
@@ -7794,8 +7796,8 @@
           </node>
         </node>
       </node>
-      <node concept="2AHcQZ" id="4Srvtk83b9o" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      <node concept="2AHcQZ" id="76_s2Q$CuYC" role="2AJF6D">
+        <ref role="2AI5Lk" to="yqm7:~BeforeEach" resolve="BeforeEach" />
       </node>
     </node>
     <node concept="2tJIrI" id="4Srvtk83dNv" role="jymVt" />
@@ -7837,14 +7839,9 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="4Srvtk83edV" role="3cqZAp">
-          <node concept="3nyPlj" id="4Srvtk83edU" role="3clFbG">
-            <ref role="37wK5l" to="u132:~TestCase.tearDown()" resolve="tearDown" />
-          </node>
-        </node>
       </node>
       <node concept="2AHcQZ" id="4Srvtk83edT" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+        <ref role="2AI5Lk" to="yqm7:~AfterEach" resolve="AfterEach" />
       </node>
     </node>
     <node concept="2tJIrI" id="3Qz3PJzsMpx" role="jymVt" />

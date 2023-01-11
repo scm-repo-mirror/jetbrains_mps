@@ -5,10 +5,12 @@ package jetbrains.mps.refactoring.test.test;
 import jetbrains.mps.testbench.EnvironmentAwareTestCase;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.project.Project;
+import org.junit.jupiter.api.BeforeEach;
 import jetbrains.mps.util.NameUtil;
 import java.io.File;
 import java.nio.file.Files;
 import jetbrains.mps.util.FileUtil;
+import org.junit.jupiter.api.AfterEach;
 import java.util.List;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -34,21 +36,19 @@ public abstract class AbstractRefactoringTest extends EnvironmentAwareTestCase {
     projectSourcePath = path;
   }
 
-  @Override
+  @BeforeEach
   protected void setUp() throws Exception {
-    super.setUp();
-    String dirPrefix = NameUtil.toConstantName(NameUtil.toValidIdentifier(this.getName()));
+    String dirPrefix = NameUtil.toConstantName(NameUtil.toValidIdentifier(getClass().getSimpleName()));
     File tempDir = Files.createTempDirectory(dirPrefix).toFile();
     projectTempDir = tempDir.getCanonicalPath();
     FileUtil.copyDir(new File(projectSourcePath), tempDir);
     project = myEnvironment.openProject(tempDir);
   }
 
-  @Override
+  @AfterEach
   protected void tearDown() throws Exception {
     myEnvironment.closeProject(project);
     com.intellij.openapi.util.io.FileUtil.delete(new File(projectTempDir));
-    super.tearDown();
   }
 
   public void doMake(final List<SModule> modules, final boolean cleanMake) {

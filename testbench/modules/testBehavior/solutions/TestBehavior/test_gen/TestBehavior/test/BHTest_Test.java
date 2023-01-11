@@ -4,7 +4,7 @@ package TestBehavior.test;
 
 import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.testbench.EnvironmentAwareTestCase;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.junit.Assert;
 import BHL1.behavior.A__BehaviorDescriptor;
