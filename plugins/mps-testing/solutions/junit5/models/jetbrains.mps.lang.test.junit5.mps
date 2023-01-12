@@ -858,16 +858,40 @@
         <node concept="3cpWs6" id="HwplGM784z" role="3cqZAp">
           <node concept="2OqwBi" id="HwplGM784t" role="3cqZAk">
             <property role="hSjvv" value="true" />
-            <node concept="2OqwBi" id="HwplGM784u" role="2Oq$k0">
+            <node concept="2OqwBi" id="1rGdf3YUm7g" role="2Oq$k0">
               <property role="hSjvv" value="true" />
-              <node concept="2YIFZM" id="HwplGM784v" role="2Oq$k0">
-                <ref role="37wK5l" to="z4cc:~LauncherDiscoveryRequestBuilder.request()" resolve="request" />
-                <ref role="1Pybhc" to="z4cc:~LauncherDiscoveryRequestBuilder" resolve="LauncherDiscoveryRequestBuilder" />
+              <node concept="2OqwBi" id="1rGdf3YUcau" role="2Oq$k0">
+                <property role="hSjvv" value="true" />
+                <node concept="2OqwBi" id="HwplGM784u" role="2Oq$k0">
+                  <property role="hSjvv" value="true" />
+                  <node concept="2YIFZM" id="HwplGM784v" role="2Oq$k0">
+                    <ref role="37wK5l" to="z4cc:~LauncherDiscoveryRequestBuilder.request()" resolve="request" />
+                    <ref role="1Pybhc" to="z4cc:~LauncherDiscoveryRequestBuilder" resolve="LauncherDiscoveryRequestBuilder" />
+                  </node>
+                  <node concept="liA8E" id="HwplGM784w" role="2OqNvi">
+                    <ref role="37wK5l" to="z4cc:~LauncherDiscoveryRequestBuilder.selectors(java.util.List)" resolve="selectors" />
+                    <node concept="37vLTw" id="HwplGM784x" role="37wK5m">
+                      <ref role="3cqZAo" node="HwplGM7845" resolve="testSelectors" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="liA8E" id="1rGdf3YUeYP" role="2OqNvi">
+                  <ref role="37wK5l" to="z4cc:~LauncherDiscoveryRequestBuilder.configurationParameter(java.lang.String,java.lang.String)" resolve="configurationParameter" />
+                  <node concept="Xl_RD" id="1rGdf3YUhkU" role="37wK5m">
+                    <property role="Xl_RC" value="junit.platform.output.capture.stdout" />
+                  </node>
+                  <node concept="Xl_RD" id="1rGdf3YUkSF" role="37wK5m">
+                    <property role="Xl_RC" value="true" />
+                  </node>
+                </node>
               </node>
-              <node concept="liA8E" id="HwplGM784w" role="2OqNvi">
-                <ref role="37wK5l" to="z4cc:~LauncherDiscoveryRequestBuilder.selectors(java.util.List)" resolve="selectors" />
-                <node concept="37vLTw" id="HwplGM784x" role="37wK5m">
-                  <ref role="3cqZAo" node="HwplGM7845" resolve="testSelectors" />
+              <node concept="liA8E" id="1rGdf3YUnvv" role="2OqNvi">
+                <ref role="37wK5l" to="z4cc:~LauncherDiscoveryRequestBuilder.configurationParameter(java.lang.String,java.lang.String)" resolve="configurationParameter" />
+                <node concept="Xl_RD" id="1rGdf3YUnvw" role="37wK5m">
+                  <property role="Xl_RC" value="junit.platform.output.capture.stderr" />
+                </node>
+                <node concept="Xl_RD" id="1rGdf3YUnvx" role="37wK5m">
+                  <property role="Xl_RC" value="true" />
                 </node>
               </node>
             </node>

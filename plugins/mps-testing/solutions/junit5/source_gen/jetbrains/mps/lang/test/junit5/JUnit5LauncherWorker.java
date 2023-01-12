@@ -78,7 +78,7 @@ public class JUnit5LauncherWorker extends WorkerBase {
   private LauncherDiscoveryRequest buildRequest(final List<Class<?>> testClasses) {
     List<DiscoverySelector> testSelectors = testClasses.stream().map((Class<?> testClass) -> DiscoverySelectors.selectClass(testClass)).collect(Collectors.<DiscoverySelector>toList());
 
-    return LauncherDiscoveryRequestBuilder.request().selectors(testSelectors).build();
+    return LauncherDiscoveryRequestBuilder.request().selectors(testSelectors).configurationParameter("junit.platform.output.capture.stdout", "true").configurationParameter("junit.platform.output.capture.stderr", "true").build();
   }
 
   private List<Class<?>> collectTestClasses(final Project project) {
