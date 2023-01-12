@@ -1233,6 +1233,30 @@
             </node>
           </node>
         </node>
+        <node concept="3cpWs8" id="4GjpmeeeqXv" role="3cqZAp">
+          <node concept="3cpWsn" id="4GjpmeeeqXy" role="3cpWs9">
+            <property role="TrG5h" value="vmOptions" />
+            <node concept="17QB3L" id="4GjpmeeeqXt" role="1tU5fm" />
+            <node concept="3cpWs3" id="4Gjpmeee$ph" role="33vP2m">
+              <node concept="Xl_RD" id="4Gjpmeee$Iy" role="3uHU7w">
+                <property role="Xl_RC" value="/lib/jna\&quot;" />
+              </node>
+              <node concept="3cpWs3" id="4Gjpmeeevrh" role="3uHU7B">
+                <node concept="Xl_RD" id="4Gjpmeeeu07" role="3uHU7B">
+                  <property role="Xl_RC" value="-Djna.boot.library.path=\&quot;" />
+                </node>
+                <node concept="2OqwBi" id="4GjpmeeexM$" role="3uHU7w">
+                  <node concept="37vLTw" id="4GjpmeeewSa" role="2Oq$k0">
+                    <ref role="3cqZAo" node="4rbJdZOYLDt" resolve="ideaProject" />
+                  </node>
+                  <node concept="liA8E" id="4GjpmeeezAg" role="2OqNvi">
+                    <ref role="37wK5l" to="4nm9:~Project.getBasePath()" resolve="getBasePath" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs8" id="4rbJdZOYJub" role="3cqZAp">
           <node concept="3cpWsn" id="4rbJdZOYJuc" role="3cpWs9">
             <property role="TrG5h" value="javaRunParametersTuple" />
@@ -1249,8 +1273,8 @@
               </node>
               <node concept="2r$n1x" id="4rbJdZOYJuh" role="2r_Bvh">
                 <ref role="2r$qp6" to="go48:14R2qyOCsWE" resolve="vmOptions" />
-                <node concept="Xl_RD" id="4rbJdZOYJui" role="2r_lH1">
-                  <property role="Xl_RC" value="" />
+                <node concept="37vLTw" id="4GjpmeeetFO" role="2r_lH1">
+                  <ref role="3cqZAo" node="4GjpmeeeqXy" resolve="vmOptions" />
                 </node>
               </node>
               <node concept="2r$n1x" id="4rbJdZOYJuj" role="2r_Bvh">

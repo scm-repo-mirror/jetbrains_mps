@@ -1496,6 +1496,24 @@
                 <ref role="37wK5l" to="z60i:~GraphicsEnvironment.isHeadless()" resolve="isHeadless" />
               </node>
             </node>
+            <node concept="3clFbF" id="4Gjpmeef6f4" role="3cqZAp">
+              <node concept="2YIFZM" id="4Gjpmeef6f5" role="3clFbG">
+                <ref role="1Pybhc" to="wyt6:~System" resolve="System" />
+                <ref role="37wK5l" to="wyt6:~System.setProperty(java.lang.String,java.lang.String)" resolve="setProperty" />
+                <node concept="Xl_RD" id="4Gjpmeef6f6" role="37wK5m">
+                  <property role="Xl_RC" value="java.awt.headless" />
+                </node>
+                <node concept="2OqwBi" id="4Gjpmeef6f7" role="37wK5m">
+                  <node concept="10M0yZ" id="4Gjpmeefbvi" role="2Oq$k0">
+                    <ref role="3cqZAo" to="wyt6:~Boolean.TRUE" resolve="TRUE" />
+                    <ref role="1PxDUh" to="wyt6:~Boolean" resolve="Boolean" />
+                  </node>
+                  <node concept="liA8E" id="4Gjpmeef6f9" role="2OqNvi">
+                    <ref role="37wK5l" to="wyt6:~Boolean.toString()" resolve="toString" />
+                  </node>
+                </node>
+              </node>
+            </node>
             <node concept="3clFbF" id="65UowUML9kL" role="3cqZAp">
               <node concept="37vLTI" id="65UowUMLbJH" role="3clFbG">
                 <node concept="37vLTw" id="65UowUMLeGt" role="37vLTJ">
