@@ -134,12 +134,19 @@
     </echoxml>
     <jar destfile="${build.layout}/jetbrains.mps.lang.extension.tests.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/jetbrains.mps.lang.extension.tests" />
+      <fileset dir="${basedir}/testbench/testsolutions/extension.test/source_gen" includes="**/trace.info, **/exports, **/*.mps, **/checkpoints" />
       <fileset dir="${build.tmp}/default/jetbrains.mps.lang.extension.tests.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-extension.test-models">
       <fileset dir="${basedir}/testbench/testsolutions/extension.test/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/jetbrains.mps.lang.extension.tests-src.jar" duplicate="preserve">
+      <fileset dir="${basedir}/testbench/testsolutions/extension.test/source_gen">
+        <exclude name="**/trace.info" />
+        <exclude name="**/exports" />
+        <exclude name="**/checkpoints" />
+        <exclude name="**/*.mps" />
+      </fileset>
       <zipfileset file="${basedir}/testbench/testsolutions/extension.test/jetbrains.mps.lang.extension.tests.msd" prefix="module" />
       <zipfileset dir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-extension.test-models" prefix="module/models" />
     </jar>
@@ -1349,10 +1356,14 @@
   </target>
   
   <target name="java.compile.jetbrains.mps.lang.extension.tests" depends="fetchDependencies">
+    <mkdir dir="${basedir}/testbench/testsolutions/extension.test/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.extension.tests" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.extension.tests" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <compilerarg value="-Xlint:none" />
-      <src path="${basedir}/testbench/testsolutions/extension.test/test_gen/" />
+      <src>
+        <path location="${basedir}/testbench/testsolutions/extension.test/source_gen" />
+        <pathelement path="${basedir}/testbench/testsolutions/extension.test/test_gen/" />
+      </src>
       <classpath>
         <fileset file="${artifacts.mps}/lib/mps-core.jar" />
         <fileset file="${artifacts.mps}/lib/mps-platform.jar" />
@@ -1403,6 +1414,7 @@
       </classpath>
     </javac2>
     <copy todir="${build.tmp}/java/out/jetbrains.mps.lang.extension.tests">
+      <fileset dir="${basedir}/testbench/testsolutions/extension.test/source_gen" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
       <fileset dir="${basedir}/testbench/testsolutions/extension.test/test_gen/" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
     </copy>
   </target>
@@ -2450,6 +2462,7 @@
   <target name="cleanSources">
     <delete dir="${basedir}/samples/math/runtimeSolution/source_gen" />
     <delete dir="${basedir}/samples/math/solutions/jetbrains.mps.baseLanguage.math.tests/source_gen" />
+    <delete dir="${basedir}/testbench/testsolutions/extension.test/source_gen" />
     <delete dir="${basedir}/plugins/mps-testing/languages/patternTest/source_gen" />
     <delete dir="${basedir}/plugins/mps-testing/languages/patternTest/generator/source_gen" />
     <delete dir="${basedir}/testbench/testsolutions/make.test/source_gen" />

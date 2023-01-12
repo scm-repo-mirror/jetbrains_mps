@@ -13818,7 +13818,7 @@
         <property role="BnDLt" value="true" />
         <property role="TrG5h" value="jetbrains.mps.lang.extension.tests" />
         <property role="3LESm3" value="bdcad511-2c95-4b17-90fb-99b248f018cc" />
-        <property role="aoJFB" value="eYcmk9QOls/tests" />
+        <property role="aoJFB" value="eYcmk9QOlj/sources_and_tests" />
         <node concept="55IIr" id="6dN0RJT91VN" role="3LF7KH">
           <node concept="2Ry0Ak" id="6dN0RJT923T" role="iGT6I">
             <property role="2Ry0Am" value="testbench" />
@@ -14991,6 +14991,12 @@
     <node concept="2sgV4H" id="6IYCYtgo1oN" role="1l3spa">
       <ref role="1l3spb" node="53PdBITeUc0" resolve="mpsEditor" />
     </node>
+    <node concept="2sgV4H" id="4MTm4DiVhq2" role="1l3spa">
+      <ref role="1l3spb" to="ffeo:ymnOULAEsd" resolve="mpsTesting" />
+    </node>
+    <node concept="2sgV4H" id="4MTm4DjCDc8" role="1l3spa">
+      <ref role="1l3spb" to="ffeo:5mc7nVumjii" resolve="mpsDebuggerPlugin" />
+    </node>
     <node concept="398rNT" id="6IYCYtgo1oD" role="1l3spd">
       <property role="TrG5h" value="mps_home" />
     </node>
@@ -15211,12 +15217,6 @@
           <ref role="24YFd5" to="ffeo:5CFKsRWRuFN" resolve="jetbrains.mps.debugger.api" />
         </node>
       </node>
-    </node>
-    <node concept="2sgV4H" id="4MTm4DiVhq2" role="1l3spa">
-      <ref role="1l3spb" to="ffeo:ymnOULAEsd" resolve="mpsTesting" />
-    </node>
-    <node concept="2sgV4H" id="4MTm4DjCDc8" role="1l3spa">
-      <ref role="1l3spb" to="ffeo:5mc7nVumjii" resolve="mpsDebuggerPlugin" />
     </node>
   </node>
   <node concept="1l3spW" id="2Ew8zTEYB1j">
