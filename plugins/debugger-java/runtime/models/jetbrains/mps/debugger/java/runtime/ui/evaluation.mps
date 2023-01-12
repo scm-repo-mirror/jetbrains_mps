@@ -1666,7 +1666,7 @@
             </node>
             <node concept="3clFbF" id="3h3DT0Hms8l" role="3cqZAp">
               <node concept="1rXfSq" id="3h3DT0Hms8m" role="3clFbG">
-                <ref role="37wK5l" to="dxuu:~JTree.expandPath(javax.swing.tree.TreePath)" resolve="expandPath" />
+                <ref role="37wK5l" to="7e8u:~MPSTree.expandPath(javax.swing.tree.TreePath)" resolve="expandPath" />
                 <node concept="37vLTw" id="67Ra4fFEx22" role="37wK5m">
                   <ref role="3cqZAo" node="67Ra4fFErTq" resolve="treePath" />
                 </node>
