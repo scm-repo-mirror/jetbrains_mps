@@ -84,7 +84,11 @@ final class DeploymentNotificationImpl extends ModuleDeploymentChange {
   }
 
   void withModules(Function<SModuleReference, ModuleRuntime> f, CountdownNotify notify) {
+    final Logger log = Logger.getLogger(DeploymentNotificationImpl.class);
     if (myInsideDispatch.tryAcquire()) {
+      if (log.isTraceLevel()) {
+        log.trace("inside dispatch");
+      }
       // tryAcquire(), not acquire(), in case there's already an execution,
       // as running code repeats as long as there's any update.
       // FIXME HOWEVER this might violate threading (for unload events to come before the actual CL dispose, we run them in the same thread)
@@ -93,6 +97,9 @@ final class DeploymentNotificationImpl extends ModuleDeploymentChange {
         myRef2Instance = f;
         myCountdownNotify = notify;
         notify.acquire();
+        if (log.isTraceLevel()) {
+          log.trace("countdown activated");
+        }
         while (moveNext2Actual()) { // repeat while there's anything to report
           myListeners.forEach(l -> l.deploymentStateChanged(this));
           myAdded.clear();
@@ -102,8 +109,14 @@ final class DeploymentNotificationImpl extends ModuleDeploymentChange {
       } finally {
         myRef2Instance = null;
         myCountdownNotify.release();
+        if (log.isTraceLevel()) {
+          log.trace("countdown released");
+        }
         myCountdownNotify = null;
         myInsideDispatch.release();
+        if (log.isTraceLevel()) {
+          log.trace("dispatch is over");
+        }
       }
     }
   }
@@ -144,6 +157,10 @@ final class DeploymentNotificationImpl extends ModuleDeploymentChange {
   @NotNull
   @Override
   public Runnable acquireRemovedTrackingLock() {
+    final Logger log = Logger.getLogger(DeploymentNotificationImpl.class);
+    if (log.isTraceLevel()) {
+      log.trace("acquireRemovedTrackingLock");
+    }
     myCountdownNotify.acquire();
     return myCountdownNotify::release;
   }
@@ -157,11 +174,20 @@ final class DeploymentNotificationImpl extends ModuleDeploymentChange {
     }
 
     void acquire() {
-      myCounter.incrementAndGet();
+      final int v = myCounter.incrementAndGet();
+      final Logger log = Logger.getLogger(DeploymentNotificationImpl.class);
+      if (log.isTraceLevel()) {
+        log.trace("++countdown=" + v);
+      }
     }
 
     void release() {
-      if (myCounter.decrementAndGet() == 0) {
+      final int v = myCounter.decrementAndGet();
+      final Logger log = Logger.getLogger(DeploymentNotificationImpl.class);
+      if (log.isTraceLevel()) {
+        log.trace("--countdown=" + v);
+      }
+      if (v == 0) {
         myNotifyTarget.run();
       }
     }

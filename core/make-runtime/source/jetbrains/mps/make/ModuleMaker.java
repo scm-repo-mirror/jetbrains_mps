@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -101,6 +101,8 @@ public final class ModuleMaker {
   private final static String BUILDING_DIRTY_CLOSURE = "Dirty Modules";
   private JavaCompilerOptions myCompilerOptions = null;
   private boolean myExplicitRequestECJ = false;
+
+  private static final String STARTUP_PROPERTIES_FILE_NAME = "startup.properties";
 
   @NotNull
   private final CompositeTracer myTracer;
@@ -577,6 +579,17 @@ public final class ModuleMaker {
         } else if (childName.endsWith(MPSExtentions.DOT_KOTLINFILE)) {
           // Unlike java, file name does not always map to a specific class fqName -> we keep the file itself
           myKotlinFiles.add(f);
+        } else if (STARTUP_PROPERTIES_FILE_NAME.equals(childName)) {
+          // special case for resource file that we need to copy to CP root for discoverability,
+          // as ModulePluginContributor[2] doesn't know package to look startup.properties in.
+          // Indeed, this is sort of hack, as we keep knowledge about plugin subsystem impl here, but right now I don't
+          // see better solution. Alternative I see is ModuleRuntime to get sort of 'bundle home' location, and perform
+          // resource lookup there in addition to CP, but this might be just much more effort.
+          if (myResourceFiles.containsKey(STARTUP_PROPERTIES_FILE_NAME)) {
+            jetbrains.mps.logging.Logger.getLogger(ModuleMaker.class).warning("More than 1 startup.properties file per module! All but the first one are ignored.", f);
+          } else {
+            myResourceFiles.put(STARTUP_PROPERTIES_FILE_NAME, new ResourceFile(f, STARTUP_PROPERTIES_FILE_NAME));
+          }
         } else {
           // treat others as 'resources'
           // childName may contain '.', don't replace it with '/'.
@@ -670,7 +683,13 @@ public final class ModuleMaker {
           }
         } else {
           // treat others as 'resources'
-          final String fqPath = packPrefix.pathWithTail(childName);
+          final String fqPath;
+          if (STARTUP_PROPERTIES_FILE_NAME.equals(childName)) {
+            // see sources(), above, for explanation of startup.properties case
+            fqPath = STARTUP_PROPERTIES_FILE_NAME;
+          } else {
+            fqPath = packPrefix.pathWithTail(childName);
+          }
           final ResourceFile rf = myResourceFiles.get(fqPath);
           if (rf == null) {
             myFilesToDelete.add(f);
