@@ -36,7 +36,6 @@ import jetbrains.mps.smodel.runtime.ModuleRuntime;
 import jetbrains.mps.smodel.runtime.ModuleRuntime.Flags;
 import jetbrains.mps.smodel.runtime.ModuleRuntime.ModuleRuntimeContext;
 import jetbrains.mps.smodel.runtime.impl.LanguageRuntimeActivator;
-import jetbrains.mps.smodel.tempmodel.TempModule;
 import jetbrains.mps.util.CollectionUtil;
 import jetbrains.mps.util.NameUtil;
 import org.jetbrains.annotations.NotNull;
@@ -328,7 +327,7 @@ public final class LanguageRegistry implements CoreComponent, DeployListener {
   }
 
   private static Flags[] deduceRuntimeFlags(AbstractModule am) {
-    if (SModuleOperations.canSupplyExtensionsForMPS(am) && false == am instanceof TempModule) {
+    if (SModuleOperations.canSupplyExtensionsForMPS(am)) {
       // FIXME TempModule condition comes from PluginLoaderRegistry, not sure it's relevant here.
       //       Remove it and make sure TempModule does not supply extensions by some other means (proper set of JMF flags?)
       //       FWIW, now TempModule's JMF seem to be fine (i.e. no extensions). Just remove this check with an explicit commit,
