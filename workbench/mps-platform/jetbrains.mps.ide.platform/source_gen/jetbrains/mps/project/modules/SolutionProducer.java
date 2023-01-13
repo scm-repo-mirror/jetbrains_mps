@@ -12,12 +12,12 @@ import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.project.structure.modules.SolutionDescriptor;
 import jetbrains.mps.project.structure.modules.ModuleFacetDescriptor;
 import jetbrains.mps.project.facets.JavaModuleFacet;
+import jetbrains.mps.project.facets.JavaModuleFacetImpl;
 import jetbrains.mps.smodel.GeneralModuleFactory;
 import jetbrains.mps.smodel.ModuleDependencyVersions;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.project.ModuleId;
 import jetbrains.mps.persistence.DefaultModelRoot;
-import jetbrains.mps.persistence.MementoImpl;
 import jetbrains.mps.project.ProjectPathUtil;
 
 @GeneratedClass(node = "r:7e5abd68-4144-4e78-a2a2-1346b70af9c3(jetbrains.mps.project.modules)/1723752571811373979", model = "r:7e5abd68-4144-4e78-a2a2-1346b70af9c3(jetbrains.mps.project.modules)")
@@ -38,6 +38,10 @@ public class SolutionProducer {
     SolutionDescriptor descriptor = createSolutionDescriptor(namespace, descriptorFile);
     if (myJavaFacetLevel == JavaFacetLevel.Off) {
       descriptor.getModuleFacetDescriptors().removeIf((ModuleFacetDescriptor d) -> JavaModuleFacet.FACET_TYPE.equals(d.getType()));
+    }
+    if (myJavaFacetLevel == JavaFacetLevel.Regular || myJavaFacetLevel == JavaFacetLevel.Contributor) {
+      // XXX would be better to have this value set inside JMFI.forNewJavaCodeModule()
+      JavaModuleFacetImpl.setDefaultClassesGenLocation(descriptor, moduleDir);
     }
     Solution module = (Solution) new GeneralModuleFactory().instantiate(descriptor, descriptorFile);
     myProject.addModule(module);
@@ -95,8 +99,9 @@ public class SolutionProducer {
     }
 
     descriptor.getModelRootDescriptors().add(DefaultModelRoot.createDescriptor(modelsDir.getParent(), modelsDir));
-    // XXX perhaps, worth adding a JMF factory method to produce pre-configured MFD with necessary settings?
-    descriptor.getModuleFacetDescriptors().add(new ModuleFacetDescriptor(JavaModuleFacet.FACET_TYPE, new MementoImpl()));
+    // keep JMF for a new descriptor as it used to be, although need for JMF is not apparent, and caller shall configure 
+    // module descriptor and facet descriptors according to own needs
+    descriptor.getModuleFacetDescriptors().add(JavaModuleFacetImpl.forNewJavaCodeModule());
     ProjectPathUtil.setGeneratorOutputPath(descriptor, moduleLocation.findChild("source_gen").getPath());
     return descriptor;
   }

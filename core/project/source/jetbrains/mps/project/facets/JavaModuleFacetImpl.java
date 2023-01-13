@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,7 @@ package jetbrains.mps.project.facets;
 import jetbrains.mps.classloading.IdeaPluginModuleFacet;
 import jetbrains.mps.extapi.module.ModuleFacetBase;
 import jetbrains.mps.logging.Logger;
+import jetbrains.mps.persistence.MementoImpl;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.MementoWithFS;
 import jetbrains.mps.project.Solution;
@@ -28,16 +29,19 @@ import jetbrains.mps.project.structure.modules.ModuleFacetDescriptor;
 import jetbrains.mps.project.structure.modules.SolutionKind;
 import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.smodel.Language;
+import jetbrains.mps.util.annotation.Hack;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.openapi.FileSystem;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.TestOnly;
+import org.jetbrains.mps.annotations.Internal;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.persistence.Memento;
 
 import java.util.Collections;
 import java.util.LinkedHashSet;
+import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -389,4 +393,64 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
     final String compileValue = fd.getMemento().get(KEY_COMPILE);
     return Compile.fromPersistenceValue(compileValue, Compile.None) == Compile.MPS;
   }
+
+  /**
+   * provides a set of defaults for a newly instantiated JavaModuleFacet to get fully functional
+   * FIXME I'd love to have this method as generic factory one in FacetFactory, but ModuleFacetDescriptor is an
+   * implementation aspect, not visible in open API
+   * @return Java facet persistent description
+   * @since 2022.3
+   */
+  public static ModuleFacetDescriptor forNewJavaCodeModule() {
+    return forJavaCodeModule(Compile.MPS, LoadClasses.ManagedByMPS, LoadExtensions.NotAvailable);
+  }
+
+  public static ModuleFacetDescriptor forJavaCodeModule(@Nullable JavaModuleFacet prototype) {
+    if (prototype != null) {
+      final ModuleFacetDescriptor rv = new ModuleFacetDescriptor(JavaModuleFacet.FACET_TYPE, new MementoImpl());
+      prototype.save(rv.getMemento());
+      return rv;
+    } else {
+      return forNewJavaCodeModule();
+    }
+  }
+
+  public static ModuleFacetDescriptor forJavaCodeModule(Compile compile, LoadClasses loadClasses, LoadExtensions loadExtensions) {
+    final ModuleFacetDescriptor rv = new ModuleFacetDescriptor(JavaModuleFacet.FACET_TYPE, new MementoImpl());
+    if (compile == Compile.MPS) {
+      final Memento ck = rv.getMemento().createChild(CLASSES_KEY);
+      ck.put(GENERATED_KEY, Boolean.toString(true));
+      // I'd love to specify it this way, but not sure how/when proper macro handling would happen
+      // see setDefaultClassesGenLocation(), below, for workaround
+      // ck.put(PATH_KEY, "${module}/classes_gen");
+    }
+    rv.getMemento().put(KEY_COMPILE, compile.toPersistenceValue());
+    rv.getMemento().put(KEY_CLASSLOADER, loadClasses.toPersistenceValue());
+    rv.getMemento().put(KEY_EXTENSION, loadExtensions.toPersistenceValue());
+    return rv;
+  }
+
+  /**
+   * The only reason for this method is that we keep absolute paths in descriptors, and therefore need to know actual
+   * module dir to initialize a default.
+   */
+  @Internal
+  @Hack
+  public static void setDefaultClassesGenLocation(@NotNull ModuleFacetDescriptor md, @NotNull IFile moduleDir) {
+    if (!JavaModuleFacet.FACET_TYPE.equals(md.getType())) {
+      throw new IllegalArgumentException("Facet descriptor of unexpected kind: " + md.getType());
+    }
+    Memento ck = md.getMemento().getChild(CLASSES_KEY);
+    if (ck == null) {
+      ck = md.getMemento().createChild(CLASSES_KEY);
+    }
+    ck.put(GENERATED_KEY, Boolean.toString(true));
+    ck.put(PATH_KEY, moduleDir.findChild(AbstractModule.CLASSES_GEN).getPath());
+  }
+
+  public static void setDefaultClassesGenLocation(@NotNull ModuleDescriptor md, @NotNull IFile moduleDir) {
+    final Optional<ModuleFacetDescriptor> jmfdOpt = md.getModuleFacetDescriptors().stream().filter(d -> JavaModuleFacet.FACET_TYPE.equals(d.getType())).findFirst();
+    jmfdOpt.ifPresent(jmfd -> setDefaultClassesGenLocation(jmfd, moduleDir));
+  }
+
 }

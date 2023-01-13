@@ -18,8 +18,8 @@ import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.project.ModuleId;
 import jetbrains.mps.persistence.DefaultModelRoot;
 import jetbrains.mps.project.structure.modules.ModuleFacetDescriptor;
+import jetbrains.mps.project.facets.JavaModuleFacetImpl;
 import jetbrains.mps.project.facets.JavaModuleFacet;
-import jetbrains.mps.persistence.MementoImpl;
 import jetbrains.mps.project.ProjectPathUtil;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.project.structure.model.ModelRootDescriptor;
@@ -113,7 +113,9 @@ public class LanguageProducer {
       throw new IllegalStateException("Trying to create a language in an existing language's directory " + languageModels);
     }
     languageDescriptor.getModelRootDescriptors().add(DefaultModelRoot.createDescriptor(moduleLocation, languageModels));
-    languageDescriptor.getModuleFacetDescriptors().add(new ModuleFacetDescriptor(JavaModuleFacet.FACET_TYPE, new MementoImpl()));
+    ModuleFacetDescriptor jmfDescriptor = JavaModuleFacetImpl.forJavaCodeModule(JavaModuleFacet.Compile.MPS, JavaModuleFacet.LoadClasses.ManagedByMPS, JavaModuleFacet.LoadExtensions.Plugin);
+    JavaModuleFacetImpl.setDefaultClassesGenLocation(jmfDescriptor, moduleLocation);
+    languageDescriptor.getModuleFacetDescriptors().add(jmfDescriptor);
     ProjectPathUtil.setGeneratorOutputPath(languageDescriptor, moduleLocation.findChild("source_gen").getPath());
     return languageDescriptor;
   }
@@ -147,7 +149,9 @@ public class LanguageProducer {
       modelRootDescriptor = DefaultModelRoot.createSingleFolderDescriptor(templateModelsLocation);
     }
     generatorDescriptor.getModelRootDescriptors().add(modelRootDescriptor);
-    generatorDescriptor.getModuleFacetDescriptors().add(new ModuleFacetDescriptor(JavaModuleFacet.FACET_TYPE, new MementoImpl()));
+    ModuleFacetDescriptor jmfDescriptor = JavaModuleFacetImpl.forNewJavaCodeModule();
+    JavaModuleFacetImpl.setDefaultClassesGenLocation(jmfDescriptor, generatorModuleLocation);
+    generatorDescriptor.getModuleFacetDescriptors().add(jmfDescriptor);
     ProjectPathUtil.setGeneratorOutputPath(generatorDescriptor, generatorModuleLocation.findChild("source_gen").getPath());
     return generatorDescriptor;
   }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -291,6 +291,7 @@ public class TestModuleFactoryBase implements TestModuleFactory {
     // are the modules we create are used for. There're tests (ModulesReloadTest) that register their own
     // facet implementation that doesn't load/save anything from memento at the moment, thus the empty one is ok.
     // It might be the default one, JavaModuleFacetImpl that would care to get populated memento (now it falls back to legacy defaults)
+    // FIXME with newly introduced JavaModuleFacetImpl.forJavaCodeModule() and no legacy fallback in JMFI, need to be specific about JMF values here
     final MementoImpl memento = new MementoImpl();
     descriptor.getModuleFacetDescriptors().add(new ModuleFacetDescriptor(JavaModuleFacet.FACET_TYPE, memento));
   }

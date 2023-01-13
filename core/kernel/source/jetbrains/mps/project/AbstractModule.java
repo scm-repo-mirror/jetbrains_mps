@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -101,6 +101,11 @@ public abstract class AbstractModule extends SModuleBase implements EditableSMod
 
   public static final String MODULE_DIR = "module";
   public static final String CLASSES_GEN = "classes_gen";
+
+  /**
+   * @deprecated no special meaning for this location in MPS now; single present use is bogus and needs attention
+   */
+  @Deprecated(since = "2022.3", forRemoval = true)
   public static final String CLASSES = "classes";
 
   /**

@@ -35,6 +35,7 @@
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
+      <concept id="1080223426719" name="jetbrains.mps.baseLanguage.structure.OrExpression" flags="nn" index="22lmx$" />
       <concept id="1082485599095" name="jetbrains.mps.baseLanguage.structure.BlockStatement" flags="nn" index="9aQIb">
         <child id="1082485599096" name="statements" index="9aQI4" />
       </concept>
@@ -489,6 +490,79 @@
                     </node>
                   </node>
                 </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbJ" id="5p8mYrmbK4Y" role="3cqZAp">
+          <node concept="3clFbS" id="5p8mYrmbK50" role="3clFbx">
+            <node concept="3SKdUt" id="2Pn$dJutXgs" role="3cqZAp">
+              <node concept="1PaTwC" id="2Pn$dJutXgt" role="1aUNEU">
+                <node concept="3oM_SD" id="2Pn$dJutXZz" role="1PaTwD">
+                  <property role="3oM_SC" value="XXX" />
+                </node>
+                <node concept="3oM_SD" id="6hifecL6MD4" role="1PaTwD">
+                  <property role="3oM_SC" value="would" />
+                </node>
+                <node concept="3oM_SD" id="2Pn$dJutXZ_" role="1PaTwD">
+                  <property role="3oM_SC" value="be" />
+                </node>
+                <node concept="3oM_SD" id="2Pn$dJutXZC" role="1PaTwD">
+                  <property role="3oM_SC" value="better" />
+                </node>
+                <node concept="3oM_SD" id="2Pn$dJutXZG" role="1PaTwD">
+                  <property role="3oM_SC" value="to" />
+                </node>
+                <node concept="3oM_SD" id="2Pn$dJutXZL" role="1PaTwD">
+                  <property role="3oM_SC" value="have" />
+                </node>
+                <node concept="3oM_SD" id="2Pn$dJutXZR" role="1PaTwD">
+                  <property role="3oM_SC" value="this" />
+                </node>
+                <node concept="3oM_SD" id="2Pn$dJutXZY" role="1PaTwD">
+                  <property role="3oM_SC" value="value" />
+                </node>
+                <node concept="3oM_SD" id="2Pn$dJutY06" role="1PaTwD">
+                  <property role="3oM_SC" value="set" />
+                </node>
+                <node concept="3oM_SD" id="2Pn$dJutY0f" role="1PaTwD">
+                  <property role="3oM_SC" value="inside" />
+                </node>
+                <node concept="3oM_SD" id="2Pn$dJutY0p" role="1PaTwD">
+                  <property role="3oM_SC" value="JMFI.forNewJavaCodeModule()" />
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="5p8mYrmbU8f" role="3cqZAp">
+              <node concept="2YIFZM" id="6hifecL6KpA" role="3clFbG">
+                <ref role="37wK5l" to="b0pz:~JavaModuleFacetImpl.setDefaultClassesGenLocation(jetbrains.mps.project.structure.modules.ModuleDescriptor,jetbrains.mps.vfs.IFile)" resolve="setDefaultClassesGenLocation" />
+                <ref role="1Pybhc" to="b0pz:~JavaModuleFacetImpl" resolve="JavaModuleFacetImpl" />
+                <node concept="37vLTw" id="6hifecL6KpB" role="37wK5m">
+                  <ref role="3cqZAo" node="1Yd98ZZnqFM" resolve="descriptor" />
+                </node>
+                <node concept="37vLTw" id="6hifecL6KpC" role="37wK5m">
+                  <ref role="3cqZAo" node="1vFZXjbwM9f" resolve="moduleDir" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="22lmx$" id="5p8mYrmbPy$" role="3clFbw">
+            <node concept="3clFbC" id="5p8mYrmbRNe" role="3uHU7w">
+              <node concept="Rm8GO" id="5p8mYrmbT$a" role="3uHU7w">
+                <ref role="Rm8GQ" node="1kRpwI5NQCF" resolve="Contributor" />
+                <ref role="1Px2BO" node="1kRpwI5NPBI" resolve="JavaFacetLevel" />
+              </node>
+              <node concept="37vLTw" id="5p8mYrmbQ55" role="3uHU7B">
+                <ref role="3cqZAo" node="1kRpwI5NTmC" resolve="myJavaFacetLevel" />
+              </node>
+            </node>
+            <node concept="3clFbC" id="5p8mYrmbM9z" role="3uHU7B">
+              <node concept="37vLTw" id="5p8mYrmbL4q" role="3uHU7B">
+                <ref role="3cqZAo" node="1kRpwI5NTmC" resolve="myJavaFacetLevel" />
+              </node>
+              <node concept="Rm8GO" id="5p8mYrmbO_n" role="3uHU7w">
+                <ref role="Rm8GQ" node="1kRpwI5NQpg" resolve="Regular" />
+                <ref role="1Px2BO" node="1kRpwI5NPBI" resolve="JavaFacetLevel" />
               </node>
             </node>
           </node>
@@ -1144,52 +1218,107 @@
             </node>
           </node>
         </node>
-        <node concept="3SKdUt" id="1kRpwI5NUPb" role="3cqZAp">
-          <node concept="1PaTwC" id="1kRpwI5NUPc" role="1aUNEU">
-            <node concept="3oM_SD" id="1kRpwI5NWkn" role="1PaTwD">
-              <property role="3oM_SC" value="XXX" />
+        <node concept="3SKdUt" id="2Pn$dJututK" role="3cqZAp">
+          <node concept="1PaTwC" id="2Pn$dJututL" role="1aUNEU">
+            <node concept="3oM_SD" id="2Pn$dJutvmD" role="1PaTwD">
+              <property role="3oM_SC" value="keep" />
             </node>
-            <node concept="3oM_SD" id="1kRpwI5NWkp" role="1PaTwD">
-              <property role="3oM_SC" value="perhaps," />
-            </node>
-            <node concept="3oM_SD" id="1kRpwI5NWks" role="1PaTwD">
-              <property role="3oM_SC" value="worth" />
-            </node>
-            <node concept="3oM_SD" id="1kRpwI5NWkw" role="1PaTwD">
-              <property role="3oM_SC" value="adding" />
-            </node>
-            <node concept="3oM_SD" id="1kRpwI5NWk_" role="1PaTwD">
-              <property role="3oM_SC" value="a" />
-            </node>
-            <node concept="3oM_SD" id="1kRpwI5NWkF" role="1PaTwD">
+            <node concept="3oM_SD" id="2Pn$dJutvmF" role="1PaTwD">
               <property role="3oM_SC" value="JMF" />
             </node>
-            <node concept="3oM_SD" id="1kRpwI5NWkM" role="1PaTwD">
-              <property role="3oM_SC" value="factory" />
+            <node concept="3oM_SD" id="2Pn$dJutwf$" role="1PaTwD">
+              <property role="3oM_SC" value="for" />
             </node>
-            <node concept="3oM_SD" id="1kRpwI5NWkU" role="1PaTwD">
-              <property role="3oM_SC" value="method" />
+            <node concept="3oM_SD" id="2Pn$dJutwfS" role="1PaTwD">
+              <property role="3oM_SC" value="a" />
             </node>
-            <node concept="3oM_SD" id="1kRpwI5NWl3" role="1PaTwD">
+            <node concept="3oM_SD" id="2Pn$dJutwfX" role="1PaTwD">
+              <property role="3oM_SC" value="new" />
+            </node>
+            <node concept="3oM_SD" id="2Pn$dJutwg3" role="1PaTwD">
+              <property role="3oM_SC" value="descriptor" />
+            </node>
+            <node concept="3oM_SD" id="2Pn$dJutwgE" role="1PaTwD">
+              <property role="3oM_SC" value="as" />
+            </node>
+            <node concept="3oM_SD" id="2Pn$dJutwgM" role="1PaTwD">
+              <property role="3oM_SC" value="it" />
+            </node>
+            <node concept="3oM_SD" id="2Pn$dJutwgV" role="1PaTwD">
+              <property role="3oM_SC" value="used" />
+            </node>
+            <node concept="3oM_SD" id="2Pn$dJutwh5" role="1PaTwD">
               <property role="3oM_SC" value="to" />
             </node>
-            <node concept="3oM_SD" id="1kRpwI5NWld" role="1PaTwD">
-              <property role="3oM_SC" value="produce" />
+            <node concept="3oM_SD" id="2Pn$dJutwhg" role="1PaTwD">
+              <property role="3oM_SC" value="be," />
             </node>
-            <node concept="3oM_SD" id="1kRpwI5NWlo" role="1PaTwD">
-              <property role="3oM_SC" value="pre-configured" />
+            <node concept="3oM_SD" id="2Pn$dJutCj$" role="1PaTwD">
+              <property role="3oM_SC" value="although" />
             </node>
-            <node concept="3oM_SD" id="1kRpwI5NWl$" role="1PaTwD">
-              <property role="3oM_SC" value="MFD" />
+            <node concept="3oM_SD" id="2Pn$dJutCk1" role="1PaTwD">
+              <property role="3oM_SC" value="need" />
             </node>
-            <node concept="3oM_SD" id="1kRpwI5NWlL" role="1PaTwD">
-              <property role="3oM_SC" value="with" />
+            <node concept="3oM_SD" id="2Pn$dJutCkv" role="1PaTwD">
+              <property role="3oM_SC" value="for" />
             </node>
-            <node concept="3oM_SD" id="1kRpwI5NWlZ" role="1PaTwD">
-              <property role="3oM_SC" value="necessary" />
+            <node concept="3oM_SD" id="2Pn$dJutCkI" role="1PaTwD">
+              <property role="3oM_SC" value="JMF" />
             </node>
-            <node concept="3oM_SD" id="1kRpwI5NWme" role="1PaTwD">
-              <property role="3oM_SC" value="settings?" />
+            <node concept="3oM_SD" id="2Pn$dJutCle" role="1PaTwD">
+              <property role="3oM_SC" value="is" />
+            </node>
+            <node concept="3oM_SD" id="2Pn$dJutClv" role="1PaTwD">
+              <property role="3oM_SC" value="not" />
+            </node>
+            <node concept="3oM_SD" id="2Pn$dJutCmh" role="1PaTwD">
+              <property role="3oM_SC" value="apparent," />
+            </node>
+            <node concept="3oM_SD" id="2Pn$dJutCn4" role="1PaTwD">
+              <property role="3oM_SC" value="and" />
+            </node>
+            <node concept="3oM_SD" id="2Pn$dJutCno" role="1PaTwD">
+              <property role="3oM_SC" value="caller" />
+            </node>
+            <node concept="3oM_SD" id="2Pn$dJutCnH" role="1PaTwD">
+              <property role="3oM_SC" value="shall" />
+            </node>
+            <node concept="3oM_SD" id="2Pn$dJutCoj" role="1PaTwD">
+              <property role="3oM_SC" value="configure" />
+            </node>
+            <node concept="3oM_SD" id="2Pn$dJutCpa" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="2Pn$dJutCsD" role="3cqZAp">
+          <node concept="1PaTwC" id="2Pn$dJutCsE" role="1aUNEU">
+            <node concept="3oM_SD" id="2Pn$dJutCuZ" role="1PaTwD">
+              <property role="3oM_SC" value="module" />
+            </node>
+            <node concept="3oM_SD" id="2Pn$dJutEYi" role="1PaTwD">
+              <property role="3oM_SC" value="descriptor" />
+            </node>
+            <node concept="3oM_SD" id="2Pn$dJutEY_" role="1PaTwD">
+              <property role="3oM_SC" value="and" />
+            </node>
+            <node concept="3oM_SD" id="2Pn$dJutEZ9" role="1PaTwD">
+              <property role="3oM_SC" value="facet" />
+            </node>
+            <node concept="3oM_SD" id="2Pn$dJutEZY" role="1PaTwD">
+              <property role="3oM_SC" value="descriptors" />
+            </node>
+            <node concept="3oM_SD" id="2Pn$dJutF0$" role="1PaTwD">
+              <property role="3oM_SC" value="according" />
+            </node>
+            <node concept="3oM_SD" id="2Pn$dJutF0V" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="2Pn$dJutF1j" role="1PaTwD">
+              <property role="3oM_SC" value="own" />
+            </node>
+            <node concept="3oM_SD" id="2Pn$dJutF1G" role="1PaTwD">
+              <property role="3oM_SC" value="needs" />
             </node>
           </node>
         </node>
@@ -1205,19 +1334,9 @@
             </node>
             <node concept="liA8E" id="39hYxrtzB44" role="2OqNvi">
               <ref role="37wK5l" to="33ny:~Collection.add(java.lang.Object)" resolve="add" />
-              <node concept="2ShNRf" id="39hYxrtzBe9" role="37wK5m">
-                <node concept="1pGfFk" id="39hYxrtzDJt" role="2ShVmc">
-                  <ref role="37wK5l" to="w0gx:~ModuleFacetDescriptor.&lt;init&gt;(java.lang.String,org.jetbrains.mps.openapi.persistence.Memento)" resolve="ModuleFacetDescriptor" />
-                  <node concept="10M0yZ" id="39hYxrtzEeO" role="37wK5m">
-                    <ref role="3cqZAo" to="b0pz:~JavaModuleFacet.FACET_TYPE" resolve="FACET_TYPE" />
-                    <ref role="1PxDUh" to="b0pz:~JavaModuleFacet" resolve="JavaModuleFacet" />
-                  </node>
-                  <node concept="2ShNRf" id="39hYxrtzEkh" role="37wK5m">
-                    <node concept="1pGfFk" id="39hYxrtzET4" role="2ShVmc">
-                      <ref role="37wK5l" to="pa15:~MementoImpl.&lt;init&gt;()" resolve="MementoImpl" />
-                    </node>
-                  </node>
-                </node>
+              <node concept="2YIFZM" id="2Pn$dJutwlX" role="37wK5m">
+                <ref role="37wK5l" to="b0pz:~JavaModuleFacetImpl.forNewJavaCodeModule()" resolve="forNewJavaCodeModule" />
+                <ref role="1Pybhc" to="b0pz:~JavaModuleFacetImpl" resolve="JavaModuleFacetImpl" />
               </node>
             </node>
           </node>
@@ -2136,6 +2255,42 @@
             </node>
           </node>
         </node>
+        <node concept="3cpWs8" id="2Pn$dJuu_kD" role="3cqZAp">
+          <node concept="3cpWsn" id="2Pn$dJuu_kE" role="3cpWs9">
+            <property role="TrG5h" value="jmfDescriptor" />
+            <node concept="3uibUv" id="2Pn$dJuuu34" role="1tU5fm">
+              <ref role="3uigEE" to="w0gx:~ModuleFacetDescriptor" resolve="ModuleFacetDescriptor" />
+            </node>
+            <node concept="2YIFZM" id="2Pn$dJuu_kF" role="33vP2m">
+              <ref role="37wK5l" to="b0pz:~JavaModuleFacetImpl.forJavaCodeModule(jetbrains.mps.project.facets.JavaModuleFacet$Compile,jetbrains.mps.project.facets.JavaModuleFacet$LoadClasses,jetbrains.mps.project.facets.JavaModuleFacet$LoadExtensions)" resolve="forJavaCodeModule" />
+              <ref role="1Pybhc" to="b0pz:~JavaModuleFacetImpl" resolve="JavaModuleFacetImpl" />
+              <node concept="Rm8GO" id="2Pn$dJuu_kG" role="37wK5m">
+                <ref role="Rm8GQ" to="b0pz:~JavaModuleFacet$Compile.MPS" resolve="MPS" />
+                <ref role="1Px2BO" to="b0pz:~JavaModuleFacet$Compile" resolve="Compile" />
+              </node>
+              <node concept="Rm8GO" id="2Pn$dJuu_kH" role="37wK5m">
+                <ref role="Rm8GQ" to="b0pz:~JavaModuleFacet$LoadClasses.ManagedByMPS" resolve="ManagedByMPS" />
+                <ref role="1Px2BO" to="b0pz:~JavaModuleFacet$LoadClasses" resolve="LoadClasses" />
+              </node>
+              <node concept="Rm8GO" id="2Pn$dJuu_kI" role="37wK5m">
+                <ref role="Rm8GQ" to="b0pz:~JavaModuleFacet$LoadExtensions.Plugin" resolve="Plugin" />
+                <ref role="1Px2BO" to="b0pz:~JavaModuleFacet$LoadExtensions" resolve="LoadExtensions" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="3UhQ4rmqcJ9" role="3cqZAp">
+          <node concept="2YIFZM" id="5p8mYrmbqq0" role="3clFbG">
+            <ref role="37wK5l" to="b0pz:~JavaModuleFacetImpl.setDefaultClassesGenLocation(jetbrains.mps.project.structure.modules.ModuleFacetDescriptor,jetbrains.mps.vfs.IFile)" resolve="setDefaultClassesGenLocation" />
+            <ref role="1Pybhc" to="b0pz:~JavaModuleFacetImpl" resolve="JavaModuleFacetImpl" />
+            <node concept="37vLTw" id="5p8mYrmbs5J" role="37wK5m">
+              <ref role="3cqZAo" node="2Pn$dJuu_kE" resolve="jmfDescriptor" />
+            </node>
+            <node concept="37vLTw" id="5p8mYrmbtT9" role="37wK5m">
+              <ref role="3cqZAo" node="1Yd98ZZnqHX" resolve="moduleLocation" />
+            </node>
+          </node>
+        </node>
         <node concept="3clFbF" id="39hYxrtzF0W" role="3cqZAp">
           <node concept="2OqwBi" id="39hYxrtzF0X" role="3clFbG">
             <node concept="2OqwBi" id="39hYxrtzF0Y" role="2Oq$k0">
@@ -2148,19 +2303,8 @@
             </node>
             <node concept="liA8E" id="39hYxrtzF11" role="2OqNvi">
               <ref role="37wK5l" to="33ny:~Collection.add(java.lang.Object)" resolve="add" />
-              <node concept="2ShNRf" id="39hYxrtzF12" role="37wK5m">
-                <node concept="1pGfFk" id="39hYxrtzF13" role="2ShVmc">
-                  <ref role="37wK5l" to="w0gx:~ModuleFacetDescriptor.&lt;init&gt;(java.lang.String,org.jetbrains.mps.openapi.persistence.Memento)" resolve="ModuleFacetDescriptor" />
-                  <node concept="10M0yZ" id="39hYxrtzF14" role="37wK5m">
-                    <ref role="3cqZAo" to="b0pz:~JavaModuleFacet.FACET_TYPE" resolve="FACET_TYPE" />
-                    <ref role="1PxDUh" to="b0pz:~JavaModuleFacet" resolve="JavaModuleFacet" />
-                  </node>
-                  <node concept="2ShNRf" id="39hYxrtzF15" role="37wK5m">
-                    <node concept="1pGfFk" id="39hYxrtzF16" role="2ShVmc">
-                      <ref role="37wK5l" to="pa15:~MementoImpl.&lt;init&gt;()" resolve="MementoImpl" />
-                    </node>
-                  </node>
-                </node>
+              <node concept="37vLTw" id="2Pn$dJuu_kJ" role="37wK5m">
+                <ref role="3cqZAo" node="2Pn$dJuu_kE" resolve="forJavaCodeModule" />
               </node>
             </node>
           </node>
@@ -2776,6 +2920,30 @@
             </node>
           </node>
         </node>
+        <node concept="3cpWs8" id="2Pn$dJuuvDs" role="3cqZAp">
+          <node concept="3cpWsn" id="2Pn$dJuuvDt" role="3cpWs9">
+            <property role="TrG5h" value="jmfDescriptor" />
+            <node concept="3uibUv" id="2Pn$dJuuhvU" role="1tU5fm">
+              <ref role="3uigEE" to="w0gx:~ModuleFacetDescriptor" resolve="ModuleFacetDescriptor" />
+            </node>
+            <node concept="2YIFZM" id="2Pn$dJuuvDu" role="33vP2m">
+              <ref role="37wK5l" to="b0pz:~JavaModuleFacetImpl.forNewJavaCodeModule()" resolve="forNewJavaCodeModule" />
+              <ref role="1Pybhc" to="b0pz:~JavaModuleFacetImpl" resolve="JavaModuleFacetImpl" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="5p8mYrmbuPi" role="3cqZAp">
+          <node concept="2YIFZM" id="5p8mYrmbuPj" role="3clFbG">
+            <ref role="37wK5l" to="b0pz:~JavaModuleFacetImpl.setDefaultClassesGenLocation(jetbrains.mps.project.structure.modules.ModuleFacetDescriptor,jetbrains.mps.vfs.IFile)" resolve="setDefaultClassesGenLocation" />
+            <ref role="1Pybhc" to="b0pz:~JavaModuleFacetImpl" resolve="JavaModuleFacetImpl" />
+            <node concept="37vLTw" id="5p8mYrmbuPk" role="37wK5m">
+              <ref role="3cqZAo" node="2Pn$dJuuvDt" resolve="jmfDescriptor" />
+            </node>
+            <node concept="37vLTw" id="5p8mYrmbuPl" role="37wK5m">
+              <ref role="3cqZAo" node="eb0uW_hR5U" resolve="generatorModuleLocation" />
+            </node>
+          </node>
+        </node>
         <node concept="3clFbF" id="39hYxrtzHa1" role="3cqZAp">
           <node concept="2OqwBi" id="39hYxrtzHa2" role="3clFbG">
             <node concept="2OqwBi" id="39hYxrtzHa3" role="2Oq$k0">
@@ -2788,19 +2956,8 @@
             </node>
             <node concept="liA8E" id="39hYxrtzHa6" role="2OqNvi">
               <ref role="37wK5l" to="33ny:~Collection.add(java.lang.Object)" resolve="add" />
-              <node concept="2ShNRf" id="39hYxrtzHa7" role="37wK5m">
-                <node concept="1pGfFk" id="39hYxrtzHa8" role="2ShVmc">
-                  <ref role="37wK5l" to="w0gx:~ModuleFacetDescriptor.&lt;init&gt;(java.lang.String,org.jetbrains.mps.openapi.persistence.Memento)" resolve="ModuleFacetDescriptor" />
-                  <node concept="10M0yZ" id="39hYxrtzHa9" role="37wK5m">
-                    <ref role="3cqZAo" to="b0pz:~JavaModuleFacet.FACET_TYPE" resolve="FACET_TYPE" />
-                    <ref role="1PxDUh" to="b0pz:~JavaModuleFacet" resolve="JavaModuleFacet" />
-                  </node>
-                  <node concept="2ShNRf" id="39hYxrtzHaa" role="37wK5m">
-                    <node concept="1pGfFk" id="39hYxrtzHab" role="2ShVmc">
-                      <ref role="37wK5l" to="pa15:~MementoImpl.&lt;init&gt;()" resolve="MementoImpl" />
-                    </node>
-                  </node>
-                </node>
+              <node concept="37vLTw" id="2Pn$dJuuvDv" role="37wK5m">
+                <ref role="3cqZAo" node="2Pn$dJuuvDt" resolve="forNewJavaCodeModule" />
               </node>
             </node>
           </node>
