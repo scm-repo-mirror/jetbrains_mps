@@ -76,18 +76,10 @@ public class ProjectFactory {
         final String projectFilePath = myOptions.getStorageScheme() == StorageScheme.DIRECTORY_BASED
                                        ? myOptions.getProjectPath()
                                        : myOptions.getProjectPath() + File.separator + myOptions.getProjectName() + MPSExtentions.DOT_MPS_PROJECT;
-        //MPS-22895 need to run in EDT
-        ApplicationManager.getApplication().invokeAndWait(() -> {
-          try {
-            ApplicationManager.getApplication().runWriteAction(() -> {
-              myCreatedProject = ProjectManagerEx.getInstanceEx().newProject(
-                  myOptions.getProjectName(), projectFilePath,
-                  true, false);
-            });
-          } catch (Exception e) {
-            throw new RuntimeException(e);
-          }
-        }, indicator.getModalityState());
+
+        myCreatedProject = ProjectManagerEx.getInstanceEx().newProject(Path.of(projectFilePath), OpenProjectTask.build()
+          .asNewProject()
+          .withProjectName(myOptions.getProjectName()));
       }
     });
 
@@ -107,40 +99,45 @@ public class ProjectFactory {
     final MPSProject mpsProject = myCreatedProject.getComponent(MPSProject.class);
     assert mpsProject != null;
 
-    StartupManager.getInstance(myCreatedProject).registerPostStartupActivity(() -> mpsProject.getModelAccess().executeCommand(() -> {
-      if (myOptions.getCreateNewLanguage()) {
-        // see if for new solution, below
-        final IFile path = mpsProject.getFileSystem().getFile(new File(myOptions.getLanguagePath()));
-        myCreatedLanguage = new LanguageProducer(mpsProject).create(myOptions.getLanguageNamespace(), path);
-      }
+    StartupManager.getInstance(myCreatedProject).runAfterOpened(() -> {
+      ApplicationManager.getApplication().invokeAndWait(() -> {
+        mpsProject.getModelAccess().executeCommand(() -> {
+          if (myOptions.getCreateNewLanguage()) {
+            // see if for new solution, below
+            final IFile path = mpsProject.getFileSystem().getFile(new File(myOptions.getLanguagePath()));
+            myCreatedLanguage = new LanguageProducer(mpsProject).create(myOptions.getLanguageNamespace(), path);
+          }
 
-      if (myOptions.getCreateNewSolution()) {
-        // FIXME here we can control whether to get controlled IFile instance (through VFSManager) or
-        //       rely on project fs. Since it's almost a dead code (CreateProjectWizard uses MPSProjectTemplate to fill the project)
-        //       I decided not to bother.
-        final IFile path = mpsProject.getFileSystem().getFile(new File(myOptions.getSolutionPath()));
-        myCreatedSolution = new SolutionProducer(mpsProject).create(myOptions.getSolutionNamespace(), path);
-      }
+          if (myOptions.getCreateNewSolution()) {
+            // FIXME here we can control whether to get controlled IFile instance (through VFSManager) or
+            //       rely on project fs. Since it's almost a dead code (CreateProjectWizard uses MPSProjectTemplate to fill the project)
+            //       I decided not to bother.
+            final IFile path = mpsProject.getFileSystem().getFile(new File(myOptions.getSolutionPath()));
+            myCreatedSolution = new SolutionProducer(mpsProject).create(myOptions.getSolutionNamespace(), path);
+          }
 
-      if (myOptions.getCreateNewDevkit()) {
-        final IFile path = mpsProject.getFileSystem().getFile(new File(myOptions.getDevkitPath()));
-        myCreatedDevkit = new DevkitProducer(mpsProject).create(myOptions.getDevkitNamespace(), path);
-      }
+          if (myOptions.getCreateNewDevkit()) {
+            final IFile path = mpsProject.getFileSystem().getFile(new File(myOptions.getDevkitPath()));
+            myCreatedDevkit = new DevkitProducer(mpsProject).create(myOptions.getDevkitNamespace(), path);
+          }
 
-      if (myCreatedSolution != null && myCreatedLanguage != null) {
-        myCreatedSolution.save();
-        if (myOptions.getCreateModel()) {
-          EditableSModel model = SModuleOperations.createModelWithAdjustments(
-              myCreatedSolution.getModuleReference().getModuleName() + ".sandbox",
-              myCreatedSolution.getModelRoots().iterator().next());
-          ((SModelInternal) model).addLanguage(MetaAdapterFactory.getLanguage(myCreatedLanguage.getModuleReference()));
-          model.save();
-        }
-      }
-      if (myOptions.getCreateNewSolution() || myOptions.getCreateNewLanguage() || myOptions.getCreateNewDevkit()) {
-        ((StandaloneMPSProject) mpsProject).update();
-      }
-    }));
+          if (myCreatedSolution != null && myCreatedLanguage != null) {
+            myCreatedSolution.save();
+            if (myOptions.getCreateModel()) {
+              EditableSModel model = SModuleOperations.createModelWithAdjustments(
+                  myCreatedSolution.getModuleReference().getModuleName() + ".sandbox",
+                  myCreatedSolution.getModelRoots().iterator().next());
+              ((SModelInternal) model).addLanguage(MetaAdapterFactory.getLanguage(myCreatedLanguage.getModuleReference()));
+              model.save();
+            }
+          }
+          if (myOptions.getCreateNewSolution() || myOptions.getCreateNewLanguage() || myOptions.getCreateNewDevkit()) {
+            ((StandaloneMPSProject) mpsProject).update();
+          }
+        });
+
+      });
+    });
     return myCreatedProject;
   }
 

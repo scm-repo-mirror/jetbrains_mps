@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.workbench;
 
+import com.intellij.configurationStore.StoreUtil;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ModalityState;
 import com.intellij.openapi.project.Project;
@@ -177,6 +178,7 @@ public class ProjectCreationTest implements EnvironmentAware {
     }
     Exception exception = ThreadUtils.runInUIThreadAndWait(() -> {
       try {
+        StoreUtil.saveSettings(myProject, true);
         ProjectManagerEx.getInstanceEx().closeAndDispose(myProject);
       } catch (Throwable t) {
         refThrowable.set(t);
