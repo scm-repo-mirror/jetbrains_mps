@@ -16670,6 +16670,15 @@
             <ref role="3uigEE" to="wyt6:~String" resolve="String" />
           </node>
         </node>
+        <node concept="37vLTG" id="53JgHVU_c1L" role="3clF46">
+          <property role="TrG5h" value="hintOriginalPath" />
+          <node concept="3uibUv" id="53JgHVU_kYQ" role="1tU5fm">
+            <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+          </node>
+          <node concept="2AHcQZ" id="53JgHVU_lw$" role="2AJF6D">
+            <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+          </node>
+        </node>
         <node concept="3uibUv" id="7AaordoBkQL" role="3clF45">
           <ref role="3uigEE" to="wyt6:~String" resolve="String" />
         </node>

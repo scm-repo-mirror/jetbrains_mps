@@ -26,7 +26,33 @@ public interface MacroHelper {
   Pattern MACRO_PATTERN = Pattern.compile("(\\$\\{[^${]*})");
 
   String expandPath(@Nullable String path);
-  String shrinkPath(@Nullable String absolutePath);
+
+  /**
+   * @deprecated use {@link #shrinkPath(IFile, String)} or {@link #shrinkPath(String, String)} instead
+   */
+  @Deprecated(since = "2022.3", forRemoval = true)
+  default String shrinkPath(@Nullable String absolutePath) {
+    return shrinkPath(absolutePath, null);
+  }
+
+  /**
+   * Please override this method instead of {@link #shrinkPath(String)}
+   * Optional hint with original path helps to pick proper macro value (to preserve original one in case there are few pointing to the same location)
+   * @since 2022.3
+   */
+  default String shrinkPath(@Nullable String absolutePath, @Nullable String hintOriginalPath) {
+    // not abstract method to facilitate transition of clients in case they got own MacroHelper implementation.
+    // can remove the body once the method
+    return absolutePath;
+  }
+
+  /**
+   * Capture explicit scenarios where we got IFile for path shrinking, to get rid of string paths eventually.
+   * @since 2022.3
+   */
+  default String shrinkPath(@Nullable IFile absolutePath, @Nullable String hintOriginalPath) {
+    return shrinkPath(absolutePath == null ? null : absolutePath.getPath(), hintOriginalPath);
+  }
 
   /**
    * leaves the path unchanged
@@ -38,7 +64,8 @@ public interface MacroHelper {
     }
 
     @Override
-    public String shrinkPath(@Nullable String absolutePath) {
+    public String shrinkPath(@Nullable String absolutePath, @Nullable String hintOriginalPath) {
+      // XXX perhaps, `hint != null ? hint : absolutePath` would be more close to the idea of the class?
       return absolutePath;
     }
   }

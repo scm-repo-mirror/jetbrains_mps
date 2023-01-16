@@ -4113,14 +4113,14 @@
       <node id="3339654010343605775" at="85,70,86,123" concept="13" />
       <node id="3790966234259598657" at="86,123,87,52" concept="12" />
       <node id="3790966234259562146" at="88,7,89,18" concept="12" />
-      <node id="8757919848289095101" at="92,55,93,63" concept="19" />
+      <node id="8757919848289095101" at="92,90,93,63" concept="19" />
       <node id="7444640161784526376" at="98,0,99,0" concept="15" trace="name$MnvL" />
       <node id="7444640161784526376" at="102,0,103,0" concept="15" trace="macros$r8_A" />
       <node id="7444640161784526376" at="106,0,107,0" concept="15" trace="BuildFolderMacro$mR" />
       <node id="8757919848289101823" at="44,53,47,7" concept="9" />
       <node id="8757919848289101495" at="66,167,70,11" concept="9" />
       <node id="8757919848289101758" at="71,9,75,9" concept="9" />
-      <node id="8757919848289095087" at="91,0,95,0" concept="10" trace="shrinkPath#(Ljava/lang/String;)Ljava/lang/String;" />
+      <node id="8757919848289095087" at="91,0,95,0" concept="10" trace="shrinkPath#(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;" />
       <node id="8757919848289100918" at="57,38,62,9" concept="9" />
       <node id="259899023428452958" at="77,112,82,9" concept="9" />
       <node id="8757919848289095060" at="37,0,43,0" concept="3" trace="ModuleMacroHelper#(Ljetbrains/mps/vfs/IFile;Ljetbrains/mps/build/util/Context;Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/messages/IMessageHandler;)V" />
@@ -4129,7 +4129,7 @@
       <node id="8757919848289100782" at="55,7,88,7" concept="9" />
       <node id="8757919848289095078" at="43,0,91,0" concept="10" trace="expandPath#(Ljava/lang/String;)Ljava/lang/String;" />
       <scope id="8757919848289101824" at="45,25,46,20" />
-      <scope id="8757919848289095093" at="92,55,93,63" />
+      <scope id="8757919848289095093" at="92,90,93,63" />
       <scope id="8757919848289101497" at="67,97,69,18" />
       <scope id="8757919848289101759" at="72,28,74,22" />
       <scope id="8757919848289100919" at="58,26,61,22">
@@ -4144,6 +4144,7 @@
       </scope>
       <scope id="7325845222603761167" at="66,167,70,11" />
       <scope id="8757919848289095087" at="91,0,95,0">
+        <var name="hintOriginalPath" id="5831953567922307185" />
         <var name="string" id="8757919848289095090" />
       </scope>
       <scope id="8757919848289095060" at="37,0,43,0">

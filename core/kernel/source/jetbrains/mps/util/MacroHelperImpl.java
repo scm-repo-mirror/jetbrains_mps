@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ import org.jetbrains.annotations.Nullable;
 
 class MacroHelperImpl implements MacroHelper {
   @Nullable
-  private final IFile anchorFile; // what is null anchorFile??
+  private final IFile anchorFile; // null anchorFile is generally a 'global' helper, but could also happen for modules w/o descriptor in a file
   private final Macros macros;
 
   MacroHelperImpl(@Nullable IFile anchorFile, Macros macros) {
@@ -40,7 +40,7 @@ class MacroHelperImpl implements MacroHelper {
   }
 
   @Override
-  public String shrinkPath(@Nullable String absolutePath) {
+  public String shrinkPath(@Nullable String absolutePath, @Nullable String hintOriginalPath) {
     if (absolutePath == null) {
       return null;
     }
@@ -52,6 +52,6 @@ class MacroHelperImpl implements MacroHelper {
 
     new PathFormatChecker(absolutePath).osIndependentPath().noDots().absolute();
 
-    return macros.shrink(absolutePath, anchorFile);
+    return macros.shrink(absolutePath, anchorFile, hintOriginalPath);
   }
 }

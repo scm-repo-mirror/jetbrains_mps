@@ -89,7 +89,7 @@ public class ModuleLoaderUtils {
       return path;
     }
     @Override
-    public String shrinkPath(@Nullable String string) {
+    public String shrinkPath(@Nullable String string, @Nullable String hintOriginalPath) {
       throw new UnsupportedOperationException("cannot shrink");
     }
   }

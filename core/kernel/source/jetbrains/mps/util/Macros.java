@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,7 +48,7 @@ class Macros {
     return FileUtil.resolveParentDirs(expanded);
   }
 
-  protected String shrink(String absolutePath, IFile anchorFile) {
+  protected String shrink(String absolutePath, IFile anchorFile, @Nullable String hintOriginalPath) {
     new PathFormatChecker(absolutePath).osIndependentPath().noDots().absolute();
 
     String fileName;
@@ -64,8 +64,7 @@ class Macros {
         }
       }
     }
-    fileName = absolutePath;
-    return fileName;
+    return absolutePath;
   }
 
   protected static String shrink(String path, String prefix) {

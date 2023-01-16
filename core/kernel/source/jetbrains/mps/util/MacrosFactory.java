@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -127,7 +127,7 @@ public final class MacrosFactory implements MacroHelper.Source {
     }
 
     @Override
-    protected String shrink(String absolutePath, IFile anchorFile) {
+    protected String shrink(String absolutePath, IFile anchorFile, @Nullable String hintOriginalPath) {
       new PathFormatChecker(absolutePath).osIndependentPath().noDots().absolute();
 
       final IFile anchorFolder = getAnchorFolder(anchorFile);
@@ -135,7 +135,7 @@ public final class MacrosFactory implements MacroHelper.Source {
       if (pathStartsWith(absolutePath, prefix)) {
         return MODULE + shrink(absolutePath, prefix);
       }
-      final String tryPathVars = super.shrink(absolutePath, anchorFile);
+      final String tryPathVars = super.shrink(absolutePath, anchorFile, hintOriginalPath);
       if (MacrosFactory.containsMacro(tryPathVars)) {
         // HomeMacros superclass found some global path var to substitute, go on then
         return tryPathVars;
@@ -183,14 +183,14 @@ public final class MacrosFactory implements MacroHelper.Source {
     }
 
     @Override
-    protected String shrink(String absolutePath, IFile anchorFile) {
+    protected String shrink(String absolutePath, IFile anchorFile, @Nullable String hintOriginalPath) {
       new PathFormatChecker(absolutePath).osIndependentPath().noDots().absolute();
 
       String prefix = getProjectDir(anchorFile).getPath();
       if (pathStartsWith(absolutePath, prefix)) {
         return PROJECT + shrink(absolutePath, prefix);
       }
-      return super.shrink(absolutePath, anchorFile);
+      return super.shrink(absolutePath, anchorFile, hintOriginalPath);
     }
 
     /**
@@ -253,7 +253,7 @@ public final class MacrosFactory implements MacroHelper.Source {
     }
 
     @Override
-    protected String shrink(String absolutePath, IFile anchorFile) {
+    protected String shrink(String absolutePath, IFile anchorFile, @Nullable String hintOriginalPath) {
       new PathFormatChecker(absolutePath).osIndependentPath().noDots().absolute();
 
       if (pathStartsWith(absolutePath, libExtPath())) {
@@ -271,7 +271,7 @@ public final class MacrosFactory implements MacroHelper.Source {
         return MPS_HOME + relationalPath;
       }
 
-      return super.shrink(absolutePath, anchorFile);
+      return super.shrink(absolutePath, anchorFile, hintOriginalPath);
     }
   }
 }
