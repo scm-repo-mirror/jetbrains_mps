@@ -204,8 +204,13 @@ public class JUnit5TestExecutionListener implements TestExecutionListener {
           myFinishCount = 0;
         }
       }
+      flushSystemStreams();
       myPrintStream.println("##teamcity[testSuiteFinished " + idAndName(testIdentifier, displayName) + "]");
     }
+  }
+  private void flushSystemStreams() {
+    System.out.flush();
+    System.err.flush();
   }
   private boolean shouldSkipContainer(TestIdentifier testIdentifier) {
     UniqueId id = UniqueId.parse(testIdentifier.getUniqueId());
