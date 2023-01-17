@@ -4,10 +4,11 @@ package jetbrains.mps.build.mps.util;
 
 import jetbrains.mps.util.MacroHelper;
 import jetbrains.mps.vfs.IFile;
-import jetbrains.mps.build.util.Context;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.messages.IMessageHandler;
+import java.util.Collection;
 import org.jetbrains.annotations.NotNull;
+import java.util.ArrayList;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.vfs.util.PathFormatChecker;
 import jetbrains.mps.util.MacrosFactory;
@@ -26,15 +27,15 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class ModuleMacroHelper implements MacroHelper {
   private final IFile moduleSourceDir;
-  private final Context myContext;
   private final SNode myProject;
   private final IMessageHandler reporter;
+  private final Collection<String> myUnknownMacros;
 
-  public ModuleMacroHelper(@NotNull IFile moduleSourceDir, Context context, SNode buildProject, IMessageHandler reporter) {
+  /*package*/ ModuleMacroHelper(@NotNull IFile moduleSourceDir, SNode buildProject, IMessageHandler reporter) {
     this.moduleSourceDir = moduleSourceDir;
-    this.myContext = context;
     this.myProject = buildProject;
     this.reporter = reporter;
+    myUnknownMacros = new ArrayList<>();
   }
   @Override
   public String expandPath(@Nullable String path) {
@@ -49,7 +50,9 @@ import org.jetbrains.mps.openapi.language.SConcept;
       String expanded = path.replace(MacrosFactory.MODULE, moduleSourceDir.getPath());
       return FileUtil.resolveParentDirs(expanded);
       // XXX I think we shall keep ${module} macro and resolve it in PathConverter the moment ModuleChecker cares about
-      //     actual value.
+      //     actual value. Besides, it would help to use module's load-from value as base instead of guessing which macro 
+      //     value fits best (or first). However, at the moment, it's tricky to pass module dir to PathConverter,
+      //     that's why I keep it the way it was
     }
     if (path.startsWith("${")) {
       int index = path.indexOf("}");
@@ -60,6 +63,9 @@ import org.jetbrains.mps.openapi.language.SConcept;
       }
 
       String macroName = path.substring(2, index);
+      if (myUnknownMacros.contains(macroName)) {
+        return path;
+      }
       SNode found = null;
       for (SNode macro : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(myProject, LINKS.macros$r8_A), CONCEPTS.BuildFolderMacro$mR))) {
         if (Objects.equals(SPropertyOperations.getString(macro, PROPS.name$MnvL), macroName)) {
@@ -71,6 +77,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
         // TODO not sute this is the proper place for error checking, MacroHelper has to translate paths, and
         //     ModuleChecker shall decide whether these paths are ok or not.
         reporter.handle(Message.createMessage(MessageKind.ERROR, getClass().getName(), "macro is not declared in build script: " + path));
+        myUnknownMacros.add(macroName);
         // fall-through
       }
       // keep value with macro, PathConverter that takes these values when ModuleChecker needs them knows how to deal
@@ -79,9 +86,18 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     return path;
   }
+
   @Override
   public String shrinkPath(@Nullable String string, @Nullable String hintOriginalPath) {
     throw new UnsupportedOperationException("cannot shrink");
+  }
+
+  /**
+   * 
+   * TODO use these in ModuleChecker when doFullImport == true to automatically create necessary BuildFolderMacro
+   */
+  public Collection<String> unknownMacros() {
+    return myUnknownMacros;
   }
 
   private static final class PROPS {
