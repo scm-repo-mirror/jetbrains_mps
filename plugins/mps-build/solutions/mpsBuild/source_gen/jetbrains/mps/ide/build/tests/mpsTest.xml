@@ -1062,7 +1062,12 @@
     <ant antfile="build/mpsDebuggerPlugin.xml" inheritAll="false" useNativeBasedir="true" />
   </target>
   
-  <target name="fetchDependencies" />
+  <target name="fetchDependencies">
+    <ant antfile="build/getDependencies.xml" inheritAll="false" useNativeBasedir="true">
+      <target name="install-ivy" />
+      <target name="download-testlib" />
+    </ant>
+  </target>
   
   <target name="build" depends="assemble" />
   

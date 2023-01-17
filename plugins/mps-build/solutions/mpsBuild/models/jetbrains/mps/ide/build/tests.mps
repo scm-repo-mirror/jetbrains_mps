@@ -8,8 +8,35 @@
   </languages>
   <imports>
     <import index="ffeo" ref="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)" />
+    <import index="arit" ref="r:0d66e868-9778-4307-b6f9-4795c00f662f(jetbrains.mps.build.workflow.preset.general)" />
   </imports>
   <registry>
+    <language id="698a8d22-a104-47a0-ba8d-10e3ec237f13" name="jetbrains.mps.build.workflow">
+      <concept id="2769948622284546677" name="jetbrains.mps.build.workflow.structure.BwfSubTask" flags="ng" index="2VaFvH">
+        <child id="2769948622284606050" name="statements" index="2VaTZU" />
+      </concept>
+      <concept id="2769948622284768359" name="jetbrains.mps.build.workflow.structure.BwfAntStatement" flags="ng" index="2Vbh7Z">
+        <child id="2769948622284768360" name="element" index="2Vbh7K" />
+      </concept>
+      <concept id="3961775458390032824" name="jetbrains.mps.build.workflow.structure.BwfTaskPart" flags="ng" index="3bMsLL">
+        <reference id="3961775458390032825" name="task" index="3bMsLK" />
+        <child id="3961775458390032826" name="subTasks" index="3bMsLN" />
+      </concept>
+    </language>
+    <language id="479c7a8c-02f9-43b5-9139-d910cb22f298" name="jetbrains.mps.core.xml">
+      <concept id="6666499814681541919" name="jetbrains.mps.core.xml.structure.XmlTextValue" flags="ng" index="2pMdtt">
+        <property id="6666499814681541920" name="text" index="2pMdty" />
+      </concept>
+      <concept id="6666499814681415858" name="jetbrains.mps.core.xml.structure.XmlElement" flags="ng" index="2pNNFK">
+        <property id="6666499814681415862" name="tagName" index="2pNNFO" />
+        <child id="6666499814681415861" name="attributes" index="2pNNFR" />
+        <child id="1622293396948928802" name="content" index="3o6s8t" />
+      </concept>
+      <concept id="6666499814681447923" name="jetbrains.mps.core.xml.structure.XmlAttribute" flags="ng" index="2pNUuL">
+        <property id="6666499814681447926" name="attrName" index="2pNUuO" />
+        <child id="6666499814681541918" name="value" index="2pMdts" />
+      </concept>
+    </language>
     <language id="3600cb0a-44dd-4a5b-9968-22924406419e" name="jetbrains.mps.build.mps.tests">
       <concept id="4560297596904469355" name="jetbrains.mps.build.mps.tests.structure.BuildMps_TestModuleGroup" flags="ng" index="22LTRF">
         <reference id="4560297596904469356" name="group" index="22LTRG" />
@@ -103,6 +130,9 @@
       </concept>
       <concept id="8654221991637384182" name="jetbrains.mps.build.structure.BuildFileIncludesSelector" flags="ng" index="3qWCbU">
         <property id="8654221991637384184" name="pattern" index="3qWCbO" />
+      </concept>
+      <concept id="4701820937132281259" name="jetbrains.mps.build.structure.BuildCustomWorkflow" flags="ng" index="1y0Vig">
+        <child id="4701820937132281260" name="parts" index="1y0Vin" />
       </concept>
       <concept id="4701820937132344003" name="jetbrains.mps.build.structure.BuildLayout_Container" flags="ng" index="1y1bJS">
         <child id="7389400916848037006" name="children" index="39821P" />
@@ -15215,6 +15245,55 @@
         </node>
         <node concept="24YFd4" id="4MTm4DjGxcK" role="24YFd7">
           <ref role="24YFd5" to="ffeo:5CFKsRWRuFN" resolve="jetbrains.mps.debugger.api" />
+        </node>
+      </node>
+    </node>
+    <node concept="1y0Vig" id="7MSVDs2dyHK" role="1hWBAP">
+      <node concept="3bMsLL" id="7MSVDs2dyJ7" role="1y0Vin">
+        <ref role="3bMsLK" to="arit:6bGbH3SvUOQ" resolve="fetchDependencies" />
+        <node concept="2VaFvH" id="7MSVDs2dJf_" role="3bMsLN">
+          <property role="TrG5h" value="downloadLibraries" />
+          <node concept="2Vbh7Z" id="7MSVDs2dJfF" role="2VaTZU">
+            <node concept="2pNNFK" id="7MSVDs2dJfJ" role="2Vbh7K">
+              <property role="2pNNFO" value="ant" />
+              <node concept="2pNUuL" id="7MSVDs2dJfN" role="2pNNFR">
+                <property role="2pNUuO" value="antfile" />
+                <node concept="2pMdtt" id="7MSVDs2dJfO" role="2pMdts">
+                  <property role="2pMdty" value="build/getDependencies.xml" />
+                </node>
+              </node>
+              <node concept="2pNUuL" id="7MSVDs2dJfV" role="2pNNFR">
+                <property role="2pNUuO" value="inheritAll" />
+                <node concept="2pMdtt" id="7MSVDs2dJfW" role="2pMdts">
+                  <property role="2pMdty" value="false" />
+                </node>
+              </node>
+              <node concept="2pNUuL" id="7MSVDs2dJg3" role="2pNNFR">
+                <property role="2pNUuO" value="useNativeBasedir" />
+                <node concept="2pMdtt" id="7MSVDs2dJg4" role="2pMdts">
+                  <property role="2pMdty" value="true" />
+                </node>
+              </node>
+              <node concept="2pNNFK" id="7MSVDs2dJjz" role="3o6s8t">
+                <property role="2pNNFO" value="target" />
+                <node concept="2pNUuL" id="7MSVDs2dJqn" role="2pNNFR">
+                  <property role="2pNUuO" value="name" />
+                  <node concept="2pMdtt" id="7MSVDs2dJqo" role="2pMdts">
+                    <property role="2pMdty" value="install-ivy" />
+                  </node>
+                </node>
+              </node>
+              <node concept="2pNNFK" id="7MSVDs2dJtN" role="3o6s8t">
+                <property role="2pNNFO" value="target" />
+                <node concept="2pNUuL" id="7MSVDs2dJtO" role="2pNNFR">
+                  <property role="2pNUuO" value="name" />
+                  <node concept="2pMdtt" id="7MSVDs2dJtP" role="2pMdts">
+                    <property role="2pMdty" value="download-testlib" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
         </node>
       </node>
     </node>
