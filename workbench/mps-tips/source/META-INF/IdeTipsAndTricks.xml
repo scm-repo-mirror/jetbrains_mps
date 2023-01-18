@@ -1,6 +1,5 @@
 <idea-plugin>
   <extensions defaultExtensionNs="com.intellij">
-    <tipAndTrick file="Welcome.html"/>
     <tipAndTrick file="ProjectView.html"/>
     <tipAndTrick file="Organization.html"/>
     <tipAndTrick file="KindsOfModules.html"/>
