@@ -32,7 +32,8 @@ public class ServiceMessageFilteringStreamHandler extends MyExecuteStreamHandler
       super.logOutput(line);
 
     } else {
-      super.logError(line);
+      // FIXME this should be logged as error, otherwise we're hiding problems from the user
+      super.logOutput(line);
     }
   }
 
