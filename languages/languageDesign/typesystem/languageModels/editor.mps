@@ -168,7 +168,6 @@
       <concept id="1630016958697057551" name="jetbrains.mps.lang.editor.structure.IMenuPartParameterized" flags="ng" index="2ZBHr6">
         <child id="1630016958697057552" name="parameterType" index="2ZBHrp" />
       </concept>
-      <concept id="1214406454886" name="jetbrains.mps.lang.editor.structure.TextBackgroundColorStyleClassItem" flags="ln" index="30gYXW" />
       <concept id="1233758997495" name="jetbrains.mps.lang.editor.structure.PunctuationLeftStyleClassItem" flags="ln" index="11L4FC" />
       <concept id="1233759184865" name="jetbrains.mps.lang.editor.structure.PunctuationRightStyleClassItem" flags="ln" index="11LMrY" />
       <concept id="3383245079137382180" name="jetbrains.mps.lang.editor.structure.StyleClass" flags="ig" index="14StLt" />
@@ -1137,8 +1136,8 @@
             <node concept="VPM3Z" id="1KUls25Mfz2" role="3F10Kt">
               <property role="VOm3f" value="false" />
             </node>
-            <node concept="30gYXW" id="1KUls25Mfz3" role="3F10Kt">
-              <property role="Vb096" value="fLwANPp/orange" />
+            <node concept="Vb9p2" id="22hkAg1lg9F" role="3F10Kt">
+              <property role="Vbekb" value="g1_k_vY/BOLD" />
             </node>
           </node>
           <node concept="3F0ifn" id="1KUls25Mfz4" role="3EZMnx" />
@@ -3552,8 +3551,8 @@
             <node concept="VPM3Z" id="1KUls25FpYc" role="3F10Kt">
               <property role="VOm3f" value="false" />
             </node>
-            <node concept="30gYXW" id="1KUls25FpYd" role="3F10Kt">
-              <property role="Vb096" value="fLwANPp/orange" />
+            <node concept="Vb9p2" id="22hkAg1lnyu" role="3F10Kt">
+              <property role="Vbekb" value="g1_k_vY/BOLD" />
             </node>
           </node>
           <node concept="3F0ifn" id="1KUls25FpYe" role="3EZMnx" />
@@ -4472,8 +4471,8 @@
         <node concept="VPM3Z" id="66ZZ2RilY8p" role="3F10Kt">
           <property role="VOm3f" value="false" />
         </node>
-        <node concept="30gYXW" id="66ZZ2RilY8q" role="3F10Kt">
-          <property role="Vb096" value="fLwANPp/orange" />
+        <node concept="Vb9p2" id="2rKxjU93Y$8" role="3F10Kt">
+          <property role="Vbekb" value="g1_k_vY/BOLD" />
         </node>
       </node>
       <node concept="3F0ifn" id="4ZYGtWRrRwZ" role="3EZMnx" />
