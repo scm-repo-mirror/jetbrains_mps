@@ -46,5 +46,6 @@
     <orderEntry type="module" module-name="environment" scope="TEST" />
     <orderEntry type="module" module-name="typechecking" />
     <orderEntry type="module" module-name="resources_en" />
+    <orderEntry type="library" name="kotlin_builtins" level="project" />
   </component>
 </module>

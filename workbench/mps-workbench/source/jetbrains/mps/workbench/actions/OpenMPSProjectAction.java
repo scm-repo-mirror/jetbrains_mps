@@ -84,7 +84,7 @@ public class OpenMPSProjectAction extends BaseAction {
     }
 
     if (OpenMPSProjectFileChooserDescriptor.isMpsProjectDirectory(virtualFile) || OpenMPSProjectFileChooserDescriptor.isMpsProjectFile(virtualFile)) {
-      if (OpenMPSProjectTrustProjectHelper.checkTrust(virtualFile, currentProject)) {
+      if (OpenMPSProjectTrustProjectHelper.checkTrust(virtualFile)) {
         ProjectUtil.openProject(virtualFile.toNioPath(), OpenProjectTask.build().withProjectToClose(currentProject).withForceOpenInNewFrame(false));
       }
     } else {

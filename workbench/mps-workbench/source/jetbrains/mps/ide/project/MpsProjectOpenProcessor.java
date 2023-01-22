@@ -51,7 +51,7 @@ public class MpsProjectOpenProcessor extends ProjectOpenProcessor {
   @Override
   public Project doOpenProject(@NotNull VirtualFile virtualFile, Project projectToClose, boolean forceOpenInNewFrame) {
     String filePath = virtualFile.getPath();
-    if (OpenMPSProjectTrustProjectHelper.checkTrust(virtualFile, projectToClose)) {
+    if (OpenMPSProjectTrustProjectHelper.checkTrust(virtualFile)) {
       return ProjectUtil.openProject(virtualFile.toNioPath(), OpenProjectTask.build().withProjectToClose(projectToClose).withForceOpenInNewFrame(forceOpenInNewFrame));
     } else {
       return null;

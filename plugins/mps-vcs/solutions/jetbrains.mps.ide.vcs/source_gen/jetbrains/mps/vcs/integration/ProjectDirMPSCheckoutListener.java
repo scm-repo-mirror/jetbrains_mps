@@ -25,7 +25,7 @@ public class ProjectDirMPSCheckoutListener implements CheckoutListener {
     final Runnable runnable = new Runnable() {
       @Override
       public void run() {
-        if (OpenMPSProjectTrustProjectHelper.checkTrust(directory, project)) {
+        if (OpenMPSProjectTrustProjectHelper.checkTrust(directory)) {
           ProjectManagerEx.getInstanceEx().openProject(directory, OpenProjectTask.build().withProjectToClose(project));
         }
       }

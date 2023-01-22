@@ -26,7 +26,7 @@ public class ProjectCheckoutListener implements CheckoutListener {
     });
     if (files != null && files.length > 0) {
       final Path virtualFile = files[0].toPath();
-      if (OpenMPSProjectTrustProjectHelper.checkTrust(virtualFile, project)) {
+      if (OpenMPSProjectTrustProjectHelper.checkTrust(virtualFile)) {
         ProjectUtil.openProject(virtualFile, OpenProjectTask.build().withProjectToClose(project));
 
       }
