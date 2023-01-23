@@ -48,7 +48,7 @@ public final class IComment__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static boolean isTODOComment_idfB3l7ZufMD(@NotNull SNode __thisNode__) {
     String text = trim_63o2sb_a0a0a0k(IComment__BehaviorDescriptor.getTextualRepresentation_idfB3l80ylIb.invoke(__thisNode__)).toUpperCase();
-    return text.startsWith("TODO ") || text.startsWith("FIX ");
+    return text.startsWith("TODO ") || text.startsWith("FIX ") || text.startsWith("FIXME");
   }
 
   /*package*/ IComment__BehaviorDescriptor() {
