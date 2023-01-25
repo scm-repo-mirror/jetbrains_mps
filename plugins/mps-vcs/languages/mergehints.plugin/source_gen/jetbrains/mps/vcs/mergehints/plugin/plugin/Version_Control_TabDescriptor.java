@@ -18,8 +18,9 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
-import org.jetbrains.mps.openapi.persistence.ModelRoot;
-import jetbrains.mps.project.SModuleOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
+import jetbrains.mps.smodel.language.LanguageAspectDescriptor;
+import jetbrains.mps.smodel.language.LanguageAspectSupport;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -88,23 +89,17 @@ public class Version_Control_TabDescriptor extends RelationDescriptor {
     SModule module = SNodeOperations.getModel(node).getModule();
     assert module instanceof Language;
 
-    // todo [MM] use aspectModel// expression here when possible
-    Iterable<SModel> models = module.getModels();
-    SModel aspectModel = Sequence.fromIterable(models).findFirst(new IWhereFilter<SModel>() {
-      public boolean accept(SModel it) {
-        return it.getName().getSimpleName().equals("vcs");
-      }
-    });
+    SModel aspectModel = SModuleOperations.getAspect(module, "vcs");
     if (aspectModel == null) {
-      Language l = (Language) module;
-      SModel structureModel = l.getStructureModelDescriptor();
-      ModelRoot modelRoot;
-      if (structureModel == null) {
-        modelRoot = l.getModelRoots().iterator().next();
-      } else {
-        modelRoot = structureModel.getModelRoot();
+      // XXX Similar to other places, like LanguageProducer.createMainLanguageAspects(), would be great to unify
+      LanguageAspectDescriptor vcsAD = LanguageAspectSupport.getAspectDescriptorById("vcs");
+      if (vcsAD == null || !(vcsAD.canCreate(module))) {
+        return null;
       }
-      aspectModel = SModuleOperations.createModelWithAdjustments(l.getModuleName() + ".vcs", modelRoot);
+      vcsAD.create(module);
+      // XXX can't spoil the party with ModelsAutoImportsManager here, but too lazy to do it now, 
+      // there are no imports for VCS aspect to my best knowledge
+      aspectModel = vcsAD.getAspectModels(module).stream().findAny().orElse(null);
     }
 
     assert aspectModel != null;
