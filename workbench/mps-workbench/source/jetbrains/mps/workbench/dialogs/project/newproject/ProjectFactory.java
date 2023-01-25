@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,19 +33,19 @@ import jetbrains.mps.migration.global.ProjectMigrationsRegistry;
 import jetbrains.mps.project.DevKit;
 import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.project.MPSProject;
-import jetbrains.mps.project.SModuleOperations;
 import jetbrains.mps.project.Solution;
 import jetbrains.mps.project.StandaloneMPSProject;
 import jetbrains.mps.project.modules.DevkitProducer;
 import jetbrains.mps.project.modules.LanguageProducer;
 import jetbrains.mps.project.modules.SolutionProducer;
 import jetbrains.mps.smodel.Language;
-import jetbrains.mps.smodel.SModelInternal;
+import jetbrains.mps.smodel.ModelImports;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.EditableSModel;
+import org.jetbrains.mps.openapi.model.SModelName;
 
 import java.io.File;
 import java.nio.file.Path;
@@ -124,10 +124,9 @@ public class ProjectFactory {
           if (myCreatedSolution != null && myCreatedLanguage != null) {
             myCreatedSolution.save();
             if (myOptions.getCreateModel()) {
-              EditableSModel model = SModuleOperations.createModelWithAdjustments(
-                  myCreatedSolution.getModuleReference().getModuleName() + ".sandbox",
-                  myCreatedSolution.getModelRoots().iterator().next());
-              ((SModelInternal) model).addLanguage(MetaAdapterFactory.getLanguage(myCreatedLanguage.getModuleReference()));
+              final SModelName mn = new SModelName(myCreatedSolution.getModuleName(), "sandbox", null);
+              EditableSModel model = (EditableSModel) myCreatedSolution.getModelRoots().iterator().next().createModel(mn);
+              new ModelImports(model).addUsedLanguage(MetaAdapterFactory.getLanguage(myCreatedLanguage.getModuleReference()));
               model.save();
             }
           }

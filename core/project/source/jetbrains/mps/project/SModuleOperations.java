@@ -180,6 +180,7 @@ public class SModuleOperations {
   @Nullable
   @Deprecated(since = "2021.3", forRemoval = true)
   public static EditableSModel createModelWithAdjustments(@NotNull String name, @NotNull ModelRoot root) {
+    // As of 2022.3, there are no uses in MPS code; and I didn't find any uses in MPS-extensions and mbeddr, too. Remove once 22.3 is out
     Logger.getLogger(SModuleOperations.class).warnDeprecatedUse("SModuleOperations.createModelWithAdjustments() will be removed in the next release");
     EditableSModel model = (EditableSModel) root.createModel(name);
     model.save();
