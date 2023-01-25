@@ -190,7 +190,7 @@ public abstract class MPSTree extends DnDAwareTree implements Disposable {
 
     @Override
     public @NotNull Invoker getInvoker() {
-      return Invoker.forBackgroundPoolWithoutReadAction(myDisposable);
+      return Invoker.forEventDispatchThread(myDisposable);
     }
   }
   /**
