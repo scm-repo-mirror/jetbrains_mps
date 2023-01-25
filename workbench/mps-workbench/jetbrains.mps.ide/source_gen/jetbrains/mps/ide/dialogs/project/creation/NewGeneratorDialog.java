@@ -176,10 +176,11 @@ public class NewGeneratorDialog extends DialogWrapper {
         myProject.getRepository().saveAll();
         // XXX why saveAll is not part of NewModuleUtil.runModuleCreation?
         generatorModuleLocation.mkdirs();
+        // XXX why not GeneratorProducer?!
         final GeneratorDescriptor generatorDescriptor = LanguageProducer.createGeneratorDescriptor(newGeneratorNamespace(), generatorModuleLocation, null);
         generatorDescriptor.setAlias(name);
         newGenerator = createNewGenerator(generatorDescriptor, generatorModuleLocation);
-        LanguageProducer.createTemplateModelIfNoneYet(newGenerator);
+        LanguageProducer.createTemplateModelIfNoneYet(myProject, newGenerator);
       } catch (Exception e) {
         // XXX again, why it's not common for any runModuleCreation?
         if (LOG.isErrorLevel()) {

@@ -12411,18 +12411,30 @@
                   </node>
                   <node concept="3clFbF" id="7HgS$VkaVMO" role="3cqZAp">
                     <node concept="37vLTI" id="7HgS$VkaVMQ" role="3clFbG">
-                      <node concept="2YIFZM" id="7HgS$VkaUVJ" role="37vLTx">
-                        <ref role="1Pybhc" to="z1c3:~SModuleOperations" resolve="SModuleOperations" />
-                        <ref role="37wK5l" to="z1c3:~SModuleOperations.createModelWithAdjustments(java.lang.String,org.jetbrains.mps.openapi.persistence.ModelRoot)" resolve="createModelWithAdjustments" />
-                        <node concept="Xl_RD" id="7HgS$VkaUVK" role="37wK5m">
-                          <property role="Xl_RC" value="jetbrains.mps.ide.vcs.test.newTestModel" />
-                        </node>
-                        <node concept="37vLTw" id="7HgS$VkaVzh" role="37wK5m">
-                          <ref role="3cqZAo" node="7HgS$VkaVz9" resolve="modelRoot" />
-                        </node>
-                      </node>
                       <node concept="37vLTw" id="7HgS$VkaVMU" role="37vLTJ">
                         <ref role="3cqZAo" node="7HgS$VkaUVI" resolve="newModel" />
+                      </node>
+                      <node concept="10QFUN" id="4fSeN6eYUa3" role="37vLTx">
+                        <node concept="3uibUv" id="4fSeN6eYVq8" role="10QFUM">
+                          <ref role="3uigEE" to="mhbf:~EditableSModel" resolve="EditableSModel" />
+                        </node>
+                        <node concept="2OqwBi" id="4fSeN6eYpTx" role="10QFUP">
+                          <node concept="37vLTw" id="4fSeN6eYolW" role="2Oq$k0">
+                            <ref role="3cqZAo" node="7HgS$VkaVz9" resolve="modelRoot" />
+                          </node>
+                          <node concept="liA8E" id="4fSeN6eYr5R" role="2OqNvi">
+                            <ref role="37wK5l" to="dush:~ModelRoot.createModel(org.jetbrains.mps.openapi.model.SModelName)" resolve="createModel" />
+                            <node concept="2ShNRf" id="4fSeN6eYrXr" role="37wK5m">
+                              <node concept="1pGfFk" id="4fSeN6eYOlg" role="2ShVmc">
+                                <property role="373rjd" value="true" />
+                                <ref role="37wK5l" to="mhbf:~SModelName.&lt;init&gt;(java.lang.String)" resolve="SModelName" />
+                                <node concept="Xl_RD" id="7HgS$VkaUVK" role="37wK5m">
+                                  <property role="Xl_RC" value="jetbrains.mps.ide.vcs.test.newTestModel" />
+                                </node>
+                              </node>
+                            </node>
+                          </node>
+                        </node>
                       </node>
                     </node>
                   </node>

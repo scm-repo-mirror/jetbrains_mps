@@ -1,13 +1,14 @@
 /*
- * Copyright 2000-2022 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+ * Copyright 2000-2023 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
  */
 package jetbrains.mps.smodel.language;
 
-import jetbrains.mps.project.SModuleOperations;
 import jetbrains.mps.smodel.Language;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SLanguage;
+import org.jetbrains.mps.openapi.model.EditableSModel;
 import org.jetbrains.mps.openapi.model.SModel;
+import org.jetbrains.mps.openapi.model.SModelName;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.persistence.ModelRoot;
 
@@ -70,7 +71,11 @@ public abstract class LanguageAspectDescriptorBase extends LanguageAspectDescrip
     } else {
       modelRoot = structureModel.getModelRoot();
     }
-    SModuleOperations.createModelWithAdjustments(l.getModuleName() + '.' + getPresentableAspectName(), modelRoot);
+    final SModelName modelName = new SModelName(l.getModuleName(), getPresentableAspectName(), null);
+    EditableSModel model = (EditableSModel) modelRoot.createModel(modelName.getValue());
+    // XXX Seems reasonable to use ModelsAutoImportsManager here, rather than to require caller to do that, however,
+    //     no idea how to get ComponentHost in here.
+    model.save();
   }
 
   @NotNull

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.smodel;
 
-import jetbrains.mps.project.SModuleOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.language.LanguageAspectDescriptor;
 import jetbrains.mps.smodel.language.LanguageAspectSupport;
@@ -24,6 +23,7 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import org.jetbrains.mps.openapi.model.SModel;
+import org.jetbrains.mps.openapi.model.SModelName;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.persistence.ModelRoot;
@@ -166,7 +166,8 @@ public enum LanguageAspect {
     } else {
       modelRoot = structureModel.getModelRoot();
     }
-    return SModuleOperations.createModelWithAdjustments(l.getModuleName() + '.' + getName(), modelRoot);
+    // I don't care there's no ModelsAutoImportManager, this is deprecated way to instantiate aspect models anyway
+    return modelRoot.createModel(new SModelName(l.getModuleName(), getName(), null));
   }
 
   @Nullable

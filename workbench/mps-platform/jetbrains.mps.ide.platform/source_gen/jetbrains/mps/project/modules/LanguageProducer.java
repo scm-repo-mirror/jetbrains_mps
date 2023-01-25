@@ -25,8 +25,9 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.project.structure.model.ModelRootDescriptor;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.smodel.SModelStereotype;
-import jetbrains.mps.project.SModuleOperations;
+import org.jetbrains.mps.openapi.persistence.ModelRoot;
 import org.jetbrains.mps.openapi.model.SModelName;
+import jetbrains.mps.project.ModelsAutoImportsManager;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -90,7 +91,7 @@ public class LanguageProducer {
     // XXX why after registering a module? 
     createMainLanguageAspects(language);
 
-    createTemplateModelIfNoneYet(generator);
+    createTemplateModelIfNoneYet(myProject, generator);
 
     ModuleDependencyVersions mv = new ModuleDependencyVersions(myProject.getComponent(LanguageRegistry.class), myProject.getRepository());
     mv.update(language);
@@ -156,8 +157,8 @@ public class LanguageProducer {
     return generatorDescriptor;
   }
 
-  public static void createTemplateModelIfNoneYet(Generator newGenerator) {
-    // FIXME public just for transition period
+  public static void createTemplateModelIfNoneYet(MPSProject mpsProject, Generator newGenerator) {
+    // FIXME public just for transition period, once NewGeneratorDialog is fixed, make private
     boolean alreadyOwnsTemplateModel = false;
     for (SModel modelDescriptor : newGenerator.getModels()) {
       if (SModelStereotype.isGeneratorModel(modelDescriptor)) {
@@ -170,7 +171,13 @@ public class LanguageProducer {
       if (namespace.indexOf('#') > 0) {
         namespace = namespace.substring(0, namespace.indexOf('#'));
       }
-      SModel templateModel = SModuleOperations.createModelWithAdjustments(new SModelName(namespace, "templates", SModelStereotype.GENERATOR).getValue(), newGenerator.getModelRoots().iterator().next());
+      ModelRoot mr = newGenerator.getModelRoots().iterator().next();
+
+      SModel templateModel = mr.createModel(new SModelName(namespace, "templates", SModelStereotype.GENERATOR));
+      ModelsAutoImportsManager autoImports = mpsProject.getComponent(ModelsAutoImportsManager.class);
+      if (autoImports != null) {
+        autoImports.performImports(newGenerator, templateModel);
+      }
       SNode mappingConfiguration = SModelOperations.createNewNode(templateModel, null, CONCEPTS.MappingConfiguration$7j);
       // both model and MC named 'main' was a bit confusing (not to mention 'main' alias of the module itself), therefore the model to hold templates is 'templates' now
       SPropertyOperations.assign(mappingConfiguration, PROPS.name$MnvL, "main");
@@ -180,7 +187,7 @@ public class LanguageProducer {
   }
 
 
-  private static void createMainLanguageAspects(Language language) {
+  private void createMainLanguageAspects(Language language) {
     // Desperately need a mechanism to reference SimpleLanguageAspectDescriptor in a way it produced identity,
     //   which has to be more than just a string. Since it's a string at the moment, I don't see a point to bother with 
     //   a reference expression (hope to come up with a generic 'node identity' mechanism some day)
@@ -188,10 +195,16 @@ public class LanguageProducer {
     // FIXME configure what aspects to create
     final String[] aspects2create = new String[]{"structure", "editor", "constraints", "behavior", "typesystem"};
     assert language.getModelRoots().iterator().hasNext();
+    ModelsAutoImportsManager autoImports = myProject.getComponent(ModelsAutoImportsManager.class);
     for (String aspectId : aspects2create) {
       LanguageAspectDescriptor ad = LanguageAspectSupport.getAspectDescriptorById(aspectId);
       if (ad != null && ad.canCreate(language)) {
         ad.create(language);
+        if (autoImports != null) {
+          for (SModel am : ad.getAspectModels(language)) {
+            autoImports.performImports(language, am);
+          }
+        }
       } else {
         if (LOG.isWarningLevel()) {
           LOG.warning(String.format("Failed to initialize aspect '%s' for language %s", aspectId, language.getModuleName()));

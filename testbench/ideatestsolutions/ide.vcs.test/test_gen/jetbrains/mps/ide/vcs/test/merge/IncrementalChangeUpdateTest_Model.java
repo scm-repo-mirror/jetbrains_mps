@@ -14,7 +14,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.persistence.ModelRoot;
-import jetbrains.mps.project.SModuleOperations;
+import org.jetbrains.mps.openapi.model.SModelName;
 import jetbrains.mps.vcs.changesmanager.CurrentDifference;
 import jetbrains.mps.workbench.actions.model.DeleteModelHelper;
 import jetbrains.mps.smodel.persistence.def.ModelReadException;
@@ -77,7 +77,7 @@ public class IncrementalChangeUpdateTest_Model extends ChangesTestBase {
     getProject().getModelAccess().runWriteInEDT(() -> {
       SModule module = myDiff.getModelDescriptor().getModule();
       ModelRoot modelRoot = module.getModelRoots().iterator().next();
-      newModel.value = SModuleOperations.createModelWithAdjustments("jetbrains.mps.ide.vcs.test.newTestModel", modelRoot);
+      newModel.value = (EditableSModel) modelRoot.createModel(new SModelName("jetbrains.mps.ide.vcs.test.newTestModel"));
       newModel.value.load();
       newModel.value.save();
     });

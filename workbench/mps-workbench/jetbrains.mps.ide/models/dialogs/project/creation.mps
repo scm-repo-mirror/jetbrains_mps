@@ -2483,6 +2483,22 @@
                           </node>
                         </node>
                       </node>
+                      <node concept="3SKdUt" id="4fSeN6eW8kw" role="3cqZAp">
+                        <node concept="1PaTwC" id="4fSeN6eW8kx" role="1aUNEU">
+                          <node concept="3oM_SD" id="4fSeN6eWajy" role="1PaTwD">
+                            <property role="3oM_SC" value="XXX" />
+                          </node>
+                          <node concept="3oM_SD" id="4fSeN6eWaj$" role="1PaTwD">
+                            <property role="3oM_SC" value="why" />
+                          </node>
+                          <node concept="3oM_SD" id="4fSeN6eWajB" role="1PaTwD">
+                            <property role="3oM_SC" value="not" />
+                          </node>
+                          <node concept="3oM_SD" id="4fSeN6eWdLN" role="1PaTwD">
+                            <property role="3oM_SC" value="GeneratorProducer?!" />
+                          </node>
+                        </node>
+                      </node>
                       <node concept="3cpWs8" id="1pyYjDPRar1" role="3cqZAp">
                         <node concept="3cpWsn" id="1pyYjDPRar2" role="3cpWs9">
                           <property role="TrG5h" value="generatorDescriptor" />
@@ -2536,6 +2552,9 @@
                         <node concept="2YIFZM" id="33OQ$_9B1xM" role="3clFbG">
                           <ref role="37wK5l" to="mqhh:eb0uW_kbzC" resolve="createTemplateModelIfNoneYet" />
                           <ref role="1Pybhc" to="mqhh:1vFZXjbuUf1" resolve="LanguageProducer" />
+                          <node concept="37vLTw" id="4fSeN6eVLJv" role="37wK5m">
+                            <ref role="3cqZAo" node="7vEL9RtbpOb" resolve="myProject" />
+                          </node>
                           <node concept="37vLTw" id="33OQ$_9B1xN" role="37wK5m">
                             <ref role="3cqZAo" node="1pyYjDPRapG" resolve="newGenerator" />
                           </node>

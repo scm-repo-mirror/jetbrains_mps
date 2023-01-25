@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -278,6 +278,17 @@ public final class DefaultModelRoot extends FileBasedModelRoot implements Copyab
   public SModel createModel(@NotNull String modelName) {
     try {
       return createModel(new SModelName(modelName), null, (DataSourceType) null, null);
+    } catch (ModelCannotBeCreatedException e) {
+      LOG.error("", e);
+      return null;
+    }
+  }
+
+  @Nullable
+  @Override
+  public SModel createModel(@NotNull SModelName modelName) {
+    try {
+      return createModel(modelName, null, (DataSourceType) null, null);
     } catch (ModelCannotBeCreatedException e) {
       LOG.error("", e);
       return null;

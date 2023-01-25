@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2012 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -144,13 +144,22 @@ public interface ModelRoot {
    *
    * @param modelName -- might fq name or just simple short model name. Up to implementor
    *                  @see org.jetbrains.mps.openapi.model.SModelName
-//   * @deprecated
+   * @deprecated use {@link #createModel(SModelName)} instead
 //   * @return null if failed, for instance {@link #canCreateModel(String)} returned false.
    */
-  /*@Deprecated*/
+  @Deprecated
   @Nullable
   default SModel createModel(@NotNull String modelName) {
+    // once 2022.3 is out (or even later), change to createModel(new SModelName(modelName))
     return null;
+  }
+
+  /**
+   * @since 2022.3
+   */
+  @Nullable
+  default SModel createModel(@NotNull SModelName modelName) {
+    return createModel(modelName.getValue());
   }
 
   /**

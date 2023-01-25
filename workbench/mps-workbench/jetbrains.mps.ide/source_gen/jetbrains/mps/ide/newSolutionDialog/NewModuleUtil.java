@@ -38,7 +38,6 @@ import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
 import jetbrains.mps.vfs.util.PathFormatChecker;
-import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.smodel.LanguageAspect;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.project.structure.modules.GeneratorDescriptor;
@@ -249,11 +248,6 @@ public class NewModuleUtil {
       return ex.getMessage();
     }
     return null;
-  }
-
-  public static void createTemplateModelIfNoneYet(Generator newGenerator) {
-    traceDeprecatedUse();
-    LanguageProducer.createTemplateModelIfNoneYet(newGenerator);
   }
 
   public static void createMainLanguageAspects(Language language) throws IOException {
