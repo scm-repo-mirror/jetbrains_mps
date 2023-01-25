@@ -36,7 +36,7 @@ import jetbrains.mps.baseLanguage.unitTest.execution.TextTestEvent;
  * we need to remove string association aka TestNameMap
  */
 public class TestTree extends MPSTree implements Disposable, TestStateListener {
-  private final RootTestTreeNode myRoot = new RootTestTreeNode();
+  private RootTestTreeNode myRoot;
 
   @NotNull
   private final Project myProject;
@@ -188,7 +188,10 @@ public class TestTree extends MPSTree implements Disposable, TestStateListener {
     boolean hidePassed = UnitTestOptions.isHidePassed();
 
     boolean allTestCasesPassed = true;
-    myRoot.removeAllChildren();
+    if (myRoot != null) {
+      myRoot.removeAllChildren();
+    }
+    this.myRoot = new RootTestTreeNode();
     for (ITestNodeWrapper testCase : SetSequence.fromSet(MapSequence.fromMap(myTestCase2MethodsMap).keySet())) {
       assert testCase != null;
       boolean allTestMethodsPassed = true;

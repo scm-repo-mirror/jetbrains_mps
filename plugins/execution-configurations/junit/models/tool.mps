@@ -738,15 +738,9 @@
       <property role="34CwA1" value="false" />
       <property role="eg7rD" value="false" />
       <property role="TrG5h" value="myRoot" />
-      <property role="3TUv4t" value="true" />
       <node concept="3Tm6S6" id="2ZbjobggVCE" role="1B3o_S" />
       <node concept="3uibUv" id="2ZbjobggXj6" role="1tU5fm">
         <ref role="3uigEE" node="4iTAT3SQCxA" resolve="RootTestTreeNode" />
-      </node>
-      <node concept="2ShNRf" id="2ZbjobgzKRq" role="33vP2m">
-        <node concept="1pGfFk" id="2ZbjobgzRq$" role="2ShVmc">
-          <ref role="37wK5l" node="4iTAT3SQCxG" resolve="RootTestTreeNode" />
-        </node>
       </node>
     </node>
     <node concept="2tJIrI" id="2ZbjobgluMZ" role="jymVt" />
@@ -1954,13 +1948,38 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="2Zbjobgl9GG" role="3cqZAp">
-          <node concept="2OqwBi" id="2Zbjobglch5" role="3clFbG">
-            <node concept="37vLTw" id="2ZbjobgzXAU" role="2Oq$k0">
+        <node concept="3clFbJ" id="ca4iCBuOwD" role="3cqZAp">
+          <node concept="3clFbS" id="ca4iCBuOwF" role="3clFbx">
+            <node concept="3clFbF" id="2Zbjobgl9GG" role="3cqZAp">
+              <node concept="2OqwBi" id="2Zbjobglch5" role="3clFbG">
+                <node concept="37vLTw" id="2ZbjobgzXAU" role="2Oq$k0">
+                  <ref role="3cqZAo" node="2ZbjobggXj8" resolve="myRoot" />
+                </node>
+                <node concept="liA8E" id="2Zbjobgleqq" role="2OqNvi">
+                  <ref role="37wK5l" to="rgfa:~DefaultMutableTreeNode.removeAllChildren()" resolve="removeAllChildren" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3y3z36" id="ca4iCBvjjD" role="3clFbw">
+            <node concept="10Nm6u" id="ca4iCBvrrk" role="3uHU7w" />
+            <node concept="37vLTw" id="ca4iCBvfua" role="3uHU7B">
               <ref role="3cqZAo" node="2ZbjobggXj8" resolve="myRoot" />
             </node>
-            <node concept="liA8E" id="2Zbjobgleqq" role="2OqNvi">
-              <ref role="37wK5l" to="rgfa:~DefaultMutableTreeNode.removeAllChildren()" resolve="removeAllChildren" />
+          </node>
+        </node>
+        <node concept="3clFbF" id="ca4iCBvG9H" role="3cqZAp">
+          <node concept="37vLTI" id="ca4iCBvZqf" role="3clFbG">
+            <node concept="2ShNRf" id="ca4iCBw62F" role="37vLTx">
+              <node concept="1pGfFk" id="ca4iCBw41K" role="2ShVmc">
+                <ref role="37wK5l" node="4iTAT3SQCxG" resolve="RootTestTreeNode" />
+              </node>
+            </node>
+            <node concept="2OqwBi" id="ca4iCBvKtn" role="37vLTJ">
+              <node concept="Xjq3P" id="ca4iCBvG9F" role="2Oq$k0" />
+              <node concept="2OwXpG" id="ca4iCBvU2Q" role="2OqNvi">
+                <ref role="2Oxat5" node="2ZbjobggXj8" resolve="myRoot" />
+              </node>
             </node>
           </node>
         </node>
