@@ -347,7 +347,8 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
         myModuleDependenciesTab.init(); // init to avoid myModuleDependenciesTab.getTabComponent() == null
         return myModuleDependenciesTab.getTabComponent();
       } else {
-        myEntriesEditor = new ModelRootContentEntriesEditor(myModuleDescriptor, (MPSProject) myMPSProject);
+        // FIXME cons needs model read, where shall I grab one?
+        myEntriesEditor = new ModelRootContentEntriesEditor(myModule, (MPSProject) myMPSProject);
         Disposer.register(getDisposable(), myEntriesEditor);
         return myEntriesEditor.getComponent();
       }
@@ -543,7 +544,9 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
         if (myGeneratorAlias != null) {
           ((GeneratorDescriptor) myModuleDescriptor).setAlias(myGeneratorAlias.getText().trim());
         }
-        myEntriesEditor.apply();
+        // XXX utilize the fact getModelRootDescriptors() gives by-reference value.
+        myModuleDescriptor.getModelRootDescriptors().clear();
+        myEntriesEditor.apply(myModuleDescriptor.getModelRootDescriptors());
       }
       if (renameTo != null) {
         final String finalRenameTo = renameTo;

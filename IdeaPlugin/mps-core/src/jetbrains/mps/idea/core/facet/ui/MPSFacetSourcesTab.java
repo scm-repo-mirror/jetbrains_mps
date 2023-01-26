@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,18 +28,19 @@ import jetbrains.mps.extapi.persistence.SourceRootKinds;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.ui.dialogs.properties.roots.editors.ModelRootContentEntriesEditor;
 import jetbrains.mps.ide.ui.dialogs.properties.roots.editors.ModelRootEntryContainer;
-import jetbrains.mps.ide.vfs.VirtualFileUtils;
 import jetbrains.mps.idea.core.facet.MPSConfigurationBean;
 import jetbrains.mps.idea.core.ui.SModuleConfigurationTab;
 import jetbrains.mps.persistence.DefaultModelRoot;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.project.structure.model.ModelRootDescriptor;
 import org.jetbrains.mps.openapi.persistence.ModelRoot;
+import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.ui.persistence.ModelRootEntry.ModelRootEntryListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -75,9 +76,14 @@ public class MPSFacetSourcesTab implements SModuleConfigurationTab {
       Disposer.dispose(myContentEntriesEditor);
       myContentEntriesEditor = null;
     }
-    myModelRootsByReference = data.getModelRootDescriptors();
+    ArrayList<ModelRoot> modelRootDetachedFakeInstances = new ArrayList<>();
+    for (ModelRootDescriptor mrd :  data.getModelRootDescriptors()) {
+      final ModelRoot modelRoot = PersistenceFacade.getInstance().getModelRootFactory(mrd.getType()).create();
+      modelRoot.load(mrd.getMemento());
+      modelRootDetachedFakeInstances.add(modelRoot);
+    }
     final MPSProject mpsProject = ProjectHelper.fromIdeaProject(myContext.getProject());
-    myContentEntriesEditor = new ModelRootContentEntriesEditor(myModelRootsByReference, myContext.getModule().getName(), mpsProject);
+    myContentEntriesEditor = new ModelRootContentEntriesEditor(modelRootDetachedFakeInstances, myContext.getModule().getName(), mpsProject);
     Disposer.register(myParentDisposable, myContentEntriesEditor);
     VirtualFile defaultFolder = myContext.getModule().getModuleFile() != null
       ? myContext.getModule().getModuleFile().getParent()
@@ -135,8 +141,9 @@ public class MPSFacetSourcesTab implements SModuleConfigurationTab {
   }
 
   public void apply(MPSConfigurationBean data) {
-    myContentEntriesEditor.apply();
-    data.setModelRootDescriptors(myModelRootsByReference);
+    ArrayList<ModelRootDescriptor> result = new ArrayList<>();
+    myContentEntriesEditor.apply(result);
+    data.setModelRootDescriptors(result);
   }
 
   public boolean isModified(MPSConfigurationBean data) {

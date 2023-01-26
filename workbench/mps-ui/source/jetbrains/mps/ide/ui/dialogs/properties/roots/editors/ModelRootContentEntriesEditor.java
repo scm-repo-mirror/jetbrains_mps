@@ -1,5 +1,5 @@
 /*
- * Copyright 2000-2022 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+ * Copyright 2000-2023 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
  */
 package jetbrains.mps.ide.ui.dialogs.properties.roots.editors;
 
@@ -42,16 +42,11 @@ import jetbrains.mps.persistence.java.library.JavaClassStubsModelRoot;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.project.structure.model.ModelRootDescriptor;
-import jetbrains.mps.project.structure.modules.ModuleDescriptor;
-import jetbrains.mps.smodel.ModelAccessHelper;
-import jetbrains.mps.util.PathManager;
 import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.persistence.Memento;
 import org.jetbrains.mps.openapi.persistence.ModelRoot;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.ui.persistence.ModelRootEntry;
 
 import javax.swing.BorderFactory;
@@ -84,7 +79,7 @@ public class ModelRootContentEntriesEditor implements Disposable {
   private final static Logger LOG = Logger.getLogger(ModelRootContentEntriesEditor.class);
 
   @Nullable
-  private ModuleDescriptor myModuleDescriptor;
+  private AbstractModule myModule;
   private final MPSProject myProject;
   private final Collection<ModelRootDescriptor> myInitialModelRoots;
   private final ModelRootEntryPersistence myRootEntryPersistence;
@@ -97,24 +92,23 @@ public class ModelRootContentEntriesEditor implements Disposable {
   private JBPanel myMainPanel;
   private IFile myDefaultFolder;
 
-  public ModelRootContentEntriesEditor(@NotNull ModuleDescriptor moduleDescriptor, @NotNull MPSProject p) {
-    this(moduleDescriptor.getModelRootDescriptors(), moduleDescriptor.getNamespace(), p);
-    myModuleDescriptor = moduleDescriptor;
+  public ModelRootContentEntriesEditor(@NotNull AbstractModule module, @NotNull MPSProject p) {
+    // FIXME grab model read?
+    this(module.getModelRoots(), module.getModuleName(), p);
+    myModule = module;
   }
 
-  /**
-   * IMPORTANT, {@code modelRoots} argument is by-reference, it's the collection being modified as a result of this editor, see {@link #apply()}.
-   *   This is done for the sake of bugfix simplicity, otherwise {@code apply()} calls from outside has to be modified to take actual collection and feed it
-   *   into appropriate consumer (whether it's ModuleDescriptor or MPSConfigurationBean)
-   */
-  public ModelRootContentEntriesEditor(@NotNull Collection<ModelRootDescriptor> modelRoots, String moduleName, @NotNull MPSProject p) {
-    myInitialModelRoots = modelRoots;
+  public ModelRootContentEntriesEditor(@NotNull Iterable<ModelRoot> modelRoots, String moduleName, @NotNull MPSProject p) {
     myProject = p;
     // XXX I'm puzzled with mix of ModelRoot and ModelRootDescriptor in ModelRootEntryPersistence, shall stick to one
     //     i.e. basically have to decide whether we edit SModule or ModuleDescriptor.
-    myRootEntryPersistence = new ModelRootEntryPersistence(p, PersistenceFacade.getInstance());
-    for (ModelRootDescriptor descriptor : modelRoots) {
-      ModelRootEntry<?> entry = myRootEntryPersistence.getModelRootEntry(descriptor);
+    //     Provided ModuleDescriptor holds ModelRootDescriptor, which is basically a persistence element (IMemento + type), I feel
+    //     editing ModuleDescriptor and ModelRootDescriptor is a bad idea.
+    //     However, there's scenario when we edit MPS configuration w/o MPS SModule (MPSFacet in MPS-as-IDEA-plugin), and it's not quite
+    //     clear how to get properly initialized ModelRoot instance then
+    myRootEntryPersistence = new ModelRootEntryPersistence(p);
+    for (ModelRoot modelRoot : modelRoots) {
+      ModelRootEntry<?> entry = myRootEntryPersistence.getModelRootEntry(modelRoot);
       if (entry != null) {
         Disposer.register(this, entry);
         ModelRootEntryContainer container = new ModelRootEntryContainer(entry);
@@ -123,9 +117,10 @@ public class ModelRootContentEntriesEditor implements Disposable {
       } else {
         LOG.warning(
             String.format("Can't create editor for '%s' model root type in module %s. Check that plugin, where this model root type is registered, is enabled.",
-                          descriptor.getType(), moduleName));
+                          modelRoot.getPresentation(), moduleName));
       }
     }
+    myInitialModelRoots = getDescriptors();
     initUI();
   }
 
@@ -271,9 +266,8 @@ public class ModelRootContentEntriesEditor implements Disposable {
     return !(myInitialModelRoots.containsAll(newSet) && newSet.containsAll(myInitialModelRoots));
   }
 
-  public void apply() {
-    myInitialModelRoots.clear();
-    myInitialModelRoots.addAll(getDescriptors());
+  public void apply(Collection<ModelRootDescriptor> result) {
+    result.addAll(getDescriptors());
   }
 
   private List<ModelRootDescriptor> getDescriptors() {
@@ -414,19 +408,9 @@ public class ModelRootContentEntriesEditor implements Disposable {
     if (myDefaultFolder != null) {
       return myDefaultFolder;
     }
-    // FIXME next code needs a refactoring, it's odd to resolve a module just to figure out possible content root location. This information has to be supplied
-    //       from outside. Left for now to keep bugfix confined.
-    assert myModuleDescriptor != null : "MPS as IDEA plugin has to specify default folder for a module";
-    SModule module = new ModelAccessHelper(myProject.getRepository()).runReadAction(() -> myProject.getRepository().getModule(myModuleDescriptor.getId()));
-    assert module != null : "Trying to edit settings of a module " + myModuleDescriptor.getNamespace() + ", which is not in repository";
-
-    if (module instanceof AbstractModule) {
-      AbstractModule am = (AbstractModule) module;
-      IFile sourceDir = am.getModuleSourceDir();
-      return sourceDir != null ? sourceDir : am.getDescriptorFile().getParent();
-    }
-
-    return myProject.getFileSystem().getFile(PathManager.getUserDir());
+    assert myModule != null : "MPS as IDEA plugin has to specify default folder for a module";
+    IFile sourceDir = myModule.getModuleSourceDir();
+    return sourceDir != null ? sourceDir : myModule.getDescriptorFile().getParent();
   }
 
   private final class MyContentEntryEditorListener implements ContentEntryEditorListener {
