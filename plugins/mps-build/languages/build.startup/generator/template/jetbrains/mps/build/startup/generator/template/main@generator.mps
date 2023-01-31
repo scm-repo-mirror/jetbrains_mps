@@ -1372,11 +1372,22 @@
                   <node concept="3zFVjK" id="7Muxx6JTrE1" role="3zH0cK">
                     <node concept="3clFbS" id="7Muxx6JTrE2" role="2VODD2">
                       <node concept="3clFbF" id="7Muxx6JTrE3" role="3cqZAp">
-                        <node concept="2OqwBi" id="7Muxx6JTrE4" role="3clFbG">
-                          <node concept="3TrcHB" id="7Muxx6JTrE5" role="2OqNvi">
-                            <ref role="3TsBF5" to="s7om:3nFPImNh3ii" resolve="startupClass" />
+                        <node concept="2OqwBi" id="4nX__hMrpF6" role="3clFbG">
+                          <node concept="2OqwBi" id="7Muxx6JTrE4" role="2Oq$k0">
+                            <node concept="3TrcHB" id="7Muxx6JTrE5" role="2OqNvi">
+                              <ref role="3TsBF5" to="s7om:3nFPImNh3ii" resolve="startupClass" />
+                            </node>
+                            <node concept="30H73N" id="7Muxx6JTrE6" role="2Oq$k0" />
                           </node>
-                          <node concept="30H73N" id="7Muxx6JTrE6" role="2Oq$k0" />
+                          <node concept="liA8E" id="4nX__hMrq4A" role="2OqNvi">
+                            <ref role="37wK5l" to="wyt6:~String.replace(char,char)" resolve="replace" />
+                            <node concept="1Xhbcc" id="4nX__hMrq7_" role="37wK5m">
+                              <property role="1XhdNS" value="." />
+                            </node>
+                            <node concept="1Xhbcc" id="4nX__hMrqna" role="37wK5m">
+                              <property role="1XhdNS" value="/" />
+                            </node>
+                          </node>
                         </node>
                       </node>
                     </node>

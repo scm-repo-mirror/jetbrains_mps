@@ -104,7 +104,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return pathString;
   }
   public static Object propertyMacro_GetValue_1_8(final PropertyMacroContext _context) {
-    return SPropertyOperations.getString(_context.getNode(), PROPS.startupClass$Z6$U);
+    return SPropertyOperations.getString(_context.getNode(), PROPS.startupClass$Z6$U).replace('.', '/');
   }
   public static Object propertyMacro_GetValue_1_9(final PropertyMacroContext _context) {
     return "--add-opens=" + SPropertyOperations.getString(_context.getNode(), PROPS.value$w7MM) + "=ALL-UNNAMED";
