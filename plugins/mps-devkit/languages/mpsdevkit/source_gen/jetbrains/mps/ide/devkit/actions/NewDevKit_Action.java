@@ -64,7 +64,6 @@ public class NewDevKit_Action extends BaseAction {
       File devkitLocation = cfg.getModuleLocation();
       DevKit result = new DevkitProducer(mpsProject).create(devkitName, mpsProject.getFileSystem().getFile(devkitLocation));
       mpsProject.setVirtualFolder(result, virtualFolder);
-      mpsProject.save();
       return result;
     });
 
@@ -74,6 +73,7 @@ public class NewDevKit_Action extends BaseAction {
       return;
     }
 
+    mpsProject.save();
     DevKit devkit = dialog.getResult();
     if (devkit == null) {
       return;

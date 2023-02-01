@@ -128,5 +128,6 @@ public class DeleteModules_Action extends BaseAction {
     ModelAccess modelAccess = ((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository().getModelAccess();
     // While don't support undo no need for command here
     modelAccess.runWriteAction(() -> new ModuleDeleteHelper(((MPSProject) MapSequence.fromMap(_params).get("project"))).deleteModules(((List<SModule>) MapSequence.fromMap(_params).get("modules")), false, deleteFiles));
+    ((MPSProject) MapSequence.fromMap(_params).get("project")).save();
   }
 }

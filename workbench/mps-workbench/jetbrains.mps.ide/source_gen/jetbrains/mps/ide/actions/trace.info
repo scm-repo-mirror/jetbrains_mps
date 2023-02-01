@@ -3226,6 +3226,7 @@
       <node id="944342063932787794" at="127,0,128,122" concept="12" />
       <node id="1774120241196068143" at="128,122,129,56" concept="14" />
       <node id="944342063932423979" at="129,56,130,218" concept="6" />
+      <node id="594904398198580332" at="130,218,131,70" concept="6" />
       <node id="3698322859732161578" at="69,14,71,9" concept="1" />
       <node id="7806690843619928587" at="48,0,51,0" concept="11" trace="accept#(Lorg/jetbrains/mps/openapi/module/SModule;)Z" />
       <node id="1241020613337" at="76,95,79,5" concept="10" />
@@ -3249,7 +3250,7 @@
       <node id="3698322859732118509" at="53,0,73,5" concept="10" />
       <node id="1241020613337" at="75,0,99,0" concept="11" trace="collectActionData#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)Z" />
       <node id="1241020613337" at="43,0,75,0" concept="11" trace="doUpdate#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)V" />
-      <node id="1241020613337" at="99,0,132,0" concept="11" trace="doExecute#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)V" />
+      <node id="1241020613337" at="99,0,133,0" concept="11" trace="doExecute#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)V" />
       <scope id="1241020613337" at="40,32,41,16" />
       <scope id="7806690843619928588" at="48,41,49,110" />
       <scope id="3698322859732129594" at="55,85,56,92" />
@@ -3303,7 +3304,7 @@
         <var name="isApplicable" id="7390963653978966202" />
         <var name="presentation" id="7110462768344957117" />
       </scope>
-      <scope id="1241020613337" at="100,96,130,218">
+      <scope id="1241020613337" at="100,96,131,70">
         <var name="deleteFiles" id="4376247540961323986" />
         <var name="modelAccess" id="944342063932787795" />
         <var name="result" id="4376247540960676261" />
@@ -3312,7 +3313,7 @@
         <var name="_params" id="1241020613337" />
         <var name="event" id="1241020613337" />
       </scope>
-      <scope id="1241020613337" at="99,0,132,0">
+      <scope id="1241020613337" at="99,0,133,0">
         <var name="_params" id="1241020613337" />
         <var name="event" id="1241020613337" />
       </scope>
@@ -3320,7 +3321,7 @@
       <unit id="944342063932544488" at="109,141,113,5" name="jetbrains.mps.ide.actions.DeleteModules_Action$2" />
       <unit id="7806690843620217720" at="115,123,119,7" name="jetbrains.mps.ide.actions.DeleteModules_Action$3" />
       <unit id="7806690843620224809" at="119,22,123,7" name="jetbrains.mps.ide.actions.DeleteModules_Action$4" />
-      <unit id="1241020613337" at="30,0,133,0" name="jetbrains.mps.ide.actions.DeleteModules_Action" />
+      <unit id="1241020613337" at="30,0,134,0" name="jetbrains.mps.ide.actions.DeleteModules_Action" />
     </file>
     <file name="Ide_ApplicationPlugin.java">
       <node id="1241020613337" at="39,36,40,42" concept="6" />

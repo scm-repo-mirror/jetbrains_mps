@@ -17,6 +17,7 @@ package jetbrains.mps.ide.devkit.util;
 
 import jetbrains.mps.module.ModuleDeleteHelper;
 import jetbrains.mps.project.Project;
+import jetbrains.mps.project.ProjectBase;
 import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
 import jetbrains.mps.util.IStatus;
@@ -83,6 +84,7 @@ public class DeleteGeneratorHelper {
       return canDelete;
     }
     new ModuleDeleteHelper(myProject).deleteModules(Collections.singletonList(generator), false, myDeleteFiles);
+    ((ProjectBase)myProject).save();
     return new Status.OK();
   }
 }

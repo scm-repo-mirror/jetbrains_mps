@@ -71,7 +71,6 @@ public class GeneratePluginSolution_Action extends BaseAction {
       Solution result = sp.create(moduleName, mpsProject.getFileSystem().getFile(moduleLocation));
       GeneratePluginSolution_Action.this.createModel(result, event);
       mpsProject.setVirtualFolder(result, virtualFolder);
-      mpsProject.save();
       return result;
     });
 
@@ -81,6 +80,7 @@ public class GeneratePluginSolution_Action extends BaseAction {
       return;
     }
 
+    mpsProject.save();
     final Solution s = dialog.getResult();
     if (s == null) {
       return;

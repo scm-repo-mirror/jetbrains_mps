@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.module;
 
+import com.intellij.openapi.application.ApplicationManager;
 import jetbrains.mps.extapi.persistence.DisposableDataSource;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.project.AbstractModule;
@@ -61,6 +62,7 @@ public final class ModuleDeleteHelper {
   }
 
   // needs model write for project repository
+  // the project must be saved manually after returning from this method
   public void deleteModules(List<SModule> modules, boolean safeDelete, final boolean deleteFiles) {
     if (safeDelete) {
       LOG.error("SAFE DELETE MODULE - NOT IMPLEMENTED", new Throwable());
@@ -153,7 +155,6 @@ public final class ModuleDeleteHelper {
       myFilesToDelete.forEach(IFile::deleteIfExists);
       myLikelyEmptyDirs.stream().filter(ModuleDeleteHelper::canDeleteDirIfEmpty).forEach(IFile::deleteIfExists);
     }
-    ((ProjectBase) myProject).save();
   }
 
   /**

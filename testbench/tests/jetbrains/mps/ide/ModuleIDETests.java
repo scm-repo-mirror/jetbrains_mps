@@ -20,6 +20,7 @@ import jetbrains.mps.extapi.persistence.FileBasedModelRoot;
 import jetbrains.mps.module.ModuleDeleteHelper;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.DevKit;
+import jetbrains.mps.project.ProjectBase;
 import jetbrains.mps.project.ProjectPathUtil;
 import jetbrains.mps.project.Solution;
 import jetbrains.mps.project.modules.DevkitProducer;
@@ -506,6 +507,7 @@ public abstract class ModuleIDETests extends ModuleInProjectTest {
 
   private void deleteModule(AbstractModule lang, boolean deleteFiles) {
     new ModuleDeleteHelper(myProject).deleteModules(Collections.singletonList(lang), false, deleteFiles);
+    ((ProjectBase)myProject).save();
   }
 }
 

@@ -89,7 +89,6 @@ public class NewLanguage_Action extends BaseAction {
       Consumer<Solution> setVF = (Solution s) -> mpsProject.setVirtualFolder(s, virtualFolder);
       lp.getRuntimeSolution().ifPresent(setVF);
       lp.getSandboxSolution().ifPresent(setVF);
-      mpsProject.save();
       return lang;
     });
 
@@ -98,6 +97,7 @@ public class NewLanguage_Action extends BaseAction {
       return;
     }
 
+    mpsProject.save();
     Language l = dialog.getResult();
     if (l == null) {
       return;
