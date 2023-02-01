@@ -135,6 +135,11 @@ public abstract class AbstractTestWrapper<N extends SNode> implements ITestNodeW
     return myRunsInProcess;
   }
 
+  @Override
+  public boolean useCompatibilityMode() {
+    return myCompatibilityMode;
+  }
+
   /**
    * Check if class or any its superclass got MPSLaunch annotation, or extends/implements EnvironmentAware. 
    * If true, we assume the class needs running MPS instance to get executed.

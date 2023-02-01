@@ -4,15 +4,24 @@ package jetbrains.mps.execution.configurations.implementation.plugin.plugin;
 
 import jetbrains.mps.logging.Logger;
 import java.util.concurrent.TimeUnit;
-import jetbrains.mps.baseLanguage.unitTest.execution.server.NodeWrappersTestsContributor;
+import jetbrains.mps.baselanguage.unitTest.execution.launcher.TestsContributor;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
+import java.util.List;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import com.intellij.execution.runners.ExecutionUtil;
 import jetbrains.mps.project.MPSProject;
-import com.intellij.execution.process.ProcessHandler;
+import com.intellij.openapi.wm.ToolWindowId;
 import com.intellij.execution.ExecutionException;
+import jetbrains.mps.baseLanguage.unitTest.execution.server.NodeWrappersTestsContributor;
+import jetbrains.mps.baseLanguage.unitTest.execution.server.JUnit5InprocessTestsContributor;
+import com.intellij.execution.process.ProcessHandler;
 import jetbrains.mps.baselanguage.unitTest.execution.launcher.DelegatingTestExecutor;
 import java.util.concurrent.Future;
+import jetbrains.mps.baseLanguage.unitTest.execution.server.AbstractJUnitTestMixin;
 import com.intellij.openapi.application.ApplicationManager;
 import jetbrains.mps.TestMode;
 import jetbrains.mps.RuntimeFlags;
@@ -25,12 +34,26 @@ import com.intellij.execution.process.ProcessOutputTypes;
 public class JUnitInProcessRunStarter implements JUnitProcessStarter {
   private static final Logger LOG = Logger.getLogger(JUnitInProcessRunStarter.class);
   private static final int MSECS_TO_WAIT_FOR_START = (int) TimeUnit.SECONDS.toMillis(50);
-  private final NodeWrappersTestsContributor myTestsContributor;
+  private final TestsContributor myTestsContributor;
   private final FakeProcess myFakeProcess = new FakeProcess();
   private final TestInProcessRunState myTestRunState;
 
   public JUnitInProcessRunStarter(@NotNull Project mpsProject, @NotNull JUnitTests_Configuration runConfiguration, @NotNull Iterable<ITestNodeWrapper> testNodeWrappers) {
-    myTestsContributor = new NodeWrappersTestsContributor((MPSProject) mpsProject, runConfiguration.getName(), testNodeWrappers);
+
+    List<ITestNodeWrapper> legacyTests = Sequence.fromIterable(testNodeWrappers).where(new IWhereFilter<ITestNodeWrapper>() {
+      public boolean accept(ITestNodeWrapper it) {
+        return it.useCompatibilityMode();
+      }
+    }).toListSequence();
+    List<ITestNodeWrapper> jupiterTests = Sequence.fromIterable(testNodeWrappers).where(new IWhereFilter<ITestNodeWrapper>() {
+      public boolean accept(ITestNodeWrapper it) {
+        return !(it.useCompatibilityMode());
+      }
+    }).toListSequence();
+    if (ListSequence.fromList(legacyTests).isNotEmpty() && ListSequence.fromList(jupiterTests).isNotEmpty()) {
+      ExecutionUtil.handleExecutionError(((MPSProject) mpsProject).getProject(), ToolWindowId.RUN, runConfiguration.getName(), new ExecutionException(""), "Could not run legacy and modern tests together, some tests are skipped", null);
+    }
+    myTestsContributor = (ListSequence.fromList(legacyTests).isNotEmpty() ? new NodeWrappersTestsContributor((MPSProject) mpsProject, runConfiguration.getName(), testNodeWrappers) : new JUnit5InprocessTestsContributor((MPSProject) mpsProject, runConfiguration.getName(), testNodeWrappers));
     myTestRunState = TestInProcessRunState.getInstance(((MPSProject) mpsProject).getProject());
   }
 
@@ -64,7 +87,9 @@ public class JUnitInProcessRunStarter implements JUnitProcessStarter {
         // XXX why not isRunning() or at least !isTerminating && !isTerminated(); do we care to request stop few times?
         if (!(myTestRunState.isTerminated())) {
           myTestRunState.advance(RunStateEnum.RUNNING, RunStateEnum.TERMINATING);
-          myTestsContributor.stopRun();
+          if (myTestsContributor instanceof AbstractJUnitTestMixin) {
+            ((AbstractJUnitTestMixin) myTestsContributor).stopRun();
+          }
         }
         // once test execution is over, the runnable at thread pool get control, myFakeProcess receives exit code and is destroyed.
         // Eventually, BaseOSProcessHandler dispaches notification that the process has been terminated.

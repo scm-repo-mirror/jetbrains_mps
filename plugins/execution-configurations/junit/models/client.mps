@@ -1424,6 +1424,22 @@
       </node>
     </node>
     <node concept="2tJIrI" id="4Tkq3_eTzLV" role="jymVt" />
+    <node concept="3clFb_" id="4Tt$OebmOk0" role="jymVt">
+      <property role="TrG5h" value="useCompatibilityMode" />
+      <node concept="10P_77" id="4Tt$OebmOk1" role="3clF45" />
+      <node concept="3Tm1VV" id="4Tt$OebmOk2" role="1B3o_S" />
+      <node concept="3clFbS" id="4Tt$OebmOk4" role="3clF47">
+        <node concept="3cpWs6" id="4Tt$OebmRK5" role="3cqZAp">
+          <node concept="37vLTw" id="4Tt$OebmTBB" role="3cqZAk">
+            <ref role="3cqZAo" node="6maaEP0AsAe" resolve="myCompatibilityMode" />
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="4Tt$OebmOk5" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="4Tt$OebmVO_" role="jymVt" />
     <node concept="2YIFZL" id="4Tkq3_eQfcS" role="jymVt">
       <property role="TrG5h" value="needsMPS" />
       <property role="od$2w" value="false" />
@@ -2167,6 +2183,13 @@
           <property role="1dT_AB" value="To me, the need to wrap access to the methods of this class with model read is an indicator of poor design." />
         </node>
       </node>
+    </node>
+    <node concept="2tJIrI" id="4Tt$OebmFhz" role="jymVt" />
+    <node concept="3clFb_" id="4Tt$OebmKWB" role="jymVt">
+      <property role="TrG5h" value="useCompatibilityMode" />
+      <node concept="10P_77" id="4Tt$OebmMja" role="3clF45" />
+      <node concept="3Tm1VV" id="4Tt$OebmKWE" role="1B3o_S" />
+      <node concept="3clFbS" id="4Tt$OebmKWF" role="3clF47" />
     </node>
   </node>
   <node concept="312cEu" id="56tRMpP_f5M">

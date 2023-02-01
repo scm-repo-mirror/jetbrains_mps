@@ -78,4 +78,6 @@ public interface ITestNodeWrapper<N extends SNode> {
   TestParameters getTestRunParameters();
 
   boolean canRunInProcess();
+
+  boolean useCompatibilityMode();
 }
