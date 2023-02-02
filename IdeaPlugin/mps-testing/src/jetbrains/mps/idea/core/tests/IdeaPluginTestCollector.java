@@ -20,13 +20,10 @@ import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.util.Reference;
 import org.jetbrains.annotations.NonNls;
 import org.junit.Assert;
-import org.junit.runner.Runner;
-import org.junit.runners.Suite;
-import org.junit.runners.model.InitializationError;
-import org.junit.runners.model.RunnerBuilder;
 
 import java.awt.GraphicsEnvironment;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -35,22 +32,29 @@ import java.util.List;
  * Date: 19.06.17
  */
 
-public class IdeaPluginTestRunner extends Suite {
+public class IdeaPluginTestCollector {
   @NonNls
   private static final String MODULE_NAMES_PROPERTY = "mps.test.module.names";
   @NonNls
   private static final String MODEL_NAMES_PROPERTY = "mps.test.model.references";
+  private final List<Class<?>> myTestClasses;
+  private MPSTestFixture myMpsFixture;
 
-  public IdeaPluginTestRunner(Class<?> klass, RunnerBuilder builder) throws InitializationError {
-    super(klass, getRunners(klass, builder));
+  public IdeaPluginTestCollector(MPSTestFixture mpsFixture) {
+    myMpsFixture = mpsFixture;
+    myTestClasses = collectTestClasses(mpsFixture);
   }
 
-  private static List<Runner> getRunners(Class<?> klass, RunnerBuilder builder) throws InitializationError {
+  public Collection<Class<?>> getTestClasses() {
+    return myTestClasses;
+  }
+
+  private static List<Class<?>> collectTestClasses(MPSTestFixture mpsFixture) {
     Assert.assertNull("Tests control headless setting through system property; environment shall not specify any value for 'java.awt.headless'.", System.getProperty("java.awt.headless"));
     System.setProperty("java.awt.headless", Boolean.FALSE.toString());
     Assert.assertFalse("100+ editor tests would fail in headless mode", GraphicsEnvironment.isHeadless());
-    List<Runner> result = new ArrayList<>();
-    MPSTestFixture mpsFixture = MPSTestFixtureFactory.getFixtureFactory().createMPSFixture(klass.getName());
+    List<Class<?>> result = new ArrayList<>();
+
     try {
       mpsFixture.setUp();
       mpsFixture.addDefaultModelRoot(mpsFixture.getMpsFacet());
@@ -58,7 +62,7 @@ public class IdeaPluginTestRunner extends Suite {
       Reference<Throwable> error = new Reference<>();
       mpsFixture.getModelAccess().executeCommandInEDT(() -> {
         try {
-          result.addAll(loadTestRunners((MPSProject) mpsFixture.getMPSProject(), builder));
+          result.addAll(collectTestClasses((MPSProject) mpsFixture.getMPSProject()));
         } catch (Exception e) {
           error.set(e);
         }
@@ -69,15 +73,14 @@ public class IdeaPluginTestRunner extends Suite {
         throw error.get();
       }
 
-      result.add(new TearDownMpsFixtureRunner(klass, mpsFixture));
     } catch (Throwable e) {
-      throw new InitializationError(e);
+      throw new RuntimeException("error collecting test classes", e);
     }
     return result;
   }
 
-  private static List<Runner> loadTestRunners(MPSProject mpsProject, RunnerBuilder builder) throws Exception {
-    EditorTestLoader tl = new EditorTestLoader(mpsProject, builder);
+  private static List<Class<?>> collectTestClasses(MPSProject mpsProject) throws Exception {
+    EditorTestLoader tl = new EditorTestLoader(mpsProject);
     String modelNames = System.getProperty(MODEL_NAMES_PROPERTY);
     if (modelNames != null) {
       return tl.loadTestClassesFromModels(modelNames).getResult();

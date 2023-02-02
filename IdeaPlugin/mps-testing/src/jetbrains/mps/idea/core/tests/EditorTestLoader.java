@@ -16,42 +16,31 @@
 
 package jetbrains.mps.idea.core.tests;
 
-import com.intellij.openapi.application.ApplicationManager;
-import jetbrains.mps.ide.MPSCoreComponents;
-import jetbrains.mps.ide.ThreadUtils;
 import jetbrains.mps.module.ReloadableModule;
 import jetbrains.mps.project.MPSProject;
-import jetbrains.mps.project.Project;
-import jetbrains.mps.testbench.junit.runners.PushEnvironmentRunnerBuilder;
-import jetbrains.mps.tool.environment.AbstractEnvironment;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
-import org.junit.runner.Runner;
-import org.junit.runners.model.RunnerBuilder;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 /*package*/ class EditorTestLoader {
   private final MPSProject myProject;
-  private final RunnerBuilder myBuilder;
-  private final List<Runner> myResult;
+//  private final RunnerBuilder myBuilder;
+  private final List<Class<?>> myResult;
 
   /**
    * This class expects IDEA Application fully initialized at creation time (accesses MPSCoreComponent).
    */
-  /*package*/EditorTestLoader(MPSProject mpsProject, RunnerBuilder builder) {
+  /*package*/EditorTestLoader(MPSProject mpsProject) {
     myProject = mpsProject;
-    myBuilder = new PushEnvironmentRunnerBuilder(new MPSIDEAPluginTestEnvironment(mpsProject), builder);
     myResult = new ArrayList<>();
   }
 
-  public List<Runner> getResult() {
+  public List<Class<?>> getResult() {
     return myResult;
   }
 
@@ -89,9 +78,9 @@ import java.util.List;
     return this;
   }
 
-  private Runner createEditorTestRunner(SNode root, SModel sModel, ReloadableModule module) throws Exception {
+  private Class<?> createEditorTestRunner(SNode root, SModel sModel, ReloadableModule module) throws Exception {
     Class<?> cls = module.getOwnClass(sModel.getName().getLongName() + "." + root.getName() + "_Test"); //NON-NLS
-    return myBuilder.safeRunnerForClass(cls);
+    return cls;
   }
 
   private static boolean isEditorTestCase(SNode root) {
@@ -107,29 +96,4 @@ import java.util.List;
     return null;
   }
 
-  private static class MPSIDEAPluginTestEnvironment extends AbstractEnvironment {
-    private final MPSProject myProject;
-
-    public MPSIDEAPluginTestEnvironment(MPSProject project) {
-      super(ApplicationManager.getApplication().getComponent(MPSCoreComponents.class).getPlatform());
-      myProject = project;
-    }
-
-    @NotNull
-    @Override
-    public Project openProject(@NotNull File projectFile) {
-      return myProject;
-    }
-
-    @Override
-    public void closeProject(@NotNull Project project) {
-      // intentionally no-op
-    }
-
-    @Override
-    public void flushAllEvents() {
-      // no idea if there's a need for this code, just copy of what used to be in LightEnvironment
-      ThreadUtils.runInUIThreadAndWait(()->{});
-    }
-  }
 }
