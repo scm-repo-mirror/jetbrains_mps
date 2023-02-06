@@ -251,13 +251,14 @@ public abstract class MPSPropertiesConfigurable implements Configurable {
 
   @Override
   public boolean isModified() {
-    for (Tab tab : myTabs) {
-      if (tab.isModified()) {
-        return true;
+    return myMPSProject.getModelAccess().computeReadAction(() -> {
+      for (Tab tab : myTabs) {
+        if (tab.isModified()) {
+          return true;
+        }
       }
-    }
-
-    return false;
+      return false;
+    });
   }
 
   @Override
