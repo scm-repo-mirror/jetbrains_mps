@@ -97,7 +97,6 @@ public class NewLanguage_Action extends BaseAction {
       return;
     }
 
-    mpsProject.save();
     Language l = dialog.getResult();
     if (l == null) {
       return;

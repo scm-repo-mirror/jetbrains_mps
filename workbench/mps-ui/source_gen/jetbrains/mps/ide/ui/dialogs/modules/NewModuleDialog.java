@@ -113,6 +113,11 @@ public class NewModuleDialog<T extends SModule> extends DialogWrapper {
     myValues.onChange(null);
     if (myCreateCode != null) {
       myProject.getModelAccess().executeCommand(() -> myResult = myCreateCode.get());
+      // has to be outside of write/command due to internal asserions, see MPS-35274
+      // however, not sure we do need project save, might be functional w/o explicit save; 
+      // e.g. NewGenerator doesn't save project explicitly and seems to be fine. Anyway, keeping this code
+      // in a single place is better than trying not to forget to put it into every action.
+      myProject.save();
     }
   }
 

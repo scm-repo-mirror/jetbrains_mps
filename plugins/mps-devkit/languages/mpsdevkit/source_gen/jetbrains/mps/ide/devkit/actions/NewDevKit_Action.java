@@ -73,7 +73,6 @@ public class NewDevKit_Action extends BaseAction {
       return;
     }
 
-    mpsProject.save();
     DevKit devkit = dialog.getResult();
     if (devkit == null) {
       return;

@@ -218,15 +218,19 @@
       <node id="3861876536592726361" at="111,87,112,23" concept="2" />
       <node id="3861876536593466104" at="112,23,113,28" concept="2" />
       <node id="3861876536593407811" at="114,31,115,85" concept="2" />
-      <node id="8865490921774317712" at="123,63,124,47" concept="6" />
-      <node id="8865490921774321462" at="125,62,126,46" concept="2" />
-      <node id="3861876536592849782" at="127,5,128,22" concept="7" />
+      <node id="8923485859953870752" at="115,85,116,84" concept="8" />
+      <node id="8923485859955186064" at="116,84,117,91" concept="8" />
+      <node id="8923485859955190292" at="117,91,118,106" concept="8" />
+      <node id="8923485859955198298" at="118,106,119,91" concept="8" />
+      <node id="8923485859953856077" at="119,91,120,23" concept="2" />
+      <node id="8865490921774317712" at="128,63,129,47" concept="6" />
+      <node id="8865490921774321462" at="130,62,131,46" concept="2" />
+      <node id="3861876536592849782" at="132,5,133,22" concept="7" />
       <node id="3861876536592689348" at="98,10,100,5" concept="0" />
       <node id="4316689161506913860" at="34,0,37,0" concept="5" trace="withDimensionKey#(Ljava/lang/String;)V" />
       <node id="3861876536592622984" at="38,0,41,0" concept="5" trace="withCheck#(Ljava/util/function/Supplier;)V" />
       <node id="3861876536592630370" at="45,0,48,0" concept="5" trace="withFactory#(Ljava/util/function/Supplier;)V" />
-      <node id="3861876536592746547" at="113,28,116,5" concept="4" />
-      <node id="8865490921774320558" at="124,47,127,5" concept="4" />
+      <node id="8865490921774320558" at="129,47,132,5" concept="4" />
       <node id="3861876536592905713" at="64,0,68,0" concept="5" trace="getResult#()null" />
       <node id="3861876536592670052" at="103,0,107,0" concept="5" trace="check#()V" />
       <node id="3861876536592579385" at="28,0,33,0" concept="1" trace="NewModuleDialog#(Ljetbrains/mps/project/MPSProject;Ljetbrains/mps/ide/ui/dialogs/modules/NameLocationPanel;)V" />
@@ -236,9 +240,10 @@
       <node id="7650435763716707489" at="75,0,81,0" concept="5" trace="getDimensionServiceKey#()Ljava/lang/String;" />
       <node id="3585271658665092563" at="56,0,63,0" concept="5" trace="continuousValidation#()Z" />
       <node id="8865490921774360871" at="83,0,90,0" concept="5" trace="createCenterPanel#()Ljavax/swing/JComponent;" />
-      <node id="3861876536592834151" at="123,0,130,0" concept="10" trace="projectHome#(Ljetbrains/mps/project/MPSProject;)Ljava/io/File;" />
-      <node id="3861876536592726354" at="109,0,118,0" concept="5" trace="doOKAction#()V" />
+      <node id="3861876536592834151" at="128,0,135,0" concept="10" trace="projectHome#(Ljetbrains/mps/project/MPSProject;)Ljava/io/File;" />
+      <node id="3861876536592746547" at="113,28,121,5" concept="4" />
       <node id="9174501048965074798" at="92,0,102,0" concept="5" trace="doValidate#()Lcom/intellij/openapi/ui/ValidationInfo;" />
+      <node id="3861876536592726354" at="109,0,123,0" concept="5" trace="doOKAction#()V" />
       <scope id="4316689161506913863" at="34,63,35,34" />
       <scope id="3861876536592622988" at="38,64,39,29" />
       <scope id="3861876536592630373" at="45,62,46,31" />
@@ -247,8 +252,7 @@
       <scope id="7650435763716707493" at="78,45,79,87" />
       <scope id="3861876536592677930" at="96,22,97,18" />
       <scope id="3861876536592689349" at="98,12,99,37" />
-      <scope id="3861876536592746549" at="114,31,115,85" />
-      <scope id="8865490921774320560" at="125,62,126,46" />
+      <scope id="8865490921774320560" at="130,62,131,46" />
       <scope id="3861876536592670056" at="103,26,105,21" />
       <scope id="3861876536592579389" at="28,74,31,24" />
       <scope id="4316689161506913860" at="34,0,37,0">
@@ -270,7 +274,7 @@
         <var name="settings" id="3861876536592579432" />
       </scope>
       <scope id="8865490921774448295" at="69,0,74,0" />
-      <scope id="3861876536592834154" at="123,63,128,22">
+      <scope id="3861876536592834154" at="128,63,133,22">
         <var name="projectLoc" id="8865490921774317713" />
       </scope>
       <scope id="3861876536592620311" at="49,0,55,0" />
@@ -278,15 +282,16 @@
       <scope id="9174501048965074803" at="94,41,100,5">
         <var name="err" id="3861876536592691188" />
       </scope>
-      <scope id="3861876536592726358" at="110,31,116,5" />
+      <scope id="3861876536592746549" at="114,31,120,23" />
       <scope id="3585271658665092563" at="56,0,63,0" />
       <scope id="8865490921774360871" at="83,0,90,0" />
-      <scope id="3861876536592834151" at="123,0,130,0">
+      <scope id="3861876536592834151" at="128,0,135,0">
         <var name="project" id="3861876536592843255" />
       </scope>
-      <scope id="3861876536592726354" at="109,0,118,0" />
       <scope id="9174501048965074798" at="92,0,102,0" />
-      <unit id="3861876536592569598" at="18,0,131,0" name="jetbrains.mps.ide.ui.dialogs.modules.NewModuleDialog" />
+      <scope id="3861876536592726358" at="110,31,121,5" />
+      <scope id="3861876536592726354" at="109,0,123,0" />
+      <unit id="3861876536592569598" at="18,0,136,0" name="jetbrains.mps.ide.ui.dialogs.modules.NewModuleDialog" />
     </file>
   </root>
   <root nodeRef="r:47803144-d0ed-4800-ae84-e83a292e3adb(jetbrains.mps.ide.ui.dialogs.modules)/8865490921770283968">

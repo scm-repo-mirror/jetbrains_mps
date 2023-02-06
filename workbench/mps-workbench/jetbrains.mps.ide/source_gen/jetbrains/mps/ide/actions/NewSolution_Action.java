@@ -75,7 +75,6 @@ public class NewSolution_Action extends BaseAction {
       return;
     }
 
-    mpsProject.save();
     Solution solution = dialog.getResult();
     if (solution == null) {
       return;

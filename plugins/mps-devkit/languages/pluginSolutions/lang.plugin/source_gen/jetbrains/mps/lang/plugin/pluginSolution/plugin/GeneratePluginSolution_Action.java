@@ -80,7 +80,6 @@ public class GeneratePluginSolution_Action extends BaseAction {
       return;
     }
 
-    mpsProject.save();
     final Solution s = dialog.getResult();
     if (s == null) {
       return;
