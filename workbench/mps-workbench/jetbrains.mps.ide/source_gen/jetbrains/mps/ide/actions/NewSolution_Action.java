@@ -66,7 +66,6 @@ public class NewSolution_Action extends BaseAction {
       final SolutionProducer sp = new SolutionProducer(mpsProject);
       Solution result = sp.create(moduleName, mpsProject.getFileSystem().getFile(moduleLocation));
       mpsProject.setVirtualFolder(result, virtualFolder);
-      mpsProject.save();
       return result;
     });
 
@@ -76,6 +75,7 @@ public class NewSolution_Action extends BaseAction {
       return;
     }
 
+    mpsProject.save();
     Solution solution = dialog.getResult();
     if (solution == null) {
       return;
