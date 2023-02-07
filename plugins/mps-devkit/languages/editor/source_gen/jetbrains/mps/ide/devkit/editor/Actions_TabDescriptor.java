@@ -17,7 +17,10 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.LanguageAspect;
+import jetbrains.mps.smodel.language.LanguageAspectDescriptor;
+import jetbrains.mps.smodel.language.LanguageAspectSupport;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.plugins.relations.CreateAspectContext;
 import jetbrains.mps.kernel.language.ConceptAspectsHelper;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
@@ -67,10 +70,30 @@ public class Actions_TabDescriptor extends RelationDescriptor {
     return false;
   }
   public Iterable<SConcept> getAspectConcepts(final SNode node) {
-    return ConceptEditorHelper.getAvailableConceptAspects(LanguageAspect.ACTIONS, node);
+    LanguageAspectDescriptor ad = LanguageAspectSupport.getAspectDescriptorById("actions");
+    List<SConcept> rv = ListSequence.fromList(new ArrayList<SConcept>());
+    if (ad != null) {
+      for (SLanguage l : ad.getMainLanguages()) {
+        ConceptEditorHelper.getAvailableConceptAspects(l, node);
+      }
+    }
+    return rv;
   }
   protected SNode doCreateAspect(final CreateAspectContext _context) {
-    return ConceptAspectsHelper.attachNewConceptAspect(LanguageAspect.ACTIONS, _context.getBaseNode(), SNodeFactoryOperations.createNewNode(((SAbstractConcept) _context.getAspectConcept()), null));
+    SModule lang = SNodeOperations.getModel(_context.getBaseNode()).getModule();
+    SModel actionsAspectModel = SModuleOperations.getAspect(lang, "actions");
+    if (actionsAspectModel == null) {
+      LanguageAspectDescriptor ad = LanguageAspectSupport.getAspectDescriptorById("actions");
+      jetbrains.mps.smodel.language.CreateAspectContext cac = jetbrains.mps.smodel.language.CreateAspectContext.create(lang, _context.getProject().getPlatform(), null);
+      if (ad != null && ad.canCreate(cac)) {
+        ad.create(cac);
+        actionsAspectModel = SModuleOperations.getAspect(lang, "actions");
+      }
+    }
+    if (actionsAspectModel == null) {
+      return null;
+    }
+    return ConceptAspectsHelper.attachNewConceptAspect(_context.getBaseNode(), SNodeFactoryOperations.createNewNode(((SAbstractConcept) _context.getAspectConcept()), null), actionsAspectModel);
   }
 
   private static final class CONCEPTS {

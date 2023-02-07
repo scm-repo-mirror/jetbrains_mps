@@ -30,12 +30,17 @@ public class ConceptAspectsHelper {
       SPropertyOperations.assign(aspectNode, PROPS.virtualPackage$EkXl, SPropertyOperations.getString(conceptNode, PROPS.virtualPackage$EkXl));
     }
     if (SNodeOperations.getModel(aspectNode) == null) {
-      // aspectNode could be result of new initialized root and have model assigned already
+      // aspectNode could be result of `new initialized root` op and have model assigned already
       SModelOperations.addRootNode(aspectModel, aspectNode);
     }
     return aspectNode;
   }
 
+  /**
+   * 
+   * @deprecated use LanguageAspectDescriptor#create() instead
+   */
+  @Deprecated
   public static <T extends SNode> T attachNewConceptAspect(LanguageAspect aspect, SNode conceptNode, T aspectNode) {
     // [MM] this LanguageAspect usage is reviewed
     Language language = SModelUtil.getDeclaringLanguage(conceptNode);

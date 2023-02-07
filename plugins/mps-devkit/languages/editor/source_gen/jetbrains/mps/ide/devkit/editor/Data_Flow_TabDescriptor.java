@@ -19,9 +19,10 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.plugins.relations.CreateAspectContext;
-import jetbrains.mps.kernel.language.ConceptAspectsHelper;
-import jetbrains.mps.smodel.LanguageAspect;
+import jetbrains.mps.smodel.language.LanguageAspectDescriptor;
+import jetbrains.mps.smodel.language.LanguageAspectSupport;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
+import jetbrains.mps.kernel.language.ConceptAspectsHelper;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class Data_Flow_TabDescriptor extends RelationDescriptor {
@@ -71,7 +72,21 @@ public class Data_Flow_TabDescriptor extends RelationDescriptor {
     return ListSequence.fromListAndArray(new ArrayList<SConcept>(), CONCEPTS.DataFlowBuilderDeclaration$NP);
   }
   protected SNode doCreateAspect(final CreateAspectContext _context) {
-    return ConceptAspectsHelper.attachNewConceptAspect(LanguageAspect.DATA_FLOW, _context.getBaseNode(), SNodeFactoryOperations.createNewNode(CONCEPTS.DataFlowBuilderDeclaration$NP, null));
+    SModule lang = SNodeOperations.getModel(_context.getBaseNode()).getModule();
+    SModel am = SModuleOperations.getAspect(lang, "dataFlow");
+    if (am == null) {
+      LanguageAspectDescriptor ad = LanguageAspectSupport.getAspectDescriptorById("dataFlow");
+      jetbrains.mps.smodel.language.CreateAspectContext cac = jetbrains.mps.smodel.language.CreateAspectContext.create(lang, _context.getProject().getPlatform(), null);
+      if (ad != null && ad.canCreate(cac)) {
+        ad.create(cac);
+        am = SModuleOperations.getAspect(lang, "dataFlow");
+      }
+    }
+    if (am == null) {
+      return null;
+    }
+    SNode rv = SNodeFactoryOperations.createNewRootNode(am, CONCEPTS.DataFlowBuilderDeclaration$NP, null);
+    return ConceptAspectsHelper.attachNewConceptAspect(_context.getBaseNode(), rv, am);
   }
 
   private static final class CONCEPTS {

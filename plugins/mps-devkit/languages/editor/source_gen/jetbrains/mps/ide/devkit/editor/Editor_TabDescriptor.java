@@ -19,7 +19,9 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.LanguageAspect;
+import jetbrains.mps.smodel.language.LanguageAspectDescriptor;
+import jetbrains.mps.smodel.language.LanguageAspectSupport;
+import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.plugins.relations.CreateAspectContext;
 import jetbrains.mps.kernel.language.ConceptAspectsHelper;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
@@ -70,10 +72,30 @@ public class Editor_TabDescriptor extends RelationDescriptor {
     return false;
   }
   public Iterable<SConcept> getAspectConcepts(final SNode node) {
-    return ConceptEditorHelper.getAvailableConceptAspects(LanguageAspect.EDITOR, node);
+    LanguageAspectDescriptor ad = LanguageAspectSupport.getAspectDescriptorById("editor");
+    List<SConcept> rv = ListSequence.fromList(new ArrayList<SConcept>());
+    if (ad != null) {
+      for (SLanguage l : ad.getMainLanguages()) {
+        ConceptEditorHelper.getAvailableConceptAspects(l, node);
+      }
+    }
+    return rv;
   }
   protected SNode doCreateAspect(final CreateAspectContext _context) {
-    return ConceptAspectsHelper.attachNewConceptAspect(LanguageAspect.EDITOR, _context.getBaseNode(), SNodeFactoryOperations.createNewNode(((SAbstractConcept) _context.getAspectConcept()), null));
+    SModule lang = SNodeOperations.getModel(_context.getBaseNode()).getModule();
+    SModel am = SModuleOperations.getAspect(lang, "editor");
+    if (am == null) {
+      LanguageAspectDescriptor ad = LanguageAspectSupport.getAspectDescriptorById("editor");
+      jetbrains.mps.smodel.language.CreateAspectContext cac = jetbrains.mps.smodel.language.CreateAspectContext.create(lang, _context.getProject().getPlatform(), null);
+      if (ad != null && ad.canCreate(cac)) {
+        ad.create(cac);
+        am = SModuleOperations.getAspect(lang, "editor");
+      }
+    }
+    if (am == null) {
+      return null;
+    }
+    return ConceptAspectsHelper.attachNewConceptAspect(_context.getBaseNode(), SNodeFactoryOperations.createNewNode(((SAbstractConcept) _context.getAspectConcept()), null), am);
   }
 
   private static final class CONCEPTS {

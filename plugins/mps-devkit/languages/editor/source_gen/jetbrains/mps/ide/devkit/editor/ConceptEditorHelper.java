@@ -12,8 +12,6 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.structure.behavior.IConceptAspect__BehaviorDescriptor;
-import jetbrains.mps.smodel.LanguageAspect;
-import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
@@ -38,14 +36,6 @@ public class ConceptEditorHelper {
       if ((boolean) IConceptAspect__BehaviorDescriptor.canBeAppliedToNode_id7IH442d05tK.invoke(SNodeOperations.asSConcept(SNodeOperations.castConcept(c, CONCEPTS.IConceptAspect$Z3)), node)) {
         ListSequence.fromList(result).addElement(((SConcept) c));
       }
-    }
-    return result;
-  }
-  public static List<SConcept> getAvailableConceptAspects(LanguageAspect aspect, SNode node) {
-    // [MM] this LanguageAspect usage is reviewed
-    List<SConcept> result = ListSequence.fromList(new ArrayList<SConcept>());
-    for (SLanguage slang : CollectionSequence.fromCollection(aspect.getMainLanguages())) {
-      ListSequence.fromList(result).addSequence(ListSequence.fromList(getAvailableConceptAspects(slang, node)));
     }
     return result;
   }
