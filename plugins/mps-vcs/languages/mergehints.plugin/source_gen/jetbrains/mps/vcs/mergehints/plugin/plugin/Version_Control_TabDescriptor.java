@@ -12,13 +12,13 @@ import java.util.ArrayList;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.smodel.Language;
 import org.jetbrains.mps.openapi.model.SModel;
-import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
+import jetbrains.mps.plugins.relations.CreateAspectContext;
 import jetbrains.mps.smodel.language.LanguageAspectDescriptor;
 import jetbrains.mps.smodel.language.LanguageAspectSupport;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -57,13 +57,7 @@ public class Version_Control_TabDescriptor extends RelationDescriptor {
       return nodes;
     }
 
-    // todo [MM] use aspectModel// expression here when possible
-    Iterable<SModel> models = module.getModels();
-    SModel vcsModel = Sequence.fromIterable(models).findFirst(new IWhereFilter<SModel>() {
-      public boolean accept(SModel it) {
-        return it.getName().getSimpleName().equals("vcs");
-      }
-    });
+    SModel vcsModel = SModuleOperations.getAspect(module, "vcs");
     if (vcsModel == null) {
       return nodes;
     }
@@ -85,28 +79,27 @@ public class Version_Control_TabDescriptor extends RelationDescriptor {
   public Iterable<SConcept> getAspectConcepts(final SNode node) {
     return ListSequence.fromListAndArray(new ArrayList<SConcept>(), CONCEPTS.VCSHints$kA);
   }
-  public SNode createAspect(final SNode node, final SConcept concept) {
-    SModule module = SNodeOperations.getModel(node).getModule();
-    assert module instanceof Language;
-
+  protected SNode doCreateAspect(final CreateAspectContext _context) {
+    SModule module = SNodeOperations.getModel(_context.getBaseNode()).getModule();
     SModel aspectModel = SModuleOperations.getAspect(module, "vcs");
     if (aspectModel == null) {
       // XXX Similar to other places, like LanguageProducer.createMainLanguageAspects(), would be great to unify
       LanguageAspectDescriptor vcsAD = LanguageAspectSupport.getAspectDescriptorById("vcs");
-      if (vcsAD == null || !(vcsAD.canCreate(module))) {
+      jetbrains.mps.smodel.language.CreateAspectContext cac = jetbrains.mps.smodel.language.CreateAspectContext.create(module, _context.getProject().getPlatform(), null);
+      if (vcsAD == null || !(vcsAD.canCreate(cac))) {
         return null;
       }
-      vcsAD.create(module);
-      // XXX can't spoil the party with ModelsAutoImportsManager here, but too lazy to do it now, 
-      // there are no imports for VCS aspect to my best knowledge
+      vcsAD.create(cac);
+      // can get result through CreateAspectContext, but can tolerate the other way 
       aspectModel = vcsAD.getAspectModels(module).stream().findAny().orElse(null);
     }
 
     assert aspectModel != null;
     SNode hints = SModelOperations.createNewRootNode(aspectModel, MetaAdapterFactory.getConcept(0x37e03aa1728949bcL, 0x826930de5eceec76L, 0x39744cf955c648f9L, "jetbrains.mps.vcs.mergehints.structure.VCSHints"));
-    SPropertyOperations.assign(hints, PROPS.name$MnvL, SPropertyOperations.getString(node, PROPS.name$MnvL) + "_Hints");
+    SPropertyOperations.assign(hints, PROPS.name$MnvL, SPropertyOperations.getString(_context.getBaseNode(), PROPS.name$MnvL) + "_Hints");
     SNode conceptHint = SLinkOperations.addNewChild(hints, LINKS.concepts$nb$7, null);
-    SLinkOperations.setTarget(conceptHint, LINKS.cncpt$ubC$, node);
+    // FIXME once nodePointer has property type (node-ptr<EditorTab.baseNodeConcept>), can use set-ptr here
+    SLinkOperations.setTarget(conceptHint, LINKS.cncpt$ubC$, _context.getBaseNode());
 
     return hints;
   }
