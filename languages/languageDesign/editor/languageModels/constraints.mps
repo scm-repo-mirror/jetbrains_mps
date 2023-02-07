@@ -3139,16 +3139,10 @@
       <node concept="3clFbS" id="1quYWAD51$8" role="2VODD2">
         <node concept="3clFbF" id="1quYWAD51Fg" role="3cqZAp">
           <node concept="22lmx$" id="1quYWAD51Fh" role="3clFbG">
-            <node concept="2OqwBi" id="1quYWAD51Fi" role="3uHU7B">
-              <node concept="Rm8GO" id="1quYWAD51Fj" role="2Oq$k0">
-                <ref role="Rm8GQ" to="w1kc:~LanguageAspect.EDITOR" resolve="EDITOR" />
-                <ref role="1Px2BO" to="w1kc:~LanguageAspect" resolve="LanguageAspect" />
-              </node>
-              <node concept="liA8E" id="1quYWAD51Fk" role="2OqNvi">
-                <ref role="37wK5l" to="w1kc:~LanguageAspect.is(org.jetbrains.mps.openapi.model.SModel)" resolve="is" />
-                <node concept="2JrnkZ" id="1quYWAD51Fl" role="37wK5m">
-                  <node concept="1Q6Npb" id="1quYWAD51Fm" role="2JrQYb" />
-                </node>
+            <node concept="2OqwBi" id="5igXSCNobqe" role="3uHU7B">
+              <node concept="1Q6Npb" id="5igXSCNobcO" role="2Oq$k0" />
+              <node concept="3zA4fs" id="5igXSCNobzJ" role="2OqNvi">
+                <ref role="3zA4av" to="9anm:2LiUEk8oQ$g" resolve="editor" />
               </node>
             </node>
             <node concept="2YIFZM" id="1quYWAD51Fn" role="3uHU7w">
@@ -3187,16 +3181,10 @@
       <node concept="3clFbS" id="1quYWAD5s6L" role="2VODD2">
         <node concept="3clFbF" id="1quYWAD5sdT" role="3cqZAp">
           <node concept="22lmx$" id="1quYWAD5sdU" role="3clFbG">
-            <node concept="2OqwBi" id="1quYWAD5sdV" role="3uHU7B">
-              <node concept="Rm8GO" id="1quYWAD5sdW" role="2Oq$k0">
-                <ref role="Rm8GQ" to="w1kc:~LanguageAspect.EDITOR" resolve="EDITOR" />
-                <ref role="1Px2BO" to="w1kc:~LanguageAspect" resolve="LanguageAspect" />
-              </node>
-              <node concept="liA8E" id="1quYWAD5sdX" role="2OqNvi">
-                <ref role="37wK5l" to="w1kc:~LanguageAspect.is(org.jetbrains.mps.openapi.model.SModel)" resolve="is" />
-                <node concept="2JrnkZ" id="1quYWAD5sdY" role="37wK5m">
-                  <node concept="1Q6Npb" id="1quYWAD5sdZ" role="2JrQYb" />
-                </node>
+            <node concept="2OqwBi" id="3Ad6SpnKqb5" role="3uHU7B">
+              <node concept="1Q6Npb" id="3Ad6SpnKq1F" role="2Oq$k0" />
+              <node concept="3zA4fs" id="3Ad6SpnKqkA" role="2OqNvi">
+                <ref role="3zA4av" to="9anm:2LiUEk8oQ$g" resolve="editor" />
               </node>
             </node>
             <node concept="2YIFZM" id="1quYWAD5se0" role="3uHU7w">
@@ -3592,16 +3580,10 @@
       <node concept="3clFbS" id="1quYWAD5spV" role="2VODD2">
         <node concept="3clFbF" id="1quYWAD5stv" role="3cqZAp">
           <node concept="22lmx$" id="1quYWAD5stw" role="3clFbG">
-            <node concept="2OqwBi" id="1quYWAD5stx" role="3uHU7B">
-              <node concept="Rm8GO" id="1quYWAD5sty" role="2Oq$k0">
-                <ref role="1Px2BO" to="w1kc:~LanguageAspect" resolve="LanguageAspect" />
-                <ref role="Rm8GQ" to="w1kc:~LanguageAspect.EDITOR" resolve="EDITOR" />
-              </node>
-              <node concept="liA8E" id="1quYWAD5stz" role="2OqNvi">
-                <ref role="37wK5l" to="w1kc:~LanguageAspect.is(org.jetbrains.mps.openapi.model.SModel)" resolve="is" />
-                <node concept="2JrnkZ" id="1quYWAD5st$" role="37wK5m">
-                  <node concept="1Q6Npb" id="1quYWAD5st_" role="2JrQYb" />
-                </node>
+            <node concept="2OqwBi" id="5igXSCNobY9" role="3uHU7B">
+              <node concept="1Q6Npb" id="5igXSCNobOJ" role="2Oq$k0" />
+              <node concept="3zA4fs" id="5igXSCNoc6$" role="2OqNvi">
+                <ref role="3zA4av" to="9anm:2LiUEk8oQ$g" resolve="editor" />
               </node>
             </node>
             <node concept="2YIFZM" id="1quYWAD5stA" role="3uHU7w">

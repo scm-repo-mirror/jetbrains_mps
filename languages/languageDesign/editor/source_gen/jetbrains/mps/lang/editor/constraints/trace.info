@@ -1000,7 +1000,7 @@
       <node id="1630016958698363142" at="30,55,31,70" concept="2" />
       <node id="1630016958698363142" at="32,9,33,0" concept="9" />
       <node id="1630016958698363142" at="33,0,34,22" concept="7" />
-      <node id="1630016958698363600" at="38,57,39,87" concept="7" />
+      <node id="1630016958698363600" at="38,57,39,99" concept="7" />
       <node id="1630016958698363142" at="41,0,42,0" concept="10" trace="canBeRootBreakingPoint" />
       <node id="1630016958698363142" at="44,0,45,0" concept="10" trace="TransformationMenuContribution$jD" />
       <node id="1630016958698363142" at="19,0,22,0" concept="0" trace="TransformationMenuContribution_Constraints#()V" />
@@ -1011,7 +1011,7 @@
       <node id="1630016958698363142" at="23,0,38,0" concept="5" trace="calculateCanBeRootConstraint#()Ljetbrains/mps/smodel/runtime/ConstraintFunction;" />
       <scope id="1630016958698363142" at="19,55,20,54" />
       <scope id="1630016958698363142" at="30,55,31,70" />
-      <scope id="1630016958698363144" at="38,57,39,87" />
+      <scope id="1630016958698363144" at="38,57,39,99" />
       <scope id="1630016958698363142" at="19,0,22,0" />
       <scope id="1630016958698363142" at="38,0,41,0">
         <var name="model" id="1630016958698363142" />
@@ -1146,7 +1146,7 @@
       <node id="1630016958698471624" at="30,55,31,70" concept="2" />
       <node id="1630016958698471624" at="32,9,33,0" concept="9" />
       <node id="1630016958698471624" at="33,0,34,22" concept="7" />
-      <node id="1630016958698472313" at="38,57,39,87" concept="7" />
+      <node id="1630016958698472313" at="38,57,39,99" concept="7" />
       <node id="1630016958698471624" at="41,0,42,0" concept="10" trace="canBeRootBreakingPoint" />
       <node id="1630016958698471624" at="44,0,45,0" concept="10" trace="SubstituteMenu$EF" />
       <node id="1630016958698471624" at="19,0,22,0" concept="0" trace="SubstituteMenu_Constraints#()V" />
@@ -1157,7 +1157,7 @@
       <node id="1630016958698471624" at="23,0,38,0" concept="5" trace="calculateCanBeRootConstraint#()Ljetbrains/mps/smodel/runtime/ConstraintFunction;" />
       <scope id="1630016958698471624" at="19,39,20,38" />
       <scope id="1630016958698471624" at="30,55,31,70" />
-      <scope id="1630016958698471857" at="38,57,39,87" />
+      <scope id="1630016958698471857" at="38,57,39,99" />
       <scope id="1630016958698471624" at="19,0,22,0" />
       <scope id="1630016958698471624" at="38,0,41,0">
         <var name="model" id="1630016958698471624" />
@@ -1184,7 +1184,7 @@
       <node id="1630016958698473081" at="30,55,31,70" concept="2" />
       <node id="1630016958698473081" at="32,9,33,0" concept="9" />
       <node id="1630016958698473081" at="33,0,34,22" concept="7" />
-      <node id="1630016958698473311" at="38,57,39,87" concept="7" />
+      <node id="1630016958698473311" at="38,57,39,99" concept="7" />
       <node id="1630016958698473081" at="41,0,42,0" concept="10" trace="canBeRootBreakingPoint" />
       <node id="1630016958698473081" at="44,0,45,0" concept="10" trace="SubstituteMenu_Contribution$s3" />
       <node id="1630016958698473081" at="19,0,22,0" concept="0" trace="SubstituteMenu_Contribution_Constraints#()V" />
@@ -1195,7 +1195,7 @@
       <node id="1630016958698473081" at="23,0,38,0" concept="5" trace="calculateCanBeRootConstraint#()Ljetbrains/mps/smodel/runtime/ConstraintFunction;" />
       <scope id="1630016958698473081" at="19,52,20,51" />
       <scope id="1630016958698473081" at="30,55,31,70" />
-      <scope id="1630016958698473083" at="38,57,39,87" />
+      <scope id="1630016958698473083" at="38,57,39,99" />
       <scope id="1630016958698473081" at="19,0,22,0" />
       <scope id="1630016958698473081" at="38,0,41,0">
         <var name="model" id="1630016958698473081" />
