@@ -17,13 +17,11 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.kernel.model.SModelUtil;
+import jetbrains.mps.plugins.relations.CreateAspectContext;
 import jetbrains.mps.smodel.language.LanguageAspectDescriptor;
 import jetbrains.mps.smodel.language.LanguageAspectSupport;
-import com.intellij.openapi.ui.Messages;
-import java.util.Objects;
-import jetbrains.mps.smodel.action.NodeFactoryManager;
-import jetbrains.mps.kernel.language.ConceptAspectsHelper;
+import jetbrains.mps.smodel.action.SNodeFactoryOperations;
+import jetbrains.mps.lang.structure.behavior.IConceptAspect__BehaviorDescriptor;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class Feedback_TabDescriptor extends RelationDescriptor {
@@ -77,22 +75,26 @@ public class Feedback_TabDescriptor extends RelationDescriptor {
   public Iterable<SConcept> getAspectConcepts(final SNode node) {
     return ListSequence.fromListAndArray(new ArrayList<SConcept>(), CONCEPTS.FeedbackPerConceptRoot$Vm);
   }
-  public SNode createAspect(final SNode node, final SConcept concept) {
-    Language lang = SModelUtil.getDeclaringLanguage(node);
-    assert lang != null : "Language cannot be null for " + SNodeOperations.present(node);
+  protected SNode doCreateAspect(final CreateAspectContext _context) {
+    SModule module = SNodeOperations.getModel(_context.getBaseNode()).getModule();
     LanguageAspectDescriptor feedbackAspect = LanguageAspectSupport.getAspectDescriptorById("feedback");
-    if (feedbackAspect == null) {
-      Messages.showErrorDialog("Feedback aspect is not found", "Aspect Not Deployed");
+    if (module == null || feedbackAspect == null) {
+      // FIXME used to be MessageDialog here, which is wrong, provided we're inside command here
+      // however, some reporting would be nice
       return null;
     }
-    SModel feedbackModel = Objects.requireNonNull(feedbackAspect).getAspectModels(lang).stream().findAny().orElse(null);
+    SModel feedbackModel = SModuleOperations.getAspect(module, "feedback");
     if (feedbackModel == null) {
-      feedbackAspect.create(lang);
-      feedbackModel = feedbackAspect.getAspectModels(lang).stream().findAny().orElse(null);
+      feedbackAspect.create(jetbrains.mps.smodel.language.CreateAspectContext.create(module, _context.getProject().getPlatform(), null));
+      feedbackModel = SModuleOperations.getAspect(module, "feedback");
     }
-    assert feedbackModel != null;
-    SNode newConceptAspectRoot = (SNode) NodeFactoryManager.createNode(concept, null, null, feedbackModel);
-    return ConceptAspectsHelper.attachNewConceptAspect(node, newConceptAspectRoot, feedbackModel);
+    if (feedbackModel == null) {
+      return null;
+    }
+    SNode newConceptAspectRoot = SNodeFactoryOperations.createNewRootNode(feedbackModel, CONCEPTS.FeedbackPerConceptRoot$Vm, null);
+    IConceptAspect__BehaviorDescriptor.setBaseConcept_id5r_35Ihc58c.invoke(newConceptAspectRoot, _context.getBaseNode());
+    // virtual package is assigned by generic code of CreateGroupsBuilder.CreateAction
+    return newConceptAspectRoot;
   }
 
   private static final class CONCEPTS {
