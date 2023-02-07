@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,6 @@ import com.intellij.openapi.fileChooser.ex.FileNodeDescriptor;
 import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.vfs.VirtualFile;
 import jetbrains.mps.extapi.persistence.DefaultSourceRoot;
-import jetbrains.mps.extapi.persistence.FileBasedModelRoot;
 import jetbrains.mps.extapi.persistence.SourceRoot;
 import jetbrains.mps.extapi.persistence.SourceRootKind;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
@@ -77,8 +76,7 @@ public abstract class ToggleFBModelRootKindAction extends ToggleAction implement
 
   @Nullable
   private SourceRoot getSourceRootByPath(@NotNull IFile path) {
-    final FileBasedModelRoot modelRoot = myModelRootEditor.getFileBasedModelRootEntry().getModelRoot();
-    return modelRoot.getSourceRoots(getKind()).stream().filter(sourceRoot -> sourceRoot.getAbsolutePath().equals(path)).findAny().orElse(null);
+    return myModelRootEditor.getFileBasedModelRootEntry().getSourceRootByPath(getKind(), path);
   }
 
   @Override
@@ -86,22 +84,19 @@ public abstract class ToggleFBModelRootKindAction extends ToggleAction implement
     final List<IFile> selectedFiles = getSelectedFiles(e);
     assert !selectedFiles.isEmpty();
 
-    final FileBasedModelRoot modelRoot = myModelRootEditor.getFileBasedModelRootEntry().getModelRoot();
-
-    assert !modelRoot.isRegistered();
     for (IFile selectedFile : selectedFiles) {
       SourceRoot sourceRootByPath = getSourceRootByPath(selectedFile);
       if (enabled) {
         assert sourceRootByPath == null;
-        modelRoot.addSourceRoot(getKind(), new DefaultSourceRoot(selectedFile));
+        myModelRootEditor.getFileBasedModelRootEntry().addSourceRoot(getKind(), new DefaultSourceRoot(selectedFile));
       } else {
         assert sourceRootByPath != null;
-        modelRoot.removeSourceRoot(sourceRootByPath);
+        myModelRootEditor.getFileBasedModelRootEntry().removeSourceRoot(getKind(), sourceRootByPath);
       }
     }
 
-
     myTree.updateUI();
+    // access editor's data to updateUI()?! Cool!
     myModelRootEditor.getFileBasedModelRootEntry().updateUI();
   }
 

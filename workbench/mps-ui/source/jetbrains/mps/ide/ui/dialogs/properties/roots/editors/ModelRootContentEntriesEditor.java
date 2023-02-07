@@ -343,11 +343,12 @@ public class ModelRootContentEntriesEditor implements Disposable {
       Set<VirtualFile> candidatesForIntersection = new HashSet<>();
       for (ModelRootEntryContainer existingEntryContainer : myModelRootEntries) {
         if (entry.getClass().equals(existingEntryContainer.getModelRootEntry().getClass())) {
-          FileBasedModelRoot existingModelRoot = (FileBasedModelRoot) existingEntryContainer.getModelRootEntry().getModelRoot();
+          // XXX the cast here is not necessarily correct, various MREntry use same FileBasedModelRoot
+          FileBasedModelRootEntry existingMRE = (FileBasedModelRootEntry) existingEntryContainer.getModelRootEntry();
           @SuppressWarnings("removal")
-          VirtualFile vFile = existingModelRoot.getContentDirectory() == null ? null : myProject.getFileSystem().asVirtualFile(existingModelRoot.getContentDirectory());
+          VirtualFile vFile = existingMRE.getContentDirectory() == null ? null : myProject.getFileSystem().asVirtualFile(existingMRE.getContentDirectory());
           if (vFile == null) {
-            LOG.error("Can't find file for model root. This root will not be checked for intersection with others. Path: " + existingModelRoot.getContentDirectory());
+            LOG.error("Can't find file for model root. This root will not be checked for intersection with others. Path: " + existingMRE.getContentDirectory());
             continue;
           }
           candidatesForIntersection.add(vFile);

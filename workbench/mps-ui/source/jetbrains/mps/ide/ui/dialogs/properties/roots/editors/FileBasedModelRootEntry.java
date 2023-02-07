@@ -18,6 +18,7 @@ package jetbrains.mps.ide.ui.dialogs.properties.roots.editors;
 import com.intellij.icons.AllIcons.Actions;
 import com.intellij.icons.AllIcons.Modules;
 import com.intellij.openapi.util.SystemInfo;
+import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.ui.Gray;
 import com.intellij.ui.HoverHyperlinkLabel;
 import com.intellij.ui.JBColor;
@@ -35,6 +36,7 @@ import jetbrains.mps.extapi.persistence.SourceRoot;
 import jetbrains.mps.extapi.persistence.SourceRootKind;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.vfs.IFile;
+import jetbrains.mps.vfs.IFileSystem;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.ui.persistence.ModelRootEntry;
@@ -55,8 +57,11 @@ import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Stroke;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST;
@@ -76,6 +81,9 @@ public final class FileBasedModelRootEntry implements ModelRootEntry<FileBasedMo
 
   private FileBasedModelRootEditor myFileBasedModelRootEditor;
 
+  private IFile myContentDirectory;
+  private HashMap<SourceRootKind, List<SourceRoot>> mySourceRoots;
+
   public FileBasedModelRootEntry(@NotNull MPSProject mpsProject, @NotNull FileBasedModelRoot modelRoot) {
     // XXX alternatively, may supply idea project right into getEditor, as this set of API depends on IDEA anyway
     ///    (ModelRootEntry extends Disposable), which might be easier from migration standpoint.
@@ -83,7 +91,57 @@ public final class FileBasedModelRootEntry implements ModelRootEntry<FileBasedMo
     //     prior to editor construction.
     myProject = mpsProject;
     myFileBasedModelRoot = modelRoot;
+    // copy values we're going to edit. FileBasedModelRoot instance might need model read and therefore can't be accessed arbitrary.
+    // here we shall get appropriate lock by construction
+    myContentDirectory = modelRoot.getContentDirectory();
+    mySourceRoots = new HashMap<>();
+    for (SourceRootKind srk : modelRoot.getSupportedFileKinds1()) {
+      mySourceRoots.put(srk, modelRoot.getSourceRoots(srk));
+    }
   }
+
+  /*package*/ IFile getContentDirectory() {
+    return myContentDirectory;
+  }
+
+  /*package*/ void setContentDirectory(IFile contentDirectory) {
+    myContentDirectory = contentDirectory;
+  }
+
+  @Nullable
+  /*package*/ SourceRootKind isFileUnderRoot(VirtualFile file) {
+    final String filePath = file.getPath();
+    for (SourceRootKind kind : mySourceRoots.keySet()) {
+      Collection<SourceRoot> sr = mySourceRoots.get(kind);
+      for (SourceRoot r : sr) {
+        final String srFilePath = r.getAbsolutePath().getPath();
+        if (filePath.equals(srFilePath) || filePath.startsWith(srFilePath + IFileSystem.SEPARATOR_CHAR)) {
+          return kind;
+        }
+      }
+    }
+    return null;
+  }
+
+  /*package*/ Collection<SourceRootKind> getFileKinds() {
+    return new ArrayList<>(mySourceRoots.keySet());
+  }
+
+  @Nullable
+  /*package*/ SourceRoot getSourceRootByPath(SourceRootKind kind, IFile path) {
+    return mySourceRoots.getOrDefault(kind, Collections.emptyList()).stream().filter(sourceRoot -> sourceRoot.getAbsolutePath().equals(path)).findAny().orElse(null);
+  }
+
+  /*package*/ void addSourceRoot(SourceRootKind kind, SourceRoot sourceRoot) {
+    // FIXME propagate the change on apply()
+    mySourceRoots.computeIfAbsent(kind, (k) -> new ArrayList<>()).add(sourceRoot);
+  }
+
+  /*package*/ void removeSourceRoot(SourceRootKind kind, SourceRoot sourceRoot) {
+    // FIXME propagate the change on apply()
+    mySourceRoots.get(kind).remove(sourceRoot);
+  }
+
 
   /*package*/ MPSProject getProject() {
     return myProject;
@@ -106,8 +164,8 @@ public final class FileBasedModelRootEntry implements ModelRootEntry<FileBasedMo
   public JComponent getDetailsComponent() {
     @SuppressWarnings("rawtypes")
     JBPanel<JBPanel> panel = new JBPanel<>(new GridBagLayout());
-    for (SourceRootKind kind : myFileBasedModelRoot.getSupportedFileKinds1()) {
-      Collection<SourceRoot> sourceRoots = myFileBasedModelRoot.getSourceRoots(kind);
+    for (SourceRootKind kind : mySourceRoots.keySet()) {
+      Collection<SourceRoot> sourceRoots = mySourceRoots.get(kind);
 
       if (!sourceRoots.isEmpty()) {
         final JComponent kindComponent = createKindGroupComponent(getKindText(kind), sourceRoots, getKindColor(kind));

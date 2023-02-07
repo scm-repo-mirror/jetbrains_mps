@@ -1,5 +1,5 @@
 /*
- * Copyright 2000-2022 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+ * Copyright 2000-2023 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
  */
 package jetbrains.mps.ide.ui.dialogs.properties.roots.editors;
 
@@ -30,7 +30,6 @@ import com.intellij.ui.TreeSpeedSearch;
 import com.intellij.ui.roots.ToolbarPanel;
 import com.intellij.ui.treeStructure.Tree;
 import com.intellij.util.ui.tree.TreeUtil;
-import jetbrains.mps.extapi.persistence.FileBasedModelRoot;
 import jetbrains.mps.extapi.persistence.SourceRootKind;
 import jetbrains.mps.extapi.persistence.SourceRootKinds;
 import jetbrains.mps.ide.actions.MPSActionPlaces;
@@ -95,8 +94,7 @@ public class FileBasedModelRootEditor implements ModelRootEntryEditor {
   protected void createEditingActions() {
     myEditingActionsGroup.removeAll();
 
-    FileBasedModelRoot fileBasedModelRoot = myFileBasedModelRootEntry.getModelRoot();
-    Collection<SourceRootKind> kinds = fileBasedModelRoot.getSupportedFileKinds1();
+    Collection<SourceRootKind> kinds = myFileBasedModelRootEntry.getFileKinds();
 
     for (final SourceRootKind kind : kinds) {
       AnAction modelRootAnAction =
@@ -138,7 +136,7 @@ public class FileBasedModelRootEditor implements ModelRootEntryEditor {
     myTreePanel.setVisible(true);
     myFileBasedModelRootEntry = fileBasedModelRootEntry;
 
-    setRoot(myFileBasedModelRootEntry.getModelRoot().getContentDirectory());
+    setRoot(myFileBasedModelRootEntry.getContentDirectory());
 
     // XXX i wonder if (why not) IDEA itself selects roots specified in descriptor.
     final Runnable init = () -> {
@@ -273,7 +271,7 @@ public class FileBasedModelRootEditor implements ModelRootEntryEditor {
       }
       FileBasedModelRootEntry fileBasedModelRootEntry = FileBasedModelRootEditor.this.myFileBasedModelRootEntry;
       //noinspection removal
-      fileBasedModelRootEntry.getModelRoot().setContentDirectory(mpsProject.getFileSystem().fromVirtualFile(file));
+      fileBasedModelRootEntry.setContentDirectory(mpsProject.getFileSystem().fromVirtualFile(file));
       // update mechanism copied from setDescriptor(), above
       FileBasedModelRootEditor.this.setFileBasedModelRootEntry(null);
       FileBasedModelRootEditor.this.setFileBasedModelRootEntry(fileBasedModelRootEntry);
