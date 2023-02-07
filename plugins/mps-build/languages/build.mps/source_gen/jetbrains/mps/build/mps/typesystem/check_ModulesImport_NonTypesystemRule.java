@@ -43,6 +43,10 @@ public class check_ModulesImport_NonTypesystemRule extends AbstractNonTypesystem
   public check_ModulesImport_NonTypesystemRule() {
   }
   public void applyRule(final SNode buildProject, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
+    if (SNodeOperations.getParent(buildProject) != null) {
+      // no reason to test quotations and alike
+      return;
+    }
     if (SNodeOperations.getModel(buildProject).getModule() instanceof TransientSModule || SModelStereotype.isGeneratorModel(SNodeOperations.getModel(buildProject)) || !(jetbrains.mps.util.SNodeOperations.isGeneratable(SNodeOperations.getModel(buildProject)))) {
       return;
     }
