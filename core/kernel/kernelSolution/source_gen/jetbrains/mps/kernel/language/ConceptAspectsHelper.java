@@ -8,11 +8,11 @@ import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodIdV2;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.smodel.LanguageAspect;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.kernel.model.SModelUtil;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.runtime.ConceptPresentation;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.smodel.language.LanguageRuntime;
@@ -29,7 +29,10 @@ public class ConceptAspectsHelper {
     if (SPropertyOperations.getString(conceptNode, PROPS.virtualPackage$EkXl) != null) {
       SPropertyOperations.assign(aspectNode, PROPS.virtualPackage$EkXl, SPropertyOperations.getString(conceptNode, PROPS.virtualPackage$EkXl));
     }
-    SModelOperations.addRootNode(aspectModel, aspectNode);
+    if (SNodeOperations.getModel(aspectNode) == null) {
+      // aspectNode could be result of new initialized root and have model assigned already
+      SModelOperations.addRootNode(aspectModel, aspectNode);
+    }
     return aspectNode;
   }
 

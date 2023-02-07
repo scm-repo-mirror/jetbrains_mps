@@ -18,9 +18,8 @@ import jetbrains.mps.openapi.navigation.EditorNavigator;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.smodel.ModelAccessHelper;
-import jetbrains.mps.smodel.LanguageAspect;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import org.jetbrains.mps.openapi.model.SModel;
-import jetbrains.mps.smodel.Language;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -75,7 +74,7 @@ public class GoToEditorDeclaration_Action extends BaseAction {
     new EditorNavigator(((MPSProject) MapSequence.fromMap(_params).get("project"))).shallFocus(true).selectIfChild().open(editorNode);
   }
   private SNodeReference findNodeEditorDeclaration(SNode forNode, final Map<String, Object> _params) {
-    final SNodeReference sn = SNodeOperations.getConcept(((SNode) MapSequence.fromMap(_params).get("node"))).getSourceNode();
+    final SNodeReference sn = SNodeOperations.getConcept(forNode).getSourceNode();
     if (sn == null) {
       return null;
     }
@@ -85,10 +84,10 @@ public class GoToEditorDeclaration_Action extends BaseAction {
       if (!(SNodeOperations.isInstanceOf(conceptNode, CONCEPTS.AbstractConceptDeclaration$KA))) {
         return null;
       }
-      if (!(LanguageAspect.STRUCTURE.is(SNodeOperations.getModel(conceptNode)))) {
+      if (!(SModuleOperations.isAspect(SNodeOperations.getModel(conceptNode), "structure"))) {
         return null;
       }
-      SModel editorModel = LanguageAspect.EDITOR.get(((Language) SNodeOperations.getModel(conceptNode).getModule()));
+      SModel editorModel = SModuleOperations.getAspect(SNodeOperations.getModel(conceptNode).getModule(), "editor");
       if (editorModel == null) {
         return null;
       }

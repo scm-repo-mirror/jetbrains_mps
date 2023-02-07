@@ -122,6 +122,7 @@
       <concept id="1179409122411" name="jetbrains.mps.lang.smodel.structure.Node_ConceptMethodCall" flags="nn" index="2qgKlT" />
       <concept id="7453996997717780434" name="jetbrains.mps.lang.smodel.structure.Node_GetSConceptOperation" flags="nn" index="2yIwOk" />
       <concept id="1143226024141" name="jetbrains.mps.lang.smodel.structure.SModelType" flags="in" index="H_c77" />
+      <concept id="1143234257716" name="jetbrains.mps.lang.smodel.structure.Node_GetModelOperation" flags="nn" index="I4A8Y" />
       <concept id="8329979535468945057" name="jetbrains.mps.lang.smodel.structure.Node_PresentationOperation" flags="ng" index="2Iv5rx" />
       <concept id="1145404486709" name="jetbrains.mps.lang.smodel.structure.SemanticDowncastExpression" flags="nn" index="2JrnkZ">
         <child id="1145404616321" name="leftExpression" index="2JrQYb" />
@@ -215,15 +216,71 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="2$SWsiCtwZX" role="3cqZAp">
-          <node concept="2OqwBi" id="2$SWsiCtwZY" role="3clFbG">
-            <node concept="3BYIHo" id="2$SWsiCtx00" role="2OqNvi">
-              <node concept="37vLTw" id="7Ck54Z$6ktV" role="3BYIHq">
-                <ref role="3cqZAo" node="7Ck54Z$6iC2" resolve="aspectNode" />
+        <node concept="3clFbJ" id="$Govci3TQA" role="3cqZAp">
+          <node concept="3clFbS" id="$Govci3TQC" role="3clFbx">
+            <node concept="3SKdUt" id="$Govci3V3T" role="3cqZAp">
+              <node concept="1PaTwC" id="$Govci3V3U" role="1aUNEU">
+                <node concept="3oM_SD" id="$Govci3V9b" role="1PaTwD">
+                  <property role="3oM_SC" value="aspectNode" />
+                </node>
+                <node concept="3oM_SD" id="$Govci3V9d" role="1PaTwD">
+                  <property role="3oM_SC" value="could" />
+                </node>
+                <node concept="3oM_SD" id="$Govci3V9g" role="1PaTwD">
+                  <property role="3oM_SC" value="be" />
+                </node>
+                <node concept="3oM_SD" id="$Govci3V9k" role="1PaTwD">
+                  <property role="3oM_SC" value="result" />
+                </node>
+                <node concept="3oM_SD" id="$Govci3V9p" role="1PaTwD">
+                  <property role="3oM_SC" value="of" />
+                </node>
+                <node concept="3oM_SD" id="$Govci3V9v" role="1PaTwD">
+                  <property role="3oM_SC" value="new" />
+                </node>
+                <node concept="3oM_SD" id="$Govci3V9A" role="1PaTwD">
+                  <property role="3oM_SC" value="initialized" />
+                </node>
+                <node concept="3oM_SD" id="$Govci3V9I" role="1PaTwD">
+                  <property role="3oM_SC" value="root" />
+                </node>
+                <node concept="3oM_SD" id="$Govci3V9R" role="1PaTwD">
+                  <property role="3oM_SC" value="and" />
+                </node>
+                <node concept="3oM_SD" id="$Govci3Va1" role="1PaTwD">
+                  <property role="3oM_SC" value="have" />
+                </node>
+                <node concept="3oM_SD" id="$Govci3Vac" role="1PaTwD">
+                  <property role="3oM_SC" value="model" />
+                </node>
+                <node concept="3oM_SD" id="$Govci3Vao" role="1PaTwD">
+                  <property role="3oM_SC" value="assigned" />
+                </node>
+                <node concept="3oM_SD" id="$Govci3Va_" role="1PaTwD">
+                  <property role="3oM_SC" value="already" />
+                </node>
               </node>
             </node>
-            <node concept="37vLTw" id="2BHiRxgm9XM" role="2Oq$k0">
-              <ref role="3cqZAo" node="2$SWsiCtx09" resolve="aspectModel" />
+            <node concept="3clFbF" id="2$SWsiCtwZX" role="3cqZAp">
+              <node concept="2OqwBi" id="2$SWsiCtwZY" role="3clFbG">
+                <node concept="3BYIHo" id="2$SWsiCtx00" role="2OqNvi">
+                  <node concept="37vLTw" id="7Ck54Z$6ktV" role="3BYIHq">
+                    <ref role="3cqZAo" node="7Ck54Z$6iC2" resolve="aspectNode" />
+                  </node>
+                </node>
+                <node concept="37vLTw" id="2BHiRxgm9XM" role="2Oq$k0">
+                  <ref role="3cqZAo" node="2$SWsiCtx09" resolve="aspectModel" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbC" id="$Govci3U$W" role="3clFbw">
+            <node concept="10Nm6u" id="$Govci3UM0" role="3uHU7w" />
+            <node concept="2OqwBi" id="$Govci3UeK" role="3uHU7B">
+              <node concept="37vLTw" id="$Govci3U1P" role="2Oq$k0">
+                <ref role="3cqZAo" node="7Ck54Z$6iC2" resolve="aspectNode" />
+              </node>
+              <node concept="I4A8Y" id="$Govci3UsH" role="2OqNvi" />
             </node>
           </node>
         </node>

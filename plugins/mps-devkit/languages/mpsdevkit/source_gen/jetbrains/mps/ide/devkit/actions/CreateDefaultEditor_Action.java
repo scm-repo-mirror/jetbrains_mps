@@ -23,9 +23,14 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.ide.editor.MPSEditorDataKeys;
-import jetbrains.mps.kernel.language.ConceptAspectsHelper;
-import jetbrains.mps.smodel.LanguageAspect;
+import jetbrains.mps.project.MPSProject;
+import org.jetbrains.mps.openapi.module.SModule;
+import org.jetbrains.mps.openapi.model.SModel;
+import jetbrains.mps.smodel.language.LanguageAspectDescriptor;
+import jetbrains.mps.smodel.language.LanguageAspectSupport;
+import jetbrains.mps.smodel.language.CreateAspectContext;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
+import jetbrains.mps.kernel.language.ConceptAspectsHelper;
 import jetbrains.mps.lang.editor.behavior.AbstractComponent__BehaviorDescriptor;
 import java.util.Objects;
 import jetbrains.mps.lang.editor.behavior.ConceptEditorDeclaration__BehaviorDescriptor;
@@ -87,12 +92,34 @@ public class CreateDefaultEditor_Action extends BaseAction {
         return false;
       }
     }
+    {
+      MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
+      MapSequence.fromMap(_params).put("project", p);
+      if (p == null) {
+        return false;
+      }
+    }
     return true;
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     SNode conceptDeclaration = SNodeOperations.as(((SNode) MapSequence.fromMap(_params).get("selectedNode")), CONCEPTS.ConceptDeclaration$gH);
-    SNode editorDeclaration = ConceptAspectsHelper.attachNewConceptAspect(LanguageAspect.EDITOR, conceptDeclaration, SNodeFactoryOperations.createNewNode(CONCEPTS.ConceptEditorDeclaration$BH, null));
+    SModule module = SNodeOperations.getModel(conceptDeclaration).getModule();
+    SModel editorAspect = SModuleOperations.getAspect(module, "editor");
+    if (editorAspect == null) {
+      // FIXME desperately need aspectIdentity(ref) operation to avoid hard-coded values
+      LanguageAspectDescriptor ad = LanguageAspectSupport.getAspectDescriptorById("editor");
+      CreateAspectContext cac = CreateAspectContext.create(module, ((MPSProject) MapSequence.fromMap(_params).get("project")).getPlatform(), null);
+      if (ad != null && ad.canCreate(cac)) {
+        ad.create(cac);
+        editorAspect = SModuleOperations.getAspect(module, "editor");
+      }
+    }
+    if (editorAspect == null) {
+      return;
+    }
+    SNode editorDeclaration = SNodeFactoryOperations.createNewRootNode(editorAspect, CONCEPTS.ConceptEditorDeclaration$BH, null);
+    ConceptAspectsHelper.attachNewConceptAspect(conceptDeclaration, editorDeclaration, editorAspect);
     assert AbstractComponent__BehaviorDescriptor.getConceptDeclaration_id67EYkym$wx3.invoke(editorDeclaration) != null;
     assert Objects.equals(AbstractComponent__BehaviorDescriptor.getConceptDeclaration_id67EYkym$wx3.invoke(editorDeclaration), conceptDeclaration);
     ConceptEditorDeclaration__BehaviorDescriptor.createDefaultEditor_id2$SWsiCt8Y$.invoke(editorDeclaration, ((boolean) false));

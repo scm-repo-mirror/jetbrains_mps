@@ -8,9 +8,6 @@ import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.Computable;
 import javax.swing.JOptionPane;
-import jetbrains.mps.smodel.Language;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
-import jetbrains.mps.smodel.LanguageAspect;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
@@ -51,25 +48,6 @@ public class GoToEditorDeclarationHelper {
       }
     });
   }
-  public static SModel getOrCreateEditorAspect(Project project, final Language language, final SNode concept) {
-    final SModel languageEditor = SModuleOperations.getAspect(language, "editor");
-    if (languageEditor != null) {
-      return languageEditor;
-    }
-    String message = "Language \"" + language.getModuleName() + "\" has no editor model.\n" + "Create new editor model?";
-    int option = JOptionPane.showConfirmDialog(null, message, "Editor not found", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-    if (option != JOptionPane.YES_OPTION) {
-      return null;
-    }
-    project.getModelAccess().executeCommand(new Runnable() {
-      @Override
-      public void run() {
-        LanguageAspect.EDITOR.createNew(language);
-        GoToEditorDeclarationHelper.createEditorDeclaration(concept, SModuleOperations.getAspect(language, "editor"));
-      }
-    });
-    return SModuleOperations.getAspect(language, "editor");
-  }
   public static SNode findEditorDeclaration(SModel editorModel, final SNode conceptDeclaration) {
     return ListSequence.fromList(SModelOperations.roots(editorModel, CONCEPTS.ConceptEditorDeclaration$BH)).findFirst(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
@@ -79,9 +57,8 @@ public class GoToEditorDeclarationHelper {
   }
   public static SNode createEditorDeclaration(SNode conceptDeclaration, SModel editorModelDescriptor) {
     SModel editorModel = editorModelDescriptor;
-    SNode result = SNodeFactoryOperations.createNewNode(editorModel, CONCEPTS.ConceptEditorDeclaration$BH, null);
+    SNode result = SNodeFactoryOperations.createNewRootNode(editorModel, CONCEPTS.ConceptEditorDeclaration$BH, null);
     SLinkOperations.setTarget(result, LINKS.conceptDeclaration$HJmJ, conceptDeclaration);
-    SModelOperations.addRootNode(editorModel, result);
     return result;
   }
 
