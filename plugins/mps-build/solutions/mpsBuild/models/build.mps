@@ -41250,7 +41250,7 @@
             </node>
           </node>
           <node concept="3qWCbU" id="6S_FNWXEK_O" role="3LXTna">
-            <property role="3qWCbO" value="icons/**, resources/**" />
+            <property role="3qWCbO" value="icons/**, resources/**, startup.properties" />
           </node>
         </node>
       </node>
