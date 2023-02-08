@@ -233,6 +233,12 @@ public class MPSTreeNode extends DefaultMutableTreeNode implements Iterable<MPST
     updateErrorState();
   }
 
+  @Override
+  public Object getUserObject() {
+    final Object uo = super.getUserObject();
+    return uo != null ? uo : myText;
+  }
+
   public boolean hasChild(MutableTreeNode node) {
     for (int i = 0; i < getChildCount(); i++) {
       if (getChildAt(i) == node) {
