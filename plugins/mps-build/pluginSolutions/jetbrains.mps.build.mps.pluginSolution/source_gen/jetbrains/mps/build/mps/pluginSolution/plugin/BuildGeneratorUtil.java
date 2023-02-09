@@ -24,7 +24,7 @@ import jetbrains.mps.project.modules.SolutionProducer;
     }
     for (ModelRoot mr : solution.getModelRoots()) {
       if (mr.canCreateModel(modelName)) {
-        return mr.createModel(modelName.getValue());
+        return mr.createModel(modelName);
       }
     }
     return null;
@@ -48,7 +48,6 @@ import jetbrains.mps.project.modules.SolutionProducer;
       solutionBaseDirFile.mkdirs();
     }
     Solution solution = new SolutionProducer(mpsProject).create(solutionName, solutionBaseDirFile);
-    mpsProject.save();
     return solution;
   }
 
