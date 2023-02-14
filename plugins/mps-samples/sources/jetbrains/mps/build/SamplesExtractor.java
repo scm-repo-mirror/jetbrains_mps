@@ -222,24 +222,25 @@ public final class SamplesExtractor implements PersistentStateComponent<MyState>
 
     @SuppressWarnings("UnstableApiUsage")
     private void clearTrustForSamplesInDir(File samplesDir) {
-      // Do not do anything with the trust flags of the sample projects.
-      // Clearing the trust flag is not supported by the platform API.
-      // Setting the flag to false will cause problems when opening the new samples, if the samples' directory is implicitly trusted - MPS-35377.
-      // Setting the flag to true would make all samples trusted.
-      // So better to do nothing
       final TrustedPathsSettings service = ApplicationManager.getApplication().getService(TrustedPathsSettings.class);
       final List<String> trustedPaths = service.getTrustedPaths();
       final List<String> updated = trustedPaths.stream().filter((s) -> !s.contains(samplesDir.getAbsolutePath())).collect(Collectors.toList());
       service.setTrustedPaths(updated);
-      //return;
-      final TrustedPaths tp = TrustedPaths.getInstance();
-      for (File file : samplesDir.listFiles()) {
-        final Path path = Path.of(file.getAbsolutePath());
-        final ThreeState state = tp.getProjectPathTrustedState(path);
-        if (state != ThreeState.UNSURE) {
-          tp.setProjectPathTrusted(path, false);
-        }
-      }
+      return;
+
+      // Do not do anything with the trust flags of the individual sample projects.
+      // Clearing the trust flag is not supported by the platform API.
+      // Setting the flag to false will cause problems when opening the new samples, if the samples' directory is implicitly trusted - MPS-35377.
+      // Setting the flag to true would make all samples trusted.
+      // So better to do nothing
+//      final TrustedPaths tp = TrustedPaths.getInstance();
+//      for (File file : samplesDir.listFiles()) {
+//        final Path path = Path.of(file.getAbsolutePath());
+//        final ThreeState state = tp.getProjectPathTrustedState(path);
+//        if (state != ThreeState.UNSURE) {
+//          tp.setProjectPathTrusted(path, false);
+//        }
+//      }
     }
 
     private void actuallyExtractSamples() {
