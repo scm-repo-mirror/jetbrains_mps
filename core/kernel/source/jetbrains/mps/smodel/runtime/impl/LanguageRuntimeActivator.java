@@ -5,6 +5,7 @@ package jetbrains.mps.smodel.runtime.impl;
 
 import jetbrains.mps.smodel.language.LanguageRuntime;
 import jetbrains.mps.smodel.runtime.ModuleRuntime.Activator;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Bridge existing LanguageRuntime instances to the ModuleRuntime API.
@@ -12,13 +13,14 @@ import jetbrains.mps.smodel.runtime.ModuleRuntime.Activator;
  * @author Artem Tikhomirov
  * @since 2022.3
  */
-public class LanguageRuntimeActivator implements Activator {
-  private LanguageRuntime myInstance;
+public final class LanguageRuntimeActivator implements Activator {
+  private final LanguageRuntime myInstance;
 
-  public LanguageRuntimeActivator(LanguageRuntime instance) {
+  public LanguageRuntimeActivator(@NotNull LanguageRuntime instance) {
     myInstance = instance;
   }
 
+  @NotNull
   public LanguageRuntime getLanguageRuntime() {
     return myInstance;
   }

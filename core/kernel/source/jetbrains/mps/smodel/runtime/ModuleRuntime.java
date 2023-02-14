@@ -18,9 +18,9 @@ package jetbrains.mps.smodel.runtime;
 import jetbrains.mps.classloading.ModuleClassLoader;
 import jetbrains.mps.components.ComponentHost;
 import jetbrains.mps.logging.Logger;
+import jetbrains.mps.util.NameUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.mps.annotations.Internal;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 
 import java.io.FileNotFoundException;
@@ -53,13 +53,20 @@ public final class ModuleRuntime {
   @Nullable
   private Activator myModuleActivator;
 
+  private ActivatorFactory myActivatorFactory;
+
   public ModuleRuntime(@NotNull SModuleReference moduleReference, @NotNull ClassLoader moduleClassLoader, Flags... flags) {
+    this(moduleReference, moduleClassLoader, new StandardActivatorFactory(), flags);
+  }
+
+  public ModuleRuntime(@NotNull SModuleReference moduleReference, @NotNull ClassLoader moduleClassLoader, @NotNull ActivatorFactory factory, Flags... flags) {
     myModuleReference = moduleReference;
     myModuleClassLoader = moduleClassLoader;
     myProvidesExtensions = Arrays.asList(flags).contains(Flags.WithExtensions);
+    myActivatorFactory = factory;
   }
 
-  @NotNull
+    @NotNull
   public SModuleReference getSourceModule() {
     return myModuleReference;
   }
@@ -109,38 +116,22 @@ public final class ModuleRuntime {
   }
 
   public void activate(ModuleRuntimeContext context) {
-    // provisional code at the moment, DO NOT TREAT AS API, just need to work around a limitation while fixing another issue
-    // shall take generated activator class (or even few, perhaps?), instantiate and execute it inside try {} catch (Throwable)
-    final String cn = myModuleReference.getModuleName() + ".ModuleActivator";
-    try {
-      if (context instanceof ModuleRuntimeContextWithActivatorInstance) {
-        myModuleActivator = ((ModuleRuntimeContextWithActivatorInstance) context).activatorInstance();
-        if (myModuleActivator == null) {
-          Logger.getLogger(getClass()).error(String.format("RT context %s didn't bring an instance of MR.Activator, ignored", context));
-          return;
-        }
-        // fall-through, for activation
-      } else {
-        final Class<?> activatorClass = myModuleClassLoader.loadClass(cn);
-        if (!Activator.class.isAssignableFrom(activatorClass)) {
-          Logger.getLogger(getClass()).warning(String.format("Class %s is not instance of MR.Activator, ignored", cn));
-          return;
-        }
-        Constructor<? extends Activator> cc = activatorClass.asSubclass(Activator.class).getConstructor(ComponentHost.class);
-        myModuleActivator = cc.newInstance(context.getComponentHost());
+      try {
+        myModuleActivator = myActivatorFactory.newInstance(this, context);
+      } catch (Exception ex) {
+        Logger.getLogger(getClass()).warning(ex.getMessage(), ex);
+        return;
+      }
+      if (myModuleActivator == null) {
+        return;
       }
       try {
         myModuleActivator.activate();
       } catch (Throwable th) {
-        Logger.getLogger(getClass()).error(String.format("Module activator %s (%s) failed", cn, myModuleReference.getModuleName()), th);
+        final String cn = NameUtil.compactNamespace(myModuleActivator.getClass().getName());
+        final String mn = NameUtil.compactNamespace(myModuleReference.getModuleName());
+        Logger.getLogger(getClass()).error(String.format("Module activator %s (from %s) failed", cn, mn), th);
       }
-    } catch (IllegalAccessException | InstantiationException | InvocationTargetException ex) {
-      Logger.getLogger(getClass()).warning(String.format("Failed to instantiate activator %s", cn), ex);
-    } catch (NoSuchMethodException | SecurityException ex) {
-      Logger.getLogger(getClass()).warning(String.format("Constructor of activator class %s is not available:%s", cn, ex.getMessage()));
-    } catch (ClassNotFoundException ex) {
-      // ignore; expected scenario as long as we try to guess name of activator class;
-    }
   }
 
   public void deactivate(ModuleRuntimeContext context) {
@@ -169,38 +160,6 @@ public final class ModuleRuntime {
     ComponentHost getComponentHost();
   }
 
-  /**
-   * INTERNAL API. DO NOT USE OUTSIDE OF MPS IMPLEMENTATION
-   */
-  @Internal
-  private static class ModuleRuntimeContextWithActivatorInstance implements ModuleRuntimeContext {
-    private Activator myInstance;
-    private ModuleRuntimeContext myDelegate;
-
-    private ModuleRuntimeContextWithActivatorInstance(Activator instance, ModuleRuntimeContext delegate) {
-      myInstance = instance;
-      myDelegate = delegate;
-    }
-
-    Activator activatorInstance() {
-      return myInstance;
-    }
-
-    @Override
-    public ComponentHost getComponentHost() {
-      return myDelegate.getComponentHost();
-    }
-  }
-
-  /**
-   * INTERNAL API. DO NOT USE OUTSIDE OF MPS IMPLEMENTATION
-   * Need this to bridge existing module runtime classes (e.g. LanguageRuntime) with ModuleRuntime/Activator API
-   */
-  @Internal
-  public static ModuleRuntimeContext wrapExistingInstance(@NotNull ModuleRuntimeContext ctx, @NotNull Activator instance) {
-    return new ModuleRuntimeContextWithActivatorInstance(instance, ctx);
-  }
-
   // XXX provisional code, just to make some progress with make.facets extraction.
   // Shall consider what would be the proper mechanism to pass component host (i.e. if we stick to Activator class
   // and not on-demand aspects):
@@ -210,6 +169,57 @@ public final class ModuleRuntime {
   public interface Activator {
     default void activate() {}
     default void deactivate() {}
+  }
+
+  /**
+   * Captures the way we instantiate classes specific to different module types.
+   * For historic reasons we have LanguageRuntime for Language module, GeneratorRuntime for Generators.
+   * {@code ModuleRuntime} has been introduced to split runtime (MPS infrastructure) control from actual activator code (user code).
+   * I don't feel common base class for LanguageRuntime/GeneratorRuntime would be better, imo, these are to play "activators"
+   * for a module, performing some module-specific initialization (e.g. contribution of extensions), while {@code ModuleRuntime} is
+   * deemed for {@code LanguageRegistry} usage and inernal structures.
+   * @since 2022.3
+   */
+  public interface ActivatorFactory {
+    // XXX
+
+    /**
+     *
+     * @param moduleRuntime use this to access {@link #getSourceModule() module reference} and {@link #getModuleClassLoader() classloader}.
+     * @param context to access {@link jetbrains.mps.components.CoreComponent}
+     * @return activator instance, or PROVISIONALLY null in case it's legitimate case for a module w/o activator
+     * @throws Exception when failed to provide an activator instance. At the moment, I don't want to be more specific about exception kind,
+     *         but shall introduce a custom exception eventually, perhaps, with severity code to report err/warn/info.
+     *         Note, I don't want to expose here all possible exceptions from Class.newInstance, yet need to account for
+     *         general scenario which does use the method.
+     */
+    @Nullable
+    Activator newInstance(@NotNull ModuleRuntime moduleRuntime, @NotNull ModuleRuntimeContext context) throws Exception;
+  }
+
+  /*package*/ static class StandardActivatorFactory implements ActivatorFactory {
+    @Nullable
+    @Override
+    public Activator newInstance(@NotNull ModuleRuntime moduleRuntime, @NotNull ModuleRuntimeContext context) throws Exception {
+      // provisional code at the moment, DO NOT TREAT AS API, just need to work around a limitation while fixing another issue
+      // shall take generated activator class (or even few, perhaps?), instantiate and execute it inside try {} catch (Throwable)
+      final String cn = moduleRuntime.getSourceModule().getModuleName() + ".ModuleActivator";
+      try {
+        final Class<?> activatorClass = moduleRuntime.getOwnClass(cn);
+        if (!Activator.class.isAssignableFrom(activatorClass)) {
+          throw new IllegalStateException(String.format("Class %s is not instance of MR.Activator, ignored", cn));
+        }
+        Constructor<? extends Activator> cc = activatorClass.asSubclass(Activator.class).getConstructor(ComponentHost.class);
+        return cc.newInstance(context.getComponentHost());
+      } catch (IllegalAccessException | InstantiationException | InvocationTargetException ex) {
+        throw new IllegalStateException(String.format("Failed to instantiate activator %s", cn), ex);
+      } catch (NoSuchMethodException | SecurityException ex) {
+        throw new IllegalStateException(String.format("Constructor of activator class %s is not available:%s", cn, ex.getMessage()));
+      } catch (ClassNotFoundException ex) {
+        // ignore; expected scenario as long as we try to guess name of activator class;
+        return null;
+      }
+    }
   }
 
   public enum Flags {
