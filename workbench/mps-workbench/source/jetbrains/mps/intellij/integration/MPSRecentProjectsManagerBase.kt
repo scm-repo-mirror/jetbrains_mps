@@ -1,10 +1,10 @@
 package jetbrains.mps.intellij.integration
 
-import com.intellij.ide.RecentProjectsManagerBase
 import com.intellij.ide.impl.OpenProjectTask
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.impl.welcomeScreen.WelcomeFrame
+import com.intellij.util.io.exists
 import jetbrains.mps.workbench.actions.OpenMPSProjectTrustProjectHelperK
 import java.nio.file.Path
 
@@ -32,6 +32,10 @@ suspend fun openProject(projectFile: Path?, options: OpenProjectTask?, superFun:
 //            options.copy(runConfigurators = false)
 //        else options
 
+    if (!projectFile.exists()) {
+        LOG.warn("MPSRecentProjectsManagerBase called with a no-existent project file")
+        return null
+    }
     try {
         val trusted = OpenMPSProjectTrustProjectHelperK().checkTrust(projectFile)
 
