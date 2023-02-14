@@ -18,13 +18,14 @@ import java.util.Collection;
  */
 @Singleton
 public final class PathManager {
-//  I am in doubt whether we need this (e.g in copymodels)
+  //  I am in doubt whether we need this (e.g in copymodels)
 //  private static final String PROPERTY_HOME_PATH = "mps.home.path";
 
   private static final String FILE = "file";
   public static final String DOT_JAR = ".jar";
 
   private static final String PROPERTIES_FILE_NAME = com.intellij.openapi.application.PathManager.PROPERTIES_FILE_NAME;
+  public static final String LAUNCHER_CLASS = "jetbrains/mps/Launcher.class";
 
   private static String ourHomePath;
 
@@ -58,7 +59,7 @@ public final class PathManager {
       // {mps_home}/lib
       root = root.getParentFile();
       if (root != null) {
-        // {mps_home}
+        // {mps_home}             -
         root = root.getParentFile();
       }
     } else {
@@ -79,8 +80,22 @@ public final class PathManager {
    */
   @Internal
   public static boolean isFromSources() {
-    final URL launcherURL = ClassLoader.getSystemResource("jetbrains/mps/Launcher.class");
+    final URL launcherURL = ClassLoader.getSystemResource(LAUNCHER_CLASS);
     return launcherURL != null && launcherURL.getProtocol().equals(FILE);
+  }
+
+  /**
+   * Returns the classpath entry corresponding to {@link jetbrains.mps.Launcher} class used to bootstrap MPS.
+   * Only makes sense if {@link PathManager.isFromSources()} returns true.
+   */
+  @Internal
+  public static String getLauncherClassPathEntry() {
+    URL launcherURL = ClassLoader.getSystemResource(LAUNCHER_CLASS);
+    if (launcherURL != null && launcherURL.getProtocol().equals(FILE)) {
+      return launcherURL.getFile().substring(0, launcherURL.getFile().length() - LAUNCHER_CLASS.length() - 1); // drop trailing File.separator
+    }
+    
+    return null;
   }
 
   private static String getContainingJar(Class<?> aClass) {
