@@ -16,6 +16,7 @@
 package jetbrains.mps.build;
 
 import com.intellij.ide.impl.TrustedPaths;
+import com.intellij.ide.impl.TrustedPathsSettings;
 import com.intellij.openapi.application.ApplicationInfo;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.PersistentStateComponent;
@@ -42,7 +43,9 @@ import org.jetbrains.annotations.Nullable;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 @State(
     name = "LastBuildNumber",
@@ -219,6 +222,16 @@ public final class SamplesExtractor implements PersistentStateComponent<MyState>
 
     @SuppressWarnings("UnstableApiUsage")
     private void clearTrustForSamplesInDir(File samplesDir) {
+      // Do not do anything with the trust flags of the sample projects.
+      // Clearing the trust flag is not supported by the platform API.
+      // Setting the flag to false will cause problems when opening the new samples, if the samples' directory is implicitly trusted - MPS-35377.
+      // Setting the flag to true would make all samples trusted.
+      // So better to do nothing
+      final TrustedPathsSettings service = ApplicationManager.getApplication().getService(TrustedPathsSettings.class);
+      final List<String> trustedPaths = service.getTrustedPaths();
+      final List<String> updated = trustedPaths.stream().filter((s) -> !s.contains(samplesDir.getAbsolutePath())).collect(Collectors.toList());
+      service.setTrustedPaths(updated);
+      //return;
       final TrustedPaths tp = TrustedPaths.getInstance();
       for (File file : samplesDir.listFiles()) {
         final Path path = Path.of(file.getAbsolutePath());
@@ -243,7 +256,7 @@ public final class SamplesExtractor implements PersistentStateComponent<MyState>
       } catch (IOException e) {
         throw new RuntimeException(e);
       }
-      // Only update build number if sampler were extracted successfully
+      // Only update build number if the samples were extracted successfully
       myExtractor.myState.myBuildNumber = myExtractor.getCurrentBuild().asString();
     }
 
