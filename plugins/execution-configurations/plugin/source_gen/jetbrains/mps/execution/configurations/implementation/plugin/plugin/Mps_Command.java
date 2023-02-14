@@ -113,6 +113,7 @@ public class Mps_Command {
         }
       }
     });
+
     return Sequence.fromIterable(currentClassPath).where(new IWhereFilter<String>() {
       public boolean accept(String it) {
         return !(it.startsWith(System.getProperty("java.home")));
