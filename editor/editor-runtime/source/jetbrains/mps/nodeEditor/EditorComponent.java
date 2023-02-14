@@ -1,5 +1,5 @@
 /*
- * Copyright 2000-2022 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+ * Copyright 2000-2023 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
  */
 package jetbrains.mps.nodeEditor;
 
@@ -52,6 +52,7 @@ import jetbrains.mps.editor.runtime.cells.ReadOnlyUtil;
 import jetbrains.mps.editor.runtime.commands.EditorCommand;
 import jetbrains.mps.editor.runtime.commands.EditorCommandAdapter;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
+import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.errors.item.IssueKindReportItem;
 import jetbrains.mps.extapi.model.ModelWithDisposeInfo;
 import jetbrains.mps.ide.ThreadUtils;
@@ -180,6 +181,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.im.InputMethodRequests;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Deque;
@@ -1770,9 +1772,14 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     ((EditorCell_Basic) myRootCell).onRemove();
 
     myRootCell = (EditorCell) rootCell;
-    myRootCell.getStyle().set(StyleAttributes.TEXT_COLOR, getStyleRegistry().getEditorForeground());
-    myRootCell.getStyle().set(StyleAttributes.NULL_TEXT_COLOR, getStyleRegistry().getColor("DEFAULT_NULL_TEXT_COLOR"));
-    myRootCell.getStyle().set(StyleAttributes.BACKGROUND_COLOR, getStyleRegistry().getEditorBackground());
+    // let root cell inherit some default values, but don't set these explicitly to the cell's style to avoid issues like MPS-35277
+    // FTR, root cell for a user-supplied editor is exactly the one specified by user, there's no "umbrella" root cell MPS could manage.
+    // Perhaps, it's worth adding a dedicated class for root cell, and moving EC.paintComponent logic in there.
+    StyleImpl styleDefaults = new StyleImpl();
+    styleDefaults.set(StyleAttributes.TEXT_COLOR, getStyleRegistry().getEditorForeground());
+    styleDefaults.set(StyleAttributes.NULL_TEXT_COLOR, getStyleRegistry().getColor("DEFAULT_NULL_TEXT_COLOR"));
+    styleDefaults.set(StyleAttributes.BACKGROUND_COLOR, getStyleRegistry().getEditorBackground());
+    myRootCell.getStyle().setParent(styleDefaults, Arrays.asList(StyleAttributes.TEXT_COLOR, StyleAttributes.NULL_TEXT_COLOR, StyleAttributes.BACKGROUND_COLOR));
 
     ((EditorCell_Basic) myRootCell).onAdd();
     for (EditorCell_WithComponent component : getCellTracker().getComponentCells()) {

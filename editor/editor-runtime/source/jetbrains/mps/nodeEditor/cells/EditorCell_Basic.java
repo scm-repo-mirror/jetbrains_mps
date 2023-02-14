@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -650,7 +650,10 @@ public abstract class EditorCell_Basic implements EditorCell, Entry<jetbrains.mp
   protected ParentSettings fillBackground(Graphics g, ParentSettings parentSettings) {
     ParentSettings settings = isSelectionPaintedOnAncestor(parentSettings);
     if (!settings.isSelectionPainted()) {
-      if (!parentSettings.isSkipBackground()) {
+      if (!parentSettings.isSkipBackground() && getStyle().isSpecified(StyleAttributes.BACKGROUND_COLOR)) {
+        // BACKGROUND_COLOR is always present as it's inherited from EC defaults; here we need to paint cell background
+        // only in case it was explicitly specified in the cell settings.
+        // PS.isSkipBackground seems to still make sense as it reflects EditorMessage aspect rather than BG inheritable defaults.
         Color backgroundColor = getStyle().get(StyleAttributes.BACKGROUND_COLOR);
         if (backgroundColor != null) {
           g.setColor(backgroundColor);
