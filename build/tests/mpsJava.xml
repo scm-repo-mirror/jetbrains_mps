@@ -551,6 +551,7 @@
       <jvmarg value="--add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED" />
       <jvmarg value="--add-opens=java.base/jdk.internal.vm=ALL-UNNAMED" />
       <jvmarg value="--add-opens=java.base/sun.nio.ch=ALL-UNNAMED" />
+      <jvmarg value="--add-opens=java.base/sun.nio.fs=ALL-UNNAMED" />
       <jvmarg value="--add-opens=java.base/sun.security.ssl=ALL-UNNAMED" />
       <jvmarg value="--add-opens=java.base/sun.security.util=ALL-UNNAMED" />
       <jvmarg value="--add-opens=java.desktop/com.apple.eawt=ALL-UNNAMED" />
