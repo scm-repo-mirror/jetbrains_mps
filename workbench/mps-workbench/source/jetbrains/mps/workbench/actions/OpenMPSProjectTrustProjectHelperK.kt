@@ -29,12 +29,9 @@ class OpenMPSProjectTrustProjectHelperK {
      * Checks whether the project can be trusted. Returns the result of the check.
      * @return True, if the project can be open
      */
-    suspend fun checkTrust(virtualFile: VirtualFile): Boolean {
-        val file = Path.of(virtualFile.path)
-        return checkTrust(file)
-    }
+    suspend fun checkTrust(file: Path?): Boolean {
+        if (file == null) return false
 
-    suspend fun checkTrust(file: Path): Boolean {
         // A simplified check inspired by ProjectUtil.openProject() for file existence before we show a trust project dialog
         val fileAttributes = file.basicAttributesIfExists()
         if (fileAttributes == null) {
