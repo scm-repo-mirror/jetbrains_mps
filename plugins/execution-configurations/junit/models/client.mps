@@ -16294,6 +16294,47 @@
                       </node>
                     </node>
                   </node>
+                  <node concept="3cpWs8" id="60NJ4O1hZOU" role="3cqZAp">
+                    <node concept="3cpWsn" id="60NJ4O1hZOV" role="3cpWs9">
+                      <property role="TrG5h" value="requiredModules" />
+                      <node concept="3uibUv" id="60NJ4O1hZOW" role="1tU5fm">
+                        <ref role="3uigEE" to="33ny:~List" resolve="List" />
+                        <node concept="3uibUv" id="60NJ4O1hZOX" role="11_B2D">
+                          <ref role="3uigEE" to="lui2:~SModuleReference" resolve="SModuleReference" />
+                        </node>
+                      </node>
+                      <node concept="2ShNRf" id="60NJ4O1hZOY" role="33vP2m">
+                        <node concept="1pGfFk" id="60NJ4O1hZOZ" role="2ShVmc">
+                          <ref role="37wK5l" to="33ny:~ArrayList.&lt;init&gt;(java.util.Collection)" resolve="ArrayList" />
+                          <node concept="2OqwBi" id="60NJ4O1hZP0" role="37wK5m">
+                            <node concept="37vLTw" id="60NJ4O1hZP1" role="2Oq$k0">
+                              <ref role="3cqZAo" node="58KCQIw8mk3" resolve="myTestsToRun" />
+                            </node>
+                            <node concept="liA8E" id="60NJ4O1hZP2" role="2OqNvi">
+                              <ref role="37wK5l" node="723FpCMRpGj" resolve="getRequiredModules" />
+                            </node>
+                          </node>
+                          <node concept="3uibUv" id="60NJ4O1hZP3" role="1pMfVU">
+                            <ref role="3uigEE" to="lui2:~SModuleReference" resolve="SModuleReference" />
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="3clFbF" id="60NJ4O1hZP4" role="3cqZAp">
+                    <node concept="2OqwBi" id="60NJ4O1hZP5" role="3clFbG">
+                      <node concept="37vLTw" id="60NJ4O1hZP6" role="2Oq$k0">
+                        <ref role="3cqZAo" node="60NJ4O1hZOV" resolve="requiredModules" />
+                      </node>
+                      <node concept="liA8E" id="60NJ4O1hZP7" role="2OqNvi">
+                        <ref role="37wK5l" to="33ny:~List.add(java.lang.Object)" resolve="add" />
+                        <node concept="2YIFZM" id="60NJ4O1i30x" role="37wK5m">
+                          <ref role="1Pybhc" node="58KCQIw8Xsc" resolve="CPCalculator" />
+                          <ref role="37wK5l" node="58KCQIwb8W9" resolve="MODULE_WITH_EXECUTORS" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
                   <node concept="1DcWWT" id="723FpCMTRlB" role="3cqZAp">
                     <node concept="3clFbS" id="723FpCMTRlE" role="2LFqv$">
                       <node concept="3cpWs8" id="723FpCMTYnf" role="3cqZAp">
@@ -16344,13 +16385,8 @@
                         <ref role="3uigEE" to="lui2:~SModuleReference" resolve="SModuleReference" />
                       </node>
                     </node>
-                    <node concept="2OqwBi" id="723FpCMTRlK" role="1DdaDG">
-                      <node concept="37vLTw" id="58KCQIw8L$3" role="2Oq$k0">
-                        <ref role="3cqZAo" node="58KCQIw8mk3" resolve="myTestsToRun" />
-                      </node>
-                      <node concept="liA8E" id="723FpCMTRlM" role="2OqNvi">
-                        <ref role="37wK5l" node="723FpCMRpGj" resolve="getRequiredModules" />
-                      </node>
+                    <node concept="37vLTw" id="60NJ4O1ibWJ" role="1DdaDG">
+                      <ref role="3cqZAo" node="60NJ4O1hZOV" resolve="requiredModules" />
                     </node>
                   </node>
                   <node concept="3cpWs8" id="7$iKQw$dxjK" role="3cqZAp">
@@ -20043,7 +20079,6 @@
       <node concept="3uibUv" id="58KCQIw9ZKj" role="3clF45">
         <ref role="3uigEE" to="lui2:~SModuleReference" resolve="SModuleReference" />
       </node>
-      <node concept="3Tm6S6" id="58KCQIw9ZKi" role="1B3o_S" />
       <node concept="2AHcQZ" id="58KCQIwcdDT" role="2AJF6D">
         <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
       </node>

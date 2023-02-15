@@ -121,7 +121,9 @@ import jetbrains.mps.project.PathMacros;
     // XXX here, we exploit the assumption module descriptor file resides under a module root
     myRepo.getModelAccess().runReadAction(() -> {
       List<SModule> modules = ListSequence.fromList(new ArrayList<SModule>());
-      for (SModuleReference testModule : myTestsToRun.getRequiredModules()) {
+      List<SModuleReference> requiredModules = new ArrayList<SModuleReference>(myTestsToRun.getRequiredModules());
+      requiredModules.add(CPCalculator.MODULE_WITH_EXECUTORS());
+      for (SModuleReference testModule : requiredModules) {
         SModule tm = testModule.resolve(myRepo);
         if (tm != null) {
           ListSequence.fromList(modules).addElement(tm);
