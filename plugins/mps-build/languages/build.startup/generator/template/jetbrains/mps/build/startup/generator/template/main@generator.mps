@@ -1570,6 +1570,19 @@
                 </node>
               </node>
               <node concept="3o6iSG" id="1QEui$pG8AI" role="3o6s8t" />
+              <node concept="2pNNFK" id="68UXn6W6Kzg" role="3o6s8t">
+                <property role="2pNNFO" value="key" />
+                <node concept="3o6iSG" id="68UXn6W6Kzh" role="3o6s8t">
+                  <property role="3o6i5n" value="java.system.class.loader" />
+                </node>
+              </node>
+              <node concept="2pNNFK" id="68UXn6W6Kze" role="3o6s8t">
+                <property role="2pNNFO" value="string" />
+                <node concept="3o6iSG" id="68UXn6W6Kzf" role="3o6s8t">
+                  <property role="3o6i5n" value="com.intellij.util.lang.PathClassLoader" />
+                </node>
+              </node>
+              <node concept="3o6iSG" id="68UXn6W6Kzd" role="3o6s8t" />
               <node concept="2pNNFK" id="1QEui$pG8Gh" role="3o6s8t">
                 <property role="2pNNFO" value="key" />
                 <node concept="3o6iSG" id="1QEui$pG8Gi" role="3o6s8t">
@@ -3287,7 +3300,7 @@
       <property role="2DPR8u" value="SET COMMON_JVM_ARGS=&quot;-XX:ErrorFile=%USERPROFILE%\java_error_in_%PRODUCT%_%%p.log&quot; &quot;-XX:HeapDumpPath=%USERPROFILE%\java_error_in_%PRODUCT%.hprof&quot; -Didea.paths.selector=%IDEA_PATHS_SELECTOR% -Didea.vendor.name=&quot;%IDEA_VENDOR_NAME%&quot; %IDE_PROPERTIES_PROPERTY%" />
     </node>
     <node concept="2DRAP_" id="4eWOtEm22ts" role="2DRAPQ">
-      <property role="2DPR8u" value="SET IDE_JVM_ARGS=-Didea.platform.prefix=Idea -Didea.jre.check=true -Djna.boot.library.path=&quot;%IDE_HOME%/lib/jna&quot;" />
+      <property role="2DPR8u" value="SET IDE_JVM_ARGS=-Didea.platform.prefix=Idea -Didea.jre.check=true -Djna.boot.library.path=&quot;%IDE_HOME%/lib/jna&quot; -Djava.system.class.loader=com.intellij.util.lang.PathClassLoader" />
     </node>
     <node concept="2DRAP_" id="4eWOtEm264z" role="2DRAPQ">
       <property role="2DPR8u" value="SET ALL_JVM_ARGS=%ACC% %COMMON_JVM_ARGS% %IDE_JVM_ARGS%" />
@@ -5232,6 +5245,9 @@
     </node>
     <node concept="2DRAP_" id="5gb82DdXPMj" role="2DRAPQ">
       <property role="2DPR8u" value="  -Djna.boot.library.path=&quot;${IDE_HOME}/lib/jna&quot; \" />
+    </node>
+    <node concept="2DRAP_" id="68UXn6W6HUA" role="2DRAPQ">
+      <property role="2DPR8u" value="  -Djava.system.class.loader=com.intellij.util.lang.PathClassLoader \" />
     </node>
     <node concept="2DRAP_" id="5pqe9hgw0aW" role="2DRAPQ">
       <property role="2DPR8u" value="  -Didea.vendor.name=$IDEA_VENDOR_NAME \" />
