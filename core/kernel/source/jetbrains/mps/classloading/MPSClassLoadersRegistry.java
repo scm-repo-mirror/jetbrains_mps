@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -92,10 +92,7 @@ class MPSClassLoadersRegistry {
    */
   @NotNull
   public ClassLoadingProgress getClassLoadingProgress(SModuleReference mRef) {
-    if (!myMPSLoadableModules.containsKey(mRef)) {
-      return ClassLoadingProgress.UNLOADED;
-    }
-    return myMPSLoadableModules.get(mRef);
+    return myMPSLoadableModules.getOrDefault(mRef, ClassLoadingProgress.UNLOADED);
   }
 
   /**
@@ -162,15 +159,16 @@ class MPSClassLoadersRegistry {
       if (progress == ClassLoadingProgress.UNLOADED) {
         throw new IllegalStateException("Module " + moduleReference + " is in UNLOADED state, i.e. the class loading clients know nothing about this module");
       } else if (progress == ClassLoadingProgress.LAZY_LOADED) {
-        putClassLoader(moduleReference, classLoader);
-        onLoaded(moduleReference);
-      }
+        myMPSClassLoaders.put(moduleReference, classLoader);
+        assert myMPSClassLoaders.containsKey(moduleReference);
+        myMPSLoadableModules.put(moduleReference, ClassLoadingProgress.LOADED);
+      } // XXX else if LOADED -> error, duplicate load attempt?
     }
   }
 
   @NotNull
   private List<ModuleClassLoader> createModuleCLs(final Collection<? extends ReloadableModule> toLoad) {
-    final List<ModuleClassLoader> moduleClassLoaders = new ArrayList<>();
+    final List<ModuleClassLoader> moduleClassLoaders = new ArrayList<>(toLoad.size());
     for (ReloadableModule module : toLoad) {
       ModuleClassLoader moduleClassLoader = createModuleClassLoader(module);
       moduleClassLoaders.add(moduleClassLoader);
@@ -206,19 +204,6 @@ class MPSClassLoadersRegistry {
       }
     }
     return null;
-  }
-
-  private void onLoaded(SModuleReference module) {
-    assert myMPSClassLoaders.containsKey(module);
-    ClassLoadingProgress classLoadingProgress = myMPSLoadableModules.get(module);
-    if (classLoadingProgress != ClassLoadingProgress.LAZY_LOADED) {
-      LOG.error("Illegal state: module has not been lazy loaded " + module, new Throwable());
-    }
-    myMPSLoadableModules.put(module, ClassLoadingProgress.LOADED);
-  }
-
-  private void putClassLoader(SModuleReference module, ModuleClassLoader classLoader) {
-    myMPSClassLoaders.put(module, classLoader);
   }
 
   public void dispose() {

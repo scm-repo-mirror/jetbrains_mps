@@ -348,10 +348,6 @@ public class ClassLoaderManager implements CoreComponent {
     return DEFAULT_DELEGATING_TO_SYSTEM_CL;
   }
 
-  private boolean canCreate(@NotNull ReloadableModule module) {
-    return ModuleClassLoaderSupport.canCreate(module);
-  }
-
   /**
    * Flushes all delayed notifications to keep up the graph in {@link ModulesWatcher} with the module repository state
    * @see ModuleEventsHandler
@@ -389,6 +385,9 @@ public class ClassLoaderManager implements CoreComponent {
         modulesPreLoad = filterModules(modulesPreLoad, myUnloadedCondition, myMPSLoadableCondition, myValidCondition);
         if (modulesPreLoad.isEmpty()) return Collections.emptySet();
 
+        // AFAIU, modulesPreLoad exclude modules with ManagedByContributor class loading (myMPSLoadableCondition)
+        // and I wonder if this is truly what we need here. Is it true that no DeployListener ever needs anything from
+        // a module with IDEA CL (directly; indirect access works through CL delegation)?
         Set<ReloadableModule> modulesToNotify = myClassLoadersHolder.onLazyLoaded(modulesPreLoad);
         myBroadCaster.onLoad(modulesToNotify, monitor.subTask(5, SubProgressKind.AS_COMMENT));
 
@@ -410,7 +409,7 @@ public class ClassLoaderManager implements CoreComponent {
     monitor.start("Loading", 1);
     try {
       return runTransaction(() -> {
-        Set<ReloadableModule> modulesToLoad = new LinkedHashSet<>(filterModules(modules, myWatchableCondition, myValidCondition));
+        Set<ReloadableModule> modulesToLoad = filterModules(modules, myValidCondition);
         if (modulesToLoad.isEmpty()) return Collections.emptySet();
 
         // transitive closure
@@ -435,6 +434,9 @@ public class ClassLoaderManager implements CoreComponent {
    * Stops tracking all the {@code modules}, which are MPS-loadable
    * Disposes all class loaders for these modules
    * Method is not lazy
+   *
+   * FIXME not sure supplied modules match myMPSLoadableCondition, perhaps externally-managed modules are
+   *       among these, as well. If yes, this means we dispatch different set of modules in onLoaded and in onUnloaded
    *
    * @see #myMPSLoadableCondition
    */
@@ -692,7 +694,7 @@ public class ClassLoaderManager implements CoreComponent {
   /**
    * it is possible to create ModuleClassLoader for such module
    */
-  private final Condition<ReloadableModule> myMPSLoadableCondition = this::canCreate;
+  private final Condition<ReloadableModule> myMPSLoadableCondition = ModuleClassLoaderSupport::canCreate;
 
   /**
    * status of this module is valid in the dependencies graph
