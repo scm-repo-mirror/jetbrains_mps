@@ -21,6 +21,8 @@ import jetbrains.mps.logging.Logger;
 import jetbrains.mps.module.ReloadableModule;
 import jetbrains.mps.module.ReloadableModule.DeploymentStatus;
 import jetbrains.mps.progress.EmptyProgressMonitor;
+import jetbrains.mps.project.facets.JavaModuleFacet;
+import jetbrains.mps.project.facets.JavaModuleFacet.LoadClasses;
 import jetbrains.mps.smodel.tempmodel.TempModule;
 import jetbrains.mps.util.Computable;
 import jetbrains.mps.util.NotCondition;
@@ -414,6 +416,15 @@ public class ClassLoaderManager implements CoreComponent {
 
         // transitive closure
         modulesToLoad.addAll(myModulesWatcher.getResolvedDependencies(modulesToLoad));
+        Condition<ReloadableModule> extLoader = new Condition<ReloadableModule>() {
+          @Override
+          public boolean met(ReloadableModule m) {
+            final JavaModuleFacet jmf = m.getFacet(JavaModuleFacet.class);
+            return jmf != null && jmf.getLoadClasses() == LoadClasses.ManagedByContributor;
+          }
+        };
+        final Set<ReloadableModule> extLoaderModules = filterModules(modulesToLoad, myNotLoadedCondition, extLoader);
+        extLoaderModules.forEach(myClassLoadersHolder::getNonReloadableClassLoader);
         modulesToLoad = filterModules(modulesToLoad, myMPSLoadableCondition, myNotLoadedCondition);
         if (modulesToLoad.isEmpty()) return Collections.emptySet();
 

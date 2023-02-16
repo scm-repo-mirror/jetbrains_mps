@@ -82,7 +82,7 @@ class MPSClassLoadersRegistry {
    * @return null if classloader is not found
    */
   @Nullable
-  private synchronized MPSModuleClassLoader getNonReloadableClassLoader(@NotNull ReloadableModule module) {
+  /*package*/ synchronized MPSModuleClassLoader getNonReloadableClassLoader(@NotNull ReloadableModule module) {
     return myIDEAClassLoaders.computeIfAbsent(module.getModuleReference(), (ref) -> createDelegateClassLoader(module));
   }
 

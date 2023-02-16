@@ -467,7 +467,7 @@ public class PluginLoaderRegistry implements Disposable {
         // shares MA with the global one, it's not quite good as generally we load plugins from project modules, too
         // and MA of global repo is not the one to lock here. However, if we eventually move to MPSModuleRepository
         // being the one responsible for modules with CL (aka 'deployed'), this approach might be still valid.
-        myModelAccess.runReadAction(() -> {
+//        myModelAccess.runReadAction(() -> {
           // XXX readAction here is necessary for runTransaction not to get into deadlock (uses of runTransaction from CLM
           //     usually got writeAction already, so if a read attempts to start inside runTransaction, we could face a deadlock
           //     (first thread holds write and waits for transaction, another got transaction, and waiting for read).
@@ -484,7 +484,7 @@ public class PluginLoaderRegistry implements Disposable {
           // class loading is picky about SModule state (see RootClassloaderLookup mention, above), I feel we shall keep it for now,
           // until LanguageRegistry notification mechanism becomes mainstream and demand for CLs w/o model read would force us to
           // make true CLs
-          myClassLoaderManager.runTransaction(() -> {
+//          myClassLoaderManager.runTransaction(() -> {
             // NOTE: when we call #reset we are bound to process those changes, otherwise we lose them
             // for instance, that is the reason we cannot call #checkCancelled here
             // FIXME although with our own code we can have sort of 'staged' reset here, and 'revert' reset() in case
@@ -546,8 +546,8 @@ public class PluginLoaderRegistry implements Disposable {
             } finally {
               snapshot.invokePostRunnables();
             }
-          });
-        });
+//          });
+//        });
       } catch (VirtualMachineError e) {
         throw e;
       } catch (ProcessCanceledException ignored) {
