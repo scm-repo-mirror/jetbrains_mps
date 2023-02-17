@@ -453,7 +453,7 @@ public class MPSTreeStructureProvider implements SelectableTreeStructureProvider
   private SModelReference getContextModel(AbstractTreeNode<?> selectedNode) {
     if (selectedNode instanceof MPSPsiElementTreeNode) {
       MPSPsiNodeBase value = ((MPSPsiElementTreeNode) selectedNode).getValue();
-      return value.getContainingModel().getSModelReference();
+      return value != null ? value.getContainingModel().getSModelReference() : null;
     } else if (selectedNode instanceof MPSPsiModelTreeNode) {
       MPSPsiModel psiModel = ((MPSPsiModelTreeNode) selectedNode).getModel();
       return psiModel.getSModelReference();
