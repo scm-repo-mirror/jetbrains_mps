@@ -92,7 +92,7 @@ public class Typesystem_TabDescriptor extends RelationDescriptor {
     List<SConcept> rv = ListSequence.fromList(new ArrayList<SConcept>());
     if (ad != null) {
       for (SLanguage l : ad.getMainLanguages()) {
-        ConceptEditorHelper.getAvailableConceptAspects(l, node);
+        ListSequence.fromList(rv).addSequence(ListSequence.fromList(ConceptEditorHelper.getAvailableConceptAspects(l, node)));
       }
     }
     return rv;
