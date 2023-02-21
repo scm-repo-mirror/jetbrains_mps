@@ -11,19 +11,20 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import jetbrains.mps.persistence.PersistenceRegistry;
-import jetbrains.mps.project.Project;
-import com.intellij.openapi.application.ApplicationManager;
 import java.util.Map;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.messages.LogHandler;
+import jetbrains.mps.project.Project;
 import com.intellij.history.LocalHistory;
 import jetbrains.mps.ide.project.ProjectHelper;
 import java.awt.Color;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
-import jetbrains.mps.project.ProjectBase;
+import org.jetbrains.mps.openapi.module.SRepository;
+import com.intellij.openapi.application.ApplicationManager;
+import jetbrains.mps.ide.save.SaveRepositoryCommand;
 import jetbrains.mps.project.MPSProject;
 import com.intellij.configurationStore.StoreUtil;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -49,7 +50,7 @@ public class MigrationTask {
   public static final String FINISHED = "Migration finished";
   public static final String APPLY = "Applying migration ";
 
-  private MigrationSession mySession;
+  private final MigrationSession mySession;
   private volatile boolean myIsComplete = false;
   private LocalHistoryAction myCurrentChange = null;
   private final List<ScriptApplied> myWereRun = ListSequence.fromList(new ArrayList<ScriptApplied>());
@@ -78,16 +79,11 @@ public class MigrationTask {
       pm.advance(0);
       error(me);
     } finally {
-      final Project project = mySession.getProject();
       mySession.completed();
       // XXX saveProject() shall follow session.completed() which may alter
-      //     MigrationProperties we need to have saved. Not sure if need EDT or write, but without anything
-      //     it just hangs.
-      // FIXME I hate saveProject(): its argument, invokeAndWait(), the fact it's invoked for each step and uses internal IDEA stuff.
-      ApplicationManager.getApplication().invokeAndWait(() -> {
-        saveProject(project);
-        saveIjProject(project);
-      });
+      //     MigrationProperties we need to have saved. Not sure if need EDT, definitely doesn't need write.
+      // FIXME I hate that we call saveProject() for each step and that it uses internal IDEA stuff.
+      saveProject();
       pm.done();
       // yeah, and I hate this enableFFU, too!
       PersistenceRegistry.getInstance().enableFastFindUsages();
@@ -206,11 +202,12 @@ public class MigrationTask {
     //     to group ScriptApplied by script and invoke executeSingleStep for a group of related script references
     final Wrappers._boolean noException = new Wrappers._boolean(true);
 
+    final SRepository repo = mySession.getProject().getRepository();
     ApplicationManager.getApplication().invokeAndWait(() -> {
       if (myCurrentChange == null) {
         myCurrentChange = LocalHistory.getInstance().startAction(APPLY + localHistCaption);
       }
-      mySession.getProject().getRepository().getModelAccess().executeCommand(() -> {
+      repo.getModelAccess().executeCommand(() -> {
         try {
           execute.invoke();
         } catch (Throwable t) {
@@ -222,13 +219,9 @@ public class MigrationTask {
       });
 
       if (merge == null || !(merge.invoke())) {
-        final Project project = mySession.getProject();
         m.step("Saving project...");
-        project.getRepository().getModelAccess().runWriteAction(() -> {
-          project.getRepository().saveAll();
-          saveProject(project);
-        });
-        saveIjProject(project);
+        new SaveRepositoryCommand(repo).execute();
+        saveProject();
 
         myCurrentChange.finish();
         myCurrentChange = null;
@@ -238,19 +231,22 @@ public class MigrationTask {
     return noException.value;
   }
 
-  private void saveProject(Project project) {
+  /**
+   * Invoke not under IDEA write!
+   */
+  private void saveProject() {
     // essential for project migrations to update the list of migrations run to the disk, however, suitable also for language migrations
-    ((ProjectBase) project).save();
-  }
-
-  public void saveIjProject(Project project) {
+    // although we used to do project.save(), I see no point, MPS stuff (like, set of modules) doesn't change, all we care
+    // about AFAIK is persistence of project components' state.
+    Project project = mySession.getProject();
     // Looks like starting from IDEA 2023.3 following code should be executed
-    // outside of IDEA write action. Extracting this method from saveProject(Project):void
+    // outside of IDEA write action.
     if (project instanceof MPSProject) {
       com.intellij.openapi.project.Project ijProject = ((MPSProject) project).getProject();
       // ij does not save the project in headless which is not acceptable for us, copying the ij internals
       StoreUtil.saveSettings(ijProject, false);
     }
+
   }
 
   private boolean runCleanupMigrations(final ProgressMonitor m) {
