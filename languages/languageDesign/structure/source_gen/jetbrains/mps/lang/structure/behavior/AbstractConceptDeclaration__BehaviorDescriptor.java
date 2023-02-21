@@ -28,12 +28,13 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPointerOperations;
+import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import java.util.ArrayList;
 import jetbrains.mps.lang.behavior.behavior.ConceptMethodDeclaration__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
-import jetbrains.mps.smodel.SNodePointer;
 import java.util.LinkedHashSet;
 import jetbrains.mps.smodel.adapter.MetaAdapterByDeclaration;
 import java.util.Objects;
@@ -113,7 +114,7 @@ public final class AbstractConceptDeclaration__BehaviorDescriptor extends BaseBH
 
     SNode contextBehaviour = SNodeOperations.getNodeAncestor(context, CONCEPTS.ConceptBehavior$2, true, false);
     List<SNode> allSupers = Sequence.fromIterable(AbstractConceptDeclaration__BehaviorDescriptor.getAllSuperConcepts_id2A8AB0rAWpG.invoke(__thisNode__, ((boolean) true))).toListSequence();
-    ListSequence.fromList(allSupers).addElement(SNodeOperations.getNode("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1133920641626"));
+    ListSequence.fromList(allSupers).addElement(SPointerOperations.resolveNode(new SNodePointer("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1133920641626"), SNodeOperations.getModel(__thisNode__).getRepository()));
     for (SNode concept : allSupers) {
       SModel bma = SModuleOperations.getAspect(SNodeOperations.getModel(concept).getModule(), "behavior");
       SNode behaviour = SNodeOperations.cast(AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspect_id7g4OXB0yku$.invoke(concept, bma), CONCEPTS.ConceptBehavior$2);
@@ -252,7 +253,7 @@ public final class AbstractConceptDeclaration__BehaviorDescriptor extends BaseBH
     AbstractConceptDeclaration__BehaviorDescriptor.collectSuperConcepts_id2A8AB0rB3NH.invokeSpecial(__thisNode__.getConcept(), __thisNode__, concepts);
     // getImmediateSuperconcepts for an interface declaration doesn't give BaseConcept, while it's necessary when we'd like to access BaseConcept properties and links
     // for a node with type of pure interface (e.g. DotExpression.operation:IOperation.virtualPackage)
-    SetSequence.fromSet(concepts).addElement(SNodeOperations.getNode("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1133920641626"));
+    SetSequence.fromSet(concepts).addElement(SPointerOperations.resolveNode(new SNodePointer("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1133920641626"), SNodeOperations.getModel(__thisNode__).getRepository()));
     return concepts;
   }
   /*package*/ static void collectSuperConcepts_id2A8AB0rB3NH(@NotNull SAbstractConcept __thisConcept__, SNode concept, final Set<SNode> result) {
@@ -273,11 +274,7 @@ public final class AbstractConceptDeclaration__BehaviorDescriptor extends BaseBH
       return result;
     }
 
-    for (SNode superconcept : ListSequence.fromList(AbstractConceptDeclaration__BehaviorDescriptor.getImmediateSuperconcepts_idhMuxyK2.invoke(__thisNode__)).where(new IWhereFilter<SNode>() {
-      public boolean accept(SNode it) {
-        return (it != null);
-      }
-    })) {
+    for (SNode superconcept : AbstractConceptDeclaration__BehaviorDescriptor.getImmediateSuperconcepts_idhMuxyK2.invoke(__thisNode__)) {
       SNode superconceptResult = AbstractConceptDeclaration__BehaviorDescriptor.computeInHierarchy_id3CiBrVcn5fe.invoke(superconcept, predicate);
       if (superconceptResult != null) {
         return superconceptResult;
@@ -292,17 +289,15 @@ public final class AbstractConceptDeclaration__BehaviorDescriptor extends BaseBH
     Set<SNode> notInLanguageAncestors = SetSequence.fromSet(new HashSet<SNode>());
 
     for (SNode superconcept : AbstractConceptDeclaration__BehaviorDescriptor.getImmediateSuperconcepts_idhMuxyK2.invoke(__thisNode__)) {
-      if ((superconcept != null)) {
-        if (SNodeOperations.getModel(superconcept) == SNodeOperations.getModel(__thisNode__)) {
-          Pair<Set<SNode>, Set<SNode>> superconceptResult = AbstractConceptDeclaration__BehaviorDescriptor.getInLanguageAndNotInLanguageAncestors_id54xSEBmK0MK.invoke(superconcept);
-          SetSequence.fromSet(inLanguageAncestors).addElement(superconcept);
+      if (SNodeOperations.getModel(superconcept) == SNodeOperations.getModel(__thisNode__)) {
+        Pair<Set<SNode>, Set<SNode>> superconceptResult = AbstractConceptDeclaration__BehaviorDescriptor.getInLanguageAndNotInLanguageAncestors_id54xSEBmK0MK.invoke(superconcept);
+        SetSequence.fromSet(inLanguageAncestors).addElement(superconcept);
 
-          SetSequence.fromSet(inLanguageAncestors).addSequence(SetSequence.fromSet(superconceptResult.o1));
-          SetSequence.fromSet(notInLanguageAncestors).addSequence(SetSequence.fromSet(superconceptResult.o2));
-        } else {
-          // other language
-          SetSequence.fromSet(notInLanguageAncestors).addElement(superconcept);
-        }
+        SetSequence.fromSet(inLanguageAncestors).addSequence(SetSequence.fromSet(superconceptResult.o1));
+        SetSequence.fromSet(notInLanguageAncestors).addSequence(SetSequence.fromSet(superconceptResult.o2));
+      } else {
+        // other language
+        SetSequence.fromSet(notInLanguageAncestors).addElement(superconcept);
       }
     }
 

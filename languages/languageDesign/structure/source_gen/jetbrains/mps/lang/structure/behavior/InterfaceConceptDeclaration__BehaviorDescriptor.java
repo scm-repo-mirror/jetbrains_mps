@@ -14,9 +14,11 @@ import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import java.util.Set;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import java.util.ArrayList;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -25,8 +27,8 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class InterfaceConceptDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
@@ -42,11 +44,7 @@ public final class InterfaceConceptDeclaration__BehaviorDescriptor extends BaseB
   }
 
   /*package*/ static List<SNode> getImmediateSuperconcepts_idhMuxyK2(@NotNull SNode __thisNode__) {
-    List<SNode> result = new ArrayList<SNode>();
-    for (SNode interfaceConceptReference : SLinkOperations.getChildren(__thisNode__, LINKS.extends$nawU)) {
-      ListSequence.fromList(result).addElement(SLinkOperations.getTarget(interfaceConceptReference, LINKS.intfc$zM4e));
-    }
-    return result;
+    return Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(__thisNode__, LINKS.extends$nawU), LINKS.intfc$zM4e)).where(new NotNullWhereFilter<SNode>()).toListSequence();
   }
   /*package*/ static List<SNode> getAllMethodsInPriorityOrder_id7TwdR6lloGH(@NotNull SNode __thisNode__) {
     List<SNode> methods = ListSequence.fromList(new ArrayList<SNode>());
@@ -119,8 +117,8 @@ public final class InterfaceConceptDeclaration__BehaviorDescriptor extends BaseB
   }
 
   private static final class LINKS {
-    /*package*/ static final SReferenceLink intfc$zM4e = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x110356fc618L, 0x110356fe029L, "intfc");
     /*package*/ static final SContainmentLink extends$nawU = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, 0x110356e9df4L, "extends");
+    /*package*/ static final SReferenceLink intfc$zM4e = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x110356fc618L, 0x110356fe029L, "intfc");
     /*package*/ static final SContainmentLink method$w_in = MetaAdapterFactory.getContainmentLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d43447b1aL, 0x11d43447b25L, "method");
   }
 
