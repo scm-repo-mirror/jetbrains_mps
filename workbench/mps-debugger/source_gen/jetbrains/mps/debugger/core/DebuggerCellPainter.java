@@ -98,7 +98,7 @@ public abstract class DebuggerCellPainter<E> extends AbstractAdditionalPainter<E
       return;
     }
 
-    Color frameColor = getFrameColor();
+    Color frameColor = getFrameColor(editorComponent);
     if (frameColor == null) {
       return;
     }
@@ -128,7 +128,7 @@ public abstract class DebuggerCellPainter<E> extends AbstractAdditionalPainter<E
   }
   private void paintCellBackground(Graphics graphics, EditorComponent editorComponent) {
     if (isInCellMode(editorComponent)) {
-      Color cellBackgroundColor = getCellBackgroundColor();
+      Color cellBackgroundColor = getCellBackgroundColor(editorComponent);
       if (cellBackgroundColor == null) {
         return;
       }
@@ -147,7 +147,7 @@ public abstract class DebuggerCellPainter<E> extends AbstractAdditionalPainter<E
       return;
     }
 
-    Color stripeBackgroundColor = getStripeBackgroundColor();
+    Color stripeBackgroundColor = getStripeBackgroundColor(editorComponent);
     if (stripeBackgroundColor == null) {
       return;
     }

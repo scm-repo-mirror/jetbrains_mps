@@ -3172,7 +3172,10 @@
               <ref role="3uigEE" to="z60i:~Color" resolve="Color" />
             </node>
             <node concept="1rXfSq" id="4hiugqyzeXQ" role="33vP2m">
-              <ref role="37wK5l" node="7jEVj$vY0xd" resolve="getFrameColor" />
+              <ref role="37wK5l" node="788lcaFJ7hk" resolve="getFrameColor" />
+              <node concept="37vLTw" id="1OeV9$BoncY" role="37wK5m">
+                <ref role="3cqZAo" node="7jEVj$vY1V1" resolve="editorComponent" />
+              </node>
             </node>
           </node>
         </node>
@@ -3499,7 +3502,10 @@
                   <ref role="3uigEE" to="z60i:~Color" resolve="Color" />
                 </node>
                 <node concept="1rXfSq" id="4hiugqyz5KA" role="33vP2m">
-                  <ref role="37wK5l" node="7jEVj$vY0x3" resolve="getCellBackgroundColor" />
+                  <ref role="37wK5l" node="788lcaFITKa" resolve="getCellBackgroundColor" />
+                  <node concept="37vLTw" id="1OeV9$BoptD" role="37wK5m">
+                    <ref role="3cqZAo" node="7jEVj$vY0tj" resolve="editorComponent" />
+                  </node>
                 </node>
               </node>
             </node>
@@ -3636,7 +3642,10 @@
               <ref role="3uigEE" to="z60i:~Color" resolve="Color" />
             </node>
             <node concept="1rXfSq" id="4hiugqyyMTX" role="33vP2m">
-              <ref role="37wK5l" node="7jEVj$vY0x8" resolve="getStripeBackgroundColor" />
+              <ref role="37wK5l" node="788lcaFJ3f$" resolve="getStripeBackgroundColor" />
+              <node concept="37vLTw" id="1OeV9$BorpI" role="37wK5m">
+                <ref role="3cqZAo" node="7jEVj$vY0uj" resolve="editorComponent" />
+              </node>
             </node>
           </node>
         </node>
