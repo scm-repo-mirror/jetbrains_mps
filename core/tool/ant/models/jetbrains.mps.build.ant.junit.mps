@@ -20,6 +20,7 @@
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
+      <concept id="1080223426719" name="jetbrains.mps.baseLanguage.structure.OrExpression" flags="nn" index="22lmx$" />
       <concept id="1082485599095" name="jetbrains.mps.baseLanguage.structure.BlockStatement" flags="nn" index="9aQIb">
         <child id="1082485599096" name="statements" index="9aQI4" />
       </concept>
@@ -856,15 +857,90 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="76_s2Q_btaE" role="3cqZAp">
-          <node concept="2OqwBi" id="76_s2Q$Ecym" role="3clFbG">
-            <node concept="37vLTw" id="76_s2Q$E8jX" role="2Oq$k0">
-              <ref role="3cqZAo" node="76_s2Q_bp7t" resolve="entry" />
+        <node concept="3SKdUt" id="4PUdRxB_hzz" role="3cqZAp">
+          <node concept="1PaTwC" id="4PUdRxB_hz$" role="1aUNEU">
+            <node concept="3oM_SD" id="4PUdRxB_iMk" role="1PaTwD">
+              <property role="3oM_SC" value="also," />
             </node>
-            <node concept="liA8E" id="76_s2Q$EkBJ" role="2OqNvi">
-              <ref role="37wK5l" to="wyt6:~String.contains(java.lang.CharSequence)" resolve="contains" />
-              <node concept="Xl_RD" id="76_s2Q$ErhY" role="37wK5m">
-                <property role="Xl_RC" value="junit-3" />
+            <node concept="3oM_SD" id="4PUdRxB_iNr" role="1PaTwD">
+              <property role="3oM_SC" value="filter" />
+            </node>
+            <node concept="3oM_SD" id="4PUdRxB_iPC" role="1PaTwD">
+              <property role="3oM_SC" value="out" />
+            </node>
+            <node concept="3oM_SD" id="4PUdRxB_iUb" role="1PaTwD">
+              <property role="3oM_SC" value="junit-4.11.jar" />
+            </node>
+            <node concept="3oM_SD" id="4PUdRxB_iZ0" role="1PaTwD">
+              <property role="3oM_SC" value="that" />
+            </node>
+            <node concept="3oM_SD" id="4PUdRxB_iZ6" role="1PaTwD">
+              <property role="3oM_SC" value="is" />
+            </node>
+            <node concept="3oM_SD" id="4PUdRxB_j0i" role="1PaTwD">
+              <property role="3oM_SC" value="apparently" />
+            </node>
+            <node concept="3oM_SD" id="4PUdRxB_j1v" role="1PaTwD">
+              <property role="3oM_SC" value="distributed" />
+            </node>
+            <node concept="3oM_SD" id="4PUdRxB_j71" role="1PaTwD">
+              <property role="3oM_SC" value="with" />
+            </node>
+            <node concept="3oM_SD" id="4PUdRxB_j8g" role="1PaTwD">
+              <property role="3oM_SC" value="Ant" />
+            </node>
+            <node concept="3oM_SD" id="4PUdRxB_j9w" role="1PaTwD">
+              <property role="3oM_SC" value="1.10.1" />
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="4PUdRxB_ls2" role="3cqZAp">
+          <node concept="1PaTwC" id="4PUdRxB_ls3" role="1aUNEU">
+            <node concept="3oM_SD" id="4PUdRxB_mF0" role="1PaTwD">
+              <property role="3oM_SC" value="neither" />
+            </node>
+            <node concept="3oM_SD" id="4PUdRxB_mG7" role="1PaTwD">
+              <property role="3oM_SC" value="is" />
+            </node>
+            <node concept="3oM_SD" id="4PUdRxB_mHf" role="1PaTwD">
+              <property role="3oM_SC" value="compatible" />
+            </node>
+            <node concept="3oM_SD" id="4PUdRxB_mKy" role="1PaTwD">
+              <property role="3oM_SC" value="with" />
+            </node>
+            <node concept="3oM_SD" id="4PUdRxB_mKB" role="1PaTwD">
+              <property role="3oM_SC" value="JUnit5's" />
+            </node>
+            <node concept="3oM_SD" id="4PUdRxB_mMR" role="1PaTwD">
+              <property role="3oM_SC" value="Vintage" />
+            </node>
+            <node concept="3oM_SD" id="4PUdRxB_mO3" role="1PaTwD">
+              <property role="3oM_SC" value="engine" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="76_s2Q_btaE" role="3cqZAp">
+          <node concept="22lmx$" id="4PUdRxB_4mB" role="3clFbG">
+            <node concept="2OqwBi" id="4PUdRxB_8Wt" role="3uHU7w">
+              <node concept="37vLTw" id="4PUdRxB_7vc" role="2Oq$k0">
+                <ref role="3cqZAo" node="76_s2Q_bp7t" resolve="entry" />
+              </node>
+              <node concept="liA8E" id="4PUdRxB_asw" role="2OqNvi">
+                <ref role="37wK5l" to="wyt6:~String.contains(java.lang.CharSequence)" resolve="contains" />
+                <node concept="Xl_RD" id="4PUdRxB_cDd" role="37wK5m">
+                  <property role="Xl_RC" value="junit-4.11" />
+                </node>
+              </node>
+            </node>
+            <node concept="2OqwBi" id="76_s2Q$Ecym" role="3uHU7B">
+              <node concept="37vLTw" id="76_s2Q$E8jX" role="2Oq$k0">
+                <ref role="3cqZAo" node="76_s2Q_bp7t" resolve="entry" />
+              </node>
+              <node concept="liA8E" id="76_s2Q$EkBJ" role="2OqNvi">
+                <ref role="37wK5l" to="wyt6:~String.contains(java.lang.CharSequence)" resolve="contains" />
+                <node concept="Xl_RD" id="76_s2Q$ErhY" role="37wK5m">
+                  <property role="Xl_RC" value="junit-3" />
+                </node>
               </node>
             </node>
           </node>

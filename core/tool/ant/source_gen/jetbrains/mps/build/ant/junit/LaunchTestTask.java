@@ -108,7 +108,9 @@ public class LaunchTestTask extends MpsLoadTask {
   @Override
   protected boolean filterClasspathEntry(String entry) {
     // filter out junit-3.8.2.jar that is unconditionally provided by TC's Ant runner
-    return entry.contains("junit-3");
+    // also, filter out junit-4.11.jar that is apparently distributed with Ant 1.10.1
+    // neither is compatible with JUnit5's Vintage engine
+    return entry.contains("junit-3") || entry.contains("junit-4.11");
   }
 
   @Override
