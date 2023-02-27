@@ -8,7 +8,9 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.kotlin.behavior.IInheritable__BehaviorDescriptor;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
@@ -22,7 +24,7 @@ public class check_PropertyDeclaration_NonTypesystemRule extends AbstractNonType
   public check_PropertyDeclaration_NonTypesystemRule() {
   }
   public void applyRule(final SNode decl, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if ((SLinkOperations.getTarget(decl, LINKS.assignment$nl1j) == null) && !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(decl, LINKS.inheritance$TFvr), CONCEPTS.AbstractInheritanceModifier$GA)) && (SLinkOperations.getTarget(decl, LINKS.getter$C1zs) == null)) {
+    if ((SLinkOperations.getTarget(decl, LINKS.assignment$nl1j) == null) && !(SConceptOperations.isExactly(SNodeOperations.asSConcept(IInheritable__BehaviorDescriptor.getInheritance_id6jE_6duswG9.invoke(decl)), CONCEPTS.AbstractInheritanceModifier$GA)) && (SLinkOperations.getTarget(decl, LINKS.getter$C1zs) == null)) {
       // Warning as it may be irrelevant based on dataflow (could be initialized later), kept for quickfixes
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
@@ -59,6 +61,5 @@ public class check_PropertyDeclaration_NonTypesystemRule extends AbstractNonType
   private static final class LINKS {
     /*package*/ static final SContainmentLink getter$C1zs = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4a1L, 0x11400bb7908cd0efL, "getter");
     /*package*/ static final SContainmentLink assignment$nl1j = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b9a90aaL, 0x28bef6d7551af7baL, "assignment");
-    /*package*/ static final SContainmentLink inheritance$TFvr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x537372687dd3bcdaL, 0x537372687dd3bcdbL, "inheritance");
   }
 }

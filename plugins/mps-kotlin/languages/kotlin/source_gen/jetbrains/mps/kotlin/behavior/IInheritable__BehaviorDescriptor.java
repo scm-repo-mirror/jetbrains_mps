@@ -13,23 +13,41 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class IInheritable__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x537372687dd3bcdaL, "jetbrains.mps.kotlin.structure.IInheritable");
 
+  public static final SMethod<SAbstractConcept> getInheritance_id6jE_6duswG9 = new SMethodBuilder<SAbstractConcept>(new SJavaCompoundTypeImpl((Class<SAbstractConcept>) ((Class) Object.class))).name("getInheritance").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7271787702850292489L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<SAbstractConcept> getDefaultInheritance_id7uO8z1Cfao7 = new SMethodBuilder<SAbstractConcept>(new SJavaCompoundTypeImpl((Class<SAbstractConcept>) ((Class) Object.class))).name("getDefaultInheritance").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8625556777623922183L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<SAbstractConcept> getDefaultInheritance_id6jE_6dusz0P = new SMethodBuilder<SAbstractConcept>(new SJavaCompoundTypeImpl((Class<SAbstractConcept>) ((Class) Object.class))).name("getDefaultInheritance").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7271787702850302005L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getDefaultInheritance_id7uO8z1Cfao7);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getInheritance_id6jE_6duswG9, getDefaultInheritance_id7uO8z1Cfao7, getDefaultInheritance_id6jE_6dusz0P);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
+  @NotNull
+  /*package*/ static SAbstractConcept getInheritance_id6jE_6duswG9(@NotNull SNode __thisNode__) {
+    if ((SLinkOperations.getTarget(__thisNode__, LINKS.inheritance$TFvr) != null)) {
+      return SNodeOperations.getConcept(SLinkOperations.getTarget(__thisNode__, LINKS.inheritance$TFvr));
+    }
+    return IInheritable__BehaviorDescriptor.getDefaultInheritance_id6jE_6dusz0P.invoke(__thisNode__);
+  }
+  @Deprecated
   /*package*/ static SAbstractConcept getDefaultInheritance_id7uO8z1Cfao7(@NotNull SAbstractConcept __thisConcept__, SNode contextNode) {
     return CONCEPTS.FinalInheritanceModifier$H5;
+  }
+  @NotNull
+  /*package*/ static SAbstractConcept getDefaultInheritance_id6jE_6dusz0P(@NotNull SNode __thisNode__) {
+    // TODO upon removal of static getDefaultInheritance, replace by FinalInheritanceModifier concept
+    return IInheritable__BehaviorDescriptor.getDefaultInheritance_id7uO8z1Cfao7.invoke(__thisNode__.getConcept(), __thisNode__);
   }
 
   /*package*/ IInheritable__BehaviorDescriptor() {
@@ -47,6 +65,10 @@ public final class IInheritable__BehaviorDescriptor extends BaseBHDescriptor {
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
+      case 0:
+        return (T) ((SAbstractConcept) getInheritance_id6jE_6duswG9(node));
+      case 2:
+        return (T) ((SAbstractConcept) getDefaultInheritance_id6jE_6dusz0P(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -59,7 +81,7 @@ public final class IInheritable__BehaviorDescriptor extends BaseBHDescriptor {
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
-      case 0:
+      case 1:
         return (T) ((SAbstractConcept) getDefaultInheritance_id7uO8z1Cfao7(concept, (SNode) parameters[0]));
       default:
         throw new BHMethodNotFoundException(this, method);
@@ -76,6 +98,10 @@ public final class IInheritable__BehaviorDescriptor extends BaseBHDescriptor {
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink inheritance$TFvr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x537372687dd3bcdaL, 0x537372687dd3bcdbL, "inheritance");
   }
 
   private static final class CONCEPTS {

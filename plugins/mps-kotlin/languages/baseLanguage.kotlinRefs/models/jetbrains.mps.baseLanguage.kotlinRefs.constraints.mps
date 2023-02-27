@@ -214,7 +214,6 @@
         <child id="6733348108486823193" name="leftExpression" index="1m5AlR" />
         <child id="3906496115198199033" name="conceptArgument" index="3oSUPX" />
       </concept>
-      <concept id="1143234257716" name="jetbrains.mps.lang.smodel.structure.Node_GetModelOperation" flags="nn" index="I4A8Y" />
       <concept id="2644386474300074836" name="jetbrains.mps.lang.smodel.structure.ConceptIdRefExpression" flags="nn" index="35c_gC">
         <reference id="2644386474300074837" name="conceptDeclaration" index="35c_gD" />
       </concept>
@@ -672,6 +671,49 @@
             </node>
           </node>
         </node>
+        <node concept="3SKdUt" id="$5Ka6xRkt5" role="3cqZAp">
+          <node concept="1PaTwC" id="$5Ka6xRkt6" role="1aUNEU">
+            <node concept="3oM_SD" id="$5Ka6xRmwG" role="1PaTwD">
+              <property role="3oM_SC" value="TODO" />
+            </node>
+            <node concept="3oM_SD" id="$5Ka6xRmwI" role="1PaTwD">
+              <property role="3oM_SC" value="use" />
+            </node>
+            <node concept="3oM_SD" id="$5Ka6xRmCw" role="1PaTwD">
+              <property role="3oM_SC" value="TOP_LEVEL" />
+            </node>
+            <node concept="3oM_SD" id="$5Ka6xRmFh" role="1PaTwD">
+              <property role="3oM_SC" value="if" />
+            </node>
+            <node concept="3oM_SD" id="$5Ka6xRmKB" role="1PaTwD">
+              <property role="3oM_SC" value="not" />
+            </node>
+            <node concept="3oM_SD" id="$5Ka6xRmKH" role="1PaTwD">
+              <property role="3oM_SC" value="called" />
+            </node>
+            <node concept="3oM_SD" id="$5Ka6xRmKO" role="1PaTwD">
+              <property role="3oM_SC" value="from" />
+            </node>
+            <node concept="3oM_SD" id="$5Ka6xRmNu" role="1PaTwD">
+              <property role="3oM_SC" value="a" />
+            </node>
+            <node concept="3oM_SD" id="$5Ka6xRmQ9" role="1PaTwD">
+              <property role="3oM_SC" value="class" />
+            </node>
+            <node concept="3oM_SD" id="$5Ka6xRmQj" role="1PaTwD">
+              <property role="3oM_SC" value="inheriting" />
+            </node>
+            <node concept="3oM_SD" id="$5Ka6xRmVV" role="1PaTwD">
+              <property role="3oM_SC" value="the" />
+            </node>
+            <node concept="3oM_SD" id="$5Ka6xRmW7" role="1PaTwD">
+              <property role="3oM_SC" value="current" />
+            </node>
+            <node concept="3oM_SD" id="$5Ka6xRmYQ" role="1PaTwD">
+              <property role="3oM_SC" value="class" />
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs8" id="1d2BQ0Zrks1" role="3cqZAp">
           <node concept="3cpWsn" id="1d2BQ0Zrks2" role="3cpWs9">
             <property role="TrG5h" value="visitor" />
@@ -684,6 +726,13 @@
                 <ref role="37wK5l" to="tbhz:2ZbCiJaoHqm" resolve="TypeMembersVisitor" />
                 <node concept="37vLTw" id="1d2BQ0Zrks7" role="37wK5m">
                   <ref role="3cqZAo" node="1d2BQ0Zrkqu" resolve="signatureFilter" />
+                </node>
+                <node concept="37vLTw" id="$5Ka6xR561" role="37wK5m">
+                  <ref role="3cqZAo" node="1d2BQ0Zrkqs" resolve="contextNode" />
+                </node>
+                <node concept="Rm8GO" id="$5Ka6xRgiS" role="37wK5m">
+                  <ref role="Rm8GQ" to="tbhz:6JJpax4AA5g" resolve="TYPE_PROTECTED" />
+                  <ref role="1Px2BO" to="tbhz:6jE_6duQcYm" resolve="VisibilityAccess" />
                 </node>
               </node>
             </node>
@@ -1007,11 +1056,8 @@
                 <node concept="2ShNRf" id="5$XWI2QCE5S" role="37wK5m">
                   <node concept="1pGfFk" id="5$XWI2QCFs0" role="2ShVmc">
                     <property role="373rjd" value="true" />
-                    <ref role="37wK5l" to="sjya:4k9eBec$Bew" resolve="ConstructorsScope" />
-                    <node concept="2OqwBi" id="5$XWI2QCFLa" role="37wK5m">
-                      <node concept="2rP1CM" id="5$XWI2QCF$q" role="2Oq$k0" />
-                      <node concept="I4A8Y" id="5$XWI2QCFZT" role="2OqNvi" />
-                    </node>
+                    <ref role="37wK5l" to="sjya:4oNDtERh_gB" resolve="ConstructorsScope" />
+                    <node concept="2rP1CM" id="5$XWI2QCF$q" role="37wK5m" />
                   </node>
                 </node>
                 <node concept="35c_gC" id="5$XWI2QCJ56" role="37wK5m">

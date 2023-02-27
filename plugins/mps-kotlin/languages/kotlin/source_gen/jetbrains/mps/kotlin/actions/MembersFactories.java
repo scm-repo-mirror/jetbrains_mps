@@ -7,8 +7,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import jetbrains.mps.kotlin.behavior.IInheritable__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
@@ -32,8 +30,6 @@ public class MembersFactories {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.IInheritable$pc)) {
         SLinkOperations.setTarget(newNode, LINKS.inheritance$TFvr, SNodeOperations.copyNode(SLinkOperations.getTarget(SNodeOperations.as(sampleNode, CONCEPTS.IInheritable$pc), LINKS.inheritance$TFvr)));
-      } else {
-        SLinkOperations.setTarget(newNode, LINKS.inheritance$TFvr, SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(IInheritable__BehaviorDescriptor.getDefaultInheritance_id7uO8z1Cfao7.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(newNode)), enclosingNode))));
       }
     }
   }

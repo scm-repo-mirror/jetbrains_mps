@@ -17,7 +17,6 @@ import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class Visibility_RemoveModifier {
@@ -31,7 +30,7 @@ public class Visibility_RemoveModifier {
         if (DeletionApproverUtil.approve(editorContext, SLinkOperations.getTarget(node, LINKS.visibility$vnSV))) {
           return;
         }
-        SLinkOperations.setNewChild(node, LINKS.visibility$vnSV, CONCEPTS.PublicVisibility$Me);
+        SNodeOperations.deleteNode(SLinkOperations.getTarget(node, LINKS.visibility$vnSV));
         {
           final SNode named = node;
           if (SNodeOperations.isInstanceOf(named, CONCEPTS.INamedConcept$Kd)) {
@@ -89,7 +88,6 @@ public class Visibility_RemoveModifier {
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept PublicVisibility$Me = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af395L, "jetbrains.mps.kotlin.structure.PublicVisibility");
     /*package*/ static final SInterfaceConcept INamedConcept$Kd = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
   }
 }

@@ -28,8 +28,12 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.kotlin.scopes.signed.InstanceSignatureScope;
+import jetbrains.mps.kotlin.scopes.signed.TopLevelVisibilityFilterScope;
 import jetbrains.mps.kotlin.scopes.signed.ReceiverTypeScope;
 import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.kotlin.scopes.VisibilityAccess;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScopeHelper;
+import jetbrains.mps.kotlin.scopes.signed.StaticInstanceVisibilityFilterScope;
 import jetbrains.mps.kotlin.scopes.signed.CompositeSignatureScope;
 import org.jetbrains.annotations.ApiStatus;
 import jetbrains.mps.kotlin.api.types.identifiers.UnmatchableType;
@@ -58,11 +62,11 @@ public final class IType__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<SignatureScope> getStaticScope_id1ODRHGtufGw = new SMethodBuilder<SignatureScope>(new SJavaCompoundTypeImpl(SignatureScope.class)).name("getStaticScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2101455733818719008L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureFilter.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<SNode> getCompanionType_id13qggQDnK5I = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getCompanionType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1214354576461726062L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<SignatureScope> getCompanionInstanceScope_id1ODRHGtugRP = new SMethodBuilder<SignatureScope>(new SJavaCompoundTypeImpl(SignatureScope.class)).name("getCompanionInstanceScope").modifiers(8, AccessPrivileges.PROTECTED).concept(CONCEPT).baseMethodId(2101455733818723829L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureFilter.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
-  public static final SMethod<TypeKey> shallowId_idJmO2PmZtH5 = new SMethodBuilder<TypeKey>(new SJavaCompoundTypeImpl(TypeKey.class)).name("shallowId").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(853098072584870725L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<TypeKey> typeKey_idJmO2PmZtH5 = new SMethodBuilder<TypeKey>(new SJavaCompoundTypeImpl(TypeKey.class)).name("typeKey").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(853098072584870725L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<Boolean> isExpression_id2J12cYi1t5p = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isExpression").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3152810901737165145L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<_FunctionTypes._return_P0_E0<? extends SNode>> createConstructor_id2$1CHwF$28b = new SMethodBuilder<_FunctionTypes._return_P0_E0<? extends SNode>>(new SJavaCompoundTypeImpl((Class<_FunctionTypes._return_P0_E0<? extends SNode>>) ((Class) Object.class))).name("createConstructor").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2954821879859257867L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getTypeParameters_id7an2tsIdpkM, visitHierarchy_id5q426iHtYvR, populateTypeSignatures_id5q426iHK5S9, populateSubstitutions_id4f4W8JpwgWV, toString_id4nn3FPlZH$r, getPresentation_idhEwIMiw, asProjection_idJmO2PmVt2A, asInvariantProjection_id2gj5XQXIqKf, getInstanceScopes_id1ODRHGtuist, getFullStaticScope_id7ZA3QJnL$CF, getStaticScope_id1ODRHGtufGw, getCompanionType_id13qggQDnK5I, getCompanionInstanceScope_id1ODRHGtugRP, shallowId_idJmO2PmZtH5, isExpression_id2J12cYi1t5p, createConstructor_id2$1CHwF$28b);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getTypeParameters_id7an2tsIdpkM, visitHierarchy_id5q426iHtYvR, populateTypeSignatures_id5q426iHK5S9, populateSubstitutions_id4f4W8JpwgWV, toString_id4nn3FPlZH$r, getPresentation_idhEwIMiw, asProjection_idJmO2PmVt2A, asInvariantProjection_id2gj5XQXIqKf, getInstanceScopes_id1ODRHGtuist, getFullStaticScope_id7ZA3QJnL$CF, getStaticScope_id1ODRHGtufGw, getCompanionType_id13qggQDnK5I, getCompanionInstanceScope_id1ODRHGtugRP, typeKey_idJmO2PmZtH5, isExpression_id2J12cYi1t5p, createConstructor_id2$1CHwF$28b);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -101,18 +105,21 @@ public final class IType__BehaviorDescriptor extends BaseBHDescriptor {
     }
 
     // Use API defined above
-    List<SignatureScope> scopes = ListSequence.fromListAndArray(new ArrayList<SignatureScope>(), new InstanceSignatureScope(__thisNode__, filter));
+    List<SignatureScope> scopes = ListSequence.fromListAndArray(new ArrayList<SignatureScope>(), new InstanceSignatureScope(__thisNode__, filter, contextNode));
     if (withReceiver) {
-      ListSequence.fromList(scopes).addElement(new ReceiverTypeScope(contextNode, __thisNode__, filter));
+      // We must filter on visibility here, since returned scopes are assumed to be filtered by visibility
+      ListSequence.fromList(scopes).addElement(TopLevelVisibilityFilterScope.of(new ReceiverTypeScope(contextNode, __thisNode__, filter), contextNode));
     }
     return scopes;
   }
   @Nullable
   /*package*/ static SignatureScope getFullStaticScope_id7ZA3QJnL$CF(@NotNull SNode __thisNode__, SignatureFilter<?> filter, SNode contextNode) {
     Iterable<SignatureScope> companionScopes = IType__BehaviorDescriptor.getInstanceScopes_id1ODRHGtuist.invoke(IType__BehaviorDescriptor.getCompanionType_id13qggQDnK5I.invoke(__thisNode__), filter, contextNode, ((boolean) false));
-    SignatureScope staticScopes = IType__BehaviorDescriptor.getStaticScope_id1ODRHGtufGw.invoke(__thisNode__, filter, contextNode);
 
-    return CompositeSignatureScope.of(Sequence.fromIterable(companionScopes).concat(Sequence.fromIterable(Sequence.<SignatureScope>singleton(staticScopes))));
+    VisibilityAccess baseAccesToType = SignatureScopeHelper.getBaseAccesToType(contextNode, __thisNode__);
+    SignatureScope staticScope = StaticInstanceVisibilityFilterScope.of(IType__BehaviorDescriptor.getStaticScope_id1ODRHGtufGw.invoke(__thisNode__, filter, contextNode), contextNode, baseAccesToType);
+
+    return CompositeSignatureScope.of(Sequence.fromIterable(companionScopes).concat(Sequence.fromIterable(Sequence.<SignatureScope>singleton(staticScope))));
   }
   @Nullable
   /*package*/ static SignatureScope getStaticScope_id1ODRHGtufGw(@NotNull SNode __thisNode__, SignatureFilter<?> filter, SNode contextNode) {
@@ -129,7 +136,7 @@ public final class IType__BehaviorDescriptor extends BaseBHDescriptor {
     return CompositeSignatureScope.of(scopes);
   }
   @NotNull
-  /*package*/ static TypeKey shallowId_idJmO2PmZtH5(@NotNull SNode __thisNode__) {
+  /*package*/ static TypeKey typeKey_idJmO2PmZtH5(@NotNull SNode __thisNode__) {
     return new UnmatchableType();
   }
   /*package*/ static boolean isExpression_id2J12cYi1t5p(@NotNull SAbstractConcept __thisConcept__) {
@@ -185,7 +192,7 @@ public final class IType__BehaviorDescriptor extends BaseBHDescriptor {
       case 12:
         return (T) ((SignatureScope) getCompanionInstanceScope_id1ODRHGtugRP(node, (SignatureFilter<?>) parameters[0], (SNode) parameters[1]));
       case 13:
-        return (T) ((TypeKey) shallowId_idJmO2PmZtH5(node));
+        return (T) ((TypeKey) typeKey_idJmO2PmZtH5(node));
       case 15:
         return (T) ((_FunctionTypes._return_P0_E0<? extends SNode>) createConstructor_id2$1CHwF$28b(node));
       default:

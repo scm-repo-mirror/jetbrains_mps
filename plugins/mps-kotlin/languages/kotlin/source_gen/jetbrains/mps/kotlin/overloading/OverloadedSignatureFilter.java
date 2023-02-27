@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.kotlin.api.declaration.FunctionDeclaration;
 import java.util.Objects;
-import jetbrains.mps.kotlin.scopes.TypeMembersVisitor;
 
 public class OverloadedSignatureFilter extends SignatureFilter<FunctionSignature> {
   private final String myTargetName;
@@ -25,9 +24,5 @@ public class OverloadedSignatureFilter extends SignatureFilter<FunctionSignature
   protected boolean accept(FunctionSignature signature, SNode source) {
     FunctionDeclaration declaration = signature.getFunctionDeclaration();
     return Objects.equals(declaration.getName(), myTargetName) && FunctionDeclaration.hasModifier(declaration, myModifierFilter);
-  }
-
-  /*package*/ static TypeMembersVisitor createVisitor(String targetName, SAbstractConcept modifierFilter) {
-    return new TypeMembersVisitor(new OverloadedSignatureFilter(targetName, modifierFilter));
   }
 }

@@ -9,40 +9,39 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.kotlin.api.declaration.FunctionDeclaration;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.kotlin.scopes.TypeMembersVisitor;
 import jetbrains.mps.kotlin.scopes.SignatureFilter;
 import jetbrains.mps.kotlin.signatures.FunctionSignature;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.annotations.Nullable;
+import java.util.Map;
+import jetbrains.mps.kotlin.api.members.SignatureAttributeKey;
+import jetbrains.mps.kotlin.scopes.TypeMembersVisitor;
+import jetbrains.mps.kotlin.scopes.VisibilityAccess;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
-import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class InterfaceDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7554886bfL, "jetbrains.mps.kotlin.structure.InterfaceDeclaration");
 
-  public static final SMethod<SAbstractConcept> getDefaultInheritance_id7uO8z1Cfao7 = new SMethodBuilder<SAbstractConcept>(new SJavaCompoundTypeImpl((Class<SAbstractConcept>) ((Class) Object.class))).name("getDefaultInheritance").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8625556777623922183L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<SAbstractConcept> getDefaultInheritance_id6jE_6dusz0P = new SMethodBuilder<SAbstractConcept>(new SJavaCompoundTypeImpl((Class<SAbstractConcept>) ((Class) Object.class))).name("getDefaultInheritance").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7271787702850302005L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<Boolean> hasPrimaryConstructor_id1$jFvlEi5P5 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasPrimaryConstructor").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1806979145067420997L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<FunctionDeclaration> getFunctionalFunction_id5g3vQLJJVGs = new SMethodBuilder<FunctionDeclaration>(new SJavaCompoundTypeImpl(FunctionDeclaration.class)).name("getFunctionalFunction").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6053822427824110364L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getDefaultInheritance_id7uO8z1Cfao7, hasPrimaryConstructor_id1$jFvlEi5P5, getFunctionalFunction_id5g3vQLJJVGs);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getDefaultInheritance_id6jE_6dusz0P, hasPrimaryConstructor_id1$jFvlEi5P5, getFunctionalFunction_id5g3vQLJJVGs);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
-    SLinkOperations.setTarget(__thisNode__, LINKS.inheritance$TFvr, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4f2L, "jetbrains.mps.kotlin.structure.AbstractInheritanceModifier")));
   }
 
-  /*package*/ static SAbstractConcept getDefaultInheritance_id7uO8z1Cfao7(@NotNull SAbstractConcept __thisConcept__, SNode contextNode) {
+  @NotNull
+  /*package*/ static SAbstractConcept getDefaultInheritance_id6jE_6dusz0P(@NotNull SNode __thisNode__) {
     return CONCEPTS.AbstractInheritanceModifier$GA;
   }
   /*package*/ static boolean hasPrimaryConstructor_id1$jFvlEi5P5(@NotNull SNode __thisNode__) {
@@ -53,13 +52,14 @@ public final class InterfaceDeclaration__BehaviorDescriptor extends BaseBHDescri
       return null;
     }
 
-    // TODO have isAbstract in API (or inheritance)
-    TypeMembersVisitor visitor = new TypeMembersVisitor(new SignatureFilter<>(FunctionSignature.class) {
+    SignatureFilter<FunctionSignature> filter = new SignatureFilter<>(FunctionSignature.class) {
       @Override
-      protected boolean accept(FunctionSignature signature, SNode source) {
-        return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.as(source, CONCEPTS.FunctionDeclaration$oD), LINKS.inheritance$TFvr), CONCEPTS.AbstractInheritanceModifier$GA);
+      protected boolean accept(FunctionSignature signature, SNode source, @Nullable Map<SignatureAttributeKey<?>, Object> attributes) {
+        // Only take abstract functions
+        return SignatureAttributeKey.ABSTRACT.get(attributes) == Boolean.TRUE;
       }
-    });
+    };
+    TypeMembersVisitor visitor = new TypeMembersVisitor(filter, __thisNode__, VisibilityAccess.TYPE_PUBLIC);
     IType__BehaviorDescriptor.visitHierarchy_id5q426iHtYvR.invoke(IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(__thisNode__, ((boolean) false)), visitor);
 
     // Not a single method only
@@ -85,6 +85,8 @@ public final class InterfaceDeclaration__BehaviorDescriptor extends BaseBHDescri
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
+      case 0:
+        return (T) ((SAbstractConcept) getDefaultInheritance_id6jE_6dusz0P(node));
       case 1:
         return (T) ((Boolean) hasPrimaryConstructor_id1$jFvlEi5P5(node));
       case 2:
@@ -101,8 +103,6 @@ public final class InterfaceDeclaration__BehaviorDescriptor extends BaseBHDescri
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
-      case 0:
-        return (T) ((SAbstractConcept) getDefaultInheritance_id7uO8z1Cfao7(concept, (SNode) parameters[0]));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -120,13 +120,8 @@ public final class InterfaceDeclaration__BehaviorDescriptor extends BaseBHDescri
     return CONCEPT;
   }
 
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink inheritance$TFvr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x537372687dd3bcdaL, 0x537372687dd3bcdbL, "inheritance");
-  }
-
   private static final class CONCEPTS {
     /*package*/ static final SConcept AbstractInheritanceModifier$GA = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4f2L, "jetbrains.mps.kotlin.structure.AbstractInheritanceModifier");
-    /*package*/ static final SConcept FunctionDeclaration$oD = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af434L, "jetbrains.mps.kotlin.structure.FunctionDeclaration");
   }
 
   private static final class PROPS {

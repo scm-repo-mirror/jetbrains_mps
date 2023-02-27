@@ -1889,6 +1889,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.kotlin", "IFunctionDeclaration", 0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2a5d3409768d2f2bL);
     b.interface_();
     b.parent(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x36c39bccb20f46cfL);
+    b.parent(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x631027d1c4c4e03fL);
     b.origin("r:72a7bf00-0175-42ca-b99b-fe8519b6a16f(jetbrains.mps.kotlin.structure)/3052653337675378475");
     b.version(3);
     return b.create();
@@ -1952,7 +1953,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.interface_();
     b.origin("r:72a7bf00-0175-42ca-b99b-fe8519b6a16f(jetbrains.mps.kotlin.structure)/6013275720582937818");
     b.version(3);
-    b.aggregate("inheritance", 0x537372687dd3bcdbL).target(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4f1L).optional(false).ordered(true).multiple(false).origin("6013275720582937819").done();
+    b.aggregate("inheritance", 0x537372687dd3bcdbL).target(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4f1L).optional(true).ordered(true).multiple(false).origin("6013275720582937819").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForIInheritanceModifier() {
@@ -2292,7 +2293,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
     b.origin("r:72a7bf00-0175-42ca-b99b-fe8519b6a16f(jetbrains.mps.kotlin.structure)/7138249191285121087");
     b.version(3);
-    b.aggregate("visibility", 0x631027d1c4c4e040L).target(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x43c4f08bd9cc2f8cL).optional(false).ordered(true).multiple(false).origin("7138249191285121088").done();
+    b.aggregate("visibility", 0x631027d1c4c4e040L).target(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x43c4f08bd9cc2f8cL).optional(true).ordered(true).multiple(false).origin("7138249191285121088").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForIWhenCondition() {

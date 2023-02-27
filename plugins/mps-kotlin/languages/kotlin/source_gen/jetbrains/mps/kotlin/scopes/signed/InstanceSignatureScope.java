@@ -11,6 +11,7 @@ import java.util.Collections;
 import jetbrains.mps.kotlin.signatures.MemberSignature;
 import jetbrains.mps.kotlin.scopes.TypeMembersVisitor;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
+import jetbrains.mps.kotlin.scopes.VisibilityAccess;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Objects;
 
@@ -19,13 +20,16 @@ public class InstanceSignatureScope implements SignatureScope {
   private final SignatureFilter myFilter;
   private SNode myConcreteType;
 
-  public InstanceSignatureScope(TypeReference typeReference, SignatureFilter filter) {
+  private final SNode myContextNode;
+
+  public InstanceSignatureScope(TypeReference typeReference, SignatureFilter filter, SNode contextNode) {
     myTypeReference = typeReference;
     myFilter = filter;
+    myContextNode = contextNode;
   }
 
-  public InstanceSignatureScope(SNode type, SignatureFilter filter) {
-    this((TypeReference) null, filter);
+  public InstanceSignatureScope(SNode type, SignatureFilter filter, SNode contextNode) {
+    this((TypeReference) null, filter, contextNode);
     myConcreteType = type;
   }
 
@@ -52,10 +56,16 @@ public class InstanceSignatureScope implements SignatureScope {
       }
     });
     // Visit type
-    TypeMembersVisitor visitor = new TypeMembersVisitor(filter);
+    TypeMembersVisitor visitor = new TypeMembersVisitor(filter, myContextNode, SignatureScopeHelper.getBaseAccesToType(myContextNode, type));
     IType__BehaviorDescriptor.visitHierarchy_id5q426iHtYvR.invoke(type, visitor);
 
     return visitor.getMembers();
+  }
+
+  @Override
+  public boolean isVisibilityFiltered() {
+    //  TypeMembersVisitor  is responsible for filtering on visibility
+    return true;
   }
 
   @Override
@@ -66,7 +76,8 @@ public class InstanceSignatureScope implements SignatureScope {
     }
 
     // Visit type and search for a match
-    SignatureSeekerVisitor visitor = new SignatureSeekerVisitor(declaration.getSignature());
+    VisibilityAccess baseAccesToType = SignatureScopeHelper.getBaseAccesToType(myContextNode, type);
+    SignatureSeekerVisitor visitor = new SignatureSeekerVisitor(declaration.getSignature(), myContextNode, baseAccesToType);
     IType__BehaviorDescriptor.visitHierarchy_id5q426iHtYvR.invoke(type, visitor);
     return visitor.getSearchResult(declaration.getSource());
   }

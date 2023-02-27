@@ -5,6 +5,9 @@ package jetbrains.mps.kotlin.scopes;
 import jetbrains.mps.kotlin.signatures.MemberSignature;
 import jetbrains.mps.references.Reference;
 import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.annotations.Nullable;
+import java.util.Map;
+import jetbrains.mps.kotlin.api.members.SignatureAttributeKey;
 
 public class SignatureFilter<T extends MemberSignature> {
   private Class<T> myMySignatureKind;
@@ -34,6 +37,14 @@ public class SignatureFilter<T extends MemberSignature> {
   }
 
   /**
+   * 
+   * @deprecated replace with accept using attributes
+   */
+  @Deprecated
+  protected boolean accept(T signature, SNode source) {
+    return true;
+  }
+  /**
    * Returns whether the given signature should be accepted. Node associated is
    * provided but filtering should occur on signature to take various node implementation
    * into account.
@@ -43,8 +54,8 @@ public class SignatureFilter<T extends MemberSignature> {
    * For instance, filtering on node's concept could prevent external signatures to overload
    * resolution, and have some signature not hidden correctly after processing.
    */
-  protected boolean accept(T signature, SNode source) {
-    return true;
+  protected boolean accept(T signature, SNode source, @Nullable Map<SignatureAttributeKey<?>, Object> attributes) {
+    return accept(signature, source);
   }
 
   /**

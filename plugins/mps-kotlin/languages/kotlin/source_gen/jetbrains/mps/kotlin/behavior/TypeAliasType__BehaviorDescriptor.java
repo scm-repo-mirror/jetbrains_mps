@@ -42,12 +42,12 @@ public final class TypeAliasType__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Void> populateTypeSignatures_id5q426iHK5S9 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSignatures").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6234117012692426249L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""));
   public static final SMethod<Void> visitHierarchy_id5q426iHtYvR = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("visitHierarchy").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6234117012687677431L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SuperTypesVisitor.class, ""));
   public static final SMethod<Void> populateSubstitutions_id4f4W8JpwgWV = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSubstitutions").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4883292379416694587L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(TypeVarSubs.class, ""));
-  public static final SMethod<TypeKey> shallowId_idJmO2PmZtH5 = new SMethodBuilder<TypeKey>(new SJavaCompoundTypeImpl(TypeKey.class)).name("shallowId").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(853098072584870725L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<TypeKey> typeKey_idJmO2PmZtH5 = new SMethodBuilder<TypeKey>(new SJavaCompoundTypeImpl(TypeKey.class)).name("shallowId").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(853098072584870725L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<Iterable<TypeParameterDeclaration>> getTypeParameters_id7an2tsIdpkM = new SMethodBuilder<Iterable<TypeParameterDeclaration>>(new SJavaCompoundTypeImpl((Class<Iterable<TypeParameterDeclaration>>) ((Class) Object.class))).name("getTypeParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8257079261604975922L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<SignatureScope> getStaticScope_id1ODRHGtufGw = new SMethodBuilder<SignatureScope>(new SJavaCompoundTypeImpl(SignatureScope.class)).name("getStaticScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2101455733818719008L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureFilter.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<SNode> getCompanionType_id13qggQDnK5I = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getCompanionType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1214354576461726062L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(toString_id4nn3FPlZH$r, populateTypeSignatures_id5q426iHK5S9, visitHierarchy_id5q426iHtYvR, populateSubstitutions_id4f4W8JpwgWV, shallowId_idJmO2PmZtH5, getTypeParameters_id7an2tsIdpkM, getStaticScope_id1ODRHGtufGw, getCompanionType_id13qggQDnK5I);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(toString_id4nn3FPlZH$r, populateTypeSignatures_id5q426iHK5S9, visitHierarchy_id5q426iHtYvR, populateSubstitutions_id4f4W8JpwgWV, typeKey_idJmO2PmZtH5, getTypeParameters_id7an2tsIdpkM, getStaticScope_id1ODRHGtufGw, getCompanionType_id13qggQDnK5I);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -85,13 +85,13 @@ public final class TypeAliasType__BehaviorDescriptor extends BaseBHDescriptor {
     subs.populate(IType__BehaviorDescriptor.getTypeParameters_id7an2tsIdpkM.invoke(__thisNode__), SLinkOperations.getChildren(__thisNode__, LINKS.typeProjections$vhti));
   }
   @NotNull
-  /*package*/ static TypeKey shallowId_idJmO2PmZtH5(@NotNull SNode __thisNode__) {
+  /*package*/ static TypeKey typeKey_idJmO2PmZtH5(@NotNull SNode __thisNode__) {
     if ((SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.typeAlias$NsaN), LINKS.type$JuNU) == null)) {
       return new UnmatchableType();
     }
 
     // Same type roughly
-    return IType__BehaviorDescriptor.shallowId_idJmO2PmZtH5.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.typeAlias$NsaN), LINKS.type$JuNU));
+    return IType__BehaviorDescriptor.typeKey_idJmO2PmZtH5.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.typeAlias$NsaN), LINKS.type$JuNU));
   }
   /*package*/ static Iterable<TypeParameterDeclaration> getTypeParameters_id7an2tsIdpkM(@NotNull SNode __thisNode__) {
     return ITypeParameters__BehaviorDescriptor.getTypeParameterDescriptors_id28CvMylfXMr.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.typeAlias$NsaN));
@@ -131,7 +131,7 @@ public final class TypeAliasType__BehaviorDescriptor extends BaseBHDescriptor {
         populateSubstitutions_id4f4W8JpwgWV(node, (TypeVarSubs<SNode>) parameters[0]);
         return null;
       case 4:
-        return (T) ((TypeKey) shallowId_idJmO2PmZtH5(node));
+        return (T) ((TypeKey) typeKey_idJmO2PmZtH5(node));
       case 5:
         return (T) ((Iterable<TypeParameterDeclaration>) getTypeParameters_id7an2tsIdpkM(node));
       case 6:

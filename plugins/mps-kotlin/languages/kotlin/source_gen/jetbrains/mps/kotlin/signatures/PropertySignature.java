@@ -10,6 +10,8 @@ import java.util.Objects;
 import jetbrains.mps.kotlin.api.members.SignatureCollector;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
+import jetbrains.mps.kotlin.api.members.SignatureBuilder;
+import jetbrains.mps.kotlin.api.members.SignatureAttributeKey;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.kotlin.behavior.TypeReference;
 import jetbrains.mps.kotlin.behavior.IVariableIdentifier__BehaviorDescriptor;
@@ -105,9 +107,9 @@ public class PropertySignature implements MemberSignature {
     return getKind().toString().toLowerCase() + "{" + getName() + "}";
   }
 
-  public static void declareAllTo(Iterable<SNode> named, final boolean mutable, SNode receiver, final SignatureCollector collector) {
+  public static void declareAllTo(Iterable<SNode> named, final SNode visibility, final boolean mutable, SNode receiver, final SignatureCollector collector) {
     Iterable<SNode> nonNullNamed = Sequence.fromIterable(named).where(new NotNullWhereFilter<SNode>());
-    collector.addDeclarations(nonNullNamed, receiver, PropertySignature.class, (SNode it) -> signaturesOf(it, mutable));
+    SignatureBuilder.create(nonNullNamed, PropertySignature.class).withExtensionReceiverType(receiver).withSignatures((SNode it) -> signaturesOf(it, mutable)).withAttribute(SignatureAttributeKey.VISIBILITY, (PropertySignature signature, SNode node) -> visibility).declareTo(collector);
 
     // Enforce null receiver to prevent infinite recursion
     if (receiver == null) {
@@ -140,7 +142,8 @@ public class PropertySignature implements MemberSignature {
       return;
     }
 
-    collector.addDeclaration(named, receiver, PropertySignature.class, () -> signaturesOf(named, mutable));
+    SignatureBuilder.create(named, PropertySignature.class).withExtensionReceiverType(receiver).withSignatures((SNode node) -> signaturesOf(named, mutable)).declareTo(collector);
+
     if (receiver == null) {
       declaredReceivedFunctionType(named, collector);
     }

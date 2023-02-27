@@ -149,6 +149,7 @@
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
       </concept>
+      <concept id="1073063089578" name="jetbrains.mps.baseLanguage.structure.SuperMethodCall" flags="nn" index="3nyPlj" />
       <concept id="1212685548494" name="jetbrains.mps.baseLanguage.structure.ClassCreator" flags="nn" index="1pGfFk">
         <child id="1212687122400" name="typeParameter" index="1pMfVU" />
       </concept>
@@ -182,6 +183,7 @@
       </concept>
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
       <concept id="1146644623116" name="jetbrains.mps.baseLanguage.structure.PrivateVisibility" flags="nn" index="3Tm6S6" />
+      <concept id="1146644641414" name="jetbrains.mps.baseLanguage.structure.ProtectedVisibility" flags="nn" index="3Tmbuc" />
       <concept id="1116615150612" name="jetbrains.mps.baseLanguage.structure.ClassifierClassExpression" flags="nn" index="3VsKOn">
         <reference id="1116615189566" name="classifier" index="3VsUkX" />
       </concept>
@@ -1186,12 +1188,89 @@
                 <property role="373rjd" value="true" />
                 <ref role="37wK5l" to="sjya:1VgEGDnfNNz" resolve="SignatureScopeAsScope" />
                 <node concept="2ShNRf" id="27GSRRvUIYU" role="37wK5m">
-                  <node concept="1pGfFk" id="27GSRRvULvZ" role="2ShVmc">
-                    <property role="373rjd" value="true" />
-                    <ref role="37wK5l" to="sjya:4k9eBec$Bew" resolve="ConstructorsScope" />
-                    <node concept="2OqwBi" id="27GSRRvULQT" role="37wK5m">
-                      <node concept="2rP1CM" id="27GSRRvULDu" role="2Oq$k0" />
-                      <node concept="I4A8Y" id="27GSRRvUMdp" role="2OqNvi" />
+                  <node concept="YeOm9" id="u1nygdq1Zc" role="2ShVmc">
+                    <node concept="1Y3b0j" id="u1nygdq1Zf" role="YeSDq">
+                      <property role="2bfB8j" value="true" />
+                      <property role="373rjd" value="true" />
+                      <ref role="37wK5l" to="sjya:4oNDtERh_gB" resolve="ConstructorsScope" />
+                      <ref role="1Y3XeK" to="sjya:6Ijh6DJ_fG_" resolve="ConstructorsScope" />
+                      <node concept="3Tm1VV" id="u1nygdq1Zg" role="1B3o_S" />
+                      <node concept="2rP1CM" id="27GSRRvULDu" role="37wK5m" />
+                      <node concept="3clFb_" id="u1nygdq23Y" role="jymVt">
+                        <property role="TrG5h" value="isVisible" />
+                        <node concept="3Tmbuc" id="u1nygdq244" role="1B3o_S" />
+                        <node concept="10P_77" id="u1nygdq245" role="3clF45" />
+                        <node concept="37vLTG" id="u1nygdq246" role="3clF46">
+                          <property role="TrG5h" value="visible" />
+                          <node concept="3Tqbb2" id="u1nygdq247" role="1tU5fm">
+                            <ref role="ehGHo" to="hcm8:6cg9X74Le0Z" resolve="IVisible" />
+                          </node>
+                        </node>
+                        <node concept="3clFbS" id="u1nygdq249" role="3clF47">
+                          <node concept="3SKdUt" id="u1nygdq5ak" role="3cqZAp">
+                            <node concept="1PaTwC" id="u1nygdq5al" role="1aUNEU">
+                              <node concept="3oM_SD" id="u1nygdq5eM" role="1PaTwD">
+                                <property role="3oM_SC" value="Special" />
+                              </node>
+                              <node concept="3oM_SD" id="u1nygdq5eV" role="1PaTwD">
+                                <property role="3oM_SC" value="case:" />
+                              </node>
+                              <node concept="3oM_SD" id="u1nygdq5fA" role="1PaTwD">
+                                <property role="3oM_SC" value="we" />
+                              </node>
+                              <node concept="3oM_SD" id="u1nygdq5gf" role="1PaTwD">
+                                <property role="3oM_SC" value="can" />
+                              </node>
+                              <node concept="3oM_SD" id="u1nygdq5go" role="1PaTwD">
+                                <property role="3oM_SC" value="call" />
+                              </node>
+                              <node concept="3oM_SD" id="u1nygdq5h5" role="1PaTwD">
+                                <property role="3oM_SC" value="protected" />
+                              </node>
+                              <node concept="3oM_SD" id="u1nygdq5hm" role="1PaTwD">
+                                <property role="3oM_SC" value="constructors" />
+                              </node>
+                              <node concept="3oM_SD" id="u1nygdq5ih" role="1PaTwD">
+                                <property role="3oM_SC" value="(we" />
+                              </node>
+                              <node concept="3oM_SD" id="u1nygdq5j1" role="1PaTwD">
+                                <property role="3oM_SC" value="extend" />
+                              </node>
+                              <node concept="3oM_SD" id="u1nygdq5ji" role="1PaTwD">
+                                <property role="3oM_SC" value="them!)" />
+                              </node>
+                            </node>
+                          </node>
+                          <node concept="3clFbF" id="u1nygdq2ZO" role="3cqZAp">
+                            <node concept="22lmx$" id="u1nygdq4A1" role="3clFbG">
+                              <node concept="2OqwBi" id="u1nygdq3Jj" role="3uHU7B">
+                                <node concept="2OqwBi" id="u1nygdq3g2" role="2Oq$k0">
+                                  <node concept="37vLTw" id="u1nygdq2ZM" role="2Oq$k0">
+                                    <ref role="3cqZAo" node="u1nygdq246" resolve="visible" />
+                                  </node>
+                                  <node concept="2qgKlT" id="u1nygdqXw$" role="2OqNvi">
+                                    <ref role="37wK5l" to="hez:2WVyZr44ojH" resolve="getVisibility" />
+                                  </node>
+                                </node>
+                                <node concept="3O6GUB" id="u1nygdqXSU" role="2OqNvi">
+                                  <node concept="chp4Y" id="u1nygdqXYA" role="3QVz_e">
+                                    <ref role="cht4Q" to="hcm8:2yYXHtl6Jeo" resolve="ProtectedVisibility" />
+                                  </node>
+                                </node>
+                              </node>
+                              <node concept="3nyPlj" id="u1nygdq24c" role="3uHU7w">
+                                <ref role="37wK5l" to="sjya:u1nygdpD3b" resolve="isVisible" />
+                                <node concept="37vLTw" id="u1nygdq24b" role="37wK5m">
+                                  <ref role="3cqZAo" node="u1nygdq246" resolve="visible" />
+                                </node>
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                        <node concept="2AHcQZ" id="u1nygdq24a" role="2AJF6D">
+                          <ref role="2AI5Lk" to="wyt6:~Override" />
+                        </node>
+                      </node>
                     </node>
                   </node>
                 </node>
@@ -2586,11 +2665,8 @@
                       <node concept="2ShNRf" id="27GSRRvUvMu" role="37wK5m">
                         <node concept="1pGfFk" id="27GSRRvUxls" role="2ShVmc">
                           <property role="373rjd" value="true" />
-                          <ref role="37wK5l" to="sjya:4k9eBec$Bew" resolve="ConstructorsScope" />
-                          <node concept="2OqwBi" id="27GSRRvUygC" role="37wK5m">
-                            <node concept="2rP1CM" id="27GSRRvUx_B" role="2Oq$k0" />
-                            <node concept="I4A8Y" id="27GSRRvUzaK" role="2OqNvi" />
-                          </node>
+                          <ref role="37wK5l" to="sjya:4oNDtERh_gB" resolve="ConstructorsScope" />
+                          <node concept="2rP1CM" id="27GSRRvUx_B" role="37wK5m" />
                         </node>
                       </node>
                       <node concept="3clFb_" id="27GSRRvU$9P" role="jymVt">

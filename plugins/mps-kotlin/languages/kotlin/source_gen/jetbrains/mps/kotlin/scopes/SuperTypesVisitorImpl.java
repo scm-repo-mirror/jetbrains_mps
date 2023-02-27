@@ -19,7 +19,7 @@ public class SuperTypesVisitorImpl implements SuperTypesVisitor {
 
   @Override
   public boolean enterType(SNode type) {
-    if (superTypes.add(IType__BehaviorDescriptor.shallowId_idJmO2PmZtH5.invoke(type))) {
+    if (superTypes.add(IType__BehaviorDescriptor.typeKey_idJmO2PmZtH5.invoke(type))) {
       visitedTypes.push(type);
       return true;
     }

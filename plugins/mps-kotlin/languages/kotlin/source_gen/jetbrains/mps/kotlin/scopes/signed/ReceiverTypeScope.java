@@ -49,7 +49,7 @@ public class ReceiverTypeScope implements SignatureScope {
     // Empty sequence if the typesystem is disabled, we might not want to see auto resolution happen there (to confirm)
     return ExtensionsHelper.withTypesystem(myContextNode, Sequence.fromIterable(Collections.<SourcedSignature>emptyList()), (KotlinTypesystem typesystem) -> {
       // Here, ReceiverTypeFilter already does some light checking
-      ScopeCollector collector = new ScopeCollector(new ReceiverTypeFilter());
+      VisibleScopeCollector collector = new VisibleScopeCollector(new ReceiverTypeFilter(), myContextNode);
       SignatureScope.collectHierarchyScopes(myContextNode, myContextNode, collector);
 
       // Call the kotlin typesystem: only accurate way to find type applicability
@@ -116,7 +116,7 @@ public class ReceiverTypeScope implements SignatureScope {
         }
       }
 
-      return SetSequence.fromSet(myTargetTypes).contains(IType__BehaviorDescriptor.shallowId_idJmO2PmZtH5.invoke(type));
+      return SetSequence.fromSet(myTargetTypes).contains(IType__BehaviorDescriptor.typeKey_idJmO2PmZtH5.invoke(type));
     }
   }
 

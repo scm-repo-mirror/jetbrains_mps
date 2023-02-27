@@ -12,7 +12,9 @@ import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Indent;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.kotlin.behavior.IInheritable__BehaviorDescriptor;
 import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
@@ -97,7 +99,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     return ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.modifiers$XKtM)).isNotEmpty();
   }
   private boolean nodeCondition_en7q4l_a21a() {
-    return !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(myNode, LINKS.inheritance$TFvr), CONCEPTS.AbstractInheritanceModifier$GA));
+    return !(SConceptOperations.isExactly(SNodeOperations.asSConcept(IInheritable__BehaviorDescriptor.getInheritance_id6jE_6duswG9.invoke(myNode)), CONCEPTS.AbstractInheritanceModifier$GA));
   }
   private EditorCell createComponent_0() {
     EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "jetbrains.mps.kotlin.editor.Annotations_Component");
@@ -274,7 +276,6 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink modifiers$XKtM = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af434L, 0x28bef6d75568d1adL, "modifiers");
-    /*package*/ static final SContainmentLink inheritance$TFvr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x537372687dd3bcdaL, 0x537372687dd3bcdbL, "inheritance");
   }
 
   private static final class CONCEPTS {

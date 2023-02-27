@@ -13,6 +13,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 public interface MemberSignature {
   String getDescriptionText();
 
+  /**
+   * 
+   * @see jetbrains.mps.kotlin.api.members.SignatureBuilder 
+   * @deprecated use SignatureBuild.build instead
+   */
+  @Deprecated(since = "2023.1")
   default SourcedSignature toSourced(SNode source) {
     return new SourcedSignature(source, this);
   }

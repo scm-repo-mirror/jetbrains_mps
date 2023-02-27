@@ -5,7 +5,11 @@ package jetbrains.mps.kotlin.api.members;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.references.Reference;
 import jetbrains.mps.kotlin.signatures.MemberSignature;
+import org.jetbrains.annotations.Nullable;
+import java.util.Map;
+import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 
 /**
  * Source of a signature. Some signatures could be more than one to be issued by a node,
@@ -63,14 +67,55 @@ public class SourcedSignature {
   }
 
   /**
+   * Properties of the signature. Each entry must host a non-null property value, otherwise the signature is considered
+   * incomplete.
+   * 
+   * In practice, having a null-value property set means that this property is overridden, and its value should be looked
+   * for on parent signatures.
+   * 
+   * This API was implemented as a way to pass properties that are usually optional (eg. visibility) but needed for
+   * some contexts (eg. checking).
+   */
+  @Nullable
+  private Map<SignatureAttributeKey<?>, Object> attributes;
+
+
+  /**
    * Creates a new sourced signature
    * 
    * @param source object providing the signature
    * @param signature object representing an unique signature
    */
   public SourcedSignature(SNode source, MemberSignature signature) {
+    this(source, signature, null);
+  }
+
+  /**
+   * Creates a new sourced signature
+   * 
+   * @param source object providing the signature
+   * @param signature object representing an unique signature
+   */
+  public SourcedSignature(SNode source, MemberSignature signature, Map<SignatureAttributeKey<?>, Object> attributes) {
     this.setSource(source);
     this.setSignature(signature);
+    this.attributes = attributes;
+  }
+
+  /**
+   * Copy attribute from the signature if they do not exists already
+   */
+  public void addAttributes(Map<SignatureAttributeKey<?>, Object> from) {
+    if (from == null) {
+      return;
+    }
+    // Only update non defined values
+    from.forEach((SignatureAttributeKey<?> key, final Object value) -> attributes.compute(key, (SignatureAttributeKey<?> prevKey, Object previous) -> (previous == null ? value : previous)));
+  }
+
+  @Nullable
+  public <T> T getAttribute(@NotNull SignatureAttributeKey<T> key) {
+    return key.get(attributes);
   }
 
   @Override
@@ -87,6 +132,6 @@ public class SourcedSignature {
   }
 
   public String toString() {
-    return this.getSignature().toString();
+    return this.getSignature().toString() + " from " + SNodeOperations.present(getSource()) + " with attributes " + attributes;
   }
 }

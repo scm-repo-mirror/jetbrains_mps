@@ -12,9 +12,6 @@ import jetbrains.mps.lang.smodel.query.runtime.QueryExecutionContext;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.kotlin.behavior.IInheritable__BehaviorDescriptor;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -46,8 +43,6 @@ public class FunctionInheritance extends MigrationScriptBase {
         public void visit(SNode it) {
           if ((SLinkOperations.getTarget(it, LINKS._inheritance$Geug) != null)) {
             SLinkOperations.setTarget(it, LINKS.inheritance$TFvr, SLinkOperations.getTarget(it, LINKS._inheritance$Geug));
-          } else if ((SLinkOperations.getTarget(it, LINKS.inheritance$TFvr) == null)) {
-            SLinkOperations.setTarget(it, LINKS.inheritance$TFvr, SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(IInheritable__BehaviorDescriptor.getDefaultInheritance_id7uO8z1Cfao7.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(it)), it))));
           }
         }
       });

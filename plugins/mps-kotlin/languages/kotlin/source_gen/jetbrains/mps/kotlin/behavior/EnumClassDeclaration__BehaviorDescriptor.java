@@ -16,13 +16,8 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.kotlin.signatures.PropertySignature;
-import jetbrains.mps.kotlin.scopes.signed.ListSignatureScope;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.kotlin.api.members.SignatureBuilder;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.internal.collections.runtime.ITranslator2;
-import jetbrains.mps.kotlin.api.members.SourcedSignature;
-import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.kotlin.scopes.signed.CompositeSignatureScope;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -37,28 +32,19 @@ public final class EnumClassDeclaration__BehaviorDescriptor extends BaseBHDescri
 
   public static final SMethod<SignatureScope> getStaticScope_id3HHsmlLCHdO = new SMethodBuilder<SignatureScope>(new SJavaCompoundTypeImpl(SignatureScope.class)).name("getStaticScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4282203501211341684L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureFilter.class, ""));
   public static final SMethod<Boolean> hasModifier_id2NtWm0y2Y2A = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasModifier").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3233005502712242342L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""));
+  public static final SMethod<SAbstractConcept> getInheritance_id6jE_6duswG9 = new SMethodBuilder<SAbstractConcept>(new SJavaCompoundTypeImpl((Class<SAbstractConcept>) ((Class) Object.class))).name("getInheritance").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7271787702850292489L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getStaticScope_id3HHsmlLCHdO, hasModifier_id2NtWm0y2Y2A);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getStaticScope_id3HHsmlLCHdO, hasModifier_id2NtWm0y2Y2A, getInheritance_id6jE_6duswG9);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static SignatureScope getStaticScope_id3HHsmlLCHdO(@NotNull final SNode __thisNode__, SignatureFilter<?> filter) {
+  /*package*/ static SignatureScope getStaticScope_id3HHsmlLCHdO(@NotNull SNode __thisNode__, SignatureFilter<?> filter) {
     SignatureScope parent = IClassLike__BehaviorDescriptor.getStaticScope_id3HHsmlLCHdO.invoke0(__thisNode__, CONCEPTS.ClassDeclaration$Jm, filter);
 
     if (filter.acceptKind(PropertySignature.class)) {
-      ListSignatureScope entries = new ListSignatureScope(() -> {
-        // Get entries
-        return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.entries$EB0i)).translate(new ITranslator2<SNode, SourcedSignature>() {
-          public Iterable<SourcedSignature> translate(final SNode it) {
-            return Sequence.fromIterable(PropertySignature.signaturesOf(it, false)).select(new ISelector<PropertySignature, SourcedSignature>() {
-              public SourcedSignature select(PropertySignature sig) {
-                return sig.toSourced(it);
-              }
-            });
-          }
-        });
-      });
+      SignatureScope entries = SignatureBuilder.create(SLinkOperations.getChildren(__thisNode__, LINKS.entries$EB0i), PropertySignature.class).withSignatures((SNode entry) -> PropertySignature.signaturesOf(entry, false)).toScope();
+
       return CompositeSignatureScope.of(entries, parent);
     }
 
@@ -66,6 +52,10 @@ public final class EnumClassDeclaration__BehaviorDescriptor extends BaseBHDescri
   }
   /*package*/ static boolean hasModifier_id2NtWm0y2Y2A(@NotNull SNode __thisNode__, SAbstractConcept modifier) {
     return modifier == null || SConceptOperations.isExactly(SNodeOperations.asSConcept(modifier), CONCEPTS.EnumClassModifier$uP);
+  }
+  @NotNull
+  /*package*/ static SAbstractConcept getInheritance_id6jE_6duswG9(@NotNull SNode __thisNode__) {
+    return CONCEPTS.FinalInheritanceModifier$H5;
   }
 
   /*package*/ EnumClassDeclaration__BehaviorDescriptor() {
@@ -87,6 +77,8 @@ public final class EnumClassDeclaration__BehaviorDescriptor extends BaseBHDescri
         return (T) ((SignatureScope) getStaticScope_id3HHsmlLCHdO(node, (SignatureFilter<?>) parameters[0]));
       case 1:
         return (T) ((Boolean) hasModifier_id2NtWm0y2Y2A(node, (SAbstractConcept) parameters[0]));
+      case 2:
+        return (T) ((SAbstractConcept) getInheritance_id6jE_6duswG9(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -119,6 +111,7 @@ public final class EnumClassDeclaration__BehaviorDescriptor extends BaseBHDescri
   private static final class CONCEPTS {
     /*package*/ static final SConcept ClassDeclaration$Jm = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, "jetbrains.mps.kotlin.structure.ClassDeclaration");
     /*package*/ static final SConcept EnumClassModifier$uP = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af407L, "jetbrains.mps.kotlin.structure.EnumClassModifier");
+    /*package*/ static final SConcept FinalInheritanceModifier$H5 = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4f3L, "jetbrains.mps.kotlin.structure.FinalInheritanceModifier");
   }
 
   private static final class LINKS {

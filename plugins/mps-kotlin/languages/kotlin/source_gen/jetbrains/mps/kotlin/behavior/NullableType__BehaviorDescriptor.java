@@ -46,11 +46,11 @@ public final class NullableType__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<String> toString_id4nn3FPlZH$r = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("toString").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5032507314964191515L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
   public static final SMethod<SignatureScope> getStaticScope_id1ODRHGtufGw = new SMethodBuilder<SignatureScope>(new SJavaCompoundTypeImpl(SignatureScope.class)).name("getStaticScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2101455733818719008L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureFilter.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<SNode> getCompanionType_id13qggQDnK5I = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getCompanionType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1214354576461726062L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
-  public static final SMethod<TypeKey> shallowId_idJmO2PmZtH5 = new SMethodBuilder<TypeKey>(new SJavaCompoundTypeImpl(TypeKey.class)).name("shallowId").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(853098072584870725L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<TypeKey> typeKey_idJmO2PmZtH5 = new SMethodBuilder<TypeKey>(new SJavaCompoundTypeImpl(TypeKey.class)).name("shallowId").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(853098072584870725L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<Boolean> showParenthesis_id3PNJzGvtdRU = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("showParenthesis").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4428092019775430138L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<_FunctionTypes._return_P0_E0<? extends SNode>> createConstructor_id2$1CHwF$28b = new SMethodBuilder<_FunctionTypes._return_P0_E0<? extends SNode>>(new SJavaCompoundTypeImpl((Class<_FunctionTypes._return_P0_E0<? extends SNode>>) ((Class) Object.class))).name("createConstructor").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2954821879859257867L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPresentation_idhEwIMiw, getDetailedPresentation_id22G2W3WJ92t, getTypeParameters_id7an2tsIdpkM, visitHierarchy_id5q426iHtYvR, populateTypeSignatures_id5q426iHK5S9, populateSubstitutions_id4f4W8JpwgWV, toString_id4nn3FPlZH$r, getStaticScope_id1ODRHGtufGw, getCompanionType_id13qggQDnK5I, shallowId_idJmO2PmZtH5, showParenthesis_id3PNJzGvtdRU, createConstructor_id2$1CHwF$28b);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPresentation_idhEwIMiw, getDetailedPresentation_id22G2W3WJ92t, getTypeParameters_id7an2tsIdpkM, visitHierarchy_id5q426iHtYvR, populateTypeSignatures_id5q426iHK5S9, populateSubstitutions_id4f4W8JpwgWV, toString_id4nn3FPlZH$r, getStaticScope_id1ODRHGtufGw, getCompanionType_id13qggQDnK5I, typeKey_idJmO2PmZtH5, showParenthesis_id3PNJzGvtdRU, createConstructor_id2$1CHwF$28b);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -85,11 +85,11 @@ public final class NullableType__BehaviorDescriptor extends BaseBHDescriptor {
     return createNullableType_4slpez_a0a8(IType__BehaviorDescriptor.getCompanionType_id13qggQDnK5I.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.type$Tm0J)));
   }
   @NotNull
-  /*package*/ static TypeKey shallowId_idJmO2PmZtH5(@NotNull SNode __thisNode__) {
+  /*package*/ static TypeKey typeKey_idJmO2PmZtH5(@NotNull SNode __thisNode__) {
     if ((SLinkOperations.getTarget(__thisNode__, LINKS.type$Tm0J) == null)) {
       return new UnmatchableType();
     }
-    return (TypeKey) IType__BehaviorDescriptor.shallowId_idJmO2PmZtH5.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.type$Tm0J));
+    return (TypeKey) IType__BehaviorDescriptor.typeKey_idJmO2PmZtH5.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.type$Tm0J));
   }
   /*package*/ static boolean showParenthesis_id3PNJzGvtdRU(@NotNull SNode __thisNode__) {
     // TODO more generic?
@@ -137,7 +137,7 @@ public final class NullableType__BehaviorDescriptor extends BaseBHDescriptor {
       case 8:
         return (T) ((SNode) getCompanionType_id13qggQDnK5I(node));
       case 9:
-        return (T) ((TypeKey) shallowId_idJmO2PmZtH5(node));
+        return (T) ((TypeKey) typeKey_idJmO2PmZtH5(node));
       case 10:
         return (T) ((Boolean) showParenthesis_id3PNJzGvtdRU(node));
       case 11:

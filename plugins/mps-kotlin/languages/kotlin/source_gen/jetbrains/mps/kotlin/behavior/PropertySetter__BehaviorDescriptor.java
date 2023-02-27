@@ -14,8 +14,9 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.kotlin.api.members.SignatureBuilder;
 import jetbrains.mps.kotlin.signatures.PropertySignature;
-import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
+import java.util.function.Function;
 import java.util.Iterator;
 import jetbrains.mps.baseLanguage.closures.runtime.YieldingIterator;
 import jetbrains.mps.kotlin.signatures.AccessorKind;
@@ -39,8 +40,8 @@ public final class PropertySetter__BehaviorDescriptor extends BaseBHDescriptor {
 
   /*package*/ static void collectSpecificScope_id1yTI8p9qmpS(@NotNull SNode __thisNode__, SignatureCollector collector, SNode childNode) {
     // Field variable
-    collector.addDeclaration(__thisNode__, null, PropertySignature.class, new _FunctionTypes._return_P0_E0<Iterable<PropertySignature>>() {
-      public Iterable<PropertySignature> invoke() {
+    SignatureBuilder.create(__thisNode__, PropertySignature.class).withSignatures(new Function<SNode, Iterable<PropertySignature>>() {
+      public Iterable<PropertySignature> apply(final SNode node) {
         return new Iterable<PropertySignature>() {
           public Iterator<PropertySignature> iterator() {
             return new YieldingIterator<PropertySignature>() {
@@ -74,7 +75,7 @@ __switch__:
           }
         };
       }
-    });
+    }).declareTo(collector);
 
     // Parameter
     PropertySignature.declareTo(SLinkOperations.getTarget(__thisNode__, LINKS.parameter$J_aM), null, collector);

@@ -11,6 +11,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
+import jetbrains.mps.kotlin.scopes.VisibilityAccess;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.kotlin.signatures.PropertySignature;
@@ -25,6 +26,10 @@ import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.scope.Scope;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.kotlin.behavior.IFunctionCall__BehaviorDescriptor;
+import jetbrains.mps.kotlin.api.types.identifiers.TypeKey;
+import jetbrains.mps.kotlin.behavior.IClassLike__BehaviorDescriptor;
+import java.util.Objects;
+import jetbrains.mps.kotlin.scopes.SuperTypesVisitorImpl;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -50,7 +55,8 @@ public class SignatureScopeHelper {
 
         if (typeRef.isStatic()) {
           // getFullStaticScope is not used on purpose: instance scope of companion type should be added by adding the companion to the call receiver as an non static type (we need both types for the type system, FullStaticScope + InstanceScope on companion would give redundant members)
-          ListSequence.fromList(scopes).addElement(IType__BehaviorDescriptor.getStaticScope_id1ODRHGtufGw.invoke(type, filter, contextNode));
+          VisibilityAccess access = SignatureScopeHelper.getBaseAccesToType(contextNode, type);
+          ListSequence.fromList(scopes).addElement(StaticInstanceVisibilityFilterScope.of(IType__BehaviorDescriptor.getStaticScope_id1ODRHGtufGw.invoke(type, filter, contextNode), contextNode, access));
         } else {
           // Also retrieves scope for receiver types
           ListSequence.fromList(scopes).addSequence(Sequence.fromIterable(IType__BehaviorDescriptor.getInstanceScopes_id1ODRHGtuist.invoke(type, filter, contextNode, ((boolean) true))));
@@ -140,9 +146,30 @@ public class SignatureScopeHelper {
    * Return the regular constraint scope for a function call with defined function scope method.
    */
   public static Scope getScopeForConstraints(SAbstractConcept call, SNode referenceNode, SNode contextNode, SContainmentLink containmentLink, SAbstractConcept filterConcept) {
-    Iterable<SignatureScope> parts = IFunctionCall__BehaviorDescriptor.getFunctionScopeParts_id6dAo8EmAhT7.invoke(SNodeOperations.asSConcept(call), referenceNode, contextNode, containmentLink);
 
+    Iterable<SignatureScope> parts = IFunctionCall__BehaviorDescriptor.getFunctionScopeParts_id6dAo8EmAhT7.invoke(SNodeOperations.asSConcept(call), referenceNode, contextNode, containmentLink);
     return new SignatureScopeAsScope(HidingBySignatureScope.of(parts), filterConcept);
+  }
+
+  /**
+   * Return the access the context node has over the given type.
+   */
+  public static VisibilityAccess getBaseAccesToType(SNode contextNode, SNode type) {
+    TypeKey targetKey = IType__BehaviorDescriptor.typeKey_idJmO2PmZtH5.invoke(type);
+
+    // TODO try supertypes of current types
+    // In kotlin: lambdas and extension methods do not have access to private class members, only member defined IN the class are applied
+    for (SNode contextType : ListSequence.fromList(SNodeOperations.getNodeAncestors(contextNode, CONCEPTS.IClassLike$go, false))) {
+      SNode thisType = IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(contextType, ((boolean) false));
+      if (Objects.equals(IType__BehaviorDescriptor.typeKey_idJmO2PmZtH5.invoke(thisType), targetKey)) {
+        return VisibilityAccess.TYPE_PRIVATE;
+      }
+
+      if (Sequence.fromIterable(SuperTypesVisitorImpl.getSupertypes(thisType)).contains(targetKey)) {
+        return VisibilityAccess.TYPE_PROTECTED;
+      }
+    }
+    return VisibilityAccess.TYPE_PUBLIC;
   }
 
   private static final class CONCEPTS {
@@ -150,6 +177,7 @@ public class SignatureScopeHelper {
     /*package*/ static final SConcept NavigationOperation$4I = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af450L, "jetbrains.mps.kotlin.structure.NavigationOperation");
     /*package*/ static final SConcept ReceiverType$$f = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af541L, "jetbrains.mps.kotlin.structure.ReceiverType");
     /*package*/ static final SInterfaceConcept IType$Ni = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af441L, "jetbrains.mps.kotlin.structure.IType");
+    /*package*/ static final SInterfaceConcept IClassLike$go = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x298a6a355c110274L, "jetbrains.mps.kotlin.structure.IClassLike");
   }
 
   private static final class LINKS {

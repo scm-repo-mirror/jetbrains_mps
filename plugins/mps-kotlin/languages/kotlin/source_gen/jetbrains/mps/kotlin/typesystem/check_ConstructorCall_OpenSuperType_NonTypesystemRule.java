@@ -9,7 +9,9 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.kotlin.behavior.IConstructorDeclaration__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.kotlin.behavior.IInheritable__BehaviorDescriptor;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
@@ -17,7 +19,6 @@ import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_ConstructorCall_OpenSuperType_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -25,7 +26,7 @@ public class check_ConstructorCall_OpenSuperType_NonTypesystemRule extends Abstr
   }
   public void applyRule(final SNode constructorCall, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     SNode klass = IConstructorDeclaration__BehaviorDescriptor.getConstructedClass_id7WpE6U5evQG.invoke(SLinkOperations.getTarget(constructorCall, LINKS.target$VUYb));
-    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(klass, LINKS.inheritance$TFvr), CONCEPTS.FinalInheritanceModifier$H5)) {
+    if (SConceptOperations.isExactly(SNodeOperations.asSConcept(IInheritable__BehaviorDescriptor.getInheritance_id6jE_6duswG9.invoke(klass)), CONCEPTS.FinalInheritanceModifier$H5)) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(constructorCall, "This type is final, so it cannot be inherited from", "r:aff09eac-afd3-4057-bdd8-e02a572d1436(jetbrains.mps.kotlin.typesystem)", "730183986703521249", null, errorTarget);
@@ -50,7 +51,6 @@ public class check_ConstructorCall_OpenSuperType_NonTypesystemRule extends Abstr
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink target$VUYb = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4f6L, 0x2043bc8310ba5a7cL, "target");
-    /*package*/ static final SContainmentLink inheritance$TFvr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x537372687dd3bcdaL, 0x537372687dd3bcdbL, "inheritance");
   }
 
   private static final class CONCEPTS {

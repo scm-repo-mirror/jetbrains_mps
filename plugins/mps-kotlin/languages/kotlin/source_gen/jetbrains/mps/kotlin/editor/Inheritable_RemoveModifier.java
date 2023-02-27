@@ -7,9 +7,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.kotlin.behavior.IInheritable__BehaviorDescriptor;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.editor.runtime.cells.CellIdManager;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
@@ -32,7 +30,7 @@ public class Inheritable_RemoveModifier {
         if (DeletionApproverUtil.approve(editorContext, SLinkOperations.getTarget(node, LINKS.inheritance$TFvr))) {
           return;
         }
-        SLinkOperations.setTarget(node, LINKS.inheritance$TFvr, SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(IInheritable__BehaviorDescriptor.getDefaultInheritance_id7uO8z1Cfao7.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(node)), node))));
+        SNodeOperations.deleteNode(SLinkOperations.getTarget(node, LINKS.inheritance$TFvr));
         {
           final SNode named = node;
           if (SNodeOperations.isInstanceOf(named, CONCEPTS.INamedConcept$Kd)) {

@@ -4,6 +4,7 @@ package jetbrains.mps.kotlin.signatures;
 
 import jetbrains.mps.kotlin.api.declaration.FunctionDeclaration;
 import jetbrains.mps.references.Reference;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.kotlin.api.members.TypeExpander;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Objects;
@@ -41,11 +42,11 @@ public class FunctionSignature implements MemberSignature {
   }
   private final String signature;
 
-  public FunctionSignature(FunctionDeclaration declaration, TypeExpander expander) {
+  public FunctionSignature(@NotNull FunctionDeclaration declaration, TypeExpander expander) {
     this(declaration, erasureOf(declaration, expander));
   }
 
-  public FunctionSignature(FunctionDeclaration declaration, String parameterErasure) {
+  public FunctionSignature(@NotNull FunctionDeclaration declaration, String parameterErasure) {
     signature = declaration.getName() + "#" + Sequence.fromIterable(declaration.getParameters()).count() + "#" + parameterErasure;
     setFunctionDeclaration(declaration);
   }

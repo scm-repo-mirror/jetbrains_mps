@@ -3110,9 +3110,6 @@
     <property role="TrG5h" value="AbstractConstructorDeclaration" />
     <property role="R5$K7" value="true" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
-    <node concept="PrWs8" id="6f3juM$wHwF" role="PzmwI">
-      <ref role="PrY4T" node="6cg9X74Le0Z" resolve="IVisible" />
-    </node>
     <node concept="PrWs8" id="2Dtd0_QziWQ" role="PzmwI">
       <ref role="PrY4T" node="71DDynMG2ea" resolve="IConstructorDeclaration" />
     </node>
@@ -3260,6 +3257,9 @@
     <property role="TrG5h" value="IFunctionDeclaration" />
     <node concept="PrWs8" id="2Dtd0_QziWG" role="PrDN$">
       <ref role="PrY4T" node="3r3AWMM3Orf" resolve="IFunctionIdentifier" />
+    </node>
+    <node concept="PrWs8" id="6JJpax4A5AB" role="PrDN$">
+      <ref role="PrY4T" node="6cg9X74Le0Z" resolve="IVisible" />
     </node>
   </node>
   <node concept="1TIwiD" id="4nn3FPlxLb_">

@@ -18,12 +18,14 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.kotlin.signatures.PropertySignature;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class AbstractPropertyDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b9a90aaL, "jetbrains.mps.kotlin.structure.AbstractPropertyDeclaration");
@@ -53,7 +55,9 @@ public final class AbstractPropertyDeclaration__BehaviorDescriptor extends BaseB
     return (!(SPropertyOperations.getBoolean(__thisNode__, PROPS.isReadonly$jzqd)) && !(SPropertyOperations.getBoolean(__thisNode__, PROPS.isConstant$zvIz))) || (SLinkOperations.getTarget(__thisNode__, LINKS.assignment$nl1j) == null);
   }
   /*package*/ static void declareToCollector_id5$XWI2QkXNB(@NotNull SNode __thisNode__, SignatureCollector collector, SNode explicitReceiver) {
-    PropertySignature.declareAllTo(AbstractPropertyDeclaration__BehaviorDescriptor.getDeclarations_id7RZWrHVaXCH.invoke(__thisNode__), ((boolean) IVariableConstraintHolder__BehaviorDescriptor.isChildVariableAssignable_idCy8Bus9qei.invoke(__thisNode__)), explicitReceiver, collector);
+    // TODO override in actual property: setter can change setter visibility
+    SNode visibility = SLinkOperations.getTarget(SNodeOperations.as(__thisNode__, CONCEPTS.IVisible$LZ), LINKS.visibility$vnSV);
+    PropertySignature.declareAllTo(AbstractPropertyDeclaration__BehaviorDescriptor.getDeclarations_id7RZWrHVaXCH.invoke(__thisNode__), visibility, ((boolean) IVariableConstraintHolder__BehaviorDescriptor.isChildVariableAssignable_idCy8Bus9qei.invoke(__thisNode__)), explicitReceiver, collector);
   }
 
   /*package*/ AbstractPropertyDeclaration__BehaviorDescriptor() {
@@ -112,10 +116,15 @@ public final class AbstractPropertyDeclaration__BehaviorDescriptor extends BaseB
   private static final class LINKS {
     /*package*/ static final SContainmentLink type$RmkT = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af571L, 0x28bef6d7551af917L, "type");
     /*package*/ static final SContainmentLink assignment$nl1j = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b9a90aaL, 0x28bef6d7551af7baL, "assignment");
+    /*package*/ static final SContainmentLink visibility$vnSV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x631027d1c4c4e03fL, 0x631027d1c4c4e040L, "visibility");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty isReadonly$jzqd = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b9a90aaL, 0x28bef6d75590b319L, "isReadonly");
     /*package*/ static final SProperty isConstant$zvIz = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b9a90aaL, 0x11400bb790cefb7dL, "isConstant");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IVisible$LZ = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x631027d1c4c4e03fL, "jetbrains.mps.kotlin.structure.IVisible");
   }
 }

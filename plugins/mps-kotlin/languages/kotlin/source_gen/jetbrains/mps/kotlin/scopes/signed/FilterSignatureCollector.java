@@ -11,9 +11,9 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.kotlin.signatures.MemberSignature;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
-import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.internal.collections.runtime.IVisitor;
+import org.jetbrains.annotations.Nullable;
+import java.util.Map;
+import jetbrains.mps.kotlin.api.members.SignatureAttributeKey;
 
 /**
  * Collect signatures using the provided filter.
@@ -68,37 +68,18 @@ public class FilterSignatureCollector implements SignatureCollector {
   }
 
   @Override
-  public <T extends MemberSignature> void addDeclaration(final SNode declaration, SNode receiverType, Class<T> signatureKind, _FunctionTypes._return_P0_E0<? extends Iterable<T>> signatureProducer) {
-    if (!(getFilter().acceptKind(signatureKind)) || !(getFilter().acceptReceiver(receiverType))) {
-      return;
-    }
-    Sequence.fromIterable(signatureProducer.invoke()).visitAll(new IVisitor<T>() {
-      public void visit(T it) {
-        insertSignature(declaration, it);
-      }
-    });
+  public boolean accept(Class<? extends MemberSignature> signatureKind, SNode explicitReceiver) {
+    return getFilter().acceptKind(signatureKind) && getFilter().acceptReceiver(explicitReceiver);
   }
 
   @Override
-  public <T extends MemberSignature, U extends SNode> void addDeclarations(Iterable<U> nodes, SNode receiverType, Class<T> signatureKind, final _FunctionTypes._return_P1_E0<? extends Iterable<T>, ? super U> signatureProducer) {
-    if (!(getFilter().acceptKind(signatureKind)) || !(getFilter().acceptReceiver(receiverType))) {
-      return;
-    }
-    Sequence.fromIterable(nodes).visitAll(new IVisitor<U>() {
-      public void visit(final U node) {
-        Sequence.fromIterable(signatureProducer.invoke(node)).visitAll(new IVisitor<T>() {
-          public void visit(T sig) {
-            insertSignature(node, sig);
-          }
-        });
-      }
-    });
+  public boolean acceptSignature(MemberSignature signature, SNode source) {
+    return getFilter().acceptSignature(signature, source);
   }
 
-  protected void insertSignature(SNode source, MemberSignature signature) {
-    if (!(getFilter().acceptSignature(signature, source))) {
-      return;
-    }
-    ListSequence.fromList(getCollected()).addElement(new SourcedSignature(source, signature));
+  @Override
+  public void collect(SNode source, MemberSignature signature, @Nullable Map<SignatureAttributeKey<?>, Object> attributes) {
+    ListSequence.fromList(getCollected()).addElement(new SourcedSignature(source, signature, attributes));
   }
+
 }

@@ -132,14 +132,14 @@ public abstract class KotlinTextGen {
   public static void inheritance(SNode node, final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     SNode inheritance = SLinkOperations.getTarget(node, LINKS.inheritance$TFvr);
-    if ((inheritance != null) && !(SNodeOperations.isInstanceOf(inheritance, SNodeOperations.asSConcept(IInheritable__BehaviorDescriptor.getDefaultInheritance_id7uO8z1Cfao7.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(node)), node))))) {
+    if ((inheritance != null) && !(SNodeOperations.isInstanceOf(inheritance, SNodeOperations.asSConcept(IInheritable__BehaviorDescriptor.getDefaultInheritance_id6jE_6dusz0P.invoke(node))))) {
       tgs.appendNode(inheritance);
       tgs.append(" ");
     }
   }
   public static void visibility(SNode node, final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
-    if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(node, LINKS.visibility$vnSV), CONCEPTS.PublicVisibility$Me))) {
+    if ((SLinkOperations.getTarget(node, LINKS.visibility$vnSV) != null)) {
       tgs.appendNode(SLinkOperations.getTarget(node, LINKS.visibility$vnSV));
       tgs.append(" ");
     }
@@ -466,7 +466,6 @@ public abstract class KotlinTextGen {
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept PublicVisibility$Me = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af395L, "jetbrains.mps.kotlin.structure.PublicVisibility");
     /*package*/ static final SConcept ClassDeclaration$Jm = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, "jetbrains.mps.kotlin.structure.ClassDeclaration");
     /*package*/ static final SInterfaceConcept IIdentifier$wg = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af330L, "jetbrains.mps.kotlin.structure.IIdentifier");
   }

@@ -6,6 +6,7 @@ import jetbrains.mps.kotlin.scopes.TypeMembersVisitor;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.kotlin.signatures.MemberSignature;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.kotlin.scopes.VisibilityAccess;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.kotlin.api.members.SourcedSignature;
@@ -15,8 +16,8 @@ import jetbrains.mps.kotlin.scopes.SignatureFilter;
  * Visitor searching for the first signature matching the one passed in constructor.
  */
 public class SignatureSeekerVisitor extends TypeMembersVisitor {
-  public SignatureSeekerVisitor(@NotNull MemberSignature signature) {
-    super(new OneSignatureFilter(signature));
+  public SignatureSeekerVisitor(@NotNull MemberSignature signature, SNode contextNode, VisibilityAccess baseAccess) {
+    super(new OneSignatureFilter(signature), contextNode, baseAccess);
   }
 
   @Override

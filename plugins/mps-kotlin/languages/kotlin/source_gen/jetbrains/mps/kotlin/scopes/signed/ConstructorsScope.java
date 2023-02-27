@@ -15,7 +15,7 @@ import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.internal.collections.runtime.ISelector;
+import jetbrains.mps.kotlin.api.members.SignatureBuilder;
 import jetbrains.mps.kotlin.signatures.FunctionSignature;
 import jetbrains.mps.kotlin.behavior.KotlinFunctionDeclaration;
 import jetbrains.mps.kotlin.api.members.TypeExpander;
@@ -57,11 +57,7 @@ public class ConstructorsScope implements SignatureScope {
       }
     }
 
-    return ListSequence.fromList(result).select(new ISelector<SNode, SourcedSignature>() {
-      public SourcedSignature select(SNode it) {
-        return new SourcedSignature(it, new FunctionSignature(KotlinFunctionDeclaration.of(it), (TypeExpander) null));
-      }
-    });
+    return SignatureBuilder.create(result, FunctionSignature.class).withSignature((SNode node) -> new FunctionSignature(KotlinFunctionDeclaration.of(node), (TypeExpander) null)).build();
   }
 
   @Override
