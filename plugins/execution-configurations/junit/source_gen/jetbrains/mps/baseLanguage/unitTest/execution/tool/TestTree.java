@@ -21,6 +21,7 @@ import com.intellij.openapi.actionSystem.ActionGroup;
 import jetbrains.mps.ide.ui.tree.MPSTreeNode;
 import jetbrains.mps.workbench.action.ActionUtils;
 import javax.swing.SwingUtilities;
+import jetbrains.mps.baseLanguage.unitTest.execution.client.TestDescriptorWrapper;
 import java.util.LinkedList;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
@@ -149,7 +150,12 @@ public class TestTree extends MPSTree implements Disposable, TestStateListener {
   }
 
   private ITestNodeWrapper getParent(@NotNull ITestNodeWrapper testNode) {
-    return testNode.getTestCase();
+    ITestNodeWrapper testCase = testNode.getTestCase();
+    if (testCase instanceof TestDescriptorWrapper && ((TestDescriptorWrapper) testCase).getDescriptor().isRoot()) {
+      return null;
+
+    }
+    return testCase;
   }
 
   @NotNull

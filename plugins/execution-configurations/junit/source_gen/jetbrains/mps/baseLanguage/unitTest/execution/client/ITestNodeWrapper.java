@@ -22,8 +22,10 @@ public interface ITestNodeWrapper<N extends SNode> {
    * 
    * @deprecated 
    */
-  @Deprecated
-  N getNode();
+  @Deprecated(forRemoval = true)
+  default N getNode() {
+    throw new UnsupportedOperationException("not implemented");
+  }
 
   SNodeReference getNodePointer();
 
@@ -72,7 +74,9 @@ public interface ITestNodeWrapper<N extends SNode> {
    * @deprecated identical to {@link jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper#getFqName() }
    */
   @Deprecated(since = "2018.1", forRemoval = true)
-  String getCachedFqName();
+  default String getCachedFqName() {
+    throw new UnsupportedOperationException("not implemented");
+  }
 
   @NotNull
   TestParameters getTestRunParameters();
