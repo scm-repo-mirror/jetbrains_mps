@@ -4,11 +4,10 @@ package jetbrains.mps.baseLanguage.unitTest.execution.server;
 
 import java.util.List;
 import org.junit.platform.engine.DiscoverySelector;
+import org.junit.platform.engine.TestEngine;
 import org.junit.platform.launcher.LauncherDiscoveryRequest;
 import org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder;
 import org.junit.platform.launcher.core.LauncherConfig;
-import org.junit.vintage.engine.VintageTestEngine;
-import org.junit.jupiter.engine.JupiterTestEngine;
 import org.junit.platform.launcher.Launcher;
 import org.junit.platform.launcher.core.LauncherFactory;
 
@@ -20,13 +19,16 @@ public abstract class AbstractJUnit5TestContributor extends AbstractJUnitTestMix
 
   @Override
   protected void executeSafe() throws Throwable {
-    executeWithJUnit5(collectSelectors());
+    executeWithJUnit5(collectSelectors(), collectTestEngines());
   }
 
-  protected void executeWithJUnit5(List<DiscoverySelector> selectors) {
+  protected void executeWithJUnit5(List<DiscoverySelector> selectors, List<TestEngine> engines) {
     LauncherDiscoveryRequest request = LauncherDiscoveryRequestBuilder.request().selectors(selectors).configurationParameter("junit.platform.output.capture.stdout", "true").configurationParameter("junit.platform.output.capture.stderr", "true").build();
 
-    LauncherConfig launcherConfig = LauncherConfig.builder().enableTestEngineAutoRegistration(false).enablePostDiscoveryFilterAutoRegistration(false).enableLauncherSessionListenerAutoRegistration(false).enableLauncherDiscoveryListenerAutoRegistration(false).enableTestExecutionListenerAutoRegistration(false).addTestEngines(new VintageTestEngine(), new JupiterTestEngine()).build();
+    LauncherConfig.Builder builder = LauncherConfig.builder().enableTestEngineAutoRegistration(false).enablePostDiscoveryFilterAutoRegistration(false).enableLauncherSessionListenerAutoRegistration(false).enableLauncherDiscoveryListenerAutoRegistration(false).enableTestExecutionListenerAutoRegistration(false);
+    builder.addTestEngines(engines.toArray(new TestEngine[engines.size()]));
+
+    LauncherConfig launcherConfig = builder.build();
     Launcher launcher = LauncherFactory.openSession(launcherConfig).getLauncher();
     DefaultTestExecutionListener listener = new DefaultTestExecutionListener(myOutStream);
     try {

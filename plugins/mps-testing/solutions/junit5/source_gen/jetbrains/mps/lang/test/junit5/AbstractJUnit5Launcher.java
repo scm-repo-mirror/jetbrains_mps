@@ -38,7 +38,9 @@ public abstract class AbstractJUnit5Launcher {
   public abstract int launchTests();
 
   protected void launchTests(Collection<Class<?>> testClasses, TestExecutionListener executionListener) throws PreconditionViolationException {
-    LauncherConfig launcherConfig = LauncherConfig.builder().enableTestEngineAutoRegistration(false).enablePostDiscoveryFilterAutoRegistration(false).enableLauncherSessionListenerAutoRegistration(false).enableLauncherDiscoveryListenerAutoRegistration(false).enableTestExecutionListenerAutoRegistration(false).addTestEngines(new VintageTestEngine(), new JupiterTestEngine()).build();
+    LauncherConfig.Builder builder = LauncherConfig.builder().enableTestEngineAutoRegistration(false).enablePostDiscoveryFilterAutoRegistration(false).enableLauncherSessionListenerAutoRegistration(false).enableLauncherDiscoveryListenerAutoRegistration(false).enableTestExecutionListenerAutoRegistration(false).addTestEngines(new VintageTestEngine(), new JupiterTestEngine());
+    LauncherConfig launcherConfig = builder.build();
+
     Launcher launcher = LauncherFactory.openSession(launcherConfig).getLauncher();
     if (isRunningOnTeamCity()) {
       launcher.registerTestExecutionListeners(new JUnit5TestExecutionListener());

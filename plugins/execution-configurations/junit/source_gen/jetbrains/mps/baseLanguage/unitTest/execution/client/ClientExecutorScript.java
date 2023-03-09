@@ -5,6 +5,11 @@ package jetbrains.mps.baseLanguage.unitTest.execution.client;
 import jetbrains.mps.baselanguage.unitTest.execution.launcher.ExecutorScript;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestEngineDescriptor;
+import org.jetbrains.mps.openapi.module.SModuleReference;
+import jetbrains.mps.project.structure.modules.ModuleReference;
+import jetbrains.mps.baseLanguage.unitTest.platform.JUnitPlatform;
+import jetbrains.mps.classloading.ModuleClassLoader;
 
 public class ClientExecutorScript extends ExecutorScript {
 
@@ -30,5 +35,14 @@ public class ClientExecutorScript extends ExecutorScript {
     }
 
     testModuleRecord.add(testWrap.getFqName(), pf.asString(testWrap.getNodePointer()), String.valueOf(testWrap.isTestCase()));
+  }
+
+  public void addTestEngine(TestEngineDescriptor ted) {
+    ClassLoader classLoader = ted.getClass().getClassLoader();
+    SModuleReference moduleReference = ModuleReference.parseReference(JUnitPlatform.JUNIT5_LIBS_MODULE_REF);
+    if (classLoader instanceof ModuleClassLoader) {
+      moduleReference = ((ModuleClassLoader) classLoader).getModule().getModuleReference();
+    }
+    myTestEngines.add(new ExecutorScript.TestEngineRecord(ted.testEngineClassName(), moduleReference.toString()));
   }
 }

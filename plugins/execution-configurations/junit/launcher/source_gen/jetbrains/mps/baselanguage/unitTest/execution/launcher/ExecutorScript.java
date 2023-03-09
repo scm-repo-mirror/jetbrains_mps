@@ -17,10 +17,14 @@ public class ExecutorScript {
   @Nullable
   private ScriptData myEnvironmentStartupData;
   protected final List<TestRecord> myTests = new ArrayList<TestRecord>();
-
+  protected final List<TestEngineRecord> myTestEngines = new ArrayList<TestEngineRecord>();
 
   public Collection<TestRecord> getTests() {
     return myTests;
+  }
+
+  public Collection<TestEngineRecord> getTestEngines() {
+    return myTestEngines;
   }
 
   public ScriptData addStartupArguments() {
@@ -46,6 +50,12 @@ public class ExecutorScript {
       }
       root.addContent(module);
     }
+    for (TestEngineRecord e : ListSequence.fromList(myTestEngines)) {
+      Element engine = new Element("engine");
+      engine.setAttribute("class", e.myClassName);
+      engine.setAttribute("module", e.myModuleRef);
+      root.addContent(engine);
+    }
     if (myEnvironmentStartupData != null) {
       myEnvironmentStartupData.write(root);
     }
@@ -58,6 +68,9 @@ public class ExecutorScript {
       for (Element te : ListSequence.fromList(me.getChildren("test"))) {
         tr.add(te.getAttributeValue("fqn"), te.getAttributeValue("node"), te.getAttributeValue("isTestCase"));
       }
+    }
+    for (Element e : ListSequence.fromList(root.getChildren("engine"))) {
+      myTestEngines.add(new TestEngineRecord(e.getAttributeValue("class"), e.getAttributeValue("module")));
     }
     myEnvironmentStartupData = new ScriptData();
     myEnvironmentStartupData.read(root);
@@ -78,5 +91,17 @@ public class ExecutorScript {
       myTestNode.add(testNodePointer);
       isTestCase.add(isTestCase0 + "");
     }
+  }
+
+  public static class TestEngineRecord {
+
+    public final String myClassName;
+    public final String myModuleRef;
+
+    public TestEngineRecord(String className, String moduleRef) {
+      myClassName = className;
+      myModuleRef = moduleRef;
+    }
+
   }
 }
