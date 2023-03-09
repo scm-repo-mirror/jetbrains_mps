@@ -29,6 +29,7 @@ import jetbrains.mps.baseLanguage.behavior.IClassifier__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.internal.collections.runtime.ISelector;
@@ -270,22 +271,30 @@ public enum TestNodeWrapperFactory implements TestDiscoveryParticipant {
     return myRoot;
   }
 
+  public static void registerTestDiscoveryParticipants(TestPlatform testPlatform) {
+    for (TestNodeWrapperFactory factory : Sequence.fromArray(TestNodeWrapperFactory.values())) {
+      testPlatform.addTestDiscoveryParticipant(factory);
+    }
+  }
+
+  public static void unregisterTestDiscoveryParticipants(TestPlatform testPlatform) {
+    for (TestNodeWrapperFactory factory : Sequence.fromArray(TestNodeWrapperFactory.values())) {
+      testPlatform.removeTestDiscoveryParticipant(factory);
+    }
+  }
+
   @Nullable
   public static ITestNodeWrapper tryToWrap(@NotNull SNode node) {
     if (!(SPropertyOperations.getBoolean(SModelOperations.getModuleStub(SNodeOperations.getModel(node)), PROPS.compileInMPS$2Q_X))) {
       return null;
     }
     TestDiscoveryRequest request = new TestDiscoveryRequest(new TestDescriptor());
-    for (TestNodeWrapperFactory factory : Sequence.fromIterable(Sequence.fromArray(TestNodeWrapperFactory.values()))) {
-      if (factory.accept(node)) {
-        Optional<ITestNodeWrapper> wrapped = factory.discover(node, request).map((TestDescriptor descriptor) -> {
-          return new TestDescriptorWrapper(descriptor, new TestDescriptorWrapper(descriptor.getContainer()));
+    Optional<ITestNodeWrapper> wrapped = request.discover(node).map((TestDescriptor descriptor) -> {
+      return new TestDescriptorWrapper(descriptor, new TestDescriptorWrapper(descriptor.getContainer()));
 
-        });
-        if (wrapped.isPresent()) {
-          return wrapped.get();
-        }
-      }
+    });
+    if (wrapped.isPresent()) {
+      return wrapped.get();
     }
     return null;
   }

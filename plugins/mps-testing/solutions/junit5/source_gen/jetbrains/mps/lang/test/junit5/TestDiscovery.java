@@ -7,6 +7,8 @@ import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.module.ReloadableModule;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestDiscoveryRequest;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.baseLanguage.unitTest.behavior.ITestCase__BehaviorDescriptor;
@@ -45,9 +47,15 @@ public class TestDiscovery {
 
   public void surveyModule(SModule module) {
     Collection<SModel> models = module.getModels((SModel model) -> !(SModelStereotype.isStubModel(model)));
-    ClassLoader moduleCL = ((ReloadableModule) module).getClassLoader();
+    final ClassLoader moduleCL = ((ReloadableModule) module).getClassLoader();
     for (SModel model : models) {
-      surveyModel(model, moduleCL);
+      TestDiscoveryRequest request = new TestDiscoveryRequest(new TestDescriptor());
+      for (final SNode root : SModelOperations.roots(((SModel) model), null)) {
+        request.discover(root).ifPresent((TestDescriptor descriptor) -> {
+          myDiscoveryVisitor.visitTestRoot(root, descriptor.getFullName(), moduleCL);
+
+        });
+      }
     }
   }
 
