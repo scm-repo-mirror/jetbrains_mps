@@ -19,7 +19,10 @@ import com.intellij.openapi.util.IconLoader;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.nodeEditor.EditorSettings;
 import jetbrains.mps.openapi.editor.EditorContext;
+import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.MacrosFactory;
+import jetbrains.mps.vfs.FileSystem;
+import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -32,7 +35,6 @@ import javax.swing.ImageIcon;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Map;
@@ -227,18 +229,23 @@ public class EditorCell_Image extends EditorCell_Basic {
       if (fullPath == null) {
         return null;
       }
+
       jetbrains.mps.nodeEditor.EditorContext ec = (jetbrains.mps.nodeEditor.EditorContext) context;
       Map<String, Icon> iconCache = ec.getIconCache();
       if (!iconCache.containsKey(fullPath)) {
-        File iconFile = new File(fullPath);
-//        if (!iconFile.exists()) {
-//          LOG.error("image file not found: " + fullPath);
-//          return null;
-//        }
+        // TODO this allows to handle jar files using proper URL, but is deprecated, how should we replace this? Cant MacrosFactory return IFile?
+        IFile iconFile = FileSystem.getInstance().getFile(fullPath);
 
         try {
-          URL iconUrl = iconFile.toURI().toURL();
-          iconCache.put(fullPath, IconLoader.findIcon(iconUrl, false));
+          URL iconUrl = iconFile.getUrl();
+          String extension = FileUtil.getExtension(fullPath);
+          if ("svg".equals(extension) || "png".equals(extension)) {
+            // IconLoader only supports SVG and PNG, which are also the supported formats for MPS images
+            iconCache.put(fullPath, IconLoader.findIcon(iconUrl, false));
+          } else {
+            // ImageIcon supports more formats than IconLoader, but not SVG, which is why we use both here
+            iconCache.put(fullPath, new ImageIcon(iconUrl));
+          }
         } catch (MalformedURLException e) {
           LOG.error("can't convert icon path to url: " + fullPath, e);
         }
