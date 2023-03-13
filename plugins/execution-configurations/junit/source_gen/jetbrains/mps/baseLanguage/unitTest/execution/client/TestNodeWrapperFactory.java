@@ -104,7 +104,7 @@ public enum TestNodeWrapperFactory implements TestDiscoveryParticipant {
                   }
                 })) {
                   TestDescriptorBuilder builder = new TestDescriptorBuilder(container).newTest(SPropertyOperations.getString(method, PROPS.name$MnvL), SNodeTestSource.of(method));
-                  if (TestNodeUtil.isAnnotatedToLaunch(SNodeOperations.cast(node, CONCEPTS.InstanceMethodDeclaration$39))) {
+                  if (TestNodeUtil.isAnnotatedToLaunch(SNodeOperations.cast(method, CONCEPTS.InstanceMethodDeclaration$39))) {
                     builder.withProperty(TestProperties.REQUIRES_MPS_PLATFORM, true);
                   }
                   builder.add();
@@ -149,8 +149,8 @@ public enum TestNodeWrapperFactory implements TestDiscoveryParticipant {
               return TestNodeUtil.isJUnit4TestMethod(it);
             }
           })) {
-            TestDescriptorBuilder builder = new TestDescriptorBuilder(container).newTest(SPropertyOperations.getString(SNodeOperations.cast(node, CONCEPTS.InstanceMethodDeclaration$39), PROPS.name$MnvL), SNodeTestSource.of(node));
-            if (TestNodeUtil.isAnnotatedToLaunch(SNodeOperations.cast(node, CONCEPTS.InstanceMethodDeclaration$39))) {
+            TestDescriptorBuilder builder = new TestDescriptorBuilder(container).newTest(SPropertyOperations.getString(SNodeOperations.cast(method, CONCEPTS.InstanceMethodDeclaration$39), PROPS.name$MnvL), SNodeTestSource.of(method));
+            if (TestNodeUtil.isAnnotatedToLaunch(SNodeOperations.cast(method, CONCEPTS.InstanceMethodDeclaration$39))) {
               builder.withProperty(TestProperties.REQUIRES_MPS_PLATFORM, true);
             }
             builder.add();
@@ -188,15 +188,15 @@ public enum TestNodeWrapperFactory implements TestDiscoveryParticipant {
         return Optional.empty();
       }
       if (SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(node)), CONCEPTS.ClassConcept$bK) && TestNodeUtil.isJUnit5TestCase(SNodeOperations.cast(node, CONCEPTS.ClassConcept$bK))) {
-        Optional<TestDescriptor> testOptional = Optional.of(new TestDescriptorBuilder(request.peekContainer()).newTestContainer(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SNodeOperations.cast(node, CONCEPTS.ClassConcept$bK)), SNodeTestSource.of(node)).add());
+        Optional<TestDescriptor> testOptional = Optional.of(new TestDescriptorBuilder(request.peekContainer()).newTestContainer(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SNodeOperations.cast(node, CONCEPTS.ClassConcept$bK)), SNodeTestSource.of(node)).withProperty(TestProperties.CAN_RUN_IN_PROCESS, false).withProperty(TestProperties.REQUIRES_MPS_PLATFORM, TestNodeUtil.needsMPS(SNodeOperations.cast(node, CONCEPTS.ClassConcept$bK))).add());
         testOptional.ifPresent((TestDescriptor container) -> {
           for (SNode method : Sequence.fromIterable(SNodeOperations.ofConcept(IClassifierType__BehaviorDescriptor.getMembers_id6r77ob2V1Fr.invoke(IClassifier__BehaviorDescriptor.getThisType_id6r77ob2UWbY.invoke(SNodeOperations.cast(node, CONCEPTS.ClassConcept$bK))), CONCEPTS.InstanceMethodDeclaration$39)).where(new IWhereFilter<SNode>() {
             public boolean accept(SNode it) {
               return TestNodeUtil.isJUnit5TestMethod(it);
             }
           })) {
-            TestDescriptorBuilder builder = new TestDescriptorBuilder(container).newTest(SPropertyOperations.getString(SNodeOperations.cast(node, CONCEPTS.InstanceMethodDeclaration$39), PROPS.name$MnvL), SNodeTestSource.of(node));
-            if (TestNodeUtil.isAnnotatedToLaunch(SNodeOperations.cast(node, CONCEPTS.InstanceMethodDeclaration$39))) {
+            TestDescriptorBuilder builder = new TestDescriptorBuilder(container).newTest(SPropertyOperations.getString(SNodeOperations.cast(method, CONCEPTS.InstanceMethodDeclaration$39), PROPS.name$MnvL), SNodeTestSource.of(method));
+            if (TestNodeUtil.isAnnotatedToLaunch(SNodeOperations.cast(method, CONCEPTS.InstanceMethodDeclaration$39))) {
               builder.withProperty(TestProperties.REQUIRES_MPS_PLATFORM, true);
             }
             builder.add();
