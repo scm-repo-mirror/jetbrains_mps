@@ -10,8 +10,6 @@ import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.baselanguage.unitTest.execution.launcher.DefaultTestExecutor;
-import jetbrains.mps.baseLanguage.unitTest.platform.TestEngineDescriptor;
-import jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform;
 import jetbrains.mps.internal.collections.runtime.IterableUtils;
 import jetbrains.mps.tool.common.ScriptData;
 import java.io.File;
@@ -73,10 +71,6 @@ import jetbrains.mps.project.PathMacros;
     List<String> testsCommandLine = ListSequence.fromList(new ArrayList<String>());
     if (!(useCompatibilityMode)) {
       ListSequence.fromList(testsCommandLine).addElement(DefaultTestExecutor.JUNIT5_OPTION);
-      for (TestEngineDescriptor ted : TestPlatform.getInstance().getTestEngineDescriptors()) {
-        ListSequence.fromList(testsCommandLine).addElement("--engine");
-        ListSequence.fromList(testsCommandLine).addElement(ted.testEngineClassName());
-      }
     }
     for (ITestNodeWrapper test : ListSequence.fromList(myTestsToRun.getTests())) {
       ListSequence.fromList(testsCommandLine).addElement((test.isTestCase() ? "-c" : "-m"));
@@ -98,9 +92,6 @@ import jetbrains.mps.project.PathMacros;
     // loaded from sources could get loaded in the new application as well.
     for (ITestNodeWrapper test : ListSequence.fromList(myTestsToRun.getTests())) {
       args.addTest(test);
-    }
-    for (TestEngineDescriptor ted : ListSequence.fromList(TestPlatform.getInstance().getTestEngineDescriptors())) {
-      args.addTestEngine(ted);
     }
     try {
       File tempFile = File.createTempFile("test-exec", ".xml");

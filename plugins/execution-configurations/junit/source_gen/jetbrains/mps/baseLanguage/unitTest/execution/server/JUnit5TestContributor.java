@@ -6,7 +6,6 @@ import jetbrains.mps.baselanguage.unitTest.execution.launcher.TestsContributor;
 import org.junit.runner.Request;
 import java.util.List;
 import org.junit.platform.engine.DiscoverySelector;
-import org.junit.platform.engine.TestEngine;
 
 public interface JUnit5TestContributor extends TestsContributor {
 
@@ -15,7 +14,5 @@ public interface JUnit5TestContributor extends TestsContributor {
   }
 
   List<DiscoverySelector> collectSelectors();
-
-  List<TestEngine> collectTestEngines();
 
 }

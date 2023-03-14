@@ -19,16 +19,12 @@ public class TestPlatform {
   }
 
   private List<TestDiscoveryParticipant> myDiscoveryParticipants = new CopyOnWriteArrayList<>();
-  private List<TestEngineDescriptor> myTestEngineDescriptors = new CopyOnWriteArrayList<>();
 
   private TestPlatform() {
-    addTestEngineDescriptor(new JUnitPlatform.JupiterEngineDescriptor());
-    addTestEngineDescriptor(new JUnitPlatform.VintageEngineDescriptor());
   }
 
   public void clear() {
     myDiscoveryParticipants.clear();
-    myTestEngineDescriptors.clear();
   }
 
   public synchronized void addTestDiscoveryParticipant(TestDiscoveryParticipant participant) {
@@ -41,18 +37,6 @@ public class TestPlatform {
 
   public TestDiscoveryParticipant getAggregateDiscoveryParticipant() {
     return new AggregateTestDiscoveryParticipant();
-  }
-
-  public void addTestEngineDescriptor(TestEngineDescriptor descriptor) {
-    myTestEngineDescriptors.add(descriptor);
-  }
-
-  public void removeTestEngineDescriptor(TestEngineDescriptor descriptor) {
-    myTestEngineDescriptors.remove(descriptor);
-  }
-
-  public List<TestEngineDescriptor> getTestEngineDescriptors() {
-    return myTestEngineDescriptors;
   }
 
   public class AggregateTestDiscoveryParticipant implements TestDiscoveryParticipant {

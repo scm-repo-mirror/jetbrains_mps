@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="5golxezv1sk8uugn8aatja14zmo8oq8">
+<product version="3" modelHash="as2ag6rzhxbbgmhonorzbs0unsrtpmj">
   <files names="DefaultTestExecutor.java:DelegatingTestExecutor.java:ExecutorScript.java:TestExecutor.java:TestsContributor.java:WithPlatformTestExecutor.java" />
 </product>
 

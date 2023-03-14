@@ -7,15 +7,12 @@ import java.io.IOException;
 import java.util.List;
 import org.junit.platform.engine.DiscoverySelector;
 import java.util.LinkedList;
-import org.junit.platform.engine.TestEngine;
-import java.util.ArrayList;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import org.jetbrains.annotations.NotNull;
 import org.junit.platform.engine.discovery.DiscoverySelectors;
 import java.io.File;
 import java.io.LineNumberReader;
 import java.io.FileReader;
+import java.util.ArrayList;
 
 public class JUnit5CmdlineTestContributor extends AbstractJUnit5TestContributor implements JUnit5TestContributor {
   private static final Logger LOG = Logger.getLogger(JUnit5CmdlineTestContributor.class);
@@ -53,30 +50,6 @@ public class JUnit5CmdlineTestContributor extends AbstractJUnit5TestContributor 
       i++;
     }
     return selectors;
-  }
-
-  @Override
-  public List<TestEngine> collectTestEngines() {
-    ArrayList<TestEngine> engines = new ArrayList<>();
-    for (int i = 0; i < myArgs.length - 2; i++) {
-      String option = myArgs[i];
-      if ("--engine".equals(option)) {
-        String className = myArgs[++i];
-        try {
-          Class<?> cls = Class.forName(className);
-          Constructor<?> ctor = cls.getConstructor();
-          Object obj = ctor.newInstance();
-          TestEngine engine = TestEngine.class.cast(obj);
-          engines.add(engine);
-
-        } catch (ClassNotFoundException | NoSuchMethodException | InstantiationException | InvocationTargetException | IllegalAccessException ex) {
-          if (LOG.isErrorLevel()) {
-            LOG.error("error creating test engine", ex);
-          }
-        }
-      }
-    }
-    return engines;
   }
 
   @Override
