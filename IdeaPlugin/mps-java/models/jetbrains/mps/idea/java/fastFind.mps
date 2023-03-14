@@ -27,8 +27,7 @@
     <import index="3a50" ref="~mps-platform/java:jetbrains.mps.ide(mps-platform/)" />
     <import index="v23q" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi(MPS.IDEA/)" />
     <import index="pa15" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.persistence(MPS.Core/)" />
-    <import index="dusi" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)" />
-    <import index="wyuk" ref="~mps-core/java:jetbrains.mps.components(mps-core/)" implicit="true" />
+    <import index="wyuk" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.components(MPS.Core/)"/>
     <import index="pj7v" ref="~ideaJavaPlugin/java:com.intellij.lang.jvm(ideaJavaPlugin/)" implicit="true" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
     <import index="tci" ref="c1969cf6-0de2-4f84-9a6b-4019c52c438c/java:jetbrains.mps.idea.core.refactoring(mps-core/)" implicit="true" />
@@ -1233,7 +1232,7 @@
     </node>
     <node concept="2tJIrI" id="2ZTHkJGLPwd" role="jymVt" />
     <node concept="3uibUv" id="5$4I2RcLBIy" role="EKbjA">
-      <ref role="3uigEE" to="dusi:~FindUsagesParticipant" resolve="FindUsagesParticipant" />
+      <ref role="3uigEE" to="dush:~FindUsagesParticipant" resolve="FindUsagesParticipant" />
     </node>
     <node concept="3uibUv" id="5R7QTjJnPhY" role="EKbjA">
       <ref role="3uigEE" to="v23q:~Disposable" resolve="Disposable" />
