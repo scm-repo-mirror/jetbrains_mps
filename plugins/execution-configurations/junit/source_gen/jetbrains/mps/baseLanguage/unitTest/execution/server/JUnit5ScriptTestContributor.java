@@ -14,7 +14,9 @@ import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.module.ReloadableModule;
 import jetbrains.mps.baseLanguage.unitTest.platform.JUnitPlatform;
-import jetbrains.mps.baseLanguage.unitTest.runtime.EnvironmentAwareExtension;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestSessionConfig;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestSession;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform;
 import java.util.List;
 import org.junit.platform.engine.DiscoverySelector;
 import java.util.ArrayList;
@@ -54,12 +56,14 @@ public class JUnit5ScriptTestContributor extends AbstractJUnit5TestContributor i
 
   @Override
   protected void executeSafe() throws Throwable {
-    initExtensions();
-    super.executeSafe();
-  }
+    TestSessionConfig sessionConfig = new TestSessionConfig().withAccessory(Environment.class, myEnv);
+    TestSession testSession = TestPlatform.getInstance().openSession(sessionConfig);
+    try {
+      super.executeSafe();
 
-  public void initExtensions() {
-    EnvironmentAwareExtension.setEnvironment(myEnv);
+    } finally {
+      TestPlatform.getInstance().closeSession(testSession);
+    }
   }
 
   @Override

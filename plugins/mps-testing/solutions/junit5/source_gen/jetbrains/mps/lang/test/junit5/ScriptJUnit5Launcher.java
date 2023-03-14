@@ -6,7 +6,9 @@ import jetbrains.mps.lang.test.launcher.WorkerCallback;
 import jetbrains.mps.tool.common.Script;
 import jetbrains.mps.tool.environment.Environment;
 import jetbrains.mps.project.Project;
-import jetbrains.mps.baseLanguage.unitTest.runtime.EnvironmentAwareExtension;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestSessionConfig;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestSession;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform;
 import org.junit.platform.launcher.TestExecutionListener;
 import org.junit.platform.commons.PreconditionViolationException;
 import java.util.List;
@@ -31,11 +33,15 @@ public class ScriptJUnit5Launcher extends AbstractJUnit5Launcher {
   @Override
   public int launchTests() {
     Project project = myEnvironment.createProject(new ModuleFilesListProjectStrategy(myWhatToDo.getModules()));
-    EnvironmentAwareExtension.setEnvironment(myEnvironment);
-
     FailureDetector failureDetector = new FailureDetector();
 
-    launchTests(project, failureDetector);
+    TestSessionConfig sessionConfig = new TestSessionConfig().withAccessory(Environment.class, myEnvironment);
+    TestSession testSession = TestPlatform.getInstance().openSession(sessionConfig);
+    try {
+      launchTests(project, failureDetector);
+    } finally {
+      TestPlatform.getInstance().closeSession(testSession);
+    }
 
     myEnvironment.closeProject(project);
     myEnvironment.dispose();

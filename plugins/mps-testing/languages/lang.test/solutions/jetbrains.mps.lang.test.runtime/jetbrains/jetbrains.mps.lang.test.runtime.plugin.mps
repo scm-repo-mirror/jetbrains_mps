@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model ref="r:4bf0c2a9-4f1f-47f1-9222-e204836333ad(jetbrains.mps.baseLanguage.unitTest.execution.plugin)">
+<model ref="r:982a2684-4f70-4c4b-9a0c-d6bf2d59b488(jetbrains.mps.lang.test.runtime.plugin)">
   <persistence version="9" />
   <languages>
     <use id="ef7bf5ac-d06c-4342-b11d-e42104eb9343" name="jetbrains.mps.lang.plugin.standalone" version="0" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
-    <use id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging" version="0" />
-    <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="0" />
-    <use id="443f4c36-fcf5-4eb6-9500-8d06ed259e3e" name="jetbrains.mps.baseLanguage.classifiers" version="0" />
   </languages>
   <imports>
     <import index="4u8o" ref="r:a7abd5f1-5d9a-4c90-a542-3e14c173186d(jetbrains.mps.baseLanguage.unitTest.platform)" />
-    <import index="sfqd" ref="r:63a75970-913d-4a7b-99e2-8ca72ff6f509(jetbrains.mps.baseLanguage.unitTest.execution.client)" />
-    <import index="79ha" ref="r:2876f1ee-0b45-4db5-8c09-0682cdee5c67(jetbrains.mps.tool.environment)" />
-    <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
     <import index="4rfc" ref="r:3cf16c72-eb63-43af-9e50-31efa02178ea(jetbrains.mps.baseLanguage.unitTest.runtime)" />
-    <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
+    <import index="79ha" ref="r:2876f1ee-0b45-4db5-8c09-0682cdee5c67(jetbrains.mps.tool.environment)" />
+    <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" implicit="true" />
+    <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
   </imports>
   <registry>
     <language id="ef7bf5ac-d06c-4342-b11d-e42104eb9343" name="jetbrains.mps.lang.plugin.standalone">
@@ -25,7 +21,6 @@
         <child id="481983775135178844" name="fieldDeclaration" index="2uRRBG" />
       </concept>
       <concept id="481983775135178846" name="jetbrains.mps.lang.plugin.standalone.structure.ApplicationPluginDisposeBlock" flags="in" index="2uRRBI" />
-      <concept id="7520713872864775836" name="jetbrains.mps.lang.plugin.standalone.structure.StandalonePluginDescriptor" flags="ng" index="2DaZZR" />
     </language>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
       <concept id="4836112446988635817" name="jetbrains.mps.baseLanguage.structure.UndefinedType" flags="in" index="2jxLKc" />
@@ -124,33 +119,23 @@
       </concept>
     </language>
   </registry>
-  <node concept="2uRRBC" id="2VjRkhsJhPU">
-    <property role="TrG5h" value="UnittestExecutionPlugin" />
-    <node concept="2BZ0e9" id="1A84FU0vKDo" role="2uRRBG">
+  <node concept="2uRRBC" id="4rQ9_5eeUFW">
+    <property role="TrG5h" value="TestPlugin" />
+    <node concept="2BZ0e9" id="4rQ9_5ef0hm" role="2uRRBG">
       <property role="TrG5h" value="myEnvironmentAccessoryHandler" />
-      <node concept="3Tm6S6" id="1A84FU0vKDp" role="1B3o_S" />
-      <node concept="3uibUv" id="1A84FU0vKDq" role="1tU5fm">
+      <node concept="3Tm6S6" id="4rQ9_5ef0hn" role="1B3o_S" />
+      <node concept="3uibUv" id="4rQ9_5ef0n8" role="1tU5fm">
         <ref role="3uigEE" node="4rQ9_5eeUH7" resolve="EnvironmentAccessoryHandler" />
       </node>
-      <node concept="2ShNRf" id="1A84FU0vKDr" role="33vP2m">
-        <node concept="HV5vD" id="1A84FU0vKDs" role="2ShVmc">
+      <node concept="2ShNRf" id="4rQ9_5ef0np" role="33vP2m">
+        <node concept="HV5vD" id="4rQ9_5ef0ri" role="2ShVmc">
           <property role="373rjd" value="true" />
           <ref role="HV5vE" node="4rQ9_5eeUH7" resolve="EnvironmentAccessoryHandler" />
         </node>
       </node>
     </node>
-    <node concept="2uRRBj" id="2VjRkhsJhPW" role="2uRRBE">
-      <node concept="3clFbS" id="2VjRkhsJhPX" role="2VODD2">
-        <node concept="3clFbF" id="2VjRkhsLmoc" role="3cqZAp">
-          <node concept="2YIFZM" id="2VjRkhsLmsZ" role="3clFbG">
-            <ref role="37wK5l" to="sfqd:2VjRkhsJXEC" resolve="registerTestDiscoveryParticipants" />
-            <ref role="1Pybhc" to="sfqd:1KnTQt4Oin6" resolve="TestNodeWrapperFactory" />
-            <node concept="2YIFZM" id="2VjRkhsLm_T" role="37wK5m">
-              <ref role="37wK5l" to="4u8o:4chG8iIteHp" resolve="getInstance" />
-              <ref role="1Pybhc" to="4u8o:4chG8iItd4i" resolve="TestPlatform" />
-            </node>
-          </node>
-        </node>
+    <node concept="2uRRBj" id="4rQ9_5eeUGf" role="2uRRBE">
+      <node concept="3clFbS" id="4rQ9_5eeUGg" role="2VODD2">
         <node concept="3clFbF" id="4rQ9_5ef0AR" role="3cqZAp">
           <node concept="2OqwBi" id="4rQ9_5ef0Gs" role="3clFbG">
             <node concept="2YIFZM" id="4rQ9_5ef0BE" role="2Oq$k0">
@@ -162,7 +147,7 @@
               <node concept="2OqwBi" id="4rQ9_5ef2Kx" role="37wK5m">
                 <node concept="2WthIp" id="4rQ9_5ef2K$" role="2Oq$k0" />
                 <node concept="2BZ7hE" id="4rQ9_5ef2KA" role="2OqNvi">
-                  <ref role="2WH_rO" node="1A84FU0vKDo" resolve="myEnvironmentAccessoryHandler" />
+                  <ref role="2WH_rO" node="4rQ9_5ef0hm" resolve="myEnvironmentAccessoryHandler" />
                 </node>
               </node>
             </node>
@@ -170,18 +155,8 @@
         </node>
       </node>
     </node>
-    <node concept="2uRRBI" id="2VjRkhsJhQo" role="2uRRBF">
-      <node concept="3clFbS" id="2VjRkhsJhQp" role="2VODD2">
-        <node concept="3clFbF" id="2VjRkhsLmCt" role="3cqZAp">
-          <node concept="2YIFZM" id="2VjRkhsLmJm" role="3clFbG">
-            <ref role="37wK5l" to="sfqd:2VjRkhsKV4C" resolve="unregisterTestDiscoveryParticipants" />
-            <ref role="1Pybhc" to="sfqd:1KnTQt4Oin6" resolve="TestNodeWrapperFactory" />
-            <node concept="2YIFZM" id="2VjRkhsLmJn" role="37wK5m">
-              <ref role="37wK5l" to="4u8o:4chG8iIteHp" resolve="getInstance" />
-              <ref role="1Pybhc" to="4u8o:4chG8iItd4i" resolve="TestPlatform" />
-            </node>
-          </node>
-        </node>
+    <node concept="2uRRBI" id="4rQ9_5eeUGF" role="2uRRBF">
+      <node concept="3clFbS" id="4rQ9_5eeUGG" role="2VODD2">
         <node concept="3clFbF" id="4rQ9_5ef2ND" role="3cqZAp">
           <node concept="2OqwBi" id="4rQ9_5ef2NE" role="3clFbG">
             <node concept="2YIFZM" id="4rQ9_5ef2NF" role="2Oq$k0">
@@ -193,7 +168,7 @@
               <node concept="2OqwBi" id="4rQ9_5ef2NH" role="37wK5m">
                 <node concept="2WthIp" id="4rQ9_5ef2NI" role="2Oq$k0" />
                 <node concept="2BZ7hE" id="4rQ9_5ef2NJ" role="2OqNvi">
-                  <ref role="2WH_rO" node="1A84FU0vKDo" resolve="myEnvironmentAccessoryHandler" />
+                  <ref role="2WH_rO" node="4rQ9_5ef0hm" resolve="myEnvironmentAccessoryHandler" />
                 </node>
               </node>
             </node>
@@ -202,7 +177,6 @@
       </node>
     </node>
   </node>
-  <node concept="2DaZZR" id="2VjRkhsJhPV" />
   <node concept="312cEu" id="4rQ9_5eeUH7">
     <property role="TrG5h" value="EnvironmentAccessoryHandler" />
     <node concept="2tJIrI" id="4rQ9_5eeUTd" role="jymVt" />
@@ -259,7 +233,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="4rQ9_5eeUN0" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="4rQ9_5eeUVS" role="jymVt" />
@@ -283,7 +257,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="4rQ9_5eeUN8" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" />
       </node>
     </node>
   </node>

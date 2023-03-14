@@ -36,7 +36,7 @@ public class TestDescriptor {
     myName = name;
     mySource = source;
     myKind = kind;
-    myPropertiesMap = properties;
+    myPropertiesMap = Map.copyOf(properties);
   }
 
   public String getFullName() {

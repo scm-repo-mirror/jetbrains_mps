@@ -5,7 +5,9 @@ package jetbrains.mps.baseLanguage.unitTest.execution.server;
 import jetbrains.mps.tool.environment.Environment;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
-import jetbrains.mps.baseLanguage.unitTest.runtime.EnvironmentAwareExtension;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestSessionConfig;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestSession;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform;
 import java.util.List;
 import org.junit.platform.engine.DiscoverySelector;
 import org.junit.platform.launcher.LauncherDiscoveryRequest;
@@ -36,12 +38,14 @@ public class JUnit5InprocessTestsContributor extends AbstractInProcessTestMixin 
 
   @Override
   protected void executeSafe() throws Throwable {
-    initExtensions();
-    executeWithJUnit5(collectSelectors());
-  }
+    TestSessionConfig sessionConfig = new TestSessionConfig().withAccessory(Environment.class, myEnv);
+    TestSession testSession = TestPlatform.getInstance().openSession(sessionConfig);
+    try {
+      executeWithJUnit5(collectSelectors());
 
-  public void initExtensions() {
-    EnvironmentAwareExtension.setEnvironment(myEnv);
+    } finally {
+      TestPlatform.getInstance().closeSession(testSession);
+    }
   }
 
   protected void executeWithJUnit5(List<DiscoverySelector> selectors) {

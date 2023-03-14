@@ -7,14 +7,17 @@ import jetbrains.mps.baseLanguage.unitTest.execution.client.TestNodeWrapperFacto
 import jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform;
 
 public class UnittestExecutionPlugin_AppPluginPart extends ApplicationPluginPart {
+  private EnvironmentAccessoryHandler myEnvironmentAccessoryHandler = new EnvironmentAccessoryHandler();
   public UnittestExecutionPlugin_AppPluginPart() {
   }
   @Override
   public void init() {
     TestNodeWrapperFactory.registerTestDiscoveryParticipants(TestPlatform.getInstance());
+    TestPlatform.getInstance().addTestSessionLisnener(UnittestExecutionPlugin_AppPluginPart.this.myEnvironmentAccessoryHandler);
   }
   @Override
   public void dispose() {
     TestNodeWrapperFactory.unregisterTestDiscoveryParticipants(TestPlatform.getInstance());
+    TestPlatform.getInstance().removeTestSessionLisnener(UnittestExecutionPlugin_AppPluginPart.this.myEnvironmentAccessoryHandler);
   }
 }

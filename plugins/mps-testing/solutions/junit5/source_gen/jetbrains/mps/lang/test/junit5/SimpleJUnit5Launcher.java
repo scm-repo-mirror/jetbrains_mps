@@ -4,7 +4,9 @@ package jetbrains.mps.lang.test.junit5;
 
 import java.util.Collection;
 import jetbrains.mps.tool.environment.Environment;
-import jetbrains.mps.baseLanguage.unitTest.runtime.EnvironmentAwareExtension;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestSessionConfig;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestSession;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform;
 import java.io.File;
 
 public class SimpleJUnit5Launcher extends AbstractJUnit5Launcher {
@@ -18,13 +20,18 @@ public class SimpleJUnit5Launcher extends AbstractJUnit5Launcher {
 
   @Override
   public int launchTests() {
-    EnvironmentAwareExtension.setEnvironment(myEnvironment);
+    TestSessionConfig sessionConfig = new TestSessionConfig().withAccessory(Environment.class, myEnvironment);
+    TestSession testSession = TestPlatform.getInstance().openSession(sessionConfig);
+    try {
+      FailureDetector failureDetector = new FailureDetector();
 
-    FailureDetector failureDetector = new FailureDetector();
+      launchTests(myTestClasses, failureDetector);
 
-    launchTests(myTestClasses, failureDetector);
+      return failureDetector.failuresCount();
 
-    return failureDetector.failuresCount();
+    } finally {
+      TestPlatform.getInstance().closeSession(testSession);
+    }
   }
 
   @Override

@@ -50,6 +50,9 @@ public class TestProperties {
     public T getValue(Map<Object, Object> storage) {
       return myPropertyClass.cast(storage.getOrDefault(this, myDefaultValue));
     }
+    public T getDefaultValue() {
+      return myDefaultValue;
+    }
     public T setValue(Map<Object, Object> storage, T value) {
       return myPropertyClass.cast(storage.put(this, value));
     }

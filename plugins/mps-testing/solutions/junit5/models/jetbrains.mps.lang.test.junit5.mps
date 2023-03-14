@@ -218,6 +218,9 @@
         <child id="8276990574895933173" name="catchBody" index="1zc67A" />
         <child id="8276990574895933172" name="throwable" index="1zc67B" />
       </concept>
+      <concept id="8276990574909231788" name="jetbrains.mps.baseLanguage.structure.FinallyClause" flags="ng" index="1wplmZ">
+        <child id="8276990574909234106" name="finallyBody" index="1wplMD" />
+      </concept>
       <concept id="1073239437375" name="jetbrains.mps.baseLanguage.structure.NotEqualsExpression" flags="nn" index="3y3z36" />
       <concept id="1184950988562" name="jetbrains.mps.baseLanguage.structure.ArrayCreator" flags="nn" index="3$_iS1">
         <child id="1184951007469" name="componentType" index="3$_nBY" />
@@ -238,6 +241,7 @@
       <concept id="1107796713796" name="jetbrains.mps.baseLanguage.structure.Interface" flags="ig" index="3HP615" />
       <concept id="5351203823916750322" name="jetbrains.mps.baseLanguage.structure.TryUniversalStatement" flags="nn" index="3J1_TO">
         <child id="8276990574886367510" name="catchClause" index="1zxBo5" />
+        <child id="8276990574886367509" name="finallyClause" index="1zxBo6" />
         <child id="8276990574886367508" name="body" index="1zxBo7" />
       </concept>
       <concept id="1163668896201" name="jetbrains.mps.baseLanguage.structure.TernaryOperatorExpression" flags="nn" index="3K4zz7">
@@ -496,16 +500,6 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="4dqLDEYCqn2" role="3cqZAp">
-          <node concept="2YIFZM" id="6vgd21jEXDS" role="3clFbG">
-            <ref role="37wK5l" to="4rfc:2I0w4TZS$tx" resolve="setEnvironment" />
-            <ref role="1Pybhc" to="4rfc:5gsHVKCieoX" resolve="EnvironmentAwareExtension" />
-            <node concept="37vLTw" id="6vgd21jEXDT" role="37wK5m">
-              <ref role="3cqZAo" node="7MSVDs2_8tx" resolve="myEnvironment" />
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbH" id="7MSVDs2_E6X" role="3cqZAp" />
         <node concept="3cpWs8" id="HwplGLOmSd" role="3cqZAp">
           <node concept="3cpWsn" id="HwplGLOmSe" role="3cpWs9">
             <property role="TrG5h" value="failureDetector" />
@@ -519,19 +513,86 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbH" id="HwplGM7s9R" role="3cqZAp" />
-        <node concept="3clFbF" id="HwplGM7nf2" role="3cqZAp">
-          <node concept="1rXfSq" id="HwplGM7nf1" role="3clFbG">
-            <ref role="37wK5l" node="HwplGM7neV" resolve="launchTests" />
-            <node concept="37vLTw" id="HwplGM7neZ" role="37wK5m">
-              <ref role="3cqZAo" node="5gsHVK_7DXt" resolve="project" />
+        <node concept="3clFbH" id="4rQ9_5egmdg" role="3cqZAp" />
+        <node concept="3cpWs8" id="4rQ9_5efZy2" role="3cqZAp">
+          <node concept="3cpWsn" id="4rQ9_5efZy3" role="3cpWs9">
+            <property role="TrG5h" value="sessionConfig" />
+            <node concept="3uibUv" id="4rQ9_5efZy4" role="1tU5fm">
+              <ref role="3uigEE" to="4u8o:4rQ9_5dOfYm" resolve="TestSessionConfig" />
             </node>
-            <node concept="37vLTw" id="HwplGM7nf0" role="37wK5m">
-              <ref role="3cqZAo" node="HwplGLOmSe" resolve="failureDetector" />
+            <node concept="2OqwBi" id="4rQ9_5efZy5" role="33vP2m">
+              <node concept="2ShNRf" id="4rQ9_5efZy6" role="2Oq$k0">
+                <node concept="1pGfFk" id="4rQ9_5efZy7" role="2ShVmc">
+                  <property role="373rjd" value="true" />
+                  <ref role="37wK5l" to="4u8o:4rQ9_5dOg04" resolve="TestSessionConfig" />
+                </node>
+              </node>
+              <node concept="liA8E" id="4rQ9_5efZy8" role="2OqNvi">
+                <ref role="37wK5l" to="4u8o:4rQ9_5dOgvK" resolve="withAccessory" />
+                <node concept="3VsKOn" id="4rQ9_5efZy9" role="37wK5m">
+                  <ref role="3VsUkX" to="79ha:HKKzfMjqRV" resolve="Environment" />
+                </node>
+                <node concept="37vLTw" id="4rQ9_5efZya" role="37wK5m">
+                  <ref role="3cqZAo" node="7MSVDs2_8tx" resolve="myEnvironment" />
+                </node>
+              </node>
             </node>
           </node>
         </node>
-        <node concept="3clFbH" id="HwplGLOprP" role="3cqZAp" />
+        <node concept="3cpWs8" id="4rQ9_5efZyb" role="3cqZAp">
+          <node concept="3cpWsn" id="4rQ9_5efZyc" role="3cpWs9">
+            <property role="TrG5h" value="testSession" />
+            <node concept="3uibUv" id="4rQ9_5efZyd" role="1tU5fm">
+              <ref role="3uigEE" to="4u8o:4rQ9_5dBfWe" resolve="TestSession" />
+            </node>
+            <node concept="2OqwBi" id="4rQ9_5efZye" role="33vP2m">
+              <node concept="2YIFZM" id="4rQ9_5efZyf" role="2Oq$k0">
+                <ref role="37wK5l" to="4u8o:4chG8iIteHp" resolve="getInstance" />
+                <ref role="1Pybhc" to="4u8o:4chG8iItd4i" resolve="TestPlatform" />
+              </node>
+              <node concept="liA8E" id="4rQ9_5efZyg" role="2OqNvi">
+                <ref role="37wK5l" to="4u8o:4rQ9_5dKw2Z" resolve="openSession" />
+                <node concept="37vLTw" id="4rQ9_5efZyh" role="37wK5m">
+                  <ref role="3cqZAo" node="4rQ9_5efZy3" resolve="sessionConfig" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3J1_TO" id="4rQ9_5eg58E" role="3cqZAp">
+          <node concept="3clFbS" id="4rQ9_5eg58G" role="1zxBo7">
+            <node concept="3clFbF" id="HwplGM7nf2" role="3cqZAp">
+              <node concept="1rXfSq" id="HwplGM7nf1" role="3clFbG">
+                <ref role="37wK5l" node="HwplGM7neV" resolve="launchTests" />
+                <node concept="37vLTw" id="HwplGM7neZ" role="37wK5m">
+                  <ref role="3cqZAo" node="5gsHVK_7DXt" resolve="project" />
+                </node>
+                <node concept="37vLTw" id="HwplGM7nf0" role="37wK5m">
+                  <ref role="3cqZAo" node="HwplGLOmSe" resolve="failureDetector" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="1wplmZ" id="4rQ9_5eg6iU" role="1zxBo6">
+            <node concept="3clFbS" id="4rQ9_5eg6iV" role="1wplMD">
+              <node concept="3clFbF" id="4rQ9_5eg7oD" role="3cqZAp">
+                <node concept="2OqwBi" id="4rQ9_5eg7oE" role="3clFbG">
+                  <node concept="2YIFZM" id="4rQ9_5eg7oF" role="2Oq$k0">
+                    <ref role="37wK5l" to="4u8o:4chG8iIteHp" resolve="getInstance" />
+                    <ref role="1Pybhc" to="4u8o:4chG8iItd4i" resolve="TestPlatform" />
+                  </node>
+                  <node concept="liA8E" id="4rQ9_5eg7oG" role="2OqNvi">
+                    <ref role="37wK5l" to="4u8o:4rQ9_5dKJcw" resolve="closeSession" />
+                    <node concept="37vLTw" id="4rQ9_5eg7oH" role="37wK5m">
+                      <ref role="3cqZAo" node="4rQ9_5efZyc" resolve="testSession" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbH" id="7MSVDs2_E6X" role="3cqZAp" />
         <node concept="3clFbF" id="HwplGM4$ui" role="3cqZAp">
           <node concept="2OqwBi" id="HwplGM4Ap1" role="3clFbG">
             <node concept="37vLTw" id="HwplGM4$ug" role="2Oq$k0">
@@ -2959,49 +3020,107 @@
       <node concept="10Oyi0" id="3OA_Uj9_mc9" role="3clF45" />
       <node concept="3Tm1VV" id="3OA_Uj9hwJS" role="1B3o_S" />
       <node concept="3clFbS" id="3OA_Uj9hwJU" role="3clF47">
-        <node concept="3clFbF" id="3OA_Uj9$x0g" role="3cqZAp">
-          <node concept="2YIFZM" id="3OA_Uj9$x0h" role="3clFbG">
-            <ref role="37wK5l" to="4rfc:2I0w4TZS$tx" resolve="setEnvironment" />
-            <ref role="1Pybhc" to="4rfc:5gsHVKCieoX" resolve="EnvironmentAwareExtension" />
-            <node concept="37vLTw" id="3OA_Uj9$x0i" role="37wK5m">
-              <ref role="3cqZAo" node="7MSVDs2_8tx" resolve="myEnvironment" />
+        <node concept="3cpWs8" id="4rQ9_5efOyP" role="3cqZAp">
+          <node concept="3cpWsn" id="4rQ9_5efOyQ" role="3cpWs9">
+            <property role="TrG5h" value="sessionConfig" />
+            <node concept="3uibUv" id="4rQ9_5efOc$" role="1tU5fm">
+              <ref role="3uigEE" to="4u8o:4rQ9_5dOfYm" resolve="TestSessionConfig" />
             </node>
-          </node>
-        </node>
-        <node concept="3clFbH" id="3OA_Uj9_kwU" role="3cqZAp" />
-        <node concept="3cpWs8" id="3OA_Uj9_kxf" role="3cqZAp">
-          <node concept="3cpWsn" id="3OA_Uj9_kxg" role="3cpWs9">
-            <property role="TrG5h" value="failureDetector" />
-            <node concept="3uibUv" id="3OA_Uj9_kxh" role="1tU5fm">
-              <ref role="3uigEE" node="HwplGLNXsw" resolve="FailureDetector" />
-            </node>
-            <node concept="2ShNRf" id="3OA_Uj9_kxi" role="33vP2m">
-              <node concept="HV5vD" id="3OA_Uj9_kxj" role="2ShVmc">
-                <ref role="HV5vE" node="HwplGLNXsw" resolve="FailureDetector" />
+            <node concept="2OqwBi" id="4rQ9_5efOyR" role="33vP2m">
+              <node concept="2ShNRf" id="4rQ9_5efOyS" role="2Oq$k0">
+                <node concept="1pGfFk" id="4rQ9_5efOyT" role="2ShVmc">
+                  <property role="373rjd" value="true" />
+                  <ref role="37wK5l" to="4u8o:4rQ9_5dOg04" resolve="TestSessionConfig" />
+                </node>
+              </node>
+              <node concept="liA8E" id="4rQ9_5efOyU" role="2OqNvi">
+                <ref role="37wK5l" to="4u8o:4rQ9_5dOgvK" resolve="withAccessory" />
+                <node concept="3VsKOn" id="4rQ9_5efOyV" role="37wK5m">
+                  <ref role="3VsUkX" to="79ha:HKKzfMjqRV" resolve="Environment" />
+                </node>
+                <node concept="37vLTw" id="4rQ9_5efOyW" role="37wK5m">
+                  <ref role="3cqZAo" node="7MSVDs2_8tx" resolve="myEnvironment" />
+                </node>
               </node>
             </node>
           </node>
         </node>
-        <node concept="3clFbH" id="3OA_Uj9_kx4" role="3cqZAp" />
-        <node concept="3clFbF" id="3OA_Uj9hx4N" role="3cqZAp">
-          <node concept="1rXfSq" id="3OA_Uj9hx4M" role="3clFbG">
-            <ref role="37wK5l" node="3OA_Uj9fdje" resolve="launchTests" />
-            <node concept="37vLTw" id="3OA_Uj9hxht" role="37wK5m">
-              <ref role="3cqZAo" node="3OA_Uj9hwao" resolve="myTestClasses" />
+        <node concept="3cpWs8" id="4rQ9_5efQIP" role="3cqZAp">
+          <node concept="3cpWsn" id="4rQ9_5efQIQ" role="3cpWs9">
+            <property role="TrG5h" value="testSession" />
+            <node concept="3uibUv" id="4rQ9_5efQBa" role="1tU5fm">
+              <ref role="3uigEE" to="4u8o:4rQ9_5dBfWe" resolve="TestSession" />
             </node>
-            <node concept="37vLTw" id="3OA_Uj9_kKJ" role="37wK5m">
-              <ref role="3cqZAo" node="3OA_Uj9_kxg" resolve="failureDetector" />
+            <node concept="2OqwBi" id="4rQ9_5efQIR" role="33vP2m">
+              <node concept="2YIFZM" id="4rQ9_5efQIS" role="2Oq$k0">
+                <ref role="37wK5l" to="4u8o:4chG8iIteHp" resolve="getInstance" />
+                <ref role="1Pybhc" to="4u8o:4chG8iItd4i" resolve="TestPlatform" />
+              </node>
+              <node concept="liA8E" id="4rQ9_5efQIT" role="2OqNvi">
+                <ref role="37wK5l" to="4u8o:4rQ9_5dKw2Z" resolve="openSession" />
+                <node concept="37vLTw" id="4rQ9_5efQIU" role="37wK5m">
+                  <ref role="3cqZAo" node="4rQ9_5efOyQ" resolve="sessionConfig" />
+                </node>
+              </node>
             </node>
           </node>
         </node>
-        <node concept="3clFbH" id="3OA_Uj9_kTs" role="3cqZAp" />
-        <node concept="3cpWs6" id="3OA_Uj9_l8E" role="3cqZAp">
-          <node concept="2OqwBi" id="3OA_Uj9_lA1" role="3cqZAk">
-            <node concept="37vLTw" id="3OA_Uj9_lo$" role="2Oq$k0">
-              <ref role="3cqZAo" node="3OA_Uj9_kxg" resolve="failureDetector" />
+        <node concept="3J1_TO" id="4rQ9_5efRqP" role="3cqZAp">
+          <node concept="3clFbS" id="4rQ9_5efRqR" role="1zxBo7">
+            <node concept="3cpWs8" id="3OA_Uj9_kxf" role="3cqZAp">
+              <node concept="3cpWsn" id="3OA_Uj9_kxg" role="3cpWs9">
+                <property role="TrG5h" value="failureDetector" />
+                <node concept="3uibUv" id="3OA_Uj9_kxh" role="1tU5fm">
+                  <ref role="3uigEE" node="HwplGLNXsw" resolve="FailureDetector" />
+                </node>
+                <node concept="2ShNRf" id="3OA_Uj9_kxi" role="33vP2m">
+                  <node concept="HV5vD" id="3OA_Uj9_kxj" role="2ShVmc">
+                    <ref role="HV5vE" node="HwplGLNXsw" resolve="FailureDetector" />
+                  </node>
+                </node>
+              </node>
             </node>
-            <node concept="liA8E" id="3OA_Uj9_m3C" role="2OqNvi">
-              <ref role="37wK5l" node="3OA_Uj9$WOu" resolve="failuresCount" />
+            <node concept="3clFbH" id="3OA_Uj9_kx4" role="3cqZAp" />
+            <node concept="3clFbF" id="3OA_Uj9hx4N" role="3cqZAp">
+              <node concept="1rXfSq" id="3OA_Uj9hx4M" role="3clFbG">
+                <ref role="37wK5l" node="3OA_Uj9fdje" resolve="launchTests" />
+                <node concept="37vLTw" id="3OA_Uj9hxht" role="37wK5m">
+                  <ref role="3cqZAo" node="3OA_Uj9hwao" resolve="myTestClasses" />
+                </node>
+                <node concept="37vLTw" id="3OA_Uj9_kKJ" role="37wK5m">
+                  <ref role="3cqZAo" node="3OA_Uj9_kxg" resolve="failureDetector" />
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbH" id="3OA_Uj9_kTs" role="3cqZAp" />
+            <node concept="3cpWs6" id="3OA_Uj9_l8E" role="3cqZAp">
+              <node concept="2OqwBi" id="3OA_Uj9_lA1" role="3cqZAk">
+                <node concept="37vLTw" id="3OA_Uj9_lo$" role="2Oq$k0">
+                  <ref role="3cqZAo" node="3OA_Uj9_kxg" resolve="failureDetector" />
+                </node>
+                <node concept="liA8E" id="3OA_Uj9_m3C" role="2OqNvi">
+                  <ref role="37wK5l" node="3OA_Uj9$WOu" resolve="failuresCount" />
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbH" id="4rQ9_5efXbN" role="3cqZAp" />
+          </node>
+          <node concept="1wplmZ" id="4rQ9_5efRDL" role="1zxBo6">
+            <node concept="3clFbS" id="4rQ9_5efRDM" role="1wplMD">
+              <node concept="3clFbF" id="4rQ9_5efRSa" role="3cqZAp">
+                <node concept="2OqwBi" id="4rQ9_5efSrQ" role="3clFbG">
+                  <node concept="2YIFZM" id="4rQ9_5efSeE" role="2Oq$k0">
+                    <ref role="37wK5l" to="4u8o:4chG8iIteHp" resolve="getInstance" />
+                    <ref role="1Pybhc" to="4u8o:4chG8iItd4i" resolve="TestPlatform" />
+                  </node>
+                  <node concept="liA8E" id="4rQ9_5efSGU" role="2OqNvi">
+                    <ref role="37wK5l" to="4u8o:4rQ9_5dKJcw" resolve="closeSession" />
+                    <node concept="37vLTw" id="4rQ9_5efSVm" role="37wK5m">
+                      <ref role="3cqZAo" node="4rQ9_5efQIQ" resolve="testSession" />
+                    </node>
+                  </node>
+                </node>
+              </node>
             </node>
           </node>
         </node>

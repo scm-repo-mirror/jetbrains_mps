@@ -5,23 +5,27 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068390468200:jetbrains.mps.baseLanguage.structure.FieldDeclaration" />
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123165:jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" />
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242878:jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123157:jetbrains.mps.baseLanguage.structure.Statement" />
   <root nodeRef="r:4bf0c2a9-4f1f-47f1-9222-e204836333ad(jetbrains.mps.baseLanguage.unitTest.execution.plugin)/3374283831514045818">
     <file name="Execution_ApplicationPlugin.java">
       <node id="3374283831514045818" at="23,66,24,59" concept="1" />
     </file>
     <file name="UnittestExecutionPlugin_AppPluginPart.java">
-      <node id="3374283831514588684" at="13,22,14,89" concept="1" />
-      <node id="3374283831514589725" at="17,25,18,91" concept="1" />
-      <node id="3374283831514045818" at="10,0,12,0" concept="0" trace="UnittestExecutionPlugin_AppPluginPart#()V" />
-      <node id="3374283831514045818" at="12,0,16,0" concept="3" trace="init#()V" />
-      <node id="3374283831514045818" at="16,0,20,0" concept="3" trace="dispose#()V" />
-      <scope id="3374283831514045818" at="10,50,10,50" />
-      <scope id="3374283831514045821" at="13,22,14,89" />
-      <scope id="3374283831514045849" at="17,25,18,91" />
-      <scope id="3374283831514045818" at="10,0,12,0" />
-      <scope id="3374283831514045818" at="12,0,16,0" />
-      <scope id="3374283831514045818" at="16,0,20,0" />
-      <unit id="3374283831514045818" at="9,0,21,0" name="jetbrains.mps.baseLanguage.unitTest.execution.plugin.UnittestExecutionPlugin_AppPluginPart" />
+      <node id="1839741057189743192" at="10,0,11,0" concept="2" trace="myEnvironmentAccessoryHandler" />
+      <node id="3374283831514588684" at="14,22,15,89" concept="1" />
+      <node id="5113316557572540855" at="15,89,16,128" concept="1" />
+      <node id="3374283831514589725" at="19,25,20,91" concept="1" />
+      <node id="5113316557572549865" at="20,91,21,131" concept="1" />
+      <node id="3374283831514045818" at="11,0,13,0" concept="0" trace="UnittestExecutionPlugin_AppPluginPart#()V" />
+      <node id="3374283831514045818" at="13,0,18,0" concept="3" trace="init#()V" />
+      <node id="3374283831514045818" at="18,0,23,0" concept="3" trace="dispose#()V" />
+      <scope id="3374283831514045818" at="11,50,11,50" />
+      <scope id="3374283831514045818" at="11,0,13,0" />
+      <scope id="3374283831514045821" at="14,22,16,128" />
+      <scope id="3374283831514045849" at="19,25,21,131" />
+      <scope id="3374283831514045818" at="13,0,18,0" />
+      <scope id="3374283831514045818" at="18,0,23,0" />
+      <unit id="3374283831514045818" at="9,0,24,0" name="jetbrains.mps.baseLanguage.unitTest.execution.plugin.UnittestExecutionPlugin_AppPluginPart" />
     </file>
   </root>
   <root nodeRef="r:4bf0c2a9-4f1f-47f1-9222-e204836333ad(jetbrains.mps.baseLanguage.unitTest.execution.plugin)/3374283831514045819">
@@ -40,6 +44,26 @@
         <var name="parts" id="3374283831514045819" />
       </scope>
       <unit id="3374283831514045819" at="11,0,27,0" name="jetbrains.mps.baseLanguage.unitTest.execution.plugin.Execution_ApplicationPlugin" />
+    </file>
+  </root>
+  <root nodeRef="r:4bf0c2a9-4f1f-47f1-9222-e204836333ad(jetbrains.mps.baseLanguage.unitTest.execution.plugin)/5113316557572516679">
+    <file name="EnvironmentAccessoryHandler.java">
+      <node id="5113316557572519127" at="14,78,15,50" concept="1" />
+      <node id="5113316557572534527" at="15,50,16,0" concept="5" />
+      <node id="5113316557572537690" at="21,54,22,51" concept="1" />
+      <node id="5113316557572522125" at="13,54,17,7" concept="1" />
+      <node id="5113316557572517057" at="20,0,24,0" concept="3" trace="sessionClosed#(Ljetbrains/mps/baseLanguage/unitTest/platform/TestSession;)V" />
+      <node id="5113316557572517049" at="12,0,19,0" concept="3" trace="sessionOpened#(Ljetbrains/mps/baseLanguage/unitTest/platform/TestSession;)V" />
+      <scope id="5113316557572517063" at="21,54,22,51" />
+      <scope id="5113316557572530431" at="14,78,16,0" />
+      <scope id="5113316557572517055" at="13,54,17,7" />
+      <scope id="5113316557572517057" at="20,0,24,0">
+        <var name="testSession" id="5113316557572517058" />
+      </scope>
+      <scope id="5113316557572517049" at="12,0,19,0">
+        <var name="testSession" id="5113316557572517050" />
+      </scope>
+      <unit id="5113316557572516679" at="10,0,25,0" name="jetbrains.mps.baseLanguage.unitTest.execution.plugin.EnvironmentAccessoryHandler" />
     </file>
   </root>
 </debug-info>

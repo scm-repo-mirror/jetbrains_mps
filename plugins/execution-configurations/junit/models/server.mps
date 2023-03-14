@@ -5976,36 +5976,82 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
       <node concept="3clFbS" id="4iq05MkBjJf" role="3clF47">
-        <node concept="3clFbF" id="4iq05MkBu5A" role="3cqZAp">
-          <node concept="1rXfSq" id="4iq05MkBu5$" role="3clFbG">
-            <ref role="37wK5l" node="4CPiTDU4hSQ" resolve="initExtensions" />
+        <node concept="3cpWs8" id="4rQ9_5ehkQP" role="3cqZAp">
+          <node concept="3cpWsn" id="4rQ9_5ehkQQ" role="3cpWs9">
+            <property role="TrG5h" value="sessionConfig" />
+            <node concept="3uibUv" id="4rQ9_5ehkQR" role="1tU5fm">
+              <ref role="3uigEE" to="4u8o:4rQ9_5dOfYm" resolve="TestSessionConfig" />
+            </node>
+            <node concept="2OqwBi" id="4rQ9_5ehkQS" role="33vP2m">
+              <node concept="2ShNRf" id="4rQ9_5ehkQT" role="2Oq$k0">
+                <node concept="1pGfFk" id="4rQ9_5ehkQU" role="2ShVmc">
+                  <property role="373rjd" value="true" />
+                  <ref role="37wK5l" to="4u8o:4rQ9_5dOg04" resolve="TestSessionConfig" />
+                </node>
+              </node>
+              <node concept="liA8E" id="4rQ9_5ehkQV" role="2OqNvi">
+                <ref role="37wK5l" to="4u8o:4rQ9_5dOgvK" resolve="withAccessory" />
+                <node concept="3VsKOn" id="4rQ9_5ehkQW" role="37wK5m">
+                  <ref role="3VsUkX" to="79ha:HKKzfMjqRV" resolve="Environment" />
+                </node>
+                <node concept="37vLTw" id="4rQ9_5ehkQX" role="37wK5m">
+                  <ref role="3cqZAo" node="1amXqSqOtu" resolve="myEnv" />
+                </node>
+              </node>
+            </node>
           </node>
         </node>
-        <node concept="3clFbF" id="4iq05MkBjJh" role="3cqZAp">
-          <node concept="3nyPlj" id="4iq05MkBjJg" role="3clFbG">
-            <ref role="37wK5l" node="4iq05Mk_Jot" resolve="executeSafe" />
+        <node concept="3cpWs8" id="4rQ9_5ehkQY" role="3cqZAp">
+          <node concept="3cpWsn" id="4rQ9_5ehkQZ" role="3cpWs9">
+            <property role="TrG5h" value="testSession" />
+            <node concept="3uibUv" id="4rQ9_5ehkR0" role="1tU5fm">
+              <ref role="3uigEE" to="4u8o:4rQ9_5dBfWe" resolve="TestSession" />
+            </node>
+            <node concept="2OqwBi" id="4rQ9_5ehkR1" role="33vP2m">
+              <node concept="2YIFZM" id="4rQ9_5ehkR2" role="2Oq$k0">
+                <ref role="37wK5l" to="4u8o:4chG8iIteHp" resolve="getInstance" />
+                <ref role="1Pybhc" to="4u8o:4chG8iItd4i" resolve="TestPlatform" />
+              </node>
+              <node concept="liA8E" id="4rQ9_5ehkR3" role="2OqNvi">
+                <ref role="37wK5l" to="4u8o:4rQ9_5dKw2Z" resolve="openSession" />
+                <node concept="37vLTw" id="4rQ9_5ehkR4" role="37wK5m">
+                  <ref role="3cqZAo" node="4rQ9_5ehkQQ" resolve="sessionConfig" />
+                </node>
+              </node>
+            </node>
           </node>
         </node>
-      </node>
-    </node>
-    <node concept="2tJIrI" id="4iq05MkBoUb" role="jymVt" />
-    <node concept="3clFb_" id="4CPiTDU4hSQ" role="jymVt">
-      <property role="TrG5h" value="initExtensions" />
-      <node concept="3cqZAl" id="4CPiTDU4hSS" role="3clF45" />
-      <node concept="3Tm1VV" id="4CPiTDU4hST" role="1B3o_S" />
-      <node concept="3clFbS" id="4CPiTDU4hSU" role="3clF47">
-        <node concept="3clFbF" id="4dqLDEYCqn2" role="3cqZAp">
-          <node concept="2YIFZM" id="6vgd21jEXDS" role="3clFbG">
-            <ref role="37wK5l" to="4rfc:2I0w4TZS$tx" resolve="setEnvironment" />
-            <ref role="1Pybhc" to="4rfc:5gsHVKCieoX" resolve="EnvironmentAwareExtension" />
-            <node concept="37vLTw" id="6vgd21jEXDT" role="37wK5m">
-              <ref role="3cqZAo" node="1amXqSqOtu" resolve="myEnv" />
+        <node concept="3J1_TO" id="4rQ9_5ehkR5" role="3cqZAp">
+          <node concept="3clFbS" id="4rQ9_5ehkR6" role="1zxBo7">
+            <node concept="3clFbF" id="4iq05MkBjJh" role="3cqZAp">
+              <node concept="3nyPlj" id="4iq05MkBjJg" role="3clFbG">
+                <ref role="37wK5l" node="4iq05Mk_Jot" resolve="executeSafe" />
+              </node>
+            </node>
+            <node concept="3clFbH" id="4rQ9_5ehkRa" role="3cqZAp" />
+          </node>
+          <node concept="1wplmZ" id="4rQ9_5ehkRb" role="1zxBo6">
+            <node concept="3clFbS" id="4rQ9_5ehkRc" role="1wplMD">
+              <node concept="3clFbF" id="4rQ9_5ehkRd" role="3cqZAp">
+                <node concept="2OqwBi" id="4rQ9_5ehkRe" role="3clFbG">
+                  <node concept="2YIFZM" id="4rQ9_5ehkRf" role="2Oq$k0">
+                    <ref role="37wK5l" to="4u8o:4chG8iIteHp" resolve="getInstance" />
+                    <ref role="1Pybhc" to="4u8o:4chG8iItd4i" resolve="TestPlatform" />
+                  </node>
+                  <node concept="liA8E" id="4rQ9_5ehkRg" role="2OqNvi">
+                    <ref role="37wK5l" to="4u8o:4rQ9_5dKJcw" resolve="closeSession" />
+                    <node concept="37vLTw" id="4rQ9_5ehkRh" role="37wK5m">
+                      <ref role="3cqZAo" node="4rQ9_5ehkQZ" resolve="testSession" />
+                    </node>
+                  </node>
+                </node>
+              </node>
             </node>
           </node>
         </node>
       </node>
     </node>
-    <node concept="2tJIrI" id="4CPiTDU4eCi" role="jymVt" />
+    <node concept="2tJIrI" id="4rQ9_5ehDxd" role="jymVt" />
     <node concept="3Tm1VV" id="1amXqSqLNA" role="1B3o_S" />
     <node concept="3UR2Jj" id="1amXqSqNap" role="lGtFl">
       <node concept="TZ5HA" id="1amXqSqNaq" role="TZ5H$">
@@ -10805,33 +10851,79 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
       <node concept="3clFbS" id="2$dYB7PEl1p" role="3clF47">
-        <node concept="3clFbF" id="2$dYB7PEl1q" role="3cqZAp">
-          <node concept="1rXfSq" id="2$dYB7PEl1r" role="3clFbG">
-            <ref role="37wK5l" node="2$dYB7PEl1v" resolve="initExtensions" />
-          </node>
-        </node>
-        <node concept="3clFbF" id="2bvzdxLO42z" role="3cqZAp">
-          <node concept="1rXfSq" id="2bvzdxLO42$" role="3clFbG">
-            <ref role="37wK5l" node="2bvzdxLOgDO" resolve="executeWithJUnit5" />
-            <node concept="1rXfSq" id="2bvzdxLO42_" role="37wK5m">
-              <ref role="37wK5l" node="2$dYB7PEyqw" resolve="collectSelectors" />
+        <node concept="3cpWs8" id="4rQ9_5efOyP" role="3cqZAp">
+          <node concept="3cpWsn" id="4rQ9_5efOyQ" role="3cpWs9">
+            <property role="TrG5h" value="sessionConfig" />
+            <node concept="3uibUv" id="4rQ9_5efOc$" role="1tU5fm">
+              <ref role="3uigEE" to="4u8o:4rQ9_5dOfYm" resolve="TestSessionConfig" />
+            </node>
+            <node concept="2OqwBi" id="4rQ9_5efOyR" role="33vP2m">
+              <node concept="2ShNRf" id="4rQ9_5efOyS" role="2Oq$k0">
+                <node concept="1pGfFk" id="4rQ9_5efOyT" role="2ShVmc">
+                  <property role="373rjd" value="true" />
+                  <ref role="37wK5l" to="4u8o:4rQ9_5dOg04" resolve="TestSessionConfig" />
+                </node>
+              </node>
+              <node concept="liA8E" id="4rQ9_5efOyU" role="2OqNvi">
+                <ref role="37wK5l" to="4u8o:4rQ9_5dOgvK" resolve="withAccessory" />
+                <node concept="3VsKOn" id="4rQ9_5efOyV" role="37wK5m">
+                  <ref role="3VsUkX" to="79ha:HKKzfMjqRV" resolve="Environment" />
+                </node>
+                <node concept="37vLTw" id="4rQ9_5efOyW" role="37wK5m">
+                  <ref role="3cqZAo" node="2$dYB7PEqv3" resolve="myEnv" />
+                </node>
+              </node>
             </node>
           </node>
         </node>
-      </node>
-    </node>
-    <node concept="2tJIrI" id="2$dYB7PEl1u" role="jymVt" />
-    <node concept="3clFb_" id="2$dYB7PEl1v" role="jymVt">
-      <property role="TrG5h" value="initExtensions" />
-      <node concept="3cqZAl" id="2$dYB7PEl1w" role="3clF45" />
-      <node concept="3Tm1VV" id="2$dYB7PEl1x" role="1B3o_S" />
-      <node concept="3clFbS" id="2$dYB7PEl1y" role="3clF47">
-        <node concept="3clFbF" id="2$dYB7PEl1z" role="3cqZAp">
-          <node concept="2YIFZM" id="2$dYB7PEl1$" role="3clFbG">
-            <ref role="37wK5l" to="4rfc:2I0w4TZS$tx" resolve="setEnvironment" />
-            <ref role="1Pybhc" to="4rfc:5gsHVKCieoX" resolve="EnvironmentAwareExtension" />
-            <node concept="37vLTw" id="2$dYB7PEl1_" role="37wK5m">
-              <ref role="3cqZAo" node="2$dYB7PEqv3" resolve="myEnv" />
+        <node concept="3cpWs8" id="4rQ9_5efQIP" role="3cqZAp">
+          <node concept="3cpWsn" id="4rQ9_5efQIQ" role="3cpWs9">
+            <property role="TrG5h" value="testSession" />
+            <node concept="3uibUv" id="4rQ9_5efQBa" role="1tU5fm">
+              <ref role="3uigEE" to="4u8o:4rQ9_5dBfWe" resolve="TestSession" />
+            </node>
+            <node concept="2OqwBi" id="4rQ9_5efQIR" role="33vP2m">
+              <node concept="2YIFZM" id="4rQ9_5efQIS" role="2Oq$k0">
+                <ref role="37wK5l" to="4u8o:4chG8iIteHp" resolve="getInstance" />
+                <ref role="1Pybhc" to="4u8o:4chG8iItd4i" resolve="TestPlatform" />
+              </node>
+              <node concept="liA8E" id="4rQ9_5efQIT" role="2OqNvi">
+                <ref role="37wK5l" to="4u8o:4rQ9_5dKw2Z" resolve="openSession" />
+                <node concept="37vLTw" id="4rQ9_5efQIU" role="37wK5m">
+                  <ref role="3cqZAo" node="4rQ9_5efOyQ" resolve="sessionConfig" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3J1_TO" id="4rQ9_5eh1aY" role="3cqZAp">
+          <node concept="3clFbS" id="4rQ9_5eh1b0" role="1zxBo7">
+            <node concept="3clFbF" id="2bvzdxLO42z" role="3cqZAp">
+              <node concept="1rXfSq" id="2bvzdxLO42$" role="3clFbG">
+                <ref role="37wK5l" node="2bvzdxLOgDO" resolve="executeWithJUnit5" />
+                <node concept="1rXfSq" id="2bvzdxLO42_" role="37wK5m">
+                  <ref role="37wK5l" node="2$dYB7PEyqw" resolve="collectSelectors" />
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbH" id="4rQ9_5eh1aZ" role="3cqZAp" />
+          </node>
+          <node concept="1wplmZ" id="4rQ9_5eh4fs" role="1zxBo6">
+            <node concept="3clFbS" id="4rQ9_5eh4ft" role="1wplMD">
+              <node concept="3clFbF" id="4rQ9_5efRSa" role="3cqZAp">
+                <node concept="2OqwBi" id="4rQ9_5efSrQ" role="3clFbG">
+                  <node concept="2YIFZM" id="4rQ9_5efSeE" role="2Oq$k0">
+                    <ref role="37wK5l" to="4u8o:4chG8iIteHp" resolve="getInstance" />
+                    <ref role="1Pybhc" to="4u8o:4chG8iItd4i" resolve="TestPlatform" />
+                  </node>
+                  <node concept="liA8E" id="4rQ9_5efSGU" role="2OqNvi">
+                    <ref role="37wK5l" to="4u8o:4rQ9_5dKJcw" resolve="closeSession" />
+                    <node concept="37vLTw" id="4rQ9_5efSVm" role="37wK5m">
+                      <ref role="3cqZAo" node="4rQ9_5efQIQ" resolve="testSession" />
+                    </node>
+                  </node>
+                </node>
+              </node>
             </node>
           </node>
         </node>
