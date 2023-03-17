@@ -335,6 +335,7 @@
       <modulePath path="$PROJECT_DIR$/plugins/mps-kotlin/languages/kotlin/jetbrains.mps.kotlin.mpl" folder="core.languages.kotlin" />
       <modulePath path="$PROJECT_DIR$/plugins/mps-kotlin/solutions/kotlin.baseLanguage.runtime/jetbrains.mps.kotlin.baseLanguage.runtime.msd" folder="core.languages.kotlin.interop" />
       <modulePath path="$PROJECT_DIR$/plugins/mps-kotlin/solutions/kotlin.smodel.runtime/jetbrains.mps.kotlin.smodel.runtime.msd" folder="core.languages.kotlin.smodel" />
+      <modulePath path="$PROJECT_DIR$/plugins/mps-kotlin/solutions/kotlin.stdlib.jvm/jetbrains.mps.kotlin.stdlib.jvm.msd" folder="core.languages.kotlin" />
       <modulePath path="$PROJECT_DIR$/plugins/mps-kotlin/solutions/kotlin.stdlib/jetbrains.mps.kotlin.stdlib.msd" folder="core.languages.kotlin" />
       <modulePath path="$PROJECT_DIR$/plugins/mps-kotlin/solutions/kotlin.tests.editor/jetbrains.mps.kotlin.tests.editor.msd" folder="core.languages.kotlin" />
       <modulePath path="$PROJECT_DIR$/plugins/mps-kotlin/solutions/kotlin.ui.dsl/jetbrains.mps.kotlin.ui.dsl.msd" folder="core.languages.kotlin" />

@@ -52760,34 +52760,32 @@
             </node>
           </node>
         </node>
-        <node concept="1yeLz9" id="1t5XQsnxn4B" role="1TViLv">
-          <property role="TrG5h" value="jetbrains.mps.kotlin.fileGenerator" />
-          <property role="3LESm3" value="f3582614-1f1a-40a3-b97a-586e7bf16203" />
-          <node concept="1BupzO" id="1t5XQsnxn4V" role="3bR31x">
-            <property role="3ZfqAx" value="generator/templates" />
-            <property role="1Hdu6h" value="true" />
-            <property role="1HemKv" value="true" />
-            <node concept="3LXTmp" id="1t5XQsnxn4W" role="1HemKq">
-              <node concept="398BVA" id="1t5XQsnxn4C" role="3LXTmr">
-                <ref role="398BVh" node="1fy59xXoa5p" resolve="plugin_home" />
-                <node concept="2Ry0Ak" id="1t5XQsnxn4D" role="iGT6I">
-                  <property role="2Ry0Am" value="languages" />
-                  <node concept="2Ry0Ak" id="1t5XQsnxn4E" role="2Ry0An">
-                    <property role="2Ry0Am" value="kotlin" />
-                    <node concept="2Ry0Ak" id="1t5XQsnxn4F" role="2Ry0An">
-                      <property role="2Ry0Am" value="generator" />
-                      <node concept="2Ry0Ak" id="1t5XQsnxn4G" role="2Ry0An">
-                        <property role="2Ry0Am" value="templates" />
-                      </node>
-                    </node>
-                  </node>
-                </node>
-              </node>
-              <node concept="3qWCbU" id="1t5XQsnxn4X" role="3LXTna">
-                <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
-              </node>
-            </node>
-          </node>
+        <node concept="1E0d5M" id="1ACpgrwmPoC" role="1E1XAP">
+          <ref role="1E0d5P" node="1ACpgrwmP7U" resolve="jetbrains.mps.kotlin.stdlib" />
+        </node>
+        <node concept="2EVzJI" id="1ACpgrwmPoD" role="2EVzJD">
+          <ref role="2EVzJJ" node="1ACpgrwmP7U" resolve="jetbrains.mps.kotlin.stdlib" />
+        </node>
+        <node concept="2EVzJI" id="1ACpgrwmPoE" role="2EVzJD">
+          <ref role="2EVzJJ" node="1ACpgrwmP7U" resolve="jetbrains.mps.kotlin.stdlib" />
+        </node>
+        <node concept="2EVzJI" id="1ACpgrwmPoF" role="2EVzJD">
+          <ref role="2EVzJJ" node="1ACpgrwmP7U" resolve="jetbrains.mps.kotlin.stdlib" />
+        </node>
+        <node concept="2EVzJI" id="1ACpgrwmPoG" role="2EVzJD">
+          <ref role="2EVzJJ" node="1ACpgrwmP7U" resolve="jetbrains.mps.kotlin.stdlib" />
+        </node>
+        <node concept="2EVzJI" id="1ACpgrwmPoH" role="2EVzJD">
+          <ref role="2EVzJJ" node="1ACpgrwmP7U" resolve="jetbrains.mps.kotlin.stdlib" />
+        </node>
+        <node concept="2EVzJI" id="1ACpgrwmPoI" role="2EVzJD">
+          <ref role="2EVzJJ" node="1ACpgrwmP7U" resolve="jetbrains.mps.kotlin.stdlib" />
+        </node>
+        <node concept="2EVzJI" id="1ACpgrwmPoJ" role="2EVzJD">
+          <ref role="2EVzJJ" node="1ACpgrwmP7U" resolve="jetbrains.mps.kotlin.stdlib" />
+        </node>
+        <node concept="2EVzJI" id="1ACpgrwmPoK" role="2EVzJD">
+          <ref role="2EVzJJ" node="1ACpgrwmP7U" resolve="jetbrains.mps.kotlin.stdlib" />
         </node>
       </node>
       <node concept="1E1JtD" id="Ye$g8PO8TM" role="2G$12L">
@@ -53077,11 +53075,6 @@
             <ref role="3bR37D" node="7Kfy9QB6L4p" resolve="jetbrains.mps.lang.behavior" />
           </node>
         </node>
-        <node concept="1SiIV0" id="1G33vFC9dnM" role="3bR37C">
-          <node concept="3bR9La" id="1G33vFC9dnN" role="1SiIV1">
-            <ref role="3bR37D" node="Ye$g8PO9xV" resolve="jetbrains.mps.kotlin.stdlib" />
-          </node>
-        </node>
         <node concept="1BupzO" id="1G33vFC9do4" role="3bR31x">
           <property role="3ZfqAx" value="models" />
           <property role="1Hdu6h" value="true" />
@@ -53188,6 +53181,11 @@
         <node concept="1SiIV0" id="1X$n7cxRqLs" role="3bR37C">
           <node concept="1Busua" id="1X$n7cxRqLt" role="1SiIV1">
             <ref role="1Busuk" node="Ye$g8PO8TM" resolve="jetbrains.mps.kotlin.javaRefs" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="1ACpgrwmPpO" role="3bR37C">
+          <node concept="3bR9La" id="1ACpgrwmPpP" role="1SiIV1">
+            <ref role="3bR37D" node="1ACpgrwmP7U" resolve="jetbrains.mps.kotlin.stdlib" />
           </node>
         </node>
       </node>
@@ -53473,35 +53471,38 @@
         <node concept="3LEz8M" id="67woACzcUAG" role="3LEz9a">
           <ref role="3LEz8N" node="Ye$g8PO912" resolve="jetbrains.mps.devkit.kotlin" />
         </node>
+        <node concept="3LEDTM" id="1ACpgrwmP_x" role="3LEDUa">
+          <ref role="3LEDTN" node="Ye$g8PO9xV" resolve="jetbrains.mps.kotlin.stdlib.jvm" />
+        </node>
       </node>
-      <node concept="1E1JtA" id="Ye$g8PO9xV" role="2G$12L">
+      <node concept="1E1JtA" id="1ACpgrwmP7U" role="2G$12L">
         <property role="BnDLt" value="true" />
         <property role="TrG5h" value="jetbrains.mps.kotlin.stdlib" />
         <property role="3LESm3" value="b50d89c0-0fb9-4105-b652-222148c26a9b" />
         <property role="2GAjPV" value="true" />
-        <node concept="398BVA" id="Ye$g8PO9xW" role="3LF7KH">
+        <node concept="398BVA" id="1ACpgrwmP7V" role="3LF7KH">
           <ref role="398BVh" node="1fy59xXoa5p" resolve="plugin_home" />
-          <node concept="2Ry0Ak" id="Ye$g8PO9xX" role="iGT6I">
+          <node concept="2Ry0Ak" id="1ACpgrwmP7W" role="iGT6I">
             <property role="2Ry0Am" value="solutions" />
-            <node concept="2Ry0Ak" id="Ye$g8PO9xZ" role="2Ry0An">
+            <node concept="2Ry0Ak" id="1ACpgrwmP7X" role="2Ry0An">
               <property role="2Ry0Am" value="kotlin.stdlib" />
-              <node concept="2Ry0Ak" id="Ye$g8PO9y0" role="2Ry0An">
+              <node concept="2Ry0Ak" id="1ACpgrwmP7Y" role="2Ry0An">
                 <property role="2Ry0Am" value="jetbrains.mps.kotlin.stdlib.msd" />
               </node>
             </node>
           </node>
         </node>
-        <node concept="1SiIV0" id="5_$mXMqOBsq" role="3bR37C">
-          <node concept="1BurEX" id="5_$mXMqOBsr" role="1SiIV1">
-            <node concept="398BVA" id="5_$mXMqOBsd" role="1BurEY">
+        <node concept="1SiIV0" id="1ACpgrwmP7Z" role="3bR37C">
+          <node concept="1BurEX" id="1ACpgrwmP80" role="1SiIV1">
+            <node concept="398BVA" id="1ACpgrwmP81" role="1BurEY">
               <ref role="398BVh" node="1fy59xXoa5n" resolve="mps_home" />
-              <node concept="2Ry0Ak" id="4xYibpLhRc" role="iGT6I">
+              <node concept="2Ry0Ak" id="1ACpgrwmP82" role="iGT6I">
                 <property role="2Ry0Am" value="plugins" />
-                <node concept="2Ry0Ak" id="4xYibpLhS4" role="2Ry0An">
+                <node concept="2Ry0Ak" id="1ACpgrwmP83" role="2Ry0An">
                   <property role="2Ry0Am" value="mps-kotlin" />
-                  <node concept="2Ry0Ak" id="4xYibpLhS7" role="2Ry0An">
+                  <node concept="2Ry0Ak" id="1ACpgrwmP84" role="2Ry0An">
                     <property role="2Ry0Am" value="lib" />
-                    <node concept="2Ry0Ak" id="4xYibpLhTk" role="2Ry0An">
+                    <node concept="2Ry0Ak" id="1ACpgrwmP85" role="2Ry0An">
                       <property role="2Ry0Am" value="kotlin-stdlib-common-1.7.0.jar" />
                     </node>
                   </node>
@@ -53510,23 +53511,53 @@
             </node>
           </node>
         </node>
-        <node concept="1SiIV0" id="4u1Fin18OzD" role="3bR37C">
-          <node concept="1BurEX" id="4u1Fin18OzE" role="1SiIV1">
-            <node concept="398BVA" id="4u1Fin18Ozs" role="1BurEY">
+        <node concept="1SiIV0" id="1ACpgrwmP86" role="3bR37C">
+          <node concept="1BurEX" id="1ACpgrwmP87" role="1SiIV1">
+            <node concept="398BVA" id="1ACpgrwmP88" role="1BurEY">
               <ref role="398BVh" node="1fy59xXoa5n" resolve="mps_home" />
-              <node concept="2Ry0Ak" id="4u1Fin18Ozt" role="iGT6I">
+              <node concept="2Ry0Ak" id="1ACpgrwmP89" role="iGT6I">
                 <property role="2Ry0Am" value="plugins" />
-                <node concept="2Ry0Ak" id="4xYibpL$45" role="2Ry0An">
+                <node concept="2Ry0Ak" id="1ACpgrwmP8a" role="2Ry0An">
                   <property role="2Ry0Am" value="mps-kotlin" />
-                  <node concept="2Ry0Ak" id="4xYibpL$4I" role="2Ry0An">
+                  <node concept="2Ry0Ak" id="1ACpgrwmP8b" role="2Ry0An">
                     <property role="2Ry0Am" value="lib" />
-                    <node concept="2Ry0Ak" id="4xYibpL$5n" role="2Ry0An">
+                    <node concept="2Ry0Ak" id="1ACpgrwmP8c" role="2Ry0An">
                       <property role="2Ry0Am" value="kotlin-stdlib-1.7.0.jar" />
                     </node>
                   </node>
                 </node>
               </node>
             </node>
+          </node>
+        </node>
+      </node>
+      <node concept="1E1JtA" id="Ye$g8PO9xV" role="2G$12L">
+        <property role="BnDLt" value="true" />
+        <property role="TrG5h" value="jetbrains.mps.kotlin.stdlib.jvm" />
+        <property role="3LESm3" value="d2c5f31a-2aac-440d-a15c-2d8cba42bf3d" />
+        <property role="2GAjPV" value="true" />
+        <node concept="398BVA" id="Ye$g8PO9xW" role="3LF7KH">
+          <ref role="398BVh" node="1fy59xXoa5p" resolve="plugin_home" />
+          <node concept="2Ry0Ak" id="Ye$g8PO9xX" role="iGT6I">
+            <property role="2Ry0Am" value="solutions" />
+            <node concept="2Ry0Ak" id="Ye$g8PO9xZ" role="2Ry0An">
+              <property role="2Ry0Am" value="kotlin.stdlib.jvm" />
+              <node concept="2Ry0Ak" id="1ACpgrwmPnc" role="2Ry0An">
+                <property role="2Ry0Am" value="jetbrains.mps.kotlin.stdlib.jvm.msd" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1SiIV0" id="1ACpgrwmPrd" role="3bR37C">
+          <node concept="3bR9La" id="1ACpgrwmPre" role="1SiIV1">
+            <property role="3bR36h" value="true" />
+            <ref role="3bR37D" node="mXGwHwhVPj" resolve="JDK" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="1ACpgrwmPrf" role="3bR37C">
+          <node concept="3bR9La" id="1ACpgrwmPrg" role="1SiIV1">
+            <property role="3bR36h" value="true" />
+            <ref role="3bR37D" node="1ACpgrwmP7U" resolve="jetbrains.mps.kotlin.stdlib" />
           </node>
         </node>
       </node>
@@ -53559,10 +53590,10 @@
             <ref role="3bR37D" node="1ia2VB5guYy" resolve="MPS.IDEA" />
           </node>
         </node>
-        <node concept="1SiIV0" id="5MjKXSeu3Ol" role="3bR37C">
-          <node concept="3bR9La" id="5MjKXSeu3Om" role="1SiIV1">
+        <node concept="1SiIV0" id="1ACpgrwmPrh" role="3bR37C">
+          <node concept="3bR9La" id="1ACpgrwmPri" role="1SiIV1">
             <property role="3bR36h" value="true" />
-            <ref role="3bR37D" node="Ye$g8PO9xV" resolve="jetbrains.mps.kotlin.stdlib" />
+            <ref role="3bR37D" node="1ACpgrwmP7U" resolve="jetbrains.mps.kotlin.stdlib" />
           </node>
         </node>
       </node>
