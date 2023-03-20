@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,7 +50,8 @@ public final class SNodeLegacy {
   }
 
   public org.jetbrains.mps.openapi.model.SNode getConceptDeclarationNode() {
-    return myNode.getConcept().getDeclarationNode();
+    //noinspection removal
+    return jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations.getConceptDeclaration(myNode);
   }
 
   public org.jetbrains.mps.openapi.model.SNode getRoleLink() {

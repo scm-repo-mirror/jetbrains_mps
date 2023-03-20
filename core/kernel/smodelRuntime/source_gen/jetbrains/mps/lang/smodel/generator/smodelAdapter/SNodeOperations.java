@@ -22,11 +22,12 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodIdV2;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.model.SNodeReference;
+import org.jetbrains.mps.openapi.module.SRepository;
+import jetbrains.mps.smodel.MPSModuleRepository;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.smodel.SNodePointer;
-import jetbrains.mps.smodel.MPSModuleRepository;
 import jetbrains.mps.smodel.adapter.MetaAdapterByDeclaration;
-import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.model.SReference;
 import java.util.Collections;
 import jetbrains.mps.util.ConditionalIterable;
@@ -507,7 +508,21 @@ public class SNodeOperations {
    */
   @Deprecated(since = "3.5", forRemoval = true)
   public static SNode getConceptDeclaration(SNode node) {
-    return (node == null ? null : node.getConcept().getDeclarationNode());
+    if (node == null) {
+      return null;
+    } else {
+      SNodeReference sourceNode = node.getConcept().getSourceNode();
+      if (sourceNode == null) {
+        return null;
+      } else {
+        // XXX to deal with conceptNode<> uses, have to fall back to MPSModuleRepository singleton
+        // pretty much as in node<> (#getNode(string,string). mbeddr extensively uses conceptNode e.g. 
+        // for IInlineFormat.calculateCategory
+        SRepository repo = (node.getModel() == null ? MPSModuleRepository.getInstance() : node.getModel().getRepository());
+        // I assume clients of this method expected node<ACD>, hence the cast.
+        return SNodeOperations.as(SPointerOperations.resolveNode(sourceNode, repo), CONCEPTS.AbstractConceptDeclaration$KA);
+      }
+    }
   }
   public static SConcept getConcept(SNode node) {
     return (node == null ? null : node.getConcept());
@@ -709,6 +724,7 @@ public class SNodeOperations {
   private static final class CONCEPTS {
     /*package*/ static final SConcept PropertyAttribute$Gb = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da56L, "jetbrains.mps.lang.core.structure.PropertyAttribute");
     /*package*/ static final SConcept LinkAttribute$v_ = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da51L, "jetbrains.mps.lang.core.structure.LinkAttribute");
+    /*package*/ static final SConcept AbstractConceptDeclaration$KA = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
     /*package*/ static final SConcept ChildAttribute$m8 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, "jetbrains.mps.lang.core.structure.ChildAttribute");
     /*package*/ static final SConcept BaseConcept$gP = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
   }
