@@ -33,7 +33,7 @@ public class DeleteDefaultInInterface_Test extends BaseTransformationTest {
 
     @Override
     public void testMethodImpl() throws Exception {
-      initEditorComponent("6967768675453316733", "6967768675453316747");
+      initEditorComponent("6967768675453316733", "8274924483956654893");
       invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");
       invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");
 

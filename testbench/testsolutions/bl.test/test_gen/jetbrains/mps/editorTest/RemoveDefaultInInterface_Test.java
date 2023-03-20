@@ -33,7 +33,7 @@ public class RemoveDefaultInInterface_Test extends BaseTransformationTest {
 
     @Override
     public void testMethodImpl() throws Exception {
-      initEditorComponent("2649128189909933907", "2649128189909933916");
+      initEditorComponent("2649128189909933907", "8274924483956655193");
       invokeAction("jetbrains.mps.ide.editor.actions.Backspace_Action");
       invokeAction("jetbrains.mps.ide.editor.actions.Backspace_Action");
     }
