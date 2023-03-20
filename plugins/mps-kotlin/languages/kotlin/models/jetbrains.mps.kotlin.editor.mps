@@ -20576,5 +20576,60 @@
       </node>
     </node>
   </node>
+  <node concept="3ICUPy" id="1ACpgrxdlFw">
+    <property role="3GE5qa" value="type.constraints" />
+    <ref role="aqKnT" to="hcm8:2yYXHtlqd9D" resolve="ITypeConstrained" />
+    <node concept="1Qtc8_" id="1ACpgrxdlJt" role="IW6Ez">
+      <node concept="IWgqT" id="1ACpgrxdlLJ" role="1Qtc8A">
+        <node concept="1hCUdq" id="1ACpgrxdlLL" role="1hCUd6">
+          <node concept="3clFbS" id="1ACpgrxdlLN" role="2VODD2">
+            <node concept="3clFbF" id="1ACpgrxdm1t" role="3cqZAp">
+              <node concept="Xl_RD" id="1ACpgrxdm1s" role="3clFbG">
+                <property role="Xl_RC" value="where" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="IWg2L" id="1ACpgrxdlLP" role="IWgqQ">
+          <node concept="3clFbS" id="1ACpgrxdlLR" role="2VODD2">
+            <node concept="3cpWs8" id="1ACpgrxdrvF" role="3cqZAp">
+              <node concept="3cpWsn" id="1ACpgrxdrvG" role="3cpWs9">
+                <property role="TrG5h" value="newConstraint" />
+                <node concept="3Tqbb2" id="1ACpgrxdruG" role="1tU5fm">
+                  <ref role="ehGHo" to="hcm8:2yYXHtl6Jks" resolve="TypeConstraint" />
+                </node>
+                <node concept="2OqwBi" id="1ACpgrxdrvH" role="33vP2m">
+                  <node concept="2OqwBi" id="1ACpgrxdrvI" role="2Oq$k0">
+                    <node concept="7Obwk" id="1ACpgrxdrvJ" role="2Oq$k0" />
+                    <node concept="3Tsc0h" id="1ACpgrxdrvK" role="2OqNvi">
+                      <ref role="3TtcxE" to="hcm8:2yYXHtlqd9E" resolve="constraints" />
+                    </node>
+                  </node>
+                  <node concept="2DeJg1" id="1ACpgrxdrvL" role="2OqNvi" />
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="1ACpgrxdtjV" role="3cqZAp">
+              <node concept="2OqwBi" id="1ACpgrxdttT" role="3clFbG">
+                <node concept="1Q80Hx" id="1ACpgrxdtjU" role="2Oq$k0" />
+                <node concept="liA8E" id="1ACpgrxdt_O" role="2OqNvi">
+                  <ref role="37wK5l" to="cj4x:~EditorContext.selectWRTFocusPolicy(org.jetbrains.mps.openapi.model.SNode)" resolve="selectWRTFocusPolicy" />
+                  <node concept="37vLTw" id="1ACpgrxdtCH" role="37wK5m">
+                    <ref role="3cqZAo" node="1ACpgrxdrvG" resolve="newConstraint" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3cWJ9i" id="1ACpgrxdlJ_" role="1Qtc8$">
+        <node concept="CtIbL" id="1ACpgrxdlJB" role="CtIbM">
+          <property role="CtIbK" value="30NnNOohrQL/RIGHT" />
+        </node>
+      </node>
+    </node>
+    <node concept="22hDWj" id="1ACpgrxdlIr" role="22hAXT" />
+  </node>
 </model>
 

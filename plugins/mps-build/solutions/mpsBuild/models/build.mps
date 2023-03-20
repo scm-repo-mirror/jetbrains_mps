@@ -52678,7 +52678,7 @@
           </node>
         </node>
         <node concept="1E0d5M" id="7cyQleb98FA" role="1E1XAP">
-          <ref role="1E0d5P" node="Ye$g8PO9xV" resolve="jetbrains.mps.kotlin.stdlib" />
+          <ref role="1E0d5P" node="Ye$g8PO9xV" resolve="jetbrains.mps.kotlin.stdlib.jvm" />
         </node>
         <node concept="1SiIV0" id="463LxYcvAhW" role="3bR37C">
           <node concept="3bR9La" id="463LxYcvAhX" role="1SiIV1">
@@ -52706,28 +52706,28 @@
           </node>
         </node>
         <node concept="2EVzJI" id="463LxYcvAik" role="2EVzJD">
-          <ref role="2EVzJJ" node="Ye$g8PO9xV" resolve="jetbrains.mps.kotlin.stdlib" />
+          <ref role="2EVzJJ" node="Ye$g8PO9xV" resolve="jetbrains.mps.kotlin.stdlib.jvm" />
         </node>
         <node concept="2EVzJI" id="2UZLF6pivEF" role="2EVzJD">
-          <ref role="2EVzJJ" node="Ye$g8PO9xV" resolve="jetbrains.mps.kotlin.stdlib" />
+          <ref role="2EVzJJ" node="Ye$g8PO9xV" resolve="jetbrains.mps.kotlin.stdlib.jvm" />
         </node>
         <node concept="2EVzJI" id="2UZLF6pivEG" role="2EVzJD">
-          <ref role="2EVzJJ" node="Ye$g8PO9xV" resolve="jetbrains.mps.kotlin.stdlib" />
+          <ref role="2EVzJJ" node="Ye$g8PO9xV" resolve="jetbrains.mps.kotlin.stdlib.jvm" />
         </node>
         <node concept="2EVzJI" id="2UZLF6pivEH" role="2EVzJD">
-          <ref role="2EVzJJ" node="Ye$g8PO9xV" resolve="jetbrains.mps.kotlin.stdlib" />
+          <ref role="2EVzJJ" node="Ye$g8PO9xV" resolve="jetbrains.mps.kotlin.stdlib.jvm" />
         </node>
         <node concept="2EVzJI" id="2UZLF6pivEI" role="2EVzJD">
-          <ref role="2EVzJJ" node="Ye$g8PO9xV" resolve="jetbrains.mps.kotlin.stdlib" />
+          <ref role="2EVzJJ" node="Ye$g8PO9xV" resolve="jetbrains.mps.kotlin.stdlib.jvm" />
         </node>
         <node concept="2EVzJI" id="2UZLF6pivEJ" role="2EVzJD">
-          <ref role="2EVzJJ" node="Ye$g8PO9xV" resolve="jetbrains.mps.kotlin.stdlib" />
+          <ref role="2EVzJJ" node="Ye$g8PO9xV" resolve="jetbrains.mps.kotlin.stdlib.jvm" />
         </node>
         <node concept="2EVzJI" id="2UZLF6pivEK" role="2EVzJD">
-          <ref role="2EVzJJ" node="Ye$g8PO9xV" resolve="jetbrains.mps.kotlin.stdlib" />
+          <ref role="2EVzJJ" node="Ye$g8PO9xV" resolve="jetbrains.mps.kotlin.stdlib.jvm" />
         </node>
         <node concept="2EVzJI" id="2UZLF6pivEL" role="2EVzJD">
-          <ref role="2EVzJJ" node="Ye$g8PO9xV" resolve="jetbrains.mps.kotlin.stdlib" />
+          <ref role="2EVzJJ" node="Ye$g8PO9xV" resolve="jetbrains.mps.kotlin.stdlib.jvm" />
         </node>
         <node concept="1SiIV0" id="5yEpxXMya1h" role="3bR37C">
           <node concept="3bR9La" id="5yEpxXMya1i" role="1SiIV1">

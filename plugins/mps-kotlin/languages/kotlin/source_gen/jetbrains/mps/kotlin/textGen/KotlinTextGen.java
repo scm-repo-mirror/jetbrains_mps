@@ -247,7 +247,7 @@ public abstract class KotlinTextGen {
   public static void rootableContent(SNode node, final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     if ((SNodeOperations.getParent(node) == null)) {
-      KotlinTextGen.fileHeader(node, ctx);
+      KotlinTextGen.filePackage(node, ctx);
       KotlinTextGen.imports(ctx);
     }
   }

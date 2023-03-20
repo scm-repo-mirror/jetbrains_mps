@@ -18459,7 +18459,7 @@
             <node concept="3clFbF" id="1gT" role="3cqZAp">
               <uo k="s:originTrace" v="n:1848838727248231756" />
               <node concept="1niqFM" id="1gV" role="3clFbG">
-                <property role="1npL6y" value="fileHeader" />
+                <property role="1npL6y" value="filePackage" />
                 <property role="1npUBZ" value="jetbrains.mps.kotlin.textGen.KotlinTextGen" />
                 <uo k="s:originTrace" v="n:1848838727248231756" />
                 <node concept="3uibUv" id="1gW" role="32Mpfj">
