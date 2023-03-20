@@ -17,6 +17,11 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import org.jetbrains.mps.openapi.model.SNodeReference;
+import org.jetbrains.mps.openapi.model.SModel;
+import org.jetbrains.mps.openapi.module.SRepository;
+import jetbrains.mps.smodel.MPSModuleRepository;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPointerOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -60,7 +65,20 @@ public final class ConceptFunctionParameter__BehaviorDescriptor extends BaseBHDe
     return SConceptOperations.conceptAlias(SNodeOperations.getConcept(__thisNode__));
   }
   /*package*/ static SNode getDeclaration_idhP8xjWn(@NotNull SNode __thisNode__) {
-    return SNodeOperations.getConceptDeclaration(__thisNode__);
+    SNodeReference sourceNode = SNodeOperations.getConcept(__thisNode__).getSourceNode();
+    if (sourceNode == null) {
+      return null;
+    } else {
+      SModel m = SNodeOperations.getModel(__thisNode__);
+      // XXX unfortunately, there are scenarios e.g. in ExtractMethodRefactoring, see 
+      // ExtractDefaultClassifierMethodDeclaration test, where new parameters are not part of a model
+      // yet but still need to get matched against their declaration kind. If we don't answer with a
+      // node<ACD> for a detached parameter here, can't match and replace references to CFP with a 
+      // VariableReference to method's ParameterDeclaration. Likely, shall update method refactoring 
+      // code to either use transitional model for new method or to follow another matching logic
+      SRepository repo = (m == null ? MPSModuleRepository.getInstance() : m.getRepository());
+      return SPointerOperations.resolveNode(sourceNode, repo);
+    }
   }
   /*package*/ static boolean needConceptFunction_idhZKliUO(@NotNull SNode __thisNode__) {
     return true;
