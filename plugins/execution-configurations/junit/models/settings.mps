@@ -52,6 +52,7 @@
     <import index="lhc4" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.annotations(MPS.OpenAPI/)" />
     <import index="9z78" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:javax.swing.border(JDK/)" />
     <import index="lzb2" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ui(MPS.IDEA/)" />
+    <import index="4u8o" ref="r:a7abd5f1-5d9a-4c90-a542-3e14c173186d(jetbrains.mps.baseLanguage.unitTest.platform)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -4991,15 +4992,36 @@
                       <node concept="2I9FWS" id="1DeqbSMA_r_" role="1tU5fm" />
                     </node>
                   </node>
+                  <node concept="3cpWs8" id="82DhFu6n_" role="3cqZAp">
+                    <node concept="3cpWsn" id="82DhFu6nA" role="3cpWs9">
+                      <property role="TrG5h" value="tdp" />
+                      <node concept="3uibUv" id="82DhFu54U" role="1tU5fm">
+                        <ref role="3uigEE" to="4u8o:2BZ01qXB6N9" resolve="TestDiscoveryParticipant" />
+                      </node>
+                      <node concept="2OqwBi" id="82DhFu6nB" role="33vP2m">
+                        <node concept="2YIFZM" id="82DhFu6nC" role="2Oq$k0">
+                          <ref role="37wK5l" to="4u8o:4chG8iIteHp" resolve="getInstance" />
+                          <ref role="1Pybhc" to="4u8o:4chG8iItd4i" resolve="TestPlatform" />
+                        </node>
+                        <node concept="liA8E" id="82DhFu6nD" role="2OqNvi">
+                          <ref role="37wK5l" to="4u8o:2VjRkhsGS9E" resolve="getAggregateDiscoveryParticipant" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
                   <node concept="3cpWs8" id="3LPH4RDISBU" role="3cqZAp">
                     <node concept="3cpWsn" id="3LPH4RDISBV" role="3cpWs9">
                       <property role="TrG5h" value="wrappedRootConcepts" />
                       <node concept="A3Dl8" id="3LPH4RDISBQ" role="1tU5fm">
                         <node concept="3bZ5Sz" id="3LPH4RDISBT" role="A3Ik2" />
                       </node>
-                      <node concept="2YIFZM" id="3LPH4RDISBW" role="33vP2m">
-                        <ref role="37wK5l" to="sfqd:1KnTQt4Oioj" resolve="getWrappedRootConcepts" />
-                        <ref role="1Pybhc" to="sfqd:1KnTQt4Oin6" resolve="TestNodeWrapperFactory" />
+                      <node concept="2OqwBi" id="82DhFxlmj" role="33vP2m">
+                        <node concept="37vLTw" id="82DhFxlmk" role="2Oq$k0">
+                          <ref role="3cqZAo" node="82DhFu6nA" resolve="tdp" />
+                        </node>
+                        <node concept="liA8E" id="82DhFxlml" role="2OqNvi">
+                          <ref role="37wK5l" to="4u8o:82DhFsCRc" resolve="sourceConcepts" />
+                        </node>
                       </node>
                     </node>
                   </node>

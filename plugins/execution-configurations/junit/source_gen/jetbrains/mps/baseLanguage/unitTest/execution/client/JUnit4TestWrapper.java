@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.unitTest.execution.client;
 
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
+import jetbrains.mps.baseLanguage.unitTest.runtime.TestNodeUtil;
 import jetbrains.mps.lang.core.behavior.INamedConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;

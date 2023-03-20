@@ -8,6 +8,9 @@ import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.Objects;
 import java.util.Optional;
 import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class TestPlatform {
 
@@ -73,6 +76,13 @@ public class TestPlatform {
     public Optional<TestDescriptor> discover(final SNode sNode, final TestDiscoveryRequest request) {
       Optional<Optional<TestDescriptor>> first = myDiscoveryParticipants.stream().map((TestDiscoveryParticipant tdp) -> tdp.discover(sNode, request)).filter(Optional::isPresent).findFirst();
       return (first.isPresent() ? first.get() : Optional.empty());
+    }
+
+    @Override
+    public List<SAbstractConcept> sourceConcepts() {
+      final ArrayList<SAbstractConcept> acc = new ArrayList<SAbstractConcept>();
+      myDiscoveryParticipants.forEach((TestDiscoveryParticipant tdp) -> acc.addAll(tdp.sourceConcepts()));
+      return Collections.unmodifiableList(acc);
     }
   }
 

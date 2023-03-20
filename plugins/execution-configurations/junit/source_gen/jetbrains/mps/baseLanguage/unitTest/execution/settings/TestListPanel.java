@@ -16,6 +16,8 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.smodel.ModelAccessHelper;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestDiscoveryParticipant;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Set;
@@ -56,7 +58,8 @@ public class TestListPanel extends ListPanel<ITestNodeWrapper> {
     final SRepository repo = mpsProject.getRepository();
     return new ModelAccessHelper(repo).runReadAction(() -> {
       List<SNode> nodesList = new ArrayList<SNode>();
-      Iterable<SAbstractConcept> wrappedRootConcepts = TestNodeWrapperFactory.getWrappedRootConcepts();
+      TestDiscoveryParticipant tdp = TestPlatform.getInstance().getAggregateDiscoveryParticipant();
+      Iterable<SAbstractConcept> wrappedRootConcepts = tdp.sourceConcepts();
       progress.start("Looking up test roots...", Sequence.fromIterable(wrappedRootConcepts).count());
       for (SAbstractConcept c : Sequence.fromIterable(wrappedRootConcepts)) {
         Set<SNode> usages = FindUsagesFacade.getInstance().findInstances(new ProjectScope(mpsProject), Collections.singleton(c), false, progress.subTask(1, SubProgressKind.REPLACING));

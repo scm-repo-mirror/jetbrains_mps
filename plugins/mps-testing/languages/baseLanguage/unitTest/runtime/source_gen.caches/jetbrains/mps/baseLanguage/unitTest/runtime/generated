@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="do5ocxv1l33nln20pjn56bcu6jgexkm">
-  <files names="EnvironmentAwareExtension.java" />
+<product version="3" modelHash="-d8vt6o4n5visk8vt9xohek4znpeo4pl">
+  <files names="EnvironmentAwareExtension.java:JUnitTestDiscoveryParticipants.java:ModuleActivator.java:TestNodeUtil.java" />
 </product>
 

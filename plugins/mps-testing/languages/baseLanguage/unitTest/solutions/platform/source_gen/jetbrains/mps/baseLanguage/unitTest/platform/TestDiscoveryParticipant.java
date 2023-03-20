@@ -4,9 +4,13 @@ package jetbrains.mps.baseLanguage.unitTest.platform;
 
 import java.util.Optional;
 import org.jetbrains.mps.openapi.model.SNode;
+import java.util.List;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
 
 public interface TestDiscoveryParticipant {
 
   Optional<TestDescriptor> discover(SNode sNode, TestDiscoveryRequest request);
+
+  List<SAbstractConcept> sourceConcepts();
 
 }
