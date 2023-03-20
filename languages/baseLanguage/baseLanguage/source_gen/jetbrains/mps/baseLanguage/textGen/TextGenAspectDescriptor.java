@@ -126,6 +126,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new DotExpression_TextGen();
       case LanguageConceptSwitch.DoubleType:
         return new DoubleType_TextGen();
+      case LanguageConceptSwitch.DummyCommant:
+        return new DummyCommant_TextGen();
       case LanguageConceptSwitch.ElsifClause:
         return new ElsifClause_TextGen();
       case LanguageConceptSwitch.EnumClass:
