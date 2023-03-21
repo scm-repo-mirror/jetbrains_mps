@@ -16,6 +16,7 @@ import jetbrains.mps.workbench.action.ActionUtils;
 import jetbrains.mps.editor.runtime.commands.EditorComputable;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.baseLanguage.util.plugin.refactorings.MoveRefactoringUtils;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.nodeEditor.messageTargets.CellFinder;
 import jetbrains.mps.openapi.editor.cells.EditorCell_Label;
@@ -23,6 +24,8 @@ import com.intellij.ui.awt.RelativePoint;
 import java.awt.Point;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class LocalVariableIntroducer {
   private IntroduceLocalVariableRefactoring myRefactoring;
@@ -51,7 +54,7 @@ public class LocalVariableIntroducer {
       @Override
       protected SNode doCompute() {
         SNode result = myRefactoring.doRefactoring();
-        MoveRefactoringUtils.fixImportsFromNode(result);
+        MoveRefactoringUtils.updateImportsAfterModelChange(SLinkOperations.getTarget(result, LINKS.type$a1UY));
         return result;
       }
     };
@@ -82,5 +85,9 @@ public class LocalVariableIntroducer {
     public void actionPerformed(@NotNull AnActionEvent event) {
       execute(myReplaceAllDuplicates);
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink type$a1UY = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
   }
 }

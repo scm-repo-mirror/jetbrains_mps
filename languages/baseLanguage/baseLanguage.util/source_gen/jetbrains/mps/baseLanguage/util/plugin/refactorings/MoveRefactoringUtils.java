@@ -68,13 +68,11 @@ public class MoveRefactoringUtils {
   public static void addNodeModelImportIfNeed(SNode node, SNode toImport) {
     addImportIfNeed(SNodeOperations.getModel(node), SNodeOperations.getModel(toImport));
   }
+
   /**
-   * 
-   * 
-   * @deprecated use {@link jetbrains.mps.smodel.ModelDependencyUpdate } directly
+   * Now, when this is needed from multiple places, we shall keep the utility method.
    */
-  @Deprecated(forRemoval = true, since = "2021.3")
-  public static void fixImportsFromNode(SNode node) {
+  public static void updateImportsAfterModelChange(SNode node) {
     SModel mm = SNodeOperations.getModel(node);
     if (mm == null) {
       return;

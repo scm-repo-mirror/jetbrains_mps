@@ -11877,12 +11877,17 @@
                           </node>
                         </node>
                       </node>
-                      <node concept="3clFbF" id="7ddLEYXTj3Q" role="3cqZAp">
-                        <node concept="2YIFZM" id="7ddLEYXTj3R" role="3clFbG">
+                      <node concept="3clFbF" id="3alVMFmTKRV" role="3cqZAp">
+                        <node concept="2YIFZM" id="2oXL8T8NprK" role="3clFbG">
+                          <ref role="37wK5l" to="89o2:1oZd4f_KMWC" resolve="updateImportsAfterModelChange" />
                           <ref role="1Pybhc" to="89o2:4gx_mbDdW0b" resolve="MoveRefactoringUtils" />
-                          <ref role="37wK5l" to="89o2:1oZd4f_KMWC" resolve="fixImportsFromNode" />
-                          <node concept="37vLTw" id="7ddLEYXTj3S" role="37wK5m">
-                            <ref role="3cqZAo" node="7ddLEYXTj3L" resolve="result" />
+                          <node concept="2OqwBi" id="2oXL8T8NprL" role="37wK5m">
+                            <node concept="37vLTw" id="2oXL8T8NprM" role="2Oq$k0">
+                              <ref role="3cqZAo" node="7ddLEYXTj3L" resolve="result" />
+                            </node>
+                            <node concept="3TrEf2" id="2oXL8T8NprN" role="2OqNvi">
+                              <ref role="3Tt5mk" to="tpee:4VkOLwjf83e" resolve="type" />
+                            </node>
                           </node>
                         </node>
                       </node>
@@ -12973,11 +12978,7 @@
         <ref role="3uigEE" to="89o2:7nrhK3uHff4" resolve="IntroduceVariableRefactoring" />
       </node>
       <node concept="3Tm1VV" id="8qS5$Sajj" role="1B3o_S" />
-      <node concept="3clFbS" id="8qS5$Sajk" role="3clF47">
-        <node concept="3cpWs6" id="8qS5$Sajl" role="3cqZAp">
-          <node concept="10Nm6u" id="8qS5$Sajm" role="3cqZAk" />
-        </node>
-      </node>
+      <node concept="3clFbS" id="8qS5$Sajk" role="3clF47" />
     </node>
     <node concept="3clFb_" id="8qS5$Sak5" role="jymVt">
       <property role="TrG5h" value="doRefactoring" />
@@ -13023,12 +13024,17 @@
                           </node>
                         </node>
                       </node>
-                      <node concept="3clFbF" id="7ddLEYXSCRT" role="3cqZAp">
-                        <node concept="2YIFZM" id="7ddLEYXSCRU" role="3clFbG">
+                      <node concept="3clFbF" id="3alVMFmRsvJ" role="3cqZAp">
+                        <node concept="2YIFZM" id="2oXL8T8NnrP" role="3clFbG">
+                          <ref role="37wK5l" to="89o2:1oZd4f_KMWC" resolve="updateImportsAfterModelChange" />
                           <ref role="1Pybhc" to="89o2:4gx_mbDdW0b" resolve="MoveRefactoringUtils" />
-                          <ref role="37wK5l" to="89o2:1oZd4f_KMWC" resolve="fixImportsFromNode" />
-                          <node concept="37vLTw" id="7ddLEYXSCRV" role="37wK5m">
-                            <ref role="3cqZAo" node="7ddLEYXSCRO" resolve="result" />
+                          <node concept="2OqwBi" id="2oXL8T8NnrQ" role="37wK5m">
+                            <node concept="37vLTw" id="2oXL8T8NnrR" role="2Oq$k0">
+                              <ref role="3cqZAo" node="7ddLEYXSCRO" resolve="result" />
+                            </node>
+                            <node concept="3TrEf2" id="2oXL8T8NnrS" role="2OqNvi">
+                              <ref role="3Tt5mk" to="tpee:4VkOLwjf83e" resolve="type" />
+                            </node>
                           </node>
                         </node>
                       </node>

@@ -2538,6 +2538,56 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbF" id="3alVMFmRsvJ" role="3cqZAp">
+          <node concept="2YIFZM" id="2oXL8T8MQ1a" role="3clFbG">
+            <ref role="37wK5l" node="1oZd4f_KMWC" resolve="updateImportsAfterModelChange" />
+            <ref role="1Pybhc" node="4gx_mbDdW0b" resolve="MoveRefactoringUtils" />
+            <node concept="2OqwBi" id="2oXL8T8MQ1b" role="37wK5m">
+              <node concept="37vLTw" id="2oXL8T8MQ1c" role="2Oq$k0">
+                <ref role="3cqZAo" node="7DOvmMx26aO" resolve="newMethod" />
+              </node>
+              <node concept="3TrEf2" id="2oXL8T8MQ1d" role="2OqNvi">
+                <ref role="3Tt5mk" to="tpee:fzclF7X" resolve="returnType" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="3alVMFmJ5cc" role="3cqZAp">
+          <node concept="2OqwBi" id="3alVMFmJAAV" role="3clFbG">
+            <node concept="2OqwBi" id="3alVMFmJiAO" role="2Oq$k0">
+              <node concept="37vLTw" id="3alVMFmJ5ca" role="2Oq$k0">
+                <ref role="3cqZAo" node="7DOvmMx26aO" resolve="newMethod" />
+              </node>
+              <node concept="3Tsc0h" id="3alVMFmJrid" role="2OqNvi">
+                <ref role="3TtcxE" to="tpee:fzclF7Y" resolve="parameter" />
+              </node>
+            </node>
+            <node concept="2es0OD" id="3alVMFmJSbC" role="2OqNvi">
+              <node concept="1bVj0M" id="3alVMFmJSbE" role="23t8la">
+                <node concept="3clFbS" id="3alVMFmJSbF" role="1bW5cS">
+                  <node concept="3clFbF" id="3alVMFmSx7D" role="3cqZAp">
+                    <node concept="2YIFZM" id="2oXL8T8N3j2" role="3clFbG">
+                      <ref role="37wK5l" node="1oZd4f_KMWC" resolve="updateImportsAfterModelChange" />
+                      <ref role="1Pybhc" node="4gx_mbDdW0b" resolve="MoveRefactoringUtils" />
+                      <node concept="2OqwBi" id="2oXL8T8N3j3" role="37wK5m">
+                        <node concept="37vLTw" id="2oXL8T8N3j4" role="2Oq$k0">
+                          <ref role="3cqZAo" node="3alVMFmJSbG" resolve="p" />
+                        </node>
+                        <node concept="3TrEf2" id="2oXL8T8N3j5" role="2OqNvi">
+                          <ref role="3Tt5mk" to="tpee:4VkOLwjf83e" resolve="type" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="Rh6nW" id="3alVMFmJSbG" role="1bW2Oz">
+                  <property role="TrG5h" value="p" />
+                  <node concept="2jxLKc" id="3alVMFmJSbH" role="1tU5fm" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs6" id="7DOvmMx21DC" role="3cqZAp">
           <node concept="37vLTw" id="3GM_nagT$Rb" role="3cqZAk">
             <ref role="3cqZAo" node="7DOvmMx26aO" resolve="newMethod" />
@@ -22816,8 +22866,9 @@
         <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
       </node>
     </node>
+    <node concept="2tJIrI" id="2oXL8T8Nvem" role="jymVt" />
     <node concept="2YIFZL" id="1oZd4f_KMWC" role="jymVt">
-      <property role="TrG5h" value="fixImportsFromNode" />
+      <property role="TrG5h" value="updateImportsAfterModelChange" />
       <node concept="3cqZAl" id="1oZd4f_KMWD" role="3clF45" />
       <node concept="3Tm1VV" id="1oZd4f_KMWE" role="1B3o_S" />
       <node concept="3clFbS" id="1oZd4f_KMWF" role="3clF47">
@@ -22941,40 +22992,7 @@
       <node concept="P$JXv" id="7_fAwM$a4re" role="lGtFl">
         <node concept="TZ5HA" id="7_fAwM$a4rf" role="TZ5H$">
           <node concept="1dT_AC" id="7_fAwM$a4rg" role="1dT_Ay">
-            <property role="1dT_AB" value="" />
-          </node>
-        </node>
-        <node concept="TZ5HI" id="7_fAwM$a4t8" role="3nqlJM">
-          <node concept="TZ5HA" id="7_fAwM$a4t9" role="3HnX3l">
-            <node concept="1dT_AC" id="7_fAwM$a4ZC" role="1dT_Ay">
-              <property role="1dT_AB" value="use " />
-            </node>
-            <node concept="1dT_AA" id="7_fAwM$a4ZF" role="1dT_Ay">
-              <node concept="92FcH" id="7_fAwM$a4ZL" role="qph3F">
-                <node concept="TZ5HA" id="7_fAwM$a4ZN" role="2XjZqd" />
-                <node concept="VXe08" id="7_fAwM$a5dD" role="92FcQ">
-                  <ref role="VXe09" to="w1kc:~ModelDependencyUpdate" resolve="ModelDependencyUpdate" />
-                </node>
-              </node>
-            </node>
-            <node concept="1dT_AC" id="7_fAwM$a4ZE" role="1dT_Ay">
-              <property role="1dT_AB" value=" directly" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="7_fAwM$a4ta" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
-        <node concept="2B6LJw" id="7_fAwM$a4wZ" role="2B76xF">
-          <ref role="2B6OnR" to="wyt6:~Deprecated.forRemoval()" resolve="forRemoval" />
-          <node concept="3clFbT" id="7_fAwM$a4V8" role="2B70Vg">
-            <property role="3clFbU" value="true" />
-          </node>
-        </node>
-        <node concept="2B6LJw" id="7_fAwM$a4Vn" role="2B76xF">
-          <ref role="2B6OnR" to="wyt6:~Deprecated.since()" resolve="since" />
-          <node concept="Xl_RD" id="7_fAwM$a4Zo" role="2B70Vg">
-            <property role="Xl_RC" value="2021.3" />
+            <property role="1dT_AB" value="Now, when this is needed from multiple places, we shall keep the utility method." />
           </node>
         </node>
       </node>
