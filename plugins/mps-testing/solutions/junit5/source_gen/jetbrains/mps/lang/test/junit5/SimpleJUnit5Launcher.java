@@ -7,14 +7,7 @@ import jetbrains.mps.tool.environment.Environment;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestSessionConfig;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestSession;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform;
-import org.jetbrains.mps.openapi.module.SRepository;
-import jetbrains.mps.smodel.MPSModuleRepository;
-import jetbrains.mps.smodel.ModelAccessHelper;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
-import jetbrains.mps.persistence.PersistenceRegistry;
-import org.jetbrains.mps.openapi.module.SModule;
-import jetbrains.mps.baseLanguage.unitTest.platform.JUnitPlatform;
-import jetbrains.mps.module.ReloadableModule;
+import java.util.Collections;
 import java.io.File;
 
 public class SimpleJUnit5Launcher extends AbstractJUnit5Launcher {
@@ -51,16 +44,7 @@ public class SimpleJUnit5Launcher extends AbstractJUnit5Launcher {
   }
 
   private ClassLoader testModuleContextClassLoader() {
-    final SRepository repo = myEnvironment.getPlatform().findComponent(MPSModuleRepository.class);
-    return new ModelAccessHelper(repo).runReadAction(() -> {
-      final PersistenceFacade pf = myEnvironment.getPlatform().findComponent(PersistenceRegistry.class);
-      SModule junit5Module = pf.createModuleReference(JUnitPlatform.JUNIT5_LIBS_MODULE_REF).resolve(repo);
-      if (junit5Module instanceof ReloadableModule) {
-        return ((ReloadableModule) junit5Module).getClassLoader();
-      }
-      // if nothing works
-      return Thread.currentThread().getContextClassLoader();
-    });
+    return ModuleClassLoaderUtil.classLoaderForTestExecution(myEnvironment.getPlatform(), () -> Collections.<String>emptyList());
   }
 
   @Override

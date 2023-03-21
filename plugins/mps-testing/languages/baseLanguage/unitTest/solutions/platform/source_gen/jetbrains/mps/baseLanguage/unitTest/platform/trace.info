@@ -186,7 +186,8 @@
   <root nodeRef="r:a7abd5f1-5d9a-4c90-a542-3e14c173186d(jetbrains.mps.baseLanguage.unitTest.platform)/2866161820294884686">
     <file name="JUnitPlatform.java">
       <node id="8180426062811329459" at="8,0,9,0" concept="10" trace="JUNIT5_LIBS_MODULE_REF" />
-      <unit id="2866161820294884686" at="6,0,11,0" name="jetbrains.mps.baseLanguage.unitTest.platform.JUnitPlatform" />
+      <node id="6223890651984081286" at="10,0,11,0" concept="10" trace="JUNIT5_TEST_ENGINE_CLASS" />
+      <unit id="2866161820294884686" at="6,0,14,0" name="jetbrains.mps.baseLanguage.unitTest.platform.JUnitPlatform" />
     </file>
   </root>
   <root nodeRef="r:a7abd5f1-5d9a-4c90-a542-3e14c173186d(jetbrains.mps.baseLanguage.unitTest.platform)/2866161820294932865">

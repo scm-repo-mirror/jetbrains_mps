@@ -5,21 +5,21 @@ package jetbrains.mps.baseLanguage.unitTest.execution.server;
 import jetbrains.mps.tool.environment.Environment;
 import jetbrains.mps.baselanguage.unitTest.execution.launcher.ExecutorScript;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.module.SRepository;
-import jetbrains.mps.smodel.MPSModuleRepository;
-import jetbrains.mps.smodel.ModelAccessHelper;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
-import jetbrains.mps.persistence.PersistenceRegistry;
-import jetbrains.mps.internal.collections.runtime.CollectionSequence;
-import org.jetbrains.mps.openapi.module.SModule;
-import jetbrains.mps.module.ReloadableModule;
-import jetbrains.mps.baseLanguage.unitTest.platform.JUnitPlatform;
+import jetbrains.mps.lang.test.junit5.ModuleClassLoaderUtil;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestSessionConfig;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestSession;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform;
 import java.util.List;
 import org.junit.platform.engine.DiscoverySelector;
+import org.jetbrains.mps.openapi.module.SRepository;
+import jetbrains.mps.smodel.MPSModuleRepository;
+import jetbrains.mps.smodel.ModelAccessHelper;
+import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
+import jetbrains.mps.persistence.PersistenceRegistry;
 import java.util.ArrayList;
+import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import org.jetbrains.mps.openapi.module.SModule;
+import jetbrains.mps.module.ReloadableModule;
 import org.jetbrains.annotations.Nullable;
 import org.junit.platform.engine.discovery.DiscoverySelectors;
 
@@ -37,21 +37,9 @@ public class JUnit5ScriptTestContributor extends AbstractJUnit5TestContributor i
 
   @Override
   protected ClassLoader testModuleContextClassLoader() {
-    final SRepository repo = myEnv.getPlatform().findComponent(MPSModuleRepository.class);
-    return new ModelAccessHelper(repo).runReadAction(() -> {
-      final PersistenceFacade pf = myEnv.getPlatform().findComponent(PersistenceRegistry.class);
-      for (ExecutorScript.TestRecord testRecord : CollectionSequence.fromCollection(myExecScript.getTests())) {
-        SModule testModule = pf.createModuleReference(testRecord.myTestModule).resolve(repo);
-        if (testModule instanceof ReloadableModule) {
-          return ((ReloadableModule) testModule).getClassLoader();
-        }
-      }
-      SModule junit5Module = pf.createModuleReference(JUnitPlatform.JUNIT5_LIBS_MODULE_REF).resolve(repo);
-      if (junit5Module instanceof ReloadableModule) {
-        return ((ReloadableModule) junit5Module).getClassLoader();
-      }
-      // if nothing works
-      return Thread.currentThread().getContextClassLoader();
+    return ModuleClassLoaderUtil.classLoaderForTestExecution(myEnv.getPlatform(), () -> {
+      return myExecScript.getTests().stream().map((ExecutorScript.TestRecord tr) -> tr.myTestModule).toList();
+
     });
   }
 

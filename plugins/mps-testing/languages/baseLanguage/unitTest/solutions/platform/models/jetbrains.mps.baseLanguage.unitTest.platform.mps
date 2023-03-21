@@ -1359,6 +1359,17 @@
         <property role="Xl_RC" value="63b449db-0918-4a4a-a891-2c430ab133e4(org.junit.junit5)" />
       </node>
     </node>
+    <node concept="2tJIrI" id="5pvGTa8oBNJ" role="jymVt" />
+    <node concept="Wx3nA" id="5pvGTa8oF66" role="jymVt">
+      <property role="3TUv4t" value="true" />
+      <property role="TrG5h" value="JUNIT5_TEST_ENGINE_CLASS" />
+      <node concept="3Tm1VV" id="5pvGTa8pxJz" role="1B3o_S" />
+      <node concept="17QB3L" id="5pvGTa8oF7i" role="1tU5fm" />
+      <node concept="Xl_RD" id="5pvGTa8oF9L" role="33vP2m">
+        <property role="Xl_RC" value="org.junit.platform.engine.TestEngine" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="5pvGTa8oBNR" role="jymVt" />
     <node concept="2tJIrI" id="2v6DJPJtF1B" role="jymVt" />
     <node concept="3Tm1VV" id="2v6DJPJtEPf" role="1B3o_S" />
   </node>

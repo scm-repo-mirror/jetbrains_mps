@@ -7,4 +7,7 @@ public class JUnitPlatform {
 
   public static final String JUNIT5_LIBS_MODULE_REF = "63b449db-0918-4a4a-a891-2c430ab133e4(org.junit.junit5)";
 
+  public static final String JUNIT5_TEST_ENGINE_CLASS = "org.junit.platform.engine.TestEngine";
+
+
 }

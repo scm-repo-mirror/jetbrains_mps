@@ -21,12 +21,10 @@ import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.module.SRepository;
-import jetbrains.mps.smodel.MPSModuleRepository;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
-import jetbrains.mps.persistence.PersistenceRegistry;
-import jetbrains.mps.module.ReloadableModule;
-import jetbrains.mps.baseLanguage.unitTest.platform.JUnitPlatform;
+import jetbrains.mps.lang.test.junit5.ModuleClassLoaderUtil;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.internal.collections.runtime.ISelector;
+import org.jetbrains.mps.openapi.module.SModuleReference;
 import jetbrains.mps.module.ModuleClassLoaderIsNullException;
 import org.junit.platform.engine.discovery.DiscoverySelectors;
 
@@ -139,21 +137,17 @@ public class JUnit5InprocessTestsContributor extends AbstractInProcessTestMixin 
   }
 
   protected ClassLoader testModuleContextClassLoader() {
-    final SRepository repo = myEnv.getPlatform().findComponent(MPSModuleRepository.class);
-    return new ModelAccessHelper(repo).runReadAction(() -> {
-      final PersistenceFacade pf = myEnv.getPlatform().findComponent(PersistenceRegistry.class);
-      for (ITestNodeWrapper testNode : myTestNodes) {
-        final SModule testModule = testNode.getTestNodeModule().resolve(myProject.getRepository());
-        if (testModule instanceof ReloadableModule) {
-          return ((ReloadableModule) testModule).getClassLoader();
+    return ModuleClassLoaderUtil.classLoaderForTestExecution(myEnv.getPlatform(), () -> {
+      return Sequence.fromIterable(((Iterable<ITestNodeWrapper>) myTestNodes)).select(new ISelector<ITestNodeWrapper, SModuleReference>() {
+        public SModuleReference select(ITestNodeWrapper this0) {
+          return this0.getTestNodeModule();
         }
-      }
-      SModule junit5Module = pf.createModuleReference(JUnitPlatform.JUNIT5_LIBS_MODULE_REF).resolve(repo);
-      if (junit5Module instanceof ReloadableModule) {
-        return ((ReloadableModule) junit5Module).getClassLoader();
-      }
-      // if nothing works
-      return Thread.currentThread().getContextClassLoader();
+      }).select(new ISelector<SModuleReference, String>() {
+        public String select(SModuleReference this0) {
+          return this0.toString();
+        }
+      }).toListSequence();
+
     });
   }
 
