@@ -23,9 +23,7 @@ public class TestDescriptorWrapper implements ITestNodeWrapper<SNode> {
   private final List<ITestNodeWrapper<SNode>> myTestMethods;
 
   public TestDescriptorWrapper(TestDescriptor container) {
-    myDescriptor = container;
-    myTestCase = null;
-    myTestMethods = Collections.emptyList();
+    this(container, null);
   }
 
   public TestDescriptorWrapper(TestDescriptor testDescriptor, TestDescriptorWrapper container) {

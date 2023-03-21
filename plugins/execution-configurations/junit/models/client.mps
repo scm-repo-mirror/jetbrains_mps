@@ -18936,34 +18936,12 @@
       <node concept="3cqZAl" id="2BZ01qYPg2N" role="3clF45" />
       <node concept="3Tm1VV" id="2BZ01qYPg2O" role="1B3o_S" />
       <node concept="3clFbS" id="2BZ01qYPg2P" role="3clF47">
-        <node concept="3clFbF" id="2BZ01qYPnBS" role="3cqZAp">
-          <node concept="37vLTI" id="2BZ01qYPnBT" role="3clFbG">
-            <node concept="37vLTw" id="2BZ01qYPnBU" role="37vLTJ">
-              <ref role="3cqZAo" node="2BZ01qXxAnf" resolve="myTestSource" />
-            </node>
-            <node concept="37vLTw" id="2BZ01qYPnBV" role="37vLTx">
-              <ref role="3cqZAo" node="2BZ01qYPmIo" resolve="container" />
-            </node>
+        <node concept="1VxSAg" id="4_xpF35SSfm" role="3cqZAp">
+          <ref role="37wK5l" node="2BZ01qXx_iH" resolve="TestDescriptorWrapper" />
+          <node concept="37vLTw" id="4_xpF35ST3d" role="37wK5m">
+            <ref role="3cqZAo" node="2BZ01qYPmIo" resolve="container" />
           </node>
-        </node>
-        <node concept="3clFbF" id="2BZ01qYPpaa" role="3cqZAp">
-          <node concept="37vLTI" id="2BZ01qYPpDh" role="3clFbG">
-            <node concept="10Nm6u" id="2BZ01qYPpXL" role="37vLTx" />
-            <node concept="37vLTw" id="2BZ01qYPpa8" role="37vLTJ">
-              <ref role="3cqZAo" node="2BZ01qXyCIa" resolve="myTestCase" />
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="2BZ01qYPqHO" role="3cqZAp">
-          <node concept="37vLTI" id="2BZ01qYPsHS" role="3clFbG">
-            <node concept="2YIFZM" id="2BZ01qYPu01" role="37vLTx">
-              <ref role="37wK5l" to="33ny:~Collections.emptyList()" resolve="emptyList" />
-              <ref role="1Pybhc" to="33ny:~Collections" resolve="Collections" />
-            </node>
-            <node concept="37vLTw" id="2BZ01qYPqHM" role="37vLTJ">
-              <ref role="3cqZAo" node="2BZ01qXzSBt" resolve="myTestMethods" />
-            </node>
-          </node>
+          <node concept="10Nm6u" id="4_xpF35ST6e" role="37wK5m" />
         </node>
       </node>
       <node concept="37vLTG" id="2BZ01qYPmIo" role="3clF46">
