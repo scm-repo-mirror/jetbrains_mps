@@ -532,13 +532,13 @@ public abstract class AbstractModule extends SModuleBase implements EditableSMod
   }
 
   private void createAndLoadFacet(FacetFactory factory, Memento memento) {
-    if (factory.isApplicable(this)) {
-      SModuleFacet facet = factory.create(this);
-      facet = loadAndAttachIfNeeded(facet, memento);
-      myFacets.add(facet);
-    } else {
-      LOG.error("This module is not applicable for the facet factory '" + factory + "'", new IllegalStateException());
+    if (!factory.isApplicable(this)) {
+      LOG.warning(String.format("Facet factory '%s' can't handle module %s", factory, getModuleName()));
+      // still, if facet is there, create it to facilitate removal from UI
     }
+    SModuleFacet facet = factory.create(this);
+    facet = loadAndAttachIfNeeded(facet, memento);
+    myFacets.add(facet);
   }
 
   private void clearFacets() {
