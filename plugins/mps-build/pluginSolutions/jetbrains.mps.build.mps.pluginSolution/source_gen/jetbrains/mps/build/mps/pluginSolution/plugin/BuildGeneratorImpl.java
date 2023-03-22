@@ -53,6 +53,8 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.build.mps.util.ModuleLoader;
 import jetbrains.mps.messages.LogHandler;
 import jetbrains.mps.build.mps.util.ModuleChecker;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.build.behavior.BuildSourcePath__BehaviorDescriptor;
 import jetbrains.mps.build.startup.util.DefaultStartupScript;
 import java.util.Iterator;
 import java.util.HashMap;
@@ -398,6 +400,17 @@ public class BuildGeneratorImpl extends AbstractBuildGenerator {
 
     SNode macosZip = _quotation_createNode_un708i_a0mb0bb(SPropertyOperations.getString(buildProject, PROPS.name$MnvL), buildNumber, SLinkOperations.getTarget(buildProject, LINKS.layout$r7bw), convertToMacroRelative(_quotation_createNode_un708i_a0a0b1a0a0a83a72(), mpsHomeMacro), convertToMacroRelative(_quotation_createNode_un708i_a0a0a3a0a0a83a72(), mpsHomeMacro), scriptName, infoPlistMac, version, buildNumber, convertToMacroRelative(_quotation_createNode_un708i_a0a0a1g0a0a0mb0bb(), mpsHomeMacro), convertToMacroRelative(_quotation_createNode_un708i_a0a0a3g0a0a0mb0bb(), mpsHomeMacro), convertToMacroRelative(_quotation_createNode_un708i_a0a0a5g0a0a0mb0bb(), mpsHomeMacro), vmoptions64, scriptName + "64.vmoptions", scriptName + ".vmoptions", convertToMacroRelative(_quotation_createNode_un708i_a0a0a0h0a0a0mb0bb(), mpsHomeMacro), convertToMacroRelative(_quotation_createNode_un708i_a0a0a0i0a0a0mb0bb(), mpsHomeMacro), SPropertyOperations.getString(buildProject, PROPS.name$MnvL) + " ", version);
     ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(buildStandalone, LINKS.layout$r7bw), LINKS.children$aMRO)).addElement(macosZip);
+
+    // Copy macroZip and tune it for M1
+    SNode macosAarch64Zip = SNodeOperations.copyNode(macosZip);
+    SLinkOperations.setTarget(macosAarch64Zip, LINKS.containerName$ES_Y, _quotation_createNode_un708i_a0rb0bb(SPropertyOperations.getString(buildProject, PROPS.name$MnvL), buildNumber));
+    SLinkOperations.setTarget(ListSequence.fromList(SNodeOperations.getNodeDescendants(macosAarch64Zip, CONCEPTS.BuildLayout_File$Kk, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
+      public boolean accept(SNode it) {
+        return BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(it, LINKS.path$xmoo)).contains("jna/amd64/libjnidispatch.jnilib");
+      }
+    }).first(), LINKS.path$xmoo, convertToMacroRelative(_quotation_createNode_un708i_a0a44a72(), mpsHomeMacro));
+    ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(buildStandalone, LINKS.layout$r7bw), LINKS.children$aMRO)).addElement(macosAarch64Zip);
+
 
     SModelOperations.addRootNode(targetSModel, buildStandalone);
     return buildStandalone;
@@ -2309,6 +2322,58 @@ public class BuildGeneratorImpl extends AbstractBuildGenerator {
     quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x65997a657729f6fbL, 0x65997a65772aebcbL, "compositePart"), quotedNode_2);
     return quotedNode_1;
   }
+  private static SNode _quotation_createNode_un708i_a0rb0bb(Object parameter_1, Object parameter_2) {
+    SNode quotedNode_3 = null;
+    SNode quotedNode_4 = null;
+    SNode quotedNode_5 = null;
+    SNode quotedNode_6 = null;
+    SNode quotedNode_7 = null;
+    SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, "jetbrains.mps.build"), 0xbabdfbeee17fe57L, "BuildStringNotEmpty"));
+    quotedNode_3 = nb.getResult();
+    SNodeBuilder nb1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, "jetbrains.mps.build"), 0x440d7ea3b68b7d03L, "BuildTextStringPart"));
+    quotedNode_4 = nb1.getResult();
+    SNodeAccessUtil.setPropertyValue(quotedNode_4, MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d03L, 0x440d7ea3b68c4d56L, "text"), (String) parameter_1);
+    quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3cca41cd0fe51d4fL, 0x440d7ea3b68cba4bL, "parts"), quotedNode_4);
+    SNodeBuilder nb2 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, "jetbrains.mps.build"), 0x440d7ea3b68b7d03L, "BuildTextStringPart"));
+    quotedNode_5 = nb2.getResult();
+    nb2.setProperty(MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d03L, 0x440d7ea3b68c4d56L, "text"), "-");
+    quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3cca41cd0fe51d4fL, 0x440d7ea3b68cba4bL, "parts"), quotedNode_5);
+    SNodeBuilder nb3 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, "jetbrains.mps.build"), 0x440d7ea3b68b7d01L, "BuildVarRefStringPart"));
+    quotedNode_6 = nb3.getResult();
+    SNodeAccessUtil.setReferenceTarget(quotedNode_6, MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d01L, 0x440d7ea3b68b7d02L, "macro"), (SNode) parameter_2);
+    quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3cca41cd0fe51d4fL, 0x440d7ea3b68cba4bL, "parts"), quotedNode_6);
+    SNodeBuilder nb4 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, "jetbrains.mps.build"), 0x440d7ea3b68b7d03L, "BuildTextStringPart"));
+    quotedNode_7 = nb4.getResult();
+    nb4.setProperty(MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d03L, 0x440d7ea3b68c4d56L, "text"), "-macos-aarch64.zip");
+    quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3cca41cd0fe51d4fL, 0x440d7ea3b68cba4bL, "parts"), quotedNode_7);
+    return quotedNode_3;
+  }
+  private static SNode _quotation_createNode_un708i_a0a44a72() {
+    SNode quotedNode_1 = null;
+    SNode quotedNode_2 = null;
+    SNode quotedNode_3 = null;
+    SNode quotedNode_4 = null;
+    SNode quotedNode_5 = null;
+    SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, "jetbrains.mps.build"), 0x4c12642949048fb2L, "BuildSourceProjectRelativePath"));
+    quotedNode_1 = nb.getResult();
+    SNodeBuilder nb1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, "jetbrains.mps.build"), 0x779c6e65c01467f1L, "BuildCompositePath"));
+    quotedNode_2 = nb1.getResult();
+    nb1.setProperty(MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f3L, "head"), "lib");
+    SNodeBuilder nb2 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, "jetbrains.mps.build"), 0x779c6e65c01467f1L, "BuildCompositePath"));
+    quotedNode_3 = nb2.getResult();
+    nb2.setProperty(MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f3L, "head"), "jna");
+    SNodeBuilder nb3 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, "jetbrains.mps.build"), 0x779c6e65c01467f1L, "BuildCompositePath"));
+    quotedNode_4 = nb3.getResult();
+    nb3.setProperty(MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f3L, "head"), "aarch64");
+    SNodeBuilder nb4 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, "jetbrains.mps.build"), 0x779c6e65c01467f1L, "BuildCompositePath"));
+    quotedNode_5 = nb4.getResult();
+    nb4.setProperty(MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f3L, "head"), "libjnidispatch.jnilib");
+    quotedNode_4.addChild(MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f2L, "tail"), quotedNode_5);
+    quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f2L, "tail"), quotedNode_4);
+    quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f2L, "tail"), quotedNode_3);
+    quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x65997a657729f6fbL, 0x65997a65772aebcbL, "compositePart"), quotedNode_2);
+    return quotedNode_1;
+  }
   private static SNode _quotation_createNode_un708i_a0a5a63(Object parameter_1) {
     SNode quotedNode_2 = null;
     SNode quotedNode_3 = null;
@@ -2389,6 +2454,8 @@ public class BuildGeneratorImpl extends AbstractBuildGenerator {
     /*package*/ static final SContainmentLink layout$r7bw = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a1cL, "layout");
     /*package*/ static final SContainmentLink children$aMRO = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4140393b234482c3L, 0x668c6cfbafac4c8eL, "children");
     /*package*/ static final SReferenceLink macro$zsHz = MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d01L, 0x440d7ea3b68b7d02L, "macro");
+    /*package*/ static final SContainmentLink containerName$ES_Y = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac7f8cL, 0x3cca41cd0fe75496L, "containerName");
+    /*package*/ static final SContainmentLink path$xmoo = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x7ea63ceef6e8c0edL, 0x7ea63ceef6e8c11aL, "path");
     /*package*/ static final SReferenceLink branding$Eg1g = MetaAdapterFactory.getReferenceLink(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b3437508L, 0x30a61e6d55f6abc9L, "branding");
     /*package*/ static final SContainmentLink tail$$gpz = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f2L, "tail");
     /*package*/ static final SContainmentLink compositePart$blMW = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x65997a657729f6fbL, 0x65997a65772aebcbL, "compositePart");
@@ -2399,6 +2466,7 @@ public class BuildGeneratorImpl extends AbstractBuildGenerator {
     /*package*/ static final SConcept BuildFolderMacro$mR = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafadd002L, "jetbrains.mps.build.structure.BuildFolderMacro");
     /*package*/ static final SConcept BuildVariableMacro$Rk = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3449288aa0d560e2L, "jetbrains.mps.build.structure.BuildVariableMacro");
     /*package*/ static final SConcept Solution$zo = MetaAdapterFactory.getConcept(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe20L, "jetbrains.mps.lang.project.structure.Solution");
+    /*package*/ static final SConcept BuildLayout_File$Kk = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x7ea63ceef6e8c0edL, "jetbrains.mps.build.structure.BuildLayout_File");
     /*package*/ static final SConcept BuildMps_Branding$M0 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6b9a2011083b778dL, "jetbrains.mps.build.mps.structure.BuildMps_Branding");
   }
 }
