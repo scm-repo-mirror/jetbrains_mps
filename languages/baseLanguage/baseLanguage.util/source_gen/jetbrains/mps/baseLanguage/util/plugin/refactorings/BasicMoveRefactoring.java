@@ -30,7 +30,7 @@ public class BasicMoveRefactoring {
     this.createCopy();
     MoveRefactoringUtils.updateImportsAfterModelChange(this.myReplacing);
     for (SearchResult<SNode> result : ListSequence.fromList(this.myUsages.getSearchResults())) {
-      // accomodate for non-MPS usages (e.g. in plugin)
+      // accommodate for non-MPS usages (e.g. in plugin)
       // TODO (not sure if it's a good solution)
       if (result.getObject() == null) {
         continue;
