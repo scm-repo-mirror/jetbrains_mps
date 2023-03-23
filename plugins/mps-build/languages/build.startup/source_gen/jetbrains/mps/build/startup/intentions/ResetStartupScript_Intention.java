@@ -58,7 +58,7 @@ public final class ResetStartupScript_Intention extends AbstractIntentionDescrip
 
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      return "Reset ClassPath and VM Options to default";
+      return "Reset Classpath and VM Options to match the current MPS version";
     }
 
     @Override
