@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package jetbrains.mps.idea.core.psi.impl;
 
 import com.intellij.lang.FileASTNode;
@@ -220,8 +219,16 @@ public class MPSPsiRootNode extends MPSPsiNodeBase implements PsiFile, PsiBinary
 
   @Override
   public boolean isPhysical() {
-    // Honestly check that file is physical - per root RootNode will return true
-    return this.getVirtualFile() != null && !this.getVirtualFile().equals(myModel.getSourceVirtualFile());
+    // return this.getVirtualFile() != null && !this.getVirtualFile().equals(myModel.getSourceVirtualFile());
+    // XXX there's a long story for this method. Initially, unconditional 'true',
+    // then (7e10f696) true only for a root in per-root persistence,
+    // and now unconditionally false. FileViewProvider.isPhysical() javadoc suggests
+    // "...PsiFile.isPhysical() which (for historical reasons) returns getViewProvider().isEventSystemEnabled()"
+    // therefore we stick to MPSNodeFileViewProvider.EVENT_SYSTEM_ENABLED value.
+    // If there's a need to answer true in case if per-root nodes (no idea what's reasoning behind 7e10f696 change),
+    // likely, we'd need to modify MPSNodeFileViewProvider as well (e.g. FVP.isPhysical() to match this method or
+    // even to modify FVP.isEventSystemEnabled().
+    return false;
   }
 
   @Override
