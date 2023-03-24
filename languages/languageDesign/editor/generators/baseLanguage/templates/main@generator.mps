@@ -40118,7 +40118,7 @@
                   </node>
                 </node>
                 <node concept="liA8E" id="6h2HJsdZbIV" role="2OqNvi">
-                  <ref role="37wK5l" to="qtqj:~SimpleConceptSubstituteMenuPart.createItems(jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuContext)" resolve="createItems" />
+                  <ref role="37wK5l" to="qtqj:~SubstituteMenuTracePart.createItems(jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuContext)" resolve="createItems" />
                   <node concept="37vLTw" id="68HoNdDZ8WS" role="37wK5m">
                     <ref role="3cqZAo" node="3no4VMf75CQ" resolve="_context" />
                   </node>
@@ -40452,7 +40452,7 @@
                   <node concept="1Y3b0j" id="6HyqU7awhoN" role="YeSDq">
                     <property role="2bfB8j" value="true" />
                     <ref role="1Y3XeK" to="qtqj:~SubstituteMenuItemWrapper" resolve="SubstituteMenuItemWrapper" />
-                    <ref role="37wK5l" to="qtqj:~SubstituteMenuItemWrapper.&lt;init&gt;(jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuItem)" resolve="SubstituteMenuItemWrapper" />
+                    <ref role="37wK5l" to="qtqj:~SubstituteMenuItemWrapper.&lt;init&gt;(jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuItem,jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuContext)" resolve="SubstituteMenuItemWrapper" />
                     <node concept="312cEg" id="3wUrfbnvEM0" role="jymVt">
                       <property role="34CwA1" value="false" />
                       <property role="eg7rD" value="false" />
@@ -40464,6 +40464,9 @@
                     <node concept="3Tm1VV" id="6HyqU7awhoO" role="1B3o_S" />
                     <node concept="37vLTw" id="6HyqU7awh6d" role="37wK5m">
                       <ref role="3cqZAo" node="5N5pDMJWo4r" resolve="item" />
+                    </node>
+                    <node concept="37vLTw" id="5$JSj_IQ6sj" role="37wK5m">
+                      <ref role="3cqZAo" node="6HFUSydsMsv" resolve="_context" />
                     </node>
                     <node concept="2tJIrI" id="6HyqU7awhJG" role="jymVt" />
                     <node concept="3clFb_" id="CH8DZ9IwWb" role="jymVt">
@@ -40667,147 +40670,6 @@
                       </node>
                     </node>
                     <node concept="2tJIrI" id="2Ij5G2ptaMG" role="jymVt" />
-                    <node concept="3clFb_" id="4i9$UZ8gAIY" role="jymVt">
-                      <property role="TrG5h" value="customize" />
-                      <node concept="3Tm1VV" id="4i9$UZ8gAIZ" role="1B3o_S" />
-                      <node concept="3cqZAl" id="4i9$UZ8gAJ1" role="3clF45" />
-                      <node concept="37vLTG" id="4i9$UZ8gAJ2" role="3clF46">
-                        <property role="TrG5h" value="pattern" />
-                        <node concept="3uibUv" id="4i9$UZ8gAJ3" role="1tU5fm">
-                          <ref role="3uigEE" to="wyt6:~String" resolve="String" />
-                        </node>
-                      </node>
-                      <node concept="37vLTG" id="4i9$UZ8gAJ4" role="3clF46">
-                        <property role="TrG5h" value="style" />
-                        <node concept="3uibUv" id="4eAMmxrh7$H" role="1tU5fm">
-                          <ref role="3uigEE" to="av1m:~EditorMenuItemStyle" resolve="EditorMenuItemStyle" />
-                        </node>
-                      </node>
-                      <node concept="3clFbS" id="4i9$UZ8gAJ7" role="3clF47">
-                        <node concept="3clFbF" id="4i9$UZ8gYGS" role="3cqZAp">
-                          <node concept="3nyPlj" id="4i9$UZ8gYGQ" role="3clFbG">
-                            <ref role="37wK5l" to="qtqj:~SubstituteMenuItemWrapper.customize(java.lang.String,jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle)" resolve="customize" />
-                            <node concept="37vLTw" id="4i9$UZ8h1Ve" role="37wK5m">
-                              <ref role="3cqZAo" node="4i9$UZ8gAJ2" resolve="pattern" />
-                            </node>
-                            <node concept="37vLTw" id="4i9$UZ8h2Ie" role="37wK5m">
-                              <ref role="3cqZAo" node="4i9$UZ8gAJ4" resolve="style" />
-                            </node>
-                          </node>
-                        </node>
-                        <node concept="3cpWs8" id="4i9$UZ8gOqE" role="3cqZAp">
-                          <node concept="3cpWsn" id="4i9$UZ8gOqF" role="3cpWs9">
-                            <property role="TrG5h" value="creatingContext" />
-                            <node concept="3uibUv" id="4eAMmxrg5K7" role="1tU5fm">
-                              <ref role="3uigEE" to="qtqj:~SubstituteMenuContextToEditorMenuItemCreatingCustomizationContext" resolve="SubstituteMenuContextToEditorMenuItemCreatingCustomizationContext" />
-                            </node>
-                            <node concept="2ShNRf" id="4i9$UZ8gOqH" role="33vP2m">
-                              <node concept="1pGfFk" id="4i9$UZ8gOqI" role="2ShVmc">
-                                <ref role="37wK5l" to="qtqj:~SubstituteMenuContextToEditorMenuItemCreatingCustomizationContext.&lt;init&gt;(jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuContext,org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="SubstituteMenuContextToEditorMenuItemCreatingCustomizationContext" />
-                                <node concept="37vLTw" id="4i9$UZ8gOqJ" role="37wK5m">
-                                  <ref role="3cqZAo" node="6HFUSydsMsv" resolve="_context" />
-                                </node>
-                                <node concept="1rXfSq" id="4i9$UZ8gOqK" role="37wK5m">
-                                  <ref role="37wK5l" node="CH8DZ9IwWb" resolve="getOutputConcept" />
-                                </node>
-                              </node>
-                            </node>
-                          </node>
-                        </node>
-                        <node concept="3cpWs8" id="4i9$UZ8gOqL" role="3cqZAp">
-                          <node concept="3cpWsn" id="4i9$UZ8gOqM" role="3cpWs9">
-                            <property role="TrG5h" value="modifyingContext" />
-                            <node concept="3uibUv" id="4eAMmxrgoAZ" role="1tU5fm">
-                              <ref role="3uigEE" to="qtqj:~SubstituteMenuContextToEditorMenuItemModifyingCustomizationContext" resolve="SubstituteMenuContextToEditorMenuItemModifyingCustomizationContext" />
-                            </node>
-                            <node concept="2ShNRf" id="4i9$UZ8gOqO" role="33vP2m">
-                              <node concept="1pGfFk" id="4i9$UZ8gOqP" role="2ShVmc">
-                                <ref role="37wK5l" to="qtqj:~SubstituteMenuContextToEditorMenuItemModifyingCustomizationContext.&lt;init&gt;(jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuContext)" resolve="SubstituteMenuContextToEditorMenuItemModifyingCustomizationContext" />
-                                <node concept="37vLTw" id="4i9$UZ8gOqQ" role="37wK5m">
-                                  <ref role="3cqZAo" node="6HFUSydsMsv" resolve="_context" />
-                                </node>
-                              </node>
-                            </node>
-                          </node>
-                        </node>
-                        <node concept="3cpWs8" id="4i9$UZ8gOqR" role="3cqZAp">
-                          <node concept="3cpWsn" id="4i9$UZ8gOqS" role="3cpWs9">
-                            <property role="TrG5h" value="compositeContext" />
-                            <node concept="3uibUv" id="4eAMmxrgABR" role="1tU5fm">
-                              <ref role="3uigEE" to="la43:~EditorMenuItemCompositeCustomizationContext" resolve="EditorMenuItemCompositeCustomizationContext" />
-                            </node>
-                            <node concept="2ShNRf" id="4i9$UZ8gOqU" role="33vP2m">
-                              <node concept="1pGfFk" id="4i9$UZ8gOqV" role="2ShVmc">
-                                <ref role="37wK5l" to="la43:~EditorMenuItemCompositeCustomizationContext.&lt;init&gt;(jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizationContext...)" resolve="EditorMenuItemCompositeCustomizationContext" />
-                                <node concept="37vLTw" id="4i9$UZ8gOqW" role="37wK5m">
-                                  <ref role="3cqZAo" node="4i9$UZ8gOqM" resolve="modifyingContext" />
-                                </node>
-                                <node concept="37vLTw" id="4i9$UZ8gOqX" role="37wK5m">
-                                  <ref role="3cqZAo" node="4i9$UZ8gOqF" resolve="creatingContext" />
-                                </node>
-                                <node concept="2ShNRf" id="6MqJAGngLL_" role="37wK5m">
-                                  <node concept="1pGfFk" id="6MqJAGngPYx" role="2ShVmc">
-                                    <ref role="37wK5l" to="fulz:6MqJAGngj81" resolve="CompletionMenuItemCustomizationContext" />
-                                    <node concept="2ShNRf" id="6MqJAGngQ3S" role="37wK5m">
-                                      <node concept="1pGfFk" id="4i9$UZ8gOr7" role="2ShVmc">
-                                        <ref role="37wK5l" to="fulz:6MqJAGngexB" resolve="CompletionItemInformation" />
-                                        <node concept="10Nm6u" id="4i9$UZ8gOr8" role="37wK5m" />
-                                        <node concept="1rXfSq" id="4i9$UZ8gOr9" role="37wK5m">
-                                          <ref role="37wK5l" node="CH8DZ9IwWb" resolve="getOutputConcept" />
-                                        </node>
-                                        <node concept="1rXfSq" id="4i9$UZ8gOra" role="37wK5m">
-                                          <ref role="37wK5l" to="qtqj:~SubstituteMenuItemWrapper.getMatchingText(java.lang.String)" resolve="getMatchingText" />
-                                          <node concept="37vLTw" id="4i9$UZ8gOrb" role="37wK5m">
-                                            <ref role="3cqZAo" node="4i9$UZ8gAJ2" resolve="pattern" />
-                                          </node>
-                                        </node>
-                                        <node concept="1rXfSq" id="4i9$UZ8gOrc" role="37wK5m">
-                                          <ref role="37wK5l" to="qtqj:~SubstituteMenuItemWrapper.getDescriptionText(java.lang.String)" resolve="getDescriptionText" />
-                                          <node concept="37vLTw" id="4i9$UZ8gOrd" role="37wK5m">
-                                            <ref role="3cqZAo" node="4i9$UZ8gAJ2" resolve="pattern" />
-                                          </node>
-                                        </node>
-                                      </node>
-                                    </node>
-                                  </node>
-                                </node>
-                              </node>
-                            </node>
-                          </node>
-                        </node>
-                        <node concept="2Gpval" id="6MqJAGnOspk" role="3cqZAp">
-                          <node concept="2GrKxI" id="6MqJAGnOspm" role="2Gsz3X">
-                            <property role="TrG5h" value="customizer" />
-                          </node>
-                          <node concept="2OqwBi" id="6MqJAGnOuim" role="2GsD0m">
-                            <node concept="37vLTw" id="6MqJAGnOtDN" role="2Oq$k0">
-                              <ref role="3cqZAo" node="6HFUSydsMsv" resolve="_context" />
-                            </node>
-                            <node concept="liA8E" id="6MqJAGnO$Jn" role="2OqNvi">
-                              <ref role="37wK5l" to="78sh:~SubstituteMenuContext.getCustomizers()" resolve="getCustomizers" />
-                            </node>
-                          </node>
-                          <node concept="3clFbS" id="6MqJAGnOspq" role="2LFqv$">
-                            <node concept="3clFbF" id="6MqJAGnOBSN" role="3cqZAp">
-                              <node concept="2OqwBi" id="6MqJAGnOCiL" role="3clFbG">
-                                <node concept="2GrUjf" id="6MqJAGnOBSM" role="2Oq$k0">
-                                  <ref role="2Gs0qQ" node="6MqJAGnOspm" resolve="customizer" />
-                                </node>
-                                <node concept="liA8E" id="6MqJAGnOCNH" role="2OqNvi">
-                                  <ref role="37wK5l" to="av1m:~EditorMenuItemCustomizer.customize(jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle,jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizationContext)" resolve="customize" />
-                                  <node concept="37vLTw" id="4i9$UZ8haRI" role="37wK5m">
-                                    <ref role="3cqZAo" node="4i9$UZ8gAJ4" resolve="style" />
-                                  </node>
-                                  <node concept="37vLTw" id="6MqJAGngRMQ" role="37wK5m">
-                                    <ref role="3cqZAo" node="4i9$UZ8gOqS" resolve="compositeContext" />
-                                  </node>
-                                </node>
-                              </node>
-                            </node>
-                          </node>
-                        </node>
-                      </node>
-                    </node>
                     <node concept="2tJIrI" id="6HFUSydxVQi" role="jymVt">
                       <node concept="2b32R4" id="6HFUSydxVQj" role="lGtFl">
                         <node concept="3JmXsc" id="6HFUSydxVQk" role="2P8S$">
