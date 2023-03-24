@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.lang.editor.menus.substitute;
 
+import jetbrains.mps.openapi.editor.menus.EditorMenuDescriptor;
 import jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuContext;
 import jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuItem;
 import jetbrains.mps.smodel.adapter.MetaAdapterByDeclaration;
@@ -29,16 +30,36 @@ import java.util.List;
  * @author simon
  */
 public class SimpleConceptSubstituteMenuPart implements SubstituteMenuPart {
-  @NotNull
-  private SConcept myConcept;
+  private final SConcept myConcept;
+  private final EditorMenuDescriptor myMenuDescriptor;
 
   public SimpleConceptSubstituteMenuPart(@NotNull SAbstractConcept concept) {
     myConcept = MetaAdapterByDeclaration.asInstanceConcept(concept);
+    myMenuDescriptor = null;
+  }
+
+  // @since 2023.1
+  public SimpleConceptSubstituteMenuPart(@NotNull SAbstractConcept concept, @NotNull EditorMenuDescriptor emd) {
+    myConcept = MetaAdapterByDeclaration.asInstanceConcept(concept);
+    myMenuDescriptor = emd;
   }
 
   @NotNull
   @Override
   public List<SubstituteMenuItem> createItems(SubstituteMenuContext context) {
+    if (myMenuDescriptor == null) {
+      return doCreateItems(context);
+    }
+    context.getEditorMenuTrace().pushTraceInfo();
+    context.getEditorMenuTrace().setDescriptor(myMenuDescriptor);
+    try {
+      return doCreateItems(context);
+    } finally {
+      context.getEditorMenuTrace().popTraceInfo();
+    }
+  }
+
+  private List<SubstituteMenuItem> doCreateItems(SubstituteMenuContext context) {
     return Collections.singletonList(new DefaultSubstituteMenuItem(myConcept, context));
   }
 }
