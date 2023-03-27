@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.smodel.runtime;
 
-import org.jetbrains.mps.openapi.language.SEnumerationLiteral;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.model.SNode;
 
@@ -27,13 +26,7 @@ public interface PropertyConstraintsDescriptor {
 
   Object getValue(SNode node);
 
-@Deprecated(since = "2019.2", forRemoval = true)
-  void setValue(SNode node, String value);
-
   void setPropertyValue(SNode node, Object value);
-
-@Deprecated(since = "2019.2", forRemoval = true)
-  boolean validateValue(SNode node, String value);
 
   boolean validateValue(SNode node, Object value, CheckingNodeContext checkingNodeContext);
 

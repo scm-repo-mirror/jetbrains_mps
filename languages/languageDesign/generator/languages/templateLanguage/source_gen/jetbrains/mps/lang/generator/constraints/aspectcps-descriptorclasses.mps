@@ -8381,7 +8381,7 @@
         <node concept="3clFbS" id="$0" role="3clF47">
           <uo k="s:originTrace" v="n:5858775738865267759" />
           <node concept="XkiVB" id="$2" role="3cqZAp">
-            <ref role="37wK5l" to="79pl:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor)" resolve="BasePropertyConstraintsDescriptor" />
+            <ref role="37wK5l" to="79pl:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean,boolean)" resolve="BasePropertyConstraintsDescriptor" />
             <uo k="s:originTrace" v="n:5858775738865267759" />
             <node concept="1BaE9c" id="$3" role="37wK5m">
               <property role="1ouuDV" value="PROPS" />

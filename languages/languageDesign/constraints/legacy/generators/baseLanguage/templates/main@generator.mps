@@ -2314,7 +2314,7 @@
         <node concept="3Tm1VV" id="5KWsMXTLwOA" role="1B3o_S" />
         <node concept="3clFbS" id="5KWsMXTLwOC" role="3clF47">
           <node concept="XkiVB" id="5KWsMXTLwOE" role="3cqZAp">
-            <ref role="37wK5l" to="79pl:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor)" resolve="BasePropertyConstraintsDescriptor" />
+            <ref role="37wK5l" to="79pl:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean,boolean)" resolve="BasePropertyConstraintsDescriptor" />
             <node concept="10Nm6u" id="5KWsMXTLD$k" role="37wK5m">
               <node concept="5jKBG" id="5KWsMXTLD$l" role="lGtFl">
                 <ref role="v9R2y" to="tp27:5DcBNiM88Ty" resolve="reduce_PropertyDeclaration_SProperty" />

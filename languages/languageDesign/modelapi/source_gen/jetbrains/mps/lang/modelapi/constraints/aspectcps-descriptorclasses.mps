@@ -557,7 +557,7 @@
         <node concept="3clFbS" id="1_" role="3clF47">
           <uo k="s:originTrace" v="n:9051222292532458376" />
           <node concept="XkiVB" id="1B" role="3cqZAp">
-            <ref role="37wK5l" to="79pl:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor)" resolve="BasePropertyConstraintsDescriptor" />
+            <ref role="37wK5l" to="79pl:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean,boolean)" resolve="BasePropertyConstraintsDescriptor" />
             <uo k="s:originTrace" v="n:9051222292532458376" />
             <node concept="1BaE9c" id="1C" role="37wK5m">
               <property role="1ouuDV" value="PROPS" />
@@ -1027,7 +1027,7 @@
         <node concept="3clFbS" id="3$" role="3clF47">
           <uo k="s:originTrace" v="n:2465383939051667936" />
           <node concept="XkiVB" id="3A" role="3cqZAp">
-            <ref role="37wK5l" to="79pl:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor)" resolve="BasePropertyConstraintsDescriptor" />
+            <ref role="37wK5l" to="79pl:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean,boolean)" resolve="BasePropertyConstraintsDescriptor" />
             <uo k="s:originTrace" v="n:2465383939051667936" />
             <node concept="1BaE9c" id="3B" role="37wK5m">
               <property role="1ouuDV" value="PROPS" />
@@ -1524,7 +1524,7 @@
         <node concept="3clFbS" id="5F" role="3clF47">
           <uo k="s:originTrace" v="n:2465383939051678275" />
           <node concept="XkiVB" id="5H" role="3cqZAp">
-            <ref role="37wK5l" to="79pl:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor)" resolve="BasePropertyConstraintsDescriptor" />
+            <ref role="37wK5l" to="79pl:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean,boolean)" resolve="BasePropertyConstraintsDescriptor" />
             <uo k="s:originTrace" v="n:2465383939051678275" />
             <node concept="1BaE9c" id="5I" role="37wK5m">
               <property role="1ouuDV" value="PROPS" />
@@ -2826,7 +2826,7 @@
         <node concept="3clFbS" id="bj" role="3clF47">
           <uo k="s:originTrace" v="n:2465383939051567974" />
           <node concept="XkiVB" id="bl" role="3cqZAp">
-            <ref role="37wK5l" to="79pl:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor)" resolve="BasePropertyConstraintsDescriptor" />
+            <ref role="37wK5l" to="79pl:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean,boolean)" resolve="BasePropertyConstraintsDescriptor" />
             <uo k="s:originTrace" v="n:2465383939051567974" />
             <node concept="1BaE9c" id="bm" role="37wK5m">
               <property role="1ouuDV" value="PROPS" />
