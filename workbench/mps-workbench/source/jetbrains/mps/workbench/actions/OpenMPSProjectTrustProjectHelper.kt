@@ -14,6 +14,7 @@ import com.intellij.openapi.ui.MessageDialogBuilder
 import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.util.NlsContexts
 import com.intellij.openapi.util.io.FileUtil
+import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.util.ThreeState
 import com.intellij.util.io.basicAttributesIfExists
 import jetbrains.mps.ide.ThreadUtils
@@ -24,12 +25,13 @@ import kotlinx.coroutines.withContext
 import java.nio.file.Path
 
 @Suppress("UnstableApiUsage")
-class OpenMPSProjectTrustProjectHelperK {
+object OpenMPSProjectTrustProjectHelper {
+
     /**
      * Checks whether the project can be trusted. Returns the result of the check.
      * @return True, if the project can be open
      */
-    suspend fun checkTrust(file: Path?): Boolean {
+    suspend fun checkTrustSuspend(file: Path?): Boolean {
         if (file == null) return false
 
         // A simplified check inspired by ProjectUtil.openProject() for file existence before we show a trust project dialog
@@ -109,9 +111,20 @@ class OpenMPSProjectTrustProjectHelperK {
         }
     }
 
-    fun checkTrustFromJava(file: Path): Boolean {
+    /**
+     * Checks whether the project can be trusted. Returns the result of the check.
+     * @return True, if the project can be open
+     */
+    @JvmStatic
+    fun checkTrust(virtualFile: VirtualFile): Boolean {
+        val file = Path.of(virtualFile.path)
+        return checkTrust(file)
+    }
+
+    @JvmStatic
+    fun checkTrust(file: Path): Boolean {
         return runBlocking {
-            checkTrust(file)
+            checkTrustSuspend(file)
         }
     }
 }

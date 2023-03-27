@@ -6,6 +6,7 @@ package jetbrains.mps.tool.environment;
 import com.intellij.openapi.application.Application;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ApplicationStarter;
+import jetbrains.mps.ide.util.PlatformStarter;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -37,8 +38,8 @@ public final class MPSHeadlessPlatformStarter implements ApplicationStarter {
     @NotNull
     /*package*/ Application createApp() {
       try {
-        Class.forName("jetbrains.mps.ide.util.PlatformStarter").getMethod("startApplicationAsync").invoke(null);
-//        PlatformStarter.startApplication();
+//        Class.forName("jetbrains.mps.ide.util.PlatformStarter").getMethod("startApplicationAsync").invoke(null);
+        PlatformStarter.startApplicationAsync();
       } catch (Exception e) {
         throw new RuntimeException("FAILED TO START CMDLINE IJ", e);
       }
