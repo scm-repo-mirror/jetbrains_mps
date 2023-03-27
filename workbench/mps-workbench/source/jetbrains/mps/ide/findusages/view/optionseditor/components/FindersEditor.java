@@ -15,10 +15,10 @@
  */
 package jetbrains.mps.ide.findusages.view.optionseditor.components;
 
-import com.intellij.icons.AllIcons.Nodes;
 import com.intellij.ui.IdeBorderFactory;
 import com.intellij.ui.components.JBCheckBox;
 import com.intellij.ui.components.JBLabel;
+import jetbrains.mps.icons.MPSIcons.Nodes;
 import jetbrains.mps.ide.findusages.FindersManager;
 import jetbrains.mps.ide.findusages.findalgorithm.finders.IInterfacedFinder;
 import jetbrains.mps.ide.findusages.view.optionseditor.options.FindersOptions;
@@ -32,8 +32,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import javax.swing.event.MenuKeyEvent;
 import java.awt.Cursor;
 import java.awt.event.KeyAdapter;
@@ -101,7 +99,7 @@ public class FindersEditor extends BaseEditor<FindersOptions> {
           }
         });
 
-        JBLabel goToFinderLabel = new JBLabel(Nodes.Symlink, JLabel.CENTER);
+        JBLabel goToFinderLabel = new JBLabel(Nodes.Unknown, JLabel.CENTER);
         goToFinderLabel.setBorder(BorderFactory.createEmptyBorder());
         goToFinderLabel.setFocusable(false);
         goToFinderLabel.setToolTipText("Go to finder declaration");
