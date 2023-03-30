@@ -2095,7 +2095,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_TypeConstraint == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.shortDesc("type constraint");
-          cpb.rawPresentation("TypeConstraint");
+          cpb.presentationByReference(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af51cL, 0x6e77b7e7a88f6abeL, "parameter", "", "");
           props_TypeConstraint = cpb.create();
         }
         return props_TypeConstraint;

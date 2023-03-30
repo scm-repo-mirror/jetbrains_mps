@@ -3427,5 +3427,39 @@
       </node>
     </node>
   </node>
+  <node concept="1M2fIO" id="1ACpgrxdhBN">
+    <property role="3GE5qa" value="type.constraints" />
+    <ref role="1M2myG" to="hcm8:2yYXHtl6Jks" resolve="TypeConstraint" />
+    <node concept="1N5Pfh" id="1ACpgrxdhHC" role="1Mr941">
+      <ref role="1N5Vy1" to="hcm8:6TRHYuCzQEY" resolve="parameter" />
+      <node concept="3dgokm" id="1ACpgrxdhTj" role="1N6uqs">
+        <node concept="3clFbS" id="1ACpgrxdhTl" role="2VODD2">
+          <node concept="3cpWs6" id="1ACpgrxdjJi" role="3cqZAp">
+            <node concept="2ShNRf" id="1ACpgrxdjKw" role="3cqZAk">
+              <node concept="1pGfFk" id="1ACpgrxdk2w" role="2ShVmc">
+                <property role="373rjd" value="true" />
+                <ref role="37wK5l" to="6xgk:7lHSllLpTWM" resolve="NamedElementsScope" />
+                <node concept="2OqwBi" id="1ACpgrxdj1e" role="37wK5m">
+                  <node concept="2OqwBi" id="1ACpgrxdizZ" role="2Oq$k0">
+                    <node concept="2rP1CM" id="1ACpgrxdiom" role="2Oq$k0" />
+                    <node concept="2Xjw5R" id="1ACpgrxdiH0" role="2OqNvi">
+                      <node concept="1xMEDy" id="1ACpgrxdiH2" role="1xVPHs">
+                        <node concept="chp4Y" id="1ACpgrxdiL$" role="ri$Ld">
+                          <ref role="cht4Q" to="hcm8:2yYXHtlq$RP" resolve="ITypeParameters" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="3Tsc0h" id="1ACpgrxdjct" role="2OqNvi">
+                    <ref role="3TtcxE" to="hcm8:2yYXHtlq$RQ" resolve="typeParameters" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
 </model>
 

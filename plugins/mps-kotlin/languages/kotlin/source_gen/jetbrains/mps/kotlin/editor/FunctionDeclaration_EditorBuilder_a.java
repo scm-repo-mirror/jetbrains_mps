@@ -81,11 +81,15 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     editorCell.addEditorCell(createConstant_1());
     editorCell.addEditorCell(createComponent_3());
-    editorCell.addEditorCell(createComponent_4());
+    if (nodeCondition_en7q4l_a7a()) {
+      editorCell.addEditorCell(createComponent_4());
+    }
     editorCell.addEditorCell(createProperty_0());
     editorCell.addEditorCell(createComponent_5());
     editorCell.addEditorCell(createComponent_6());
-    editorCell.addEditorCell(createComponent_7());
+    if (nodeCondition_en7q4l_a11a()) {
+      editorCell.addEditorCell(createComponent_7());
+    }
     if (nodeCondition_en7q4l_a21a()) {
       editorCell.addEditorCell(createCollection_1());
     }
@@ -96,6 +100,12 @@ import org.jetbrains.mps.openapi.language.SConcept;
   }
   private boolean nodeCondition_en7q4l_a4a() {
     return ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.modifiers$XKtM)).isNotEmpty();
+  }
+  private boolean nodeCondition_en7q4l_a7a() {
+    return (SLinkOperations.getTarget(myNode, LINKS.receiverType$7yLT) != null);
+  }
+  private boolean nodeCondition_en7q4l_a11a() {
+    return ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.constraints$BRhr)).isNotEmpty();
   }
   private boolean nodeCondition_en7q4l_a21a() {
     return !((boolean) IInheritable__BehaviorDescriptor.isAbstract_id4KPNZIZDjbY.invoke(myNode));
@@ -275,6 +285,8 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink modifiers$XKtM = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af434L, 0x28bef6d75568d1adL, "modifiers");
+    /*package*/ static final SContainmentLink receiverType$7yLT = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7908c7f22L, 0x764202afbfc6bde5L, "receiverType");
+    /*package*/ static final SContainmentLink constraints$BRhr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d75568d269L, 0x28bef6d75568d26aL, "constraints");
   }
 
   private static final class CONCEPTS {
