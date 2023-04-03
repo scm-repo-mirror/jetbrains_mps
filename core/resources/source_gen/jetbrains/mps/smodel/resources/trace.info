@@ -294,35 +294,6 @@
       <unit id="5555789605584709649" at="15,0,52,0" name="jetbrains.mps.smodel.resources.FlatFilePropertiesIO" />
     </file>
   </root>
-  <root nodeRef="r:6ba2667b-185e-45cd-ac65-e4b9d66da28e(jetbrains.mps.smodel.resources)/695262645445911158">
-    <file name="CResource.java">
-      <node id="695262645445911158" at="11,22,12,12" concept="11" />
-      <node id="695262645445911158" at="14,42,15,19" concept="11" />
-      <node id="695262645446156181" at="17,51,18,27" concept="9" />
-      <node id="695262645446156181" at="20,33,21,22" concept="9" />
-      <node id="2708838034905939895" at="23,28,24,16" concept="9" />
-      <node id="695262645445911158" at="11,0,14,0" concept="2" trace="CResource#()V" />
-      <node id="695262645445911158" at="14,0,17,0" concept="2" trace="CResource#(Ljetbrains/mps/compiler/IClassesData;)V" />
-      <node id="695262645446156181" at="17,0,20,0" concept="7" trace="classes#(Ljetbrains/mps/compiler/IClassesData;)Ljetbrains/mps/compiler/IClassesData;" />
-      <node id="695262645446156181" at="20,0,23,0" concept="7" trace="classes#()Ljetbrains/mps/compiler/IClassesData;" />
-      <node id="2708838034905939890" at="23,0,26,0" concept="7" trace="describe#()Ljava/lang/String;" />
-      <scope id="695262645445911158" at="11,22,12,12" />
-      <scope id="695262645445911158" at="14,42,15,19" />
-      <scope id="695262645446156181" at="17,51,18,27" />
-      <scope id="695262645446156181" at="20,33,21,22" />
-      <scope id="2708838034905939893" at="23,28,24,16" />
-      <scope id="695262645445911158" at="11,0,14,0" />
-      <scope id="695262645445911158" at="14,0,17,0">
-        <var name="classes" id="695262645446156181" />
-      </scope>
-      <scope id="695262645446156181" at="17,0,20,0">
-        <var name="value" id="695262645446156181" />
-      </scope>
-      <scope id="695262645446156181" at="20,0,23,0" />
-      <scope id="2708838034905939890" at="23,0,26,0" />
-      <unit id="695262645445911158" at="9,0,27,0" name="jetbrains.mps.smodel.resources.CResource" />
-    </file>
-  </root>
   <root nodeRef="r:6ba2667b-185e-45cd-ac65-e4b9d66da28e(jetbrains.mps.smodel.resources)/7219626660275504879">
     <file name="ModelsToResources.java">
       <node id="3608835296802635819" at="23,0,24,0" concept="5" trace="models" />
@@ -473,13 +444,6 @@
       <unit id="3608835296802640727" at="57,19,151,9" name="jetbrains.mps.smodel.resources.ModelsToResources$2$1" />
       <unit id="3608835296802640727" at="55,139,153,5" name="jetbrains.mps.smodel.resources.ModelsToResources$2" />
       <unit id="7219626660275504879" at="21,0,160,0" name="jetbrains.mps.smodel.resources.ModelsToResources" />
-    </file>
-  </root>
-  <root nodeRef="r:6ba2667b-185e-45cd-ac65-e4b9d66da28e(jetbrains.mps.smodel.resources)/7544464876070881646">
-    <file name="ICResouce.java">
-      <node id="7544464876070881649" at="12,0,13,0" concept="7" trace="classes#()Ljetbrains/mps/compiler/IClassesData;" />
-      <scope id="7544464876070881649" at="12,0,13,0" />
-      <unit id="7544464876070881646" at="9,0,14,0" name="jetbrains.mps.smodel.resources.ICResouce" />
     </file>
   </root>
   <root nodeRef="r:6ba2667b-185e-45cd-ac65-e4b9d66da28e(jetbrains.mps.smodel.resources)/7544464876070905006">

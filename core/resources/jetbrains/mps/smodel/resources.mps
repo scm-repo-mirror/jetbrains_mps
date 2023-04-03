@@ -17,7 +17,6 @@
     <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" />
     <import index="18ew" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util(MPS.Core/)" />
     <import index="3ju5" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.vfs(MPS.Core/)" />
-    <import index="l46t" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.compiler(MPS.Core/)" />
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
     <import index="ap4t" ref="215c4c45-ba99-49f5-9ab7-4b6901a63cfd/java:jetbrains.mps.generator(MPS.Generator/)" />
@@ -1036,48 +1035,6 @@
     </node>
     <node concept="3uibUv" id="4Oq8jnvFMwb" role="3TOOP4">
       <ref role="3uigEE" to="yo81:2$fvvfbjW2a" resolve="IResourceWithProperties" />
-    </node>
-  </node>
-  <node concept="2fD8I5" id="AA4r4ZpI9Q">
-    <property role="TrG5h" value="CResource" />
-    <node concept="3clFb_" id="2mnItsSCFYM" role="3MN40a">
-      <property role="TrG5h" value="describe" />
-      <node concept="17QB3L" id="2mnItsSCFYQ" role="3clF45" />
-      <node concept="3Tm1VV" id="2mnItsSCFYO" role="1B3o_S" />
-      <node concept="3clFbS" id="2mnItsSCFYP" role="3clF47">
-        <node concept="3clFbF" id="2mnItsSCFYR" role="3cqZAp">
-          <node concept="10Nm6u" id="2mnItsSCFYS" role="3clFbG" />
-        </node>
-      </node>
-    </node>
-    <node concept="2lGYhJ" id="AA4r4ZqDYl" role="2pHZQ9">
-      <property role="3dDGau" value="false" />
-      <property role="TrG5h" value="classes" />
-      <node concept="3uibUv" id="AA4r4ZqDYn" role="2lK19J">
-        <ref role="3uigEE" to="l46t:~IClassesData" resolve="IClassesData" />
-      </node>
-    </node>
-    <node concept="3Tm1VV" id="AA4r4ZpI9R" role="1B3o_S" />
-    <node concept="3uibUv" id="6yNkHkuBs_R" role="3TOOP4">
-      <ref role="3uigEE" node="6yNkHkuBs_I" resolve="ICResouce" />
-    </node>
-  </node>
-  <node concept="3HP615" id="6yNkHkuBs_I">
-    <property role="TrG5h" value="ICResouce" />
-    <node concept="3Tm1VV" id="6yNkHkuBs_J" role="1B3o_S" />
-    <node concept="3uibUv" id="6yNkHkuBs_K" role="3HQHJm">
-      <ref role="3uigEE" to="yo81:5mqBoD3U3WC" resolve="IResource" />
-    </node>
-    <node concept="3clFb_" id="6yNkHkuBs_L" role="jymVt">
-      <property role="TrG5h" value="classes" />
-      <node concept="3uibUv" id="6yNkHkuBs_P" role="3clF45">
-        <ref role="3uigEE" to="l46t:~IClassesData" resolve="IClassesData" />
-      </node>
-      <node concept="3Tm1VV" id="6yNkHkuBs_N" role="1B3o_S" />
-      <node concept="3clFbS" id="6yNkHkuBs_O" role="3clF47" />
-    </node>
-    <node concept="2AHcQZ" id="4fBybD7P6zL" role="2AJF6D">
-      <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
     </node>
   </node>
   <node concept="3HP615" id="6yNkHkuByiI">
