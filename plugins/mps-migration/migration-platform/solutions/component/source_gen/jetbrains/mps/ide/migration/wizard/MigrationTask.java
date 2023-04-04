@@ -315,34 +315,28 @@ public class MigrationTask {
     String caption = "Updating versions...";
     // FIXME can't I combine runLocalHistoryRecord into plain runnable and invoke it inside invokeAndWait?
     //      at least executeSingleStep does the same inside invokeAndWait, seems to be not an issue
-    runLocalHistoryRecord(caption, () -> ApplicationManager.getApplication().invokeAndWait(() -> project.getRepository().getModelAccess().executeCommand(() -> {
-      // XXX why there's a command, not just write? Commit 076c27f6adce doesn't help to understand.
-      // FIXME present implementation of updateModuleImports() doesn't take into account actual set of modules
-      //   supplied by MigrationSetup. Perhaps, shall move the code here (or start using modules from MigrationSetup?)
-      mySession.updateModuleImports(m);
-    })));
+    runLocalHistoryRecord(caption, () -> ApplicationManager.getApplication().invokeAndWait(() -> {
+      // FIXME do I need invokeAndWait now that I use model write, not command?
+      project.getRepository().getModelAccess().runWriteAction(() -> {
+        // FIXME present implementation of updateModuleImports() doesn't take into account actual set of modules
+        //   supplied by MigrationSetup. Perhaps, shall move the code here (or start using modules from MigrationSetup?)
+        mySession.updateModuleImports(m);
+      });
+    }));
   }
 
   private void runForceSave(final ProgressMonitor m) {
-    final Wrappers._T<List<SModule>> allModules = new Wrappers._T<List<SModule>>();
     final Project project = mySession.getProject();
-    project.getRepository().getModelAccess().runReadAction(() -> allModules.value = project.getProjectModulesWithGenerators());
-    String caption = "Force-saving project modules, models...";
-    m.start(caption, ListSequence.fromList(allModules.value).count() + 10);
-    runLocalHistoryRecord(caption, () -> {
-      try {
-        for (final SModule module : ListSequence.fromList(allModules.value)) {
-          m.advance(1);
-          ApplicationManager.getApplication().invokeAndWait(() -> project.getRepository().getModelAccess().executeCommand(() -> {
-            // FIXME model command, o'rly? Cast to AM? Individual per module?
-            // dates back to 076c27f6, likely with no proper justification
-            ((AbstractModule) module).forceSaveRecursively();
-          }));
-        }
-      } finally {
-        m.done();
+    final String caption = "Force-saving project modules, models...";
+    runLocalHistoryRecord(caption, () -> ApplicationManager.getApplication().invokeAndWait(() -> project.getRepository().getModelAccess().runWriteAction(() -> {
+      List<SModule> allModules = project.getProjectModulesWithGenerators();
+      m.start(caption, ListSequence.fromList(allModules).count() + 10);
+      for (AbstractModule module : ListSequence.fromList(allModules).ofType(AbstractModule.class)) {
+        module.forceSaveRecursively();
+        m.advance(1);
       }
-    });
+    })));
+    m.done();
   }
 
   public void runLocalHistoryRecord(String caption, Runnable r) {
@@ -433,18 +427,12 @@ public class MigrationTask {
   }
 
   private int moduleStepsCount() {
-    final Wrappers._int res = new Wrappers._int();
-    mySession.getProject().getRepository().getModelAccess().runReadAction(() -> res.value = CollectionSequence.fromCollection(mySession.getModuleMigrations()).count());
-    return res.value;
+    return CollectionSequence.fromCollection(mySession.getModuleMigrations()).count();
   }
 
-  private int projectStepsCount(final boolean isCleanup) {
-    final Wrappers._int res = new Wrappers._int();
-    mySession.getProject().getRepository().getModelAccess().runReadAction(() -> {
-      Iterable<ProjectMigration> migrations = mySession.getProjectMigrations();
-      int cleanupSize = Sequence.fromIterable(migrations).ofType(CleanupProjectMigration.class).count();
-      res.value = (isCleanup ? cleanupSize : Sequence.fromIterable(migrations).count() - cleanupSize);
-    });
-    return res.value;
+  private int projectStepsCount(boolean isCleanup) {
+    Iterable<ProjectMigration> migrations = mySession.getProjectMigrations();
+    int cleanupSize = Sequence.fromIterable(migrations).ofType(CleanupProjectMigration.class).count();
+    return (isCleanup ? cleanupSize : Sequence.fromIterable(migrations).count() - cleanupSize);
   }
 }
