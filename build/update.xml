@@ -433,9 +433,9 @@
              url="https://www.jetbrains.com/mps/nextversion"
              feedback="http://youtrack.jetbrains.net"
              majorVersion="2022" minorVersoin="3">
-      <build number="223.7571.953" version="2022.3">
-        <message>JetBrains MPS 2022.3 EAP1 is now available.</message>
-        <button name="Download" url="https://www.jetbrains.com/mps/download" download="true"/>
+      <build number="223.8836.1121" version="2022.3">
+        <message>JetBrains MPS 2022.3 RC1 is now available.</message>
+        <button name="Download" url="https://www.jetbrains.com/mps/nextversion" download="true"/>
       </build>
     </channel>
   </product>
