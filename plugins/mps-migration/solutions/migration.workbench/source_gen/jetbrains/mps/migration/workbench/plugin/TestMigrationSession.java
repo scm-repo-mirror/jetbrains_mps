@@ -34,9 +34,6 @@ import jetbrains.mps.lang.migration.runtime.base.MigrationScript;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.ide.migration.MigrationSetup;
-import jetbrains.mps.migration.global.MigrationOptions;
-import jetbrains.mps.migration.global.ProjectMigrationWithOptions;
-import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import java.util.Collection;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.lang.migration.runtime.base.BaseScriptReference;
@@ -46,7 +43,9 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptBase;
 import org.jetbrains.mps.openapi.language.SLanguage;
+import jetbrains.mps.migration.global.ProjectMigrationWithOptions;
 import java.util.Collections;
+import jetbrains.mps.migration.global.MigrationOptions;
 import jetbrains.mps.migration.global.CleanupProjectMigration;
 
 /*package*/ class TestMigrationSession extends MigrationSession.MigrationSessionBase {
@@ -126,17 +125,6 @@ import jetbrains.mps.migration.global.CleanupProjectMigration;
   @Override
   protected MigrationSetup getConfiguration() {
     throw new UnsupportedOperationException("all superclass methods requiring MR have to be overridden");
-  }
-  @Override
-  public MigrationOptions getOptions() {
-    MigrationOptions res = super.getOptions();
-    // XXX is it ok to addOptions() each time getOptions is invoked?
-    for (ProjectMigrationWithOptions pm : CollectionSequence.fromCollection(getProjectMigrations()).ofType(ProjectMigrationWithOptions.class)) {
-      for (ProjectMigrationWithOptions.Option o : CollectionSequence.fromCollection(pm.getOptions())) {
-        res.addOption(o);
-      }
-    }
-    return res;
   }
 
   @Override
