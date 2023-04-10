@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="35b8p6e5y2lnrpb8a62ge5fy8vxyutf">
-  <files names="BaseLanguageUtil.java:ClassifierResolveUtils.java:ClassifierScopeUtils.java:ClassifierScopes.java:ClassifierSignature.java:ClassifiersScope.java:DefaultConstructorUtils.java:FieldSignature.java:GenericTypesUtil.java:MemberScopes.java:Members.java:MembersPopulatingContext.java:MethodResolveUtil.java:MethodSignature.java:MethodsScope.java:MigrationScopes.java:Scopes.java:Signature.java:VisibilityUtil.java:VisibleClassConstructorsScope.java" />
+<product version="3" modelHash="dho0vbyc7kqj38kf9ivgrw8k5i14s67">
+  <files names="BaseLanguageUtil.java:ClassifierResolveUtils.java:ClassifierScopeUtils.java:ClassifierScopes.java:ClassifierSignature.java:ClassifierSupertypesVisitor.java:ClassifiersScope.java:DefaultConstructorUtils.java:FieldSignature.java:GenericTypesUtil.java:MemberScopes.java:Members.java:MembersPopulatingContext.java:MethodResolveUtil.java:MethodSignature.java:MethodsScope.java:MigrationScopes.java:Scopes.java:Signature.java:VisibilityUtil.java:VisibleClassConstructorsScope.java" />
 </product>
 

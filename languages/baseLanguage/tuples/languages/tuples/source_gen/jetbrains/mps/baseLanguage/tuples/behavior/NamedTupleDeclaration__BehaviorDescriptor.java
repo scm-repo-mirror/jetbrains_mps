@@ -15,6 +15,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Set;
 import jetbrains.mps.baseLanguage.util.StubClassDiscovery;
 import jetbrains.mps.baseLanguage.scopes.MembersPopulatingContext;
+import jetbrains.mps.baseLanguage.scopes.ClassifierSupertypesVisitor;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -59,13 +60,14 @@ public final class NamedTupleDeclaration__BehaviorDescriptor extends BaseBHDescr
   public static final SMethod<Boolean> isDescendant_checkLoops_id6dL7A1DpKoA = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isDescendant_checkLoops").modifiers(8, AccessPrivileges.PROTECTED).concept(CONCEPT).baseMethodId(7165541881557222950L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<Set<SNode>>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(StubClassDiscovery.class, ""));
   public static final SMethod<SNode> getThisType_id2RtWPFZ12w7 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getThisType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3305065273710880775L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
   public static final SMethod<Void> populateMembers_id6r77ob2USUV = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateMembers").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7405920559687241403L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter(MembersPopulatingContext.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Void> enumerateSupertypes_id65_8Gi1dKDs = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("enumerateSupertypes").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7018053821703588444L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter(ClassifierSupertypesVisitor.class, ""));
   public static final SMethod<String> getLeftBracket_id1653mnvAgnc = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getLeftBracket").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1262430001741497804L).languageId(0xb8d207e93feba96aL, 0xa247e09e243545baL).build2();
   public static final SMethod<String> getRightBracket_id1653mnvAgs3 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getRightBracket").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1262430001741498115L).languageId(0xb8d207e93feba96aL, 0xa247e09e243545baL).build2();
   public static final SMethod<Void> markDeprecated_id6Va_BJexupi = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("markDeprecated").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7983358747957651026L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
   public static final SMethod<Void> unmarkDeprecated_id6Va_BJex$aE = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("unmarkDeprecated").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7983358747957674666L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
   public static final SMethod<Void> markLoadedNodeAsDeprecated_id5H8W9_ECA0g = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("markLoadedNodeAsDeprecated").modifiers(1, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6577771797484298256L).languageId(0xb8d207e93feba96aL, 0xa247e09e243545baL).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPresentation_idhEwIMiw, allExtends_id2ItBWjOSZqc, getExtendedClassifierTypes_id1UeCwxlWKny, isDescendant_checkLoops_id6dL7A1DpKoA, getThisType_id2RtWPFZ12w7, populateMembers_id6r77ob2USUV, getLeftBracket_id1653mnvAgnc, getRightBracket_id1653mnvAgs3, markDeprecated_id6Va_BJexupi, unmarkDeprecated_id6Va_BJex$aE, markLoadedNodeAsDeprecated_id5H8W9_ECA0g);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPresentation_idhEwIMiw, allExtends_id2ItBWjOSZqc, getExtendedClassifierTypes_id1UeCwxlWKny, isDescendant_checkLoops_id6dL7A1DpKoA, getThisType_id2RtWPFZ12w7, populateMembers_id6r77ob2USUV, enumerateSupertypes_id65_8Gi1dKDs, getLeftBracket_id1653mnvAgnc, getRightBracket_id1653mnvAgs3, markDeprecated_id6Va_BJexupi, unmarkDeprecated_id6Va_BJex$aE, markLoadedNodeAsDeprecated_id5H8W9_ECA0g);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -162,6 +164,20 @@ public final class NamedTupleDeclaration__BehaviorDescriptor extends BaseBHDescr
 
     IClassifier__BehaviorDescriptor.populateMembers_id6r77ob2USUV.invokeSuper(__thisNode__, CONCEPTS.NamedTupleDeclaration$aM, context, classifierType);
   }
+  /*package*/ static void enumerateSupertypes_id65_8Gi1dKDs(@NotNull SNode __thisNode__, ClassifierSupertypesVisitor visitor) {
+    SNode superTuple = SNodeOperations.as(SLinkOperations.getTarget(__thisNode__, LINKS.extended$2Fzf), CONCEPTS.IClassifierType$B1);
+    if ((superTuple != null)) {
+      IClassifierType__BehaviorDescriptor.enumerateSupertypes_id65_8Gi1edLu.invoke(superTuple, visitor);
+    }
+    for (SNode implementedInterface : SNodeOperations.ofConcept(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.implements$1gsv)).where(new IWhereFilter<SNode>() {
+      public boolean accept(SNode it) {
+        return (it != null);
+      }
+    }), CONCEPTS.IClassifierType$B1)) {
+      IClassifierType__BehaviorDescriptor.enumerateSupertypes_id65_8Gi1edLu.invoke(implementedInterface, visitor);
+    }
+    IClassifier__BehaviorDescriptor.enumerateSupertypes_id65_8Gi1dKDs.invokeSuper(__thisNode__, CONCEPTS.NamedTupleDeclaration$aM, visitor);
+  }
   /*package*/ static String getLeftBracket_id1653mnvAgnc(@NotNull SAbstractConcept __thisConcept__) {
     return "(";
   }
@@ -215,10 +231,13 @@ public final class NamedTupleDeclaration__BehaviorDescriptor extends BaseBHDescr
       case 5:
         populateMembers_id6r77ob2USUV(node, (MembersPopulatingContext) parameters[0], (SNode) parameters[1]);
         return null;
-      case 8:
-        markDeprecated_id6Va_BJexupi(node);
+      case 6:
+        enumerateSupertypes_id65_8Gi1dKDs(node, (ClassifierSupertypesVisitor) parameters[0]);
         return null;
       case 9:
+        markDeprecated_id6Va_BJexupi(node);
+        return null;
+      case 10:
         unmarkDeprecated_id6Va_BJex$aE(node);
         return null;
       default:
@@ -233,11 +252,11 @@ public final class NamedTupleDeclaration__BehaviorDescriptor extends BaseBHDescr
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
-      case 6:
-        return (T) ((String) getLeftBracket_id1653mnvAgnc(concept));
       case 7:
+        return (T) ((String) getLeftBracket_id1653mnvAgnc(concept));
+      case 8:
         return (T) ((String) getRightBracket_id1653mnvAgs3(concept));
-      case 10:
+      case 11:
         markLoadedNodeAsDeprecated_id5H8W9_ECA0g(concept, (SNode) parameters[0]);
         return null;
       default:

@@ -2865,6 +2865,19 @@
       <unit id="6810769364394951935" at="30,0,160,0" name="jetbrains.mps.baseLanguage.scopes.MembersPopulatingContext" />
     </file>
   </root>
+  <root nodeRef="r:89c0fb70-0977-4113-a076-5906f9d8630f(jetbrains.mps.baseLanguage.scopes)/7018053821703394080">
+    <file name="ClassifierSupertypesVisitor.java">
+      <node id="7018053821703396511" at="16,0,17,0" concept="10" trace="enterClassifierType#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <node id="7018053821703399428" at="21,0,22,0" concept="10" trace="exitClassifierType#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <scope id="7018053821703396511" at="16,0,17,0">
+        <var name="classifierType" id="7018053821703397184" />
+      </scope>
+      <scope id="7018053821703399428" at="21,0,22,0">
+        <var name="classifierType" id="7018053821703400707" />
+      </scope>
+      <unit id="7018053821703394080" at="10,0,24,0" name="jetbrains.mps.baseLanguage.scopes.ClassifierSupertypesVisitor" />
+    </file>
+  </root>
   <root nodeRef="r:89c0fb70-0977-4113-a076-5906f9d8630f(jetbrains.mps.baseLanguage.scopes)/7865228194069582283">
     <file name="Signature.java">
       <unit id="7865228194069582283" at="6,0,8,0" name="jetbrains.mps.baseLanguage.scopes.Signature" />

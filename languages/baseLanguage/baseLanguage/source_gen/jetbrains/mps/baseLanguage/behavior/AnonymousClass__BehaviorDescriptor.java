@@ -16,6 +16,7 @@ import java.util.Set;
 import jetbrains.mps.baseLanguage.util.StubClassDiscovery;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.baseLanguage.scopes.MembersPopulatingContext;
+import jetbrains.mps.baseLanguage.scopes.ClassifierSupertypesVisitor;
 import java.util.Map;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
@@ -63,6 +64,7 @@ public final class AnonymousClass__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static final SMethod<String> getAnonymousClassPresentation_id6xEo7wt3U0_ = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getAnonymousClassPresentation").modifiers(0, AccessPrivileges.PRIVATE).concept(CONCEPT).baseMethodId(7523932196475740197L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Scope> getScope_id52_Geb4QDV$ = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5811245382203252452L).languageId(0x9b92103b95ca8c0cL, 0xceab519525ea4f22L).build2(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Void> populateMembers_id6r77ob2USUV = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateMembers").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7405920559687241403L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter(MembersPopulatingContext.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Void> enumerateSupertypes_id65_8Gi1dKDs = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("enumerateSupertypes").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7018053821703588444L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter(ClassifierSupertypesVisitor.class, ""));
   public static final SMethod<Boolean> isStatic_id6r77ob2USS8 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isStatic").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7405920559687241224L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
   public static final SMethod<SNode> getTargetClassifier_id1k0fX3j6Qov = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getTargetClassifier").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1513279640924022303L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
   public static final SMethod<List<SNode>> getTypeParameter_id1HUOkcfjoPx = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getTypeParameter").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1980125072132509025L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
@@ -70,7 +72,7 @@ public final class AnonymousClass__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Iterable<SNode>> getConcreteTypeParameter_id4H6sh0LUNF7 = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getConcreteTypeParameter").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5424147115585256135L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
   public static final SMethod<SNode> getThisType_id2RtWPFZ12w7 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getThisType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3305065273710880775L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getUnitName_id4pl5GY7LKmR, getExtendedClassifierTypes_id1UeCwxlWKny, getJavaName_id2_jKYQ0K_an, getSuperclass_idi3H_lLu, getAvailableMethodDeclarations_id50EF2fWdwEN, getIndexInContainingClass_id3BacVlMg8ub, isDescendant_checkLoops_id6dL7A1DpKoA, getNestedName_id7q4lzBFjvIX, getFqName_idhEwIO9y, getAnonymousClassPresentation_id6xEo7wt3U0_, getScope_id52_Geb4QDV$, populateMembers_id6r77ob2USUV, isStatic_id6r77ob2USS8, getTargetClassifier_id1k0fX3j6Qov, getTypeParameter_id1HUOkcfjoPx, getInferredTypeByTypeVar_id4H6sh0LDcte, getConcreteTypeParameter_id4H6sh0LUNF7, getThisType_id2RtWPFZ12w7);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getUnitName_id4pl5GY7LKmR, getExtendedClassifierTypes_id1UeCwxlWKny, getJavaName_id2_jKYQ0K_an, getSuperclass_idi3H_lLu, getAvailableMethodDeclarations_id50EF2fWdwEN, getIndexInContainingClass_id3BacVlMg8ub, isDescendant_checkLoops_id6dL7A1DpKoA, getNestedName_id7q4lzBFjvIX, getFqName_idhEwIO9y, getAnonymousClassPresentation_id6xEo7wt3U0_, getScope_id52_Geb4QDV$, populateMembers_id6r77ob2USUV, enumerateSupertypes_id65_8Gi1dKDs, isStatic_id6r77ob2USS8, getTargetClassifier_id1k0fX3j6Qov, getTypeParameter_id1HUOkcfjoPx, getInferredTypeByTypeVar_id4H6sh0LDcte, getConcreteTypeParameter_id4H6sh0LUNF7, getThisType_id2RtWPFZ12w7);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
     SPropertyOperations.assign(__thisNode__, PROPS.nonStatic$aWW8, true);
@@ -183,6 +185,10 @@ public final class AnonymousClass__BehaviorDescriptor extends BaseBHDescriptor {
       }
     }
   }
+  /*package*/ static void enumerateSupertypes_id65_8Gi1dKDs(@NotNull SNode __thisNode__, ClassifierSupertypesVisitor visitor) {
+    SNode superClass = SNodeOperations.as(ClassConcept__BehaviorDescriptor.getSuperclass_idi3H_lLu.invoke(__thisNode__), CONCEPTS.IClassifierType$B1);
+    IClassifierType__BehaviorDescriptor.enumerateSupertypes_id65_8Gi1edLu.invoke(superClass, visitor);
+  }
   /*package*/ static boolean isStatic_id6r77ob2USS8(@NotNull SNode __thisNode__) {
     return false;
   }
@@ -281,16 +287,19 @@ public final class AnonymousClass__BehaviorDescriptor extends BaseBHDescriptor {
         populateMembers_id6r77ob2USUV(node, (MembersPopulatingContext) parameters[0], (SNode) parameters[1]);
         return null;
       case 12:
-        return (T) ((Boolean) isStatic_id6r77ob2USS8(node));
+        enumerateSupertypes_id65_8Gi1dKDs(node, (ClassifierSupertypesVisitor) parameters[0]);
+        return null;
       case 13:
-        return (T) ((SNode) getTargetClassifier_id1k0fX3j6Qov(node));
+        return (T) ((Boolean) isStatic_id6r77ob2USS8(node));
       case 14:
-        return (T) ((List<SNode>) getTypeParameter_id1HUOkcfjoPx(node));
+        return (T) ((SNode) getTargetClassifier_id1k0fX3j6Qov(node));
       case 15:
-        return (T) ((Map<SNode, SNode>) getInferredTypeByTypeVar_id4H6sh0LDcte(node));
+        return (T) ((List<SNode>) getTypeParameter_id1HUOkcfjoPx(node));
       case 16:
-        return (T) ((Iterable<SNode>) getConcreteTypeParameter_id4H6sh0LUNF7(node));
+        return (T) ((Map<SNode, SNode>) getInferredTypeByTypeVar_id4H6sh0LDcte(node));
       case 17:
+        return (T) ((Iterable<SNode>) getConcreteTypeParameter_id4H6sh0LUNF7(node));
+      case 18:
         return (T) ((SNode) getThisType_id2RtWPFZ12w7(node));
       default:
         throw new BHMethodNotFoundException(this, method);

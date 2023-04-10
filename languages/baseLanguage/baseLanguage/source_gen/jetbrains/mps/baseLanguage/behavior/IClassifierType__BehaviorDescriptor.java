@@ -11,6 +11,7 @@ import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import jetbrains.mps.baseLanguage.scopes.MembersPopulatingContext;
+import jetbrains.mps.baseLanguage.scopes.ClassifierSupertypesVisitor;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
@@ -28,8 +29,9 @@ public final class IClassifierType__BehaviorDescriptor extends BaseBHDescriptor 
   public static final SMethod<Iterable<SNode>> getMembers_id6r77ob2V1Fr = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getMembers").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7405920559687277275L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
   public static final SMethod<Iterable<SNode>> getVisibleMembers_id5laDzmpBPtZ = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getVisibleMembers").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6145907390641297279L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Void> populateMembers_id6r77ob2USS_ = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateMembers").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7405920559687241253L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter(MembersPopulatingContext.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Void> enumerateSupertypes_id65_8Gi1edLu = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("enumerateSupertypes").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7018053821703707742L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter(ClassifierSupertypesVisitor.class, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getClassifier_id6r77ob2URY9, getTypeParameters_id6r77ob2URYe, getMembers_id6r77ob2V1Fr, getVisibleMembers_id5laDzmpBPtZ, populateMembers_id6r77ob2USS_);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getClassifier_id6r77ob2URY9, getTypeParameters_id6r77ob2URYe, getMembers_id6r77ob2V1Fr, getVisibleMembers_id5laDzmpBPtZ, populateMembers_id6r77ob2USS_, enumerateSupertypes_id65_8Gi1edLu);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -61,6 +63,18 @@ public final class IClassifierType__BehaviorDescriptor extends BaseBHDescriptor 
       }
     }
   }
+  /*package*/ static void enumerateSupertypes_id65_8Gi1edLu(@NotNull SNode __thisNode__, ClassifierSupertypesVisitor visitor) {
+    SNode thisClassifier = IClassifierType__BehaviorDescriptor.getClassifier_id6r77ob2URY9.invoke(__thisNode__);
+    if ((thisClassifier != null)) {
+      if (visitor.enterClassifierType(__thisNode__)) {
+        try {
+          IClassifier__BehaviorDescriptor.enumerateSupertypes_id65_8Gi1dKDs.invoke(thisClassifier, visitor);
+        } finally {
+          visitor.exitClassifierType(__thisNode__);
+        }
+      }
+    }
+  }
 
   /*package*/ IClassifierType__BehaviorDescriptor() {
   }
@@ -83,6 +97,9 @@ public final class IClassifierType__BehaviorDescriptor extends BaseBHDescriptor 
         return (T) ((Iterable<SNode>) getVisibleMembers_id5laDzmpBPtZ(node, (SNode) parameters[0]));
       case 4:
         populateMembers_id6r77ob2USS_(node, (MembersPopulatingContext) parameters[0], (SNode) parameters[1]);
+        return null;
+      case 5:
+        enumerateSupertypes_id65_8Gi1edLu(node, (ClassifierSupertypesVisitor) parameters[0]);
         return null;
       default:
         throw new BHMethodNotFoundException(this, method);

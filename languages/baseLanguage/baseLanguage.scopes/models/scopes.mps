@@ -336,6 +336,12 @@
       <concept id="8465538089690331492" name="jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag" flags="ng" index="TZ5HI">
         <child id="2667874559098216723" name="text" index="3HnX3l" />
       </concept>
+      <concept id="2217234381367049075" name="jetbrains.mps.baseLanguage.javadoc.structure.CodeInlineDocTag" flags="ng" index="VVOAv">
+        <child id="3106559687488741665" name="line" index="2Xj1qM" />
+      </concept>
+      <concept id="8970989240999019145" name="jetbrains.mps.baseLanguage.javadoc.structure.InlineTagCommentLinePart" flags="ng" index="1dT_AA">
+        <child id="6962838954693749192" name="tag" index="qph3F" />
+      </concept>
       <concept id="8970989240999019143" name="jetbrains.mps.baseLanguage.javadoc.structure.TextCommentLinePart" flags="ng" index="1dT_AC">
         <property id="8970989240999019144" name="text" index="1dT_AB" />
       </concept>
@@ -22647,6 +22653,76 @@
         <property role="TrG5h" value="currentClass" />
         <node concept="3Tqbb2" id="1Kf0JjMy9B_" role="1tU5fm">
           <ref role="ehGHo" to="tpee:fz12cDA" resolve="ClassConcept" />
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="3HP615" id="65_8Gi1d1cw">
+    <property role="3GE5qa" value="classifiers" />
+    <property role="TrG5h" value="ClassifierSupertypesVisitor" />
+    <node concept="2tJIrI" id="65_8Gi1d1hc" role="jymVt" />
+    <node concept="3clFb_" id="65_8Gi1d1Mv" role="jymVt">
+      <property role="TrG5h" value="enterClassifierType" />
+      <node concept="37vLTG" id="65_8Gi1d1X0" role="3clF46">
+        <property role="TrG5h" value="classifierType" />
+        <node concept="3Tqbb2" id="65_8Gi1d26C" role="1tU5fm">
+          <ref role="ehGHo" to="tpee:6r77ob2URXY" resolve="IClassifierType" />
+        </node>
+      </node>
+      <node concept="10P_77" id="65_8Gi1d1Qy" role="3clF45" />
+      <node concept="3Tm1VV" id="65_8Gi1d1My" role="1B3o_S" />
+      <node concept="3clFbS" id="65_8Gi1d1Mz" role="3clF47" />
+      <node concept="P$JXv" id="65_8Gi1d2gV" role="lGtFl">
+        <node concept="TZ5HA" id="65_8Gi1d2gW" role="TZ5H$">
+          <node concept="1dT_AC" id="65_8Gi1d2gX" role="1dT_Ay">
+            <property role="1dT_AB" value="Invoked on every classifier type to visit, including the one that this enumeration is called on." />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="65_8Gi1d2Zj" role="TZ5H$">
+          <node concept="1dT_AC" id="65_8Gi1d2Zk" role="1dT_Ay">
+            <property role="1dT_AB" value="Return value controls whether to proceed with enumerating supertypes of the given classifier type." />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="65_8Gi1d2f2" role="jymVt" />
+    <node concept="3clFb_" id="65_8Gi1d2w4" role="jymVt">
+      <property role="TrG5h" value="exitClassifierType" />
+      <node concept="37vLTG" id="65_8Gi1d2O3" role="3clF46">
+        <property role="TrG5h" value="classifierType" />
+        <node concept="3Tqbb2" id="65_8Gi1d2Rj" role="1tU5fm">
+          <ref role="ehGHo" to="tpee:6r77ob2URXY" resolve="IClassifierType" />
+        </node>
+      </node>
+      <node concept="3cqZAl" id="65_8Gi1d2w6" role="3clF45" />
+      <node concept="3Tm1VV" id="65_8Gi1d2w7" role="1B3o_S" />
+      <node concept="3clFbS" id="65_8Gi1d2w8" role="3clF47" />
+      <node concept="P$JXv" id="65_8Gi1d3bR" role="lGtFl">
+        <node concept="TZ5HA" id="65_8Gi1d3bS" role="TZ5H$">
+          <node concept="1dT_AC" id="65_8Gi1d3bT" role="1dT_Ay">
+            <property role="1dT_AB" value="Invoked on every classifier type visited, unless the previous call to " />
+          </node>
+          <node concept="1dT_AA" id="65_8Gi1d3Li" role="1dT_Ay">
+            <node concept="VVOAv" id="65_8Gi1d3LX" role="qph3F">
+              <node concept="TZ5HA" id="65_8Gi1d3LZ" role="2Xj1qM">
+                <node concept="1dT_AC" id="65_8Gi1d3MC" role="1dT_Ay">
+                  <property role="1dT_AB" value="enterClassifierType" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="1dT_AC" id="65_8Gi1d3Lh" role="1dT_Ay">
+            <property role="1dT_AB" value=" with this classifier type returned false." />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="65_8Gi1d1hh" role="jymVt" />
+    <node concept="3Tm1VV" id="65_8Gi1d1cx" role="1B3o_S" />
+    <node concept="3UR2Jj" id="65_8Gi1d1iy" role="lGtFl">
+      <node concept="TZ5HA" id="65_8Gi1d1iz" role="TZ5H$">
+        <node concept="1dT_AC" id="65_8Gi1d1i$" role="1dT_Ay">
+          <property role="1dT_AB" value="Simple visitor pattern for enumerating all super types of a classifier type." />
         </node>
       </node>
     </node>
