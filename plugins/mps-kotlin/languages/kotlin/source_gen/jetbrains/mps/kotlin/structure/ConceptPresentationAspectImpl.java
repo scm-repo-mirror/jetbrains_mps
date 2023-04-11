@@ -1140,7 +1140,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         return props_INavigationTarget;
       case LanguageConceptSwitch.INullableType:
         if (props_INullableType == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af542L);
+          cpb.deprecateProperty(0x56840864ad823b96L, "isNullable");
           props_INullableType = cpb.create();
         }
         return props_INullableType;

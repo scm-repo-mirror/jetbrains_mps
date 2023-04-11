@@ -27,7 +27,7 @@ public class NullableType_RemoveNullable {
       public void execute_internal(EditorContext editorContext, SNode node) {
         SNode type = SLinkOperations.getTarget(node, LINKS.type$Tm0J);
         SNodeOperations.replaceWithAnother(node, type);
-        SelectionUtil.selectLabelCellAnSetCaret(editorContext, type, SelectionManager.LAST_EDITABLE_CELL, -1);
+        SelectionUtil.selectLabelCellAnSetCaret(editorContext, type, SelectionManager.LAST_CELL, -1);
       }
 
     };

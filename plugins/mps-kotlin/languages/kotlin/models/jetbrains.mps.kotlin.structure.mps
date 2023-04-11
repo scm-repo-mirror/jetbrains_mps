@@ -2006,6 +2006,12 @@
       <property role="IQ2nx" value="6234117012688354198" />
       <property role="TrG5h" value="isNullable" />
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+      <node concept="asaX9" id="3ZjeA_zc2r_" role="lGtFl">
+        <property role="YLQ7P" value="wrap with NullableType instead" />
+      </node>
+    </node>
+    <node concept="t5JxF" id="3ZjeA_zc21F" role="lGtFl">
+      <property role="t5JxN" value="denote a nullable type, aimed to be replaced by wrapping with NullableType entirely when possible" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6Jlb">

@@ -67,7 +67,6 @@ public class IClassType_TransformationMenu extends TransformationMenuBase {
 
       });
       result.add(new TMP_Include_rqmv2n_b0());
-      result.add(new TMP_Include_rqmv2n_c0());
     }
     if (ListSequence.fromListAndArray(new ArrayList<String>(), MenuLocations.CONTEXT_ASSISTANT).contains(_context.getMenuLocation())) {
       result.add(new DefaultConceptMenusTransformationMenuPart(SModelUtil.getDirectSuperConcepts(CONCEPTS.IClassType$8T)) {
@@ -85,7 +84,6 @@ public class IClassType_TransformationMenu extends TransformationMenuBase {
 
       });
       result.add(new TMP_Include_rqmv2n_b0());
-      result.add(new TMP_Include_rqmv2n_c0());
     }
     if (ListSequence.fromListAndArray(new ArrayList<String>(), MenuLocations.SUBSTITUTE).contains(_context.getMenuLocation())) {
       result.add(new DefaultConceptMenusTransformationMenuPart(SModelUtil.getDirectSuperConcepts(CONCEPTS.IClassType$8T)) {
@@ -103,7 +101,6 @@ public class IClassType_TransformationMenu extends TransformationMenuBase {
 
       });
       result.add(new TMP_Include_rqmv2n_b0());
-      result.add(new TMP_Include_rqmv2n_c0());
     }
     return result;
   }
@@ -131,33 +128,9 @@ public class IClassType_TransformationMenu extends TransformationMenuBase {
     }
 
   }
-  public class TMP_Include_rqmv2n_c0 extends IncludeTransformationMenuTransformationMenuPart {
-    @NotNull
-    @Override
-    public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("include " + "named transformation menu " + "INullableType_SetNullable_Transform", new SNodePointer("r:5e60d3fe-71b1-4c17-b38e-424792223875(jetbrains.mps.kotlin.editor)", "6234117012688387031")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
-    }
-
-    @Nullable
-    @Override
-    protected TransformationMenuLookup getMenuLookup(TransformationMenuContext _context) {
-      final SNode node = _context.getNode();
-      final EditorContext editorContext = _context.getEditorContext();
-
-      return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.INullableType$$I, "jetbrains.mps.kotlin.editor.INullableType_SetNullable_Transform");
-    }
-
-  }
 
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IClassType$8T = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x729709d72e3594f9L, "jetbrains.mps.kotlin.structure.IClassType");
     /*package*/ static final SInterfaceConcept IProjectedTypeArguments$ql = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5b1dd60162c97579L, "jetbrains.mps.kotlin.structure.IProjectedTypeArguments");
-    /*package*/ static final SInterfaceConcept INullableType$$I = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af542L, "jetbrains.mps.kotlin.structure.INullableType");
   }
 }
