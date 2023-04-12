@@ -29,7 +29,7 @@ public final class NullLiteral__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static SNode getType_id6563FJLeSWZ(@NotNull SNode __thisNode__) {
-    return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(BuiltIn.NOTHING.getClass(__thisNode__), ((boolean) true));
+    return IType__BehaviorDescriptor.asNullable_id5pwU7dG5dvS.invoke(IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(BuiltIn.NOTHING.getClass(__thisNode__)));
   }
 
   /*package*/ NullLiteral__BehaviorDescriptor() {

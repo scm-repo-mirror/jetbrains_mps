@@ -100,7 +100,7 @@ public final class FunctionDeclaration__BehaviorDescriptor extends BaseBHDescrip
     return IStatementHolder__BehaviorDescriptor.asSingleExpression_id18X2O0FvKfA.invoke(__thisNode__);
   }
   /*package*/ static SNode getReceiverType_id2gj5XQXMFhP(@NotNull SNode __thisNode__) {
-    return ((SLinkOperations.getTarget(__thisNode__, LINKS.receiverType$7yLT) != null) ? SLinkOperations.getTarget(__thisNode__, LINKS.receiverType$7yLT) : IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(SNodeOperations.as(SNodeOperations.getParent(__thisNode__), CONCEPTS.IClassLike$go), ((boolean) false)));
+    return ((SLinkOperations.getTarget(__thisNode__, LINKS.receiverType$7yLT) != null) ? SLinkOperations.getTarget(__thisNode__, LINKS.receiverType$7yLT) : IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(SNodeOperations.as(SNodeOperations.getParent(__thisNode__), CONCEPTS.IClassLike$go)));
   }
   /*package*/ static Iterable<TypeParameterDeclaration> getTypeParameters_id1VI7K1kLcNv(@NotNull SNode __thisNode__) {
     return ITypeParameters__BehaviorDescriptor.getTypeParameterDescriptors_id28CvMylfXMr.invoke(__thisNode__);

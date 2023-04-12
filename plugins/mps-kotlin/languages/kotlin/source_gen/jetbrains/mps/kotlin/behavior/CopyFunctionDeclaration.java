@@ -32,7 +32,7 @@ public class CopyFunctionDeclaration extends KotlinFunctionDeclaration {
   @Nullable
   @Override
   public SNode getReceiverType() {
-    return (SNode) IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(IFunctionDeclaration__BehaviorDescriptor.getClass_id4vugIDehkCF.invoke(myDeclaration), ((boolean) false));
+    return (SNode) IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(IFunctionDeclaration__BehaviorDescriptor.getClass_id4vugIDehkCF.invoke(myDeclaration));
   }
 
   public static class OptionalKotlinParameter extends KotlinParameterDeclaration {

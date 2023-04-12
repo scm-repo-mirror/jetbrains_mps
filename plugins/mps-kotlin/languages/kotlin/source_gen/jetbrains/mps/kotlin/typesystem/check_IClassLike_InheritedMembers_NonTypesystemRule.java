@@ -48,7 +48,7 @@ public class check_IClassLike_InheritedMembers_NonTypesystemRule extends Abstrac
   }
   public void applyRule(final SNode myClass, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     final Set<SourcedSignature> selfSignatures = SetSequence.fromSet(new HashSet<SourcedSignature>());
-    final SNode thisType = IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(myClass, ((boolean) false));
+    final SNode thisType = IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(myClass);
 
     // Take all kind of signatures (property, functions, whatever user language define)
     TypeMembersVisitor visitor = new TypeMembersVisitor(MemberSignature.class, myClass, VisibilityAccess.TYPE_PRIVATE) {

@@ -60,7 +60,6 @@ public final class ComponentDeclaration__BehaviorDescriptor extends BaseBHDescri
     return Argument.none;
   }
   /*package*/ static FunctionDeclaration getFunctionDescriptor_id26mUjU3xhgD(@NotNull SNode __thisNode__) {
-    // TODO have some way to figure that out :c
     {
       final SNode decl = SLinkOperations.getTarget(__thisNode__, LINKS.deconstructingOperator$ZV8Z);
       if (SNodeOperations.isInstanceOf(decl, CONCEPTS.IFunctionDeclaration$ZB)) {

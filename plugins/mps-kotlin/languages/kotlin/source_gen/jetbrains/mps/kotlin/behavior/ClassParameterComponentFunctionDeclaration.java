@@ -54,7 +54,7 @@ public class ClassParameterComponentFunctionDeclaration implements FunctionDecla
   @Nullable
   @Override
   public SNode getReceiverType() {
-    return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(SNodeOperations.getNodeAncestor(myClassParam, CONCEPTS.IClassLike$go, false, false), ((boolean) false));
+    return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(SNodeOperations.getNodeAncestor(myClassParam, CONCEPTS.IClassLike$go, false, false));
   }
 
   private static final class LINKS {

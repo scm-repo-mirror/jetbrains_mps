@@ -65,7 +65,7 @@ public final class InterfaceDeclaration__BehaviorDescriptor extends BaseBHDescri
       }
     };
     TypeMembersVisitor visitor = new TypeMembersVisitor(filter, __thisNode__, VisibilityAccess.TYPE_PUBLIC);
-    IType__BehaviorDescriptor.visitHierarchy_id5q426iHtYvR.invoke(IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(__thisNode__, ((boolean) false)), visitor);
+    IType__BehaviorDescriptor.visitHierarchy_id5q426iHtYvR.invoke(IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(__thisNode__), visitor);
 
     Iterator<SourcedSignature> members = Sequence.fromIterable(visitor.getMembers()).iterator();
     SourcedSignature first = (members.hasNext() ? members.next() : null);

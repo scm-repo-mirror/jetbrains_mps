@@ -13,7 +13,7 @@ public class ThisTypeReference implements TypeReference {
 
   @Override
   public SNode compute() {
-    return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(myClassType, ((boolean) false));
+    return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(myClassType);
   }
   @Override
   public String toString() {

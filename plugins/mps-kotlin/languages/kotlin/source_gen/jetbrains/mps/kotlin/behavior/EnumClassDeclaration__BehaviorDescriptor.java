@@ -63,7 +63,7 @@ public final class EnumClassDeclaration__BehaviorDescriptor extends BaseBHDescri
   /*package*/ static int visitSuperTypes_id1WN66f3AYxj(@NotNull SNode __thisNode__, @NotNull SuperTypesVisitor visitor) {
     // Visit super enum type first
     SNode enumType = BuiltIn.ENUM.toClassType();
-    ListSequence.fromList(SLinkOperations.getChildren(enumType, LINKS.typeProjections$vhti)).addElement(IType__BehaviorDescriptor.asInvariantProjection_id2gj5XQXIqKf.invoke(IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(__thisNode__, ((boolean) false))));
+    ListSequence.fromList(SLinkOperations.getChildren(enumType, LINKS.typeProjections$vhti)).addElement(IType__BehaviorDescriptor.asInvariantProjection_id2gj5XQXIqKf.invoke(IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(__thisNode__)));
     IType__BehaviorDescriptor.visitHierarchy_id5q426iHtYvR.invoke(visitor.expandWithCollectedSubstitutions(enumType), visitor);
 
     return ((int) IInheritExplicitly__BehaviorDescriptor.visitSuperTypes_id1WN66f3AYxj.invoke0(__thisNode__, CONCEPTS.ClassDeclaration$Jm, visitor)) + 1;

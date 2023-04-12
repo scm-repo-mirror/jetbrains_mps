@@ -34,7 +34,7 @@ public final class IObject__BehaviorDescriptor extends BaseBHDescriptor {
     return true;
   }
   /*package*/ static SNode getType_id6563FJLeSWZ(@NotNull SNode __thisNode__) {
-    return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(__thisNode__, ((boolean) false));
+    return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(__thisNode__);
   }
   /*package*/ static boolean isAbstractClass_id$q1KckYQOy(@NotNull SNode __thisNode__) {
     return false;

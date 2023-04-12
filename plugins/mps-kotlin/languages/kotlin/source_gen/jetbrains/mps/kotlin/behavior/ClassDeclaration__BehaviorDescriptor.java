@@ -161,7 +161,7 @@ __switch__:
     // If inner class, constructors provided here
     if (((boolean) IClassLike__BehaviorDescriptor.hasModifier_id2NtWm0y2Y2A.invoke(__thisNode__, CONCEPTS.InnerClassModifier$wL))) {
       // Declare them as instance method (same scope)
-      // TODO constructor as instance methods have special behavior regarding inheritance
+      // TODO inner class constructor as instance methods have special behavior regarding inheritance
       SignatureBuilder.create(IClassLike__BehaviorDescriptor.getConstructors_id2NtWm0y9fFa.invoke(__thisNode__), FunctionSignature.class).withSignature((SNode cons) -> {
         // Each constructor declares a method
         return new FunctionSignature(KotlinFunctionDeclaration.of(cons), visitor);

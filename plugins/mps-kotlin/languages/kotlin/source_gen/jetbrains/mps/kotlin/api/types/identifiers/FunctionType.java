@@ -10,7 +10,7 @@ public class FunctionType extends IdBasedType<Integer> {
   }
   @Override
   public SNodeReference getClassifierTarget() {
-    // TODO if functionN types are available, make ref to them
+    // functionN classes are available in kotlin.jvm. As the use case for this method seems restricted to SuperExpression, we can omit it
     return null;
   }
 }

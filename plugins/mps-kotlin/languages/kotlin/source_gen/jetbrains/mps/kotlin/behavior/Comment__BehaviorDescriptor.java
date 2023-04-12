@@ -32,7 +32,7 @@ public final class Comment__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static boolean isTodo_id6CwBo1Z9RMC(@NotNull SNode __thisNode__) {
-    // TODO would be great to have this method applied for a given line rather than the whole block
+    // would be great to have this method applied for a given line rather than the whole block
     if (ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.lines$mJPU)).isEmpty()) {
       return false;
     }

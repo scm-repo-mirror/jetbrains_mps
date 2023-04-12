@@ -97,8 +97,6 @@ public class BinaryPriorityUtil {
       }
     }
 
-    // TODO if expression?
-
     return true;
   }
 

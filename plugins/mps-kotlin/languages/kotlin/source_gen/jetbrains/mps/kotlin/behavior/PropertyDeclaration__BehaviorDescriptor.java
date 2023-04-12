@@ -117,7 +117,7 @@ public final class PropertyDeclaration__BehaviorDescriptor extends BaseBHDescrip
     if ((SLinkOperations.getTarget(__thisNode__, LINKS.receiverType$7yLT) != null)) {
       return SLinkOperations.getTarget(__thisNode__, LINKS.receiverType$7yLT);
     }
-    return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.IClassLike$go, false, false), ((boolean) false));
+    return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.IClassLike$go, false, false));
   }
   /*package*/ static Iterable<TypeParameterDeclaration> getVariablesTypeParameters_id73s7TtK_Wrc(@NotNull SNode __thisNode__) {
     return ITypeParameters__BehaviorDescriptor.getTypeParameterDescriptors_id28CvMylfXMr.invoke(__thisNode__);

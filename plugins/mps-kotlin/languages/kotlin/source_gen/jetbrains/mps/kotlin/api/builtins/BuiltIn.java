@@ -19,9 +19,10 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 /**
- * Enumeration of kotlin type commonly used in type system.
+ * Enumeration of kotlin types commonly used in type system.
  * 
- * Contains several utilities methods to use the references.
+ * Contains several utilities methods to use the references. Regular node pointers are not used to avoid circular dependencies
+ * (kotlin language should exist without stdlib, so in case one breaks, the other is easier to fix)
  */
 public enum BuiltIn {
   UNIT("kotlin/Unit"),
@@ -92,7 +93,7 @@ public enum BuiltIn {
 
   public static SNodePointer pointerOf(String fqName) {
     String packageName = fqName.substring(0, fqName.lastIndexOf("/")).replaceAll("/", ".");
-    // TODO code extracted from KotlinLanguage implementation as it is a MPS loaded class
+    // code extracted from KotlinLanguage implementation as it is a MPS loaded class
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SModelId modelId = facade.createModelId("kotlin:" + packageName);
     SModelReference modelReference = facade.createModelReference(PersistenceFacade.getInstance().createModuleReference("b50d89c0-0fb9-4105-b652-222148c26a9b(jetbrains.mps.kotlin.stdlib)"), modelId, modelId.getModelName());

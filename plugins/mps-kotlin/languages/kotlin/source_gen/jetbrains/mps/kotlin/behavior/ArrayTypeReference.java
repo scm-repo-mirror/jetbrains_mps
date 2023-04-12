@@ -20,7 +20,7 @@ public class ArrayTypeReference implements TypeReference {
   @Override
   public SNode compute() {
     SNode computed = myNested.compute();
-    // TODO Array<*> ?
+
     if ((computed == null)) {
       return null;
     }

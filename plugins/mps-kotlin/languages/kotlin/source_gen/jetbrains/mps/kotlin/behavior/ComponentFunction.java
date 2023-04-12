@@ -53,7 +53,7 @@ public class ComponentFunction implements FunctionDeclaration {
   @Nullable
   @Override
   public SNode getReceiverType() {
-    return (SNode) IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(SNodeOperations.getNodeAncestor(myParameter, CONCEPTS.IClassLike$go, false, false), ((boolean) false));
+    return (SNode) IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(SNodeOperations.getNodeAncestor(myParameter, CONCEPTS.IClassLike$go, false, false));
   }
 
   private static final class LINKS {

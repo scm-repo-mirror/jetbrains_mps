@@ -33,6 +33,7 @@ public final class IResolvableReference__BehaviorDescriptor extends BaseBHDescri
   }
 
   /*package*/ static SNode tryResolveNamed_id4MvRlgZCbi_(@NotNull SNode __thisNode__, String name) {
+    // reminder: this is an experimental non-implemented feature, whose goal is to help parse kotlin references
     // TODO make abstract when there is a need for this be implemented
     // partial implementation for methods is present in 31b8b85e6a4905df1e2af474ff0fb6017919b92e
     return null;

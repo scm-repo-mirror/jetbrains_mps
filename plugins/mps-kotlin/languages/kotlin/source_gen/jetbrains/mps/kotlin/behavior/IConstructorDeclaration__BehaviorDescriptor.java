@@ -45,7 +45,7 @@ public final class IConstructorDeclaration__BehaviorDescriptor extends BaseBHDes
 
   /*package*/ static SNode getReceiverType_id2gj5XQXMFhP(@NotNull SNode __thisNode__) {
     // Inner class constructors need to be called on containing class
-    return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(IFunctionDeclaration__BehaviorDescriptor.getClass_id4vugIDehkCF.invoke(__thisNode__), ((boolean) false));
+    return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(IFunctionDeclaration__BehaviorDescriptor.getClass_id4vugIDehkCF.invoke(__thisNode__));
   }
   /*package*/ static SNode getConstructedClass_id7WpE6U5evQG(@NotNull SNode __thisNode__) {
     return SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.IClassDeclaration$bQ, true, false);
@@ -69,7 +69,7 @@ public final class IConstructorDeclaration__BehaviorDescriptor extends BaseBHDes
   }
   /*package*/ static SNode getReturnType_id6QVUYzas5Of(@NotNull SNode __thisNode__) {
     // Type parameters are not specified as it is up to the typesystem to figure them out (using type arguments of call)
-    return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(IConstructorDeclaration__BehaviorDescriptor.getConstructedClass_id7WpE6U5evQG.invoke(__thisNode__), ((boolean) false));
+    return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(IConstructorDeclaration__BehaviorDescriptor.getConstructedClass_id7WpE6U5evQG.invoke(__thisNode__));
   }
   /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
     // Used by method call

@@ -469,7 +469,7 @@
       <node id="7536791998131453774" at="156,84,157,84" concept="8" />
       <node id="7536791998131678624" at="157,84,158,0" concept="11" />
       <node id="7536791998131460682" at="158,0,159,137" concept="10" />
-      <node id="7536791998131890796" at="160,131,161,119" concept="8" />
+      <node id="7536791998131890796" at="160,131,161,100" concept="8" />
       <node id="7536791998131832665" at="162,103,163,45" concept="9" />
       <node id="7536791998131845877" at="164,7,165,0" concept="11" />
       <node id="7536791998131903833" at="166,101,167,47" concept="9" />
@@ -489,7 +489,7 @@
       <node id="2830822894499942165" at="69,0,72,0" concept="13" trace="getFunctionScopeParts#(Ljetbrains/mps/kotlin/behavior/MemberReceiver;Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/Iterable;" />
       <node id="219803515062238320" at="89,10,92,5" concept="0" />
       <node id="1534785493288353528" at="130,60,133,9" concept="6" />
-      <node id="7536791998131795684" at="161,119,164,7" concept="6" />
+      <node id="7536791998131795684" at="161,100,164,7" concept="6" />
       <node id="7536791998131775777" at="165,0,168,7" concept="6" />
       <node id="4282203501211960691" at="83,0,88,7" concept="6" />
       <node id="4282203501216576292" at="147,0,152,0" concept="13" trace="getScopeForConstraints#(Lorg/jetbrains/mps/openapi/language/SAbstractConcept;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/language/SContainmentLink;Lorg/jetbrains/mps/openapi/language/SAbstractConcept;)Ljetbrains/mps/scope/Scope;" />

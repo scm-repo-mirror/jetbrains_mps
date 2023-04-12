@@ -1333,8 +1333,8 @@
     </file>
     <file name="check_IClassLike_InheritedMembers_NonTypesystemRule.java">
       <node id="655844405553666813" at="49,120,50,102" concept="9" />
-      <node id="655844405553675110" at="50,102,51,119" concept="9" />
-      <node id="655844405553943471" at="51,119,52,0" concept="12" />
+      <node id="655844405553675110" at="50,102,51,100" concept="9" />
+      <node id="655844405553943471" at="51,100,52,0" concept="12" />
       <node id="655844405553947159" at="52,0,53,87" concept="11" />
       <node id="655844405553722738" at="56,128,57,42" concept="11" />
       <node id="655844405553686958" at="58,57,59,110" concept="4" />

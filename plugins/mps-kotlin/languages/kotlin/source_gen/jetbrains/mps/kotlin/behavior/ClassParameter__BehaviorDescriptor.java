@@ -56,7 +56,7 @@ public final class ClassParameter__BehaviorDescriptor extends BaseBHDescriptor {
     return false;
   }
   /*package*/ static SNode getReceiverType_id75chmMYh8YE(@NotNull SNode __thisNode__) {
-    return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.IClassLike$go, false, false), ((boolean) false));
+    return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.IClassLike$go, false, false));
   }
 
   /*package*/ ClassParameter__BehaviorDescriptor() {

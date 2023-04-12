@@ -40,13 +40,12 @@ import jetbrains.mps.smodel.builder.SNodeBuilder;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
-import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class IClassLike__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x298a6a355c110274L, "jetbrains.mps.kotlin.structure.IClassLike");
 
   public static final SMethod<Void> populateNonMemberSignatures_id1pD7IS2T3rZ = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateNonMemberSignatures").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1614855948988593919L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""));
-  public static final SMethod<SNode> getThisType_id46gC9M6gB68 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getThisType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4724452603239494024L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
+  public static final SMethod<SNode> getThisType_id46gC9M6gB68 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getThisType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4724452603239494024L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<Iterable<TypeParameterDeclaration>> getTypeParameters_idTmm2uCbI_X = new SMethodBuilder<Iterable<TypeParameterDeclaration>>(new SJavaCompoundTypeImpl((Class<Iterable<TypeParameterDeclaration>>) ((Class) Object.class))).name("getTypeParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1033110091876723069L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<SignatureScope> getStaticScope_id3HHsmlLCHdO = new SMethodBuilder<SignatureScope>(new SJavaCompoundTypeImpl(SignatureScope.class)).name("getStaticScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4282203501211341684L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureFilter.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<SConcept> getConstructorDefaultVisibility_idu1nygduECM = new SMethodBuilder<SConcept>(new SJavaCompoundTypeImpl((Class<SConcept>) ((Class) Object.class))).name("getConstructorDefaultVisibility").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(540816939199146546L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
@@ -65,11 +64,10 @@ public final class IClassLike__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static void populateNonMemberSignatures_id1pD7IS2T3rZ(@NotNull SNode __thisNode__, SignatureCollector visitor) {
     // default: no-op
   }
-  /*package*/ static SNode getThisType_id46gC9M6gB68(@NotNull SNode __thisNode__, boolean nullable) {
-    return createClassType_do2jmd_a0a1(__thisNode__, nullable);
+  /*package*/ static SNode getThisType_id46gC9M6gB68(@NotNull SNode __thisNode__) {
+    return createClassType_do2jmd_a0a1(__thisNode__);
   }
   /*package*/ static Iterable<TypeParameterDeclaration> getTypeParameters_idTmm2uCbI_X(@NotNull SNode __thisNode__) {
-    // TODO used by coderules
     return Sequence.fromIterable(Collections.<TypeParameterDeclaration>emptyList());
   }
   @Nullable
@@ -199,7 +197,7 @@ __switch__:
         populateNonMemberSignatures_id1pD7IS2T3rZ(node, (SignatureCollector) parameters[0]);
         return null;
       case 1:
-        return (T) ((SNode) getThisType_id46gC9M6gB68(node, ((boolean) (Boolean) parameters[0])));
+        return (T) ((SNode) getThisType_id46gC9M6gB68(node));
       case 2:
         return (T) ((Iterable<TypeParameterDeclaration>) getTypeParameters_idTmm2uCbI_X(node));
       case 3:
@@ -244,10 +242,9 @@ __switch__:
   public SAbstractConcept getConcept() {
     return CONCEPT;
   }
-  private static SNode createClassType_do2jmd_a0a1(SNode p0, boolean p1) {
+  private static SNode createClassType_do2jmd_a0a1(SNode p0) {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.ClassType$jI);
     n0.setReferenceTarget(LINKS.class$ExdX, p0);
-    n0.setProperty(PROPS.isNullable$KWwD, "" + (p1));
     return n0.getResult();
   }
 
@@ -263,9 +260,5 @@ __switch__:
   private static final class LINKS {
     /*package*/ static final SContainmentLink members$gqdV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc8310a1ff68L, 0x2043bc8310a1ff69L, "members");
     /*package*/ static final SReferenceLink class$ExdX = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5c7be90f2440b378L, 0x5c7be90f2440b37bL, "class");
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty isNullable$KWwD = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af542L, 0x56840864ad823b96L, "isNullable");
   }
 }

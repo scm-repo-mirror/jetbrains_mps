@@ -62,7 +62,7 @@ public final class PropertyDelegateAssignement__BehaviorDescriptor extends BaseB
     if ((receiverType != null)) {
       thisType = new TypeArgument(receiverType);
     } else {
-      thisType = new TypeArgument(IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.IClassLike$go, false, false), ((boolean) false)));
+      thisType = new TypeArgument(IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.IClassLike$go, false, false)));
     }
 
     SNode kProperty = BuiltIn.classTypeOf(BuiltIn.pointerOf("kotlin/Reflect/KProperty"));

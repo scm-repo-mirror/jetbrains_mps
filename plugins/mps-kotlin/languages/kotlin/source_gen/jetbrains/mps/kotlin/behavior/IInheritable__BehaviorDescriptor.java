@@ -51,7 +51,7 @@ public final class IInheritable__BehaviorDescriptor extends BaseBHDescriptor {
   }
   @NotNull
   /*package*/ static SAbstractConcept getDefaultInheritance_id6jE_6dusz0P(@NotNull SNode __thisNode__) {
-    // TODO upon removal of static getDefaultInheritance, replace by FinalInheritanceModifier concept
+    // upon removal of static getDefaultInheritance, replace by FinalInheritanceModifier concept
     return IInheritable__BehaviorDescriptor.getDefaultInheritance_id7uO8z1Cfao7.invoke(__thisNode__.getConcept(), __thisNode__);
   }
 

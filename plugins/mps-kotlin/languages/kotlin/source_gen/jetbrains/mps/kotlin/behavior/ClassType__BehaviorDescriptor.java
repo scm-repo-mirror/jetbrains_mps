@@ -97,7 +97,7 @@ public final class ClassType__BehaviorDescriptor extends BaseBHDescriptor {
   }
   @ApiStatus.Experimental
   /*package*/ static SNode getCompanionType_id13qggQDnK5I(@NotNull SNode __thisNode__) {
-    return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(IClassLike__BehaviorDescriptor.getCompanion_id1dpU28wP77w.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.class$ExdX)), ((boolean) false));
+    return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(IClassLike__BehaviorDescriptor.getCompanion_id1dpU28wP77w.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.class$ExdX)));
   }
   /*package*/ static SNode getClassifier_id7an2tsIdpk7(@NotNull SNode __thisNode__) {
     return SLinkOperations.getTarget(__thisNode__, LINKS.class$ExdX);

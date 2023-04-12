@@ -50,7 +50,7 @@ public class SuperExpression_Constraints extends BaseConstraintsDescriptor {
           public Scope createScope(final ReferenceConstraintsContext _context) {
             final SRepository repo = _context.getContextNode().getModel().getRepository();
             SNode target = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.IClassDeclaration$bQ, true, false);
-            return ListScope.forNamedElements(Sequence.fromIterable(SuperTypesVisitorImpl.getSupertypes(IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(target, ((boolean) false)))).select(new ISelector<TypeKey, SNode>() {
+            return ListScope.forNamedElements(Sequence.fromIterable(SuperTypesVisitorImpl.getSupertypes(IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(target))).select(new ISelector<TypeKey, SNode>() {
               public SNode select(TypeKey it) {
                 return SPointerOperations.resolveNode(it.getClassifierTarget(), repo);
               }

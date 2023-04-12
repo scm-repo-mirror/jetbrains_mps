@@ -16,16 +16,15 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import java.util.Iterator;
+import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class IStatementHolder__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b8869eeL, "jetbrains.mps.kotlin.structure.IStatementHolder");
@@ -43,25 +42,23 @@ public final class IStatementHolder__BehaviorDescriptor extends BaseBHDescriptor
 
   /*package*/ static void collectDeclarationsBefore_id18X2O0Fy9mO(@NotNull SNode __thisNode__, SignatureCollector collector, SNode child) {
     // Statement scope -> order does matter
-    // TODO hide by signature from statement to statement
     while ((child != null) && SNodeOperations.getParent(child) != __thisNode__) {
       child = SNodeOperations.getParent(child);
     }
 
-    Iterator<SNode> itr = ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.statements$R3pt)).iterator();
-    while (itr.hasNext()) {
-      SNode next = itr.next();
-      if (next == child) {
-        break;
-      }
 
+    child = SNodeOperations.getPrevSibling(child);
+
+    // Needs to collect in reverse order: latest items come first
+    while ((child != null)) {
       // Let the child populate members, as many kind of concepts may be declared
       {
-        final SNode scopePart = next;
+        final SNode scopePart = child;
         if (SNodeOperations.isInstanceOf(scopePart, CONCEPTS.IStatementScopePart$Qc)) {
           IStatementScopePart__BehaviorDescriptor.populateStatementDeclarations_id2ZbCiJacEjm.invoke(scopePart, collector);
         }
       }
+      child = SNodeOperations.getPrevSibling(child);
     }
   }
   /*package*/ static boolean collectScope_id7DyvjiA20yV(@NotNull final SNode __thisNode__, ScopeCollector collector, final SNode childNode) {
@@ -155,14 +152,14 @@ public final class IStatementHolder__BehaviorDescriptor extends BaseBHDescriptor
     return CONCEPT;
   }
 
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink statements$R3pt = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b8869eeL, 0x123d0b402b8869f1L, "statements");
-  }
-
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IStatementScopePart$Qc = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2fcba12bca328e26L, "jetbrains.mps.kotlin.structure.IStatementScopePart");
     /*package*/ static final SInterfaceConcept IExpression$2i = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4d0L, "jetbrains.mps.kotlin.structure.IExpression");
     /*package*/ static final SConcept LambdaLiteral$Bd = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af517L, "jetbrains.mps.kotlin.structure.LambdaLiteral");
     /*package*/ static final SConcept ReturnExpression$c8 = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af55eL, "jetbrains.mps.kotlin.structure.ReturnExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink statements$R3pt = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b8869eeL, 0x123d0b402b8869f1L, "statements");
   }
 }

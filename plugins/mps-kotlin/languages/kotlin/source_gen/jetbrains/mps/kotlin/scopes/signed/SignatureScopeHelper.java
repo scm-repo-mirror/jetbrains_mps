@@ -158,7 +158,7 @@ public class SignatureScopeHelper {
 
     // In kotlin: lambdas and extension methods do not have access to private class members, only member defined IN the class are applied
     for (SNode contextType : ListSequence.fromList(SNodeOperations.getNodeAncestors(contextNode, CONCEPTS.IClassLike$go, false))) {
-      SNode thisType = IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(contextType, ((boolean) false));
+      SNode thisType = IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(contextType);
       if (Objects.equals(IType__BehaviorDescriptor.typeKey_idJmO2PmZtH5.invoke(thisType), targetKey)) {
         return VisibilityAccess.TYPE_PRIVATE;
       }

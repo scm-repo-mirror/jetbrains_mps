@@ -35,7 +35,7 @@ public final class EnumEntry__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af533L, "jetbrains.mps.kotlin.structure.EnumEntry");
 
   public static final SMethod<Boolean> isLocal_id1vYW8S3rTh_ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLocal").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1729083799690515557L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
-  public static final SMethod<SNode> getThisType_id46gC9M6gB68 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getThisType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4724452603239494024L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
+  public static final SMethod<SNode> getThisType_id46gC9M6gB68 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getThisType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4724452603239494024L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<String> getFunctionName_id4nn3FPlEjh5 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getFunctionName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5032507314958578757L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<SReferenceLink> getTargetLink_id5D4bOjrrcOr = new SMethodBuilder<SReferenceLink>(new SJavaCompoundTypeImpl(SReferenceLink.class)).name("getTargetLink").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6504375734615461147L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<MemberReceiver> getReceiver_id5D4bOjrrgiZ = new SMethodBuilder<MemberReceiver>(new SJavaCompoundTypeImpl(MemberReceiver.class)).name("getReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6504375734615475391L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
@@ -55,9 +55,9 @@ public final class EnumEntry__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static boolean isLocal_id1vYW8S3rTh_(@NotNull SNode __thisNode__) {
     return false;
   }
-  /*package*/ static SNode getThisType_id46gC9M6gB68(@NotNull SNode __thisNode__, boolean nullable) {
+  /*package*/ static SNode getThisType_id46gC9M6gB68(@NotNull SNode __thisNode__) {
     // These classes are not resolved as objects, no signature from their only definition can be used
-    return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(SNodeOperations.as(SNodeOperations.getParent(__thisNode__), CONCEPTS.EnumClassDeclaration$xK), ((boolean) nullable));
+    return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(SNodeOperations.as(SNodeOperations.getParent(__thisNode__), CONCEPTS.EnumClassDeclaration$xK));
   }
   /*package*/ static String getFunctionName_id4nn3FPlEjh5(@NotNull SNode __thisNode__) {
     // Not name of the function called here
@@ -116,7 +116,7 @@ public final class EnumEntry__BehaviorDescriptor extends BaseBHDescriptor {
       case 0:
         return (T) ((Boolean) isLocal_id1vYW8S3rTh_(node));
       case 1:
-        return (T) ((SNode) getThisType_id46gC9M6gB68(node, ((boolean) (Boolean) parameters[0])));
+        return (T) ((SNode) getThisType_id46gC9M6gB68(node));
       case 2:
         return (T) ((String) getFunctionName_id4nn3FPlEjh5(node));
       case 3:

@@ -40,7 +40,7 @@ public final class IClassDeclaration__BehaviorDescriptor extends BaseBHDescripto
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d75547b56dL, "jetbrains.mps.kotlin.structure.IClassDeclaration");
 
   public static final SMethod<Scope> getScope_id52_Geb4QDV$ = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5811245382203252452L).languageId(0x9b92103b95ca8c0cL, 0xceab519525ea4f22L).build2(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
-  public static final SMethod<SNode> getThisType_id46gC9M6gB68 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getThisType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4724452603239494024L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
+  public static final SMethod<SNode> getThisType_id46gC9M6gB68 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getThisType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4724452603239494024L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1213877396640L).languageId(0x9b92103b95ca8c0cL, 0xceab519525ea4f22L).build2();
   public static final SMethod<Iterable<TypeParameterDeclaration>> getTypeParameters_idTmm2uCbI_X = new SMethodBuilder<Iterable<TypeParameterDeclaration>>(new SJavaCompoundTypeImpl((Class<Iterable<TypeParameterDeclaration>>) ((Class) Object.class))).name("getTypeParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1033110091876723069L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<String> getNestedName_id1d2BQ0ZyA$g = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getNestedName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1387846870915246352L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(KtEnvironmentConfig.class, ""));
@@ -62,8 +62,8 @@ public final class IClassDeclaration__BehaviorDescriptor extends BaseBHDescripto
 
     return ((Scope) ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke0(__thisNode__, CONCEPTS.IClassLike$go, kind, child));
   }
-  /*package*/ static SNode getThisType_id46gC9M6gB68(@NotNull SNode __thisNode__, boolean nullable) {
-    SNode thisType = IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke0(__thisNode__, CONCEPTS.IClassLike$go, ((boolean) nullable));
+  /*package*/ static SNode getThisType_id46gC9M6gB68(@NotNull SNode __thisNode__) {
+    SNode thisType = IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke0(__thisNode__, CONCEPTS.IClassLike$go);
     ListSequence.fromList(SLinkOperations.getChildren(thisType, LINKS.typeProjections$vhti)).addSequence(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.typeParameters$eq6K)).select(new ISelector<SNode, SNode>() {
       public SNode select(SNode it) {
         return (SNode) IType__BehaviorDescriptor.asProjection_idJmO2PmVt2A.invoke(createTypeParameterReference_k687zn_a0a0a0a0a1a1(it), SPropertyOperations.getEnum(it, PROPS.variance$xP5D));
@@ -139,7 +139,7 @@ public final class IClassDeclaration__BehaviorDescriptor extends BaseBHDescripto
       case 0:
         return (T) ((Scope) getScope_id52_Geb4QDV$(node, (SAbstractConcept) parameters[0], (SNode) parameters[1]));
       case 1:
-        return (T) ((SNode) getThisType_id46gC9M6gB68(node, ((boolean) (Boolean) parameters[0])));
+        return (T) ((SNode) getThisType_id46gC9M6gB68(node));
       case 2:
         return (T) ((String) getPresentation_idhEwIMiw(node));
       case 3:
