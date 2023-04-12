@@ -93,8 +93,7 @@ public class KotlinMetadataLazyExtractor extends ClassVisitor {
 
     // Remaining KNOWN cases:
     // - MultiFileClassPart: read from MultiFileClassFacade implementation
-    // - SyntheticClass: it represents a lambda compiled as a class
-    // TODO do we need SyntheticClass when reading the class using it as a type? (likely not)
+    // - SyntheticClass: it represents a lambda compiled as a class (no need to bother unless we want to decode full source)
 
     return null;
 

@@ -18,11 +18,9 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.kotlin.api.builtins.BuiltIn;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class StarProjection__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3cdL, "jetbrains.mps.kotlin.structure.StarProjection");
@@ -46,9 +44,7 @@ public final class StarProjection__BehaviorDescriptor extends BaseBHDescriptor {
         // TODO union type?
         return ListSequence.fromList(upperBounds).first();
       } else {
-        SNode any = BuiltIn.ANY.toClassType();
-        SPropertyOperations.assign(any, PROPS.isNullable$KWwD, true);
-        return any;
+        return IType__BehaviorDescriptor.asNullable_id5pwU7dG5dvS.invoke(BuiltIn.ANY.toClassType());
       }
     }
   }
@@ -113,9 +109,5 @@ public final class StarProjection__BehaviorDescriptor extends BaseBHDescriptor {
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty isNullable$KWwD = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af542L, 0x56840864ad823b96L, "isNullable");
   }
 }

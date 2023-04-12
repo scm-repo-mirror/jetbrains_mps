@@ -127,7 +127,6 @@ public class SignatureScopeHelper {
 
       if (isTargetFromLink || isTargetFromNode) {
         // Simplify receiver types computation (no need to call type system)
-        // TODO what happens with incomplete type arguments?
         if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(context, LINKS.operand$YS5t), CONCEPTS.ReceiverType$$f)) {
           return MultiTuple.<SNode,Boolean>from(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(context, LINKS.operand$YS5t), CONCEPTS.ReceiverType$$f), LINKS.type$NVFj), ReceiverTypeHelper.isStaticReceiver(SLinkOperations.getTarget(context, LINKS.operand$YS5t)));
         }

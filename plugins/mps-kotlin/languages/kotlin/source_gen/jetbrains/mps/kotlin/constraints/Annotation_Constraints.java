@@ -14,15 +14,7 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
-import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
-import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.kotlin.behavior.IClassLike__BehaviorDescriptor;
-import jetbrains.mps.kotlin.behavior.IConstructorDeclaration__BehaviorDescriptor;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.kotlin.scopes.signed.SignatureScopeAsScope;
-import jetbrains.mps.kotlin.scopes.signed.FilteringSignatureScope;
-import jetbrains.mps.kotlin.scopes.signed.ConstructorsScope;
-import jetbrains.mps.kotlin.signatures.MemberSignature;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -46,23 +38,8 @@ public class Annotation_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
-            // TODO generation issue with the concepts
-            final _FunctionTypes._return_P1_E0<? extends Boolean, ? super SNode> excludedFilter = (SNode sig) -> {
-              // Only annotation class
-              // TODO include that is API?
-              return !((boolean) IClassLike__BehaviorDescriptor.hasModifier_id2NtWm0y2Y2A.invoke(IConstructorDeclaration__BehaviorDescriptor.getConstructedClass_id7WpE6U5evQG.invoke(SNodeOperations.as(sig, CONCEPTS.IConstructorDeclaration$rR)), CONCEPTS.AnnotationClassModifier$vN));
-            };
-
-            return new SignatureScopeAsScope(new FilteringSignatureScope(new ConstructorsScope(_context.getContextNode())) {
-              @Override
-              public boolean isExcluded(MemberSignature signature) {
-                return false;
-              }
-              @Override
-              public boolean isExcluded(SNode source) {
-                return excludedFilter.invoke(source);
-              }
-            }, CONCEPTS.IConstructorDeclaration$rR);
+            AnnotationConstructorsScope scope = new AnnotationConstructorsScope(_context.getContextNode());
+            return new SignatureScopeAsScope(scope, CONCEPTS.IConstructorDeclaration$rR);
           }
         };
       }
@@ -75,7 +52,6 @@ public class Annotation_Constraints extends BaseConstraintsDescriptor {
   private static final class CONCEPTS {
     /*package*/ static final SConcept Annotation$q5 = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x446a1050b763ccb9L, "jetbrains.mps.kotlin.structure.Annotation");
     /*package*/ static final SInterfaceConcept IConstructorDeclaration$rR = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x7069a625f2b0238aL, "jetbrains.mps.kotlin.structure.IConstructorDeclaration");
-    /*package*/ static final SConcept AnnotationClassModifier$vN = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af409L, "jetbrains.mps.kotlin.structure.AnnotationClassModifier");
   }
 
   private static final class LINKS {

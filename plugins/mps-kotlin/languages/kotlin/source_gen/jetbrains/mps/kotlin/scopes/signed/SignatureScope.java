@@ -50,7 +50,6 @@ public interface SignatureScope {
       final SNode provider = node;
       if (SNodeOperations.isInstanceOf(provider, CONCEPTS.ISignatureScopeProvider$mx)) {
         boolean lookForParent = (boolean) ISignatureScopeProvider__BehaviorDescriptor.collectScope_id7DyvjiA20yV.invoke(provider, collector, child);
-        // TODO consider attributes?
         if (!(lookForParent)) {
           return;
         }

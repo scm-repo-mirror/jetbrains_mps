@@ -40,7 +40,7 @@ public final class ObjectDeclaration__BehaviorDescriptor extends BaseBHDescripto
   }
 
   /*package*/ static boolean isLocal_id1vYW8S3rTh_(@NotNull SNode __thisNode__) {
-    // TODO maybe?
+    // It does not make sense to consider this local: type is fully known so smart cast would be of little help
     return false;
   }
   /*package*/ static void populateDeclarations_id213J8cgCCAN(@NotNull SNode __thisNode__, SignatureCollector collector, SNode contextNode) {

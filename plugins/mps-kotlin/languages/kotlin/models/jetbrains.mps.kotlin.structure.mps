@@ -3099,9 +3099,6 @@
         <property role="t5JxN" value="visibility, or null if using the default" />
       </node>
     </node>
-    <node concept="PrWs8" id="7uO8z1C9jRR" role="PrDN$">
-      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
-    </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6Jel">
     <property role="EcuMT" value="2936055411798373269" />

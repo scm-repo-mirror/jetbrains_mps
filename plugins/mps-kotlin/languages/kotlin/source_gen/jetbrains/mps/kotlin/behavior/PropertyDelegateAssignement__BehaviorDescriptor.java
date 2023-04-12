@@ -17,8 +17,8 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.kotlin.overloading.TypeArgument;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.kotlin.api.builtins.BuiltIn;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
@@ -26,8 +26,8 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class PropertyDelegateAssignement__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af54bL, "jetbrains.mps.kotlin.structure.PropertyDelegateAssignement");
@@ -54,16 +54,8 @@ public final class PropertyDelegateAssignement__BehaviorDescriptor extends BaseB
     return MemberReceiver.of(SLinkOperations.getTarget(__thisNode__, LINKS.delegate$Qxkl));
   }
   /*package*/ static Iterable<Argument> getArguments_id1VI7K1jROBX(@NotNull SNode __thisNode__) {
-    // https://kotlinlang.org/docs/delegated-properties.html#property-delegate-requirements
-
-    // TODO this scope cleaner API? issue is it might call the typesystem to compute the type from a type reference
-    SNode receiverType = SLinkOperations.getTarget(SNodeOperations.as(SNodeOperations.getParent(__thisNode__), CONCEPTS.PropertyDeclaration$SE), LINKS.receiverType$7yLT);
-    TypeArgument thisType;
-    if ((receiverType != null)) {
-      thisType = new TypeArgument(receiverType);
-    } else {
-      thisType = new TypeArgument(IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.IClassLike$go, false, false)));
-    }
+    // Trust variable constraint holder for receiver type
+    TypeArgument thisType = new TypeArgument(IVariableConstraintHolder__BehaviorDescriptor.getVariablesReceiverType_id75chmMYhcwP.invoke(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.IVariableConstraintHolder$zF, false, false)));
 
     SNode kProperty = BuiltIn.classTypeOf(BuiltIn.pointerOf("kotlin/Reflect/KProperty"));
     SLinkOperations.addNewChild(kProperty, LINKS.typeProjections$vhti, CONCEPTS.StarProjection$5H);
@@ -135,13 +127,11 @@ public final class PropertyDelegateAssignement__BehaviorDescriptor extends BaseB
   private static final class LINKS {
     /*package*/ static final SReferenceLink valueFunction$rFto = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af54bL, 0x30ce621e3d524a6L, "valueFunction");
     /*package*/ static final SContainmentLink delegate$Qxkl = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af54bL, 0x28bef6d7551af8ccL, "delegate");
-    /*package*/ static final SContainmentLink receiverType$7yLT = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7908c7f22L, 0x764202afbfc6bde5L, "receiverType");
     /*package*/ static final SContainmentLink typeProjections$vhti = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5b1dd60162c97579L, 0x5b1dd60162c9757cL, "typeProjections");
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept PropertyDeclaration$SE = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4a1L, "jetbrains.mps.kotlin.structure.PropertyDeclaration");
-    /*package*/ static final SInterfaceConcept IClassLike$go = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x298a6a355c110274L, "jetbrains.mps.kotlin.structure.IClassLike");
+    /*package*/ static final SInterfaceConcept IVariableConstraintHolder$zF = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0xa2222779c25a386L, "jetbrains.mps.kotlin.structure.IVariableConstraintHolder");
     /*package*/ static final SConcept StarProjection$5H = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3cdL, "jetbrains.mps.kotlin.structure.StarProjection");
     /*package*/ static final SConcept OperatorFunctionModifier$Pf = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3c0L, "jetbrains.mps.kotlin.structure.OperatorFunctionModifier");
   }

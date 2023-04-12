@@ -618,10 +618,7 @@
         </node>
         <node concept="3SKdUt" id="7cTQBrO96X_" role="3cqZAp">
           <node concept="1PaTwC" id="7cTQBrO96XA" role="1aUNEU">
-            <node concept="3oM_SD" id="7cTQBrO97Nt" role="1PaTwD">
-              <property role="3oM_SC" value="TODO" />
-            </node>
-            <node concept="3oM_SD" id="7cTQBrO97Nv" role="1PaTwD">
+            <node concept="3oM_SD" id="5pwU7dG13P$" role="1PaTwD">
               <property role="3oM_SC" value="code" />
             </node>
             <node concept="3oM_SD" id="7cTQBrOfcWI" role="1PaTwD">
@@ -822,7 +819,7 @@
     <node concept="3UR2Jj" id="6ov$ndQGavl" role="lGtFl">
       <node concept="TZ5HA" id="6ov$ndQGavm" role="TZ5H$">
         <node concept="1dT_AC" id="6ov$ndQGavn" role="1dT_Ay">
-          <property role="1dT_AB" value="Enumeration of kotlin type commonly used in type system." />
+          <property role="1dT_AB" value="Enumeration of kotlin types commonly used in type system." />
         </node>
       </node>
       <node concept="TZ5HA" id="6ov$ndQGbht" role="TZ5H$">
@@ -832,7 +829,12 @@
       </node>
       <node concept="TZ5HA" id="6ov$ndQGbOJ" role="TZ5H$">
         <node concept="1dT_AC" id="6ov$ndQGbOK" role="1dT_Ay">
-          <property role="1dT_AB" value="Contains several utilities methods to use the references." />
+          <property role="1dT_AB" value="Contains several utilities methods to use the references. Regular node pointers are not used to avoid circular dependencies" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="5pwU7dG14dJ" role="TZ5H$">
+        <node concept="1dT_AC" id="5pwU7dG14dK" role="1dT_Ay">
+          <property role="1dT_AB" value="(kotlin language should exist without stdlib, so in case one breaks, the other is easier to fix)" />
         </node>
       </node>
     </node>

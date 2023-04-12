@@ -82,8 +82,9 @@ public class NodeTypeVarSubs extends TypeVarSubs<SNode> {
     SetSequence.fromSet(visited).removeElement(parameter);
 
     // Propagate nullability
-    if (SPropertyOperations.getBoolean(ref, PROPS.isNullable$KWwD) && SNodeOperations.isInstanceOf(expanded, CONCEPTS.INullableType$$I)) {
-      SPropertyOperations.assign(SNodeOperations.cast(expanded, CONCEPTS.INullableType$$I), PROPS.isNullable$KWwD, true);
+    // TODO can be removed when isNullable is removed
+    if (SPropertyOperations.getBoolean(ref, PROPS.isNullable$KWwD)) {
+      expanded = IType__BehaviorDescriptor.asNullable_id5pwU7dG5dvS.invoke(expanded);
     }
 
     return expanded;
@@ -92,7 +93,6 @@ public class NodeTypeVarSubs extends TypeVarSubs<SNode> {
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept ITypeParameterReference$9i = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x4f0064de291cef24L, "jetbrains.mps.kotlin.structure.ITypeParameterReference");
     /*package*/ static final SConcept TypeProjection$5e = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3ccL, "jetbrains.mps.kotlin.structure.TypeProjection");
-    /*package*/ static final SInterfaceConcept INullableType$$I = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af542L, "jetbrains.mps.kotlin.structure.INullableType");
   }
 
   private static final class PROPS {

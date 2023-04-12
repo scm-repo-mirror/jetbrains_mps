@@ -145,7 +145,7 @@ public final class IType__BehaviorDescriptor extends BaseBHDescriptor {
     if (SPropertyOperations.getBoolean(SNodeOperations.as(__thisNode__, CONCEPTS.INullableType$$I), PROPS.isNullable$KWwD)) {
       return __thisNode__;
     }
-    return createNullableType_7kdw5j_a1a61(SNodeOperations.copyNode(__thisNode__));
+    return createNullableType_7kdw5j_a1a61(__thisNode__);
   }
 
   /*package*/ IType__BehaviorDescriptor() {

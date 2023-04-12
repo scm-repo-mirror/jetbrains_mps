@@ -30,19 +30,19 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 public final class TypeAlias__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4e2L, "jetbrains.mps.kotlin.structure.TypeAlias");
 
-  public static final SMethod<SNode> getThisType_id1hJVIB$ehhK = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getThisType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1472658291497178224L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
+  public static final SMethod<SNode> getThisType_id1hJVIB$ehhK = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getThisType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1472658291497178224L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getThisType_id1hJVIB$ehhK);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static SNode getThisType_id1hJVIB$ehhK(@NotNull SNode __thisNode__, boolean nullable) {
+  /*package*/ static SNode getThisType_id1hJVIB$ehhK(@NotNull SNode __thisNode__) {
     return createTypeAliasType_fe3fel_a0a0(__thisNode__, ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.typeParameters$eq6K)).select(new ISelector<SNode, SNode>() {
       public SNode select(SNode it) {
         return (SNode) IType__BehaviorDescriptor.asProjection_idJmO2PmVt2A.invoke(createTypeParameterReference_fe3fel_a0a0a0a0b0a0a0(it), SPropertyOperations.getEnum(it, PROPS.variance$xP5D));
       }
-    }), nullable);
+    }));
   }
 
   /*package*/ TypeAlias__BehaviorDescriptor() {
@@ -61,7 +61,7 @@ public final class TypeAlias__BehaviorDescriptor extends BaseBHDescriptor {
     }
     switch (methodIndex) {
       case 0:
-        return (T) ((SNode) getThisType_id1hJVIB$ehhK(node, ((boolean) (Boolean) parameters[0])));
+        return (T) ((SNode) getThisType_id1hJVIB$ehhK(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -90,11 +90,10 @@ public final class TypeAlias__BehaviorDescriptor extends BaseBHDescriptor {
   public SAbstractConcept getConcept() {
     return CONCEPT;
   }
-  private static SNode createTypeAliasType_fe3fel_a0a0(SNode p0, Iterable<? extends SNode> p1, boolean p2) {
+  private static SNode createTypeAliasType_fe3fel_a0a0(SNode p0, Iterable<? extends SNode> p1) {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.TypeAliasType$sB);
     n0.setReferenceTarget(LINKS.typeAlias$NsaN, p0);
     n0.forChild(LINKS.typeProjections$vhti).initNodeList(p1, CONCEPTS.ITypeProjection$4J);
-    n0.setProperty(PROPS.isNullable$KWwD, "" + (p2));
     return n0.getResult();
   }
   private static SNode createTypeParameterReference_fe3fel_a0a0a0a0b0a0a0(SNode p0) {
@@ -112,7 +111,6 @@ public final class TypeAlias__BehaviorDescriptor extends BaseBHDescriptor {
 
   private static final class PROPS {
     /*package*/ static final SProperty variance$xP5D = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x4da39967d13161a1L, 0x22287f28953f8c9bL, "variance");
-    /*package*/ static final SProperty isNullable$KWwD = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af542L, 0x56840864ad823b96L, "isNullable");
   }
 
   private static final class CONCEPTS {

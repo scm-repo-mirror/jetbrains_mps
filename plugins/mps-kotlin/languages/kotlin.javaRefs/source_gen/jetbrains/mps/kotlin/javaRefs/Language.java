@@ -70,6 +70,5 @@ public class Language extends LanguageRuntime {
 
   @Override
   protected void contribute(@NotNull LanguageExtensions extensions) {
-    extensions.recordContribution("jetbrains.mps.kotlin", "6b3888c1-9802-44d8-8baf-f8e6c33ed689", EditorAspectDescriptor.class);
   }
 }

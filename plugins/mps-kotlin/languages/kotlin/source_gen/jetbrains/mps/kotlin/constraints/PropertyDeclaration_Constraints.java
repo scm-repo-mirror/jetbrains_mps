@@ -27,7 +27,7 @@ public class PropertyDeclaration_Constraints extends BaseConstraintsDescriptor {
     }
     @Override
     public Object getValue(SNode node) {
-      // TODO why is there a name here?
+      // Name is required from receiver provider interface to get a name for scopes
       return SPropertyOperations.getString(SLinkOperations.getTarget(node, LINKS.declaration$IdZv), PROPS.name$MnvL);
     }
   }

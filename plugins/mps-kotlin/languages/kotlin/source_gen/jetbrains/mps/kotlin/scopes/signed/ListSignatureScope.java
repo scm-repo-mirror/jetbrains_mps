@@ -20,7 +20,6 @@ public class ListSignatureScope implements SignatureScope {
 
   @Override
   public Iterable<SourcedSignature> getElements(final String prefix) {
-    // TODO cache sequence?
     return Sequence.fromIterable(myProducer.invoke()).where(new IWhereFilter<SourcedSignature>() {
       public boolean accept(SourcedSignature it) {
         return (prefix == null || prefix.length() == 0) || it.getSignature().getDescriptionText().startsWith(prefix);

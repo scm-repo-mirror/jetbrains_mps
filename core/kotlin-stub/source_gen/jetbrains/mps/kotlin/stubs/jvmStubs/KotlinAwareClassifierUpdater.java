@@ -57,7 +57,7 @@ public class KotlinAwareClassifierUpdater extends ClassifierUpdater {
       SNode node = stereotype.createJavaAnnotation(resolveInfo);
 
       if ((node != null)) {
-        // TODO here, it assumes annotation is a java one, because kotlin is not supported there yet
+        // here, it assumes annotation is a java one, because kotlin is not supported there yet
         Map<String, Object> values = ((Map<String, Object>) annotation.getValues());
         for (String method : MapSequence.fromMap(values).keySet()) {
           SNode value = _quotation_createNode_uk01hx_a0a0c0c0b0a3a6(getValueAsExpression(MapSequence.fromMap(values).get(method)));

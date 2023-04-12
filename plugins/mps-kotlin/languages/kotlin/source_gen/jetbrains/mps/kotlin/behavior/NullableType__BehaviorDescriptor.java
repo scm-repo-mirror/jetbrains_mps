@@ -68,7 +68,7 @@ public final class NullableType__BehaviorDescriptor extends BaseBHDescriptor {
     IType__BehaviorDescriptor.visitHierarchy_id5q426iHtYvR.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.type$Tm0J), visitor);
   }
   /*package*/ static void populateTypeSignatures_id5q426iHK5S9(@NotNull SNode __thisNode__, SignatureCollector visitor) {
-    // TODO add signatures matching to null?
+    // null type do not have signatures on its own, extension functions may exist on Nothing?, but this is not handled here 
     IType__BehaviorDescriptor.populateTypeSignatures_id5q426iHK5S9.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.type$Tm0J), visitor);
   }
   /*package*/ static void populateSubstitutions_id4f4W8JpwgWV(@NotNull SNode __thisNode__, TypeVarSubs<SNode> subs) {

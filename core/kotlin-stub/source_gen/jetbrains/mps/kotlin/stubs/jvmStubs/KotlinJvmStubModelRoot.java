@@ -67,7 +67,7 @@ public class KotlinJvmStubModelRoot extends FileBasedModelRoot implements JarHel
   @Nullable
   @Override
   public SModel getModel(@NotNull SModelId id) {
-    // TODO not implemented in BL either
+    // not implemented in BL either
     return null;
   }
   @Nullable

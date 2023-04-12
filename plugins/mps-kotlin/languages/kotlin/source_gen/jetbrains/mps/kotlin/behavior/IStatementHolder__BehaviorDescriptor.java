@@ -46,7 +46,6 @@ public final class IStatementHolder__BehaviorDescriptor extends BaseBHDescriptor
       child = SNodeOperations.getParent(child);
     }
 
-
     child = SNodeOperations.getPrevSibling(child);
 
     // Needs to collect in reverse order: latest items come first

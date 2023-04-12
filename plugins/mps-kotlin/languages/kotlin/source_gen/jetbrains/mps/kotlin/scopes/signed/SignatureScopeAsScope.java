@@ -5,9 +5,8 @@ package jetbrains.mps.kotlin.scopes.signed;
 import jetbrains.mps.scope.Scope;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
-import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import org.jetbrains.annotations.Nullable;
 import java.util.Collections;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ISelector;
@@ -33,8 +32,19 @@ public class SignatureScopeAsScope extends Scope {
 
   @Override
   public SNode resolve(SNode contextNode, String refText) {
-    // TODO more advanced resolve mechanism?
-    return new NamedElementsScope(getAvailableElements(refText)).resolve(contextNode, refText);
+    // Copy of NamedElementsScope behavior, but we do not necessarily consume the entire scope
+    SNode result = null;
+    for (SNode element : Sequence.fromIterable(getAvailableElements(refText))) {
+      if (refText.equals(getReferenceText(contextNode, element))) {
+        if (result == null) {
+          result = element;
+        } else {
+          // ambiguity
+          return null;
+        }
+      }
+    }
+    return result;
   }
 
   @Override

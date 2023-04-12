@@ -4,9 +4,6 @@ package jetbrains.mps.kotlin.behavior;
 
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.kotlin.api.builtins.BuiltIn;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class AnyTypeReference implements TypeReference {
   public static AnyTypeReference INSTANCE = new AnyTypeReference();
@@ -16,17 +13,12 @@ public class AnyTypeReference implements TypeReference {
   @Override
   public SNode compute() {
     if (cached == null) {
-      cached = BuiltIn.ANY.toClassType();
-      SPropertyOperations.assign(cached, PROPS.isNullable$KWwD, true);
+      cached = IType__BehaviorDescriptor.asNullable_id5pwU7dG5dvS.invoke(BuiltIn.ANY.toClassType());
     }
     return cached;
   }
   @Override
   public String toString() {
     return "Any?";
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty isNullable$KWwD = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af542L, 0x56840864ad823b96L, "isNullable");
   }
 }

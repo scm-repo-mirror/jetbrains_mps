@@ -7,9 +7,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.kotlin.api.builtins.BuiltIn;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /**
  * Abstraction of a function parameter declaration.
@@ -55,15 +52,9 @@ public interface ParameterDeclaration {
    */
   static SNode typeOf(@Nullable ParameterDeclaration parameter) {
     if (parameter == null) {
-      SNode clType = BuiltIn.ANY.toClassType();
-      SPropertyOperations.assign(clType, PROPS.isNullable$KWwD, true);
-      return clType;
+      return IType__BehaviorDescriptor.asNullable_id5pwU7dG5dvS.invoke(BuiltIn.ANY.toClassType());
     }
 
     return parameter.getType();
-  }
-
-  final class PROPS {
-    /*package*/ static final SProperty isNullable$KWwD = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af542L, 0x56840864ad823b96L, "isNullable");
   }
 }

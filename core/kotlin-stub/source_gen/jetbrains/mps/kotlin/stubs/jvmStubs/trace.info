@@ -239,8 +239,8 @@
       <node id="3833041373522108021" at="54,0,55,48" concept="11" />
       <node id="5203104674953680120" at="56,161,57,64" concept="9" />
       <node id="5203104674953966932" at="57,64,58,0" concept="12" />
-      <node id="5203104674953786749" at="59,27,60,100" concept="11" />
-      <node id="2566197375814063455" at="60,100,61,84" concept="9" />
+      <node id="5203104674953786749" at="59,27,60,95" concept="11" />
+      <node id="2566197375814063455" at="60,95,61,84" concept="9" />
       <node id="5122318299906072706" at="62,68,63,131" concept="9" />
       <node id="5203104674954122535" at="63,131,64,0" concept="12" />
       <node id="5203104674954913335" at="64,0,65,48" concept="11" />
@@ -430,8 +430,8 @@
       <node id="1396585305527589087" at="54,47,55,35" concept="4" />
       <node id="3383172759878957573" at="60,36,61,17" concept="10" />
       <node id="3383172759878913986" at="64,64,65,17" concept="10" />
-      <node id="5861508619458012352" at="69,48,70,40" concept="11" />
-      <node id="5861508619458012360" at="70,40,71,16" concept="10" />
+      <node id="5861508619458012352" at="69,48,70,35" concept="11" />
+      <node id="5861508619458012360" at="70,35,71,16" concept="10" />
       <node id="5861508619458012371" at="75,53,76,16" concept="10" />
       <node id="5179589132883870376" at="79,45,80,80" concept="11" />
       <node id="5861508619458012386" at="80,80,81,80" concept="10" />
@@ -526,13 +526,12 @@
       <node id="5958328758866748068" at="92,5,93,0" concept="12" />
       <node id="5958328758866749464" at="93,0,94,29" concept="11" />
       <node id="5958328758866485795" at="94,29,95,74" concept="11" />
-      <node id="5958328758866714682" at="95,74,96,67" concept="11" />
-      <node id="5958328758866751916" at="96,67,97,93" concept="11" />
-      <node id="2226917154459559846" at="97,93,98,0" concept="12" />
-      <node id="2226917154459560909" at="98,0,99,16" concept="10" />
-      <node id="2226917154459493667" at="99,16,100,0" concept="12" />
-      <node id="6824604346144150778" at="104,0,105,0" concept="13" trace="name$MnvL" />
-      <node id="6824604346144150778" at="108,0,109,0" concept="13" trace="KotlinFile$4h" />
+      <node id="5958328758866714682" at="95,74,96,124" concept="11" />
+      <node id="2226917154459559846" at="96,124,97,0" concept="12" />
+      <node id="2226917154459560909" at="97,0,98,16" concept="10" />
+      <node id="2226917154459493667" at="98,16,99,0" concept="12" />
+      <node id="6824604346144150778" at="103,0,104,0" concept="13" trace="name$MnvL" />
+      <node id="6824604346144150778" at="107,0,108,0" concept="13" trace="KotlinFile$4h" />
       <node id="2226917154458696452" at="62,10,64,5" concept="1" />
       <node id="6824604346144151947" at="37,0,40,0" concept="3" trace="KotlinMetadataLazyExtractor#()V" />
       <node id="1562049822979635443" at="42,80,46,5" concept="7" />
@@ -542,7 +541,7 @@
       <node id="2226917154459598473" at="71,28,81,9" concept="4" />
       <node id="6824604346144168718" at="55,0,66,0" concept="14" trace="getKotlinData#(Ljetbrains/mps/baseLanguage/javastub/ClassifierLoader;Ljava/lang/String;)Lkotlinx/metadata/jvm/KotlinClassHeader;" />
       <node id="8128801437752214415" at="67,86,92,5" concept="7" />
-      <node id="2226917154459467967" at="67,0,102,0" concept="14" trace="createKotlinRootNode#(Lkotlinx/metadata/jvm/KotlinClassMetadata;Ljetbrains/mps/vfs/IFile;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="2226917154459467967" at="67,0,101,0" concept="14" trace="createKotlinRootNode#(Lkotlinx/metadata/jvm/KotlinClassMetadata;Ljetbrains/mps/vfs/IFile;)Lorg/jetbrains/mps/openapi/model/SNode;" />
       <scope id="6824604346144151953" at="37,41,38,31" />
       <scope id="2226917154458680165" at="60,33,61,48" />
       <scope id="2226917154458696453" at="62,12,63,18" />
@@ -575,15 +574,15 @@
       <scope id="8128801437752214417" at="68,56,83,28">
         <var name="rootNode" id="2226917154460304741" />
       </scope>
-      <scope id="2226917154459467970" at="67,86,100,0" />
-      <scope id="2226917154459467967" at="67,0,102,0">
+      <scope id="2226917154459467970" at="67,86,99,0" />
+      <scope id="2226917154459467967" at="67,0,101,0">
         <var name="file" id="2226917154459556005" />
         <var name="metadata" id="2226917154459470093" />
       </scope>
-      <unit id="6824604346144150778" at="103,0,106,0" name="jetbrains.mps.kotlin.stubs.jvmStubs.KotlinMetadataLazyExtractor$PROPS" />
-      <unit id="6824604346144150778" at="107,0,110,0" name="jetbrains.mps.kotlin.stubs.jvmStubs.KotlinMetadataLazyExtractor$CONCEPTS" />
+      <unit id="6824604346144150778" at="102,0,105,0" name="jetbrains.mps.kotlin.stubs.jvmStubs.KotlinMetadataLazyExtractor$PROPS" />
+      <unit id="6824604346144150778" at="106,0,109,0" name="jetbrains.mps.kotlin.stubs.jvmStubs.KotlinMetadataLazyExtractor$CONCEPTS" />
       <unit id="2226917154460291736" at="72,56,81,7" name="jetbrains.mps.kotlin.stubs.jvmStubs.KotlinMetadataLazyExtractor$1" />
-      <unit id="6824604346144150778" at="33,0,111,0" name="jetbrains.mps.kotlin.stubs.jvmStubs.KotlinMetadataLazyExtractor" />
+      <unit id="6824604346144150778" at="33,0,110,0" name="jetbrains.mps.kotlin.stubs.jvmStubs.KotlinMetadataLazyExtractor" />
     </file>
   </root>
   <root nodeRef="r:bdaa2532-d0d0-46ce-8145-d47be9b807a4(jetbrains.mps.kotlin.stubs.jvmStubs)/8317865157553686594">

@@ -38,7 +38,6 @@ public final class IntersectionType__BehaviorDescriptor extends BaseBHDescriptor
   }
 
   /*package*/ static void populateTypeSignatures_id5q426iHK5S9(@NotNull SNode __thisNode__, SignatureCollector visitor) {
-    // TODO is this necessary? this is only supposed to exist as output from the typesystem
     for (SNode component : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.components$_ids))) {
       IType__BehaviorDescriptor.populateTypeSignatures_id5q426iHK5S9.invoke(component, visitor);
     }

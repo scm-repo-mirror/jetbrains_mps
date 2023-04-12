@@ -31,8 +31,7 @@ public final class ITypeParameterReference__BehaviorDescriptor extends BaseBHDes
   }
 
   /*package*/ static void populateTypeSignatures_id5q426iHK5S9(@NotNull SNode __thisNode__, SignatureCollector visitor) {
-    // Nothing to declare
-    // TODO do we need to try bounds?
+    // Nothing to declare (no need to declare bounds there, they need to be declared as supertypes by implementation)
   }
 
   /*package*/ ITypeParameterReference__BehaviorDescriptor() {

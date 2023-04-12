@@ -103,8 +103,7 @@ public class PrecedenceUtil {
       SLinkOperations.setTarget(result, LINKS.left$yQgK, nodeToProcess);
     }
 
-    // TODO is this code really necessary? the checking rule will do it automatically anyway afterwards
-    // TODO if unnecessary, remove this call and all these methods defined
+    // this could be overkill but might as well do it now than wait for typesystem to fix it
     BinaryPriorityUtil.fixOperationPriorities(result);
     return result;
   }

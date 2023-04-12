@@ -20,12 +20,11 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
-import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class ITypeParameter__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x4da39967d13161a1L, "jetbrains.mps.kotlin.structure.ITypeParameter");
 
-  public static final SMethod<SNode> getThisType_id2J12cYiFgTM = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getThisType").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3152810901748125298L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
+  public static final SMethod<SNode> getThisType_id2J12cYiFgTM = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getThisType").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3152810901748125298L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<TypeParameterDeclaration> getDescriptor_id28CvMylflrH = new SMethodBuilder<TypeParameterDeclaration>(new SJavaCompoundTypeImpl(TypeParameterDeclaration.class)).name("getDescriptor").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2461357008637220589L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getThisType_id2J12cYiFgTM, getDescriptor_id28CvMylflrH);
@@ -33,8 +32,8 @@ public final class ITypeParameter__BehaviorDescriptor extends BaseBHDescriptor {
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static SNode getThisType_id2J12cYiFgTM(@NotNull SNode __thisNode__, boolean nullable) {
-    return createTypeParameterReference_vnz5gl_a0a0(__thisNode__, nullable);
+  /*package*/ static SNode getThisType_id2J12cYiFgTM(@NotNull SNode __thisNode__) {
+    return createTypeParameterReference_vnz5gl_a0a0(__thisNode__);
   }
   @Nullable
   /*package*/ static TypeParameterDeclaration getDescriptor_id28CvMylflrH(@NotNull SNode __thisNode__) {
@@ -57,7 +56,7 @@ public final class ITypeParameter__BehaviorDescriptor extends BaseBHDescriptor {
     }
     switch (methodIndex) {
       case 0:
-        return (T) ((SNode) getThisType_id2J12cYiFgTM(node, ((boolean) (Boolean) parameters[0])));
+        return (T) ((SNode) getThisType_id2J12cYiFgTM(node));
       case 1:
         return (T) ((TypeParameterDeclaration) getDescriptor_id28CvMylflrH(node));
       default:
@@ -88,10 +87,9 @@ public final class ITypeParameter__BehaviorDescriptor extends BaseBHDescriptor {
   public SAbstractConcept getConcept() {
     return CONCEPT;
   }
-  private static SNode createTypeParameterReference_vnz5gl_a0a0(SNode p0, boolean p1) {
+  private static SNode createTypeParameterReference_vnz5gl_a0a0(SNode p0) {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.TypeParameterReference$ya);
     n0.setReferenceTarget(LINKS.parameter$ofYr, p0);
-    n0.setProperty(PROPS.isNullable$KWwD, "" + (p1));
     return n0.getResult();
   }
 
@@ -101,9 +99,5 @@ public final class ITypeParameter__BehaviorDescriptor extends BaseBHDescriptor {
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink parameter$ofYr = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x21e0c9232886358dL, 0x21e0c9232886358eL, "parameter");
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty isNullable$KWwD = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af542L, 0x56840864ad823b96L, "isNullable");
   }
 }

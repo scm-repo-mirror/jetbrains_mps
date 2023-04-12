@@ -1580,21 +1580,30 @@
   </root>
   <root nodeRef="r:1188d1a1-e4db-411a-9d6e-3f5b239b5272(jetbrains.mps.kotlin.textGen)/6153771967696089991">
     <file name="CollectionLiteral_TextGen.java">
-      <node id="6153771967696089991" at="14,54,15,55" concept="8" />
-      <node id="5497091197299197149" at="15,55,16,64" concept="10" />
-      <node id="6153771967696089996" at="16,64,17,20" concept="3" />
-      <node id="6153771967696677812" at="17,20,18,109" concept="3" />
-      <node id="6153771967696090048" at="18,109,19,20" concept="3" />
-      <node id="6153771967696089991" at="23,0,24,0" concept="12" trace="expressions$_AIQ" />
-      <node id="6153771967696089991" at="13,0,21,0" concept="7" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
-      <scope id="6153771967696089991" at="14,54,19,20">
+      <node id="6153771967696089991" at="16,54,17,55" concept="8" />
+      <node id="5497091197299197149" at="17,55,18,59" concept="10" />
+      <node id="6153771967696089996" at="19,113,20,22" concept="3" />
+      <node id="6153771967696677812" at="20,22,21,111" concept="3" />
+      <node id="6153771967696090048" at="21,111,22,22" concept="3" />
+      <node id="6224230267470645717" at="23,12,24,29" concept="3" />
+      <node id="6224230267470646119" at="24,29,25,111" concept="3" />
+      <node id="6224230267470648498" at="25,111,26,22" concept="3" />
+      <node id="6153771967696089991" at="31,0,32,0" concept="12" trace="expressions$_AIQ" />
+      <node id="6153771967696089991" at="35,0,36,0" concept="12" trace="Annotation$q5" />
+      <node id="6224230267470645404" at="23,10,27,5" concept="0" />
+      <node id="6224230267470639956" at="18,59,27,5" concept="6" />
+      <node id="6153771967696089991" at="15,0,29,0" concept="7" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <scope id="6224230267470639958" at="19,113,22,22" />
+      <scope id="6224230267470645405" at="23,12,26,22" />
+      <scope id="6153771967696089991" at="16,54,27,5">
         <var name="tgs" id="6153771967696089991" />
       </scope>
-      <scope id="6153771967696089991" at="13,0,21,0">
+      <scope id="6153771967696089991" at="15,0,29,0">
         <var name="ctx" id="6153771967696089991" />
       </scope>
-      <unit id="6153771967696089991" at="22,0,25,0" name="jetbrains.mps.kotlin.textGen.CollectionLiteral_TextGen$LINKS" />
-      <unit id="6153771967696089991" at="12,0,26,0" name="jetbrains.mps.kotlin.textGen.CollectionLiteral_TextGen" />
+      <unit id="6153771967696089991" at="30,0,33,0" name="jetbrains.mps.kotlin.textGen.CollectionLiteral_TextGen$LINKS" />
+      <unit id="6153771967696089991" at="34,0,37,0" name="jetbrains.mps.kotlin.textGen.CollectionLiteral_TextGen$CONCEPTS" />
+      <unit id="6153771967696089991" at="14,0,38,0" name="jetbrains.mps.kotlin.textGen.CollectionLiteral_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
       <node id="6153771967696089991" at="69,51,70,47" concept="9" />

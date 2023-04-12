@@ -1382,7 +1382,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.IncompleteDeclaration:
         if (props_IncompleteDeclaration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.presentationByName();
+          cpb.rawPresentation("IncompleteDeclaration");
           props_IncompleteDeclaration = cpb.create();
         }
         return props_IncompleteDeclaration;

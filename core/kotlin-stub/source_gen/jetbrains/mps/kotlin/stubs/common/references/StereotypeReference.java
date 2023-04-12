@@ -161,7 +161,7 @@ public class StereotypeReference {
     @Override
     public SNode createJavaAnnotation(ResolveInfo resolved) {
       // TODO not supported
-      // TODO when support is enabled, change KotlinAwareClassifierUpdate accordingly
+      // when support is enabled, change KotlinAwareClassifierUpdate accordingly
       return null;
     }
     @Override
