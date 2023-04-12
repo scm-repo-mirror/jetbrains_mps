@@ -22,7 +22,8 @@ import org.jetbrains.mps.openapi.language.SConcept;
 public class MembersPopulatingContextWrapper extends MembersPopulatingContext {
   private final SignatureCollector signatureDelegate;
 
-  public MembersPopulatingContextWrapper(@NotNull SignatureCollector superTypes) {
+  public MembersPopulatingContextWrapper(@NotNull SignatureCollector superTypes, SNode origin) {
+    super(origin);
     signatureDelegate = superTypes;
   }
 

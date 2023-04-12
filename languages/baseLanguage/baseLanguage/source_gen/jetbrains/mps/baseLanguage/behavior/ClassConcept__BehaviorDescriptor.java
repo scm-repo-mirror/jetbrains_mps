@@ -17,7 +17,7 @@ import java.util.Set;
 import jetbrains.mps.baseLanguage.util.StubClassDiscovery;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.baseLanguage.scopes.MembersPopulatingContext;
-import jetbrains.mps.baseLanguage.scopes.ClassifierSupertypesVisitor;
+import jetbrains.mps.baseLanguage.scopes.ClassifierHierarchyVisitor;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
@@ -69,7 +69,8 @@ public final class ClassConcept__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Scope> getMembers_id1UeCwxlVpJs = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getMembers").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2201875424515824604L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""));
   public static final SMethod<Scope> getScope_id52_Geb4QDV$ = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5811245382203252452L).languageId(0x9b92103b95ca8c0cL, 0xceab519525ea4f22L).build2(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Void> populateMembers_id6r77ob2USUV = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateMembers").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7405920559687241403L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter(MembersPopulatingContext.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
-  public static final SMethod<Void> enumerateSupertypes_id65_8Gi1dKDs = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("enumerateSupertypes").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7018053821703588444L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter(ClassifierSupertypesVisitor.class, ""));
+  public static final SMethod<Void> enumerateMembers_id65_8Gi2s6iV = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("enumerateMembers").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7018053821724124347L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter(ClassifierHierarchyVisitor.class, ""));
+  public static final SMethod<Void> enumerateSupertypes_id65_8Gi1dKDs = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("enumerateSupertypes").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7018053821703588444L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter(ClassifierHierarchyVisitor.class, ""));
   public static final SMethod<Iterable<SNode>> instanceInitializers_id6Fz0RL3y9UD = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("instanceInitializers").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7702003619977535145L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
   public static final SMethod<Iterable<SNode>> staticInitializers_id2I6sE$IuBP7 = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("staticInitializers").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3136320261464948039L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
   public static final SMethod<Iterable<SNode>> fields_id4_LVZ3pC27C = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("fields").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5292274854859383272L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
@@ -84,7 +85,7 @@ public final class ClassConcept__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Void> markLoadedNodeAsDeprecated_id5H8W9_EDlcn = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("markLoadedNodeAsDeprecated").modifiers(1, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6577771797484491543L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Boolean> canBeExtendedOrInstantiatedAt_id2YFkRQdLLqk = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("canBeExtendedOrInstantiatedAt").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3434930939514787476L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getExtendedClassifierTypes_id1UeCwxlWKny, getIconMarks_id6TtJ6IUkhQJ, isDescendant_checkLoops_id6dL7A1DpKoA, checkLoops_id3sXyOQUqKq5, getMainMethod_idhEwIClG, hasStaticMemebers_idhFq8xqE, getMethodsToOverride_id4GM03FJm3zL, getSuperclass_idi3H_lLu, getUnitName_id4pl5GY7LKmR, getAllSuperClassifiers_id4fAeKISQjDi, getMembers_id1UeCwxlVpJs, getScope_id52_Geb4QDV$, populateMembers_id6r77ob2USUV, enumerateSupertypes_id65_8Gi1dKDs, instanceInitializers_id6Fz0RL3y9UD, staticInitializers_id2I6sE$IuBP7, fields_id4_LVZ3pC27C, staticMethods_id4_LVZ3pCeXr, constructors_id4_LVZ3pCvsd, properties_id4_LVZ3pCxYY, canBeStatic_id2L7NFMAtrRg, getContextClass_id6WzWPTX2$6q, markDeprecated_id6Va_BJexupi, unmarkDeprecated_id6Va_BJex$aE, addConstructor_id32Td0Ia9Mgr, markLoadedNodeAsDeprecated_id5H8W9_EDlcn, canBeExtendedOrInstantiatedAt_id2YFkRQdLLqk);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getExtendedClassifierTypes_id1UeCwxlWKny, getIconMarks_id6TtJ6IUkhQJ, isDescendant_checkLoops_id6dL7A1DpKoA, checkLoops_id3sXyOQUqKq5, getMainMethod_idhEwIClG, hasStaticMemebers_idhFq8xqE, getMethodsToOverride_id4GM03FJm3zL, getSuperclass_idi3H_lLu, getUnitName_id4pl5GY7LKmR, getAllSuperClassifiers_id4fAeKISQjDi, getMembers_id1UeCwxlVpJs, getScope_id52_Geb4QDV$, populateMembers_id6r77ob2USUV, enumerateMembers_id65_8Gi2s6iV, enumerateSupertypes_id65_8Gi1dKDs, instanceInitializers_id6Fz0RL3y9UD, staticInitializers_id2I6sE$IuBP7, fields_id4_LVZ3pC27C, staticMethods_id4_LVZ3pCeXr, constructors_id4_LVZ3pCvsd, properties_id4_LVZ3pCxYY, canBeStatic_id2L7NFMAtrRg, getContextClass_id6WzWPTX2$6q, markDeprecated_id6Va_BJexupi, unmarkDeprecated_id6Va_BJex$aE, addConstructor_id32Td0Ia9Mgr, markLoadedNodeAsDeprecated_id5H8W9_EDlcn, canBeExtendedOrInstantiatedAt_id2YFkRQdLLqk);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -260,29 +261,21 @@ public final class ClassConcept__BehaviorDescriptor extends BaseBHDescriptor {
     return ((Scope) ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invokeSuper(__thisNode__, CONCEPTS.ClassConcept$bK, kind, child));
   }
   /*package*/ static void populateMembers_id6r77ob2USUV(@NotNull SNode __thisNode__, MembersPopulatingContext context, SNode classifierType) {
-    // populate own members
+    IClassifier__BehaviorDescriptor.enumerateMembers_id65_8Gi2s6iV.invoke(__thisNode__, context);
+    IClassifier__BehaviorDescriptor.enumerateSupertypes_id65_8Gi1dKDs.invoke(__thisNode__, context);
+  }
+  /*package*/ static void enumerateMembers_id65_8Gi2s6iV(@NotNull SNode __thisNode__, ClassifierHierarchyVisitor visitor) {
     for (SNode member : SNodeOperations.ofConcept(SNodeOperations.getChildren(__thisNode__), CONCEPTS.IClassifierMember$Na)) {
-      IClassifierMember__BehaviorDescriptor.populateMember_id6r77ob2UW9O.invoke(member, context, classifierType);
-    }
-
-    // populate super class members
-    SNode superClass = ClassConcept__BehaviorDescriptor.getSuperclass_idi3H_lLu.invoke(__thisNode__);
-    if ((superClass != null)) {
-      IClassifierType__BehaviorDescriptor.populateMembers_id6r77ob2USS_.invoke(superClass, context, classifierType);
-    }
-
-    // populate implemented interfaces members
-    for (SNode implementedInterface : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.implementedInterface$rujG)).where(new NotNullWhereFilter<SNode>())) {
-      IClassifierType__BehaviorDescriptor.populateMembers_id6r77ob2USS_.invoke(implementedInterface, context, classifierType);
+      visitor.visitClassifierMember(SNodeOperations.cast(member, CONCEPTS.IClassifierMember$Na));
     }
   }
-  /*package*/ static void enumerateSupertypes_id65_8Gi1dKDs(@NotNull SNode __thisNode__, ClassifierSupertypesVisitor visitor) {
+  /*package*/ static void enumerateSupertypes_id65_8Gi1dKDs(@NotNull SNode __thisNode__, ClassifierHierarchyVisitor visitor) {
     SNode superClass = ClassConcept__BehaviorDescriptor.getSuperclass_idi3H_lLu.invoke(__thisNode__);
     if ((superClass != null)) {
-      IClassifierType__BehaviorDescriptor.enumerateSupertypes_id65_8Gi1edLu.invoke(superClass, visitor);
+      IClassifierType__BehaviorDescriptor.enumerateTypesHierarchy_id65_8Gi1edLu.invoke(superClass, visitor);
     }
     for (SNode implementedInterface : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.implementedInterface$rujG)).where(new NotNullWhereFilter<SNode>())) {
-      IClassifierType__BehaviorDescriptor.enumerateSupertypes_id65_8Gi1edLu.invoke(implementedInterface, visitor);
+      IClassifierType__BehaviorDescriptor.enumerateTypesHierarchy_id65_8Gi1edLu.invoke(implementedInterface, visitor);
     }
   }
   /*package*/ static Iterable<SNode> instanceInitializers_id6Fz0RL3y9UD(@NotNull SNode __thisNode__) {
@@ -392,32 +385,35 @@ public final class ClassConcept__BehaviorDescriptor extends BaseBHDescriptor {
         populateMembers_id6r77ob2USUV(node, (MembersPopulatingContext) parameters[0], (SNode) parameters[1]);
         return null;
       case 13:
-        enumerateSupertypes_id65_8Gi1dKDs(node, (ClassifierSupertypesVisitor) parameters[0]);
+        enumerateMembers_id65_8Gi2s6iV(node, (ClassifierHierarchyVisitor) parameters[0]);
         return null;
       case 14:
-        return (T) ((Iterable<SNode>) instanceInitializers_id6Fz0RL3y9UD(node));
+        enumerateSupertypes_id65_8Gi1dKDs(node, (ClassifierHierarchyVisitor) parameters[0]);
+        return null;
       case 15:
-        return (T) ((Iterable<SNode>) staticInitializers_id2I6sE$IuBP7(node));
+        return (T) ((Iterable<SNode>) instanceInitializers_id6Fz0RL3y9UD(node));
       case 16:
-        return (T) ((Iterable<SNode>) fields_id4_LVZ3pC27C(node));
+        return (T) ((Iterable<SNode>) staticInitializers_id2I6sE$IuBP7(node));
       case 17:
-        return (T) ((Iterable<SNode>) staticMethods_id4_LVZ3pCeXr(node));
+        return (T) ((Iterable<SNode>) fields_id4_LVZ3pC27C(node));
       case 18:
-        return (T) ((Iterable<SNode>) constructors_id4_LVZ3pCvsd(node));
+        return (T) ((Iterable<SNode>) staticMethods_id4_LVZ3pCeXr(node));
       case 19:
-        return (T) ((Iterable<SNode>) properties_id4_LVZ3pCxYY(node));
+        return (T) ((Iterable<SNode>) constructors_id4_LVZ3pCvsd(node));
       case 20:
+        return (T) ((Iterable<SNode>) properties_id4_LVZ3pCxYY(node));
+      case 21:
         return (T) ((Boolean) canBeStatic_id2L7NFMAtrRg(node));
-      case 22:
+      case 23:
         markDeprecated_id6Va_BJexupi(node);
         return null;
-      case 23:
+      case 24:
         unmarkDeprecated_id6Va_BJex$aE(node);
         return null;
-      case 24:
+      case 25:
         addConstructor_id32Td0Ia9Mgr(node, (SNode) parameters[0]);
         return null;
-      case 26:
+      case 27:
         return (T) ((Boolean) canBeExtendedOrInstantiatedAt_id2YFkRQdLLqk(node, (SNode) parameters[0]));
       default:
         throw new BHMethodNotFoundException(this, method);
@@ -431,9 +427,9 @@ public final class ClassConcept__BehaviorDescriptor extends BaseBHDescriptor {
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
-      case 21:
+      case 22:
         return (T) ((SNode) getContextClass_id6WzWPTX2$6q(concept, (SNode) parameters[0]));
-      case 25:
+      case 26:
         markLoadedNodeAsDeprecated_id5H8W9_EDlcn(concept, (SNode) parameters[0]);
         return null;
       default:

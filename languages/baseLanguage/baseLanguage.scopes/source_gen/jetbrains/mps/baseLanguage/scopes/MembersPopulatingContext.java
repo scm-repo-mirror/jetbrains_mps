@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
 import jetbrains.mps.baseLanguage.behavior.IClassifierType__BehaviorDescriptor;
+import jetbrains.mps.baseLanguage.behavior.IClassifierMember__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Iterator;
 import jetbrains.mps.baseLanguage.behavior.IClassifier__BehaviorDescriptor;
@@ -27,16 +28,52 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
-public class MembersPopulatingContext {
+public class MembersPopulatingContext implements ClassifierHierarchyVisitor {
   private final Stack<SNode> classifiers = new Stack<SNode>();
   private final Set<SNode> visited = new HashSet<SNode>();
   private boolean isPackageProtectedAvailable = true;
   private final List<SNode> members = new ArrayList<SNode>();
   private final Map<Signature, SNode> foundSignatures2Classifier = new HashMap<Signature, SNode>();
   private Map<SNode, SNode> typeByTypeVariable = new HashMap<SNode, SNode>();
+  private final SNode originClassifierType;
 
+  /**
+   * 
+   * @deprecated use the constructor accepting node<IClassifierType>
+   */
+  @Deprecated
   public MembersPopulatingContext() {
     // java collections for speed
+    originClassifierType = null;
+  }
+
+  public MembersPopulatingContext(SNode classifierType) {
+    this.originClassifierType = classifierType;
+  }
+
+  @Override
+  public SNode getOriginClassifierType() {
+    return originClassifierType;
+  }
+
+  @Override
+  public boolean enterClassifierType(SNode classifierType) {
+    if (enterClassifierInternal(classifierType)) {
+      IClassifierType__BehaviorDescriptor.enumerateMembers_id65_8Gi2shR6.invoke(classifierType, this);
+      return true;
+    }
+    return false;
+  }
+
+  @Override
+  public void exitClassifierType(SNode classifierType) {
+    IClassifierType__BehaviorDescriptor.enumerateObjectMembers_id9QjKR8mfZm.invoke(classifierType, this);
+    exitClassifierInternal(classifierType);
+  }
+
+  @Override
+  public void visitClassifierMember(SNode member) {
+    IClassifierMember__BehaviorDescriptor.populateMember_id6r77ob2UW9O.invoke(member, this, originClassifierType);
   }
 
   /**
@@ -67,6 +104,11 @@ public class MembersPopulatingContext {
     return members;
   }
 
+  /**
+   * 
+   * @deprecated this method is to be invoked only internally
+   */
+  @Deprecated
   public boolean enterClassifierInternal(SNode classifierType) {
     SNode classifier = IClassifierType__BehaviorDescriptor.getClassifier_id6r77ob2URY9.invoke(classifierType);
 
@@ -107,6 +149,11 @@ public class MembersPopulatingContext {
     return (model != null ? JavaNameUtil.packageName(model) : "");
   }
 
+  /**
+   * 
+   * @deprecated this method is to be invoked only internally
+   */
+  @Deprecated
   public void exitClassifierInternal(SNode classifier) {
     assert classifiers.pop() == IClassifierType__BehaviorDescriptor.getClassifier_id6r77ob2URY9.invoke(classifier);
     Set<Map.Entry<Signature, SNode>> entrySet = foundSignatures2Classifier.entrySet();
