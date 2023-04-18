@@ -52,8 +52,6 @@ public class XmlPersistenceModelDescriptor extends EditableModelDescriptor {
   @Override
   protected ModelLoadResult<SModel> createModel() {
     if (!(this.getSource().isReadOnly()) && this.getSource().isAlive()) {
-      return new ModelLoadResult(new SModel(this.getReference()), ModelLoadingState.FULLY_LOADED);
-    } else {
       try {
         return new ModelLoadResult(readModel(), ModelLoadingState.FULLY_LOADED);
       } catch (final ModelLoadException e) {
@@ -61,9 +59,10 @@ public class XmlPersistenceModelDescriptor extends EditableModelDescriptor {
           LOG.warning(e.getMessage(), e);
         }
         DefaultSModel.InvalidDefaultSModel invalidModel = new DefaultSModel.InvalidDefaultSModel(this.getReference(), new ModelReadException("Cannot read model", e));
-        return new ModelLoadResult(invalidModel, ModelLoadingState.FULLY_LOADED);
-        // TODO should not be FULLY_LOADED
+        return new ModelLoadResult(invalidModel, ModelLoadingState.NOT_LOADED);
       }
+    } else {
+      return new ModelLoadResult(new SModel(this.getReference()), ModelLoadingState.FULLY_LOADED);
     }
   }
 

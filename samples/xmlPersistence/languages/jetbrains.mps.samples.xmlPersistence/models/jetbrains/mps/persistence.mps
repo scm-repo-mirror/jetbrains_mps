@@ -1281,24 +1281,91 @@
       <node concept="3clFbS" id="1nLyZqZ54hq" role="3clF47">
         <node concept="3clFbJ" id="7xPDzzsROUX" role="3cqZAp">
           <node concept="3clFbS" id="7xPDzzsROUZ" role="3clFbx">
-            <node concept="3cpWs6" id="1nLyZqZ54hz" role="3cqZAp">
-              <node concept="2ShNRf" id="1nLyZqZ54h$" role="3cqZAk">
-                <node concept="1pGfFk" id="1nLyZqZ54h_" role="2ShVmc">
-                  <ref role="37wK5l" to="w1kc:~ModelLoadResult.&lt;init&gt;(jetbrains.mps.extapi.model.SModelData,jetbrains.mps.smodel.loading.ModelLoadingState)" resolve="ModelLoadResult" />
-                  <node concept="2ShNRf" id="7xPDzzsRnvh" role="37wK5m">
-                    <node concept="1pGfFk" id="7xPDzzsRsiR" role="2ShVmc">
-                      <ref role="37wK5l" to="w1kc:~SModel.&lt;init&gt;(org.jetbrains.mps.openapi.model.SModelReference)" resolve="SModel" />
-                      <node concept="2OqwBi" id="7xPDzzsRzcN" role="37wK5m">
-                        <node concept="Xjq3P" id="7xPDzzsRxoo" role="2Oq$k0" />
-                        <node concept="liA8E" id="7xPDzzsR_65" role="2OqNvi">
-                          <ref role="37wK5l" to="g3l6:~SModelBase.getReference()" resolve="getReference" />
+            <node concept="3J1_TO" id="1nLyZqZ67_c" role="3cqZAp">
+              <node concept="3clFbS" id="1nLyZqZ67_d" role="1zxBo7">
+                <node concept="3cpWs6" id="7xPDzzsRHIb" role="3cqZAp">
+                  <node concept="2ShNRf" id="7xPDzzsRHIc" role="3cqZAk">
+                    <node concept="1pGfFk" id="7xPDzzsRHId" role="2ShVmc">
+                      <ref role="37wK5l" to="w1kc:~ModelLoadResult.&lt;init&gt;(jetbrains.mps.extapi.model.SModelData,jetbrains.mps.smodel.loading.ModelLoadingState)" resolve="ModelLoadResult" />
+                      <node concept="1rXfSq" id="7xPDzzsRMr6" role="37wK5m">
+                        <ref role="37wK5l" node="1nLyZqZ5j_r" resolve="readModel" />
+                      </node>
+                      <node concept="Rm8GO" id="7xPDzzsRHIj" role="37wK5m">
+                        <ref role="1Px2BO" to="4it6:~ModelLoadingState" resolve="ModelLoadingState" />
+                        <ref role="Rm8GQ" to="4it6:~ModelLoadingState.FULLY_LOADED" resolve="FULLY_LOADED" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="3uVAMA" id="1nLyZqZ67_8" role="1zxBo5">
+                <node concept="XOnhg" id="1nLyZqZ67_a" role="1zc67B">
+                  <property role="3TUv4t" value="true" />
+                  <property role="TrG5h" value="e" />
+                  <node concept="nSUau" id="xvs04dIuIB" role="1tU5fm">
+                    <node concept="3uibUv" id="1nLyZqZ67_b" role="nSUat">
+                      <ref role="3uigEE" to="dush:~ModelLoadException" resolve="ModelLoadException" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="3clFbS" id="1nLyZqZ67_9" role="1zc67A">
+                  <node concept="RRSsy" id="6V2p7Iucd4e" role="3cqZAp">
+                    <property role="RRSoG" value="gZ5fksE/warn" />
+                    <node concept="2OqwBi" id="6V2p7Iuci5k" role="RRSoy">
+                      <node concept="37vLTw" id="6V2p7IucgaE" role="2Oq$k0">
+                        <ref role="3cqZAo" node="1nLyZqZ67_a" resolve="e" />
+                      </node>
+                      <node concept="liA8E" id="6V2p7IuclQb" role="2OqNvi">
+                        <ref role="37wK5l" to="wyt6:~Throwable.getMessage()" resolve="getMessage" />
+                      </node>
+                    </node>
+                    <node concept="37vLTw" id="6V2p7Iucogf" role="RRSow">
+                      <ref role="3cqZAo" node="1nLyZqZ67_a" resolve="e" />
+                    </node>
+                  </node>
+                  <node concept="3cpWs8" id="3sPzdxadT7h" role="3cqZAp">
+                    <node concept="3cpWsn" id="3sPzdxadT7i" role="3cpWs9">
+                      <property role="TrG5h" value="invalidModel" />
+                      <node concept="3uibUv" id="3sPzdxaehAe" role="1tU5fm">
+                        <ref role="3uigEE" to="w1kc:~DefaultSModel$InvalidDefaultSModel" resolve="InvalidDefaultSModel" />
+                      </node>
+                      <node concept="2ShNRf" id="3sPzdxadT7j" role="33vP2m">
+                        <node concept="1pGfFk" id="3sPzdxaeMgf" role="2ShVmc">
+                          <ref role="37wK5l" to="w1kc:~DefaultSModel$InvalidDefaultSModel.&lt;init&gt;(org.jetbrains.mps.openapi.model.SModelReference,jetbrains.mps.smodel.persistence.def.ModelReadException)" resolve="InvalidDefaultSModel" />
+                          <node concept="2OqwBi" id="3sPzdxael6g" role="37wK5m">
+                            <node concept="Xjq3P" id="3sPzdxaej1q" role="2Oq$k0" />
+                            <node concept="liA8E" id="3sPzdxaemQc" role="2OqNvi">
+                              <ref role="37wK5l" to="g3l6:~SModelBase.getReference()" resolve="getReference" />
+                            </node>
+                          </node>
+                          <node concept="2ShNRf" id="3sPzdxaewh7" role="37wK5m">
+                            <node concept="1pGfFk" id="3sPzdxaeAWJ" role="2ShVmc">
+                              <ref role="37wK5l" to="5fzo:~ModelReadException.&lt;init&gt;(java.lang.String,java.lang.Throwable)" resolve="ModelReadException" />
+                              <node concept="Xl_RD" id="3sPzdxaeCOy" role="37wK5m">
+                                <property role="Xl_RC" value="Cannot read model" />
+                              </node>
+                              <node concept="37vLTw" id="3sPzdxaeJ4N" role="37wK5m">
+                                <ref role="3cqZAo" node="1nLyZqZ67_a" resolve="e" />
+                              </node>
+                            </node>
+                          </node>
                         </node>
                       </node>
                     </node>
                   </node>
-                  <node concept="Rm8GO" id="1nLyZqZ54hB" role="37wK5m">
-                    <ref role="1Px2BO" to="4it6:~ModelLoadingState" resolve="ModelLoadingState" />
-                    <ref role="Rm8GQ" to="4it6:~ModelLoadingState.FULLY_LOADED" resolve="FULLY_LOADED" />
+                  <node concept="3cpWs6" id="1nLyZqZ68KI" role="3cqZAp">
+                    <node concept="2ShNRf" id="1nLyZqZ68KJ" role="3cqZAk">
+                      <node concept="1pGfFk" id="1nLyZqZ68KK" role="2ShVmc">
+                        <ref role="37wK5l" to="w1kc:~ModelLoadResult.&lt;init&gt;(jetbrains.mps.extapi.model.SModelData,jetbrains.mps.smodel.loading.ModelLoadingState)" resolve="ModelLoadResult" />
+                        <node concept="37vLTw" id="3sPzdxadT7x" role="37wK5m">
+                          <ref role="3cqZAo" node="3sPzdxadT7i" resolve="invalidModel" />
+                        </node>
+                        <node concept="Rm8GO" id="1kkGwuiCxlO" role="37wK5m">
+                          <ref role="Rm8GQ" to="4it6:~ModelLoadingState.NOT_LOADED" resolve="NOT_LOADED" />
+                          <ref role="1Px2BO" to="4it6:~ModelLoadingState" resolve="ModelLoadingState" />
+                        </node>
+                      </node>
+                    </node>
                   </node>
                 </node>
               </node>
@@ -1332,110 +1399,24 @@
           </node>
           <node concept="9aQIb" id="7xPDzzsRTzM" role="9aQIa">
             <node concept="3clFbS" id="7xPDzzsRTzN" role="9aQI4">
-              <node concept="3J1_TO" id="1nLyZqZ67_c" role="3cqZAp">
-                <node concept="3clFbS" id="1nLyZqZ67_d" role="1zxBo7">
-                  <node concept="3cpWs6" id="7xPDzzsRHIb" role="3cqZAp">
-                    <node concept="2ShNRf" id="7xPDzzsRHIc" role="3cqZAk">
-                      <node concept="1pGfFk" id="7xPDzzsRHId" role="2ShVmc">
-                        <ref role="37wK5l" to="w1kc:~ModelLoadResult.&lt;init&gt;(jetbrains.mps.extapi.model.SModelData,jetbrains.mps.smodel.loading.ModelLoadingState)" resolve="ModelLoadResult" />
-                        <node concept="1rXfSq" id="7xPDzzsRMr6" role="37wK5m">
-                          <ref role="37wK5l" node="1nLyZqZ5j_r" resolve="readModel" />
-                        </node>
-                        <node concept="Rm8GO" id="7xPDzzsRHIj" role="37wK5m">
-                          <ref role="1Px2BO" to="4it6:~ModelLoadingState" resolve="ModelLoadingState" />
-                          <ref role="Rm8GQ" to="4it6:~ModelLoadingState.FULLY_LOADED" resolve="FULLY_LOADED" />
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                </node>
-                <node concept="3uVAMA" id="1nLyZqZ67_8" role="1zxBo5">
-                  <node concept="XOnhg" id="1nLyZqZ67_a" role="1zc67B">
-                    <property role="3TUv4t" value="true" />
-                    <property role="TrG5h" value="e" />
-                    <node concept="nSUau" id="xvs04dIuIB" role="1tU5fm">
-                      <node concept="3uibUv" id="1nLyZqZ67_b" role="nSUat">
-                        <ref role="3uigEE" to="dush:~ModelLoadException" resolve="ModelLoadException" />
-                      </node>
-                    </node>
-                  </node>
-                  <node concept="3clFbS" id="1nLyZqZ67_9" role="1zc67A">
-                    <node concept="RRSsy" id="6V2p7Iucd4e" role="3cqZAp">
-                      <property role="RRSoG" value="gZ5fksE/warn" />
-                      <node concept="2OqwBi" id="6V2p7Iuci5k" role="RRSoy">
-                        <node concept="37vLTw" id="6V2p7IucgaE" role="2Oq$k0">
-                          <ref role="3cqZAo" node="1nLyZqZ67_a" resolve="e" />
-                        </node>
-                        <node concept="liA8E" id="6V2p7IuclQb" role="2OqNvi">
-                          <ref role="37wK5l" to="wyt6:~Throwable.getMessage()" resolve="getMessage" />
-                        </node>
-                      </node>
-                      <node concept="37vLTw" id="6V2p7Iucogf" role="RRSow">
-                        <ref role="3cqZAo" node="1nLyZqZ67_a" resolve="e" />
-                      </node>
-                    </node>
-                    <node concept="3cpWs8" id="3sPzdxadT7h" role="3cqZAp">
-                      <node concept="3cpWsn" id="3sPzdxadT7i" role="3cpWs9">
-                        <property role="TrG5h" value="invalidModel" />
-                        <node concept="3uibUv" id="3sPzdxaehAe" role="1tU5fm">
-                          <ref role="3uigEE" to="w1kc:~DefaultSModel$InvalidDefaultSModel" resolve="DefaultSModel.InvalidDefaultSModel" />
-                        </node>
-                        <node concept="2ShNRf" id="3sPzdxadT7j" role="33vP2m">
-                          <node concept="1pGfFk" id="3sPzdxaeMgf" role="2ShVmc">
-                            <ref role="37wK5l" to="w1kc:~DefaultSModel$InvalidDefaultSModel.&lt;init&gt;(org.jetbrains.mps.openapi.model.SModelReference,jetbrains.mps.smodel.persistence.def.ModelReadException)" resolve="DefaultSModel.InvalidDefaultSModel" />
-                            <node concept="2OqwBi" id="3sPzdxael6g" role="37wK5m">
-                              <node concept="Xjq3P" id="3sPzdxaej1q" role="2Oq$k0" />
-                              <node concept="liA8E" id="3sPzdxaemQc" role="2OqNvi">
-                                <ref role="37wK5l" to="g3l6:~SModelBase.getReference()" resolve="getReference" />
-                              </node>
-                            </node>
-                            <node concept="2ShNRf" id="3sPzdxaewh7" role="37wK5m">
-                              <node concept="1pGfFk" id="3sPzdxaeAWJ" role="2ShVmc">
-                                <ref role="37wK5l" to="5fzo:~ModelReadException.&lt;init&gt;(java.lang.String,java.lang.Throwable)" resolve="ModelReadException" />
-                                <node concept="Xl_RD" id="3sPzdxaeCOy" role="37wK5m">
-                                  <property role="Xl_RC" value="Cannot read model" />
-                                </node>
-                                <node concept="37vLTw" id="3sPzdxaeJ4N" role="37wK5m">
-                                  <ref role="3cqZAo" node="1nLyZqZ67_a" resolve="e" />
-                                </node>
-                              </node>
-                            </node>
+              <node concept="3cpWs6" id="1nLyZqZ54hz" role="3cqZAp">
+                <node concept="2ShNRf" id="1nLyZqZ54h$" role="3cqZAk">
+                  <node concept="1pGfFk" id="1nLyZqZ54h_" role="2ShVmc">
+                    <ref role="37wK5l" to="w1kc:~ModelLoadResult.&lt;init&gt;(jetbrains.mps.extapi.model.SModelData,jetbrains.mps.smodel.loading.ModelLoadingState)" resolve="ModelLoadResult" />
+                    <node concept="2ShNRf" id="7xPDzzsRnvh" role="37wK5m">
+                      <node concept="1pGfFk" id="7xPDzzsRsiR" role="2ShVmc">
+                        <ref role="37wK5l" to="w1kc:~SModel.&lt;init&gt;(org.jetbrains.mps.openapi.model.SModelReference)" resolve="SModel" />
+                        <node concept="2OqwBi" id="7xPDzzsRzcN" role="37wK5m">
+                          <node concept="Xjq3P" id="7xPDzzsRxoo" role="2Oq$k0" />
+                          <node concept="liA8E" id="7xPDzzsR_65" role="2OqNvi">
+                            <ref role="37wK5l" to="g3l6:~SModelBase.getReference()" resolve="getReference" />
                           </node>
                         </node>
                       </node>
                     </node>
-                    <node concept="3cpWs6" id="1nLyZqZ68KI" role="3cqZAp">
-                      <node concept="2ShNRf" id="1nLyZqZ68KJ" role="3cqZAk">
-                        <node concept="1pGfFk" id="1nLyZqZ68KK" role="2ShVmc">
-                          <ref role="37wK5l" to="w1kc:~ModelLoadResult.&lt;init&gt;(jetbrains.mps.extapi.model.SModelData,jetbrains.mps.smodel.loading.ModelLoadingState)" resolve="ModelLoadResult" />
-                          <node concept="37vLTw" id="3sPzdxadT7x" role="37wK5m">
-                            <ref role="3cqZAo" node="3sPzdxadT7i" resolve="invalidModel" />
-                          </node>
-                          <node concept="Rm8GO" id="1nLyZqZ6$V5" role="37wK5m">
-                            <ref role="Rm8GQ" to="4it6:~ModelLoadingState.FULLY_LOADED" resolve="FULLY_LOADED" />
-                            <ref role="1Px2BO" to="4it6:~ModelLoadingState" resolve="ModelLoadingState" />
-                          </node>
-                        </node>
-                      </node>
-                    </node>
-                    <node concept="3SKdUt" id="1nLyZqZ6Drp" role="3cqZAp">
-                      <node concept="1PaTwC" id="1nLyZqZ6Drq" role="1aUNEU">
-                        <node concept="3oM_SD" id="1nLyZqZ6Drs" role="1PaTwD">
-                          <property role="3oM_SC" value="TODO" />
-                        </node>
-                        <node concept="3oM_SD" id="1nLyZqZ6Enn" role="1PaTwD">
-                          <property role="3oM_SC" value="should" />
-                        </node>
-                        <node concept="3oM_SD" id="1nLyZqZ6Enq" role="1PaTwD">
-                          <property role="3oM_SC" value="not" />
-                        </node>
-                        <node concept="3oM_SD" id="1nLyZqZ6Enu" role="1PaTwD">
-                          <property role="3oM_SC" value="be" />
-                        </node>
-                        <node concept="3oM_SD" id="1nLyZqZ6Enz" role="1PaTwD">
-                          <property role="3oM_SC" value="FULLY_LOADED" />
-                        </node>
-                      </node>
+                    <node concept="Rm8GO" id="1nLyZqZ54hB" role="37wK5m">
+                      <ref role="1Px2BO" to="4it6:~ModelLoadingState" resolve="ModelLoadingState" />
+                      <ref role="Rm8GQ" to="4it6:~ModelLoadingState.FULLY_LOADED" resolve="FULLY_LOADED" />
                     </node>
                   </node>
                 </node>
