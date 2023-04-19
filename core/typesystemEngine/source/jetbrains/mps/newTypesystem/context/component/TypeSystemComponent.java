@@ -57,7 +57,7 @@ import java.util.Set;
   @Override
   protected boolean doInvalidate() {
     if (isInvalidationWasPerformed()) {
-      return isInvalidationResult();
+      return hasInvalidated();
     }
     boolean result;
     Set<SNode> invalidatedNode = new THashSet<>();
@@ -86,7 +86,7 @@ import java.util.Set;
 
     result = !invalidatedNode.isEmpty();
     clearNodeTypes();
-    setInvalidationResult(result);
+    setInvalidation(result);
     return result;
   }
 
@@ -95,7 +95,7 @@ import java.util.Set;
     try {
       super.computeTypes(nodeToCheck, refreshTypes, forceChildrenCheck, additionalNodes, finalExpansion, initialNode);
     } finally {
-      setInvalidationWasPerformed(false);
+      clearInvalidation();
     }
   }
 
@@ -211,6 +211,11 @@ import java.util.Set;
     super.addNodeToFrontier(node);
   }
 
+  /**
+   * @deprecated never called
+   * @param node
+   */
+  @Deprecated(forRemoval = true)
   private void addCacheDependentNodesTypesystem(SNode node) {
     myNodesDependentOnCaches.add(node);
   }

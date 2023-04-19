@@ -23,15 +23,16 @@ import jetbrains.mps.smodel.AbstractNodesReadListener;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.util.Pair;
 
+import java.time.Instant;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
 
 /*package*/ public abstract class IncrementalTypecheckingComponent<STATE extends State> extends SimpleTypecheckingComponent<STATE> {
 
-  private AtomicBoolean myInvalidationWasPerformed = new AtomicBoolean(false);
+  private AtomicReference<InvalidationResult> myInvalidation = new AtomicReference<>(InvalidationResult.never());
+  // TODO: drop this feature
   private AtomicBoolean myCacheWasRebuilt = new AtomicBoolean(false);
-  private AtomicBoolean myInvalidationResult = new AtomicBoolean(false);
-
   private Set<SNode> myCurrentNodesToInvalidate = new THashSet<>();
   private AccessTracking myAccessTracking = null;
 
@@ -42,21 +43,28 @@ import java.util.concurrent.atomic.AtomicBoolean;
   @Override
   protected abstract boolean doInvalidate();
 
+  @Deprecated(forRemoval = true)
   public void setInvalidationWasPerformed(boolean invalidationWasPerformed) {
-    myInvalidationWasPerformed.set(invalidationWasPerformed);
+    // try to keep backward compatibility
+    if (!invalidationWasPerformed) {
+      clearInvalidation();
+    }
+  }
+
+  public InvalidationResult getInvalidationResult() {
+    return myInvalidation.get();
   }
 
   public void addNodeToInvalidate(SNode node) {
     myCurrentNodesToInvalidate.add(node);
-    setInvalidationWasPerformed(false);
+    clearInvalidation();
   }
 
   @Override
   public void clear() {
-    myIsChecked = false;
-    myInvalidationWasPerformed.set(false);
+    super.clear();
     myCacheWasRebuilt.set(false);
-    myInvalidationResult.set(false);
+    myInvalidation.set(InvalidationResult.never());
   }
 
   public void runWithAccessTracking(SNode contextNode, Runnable runnable) {
@@ -89,16 +97,25 @@ import java.util.concurrent.atomic.AtomicBoolean;
     myCurrentNodesToInvalidate.clear();
   }
 
-  protected boolean isInvalidationWasPerformed() {
-    return myInvalidationWasPerformed.get();
+  protected void clearInvalidation() {
+    myInvalidation.set(InvalidationResult.never());
   }
 
+  protected boolean isInvalidationWasPerformed() {
+    return myInvalidation.get().hasOccuredSince(Instant.MIN);
+  }
+
+  /**
+   * @deprecated never true
+   * @return
+   */
+  @Deprecated(forRemoval = true)
   protected boolean isCacheWasRebuilt() {
     return myCacheWasRebuilt.get();
   }
 
-  protected boolean isInvalidationResult() {
-    return myInvalidationResult.get();
+  protected boolean hasInvalidated() {
+    return myInvalidation.get().hasInvalidated();
   }
 
   protected Set<SNode> getCurrentNodesToInvalidate() {
@@ -155,9 +172,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
     }
   }
 
-  protected void setInvalidationResult(boolean result) {
-    setInvalidationWasPerformed(true);
+  protected void setInvalidation(boolean result) {
     myCacheWasRebuilt.set(false);
-    myInvalidationResult.set(result);
+    myInvalidation.set(InvalidationResult.of(result));
   }
 }

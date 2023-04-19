@@ -133,7 +133,7 @@ public class NonTypeSystemComponent extends IncrementalTypecheckingComponent<Sta
   @Override
   protected boolean doInvalidate() {
     if (isInvalidationWasPerformed()) {
-      return isInvalidationResult();
+      return hasInvalidated();
     }
     Set<Pair<SNode, NonTypesystemRule_Runtime>> invalidatedNodesAndRules = new THashSet<>(1);
     //nodes
@@ -184,18 +184,18 @@ public class NonTypeSystemComponent extends IncrementalTypecheckingComponent<Sta
       }
     }
     clearAllExceptErrors();
-    setInvalidationResult(result);
+    setInvalidation(result);
     return result;
   }
 
   public void addPropertyToInvalidate(SNode eventNode, String propertyName) {
     myCurrentPropertiesToInvalidate.add(new Pair<>(eventNode, propertyName));
-    setInvalidationWasPerformed(false);
+    clearInvalidation();
   }
 
   public void typeWillBeRecalculatedForTerm(SNode term) {
     myCurrentTypedTermsToInvalidate.add(term);
-    setInvalidationWasPerformed(false);
+    clearInvalidation();
   }
 
   @Override
@@ -273,6 +273,10 @@ public class NonTypeSystemComponent extends IncrementalTypecheckingComponent<Sta
     }
   }
 
+  /**
+   * @deprecated never called
+   */
+  @Deprecated(forRemoval = true)
   private void addCacheDependentNodesNonTypesystem(SNode node, NonTypesystemRule_Runtime rule) {
     Map<SNode, Set<NonTypesystemRule_Runtime>> dependentNodes = myNodesDependentOnCachesWithNTRules;
     Set<NonTypesystemRule_Runtime> rules = dependentNodes.get(node);
@@ -310,7 +314,7 @@ public class NonTypeSystemComponent extends IncrementalTypecheckingComponent<Sta
       }
       //all error reporters must be simple reporters, no error expansion needed
     } finally {
-      setInvalidationWasPerformed(false);
+      clearInvalidation();
     }
     return true;
   }

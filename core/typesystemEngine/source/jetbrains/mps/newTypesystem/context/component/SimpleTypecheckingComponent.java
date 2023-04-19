@@ -34,6 +34,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.util.Pair;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -52,7 +53,7 @@ import java.util.Set;
 
   private final STATE myState;
   protected Queue<SNode> myQueue = new LinkedList<>();
-  protected boolean myIsChecked = false;
+  private boolean myIsChecked = false;
   protected BaseTypechecking<?, ?> myTypechecking;
   protected Set<SNode> myNodes = new THashSet<>();
   protected Set<SNode> myFullyCheckedNodes = new THashSet<>(); //nodes which are checked with their children
@@ -305,7 +306,7 @@ import java.util.Set;
   }
 
   public void clear() {
-
+    myIsChecked = false;
   }
 
   /*package*/ STATE getState() {
