@@ -20,6 +20,7 @@ import jetbrains.mps.newTypesystem.context.typechecking.BaseTypechecking;
 import jetbrains.mps.newTypesystem.context.typechecking.IncrementalTypechecking;
 import jetbrains.mps.newTypesystem.state.State;
 import jetbrains.mps.smodel.AbstractNodesReadListener;
+import jetbrains.mps.typechecking.CacheState;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.util.Pair;
 
@@ -35,6 +36,7 @@ import java.util.concurrent.atomic.AtomicReference;
   private AtomicBoolean myCacheWasRebuilt = new AtomicBoolean(false);
   private Set<SNode> myCurrentNodesToInvalidate = new THashSet<>();
   private AccessTracking myAccessTracking = null;
+  private AtomicReference<Instant> myLastChecked = new AtomicReference<>(Instant.MIN); // never
 
   protected IncrementalTypecheckingComponent(STATE state, BaseTypechecking component) {
     super(state, component);
@@ -42,6 +44,27 @@ import java.util.concurrent.atomic.AtomicReference;
 
   @Override
   protected abstract boolean doInvalidate();
+
+  @Override
+  public void setChecked() {
+    super.setChecked();
+    myLastChecked.set(Instant.now());
+  }
+
+  /**
+   * Returns true if either full check has occurred after {@param since}, or there were rules invalidated and
+   * a re-check is required.
+   */
+  public boolean hasUpdates(Instant since) {
+    boolean isCheckedSince = myLastChecked.get().isAfter(since);
+    InvalidationResult invalidationResult = myInvalidation.get();
+    boolean invalidated = invalidationResult.hasOccuredSince(since) && invalidationResult.hasInvalidated();
+    return isCheckedSince || invalidated;
+  }
+
+  public CacheState getCacheState() {
+    return new MyCacheState();
+  }
 
   @Deprecated(forRemoval = true)
   public void setInvalidationWasPerformed(boolean invalidationWasPerformed) {
@@ -63,6 +86,7 @@ import java.util.concurrent.atomic.AtomicReference;
   @Override
   public void clear() {
     super.clear();
+    myLastChecked.set(Instant.MIN);
     myCacheWasRebuilt.set(false);
     myInvalidation.set(InvalidationResult.never());
   }
@@ -176,4 +200,17 @@ import java.util.concurrent.atomic.AtomicReference;
     myCacheWasRebuilt.set(false);
     myInvalidation.set(InvalidationResult.of(result));
   }
+
+  protected class MyCacheState implements CacheState {
+    @Override
+    public boolean isUpToDate() {
+      return isChecked();
+    }
+
+    @Override
+    public boolean hasChangedSince(Instant since) {
+      return hasUpdates(since);
+    }
+  }
+
 }

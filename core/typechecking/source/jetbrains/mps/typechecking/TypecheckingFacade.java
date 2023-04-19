@@ -136,6 +136,11 @@ public abstract class TypecheckingFacade
     return activeController().isCacheUpToDate(root);
   }
 
+  @Override
+  public CacheState getCacheState(SNode root) {
+    return activeController().getCacheState(root);
+  }
+
   public Map<String, Object> configure(Project project) {
     return activeController().configure(project);
   }

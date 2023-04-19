@@ -24,10 +24,13 @@ import jetbrains.mps.lang.pattern.INodeMatchingPattern;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.newTypesystem.context.IncrementalTypecheckingContext;
 import jetbrains.mps.newTypesystem.context.TargetTypecheckingContext;
+import jetbrains.mps.newTypesystem.context.component.IncrementalTypecheckingComponent;
+import jetbrains.mps.newTypesystem.context.component.TypeSystemComponent;
 import jetbrains.mps.newTypesystem.context.typechecking.IncrementalTypechecking;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.smodel.language.LanguageRegistryListener;
 import jetbrains.mps.smodel.language.LanguageRuntime;
+import jetbrains.mps.typechecking.CacheState;
 import jetbrains.mps.typechecking.TypeAccessListener;
 import jetbrains.mps.typechecking.TypeInvalidationListener;
 import jetbrains.mps.typechecking.TypecheckingObservable;
@@ -46,6 +49,7 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.model.SNode;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -279,6 +283,26 @@ public class LegacyTypecheckingProvider implements TypecheckingProvider<LegacyTy
         }
         IncrementalTypechecking typesComponent = tcc.getBaseNodeTypesComponent();
         return  typesComponent.isChecked(false);
+      });
+    }
+
+    @Override
+    public CacheState getCacheState(SNode root) {
+      return compute((tcc) -> {
+        // the typechecking context is expected to have been created with the same root node
+        if (tcc.getNode() == null || !SNodeOperations.getNodeAncestors(root, null, true).contains(tcc.getNode())) {
+          return CacheState.DIRTY;
+        }
+        IncrementalTypechecking typesComponent = tcc.getBaseNodeTypesComponent();
+        boolean checked = typesComponent.isChecked(false);
+        // "checked" here means "has invalidated" after having processed all pending events
+        TypeSystemComponent typeSystemComponent = typesComponent.getTypecheckingComponent();
+        if (typeSystemComponent instanceof IncrementalTypecheckingComponent) {
+          return ((IncrementalTypecheckingComponent<?>) typeSystemComponent).getCacheState();
+
+        } else {
+          return CacheState.DIRTY;
+        }
       });
     }
 

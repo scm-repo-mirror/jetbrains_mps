@@ -149,6 +149,13 @@ public interface TypecheckingQueries {
   boolean isCacheUpToDate(SNode root);
 
   /**
+   * Provides access to {@code CacheState} describing the current state of the cache.
+   */
+  default CacheState getCacheState(SNode root) {
+    return CacheState.DIRTY;
+  }
+
+  /**
    * Returns the object to be used for managing listeners that are notified during
    * typechecking.
    * This method is optional, if listeners are not supported, null is returned.

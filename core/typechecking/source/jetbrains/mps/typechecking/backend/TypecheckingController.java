@@ -17,6 +17,7 @@ package jetbrains.mps.typechecking.backend;
 
 import jetbrains.mps.errors.item.NodeReportItem;
 import jetbrains.mps.lang.pattern.INodeMatchingPattern;
+import jetbrains.mps.typechecking.CacheState;
 import jetbrains.mps.typechecking.TypecheckingQueries;
 import jetbrains.mps.typechecking.TypecheckingSession.*;
 import jetbrains.mps.typechecking.backend.TypecheckingProvider.AuxDataContainer;
@@ -119,6 +120,11 @@ public abstract class TypecheckingController implements TypecheckingQueries, Par
   @Override
   public boolean isCacheUpToDate(SNode root) {
     return getQueries(root, null, null).isCacheUpToDate(root);
+  }
+
+  @Override
+  public CacheState getCacheState(SNode root) {
+    return getQueries(root, null, null).getCacheState(root);
   }
 
   public Map<String, Object> configure(Project project) {
