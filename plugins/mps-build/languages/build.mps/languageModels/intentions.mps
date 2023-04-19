@@ -171,6 +171,9 @@
         <property id="2173356959483005420" name="stringValueMigrated" index="3qcH_f" />
       </concept>
       <concept id="1196866233735" name="jetbrains.mps.lang.quotation.structure.PropertyAntiquotation" flags="ng" index="2EMmih" />
+      <concept id="6985522012210254362" name="jetbrains.mps.lang.quotation.structure.NodeBuilderPropertyExpression" flags="nn" index="WxPPo">
+        <child id="6985522012210254363" name="expression" index="WxPPp" />
+      </concept>
     </language>
     <language id="798100da-4f0a-421a-b991-71f8c50ce5d2" name="jetbrains.mps.build">
       <concept id="4380385936562003279" name="jetbrains.mps.build.structure.BuildString" flags="ng" index="NbPM2">
@@ -1098,14 +1101,16 @@
                         <ref role="2pJxaS" to="3ior:4gdvEeQyRO3" resolve="BuildTextStringPart" />
                         <node concept="2pJxcG" id="3AMbuf6adgh" role="2pJxcM">
                           <ref role="2pJxcJ" to="3ior:4gdvEeQz4Pm" resolve="text" />
-                          <node concept="3cpWs3" id="3AMbuf6adgi" role="28ntcv">
-                            <node concept="Xl_RD" id="3AMbuf6adgj" role="3uHU7w">
-                              <property role="Xl_RC" value="" />
-                            </node>
-                            <node concept="2OqwBi" id="3AMbuf6adgk" role="3uHU7B">
-                              <node concept="2Sf5sV" id="3AMbuf6adgl" role="2Oq$k0" />
-                              <node concept="3TrcHB" id="3AMbuf6adgm" role="2OqNvi">
-                                <ref role="3TsBF5" to="kdzh:328lVm4LOT4" resolve="major" />
+                          <node concept="WxPPo" id="3L3twHWqJjl" role="28ntcv">
+                            <node concept="3cpWs3" id="3AMbuf6adgi" role="WxPPp">
+                              <node concept="Xl_RD" id="3AMbuf6adgj" role="3uHU7w">
+                                <property role="Xl_RC" value="" />
+                              </node>
+                              <node concept="2OqwBi" id="3AMbuf6adgk" role="3uHU7B">
+                                <node concept="2Sf5sV" id="3AMbuf6adgl" role="2Oq$k0" />
+                                <node concept="3TrcHB" id="3AMbuf6adgm" role="2OqNvi">
+                                  <ref role="3TsBF5" to="kdzh:328lVm4LOT4" resolve="major" />
+                                </node>
                               </node>
                             </node>
                           </node>
@@ -1124,14 +1129,16 @@
                         <ref role="2pJxaS" to="3ior:4gdvEeQyRO3" resolve="BuildTextStringPart" />
                         <node concept="2pJxcG" id="3AMbuf6ae4Y" role="2pJxcM">
                           <ref role="2pJxcJ" to="3ior:4gdvEeQz4Pm" resolve="text" />
-                          <node concept="3cpWs3" id="3AMbuf6ae4Z" role="28ntcv">
-                            <node concept="Xl_RD" id="3AMbuf6ae50" role="3uHU7w">
-                              <property role="Xl_RC" value="" />
-                            </node>
-                            <node concept="2OqwBi" id="3AMbuf6ae51" role="3uHU7B">
-                              <node concept="2Sf5sV" id="3AMbuf6ae52" role="2Oq$k0" />
-                              <node concept="3TrcHB" id="3AMbuf6ae53" role="2OqNvi">
-                                <ref role="3TsBF5" to="kdzh:328lVm4LOT5" resolve="minor" />
+                          <node concept="WxPPo" id="3L3twHWqJjm" role="28ntcv">
+                            <node concept="3cpWs3" id="3AMbuf6ae4Z" role="WxPPp">
+                              <node concept="Xl_RD" id="3AMbuf6ae50" role="3uHU7w">
+                                <property role="Xl_RC" value="" />
+                              </node>
+                              <node concept="2OqwBi" id="3AMbuf6ae51" role="3uHU7B">
+                                <node concept="2Sf5sV" id="3AMbuf6ae52" role="2Oq$k0" />
+                                <node concept="3TrcHB" id="3AMbuf6ae53" role="2OqNvi">
+                                  <ref role="3TsBF5" to="kdzh:328lVm4LOT5" resolve="minor" />
+                                </node>
                               </node>
                             </node>
                           </node>
@@ -1194,14 +1201,16 @@
                         <ref role="2pJxaS" to="3ior:4gdvEeQyRO3" resolve="BuildTextStringPart" />
                         <node concept="2pJxcG" id="3AMbuf6913a" role="2pJxcM">
                           <ref role="2pJxcJ" to="3ior:4gdvEeQz4Pm" resolve="text" />
-                          <node concept="3cpWs3" id="3AMbuf691dH" role="28ntcv">
-                            <node concept="Xl_RD" id="3AMbuf691hf" role="3uHU7B">
-                              <property role="Xl_RC" value="." />
-                            </node>
-                            <node concept="2OqwBi" id="3AMbuf6913d" role="3uHU7w">
-                              <node concept="2Sf5sV" id="3AMbuf6913e" role="2Oq$k0" />
-                              <node concept="3TrcHB" id="3AMbuf691yO" role="2OqNvi">
-                                <ref role="3TsBF5" to="kdzh:3FfyF1J0n1L" resolve="bugfixNr" />
+                          <node concept="WxPPo" id="3L3twHWqJjn" role="28ntcv">
+                            <node concept="3cpWs3" id="3AMbuf691dH" role="WxPPp">
+                              <node concept="Xl_RD" id="3AMbuf691hf" role="3uHU7B">
+                                <property role="Xl_RC" value="." />
+                              </node>
+                              <node concept="2OqwBi" id="3AMbuf6913d" role="3uHU7w">
+                                <node concept="2Sf5sV" id="3AMbuf6913e" role="2Oq$k0" />
+                                <node concept="3TrcHB" id="3AMbuf691yO" role="2OqNvi">
+                                  <ref role="3TsBF5" to="kdzh:3FfyF1J0n1L" resolve="bugfixNr" />
+                                </node>
                               </node>
                             </node>
                           </node>
@@ -1251,8 +1260,10 @@
                         <ref role="2pJxaS" to="3ior:4gdvEeQyRO3" resolve="BuildTextStringPart" />
                         <node concept="2pJxcG" id="3AMbuf691Of" role="2pJxcM">
                           <ref role="2pJxcJ" to="3ior:4gdvEeQz4Pm" resolve="text" />
-                          <node concept="Xl_RD" id="3AMbuf691Oh" role="28ntcv">
-                            <property role="Xl_RC" value=" EAP" />
+                          <node concept="WxPPo" id="3L3twHWqJjo" role="28ntcv">
+                            <node concept="Xl_RD" id="3AMbuf691Oh" role="WxPPp">
+                              <property role="Xl_RC" value=" EAP" />
+                            </node>
                           </node>
                         </node>
                       </node>
