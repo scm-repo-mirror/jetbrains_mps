@@ -2457,7 +2457,7 @@
                 <node concept="liA8E" id="69wk_bF6EI$" role="2OqNvi">
                   <ref role="37wK5l" to="wyt6:~String.startsWith(java.lang.String)" resolve="startsWith" />
                   <node concept="Xl_RD" id="69wk_bF6EZ8" role="37wK5m">
-                    <property role="Xl_RC" value="TODO " />
+                    <property role="Xl_RC" value="TODO" />
                   </node>
                 </node>
               </node>
@@ -2468,7 +2468,7 @@
                 <node concept="liA8E" id="69wk_bF6HDI" role="2OqNvi">
                   <ref role="37wK5l" to="wyt6:~String.startsWith(java.lang.String)" resolve="startsWith" />
                   <node concept="Xl_RD" id="69wk_bF6HGr" role="37wK5m">
-                    <property role="Xl_RC" value="FIX " />
+                    <property role="Xl_RC" value="FIX" />
                   </node>
                 </node>
               </node>
