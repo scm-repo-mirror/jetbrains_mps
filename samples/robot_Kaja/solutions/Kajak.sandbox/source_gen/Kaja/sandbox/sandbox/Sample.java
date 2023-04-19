@@ -9,6 +9,8 @@ public class Sample extends KajaFrame {
   public Sample() {
   }
   protected void perform() {
+    // this is a comment
+    // this is a comment
     if (canMove()) {
       moveKaja();
       pause();

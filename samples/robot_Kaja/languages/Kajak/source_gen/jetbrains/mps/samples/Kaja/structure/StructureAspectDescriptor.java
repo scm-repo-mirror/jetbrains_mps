@@ -164,6 +164,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.class_(false, false, false);
     // extends: jetbrains.mps.samples.Kaja.structure.AbstractCommand
     b.super_(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2d523c5e4cc4574aL);
+    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3f05685639c49599L);
     b.origin("r:b567205c-7e17-4168-b413-945a6e17f37d(jetbrains.mps.samples.Kaja.structure)/6405700485436287811");
     b.version(3);
     b.property("text", 0x58e59ea713fa2b45L).type(PrimitiveTypeId.STRING).origin("6405700485436287813").done();

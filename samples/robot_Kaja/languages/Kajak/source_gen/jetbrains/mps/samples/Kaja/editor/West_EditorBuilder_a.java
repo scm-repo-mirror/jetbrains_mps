@@ -10,7 +10,7 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.editor.runtime.cells.BigCellUtil;
 import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
-import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.StringLiteralStyleClass;
+import jetbrains.mps.samples.Kaja.editor.KajakStyles_StyleSheet.StringLiteralStyleClass;
 
 /*package*/ class West_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull

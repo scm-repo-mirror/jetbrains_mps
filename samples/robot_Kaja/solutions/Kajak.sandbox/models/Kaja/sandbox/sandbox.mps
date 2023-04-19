@@ -154,6 +154,12 @@
   <node concept="1x_AGo" id="6tmz5v65CF9">
     <property role="TrG5h" value="Sample" />
     <node concept="2C6hJS" id="6tmz5v65CFa" role="1x_AGi">
+      <node concept="1b7Vn$" id="gcRXCLB2uc" role="2C6hI7">
+        <property role="1b7Vny" value="This is just a sample robot script" />
+      </node>
+      <node concept="1b7Vn$" id="gcRXCLAWWg" role="2C6hI7">
+        <property role="1b7Vny" value="TODO Run and then play with the code" />
+      </node>
       <node concept="1x_AGW" id="2Kq7O$TVPnw" role="2C6hI7" />
       <node concept="2C1pOB" id="2Kq7O$TVPoT" role="2C6hI7">
         <node concept="2C1s_R" id="2Kq7O$TVPpd" role="2C1pO_">
@@ -577,7 +583,6 @@
         <ref role="2C198b" node="7ud7TTkOa9T" resolve="sniffAround" />
       </node>
       <node concept="2C1RJh" id="67X5Igz$lO9" role="2C6hI7" />
-      <node concept="2C1RJh" id="67X5IgzKgzY" role="2C6hI7" />
       <node concept="1b7Vn$" id="7ud7TTkO6MN" role="2C6hI7">
         <property role="1b7Vny" value="Definitions" />
       </node>

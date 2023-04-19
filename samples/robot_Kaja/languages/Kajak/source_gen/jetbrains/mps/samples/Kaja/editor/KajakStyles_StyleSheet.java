@@ -8,10 +8,20 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.editor.runtime.descriptor.EditorBuilderEnvironment;
 import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
-import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.KeyWordStyleClass;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.nodeEditor.MPSColors;
 import jetbrains.mps.nodeEditor.MPSFonts;
+import jetbrains.mps.samples.Kaja.editor.KajaStylePack_KeyPack.KEYWORD_StyleKey;
+import jetbrains.mps.samples.Kaja.editor.KajaStylePack_KeyPack.ConceptName_StyleKey;
+import jetbrains.mps.samples.Kaja.editor.KajaStylePack_KeyPack.LINE_COMMENT_StyleKey;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.lang.core.behavior.IGenericComment__BehaviorDescriptor;
+import jetbrains.mps.samples.Kaja.editor.KajaStylePack_KeyPack.TODO_StyleKey;
+import jetbrains.mps.samples.Kaja.editor.KajaStylePack_KeyPack.DEFAULT_INSTANCE_FIELD_StyleKey;
+import jetbrains.mps.samples.Kaja.editor.KajaStylePack_KeyPack.STRING_StyleKey;
+import jetbrains.mps.samples.Kaja.editor.KajaStylePack_KeyPack.NUMBER_StyleKey;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class KajakStyles_StyleSheet {
   public static class CommandStyleClass extends AbstractStyleClass {
@@ -29,5 +39,113 @@ public class KajakStyles_StyleSheet {
       style.set(StyleAttributes.FONT_STYLE, MPSFonts.BOLD_ITALIC);
     }
 
+  }
+  public static class KeyWordStyleClass extends AbstractStyleClass {
+    public KeyWordStyleClass(EditorContext editorContext, SNode node) {
+      super(editorContext, node);
+    }
+    public KeyWordStyleClass(EditorBuilderEnvironment builderEnv) {
+      super(builderEnv);
+    }
+
+    @Override
+    public void apply(Style style, EditorCell editorCell) {
+      new KEYWORD_StyleKey().apply(style);
+    }
+
+  }
+  public static class ClassNameStyleClass extends AbstractStyleClass {
+    public ClassNameStyleClass(EditorContext editorContext, SNode node) {
+      super(editorContext, node);
+    }
+    public ClassNameStyleClass(EditorBuilderEnvironment builderEnv) {
+      super(builderEnv);
+    }
+
+    @Override
+    public void apply(Style style, EditorCell editorCell) {
+      new ConceptName_StyleKey().apply(style);
+    }
+
+  }
+  public static class CommentStyleClass extends AbstractStyleClass {
+    public CommentStyleClass(EditorContext editorContext, SNode node) {
+      super(editorContext, node);
+    }
+    public CommentStyleClass(EditorBuilderEnvironment builderEnv) {
+      super(builderEnv);
+    }
+
+    @Override
+    public void apply(Style style, EditorCell editorCell) {
+      new LINE_COMMENT_StyleKey(1).apply(style);
+      if (_StyleParameter_QueryFunction_m6vfe8_a1d()) {
+        new TODOStyleClass(this).apply(style, editorCell);
+      }
+    }
+
+    private boolean _StyleParameter_QueryFunction_m6vfe8_a1d() {
+      return (SNodeOperations.isInstanceOf(getNode(), CONCEPTS.IGenericComment$bD) && (boolean) IGenericComment__BehaviorDescriptor.isTODOComment_idfB3l7ZufMD.invoke(SNodeOperations.cast(getNode(), CONCEPTS.IGenericComment$bD)));
+    }
+  }
+  public static class TODOStyleClass extends AbstractStyleClass {
+    public TODOStyleClass(EditorContext editorContext, SNode node) {
+      super(editorContext, node);
+    }
+    public TODOStyleClass(EditorBuilderEnvironment builderEnv) {
+      super(builderEnv);
+    }
+
+    @Override
+    public void apply(Style style, EditorCell editorCell) {
+      new TODO_StyleKey(2).apply(style);
+    }
+
+  }
+  public static class FieldStyleClass extends AbstractStyleClass {
+    public FieldStyleClass(EditorContext editorContext, SNode node) {
+      super(editorContext, node);
+    }
+    public FieldStyleClass(EditorBuilderEnvironment builderEnv) {
+      super(builderEnv);
+    }
+
+    @Override
+    public void apply(Style style, EditorCell editorCell) {
+      new DEFAULT_INSTANCE_FIELD_StyleKey().apply(style);
+    }
+
+  }
+  public static class StringLiteralStyleClass extends AbstractStyleClass {
+    public StringLiteralStyleClass(EditorContext editorContext, SNode node) {
+      super(editorContext, node);
+    }
+    public StringLiteralStyleClass(EditorBuilderEnvironment builderEnv) {
+      super(builderEnv);
+    }
+
+    @Override
+    public void apply(Style style, EditorCell editorCell) {
+      new STRING_StyleKey().apply(style);
+    }
+
+  }
+  public static class NumericLiteralStyleClass extends AbstractStyleClass {
+    public NumericLiteralStyleClass(EditorContext editorContext, SNode node) {
+      super(editorContext, node);
+    }
+    public NumericLiteralStyleClass(EditorBuilderEnvironment builderEnv) {
+      super(builderEnv);
+    }
+
+    @Override
+    public void apply(Style style, EditorCell editorCell) {
+      new NUMBER_StyleKey().apply(style);
+    }
+
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IGenericComment$bD = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3f05685639c49599L, "jetbrains.mps.lang.core.structure.IGenericComment");
   }
 }
