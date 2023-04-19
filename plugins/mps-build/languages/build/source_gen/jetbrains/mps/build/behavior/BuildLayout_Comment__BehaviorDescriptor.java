@@ -30,7 +30,7 @@ public final class BuildLayout_Comment__BehaviorDescriptor extends BaseBHDescrip
   }
 
   /*package*/ static String getTextualRepresentation_idfB3l80ylIb(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getString(__thisNode__, PROPS.text$dyUF);
+    return "" + SPropertyOperations.getString(__thisNode__, PROPS.text$dyUF);
   }
 
   /*package*/ BuildLayout_Comment__BehaviorDescriptor() {

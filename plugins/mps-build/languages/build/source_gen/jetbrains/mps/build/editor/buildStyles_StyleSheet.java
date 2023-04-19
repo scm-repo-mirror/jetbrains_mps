@@ -12,6 +12,11 @@ import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.nodeEditor.MPSColors;
 import jetbrains.mps.nodeEditor.MPSFonts;
 import java.awt.Color;
+import jetbrains.mps.build.editor.BuildLanguageStylePack_KeyPack.TODO_StyleKey;
+import jetbrains.mps.lang.core.behavior.IGenericComment__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class buildStyles_StyleSheet {
   public static class outputLayoutStyleClass extends AbstractStyleClass {
@@ -160,7 +165,17 @@ public class buildStyles_StyleSheet {
     public void apply(Style style, EditorCell editorCell) {
       style.set(StyleAttributes.TEXT_COLOR, getStyleRegistry().getSimpleColor(new Color(4161375)));
       style.set(StyleAttributes.FONT_STYLE, MPSFonts.ITALIC);
+      if (_StyleParameter_QueryFunction_in06m0_a2j()) {
+        new TODO_StyleKey().apply(style);
+      }
     }
 
+    private boolean _StyleParameter_QueryFunction_in06m0_a2j() {
+      return (boolean) IGenericComment__BehaviorDescriptor.isTODOComment_idfB3l7ZufMD.invoke(SNodeOperations.as(getNode(), CONCEPTS.BuildLayout_Comment$JE));
+    }
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildLayout_Comment$JE = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x7ea63ceef6dea0cbL, "jetbrains.mps.build.structure.BuildLayout_Comment");
   }
 }

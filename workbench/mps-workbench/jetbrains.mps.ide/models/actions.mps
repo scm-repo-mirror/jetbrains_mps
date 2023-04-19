@@ -28767,7 +28767,7 @@
               <node concept="1PxgMI" id="5qXHvL$551C" role="2Oq$k0">
                 <property role="1BlNFB" value="true" />
                 <node concept="chp4Y" id="5qXHvL$66DI" role="3oSUPX">
-                  <ref role="cht4Q" to="tpee:fB3l7ZcM9H" resolve="IComment" />
+                  <ref role="cht4Q" to="tpck:3W5q5oTL9mp" resolve="IGenericComment" />
                 </node>
                 <node concept="37vLTw" id="5qXHvL$53Lt" role="1m5AlR">
                   <ref role="3cqZAo" node="4HeMkQiYPXB" resolve="node" />
