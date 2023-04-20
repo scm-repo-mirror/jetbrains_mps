@@ -9,8 +9,8 @@ public class Sample extends KajaFrame {
   public Sample() {
   }
   protected void perform() {
-    // this is a comment
-    // this is a comment
+    // This is just a sample robot script
+    // TODO Run and then play with the code
     if (canMove()) {
       moveKaja();
       pause();

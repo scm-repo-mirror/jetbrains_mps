@@ -14,8 +14,8 @@ import jetbrains.mps.nodeEditor.MPSFonts;
 import jetbrains.mps.samples.Kaja.editor.KajaStylePack_KeyPack.KEYWORD_StyleKey;
 import jetbrains.mps.samples.Kaja.editor.KajaStylePack_KeyPack.ConceptName_StyleKey;
 import jetbrains.mps.samples.Kaja.editor.KajaStylePack_KeyPack.LINE_COMMENT_StyleKey;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.core.behavior.IGenericComment__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.samples.Kaja.editor.KajaStylePack_KeyPack.TODO_StyleKey;
 import jetbrains.mps.samples.Kaja.editor.KajaStylePack_KeyPack.DEFAULT_INSTANCE_FIELD_StyleKey;
 import jetbrains.mps.samples.Kaja.editor.KajaStylePack_KeyPack.STRING_StyleKey;
@@ -85,7 +85,7 @@ public class KajakStyles_StyleSheet {
     }
 
     private boolean _StyleParameter_QueryFunction_m6vfe8_a1d() {
-      return (SNodeOperations.isInstanceOf(getNode(), CONCEPTS.IGenericComment$bD) && (boolean) IGenericComment__BehaviorDescriptor.isTODOComment_idfB3l7ZufMD.invoke(SNodeOperations.cast(getNode(), CONCEPTS.IGenericComment$bD)));
+      return (boolean) IGenericComment__BehaviorDescriptor.isTODOComment_idfB3l7ZufMD.invoke(SNodeOperations.as(getNode(), CONCEPTS.IGenericComment$bD));
     }
   }
   public static class TODOStyleClass extends AbstractStyleClass {

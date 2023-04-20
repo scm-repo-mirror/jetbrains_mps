@@ -322,9 +322,6 @@
         <child id="1206060619838" name="condition" index="3eO9$A" />
         <child id="1206060644605" name="statementList" index="3eOfB_" />
       </concept>
-      <concept id="1079359253375" name="jetbrains.mps.baseLanguage.structure.ParenthesizedExpression" flags="nn" index="1eOMI4">
-        <child id="1079359253376" name="expression" index="1eOMHV" />
-      </concept>
       <concept id="1081516740877" name="jetbrains.mps.baseLanguage.structure.NotExpression" flags="nn" index="3fqX7Q">
         <child id="1081516765348" name="expression" index="3fr31v" />
       </concept>
@@ -338,7 +335,6 @@
         <child id="1081773367580" name="leftExpression" index="3uHU7B" />
       </concept>
       <concept id="1073239437375" name="jetbrains.mps.baseLanguage.structure.NotEqualsExpression" flags="nn" index="3y3z36" />
-      <concept id="1080120340718" name="jetbrains.mps.baseLanguage.structure.AndExpression" flags="nn" index="1Wc70l" />
     </language>
     <language id="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" name="jetbrains.mps.lang.actions">
       <concept id="5979988948250981289" name="jetbrains.mps.lang.actions.structure.SNodeCreatorAndInitializer" flags="nn" index="2fJWfE" />
@@ -391,7 +387,9 @@
       <concept id="1140131837776" name="jetbrains.mps.lang.smodel.structure.Node_ReplaceWithAnotherOperation" flags="nn" index="1P9Npp">
         <child id="1140131861877" name="replacementNode" index="1P9ThW" />
       </concept>
-      <concept id="1140137987495" name="jetbrains.mps.lang.smodel.structure.SNodeTypeCastExpression" flags="nn" index="1PxgMI" />
+      <concept id="1140137987495" name="jetbrains.mps.lang.smodel.structure.SNodeTypeCastExpression" flags="nn" index="1PxgMI">
+        <property id="1238684351431" name="asCast" index="1BlNFB" />
+      </concept>
       <concept id="1138055754698" name="jetbrains.mps.lang.smodel.structure.SNodeType" flags="in" index="3Tqbb2">
         <reference id="1138405853777" name="concept" index="ehGHo" />
       </concept>
@@ -1252,27 +1250,16 @@
           <node concept="3clFbS" id="gcRXCL$K0w" role="2VODD2">
             <node concept="3cpWs6" id="gcRXCL$K0x" role="3cqZAp">
               <node concept="15s5l7" id="gcRXCL$K0y" role="lGtFl" />
-              <node concept="1eOMI4" id="gcRXCL$K0$" role="3cqZAk">
-                <node concept="1Wc70l" id="gcRXCL$K0_" role="1eOMHV">
-                  <node concept="2OqwBi" id="gcRXCL$K0A" role="3uHU7w">
-                    <node concept="1PxgMI" id="gcRXCL$K0B" role="2Oq$k0">
-                      <node concept="pncrf" id="gcRXCL$K0C" role="1m5AlR" />
-                      <node concept="chp4Y" id="gcRXCL$K0D" role="3oSUPX">
-                        <ref role="cht4Q" to="tpck:3W5q5oTL9mp" resolve="IGenericComment" />
-                      </node>
-                    </node>
-                    <node concept="2qgKlT" id="gcRXCL$K0E" role="2OqNvi">
-                      <ref role="37wK5l" to="tpcu:fB3l7ZufMD" resolve="isTODOComment" />
-                    </node>
+              <node concept="2OqwBi" id="gcRXCL$K0A" role="3cqZAk">
+                <node concept="1PxgMI" id="gcRXCL$K0B" role="2Oq$k0">
+                  <property role="1BlNFB" value="true" />
+                  <node concept="pncrf" id="gcRXCL$K0C" role="1m5AlR" />
+                  <node concept="chp4Y" id="gcRXCL$K0D" role="3oSUPX">
+                    <ref role="cht4Q" to="tpck:3W5q5oTL9mp" resolve="IGenericComment" />
                   </node>
-                  <node concept="2OqwBi" id="gcRXCL$K0F" role="3uHU7B">
-                    <node concept="pncrf" id="gcRXCL$K0G" role="2Oq$k0" />
-                    <node concept="1mIQ4w" id="gcRXCL$K0H" role="2OqNvi">
-                      <node concept="chp4Y" id="gcRXCL$K0I" role="cj9EA">
-                        <ref role="cht4Q" to="tpck:3W5q5oTL9mp" resolve="IGenericComment" />
-                      </node>
-                    </node>
-                  </node>
+                </node>
+                <node concept="2qgKlT" id="gcRXCL$K0E" role="2OqNvi">
+                  <ref role="37wK5l" to="tpcu:fB3l7ZufMD" resolve="isTODOComment" />
                 </node>
               </node>
             </node>
