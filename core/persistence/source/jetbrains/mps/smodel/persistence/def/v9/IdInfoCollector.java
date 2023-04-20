@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.smodel.persistence.def.v9;
 
+import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.persistence.MetaModelInfoProvider;
 import jetbrains.mps.persistence.registry.ConceptInfo;
 import jetbrains.mps.persistence.registry.IdInfoRegistry;
@@ -151,7 +152,7 @@ public class IdInfoCollector {
 
   private ConceptInfo registerConcept(SAbstractConcept c) {
     final SConceptId conceptId = MetaIdHelper.getConcept(c);
-    if (c.isValid() || MetaIdHelper.unrecognized(c)) {
+    if (!RuntimeFlags.isMergeDriverMode() && (c.isValid() || MetaIdHelper.unrecognized(c))) {
       return registerConcept(conceptId);
     }
     if (!myRegistry.knows(conceptId.getLanguageId())) {
