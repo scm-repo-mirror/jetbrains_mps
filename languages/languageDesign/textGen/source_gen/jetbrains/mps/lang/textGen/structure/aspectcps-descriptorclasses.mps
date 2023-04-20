@@ -1183,7 +1183,7 @@
                       <node concept="liA8E" id="64" role="2OqNvi">
                         <ref role="37wK5l" to="ze1i:~ConceptPresentationBuilder.helpUrl(java.lang.String)" resolve="helpUrl" />
                         <node concept="1sEMCm" id="65" role="37wK5m">
-                          <property role="1sEMCp" value="textgen.html" />
+                          <property role="1sEMCp" value="textgen.html#operations" />
                           <ref role="1fZFei" to="h8lr:46nPloez0vX" resolve="HelpCenterDocUrl" />
                           <uo k="s:originTrace" v="n:6354210107034397076" />
                         </node>
@@ -2389,7 +2389,7 @@
                       <node concept="liA8E" id="dc" role="2OqNvi">
                         <ref role="37wK5l" to="ze1i:~ConceptPresentationBuilder.helpUrl(java.lang.String)" resolve="helpUrl" />
                         <node concept="1sEMCm" id="dd" role="37wK5m">
-                          <property role="1sEMCp" value="textgen.html" />
+                          <property role="1sEMCp" value="textgen.html#operations" />
                           <ref role="1fZFei" to="h8lr:46nPloez0vX" resolve="HelpCenterDocUrl" />
                           <uo k="s:originTrace" v="n:8152542369189860850" />
                         </node>

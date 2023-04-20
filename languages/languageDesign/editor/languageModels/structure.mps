@@ -168,7 +168,7 @@
       <ref role="PrY4T" to="tpce:2hxg_BDjKM4" resolve="IConceptAspect" />
     </node>
     <node concept="1sEMCm" id="5Jed3OJ9HKD" role="bvy1s">
-      <property role="1sEMCp" value="editor.html" />
+      <property role="1sEMCp" value="editor.html#editoroverview" />
       <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -593,7 +593,7 @@
       <ref role="PrY4T" to="tpce:2hxg_BDjKM4" resolve="IConceptAspect" />
     </node>
     <node concept="1sEMCm" id="5Jed3OJg8Ae" role="bvy1s">
-      <property role="1sEMCp" value="editor.html" />
+      <property role="1sEMCp" value="editor.html#editoroverview" />
       <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -698,7 +698,7 @@
       <ref role="20lvS9" node="gyPxRd_" resolve="CellKeyMapItem" />
     </node>
     <node concept="1sEMCm" id="5Jed3OJg8_E" role="bvy1s">
-      <property role="1sEMCp" value="editor.html" />
+      <property role="1sEMCp" value="editor.html#keymaps" />
       <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -1008,7 +1008,7 @@
       <ref role="20lvS9" node="g_hA7BD" resolve="CellActionMapItem" />
     </node>
     <node concept="1sEMCm" id="11Atn_WK8fg" role="bvy1s">
-      <property role="1sEMCp" value="editor.html" />
+      <property role="1sEMCp" value="editor.html#actionmaps" />
       <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -1710,7 +1710,7 @@
       <ref role="PrY4T" to="tpce:hOIDzy1" resolve="IStructureDeprecatable" />
     </node>
     <node concept="1sEMCm" id="5Jed3OJg8_I" role="bvy1s">
-      <property role="1sEMCp" value="editor.html" />
+      <property role="1sEMCp" value="editor.html#cellmenus" />
       <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -2017,7 +2017,7 @@
       <ref role="PrY4T" to="tpee:hCUYCKd" resolve="IValidIdentifier" />
     </node>
     <node concept="1sEMCm" id="5Jed3OJ9HKF" role="bvy1s">
-      <property role="1sEMCp" value="editor.html" />
+      <property role="1sEMCp" value="editor.html#styles" />
       <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -3057,7 +3057,7 @@
       <ref role="PrY4T" to="tp4f:hyWqMFP" resolve="IClassifier" />
     </node>
     <node concept="1sEMCm" id="5Jed3OJg8Hd" role="bvy1s">
-      <property role="1sEMCp" value="editor.html" />
+      <property role="1sEMCp" value="editor.html#3ab2b85e" />
       <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -3444,7 +3444,7 @@
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
     </node>
     <node concept="1sEMCm" id="1pfhW8h7fW_" role="bvy1s">
-      <property role="1sEMCp" value="editor.html" />
+      <property role="1sEMCp" value="editor.html#styles" />
       <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -3510,7 +3510,7 @@
       <ref role="PrY4T" to="tpck:19gBtYEAf4C" resolve="InterfacePart" />
     </node>
     <node concept="1sEMCm" id="5Jed3OJg8Aa" role="bvy1s">
-      <property role="1sEMCp" value="editor.html" />
+      <property role="1sEMCp" value="editor-cookbook.html#howtodefinemultipleeditorsforthesameconcept" />
       <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -6396,7 +6396,7 @@
       <ref role="PrY4T" to="tpee:hCUYCKd" resolve="IValidIdentifier" />
     </node>
     <node concept="1sEMCm" id="5Jed3OJg8A7" role="bvy1s">
-      <property role="1sEMCp" value="/editor.html" />
+      <property role="1sEMCp" value="/editor.html#86272b50" />
       <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>

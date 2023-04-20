@@ -463,5 +463,5 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
     }
     return null;
   }
-  private static final String HELP_URL = URLFunction_HelpCenterDocUrl.getUrl() + "constraints.html";
+  private static final String HELP_URL = URLFunction_HelpCenterDocUrl.getUrl() + "constraints.html#canbechild/parent/ancestor/root";
 }

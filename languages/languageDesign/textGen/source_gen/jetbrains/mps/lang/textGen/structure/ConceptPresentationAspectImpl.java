@@ -352,6 +352,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
     }
     return null;
   }
-  private static final String HELP_URL = URLFunction_HelpCenterDocUrl.getUrl() + "textgen.html";
-  private static final String HELP_URL1 = URLFunction_HelpCenterDocUrl.getUrl() + "textgen.html";
+  private static final String HELP_URL = URLFunction_HelpCenterDocUrl.getUrl() + "textgen.html#operations";
+  private static final String HELP_URL1 = URLFunction_HelpCenterDocUrl.getUrl() + "textgen.html#operations";
 }

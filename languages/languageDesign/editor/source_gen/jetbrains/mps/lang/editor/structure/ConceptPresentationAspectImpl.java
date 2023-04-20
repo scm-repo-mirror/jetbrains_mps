@@ -3690,16 +3690,16 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
     }
     return null;
   }
-  private static final String HELP_URL = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html";
-  private static final String HELP_URL1 = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html";
-  private static final String HELP_URL2 = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html";
-  private static final String HELP_URL3 = URLFunction_HelpCenterDocUrl.getUrl() + "/editor.html";
-  private static final String HELP_URL4 = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html";
-  private static final String HELP_URL5 = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html";
-  private static final String HELP_URL6 = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html";
-  private static final String HELP_URL7 = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html";
-  private static final String HELP_URL8 = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html";
-  private static final String HELP_URL9 = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html";
+  private static final String HELP_URL = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html#actionmaps";
+  private static final String HELP_URL1 = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html#keymaps";
+  private static final String HELP_URL2 = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html#cellmenus";
+  private static final String HELP_URL3 = URLFunction_HelpCenterDocUrl.getUrl() + "/editor.html#86272b50";
+  private static final String HELP_URL4 = URLFunction_HelpCenterDocUrl.getUrl() + "editor-cookbook.html#howtodefinemultipleeditorsforthesameconcept";
+  private static final String HELP_URL5 = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html#editoroverview";
+  private static final String HELP_URL6 = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html#editoroverview";
+  private static final String HELP_URL7 = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html#3ab2b85e";
+  private static final String HELP_URL8 = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html#styles";
+  private static final String HELP_URL9 = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html#styles";
   private static final String HELP_URL10 = URLFunction_HelpCenterDocUrl.getUrl() + "transformation-menu-language.html";
   private static final String HELP_URL11 = URLFunction_HelpCenterDocUrl.getUrl() + "transformation-menu-language.html";
   private static final String HELP_URL12 = URLFunction_HelpCenterDocUrl.getUrl() + "transformation-menu-language.html";

@@ -283,7 +283,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
     }
     return null;
   }
-  private static final String HELP_URL = URLFunction_HelpCenterDocUrl.getUrl() + "editor-actions.html";
-  private static final String HELP_URL1 = URLFunction_HelpCenterDocUrl.getUrl() + "editor-actions.html";
-  private static final String HELP_URL2 = URLFunction_HelpCenterDocUrl.getUrl() + "editor-actions.html";
+  private static final String HELP_URL = URLFunction_HelpCenterDocUrl.getUrl() + "editor-actions.html#copy-pastehandlers";
+  private static final String HELP_URL1 = URLFunction_HelpCenterDocUrl.getUrl() + "editor-actions.html#node_factories";
+  private static final String HELP_URL2 = URLFunction_HelpCenterDocUrl.getUrl() + "editor-actions.html#pastewrappers";
 }

@@ -13,5 +13,5 @@ public class IconContainer {
   protected static IconResource RESOURCE_a0a3a0a69b0oe = new IconResource("substitute.png", IconContainer.class);
   protected static IconResource RESOURCE_a0a3a0a79b0oe = new IconResource("subtyping.png", IconContainer.class);
   protected static IconResource RESOURCE_a0a3a0a701b0oe = new IconResource("quickFix.png", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a111b0oe = new IconResource("variableReplacement.png", IconContainer.class);
+  protected static IconResource RESOURCE_a0a2a0a111b0oe = new IconResource("variableReplacement.png", IconContainer.class);
 }

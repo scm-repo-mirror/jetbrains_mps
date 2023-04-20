@@ -353,5 +353,5 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
     }
     return null;
   }
-  private static final String HELP_URL = URLFunction_HelpCenterDocUrl.getUrl() + "migrations.html";
+  private static final String HELP_URL = URLFunction_HelpCenterDocUrl.getUrl() + "migrations.html#defininglanguagemigrations";
 }

@@ -902,7 +902,7 @@
                       <node concept="liA8E" id="4e" role="2OqNvi">
                         <ref role="37wK5l" to="ze1i:~ConceptPresentationBuilder.helpUrl(java.lang.String)" resolve="helpUrl" />
                         <node concept="1sEMCm" id="4f" role="37wK5m">
-                          <property role="1sEMCp" value="editor-actions.html" />
+                          <property role="1sEMCp" value="editor-actions.html#copy-pastehandlers" />
                           <ref role="1fZFei" to="sla8:46nPloez0vX" resolve="HelpCenterDocUrl" />
                           <uo k="s:originTrace" v="n:7510078983807255571" />
                         </node>
@@ -1926,7 +1926,7 @@
                       <node concept="liA8E" id="ah" role="2OqNvi">
                         <ref role="37wK5l" to="ze1i:~ConceptPresentationBuilder.helpUrl(java.lang.String)" resolve="helpUrl" />
                         <node concept="1sEMCm" id="ai" role="37wK5m">
-                          <property role="1sEMCp" value="editor-actions.html" />
+                          <property role="1sEMCp" value="editor-actions.html#node_factories" />
                           <ref role="1fZFei" to="sla8:46nPloez0vX" resolve="HelpCenterDocUrl" />
                           <uo k="s:originTrace" v="n:7510078983807255565" />
                         </node>
@@ -2678,7 +2678,7 @@
                       <node concept="liA8E" id="eI" role="2OqNvi">
                         <ref role="37wK5l" to="ze1i:~ConceptPresentationBuilder.helpUrl(java.lang.String)" resolve="helpUrl" />
                         <node concept="1sEMCm" id="eJ" role="37wK5m">
-                          <property role="1sEMCp" value="editor-actions.html" />
+                          <property role="1sEMCp" value="editor-actions.html#pastewrappers" />
                           <ref role="1fZFei" to="sla8:46nPloez0vX" resolve="HelpCenterDocUrl" />
                           <uo k="s:originTrace" v="n:7510078983807255569" />
                         </node>

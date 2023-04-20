@@ -393,7 +393,7 @@
                       <node concept="liA8E" id="1j" role="2OqNvi">
                         <ref role="37wK5l" to="ze1i:~ConceptPresentationBuilder.helpUrl(java.lang.String)" resolve="helpUrl" />
                         <node concept="1sEMCm" id="1k" role="37wK5m">
-                          <property role="1sEMCp" value="behavior.html" />
+                          <property role="1sEMCp" value="behavior.html#conceptinstancemethods" />
                           <ref role="1fZFei" to="mg3u:46nPloez0vX" resolve="HelpCenterDocUrl" />
                           <uo k="s:originTrace" v="n:6354210107034397076" />
                         </node>

@@ -123,7 +123,7 @@
       <property role="1iqoE4" value="${module}/icons/usagesFinder.png" />
     </node>
     <node concept="1sEMCm" id="5wIG6OxYQAk" role="bvy1s">
-      <property role="1sEMCp" value="find-usages.html" />
+      <property role="1sEMCp" value="find-usages.html#finders" />
       <ref role="1fZFei" to="xg48:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>

@@ -10,7 +10,7 @@ public class IconContainer {
   protected static IconResource RESOURCE_a0a3a0a51b0lb = new IconResource("enum.png", IconContainer.class);
   protected static IconResource RESOURCE_a0a3a0a61b0lb = new IconResource("enum.png", IconContainer.class);
   protected static IconResource RESOURCE_a0a3a0a62b0lb = new IconResource("interfaceStructure.png", IconContainer.class);
-  protected static IconResource RESOURCE_a0a2a0a82b0lb = new IconResource("link.png", IconContainer.class);
+  protected static IconResource RESOURCE_a0a3a0a82b0lb = new IconResource("link.png", IconContainer.class);
   protected static IconResource RESOURCE_a0a3a0a03b0lb = new IconResource("primitiveTD.png", IconContainer.class);
-  protected static IconResource RESOURCE_a0a2a0a13b0lb = new IconResource("property.png", IconContainer.class);
+  protected static IconResource RESOURCE_a0a3a0a13b0lb = new IconResource("property.png", IconContainer.class);
 }

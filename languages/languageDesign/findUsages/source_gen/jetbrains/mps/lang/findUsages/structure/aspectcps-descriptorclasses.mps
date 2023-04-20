@@ -978,7 +978,7 @@
                       <node concept="liA8E" id="4M" role="2OqNvi">
                         <ref role="37wK5l" to="ze1i:~ConceptPresentationBuilder.helpUrl(java.lang.String)" resolve="helpUrl" />
                         <node concept="1sEMCm" id="4N" role="37wK5m">
-                          <property role="1sEMCp" value="find-usages.html" />
+                          <property role="1sEMCp" value="find-usages.html#finders" />
                           <ref role="1fZFei" to="xg48:46nPloez0vX" resolve="HelpCenterDocUrl" />
                           <uo k="s:originTrace" v="n:6354210107034397076" />
                         </node>

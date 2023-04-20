@@ -174,6 +174,10 @@
     <node concept="1QGGSu" id="4Q8sAA5iJRH" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/link.png" />
     </node>
+    <node concept="1sEMCm" id="12TOPj1JE4X" role="bvy1s">
+      <property role="1sEMCp" value="structure.html#conceptmembers" />
+      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="HelpCenterDocUrl" />
+    </node>
   </node>
   <node concept="1TIwiD" id="f_TJgxF">
     <property role="R5$K7" value="false" />
@@ -206,6 +210,10 @@
     </node>
     <node concept="1QGGSu" id="4Q8sAA5iJRJ" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/property.png" />
+    </node>
+    <node concept="1sEMCm" id="12TOPj1JEfM" role="bvy1s">
+      <property role="1sEMCp" value="structure.html#conceptmembers" />
+      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="fKAxPRU">
@@ -246,7 +254,7 @@
       <property role="1iqoE4" value="${module}/icons/constrainedTD.png" />
     </node>
     <node concept="1sEMCm" id="5Jed3OJ4_8g" role="bvy1s">
-      <property role="1sEMCp" value="structure.html" />
+      <property role="1sEMCp" value="structure.html#constraineddatatypes" />
       <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -289,7 +297,7 @@
       <property role="1iqoE4" value="${module}/icons/primitiveTD.png" />
     </node>
     <node concept="1sEMCm" id="5Jed3OJ4_9g" role="bvy1s">
-      <property role="1sEMCp" value="structure.html" />
+      <property role="1sEMCp" value="structure.html#conceptmembers" />
       <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -400,8 +408,8 @@
     <node concept="1QGGSu" id="4Q8sAA5iJRK" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/interfaceStructure.png" />
     </node>
-    <node concept="1sEMCm" id="5Jed3OJ4_9d" role="bvy1s">
-      <property role="1sEMCp" value="structure.html" />
+    <node concept="1sEMCm" id="12TOPj1JGOy" role="bvy1s">
+      <property role="1sEMCp" value="structure.html#conceptsandconceptinterfaces" />
       <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -734,7 +742,7 @@
       <property role="1iqoE4" value="${module}/icons/structure.png" />
     </node>
     <node concept="1sEMCm" id="11Atn_WK8fg" role="bvy1s">
-      <property role="1sEMCp" value="structure.html" />
+      <property role="1sEMCp" value="structure.html#conceptsandconceptinterfaces" />
       <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -765,7 +773,7 @@
       <property role="1iqoE4" value="${module}/icons/enum.png" />
     </node>
     <node concept="1sEMCm" id="5Jed3OJ4_8k" role="bvy1s">
-      <property role="1sEMCp" value="structure.html" />
+      <property role="1sEMCp" value="structure.html#enumerationds" />
       <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>

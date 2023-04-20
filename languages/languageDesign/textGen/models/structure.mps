@@ -135,7 +135,7 @@
       <property role="1iqoE4" value="${module}/icons/textGen.png" />
     </node>
     <node concept="1sEMCm" id="5wIG6OxYQAk" role="bvy1s">
-      <property role="1sEMCp" value="textgen.html" />
+      <property role="1sEMCp" value="textgen.html#operations" />
       <ref role="1fZFei" to="h8lr:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -233,7 +233,7 @@
       <property role="1iqoE4" value="${module}/icons/textGenComponent.png" />
     </node>
     <node concept="1sEMCm" id="74zDxsVSxnM" role="bvy1s">
-      <property role="1sEMCp" value="textgen.html" />
+      <property role="1sEMCp" value="textgen.html#operations" />
       <ref role="1fZFei" to="h8lr:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>

@@ -259,7 +259,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_LinkDeclaration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a82b0lb);
+          cpb.helpUrl(HELP_URL4);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a82b0lb);
           props_LinkDeclaration = cpb.create();
         }
         return props_LinkDeclaration;
@@ -274,7 +275,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_PrimitiveDataTypeDeclaration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.helpUrl(HELP_URL4);
+          cpb.helpUrl(HELP_URL5);
           cpb.icon(IconContainer.RESOURCE_a0a3a0a03b0lb);
           props_PrimitiveDataTypeDeclaration = cpb.create();
         }
@@ -283,7 +284,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_PropertyDeclaration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a13b0lb);
+          cpb.helpUrl(HELP_URL6);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a13b0lb);
           props_PropertyDeclaration = cpb.create();
         }
         return props_PropertyDeclaration;
@@ -318,9 +320,11 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
     }
     return null;
   }
-  private static final String HELP_URL = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html";
-  private static final String HELP_URL1 = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html";
-  private static final String HELP_URL2 = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html";
-  private static final String HELP_URL3 = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html";
-  private static final String HELP_URL4 = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html";
+  private static final String HELP_URL = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html#conceptsandconceptinterfaces";
+  private static final String HELP_URL1 = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html#constraineddatatypes";
+  private static final String HELP_URL2 = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html#enumerationds";
+  private static final String HELP_URL3 = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html#conceptsandconceptinterfaces";
+  private static final String HELP_URL4 = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html#conceptmembers";
+  private static final String HELP_URL5 = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html#conceptmembers";
+  private static final String HELP_URL6 = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html#conceptmembers";
 }

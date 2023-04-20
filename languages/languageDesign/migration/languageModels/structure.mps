@@ -799,7 +799,7 @@
       <property role="1iqoE4" value="${module}/icons/migrationScript.png" />
     </node>
     <node concept="1sEMCm" id="5wIG6OxYQAk" role="bvy1s">
-      <property role="1sEMCp" value="migrations.html" />
+      <property role="1sEMCp" value="migrations.html#defininglanguagemigrations" />
       <ref role="1fZFei" to="che4:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>

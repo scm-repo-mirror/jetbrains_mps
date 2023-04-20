@@ -456,7 +456,7 @@
       <property role="1iqoE4" value="${module}/icons/constraints.png" />
     </node>
     <node concept="1sEMCm" id="5wIG6OxYQAk" role="bvy1s">
-      <property role="1sEMCp" value="constraints.html" />
+      <property role="1sEMCp" value="constraints.html#canbechild/parent/ancestor/root" />
       <ref role="1fZFei" to="beg:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>

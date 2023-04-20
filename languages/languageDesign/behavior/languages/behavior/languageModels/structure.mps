@@ -114,7 +114,7 @@
       <ref role="20lvS9" node="hP3i0lY" resolve="ConceptMethodDeclaration" />
     </node>
     <node concept="1sEMCm" id="5wIG6OxYQAk" role="bvy1s">
-      <property role="1sEMCp" value="behavior.html" />
+      <property role="1sEMCp" value="behavior.html#conceptinstancemethods" />
       <ref role="1fZFei" to="mg3u:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>

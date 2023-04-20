@@ -214,6 +214,10 @@
     <node concept="1QGGSu" id="4Q8sAA5iJRn" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/templateFragment.png" />
     </node>
+    <node concept="1sEMCm" id="12TOPj2wzKF" role="bvy1s">
+      <property role="1sEMCp" value="mps-generator.html#externaltemplate" />
+      <ref role="1fZFei" to="n7oh:46nPloez0vX" resolve="HelpCenterDocUrl" />
+    </node>
   </node>
   <node concept="1TIwiD" id="fWbUwhP">
     <property role="19KtqR" value="true" />
@@ -334,7 +338,7 @@
       <property role="1iqoE4" value="${module}/icons/mappingConf.png" />
     </node>
     <node concept="1sEMCm" id="5wIG6OxYQAk" role="bvy1s">
-      <property role="1sEMCp" value="mps-generator.html" />
+      <property role="1sEMCp" value="mps-generator.html#mappingconfiguration" />
       <ref role="1fZFei" to="n7oh:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -404,6 +408,10 @@
     </node>
     <node concept="1QGGSu" id="4Q8sAA5iJRo" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/switch.png" />
+    </node>
+    <node concept="1sEMCm" id="12TOPj2wz_P" role="bvy1s">
+      <property role="1sEMCp" value="mps-generator.html#templateswitch" />
+      <ref role="1fZFei" to="n7oh:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="gcuGL8H">
@@ -1104,6 +1112,10 @@
     </node>
     <node concept="1QGGSu" id="4Q8sAA5iJRp" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/generatorScript.png" />
+    </node>
+    <node concept="1sEMCm" id="12TOPj2wzYJ" role="bvy1s">
+      <property role="1sEMCp" value="mps-generator.html#mappingscript" />
+      <ref role="1fZFei" to="n7oh:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="hppplEC">

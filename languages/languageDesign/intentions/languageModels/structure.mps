@@ -80,6 +80,10 @@
     <node concept="1QGGSu" id="4Q8sAA5iJSm" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/intentionBulb.png" />
     </node>
+    <node concept="1sEMCm" id="12TOPj1JLgZ" role="bvy1s">
+      <property role="1sEMCp" value="mps-intentions.html#intentiontypes" />
+      <ref role="1fZFei" to="8okf:46nPloez0vX" resolve="HelpCenterDocUrl" />
+    </node>
   </node>
   <node concept="1TIwiD" id="hmS6ZEB">
     <property role="TrG5h" value="DescriptionBlock" />
@@ -257,8 +261,8 @@
     <node concept="1QGGSu" id="4Q8sAA5iJSl" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/surroundWithIntention.png" />
     </node>
-    <node concept="1sEMCm" id="5wIG6OxYQAk" role="bvy1s">
-      <property role="1sEMCp" value="mps-intentions.html" />
+    <node concept="1sEMCm" id="12TOPj1JLkg" role="bvy1s">
+      <property role="1sEMCp" value="mps-intentions.html#intentiontypes" />
       <ref role="1fZFei" to="8okf:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -315,7 +319,7 @@
       <property role="1iqoE4" value="${module}/icons/intentionBulb.png" />
     </node>
     <node concept="1sEMCm" id="5wIG6OxYRiH" role="bvy1s">
-      <property role="1sEMCp" value="mps-intentions.html" />
+      <property role="1sEMCp" value="mps-intentions.html#intentiontypes" />
       <ref role="1fZFei" to="8okf:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>

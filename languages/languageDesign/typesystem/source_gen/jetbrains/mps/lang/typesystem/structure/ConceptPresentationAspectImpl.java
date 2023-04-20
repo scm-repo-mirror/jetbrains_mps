@@ -936,8 +936,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_VariableConvertersContainer == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.rawPresentation("Variable Converters");
-          cpb.helpUrl(HELP_URL8);
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a111b0oe);
+          cpb.icon(IconContainer.RESOURCE_a0a2a0a111b0oe);
           props_VariableConvertersContainer = cpb.create();
         }
         return props_VariableConvertersContainer;
@@ -980,13 +979,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
     }
     return null;
   }
-  private static final String HELP_URL = URLFunction_HelpCenterDocUrl.getUrl() + "typesystem.html";
-  private static final String HELP_URL1 = URLFunction_HelpCenterDocUrl.getUrl() + "typesystem.html";
-  private static final String HELP_URL2 = URLFunction_HelpCenterDocUrl.getUrl() + "typesystem.html";
-  private static final String HELP_URL3 = URLFunction_HelpCenterDocUrl.getUrl() + "typesystem.html";
-  private static final String HELP_URL4 = URLFunction_HelpCenterDocUrl.getUrl() + "typesystem.html";
-  private static final String HELP_URL5 = URLFunction_HelpCenterDocUrl.getUrl() + "typesystem.html";
-  private static final String HELP_URL6 = URLFunction_HelpCenterDocUrl.getUrl() + "typesystem.html";
-  private static final String HELP_URL7 = URLFunction_HelpCenterDocUrl.getUrl() + "typesystem.html";
-  private static final String HELP_URL8 = URLFunction_HelpCenterDocUrl.getUrl() + "typesystem.html";
+  private static final String HELP_URL = URLFunction_HelpCenterDocUrl.getUrl() + "typesystem.html#comparisoninequationsandcomparisonrules";
+  private static final String HELP_URL1 = URLFunction_HelpCenterDocUrl.getUrl() + "typesystem.html#replacementrules";
+  private static final String HELP_URL2 = URLFunction_HelpCenterDocUrl.getUrl() + "typesystem.html#inferencerules";
+  private static final String HELP_URL3 = URLFunction_HelpCenterDocUrl.getUrl() + "typesystem.html#checkingrules";
+  private static final String HELP_URL4 = URLFunction_HelpCenterDocUrl.getUrl() + "typesystem.html#overloadedoperators";
+  private static final String HELP_URL5 = URLFunction_HelpCenterDocUrl.getUrl() + "typesystem.html#advancedfeaturesoftypesystemlanguage";
+  private static final String HELP_URL6 = URLFunction_HelpCenterDocUrl.getUrl() + "typesystem.html#subtypingrules";
+  private static final String HELP_URL7 = URLFunction_HelpCenterDocUrl.getUrl() + "typesystem.html#quick-fixes";
 }

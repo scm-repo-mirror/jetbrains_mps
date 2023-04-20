@@ -113,7 +113,7 @@
       <property role="1iqoE4" value="${module}/icons/nodeFactories.png" />
     </node>
     <node concept="1sEMCm" id="6wTagIKXkgd" role="bvy1s">
-      <property role="1sEMCp" value="editor-actions.html" />
+      <property role="1sEMCp" value="editor-actions.html#node_factories" />
       <ref role="1fZFei" to="sla8:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -184,7 +184,7 @@
       <property role="1iqoE4" value="${module}/icons/pasteWrapper.png" />
     </node>
     <node concept="1sEMCm" id="6wTagIKXkgh" role="bvy1s">
-      <property role="1sEMCp" value="editor-actions.html" />
+      <property role="1sEMCp" value="editor-actions.html#pastewrappers" />
       <ref role="1fZFei" to="sla8:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -356,7 +356,7 @@
       <ref role="PrY4T" to="tpce:2hxg_BDjKM4" resolve="IConceptAspect" />
     </node>
     <node concept="1sEMCm" id="6wTagIKXkgj" role="bvy1s">
-      <property role="1sEMCp" value="editor-actions.html" />
+      <property role="1sEMCp" value="editor-actions.html#copy-pastehandlers" />
       <ref role="1fZFei" to="sla8:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>

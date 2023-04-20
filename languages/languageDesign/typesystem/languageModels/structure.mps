@@ -170,7 +170,7 @@
       <property role="1iqoE4" value="${module}/icons/rule.png" />
     </node>
     <node concept="1sEMCm" id="5wIG6OxYTvO" role="bvy1s">
-      <property role="1sEMCp" value="typesystem.html" />
+      <property role="1sEMCp" value="typesystem.html#inferencerules" />
       <ref role="1fZFei" to="f7uj:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -443,7 +443,7 @@
       <property role="1iqoE4" value="${module}/icons/subtyping.png" />
     </node>
     <node concept="1sEMCm" id="5wIG6OxYTwc" role="bvy1s">
-      <property role="1sEMCp" value="typesystem.html" />
+      <property role="1sEMCp" value="typesystem.html#subtypingrules" />
       <ref role="1fZFei" to="f7uj:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -897,7 +897,7 @@
       <property role="1iqoE4" value="${module}/icons/comparison.png" />
     </node>
     <node concept="1sEMCm" id="5wIG6OxYTvf" role="bvy1s">
-      <property role="1sEMCp" value="typesystem.html" />
+      <property role="1sEMCp" value="typesystem.html#comparisoninequationsandcomparisonrules" />
       <ref role="1fZFei" to="f7uj:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -969,7 +969,7 @@
       <ref role="20lvS9" node="21kJG8H0nwI" resolve="CheckingRuleReference" />
     </node>
     <node concept="1sEMCm" id="5wIG6OxYQAk" role="bvy1s">
-      <property role="1sEMCp" value="typesystem.html" />
+      <property role="1sEMCp" value="typesystem.html#checkingrules" />
       <ref role="1fZFei" to="f7uj:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
     <node concept="1TJgyi" id="6eD3qW7n4QW" role="1TKVEl">
@@ -1005,7 +1005,7 @@
       <property role="1iqoE4" value="${module}/icons/replacement.png" />
     </node>
     <node concept="1sEMCm" id="5wIG6OxYTvt" role="bvy1s">
-      <property role="1sEMCp" value="typesystem.html" />
+      <property role="1sEMCp" value="typesystem.html#replacementrules" />
       <ref role="1fZFei" to="f7uj:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -1249,7 +1249,7 @@
       <property role="1iqoE4" value="${module}/icons/quickFix.png" />
     </node>
     <node concept="1sEMCm" id="5wIG6OxYTuV" role="bvy1s">
-      <property role="1sEMCp" value="typesystem.html" />
+      <property role="1sEMCp" value="typesystem.html#quick-fixes" />
       <ref role="1fZFei" to="f7uj:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -1529,10 +1529,6 @@
     <node concept="1QGGSu" id="4Q8sAA5iJQ5" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/variableReplacement.png" />
     </node>
-    <node concept="1sEMCm" id="5wIG6OxYTwf" role="bvy1s">
-      <property role="1sEMCp" value="typesystem.html" />
-      <ref role="1fZFei" to="f7uj:46nPloez0vX" resolve="HelpCenterDocUrl" />
-    </node>
   </node>
   <node concept="1TIwiD" id="hS7z$4e">
     <property role="R5$K7" value="false" />
@@ -1702,7 +1698,7 @@
       <property role="1iqoE4" value="${module}/icons/overloadedRules.png" />
     </node>
     <node concept="1sEMCm" id="5wIG6OxYTv_" role="bvy1s">
-      <property role="1sEMCp" value="typesystem.html" />
+      <property role="1sEMCp" value="typesystem.html#overloadedoperators" />
       <ref role="1fZFei" to="f7uj:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
@@ -2073,7 +2069,7 @@
       <property role="1iqoE4" value="${module}/icons/substitute.png" />
     </node>
     <node concept="1sEMCm" id="5wIG6OxYTvM" role="bvy1s">
-      <property role="1sEMCp" value="typesystem.html" />
+      <property role="1sEMCp" value="typesystem.html#advancedfeaturesoftypesystemlanguage" />
       <ref role="1fZFei" to="f7uj:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
