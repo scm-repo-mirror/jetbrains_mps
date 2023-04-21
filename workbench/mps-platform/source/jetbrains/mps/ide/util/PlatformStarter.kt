@@ -1,7 +1,6 @@
-package jetbrains.mps.util
+package jetbrains.mps.ide.util
 
 import com.intellij.diagnostic.StartUpMeasurer
-import com.intellij.diagnostic.rootTask
 import com.intellij.ide.plugins.StartupAbortedException
 import com.intellij.idea.AppMode
 import com.intellij.idea.AppStarter

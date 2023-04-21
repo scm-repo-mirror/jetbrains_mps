@@ -12,6 +12,7 @@
   <property name="mps_home" location="${basedir}" />
   <property name="platform_lib" location="${basedir}/lib" />
   <property name="lib_ext" location="${basedir}/lib/ext" />
+  <property name="kotlinc_home" location="${mps_home}/plugins/mps-kotlin/kotlinc" />
   <property name="artifacts.mpsTrueBootstrap" location="${build.dir}/artifacts/mpsTrueBootstrap" />
   <property name="artifacts.IDEA" location="${idea_home}" />
   <property name="environment" value="env" />
@@ -74,6 +75,8 @@
   <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="path.javac2.classpath" />
   
   <taskdef resource="jetbrains/mps/build/ant/antlib.xml" classpathref="path.mps.ant.path" />
+  
+  <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlinc_home}/lib/kotlin-ant.jar"></typedef>
   
   <generator-settings id="m2m-defaults" strictMode="true" parallelThreads="8" inplaceTransform="false" warnWrongChild="true" createStaticRefs="true" skipUnmodifiedModels="${mps.generator.skipUnmodifiedModels}" />
   
@@ -16675,6 +16678,7 @@
       <macro name="mps_home" path="${mps_home}" />
       <macro name="platform_lib" path="${platform_lib}" />
       <macro name="lib_ext" path="${lib_ext}" />
+      <macro name="kotlinc_home" path="${kotlinc_home}" />
     </generate>
   </target>
   
@@ -17703,6 +17707,9 @@
   <target name="java.compile.mps-platform" depends="java.compile.mps-generator, java.compile.kernel-resources, java.compile.mps-make-rt, java.compile.idea-platform, java.compile.mps-editor-api, java.compile.mps-editing, java.compile.mps-icons, java.compile.platform, java.compile.mps-environment, java.compile.dataflow-rt, java.compile.mps-typesystem, java.compile.pattern-runtime, java.compile.aux-runtimes, fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/mps-platform" />
     <javac2 destdir="${build.tmp}/java/out/mps-platform" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-platform">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <pathelement path="${mps_home}/workbench/mps-platform/source" />

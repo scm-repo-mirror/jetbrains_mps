@@ -1589,6 +1589,7 @@
     </node>
     <node concept="398b33" id="16Vg0jOco3P" role="3989C9">
       <property role="TrG5h" value="mps-platform" />
+      <property role="ZpmtF" value="true" />
       <node concept="nCB5N" id="75RBgxKmBu7" role="nCB5Z">
         <property role="1Sh$E4" value="true" />
         <ref role="nCB5Y" node="75RBgxKm6HY" resolve="mps-generator" />
@@ -2100,6 +2101,21 @@
           <property role="2Ry0Am" value="lib" />
           <node concept="2Ry0Ak" id="10txAzI7ful" role="2Ry0An">
             <property role="2Ry0Am" value="ext" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="398rNT" id="4mf44un9N3W" role="1l3spd">
+      <property role="TrG5h" value="kotlinc_home" />
+      <node concept="398BVA" id="4mf44un9N5k" role="398pKh">
+        <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
+        <node concept="2Ry0Ak" id="4mf44un9N5T" role="iGT6I">
+          <property role="2Ry0Am" value="plugins" />
+          <node concept="2Ry0Ak" id="4mf44un9N5W" role="2Ry0An">
+            <property role="2Ry0Am" value="mps-kotlin" />
+            <node concept="2Ry0Ak" id="4mf44un9N5Z" role="2Ry0An">
+              <property role="2Ry0Am" value="kotlinc" />
+            </node>
           </node>
         </node>
       </node>
@@ -50561,21 +50577,6 @@
       <property role="TrG5h" value="mps_home" />
       <node concept="55IIr" id="6IJvZDkyhr8" role="398pKh" />
     </node>
-    <node concept="398rNT" id="4mf44un9N3W" role="1l3spd">
-      <property role="TrG5h" value="kotlinc_home" />
-      <node concept="398BVA" id="4mf44un9N5k" role="398pKh">
-        <ref role="398BVh" node="6IJvZDkyhr7" resolve="mps_home" />
-        <node concept="2Ry0Ak" id="4mf44un9N5T" role="iGT6I">
-          <property role="2Ry0Am" value="plugins" />
-          <node concept="2Ry0Ak" id="4mf44un9N5W" role="2Ry0An">
-            <property role="2Ry0Am" value="mps-kotlin" />
-            <node concept="2Ry0Ak" id="4mf44un9N5Z" role="2Ry0An">
-              <property role="2Ry0Am" value="kotlinc" />
-            </node>
-          </node>
-        </node>
-      </node>
-    </node>
     <node concept="398rNT" id="1t0Ry55x4nV" role="1l3spd">
       <property role="TrG5h" value="idea_home" />
     </node>
@@ -51062,7 +51063,6 @@
     </node>
     <node concept="398b33" id="3vjn6$4rsZc" role="3989C9">
       <property role="TrG5h" value="util-core" />
-      <property role="ZpmtF" value="true" />
       <node concept="nCB5N" id="3vjn6$4rsZe" role="nCB5Z">
         <property role="1Sh$E4" value="false" />
         <ref role="nCB5Y" node="5Lo0z0qFWkX" resolve="mps-openapi" />
