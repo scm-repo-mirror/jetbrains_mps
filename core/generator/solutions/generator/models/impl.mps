@@ -34,6 +34,7 @@
     <import index="av9" ref="215c4c45-ba99-49f5-9ab7-4b6901a63cfd/java:jetbrains.mps.generator.impl.cache(MPS.Generator/)" />
     <import index="cgca" ref="215c4c45-ba99-49f5-9ab7-4b6901a63cfd/java:jetbrains.mps.generator.plan(MPS.Generator/)" />
     <import index="tp2b" ref="r:00000000-0000-4000-0000-011c8959033f(jetbrains.mps.lang.pattern.behavior)" implicit="true" />
+    <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" implicit="true" />
     <import index="1ctc" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.stream(JDK/)" implicit="true" />
   </imports>
   <registry>
@@ -4585,6 +4586,31 @@
         </node>
       </node>
     </node>
+    <node concept="2YIFZL" id="2c$k9pHJ$s2" role="jymVt">
+      <property role="TrG5h" value="getReferenceMacro_associationRole" />
+      <node concept="3uibUv" id="2c$k9pHJWuP" role="3clF45">
+        <ref role="3uigEE" to="c17a:~SReferenceLink" resolve="SReferenceLink" />
+      </node>
+      <node concept="3Tm1VV" id="2c$k9pHJ$s4" role="1B3o_S" />
+      <node concept="3clFbS" id="2c$k9pHJ$s5" role="3clF47">
+        <node concept="3clFbF" id="2c$k9pHJ$s6" role="3cqZAp">
+          <node concept="2OqwBi" id="2c$k9pHJ$s7" role="3clFbG">
+            <node concept="37vLTw" id="2c$k9pHJ$s8" role="2Oq$k0">
+              <ref role="3cqZAo" node="2c$k9pHJ$sa" resolve="macro" />
+            </node>
+            <node concept="2qgKlT" id="2c$k9pHJL7e" role="2OqNvi">
+              <ref role="37wK5l" to="tpcu:1avfQ4BEFo6" resolve="getLink" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="37vLTG" id="2c$k9pHJ$sa" role="3clF46">
+        <property role="TrG5h" value="macro" />
+        <node concept="3Tqbb2" id="2c$k9pHJ$sb" role="1tU5fm">
+          <ref role="ehGHo" to="tpf8:fPZhdom" resolve="ReferenceMacro" />
+        </node>
+      </node>
+    </node>
     <node concept="2YIFZL" id="4VDJDTCDmWP" role="jymVt">
       <property role="TrG5h" value="getPropertyMacro_ValueFunction" />
       <node concept="3Tqbb2" id="4VDJDTCDmX3" role="3clF45">
@@ -4606,6 +4632,31 @@
       <node concept="37vLTG" id="4VDJDTCDmWT" role="3clF46">
         <property role="TrG5h" value="macro" />
         <node concept="3Tqbb2" id="4VDJDTCDmWU" role="1tU5fm">
+          <ref role="ehGHo" to="tpf8:fP7UvrK" resolve="PropertyMacro" />
+        </node>
+      </node>
+    </node>
+    <node concept="2YIFZL" id="2c$k9pHKiu2" role="jymVt">
+      <property role="TrG5h" value="getPropertyMacro_property" />
+      <node concept="3uibUv" id="2c$k9pHKE7y" role="3clF45">
+        <ref role="3uigEE" to="c17a:~SProperty" resolve="SProperty" />
+      </node>
+      <node concept="3Tm1VV" id="2c$k9pHKiu4" role="1B3o_S" />
+      <node concept="3clFbS" id="2c$k9pHKiu5" role="3clF47">
+        <node concept="3clFbF" id="2c$k9pHKiu6" role="3cqZAp">
+          <node concept="2OqwBi" id="2c$k9pHKiu7" role="3clFbG">
+            <node concept="37vLTw" id="2c$k9pHKiu8" role="2Oq$k0">
+              <ref role="3cqZAo" node="2c$k9pHKiua" resolve="macro" />
+            </node>
+            <node concept="2qgKlT" id="2c$k9pHKAc0" role="2OqNvi">
+              <ref role="37wK5l" to="tpcu:1avfQ4BBzOo" resolve="getProperty" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="37vLTG" id="2c$k9pHKiua" role="3clF46">
+        <property role="TrG5h" value="macro" />
+        <node concept="3Tqbb2" id="2c$k9pHKiub" role="1tU5fm">
           <ref role="ehGHo" to="tpf8:fP7UvrK" resolve="PropertyMacro" />
         </node>
       </node>

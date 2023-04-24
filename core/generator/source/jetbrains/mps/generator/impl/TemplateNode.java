@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -188,14 +188,14 @@ class TemplateNode {
         SConcept templateChildNodeConcept = templateChildNode.getConcept();
         if (RuleUtil.isTemplateLanguageElement(templateChildNodeConcept)) {
           if (templateChildNodeConcept.equals(RuleUtil.concept_PropertyMacro)) {
-            final SProperty propertyName = SNodeUtil.getProperty(templateChildNode);
+            final SProperty propertyName = RuleUtil.getPropertyMacro_property(templateChildNode);
             propsHandledWithMacro.add(propertyName);
             SNode function = RuleUtil.getPropertyMacro_ValueFunction(templateChildNode);
             QueryKey qk = new QueryKeyImpl(templateChildNode.getReference(), function.getNodeId());
             final PropertyValueQuery q = queryProvider.getPropertyValueQuery(qk);
             propertyMacros.add(new PropertyMacro(q, templateChildNode.getReference()));
           } else if (templateChildNodeConcept.equals(RuleUtil.concept_ReferenceMacro)) {
-            final SReferenceLink refMacroRole = SNodeUtil.getLink(templateChildNode);
+            final SReferenceLink refMacroRole = RuleUtil.getReferenceMacro_associationRole(templateChildNode);
             SNode function = RuleUtil.getReferenceMacro_GetReferent(templateChildNode);
             if (function == null) {
               log.error(templateChildNode.getReference(), "No query function for reference macro, reference would be copied as is");
