@@ -9,6 +9,8 @@ import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
+import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
+import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
@@ -34,8 +36,10 @@ public class SModelConverters extends Extension.Default<TypeConverterEngine<SNod
     engine.declareMapping(CONCEPTS.SNodePointerType$3X, (it) -> createNodeReferenceType_1wzh1g_a0a1a0f0e(asConceptProjection(SLinkOperations.getTarget(SNodeOperations.as(it, CONCEPTS.SNodePointerType$3X), LINKS.concept$cytz))));
 
     // No concept equivalent -> BaseConcept
-    engine.declareMapping(CONCEPTS.AggregationLinkType$1r, (it) -> createAggregationLinkType_1wzh1g_a0a1a0i0e());
-    engine.declareMapping(CONCEPTS.AssociationLinkType$9A, (it) -> createReferenceLinkType_1wzh1g_a0a1a0j0e());
+    engine.declareMapping(CONCEPTS.AggregationLinkType$1r, (SNode it) -> createAggregationLinkType_1wzh1g_a0a1a0i0e());
+    engine.declareMapping(CONCEPTS.AssociationLinkType$9A, (SNode it) -> createReferenceLinkType_1wzh1g_a0a1a0j0e());
+
+    engine.declareMapping(CONCEPTS.SEnumerationMemberType$td, (SNode it) -> createJavaClassType_1wzh1g_a0a1a0l0e());
   }
 
   public TypeConverterEngine<SNode, SNode> get() {
@@ -69,6 +73,12 @@ public class SModelConverters extends Extension.Default<TypeConverterEngine<SNod
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.ReferenceLinkType$v0);
     return n0.getResult();
   }
+  private static SNode createJavaClassType_1wzh1g_a0a1a0l0e() {
+    PersistenceFacade facade = PersistenceFacade.getInstance();
+    SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.JavaClassType$Gf);
+    n0.setReference(LINKS.javaClass$CQOW, new SNodePointer(facade.createModelReference("8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)"), facade.createNodeId("~SEnumerationLiteral")));
+    return n0.getResult();
+  }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept SNodeType$hR = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f968b3caL, "jetbrains.mps.lang.smodel.structure.SNodeType");
@@ -76,12 +86,14 @@ public class SModelConverters extends Extension.Default<TypeConverterEngine<SNod
     /*package*/ static final SConcept SNodePointerType$3X = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x66b228a4fad6b29eL, "jetbrains.mps.lang.smodel.structure.SNodePointerType");
     /*package*/ static final SConcept AggregationLinkType$1r = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1fb73340f39a5805L, "jetbrains.mps.lang.smodel.structure.AggregationLinkType");
     /*package*/ static final SConcept AssociationLinkType$9A = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1fb73340f39a5831L, "jetbrains.mps.lang.smodel.structure.AssociationLinkType");
+    /*package*/ static final SConcept SEnumerationMemberType$td = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x120bfe51421L, "jetbrains.mps.lang.smodel.structure.SEnumerationMemberType");
     /*package*/ static final SConcept ConceptType$Jb = MetaAdapterFactory.getConcept(0xeb56ebf4df56438eL, 0xaf06fc1cd08b495aL, 0x22287f28956a12d2L, "jetbrains.mps.kotlin.smodel.structure.ConceptType");
     /*package*/ static final SConcept NodeType$FR = MetaAdapterFactory.getConcept(0xeb56ebf4df56438eL, 0xaf06fc1cd08b495aL, 0x714c456cbe6e7b89L, "jetbrains.mps.kotlin.smodel.structure.NodeType");
     /*package*/ static final SInterfaceConcept ITypeProjection$4J = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3cbL, "jetbrains.mps.kotlin.structure.ITypeProjection");
     /*package*/ static final SConcept NodeReferenceType$DQ = MetaAdapterFactory.getConcept(0xeb56ebf4df56438eL, 0xaf06fc1cd08b495aL, 0x3248aa7224556638L, "jetbrains.mps.kotlin.smodel.structure.NodeReferenceType");
     /*package*/ static final SConcept AggregationLinkType$IR = MetaAdapterFactory.getConcept(0xeb56ebf4df56438eL, 0xaf06fc1cd08b495aL, 0x98a03f04439accdL, "jetbrains.mps.kotlin.smodel.structure.AggregationLinkType");
     /*package*/ static final SConcept ReferenceLinkType$v0 = MetaAdapterFactory.getConcept(0xeb56ebf4df56438eL, 0xaf06fc1cd08b495aL, 0x98a03f0443dd008L, "jetbrains.mps.kotlin.smodel.structure.ReferenceLinkType");
+    /*package*/ static final SConcept JavaClassType$Gf = MetaAdapterFactory.getConcept(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x68fcefc6c20600f5L, "jetbrains.mps.kotlin.javaRefs.structure.JavaClassType");
   }
 
   private static final class LINKS {
@@ -90,5 +102,6 @@ public class SModelConverters extends Extension.Default<TypeConverterEngine<SNod
     /*package*/ static final SReferenceLink concept$cytz = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x66b228a4fad6b29eL, 0x66b228a4fad6b2adL, "concept");
     /*package*/ static final SReferenceLink concept$PItp = MetaAdapterFactory.getReferenceLink(0xeb56ebf4df56438eL, 0xaf06fc1cd08b495aL, 0x22287f28956a12d2L, 0x22287f28956a1e69L, "concept");
     /*package*/ static final SContainmentLink projection$IJnO = MetaAdapterFactory.getContainmentLink(0xeb56ebf4df56438eL, 0xaf06fc1cd08b495aL, 0x98a03f0443be11fL, 0x22287f2895685750L, "projection");
+    /*package*/ static final SReferenceLink javaClass$CQOW = MetaAdapterFactory.getReferenceLink(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x68fcefc6c20600f5L, 0x68fcefc6c2060179L, "javaClass");
   }
 }
