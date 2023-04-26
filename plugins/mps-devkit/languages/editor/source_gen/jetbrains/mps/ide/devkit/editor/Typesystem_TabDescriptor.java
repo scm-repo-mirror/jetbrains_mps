@@ -16,8 +16,6 @@ import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__Behavio
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.language.LanguageAspectDescriptor;
 import jetbrains.mps.smodel.language.LanguageAspectSupport;
-import java.util.ArrayList;
-import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.plugins.relations.CreateAspectContext;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -89,13 +87,7 @@ public class Typesystem_TabDescriptor extends RelationDescriptor {
   }
   public Iterable<SConcept> getAspectConcepts(final SNode node) {
     LanguageAspectDescriptor ad = LanguageAspectSupport.getAspectDescriptorById("typesystem");
-    List<SConcept> rv = ListSequence.fromList(new ArrayList<SConcept>());
-    if (ad != null) {
-      for (SLanguage l : ad.getMainLanguages()) {
-        ListSequence.fromList(rv).addSequence(ListSequence.fromList(ConceptEditorHelper.getAvailableConceptAspects(l, node)));
-      }
-    }
-    return rv;
+    return ConceptEditorHelper.getAvailableConceptAspects(ad, node);
   }
   protected SNode doCreateAspect(final CreateAspectContext _context) {
     SModule lang = SNodeOperations.getModel(_context.getBaseNode()).getModule();

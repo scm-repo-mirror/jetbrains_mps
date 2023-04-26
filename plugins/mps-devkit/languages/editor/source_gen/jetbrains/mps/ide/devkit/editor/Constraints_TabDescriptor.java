@@ -21,7 +21,6 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.language.LanguageAspectDescriptor;
 import jetbrains.mps.smodel.language.LanguageAspectSupport;
-import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.plugins.relations.CreateAspectContext;
 import jetbrains.mps.kernel.language.ConceptAspectsHelper;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
@@ -73,13 +72,7 @@ public class Constraints_TabDescriptor extends RelationDescriptor {
   }
   public Iterable<SConcept> getAspectConcepts(final SNode node) {
     LanguageAspectDescriptor ad = LanguageAspectSupport.getAspectDescriptorById("constraints");
-    List<SConcept> rv = ListSequence.fromList(new ArrayList<SConcept>());
-    if (ad != null) {
-      for (SLanguage l : ad.getMainLanguages()) {
-        ListSequence.fromList(rv).addSequence(ListSequence.fromList(ConceptEditorHelper.getAvailableConceptAspects(l, node)));
-      }
-    }
-    return rv;
+    return ConceptEditorHelper.getAvailableConceptAspects(ad, node);
   }
   protected SNode doCreateAspect(final CreateAspectContext _context) {
     SModule lang = SNodeOperations.getModel(_context.getBaseNode()).getModule();

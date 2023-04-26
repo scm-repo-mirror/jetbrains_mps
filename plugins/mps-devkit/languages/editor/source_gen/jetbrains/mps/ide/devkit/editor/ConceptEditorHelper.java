@@ -14,6 +14,10 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.structure.behavior.IConceptAspect__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.smodel.language.LanguageAspectDescriptor;
+import jetbrains.mps.smodel.language.BasicAspectRootConfiguration;
+import java.util.function.Consumer;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -46,6 +50,35 @@ public class ConceptEditorHelper {
         return (conceptIndex == -1 ? conceptOrder.length : conceptIndex);
       }
     }, true).toListSequence();
+  }
+
+  public static Iterable<SConcept> getAvailableConceptAspects(@Nullable LanguageAspectDescriptor ad, final SNode cd) {
+    if (ad == null) {
+      return ListSequence.fromList(new ArrayList<SConcept>());
+    }
+    final BasicAspectRootConfiguration arc = new BasicAspectRootConfiguration();
+    ad.describeAspectRoots(arc);
+    arc.primaryLanguage((SLanguage l) -> {
+      // FIXME have to go through LanguageRegistry/LanguageRuntime, but there's no easy way to get ComponentHost 
+      //      here unless I refactor EditorTab/RelationDescriptor code (to pass context (editor/project) in there)
+      for (SAbstractConcept cc : l.getConcepts()) {
+        if (!(cc.isAbstract()) && SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(cc), CONCEPTS.IConceptAspect$Z3)) {
+          arc.addPrimary(cc);
+        }
+      }
+    });
+    final List<SConcept> rv = ListSequence.fromList(new ArrayList<SConcept>());
+    Consumer<SConcept> ff = (SConcept c) -> {
+      if (c.isSubConceptOf(CONCEPTS.IConceptAspect$Z3)) {
+        SAbstractConcept ica = (SAbstractConcept) c;
+        if ((boolean) IConceptAspect__BehaviorDescriptor.canBeAppliedToNode_id7IH442d05tK.invoke(SNodeOperations.asSConcept(ica), cd)) {
+          ListSequence.fromList(rv).addElement(c);
+        }
+      }
+    };
+    arc.primary(ff);
+    arc.secondary(ff);
+    return rv;
   }
 
   private static final class CONCEPTS {

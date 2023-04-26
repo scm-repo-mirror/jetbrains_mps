@@ -21,12 +21,10 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.language.LanguageAspectDescriptor;
 import jetbrains.mps.smodel.language.LanguageAspectSupport;
-import java.util.Collection;
-import org.jetbrains.mps.openapi.language.SLanguage;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.plugins.relations.CreateAspectContext;
 import jetbrains.mps.kernel.language.ConceptAspectsHelper;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class Editor_TabDescriptor extends RelationDescriptor {
   private static final Icon ICON = MPSIcons.Nodes.Editor;
@@ -74,17 +72,7 @@ public class Editor_TabDescriptor extends RelationDescriptor {
   }
   public Iterable<SConcept> getAspectConcepts(final SNode node) {
     LanguageAspectDescriptor ad = LanguageAspectSupport.getAspectDescriptorById("editor");
-    List<SConcept> rv = ListSequence.fromList(new ArrayList<SConcept>());
-    if (ad != null) {
-      Collection<SLanguage> mainLanguages = new ArrayList<>(ad.getMainLanguages());
-      // FIXME this is provisional hack to address MPS-35420 for 22.3 release.
-      //      proper fix is to avoid lang.actions in main languages and use devkit instead
-      mainLanguages.remove(MetaAdapterFactory.getLanguage(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, "jetbrains.mps.lang.actions"));
-      for (SLanguage l : mainLanguages) {
-        ListSequence.fromList(rv).addSequence(ListSequence.fromList(ConceptEditorHelper.getAvailableConceptAspects(l, node)));
-      }
-    }
-    return rv;
+    return ConceptEditorHelper.getAvailableConceptAspects(ad, node);
   }
   protected SNode doCreateAspect(final CreateAspectContext _context) {
     SModule lang = SNodeOperations.getModel(_context.getBaseNode()).getModule();
