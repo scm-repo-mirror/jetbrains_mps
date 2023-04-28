@@ -4,13 +4,18 @@
 package jetbrains.mps.project.facets;
 
 import jetbrains.mps.extapi.module.ModuleFacetBase;
+import jetbrains.mps.generator.fileGenerator.FileGenerationUtil;
+import jetbrains.mps.project.AbstractModule;
+import jetbrains.mps.project.ProjectPathUtil;
 import jetbrains.mps.util.IFileUtil;
+import jetbrains.mps.util.MacrosFactory;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.IFileSystem;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.module.SModule;
+import org.jetbrains.mps.openapi.persistence.Memento;
 
 /**
  * @author Artem Tikhomirov
@@ -21,7 +26,12 @@ public class PlainTextTargetFacet extends ModuleFacetBase implements GenerationT
 
   private IFile myOutputRoot;
   private IFile myOutputCacheRoot;
-  private boolean myUseModelNameForFolder;
+  private boolean myUseModelNameForFolder = true;
+
+  private boolean myOutputRootFromDescriptor = true;
+  private String myOutputRootOriginal;
+
+
 
   public PlainTextTargetFacet(SModule module) {
     super(FACET_TYPE, module);
@@ -56,5 +66,61 @@ public class PlainTextTargetFacet extends ModuleFacetBase implements GenerationT
     String packageName = model.getName().getLongName();
     String packagePath = packageName.replace('.', IFileSystem.SEPARATOR_CHAR);
     return IFileUtil.getDescendant(root, packagePath);
+  }
+
+  // internal API for facet configuration/editing, don't use outside of facet UI
+  public void useModelNameForFolder(boolean value) {
+    myUseModelNameForFolder = value;
+  }
+  public boolean useModelNameForFolder() {
+    return myUseModelNameForFolder;
+  }
+
+  public IFile location() {
+    return myOutputRoot;
+  }
+
+  public IFile locationCache() {
+    return myOutputCacheRoot;
+  }
+
+  public void location(@Nullable IFile location) {
+    myOutputRoot = location;
+    //noinspection removal
+    myOutputCacheRoot = location == null ? null : FileGenerationUtil.getCachesDir(location);
+  }
+
+  @Override
+  public void load(@NotNull Memento memento) {
+    final String foldersValue = memento.get("folders");
+    myUseModelNameForFolder = foldersValue == null || Boolean.parseBoolean(foldersValue);
+    String locationValue = memento.get("root");
+    final AbstractModule am = (AbstractModule) getModule();
+    if (locationValue == null) {
+      myOutputRootFromDescriptor = true;
+      myOutputRootOriginal = null;
+      locationValue = ProjectPathUtil.getGeneratorOutputPath(am.getModuleDescriptor());
+      // MD value could be in {$module}/source_gen form (now, in lang.build scenario only, eventually we'll move to MD with persistence
+      // values in all cases), fall through to expand
+      // FIXME generatorOutputPath could be null, need to account for this scenario (although, quite unlikely one)
+    } else {
+      myOutputRootFromDescriptor = false;
+      myOutputRootOriginal = locationValue;
+    }
+    final String expanded = MacrosFactory.forModule(getModule()).expandPath(locationValue);
+    myOutputRoot = am.getFileSystem().getFile(expanded);
+    //noinspection removal
+    myOutputCacheRoot = FileGenerationUtil.getCachesDir(myOutputRoot);
+  }
+
+  @Override
+  public void save(@NotNull Memento memento) {
+    memento.put("folders", String.valueOf(myUseModelNameForFolder));
+    if (myOutputRootFromDescriptor) {
+      memento.put("root", null);
+    } else {
+      final String shrank = MacrosFactory.forModule(getModule()).shrinkPath(myOutputRoot, myOutputRootOriginal);
+      memento.put("root", shrank);
+    }
   }
 }

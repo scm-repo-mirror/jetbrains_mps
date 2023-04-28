@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
 package jetbrains.mps.smodel;
 
 import jetbrains.mps.project.dependency.ModelDependenciesManager;
+import jetbrains.mps.project.facets.GenerationTargetFacet;
 import jetbrains.mps.project.facets.JavaModuleFacet;
 import jetbrains.mps.project.facets.TestsFacet;
 import jetbrains.mps.smodel.language.LanguageRegistry;
@@ -27,14 +28,17 @@ import org.jetbrains.mps.openapi.language.SLanguage;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.module.SModuleFacet;
 import org.jetbrains.mps.openapi.module.SRepository;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 public class SModelOperations {
 
@@ -73,13 +77,19 @@ public class SModelOperations {
   public static IFile getOutputCacheLocation(@NotNull SModel model) {
     assert model.getModule() != null;
     if (SModelStereotype.isTestModel(model)) {
+      // XXX TestsFacet is GTF, but due to legacy, have to give it priority.
       TestsFacet facet = model.getModule().getFacet(TestsFacet.class);
       if (facet != null) {
         return facet.getOutputCacheLocation(model);
       }
       // fall-through
     }
-    JavaModuleFacet jmf = model.getModule().getFacet(JavaModuleFacet.class);
+    // FIXME perhaps, shall keep this method with JMF and gradually deprecate/remove its usages, rather than to switch
+    //       to GTF here right away. New code shall use GTF w/o knowledge of Tests/Java and other facets. However, need
+    //       to deal with multiple GTF story (e.e. tests + java or tests + plaintext)
+    final Predicate<SModuleFacet> testsFacet = TestsFacet.class::isInstance;
+    GenerationTargetFacet jmf = StreamSupport.stream(model.getModule().getFacets().spliterator(), false).filter(GenerationTargetFacet.class::isInstance).filter(
+        testsFacet.negate()).map(GenerationTargetFacet.class::cast).findFirst().orElse(null);
     return jmf == null ? null : jmf.getOutputCacheLocation(model);
 
   }
