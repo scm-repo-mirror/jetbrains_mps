@@ -98,7 +98,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_IConstructorDeclaration;
   private ConceptPresentation props_IConstructorDelegationCall;
   private ConceptPresentation props_IConstructorSuperSpecifier;
-  private ConceptPresentation props_IDataFlowSource;
   private ConceptPresentation props_IDataflowPassToChild;
   private ConceptPresentation props_IDeclaration;
   private ConceptPresentation props_IDeclarationHolder;
@@ -156,6 +155,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ITypeParameterReference;
   private ConceptPresentation props_ITypeParameters;
   private ConceptPresentation props_ITypeProjection;
+  private ConceptPresentation props_ITypecheckingRoot;
   private ConceptPresentation props_IVariableConstraintHolder;
   private ConceptPresentation props_IVariableIdentifier;
   private ConceptPresentation props_IVisible;
@@ -950,12 +950,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_IConstructorSuperSpecifier = cpb.create();
         }
         return props_IConstructorSuperSpecifier;
-      case LanguageConceptSwitch.IDataFlowSource:
-        if (props_IDataFlowSource == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          props_IDataFlowSource = cpb.create();
-        }
-        return props_IDataFlowSource;
       case LanguageConceptSwitch.IDataflowPassToChild:
         if (props_IDataflowPassToChild == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -1303,6 +1297,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ITypeProjection = cpb.create();
         }
         return props_ITypeProjection;
+      case LanguageConceptSwitch.ITypecheckingRoot:
+        if (props_ITypecheckingRoot == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_ITypecheckingRoot = cpb.create();
+        }
+        return props_ITypecheckingRoot;
       case LanguageConceptSwitch.IVariableConstraintHolder:
         if (props_IVariableConstraintHolder == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

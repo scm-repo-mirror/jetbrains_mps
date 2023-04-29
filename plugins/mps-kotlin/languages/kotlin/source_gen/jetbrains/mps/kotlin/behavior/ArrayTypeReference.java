@@ -37,6 +37,11 @@ public class ArrayTypeReference implements TypeReference {
     return myNested.isTrivial();
   }
 
+  @Override
+  public String toString() {
+    return "Array<" + myNested.toString() + ">";
+  }
+
   private static final class LINKS {
     /*package*/ static final SContainmentLink typeProjections$vhti = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5b1dd60162c97579L, 0x5b1dd60162c9757cL, "typeProjections");
     /*package*/ static final SContainmentLink type$x3no = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3ccL, 0x28bef6d7551af67fL, "type");

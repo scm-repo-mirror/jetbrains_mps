@@ -35,7 +35,6 @@
     <import index="dm2t" ref="6944825c-ddc2-4099-8cc7-5e6dbbf7f0be/java:kotlinx.metadata.internal(jetbrains.mps.kotlin.stubs/)" />
     <import index="pyn1" ref="6944825c-ddc2-4099-8cc7-5e6dbbf7f0be/java:kotlinx.metadata.internal.extensions(jetbrains.mps.kotlin.stubs/)" />
     <import index="3kj6" ref="6944825c-ddc2-4099-8cc7-5e6dbbf7f0be/java:kotlinx.metadata.jvm.internal(jetbrains.mps.kotlin.stubs/)" />
-    <import index="upz5" ref="r:33366a6f-09e8-45e7-ae7f-cb8cf0c7ed05(jetbrains.mps.baseLanguage.tuples.runtime)" />
     <import index="1ctc" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.stream(JDK/)" />
     <import index="5m2i" ref="r:13d34207-1d05-4df8-92a6-7cde496142db(jetbrains.mps.kotlin.javaRefs.structure)" implicit="true" />
   </imports>
@@ -9255,15 +9254,17 @@
                                       </node>
                                       <node concept="2pJxcG" id="4s8_snvy$sN" role="2pJxcM">
                                         <ref role="2pJxcJ" to="hcm8:27wMicCAy8G" resolve="variance" />
-                                        <node concept="2YIFZM" id="2AaqzlsaW_u" role="28ntcv">
-                                          <ref role="1Pybhc" node="5D6Cze4pzNU" resolve="EnumFlags" />
-                                          <ref role="37wK5l" node="2AaqzlsaXpQ" resolve="getVariance" />
-                                          <node concept="2OqwBi" id="4s8_snvxGKA" role="37wK5m">
-                                            <node concept="37vLTw" id="2AaqzlsaZc$" role="2Oq$k0">
-                                              <ref role="3cqZAo" node="4s8_snvx8Uz" resolve="arg" />
-                                            </node>
-                                            <node concept="liA8E" id="4s8_snvxHxQ" role="2OqNvi">
-                                              <ref role="37wK5l" to="z352:~KmTypeProjection.getVariance()" resolve="getVariance" />
+                                        <node concept="WxPPo" id="21yzEFZBnlH" role="28ntcv">
+                                          <node concept="2YIFZM" id="2AaqzlsaW_u" role="WxPPp">
+                                            <ref role="1Pybhc" node="5D6Cze4pzNU" resolve="EnumFlags" />
+                                            <ref role="37wK5l" node="2AaqzlsaXpQ" resolve="getVariance" />
+                                            <node concept="2OqwBi" id="4s8_snvxGKA" role="37wK5m">
+                                              <node concept="37vLTw" id="2AaqzlsaZc$" role="2Oq$k0">
+                                                <ref role="3cqZAo" node="4s8_snvx8Uz" resolve="arg" />
+                                              </node>
+                                              <node concept="liA8E" id="4s8_snvxHxQ" role="2OqNvi">
+                                                <ref role="37wK5l" to="z352:~KmTypeProjection.getVariance()" resolve="getVariance" />
+                                              </node>
                                             </node>
                                           </node>
                                         </node>

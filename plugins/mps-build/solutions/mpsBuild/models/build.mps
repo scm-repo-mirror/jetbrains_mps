@@ -54032,9 +54032,14 @@
         <node concept="2EVzJI" id="1ACpgrwmPoK" role="2EVzJD">
           <ref role="2EVzJJ" node="1ACpgrwmP7U" resolve="jetbrains.mps.kotlin.stdlib" />
         </node>
-        <node concept="1SiIV0" id="1euJyZllPvj" role="3bR37C">
-          <node concept="3bR9La" id="1euJyZllPvk" role="1SiIV1">
-            <ref role="3bR37D" node="7Kfy9QB6L8Y" resolve="jetbrains.mps.lang.project" />
+        <node concept="1SiIV0" id="39RySnS99AQ" role="3bR37C">
+          <node concept="3bR9La" id="39RySnS99AR" role="1SiIV1">
+            <ref role="3bR37D" node="7Kfy9QB6LfK" resolve="jetbrains.mps.dataFlow.runtime" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="39RySnS99AS" role="3bR37C">
+          <node concept="3bR9La" id="39RySnS99AT" role="1SiIV1">
+            <ref role="3bR37D" node="7Kfy9QB6LeP" resolve="jetbrains.mps.analyzers.runtime" />
           </node>
         </node>
       </node>
@@ -54546,11 +54551,6 @@
         <node concept="1SiIV0" id="2dGZeUusbq8" role="3bR37C">
           <node concept="3bR9La" id="2dGZeUusbq9" role="1SiIV1">
             <ref role="3bR37D" node="67xNhT4NRcz" resolve="gnu.trove" />
-          </node>
-        </node>
-        <node concept="1SiIV0" id="2dcS_OZUtHS" role="3bR37C">
-          <node concept="3bR9La" id="2dcS_OZUtHT" role="1SiIV1">
-            <ref role="3bR37D" node="7Kfy9QB6L2N" resolve="jetbrains.mps.baseLanguage.tuples.runtime" />
           </node>
         </node>
       </node>

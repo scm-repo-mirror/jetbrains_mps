@@ -4,13 +4,16 @@ package jetbrains.mps.kotlin.behavior;
 
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.annotations.Nullable;
+import java.util.Objects;
 
 public class ConcreteTypeReference implements TypeReference {
   private final SNode myType;
+  private final String presentation;
   public ConcreteTypeReference(@NotNull SNode type) {
     myType = type;
+    presentation = SNodeOperations.present(myType);
   }
 
   @Override
@@ -27,6 +30,26 @@ public class ConcreteTypeReference implements TypeReference {
 
   @Override
   public String toString() {
-    return "typeIs[" + SNodeOperations.present(myType) + "]";
+    return presentation;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    ConcreteTypeReference reference = as_iwfeiu_a0a1a01(o, ConcreteTypeReference.class);
+    if (reference != null) {
+      return Objects.equals(reference.myType, myType);
+    }
+    return false;
+  }
+
+  @Override
+  public int hashCode() {
+    return myType.hashCode();
+  }
+  private static <T> T as_iwfeiu_a0a1a01(Object o, Class<T> type) {
+    return (type.isInstance(o) ? (T) o : null);
   }
 }

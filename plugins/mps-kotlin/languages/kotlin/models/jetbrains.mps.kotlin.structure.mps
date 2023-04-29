@@ -738,6 +738,9 @@
     <node concept="PrWs8" id="5N0i2C12U69" role="PzmwI">
       <ref role="PrY4T" node="18X2O0Fy6BI" resolve="IStatementHolder" />
     </node>
+    <node concept="PrWs8" id="3CcDAJ0fWbx" role="PzmwI">
+      <ref role="PrY4T" node="7Iv8Cw7qLdE" resolve="ITypecheckingRoot" />
+    </node>
     <node concept="1QGGSu" id="4xtEcGT2API" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/kotlin_script.svg" />
     </node>
@@ -1106,7 +1109,7 @@
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
     </node>
     <node concept="PrWs8" id="2t3z978jLbL" role="PzmwI">
-      <ref role="PrY4T" node="7Iv8Cw7qLdE" resolve="IDataFlowSource" />
+      <ref role="PrY4T" node="7Iv8Cw7qLdE" resolve="ITypecheckingRoot" />
     </node>
     <node concept="PrWs8" id="6Ijh6DJzpLb" role="PzmwI">
       <ref role="PrY4T" node="xpyqH1FtXg" resolve="IThisReceiverProvider" />
@@ -1370,7 +1373,7 @@
       <ref role="PrY4T" node="2yYXHtlq$RP" resolve="ITypeParameters" />
     </node>
     <node concept="PrWs8" id="2mD64u3niJD" role="PzmwI">
-      <ref role="PrY4T" node="7Iv8Cw7qLdE" resolve="IDataFlowSource" />
+      <ref role="PrY4T" node="7Iv8Cw7qLdE" resolve="ITypecheckingRoot" />
     </node>
     <node concept="PrWs8" id="6cg9X74gq2u" role="PzmwI">
       <ref role="PrY4T" node="6TRHYuCB$BU" resolve="IAnnotated" />
@@ -1667,7 +1670,7 @@
       <ref role="PrY4T" node="18X2O0Fy6BI" resolve="IStatementHolder" />
     </node>
     <node concept="PrWs8" id="45iC02HuT2v" role="PzmwI">
-      <ref role="PrY4T" node="7Iv8Cw7qLdE" resolve="IDataFlowSource" />
+      <ref role="PrY4T" node="7Iv8Cw7qLdE" resolve="ITypecheckingRoot" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6Jkd">
@@ -2205,6 +2208,9 @@
     <node concept="PrWs8" id="6_qoESsafq9" role="PzmwI">
       <ref role="PrY4T" node="6_qoESsafq8" resolve="IArgument" />
     </node>
+    <node concept="PrWs8" id="2zU6wHFw5HW" role="PzmwI">
+      <ref role="PrY4T" node="2mD64u3yQho" resolve="IInferencePart" />
+    </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6JlX">
     <property role="EcuMT" value="2936055411798373757" />
@@ -2274,6 +2280,9 @@
     <property role="3GE5qa" value="expression.function.constructor" />
     <node concept="t5JxF" id="6TRHYuCzmKb" role="lGtFl">
       <property role="t5JxN" value="generic constructor delegation call, to be extended by compatible languages with their own super constructors" />
+    </node>
+    <node concept="PrWs8" id="2zU6wHFnfeR" role="PrDN$">
+      <ref role="PrY4T" node="7Iv8Cw7qLdE" resolve="ITypecheckingRoot" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6Jmh">
@@ -2855,6 +2864,9 @@
     <property role="TrG5h" value="ISuperTypeSpecifier" />
     <node concept="t5JxF" id="1$jFvlEWhuU" role="lGtFl">
       <property role="t5JxN" value="node that specify super type of a class" />
+    </node>
+    <node concept="PrWs8" id="3CcDAJ0l4M$" role="PrDN$">
+      <ref role="PrY4T" node="7Iv8Cw7qLdE" resolve="ITypecheckingRoot" />
     </node>
   </node>
   <node concept="1TIwiD" id="213J8cgR8Cm">
@@ -3529,7 +3541,10 @@
   </node>
   <node concept="PlHQZ" id="7Iv8Cw7qLdE">
     <property role="EcuMT" value="8907876555597484906" />
-    <property role="TrG5h" value="IDataFlowSource" />
+    <property role="TrG5h" value="ITypecheckingRoot" />
+    <node concept="t5JxF" id="5h4YvH78uf5" role="lGtFl">
+      <property role="t5JxN" value="serves as root for the kotlin typesystem typechecking process" />
+    </node>
   </node>
   <node concept="1TIwiD" id="3n8adBhYsfv">
     <property role="EcuMT" value="3875392395348132831" />

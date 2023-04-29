@@ -17,6 +17,7 @@ public class AnyTypeReference implements TypeReference {
     }
     return cached;
   }
+
   @Override
   public String toString() {
     return "Any?";
