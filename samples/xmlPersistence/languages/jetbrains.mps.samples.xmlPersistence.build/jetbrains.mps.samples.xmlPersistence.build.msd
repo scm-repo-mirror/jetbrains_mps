@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <solution name="jetbrains.mps.samples.xmlPersistence.build" uuid="62966f85-ed0f-4be2-8008-5b0e8a2a3f82" moduleVersion="0" compileInMPS="true">
   <models>
-    <modelRoot contentPath="${module}" type="default">
+    <modelRoot type="default" contentPath="${module}">
       <sourceRoot location="models" />
     </modelRoot>
   </models>
   <facets>
-    <facet type="java" compile="mps" classes="mps" ext="no">
-      <classes generated="true" path="${module}/classes_gen" />
-    </facet>
+    <facet folders="true" type="plaintext" />
   </facets>
   <sourcePath />
   <dependencies>

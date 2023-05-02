@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <solution name="jetbrains.mps.samples.notesOrganizer.build" uuid="ab5e73b1-336c-4795-893f-d8da39b0bdb6" moduleVersion="0" compileInMPS="true">
   <models>
-    <modelRoot contentPath="${module}" type="default">
+    <modelRoot type="default" contentPath="${module}">
       <sourceRoot location="models" />
     </modelRoot>
   </models>
   <facets>
-    <facet type="java" compile="mps" classes="mps" ext="no">
-      <classes generated="true" path="${module}/classes_gen" />
-    </facet>
+    <facet folders="true" type="plaintext" />
   </facets>
   <sourcePath />
   <dependencies>

@@ -955,11 +955,9 @@
       <sourceFolder url="file://$MODULE_DIR$/../../samples/notesOrganizer/languages/jetbrains.mps.samples.notesOrganizer/generator/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../samples/notesOrganizer/languages/jetbrains.mps.samples.notesOrganizer/sandbox/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../samples/notesOrganizer/languages/jetbrains.mps.samples.notesOrganizer/source_gen" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../samples/notesOrganizer/solutions/jetbrains.mps.samples.notesOrganizer.build/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../samples/progressIndicator/solutions/ActionWithProgress/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../samples/propertyPersistence/languages/jetbrains.mps.samples.PropertyDefinition/generator/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../samples/propertyPersistence/languages/jetbrains.mps.samples.PropertyDefinition/source_gen" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../samples/propertyPersistence/solutions/jetbrains.mps.samples.propertyPersistence.build/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../samples/propertyPersistence/solutions/jetbrains.mps.samples.propertyPersistence.ideaPlugin/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../samples/propertyPersistence/solutions/jetbrains.mps.samples.propertyPersistenceDef/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../samples/requirementTracking/languages/jetbrains.mps.samples.requirementTracking.RequirementDefinition/generator/source_gen" isTestSource="false" />
@@ -1005,7 +1003,6 @@
       <sourceFolder url="file://$MODULE_DIR$/../../samples/xmlLiterals/languages/xmlLiterals/generator/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../samples/xmlLiterals/languages/xmlLiterals/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../samples/xmlLiterals/solutions/jetbrains.mps.samples.xmlLiterals.sandbox/source_gen" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../samples/xmlPersistence/languages/jetbrains.mps.samples.xmlPersistence.build/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../samples/xmlPersistence/languages/jetbrains.mps.samples.xmlPersistence.ideaPlugin/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../samples/xmlPersistence/languages/jetbrains.mps.samples.xmlPersistence/source_gen" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/_theSimplestLanguage/languages/theSimplestLanguage/classes_gen" />
@@ -1137,11 +1134,9 @@
       <excludeFolder url="file://$MODULE_DIR$/../../samples/notesOrganizer/languages/jetbrains.mps.samples.notesOrganizer/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/notesOrganizer/languages/jetbrains.mps.samples.notesOrganizer/generator/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/notesOrganizer/languages/jetbrains.mps.samples.notesOrganizer/sandbox/classes_gen" />
-      <excludeFolder url="file://$MODULE_DIR$/../../samples/notesOrganizer/solutions/jetbrains.mps.samples.notesOrganizer.build/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/progressIndicator/solutions/ActionWithProgress/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/propertyPersistence/languages/jetbrains.mps.samples.PropertyDefinition/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/propertyPersistence/languages/jetbrains.mps.samples.PropertyDefinition/generator/classes_gen" />
-      <excludeFolder url="file://$MODULE_DIR$/../../samples/propertyPersistence/solutions/jetbrains.mps.samples.propertyPersistence.build/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/propertyPersistence/solutions/jetbrains.mps.samples.propertyPersistence.ideaPlugin/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/propertyPersistence/solutions/jetbrains.mps.samples.propertyPersistenceDef/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/requirementTracking/languages/jetbrains.mps.samples.requirementTracking.RequirementDefinition/classes_gen" />
@@ -1187,7 +1182,6 @@
       <excludeFolder url="file://$MODULE_DIR$/../../samples/xmlLiterals/languages/xmlLiterals/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/xmlLiterals/languages/xmlLiterals/generator/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/xmlLiterals/solutions/jetbrains.mps.samples.xmlLiterals.sandbox/classes_gen" />
-      <excludeFolder url="file://$MODULE_DIR$/../../samples/xmlPersistence/languages/jetbrains.mps.samples.xmlPersistence.build/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/xmlPersistence/languages/jetbrains.mps.samples.xmlPersistence.ideaPlugin/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/xmlPersistence/languages/jetbrains.mps.samples.xmlPersistence/classes_gen" />
     </content>
