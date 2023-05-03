@@ -28,7 +28,8 @@ import jetbrains.mps.progress.EmptyProgressMonitor;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.DevKit;
 import jetbrains.mps.project.Solution;
-import jetbrains.mps.project.structure.modules.Dependency;
+import jetbrains.mps.project.facets.JavaModuleFacet;
+import jetbrains.mps.project.facets.JavaModuleFacet.Compile;
 import jetbrains.mps.project.structure.modules.ModuleDescriptor;
 import jetbrains.mps.project.structure.modules.mappingpriorities.MappingConfig_AbstractRef;
 import jetbrains.mps.project.structure.modules.mappingpriorities.MappingPriorityRule;
@@ -349,8 +350,9 @@ public class ValidationUtil {
 
   //returns true to continue analysing, false to stop
   // package-local until extracted into AbstractModuleValidator superclass to get subclassed by validators of particular module kind
-  /*package*/
-  static boolean validateAbstractModule(final AbstractModule module, Processor<? super ModuleValidationProblem> processor) {
+  // FTR, the only 2 places we care about `AbstractModule` is load exception and used devkits.
+  //      Can take any SModule, and optionally check AM for exception/devkits?
+  /*package*/ static boolean validateAbstractModule(final AbstractModule module, Processor<? super ModuleValidationProblem> processor) {
     Throwable loadException = module.getModuleDescriptor().getLoadException();
     if (loadException != null) {
       return processor.process(new ModuleValidationProblem(module, MessageStatus.ERROR, "Couldn't load module: " + loadException.getMessage()));
@@ -367,10 +369,10 @@ public class ValidationUtil {
       }
     }
 
-    ModuleDescriptor descriptor = module.getModuleDescriptor();
-    final boolean compiledInMPS = descriptor.getCompileInMPS();
-    for (Dependency dep : descriptor.getDependencies()) {
-      SModuleReference moduleRef = dep.getModuleRef();
+    final JavaModuleFacet jmf = module.getFacet(JavaModuleFacet.class);
+    final Compile compileFlag = jmf == null ? Compile.None : jmf.getCompile();
+    for (SDependency dep : module.getDeclaredDependencies()) {
+      SModuleReference moduleRef = dep.getTargetModule();
       SModule depModule = moduleRef.resolve(repository);
       if (depModule == null) {
         if (!processor.process(new ModuleValidationProblem(module, MessageStatus.ERROR, "Can't find dependency: " + moduleRef.getModuleName()))) {
@@ -378,25 +380,28 @@ public class ValidationUtil {
         }
         // fall-through
       } else {
-        if (compiledInMPS || dep.getScope() != SDependencyScope.DEFAULT) {
-          // 1) module compiled in MPS can depend from both non-MPS and MPS-managed modules
+        if (compileFlag != Compile.External || dep.getScope() != SDependencyScope.DEFAULT) {
+          // 1) module compiled in MPS (or not compiled at all) can depend on both non-MPS and MPS-managed modules
+          //    XXX For Compile.None I assume it's a 'design' dependency even if it's "DEFAULT" scope.
+          //        This consideration might need a second thought, however.
           // 2) dependencies like EXTENDS are possible between languages only (languages are compile in mps);
           //    DESIGN and GENERATES-INTO are of no interest (no classloading), other kinds are not in use now.
           continue;
         }
-        // IDEA-compiled modules are likely loaded by IDEA and may lack access to classes managed by MPS classloaders.
-        ModuleDescriptor depModuleDescriptor;
-        if (depModule instanceof AbstractModule && (depModuleDescriptor = ((AbstractModule) depModule).getModuleDescriptor()) != null) {
-          if (depModuleDescriptor.getCompileInMPS()) {
-            String msg = "Dependency target %s has MPS-managed classloader, the module may fail to load dependent classes";
-            if (!processor.process(new ModuleValidationProblem(module, MessageStatus.WARNING, String.format(msg, depModule.getModuleName())))) {
-              return false;
-            }
+        // IDEA-compiled (well, by any external facility) modules are likely loaded by IDEA and may lack access to classes managed by MPS classloaders.
+        final JavaModuleFacet depJavaFacet = depModule.getFacet(JavaModuleFacet.class);
+        if (depJavaFacet.getCompile() == Compile.MPS) {
+          String msg = "Dependency target %s has MPS-managed classloader, the module may fail to load dependent classes";
+          if (!processor.process(new ModuleValidationProblem(module, MessageStatus.WARNING, String.format(msg, depModule.getModuleName())))) {
+            return false;
           }
         }
       }
     }
-    for (SModuleReference reference : descriptor.getUsedDevkits()) {
+    // SModule.getUsedLanguages(), above, already checked languages coming through devkits.
+    // While I see the point to check devkits present, I find it confusing to dive into AM+MD here
+    ModuleDescriptor descriptor = module.getModuleDescriptor();
+    for (SModuleReference reference : (descriptor != null ? descriptor.getUsedDevkits() : Collections.<SModuleReference>emptySet())) {
       if (reference.resolve(repository) != null) {
         continue;
       }
@@ -406,8 +411,8 @@ public class ValidationUtil {
     }
 
     final boolean packagedModule = module.isPackaged();
-    if (descriptor.getSourcePaths() != null && !packagedModule) {
-      for (String sourcePath : descriptor.getSourcePaths()) {
+    if (jmf != null && !jmf.getAdditionalSourcePaths().isEmpty() && !packagedModule) {
+      for (String sourcePath : jmf.getAdditionalSourcePaths()) {
         try {
           IFile file = module.getFileSystem().getFile(sourcePath);
           if (!file.exists()) {
@@ -423,8 +428,8 @@ public class ValidationUtil {
         }
       }
     }
-    if (descriptor.getJavaLibs() != null) {
-      for (String path : descriptor.getJavaLibs()) {
+    if (jmf != null && !jmf.getLibraryClassPath().isEmpty()) {
+      for (String path : jmf.getLibraryClassPath()) {
         if (packagedModule && !path.endsWith(".jar")) {
           // FIXME provisional hack to deal with recently added {module}/classes in .msd to get rid of another JMFI hack.
           //       These paths are valid for source modules, and make no sense for deployed.
