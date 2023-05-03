@@ -22,6 +22,7 @@
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
     <import index="tpf8" ref="r:00000000-0000-4000-0000-011c895902e8(jetbrains.mps.lang.generator.structure)" />
+    <import index="b0pz" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project.facets(MPS.Core/)" />
     <import index="wev6" ref="r:f29914af-ae14-4589-b53d-f60c6018b368(jetbrains.mps.lang.project.behavior)" implicit="true" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
@@ -180,6 +181,9 @@
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
       <concept id="1146644623116" name="jetbrains.mps.baseLanguage.structure.PrivateVisibility" flags="nn" index="3Tm6S6" />
       <concept id="1146644641414" name="jetbrains.mps.baseLanguage.structure.ProtectedVisibility" flags="nn" index="3Tmbuc" />
+      <concept id="1116615150612" name="jetbrains.mps.baseLanguage.structure.ClassifierClassExpression" flags="nn" index="3VsKOn">
+        <reference id="1116615189566" name="classifier" index="3VsUkX" />
+      </concept>
       <concept id="1080120340718" name="jetbrains.mps.baseLanguage.structure.AndExpression" flags="nn" index="1Wc70l" />
     </language>
     <language id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures">
@@ -846,6 +850,25 @@
             </node>
           </node>
         </node>
+        <node concept="3cpWs8" id="5IhUL4OMik1" role="3cqZAp">
+          <node concept="3cpWsn" id="5IhUL4OMik2" role="3cpWs9">
+            <property role="TrG5h" value="jmf" />
+            <node concept="3uibUv" id="5IhUL4OMik3" role="1tU5fm">
+              <ref role="3uigEE" to="b0pz:~JavaModuleFacet" resolve="JavaModuleFacet" />
+            </node>
+            <node concept="2OqwBi" id="5IhUL4OMCSz" role="33vP2m">
+              <node concept="37vLTw" id="5IhUL4OMzRm" role="2Oq$k0">
+                <ref role="3cqZAo" node="6mz0KzMD31i" resolve="mySourceModule" />
+              </node>
+              <node concept="liA8E" id="5IhUL4OMJ$D" role="2OqNvi">
+                <ref role="37wK5l" to="lui2:~SModule.getFacet(java.lang.Class)" resolve="getFacet" />
+                <node concept="3VsKOn" id="5IhUL4OMY10" role="37wK5m">
+                  <ref role="3VsUkX" to="b0pz:~JavaModuleFacet" resolve="JavaModuleFacet" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3clFbF" id="3D5F99qcPMC" role="3cqZAp">
           <node concept="37vLTI" id="3D5F99qcPMJ" role="3clFbG">
             <node concept="2OqwBi" id="3D5F99qcPME" role="37vLTJ">
@@ -856,12 +879,26 @@
                 <ref role="3TsBF5" to="hypd:5xDtKQA7vS$" resolve="compileInMPS" />
               </node>
             </node>
-            <node concept="2OqwBi" id="3D5F99qcPMN" role="37vLTx">
-              <node concept="37vLTw" id="2BHiRxgm9W9" role="2Oq$k0">
-                <ref role="3cqZAo" node="6mz0KzMEkvH" resolve="source" />
+            <node concept="1Wc70l" id="5IhUL4ONZWP" role="37vLTx">
+              <node concept="3clFbC" id="5IhUL4OOotD" role="3uHU7w">
+                <node concept="Rm8GO" id="5IhUL4OOAla" role="3uHU7w">
+                  <ref role="Rm8GQ" to="b0pz:~JavaModuleFacet$Compile.MPS" resolve="MPS" />
+                  <ref role="1Px2BO" to="b0pz:~JavaModuleFacet$Compile" resolve="Compile" />
+                </node>
+                <node concept="2OqwBi" id="5IhUL4OOcv7" role="3uHU7B">
+                  <node concept="37vLTw" id="5IhUL4OO68_" role="2Oq$k0">
+                    <ref role="3cqZAo" node="5IhUL4OMik2" resolve="jmf" />
+                  </node>
+                  <node concept="liA8E" id="5IhUL4OOj60" role="2OqNvi">
+                    <ref role="37wK5l" to="b0pz:~JavaModuleFacet.getCompile()" resolve="getCompile" />
+                  </node>
+                </node>
               </node>
-              <node concept="liA8E" id="3D5F99qcPMR" role="2OqNvi">
-                <ref role="37wK5l" to="w0gx:~SolutionDescriptor.getCompileInMPS()" resolve="getCompileInMPS" />
+              <node concept="3y3z36" id="5IhUL4ONN8l" role="3uHU7B">
+                <node concept="37vLTw" id="5IhUL4ONEHC" role="3uHU7B">
+                  <ref role="3cqZAo" node="5IhUL4OMik2" resolve="jmf" />
+                </node>
+                <node concept="10Nm6u" id="5IhUL4ONTAo" role="3uHU7w" />
               </node>
             </node>
           </node>

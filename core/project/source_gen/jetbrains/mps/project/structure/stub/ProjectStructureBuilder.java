@@ -20,6 +20,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.module.SModuleReference;
+import jetbrains.mps.project.facets.JavaModuleFacet;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodIdV2;
 import jetbrains.mps.project.structure.model.ModelRootDescriptor;
@@ -105,7 +106,8 @@ public class ProjectStructureBuilder {
     SolutionDescriptor source = (SolutionDescriptor) mySource;
     SNode result = SModelOperations.createNewNode(myModel, new SNodeId.Foreign("~root"), CONCEPTS.Solution$zo);
     fillModule(result);
-    SPropertyOperations.assign(result, PROPS.compileInMPS$2Q_X, source.getCompileInMPS());
+    JavaModuleFacet jmf = mySourceModule.getFacet(JavaModuleFacet.class);
+    SPropertyOperations.assign(result, PROPS.compileInMPS$2Q_X, jmf != null && jmf.getCompile() == JavaModuleFacet.Compile.MPS);
     SPropertyOperations.assign(result, PROPS.outputPath$ljii, source.getOutputPath());
     if (myFile != null) {
       SPropertyOperations.assign(result, PROPS.solutionPath$92bK, myFile.getPath());
