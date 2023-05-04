@@ -18285,7 +18285,7 @@
                             <ref role="3cqZAo" node="31WmxQNAIQ_" resolve="caseStatement" />
                           </node>
                           <node concept="2OwXpG" id="31WmxQNAIQH" role="2OqNvi">
-                            <ref role="2Oxat5" to="twf3:~CaseStatement.constantExpression" resolve="constantExpression" />
+                            <ref role="2Oxat5" to="twf3:~CaseStatement.constantExpressions" resolve="constantExpressions" />
                           </node>
                         </node>
                       </node>
@@ -18666,17 +18666,38 @@
     <node concept="3clFb_" id="31WmxQNAIRD" role="jymVt">
       <property role="TrG5h" value="convertCaseStatement" />
       <node concept="3clFbS" id="31WmxQNAIRH" role="3clF47">
+        <node concept="3SKdUt" id="3swSEvQFQ5f" role="3cqZAp">
+          <node concept="1PaTwC" id="3swSEvQFQ5g" role="1aUNEU">
+            <node concept="3oM_SD" id="3swSEvQGbkr" role="1PaTwD">
+              <property role="3oM_SC" value="TODO:" />
+            </node>
+            <node concept="3oM_SD" id="3swSEvQGbks" role="1PaTwD">
+              <property role="3oM_SC" value="support" />
+            </node>
+            <node concept="3oM_SD" id="3swSEvQGbkt" role="1PaTwD">
+              <property role="3oM_SC" value="multiple" />
+            </node>
+            <node concept="3oM_SD" id="3swSEvQGbku" role="1PaTwD">
+              <property role="3oM_SC" value="expressions" />
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs8" id="31WmxQNAIRI" role="3cqZAp">
           <node concept="3cpWsn" id="31WmxQNAIRJ" role="3cpWs9">
             <property role="TrG5h" value="expression" />
             <node concept="1rXfSq" id="4hiugqyzarO" role="33vP2m">
               <ref role="37wK5l" node="31WmxQNAIK8" resolve="convertExpressionWrap" />
-              <node concept="2OqwBi" id="31WmxQNAIRM" role="37wK5m">
-                <node concept="37vLTw" id="2BHiRxgm8wv" role="2Oq$k0">
-                  <ref role="3cqZAo" node="31WmxQNAIRF" resolve="x" />
+              <node concept="AH0OO" id="3swSEvQDugP" role="37wK5m">
+                <node concept="3cmrfG" id="3swSEvQDRB9" role="AHEQo">
+                  <property role="3cmrfH" value="0" />
                 </node>
-                <node concept="2OwXpG" id="31WmxQNAIRN" role="2OqNvi">
-                  <ref role="2Oxat5" to="twf3:~CaseStatement.constantExpression" resolve="constantExpression" />
+                <node concept="2OqwBi" id="31WmxQNAIRM" role="AHHXb">
+                  <node concept="37vLTw" id="2BHiRxgm8wv" role="2Oq$k0">
+                    <ref role="3cqZAo" node="31WmxQNAIRF" resolve="x" />
+                  </node>
+                  <node concept="2OwXpG" id="31WmxQNAIRN" role="2OqNvi">
+                    <ref role="2Oxat5" to="twf3:~CaseStatement.constantExpressions" resolve="constantExpressions" />
+                  </node>
                 </node>
               </node>
             </node>
@@ -18866,7 +18887,7 @@
                   <property role="TrG5h" value="labelRef" />
                   <node concept="2ShNRf" id="1GqDrYkj1Nm" role="33vP2m">
                     <node concept="1pGfFk" id="1GqDrYkjQBr" role="2ShVmc">
-                      <ref role="37wK5l" to="w1kc:~DynamicReference.&lt;init&gt;(java.lang.String,org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.model.SModelReference,java.lang.String)" resolve="DynamicReference" />
+                      <ref role="37wK5l" to="w1kc:~DynamicReference.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.model.SModelReference,java.lang.String)" resolve="DynamicReference" />
                       <node concept="359W_D" id="5xzMQBRGSUB" role="37wK5m">
                         <ref role="359W_E" to="tpee:fJN13sA" resolve="ContinueStatement" />
                         <ref role="359W_F" to="tpee:7QIxtrFgVIX" resolve="loopLabelReference" />

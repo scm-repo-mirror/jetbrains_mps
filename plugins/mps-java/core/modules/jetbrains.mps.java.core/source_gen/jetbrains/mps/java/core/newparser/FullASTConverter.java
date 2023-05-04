@@ -283,7 +283,7 @@ public class FullASTConverter extends ASTConverterWithExpressions {
             getBlock(currentSwitchCase).setEndPos(stmt.sourceStart);
           }
           CaseStatement caseStatement = (CaseStatement) stmt;
-          if (caseStatement.constantExpression == null) {
+          if (caseStatement.constantExpressions == null) {
             currentSwitchCase = SLinkOperations.getTarget(result, LINKS.defaultBlock$QOu8);
             addBlock(SLinkOperations.getTarget(result, LINKS.defaultBlock$QOu8), caseStatement.sourceStart, caseStatement.sourceEnd);
           } else {
@@ -315,7 +315,8 @@ public class FullASTConverter extends ASTConverterWithExpressions {
     return result;
   }
   /*package*/ SNode convertCaseStatement(CaseStatement x) throws JavaParseException {
-    SNode expression = convertExpressionWrap(x.constantExpression);
+    // TODO: support multiple expressions
+    SNode expression = convertExpressionWrap(x.constantExpressions[0]);
     SNode switchCase = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02cdd1bL, "jetbrains.mps.baseLanguage.structure.SwitchCase"));
     SLinkOperations.setTarget(switchCase, LINKS.expression$QQk6, expression);
     SLinkOperations.setTarget(switchCase, LINKS.body$5LhG, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList")));
