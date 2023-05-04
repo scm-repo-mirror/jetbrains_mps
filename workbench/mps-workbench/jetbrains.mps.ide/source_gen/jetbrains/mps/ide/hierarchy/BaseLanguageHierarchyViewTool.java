@@ -7,10 +7,13 @@ import com.intellij.openapi.project.Project;
 import com.intellij.icons.AllIcons;
 import jetbrains.mps.ide.ui.tree.TreeHighlighterExtension;
 import org.jetbrains.mps.openapi.module.SRepository;
-import java.util.Set;
 import org.jetbrains.mps.openapi.model.SNode;
-import java.util.HashSet;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.smodel.behaviour.BHReflection;
+import jetbrains.mps.core.aspects.behaviour.SMethodIdV2;
+import java.awt.font.TextAttribute;
+import java.util.Set;
+import java.util.HashSet;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.module.FindUsagesFacade;
 import java.util.Collections;
@@ -24,8 +27,9 @@ import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.extapi.module.TransientSModule;
 import jetbrains.mps.smodel.tempmodel.TempModule;
 import jetbrains.mps.scope.ConditionalScope;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 
@@ -45,6 +49,13 @@ public class BaseLanguageHierarchyViewTool extends AbstractHierarchyView {
     private BaseLanguageHierarchyTree(SRepository repo, boolean isParentHierarchy) {
       super(repo);
       setParentHierarchy(isParentHierarchy);
+    }
+    @Override
+    public void setNodePresentation(HierarchyTreeNode treeNode, SNode n) {
+      super.setNodePresentation(treeNode, n);
+      if (SNodeOperations.isInstanceOf(n, CONCEPTS.IBLDeprecatable$ah) && ((boolean) (Boolean) BHReflection.invoke0(SNodeOperations.as(n, CONCEPTS.IBLDeprecatable$ah), CONCEPTS.IDeprecatable$2W, SMethodIdV2.create("isDeprecated", 1224609060727L, 0x553941aeb020c32eL)))) {
+        treeNode.addFontAttribute(TextAttribute.STRIKETHROUGH, TextAttribute.STRIKETHROUGH_ON);
+      }
     }
     @Override
     protected Set<SNode> getParents(SNode node, Set<SNode> visited) {
@@ -153,6 +164,8 @@ public class BaseLanguageHierarchyViewTool extends AbstractHierarchyView {
   }
 
   private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IBLDeprecatable$ah = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d2ea8a339L, "jetbrains.mps.baseLanguage.structure.IBLDeprecatable");
+    /*package*/ static final SInterfaceConcept IDeprecatable$2W = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x11d205fe38dL, "jetbrains.mps.lang.core.structure.IDeprecatable");
     /*package*/ static final SConcept Interface$db = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
     /*package*/ static final SConcept ClassConcept$bK = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
     /*package*/ static final SConcept ClassifierType$bL = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");

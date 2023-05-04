@@ -68,6 +68,7 @@
     <import index="31cb" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.extapi.module(MPS.Core/)" />
     <import index="yyf4" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.util(MPS.OpenAPI/)" />
     <import index="ouby" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ui.tree(MPS.IDEA/)" />
+    <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" implicit="true" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -391,7 +392,9 @@
       <concept id="1219352745532" name="jetbrains.mps.lang.smodel.structure.NodeRefExpression" flags="nn" index="3B5_sB">
         <reference id="1219352800908" name="referentNode" index="3B5MYn" />
       </concept>
-      <concept id="1140137987495" name="jetbrains.mps.lang.smodel.structure.SNodeTypeCastExpression" flags="nn" index="1PxgMI" />
+      <concept id="1140137987495" name="jetbrains.mps.lang.smodel.structure.SNodeTypeCastExpression" flags="nn" index="1PxgMI">
+        <property id="1238684351431" name="asCast" index="1BlNFB" />
+      </concept>
       <concept id="3661776679762942774" name="jetbrains.mps.lang.smodel.structure.Node_IsOperation" flags="ng" index="1QLmlb">
         <child id="3661776679762942860" name="ref" index="1QLmnL" />
       </concept>
@@ -2590,6 +2593,85 @@
         <node concept="37vLTG" id="1ZFc3Q16miI" role="3clF46">
           <property role="TrG5h" value="isParentHierarchy" />
           <node concept="10P_77" id="1ZFc3Q16mKk" role="1tU5fm" />
+        </node>
+      </node>
+      <node concept="3clFb_" id="3z_JItAraqZ" role="jymVt">
+        <property role="TrG5h" value="setNodePresentation" />
+        <node concept="37vLTG" id="3z_JItArar0" role="3clF46">
+          <property role="TrG5h" value="treeNode" />
+          <node concept="3uibUv" id="3z_JItArar1" role="1tU5fm">
+            <ref role="3uigEE" node="51NkKCgB390" resolve="HierarchyTreeNode" />
+          </node>
+        </node>
+        <node concept="37vLTG" id="3z_JItArar2" role="3clF46">
+          <property role="TrG5h" value="n" />
+          <node concept="3Tqbb2" id="3z_JItArar3" role="1tU5fm" />
+        </node>
+        <node concept="3cqZAl" id="3z_JItArar4" role="3clF45" />
+        <node concept="3Tm1VV" id="3z_JItArar5" role="1B3o_S" />
+        <node concept="3clFbS" id="3z_JItArarn" role="3clF47">
+          <node concept="3clFbF" id="3z_JItArars" role="3cqZAp">
+            <node concept="3nyPlj" id="3z_JItArarr" role="3clFbG">
+              <ref role="37wK5l" node="62XJ9UeGKV6" resolve="setNodePresentation" />
+              <node concept="37vLTw" id="3z_JItArarp" role="37wK5m">
+                <ref role="3cqZAo" node="3z_JItArar0" resolve="treeNode" />
+              </node>
+              <node concept="37vLTw" id="3z_JItArarq" role="37wK5m">
+                <ref role="3cqZAo" node="3z_JItArar2" resolve="n" />
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbJ" id="3z_JItArno9" role="3cqZAp">
+            <node concept="1Wc70l" id="3z_JItArCtO" role="3clFbw">
+              <node concept="2OqwBi" id="3z_JItArQ0W" role="3uHU7w">
+                <node concept="1PxgMI" id="3z_JItArKaa" role="2Oq$k0">
+                  <property role="1BlNFB" value="true" />
+                  <node concept="chp4Y" id="3z_JItArNEm" role="3oSUPX">
+                    <ref role="cht4Q" to="tpee:hOIEacT" resolve="IBLDeprecatable" />
+                  </node>
+                  <node concept="37vLTw" id="3z_JItArHNi" role="1m5AlR">
+                    <ref role="3cqZAo" node="3z_JItArar2" resolve="n" />
+                  </node>
+                </node>
+                <node concept="2qgKlT" id="3z_JItArT76" role="2OqNvi">
+                  <ref role="37wK5l" to="tpcu:hOwoPtR" resolve="isDeprecated" />
+                </node>
+              </node>
+              <node concept="2OqwBi" id="3z_JItAryPK" role="3uHU7B">
+                <node concept="37vLTw" id="3z_JItArx$w" role="2Oq$k0">
+                  <ref role="3cqZAo" node="3z_JItArar2" resolve="n" />
+                </node>
+                <node concept="1mIQ4w" id="3z_JItAr_2j" role="2OqNvi">
+                  <node concept="chp4Y" id="3z_JItArAsP" role="cj9EA">
+                    <ref role="cht4Q" to="tpee:hOIEacT" resolve="IBLDeprecatable" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbS" id="3z_JItArnoc" role="3clFbx">
+              <node concept="3clFbF" id="3z_JItArnod" role="3cqZAp">
+                <node concept="2OqwBi" id="3z_JItArnoe" role="3clFbG">
+                  <node concept="37vLTw" id="3z_JItArnof" role="2Oq$k0">
+                    <ref role="3cqZAo" node="3z_JItArar0" resolve="treeNode" />
+                  </node>
+                  <node concept="liA8E" id="3z_JItArnog" role="2OqNvi">
+                    <ref role="37wK5l" to="7e8u:~MPSTreeNode.addFontAttribute(java.awt.font.TextAttribute,java.lang.Object)" resolve="addFontAttribute" />
+                    <node concept="10M0yZ" id="3z_JItArnoh" role="37wK5m">
+                      <ref role="3cqZAo" to="ewej:~TextAttribute.STRIKETHROUGH" resolve="STRIKETHROUGH" />
+                      <ref role="1PxDUh" to="ewej:~TextAttribute" resolve="TextAttribute" />
+                    </node>
+                    <node concept="10M0yZ" id="3z_JItArnoi" role="37wK5m">
+                      <ref role="3cqZAo" to="ewej:~TextAttribute.STRIKETHROUGH_ON" resolve="STRIKETHROUGH_ON" />
+                      <ref role="1PxDUh" to="ewej:~TextAttribute" resolve="TextAttribute" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="2AHcQZ" id="3z_JItAraro" role="2AJF6D">
+          <ref role="2AI5Lk" to="wyt6:~Override" />
         </node>
       </node>
       <node concept="3clFb_" id="51NkKCgB3m5" role="jymVt">
