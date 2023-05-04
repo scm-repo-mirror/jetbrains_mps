@@ -3,7 +3,7 @@
   <readOnlyStubs/>
   <models>
     <modelRoot contentPath="${platform_lib}" type="java_classes">
-      <sourceRoot location="util.jar" />
+      <sourceRoot location="util-8.jar" />
       <PackageScope skip-private="true">
         <include prefix="org.jdom" />
       </PackageScope>
@@ -15,7 +15,7 @@
     </facet>
   </facets>
   <stubModelEntries>
-    <stubModelEntry path="${platform_lib}/util.jar" />
+    <stubModelEntry path="${platform_lib}/util-8.jar" />
   </stubModelEntries>
   <sourcePath />
   <dependencies>

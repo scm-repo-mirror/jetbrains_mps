@@ -30,7 +30,7 @@
   <path id="path.mps.ant.path">
     <pathelement location="${artifacts.mps}/lib/ant/lib/ant-mps.jar" />
     <fileset dir="${artifacts.IDEA}/lib">
-      <include name="util.jar" />
+      <include name="util-8.jar" />
     </fileset>
   </path>
   
@@ -313,6 +313,7 @@
         <fileset file="${artifacts.IDEA}/lib/testFramework.jar" />
         <fileset file="${artifacts.IDEA}/lib/stats.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
       </classpath>
     </javac>
   </target>

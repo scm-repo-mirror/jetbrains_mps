@@ -14,7 +14,7 @@
     <fileset dir="${idea_home}/lib">
       <include name="3rd-party.jar" />
       <include name="3rd-party-rt.jar" />
-      <include name="util.jar" />
+      <include name="util-8.jar" />
       <include name="forms*.jar" />
     </fileset>
     <fileset dir="${idea_home}/plugins/java/lib">
@@ -60,6 +60,7 @@
   
   <path id="path.java.library.org.jdom">
     <fileset file="${artifacts.IDEA}/lib/util.jar" />
+    <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
   </path>
   
   <path id="path.java.library.org.apache.log4j">

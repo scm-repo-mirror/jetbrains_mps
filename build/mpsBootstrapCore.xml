@@ -3,8 +3,8 @@
   <property name="build.dir" location="build" />
   <property name="build.tmp" location="${build.dir}/tmp/mpsBootstrapCore" />
   <property name="build.layout" location="${build.dir}/artifacts/mpsBootstrapCore" />
-  <property name="version.major" value="2022" />
-  <property name="version.minor" value="3" />
+  <property name="version.major" value="2023" />
+  <property name="version.minor" value="1" />
   <property name="version.bugfixNr" value="" />
   <property name="version.eap" value=" EAP" />
   <property name="version" value="${version.major}.${version.minor}${version.bugfixNr}${version.eap}" />
@@ -25,7 +25,7 @@
     <fileset dir="${idea_home}/lib">
       <include name="3rd-party.jar" />
       <include name="3rd-party-rt.jar" />
-      <include name="util.jar" />
+      <include name="util-8.jar" />
       <include name="forms*.jar" />
     </fileset>
     <fileset dir="${idea_home}/plugins/java/lib">
@@ -68,7 +68,7 @@
   <path id="path.mps.ant.path">
     <pathelement location="${artifacts.mpsTrueBootstrap}/ant-mps.jar" />
     <fileset dir="${artifacts.IDEA}/lib">
-      <include name="util.jar" />
+      <include name="util-8.jar" />
     </fileset>
   </path>
   
@@ -16785,6 +16785,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -16821,6 +16822,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -16857,6 +16859,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -16898,6 +16901,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -16940,6 +16944,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -16983,6 +16988,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/kotlin-compiler-client-embeddable-1.7.0.jar" />
         <path refid="path.java.library.javac2" />
         <pathelement path="${build.tmp}/java/out/mps-generator" />
@@ -17023,6 +17029,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/kotlin-compiler-client-embeddable-1.7.0.jar" />
         <path refid="path.java.library.javac2" />
         <pathelement path="${build.tmp}/java.modules.cycle.1" />
@@ -17065,6 +17072,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <pathelement path="${build.tmp}/java.modules.cycle.1" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -17126,6 +17134,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -17168,6 +17177,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -17209,6 +17219,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -17323,6 +17334,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -17360,6 +17372,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -17398,6 +17411,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -17437,6 +17451,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -17479,6 +17494,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -17520,6 +17536,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -17564,6 +17581,7 @@
         <pathelement path="${build.tmp}/java/out/mps-generator" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <path refid="path.jdk.classpath" />
@@ -17612,6 +17630,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -17664,6 +17683,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -17714,6 +17734,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -17762,6 +17783,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -17822,6 +17844,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -17882,6 +17905,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -17960,6 +17984,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -18022,6 +18047,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -18079,6 +18105,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.java.library.junit-4.12" />
         <path refid="path.jdk.classpath" />
@@ -18146,6 +18173,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -18229,6 +18257,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java/out/aux-runtimes" />
         <pathelement path="${build.tmp}/java/out/dataflow-rt" />
@@ -18327,6 +18356,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -18401,6 +18431,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -18478,6 +18509,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -18550,6 +18582,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -18636,6 +18669,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -18708,6 +18742,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -18794,6 +18829,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -18866,6 +18902,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -18944,6 +18981,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -19014,6 +19052,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -19091,6 +19130,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -19166,6 +19206,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -19238,6 +19279,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -19316,6 +19358,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -19393,6 +19436,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -19468,6 +19512,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -19540,6 +19585,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -19614,6 +19660,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -19691,6 +19738,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -19770,6 +19818,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -19849,6 +19898,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -19926,6 +19976,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -20003,6 +20054,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -20079,6 +20131,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -20129,6 +20182,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -20207,6 +20261,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -20283,6 +20338,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -20355,6 +20411,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -20433,6 +20490,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -20505,6 +20563,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -20582,6 +20641,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -20655,6 +20715,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -20734,6 +20795,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -20822,6 +20884,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -20900,6 +20963,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -20976,6 +21040,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -21056,6 +21121,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -21135,6 +21201,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -21212,6 +21279,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -21288,6 +21356,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -21363,6 +21432,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -21435,6 +21505,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -21516,6 +21587,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -21592,6 +21664,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -21671,6 +21744,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -21749,6 +21823,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -21828,6 +21903,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -21898,6 +21974,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -21985,6 +22062,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -22061,6 +22139,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -22146,6 +22225,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -22222,6 +22302,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -22309,6 +22390,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -22385,6 +22467,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -22463,6 +22546,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -22538,6 +22622,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -22621,6 +22706,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -22700,6 +22786,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -22790,6 +22877,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -22834,6 +22922,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java/out/aux-runtimes" />
         <pathelement path="${build.tmp}/java/out/dataflow-rt" />
@@ -22955,6 +23044,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.3" />
         <path refid="path.jdk.classpath" />
@@ -23027,6 +23117,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -23106,6 +23197,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.3" />
         <path refid="path.jdk.classpath" />
@@ -23149,6 +23241,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java/out/aux-runtimes" />
         <pathelement path="${build.tmp}/java/out/dataflow-rt" />
@@ -23261,6 +23354,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <pathelement path="${build.tmp}/java.modules.cycle.4" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -23334,6 +23428,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -23377,6 +23472,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java/out/aux-runtimes" />
         <pathelement path="${build.tmp}/java/out/dataflow-rt" />
@@ -23500,6 +23596,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.5" />
         <path refid="path.jdk.classpath" />
@@ -23552,6 +23649,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -23623,6 +23721,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -23694,6 +23793,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -23767,6 +23867,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -23855,6 +23956,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -23927,6 +24029,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -24009,6 +24112,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -24081,6 +24185,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -24170,6 +24275,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -24247,6 +24353,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <pathelement path="${build.tmp}/java.modules.cycle.3" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -24323,6 +24430,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -24408,6 +24516,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.3" />
         <path refid="path.jdk.classpath" />
@@ -24492,6 +24601,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <pathelement path="${build.tmp}/java.modules.cycle.4" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -24577,6 +24687,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -24661,6 +24772,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -24744,6 +24856,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.3" />
         <path refid="path.jdk.classpath" />
@@ -24827,6 +24940,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -24899,6 +25013,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -24982,6 +25097,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.5" />
         <path refid="path.jdk.classpath" />
@@ -25056,6 +25172,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -25147,6 +25264,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -25226,6 +25344,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -25302,6 +25421,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -25390,6 +25510,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -25478,6 +25599,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -25541,6 +25663,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -25624,6 +25747,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -25701,6 +25825,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -25773,6 +25898,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -25854,6 +25980,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -25940,6 +26067,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -26022,6 +26150,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -26099,6 +26228,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -26175,6 +26305,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -26247,6 +26378,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -26331,6 +26463,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -26387,6 +26520,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java/out/aux-runtimes" />
         <pathelement path="${build.tmp}/java/out/dataflow-rt" />
@@ -26512,6 +26646,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.6" />
         <path refid="path.jdk.classpath" />
@@ -26589,6 +26724,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -26667,6 +26803,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -26744,6 +26881,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -26832,6 +26970,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.6" />
         <path refid="path.jdk.classpath" />
@@ -26922,6 +27061,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -27004,6 +27144,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -27076,6 +27217,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -27161,6 +27303,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -27233,6 +27376,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -27311,6 +27455,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -27383,6 +27528,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -27474,6 +27620,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -27546,6 +27693,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -27632,6 +27780,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -27701,10 +27850,11 @@
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.baseLanguage.regexp.runtime" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.descriptor.aspects" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.smodel.query.runtime" />
-        <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -27787,11 +27937,12 @@
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.smodel#1139186730696" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.structure" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.traceable" />
-        <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <path refid="path.java.library.idea-libraries" />
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -27864,6 +28015,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -27943,6 +28095,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -28021,6 +28174,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -28098,6 +28252,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -28170,6 +28325,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -28254,6 +28410,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -28325,6 +28482,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -28399,6 +28557,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -28483,6 +28642,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -28555,6 +28715,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -28636,6 +28797,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -28707,6 +28869,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -28780,6 +28943,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -28861,6 +29025,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -28933,6 +29098,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -29011,6 +29177,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -29083,6 +29250,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -29167,6 +29335,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -29254,6 +29423,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -29339,6 +29509,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -29412,6 +29583,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -29495,6 +29667,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -29574,6 +29747,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -29646,6 +29820,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -29732,6 +29907,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -29802,6 +29978,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -29876,6 +30053,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -29967,6 +30145,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -30047,6 +30226,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -30127,6 +30307,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -30195,6 +30376,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -30268,6 +30450,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -30346,6 +30529,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -30396,6 +30580,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -30468,6 +30653,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -30546,6 +30732,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -30624,6 +30811,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -30700,6 +30888,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -30772,6 +30961,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
@@ -30815,6 +31005,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java/out/aux-runtimes" />
         <pathelement path="${build.tmp}/java/out/dataflow-rt" />
@@ -30941,6 +31132,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.7" />
         <path refid="path.jdk.classpath" />
@@ -30984,6 +31176,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java/out/aux-runtimes" />
         <pathelement path="${build.tmp}/java/out/dataflow-rt" />
@@ -31105,6 +31298,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <pathelement path="${build.tmp}/java.modules.cycle.8" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -31186,6 +31380,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <pathelement path="${build.tmp}/java.modules.cycle.7" />
         <path refid="path.jdk.classpath" />
@@ -31265,6 +31460,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <pathelement path="${build.tmp}/java.modules.cycle.8" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -31347,6 +31543,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -31422,6 +31619,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -31495,6 +31693,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
@@ -31565,6 +31764,7 @@
         <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <pathelement path="${build.tmp}/java.modules.cycle.2" />
         <path refid="path.jdk.classpath" />
       </classpath>
