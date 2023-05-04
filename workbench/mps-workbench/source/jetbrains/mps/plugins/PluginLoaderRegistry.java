@@ -596,7 +596,8 @@ public class PluginLoaderRegistry implements Disposable {
 
     private void clearIDEAIconsGlobalCache(@NotNull Collection<ClassLoader> classLoadersToBeDisposed) {
       for (ClassLoader cl : classLoadersToBeDisposed) {
-        IconLoader.detachClassLoader(cl);
+        // TODO: find alternative
+        //IconLoader.detachClassLoader(cl);
       }
       final ProjectManager pm = ProjectManager.getInstanceIfCreated();
       if (pm == null) {

@@ -9,7 +9,6 @@ import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vcs.FileStatus;
 import com.intellij.openapi.vcs.FileStatusManager;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import com.intellij.openapi.vcs.FileStatusListener;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import com.intellij.openapi.vcs.changes.VcsDirtyScopeManager;
@@ -38,10 +37,10 @@ import jetbrains.mps.ide.platform.watching.ReloadManager;
     // In case fs is not updated, we need to stop waiting, so set timeout to 5 seconds
     int fsUpdateTimeout = 5000;
     waitForSomething(() -> {
-      final Wrappers._T<FileStatusListener> listener = new Wrappers._T<FileStatusListener>();
+      FileStatusListener listener;
       final _FunctionTypes._void_P0_E0 stopIfNeeded = () -> {
         if (expectedFileStatus == fsm.getStatus(file)) {
-          fsm.removeFileStatusListener(listener.value);
+          // TODO: check attachFileStatusListener() uses correct Disposable
           // Wait until changes manager is notified about changed file status
           try {
             Thread.sleep(100);
@@ -51,7 +50,7 @@ import jetbrains.mps.ide.platform.watching.ReloadManager;
           waitCompleted();
         }
       };
-      listener.value = new FileStatusListener() {
+      listener = new FileStatusListener() {
         @Override
         public void fileStatusesChanged() {
           stopIfNeeded.invoke();
@@ -61,7 +60,7 @@ import jetbrains.mps.ide.platform.watching.ReloadManager;
           stopIfNeeded.invoke();
         }
       };
-      fsm.addFileStatusListener(listener.value, ChangesManagerTestWaitHelper.this);
+      fsm.addFileStatusListener(listener, ChangesManagerTestWaitHelper.this);
       VcsDirtyScopeManager.getInstance(myProject).fileDirty(file);
       stopIfNeeded.invoke();
     }, fsUpdateTimeout);

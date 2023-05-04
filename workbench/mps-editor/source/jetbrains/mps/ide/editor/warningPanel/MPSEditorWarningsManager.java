@@ -115,6 +115,7 @@ public class MPSEditorWarningsManager implements ProjectComponent {
     myProjectBus = myProject.getProject().getMessageBus().connect();
     myProjectBus.subscribe(FileEditorManagerListener.FILE_EDITOR_MANAGER, new MyFileEditorManagerListener());
     myClassLoaderManager.addListener(myClassesListener);
+    // TODO: What disposable to use?
     FileStatusManager.getInstance(myProject.getProject()).addFileStatusListener(myFileStatusListener, myProject.getProject());
     new RepoListenerRegistrar(myProject.getRepository(), myRepoListener).attach();
   }
@@ -122,7 +123,6 @@ public class MPSEditorWarningsManager implements ProjectComponent {
   @Override
   public void projectClosed() {
     new RepoListenerRegistrar(myProject.getRepository(), myRepoListener).detach();
-    FileStatusManager.getInstance(myProject.getProject()).removeFileStatusListener(myFileStatusListener);
     myClassLoaderManager.removeListener(myClassesListener);
     myClassLoaderManager = null;
     myProjectBus.disconnect();

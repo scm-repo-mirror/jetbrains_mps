@@ -11113,15 +11113,41 @@
                       <node concept="3clFbS" id="4DNDPQS2LqQ" role="1bW5cS">
                         <node concept="3clFbJ" id="4DNDPQS2LqR" role="3cqZAp">
                           <node concept="3clFbS" id="4DNDPQS2LqS" role="3clFbx">
-                            <node concept="3clFbF" id="4DNDPQS2LrA" role="3cqZAp">
-                              <node concept="2OqwBi" id="4DNDPQS2LrC" role="3clFbG">
-                                <node concept="37vLTw" id="56cvcsnGFVN" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="56cvcsnGFtI" resolve="fsm" />
+                            <node concept="3SKdUt" id="22LWfHrvyP8" role="3cqZAp">
+                              <node concept="1PaTwC" id="22LWfHrvyP9" role="1aUNEU">
+                                <node concept="3oM_SD" id="22LWfHrvzC_" role="1PaTwD">
+                                  <property role="3oM_SC" value="TODO:" />
                                 </node>
-                                <node concept="liA8E" id="4DNDPQS2LrG" role="2OqNvi">
-                                  <ref role="37wK5l" to="jlcu:~FileStatusManager.removeFileStatusListener(com.intellij.openapi.vcs.FileStatusListener)" resolve="removeFileStatusListener" />
-                                  <node concept="37vLTw" id="3GM_nagTs72" role="37wK5m">
-                                    <ref role="3cqZAo" node="4DNDPQS2Lrd" resolve="listener" />
+                                <node concept="3oM_SD" id="22LWfHrvzCA" role="1PaTwD">
+                                  <property role="3oM_SC" value="check" />
+                                </node>
+                                <node concept="3oM_SD" id="22LWfHrvzCB" role="1PaTwD">
+                                  <property role="3oM_SC" value="attachFileStatusListener()" />
+                                </node>
+                                <node concept="3oM_SD" id="22LWfHrvzCC" role="1PaTwD">
+                                  <property role="3oM_SC" value="uses" />
+                                </node>
+                                <node concept="3oM_SD" id="22LWfHrvzCD" role="1PaTwD">
+                                  <property role="3oM_SC" value="correct" />
+                                </node>
+                                <node concept="3oM_SD" id="22LWfHrvzCE" role="1PaTwD">
+                                  <property role="3oM_SC" value="Disposable" />
+                                </node>
+                              </node>
+                            </node>
+                            <node concept="1X3_iC" id="2UXDqhvM2wJ" role="lGtFl">
+                              <property role="3V$3am" value="statement" />
+                              <property role="3V$3ak" value="f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123136/1068581517665" />
+                              <node concept="3clFbF" id="4DNDPQS2LrA" role="8Wnug">
+                                <node concept="2OqwBi" id="4DNDPQS2LrC" role="3clFbG">
+                                  <node concept="37vLTw" id="56cvcsnGFVN" role="2Oq$k0">
+                                    <ref role="3cqZAo" node="56cvcsnGFtI" resolve="fsm" />
+                                  </node>
+                                  <node concept="liA8E" id="4DNDPQS2LrG" role="2OqNvi">
+                                    <ref role="37wK5l" to="jlcu:~FileStatusManager.removeFileStatusListener(com.intellij.openapi.vcs.FileStatusListener)" resolve="removeFileStatusListener" />
+                                    <node concept="37vLTw" id="3GM_nagTs72" role="37wK5m">
+                                      <ref role="3cqZAo" node="4DNDPQS2Lrd" resolve="listener" />
+                                    </node>
                                   </node>
                                 </node>
                               </node>

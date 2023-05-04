@@ -364,7 +364,8 @@ public final class FileBasedModelRootEntry implements ModelRootEntry<FileBasedMo
       if (UIUtil.isUnderDarcula()) {
         UIUtil.drawDottedLine(g, x1, y1, x2, y2, null, g.getColor());
       } else {
-        UIUtil.drawLine(g, x1, y1, x2, y2);
+        // TODO: verify this is correct
+        UIUtil.drawLine(g, x1, y1, x2, y2, null, null);
       }
 
       g.setStroke(saved);

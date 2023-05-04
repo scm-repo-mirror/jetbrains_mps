@@ -92,8 +92,8 @@ public class OpenMPSProjectAction extends AnAction {
       }
     } else {
       if (virtualFile.isDirectory()) {
-        @NlsContexts.DialogTitle String title = new DynamicBundle("messages.MPSIdeBundle").getMessage("unknown.mps.project.directory.title");
-        @NlsContexts.DialogMessage String msg = new DynamicBundle("messages.MPSIdeBundle").getMessage("unknown.mps.project.directory.text");
+        @NlsContexts.DialogTitle String title = new DynamicBundle(this.getClass(), "messages.MPSIdeBundle").getMessage("unknown.mps.project.directory.title");
+        @NlsContexts.DialogMessage String msg = new DynamicBundle(this.getClass(), "messages.MPSIdeBundle").getMessage("unknown.mps.project.directory.text");
         Messages.showErrorDialog(currentProject, msg, title);
       } else {
         OpenFileAction.openFile(virtualFile, currentProject);

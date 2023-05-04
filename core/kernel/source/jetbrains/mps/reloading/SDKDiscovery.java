@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.reloading;
 
-import com.intellij.openapi.util.text.StringUtil;
 import jetbrains.mps.file.Files;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.util.SystemInfo;

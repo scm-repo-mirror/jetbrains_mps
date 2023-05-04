@@ -797,6 +797,25 @@
             </node>
           </node>
         </node>
+        <node concept="3SKdUt" id="22LWfHrvb6Z" role="3cqZAp">
+          <node concept="1PaTwC" id="22LWfHrvb70" role="1aUNEU">
+            <node concept="3oM_SD" id="22LWfHrvc8Q" role="1PaTwD">
+              <property role="3oM_SC" value="TODO:" />
+            </node>
+            <node concept="3oM_SD" id="22LWfHrvc8R" role="1PaTwD">
+              <property role="3oM_SC" value="Verify" />
+            </node>
+            <node concept="3oM_SD" id="22LWfHrvc8S" role="1PaTwD">
+              <property role="3oM_SC" value="correct" />
+            </node>
+            <node concept="3oM_SD" id="22LWfHrvc8T" role="1PaTwD">
+              <property role="3oM_SC" value="Disposable" />
+            </node>
+            <node concept="3oM_SD" id="22LWfHrvc8U" role="1PaTwD">
+              <property role="3oM_SC" value="used" />
+            </node>
+          </node>
+        </node>
         <node concept="3clFbF" id="78tlMyQ2NpZ" role="3cqZAp">
           <node concept="2OqwBi" id="78tlMyQ2Nq3" role="3clFbG">
             <node concept="2YIFZM" id="78tlMyQ2Nq1" role="2Oq$k0">
@@ -836,19 +855,23 @@
             <ref role="37wK5l" node="GzQDfj4DLr" resolve="projectOpenCloseEventIgnored" />
           </node>
         </node>
-        <node concept="3clFbF" id="78tlMyQ2NuJ" role="3cqZAp">
-          <node concept="2OqwBi" id="78tlMyQ2NuK" role="3clFbG">
-            <node concept="2YIFZM" id="78tlMyQ2NuL" role="2Oq$k0">
-              <ref role="1Pybhc" to="jlcu:~FileStatusManager" resolve="FileStatusManager" />
-              <ref role="37wK5l" to="jlcu:~FileStatusManager.getInstance(com.intellij.openapi.project.Project)" resolve="getInstance" />
-              <node concept="37vLTw" id="2BHiRxeuWC4" role="37wK5m">
-                <ref role="3cqZAo" node="38_6U8fKv5Y" resolve="myProject" />
+        <node concept="1X3_iC" id="2UXDqhvHzJ4" role="lGtFl">
+          <property role="3V$3am" value="statement" />
+          <property role="3V$3ak" value="f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123136/1068581517665" />
+          <node concept="3clFbF" id="78tlMyQ2NuJ" role="8Wnug">
+            <node concept="2OqwBi" id="78tlMyQ2NuK" role="3clFbG">
+              <node concept="2YIFZM" id="78tlMyQ2NuL" role="2Oq$k0">
+                <ref role="1Pybhc" to="jlcu:~FileStatusManager" resolve="FileStatusManager" />
+                <ref role="37wK5l" to="jlcu:~FileStatusManager.getInstance(com.intellij.openapi.project.Project)" resolve="getInstance" />
+                <node concept="37vLTw" id="2BHiRxeuWC4" role="37wK5m">
+                  <ref role="3cqZAo" node="38_6U8fKv5Y" resolve="myProject" />
+                </node>
               </node>
-            </node>
-            <node concept="liA8E" id="78tlMyQ2NuN" role="2OqNvi">
-              <ref role="37wK5l" to="jlcu:~FileStatusManager.removeFileStatusListener(com.intellij.openapi.vcs.FileStatusListener)" resolve="removeFileStatusListener" />
-              <node concept="37vLTw" id="2BHiRxeuWq0" role="37wK5m">
-                <ref role="3cqZAo" node="78tlMyQ2HsM" resolve="myFileStatusListener" />
+              <node concept="liA8E" id="78tlMyQ2NuN" role="2OqNvi">
+                <ref role="37wK5l" to="jlcu:~FileStatusManager.removeFileStatusListener(com.intellij.openapi.vcs.FileStatusListener)" resolve="removeFileStatusListener" />
+                <node concept="37vLTw" id="2BHiRxeuWq0" role="37wK5m">
+                  <ref role="3cqZAo" node="78tlMyQ2HsM" resolve="myFileStatusListener" />
+                </node>
               </node>
             </node>
           </node>

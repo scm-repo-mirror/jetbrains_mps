@@ -195,6 +195,7 @@ public class FileViewProjectPane extends AbstractProjectViewPane implements Data
   }
 
   private void installListeners() {
+    // TODO: Verify correct Disposable used
     FileStatusManager.getInstance(myProject).addFileStatusListener(myFileStatusListener = new FileStatusChangeListener(), this);
     VirtualFileManager.getInstance().addVirtualFileManagerListener(myVirtualFileManagerListener = new RefreshListener());
     ChangeListManager.getInstance(myProject).addChangeListListener(myChangeListListener = new ChangeListUpdateListener());
@@ -222,7 +223,6 @@ public class FileViewProjectPane extends AbstractProjectViewPane implements Data
   }
 
   private void disposeListeners() {
-    FileStatusManager.getInstance(myProject).removeFileStatusListener(myFileStatusListener);
     VirtualFileManager.getInstance().removeVirtualFileManagerListener(myVirtualFileManagerListener);
     ChangeListManager.getInstance(myProject).removeChangeListListener(myChangeListListener);
     myMessageBusConnection.disconnect();

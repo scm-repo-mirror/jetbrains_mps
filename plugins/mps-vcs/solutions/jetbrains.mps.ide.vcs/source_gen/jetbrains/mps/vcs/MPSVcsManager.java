@@ -92,6 +92,7 @@ public class MPSVcsManager implements ProjectComponent {
     VcsListener vcsListener = () -> mergeDriverNotification.showNotificationIfNeeded();
     myMessageBusConnection.subscribe(ProjectLevelVcsManager.VCS_CONFIGURATION_CHANGED, vcsListener);
     // nah, this one has to be in code; although its use to detect merge conflict of a single project file is dubious
+    // TODO: Verify correct Disposable used
     FileStatusManager.getInstance(myProject).addFileStatusListener(myFileStatusListener, myProject);
   }
 
@@ -100,7 +101,6 @@ public class MPSVcsManager implements ProjectComponent {
     if (projectOpenCloseEventIgnored()) {
       return;
     }
-    FileStatusManager.getInstance(myProject).removeFileStatusListener(myFileStatusListener);
     myMessageBusConnection.disconnect();
   }
 

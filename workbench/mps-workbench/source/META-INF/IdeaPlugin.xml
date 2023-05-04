@@ -209,8 +209,6 @@
 
     <fileIconProvider implementation="jetbrains.mps.workbench.editors.MPSIconProvider"/>
 
-    <bundledKeymap file="Visual Studio.xml"/>
-
     <projectService serviceImplementation="jetbrains.mps.ide.findusages.caches.IndexableRootCalculator"/>
 
     <sdkType implementation="com.intellij.openapi.projectRoots.impl.JavaSdkImpl"/>

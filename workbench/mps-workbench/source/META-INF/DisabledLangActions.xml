@@ -271,7 +271,7 @@
     <action id="NewScratchFile" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
     <action id="NewDir" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
     <group id="FileTemplateSeparatorGroup" class="com.intellij.openapi.actionSystem.EmptyActionGroup" overrides="true"/>
-    <action id="NewFromTemplate" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
+    <group id="NewFromTemplate" class="com.intellij.openapi.actionSystem.EmptyActionGroup" overrides="true"/>
     <!--    </group>-->
 
     <!-- PROVISIONAL HACK TO ADDRESS MPS-34610; the override was commented out, no idea why did we need it in the first place -->
@@ -523,8 +523,8 @@
 
     <group id="InspectionToolWindow.TreePopup" class="com.intellij.openapi.actionSystem.EmptyActionGroup" overrides="true"/>
     <!--    <group id="InspectionToolWindow.TreePopup" compact="true">-->
-    <action id="QuickFixes" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
-    <action id="SuppressFixes" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
+    <group id="QuickFixes" class="com.intellij.openapi.actionSystem.EmptyActionGroup" overrides="true"/>
+    <group id="SuppressFixes" class="com.intellij.openapi.actionSystem.EmptyActionGroup" overrides="true"/>
     <action id="EditInspectionSettings" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
     <action id="DisableInspection" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
     <action id="RunInspectionOn" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>

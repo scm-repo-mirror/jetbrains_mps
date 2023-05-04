@@ -222,7 +222,7 @@ public class MPSTreeStructureProvider implements SelectableTreeStructureProvider
 
   @Nullable
   @Override
-  public Object getData(Collection<AbstractTreeNode<?>> selected, String dataName) {
+  public Object getData(@NotNull Collection<? extends AbstractTreeNode<?>> selected, @NotNull String dataName) {
     if (selected == null) {
       return null;
     }
@@ -292,7 +292,7 @@ public class MPSTreeStructureProvider implements SelectableTreeStructureProvider
     return null;
   }
 
-  private <T> T getProvider(Collection<AbstractTreeNode<?>> selected, ProviderFactory<T> createProvider) {
+  private <T> T getProvider(Collection<? extends AbstractTreeNode<?>> selected, ProviderFactory<T> createProvider) {
     if (selected.size() == 0) return null;
 
     List<SNodeReference> selectedNodePointers = new ArrayList<>();
@@ -326,7 +326,7 @@ public class MPSTreeStructureProvider implements SelectableTreeStructureProvider
     return createProvider.create(selectedNodePointers, modelDescriptor, modelDescriptor, mpsProject);
   }
 
-  private DeleteProvider getDeleteModelProvider(Collection<AbstractTreeNode<?>> selected) {
+  private DeleteProvider getDeleteModelProvider(Collection<? extends AbstractTreeNode<?>> selected) {
     final List<MPSPsiModel> psiModels = new ArrayList<>();
     for (AbstractTreeNode<?> treeNode : selected) {
       if (!(treeNode instanceof MPSPsiModelTreeNode)) {
@@ -358,7 +358,7 @@ public class MPSTreeStructureProvider implements SelectableTreeStructureProvider
     return md instanceof EditableSModel ? createProvider.create((EditableSModel) md, mpsProject) : null;
   }
 
-  private Set<IFile> getModelFiles(Collection<AbstractTreeNode<?>> selected) {
+  private Set<IFile> getModelFiles(Collection<? extends AbstractTreeNode<?>> selected) {
     Set<IFile> modelFiles = new HashSet<>();
     for (AbstractTreeNode<?> nextTreeNode : selected) {
       IFile nextModelFile = getModelFile(nextTreeNode);

@@ -14,10 +14,10 @@ import com.intellij.openapi.ui.MessageDialogBuilder
 import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.util.NlsContexts
 import com.intellij.openapi.util.io.FileUtil
-import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.util.ThreeState
 import com.intellij.util.io.basicAttributesIfExists
 import jetbrains.mps.ide.ThreadUtils
+import jetbrains.mps.intellij.integration.MPSRecentProjectsManagerBase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
@@ -45,7 +45,7 @@ class OpenMPSProjectTrustProjectHelperK {
         if (state != ThreeState.YES && !isProjectImplicitlyTrusted(file)) {
             // need for a dialog to have the user confirm trusting the project
             val title: @NlsContexts.DialogTitle String = IdeBundle.message("untrusted.project.open.dialog.title", file)
-            val message: @NlsContexts.DialogMessage String = DynamicBundle("messages.MPSIdeBundle").getMessage(
+            val message: @NlsContexts.DialogMessage String = DynamicBundle(MPSRecentProjectsManagerBase::class.java,"messages.MPSIdeBundle").getMessage(
                 "untrusted.mps.project.open.dialog.text",
                 ApplicationNamesInfo.getInstance()
                     .fullProductName

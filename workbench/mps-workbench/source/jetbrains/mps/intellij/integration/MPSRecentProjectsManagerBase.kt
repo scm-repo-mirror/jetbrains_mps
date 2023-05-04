@@ -9,12 +9,12 @@ import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.wm.impl.welcomeScreen.WelcomeFrame
-import com.intellij.util.io.exists
 import jetbrains.mps.workbench.actions.OpenMPSProjectTrustProjectHelperK
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.nio.file.Path
 import kotlin.io.path.absolutePathString
+import kotlin.io.path.exists
 
 private val LOG = logger<MPSRecentProjectsManagerBase>()
 

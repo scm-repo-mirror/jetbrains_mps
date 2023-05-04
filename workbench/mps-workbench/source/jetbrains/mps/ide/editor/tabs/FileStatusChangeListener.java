@@ -53,12 +53,12 @@ class FileStatusChangeListener implements FileStatusListener, Disposable {
   public FileStatusChangeListener(com.intellij.openapi.project.Project project) {
     myIdeaProject = project;
     myProject = ProjectHelper.fromIdeaProject(project);
+    // TODO: Verify correct Disposable used
     FileStatusManager.getInstance(myIdeaProject).addFileStatusListener(this, this);
   }
 
   @Override
   public void dispose() {
-    FileStatusManager.getInstance(myIdeaProject).removeFileStatusListener(this);
     myNodeRef2TabsComponents.clear();
   }
 

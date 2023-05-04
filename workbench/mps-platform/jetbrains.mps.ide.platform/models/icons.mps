@@ -2206,7 +2206,7 @@
                     </node>
                   </node>
                   <node concept="liA8E" id="68F6HOs4URd" role="2OqNvi">
-                    <ref role="37wK5l" to="zn9m:~IconLoader$CachedImageIcon.getRealIcon()" resolve="getRealIcon" />
+                    <ref role="37wK5l" to="zn9m:~CachedImageIcon.getRealIcon()" resolve="getRealIcon" />
                   </node>
                 </node>
               </node>
