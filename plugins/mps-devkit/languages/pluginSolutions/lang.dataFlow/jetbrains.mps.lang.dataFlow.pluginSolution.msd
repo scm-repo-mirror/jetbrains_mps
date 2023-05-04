@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.lang.dataFlow.pluginSolution" uuid="66e9008e-0fff-442a-b94e-09ea76bf741a" moduleVersion="0" pluginKind="PLUGIN_OTHER" compileInMPS="true">
+<solution name="jetbrains.mps.lang.dataFlow.pluginSolution" uuid="66e9008e-0fff-442a-b94e-09ea76bf741a" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

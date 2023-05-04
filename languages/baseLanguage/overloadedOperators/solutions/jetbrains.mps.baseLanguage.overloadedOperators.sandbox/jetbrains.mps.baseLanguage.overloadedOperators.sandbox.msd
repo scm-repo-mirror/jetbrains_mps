@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.baseLanguage.overloadedOperators.sandbox" uuid="b35bb3d4-59ec-4075-a2bb-8d977813e263" moduleVersion="0" compileInMPS="true">
+<solution name="jetbrains.mps.baseLanguage.overloadedOperators.sandbox" uuid="b35bb3d4-59ec-4075-a2bb-8d977813e263" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="jetbrains" />

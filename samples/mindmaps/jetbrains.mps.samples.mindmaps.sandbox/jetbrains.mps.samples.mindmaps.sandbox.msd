@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.samples.mindmaps.sandbox" uuid="5e7f3477-305e-4a96-8528-183db8a6e223" moduleVersion="0" compileInMPS="true">
+<solution name="jetbrains.mps.samples.mindmaps.sandbox" uuid="5e7f3477-305e-4a96-8528-183db8a6e223" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

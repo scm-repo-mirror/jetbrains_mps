@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.kotlin.tests.editor" uuid="5f5dc7f6-3323-460d-848a-1c2ae461be61" moduleVersion="0" compileInMPS="true">
+<solution name="jetbrains.mps.kotlin.tests.editor" uuid="5f5dc7f6-3323-460d-848a-1c2ae461be61" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

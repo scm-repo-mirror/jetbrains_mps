@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="internalCollections.test" uuid="b5660d3a-8a0d-4815-881b-7c884f61c9c7" moduleVersion="0" pluginKind="PLUGIN_OTHER" compileInMPS="true">
+<solution name="internalCollections.test" uuid="b5660d3a-8a0d-4815-881b-7c884f61c9c7" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="jetbrains" />

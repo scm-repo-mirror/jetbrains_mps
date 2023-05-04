@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="tests.testPersistence" uuid="f2f32c65-17db-4e68-ad2f-8b0e2554dbd6" moduleVersion="0" compileInMPS="true">
+<solution name="tests.testPersistence" uuid="f2f32c65-17db-4e68-ad2f-8b0e2554dbd6" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="simpleProject" uuid="c0209407-bdbc-42e5-9368-04e272725dd0" moduleVersion="0" compileInMPS="true">
+<solution name="simpleProject" uuid="c0209407-bdbc-42e5-9368-04e272725dd0" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="." />

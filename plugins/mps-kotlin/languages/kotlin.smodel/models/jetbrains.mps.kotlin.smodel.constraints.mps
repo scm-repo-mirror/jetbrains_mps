@@ -168,7 +168,7 @@
               <node concept="2ShNRf" id="7XIUL68CDH1" role="33vP2m">
                 <node concept="1pGfFk" id="7XIUL68CDH2" role="2ShVmc">
                   <property role="373rjd" value="true" />
-                  <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilter" />
+                  <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilterImpl" />
                   <node concept="3VsKOn" id="7XIUL68CDH3" role="37wK5m">
                     <ref role="3VsUkX" to="jglh:7XIUL68AN4P" resolve="LinkSignature" />
                   </node>
@@ -285,7 +285,7 @@
               <node concept="2ShNRf" id="LTtTkxEOYO" role="33vP2m">
                 <node concept="1pGfFk" id="LTtTkxEOYP" role="2ShVmc">
                   <property role="373rjd" value="true" />
-                  <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilter" />
+                  <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilterImpl" />
                   <node concept="3VsKOn" id="LTtTkxEOYQ" role="37wK5m">
                     <ref role="3VsUkX" to="jglh:7XIUL68AN4P" resolve="LinkSignature" />
                   </node>

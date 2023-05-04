@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.lang.migration.actions" uuid="fd5162e1-98b8-43e1-a33f-62e46fc97404" moduleVersion="0" pluginKind="PLUGIN_OTHER" compileInMPS="true">
+<solution name="jetbrains.mps.lang.migration.actions" uuid="fd5162e1-98b8-43e1-a33f-62e46fc97404" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

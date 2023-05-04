@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="migrations.test" uuid="5b6d0851-fe6f-4a9c-8cd3-1c161b1b4a41" moduleVersion="0" compileInMPS="true">
+<solution name="migrations.test" uuid="5b6d0851-fe6f-4a9c-8cd3-1c161b1b4a41" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

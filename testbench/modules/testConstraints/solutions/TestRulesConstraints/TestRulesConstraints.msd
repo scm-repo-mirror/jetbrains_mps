@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="TestRulesConstraints" uuid="cad2e8db-5f5f-4f27-9421-1daa5ada30ca" moduleVersion="0" compileInMPS="true">
+<solution name="TestRulesConstraints" uuid="cad2e8db-5f5f-4f27-9421-1daa5ada30ca" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.samples.JavaKaja" uuid="5004e7d9-a353-4cb0-960a-68fc804bd95d" moduleVersion="0" pluginKind="PLUGIN_CORE" compileInMPS="true">
+<solution name="jetbrains.mps.samples.JavaKaja" uuid="5004e7d9-a353-4cb0-960a-68fc804bd95d" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

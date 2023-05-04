@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="testSubtypingTest" uuid="b3170ec7-82d9-4e10-a3f0-31baa75ffc0c" moduleVersion="0" pluginKind="PLUGIN_OTHER" compileInMPS="true">
+<solution name="testSubtypingTest" uuid="b3170ec7-82d9-4e10-a3f0-31baa75ffc0c" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

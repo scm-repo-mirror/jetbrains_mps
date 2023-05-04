@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="collections_trove.runtime" uuid="134ef213-c518-42b0-b12c-c109aa13d320" moduleVersion="0" pluginKind="PLUGIN_CORE" compileInMPS="true">
+<solution name="collections_trove.runtime" uuid="134ef213-c518-42b0-b12c-c109aa13d320" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="jetbrains" />

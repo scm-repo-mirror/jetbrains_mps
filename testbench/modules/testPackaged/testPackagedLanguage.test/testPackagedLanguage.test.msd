@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="testPackagedLanguage.test" uuid="2f5af9e7-34c8-45f3-b417-4dcbb52409b8" moduleVersion="0" pluginKind="PLUGIN_OTHER" compileInMPS="true">
+<solution name="testPackagedLanguage.test" uuid="2f5af9e7-34c8-45f3-b417-4dcbb52409b8" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

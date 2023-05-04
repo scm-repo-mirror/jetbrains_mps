@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="TestBehaviorReflective" uuid="beff1186-d062-491c-bb4e-4c63c5bc07f4" moduleVersion="0" compileInMPS="true">
+<solution name="TestBehaviorReflective" uuid="beff1186-d062-491c-bb4e-4c63c5bc07f4" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

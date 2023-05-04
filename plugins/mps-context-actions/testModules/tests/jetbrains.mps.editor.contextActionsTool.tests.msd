@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.editor.contextActionsTool.tests" uuid="5b680985-8194-47f3-94b2-911d0fb5e92a" moduleVersion="0" compileInMPS="true">
+<solution name="jetbrains.mps.editor.contextActionsTool.tests" uuid="5b680985-8194-47f3-94b2-911d0fb5e92a" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

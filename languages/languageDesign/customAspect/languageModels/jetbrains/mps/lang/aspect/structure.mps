@@ -171,7 +171,7 @@
     <property role="TrG5h" value="AspectRootConfiguration" />
     <property role="R4oN_" value="Tell roots to get started with an aspect model" />
     <property role="R5$K7" value="true" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
   </node>
   <node concept="1TIwiD" id="6VgTGbN6NT5">
     <property role="EcuMT" value="7985135864304582213" />

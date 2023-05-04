@@ -270,7 +270,7 @@
       <property role="3TUv4t" value="true" />
       <node concept="3Tm6S6" id="2BZ01qXy_OD" role="1B3o_S" />
       <node concept="3uibUv" id="2BZ01qXFfSi" role="1tU5fm">
-        <ref role="3uigEE" node="2BZ01qXF594" resolve="Kind" />
+        <ref role="3uigEE" node="2BZ01qXF594" resolve="TestDescriptor.Kind" />
       </node>
     </node>
     <node concept="312cEg" id="2v6DJPJuE4s" role="jymVt">
@@ -317,7 +317,7 @@
       <property role="TrG5h" value="Kind" />
       <node concept="QsSxf" id="2BZ01qXF655" role="Qtgdg">
         <property role="TrG5h" value="TEST" />
-        <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" />
+        <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
       </node>
       <node concept="QsSxf" id="2BZ01qXF7e4" role="Qtgdg">
         <property role="TrG5h" value="TESTCONTAINER" />
@@ -325,7 +325,7 @@
       </node>
       <node concept="QsSxf" id="4chG8iI3JsR" role="Qtgdg">
         <property role="TrG5h" value="ROOT" />
-        <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" />
+        <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
       </node>
       <node concept="3Tm1VV" id="2BZ01qXF595" role="1B3o_S" />
     </node>
@@ -358,11 +358,11 @@
         <node concept="3clFbF" id="2BZ01qYx_Vq" role="3cqZAp">
           <node concept="37vLTI" id="2BZ01qYx_Vr" role="3clFbG">
             <node concept="37vLTw" id="2BZ01qYx_Vs" role="37vLTJ">
-              <ref role="3cqZAo" node="2BZ01qXy_OC" resolve="myLeaf" />
+              <ref role="3cqZAo" node="2BZ01qXy_OC" resolve="myKind" />
             </node>
             <node concept="Rm8GO" id="4chG8iI3MDz" role="37vLTx">
               <ref role="Rm8GQ" node="4chG8iI3JsR" resolve="ROOT" />
-              <ref role="1Px2BO" node="2BZ01qXF594" resolve="Kind" />
+              <ref role="1Px2BO" node="2BZ01qXF594" resolve="TestDescriptor.Kind" />
             </node>
           </node>
         </node>
@@ -394,7 +394,7 @@
       <node concept="37vLTG" id="2BZ01qXEVMy" role="3clF46">
         <property role="TrG5h" value="kind" />
         <node concept="3uibUv" id="2BZ01qXFa2X" role="1tU5fm">
-          <ref role="3uigEE" node="2BZ01qXF594" resolve="Kind" />
+          <ref role="3uigEE" node="2BZ01qXF594" resolve="TestDescriptor.Kind" />
         </node>
       </node>
       <node concept="37vLTG" id="2BZ01qYcqe7" role="3clF46">
@@ -435,10 +435,10 @@
         <node concept="3clFbF" id="2BZ01qXEVMT" role="3cqZAp">
           <node concept="37vLTI" id="2BZ01qXEVMU" role="3clFbG">
             <node concept="37vLTw" id="2BZ01qXEVMV" role="37vLTJ">
-              <ref role="3cqZAo" node="2BZ01qXy_OC" resolve="myLeaf" />
+              <ref role="3cqZAo" node="2BZ01qXy_OC" resolve="myKind" />
             </node>
             <node concept="37vLTw" id="2BZ01qXEVMW" role="37vLTx">
-              <ref role="3cqZAo" node="2BZ01qXEVMy" resolve="leaf" />
+              <ref role="3cqZAo" node="2BZ01qXEVMy" resolve="kind" />
             </node>
           </node>
         </node>
@@ -587,7 +587,7 @@
           <node concept="3clFbC" id="4chG8iI4grm" role="3clFbG">
             <node concept="Rm8GO" id="4chG8iI4ivJ" role="3uHU7w">
               <ref role="Rm8GQ" node="4chG8iI3JsR" resolve="ROOT" />
-              <ref role="1Px2BO" node="2BZ01qXF594" resolve="Kind" />
+              <ref role="1Px2BO" node="2BZ01qXF594" resolve="TestDescriptor.Kind" />
             </node>
             <node concept="37vLTw" id="4chG8iI4f2s" role="3uHU7B">
               <ref role="3cqZAo" node="2BZ01qXy_OC" resolve="myKind" />
@@ -607,7 +607,7 @@
             <node concept="3clFbC" id="4chG8iI3Tk4" role="3uHU7w">
               <node concept="Rm8GO" id="4chG8iI3Vny" role="3uHU7w">
                 <ref role="Rm8GQ" node="4chG8iI3JsR" resolve="ROOT" />
-                <ref role="1Px2BO" node="2BZ01qXF594" resolve="Kind" />
+                <ref role="1Px2BO" node="2BZ01qXF594" resolve="TestDescriptor.Kind" />
               </node>
               <node concept="37vLTw" id="4chG8iI3Qcc" role="3uHU7B">
                 <ref role="3cqZAo" node="2BZ01qXy_OC" resolve="myKind" />
@@ -619,7 +619,7 @@
               </node>
               <node concept="Rm8GO" id="2BZ01qXFk83" role="3uHU7w">
                 <ref role="Rm8GQ" node="2BZ01qXF7e4" resolve="TESTCONTAINER" />
-                <ref role="1Px2BO" node="2BZ01qXF594" resolve="Kind" />
+                <ref role="1Px2BO" node="2BZ01qXF594" resolve="TestDescriptor.Kind" />
               </node>
             </node>
           </node>
@@ -834,7 +834,7 @@
       <node concept="37vLTG" id="2v6DJPJuZbK" role="3clF46">
         <property role="TrG5h" value="propertyKey" />
         <node concept="3uibUv" id="2v6DJPJuZbL" role="1tU5fm">
-          <ref role="3uigEE" node="2v6DJPJtQXt" resolve="Key" />
+          <ref role="3uigEE" node="2v6DJPJtQXt" resolve="TestProperties.Key" />
           <node concept="16syzq" id="2v6DJPJuZbM" role="11_B2D">
             <ref role="16sUi3" node="2v6DJPJuZbW" resolve="T" />
           </node>
@@ -1187,7 +1187,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="2BZ01qYyEp3" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="2BZ01qYyUYf" role="jymVt" />
@@ -1241,7 +1241,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="2BZ01qX_lUP" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="2BZ01qX_nEx" role="jymVt" />
@@ -1340,7 +1340,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="2BZ01qX_lUZ" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="3uibUv" id="2BZ01qYxS4Q" role="EKbjA">
@@ -1380,7 +1380,7 @@
       <property role="TrG5h" value="USE_COMPATIBILITY_MODE" />
       <node concept="3Tm1VV" id="2v6DJPJv9nI" role="1B3o_S" />
       <node concept="3uibUv" id="2v6DJPJv9qc" role="1tU5fm">
-        <ref role="3uigEE" node="2v6DJPJtQXt" resolve="Key" />
+        <ref role="3uigEE" node="2v6DJPJtQXt" resolve="TestProperties.Key" />
         <node concept="3uibUv" id="2v6DJPJv9ve" role="11_B2D">
           <ref role="3uigEE" to="wyt6:~Boolean" resolve="Boolean" />
         </node>
@@ -1402,7 +1402,7 @@
       <property role="TrG5h" value="CAN_RUN_IN_PROCESS" />
       <node concept="3Tm1VV" id="2v6DJPJvtAq" role="1B3o_S" />
       <node concept="3uibUv" id="2v6DJPJvtAr" role="1tU5fm">
-        <ref role="3uigEE" node="2v6DJPJtQXt" resolve="Key" />
+        <ref role="3uigEE" node="2v6DJPJtQXt" resolve="TestProperties.Key" />
         <node concept="3uibUv" id="2v6DJPJvtAs" role="11_B2D">
           <ref role="3uigEE" to="wyt6:~Boolean" resolve="Boolean" />
         </node>
@@ -1424,7 +1424,7 @@
       <property role="TrG5h" value="REQUIRES_MPS_PLATFORM" />
       <node concept="3Tm1VV" id="2v6DJPJvGuo" role="1B3o_S" />
       <node concept="3uibUv" id="2v6DJPJvGup" role="1tU5fm">
-        <ref role="3uigEE" node="2v6DJPJtQXt" resolve="Key" />
+        <ref role="3uigEE" node="2v6DJPJtQXt" resolve="TestProperties.Key" />
         <node concept="3uibUv" id="2v6DJPJvGuq" role="11_B2D">
           <ref role="3uigEE" to="wyt6:~Boolean" resolve="Boolean" />
         </node>
@@ -1464,7 +1464,7 @@
         </node>
       </node>
       <node concept="3uibUv" id="2v6DJPJvhn_" role="3clF45">
-        <ref role="3uigEE" node="2v6DJPJtQXt" resolve="Key" />
+        <ref role="3uigEE" node="2v6DJPJtQXt" resolve="TestProperties.Key" />
         <node concept="16syzq" id="2v6DJPJviw9" role="11_B2D">
           <ref role="16sUi3" node="2v6DJPJviqF" resolve="T" />
         </node>
@@ -1475,7 +1475,7 @@
           <node concept="2ShNRf" id="2v6DJPJvkBb" role="3clFbG">
             <node concept="1pGfFk" id="2v6DJPJvlc1" role="2ShVmc">
               <property role="373rjd" value="true" />
-              <ref role="37wK5l" node="2v6DJPJtS2K" resolve="Key" />
+              <ref role="37wK5l" node="2v6DJPJtS2K" resolve="TestProperties.Key" />
               <node concept="37vLTw" id="2v6DJPJvli4" role="37wK5m">
                 <ref role="3cqZAo" node="2v6DJPJvixE" resolve="name" />
               </node>
@@ -1504,7 +1504,7 @@
         </node>
       </node>
       <node concept="3uibUv" id="2v6DJPJvjkI" role="3clF45">
-        <ref role="3uigEE" node="2v6DJPJtQXt" resolve="Key" />
+        <ref role="3uigEE" node="2v6DJPJtQXt" resolve="TestProperties.Key" />
         <node concept="16syzq" id="2v6DJPJvjkJ" role="11_B2D">
           <ref role="16sUi3" node="2v6DJPJvjkM" resolve="T" />
         </node>
@@ -1515,7 +1515,7 @@
           <node concept="2ShNRf" id="2v6DJPJvmmo" role="3clFbG">
             <node concept="1pGfFk" id="2v6DJPJvmVe" role="2ShVmc">
               <property role="373rjd" value="true" />
-              <ref role="37wK5l" node="2v6DJPJvbxn" resolve="Key" />
+              <ref role="37wK5l" node="2v6DJPJvbxn" resolve="TestProperties.Key" />
               <node concept="37vLTw" id="2v6DJPJvn1y" role="37wK5m">
                 <ref role="3cqZAo" node="2v6DJPJvjkD" resolve="name" />
               </node>
@@ -1925,7 +1925,7 @@
                         <ref role="3cqZAo" node="2v6DJPJtYy4" resolve="that" />
                       </node>
                       <node concept="3uibUv" id="2v6DJPJucX8" role="10QFUM">
-                        <ref role="3uigEE" node="2v6DJPJtQXt" resolve="Key" />
+                        <ref role="3uigEE" node="2v6DJPJtQXt" resolve="TestProperties.Key" />
                       </node>
                     </node>
                   </node>
@@ -1950,7 +1950,7 @@
                         <ref role="3cqZAo" node="2v6DJPJtYy4" resolve="that" />
                       </node>
                       <node concept="3uibUv" id="2v6DJPJufAP" role="10QFUM">
-                        <ref role="3uigEE" node="2v6DJPJtQXt" resolve="Key" />
+                        <ref role="3uigEE" node="2v6DJPJtQXt" resolve="TestProperties.Key" />
                       </node>
                     </node>
                   </node>
@@ -1995,7 +1995,7 @@
           </node>
         </node>
         <node concept="2AHcQZ" id="2v6DJPJvxAd" role="2AJF6D">
-          <ref role="2AI5Lk" to="wyt6:~Override" />
+          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
       </node>
     </node>
@@ -2152,7 +2152,7 @@
             <property role="2bfB8j" value="true" />
             <property role="373rjd" value="true" />
             <ref role="1Y3XeK" node="2BZ01qYxICO" resolve="TestSource" />
-            <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" />
+            <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
             <node concept="3Tm1VV" id="2BZ01qYzVyc" role="1B3o_S" />
             <node concept="3clFb_" id="2BZ01qYzVyq" role="jymVt">
               <property role="TrG5h" value="getData" />
@@ -2178,7 +2178,7 @@
                 </node>
               </node>
               <node concept="2AHcQZ" id="2BZ01qYzVy$" role="2AJF6D">
-                <ref role="2AI5Lk" to="wyt6:~Override" />
+                <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
               </node>
             </node>
           </node>
@@ -2239,7 +2239,7 @@
       <property role="TrG5h" value="myKind" />
       <node concept="3Tm6S6" id="2BZ01qXTa3P" role="1B3o_S" />
       <node concept="3uibUv" id="2BZ01qXTar5" role="1tU5fm">
-        <ref role="3uigEE" node="2BZ01qXF594" resolve="Kind" />
+        <ref role="3uigEE" node="2BZ01qXF594" resolve="TestDescriptor.Kind" />
       </node>
     </node>
     <node concept="312cEg" id="2BZ01qYctIR" role="jymVt">
@@ -2329,7 +2329,7 @@
           <node concept="37vLTI" id="2BZ01qXTg8P" role="3clFbG">
             <node concept="Rm8GO" id="2BZ01qXThuf" role="37vLTx">
               <ref role="Rm8GQ" node="2BZ01qXF655" resolve="TEST" />
-              <ref role="1Px2BO" node="2BZ01qXF594" resolve="Kind" />
+              <ref role="1Px2BO" node="2BZ01qXF594" resolve="TestDescriptor.Kind" />
             </node>
             <node concept="37vLTw" id="2BZ01qXTfsF" role="37vLTJ">
               <ref role="3cqZAo" node="2BZ01qXTa3O" resolve="myKind" />
@@ -2383,7 +2383,7 @@
           <node concept="37vLTI" id="2BZ01qXTivI" role="3clFbG">
             <node concept="Rm8GO" id="2BZ01qXTjAq" role="37vLTx">
               <ref role="Rm8GQ" node="2BZ01qXF7e4" resolve="TESTCONTAINER" />
-              <ref role="1Px2BO" node="2BZ01qXF594" resolve="Kind" />
+              <ref role="1Px2BO" node="2BZ01qXF594" resolve="TestDescriptor.Kind" />
             </node>
             <node concept="37vLTw" id="2BZ01qXTivK" role="37vLTJ">
               <ref role="3cqZAo" node="2BZ01qXTa3O" resolve="myKind" />
@@ -2401,7 +2401,7 @@
       <node concept="37vLTG" id="2BZ01qYcwNb" role="3clF46">
         <property role="TrG5h" value="key" />
         <node concept="3uibUv" id="2BZ01qYcx4U" role="1tU5fm">
-          <ref role="3uigEE" node="2v6DJPJtQXt" resolve="Key" />
+          <ref role="3uigEE" node="2v6DJPJtQXt" resolve="TestProperties.Key" />
           <node concept="16syzq" id="2BZ01qYcxun" role="11_B2D">
             <ref role="16sUi3" node="2BZ01qYcxeU" resolve="T" />
           </node>
@@ -2733,7 +2733,7 @@
           <node concept="2ShNRf" id="2VjRkhsHpaP" role="3clFbG">
             <node concept="HV5vD" id="2VjRkhsHrib" role="2ShVmc">
               <property role="373rjd" value="true" />
-              <ref role="HV5vE" node="2VjRkhsFYlm" resolve="AggregateTestDiscoveryParticipant" />
+              <ref role="HV5vE" node="2VjRkhsFYlm" resolve="TestPlatform.AggregateTestDiscoveryParticipant" />
             </node>
           </node>
         </node>
@@ -2777,7 +2777,7 @@
             <node concept="liA8E" id="VnxRnA9JqV" role="2OqNvi">
               <ref role="37wK5l" to="5zyv:~ConcurrentLinkedDeque.push(java.lang.Object)" resolve="push" />
               <node concept="37vLTw" id="VnxRnA9MKJ" role="37wK5m">
-                <ref role="3cqZAo" node="VnxRnA9MKF" resolve="create" />
+                <ref role="3cqZAo" node="VnxRnA9MKF" resolve="testSession" />
               </node>
             </node>
           </node>
@@ -3038,7 +3038,7 @@
           </node>
         </node>
         <node concept="2AHcQZ" id="2VjRkhsG1ZN" role="2AJF6D">
-          <ref role="2AI5Lk" to="wyt6:~Override" />
+          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
       </node>
       <node concept="2tJIrI" id="82DhFuTmK" role="jymVt" />
@@ -3113,7 +3113,7 @@
           </node>
         </node>
         <node concept="2AHcQZ" id="82DhFuVTs" role="2AJF6D">
-          <ref role="2AI5Lk" to="wyt6:~Override" />
+          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
       </node>
     </node>
@@ -3191,11 +3191,11 @@
               <ref role="37wK5l" to="33ny:~Map.copyOf(java.util.Map)" resolve="copyOf" />
               <ref role="1Pybhc" to="33ny:~Map" resolve="Map" />
               <node concept="37vLTw" id="4rQ9_5dOMS7" role="37wK5m">
-                <ref role="3cqZAo" node="4rQ9_5dNYZo" resolve="properties" />
+                <ref role="3cqZAo" node="4rQ9_5dNYZo" resolve="accessories" />
               </node>
             </node>
             <node concept="37vLTw" id="4rQ9_5dO0wl" role="37vLTJ">
-              <ref role="3cqZAo" node="4rQ9_5dNXl4" resolve="myPropertiesMap" />
+              <ref role="3cqZAo" node="4rQ9_5dNXl4" resolve="myAccessories" />
             </node>
           </node>
         </node>
@@ -3370,7 +3370,7 @@
               <property role="373rjd" value="true" />
               <ref role="37wK5l" node="4rQ9_5dKEPd" resolve="TestSession" />
               <node concept="37vLTw" id="4rQ9_5dOzwO" role="37wK5m">
-                <ref role="3cqZAo" node="4rQ9_5dOgny" resolve="myProperties" />
+                <ref role="3cqZAo" node="4rQ9_5dOgny" resolve="myAccessories" />
               </node>
             </node>
           </node>

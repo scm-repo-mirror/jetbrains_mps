@@ -4359,7 +4359,7 @@
               <ref role="1YBMHb" node="$q1KckWPID" resolve="myClass" />
             </node>
             <node concept="2qgKlT" id="$q1KckYVLR" role="2OqNvi">
-              <ref role="37wK5l" to="hez:$q1KckYQOy" resolve="isAbstract" />
+              <ref role="37wK5l" to="hez:$q1KckYQOy" resolve="isAbstractClass" />
             </node>
           </node>
         </node>

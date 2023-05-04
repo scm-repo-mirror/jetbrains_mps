@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.git4idea.stubs" uuid="f57286e3-4e19-4d8d-8045-3900761f6530" moduleVersion="0" compileInMPS="false">
+<solution name="jetbrains.mps.git4idea.stubs" uuid="f57286e3-4e19-4d8d-8045-3900761f6530" moduleVersion="0">
   <models>
     <modelRoot contentPath="${mps_home}/plugins/vcs-git/lib" type="java_classes">
       <sourceRoot location="git4idea-rt.jar" />

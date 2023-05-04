@@ -447,7 +447,7 @@
       <node concept="3Tm1VV" id="788DB8wuSD9" role="1B3o_S" />
       <node concept="3clFbS" id="788DB8wuSDa" role="3clF47">
         <node concept="XkiVB" id="2ZbCiJasjra" role="3cqZAp">
-          <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilter" />
+          <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilterImpl" />
           <node concept="3VsKOn" id="2ZbCiJasjJg" role="37wK5m">
             <ref role="3VsUkX" to="nww:5q426iHsmma" resolve="FunctionSignature" />
           </node>
@@ -551,7 +551,7 @@
       <node concept="3Tmbuc" id="6qs$Ohc_cHU" role="1B3o_S" />
     </node>
     <node concept="3uibUv" id="2ZbCiJask4E" role="1zkMxy">
-      <ref role="3uigEE" to="tbhz:2ZbCiJaofwM" resolve="SignatureFilter" />
+      <ref role="3uigEE" to="tbhz:2ZbCiJaofwM" resolve="SignatureFilterImpl" />
       <node concept="3uibUv" id="6qs$OhcxgcN" role="11_B2D">
         <ref role="3uigEE" to="nww:5q426iHsmma" resolve="FunctionSignature" />
       </node>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.ide.mpsdevkit.cp" uuid="3362c68c-9a29-468f-94d0-93cd46ab6ca8" moduleVersion="0" compileInMPS="true">
+<solution name="jetbrains.mps.ide.mpsdevkit.cp" uuid="3362c68c-9a29-468f-94d0-93cd46ab6ca8" moduleVersion="0">
   <models />
   <facets>
     <facet compile="ext" classes="provided" ext="no" languageLevel="JAVA_8" type="java">

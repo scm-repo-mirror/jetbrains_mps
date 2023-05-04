@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.lang.editor.figures.library" uuid="9fc6ac35-295d-4fb8-8210-ba026790e4a0" moduleVersion="0" pluginKind="PLUGIN_EDITOR" compileInMPS="true">
+<solution name="jetbrains.mps.lang.editor.figures.library" uuid="9fc6ac35-295d-4fb8-8210-ba026790e4a0" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

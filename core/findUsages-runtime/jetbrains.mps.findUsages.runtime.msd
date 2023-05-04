@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.findUsages.runtime" uuid="bfbdd672-7ff5-403f-af4f-16da5226f34c" moduleVersion="0" pluginKind="PLUGIN_CORE" compileInMPS="false">
+<solution name="jetbrains.mps.findUsages.runtime" uuid="bfbdd672-7ff5-403f-af4f-16da5226f34c" moduleVersion="0">
   <compileInIDEA />
   <models>
     <modelRoot contentPath="${module}" type="default">

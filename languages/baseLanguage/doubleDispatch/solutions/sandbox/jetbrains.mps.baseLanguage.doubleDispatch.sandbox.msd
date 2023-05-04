@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.baseLanguage.doubleDispatch.sandbox" uuid="6d6b29a7-671f-4943-8225-cfdce5ed9d39" moduleVersion="0" compileInMPS="true">
+<solution name="jetbrains.mps.baseLanguage.doubleDispatch.sandbox" uuid="6d6b29a7-671f-4943-8225-cfdce5ed9d39" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

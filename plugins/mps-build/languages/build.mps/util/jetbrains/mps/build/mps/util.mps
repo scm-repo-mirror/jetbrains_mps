@@ -24611,7 +24611,7 @@
                       <node concept="3y3z36" id="7n7AKR5IAgd" role="3uHU7w">
                         <node concept="Rm8GO" id="7n7AKR5JOp0" role="3uHU7w">
                           <ref role="Rm8GQ" to="b0pz:~JavaModuleFacet$Compile.MPS" resolve="MPS" />
-                          <ref role="1Px2BO" to="b0pz:~JavaModuleFacet$Compile" resolve="Compile" />
+                          <ref role="1Px2BO" to="b0pz:~JavaModuleFacet$Compile" resolve="JavaModuleFacet.Compile" />
                         </node>
                         <node concept="2OqwBi" id="7n7AKR5HnWl" role="3uHU7B">
                           <node concept="37vLTw" id="7n7AKR5GTBO" role="2Oq$k0">

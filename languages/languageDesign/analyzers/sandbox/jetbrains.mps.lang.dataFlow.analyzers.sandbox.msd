@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.lang.dataFlow.analyzers.sandbox" uuid="dcec1766-60d6-4245-a118-8c05dd9c559e" moduleVersion="0" compileInMPS="true">
+<solution name="jetbrains.mps.lang.dataFlow.analyzers.sandbox" uuid="dcec1766-60d6-4245-a118-8c05dd9c559e" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="jetbrains" />

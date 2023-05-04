@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.baseLanguage.unitTest.libs" uuid="83f155ff-422c-4b5a-a2f2-b459302dd215" moduleVersion="0" compileInMPS="false">
+<solution name="jetbrains.mps.baseLanguage.unitTest.libs" uuid="83f155ff-422c-4b5a-a2f2-b459302dd215" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}/lib" type="java_classes">
       <sourceRoot location="." />

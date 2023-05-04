@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.samples.fincalculator.support" uuid="298d28d7-bb2d-438a-904e-7564fab4f23d" moduleVersion="0" compileInMPS="true">
+<solution name="jetbrains.mps.samples.fincalculator.support" uuid="298d28d7-bb2d-438a-904e-7564fab4f23d" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

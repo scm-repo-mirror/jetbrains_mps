@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.baseLanguage.regexp.examples" uuid="c23bca8e-629a-4cd7-84b4-411b6024469f" moduleVersion="0" compileInMPS="true">
+<solution name="jetbrains.mps.baseLanguage.regexp.examples" uuid="c23bca8e-629a-4cd7-84b4-411b6024469f" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="jetbrains" />

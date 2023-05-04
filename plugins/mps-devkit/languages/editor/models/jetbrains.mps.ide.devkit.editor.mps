@@ -1734,7 +1734,7 @@
             <node concept="liA8E" id="1vVlZUUy2HW" role="2OqNvi">
               <ref role="37wK5l" to="vndm:~BasicAspectRootConfiguration.primary(java.util.function.Consumer)" resolve="primary" />
               <node concept="37vLTw" id="1vVlZUUy5AN" role="37wK5m">
-                <ref role="3cqZAo" node="1vVlZUUy5AI" resolve="function" />
+                <ref role="3cqZAo" node="1vVlZUUy5AI" resolve="ff" />
               </node>
             </node>
           </node>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.testHybridEditor.sandbox" uuid="e730e2fd-2636-4fcb-bcfb-57d4d51a622c" moduleVersion="0" compileInMPS="true">
+<solution name="jetbrains.mps.testHybridEditor.sandbox" uuid="e730e2fd-2636-4fcb-bcfb-57d4d51a622c" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

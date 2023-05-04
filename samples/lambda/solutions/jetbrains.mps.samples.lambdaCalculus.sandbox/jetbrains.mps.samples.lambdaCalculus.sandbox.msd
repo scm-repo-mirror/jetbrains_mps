@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.samples.lambdaCalculus.sandbox" uuid="32dea48e-1fa8-4bb1-ba27-df0bf51a7ce5" moduleVersion="0" compileInMPS="true">
+<solution name="jetbrains.mps.samples.lambdaCalculus.sandbox" uuid="32dea48e-1fa8-4bb1-ba27-df0bf51a7ce5" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

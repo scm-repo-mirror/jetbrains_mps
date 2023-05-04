@@ -407,7 +407,7 @@
         <node concept="3Tm1VV" id="2ZbCiJaAXKd" role="1B3o_S" />
         <node concept="3clFbS" id="2ZbCiJaAXKe" role="3clF47">
           <node concept="XkiVB" id="2ZbCiJaAYjX" role="3cqZAp">
-            <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilter" />
+            <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilterImpl" />
             <node concept="3VsKOn" id="1d2BQ0ZuQlp" role="37wK5m">
               <ref role="3VsUkX" to="nww:5q426iHsjrS" resolve="PropertySignature" />
             </node>
@@ -425,7 +425,7 @@
         </node>
       </node>
       <node concept="3uibUv" id="2ZbCiJaATVG" role="1zkMxy">
-        <ref role="3uigEE" to="tbhz:2ZbCiJaofwM" resolve="SignatureFilter" />
+        <ref role="3uigEE" to="tbhz:2ZbCiJaofwM" resolve="SignatureFilterImpl" />
         <node concept="3uibUv" id="6qs$Ohcx94Y" role="11_B2D">
           <ref role="3uigEE" to="nww:5q426iHsjrS" resolve="PropertySignature" />
         </node>
@@ -1018,7 +1018,7 @@
               <node concept="2ShNRf" id="2ZbCiJaB$z3" role="37wK5m">
                 <node concept="1pGfFk" id="2ZbCiJaB_76" role="2ShVmc">
                   <property role="373rjd" value="true" />
-                  <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilter" />
+                  <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilterImpl" />
                   <node concept="3VsKOn" id="1d2BQ0Zvi2Z" role="37wK5m">
                     <ref role="3VsUkX" to="nww:5q426iHsmma" resolve="FunctionSignature" />
                   </node>

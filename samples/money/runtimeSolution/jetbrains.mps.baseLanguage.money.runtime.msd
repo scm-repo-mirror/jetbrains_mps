@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.baseLanguage.money.runtime" uuid="4df1d09b-d6ae-453e-8622-14c0d6e4c038" moduleVersion="0" compileInMPS="true">
+<solution name="jetbrains.mps.baseLanguage.money.runtime" uuid="4df1d09b-d6ae-453e-8622-14c0d6e4c038" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="jetbrains" />

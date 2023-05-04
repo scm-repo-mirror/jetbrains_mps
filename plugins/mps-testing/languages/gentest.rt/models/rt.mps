@@ -4815,7 +4815,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="82DhFtfqR" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
       <node concept="3uibUv" id="82DhFufJT" role="3clF45">
         <ref role="3uigEE" to="33ny:~List" resolve="List" />
@@ -4913,7 +4913,7 @@
     </node>
     <node concept="QsSxf" id="1MtN3Opm8hT" role="Qtgdg">
       <property role="TrG5h" value="GeneratorTest" />
-      <ref role="37wK5l" node="1KnTQt4Oiuk" resolve="TestNodeWrapperFactory" />
+      <ref role="37wK5l" node="1KnTQt4Oiuk" resolve="GeneratorTestDiscoveryParticipants" />
       <node concept="35c_gC" id="1MtN3OpmpPV" role="37wK5m">
         <ref role="35c_gD" to="lur:uLQNrGW9aY" resolve="GeneratorTest" />
       </node>
@@ -5384,7 +5384,7 @@
     <node concept="2tJIrI" id="VKgNXrc7xK" role="jymVt" />
     <node concept="3Tm1VV" id="VKgNXr8gSk" role="1B3o_S" />
     <node concept="3uibUv" id="VKgNXr8hYi" role="EKbjA">
-      <ref role="3uigEE" to="ze1i:~ModuleRuntime$Activator" resolve="Activator" />
+      <ref role="3uigEE" to="ze1i:~ModuleRuntime$Activator" resolve="ModuleRuntime.Activator" />
     </node>
     <node concept="3clFb_" id="VKgNXr8hZn" role="jymVt">
       <property role="TrG5h" value="activate" />

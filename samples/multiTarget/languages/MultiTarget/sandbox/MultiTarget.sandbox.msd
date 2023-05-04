@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="MultiTarget.sandbox" uuid="fcc8ab43-31d7-4e7b-894f-ee2fc69956c7" moduleVersion="0" compileInMPS="true">
+<solution name="MultiTarget.sandbox" uuid="fcc8ab43-31d7-4e7b-894f-ee2fc69956c7" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

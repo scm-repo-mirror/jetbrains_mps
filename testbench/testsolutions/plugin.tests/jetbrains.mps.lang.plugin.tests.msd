@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.lang.plugin.tests" uuid="8dc46c52-5402-4971-bfcd-5a34efb20528" moduleVersion="0" pluginKind="PLUGIN_OTHER" compileInMPS="true">
+<solution name="jetbrains.mps.lang.plugin.tests" uuid="8dc46c52-5402-4971-bfcd-5a34efb20528" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

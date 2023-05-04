@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.samples.LightweightDSL.plugin" uuid="14676325-ef8e-4fcf-b902-937f5612d1ba" moduleVersion="0" pluginKind="PLUGIN_OTHER" compileInMPS="true">
+<solution name="jetbrains.mps.samples.LightweightDSL.plugin" uuid="14676325-ef8e-4fcf-b902-937f5612d1ba" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="Plan" uuid="4975ea05-6f1c-407a-97b4-076c431f3795" moduleVersion="0" compileInMPS="true">
+<solution name="Plan" uuid="4975ea05-6f1c-407a-97b4-076c431f3795" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

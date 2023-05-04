@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.kotlin.smodel.runtime" uuid="d23a40f1-3b52-44c2-822a-4d3bb398ef15" moduleVersion="0" compileInMPS="true">
+<solution name="jetbrains.mps.kotlin.smodel.runtime" uuid="d23a40f1-3b52-44c2-822a-4d3bb398ef15" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

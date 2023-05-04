@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.lang.constraints.rules.runtime" uuid="8e98f4e2-decf-4e97-bf80-9109e8b759ee" moduleVersion="0" compileInMPS="false">
+<solution name="jetbrains.mps.lang.constraints.rules.runtime" uuid="8e98f4e2-decf-4e97-bf80-9109e8b759ee" moduleVersion="0">
   <compileInIDEA />
   <models>
     <modelRoot type="java_classes">

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="testSubstituteType" uuid="f4227833-0d14-4ab5-8560-70880fd9d5ef" moduleVersion="0" pluginKind="PLUGIN_OTHER" compileInMPS="true">
+<solution name="testSubstituteType" uuid="f4227833-0d14-4ab5-8560-70880fd9d5ef" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

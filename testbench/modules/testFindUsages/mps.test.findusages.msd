@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="mps.test.findusages" uuid="9ebe73c6-437b-4a56-95a7-1d7eec081f24" moduleVersion="0" compileInMPS="true">
+<solution name="mps.test.findusages" uuid="9ebe73c6-437b-4a56-95a7-1d7eec081f24" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

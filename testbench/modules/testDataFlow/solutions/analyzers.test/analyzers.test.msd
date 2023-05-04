@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="analyzers.test" uuid="f9665e4e-baa4-42c6-b97d-c49dfa9f7381" moduleVersion="0" pluginKind="PLUGIN_OTHER" compileInMPS="true">
+<solution name="analyzers.test" uuid="f9665e4e-baa4-42c6-b97d-c49dfa9f7381" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

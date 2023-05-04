@@ -506,7 +506,7 @@
     <node concept="2tJIrI" id="VKgNXrc7xK" role="jymVt" />
     <node concept="3Tm1VV" id="VKgNXr8gSk" role="1B3o_S" />
     <node concept="3uibUv" id="VKgNXr8hYi" role="EKbjA">
-      <ref role="3uigEE" to="ze1i:~ModuleRuntime$Activator" resolve="Activator" />
+      <ref role="3uigEE" to="ze1i:~ModuleRuntime$Activator" resolve="ModuleRuntime.Activator" />
     </node>
     <node concept="3clFb_" id="VKgNXr8hZn" role="jymVt">
       <property role="TrG5h" value="activate" />
@@ -642,7 +642,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="82DhFsNvP" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
       <node concept="3uibUv" id="82DhFufJT" role="3clF45">
         <ref role="3uigEE" to="33ny:~List" resolve="List" />
@@ -741,7 +741,7 @@
     </node>
     <node concept="QsSxf" id="1KnTQt4Oiql" role="Qtgdg">
       <property role="TrG5h" value="JUnit3TestCase" />
-      <ref role="37wK5l" node="1KnTQt4Oiuk" resolve="TestNodeWrapperFactory" />
+      <ref role="37wK5l" node="1KnTQt4Oiuk" resolve="JUnitTestDiscoveryParticipants" />
       <node concept="35c_gC" id="7bi2vNWgKwm" role="37wK5m">
         <ref role="35c_gD" to="tpee:fz12cDA" resolve="ClassConcept" />
       </node>
@@ -1220,7 +1220,7 @@
     </node>
     <node concept="QsSxf" id="1KnTQt4OirP" role="Qtgdg">
       <property role="TrG5h" value="JUnit3Methods" />
-      <ref role="37wK5l" node="1KnTQt4Oiuk" resolve="TestNodeWrapperFactory" />
+      <ref role="37wK5l" node="1KnTQt4Oiuk" resolve="JUnitTestDiscoveryParticipants" />
       <node concept="35c_gC" id="7bi2vNWgKVf" role="37wK5m">
         <ref role="35c_gD" to="tpee:fzclF8t" resolve="InstanceMethodDeclaration" />
       </node>
@@ -1323,7 +1323,7 @@
                   <node concept="2OqwBi" id="4chG8iHW1zB" role="37vLTx">
                     <node concept="2OqwBi" id="4chG8iHW1zC" role="2Oq$k0">
                       <node concept="Rm8GO" id="4chG8iHWbS3" role="2Oq$k0">
-                        <ref role="Rm8GQ" node="1KnTQt4Oiql" resolve="JUnit3TestCaseNodeWrapperFactory" />
+                        <ref role="Rm8GQ" node="1KnTQt4Oiql" resolve="JUnit3TestCase" />
                         <ref role="1Px2BO" node="82DhF8Eqc" resolve="JUnitTestDiscoveryParticipants" />
                       </node>
                       <node concept="liA8E" id="4chG8iHW1zE" role="2OqNvi">
@@ -1394,7 +1394,7 @@
     </node>
     <node concept="QsSxf" id="1KnTQt4Oisv" role="Qtgdg">
       <property role="TrG5h" value="JUnit4Test" />
-      <ref role="37wK5l" node="1KnTQt4Oiuk" resolve="TestNodeWrapperFactory" />
+      <ref role="37wK5l" node="1KnTQt4Oiuk" resolve="JUnitTestDiscoveryParticipants" />
       <node concept="35c_gC" id="7bi2vNWgLia" role="37wK5m">
         <ref role="35c_gD" to="tpee:fz12cDA" resolve="ClassConcept" />
       </node>
@@ -1750,7 +1750,7 @@
     </node>
     <node concept="QsSxf" id="1KnTQt4Oitc" role="Qtgdg">
       <property role="TrG5h" value="JUnit4Methods" />
-      <ref role="37wK5l" node="1KnTQt4Oiuk" resolve="TestNodeWrapperFactory" />
+      <ref role="37wK5l" node="1KnTQt4Oiuk" resolve="JUnitTestDiscoveryParticipants" />
       <node concept="35c_gC" id="7bi2vNWgLtB" role="37wK5m">
         <ref role="35c_gD" to="tpee:fzclF8t" resolve="InstanceMethodDeclaration" />
       </node>
@@ -1855,7 +1855,7 @@
                       <node concept="2OqwBi" id="4chG8iHYMW4" role="37vLTx">
                         <node concept="2OqwBi" id="4chG8iHYMW5" role="2Oq$k0">
                           <node concept="Rm8GO" id="4chG8iHYVOU" role="2Oq$k0">
-                            <ref role="Rm8GQ" node="1KnTQt4Oisv" resolve="JUnit4TestNodeWrapperFactory" />
+                            <ref role="Rm8GQ" node="1KnTQt4Oisv" resolve="JUnit4Test" />
                             <ref role="1Px2BO" node="82DhF8Eqc" resolve="JUnitTestDiscoveryParticipants" />
                           </node>
                           <node concept="liA8E" id="4chG8iHYMW7" role="2OqNvi">
@@ -1946,7 +1946,7 @@
     </node>
     <node concept="QsSxf" id="7o1qpmkrf0Y" role="Qtgdg">
       <property role="TrG5h" value="JUnit5Test" />
-      <ref role="37wK5l" node="1KnTQt4Oiuk" resolve="TestNodeWrapperFactory" />
+      <ref role="37wK5l" node="1KnTQt4Oiuk" resolve="JUnitTestDiscoveryParticipants" />
       <node concept="35c_gC" id="7o1qpmkrf0Z" role="37wK5m">
         <ref role="35c_gD" to="tpee:fz12cDA" resolve="ClassConcept" />
       </node>
@@ -2302,7 +2302,7 @@
     </node>
     <node concept="QsSxf" id="7o1qpmkreZg" role="Qtgdg">
       <property role="TrG5h" value="JUnit5Methods" />
-      <ref role="37wK5l" node="1KnTQt4Oiuk" resolve="TestNodeWrapperFactory" />
+      <ref role="37wK5l" node="1KnTQt4Oiuk" resolve="JUnitTestDiscoveryParticipants" />
       <node concept="35c_gC" id="7o1qpmkreZh" role="37wK5m">
         <ref role="35c_gD" to="tpee:fzclF8t" resolve="InstanceMethodDeclaration" />
       </node>
@@ -2407,7 +2407,7 @@
                       <node concept="2OqwBi" id="4chG8iHZH1r" role="37vLTx">
                         <node concept="2OqwBi" id="4chG8iHZH1s" role="2Oq$k0">
                           <node concept="Rm8GO" id="4chG8iHZPp5" role="2Oq$k0">
-                            <ref role="Rm8GQ" node="7o1qpmkrf0Y" resolve="JUnit5TestNodeWrapperFactory" />
+                            <ref role="Rm8GQ" node="7o1qpmkrf0Y" resolve="JUnit5Test" />
                             <ref role="1Px2BO" node="82DhF8Eqc" resolve="JUnitTestDiscoveryParticipants" />
                           </node>
                           <node concept="liA8E" id="4chG8iHZH1u" role="2OqNvi">

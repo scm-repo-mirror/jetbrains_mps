@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.samples.propertyPersistenceDef" uuid="453c2096-9965-4ff2-82d1-32da63f0871d" moduleVersion="0" compileInMPS="true">
+<solution name="jetbrains.mps.samples.propertyPersistenceDef" uuid="453c2096-9965-4ff2-82d1-32da63f0871d" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

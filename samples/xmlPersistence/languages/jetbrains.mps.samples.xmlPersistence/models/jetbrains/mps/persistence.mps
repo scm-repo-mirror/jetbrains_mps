@@ -1327,11 +1327,11 @@
                     <node concept="3cpWsn" id="3sPzdxadT7i" role="3cpWs9">
                       <property role="TrG5h" value="invalidModel" />
                       <node concept="3uibUv" id="3sPzdxaehAe" role="1tU5fm">
-                        <ref role="3uigEE" to="w1kc:~DefaultSModel$InvalidDefaultSModel" resolve="InvalidDefaultSModel" />
+                        <ref role="3uigEE" to="w1kc:~DefaultSModel$InvalidDefaultSModel" resolve="DefaultSModel.InvalidDefaultSModel" />
                       </node>
                       <node concept="2ShNRf" id="3sPzdxadT7j" role="33vP2m">
                         <node concept="1pGfFk" id="3sPzdxaeMgf" role="2ShVmc">
-                          <ref role="37wK5l" to="w1kc:~DefaultSModel$InvalidDefaultSModel.&lt;init&gt;(org.jetbrains.mps.openapi.model.SModelReference,jetbrains.mps.smodel.persistence.def.ModelReadException)" resolve="InvalidDefaultSModel" />
+                          <ref role="37wK5l" to="w1kc:~DefaultSModel$InvalidDefaultSModel.&lt;init&gt;(org.jetbrains.mps.openapi.model.SModelReference,jetbrains.mps.smodel.persistence.def.ModelReadException)" resolve="DefaultSModel.InvalidDefaultSModel" />
                           <node concept="2OqwBi" id="3sPzdxael6g" role="37wK5m">
                             <node concept="Xjq3P" id="3sPzdxaej1q" role="2Oq$k0" />
                             <node concept="liA8E" id="3sPzdxaemQc" role="2OqNvi">

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="SampleCustomAspect.build" uuid="f3d96f26-a00e-419b-9678-dc8ed71e3810" moduleVersion="0" compileInMPS="true">
+<solution name="SampleCustomAspect.build" uuid="f3d96f26-a00e-419b-9678-dc8ed71e3810" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

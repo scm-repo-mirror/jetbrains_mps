@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="tooltips.example.sandbox" uuid="96cf8022-ec02-4cd6-83ac-12b403ab4441" moduleVersion="0" compileInMPS="true">
+<solution name="tooltips.example.sandbox" uuid="96cf8022-ec02-4cd6-83ac-12b403ab4441" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

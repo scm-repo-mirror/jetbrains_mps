@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="org.junit.junit5" uuid="63b449db-0918-4a4a-a891-2c430ab133e4" moduleVersion="0" compileInMPS="true">
+<solution name="org.junit.junit5" uuid="63b449db-0918-4a4a-a891-2c430ab133e4" moduleVersion="0">
   <models>
     <modelRoot type="java_classes" contentPath="${mps_home}/plugins/mps-testing/languages/junit5/lib">
       <sourceRoot location="." />

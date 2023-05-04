@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="sampleFacet.sandbox" uuid="23dc186b-3ee0-4692-aab5-fb43835f07df" moduleVersion="0" compileInMPS="true">
+<solution name="sampleFacet.sandbox" uuid="23dc186b-3ee0-4692-aab5-fb43835f07df" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="testmaterial.moveConcept.InstanceSolution" uuid="8d635824-b34e-4ee8-b0c4-c9308969a2a0" moduleVersion="0" compileInMPS="true">
+<solution name="testmaterial.moveConcept.InstanceSolution" uuid="8d635824-b34e-4ee8-b0c4-c9308969a2a0" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

@@ -2152,8 +2152,8 @@
                 <node concept="1Y3b0j" id="3HHsmlM7ezR" role="YeSDq">
                   <property role="2bfB8j" value="true" />
                   <property role="373rjd" value="true" />
-                  <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilter" />
-                  <ref role="1Y3XeK" to="tbhz:2ZbCiJaofwM" resolve="SignatureFilter" />
+                  <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilterImpl" />
+                  <ref role="1Y3XeK" to="tbhz:2ZbCiJaofwM" resolve="SignatureFilterImpl" />
                   <node concept="3Tm1VV" id="3HHsmlM7ezS" role="1B3o_S" />
                   <node concept="3VsKOn" id="3HHsmlM7ezT" role="37wK5m">
                     <ref role="3VsUkX" to="nww:5q426iHsmma" resolve="FunctionSignature" />
@@ -18865,8 +18865,8 @@
                 <node concept="1Y3b0j" id="3PNJzGu$tMG" role="YeSDq">
                   <property role="2bfB8j" value="true" />
                   <property role="373rjd" value="true" />
-                  <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilter" />
-                  <ref role="1Y3XeK" to="tbhz:2ZbCiJaofwM" resolve="SignatureFilter" />
+                  <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilterImpl" />
+                  <ref role="1Y3XeK" to="tbhz:2ZbCiJaofwM" resolve="SignatureFilterImpl" />
                   <node concept="3Tm1VV" id="3PNJzGu$tMH" role="1B3o_S" />
                   <node concept="3uibUv" id="3PNJzGu$t_Q" role="2Ghqu4">
                     <ref role="3uigEE" to="nww:5q426iHsmma" resolve="FunctionSignature" />
@@ -22250,7 +22250,7 @@
                 <node concept="2ShNRf" id="1TQsu41S4yG" role="37wK5m">
                   <node concept="1pGfFk" id="1TQsu41S4yH" role="2ShVmc">
                     <property role="373rjd" value="true" />
-                    <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilter" />
+                    <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilterImpl" />
                     <node concept="3VsKOn" id="1TQsu41S4yI" role="37wK5m">
                       <ref role="3VsUkX" to="nww:5q426iHsmma" resolve="FunctionSignature" />
                     </node>
@@ -22842,8 +22842,8 @@
                 <node concept="1Y3b0j" id="6yo46g2MNea" role="YeSDq">
                   <property role="2bfB8j" value="true" />
                   <property role="373rjd" value="true" />
-                  <ref role="1Y3XeK" to="tbhz:2ZbCiJaofwM" resolve="SignatureFilter" />
-                  <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilter" />
+                  <ref role="1Y3XeK" to="tbhz:2ZbCiJaofwM" resolve="SignatureFilterImpl" />
+                  <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilterImpl" />
                   <node concept="3VsKOn" id="6yo46g2MNeb" role="37wK5m">
                     <ref role="3VsUkX" to="nww:5q426iHsmma" resolve="FunctionSignature" />
                   </node>
@@ -22869,7 +22869,7 @@
                     <node concept="3Tm1VV" id="5Zd$6D$_Rav" role="1B3o_S" />
                     <node concept="10P_77" id="5Zd$6D$_Raw" role="3clF45" />
                     <node concept="2AHcQZ" id="5Zd$6D$_Ra_" role="2AJF6D">
-                      <ref role="2AI5Lk" to="mhfm:~ApiStatus$Experimental" resolve="Experimental" />
+                      <ref role="2AI5Lk" to="mhfm:~ApiStatus$Experimental" resolve="ApiStatus.Experimental" />
                     </node>
                     <node concept="3clFbS" id="5Zd$6D$_Rfj" role="3clF47">
                       <node concept="3cpWs6" id="6yo46g2MUya" role="3cqZAp">
@@ -22894,7 +22894,7 @@
                       </node>
                     </node>
                     <node concept="2AHcQZ" id="5Zd$6D$_Rfk" role="2AJF6D">
-                      <ref role="2AI5Lk" to="wyt6:~Override" />
+                      <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
                     </node>
                   </node>
                 </node>
@@ -23259,7 +23259,7 @@
                               <node concept="3fqX7Q" id="6yo46g3HP4C" role="3clFbG">
                                 <node concept="2OqwBi" id="6yo46g3HP4D" role="3fr31v">
                                   <node concept="37vLTw" id="6yo46g3HP4E" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="6yo46g3HP4H" resolve="it" />
+                                    <ref role="3cqZAo" node="6yo46g3HP4H" resolve="klass" />
                                   </node>
                                   <node concept="2qgKlT" id="6yo46g3HP4F" role="2OqNvi">
                                     <ref role="37wK5l" node="2NtWm0y2Y2A" resolve="hasModifier" />
@@ -23284,7 +23284,7 @@
                           <node concept="3clFbF" id="6yo46g3HP4M" role="3cqZAp">
                             <node concept="2OqwBi" id="6yo46g3HP4N" role="3clFbG">
                               <node concept="37vLTw" id="6yo46g3HP4O" role="2Oq$k0">
-                                <ref role="3cqZAo" node="6yo46g3HP4Q" resolve="it" />
+                                <ref role="3cqZAo" node="6yo46g3HP4Q" resolve="klass" />
                               </node>
                               <node concept="2qgKlT" id="6yo46g3HP4P" role="2OqNvi">
                                 <ref role="37wK5l" node="2NtWm0y9fFa" resolve="getConstructors" />
@@ -23307,7 +23307,7 @@
                             <ref role="37wK5l" to="sjya:4oNDtEQIK4G" resolve="visibleTo" />
                             <ref role="1Pybhc" to="sjya:4oNDtEQIK2x" resolve="TopLevelVisibility" />
                             <node concept="37vLTw" id="4KPNZIZOBdN" role="37wK5m">
-                              <ref role="3cqZAo" node="4KPNZIZOGEg" resolve="it" />
+                              <ref role="3cqZAo" node="4KPNZIZOGEg" resolve="cons" />
                             </node>
                             <node concept="37vLTw" id="4KPNZIZOCd_" role="37wK5m">
                               <ref role="3cqZAo" node="4KPNZIZLerb" resolve="contextNode" />
@@ -32037,7 +32037,7 @@
     </node>
     <node concept="13i0hz" id="5sK72SOpaNZ" role="13h7CS">
       <property role="TrG5h" value="isAbstract" />
-      <ref role="13i0hy" node="$q1KckYQOy" resolve="isAbstract" />
+      <ref role="13i0hy" node="$q1KckYQOy" resolve="isAbstractClass" />
       <node concept="3Tm1VV" id="5sK72SOpaO0" role="1B3o_S" />
       <node concept="3clFbS" id="5sK72SOpaO3" role="3clF47">
         <node concept="3clFbF" id="5sK72SOpaU4" role="3cqZAp">
@@ -33185,7 +33185,7 @@
               <node concept="2ShNRf" id="ccTy7$gvqM" role="37wK5m">
                 <node concept="1pGfFk" id="ccTy7$hGF0" role="2ShVmc">
                   <property role="373rjd" value="true" />
-                  <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilter" />
+                  <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilterImpl" />
                   <node concept="3VsKOn" id="ccTy7$gvqQ" role="37wK5m">
                     <ref role="3VsUkX" to="nww:5q426iHsmma" resolve="FunctionSignature" />
                   </node>
@@ -35835,7 +35835,7 @@
     <property role="TrG5h" value="ComponentSignatureFilter" />
     <node concept="3Tm1VV" id="ccTy7$g3kM" role="1B3o_S" />
     <node concept="3uibUv" id="ccTy7$g3vF" role="1zkMxy">
-      <ref role="3uigEE" to="tbhz:2ZbCiJaofwM" resolve="SignatureFilter" />
+      <ref role="3uigEE" to="tbhz:2ZbCiJaofwM" resolve="SignatureFilterImpl" />
       <node concept="3uibUv" id="ccTy7$g5tH" role="11_B2D">
         <ref role="3uigEE" to="nww:5q426iHsmma" resolve="FunctionSignature" />
       </node>
@@ -35845,7 +35845,7 @@
       <node concept="3Tm1VV" id="ccTy7$g3yK" role="1B3o_S" />
       <node concept="3clFbS" id="ccTy7$g3yR" role="3clF47">
         <node concept="XkiVB" id="ccTy7$g4sQ" role="3cqZAp">
-          <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilter" />
+          <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilterImpl" />
           <node concept="3VsKOn" id="ccTy7$g3YU" role="37wK5m">
             <ref role="3VsUkX" to="nww:5q426iHsmma" resolve="FunctionSignature" />
           </node>
@@ -35981,7 +35981,7 @@
     <property role="TrG5h" value="InfixSignatureFilter" />
     <node concept="3Tm1VV" id="rbYB7QRe3d" role="1B3o_S" />
     <node concept="3uibUv" id="rbYB7QReh$" role="1zkMxy">
-      <ref role="3uigEE" to="tbhz:2ZbCiJaofwM" resolve="SignatureFilter" />
+      <ref role="3uigEE" to="tbhz:2ZbCiJaofwM" resolve="SignatureFilterImpl" />
       <node concept="3uibUv" id="6qs$Ohcxfk4" role="11_B2D">
         <ref role="3uigEE" to="nww:5q426iHsmma" resolve="FunctionSignature" />
       </node>
@@ -35991,7 +35991,7 @@
       <node concept="3Tm1VV" id="rbYB7QRep5" role="1B3o_S" />
       <node concept="3clFbS" id="rbYB7QRepb" role="3clF47">
         <node concept="XkiVB" id="rbYB7QRepc" role="3cqZAp">
-          <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilter" />
+          <ref role="37wK5l" to="tbhz:2ZbCiJaoirw" resolve="SignatureFilterImpl" />
           <node concept="3VsKOn" id="rbYB7QRfus" role="37wK5m">
             <ref role="3VsUkX" to="nww:5q426iHsmma" resolve="FunctionSignature" />
           </node>

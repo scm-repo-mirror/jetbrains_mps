@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.traceInfo.tracemacro.sandbox" uuid="721ee040-6a64-417f-b067-15e72b43ce64" moduleVersion="0" compileInMPS="true">
+<solution name="jetbrains.mps.traceInfo.tracemacro.sandbox" uuid="721ee040-6a64-417f-b067-15e72b43ce64" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

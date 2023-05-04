@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.transformation.test.incremental" uuid="7084cc23-3207-4211-af9f-717ab0917945" moduleVersion="0" compileInMPS="true">
+<solution name="jetbrains.mps.transformation.test.incremental" uuid="7084cc23-3207-4211-af9f-717ab0917945" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

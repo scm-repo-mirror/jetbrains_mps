@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.samples.customAspect.documentation.pluginSolution" uuid="3fc14276-ff75-4463-b4c4-05d9bc114fcd" moduleVersion="0" pluginKind="PLUGIN_OTHER" compileInMPS="true">
+<solution name="jetbrains.mps.samples.customAspect.documentation.pluginSolution" uuid="3fc14276-ff75-4463-b4c4-05d9bc114fcd" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

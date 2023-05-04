@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.samples.xmlPersistence.ideaPlugin" uuid="c5acfe9f-68f7-4748-bd01-8f9f42e607b7" moduleVersion="0" compileInMPS="true">
+<solution name="jetbrains.mps.samples.xmlPersistence.ideaPlugin" uuid="c5acfe9f-68f7-4748-bd01-8f9f42e607b7" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

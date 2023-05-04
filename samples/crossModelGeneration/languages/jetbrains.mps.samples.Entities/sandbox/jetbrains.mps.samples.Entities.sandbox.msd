@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.samples.Entities.sandbox" uuid="06a1348c-6b6d-48be-a2be-12ddf682b114" moduleVersion="0" compileInMPS="true">
+<solution name="jetbrains.mps.samples.Entities.sandbox" uuid="06a1348c-6b6d-48be-a2be-12ddf682b114" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

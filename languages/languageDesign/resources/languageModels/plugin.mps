@@ -522,7 +522,7 @@
                                 <node concept="2OqwBi" id="34FuM8wt4N5" role="2Oq$k0">
                                   <node concept="2OqwBi" id="34FuM8wsU5B" role="2Oq$k0">
                                     <node concept="37vLTw" id="34FuM8wtjZH" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="34FuM8wtjZv" resolve="map" />
+                                      <ref role="3cqZAo" node="34FuM8wtjZv" resolve="possibleLocations" />
                                     </node>
                                     <node concept="liA8E" id="34FuM8wsZRu" role="2OqNvi">
                                       <ref role="37wK5l" to="1ctc:~Stream.filter(java.util.function.Predicate)" resolve="filter" />

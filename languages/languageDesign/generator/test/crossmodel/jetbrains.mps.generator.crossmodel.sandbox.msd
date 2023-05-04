@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.generator.crossmodel.sandbox" uuid="381c65cf-580d-4518-a354-e370843af551" moduleVersion="0" compileInMPS="true">
+<solution name="jetbrains.mps.generator.crossmodel.sandbox" uuid="381c65cf-580d-4518-a354-e370843af551" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

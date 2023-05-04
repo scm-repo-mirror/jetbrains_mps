@@ -4803,7 +4803,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="4rQ9_5djJxx" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="4rQ9_5djO2b" role="jymVt" />
@@ -5827,7 +5827,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="4rQ9_5dk9GU" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="4rQ9_5dkisV" role="jymVt" />
@@ -9628,7 +9628,7 @@
           <node concept="3cpWsn" id="2BBIwJJu0hK" role="3cpWs9">
             <property role="TrG5h" value="builder" />
             <node concept="3uibUv" id="2BBIwJJtYqr" role="1tU5fm">
-              <ref role="3uigEE" to="z4cc:~LauncherConfig$Builder" resolve="Builder" />
+              <ref role="3uigEE" to="z4cc:~LauncherConfig$Builder" resolve="LauncherConfig.Builder" />
             </node>
             <node concept="2OqwBi" id="2BBIwJJu0hM" role="33vP2m">
               <property role="hSjvv" value="true" />
@@ -9682,7 +9682,7 @@
             </node>
             <node concept="2OqwBi" id="HwplGM7nev" role="33vP2m">
               <node concept="37vLTw" id="2BBIwJJu0i7" role="2Oq$k0">
-                <ref role="3cqZAo" node="2BBIwJJu0hK" resolve="addTestEngines" />
+                <ref role="3cqZAo" node="2BBIwJJu0hK" resolve="builder" />
               </node>
               <node concept="liA8E" id="HwplGM7nex" role="2OqNvi">
                 <ref role="37wK5l" to="z4cc:~LauncherConfig$Builder.build()" resolve="build" />
@@ -10936,7 +10936,7 @@
           <node concept="3cpWsn" id="4rQ9_5cUrM5" role="3cpWs9">
             <property role="TrG5h" value="builder" />
             <node concept="3uibUv" id="4rQ9_5cUrM6" role="1tU5fm">
-              <ref role="3uigEE" to="z4cc:~LauncherConfig$Builder" resolve="Builder" />
+              <ref role="3uigEE" to="z4cc:~LauncherConfig$Builder" resolve="LauncherConfig.Builder" />
             </node>
             <node concept="2OqwBi" id="4rQ9_5cUrM7" role="33vP2m">
               <property role="hSjvv" value="true" />

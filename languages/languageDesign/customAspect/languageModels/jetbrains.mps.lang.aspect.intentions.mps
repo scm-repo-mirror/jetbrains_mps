@@ -291,7 +291,7 @@
                     <node concept="liA8E" id="1vVlZUU$otJ" role="2OqNvi">
                       <ref role="37wK5l" to="lui2:~SModuleReference.resolve(org.jetbrains.mps.openapi.module.SRepository)" resolve="resolve" />
                       <node concept="37vLTw" id="1vVlZUU$KDX" role="37wK5m">
-                        <ref role="3cqZAo" node="1vVlZUU$KDT" resolve="repository" />
+                        <ref role="3cqZAo" node="1vVlZUU$KDT" resolve="repo" />
                       </node>
                     </node>
                   </node>

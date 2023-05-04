@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.lang.feedback.problem.structure" uuid="a098f3e2-deaa-4e97-bf80-9109efff59dd" moduleVersion="0" compileInMPS="false">
+<solution name="jetbrains.mps.lang.feedback.problem.structure" uuid="a098f3e2-deaa-4e97-bf80-9109efff59dd" moduleVersion="0">
   <compileInIDEA />
   <models>
     <modelRoot contentPath="${mps_home}/lib" type="java_classes">

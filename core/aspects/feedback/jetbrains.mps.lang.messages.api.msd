@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.lang.messages.api" uuid="9abaaae2-decf-4e97-bf80-9109e8b759cc" moduleVersion="0" compileInMPS="false">
+<solution name="jetbrains.mps.lang.messages.api" uuid="9abaaae2-decf-4e97-bf80-9109e8b759cc" moduleVersion="0">
   <compileInIDEA />
   <models>
     <modelRoot contentPath="${mps_home}/lib" type="java_classes">

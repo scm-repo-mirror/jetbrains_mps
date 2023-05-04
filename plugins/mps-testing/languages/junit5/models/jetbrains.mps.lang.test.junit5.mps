@@ -2138,7 +2138,7 @@
           <node concept="3cpWsn" id="2BBIwJJrGU9" role="3cpWs9">
             <property role="TrG5h" value="builder" />
             <node concept="3uibUv" id="2BBIwJJrFVa" role="1tU5fm">
-              <ref role="3uigEE" to="z4cc:~LauncherConfig$Builder" resolve="Builder" />
+              <ref role="3uigEE" to="z4cc:~LauncherConfig$Builder" resolve="LauncherConfig.Builder" />
             </node>
             <node concept="2OqwBi" id="2BBIwJJrGUb" role="33vP2m">
               <property role="hSjvv" value="true" />
@@ -2954,7 +2954,7 @@
                                   </node>
                                   <node concept="2OqwBi" id="5pvGTa8p_wG" role="33vP2m">
                                     <node concept="37vLTw" id="5pvGTa8pEZx" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="5pvGTa8pEZq" resolve="classLoader" />
+                                      <ref role="3cqZAo" node="5pvGTa8pEZq" resolve="mcl" />
                                     </node>
                                     <node concept="liA8E" id="5pvGTa8p_wN" role="2OqNvi">
                                       <ref role="37wK5l" to="wyt6:~ClassLoader.loadClass(java.lang.String)" resolve="loadClass" />
@@ -2970,7 +2970,7 @@
                                 <node concept="3clFbS" id="5pvGTa8pByf" role="3clFbx">
                                   <node concept="3cpWs6" id="5pvGTa8pDPX" role="3cqZAp">
                                     <node concept="37vLTw" id="5pvGTa8pFDp" role="3cqZAk">
-                                      <ref role="3cqZAo" node="5pvGTa8pEZq" resolve="classLoader" />
+                                      <ref role="3cqZAo" node="5pvGTa8pEZq" resolve="mcl" />
                                     </node>
                                   </node>
                                 </node>

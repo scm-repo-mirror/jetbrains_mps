@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="CloneModule.test" uuid="99305b9b-aa2f-490a-a517-130cdd46b087" moduleVersion="0" compileInMPS="true">
+<solution name="CloneModule.test" uuid="99305b9b-aa2f-490a-a517-130cdd46b087" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

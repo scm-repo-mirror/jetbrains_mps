@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.kotlin.stubs" uuid="6944825c-ddc2-4099-8cc7-5e6dbbf7f0be" moduleVersion="0" pluginKind="PLUGIN_CORE" compileInMPS="false">
+<solution name="jetbrains.mps.kotlin.stubs" uuid="6944825c-ddc2-4099-8cc7-5e6dbbf7f0be" moduleVersion="0">
   <compileInIDEA />
   <models>
     <modelRoot contentPath="${module}" type="default">

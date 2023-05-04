@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="closures.sandbox" uuid="5e0a5bb4-5765-4a7f-b9ee-615f63ada8a1" moduleVersion="0" compileInMPS="true">
+<solution name="closures.sandbox" uuid="5e0a5bb4-5765-4a7f-b9ee-615f63ada8a1" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="." />

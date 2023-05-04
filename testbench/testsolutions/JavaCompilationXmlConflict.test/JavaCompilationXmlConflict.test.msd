@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="JavaCompilationXmlConflict.test" uuid="b0a89157-db40-4955-b2ac-edf8fcc90dde" moduleVersion="0" compileInMPS="true">
+<solution name="JavaCompilationXmlConflict.test" uuid="b0a89157-db40-4955-b2ac-edf8fcc90dde" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

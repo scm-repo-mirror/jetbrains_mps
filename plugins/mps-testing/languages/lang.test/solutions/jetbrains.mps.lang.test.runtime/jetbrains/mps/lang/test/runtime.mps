@@ -17356,7 +17356,7 @@
                   <ref role="3VsUkX" node="4rQ9_5dASsj" resolve="ProjectTestHelper" />
                 </node>
                 <node concept="37vLTw" id="4rQ9_5dAZW0" role="37wK5m">
-                  <ref role="3cqZAo" node="4rQ9_5dAYMQ" resolve="projecPath" />
+                  <ref role="3cqZAo" node="4rQ9_5dAYMQ" resolve="projectPath" />
                 </node>
                 <node concept="37vLTw" id="4rQ9_5dB0In" role="37wK5m">
                   <ref role="3cqZAo" node="4rQ9_5dAZdU" resolve="modelRef" />
@@ -17515,7 +17515,7 @@
             <node concept="liA8E" id="VKgNXrf3Uu" role="2OqNvi">
               <ref role="37wK5l" to="mhbf:~SModel.getNode(org.jetbrains.mps.openapi.model.SNodeId)" resolve="getNode" />
               <node concept="37vLTw" id="VKgNXrfirN" role="37wK5m">
-                <ref role="3cqZAo" node="VKgNXrfirI" resolve="createNodeId" />
+                <ref role="3cqZAo" node="VKgNXrfirI" resolve="snid" />
               </node>
             </node>
           </node>
@@ -17599,7 +17599,7 @@
                                   <node concept="3clFbF" id="VKgNXre2_N" role="3cqZAp">
                                     <node concept="2OqwBi" id="VKgNXre2_O" role="3clFbG">
                                       <node concept="37vLTw" id="VKgNXre2_P" role="2Oq$k0">
-                                        <ref role="3cqZAo" node="VKgNXrdMOB" resolve="ex" />
+                                        <ref role="3cqZAo" node="VKgNXrdMOB" resolve="testableEx" />
                                       </node>
                                       <node concept="liA8E" id="VKgNXre2_Q" role="2OqNvi">
                                         <ref role="37wK5l" to="i5cy:~AtomicReference.set(java.lang.Object)" resolve="set" />
@@ -17701,14 +17701,14 @@
           <node concept="3clFbS" id="VKgNXrhfh3" role="3clFbx">
             <node concept="YS8fn" id="VKgNXrhfh4" role="3cqZAp">
               <node concept="37vLTw" id="VKgNXrhmFh" role="YScLw">
-                <ref role="3cqZAo" node="VKgNXrhmFc" resolve="" />
+                <ref role="3cqZAo" node="VKgNXrhmFc" resolve="ex" />
               </node>
             </node>
           </node>
           <node concept="3y3z36" id="VKgNXrhfh8" role="3clFbw">
             <node concept="10Nm6u" id="VKgNXrhfh9" role="3uHU7w" />
             <node concept="37vLTw" id="VKgNXrhmFi" role="3uHU7B">
-              <ref role="3cqZAo" node="VKgNXrhmFc" resolve="" />
+              <ref role="3cqZAo" node="VKgNXrhmFc" resolve="ex" />
             </node>
           </node>
         </node>
@@ -17840,7 +17840,7 @@
     <node concept="3clFb_" id="VKgNXrnt1G" role="jymVt">
       <property role="TrG5h" value="testCase" />
       <node concept="3uibUv" id="VKgNXrn_Kb" role="3clF45">
-        <ref role="3uigEE" node="VKgNXreHMf" resolve="TestBuilder" />
+        <ref role="3uigEE" node="VKgNXreHMf" resolve="ProjectTestHelper.TestCase" />
       </node>
       <node concept="3Tm1VV" id="VKgNXrnt1J" role="1B3o_S" />
       <node concept="3clFbS" id="VKgNXrnt1K" role="3clF47">
@@ -17848,7 +17848,7 @@
           <node concept="2ShNRf" id="VKgNXrnBV$" role="3clFbG">
             <node concept="1pGfFk" id="VKgNXrnITv" role="2ShVmc">
               <property role="373rjd" value="true" />
-              <ref role="37wK5l" node="VKgNXrhYWH" resolve="TestBuilder" />
+              <ref role="37wK5l" node="VKgNXrhYWH" resolve="ProjectTestHelper.TestCase" />
               <node concept="Xjq3P" id="VKgNXrnKNk" role="37wK5m" />
             </node>
           </node>
@@ -17925,7 +17925,7 @@
           </node>
         </node>
         <node concept="2AHcQZ" id="VKgNXrhLx5" role="2AJF6D">
-          <ref role="2AI5Lk" to="wyt6:~Override" />
+          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
       </node>
       <node concept="2tJIrI" id="VKgNXrhOG2" role="jymVt" />
@@ -17961,7 +17961,7 @@
           </node>
         </node>
         <node concept="2AHcQZ" id="VKgNXrhLxd" role="2AJF6D">
-          <ref role="2AI5Lk" to="wyt6:~Override" />
+          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
       </node>
       <node concept="2tJIrI" id="VKgNXrhPmH" role="jymVt" />
@@ -17989,7 +17989,7 @@
           </node>
         </node>
         <node concept="2AHcQZ" id="VKgNXrhLxl" role="2AJF6D">
-          <ref role="2AI5Lk" to="wyt6:~Override" />
+          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
       </node>
       <node concept="2tJIrI" id="VKgNXrhQ1p" role="jymVt" />
@@ -18000,7 +18000,7 @@
           <node concept="17QB3L" id="VKgNXreJz_" role="1tU5fm" />
         </node>
         <node concept="3uibUv" id="VKgNXreJXg" role="3clF45">
-          <ref role="3uigEE" node="VKgNXreHMf" resolve="Builder" />
+          <ref role="3uigEE" node="VKgNXreHMf" resolve="ProjectTestHelper.TestCase" />
         </node>
         <node concept="3Tm1VV" id="VKgNXreJ4M" role="1B3o_S" />
         <node concept="3clFbS" id="VKgNXreJ4N" role="3clF47">
@@ -18121,7 +18121,7 @@
       <node concept="3clFb_" id="VKgNXrgePo" role="jymVt">
         <property role="TrG5h" value="command" />
         <node concept="3uibUv" id="VKgNXrgfGj" role="3clF45">
-          <ref role="3uigEE" node="VKgNXreHMf" resolve="Builder" />
+          <ref role="3uigEE" node="VKgNXreHMf" resolve="ProjectTestHelper.TestCase" />
         </node>
         <node concept="3Tm1VV" id="VKgNXrgePr" role="1B3o_S" />
         <node concept="3clFbS" id="VKgNXrgePs" role="3clF47">
@@ -18156,7 +18156,7 @@
       <node concept="3clFb_" id="VKgNXriXPw" role="jymVt">
         <property role="TrG5h" value="command" />
         <node concept="3uibUv" id="VKgNXriXPx" role="3clF45">
-          <ref role="3uigEE" node="VKgNXreHMf" resolve="Builder" />
+          <ref role="3uigEE" node="VKgNXreHMf" resolve="ProjectTestHelper.TestCase" />
         </node>
         <node concept="3Tm1VV" id="VKgNXriXPy" role="1B3o_S" />
         <node concept="3clFbS" id="VKgNXriXPz" role="3clF47">
@@ -18203,7 +18203,7 @@
       <node concept="3clFb_" id="VKgNXrh6MB" role="jymVt">
         <property role="TrG5h" value="read" />
         <node concept="3uibUv" id="VKgNXrh6MC" role="3clF45">
-          <ref role="3uigEE" node="VKgNXreHMf" resolve="Builder" />
+          <ref role="3uigEE" node="VKgNXreHMf" resolve="ProjectTestHelper.TestCase" />
         </node>
         <node concept="3Tm1VV" id="VKgNXrh6MD" role="1B3o_S" />
         <node concept="3clFbS" id="VKgNXrh6ME" role="3clF47">
@@ -18238,7 +18238,7 @@
       <node concept="3clFb_" id="VKgNXrjnDh" role="jymVt">
         <property role="TrG5h" value="read" />
         <node concept="3uibUv" id="VKgNXrjnDi" role="3clF45">
-          <ref role="3uigEE" node="VKgNXreHMf" resolve="Builder" />
+          <ref role="3uigEE" node="VKgNXreHMf" resolve="ProjectTestHelper.TestCase" />
         </node>
         <node concept="3Tm1VV" id="VKgNXrjnDj" role="1B3o_S" />
         <node concept="3clFbS" id="VKgNXrjnDk" role="3clF47">
@@ -18395,7 +18395,7 @@
       <node concept="37vLTG" id="VKgNXrhBOd" role="3clF46">
         <property role="TrG5h" value="fixture" />
         <node concept="3uibUv" id="VKgNXrhBOc" role="1tU5fm">
-          <ref role="3uigEE" node="VKgNXrh2J3" resolve="Context" />
+          <ref role="3uigEE" node="VKgNXrh2J3" resolve="Fixture" />
         </node>
       </node>
       <node concept="3uibUv" id="VKgNXrhCYI" role="Sfmx6">
@@ -18552,7 +18552,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="82DhFtqDQ" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
       <node concept="3uibUv" id="82DhFufJT" role="3clF45">
         <ref role="3uigEE" to="33ny:~List" resolve="List" />
@@ -18651,7 +18651,7 @@
     </node>
     <node concept="QsSxf" id="1KnTQt4Oipk" role="Qtgdg">
       <property role="TrG5h" value="LanguageTestCase" />
-      <ref role="37wK5l" node="1KnTQt4Oiuk" resolve="TestNodeWrapperFactory" />
+      <ref role="37wK5l" node="1KnTQt4Oiuk" resolve="LanguageTestDiscoveryParticipants" />
       <node concept="35c_gC" id="7bi2vNWgEOK" role="37wK5m">
         <ref role="35c_gD" to="tpe3:hGB2rPm" resolve="ITestCase" />
       </node>
@@ -18966,7 +18966,7 @@
     </node>
     <node concept="QsSxf" id="1KnTQt4OipV" role="Qtgdg">
       <property role="TrG5h" value="LanguageTestMethod" />
-      <ref role="37wK5l" node="1KnTQt4Oiuk" resolve="TestNodeWrapperFactory" />
+      <ref role="37wK5l" node="1KnTQt4Oiuk" resolve="LanguageTestDiscoveryParticipants" />
       <node concept="35c_gC" id="7bi2vNWgHwo" role="37wK5m">
         <ref role="35c_gD" to="tpe3:hGBgSCX" resolve="ITestMethod" />
       </node>
@@ -19107,7 +19107,7 @@
                     <node concept="2OqwBi" id="4chG8iHNvuu" role="2Oq$k0">
                       <node concept="Rm8GO" id="4chG8iHNvuv" role="2Oq$k0">
                         <ref role="1Px2BO" node="82DhF5CH_" resolve="LanguageTestDiscoveryParticipants" />
-                        <ref role="Rm8GQ" node="1KnTQt4Oipk" resolve="LanguageTestCaseNodeWrapperFactory" />
+                        <ref role="Rm8GQ" node="1KnTQt4Oipk" resolve="LanguageTestCase" />
                       </node>
                       <node concept="liA8E" id="4chG8iHNvuw" role="2OqNvi">
                         <ref role="37wK5l" to="4u8o:2BZ01qXB6ZH" resolve="discover" />
@@ -19210,7 +19210,7 @@
     <node concept="2tJIrI" id="VKgNXrc7xK" role="jymVt" />
     <node concept="3Tm1VV" id="VKgNXr8gSk" role="1B3o_S" />
     <node concept="3uibUv" id="VKgNXr8hYi" role="EKbjA">
-      <ref role="3uigEE" to="ze1i:~ModuleRuntime$Activator" resolve="Activator" />
+      <ref role="3uigEE" to="ze1i:~ModuleRuntime$Activator" resolve="ModuleRuntime.Activator" />
     </node>
     <node concept="3clFb_" id="VKgNXr8hZn" role="jymVt">
       <property role="TrG5h" value="activate" />

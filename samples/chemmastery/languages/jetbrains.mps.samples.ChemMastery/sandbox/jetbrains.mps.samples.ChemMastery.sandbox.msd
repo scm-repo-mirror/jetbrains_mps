@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.samples.ChemMastery.sandbox" uuid="b6a06e36-1d60-4a12-ab62-9e863ecdf33a" moduleVersion="0" compileInMPS="true">
+<solution name="jetbrains.mps.samples.ChemMastery.sandbox" uuid="b6a06e36-1d60-4a12-ab62-9e863ecdf33a" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

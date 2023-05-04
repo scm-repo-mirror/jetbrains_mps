@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="DiffUtils" uuid="3669929d-7269-4de9-a160-f80b04ef909d" moduleVersion="0" compileInMPS="false">
+<solution name="DiffUtils" uuid="3669929d-7269-4de9-a160-f80b04ef909d" moduleVersion="0">
   <models>
     <modelRoot contentPath="${lib_ext}" type="java_classes">
       <sourceRoot location="diffutils-1.2.1.jar" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="refactoring.test" uuid="64b24ebe-97a2-466e-83d8-bd3afefcbb41" moduleVersion="0" compileInMPS="true">
+<solution name="refactoring.test" uuid="64b24ebe-97a2-466e-83d8-bd3afefcbb41" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

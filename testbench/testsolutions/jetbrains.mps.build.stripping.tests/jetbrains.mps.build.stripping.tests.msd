@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.build.stripping.tests" uuid="c9bc8834-ad52-4c80-83d0-64827cf13fae" moduleVersion="0" pluginKind="PLUGIN_OTHER" compileInMPS="true">
+<solution name="jetbrains.mps.build.stripping.tests" uuid="c9bc8834-ad52-4c80-83d0-64827cf13fae" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />

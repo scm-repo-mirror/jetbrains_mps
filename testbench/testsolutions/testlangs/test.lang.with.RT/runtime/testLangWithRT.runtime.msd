@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="testLangWithRT.runtime" uuid="097970c1-2702-4857-9899-ec475bceb8d3" moduleVersion="0" compileInMPS="true">
+<solution name="testLangWithRT.runtime" uuid="097970c1-2702-4857-9899-ec475bceb8d3" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />
