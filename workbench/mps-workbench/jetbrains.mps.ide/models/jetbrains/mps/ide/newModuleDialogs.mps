@@ -1379,6 +1379,26 @@
             </node>
           </node>
         </node>
+        <node concept="3cpWs8" id="6C7L5Q5Ep7h" role="3cqZAp">
+          <node concept="3cpWsn" id="6C7L5Q5Ep7i" role="3cpWs9">
+            <property role="TrG5h" value="sourcePathsByReference" />
+            <property role="3TUv4t" value="true" />
+            <node concept="3uibUv" id="6C7L5Q5EncJ" role="1tU5fm">
+              <ref role="3uigEE" to="33ny:~Collection" resolve="Collection" />
+              <node concept="3uibUv" id="6C7L5Q5EncM" role="11_B2D">
+                <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+              </node>
+            </node>
+            <node concept="2OqwBi" id="6C7L5Q5Ep7j" role="33vP2m">
+              <node concept="37vLTw" id="6C7L5Q5Ep7k" role="2Oq$k0">
+                <ref role="3cqZAo" node="6CFNGGphKkE" resolve="copyDescriptor" />
+              </node>
+              <node concept="liA8E" id="6C7L5Q5Ep7l" role="2OqNvi">
+                <ref role="37wK5l" to="w0gx:~ModuleDescriptor.getSourcePaths()" resolve="getSourcePaths" />
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs8" id="6CFNGGphKlq" role="3cqZAp">
           <node concept="3cpWsn" id="6CFNGGphKlr" role="3cpWs9">
             <property role="3TUv4t" value="false" />
@@ -1392,13 +1412,8 @@
             <node concept="2OqwBi" id="6CFNGGphKlu" role="33vP2m">
               <node concept="2OqwBi" id="6CFNGGphKlv" role="2Oq$k0">
                 <node concept="2OqwBi" id="6CFNGGphKlw" role="2Oq$k0">
-                  <node concept="2OqwBi" id="6CFNGGphKlx" role="2Oq$k0">
-                    <node concept="37vLTw" id="6CFNGGphKly" role="2Oq$k0">
-                      <ref role="3cqZAo" node="6CFNGGphKkE" resolve="copyDescriptor" />
-                    </node>
-                    <node concept="liA8E" id="6CFNGGphKlz" role="2OqNvi">
-                      <ref role="37wK5l" to="w0gx:~ModuleDescriptor.getSourcePaths()" resolve="getSourcePaths" />
-                    </node>
+                  <node concept="37vLTw" id="6C7L5Q5Ep7m" role="2Oq$k0">
+                    <ref role="3cqZAo" node="6C7L5Q5Ep7i" resolve="sourcePaths" />
                   </node>
                   <node concept="liA8E" id="6CFNGGphKl$" role="2OqNvi">
                     <ref role="37wK5l" to="33ny:~Collection.stream()" resolve="stream" />
@@ -1446,13 +1461,8 @@
         </node>
         <node concept="3clFbF" id="6CFNGGphKlT" role="3cqZAp">
           <node concept="2OqwBi" id="6CFNGGphKlU" role="3clFbG">
-            <node concept="2OqwBi" id="6CFNGGphKlV" role="2Oq$k0">
-              <node concept="37vLTw" id="6CFNGGphKlW" role="2Oq$k0">
-                <ref role="3cqZAo" node="6CFNGGphKkE" resolve="copyDescriptor" />
-              </node>
-              <node concept="liA8E" id="6CFNGGphKlX" role="2OqNvi">
-                <ref role="37wK5l" to="w0gx:~ModuleDescriptor.getSourcePaths()" resolve="getSourcePaths" />
-              </node>
+            <node concept="37vLTw" id="6C7L5Q5Ep7n" role="2Oq$k0">
+              <ref role="3cqZAo" node="6C7L5Q5Ep7i" resolve="sourcePaths" />
             </node>
             <node concept="liA8E" id="6CFNGGphKlY" role="2OqNvi">
               <ref role="37wK5l" to="33ny:~Collection.clear()" resolve="clear" />
@@ -1461,13 +1471,8 @@
         </node>
         <node concept="3clFbF" id="6CFNGGphKlZ" role="3cqZAp">
           <node concept="2OqwBi" id="6CFNGGphKm0" role="3clFbG">
-            <node concept="2OqwBi" id="6CFNGGphKm1" role="2Oq$k0">
-              <node concept="37vLTw" id="6CFNGGphKm2" role="2Oq$k0">
-                <ref role="3cqZAo" node="6CFNGGphKkE" resolve="copyDescriptor" />
-              </node>
-              <node concept="liA8E" id="6CFNGGphKm3" role="2OqNvi">
-                <ref role="37wK5l" to="w0gx:~ModuleDescriptor.getSourcePaths()" resolve="getSourcePaths" />
-              </node>
+            <node concept="37vLTw" id="6C7L5Q5Ep7o" role="2Oq$k0">
+              <ref role="3cqZAo" node="6C7L5Q5Ep7i" resolve="sourcePaths" />
             </node>
             <node concept="liA8E" id="6CFNGGphKm4" role="2OqNvi">
               <ref role="37wK5l" to="33ny:~Collection.addAll(java.util.Collection)" resolve="addAll" />

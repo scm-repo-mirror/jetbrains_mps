@@ -6,8 +6,7 @@ import jetbrains.mps.workbench.action.BaseAction;
 import javax.swing.Icon;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
-import jetbrains.mps.project.structure.modules.ModuleDescriptor;
-import jetbrains.mps.project.AbstractModule;
+import jetbrains.mps.project.facets.JavaModuleFacet;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import org.jetbrains.annotations.NotNull;
@@ -29,6 +28,8 @@ import com.intellij.openapi.progress.ProgressIndicator;
 import jetbrains.mps.progress.ProgressMonitorAdapter;
 import com.intellij.openapi.application.ApplicationManager;
 import jetbrains.mps.ide.projectPane.ProjectPane;
+import jetbrains.mps.project.facets.JavaModuleFacetImpl;
+import java.util.Collections;
 
 public class MigrateSourcesToMPS_Action extends BaseAction {
   private static final Icon ICON = null;
@@ -44,8 +45,8 @@ public class MigrateSourcesToMPS_Action extends BaseAction {
   }
   @Override
   public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
-    ModuleDescriptor moduleDescr = ((AbstractModule) ((SModule) MapSequence.fromMap(_params).get("module"))).getModuleDescriptor();
-    return moduleDescr != null && !(moduleDescr.getSourcePaths().isEmpty());
+    JavaModuleFacet jmf = ((SModule) MapSequence.fromMap(_params).get("module")).getFacet(JavaModuleFacet.class);
+    return jmf != null && !(jmf.getAdditionalSourcePaths().isEmpty());
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
@@ -81,13 +82,14 @@ public class MigrateSourcesToMPS_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    ModuleDescriptor moduleDescr = ((AbstractModule) ((SModule) MapSequence.fromMap(_params).get("module"))).getModuleDescriptor();
-    if (moduleDescr == null || moduleDescr.getSourcePaths().isEmpty()) {
+    JavaModuleFacet jmf = ((SModule) MapSequence.fromMap(_params).get("module")).getFacet(JavaModuleFacet.class);
+
+    if (jmf == null || jmf.getAdditionalSourcePaths().isEmpty()) {
       return;
     }
 
     List<IFile> sourcePaths = ListSequence.fromList(new ArrayList<IFile>());
-    for (String path : moduleDescr.getSourcePaths()) {
+    for (String path : jmf.getAdditionalSourcePaths()) {
       ListSequence.fromList(sourcePaths).addElement(((MPSProject) MapSequence.fromMap(_params).get("project")).getFileSystem().getFile(path));
     }
 
@@ -103,6 +105,8 @@ public class MigrateSourcesToMPS_Action extends BaseAction {
     // workaround for project pane not rebuilding itself when a model has been added
     // not in a command but in a write action
     ProjectPane.getInstance(((MPSProject) MapSequence.fromMap(_params).get("project"))).rebuild();
-    moduleDescr.getSourcePaths().clear();
+    if (jmf instanceof JavaModuleFacetImpl) {
+      ((JavaModuleFacetImpl) jmf).setAdditionalSourcePaths(Collections.<String>emptyList());
+    }
   }
 }

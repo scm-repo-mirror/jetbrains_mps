@@ -16,6 +16,7 @@ import jetbrains.mps.project.structure.modules.SolutionDescriptor;
 import jetbrains.mps.project.ModuleId;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.Collection;
 import jetbrains.mps.project.structure.modules.ModuleFacetDescriptor;
 import java.util.ArrayList;
 import org.jdom.Element;
@@ -125,9 +126,10 @@ import jetbrains.mps.project.structure.modules.DeploymentDescriptor;
     List<String> newStubPaths = copyDescriptor.getJavaLibs().stream().map((String path) -> myModulePathConverter.source2Target(path)).collect(Collectors.<String>toList());
     copyDescriptor.getJavaLibs().clear();
     copyDescriptor.getJavaLibs().addAll(newStubPaths);
-    List<String> newSourcePaths = copyDescriptor.getSourcePaths().stream().map((String path) -> myModulePathConverter.source2Target(path)).collect(Collectors.<String>toList());
-    copyDescriptor.getSourcePaths().clear();
-    copyDescriptor.getSourcePaths().addAll(newSourcePaths);
+    final Collection<String> sourcePathsByReference = copyDescriptor.getSourcePaths();
+    List<String> newSourcePaths = sourcePathsByReference.stream().map((String path) -> myModulePathConverter.source2Target(path)).collect(Collectors.<String>toList());
+    sourcePathsByReference.clear();
+    sourcePathsByReference.addAll(newSourcePaths);
   }
 
   private void resaveFacetsUnderNewFile(ModuleDescriptor copyDescriptor) {

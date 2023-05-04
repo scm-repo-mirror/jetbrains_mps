@@ -650,6 +650,7 @@ public final class ModulesMiner {
       // -generator.jar nor -src.jar, so no reason to put their roots into excludes (on a side note, why not ".jar" itself, but ".jar!/"?)
     }
 
+    // I can tolerate use of MD.getSourcePaths here as MM knows about MD anyway
     for (String p : descriptor.getSourcePaths()) {
       myExcludes.add(fileSystem.getFile(p));
     }

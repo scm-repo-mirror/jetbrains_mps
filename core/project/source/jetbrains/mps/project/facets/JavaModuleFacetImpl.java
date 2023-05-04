@@ -39,6 +39,7 @@ import org.jetbrains.mps.annotations.Internal;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.persistence.Memento;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Optional;
@@ -186,6 +187,17 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
 
     // XXX I don't see any reason to make set unique here, but at least keep the ordering
     return new LinkedHashSet<>(moduleDescriptor.getSourcePaths());
+  }
+
+  public void setAdditionalSourcePaths(Collection<String> newValue) {
+    ModuleDescriptor moduleDescriptor = getAbstractModule().getModuleDescriptor();
+    if (moduleDescriptor == null) {
+      return;
+    }
+    // here we imply getSourcePaths() returns value-by-reference
+    final Collection<String> persistedPaths = moduleDescriptor.getSourcePaths();
+    persistedPaths.clear();
+    persistedPaths.addAll(newValue);
   }
 
   @Override

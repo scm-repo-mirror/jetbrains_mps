@@ -48,8 +48,6 @@ import jetbrains.mps.extapi.persistence.SourceRootKinds;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.build.mps.behavior.BuildMps_Solution__BehaviorDescriptor;
 import jetbrains.mps.project.facets.TestsFacet;
-import jetbrains.mps.project.ProjectPathUtil;
-import jetbrains.mps.project.facets.TestsFacetImpl;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -774,61 +772,42 @@ public final class ModuleChecker {
 
     if (type.doFullImport) {
 
+      // XXX shall I take !doNotCompile into account here? Legacy code doesn't check that, is there use for sources
+      //    in case of !doNotCompile?
+      SModule loadedModule = getLoadedModule();
+      JavaModuleFacet jmf = loadedModule.getFacet(JavaModuleFacet.class);
+      if (jmf != null) {
+        for (String path : jmf.getAdditionalSourcePaths()) {
+          SNode p = convertPath(path);
+          buildModuleFacade.addJavaSources(p, false);
+        }
+
+        // I hate this condition, but decided to keep it for a while. Seems that its intention was to handle test-only modules
+        //    i.e. to exclude them here, shall check if it's still relevant given JMF use
+        if (!(SNodeOperations.isInstanceOf(myModule, CONCEPTS.BuildMps_Solution$R7)) || ((boolean) BuildMps_Solution__BehaviorDescriptor.hasSources_id6ogfLD6hwDf.invoke(SNodeOperations.cast(myModule, CONCEPTS.BuildMps_Solution$R7)) && hasModels)) {
+          buildModuleFacade.addJavaSources(convertPath(jmf.getOutputRoot()), true);
+        }
+      }
       if (SPropertyOperations.getBoolean(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SNodeOperations.as(SNodeOperations.getContainingRoot(myModule), CONCEPTS.BuildProject$ae), LINKS.plugins$AsCR), CONCEPTS.BuildMPSPlugin$YW)).first(), PROPS.useMakeTask$aRFt)) {
-        // XXX shall I take !doNotCompile into account here? Legacy code doesn't check that, is there use for sources
-        //    in case of !doNotCompile
-        SModule loadedModule = getLoadedModule();
-        JavaModuleFacet jmf = loadedModule.getFacet(JavaModuleFacet.class);
-        if (jmf != null) {
-          for (String path : jmf.getAdditionalSourcePaths()) {
-            SNode p = convertPath(path);
-            buildModuleFacade.addJavaSources(p, false);
-          }
-
-          // MPSI-36
-          buildModuleFacade.addOutputPath(convertPath(jmf.getClassesGen()));
-
-          // I hate this condition, but decided to keep it for a while. Seems that its intention was to handle test-only modules
-          //    i.e. to exclude them here, shall check if it's still relevant given JMF use
-          if (!(SNodeOperations.isInstanceOf(myModule, CONCEPTS.BuildMps_Solution$R7)) || ((boolean) BuildMps_Solution__BehaviorDescriptor.hasSources_id6ogfLD6hwDf.invoke(SNodeOperations.cast(myModule, CONCEPTS.BuildMps_Solution$R7)) && hasModels)) {
-            buildModuleFacade.addJavaSources(convertPath(jmf.getOutputRoot()), true);
-          }
-        }
-
-        // replacement for dark magic TestsFacetImpl.getTestsOutputPath, below
-        TestsFacet tf = loadedModule.getFacet(TestsFacet.class);
-        if (tf != null) {
-          IFile testsOutputPath = tf.getTestsOutputPath();
-          if (testsOutputPath != null) {
-            buildModuleFacade.addTestSources(convertPath(testsOutputPath), true);
-          }
-        }
-        // use new approach for all sources. I was eager to switch to SModule and JMF for a long time (see comments, below)
-        return;
+        // MPSI-36
+        buildModuleFacade.addOutputPath(convertPath(jmf.getClassesGen()));
+        //  guess I don't need outputPath unless we use <mps-make> task. Well, just to save some script re-generating 
       }
-
-      for (String path : myModuleDescriptor.getSourcePaths()) {
-        SNode p = convertPath(path);
-        buildModuleFacade.addJavaSources(p, false);
-      }
-
-      if (!(SNodeOperations.isInstanceOf(myModule, CONCEPTS.BuildMps_Solution$R7)) || ((boolean) BuildMps_Solution__BehaviorDescriptor.hasSources_id6ogfLD6hwDf.invoke(SNodeOperations.cast(myModule, CONCEPTS.BuildMps_Solution$R7)) && hasModels)) {
-        // XXX   (1) why do we assume all generated sources are Java? Why don't we look at JavaModuleFacet.getOutputRoot() instead?
-        //       (2) Use of ProjectPathUtil is dubious. Could have used AbstractModule.getOutputPath if I'd deal with SModule, not ModuleDescriptor.
-        //       (3) Use of SModule would allow direct use of JavaModuleFacet instead of ModuleFacetDescriptor, keeping all the logic of location handling hidden.
-        String genPath = ProjectPathUtil.getGeneratorOutputPath(myModuleDescriptor);
-        if (genPath != null) {
-          buildModuleFacade.addJavaSources(convertPath(genPath), true);
-        }
-      }
-
-      // FIXME shall not limit tests sources to solutions only (even TestsFacetImpl allows Languages to have tests). Shall look to tests facet descriptor instead of blind forModuleDescriptor
-      IFile testsPathFile = TestsFacetImpl.getTestsOutputPath(myModuleDescriptor, myModuleDescriptorFile);
+      // FIXME shall not limit tests sources to solutions only (TestsFacetImpl allows Languages to have tests).
+      //      Left Solution check as a tribute to old code, pending refactoring of hasSources/hasTestsSources setting. I don't see a reason to keep it.
+      //      Once/if it's gone, the check would be no longer necessary. OTOH, may pull these methods up to any _Module
       boolean hasTests = SNodeOperations.isInstanceOf(myModule, CONCEPTS.BuildMps_Solution$R7) && (boolean) BuildMps_Solution__BehaviorDescriptor.hasTestsSources_id6ogfLD6evrW.invoke(SNodeOperations.cast(myModule, CONCEPTS.BuildMps_Solution$R7));
-      if (testsPathFile != null && hasTests) {
-        SNode p = convertPath(testsPathFile);
-        buildModuleFacade.addTestSources(p, true);
+
+      TestsFacet tf = loadedModule.getFacet(TestsFacet.class);
+      if (hasTests && tf != null) {
+        IFile testsOutputPath = tf.getTestsOutputPath();
+        if (testsOutputPath != null) {
+          buildModuleFacade.addTestSources(convertPath(testsOutputPath), true);
+        }
       }
+
+      // FIXME handle GenerationTargetFacet other than JMF/TF. Need to introduce BuildMps_ModuleSource subconcept for non-java
+      //      sources and fix weave_Tasks/cleanSources to remove these as well
     }
   }
 

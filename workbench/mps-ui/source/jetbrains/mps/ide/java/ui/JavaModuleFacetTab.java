@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -464,12 +464,7 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
     // TODO: Move save of sources and libraries to JavaModuleFacetImpl#save(), when settings will be moved from ModuleDescriptor to memento
 
     if (mySourcePathsChanged) {
-      final Collection<String> sourcePaths = myJavaModuleFacet.getAbstractModule().getModuleDescriptor().getSourcePaths();
-      sourcePaths.clear();
-      final Collection<String> sourcePathsTable = convertVirtualFile2StringPaths(mySourcePathsTableModel.getFiles());
-      if (!sourcePathsTable.isEmpty()) {
-        sourcePaths.addAll(sourcePathsTable);
-      }
+      myJavaModuleFacet.setAdditionalSourcePaths(convertVirtualFile2StringPaths(mySourcePathsTableModel.getFiles()));
       mySourcePathsChanged = false;
     }
 
