@@ -24,7 +24,6 @@ import com.intellij.openapi.progress.ProgressManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.InvalidDataException;
 import jetbrains.mps.ide.MPSCoreComponents;
-import jetbrains.mps.ide.vfs.IdeaFileSystem;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.project.persistence.ProjectDescriptorPersistence;
 import jetbrains.mps.project.structure.project.ModulePath;
@@ -66,7 +65,7 @@ public class StandaloneMPSProject extends MPSProject implements PersistentStateC
 
   @SuppressWarnings("UnusedParameters")
   public StandaloneMPSProject(final Project project) {
-    super(project, MPSCoreComponents.getInstance());
+    super(project);
     myProjectDescriptor = null;
     // we used to have ProjectLibraryManager in dependencies to ensure project libraries are ready,
     // but now project libraries get initialized from a lifecycle listener, and I see no point to care to init PLM here.

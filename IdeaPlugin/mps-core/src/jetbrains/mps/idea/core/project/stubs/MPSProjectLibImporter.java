@@ -23,7 +23,6 @@ import com.intellij.openapi.roots.libraries.Library;
 import com.intellij.openapi.roots.libraries.LibraryTable;
 import com.intellij.openapi.roots.libraries.LibraryTablesRegistrar;
 import jetbrains.mps.extapi.module.SRepositoryExt;
-import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.idea.core.MPSBundle;
 import jetbrains.mps.idea.core.library.ModuleLibraryType;
@@ -33,7 +32,6 @@ public class MPSProjectLibImporter extends BaseLibImporter implements ProjectCom
   private final LibraryTable myLibTable;
 
   public MPSProjectLibImporter(Project project) {
-    super(MPSCoreComponents.getInstance());
     myProject = project;
     //creation time dependency
     myLibTable = LibraryTablesRegistrar.getInstance().getLibraryTable(project);
