@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2014 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,9 +30,7 @@ import org.jetbrains.mps.openapi.module.event.SModuleRemovedEvent;
 import org.jetbrains.mps.openapi.module.event.SModuleRemovingEvent;
 import org.jetbrains.mps.openapi.module.event.SRepositoryEvent;
 
-import java.lang.invoke.VarHandle;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -83,29 +81,6 @@ class ModuleEventsHandler implements SRepositoryBatchListener {
     return false;
   }
 
-  private void addModules(List<? extends ReloadableModuleBase> modules) {
-    modules.sort(MODULE_COMPARATOR);
-    myModulesWatcher.addModules(modules);
-    // fixme decouple! the handler must only change the state (valid/invalid to load) it must not do any reloading
-    //  it will be possible when we generate classpath and do not have to grab the read lock when calculating the dependencies
-    //  then we will be able to return the up-to-date classloader without
-    myManager.preLoadModules(modules, new EmptyProgressMonitor());
-  }
-
-  private void updateModules(List<? extends ReloadableModuleBase> modules) {
-    List<SModule> modulesToReload = new ArrayList<>(modules);
-    modulesToReload.sort(MODULE_COMPARATOR);
-    // fixme
-    myManager.doReloadModules(modulesToReload, new EmptyProgressMonitor());
-  }
-
-  private void removeModules(List<SModuleReference> modules) {
-    modules.sort(MODULE_COMPARATOR.reversed());
-    // fixme this is wrong but otherwise we will never unload them
-    myManager.unloadModules(modules, new EmptyProgressMonitor());
-    myModulesWatcher.removeModules(modules);
-  }
-
   @Override
   public void eventsHappened(List<SRepositoryEvent> events) {
     if (events.isEmpty()) return;
@@ -116,11 +91,30 @@ class ModuleEventsHandler implements SRepositoryBatchListener {
 
     // fixme we should move rather to the accurate events processing instead of calculating status for each module
     List<SModuleReference> modulesToUnload = visitor.getModulesToUnload();
+    modulesToUnload.sort(MODULE_COMPARATOR.reversed());
     List<ReloadableModuleBase> modulesToUpdate = visitor.getModulesToUpdate();
+    modulesToUpdate.sort(MODULE_COMPARATOR);
     List<ReloadableModuleBase> modulesToLoad = visitor.getModulesToLoad();
-    if (!modulesToUnload.isEmpty()) removeModules(modulesToUnload);
-    if (!modulesToLoad.isEmpty()) addModules(modulesToLoad);
-    if (!modulesToUpdate.isEmpty()) updateModules(modulesToUpdate);
+    modulesToLoad.sort(MODULE_COMPARATOR);
+    if (!modulesToUnload.isEmpty()) {
+      // fixme this is wrong but otherwise we will never unload them
+      myManager.unloadModules(modulesToUnload, new EmptyProgressMonitor());
+      myModulesWatcher.removeModules(modulesToUnload);
+    }
+    if (!modulesToLoad.isEmpty()) {
+      myModulesWatcher.addModules(modulesToLoad);
+      // fixme decouple! the handler must only change the state (valid/invalid to load) it must not do any reloading
+      //  it will be possible when we generate classpath and do not have to grab the read lock when calculating the dependencies
+      //  then we will be able to return the up-to-date classloader without
+      myManager.preLoadModules(modulesToLoad, new EmptyProgressMonitor());
+    }
+    if (!modulesToUpdate.isEmpty()) {
+      // fixme ?
+      //   likely, the use of CLM, as the comment above, for preLoadModules() suggests
+      myManager.doReloadModules(modulesToUpdate, new EmptyProgressMonitor());
+      // XXX myModulesWatcher.updateModules() happens from CLM.doReloadModules(). Shall either move all myModulesWatcher notifications into CLM
+      //     or to move updateModules here!
+    }
   }
 
   public void pause() {
@@ -133,7 +127,7 @@ class ModuleEventsHandler implements SRepositoryBatchListener {
     myPaused.set(true);
   }
 
-  private class MyModuleEventVisitor implements SModuleEventVisitor {
+  private static class MyModuleEventVisitor implements SModuleEventVisitor {
     private final Set<ReloadableModuleBase> myModulesToUpdate = new LinkedHashSet<>();
     private final Set<ReloadableModuleBase> myModulesToLoad = new LinkedHashSet<>();
     private final Set<SModuleReference> myModulesToUnload = new LinkedHashSet<>();
@@ -181,15 +175,15 @@ class ModuleEventsHandler implements SRepositoryBatchListener {
       }
     }
 
-    public List<SModuleReference> getModulesToUnload() {
+    /*package*/ List<SModuleReference> getModulesToUnload() {
       return new ArrayList<>(myModulesToUnload);
     }
 
-    public List<ReloadableModuleBase> getModulesToLoad() {
+    /*package*/ List<ReloadableModuleBase> getModulesToLoad() {
       return new ArrayList<>(myModulesToLoad);
     }
 
-    public List<ReloadableModuleBase> getModulesToUpdate() {
+    /*package*/ List<ReloadableModuleBase> getModulesToUpdate() {
       return new ArrayList<>(myModulesToUpdate);
     }
   }

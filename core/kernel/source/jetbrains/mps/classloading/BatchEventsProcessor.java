@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,7 @@ import java.util.List;
  * not thread-safe
  */
 public class BatchEventsProcessor {
-  private static Logger LOG = Logger.getLogger(BatchEventsProcessor.class);
+  private static final Logger LOG = Logger.getLogger(BatchEventsProcessor.class);
   private volatile boolean myBatchStarted = false;
 
   private static final Object LOCK = new Object();
