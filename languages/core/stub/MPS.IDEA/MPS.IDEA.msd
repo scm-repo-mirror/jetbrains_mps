@@ -7,6 +7,7 @@
       <sourceRoot location="java-impl.jar" />
       <sourceRoot location="testFramework.jar" />
       <sourceRoot location="util.jar" />
+      <sourceRoot location="util-8.jar" />
       <sourceRoot location="util_rt.jar" />
       <sourceRoot location="jps-model.jar" />
       <sourceRoot location="3rd-party-rt.jar" />
