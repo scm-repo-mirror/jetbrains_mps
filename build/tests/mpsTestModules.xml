@@ -917,13 +917,16 @@
     </path>
     <pathconvert property="mps.tests.path.string" refid="mps.tests.path" />
     <launchtests fork="true" haltonfailure="false" mpshome="${artifacts.mps}" reports="${build.tmp}">      
-      <jvmarg value="-ea" />
-      <jvmarg value="-Xss2048k" />
-      <jvmarg value="-Xmx1024m" />
-      <jvmarg value="-XX:+HeapDumpOnOutOfMemoryError" />
-      <jvmarg value="-Didea.config.path=${build.mps.config.path}" />
-      <jvmarg value="-Didea.system.path=${build.mps.system.path}" />
-      <jvmarg value="-Djna.boot.library.path=${artifacts.mps}/lib/jna" />
+      <jvmargs>
+        <arg value="-ea" />
+        <arg value="-Xss2048k" />
+        <arg value="-Xmx1024m" />
+        <arg value="-XX:+HeapDumpOnOutOfMemoryError" />
+        <arg value="-Didea.config.path=${build.mps.config.path}" />
+        <arg value="-Didea.system.path=${build.mps.system.path}" />
+        <arg value="-Djna.boot.library.path=${artifacts.mps}/lib/jna" />
+      </jvmargs>
+      
       
       <library file="${artifacts.mps}/languages/baseLanguage/closures.runtime.jar" />
       <library file="${artifacts.mps}/languages/baseLanguage/collections.runtime.jar" />
@@ -1026,19 +1029,6 @@
       <library file="${artifacts.mps}/languages/workbench/jetbrains.mps.ide.jar" />
       <library file="${artifacts.mps}/languages/workbench/jetbrains.mps.ide.refactoring.jar" />
       <library file="${artifacts.mps}/languages/workbench/jetbrains.mps.lang.core.pluginSolution.jar" />
-      <library file="${artifacts.mps}/plugins/mps-build/languages/build/jetbrains.mps.build.mps.testManifest.jar" />
-      <library file="${artifacts.mps}/plugins/mps-core/languages/languageDesign/jetbrains.mps.lang.migration.util.jar" />
-      <library file="${artifacts.mps}/plugins/mps-devkit/languages/jetbrains.mps.lang.migration.pluginSolution.jar" />
-      <library file="${artifacts.mps}/plugins/mps-devkit/languages/jetbrains.mps.lang.structure.pluginSolution.jar" />
-      <library file="${artifacts.mps}/plugins/mps-make/languages/jetbrains.mps.ide.make.jar" />
-      <library file="${artifacts.mps}/plugins/mps-migration/solutions/jetbrains.mps.migration.component.jar" />
-      <library file="${artifacts.mps}/plugins/mps-testing/languages/baseLanguage/jetbrains.mps.baseLanguage.unitTest.jar" />
-      <library file="${artifacts.mps}/plugins/mps-testing/languages/baseLanguage/jetbrains.mps.baseLanguage.unitTest.platform.jar" />
-      <library file="${artifacts.mps}/plugins/mps-testing/languages/baseLanguage/jetbrains.mps.baseLanguage.unitTest.runtime.jar" />
-      <library file="${artifacts.mps}/plugins/mps-testing/languages/junit5/org.junit.junit5.jar" />
-      <library file="${artifacts.mps}/plugins/mps-testing/languages/languageDesign/jetbrains.mps.lang.test.jar" />
-      <library file="${artifacts.mps}/plugins/mps-testing/languages/languageDesign/jetbrains.mps.lang.test.matcher.jar" />
-      <library file="${artifacts.mps}/plugins/mps-testing/languages/languageDesign/jetbrains.mps.lang.test.runtime.jar" />
       
       <plugin id="com.intellij.modules.mps" path="${artifacts.mps}/lib/mps-workbench.jar" />
       <plugin id="jetbrains.mps.build" path="${artifacts.mps}/plugins/mps-build" />
