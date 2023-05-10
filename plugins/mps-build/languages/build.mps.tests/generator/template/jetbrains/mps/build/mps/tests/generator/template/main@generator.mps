@@ -1899,46 +1899,51 @@
                     </node>
                   </node>
                 </node>
-                <node concept="2pNNFK" id="6u4p9jnVoCZ" role="3o6s8t">
-                  <property role="qg3DV" value="true" />
-                  <property role="2pNNFO" value="jvmarg" />
-                  <node concept="2pNUuL" id="6u4p9jnVoD0" role="2pNNFR">
-                    <property role="2pNUuO" value="value" />
-                    <node concept="2pMdtt" id="6u4p9jnVoD1" role="2pMdts">
-                      <property role="2pMdty" value="-XX:+HeapDumpOnOutOfMemoryError" />
+                <node concept="2pNNFK" id="1U9_VEsPyw9" role="3o6s8t">
+                  <property role="2pNNFO" value="jvmargs" />
+                  <node concept="3o6iSG" id="1U9_VEsPzu4" role="3o6s8t" />
+                  <node concept="2pNNFK" id="6u4p9jnVoCZ" role="3o6s8t">
+                    <property role="qg3DV" value="true" />
+                    <property role="2pNNFO" value="arg" />
+                    <node concept="2pNUuL" id="6u4p9jnVoD0" role="2pNNFR">
+                      <property role="2pNUuO" value="value" />
+                      <node concept="2pMdtt" id="6u4p9jnVoD1" role="2pMdts">
+                        <property role="2pMdty" value="-XX:+HeapDumpOnOutOfMemoryError" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="2pNNFK" id="7aYn41gUsuj" role="3o6s8t">
+                    <property role="qg3DV" value="true" />
+                    <property role="2pNNFO" value="arg" />
+                    <node concept="2pNUuL" id="7aYn41gUtjX" role="2pNNFR">
+                      <property role="2pNUuO" value="value" />
+                      <node concept="2pMdtt" id="7aYn41gUtjY" role="2pMdts">
+                        <property role="2pMdty" value="-Didea.config.path=${build.mps.config.path}" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="2pNNFK" id="7aYn41gUtk9" role="3o6s8t">
+                    <property role="qg3DV" value="true" />
+                    <property role="2pNNFO" value="arg" />
+                    <node concept="2pNUuL" id="7aYn41gUu9Q" role="2pNNFR">
+                      <property role="2pNUuO" value="value" />
+                      <node concept="2pMdtt" id="7aYn41gUu9R" role="2pMdts">
+                        <property role="2pMdty" value="-Didea.system.path=${build.mps.system.path}" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="2pNNFK" id="6OON6YVXP4c" role="3o6s8t">
+                    <property role="qg3DV" value="true" />
+                    <property role="2pNNFO" value="arg" />
+                    <node concept="2pNUuL" id="6OON6YVXP4d" role="2pNNFR">
+                      <property role="2pNUuO" value="value" />
+                      <node concept="2pMdtt" id="6OON6YVXP4e" role="2pMdts">
+                        <property role="2pMdty" value="-Djna.boot.library.path=${artifacts.mps}/lib/jna" />
+                      </node>
                     </node>
                   </node>
                 </node>
-                <node concept="2pNNFK" id="7aYn41gUsuj" role="3o6s8t">
-                  <property role="qg3DV" value="true" />
-                  <property role="2pNNFO" value="jvmarg" />
-                  <node concept="2pNUuL" id="7aYn41gUtjX" role="2pNNFR">
-                    <property role="2pNUuO" value="value" />
-                    <node concept="2pMdtt" id="7aYn41gUtjY" role="2pMdts">
-                      <property role="2pMdty" value="-Didea.config.path=${build.mps.config.path}" />
-                    </node>
-                  </node>
-                </node>
-                <node concept="2pNNFK" id="7aYn41gUtk9" role="3o6s8t">
-                  <property role="qg3DV" value="true" />
-                  <property role="2pNNFO" value="jvmarg" />
-                  <node concept="2pNUuL" id="7aYn41gUu9Q" role="2pNNFR">
-                    <property role="2pNUuO" value="value" />
-                    <node concept="2pMdtt" id="7aYn41gUu9R" role="2pMdts">
-                      <property role="2pMdty" value="-Didea.system.path=${build.mps.system.path}" />
-                    </node>
-                  </node>
-                </node>
-                <node concept="2pNNFK" id="6OON6YVXP4c" role="3o6s8t">
-                  <property role="qg3DV" value="true" />
-                  <property role="2pNNFO" value="jvmarg" />
-                  <node concept="2pNUuL" id="6OON6YVXP4d" role="2pNNFR">
-                    <property role="2pNUuO" value="value" />
-                    <node concept="2pMdtt" id="6OON6YVXP4e" role="2pMdts">
-                      <property role="2pMdty" value="-Djna.boot.library.path=${artifacts.mps}/lib/jna" />
-                    </node>
-                  </node>
-                </node>
+                <node concept="3o6iSG" id="1U9_VEsPwoE" role="3o6s8t" />
                 <node concept="3o6iSG" id="HwplGLEhVK" role="3o6s8t" />
                 <node concept="2pNNFK" id="HwplGLErVS" role="3o6s8t">
                   <property role="qg3DV" value="true" />
