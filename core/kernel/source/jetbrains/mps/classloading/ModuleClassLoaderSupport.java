@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@ package jetbrains.mps.classloading;
 
 import jetbrains.mps.module.ReloadableModule;
 import jetbrains.mps.project.facets.JavaModuleFacet;
-import jetbrains.mps.project.facets.JavaModuleFacet.Compile;
 import jetbrains.mps.project.facets.JavaModuleFacet.LoadClasses;
 import jetbrains.mps.reloading.ClassBytesProvider.ClassBytes;
 import jetbrains.mps.reloading.IClassPathItem;
@@ -34,10 +33,7 @@ public class ModuleClassLoaderSupport {
   private volatile List<ClassLoader> myCompileDependencies;
   private final Supplier<List<ClassLoader>> myDependenciesSupplier;
 
-  private ModuleClassLoaderSupport(@NotNull ReloadableModule module,
-                                   Supplier<List<ClassLoader>> dependencySupplier) {
-    this(module, dependencySupplier, calcClassPath(module));
-  }
+  private ModuleClassLoader myModuleClassLoader;
 
   private static IClassPathItem calcClassPath(@NotNull ReloadableModule module) {
     JavaModuleFacet facet = module.getFacet(JavaModuleFacet.class);
@@ -72,7 +68,20 @@ public class ModuleClassLoaderSupport {
 
   public static ModuleClassLoaderSupport create(@NotNull ReloadableModule module,
                                                 Supplier<List<ClassLoader>> dependencySupplier) {
-    return new ModuleClassLoaderSupport(module, dependencySupplier);
+    return new ModuleClassLoaderSupport(module, dependencySupplier, calcClassPath(module));
+  }
+
+  /*package*/ ModuleClassLoader getModuleClassLoader() {
+    final ModuleClassLoader rv = myModuleClassLoader;
+    if (rv != null) {
+      return rv;
+    }
+    synchronized (this) {
+      if (myModuleClassLoader == null) {
+        myModuleClassLoader = new ModuleClassLoader(this);
+      }
+      return myModuleClassLoader;
+    }
   }
 
   @NotNull

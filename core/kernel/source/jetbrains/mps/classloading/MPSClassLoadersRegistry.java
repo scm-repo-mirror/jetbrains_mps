@@ -22,13 +22,13 @@ import jetbrains.mps.project.facets.JavaModuleFacet;
 import jetbrains.mps.project.facets.JavaModuleFacet.LoadClasses;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.util.Consumer;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -54,7 +54,7 @@ import java.util.stream.Collectors;
 class MPSClassLoadersRegistry {
   private static final Logger LOG = Logger.getLogger(MPSClassLoadersRegistry.class);
 
-  private final Map<SModuleReference, ModuleClassLoader> myMPSClassLoaders = new HashMap<>();
+  private final Map<SModuleReference, ModuleClassLoaderSupport> myMPSClassLoaders = new HashMap<>();
   private final Map<SModuleReference, MPSModuleClassLoader> myIDEAClassLoaders = new HashMap<>();
   private final Map<SModuleReference, ClassLoadingProgress> myMPSLoadableModules = new HashMap<>();
   private final ModulesWatcher myModulesWatcher;
@@ -65,7 +65,7 @@ class MPSClassLoadersRegistry {
   }
 
   /*package*/ MPSModuleClassLoader getClassLoader(@NotNull ReloadableModule module) {
-    MPSModuleClassLoader moduleClassLoader = getModuleClassLoader(module);
+    MPSModuleClassLoader moduleClassLoader = getModuleClassLoader(module.getModuleReference());
     if (moduleClassLoader != null) {
       return moduleClassLoader;
     }
@@ -74,8 +74,9 @@ class MPSClassLoadersRegistry {
   }
 
   @Nullable
-  private ModuleClassLoader getModuleClassLoader(@NotNull ReloadableModule module) {
-    return myMPSClassLoaders.get(module.getModuleReference());
+  private ModuleClassLoader getModuleClassLoader(@NotNull SModuleReference mref) {
+    final ModuleClassLoaderSupport clSupport = myMPSClassLoaders.get(mref);
+    return clSupport == null ? null : clSupport.getModuleClassLoader();
   }
 
   /**
@@ -152,38 +153,27 @@ class MPSClassLoadersRegistry {
    * @param toLoad for these modules ModuleClassLoaders were actually created
    */
   public void doLoadModules(final Collection<? extends ReloadableModule> toLoad) {
-    final List<ModuleClassLoader> moduleClassLoaders = createModuleCLs(toLoad);
-    for (ModuleClassLoader classLoader : moduleClassLoaders) {
-      SModuleReference moduleReference = classLoader.getModule().getModuleReference();
+    for (ReloadableModule module : toLoad) {
+      ModuleClassLoaderSupport clSupport = prepareModuleClassLoader(module);
+      SModuleReference moduleReference = module.getModuleReference();
       ClassLoadingProgress progress = getClassLoadingProgress(moduleReference);
       if (progress == ClassLoadingProgress.UNLOADED) {
         throw new IllegalStateException("Module " + moduleReference + " is in UNLOADED state, i.e. the class loading clients know nothing about this module");
       } else if (progress == ClassLoadingProgress.LAZY_LOADED) {
-        myMPSClassLoaders.put(moduleReference, classLoader);
-        assert myMPSClassLoaders.containsKey(moduleReference);
+        myMPSClassLoaders.put(moduleReference, clSupport);
         myMPSLoadableModules.put(moduleReference, ClassLoadingProgress.LOADED);
       } // XXX else if LOADED -> error, duplicate load attempt?
     }
   }
 
-  @NotNull
-  private List<ModuleClassLoader> createModuleCLs(final Collection<? extends ReloadableModule> toLoad) {
-    final List<ModuleClassLoader> moduleClassLoaders = new ArrayList<>(toLoad.size());
-    for (ReloadableModule module : toLoad) {
-      ModuleClassLoader moduleClassLoader = createModuleClassLoader(module);
-      moduleClassLoaders.add(moduleClassLoader);
-    }
-    return moduleClassLoaders;
-  }
-
-  private ModuleClassLoader createModuleClassLoader(@NotNull ReloadableModule module) {
+  private ModuleClassLoaderSupport prepareModuleClassLoader(@NotNull ReloadableModule module) {
     LOG.debug("Creating ModuleClassLoader for " + module);
     Collection<ReloadableModule> deps = myModulesWatcher.getResolvedDependencies(Collections.singletonList(module));
     final ModuleClassLoaderSupport support = ModuleClassLoaderSupport.create(module, () -> deps.stream()
                                                                                                .map(this::getClassLoader)
                                                                                                .distinct()
                                                                                                .collect(Collectors.toList()));
-    return new ModuleClassLoader(support);
+    return support;
   }
 
   @Nullable
@@ -225,6 +215,7 @@ class MPSClassLoadersRegistry {
 
     DisposeSession createSession(@NotNull Set<ReloadableModule> modulesToUnload, @Nullable Consumer<DisposeSession> onDisposed) {
       List<ModuleClassLoader> classLoaders = modulesToUnload.stream()
+                                                            .map(SModule::getModuleReference)
                                                             .map(myRegistry::getModuleClassLoader)
                                                             .filter(Objects::nonNull)
                                                             .collect(Collectors.toList());
