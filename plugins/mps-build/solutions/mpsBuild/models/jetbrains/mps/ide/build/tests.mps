@@ -14333,27 +14333,6 @@
             <ref role="3bR37D" to="ffeo:mXGwHwhVPj" resolve="JDK" />
           </node>
         </node>
-        <node concept="1SiIV0" id="4MTm4DjbCLe" role="3bR37C">
-          <node concept="1BurEX" id="4MTm4DjbCLf" role="1SiIV1">
-            <node concept="55IIr" id="4MTm4DjbCL8" role="1BurEY">
-              <node concept="2Ry0Ak" id="4MTm4DjbCL9" role="iGT6I">
-                <property role="2Ry0Am" value="languages" />
-                <node concept="2Ry0Ak" id="4MTm4DjbCLa" role="2Ry0An">
-                  <property role="2Ry0Am" value="baseLanguage" />
-                  <node concept="2Ry0Ak" id="4MTm4DjbCLb" role="2Ry0An">
-                    <property role="2Ry0Am" value="unitTest" />
-                    <node concept="2Ry0Ak" id="4MTm4DjbCLc" role="2Ry0An">
-                      <property role="2Ry0Am" value="lib" />
-                      <node concept="2Ry0Ak" id="4MTm4DjbCLd" role="2Ry0An">
-                        <property role="2Ry0Am" value="hamcrest-library-1.3-sources.jar" />
-                      </node>
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
         <node concept="1SiIV0" id="4MTm4DjbCLm" role="3bR37C">
           <node concept="1BurEX" id="4MTm4DjbCLn" role="1SiIV1">
             <node concept="55IIr" id="4MTm4DjbCLg" role="1BurEY">
@@ -14375,27 +14354,6 @@
             </node>
           </node>
         </node>
-        <node concept="1SiIV0" id="4MTm4DjbCLu" role="3bR37C">
-          <node concept="1BurEX" id="4MTm4DjbCLv" role="1SiIV1">
-            <node concept="55IIr" id="4MTm4DjbCLo" role="1BurEY">
-              <node concept="2Ry0Ak" id="4MTm4DjbCLp" role="iGT6I">
-                <property role="2Ry0Am" value="languages" />
-                <node concept="2Ry0Ak" id="4MTm4DjbCLq" role="2Ry0An">
-                  <property role="2Ry0Am" value="baseLanguage" />
-                  <node concept="2Ry0Ak" id="4MTm4DjbCLr" role="2Ry0An">
-                    <property role="2Ry0Am" value="unitTest" />
-                    <node concept="2Ry0Ak" id="4MTm4DjbCLs" role="2Ry0An">
-                      <property role="2Ry0Am" value="lib" />
-                      <node concept="2Ry0Ak" id="4MTm4DjbCLt" role="2Ry0An">
-                        <property role="2Ry0Am" value="jmock-2.8.2-sources.jar" />
-                      </node>
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
         <node concept="1SiIV0" id="4MTm4DjbCLA" role="3bR37C">
           <node concept="1BurEX" id="4MTm4DjbCLB" role="1SiIV1">
             <node concept="55IIr" id="4MTm4DjbCLw" role="1BurEY">
@@ -14409,27 +14367,6 @@
                       <property role="2Ry0Am" value="lib" />
                       <node concept="2Ry0Ak" id="4MTm4DjbCL_" role="2Ry0An">
                         <property role="2Ry0Am" value="jmock-2.8.2.jar" />
-                      </node>
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="1SiIV0" id="4MTm4DjbCLI" role="3bR37C">
-          <node concept="1BurEX" id="4MTm4DjbCLJ" role="1SiIV1">
-            <node concept="55IIr" id="4MTm4DjbCLC" role="1BurEY">
-              <node concept="2Ry0Ak" id="4MTm4DjbCLD" role="iGT6I">
-                <property role="2Ry0Am" value="languages" />
-                <node concept="2Ry0Ak" id="4MTm4DjbCLE" role="2Ry0An">
-                  <property role="2Ry0Am" value="baseLanguage" />
-                  <node concept="2Ry0Ak" id="4MTm4DjbCLF" role="2Ry0An">
-                    <property role="2Ry0Am" value="unitTest" />
-                    <node concept="2Ry0Ak" id="4MTm4DjbCLG" role="2Ry0An">
-                      <property role="2Ry0Am" value="lib" />
-                      <node concept="2Ry0Ak" id="4MTm4DjbCLH" role="2Ry0An">
-                        <property role="2Ry0Am" value="jmock-junit4-2.8.2-sources.jar" />
                       </node>
                     </node>
                   </node>

@@ -2,20 +2,23 @@
 <solution name="jetbrains.mps.baseLanguage.unitTest.libs" uuid="83f155ff-422c-4b5a-a2f2-b459302dd215" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}/lib" type="java_classes">
-      <sourceRoot location="." />
+      <sourceRoot location="hamcrest-library-1.3.jar" />
+      <sourceRoot location="jmock-2.8.2.jar" />
+      <sourceRoot location="jmock-junit4-2.8.2.jar" />
     </modelRoot>
   </models>
   <facets>
     <facet type="java" compile="ext" classes="mps" ext="no">
+      <!--
+          this module lives under home/languages/ and can't rely on parent CL ('provided') to load classes
+          as it doesn't end up in IDEA's CP
+       -->
       <classes generated="true" />
     </facet>
   </facets>
   <stubModelEntries>
-    <stubModelEntry path="${module}/lib/hamcrest-library-1.3-sources.jar" />
     <stubModelEntry path="${module}/lib/hamcrest-library-1.3.jar" />
-    <stubModelEntry path="${module}/lib/jmock-2.8.2-sources.jar" />
     <stubModelEntry path="${module}/lib/jmock-2.8.2.jar" />
-    <stubModelEntry path="${module}/lib/jmock-junit4-2.8.2-sources.jar" />
     <stubModelEntry path="${module}/lib/jmock-junit4-2.8.2.jar" />
   </stubModelEntries>
   <sourcePath />
