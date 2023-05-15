@@ -105,7 +105,7 @@ public class LanguageDescriptorPersistence {
           Element stubModelEntries = XmlUtil.first(languageElement, "stubModelEntries");
           if (stubModelEntries != null) {
             List<String> roots = ModuleDescriptorPersistence.loadStubModelEntries(stubModelEntries, myMacroHelper);
-            result_v3r4p8_a0a0a0c0g.getJavaLibs().addAll(roots);
+            result_v3r4p8_a0a0a0c0g.getJavaLibPersistedValues().addAll(roots);
           }
 
           for (Element entryElement : Sequence.fromIterable(XmlUtil.children(XmlUtil.first(languageElement, "sourcePath"), "source"))) {
@@ -164,9 +164,10 @@ public class LanguageDescriptorPersistence {
       languageElement.addContent(generators);
     }
 
-    if (!(descriptor.getJavaLibs().isEmpty())) {
+    Collection<String> javaLibs = descriptor.getJavaLibPersistedValues();
+    if (!(javaLibs.isEmpty())) {
       Element stubModelEntries = new Element("stubModelEntries");
-      ModuleDescriptorPersistence.saveStubModelEntries(stubModelEntries, (Collection<String>) descriptor.getJavaLibs(), myMacroHelper);
+      ModuleDescriptorPersistence.saveStubModelEntries(stubModelEntries, javaLibs, myMacroHelper);
       languageElement.addContent(stubModelEntries);
     }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.project.structure.modules;
 
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.persistence.MementoImpl;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.ModuleId;
@@ -31,6 +32,7 @@ import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 
 import java.io.IOException;
+import java.util.AbstractCollection;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -81,6 +83,57 @@ public class ModuleDescriptor implements CopyableDescriptor<ModuleDescriptor>  {
   private final Collection<SModuleReference> myUsedDevkits = new LinkedHashSet<>();
   private final Map<SLanguage, Integer> myLanguageVersions = new LinkedHashMap<>();
   private final Map<SModuleReference, Integer> myDependencyVersions = new LinkedHashMap<>();
+  private final Collection<String> myJavaLibsWarnWrap = new AbstractCollection<>() {
+    private void warnUse() {
+      Logger.getLogger(ModuleDescriptor.this.getClass()).warnDeprecatedUse("Stop using ModuleDescriptor.getJavaLibs()!");
+    }
+
+    @Override
+    public boolean add(String s) {
+      warnUse();
+      return myJavaLibs.add(s);
+    }
+
+    @Override
+    public boolean addAll(@NotNull Collection<? extends String> c) {
+      warnUse();
+      return myJavaLibs.addAll(c);
+    }
+
+    @Override
+    public boolean remove(Object o) {
+      warnUse();
+      return myJavaLibs.remove(o);
+    }
+
+    @Override
+    public boolean removeAll(@NotNull Collection<?> c) {
+      warnUse();
+      return myJavaLibs.removeAll(c);
+    }
+
+    @Override
+    public boolean retainAll(@NotNull Collection<?> c) {
+      warnUse();
+      return myJavaLibs.retainAll(c);
+    }
+
+    @NotNull
+    @Override
+    public Iterator<String> iterator() {
+      warnUse();
+      // I did consider using 2 iterators to combine 'migrated' values from JMF and 'legacy' from MD, but
+      // there's no easy way to get to SModule->JMF from MD, and I don't feel it's reasonable to introduce one
+      // just for the sake of this transition.
+      return myJavaLibs.iterator();
+    }
+
+    @Override
+    public int size() {
+      warnUse();
+      return myJavaLibs.size();
+    }
+  };
   private final Collection<String> myJavaLibs = new LinkedHashSet<>();
   private final Collection<String> mySourcePaths = new LinkedHashSet<>();
   private DeploymentDescriptor myDeploymentDescriptor; // FIXME must be removed
@@ -240,16 +293,26 @@ public class ModuleDescriptor implements CopyableDescriptor<ModuleDescriptor>  {
    * todo: move to java facet
    */
   public final Collection<String> getJavaLibs() {
-    return myJavaLibs;
+//    Logger.getLogger(getClass()).warnDeprecatedUse("Java Libraries are part of JavaModuleFacet specification now");
+    return myJavaLibsWarnWrap;
   }
 
   /**
-   * Additional source files to compile along with module's own generated output.
-   * Though, uses are bit odd:
-   *  - There's unused {@link AbstractModule#getSourcePaths()}
-   *  - JavaModuleFacet manifests these {@link jetbrains.mps.project.facets.JavaModuleFacet#getAdditionalSourcePaths()}, likely using module descriptor just as a storage (it's what JMF does anyway)
-   *  - Make respects these to compile a module
+   * Provisional API to migrate usages of {@code MD.getJavaLibs()} to libraries from {@code JavaModuleFacet}
+   * This field reflects legacy persisted values, these are converted to respective elements in JMF
    */
+  public final Collection<String> getJavaLibPersistedValues() {
+    return myJavaLibs;
+  }
+
+
+    /**
+     * Additional source files to compile along with module's own generated output.
+     * Though, uses are bit odd:
+     *  - There's unused {@link AbstractModule#getSourcePaths()}
+     *  - JavaModuleFacet manifests these {@link jetbrains.mps.project.facets.JavaModuleFacet#getAdditionalSourcePaths()}, likely using module descriptor just as a storage (it's what JMF does anyway)
+     *  - Make respects these to compile a module
+     */
   public final Collection<String> getSourcePaths() {
     return mySourcePaths;
   }
@@ -411,7 +474,7 @@ public class ModuleDescriptor implements CopyableDescriptor<ModuleDescriptor>  {
     descriptorCopy.getUsedDevkits().addAll(getUsedDevkits());
     descriptorCopy.getLanguageVersions().putAll(getLanguageVersions());
     descriptorCopy.getDependencyVersions().putAll(getDependencyVersions());
-    descriptorCopy.getJavaLibs().addAll(getJavaLibs());
+    descriptorCopy.getJavaLibPersistedValues().addAll(getJavaLibPersistedValues());
     descriptorCopy.getSourcePaths().addAll(getSourcePaths());
     copyDeploymentDescriptor(descriptorCopy);
     descriptorCopy.setLoadException(getLoadException());

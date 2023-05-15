@@ -21,6 +21,7 @@ import jetbrains.mps.logging.Logger;
 import jetbrains.mps.persistence.MementoImpl;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.Solution;
+import jetbrains.mps.project.structure.modules.DeploymentDescriptor;
 import jetbrains.mps.project.structure.modules.GeneratorDescriptor;
 import jetbrains.mps.project.structure.modules.LanguageDescriptor;
 import jetbrains.mps.project.structure.modules.ModuleDescriptor;
@@ -28,7 +29,10 @@ import jetbrains.mps.project.structure.modules.ModuleFacetDescriptor;
 import jetbrains.mps.project.structure.modules.SolutionKind;
 import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.smodel.Language;
+import jetbrains.mps.util.MacroHelper;
 import jetbrains.mps.util.MacrosFactory;
+import jetbrains.mps.util.PathSpec;
+import jetbrains.mps.util.PathSpecBundle;
 import jetbrains.mps.util.annotation.Hack;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.openapi.FileSystem;
@@ -39,11 +43,13 @@ import org.jetbrains.mps.annotations.Internal;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.persistence.Memento;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Function;
 
 /**
  * todo: divide into two parts: JavaModuleFacetSrcImpl && JavaModuleFacetPackagedImpl
@@ -52,6 +58,7 @@ import java.util.Set;
 public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFacet {
   private static final Logger LOG = Logger.getLogger(JavaModuleFacetImpl.class);
   private static final String CLASSES_KEY = "classes";
+  private static final String LIBRARY_KEY = "library";
   // just an indicator this entry describes classes derived from generated source code. Not sure I ever get to other entries,
   // though eventually I'd like to move everything Java-related stuff out of MD to this facet (e.g. Java libraries)
   private static final String GENERATED_KEY = "generated";
@@ -77,6 +84,7 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
 
   @Nullable
   private JavaLanguageLevel myJavaLanguageLevel = null;
+  private PathSpecBundle myLibraryBundle = new PathSpecBundle();
 
   public JavaModuleFacetImpl(@NotNull SModule module) {
     super(FACET_TYPE, module);
@@ -119,13 +127,11 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
   public Set<String> getLibraryClassPath() {
     Set<String> libraryClassPath = new LinkedHashSet<>();
 
-    // add additional java stub paths
-    ModuleDescriptor moduleDescriptor = getAbstractModule().getModuleDescriptor();
-    if (moduleDescriptor != null) {
-      // XXX for deployed modules, we could use DD.getLibraries here. But as long as MM updates MD.getJavaLibs() of a source module
-      //     and source module is always present, enjoy.
-      libraryClassPath.addAll(moduleDescriptor.getJavaLibs());
-    }
+    // add additional java library paths
+    // XXX for deployed modules, we could use DD.getLibraries here. But as long as MM updates MD.getJavaLibs() of a source module,
+    //     and we grabbed these during load(), just stick to myLibraryBundle.
+    // XXX I wonder if we truly need to care about PS.resolved(), i.e. if we need IFile or any string with substituted macro is fine.
+    myLibraryBundle.paths().filter(PathSpec::resolved).map(PathSpec::resolvedValue).forEach(libraryClassPath::add);
     // for packaged modules, we can't tell if classes deployed with it shall go into libraryCP or into #getClassPath(). Now they
     // go into latter, as there's (a) no uses for #getLibraryClassPath; (b) there's no need to compile deployed modules, hence no
     // reason to have its external classes available in libraries.
@@ -231,6 +237,10 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
       memento.put(KEY_CLASSLOADER, myLoadClasses.toPersistenceValue());
       memento.put(KEY_EXTENSION, myLoadExtensions.toPersistenceValue());
     }
+    for (PathSpec jl : myLibraryBundle) {
+      final Memento mm = memento.createChild(LIBRARY_KEY);
+      mm.put(PATH_KEY, jl.value());
+    }
   }
 
   private static boolean isBlank(Memento memento) {
@@ -247,6 +257,7 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
       // FIXME in fact, JavaModuleFacetTab does the same, but only for Solution, while I need this to happen for every module with a new JMF.
       //       Merge these two approaches into 1 place.
       myGeneratedClassesLocation = getAbstractModule().getModuleSourceDir().findChild(AbstractModule.CLASSES_GEN);
+      // FIXME this code ^^^ is wrong for Generator (src dir == lang src dir), there's a defect in YT
       // the rest of the fields get their defaults ok (myTransitionalNewValues == false, and compile/classes/ext are mostly fine)
       if (getModule() instanceof Language) {
         // this is the only setting different in L/G/D/S defaults
@@ -259,10 +270,22 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
       myJavaLanguageLevel = JavaLanguageLevel.valueOf(languageLevel);
     }
 
+    ArrayList<PathSpec> libraries = new ArrayList<>();
+    final ModuleDescriptor moduleDescriptor = getAbstractModule().getModuleDescriptor();
     if (isAtDeployedModule()) {
       // XXX generally, deployed modules shall have different JMF implementation; for the time being we share the one and
       //     have to respect deployed module scenario here by ignoring classes_gen, even if explicitly specified in source MD
       myGeneratedClassesLocation = null;
+      if (moduleDescriptor != null) {
+        final DeploymentDescriptor dd = moduleDescriptor.getDeploymentDescriptor();
+        if (dd != null) {
+          dd.getLibraries().stream().map(PathSpec::new).forEach(libraries::add);
+        } else {
+          // account for isPackaged() == true w/o DD scenario. However, I don't think it's something we shall strive to keep,
+          // instead, shall force use of DD for packaged/deployed scenarios
+          moduleDescriptor.getJavaLibPersistedValues().stream().map(PathSpec::new).forEach(libraries::add);
+        }
+      }
     } else {
       // FIXME LEHA
       FileSystem fs = getAbstractModule().getFileSystem();
@@ -282,6 +305,25 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
           break;
         }
       }
+      for (Memento m : memento.getChildren(LIBRARY_KEY)) {
+        final String p = m.get(PATH_KEY);
+        if (p != null) {
+          libraries.add(new PathSpec(p));
+        }
+        // XXX shall I warn about bad value here or in persistence? Latter seems to be generic and shall not care about mandatory attributes.
+        // Perhaps, makes sense to keep some sort of 'invalid' path specification?
+      }
+      if (moduleDescriptor != null) {
+        moduleDescriptor.getJavaLibPersistedValues().stream().map(PathSpec::new).forEach(libraries::add);
+      }
+    }
+    if (!libraries.isEmpty()) {
+      final MacroHelper macroHelper = MacrosFactory.forModule(getModule());
+      FileSystem fs = getAbstractModule().getFileSystem();
+      final Function<String, String> expandPath = macroHelper::expandPath;
+      Function<String, IFile> tr = expandPath.andThen(fs::getFile);
+      libraries.forEach(l -> l.resolve(tr));
+      myLibraryBundle = new PathSpecBundle(libraries);
     }
     // configure defaults for transition
     myTransitionalNewValues = true;
@@ -503,5 +545,13 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
         ck.putPathSpec(PATH_KEY, null);
       }
     });
+  }
+
+  public void setJavaLibrarySpec(@NotNull PathSpecBundle javaLibPaths) {
+    myLibraryBundle = javaLibPaths;
+  }
+
+  public PathSpecBundle getJavaLibrarySpec() {
+    return myLibraryBundle;
   }
 }

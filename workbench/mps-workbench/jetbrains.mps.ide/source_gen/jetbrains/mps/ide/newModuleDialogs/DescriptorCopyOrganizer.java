@@ -14,9 +14,9 @@ import jetbrains.mps.project.structure.modules.LanguageDescriptor;
 import jetbrains.mps.project.structure.modules.GeneratorDescriptor;
 import jetbrains.mps.project.structure.modules.SolutionDescriptor;
 import jetbrains.mps.project.ModuleId;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.Collection;
 import jetbrains.mps.project.structure.modules.ModuleFacetDescriptor;
 import java.util.ArrayList;
 import org.jdom.Element;
@@ -123,11 +123,12 @@ import jetbrains.mps.project.structure.modules.DeploymentDescriptor;
     resaveFacetsUnderNewFile(copyDescriptor);
 
     // area of facet descriptor which is still in the module descriptor
-    List<String> newStubPaths = copyDescriptor.getJavaLibs().stream().map((String path) -> myModulePathConverter.source2Target(path)).collect(Collectors.<String>toList());
-    copyDescriptor.getJavaLibs().clear();
-    copyDescriptor.getJavaLibs().addAll(newStubPaths);
+    Collection<String> javaLibs = copyDescriptor.getJavaLibPersistedValues();
+    List<String> newStubPaths = javaLibs.stream().map(myModulePathConverter::source2Target).collect(Collectors.<String>toList());
+    javaLibs.clear();
+    javaLibs.addAll(newStubPaths);
     final Collection<String> sourcePathsByReference = copyDescriptor.getSourcePaths();
-    List<String> newSourcePaths = sourcePathsByReference.stream().map((String path) -> myModulePathConverter.source2Target(path)).collect(Collectors.<String>toList());
+    List<String> newSourcePaths = sourcePathsByReference.stream().map(myModulePathConverter::source2Target).collect(Collectors.<String>toList());
     sourcePathsByReference.clear();
     sourcePathsByReference.addAll(newSourcePaths);
   }

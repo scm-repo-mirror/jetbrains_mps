@@ -4600,7 +4600,7 @@
                               <node concept="2OqwBi" id="B0RVt9PqlY" role="2Oq$k0">
                                 <node concept="1bf8Ab" id="B0RVt9PqlX" role="2Oq$k0" />
                                 <node concept="liA8E" id="1XOecUCB7mV" role="2OqNvi">
-                                  <ref role="37wK5l" to="w0gx:~ModuleDescriptor.getJavaLibs()" resolve="getJavaLibs" />
+                                  <ref role="37wK5l" to="w0gx:~ModuleDescriptor.getJavaLibPersistedValues()" resolve="getJavaLibPersistedValues" />
                                 </node>
                               </node>
                               <node concept="liA8E" id="B0RVt9Pqm7" role="2OqNvi">
@@ -5252,6 +5252,23 @@
           </node>
         </node>
         <node concept="3clFbH" id="33oJVYhj4Xl" role="3cqZAp" />
+        <node concept="3cpWs8" id="1oxeqEd7KNJ" role="3cqZAp">
+          <node concept="3cpWsn" id="1oxeqEd7KNK" role="3cpWs9">
+            <property role="TrG5h" value="javaLibs" />
+            <node concept="3uibUv" id="1oxeqEd7Ic5" role="1tU5fm">
+              <ref role="3uigEE" to="33ny:~Collection" resolve="Collection" />
+              <node concept="17QB3L" id="1oxeqEd8eEu" role="11_B2D" />
+            </node>
+            <node concept="2OqwBi" id="1oxeqEd7KNL" role="33vP2m">
+              <node concept="37vLTw" id="1oxeqEd7KNM" role="2Oq$k0">
+                <ref role="3cqZAo" node="33oJVYhj4UH" resolve="descriptor" />
+              </node>
+              <node concept="liA8E" id="1oxeqEd7KNN" role="2OqNvi">
+                <ref role="37wK5l" to="w0gx:~ModuleDescriptor.getJavaLibPersistedValues()" resolve="getJavaLibPersistedValues" />
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3clFbJ" id="33oJVYhj4Xm" role="3cqZAp">
           <node concept="3clFbS" id="33oJVYhj4Xn" role="3clFbx">
             <node concept="3cpWs8" id="33oJVYhj4Xo" role="3cqZAp">
@@ -5277,18 +5294,8 @@
                 <node concept="37vLTw" id="33oJVYhj4Xw" role="37wK5m">
                   <ref role="3cqZAo" node="33oJVYhj4Xp" resolve="stubModelEntries" />
                 </node>
-                <node concept="10QFUN" id="33oJVYhj4Xx" role="37wK5m">
-                  <node concept="2OqwBi" id="33oJVYhj4Xy" role="10QFUP">
-                    <node concept="37vLTw" id="33oJVYhj4Xz" role="2Oq$k0">
-                      <ref role="3cqZAo" node="33oJVYhj4UH" resolve="descriptor" />
-                    </node>
-                    <node concept="liA8E" id="1XOecUCB7OB" role="2OqNvi">
-                      <ref role="37wK5l" to="w0gx:~ModuleDescriptor.getJavaLibs()" resolve="getJavaLibs" />
-                    </node>
-                  </node>
-                  <node concept="3vKaQO" id="33oJVYhj4X_" role="10QFUM">
-                    <node concept="17QB3L" id="33oJVYhj4XA" role="3O5elw" />
-                  </node>
+                <node concept="37vLTw" id="1oxeqEd7KNP" role="37wK5m">
+                  <ref role="3cqZAo" node="1oxeqEd7KNK" resolve="javaLibs" />
                 </node>
                 <node concept="37vLTw" id="33oJVYhj9pU" role="37wK5m">
                   <ref role="3cqZAo" node="33oJVYhiVhr" resolve="myMacroHelper" />
@@ -5311,13 +5318,8 @@
           </node>
           <node concept="3fqX7Q" id="33oJVYhj4XH" role="3clFbw">
             <node concept="2OqwBi" id="33oJVYhj4XI" role="3fr31v">
-              <node concept="2OqwBi" id="33oJVYhj4XJ" role="2Oq$k0">
-                <node concept="37vLTw" id="33oJVYhj4XK" role="2Oq$k0">
-                  <ref role="3cqZAo" node="33oJVYhj4UH" resolve="descriptor" />
-                </node>
-                <node concept="liA8E" id="1XOecUCB8jt" role="2OqNvi">
-                  <ref role="37wK5l" to="w0gx:~ModuleDescriptor.getJavaLibs()" resolve="getJavaLibs" />
-                </node>
+              <node concept="37vLTw" id="1oxeqEd7KNO" role="2Oq$k0">
+                <ref role="3cqZAo" node="1oxeqEd7KNK" resolve="javaLibs" />
               </node>
               <node concept="liA8E" id="33oJVYhj4XM" role="2OqNvi">
                 <ref role="37wK5l" to="33ny:~Collection.isEmpty()" resolve="isEmpty" />
@@ -10832,7 +10834,7 @@
                               <node concept="2OqwBi" id="B0RVt9Px2h" role="2Oq$k0">
                                 <node concept="1bf8Ab" id="B0RVt9Px2i" role="2Oq$k0" />
                                 <node concept="liA8E" id="1XOecUCBaxX" role="2OqNvi">
-                                  <ref role="37wK5l" to="w0gx:~ModuleDescriptor.getJavaLibs()" resolve="getJavaLibs" />
+                                  <ref role="37wK5l" to="w0gx:~ModuleDescriptor.getJavaLibPersistedValues()" resolve="getJavaLibPersistedValues" />
                                 </node>
                               </node>
                               <node concept="liA8E" id="B0RVt9Px2k" role="2OqNvi">
@@ -11372,7 +11374,7 @@
                 <ref role="3cqZAo" node="33oJVYhgCCY" resolve="descriptor" />
               </node>
               <node concept="liA8E" id="1XOecUCBaWq" role="2OqNvi">
-                <ref role="37wK5l" to="w0gx:~ModuleDescriptor.getJavaLibs()" resolve="getJavaLibs" />
+                <ref role="37wK5l" to="w0gx:~ModuleDescriptor.getJavaLibPersistedValues()" resolve="getJavaLibPersistedValues" />
               </node>
             </node>
           </node>
