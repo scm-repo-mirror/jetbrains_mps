@@ -101,10 +101,8 @@ public final class ModuleLoader {
 
   public void checkAllModules(final ModuleChecker.CheckType type) {
     Iterable<SNode> parts = SLinkOperations.getChildren(myBuildProject, LINKS.parts$mGDj);
-    if (type.doFullImport || type.doPartialImport) {
-      Repo r = new Repo(new ModelAccessNoLimit());
-      myRepository = new ModuleRepositoryFacade(r);
-    }
+    Repo r = new Repo(new ModelAccessNoLimit());
+    myRepository = new ModuleRepositoryFacade(r);
 
     Sequence.fromIterable(SLinkOperations.collectMany(SNodeOperations.ofConcept(parts, CONCEPTS.BuildMps_Group$Jc), LINKS.modules$JlQo)).union(Sequence.fromIterable(SNodeOperations.ofConcept(parts, CONCEPTS.BuildMps_AbstractModule$FZ))).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {

@@ -942,7 +942,18 @@ public final class ModuleChecker {
     }
 
     // java stubs: jars
-    for (String path : myModuleDescriptor.getJavaLibs()) {
+    SModule loadedModule = getLoadedModule();
+    if (loadedModule == null) {
+      return;
+    }
+    JavaModuleFacet jmf = loadedModule.getFacet(JavaModuleFacet.class);
+    if (jmf == null) {
+      return;
+    }
+    for (String path : jmf.getLibraryClassPath()) {
+      //  FIXME first, shall decide if it's libraryClassPath I want to check here or rather JMFI.getJavaLibrarySpec
+      //    and if I do want to check anything at all. Comment below about expanded paths may not be valid then.
+      //    for lib spec I can check macro name (if present in the value) is matching anything in the build project
       // path is complete file location (expanded by descriptor persistence)
       // here we translate it to {BuildProject macro}/path (==BuildSourcePath.getRelativePath())
       // there could be few macro that match the path (e.g. mps_home=.;platform_lib=./lib; both match
@@ -1051,6 +1062,7 @@ public final class ModuleChecker {
         // ignore, try next
       }
     }
+    // XXX there's getLoadedModule + JMF != null check, above. If you add code here, reconsider returns
   }
 
   private void checkGenerators(CheckType type) {
