@@ -318,23 +318,38 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
     });
 
     ToolbarDecorator decorator = ToolbarDecorator.createDecorator(sourcePathTable);
-    decorator.setAddAction(anActionButton -> {
+    final Function<VirtualFile, VirtualFile[]> chooser = start -> {
       FileChooserDescriptor descriptor = FileChooserDescriptorFactory.createMultipleFoldersDescriptor();
       descriptor.setTitle("Choose Folders with Java Sources");
+      // FIXME add MPSProject
+      final VirtualFile[] files = FileChooser.chooseFiles(descriptor, getTabComponent(), null, start);
+      return files;
+    };
+    decorator.setAddAction(anActionButton -> {
       // XXX indeed, sort of undesired assumption that module source dir points to local FS.
       //     however, as long as I'm going to use FileChooser targeted for local FS, seems perfectly ok to
       //     pass initial location from local FS, or none if source dir doesn't happen to be local file.
       final VirtualFile moduleDir = LocalFileSystem.getInstance().findFileByPath(myJavaModuleFacet.getAbstractModule().getModuleSourceDir().getPath());
-
-      final VirtualFile[] files = FileChooser.chooseFiles(descriptor, getTabComponent(), null, moduleDir);
-      mySourcePathsTableModel.addAll(new ArrayList<>(Arrays.asList(files)));
+      mySourcePathsTableModel.addAll(Arrays.asList(chooser.apply(moduleDir)));
     }).setRemoveAction(anActionButton -> {
       TableUtil.removeSelectedItems(sourcePathTable);
+    }).setEditAction(anActionButton -> {
+      // same logic as with Libraries table
+      final int[] selectedIndices = sourcePathTable.getSelectionModel().getSelectedIndices();
+      if (selectedIndices.length == 0) {
+        return;
+      }
+      final VirtualFile startingPoint = (VirtualFile) sourcePathTable.getValueAt(selectedIndices[0], 0);
+      final VirtualFile[] files = chooser.apply(startingPoint);
+      if (files.length != 0) {
+        mySourcePathsTableModel.replace(selectedIndices, files);
+      }
     });
     if (myJavaModuleFacet.getModule().isReadOnly()) {
       final AnActionButtonUpdater disableEdit = (u) -> false;
       decorator.setAddActionUpdater(disableEdit);
       decorator.setRemoveActionUpdater(disableEdit);
+      decorator.setEditActionUpdater(disableEdit);
     }
     decorator.setToolbarBorder(IdeBorderFactory.createBorder());
     decorator.setPreferredSize(new Dimension(500, 100));
@@ -632,6 +647,14 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
     public void removeRow(int idx) {
       myFiles.remove(idx);
       fireTableRowsDeleted(idx, idx);
+    }
+
+    public void replace(int[] selectedIndices, VirtualFile[] files) {
+      for (int i = selectedIndices.length - 1; i >= 0; i--) {
+        myFiles.remove(selectedIndices[i]);
+      }
+      myFiles.addAll(selectedIndices[0], Arrays.asList(files));
+      fireTableDataChanged();
     }
   }
 
