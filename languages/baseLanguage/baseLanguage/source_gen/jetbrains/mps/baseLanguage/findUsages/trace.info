@@ -1573,90 +1573,93 @@
       <node id="1216392046439" at="38,41,39,36" concept="9" />
       <node id="7357487991401960756" at="44,9,45,27" concept="3" />
       <node id="1216392185706" at="45,27,46,50" concept="8" />
-      <node id="7357487991402053698" at="47,75,48,132" concept="8" />
-      <node id="7357487991402104253" at="49,78,50,108" concept="3" />
-      <node id="7357487991402189192" at="50,108,51,273" concept="3" />
-      <node id="1216392709433" at="53,14,54,153" concept="8" />
-      <node id="1216392714095" at="54,153,55,59" concept="3" />
-      <node id="1216392593417" at="57,189,58,113" concept="8" />
-      <node id="1216392494064" at="59,42,60,70" concept="3" />
-      <node id="1216392560245" at="60,70,61,235" concept="3" />
-      <node id="1216392900108" at="66,65,67,65" concept="3" />
-      <node id="7357487991401962845" at="68,7,69,25" concept="3" />
-      <node id="1216392046439" at="70,15,71,21" concept="3" />
-      <node id="1216392123729" at="76,45,77,36" concept="9" />
-      <node id="1216392046439" at="82,46,83,83" concept="9" />
-      <node id="1216392046439" at="87,0,88,0" concept="12" trace="ClassConcept$bK" />
-      <node id="1216392046439" at="88,0,89,0" concept="12" trace="AnonymousClass$Bt" />
-      <node id="1216392046439" at="89,0,90,0" concept="12" trace="Interface$db" />
-      <node id="1216392046439" at="93,0,94,0" concept="12" trace="classifier$q_Y$" />
-      <node id="1216392046439" at="94,0,95,0" concept="12" trace="classifier$cxMr" />
-      <node id="1216392046439" at="95,0,96,0" concept="12" trace="implementedInterface$rujG" />
+      <node id="1216392709433" at="46,50,47,54" concept="8" />
+      <node id="7357487991402053698" at="48,75,49,132" concept="8" />
+      <node id="7357487991402104253" at="50,78,51,108" concept="3" />
+      <node id="7357487991402189192" at="51,108,52,273" concept="3" />
+      <node id="3919191563382793509" at="53,88,54,149" concept="3" />
+      <node id="3919191563382845935" at="54,149,55,67" concept="3" />
+      <node id="3919191563382511283" at="57,14,58,141" concept="3" />
+      <node id="1216392714095" at="58,141,59,59" concept="3" />
+      <node id="1216392593417" at="62,187,63,111" concept="8" />
+      <node id="1216392494064" at="64,40,65,68" concept="3" />
+      <node id="1216392560245" at="65,68,66,233" concept="3" />
+      <node id="1216392900108" at="70,65,71,65" concept="3" />
+      <node id="7357487991401962845" at="72,7,73,25" concept="3" />
+      <node id="1216392046439" at="74,15,75,21" concept="3" />
+      <node id="1216392123729" at="80,45,81,36" concept="9" />
+      <node id="1216392046439" at="86,46,87,83" concept="9" />
+      <node id="1216392046439" at="91,0,92,0" concept="12" trace="ClassConcept$bK" />
+      <node id="1216392046439" at="92,0,93,0" concept="12" trace="AnonymousClass$Bt" />
+      <node id="1216392046439" at="93,0,94,0" concept="12" trace="Interface$db" />
+      <node id="1216392046439" at="97,0,98,0" concept="12" trace="classifier$q_Y$" />
+      <node id="1216392046439" at="98,0,99,0" concept="12" trace="classifier$cxMr" />
+      <node id="1216392046439" at="99,0,100,0" concept="12" trace="implementedInterface$rujG" />
       <node id="1216392046439" at="27,0,29,0" concept="1" trace="ImplementedInterfaces_Finder#()V" />
-      <node id="1216392878454" at="65,7,68,7" concept="5" />
+      <node id="7357487991402334246" at="57,12,60,7" concept="0" />
+      <node id="1216392878454" at="69,7,72,7" concept="5" />
       <node id="1216392046439" at="29,0,33,0" concept="7" trace="getDescription#()Ljava/lang/String;" />
       <node id="1216392046439" at="33,0,37,0" concept="7" trace="getLongDescription#()Ljava/lang/String;" />
       <node id="1216392046439" at="37,0,41,0" concept="7" trace="getSConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="7357487991402053706" at="48,132,52,9" concept="6" />
-      <node id="5726011609681527681" at="58,113,62,13" concept="6" />
-      <node id="1216392046439" at="75,0,79,0" concept="7" trace="getNodeCategory#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
-      <node id="1216392046439" at="80,0,85,0" concept="7" trace="getDeclarationNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
-      <node id="1216392459935" at="56,67,63,11" concept="5" />
-      <node id="1216392203368" at="55,59,64,9" concept="5" />
-      <node id="7357487991402334246" at="53,12,65,7" concept="0" />
-      <node id="7357487991402053696" at="46,50,65,7" concept="6" />
-      <node id="1216392046439" at="43,122,72,5" concept="13" />
-      <node id="1216392046439" at="42,0,74,0" concept="7" trace="doFind0#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/module/SearchScope;Ljetbrains/mps/ide/findusages/findalgorithm/finders/IFinder/FindCallback;Lorg/jetbrains/mps/openapi/util/ProgressMonitor;)V" />
+      <node id="5726011609681527681" at="63,111,67,11" concept="6" />
+      <node id="1216392046439" at="79,0,83,0" concept="7" trace="getNodeCategory#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
+      <node id="1216392046439" at="84,0,89,0" concept="7" trace="getDeclarationNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
+      <node id="7357487991402053706" at="49,132,56,9" concept="6" />
+      <node id="1216392459935" at="61,65,68,9" concept="5" />
+      <node id="1216392203368" at="60,7,69,7" concept="5" />
+      <node id="7357487991402053696" at="47,54,60,7" concept="6" />
+      <node id="1216392046439" at="43,122,76,5" concept="13" />
+      <node id="1216392046439" at="42,0,78,0" concept="7" trace="doFind0#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/module/SearchScope;Ljetbrains/mps/ide/findusages/findalgorithm/finders/IFinder/FindCallback;Lorg/jetbrains/mps/openapi/util/ProgressMonitor;)V" />
       <scope id="1216392046439" at="27,41,27,41" />
       <scope id="1216392046439" at="30,34,31,36" />
       <scope id="1216392046439" at="34,38,35,14" />
       <scope id="1216392046439" at="38,41,39,36" />
-      <scope id="1216392878457" at="66,65,67,65" />
-      <scope id="1216392046439" at="70,15,71,21" />
-      <scope id="1216392121338" at="76,45,77,36" />
-      <scope id="1216392046439" at="82,46,83,83" />
+      <scope id="1216392878457" at="70,65,71,65" />
+      <scope id="1216392046439" at="74,15,75,21" />
+      <scope id="1216392121338" at="80,45,81,36" />
+      <scope id="1216392046439" at="86,46,87,83" />
       <scope id="1216392046439" at="27,0,29,0" />
-      <scope id="7357487991402053707" at="49,78,51,273" />
-      <scope id="5726011609681527684" at="59,42,61,235" />
-      <scope id="1216392878454" at="65,7,68,7">
+      <scope id="7357487991402053707" at="50,78,52,273" />
+      <scope id="3919191563382790640" at="53,88,55,67" />
+      <scope id="7357487991402334247" at="57,14,59,59" />
+      <scope id="5726011609681527684" at="64,40,66,233" />
+      <scope id="1216392878454" at="69,7,72,7">
         <var name="interfaceNode" id="1216392878455" />
       </scope>
       <scope id="1216392046439" at="29,0,33,0" />
       <scope id="1216392046439" at="33,0,37,0" />
       <scope id="1216392046439" at="37,0,41,0" />
-      <scope id="1216392046439" at="75,0,79,0">
+      <scope id="1216392046439" at="79,0,83,0">
         <var name="node" id="1216392046439" />
       </scope>
-      <scope id="7357487991402053697" at="47,75,52,9">
-        <var name="classifier" id="7357487991402053699" />
-      </scope>
-      <scope id="1216392459938" at="57,189,62,13">
+      <scope id="1216392459938" at="62,187,67,11">
         <var name="interfaceNode" id="1216392593418" />
       </scope>
-      <scope id="1216392046439" at="80,0,85,0" />
-      <scope id="1216392203371" at="56,67,63,11" />
-      <scope id="1216392459935" at="56,67,63,11">
+      <scope id="1216392046439" at="84,0,89,0" />
+      <scope id="1216392203371" at="61,65,68,9" />
+      <scope id="1216392459935" at="61,65,68,9">
         <var name="implementedInterface" id="1216392459936" />
       </scope>
-      <scope id="1216392203368" at="55,59,64,9">
+      <scope id="7357487991402053697" at="48,75,56,9">
+        <var name="classifier" id="7357487991402053699" />
+      </scope>
+      <scope id="1216392203368" at="60,7,69,7">
         <var name="classNode" id="1216392203369" />
       </scope>
-      <scope id="7357487991402334247" at="53,14,64,9">
+      <scope id="1216392046441" at="44,9,73,25">
         <var name="classNodes" id="1216392709434" />
-      </scope>
-      <scope id="1216392046441" at="44,9,69,25">
         <var name="result" id="1216392185707" />
       </scope>
-      <scope id="1216392046439" at="43,122,72,5" />
-      <scope id="1216392046439" at="42,0,74,0">
+      <scope id="1216392046439" at="43,122,76,5" />
+      <scope id="1216392046439" at="42,0,78,0">
         <var name="callback" id="1216392046439" />
         <var name="monitor" id="1216392046439" />
         <var name="node" id="1216392046439" />
         <var name="scope" id="1216392046439" />
       </scope>
-      <unit id="1216392046439" at="86,0,91,0" name="jetbrains.mps.baseLanguage.findUsages.ImplementedInterfaces_Finder$CONCEPTS" />
-      <unit id="1216392046439" at="92,0,97,0" name="jetbrains.mps.baseLanguage.findUsages.ImplementedInterfaces_Finder$LINKS" />
-      <unit id="1216392046439" at="26,0,98,0" name="jetbrains.mps.baseLanguage.findUsages.ImplementedInterfaces_Finder" />
+      <unit id="1216392046439" at="90,0,95,0" name="jetbrains.mps.baseLanguage.findUsages.ImplementedInterfaces_Finder$CONCEPTS" />
+      <unit id="1216392046439" at="96,0,101,0" name="jetbrains.mps.baseLanguage.findUsages.ImplementedInterfaces_Finder$LINKS" />
+      <unit id="1216392046439" at="26,0,102,0" name="jetbrains.mps.baseLanguage.findUsages.ImplementedInterfaces_Finder" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c4(jetbrains.mps.baseLanguage.findUsages)/1227527031007">
