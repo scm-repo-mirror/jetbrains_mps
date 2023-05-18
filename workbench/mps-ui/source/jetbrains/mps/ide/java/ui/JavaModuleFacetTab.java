@@ -48,6 +48,7 @@ import jetbrains.mps.ide.ui.dialogs.properties.MPSPropertiesConfigurable;
 import jetbrains.mps.ide.ui.dialogs.properties.PropertiesBundle;
 import jetbrains.mps.ide.ui.dialogs.properties.tabs.BaseTab;
 import jetbrains.mps.project.AbstractModule;
+import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.project.Solution;
 import jetbrains.mps.project.facets.JavaLanguageLevel;
 import jetbrains.mps.project.facets.JavaModuleFacet.Compile;
@@ -79,8 +80,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 // FIXME #apply() shall not deal with ModuleDescriptor directly, instead, JavaModuleFacet.save() shall put that there (better yet,
@@ -378,25 +381,59 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
       }
     });
 
-    ToolbarDecorator decorator = ToolbarDecorator.createDecorator(librariesTable);
-    decorator.setAddAction(anActionButton -> {
+    final Function<Object, VirtualFile[]> chooseLibraryFile = start -> {
       FileChooserDescriptor descriptor = FileChooserDescriptorFactory.createAllButJarContentsDescriptor();
       descriptor.setTitle("Choose Java Library File or Folder");
-      // for LocalFileSystem justification, see similar code in #getSourcePathsTable(), above.
-      final VirtualFile moduleDir = LocalFileSystem.getInstance().findFileByPath(myJavaModuleFacet.getAbstractModule().getModuleSourceDir().getPath());
-      final VirtualFile[] files = FileChooser.chooseFiles(descriptor, getTabComponent(), null, moduleDir);
+      MPSProject mpsProject = null; // FIXME need project, it's ok for UI to know one.
+      VirtualFile vf = null;
+      String path = null;
+      if (start instanceof VirtualFile) {
+        vf = (VirtualFile) start;
+      } else if (start instanceof PathSpec) {
+        final PathSpec ps = (PathSpec) start;
+        // XXX use resolvedFile once can process IFile
+        path = ps.resolved() ? ps.resolvedPath() : ps.value();
+      } else if (start instanceof IFile) {
+        // FIXME mpsProject, once there, gives access to FileSystemBridge and a handy conversion IFile->VirtualFile
+        path = ((IFile) start).getPath();
+      } else {
+        path = myJavaModuleFacet.getAbstractModule().getModuleSourceDir().getPath();
+      }
+      if (vf == null) {
+        assert path != null;
+        // for LocalFileSystem justification, see similar code in #getSourcePathsTable(), above.
+        vf = convertStringPaths2VirtualFile(Collections.singleton(path)).stream().findFirst().get();
+      }
+      final VirtualFile[] files = FileChooser.chooseFiles(descriptor, getTabComponent(), mpsProject == null ? null : mpsProject.getProject(), vf);
+      return files;
+    };
+
+    ToolbarDecorator decorator = ToolbarDecorator.createDecorator(librariesTable);
+    decorator.setAddAction(anActionButton -> {
+      final VirtualFile[] files = chooseLibraryFile.apply(myJavaModuleFacet.getAbstractModule().getModuleSourceDir());
       // XXX perhaps, shall take FileSystemBridge from a project and pass IFile into the table model?
       myLibrariesTableModel.addNew(files);
     }).setRemoveAction(anActionButton -> {
       TableUtil.removeSelectedItems(librariesTable);
-//    }).setEditAction(anActionButton -> {
-//        FIXME implement MPS-28213  - take selected file as starting point, remember its index, ask for a new one and replace
+    }).setEditAction(anActionButton -> {
+      // no idea if IDEA's edit action allows editing of multiple selection, but as long as I can support it, why not
+      final int[] selectedIndices = librariesTable.getSelectionModel().getSelectedIndices();
+      if (selectedIndices.length == 0) {
+        return;
+      }
+      // take the first/any one as a location hint
+      final Object startingPoint = myLibrariesTableModel.getValueAt(selectedIndices[0], 0);
+      final VirtualFile[] files = chooseLibraryFile.apply(startingPoint);
+      if (files.length != 0) {
+        // don't use 'Edit' to delete elements
+        myLibrariesTableModel.replace(selectedIndices, files);
+      }
     });
     if (myJavaModuleFacet.getModule().isReadOnly()) {
       final AnActionButtonUpdater disableEdit = (u) -> false;
       decorator.setAddActionUpdater(disableEdit);
       decorator.setRemoveActionUpdater(disableEdit);
-//      decorator.setEditActionUpdater(disableEdit);
+      decorator.setEditActionUpdater(disableEdit);
     }
     decorator.setToolbarBorder(IdeBorderFactory.createBorder());
     decorator.setPreferredSize(new Dimension(500, 100));
@@ -649,6 +686,14 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
         }
       }
       return new PathSpecBundle(pathSpecs);
+    }
+
+    /*package*/ void replace(int[] selectedIndices, VirtualFile[] files) {
+      for (int i = selectedIndices.length - 1; i >= 0; i--) {
+        myPaths.remove(selectedIndices[i]);
+      }
+      myPaths.addAll(selectedIndices[0], Arrays.asList(files));
+      fireTableDataChanged();
     }
   }
 
