@@ -7,8 +7,8 @@ import jetbrains.mps.lang.typesystem.runtime.NonTypesystemRule_Runtime;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
-import jetbrains.mps.kotlin.constraints.Identifiers;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.kotlin.constraints.Identifiers;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
@@ -22,10 +22,11 @@ public class check_IIdentifier_KeywordClash_NonTypesystemRule extends AbstractNo
   }
   public void applyRule(final SNode iIdentifier, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     // This is a 'soft' constraint as it shouldn't prevent user from typing keywords in names as long as it is a transitive state (for typing 'isSomething', one need to type 'is' first)
-    if (Identifiers.isKeyword(SPropertyOperations.getString(iIdentifier, PROPS.name$MnvL))) {
+    String name = SPropertyOperations.getString(iIdentifier, PROPS.name$MnvL);
+    if ((name != null && name.length() > 0) && Identifiers.isKeyword(name)) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
-        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(iIdentifier, "'" + SPropertyOperations.getString(iIdentifier, PROPS.name$MnvL) + "' is a reserved keyword", "r:aff09eac-afd3-4057-bdd8-e02a572d1436(jetbrains.mps.kotlin.typesystem)", "2185757790183412150", null, errorTarget);
+        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(iIdentifier, "'" + name + "' is a reserved keyword", "r:aff09eac-afd3-4057-bdd8-e02a572d1436(jetbrains.mps.kotlin.typesystem)", "2185757790183412150", null, errorTarget);
       }
     }
   }
