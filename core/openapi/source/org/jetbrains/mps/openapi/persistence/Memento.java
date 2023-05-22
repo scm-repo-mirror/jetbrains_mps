@@ -95,6 +95,12 @@ public interface Memento {
   Memento createChild(String type);
 
   /**
+   * PROVISIONAL API. NEED TO SORT OUT FacetDescriptor persistence, whether we update existing memento (and then we need a way to
+   * edit child mementos with this or similar method) or we use memento as a snapshot (like model root descriptors do)
+   */
+  void clearChildren(String type);
+
+  /**
    * Returns a deep copy of the current memento and its children
    */
   Memento copy();
