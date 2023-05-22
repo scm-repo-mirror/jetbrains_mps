@@ -8,5 +8,6 @@ import jetbrains.mps.migration.global.ProjectMigration;
 public class Migrations_2023_1 {
   public void offerInto(Deque<ProjectMigration> migrations) {
     migrations.offer(new JavaModuleSettingsToFacet());
+    migrations.offer(new DataFlowStubsToRegularNodes());
   }
 }

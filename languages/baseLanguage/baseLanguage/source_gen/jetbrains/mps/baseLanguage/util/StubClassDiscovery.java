@@ -22,6 +22,7 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.project.dependency.GlobalModuleDependenciesManager;
 import jetbrains.mps.smodel.SModelStereotype;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Objects;
@@ -30,8 +31,14 @@ import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.persistence.PersistenceRegistry;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.baseLanguage.behavior.BaseMethodDeclaration__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.ConceptSwitchIndex;
+import jetbrains.mps.lang.smodel.ConceptSwitchIndexBuilder;
+import jetbrains.mps.smodel.adapter.ids.MetaIdFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -136,6 +143,7 @@ public final class StubClassDiscovery {
     return rv;
   }
 
+  @Nullable
   public SNode findNodeClassifier(final SNode stubClassifier) {
     if (SNodeOperations.getParent(stubClassifier) != null) {
       SNode root = SNodeOperations.as(SNodeOperations.getContainingRoot(stubClassifier), CONCEPTS.Classifier$Ix);
@@ -198,16 +206,76 @@ public final class StubClassDiscovery {
     return ListSequence.fromList(firstMirrors).contains(c2) || ListSequence.fromList(secondMirrors).contains(c1);
   }
 
+  /**
+   * Look up original node counterpart for a stub classifier member.
+   * Intended use: migration of MPS-generated code exposed/referenced as stubs back to original nodes
+   */
+  public SNode findMemberDeclarationNode(final SNode stubDeclaration) {
+    SNode owner = findNodeClassifier(SNodeOperations.getNodeAncestor(stubDeclaration, CONCEPTS.Classifier$Ix, false, false));
+    if (owner == null) {
+      return (SNodeOperations.isInstanceOf(stubDeclaration, CONCEPTS.Classifier$Ix) ? findNodeClassifier(SNodeOperations.cast(stubDeclaration, CONCEPTS.Classifier$Ix)) : null);
+    }
+    List<SNode> ownerSameMembers = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(owner, LINKS.member$L_2d), SNodeOperations.asSConcept(SNodeOperations.getConcept(stubDeclaration)))).toListSequence();
+    if (ListSequence.fromList(ownerSameMembers).isEmpty()) {
+      if (SNodeOperations.isInstanceOf(stubDeclaration, CONCEPTS.ConstructorDeclaration$yG)) {
+        SNode scd = SNodeOperations.cast(stubDeclaration, CONCEPTS.ConstructorDeclaration$yG);
+        if (ListSequence.fromList(SLinkOperations.getChildren(scd, LINKS.parameter$5xBj)).isEmpty()) {
+          // assume it's default constructor invocation, which is a member in stubs but a reference to classifier (DefaultClassCreator)
+          // in case of regular nodes
+          // This seems to be a hack - how come I'm sure the Classifier is fine to substitute this stubDeclaration target?
+          return owner;
+        }
+      }
+      return null;
+    }
+    SAbstractConcept cncpt = SNodeOperations.getConcept(stubDeclaration);
+    switch (conceptIndex.index(cncpt)) {
+      case 0:
+        return Sequence.fromIterable(SNodeOperations.ofConcept(ownerSameMembers, CONCEPTS.FieldDeclaration$ie)).findFirst(new IWhereFilter<SNode>() {
+          public boolean accept(SNode it) {
+            return Objects.equals(SPropertyOperations.getString(it, PROPS.name$MnvL), SPropertyOperations.getString(SNodeOperations.cast(stubDeclaration, CONCEPTS.FieldDeclaration$ie), PROPS.name$MnvL));
+          }
+        });
+      case 1:
+        return Sequence.fromIterable(SNodeOperations.ofConcept(ownerSameMembers, CONCEPTS.StaticFieldDeclaration$jR)).findFirst(new IWhereFilter<SNode>() {
+          public boolean accept(SNode it) {
+            return Objects.equals(SPropertyOperations.getString(it, PROPS.name$MnvL), SPropertyOperations.getString(SNodeOperations.cast(stubDeclaration, CONCEPTS.StaticFieldDeclaration$jR), PROPS.name$MnvL));
+          }
+        });
+      default:
+        boolean noneMatched = true;
+        if (noneMatched && SConceptOperations.isSubConceptOf(cncpt, CONCEPTS.BaseMethodDeclaration$kD)) {
+          noneMatched = false;
+          // covers InstanceMethodDeclaration, StaticMethodDeclaration and ConstructorDeclaration
+          final SNode md = SNodeOperations.cast(stubDeclaration, CONCEPTS.BaseMethodDeclaration$kD);
+          // Not sure if it's proper to use hasSameSignature/hasSameParameters as same method parameters may use
+          // counterparts (node/stub) of the same target type, and I'm afraid erasure signature may not detect they are the same in all cases.
+          // FWIW, cast to ClassifierMember is ok as we know stubDeclaration is CM, therefore filtered members are CM, too
+          return SNodeOperations.as(Sequence.fromIterable(SNodeOperations.ofConcept(ownerSameMembers, CONCEPTS.BaseMethodDeclaration$kD)).findFirst(new IWhereFilter<SNode>() {
+            public boolean accept(SNode it) {
+              return Objects.equals(SPropertyOperations.getString(it, PROPS.name$MnvL), SPropertyOperations.getString(md, PROPS.name$MnvL)) && (boolean) BaseMethodDeclaration__BehaviorDescriptor.hasSameParameters_idJuSt8W4$Q2.invoke(md, it);
+            }
+          }), CONCEPTS.ClassifierMember$At);
+        }
+    }
+    return null;
+  }
   private static SModule check_h9urwj_a0a0j(SModel checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getModule();
     }
     return null;
   }
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L), MetaIdFactory.conceptId(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93c84351fL)).seal();
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept Classifier$Ix = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
     /*package*/ static final SConcept StringLiteral$xu = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, "jetbrains.mps.baseLanguage.structure.StringLiteral");
+    /*package*/ static final SConcept ConstructorDeclaration$yG = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
+    /*package*/ static final SConcept BaseMethodDeclaration$kD = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+    /*package*/ static final SInterfaceConcept ClassifierMember$At = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112574373bdL, "jetbrains.mps.baseLanguage.structure.ClassifierMember");
+    /*package*/ static final SConcept FieldDeclaration$ie = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
+    /*package*/ static final SConcept StaticFieldDeclaration$jR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93c84351fL, "jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration");
   }
 
   private static final class LINKS {
@@ -216,9 +284,12 @@ public final class StubClassDiscovery {
     /*package*/ static final SContainmentLink value$uK2B = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a71c697fL, "value");
     /*package*/ static final SReferenceLink key$bSmV = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a71b1af4L, 0x114a71b44e3L, "key");
     /*package*/ static final SContainmentLink value$Y7om = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a71b1af4L, 0x114a71c0fc4L, "value");
+    /*package*/ static final SContainmentLink member$L_2d = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member");
+    /*package*/ static final SContainmentLink parameter$5xBj = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty value$w7MM = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value");
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }
