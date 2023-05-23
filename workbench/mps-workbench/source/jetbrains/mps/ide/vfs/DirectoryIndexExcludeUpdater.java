@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ import com.intellij.openapi.application.ApplicationListener;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ProjectComponent;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.roots.ex.ProjectRootManagerEx;
 import com.intellij.openapi.roots.impl.DirectoryIndexExcludePolicy;
 import com.intellij.openapi.roots.impl.ModuleRootEventImpl;
 import com.intellij.openapi.vfs.VirtualFile;
@@ -42,6 +43,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * This component tells IDEA when roots it shall index change based on MPS module changes
  * @author Evgeny Gerashchenko
  */
 public class DirectoryIndexExcludeUpdater implements ProjectComponent {
@@ -108,6 +110,8 @@ public class DirectoryIndexExcludeUpdater implements ProjectComponent {
         // MPS-24027: send event with beforeRootsChange() to avoid exception in com.intellij.psi.impl.file.impl.PsiVFSListener.MyModuleRootListener
         final Project ideaProject = myProject.getProject();
         final MessageBus messageBus = ideaProject.getMessageBus();
+        // FTR, IndexableRootCalculator.invalidateCache uses "API" approach for same notifications,
+        // namely, ProjectRootManagerEx.makeRootsChange(), endorsed by IDEA platform team
         messageBus.syncPublisher(ProjectTopics.PROJECT_ROOTS).beforeRootsChange(new ModuleRootEventImpl(ideaProject, false));
         messageBus.syncPublisher(ProjectTopics.PROJECT_ROOTS).rootsChanged(new ModuleRootEventImpl(ideaProject, false));
       }
