@@ -2982,7 +2982,7 @@
                 <ref role="3cqZAo" node="4uVwhQyPurA" resolve="module" />
               </node>
               <node concept="liA8E" id="4EpASiE4Hu7" role="2OqNvi">
-                <ref role="37wK5l" to="lui2:~SModule.getModuleReference()" resolve="getModuleReference" />
+                <ref role="37wK5l" to="z1c3:~AbstractModule.getModuleReference()" resolve="getModuleReference" />
               </node>
             </node>
             <node concept="2OqwBi" id="4uVwhQyPurt" role="37vLTJ">
@@ -3035,7 +3035,7 @@
       <node concept="37vLTG" id="4uVwhQyPurA" role="3clF46">
         <property role="TrG5h" value="module" />
         <node concept="3uibUv" id="79xDgbheUBc" role="1tU5fm">
-          <ref role="3uigEE" to="lui2:~SModule" resolve="SModule" />
+          <ref role="3uigEE" to="w1kc:~Language" resolve="Language" />
         </node>
       </node>
       <node concept="37vLTG" id="4uVwhQyPurC" role="3clF46">

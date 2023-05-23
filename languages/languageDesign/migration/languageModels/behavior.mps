@@ -60,6 +60,10 @@
       <concept id="1225194691553" name="jetbrains.mps.lang.behavior.structure.ThisNodeExpression" flags="nn" index="13iPFW" />
     </language>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
+      <concept id="1224071154655" name="jetbrains.mps.baseLanguage.structure.AsExpression" flags="nn" index="0kSF2">
+        <child id="1224071154657" name="classifierType" index="0kSFW" />
+        <child id="1224071154656" name="expression" index="0kSFX" />
+      </concept>
       <concept id="1080223426719" name="jetbrains.mps.baseLanguage.structure.OrExpression" flags="nn" index="22lmx$" />
       <concept id="1215693861676" name="jetbrains.mps.baseLanguage.structure.BaseAssignmentExpression" flags="nn" index="d038R">
         <child id="1068498886297" name="rValue" index="37vLTx" />
@@ -963,15 +967,20 @@
           <node concept="2ShNRf" id="4uVwhQyPPNW" role="3clFbG">
             <node concept="1pGfFk" id="4uVwhQyPPNV" role="2ShVmc">
               <ref role="37wK5l" to="6f4m:4uVwhQyPurm" resolve="RefactoringScriptReference" />
-              <node concept="2OqwBi" id="4uVwhQyPQuN" role="37wK5m">
-                <node concept="2JrnkZ" id="4uVwhQyPQtu" role="2Oq$k0">
-                  <node concept="2OqwBi" id="4uVwhQyPPSz" role="2JrQYb">
-                    <node concept="13iPFW" id="4uVwhQyPPPr" role="2Oq$k0" />
-                    <node concept="I4A8Y" id="4uVwhQyPQ4x" role="2OqNvi" />
-                  </node>
+              <node concept="0kSF2" id="7WCeg2c2v8X" role="37wK5m">
+                <node concept="3uibUv" id="7WCeg2c2v90" role="0kSFW">
+                  <ref role="3uigEE" to="w1kc:~Language" resolve="Language" />
                 </node>
-                <node concept="liA8E" id="4uVwhQyPQ$c" role="2OqNvi">
-                  <ref role="37wK5l" to="mhbf:~SModel.getModule()" resolve="getModule" />
+                <node concept="2OqwBi" id="4uVwhQyPQuN" role="0kSFX">
+                  <node concept="2JrnkZ" id="4uVwhQyPQtu" role="2Oq$k0">
+                    <node concept="2OqwBi" id="4uVwhQyPPSz" role="2JrQYb">
+                      <node concept="13iPFW" id="4uVwhQyPPPr" role="2Oq$k0" />
+                      <node concept="I4A8Y" id="4uVwhQyPQ4x" role="2OqNvi" />
+                    </node>
+                  </node>
+                  <node concept="liA8E" id="4uVwhQyPQ$c" role="2OqNvi">
+                    <ref role="37wK5l" to="mhbf:~SModel.getModule()" resolve="getModule" />
+                  </node>
                 </node>
               </node>
               <node concept="2OqwBi" id="4uVwhQyPQXZ" role="37wK5m">

@@ -15,6 +15,7 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.smodel.Language;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
@@ -32,7 +33,7 @@ public final class RefactoringLog__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static RefactoringScriptReference getDescriptor_id4uVwhQyPQ_Z(@NotNull SNode __thisNode__) {
-    return new RefactoringScriptReference(SNodeOperations.getModel(__thisNode__).getModule(), SPropertyOperations.getInteger(__thisNode__, PROPS.fromVersion$clQh));
+    return new RefactoringScriptReference(as_1gq0f6_a0a0a0i(SNodeOperations.getModel(__thisNode__).getModule(), Language.class), SPropertyOperations.getInteger(__thisNode__, PROPS.fromVersion$clQh));
   }
 
   /*package*/ RefactoringLog__BehaviorDescriptor() {
@@ -79,6 +80,9 @@ public final class RefactoringLog__BehaviorDescriptor extends BaseBHDescriptor {
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
+  }
+  private static <T> T as_1gq0f6_a0a0a0i(Object o, Class<T> type) {
+    return (type.isInstance(o) ? (T) o : null);
   }
 
   private static final class PROPS {

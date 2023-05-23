@@ -16545,6 +16545,67 @@
             <property role="TrG5h" value="dep" />
           </node>
           <node concept="3clFbS" id="1kouhOEv8hx" role="2LFqv$">
+            <node concept="3clFbJ" id="7WCeg2c2zbP" role="3cqZAp">
+              <node concept="3clFbS" id="7WCeg2c2zbR" role="3clFbx">
+                <node concept="3SKdUt" id="7WCeg2c2FOQ" role="3cqZAp">
+                  <node concept="1PaTwC" id="7WCeg2c2FOR" role="1aUNEU">
+                    <node concept="3oM_SD" id="7WCeg2c2GH$" role="1PaTwD">
+                      <property role="3oM_SC" value="RefactoringLog" />
+                    </node>
+                    <node concept="3oM_SD" id="7WCeg2c2GJi" role="1PaTwD">
+                      <property role="3oM_SC" value="lives" />
+                    </node>
+                    <node concept="3oM_SD" id="7WCeg2c2GKb" role="1PaTwD">
+                      <property role="3oM_SC" value="in" />
+                    </node>
+                    <node concept="3oM_SD" id="7WCeg2c2GKf" role="1PaTwD">
+                      <property role="3oM_SC" value="language's" />
+                    </node>
+                    <node concept="3oM_SD" id="7WCeg2c2GLa" role="1PaTwD">
+                      <property role="3oM_SC" value="aspect" />
+                    </node>
+                    <node concept="3oM_SD" id="7WCeg2c2GLg" role="1PaTwD">
+                      <property role="3oM_SC" value="model," />
+                    </node>
+                    <node concept="3oM_SD" id="7WCeg2c2GN3" role="1PaTwD">
+                      <property role="3oM_SC" value="no" />
+                    </node>
+                    <node concept="3oM_SD" id="7WCeg2c2Ja0" role="1PaTwD">
+                      <property role="3oM_SC" value="reason" />
+                    </node>
+                    <node concept="3oM_SD" id="7WCeg2c2Jbf" role="1PaTwD">
+                      <property role="3oM_SC" value="to" />
+                    </node>
+                    <node concept="3oM_SD" id="7WCeg2c2Jbp" role="1PaTwD">
+                      <property role="3oM_SC" value="process" />
+                    </node>
+                    <node concept="3oM_SD" id="7WCeg2c2JcE" role="1PaTwD">
+                      <property role="3oM_SC" value="modules" />
+                    </node>
+                    <node concept="3oM_SD" id="7WCeg2c2JdG" role="1PaTwD">
+                      <property role="3oM_SC" value="other" />
+                    </node>
+                    <node concept="3oM_SD" id="7WCeg2c2Jff" role="1PaTwD">
+                      <property role="3oM_SC" value="than" />
+                    </node>
+                    <node concept="3oM_SD" id="7WCeg2c2Jgj" role="1PaTwD">
+                      <property role="3oM_SC" value="language" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="3N13vt" id="7WCeg2c2E2e" role="3cqZAp" />
+              </node>
+              <node concept="3fqX7Q" id="7WCeg2c2BOK" role="3clFbw">
+                <node concept="2ZW3vV" id="7WCeg2c2BOM" role="3fr31v">
+                  <node concept="3uibUv" id="7WCeg2c2BON" role="2ZW6by">
+                    <ref role="3uigEE" to="w1kc:~Language" resolve="Language" />
+                  </node>
+                  <node concept="2GrUjf" id="7WCeg2c2BOO" role="2ZW6bz">
+                    <ref role="2Gs0qQ" node="1kouhOEv8hw" resolve="dep" />
+                  </node>
+                </node>
+              </node>
+            </node>
             <node concept="3cpWs8" id="7WCeg2bYDG7" role="3cqZAp">
               <node concept="3cpWsn" id="7WCeg2bYDG8" role="3cpWs9">
                 <property role="TrG5h" value="scripts" />
@@ -16584,7 +16645,7 @@
                             <ref role="2Gs0qQ" node="1kouhOEv8hw" resolve="dep" />
                           </node>
                           <node concept="3uibUv" id="1kouhOEv8hD" role="10QFUM">
-                            <ref role="3uigEE" to="z1c3:~AbstractModule" resolve="AbstractModule" />
+                            <ref role="3uigEE" to="w1kc:~Language" resolve="Language" />
                           </node>
                         </node>
                       </node>
@@ -16646,8 +16707,13 @@
                           <node concept="1pGfFk" id="7WCeg2bZn$_" role="2ShVmc">
                             <property role="373rjd" value="true" />
                             <ref role="37wK5l" to="6f4m:4uVwhQyPurm" resolve="RefactoringScriptReference" />
-                            <node concept="2GrUjf" id="7WCeg2bZoVe" role="37wK5m">
-                              <ref role="2Gs0qQ" node="1kouhOEv8hw" resolve="dep" />
+                            <node concept="10QFUN" id="7WCeg2c3R2m" role="37wK5m">
+                              <node concept="3uibUv" id="7WCeg2c3RZE" role="10QFUM">
+                                <ref role="3uigEE" to="w1kc:~Language" resolve="Language" />
+                              </node>
+                              <node concept="2GrUjf" id="7WCeg2bZoVe" role="10QFUP">
+                                <ref role="2Gs0qQ" node="1kouhOEv8hw" resolve="dep" />
+                              </node>
                             </node>
                             <node concept="37vLTw" id="7WCeg2bZq17" role="37wK5m">
                               <ref role="3cqZAo" node="7WCeg2bYYpX" resolve="i" />

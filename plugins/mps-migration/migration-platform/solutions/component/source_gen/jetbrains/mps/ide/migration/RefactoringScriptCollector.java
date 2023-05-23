@@ -11,6 +11,7 @@ import java.util.List;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.lang.migration.runtime.base.MigrationModuleUtil;
+import jetbrains.mps.smodel.Language;
 import jetbrains.mps.project.AbstractModule;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -26,13 +27,17 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 
   /*package*/ void fillFor(SModule module) {
     for (SModule dep : SetSequence.fromSet(MigrationModuleUtil.getModuleDependencies(module))) {
+      if (!(dep instanceof Language)) {
+        // RefactoringLog lives in language's aspect model, no reason to process modules other than language
+        continue;
+      }
       RefactoringScriptReference[] scripts = myModule2Scripts.get(dep.getModuleReference());
       if (scripts == null) {
-        int currentDepVersion = ((AbstractModule) dep).getModuleVersion();
+        int currentDepVersion = ((Language) dep).getModuleVersion();
         currentDepVersion = Math.max(currentDepVersion, 0);
         scripts = new RefactoringScriptReference[currentDepVersion];
         for (int i = 0; i < currentDepVersion; i++) {
-          scripts[i] = new RefactoringScriptReference(dep, i);
+          scripts[i] = new RefactoringScriptReference((Language) dep, i);
         }
       }
       int ver = Math.max(((AbstractModule) module).getDependencyVersion(dep, false), 0);
