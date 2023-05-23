@@ -72,6 +72,7 @@ import javax.swing.JPanel;
 import javax.swing.event.ChangeListener;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableModel;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.FocusAdapter;
@@ -84,12 +85,11 @@ import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 // FIXME #apply() shall not deal with ModuleDescriptor directly, instead, JavaModuleFacet.save() shall put that there (better yet,
 // to memento, not to be different from other facets, provided we don't use isCompileInMPS and getKind directly from descriptor)
 public class JavaModuleFacetTab extends BaseTab implements FacetTab {
-  private FilesTableModel mySourcePathsTableModel;
+  private PathSpecTableModel mySourcePathsTableModel;
   private boolean mySourcePathsChanged = false;
   private PathSpecTableModel myLibrariesTableModel;
   private boolean myLibrariesChanged = false;
@@ -299,12 +299,12 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
   }
 
   private JComponent getSourcePathsTable() {
-    mySourcePathsTableModel = new FilesTableModel(convertStringPaths2VirtualFile(myJavaModuleFacet.getAdditionalSourcePaths()));
+    mySourcePathsTableModel = new PathSpecTableModel(myJavaModuleFacet.getSourcePathSpec());
     mySourcePathsTableModel.addTableModelListener(e -> mySourcePathsChanged = true);
-    final JBTable sourcePathTable = new JBTable(mySourcePathsTableModel);
+    final JBTable sourcePathTable = new JTablePlus(mySourcePathsTableModel);
+    sourcePathTable.setDefaultRenderer(VirtualFile.class, new VirtualFileTableRenderer());
+    sourcePathTable.setDefaultRenderer(PathSpec.class, new PathSpecTableRenderer());
     sourcePathTable.setTableHeader(null);
-    final TableCellRenderer renderer = new VirtualFileTableRenderer();
-    sourcePathTable.setDefaultRenderer(VirtualFile.class, renderer);
     sourcePathTable.setShowHorizontalLines(false);
     sourcePathTable.setShowVerticalLines(false);
     sourcePathTable.setAutoCreateRowSorter(false);
@@ -318,19 +318,33 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
     });
 
     ToolbarDecorator decorator = ToolbarDecorator.createDecorator(sourcePathTable);
-    final Function<VirtualFile, VirtualFile[]> chooser = start -> {
+    final Function<Object, VirtualFile[]> chooser = start -> {
       FileChooserDescriptor descriptor = FileChooserDescriptorFactory.createMultipleFoldersDescriptor();
       descriptor.setTitle("Choose Folders with Java Sources");
-      // FIXME add MPSProject
-      final VirtualFile[] files = FileChooser.chooseFiles(descriptor, getTabComponent(), null, start);
+      MPSProject mpsProject = null; // FIXME need project, it's ok for UI to know one.
+      VirtualFile vf = null;
+      String path = null;
+      if (start instanceof VirtualFile) {
+        vf = (VirtualFile) start;
+      } else if (start instanceof PathSpec) {
+        final PathSpec ps = (PathSpec) start;
+        // XXX use resolvedFile once can process IFile
+        path = ps.resolved() ? ps.resolvedPath() : ps.value();
+      } else if (start instanceof IFile) {
+        // FIXME mpsProject, once there, gives access to FileSystemBridge and a handy conversion IFile->VirtualFile
+        path = ((IFile) start).getPath();
+      } else {
+        path = myJavaModuleFacet.getAbstractModule().getModuleSourceDir().getPath();
+      }
+      if (vf == null) {
+        assert path != null;
+        vf = convertStringPaths2VirtualFile(Collections.singleton(path)).stream().findFirst().get();
+      }
+      final VirtualFile[] files = FileChooser.chooseFiles(descriptor, getTabComponent(), mpsProject == null ? null : mpsProject.getProject(), vf);
       return files;
     };
     decorator.setAddAction(anActionButton -> {
-      // XXX indeed, sort of undesired assumption that module source dir points to local FS.
-      //     however, as long as I'm going to use FileChooser targeted for local FS, seems perfectly ok to
-      //     pass initial location from local FS, or none if source dir doesn't happen to be local file.
-      final VirtualFile moduleDir = LocalFileSystem.getInstance().findFileByPath(myJavaModuleFacet.getAbstractModule().getModuleSourceDir().getPath());
-      mySourcePathsTableModel.addAll(Arrays.asList(chooser.apply(moduleDir)));
+      mySourcePathsTableModel.addNew(chooser.apply(myJavaModuleFacet.getAbstractModule().getModuleSourceDir()));
     }).setRemoveAction(anActionButton -> {
       TableUtil.removeSelectedItems(sourcePathTable);
     }).setEditAction(anActionButton -> {
@@ -339,7 +353,7 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
       if (selectedIndices.length == 0) {
         return;
       }
-      final VirtualFile startingPoint = (VirtualFile) sourcePathTable.getValueAt(selectedIndices[0], 0);
+      final Object startingPoint = sourcePathTable.getValueAt(selectedIndices[0], 0);
       final VirtualFile[] files = chooser.apply(startingPoint);
       if (files.length != 0) {
         for (int i = 0; i < selectedIndices.length; i++) {
@@ -364,26 +378,11 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
 
   private JComponent getLibrariesTable() {
     final PathSpecBundle jls = myJavaModuleFacet.getJavaLibrarySpec();
-    // FIXME it's not right to ignore unresolved reference and silently ignore them. Although convertStringPaths2VirtualFile() can
-    //       present invalid file, it's not clear how to approach unresolved PathSpec here. Need a dedicated TableModel, instead
-    final Collection<String> additionalJavaStubPaths = jls.paths().filter(PathSpec::resolved).map(PathSpec::resolvedPath).collect(Collectors.toList());
     myLibrariesTableModel = new PathSpecTableModel(jls);
     myLibrariesTableModel.addTableModelListener(e -> myLibrariesChanged = true);
-    final JBTable librariesTable = new JBTable(myLibrariesTableModel) {
-      private final TableCellRenderer r1 = new VirtualFileTableRenderer();
-      private final TableCellRenderer r2 = new PathSpecTableRenderer();
-      @Override
-      public TableCellRenderer getCellRenderer(int row, int column) {
-        final Object val = getModel().getValueAt(row, column);
-        if (val instanceof VirtualFile) {
-          return r1;
-        }
-        if (val instanceof PathSpec) {
-          return r2;
-        }
-        return super.getCellRenderer(row, column);
-      }
-    };
+    final JBTable librariesTable = new JTablePlus(myLibrariesTableModel);
+    librariesTable.setDefaultRenderer(VirtualFile.class, new VirtualFileTableRenderer());
+    librariesTable.setDefaultRenderer(PathSpec.class, new PathSpecTableRenderer());
     librariesTable.setTableHeader(null);
     librariesTable.setShowHorizontalLines(false);
     librariesTable.setShowVerticalLines(false);
@@ -418,7 +417,6 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
       }
       if (vf == null) {
         assert path != null;
-        // for LocalFileSystem justification, see similar code in #getSourcePathsTable(), above.
         vf = convertStringPaths2VirtualFile(Collections.singleton(path)).stream().findFirst().get();
       }
       final VirtualFile[] files = FileChooser.chooseFiles(descriptor, getTabComponent(), mpsProject == null ? null : mpsProject.getProject(), vf);
@@ -540,10 +538,8 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
       }
     }
 
-    // TODO: Move save of sources and libraries to JavaModuleFacetImpl#save(), when settings will be moved from ModuleDescriptor to memento
-
     if (mySourcePathsChanged) {
-      myJavaModuleFacet.setAdditionalSourcePaths(convertVirtualFile2StringPaths(mySourcePathsTableModel.getFiles()));
+      myJavaModuleFacet.setSourcePathSpec(mySourcePathsTableModel.toPathBundle(new ArrayList<>()));
       mySourcePathsChanged = false;
     }
 
@@ -599,71 +595,6 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
       }
     }
     return null;
-  }
-
-  private static class FilesTableModel extends AbstractTableModel implements ItemRemovable {
-    private final List<VirtualFile> myFiles = new ArrayList<>();
-
-    FilesTableModel(Collection<VirtualFile> files) {
-      myFiles.addAll(files);
-    }
-
-    public void addAll(Collection<VirtualFile> files) {
-      // Filter already added entries
-      files = new LinkedHashSet<>(files);
-      files.removeAll(myFiles);
-      if (myFiles.addAll(files)) {
-        fireTableDataChanged();
-      }
-    }
-
-    public Collection<VirtualFile> getFiles() {
-      // Return copy to avoid unexpected external modification
-      return new ArrayList<>(myFiles);
-    }
-
-    @Override
-    public int getRowCount() {
-      return myFiles.size();
-    }
-
-    @Override
-    public Object getValueAt(int rowIndex, int columnIndex) {
-      return myFiles.get(rowIndex);
-    }
-
-    @Override
-    public int getColumnCount() {
-      return 1;
-    }
-
-    @Override
-    public String getColumnName(int columnIndex) {
-      return "";
-    }
-
-    @Override
-    public Class<?> getColumnClass(int columnIndex) {
-      if (columnIndex == 0) {
-        return VirtualFile.class;
-      }
-      return super.getColumnClass(columnIndex);
-    }
-
-    @Override
-    public void removeRow(int idx) {
-      myFiles.remove(idx);
-      fireTableRowsDeleted(idx, idx);
-    }
-
-    public void replace(int[] selectedIndices, VirtualFile[] files) {
-      Arrays.sort(selectedIndices);
-      for (int i = selectedIndices.length - 1; i >= 0; i--) {
-        myFiles.remove(selectedIndices[i]);
-      }
-      myFiles.addAll(selectedIndices[0], Arrays.asList(files));
-      fireTableDataChanged();
-    }
   }
 
   private static class PathSpecTableModel extends AbstractTableModel implements ItemRemovable {
@@ -729,20 +660,16 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
     }
   }
 
-  private static Collection<String> convertVirtualFile2StringPaths(Collection<VirtualFile> files) {
-    final Collection<String> result = new ArrayList<>(files.size());
-    for (VirtualFile file : files) {
-      result.add(file.getPath());
-    }
-    return result;
-  }
-
   private static Collection<VirtualFile> convertStringPaths2VirtualFile(Collection<String> paths) {
     final Collection<VirtualFile> result = new ArrayList<>(paths.size());
     for (String path : paths) {
       // contrary to what commit comment suggests here, findFileByPath seems to work
       // fine for FileBasedModelRootEditor
       final VirtualFile fileByPath = LocalFileSystem.getInstance().findFileByPath(path);
+      // LocalFileSystem justification:
+      //     indeed, sort of undesired assumption that paths (e.g. module source dir) points to local FS.
+      //     however, as long as I'm going to use FileChooser targeted for local FS, seems perfectly ok to
+      //     pass initial location from local FS, or none if source dir doesn't happen to be local file.
       if (fileByPath != null) {
         result.add(fileByPath);
       } else {
@@ -758,5 +685,21 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
       }
     }
     return result;
+  }
+
+  // table that uses default cell renderers registered for a column class on per-cell value basis
+  /*package*/ static class JTablePlus extends JBTable {
+    JTablePlus(TableModel model) {
+      super(model);
+    }
+
+    @Override
+    public TableCellRenderer getCellRenderer(int row, int column) {
+      final Object val = getModel().getValueAt(row, column);
+      if (val == null) {
+        return super.getCellRenderer(row, column);
+      }
+      return getDefaultRenderer(val.getClass());
+    }
   }
 }
