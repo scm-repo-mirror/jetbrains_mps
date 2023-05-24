@@ -1748,6 +1748,32 @@
                   <property role="3o6i5n" value="$APP_PACKAGE/Contents" />
                 </node>
               </node>
+              <node concept="3o6iSG" id="6iw9wCyw4UQ" role="3o6s8t" />
+              <node concept="2pNNFK" id="6iw9wCyw3i0" role="3o6s8t">
+                <property role="2pNNFO" value="key" />
+                <node concept="3o6iSG" id="6iw9wCyw3i1" role="3o6s8t">
+                  <property role="3o6i5n" value="jbScreenMenuBar.enabled" />
+                </node>
+              </node>
+              <node concept="2pNNFK" id="6iw9wCyw3i2" role="3o6s8t">
+                <property role="2pNNFO" value="string" />
+                <node concept="3o6iSG" id="6iw9wCyw3i3" role="3o6s8t">
+                  <property role="3o6i5n" value="true" />
+                </node>
+              </node>
+              <node concept="3o6iSG" id="6iw9wCyw5hs" role="3o6s8t" />
+              <node concept="2pNNFK" id="6iw9wCyw3qj" role="3o6s8t">
+                <property role="2pNNFO" value="key" />
+                <node concept="3o6iSG" id="6iw9wCyw3qk" role="3o6s8t">
+                  <property role="3o6i5n" value="jbScreenMenuBar.useStubItem" />
+                </node>
+              </node>
+              <node concept="2pNNFK" id="6iw9wCyw3ql" role="3o6s8t">
+                <property role="2pNNFO" value="string" />
+                <node concept="3o6iSG" id="6iw9wCyw3qm" role="3o6s8t">
+                  <property role="3o6i5n" value="true" />
+                </node>
+              </node>
             </node>
             <node concept="2pNm8U" id="5GLkm1jb_6b" role="3o6s8t">
               <node concept="3o66tx" id="5GLkm1jb_6c" role="3o66t8">

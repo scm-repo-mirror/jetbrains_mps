@@ -159,6 +159,12 @@
         
         <key>idea.home.path</key>
         <string>$APP_PACKAGE/Contents</string>
+        
+        <key>jbScreenMenuBar.enabled</key>
+        <string>true</string>
+        
+        <key>jbScreenMenuBar.useStubItem</key>
+        <string>true</string>
       </dict>
       <!--Use Contents/bin/mps.vmoptions or ~/Library/Preferences/MPS$version.major$.$version.minor$/mps.vmoptions file to modify VMOptions-->
       <key>VMOptions</key>
