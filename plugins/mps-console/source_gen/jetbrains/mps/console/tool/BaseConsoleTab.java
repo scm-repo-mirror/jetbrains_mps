@@ -230,7 +230,7 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
   }
 
   public void disposeConsoleTab() {
-    myProject.getRepository().getModelAccess().executeCommand(() -> {
+    myProject.getRepository().getModelAccess().runWriteAction(() -> {
       if (myEditor != null) {
         ThreadUtils.runInUIThreadNoWait(() -> myEditor.dispose());
       }
