@@ -162,8 +162,10 @@ public interface MigrationSession {
         return null;
       }
 
-      // FIXME shall use exisitng script instance from AppliedScript rather than resolve it again here!
-      final String caption = CollectionSequence.fromCollection(sa).first().getScriptReference().resolve(getProject(), false).getCaption();
+      // FIXME shall use exisitng script instance from AppliedScript, but as long as we use legacy ScriptApplied here,
+      //      it holds necessary script instance (null shall not happen if pre-check passed). 
+      //     Nevertheless, shall switch to AS and take its caption.
+      final String caption = CollectionSequence.fromCollection(sa).first().getScriptInstance().getCaption();
       return new MigrationRunnable() {
         @NotNull
         @Override

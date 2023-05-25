@@ -64,6 +64,13 @@ public class MigrationModuleUtil {
     }
     throw new IllegalArgumentException("We are able to work only with AbstractModule instances");
   }
+  public static void putUsedLanguageVersion(@NotNull SModule module, @NotNull SLanguage usedLang, int version) {
+    if (module instanceof AbstractModule) {
+      ((AbstractModule) module).getModuleDescriptor().getLanguageVersions().put(usedLang, version);
+
+    }
+    throw new IllegalArgumentException("We are able to work only with AbstractModule instances");
+  }
 
   public static void setDepVersion(SModule module, SModuleReference dependency, int version) {
     ModuleDescriptor moduleDescriptor = ((AbstractModule) module).getModuleDescriptor();

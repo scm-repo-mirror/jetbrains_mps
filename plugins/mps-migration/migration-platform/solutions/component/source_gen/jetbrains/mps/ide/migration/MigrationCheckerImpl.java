@@ -46,6 +46,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodIdV2;
 import jetbrains.mps.lang.migration.runtime.base.MigrateManually;
+import jetbrains.mps.lang.migration.runtime.base.MigrationScript;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -229,7 +230,8 @@ public class MigrationCheckerImpl implements MigrationChecker {
 
       // todo show only annotations left by our run migrations
       for (ScriptApplied sa : Sequence.fromIterable(migrations)) {
-        for (Problem p : Sequence.fromIterable(((MigrationScriptReference) sa.getScriptReference()).resolve(myProject, false).check(sa.getModule(myProject.getRepository())))) {
+        // I assume we got ScriptApplied instances are those with the script instance
+        for (Problem p : Sequence.fromIterable(((MigrationScript) sa.getScriptInstance()).check(sa.getModule(myProject.getRepository())))) {
           if (!(processor.process(p))) {
             m.done();
             return;

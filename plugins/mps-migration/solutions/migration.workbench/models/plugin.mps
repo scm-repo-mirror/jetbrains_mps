@@ -6253,7 +6253,7 @@
       <property role="34CwA1" value="false" />
       <property role="eg7rD" value="false" />
       <property role="TrG5h" value="passedP" />
-      <property role="3TUv4t" value="false" />
+      <property role="3TUv4t" value="true" />
       <node concept="_YKpA" id="65hwFmZj$JC" role="1tU5fm">
         <node concept="3uibUv" id="65hwFmZj_lk" role="_ZDj9">
           <ref role="3uigEE" to="bdll:~ProjectMigration" resolve="ProjectMigration" />
@@ -6272,7 +6272,7 @@
       <property role="34CwA1" value="false" />
       <property role="eg7rD" value="false" />
       <property role="TrG5h" value="passedM" />
-      <property role="3TUv4t" value="false" />
+      <property role="3TUv4t" value="true" />
       <node concept="3Tm6S6" id="1aQVcc3R66u" role="1B3o_S" />
       <node concept="_YKpA" id="1aQVcc3R85v" role="1tU5fm">
         <node concept="3uibUv" id="1aQVcc3Si61" role="_ZDj9">
@@ -6674,23 +6674,12 @@
               <node concept="3clFbS" id="2$iyr2g6ml1" role="3clF47">
                 <node concept="3clFbF" id="4biA4YBuFBZ" role="3cqZAp">
                   <node concept="2OqwBi" id="4biA4YBuFC0" role="3clFbG">
-                    <node concept="2OqwBi" id="4biA4YBuFC1" role="2Oq$k0">
-                      <node concept="2OqwBi" id="4biA4YBuFC2" role="2Oq$k0">
-                        <node concept="37vLTw" id="4biA4YBuFC3" role="2Oq$k0">
-                          <ref role="3cqZAo" node="2$iyr2g6mkY" resolve="s" />
-                        </node>
-                        <node concept="liA8E" id="4biA4YBuFC4" role="2OqNvi">
-                          <ref role="37wK5l" to="bim2:6fMyXCHDaVY" resolve="getScriptReference" />
-                        </node>
+                    <node concept="2OqwBi" id="4biA4YBuFC2" role="2Oq$k0">
+                      <node concept="37vLTw" id="4biA4YBuFC3" role="2Oq$k0">
+                        <ref role="3cqZAo" node="2$iyr2g6mkY" resolve="s" />
                       </node>
-                      <node concept="liA8E" id="4biA4YBuFC5" role="2OqNvi">
-                        <ref role="37wK5l" to="6f4m:6fMyXCHptub" resolve="resolve" />
-                        <node concept="37vLTw" id="7nggT465nSf" role="37wK5m">
-                          <ref role="3cqZAo" node="5pUhUVGMybv" resolve="myProject" />
-                        </node>
-                        <node concept="3clFbT" id="4biA4YBuFC6" role="37wK5m">
-                          <property role="3clFbU" value="true" />
-                        </node>
+                      <node concept="liA8E" id="4biA4YBuFC4" role="2OqNvi">
+                        <ref role="37wK5l" to="bim2:3xQJezt_tif" resolve="getScriptInstance" />
                       </node>
                     </node>
                     <node concept="liA8E" id="4biA4YBuFC7" role="2OqNvi">

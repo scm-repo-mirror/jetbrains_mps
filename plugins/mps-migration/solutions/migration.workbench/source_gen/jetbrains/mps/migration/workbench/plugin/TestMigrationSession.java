@@ -50,8 +50,8 @@ import jetbrains.mps.migration.global.MigrationOptions;
   private final MigrationTestConfigDialog.Result mySettings;
   private final MPSProject myProject;
 
-  private List<ProjectMigration> passedP = ListSequence.fromList(new ArrayList<ProjectMigration>());
-  private List<ScriptApplied> passedM = ListSequence.fromList(new ArrayList<ScriptApplied>());
+  private final List<ProjectMigration> passedP = ListSequence.fromList(new ArrayList<ProjectMigration>());
+  private final List<ScriptApplied> passedM = ListSequence.fromList(new ArrayList<ScriptApplied>());
   private final MigrationChecker myChecker = new MigrationChecker() {
     public void checkMigrations(ProgressMonitor m, Processor<ScriptApplied> processor) {
       if (mySettings.preError != 2) {
@@ -100,7 +100,7 @@ import jetbrains.mps.migration.global.MigrationOptions;
   private final MigrationExecutor myExecutor = new MigrationExecutor() {
     @Override
     public void execute(ScriptApplied s) {
-      s.getScriptReference().resolve(myProject, true).execute(s.getModule(myProject.getRepository()));
+      s.getScriptInstance().execute(s.getModule(myProject.getRepository()));
       ListSequence.fromList(passedM).addElement(s);
     }
     @Override

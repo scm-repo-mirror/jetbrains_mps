@@ -74,10 +74,10 @@ public class MigrationExecutorImpl implements MigrationExecutor {
   }
 
   private void executeMigrationScript(ScriptApplied<MigrationScriptReference> sa) {
-    MigrationScript script = sa.getScriptReference().resolve(myProject, true);
+    MigrationScript script = (MigrationScript) sa.getScriptInstance();
     AbstractModule module = ((AbstractModule) sa.getModule(myProject.getRepository()));
     SLanguage fromLanguage = script.getReference().getLanguage();
-    Integer usedVersion = module.getModuleDescriptor().getLanguageVersions().get(fromLanguage);
+    int usedVersion = MigrationModuleUtil.getUsedLanguageVersion(module, fromLanguage);
     usedVersion = Math.max(usedVersion, 0);
     assert usedVersion == script.getReference().getFromVersion();
 
@@ -87,9 +87,8 @@ public class MigrationExecutorImpl implements MigrationExecutor {
       MigrationDataUtil.addData(module, script.getReference(), data);
     }
 
-    int toVersion = script.getReference().getFromVersion() + 1;
-    module.getModuleDescriptor().getLanguageVersions().put(fromLanguage, toVersion);
-    module.setChanged();
+    int toVersion = usedVersion + 1;
+    MigrationModuleUtil.putUsedLanguageVersion(module, fromLanguage, toVersion);
 
     for (SModel model : ListSequence.fromList(module.getModels())) {
       if (model.isReadOnly()) {
@@ -104,6 +103,7 @@ public class MigrationExecutorImpl implements MigrationExecutor {
 
       ((SModelInternal) model).setLanguageImportVersion(fromLanguage, toVersion);
     }
+    module.setChanged();
   }
 
   private void executeRefactoringScript(ScriptApplied<RefactoringScriptReference> sa) {
@@ -115,11 +115,11 @@ public class MigrationExecutorImpl implements MigrationExecutor {
     assert importedVersion == rLog.getFromVersion();
 
     final RefactoringSessionImpl refactoringSession = new RefactoringSessionImpl("Apply Logged Refactoring");
-    RefactoringScript ref = rLog.resolve(myProject, true);
-    ref.setSession(refactoringSession);
-    ref.setTaskExecutor((Runnable task) -> RefactoringSessionTaskQueue.getInstance(refactoringSession).putTask(task));
-    ref.setRefactoringProcessor((RefactoringUI ui, RefactoringParticipant.PersistentRefactoringParticipant p, Iterable<SNode> initialState, Map<SNode, SNode> initialToFinal) -> doRun(module, p, ui, initialState, initialToFinal, refactoringSession));
-    ref.execute(module);
+    RefactoringScript script = (RefactoringScript) sa.getScriptInstance();
+    script.setSession(refactoringSession);
+    script.setTaskExecutor((Runnable task) -> RefactoringSessionTaskQueue.getInstance(refactoringSession).putTask(task));
+    script.setRefactoringProcessor((RefactoringUI ui, RefactoringParticipant.PersistentRefactoringParticipant p, Iterable<SNode> initialState, Map<SNode, SNode> initialToFinal) -> doRun(module, p, ui, initialState, initialToFinal, refactoringSession));
+    script.execute(module);
     RefactoringSessionTaskQueue.getInstance(refactoringSession).runAll();
     refactoringSession.performAllRegistered();
 
