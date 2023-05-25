@@ -60,7 +60,7 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
   /*package*/ List<AppliedScript> result(Project mpsProject) {
     final List<AppliedScript> rv = ListSequence.fromList(new ArrayList<AppliedScript>());
     for (RefactoringScriptReference sr : SetSequence.fromSet(myGroupedByScript.keySet())) {
-      RefactoringScript rs = sr.resolve(mpsProject, false);
+      RefactoringScript rs = RefactoringScriptReference.resolve(mpsProject.getRepository(), sr);
       if (rs != null) {
         ListSequence.fromList(rv).addElement(new AppliedRefacroringScript(rs, myGroupedByScript.get(sr)));
       } else {

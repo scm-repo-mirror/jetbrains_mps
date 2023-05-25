@@ -63,6 +63,7 @@ public class RunMigration extends BaseAction {
     });
   }
   public static void updateModelVesionsIfPossible(SModule module, SLanguage language, int from, int to) {
+    // FIXME similar code in MigrationModuleUtil, do I care to keep a copy?
     Iterable<SModel> models = module.getModels();
     for (SModelInternal model : Sequence.fromIterable(models).ofType(SModelInternal.class)) {
       if (model.getLanguageImportVersion(language) == from) {

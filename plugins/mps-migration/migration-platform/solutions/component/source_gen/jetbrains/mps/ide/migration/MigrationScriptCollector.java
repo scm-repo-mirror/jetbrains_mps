@@ -81,7 +81,7 @@ import org.jetbrains.mps.openapi.module.SModuleReference;
     final List<AppliedScript> rv = ListSequence.fromList(new ArrayList<AppliedScript>());
 
     for (MigrationScriptReference sr : SetSequence.fromSet(myGroupedByScript.keySet())) {
-      MigrationScript ms = sr.resolve(mpsProject, false);
+      MigrationScript ms = MigrationScriptReference.resolve(myLanguageRegistry, sr);
       if (ms != null) {
         ListSequence.fromList(rv).addElement(new AppliedLanguageScript(ms, myGroupedByScript.get(sr)));
       } else {

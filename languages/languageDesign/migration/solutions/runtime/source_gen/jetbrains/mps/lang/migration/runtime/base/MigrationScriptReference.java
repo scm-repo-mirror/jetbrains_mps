@@ -8,8 +8,10 @@ import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.smodel.adapter.ids.MetaIdHelper;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.adapter.ids.SLanguageId;
-import jetbrains.mps.project.Project;
 import jetbrains.mps.smodel.language.LanguageRegistry;
+import jetbrains.mps.project.Project;
+import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.smodel.language.LanguageRuntime;
 
 @GeneratedClass(node = "528ff3b9-5fc4-40dd-931f-c6ce3650640e/r:f69c3fa1-0e30-4980-84e2-190ae44e4c3d(jetbrains.mps.lang.migration.runtime/jetbrains.mps.lang.migration.runtime.base)/3309033097910132680", model = "528ff3b9-5fc4-40dd-931f-c6ce3650640e/r:f69c3fa1-0e30-4980-84e2-190ae44e4c3d(jetbrains.mps.lang.migration.runtime/jetbrains.mps.lang.migration.runtime.base)")
 public class MigrationScriptReference implements BaseScriptReference<MigrationScript> {
@@ -61,29 +63,37 @@ public class MigrationScriptReference implements BaseScriptReference<MigrationSc
     return new MigrationScriptReference(language, version);
   }
 
+  /**
+   * 
+   * @deprecated script reference has to stay reference only, and resolution logic shall be kept outside to avoid unnecessary re-resolve of the script instance. See {@link jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference#resolve(LanguageRegistry, MigrationScriptReference) }
+   */
   @Override
+  @Deprecated(forRemoval = true, since = "2023.1")
   public MigrationScript resolve(Project p, boolean silent) {
-    int current = this.getFromVersion();
+    return resolve(p.getComponent(LanguageRegistry.class), this);
+  }
 
-    MigrationAspectDescriptor md = p.getComponent(LanguageRegistry.class).getLanguage(language).getAspect(MigrationAspectDescriptor.class);
-    if (md == null && !(silent)) {
+  @Nullable
+  public static MigrationScript resolve(LanguageRegistry languageRegistry, MigrationScriptReference scriptRef) {
+    return resolve(languageRegistry.getLanguage(scriptRef.getLanguage()), scriptRef.getFromVersion());
+  }
+
+  @Nullable
+  public static MigrationScript resolve(final LanguageRuntime languageRuntime, final int fromVersion) {
+    MigrationAspectDescriptor md = languageRuntime.getAspect(MigrationAspectDescriptor.class);
+    if (md == null) {
       if (LOG.isWarningLevel()) {
-        LOG.warning("Could not load migration descriptor for language " + language + ".");
+        LOG.warning(String.format("Could not load migration descriptor for language %s.", languageRuntime.getNamespace()));
       }
+      return null;
     }
-    MigrationScript script = check_dhbyxl_a0e0l(md, current);
-    if (script == null && !(silent)) {
+    MigrationScript script = md.getScript(fromVersion);
+    if (script == null) {
       if (LOG.isWarningLevel()) {
-        LOG.warning("Could not load migration script for language " + language + ", version " + current + ".");
+        LOG.warning(String.format("Could not load migration script for language %s, version %d.", languageRuntime.getNamespace(), fromVersion));
       }
       return null;
     }
     return script;
-  }
-  private static MigrationScript check_dhbyxl_a0e0l(MigrationAspectDescriptor checkedDotOperand, Integer current) {
-    if (null != checkedDotOperand) {
-      return checkedDotOperand.getScript(current);
-    }
-    return null;
   }
 }

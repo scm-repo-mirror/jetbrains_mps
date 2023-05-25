@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,7 @@ package jetbrains.mps.migration;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import jetbrains.mps.ide.ThreadUtils;
+import jetbrains.mps.ide.migration.AppliedScript;
 import jetbrains.mps.ide.migration.MigrationSetup;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.migration.global.ProjectMigration;
@@ -57,8 +58,7 @@ public class NoPendingMigrationsTest extends BaseProjectsTest {
       migrationRequired[1] = migrationManager.isMigrationRequired();
       if (migrationRequired[1]) {
         migrationManager.getProjectMigrations().stream().map(ProjectMigration::getDescription).forEach(projectMigrations::add);
-        migrationManager.getModuleMigrations()
-                        .stream().map(it -> it.getScriptReference().resolve(getContextProject(),false).getCaption()).forEach(moduleMigrations::add);
+        migrationManager.getModuleMigrations().stream().map(AppliedScript::caption).forEach(moduleMigrations::add);
       }
     };
     Exception exception = ThreadUtils.runInUIThreadAndWait(new ModelReadRunnable(getContextProject().getRepository(), prepare));

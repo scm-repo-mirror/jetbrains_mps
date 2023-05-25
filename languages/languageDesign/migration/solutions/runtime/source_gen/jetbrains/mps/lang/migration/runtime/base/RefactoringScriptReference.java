@@ -84,24 +84,34 @@ public class RefactoringScriptReference implements BaseScriptReference<Refactori
     return "Refactoring[" + myModule.getModuleName() + ";" + fromVersion + "]";
   }
 
+  /**
+   * 
+   * 
+   * @deprecated use {@link jetbrains.mps.lang.migration.runtime.base.RefactoringScriptReference#resolve(SRepository, RefactoringScriptReference) } instead
+   */
   @Override
-  public RefactoringScript resolve(final Project p, final boolean silent) {
+  @Deprecated(forRemoval = true, since = "2023.1")
+  public RefactoringScript resolve(Project p, boolean silent) {
+    return RefactoringScriptReference.resolve(p.getRepository(), this);
     // todo store ModuleRef instead of SModule
+  }
+
+  public static RefactoringScript resolve(final SRepository repo, final RefactoringScriptReference sr) {
     final Wrappers._T<RefactoringScript> implementation = new Wrappers._T<RefactoringScript>(null);
-    p.getRepository().getModelAccess().runReadAction(() -> {
+    repo.getModelAccess().runReadAction(() -> {
       // FIXME once the only use in RefactoringScriptCollector, don't need read action here
       //      besides, perhaps can go w/o module resolution, just keep instance in RefactoringScriptCollector until result()
-      SModule module = RefactoringScriptReference.this.getModule(p.getRepository());
+      SModule module = sr.getModule(repo);
       if (module instanceof Language) {
         Language depModule = (Language) module;
-        final int current = RefactoringScriptReference.this.getFromVersion();
+        final int current = sr.getFromVersion();
         SModel migrationModel = SModuleOperations.getAspect(depModule, "migration");
         final SNode log = ListSequence.fromList(SModelOperations.roots(migrationModel, CONCEPTS.RefactoringLog$xp)).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
             return SPropertyOperations.getInteger(it, PROPS.fromVersion$clQh) == current;
           }
         }).first();
-        if (log == null && !(silent)) {
+        if (log == null) {
           if (LOG.isWarningLevel()) {
             LOG.warning("Could not load refactoring log for module " + depModule + ", version " + current + ".");
           }

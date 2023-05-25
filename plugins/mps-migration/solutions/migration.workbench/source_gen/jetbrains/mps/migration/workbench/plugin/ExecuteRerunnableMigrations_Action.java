@@ -22,8 +22,6 @@ import jetbrains.mps.progress.ProgressMonitorAdapter;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import com.intellij.util.WaitForProgressToShow;
-import java.util.Set;
-import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.smodel.SLanguageHierarchy;
 import jetbrains.mps.smodel.language.LanguageRuntime;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScript;
@@ -74,20 +72,24 @@ public class ExecuteRerunnableMigrations_Action extends BaseAction {
         final LanguageRegistry languageRegistry = mpsProject.getComponent(LanguageRegistry.class);
         for (final SModule module : ListSequence.fromList(modules[0])) {
           progressMonitor.step(module.getModuleName());
-          WaitForProgressToShow.runOrInvokeAndWaitAboveProgress(() -> mpsProject.getRepository().getModelAccess().executeCommand(() -> {
-            Set<SLanguage> languages = new SLanguageHierarchy(languageRegistry, module.getUsedLanguages()).getExtended();
-            languageRegistry.withAvailableLanguages(languages.stream(), (LanguageRuntime lr) -> {
-              for (int ver = 0; ver < lr.getVersion(); ver++) {
-                // FIXME, MSR.resolve and LanguageRegistry!
-                MigrationScript script = new MigrationScriptReference(lr.getIdentity(), ver).resolve(mpsProject, true);
-                if (script != null && Sequence.fromIterable(script.requiresData()).isEmpty() && script.isRerunnable()) {
-                  script.execute(module);
-                  RunMigration.updateModelVesionsIfPossible(module, lr.getIdentity(), ver, ver + 1);
+          WaitForProgressToShow.runOrInvokeAndWaitAboveProgress(() -> {
+            // FIXME deal with deprecated runOrInvoke... method and check if command is truly necessary (can I undo migrations?)
+            mpsProject.getRepository().getModelAccess().executeCommand(() -> {
+              // FIXME similar code in MigrationTrigger.performProjectPreUpdateCheck
+              new SLanguageHierarchy(languageRegistry, module.getUsedLanguages()).forEachExtended(new SLanguageHierarchy.HierarchyVisitor() {
+                @Override
+                public void accept(LanguageRuntime lang) {
+                  for (int ver = 0; ver < lang.getVersion(); ver++) {
+                    MigrationScript script = MigrationScriptReference.resolve(lang, ver);
+                    if (script != null && Sequence.fromIterable(script.requiresData()).isEmpty() && script.isRerunnable()) {
+                      script.execute(module);
+                      RunMigration.updateModelVesionsIfPossible(module, lang.getIdentity(), ver, ver + 1);
+                    }
+                  }
                 }
-              }
-
+              });
             });
-          }));
+          });
           progressMonitor.advance(1);
           if (progressMonitor.isCanceled()) {
             break;

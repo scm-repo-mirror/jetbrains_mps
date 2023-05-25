@@ -54,10 +54,9 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import org.jetbrains.mps.openapi.module.SRepository;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
-import jetbrains.mps.smodel.SLanguageHierarchy;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScript;
-import java.util.Iterator;
-import jetbrains.mps.baseLanguage.closures.runtime.YieldingIterator;
+import jetbrains.mps.smodel.SLanguageHierarchy;
+import jetbrains.mps.smodel.language.LanguageRuntime;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.migration.runtime.base.Problem;
@@ -67,7 +66,6 @@ import org.jetbrains.mps.openapi.model.SModel;
 import com.intellij.openapi.application.Application;
 import jetbrains.mps.ide.vfs.VirtualFileUtils;
 import jetbrains.mps.progress.EmptyProgressMonitor;
-import jetbrains.mps.smodel.language.LanguageRuntime;
 
 /**
  * At the first startup, migration is not required
@@ -356,71 +354,30 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
       // XXX this code originates from RunPreUpdateCheck UI action, which exposes too much of migration internal
       //    stuff for no reason, and now is part of this class.
       // FIXME there's pretty similar code in MigrationRegistryImpl.getAllSteps, perhaps, worth a refactoring!
+      // FIXME and in ExecuteRerunnableMigrations!
+      // XXX quite suspicious use - why do we collect MigrationScripts here for all version languages just to collect MS necessary
+      //    for migration with MigrationSetup next to this activity?
       Iterable<ScriptApplied> checks = ListSequence.fromList(modules).translate(new ITranslator2<SModule, ScriptApplied>() {
         public Iterable<ScriptApplied> translate(final SModule module) {
-          Set<SLanguage> allLanguages = new SLanguageHierarchy(myLanguageRegistry, module.getUsedLanguages()).getExtended();
-          Iterable<MigrationScript> scripts = SetSequence.fromSet(allLanguages).translate(new ITranslator2<SLanguage, MigrationScript>() {
-            public Iterable<MigrationScript> translate(final SLanguage it) {
-              return new Iterable<MigrationScript>() {
-                public Iterator<MigrationScript> iterator() {
-                  return new YieldingIterator<MigrationScript>() {
-                    private int __CP__ = 0;
-                    protected boolean moveToNext() {
-__loop__:
-                      do {
-__switch__:
-                        switch (this.__CP__) {
-                          case -1:
-                            assert false : "Internal error";
-                            return false;
-                          case 2:
-                            this._2_ver = 0;
-                          case 3:
-                            if (!(_2_ver < it.getLanguageVersion())) {
-                              this.__CP__ = 1;
-                              break;
-                            }
-                            this.__CP__ = 4;
-                            break;
-                          case 5:
-                            _2_ver++;
-                            this.__CP__ = 3;
-                            break;
-                          case 8:
-                            if (_7_script != null) {
-                              this.__CP__ = 9;
-                              break;
-                            }
-                            this.__CP__ = 5;
-                            break;
-                          case 10:
-                            this.__CP__ = 5;
-                            this.yield(_7_script);
-                            return true;
-                          case 0:
-                            this.__CP__ = 2;
-                            break;
-                          case 4:
-                            this._7_script = new MigrationScriptReference(it, _2_ver).resolve(myMpsProject, true);
-                            this.__CP__ = 8;
-                            break;
-                          case 9:
-                            this.__CP__ = 10;
-                            break;
-                          default:
-                            break __loop__;
-                        }
-                      } while (true);
-                      return false;
-                    }
-                    private int _2_ver;
-                    private MigrationScript _7_script;
-                  };
+          List<MigrationScript> scripts = ListSequence.fromList(new ArrayList<MigrationScript>());
+          new SLanguageHierarchy(myLanguageRegistry, module.getUsedLanguages()).forEachExtended(new SLanguageHierarchy.HierarchyVisitor() {
+            @Override
+            public void accept(LanguageRuntime lang) {
+              for (int ver = 0; ver < lang.getVersion(); ver++) {
+                MigrationScript script = MigrationScriptReference.resolve(lang, ver);
+                if (script != null) {
+                  ListSequence.fromList(scripts).addElement(script);
                 }
-              };
+              }
+            }
+
+            @Override
+            public void acceptMissing(@NotNull SLanguage missingRuntime) {
+              // FIXME shall I report missing language and fail pre-check?!
             }
           });
-          return Sequence.fromIterable(scripts).select(new ISelector<MigrationScript, ScriptApplied>() {
+
+          return ListSequence.fromList(scripts).select(new ISelector<MigrationScript, ScriptApplied>() {
             public ScriptApplied select(MigrationScript script) {
               return new ScriptApplied(module, script);
             }
