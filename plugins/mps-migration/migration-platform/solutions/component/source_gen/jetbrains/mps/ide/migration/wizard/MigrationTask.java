@@ -35,6 +35,9 @@ import jetbrains.mps.errors.item.IssueKindReportItem;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.lang.migration.runtime.base.Problem;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import jetbrains.mps.internal.collections.runtime.ITranslator2;
+import jetbrains.mps.ide.migration.AppliedScript;
+import org.jetbrains.mps.openapi.module.SModuleReference;
 import jetbrains.mps.migration.global.ProjectMigration;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.migration.global.CleanupProjectMigration;
@@ -408,7 +411,13 @@ public class MigrationTask {
   }
 
   private int moduleStepsCount() {
-    return CollectionSequence.fromCollection(mySession.getModuleMigrations()).count();
+    // FIXME see MigrationSessionBase.nextStepModule for use of PM initialized with this value. we report 1 unit for each executed ScriptApplied, which is
+    //      one per module x script x version, that's why I go with non-distinct affected modules here. However, it's not effective
+    return CollectionSequence.fromCollection(mySession.getModuleMigrations()).translate(new ITranslator2<AppliedScript, SModuleReference>() {
+      public Iterable<SModuleReference> translate(AppliedScript it) {
+        return it.affectedModules();
+      }
+    }).count();
   }
 
   private int projectStepsCount(boolean isCleanup) {

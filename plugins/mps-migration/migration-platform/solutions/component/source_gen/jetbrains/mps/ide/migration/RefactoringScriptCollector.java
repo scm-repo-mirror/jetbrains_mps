@@ -15,6 +15,14 @@ import jetbrains.mps.smodel.Language;
 import jetbrains.mps.project.AbstractModule;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import org.jetbrains.annotations.NotNull;
+import java.util.Collection;
+import org.jetbrains.mps.openapi.module.SRepository;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import java.util.Collections;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.lang.migration.runtime.base.RefactoringScript;
+import jetbrains.mps.internal.collections.runtime.ISelector;
 
 @GeneratedClass(node = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)/1520098040411279238", model = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)")
 /*package*/ class RefactoringScriptCollector {
@@ -48,14 +56,59 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
     }
   }
 
-  /*package*/ List<ScriptApplied<RefactoringScriptReference>> result() {
-    final List<ScriptApplied<RefactoringScriptReference>> rv = ListSequence.fromList(new ArrayList<ScriptApplied<RefactoringScriptReference>>());
+  /*package*/ List<AppliedScript> result() {
+    final List<AppliedScript> rv = ListSequence.fromList(new ArrayList<AppliedScript>());
     for (RefactoringScriptReference sr : SetSequence.fromSet(myGroupedByScript.keySet())) {
-      for (SModule m : ListSequence.fromList(myGroupedByScript.get(sr))) {
-        ListSequence.fromList(rv).addElement(new ScriptApplied<RefactoringScriptReference>(m, sr));
-      }
+      ListSequence.fromList(rv).addElement(new AppliedRefacroringScript(sr, myGroupedByScript.get(sr)));
+    }
+    return rv;
+  }
+
+  private static class AppliedRefacroringScript extends AppliedScript {
+    private AppliedRefacroringScript(RefactoringScriptReference rsr, Iterable<SModule> modules) {
+      super(rsr, modules);
     }
 
-    return rv;
+    @NotNull
+    @Override
+    public RefactoringScriptReference scriptReference() {
+      return (RefactoringScriptReference) super.scriptReference();
+    }
+
+    @Override
+    public Collection<ScriptApplied> toBeExecutedImmediately(final SRepository repo) {
+      if (!(scriptPresent())) {
+        // FIXME assert, instead? we are not supposed to un when there AS without script instance
+        return Sequence.fromIterable(Sequence.fromIterable(Collections.<ScriptApplied>emptyList())).toListSequence();
+      }
+      final RefactoringScriptReference sr = scriptReference();
+      return Sequence.fromIterable(asLegacy()).where(new IWhereFilter<ScriptApplied>() {
+        public boolean accept(ScriptApplied sa) {
+          final AbstractModule moduleToMigrate = (AbstractModule) sa.getModule(repo);
+          // FIXME dependency version extraction shall be through SModuleReference
+          int v = Math.max(0, moduleToMigrate.getDependencyVersion(sr.getModule(repo), false));
+          if (v != sr.getFromVersion()) {
+            return false;
+          }
+          return Sequence.fromIterable(((RefactoringScript) myScript).getExecuteAfter()).all(new IWhereFilter<RefactoringScriptReference>() {
+            public boolean accept(RefactoringScriptReference s) {
+              return !(needsToBeApplied(s, moduleToMigrate));
+            }
+          });
+        }
+      }).toListSequence();
+    }
+
+    private boolean needsToBeApplied(RefactoringScriptReference ref, SModule m) {
+      if (!(SetSequence.fromSet(MigrationModuleUtil.getModuleDependencies(m)).select(new ISelector<SModule, SModuleReference>() {
+        public SModuleReference select(SModule this0) {
+          return this0.getModuleReference();
+        }
+      }).contains(ref.getModuleReference()))) {
+        return false;
+      }
+      int dv = Math.max(0, ((AbstractModule) m).getDependencyVersion(ref.getModule(m.getRepository()), false));
+      return dv <= ref.getFromVersion();
+    }
   }
 }

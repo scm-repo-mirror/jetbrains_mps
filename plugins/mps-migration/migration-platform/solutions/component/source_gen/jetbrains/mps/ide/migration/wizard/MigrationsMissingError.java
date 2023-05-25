@@ -48,6 +48,11 @@ public class MigrationsMissingError extends MigrationError {
         return it.getScriptReference();
       }
     }).distinct().toListSequence();
+    // TODO
+    // 1 all modules of a given AppliedScript use language of AS.scriptRef, so first where for languageUsages doesn't make much sense
+    // 2 there could be another AS with valid script, just AS for some version is missing, and there's a use of a language. Do we need to report min version used?
+    // like, there's AS(ver=15, present) and AS(ver=16, missing). Apparently, there are modules using version 15 (otherwise we would not construct it in the first place)
+    // is it relevant to report this number? If we get here AS with missing script, it's not an easy task to find out min used version w/o this magic:
     return ListSequence.fromList(sRefs).ofType(MigrationScriptReference.class).select(new ISelector<MigrationScriptReference, IssueKindReportItem>() {
       public IssueKindReportItem select(final MigrationScriptReference it) {
         List<SModule> languageUsages = ListSequence.fromList(modules).where(new IWhereFilter<SModule>() {

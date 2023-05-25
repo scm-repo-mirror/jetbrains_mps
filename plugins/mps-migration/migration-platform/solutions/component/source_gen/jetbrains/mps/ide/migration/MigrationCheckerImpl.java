@@ -6,17 +6,19 @@ import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.project.Project;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import org.jetbrains.mps.openapi.util.Processor;
+import java.util.Collection;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.util.Pair;
 import org.jetbrains.mps.openapi.module.SModule;
 import java.util.List;
 import jetbrains.mps.lang.migration.runtime.base.MigrationModuleUtil;
-import java.util.Collection;
 import java.util.HashSet;
 import jetbrains.mps.project.dependency.GlobalModuleDependenciesManager;
 import jetbrains.mps.internal.collections.runtime.ISelector;
+import org.jetbrains.mps.openapi.module.SModuleReference;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.errors.item.IssueKindReportItem;
 import org.jetbrains.mps.openapi.module.SDependency;
@@ -61,9 +63,15 @@ public class MigrationCheckerImpl implements MigrationChecker {
   public void checkMigrations(ProgressMonitor m, final Processor<ScriptApplied> processor) {
     m.start("Checking migrations consistency...", 1);
     myProject.getRepository().getModelAccess().runReadAction(() -> {
-      Iterable<ScriptApplied> problems = CollectionSequence.fromCollection(myManager.getModuleMigrations()).where(new IWhereFilter<ScriptApplied>() {
-        public boolean accept(ScriptApplied it) {
-          return it.getScriptReference().resolve(myProject, false) == null;
+      // FIXME do I need model read here. not for AppliedScript, but for Processor, perhaps?
+      Collection<AppliedScript> scripts = myManager.getModuleMigrations();
+      Iterable<ScriptApplied> problems = CollectionSequence.fromCollection(scripts).where(new IWhereFilter<AppliedScript>() {
+        public boolean accept(AppliedScript it) {
+          return !(it.scriptPresent());
+        }
+      }).translate(new ITranslator2<AppliedScript, ScriptApplied>() {
+        public Iterable<ScriptApplied> translate(AppliedScript this0) {
+          return this0.asLegacy();
         }
       });
       for (ScriptApplied problem : Sequence.fromIterable(problems)) {
@@ -87,12 +95,17 @@ public class MigrationCheckerImpl implements MigrationChecker {
             return MigrationModuleUtil.wouldBeMigrateableWhenNotPacked(it);
           }
         }).toListSequence();
-        Collection<ScriptApplied> depMigrationsToRun = new MigrationSetup(myProject, depModules).getModuleMigrations();
-        Iterable<SModule> notMigratedModules = CollectionSequence.fromCollection(depMigrationsToRun).select(new ISelector<ScriptApplied, SModule>() {
-          public SModule select(ScriptApplied it) {
-            return it.getModule(myProject.getRepository());
+        // XXX can't we get dependency targets (with improper verions? or how do we define non-migrated?) from myManager? Why build another set of migrations
+        Collection<AppliedScript> depMigrationsToRun = new MigrationSetup(myProject, depModules).getModuleMigrations();
+        Iterable<SModule> notMigratedModules = CollectionSequence.fromCollection(depMigrationsToRun).translate(new ITranslator2<AppliedScript, SModule>() {
+          public Iterable<SModule> translate(AppliedScript it) {
+            return Sequence.fromIterable(it.affectedModules()).distinct().select(new ISelector<SModuleReference, SModule>() {
+              public SModule select(SModuleReference mr) {
+                return mr.resolve(myProject.getRepository());
+              }
+            });
           }
-        }).distinct();
+        });
         for (final SModule notMigrated : Sequence.fromIterable(notMigratedModules)) {
           SModule m = ListSequence.fromList(projectModules).findFirst(new IWhereFilter<SModule>() {
             public boolean accept(SModule depCandidate) {

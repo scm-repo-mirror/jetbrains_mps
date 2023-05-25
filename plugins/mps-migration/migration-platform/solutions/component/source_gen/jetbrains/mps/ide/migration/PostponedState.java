@@ -8,6 +8,7 @@ import jetbrains.mps.migration.global.ProjectMigration;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.migration.global.CleanupProjectMigration;
+import jetbrains.mps.internal.collections.runtime.ITranslator2;
 
 @GeneratedClass(node = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)/8914091101145773413", model = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)")
 /*package*/ class PostponedState {
@@ -54,7 +55,11 @@ import jetbrains.mps.migration.global.CleanupProjectMigration;
   public static PostponedState current(MigrationSetup mr) {
     PostponedState current = new PostponedState();
     current.versionUpdate = mr.importVersionsUpdateRequired();
-    current.scripts = mr.getModuleMigrations();
+    current.scripts = CollectionSequence.fromCollection(mr.getModuleMigrations()).translate(new ITranslator2<AppliedScript, ScriptApplied>() {
+      public Iterable<ScriptApplied> translate(AppliedScript it) {
+        return it.asLegacy();
+      }
+    }).toListSequence();
     current.projectMigrations = mr.getProjectMigrations();
     return current;
   }

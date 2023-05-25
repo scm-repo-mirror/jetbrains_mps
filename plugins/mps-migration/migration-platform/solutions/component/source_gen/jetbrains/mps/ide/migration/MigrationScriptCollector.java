@@ -16,21 +16,30 @@ import jetbrains.mps.project.AbstractModule;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
+import org.jetbrains.annotations.NotNull;
+import java.util.Collection;
+import org.jetbrains.mps.openapi.module.SRepository;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import java.util.Collections;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.lang.migration.runtime.base.MigrationScript;
+import java.util.Set;
+import jetbrains.mps.lang.migration.runtime.base.MigrationModuleUtil;
+import org.jetbrains.mps.openapi.module.SModuleReference;
 
 @GeneratedClass(node = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)/1520098040411268050", model = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)")
 /*package*/ class MigrationScriptCollector {
   private final LanguageRegistry myLanguageRegistry;
   private final Map<MigrationScriptReference, List<SModule>> myGroupedByScript = new HashMap<>();
   private final Map<SLanguage, MigrationScriptReference[]> myLanguage2Scripts = new HashMap<>();
+  private final LangUseStats myLanguageStats;
 
   /*package*/ MigrationScriptCollector(LanguageRegistry languageRegistry) {
     myLanguageRegistry = languageRegistry;
+    myLanguageStats = new LangUseStats();
   }
 
   /*package*/ void fillFor(final SModule module) {
-    // FIXME a bit odd code as SLanguageHierarchy walks LanguageRegistry to collect extended set, and
-    //      then we go back to LanguageRuntime again. Perhaps, worth to add a method to SLanguageHierarchy
-    //      with Consumer<LR> to avoid going back and forth with SLanguage <-> LR?
     final SLanguageHierarchy lh = new SLanguageHierarchy(myLanguageRegistry, module.getUsedLanguages());
     lh.forEachExtended(new SLanguageHierarchy.HierarchyVisitor() {
       @Override
@@ -47,11 +56,13 @@ import jetbrains.mps.internal.collections.runtime.SetSequence;
           for (int i = 0; i < actualLangVersion; i++) {
             langScripts[i] = new MigrationScriptReference(lang, i);
           }
-          // alternatively, may keep a Pair<MSR,List> right in myLanguage2Scripts, to avoid extra myGroupedByScript map
+          // alternatively, may keep a Pair<MSR,List>([]?) right in myLanguage2Scripts, to avoid extra myGroupedByScript map
         }
         int engagedVer = ((AbstractModule) module).getUsedLanguageVersion(lang, false);
 
         engagedVer = Math.max(engagedVer, 0);
+
+        myLanguageStats.reportUse(lang, module, engagedVer);
 
         for (int i = engagedVer; i < langScripts.length; i++) {
           List<SModule> v = myGroupedByScript.get(langScripts[i]);
@@ -65,14 +76,86 @@ import jetbrains.mps.internal.collections.runtime.SetSequence;
     });
   }
 
-  /*package*/ List<ScriptApplied<MigrationScriptReference>> result() {
-    final List<ScriptApplied<MigrationScriptReference>> rv = ListSequence.fromList(new ArrayList<ScriptApplied<MigrationScriptReference>>());
+  /*package*/ List<AppliedScript> result() {
+    final List<AppliedScript> rv = ListSequence.fromList(new ArrayList<AppliedScript>());
 
     for (MigrationScriptReference sr : SetSequence.fromSet(myGroupedByScript.keySet())) {
-      for (SModule m : ListSequence.fromList(myGroupedByScript.get(sr))) {
-        ListSequence.fromList(rv).addElement(new ScriptApplied<MigrationScriptReference>(m, sr));
-      }
+      ListSequence.fromList(rv).addElement(new AppliedLanguageScript(sr, myGroupedByScript.get(sr)));
     }
     return rv;
+  }
+
+  private static class AppliedLanguageScript extends AppliedScript {
+    private AppliedLanguageScript(MigrationScriptReference msr, Iterable<SModule> modules) {
+      super(msr, modules);
+    }
+
+    @NotNull
+    @Override
+    public MigrationScriptReference scriptReference() {
+      return (MigrationScriptReference) super.scriptReference();
+    }
+
+    @Override
+    public Collection<ScriptApplied> toBeExecutedImmediately(final SRepository repo) {
+      if (!(scriptPresent())) {
+        // FIXME assert, instead? we are not supposed to un when there AS without script instance
+        return Sequence.fromIterable(Sequence.fromIterable(Collections.<ScriptApplied>emptyList())).toListSequence();
+      }
+      final MigrationScriptReference sr = scriptReference();
+      return Sequence.fromIterable(asLegacy()).where(new IWhereFilter<ScriptApplied>() {
+        public boolean accept(ScriptApplied sa) {
+          final AbstractModule moduleToMigrate = (AbstractModule) sa.getModule(repo);
+          int v = Math.max(0, moduleToMigrate.getUsedLanguageVersion(sr.getLanguage(), false));
+          if (v != sr.getFromVersion()) {
+            return false;
+          }
+          if (Sequence.fromIterable(((MigrationScript) myScript).executeAfter()).any(new IWhereFilter<MigrationScriptReference>() {
+            public boolean accept(MigrationScriptReference s) {
+              return needsToBeApplied(s, moduleToMigrate);
+            }
+          })) {
+            return false;
+          }
+
+          final Set<SModule> moduleDependencies = MigrationModuleUtil.getModuleDependencies(moduleToMigrate);
+          if (Sequence.fromIterable(((MigrationScript) myScript).requiresData()).any(new IWhereFilter<MigrationScriptReference>() {
+            public boolean accept(final MigrationScriptReference s) {
+              return SetSequence.fromSet(moduleDependencies).any(new IWhereFilter<SModule>() {
+                public boolean accept(SModule dep) {
+                  return needsToBeApplied(s, dep);
+                }
+              });
+            }
+          })) {
+            return false;
+          }
+          return true;
+        }
+      }).toListSequence();
+    }
+
+    private static boolean needsToBeApplied(MigrationScriptReference ref, SModule m) {
+      if (!(SetSequence.fromSet(MigrationModuleUtil.getUsedLanguages(m)).contains(ref.getLanguage()))) {
+        return false;
+      }
+      int dv = Math.max(0, ((AbstractModule) m).getUsedLanguageVersion(ref.getLanguage(), false));
+      return dv <= ref.getFromVersion();
+    }
+
+  }
+
+  private static class LangUseStats {
+    private final Map<SLanguage, Integer> myVersions = new HashMap<>();
+    private final Map<SLanguage, SModuleReference> myUses = new HashMap<>();
+
+    public void reportUse(SLanguage l, SModule m, int engagedVer) {
+      Integer v = myVersions.get(l);
+      if (v != null && v.intValue() < engagedVer) {
+        return;
+      }
+      myVersions.put(l, Integer.valueOf(engagedVer));
+      myUses.put(l, m.getModuleReference());
+    }
   }
 }

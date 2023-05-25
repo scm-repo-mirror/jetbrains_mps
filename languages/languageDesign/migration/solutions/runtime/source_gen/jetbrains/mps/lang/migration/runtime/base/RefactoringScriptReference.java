@@ -6,7 +6,6 @@ import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.logging.Logger;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import jetbrains.mps.smodel.Language;
-import jetbrains.mps.project.AbstractModule;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.project.Project;
@@ -44,7 +43,7 @@ public class RefactoringScriptReference implements BaseScriptReference<Refactori
   public RefactoringScriptReference(Language module, int fromVersion) {
     this.myModule = module.getModuleReference();
     this.fromVersion = fromVersion;
-    this.myModuleActualVersion = ((AbstractModule) module).getModuleVersion();
+    this.myModuleActualVersion = module.getModuleVersion();
   }
   public SModule getModule(SRepository repository) {
     return myModule.resolve(repository);

@@ -32,18 +32,16 @@ import jetbrains.mps.lang.migration.runtime.base.Problem;
 import jetbrains.mps.ide.migration.MigrationExecutor;
 import jetbrains.mps.migration.global.CleanupProjectMigration;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScript;
+import jetbrains.mps.ide.migration.AppliedScript;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.ide.migration.MigrationSetup;
 import java.util.Collection;
-import org.jetbrains.annotations.Nullable;
-import jetbrains.mps.lang.migration.runtime.base.BaseScriptReference;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import java.util.Objects;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptBase;
 import org.jetbrains.mps.openapi.language.SLanguage;
+import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.migration.global.ProjectMigrationWithOptions;
 import java.util.Collections;
 import jetbrains.mps.migration.global.MigrationOptions;
@@ -119,6 +117,7 @@ import jetbrains.mps.migration.global.MigrationOptions;
 
   private List<ProjectMigration> myProjectMig;
   private List<MigrationScript> myModuleMig;
+  private List<AppliedScript> myScripts;
 
   public TestMigrationSession(MPSProject p, MigrationTestConfigDialog.Result settings) {
     mySettings = settings;
@@ -149,55 +148,44 @@ import jetbrains.mps.migration.global.MigrationOptions;
     return getProjectMig();
   }
 
-
   @Override
-  public Collection<ScriptApplied> getModuleMigrations() {
-    // superclass passes all project modules, check in MyMigrationManager.getModuleMigrations(modules)
-    // is no op (all modules passed would belong to project).
-    return getModuleMigrationsApplied();
+  public Collection<AppliedScript> getModuleMigrations() {
+    if (myScripts == null) {
+      myScripts = createModuleMigrations();
+    }
+    return myScripts;
   }
 
-  @Override
-  protected ScriptApplied nextStepModule(@Nullable BaseScriptReference preferredId) {
-    Iterable<ScriptApplied> applied = getModuleMigrationsApplied();
-    final ScriptApplied sa = Sequence.fromIterable(applied).where(new IWhereFilter<ScriptApplied>() {
-      public boolean accept(final ScriptApplied sa) {
-        return ListSequence.fromList(passedM).all(new IWhereFilter<ScriptApplied>() {
-          public boolean accept(ScriptApplied it) {
-            return !(Objects.equals(it.getScriptReference(), sa.getScriptReference())) || !(Objects.equals(it.getModuleReference(), sa.getModuleReference()));
+  private List<AppliedScript> createModuleMigrations() {
+    final List<AppliedScript> res = ListSequence.fromList(new ArrayList<AppliedScript>());
+    final SRepository repo = myProject.getRepository();
+    repo.getModelAccess().runReadAction(() -> {
+      List<SModule> modules = Sequence.fromIterable(((Iterable<SModule>) repo.getModules())).take(3).toListSequence();
+      for (int si = 0, x = ListSequence.fromList(getModuleMig()).count(); si < x; si++) {
+        MigrationTestConfigDialog.Result.LMigration cfg = ListSequence.fromList(mySettings.lMigrations).getElement(si);
+        List<SModule> mm = ListSequence.fromList(new ArrayList<SModule>());
+        for (int mi = 0; mi < ListSequence.fromList(modules).count(); mi++) {
+          if (cfg.applyToModules[mi]) {
+            ListSequence.fromList(mm).addElement(ListSequence.fromList(modules).getElement(mi));
+          }
+        }
+        MigrationScript script = ListSequence.fromList(getModuleMig()).getElement(si);
+        assert ListSequence.fromList(mm).isNotEmpty() : "odd test configuration with no modules for script " + script;
+        ListSequence.fromList(res).addElement(new AppliedScript(script, mm) {
+          @Override
+          public Collection<ScriptApplied> toBeExecutedImmediately(SRepository repo) {
+            // XXX here we rely on fact asLegacy gives same ScriptApplied values again and again, and when they get executed and recorded in passedM, 
+            //    we can safely use except. 
+            return Sequence.fromIterable(asLegacy()).subtract(ListSequence.fromList(passedM)).sort(new ISelector<ScriptApplied, Integer>() {
+              public Integer select(ScriptApplied it) {
+                return ((MigrationScriptReference) it.getScriptReference()).getFromVersion();
+              }
+            }, true).toListSequence();
           }
         });
       }
-    }).sort(new ISelector<ScriptApplied, Integer>() {
-      public Integer select(ScriptApplied it) {
-        return ((MigrationScriptReference) it.getScriptReference()).getFromVersion();
-      }
-    }, true).first();
-    return sa;
-  }
-
-  private List<ScriptApplied> getModuleMigrationsApplied() {
-    final Wrappers._T<List<ScriptApplied>> res = new Wrappers._T<List<ScriptApplied>>();
-    final SRepository repo = myProject.getRepository();
-    repo.getModelAccess().runReadAction(() -> {
-      final List<SModule> modules = Sequence.fromIterable(((Iterable<SModule>) repo.getModules())).take(3).toListSequence();
-      res.value = ListSequence.fromList(TestMigrationSession.this.getModuleMig()).translate(new ITranslator2<MigrationScript, ScriptApplied>() {
-        public Iterable<ScriptApplied> translate(final MigrationScript script) {
-          return ListSequence.fromList(modules).where(new IWhereFilter<SModule>() {
-            public boolean accept(SModule it) {
-              int si = ListSequence.fromList(getModuleMig()).indexOf(script);
-              int mi = ListSequence.fromList(modules).indexOf(it);
-              return ListSequence.fromList(mySettings.lMigrations).getElement(si).applyToModules[mi];
-            }
-          }).select(new ISelector<SModule, ScriptApplied>() {
-            public ScriptApplied select(SModule module) {
-              return new ScriptApplied(module, script.getReference());
-            }
-          });
-        }
-      }).toListSequence();
     });
-    return res.value;
+    return res;
   }
 
   private List<ProjectMigration> getProjectMig() {

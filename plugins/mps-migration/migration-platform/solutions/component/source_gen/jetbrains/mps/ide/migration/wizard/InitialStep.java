@@ -24,9 +24,7 @@ import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.migration.global.ProjectMigration;
 import java.util.Collection;
-import jetbrains.mps.ide.migration.ScriptApplied;
-import jetbrains.mps.lang.migration.runtime.base.BaseScriptReference;
-import jetbrains.mps.internal.collections.runtime.ISelector;
+import jetbrains.mps.ide.migration.AppliedScript;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import java.awt.Component;
@@ -35,13 +33,14 @@ import com.intellij.ui.components.JBScrollPane;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.lang.migration.runtime.base.RefactoringScriptReference;
-import jetbrains.mps.util.NameUtil;
-import jetbrains.mps.lang.migration.runtime.base.RefactoringScript;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.lang.migration.runtime.base.RefactoringScriptReference;
+import jetbrains.mps.internal.collections.runtime.ISelector;
+import jetbrains.mps.lang.migration.runtime.base.BaseScriptReference;
+import jetbrains.mps.util.NameUtil;
+import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
-import jetbrains.mps.lang.migration.runtime.base.MigrationScript;
 import com.intellij.ide.wizard.AbstractWizardStepEx;
 import com.intellij.ide.wizard.CommitStepException;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
@@ -152,20 +151,16 @@ public class InitialStep extends BaseStep {
       migrateSection.add(projectSubsection);
     }
 
-    Collection<ScriptApplied> migrationsApplied = mySession.getModuleMigrations();
-    Iterable<BaseScriptReference> scripts = CollectionSequence.fromCollection(migrationsApplied).select(new ISelector<ScriptApplied, BaseScriptReference>() {
-      public BaseScriptReference select(ScriptApplied it) {
-        return it.getScriptReference();
-      }
-    }).distinct();
+    Collection<AppliedScript> migrationsApplied = mySession.getModuleMigrations();
+
 
     // language migrations
-    DefaultMutableTreeNode lroot = createLangMigrationsSubsectionNode(scripts, migrationIcon, migrationsApplied);
+    DefaultMutableTreeNode lroot = createLangMigrationsSubsectionNode(migrationsApplied, migrationIcon);
     if (lroot.children().hasMoreElements()) {
       migrateSection.add(lroot);
     }
     // module migrations
-    DefaultMutableTreeNode mroot = createModuleMigrationsSubsectionNode(scripts, migrationIcon, migrationsApplied);
+    DefaultMutableTreeNode mroot = createModuleMigrationsSubsectionNode(migrationsApplied, migrationIcon);
     if (mroot.children().hasMoreElements()) {
       migrateSection.add(mroot);
     }
@@ -209,74 +204,86 @@ public class InitialStep extends BaseStep {
     return prepareSection;
   }
 
-  private DefaultMutableTreeNode createModuleMigrationsSubsectionNode(Iterable<BaseScriptReference> scripts, final Icon migrationIcon, Collection<ScriptApplied> migrationsApplied) {
+  private DefaultMutableTreeNode createModuleMigrationsSubsectionNode(Iterable<AppliedScript> scripts, final Icon migrationIcon) {
     final Map<SModuleReference, DefaultMutableTreeNode> m2n = MapSequence.fromMap(new HashMap<SModuleReference, DefaultMutableTreeNode>());
-    Sequence.fromIterable(scripts).ofType(RefactoringScriptReference.class).select(new ISelector<RefactoringScriptReference, SModuleReference>() {
-      public SModuleReference select(RefactoringScriptReference it) {
-        return it.getModuleReference();
+    List<AppliedScript> refScripts = Sequence.fromIterable(scripts).where(new IWhereFilter<AppliedScript>() {
+      public boolean accept(AppliedScript it) {
+        return it.scriptReference() instanceof RefactoringScriptReference;
+      }
+    }).toListSequence();
+    Iterable<RefactoringScriptReference> rsrseq = ListSequence.fromList(refScripts).select(new ISelector<AppliedScript, BaseScriptReference<?>>() {
+      public BaseScriptReference<?> select(AppliedScript this0) {
+        return this0.scriptReference();
+      }
+    }).ofType(RefactoringScriptReference.class);
+    Sequence.fromIterable(rsrseq).select(new ISelector<RefactoringScriptReference, SModuleReference>() {
+      public SModuleReference select(RefactoringScriptReference this0) {
+        return this0.getModuleReference();
       }
     }).distinct().visitAll(new IVisitor<SModuleReference>() {
       public void visit(SModuleReference it) {
         MapSequence.fromMap(m2n).put(it, new DefaultMutableTreeNode(NameUtil.compactNamespace(it.getModuleName())));
       }
     });
-    Sequence.fromIterable(scripts).ofType(RefactoringScriptReference.class).visitAll(new IVisitor<RefactoringScriptReference>() {
-      public void visit(RefactoringScriptReference it) {
-        RefactoringScript rs = it.resolve(mySession.getProject(), false);
-        String caption = (rs != null ? rs.getCaption() : "Missing: <script for version " + it.getFromVersion() + ">");
+    ListSequence.fromList(refScripts).visitAll(new IVisitor<AppliedScript>() {
+      public void visit(AppliedScript it) {
+        RefactoringScriptReference rsr = (RefactoringScriptReference) it.scriptReference();
+        String caption = (it.scriptPresent() ? it.caption() : String.format("Missing: <script for version %d>", rsr.getFromVersion()));
         DefaultMutableTreeNode node = new MyTreeNode(caption, migrationIcon);
-        MapSequence.fromMap(m2n).get(it.getModuleReference()).add(node);
+        MapSequence.fromMap(m2n).get(rsr.getModuleReference()).add(node);
       }
     });
-    int migratedModulesNum2 = CollectionSequence.fromCollection(migrationsApplied).where(new IWhereFilter<ScriptApplied>() {
-      public boolean accept(ScriptApplied it) {
-        return it.getScriptReference() instanceof RefactoringScriptReference;
-      }
-    }).select(new ISelector<ScriptApplied, SModuleReference>() {
-      public SModuleReference select(ScriptApplied it) {
-        return it.getModuleReference();
+    int migratedModulesNum2 = ListSequence.fromList(refScripts).translate(new ITranslator2<AppliedScript, SModuleReference>() {
+      public Iterable<SModuleReference> translate(AppliedScript this0) {
+        return this0.affectedModules();
       }
     }).distinct().count();
-    final DefaultMutableTreeNode mroot = new DefaultMutableTreeNode("Module Migrations (" + migratedModulesNum2 + " modules will be affected)");
+    final DefaultMutableTreeNode mroot = new DefaultMutableTreeNode(String.format("Module Migrations (%d  modules will be affected)", migratedModulesNum2));
     Sequence.fromIterable(MapSequence.fromMap(m2n).values()).visitAll(new IVisitor<DefaultMutableTreeNode>() {
-      public void visit(DefaultMutableTreeNode it) {
-        mroot.add(it);
+      public void visit(DefaultMutableTreeNode newChild) {
+        mroot.add(newChild);
       }
     });
     return mroot;
   }
 
-  private DefaultMutableTreeNode createLangMigrationsSubsectionNode(Iterable<BaseScriptReference> scripts, final Icon migrationIcon, Collection<ScriptApplied> migrationsApplied) {
+  private DefaultMutableTreeNode createLangMigrationsSubsectionNode(Iterable<AppliedScript> scripts, final Icon migrationIcon) {
     final Map<SLanguage, DefaultMutableTreeNode> l2n = MapSequence.fromMap(new HashMap<SLanguage, DefaultMutableTreeNode>());
-    Sequence.fromIterable(scripts).ofType(MigrationScriptReference.class).select(new ISelector<MigrationScriptReference, SLanguage>() {
-      public SLanguage select(MigrationScriptReference it) {
-        return it.getLanguage();
+    List<AppliedScript> msrScripts = Sequence.fromIterable(scripts).where(new IWhereFilter<AppliedScript>() {
+      public boolean accept(AppliedScript it) {
+        return it.scriptReference() instanceof MigrationScriptReference;
+      }
+    }).toListSequence();
+    Iterable<MigrationScriptReference> seq = ListSequence.fromList(msrScripts).select(new ISelector<AppliedScript, BaseScriptReference<?>>() {
+      public BaseScriptReference<?> select(AppliedScript this0) {
+        return this0.scriptReference();
+      }
+    }).ofType(MigrationScriptReference.class);
+    Sequence.fromIterable(seq).select(new ISelector<MigrationScriptReference, SLanguage>() {
+      public SLanguage select(MigrationScriptReference this0) {
+        return this0.getLanguage();
       }
     }).distinct().visitAll(new IVisitor<SLanguage>() {
       public void visit(SLanguage it) {
         MapSequence.fromMap(l2n).put(it, new MyTreeNode(NameUtil.compactNamespace(it.getQualifiedName()), Icons.Language));
       }
     });
-    Sequence.fromIterable(scripts).ofType(MigrationScriptReference.class).visitAll(new IVisitor<MigrationScriptReference>() {
-      public void visit(MigrationScriptReference it) {
-        MigrationScript ms = it.resolve(mySession.getProject(), false);
-        String caption = (ms != null ? ms.getCaption() : "Missing: <script for version " + it.getFromVersion() + ">");
-        MapSequence.fromMap(l2n).get(it.getLanguage()).add(new MyTreeNode(caption, migrationIcon));
+    ListSequence.fromList(msrScripts).visitAll(new IVisitor<AppliedScript>() {
+      public void visit(AppliedScript it) {
+        MigrationScriptReference msr = (MigrationScriptReference) it.scriptReference();
+        String caption = (it.scriptPresent() ? it.caption() : String.format("Missing: <script for version %d", msr.getFromVersion()));
+        MapSequence.fromMap(l2n).get(msr.getLanguage()).add(new MyTreeNode(caption, migrationIcon));
       }
     });
-    int migratedModulesNum = CollectionSequence.fromCollection(migrationsApplied).where(new IWhereFilter<ScriptApplied>() {
-      public boolean accept(ScriptApplied it) {
-        return it.getScriptReference() instanceof MigrationScriptReference;
-      }
-    }).select(new ISelector<ScriptApplied, SModuleReference>() {
-      public SModuleReference select(ScriptApplied it) {
-        return it.getModuleReference();
+    int migratedModulesNum = ListSequence.fromList(msrScripts).translate(new ITranslator2<AppliedScript, SModuleReference>() {
+      public Iterable<SModuleReference> translate(AppliedScript this0) {
+        return this0.affectedModules();
       }
     }).distinct().count();
-    final DefaultMutableTreeNode lroot = new DefaultMutableTreeNode("Language Migrations (" + migratedModulesNum + " modules will be affected)");
+    final DefaultMutableTreeNode lroot = new DefaultMutableTreeNode(String.format("Language Migrations (%d modules will be affected)", migratedModulesNum));
     Sequence.fromIterable(MapSequence.fromMap(l2n).values()).visitAll(new IVisitor<DefaultMutableTreeNode>() {
-      public void visit(DefaultMutableTreeNode it) {
-        lroot.add(it);
+      public void visit(DefaultMutableTreeNode newChild) {
+        lroot.add(newChild);
       }
     });
     return lroot;

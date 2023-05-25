@@ -21,7 +21,7 @@ import java.util.Collection;
 @GeneratedClass(node = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)/3577160840697329341", model = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)")
 public class MigrationSetup {
   private final List<ProjectMigration> myProjectMigrations = ListSequence.fromList(new ArrayList<ProjectMigration>());
-  private final List<ScriptApplied> myModuleMigrations = ListSequence.fromList(new ArrayList<ScriptApplied>());
+  private final List<AppliedScript> myModuleMigrations = ListSequence.fromList(new ArrayList<AppliedScript>());
   private boolean myBrokenDepsOfProjectModules;
   private boolean myNeedImportVersionUpdate;
 
@@ -89,7 +89,7 @@ public class MigrationSetup {
   /**
    * language migrations for a set of modules configured by instance creator
    */
-  public Collection<ScriptApplied> getModuleMigrations() {
+  public Collection<AppliedScript> getModuleMigrations() {
     return myModuleMigrations;
   }
 
