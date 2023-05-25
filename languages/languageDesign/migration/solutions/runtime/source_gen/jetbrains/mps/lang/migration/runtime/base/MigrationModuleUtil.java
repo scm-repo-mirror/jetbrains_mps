@@ -58,9 +58,14 @@ public class MigrationModuleUtil {
     throw new IllegalArgumentException("We are able to work only with AbstractModule instances");
   }
 
+  /**
+   * 
+   * 
+   * @return version >= 0
+   */
   public static int getUsedLanguageVersion(@NotNull SModule module, @NotNull SLanguage usedLang) {
     if (module instanceof AbstractModule) {
-      return ((AbstractModule) module).getUsedLanguageVersion(usedLang, false);
+      return Math.max(0, ((AbstractModule) module).getUsedLanguageVersion(usedLang, false));
     }
     throw new IllegalArgumentException("We are able to work only with AbstractModule instances");
   }

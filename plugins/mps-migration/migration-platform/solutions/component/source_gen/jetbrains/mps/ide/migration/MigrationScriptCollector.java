@@ -12,7 +12,7 @@ import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.smodel.SLanguageHierarchy;
 import jetbrains.mps.smodel.language.LanguageRuntime;
-import jetbrains.mps.project.AbstractModule;
+import jetbrains.mps.lang.migration.runtime.base.MigrationModuleUtil;
 import java.util.ArrayList;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -25,7 +25,6 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Collections;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Set;
-import jetbrains.mps.lang.migration.runtime.base.MigrationModuleUtil;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 
 @GeneratedClass(node = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)/1520098040411268050", model = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)")
@@ -59,9 +58,7 @@ import org.jetbrains.mps.openapi.module.SModuleReference;
           }
           // alternatively, may keep a Pair<MSR,List>([]?) right in myLanguage2Scripts, to avoid extra myGroupedByScript map
         }
-        int engagedVer = ((AbstractModule) module).getUsedLanguageVersion(lang, false);
-
-        engagedVer = Math.max(engagedVer, 0);
+        final int engagedVer = MigrationModuleUtil.getUsedLanguageVersion(module, lang);
 
         myLanguageStats.reportUse(lang, module, engagedVer);
 
@@ -114,8 +111,9 @@ import org.jetbrains.mps.openapi.module.SModuleReference;
       final MigrationScriptReference sr = scriptReference();
       return Sequence.fromIterable(asLegacy()).where(new IWhereFilter<ScriptApplied>() {
         public boolean accept(ScriptApplied sa) {
-          final AbstractModule moduleToMigrate = (AbstractModule) sa.getModule(repo);
-          int v = Math.max(0, moduleToMigrate.getUsedLanguageVersion(sr.getLanguage(), false));
+          final SModule moduleToMigrate = sa.getModule(repo);
+
+          final int v = MigrationModuleUtil.getUsedLanguageVersion(moduleToMigrate, sr.getLanguage());
           if (v != sr.getFromVersion()) {
             return false;
           }
@@ -148,7 +146,7 @@ import org.jetbrains.mps.openapi.module.SModuleReference;
       if (!(SetSequence.fromSet(MigrationModuleUtil.getUsedLanguages(m)).contains(ref.getLanguage()))) {
         return false;
       }
-      int dv = Math.max(0, ((AbstractModule) m).getUsedLanguageVersion(ref.getLanguage(), false));
+      int dv = MigrationModuleUtil.getUsedLanguageVersion(m, ref.getLanguage());
       return dv <= ref.getFromVersion();
     }
 

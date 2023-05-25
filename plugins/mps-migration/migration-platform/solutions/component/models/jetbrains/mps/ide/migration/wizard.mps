@@ -8200,20 +8200,19 @@
                                   <node concept="3$u5V9" id="6Z8qT6OVMPN" role="2OqNvi">
                                     <node concept="1bVj0M" id="6Z8qT6OVMPP" role="23t8la">
                                       <node concept="3clFbS" id="6Z8qT6OVMPQ" role="1bW5cS">
-                                        <node concept="3clFbF" id="6Z8qT6OVNR3" role="3cqZAp">
-                                          <node concept="2OqwBi" id="6Z8qT6OVOiR" role="3clFbG">
-                                            <node concept="37vLTw" id="6Z8qT6OVNR2" role="2Oq$k0">
+                                        <node concept="3clFbF" id="6QpvLQNPPY0" role="3cqZAp">
+                                          <node concept="2YIFZM" id="6QpvLQNPQNp" role="3clFbG">
+                                            <ref role="37wK5l" to="6f4m:2RCunBMpg0l" resolve="getUsedLanguageVersion" />
+                                            <ref role="1Pybhc" to="6f4m:4JlWzK6VGnA" resolve="MigrationModuleUtil" />
+                                            <node concept="37vLTw" id="6QpvLQNPS1o" role="37wK5m">
                                               <ref role="3cqZAo" node="6Z8qT6OVMPR" resolve="module" />
                                             </node>
-                                            <node concept="liA8E" id="6Z8qT6OVOyK" role="2OqNvi">
-                                              <ref role="37wK5l" to="lui2:~SModule.getUsedLanguageVersion(org.jetbrains.mps.openapi.language.SLanguage)" resolve="getUsedLanguageVersion" />
-                                              <node concept="2OqwBi" id="6Z8qT6OVRrO" role="37wK5m">
-                                                <node concept="37vLTw" id="6Z8qT6OVQ7s" role="2Oq$k0">
-                                                  <ref role="3cqZAo" node="6Z8qT6OVwrX" resolve="it" />
-                                                </node>
-                                                <node concept="liA8E" id="6Z8qT6OVRGQ" role="2OqNvi">
-                                                  <ref role="37wK5l" to="6f4m:2RG318eWpZ$" resolve="getLanguage" />
-                                                </node>
+                                            <node concept="2OqwBi" id="6Z8qT6OVRrO" role="37wK5m">
+                                              <node concept="37vLTw" id="6Z8qT6OVQ7s" role="2Oq$k0">
+                                                <ref role="3cqZAo" node="6Z8qT6OVwrX" resolve="it" />
+                                              </node>
+                                              <node concept="liA8E" id="6Z8qT6OVRGQ" role="2OqNvi">
+                                                <ref role="37wK5l" to="6f4m:2RG318eWpZ$" resolve="getLanguage" />
                                               </node>
                                             </node>
                                           </node>

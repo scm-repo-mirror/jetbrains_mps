@@ -62,7 +62,7 @@ public class MigrationsMissingError extends MigrationError {
         }).toListSequence();
         return (IssueKindReportItem) new MissingMigrationProblem.MissingMigrationScriptProblem(it, Collections.min(ListSequence.fromList(languageUsages).select(new ISelector<SModule, Integer>() {
           public Integer select(SModule module) {
-            return module.getUsedLanguageVersion(it.getLanguage());
+            return MigrationModuleUtil.getUsedLanguageVersion(module, it.getLanguage());
           }
         }).toListSequence()));
       }

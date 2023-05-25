@@ -77,8 +77,7 @@ public class MigrationExecutorImpl implements MigrationExecutor {
     MigrationScript script = (MigrationScript) sa.getScriptInstance();
     AbstractModule module = ((AbstractModule) sa.getModule(myProject.getRepository()));
     SLanguage fromLanguage = script.getReference().getLanguage();
-    int usedVersion = MigrationModuleUtil.getUsedLanguageVersion(module, fromLanguage);
-    usedVersion = Math.max(usedVersion, 0);
+    final int usedVersion = MigrationModuleUtil.getUsedLanguageVersion(module, fromLanguage);
     assert usedVersion == script.getReference().getFromVersion();
 
     script.setDataCollector(myDataCollector);
