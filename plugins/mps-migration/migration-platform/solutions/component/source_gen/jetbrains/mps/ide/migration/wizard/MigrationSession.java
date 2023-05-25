@@ -21,6 +21,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.ide.migration.MigrationSetup;
 import jetbrains.mps.ide.migration.MigrationExecutor;
+import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
@@ -133,16 +134,21 @@ public interface MigrationSession {
       return SetSequence.fromSet(myRequiredSteps).contains(stepKind);
     }
 
-
+    /**
+     * takes model read to let AppliedScript.toBeExecutedImmediately() to access module dependencies/used languages
+     */
     protected Collection<ScriptApplied> nextStepModuleImpl() {
-      return CollectionSequence.fromCollection(getModuleMigrations()).select(new ISelector<AppliedScript, Collection<ScriptApplied>>() {
-        public Collection<ScriptApplied> select(AppliedScript it) {
-          return it.toBeExecutedImmediately(getProject().getRepository());
-        }
-      }).findFirst(new IWhereFilter<Collection<ScriptApplied>>() {
-        public boolean accept(Collection<ScriptApplied> it) {
-          return CollectionSequence.fromCollection(it).isNotEmpty();
-        }
+      final SRepository repo = getProject().getRepository();
+      return repo.getModelAccess().computeReadAction(() -> {
+        return CollectionSequence.fromCollection(getModuleMigrations()).select(new ISelector<AppliedScript, Collection<ScriptApplied>>() {
+          public Collection<ScriptApplied> select(AppliedScript it) {
+            return it.toBeExecutedImmediately(repo);
+          }
+        }).findFirst(new IWhereFilter<Collection<ScriptApplied>>() {
+          public boolean accept(Collection<ScriptApplied> it) {
+            return CollectionSequence.fromCollection(it).isNotEmpty();
+          }
+        });
       });
     }
 
