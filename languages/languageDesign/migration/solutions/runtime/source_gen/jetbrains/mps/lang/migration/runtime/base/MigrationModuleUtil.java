@@ -64,7 +64,13 @@ public class MigrationModuleUtil {
    */
   public static int getUsedLanguageVersion(@NotNull SModule module, @NotNull SLanguage usedLang) {
     int ver = module.getUsedLanguageVersion(usedLang);
-    // XXX I wonder if we shall process -1, legal value from the method, somehow here?
+    // we shall process -1, legal value from the method, here as there are r/o stub solutions where we don't
+    // keep versions of used languages but still report these languages as used. If we answer with 0=max (0,-1)
+    // we face all migrations up to current language versions for our stub models. This likely affects MPS only, and
+    // FIXME shall be approached in a different way as it's wrong to access version through SLanguage
+    if (ver == -1) {
+      return usedLang.getLanguageVersion();
+    }
     return Math.max(0, ver);
   }
   public static void putUsedLanguageVersion(@NotNull SModule module, @NotNull SLanguage usedLang, int version) {
