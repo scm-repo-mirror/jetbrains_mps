@@ -1,5 +1,5 @@
 /*
- * Copyright 2000-2021 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+ * Copyright 2000-2023 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
  */
 package jetbrains.mps.smodel.runtime.impl;
 
@@ -16,14 +16,16 @@ final class BaseReferenceDescriptor implements ReferenceDescriptor {
   private final boolean myIsOptional;
   private final SNodeReference mySrcNode;
   private final SReferenceLinkId mySpecializedLink;
+  private final boolean myTranient;
 
-  public BaseReferenceDescriptor(SReferenceLinkId id, String name, SConceptId targetConcept, boolean isOptional, @Nullable SNodeReference srcNode, @Nullable SReferenceLinkId specializedLink) {
+  public BaseReferenceDescriptor(SReferenceLinkId id, String name, SConceptId targetConcept, boolean isOptional, @Nullable SNodeReference srcNode, @Nullable SReferenceLinkId specializedLink, boolean isTransient) {
     myId = id;
     myName = name;
     myTargetConcept = targetConcept;
     myIsOptional = isOptional;
     mySrcNode = srcNode;
     mySpecializedLink = specializedLink;
+    myTranient = isTransient;
   }
 
   public SReferenceLinkId getId() {
@@ -51,5 +53,10 @@ final class BaseReferenceDescriptor implements ReferenceDescriptor {
   @Override
   public SReferenceLinkId getSpecializedLink() {
     return mySpecializedLink;
+  }
+
+  @Override
+  public boolean isTransient() {
+    return myTranient;
   }
 }

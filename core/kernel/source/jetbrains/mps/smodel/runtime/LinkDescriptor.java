@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,4 +44,10 @@ public interface LinkDescriptor {
    */
   @Nullable
   SContainmentLinkId getSpecializedLink();
+
+  /**
+   * Indicates containment that doesn't need to get reflected in persistence. No child from this role get serialized
+   * @since 2023.1
+   */
+  boolean isTransient();
 }

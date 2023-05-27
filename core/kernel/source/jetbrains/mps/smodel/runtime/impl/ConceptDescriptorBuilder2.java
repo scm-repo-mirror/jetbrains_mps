@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -130,7 +130,7 @@ public class ConceptDescriptorBuilder2 {
    * invoked [0..n] times
    */
   public ConceptDescriptorBuilder2 prop(String name, long propertyId) {
-    addProperty(new BasePropertyDescriptor(MetaIdFactory.propId(myConceptId, propertyId), name, null,null));
+    addProperty(new BasePropertyDescriptor(MetaIdFactory.propId(myConceptId, propertyId), name, null,null, false));
     return this;
   }
 
@@ -239,10 +239,20 @@ public class ConceptDescriptorBuilder2 {
     /*package*/ final long myId;
     /*package*/ SNodeReference myOrigin;
 
+    /*package*/ boolean myIsTransient;
+
     /*package*/ ConceptEntityBuilder(ConceptDescriptorBuilder2 builder, String name, long id) {
       myBuilder = builder;
       myName = name;
       myId = id;
+    }
+
+    /**
+     * @since 2023.1
+     */
+    public ConceptEntityBuilder makeTransient(boolean isTransient) {
+      myIsTransient = isTransient;
+      return this;
     }
   }
 
@@ -264,7 +274,7 @@ public class ConceptDescriptorBuilder2 {
 
     public ConceptDescriptorBuilder2 done() {
       final SReferenceLinkId id = MetaIdFactory.refId(myBuilder.myConceptId, myId);
-      myBuilder.addAssociation(new BaseReferenceDescriptor(id, myName, myTargetConcept, myIsOptional, super.myOrigin, mySpecializedLink));
+      myBuilder.addAssociation(new BaseReferenceDescriptor(id, myName, myTargetConcept, myIsOptional, super.myOrigin, mySpecializedLink, myIsTransient));
       return myBuilder;
     }
 
@@ -311,6 +321,12 @@ public class ConceptDescriptorBuilder2 {
       mySpecializedLink = MetaIdFactory.refId(owner, linkId);
       return this;
     }
+
+    @Override
+    public AssociationLinkBuilder makeTransient(boolean isTransient) {
+      super.makeTransient(isTransient);
+      return this;
+    }
   }
 
   public static final class AggregationLinkBuilder extends LinkBuilder {
@@ -324,7 +340,7 @@ public class ConceptDescriptorBuilder2 {
 
     public ConceptDescriptorBuilder2 done() {
       final SContainmentLinkId id = MetaIdFactory.linkId(myBuilder.myConceptId, myId);
-      myBuilder.addAggregation(new BaseLinkDescriptor(id, myName, myTargetConcept, myIsOptional, myIsMultiple, !myIsOrdered, super.myOrigin, mySpecializedLink));
+      myBuilder.addAggregation(new BaseLinkDescriptor(id, myName, myTargetConcept, myIsOptional, myIsMultiple, !myIsOrdered, super.myOrigin, mySpecializedLink, myIsTransient));
       return myBuilder;
     }
 
@@ -380,6 +396,12 @@ public class ConceptDescriptorBuilder2 {
       mySpecializedLink = MetaIdFactory.linkId(owner, linkId);
       return this;
     }
+
+    @Override
+    public AggregationLinkBuilder makeTransient(boolean isTransient) {
+      super.makeTransient(isTransient);
+      return this;
+    }
   }
 
   public static final class PropertyBuilder extends ConceptEntityBuilder {
@@ -390,7 +412,7 @@ public class ConceptDescriptorBuilder2 {
     }
 
     public ConceptDescriptorBuilder2 done() {
-      myBuilder.addProperty(new BasePropertyDescriptor(MetaIdFactory.propId(myBuilder.myConceptId, myId), myName, myTypeId, super.myOrigin));
+      myBuilder.addProperty(new BasePropertyDescriptor(MetaIdFactory.propId(myBuilder.myConceptId, myId), myName, myTypeId, super.myOrigin, myIsTransient));
       return myBuilder;
     }
 
@@ -412,6 +434,12 @@ public class ConceptDescriptorBuilder2 {
       if (myBuilder.myOrigin != null && srcNodeId != null) {
         super.myOrigin = new SNodePointer(myBuilder.myOrigin.getModelReference(), PersistenceFacade.getInstance().createNodeId(srcNodeId));
       }
+      return this;
+    }
+
+    @Override
+    public PropertyBuilder makeTransient(boolean isTransient) {
+      super.makeTransient(isTransient);
       return this;
     }
   }

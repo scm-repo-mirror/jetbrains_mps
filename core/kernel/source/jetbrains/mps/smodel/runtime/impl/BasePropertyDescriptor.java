@@ -1,5 +1,5 @@
 /*
- * Copyright 2000-2022 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+ * Copyright 2000-2023 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
  */
 package jetbrains.mps.smodel.runtime.impl;
 
@@ -13,23 +13,16 @@ final class BasePropertyDescriptor implements PropertyDescriptor {
   private final SPropertyId myId;
   private final STypeId myTypeId;
   private final String myName;
-  private SNodeReference mySrcNode;
+  private final SNodeReference mySrcNode;
 
-@Deprecated(since = "2018.3", forRemoval = true)
-  public BasePropertyDescriptor(SPropertyId id, String name) {
-    this(id, name,null, null);
-  }
+  private final boolean myTransient;
 
-@Deprecated(since = "2018.3", forRemoval = true)
-  public BasePropertyDescriptor(SPropertyId id, String name, @Nullable SNodeReference srcNode) {
-    this(id, name,null, srcNode);
-  }
-
-  public BasePropertyDescriptor(SPropertyId id, String name, STypeId typeId, @Nullable SNodeReference srcNode) {
+  public BasePropertyDescriptor(SPropertyId id, String name, STypeId typeId, @Nullable SNodeReference srcNode, boolean isTransient) {
     myId = id;
     myName = name;
     myTypeId = typeId;
     mySrcNode = srcNode;
+    myTransient = isTransient;
   }
 
   @Override
@@ -50,5 +43,10 @@ final class BasePropertyDescriptor implements PropertyDescriptor {
   @Override
   public SNodeReference getSourceNode() {
     return mySrcNode;
+  }
+
+  @Override
+  public boolean isTransient() {
+    return myTransient;
   }
 }

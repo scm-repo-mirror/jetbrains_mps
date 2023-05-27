@@ -1,5 +1,5 @@
 /*
- * Copyright 2000-2022 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+ * Copyright 2000-2023 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
  */
 package jetbrains.mps.smodel.runtime.impl;
 
@@ -19,8 +19,9 @@ final class BaseLinkDescriptor implements LinkDescriptor {
   private final boolean myIsUnordered;
   private final SNodeReference mySrcNode;
   private final SContainmentLinkId mySpecializedLink;
+  private final boolean myIsTranient;
 
-  public BaseLinkDescriptor(SContainmentLinkId id, String name, SConceptId targetConcept, boolean isOptional, boolean isMultiple, boolean isUnordered, @Nullable SNodeReference srcNode, @Nullable SContainmentLinkId specializedLink) {
+  public BaseLinkDescriptor(SContainmentLinkId id, String name, SConceptId targetConcept, boolean isOptional, boolean isMultiple, boolean isUnordered, @Nullable SNodeReference srcNode, @Nullable SContainmentLinkId specializedLink, boolean isTransient) {
     myId = id;
     myName = name;
     myTargetConcept = targetConcept;
@@ -29,6 +30,7 @@ final class BaseLinkDescriptor implements LinkDescriptor {
     myIsUnordered = isUnordered;
     mySrcNode = srcNode;
     mySpecializedLink = specializedLink;
+    myIsTranient = isTransient;
   }
 
   public SContainmentLinkId getId() {
@@ -64,5 +66,10 @@ final class BaseLinkDescriptor implements LinkDescriptor {
   @Override
   public SContainmentLinkId getSpecializedLink() {
     return mySpecializedLink;
+  }
+
+  @Override
+  public boolean isTransient() {
+    return myIsTranient;
   }
 }
