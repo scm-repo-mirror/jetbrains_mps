@@ -71,19 +71,6 @@ public class GlobalModuleDependenciesManager {
   }
 
   /**
-   * Return only modules with 'reexport' mark in the dependents subtree
-   * @deprecated one usage does not justify method's existence
-   */
-@Deprecated(since = "3.4", forRemoval = true)
-  public Collection<SModule> getOnlyReexportModules() {
-    Set<SModule> result = new HashSet<>();
-    for (SModule module : myModules) {
-      collect(module, result, Deptype.VISIBLE);
-    }
-    return result;
-  }
-
-  /**
    * Return all modules of a given dependency type in scope of given
    * <p/>
    * RUNTIMES:
