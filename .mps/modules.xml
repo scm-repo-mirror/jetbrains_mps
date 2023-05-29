@@ -618,6 +618,8 @@
       <modulePath path="$PROJECT_DIR$/testbench/testsolutions/quotation.test/jetbrains.mps.lang.quotation.test.msd" folder="core.languages.quotation" />
       <modulePath path="$PROJECT_DIR$/testbench/testsolutions/refactoring.test/refactoring.test.msd" folder="tests.testRefactoring" />
       <modulePath path="$PROJECT_DIR$/testbench/testsolutions/regexp.unittest/jetbrains.mps.baseLanguage.regexp.unittest.msd" folder="core.baseLanguage.regexp" />
+      <modulePath path="$PROJECT_DIR$/testbench/testsolutions/smodel.transient/transients.lang/jetbrains.mps.persistence.transients.mpl" folder="tests.SModel Transients" />
+      <modulePath path="$PROJECT_DIR$/testbench/testsolutions/smodel.transient/transients.test/jetbrains.mps.persistence.transients.tests.msd" folder="tests.SModel Transients" />
       <modulePath path="$PROJECT_DIR$/testbench/testsolutions/smodel.unittest/jetbrains.mps.lang.smodel.unittest.msd" folder="core.languages.smodel" />
       <modulePath path="$PROJECT_DIR$/testbench/testsolutions/smodelLanguage_typeTest/smodelLanguage_typetest.msd" folder="core.languages.smodel" />
       <modulePath path="$PROJECT_DIR$/testbench/testsolutions/test.test/jetbrains.mps.lang.test.test.msd" folder="core.languages.test" />
