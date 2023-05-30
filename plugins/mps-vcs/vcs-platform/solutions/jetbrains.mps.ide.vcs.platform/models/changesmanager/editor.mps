@@ -1186,8 +1186,13 @@
                                                           <node concept="liA8E" id="1KUoCipvEbZ" role="2OqNvi">
                                                             <ref role="37wK5l" to="mhbf:~SNode.getNodeId()" resolve="getNodeId" />
                                                           </node>
-                                                          <node concept="37vLTw" id="3GM_nagTAZg" role="2Oq$k0">
-                                                            <ref role="3cqZAo" node="1KUoCipvEaw" resolve="editedNode" />
+                                                          <node concept="2OqwBi" id="48lEE9jxJrt" role="2Oq$k0">
+                                                            <node concept="37vLTw" id="3GM_nagTAZg" role="2Oq$k0">
+                                                              <ref role="3cqZAo" node="1KUoCipvEaw" resolve="editedNode" />
+                                                            </node>
+                                                            <node concept="liA8E" id="48lEE9jxKGy" role="2OqNvi">
+                                                              <ref role="37wK5l" to="mhbf:~SNode.getContainingRoot()" resolve="getContainingRoot" />
+                                                            </node>
                                                           </node>
                                                         </node>
                                                         <node concept="liA8E" id="1KUoCipvEc1" role="2OqNvi">
