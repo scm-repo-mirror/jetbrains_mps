@@ -32,7 +32,6 @@ import com.intellij.ui.content.ContentManager;
 import com.intellij.util.ui.update.UiNotifyConnector;
 import jetbrains.mps.ide.ThreadUtils;
 import kotlin.Unit;
-import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -199,12 +198,6 @@ public abstract class BaseTool {
     }
     // register() may fail if myProject hasn't been initialized - ToolWindowManager is a ProjectComponent
     return myWindowManager == null ? null : myWindowManager.getToolWindow(myId);
-  }
-
-  @NonNls
-  @NotNull
-  public String getComponentName() {
-    return getClass().getName();
   }
 
   public void registerLater() {
@@ -407,7 +400,7 @@ public abstract class BaseTool {
 
   @Override
   public String toString() {
-    return "Tool " + this.getComponentName();
+    return String.format("Tool %s (%s)", getId(), getClass().getName());
   }
 
   protected Project getProject() {
