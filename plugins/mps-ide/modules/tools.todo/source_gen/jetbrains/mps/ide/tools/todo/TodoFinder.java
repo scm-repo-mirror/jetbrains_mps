@@ -7,18 +7,17 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.findusages.model.SearchResults;
 import jetbrains.mps.ide.findusages.model.SearchQuery;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
-import java.util.Set;
-import org.jetbrains.mps.openapi.language.SConcept;
-import java.util.Collections;
+import java.util.ArrayList;
+import jetbrains.mps.ide.findusages.model.SearchResult;
 import org.jetbrains.mps.openapi.model.SNode;
+import java.util.Set;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import java.util.Collections;
 import org.jetbrains.mps.openapi.module.FindUsagesFacade;
 import jetbrains.mps.progress.EmptyProgressMonitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.baseLanguage.behavior.CommentPart__BehaviorDescriptor;
-import jetbrains.mps.ide.findusages.model.SearchResult;
 import jetbrains.mps.lang.core.behavior.IGenericComment__BehaviorDescriptor;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class TodoFinder implements IFinder {
   public TodoFinder() {
@@ -30,26 +29,19 @@ public class TodoFinder implements IFinder {
   @Override
   @NotNull
   public SearchResults find(SearchQuery query, ProgressMonitor monitor) {
-    Set<SConcept> s = Collections.singleton(CONCEPTS.TextCommentPart$LX);
-    Set<SNode> textCommentParts = FindUsagesFacade.getInstance().findInstances(query.getScope(), s, false, new EmptyProgressMonitor());
-    SearchResults<SNode> results = new SearchResults<SNode>();
-    for (SNode node : SNodeOperations.ofConcept(textCommentParts, CONCEPTS.TextCommentPart$LX)) {
-      if ((boolean) CommentPart__BehaviorDescriptor.isToDo_id6hHyb3YSGHZ.invoke(node)) {
-        results.getSearchResults().add(new SearchResult<SNode>(node, "TODO items"));
-      }
-    }
+    ArrayList<SearchResult<SNode>> results = new ArrayList<>();
 
-    Set<SNode> comments = FindUsagesFacade.getInstance().findInstances(query.getScope(), Collections.singleton(CONCEPTS.IGenericComment$bD), false, new EmptyProgressMonitor());
+    Set<SInterfaceConcept> searchFor = Collections.singleton(CONCEPTS.IGenericComment$bD);
+    Set<SNode> comments = FindUsagesFacade.getInstance().findInstances(query.getScope(), searchFor, false, new EmptyProgressMonitor());
     for (SNode node : SNodeOperations.ofConcept(comments, CONCEPTS.IGenericComment$bD)) {
       if ((boolean) IGenericComment__BehaviorDescriptor.isTODOComment_idfB3l7ZufMD.invoke(node)) {
-        results.getSearchResults().add(new SearchResult<SNode>(node, "TODO items"));
+        results.add(new SearchResult<SNode>(node, "TODO items"));
       }
     }
-    return results;
+    return new SearchResults<>(searchFor, results);
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept TextCommentPart$LX = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3dL, "jetbrains.mps.baseLanguage.structure.TextCommentPart");
     /*package*/ static final SInterfaceConcept IGenericComment$bD = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3f05685639c49599L, "jetbrains.mps.lang.core.structure.IGenericComment");
   }
 }

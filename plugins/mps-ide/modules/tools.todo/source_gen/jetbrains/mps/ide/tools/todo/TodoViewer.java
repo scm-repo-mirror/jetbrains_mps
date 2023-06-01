@@ -31,16 +31,13 @@ import com.intellij.openapi.actionSystem.Presentation;
 import com.intellij.openapi.actionSystem.ActionPlaces;
 import jetbrains.mps.ide.findusages.view.treeholder.treeview.NodeRepresentatorBase;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.core.behavior.IGenericComment__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.TextOptions;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.ide.icons.IdeIcons;
-import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
-import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class TodoViewer extends JPanel {
   public static final Icon TODO_ICON = AllIcons.Toolwindows.ToolWindowTodo;
@@ -108,10 +105,6 @@ public class TodoViewer extends JPanel {
     @NotNull
     @Override
     public String getPresentation(SNode node) {
-      SNode n = node;
-      if (SNodeOperations.isInstanceOf(n, CONCEPTS.TextCommentPart$LX)) {
-        return SPropertyOperations.getString(SNodeOperations.as(node, CONCEPTS.TextCommentPart$LX), PROPS.text$ag2i);
-      }
       return IGenericComment__BehaviorDescriptor.getTextualRepresentation_idfB3l80ylIb.invoke(SNodeOperations.as(node, CONCEPTS.IGenericComment$bD));
     }
     @Override
@@ -139,11 +132,6 @@ public class TodoViewer extends JPanel {
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept TextCommentPart$LX = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3dL, "jetbrains.mps.baseLanguage.structure.TextCommentPart");
     /*package*/ static final SInterfaceConcept IGenericComment$bD = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3f05685639c49599L, "jetbrains.mps.lang.core.structure.IGenericComment");
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty text$ag2i = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3dL, 0x57d533a7af15ed3eL, "text");
   }
 }
