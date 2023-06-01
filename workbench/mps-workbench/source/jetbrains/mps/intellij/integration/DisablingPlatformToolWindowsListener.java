@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
 package jetbrains.mps.intellij.integration;
 
 import com.intellij.analysis.problemsView.toolWindow.ProblemsView;
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowId;
 import com.intellij.openapi.wm.ToolWindowManager;
@@ -23,6 +24,7 @@ import com.intellij.openapi.wm.ex.ToolWindowManagerListener;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 /*package*/ final class DisablingPlatformToolWindowsListener implements ToolWindowManagerListener {
@@ -30,11 +32,19 @@ import java.util.List;
 
   @Override
   public void toolWindowsRegistered(@NotNull List<String> ids, @NotNull ToolWindowManager toolWindowManager) {
-    for (String id : ids) {
-      if(myToolWindows2Disable.contains(id)) {
-        ToolWindow toolWindow = toolWindowManager.getToolWindow(id);
-        toolWindow.setAvailable(false);
-      }
+    HashSet<String> toDisable = new HashSet<>(myToolWindows2Disable);
+    toDisable.retainAll(ids);
+    if (toDisable.isEmpty()) {
+      return;
     }
+    ApplicationManager.getApplication().invokeLater(() -> {
+      for (String id : toDisable) {
+        ToolWindow toolWindow = toolWindowManager.getToolWindow(id);
+        if (toolWindow != null) {
+          System.out.println(id + "  turned off");
+          toolWindow.setAvailable(false);
+        }
+      }
+    });
   }
 }
