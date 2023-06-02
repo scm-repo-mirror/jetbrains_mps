@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.workbench.action;
 
+import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.DataContext;
@@ -56,6 +57,8 @@ public abstract class BaseAction extends AnAction {
   private boolean myDisableOnNoProject = true;
   private Set<ActionPlace> myPlaces = null;
 
+  private ActionUpdateThread myUpdateThread = ActionUpdateThread.OLD_EDT;
+
   public BaseAction() {
     this((String) null, (String) null, (Icon) null);
   }
@@ -77,6 +80,18 @@ public abstract class BaseAction extends AnAction {
   public BaseAction(@NotNull Supplier<@ActionText String> dynamicText, @NotNull Supplier<@ActionText String> dynamicDescription, @Nullable Icon icon) {
     super(dynamicText, dynamicDescription, icon);
     setEnabledInModalContext(true);
+  }
+
+  /**
+   * @param updateInBackground when {@code false}, update of the action runs in EDT thread
+   */
+  public final void updateInBackground(boolean updateInBackground) {
+    myUpdateThread = updateInBackground ? ActionUpdateThread.BGT : ActionUpdateThread.EDT;
+  }
+
+  @Override
+  public @NotNull ActionUpdateThread getActionUpdateThread() {
+    return myUpdateThread;
   }
 
   public final void setIsAlwaysVisible(boolean isAlwaysVisible) {

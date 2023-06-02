@@ -774,31 +774,31 @@ public class QueriesGenerated extends QueryProviderBase {
     return true;
   }
   public static boolean ifMacro_Condition_0_5(final IfMacroContext _context) {
-    return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(_context.getNode(), LINKS.updateBlock$vQyi), CONCEPTS.IsApplicableBlock$dM);
+    return SPropertyOperations.getBoolean(_context.getNode(), PROPS.updateInBackground$6cga) || SLinkOperations.getTarget(_context.getNode(), LINKS.updateBlock$vQyi) == null;
   }
   public static boolean ifMacro_Condition_0_6(final IfMacroContext _context) {
-    return SLinkOperations.getTarget(_context.getNode(), LINKS.updateBlock$vQyi) != null;
+    return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(_context.getNode(), LINKS.updateBlock$vQyi), CONCEPTS.IsApplicableBlock$dM);
   }
   public static boolean ifMacro_Condition_0_7(final IfMacroContext _context) {
-    return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.parameter$dZwh)).isNotEmpty();
+    return SLinkOperations.getTarget(_context.getNode(), LINKS.updateBlock$vQyi) != null;
   }
   public static boolean ifMacro_Condition_0_8(final IfMacroContext _context) {
-    return isNotEmptyString(SPropertyOperations.getString(_context.getNode(), PROPS.ID$U3VJ));
+    return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.parameter$dZwh)).isNotEmpty();
   }
   public static boolean ifMacro_Condition_0_9(final IfMacroContext _context) {
-    return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.constructionParameter$5oqD)).isNotEmpty();
+    return isNotEmptyString(SPropertyOperations.getString(_context.getNode(), PROPS.ID$U3VJ));
   }
   public static boolean ifMacro_Condition_0_10(final IfMacroContext _context) {
-    return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(_context.getNode(), LINKS.type$a1UY), CONCEPTS.PrimitiveType$sR);
+    return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.constructionParameter$5oqD)).isNotEmpty();
   }
   public static boolean ifMacro_Condition_0_11(final IfMacroContext _context) {
-    return !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(_context.getNode(), LINKS.type$a1UY), CONCEPTS.PrimitiveType$sR));
+    return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(_context.getNode(), LINKS.type$a1UY), CONCEPTS.PrimitiveType$sR);
   }
   public static boolean ifMacro_Condition_0_12(final IfMacroContext _context) {
-    return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.constructionParameter$5oqD)).isNotEmpty() || isNotEmptyString(SPropertyOperations.getString(_context.getNode(), PROPS.ID$U3VJ));
+    return !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(_context.getNode(), LINKS.type$a1UY), CONCEPTS.PrimitiveType$sR));
   }
   public static boolean ifMacro_Condition_0_13(final IfMacroContext _context) {
-    return SPropertyOperations.getBoolean(_context.getNode(), PROPS.updateInBackground$6cga);
+    return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.constructionParameter$5oqD)).isNotEmpty() || isNotEmptyString(SPropertyOperations.getString(_context.getNode(), PROPS.ID$U3VJ));
   }
   public static boolean ifMacro_Condition_1_0(final IfMacroContext _context) {
     return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(_context.getNode(), LINKS.contents$WkC6), CONCEPTS.ElementListContents$NF);
@@ -2670,6 +2670,7 @@ public class QueriesGenerated extends QueryProviderBase {
     imcMethods.put("7458746815264580717", new IfMC(i++));
     imcMethods.put("7458746815264557740", new IfMC(i++));
     imcMethods.put("1215866113038", new IfMC(i++));
+    imcMethods.put("241498069341025171", new IfMC(i++));
     imcMethods.put("1205681795853", new IfMC(i++));
     imcMethods.put("997079742914099493", new IfMC(i++));
     imcMethods.put("2441899121127721787", new IfMC(i++));
@@ -2678,7 +2679,6 @@ public class QueriesGenerated extends QueryProviderBase {
     imcMethods.put("1239982454717", new IfMC(i++));
     imcMethods.put("1239982454752", new IfMC(i++));
     imcMethods.put("1239982496139", new IfMC(i++));
-    imcMethods.put("4692598989366839158", new IfMC(i++));
     imcMethods.put("1207148690122", new IfMC(i++));
     imcMethods.put("1227366696256", new IfMC(i++));
     imcMethods.put("5003188907305812582", new IfMC(i++));
@@ -3586,8 +3586,8 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SProperty value$w7MM = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value");
     /*package*/ static final SProperty requiredAccess$TB4H = MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, 0x6782cab5d94428a3L, "requiredAccess");
     /*package*/ static final SProperty position$vm5o = MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x5adc7622e710bddcL, 0x22ace24ea9f7487cL, "position");
-    /*package*/ static final SProperty ID$U3VJ = MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, 0x374ac263e13f4abeL, "ID");
     /*package*/ static final SProperty updateInBackground$6cga = MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, 0x411f75eb1a80b5d1L, "updateInBackground");
+    /*package*/ static final SProperty ID$U3VJ = MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, 0x374ac263e13f4abeL, "ID");
     /*package*/ static final SProperty isInvisibleWhenDisabled$Tmz1 = MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181da058d2L, 0x11b5b35bb9dL, "isInvisibleWhenDisabled");
     /*package*/ static final SProperty isAvailableOnStartup$udfK = MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x5adc7622e710bddcL, 0x9aaaf41d3354c2L, "isAvailableOnStartup");
     /*package*/ static final SProperty commandOnCreate$L0Gu = MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x16c373ab7fdbb667L, 0x16c373ab7fdbb66eL, "commandOnCreate");
