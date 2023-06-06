@@ -169,7 +169,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         return props_TextDocLine;
       case LanguageConceptSwitch.Transform:
         if (props_Transform == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a2071802L);
+          cpb.deprecateAggregation(0x28dd6d5a7549fa8dL, "languages");
           cpb.shortDesc("Collection of languages to reduce (iow, generators to apply)");
           cpb.rawPresentation("Transform");
           props_Transform = cpb.create();

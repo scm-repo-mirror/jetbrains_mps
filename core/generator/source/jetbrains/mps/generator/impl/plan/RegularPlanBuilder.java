@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -473,7 +473,7 @@ public class RegularPlanBuilder implements GenerationPlanBuilder {
     @Override
     public void createStep(List<Step> steps) {
       // FIXME explicitly mentioned generators are added as last, usually it's  `lang TargetTo` followed by `lang Transform`
-      //      anyway, though would be great to keep order as indended by GP designer
+      //      anyway, though would be great to keep order as intended by GP designer
       myInvolvedGenerators.stream().map(Supplier::get).filter(Objects::nonNull).forEach(myGenerators::add);
       if (myGenerators.isEmpty()) {
         // FIXME need feedback so that user can find out there's nothing in the step.

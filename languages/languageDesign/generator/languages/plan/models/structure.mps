@@ -17,6 +17,10 @@
         <reference id="1075010451642646892" name="defaultMember" index="1H5jkz" />
         <child id="3348158742936976577" name="members" index="25R1y" />
       </concept>
+      <concept id="1224240836180" name="jetbrains.mps.lang.structure.structure.DeprecatedNodeAnnotation" flags="ig" index="asaX9">
+        <property id="1225118929411" name="build" index="YLPcu" />
+        <property id="1225118933224" name="comment" index="YLQ7P" />
+      </concept>
       <concept id="7862711839422615209" name="jetbrains.mps.lang.structure.structure.DocumentedNodeAnnotation" flags="ng" index="t5JxF">
         <property id="7862711839422615217" name="text" index="t5JxN" />
       </concept>
@@ -119,6 +123,10 @@
       <property role="20lbJX" value="fLJekj5/_0__n" />
       <property role="IQ2ns" value="2944629966652439181" />
       <ref role="20lvS9" to="tp25:34EJa6aIcco" resolve="LanguageIdentity" />
+      <node concept="asaX9" id="58m62FIIPP7" role="lGtFl">
+        <property role="YLPcu" value="2023.1" />
+        <property role="YLQ7P" value="Replaced with LanguageEntry[Transform]" />
+      </node>
     </node>
     <node concept="1TJgyj" id="1009c2Af5ZQ" role="1TKVEi">
       <property role="IQ2ns" value="1152961914448142326" />
