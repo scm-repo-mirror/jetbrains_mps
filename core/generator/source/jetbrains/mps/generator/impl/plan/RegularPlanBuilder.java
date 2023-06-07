@@ -117,7 +117,7 @@ public class RegularPlanBuilder implements GenerationPlanBuilder {
   public TransformStepBuilder transform(final boolean individualStepsPerGenerator) {
     class TSB implements TransformStepBuilder {
       private final List<Predicate<? super TemplateModule>> subSteps1 = new ArrayList<>(4);
-      private final List<Supplier<TemplateModule>> subSteps2 = new ArrayList<>(4);
+      private final List<Supplier<Stream<TemplateModule>>> subSteps2 = new ArrayList<>(4);
       @Override
       public TransformStepBuilder include(@NotNull SLanguage language, BuilderOption option) {
         if (BuilderOption.Extend.presentIn(option)) {
@@ -139,15 +139,16 @@ public class RegularPlanBuilder implements GenerationPlanBuilder {
         mySteps.add(new TransformEntry2(individualStepsPerGenerator, subSteps1, subSteps2));
       }
 
-      private Supplier<TemplateModule> ofLanguage(final LanguageRegistry languageRegistry, final SLanguage l) {
-        // XXX just takes the first one, although might be better to get a compound Supplier that gives all generators
+      private Supplier<Stream<TemplateModule>> ofLanguage(final LanguageRegistry languageRegistry, final SLanguage l) {
+        // XXX just takes the first one, although it might be better to get a compound Supplier that gives all generators
         // of the language?
         return () -> {
+          // XXX why did I use supplier that postpones access to lr.generators?
           final LanguageRuntime lr = languageRegistry.getLanguage(l);
           if (lr == null) {
-            return null;
+            return Stream.empty();
           }
-          return (TemplateModule) lr.getGenerators().stream().filter(gr -> gr instanceof TemplateModule).findFirst().orElse(null);
+          return lr.getGenerators().stream().filter(gr -> gr instanceof TemplateModule).map(TemplateModule.class::cast);
         };
       }
 
@@ -444,9 +445,9 @@ public class RegularPlanBuilder implements GenerationPlanBuilder {
     private final ArrayList<TemplateModule> myGenerators = new ArrayList<>(4);
     private final boolean myIndividualStepsPerGenerator;
     private final List<Predicate<? super TemplateModule>> myConditions;
-    private final List<Supplier<TemplateModule>> myInvolvedGenerators;
+    private final List<Supplier<Stream<TemplateModule>>> myInvolvedGenerators;
 
-    TransformEntry2(boolean individualStepsPerGenerator, List<Predicate<? super TemplateModule>> conditions, List<Supplier<TemplateModule>> involvedGenerators) {
+    TransformEntry2(boolean individualStepsPerGenerator, List<Predicate<? super TemplateModule>> conditions, List<Supplier<Stream<TemplateModule>>> involvedGenerators) {
       myIndividualStepsPerGenerator = individualStepsPerGenerator;
       myConditions = conditions;
       myInvolvedGenerators = involvedGenerators;
@@ -454,7 +455,7 @@ public class RegularPlanBuilder implements GenerationPlanBuilder {
 
     @Override
     public void reportInvolvedGenerators(Collection<TemplateModule> result) {
-      myInvolvedGenerators.stream().map(Supplier::get).filter(Objects::nonNull).forEach(result::add);
+      myInvolvedGenerators.stream().flatMap(Supplier::get).filter(Objects::nonNull).forEach(result::add);
     }
 
     @Override
@@ -474,7 +475,7 @@ public class RegularPlanBuilder implements GenerationPlanBuilder {
     public void createStep(List<Step> steps) {
       // FIXME explicitly mentioned generators are added as last, usually it's  `lang TargetTo` followed by `lang Transform`
       //      anyway, though would be great to keep order as intended by GP designer
-      myInvolvedGenerators.stream().map(Supplier::get).filter(Objects::nonNull).forEach(myGenerators::add);
+      myInvolvedGenerators.stream().flatMap(Supplier::get).filter(Objects::nonNull).forEach(myGenerators::add);
       if (myGenerators.isEmpty()) {
         // FIXME need feedback so that user can find out there's nothing in the step.
         //       either provide it here or add a dedicated step that indicates none matched the step
