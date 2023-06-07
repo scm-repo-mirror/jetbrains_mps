@@ -10071,21 +10071,21 @@
       <property role="TrG5h" value="myInitTree" />
       <node concept="3Tm6S6" id="7ctIhG_bUtl" role="1B3o_S" />
       <node concept="3uibUv" id="7ctIhG_bUtm" role="1tU5fm">
-        <ref role="3uigEE" node="7ctIhG_bUtX" />
+        <ref role="3uigEE" node="7ctIhG_bUtX" resolve="DependencyTree2" />
       </node>
     </node>
     <node concept="312cEg" id="7ctIhG_bUtn" role="jymVt">
       <property role="TrG5h" value="myTargetsView" />
       <node concept="3Tm6S6" id="7ctIhG_bUto" role="1B3o_S" />
       <node concept="3uibUv" id="1yGodf3w1O$" role="1tU5fm">
-        <ref role="3uigEE" node="7ctIhG_bULz" />
+        <ref role="3uigEE" node="7ctIhG_bULz" resolve="TargetsView" />
       </node>
     </node>
     <node concept="312cEg" id="7ctIhG_bUtq" role="jymVt">
       <property role="TrG5h" value="myReferencesView" />
       <node concept="3Tm6S6" id="7ctIhG_bUtr" role="1B3o_S" />
       <node concept="3uibUv" id="1yGodf3w1O_" role="1tU5fm">
-        <ref role="3uigEE" node="7ctIhG_bUCU" />
+        <ref role="3uigEE" node="7ctIhG_bUCU" resolve="ReferencesView" />
       </node>
     </node>
     <node concept="312cEg" id="7ctIhG_bUtt" role="jymVt">
@@ -10108,14 +10108,14 @@
       <property role="TrG5h" value="myActiveScope" />
       <node concept="3Tm6S6" id="7ctIhG_bUtx" role="1B3o_S" />
       <node concept="3uibUv" id="7ctIhG_bUty" role="1tU5fm">
-        <ref role="3uigEE" node="7ctIhG_bUEK" />
+        <ref role="3uigEE" node="7ctIhG_bUEK" resolve="DependencyViewerScope" />
       </node>
     </node>
     <node concept="312cEg" id="y5fyHoEGTc" role="jymVt">
       <property role="TrG5h" value="myInitialScope" />
       <node concept="3Tm6S6" id="y5fyHoEGTd" role="1B3o_S" />
       <node concept="3uibUv" id="y5fyHoEGTe" role="1tU5fm">
-        <ref role="3uigEE" node="7ctIhG_bUEK" />
+        <ref role="3uigEE" node="7ctIhG_bUEK" resolve="DependencyViewerScope" />
       </node>
     </node>
     <node concept="312cEg" id="7ctIhG_bUtE" role="jymVt">
@@ -10129,7 +10129,7 @@
       <property role="TrG5h" value="myReferencesFinder" />
       <node concept="3Tm6S6" id="7ctIhG_bUtI" role="1B3o_S" />
       <node concept="3uibUv" id="7ctIhG_bUtJ" role="1tU5fm">
-        <ref role="3uigEE" node="7ctIhG_bUyf" />
+        <ref role="3uigEE" node="7ctIhG_bUyf" resolve="ReferencesFinder" />
       </node>
       <node concept="10Nm6u" id="7ctIhG_bUtK" role="33vP2m" />
     </node>
@@ -10199,7 +10199,7 @@
           <node concept="37vLTI" id="7ctIhG_bUoP" role="3clFbG">
             <node concept="2ShNRf" id="7ctIhG_bUoQ" role="37vLTx">
               <node concept="1pGfFk" id="7ctIhG_bUoR" role="2ShVmc">
-                <ref role="37wK5l" node="7ctIhG_bUwe" />
+                <ref role="37wK5l" node="7ctIhG_bUwe" resolve="DependencyTree2" />
                 <node concept="Xjq3P" id="7ctIhG_bUoS" role="37wK5m" />
               </node>
             </node>
@@ -10215,7 +10215,7 @@
             </node>
             <node concept="2ShNRf" id="7ctIhG_bUoX" role="37vLTx">
               <node concept="1pGfFk" id="7ctIhG_bUoY" role="2ShVmc">
-                <ref role="37wK5l" node="7ctIhG_bUP3" />
+                <ref role="37wK5l" node="7ctIhG_bUP3" resolve="TargetsView" />
                 <node concept="37vLTw" id="2BHiRxeuFIj" role="37wK5m">
                   <ref role="3cqZAo" node="7ctIhG_bUtt" resolve="myProject" />
                 </node>
@@ -10231,7 +10231,7 @@
             </node>
             <node concept="2ShNRf" id="7ctIhG_bUp4" role="37vLTx">
               <node concept="1pGfFk" id="7ctIhG_bUp5" role="2ShVmc">
-                <ref role="37wK5l" node="7ctIhG_bUEd" />
+                <ref role="37wK5l" node="7ctIhG_bUEd" resolve="ReferencesView" />
                 <node concept="37vLTw" id="2BHiRxeuFjW" role="37wK5m">
                   <ref role="3cqZAo" node="7ctIhG_bUtt" resolve="myProject" />
                 </node>
@@ -10450,7 +10450,7 @@
                 <ref role="3cqZAo" node="7ctIhG_bUtn" resolve="myTargetsView" />
               </node>
               <node concept="liA8E" id="1O8DjCqWWh$" role="2OqNvi">
-                <ref role="37wK5l" node="1O8DjCqTjP4" />
+                <ref role="37wK5l" node="1O8DjCqTjP4" resolve="limitedTo" />
               </node>
             </node>
             <node concept="37vLTw" id="1O8DjCqX24P" role="37wK5m">
@@ -10462,7 +10462,7 @@
       <node concept="37vLTG" id="7ctIhG_bUqH" role="3clF46">
         <property role="TrG5h" value="scope" />
         <node concept="3uibUv" id="7ctIhG_bUqI" role="1tU5fm">
-          <ref role="3uigEE" node="7ctIhG_bUEK" />
+          <ref role="3uigEE" node="7ctIhG_bUEK" resolve="DependencyViewerScope" />
         </node>
         <node concept="2AHcQZ" id="1O8DjCqW9Ix" role="2AJF6D">
           <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
@@ -10493,7 +10493,7 @@
           <node concept="37vLTI" id="1O8DjCqWn5n" role="3clFbG">
             <node concept="2ShNRf" id="1O8DjCqWn5o" role="37vLTx">
               <node concept="1pGfFk" id="1O8DjCqWn5p" role="2ShVmc">
-                <ref role="37wK5l" node="5v6_5mQkoll" />
+                <ref role="37wK5l" node="5v6_5mQkoll" resolve="ReferencesFinder" />
                 <node concept="37vLTw" id="5v6_5mQlViB" role="37wK5m">
                   <ref role="3cqZAo" node="1O8DjCqWn5G" resolve="scope" />
                 </node>
@@ -10518,7 +10518,7 @@
               <ref role="3cqZAo" node="7ctIhG_bUtk" resolve="myInitTree" />
             </node>
             <node concept="liA8E" id="1O8DjCqWn5x" role="2OqNvi">
-              <ref role="37wK5l" node="7ctIhG_bUxX" />
+              <ref role="37wK5l" node="7ctIhG_bUxX" resolve="setContent" />
               <node concept="37vLTw" id="1O8DjCqWn5y" role="37wK5m">
                 <ref role="3cqZAo" node="1O8DjCqWn5G" resolve="scope" />
               </node>
@@ -10541,7 +10541,7 @@
               <ref role="3cqZAo" node="7ctIhG_bUtn" resolve="myTargetsView" />
             </node>
             <node concept="liA8E" id="KfaXMvW188" role="2OqNvi">
-              <ref role="37wK5l" node="1O8DjCqTI9b" />
+              <ref role="37wK5l" node="1O8DjCqTI9b" resolve="limitTo" />
               <node concept="37vLTw" id="KfaXMvW4sR" role="37wK5m">
                 <ref role="3cqZAo" node="1O8DjCqVUgH" resolve="limitTargets" />
               </node>
@@ -10565,7 +10565,7 @@
       <node concept="37vLTG" id="1O8DjCqWn5G" role="3clF46">
         <property role="TrG5h" value="scope" />
         <node concept="3uibUv" id="1O8DjCqWn5H" role="1tU5fm">
-          <ref role="3uigEE" node="7ctIhG_bUEK" />
+          <ref role="3uigEE" node="7ctIhG_bUEK" resolve="DependencyViewerScope" />
         </node>
         <node concept="2AHcQZ" id="1O8DjCqWn5I" role="2AJF6D">
           <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
@@ -10574,7 +10574,7 @@
       <node concept="37vLTG" id="1O8DjCqVUgH" role="3clF46">
         <property role="TrG5h" value="limitTargets" />
         <node concept="3uibUv" id="1O8DjCqVUgI" role="1tU5fm">
-          <ref role="3uigEE" node="7ctIhG_bUEK" />
+          <ref role="3uigEE" node="7ctIhG_bUEK" resolve="DependencyViewerScope" />
         </node>
         <node concept="2AHcQZ" id="1O8DjCqWeUw" role="2AJF6D">
           <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
@@ -10603,7 +10603,7 @@
     <node concept="3clFb_" id="1O8DjCqZSQn" role="jymVt">
       <property role="TrG5h" value="getInitialScope" />
       <node concept="3uibUv" id="1O8DjCr07wV" role="3clF45">
-        <ref role="3uigEE" node="7ctIhG_bUEK" />
+        <ref role="3uigEE" node="7ctIhG_bUEK" resolve="DependencyViewerScope" />
       </node>
       <node concept="3clFbS" id="1O8DjCqZSQr" role="3clF47">
         <node concept="3clFbF" id="1O8DjCr04_Y" role="3cqZAp">
@@ -10617,7 +10617,7 @@
     <node concept="3clFb_" id="7ctIhG_bUr1" role="jymVt">
       <property role="TrG5h" value="getCurrentScope" />
       <node concept="3uibUv" id="7ctIhG_bUr2" role="3clF45">
-        <ref role="3uigEE" node="7ctIhG_bUEK" />
+        <ref role="3uigEE" node="7ctIhG_bUEK" resolve="DependencyViewerScope" />
       </node>
       <node concept="3clFbS" id="7ctIhG_bUr4" role="3clF47">
         <node concept="3cpWs6" id="7ctIhG_bUr5" role="3cqZAp">
@@ -10652,7 +10652,7 @@
         <property role="TrG5h" value="sourceScope" />
         <property role="3TUv4t" value="true" />
         <node concept="3uibUv" id="7ctIhG_bUr9" role="1tU5fm">
-          <ref role="3uigEE" node="7ctIhG_bUEK" />
+          <ref role="3uigEE" node="7ctIhG_bUEK" resolve="DependencyViewerScope" />
         </node>
       </node>
       <node concept="3cqZAl" id="7ctIhG_bUra" role="3clF45" />
@@ -10705,8 +10705,8 @@
                     <node concept="YeOm9" id="7ctIhG_bUrs" role="2ShVmc">
                       <node concept="1Y3b0j" id="7ctIhG_bUrt" role="YeSDq">
                         <property role="2bfB8j" value="true" />
-                        <ref role="37wK5l" to="xygl:~Task$Modal.&lt;init&gt;(com.intellij.openapi.project.Project,java.lang.String,boolean)" resolve="Modal" />
-                        <ref role="1Y3XeK" to="xygl:~Task$Modal" resolve="Modal" />
+                        <ref role="37wK5l" to="xygl:~Task$Modal.&lt;init&gt;(com.intellij.openapi.project.Project,java.lang.String,boolean)" resolve="Task.Modal" />
+                        <ref role="1Y3XeK" to="xygl:~Task$Modal" resolve="Task.Modal" />
                         <node concept="37vLTw" id="2BHiRxeune_" role="37wK5m">
                           <ref role="3cqZAo" node="7ctIhG_bUtt" resolve="myProject" />
                         </node>
@@ -10769,14 +10769,14 @@
                                                   <ref role="3cqZAo" node="7ctIhG_bUtH" resolve="myReferencesFinder" />
                                                 </node>
                                                 <node concept="liA8E" id="1KUoCipvDAx" role="2OqNvi">
-                                                  <ref role="37wK5l" node="1byBclm99vu" />
+                                                  <ref role="37wK5l" node="1byBclm99vu" resolve="getUsedConcepts" />
                                                   <node concept="2OqwBi" id="5v6_5mQqcN_" role="37wK5m">
                                                     <node concept="2OqwBi" id="5v6_5mQq9Ps" role="2Oq$k0">
                                                       <node concept="37vLTw" id="5v6_5mQq7$p" role="2Oq$k0">
                                                         <ref role="3cqZAo" node="7ctIhG_bUtw" resolve="myActiveScope" />
                                                       </node>
                                                       <node concept="liA8E" id="5v6_5mQqcuK" role="2OqNvi">
-                                                        <ref role="37wK5l" node="5dMA8jj$Zfo" />
+                                                        <ref role="37wK5l" node="5dMA8jj$Zfo" resolve="getNodes" />
                                                       </node>
                                                     </node>
                                                     <node concept="ANE8D" id="5v6_5mQqeY3" role="2OqNvi" />
@@ -10801,7 +10801,7 @@
                                                     <ref role="3cqZAo" node="7ctIhG_bUtH" resolve="myReferencesFinder" />
                                                   </node>
                                                   <node concept="liA8E" id="1KUoCipvDAn" role="2OqNvi">
-                                                    <ref role="37wK5l" node="7ctIhG_bUyr" />
+                                                    <ref role="37wK5l" node="7ctIhG_bUyr" resolve="findRefsFromScopeToOuter" />
                                                     <node concept="37vLTw" id="1O8DjCr4iBt" role="37wK5m">
                                                       <ref role="3cqZAo" node="7ctIhG_bUtw" resolve="myActiveScope" />
                                                     </node>
@@ -10810,7 +10810,7 @@
                                                         <ref role="3cqZAo" node="7ctIhG_bUtn" resolve="myTargetsView" />
                                                       </node>
                                                       <node concept="liA8E" id="1O8DjCr1BKa" role="2OqNvi">
-                                                        <ref role="37wK5l" node="1O8DjCqTjP4" />
+                                                        <ref role="37wK5l" node="1O8DjCqTjP4" resolve="limitedTo" />
                                                       </node>
                                                     </node>
                                                     <node concept="37vLTw" id="7JYTKo1qfjx" role="37wK5m">
@@ -10932,7 +10932,7 @@
               <ref role="3cqZAo" node="7ctIhG_bUtn" resolve="myTargetsView" />
             </node>
             <node concept="liA8E" id="1yGodf3w1OA" role="2OqNvi">
-              <ref role="37wK5l" node="3vHcROfTF78" />
+              <ref role="37wK5l" node="3vHcROfTF78" resolve="selectModule" />
               <node concept="37vLTw" id="2BHiRxgheV7" role="37wK5m">
                 <ref role="3cqZAo" node="2GH7fa3OzGL" resolve="module" />
               </node>
@@ -10954,7 +10954,7 @@
         <property role="TrG5h" value="targetScope" />
         <property role="3TUv4t" value="true" />
         <node concept="3uibUv" id="7ctIhG_bUs_" role="1tU5fm">
-          <ref role="3uigEE" node="7ctIhG_bUEK" />
+          <ref role="3uigEE" node="7ctIhG_bUEK" resolve="DependencyViewerScope" />
         </node>
       </node>
       <node concept="3cqZAl" id="1O8DjCqSD7m" role="3clF45" />
@@ -10998,8 +10998,8 @@
                 <node concept="YeOm9" id="7ctIhG_bUsI" role="2ShVmc">
                   <node concept="1Y3b0j" id="7ctIhG_bUsJ" role="YeSDq">
                     <property role="2bfB8j" value="true" />
-                    <ref role="1Y3XeK" to="xygl:~Task$Modal" resolve="Modal" />
-                    <ref role="37wK5l" to="xygl:~Task$Modal.&lt;init&gt;(com.intellij.openapi.project.Project,java.lang.String,boolean)" resolve="Modal" />
+                    <ref role="1Y3XeK" to="xygl:~Task$Modal" resolve="Task.Modal" />
+                    <ref role="37wK5l" to="xygl:~Task$Modal.&lt;init&gt;(com.intellij.openapi.project.Project,java.lang.String,boolean)" resolve="Task.Modal" />
                     <node concept="37vLTw" id="2BHiRxeuoNu" role="37wK5m">
                       <ref role="3cqZAo" node="7ctIhG_bUtt" resolve="myProject" />
                     </node>
@@ -11065,14 +11065,14 @@
                                               <ref role="3cqZAo" node="7ctIhG_bUtH" resolve="myReferencesFinder" />
                                             </node>
                                             <node concept="liA8E" id="7JYTKo1pr2$" role="2OqNvi">
-                                              <ref role="37wK5l" node="1byBclm9ynJ" />
+                                              <ref role="37wK5l" node="1byBclm9ynJ" resolve="getLanguageUsagesSearchResults" />
                                               <node concept="2OqwBi" id="5v6_5mQqhAy" role="37wK5m">
                                                 <node concept="2OqwBi" id="5v6_5mQqhAz" role="2Oq$k0">
                                                   <node concept="37vLTw" id="5v6_5mQqhA$" role="2Oq$k0">
                                                     <ref role="3cqZAo" node="7ctIhG_bUtw" resolve="myActiveScope" />
                                                   </node>
                                                   <node concept="liA8E" id="5v6_5mQqhA_" role="2OqNvi">
-                                                    <ref role="37wK5l" node="5dMA8jj$Zfo" />
+                                                    <ref role="37wK5l" node="5dMA8jj$Zfo" resolve="getNodes" />
                                                   </node>
                                                 </node>
                                                 <node concept="ANE8D" id="5v6_5mQqhAA" role="2OqNvi" />
@@ -11103,7 +11103,7 @@
                                                 <ref role="3cqZAo" node="7ctIhG_bUtH" resolve="myReferencesFinder" />
                                               </node>
                                               <node concept="liA8E" id="1OK1cKPCdro" role="2OqNvi">
-                                                <ref role="37wK5l" node="7ctIhG_bUzn" />
+                                                <ref role="37wK5l" node="7ctIhG_bUzn" resolve="getRefsBetweenScopes" />
                                                 <node concept="37vLTw" id="5v6_5mQpHLW" role="37wK5m">
                                                   <ref role="3cqZAo" node="7ctIhG_bUtw" resolve="myActiveScope" />
                                                 </node>
@@ -11320,7 +11320,7 @@
               <ref role="37wK5l" to="qkt:~DefaultActionGroup.add(com.intellij.openapi.actionSystem.AnAction)" resolve="add" />
               <node concept="2ShNRf" id="2ycpCH3WJ52" role="37wK5m">
                 <node concept="1pGfFk" id="2ycpCH3WJ54" role="2ShVmc">
-                  <ref role="37wK5l" node="2ycpCH3WIiL" resolve="CloseAction" />
+                  <ref role="37wK5l" node="2ycpCH3WIiL" resolve="DependenciesPanel.CloseAction" />
                 </node>
               </node>
             </node>
@@ -11335,7 +11335,7 @@
               <ref role="37wK5l" to="qkt:~DefaultActionGroup.add(com.intellij.openapi.actionSystem.AnAction)" resolve="add" />
               <node concept="2ShNRf" id="5FQpjoIaKVC" role="37wK5m">
                 <node concept="1pGfFk" id="5FQpjoIaKVD" role="2ShVmc">
-                  <ref role="37wK5l" node="y5fyHoEGSO" resolve="RerunAction" />
+                  <ref role="37wK5l" node="y5fyHoEGSO" resolve="DependenciesPanel.RerunAction" />
                 </node>
               </node>
             </node>
@@ -11350,7 +11350,7 @@
               <ref role="37wK5l" to="qkt:~DefaultActionGroup.add(com.intellij.openapi.actionSystem.AnAction)" resolve="add" />
               <node concept="2ShNRf" id="1byBclm9xIA" role="37wK5m">
                 <node concept="1pGfFk" id="1byBclm9xIE" role="2ShVmc">
-                  <ref role="37wK5l" node="1byBclm9vU4" resolve="ToggleUsedLanguages" />
+                  <ref role="37wK5l" node="1byBclm9vU4" resolve="DependenciesPanel.ToggleUsedLanguages" />
                 </node>
               </node>
             </node>
@@ -11418,7 +11418,7 @@
               <property role="Xl_RC" value="Close dependencies viewer" />
             </node>
             <node concept="10M0yZ" id="6HCGxCXXC_S" role="37wK5m">
-              <ref role="1PxDUh" to="z2i8:~AllIcons$Actions" resolve="Actions" />
+              <ref role="1PxDUh" to="z2i8:~AllIcons$Actions" resolve="AllIcons.Actions" />
               <ref role="3cqZAo" to="z2i8:~AllIcons$Actions.Cancel" resolve="Cancel" />
             </node>
           </node>
@@ -11476,7 +11476,7 @@
               <property role="Xl_RC" value="Rerun dependencies viewer" />
             </node>
             <node concept="10M0yZ" id="4TMD6bSaxRO" role="37wK5m">
-              <ref role="1PxDUh" to="z2i8:~AllIcons$Actions" resolve="Actions" />
+              <ref role="1PxDUh" to="z2i8:~AllIcons$Actions" resolve="AllIcons.Actions" />
               <ref role="3cqZAo" to="z2i8:~AllIcons$Actions.Refresh" resolve="Refresh" />
             </node>
           </node>
@@ -11533,7 +11533,7 @@
               <property role="Xl_RC" value="Show used languages" />
             </node>
             <node concept="10M0yZ" id="7i5TpYajrBc" role="37wK5m">
-              <ref role="1PxDUh" to="l7us:~MPSIcons$Nodes" resolve="Nodes" />
+              <ref role="1PxDUh" to="l7us:~MPSIcons$Nodes" resolve="MPSIcons.Nodes" />
               <ref role="3cqZAo" to="l7us:~MPSIcons$Nodes.Language" resolve="Language" />
             </node>
           </node>
@@ -11617,7 +11617,7 @@
       <property role="TrG5h" value="myScope" />
       <node concept="3Tm6S6" id="7ctIhG_bUw5" role="1B3o_S" />
       <node concept="3uibUv" id="7ctIhG_bUw6" role="1tU5fm">
-        <ref role="3uigEE" node="7ctIhG_bUEK" />
+        <ref role="3uigEE" node="7ctIhG_bUEK" resolve="DependencyViewerScope" />
       </node>
     </node>
     <node concept="2tJIrI" id="1O8DjCqy0Hl" role="jymVt" />
@@ -11640,7 +11640,7 @@
             <ref role="37wK5l" to="dxuu:~JTree.addTreeSelectionListener(javax.swing.event.TreeSelectionListener)" resolve="addTreeSelectionListener" />
             <node concept="2ShNRf" id="7ctIhG_bUwo" role="37wK5m">
               <node concept="1pGfFk" id="7ctIhG_bUwp" role="2ShVmc">
-                <ref role="37wK5l" node="7ctIhG_bUu0" resolve="MyTreeSelectionListener" />
+                <ref role="37wK5l" node="7ctIhG_bUu0" resolve="DependencyTree2.MyTreeSelectionListener" />
               </node>
             </node>
           </node>
@@ -11720,7 +11720,7 @@
                   <ref role="3cqZAo" node="7ctIhG_bUw4" resolve="myScope" />
                 </node>
                 <node concept="liA8E" id="7ctIhG_bUwP" role="2OqNvi">
-                  <ref role="37wK5l" node="7ctIhG_bUHv" />
+                  <ref role="37wK5l" node="7ctIhG_bUHv" resolve="getModules" />
                 </node>
               </node>
             </node>
@@ -11728,11 +11728,11 @@
               <node concept="3cpWsn" id="7_zYD8_pYeh" role="3cpWs9">
                 <property role="TrG5h" value="modelText" />
                 <node concept="3uibUv" id="7_zYD8_pYei" role="1tU5fm">
-                  <ref role="3uigEE" to="xr52:~SModelTreeNode$LongModelNameText" resolve="LongModelNameText" />
+                  <ref role="3uigEE" to="xr52:~SModelTreeNode$LongModelNameText" resolve="SModelTreeNode.LongModelNameText" />
                 </node>
                 <node concept="2ShNRf" id="7_zYD8_pZiH" role="33vP2m">
                   <node concept="1pGfFk" id="7_zYD8_qbiA" role="2ShVmc">
-                    <ref role="37wK5l" to="xr52:~SModelTreeNode$LongModelNameText.&lt;init&gt;()" resolve="LongModelNameText" />
+                    <ref role="37wK5l" to="xr52:~SModelTreeNode$LongModelNameText.&lt;init&gt;()" resolve="SModelTreeNode.LongModelNameText" />
                   </node>
                 </node>
               </node>
@@ -11772,7 +11772,7 @@
                   <ref role="3cqZAo" node="7ctIhG_bUw4" resolve="myScope" />
                 </node>
                 <node concept="liA8E" id="7ctIhG_bUxe" role="2OqNvi">
-                  <ref role="37wK5l" node="7ctIhG_bUHo" />
+                  <ref role="37wK5l" node="7ctIhG_bUHo" resolve="getModels" />
                 </node>
               </node>
             </node>
@@ -11809,7 +11809,7 @@
                   <ref role="3cqZAo" node="7ctIhG_bUw4" resolve="myScope" />
                 </node>
                 <node concept="liA8E" id="7ctIhG_bUxF" role="2OqNvi">
-                  <ref role="37wK5l" node="7ctIhG_bUHA" />
+                  <ref role="37wK5l" node="7ctIhG_bUHA" resolve="getRoots" />
                 </node>
               </node>
             </node>
@@ -11877,7 +11877,7 @@
       <node concept="37vLTG" id="7ctIhG_bUxY" role="3clF46">
         <property role="TrG5h" value="scope" />
         <node concept="3uibUv" id="7ctIhG_bUxZ" role="1tU5fm">
-          <ref role="3uigEE" node="7ctIhG_bUEK" />
+          <ref role="3uigEE" node="7ctIhG_bUEK" resolve="DependencyViewerScope" />
         </node>
       </node>
       <node concept="3cqZAl" id="7ctIhG_bUy2" role="3clF45" />
@@ -11989,11 +11989,11 @@
             <node concept="3cpWsn" id="7ctIhG_bUut" role="3cpWs9">
               <property role="TrG5h" value="scope" />
               <node concept="3uibUv" id="7ctIhG_bUuu" role="1tU5fm">
-                <ref role="3uigEE" node="7ctIhG_bUEK" />
+                <ref role="3uigEE" node="7ctIhG_bUEK" resolve="DependencyViewerScope" />
               </node>
               <node concept="2ShNRf" id="7ctIhG_bUuv" role="33vP2m">
                 <node concept="1pGfFk" id="7ctIhG_bUuw" role="2ShVmc">
-                  <ref role="37wK5l" node="1GSGqPi_5T0" />
+                  <ref role="37wK5l" node="1GSGqPi_5T0" resolve="DependencyViewerScope" />
                   <node concept="37vLTw" id="1O8DjCqzmqU" role="37wK5m">
                     <ref role="3cqZAo" node="1O8DjCqzmqO" resolve="projectRepo" />
                   </node>
@@ -12046,7 +12046,7 @@
                                   <ref role="3cqZAo" node="7ctIhG_bUut" resolve="scope" />
                                 </node>
                                 <node concept="liA8E" id="1KUoCipvyjL" role="2OqNvi">
-                                  <ref role="37wK5l" node="7ctIhG_bUGM" />
+                                  <ref role="37wK5l" node="7ctIhG_bUGM" resolve="add" />
                                   <node concept="2OqwBi" id="1KUoCipvyjM" role="37wK5m">
                                     <node concept="1eOMI4" id="1KUoCipvyjN" role="2Oq$k0">
                                       <node concept="10QFUN" id="1KUoCipvyjO" role="1eOMHV">
@@ -12083,7 +12083,7 @@
                                   <ref role="3cqZAo" node="7ctIhG_bUut" resolve="scope" />
                                 </node>
                                 <node concept="liA8E" id="1KUoCipvyk0" role="2OqNvi">
-                                  <ref role="37wK5l" node="7ctIhG_bUGB" />
+                                  <ref role="37wK5l" node="7ctIhG_bUGB" resolve="add" />
                                   <node concept="2OqwBi" id="1KUoCipvyk1" role="37wK5m">
                                     <node concept="1eOMI4" id="1KUoCipvyk2" role="2Oq$k0">
                                       <node concept="10QFUN" id="1KUoCipvyk3" role="1eOMHV">
@@ -12120,7 +12120,7 @@
                                   <ref role="3cqZAo" node="7ctIhG_bUut" resolve="scope" />
                                 </node>
                                 <node concept="liA8E" id="1KUoCipvykf" role="2OqNvi">
-                                  <ref role="37wK5l" node="7ctIhG_bUH5" />
+                                  <ref role="37wK5l" node="7ctIhG_bUH5" resolve="add" />
                                   <node concept="2OqwBi" id="1KUoCipvykg" role="37wK5m">
                                     <node concept="1eOMI4" id="1KUoCipvykh" role="2Oq$k0">
                                       <node concept="10QFUN" id="1KUoCipvyki" role="1eOMHV">
@@ -12159,7 +12159,7 @@
                                       <ref role="3cqZAo" node="7ctIhG_bUut" resolve="scope" />
                                     </node>
                                     <node concept="liA8E" id="1KUoCipvykw" role="2OqNvi">
-                                      <ref role="37wK5l" node="7ctIhG_bUGB" />
+                                      <ref role="37wK5l" node="7ctIhG_bUGB" resolve="add" />
                                       <node concept="37vLTw" id="3GM_nagTvoX" role="37wK5m">
                                         <ref role="3cqZAo" node="1KUoCipvyky" resolve="module" />
                                       </node>
@@ -12197,7 +12197,7 @@
                                       <ref role="3cqZAo" node="7ctIhG_bUut" resolve="scope" />
                                     </node>
                                     <node concept="liA8E" id="1KUoCipvykJ" role="2OqNvi">
-                                      <ref role="37wK5l" node="7ctIhG_bUGM" />
+                                      <ref role="37wK5l" node="7ctIhG_bUGM" resolve="add" />
                                       <node concept="37vLTw" id="3GM_nagTy1_" role="37wK5m">
                                         <ref role="3cqZAo" node="1KUoCipvykL" resolve="model" />
                                       </node>
@@ -12247,7 +12247,7 @@
                                       <ref role="3cqZAo" node="7ctIhG_bUut" resolve="scope" />
                                     </node>
                                     <node concept="liA8E" id="1KUoCipvyl3" role="2OqNvi">
-                                      <ref role="37wK5l" node="7ctIhG_bUH5" />
+                                      <ref role="37wK5l" node="7ctIhG_bUH5" resolve="add" />
                                       <node concept="37vLTw" id="3GM_nagTAjF" role="37wK5m">
                                         <ref role="3cqZAo" node="1KUoCipvyl5" resolve="nodeUnder" />
                                       </node>
@@ -15043,7 +15043,7 @@
             <ref role="37wK5l" to="ngmm:~UsagesView.setCustomNodeRepresentator(jetbrains.mps.ide.findusages.view.treeholder.treeview.INodeRepresentator)" resolve="setCustomNodeRepresentator" />
             <node concept="2ShNRf" id="7ctIhG_bUEx" role="37wK5m">
               <node concept="1pGfFk" id="7ctIhG_bUEy" role="2ShVmc">
-                <ref role="37wK5l" node="7ctIhG_bUD0" resolve="MyNodeRepresentator" />
+                <ref role="37wK5l" node="7ctIhG_bUD0" resolve="ReferencesView.MyNodeRepresentator" />
               </node>
             </node>
           </node>
@@ -15273,7 +15273,7 @@
               <ref role="37wK5l" to="dxuu:~JTree.addTreeSelectionListener(javax.swing.event.TreeSelectionListener)" resolve="addTreeSelectionListener" />
               <node concept="2ShNRf" id="7ctIhG_bUPv" role="37wK5m">
                 <node concept="1pGfFk" id="7ctIhG_bUPw" role="2ShVmc">
-                  <ref role="37wK5l" node="7ctIhG_bULJ" resolve="MyTreeSelectionListener" />
+                  <ref role="37wK5l" node="7ctIhG_bULJ" resolve="TargetsView.MyTreeSelectionListener" />
                   <node concept="37vLTw" id="3GM_nagTumG" role="37wK5m">
                     <ref role="3cqZAo" node="7ctIhG_bUPm" resolve="usagesTree" />
                   </node>
@@ -15290,7 +15290,7 @@
             <ref role="37wK5l" to="ngmm:~UsagesView.setCustomNodeRepresentator(jetbrains.mps.ide.findusages.view.treeholder.treeview.INodeRepresentator)" resolve="setCustomNodeRepresentator" />
             <node concept="2ShNRf" id="7ctIhG_bUPD" role="37wK5m">
               <node concept="1pGfFk" id="7ctIhG_bUPE" role="2ShVmc">
-                <ref role="37wK5l" node="7ctIhG_bUNK" resolve="MyNodeRepresentator" />
+                <ref role="37wK5l" node="7ctIhG_bUNK" resolve="TargetsView.MyNodeRepresentator" />
               </node>
             </node>
           </node>
@@ -15512,11 +15512,11 @@
               <node concept="3cpWsn" id="3vHcROfTF6Z" role="3cpWs9">
                 <property role="TrG5h" value="treeNode" />
                 <node concept="3uibUv" id="1fQI4Zg4RcM" role="1tU5fm">
-                  <ref role="3uigEE" to="ngmm:~UsagesTree$UsagesTreeNode" resolve="UsagesTreeNode" />
+                  <ref role="3uigEE" to="ngmm:~UsagesTree$UsagesTreeNode" resolve="UsagesTree.UsagesTreeNode" />
                 </node>
                 <node concept="0kSF2" id="3vHcROfTF75" role="33vP2m">
                   <node concept="3uibUv" id="1fQI4Zg4VFD" role="0kSFW">
-                    <ref role="3uigEE" to="ngmm:~UsagesTree$UsagesTreeNode" resolve="UsagesTreeNode" />
+                    <ref role="3uigEE" to="ngmm:~UsagesTree$UsagesTreeNode" resolve="UsagesTree.UsagesTreeNode" />
                   </node>
                   <node concept="2OqwBi" id="3vHcROfTF71" role="0kSFX">
                     <node concept="37vLTw" id="3GM_nagTrKG" role="2Oq$k0">
@@ -15752,7 +15752,7 @@
                 <node concept="3fqX7Q" id="2Q$8bWexti3" role="3clFbw">
                   <node concept="2ZW3vV" id="2Q$8bWexti5" role="3fr31v">
                     <node concept="3uibUv" id="2Q$8bWexti6" role="2ZW6by">
-                      <ref role="3uigEE" to="ngmm:~UsagesTree$UsagesTreeNode" resolve="UsagesTreeNode" />
+                      <ref role="3uigEE" to="ngmm:~UsagesTree$UsagesTreeNode" resolve="UsagesTree.UsagesTreeNode" />
                     </node>
                     <node concept="2OqwBi" id="2Q$8bWexti7" role="2ZW6bz">
                       <node concept="37vLTw" id="2Q$8bWexti8" role="2Oq$k0">
@@ -15775,7 +15775,7 @@
                     <node concept="1eOMI4" id="2Q$8bWexAhe" role="2Oq$k0">
                       <node concept="10QFUN" id="1KUoCipvGcp" role="1eOMHV">
                         <node concept="3uibUv" id="2Q$8bWexxz8" role="10QFUM">
-                          <ref role="3uigEE" to="ngmm:~UsagesTree$UsagesTreeNode" resolve="UsagesTreeNode" />
+                          <ref role="3uigEE" to="ngmm:~UsagesTree$UsagesTreeNode" resolve="UsagesTree.UsagesTreeNode" />
                         </node>
                         <node concept="2OqwBi" id="1KUoCipvGcr" role="10QFUP">
                           <node concept="37vLTw" id="3GM_nagT_Og" role="2Oq$k0">

@@ -1476,7 +1476,7 @@
                             <node concept="3clFbC" id="1O8DjCqMgf_" role="37wK5m">
                               <node concept="Rm8GO" id="1O8DjCqMgfA" role="3uHU7w">
                                 <ref role="Rm8GQ" to="g6cj:6F582lFlfyo" resolve="UsesLanguage" />
-                                <ref role="1Px2BO" to="g6cj:6F582lFlfyl" resolve="LinkType" />
+                                <ref role="1Px2BO" to="g6cj:6F582lFlfyl" resolve="DependencyUtil.LinkType" />
                               </node>
                               <node concept="2OqwBi" id="1O8DjCqMgfB" role="3uHU7B">
                                 <node concept="2OqwBi" id="1O8DjCqMgfC" role="2Oq$k0">
@@ -2332,7 +2332,7 @@
     </node>
     <node concept="1QGGSu" id="222i7iS8zo2" role="3Uehp1">
       <node concept="10M0yZ" id="222i7iS8zo3" role="3xaMm5">
-        <ref role="1PxDUh" to="z2i8:~AllIcons$Toolwindows" resolve="Toolwindows" />
+        <ref role="1PxDUh" to="z2i8:~AllIcons$Toolwindows" resolve="AllIcons.Toolwindows" />
         <ref role="3cqZAo" to="z2i8:~AllIcons$Toolwindows.ToolWindowInspection" resolve="ToolWindowInspection" />
       </node>
     </node>
@@ -2479,7 +2479,7 @@
     <node concept="1QGGSu" id="7TKpiq41PqU" role="1nVCmq">
       <node concept="10M0yZ" id="7TKpiq41Put" role="3xaMm5">
         <ref role="3cqZAo" to="z2i8:~AllIcons$Toolwindows.ToolWindowInspection" resolve="ToolWindowInspection" />
-        <ref role="1PxDUh" to="z2i8:~AllIcons$Toolwindows" resolve="Toolwindows" />
+        <ref role="1PxDUh" to="z2i8:~AllIcons$Toolwindows" resolve="AllIcons.Toolwindows" />
       </node>
     </node>
     <node concept="2xpOpl" id="7TKpiq41QYo" role="uR5co">

@@ -2849,7 +2849,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="3xQJeztJSf1" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" />
+        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
         <node concept="2B6LJw" id="3xQJeztK7mc" role="2B76xF">
           <ref role="2B6OnR" to="wyt6:~Deprecated.forRemoval()" resolve="forRemoval" />
           <node concept="3clFbT" id="3xQJeztK7q2" role="2B70Vg">
@@ -3564,7 +3564,7 @@
               <node concept="92FcH" id="3xQJeztLD0X" role="qph3F">
                 <node concept="TZ5HA" id="3xQJeztLD0Z" role="2XjZqd" />
                 <node concept="VXe0Z" id="3xQJeztLD4I" role="92FcQ">
-                  <ref role="VXe0S" node="3xQJeztLA3o" resolve="aaa" />
+                  <ref role="VXe0S" node="3xQJeztLA3o" resolve="resolve" />
                 </node>
               </node>
             </node>
@@ -3846,7 +3846,7 @@
                       <property role="TrG5h" value="participants" />
                       <node concept="A3Dl8" id="XAmMejwMOI" role="1tU5fm">
                         <node concept="3uibUv" id="XAmMejwMOX" role="A3Ik2">
-                          <ref role="3uigEE" to="5nvm:5DMHUkptmAc" resolve="PersistentRefactoringParticipant" />
+                          <ref role="3uigEE" to="5nvm:5DMHUkptmAc" resolve="RefactoringParticipant.PersistentRefactoringParticipant" />
                           <node concept="3qTvmN" id="XAmMejwMOY" role="11_B2D" />
                           <node concept="3qTvmN" id="XAmMejwMOZ" role="11_B2D" />
                           <node concept="3qTvmN" id="XAmMejwMP0" role="11_B2D" />
@@ -5053,7 +5053,7 @@
               <property role="3cmrfH" value="0" />
             </node>
             <node concept="37vLTw" id="6QpvLQNQLH0" role="37wK5m">
-              <ref role="3cqZAo" node="6QpvLQNQLGV" resolve="usedLanguageVersion" />
+              <ref role="3cqZAo" node="6QpvLQNQLGV" resolve="ver" />
             </node>
           </node>
         </node>
@@ -6005,7 +6005,7 @@
         <node concept="10P_77" id="6fMyXCH$fSh" role="1tU5fm" />
       </node>
       <node concept="2AHcQZ" id="3xQJeztK7F8" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" />
+        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
         <node concept="2B6LJw" id="3xQJeztK7F9" role="2B76xF">
           <ref role="2B6OnR" to="wyt6:~Deprecated.forRemoval()" resolve="forRemoval" />
           <node concept="3clFbT" id="3xQJeztK7Fa" role="2B70Vg">

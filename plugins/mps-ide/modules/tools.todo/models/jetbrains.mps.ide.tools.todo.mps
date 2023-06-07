@@ -338,7 +338,7 @@
     <property role="tEvSQ" value="true" />
     <node concept="1QGGSu" id="6XsdSpiw0iU" role="1nVCmq">
       <node concept="10M0yZ" id="6XsdSpiw0CW" role="3xaMm5">
-        <ref role="1PxDUh" to="z2i8:~AllIcons$Toolwindows" resolve="Toolwindows" />
+        <ref role="1PxDUh" to="z2i8:~AllIcons$Toolwindows" resolve="AllIcons.Toolwindows" />
         <ref role="3cqZAo" to="z2i8:~AllIcons$Toolwindows.ToolWindowTodo" resolve="ToolWindowTodo" />
       </node>
     </node>
@@ -358,7 +358,7 @@
       <property role="TrG5h" value="myComponent" />
       <node concept="3Tm6S6" id="4HeMkQiYObT" role="1B3o_S" />
       <node concept="3uibUv" id="4HeMkQiYObU" role="1tU5fm">
-        <ref role="3uigEE" node="4HeMkQiYPXp" />
+        <ref role="3uigEE" node="4HeMkQiYPXp" resolve="TodoViewer" />
       </node>
     </node>
     <node concept="2xpIHi" id="4HeMkQiYObV" role="uR5cp">
@@ -373,7 +373,7 @@
             </node>
             <node concept="2ShNRf" id="4HeMkQiYOc2" role="37vLTx">
               <node concept="1pGfFk" id="4HeMkQiYOc3" role="2ShVmc">
-                <ref role="37wK5l" node="4HeMkQiYPZB" />
+                <ref role="37wK5l" node="4HeMkQiYPZB" resolve="TodoViewer" />
                 <node concept="2OqwBi" id="4HeMkQiYOc4" role="37wK5m">
                   <node concept="2xqhHp" id="4HeMkQiYOc5" role="2Oq$k0" />
                   <node concept="liA8E" id="4HeMkQiYOc6" role="2OqNvi">
@@ -446,7 +446,7 @@
               </node>
             </node>
             <node concept="liA8E" id="4HeMkQiYOc$" role="2OqNvi">
-              <ref role="37wK5l" node="4HeMkQiYQ0r" />
+              <ref role="37wK5l" node="4HeMkQiYQ0r" resolve="dispose" />
             </node>
           </node>
         </node>
@@ -476,7 +476,7 @@
       </node>
       <node concept="10M0yZ" id="5kMvUsGAE6F" role="33vP2m">
         <ref role="3cqZAo" to="z2i8:~AllIcons$Toolwindows.ToolWindowTodo" resolve="ToolWindowTodo" />
-        <ref role="1PxDUh" to="z2i8:~AllIcons$Toolwindows" resolve="Toolwindows" />
+        <ref role="1PxDUh" to="z2i8:~AllIcons$Toolwindows" resolve="AllIcons.Toolwindows" />
       </node>
     </node>
     <node concept="312cEg" id="4HeMkQiYPZl" role="jymVt">
@@ -777,11 +777,11 @@
           <node concept="3cpWsn" id="3pNk_u$sjn9" role="3cpWs9">
             <property role="TrG5h" value="searchTodoAction" />
             <node concept="3uibUv" id="3pNk_u$sjn5" role="1tU5fm">
-              <ref role="3uigEE" to="ngmm:~UsagesView$RerunAction" resolve="RerunAction" />
+              <ref role="3uigEE" to="ngmm:~UsagesView$RerunAction" resolve="UsagesView.RerunAction" />
             </node>
             <node concept="2ShNRf" id="3pNk_u$sjna" role="33vP2m">
               <node concept="1pGfFk" id="3pNk_u$sjnb" role="2ShVmc">
-                <ref role="37wK5l" to="ngmm:~UsagesView$RerunAction.&lt;init&gt;(jetbrains.mps.ide.findusages.view.UsagesView,java.lang.String)" resolve="RerunAction" />
+                <ref role="37wK5l" to="ngmm:~UsagesView$RerunAction.&lt;init&gt;(jetbrains.mps.ide.findusages.view.UsagesView,java.lang.String)" resolve="UsagesView.RerunAction" />
                 <node concept="37vLTw" id="3pNk_u$sjnc" role="37wK5m">
                   <ref role="3cqZAo" node="4HeMkQiYPZl" resolve="myUsagesView" />
                 </node>
@@ -804,7 +804,7 @@
               </node>
               <node concept="2ShNRf" id="3pNk_u$s0jc" role="37wK5m">
                 <node concept="1pGfFk" id="3pNk_u$s2jc" role="2ShVmc">
-                  <ref role="37wK5l" to="ngmm:~UsagesView$RebuildAction.&lt;init&gt;(jetbrains.mps.ide.findusages.view.UsagesView)" resolve="RebuildAction" />
+                  <ref role="37wK5l" to="ngmm:~UsagesView$RebuildAction.&lt;init&gt;(jetbrains.mps.ide.findusages.view.UsagesView)" resolve="UsagesView.RebuildAction" />
                   <node concept="37vLTw" id="3pNk_u$s2sL" role="37wK5m">
                     <ref role="3cqZAo" node="4HeMkQiYPZl" resolve="myUsagesView" />
                   </node>
@@ -853,7 +853,7 @@
                       <property role="Xl_RC" value="" />
                     </node>
                     <node concept="10M0yZ" id="6Qwue3HJ8v8" role="37wK5m">
-                      <ref role="1PxDUh" to="z2i8:~AllIcons$Actions" resolve="Actions" />
+                      <ref role="1PxDUh" to="z2i8:~AllIcons$Actions" resolve="AllIcons.Actions" />
                       <ref role="3cqZAo" to="z2i8:~AllIcons$Actions.Cancel" resolve="Cancel" />
                     </node>
                   </node>
@@ -941,7 +941,7 @@
                 <ref role="37wK5l" to="ngmn:~FindUtils.makeProvider(jetbrains.mps.ide.findusages.findalgorithm.finders.IFinder...)" resolve="makeProvider" />
                 <node concept="2ShNRf" id="4HeMkQiYQ1F" role="37wK5m">
                   <node concept="1pGfFk" id="4HeMkQiYQ1G" role="2ShVmc">
-                    <ref role="37wK5l" node="58syclRv9F5" />
+                    <ref role="37wK5l" node="58syclRv9F5" resolve="TodoFinder" />
                   </node>
                 </node>
               </node>
@@ -973,7 +973,7 @@
               <ref role="37wK5l" to="ngmm:~UsagesView.setCustomNodeRepresentator(jetbrains.mps.ide.findusages.view.treeholder.treeview.INodeRepresentator)" resolve="setCustomNodeRepresentator" />
               <node concept="2ShNRf" id="4HeMkQiYQ1V" role="37wK5m">
                 <node concept="1pGfFk" id="4HeMkQiYQ1W" role="2ShVmc">
-                  <ref role="37wK5l" node="4HeMkQiYPXw" resolve="MyNodeRepresentator" />
+                  <ref role="37wK5l" node="4HeMkQiYPXw" resolve="TodoViewer.MyNodeRepresentator" />
                 </node>
               </node>
             </node>
@@ -1458,7 +1458,7 @@
                   </node>
                 </node>
                 <node concept="37vLTw" id="1XU4lLpQ1Aj" role="37wK5m">
-                  <ref role="3cqZAo" node="1XU4lLpQ1Ag" resolve="singleton" />
+                  <ref role="3cqZAo" node="1XU4lLpQ1Ag" resolve="searchFor" />
                 </node>
                 <node concept="3clFbT" id="592Zdv9aZcl" role="37wK5m">
                   <property role="3clFbU" value="false" />

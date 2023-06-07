@@ -8552,7 +8552,7 @@
           <node concept="3cpWsn" id="1GHjvh$hSb1" role="3cpWs9">
             <property role="TrG5h" value="b" />
             <node concept="3uibUv" id="1GHjvh$hSb2" role="1tU5fm">
-              <ref role="3uigEE" to="bzg8:~ConceptDescriptorBuilder2$PropertyBuilder" resolve="PropertyBuilder" />
+              <ref role="3uigEE" to="bzg8:~ConceptDescriptorBuilder2$PropertyBuilder" resolve="ConceptDescriptorBuilder2.PropertyBuilder" />
             </node>
           </node>
         </node>
@@ -8773,7 +8773,7 @@
           <node concept="3cpWsn" id="1GHjvh$kJ8r" role="3cpWs9">
             <property role="TrG5h" value="b" />
             <node concept="3uibUv" id="1GHjvh$kJ8s" role="1tU5fm">
-              <ref role="3uigEE" to="bzg8:~ConceptDescriptorBuilder2$AssociationLinkBuilder" resolve="AssociationLinkBuilder" />
+              <ref role="3uigEE" to="bzg8:~ConceptDescriptorBuilder2$AssociationLinkBuilder" resolve="ConceptDescriptorBuilder2.AssociationLinkBuilder" />
             </node>
           </node>
         </node>
@@ -9022,7 +9022,7 @@
           <node concept="3cpWsn" id="1GHjvh$miZz" role="3cpWs9">
             <property role="TrG5h" value="b" />
             <node concept="3uibUv" id="1GHjvh$miZ$" role="1tU5fm">
-              <ref role="3uigEE" to="bzg8:~ConceptDescriptorBuilder2$AggregationLinkBuilder" resolve="AggregationLinkBuilder" />
+              <ref role="3uigEE" to="bzg8:~ConceptDescriptorBuilder2$AggregationLinkBuilder" resolve="ConceptDescriptorBuilder2.AggregationLinkBuilder" />
             </node>
           </node>
         </node>
@@ -9358,7 +9358,7 @@
           <node concept="3cpWsn" id="7Grmxs6twGI" role="3cpWs9">
             <property role="TrG5h" value="b" />
             <node concept="3uibUv" id="7Grmxs6twGJ" role="1tU5fm">
-              <ref role="3uigEE" to="bzg8:~ConceptDescriptorBuilder2$PropertyBuilder" resolve="PropertyBuilder" />
+              <ref role="3uigEE" to="bzg8:~ConceptDescriptorBuilder2$PropertyBuilder" resolve="ConceptDescriptorBuilder2.PropertyBuilder" />
             </node>
           </node>
         </node>
@@ -9484,7 +9484,7 @@
           <node concept="3cpWsn" id="7Grmxs6wksM" role="3cpWs9">
             <property role="TrG5h" value="b" />
             <node concept="3uibUv" id="7Grmxs6wksN" role="1tU5fm">
-              <ref role="3uigEE" to="bzg8:~ConceptDescriptorBuilder2$AssociationLinkBuilder" resolve="AssociationLinkBuilder" />
+              <ref role="3uigEE" to="bzg8:~ConceptDescriptorBuilder2$AssociationLinkBuilder" resolve="ConceptDescriptorBuilder2.AssociationLinkBuilder" />
             </node>
           </node>
         </node>
@@ -9559,7 +9559,7 @@
           <node concept="3cpWsn" id="7Grmxs6wmkg" role="3cpWs9">
             <property role="TrG5h" value="b" />
             <node concept="3uibUv" id="7Grmxs6wmkh" role="1tU5fm">
-              <ref role="3uigEE" to="bzg8:~ConceptDescriptorBuilder2$AssociationLinkBuilder" resolve="AssociationLinkBuilder" />
+              <ref role="3uigEE" to="bzg8:~ConceptDescriptorBuilder2$AssociationLinkBuilder" resolve="ConceptDescriptorBuilder2.AssociationLinkBuilder" />
             </node>
           </node>
         </node>

@@ -858,13 +858,13 @@
       </node>
     </node>
     <node concept="13uUGR" id="7Grmxs6A3bf" role="1l3spa">
-      <ref role="13uUGO" to="ffeo:6eCuTcwOnJO" />
+      <ref role="13uUGO" to="ffeo:6eCuTcwOnJO" resolve="IDEA" />
       <node concept="398BVA" id="7Grmxs6A3bg" role="13uUGP">
         <ref role="398BVh" node="7Grmxs6A3bk" resolve="idea_home" />
       </node>
     </node>
     <node concept="2sgV4H" id="7Grmxs6A3bh" role="1l3spa">
-      <ref role="1l3spb" to="ffeo:3IKDaVZmzS6" />
+      <ref role="1l3spb" to="ffeo:3IKDaVZmzS6" resolve="mps" />
       <node concept="398BVA" id="7Grmxs6A3bi" role="2JcizS">
         <ref role="398BVh" node="7Grmxs6A3bj" resolve="mps_home" />
       </node>

@@ -42,7 +42,7 @@
     <property role="EcuMT" value="3385567232448674926" />
     <property role="TrG5h" value="C" />
     <property role="19KtqR" value="true" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="1TJgyj" id="2VVWRntj$3u" role="1TKVEi">
       <property role="IQ2ns" value="3385567232448676062" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
