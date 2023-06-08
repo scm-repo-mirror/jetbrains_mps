@@ -25,11 +25,10 @@ import jetbrains.mps.openapi.editor.message.EditorMessageOwner;
 import jetbrains.mps.openapi.editor.message.SimpleEditorMessage;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
 import jetbrains.mps.project.Project;
-import jetbrains.mps.util.Pair;
-import jetbrains.mps.workbench.MPSDataKeys;
 import jetbrains.mps.workbench.action.ActionUtils;
 import jetbrains.mps.workbench.action.BaseAction;
 import org.jetbrains.annotations.NonNls;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -261,15 +260,10 @@ public class TypeSystemStateTree extends MPSTree implements DataProvider {
 
   @Override
   @Nullable
-  public Object getData(@NonNls String id) {
+  public Object getData(@NotNull @NonNls String id) {
     TypeSystemStateTreeNode currentNode = (TypeSystemStateTreeNode) this.getCurrentNode();
-    if (id.equals(MPSDataKeys.RULE_MODEL_AND_ID.getName())) {
-      String ruleModel = currentNode.getRuleModel();
-      String ruleId = currentNode.getRuleId();
-      if (ruleModel == null || ruleId == null) {
-        return null;
-      }
-      return new Pair<>(ruleModel, ruleId);
+    if (TraceDataKeys.RULE_DECLARATION.is(id)) {
+      return currentNode.getRuleDeclaration();
     }
     return null;
   }

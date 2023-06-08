@@ -32,10 +32,7 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.message.EditorMessageOwner;
 import jetbrains.mps.openapi.editor.message.SimpleEditorMessage;
 import jetbrains.mps.project.Project;
-import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.smodel.ModelReadRunnable;
-import jetbrains.mps.util.Pair;
-import jetbrains.mps.workbench.MPSDataKeys;
 import jetbrains.mps.workbench.action.ActionUtils;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.Nullable;
@@ -58,6 +55,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+// FWIW, before 57d31730 this code was generated from a model. Perhaps, can use
+//       vcs to ease migration back to MPS world?
 public class TypeSystemTraceTree extends MPSTree implements DataProvider {
   private final Project myProject;
   private final TypecheckingContextTracker myContextTracker;
@@ -312,31 +311,29 @@ public class TypeSystemTraceTree extends MPSTree implements DataProvider {
   @Nullable
   public Object getData(@NonNls final String id) {
     MPSTreeNode currentNode = this.getCurrentNode();
-    if (currentNode instanceof TypeSystemTraceTreeNode) {
-      return new ModelAccessHelper(myProject.getModelAccess()).runReadAction(() -> _getData(id));
+    if (false == currentNode instanceof TypeSystemTraceTreeNode) {
+      return null;
     }
-    return null;
-  }
-
-  private Object _getData(String id) {
-    AbstractOperation operation = getAssociatedOperation(this.getCurrentNode());
+    AbstractOperation operation = getAssociatedOperation(currentNode);
     if (operation == null) {
       return null;
     }
+    // I wonder if TSTT.DetailsTree#getData() shall delegate here instead of duplicating.
+    //   i.e if getCurrentNode() is the same for both trees
     final SNodeReference rule = operation.getRule();
     final SNode source = operation.getSource();
-    if (MPSDataKeys.RULE_MODEL_AND_ID.is(id) && rule != null) {
-      return new Pair<>(String.valueOf(rule.getModelReference()), String.valueOf(rule.getNodeId()));
+    if (TraceDataKeys.RULE_DECLARATION.is(id) && rule != null) {
+      return rule;
     }
-    if (MPSDataKeys.SOURCE_NODE.is(id) && source != null && source.getModel() != null) {
-      return source;
+    if (TraceDataKeys.SOURCE_NODE.is(id) && source != null) {
+      return source.getReference();
     }
     return null;
   }
 
   @Override
   protected ActionGroup createPopupActionGroup(final MPSTreeNode treeNode) {
-    return ActionUtils.groupFromActions(ActionManager.getInstance().getAction("jetbrains.mps.ide.actions.GoToNode_Action"));
+    return ActionUtils.groupFromActions(ActionManager.getInstance().getAction("jetbrains.mps.ide.devkit.actions.GoToNode_Action"));
   }
 
   private void showState(final TypeSystemTraceTreeNode newNode) {
@@ -538,23 +535,23 @@ public class TypeSystemTraceTree extends MPSTree implements DataProvider {
     @Nullable
     public Object getData(@NonNls final String id) {
       MPSTreeNode currentNode = this.getCurrentNode();
-      if (currentNode instanceof TypeSystemTraceTreeNode) {
-        return new ModelAccessHelper(myProject.getModelAccess()).runReadAction(() -> _getData(id));
+      if (false == currentNode instanceof TypeSystemTraceTreeNode) {
+        return null;
       }
-      return null;
-    }
-
-    private Object _getData(String id) {
-      AbstractOperation operation = getAssociatedOperation(this.getCurrentNode());
+      AbstractOperation operation = getAssociatedOperation(currentNode);
       if (operation == null) {
         return null;
       }
+      // beware, this code has to operate w/o model read, as IDEA prefers to consult DataProviders in
+      // a thread different from the one actual actions get data values, and we shall never provide SNode
+      // instances here. Still, if we need model read to get one, e.g. if operation.getSource() is anything but
+      // field access, it's ok to ask for one here, just don't pass SNode instances outside
       final SNodeReference rule = operation.getRule();
       final SNode source = operation.getSource();
-      if (MPSDataKeys.RULE_MODEL_AND_ID.is(id) && rule != null) {
-        return new Pair<>(String.valueOf(rule.getModelReference()), String.valueOf(rule.getNodeId()));
+      if (TraceDataKeys.RULE_DECLARATION.is(id) && rule != null) {
+        return rule;
       }
-      if (MPSDataKeys.SOURCE_NODE.is(id) && source != null && source.getModel() != null) {
+      if (TraceDataKeys.SOURCE_NODE.is(id) && source != null) {
         return source;
       }
       return null;
@@ -562,8 +559,8 @@ public class TypeSystemTraceTree extends MPSTree implements DataProvider {
 
     @Override
     protected ActionGroup createPopupActionGroup(MPSTreeNode node) {
-      return ActionUtils.groupFromActions(ActionManager.getInstance().getAction("jetbrains.mps.ide.actions.GoToNode_Action"),
-          ActionManager.getInstance().getAction("jetbrains.mps.ide.actions.GoToRule_Action"));
+      return ActionUtils.groupFromActions(ActionManager.getInstance().getAction("jetbrains.mps.ide.devkit.actions.GoToNode_Action"),
+          ActionManager.getInstance().getAction("jetbrains.mps.ide.devkit.actions.GoToRule_Action"));
     }
 
     @Override

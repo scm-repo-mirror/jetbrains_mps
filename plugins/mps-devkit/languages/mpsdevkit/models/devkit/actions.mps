@@ -73,7 +73,6 @@
     <import index="2ymi" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ide.structureView(MPS.IDEA/)" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
     <import index="mk8z" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.progress(MPS.Platform/)" />
-    <import index="zdei" ref="86441d7a-e194-42da-81a5-2161ec62a379/java:jetbrains.mps.ide.typesystem.trace(MPS.Workbench/)" />
     <import index="qq03" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.actions(MPS.Platform/)" />
     <import index="kxvg" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.ui.tree.module(MPS.Platform/)" />
     <import index="ngmn" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.findusages.view(MPS.Platform/)" />
@@ -143,7 +142,7 @@
     <import index="et5u" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.messages(MPS.Core/)" />
     <import index="57ty" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.messages(MPS.Platform/)" />
     <import index="tpcc" ref="r:00000000-0000-4000-0000-011c89590290(jetbrains.mps.lang.structure.plugin)" />
-    <import index="dush" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)" />
+    <import index="q9cj" ref="cac2fef0-41a6-4fcd-923f-f893d536b2ab/java:jetbrains.mps.ide.devkit.typesystem.trace(jetbrains.mps.ide.mpsdevkit/)" />
     <import index="4hrd" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.vfs(MPS.Platform/)" implicit="true" />
   </imports>
   <registry>
@@ -168,6 +167,7 @@
         <property id="1215865999894" name="mnemonic" index="ngHcd" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
         <property id="7458746815261976739" name="requiredAccess" index="2YLI8m" />
+        <property id="4692598989365753297" name="updateInBackground" index="1rBW0U" />
         <property id="997079742910640235" name="fillActionContext" index="1teQrl" />
         <property id="1213273179528" name="description" index="1WHSii" />
         <child id="394857668356997869" name="places" index="med8o" />
@@ -6695,7 +6695,7 @@
               </node>
             </node>
             <node concept="liA8E" id="1rFV26uVVcA" role="2OqNvi">
-              <ref role="37wK5l" to="zdei:~TypeSystemTracePanel.showTraceForNode(jetbrains.mps.project.Project,org.jetbrains.mps.openapi.model.SNode,jetbrains.mps.nodeEditor.EditorComponent)" resolve="showTraceForNode" />
+              <ref role="37wK5l" to="q9cj:~TypeSystemTracePanel.showTraceForNode(jetbrains.mps.project.Project,org.jetbrains.mps.openapi.model.SNode,jetbrains.mps.nodeEditor.EditorComponent)" resolve="showTraceForNode" />
               <node concept="37vLTw" id="1rFV26uVVHv" role="37wK5m">
                 <ref role="3cqZAo" node="1rFV26uVVxx" resolve="mpsProject" />
               </node>
@@ -6714,7 +6714,7 @@
     <node concept="2BZ0e9" id="7oAN7tz7mq4" role="2XNbBz">
       <property role="TrG5h" value="myPanel" />
       <node concept="3uibUv" id="_wnDSoneZd" role="1tU5fm">
-        <ref role="3uigEE" to="zdei:~TypeSystemTracePanel" resolve="TypeSystemTracePanel" />
+        <ref role="3uigEE" to="q9cj:~TypeSystemTracePanel" resolve="TypeSystemTracePanel" />
       </node>
       <node concept="3Tm6S6" id="7oAN7tz7mq5" role="1B3o_S" />
     </node>
@@ -6750,7 +6750,7 @@
           <node concept="37vLTI" id="7oAN7tz7mqg" role="3clFbG">
             <node concept="2ShNRf" id="7oAN7tz7mqh" role="37vLTx">
               <node concept="1pGfFk" id="7oAN7tz7mqi" role="2ShVmc">
-                <ref role="37wK5l" to="zdei:~TypeSystemTracePanel.&lt;init&gt;(jetbrains.mps.ide.tools.BaseTool)" resolve="TypeSystemTracePanel" />
+                <ref role="37wK5l" to="q9cj:~TypeSystemTracePanel.&lt;init&gt;(jetbrains.mps.ide.tools.BaseTool)" resolve="TypeSystemTracePanel" />
                 <node concept="2WthIp" id="3ufCfAugKpM" role="37wK5m" />
               </node>
             </node>
@@ -6876,7 +6876,7 @@
                                   </node>
                                 </node>
                                 <node concept="liA8E" id="6adHiaZWalw" role="2OqNvi">
-                                  <ref role="37wK5l" to="zdei:~TypeSystemTracePanel.cleanUp()" resolve="cleanUp" />
+                                  <ref role="37wK5l" to="q9cj:~TypeSystemTracePanel.cleanUp()" resolve="cleanUp" />
                                 </node>
                               </node>
                             </node>
@@ -14414,8 +14414,9 @@
     <property role="1WHSii" value="go to source node" />
     <property role="TrG5h" value="GoToNode" />
     <property role="2uzpH1" value="Go to Source Node" />
-    <property role="3GE5qa" value="trace" />
+    <property role="3GE5qa" value="typesystem" />
     <property role="72QZ$" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1QGGSu" id="eJiWXTZ1vG" role="3Uehp1">
       <node concept="10M0yZ" id="eJiWXTZyzw" role="3xaMm5">
         <ref role="1PxDUh" to="l7us:~MPSIcons$Nodes" resolve="Nodes" />
@@ -14424,7 +14425,7 @@
     </node>
     <node concept="1DS2jV" id="1cJSC$rgvWj" role="1NuT2Z">
       <property role="TrG5h" value="source" />
-      <ref role="1DUlNI" to="3s15:~MPSDataKeys.SOURCE_NODE" resolve="SOURCE_NODE" />
+      <ref role="1DUlNI" to="q9cj:~TraceDataKeys.SOURCE_NODE" resolve="SOURCE_NODE" />
       <node concept="1oajcY" id="7HZe2EwZDm3" role="1oa70y" />
     </node>
     <node concept="1DS2jV" id="1GFZonKxPvD" role="1NuT2Z">
@@ -14465,15 +14466,10 @@
             </node>
             <node concept="liA8E" id="1GFZonKy3mr" role="2OqNvi">
               <ref role="37wK5l" to="kz9k:~EditorNavigator.open(org.jetbrains.mps.openapi.model.SNodeReference)" resolve="open" />
-              <node concept="2OqwBi" id="1GFZonKylmj" role="37wK5m">
-                <node concept="2OqwBi" id="1GFZonKy3od" role="2Oq$k0">
-                  <node concept="2WthIp" id="1GFZonKy3og" role="2Oq$k0" />
-                  <node concept="1DTwFV" id="1GFZonKy3oi" role="2OqNvi">
-                    <ref role="2WH_rO" node="1cJSC$rgvWj" resolve="source" />
-                  </node>
-                </node>
-                <node concept="liA8E" id="1GFZonKyluy" role="2OqNvi">
-                  <ref role="37wK5l" to="mhbf:~SNode.getReference()" resolve="getReference" />
+              <node concept="2OqwBi" id="1GFZonKy3od" role="37wK5m">
+                <node concept="2WthIp" id="1GFZonKy3og" role="2Oq$k0" />
+                <node concept="1DTwFV" id="1GFZonKy3oi" role="2OqNvi">
+                  <ref role="2WH_rO" node="1cJSC$rgvWj" resolve="source" />
                 </node>
               </node>
             </node>
@@ -14487,9 +14483,9 @@
     <property role="fJN8o" value="true" />
     <property role="TrG5h" value="GoToRule" />
     <property role="2uzpH1" value="Go to Rule" />
-    <property role="3GE5qa" value="trace" />
-    <property role="1teQrl" value="true" />
+    <property role="3GE5qa" value="typesystem" />
     <property role="72QZ$" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="29q6pfyoTm1" role="1NuT2Z">
       <property role="TrG5h" value="project" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -14503,18 +14499,6 @@
     </node>
     <node concept="tnohg" id="1cJSC$rgvWD" role="tncku">
       <node concept="3clFbS" id="1cJSC$rgvWE" role="2VODD2">
-        <node concept="3cpWs8" id="29q6pfyoTC9" role="3cqZAp">
-          <node concept="3cpWsn" id="29q6pfyoTCa" role="3cpWs9">
-            <property role="TrG5h" value="pf" />
-            <node concept="3uibUv" id="29q6pfyoTC8" role="1tU5fm">
-              <ref role="3uigEE" to="dush:~PersistenceFacade" resolve="PersistenceFacade" />
-            </node>
-            <node concept="2YIFZM" id="29q6pfyoTCb" role="33vP2m">
-              <ref role="1Pybhc" to="dush:~PersistenceFacade" resolve="PersistenceFacade" />
-              <ref role="37wK5l" to="dush:~PersistenceFacade.getInstance()" resolve="getInstance" />
-            </node>
-          </node>
-        </node>
         <node concept="3clFbF" id="29q6pfyoUd2" role="3cqZAp">
           <node concept="2OqwBi" id="29q6pfyp2Xf" role="3clFbG">
             <node concept="2OqwBi" id="29q6pfyp2OA" role="2Oq$k0">
@@ -14538,47 +14522,10 @@
             </node>
             <node concept="liA8E" id="29q6pfyp33a" role="2OqNvi">
               <ref role="37wK5l" to="kz9k:~EditorNavigator.open(org.jetbrains.mps.openapi.model.SNodeReference)" resolve="open" />
-              <node concept="2ShNRf" id="29q6pfyp34u" role="37wK5m">
-                <node concept="1pGfFk" id="29q6pfyp53L" role="2ShVmc">
-                  <ref role="37wK5l" to="w1kc:~SNodePointer.&lt;init&gt;(org.jetbrains.mps.openapi.model.SModelReference,org.jetbrains.mps.openapi.model.SNodeId)" resolve="SNodePointer" />
-                  <node concept="2OqwBi" id="29q6pfyoTF4" role="37wK5m">
-                    <node concept="37vLTw" id="29q6pfyoTCc" role="2Oq$k0">
-                      <ref role="3cqZAo" node="29q6pfyoTCa" resolve="pf" />
-                    </node>
-                    <node concept="liA8E" id="29q6pfyoTIv" role="2OqNvi">
-                      <ref role="37wK5l" to="dush:~PersistenceFacade.createModelReference(java.lang.String)" resolve="createModelReference" />
-                      <node concept="2OqwBi" id="29q6pfyoTPD" role="37wK5m">
-                        <node concept="2OqwBi" id="29q6pfyoTJc" role="2Oq$k0">
-                          <node concept="2WthIp" id="29q6pfyoTJf" role="2Oq$k0" />
-                          <node concept="1DTwFV" id="29q6pfyoTJh" role="2OqNvi">
-                            <ref role="2WH_rO" node="1cJSC$rgvWO" resolve="ruleModelAndId" />
-                          </node>
-                        </node>
-                        <node concept="2OwXpG" id="29q6pfyoTUC" role="2OqNvi">
-                          <ref role="2Oxat5" to="18ew:~Pair.o1" resolve="o1" />
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                  <node concept="2OqwBi" id="29q6pfyoTW6" role="37wK5m">
-                    <node concept="37vLTw" id="29q6pfyoTW7" role="2Oq$k0">
-                      <ref role="3cqZAo" node="29q6pfyoTCa" resolve="pf" />
-                    </node>
-                    <node concept="liA8E" id="29q6pfyoTW8" role="2OqNvi">
-                      <ref role="37wK5l" to="dush:~PersistenceFacade.createNodeId(java.lang.String)" resolve="createNodeId" />
-                      <node concept="2OqwBi" id="29q6pfyoTW9" role="37wK5m">
-                        <node concept="2OqwBi" id="29q6pfyoTWa" role="2Oq$k0">
-                          <node concept="2WthIp" id="29q6pfyoTWb" role="2Oq$k0" />
-                          <node concept="1DTwFV" id="29q6pfyoTWc" role="2OqNvi">
-                            <ref role="2WH_rO" node="1cJSC$rgvWO" resolve="ruleModelAndId" />
-                          </node>
-                        </node>
-                        <node concept="2OwXpG" id="29q6pfyoU3Y" role="2OqNvi">
-                          <ref role="2Oxat5" to="18ew:~Pair.o2" resolve="o2" />
-                        </node>
-                      </node>
-                    </node>
-                  </node>
+              <node concept="2OqwBi" id="45WYYPkGrEb" role="37wK5m">
+                <node concept="2WthIp" id="45WYYPkGrEe" role="2Oq$k0" />
+                <node concept="1DTwFV" id="45WYYPkGrEg" role="2OqNvi">
+                  <ref role="2WH_rO" node="1cJSC$rgvWO" resolve="rule" />
                 </node>
               </node>
             </node>
@@ -14587,14 +14534,14 @@
       </node>
     </node>
     <node concept="1DS2jV" id="1cJSC$rgvWO" role="1NuT2Z">
-      <property role="TrG5h" value="ruleModelAndId" />
-      <ref role="1DUlNI" to="3s15:~MPSDataKeys.RULE_MODEL_AND_ID" resolve="RULE_MODEL_AND_ID" />
+      <property role="TrG5h" value="rule" />
+      <ref role="1DUlNI" to="q9cj:~TraceDataKeys.RULE_DECLARATION" resolve="RULE_DECLARATION" />
       <node concept="1oajcY" id="7HZe2EwZDis" role="1oa70y" />
     </node>
   </node>
   <node concept="Zd50a" id="1cJSC$rgvWQ">
     <property role="TrG5h" value="TraceActions" />
-    <property role="3GE5qa" value="trace" />
+    <property role="3GE5qa" value="typesystem" />
     <node concept="Zd509" id="1cJSC$rgvWR" role="Zd508">
       <ref role="1bYAoF" node="1cJSC$rgvWh" resolve="GoToNode" />
       <node concept="pLAjd" id="1cJSC$rgvWS" role="Zd501">

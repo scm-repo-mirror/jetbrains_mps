@@ -6,14 +6,15 @@ package jetbrains.mps.ide.devkit.typesystem.trace;
 import jetbrains.mps.ide.icons.IdeIcons;
 import jetbrains.mps.ide.ui.tree.MPSTreeNode;
 import jetbrains.mps.newTypesystem.state.State;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.model.SNodeReference;
 
 import java.util.List;
 
 public class TypeSystemStateTreeNode extends MPSTreeNode {
   protected SNode myNode;
-  protected String myRuleModel;
-  protected String myRuleId;
+  private SNodeReference myRule;
   protected State myState;
 
   public TypeSystemStateTreeNode() {
@@ -27,16 +28,17 @@ public class TypeSystemStateTreeNode extends MPSTreeNode {
     setAutoExpandable(true);
   }
 
+  public final void ruleDeclaration(@Nullable SNodeReference ruleDeclaration) {
+    myRule = ruleDeclaration;
+  }
+
   public List<SNode> getVariables() {
     return null;
   }
 
-  public String getRuleModel() {
-    return myRuleModel;
-  }
-
-  public String getRuleId() {
-    return myRuleId;
+  @Nullable
+  public SNodeReference getRuleDeclaration() {
+    return myRule;
   }
 
   public SNode getSource() {

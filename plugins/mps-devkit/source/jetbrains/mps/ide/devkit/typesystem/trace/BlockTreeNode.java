@@ -3,30 +3,30 @@
  */
 package jetbrains.mps.ide.devkit.typesystem.trace;
 
-import java.util.Map;
-
 import com.intellij.ui.JBColor;
-import jetbrains.mps.newTypesystem.state.blocks.RelationKind;
-import java.awt.Color;
-import jetbrains.mps.newTypesystem.state.blocks.Block;
 import jetbrains.mps.newTypesystem.state.State;
-import jetbrains.mps.nodeEditor.EditorComponent;
+import jetbrains.mps.newTypesystem.state.blocks.Block;
 import jetbrains.mps.newTypesystem.state.blocks.BlockKind;
 import jetbrains.mps.newTypesystem.state.blocks.InequalityBlock;
-import java.util.List;
+import jetbrains.mps.newTypesystem.state.blocks.RelationKind;
+import jetbrains.mps.nodeEditor.EditorComponent;
+import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
+
+import java.awt.Color;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class BlockTreeNode extends TypeSystemStateTreeNode {
   private static final Map<RelationKind, Color> COLOR_MAP = initColors();
-  private Block myBlock;
+  private final Block myBlock;
 
   public BlockTreeNode(Block block, State state, EditorComponent editorComponent) {
     super(block.getExpandedPresentation(state));
     myBlock = block;
-    myRuleId = block.getNodeId();
-    myRuleModel = block.getNodeModel();
     myState = state;
+    ruleDeclaration(new SNodePointer(block.getNodeModel(), block.getNodeId()));
     setTooltipText(PresentationUtil.getVariablesTooltipPresentation(editorComponent, block.getVariables(state), state));
   }
 

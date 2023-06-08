@@ -7,8 +7,8 @@ import javax.swing.Icon;
 import jetbrains.mps.icons.MPSIcons;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
-import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.workbench.MPSDataKeys;
+import org.jetbrains.mps.openapi.model.SNodeReference;
+import jetbrains.mps.ide.devkit.typesystem.trace.TraceDataKeys;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import org.jetbrains.annotations.NotNull;
@@ -33,7 +33,7 @@ public class GoToNode_Action extends BaseAction {
       return false;
     }
     {
-      SNode p = event.getData(MPSDataKeys.SOURCE_NODE);
+      SNodeReference p = event.getData(TraceDataKeys.SOURCE_NODE);
       if (p == null) {
         return false;
       }
@@ -48,6 +48,6 @@ public class GoToNode_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    new EditorNavigator(event.getData(MPSCommonDataKeys.MPS_PROJECT)).shallFocus(false).shallSelect(true).open(event.getData(MPSDataKeys.SOURCE_NODE).getReference());
+    new EditorNavigator(event.getData(MPSCommonDataKeys.MPS_PROJECT)).shallFocus(false).shallSelect(true).open(event.getData(TraceDataKeys.SOURCE_NODE));
   }
 }

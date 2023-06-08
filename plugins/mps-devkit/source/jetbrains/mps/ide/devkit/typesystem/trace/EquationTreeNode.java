@@ -12,7 +12,7 @@ import jetbrains.mps.nodeEditor.EditorComponent;
 import jetbrains.mps.ide.icons.IdeIcons;
 
 public class EquationTreeNode extends TypeSystemStateTreeNode {
-  private List<SNode> myVariables = new LinkedList();
+  private final List<SNode> myVariables = new LinkedList<>();
 
   public EquationTreeNode(SNode representative, Set<SNode> variables, State state, EditorComponent editorComponent) {
     StringBuilder sb = new StringBuilder();

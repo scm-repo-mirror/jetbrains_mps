@@ -10,7 +10,7 @@ import jetbrains.mps.nodeEditor.EditorComponent;
 import jetbrains.mps.ide.icons.IdeIcons;
 
 public class TypeTreeNode extends TypeSystemStateTreeNode {
-  private static Color color = new Color(30464);
+  private static final Color color = new Color(30464);
 
   public TypeTreeNode(SNode node, SNode type, SNode expandedType, EditorComponent editorComponent) {
     myNode = node;

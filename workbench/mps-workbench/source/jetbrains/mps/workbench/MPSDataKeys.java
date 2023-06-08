@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,9 +31,20 @@ public class MPSDataKeys extends MPSEditorDataKeys {
   @Description(description = "selected namespace")
   public static final DataKey<String> NAMESPACE = DataKey.create("MPS_Namespace");
 
+  /**
+   * @deprecated replaced with {@code jetbrains.mps.ide.devkit.typesystem.trace.TraceDataKeys#RULE_DECLARATION}.
+   *             since it's deemed for MPS internal tooling (typesystem trace), it's unlikely there are uses outside,
+   *             and we can remove this once 2023.1 is out.
+   */
   @Description(description = "rule model and id")
+  @Deprecated(since = "2023.1", forRemoval = true)
   public static final DataKey<Pair<String, String>> RULE_MODEL_AND_ID = DataKey.create("MPS_RuleModelAndID");
 
+  /**
+   * @deprecated replaced with {@code jetbrains.mps.ide.devkit.typesystem.trace.TraceDataKeys#SOURCE_NODE}.
+   *             remove once 2023.1 is out
+   */
   @Description(description = "source node")
+  @Deprecated(since = "2023.1", forRemoval = true)
   public static final DataKey<SNode> SOURCE_NODE = DataKey.create("MPS_SourceNode");
 }
