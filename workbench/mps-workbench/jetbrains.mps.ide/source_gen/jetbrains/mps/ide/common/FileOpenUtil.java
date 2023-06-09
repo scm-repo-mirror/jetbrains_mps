@@ -7,8 +7,11 @@ import org.jetbrains.annotations.Nullable;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.ThrowableComputable;
+import com.intellij.openapi.util.Computable;
+import java.util.Collection;
 import com.intellij.psi.search.FilenameIndex;
 import com.intellij.psi.search.GlobalSearchScope;
+import com.intellij.openapi.application.ApplicationManager;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import com.intellij.openapi.progress.ProcessCanceledException;
 import com.intellij.openapi.project.IndexNotReadyException;
@@ -40,7 +43,8 @@ public final class FileOpenUtil {
     }
     ThrowableComputable<VirtualFile, RuntimeException> f = () -> {
       try {
-        Iterable<VirtualFile> vfByName = FilenameIndex.getVirtualFilesByName(fileName, GlobalSearchScope.allScope(project));
+        Computable<Collection<VirtualFile>> computable = () -> FilenameIndex.getVirtualFilesByName(fileName, GlobalSearchScope.allScope(project));
+        Iterable<VirtualFile> vfByName = ApplicationManager.getApplication().runReadAction(computable);
         return Sequence.fromIterable(vfByName).where((it) -> it.getPath().endsWith(fullFileName)).first();
       } catch (ProcessCanceledException | IndexNotReadyException ex) {
         //  ignore, can not report anything,pretend we didn't find any
