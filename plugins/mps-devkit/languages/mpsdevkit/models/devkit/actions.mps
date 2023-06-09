@@ -7,7 +7,7 @@
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="-1" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="2" />
     <use id="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" name="jetbrains.mps.lang.actions" version="-1" />
-    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="5" />
+    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="6" />
     <use id="ef7bf5ac-d06c-4342-b11d-e42104eb9343" name="jetbrains.mps.lang.plugin.standalone" version="-1" />
     <use id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources" version="-1" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
@@ -853,6 +853,7 @@
     <property role="3GE5qa" value="New" />
     <property role="2uzpH1" value="DevKit" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="56$IWKxenas" role="tncku">
       <node concept="3clFbS" id="56$IWKxenat" role="2VODD2">
         <node concept="3cpWs8" id="3mo93YU3bBQ" role="3cqZAp">
@@ -1226,6 +1227,7 @@
     <property role="72QZ$" value="true" />
     <property role="3GE5qa" value="New" />
     <property role="2uzpH1" value="Language" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="56$IWKxenbi" role="tncku">
       <node concept="3clFbS" id="56$IWKxenbj" role="2VODD2">
         <node concept="3cpWs8" id="339vUuzUtXV" role="3cqZAp">
@@ -1995,6 +1997,7 @@
     <property role="2uzpH1" value="Editor Declaration" />
     <property role="1teQrl" value="true" />
     <property role="72QZ$" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="2XrIbr" id="4HmFaA$cuKK" role="32lrUH">
       <property role="TrG5h" value="findNodeEditorDeclaration" />
       <node concept="2sp9CU" id="6ETkb2gX1tc" role="3clF45" />
@@ -2330,6 +2333,7 @@
     <property role="3GE5qa" value="Goto" />
     <property role="2uzpH1" value="Concept Declaration" />
     <property role="72QZ$" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="1wPwVvaJhqf" role="tncku">
       <node concept="3clFbS" id="1wPwVvaJhqg" role="2VODD2">
         <node concept="3clFbF" id="1wPwVvaJhqh" role="3cqZAp">
@@ -2850,6 +2854,7 @@
     <property role="3GE5qa" value="New" />
     <property role="2uzpH1" value="Add Accessory Model" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="30peylOO27f" role="1NuT2Z">
       <property role="TrG5h" value="module" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.CONTEXT_MODULE" resolve="CONTEXT_MODULE" />
@@ -3764,6 +3769,7 @@
     <property role="3GE5qa" value="New" />
     <property role="2uzpH1" value="Generator" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="30peylOO7Af" role="tncku">
       <node concept="3clFbS" id="30peylOO7Ag" role="2VODD2">
         <node concept="3cpWs8" id="30peylOO7An" role="3cqZAp">
@@ -4036,6 +4042,7 @@
     <property role="3GE5qa" value="Delete" />
     <property role="2uzpH1" value="Delete Generator..." />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="1tuGf38GoJZ" role="tncku">
       <node concept="3clFbS" id="1tuGf38GoK0" role="2VODD2">
         <node concept="3cpWs8" id="7OWEUve5YwR" role="3cqZAp">
@@ -4534,6 +4541,7 @@
     <property role="TrG5h" value="LanguageHierarchy" />
     <property role="3GE5qa" value="Properties" />
     <property role="2uzpH1" value="Language Diagram" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="1Fww89lnTk1" role="tncku">
       <node concept="3clFbS" id="1Fww89lnTk2" role="2VODD2">
         <node concept="3cpWs8" id="1Fww89lnTk3" role="3cqZAp">
@@ -5175,6 +5183,7 @@
     <property role="TrG5h" value="PrintNodeID" />
     <property role="3GE5qa" value="InternalActions" />
     <property role="2uzpH1" value="Copy Node ID" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="2jM9X_IgWXA" role="tncku">
       <node concept="3clFbS" id="2jM9X_IgWXB" role="2VODD2">
         <node concept="3clFbF" id="4npc6Q0ooGG" role="3cqZAp">
@@ -5982,6 +5991,7 @@
     <property role="TrG5h" value="GoToUsageInMappingConfig" />
     <property role="3GE5qa" value="Editor" />
     <property role="2uzpH1" value="Go to Mapping Config" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="25sHNDqAn98" role="tncku">
       <node concept="3clFbS" id="25sHNDqAn99" role="2VODD2">
         <node concept="3cpWs8" id="25sHNDqAn9a" role="3cqZAp">
@@ -6228,6 +6238,7 @@
     <property role="3GE5qa" value="Tools" />
     <property role="2uzpH1" value="Show Node in Explorer" />
     <property role="72QZ$" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="7LWFAMfAqWl" role="tncku">
       <node concept="3clFbS" id="7LWFAMfAqWm" role="2VODD2">
         <node concept="3cpWs8" id="7LWFAMfAqWn" role="3cqZAp">
@@ -6356,6 +6367,7 @@
     <property role="3GE5qa" value="DevKitTools" />
     <property role="2uzpH1" value="Reload All Classes" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="1TFxXPONz$G" role="tncku">
       <node concept="3clFbS" id="1TFxXPONz$H" role="2VODD2">
         <node concept="3clFbF" id="1TFxXPONz$I" role="3cqZAp">
@@ -6962,6 +6974,7 @@
     <property role="2uzpH1" value="Open Generated Code" />
     <property role="3GE5qa" value="Goto" />
     <property role="72QZ$" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="2S4$dB" id="gXLcbBbpLg" role="1NuT2Z">
       <property role="TrG5h" value="node" />
       <node concept="3Tm6S6" id="gXLcbBbpLh" role="1B3o_S" />
@@ -7528,6 +7541,7 @@
     <property role="72QZ$" value="false" />
     <property role="3GE5qa" value="Menu.ProjectPane.Module.Language" />
     <property role="2uzpH1" value="Find Concepts Usages" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="5r64_$Qz1mM" role="tncku">
       <node concept="3clFbS" id="5r64_$Qz1mN" role="2VODD2">
         <node concept="3cpWs8" id="5r64_$Qz1mO" role="3cqZAp">
@@ -7786,6 +7800,7 @@
     <property role="72QZ$" value="true" />
     <property role="3GE5qa" value="Menu.MainMenu" />
     <property role="2uzpH1" value="Show Structure" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="12Xh7JlccnL" role="1NuT2Z">
       <property role="TrG5h" value="project" />
       <ref role="1DUlNI" to="qkt:~CommonDataKeys.PROJECT" resolve="PROJECT" />
@@ -8821,6 +8836,7 @@
     <property role="1WHSii" value="Navigate to node in original model selected transient node originates from" />
     <property role="72QZ$" value="true" />
     <property role="2uzpH1" value="Reveal Origin Node" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="5VaWw4ezIWY" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -9172,6 +9188,7 @@
     <property role="3GE5qa" value="New" />
     <property role="2uzpH1" value="Aspect Model" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="7IH442cRjJ7" role="1NuT2Z">
       <property role="TrG5h" value="module" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MODULE" resolve="MODULE" />
@@ -9597,6 +9614,7 @@
     <property role="2uzpH1" value="Find Usages" />
     <property role="TrG5h" value="FindModuleUsage" />
     <property role="72QZ$" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="6gJrPYfVx6g" role="1NuT2Z">
       <property role="TrG5h" value="module" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MODULE" resolve="MODULE" />
@@ -10111,6 +10129,7 @@
     <property role="TrG5h" value="ShowEditorMenuItemTrace" />
     <property role="2uzpH1" value="Show item trace" />
     <property role="72QZ$" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="3FLkBKnZE7M" role="1NuT2Z">
       <property role="TrG5h" value="selectedItem" />
       <ref role="1DUlNI" to="qkt:~PlatformCoreDataKeys.SELECTED_ITEM" resolve="SELECTED_ITEM" />
@@ -10843,6 +10862,7 @@
     <property role="3GE5qa" value="Menu.ProjectPane.Module" />
     <property role="TrG5h" value="PullGeneratorUpFromLanguage" />
     <property role="2uzpH1" value="Extract from Language " />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="DmFJ5GBI7c" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -11491,6 +11511,7 @@
     <property role="3GE5qa" value="DevKitTools" />
     <property role="2uzpH1" value="Reactivate EDT Queue" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="6RhlgZFAC48" role="tncku">
       <node concept="3clFbS" id="6RhlgZFAC49" role="2VODD2">
         <node concept="3cpWs8" id="hv3CAjdzqy" role="3cqZAp">
@@ -11595,6 +11616,7 @@
     <property role="2uzpH1" value="Calc properties/refs/children statistic for SNodes" />
     <property role="3GE5qa" value="Menu.MainMenu.ToolsActions" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="7QCr3uXSfAh" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -12209,6 +12231,7 @@
     <property role="2uzpH1" value="Emulate Make Session" />
     <property role="fJN8o" value="true" />
     <property role="2YLI8m" value="6u2MFnph2wS/none" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="1MoLHx0ChDU" role="1NuT2Z">
       <property role="TrG5h" value="project" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -12477,6 +12500,7 @@
     <property role="3GE5qa" value="Menu.MainMenu.ToolsActions" />
     <property role="2uzpH1" value="Find Rootable Concepts without Icons" />
     <property role="2YLI8m" value="6u2MFnph2wS/none" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="59D800tZ01B" role="1NuT2Z">
       <property role="TrG5h" value="project" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -12935,6 +12959,7 @@
     <property role="2uzpH1" value="Find unused and deprecated concepts" />
     <property role="3GE5qa" value="Menu.MainMenu.ToolsActions" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="2XrIbr" id="7QCr3uXZkX3" role="32lrUH">
       <property role="TrG5h" value="showUsagesViewForNodes" />
       <node concept="37vLTG" id="7Fc6RTbmbon" role="3clF46">

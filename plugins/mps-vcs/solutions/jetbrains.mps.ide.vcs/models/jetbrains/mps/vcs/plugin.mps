@@ -7,7 +7,7 @@
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="0" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="2" />
     <use id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging" version="0" />
-    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="5" />
+    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="6" />
     <use id="ef7bf5ac-d06c-4342-b11d-e42104eb9343" name="jetbrains.mps.lang.plugin.standalone" version="0" />
     <use id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources" version="2" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
@@ -94,6 +94,7 @@
         <property id="1211298967294" name="outsideCommandExecution" index="72QZ$" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
         <property id="7458746815261976739" name="requiredAccess" index="2YLI8m" />
+        <property id="4692598989365753297" name="updateInBackground" index="1rBW0U" />
         <property id="997079742910640235" name="fillActionContext" index="1teQrl" />
         <property id="1213273179528" name="description" index="1WHSii" />
         <child id="1203083196627" name="updateBlock" index="tmbBb" />
@@ -431,6 +432,7 @@
     <property role="3GE5qa" value="Actions" />
     <property role="2uzpH1" value="Rerun Merge from Backup" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="2XrIbr" id="7xjR2e1II1J" role="32lrUH">
       <property role="TrG5h" value="getBackupFiles" />
       <node concept="A3Dl8" id="7xjR2e1IJ99" role="3clF45">
@@ -1791,6 +1793,7 @@
     <property role="3GE5qa" value="Actions" />
     <property role="2uzpH1" value="Show Differences with Model on Disk" />
     <property role="2YLI8m" value="6u2MFnph2yg/read" />
+    <property role="1rBW0U" value="true" />
     <node concept="tkhdA" id="5YG5KSKXSff" role="tmbBb">
       <node concept="3clFbS" id="5YG5KSKXSfg" role="2VODD2">
         <node concept="3cpWs8" id="46Iaplavz7y" role="3cqZAp">
@@ -2190,6 +2193,7 @@
     <property role="72QZ$" value="true" />
     <property role="3GE5qa" value="Actions" />
     <property role="2uzpH1" value="Ignore Module..." />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="6ySnuJfjnzE" role="tncku">
       <node concept="3clFbS" id="6ySnuJfjnzF" role="2VODD2">
         <node concept="3SKdUt" id="srfjDK550e" role="3cqZAp">
@@ -2375,6 +2379,7 @@
     <property role="72QZ$" value="true" />
     <property role="3GE5qa" value="Actions" />
     <property role="2uzpH1" value="Add Module to VCS" />
+    <property role="1rBW0U" value="true" />
     <node concept="1QGGSu" id="2hX4PxwLP3n" role="3Uehp1">
       <node concept="10M0yZ" id="2hX4PxwM2MW" role="3xaMm5">
         <ref role="1PxDUh" to="l7us:~MPSIcons$Actions" resolve="MPSIcons.Actions" />
@@ -2584,6 +2589,7 @@
     <property role="3GE5qa" value="Actions" />
     <property role="2uzpH1" value="Compare with the Same Repository Version" />
     <property role="72QZ$" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="2XrIbr" id="7HIuVrrXzoa" role="32lrUH">
       <property role="TrG5h" value="getVcsActionsUtil" />
       <node concept="3uibUv" id="7HIuVrrXE8N" role="3clF45">
@@ -2929,6 +2935,7 @@
     <property role="72QZ$" value="true" />
     <property role="2uzpH1" value="Make Models" />
     <property role="3GE5qa" value="Actions" />
+    <property role="1rBW0U" value="true" />
     <node concept="2XrIbr" id="16Z9VSyjeSJ" role="32lrUH">
       <property role="TrG5h" value="getModels2Build" />
       <node concept="_YKpA" id="16Z9VSyjfUw" role="3clF45">
@@ -3646,6 +3653,7 @@
     <property role="2uzpH1" value="Compare Models" />
     <property role="3GE5qa" value="Actions" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="3ndSBELTflb" role="tncku">
       <node concept="3clFbS" id="3ndSBELTflc" role="2VODD2">
         <node concept="3cpWs8" id="wriWL6W06k" role="3cqZAp">
@@ -3923,6 +3931,7 @@
     <property role="2uzpH1" value="Merge test data from ZIP" />
     <property role="3GE5qa" value="Actions" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="4odLqy5SXtm" role="1NuT2Z">
       <property role="TrG5h" value="project" />
       <ref role="1DUlNI" to="qkt:~CommonDataKeys.PROJECT" resolve="PROJECT" />
@@ -4372,6 +4381,7 @@
     <property role="2uzpH1" value="Compare Two Nodes" />
     <property role="72QZ$" value="true" />
     <property role="1WHSii" value="Structure difference (node IDs ignored) between two nodes" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="778KdJ_uZCL" role="1NuT2Z">
       <property role="TrG5h" value="project" />
       <ref role="1DUlNI" to="qkt:~CommonDataKeys.PROJECT" resolve="PROJECT" />

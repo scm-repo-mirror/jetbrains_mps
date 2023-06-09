@@ -8,7 +8,7 @@
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="-1" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="2" />
     <use id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples" version="-1" />
-    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="5" />
+    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="6" />
     <use id="ef7bf5ac-d06c-4342-b11d-e42104eb9343" name="jetbrains.mps.lang.plugin.standalone" version="-1" />
     <use id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources" version="-1" />
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="-1" />
@@ -131,6 +131,7 @@
         <property id="1211298967294" name="outsideCommandExecution" index="72QZ$" />
         <property id="1207149998849" name="isAlwaysVisible" index="fJN8o" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
+        <property id="4692598989365753297" name="updateInBackground" index="1rBW0U" />
         <property id="997079742910640235" name="fillActionContext" index="1teQrl" />
         <property id="1213273179528" name="description" index="1WHSii" />
         <child id="1203083196627" name="updateBlock" index="tmbBb" />
@@ -622,6 +623,7 @@
     <property role="2uzpH1" value="Check Models Before Generation" />
     <property role="1teQrl" value="false" />
     <property role="72QZ$" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="5z503QbFih9" role="1NuT2Z">
       <property role="TrG5h" value="project" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -882,6 +884,7 @@
     <property role="3GE5qa" value="Java.Project" />
     <property role="2uzpH1" value="Clean Compiled Java Files" />
     <property role="1teQrl" value="false" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="1K00pPgqzig" role="tncku">
       <node concept="3clFbS" id="1K00pPgqzih" role="2VODD2">
         <node concept="3cpWs8" id="1K00pPgqzii" role="3cqZAp">
@@ -1053,6 +1056,7 @@
     <property role="3GE5qa" value="Java.Project" />
     <property role="2uzpH1" value="Compile Java Files" />
     <property role="1teQrl" value="false" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="1K00pPgqzjq" role="tncku">
       <node concept="3clFbS" id="1K00pPgqzjr" role="2VODD2">
         <node concept="3cpWs8" id="1K00pPgqzjs" role="3cqZAp">
@@ -1141,6 +1145,7 @@
     <property role="3GE5qa" value="Java.Project" />
     <property role="2uzpH1" value="Recompile Java Files" />
     <property role="1teQrl" value="false" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="1K00pPgqzkd" role="tncku">
       <node concept="3clFbS" id="1K00pPgqzke" role="2VODD2">
         <node concept="3cpWs8" id="1K00pPgqzkf" role="3cqZAp">
@@ -1251,6 +1256,7 @@
     <property role="3GE5qa" value="Java.Module" />
     <property role="2uzpH1" value="Clean Compiled Java Files" />
     <property role="1teQrl" value="false" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="47QEcUfsm30" role="tncku">
       <node concept="3clFbS" id="47QEcUfsm31" role="2VODD2">
         <node concept="3cpWs8" id="70GEktGUo$K" role="3cqZAp">
@@ -1446,6 +1452,7 @@
     <property role="3GE5qa" value="Java.Module" />
     <property role="2uzpH1" value="Recompile Java Files" />
     <property role="1teQrl" value="false" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="47QEcUfsm42" role="tncku">
       <node concept="3clFbS" id="47QEcUfsm43" role="2VODD2">
         <node concept="3cpWs8" id="47QEcUfsm44" role="3cqZAp">
@@ -1555,6 +1562,7 @@
     <property role="3GE5qa" value="Java.Module" />
     <property role="2uzpH1" value="Compile Java Files" />
     <property role="1teQrl" value="false" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="47QEcUfsm4z" role="tncku">
       <node concept="3clFbS" id="47QEcUfsm4$" role="2VODD2">
         <node concept="3cpWs8" id="47QEcUfsm4_" role="3cqZAp">
@@ -2072,6 +2080,7 @@
     <property role="2uzpH1" value="Options" />
     <property role="3GE5qa" value="Build.Options" />
     <property role="1teQrl" value="false" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="2UTM4$6j0G$" role="tncku">
       <node concept="3clFbS" id="2UTM4$6j0G_" role="2VODD2" />
     </node>
@@ -2091,6 +2100,7 @@
     <property role="2uzpH1" value="Make Model" />
     <property role="3GE5qa" value="Make" />
     <property role="1teQrl" value="false" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="7iCFfvQAkd8" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -4255,6 +4265,7 @@
     <property role="2uzpH1" value="Make _Project" />
     <property role="3GE5qa" value="Make" />
     <property role="1teQrl" value="false" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="7tZeFupJF5X" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -5235,6 +5246,7 @@
     <property role="3GE5qa" value="Make" />
     <property role="2uzpH1" value="Make" />
     <property role="1teQrl" value="false" />
+    <property role="1rBW0U" value="true" />
     <node concept="2XrIbr" id="7iCFfvQP7XL" role="32lrUH">
       <property role="TrG5h" value="getModels" />
       <node concept="3Tm6S6" id="7iCFfvQP7XM" role="1B3o_S" />
@@ -5871,6 +5883,7 @@
     <property role="2uzpH1" value="Rebuild Module" />
     <property role="3GE5qa" value="Make" />
     <property role="1teQrl" value="false" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="7iCFfvQB3qb" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -6058,6 +6071,7 @@
     <property role="2uzpH1" value="Make Module" />
     <property role="3GE5qa" value="Make" />
     <property role="1teQrl" value="false" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="7iCFfvQ_xtC" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -6229,6 +6243,7 @@
     <property role="2uzpH1" value="Rebuild Model" />
     <property role="3GE5qa" value="Make" />
     <property role="1teQrl" value="false" />
+    <property role="1rBW0U" value="true" />
     <node concept="2XrIbr" id="7iCFfvQAMHx" role="32lrUH">
       <property role="TrG5h" value="getModels" />
       <node concept="3Tm6S6" id="7iCFfvQAMHy" role="1B3o_S" />
@@ -6538,6 +6553,7 @@
     <property role="3GE5qa" value="Make" />
     <property role="2uzpH1" value="Preview Generated Text" />
     <property role="1teQrl" value="false" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="2BjwmTy5x3F" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -7855,6 +7871,7 @@
     <property role="2uzpH1" value="_Rebuild Project" />
     <property role="3GE5qa" value="Make" />
     <property role="1teQrl" value="false" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="7tZeFupJFiw" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -11488,6 +11505,7 @@
     <property role="2uzpH1" value="Rebuild All Generators" />
     <property role="3GE5qa" value="Internal.Make" />
     <property role="1teQrl" value="false" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="22IXdorOocz" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -11620,6 +11638,7 @@
     <property role="2uzpH1" value="Rebuild All Language Descriptors" />
     <property role="3GE5qa" value="Internal.Make" />
     <property role="1teQrl" value="false" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="22IXdorOodd" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -11843,6 +11862,7 @@
     <property role="2uzpH1" value="Rebuild Required Models" />
     <property role="3GE5qa" value="Internal.Make" />
     <property role="1teQrl" value="false" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="22IXdorOofk" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -12043,6 +12063,7 @@
     <property role="3GE5qa" value="Internal.Make" />
     <property role="1WHSii" value="Rebuild generators that generate templates" />
     <property role="1teQrl" value="false" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="56qcHJOgMTP" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -12525,6 +12546,7 @@
     <property role="3GE5qa" value="Internal.Make" />
     <property role="72QZ$" value="true" />
     <property role="1teQrl" value="false" />
+    <property role="1rBW0U" value="true" />
     <node concept="2JriF1" id="7wqdV6Y9M6K" role="2JrayB">
       <property role="TrG5h" value="aspect" />
       <node concept="3Tm6S6" id="7wqdV6Y9M6L" role="1B3o_S" />

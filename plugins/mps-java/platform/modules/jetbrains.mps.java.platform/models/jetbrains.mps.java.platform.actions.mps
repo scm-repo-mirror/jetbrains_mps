@@ -8,7 +8,7 @@
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="2" />
     <use id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples" version="-1" />
     <use id="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" name="jetbrains.mps.lang.actions" version="-1" />
-    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="5" />
+    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="6" />
     <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="5" />
     <use id="3ecd7c84-cde3-45de-886c-135ecc69b742" name="jetbrains.mps.lang.refactoring" version="-1" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
@@ -96,6 +96,7 @@
         <property id="1215865999894" name="mnemonic" index="ngHcd" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
         <property id="7458746815261976739" name="requiredAccess" index="2YLI8m" />
+        <property id="4692598989365753297" name="updateInBackground" index="1rBW0U" />
         <property id="997079742910640235" name="fillActionContext" index="1teQrl" />
         <property id="1213273179528" name="description" index="1WHSii" />
         <child id="1203083196627" name="updateBlock" index="tmbBb" />
@@ -723,6 +724,7 @@
     <property role="TrG5h" value="PasteAsJavaClass" />
     <property role="3GE5qa" value="Actions" />
     <property role="2uzpH1" value="Paste as Java Class" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="2vs9_ygEfaX" role="1NuT2Z">
       <property role="TrG5h" value="model" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MODEL" resolve="MODEL" />
@@ -1453,6 +1455,7 @@
     <property role="TrG5h" value="ResolveStubReferencesToMPS" />
     <property role="2uzpH1" value="Resolve Stub References to MPS Code" />
     <property role="3GE5qa" value="Actions" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="4fuA5EbPM6N" role="1NuT2Z">
       <property role="TrG5h" value="project" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -1562,6 +1565,7 @@
     <property role="TrG5h" value="ResolveStubReferencesToMPSGlobal" />
     <property role="2uzpH1" value="Resolve Stub References to MPS Code in the Whole Project" />
     <property role="3GE5qa" value="Actions" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="3Kb8mGRKrfg" role="1NuT2Z">
       <property role="TrG5h" value="project" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -17150,6 +17154,7 @@
     <property role="3GE5qa" value="Actions" />
     <property role="2uzpH1" value="Show Members" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="beXdrGepvN" role="tncku">
       <node concept="3clFbS" id="beXdrGepvO" role="2VODD2">
         <node concept="3cpWs8" id="5hB0G_qDMX8" role="3cqZAp">

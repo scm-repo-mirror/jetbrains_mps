@@ -3,7 +3,7 @@
   <persistence version="9" />
   <languages>
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
-    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="5" />
+    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="6" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="2" />
     <use id="443f4c36-fcf5-4eb6-9500-8d06ed259e3e" name="jetbrains.mps.baseLanguage.classifiers" version="0" />
     <use id="1a8554c4-eb84-43ba-8c34-6f0d90c6e75a" name="jetbrains.mps.lang.smodel.query" version="3" />
@@ -82,6 +82,7 @@
         <property id="1211298967294" name="outsideCommandExecution" index="72QZ$" />
         <property id="1215865999894" name="mnemonic" index="ngHcd" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
+        <property id="4692598989365753297" name="updateInBackground" index="1rBW0U" />
         <property id="997079742910640235" name="fillActionContext" index="1teQrl" />
         <child id="1203083196627" name="updateBlock" index="tmbBb" />
         <child id="1203083461638" name="executeFunction" index="tncku" />
@@ -3756,6 +3757,7 @@
     <property role="3GE5qa" value="migrationList" />
     <property role="72QZ$" value="true" />
     <property role="ngHcd" value="r" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="5$zfhXzhLy2" role="tncku">
       <node concept="3clFbS" id="5$zfhXzhLy3" role="2VODD2">
         <node concept="3cpWs8" id="1wrYbVZej8" role="3cqZAp">
@@ -5045,6 +5047,7 @@
     <property role="TrG5h" value="TestMigrationWizard" />
     <property role="2uzpH1" value="Test Migration Wizard" />
     <property role="72QZ$" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="65hwFmZi1Wy" role="1NuT2Z">
       <property role="TrG5h" value="project" />
       <ref role="1DUlNI" to="qkt:~CommonDataKeys.PROJECT" resolve="PROJECT" />
@@ -5567,6 +5570,7 @@
     <property role="2uzpH1" value="Run Pre-Update Check" />
     <property role="72QZ$" value="true" />
     <property role="ngHcd" value="c" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="5$zfhXzr51q" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -5717,6 +5721,7 @@
     <property role="72QZ$" value="true" />
     <property role="1teQrl" value="true" />
     <property role="ngHcd" value="u" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="7FLry2XR1vG" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -5767,6 +5772,7 @@
     <property role="TrG5h" value="FindDeprecatedCode" />
     <property role="2uzpH1" value="Find Deprecated Code in Project" />
     <property role="72QZ$" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="51adnVzXyUQ" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -6039,6 +6045,7 @@
     <property role="2uzpH1" value="Run" />
     <property role="3GE5qa" value="migrationList" />
     <property role="72QZ$" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="5$zfhXzrxUg" role="tncku">
       <node concept="3clFbS" id="5$zfhXzrxUh" role="2VODD2">
         <node concept="3clFbF" id="68FOACLu3hW" role="3cqZAp">
@@ -8486,6 +8493,7 @@
     <property role="2uzpH1" value="Find Usages of Deprecated" />
     <property role="ngHcd" value="d" />
     <property role="72QZ$" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="5$zfhXzhGmm" role="tncku">
       <node concept="3clFbS" id="5$zfhXzhGmn" role="2VODD2">
         <node concept="3clFbF" id="7LdOb2Pi4BD" role="3cqZAp">
@@ -9180,6 +9188,7 @@
     <property role="TrG5h" value="FindDeprecatedCodeWithNoUsages" />
     <property role="2uzpH1" value="Find Deprecated Code with No Usages" />
     <property role="72QZ$" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="2t6hOiXSDcP" role="tncku">
       <node concept="3clFbS" id="2t6hOiXSDcQ" role="2VODD2">
         <node concept="3clFbF" id="2t6hOiXU0ek" role="3cqZAp">

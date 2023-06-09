@@ -6,7 +6,7 @@
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="-1" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="2" />
     <use id="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" name="jetbrains.mps.lang.actions" version="4" />
-    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="5" />
+    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="6" />
     <use id="ef7bf5ac-d06c-4342-b11d-e42104eb9343" name="jetbrains.mps.lang.plugin.standalone" version="-1" />
     <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="5" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
@@ -67,6 +67,7 @@
       <concept id="1203071646776" name="jetbrains.mps.lang.plugin.structure.ActionDeclaration" flags="ng" index="sE7Ow">
         <property id="1211298967294" name="outsideCommandExecution" index="72QZ$" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
+        <property id="4692598989365753297" name="updateInBackground" index="1rBW0U" />
         <child id="1203083196627" name="updateBlock" index="tmbBb" />
         <child id="1203083461638" name="executeFunction" index="tncku" />
         <child id="1227008813498" name="constructionParameter" index="2JrayB" />
@@ -688,6 +689,7 @@
   <node concept="sE7Ow" id="2WSWNq1PvU$">
     <property role="TrG5h" value="NewClassLike" />
     <property role="2uzpH1" value="New &lt;something&gt;" />
+    <property role="1rBW0U" value="true" />
     <node concept="2JriF1" id="2WSWNq1Pw7L" role="2JrayB">
       <property role="TrG5h" value="descr" />
       <node concept="3Tm6S6" id="2WSWNq1Pw7M" role="1B3o_S" />
@@ -2162,6 +2164,7 @@
     <property role="2uzpH1" value="Go to Declaration" />
     <property role="3GE5qa" value="memberGutter" />
     <property role="72QZ$" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="6pKGoub8wBV" role="tncku">
       <node concept="3clFbS" id="6pKGoub8wBW" role="2VODD2">
         <node concept="3SKdUt" id="6ETkb2gORp1" role="3cqZAp">

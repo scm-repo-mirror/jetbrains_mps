@@ -5,7 +5,7 @@
     <use id="443f4c36-fcf5-4eb6-9500-8d06ed259e3e" name="jetbrains.mps.baseLanguage.classifiers" version="-1" />
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="-1" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="2" />
-    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="5" />
+    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="6" />
     <use id="ef7bf5ac-d06c-4342-b11d-e42104eb9343" name="jetbrains.mps.lang.plugin.standalone" version="-1" />
     <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="5" />
     <use id="63650c59-16c8-498a-99c8-005c7ee9515d" name="jetbrains.mps.lang.access" version="-1" />
@@ -121,6 +121,7 @@
       <concept id="1203071646776" name="jetbrains.mps.lang.plugin.structure.ActionDeclaration" flags="ng" index="sE7Ow">
         <property id="1211298967294" name="outsideCommandExecution" index="72QZ$" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
+        <property id="4692598989365753297" name="updateInBackground" index="1rBW0U" />
         <property id="997079742910640235" name="fillActionContext" index="1teQrl" />
         <property id="1213273179528" name="description" index="1WHSii" />
         <child id="394857668356997869" name="places" index="med8o" />
@@ -784,6 +785,7 @@
     <property role="2uzpH1" value="Show Help for Node" />
     <property role="3GE5qa" value="Actions" />
     <property role="72QZ$" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="4KDfkUwM9cJ" role="tncku">
       <node concept="3clFbS" id="4KDfkUwM9cK" role="2VODD2">
         <node concept="3clFbF" id="5z503Qbu_sD" role="3cqZAp">
@@ -893,6 +895,7 @@
     <property role="2uzpH1" value="Show Default Help" />
     <property role="3GE5qa" value="Actions" />
     <property role="72QZ$" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="mfpdH" id="79ALBP9Jg68" role="med8o" />
     <node concept="1DS2jV" id="5z503QbuE5b" role="1NuT2Z">
       <property role="TrG5h" value="project" />
@@ -1838,6 +1841,7 @@
     <property role="3GE5qa" value="Actions" />
     <property role="1teQrl" value="true" />
     <property role="72QZ$" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="4KDfkUwM9iP" role="tncku">
       <node concept="3clFbS" id="4KDfkUwM9iQ" role="2VODD2">
         <node concept="3clFbF" id="5z503Qbuyhq" role="3cqZAp">
@@ -1947,6 +1951,7 @@
     <property role="2uzpH1" value="Show Help for Aspect" />
     <property role="3GE5qa" value="Actions" />
     <property role="72QZ$" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="4KDfkUwM9jn" role="tncku">
       <node concept="3clFbS" id="4KDfkUwM9jo" role="2VODD2">
         <node concept="3clFbF" id="5z503Qbt7Rp" role="3cqZAp">
@@ -12442,6 +12447,7 @@
     <property role="TrG5h" value="CreateReferenceConcept" />
     <property role="2uzpH1" value="Create Reference Concept" />
     <property role="1WHSii" value="Adds a new concept with single reference to the current" />
+    <property role="1rBW0U" value="true" />
     <node concept="2S4$dB" id="5GUyf6oiXbZ" role="1NuT2Z">
       <property role="TrG5h" value="node" />
       <node concept="3Tm6S6" id="5GUyf6oiXc0" role="1B3o_S" />
@@ -15090,6 +15096,7 @@
     <property role="3GE5qa" value="Actions" />
     <property role="TrG5h" value="DropEnumPropertyMigrationAttribute" />
     <property role="2uzpH1" value="Drop Enum Property Migration's Attribute" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="_bcZOa55UU" role="tncku">
       <node concept="3clFbS" id="_bcZOa55UV" role="2VODD2">
         <node concept="3cpWs8" id="_bcZOahTjj" role="3cqZAp">
@@ -15237,6 +15244,7 @@
     <property role="3GE5qa" value="Actions" />
     <property role="TrG5h" value="DropEnumMigrationAttribute" />
     <property role="2uzpH1" value="Drop Enumeration Migration's Attribute" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="_bcZOahhsX" role="tncku">
       <node concept="3clFbS" id="_bcZOahhsY" role="2VODD2">
         <node concept="3cpWs8" id="_bcZOahv3a" role="3cqZAp">

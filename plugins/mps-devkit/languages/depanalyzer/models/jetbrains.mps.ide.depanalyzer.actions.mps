@@ -2,7 +2,7 @@
 <model ref="r:77da0423-abdb-440a-b7fa-09f1e00ba0f2(jetbrains.mps.ide.depanalyzer.actions)">
   <persistence version="9" />
   <languages>
-    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="5" />
+    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="6" />
     <use id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources" version="2" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
     <use id="443f4c36-fcf5-4eb6-9500-8d06ed259e3e" name="jetbrains.mps.baseLanguage.classifiers" version="0" />
@@ -58,6 +58,7 @@
       <concept id="1203071646776" name="jetbrains.mps.lang.plugin.structure.ActionDeclaration" flags="ng" index="sE7Ow">
         <property id="1211298967294" name="outsideCommandExecution" index="72QZ$" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
+        <property id="4692598989365753297" name="updateInBackground" index="1rBW0U" />
         <property id="997079742910640235" name="fillActionContext" index="1teQrl" />
         <property id="1213273179528" name="description" index="1WHSii" />
         <child id="1203083196627" name="updateBlock" index="tmbBb" />
@@ -371,6 +372,7 @@
     <property role="72QZ$" value="true" />
     <property role="2uzpH1" value="Analyze Module Dependencies" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1QGGSu" id="6XsdSpi8eWj" role="3Uehp1">
       <node concept="10M0yZ" id="6XsdSpi8f2g" role="3xaMm5">
         <ref role="1PxDUh" to="z2i8:~AllIcons$Toolwindows" resolve="AllIcons.Toolwindows" />
@@ -2124,6 +2126,7 @@
     <property role="TrG5h" value="AnalyzeModelDependencies" />
     <property role="72QZ$" value="true" />
     <property role="2uzpH1" value="Analyze Model Dependencies" />
+    <property role="1rBW0U" value="true" />
     <node concept="2XrIbr" id="3EnpNH2yrIP" role="32lrUH">
       <property role="TrG5h" value="computeScope" />
       <node concept="3uibUv" id="3EnpNH2yvDk" role="3clF45">

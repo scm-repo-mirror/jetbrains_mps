@@ -6,7 +6,7 @@
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="-1" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="2" />
     <use id="97a52717-898f-4598-8150-573d9fd03868" name="jetbrains.mps.lang.dataFlow.analyzers" version="-1" />
-    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="5" />
+    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="6" />
     <use id="ef7bf5ac-d06c-4342-b11d-e42104eb9343" name="jetbrains.mps.lang.plugin.standalone" version="-1" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
@@ -141,6 +141,7 @@
         <property id="1211298967294" name="outsideCommandExecution" index="72QZ$" />
         <property id="1207149998849" name="isAlwaysVisible" index="fJN8o" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
+        <property id="4692598989365753297" name="updateInBackground" index="1rBW0U" />
         <property id="997079742910640235" name="fillActionContext" index="1teQrl" />
         <child id="1203083196627" name="updateBlock" index="tmbBb" />
         <child id="1203083461638" name="executeFunction" index="tncku" />
@@ -734,6 +735,7 @@
     <property role="TrG5h" value="ShowNullDFA" />
     <property role="72QZ$" value="true" />
     <property role="2uzpH1" value="Show Nullable DFA" />
+    <property role="1rBW0U" value="true" />
     <node concept="2S4$dB" id="5GUQLVLhj1D" role="1NuT2Z">
       <property role="TrG5h" value="node" />
       <node concept="1oajcY" id="5GUQLVLhj1E" role="1oa70y" />
@@ -8764,6 +8766,7 @@
     <property role="3GE5qa" value="Actions" />
     <property role="2uzpH1" value="Make Field Final" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="2S4$dB" id="cvGLnZnRnB" role="1NuT2Z">
       <property role="TrG5h" value="target" />
       <node concept="3Tm6S6" id="cvGLnZnRnC" role="1B3o_S" />
@@ -8897,6 +8900,7 @@
     <property role="2uzpH1" value="Make Field Static" />
     <property role="3GE5qa" value="Actions" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="cvGLnZnRof" role="tncku">
       <node concept="3clFbS" id="cvGLnZnRog" role="2VODD2">
         <node concept="3clFbF" id="3dReA4l3cdc" role="3cqZAp">
@@ -9316,6 +9320,7 @@
     <property role="2uzpH1" value="Rename Method" />
     <property role="3GE5qa" value="Actions" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="2S4$dB" id="cvGLnZnRlK" role="1NuT2Z">
       <property role="TrG5h" value="target" />
       <node concept="3Tm6S6" id="cvGLnZnRlL" role="1B3o_S" />
@@ -9629,6 +9634,7 @@
     <property role="2uzpH1" value="Safe Delete Method" />
     <property role="3GE5qa" value="Actions" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="2S4$dB" id="2o0RM2fztWG" role="1NuT2Z">
       <property role="TrG5h" value="target" />
       <node concept="3Tm6S6" id="2o0RM2fztWH" role="1B3o_S" />

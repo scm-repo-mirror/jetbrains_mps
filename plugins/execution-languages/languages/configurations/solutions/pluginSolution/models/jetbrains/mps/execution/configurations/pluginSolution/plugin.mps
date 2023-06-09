@@ -6,7 +6,7 @@
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="-1" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="2" />
     <use id="22e72e4c-0f69-46ce-8403-6750153aa615" name="jetbrains.mps.execution.configurations" version="2" />
-    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="5" />
+    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="6" />
     <use id="ef7bf5ac-d06c-4342-b11d-e42104eb9343" name="jetbrains.mps.lang.plugin.standalone" version="-1" />
     <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="5" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
@@ -44,6 +44,7 @@
       </concept>
       <concept id="1203071646776" name="jetbrains.mps.lang.plugin.structure.ActionDeclaration" flags="ng" index="sE7Ow">
         <property id="1205250923097" name="caption" index="2uzpH1" />
+        <property id="4692598989365753297" name="updateInBackground" index="1rBW0U" />
         <child id="1203083196627" name="updateBlock" index="tmbBb" />
         <child id="1203083461638" name="executeFunction" index="tncku" />
         <child id="1217413222820" name="parameter" index="1NuT2Z" />
@@ -1211,6 +1212,7 @@
   <node concept="sE7Ow" id="5GUyf6onde1">
     <property role="TrG5h" value="AddProducer" />
     <property role="2uzpH1" value="Add Producer" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="5GUyf6onde2" role="tncku">
       <node concept="3clFbS" id="5GUyf6onde3" role="2VODD2">
         <node concept="3cpWs8" id="5GUyf6onq5w" role="3cqZAp">
@@ -1463,6 +1465,7 @@
   <node concept="sE7Ow" id="5GUyf6ontRL">
     <property role="TrG5h" value="AddExecutor" />
     <property role="2uzpH1" value="Add Executor" />
+    <property role="1rBW0U" value="true" />
     <node concept="2S4$dB" id="5GUyf6onuf6" role="1NuT2Z">
       <property role="TrG5h" value="node" />
       <node concept="3Tm6S6" id="5GUyf6onuf7" role="1B3o_S" />

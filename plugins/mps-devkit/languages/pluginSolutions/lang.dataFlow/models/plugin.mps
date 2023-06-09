@@ -4,7 +4,7 @@
   <languages>
     <use id="443f4c36-fcf5-4eb6-9500-8d06ed259e3e" name="jetbrains.mps.baseLanguage.classifiers" version="0" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="2" />
-    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="5" />
+    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="6" />
     <use id="ef7bf5ac-d06c-4342-b11d-e42104eb9343" name="jetbrains.mps.lang.plugin.standalone" version="0" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
@@ -31,6 +31,7 @@
       <concept id="1203071646776" name="jetbrains.mps.lang.plugin.structure.ActionDeclaration" flags="ng" index="sE7Ow">
         <property id="1211298967294" name="outsideCommandExecution" index="72QZ$" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
+        <property id="4692598989365753297" name="updateInBackground" index="1rBW0U" />
         <child id="1203083461638" name="executeFunction" index="tncku" />
         <child id="1217413222820" name="parameter" index="1NuT2Z" />
       </concept>
@@ -152,6 +153,7 @@
   <node concept="sE7Ow" id="4KDfkUwM7Dx">
     <property role="TrG5h" value="PrintDFAResult" />
     <property role="2uzpH1" value="Print DFA" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="4KDfkUwM7Dy" role="tncku">
       <node concept="3clFbS" id="4KDfkUwM7Dz" role="2VODD2">
         <node concept="3cpWs8" id="4KDfkUwM7D$" role="3cqZAp">
@@ -241,6 +243,7 @@
     <property role="TrG5h" value="ShowDFA" />
     <property role="72QZ$" value="true" />
     <property role="2uzpH1" value="Show Data Flow Graph" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="4KDfkUwM7DY" role="tncku">
       <node concept="3clFbS" id="4KDfkUwM7DZ" role="2VODD2">
         <node concept="3cpWs8" id="4KDfkUwM7E0" role="3cqZAp">
@@ -387,6 +390,7 @@
   <node concept="sE7Ow" id="4KDfkUwM7Er">
     <property role="TrG5h" value="PrintReachingDefinintionsInformation" />
     <property role="2uzpH1" value="Print DFA Reaching Definitions Information" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="4KDfkUwM7Es" role="tncku">
       <node concept="3clFbS" id="4KDfkUwM7Et" role="2VODD2">
         <node concept="3cpWs8" id="4KDfkUwM7Eu" role="3cqZAp">
@@ -486,6 +490,7 @@
   <node concept="sE7Ow" id="4KDfkUwM7EW">
     <property role="TrG5h" value="PrintInitializationInformation" />
     <property role="2uzpH1" value="Print DFA Initialization Information" />
+    <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="4KDfkUwM7EX" role="tncku">
       <node concept="3clFbS" id="4KDfkUwM7EY" role="2VODD2">
         <node concept="3cpWs8" id="4KDfkUwM7EZ" role="3cqZAp">

@@ -5,7 +5,7 @@
     <use id="443f4c36-fcf5-4eb6-9500-8d06ed259e3e" name="jetbrains.mps.baseLanguage.classifiers" version="-1" />
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="-1" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="2" />
-    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="5" />
+    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="6" />
     <use id="ef7bf5ac-d06c-4342-b11d-e42104eb9343" name="jetbrains.mps.lang.plugin.standalone" version="-1" />
     <use id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources" version="-1" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
@@ -75,6 +75,7 @@
         <property id="1207149998849" name="isAlwaysVisible" index="fJN8o" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
         <property id="7458746815261976739" name="requiredAccess" index="2YLI8m" />
+        <property id="4692598989365753297" name="updateInBackground" index="1rBW0U" />
         <property id="997079742910640235" name="fillActionContext" index="1teQrl" />
         <property id="1213273179528" name="description" index="1WHSii" />
         <child id="1203083196627" name="updateBlock" index="tmbBb" />
@@ -636,6 +637,7 @@
     <property role="3GE5qa" value="tool" />
     <property role="2uzpH1" value="Export Threads" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="68aArIS9HFv" role="1NuT2Z">
       <property role="TrG5h" value="project" />
       <ref role="1DUlNI" to="qkt:~CommonDataKeys.PROJECT" resolve="PROJECT" />
@@ -1305,6 +1307,7 @@
     <property role="3GE5qa" value="execution" />
     <property role="2uzpH1" value="Pause" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1QGGSu" id="6XsdSphGd5l" role="3Uehp1">
       <node concept="10M0yZ" id="6XsdSphGdlv" role="3xaMm5">
         <ref role="1PxDUh" to="z2i8:~AllIcons$Actions" resolve="AllIcons.Actions" />
@@ -1382,6 +1385,7 @@
     <property role="3GE5qa" value="execution" />
     <property role="2uzpH1" value="Resume" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1QGGSu" id="6XsdSphGedS" role="3Uehp1">
       <node concept="10M0yZ" id="5wRYDvyuLdV" role="3xaMm5">
         <ref role="3cqZAo" to="z2i8:~AllIcons$Actions.Resume" resolve="Resume" />
@@ -1457,6 +1461,7 @@
     <property role="3GE5qa" value="execution" />
     <property role="2uzpH1" value="Step Into" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1QGGSu" id="6XsdSphGg91" role="3Uehp1">
       <node concept="10M0yZ" id="6XsdSphGhE7" role="3xaMm5">
         <ref role="1PxDUh" to="z2i8:~AllIcons$Actions" resolve="AllIcons.Actions" />
@@ -1532,6 +1537,7 @@
     <property role="3GE5qa" value="execution" />
     <property role="2uzpH1" value="Step Out" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1QGGSu" id="6XsdSphGijq" role="3Uehp1">
       <node concept="10M0yZ" id="6XsdSphGizo" role="3xaMm5">
         <ref role="1PxDUh" to="z2i8:~AllIcons$Actions" resolve="AllIcons.Actions" />
@@ -1608,6 +1614,7 @@
     <property role="3GE5qa" value="execution" />
     <property role="2uzpH1" value="Step Over" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1QGGSu" id="6XsdSphGjcl" role="3Uehp1">
       <node concept="10M0yZ" id="6XsdSphGjsk" role="3xaMm5">
         <ref role="1PxDUh" to="z2i8:~AllIcons$Actions" resolve="AllIcons.Actions" />
@@ -1821,6 +1828,7 @@
     <property role="3GE5qa" value="breakpoints" />
     <property role="2uzpH1" value="View Breakpoints" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="4_scbGUJDhJ" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -2272,6 +2280,7 @@
     <property role="2uzpH1" value="Go To" />
     <property role="3GE5qa" value="breakpoints.dialog" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="1_xVpoi0xbh" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -2495,6 +2504,7 @@
     <property role="2uzpH1" value="View Source" />
     <property role="3GE5qa" value="breakpoints.dialog" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="1_xVpoi0ERJ" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -2673,6 +2683,7 @@
     <property role="3GE5qa" value="breakpoints.dialog" />
     <property role="fJN8o" value="true" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="ndZCfAIfOj" role="1NuT2Z">
       <property role="TrG5h" value="ideaProject" />
       <ref role="1DUlNI" to="qkt:~CommonDataKeys.PROJECT" resolve="PROJECT" />
@@ -2829,6 +2840,7 @@
     <property role="TrG5h" value="GoToSource" />
     <property role="2uzpH1" value="Go To Source" />
     <property role="3GE5qa" value="tree" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="7vO$jtdT3X7" role="1NuT2Z">
       <property role="TrG5h" value="node" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.NODE" resolve="NODE" />

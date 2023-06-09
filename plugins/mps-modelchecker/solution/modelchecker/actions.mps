@@ -5,7 +5,7 @@
     <use id="443f4c36-fcf5-4eb6-9500-8d06ed259e3e" name="jetbrains.mps.baseLanguage.classifiers" version="0" />
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="0" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="2" />
-    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="5" />
+    <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="6" />
     <use id="ef7bf5ac-d06c-4342-b11d-e42104eb9343" name="jetbrains.mps.lang.plugin.standalone" version="0" />
     <use id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources" version="2" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
@@ -87,6 +87,7 @@
       <concept id="1203071646776" name="jetbrains.mps.lang.plugin.structure.ActionDeclaration" flags="ng" index="sE7Ow">
         <property id="1211298967294" name="outsideCommandExecution" index="72QZ$" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
+        <property id="4692598989365753297" name="updateInBackground" index="1rBW0U" />
         <property id="997079742910640235" name="fillActionContext" index="1teQrl" />
         <property id="1213273179528" name="description" index="1WHSii" />
         <child id="394857668356997869" name="places" index="med8o" />
@@ -563,6 +564,7 @@
     <property role="3GE5qa" value="Model Checker.Actions" />
     <property role="2uzpH1" value="Check Project" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1QGGSu" id="6hehsrpcaUE" role="3Uehp1">
       <node concept="10M0yZ" id="6hehsrpcaUF" role="3xaMm5">
         <ref role="3cqZAo" to="l7us:~MPSIcons$General.ModelChecker" resolve="ModelChecker" />
@@ -604,6 +606,7 @@
     <property role="3GE5qa" value="Model Checker.Actions" />
     <property role="2uzpH1" value="Check [Module]" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="2XrIbr" id="3pNk_u$34RM" role="32lrUH">
       <property role="TrG5h" value="modules2check" />
       <node concept="3uibUv" id="3pNk_u$37Mg" role="3clF45">
@@ -991,6 +994,7 @@
     <property role="3GE5qa" value="Model Checker.Actions" />
     <property role="2uzpH1" value="Check Model" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1QGGSu" id="6hehsrpbFSo" role="3Uehp1">
       <node concept="10M0yZ" id="6hehsrpc1Ei" role="3xaMm5">
         <ref role="1PxDUh" to="l7us:~MPSIcons$General" resolve="MPSIcons.General" />
@@ -1554,6 +1558,7 @@
     <property role="72QZ$" value="true" />
     <property role="2uzpH1" value="Find Cross-template References" />
     <property role="3GE5qa" value="DevKit.Internal" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="6h3t152gT6k" role="1NuT2Z">
       <property role="TrG5h" value="project" />
       <ref role="1DUlNI" to="qkt:~CommonDataKeys.PROJECT" resolve="PROJECT" />
@@ -1670,6 +1675,7 @@
     <property role="2uzpH1" value="Find Wrong Aspect Dependencies" />
     <property role="3GE5qa" value="DevKit.Internal" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="7SNXUnYXKN6" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -4395,6 +4401,7 @@
     <property role="2uzpH1" value="Find References to non-referable concepts" />
     <property role="3GE5qa" value="DevKit.Internal" />
     <property role="1teQrl" value="true" />
+    <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="1_LT7K4nNuU" role="1NuT2Z">
       <property role="TrG5h" value="project" />
       <ref role="1DUlNI" to="qkt:~CommonDataKeys.PROJECT" resolve="PROJECT" />
