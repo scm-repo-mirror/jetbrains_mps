@@ -1969,7 +1969,7 @@
                           <node concept="liA8E" id="7Fh0O8t2LGS" role="2OqNvi">
                             <ref role="37wK5l" to="exr9:~EditorComponent.findNodeCell(org.jetbrains.mps.openapi.model.SNode)" resolve="findNodeCell" />
                             <node concept="37vLTw" id="7Fh0O8t2LGT" role="37wK5m">
-                              <ref role="3cqZAo" node="5W7E4fV0Y4G" />
+                              <ref role="3cqZAo" node="5W7E4fV0Y4G" resolve="it" />
                             </node>
                           </node>
                         </node>
@@ -8316,7 +8316,7 @@
                           <node concept="2XshWL" id="2M3H3BXpUGa" role="2OqNvi">
                             <ref role="2WH_rO" node="2M3H3BXpUHD" resolve="getDescriptior" />
                             <node concept="37vLTw" id="2BHiRxglqdc" role="2XxRq1">
-                              <ref role="3cqZAo" node="5W7E4fV0Y4I" />
+                              <ref role="3cqZAo" node="5W7E4fV0Y4I" resolve="a" />
                             </node>
                           </node>
                         </node>
@@ -8327,7 +8327,7 @@
                             <node concept="2XshWL" id="2M3H3BXpUGf" role="2OqNvi">
                               <ref role="2WH_rO" node="2M3H3BXpUHD" resolve="getDescriptior" />
                               <node concept="37vLTw" id="2BHiRxgmIBc" role="2XxRq1">
-                                <ref role="3cqZAo" node="5W7E4fV0Y4K" />
+                                <ref role="3cqZAo" node="5W7E4fV0Y4K" resolve="b" />
                               </node>
                             </node>
                           </node>

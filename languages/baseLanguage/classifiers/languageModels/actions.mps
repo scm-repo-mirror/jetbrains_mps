@@ -412,7 +412,7 @@
                     <node concept="3clFbF" id="1_s71rgDOu2" role="3cqZAp">
                       <node concept="2OqwBi" id="1_s71rgDP$I" role="3clFbG">
                         <node concept="37vLTw" id="1_s71rgDOu1" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0VSL" />
+                          <ref role="3cqZAo" node="5W7E4fV0VSL" resolve="it" />
                         </node>
                         <node concept="1_qnLN" id="1_s71rgDXOt" role="2OqNvi">
                           <ref role="1_rbq0" to="tpee:f$Xjq0c" resolve="ThisExpression" />

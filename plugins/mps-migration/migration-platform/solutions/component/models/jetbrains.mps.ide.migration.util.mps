@@ -976,7 +976,7 @@
                               <property role="3cmrfH" value="0" />
                             </node>
                             <node concept="37vLTw" id="TwlHViKf_U" role="1LFl5Q">
-                              <ref role="3cqZAo" node="5W7E4fV0Xw0" />
+                              <ref role="3cqZAo" node="5W7E4fV0Xw0" resolve="it" />
                             </node>
                           </node>
                         </node>

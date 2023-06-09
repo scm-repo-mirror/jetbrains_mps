@@ -1145,7 +1145,7 @@
                               <ref role="37wK5l" to="moux:32notsQsTE3" resolve="getNodeReference" />
                               <ref role="1Pybhc" to="moux:hpHLh7Fj1$" resolve="CommandUtil" />
                               <node concept="37vLTw" id="5mdbChISnuk" role="37wK5m">
-                                <ref role="3cqZAo" node="5W7E4fV0WMg" />
+                                <ref role="3cqZAo" node="5W7E4fV0WMg" resolve="it" />
                               </node>
                               <node concept="1ZhdrF" id="5mdbChISnul" role="lGtFl">
                                 <property role="2qtEX8" value="baseMethodDeclaration" />

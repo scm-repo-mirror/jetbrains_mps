@@ -200,7 +200,7 @@
                         </node>
                         <node concept="2OqwBi" id="QobsgSb3u2" role="3uHU7B">
                           <node concept="37vLTw" id="QobsgSb3u3" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0W2v" />
+                            <ref role="3cqZAo" node="5W7E4fV0W2v" resolve="it" />
                           </node>
                           <node concept="liA8E" id="QobsgSb3u4" role="2OqNvi">
                             <ref role="37wK5l" to="c17a:~SAbstractConcept.getName()" resolve="getName" />

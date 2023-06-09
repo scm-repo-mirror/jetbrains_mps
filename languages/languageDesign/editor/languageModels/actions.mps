@@ -791,7 +791,7 @@
                       <node concept="3clFbF" id="6VgTvK0rQLU" role="3cqZAp">
                         <node concept="2OqwBi" id="6VgTvK0rQLV" role="3clFbG">
                           <node concept="37vLTw" id="6VgTvK0rQLW" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0W5X" />
+                            <ref role="3cqZAo" node="5W7E4fV0W5X" resolve="it" />
                           </node>
                           <node concept="2qgKlT" id="6VgTvK0rQLX" role="2OqNvi">
                             <ref role="37wK5l" to="tpcb:7L5lpRJHK_w" resolve="getRequiredFeatures" />
@@ -827,7 +827,7 @@
                         <node concept="TSZUe" id="6VgTvK0rYY2" role="2OqNvi">
                           <node concept="2OqwBi" id="6VgTvK0s0oC" role="25WWJ7">
                             <node concept="37vLTw" id="6VgTvK0s00G" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0W5Z" />
+                              <ref role="3cqZAo" node="5W7E4fV0W5Z" resolve="it" />
                             </node>
                             <node concept="q_SaT" id="6VgTvK0s0N_" role="2OqNvi" />
                           </node>
@@ -883,7 +883,7 @@
                       <node concept="3fqX7Q" id="5qocf8PzXrK" role="3clFbG">
                         <node concept="2OqwBi" id="5qocf8PzXrL" role="3fr31v">
                           <node concept="37vLTw" id="5qocf8PzXrM" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0W61" />
+                            <ref role="3cqZAo" node="5W7E4fV0W61" resolve="it" />
                           </node>
                           <node concept="liA8E" id="5qocf8PzXrN" role="2OqNvi">
                             <ref role="37wK5l" to="c17a:~SAbstractConcept.isAbstract()" resolve="isAbstract" />
@@ -963,7 +963,7 @@
                               <node concept="2yIwOk" id="5qocf8PzXsn" role="2OqNvi" />
                             </node>
                             <node concept="37vLTw" id="5qocf8PzXso" role="3uHU7B">
-                              <ref role="3cqZAo" node="5W7E4fV0W65" />
+                              <ref role="3cqZAo" node="5W7E4fV0W65" resolve="it" />
                             </node>
                           </node>
                         </node>

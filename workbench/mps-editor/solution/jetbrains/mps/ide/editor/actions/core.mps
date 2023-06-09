@@ -263,7 +263,7 @@
                       <node concept="2OqwBi" id="5BxS2ByttV7" role="3clFbG">
                         <node concept="2OqwBi" id="5BxS2Bytt7h" role="2Oq$k0">
                           <node concept="37vLTw" id="5BxS2BytsKF" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0Y4M" />
+                            <ref role="3cqZAo" node="5W7E4fV0Y4M" resolve="it" />
                           </node>
                           <node concept="liA8E" id="5BxS2Byttuh" role="2OqNvi">
                             <ref role="37wK5l" to="kpve:~SimpleEditorMessage.getMessage()" resolve="getMessage" />
@@ -560,7 +560,7 @@
                     <node concept="2OqwBi" id="2uyAW6nr77O" role="3clFbG">
                       <node concept="2OqwBi" id="2uyAW6nr77P" role="2Oq$k0">
                         <node concept="37vLTw" id="2uyAW6nr77Q" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0Y4O" />
+                          <ref role="3cqZAo" node="5W7E4fV0Y4O" resolve="it" />
                         </node>
                         <node concept="liA8E" id="2uyAW6nr77R" role="2OqNvi">
                           <ref role="37wK5l" to="kpve:~SimpleEditorMessage.getMessage()" resolve="getMessage" />

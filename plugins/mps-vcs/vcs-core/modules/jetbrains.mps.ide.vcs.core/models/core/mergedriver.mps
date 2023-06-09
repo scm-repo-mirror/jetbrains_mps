@@ -972,7 +972,7 @@
                           <node concept="3clFbF" id="653QUnstbsQ" role="3cqZAp">
                             <node concept="3y3z36" id="653QUnstbsR" role="3clFbG">
                               <node concept="37vLTw" id="2BHiRxgkZYN" role="3uHU7B">
-                                <ref role="3cqZAo" node="5W7E4fV0X_w" />
+                                <ref role="3cqZAo" node="5W7E4fV0X_w" resolve="f" />
                               </node>
                               <node concept="10Nm6u" id="653QUnstbsT" role="3uHU7w" />
                             </node>
@@ -1325,7 +1325,7 @@
                             <ref role="3cqZAo" node="7zbsrrw6uaL" resolve="filetype" />
                           </node>
                           <node concept="37vLTw" id="2BHiRxglEtm" role="37wK5m">
-                            <ref role="3cqZAo" node="5W7E4fV0X_y" />
+                            <ref role="3cqZAo" node="5W7E4fV0X_y" resolve="f" />
                           </node>
                         </node>
                       </node>
@@ -1344,7 +1344,7 @@
                       <node concept="3y3z36" id="2TzypFyLI8R" role="3clFbG">
                         <node concept="10Nm6u" id="2TzypFyLI8S" role="3uHU7w" />
                         <node concept="37vLTw" id="2BHiRxglIeI" role="3uHU7B">
-                          <ref role="3cqZAo" node="5W7E4fV0X_$" />
+                          <ref role="3cqZAo" node="5W7E4fV0X_$" resolve="f" />
                         </node>
                       </node>
                     </node>
@@ -3652,7 +3652,7 @@
                                 <node concept="liA8E" id="2TzypFyLJh5" role="2OqNvi">
                                   <ref role="37wK5l" to="bmv6:3$YpntjF4nE" resolve="getConflictedWith" />
                                   <node concept="37vLTw" id="2BHiRxgm9ux" role="37wK5m">
-                                    <ref role="3cqZAo" node="5W7E4fV0X_A" />
+                                    <ref role="3cqZAo" node="5W7E4fV0X_A" resolve="c" />
                                   </node>
                                 </node>
                               </node>
@@ -5993,7 +5993,7 @@
                               <ref role="37wK5l" to="wyt6:~String.equals(java.lang.Object)" resolve="equals" />
                               <node concept="2OqwBi" id="7zbsrrw_D$g" role="37wK5m">
                                 <node concept="37vLTw" id="2BHiRxgheVp" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="5W7E4fV0X_C" />
+                                  <ref role="3cqZAo" node="5W7E4fV0X_C" resolve="t" />
                                 </node>
                                 <node concept="2OwXpG" id="7zbsrrw_D$i" role="2OqNvi">
                                   <ref role="2Oxat5" node="2TzypFyLPSf" resolve="mySuffix" />
@@ -6180,7 +6180,7 @@
                               <ref role="37wK5l" to="wyt6:~String.endsWith(java.lang.String)" resolve="endsWith" />
                               <node concept="2OqwBi" id="2TzypFyLPT1" role="37wK5m">
                                 <node concept="37vLTw" id="2BHiRxgm8LH" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="5W7E4fV0X_E" />
+                                  <ref role="3cqZAo" node="5W7E4fV0X_E" resolve="t" />
                                 </node>
                                 <node concept="2OwXpG" id="2TzypFyLPT3" role="2OqNvi">
                                   <ref role="2Oxat5" node="2TzypFyLPSf" resolve="mySuffix" />
@@ -6473,7 +6473,7 @@
                       <node concept="2OqwBi" id="5YKGT2oXX2A" role="3clFbG">
                         <node concept="2OqwBi" id="5YKGT2oXX2B" role="2Oq$k0">
                           <node concept="37vLTw" id="5YKGT2oXX2C" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0X_G" />
+                            <ref role="3cqZAo" node="5W7E4fV0X_G" resolve="t" />
                           </node>
                           <node concept="2OwXpG" id="5YKGT2p0g_r" role="2OqNvi">
                             <ref role="2Oxat5" node="5YKGT2oYd76" resolve="myXmlRoot" />

@@ -1453,7 +1453,7 @@
                           <node concept="17R0WA" id="65iXaoVe9pj" role="3clFbG">
                             <node concept="2OqwBi" id="65iXaoVe9pk" role="3uHU7B">
                               <node concept="37vLTw" id="2BHiRxghfGg" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0Xi6" />
+                                <ref role="3cqZAo" node="5W7E4fV0Xi6" resolve="it" />
                               </node>
                               <node concept="liA8E" id="65iXaoVe9pm" role="2OqNvi">
                                 <ref role="37wK5l" to="t6h5:~Method.getName()" resolve="getName" />

@@ -1002,7 +1002,7 @@
                         <node concept="3clFbF" id="3KdzVirh2Oo" role="3cqZAp">
                           <node concept="2OqwBi" id="3KdzVirh2Op" role="3clFbG">
                             <node concept="37vLTw" id="3KdzVirh2Oq" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0XlS" />
+                              <ref role="3cqZAo" node="5W7E4fV0XlS" resolve="it" />
                             </node>
                             <node concept="2OwXpG" id="3KdzVirh2Or" role="2OqNvi">
                               <ref role="2Oxat5" node="65vkPOiCZ8n" resolve="module" />
@@ -1028,7 +1028,7 @@
                     <node concept="3clFbF" id="3KdzVirh2Oy" role="3cqZAp">
                       <node concept="2OqwBi" id="3KdzVirh2Oz" role="3clFbG">
                         <node concept="37vLTw" id="3KdzVirh2O$" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0XlU" />
+                          <ref role="3cqZAo" node="5W7E4fV0XlU" resolve="it" />
                         </node>
                         <node concept="liA8E" id="3KdzVirh2O_" role="2OqNvi">
                           <ref role="37wK5l" to="lui2:~SModuleReference.getModuleName()" resolve="getModuleName" />
@@ -1131,7 +1131,7 @@
                               <node concept="2OqwBi" id="3KdzVirh2OT" role="3uHU7w">
                                 <node concept="2OqwBi" id="3KdzVirh2OU" role="2Oq$k0">
                                   <node concept="37vLTw" id="3KdzVirh2OV" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="5W7E4fV0XlW" />
+                                    <ref role="3cqZAo" node="5W7E4fV0XlW" resolve="it" />
                                   </node>
                                   <node concept="2OwXpG" id="3KdzVirh2OW" role="2OqNvi">
                                     <ref role="2Oxat5" node="65vkPOiCZ8k" resolve="role" />
@@ -1149,7 +1149,7 @@
                                   <ref role="37wK5l" to="wyt6:~Object.equals(java.lang.Object)" resolve="equals" />
                                   <node concept="2OqwBi" id="67kAnwJUZTu" role="37wK5m">
                                     <node concept="37vLTw" id="67kAnwJUXM2" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="5W7E4fV0XlW" />
+                                      <ref role="3cqZAo" node="5W7E4fV0XlW" resolve="it" />
                                     </node>
                                     <node concept="2OwXpG" id="67kAnwJV0x9" role="2OqNvi">
                                       <ref role="2Oxat5" node="65vkPOiCZ8n" resolve="module" />
@@ -1466,7 +1466,7 @@
                                     <node concept="liA8E" id="3KdzVirk8Bo" role="2OqNvi">
                                       <ref role="37wK5l" node="3KdzVirfAma" resolve="cyclePaths" />
                                       <node concept="37vLTw" id="3KdzVirk8Bp" role="37wK5m">
-                                        <ref role="3cqZAo" node="5W7E4fV0XlY" />
+                                        <ref role="3cqZAo" node="5W7E4fV0XlY" resolve="dep" />
                                       </node>
                                     </node>
                                   </node>
@@ -1639,7 +1639,7 @@
                                 <node concept="2OqwBi" id="3KdzVirh2QF" role="3uHU7w">
                                   <node concept="2OqwBi" id="3KdzVirh2QG" role="2Oq$k0">
                                     <node concept="37vLTw" id="3KdzVirh2QH" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="5W7E4fV0Xm0" />
+                                      <ref role="3cqZAo" node="5W7E4fV0Xm0" resolve="it" />
                                     </node>
                                     <node concept="2OwXpG" id="3KdzVirh2QI" role="2OqNvi">
                                       <ref role="2Oxat5" node="65vkPOiCZ8k" resolve="role" />
@@ -1652,7 +1652,7 @@
                                 <node concept="3clFbC" id="3KdzVirh2QK" role="3uHU7B">
                                   <node concept="2OqwBi" id="3KdzVirh2QL" role="3uHU7B">
                                     <node concept="37vLTw" id="3KdzVirh2QM" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="5W7E4fV0Xm0" />
+                                      <ref role="3cqZAo" node="5W7E4fV0Xm0" resolve="it" />
                                     </node>
                                     <node concept="2OwXpG" id="3KdzVirh2QN" role="2OqNvi">
                                       <ref role="2Oxat5" node="65vkPOiCZ8n" resolve="module" />
@@ -1782,7 +1782,7 @@
                                       <node concept="liA8E" id="3KdzVirktHj" role="2OqNvi">
                                         <ref role="37wK5l" node="3KdzVirfAma" resolve="cyclePaths" />
                                         <node concept="37vLTw" id="3KdzVirktHk" role="37wK5m">
-                                          <ref role="3cqZAo" node="5W7E4fV0Xm2" />
+                                          <ref role="3cqZAo" node="5W7E4fV0Xm2" resolve="dep" />
                                         </node>
                                       </node>
                                     </node>
@@ -7222,7 +7222,7 @@
                     <node concept="3clFbF" id="3yHXoEBFuLI" role="3cqZAp">
                       <node concept="2OqwBi" id="3yHXoEBFuLJ" role="3clFbG">
                         <node concept="37vLTw" id="3yHXoEBFuLK" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0Xm4" />
+                          <ref role="3cqZAo" node="5W7E4fV0Xm4" resolve="it" />
                         </node>
                         <node concept="liA8E" id="3yHXoEBFuLL" role="2OqNvi">
                           <ref role="37wK5l" to="c17a:~SLanguage.getSourceModuleReference()" resolve="getSourceModuleReference" />
@@ -7801,7 +7801,7 @@
                           <node concept="1pGfFk" id="7yrEqDbIBXY" role="2ShVmc">
                             <ref role="37wK5l" node="65vkPOiCZ8z" resolve="DepLink" />
                             <node concept="37vLTw" id="7yrEqDbIBXZ" role="37wK5m">
-                              <ref role="3cqZAo" node="5W7E4fV0Xm6" />
+                              <ref role="3cqZAo" node="5W7E4fV0Xm6" resolve="module" />
                             </node>
                             <node concept="37vLTw" id="7yrEqDbIBY0" role="37wK5m">
                               <ref role="3cqZAo" node="7yrEqDbIBXk" resolve="role" />
@@ -7896,7 +7896,7 @@
                     <node concept="3clFbF" id="Qjxfu1vy7R" role="3cqZAp">
                       <node concept="2OqwBi" id="Qjxfu1vy7S" role="3clFbG">
                         <node concept="37vLTw" id="2BHiRxgm6LH" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0Xm8" />
+                          <ref role="3cqZAo" node="5W7E4fV0Xm8" resolve="dep" />
                         </node>
                         <node concept="liA8E" id="Qjxfu1vy7U" role="2OqNvi">
                           <ref role="37wK5l" to="lui2:~SDependency.isReexport()" resolve="isReexport" />
@@ -7917,7 +7917,7 @@
                   <node concept="3clFbF" id="Qjxfu1vy80" role="3cqZAp">
                     <node concept="2OqwBi" id="Qjxfu1vy81" role="3clFbG">
                       <node concept="37vLTw" id="2BHiRxgheTA" role="2Oq$k0">
-                        <ref role="3cqZAo" node="5W7E4fV0Xma" />
+                        <ref role="3cqZAo" node="5W7E4fV0Xma" resolve="dep" />
                       </node>
                       <node concept="liA8E" id="Qjxfu1vy83" role="2OqNvi">
                         <ref role="37wK5l" to="lui2:~SDependency.getTargetModule()" resolve="getTargetModule" />
@@ -7978,7 +7978,7 @@
                       <node concept="3fqX7Q" id="Qjxfu1vy8r" role="3clFbG">
                         <node concept="2OqwBi" id="Qjxfu1vy8s" role="3fr31v">
                           <node concept="37vLTw" id="2BHiRxghisH" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0Xmc" />
+                            <ref role="3cqZAo" node="5W7E4fV0Xmc" resolve="dep" />
                           </node>
                           <node concept="liA8E" id="Qjxfu1vy8u" role="2OqNvi">
                             <ref role="37wK5l" to="w0gx:~Dependency.isReexport()" resolve="isReexport" />
@@ -8000,7 +8000,7 @@
                   <node concept="3clFbF" id="Qjxfu1vy8$" role="3cqZAp">
                     <node concept="2OqwBi" id="Qjxfu1vy8_" role="3clFbG">
                       <node concept="37vLTw" id="2BHiRxgllnn" role="2Oq$k0">
-                        <ref role="3cqZAo" node="5W7E4fV0Xme" />
+                        <ref role="3cqZAo" node="5W7E4fV0Xme" resolve="dep" />
                       </node>
                       <node concept="liA8E" id="Qjxfu1vy8B" role="2OqNvi">
                         <ref role="37wK5l" to="w0gx:~Dependency.getModuleRef()" resolve="getModuleRef" />
@@ -9786,7 +9786,7 @@
                       <node concept="liA8E" id="3KdzVirgxgk" role="2OqNvi">
                         <ref role="37wK5l" to="y49u:~Condition.met(java.lang.Object)" resolve="met" />
                         <node concept="37vLTw" id="3KdzVirgxgl" role="37wK5m">
-                          <ref role="3cqZAo" node="5W7E4fV0Xmg" />
+                          <ref role="3cqZAo" node="5W7E4fV0Xmg" resolve="it" />
                         </node>
                       </node>
                     </node>
@@ -13207,7 +13207,7 @@
                       <node concept="3clFbF" id="5dMA8jjAQzR" role="3cqZAp">
                         <node concept="2OqwBi" id="5dMA8jjARXx" role="3clFbG">
                           <node concept="37vLTw" id="5dMA8jjAQzQ" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0Xmi" />
+                            <ref role="3cqZAo" node="5W7E4fV0Xmi" resolve="it" />
                           </node>
                           <node concept="liA8E" id="5dMA8jjATrP" role="2OqNvi">
                             <ref role="37wK5l" to="mhbf:~SModelReference.resolve(org.jetbrains.mps.openapi.module.SRepository)" resolve="resolve" />
@@ -13254,7 +13254,7 @@
                       <node concept="3clFbF" id="5dMA8jjBfoN" role="3cqZAp">
                         <node concept="2OqwBi" id="5dMA8jjBgRx" role="3clFbG">
                           <node concept="37vLTw" id="5dMA8jjBfoM" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0Xmk" />
+                            <ref role="3cqZAo" node="5W7E4fV0Xmk" resolve="it" />
                           </node>
                           <node concept="liA8E" id="5dMA8jjBir8" role="2OqNvi">
                             <ref role="37wK5l" to="lui2:~SModuleReference.resolve(org.jetbrains.mps.openapi.module.SRepository)" resolve="resolve" />
@@ -13302,7 +13302,7 @@
                         <node concept="3clFbF" id="5dMA8jjBAF4" role="3cqZAp">
                           <node concept="2OqwBi" id="5dMA8jjBAQ6" role="3clFbG">
                             <node concept="37vLTw" id="5dMA8jjBAF3" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0Xmm" />
+                              <ref role="3cqZAo" node="5W7E4fV0Xmm" resolve="it" />
                             </node>
                             <node concept="liA8E" id="5dMA8jjBB6p" role="2OqNvi">
                               <ref role="37wK5l" to="mhbf:~SNodeReference.resolve(org.jetbrains.mps.openapi.module.SRepository)" resolve="resolve" />
@@ -13328,7 +13328,7 @@
                     <node concept="3clFbF" id="5dMA8jjBEBd" role="3cqZAp">
                       <node concept="2OqwBi" id="5dMA8jjBES8" role="3clFbG">
                         <node concept="37vLTw" id="5dMA8jjBEBc" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0Xmo" />
+                          <ref role="3cqZAo" node="5W7E4fV0Xmo" resolve="it" />
                         </node>
                         <node concept="liA8E" id="5dMA8jjBF8N" role="2OqNvi">
                           <ref role="37wK5l" to="mhbf:~SNode.getContainingRoot()" resolve="getContainingRoot" />
@@ -13724,7 +13724,7 @@
                       <node concept="3clFbF" id="5dMA8jj$ZfA" role="3cqZAp">
                         <node concept="2OqwBi" id="5dMA8jj$ZfB" role="3clFbG">
                           <node concept="37vLTw" id="5dMA8jj$ZfC" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0Xmq" />
+                            <ref role="3cqZAo" node="5W7E4fV0Xmq" resolve="it" />
                           </node>
                           <node concept="liA8E" id="5dMA8jj$ZfD" role="2OqNvi">
                             <ref role="37wK5l" to="lui2:~SModule.getModels()" resolve="getModels" />
@@ -13766,7 +13766,7 @@
                       <node concept="3clFbF" id="5dMA8jj$ZfU" role="3cqZAp">
                         <node concept="2OqwBi" id="5dMA8jj$ZfV" role="3clFbG">
                           <node concept="37vLTw" id="5dMA8jj$ZfW" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0Xms" />
+                            <ref role="3cqZAo" node="5W7E4fV0Xms" resolve="it" />
                           </node>
                           <node concept="liA8E" id="5dMA8jj$ZfX" role="2OqNvi">
                             <ref role="37wK5l" to="mhbf:~SModel.getRootNodes()" resolve="getRootNodes" />
@@ -13803,7 +13803,7 @@
                         <node concept="10QFUN" id="5dMA8jj$Zgd" role="1eOMHV">
                           <node concept="3Tqbb2" id="5dMA8jj$Zge" role="10QFUM" />
                           <node concept="37vLTw" id="5dMA8jj$Zgf" role="10QFUP">
-                            <ref role="3cqZAo" node="5W7E4fV0Xmu" />
+                            <ref role="3cqZAo" node="5W7E4fV0Xmu" resolve="it" />
                           </node>
                         </node>
                       </node>

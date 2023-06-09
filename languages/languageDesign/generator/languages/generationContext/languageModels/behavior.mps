@@ -693,7 +693,7 @@
                             <node concept="2OqwBi" id="6suuiWXKYvy" role="3clFbG">
                               <node concept="2OqwBi" id="6suuiWXKYvz" role="2Oq$k0">
                                 <node concept="37vLTw" id="6suuiWXKYv$" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="5W7E4fV0WdS" />
+                                  <ref role="3cqZAo" node="5W7E4fV0WdS" resolve="it" />
                                 </node>
                                 <node concept="3TrcHB" id="6suuiWXKYv_" role="2OqNvi">
                                   <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />

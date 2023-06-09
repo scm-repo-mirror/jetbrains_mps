@@ -217,7 +217,7 @@
                             <node concept="3fqX7Q" id="5Vvmn_QkLXg" role="3clFbG">
                               <node concept="2OqwBi" id="5Vvmn_QkLXh" role="3fr31v">
                                 <node concept="37vLTw" id="5Vvmn_QkLXi" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="5W7E4fV0VYC" />
+                                  <ref role="3cqZAo" node="5W7E4fV0VYC" resolve="it" />
                                 </node>
                                 <node concept="2qgKlT" id="4SpJmwPMZAX" role="2OqNvi">
                                   <ref role="37wK5l" to="tpek:28P2dHxCoRl" resolve="isAnAbstractMethod" />

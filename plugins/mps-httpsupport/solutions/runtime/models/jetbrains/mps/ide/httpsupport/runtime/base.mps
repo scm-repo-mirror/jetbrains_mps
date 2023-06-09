@@ -511,7 +511,7 @@
                       <node concept="2OqwBi" id="7CAL8BWhzM" role="3clFbG">
                         <node concept="2OqwBi" id="7CAL8BWhzN" role="2Oq$k0">
                           <node concept="37vLTw" id="7CAL8BWhzO" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0Xpa" />
+                            <ref role="3cqZAo" node="5W7E4fV0Xpa" resolve="it" />
                           </node>
                           <node concept="liA8E" id="7CAL8BWhzP" role="2OqNvi">
                             <ref role="37wK5l" to="z1c3:~Project.getName()" resolve="getName" />

@@ -474,7 +474,7 @@
                             <ref role="37wK5l" to="wyt6:~String.equals(java.lang.Object)" resolve="equals" />
                             <node concept="2OqwBi" id="1kRpwI5O1yx" role="37wK5m">
                               <node concept="37vLTw" id="1kRpwI5O1dl" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0Y5s" />
+                                <ref role="3cqZAo" node="5W7E4fV0Y5s" resolve="d" />
                               </node>
                               <node concept="liA8E" id="1kRpwI5O1yy" role="2OqNvi">
                                 <ref role="37wK5l" to="w0gx:~ModuleFacetDescriptor.getType()" resolve="getType" />

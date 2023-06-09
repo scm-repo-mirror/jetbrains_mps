@@ -1550,7 +1550,7 @@
                           <node concept="3fqX7Q" id="1wEcoXjJ132" role="3clFbG">
                             <node concept="2OqwBi" id="1wEcoXjJ133" role="3fr31v">
                               <node concept="37vLTw" id="1wEcoXjJ134" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0X4s" />
+                                <ref role="3cqZAo" node="5W7E4fV0X4s" resolve="it" />
                               </node>
                               <node concept="liA8E" id="1wEcoXjJ135" role="2OqNvi">
                                 <ref role="37wK5l" to="c17a:~SAbstractConcept.isAbstract()" resolve="isAbstract" />
@@ -1661,7 +1661,7 @@
                           <node concept="3fqX7Q" id="1wEcoXjJ141" role="3clFbG">
                             <node concept="2OqwBi" id="1wEcoXjJ142" role="3fr31v">
                               <node concept="37vLTw" id="1wEcoXjJ143" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0X4u" />
+                                <ref role="3cqZAo" node="5W7E4fV0X4u" resolve="it" />
                               </node>
                               <node concept="liA8E" id="1wEcoXjJ144" role="2OqNvi">
                                 <ref role="37wK5l" to="c17a:~SAbstractConcept.isAbstract()" resolve="isAbstract" />
@@ -2466,7 +2466,7 @@
                       <node concept="3clFbF" id="1wEcoXjJ1d9" role="3cqZAp">
                         <node concept="17QLQc" id="1wEcoXjJ1da" role="3clFbG">
                           <node concept="37vLTw" id="1wEcoXjJ1db" role="3uHU7B">
-                            <ref role="3cqZAo" node="5W7E4fV0X4w" />
+                            <ref role="3cqZAo" node="5W7E4fV0X4w" resolve="it" />
                           </node>
                           <node concept="35c_gC" id="1wEcoXjJ1dc" role="3uHU7w">
                             <ref role="35c_gD" to="kxd5:2d_KkSmsqBa" resolve="ActionTestAbstractChild" />

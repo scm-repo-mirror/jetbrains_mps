@@ -529,7 +529,7 @@
                         <node concept="3fqX7Q" id="5Vvmn_QkX5P" role="3clFbG">
                           <node concept="2OqwBi" id="5Vvmn_QkX5Q" role="3fr31v">
                             <node concept="37vLTw" id="5Vvmn_QkX5R" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0W_H" />
+                              <ref role="3cqZAo" node="5W7E4fV0W_H" resolve="it" />
                             </node>
                             <node concept="2qgKlT" id="5Vvmn_QkX5S" role="2OqNvi">
                               <ref role="37wK5l" to="tpek:5laDzmpBPv8" resolve="isVisible" />

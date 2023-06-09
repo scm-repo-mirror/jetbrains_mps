@@ -3488,7 +3488,7 @@
                               <node concept="1rXfSq" id="IYmOvnWVQd" role="3uHU7w">
                                 <ref role="37wK5l" node="IYmOvnWCZP" resolve="getExpressionPresentation" />
                                 <node concept="37vLTw" id="IYmOvnWVY2" role="37wK5m">
-                                  <ref role="3cqZAo" node="5W7E4fV0Xhs" />
+                                  <ref role="3cqZAo" node="5W7E4fV0Xhs" resolve="it" />
                                 </node>
                               </node>
                               <node concept="1eOMI4" id="4HVSRL4aHdk" role="3uHU7B">
@@ -3663,7 +3663,7 @@
                               <node concept="3Tqbb2" id="7wawnAdo5fn" role="10QFUM" />
                               <node concept="2OqwBi" id="7wawnAdo5fo" role="10QFUP">
                                 <node concept="37vLTw" id="2BHiRxgmb$i" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="5W7E4fV0Xhu" />
+                                  <ref role="3cqZAo" node="5W7E4fV0Xhu" resolve="it" />
                                 </node>
                                 <node concept="liA8E" id="6SyhPqtSbOt" role="2OqNvi">
                                   <ref role="37wK5l" to="mhbf:~SNodeReference.resolve(org.jetbrains.mps.openapi.module.SRepository)" resolve="resolve" />
@@ -4341,7 +4341,7 @@
                       <node concept="2OqwBi" id="6hQteoiVDtA" role="3clFbG">
                         <node concept="2OqwBi" id="6hQteoiVDtx" role="2Oq$k0">
                           <node concept="37vLTw" id="2BHiRxgmFcX" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0Xhw" />
+                            <ref role="3cqZAo" node="5W7E4fV0Xhw" resolve="it" />
                           </node>
                           <node concept="32TBzR" id="6hQteoiVDt_" role="2OqNvi" />
                         </node>
@@ -4363,7 +4363,7 @@
                     <node concept="1rXfSq" id="IYmOvo091K" role="3clFbG">
                       <ref role="37wK5l" node="7dwGA3a9xu6" resolve="transformNodeToProperVariableReference" />
                       <node concept="37vLTw" id="2$2GTfm4g9" role="37wK5m">
-                        <ref role="3cqZAo" node="5W7E4fV0Xhy" />
+                        <ref role="3cqZAo" node="5W7E4fV0Xhy" resolve="it" />
                       </node>
                       <node concept="37vLTw" id="IYmOvo09h$" role="37wK5m">
                         <ref role="3cqZAo" node="IYmOvnZmoK" resolve="containerModel" />

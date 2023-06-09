@@ -1689,7 +1689,7 @@
                           </node>
                           <node concept="2OqwBi" id="783BNKYVkWr" role="1m5AlR">
                             <node concept="37vLTw" id="783BNKYVkWs" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0VS6" />
+                              <ref role="3cqZAo" node="5W7E4fV0VS6" resolve="reqVar" />
                             </node>
                             <node concept="3TrEf2" id="783BNKYVkWt" role="2OqNvi">
                               <ref role="3Tt5mk" to="tpee:5Z1N4vbhycR" resolve="expr" />

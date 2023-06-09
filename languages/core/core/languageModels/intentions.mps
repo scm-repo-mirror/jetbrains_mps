@@ -496,7 +496,7 @@
                         <node concept="2OqwBi" id="3Z3vdqw9zWQ" role="3uHU7B">
                           <node concept="2OqwBi" id="3Z3vdqw9xQE" role="2Oq$k0">
                             <node concept="37vLTw" id="3Z3vdqw9xQF" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0W21" />
+                              <ref role="3cqZAo" node="5W7E4fV0W21" resolve="it" />
                             </node>
                             <node concept="liA8E" id="3Z3vdqw9yiN" role="2OqNvi">
                               <ref role="37wK5l" to="d6hs:~IssueKindReportItem.getIssueKind()" resolve="getIssueKind" />
@@ -531,7 +531,7 @@
                       <node concept="17R0WA" id="2dHt7HZ2fBQ" role="3clFbG">
                         <node concept="2OqwBi" id="2dHt7HZ2fBS" role="3uHU7B">
                           <node concept="37vLTw" id="2dHt7HZ2fBT" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0W23" />
+                            <ref role="3cqZAo" node="5W7E4fV0W23" resolve="it" />
                           </node>
                           <node concept="liA8E" id="2dHt7HZ2gRs" role="2OqNvi">
                             <ref role="37wK5l" to="d6hs:~ReportItem.getSeverity()" resolve="getSeverity" />
@@ -733,7 +733,7 @@
                         <node concept="17R0WA" id="5Ow3SnJlc7k" role="3clFbG">
                           <node concept="2OqwBi" id="KgjTrBm2o$" role="3uHU7B">
                             <node concept="37vLTw" id="KgjTrBm2o_" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0W25" />
+                              <ref role="3cqZAo" node="5W7E4fV0W25" resolve="it" />
                             </node>
                             <node concept="liA8E" id="KgjTrBm2oA" role="2OqNvi">
                               <ref role="37wK5l" to="d6hs:~ReportItem.getSeverity()" resolve="getSeverity" />
@@ -991,7 +991,7 @@
                           </node>
                           <node concept="2OqwBi" id="KgjTrBlNHz" role="3uHU7B">
                             <node concept="37vLTw" id="KgjTrBlN6Y" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0W27" />
+                              <ref role="3cqZAo" node="5W7E4fV0W27" resolve="it" />
                             </node>
                             <node concept="liA8E" id="KgjTrBlOB1" role="2OqNvi">
                               <ref role="37wK5l" to="d6hs:~ReportItem.getSeverity()" resolve="getSeverity" />
@@ -1293,7 +1293,7 @@
                         <node concept="2OqwBi" id="2dHt7HZ2mnZ" role="3uHU7B">
                           <node concept="2OqwBi" id="2dHt7HZ2mo0" role="2Oq$k0">
                             <node concept="37vLTw" id="2dHt7HZ2mo1" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0W29" />
+                              <ref role="3cqZAo" node="5W7E4fV0W29" resolve="it" />
                             </node>
                             <node concept="liA8E" id="2dHt7HZ2mo2" role="2OqNvi">
                               <ref role="37wK5l" to="d6hs:~IssueKindReportItem.getIssueKind()" resolve="getIssueKind" />
@@ -1329,7 +1329,7 @@
                         <node concept="17R0WA" id="2dHt7HZ2v_Y" role="3clFbG">
                           <node concept="2OqwBi" id="2dHt7HZ2v_Z" role="3uHU7B">
                             <node concept="37vLTw" id="2dHt7HZ2vA0" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0W2b" />
+                              <ref role="3cqZAo" node="5W7E4fV0W2b" resolve="it" />
                             </node>
                             <node concept="liA8E" id="2dHt7HZ2vA1" role="2OqNvi">
                               <ref role="37wK5l" to="d6hs:~ReportItem.getSeverity()" resolve="getSeverity" />
@@ -1443,7 +1443,7 @@
                       <node concept="2OqwBi" id="4AMiyJgDMFi" role="3cqZAk">
                         <node concept="2OqwBi" id="7s1FVdAzibf" role="2Oq$k0">
                           <node concept="37vLTw" id="7s1FVdAzgLK" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0W2d" />
+                            <ref role="3cqZAo" node="5W7E4fV0W2d" resolve="it" />
                           </node>
                           <node concept="3TrcHB" id="7s1FVdAzjB1" role="2OqNvi">
                             <ref role="3TsBF5" to="tpck:7s1FVdAuNzP" resolve="message" />

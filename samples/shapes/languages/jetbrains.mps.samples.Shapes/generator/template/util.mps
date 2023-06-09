@@ -180,7 +180,7 @@
                       </node>
                       <node concept="2OqwBi" id="4vSAr3EI6SY" role="3uHU7B">
                         <node concept="37vLTw" id="4vSAr3EI6SZ" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0X2O" />
+                          <ref role="3cqZAo" node="5W7E4fV0X2O" resolve="it" />
                         </node>
                         <node concept="3TrcHB" id="4vSAr3EI6T0" role="2OqNvi">
                           <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />

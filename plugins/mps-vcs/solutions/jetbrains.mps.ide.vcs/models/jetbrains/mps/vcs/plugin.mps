@@ -3001,12 +3001,12 @@
                               <ref role="37wK5l" to="ap4u:~GenerationFacade.canGenerate(org.jetbrains.mps.openapi.model.SModel)" resolve="canGenerate" />
                               <ref role="1Pybhc" to="ap4u:~GenerationFacade" resolve="GenerationFacade" />
                               <node concept="37vLTw" id="16Z9VSyjvSK" role="37wK5m">
-                                <ref role="3cqZAo" node="5W7E4fV0X_i" />
+                                <ref role="3cqZAo" node="5W7E4fV0X_i" resolve="m" />
                               </node>
                             </node>
                             <node concept="3y3z36" id="78RbNhWi9QD" role="3uHU7B">
                               <node concept="37vLTw" id="2BHiRxglqe5" role="3uHU7B">
-                                <ref role="3cqZAo" node="5W7E4fV0X_i" />
+                                <ref role="3cqZAo" node="5W7E4fV0X_i" resolve="m" />
                               </node>
                               <node concept="10Nm6u" id="78RbNhWi9QE" role="3uHU7w" />
                             </node>
@@ -3034,7 +3034,7 @@
                                           <ref role="37wK5l" to="jlff:~VirtualFile.isInLocalFileSystem()" resolve="isInLocalFileSystem" />
                                         </node>
                                         <node concept="37vLTw" id="2BHiRxgm1Po" role="2Oq$k0">
-                                          <ref role="3cqZAo" node="5W7E4fV0X_k" />
+                                          <ref role="3cqZAo" node="5W7E4fV0X_k" resolve="vf" />
                                         </node>
                                       </node>
                                       <node concept="2OqwBi" id="78RbNhWi9Qi" role="3uHU7w">
@@ -3042,14 +3042,14 @@
                                           <ref role="37wK5l" to="jlff:~VirtualFile.exists()" resolve="exists" />
                                         </node>
                                         <node concept="37vLTw" id="2BHiRxgheY8" role="2Oq$k0">
-                                          <ref role="3cqZAo" node="5W7E4fV0X_k" />
+                                          <ref role="3cqZAo" node="5W7E4fV0X_k" resolve="vf" />
                                         </node>
                                       </node>
                                     </node>
                                     <node concept="3fqX7Q" id="78RbNhWi9Qa" role="3uHU7w">
                                       <node concept="2OqwBi" id="78RbNhWi9Qb" role="3fr31v">
                                         <node concept="37vLTw" id="2BHiRxgmjkQ" role="2Oq$k0">
-                                          <ref role="3cqZAo" node="5W7E4fV0X_k" />
+                                          <ref role="3cqZAo" node="5W7E4fV0X_k" resolve="vf" />
                                         </node>
                                         <node concept="liA8E" id="78RbNhWi9Qd" role="2OqNvi">
                                           <ref role="37wK5l" to="jlff:~VirtualFile.isDirectory()" resolve="isDirectory" />
@@ -3083,7 +3083,7 @@
                                   <node concept="liA8E" id="6PUZm6l9VlO" role="2OqNvi">
                                     <ref role="37wK5l" to="4hrd:~IdeaFileSystem.canConvert(com.intellij.openapi.vfs.VirtualFile)" resolve="canConvert" />
                                     <node concept="37vLTw" id="6PUZm6l9VYv" role="37wK5m">
-                                      <ref role="3cqZAo" node="5W7E4fV0X_m" />
+                                      <ref role="3cqZAo" node="5W7E4fV0X_m" resolve="it" />
                                     </node>
                                   </node>
                                 </node>
@@ -3107,7 +3107,7 @@
                                 <node concept="liA8E" id="V2e5CGY1ZB" role="2OqNvi">
                                   <ref role="37wK5l" to="4hrd:~IdeaFileSystem.fromVirtualFile(com.intellij.openapi.vfs.VirtualFile)" resolve="fromVirtualFile" />
                                   <node concept="37vLTw" id="V2e5CGYdaj" role="37wK5m">
-                                    <ref role="3cqZAo" node="5W7E4fV0X_o" />
+                                    <ref role="3cqZAo" node="5W7E4fV0X_o" resolve="vf" />
                                   </node>
                                 </node>
                               </node>
@@ -3135,7 +3135,7 @@
                               <node concept="liA8E" id="5ORmSV01Zon" role="2OqNvi">
                                 <ref role="37wK5l" to="w1kc:~SModelFileTracker.findModel(jetbrains.mps.vfs.IFile)" resolve="findModel" />
                                 <node concept="37vLTw" id="V2e5CGYk1O" role="37wK5m">
-                                  <ref role="3cqZAo" node="5W7E4fV0X_q" />
+                                  <ref role="3cqZAo" node="5W7E4fV0X_q" resolve="f" />
                                 </node>
                               </node>
                             </node>
@@ -3693,7 +3693,7 @@
                             <node concept="1pGfFk" id="wriWL6Wulw" role="2ShVmc">
                               <ref role="37wK5l" to="24bc:~ModelDiffContent.&lt;init&gt;(org.jetbrains.mps.openapi.model.SModel)" resolve="ModelDiffContent" />
                               <node concept="37vLTw" id="wriWL6Wu_X" role="37wK5m">
-                                <ref role="3cqZAo" node="5W7E4fV0X_s" />
+                                <ref role="3cqZAo" node="5W7E4fV0X_s" resolve="model" />
                               </node>
                             </node>
                           </node>
@@ -3730,7 +3730,7 @@
                           <node concept="Xl_RD" id="wriWL6W_xK" role="3uHU7w" />
                           <node concept="2OqwBi" id="wriWL6WnNA" role="3uHU7B">
                             <node concept="37vLTw" id="wriWL6Wnw1" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0X_u" />
+                              <ref role="3cqZAo" node="5W7E4fV0X_u" resolve="model" />
                             </node>
                             <node concept="liA8E" id="wriWL6Woj4" role="2OqNvi">
                               <ref role="37wK5l" to="mhbf:~SModel.getName()" resolve="getName" />

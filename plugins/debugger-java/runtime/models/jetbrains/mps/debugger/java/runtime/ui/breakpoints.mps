@@ -705,7 +705,7 @@
                                   <ref role="37wK5l" to="w1kc:~SModelStereotype.isStubModel(org.jetbrains.mps.openapi.model.SModel)" resolve="isStubModel" />
                                   <ref role="1Pybhc" to="w1kc:~SModelStereotype" resolve="SModelStereotype" />
                                   <node concept="37vLTw" id="7d$WBe3bS$p" role="37wK5m">
-                                    <ref role="3cqZAo" node="5W7E4fV0XhY" />
+                                    <ref role="3cqZAo" node="5W7E4fV0XhY" resolve="it" />
                                   </node>
                                 </node>
                               </node>

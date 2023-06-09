@@ -4933,7 +4933,7 @@
                               <ref role="37wK5l" to="wyt6:~String.equals(java.lang.Object)" resolve="equals" />
                               <node concept="2OqwBi" id="5YrKoZhDTcO" role="37wK5m">
                                 <node concept="37vLTw" id="5YrKoZhDTcP" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="5W7E4fV0VUe" />
+                                  <ref role="3cqZAo" node="5W7E4fV0VUe" resolve="m" />
                                 </node>
                                 <node concept="3TrcHB" id="5YrKoZhDTcQ" role="2OqNvi">
                                   <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
@@ -4947,7 +4947,7 @@
                             <ref role="37wK5l" to="tpek:28P2dHxCoRl" resolve="isAnAbstractMethod" />
                           </node>
                           <node concept="37vLTw" id="5YrKoZhDTcT" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0VUe" />
+                            <ref role="3cqZAo" node="5W7E4fV0VUe" resolve="m" />
                           </node>
                         </node>
                       </node>
@@ -5202,7 +5202,7 @@
                                 </node>
                                 <node concept="2OqwBi" id="5YrKoZhDTew" role="3uHU7B">
                                   <node concept="37vLTw" id="5YrKoZhDTex" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="5W7E4fV0VUg" />
+                                    <ref role="3cqZAo" node="5W7E4fV0VUg" resolve="it" />
                                   </node>
                                   <node concept="2qgKlT" id="5YrKoZhDTey" role="2OqNvi">
                                     <ref role="37wK5l" to="tpek:2t8d$bukubq" resolve="getErasureSignature" />

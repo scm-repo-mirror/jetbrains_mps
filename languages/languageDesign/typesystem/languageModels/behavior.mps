@@ -874,7 +874,7 @@
                         <node concept="1pGfFk" id="426cbTMmWks" role="2ShVmc">
                           <ref role="37wK5l" to="d6hs:~RuleIdFlavouredItem$TypesystemRuleId.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNodeReference)" resolve="RuleIdFlavouredItem.TypesystemRuleId" />
                           <node concept="37vLTw" id="426cbTMmWkt" role="37wK5m">
-                            <ref role="3cqZAo" node="5W7E4fV0WyW" />
+                            <ref role="3cqZAo" node="5W7E4fV0WyW" resolve="it" />
                           </node>
                         </node>
                       </node>
@@ -1742,7 +1742,7 @@
                           <node concept="2JrnkZ" id="21kJG8HhCQi" role="2Oq$k0">
                             <node concept="2OqwBi" id="21kJG8HhCQj" role="2JrQYb">
                               <node concept="37vLTw" id="21kJG8HhCQk" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0WyY" />
+                                <ref role="3cqZAo" node="5W7E4fV0WyY" resolve="superConcept" />
                               </node>
                               <node concept="I4A8Y" id="21kJG8HhCQl" role="2OqNvi" />
                             </node>
@@ -1823,7 +1823,7 @@
                       <node concept="2OqwBi" id="21kJG8HhCQp" role="3K4E3e">
                         <node concept="2OqwBi" id="21kJG8HhCQq" role="2Oq$k0">
                           <node concept="37vLTw" id="21kJG8HhCQr" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0WyY" />
+                            <ref role="3cqZAo" node="5W7E4fV0WyY" resolve="superConcept" />
                           </node>
                           <node concept="2qgKlT" id="21kJG8HhCQs" role="2OqNvi">
                             <ref role="37wK5l" to="tpcn:4G9PD8$NvPM" resolve="findConceptAspects" />
@@ -3428,7 +3428,7 @@
                         <node concept="17QB3L" id="14AwouLgTgs" role="1tU5fm" />
                         <node concept="2OqwBi" id="14AwouLgTk$" role="33vP2m">
                           <node concept="37vLTw" id="14AwouLik2C" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0Wz0" />
+                            <ref role="3cqZAo" node="5W7E4fV0Wz0" resolve="it" />
                           </node>
                           <node concept="3TrcHB" id="14AwouLgTkA" role="2OqNvi">
                             <ref role="3TsBF5" to="tpee:f$Xl_Oh" resolve="value" />

@@ -336,13 +336,13 @@
                                           <ref role="3TsBF5" to="tpce:40UcGlRb7V2" resolve="abstract" />
                                         </node>
                                         <node concept="37vLTw" id="5Vvmn_QkM7l" role="2Oq$k0">
-                                          <ref role="3cqZAo" node="5W7E4fV0W02" />
+                                          <ref role="3cqZAo" node="5W7E4fV0W02" resolve="it" />
                                         </node>
                                       </node>
                                     </node>
                                     <node concept="2OqwBi" id="5Vvmn_QkM7m" role="3uHU7B">
                                       <node concept="37vLTw" id="5Vvmn_QkM7n" role="2Oq$k0">
-                                        <ref role="3cqZAo" node="5W7E4fV0W02" />
+                                        <ref role="3cqZAo" node="5W7E4fV0W02" resolve="it" />
                                       </node>
                                       <node concept="2qgKlT" id="5Vvmn_QkM7o" role="2OqNvi">
                                         <ref role="37wK5l" to="tpcn:4UTtJHK9fEJ" resolve="isSubconceptOf" />

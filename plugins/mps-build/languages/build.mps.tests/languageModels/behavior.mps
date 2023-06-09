@@ -239,7 +239,7 @@
                           </node>
                         </node>
                         <node concept="37vLTw" id="3X9rC2XzJe4" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0WBX" />
+                          <ref role="3cqZAo" node="5W7E4fV0WBX" resolve="it" />
                         </node>
                       </node>
                     </node>
@@ -324,7 +324,7 @@
                           <ref role="37wK5l" node="3X9rC2XzJij" resolve="getModules" />
                         </node>
                         <node concept="37vLTw" id="2whOjLMv7ZJ" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0WBZ" />
+                          <ref role="3cqZAo" node="5W7E4fV0WBZ" resolve="it" />
                         </node>
                       </node>
                     </node>
@@ -430,7 +430,7 @@
                       <node concept="3clFbF" id="5I1s5NvyvqV" role="3cqZAp">
                         <node concept="2OqwBi" id="5I1s5NvyvUh" role="3clFbG">
                           <node concept="37vLTw" id="5I1s5NvyvqU" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0WC1" />
+                            <ref role="3cqZAo" node="5W7E4fV0WC1" resolve="it" />
                           </node>
                           <node concept="3TrEf2" id="5I1s5NvywuO" role="2OqNvi">
                             <ref role="3Tt5mk" to="5tjl:5I1s5NvuWcp" resolve="plugin" />

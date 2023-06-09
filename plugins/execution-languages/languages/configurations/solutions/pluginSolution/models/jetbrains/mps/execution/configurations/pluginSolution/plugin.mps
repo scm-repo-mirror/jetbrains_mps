@@ -376,7 +376,7 @@
                       </node>
                       <node concept="2OqwBi" id="4KDfkUwMkUA" role="3uHU7B">
                         <node concept="37vLTw" id="2BHiRxgm9$e" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0Xk2" />
+                          <ref role="3cqZAo" node="5W7E4fV0Xk2" resolve="it" />
                         </node>
                         <node concept="3TrEf2" id="4KDfkUwMkUC" role="2OqNvi">
                           <ref role="3Tt5mk" to="uhxm:Ue65ozt$TX" resolve="runConfiguration" />
@@ -611,7 +611,7 @@
                                         </node>
                                         <node concept="2OqwBi" id="4Cg9K368D3v" role="33vP2m">
                                           <node concept="37vLTw" id="4Cg9K368D3w" role="2Oq$k0">
-                                            <ref role="3cqZAo" node="5W7E4fV0Xk4" />
+                                            <ref role="3cqZAo" node="5W7E4fV0Xk4" resolve="it" />
                                           </node>
                                           <node concept="liA8E" id="4Cg9K368D3x" role="2OqNvi">
                                             <ref role="37wK5l" to="mhbf:~SNodeReference.resolve(org.jetbrains.mps.openapi.module.SRepository)" resolve="resolve" />
@@ -667,7 +667,7 @@
                                     <node concept="liA8E" id="4Cg9K368D3R" role="2OqNvi">
                                       <ref role="37wK5l" to="ap4t:~ModelGenerationStatusManager.generationRequired(org.jetbrains.mps.openapi.model.SModel)" resolve="generationRequired" />
                                       <node concept="37vLTw" id="4Cg9K368D3S" role="37wK5m">
-                                        <ref role="3cqZAo" node="5W7E4fV0Xk6" />
+                                        <ref role="3cqZAo" node="5W7E4fV0Xk6" resolve="it" />
                                       </node>
                                     </node>
                                   </node>
@@ -1037,7 +1037,7 @@
                               <ref role="3Tt5mk" to="uhxm:3MnZbusxazJ" resolve="configuration" />
                             </node>
                             <node concept="37vLTw" id="2BHiRxgm93K" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0Xk8" />
+                              <ref role="3cqZAo" node="5W7E4fV0Xk8" resolve="it" />
                             </node>
                           </node>
                         </node>
@@ -1399,7 +1399,7 @@
                               <ref role="3Tt5mk" to="uhxm:3MnZbusxazJ" resolve="configuration" />
                             </node>
                             <node concept="37vLTw" id="5GUyf6onkIz" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0Xka" />
+                              <ref role="3cqZAo" node="5W7E4fV0Xka" resolve="it" />
                             </node>
                           </node>
                         </node>
@@ -1635,7 +1635,7 @@
                         </node>
                         <node concept="2OqwBi" id="5GUyf6onurP" role="3uHU7B">
                           <node concept="37vLTw" id="5GUyf6onurR" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0Xkc" />
+                            <ref role="3cqZAo" node="5W7E4fV0Xkc" resolve="it" />
                           </node>
                           <node concept="3TrEf2" id="5GUyf6onvxD" role="2OqNvi">
                             <ref role="3Tt5mk" to="uhxm:Ue65ozt$TX" resolve="runConfiguration" />

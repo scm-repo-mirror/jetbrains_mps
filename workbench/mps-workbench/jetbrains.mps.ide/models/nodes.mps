@@ -673,7 +673,7 @@
                         <node concept="1rXfSq" id="4hiugqyso44" role="3clFbG">
                           <ref role="37wK5l" node="4cg0dYPIxFH" resolve="isApplicable" />
                           <node concept="37vLTw" id="2OK9$2_5B0c" role="37wK5m">
-                            <ref role="3cqZAo" node="5W7E4fV0Y7i" />
+                            <ref role="3cqZAo" node="5W7E4fV0Y7i" resolve="node" />
                           </node>
                           <node concept="37vLTw" id="2OK9$2_5B1c" role="37wK5m">
                             <ref role="3cqZAo" node="4cg0dYPIxCX" resolve="concept" />

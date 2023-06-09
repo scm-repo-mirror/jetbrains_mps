@@ -1452,7 +1452,7 @@
                                 <ref role="37wK5l" to="4hrd:~VirtualFileUtils.isFileEventFromMPS(com.intellij.openapi.vfs.newvfs.events.VFileEvent)" resolve="isFileEventFromMPS" />
                                 <ref role="1Pybhc" to="4hrd:~VirtualFileUtils" resolve="VirtualFileUtils" />
                                 <node concept="37vLTw" id="2CbzOko6nj9" role="37wK5m">
-                                  <ref role="3cqZAo" node="5W7E4fV0Y58" />
+                                  <ref role="3cqZAo" node="5W7E4fV0Y58" resolve="it" />
                                 </node>
                               </node>
                             </node>
@@ -1461,7 +1461,7 @@
                                 <ref role="37wK5l" to="kip1:~NodeVirtualFileSystem.isFromNodeFileSystem(com.intellij.openapi.vfs.newvfs.events.VFileEvent)" resolve="isFromNodeFileSystem" />
                                 <ref role="1Pybhc" to="kip1:~NodeVirtualFileSystem" resolve="NodeVirtualFileSystem" />
                                 <node concept="37vLTw" id="22sDcpIXiy6" role="37wK5m">
-                                  <ref role="3cqZAo" node="5W7E4fV0Y58" />
+                                  <ref role="3cqZAo" node="5W7E4fV0Y58" resolve="it" />
                                 </node>
                               </node>
                             </node>
@@ -1593,7 +1593,7 @@
                                   <node concept="RRSsy" id="3jYQuSB36Cu" role="3cqZAp">
                                     <node concept="3cpWs3" id="491od_YPeTn" role="RRSoy">
                                       <node concept="37vLTw" id="491od_YPeTo" role="3uHU7w">
-                                        <ref role="3cqZAo" node="5W7E4fV0Y5a" />
+                                        <ref role="3cqZAo" node="5W7E4fV0Y5a" resolve="it" />
                                       </node>
                                       <node concept="Xl_RD" id="491od_YPeTp" role="3uHU7B">
                                         <property role="Xl_RC" value="Got event " />
@@ -1604,7 +1604,7 @@
                                     <node concept="1rXfSq" id="4hiugqyyIax" role="3clFbG">
                                       <ref role="37wK5l" node="7mrRUyVUv8I" resolve="processAfterEvent" />
                                       <node concept="37vLTw" id="2BHiRxgm8b5" role="37wK5m">
-                                        <ref role="3cqZAo" node="5W7E4fV0Y5a" />
+                                        <ref role="3cqZAo" node="5W7E4fV0Y5a" resolve="it" />
                                       </node>
                                       <node concept="37vLTw" id="491od_YQwK9" role="37wK5m">
                                         <ref role="3cqZAo" node="491od_YNZF7" resolve="participant" />
@@ -2685,7 +2685,7 @@
                           <ref role="2Oxat5" node="3Fdn9B$Wn2z" resolve="removed" />
                         </node>
                         <node concept="37vLTw" id="3Fdn9B$W_Kj" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0Y5c" />
+                          <ref role="3cqZAo" node="5W7E4fV0Y5c" resolve="it" />
                         </node>
                       </node>
                     </node>
@@ -2758,7 +2758,7 @@
                           <ref role="2Oxat5" node="3Fdn9B$Wmdi" resolve="added" />
                         </node>
                         <node concept="37vLTw" id="3Fdn9B$W$Ib" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0Y5e" />
+                          <ref role="3cqZAo" node="5W7E4fV0Y5e" resolve="it" />
                         </node>
                       </node>
                     </node>
@@ -2831,7 +2831,7 @@
                           <ref role="2Oxat5" node="3Fdn9B$Wxgx" resolve="changed" />
                         </node>
                         <node concept="37vLTw" id="5gUstTWjouo" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0Y5g" />
+                          <ref role="3cqZAo" node="5W7E4fV0Y5g" resolve="it" />
                         </node>
                       </node>
                     </node>
@@ -2935,7 +2935,7 @@
                           <ref role="3cqZAo" node="5gUstTWicRD" resolve="eventPath" />
                         </node>
                         <node concept="37vLTw" id="5p_KN$yXCfZ" role="37wK5m">
-                          <ref role="3cqZAo" node="5W7E4fV0Y5i" />
+                          <ref role="3cqZAo" node="5W7E4fV0Y5i" resolve="l" />
                         </node>
                         <node concept="37vLTw" id="5p_KN$yXCg0" role="37wK5m">
                           <ref role="3cqZAo" node="50BC9x8fzpg" resolve="kind" />
@@ -2997,7 +2997,7 @@
                           <ref role="3cqZAo" node="5gUstTWicRD" resolve="eventPath" />
                         </node>
                         <node concept="37vLTw" id="5p_KN$yXHnE" role="37wK5m">
-                          <ref role="3cqZAo" node="5W7E4fV0Y5k" />
+                          <ref role="3cqZAo" node="5W7E4fV0Y5k" resolve="l" />
                         </node>
                         <node concept="37vLTw" id="5p_KN$yXHnF" role="37wK5m">
                           <ref role="3cqZAo" node="50BC9x8fzpg" resolve="kind" />
@@ -3080,7 +3080,7 @@
                       <node concept="1rXfSq" id="5p_KN$yX9dz" role="3cqZAk">
                         <ref role="37wK5l" node="5p_KN$yX9du" resolve="createNewDataIfAbsent" />
                         <node concept="37vLTw" id="5p_KN$yX9dy" role="37wK5m">
-                          <ref role="3cqZAo" node="5W7E4fV0Y5m" />
+                          <ref role="3cqZAo" node="5W7E4fV0Y5m" resolve="listener" />
                         </node>
                       </node>
                     </node>
@@ -6350,7 +6350,7 @@
                   <node concept="3clFbF" id="1O5dHlMaOD_" role="3cqZAp">
                     <node concept="2OqwBi" id="1O5dHlMaOOh" role="3clFbG">
                       <node concept="37vLTw" id="1O5dHlMaOD$" role="2Oq$k0">
-                        <ref role="3cqZAo" node="5W7E4fV0Y5o" />
+                        <ref role="3cqZAo" node="5W7E4fV0Y5o" resolve="it" />
                       </node>
                       <node concept="liA8E" id="1O5dHlMaRPp" role="2OqNvi">
                         <ref role="37wK5l" node="1O5dHlM77AI" resolve="wantsToShowProgress" />
@@ -6391,7 +6391,7 @@
                           <ref role="37wK5l" node="491od_XJVMz" resolve="isEmpty" />
                         </node>
                         <node concept="37vLTw" id="491od_Yq7zQ" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0Y5q" />
+                          <ref role="3cqZAo" node="5W7E4fV0Y5q" resolve="it" />
                         </node>
                       </node>
                     </node>

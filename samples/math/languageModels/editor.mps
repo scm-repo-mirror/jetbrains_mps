@@ -2382,7 +2382,7 @@
                               <node concept="3fqX7Q" id="7phNEaH_ifc" role="3clFbG">
                                 <node concept="2OqwBi" id="7phNEaH_ife" role="3fr31v">
                                   <node concept="37vLTw" id="7phNEaH_iff" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="5W7E4fV0WZT" />
+                                    <ref role="3cqZAo" node="5W7E4fV0WZT" resolve="it" />
                                   </node>
                                   <node concept="liA8E" id="7phNEaH_ifg" role="2OqNvi">
                                     <ref role="37wK5l" to="c17a:~SAbstractConcept.isAbstract()" resolve="isAbstract" />

@@ -3131,7 +3131,7 @@
                                   <ref role="2pIpSl" to="tp3r:1o$2SUuutG3" resolve="initValue" />
                                   <node concept="36biLy" id="3v7fNhWlQvV" role="28nt2d">
                                     <node concept="37vLTw" id="3v7fNhWlQvW" role="36biLW">
-                                      <ref role="3cqZAo" node="5W7E4fV0Wpg" />
+                                      <ref role="3cqZAo" node="5W7E4fV0Wpg" resolve="childBuilder" />
                                     </node>
                                   </node>
                                 </node>
@@ -3554,7 +3554,7 @@
                       <node concept="3clFbF" id="3v7fNhWiEfX" role="3cqZAp">
                         <node concept="2OqwBi" id="3v7fNhWiEfY" role="3clFbG">
                           <node concept="37vLTw" id="3v7fNhWiEfZ" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0Wpi" />
+                            <ref role="3cqZAo" node="5W7E4fV0Wpi" resolve="it" />
                           </node>
                           <node concept="liA8E" id="3v7fNhWiEg0" role="2OqNvi">
                             <ref role="37wK5l" to="c17a:~SProperty.getName()" resolve="getName" />
@@ -3714,7 +3714,7 @@
                       <node concept="3clFbF" id="3v7fNhWiEh3" role="3cqZAp">
                         <node concept="2OqwBi" id="3v7fNhWiEh4" role="3clFbG">
                           <node concept="37vLTw" id="3v7fNhWiEh5" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0Wpk" />
+                            <ref role="3cqZAo" node="5W7E4fV0Wpk" resolve="it" />
                           </node>
                           <node concept="liA8E" id="3v7fNhWiEh6" role="2OqNvi">
                             <ref role="37wK5l" to="c17a:~SNamedElement.getName()" resolve="getName" />
@@ -3873,7 +3873,7 @@
                       <node concept="3clFbF" id="3v7fNhWiEi8" role="3cqZAp">
                         <node concept="2OqwBi" id="3v7fNhWiEi9" role="3clFbG">
                           <node concept="37vLTw" id="3v7fNhWiEia" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0Wpm" />
+                            <ref role="3cqZAo" node="5W7E4fV0Wpm" resolve="it" />
                           </node>
                           <node concept="liA8E" id="3v7fNhWiEib" role="2OqNvi">
                             <ref role="37wK5l" to="c17a:~SNamedElement.getName()" resolve="getName" />
@@ -3932,7 +3932,7 @@
                             <node concept="3fqX7Q" id="3v7fNhWiEi$" role="3clFbG">
                               <node concept="2OqwBi" id="3v7fNhWiEi_" role="3fr31v">
                                 <node concept="37vLTw" id="3v7fNhWiEiA" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="5W7E4fV0Wpo" />
+                                  <ref role="3cqZAo" node="5W7E4fV0Wpo" resolve="it" />
                                 </node>
                                 <node concept="1mIQ4w" id="3v7fNhWiEiB" role="2OqNvi">
                                   <node concept="chp4Y" id="3v7fNhWiEiC" role="cj9EA">

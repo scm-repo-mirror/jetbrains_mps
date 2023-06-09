@@ -431,7 +431,7 @@
                             <ref role="3cqZAo" node="6KNGF9gTYu" resolve="myPalette" />
                           </node>
                           <node concept="37vLTw" id="6KNGF9gTYR" role="37wK5m">
-                            <ref role="3cqZAo" node="5W7E4fV0XoW" />
+                            <ref role="3cqZAo" node="5W7E4fV0XoW" resolve="element" />
                           </node>
                         </node>
                       </node>
@@ -462,7 +462,7 @@
                           <ref role="3uigEE" node="6KNGF9gTZi" resolve="PaletteToggleActionAdapter" />
                         </node>
                         <node concept="37vLTw" id="BmcO$nDHop" role="2ZW6bz">
-                          <ref role="3cqZAo" node="5W7E4fV0XoY" />
+                          <ref role="3cqZAo" node="5W7E4fV0XoY" resolve="it" />
                         </node>
                       </node>
                     </node>
@@ -482,7 +482,7 @@
                       <node concept="1eOMI4" id="BmcO$nDKrB" role="2Oq$k0">
                         <node concept="10QFUN" id="BmcO$nDKrC" role="1eOMHV">
                           <node concept="37vLTw" id="BmcO$nDKrA" role="10QFUP">
-                            <ref role="3cqZAo" node="5W7E4fV0Xp0" />
+                            <ref role="3cqZAo" node="5W7E4fV0Xp0" resolve="it" />
                           </node>
                           <node concept="3uibUv" id="BmcO$nDKMv" role="10QFUM">
                             <ref role="3uigEE" node="6KNGF9gTZi" resolve="PaletteToggleActionAdapter" />

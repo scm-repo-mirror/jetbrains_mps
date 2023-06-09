@@ -1734,7 +1734,7 @@
                       <node concept="10Nm6u" id="172ROKPFzcL" role="3uHU7w" />
                       <node concept="2OqwBi" id="172ROKPFzcM" role="3uHU7B">
                         <node concept="37vLTw" id="172ROKPFzcN" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0W3v" />
+                          <ref role="3cqZAo" node="5W7E4fV0W3v" resolve="it" />
                         </node>
                         <node concept="3TrEf2" id="172ROKPFzcO" role="2OqNvi">
                           <ref role="3Tt5mk" to="1i04:hP3i0lZ" resolve="overriddenMethod" />

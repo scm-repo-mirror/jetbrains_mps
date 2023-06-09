@@ -239,7 +239,7 @@
                       <node concept="3clFbF" id="4z_SuroxK7v" role="3cqZAp">
                         <node concept="2OqwBi" id="4z_SuroxKn2" role="3clFbG">
                           <node concept="37vLTw" id="4z_SuroxK7u" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0VYr" />
+                            <ref role="3cqZAo" node="5W7E4fV0VYr" resolve="it" />
                           </node>
                           <node concept="1P9Npp" id="4z_SuroxLkD" role="2OqNvi">
                             <node concept="2pJPEk" id="4z_SuroxLAd" role="1P9ThW">
@@ -250,7 +250,7 @@
                                   <node concept="36biLy" id="4z_SuroxLYA" role="28nt2d">
                                     <node concept="2OqwBi" id="4z_SuroxMn$" role="36biLW">
                                       <node concept="37vLTw" id="4z_SuroxM5M" role="2Oq$k0">
-                                        <ref role="3cqZAo" node="5W7E4fV0VYr" />
+                                        <ref role="3cqZAo" node="5W7E4fV0VYr" resolve="it" />
                                       </node>
                                       <node concept="3Tsc0h" id="4z_SuroxMPw" role="2OqNvi">
                                         <ref role="3TtcxE" to="tpee:gVKbHMJ" resolve="case" />
@@ -263,7 +263,7 @@
                                   <node concept="36biLy" id="4z_SuroxNel" role="28nt2d">
                                     <node concept="2OqwBi" id="4z_SuroxN_b" role="36biLW">
                                       <node concept="37vLTw" id="4z_SuroxNja" role="2Oq$k0">
-                                        <ref role="3cqZAo" node="5W7E4fV0VYr" />
+                                        <ref role="3cqZAo" node="5W7E4fV0VYr" resolve="it" />
                                       </node>
                                       <node concept="3TrEf2" id="4z_SuroxO6k" role="2OqNvi">
                                         <ref role="3Tt5mk" to="tpee:gVKb1HI" resolve="defaultBlock" />
@@ -276,7 +276,7 @@
                                   <node concept="36biLy" id="4z_SuroxOr5" role="28nt2d">
                                     <node concept="2OqwBi" id="4z_SuroxOOS" role="36biLW">
                                       <node concept="37vLTw" id="4z_SuroxOyq" role="2Oq$k0">
-                                        <ref role="3cqZAo" node="5W7E4fV0VYr" />
+                                        <ref role="3cqZAo" node="5W7E4fV0VYr" resolve="it" />
                                       </node>
                                       <node concept="3TrEf2" id="4z_SuroxPlO" role="2OqNvi">
                                         <ref role="3Tt5mk" to="tpee:gVKbG91" resolve="expression" />
@@ -289,7 +289,7 @@
                                   <node concept="36biLy" id="4z_SuroxRlN" role="28nt2d">
                                     <node concept="2OqwBi" id="4z_SuroxRKo" role="36biLW">
                                       <node concept="37vLTw" id="4z_SuroxRqZ" role="2Oq$k0">
-                                        <ref role="3cqZAo" node="5W7E4fV0VYr" />
+                                        <ref role="3cqZAo" node="5W7E4fV0VYr" resolve="it" />
                                       </node>
                                       <node concept="3Tsc0h" id="4z_SuroxScv" role="2OqNvi">
                                         <ref role="3TtcxE" to="tpck:4uZwTti3__2" resolve="smodelAttribute" />
@@ -302,7 +302,7 @@
                                   <node concept="36biLy" id="4z_SuroxS_i" role="28nt2d">
                                     <node concept="2OqwBi" id="4z_SuroxSXo" role="36biLW">
                                       <node concept="37vLTw" id="4z_SuroxSEM" role="2Oq$k0">
-                                        <ref role="3cqZAo" node="5W7E4fV0VYr" />
+                                        <ref role="3cqZAo" node="5W7E4fV0VYr" resolve="it" />
                                       </node>
                                       <node concept="3TrEf2" id="4z_SuroxTwF" role="2OqNvi">
                                         <ref role="3Tt5mk" to="tpee:42hlkH_myce" resolve="switchLabel" />
@@ -340,7 +340,7 @@
                       <node concept="3clFbF" id="4z_SuroFAkJ" role="3cqZAp">
                         <node concept="2OqwBi" id="4z_SuroFAsZ" role="3clFbG">
                           <node concept="37vLTw" id="4z_SuroFAkI" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0VYt" />
+                            <ref role="3cqZAo" node="5W7E4fV0VYt" resolve="it" />
                           </node>
                           <node concept="liA8E" id="4z_SuroFBnr" role="2OqNvi">
                             <ref role="37wK5l" to="w1kc:~SModelInternal.deleteLanguageId(org.jetbrains.mps.openapi.language.SLanguage)" resolve="deleteLanguageId" />
@@ -405,7 +405,7 @@
                               <node concept="1pGfFk" id="4z_Suroy5BQ" role="2ShVmc">
                                 <ref role="37wK5l" to="6f4m:6oJSkzEcOjg" resolve="DeprecatedConceptNotMigratedProblem" />
                                 <node concept="37vLTw" id="4z_Suroy5BR" role="37wK5m">
-                                  <ref role="3cqZAo" node="5W7E4fV0VYv" />
+                                  <ref role="3cqZAo" node="5W7E4fV0VYv" resolve="it" />
                                 </node>
                               </node>
                             </node>
@@ -440,7 +440,7 @@
                               <node concept="2OqwBi" id="4hKJ3ZGkFSS" role="3clFbG">
                                 <node concept="2OqwBi" id="4hKJ3ZGkEoa" role="2Oq$k0">
                                   <node concept="37vLTw" id="4hKJ3ZGkEaj" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="5W7E4fV0VYx" />
+                                    <ref role="3cqZAo" node="5W7E4fV0VYx" resolve="it" />
                                   </node>
                                   <node concept="liA8E" id="4hKJ3ZGkFly" role="2OqNvi">
                                     <ref role="37wK5l" to="w1kc:~SModelInternal.importedLanguageIds()" resolve="importedLanguageIds" />
@@ -475,7 +475,7 @@
                                   <ref role="37wK5l" to="6f4m:4z_SuroFtus" resolve="DeprecatedLanguageNotMigratedProblem" />
                                   <node concept="10QFUN" id="7btLLch7mm_" role="37wK5m">
                                     <node concept="37vLTw" id="7btLLch7mmA" role="10QFUP">
-                                      <ref role="3cqZAo" node="5W7E4fV0VYz" />
+                                      <ref role="3cqZAo" node="5W7E4fV0VYz" resolve="it" />
                                     </node>
                                     <node concept="3uibUv" id="7btLLch7mmB" role="10QFUM">
                                       <ref role="3uigEE" to="mhbf:~SModel" resolve="SModel" />

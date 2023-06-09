@@ -1123,7 +1123,7 @@
                             <node concept="1rXfSq" id="4hiugqyyOmP" role="3clFbG">
                               <ref role="37wK5l" node="1TaHNgiI6oB" resolve="straighten" />
                               <node concept="37vLTw" id="2BHiRxgheZM" role="37wK5m">
-                                <ref role="3cqZAo" node="5W7E4fV0WiJ" />
+                                <ref role="3cqZAo" node="5W7E4fV0WiJ" resolve="it" />
                               </node>
                             </node>
                           </node>
@@ -1140,7 +1140,7 @@
                       <node concept="3clFbS" id="1TaHNgiI6q4" role="1bW5cS">
                         <node concept="3clFbF" id="1TaHNgiI6q5" role="3cqZAp">
                           <node concept="37vLTw" id="2BHiRxglKVD" role="3clFbG">
-                            <ref role="3cqZAo" node="5W7E4fV0WiL" />
+                            <ref role="3cqZAo" node="5W7E4fV0WiL" resolve="p" />
                           </node>
                         </node>
                       </node>
@@ -1619,7 +1619,7 @@
                           <node concept="1rXfSq" id="4hiugqyyYyn" role="3fr31v">
                             <ref role="37wK5l" node="1TaHNgiI6mj" resolve="ignoredFile" />
                             <node concept="37vLTw" id="2BHiRxgmx2I" role="37wK5m">
-                              <ref role="3cqZAo" node="5W7E4fV0WiN" />
+                              <ref role="3cqZAo" node="5W7E4fV0WiN" resolve="it" />
                             </node>
                           </node>
                         </node>
@@ -1637,7 +1637,7 @@
                                     <ref role="3cqZAo" node="1TaHNgiI6mc" resolve="orig" />
                                   </node>
                                   <node concept="37vLTw" id="2BHiRxglKAs" role="37wK5m">
-                                    <ref role="3cqZAo" node="5W7E4fV0WiN" />
+                                    <ref role="3cqZAo" node="5W7E4fV0WiN" resolve="it" />
                                   </node>
                                 </node>
                               </node>
@@ -1720,7 +1720,7 @@
                           <node concept="1rXfSq" id="4hiugqyz4vK" role="3fr31v">
                             <ref role="37wK5l" node="1TaHNgiI6mj" resolve="ignoredFile" />
                             <node concept="37vLTw" id="2BHiRxgm6G7" role="37wK5m">
-                              <ref role="3cqZAo" node="5W7E4fV0WiP" />
+                              <ref role="3cqZAo" node="5W7E4fV0WiP" resolve="it" />
                             </node>
                           </node>
                         </node>
@@ -1739,7 +1739,7 @@
                                         <ref role="3cqZAo" node="1TaHNgiI6mc" resolve="orig" />
                                       </node>
                                       <node concept="37vLTw" id="2BHiRxgmzXB" role="37wK5m">
-                                        <ref role="3cqZAo" node="5W7E4fV0WiP" />
+                                        <ref role="3cqZAo" node="5W7E4fV0WiP" resolve="it" />
                                       </node>
                                     </node>
                                   </node>

@@ -224,7 +224,7 @@
                       <node concept="lc7rE" id="vvfLbL9$cI" role="3cqZAp">
                         <node concept="l9hG8" id="vvfLbL9$gX" role="lcghm">
                           <node concept="37vLTw" id="vvfLbL9$lQ" role="lb14g">
-                            <ref role="3cqZAo" node="5W7E4fV0WY5" />
+                            <ref role="3cqZAo" node="5W7E4fV0WY5" resolve="it" />
                           </node>
                         </node>
                       </node>

@@ -280,7 +280,7 @@
                               </node>
                             </node>
                             <node concept="37vLTw" id="3jHFIlRwQqi" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0VVU" />
+                              <ref role="3cqZAo" node="5W7E4fV0VVU" resolve="it" />
                             </node>
                           </node>
                         </node>
@@ -403,7 +403,7 @@
                               </node>
                             </node>
                             <node concept="37vLTw" id="244oDY4L35g" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0VVW" />
+                              <ref role="3cqZAo" node="5W7E4fV0VVW" resolve="it" />
                             </node>
                           </node>
                         </node>

@@ -557,7 +557,7 @@
                               <node concept="3clFbF" id="2NZXpXjOdbK" role="3cqZAp">
                                 <node concept="2OqwBi" id="2NZXpXjOdc6" role="3clFbG">
                                   <node concept="37vLTw" id="2BHiRxgl6ra" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="5W7E4fV0Wd7" />
+                                    <ref role="3cqZAo" node="5W7E4fV0Wd7" resolve="it" />
                                   </node>
                                   <node concept="3TrcHB" id="2NZXpXjOdcg" role="2OqNvi">
                                     <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
@@ -702,7 +702,7 @@
                                 <node concept="2OqwBi" id="2NZXpXjOddE" role="3clFbG">
                                   <node concept="2OqwBi" id="2NZXpXjOddd" role="2Oq$k0">
                                     <node concept="37vLTw" id="2BHiRxgm8O2" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="5W7E4fV0Wd9" />
+                                      <ref role="3cqZAo" node="5W7E4fV0Wd9" resolve="it" />
                                     </node>
                                     <node concept="3TrEf2" id="2NZXpXjOddj" role="2OqNvi">
                                       <ref role="3Tt5mk" to="v54s:3f064wGFUBl" resolve="extensionPoint" />
@@ -781,7 +781,7 @@
                                 <node concept="2OqwBi" id="3zLwYDe7Of7" role="3clFbG">
                                   <node concept="2OqwBi" id="3zLwYDe7Of8" role="2Oq$k0">
                                     <node concept="37vLTw" id="3zLwYDe7Of9" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="5W7E4fV0Wdb" />
+                                      <ref role="3cqZAo" node="5W7E4fV0Wdb" resolve="it" />
                                     </node>
                                     <node concept="3TrEf2" id="3zLwYDe81l6" role="2OqNvi">
                                       <ref role="3Tt5mk" to="v54s:7335HkeYl_" resolve="extensionPoint" />

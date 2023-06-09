@@ -406,7 +406,7 @@
                         </node>
                         <node concept="2OqwBi" id="QNcRo9uVJ7" role="3uHU7B">
                           <node concept="37vLTw" id="QNcRo9v2wy" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0WZm" />
+                            <ref role="3cqZAo" node="5W7E4fV0WZm" resolve="it" />
                           </node>
                           <node concept="3TrcHB" id="QNcRo9uVY0" role="2OqNvi">
                             <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />

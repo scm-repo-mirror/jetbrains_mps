@@ -3148,7 +3148,7 @@
                               <node concept="liA8E" id="6uf$qpAyC7M" role="2OqNvi">
                                 <ref role="37wK5l" to="4hrd:~IdeaFileSystem.fromVirtualFile(com.intellij.openapi.vfs.VirtualFile)" resolve="fromVirtualFile" />
                                 <node concept="37vLTw" id="6uf$qpAyCd9" role="37wK5m">
-                                  <ref role="3cqZAo" node="5W7E4fV0XyK" />
+                                  <ref role="3cqZAo" node="5W7E4fV0XyK" resolve="file" />
                                 </node>
                               </node>
                             </node>
@@ -7278,7 +7278,7 @@
                           </node>
                           <node concept="2OqwBi" id="13muGfOyNdb" role="33vP2m">
                             <node concept="37vLTw" id="13muGfOyNdc" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0XyM" />
+                              <ref role="3cqZAo" node="5W7E4fV0XyM" resolve="sr" />
                             </node>
                             <node concept="liA8E" id="13muGfOyNdd" role="2OqNvi">
                               <ref role="37wK5l" to="9erk:~SearchResult.getObject()" resolve="getObject" />
@@ -7376,7 +7376,7 @@
                                   <node concept="10QFUN" id="13muGfOE2au" role="25WWJ7">
                                     <node concept="2OqwBi" id="13muGfOE2ar" role="10QFUP">
                                       <node concept="37vLTw" id="13muGfOE2as" role="2Oq$k0">
-                                        <ref role="3cqZAo" node="5W7E4fV0XyM" />
+                                        <ref role="3cqZAo" node="5W7E4fV0XyM" resolve="sr" />
                                       </node>
                                       <node concept="liA8E" id="13muGfOE2at" role="2OqNvi">
                                         <ref role="37wK5l" to="9erk:~SearchResult.getPathObject()" resolve="getPathObject" />
@@ -7434,7 +7434,7 @@
                     <node concept="3clFbF" id="13muGfOCCj3" role="3cqZAp">
                       <node concept="2OqwBi" id="13muGfOCEXR" role="3clFbG">
                         <node concept="37vLTw" id="13muGfOCCj2" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0XyO" />
+                          <ref role="3cqZAo" node="5W7E4fV0XyO" resolve="it" />
                         </node>
                         <node concept="liA8E" id="13muGfOCHSd" role="2OqNvi">
                           <ref role="37wK5l" to="9erk:~SearchResult.getObject()" resolve="getObject" />

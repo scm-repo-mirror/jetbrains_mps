@@ -150,7 +150,7 @@
                   <node concept="3clFbF" id="7iropoGYbu1" role="3cqZAp">
                     <node concept="2OqwBi" id="7iropoGYbu2" role="3clFbG">
                       <node concept="37vLTw" id="7iropoGYbu3" role="2Oq$k0">
-                        <ref role="3cqZAo" node="5W7E4fV0WT8" />
+                        <ref role="3cqZAo" node="5W7E4fV0WT8" resolve="it" />
                       </node>
                       <node concept="liA8E" id="7iropoGYbu4" role="2OqNvi">
                         <ref role="37wK5l" to="kdsm:7KVUDZaN2C6" resolve="isAvailable" />

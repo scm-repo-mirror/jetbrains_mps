@@ -2687,7 +2687,7 @@
                     <node concept="1rXfSq" id="4hiugqyz8ow" role="3clFbG">
                       <ref role="37wK5l" node="2esXIF0VXl3" resolve="createAnnotation" />
                       <node concept="37vLTw" id="2BHiRxglQZY" role="37wK5m">
-                        <ref role="3cqZAo" node="5W7E4fV0Y5u" />
+                        <ref role="3cqZAo" node="5W7E4fV0Y5u" resolve="it" />
                       </node>
                     </node>
                   </node>
@@ -3125,7 +3125,7 @@
                           <node concept="1rXfSq" id="4hiugqyyHXZ" role="3clFbG">
                             <ref role="37wK5l" node="2esXIF0VXmc" resolve="getAnnotationValue" />
                             <node concept="37vLTw" id="2BHiRxghbE6" role="37wK5m">
-                              <ref role="3cqZAo" node="5W7E4fV0Y5w" />
+                              <ref role="3cqZAo" node="5W7E4fV0Y5w" resolve="it" />
                             </node>
                           </node>
                         </node>
@@ -4551,7 +4551,7 @@
                             <node concept="2OqwBi" id="2o_iqz0owmr" role="2ZW6bz">
                               <node concept="2JrnkZ" id="2o_iqz0owms" role="2Oq$k0">
                                 <node concept="37vLTw" id="2o_iqz0owmt" role="2JrQYb">
-                                  <ref role="3cqZAo" node="5W7E4fV0Y5y" />
+                                  <ref role="3cqZAo" node="5W7E4fV0Y5y" resolve="it" />
                                 </node>
                               </node>
                               <node concept="liA8E" id="2o_iqz0owmu" role="2OqNvi">
@@ -5113,7 +5113,7 @@
                               <ref role="37wK5l" to="wyt6:~Object.equals(java.lang.Object)" resolve="equals" />
                               <node concept="2OqwBi" id="1IbvthZGrEP" role="37wK5m">
                                 <node concept="37vLTw" id="1IbvthZGr1z" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="5W7E4fV0Y5$" />
+                                  <ref role="3cqZAo" node="5W7E4fV0Y5$" resolve="it" />
                                 </node>
                                 <node concept="liA8E" id="1IbvthZGs1C" role="2OqNvi">
                                   <ref role="37wK5l" to="c17a:~SAbstractConcept.getLanguage()" resolve="getLanguage" />
@@ -5415,7 +5415,7 @@
                               <node concept="2OqwBi" id="1IbvthZGtA9" role="37wK5m">
                                 <node concept="2OqwBi" id="1IbvthZGtf$" role="2Oq$k0">
                                   <node concept="37vLTw" id="1IbvthZGt2W" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="5W7E4fV0Y5A" />
+                                    <ref role="3cqZAo" node="5W7E4fV0Y5A" resolve="it" />
                                   </node>
                                   <node concept="liA8E" id="1IbvthZGtsh" role="2OqNvi">
                                     <ref role="37wK5l" to="mhbf:~SModelReference.getName()" resolve="getName" />

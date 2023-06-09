@@ -359,7 +359,7 @@
                       <node concept="TSZUe" id="1vVlZUU$CLa" role="2OqNvi">
                         <node concept="2OqwBi" id="1vVlZUU$D5a" role="25WWJ7">
                           <node concept="37vLTw" id="1vVlZUU$CRm" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0W5i" />
+                            <ref role="3cqZAo" node="5W7E4fV0W5i" resolve="it" />
                           </node>
                           <node concept="2qgKlT" id="1vVlZUU$DlJ" role="2OqNvi">
                             <ref role="37wK5l" to="tpeu:34EJa6aIcyj" resolve="getLanguage" />
@@ -437,7 +437,7 @@
                                 <node concept="2OqwBi" id="1vVlZUU_4Gf" role="3clFbG">
                                   <node concept="2OqwBi" id="1vVlZUU_4Gg" role="2Oq$k0">
                                     <node concept="37vLTw" id="1vVlZUU_4Gh" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="5W7E4fV0W5k" />
+                                      <ref role="3cqZAo" node="5W7E4fV0W5k" resolve="it" />
                                     </node>
                                     <node concept="liA8E" id="1vVlZUU_4Gi" role="2OqNvi">
                                       <ref role="37wK5l" to="c17a:~SLanguage.getSourceModuleReference()" resolve="getSourceModuleReference" />
@@ -473,7 +473,7 @@
                               <node concept="1qvjxa" id="1vVlZUU_4Gu" role="2Oq$k0">
                                 <ref role="1quiSB" to="tpcc:2LiUEk8oQ$g" resolve="structure" />
                                 <node concept="37vLTw" id="1vVlZUU_4Gv" role="1qvjxb">
-                                  <ref role="3cqZAo" node="5W7E4fV0W5m" />
+                                  <ref role="3cqZAo" node="5W7E4fV0W5m" resolve="it" />
                                 </node>
                               </node>
                               <node concept="2RRcyG" id="1vVlZUU_4Gw" role="2OqNvi">
@@ -497,7 +497,7 @@
                         <node concept="3clFbF" id="1vVlZUU_4GB" role="3cqZAp">
                           <node concept="2OqwBi" id="1vVlZUU_4GC" role="3clFbG">
                             <node concept="37vLTw" id="1vVlZUU_4GD" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0W5o" />
+                              <ref role="3cqZAo" node="5W7E4fV0W5o" resolve="cd" />
                             </node>
                             <node concept="3TrcHB" id="1vVlZUU_4GE" role="2OqNvi">
                               <ref role="3TsBF5" to="tpce:fX9Ktp8" resolve="rootable" />

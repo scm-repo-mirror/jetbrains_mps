@@ -424,7 +424,7 @@
                         <node concept="3JuTUA" id="5Vvmn_QkXHD" role="3clFbG">
                           <node concept="2OqwBi" id="5Vvmn_QkXHE" role="3JuY14">
                             <node concept="37vLTw" id="5Vvmn_QkXHF" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0W_Z" />
+                              <ref role="3cqZAo" node="5W7E4fV0W_Z" resolve="it" />
                             </node>
                             <node concept="3TrEf2" id="5Vvmn_QkXHG" role="2OqNvi">
                               <ref role="3Tt5mk" to="tpee:4VkOLwjf83e" resolve="type" />
@@ -607,7 +607,7 @@
                           <node concept="2OqwBi" id="5Vvmn_QkXyI" role="3K4E3e">
                             <node concept="2OqwBi" id="5Vvmn_QkXyJ" role="2Oq$k0">
                               <node concept="37vLTw" id="5Vvmn_QkXyK" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0WA1" />
+                                <ref role="3cqZAo" node="5W7E4fV0WA1" resolve="it" />
                               </node>
                               <node concept="2qgKlT" id="5Vvmn_QkXyL" role="2OqNvi">
                                 <ref role="37wK5l" to="hilv:O$iR4J$gaJ" resolve="getJavaMethod" />
@@ -618,7 +618,7 @@
                           <node concept="2OqwBi" id="5Vvmn_QkXyN" role="3K4GZi">
                             <node concept="2OqwBi" id="5Vvmn_QkXyO" role="2Oq$k0">
                               <node concept="37vLTw" id="5Vvmn_QkXyP" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0WA1" />
+                                <ref role="3cqZAo" node="5W7E4fV0WA1" resolve="it" />
                               </node>
                               <node concept="2qgKlT" id="5Vvmn_QkXyQ" role="2OqNvi">
                                 <ref role="37wK5l" to="hilv:bkrofm9Fgz" resolve="getPublicJavaMethod" />

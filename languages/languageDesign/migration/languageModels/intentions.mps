@@ -363,7 +363,7 @@
                     <node concept="3clFbF" id="2PiAZGep68B" role="3cqZAp">
                       <node concept="2OqwBi" id="2PiAZGep68C" role="3clFbG">
                         <node concept="37vLTw" id="2PiAZGep68D" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0Wjd" />
+                          <ref role="3cqZAo" node="5W7E4fV0Wjd" resolve="it" />
                         </node>
                         <node concept="3Tsc0h" id="2PiAZGep68E" role="2OqNvi">
                           <ref role="3TtcxE" to="53vh:2GZlO$G5_Lp" resolve="specialization" />
@@ -389,7 +389,7 @@
                         <ref role="3cqZAo" node="2PiAZGep62n" resolve="repo" />
                       </node>
                       <node concept="37vLTw" id="2PiAZGep8vr" role="37wK5m">
-                        <ref role="3cqZAo" node="5W7E4fV0Wjf" />
+                        <ref role="3cqZAo" node="5W7E4fV0Wjf" resolve="it" />
                       </node>
                     </node>
                   </node>
@@ -428,7 +428,7 @@
                     <node concept="3clFbF" id="2PiAZGeoKbV" role="3cqZAp">
                       <node concept="2OqwBi" id="2PiAZGeoKbW" role="3clFbG">
                         <node concept="37vLTw" id="2PiAZGeoKbX" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0Wjh" />
+                          <ref role="3cqZAo" node="5W7E4fV0Wjh" resolve="it" />
                         </node>
                         <node concept="3Tsc0h" id="2PiAZGeoKbY" role="2OqNvi">
                           <ref role="3TtcxE" to="53vh:2GZlO$G5_Lp" resolve="specialization" />
@@ -451,7 +451,7 @@
                       <ref role="37wK5l" node="2PiAZGeoMPJ" resolve="isApplicable" />
                       <ref role="1Pybhc" node="2PiAZGeoMNA" resolve="RefactoringIdHelper" />
                       <node concept="37vLTw" id="2PiAZGeoZ2h" role="37wK5m">
-                        <ref role="3cqZAo" node="5W7E4fV0Wjj" />
+                        <ref role="3cqZAo" node="5W7E4fV0Wjj" resolve="it" />
                       </node>
                     </node>
                   </node>

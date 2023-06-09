@@ -883,7 +883,7 @@
                                         <node concept="3clFbF" id="3u6SZi0SXuk" role="3cqZAp">
                                           <node concept="2OqwBi" id="3u6SZi0SXul" role="3clFbG">
                                             <node concept="37vLTw" id="3u6SZi0SXum" role="2Oq$k0">
-                                              <ref role="3cqZAo" node="5W7E4fV0X2L" />
+                                              <ref role="3cqZAo" node="5W7E4fV0X2L" resolve="it" />
                                             </node>
                                             <node concept="2qgKlT" id="3u6SZi0SXun" role="2OqNvi">
                                               <ref role="37wK5l" node="W6XMzE_hbz" resolve="drawShape" />

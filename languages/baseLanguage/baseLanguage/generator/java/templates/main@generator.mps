@@ -781,7 +781,7 @@
                         <node concept="3clFbF" id="8it8ufEtdQ" role="3cqZAp">
                           <node concept="2OqwBi" id="8it8ufEtdR" role="3clFbG">
                             <node concept="37vLTw" id="8it8ufEtdS" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0VS2" />
+                              <ref role="3cqZAo" node="5W7E4fV0VS2" resolve="it" />
                             </node>
                             <node concept="liA8E" id="8it8ufEtdT" role="2OqNvi">
                               <ref role="37wK5l" to="lui2:~SModule.getModuleReference()" resolve="getModuleReference" />
@@ -829,7 +829,7 @@
                           <node concept="2OqwBi" id="3BXrhjneAGV" role="3clFbG">
                             <node concept="2OqwBi" id="3BXrhjne_Mq" role="2Oq$k0">
                               <node concept="37vLTw" id="3BXrhjne_q3" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0VS4" />
+                                <ref role="3cqZAo" node="5W7E4fV0VS4" resolve="it" />
                               </node>
                               <node concept="3TrEf2" id="3BXrhjneA7T" role="2OqNvi">
                                 <ref role="3Tt5mk" to="tpee:hiAI5P0" resolve="annotation" />

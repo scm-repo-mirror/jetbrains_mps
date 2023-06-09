@@ -4589,7 +4589,7 @@
                                     <node concept="3clFbF" id="3xFN89FFdBp" role="3cqZAp">
                                       <node concept="2OqwBi" id="3xFN89FFflS" role="3clFbG">
                                         <node concept="37vLTw" id="3xFN89FFdBo" role="2Oq$k0">
-                                          <ref role="3cqZAo" node="5W7E4fV0X9A" />
+                                          <ref role="3cqZAo" node="5W7E4fV0X9A" resolve="mee" />
                                         </node>
                                         <node concept="liA8E" id="3xFN89FFia1" role="2OqNvi">
                                           <ref role="37wK5l" to="mmaq:~Element.getAttributeValue(java.lang.String)" resolve="getAttributeValue" />
@@ -4653,7 +4653,7 @@
                                           <node concept="liA8E" id="3xFN89FGesc" role="2OqNvi">
                                             <ref role="37wK5l" to="18ew:~MacroHelper.expandPath(java.lang.String)" resolve="expandPath" />
                                             <node concept="37vLTw" id="3xFN89FGgDA" role="37wK5m">
-                                              <ref role="3cqZAo" node="5W7E4fV0X9C" />
+                                              <ref role="3cqZAo" node="5W7E4fV0X9C" resolve="it" />
                                             </node>
                                           </node>
                                         </node>
@@ -4705,7 +4705,7 @@
                                     <node concept="3clFbF" id="7xB_kuJvkzl" role="3cqZAp">
                                       <node concept="2OqwBi" id="7xB_kuJvkzm" role="3clFbG">
                                         <node concept="37vLTw" id="7xB_kuJvkzn" role="2Oq$k0">
-                                          <ref role="3cqZAo" node="5W7E4fV0X9E" />
+                                          <ref role="3cqZAo" node="5W7E4fV0X9E" resolve="it" />
                                         </node>
                                         <node concept="liA8E" id="7xB_kuJvkzo" role="2OqNvi">
                                           <ref role="37wK5l" to="mmaq:~Element.getAttributeValue(java.lang.String)" resolve="getAttributeValue" />
@@ -4769,7 +4769,7 @@
                                           <node concept="liA8E" id="7xB_kuJweUc" role="2OqNvi">
                                             <ref role="37wK5l" to="18ew:~MacroHelper.expandPath(java.lang.String)" resolve="expandPath" />
                                             <node concept="37vLTw" id="7xB_kuJwhiw" role="37wK5m">
-                                              <ref role="3cqZAo" node="5W7E4fV0X9G" />
+                                              <ref role="3cqZAo" node="5W7E4fV0X9G" resolve="it" />
                                             </node>
                                           </node>
                                         </node>
@@ -5737,7 +5737,7 @@
                           <ref role="37wK5l" to="dush:~PersistenceFacade.createLanguage(java.lang.String)" resolve="createLanguage" />
                           <node concept="2OqwBi" id="3E$$kgyc48X" role="37wK5m">
                             <node concept="37vLTw" id="3E$$kgyc48Y" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0X9I" />
+                              <ref role="3cqZAo" node="5W7E4fV0X9I" resolve="it" />
                             </node>
                             <node concept="liA8E" id="3E$$kgyc48Z" role="2OqNvi">
                               <ref role="37wK5l" to="mmaq:~Element.getAttributeValue(java.lang.String)" resolve="getAttributeValue" />
@@ -5770,7 +5770,7 @@
                           <ref role="1Pybhc" to="wyt6:~Integer" resolve="Integer" />
                           <node concept="2OqwBi" id="2N5jZpoNLp3" role="37wK5m">
                             <node concept="37vLTw" id="2N5jZpoNL94" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0X9I" />
+                              <ref role="3cqZAo" node="5W7E4fV0X9I" resolve="it" />
                             </node>
                             <node concept="liA8E" id="2N5jZpoNLRK" role="2OqNvi">
                               <ref role="37wK5l" to="mmaq:~Element.getAttributeValue(java.lang.String)" resolve="getAttributeValue" />
@@ -5829,7 +5829,7 @@
                           <ref role="37wK5l" to="dush:~PersistenceFacade.createModuleReference(java.lang.String)" resolve="createModuleReference" />
                           <node concept="2OqwBi" id="6oJSkzE7GgN" role="37wK5m">
                             <node concept="37vLTw" id="6oJSkzE7Gug" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0X9K" />
+                              <ref role="3cqZAo" node="5W7E4fV0X9K" resolve="it" />
                             </node>
                             <node concept="liA8E" id="6oJSkzE7GMb" role="2OqNvi">
                               <ref role="37wK5l" to="mmaq:~Element.getAttributeValue(java.lang.String)" resolve="getAttributeValue" />
@@ -5862,7 +5862,7 @@
                           <ref role="1Pybhc" to="wyt6:~Integer" resolve="Integer" />
                           <node concept="2OqwBi" id="6oJSkzE7_Jk" role="37wK5m">
                             <node concept="37vLTw" id="6oJSkzE7_Jl" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0X9K" />
+                              <ref role="3cqZAo" node="5W7E4fV0X9K" resolve="it" />
                             </node>
                             <node concept="liA8E" id="6oJSkzE7_Jm" role="2OqNvi">
                               <ref role="37wK5l" to="mmaq:~Element.getAttributeValue(java.lang.String)" resolve="getAttributeValue" />
@@ -6692,7 +6692,7 @@
                                   <node concept="1pGfFk" id="4WGI2gl7ch9" role="2ShVmc">
                                     <ref role="37wK5l" to="w0gx:~Dependency.&lt;init&gt;(org.jetbrains.mps.openapi.module.SModuleReference,boolean)" resolve="Dependency" />
                                     <node concept="37vLTw" id="2BHiRxgmm5S" role="37wK5m">
-                                      <ref role="3cqZAo" node="5W7E4fV0X9M" />
+                                      <ref role="3cqZAo" node="5W7E4fV0X9M" resolve="it" />
                                     </node>
                                     <node concept="3clFbT" id="4WGI2gl7chc" role="37wK5m">
                                       <property role="3clFbU" value="false" />
@@ -6805,7 +6805,7 @@
                                     <ref role="37wK5l" to="dush:~PersistenceFacade.createModuleReference(java.lang.String)" resolve="createModuleReference" />
                                     <node concept="2OqwBi" id="625yo8RO1iO" role="37wK5m">
                                       <node concept="37vLTw" id="2BHiRxgm9BY" role="2Oq$k0">
-                                        <ref role="3cqZAo" node="5W7E4fV0X9O" />
+                                        <ref role="3cqZAo" node="5W7E4fV0X9O" resolve="d" />
                                       </node>
                                       <node concept="liA8E" id="625yo8RO1iQ" role="2OqNvi">
                                         <ref role="37wK5l" to="mmaq:~Element.getText()" resolve="getText" />
@@ -6823,7 +6823,7 @@
                                   <ref role="37wK5l" to="7a2w:4eI2K_Iuewr" resolve="booleanWithDefault" />
                                   <ref role="1Pybhc" to="7a2w:4eI2K_Iuet$" resolve="XmlUtil" />
                                   <node concept="37vLTw" id="1Tieq1ilVBJ" role="37wK5m">
-                                    <ref role="3cqZAo" node="5W7E4fV0X9O" />
+                                    <ref role="3cqZAo" node="5W7E4fV0X9O" resolve="d" />
                                   </node>
                                   <node concept="Xl_RD" id="1Tieq1ilVBB" role="37wK5m">
                                     <property role="Xl_RC" value="reexport" />
@@ -6845,7 +6845,7 @@
                                   <ref role="1Pybhc" to="lui2:~SDependencyScope" resolve="SDependencyScope" />
                                   <node concept="2OqwBi" id="2kOp0A3tI7H" role="37wK5m">
                                     <node concept="37vLTw" id="2kOp0A3tHTZ" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="5W7E4fV0X9O" />
+                                      <ref role="3cqZAo" node="5W7E4fV0X9O" resolve="d" />
                                     </node>
                                     <node concept="liA8E" id="2kOp0A3tIKz" role="2OqNvi">
                                       <ref role="37wK5l" to="mmaq:~Element.getAttributeValue(java.lang.String)" resolve="getAttributeValue" />
@@ -9386,7 +9386,7 @@
                     <node concept="1rXfSq" id="51Eu$gAeRFv" role="3clFbG">
                       <ref role="37wK5l" node="51Eu$gAewJi" resolve="shrinkPath" />
                       <node concept="37vLTw" id="51Eu$gAeRUP" role="37wK5m">
-                        <ref role="3cqZAo" node="5W7E4fV0X9Q" />
+                        <ref role="3cqZAo" node="5W7E4fV0X9Q" resolve="p" />
                       </node>
                     </node>
                   </node>
@@ -10251,7 +10251,7 @@
                             <ref role="37wK5l" to="wyt6:~String.equals(java.lang.Object)" resolve="equals" />
                             <node concept="2OqwBi" id="15VbAzMEneZ" role="37wK5m">
                               <node concept="37vLTw" id="15VbAzMEmJd" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0X9S" />
+                                <ref role="3cqZAo" node="5W7E4fV0X9S" resolve="it" />
                               </node>
                               <node concept="liA8E" id="15VbAzMEnM1" role="2OqNvi">
                                 <ref role="37wK5l" to="mmaq:~Element.getAttributeValue(java.lang.String)" resolve="getAttributeValue" />
@@ -10842,7 +10842,7 @@
                                     <node concept="3clFbF" id="3xFN89FGGwM" role="3cqZAp">
                                       <node concept="2OqwBi" id="3xFN89FGI1t" role="3clFbG">
                                         <node concept="37vLTw" id="3xFN89FGGwL" role="2Oq$k0">
-                                          <ref role="3cqZAo" node="5W7E4fV0X9U" />
+                                          <ref role="3cqZAo" node="5W7E4fV0X9U" resolve="it" />
                                         </node>
                                         <node concept="liA8E" id="3xFN89FGJDr" role="2OqNvi">
                                           <ref role="37wK5l" to="mmaq:~Element.getAttributeValue(java.lang.String)" resolve="getAttributeValue" />
@@ -10906,7 +10906,7 @@
                                           <node concept="liA8E" id="3xFN89FHq9t" role="2OqNvi">
                                             <ref role="37wK5l" to="18ew:~MacroHelper.expandPath(java.lang.String)" resolve="expandPath" />
                                             <node concept="37vLTw" id="3xFN89FHrvu" role="37wK5m">
-                                              <ref role="3cqZAo" node="5W7E4fV0X9W" />
+                                              <ref role="3cqZAo" node="5W7E4fV0X9W" resolve="it" />
                                             </node>
                                           </node>
                                         </node>
@@ -10969,7 +10969,7 @@
                                     <node concept="3clFbF" id="7xB_kuJxJh1" role="3cqZAp">
                                       <node concept="2OqwBi" id="7xB_kuJxJh2" role="3clFbG">
                                         <node concept="37vLTw" id="7xB_kuJxJh3" role="2Oq$k0">
-                                          <ref role="3cqZAo" node="5W7E4fV0X9Y" />
+                                          <ref role="3cqZAo" node="5W7E4fV0X9Y" resolve="it" />
                                         </node>
                                         <node concept="liA8E" id="7xB_kuJxJh4" role="2OqNvi">
                                           <ref role="37wK5l" to="mmaq:~Element.getAttributeValue(java.lang.String)" resolve="getAttributeValue" />
@@ -11033,7 +11033,7 @@
                                           <node concept="liA8E" id="7xB_kuJyc2b" role="2OqNvi">
                                             <ref role="37wK5l" to="18ew:~MacroHelper.expandPath(java.lang.String)" resolve="expandPath" />
                                             <node concept="37vLTw" id="7xB_kuJyf8r" role="37wK5m">
-                                              <ref role="3cqZAo" node="5W7E4fV0Xa0" />
+                                              <ref role="3cqZAo" node="5W7E4fV0Xa0" resolve="it" />
                                             </node>
                                           </node>
                                         </node>

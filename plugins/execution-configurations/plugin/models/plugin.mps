@@ -6369,7 +6369,7 @@
                               <node concept="1pGfFk" id="5gyVhZ18boY" role="2ShVmc">
                                 <ref role="37wK5l" to="guwi:~File.&lt;init&gt;(java.lang.String)" resolve="File" />
                                 <node concept="37vLTw" id="2BHiRxgm6e3" role="37wK5m">
-                                  <ref role="3cqZAo" node="5W7E4fV0XjO" />
+                                  <ref role="3cqZAo" node="5W7E4fV0XjO" resolve="it" />
                                 </node>
                               </node>
                             </node>
@@ -6392,7 +6392,7 @@
                         <node concept="3clFbS" id="5gyVhZ18bp4" role="1zc67A">
                           <node concept="3cpWs6" id="5gyVhZ18bp5" role="3cqZAp">
                             <node concept="37vLTw" id="2BHiRxgln0z" role="3cqZAk">
-                              <ref role="3cqZAo" node="5W7E4fV0XjO" />
+                              <ref role="3cqZAo" node="5W7E4fV0XjO" resolve="it" />
                             </node>
                           </node>
                         </node>
@@ -6426,7 +6426,7 @@
                         <node concept="3fqX7Q" id="7EsLhjgsXrP" role="3clFbG">
                           <node concept="2OqwBi" id="7EsLhjgsXrQ" role="3fr31v">
                             <node concept="37vLTw" id="7EsLhjgsXrR" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0XjQ" />
+                              <ref role="3cqZAo" node="5W7E4fV0XjQ" resolve="it" />
                             </node>
                             <node concept="liA8E" id="7EsLhjgsXrS" role="2OqNvi">
                               <ref role="37wK5l" to="wyt6:~String.startsWith(java.lang.String)" resolve="startsWith" />
@@ -6457,7 +6457,7 @@
                         <node concept="1pGfFk" id="7EsLhjgsXs2" role="2ShVmc">
                           <ref role="37wK5l" to="guwi:~File.&lt;init&gt;(java.lang.String)" resolve="File" />
                           <node concept="37vLTw" id="7EsLhjgsXs3" role="37wK5m">
-                            <ref role="3cqZAo" node="5W7E4fV0XjS" />
+                            <ref role="3cqZAo" node="5W7E4fV0XjS" resolve="it" />
                           </node>
                         </node>
                       </node>
@@ -10074,7 +10074,7 @@
                       <node concept="3clFbF" id="1QpbsSXkdx" role="3cqZAp">
                         <node concept="2OqwBi" id="1QpbsSXkdy" role="3clFbG">
                           <node concept="37vLTw" id="1QpbsSXkdz" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0XjU" />
+                            <ref role="3cqZAo" node="5W7E4fV0XjU" resolve="it" />
                           </node>
                           <node concept="liA8E" id="1QpbsSXkd$" role="2OqNvi">
                             <ref role="37wK5l" to="mhbf:~SNodeReference.resolve(org.jetbrains.mps.openapi.module.SRepository)" resolve="resolve" />
@@ -10125,7 +10125,7 @@
                         <node concept="3clFbF" id="1QpbsSYl7Z" role="3cqZAp">
                           <node concept="2OqwBi" id="1QpbsSYl80" role="3clFbG">
                             <node concept="37vLTw" id="1QpbsSYl81" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0XjW" />
+                              <ref role="3cqZAo" node="5W7E4fV0XjW" resolve="it" />
                             </node>
                             <node concept="2Rxl7S" id="1QpbsSYl82" role="2OqNvi" />
                           </node>
@@ -12195,7 +12195,7 @@
                   <node concept="3clFbF" id="7bBQGGiPDwv" role="3cqZAp">
                     <node concept="2OqwBi" id="7bBQGGiPDZp" role="3clFbG">
                       <node concept="37vLTw" id="7bBQGGiPDwu" role="2Oq$k0">
-                        <ref role="3cqZAo" node="5W7E4fV0XjY" />
+                        <ref role="3cqZAo" node="5W7E4fV0XjY" resolve="it" />
                       </node>
                       <node concept="liA8E" id="7bBQGGiPG6u" role="2OqNvi">
                         <ref role="37wK5l" to="mmaq:~Element.detach()" resolve="detach" />
@@ -17856,7 +17856,7 @@
                           <ref role="37wK5l" to="awpe:4sYvxkKONZr" resolve="pointerToString" />
                           <ref role="1Pybhc" to="awpe:4sYvxkKONYQ" resolve="PointerUtils" />
                           <node concept="37vLTw" id="5Y5HnE71O8p" role="37wK5m">
-                            <ref role="3cqZAo" node="5W7E4fV0Xk0" />
+                            <ref role="3cqZAo" node="5W7E4fV0Xk0" resolve="it" />
                           </node>
                         </node>
                       </node>

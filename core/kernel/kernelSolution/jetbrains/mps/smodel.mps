@@ -4334,7 +4334,7 @@
                         <node concept="liA8E" id="5qGXSHdu_kv" role="2OqNvi">
                           <ref role="37wK5l" to="vndm:~LanguageRegistry.getLanguage(org.jetbrains.mps.openapi.language.SLanguage)" resolve="getLanguage" />
                           <node concept="37vLTw" id="5qGXSHdu_re" role="37wK5m">
-                            <ref role="3cqZAo" node="5W7E4fV0X5A" />
+                            <ref role="3cqZAo" node="5W7E4fV0X5A" resolve="it" />
                           </node>
                         </node>
                       </node>
@@ -4389,7 +4389,7 @@
                       <node concept="2OqwBi" id="5qGXSHduuJx" role="3uHU7B">
                         <node concept="2OqwBi" id="16MtQqZa98g" role="2Oq$k0">
                           <node concept="37vLTw" id="16MtQqZa98h" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0X5C" />
+                            <ref role="3cqZAo" node="5W7E4fV0X5C" resolve="it" />
                           </node>
                           <node concept="liA8E" id="5qGXSHduuCz" role="2OqNvi">
                             <ref role="37wK5l" to="lui2:~SDependency.getTargetModule()" resolve="getTargetModule" />
@@ -4506,7 +4506,7 @@
                           <node concept="10Nm6u" id="16MtQqZa98L" role="3uHU7w" />
                           <node concept="2OqwBi" id="16MtQqZa98M" role="3uHU7B">
                             <node concept="37vLTw" id="16MtQqZa98N" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0X5E" />
+                              <ref role="3cqZAo" node="5W7E4fV0X5E" resolve="it" />
                             </node>
                             <node concept="liA8E" id="16MtQqZa98O" role="2OqNvi">
                               <ref role="37wK5l" to="lui2:~SModuleReference.resolve(org.jetbrains.mps.openapi.module.SRepository)" resolve="resolve" />
@@ -5123,7 +5123,7 @@
                                   <node concept="liA8E" id="18VG85aG10V" role="2OqNvi">
                                     <ref role="37wK5l" to="33ny:~Map.remove(java.lang.Object)" resolve="remove" />
                                     <node concept="37vLTw" id="18VG85aG1dM" role="37wK5m">
-                                      <ref role="3cqZAo" node="5W7E4fV0X5G" />
+                                      <ref role="3cqZAo" node="5W7E4fV0X5G" resolve="it" />
                                     </node>
                                   </node>
                                   <node concept="2OqwBi" id="6svLnPqF7nF" role="2Oq$k0">
@@ -5185,7 +5185,7 @@
                                                 </node>
                                                 <node concept="2Nt0df" id="7i2Uj4bS7Kk" role="2OqNvi">
                                                   <node concept="37vLTw" id="7i2Uj4bS7Kl" role="38cxEo">
-                                                    <ref role="3cqZAo" node="5W7E4fV0X5I" />
+                                                    <ref role="3cqZAo" node="5W7E4fV0X5I" resolve="it" />
                                                   </node>
                                                 </node>
                                               </node>
@@ -5205,7 +5205,7 @@
                                         <node concept="3clFbF" id="1h1oRyEJI6d" role="3cqZAp">
                                           <node concept="2OqwBi" id="1h1oRyEJLdT" role="3clFbG">
                                             <node concept="37vLTw" id="1h1oRyEJI6c" role="2Oq$k0">
-                                              <ref role="3cqZAo" node="5W7E4fV0X5K" />
+                                              <ref role="3cqZAo" node="5W7E4fV0X5K" resolve="it" />
                                             </node>
                                             <node concept="liA8E" id="1h1oRyEJRkv" role="2OqNvi">
                                               <ref role="37wK5l" to="lui2:~SModuleReference.getModuleName()" resolve="getModuleName" />
@@ -5265,7 +5265,7 @@
                                 <ref role="37wK5l" to="33ny:~Map.get(java.lang.Object)" resolve="get" />
                                 <node concept="2OqwBi" id="7_8SJV8INUd" role="37wK5m">
                                   <node concept="37vLTw" id="7_8SJV8INUe" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="5W7E4fV0X5M" />
+                                    <ref role="3cqZAo" node="5W7E4fV0X5M" resolve="it" />
                                   </node>
                                   <node concept="3AY5_j" id="7_8SJV8INUf" role="2OqNvi" />
                                 </node>
@@ -5273,7 +5273,7 @@
                             </node>
                             <node concept="2OqwBi" id="7_8SJV8JhsD" role="3uHU7w">
                               <node concept="37vLTw" id="7_8SJV8JgD$" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0X5M" />
+                                <ref role="3cqZAo" node="5W7E4fV0X5M" resolve="it" />
                               </node>
                               <node concept="3AV6Ez" id="7_8SJV8Jigd" role="2OqNvi" />
                             </node>
@@ -5313,13 +5313,13 @@
                                     <ref role="37wK5l" to="33ny:~Map.put(java.lang.Object,java.lang.Object)" resolve="put" />
                                     <node concept="2OqwBi" id="7_8SJV8Jlzh" role="37wK5m">
                                       <node concept="37vLTw" id="7_8SJV8JkOq" role="2Oq$k0">
-                                        <ref role="3cqZAo" node="5W7E4fV0X5M" />
+                                        <ref role="3cqZAo" node="5W7E4fV0X5M" resolve="it" />
                                       </node>
                                       <node concept="3AY5_j" id="7_8SJV8Jm$0" role="2OqNvi" />
                                     </node>
                                     <node concept="2OqwBi" id="7_8SJV8JosX" role="37wK5m">
                                       <node concept="37vLTw" id="7_8SJV8JnCy" role="2Oq$k0">
-                                        <ref role="3cqZAo" node="5W7E4fV0X5M" />
+                                        <ref role="3cqZAo" node="5W7E4fV0X5M" resolve="it" />
                                       </node>
                                       <node concept="3AV6Ez" id="7_8SJV8JpEQ" role="2OqNvi" />
                                     </node>
@@ -5351,7 +5351,7 @@
                                       <node concept="2OqwBi" id="1h1oRyEM9vG" role="2cAKU6">
                                         <node concept="2OqwBi" id="1h1oRyEM3uJ" role="2Oq$k0">
                                           <node concept="37vLTw" id="1h1oRyEM0iO" role="2Oq$k0">
-                                            <ref role="3cqZAo" node="5W7E4fV0X5M" />
+                                            <ref role="3cqZAo" node="5W7E4fV0X5M" resolve="it" />
                                           </node>
                                           <node concept="3AY5_j" id="1h1oRyEM7he" role="2OqNvi" />
                                         </node>
@@ -5464,7 +5464,7 @@
                                   <node concept="liA8E" id="18VG85aG2VB" role="2OqNvi">
                                     <ref role="37wK5l" to="33ny:~Map.remove(java.lang.Object)" resolve="remove" />
                                     <node concept="37vLTw" id="18VG85aG2VC" role="37wK5m">
-                                      <ref role="3cqZAo" node="5W7E4fV0X5O" />
+                                      <ref role="3cqZAo" node="5W7E4fV0X5O" resolve="it" />
                                     </node>
                                   </node>
                                   <node concept="2OqwBi" id="6svLnPqF7ZQ" role="2Oq$k0">
@@ -5515,13 +5515,13 @@
                                     <ref role="37wK5l" to="33ny:~Map.put(java.lang.Object,java.lang.Object)" resolve="put" />
                                     <node concept="2OqwBi" id="7_8SJV8JqTI" role="37wK5m">
                                       <node concept="37vLTw" id="7_8SJV8JqTJ" role="2Oq$k0">
-                                        <ref role="3cqZAo" node="5W7E4fV0X5Q" />
+                                        <ref role="3cqZAo" node="5W7E4fV0X5Q" resolve="it" />
                                       </node>
                                       <node concept="3AY5_j" id="7_8SJV8JqTK" role="2OqNvi" />
                                     </node>
                                     <node concept="2OqwBi" id="7_8SJV8JqTL" role="37wK5m">
                                       <node concept="37vLTw" id="7_8SJV8JqTM" role="2Oq$k0">
-                                        <ref role="3cqZAo" node="5W7E4fV0X5Q" />
+                                        <ref role="3cqZAo" node="5W7E4fV0X5Q" resolve="it" />
                                       </node>
                                       <node concept="3AV6Ez" id="7_8SJV8JqTN" role="2OqNvi" />
                                     </node>
@@ -5543,7 +5543,7 @@
                                   <ref role="37wK5l" to="33ny:~Map.get(java.lang.Object)" resolve="get" />
                                   <node concept="2OqwBi" id="1guuOIDkjh6" role="37wK5m">
                                     <node concept="37vLTw" id="1guuOIDkjh7" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="5W7E4fV0X5Q" />
+                                      <ref role="3cqZAo" node="5W7E4fV0X5Q" resolve="it" />
                                     </node>
                                     <node concept="3AY5_j" id="1guuOIDkjh8" role="2OqNvi" />
                                   </node>
@@ -5551,7 +5551,7 @@
                               </node>
                               <node concept="2OqwBi" id="1guuOIDkjh9" role="3uHU7w">
                                 <node concept="37vLTw" id="1guuOIDkjha" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="5W7E4fV0X5Q" />
+                                  <ref role="3cqZAo" node="5W7E4fV0X5Q" resolve="it" />
                                 </node>
                                 <node concept="3AV6Ez" id="1guuOIDkjhb" role="2OqNvi" />
                               </node>
@@ -6298,7 +6298,7 @@
                         <node concept="3clFbC" id="18VG85aEIbP" role="3clFbG">
                           <node concept="2OqwBi" id="18VG85aEIbQ" role="3uHU7B">
                             <node concept="37vLTw" id="18VG85aEIbR" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0X5S" />
+                              <ref role="3cqZAo" node="5W7E4fV0X5S" resolve="it" />
                             </node>
                             <node concept="liA8E" id="18VG85aEIbS" role="2OqNvi">
                               <ref role="37wK5l" to="lui2:~SModuleReference.resolve(org.jetbrains.mps.openapi.module.SRepository)" resolve="resolve" />
@@ -6337,7 +6337,7 @@
                       </node>
                       <node concept="kI3uX" id="18VG85aEIc7" role="2OqNvi">
                         <node concept="37vLTw" id="18VG85aEIc8" role="kIiFs">
-                          <ref role="3cqZAo" node="5W7E4fV0X5U" />
+                          <ref role="3cqZAo" node="5W7E4fV0X5U" resolve="it" />
                         </node>
                       </node>
                     </node>

@@ -167,7 +167,7 @@
                           <node concept="1qvjxa" id="5Vvmn_QkWQC" role="3clFbG">
                             <ref role="1quiSB" to="bgxn:2LiUEk8oQ$g" resolve="plugin" />
                             <node concept="37vLTw" id="5Vvmn_QkWQD" role="1qvjxb">
-                              <ref role="3cqZAo" node="5W7E4fV0Wrq" />
+                              <ref role="3cqZAo" node="5W7E4fV0Wrq" resolve="it" />
                             </node>
                           </node>
                         </node>

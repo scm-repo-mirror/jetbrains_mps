@@ -478,7 +478,7 @@
                         <node concept="2OqwBi" id="F2hJxqAVu6" role="3clFbG">
                           <node concept="2OqwBi" id="F2hJxqAVu7" role="2Oq$k0">
                             <node concept="37vLTw" id="F2hJxqAVua" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0XtK" />
+                              <ref role="3cqZAo" node="5W7E4fV0XtK" resolve="it" />
                             </node>
                             <node concept="3TrEf2" id="F2hJxqAVub" role="2OqNvi">
                               <ref role="3Tt5mk" to="tpee:fzcqZ_w" resolve="variableDeclaration" />

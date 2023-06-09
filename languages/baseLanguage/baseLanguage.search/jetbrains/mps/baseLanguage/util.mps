@@ -423,7 +423,7 @@
                     <node concept="1rXfSq" id="61mDen1$pO1" role="3clFbG">
                       <ref role="37wK5l" node="7k6J8c3tHXh" resolve="canOverride" />
                       <node concept="37vLTw" id="61mDen1$pO2" role="37wK5m">
-                        <ref role="3cqZAo" node="5W7E4fV0Xck" />
+                        <ref role="3cqZAo" node="5W7E4fV0Xck" resolve="it" />
                       </node>
                     </node>
                   </node>
@@ -576,7 +576,7 @@
                     <node concept="1rXfSq" id="4hiugqysr87" role="3clFbG">
                       <ref role="37wK5l" node="7k6J8c3tHXh" resolve="canOverride" />
                       <node concept="37vLTw" id="2BHiRxgma_i" role="37wK5m">
-                        <ref role="3cqZAo" node="5W7E4fV0Xcm" />
+                        <ref role="3cqZAo" node="5W7E4fV0Xcm" resolve="it" />
                       </node>
                     </node>
                   </node>
@@ -866,7 +866,7 @@
                             <node concept="3y3z36" id="2h1owW199lG" role="3uHU7B">
                               <node concept="10Nm6u" id="2h1owW199BB" role="3uHU7w" />
                               <node concept="37vLTw" id="2h1owW198WY" role="3uHU7B">
-                                <ref role="3cqZAo" node="5W7E4fV0Xco" />
+                                <ref role="3cqZAo" node="5W7E4fV0Xco" resolve="implementedInterface" />
                               </node>
                             </node>
                             <node concept="1rXfSq" id="4hiugqysu$n" role="3uHU7w">
@@ -875,7 +875,7 @@
                                 <ref role="3cqZAo" node="7k6J8c3tHSg" resolve="visitedClassifiers" />
                               </node>
                               <node concept="37vLTw" id="2BHiRxgmztS" role="37wK5m">
-                                <ref role="3cqZAo" node="5W7E4fV0Xco" />
+                                <ref role="3cqZAo" node="5W7E4fV0Xco" resolve="implementedInterface" />
                               </node>
                             </node>
                           </node>
@@ -894,7 +894,7 @@
                             <ref role="3cqZAo" node="7k6J8c3tHS9" resolve="classifier" />
                           </node>
                           <node concept="37vLTw" id="2BHiRxgmCnG" role="37wK5m">
-                            <ref role="3cqZAo" node="5W7E4fV0Xcq" />
+                            <ref role="3cqZAo" node="5W7E4fV0Xcq" resolve="intfc" />
                           </node>
                           <node concept="37vLTw" id="2BHiRxglstN" role="37wK5m">
                             <ref role="3cqZAo" node="7k6J8c3tHSb" resolve="nameToMethodsMap" />
@@ -949,7 +949,7 @@
                               <node concept="3y3z36" id="2h1owW19aM5" role="3uHU7B">
                                 <node concept="10Nm6u" id="2h1owW19b6i" role="3uHU7w" />
                                 <node concept="37vLTw" id="2h1owW19apn" role="3uHU7B">
-                                  <ref role="3cqZAo" node="5W7E4fV0Xcs" />
+                                  <ref role="3cqZAo" node="5W7E4fV0Xcs" resolve="extendedInterface" />
                                 </node>
                               </node>
                               <node concept="1rXfSq" id="4hiugqysmGv" role="3uHU7w">
@@ -958,7 +958,7 @@
                                   <ref role="3cqZAo" node="7k6J8c3tHSg" resolve="visitedClassifiers" />
                                 </node>
                                 <node concept="37vLTw" id="2BHiRxgm7EU" role="37wK5m">
-                                  <ref role="3cqZAo" node="5W7E4fV0Xcs" />
+                                  <ref role="3cqZAo" node="5W7E4fV0Xcs" resolve="extendedInterface" />
                                 </node>
                               </node>
                             </node>
@@ -981,7 +981,7 @@
                               <ref role="3cqZAo" node="7k6J8c3tHS9" resolve="classifier" />
                             </node>
                             <node concept="37vLTw" id="2BHiRxgmo2d" role="37wK5m">
-                              <ref role="3cqZAo" node="5W7E4fV0Xcu" />
+                              <ref role="3cqZAo" node="5W7E4fV0Xcu" resolve="intfc" />
                             </node>
                             <node concept="37vLTw" id="2BHiRxgll3J" role="37wK5m">
                               <ref role="3cqZAo" node="7k6J8c3tHSb" resolve="nameToMethodsMap" />
@@ -1156,7 +1156,7 @@
                             <node concept="2OqwBi" id="x4PZ8NiQ0O" role="3uHU7B">
                               <node concept="2OqwBi" id="x4PZ8NiIUV" role="2Oq$k0">
                                 <node concept="37vLTw" id="x4PZ8NiIBx" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="5W7E4fV0Xcw" />
+                                  <ref role="3cqZAo" node="5W7E4fV0Xcw" resolve="it" />
                                 </node>
                                 <node concept="3TrEf2" id="x4PZ8NiJWo" role="2OqNvi">
                                   <ref role="3Tt5mk" to="tpee:h9B3oxE" resolve="visibility" />
@@ -1182,7 +1182,7 @@
                       <node concept="1rXfSq" id="4hiugqysg$F" role="3uHU7B">
                         <ref role="37wK5l" node="7k6J8c3tHXv" resolve="canBeOverridden" />
                         <node concept="37vLTw" id="2BHiRxgloJ_" role="37wK5m">
-                          <ref role="3cqZAo" node="5W7E4fV0Xcw" />
+                          <ref role="3cqZAo" node="5W7E4fV0Xcw" resolve="it" />
                         </node>
                       </node>
                     </node>
@@ -1253,7 +1253,7 @@
                               <node concept="2qgKlT" id="7k6J8c3tHVT" role="2OqNvi">
                                 <ref role="37wK5l" to="tpek:hEwIB0z" resolve="hasSameSignature" />
                                 <node concept="37vLTw" id="2BHiRxgmyww" role="37wK5m">
-                                  <ref role="3cqZAo" node="5W7E4fV0Xcy" />
+                                  <ref role="3cqZAo" node="5W7E4fV0Xcy" resolve="it" />
                                 </node>
                               </node>
                             </node>

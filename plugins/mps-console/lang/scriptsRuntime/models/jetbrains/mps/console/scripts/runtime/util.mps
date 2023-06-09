@@ -584,7 +584,7 @@
                                                   <node concept="3clFbF" id="5KpVuOe4HAp" role="3cqZAp">
                                                     <node concept="2OqwBi" id="5KpVuOe4HHb" role="3clFbG">
                                                       <node concept="37vLTw" id="5KpVuOe4HAo" role="2Oq$k0">
-                                                        <ref role="3cqZAo" node="5W7E4fV0XlC" />
+                                                        <ref role="3cqZAo" node="5W7E4fV0XlC" resolve="it" />
                                                       </node>
                                                       <node concept="liA8E" id="5KpVuOe4I$r" role="2OqNvi">
                                                         <ref role="37wK5l" to="mhbf:~SNodeReference.resolve(org.jetbrains.mps.openapi.module.SRepository)" resolve="resolve" />
@@ -761,7 +761,7 @@
                               <ref role="37wK5l" to="g4jo:J2bOg02GIy" resolve="SearchResult" />
                               <node concept="3Tqbb2" id="6nZLqtybUJi" role="1pMfVU" />
                               <node concept="37vLTw" id="6nZLqtybUJj" role="37wK5m">
-                                <ref role="3cqZAo" node="5W7E4fV0XlE" />
+                                <ref role="3cqZAo" node="5W7E4fV0XlE" resolve="it" />
                               </node>
                               <node concept="Xl_RD" id="6nZLqtybUJk" role="37wK5m">
                                 <property role="Xl_RC" value="Nodes to refactor" />

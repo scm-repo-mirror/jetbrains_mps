@@ -1043,7 +1043,7 @@
                                   </node>
                                   <node concept="2OqwBi" id="1KUoCipvwis" role="3uHU7B">
                                     <node concept="37vLTw" id="2BHiRxgm8m3" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="5W7E4fV0Y3q" />
+                                      <ref role="3cqZAo" node="5W7E4fV0Y3q" resolve="it" />
                                     </node>
                                     <node concept="3TrcHB" id="1KUoCipvwiu" role="2OqNvi">
                                       <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
@@ -1630,7 +1630,7 @@
                                   </node>
                                   <node concept="2OqwBi" id="7qMe9LrA7xL" role="3uHU7w">
                                     <node concept="37vLTw" id="2BHiRxgm7dT" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="5W7E4fV0Y3s" />
+                                      <ref role="3cqZAo" node="5W7E4fV0Y3s" resolve="method" />
                                     </node>
                                     <node concept="liA8E" id="7qMe9LrA7xP" role="2OqNvi">
                                       <ref role="37wK5l" to="sfqd:56tRMpP_ejv" resolve="getName" />

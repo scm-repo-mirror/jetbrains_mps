@@ -856,7 +856,7 @@
                             <node concept="liA8E" id="Jpw4evuxrU" role="2OqNvi">
                               <ref role="37wK5l" to="4hrd:~FileSystemBridge.asVirtualFile(jetbrains.mps.vfs.IFile)" resolve="asVirtualFile" />
                               <node concept="37vLTw" id="Jpw4evuxSE" role="37wK5m">
-                                <ref role="3cqZAo" node="5W7E4fV0XTA" />
+                                <ref role="3cqZAo" node="5W7E4fV0XTA" resolve="f" />
                               </node>
                             </node>
                           </node>
@@ -878,7 +878,7 @@
                       <node concept="1rXfSq" id="2LgKyNIWWdM" role="3clFbG">
                         <ref role="37wK5l" node="2LgKyNISVqO" resolve="isConflictedFile" />
                         <node concept="37vLTw" id="2LgKyNIWWdN" role="37wK5m">
-                          <ref role="3cqZAo" node="5W7E4fV0XTC" />
+                          <ref role="3cqZAo" node="5W7E4fV0XTC" resolve="f" />
                         </node>
                         <node concept="37vLTw" id="2LgKyNIWZvD" role="37wK5m">
                           <ref role="3cqZAo" node="2LgKyNIWX_3" resolve="project" />
@@ -2177,7 +2177,7 @@
                   <node concept="3clFbF" id="nQhvklQS0y" role="3cqZAp">
                     <node concept="2OqwBi" id="nQhvklQS0z" role="3clFbG">
                       <node concept="37vLTw" id="2BHiRxgmz0K" role="2Oq$k0">
-                        <ref role="3cqZAo" node="5W7E4fV0XTE" />
+                        <ref role="3cqZAo" node="5W7E4fV0XTE" resolve="f" />
                       </node>
                       <node concept="liA8E" id="nQhvklQS0_" role="2OqNvi">
                         <ref role="37wK5l" to="guwi:~File.getName()" resolve="getName" />

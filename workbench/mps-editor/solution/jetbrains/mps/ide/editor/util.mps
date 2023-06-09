@@ -2635,7 +2635,7 @@
                               <ref role="3cqZAo" node="67we17RHJg9" resolve="myProject" />
                             </node>
                             <node concept="37vLTw" id="67we17RLum8" role="37wK5m">
-                              <ref role="3cqZAo" node="5W7E4fV0Y4S" />
+                              <ref role="3cqZAo" node="5W7E4fV0Y4S" resolve="it" />
                             </node>
                           </node>
                         </node>
@@ -2703,7 +2703,7 @@
                               <ref role="3cqZAo" node="67we17RHJg9" resolve="myProject" />
                             </node>
                             <node concept="37vLTw" id="4bwGa4kgUcO" role="37wK5m">
-                              <ref role="3cqZAo" node="5W7E4fV0Y4U" />
+                              <ref role="3cqZAo" node="5W7E4fV0Y4U" resolve="it" />
                             </node>
                           </node>
                         </node>

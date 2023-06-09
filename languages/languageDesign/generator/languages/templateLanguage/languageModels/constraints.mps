@@ -830,7 +830,7 @@
                       <ref role="1Pybhc" to="w1kc:~SModelStereotype" resolve="SModelStereotype" />
                       <ref role="37wK5l" to="w1kc:~SModelStereotype.isGeneratorModel(org.jetbrains.mps.openapi.model.SModel)" resolve="isGeneratorModel" />
                       <node concept="37vLTw" id="oIXu13GVPJ" role="37wK5m">
-                        <ref role="3cqZAo" node="5W7E4fV0Wed" />
+                        <ref role="3cqZAo" node="5W7E4fV0Wed" resolve="it" />
                       </node>
                     </node>
                   </node>

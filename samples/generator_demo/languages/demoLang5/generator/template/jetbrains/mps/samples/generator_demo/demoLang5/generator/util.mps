@@ -226,7 +226,7 @@
                             <ref role="3TsBF5" to="tpee:f$Xl_Oh" resolve="value" />
                           </node>
                           <node concept="37vLTw" id="3sP3FIIyZw9" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0WYU" />
+                            <ref role="3cqZAo" node="5W7E4fV0WYU" resolve="it" />
                           </node>
                         </node>
                       </node>

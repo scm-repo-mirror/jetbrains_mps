@@ -292,7 +292,7 @@
                         <ref role="37wK5l" to="i8bi:5m$620fQtAI" resolve="isAspect" />
                         <ref role="1Pybhc" to="i8bi:5m$620fQrjY" resolve="SModuleOperations" />
                         <node concept="37vLTw" id="7Nk8HJUvdtj" role="37wK5m">
-                          <ref role="3cqZAo" node="5W7E4fV0Wrt" />
+                          <ref role="3cqZAo" node="5W7E4fV0Wrt" resolve="it" />
                         </node>
                         <node concept="Xl_RD" id="7Nk8HJUvdLu" role="37wK5m">
                           <property role="Xl_RC" value="" />

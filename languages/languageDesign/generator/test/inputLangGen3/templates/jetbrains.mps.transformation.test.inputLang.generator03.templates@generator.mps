@@ -687,7 +687,7 @@
                             </node>
                             <node concept="2OqwBi" id="6saosjUUaoQ" role="3uHU7B">
                               <node concept="37vLTw" id="6saosjUUaoR" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0XdW" />
+                                <ref role="3cqZAo" node="5W7E4fV0XdW" resolve="it" />
                               </node>
                               <node concept="3TrEf2" id="6saosjUUaoS" role="2OqNvi">
                                 <ref role="3Tt5mk" to="tpm0:6saosjUTKVY" resolve="clz" />

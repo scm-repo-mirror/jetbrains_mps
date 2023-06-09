@@ -723,7 +723,7 @@
                                   <node concept="2OqwBi" id="3k7bCdNBtzo" role="3clFbG">
                                     <node concept="2OqwBi" id="3k7bCdNBtzp" role="2Oq$k0">
                                       <node concept="37vLTw" id="3k7bCdNBtzq" role="2Oq$k0">
-                                        <ref role="3cqZAo" node="5W7E4fV0Y7k" />
+                                        <ref role="3cqZAo" node="5W7E4fV0Y7k" resolve="it" />
                                       </node>
                                       <node concept="liA8E" id="3k7bCdNBtzr" role="2OqNvi">
                                         <ref role="37wK5l" to="jlff:~VirtualFile.getPath()" resolve="getPath" />

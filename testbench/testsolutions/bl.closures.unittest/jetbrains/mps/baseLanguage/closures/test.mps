@@ -194,7 +194,7 @@
                       <node concept="3clFbF" id="hRzK5Yk" role="3cqZAp">
                         <node concept="2OqwBi" id="hRzK5Yl" role="3clFbG">
                           <node concept="37vLTw" id="2BHiRxglnCd" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0XX4" />
+                            <ref role="3cqZAo" node="5W7E4fV0XX4" resolve="it" />
                           </node>
                           <node concept="liA8E" id="hRzK5Yn" role="2OqNvi">
                             <ref role="37wK5l" to="wyt6:~String.equals(java.lang.Object)" resolve="equals" />

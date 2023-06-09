@@ -750,7 +750,7 @@
                                   <node concept="2OqwBi" id="4milhKnhgZz" role="3clFbG">
                                     <node concept="2OqwBi" id="4milhKnhgZ$" role="2Oq$k0">
                                       <node concept="37vLTw" id="2BHiRxglwaA" role="2Oq$k0">
-                                        <ref role="3cqZAo" node="5W7E4fV0Xmw" />
+                                        <ref role="3cqZAo" node="5W7E4fV0Xmw" resolve="it" />
                                       </node>
                                       <node concept="liA8E" id="4milhKnhgZA" role="2OqNvi">
                                         <ref role="37wK5l" to="w0gx:~Dependency.getModuleRef()" resolve="getModuleRef" />

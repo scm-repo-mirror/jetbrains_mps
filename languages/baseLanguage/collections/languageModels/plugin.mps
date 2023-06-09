@@ -577,7 +577,7 @@
                                     <ref role="37wK5l" node="4SIS$II3IU2" resolve="getOwningModule" />
                                     <node concept="2OqwBi" id="4SIS$II3ISU" role="37wK5m">
                                       <node concept="37vLTw" id="2BHiRxgmMIx" role="2Oq$k0">
-                                        <ref role="3cqZAo" node="5W7E4fV0VV7" />
+                                        <ref role="3cqZAo" node="5W7E4fV0VV7" resolve="cc" />
                                       </node>
                                       <node concept="I4A8Y" id="4SIS$II3ISW" role="2OqNvi" />
                                     </node>
@@ -630,7 +630,7 @@
                                                 <ref role="37wK5l" to="c17a:~SLanguage.getSourceModuleReference()" resolve="getSourceModuleReference" />
                                               </node>
                                               <node concept="37vLTw" id="4UTtJHKyoyr" role="2Oq$k0">
-                                                <ref role="3cqZAo" node="5W7E4fV0VV5" />
+                                                <ref role="3cqZAo" node="5W7E4fV0VV5" resolve="it" />
                                               </node>
                                             </node>
                                           </node>
@@ -669,7 +669,7 @@
                           <node concept="3clFbF" id="4SIS$II3ITk" role="3cqZAp">
                             <node concept="2OqwBi" id="4SIS$II3ITl" role="3clFbG">
                               <node concept="37vLTw" id="2BHiRxgm7Ei" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0VV9" />
+                                <ref role="3cqZAo" node="5W7E4fV0VV9" resolve="cc" />
                               </node>
                               <node concept="3Tsc0h" id="4SIS$II3ITn" role="2OqNvi">
                                 <ref role="3TtcxE" to="tp2q:5i_Pov1WWxe" resolve="containerDeclaration" />
@@ -815,7 +815,7 @@
                   <node concept="3clFbF" id="4SIS$II3IUP" role="3cqZAp">
                     <node concept="2Sg_IR" id="4SIS$II3IUQ" role="3clFbG">
                       <node concept="37vLTw" id="2BHiRxglwyO" role="2SgG2M">
-                        <ref role="3cqZAo" node="5W7E4fV0VVb" />
+                        <ref role="3cqZAo" node="5W7E4fV0VVb" resolve="prov" />
                       </node>
                       <node concept="37vLTw" id="6j36NaoDFmi" role="2SgHGx">
                         <ref role="3cqZAo" node="6j36NaoDvkO" resolve="repo" />

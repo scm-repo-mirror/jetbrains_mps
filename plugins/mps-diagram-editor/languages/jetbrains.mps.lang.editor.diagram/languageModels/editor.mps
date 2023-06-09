@@ -1914,7 +1914,7 @@
                           <ref role="cht4Q" to="tpce:f_TJgxE" resolve="LinkDeclaration" />
                         </node>
                         <node concept="37vLTw" id="1wEcoXjJkyn" role="1m5AlR">
-                          <ref role="3cqZAo" node="5W7E4fV0WO9" />
+                          <ref role="3cqZAo" node="5W7E4fV0WO9" resolve="it" />
                         </node>
                       </node>
                     </node>
@@ -2066,7 +2066,7 @@
                           <ref role="cht4Q" to="tpce:f_TJgxF" resolve="PropertyDeclaration" />
                         </node>
                         <node concept="37vLTw" id="1wEcoXjJk_c" role="1m5AlR">
-                          <ref role="3cqZAo" node="5W7E4fV0WOb" />
+                          <ref role="3cqZAo" node="5W7E4fV0WOb" resolve="it" />
                         </node>
                       </node>
                     </node>

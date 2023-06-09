@@ -1831,7 +1831,7 @@
                           </node>
                           <node concept="2OqwBi" id="2PIlT5T$1qW" role="3uHU7B">
                             <node concept="37vLTw" id="2PIlT5T$1qX" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0XoQ" />
+                              <ref role="3cqZAo" node="5W7E4fV0XoQ" resolve="it" />
                             </node>
                             <node concept="liA8E" id="2PIlT5T$1qY" role="2OqNvi">
                               <ref role="37wK5l" to="d6hs:~ReportItem.getSeverity()" resolve="getSeverity" />

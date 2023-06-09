@@ -596,7 +596,7 @@
                                     <node concept="2OqwBi" id="3LKVexu7XjJ" role="3clFbG">
                                       <node concept="2OqwBi" id="3LKVexu7XjK" role="2Oq$k0">
                                         <node concept="37vLTw" id="2BHiRxgkX_A" role="2Oq$k0">
-                                          <ref role="3cqZAo" node="5W7E4fV0XSE" />
+                                          <ref role="3cqZAo" node="5W7E4fV0XSE" resolve="dm" />
                                         </node>
                                         <node concept="liA8E" id="3LKVexu7XjM" role="2OqNvi">
                                           <ref role="37wK5l" to="jlcu:~VcsDirectoryMapping.getVcs()" resolve="getVcs" />
@@ -606,7 +606,7 @@
                                         <ref role="37wK5l" to="wyt6:~String.equals(java.lang.Object)" resolve="equals" />
                                         <node concept="2OqwBi" id="3LKVexu7XjO" role="37wK5m">
                                           <node concept="37vLTw" id="2BHiRxglyL7" role="2Oq$k0">
-                                            <ref role="3cqZAo" node="5W7E4fV0XSG" />
+                                            <ref role="3cqZAo" node="5W7E4fV0XSG" resolve="i" />
                                           </node>
                                           <node concept="liA8E" id="3LKVexu7XjQ" role="2OqNvi">
                                             <ref role="37wK5l" node="63ZcAL22cl_" resolve="getAffectedVcsName" />
@@ -661,7 +661,7 @@
                     <node concept="3clFbC" id="3LKVexu7Xkh" role="3clFbG">
                       <node concept="2OqwBi" id="3LKVexu7Xki" role="3uHU7B">
                         <node concept="37vLTw" id="2BHiRxgmaZ4" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0XSI" />
+                          <ref role="3cqZAo" node="5W7E4fV0XSI" resolve="i" />
                         </node>
                         <node concept="liA8E" id="3LKVexu7Xkk" role="2OqNvi">
                           <ref role="37wK5l" node="1crbmp8Of6X" resolve="getCurrentState" />
@@ -701,7 +701,7 @@
                       <node concept="3clFbC" id="3LKVexu7Xkz" role="3clFbG">
                         <node concept="2OqwBi" id="3LKVexu7Xk$" role="3uHU7B">
                           <node concept="37vLTw" id="2BHiRxgmC4D" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0XSK" />
+                            <ref role="3cqZAo" node="5W7E4fV0XSK" resolve="i" />
                           </node>
                           <node concept="liA8E" id="3LKVexu7XkA" role="2OqNvi">
                             <ref role="37wK5l" node="1crbmp8Of6X" resolve="getCurrentState" />
@@ -741,7 +741,7 @@
                             <ref role="37wK5l" node="1crbmp8Of6X" resolve="getCurrentState" />
                           </node>
                           <node concept="37vLTw" id="SERxxVkDOX" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0XSM" />
+                            <ref role="3cqZAo" node="5W7E4fV0XSM" resolve="it" />
                           </node>
                         </node>
                       </node>
@@ -941,7 +941,7 @@
                                     <ref role="37wK5l" to="jlcu:~VcsRoot.getPath()" resolve="getPath" />
                                   </node>
                                   <node concept="37vLTw" id="2BHiRxglCww" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="5W7E4fV0XSO" />
+                                    <ref role="3cqZAo" node="5W7E4fV0XSO" resolve="r" />
                                   </node>
                                 </node>
                                 <node concept="37vLTw" id="2BHiRxgl3EI" role="37wK5m">
@@ -984,7 +984,7 @@
                               <ref role="1Px2BO" node="1crbmp8Of6p" resolve="AbstractInstaller.State" />
                             </node>
                             <node concept="37vLTw" id="2BHiRxghfKg" role="3uHU7B">
-                              <ref role="3cqZAo" node="5W7E4fV0XSQ" />
+                              <ref role="3cqZAo" node="5W7E4fV0XSQ" resolve="s" />
                             </node>
                           </node>
                         </node>
@@ -1011,7 +1011,7 @@
                                 <ref role="1Px2BO" node="1crbmp8Of6p" resolve="AbstractInstaller.State" />
                               </node>
                               <node concept="37vLTw" id="2BHiRxgkWg4" role="3uHU7B">
-                                <ref role="3cqZAo" node="5W7E4fV0XSS" />
+                                <ref role="3cqZAo" node="5W7E4fV0XSS" resolve="s" />
                               </node>
                             </node>
                           </node>
@@ -1095,7 +1095,7 @@
                               <ref role="37wK5l" to="jlcu:~VcsRoot.getPath()" resolve="getPath" />
                             </node>
                             <node concept="37vLTw" id="2BHiRxglnp8" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0XSU" />
+                              <ref role="3cqZAo" node="5W7E4fV0XSU" resolve="r" />
                             </node>
                           </node>
                           <node concept="3clFbT" id="1dKJ6hCbyKB" role="37wK5m">
@@ -1122,12 +1122,12 @@
                             <ref role="1Px2BO" node="1crbmp8Of6p" resolve="AbstractInstaller.State" />
                           </node>
                           <node concept="37vLTw" id="SERxxVORkZ" role="3uHU7B">
-                            <ref role="3cqZAo" node="5W7E4fV0XSW" />
+                            <ref role="3cqZAo" node="5W7E4fV0XSW" resolve="st" />
                           </node>
                         </node>
                         <node concept="3clFbC" id="SERxxVOcIt" role="3uHU7B">
                           <node concept="37vLTw" id="2BHiRxglThx" role="3uHU7B">
-                            <ref role="3cqZAo" node="5W7E4fV0XSW" />
+                            <ref role="3cqZAo" node="5W7E4fV0XSW" resolve="st" />
                           </node>
                           <node concept="Rm8GO" id="SERxxVOzcs" role="3uHU7w">
                             <ref role="Rm8GQ" node="1crbmp8Of6q" resolve="NOT_INSTALLED" />
@@ -1202,7 +1202,7 @@
                               <ref role="37wK5l" to="jlcu:~VcsRoot.getVcs()" resolve="getVcs" />
                             </node>
                             <node concept="37vLTw" id="2BHiRxglway" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0XSY" />
+                              <ref role="3cqZAo" node="5W7E4fV0XSY" resolve="root" />
                             </node>
                           </node>
                         </node>
@@ -1690,7 +1690,7 @@
                                   <node concept="3clFbF" id="7zbsrrwMCZB" role="3cqZAp">
                                     <node concept="2OqwBi" id="7zbsrrwMCZC" role="3clFbG">
                                       <node concept="37vLTw" id="7zbsrrwMCZD" role="2Oq$k0">
-                                        <ref role="3cqZAo" node="5W7E4fV0XT0" />
+                                        <ref role="3cqZAo" node="5W7E4fV0XT0" resolve="line" />
                                       </node>
                                       <node concept="liA8E" id="7zbsrrwMCZE" role="2OqNvi">
                                         <ref role="37wK5l" to="wyt6:~String.matches(java.lang.String)" resolve="matches" />
@@ -1704,7 +1704,7 @@
                                             </node>
                                             <node concept="2OqwBi" id="4EZjzAVx8HC" role="3uHU7w">
                                               <node concept="37vLTw" id="7zbsrrwMCZJ" role="2Oq$k0">
-                                                <ref role="3cqZAo" node="5W7E4fV0XT2" />
+                                                <ref role="3cqZAo" node="5W7E4fV0XT2" resolve="ext" />
                                               </node>
                                               <node concept="liA8E" id="4EZjzAVxluf" role="2OqNvi">
                                                 <ref role="37wK5l" to="4gyo:2TzypFyLPVl" resolve="getSuffix" />
@@ -1754,7 +1754,7 @@
                                   <node concept="3clFbF" id="7zbsrrwMD01" role="3cqZAp">
                                     <node concept="2OqwBi" id="7zbsrrwMD02" role="3clFbG">
                                       <node concept="37vLTw" id="7zbsrrwMD03" role="2Oq$k0">
-                                        <ref role="3cqZAo" node="5W7E4fV0XT4" />
+                                        <ref role="3cqZAo" node="5W7E4fV0XT4" resolve="line" />
                                       </node>
                                       <node concept="liA8E" id="7zbsrrwMD04" role="2OqNvi">
                                         <ref role="37wK5l" to="wyt6:~String.matches(java.lang.String)" resolve="matches" />
@@ -1769,7 +1769,7 @@
                                             <node concept="2OqwBi" id="4GH5thxp$TN" role="3uHU7w">
                                               <node concept="2OqwBi" id="4EZjzAVwGjM" role="2Oq$k0">
                                                 <node concept="37vLTw" id="7zbsrrwMD09" role="2Oq$k0">
-                                                  <ref role="3cqZAo" node="5W7E4fV0XT6" />
+                                                  <ref role="3cqZAo" node="5W7E4fV0XT6" resolve="fname" />
                                                 </node>
                                                 <node concept="liA8E" id="4EZjzAVwYoR" role="2OqNvi">
                                                   <ref role="37wK5l" to="4gyo:2TzypFyLPVl" resolve="getSuffix" />
@@ -2485,7 +2485,7 @@
                             <ref role="Rm8GQ" node="1crbmp8Of6s" resolve="INSTALLED" />
                           </node>
                           <node concept="37vLTw" id="686lcMJxbHw" role="3uHU7B">
-                            <ref role="3cqZAo" node="5W7E4fV0XT8" />
+                            <ref role="3cqZAo" node="5W7E4fV0XT8" resolve="s" />
                           </node>
                         </node>
                       </node>
@@ -2510,7 +2510,7 @@
                         <node concept="3clFbF" id="686lcMJxbHE" role="3cqZAp">
                           <node concept="3clFbC" id="686lcMJxbHF" role="3clFbG">
                             <node concept="37vLTw" id="686lcMJxbHG" role="3uHU7B">
-                              <ref role="3cqZAo" node="5W7E4fV0XTa" />
+                              <ref role="3cqZAo" node="5W7E4fV0XTa" resolve="s" />
                             </node>
                             <node concept="Rm8GO" id="686lcMJxbHH" role="3uHU7w">
                               <ref role="1Px2BO" node="1crbmp8Of6p" resolve="AbstractInstaller.State" />
@@ -2909,7 +2909,7 @@
                         </node>
                         <node concept="2OqwBi" id="1v1P0T12e_3" role="2ZW6bz">
                           <node concept="37vLTw" id="1v1P0T12dAd" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0XTc" />
+                            <ref role="3cqZAo" node="5W7E4fV0XTc" resolve="it" />
                           </node>
                           <node concept="liA8E" id="1v1P0T12ft1" role="2OqNvi">
                             <ref role="37wK5l" to="jlcu:~VcsRoot.getVcs()" resolve="getVcs" />
@@ -2946,7 +2946,7 @@
                       <node concept="1rXfSq" id="686lcMJwZbO" role="3clFbG">
                         <ref role="37wK5l" node="7Qh4dIZrLqP" resolve="installForRoot" />
                         <node concept="37vLTw" id="686lcMJwZbP" role="37wK5m">
-                          <ref role="3cqZAo" node="5W7E4fV0XTe" />
+                          <ref role="3cqZAo" node="5W7E4fV0XTe" resolve="r" />
                         </node>
                         <node concept="3clFbT" id="686lcMJx1KC" role="37wK5m">
                           <property role="3clFbU" value="true" />
@@ -3365,7 +3365,7 @@
                           <node concept="3clFbF" id="686lcMJxP6J" role="3cqZAp">
                             <node concept="3y3z36" id="686lcMJxP6K" role="3clFbG">
                               <node concept="37vLTw" id="686lcMJxP6L" role="3uHU7B">
-                                <ref role="3cqZAo" node="5W7E4fV0XTg" />
+                                <ref role="3cqZAo" node="5W7E4fV0XTg" resolve="it" />
                               </node>
                               <node concept="Rm8GO" id="686lcMJxP6M" role="3uHU7w">
                                 <ref role="1Px2BO" node="1crbmp8Of6p" resolve="AbstractInstaller.State" />
@@ -4171,7 +4171,7 @@
                           <node concept="2OqwBi" id="4beN9J2CQ2q" role="3clFbG">
                             <node concept="2OqwBi" id="4beN9J2CQ2r" role="2Oq$k0">
                               <node concept="37vLTw" id="2BHiRxglqez" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0XTi" />
+                                <ref role="3cqZAo" node="5W7E4fV0XTi" resolve="line" />
                               </node>
                               <node concept="liA8E" id="4beN9J2CQ2t" role="2OqNvi">
                                 <ref role="37wK5l" to="wyt6:~String.trim()" resolve="trim" />
@@ -4243,7 +4243,7 @@
                                     <node concept="2OqwBi" id="4beN9J2CQ2W" role="3clFbG">
                                       <node concept="2OqwBi" id="4beN9J2CQ2X" role="2Oq$k0">
                                         <node concept="37vLTw" id="2BHiRxgmE7c" role="2Oq$k0">
-                                          <ref role="3cqZAo" node="5W7E4fV0XTk" />
+                                          <ref role="3cqZAo" node="5W7E4fV0XTk" resolve="line" />
                                         </node>
                                         <node concept="liA8E" id="4beN9J2CQ2Z" role="2OqNvi">
                                           <ref role="37wK5l" to="wyt6:~String.trim()" resolve="trim" />
@@ -4339,7 +4339,7 @@
                                         <node concept="2OqwBi" id="4beN9J2CQ3s" role="3clFbG">
                                           <node concept="2OqwBi" id="4beN9J2CQ3t" role="2Oq$k0">
                                             <node concept="37vLTw" id="2BHiRxglROB" role="2Oq$k0">
-                                              <ref role="3cqZAo" node="5W7E4fV0XTm" />
+                                              <ref role="3cqZAo" node="5W7E4fV0XTm" resolve="line" />
                                             </node>
                                             <node concept="liA8E" id="4beN9J2CQ3v" role="2OqNvi">
                                               <ref role="37wK5l" to="wyt6:~String.trim()" resolve="trim" />
@@ -4491,7 +4491,7 @@
                                                   <node concept="2OqwBi" id="4beN9J2CQ4l" role="3fr31v">
                                                     <node concept="2OqwBi" id="4beN9J2CQ4m" role="2Oq$k0">
                                                       <node concept="37vLTw" id="2BHiRxghggj" role="2Oq$k0">
-                                                        <ref role="3cqZAo" node="5W7E4fV0XTo" />
+                                                        <ref role="3cqZAo" node="5W7E4fV0XTo" resolve="line" />
                                                       </node>
                                                       <node concept="liA8E" id="4beN9J2CQ4o" role="2OqNvi">
                                                         <ref role="37wK5l" to="wyt6:~String.trim()" resolve="trim" />
@@ -4506,7 +4506,7 @@
                                                   <node concept="2OqwBi" id="4beN9J2CQ4r" role="3fr31v">
                                                     <node concept="2OqwBi" id="4beN9J2CQ4s" role="2Oq$k0">
                                                       <node concept="37vLTw" id="2BHiRxgmF0t" role="2Oq$k0">
-                                                        <ref role="3cqZAo" node="5W7E4fV0XTo" />
+                                                        <ref role="3cqZAo" node="5W7E4fV0XTo" resolve="line" />
                                                       </node>
                                                       <node concept="liA8E" id="4beN9J2CQ4u" role="2OqNvi">
                                                         <ref role="37wK5l" to="wyt6:~String.trim()" resolve="trim" />
@@ -6178,7 +6178,7 @@
                           <node concept="3clFbF" id="127cgHIfgPT" role="3cqZAp">
                             <node concept="2OqwBi" id="127cgHIfgPU" role="3clFbG">
                               <node concept="37vLTw" id="2BHiRxgm6FN" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0XTq" />
+                                <ref role="3cqZAo" node="5W7E4fV0XTq" resolve="dm" />
                               </node>
                               <node concept="liA8E" id="127cgHIfgPW" role="2OqNvi">
                                 <ref role="37wK5l" to="jlcu:~VcsDirectoryMapping.getVcs()" resolve="getVcs" />
@@ -6199,7 +6199,7 @@
                         <node concept="3clFbF" id="3TyyBB_fKKG" role="3cqZAp">
                           <node concept="2OqwBi" id="3TyyBB_fKKO" role="3clFbG">
                             <node concept="37vLTw" id="2BHiRxgmJgZ" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0XTs" />
+                              <ref role="3cqZAo" node="5W7E4fV0XTs" resolve="vn" />
                             </node>
                             <node concept="17RvpY" id="3TyyBB_fKKS" role="2OqNvi" />
                           </node>
@@ -6247,7 +6247,7 @@
                                     <node concept="liA8E" id="127cgHIfgZG" role="2OqNvi">
                                       <ref role="37wK5l" to="qv1t:~AllVcsesI.getByName(java.lang.String)" resolve="getByName" />
                                       <node concept="37vLTw" id="2BHiRxghfnS" role="37wK5m">
-                                        <ref role="3cqZAo" node="5W7E4fV0XTu" />
+                                        <ref role="3cqZAo" node="5W7E4fV0XTu" resolve="vn" />
                                       </node>
                                     </node>
                                   </node>
@@ -8621,7 +8621,7 @@
                       <node concept="3clFbF" id="7yiwGpnLblA" role="3cqZAp">
                         <node concept="3cpWs3" id="7yiwGpnLbnq" role="3clFbG">
                           <node concept="37vLTw" id="2BHiRxglu$3" role="3uHU7w">
-                            <ref role="3cqZAo" node="5W7E4fV0XTw" />
+                            <ref role="3cqZAo" node="5W7E4fV0XTw" resolve="it" />
                           </node>
                           <node concept="3cpWs3" id="7yiwGpnLbmc" role="3uHU7B">
                             <node concept="37vLTw" id="3GM_nagTt9q" role="3uHU7B">
@@ -8661,7 +8661,7 @@
                       <node concept="3clFbF" id="3PaWMnROBBN" role="3cqZAp">
                         <node concept="3cpWs3" id="3PaWMnROBBO" role="3clFbG">
                           <node concept="37vLTw" id="2BHiRxgheoj" role="3uHU7w">
-                            <ref role="3cqZAo" node="5W7E4fV0XTy" />
+                            <ref role="3cqZAo" node="5W7E4fV0XTy" resolve="it" />
                           </node>
                           <node concept="3cpWs3" id="3PaWMnROBBQ" role="3uHU7B">
                             <node concept="37vLTw" id="3GM_nagTsQF" role="3uHU7B">
@@ -8757,7 +8757,7 @@
                             </node>
                           </node>
                           <node concept="37vLTw" id="2BHiRxgm6eh" role="3uHU7w">
-                            <ref role="3cqZAo" node="5W7E4fV0XT$" />
+                            <ref role="3cqZAo" node="5W7E4fV0XT$" resolve="it" />
                           </node>
                         </node>
                       </node>

@@ -294,7 +294,7 @@
                       <node concept="3clFbF" id="ANVkWUiO6u" role="3cqZAp">
                         <node concept="2OqwBi" id="ANVkWUiO6v" role="3clFbG">
                           <node concept="37vLTw" id="ANVkWUiO6w" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0W2B" />
+                            <ref role="3cqZAo" node="5W7E4fV0W2B" resolve="it" />
                           </node>
                           <node concept="liA8E" id="ANVkWUiO6x" role="2OqNvi">
                             <ref role="37wK5l" to="mhbf:~SModel.getRootNodes()" resolve="getRootNodes" />
@@ -317,7 +317,7 @@
                         <node concept="1eOMI4" id="ANVkWUiO6E" role="2Oq$k0">
                           <node concept="10QFUN" id="ANVkWUiO6F" role="1eOMHV">
                             <node concept="37vLTw" id="ANVkWUiO6G" role="10QFUP">
-                              <ref role="3cqZAo" node="5W7E4fV0W2D" />
+                              <ref role="3cqZAo" node="5W7E4fV0W2D" resolve="it" />
                             </node>
                             <node concept="3Tqbb2" id="ANVkWUiO6H" role="10QFUM" />
                           </node>
@@ -485,7 +485,7 @@
                               <node concept="1pGfFk" id="6En3ZbjlAhr" role="2ShVmc">
                                 <ref role="37wK5l" to="6f4m:6oJSkzEcOjg" resolve="DeprecatedConceptNotMigratedProblem" />
                                 <node concept="37vLTw" id="6En3ZbjlAhs" role="37wK5m">
-                                  <ref role="3cqZAo" node="5W7E4fV0W2F" />
+                                  <ref role="3cqZAo" node="5W7E4fV0W2F" resolve="it" />
                                 </node>
                               </node>
                             </node>

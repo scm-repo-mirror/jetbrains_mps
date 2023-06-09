@@ -773,7 +773,7 @@
                       <node concept="3clFbF" id="1wEcoXjJk2Z" role="3cqZAp">
                         <node concept="2OqwBi" id="1wEcoXjJk30" role="3clFbG">
                           <node concept="37vLTw" id="1wEcoXjJk31" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0X44" />
+                            <ref role="3cqZAo" node="5W7E4fV0X44" resolve="s" />
                           </node>
                           <node concept="liA8E" id="1wEcoXjJk32" role="2OqNvi">
                             <ref role="37wK5l" to="z1c3:~AbstractModule.getModuleReference()" resolve="getModuleReference" />
@@ -923,7 +923,7 @@
                           <node concept="1eOMI4" id="1wEcoXjJk5n" role="2Oq$k0">
                             <node concept="10QFUN" id="1wEcoXjJk5o" role="1eOMHV">
                               <node concept="37vLTw" id="1wEcoXjJk5p" role="10QFUP">
-                                <ref role="3cqZAo" node="5W7E4fV0X46" />
+                                <ref role="3cqZAo" node="5W7E4fV0X46" resolve="smd" />
                               </node>
                               <node concept="H_c77" id="1wEcoXjJk5q" role="10QFUM" />
                             </node>

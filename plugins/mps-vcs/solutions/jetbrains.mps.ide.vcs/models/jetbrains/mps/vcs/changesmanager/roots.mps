@@ -281,7 +281,7 @@
                             <node concept="liA8E" id="6U5aI53c27b" role="2OqNvi">
                               <ref role="37wK5l" to="lcr:2n7wcdLaAWi" resolve="getStatus" />
                               <node concept="37vLTw" id="2BHiRxgm7Cy" role="37wK5m">
-                                <ref role="3cqZAo" node="5W7E4fV0X_e" />
+                                <ref role="3cqZAo" node="5W7E4fV0X_e" resolve="np" />
                               </node>
                             </node>
                             <node concept="2YIFZM" id="3bmhQqpJ26k" role="2Oq$k0">
@@ -355,7 +355,7 @@
                         <node concept="1uHKPH" id="4C2otrAbWfF" role="2OqNvi" />
                       </node>
                       <node concept="37vLTw" id="2BHiRxgm9Ag" role="3uHU7B">
-                        <ref role="3cqZAo" node="5W7E4fV0X_g" />
+                        <ref role="3cqZAo" node="5W7E4fV0X_g" resolve="s" />
                       </node>
                     </node>
                   </node>

@@ -204,7 +204,7 @@
                                       <node concept="2OqwBi" id="3BHdE7cRp0P" role="3uHU7w">
                                         <node concept="2OqwBi" id="3BHdE7cRo0L" role="2Oq$k0">
                                           <node concept="37vLTw" id="3BHdE7cRn_Z" role="2Oq$k0">
-                                            <ref role="3cqZAo" node="5W7E4fV0X0J" />
+                                            <ref role="3cqZAo" node="5W7E4fV0X0J" resolve="it" />
                                           </node>
                                           <node concept="3TrEf2" id="3BHdE7cRotV" role="2OqNvi">
                                             <ref role="3Tt5mk" to="93ya:3BHdE7cPxwg" resolve="targetEntry" />
@@ -214,7 +214,7 @@
                                       </node>
                                       <node concept="17R0WA" id="3BHdE7cR5Ye" role="3uHU7B">
                                         <node concept="37vLTw" id="3BHdE7cR5Yf" role="3uHU7B">
-                                          <ref role="3cqZAo" node="5W7E4fV0X0J" />
+                                          <ref role="3cqZAo" node="5W7E4fV0X0J" resolve="it" />
                                         </node>
                                         <node concept="3kakTB" id="3BHdE7cRMnU" role="3uHU7w" />
                                       </node>
@@ -222,14 +222,14 @@
                                     <node concept="17QLQc" id="3BHdE7cREwa" role="3uHU7w">
                                       <node concept="2OqwBi" id="3BHdE7cR5Yj" role="3uHU7B">
                                         <node concept="37vLTw" id="3BHdE7cR5Yk" role="2Oq$k0">
-                                          <ref role="3cqZAo" node="5W7E4fV0X0J" />
+                                          <ref role="3cqZAo" node="5W7E4fV0X0J" resolve="it" />
                                         </node>
                                         <node concept="3TrEf2" id="3BHdE7cR5Yl" role="2OqNvi">
                                           <ref role="3Tt5mk" to="93ya:3BHdE7cPxwg" resolve="targetEntry" />
                                         </node>
                                       </node>
                                       <node concept="37vLTw" id="3BHdE7cR5Yi" role="3uHU7w">
-                                        <ref role="3cqZAo" node="5W7E4fV0X0L" />
+                                        <ref role="3cqZAo" node="5W7E4fV0X0L" resolve="entry" />
                                       </node>
                                     </node>
                                   </node>

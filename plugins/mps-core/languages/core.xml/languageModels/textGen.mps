@@ -2272,7 +2272,7 @@
                       <node concept="liA8E" id="Wg7UjTVpWV" role="2OqNvi">
                         <ref role="37wK5l" to="wyt6:~String.startsWith(java.lang.String)" resolve="startsWith" />
                         <node concept="37vLTw" id="Wg7UjTVpWW" role="37wK5m">
-                          <ref role="3cqZAo" node="5W7E4fV0WNu" />
+                          <ref role="3cqZAo" node="5W7E4fV0WNu" resolve="it" />
                         </node>
                       </node>
                     </node>
@@ -2399,7 +2399,7 @@
                           <ref role="37wK5l" to="wyt6:~String.valueOf(java.lang.Object)" resolve="valueOf" />
                           <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
                           <node concept="37vLTw" id="Wg7UjTUVb_" role="37wK5m">
-                            <ref role="3cqZAo" node="5W7E4fV0WNw" />
+                            <ref role="3cqZAo" node="5W7E4fV0WNw" resolve="it" />
                           </node>
                         </node>
                       </node>

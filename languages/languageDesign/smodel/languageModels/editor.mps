@@ -10549,7 +10549,7 @@
                     <node concept="3clFbF" id="78qQRpbgbKK" role="3cqZAp">
                       <node concept="2OqwBi" id="78qQRpbgcJh" role="3clFbG">
                         <node concept="37vLTw" id="78qQRpbgbKJ" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0WrY" />
+                          <ref role="3cqZAo" node="5W7E4fV0WrY" resolve="it" />
                         </node>
                         <node concept="liA8E" id="78qQRpbgdQj" role="2OqNvi">
                           <ref role="37wK5l" to="z1c3:~AbstractModule.getModuleReference()" resolve="getModuleReference" />

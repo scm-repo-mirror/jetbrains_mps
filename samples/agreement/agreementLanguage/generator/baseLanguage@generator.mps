@@ -682,7 +682,7 @@
                               </node>
                               <node concept="2OqwBi" id="hRzafvQ" role="2GsD0m">
                                 <node concept="37vLTw" id="2BHiRxgm8mX" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="5W7E4fV0WX3" />
+                                  <ref role="3cqZAo" node="5W7E4fV0WX3" resolve="value" />
                                 </node>
                                 <node concept="3Tsc0h" id="hRzafvS" role="2OqNvi">
                                   <ref role="3TtcxE" to="tpna:gbrXfpY" resolve="quantity" />
@@ -1148,7 +1148,7 @@
                               </node>
                               <node concept="2OqwBi" id="hRzafmk" role="2GsD0m">
                                 <node concept="37vLTw" id="2BHiRxgma8V" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="5W7E4fV0WX5" />
+                                  <ref role="3cqZAo" node="5W7E4fV0WX5" resolve="event" />
                                 </node>
                                 <node concept="3Tsc0h" id="hRzafmm" role="2OqNvi">
                                   <ref role="3TtcxE" to="tpna:gbs7ZuR" resolve="postingRule" />

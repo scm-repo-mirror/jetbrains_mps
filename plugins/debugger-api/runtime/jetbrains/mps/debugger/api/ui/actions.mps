@@ -455,7 +455,7 @@
                                                 <node concept="1pGfFk" id="1KUoCipv$3H" role="2ShVmc">
                                                   <ref role="37wK5l" to="w1kc:~SNodePointer.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNode)" resolve="SNodePointer" />
                                                   <node concept="37vLTw" id="2BHiRxglr$g" role="37wK5m">
-                                                    <ref role="3cqZAo" node="5W7E4fV0XfS" />
+                                                    <ref role="3cqZAo" node="5W7E4fV0XfS" resolve="it" />
                                                   </node>
                                                 </node>
                                               </node>

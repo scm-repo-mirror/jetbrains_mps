@@ -708,7 +708,7 @@
                       <node concept="3cpWs3" id="3I2kZbZOf3E" role="3uHU7B">
                         <node concept="2OqwBi" id="3I2kZbZOf3F" role="3uHU7B">
                           <node concept="37vLTw" id="2BHiRxgmamK" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0Y56" />
+                            <ref role="3cqZAo" node="5W7E4fV0Y56" resolve="node" />
                           </node>
                           <node concept="3TrcHB" id="3I2kZbZOf3H" role="2OqNvi">
                             <ref role="3TsBF5" to="tpck:hnGE5uv" resolve="virtualPackage" />
@@ -720,7 +720,7 @@
                       </node>
                       <node concept="2OqwBi" id="3I2kZbZOf3J" role="3uHU7w">
                         <node concept="37vLTw" id="2BHiRxgm5YX" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0Y56" />
+                          <ref role="3cqZAo" node="5W7E4fV0Y56" resolve="node" />
                         </node>
                         <node concept="2qgKlT" id="3I2kZbZOf3L" role="2OqNvi">
                           <ref role="37wK5l" to="tpcu:hEwIMiw" resolve="getPresentation" />

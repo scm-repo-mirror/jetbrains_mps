@@ -921,7 +921,7 @@
                             </node>
                             <node concept="2OqwBi" id="3qkjbZlMgyN" role="3uHU7B">
                               <node concept="37vLTw" id="3qkjbZlMgyO" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0W3I" />
+                                <ref role="3cqZAo" node="5W7E4fV0W3I" resolve="it" />
                               </node>
                               <node concept="3TrEf2" id="3qkjbZlMgyP" role="2OqNvi">
                                 <ref role="3Tt5mk" to="wff5:6f2WQqsTmPt" resolve="concept" />

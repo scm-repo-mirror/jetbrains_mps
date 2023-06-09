@@ -407,7 +407,7 @@
                             <node concept="3clFbF" id="4KDfkUwMpaK" role="3cqZAp">
                               <node concept="2OqwBi" id="4KDfkUwMpaL" role="3clFbG">
                                 <node concept="37vLTw" id="2BHiRxgmad5" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="5W7E4fV0XWY" />
+                                  <ref role="3cqZAo" node="5W7E4fV0XWY" resolve="s" />
                                 </node>
                                 <node concept="liA8E" id="4KDfkUwMpaN" role="2OqNvi">
                                   <ref role="37wK5l" to="z1c3:~AbstractModule.getModuleReference()" resolve="getModuleReference" />
@@ -674,7 +674,7 @@
                                                       <node concept="2OqwBi" id="2R6x4AnwS3O" role="2Oq$k0">
                                                         <node concept="2OqwBi" id="2R6x4AnwPHg" role="2Oq$k0">
                                                           <node concept="37vLTw" id="2R6x4AnwPDG" role="2Oq$k0">
-                                                            <ref role="3cqZAo" node="5W7E4fV0XX0" />
+                                                            <ref role="3cqZAo" node="5W7E4fV0XX0" resolve="it" />
                                                           </node>
                                                           <node concept="3TrEf2" id="2R6x4AnwPYC" role="2OqNvi">
                                                             <ref role="3Tt5mk" to="pop3:173Z5qAOsM8" resolve="moduleRef" />
@@ -821,7 +821,7 @@
                                                           <node concept="3clFbF" id="1ouvi_ym3K" role="3cqZAp">
                                                             <node concept="2OqwBi" id="1ouvi_yGNH" role="3clFbG">
                                                               <node concept="37vLTw" id="1ouvi_ym3J" role="2Oq$k0">
-                                                                <ref role="3cqZAo" node="5W7E4fV0XX2" />
+                                                                <ref role="3cqZAo" node="5W7E4fV0XX2" resolve="it" />
                                                               </node>
                                                               <node concept="2qgKlT" id="1ouvi_yHcu" role="2OqNvi">
                                                                 <ref role="37wK5l" to="5rc7:1ouvi_ymQH" resolve="isSame" />

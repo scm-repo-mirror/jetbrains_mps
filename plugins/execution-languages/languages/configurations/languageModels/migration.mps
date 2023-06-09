@@ -182,7 +182,7 @@
                           <node concept="10Nm6u" id="5UN0iAwOsgw" role="37vLTx" />
                           <node concept="2OqwBi" id="5UN0iAwOqU3" role="37vLTJ">
                             <node concept="37vLTw" id="5UN0iAwOqEg" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0WBr" />
+                              <ref role="3cqZAo" node="5W7E4fV0WBr" resolve="it" />
                             </node>
                             <node concept="3TrEf2" id="5UN0iAwOrrT" role="2OqNvi">
                               <ref role="3Tt5mk" to="uhxm:48qzi2IBQyu" resolve="icon" />

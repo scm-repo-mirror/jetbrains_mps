@@ -1361,7 +1361,7 @@
                               <node concept="2OqwBi" id="1M51tTb3_AC" role="3uHU7B">
                                 <node concept="2OqwBi" id="1M51tTb3_AD" role="2Oq$k0">
                                   <node concept="37vLTw" id="1M51tTb3_AE" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="5W7E4fV0VYZ" />
+                                    <ref role="3cqZAo" node="5W7E4fV0VYZ" resolve="it" />
                                   </node>
                                   <node concept="2qgKlT" id="1M51tTb3_AF" role="2OqNvi">
                                     <ref role="37wK5l" to="tpek:SORzhOpB6t" resolve="getVariable" />

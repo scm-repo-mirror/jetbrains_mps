@@ -2425,7 +2425,7 @@
                             <node concept="2OqwBi" id="2BGPXkEv9wR" role="2Oq$k0">
                               <node concept="2OqwBi" id="2BGPXkEv9wS" role="2Oq$k0">
                                 <node concept="37vLTw" id="2BGPXkEv9wT" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="5W7E4fV0XVW" />
+                                  <ref role="3cqZAo" node="5W7E4fV0XVW" resolve="it" />
                                 </node>
                                 <node concept="liA8E" id="2BGPXkEv9wU" role="2OqNvi">
                                   <ref role="37wK5l" to="32g5:~ModulesMiner$ModuleHandle.getFile()" resolve="getFile" />

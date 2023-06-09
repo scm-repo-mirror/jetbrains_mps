@@ -2420,7 +2420,7 @@
                         <ref role="3cqZAo" node="38wEix8dDOE" resolve="statusProvider" />
                       </node>
                       <node concept="37vLTw" id="38wEix8dXGY" role="37wK5m">
-                        <ref role="3cqZAo" node="5W7E4fV0XSi" />
+                        <ref role="3cqZAo" node="5W7E4fV0XSi" resolve="vf" />
                       </node>
                     </node>
                   </node>
@@ -3315,7 +3315,7 @@
                       <node concept="liA8E" id="341WClvYTXT" role="2OqNvi">
                         <ref role="37wK5l" to="qy69:~BlameDialog.addFile(java.io.File)" resolve="addFile" />
                         <node concept="37vLTw" id="2BHiRxglRO4" role="37wK5m">
-                          <ref role="3cqZAo" node="5W7E4fV0XSk" />
+                          <ref role="3cqZAo" node="5W7E4fV0XSk" resolve="f" />
                         </node>
                       </node>
                     </node>
@@ -3462,7 +3462,7 @@
                               <node concept="3clFbF" id="341WClvYTYO" role="3cqZAp">
                                 <node concept="2OqwBi" id="341WClvYTYP" role="3clFbG">
                                   <node concept="37vLTw" id="2BHiRxglrgo" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="5W7E4fV0XSm" />
+                                    <ref role="3cqZAo" node="5W7E4fV0XSm" resolve="f" />
                                   </node>
                                   <node concept="liA8E" id="341WClvYTYR" role="2OqNvi">
                                     <ref role="37wK5l" to="guwi:~File.lastModified()" resolve="lastModified" />
@@ -3486,7 +3486,7 @@
                             <node concept="3clFbF" id="341WClvYTYY" role="3cqZAp">
                               <node concept="2OqwBi" id="341WClvYTYZ" role="3clFbG">
                                 <node concept="37vLTw" id="2BHiRxgmyTB" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="5W7E4fV0XSo" />
+                                  <ref role="3cqZAo" node="5W7E4fV0XSo" resolve="f" />
                                 </node>
                                 <node concept="liA8E" id="341WClvYTZ1" role="2OqNvi">
                                   <ref role="37wK5l" to="guwi:~File.getName()" resolve="getName" />
@@ -3669,7 +3669,7 @@
                       <node concept="2OqwBi" id="341WClvYU01" role="3clFbG">
                         <node concept="2OqwBi" id="341WClvYU02" role="2Oq$k0">
                           <node concept="37vLTw" id="2BHiRxgm7lu" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0XSq" />
+                            <ref role="3cqZAo" node="5W7E4fV0XSq" resolve="m" />
                           </node>
                           <node concept="liA8E" id="341WClvYU04" role="2OqNvi">
                             <ref role="37wK5l" to="jlcu:~VcsDirectoryMapping.getVcs()" resolve="getVcs" />

@@ -396,7 +396,7 @@
                       <node concept="2OqwBi" id="6w9IlZTQSDu" role="3clFbG">
                         <node concept="2OqwBi" id="6w9IlZTQPNs" role="2Oq$k0">
                           <node concept="37vLTw" id="6w9IlZTQPy_" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0Whs" />
+                            <ref role="3cqZAo" node="5W7E4fV0Whs" resolve="it" />
                           </node>
                           <node concept="3TrcHB" id="6w9IlZTQR0D" role="2OqNvi">
                             <ref role="3TsBF5" to="tpm0:3Ftr4R6BH6t" resolve="useInTest" />

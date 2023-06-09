@@ -535,7 +535,7 @@
                                 <ref role="37wK5l" to="fn29:6yNkHkuCBPG" resolve="status" />
                               </node>
                               <node concept="37vLTw" id="22g6WSZy38" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0XdY" />
+                                <ref role="3cqZAo" node="5W7E4fV0XdY" resolve="it" />
                               </node>
                             </node>
                           </node>
@@ -818,7 +818,7 @@
                                       <ref role="1Pybhc" to="ap4t:~GenerationFacade" resolve="GenerationFacade" />
                                       <ref role="37wK5l" to="ap4t:~GenerationFacade.canGenerate(org.jetbrains.mps.openapi.model.SModel)" resolve="canGenerate" />
                                       <node concept="37vLTw" id="6DQXNvOkp_F" role="37wK5m">
-                                        <ref role="3cqZAo" node="5W7E4fV0Xe0" />
+                                        <ref role="3cqZAo" node="5W7E4fV0Xe0" resolve="smd" />
                                       </node>
                                     </node>
                                   </node>
@@ -4915,7 +4915,7 @@
                               <node concept="3clFbF" id="3lEpTK7JruS" role="3cqZAp">
                                 <node concept="2OqwBi" id="3lEpTK7Jsrh" role="3clFbG">
                                   <node concept="37vLTw" id="3lEpTK7JruR" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="5W7E4fV0Xe2" />
+                                    <ref role="3cqZAo" node="5W7E4fV0Xe2" resolve="it" />
                                   </node>
                                   <node concept="2sxana" id="3lEpTK7Ju3a" role="2OqNvi">
                                     <ref role="2sxfKC" to="fn29:1Xl3kQ1uadB" resolve="model" />
@@ -6287,7 +6287,7 @@
                                   <node concept="2OqwBi" id="1KUoCipvz4Y" role="3clFbG">
                                     <node concept="2OqwBi" id="1KUoCipvz4Z" role="2Oq$k0">
                                       <node concept="37vLTw" id="1KUoCipvz50" role="2Oq$k0">
-                                        <ref role="3cqZAo" node="5W7E4fV0Xe6" />
+                                        <ref role="3cqZAo" node="5W7E4fV0Xe6" resolve="mod" />
                                       </node>
                                       <node concept="2sxana" id="1KUoCipvz51" role="2OqNvi">
                                         <ref role="2sxfKC" to="fn29:1Xl3kQ1uadN" resolve="models" />
@@ -6302,7 +6302,7 @@
                                                 <ref role="37wK5l" to="mhbf:~SModel.load()" resolve="load" />
                                               </node>
                                               <node concept="37vLTw" id="1KUoCipvz58" role="2Oq$k0">
-                                                <ref role="3cqZAo" node="5W7E4fV0Xe4" />
+                                                <ref role="3cqZAo" node="5W7E4fV0Xe4" resolve="m" />
                                               </node>
                                             </node>
                                           </node>
@@ -7712,7 +7712,7 @@
                       <ref role="37wK5l" to="ap4t:~GenerationFacade.canGenerate(org.jetbrains.mps.openapi.model.SModel)" resolve="canGenerate" />
                       <ref role="1Pybhc" to="ap4t:~GenerationFacade" resolve="GenerationFacade" />
                       <node concept="37vLTw" id="XKuBm7b6tz" role="37wK5m">
-                        <ref role="3cqZAo" node="5W7E4fV0Xe8" />
+                        <ref role="3cqZAo" node="5W7E4fV0Xe8" resolve="it" />
                       </node>
                     </node>
                   </node>

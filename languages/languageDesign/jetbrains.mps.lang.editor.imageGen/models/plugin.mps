@@ -528,7 +528,7 @@
                                             <ref role="1Pybhc" to="b0pz:~GenerationTargetFacet" resolve="GenerationTargetFacet" />
                                             <node concept="2OqwBi" id="34FuM8wvR6G" role="37wK5m">
                                               <node concept="37vLTw" id="34FuM8wvPh1" role="2Oq$k0">
-                                                <ref role="3cqZAo" node="5W7E4fV0WhR" />
+                                                <ref role="3cqZAo" node="5W7E4fV0WhR" resolve="it" />
                                               </node>
                                               <node concept="2sxana" id="34FuM8wvS5b" role="2OqNvi">
                                                 <ref role="2sxfKC" to="fn29:1Xl3kQ1uadB" resolve="model" />
@@ -539,7 +539,7 @@
                                             <ref role="37wK5l" to="b0pz:~GenerationTargetFacet.getOutputLocation(org.jetbrains.mps.openapi.model.SModel)" resolve="getOutputLocation" />
                                             <node concept="2OqwBi" id="34FuM8wvVUI" role="37wK5m">
                                               <node concept="37vLTw" id="34FuM8wvUqw" role="2Oq$k0">
-                                                <ref role="3cqZAo" node="5W7E4fV0WhR" />
+                                                <ref role="3cqZAo" node="5W7E4fV0WhR" resolve="it" />
                                               </node>
                                               <node concept="2sxana" id="34FuM8wvWOg" role="2OqNvi">
                                                 <ref role="2sxfKC" to="fn29:1Xl3kQ1uadB" resolve="model" />
@@ -557,7 +557,7 @@
                                             <ref role="1Pybhc" to="b0pz:~GenerationTargetFacet" resolve="GenerationTargetFacet" />
                                             <node concept="2OqwBi" id="34FuM8wvHu_" role="37wK5m">
                                               <node concept="37vLTw" id="34FuM8wvF_v" role="2Oq$k0">
-                                                <ref role="3cqZAo" node="5W7E4fV0WhR" />
+                                                <ref role="3cqZAo" node="5W7E4fV0WhR" resolve="it" />
                                               </node>
                                               <node concept="2sxana" id="34FuM8wvJYO" role="2OqNvi">
                                                 <ref role="2sxfKC" to="fn29:1Xl3kQ1uadB" resolve="model" />
@@ -570,7 +570,7 @@
                                           <node concept="2OqwBi" id="TDp769cJuj" role="3uHU7B">
                                             <node concept="2OqwBi" id="TDp769cHhH" role="2Oq$k0">
                                               <node concept="37vLTw" id="TDp769cGpm" role="2Oq$k0">
-                                                <ref role="3cqZAo" node="5W7E4fV0WhR" />
+                                                <ref role="3cqZAo" node="5W7E4fV0WhR" resolve="it" />
                                               </node>
                                               <node concept="2sxana" id="TDp769cI_R" role="2OqNvi">
                                                 <ref role="2sxfKC" to="fn29:1Xl3kQ1uadG" resolve="status" />
@@ -613,7 +613,7 @@
                                       <node concept="H_c77" id="2OaO_a3zl9K" role="1tU5fm" />
                                       <node concept="2OqwBi" id="2OaO_a3zl9L" role="33vP2m">
                                         <node concept="37vLTw" id="2OaO_a3zl9M" role="2Oq$k0">
-                                          <ref role="3cqZAo" node="5W7E4fV0WhT" />
+                                          <ref role="3cqZAo" node="5W7E4fV0WhT" resolve="gResource" />
                                         </node>
                                         <node concept="2sxana" id="2OaO_a3zl9N" role="2OqNvi">
                                           <ref role="2sxfKC" to="fn29:1Xl3kQ1uadB" resolve="model" />
@@ -628,7 +628,7 @@
                                       <node concept="2OqwBi" id="2OaO_a3zl9R" role="33vP2m">
                                         <node concept="2OqwBi" id="2OaO_a3zl9S" role="2Oq$k0">
                                           <node concept="37vLTw" id="2OaO_a3zl9T" role="2Oq$k0">
-                                            <ref role="3cqZAo" node="5W7E4fV0WhT" />
+                                            <ref role="3cqZAo" node="5W7E4fV0WhT" resolve="gResource" />
                                           </node>
                                           <node concept="2sxana" id="2OaO_a3zl9U" role="2OqNvi">
                                             <ref role="2sxfKC" to="fn29:1Xl3kQ1uadG" resolve="status" />

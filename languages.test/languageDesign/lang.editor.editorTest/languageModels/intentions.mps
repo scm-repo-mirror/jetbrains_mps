@@ -709,7 +709,7 @@
                       <node concept="2OqwBi" id="2IMmVwjxa3_" role="3clFbG">
                         <node concept="2OqwBi" id="2IMmVwjx9bq" role="2Oq$k0">
                           <node concept="37vLTw" id="2IMmVwjx8ES" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0VCt" />
+                            <ref role="3cqZAo" node="5W7E4fV0VCt" resolve="it" />
                           </node>
                           <node concept="3CFZ6_" id="2IMmVwjx9ET" role="2OqNvi">
                             <node concept="3CFYIy" id="2IMmVwjx9NF" role="3CFYIz">

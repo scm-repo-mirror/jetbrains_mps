@@ -218,7 +218,7 @@
                           <node concept="1pGfFk" id="1M51tTaIdWE" role="2ShVmc">
                             <ref role="37wK5l" to="i5cy:~AtomicInteger.&lt;init&gt;(int)" resolve="AtomicInteger" />
                             <node concept="37vLTw" id="1M51tTaIdZC" role="37wK5m">
-                              <ref role="3cqZAo" node="5W7E4fV0Y3w" />
+                              <ref role="3cqZAo" node="5W7E4fV0Y3w" resolve="it" />
                             </node>
                             <node concept="LIFWc" id="1M51tTaIRxF" role="lGtFl">
                               <property role="ZRATv" value="true" />
@@ -327,7 +327,7 @@
                           <node concept="liA8E" id="1M51tTaI6cS" role="2OqNvi">
                             <ref role="37wK5l" to="guwi:~PrintStream.println(int)" resolve="println" />
                             <node concept="37vLTw" id="1M51tTaI6cT" role="37wK5m">
-                              <ref role="3cqZAo" node="5W7E4fV0Y3y" />
+                              <ref role="3cqZAo" node="5W7E4fV0Y3y" resolve="it" />
                             </node>
                             <node concept="LIFWc" id="1M51tTaI6cU" role="lGtFl">
                               <property role="ZRATv" value="true" />

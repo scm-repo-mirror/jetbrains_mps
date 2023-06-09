@@ -529,7 +529,7 @@
                           <ref role="37wK5l" node="6zWVWr2aFUf" resolve="convertProjection" />
                           <ref role="1Pybhc" node="77yS8CrUJ$d" resolve="JavaToKtConversion" />
                           <node concept="37vLTw" id="4mCQDm_Al34" role="37wK5m">
-                            <ref role="3cqZAo" node="5W7E4fV0Xui" />
+                            <ref role="3cqZAo" node="5W7E4fV0Xui" resolve="it" />
                           </node>
                         </node>
                       </node>
@@ -809,7 +809,7 @@
                         <property role="373rjd" value="true" />
                         <ref role="37wK5l" node="26mUjU3QgLJ" resolve="JavaParameterDeclaration" />
                         <node concept="37vLTw" id="26mUjU3QF$k" role="37wK5m">
-                          <ref role="3cqZAo" node="5W7E4fV0Xuk" />
+                          <ref role="3cqZAo" node="5W7E4fV0Xuk" resolve="it" />
                         </node>
                       </node>
                     </node>
@@ -856,7 +856,7 @@
                         <property role="373rjd" value="true" />
                         <ref role="37wK5l" node="4W0pdSCM4tT" resolve="JavaTypeParameterDeclaration" />
                         <node concept="37vLTw" id="4W0pdSCRDG2" role="37wK5m">
-                          <ref role="3cqZAo" node="5W7E4fV0Xum" />
+                          <ref role="3cqZAo" node="5W7E4fV0Xum" resolve="it" />
                         </node>
                       </node>
                     </node>
@@ -1091,7 +1091,7 @@
                         <node concept="2OqwBi" id="7XIUL68z4iX" role="3fr31v">
                           <node concept="2OqwBi" id="7XIUL68z4iY" role="2Oq$k0">
                             <node concept="37vLTw" id="7XIUL68z4iZ" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0Xuo" />
+                              <ref role="3cqZAo" node="5W7E4fV0Xuo" resolve="it" />
                             </node>
                             <node concept="3TrEf2" id="7XIUL68z4j0" role="2OqNvi">
                               <ref role="3Tt5mk" to="tpee:hiAI5P0" resolve="annotation" />
@@ -1655,7 +1655,7 @@
                         <property role="373rjd" value="true" />
                         <ref role="37wK5l" node="4W0pdSCM4tT" resolve="JavaTypeParameterDeclaration" />
                         <node concept="37vLTw" id="5H$PF0dpK9a" role="37wK5m">
-                          <ref role="3cqZAo" node="5W7E4fV0Xuq" />
+                          <ref role="3cqZAo" node="5W7E4fV0Xuq" resolve="it" />
                         </node>
                       </node>
                     </node>

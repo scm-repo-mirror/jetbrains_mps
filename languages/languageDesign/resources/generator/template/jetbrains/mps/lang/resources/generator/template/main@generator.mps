@@ -521,7 +521,7 @@
                                 <ref role="3Tt5mk" to="1oap:7Mb2akaesr5" resolve="icon" />
                               </node>
                               <node concept="37vLTw" id="6EOBfaNPaO0" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0WqH" />
+                                <ref role="3cqZAo" node="5W7E4fV0WqH" resolve="it" />
                               </node>
                             </node>
                             <node concept="2qgKlT" id="6EOBfaNPaO1" role="2OqNvi">
@@ -595,7 +595,7 @@
                                 <ref role="3Tt5mk" to="1oap:7Mb2akaesr5" resolve="icon" />
                               </node>
                               <node concept="37vLTw" id="6EOBfaNPfUO" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0WqJ" />
+                                <ref role="3cqZAo" node="5W7E4fV0WqJ" resolve="it" />
                               </node>
                             </node>
                             <node concept="2qgKlT" id="6EOBfaNPfUP" role="2OqNvi">

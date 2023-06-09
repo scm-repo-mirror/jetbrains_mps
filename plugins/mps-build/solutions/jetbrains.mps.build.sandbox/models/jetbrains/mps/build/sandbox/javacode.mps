@@ -206,7 +206,7 @@
                   <node concept="3clFbF" id="6JLVtGzv27A" role="3cqZAp">
                     <node concept="2OqwBi" id="6JLVtGzv3GD" role="3clFbG">
                       <node concept="37vLTw" id="2BHiRxgmNuH" role="2Oq$k0">
-                        <ref role="3cqZAo" node="5W7E4fV0Xl2" />
+                        <ref role="3cqZAo" node="5W7E4fV0Xl2" resolve="it" />
                       </node>
                       <node concept="1mIQ4w" id="6JLVtGzv3GJ" role="2OqNvi">
                         <node concept="chp4Y" id="6JLVtGzv3GL" role="cj9EA">

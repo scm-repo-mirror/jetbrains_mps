@@ -377,7 +377,7 @@
                       <node concept="3clFbF" id="5I1s5NvyvqV" role="3cqZAp">
                         <node concept="2OqwBi" id="5I1s5NvyvUh" role="3clFbG">
                           <node concept="37vLTw" id="5I1s5NvyvqU" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0WBJ" />
+                            <ref role="3cqZAo" node="5W7E4fV0WBJ" resolve="it" />
                           </node>
                           <node concept="3TrEf2" id="3a3EL8S78cJ" role="2OqNvi">
                             <ref role="3Tt5mk" to="as3y:5I1s5NvuWcp" resolve="plugin" />

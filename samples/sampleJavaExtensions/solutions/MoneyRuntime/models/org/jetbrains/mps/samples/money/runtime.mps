@@ -1733,7 +1733,7 @@
                       <node concept="3clFbF" id="3u6SZi0GElc" role="3cqZAp">
                         <node concept="2OqwBi" id="3u6SZi0GEld" role="3clFbG">
                           <node concept="37vLTw" id="3u6SZi0GEle" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0XTQ" />
+                            <ref role="3cqZAo" node="5W7E4fV0XTQ" resolve="it" />
                           </node>
                           <node concept="liA8E" id="3u6SZi0GElf" role="2OqNvi">
                             <ref role="37wK5l" node="3u6SZi0AoIz" resolve="getAdjustedClose" />
@@ -1754,12 +1754,12 @@
                     <node concept="3clFbF" id="3u6SZi0GEll" role="3cqZAp">
                       <node concept="2OqwBi" id="3u6SZi0GElm" role="3clFbG">
                         <node concept="37vLTw" id="3u6SZi0GEln" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0XTS" />
+                          <ref role="3cqZAo" node="5W7E4fV0XTS" resolve="a" />
                         </node>
                         <node concept="liA8E" id="3u6SZi0GElo" role="2OqNvi">
                           <ref role="37wK5l" to="xlxw:~BigDecimal.add(java.math.BigDecimal)" resolve="add" />
                           <node concept="37vLTw" id="3u6SZi0GElp" role="37wK5m">
-                            <ref role="3cqZAo" node="5W7E4fV0XTU" />
+                            <ref role="3cqZAo" node="5W7E4fV0XTU" resolve="b" />
                           </node>
                         </node>
                       </node>

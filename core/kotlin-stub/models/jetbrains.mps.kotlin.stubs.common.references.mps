@@ -749,7 +749,7 @@
                               <node concept="2OqwBi" id="1Uhah3iMH44" role="2Oq$k0">
                                 <node concept="2OqwBi" id="1Uhah3iMH45" role="2Oq$k0">
                                   <node concept="37vLTw" id="1Uhah3iMH46" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="5W7E4fV0X6S" />
+                                    <ref role="3cqZAo" node="5W7E4fV0X6S" resolve="stereotype" />
                                   </node>
                                   <node concept="liA8E" id="1Uhah3iMH47" role="2OqNvi">
                                     <ref role="37wK5l" node="1Uhah3ieQP9" resolve="getModelStereotypes" />
@@ -769,7 +769,7 @@
                                                 <ref role="3cqZAo" node="1Uhah3i4TRb" resolve="pack" />
                                               </node>
                                               <node concept="37vLTw" id="1Uhah3iMH4g" role="37wK5m">
-                                                <ref role="3cqZAo" node="5W7E4fV0X6Q" />
+                                                <ref role="3cqZAo" node="5W7E4fV0X6Q" resolve="it" />
                                               </node>
                                             </node>
                                           </node>
@@ -882,7 +882,7 @@
                                   </node>
                                   <node concept="2OqwBi" id="1Uhah3iMH4W" role="33vP2m">
                                     <node concept="37vLTw" id="1Uhah3iMH4X" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="5W7E4fV0X6S" />
+                                      <ref role="3cqZAo" node="5W7E4fV0X6S" resolve="stereotype" />
                                     </node>
                                     <node concept="liA8E" id="1Uhah3iMH4Y" role="2OqNvi">
                                       <ref role="37wK5l" node="1Uhah3ieQPq" resolve="getTopClassifierId" />
@@ -973,7 +973,7 @@
                                                 </node>
                                                 <node concept="2OqwBi" id="1Uhah3iMH5s" role="37wK5m">
                                                   <node concept="37vLTw" id="1Uhah3iMH5t" role="2Oq$k0">
-                                                    <ref role="3cqZAo" node="5W7E4fV0X6S" />
+                                                    <ref role="3cqZAo" node="5W7E4fV0X6S" resolve="stereotype" />
                                                   </node>
                                                   <node concept="liA8E" id="1Uhah3iMH5u" role="2OqNvi">
                                                     <ref role="37wK5l" node="1Uhah3ieQPi" resolve="getTargetNodeId" />
@@ -983,7 +983,7 @@
                                             </node>
                                             <node concept="2OqwBi" id="1Uhah3iU_NP" role="37wK5m">
                                               <node concept="37vLTw" id="1Uhah3iUyZR" role="2Oq$k0">
-                                                <ref role="3cqZAo" node="5W7E4fV0X6S" />
+                                                <ref role="3cqZAo" node="5W7E4fV0X6S" resolve="stereotype" />
                                               </node>
                                               <node concept="liA8E" id="1Uhah3iUEvv" role="2OqNvi">
                                                 <ref role="37wK5l" node="1Uhah3iSWxy" resolve="getResolveInfo" />
@@ -991,7 +991,7 @@
                                             </node>
                                           </node>
                                           <node concept="37vLTw" id="1Uhah3iMH5v" role="1Lso8e">
-                                            <ref role="3cqZAo" node="5W7E4fV0X6S" />
+                                            <ref role="3cqZAo" node="5W7E4fV0X6S" resolve="stereotype" />
                                           </node>
                                         </node>
                                       </node>
@@ -1118,7 +1118,7 @@
                                       </node>
                                       <node concept="2OqwBi" id="1Uhah3iULER" role="37wK5m">
                                         <node concept="37vLTw" id="1Uhah3iULES" role="2Oq$k0">
-                                          <ref role="3cqZAo" node="5W7E4fV0X6S" />
+                                          <ref role="3cqZAo" node="5W7E4fV0X6S" resolve="stereotype" />
                                         </node>
                                         <node concept="liA8E" id="1Uhah3iULET" role="2OqNvi">
                                           <ref role="37wK5l" node="1Uhah3ieQPi" resolve="getTargetNodeId" />
@@ -1128,7 +1128,7 @@
                                   </node>
                                   <node concept="2OqwBi" id="1Uhah3iVizR" role="37wK5m">
                                     <node concept="37vLTw" id="1Uhah3iVfIB" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="5W7E4fV0X6S" />
+                                      <ref role="3cqZAo" node="5W7E4fV0X6S" resolve="stereotype" />
                                     </node>
                                     <node concept="liA8E" id="1Uhah3iVngs" role="2OqNvi">
                                       <ref role="37wK5l" node="1Uhah3iSWxy" resolve="getResolveInfo" />
@@ -1136,7 +1136,7 @@
                                   </node>
                                 </node>
                                 <node concept="37vLTw" id="1Uhah3iMH6n" role="1Lso8e">
-                                  <ref role="3cqZAo" node="5W7E4fV0X6S" />
+                                  <ref role="3cqZAo" node="5W7E4fV0X6S" resolve="stereotype" />
                                 </node>
                               </node>
                             </node>
@@ -1247,7 +1247,7 @@
                             <node concept="3clFbF" id="1Uhah3iMH6R" role="3cqZAp">
                               <node concept="37vLTI" id="1Uhah3iMH6S" role="3clFbG">
                                 <node concept="37vLTw" id="1Uhah3iMH6T" role="37vLTx">
-                                  <ref role="3cqZAo" node="5W7E4fV0X6S" />
+                                  <ref role="3cqZAo" node="5W7E4fV0X6S" resolve="stereotype" />
                                 </node>
                                 <node concept="37vLTw" id="1Uhah3iMH6U" role="37vLTJ">
                                   <ref role="3cqZAo" node="1Uhah3iKviv" resolve="fallBackStereotype" />

@@ -150,7 +150,7 @@
                             <ref role="37wK5l" to="wyt6:~String.equals(java.lang.Object)" resolve="equals" />
                             <node concept="2OqwBi" id="hRzagZ3" role="37wK5m">
                               <node concept="37vLTw" id="2BHiRxgm6Or" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0W4v" />
+                                <ref role="3cqZAo" node="5W7E4fV0W4v" resolve="it" />
                               </node>
                               <node concept="3TrcHB" id="hRzagZ5" role="2OqNvi">
                                 <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
@@ -224,7 +224,7 @@
                             <ref role="37wK5l" to="wyt6:~String.equals(java.lang.Object)" resolve="equals" />
                             <node concept="2OqwBi" id="hRzaipe" role="37wK5m">
                               <node concept="37vLTw" id="2BHiRxgm1AH" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0W4x" />
+                                <ref role="3cqZAo" node="5W7E4fV0W4x" resolve="it" />
                               </node>
                               <node concept="3TrcHB" id="hRzaipg" role="2OqNvi">
                                 <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />

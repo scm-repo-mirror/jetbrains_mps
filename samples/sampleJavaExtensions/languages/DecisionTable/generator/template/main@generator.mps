@@ -699,7 +699,7 @@
                                   <node concept="2OqwBi" id="79m2eqVFdyw" role="3clFbG">
                                     <node concept="2JrnkZ" id="3yqnOFlJFF9" role="2Oq$k0">
                                       <node concept="37vLTw" id="2BHiRxglX1k" role="2JrQYb">
-                                        <ref role="3cqZAo" node="5W7E4fV0X2d" />
+                                        <ref role="3cqZAo" node="5W7E4fV0X2d" resolve="it" />
                                       </node>
                                     </node>
                                     <node concept="liA8E" id="79m2eqVFdyF" role="2OqNvi">

@@ -1420,7 +1420,7 @@
                     <node concept="3clFbF" id="64oWfQmk3rD" role="3cqZAp">
                       <node concept="2OqwBi" id="64oWfQmk3wA" role="3clFbG">
                         <node concept="37vLTw" id="64oWfQmk3rC" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0Xcg" />
+                          <ref role="3cqZAo" node="5W7E4fV0Xcg" resolve="it" />
                         </node>
                         <node concept="3TrEf2" id="64oWfQmk3Pd" role="2OqNvi">
                           <ref role="3Tt5mk" to="tpee:g7uigIF" resolve="classifier" />
@@ -1806,7 +1806,7 @@
                     <node concept="3clFbF" id="4dwvagLCahD" role="3cqZAp">
                       <node concept="2OqwBi" id="4dwvagLCaLj" role="3clFbG">
                         <node concept="37vLTw" id="4dwvagLCahC" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0Xci" />
+                          <ref role="3cqZAo" node="5W7E4fV0Xci" resolve="it" />
                         </node>
                         <node concept="liA8E" id="4dwvagLCc0V" role="2OqNvi">
                           <ref role="37wK5l" node="72Fa_thHN9A" resolve="getDerivedClassifiers" />

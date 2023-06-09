@@ -1738,7 +1738,7 @@
                                 <node concept="2OqwBi" id="7jkoQKX7bi6" role="3clFbG">
                                   <node concept="2OqwBi" id="7jkoQKX7bi7" role="2Oq$k0">
                                     <node concept="37vLTw" id="7jkoQKX7bi8" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="5W7E4fV0Xp8" />
+                                      <ref role="3cqZAo" node="5W7E4fV0Xp8" resolve="it" />
                                     </node>
                                     <node concept="liA8E" id="7jkoQKX7bi9" role="2OqNvi">
                                       <ref role="37wK5l" to="fwk:~DebugInfoRoot.getFileNames()" resolve="getFileNames" />

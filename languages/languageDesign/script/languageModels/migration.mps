@@ -175,7 +175,7 @@
                         <node concept="2OqwBi" id="23D3le_kY_H" role="3clFbG">
                           <node concept="2OqwBi" id="23D3le_kXrz" role="2Oq$k0">
                             <node concept="37vLTw" id="23D3le_kXg8" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0WqQ" />
+                              <ref role="3cqZAo" node="5W7E4fV0WqQ" resolve="it" />
                             </node>
                             <node concept="3TrcHB" id="23D3le_kXYS" role="2OqNvi">
                               <ref role="3TsBF5" to="tp33:hziz5_4" resolve="migrationFromBuild" />
@@ -188,7 +188,7 @@
                         <node concept="2OqwBi" id="23D3le_l0Vb" role="3clFbG">
                           <node concept="2OqwBi" id="23D3le_kZIn" role="2Oq$k0">
                             <node concept="37vLTw" id="23D3le_kZyP" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0WqQ" />
+                              <ref role="3cqZAo" node="5W7E4fV0WqQ" resolve="it" />
                             </node>
                             <node concept="3TrcHB" id="23D3le_l0ke" role="2OqNvi">
                               <ref role="3TsBF5" to="tp33:hzizfmN" resolve="category" />

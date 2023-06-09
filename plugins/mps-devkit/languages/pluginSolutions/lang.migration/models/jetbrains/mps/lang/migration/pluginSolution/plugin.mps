@@ -892,7 +892,7 @@
                     <node concept="3clFbF" id="39r_V8zMm_K" role="3cqZAp">
                       <node concept="10QFUN" id="39r_V8zMmE4" role="3clFbG">
                         <node concept="37vLTw" id="39r_V8zMmE2" role="10QFUP">
-                          <ref role="3cqZAo" node="5W7E4fV0Xnq" />
+                          <ref role="3cqZAo" node="5W7E4fV0Xnq" resolve="it" />
                         </node>
                         <node concept="3uibUv" id="39r_V8zMmPm" role="10QFUM">
                           <ref role="3uigEE" to="5nvm:5DMHUkptmAc" resolve="RefactoringParticipant.PersistentRefactoringParticipant" />
@@ -1495,7 +1495,7 @@
                         <ref role="37wK5l" node="3r9sVr9Sor1" resolve="create" />
                         <ref role="1Pybhc" node="112yVMI$YQ8" resolve="SerializingParticipantState" />
                         <node concept="37vLTw" id="1jNyE7GYcSk" role="37wK5m">
-                          <ref role="3cqZAo" node="5W7E4fV0Xnu" />
+                          <ref role="3cqZAo" node="5W7E4fV0Xnu" resolve="participant" />
                         </node>
                       </node>
                     </node>
@@ -1534,7 +1534,7 @@
                         <node concept="3y3z36" id="3r9sVr9Wqmf" role="3clFbG">
                           <node concept="10Nm6u" id="3r9sVr9WqJB" role="3uHU7w" />
                           <node concept="37vLTw" id="3r9sVr9Wp6C" role="3uHU7B">
-                            <ref role="3cqZAo" node="5W7E4fV0Xnw" />
+                            <ref role="3cqZAo" node="5W7E4fV0Xnw" resolve="it" />
                           </node>
                         </node>
                       </node>
@@ -1593,7 +1593,7 @@
                       <node concept="3clFbF" id="3r9sVr9SK_e" role="3cqZAp">
                         <node concept="2OqwBi" id="3r9sVr9SK_f" role="3clFbG">
                           <node concept="37vLTw" id="3r9sVr9SK_g" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0Xny" />
+                            <ref role="3cqZAo" node="5W7E4fV0Xny" resolve="it" />
                           </node>
                           <node concept="liA8E" id="3r9sVr9SK_h" role="2OqNvi">
                             <ref role="37wK5l" node="3r9sVr9Shhn" resolve="getSerializedInitial" />
@@ -2927,7 +2927,7 @@
                                 <node concept="3clFbF" id="3r9sVr9TwOu" role="3cqZAp">
                                   <node concept="2OqwBi" id="3r9sVr9TwOv" role="3clFbG">
                                     <node concept="37vLTw" id="3r9sVr9TwOw" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="5W7E4fV0Xn$" />
+                                      <ref role="3cqZAo" node="5W7E4fV0Xn$" resolve="it" />
                                     </node>
                                     <node concept="2z74zc" id="3r9sVr9TwOx" role="2OqNvi" />
                                   </node>
@@ -2946,7 +2946,7 @@
                               <node concept="3clFbF" id="3r9sVr9TwOB" role="3cqZAp">
                                 <node concept="2OqwBi" id="3r9sVr9TwOC" role="3clFbG">
                                   <node concept="37vLTw" id="3r9sVr9TwOD" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="5W7E4fV0XnA" />
+                                    <ref role="3cqZAo" node="5W7E4fV0XnA" resolve="it" />
                                   </node>
                                   <node concept="liA8E" id="3r9sVr9TwOE" role="2OqNvi">
                                     <ref role="37wK5l" to="mhbf:~SReference.getTargetSModelReference()" resolve="getTargetSModelReference" />
@@ -3051,7 +3051,7 @@
                                       <ref role="37wK5l" to="6f4m:3UfGsecu97b" resolve="isModuleMigrateable" />
                                       <ref role="1Pybhc" to="6f4m:4JlWzK6VGnA" resolve="MigrationModuleUtil" />
                                       <node concept="37vLTw" id="4nVmAemeKFg" role="37wK5m">
-                                        <ref role="3cqZAo" node="5W7E4fV0XnC" />
+                                        <ref role="3cqZAo" node="5W7E4fV0XnC" resolve="m" />
                                       </node>
                                     </node>
                                   </node>
@@ -3072,7 +3072,7 @@
                                       <ref role="1Pybhc" to="6f4m:4JlWzK6VGnA" resolve="MigrationModuleUtil" />
                                       <ref role="37wK5l" to="6f4m:3UfGsecu9ay" resolve="getModuleDependencies" />
                                       <node concept="37vLTw" id="4nVmAemeKFq" role="37wK5m">
-                                        <ref role="3cqZAo" node="5W7E4fV0XnE" />
+                                        <ref role="3cqZAo" node="5W7E4fV0XnE" resolve="m" />
                                       </node>
                                     </node>
                                     <node concept="3JPx81" id="4nVmAemeKFr" role="2OqNvi">
@@ -3447,7 +3447,7 @@
                                 <ref role="37wK5l" to="5nvm:37Il31hWKPu" resolve="RefactoringParticipant.Option" />
                                 <node concept="2OqwBi" id="1$U7CScoY2N" role="37wK5m">
                                   <node concept="37vLTw" id="1$U7CScoY2O" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="5W7E4fV0XnG" />
+                                    <ref role="3cqZAo" node="5W7E4fV0XnG" resolve="it" />
                                   </node>
                                   <node concept="3TrcHB" id="1$U7CScoY2P" role="2OqNvi">
                                     <ref role="3TsBF5" to="53vh:37Il31hWzd4" resolve="optionId" />
@@ -3455,7 +3455,7 @@
                                 </node>
                                 <node concept="2OqwBi" id="1$U7CScoY2Q" role="37wK5m">
                                   <node concept="37vLTw" id="1$U7CScoY2R" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="5W7E4fV0XnG" />
+                                    <ref role="3cqZAo" node="5W7E4fV0XnG" resolve="it" />
                                   </node>
                                   <node concept="3TrcHB" id="1$U7CScoY2S" role="2OqNvi">
                                     <ref role="3TsBF5" to="53vh:37Il31hWKtO" resolve="description" />

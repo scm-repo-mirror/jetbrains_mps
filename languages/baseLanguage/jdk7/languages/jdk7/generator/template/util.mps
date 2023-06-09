@@ -224,7 +224,7 @@
                     <node concept="2OqwBi" id="12k5PAfftwN" role="3clFbG">
                       <node concept="1PxgMI" id="12k5PAfftwO" role="2Oq$k0">
                         <node concept="37vLTw" id="2BHiRxglRL1" role="1m5AlR">
-                          <ref role="3cqZAo" node="5W7E4fV0VYA" />
+                          <ref role="3cqZAo" node="5W7E4fV0VYA" resolve="it" />
                         </node>
                         <node concept="chp4Y" id="714IaVdGYra" role="3oSUPX">
                           <ref role="cht4Q" to="tpee:f$Xl_Og" resolve="StringLiteral" />

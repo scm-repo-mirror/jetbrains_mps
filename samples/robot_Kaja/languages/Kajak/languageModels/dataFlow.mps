@@ -128,7 +128,7 @@
                 <node concept="3clFbS" id="5K3A7hVbeiH" role="1bW5cS">
                   <node concept="3AgYrR" id="5K3A7hVbeov" role="3cqZAp">
                     <node concept="37vLTw" id="5K3A7hVbetR" role="3Ah4Yx">
-                      <ref role="3cqZAo" node="5W7E4fV0X18" />
+                      <ref role="3cqZAo" node="5W7E4fV0X18" resolve="it" />
                     </node>
                   </node>
                 </node>

@@ -695,7 +695,7 @@
                                 <node concept="liA8E" id="6XlzavgcXsJ" role="2OqNvi">
                                   <ref role="37wK5l" to="tpfr:67iNJ0IU849" resolve="isFlagged" />
                                   <node concept="37vLTw" id="2BHiRxgl1$L" role="37wK5m">
-                                    <ref role="3cqZAo" node="5W7E4fV0W_o" />
+                                    <ref role="3cqZAo" node="5W7E4fV0W_o" resolve="it" />
                                   </node>
                                 </node>
                               </node>

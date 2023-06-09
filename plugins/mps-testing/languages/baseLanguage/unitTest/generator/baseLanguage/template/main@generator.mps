@@ -371,7 +371,7 @@
                             <ref role="37wK5l" to="wyt6:~String.equals(java.lang.Object)" resolve="equals" />
                             <node concept="2OqwBi" id="6vgd21k7lYM" role="37wK5m">
                               <node concept="37vLTw" id="6vgd21k7lzR" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0WVe" />
+                                <ref role="3cqZAo" node="5W7E4fV0WVe" resolve="it" />
                               </node>
                               <node concept="2qgKlT" id="6vgd21k7mHL" role="2OqNvi">
                                 <ref role="37wK5l" to="tpcu:hEwIO9y" resolve="getFqName" />
@@ -891,7 +891,7 @@
                           <node concept="3clFbF" id="1xA5AX3Nn0V" role="3cqZAp">
                             <node concept="2OqwBi" id="1xA5AX3Nn0W" role="3clFbG">
                               <node concept="37vLTw" id="1xA5AX3Nn0X" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0WVg" />
+                                <ref role="3cqZAo" node="5W7E4fV0WVg" resolve="it" />
                               </node>
                               <node concept="1QLmlb" id="1xA5AX3Nn0Y" role="2OqNvi">
                                 <node concept="ZC_QK" id="1xA5AX3Nn0Z" role="1QLmnL">

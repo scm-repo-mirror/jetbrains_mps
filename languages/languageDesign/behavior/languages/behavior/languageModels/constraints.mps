@@ -410,7 +410,7 @@
                           <node concept="10Nm6u" id="5Vvmn_QkN8f" role="3uHU7w" />
                           <node concept="2OqwBi" id="5Vvmn_QkN8g" role="3uHU7B">
                             <node concept="37vLTw" id="5Vvmn_QkN8h" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0W31" />
+                              <ref role="3cqZAo" node="5W7E4fV0W31" resolve="it" />
                             </node>
                             <node concept="3TrEf2" id="5Vvmn_QkN8i" role="2OqNvi">
                               <ref role="3Tt5mk" to="1i04:hP3i0lZ" resolve="overriddenMethod" />
@@ -731,7 +731,7 @@
                       </node>
                       <node concept="2OqwBi" id="1u_ffTorXSs" role="3uHU7B">
                         <node concept="37vLTw" id="1u_ffTorXSt" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0W33" />
+                          <ref role="3cqZAo" node="5W7E4fV0W33" resolve="it" />
                         </node>
                         <node concept="3TrcHB" id="1u_ffTorXSu" role="2OqNvi">
                           <ref role="3TsBF5" to="1i04:55xfRZxar9d" resolve="isStatic" />

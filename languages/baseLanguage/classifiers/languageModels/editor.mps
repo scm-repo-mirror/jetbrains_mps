@@ -881,7 +881,7 @@
                       <node concept="1PxgMI" id="15YZbuhMsJO" role="3clFbG">
                         <property role="1BlNFB" value="true" />
                         <node concept="37vLTw" id="2BHiRxgm1QI" role="1m5AlR">
-                          <ref role="3cqZAo" node="5W7E4fV0VSP" />
+                          <ref role="3cqZAo" node="5W7E4fV0VSP" resolve="it" />
                         </node>
                         <node concept="chp4Y" id="714IaVdGYqm" role="3oSUPX">
                           <ref role="cht4Q" to="tp4f:hyXrIf3" resolve="DefaultClassifierMethodDeclaration" />
@@ -903,7 +903,7 @@
                     <node concept="3y3z36" id="15YZbuhMsJG" role="3clFbG">
                       <node concept="10Nm6u" id="15YZbuhMsJJ" role="3uHU7w" />
                       <node concept="37vLTw" id="2BHiRxgm2V3" role="3uHU7B">
-                        <ref role="3cqZAo" node="5W7E4fV0VSR" />
+                        <ref role="3cqZAo" node="5W7E4fV0VSR" resolve="it" />
                       </node>
                     </node>
                   </node>
@@ -1014,7 +1014,7 @@
                       <node concept="17R0WA" id="4jf2Bbg4tei" role="3uHU7w">
                         <node concept="2OqwBi" id="hLuQ$Yf3BP" role="3uHU7B">
                           <node concept="37vLTw" id="2BHiRxgm6pb" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0VST" />
+                            <ref role="3cqZAo" node="5W7E4fV0VST" resolve="it" />
                           </node>
                           <node concept="2NL2c5" id="4jf2Bbg4s$0" role="2OqNvi" />
                         </node>
@@ -1026,7 +1026,7 @@
                       <node concept="2OqwBi" id="hLuQ$Yf3BE" role="3uHU7B">
                         <node concept="2OqwBi" id="hLuQ$Yf3B_" role="2Oq$k0">
                           <node concept="37vLTw" id="2BHiRxgmNJ_" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0VST" />
+                            <ref role="3cqZAo" node="5W7E4fV0VST" resolve="it" />
                           </node>
                           <node concept="1mfA1w" id="hLuQ$Yf3BD" role="2OqNvi" />
                         </node>

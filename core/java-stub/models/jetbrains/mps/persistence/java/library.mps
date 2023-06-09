@@ -2949,7 +2949,7 @@
                             </node>
                             <node concept="2OqwBi" id="2Dokkv7kw9U" role="3uHU7B">
                               <node concept="37vLTw" id="2Dokkv7kvTy" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0X4W" />
+                                <ref role="3cqZAo" node="5W7E4fV0X4W" resolve="it" />
                               </node>
                               <node concept="liA8E" id="2Dokkv7kwJD" role="2OqNvi">
                                 <ref role="37wK5l" to="3ju5:~IFile.getPath()" resolve="getPath" />
@@ -2977,7 +2977,7 @@
                       </node>
                       <node concept="TSZUe" id="74EzGwfOOiR" role="2OqNvi">
                         <node concept="37vLTw" id="74EzGwfOOLM" role="25WWJ7">
-                          <ref role="3cqZAo" node="5W7E4fV0X4Y" />
+                          <ref role="3cqZAo" node="5W7E4fV0X4Y" resolve="it" />
                         </node>
                       </node>
                     </node>
@@ -3031,7 +3031,7 @@
                         <ref role="3cqZAo" node="5JsnGMj1qjC" resolve="result" />
                       </node>
                       <node concept="37vLTw" id="2Dokkv7keXN" role="37wK5m">
-                        <ref role="3cqZAo" node="5W7E4fV0X50" />
+                        <ref role="3cqZAo" node="5W7E4fV0X50" resolve="it" />
                       </node>
                       <node concept="Xl_RD" id="2Dokkv7keXO" role="37wK5m">
                         <property role="Xl_RC" value="" />
@@ -3522,7 +3522,7 @@
                   <node concept="3clFbF" id="7aqpU4HxuoI" role="3cqZAp">
                     <node concept="2OqwBi" id="7aqpU4HxuoJ" role="3clFbG">
                       <node concept="37vLTw" id="7aqpU4HxuoK" role="2Oq$k0">
-                        <ref role="3cqZAo" node="5W7E4fV0X52" />
+                        <ref role="3cqZAo" node="5W7E4fV0X52" resolve="it" />
                       </node>
                       <node concept="liA8E" id="7aqpU4HxuoL" role="2OqNvi">
                         <ref role="37wK5l" to="3ju5:~IFile.isDirectory()" resolve="isDirectory" />
@@ -3768,7 +3768,7 @@
                               <node concept="2OqwBi" id="7aqpU4HxupR" role="3fr31v">
                                 <node concept="2OqwBi" id="7aqpU4HxupS" role="2Oq$k0">
                                   <node concept="37vLTw" id="7aqpU4HxupT" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="5W7E4fV0X54" />
+                                    <ref role="3cqZAo" node="5W7E4fV0X54" resolve="it" />
                                   </node>
                                   <node concept="liA8E" id="7aqpU4HxupU" role="2OqNvi">
                                     <ref role="37wK5l" to="3ju5:~IFile.getName()" resolve="getName" />
@@ -3785,7 +3785,7 @@
                             <node concept="2OqwBi" id="7aqpU4HxupX" role="3uHU7B">
                               <node concept="2OqwBi" id="7aqpU4HxupY" role="2Oq$k0">
                                 <node concept="37vLTw" id="7aqpU4HxupZ" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="5W7E4fV0X54" />
+                                  <ref role="3cqZAo" node="5W7E4fV0X54" resolve="it" />
                                 </node>
                                 <node concept="liA8E" id="7aqpU4Hxuq0" role="2OqNvi">
                                   <ref role="37wK5l" to="3ju5:~IFile.getName()" resolve="getName" />
@@ -4629,7 +4629,7 @@
                       <node concept="liA8E" id="7aqpU4HxlyG" role="2OqNvi">
                         <ref role="37wK5l" to="3ju5:~VFSManager.getFile(jetbrains.mps.vfs.QualifiedPath)" resolve="getFile" />
                         <node concept="37vLTw" id="7aqpU4HxlIk" role="37wK5m">
-                          <ref role="3cqZAo" node="5W7E4fV0X56" />
+                          <ref role="3cqZAo" node="5W7E4fV0X56" resolve="it" />
                         </node>
                       </node>
                       <node concept="37vLTw" id="6KsDlhvq68Y" role="2Oq$k0">
@@ -4746,7 +4746,7 @@
                             <property role="Xl_RC" value="," />
                           </node>
                           <node concept="37vLTw" id="7aqpU4HwLGo" role="3uHU7B">
-                            <ref role="3cqZAo" node="5W7E4fV0X58" />
+                            <ref role="3cqZAo" node="5W7E4fV0X58" resolve="it" />
                           </node>
                         </node>
                       </node>
@@ -5147,7 +5147,7 @@
                           <ref role="37wK5l" to="3ju5:~QualifiedPath.deserialize(java.lang.String,jetbrains.mps.util.MacroHelper)" resolve="deserialize" />
                           <node concept="2OqwBi" id="21LLI_ShH4" role="37wK5m">
                             <node concept="37vLTw" id="21LLI_ShH5" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0X5a" />
+                              <ref role="3cqZAo" node="5W7E4fV0X5a" resolve="it" />
                             </node>
                             <node concept="liA8E" id="21LLI_ShH6" role="2OqNvi">
                               <ref role="37wK5l" to="dush:~Memento.get(java.lang.String)" resolve="get" />

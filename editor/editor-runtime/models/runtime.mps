@@ -8671,7 +8671,7 @@
                       <node concept="3clFbF" id="7c5YJMXras3" role="3cqZAp">
                         <node concept="2OqwBi" id="7c5YJMXras4" role="3clFbG">
                           <node concept="37vLTw" id="7c5YJMXras5" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0Xba" />
+                            <ref role="3cqZAo" node="5W7E4fV0Xba" resolve="it" />
                           </node>
                           <node concept="liA8E" id="7c5YJMXras6" role="2OqNvi">
                             <ref role="37wK5l" to="wsw7:6qi2OtU3u1H" resolve="dispose" />
@@ -8701,7 +8701,7 @@
                       <node concept="3clFbF" id="7c5YJMXrasj" role="3cqZAp">
                         <node concept="2OqwBi" id="7c5YJMXrask" role="3clFbG">
                           <node concept="37vLTw" id="7c5YJMXrasl" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0Xbc" />
+                            <ref role="3cqZAo" node="5W7E4fV0Xbc" resolve="it" />
                           </node>
                           <node concept="liA8E" id="7c5YJMXrasm" role="2OqNvi">
                             <ref role="37wK5l" to="exr9:~EditorComponent.removeDisposeListener(jetbrains.mps.nodeEditor.EditorComponent$EditorDisposeListener)" resolve="removeDisposeListener" />
@@ -8743,7 +8743,7 @@
                         <node concept="1rXfSq" id="7c5YJMXrasH" role="3clFbG">
                           <ref role="37wK5l" node="7c5YJMXrarh" resolve="removeModelListener" />
                           <node concept="37vLTw" id="7c5YJMXrasI" role="37wK5m">
-                            <ref role="3cqZAo" node="5W7E4fV0Xbe" />
+                            <ref role="3cqZAo" node="5W7E4fV0Xbe" resolve="it" />
                           </node>
                         </node>
                       </node>

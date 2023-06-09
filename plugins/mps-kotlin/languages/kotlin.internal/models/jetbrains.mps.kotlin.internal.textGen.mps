@@ -154,7 +154,7 @@
                       <ref role="1JF1rN" to="o42a:75KWrCgUHED" resolve="requirePath" />
                       <node concept="2OqwBi" id="5GTxrLRMNI4" role="1JF4iq">
                         <node concept="37vLTw" id="5GTxrLRMNzP" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0WP_" />
+                          <ref role="3cqZAo" node="5W7E4fV0WP_" resolve="it" />
                         </node>
                         <node concept="3TrcHB" id="5GTxrLRMNVQ" role="2OqNvi">
                           <ref role="3TsBF5" to="hcm8:1502VugS2u8" resolve="description" />

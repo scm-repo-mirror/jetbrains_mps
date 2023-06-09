@@ -787,7 +787,7 @@
                       <node concept="3clFbF" id="1wEcoXjIIFp" role="3cqZAp">
                         <node concept="1PxgMI" id="1wEcoXjIIFq" role="3clFbG">
                           <node concept="37vLTw" id="4Ly_4Z2Ybk_" role="1m5AlR">
-                            <ref role="3cqZAo" node="5W7E4fV0VYX" />
+                            <ref role="3cqZAo" node="5W7E4fV0VYX" resolve="it" />
                           </node>
                           <node concept="chp4Y" id="714IaVdH1b1" role="3oSUPX">
                             <ref role="cht4Q" to="tpee:g7pOWCK" resolve="Classifier" />

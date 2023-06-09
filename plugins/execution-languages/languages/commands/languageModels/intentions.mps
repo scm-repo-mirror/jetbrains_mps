@@ -388,7 +388,7 @@
                   <node concept="3clFbF" id="1SmDPX5dBwF" role="3cqZAp">
                     <node concept="2OqwBi" id="1SmDPX5dBwH" role="3clFbG">
                       <node concept="37vLTw" id="2BHiRxgm8sU" role="2Oq$k0">
-                        <ref role="3cqZAo" node="5W7E4fV0WAU" />
+                        <ref role="3cqZAo" node="5W7E4fV0WAU" resolve="it" />
                       </node>
                       <node concept="3YRAZt" id="1SmDPX5dBwL" role="2OqNvi" />
                     </node>

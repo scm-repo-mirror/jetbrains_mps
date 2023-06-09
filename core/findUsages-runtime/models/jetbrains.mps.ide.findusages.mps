@@ -864,7 +864,7 @@
                               <node concept="1Wc70l" id="66nKEiNZIiH" role="3clFbG">
                                 <node concept="2OqwBi" id="66nKEiNZHMy" role="3uHU7B">
                                   <node concept="37vLTw" id="66nKEiO2YAb" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="5W7E4fV0X4$" />
+                                    <ref role="3cqZAo" node="5W7E4fV0X4$" resolve="it" />
                                   </node>
                                   <node concept="liA8E" id="66nKEiNZHMz" role="2OqNvi">
                                     <ref role="37wK5l" to="b2d5:7aWSXuXO6mp" resolve="isVisible" />
@@ -875,7 +875,7 @@
                                 </node>
                                 <node concept="2OqwBi" id="66nKEiNZHNW" role="3uHU7w">
                                   <node concept="37vLTw" id="66nKEiO2YZv" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="5W7E4fV0X4$" />
+                                    <ref role="3cqZAo" node="5W7E4fV0X4$" resolve="it" />
                                   </node>
                                   <node concept="liA8E" id="66nKEiNZHNX" role="2OqNvi">
                                     <ref role="37wK5l" to="b2d5:7aWSXuXO6mj" resolve="isApplicable" />
@@ -905,7 +905,7 @@
                               <node concept="liA8E" id="66nKEiO32qL" role="2OqNvi">
                                 <ref role="37wK5l" to="33ny:~Set.add(java.lang.Object)" resolve="add" />
                                 <node concept="37vLTw" id="66nKEiO32Ae" role="37wK5m">
-                                  <ref role="3cqZAo" node="5W7E4fV0X4A" />
+                                  <ref role="3cqZAo" node="5W7E4fV0X4A" resolve="it" />
                                 </node>
                               </node>
                             </node>
@@ -2236,7 +2236,7 @@
                           <node concept="liA8E" id="66nKEiO0STn" role="2OqNvi">
                             <ref role="37wK5l" to="c17a:~SAbstractConcept.isSubConceptOf(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="isSubConceptOf" />
                             <node concept="37vLTw" id="66nKEiO0UJd" role="37wK5m">
-                              <ref role="3cqZAo" node="5W7E4fV0X4C" />
+                              <ref role="3cqZAo" node="5W7E4fV0X4C" resolve="it" />
                             </node>
                           </node>
                         </node>
@@ -2262,7 +2262,7 @@
                           <node concept="liA8E" id="66nKEiO1Rlm" role="2OqNvi">
                             <ref role="37wK5l" to="33ny:~Map.get(java.lang.Object)" resolve="get" />
                             <node concept="37vLTw" id="66nKEiO1Rln" role="37wK5m">
-                              <ref role="3cqZAo" node="5W7E4fV0X4E" />
+                              <ref role="3cqZAo" node="5W7E4fV0X4E" resolve="it" />
                             </node>
                           </node>
                         </node>
@@ -2441,7 +2441,7 @@
                         <node concept="liA8E" id="66nKEiO2RrK" role="2OqNvi">
                           <ref role="37wK5l" to="1mh6:7rEOvdELBi5" resolve="instantiate" />
                           <node concept="37vLTw" id="66nKEiO2TAE" role="37wK5m">
-                            <ref role="3cqZAo" node="5W7E4fV0X4G" />
+                            <ref role="3cqZAo" node="5W7E4fV0X4G" resolve="it" />
                           </node>
                         </node>
                       </node>

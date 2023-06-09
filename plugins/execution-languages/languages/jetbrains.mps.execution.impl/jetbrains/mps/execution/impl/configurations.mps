@@ -808,7 +808,7 @@
                             <node concept="2OqwBi" id="3PIszklmntU" role="2ZW6bz">
                               <node concept="2OqwBi" id="3PIszklmntV" role="2Oq$k0">
                                 <node concept="37vLTw" id="2BHiRxghiDT" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="5W7E4fV0Xke" />
+                                  <ref role="3cqZAo" node="5W7E4fV0Xke" resolve="it" />
                                 </node>
                                 <node concept="liA8E" id="3PIszklmntX" role="2OqNvi">
                                   <ref role="37wK5l" to="wyt6:~Object.getClass()" resolve="getClass" />
@@ -834,7 +834,7 @@
                       <node concept="3clFbF" id="3PIszklmnu3" role="3cqZAp">
                         <node concept="2OqwBi" id="3PIszklmnu4" role="3clFbG">
                           <node concept="37vLTw" id="2BHiRxglK$8" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0Xkg" />
+                            <ref role="3cqZAo" node="5W7E4fV0Xkg" resolve="it" />
                           </node>
                           <node concept="liA8E" id="3PIszklmnu6" role="2OqNvi">
                             <ref role="37wK5l" to="dj99:~RunProfile.getName()" resolve="getName" />

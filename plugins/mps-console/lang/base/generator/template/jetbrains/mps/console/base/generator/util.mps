@@ -197,7 +197,7 @@
                             <node concept="3clFbF" id="6VxvX4sfXWv" role="3cqZAp">
                               <node concept="2OqwBi" id="6VxvX4sfXWw" role="3clFbG">
                                 <node concept="37vLTw" id="6VxvX4sfXWx" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="5W7E4fV0WMi" />
+                                  <ref role="3cqZAo" node="5W7E4fV0WMi" resolve="it" />
                                 </node>
                                 <node concept="liA8E" id="6VxvX4sfXWy" role="2OqNvi">
                                   <ref role="37wK5l" to="ydhz:6VxvX4scWYD" resolve="getKindLabel" />

@@ -368,7 +368,7 @@
                               <ref role="3cqZAo" node="2POSI7yqMr2" resolve="editorComponent" />
                             </node>
                             <node concept="37vLTw" id="2dHt7HZ3lLE" role="37wK5m">
-                              <ref role="3cqZAo" node="5W7E4fV0Y4Q" />
+                              <ref role="3cqZAo" node="5W7E4fV0Y4Q" resolve="it" />
                             </node>
                           </node>
                         </node>

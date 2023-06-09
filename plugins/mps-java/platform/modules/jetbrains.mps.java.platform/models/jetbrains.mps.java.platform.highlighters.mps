@@ -613,7 +613,7 @@
                             </node>
                           </node>
                           <node concept="37vLTw" id="222ObIpy_0T" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0Xto" />
+                            <ref role="3cqZAo" node="5W7E4fV0Xto" resolve="it" />
                           </node>
                         </node>
                         <node concept="2OqwBi" id="222ObIpy_0U" role="3uHU7B">
@@ -623,7 +623,7 @@
                             </node>
                           </node>
                           <node concept="37vLTw" id="222ObIpy_0X" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0Xto" />
+                            <ref role="3cqZAo" node="5W7E4fV0Xto" resolve="it" />
                           </node>
                         </node>
                       </node>
@@ -967,7 +967,7 @@
                                     <ref role="37wK5l" to="tpek:28P2dHxCoRl" resolve="isAnAbstractMethod" />
                                   </node>
                                   <node concept="37vLTw" id="ZR$QSf$RPK" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="5W7E4fV0Xtq" />
+                                    <ref role="3cqZAo" node="5W7E4fV0Xtq" resolve="it" />
                                   </node>
                                 </node>
                               </node>
@@ -1718,7 +1718,7 @@
                       <ref role="37wK5l" to="ntzd:7k6J8c3tHXv" resolve="canBeOverridden" />
                       <ref role="1Pybhc" to="ntzd:7k6J8c3tHRH" resolve="OverridingMethodsCalculator" />
                       <node concept="37vLTw" id="2BHiRxgmGTO" role="37wK5m">
-                        <ref role="3cqZAo" node="5W7E4fV0Xts" />
+                        <ref role="3cqZAo" node="5W7E4fV0Xts" resolve="it" />
                       </node>
                     </node>
                   </node>
@@ -2096,7 +2096,7 @@
                           <ref role="37wK5l" to="ntzd:7k6J8c3tHXh" resolve="canOverride" />
                           <ref role="1Pybhc" to="ntzd:7k6J8c3tHRH" resolve="OverridingMethodsCalculator" />
                           <node concept="37vLTw" id="2BHiRxgkYZW" role="37wK5m">
-                            <ref role="3cqZAo" node="5W7E4fV0Xtu" />
+                            <ref role="3cqZAo" node="5W7E4fV0Xtu" resolve="it" />
                           </node>
                         </node>
                       </node>
@@ -2175,7 +2175,7 @@
                                   </node>
                                 </node>
                                 <node concept="37vLTw" id="2BHiRxgm9sd" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="5W7E4fV0Xtw" />
+                                  <ref role="3cqZAo" node="5W7E4fV0Xtw" resolve="it" />
                                 </node>
                               </node>
                             </node>

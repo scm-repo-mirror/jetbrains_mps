@@ -340,7 +340,7 @@
                       <node concept="3clFbF" id="4z_SuroFAkJ" role="3cqZAp">
                         <node concept="2OqwBi" id="4z_SuroFAsZ" role="3clFbG">
                           <node concept="37vLTw" id="4z_SuroFAkI" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0VYE" />
+                            <ref role="3cqZAo" node="5W7E4fV0VYE" resolve="it" />
                           </node>
                           <node concept="liA8E" id="4z_SuroFBnr" role="2OqNvi">
                             <ref role="37wK5l" to="w1kc:~SModelInternal.deleteLanguageId(org.jetbrains.mps.openapi.language.SLanguage)" resolve="deleteLanguageId" />
@@ -406,7 +406,7 @@
                           <node concept="2OqwBi" id="4hKJ3ZGkFSS" role="3clFbG">
                             <node concept="2OqwBi" id="4hKJ3ZGkEoa" role="2Oq$k0">
                               <node concept="37vLTw" id="4hKJ3ZGkEaj" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0VYG" />
+                                <ref role="3cqZAo" node="5W7E4fV0VYG" resolve="it" />
                               </node>
                               <node concept="liA8E" id="4hKJ3ZGkFly" role="2OqNvi">
                                 <ref role="37wK5l" to="w1kc:~SModelInternal.importedLanguageIds()" resolve="importedLanguageIds" />
@@ -441,7 +441,7 @@
                               <ref role="37wK5l" to="6f4m:4z_SuroFtus" resolve="DeprecatedLanguageNotMigratedProblem" />
                               <node concept="10QFUN" id="7btLLch7mm_" role="37wK5m">
                                 <node concept="37vLTw" id="7btLLch7mmA" role="10QFUP">
-                                  <ref role="3cqZAo" node="5W7E4fV0VYI" />
+                                  <ref role="3cqZAo" node="5W7E4fV0VYI" resolve="it" />
                                 </node>
                                 <node concept="3uibUv" id="7btLLch7mmB" role="10QFUM">
                                   <ref role="3uigEE" to="mhbf:~SModel" resolve="SModel" />

@@ -379,7 +379,7 @@
                       <node concept="liA8E" id="IMyJ9JmbgT" role="2OqNvi">
                         <ref role="37wK5l" to="yyf4:~Consumer.consume(java.lang.Object)" resolve="consume" />
                         <node concept="37vLTw" id="3RAxiQnE89U" role="37wK5m">
-                          <ref role="3cqZAo" node="5W7E4fV0Xb6" />
+                          <ref role="3cqZAo" node="5W7E4fV0Xb6" resolve="it" />
                         </node>
                       </node>
                     </node>
@@ -899,7 +899,7 @@
                       <node concept="liA8E" id="mDYNhtw$4A" role="2OqNvi">
                         <ref role="37wK5l" to="yyf4:~Consumer.consume(java.lang.Object)" resolve="consume" />
                         <node concept="37vLTw" id="mDYNhtw$4B" role="37wK5m">
-                          <ref role="3cqZAo" node="5W7E4fV0Xb8" />
+                          <ref role="3cqZAo" node="5W7E4fV0Xb8" resolve="it" />
                         </node>
                       </node>
                     </node>

@@ -393,7 +393,7 @@
                               <ref role="3cqZAo" node="1BFxp3HHhuy" resolve="myBlock" />
                             </node>
                             <node concept="37vLTw" id="1BFxp3HHhuX" role="3uHU7B">
-                              <ref role="3cqZAo" node="5W7E4fV0W59" />
+                              <ref role="3cqZAo" node="5W7E4fV0W59" resolve="it" />
                             </node>
                           </node>
                         </node>

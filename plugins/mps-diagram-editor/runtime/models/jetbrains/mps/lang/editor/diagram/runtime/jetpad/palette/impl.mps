@@ -559,7 +559,7 @@
                             <ref role="3cqZAo" node="6P_LPfETmZI" resolve="myDiagramCell" />
                           </node>
                           <node concept="37vLTw" id="3NXJmdrhHxh" role="37wK5m">
-                            <ref role="3cqZAo" node="5W7E4fV0XoS" />
+                            <ref role="3cqZAo" node="5W7E4fV0XoS" resolve="it" />
                           </node>
                           <node concept="37vLTw" id="3NXJmdrhI8Z" role="37wK5m">
                             <ref role="3cqZAo" node="6KNGF9hh6A" resolve="myCallback" />
@@ -1600,7 +1600,7 @@
                             <ref role="3cqZAo" node="6P_LPfETgQd" resolve="myDiagramCell" />
                           </node>
                           <node concept="37vLTw" id="3NXJmdrw9YG" role="37wK5m">
-                            <ref role="3cqZAo" node="5W7E4fV0XoU" />
+                            <ref role="3cqZAo" node="5W7E4fV0XoU" resolve="it" />
                           </node>
                           <node concept="37vLTw" id="3NXJmdr$7F3" role="37wK5m">
                             <ref role="3cqZAo" node="3NXJmdr$3f2" resolve="myCanCreateConnectorCallback" />

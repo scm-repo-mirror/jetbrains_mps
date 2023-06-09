@@ -191,7 +191,7 @@
                           </node>
                           <node concept="2OqwBi" id="1id1$wMp_aR" role="3uHU7B">
                             <node concept="37vLTw" id="1id1$wMpzV2" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0X2Q" />
+                              <ref role="3cqZAo" node="5W7E4fV0X2Q" resolve="it" />
                             </node>
                             <node concept="3TrcHB" id="1id1$wMp_A1" role="2OqNvi">
                               <ref role="3TsBF5" to="oyog:1id1$wMpoKY" resolve="isInitial" />
@@ -254,7 +254,7 @@
                       <node concept="3clFbF" id="5Uf3geaLbkq" role="3cqZAp">
                         <node concept="2OqwBi" id="5Uf3geaLbkr" role="3clFbG">
                           <node concept="37vLTw" id="5Uf3geaLbks" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0X2S" />
+                            <ref role="3cqZAo" node="5W7E4fV0X2S" resolve="it" />
                           </node>
                           <node concept="3Tsc0h" id="5Uf3geaLbkt" role="2OqNvi">
                             <ref role="3TtcxE" to="oyog:1id1$wMpeiL" resolve="availableTriggers" />

@@ -302,7 +302,7 @@
                             <node concept="2OqwBi" id="3oudiFxSGQ1" role="2Oq$k0">
                               <node concept="2OqwBi" id="3oudiFxSGQ2" role="2Oq$k0">
                                 <node concept="37vLTw" id="3oudiFxSGQ3" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="5W7E4fV0W3D" />
+                                  <ref role="3cqZAo" node="5W7E4fV0W3D" resolve="it" />
                                 </node>
                                 <node concept="3TrEf2" id="3oudiFxSVg1" role="2OqNvi">
                                   <ref role="3Tt5mk" to="4j10:4cWf37B8oWV" resolve="propertyDeclaration" />
@@ -333,11 +333,11 @@
                           <node concept="1pGfFk" id="3oudiFxSJBo" role="2ShVmc">
                             <ref role="37wK5l" to="6f4m:7KaEUqipM5k" resolve="UsageOfMigrateNodeNotMigratedProblem" />
                             <node concept="37vLTw" id="3oudiFxSJJt" role="37wK5m">
-                              <ref role="3cqZAo" node="5W7E4fV0W3F" />
+                              <ref role="3cqZAo" node="5W7E4fV0W3F" resolve="it" />
                             </node>
                             <node concept="2OqwBi" id="3oudiFxSLod" role="37wK5m">
                               <node concept="37vLTw" id="3oudiFxSL4s" role="2Oq$k0">
-                                <ref role="3cqZAo" node="5W7E4fV0W3F" />
+                                <ref role="3cqZAo" node="5W7E4fV0W3F" resolve="it" />
                               </node>
                               <node concept="3TrEf2" id="3oudiFxSVRC" role="2OqNvi">
                                 <ref role="3Tt5mk" to="4j10:4cWf37B8oWV" resolve="propertyDeclaration" />

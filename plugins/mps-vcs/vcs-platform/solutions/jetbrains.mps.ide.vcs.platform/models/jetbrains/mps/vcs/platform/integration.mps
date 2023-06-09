@@ -2117,7 +2117,7 @@
                         <node concept="3JPx81" id="68MS4n2IfcI" role="2OqNvi">
                           <node concept="2OqwBi" id="68MS4n2IfcJ" role="25WWJ7">
                             <node concept="37vLTw" id="68MS4n2IfcK" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0XSs" />
+                              <ref role="3cqZAo" node="5W7E4fV0XSs" resolve="f" />
                             </node>
                             <node concept="liA8E" id="68MS4n2IfcL" role="2OqNvi">
                               <ref role="37wK5l" to="jlff:~VirtualFile.getFileType()" resolve="getFileType" />
@@ -2530,7 +2530,7 @@
                                                 <node concept="liA8E" id="7yFo2Ea67aa" role="2OqNvi">
                                                   <ref role="37wK5l" to="bmv6:3$YpntjF4nE" resolve="getConflictedWith" />
                                                   <node concept="37vLTw" id="7yFo2Ea67ab" role="37wK5m">
-                                                    <ref role="3cqZAo" node="5W7E4fV0XSu" />
+                                                    <ref role="3cqZAo" node="5W7E4fV0XSu" resolve="c" />
                                                   </node>
                                                 </node>
                                               </node>
@@ -3533,7 +3533,7 @@
                                       <node concept="liA8E" id="7yFo2Ea2WUn" role="2OqNvi">
                                         <ref role="37wK5l" to="bmv6:3$YpntjF4nE" resolve="getConflictedWith" />
                                         <node concept="37vLTw" id="7yFo2Ea2Xbq" role="37wK5m">
-                                          <ref role="3cqZAo" node="5W7E4fV0XSw" />
+                                          <ref role="3cqZAo" node="5W7E4fV0XSw" resolve="c" />
                                         </node>
                                       </node>
                                     </node>
@@ -4682,7 +4682,7 @@
                         <node concept="3JPx81" id="5G$1ADP9GId" role="2OqNvi">
                           <node concept="2OqwBi" id="5G$1ADP9GIe" role="25WWJ7">
                             <node concept="37vLTw" id="5G$1ADP9GIf" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0XSy" />
+                              <ref role="3cqZAo" node="5W7E4fV0XSy" resolve="f" />
                             </node>
                             <node concept="liA8E" id="5G$1ADP9GIg" role="2OqNvi">
                               <ref role="37wK5l" to="jlff:~VirtualFile.getFileType()" resolve="getFileType" />
@@ -5147,7 +5147,7 @@
                                 <ref role="3cqZAo" node="6y_kxB1Zrm0" resolve="mpsProject" />
                               </node>
                               <node concept="37vLTw" id="1X_O_$4ySUP" role="37wK5m">
-                                <ref role="3cqZAo" node="5W7E4fV0XS$" />
+                                <ref role="3cqZAo" node="5W7E4fV0XS$" resolve="it" />
                               </node>
                               <node concept="37vLTw" id="1X_O_$4yYfg" role="37wK5m">
                                 <ref role="3cqZAo" node="5zPLqcHMTC4" resolve="type" />
@@ -5233,7 +5233,7 @@
                                 <property role="3cmrfH" value="0" />
                               </node>
                               <node concept="37vLTw" id="1X_O_$4zk6d" role="1LFl5Q">
-                                <ref role="3cqZAo" node="5W7E4fV0XSA" />
+                                <ref role="3cqZAo" node="5W7E4fV0XSA" resolve="it" />
                               </node>
                             </node>
                           </node>
@@ -5316,7 +5316,7 @@
                                   <ref role="3cqZAo" node="6y_kxB1Zrm0" resolve="mpsProject" />
                                 </node>
                                 <node concept="37vLTw" id="1X_O_$4xViB" role="37wK5m">
-                                  <ref role="3cqZAo" node="5W7E4fV0XSC" />
+                                  <ref role="3cqZAo" node="5W7E4fV0XSC" resolve="it" />
                                 </node>
                                 <node concept="37vLTw" id="1X_O_$4xSKt" role="37wK5m">
                                   <ref role="3cqZAo" node="5zPLqcHMTC4" resolve="type" />

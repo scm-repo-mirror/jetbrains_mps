@@ -845,7 +845,7 @@
                       <ref role="37wK5l" node="i1QA_WF" resolve="isClosureContextOwner" />
                       <ref role="1Pybhc" node="i1Q_53_" resolve="ClosuresUtil" />
                       <node concept="37vLTw" id="7Zf0vhTRO2_" role="37wK5m">
-                        <ref role="3cqZAo" node="5W7E4fV0VS0" />
+                        <ref role="3cqZAo" node="5W7E4fV0VS0" resolve="it" />
                       </node>
                     </node>
                   </node>

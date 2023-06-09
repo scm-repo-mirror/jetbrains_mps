@@ -553,7 +553,7 @@
                     <node concept="2JrnkZ" id="7u2HgD1KsHG" role="3clFbG">
                       <node concept="2OqwBi" id="fweninWuUI" role="2JrQYb">
                         <node concept="37vLTw" id="fweninWuQP" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0Y54" />
+                          <ref role="3cqZAo" node="5W7E4fV0Y54" resolve="it" />
                         </node>
                         <node concept="iZEcu" id="fweninWv0f" role="2OqNvi" />
                       </node>

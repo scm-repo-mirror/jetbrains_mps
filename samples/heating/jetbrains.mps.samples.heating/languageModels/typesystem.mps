@@ -492,7 +492,7 @@
                         </node>
                         <node concept="2OqwBi" id="4xZSnh_ySEr" role="3uHU7B">
                           <node concept="37vLTw" id="4xZSnh_ySEs" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0WZe" />
+                            <ref role="3cqZAo" node="5W7E4fV0WZe" resolve="it" />
                           </node>
                           <node concept="3TrcHB" id="4xZSnh_ySEt" role="2OqNvi">
                             <ref role="3TsBF5" to="vw7d:4XSronYa89W" resolve="start" />

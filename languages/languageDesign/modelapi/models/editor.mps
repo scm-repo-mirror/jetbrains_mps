@@ -949,7 +949,7 @@
                     <node concept="3clFbF" id="3jNcCGJ$K8t" role="3cqZAp">
                       <node concept="2OqwBi" id="3jNcCGJ$K8u" role="3clFbG">
                         <node concept="37vLTw" id="3jNcCGJ$K8v" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0WkT" />
+                          <ref role="3cqZAo" node="5W7E4fV0WkT" resolve="it" />
                         </node>
                         <node concept="liA8E" id="3jNcCGJ$K8w" role="2OqNvi">
                           <ref role="37wK5l" to="lui2:~SModule.getModels()" resolve="getModels" />
@@ -1268,7 +1268,7 @@
                     <node concept="3clFbF" id="7k$14oQs00V" role="3cqZAp">
                       <node concept="2OqwBi" id="7k$14oQs0dm" role="3clFbG">
                         <node concept="37vLTw" id="7k$14oQs00U" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0WkV" />
+                          <ref role="3cqZAo" node="5W7E4fV0WkV" resolve="it" />
                         </node>
                         <node concept="liA8E" id="7k$14oQs0BX" role="2OqNvi">
                           <ref role="37wK5l" to="lui2:~SModule.getModuleReference()" resolve="getModuleReference" />

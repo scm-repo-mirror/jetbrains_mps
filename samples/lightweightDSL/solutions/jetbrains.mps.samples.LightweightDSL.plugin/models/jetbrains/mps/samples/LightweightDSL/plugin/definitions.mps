@@ -298,7 +298,7 @@
                             <node concept="2OqwBi" id="7kPW9fLVc58" role="3uHU7B">
                               <node concept="1PxgMI" id="7kPW9fLVbJx" role="2Oq$k0">
                                 <node concept="37vLTw" id="7kPW9fLVbty" role="1m5AlR">
-                                  <ref role="3cqZAo" node="5W7E4fV0XTG" />
+                                  <ref role="3cqZAo" node="5W7E4fV0XTG" resolve="it" />
                                 </node>
                                 <node concept="chp4Y" id="714IaVdGZ7M" role="3oSUPX">
                                   <ref role="cht4Q" to="oubp:7aMlq14vVGL" resolve="PropertyDescriptor" />
@@ -311,7 +311,7 @@
                           </node>
                           <node concept="2OqwBi" id="7kPW9fLVarM" role="3uHU7B">
                             <node concept="37vLTw" id="7kPW9fLValH" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5W7E4fV0XTG" />
+                              <ref role="3cqZAo" node="5W7E4fV0XTG" resolve="it" />
                             </node>
                             <node concept="1mIQ4w" id="7kPW9fLVaKs" role="2OqNvi">
                               <node concept="chp4Y" id="7kPW9fLVaXC" role="cj9EA">

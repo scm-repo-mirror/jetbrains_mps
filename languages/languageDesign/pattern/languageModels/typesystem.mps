@@ -1290,7 +1290,7 @@
                       </node>
                       <node concept="2OqwBi" id="76wO7zglYW0" role="3uHU7B">
                         <node concept="37vLTw" id="76wO7zglYNh" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0Wla" />
+                          <ref role="3cqZAo" node="5W7E4fV0Wla" resolve="it" />
                         </node>
                         <node concept="3TrcHB" id="76wO7zglZsL" role="2OqNvi">
                           <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
@@ -1299,7 +1299,7 @@
                     </node>
                     <node concept="3y3z36" id="76wO7zglXK7" role="3uHU7B">
                       <node concept="37vLTw" id="76wO7zglXna" role="3uHU7B">
-                        <ref role="3cqZAo" node="5W7E4fV0Wla" />
+                        <ref role="3cqZAo" node="5W7E4fV0Wla" resolve="it" />
                       </node>
                       <node concept="1YBJjd" id="76wO7zglY63" role="3uHU7w">
                         <ref role="1YBMHb" node="76wO7zgku96" resolve="patternMember" />
@@ -1405,7 +1405,7 @@
                       </node>
                       <node concept="2OqwBi" id="76wO7zgmf43" role="3uHU7B">
                         <node concept="37vLTw" id="76wO7zgmeXI" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0Wlc" />
+                          <ref role="3cqZAo" node="5W7E4fV0Wlc" resolve="it" />
                         </node>
                         <node concept="3TrcHB" id="76wO7zgmfkN" role="2OqNvi">
                           <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
@@ -1414,7 +1414,7 @@
                     </node>
                     <node concept="3y3z36" id="76wO7zgmdUX" role="3uHU7B">
                       <node concept="37vLTw" id="76wO7zgmdF4" role="3uHU7B">
-                        <ref role="3cqZAo" node="5W7E4fV0Wlc" />
+                        <ref role="3cqZAo" node="5W7E4fV0Wlc" resolve="it" />
                       </node>
                       <node concept="1YBJjd" id="76wO7zgme8H" role="3uHU7w">
                         <ref role="1YBMHb" node="76wO7zgm7sg" resolve="variable" />

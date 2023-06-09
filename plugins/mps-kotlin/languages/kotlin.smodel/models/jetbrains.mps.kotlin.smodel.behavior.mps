@@ -835,7 +835,7 @@
                         <property role="373rjd" value="true" />
                         <ref role="37wK5l" to="akzu:26mUjU3QgLJ" resolve="JavaParameterDeclaration" />
                         <node concept="37vLTw" id="75chmMYyABl" role="37wK5m">
-                          <ref role="3cqZAo" node="5W7E4fV0WQ9" />
+                          <ref role="3cqZAo" node="5W7E4fV0WQ9" resolve="it" />
                         </node>
                       </node>
                     </node>
@@ -1533,7 +1533,7 @@
                     <node concept="2OqwBi" id="6IkKv2hCucf" role="3clFbG">
                       <node concept="2OqwBi" id="6IkKv2hCucg" role="2Oq$k0">
                         <node concept="37vLTw" id="6IkKv2hCuch" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0WQb" />
+                          <ref role="3cqZAo" node="5W7E4fV0WQb" resolve="it" />
                         </node>
                         <node concept="3TrEf2" id="6IkKv2hCuci" role="2OqNvi">
                           <ref role="3Tt5mk" to="1i04:hP3i0lZ" resolve="overriddenMethod" />
@@ -1576,7 +1576,7 @@
                     <node concept="3clFbF" id="6IkKv2hCMLj" role="3cqZAp">
                       <node concept="2OqwBi" id="6IkKv2hCQwq" role="3clFbG">
                         <node concept="37vLTw" id="6IkKv2hCMLi" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5W7E4fV0WQd" />
+                          <ref role="3cqZAo" node="5W7E4fV0WQd" resolve="it" />
                         </node>
                         <node concept="3TrcHB" id="6IkKv2hCUsU" role="2OqNvi">
                           <ref role="3TsBF5" to="1i04:55xfRZxar9d" resolve="isStatic" />
@@ -3173,7 +3173,7 @@
                       <node concept="3fqX7Q" id="28CvMylsvpy" role="3clFbG">
                         <node concept="2OqwBi" id="28CvMylsvp$" role="3fr31v">
                           <node concept="37vLTw" id="28CvMylsvp_" role="2Oq$k0">
-                            <ref role="3cqZAo" node="5W7E4fV0WQf" />
+                            <ref role="3cqZAo" node="5W7E4fV0WQf" resolve="it" />
                           </node>
                           <node concept="3TrcHB" id="28CvMylsvpA" role="2OqNvi">
                             <ref role="3TsBF5" to="1i04:55xfRZxar9d" resolve="isStatic" />

@@ -1247,7 +1247,7 @@
                                           <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
                                         </node>
                                         <node concept="37vLTw" id="1KUoCipvya2" role="2Oq$k0">
-                                          <ref role="3cqZAo" node="5W7E4fV0XkY" />
+                                          <ref role="3cqZAo" node="5W7E4fV0XkY" resolve="it" />
                                         </node>
                                       </node>
                                     </node>
@@ -1270,7 +1270,7 @@
                                               <ref role="3Tt5mk" to="3ior:6qcrfIJFv3E" resolve="defaultPath" />
                                             </node>
                                             <node concept="37vLTw" id="1KUoCipvyag" role="2Oq$k0">
-                                              <ref role="3cqZAo" node="5W7E4fV0Xl0" />
+                                              <ref role="3cqZAo" node="5W7E4fV0Xl0" resolve="it" />
                                             </node>
                                           </node>
                                         </node>
