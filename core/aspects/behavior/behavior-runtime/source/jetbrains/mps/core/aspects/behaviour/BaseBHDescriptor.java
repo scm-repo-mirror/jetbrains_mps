@@ -36,11 +36,9 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
 
 import static jetbrains.mps.core.aspects.behaviour.BehaviorChecker.checkForConcept;
@@ -126,7 +124,8 @@ public abstract class BaseBHDescriptor implements BHDescriptor {
       return myMethodParameters.get(myMethodParameters.size() - 1);
     }
 
-    public Object[] convertParameters(Object... parameters) {
+    @NotNull
+    Object[] convertParameters(Object... parameters) {
       if (parameters == null) {
         return new Object[]{null};
       }
@@ -191,8 +190,14 @@ public abstract class BaseBHDescriptor implements BHDescriptor {
    * in the case of the last vararg argument converts all arguments into arguments + separate array for the vararg arguments
    * also used against a single null in the varargs arguments
    */
-  @Nullable
+  @NotNull
   private Object[] getParametersArray(@NotNull List<SParameter> methodParameters, Object... parameters) {
+    if (methodParameters.isEmpty()) {
+      return new Object[0];
+    }
+    if (parameters == null) {
+      return new Object[] {null};
+    }
     return new ParametersTypeConverter(methodParameters).convertParameters(parameters);
   }
 
@@ -232,7 +237,12 @@ public abstract class BaseBHDescriptor implements BHDescriptor {
     if (method.isVirtual()) {
       return invokeVirtual(operand, method, parameters);
     } else {
-      return invokeNonVirtual(operand, method, parameters);
+      if (method.isPrivate()) {
+        Object[] parametersArray = getParametersArray(method.getParameters(), parameters);
+        checkParameters(this, method, parametersArray);
+        return invokeSpecial0(operand, method, parametersArray);
+      }
+      return invokeNonVirtualCommon(NodeOrConcept.create(operand), method, parameters);
     }
   }
 
@@ -245,7 +255,12 @@ public abstract class BaseBHDescriptor implements BHDescriptor {
     if (method.isVirtual()) {
       return invokeVirtual(operand, method, parameters);
     } else {
-      return invokeNonVirtual(operand, method, parameters);
+      if (method.isPrivate()) {
+        Object[] parametersArray = getParametersArray(method.getParameters(), parameters);
+        checkParameters(this, method, parametersArray); // XXX can't we have this as part of getParametersArray()?
+        return invokeSpecial0(operand, method, parametersArray);
+      }
+      return invokeNonVirtualCommon(NodeOrConcept.create(operand), method, parameters);
     }
   }
 
@@ -269,31 +284,15 @@ public abstract class BaseBHDescriptor implements BHDescriptor {
     return invokeVirtualSuper(operand, method, parameters);
   }
 
-  private <T> T invokeNonVirtual(@NotNull SNode node, @NotNull SMethod<T> method, Object... parameters) {
-    checkNotStatic(method);
-    return invokeNonVirtualCommon(NodeOrConcept.create(node), method, parameters);
-  }
-
-  private <T> T invokeNonVirtual(@NotNull SAbstractConcept concept, @NotNull SMethod<T> method, Object... parameters) {
-    checkStatic(method);
-    return invokeNonVirtualCommon(NodeOrConcept.create(concept), method, parameters);
-  }
-
   private <T> T invokeNonVirtualCommon(@NotNull NodeOrConcept nodeOrConcept, @NotNull SMethod<T> method, Object... parameters) {
     checkDescriptorIsInitialized();
     checkForConcept(nodeOrConcept.getConcept(), myConcept);
 
-    if (method.getModifiers().isPrivate()) {
-      if (nodeOrConcept.getNode() != null) {
-        return invokeSpecial(nodeOrConcept.getNode(), method, parameters);
-      } else {
-        return invokeSpecial(nodeOrConcept.getConcept(), method, parameters);
-      }
-    }
     Iterable<SAbstractConcept> ancestors = myAncestorCache.getAncestorsInvocationOrder();
     for (SAbstractConcept ancestor : ancestors) {
       BHDescriptor descriptor = getBHDescriptor(ancestor);
       if (hasDeclaredMethod(descriptor, method)) {
+        // would be great to skip invokeSpecial() and go right into invokeSpecial0(), but it's not past of BHDescriptor API
         if (nodeOrConcept.getNode() != null) {
           return descriptor.invokeSpecial(nodeOrConcept.getNode(), method, parameters);
         } else {
