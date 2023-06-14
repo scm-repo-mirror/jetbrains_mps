@@ -126,8 +126,8 @@
     <getDataRule key="context.ProjectFileDirectory"
                  implementationClass="jetbrains.mps.ide.dataExtraction.fileChooser.ProjectFileRule"/>
 
-    <getDataRule key="MPS_MPSProject" implementationClass="jetbrains.mps.ide.dataExtraction.MPSProjectRule"/>
-    <getDataRule key="MPS_Frame" implementationClass="jetbrains.mps.ide.dataExtraction.FrameRule"/>
+    <getDataRule key="MPS_MPSProject" implementationClass="jetbrains.mps.ide.dataExtraction.MPSProjectRule" type="fast"/>
+    <getDataRule key="MPS_Frame" implementationClass="jetbrains.mps.ide.dataExtraction.FrameRule" type="fast"/>
 
     <fileBasedIndex implementation="jetbrains.mps.workbench.findusages.MPSModelsIndexer"/>
     <fileBasedIndex implementation="jetbrains.mps.workbench.index.RootNodeNameIndex"/>
@@ -141,6 +141,6 @@
     <registryKey key="mps.module.visibility.mask.always" defaultValue="false" description="MPS: always use visibility mask to show modules" restartRequired="false"/>
     <registryKey key="mps.module.rename.show.details" defaultValue="false" description="MPS: Rename Module Dialog to show extra details" restartRequired="false"/>
     <registryKey key="mps.module.rename.related.ignore" defaultValue="false" description="MPS: Rename Module Dialog to ignore 'related' modules" restartRequired="false"/>
-    <registryKey key="mps.actions.old_edt" defaultValue="true" description="MPS: Use legacy EDT action update" restartRequired="true"/>
+    <registryKey key="mps.actions.old_edt" defaultValue="false" description="MPS: Use legacy EDT action update" restartRequired="true"/>
   </extensions>
 </idea-plugin>
