@@ -8,7 +8,6 @@ import javax.swing.Icon;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import jetbrains.mps.project.MPSProject;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import org.jetbrains.annotations.NotNull;
@@ -46,14 +45,12 @@ public class OptimizeProjectImports_Action extends BaseAction {
     }
     {
       MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
-      MapSequence.fromMap(_params).put("project", p);
       if (p == null) {
         return false;
       }
     }
     {
       Project p = event.getData(CommonDataKeys.PROJECT);
-      MapSequence.fromMap(_params).put("ideaProject", p);
       if (p == null) {
         return false;
       }
@@ -63,16 +60,16 @@ public class OptimizeProjectImports_Action extends BaseAction {
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     final Wrappers._T<String> report = new Wrappers._T<String>("");
-    final Task.Modal task = new Task.Modal(((Project) MapSequence.fromMap(_params).get("ideaProject")), "Optimizing project imports", true) {
+    final Task.Modal task = new Task.Modal(event.getData(CommonDataKeys.PROJECT), "Optimizing project imports", true) {
       public void run(@NotNull ProgressIndicator indicator) {
         final ProgressMonitorAdapter monitor = new ProgressMonitorAdapter(indicator);
         try {
           monitor.start("Optimizing project imports", 2);
           WaitForProgressToShow.runOrInvokeAndWaitAboveProgress(() -> {
           });
-          final SRepository repo = ((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository();
-          final OptimizeImportsHelper helper = new OptimizeImportsHelper(repo, ((MPSProject) MapSequence.fromMap(_params).get("project")).getComponent(ModelsAutoImportsManager.class));
-          ApplicationManager.getApplication().invokeAndWait(() -> repo.getModelAccess().executeCommand(() -> report.value += helper.optimizeProjectImports(((MPSProject) MapSequence.fromMap(_params).get("project")), monitor.subTask(1))), ModalityState.defaultModalityState());
+          final SRepository repo = event.getData(MPSCommonDataKeys.MPS_PROJECT).getRepository();
+          final OptimizeImportsHelper helper = new OptimizeImportsHelper(repo, event.getData(MPSCommonDataKeys.MPS_PROJECT).getComponent(ModelsAutoImportsManager.class));
+          ApplicationManager.getApplication().invokeAndWait(() -> repo.getModelAccess().executeCommand(() -> report.value += helper.optimizeProjectImports(event.getData(MPSCommonDataKeys.MPS_PROJECT), monitor.subTask(1))), ModalityState.defaultModalityState());
           if (monitor.isCanceled()) {
             return;
           }
@@ -87,7 +84,7 @@ public class OptimizeProjectImports_Action extends BaseAction {
     };
     ApplicationManager.getApplication().invokeLater(() -> {
       ProgressManager.getInstance().run(task);
-      Messages.showMessageDialog(((Project) MapSequence.fromMap(_params).get("ideaProject")), (report.value.equals("") ? "Nothing to optimize" : report.value), "Optimize Imports", Messages.getInformationIcon());
+      Messages.showMessageDialog(event.getData(CommonDataKeys.PROJECT), (report.value.equals("") ? "Nothing to optimize" : report.value), "Optimize Imports", Messages.getInformationIcon());
     }, ModalityState.defaultModalityState());
   }
 }

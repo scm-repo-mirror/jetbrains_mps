@@ -55,7 +55,6 @@
         <property id="1211298967294" name="outsideCommandExecution" index="72QZ$" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
         <property id="4692598989365753297" name="updateInBackground" index="1rBW0U" />
-        <property id="997079742910640235" name="fillActionContext" index="1teQrl" />
         <property id="1213273179528" name="description" index="1WHSii" />
         <child id="1203083196627" name="updateBlock" index="tmbBb" />
         <child id="1203083461638" name="executeFunction" index="tncku" />
@@ -293,18 +292,12 @@
     <property role="TrG5h" value="ShowNodeType" />
     <property role="72QZ$" value="true" />
     <property role="2uzpH1" value="Show Type" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="2S4$dB" id="7yrT30bWG3K" role="1NuT2Z">
       <property role="TrG5h" value="node" />
       <node concept="3Tm6S6" id="7yrT30bWG3L" role="1B3o_S" />
       <node concept="1oajcY" id="7yrT30bWG3M" role="1oa70y" />
       <node concept="3Tqbb2" id="7yrT30bWBOm" role="1tU5fm" />
-    </node>
-    <node concept="1DS2jV" id="4KDfkUwMaBR" role="1NuT2Z">
-      <property role="TrG5h" value="editorComponent" />
-      <ref role="1DUlNI" to="k3nr:~MPSEditorDataKeys.EDITOR_COMPONENT" resolve="EDITOR_COMPONENT" />
-      <node concept="1oajcY" id="4KDfkUwMaBS" role="1oa70y" />
     </node>
     <node concept="1DS2jV" id="C9PExlMzf5" role="1NuT2Z">
       <property role="TrG5h" value="project" />

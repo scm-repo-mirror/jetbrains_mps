@@ -5100,7 +5100,6 @@
     <property role="TrG5h" value="AnalyzeClasspath" />
     <property role="2uzpH1" value="Analyze Classpath" />
     <property role="3GE5qa" value="Actions" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="7F9FiYySOv8" role="tncku">
       <node concept="3clFbS" id="7F9FiYySOv9" role="2VODD2">
@@ -8169,7 +8168,6 @@
     <property role="72QZ$" value="true" />
     <property role="3GE5qa" value="Actions" />
     <property role="2uzpH1" value="Calc Classifiers in Roots Statistic" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="7QCr3uXUlPC" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />

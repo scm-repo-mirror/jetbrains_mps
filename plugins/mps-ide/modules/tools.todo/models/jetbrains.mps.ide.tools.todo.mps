@@ -60,7 +60,6 @@
         <property id="1207149998849" name="isAlwaysVisible" index="fJN8o" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
         <property id="4692598989365753297" name="updateInBackground" index="1rBW0U" />
-        <property id="997079742910640235" name="fillActionContext" index="1teQrl" />
         <child id="1203083461638" name="executeFunction" index="tncku" />
         <child id="1217413222820" name="parameter" index="1NuT2Z" />
       </concept>
@@ -1572,7 +1571,6 @@
     <property role="TrG5h" value="ShowTodoViewer" />
     <property role="2uzpH1" value="Todo..." />
     <property role="3GE5qa" value="" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="4HeMkQiYOb$" role="1NuT2Z">
       <property role="TrG5h" value="project" />

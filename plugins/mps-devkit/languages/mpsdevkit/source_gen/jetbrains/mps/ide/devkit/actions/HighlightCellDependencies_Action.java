@@ -8,7 +8,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import jetbrains.mps.nodeEditor.EditorComponent;
 import jetbrains.mps.ide.editor.MPSEditorDataKeys;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.nodeEditor.NodeHighlightManager;
@@ -43,14 +42,12 @@ public class HighlightCellDependencies_Action extends BaseAction {
       if (editorComponent != null && editorComponent.isInvalid()) {
         editorComponent = null;
       }
-      MapSequence.fromMap(_params).put("editorComponent", editorComponent);
       if (editorComponent == null) {
         return false;
       }
     }
     {
       EditorCell p = event.getData(MPSEditorDataKeys.EDITOR_CELL);
-      MapSequence.fromMap(_params).put("editorCell", p);
       if (p == null) {
         return false;
       }
@@ -59,18 +56,18 @@ public class HighlightCellDependencies_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    final NodeHighlightManager highlightManager = ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getHighlightManager();
-    final SRepository repo = ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getEditorContext().getRepository();
+    final NodeHighlightManager highlightManager = event.getData(MPSEditorDataKeys.EDITOR_COMPONENT).getHighlightManager();
+    final SRepository repo = event.getData(MPSEditorDataKeys.EDITOR_COMPONENT).getEditorContext().getRepository();
     repo.getModelAccess().runReadAction(() -> {
-      EditorMessageOwner messageOwner = ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getHighlightMessagesOwner();
-      highlightManager.mark(((EditorCell) MapSequence.fromMap(_params).get("editorCell")).getSNode(), HighlightConstants.NODE_COLOR, "node", messageOwner);
-      Set<SNode> nodes = ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getNodesCellDependOn(((EditorCell) MapSequence.fromMap(_params).get("editorCell")));
+      EditorMessageOwner messageOwner = event.getData(MPSEditorDataKeys.EDITOR_COMPONENT).getHighlightMessagesOwner();
+      highlightManager.mark(event.getData(MPSEditorDataKeys.EDITOR_CELL).getSNode(), HighlightConstants.NODE_COLOR, "node", messageOwner);
+      Set<SNode> nodes = event.getData(MPSEditorDataKeys.EDITOR_COMPONENT).getNodesCellDependOn(event.getData(MPSEditorDataKeys.EDITOR_CELL));
       if (nodes != null) {
         for (SNode node : SetSequence.fromSet(nodes)) {
           highlightManager.mark(node, HighlightConstants.DEPENDENCY_COLOR, "usage", messageOwner);
         }
       }
-      Set<SNodeReference> copyOfRefTargets = ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getCopyOfRefTargetsCellDependsOn(((EditorCell) MapSequence.fromMap(_params).get("editorCell")));
+      Set<SNodeReference> copyOfRefTargets = event.getData(MPSEditorDataKeys.EDITOR_COMPONENT).getCopyOfRefTargetsCellDependsOn(event.getData(MPSEditorDataKeys.EDITOR_CELL));
       if (copyOfRefTargets != null) {
         for (SNodeReference nodePointer : SetSequence.fromSet(copyOfRefTargets)) {
           SNode tgt = nodePointer.resolve(repo);

@@ -48,7 +48,6 @@
         <property id="1207149998849" name="isAlwaysVisible" index="fJN8o" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
         <property id="4692598989365753297" name="updateInBackground" index="1rBW0U" />
-        <property id="997079742910640235" name="fillActionContext" index="1teQrl" />
         <child id="1203083461638" name="executeFunction" index="tncku" />
         <child id="1205851242421" name="methodDeclaration" index="32lrUH" />
         <child id="1217413222820" name="parameter" index="1NuT2Z" />
@@ -331,7 +330,6 @@
     <property role="72QZ$" value="true" />
     <property role="2uzpH1" value="Go to Node by ID" />
     <property role="3GE5qa" value="MainMenu.Goto" />
-    <property role="1teQrl" value="true" />
     <property role="fJN8o" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="cAZ8XC9$fT" role="1NuT2Z">

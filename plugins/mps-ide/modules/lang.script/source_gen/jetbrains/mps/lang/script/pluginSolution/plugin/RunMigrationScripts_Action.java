@@ -8,7 +8,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.awt.Frame;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -49,25 +48,21 @@ public class RunMigrationScripts_Action extends BaseAction {
     }
     {
       MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
-      MapSequence.fromMap(_params).put("mpsProject", p);
       if (p == null) {
         return false;
       }
     }
     {
       Frame p = event.getData(MPSCommonDataKeys.FRAME);
-      MapSequence.fromMap(_params).put("frame", p);
       if (p == null) {
         return false;
       }
     }
     {
       List<SModel> p = event.getData(MPSCommonDataKeys.MODELS);
-      MapSequence.fromMap(_params).put("models", p);
     }
     {
       List<SModule> p = event.getData(MPSCommonDataKeys.MODULES);
-      MapSequence.fromMap(_params).put("modules", p);
     }
     return true;
   }
@@ -75,33 +70,33 @@ public class RunMigrationScripts_Action extends BaseAction {
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     final Wrappers._T<SearchScope> scope = new Wrappers._T<SearchScope>();
     final Wrappers._T<List<SNodeReference>> allScripts = new Wrappers._T<List<SNodeReference>>();
-    ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getRepository().getModelAccess().runReadAction(() -> {
+    event.getData(MPSCommonDataKeys.MPS_PROJECT).getRepository().getModelAccess().runReadAction(() -> {
       if (RunMigrationScripts_Action.this.global) {
-        scope.value = AbstractMigrationScriptHelper.createMigrationScope(((List<SModule>) MapSequence.fromMap(_params).get("modules")), ((List<SModel>) MapSequence.fromMap(_params).get("models")));
+        scope.value = AbstractMigrationScriptHelper.createMigrationScope(event.getData(MPSCommonDataKeys.MODULES), event.getData(MPSCommonDataKeys.MODELS));
       } else {
-        scope.value = AbstractMigrationScriptHelper.createMigrationScope(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")));
+        scope.value = AbstractMigrationScriptHelper.createMigrationScope(event.getData(MPSCommonDataKeys.MPS_PROJECT));
       }
       if (!(scope.value.getModels().iterator().hasNext())) {
         return;
       }
 
-      ScriptsMenuBuilder menuBuilder = new ScriptsMenuBuilder(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")), RunMigrationScripts_Action.this.global);
+      ScriptsMenuBuilder menuBuilder = new ScriptsMenuBuilder(event.getData(MPSCommonDataKeys.MPS_PROJECT), RunMigrationScripts_Action.this.global);
       allScripts.value = ListSequence.fromList(menuBuilder.getAllScripts()).sort((it) -> (SEnumOperations.getMemberName0(SPropertyOperations.getEnum(it, PROPS.type$NwlS)) == null ? "" : SEnumOperations.getMemberName0(SPropertyOperations.getEnum(it, PROPS.type$NwlS))), true).alsoSort((it) -> (SPropertyOperations.getString(it, PROPS.toBuild$NwNU) == null ? "" : SPropertyOperations.getString(it, PROPS.toBuild$NwNU)), true).select((it) -> it.getReference()).toList();
     });
-    final RunMigrationScriptsDialog dialog = new RunMigrationScriptsDialog(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")), ((Frame) MapSequence.fromMap(_params).get("frame")), allScripts.value);
-    int x = ((Frame) MapSequence.fromMap(_params).get("frame")).getX() + ((Frame) MapSequence.fromMap(_params).get("frame")).getWidth() / 2 - dialog.getWidth() / 2;
-    int y = ((Frame) MapSequence.fromMap(_params).get("frame")).getY() + ((Frame) MapSequence.fromMap(_params).get("frame")).getHeight() / 2 - dialog.getHeight() / 2;
+    final RunMigrationScriptsDialog dialog = new RunMigrationScriptsDialog(event.getData(MPSCommonDataKeys.MPS_PROJECT), event.getData(MPSCommonDataKeys.FRAME), allScripts.value);
+    int x = event.getData(MPSCommonDataKeys.FRAME).getX() + event.getData(MPSCommonDataKeys.FRAME).getWidth() / 2 - dialog.getWidth() / 2;
+    int y = event.getData(MPSCommonDataKeys.FRAME).getY() + event.getData(MPSCommonDataKeys.FRAME).getHeight() / 2 - dialog.getHeight() / 2;
     // cast to Component eliminates out of search scope error in Java8 vs Java6
     //  setLocation() has got implementation in Window class since Java7
     ((Component) dialog).setLocation(x, y);
     dialog.setVisible(true);
-    ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getRepository().getModelAccess().executeCommand(() -> {
+    event.getData(MPSCommonDataKeys.MPS_PROJECT).getRepository().getModelAccess().executeCommand(() -> {
       if (dialog.isRunChecked()) {
         List<SNodeReference> checked = dialog.getCheckedScripts();
-        AbstractMigrationScriptHelper.doRunScripts(ListSequence.fromList(checked).select((it) -> SNodeOperations.cast(it.resolve(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getRepository()), CONCEPTS.MigrationScript$KR)).toList(), scope.value, ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")));
+        AbstractMigrationScriptHelper.doRunScripts(ListSequence.fromList(checked).select((it) -> SNodeOperations.cast(it.resolve(event.getData(MPSCommonDataKeys.MPS_PROJECT).getRepository()), CONCEPTS.MigrationScript$KR)).toList(), scope.value, event.getData(MPSCommonDataKeys.MPS_PROJECT));
       } else if (dialog.isOpenSelected()) {
         SNodeReference selectedScript = ListSequence.fromList(dialog.getSelectedScripts()).first();
-        new EditorNavigator(((MPSProject) MapSequence.fromMap(_params).get("mpsProject"))).shallFocus(true).shallSelect(true).open(selectedScript);
+        new EditorNavigator(event.getData(MPSCommonDataKeys.MPS_PROJECT)).shallFocus(true).shallSelect(true).open(selectedScript);
       }
     });
   }

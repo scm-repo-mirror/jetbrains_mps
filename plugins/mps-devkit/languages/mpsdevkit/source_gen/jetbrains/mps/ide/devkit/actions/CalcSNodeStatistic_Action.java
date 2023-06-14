@@ -9,8 +9,8 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import com.intellij.openapi.progress.ProgressManager;
@@ -45,7 +45,6 @@ public class CalcSNodeStatistic_Action extends BaseAction {
     }
     {
       MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
-      MapSequence.fromMap(_params).put("mpsProject", p);
       if (p == null) {
         return false;
       }
@@ -58,12 +57,12 @@ public class CalcSNodeStatistic_Action extends BaseAction {
     final Map<Integer, Integer> childrenStatistic = MapSequence.fromMap(new HashMap<Integer, Integer>());
     final Map<Integer, Integer> refsStatistic = MapSequence.fromMap(new HashMap<Integer, Integer>());
     final Wrappers._int zeros = new Wrappers._int(0);
-    ProgressManager.getInstance().run(new Task.Modal(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getProject(), "Calculate statistic", true) {
+    ProgressManager.getInstance().run(new Task.Modal(event.getData(MPSCommonDataKeys.MPS_PROJECT).getProject(), "Calculate statistic", true) {
       @Override
       public void run(@NotNull ProgressIndicator indicator) {
         final ProgressMonitorAdapter progress = new ProgressMonitorAdapter(indicator);
-        ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getModelAccess().runReadAction(() -> {
-          Iterable<SModule> modules = ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getScope().getModules();
+        event.getData(MPSCommonDataKeys.MPS_PROJECT).getModelAccess().runReadAction(() -> {
+          Iterable<SModule> modules = event.getData(MPSCommonDataKeys.MPS_PROJECT).getScope().getModules();
           if (LOG.isWarningLevel()) {
             LOG.warning("Modules: " + Sequence.fromIterable(modules).count());
           }

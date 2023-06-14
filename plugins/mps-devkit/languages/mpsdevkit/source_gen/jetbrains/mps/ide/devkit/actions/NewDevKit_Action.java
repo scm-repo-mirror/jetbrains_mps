@@ -9,7 +9,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.workbench.MPSDataKeys;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.ui.dialogs.modules.NameLocationPanel;
@@ -41,21 +40,19 @@ public class NewDevKit_Action extends BaseAction {
     }
     {
       MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
-      MapSequence.fromMap(_params).put("project", p);
       if (p == null) {
         return false;
       }
     }
     {
       String p = event.getData(MPSDataKeys.NAMESPACE);
-      MapSequence.fromMap(_params).put("namespace", p);
     }
     return true;
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    final MPSProject mpsProject = ((MPSProject) MapSequence.fromMap(_params).get("project"));
-    final String virtualFolder = ((String) MapSequence.fromMap(_params).get("namespace"));
+    final MPSProject mpsProject = event.getData(MPSCommonDataKeys.MPS_PROJECT);
+    final String virtualFolder = event.getData(MPSDataKeys.NAMESPACE);
     final NameLocationPanel cfg = new NameLocationPanel(NewModuleDialog.projectHome(mpsProject), "Devkit name:", "Devkit file location:");
     cfg.withDefaults("NewDevkit", "devkits");
     NewModuleDialog<DevKit> dialog = new NewModuleDialog<>(mpsProject, cfg);

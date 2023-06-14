@@ -10,7 +10,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ModalityState;
@@ -35,7 +34,6 @@ public class GenerateBuildForProjectAction_Action extends BaseAction {
     }
     {
       MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
-      MapSequence.fromMap(_params).put("project", p);
       if (p == null) {
         return false;
       }
@@ -44,7 +42,7 @@ public class GenerateBuildForProjectAction_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    final GenerateBuildWizard wizard = new GenerateBuildWizard("New Build Solution", ((MPSProject) MapSequence.fromMap(_params).get("project")), new BuildGeneratorImpl(((MPSProject) MapSequence.fromMap(_params).get("project"))));
+    final GenerateBuildWizard wizard = new GenerateBuildWizard("New Build Solution", event.getData(MPSCommonDataKeys.MPS_PROJECT), new BuildGeneratorImpl(event.getData(MPSCommonDataKeys.MPS_PROJECT)));
     ApplicationManager.getApplication().invokeLater(new Runnable() {
       @Override
       public void run() {

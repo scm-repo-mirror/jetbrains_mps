@@ -9,7 +9,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.progress.ProgressManager;
 import com.intellij.openapi.progress.Task;
@@ -38,7 +37,6 @@ public class ReloadAll_Action extends BaseAction {
     }
     {
       Project p = event.getData(CommonDataKeys.PROJECT);
-      MapSequence.fromMap(_params).put("project", p);
       if (p == null) {
         return false;
       }
@@ -47,10 +45,10 @@ public class ReloadAll_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    ProgressManager.getInstance().run(new Task.Modal(((Project) MapSequence.fromMap(_params).get("project")), "Reloading Classes", false) {
+    ProgressManager.getInstance().run(new Task.Modal(event.getData(CommonDataKeys.PROJECT), "Reloading Classes", false) {
       @Override
       public void run(@NotNull final ProgressIndicator indicator) {
-        jetbrains.mps.project.Project mpsProject = ProjectHelper.toMPSProject(((Project) MapSequence.fromMap(_params).get("project")));
+        jetbrains.mps.project.Project mpsProject = ProjectHelper.toMPSProject(event.getData(CommonDataKeys.PROJECT));
         assert mpsProject != null;
         mpsProject.getModelAccess().runWriteAction(() -> ClassLoaderManager.getInstance().reloadAll(new ProgressMonitorAdapter(indicator)));
       }

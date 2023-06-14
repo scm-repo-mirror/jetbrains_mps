@@ -8,7 +8,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import com.intellij.openapi.progress.ProgressManager;
@@ -61,7 +60,6 @@ public class CalcClassifiersInRootsStatistic_Action extends BaseAction {
     }
     {
       MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
-      MapSequence.fromMap(_params).put("mpsProject", p);
       if (p == null) {
         return false;
       }
@@ -73,12 +71,12 @@ public class CalcClassifiersInRootsStatistic_Action extends BaseAction {
     final Wrappers._int rootsCount = new Wrappers._int(0);
     final Wrappers._long membersOverallTime = new Wrappers._long(0);
 
-    ProgressManager.getInstance().run(new Task.Modal(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getProject(), "Classifiers in roots stats", true) {
+    ProgressManager.getInstance().run(new Task.Modal(event.getData(MPSCommonDataKeys.MPS_PROJECT).getProject(), "Classifiers in roots stats", true) {
       @Override
       public void run(@NotNull ProgressIndicator indicator) {
         final ProgressMonitorAdapter progress = new ProgressMonitorAdapter(indicator);
-        ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getModelAccess().runReadAction(() -> {
-          List<SModule> modules = ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getProjectModulesWithGenerators();
+        event.getData(MPSCommonDataKeys.MPS_PROJECT).getModelAccess().runReadAction(() -> {
+          List<SModule> modules = event.getData(MPSCommonDataKeys.MPS_PROJECT).getProjectModulesWithGenerators();
           progress.start("Modules...", ListSequence.fromList(modules).count());
           for (SModule module : ListSequence.fromList(modules)) {
             ProgressMonitor subTask = progress.subTask(1);
@@ -88,7 +86,7 @@ public class CalcClassifiersInRootsStatistic_Action extends BaseAction {
               subTask.step(m.getName().getSimpleName());
               for (SNode node : Sequence.fromIterable(m.getRootNodes())) {
                 rootsCount.value++;
-                membersOverallTime.value += CalcClassifiersInRootsStatistic_Action.this.analyzeClassifiersInRoot(node, _params);
+                membersOverallTime.value += CalcClassifiersInRootsStatistic_Action.this.analyzeClassifiersInRoot(node, event);
               }
               subTask.advance(1);
             }
@@ -98,15 +96,15 @@ public class CalcClassifiersInRootsStatistic_Action extends BaseAction {
         });
       }
     });
-    LogContext.with(CalcClassifiersInRootsStatistic_Action.class, null, ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")), null).info(String.format("Members average time: %.3f", membersOverallTime.value * 0.001 / rootsCount.value));
+    LogContext.with(CalcClassifiersInRootsStatistic_Action.class, null, event.getData(MPSCommonDataKeys.MPS_PROJECT), null).info(String.format("Members average time: %.3f", membersOverallTime.value * 0.001 / rootsCount.value));
   }
-  private long analyzeClassifiersInRoot(final SNode node, final Map<String, Object> _params) {
+  private long analyzeClassifiersInRoot(final SNode node, final AnActionEvent event) {
     String nodeName = SNodeOperations.present(node) + "@" + SModelOperations.getModelName(SNodeOperations.getModel(node));
 
     StringBuilder sb = new StringBuilder();
 
     final Wrappers._T<List<SNode>> types = new Wrappers._T<List<SNode>>(ListSequence.fromList(new ArrayList<SNode>()));
-    long typesCalcTime = CalcClassifiersInRootsStatistic_Action.this.calculateElapsedTime(() -> types.value = CalcClassifiersInRootsStatistic_Action.this.calcAllClassifierTypesInRoot(node, _params), _params);
+    long typesCalcTime = CalcClassifiersInRootsStatistic_Action.this.calculateElapsedTime(() -> types.value = CalcClassifiersInRootsStatistic_Action.this.calcAllClassifierTypesInRoot(node, event), event);
 
     if (typesCalcTime > 1000) {
       sb.append(String.format("%s: type calc time = %.3f%n", nodeName, typesCalcTime * 0.001));
@@ -119,7 +117,7 @@ public class CalcClassifiersInRootsStatistic_Action extends BaseAction {
     }
 
     final Wrappers._T<List<SNode>> members = new Wrappers._T<List<SNode>>(ListSequence.fromList(new ArrayList<SNode>()));
-    long membersCalcTime = CalcClassifiersInRootsStatistic_Action.this.calculateElapsedTime(() -> members.value = CalcClassifiersInRootsStatistic_Action.this.calcAllMembersOfClassifiers(classifiers, _params), _params);
+    long membersCalcTime = CalcClassifiersInRootsStatistic_Action.this.calculateElapsedTime(() -> members.value = CalcClassifiersInRootsStatistic_Action.this.calcAllMembersOfClassifiers(classifiers, event), event);
 
     if (ListSequence.fromList(members.value).count() > 4000) {
       sb.append(String.format("%s: members count = %d%n", nodeName, ListSequence.fromList(members.value).count()));
@@ -129,11 +127,11 @@ public class CalcClassifiersInRootsStatistic_Action extends BaseAction {
       sb.append(String.format("%s: members calc time = %.3f%n", nodeName, membersCalcTime * 0.001));
     }
     if (sb.length() > 0) {
-      LogContext.with(CalcClassifiersInRootsStatistic_Action.class, null, ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")), null).info(sb.toString());
+      LogContext.with(CalcClassifiersInRootsStatistic_Action.class, null, event.getData(MPSCommonDataKeys.MPS_PROJECT), null).info(sb.toString());
     }
     return membersCalcTime;
   }
-  private List<SNode> calcAllClassifierTypesInRoot(final SNode rootNode, final Map<String, Object> _params) {
+  private List<SNode> calcAllClassifierTypesInRoot(final SNode rootNode, final AnActionEvent event) {
 
     List<SNode> result = TypecheckingFacade.getFromContext().computeIsolated(() -> {
       List<SNode> list = ListSequence.fromList(new ArrayList<SNode>());
@@ -150,25 +148,25 @@ public class CalcClassifiersInRootsStatistic_Action extends BaseAction {
 
     return result;
   }
-  private List<SNode> calcAllMembersOfClassifiers(Iterable<SNode> classifiers, final Map<String, Object> _params) {
+  private List<SNode> calcAllMembersOfClassifiers(Iterable<SNode> classifiers, final AnActionEvent event) {
     List<SNode> result = ListSequence.fromList(new ArrayList<SNode>());
 
     for (SNode classifier : classifiers) {
       try {
         ListSequence.fromList(result).addSequence(Sequence.fromIterable(IClassifierType__BehaviorDescriptor.getMembers_id6r77ob2V1Fr.invoke(IClassifier__BehaviorDescriptor.getThisType_id6r77ob2UWbY.invoke(classifier))));
       } catch (Exception e) {
-        LogContext.with(CalcClassifiersInRootsStatistic_Action.class, e, ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")), null).error("Error calculating type");
+        LogContext.with(CalcClassifiersInRootsStatistic_Action.class, e, event.getData(MPSCommonDataKeys.MPS_PROJECT), null).error("Error calculating type");
       }
     }
 
     return result;
   }
-  private long calculateElapsedTime(_FunctionTypes._void_P0_E0 toRun, final Map<String, Object> _params) {
+  private long calculateElapsedTime(_FunctionTypes._void_P0_E0 toRun, final AnActionEvent event) {
     long startTime = System.currentTimeMillis();
     try {
       toRun.invoke();
     } catch (Exception e) {
-      LogContext.with(CalcClassifiersInRootsStatistic_Action.class, e, ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")), null).error("Error calculating time");
+      LogContext.with(CalcClassifiersInRootsStatistic_Action.class, e, event.getData(MPSCommonDataKeys.MPS_PROJECT), null).error("Error calculating time");
     } finally {
       return System.currentTimeMillis() - startTime;
     }

@@ -8,7 +8,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import org.jetbrains.annotations.NotNull;
@@ -67,14 +66,12 @@ public class FindUnusedAndDeprecatedConcepts_Action extends BaseAction {
     }
     {
       Project p = event.getData(CommonDataKeys.PROJECT);
-      MapSequence.fromMap(_params).put("ideaProject", p);
       if (p == null) {
         return false;
       }
     }
     {
       MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
-      MapSequence.fromMap(_params).put("mpsProject", p);
       if (p == null) {
         return false;
       }
@@ -86,13 +83,13 @@ public class FindUnusedAndDeprecatedConcepts_Action extends BaseAction {
 
     final List<SNodeReference> conceptsToShow = ListSequence.fromList(new ArrayList<SNodeReference>());
 
-    Task.Modal modal = new Task.Modal(((Project) MapSequence.fromMap(_params).get("ideaProject")), event.getPresentation().getText(), true) {
+    Task.Modal modal = new Task.Modal(event.getData(CommonDataKeys.PROJECT), event.getPresentation().getText(), true) {
       @Override
       public void run(@NotNull ProgressIndicator indicator) {
         final ProgressMonitor monitor = new ProgressMonitorAdapter(indicator);
 
-        List<SNodeReference> concepts = new ModelAccessHelper(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getModelAccess()).runReadAction(() -> {
-          Iterable<SModule> modules = ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getScope().getModules();
+        List<SNodeReference> concepts = new ModelAccessHelper(event.getData(MPSCommonDataKeys.MPS_PROJECT).getModelAccess()).runReadAction(() -> {
+          Iterable<SModule> modules = event.getData(MPSCommonDataKeys.MPS_PROJECT).getScope().getModules();
           int totalWork = Sequence.fromIterable(modules).count() * 2;
           // iterate all modules: 1/2, + 1/8 + 1/4 + 1/8
           monitor.start("Find unused  and deprecated concepts", totalWork);
@@ -121,7 +118,7 @@ public class FindUnusedAndDeprecatedConcepts_Action extends BaseAction {
           monitor.advance(totalWork / 8);
 
           monitor.step("Look up concept declarations...");
-          Iterable<SearchResult<Object>> searchResults = FindUtils.getSearchResults(new EmptyProgressMonitor(), SNodeOperations.getNode("r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)", "1071489090640"), new ProjectScope(((MPSProject) MapSequence.fromMap(_params).get("mpsProject"))), "jetbrains.mps.lang.structure.findUsages.ConceptInstances_Finder").getSearchResults();
+          Iterable<SearchResult<Object>> searchResults = FindUtils.getSearchResults(new EmptyProgressMonitor(), SNodeOperations.getNode("r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)", "1071489090640"), new ProjectScope(event.getData(MPSCommonDataKeys.MPS_PROJECT)), "jetbrains.mps.lang.structure.findUsages.ConceptInstances_Finder").getSearchResults();
           if (monitor.isCanceled()) {
             return null;
           }
@@ -139,14 +136,14 @@ public class FindUnusedAndDeprecatedConcepts_Action extends BaseAction {
     };
     ProgressManager.getInstance().run(modal);
 
-    FindUnusedAndDeprecatedConcepts_Action.this.showUsagesViewForNodes(conceptsToShow, _params);
+    FindUnusedAndDeprecatedConcepts_Action.this.showUsagesViewForNodes(conceptsToShow, event);
   }
-  private void showUsagesViewForNodes(final List<SNodeReference> nodes, final Map<String, Object> _params) {
+  private void showUsagesViewForNodes(final List<SNodeReference> nodes, final AnActionEvent event) {
     IResultProvider provider = FindUtils.makeProvider(new IFinder() {
       @NotNull
       @Override
       public SearchResults find(SearchQuery query, ProgressMonitor progress) {
-        final SRepository repo = ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getRepository();
+        final SRepository repo = event.getData(MPSCommonDataKeys.MPS_PROJECT).getRepository();
         SearchResults<SNode> results = new SearchResults<SNode>();
         for (SNode node : ListSequence.fromList(nodes).select((it) -> it.resolve(repo)).where((it) -> it != null)) {
           results.addSearchResult(new SearchResult<SNode>(node, "Uncategorized"));
@@ -159,7 +156,7 @@ public class FindUnusedAndDeprecatedConcepts_Action extends BaseAction {
       }
     });
     UsageToolOptions opt = new UsageToolOptions().allowRunAgain(false).navigateIfSingle(false).forceNewTab(false).notFoundMessage("Nothing");
-    UsagesViewTool.showUsages(((Project) MapSequence.fromMap(_params).get("ideaProject")), provider, new SearchQuery(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getScope()), opt);
+    UsagesViewTool.showUsages(event.getData(CommonDataKeys.PROJECT), provider, new SearchQuery(event.getData(MPSCommonDataKeys.MPS_PROJECT).getScope()), opt);
   }
 
   private static final class CONCEPTS {

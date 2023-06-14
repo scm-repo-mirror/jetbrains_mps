@@ -8,10 +8,9 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
+import jetbrains.mps.smodel.Language;
 import jetbrains.mps.project.MPSProject;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.smodel.Language;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -47,17 +46,15 @@ public class AddAccessoryModel_Action extends BaseAction {
     }
     {
       SModule p = event.getData(MPSCommonDataKeys.CONTEXT_MODULE);
-      MapSequence.fromMap(_params).put("module", p);
       if (p == null) {
         return false;
       }
-      if (!(moduleCondition(p))) {
+      if (p != null && !(p instanceof Language)) {
         return false;
       }
     }
     {
       MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
-      MapSequence.fromMap(_params).put("project", p);
       if (p == null) {
         return false;
       }
@@ -66,9 +63,9 @@ public class AddAccessoryModel_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    final Language language = ((Language) ((SModule) MapSequence.fromMap(_params).get("module")));
+    final Language language = ((Language) event.getData(MPSCommonDataKeys.CONTEXT_MODULE));
     final List<SModelReference> models = ListSequence.fromList(new ArrayList<SModelReference>());
-    final SRepository repository = ((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository();
+    final SRepository repository = event.getData(MPSCommonDataKeys.MPS_PROJECT).getRepository();
     ModelAccess modelAccess = repository.getModelAccess();
 
     modelAccess.runReadAction(() -> {
@@ -76,7 +73,7 @@ public class AddAccessoryModel_Action extends BaseAction {
       Iterable<SModel> descriptors = new FilteredGlobalScope(repository).getModels();
       ListSequence.fromList(models).addSequence(Sequence.fromIterable(descriptors).select((it) -> it.getReference()));
     });
-    final SModelReference result = CommonChoosers.showModelChooser(((MPSProject) MapSequence.fromMap(_params).get("project")), null, models);
+    final SModelReference result = CommonChoosers.showModelChooser(event.getData(MPSCommonDataKeys.MPS_PROJECT), null, models);
     if (result == null) {
       return;
     }
@@ -86,7 +83,7 @@ public class AddAccessoryModel_Action extends BaseAction {
       visibleFromModule.value = VisibilityUtil.isVisible(language, md);
     });
 
-    final boolean importModuleDependency = !(visibleFromModule.value) && Messages.showYesNoDialog(((MPSProject) MapSequence.fromMap(_params).get("project")).getProject(), String.format("<html>Model <b>%s</b> is added to accessories<br>Do you also want to add containing module to dependency?</html>", result.getName()), "Add Dependency", Messages.getQuestionIcon()) == Messages.YES;
+    final boolean importModuleDependency = !(visibleFromModule.value) && Messages.showYesNoDialog(event.getData(MPSCommonDataKeys.MPS_PROJECT).getProject(), String.format("<html>Model <b>%s</b> is added to accessories<br>Do you also want to add containing module to dependency?</html>", result.getName()), "Add Dependency", Messages.getQuestionIcon()) == Messages.YES;
 
     modelAccess.executeCommand(() -> {
       // see MPS-18743
@@ -101,8 +98,5 @@ public class AddAccessoryModel_Action extends BaseAction {
       }
       language.save();
     });
-  }
-  public boolean moduleCondition(SModule parameter) {
-    return parameter instanceof Language;
   }
 }

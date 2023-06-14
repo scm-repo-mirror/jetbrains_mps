@@ -8,11 +8,8 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import java.util.ArrayList;
 import org.jetbrains.annotations.NotNull;
 
 public class SafeDelete_Action extends BaseAction {
@@ -35,18 +32,12 @@ public class SafeDelete_Action extends BaseAction {
     }
     {
       MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
-      MapSequence.fromMap(_params).put("project", p);
       if (p == null) {
         return false;
       }
     }
     {
       List<SNode> nodes = event.getData(MPSCommonDataKeys.NODES);
-      if (nodes == null) {
-        MapSequence.fromMap(_params).put("nodes", null);
-      } else {
-        MapSequence.fromMap(_params).put("nodes", ListSequence.fromListWithValues(new ArrayList<SNode>(), nodes));
-      }
       if (nodes == null) {
         return false;
       }
@@ -59,6 +50,6 @@ public class SafeDelete_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    new DeleteNodesHelper(((List<SNode>) MapSequence.fromMap(_params).get("nodes")), ((MPSProject) MapSequence.fromMap(_params).get("project"))).deleteNodes(true, true, false);
+    new DeleteNodesHelper(event.getData(MPSCommonDataKeys.NODES), event.getData(MPSCommonDataKeys.MPS_PROJECT)).deleteNodes(true, true, false);
   }
 }

@@ -3930,7 +3930,6 @@
     <property role="72QZ$" value="true" />
     <property role="2uzpH1" value="Merge test data from ZIP" />
     <property role="3GE5qa" value="Actions" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="4odLqy5SXtm" role="1NuT2Z">
       <property role="TrG5h" value="project" />

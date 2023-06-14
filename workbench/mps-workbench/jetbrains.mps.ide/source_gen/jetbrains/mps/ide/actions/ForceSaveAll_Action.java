@@ -9,7 +9,6 @@ import jetbrains.mps.workbench.action.ActionAccess;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import jetbrains.mps.project.MPSProject;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import org.jetbrains.annotations.NotNull;
@@ -47,14 +46,12 @@ public class ForceSaveAll_Action extends BaseAction {
     }
     {
       MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
-      MapSequence.fromMap(_params).put("mpsProject", p);
       if (p == null) {
         return false;
       }
     }
     {
       Project p = event.getData(CommonDataKeys.PROJECT);
-      MapSequence.fromMap(_params).put("project", p);
       if (p == null) {
         return false;
       }
@@ -67,9 +64,9 @@ public class ForceSaveAll_Action extends BaseAction {
       ProgressIndicator pi = ProgressManager.getInstance().getProgressIndicator();
       pi.setIndeterminate(false);
 
-      final SRepository repo = ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getRepository();
+      final SRepository repo = event.getData(MPSCommonDataKeys.MPS_PROJECT).getRepository();
       final Wrappers._T<List<SModuleReference>> moduleRefs = new Wrappers._T<List<SModuleReference>>();
-      repo.getModelAccess().runReadAction(() -> moduleRefs.value = Sequence.fromIterable((Iterable<SModule>) ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getProjectModulesWithGenerators()).ofType(AbstractModule.class).select((it) -> it.getModuleReference()).toList());
+      repo.getModelAccess().runReadAction(() -> moduleRefs.value = Sequence.fromIterable((Iterable<SModule>) event.getData(MPSCommonDataKeys.MPS_PROJECT).getProjectModulesWithGenerators()).ofType(AbstractModule.class).select((it) -> it.getModuleReference()).toList());
 
       int saving = 1;
       for (final SModuleReference moduleRef : ListSequence.fromList(moduleRefs.value)) {
@@ -90,9 +87,9 @@ public class ForceSaveAll_Action extends BaseAction {
         }), ModalityState.defaultModalityState());
         saving++;
       }
-    }, "Saving...", false, ((Project) MapSequence.fromMap(_params).get("project")));
+    }, "Saving...", false, event.getData(CommonDataKeys.PROJECT));
   }
-  private Iterable<SModule> getModules(final Map<String, Object> _params) {
-    return (Iterable<SModule>) ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getProjectModulesWithGenerators();
+  private Iterable<SModule> getModules(final AnActionEvent event) {
+    return (Iterable<SModule>) event.getData(MPSCommonDataKeys.MPS_PROJECT).getProjectModulesWithGenerators();
   }
 }

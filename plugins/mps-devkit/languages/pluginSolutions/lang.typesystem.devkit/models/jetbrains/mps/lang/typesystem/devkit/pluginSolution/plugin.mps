@@ -349,7 +349,6 @@
     <property role="TrG5h" value="ShowRulesWhichAffectNodeType" />
     <property role="3GE5qa" value="Actions" />
     <property role="2uzpH1" value="Show Rules Which Affect Node's Type" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="4vCqlNf_Cua" role="tncku">
       <node concept="3clFbS" id="4vCqlNf_Cub" role="2VODD2">
@@ -524,27 +523,16 @@
     <property role="72QZ$" value="true" />
     <property role="3GE5qa" value="Actions" />
     <property role="2uzpH1" value="Show Expected Type" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="3U4Yh9n6v7g" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
       <node concept="1oajcY" id="3U4Yh9n6v7h" role="1oa70y" />
     </node>
-    <node concept="1DS2jV" id="4vCqlNf_CvS" role="1NuT2Z">
-      <property role="TrG5h" value="frame" />
-      <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.FRAME" resolve="FRAME" />
-      <node concept="1oajcY" id="4vCqlNf_CvT" role="1oa70y" />
-    </node>
     <node concept="1DS2jV" id="4vCqlNf_CvU" role="1NuT2Z">
       <property role="TrG5h" value="node" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.NODE" resolve="NODE" />
       <node concept="1oajcY" id="4vCqlNf_CvV" role="1oa70y" />
-    </node>
-    <node concept="1DS2jV" id="4KDfkUwMaBR" role="1NuT2Z">
-      <property role="TrG5h" value="editorComponent" />
-      <ref role="1DUlNI" to="k3nr:~MPSEditorDataKeys.EDITOR_COMPONENT" resolve="EDITOR_COMPONENT" />
-      <node concept="1oajcY" id="4KDfkUwMaBS" role="1oa70y" />
     </node>
     <node concept="tnohg" id="4vCqlNf_CvW" role="tncku">
       <node concept="3clFbS" id="4vCqlNf_CvX" role="2VODD2">

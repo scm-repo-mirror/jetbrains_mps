@@ -11,7 +11,6 @@
       <concept id="1203071646776" name="jetbrains.mps.lang.plugin.structure.ActionDeclaration" flags="ng" index="sE7Ow">
         <property id="1205250923097" name="caption" index="2uzpH1" />
         <property id="4692598989365753297" name="updateInBackground" index="1rBW0U" />
-        <property id="997079742910640235" name="fillActionContext" index="1teQrl" />
         <child id="1203083461638" name="executeFunction" index="tncku" />
       </concept>
       <concept id="1203083511112" name="jetbrains.mps.lang.plugin.structure.ExecuteBlock" flags="in" index="tnohg" />
@@ -46,7 +45,6 @@
   <node concept="sE7Ow" id="3BOp1_KDMvb">
     <property role="TrG5h" value="DummyAction" />
     <property role="2uzpH1" value="Dummy" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="3BOp1_KDMvc" role="tncku">
       <node concept="3clFbS" id="3BOp1_KDMvd" role="2VODD2" />

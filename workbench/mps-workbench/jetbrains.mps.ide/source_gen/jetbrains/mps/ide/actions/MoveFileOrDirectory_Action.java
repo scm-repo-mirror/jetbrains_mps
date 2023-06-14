@@ -10,7 +10,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import com.intellij.openapi.project.Project;
 import java.awt.Frame;
 import org.jetbrains.annotations.NotNull;
@@ -42,21 +41,18 @@ public class MoveFileOrDirectory_Action extends BaseAction {
     }
     {
       VirtualFile p = event.getData(CommonDataKeys.VIRTUAL_FILE);
-      MapSequence.fromMap(_params).put("selectedFile", p);
       if (p == null) {
         return false;
       }
     }
     {
       Project p = event.getData(CommonDataKeys.PROJECT);
-      MapSequence.fromMap(_params).put("ideaProject", p);
       if (p == null) {
         return false;
       }
     }
     {
       Frame p = event.getData(MPSCommonDataKeys.FRAME);
-      MapSequence.fromMap(_params).put("frame", p);
       if (p == null) {
         return false;
       }
@@ -65,34 +61,34 @@ public class MoveFileOrDirectory_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    final VirtualFile vf = ((VirtualFile) MapSequence.fromMap(_params).get("selectedFile"));
-    MoveFileDialog dialog = new MoveFileDialog(((Project) MapSequence.fromMap(_params).get("ideaProject")), vf);
+    final VirtualFile vf = event.getData(CommonDataKeys.VIRTUAL_FILE);
+    MoveFileDialog dialog = new MoveFileDialog(event.getData(CommonDataKeys.PROJECT), vf);
     dialog.show();
     if (!(dialog.isOK())) {
       return;
     }
     final VirtualFile result = dialog.getResultFile();
 
-    if (MoveFileOrDirectory_Action.this.isNotValid(result, _params)) {
+    if (MoveFileOrDirectory_Action.this.isNotValid(result, event)) {
       return;
     }
     ApplicationManager.getApplication().runWriteAction(() -> {
       try {
         vf.move(null, result);
-        ProjectView.getInstance(((Project) MapSequence.fromMap(_params).get("ideaProject"))).refresh();
-        ApplicationManager.getApplication().invokeLater(() -> ProjectView.getInstance(((Project) MapSequence.fromMap(_params).get("ideaProject"))).getProjectViewPaneById(FileViewProjectPane.ID).select(null, vf, true));
+        ProjectView.getInstance(event.getData(CommonDataKeys.PROJECT)).refresh();
+        ApplicationManager.getApplication().invokeLater(() -> ProjectView.getInstance(event.getData(CommonDataKeys.PROJECT)).getProjectViewPaneById(FileViewProjectPane.ID).select(null, vf, true));
       } catch (IOException e) {
       }
     });
   }
-  private boolean isNotValid(VirtualFile dest, final Map<String, Object> _params) {
+  private boolean isNotValid(VirtualFile dest, final AnActionEvent event) {
     // MoveFileDialog allows to pick folders only, but one could type in a name of a file
-    if (dest == null || dest.equals(((VirtualFile) MapSequence.fromMap(_params).get("selectedFile"))) || (dest.exists() && !(dest.isDirectory()))) {
-      JOptionPane.showMessageDialog(((Frame) MapSequence.fromMap(_params).get("frame")), "Enter valid name");
+    if (dest == null || dest.equals(event.getData(CommonDataKeys.VIRTUAL_FILE)) || (dest.exists() && !(dest.isDirectory()))) {
+      JOptionPane.showMessageDialog(event.getData(MPSCommonDataKeys.FRAME), "Enter valid name");
       return true;
     }
-    if (dest.findChild(((VirtualFile) MapSequence.fromMap(_params).get("selectedFile")).getName()) != null) {
-      JOptionPane.showMessageDialog(((Frame) MapSequence.fromMap(_params).get("frame")), String.format("%s already exists in %s", ((VirtualFile) MapSequence.fromMap(_params).get("selectedFile")).getName(), dest));
+    if (dest.findChild(event.getData(CommonDataKeys.VIRTUAL_FILE).getName()) != null) {
+      JOptionPane.showMessageDialog(event.getData(MPSCommonDataKeys.FRAME), String.format("%s already exists in %s", event.getData(CommonDataKeys.VIRTUAL_FILE).getName(), dest));
       return true;
     }
     return false;

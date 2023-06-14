@@ -10,7 +10,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.fileChooser.FileChooserDescriptor;
 import com.intellij.openapi.vfs.VirtualFile;
@@ -53,7 +52,6 @@ public class TestMergeAction_Action extends BaseAction {
     }
     {
       Project p = event.getData(CommonDataKeys.PROJECT);
-      MapSequence.fromMap(_params).put("project", p);
       if (p == null) {
         return false;
       }
@@ -72,7 +70,7 @@ public class TestMergeAction_Action extends BaseAction {
     descriptor.setTitle("select archive with merge files");
     descriptor.setDescription("Zip files (*.zip) ");
     ApplicationManager.getApplication().invokeLater(() -> {
-      VirtualFile vFile = FileChooser.chooseFile(descriptor, ((Project) MapSequence.fromMap(_params).get("project")), null);
+      VirtualFile vFile = FileChooser.chooseFile(descriptor, event.getData(CommonDataKeys.PROJECT), null);
 
       final File resFilePath;
       String[] zipped;
@@ -88,8 +86,8 @@ public class TestMergeAction_Action extends BaseAction {
       List<String> contents = ListSequence.fromListAndArray(new ArrayList<String>(), zipped);
       List<String> titles = ListSequence.fromListAndArray(new ArrayList<String>(), "Local Version", "Merge Result", "Remote Version");
       try {
-        MergeRequest request = DiffRequestFactory.getInstance().createMergeRequest(((Project) MapSequence.fromMap(_params).get("project")), MPSFileTypeFactory.MPS_FILE_TYPE, FileDocumentManager.getInstance().getDocument(resFile), contents, "Merge files from " + vFile + " and save result to " + resFilePath, titles, null);
-        DiffManager.getInstance().showMerge(((Project) MapSequence.fromMap(_params).get("project")), request);
+        MergeRequest request = DiffRequestFactory.getInstance().createMergeRequest(event.getData(CommonDataKeys.PROJECT), MPSFileTypeFactory.MPS_FILE_TYPE, FileDocumentManager.getInstance().getDocument(resFile), contents, "Merge files from " + vFile + " and save result to " + resFilePath, titles, null);
+        DiffManager.getInstance().showMerge(event.getData(CommonDataKeys.PROJECT), request);
       } catch (InvalidDiffRequestException e) {
         if (LOG.isErrorLevel()) {
           LOG.error("", e);

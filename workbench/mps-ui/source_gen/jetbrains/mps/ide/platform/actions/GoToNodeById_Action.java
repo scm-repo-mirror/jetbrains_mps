@@ -9,7 +9,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -47,21 +46,18 @@ public class GoToNodeById_Action extends BaseAction {
     }
     {
       MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
-      MapSequence.fromMap(_params).put("mpsProject", p);
       if (p == null) {
         return false;
       }
     }
     {
       Project p = event.getData(CommonDataKeys.PROJECT);
-      MapSequence.fromMap(_params).put("project", p);
       if (p == null) {
         return false;
       }
     }
     {
       SModel p = event.getData(MPSCommonDataKeys.CONTEXT_MODEL);
-      MapSequence.fromMap(_params).put("contextModel", p);
       if (p == null) {
         return false;
       }
@@ -79,7 +75,7 @@ public class GoToNodeById_Action extends BaseAction {
           return false;
         }
 
-        Pair<SNodeId, String> pair = GoToNodeById_Action.this.getNodeId(inputString, _params);
+        Pair<SNodeId, String> pair = GoToNodeById_Action.this.getNodeId(inputString, event);
         myErrorText = pair.o2;
         return pair.o1 != null;
       }
@@ -94,20 +90,20 @@ public class GoToNodeById_Action extends BaseAction {
       }
     };
 
-    final String value = Messages.showInputDialog(((Project) MapSequence.fromMap(_params).get("project")), "Enter Node ID:", "Find node in model " + ((SModel) MapSequence.fromMap(_params).get("contextModel")).getName().getLongName(), Messages.getQuestionIcon(), "", inputValidator);
+    final String value = Messages.showInputDialog(event.getData(CommonDataKeys.PROJECT), "Enter Node ID:", "Find node in model " + event.getData(MPSCommonDataKeys.CONTEXT_MODEL).getName().getLongName(), Messages.getQuestionIcon(), "", inputValidator);
     if ((value == null || value.length() == 0)) {
       return;
     }
 
     final Wrappers._T<SNodeReference> nodeRef = new Wrappers._T<SNodeReference>();
-    ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getModelAccess().runReadAction(() -> nodeRef.value = check_ep7xsr_a0a0a0a6a0(((SModel) MapSequence.fromMap(_params).get("contextModel")).getNode(GoToNodeById_Action.this.getNodeId(value, _params).o1)));
+    event.getData(MPSCommonDataKeys.MPS_PROJECT).getModelAccess().runReadAction(() -> nodeRef.value = check_ep7xsr_a0a0a0a6a0(event.getData(MPSCommonDataKeys.CONTEXT_MODEL).getNode(GoToNodeById_Action.this.getNodeId(value, event).o1)));
     if (nodeRef.value == null) {
-      Messages.showWarningDialog(((Project) MapSequence.fromMap(_params).get("project")), String.format("Can't find node with id '%s'", value), "Node Was Not Found");
+      Messages.showWarningDialog(event.getData(CommonDataKeys.PROJECT), String.format("Can't find node with id '%s'", value), "Node Was Not Found");
       return;
     }
-    new EditorNavigator(((MPSProject) MapSequence.fromMap(_params).get("mpsProject"))).shallFocus(true).shallSelect(true).open(nodeRef.value);
+    new EditorNavigator(event.getData(MPSCommonDataKeys.MPS_PROJECT)).shallFocus(true).shallSelect(true).open(nodeRef.value);
   }
-  private Pair<SNodeId, String> getNodeId(String inputString, final Map<String, Object> _params) {
+  private Pair<SNodeId, String> getNodeId(String inputString, final AnActionEvent event) {
     SNodeId id;
     String error = null;
     try {

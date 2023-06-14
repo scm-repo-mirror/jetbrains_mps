@@ -9,7 +9,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.project.MPSProject;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.plugins.projectplugins.ProjectPluginManager;
@@ -34,14 +33,12 @@ public class AnalyzeClasspath_Action extends BaseAction {
     }
     {
       SModule p = event.getData(MPSCommonDataKeys.MODULE);
-      MapSequence.fromMap(_params).put("module", p);
       if (p == null) {
         return false;
       }
     }
     {
       MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
-      MapSequence.fromMap(_params).put("project", p);
       if (p == null) {
         return false;
       }
@@ -50,8 +47,8 @@ public class AnalyzeClasspath_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    ClasspathExplorer_Tool cpExplorer = ((MPSProject) MapSequence.fromMap(_params).get("project")).getProject().getComponent(ProjectPluginManager.class).getTool(ClasspathExplorer_Tool.class);
+    ClasspathExplorer_Tool cpExplorer = event.getData(MPSCommonDataKeys.MPS_PROJECT).getProject().getComponent(ProjectPluginManager.class).getTool(ClasspathExplorer_Tool.class);
     cpExplorer.openToolLater(true);
-    cpExplorer.analyzeModule(((SModule) MapSequence.fromMap(_params).get("module")));
+    cpExplorer.analyzeModule(event.getData(MPSCommonDataKeys.MODULE));
   }
 }

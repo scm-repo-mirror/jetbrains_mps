@@ -2082,7 +2082,6 @@
     <property role="72QZ$" value="true" />
     <property role="2uzpH1" value="Optimize Imports" />
     <property role="3GE5qa" value="Menu.ProjectPane.Project.Actions" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="hGoCYwa" role="tncku">
       <node concept="3clFbS" id="hGoCYwb" role="2VODD2">
@@ -4037,7 +4036,6 @@
     <property role="TrG5h" value="ShowNodeInInspector" />
     <property role="2uzpH1" value="Inspect Node" />
     <property role="3GE5qa" value="Menu.EditorPopup.Actions" />
-    <property role="1teQrl" value="true" />
     <property role="72QZ$" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="hGAImS0" role="tncku">
@@ -5469,7 +5467,6 @@
     <property role="72QZ$" value="true" />
     <property role="2uzpH1" value="Project Modules" />
     <property role="3GE5qa" value="Menu.ProjectPane.Project.Actions" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="hMRTVTe" role="tncku">
       <node concept="3clFbS" id="hMRTVTf" role="2VODD2">
@@ -6057,7 +6054,6 @@
     <property role="72QZ$" value="true" />
     <property role="2uzpH1" value="Solution" />
     <property role="3GE5qa" value="Menu.ProjectPane.Project.Actions" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="hSQishx" role="tncku">
       <node concept="3clFbS" id="hSQishy" role="2VODD2">
@@ -6686,7 +6682,6 @@
     <property role="TrG5h" value="RemoveAllBookmarks" />
     <property role="2uzpH1" value="Remove All Bookmarks" />
     <property role="3GE5qa" value="Menu.EditorPopup.Actions.Bookmarks" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="hXqU8eJ" role="1NuT2Z">
       <property role="TrG5h" value="project" />
@@ -6723,7 +6718,6 @@
     <property role="TrG5h" value="ShowBookmarks" />
     <property role="2uzpH1" value="Bookmarks..." />
     <property role="3GE5qa" value="Menu.MainMenu.ToolsActions" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="hXrtPYZ" role="tncku">
       <node concept="3clFbS" id="hXrtPZ0" role="2VODD2">
@@ -7092,7 +7086,6 @@
     <property role="TrG5h" value="CopyModuleName" />
     <property role="2uzpH1" value="Copy Module Name" />
     <property role="3GE5qa" value="Menu.ProjectPane.Module.Actions" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="hZikNJB" role="1NuT2Z">
       <property role="TrG5h" value="module" />
@@ -7863,7 +7856,6 @@
     <property role="72QZ$" value="true" />
     <property role="2uzpH1" value="Optimize Imports" />
     <property role="3GE5qa" value="Menu.ProjectPane.Module.Actions" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="hZsb5Sf" role="1NuT2Z">
       <property role="TrG5h" value="modules" />
@@ -8389,7 +8381,6 @@
     <property role="72QZ$" value="true" />
     <property role="2uzpH1" value="Show Bookmarks Dialog" />
     <property role="3GE5qa" value="Menu.EditorPopup.Actions.Bookmarks" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="hZsuckw" role="tncku">
       <node concept="3clFbS" id="hZsuckx" role="2VODD2">
@@ -9838,7 +9829,6 @@
     <property role="TrG5h" value="CopyNodeReference" />
     <property role="2uzpH1" value="Copy Reference" />
     <property role="3GE5qa" value="Menu.ProjectPane.Node.Actions" />
-    <property role="1teQrl" value="true" />
     <property role="72QZ$" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="5z503QbytLg" role="1NuT2Z">
@@ -13579,7 +13569,6 @@
     <property role="72QZ$" value="false" />
     <property role="2uzpH1" value="Highlight Instances" />
     <property role="3GE5qa" value="Menu.MainMenu.SearchActions" />
-    <property role="1teQrl" value="true" />
     <property role="2YLI8m" value="6u2MFnph2yg/read" />
     <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="cAZ8XCabSH" role="tncku">
@@ -13800,7 +13789,6 @@
     <property role="72QZ$" value="true" />
     <property role="2uzpH1" value="Highlight Usages" />
     <property role="3GE5qa" value="Menu.MainMenu.SearchActions" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="4NbzjXXK6ut" role="tncku">
       <node concept="3clFbS" id="4NbzjXXK6uu" role="2VODD2">
@@ -15670,7 +15658,6 @@
     <property role="72QZ$" value="true" />
     <property role="2uzpH1" value="Show Node Info" />
     <property role="3GE5qa" value="DevKit" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="4NhTXTAh4kw" role="tncku">
       <node concept="3clFbS" id="4NhTXTAh4kx" role="2VODD2">
@@ -15741,7 +15728,52 @@
         <node concept="3SKdUt" id="3v6xPpVsmMH" role="3cqZAp">
           <node concept="1PaTwC" id="3v6xPpVsmMI" role="1aUNEU">
             <node concept="3oM_SD" id="3v6xPpVsmMK" role="1PaTwD">
-              <property role="3oM_SC" value="Displaying this action in .invokeLater call to let popup menu be disposed first ( &lt;node&gt; will" />
+              <property role="3oM_SC" value="Displaying" />
+            </node>
+            <node concept="3oM_SD" id="54Z1k0$QcBm" role="1PaTwD">
+              <property role="3oM_SC" value="this" />
+            </node>
+            <node concept="3oM_SD" id="54Z1k0$QcBn" role="1PaTwD">
+              <property role="3oM_SC" value="action" />
+            </node>
+            <node concept="3oM_SD" id="54Z1k0$QcBo" role="1PaTwD">
+              <property role="3oM_SC" value="in" />
+            </node>
+            <node concept="3oM_SD" id="54Z1k0$QcBp" role="1PaTwD">
+              <property role="3oM_SC" value=".invokeLater" />
+            </node>
+            <node concept="3oM_SD" id="54Z1k0$QcBq" role="1PaTwD">
+              <property role="3oM_SC" value="call" />
+            </node>
+            <node concept="3oM_SD" id="54Z1k0$QcBr" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="54Z1k0$QcBs" role="1PaTwD">
+              <property role="3oM_SC" value="let" />
+            </node>
+            <node concept="3oM_SD" id="54Z1k0$QcBt" role="1PaTwD">
+              <property role="3oM_SC" value="popup" />
+            </node>
+            <node concept="3oM_SD" id="54Z1k0$QcBu" role="1PaTwD">
+              <property role="3oM_SC" value="menu" />
+            </node>
+            <node concept="3oM_SD" id="54Z1k0$QcBv" role="1PaTwD">
+              <property role="3oM_SC" value="be" />
+            </node>
+            <node concept="3oM_SD" id="54Z1k0$QcBw" role="1PaTwD">
+              <property role="3oM_SC" value="disposed" />
+            </node>
+            <node concept="3oM_SD" id="54Z1k0$QcBx" role="1PaTwD">
+              <property role="3oM_SC" value="first" />
+            </node>
+            <node concept="3oM_SD" id="54Z1k0$QcBy" role="1PaTwD">
+              <property role="3oM_SC" value="(" />
+            </node>
+            <node concept="3oM_SD" id="54Z1k0$QcBz" role="1PaTwD">
+              <property role="3oM_SC" value="&lt;node&gt;" />
+            </node>
+            <node concept="3oM_SD" id="54Z1k0$QcB$" role="1PaTwD">
+              <property role="3oM_SC" value="will" />
             </node>
             <node concept="3oM_SD" id="3v6xPpVsn0g" role="1PaTwD">
               <property role="3oM_SC" value="be" />
@@ -16224,7 +16256,6 @@
     <property role="TrG5h" value="GoToRootNode" />
     <property role="2uzpH1" value="Go to Root Node" />
     <property role="3GE5qa" value="Menu.MainMenu.GotoActions" />
-    <property role="1teQrl" value="true" />
     <property role="72QZ$" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="7h9VEk99LwV" role="1NuT2Z">
@@ -16788,7 +16819,6 @@
     <property role="TrG5h" value="GoToModel" />
     <property role="2uzpH1" value="Go to Model" />
     <property role="3GE5qa" value="Menu.MainMenu.GotoActions" />
-    <property role="1teQrl" value="true" />
     <property role="72QZ$" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="5dIyUY5btyd" role="1NuT2Z">
@@ -17072,7 +17102,6 @@
     <property role="TrG5h" value="GoToModule" />
     <property role="2uzpH1" value="Go to Module" />
     <property role="3GE5qa" value="Menu.MainMenu.GotoActions" />
-    <property role="1teQrl" value="true" />
     <property role="72QZ$" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="fwenio2lfn" role="1NuT2Z">
@@ -19537,7 +19566,6 @@
     <property role="TrG5h" value="NewFile" />
     <property role="2uzpH1" value="File" />
     <property role="3GE5qa" value="Menu.FileView.Actions" />
-    <property role="1teQrl" value="true" />
     <property role="72QZ$" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="1QGGSu" id="3YM7NwaMEmV" role="3Uehp1">
@@ -20321,7 +20349,6 @@
     <property role="72QZ$" value="true" />
     <property role="2uzpH1" value="Rename..." />
     <property role="3GE5qa" value="Menu.FileView.Actions" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="2XrIbr" id="6tNFAUMsC5Y" role="32lrUH">
       <property role="TrG5h" value="isNotValid" />
@@ -20702,7 +20729,6 @@
     <property role="TrG5h" value="MoveFileOrDirectory" />
     <property role="2uzpH1" value="Move..." />
     <property role="3GE5qa" value="Menu.FileView.Actions" />
-    <property role="1teQrl" value="true" />
     <property role="2YLI8m" value="6u2MFnph2wS/none" />
     <property role="1rBW0U" value="true" />
     <node concept="2XrIbr" id="6tNFAUMsC5$" role="32lrUH">
@@ -27501,7 +27527,6 @@
     <property role="TrG5h" value="FindModelUsages" />
     <property role="2uzpH1" value="Find Usages" />
     <property role="3GE5qa" value="Menu.ProjectPane.Model.Actions" />
-    <property role="1teQrl" value="true" />
     <property role="72QZ$" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="1QGGSu" id="6XsdSpi8mJa" role="3Uehp1">
@@ -29010,7 +29035,6 @@
     <property role="TrG5h" value="ForceSaveAll" />
     <property role="2uzpH1" value="Force Save All" />
     <property role="3GE5qa" value="Menu.FileView.Actions" />
-    <property role="1teQrl" value="true" />
     <property role="2YLI8m" value="6u2MFnph2wS/none" />
     <property role="1rBW0U" value="true" />
     <node concept="2XrIbr" id="LQ3Qd2$6T2" role="32lrUH">
@@ -36848,7 +36872,6 @@
     <property role="72QZ$" value="true" />
     <property role="3GE5qa" value="Structure.Actions" />
     <property role="2uzpH1" value="Concept Implementation(s)" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="2XrIbr" id="5VO8AhfgrAG" role="32lrUH">
       <property role="TrG5h" value="captionFun" />

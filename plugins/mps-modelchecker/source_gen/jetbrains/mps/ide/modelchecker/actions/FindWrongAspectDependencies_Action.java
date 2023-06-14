@@ -9,7 +9,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -42,7 +41,6 @@ public class FindWrongAspectDependencies_Action extends BaseAction {
     }
     {
       MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
-      MapSequence.fromMap(_params).put("mpsProject", p);
       if (p == null) {
         return false;
       }
@@ -51,10 +49,10 @@ public class FindWrongAspectDependencies_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getModelAccess().runReadInEDT(new Runnable() {
+    event.getData(MPSCommonDataKeys.MPS_PROJECT).getModelAccess().runReadInEDT(new Runnable() {
       public void run() {
-        List<SModel> models = ListSequence.fromListWithValues(new ArrayList<SModel>(), Sequence.fromIterable(((Iterable<SModule>) ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getProjectModules())).where((it) -> SModuleOperations.canSupplyExtensionsForMPS(it)).translate((it) -> it.getModels()).where((md) -> !(SModelStereotype.isStubModel(md))));
-        ModelCheckerTool.getInstance(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getProject()).checkModelsAndShowResult(models, new AspectDependenciesChecker(((MPSProject) MapSequence.fromMap(_params).get("mpsProject"))));
+        List<SModel> models = ListSequence.fromListWithValues(new ArrayList<SModel>(), Sequence.fromIterable(((Iterable<SModule>) event.getData(MPSCommonDataKeys.MPS_PROJECT).getProjectModules())).where((it) -> SModuleOperations.canSupplyExtensionsForMPS(it)).translate((it) -> it.getModels()).where((md) -> !(SModelStereotype.isStubModel(md))));
+        ModelCheckerTool.getInstance(event.getData(MPSCommonDataKeys.MPS_PROJECT).getProject()).checkModelsAndShowResult(models, new AspectDependenciesChecker(event.getData(MPSCommonDataKeys.MPS_PROJECT)));
       }
     });
   }

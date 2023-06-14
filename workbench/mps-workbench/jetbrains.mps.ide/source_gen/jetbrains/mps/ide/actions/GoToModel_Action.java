@@ -8,7 +8,6 @@ import javax.swing.Icon;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import jetbrains.mps.project.MPSProject;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.featureStatistics.FeatureUsageTracker;
 import org.jetbrains.mps.openapi.module.SRepository;
@@ -45,7 +44,6 @@ public class GoToModel_Action extends BaseAction {
     }
     {
       MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
-      MapSequence.fromMap(_params).put("mpsProject", p);
       if (p == null) {
         return false;
       }
@@ -56,20 +54,20 @@ public class GoToModel_Action extends BaseAction {
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     FeatureUsageTracker.getInstance().triggerFeatureUsed("navigation.goto.model");
 
-    final SRepository repo = ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getRepository();
+    final SRepository repo = event.getData(MPSCommonDataKeys.MPS_PROJECT).getRepository();
     // PsiDocumentManager.getInstance(project).commitAllDocuments();
-    final SearchScope localScope = ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getScope();
+    final SearchScope localScope = event.getData(MPSCommonDataKeys.MPS_PROJECT).getScope();
     final SearchScope globalScope = new FilteredGlobalScope(repo);
 
     final ChooseByNameData<SModelReference> gotoData = new ChooseByNameData<SModelReference>(new ModelsPresentation(repo));
     gotoData.derivePrompts("model").setScope(new ModelScopeIterable(localScope, repo), new ModelScopeIterable(globalScope, repo));
 
-    final ChooseByNamePopup popup = MpsPopupFactory.createPackagePopup(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getProject(), gotoData, GoToModel_Action.this);
+    final ChooseByNamePopup popup = MpsPopupFactory.createPackagePopup(event.getData(MPSCommonDataKeys.MPS_PROJECT).getProject(), gotoData, GoToModel_Action.this);
 
     popup.invoke(new ChooseByNamePopupComponent.Callback() {
       public void elementChosen(Object p0) {
         if (p0 instanceof SModelReference) {
-          new ProjectPaneNavigator(((MPSProject) MapSequence.fromMap(_params).get("mpsProject"))).shallFocus(true).select((SModelReference) p0);
+          new ProjectPaneNavigator(event.getData(MPSCommonDataKeys.MPS_PROJECT)).shallFocus(true).select((SModelReference) p0);
         }
       }
     }, ModalityState.current(), false);

@@ -5793,7 +5793,6 @@
     <property role="72QZ$" value="true" />
     <property role="2uzpH1" value="Safe Delete" />
     <property role="3GE5qa" value="Menu.ProjectPane.Node.Actions" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="OqYxEj5h67" role="1NuT2Z">
       <property role="TrG5h" value="project" />

@@ -8,7 +8,6 @@ import javax.swing.Icon;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import java.awt.Frame;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.nodeEditor.EditorComponent;
 import jetbrains.mps.ide.editor.MPSEditorDataKeys;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
@@ -41,7 +40,6 @@ public class ShowNodeInfo_Action extends BaseAction {
     }
     {
       Frame p = event.getData(MPSCommonDataKeys.FRAME);
-      MapSequence.fromMap(_params).put("frame", p);
       if (p == null) {
         return false;
       }
@@ -51,21 +49,18 @@ public class ShowNodeInfo_Action extends BaseAction {
       if (editorComponent != null && editorComponent.isInvalid()) {
         editorComponent = null;
       }
-      MapSequence.fromMap(_params).put("editor", editorComponent);
       if (editorComponent == null) {
         return false;
       }
     }
     {
       EditorCell p = event.getData(MPSEditorDataKeys.EDITOR_CELL);
-      MapSequence.fromMap(_params).put("cell", p);
       if (p == null) {
         return false;
       }
     }
     {
       SNode p = event.getData(MPSCommonDataKeys.NODE);
-      MapSequence.fromMap(_params).put("node", p);
       if (p == null) {
         return false;
       }
@@ -74,16 +69,16 @@ public class ShowNodeInfo_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    final Point point = new Point(((EditorCell) MapSequence.fromMap(_params).get("cell")).getX() + ((EditorCell) MapSequence.fromMap(_params).get("cell")).getWidth(), ((EditorCell) MapSequence.fromMap(_params).get("cell")).getY());
-    SwingUtilities.convertPointToScreen(point, ((EditorComponent) MapSequence.fromMap(_params).get("editor")));
+    final Point point = new Point(event.getData(MPSEditorDataKeys.EDITOR_CELL).getX() + event.getData(MPSEditorDataKeys.EDITOR_CELL).getWidth(), event.getData(MPSEditorDataKeys.EDITOR_CELL).getY());
+    SwingUtilities.convertPointToScreen(point, event.getData(MPSEditorDataKeys.EDITOR_COMPONENT));
     // Displaying this action in .invokeLater call to let popup menu be disposed first ( <node> will be disposed immediately by the corresponding events otherwise)
-    final Frame frame = ((Frame) MapSequence.fromMap(_params).get("frame"));
-    final SNode node = ((SNode) MapSequence.fromMap(_params).get("node"));
-    final String text = new ModelAccessHelper(((EditorComponent) MapSequence.fromMap(_params).get("editor")).getEditorContext().getRepository()).runReadAction(() -> NodeInformationDialog.createNodeInfo(node));
+    final Frame frame = event.getData(MPSCommonDataKeys.FRAME);
+    final SNode node = event.getData(MPSCommonDataKeys.NODE);
+    final String text = new ModelAccessHelper(event.getData(MPSEditorDataKeys.EDITOR_COMPONENT).getEditorContext().getRepository()).runReadAction(() -> NodeInformationDialog.createNodeInfo(node));
     ApplicationManager.getApplication().invokeLater(new Runnable() {
       @Override
       public void run() {
-        new NodeInformationDialog(((EditorComponent) MapSequence.fromMap(_params).get("editor")), frame, point, text).setVisible(true);
+        new NodeInformationDialog(event.getData(MPSEditorDataKeys.EDITOR_COMPONENT), frame, point, text).setVisible(true);
       }
     });
   }

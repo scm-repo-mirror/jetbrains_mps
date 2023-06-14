@@ -1827,7 +1827,6 @@
     <property role="72QZ$" value="true" />
     <property role="3GE5qa" value="breakpoints" />
     <property role="2uzpH1" value="View Breakpoints" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="4_scbGUJDhJ" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />

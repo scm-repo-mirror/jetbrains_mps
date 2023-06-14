@@ -259,8 +259,6 @@
         <reference id="5891121763832971425" name="cls" index="1c5NyD" />
       </concept>
       <concept id="1206092561075" name="jetbrains.mps.lang.plugin.structure.ActionParameterReferenceOperation" flags="nn" index="3gHZIF" />
-      <concept id="5538333046911298739" name="jetbrains.mps.lang.plugin.structure.CustomCondition" flags="in" index="1oa70z" />
-      <concept id="5538333046911348647" name="jetbrains.mps.lang.plugin.structure.ParameterCondition_ConceptFunctionParameter" flags="nn" index="1oajcR" />
       <concept id="5538333046911348654" name="jetbrains.mps.lang.plugin.structure.RequiredCondition" flags="ng" index="1oajcY" />
       <concept id="5818192529492099570" name="jetbrains.mps.lang.plugin.structure.CloseTabOperation" flags="nn" index="3ryLUP">
         <child id="5818192529492102108" name="componentExpression" index="3ryLir" />
@@ -852,7 +850,6 @@
     <property role="72QZ$" value="true" />
     <property role="3GE5qa" value="New" />
     <property role="2uzpH1" value="DevKit" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="56$IWKxenas" role="tncku">
       <node concept="3clFbS" id="56$IWKxenat" role="2VODD2">
@@ -2854,23 +2851,13 @@
     <property role="72QZ$" value="true" />
     <property role="3GE5qa" value="New" />
     <property role="2uzpH1" value="Add Accessory Model" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="30peylOO27f" role="1NuT2Z">
       <property role="TrG5h" value="module" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.CONTEXT_MODULE" resolve="CONTEXT_MODULE" />
       <node concept="1oajcY" id="7HZe2EwZDkT" role="1oa70y" />
-      <node concept="1oa70z" id="hGQbi$ukJV" role="1oa70y">
-        <node concept="3clFbS" id="hGQbi$ukJX" role="2VODD2">
-          <node concept="3clFbF" id="hGQbi$umoT" role="3cqZAp">
-            <node concept="2ZW3vV" id="hGQbi$umtg" role="3clFbG">
-              <node concept="3uibUv" id="hGQbi$umFU" role="2ZW6by">
-                <ref role="3uigEE" to="w1kc:~Language" resolve="Language" />
-              </node>
-              <node concept="1oajcR" id="hGQbi$umoS" role="2ZW6bz" />
-            </node>
-          </node>
-        </node>
+      <node concept="1c5O4g" id="54Z1k0_0vTM" role="1oa70y">
+        <ref role="1c5NyD" to="w1kc:~Language" resolve="Language" />
       </node>
     </node>
     <node concept="1DS2jV" id="5wEedBsfqYO" role="1NuT2Z">
@@ -4868,7 +4855,6 @@
     <property role="TrG5h" value="HighlightCellDependencies" />
     <property role="3GE5qa" value="InternalActions" />
     <property role="2uzpH1" value="Highlighted Cell's Dependent Nodes" />
-    <property role="1teQrl" value="true" />
     <property role="72QZ$" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="2jM9X_IgWT2" role="tncku">
@@ -6369,7 +6355,6 @@
     <property role="72QZ$" value="true" />
     <property role="3GE5qa" value="DevKitTools" />
     <property role="2uzpH1" value="Reload All Classes" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="1TFxXPONz$G" role="tncku">
       <node concept="3clFbS" id="1TFxXPONz$H" role="2VODD2">
@@ -11514,7 +11499,6 @@
     <property role="72QZ$" value="true" />
     <property role="3GE5qa" value="DevKitTools" />
     <property role="2uzpH1" value="Reactivate EDT Queue" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="tnohg" id="6RhlgZFAC48" role="tncku">
       <node concept="3clFbS" id="6RhlgZFAC49" role="2VODD2">
@@ -11619,7 +11603,6 @@
     <property role="72QZ$" value="true" />
     <property role="2uzpH1" value="Calc properties/refs/children statistic for SNodes" />
     <property role="3GE5qa" value="Menu.MainMenu.ToolsActions" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="1DS2jV" id="7QCr3uXSfAh" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
@@ -12962,7 +12945,6 @@
     <property role="72QZ$" value="true" />
     <property role="2uzpH1" value="Find unused and deprecated concepts" />
     <property role="3GE5qa" value="Menu.MainMenu.ToolsActions" />
-    <property role="1teQrl" value="true" />
     <property role="1rBW0U" value="true" />
     <node concept="2XrIbr" id="7QCr3uXZkX3" role="32lrUH">
       <property role="TrG5h" value="showUsagesViewForNodes" />
