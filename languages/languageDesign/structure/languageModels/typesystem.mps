@@ -5107,26 +5107,79 @@
               </node>
               <node concept="3clFbJ" id="2BJSfVLNMV0" role="3cqZAp">
                 <node concept="3clFbS" id="2BJSfVLNMV2" role="3clFbx">
-                  <node concept="a7r0C" id="2BJSfVLOzk6" role="3cqZAp">
-                    <node concept="3cpWs3" id="2BJSfVLO$Zy" role="a7wSD">
-                      <node concept="3cpWs3" id="2BJSfVLO$xx" role="3uHU7B">
-                        <node concept="3cpWs3" id="2BJSfVLO$xE" role="3uHU7B">
-                          <node concept="Xl_RD" id="2BJSfVLO$xK" role="3uHU7B">
-                            <property role="Xl_RC" value="The link's target concept has abstract unimplemented methods.\n" />
-                          </node>
-                          <node concept="Xl_RD" id="2BJSfVLO$xM" role="3uHU7w">
-                            <property role="Xl_RC" value=" It is better to have default implementation for every such method since at the present moment\n" />
-                          </node>
-                        </node>
-                        <node concept="Xl_RD" id="2BJSfVLO$ZC" role="3uHU7w">
-                          <property role="Xl_RC" value="MPS creates instances of abstract concepts which are contained as a child link in some concept\n " />
-                        </node>
+                  <node concept="3SKdUt" id="5GAyha6ChIP" role="3cqZAp">
+                    <node concept="1PaTwC" id="5GAyha6ChIQ" role="1aUNEU">
+                      <node concept="3oM_SD" id="5GAyha6ChJ2" role="1PaTwD">
+                        <property role="3oM_SC" value="XXX" />
                       </node>
-                      <node concept="Xl_RD" id="2BJSfVLO$ZE" role="3uHU7w">
-                        <property role="Xl_RC" value="and any method of such concept might be spuriously invoked.\n" />
+                      <node concept="3oM_SD" id="5GAyha6ChJe" role="1PaTwD">
+                        <property role="3oM_SC" value="perhaps," />
+                      </node>
+                      <node concept="3oM_SD" id="5GAyha6ChJr" role="1PaTwD">
+                        <property role="3oM_SC" value="it's" />
+                      </node>
+                      <node concept="3oM_SD" id="5GAyha6ChJv" role="1PaTwD">
+                        <property role="3oM_SC" value="better" />
+                      </node>
+                      <node concept="3oM_SD" id="5GAyha6ChJI" role="1PaTwD">
+                        <property role="3oM_SC" value="to" />
+                      </node>
+                      <node concept="3oM_SD" id="5GAyha6ChJO" role="1PaTwD">
+                        <property role="3oM_SC" value="have" />
+                      </node>
+                      <node concept="3oM_SD" id="5GAyha6ChK5" role="1PaTwD">
+                        <property role="3oM_SC" value="intention" />
+                      </node>
+                      <node concept="3oM_SD" id="5GAyha6ChKn" role="1PaTwD">
+                        <property role="3oM_SC" value="to" />
+                      </node>
+                      <node concept="3oM_SD" id="5GAyha6ChKw" role="1PaTwD">
+                        <property role="3oM_SC" value="provide" />
+                      </node>
+                      <node concept="3oM_SD" id="5GAyha6ChKY" role="1PaTwD">
+                        <property role="3oM_SC" value="default" />
+                      </node>
+                      <node concept="3oM_SD" id="5GAyha6ChLj" role="1PaTwD">
+                        <property role="3oM_SC" value="implementation" />
+                      </node>
+                      <node concept="3oM_SD" id="5GAyha6ChLN" role="1PaTwD">
+                        <property role="3oM_SC" value="instead" />
+                      </node>
+                      <node concept="3oM_SD" id="5GAyha6ChMa" role="1PaTwD">
+                        <property role="3oM_SC" value="of" />
+                      </node>
+                      <node concept="3oM_SD" id="5GAyha6ChNl" role="1PaTwD">
+                        <property role="3oM_SC" value="(in" />
+                      </node>
+                      <node concept="3oM_SD" id="5GAyha6ChNA" role="1PaTwD">
+                        <property role="3oM_SC" value="addition" />
+                      </node>
+                      <node concept="3oM_SD" id="5GAyha6ChO2" role="1PaTwD">
+                        <property role="3oM_SC" value="to?)" />
+                      </node>
+                      <node concept="3oM_SD" id="5GAyha6ChMo" role="1PaTwD">
+                        <property role="3oM_SC" value="this" />
+                      </node>
+                      <node concept="3oM_SD" id="5GAyha6ChML" role="1PaTwD">
+                        <property role="3oM_SC" value="message?" />
                       </node>
                     </node>
-                    <node concept="1YBJjd" id="2BJSfVLO$Xl" role="1urrMF">
+                  </node>
+                  <node concept="Dpp1Q" id="5GAyha6Cfia" role="3cqZAp">
+                    <node concept="3cpWs3" id="5GAyha6Cfic" role="Dpw9R">
+                      <node concept="3cpWs3" id="5GAyha6Cfid" role="3uHU7B">
+                        <node concept="Xl_RD" id="5GAyha6Cfif" role="3uHU7B">
+                          <property role="Xl_RC" value="The link's target concept has abstract unimplemented methods.\n" />
+                        </node>
+                        <node concept="Xl_RD" id="5GAyha6Cfih" role="3uHU7w">
+                          <property role="Xl_RC" value="Sometimes, MPS Editor creates instances of abstract concepts.\n" />
+                        </node>
+                      </node>
+                      <node concept="Xl_RD" id="5GAyha6Cfii" role="3uHU7w">
+                        <property role="Xl_RC" value="If you don't provide implementation for the methods, MPS uses built-in defaults if methods get invoked." />
+                      </node>
+                    </node>
+                    <node concept="1YBJjd" id="5GAyha6Cfij" role="1urrMF">
                       <ref role="1YBMHb" node="2BJSfVLNFyJ" resolve="linkToCheck" />
                     </node>
                   </node>

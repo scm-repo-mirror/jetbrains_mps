@@ -26,6 +26,7 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.api.SMethodId;
 import jetbrains.mps.core.aspects.behaviour.api.SParameter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -36,9 +37,11 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
 
 import static jetbrains.mps.core.aspects.behaviour.BehaviorChecker.checkForConcept;
@@ -66,6 +69,8 @@ public abstract class BaseBHDescriptor implements BHDescriptor {
   private boolean myInitialized = false;
   private SMethodVirtualTable myVTable;
   private AncestorCache myAncestorCache;
+
+  private Set<SMethodId> myReportedMissingMethods;
 
   protected BaseBHDescriptor() {
     // since 2019.2
@@ -235,7 +240,34 @@ public abstract class BaseBHDescriptor implements BHDescriptor {
     checkForConcept(operand.getConcept(), myConcept);
 
     if (method.isVirtual()) {
-      return invokeVirtual(operand, method, parameters);
+      try {
+        return invokeVirtual(operand, method, parameters);
+      } catch (BHMethodImplementationIsNotFoundException ex) {
+        // node.concept is always SConcept but answers isAbstract() == true in case of "fake" concept,
+        // see SConceptAdapterById#isAbstract()
+        if (method.isAbstract() && operand.getConcept().isAbstract()) {
+          // As long as it's "normal" for an editor to create instances of abstract concepts, and there's
+          // an innocent code that invokes various virtual methods on the node (and can't afford to check
+          // if node is a full-fledged instance or just a provisional instance) - like checking rules, we
+          // have to avoid useless exception reporting; after all, it's an MPS own (flawed) design.
+          Set<SMethodId> reportedMissingMethods = myReportedMissingMethods;
+          if (reportedMissingMethods == null) {
+            synchronized (this) {
+              if (myReportedMissingMethods == null) {
+                myReportedMissingMethods = Collections.synchronizedSet(new HashSet<>());
+              }
+              reportedMissingMethods = myReportedMissingMethods;
+            }
+          }
+          if (reportedMissingMethods.add(method.getId())) {
+            final String m = "Exception invoking abstract method %s on instance of abstract concept %s, ignored. Returned default value for the type";
+            Logger.getLogger(getClass()).info(String.format(m, method.getName(), operand.getConcept().getName()), ex);
+          }
+          return (T) method.getReturnType().getDefaultValue();
+        } else {
+          throw ex;
+        }
+      }
     } else {
       if (method.isPrivate()) {
         Object[] parametersArray = getParametersArray(method.getParameters(), parameters);
