@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import com.intellij.openapi.progress.ProcessCanceledException;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.MessageType;
 import com.intellij.openapi.util.NlsActions.ActionText;
+import com.intellij.openapi.util.registry.Registry;
 import com.intellij.openapi.wm.IdeFrame;
 import com.intellij.openapi.wm.WindowManager;
 import com.intellij.openapi.wm.ex.StatusBarEx;
@@ -57,7 +58,7 @@ public abstract class BaseAction extends AnAction {
   private boolean myDisableOnNoProject = true;
   private Set<ActionPlace> myPlaces = null;
 
-  private ActionUpdateThread myUpdateThread = ActionUpdateThread.OLD_EDT;
+  private ActionUpdateThread myUpdateThread;
 
   public BaseAction() {
     this((String) null, (String) null, (Icon) null);
@@ -91,6 +92,11 @@ public abstract class BaseAction extends AnAction {
 
   @Override
   public @NotNull ActionUpdateThread getActionUpdateThread() {
+    if (myUpdateThread == null) {
+      // MPS_Frame and MPS_MPSProject values, supplied by a GetDataRule, are not available in EDT, hence OLD_EDT default
+      // (As I read ActionUpdateThread javadoc, EDT doesn't give access to anything but DataProviders from Swing component hierarchy)
+      myUpdateThread = Registry.is("mps.actions.old_edt", true) ? ActionUpdateThread.OLD_EDT : ActionUpdateThread.EDT;
+    }
     return myUpdateThread;
   }
 
