@@ -27,7 +27,6 @@ public class ShowInLogicalView_Action extends BaseAction {
     super("Show Node in Logical View", "", ICON);
     this.setIsAlwaysVisible(false);
     this.setExecuteOutsideCommand(true);
-    updateInBackground(true);
   }
   @Override
   public boolean isDumbAware() {

@@ -3528,7 +3528,6 @@
     <property role="3GE5qa" value="Menu.EditorPopup.Actions" />
     <property role="1teQrl" value="true" />
     <property role="72QZ$" value="true" />
-    <property role="1rBW0U" value="true" />
     <node concept="2ScWuX" id="2AAf5r02UK3" role="tmbBb">
       <node concept="3clFbS" id="2AAf5r02UUd" role="2VODD2">
         <node concept="3cpWs8" id="5CL$Hpptt5u" role="3cqZAp">
