@@ -9,6 +9,7 @@ import jetbrains.mps.make.script.IResult;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicReference;
 import jetbrains.mps.make.service.CoreMakeTask;
+import jetbrains.mps.progress.ProgressMonitorAdapter;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;
@@ -17,19 +18,18 @@ import jetbrains.mps.make.script.IScriptController;
 import jetbrains.mps.messages.IMessageHandler;
 import com.intellij.openapi.progress.PerformInBackgroundOption;
 import com.intellij.openapi.progress.ProgressIndicator;
-import jetbrains.mps.progress.ProgressMonitorAdapter;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-import org.jetbrains.mps.openapi.util.ProgressMonitor;
 
 @GeneratedClass(node = "r:abe0ad99-3ef3-4277-a170-d1efd7986b86(jetbrains.mps.ide.make)/173672751428921800", model = "r:abe0ad99-3ef3-4277-a170-d1efd7986b86(jetbrains.mps.ide.make)")
 /*package*/ class MakeTask extends Task.ConditionalModal implements Future<IResult> {
   private final CountDownLatch myLatch = new CountDownLatch(1);
   private final AtomicReference<TaskState> myState = new AtomicReference<TaskState>(TaskState.NOT_STARTED);
   private final CoreMakeTask coreTask;
-  private boolean isCanceled = false;
+  private ProgressMonitorAdapter myProgressMonitor;
+
   public MakeTask(@Nullable Project project, @NotNull String title, MakeSequence makeSeq, IScriptController ctl, IMessageHandler mh, PerformInBackgroundOption bgoption) {
     super(project, title, true, bgoption);
     // XXX might be nice to pass CoreMakeTask here, instead of long list of arguments to construct one.
@@ -39,19 +39,40 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
 
   @Override
   public void run(@NotNull final ProgressIndicator pi) {
-    if (myState.compareAndSet(TaskState.NOT_STARTED, TaskState.RUNNING)) {
-      coreTask.run(new ProgressMonitorAdapter(pi));
+    try {
+      if (myState.compareAndSet(TaskState.NOT_STARTED, TaskState.RUNNING)) {
+        coreTask.run(myProgressMonitor = new ProgressMonitorAdapter(pi));
+      }
+    } finally {
+      // CANCELLED state, if there, shall stay (not affected by compareAndSet).
+      if (myState.compareAndSet(TaskState.RUNNING, TaskState.DONE)) {
+        if (coreTask.getResult() == null) {
+          // logic that used to be in CoreMakeTask.reconcile() override; not sure, however, it's smart 
+          // to treat "no result" as "cancelled".
+          myState.set(TaskState.CANCELLED);
+        }
+      }
+      myProgressMonitor = null;
+      myLatch.countDown();
+      done();
     }
   }
 
   @Override
   public void onCancel() {
-    isCanceled = true;
+    // IDEA interface for cancellation
+    cancel(false);
   }
 
   @Override
-  public boolean cancel(boolean b) {
-    return false;
+  public boolean cancel(boolean mayInterruptIfRunning) {
+    // Future interface for cancellation
+    // TODO when mayInterruptIfRunning, let coreTask know it needs to throw InterruptedException
+    ProgressMonitorAdapter pm = myProgressMonitor;
+    if (pm != null) {
+      pm.cancel();
+    }
+    return myState.compareAndSet(TaskState.NOT_STARTED, TaskState.CANCELLED) || myState.compareAndSet(TaskState.RUNNING, TaskState.CANCELLED);
   }
 
   @Override
@@ -61,13 +82,14 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
 
   @Override
   public boolean isDone() {
-    return myState.get() != TaskState.NOT_STARTED && myState.get() != TaskState.RUNNING;
+    TaskState state = myState.get();
+    return state != TaskState.NOT_STARTED && state != TaskState.RUNNING;
   }
 
   @Override
   public IResult get() throws InterruptedException, ExecutionException {
     myLatch.await();
-    if (myState.get() == TaskState.CANCELLED) {
+    if (isCancelled()) {
       throw new CancellationException();
     }
     return coreTask.getResult();
@@ -76,7 +98,7 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
   @Override
   public IResult get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException {
     myLatch.await(timeout, unit);
-    if (myState.get() == TaskState.CANCELLED) {
+    if (isCancelled()) {
       throw new CancellationException();
     }
     return coreTask.getResult();
@@ -97,26 +119,6 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
     }
 
     @Override
-    protected void reconcile() {
-      MakeTask.this.myState.set(TaskState.DONE);
-      try {
-        if (isCanceled || coreTask.getResult() == null) {
-          MakeTask.this.myState.set(TaskState.CANCELLED);
-        }
-        super.reconcile();
-      } finally {
-        myLatch.countDown();
-        done();
-      }
-    }
-
-    @Override
-    protected void doRun(ProgressMonitor monitor) {
-      super.doRun(monitor);
-      MakeTask.this.myState.set(TaskState.INDETERMINATE);
-    }
-
-    @Override
     protected void displayInfo(String info) {
       MakeTask.this.displayInfo(info);
     }
@@ -131,7 +133,6 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
     NOT_STARTED(),
     RUNNING(),
     DONE(),
-    CANCELLED(),
-    INDETERMINATE()
+    CANCELLED()
   }
 }
