@@ -259,9 +259,6 @@
       <concept id="1204796164442" name="jetbrains.mps.baseLanguage.collections.structure.InternalSequenceOperation" flags="nn" index="23sCx2">
         <child id="1204796294226" name="closure" index="23t8la" />
       </concept>
-      <concept id="1172650591544" name="jetbrains.mps.baseLanguage.collections.structure.SkipOperation" flags="nn" index="7r0gD">
-        <child id="1172658456740" name="elementsToSkip" index="7T0AP" />
-      </concept>
       <concept id="1153943597977" name="jetbrains.mps.baseLanguage.collections.structure.ForEachStatement" flags="nn" index="2Gpval">
         <child id="1153944400369" name="variable" index="2Gsz3X" />
         <child id="1153944424730" name="inputSequence" index="2GsD0m" />
@@ -275,7 +272,6 @@
         <child id="1205753261887" name="length" index="2WvESB" />
       </concept>
       <concept id="1205753590798" name="jetbrains.mps.baseLanguage.collections.structure.CutOperation" flags="nn" index="2WwVkm" />
-      <concept id="1165525191778" name="jetbrains.mps.baseLanguage.collections.structure.GetFirstOperation" flags="nn" index="1uHKPH" />
       <concept id="1165595910856" name="jetbrains.mps.baseLanguage.collections.structure.GetLastOperation" flags="nn" index="1yVyf7" />
       <concept id="1202128969694" name="jetbrains.mps.baseLanguage.collections.structure.SelectOperation" flags="nn" index="3$u5V9" />
     </language>
@@ -1546,6 +1542,19 @@
                 </node>
               </node>
               <node concept="3o6iSG" id="1QEui$pG8AI" role="3o6s8t" />
+              <node concept="2pNNFK" id="6rR9bbt$ytj" role="3o6s8t">
+                <property role="2pNNFO" value="key" />
+                <node concept="3o6iSG" id="6rR9bbt$yth" role="3o6s8t">
+                  <property role="3o6i5n" value="java.system.class.loader" />
+                </node>
+              </node>
+              <node concept="2pNNFK" id="6rR9bbt$ytf" role="3o6s8t">
+                <property role="2pNNFO" value="string" />
+                <node concept="3o6iSG" id="6rR9bbt$ytd" role="3o6s8t">
+                  <property role="3o6i5n" value="com.intellij.util.lang.PathClassLoader" />
+                </node>
+              </node>
+              <node concept="3o6iSG" id="6rR9bbt$xlg" role="3o6s8t" />
               <node concept="2pNNFK" id="1QEui$pG8Gh" role="3o6s8t">
                 <property role="2pNNFO" value="key" />
                 <node concept="3o6iSG" id="1QEui$pG8Gi" role="3o6s8t">
@@ -3263,108 +3272,19 @@
       <property role="2DPR8u" value="SET COMMON_JVM_ARGS=&quot;-XX:ErrorFile=%USERPROFILE%\java_error_in_%PRODUCT%_%%p.log&quot; &quot;-XX:HeapDumpPath=%USERPROFILE%\java_error_in_%PRODUCT%.hprof&quot; -Didea.paths.selector=%IDEA_PATHS_SELECTOR% -Didea.vendor.name=&quot;%IDEA_VENDOR_NAME%&quot; %IDE_PROPERTIES_PROPERTY%" />
     </node>
     <node concept="2DRAP_" id="4eWOtEm22ts" role="2DRAPQ">
-      <property role="2DPR8u" value="SET IDE_JVM_ARGS=-Didea.platform.prefix=Idea -Didea.jre.check=true" />
+      <property role="2DPR8u" value="SET IDE_JVM_ARGS=-Didea.platform.prefix=Idea -Didea.jre.check=true -Djava.system.class.loader=com.intellij.util.lang.PathClassLoader" />
     </node>
     <node concept="2DRAP_" id="4eWOtEm264z" role="2DRAPQ">
       <property role="2DPR8u" value="SET ALL_JVM_ARGS=%ACC% %COMMON_JVM_ARGS% %IDE_JVM_ARGS%" />
     </node>
     <node concept="2DRAP_" id="2lwFGYOZYdZ" role="2DRAPQ" />
-    <node concept="2DRAP_" id="1w81suLSTQx" role="2DRAPQ">
-      <property role="2DPR8u" value="SET CLASS_PATH=%IDE_HOME%\" />
-      <node concept="17Uvod" id="1w81suLSTRX" role="lGtFl">
-        <property role="2qtEX9" value="text" />
-        <property role="P4ACc" value="d5033cee-f632-44b6-b308-89d4fbde34ff/1731640411964205218/1731640411964798937" />
-        <node concept="3zFVjK" id="1w81suLSTRY" role="3zH0cK">
-          <node concept="3clFbS" id="1w81suLSTRZ" role="2VODD2">
-            <node concept="3clFbF" id="1w81suLSTSa" role="3cqZAp">
-              <node concept="3cpWs3" id="1w81suLSU8K" role="3clFbG">
-                <node concept="3zGtF$" id="1w81suLSTS9" role="3uHU7B" />
-                <node concept="2OqwBi" id="1w81suLSU9t" role="3uHU7w">
-                  <node concept="2OqwBi" id="1w81suLSU9u" role="2Oq$k0">
-                    <node concept="2OqwBi" id="1w81suLSU9v" role="2Oq$k0">
-                      <node concept="2OqwBi" id="1w81suLSU9w" role="2Oq$k0">
-                        <node concept="30H73N" id="1w81suLSU9x" role="2Oq$k0" />
-                        <node concept="3Tsc0h" id="1w81suLSU9y" role="2OqNvi">
-                          <ref role="3TtcxE" to="s7om:3nFPImNgRsC" resolve="bootClasspath" />
-                        </node>
-                      </node>
-                      <node concept="1uHKPH" id="1w81suLSU9z" role="2OqNvi" />
-                    </node>
-                    <node concept="3TrcHB" id="1w81suLSU9$" role="2OqNvi">
-                      <ref role="3TsBF5" to="s7om:3nFPImNgRka" resolve="path" />
-                    </node>
-                  </node>
-                  <node concept="liA8E" id="1w81suLSU9_" role="2OqNvi">
-                    <ref role="37wK5l" to="wyt6:~String.replace(java.lang.CharSequence,java.lang.CharSequence)" resolve="replace" />
-                    <node concept="Xl_RD" id="1w81suLSU9A" role="37wK5m">
-                      <property role="Xl_RC" value="/" />
-                    </node>
-                    <node concept="Xl_RD" id="1w81suLSU9B" role="37wK5m">
-                      <property role="Xl_RC" value="\\" />
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
+    <node concept="2DRAP_" id="6rR9bbt$MJ2" role="2DRAPQ">
+      <property role="2DPR8u" value="SET CLASS_PATH=%IDE_HOME%\lib\*" />
     </node>
-    <node concept="2DRAP_" id="1w81suLSUvN" role="2DRAPQ">
-      <property role="2DPR8u" value="SET CLASS_PATH=%CLASS_PATH%;%IDE_HOME%\" />
-      <node concept="1WS0z7" id="1w81suLSVRC" role="lGtFl">
-        <node concept="3JmXsc" id="1w81suLSVRE" role="3Jn$fo">
-          <node concept="3clFbS" id="1w81suLSVRG" role="2VODD2">
-            <node concept="3clFbF" id="1w81suLSVSf" role="3cqZAp">
-              <node concept="2OqwBi" id="1w81suLSVSg" role="3clFbG">
-                <node concept="7r0gD" id="1w81suLSVSh" role="2OqNvi">
-                  <node concept="3cmrfG" id="1w81suLSVSi" role="7T0AP">
-                    <property role="3cmrfH" value="1" />
-                  </node>
-                </node>
-                <node concept="2OqwBi" id="1w81suLSVSj" role="2Oq$k0">
-                  <node concept="30H73N" id="1w81suLSVSk" role="2Oq$k0" />
-                  <node concept="3Tsc0h" id="1w81suLSVSl" role="2OqNvi">
-                    <ref role="3TtcxE" to="s7om:3nFPImNgRsC" resolve="bootClasspath" />
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="17Uvod" id="1w81suLSXh3" role="lGtFl">
-        <property role="2qtEX9" value="text" />
-        <property role="P4ACc" value="d5033cee-f632-44b6-b308-89d4fbde34ff/1731640411964205218/1731640411964798937" />
-        <node concept="3zFVjK" id="1w81suLSXh4" role="3zH0cK">
-          <node concept="3clFbS" id="1w81suLSXh5" role="2VODD2">
-            <node concept="3clFbF" id="1w81suLSXhB" role="3cqZAp">
-              <node concept="3cpWs3" id="1w81suLSXyd" role="3clFbG">
-                <node concept="3zGtF$" id="1w81suLSXhA" role="3uHU7B" />
-                <node concept="2OqwBi" id="1w81suLSXyI" role="3uHU7w">
-                  <node concept="2OqwBi" id="1w81suLSXyJ" role="2Oq$k0">
-                    <node concept="30H73N" id="1w81suLSXyK" role="2Oq$k0" />
-                    <node concept="3TrcHB" id="1w81suLSXyL" role="2OqNvi">
-                      <ref role="3TsBF5" to="s7om:3nFPImNgRka" resolve="path" />
-                    </node>
-                  </node>
-                  <node concept="liA8E" id="1w81suLSXyM" role="2OqNvi">
-                    <ref role="37wK5l" to="wyt6:~String.replace(java.lang.CharSequence,java.lang.CharSequence)" resolve="replace" />
-                    <node concept="Xl_RD" id="1w81suLSXyN" role="37wK5m">
-                      <property role="Xl_RC" value="/" />
-                    </node>
-                    <node concept="Xl_RD" id="1w81suLSXyO" role="37wK5m">
-                      <property role="Xl_RC" value="\\" />
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
+    <node concept="2DRAP_" id="6rR9bbt$Swd" role="2DRAPQ">
+      <property role="2DPR8u" value="SET CLASS_PATH=%CLASS_PATH%;%IDE_HOME%\lib\ant\lib\ant.jar" />
     </node>
-    <node concept="2DRAP_" id="hoHCGhqd8Z" role="2DRAPQ">
+    <node concept="2DRAP_" id="6rR9bbt$U_l" role="2DRAPQ">
       <property role="2DPR8u" value="SET CLASS_PATH=%CLASS_PATH%;%JDK%\lib\tools.jar" />
     </node>
     <node concept="2DRAP_" id="4eWOtEm2ECl" role="2DRAPQ">
@@ -5205,6 +5125,9 @@
     </node>
     <node concept="2DRAP_" id="BsOHnjn547" role="2DRAPQ">
       <property role="2DPR8u" value="  -Didea.jre.check=true \" />
+    </node>
+    <node concept="2DRAP_" id="6rR9bbt$rS4" role="2DRAPQ">
+      <property role="2DPR8u" value="  -Djava.system.class.loader=com.intellij.util.lang.PathClassLoader \" />
     </node>
     <node concept="2DRAP_" id="5pqe9hgw0aW" role="2DRAPQ">
       <property role="2DPR8u" value="  -Didea.vendor.name=$IDEA_VENDOR_NAME \" />

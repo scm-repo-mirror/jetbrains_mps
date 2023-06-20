@@ -131,18 +131,11 @@ IF "%VM_OPTIONS_FILE%%USER_VM_OPTIONS_FILE%" == "" (
 
 
 SET COMMON_JVM_ARGS="-XX:ErrorFile=%USERPROFILE%\java_error_in_%PRODUCT%_%%p.log" "-XX:HeapDumpPath=%USERPROFILE%\java_error_in_%PRODUCT%.hprof" -Didea.paths.selector=%IDEA_PATHS_SELECTOR% -Didea.vendor.name="%IDEA_VENDOR_NAME%" %IDE_PROPERTIES_PROPERTY%
-SET IDE_JVM_ARGS=-Didea.platform.prefix=Idea -Didea.jre.check=true
+SET IDE_JVM_ARGS=-Didea.platform.prefix=Idea -Didea.jre.check=true -Djava.system.class.loader=com.intellij.util.lang.PathClassLoader
 SET ALL_JVM_ARGS=%ACC% %COMMON_JVM_ARGS% %IDE_JVM_ARGS%
 
-SET CLASS_PATH=%IDE_HOME%\lib\branding.jar
-SET CLASS_PATH=%CLASS_PATH%;%IDE_HOME%\lib\mps-boot.jar
-SET CLASS_PATH=%CLASS_PATH%;%IDE_HOME%\lib\mps-boot-util.jar
-SET CLASS_PATH=%CLASS_PATH%;%IDE_HOME%\lib\bootstrap.jar
-SET CLASS_PATH=%CLASS_PATH%;%IDE_HOME%\lib\extensions.jar
-SET CLASS_PATH=%CLASS_PATH%;%IDE_HOME%\lib\util.jar
-SET CLASS_PATH=%CLASS_PATH%;%IDE_HOME%\lib\util_rt.jar
-SET CLASS_PATH=%CLASS_PATH%;%IDE_HOME%\lib\3rd-party-rt.jar
-SET CLASS_PATH=%CLASS_PATH%;%IDE_HOME%\lib\jna.jar
+SET CLASS_PATH=%IDE_HOME%\lib\*
+SET CLASS_PATH=%CLASS_PATH%;%IDE_HOME%\lib\ant\lib\ant.jar
 SET CLASS_PATH=%CLASS_PATH%;%JDK%\lib\tools.jar
 IF NOT "%IDEA_CLASS_PATH%" == "" SET CLASS_PATH=%CLASS_PATH%;%IDEA_CLASS_PATH%
 

@@ -81,11 +81,16 @@ final class JavaCompilerImpl implements AutoCloseable {
    */
   @NotNull
   static JavaCompiler defaultCompiler() throws IllegalStateException {
-    final JavaCompiler jc = ToolProvider.getSystemJavaCompiler();
-    if (jc != null) {
-      return jc;
+    try {
+      JavaCompiler systemJavaCompiler = ToolProvider.getSystemJavaCompiler();
+      if (systemJavaCompiler != null) {
+        return systemJavaCompiler;
+      }
+      // TODO: Workaround: when PathClassLoader is the system CL then the standard way "ToolProvider.getSystemJavaCompiler()" does not work.
+      return (JavaCompiler) Class.forName("com.sun.tools.javac.api.JavacTool").newInstance();
+    } catch (Exception e) {
+      throw new IllegalStateException("No system java compiler", e);
     }
-    throw new IllegalStateException("No system java compiler");
   }
 
   /**
