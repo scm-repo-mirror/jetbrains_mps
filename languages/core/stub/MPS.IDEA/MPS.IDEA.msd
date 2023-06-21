@@ -10,7 +10,6 @@
       <sourceRoot location="util-8.jar" />
       <sourceRoot location="util_rt.jar" />
       <sourceRoot location="jps-model.jar" />
-      <sourceRoot location="3rd-party-rt.jar" />
       <sourceRoot location="forms_rt.jar" />
       <!-- intentionally no stats.jar as we don't have any direct dependencies -->
       <PackageScope>
@@ -51,7 +50,6 @@
       <library location="${platform_lib}/util.jar" />
       <library location="${platform_lib}/util_rt.jar" />
       <library location="${platform_lib}/jps-model.jar" />
-      <library location="${platform_lib}/3rd-party-rt.jar" />
       <library location="${platform_lib}/forms_rt.jar" />
     </facet>
   </facets>

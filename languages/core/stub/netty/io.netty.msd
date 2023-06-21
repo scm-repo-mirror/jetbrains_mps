@@ -3,7 +3,7 @@
   <readOnlyStubs/>
   <models>
     <modelRoot contentPath="${platform_lib}" type="java_classes">
-      <sourceRoot location="3rd-party-rt.jar" />
+      <sourceRoot location="util-8.jar" />
       <PackageScope skip-private="true">
         <include prefix="io.netty." />
       </PackageScope>
@@ -11,7 +11,7 @@
   </models>
   <facets>
     <facet type="java" compile="ext" classes="provided" ext="no">
-      <library location="${platform_lib}/3rd-party-rt.jar" />
+      <library location="${platform_lib}/util-8.jar" />
     </facet>
   </facets>
   <sourcePath />

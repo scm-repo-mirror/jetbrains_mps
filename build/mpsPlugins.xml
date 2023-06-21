@@ -1009,11 +1009,11 @@
         <fileset file="${artifacts.mpsWorkbench}/lib/mps-workbench.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-project-check.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
-        <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
-        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <fileset file="${artifacts.IDEA}/lib/app.jar" />
+        <fileset file="${artifacts.IDEA}/lib/lib.jar" />
         <fileset file="${artifacts.IDEA}/lib/forms_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/java-impl.jar" />
         <fileset file="${artifacts.IDEA}/lib/jps-model.jar" />
@@ -1062,7 +1062,7 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-icons.jar" />
         <fileset file="${artifacts.mpsWorkbench}/lib/mps-workbench.jar" />
         <fileset file="${artifacts.IDEA}/lib/app.jar" />
-        <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
+        <fileset file="${artifacts.IDEA}/lib/lib.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/forms_rt.jar" />
@@ -1118,7 +1118,7 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-icons.jar" />
         <fileset file="${artifacts.mpsWorkbench}/lib/mps-workbench.jar" />
         <fileset file="${artifacts.IDEA}/lib/app.jar" />
-        <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
+        <fileset file="${artifacts.IDEA}/lib/lib.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/forms_rt.jar" />
@@ -1181,7 +1181,7 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-icons.jar" />
         <fileset file="${artifacts.mpsWorkbench}/lib/mps-workbench.jar" />
         <fileset file="${artifacts.IDEA}/lib/app.jar" />
-        <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
+        <fileset file="${artifacts.IDEA}/lib/lib.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/forms_rt.jar" />
@@ -1235,7 +1235,7 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-icons.jar" />
         <fileset file="${artifacts.mpsWorkbench}/lib/mps-workbench.jar" />
         <fileset file="${artifacts.IDEA}/lib/app.jar" />
-        <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
+        <fileset file="${artifacts.IDEA}/lib/lib.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/forms_rt.jar" />
@@ -1294,7 +1294,7 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-icons.jar" />
         <fileset file="${artifacts.mpsWorkbench}/lib/mps-workbench.jar" />
         <fileset file="${artifacts.IDEA}/lib/app.jar" />
-        <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
+        <fileset file="${artifacts.IDEA}/lib/lib.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/forms_rt.jar" />
@@ -1357,7 +1357,7 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-icons.jar" />
         <fileset file="${artifacts.mpsWorkbench}/lib/mps-workbench.jar" />
         <fileset file="${artifacts.IDEA}/lib/app.jar" />
-        <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
+        <fileset file="${artifacts.IDEA}/lib/lib.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/forms_rt.jar" />
@@ -1415,7 +1415,7 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-icons.jar" />
         <fileset file="${artifacts.mpsWorkbench}/lib/mps-workbench.jar" />
         <fileset file="${artifacts.IDEA}/lib/app.jar" />
-        <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
+        <fileset file="${artifacts.IDEA}/lib/lib.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/forms_rt.jar" />
@@ -1475,7 +1475,7 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-icons.jar" />
         <fileset file="${artifacts.mpsWorkbench}/lib/mps-workbench.jar" />
         <fileset file="${artifacts.IDEA}/lib/app.jar" />
-        <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
+        <fileset file="${artifacts.IDEA}/lib/lib.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/forms_rt.jar" />
@@ -1533,11 +1533,11 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-icons.jar" />
         <fileset file="${artifacts.mpsWorkbench}/lib/mps-workbench.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
-        <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
-        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <fileset file="${artifacts.IDEA}/lib/app.jar" />
+        <fileset file="${artifacts.IDEA}/lib/lib.jar" />
         <fileset file="${artifacts.IDEA}/lib/forms_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/java-impl.jar" />
         <fileset file="${artifacts.IDEA}/lib/jps-model.jar" />
@@ -1582,11 +1582,11 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-icons.jar" />
         <fileset file="${artifacts.mpsWorkbench}/lib/mps-workbench.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
-        <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
-        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <fileset file="${artifacts.IDEA}/lib/app.jar" />
+        <fileset file="${artifacts.IDEA}/lib/lib.jar" />
         <fileset file="${artifacts.IDEA}/lib/forms_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/java-impl.jar" />
         <fileset file="${artifacts.IDEA}/lib/jps-model.jar" />

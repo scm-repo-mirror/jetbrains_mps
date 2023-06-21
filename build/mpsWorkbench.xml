@@ -577,11 +577,11 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-icons.jar" />
         <pathelement path="${build.tmp}/java/out/mps-workbench" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
-        <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
-        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <fileset file="${artifacts.IDEA}/lib/app.jar" />
+        <fileset file="${artifacts.IDEA}/lib/lib.jar" />
         <fileset file="${artifacts.IDEA}/lib/forms_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/java-impl.jar" />
         <fileset file="${artifacts.IDEA}/lib/jps-model.jar" />
@@ -633,11 +633,11 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-textgen.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-persistence.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
-        <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
-        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <fileset file="${artifacts.IDEA}/lib/app.jar" />
+        <fileset file="${artifacts.IDEA}/lib/lib.jar" />
         <fileset file="${artifacts.IDEA}/lib/forms_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/java-impl.jar" />
         <fileset file="${artifacts.IDEA}/lib/jps-model.jar" />
@@ -667,9 +667,10 @@
       <classpath>
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-boot-util.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/app.jar" />
-        <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
+        <fileset file="${artifacts.IDEA}/lib/lib.jar" />
         <fileset file="${artifacts.IDEA}/lib/forms_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/java-impl.jar" />
         <fileset file="${artifacts.IDEA}/lib/jps-model.jar" />
@@ -722,7 +723,7 @@
         <pathelement path="${build.tmp}/java/out/typesystem-ui" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/app.jar" />
-        <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
+        <fileset file="${artifacts.IDEA}/lib/lib.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/forms_rt.jar" />
@@ -793,7 +794,7 @@
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.plugin.standalone" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/app.jar" />
-        <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
+        <fileset file="${artifacts.IDEA}/lib/lib.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
         <fileset file="${artifacts.IDEA}/lib/forms_rt.jar" />
