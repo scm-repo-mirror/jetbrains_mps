@@ -30,7 +30,6 @@ import com.intellij.testFramework.fixtures.IdeaProjectTestFixture;
 import com.intellij.testFramework.fixtures.JavaCodeInsightTestFixture;
 import com.intellij.testFramework.fixtures.TestFixtureBuilder;
 import com.intellij.testFramework.fixtures.impl.BaseFixture;
-import com.intellij.util.ThrowableRunnable;
 import com.intellij.util.ui.UIUtil;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.idea.core.facet.MPSConfigurationBean;
@@ -165,13 +164,13 @@ public class MPSTestFixture extends BaseFixture {
 
   public void flushEDT() {
     try {
-      UIUtil.invokeAndWaitIfNeeded((ThrowableRunnable) this::flushEDTImpl);
+      UIUtil.invokeAndWaitIfNeeded((Runnable) this::flushEDTImpl);
     } catch (Throwable throwable) {
       throw new AssertionError("Exception while flushing EDT thread", throwable);
     }
   }
 
-  private void flushEDTImpl() throws InterruptedException {
+  private void flushEDTImpl() {
     assert SwingUtilities.isEventDispatchThread();
     final Reference<Boolean> flag = new Reference<>(Boolean.FALSE);
     getModelAccess().runReadInEDT(() -> flag.set(Boolean.TRUE));
