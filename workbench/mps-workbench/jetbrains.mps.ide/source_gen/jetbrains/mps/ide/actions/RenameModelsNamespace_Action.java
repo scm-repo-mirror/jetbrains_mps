@@ -109,7 +109,7 @@ public class RenameModelsNamespace_Action extends BaseAction {
 
           ModelRoot modelRoot = model.getModelRoot();
           if (modelRoot != null) {
-            String validationMsg = new ModelNameValidator(modelRoot).validate(modifiedModelName);
+            String validationMsg = new ModelNameValidator(modelRoot).validate(modifiedModelName, (EditableSModel) model);
             if (validationMsg == null) {
               ((EditableSModel) model).rename(modifiedModelName.getValue(), model.getSource() instanceof FileDataSource);
             } else {
