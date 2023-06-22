@@ -51737,17 +51737,13 @@
         <node concept="3cpWs8" id="7i1Zd7TZlNn" role="3cqZAp">
           <node concept="3cpWsn" id="7i1Zd7TZlNq" role="3cpWs9">
             <property role="TrG5h" value="errors" />
-            <node concept="10Q1$e" id="7i1Zd7TZmXz" role="1tU5fm">
-              <node concept="10P_77" id="7i1Zd7TZlNl" role="10Q1$1" />
+            <property role="3TUv4t" value="true" />
+            <node concept="_YKpA" id="7f5ojk1YS9n" role="1tU5fm">
+              <node concept="17QB3L" id="7f5ojk1YS9p" role="_ZDj9" />
             </node>
-            <node concept="2ShNRf" id="7i1Zd7TZncg" role="33vP2m">
-              <node concept="3$_iS1" id="7i1Zd7U0ov3" role="2ShVmc">
-                <node concept="3$GHV9" id="7i1Zd7U0ov5" role="3$GQph">
-                  <node concept="3cmrfG" id="7i1Zd7U0oyx" role="3$I4v7">
-                    <property role="3cmrfH" value="1" />
-                  </node>
-                </node>
-                <node concept="10P_77" id="7i1Zd7U0os5" role="3$_nBY" />
+            <node concept="2ShNRf" id="7f5ojk1YUGd" role="33vP2m">
+              <node concept="Tc6Ow" id="7f5ojk1YUEX" role="2ShVmc">
+                <node concept="17QB3L" id="7f5ojk1YUEY" role="HW$YZ" />
               </node>
             </node>
           </node>
@@ -51867,7 +51863,7 @@
                             <node concept="3clFbS" id="7i1Zd7TZ6sh" role="3clFbx">
                               <node concept="3cpWs8" id="7i1Zd7TZayt" role="3cqZAp">
                                 <node concept="3cpWsn" id="7i1Zd7TZayu" role="3cpWs9">
-                                  <property role="TrG5h" value="valid" />
+                                  <property role="TrG5h" value="validationMsg" />
                                   <node concept="17QB3L" id="7i1Zd7TZaj$" role="1tU5fm" />
                                   <node concept="2OqwBi" id="7i1Zd7TZayv" role="33vP2m">
                                     <node concept="2ShNRf" id="7i1Zd7TZayw" role="2Oq$k0">
@@ -51943,16 +51939,13 @@
                                 <node concept="9aQIb" id="7i1Zd7TZjGd" role="9aQIa">
                                   <node concept="3clFbS" id="7i1Zd7TZjGe" role="9aQI4">
                                     <node concept="3clFbF" id="7i1Zd7U0pA7" role="3cqZAp">
-                                      <node concept="37vLTI" id="7i1Zd7U0rod" role="3clFbG">
-                                        <node concept="3clFbT" id="7i1Zd7U0spm" role="37vLTx">
-                                          <property role="3clFbU" value="true" />
+                                      <node concept="2OqwBi" id="7f5ojk1Z41K" role="3clFbG">
+                                        <node concept="37vLTw" id="7i1Zd7U0pA6" role="2Oq$k0">
+                                          <ref role="3cqZAo" node="7i1Zd7TZlNq" resolve="errors" />
                                         </node>
-                                        <node concept="AH0OO" id="7i1Zd7U0qbU" role="37vLTJ">
-                                          <node concept="3cmrfG" id="7i1Zd7U0qHP" role="AHEQo">
-                                            <property role="3cmrfH" value="0" />
-                                          </node>
-                                          <node concept="37vLTw" id="7i1Zd7U0pA6" role="AHHXb">
-                                            <ref role="3cqZAo" node="7i1Zd7TZlNq" resolve="validationResult" />
+                                        <node concept="TSZUe" id="7f5ojk1Z6o9" role="2OqNvi">
+                                          <node concept="37vLTw" id="7f5ojk1Z7Yq" role="25WWJ7">
+                                            <ref role="3cqZAo" node="7i1Zd7TZayu" resolve="validationMsg" />
                                           </node>
                                         </node>
                                       </node>
@@ -52026,35 +52019,62 @@
                       </node>
                     </node>
                   </node>
-                  <node concept="3clFbJ" id="7i1Zd7U0uWv" role="3cqZAp">
-                    <node concept="3clFbS" id="7i1Zd7U0uWx" role="3clFbx">
-                      <node concept="3clFbF" id="7i1Zd7U0yL_" role="3cqZAp">
-                        <node concept="2YIFZM" id="769MfTWGtMo" role="3clFbG">
-                          <ref role="37wK5l" to="jkm4:~Messages.showWarningDialog(java.lang.String,java.lang.String)" resolve="showWarningDialog" />
-                          <ref role="1Pybhc" to="jkm4:~Messages" resolve="Messages" />
-                          <node concept="2YIFZM" id="769MfTWGtMp" role="37wK5m">
-                            <ref role="1Pybhc" to="3a50:~IdeBundle" resolve="IdeBundle" />
-                            <ref role="37wK5l" to="3a50:~IdeBundle.message(java.lang.String,java.lang.Object...)" resolve="message" />
-                            <node concept="Xl_RD" id="769MfTWGtMq" role="37wK5m">
-                              <property role="Xl_RC" value="dialogs.virtual.package.rename.on.models.collision.text" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="7f5ojk1XJhX" role="3cqZAp">
+          <node concept="2OqwBi" id="7f5ojk1XL2l" role="3clFbG">
+            <node concept="2YIFZM" id="7f5ojk1XKpM" role="2Oq$k0">
+              <ref role="37wK5l" to="bd8o:~ApplicationManager.getApplication()" resolve="getApplication" />
+              <ref role="1Pybhc" to="bd8o:~ApplicationManager" resolve="ApplicationManager" />
+            </node>
+            <node concept="liA8E" id="7f5ojk1XM3F" role="2OqNvi">
+              <ref role="37wK5l" to="bd8o:~Application.invokeLater(java.lang.Runnable)" resolve="invokeLater" />
+              <node concept="2ShNRf" id="7f5ojk1XM7w" role="37wK5m">
+                <node concept="YeOm9" id="7f5ojk1YNAs" role="2ShVmc">
+                  <node concept="1Y3b0j" id="7f5ojk1YNAv" role="YeSDq">
+                    <property role="2bfB8j" value="true" />
+                    <property role="373rjd" value="true" />
+                    <ref role="1Y3XeK" to="wyt6:~Runnable" resolve="Runnable" />
+                    <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" />
+                    <node concept="3Tm1VV" id="7f5ojk1YNAw" role="1B3o_S" />
+                    <node concept="3clFb_" id="7f5ojk1YNAI" role="jymVt">
+                      <property role="TrG5h" value="run" />
+                      <node concept="3Tm1VV" id="7f5ojk1YNAJ" role="1B3o_S" />
+                      <node concept="3cqZAl" id="7f5ojk1YNAL" role="3clF45" />
+                      <node concept="3clFbS" id="7f5ojk1YNAM" role="3clF47">
+                        <node concept="1DcWWT" id="7f5ojk1YX3D" role="3cqZAp">
+                          <node concept="3clFbS" id="7f5ojk1YX3F" role="2LFqv$">
+                            <node concept="3clFbF" id="7i1Zd7U0yL_" role="3cqZAp">
+                              <node concept="2YIFZM" id="769MfTWGtMo" role="3clFbG">
+                                <ref role="37wK5l" to="jkm4:~Messages.showWarningDialog(java.lang.String,java.lang.String)" resolve="showWarningDialog" />
+                                <ref role="1Pybhc" to="jkm4:~Messages" resolve="Messages" />
+                                <node concept="37vLTw" id="I_OS_UeswK" role="37wK5m">
+                                  <ref role="3cqZAo" node="7f5ojk1YX3G" resolve="error" />
+                                </node>
+                                <node concept="2YIFZM" id="769MfTWGtMp" role="37wK5m">
+                                  <ref role="1Pybhc" to="3a50:~IdeBundle" resolve="IdeBundle" />
+                                  <ref role="37wK5l" to="3a50:~IdeBundle.message(java.lang.String,java.lang.Object...)" resolve="message" />
+                                  <node concept="Xl_RD" id="769MfTWGtMq" role="37wK5m">
+                                    <property role="Xl_RC" value="dialogs.virtual.package.rename.on.models.title" />
+                                  </node>
+                                </node>
+                              </node>
                             </node>
                           </node>
-                          <node concept="2YIFZM" id="769MfTWGtMr" role="37wK5m">
-                            <ref role="1Pybhc" to="3a50:~IdeBundle" resolve="IdeBundle" />
-                            <ref role="37wK5l" to="3a50:~IdeBundle.message(java.lang.String,java.lang.Object...)" resolve="message" />
-                            <node concept="Xl_RD" id="769MfTWGtMs" role="37wK5m">
-                              <property role="Xl_RC" value="dialogs.virtual.package.rename.on.models.title" />
-                            </node>
+                          <node concept="3cpWsn" id="7f5ojk1YX3G" role="1Duv9x">
+                            <property role="TrG5h" value="error" />
+                            <node concept="17QB3L" id="7f5ojk1YZEx" role="1tU5fm" />
+                          </node>
+                          <node concept="37vLTw" id="7f5ojk1YYi9" role="1DdaDG">
+                            <ref role="3cqZAo" node="7i1Zd7TZlNq" resolve="errors" />
                           </node>
                         </node>
                       </node>
-                    </node>
-                    <node concept="AH0OO" id="7i1Zd7U0wvq" role="3clFbw">
-                      <node concept="3cmrfG" id="7i1Zd7U0xs9" role="AHEQo">
-                        <property role="3cmrfH" value="0" />
-                      </node>
-                      <node concept="37vLTw" id="7i1Zd7U0vUu" role="AHHXb">
-                        <ref role="3cqZAo" node="7i1Zd7TZlNq" resolve="errors" />
+                      <node concept="2AHcQZ" id="7f5ojk1YNAO" role="2AJF6D">
+                        <ref role="2AI5Lk" to="wyt6:~Override" />
                       </node>
                     </node>
                   </node>
