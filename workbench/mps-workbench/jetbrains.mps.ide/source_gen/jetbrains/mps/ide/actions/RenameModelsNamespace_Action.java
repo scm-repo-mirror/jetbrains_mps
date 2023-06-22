@@ -30,7 +30,6 @@ import org.jetbrains.mps.openapi.persistence.ModelRoot;
 import jetbrains.mps.ide.refactoring.ModelNameValidator;
 import jetbrains.mps.extapi.persistence.FileDataSource;
 import jetbrains.mps.refactoring.Renamer;
-import com.intellij.openapi.application.ApplicationManager;
 
 @GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/6595589484395587263", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
 public class RenameModelsNamespace_Action extends BaseAction {
@@ -97,7 +96,7 @@ public class RenameModelsNamespace_Action extends BaseAction {
 
     final ModelAccess modelAccess = ((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository().getModelAccess();
     final List<String> errors = ListSequence.fromList(new ArrayList<String>());
-    modelAccess.executeCommandInEDT(() -> {
+    modelAccess.executeCommand(() -> {
       ((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository().saveAll();
       for (SModel model : ListSequence.fromList(node.getModelsUnder())) {
         if (model instanceof EditableSModel) {
@@ -106,7 +105,7 @@ public class RenameModelsNamespace_Action extends BaseAction {
 
           ModelRoot modelRoot = model.getModelRoot();
           if (modelRoot != null) {
-            String validationMsg = new ModelNameValidator(model.getModelRoot()).validate(modifiedModelName);
+            String validationMsg = new ModelNameValidator(modelRoot).validate(modifiedModelName);
             if (validationMsg == null) {
               ((EditableSModel) model).rename(modifiedModelName.getValue(), model.getSource() instanceof FileDataSource);
             } else {
@@ -118,13 +117,16 @@ public class RenameModelsNamespace_Action extends BaseAction {
       Renamer.updateModelAndModuleReferences(((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository());
       ((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository().saveAll();
     });
-    ApplicationManager.getApplication().invokeLater(new Runnable() {
-      @Override
-      public void run() {
-        for (String error : errors) {
-          Messages.showWarningDialog(error, IdeBundle.message("dialogs.virtual.package.rename.on.models.title"));
-        }
+
+    if (ListSequence.fromList(errors).isNotEmpty()) {
+      StringBuilder builder = new StringBuilder("<html><p>Some models could not be renamed:</p><ul>");
+      for (String error : errors) {
+        builder.append("<li>");
+        builder.append(error);
+        builder.append("</li>");
       }
-    });
+      builder.append("</ul></html>");
+      Messages.showWarningDialog(builder.toString(), IdeBundle.message("dialogs.virtual.package.rename.on.models.title"));
+    }
   }
 }
