@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import jetbrains.mps.util.FileUtil;
 import java.util.Objects;
 import com.intellij.ui.icons.ImageDescriptor;
-import com.intellij.util.ImageLoader;
+import com.intellij.ui.icons.ImageDescriptorKt;
 import com.intellij.ui.scale.ScaleContext;
 import jetbrains.mps.vfs.util.PathFormatChecker;
 import java.io.InputStream;
@@ -71,13 +71,14 @@ public final class FileIcon__BehaviorDescriptor extends BaseBHDescriptor {
       return ListSequence.fromList(new ArrayList<String>());
     }
 
-    String ext = FileUtil.getExtension(sourcePath);
+    final String ext = FileUtil.getExtension(sourcePath);
 
     if (Objects.equals(ext, "svg") || Objects.equals(ext, "png")) {
       // All possibly needed files
-      List<ImageDescriptor> imageDescriptors = ImageLoader.INSTANCE.getImageDescriptors(sourcePath, ImageLoader.USE_SVG | ImageLoader.USE_DARK, ScaleContext.createIdentity());
+      List<ImageDescriptor> imageDescriptors = ImageDescriptorKt.getImageDescriptors(sourcePath, true, ScaleContext.createIdentity());
 
-      return imageDescriptors.stream().map((desc) -> desc.path).filter((path) -> !(Objects.equals(path, sourcePath))).distinct().toList();
+      final String prefix = FileUtil.getNameWithoutExtension(sourcePath);
+      return imageDescriptors.stream().map((desc) -> desc.pathTransform.invoke(prefix, ext)).filter((path) -> !(Objects.equals(path, sourcePath))).distinct().toList();
     } else {
       // Other formats are not supported by IconLoader, there is no point in loading dark and retina images as they will not be loaded by the same logic
       // If we add support for other formats to be used in MPS with the same dark/retina logic in the future, we could remove this if and use the same logic as above (as it is compatible with any extension)

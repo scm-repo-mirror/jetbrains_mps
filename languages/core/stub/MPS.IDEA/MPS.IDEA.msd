@@ -35,7 +35,6 @@
         <exclude prefix="kotlin.r" />
         <exclude prefix="kotlin.s" />
         <exclude prefix="kotlin.t" />
-        <exclude prefix="kotlin.jvm.f" />
         <exclude prefix="kotlin.jvm.i" />
         <exclude prefix="kotlin.jvm.j" />
       </PackageScope>

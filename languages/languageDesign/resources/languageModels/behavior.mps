@@ -30,6 +30,7 @@
     <import index="3iga" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ui.icons(MPS.IDEA/)" />
     <import index="oqcp" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:javax.imageio(JDK/)" />
     <import index="1ctc" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.stream(JDK/)" implicit="true" />
+    <import index="ouht" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:kotlin.jvm.functions(MPS.IDEA/)" implicit="true" />
     <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" implicit="true" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
   </imports>
@@ -72,7 +73,6 @@
       <concept id="8118189177080264853" name="jetbrains.mps.baseLanguage.structure.AlternativeType" flags="ig" index="nSUau">
         <child id="8118189177080264854" name="alternative" index="nSUat" />
       </concept>
-      <concept id="1224500790866" name="jetbrains.mps.baseLanguage.structure.BitwiseOrExpression" flags="nn" index="pVOtf" />
       <concept id="1188207840427" name="jetbrains.mps.baseLanguage.structure.AnnotationInstance" flags="nn" index="2AHcQZ">
         <reference id="1188208074048" name="annotation" index="2AI5Lk" />
       </concept>
@@ -497,6 +497,7 @@
       <property role="TrG5h" value="getAdditionalFiles" />
       <node concept="37vLTG" id="5S2eoIGsuvV" role="3clF46">
         <property role="TrG5h" value="sourcePath" />
+        <property role="3TUv4t" value="true" />
         <node concept="17QB3L" id="5S2eoIGswLZ" role="1tU5fm" />
       </node>
       <node concept="3Tm1VV" id="2NwO_B0ZkCf" role="1B3o_S" />
@@ -525,6 +526,7 @@
         <node concept="3cpWs8" id="2NwO_B1060d" role="3cqZAp">
           <node concept="3cpWsn" id="2NwO_B1060e" role="3cpWs9">
             <property role="TrG5h" value="ext" />
+            <property role="3TUv4t" value="true" />
             <node concept="17QB3L" id="2NwO_B1077v" role="1tU5fm" />
             <node concept="2YIFZM" id="2NwO_B1060f" role="33vP2m">
               <ref role="1Pybhc" to="18ew:~FileUtil" resolve="FileUtil" />
@@ -563,35 +565,37 @@
                     <ref role="3uigEE" to="3iga:~ImageDescriptor" resolve="ImageDescriptor" />
                   </node>
                 </node>
-                <node concept="2OqwBi" id="2pcxryDCyzL" role="33vP2m">
-                  <node concept="10M0yZ" id="2pcxryDCxSf" role="2Oq$k0">
-                    <ref role="3cqZAo" to="9w4s:~ImageLoader.INSTANCE" resolve="INSTANCE" />
-                    <ref role="1PxDUh" to="9w4s:~ImageLoader" resolve="ImageLoader" />
+                <node concept="2YIFZM" id="61fF4gohVyJ" role="33vP2m">
+                  <ref role="37wK5l" to="3iga:~ImageDescriptorKt.getImageDescriptors(java.lang.String,boolean,com.intellij.ui.scale.ScaleContext)" resolve="getImageDescriptors" />
+                  <ref role="1Pybhc" to="3iga:~ImageDescriptorKt" resolve="ImageDescriptorKt" />
+                  <node concept="37vLTw" id="61fF4gohW5F" role="37wK5m">
+                    <ref role="3cqZAo" node="5S2eoIGsuvV" resolve="sourcePath" />
                   </node>
-                  <node concept="liA8E" id="2pcxryDCA9l" role="2OqNvi">
-                    <ref role="37wK5l" to="9w4s:~ImageLoader.getImageDescriptors(java.lang.String,int,com.intellij.ui.scale.ScaleContext)" resolve="getImageDescriptors" />
-                    <node concept="37vLTw" id="2NwO_B10nnA" role="37wK5m">
-                      <ref role="3cqZAo" node="5S2eoIGsuvV" resolve="sourcePath" />
-                    </node>
-                    <node concept="pVOtf" id="2NwO_B10nnB" role="37wK5m">
-                      <node concept="10M0yZ" id="2NwO_B10nnC" role="3uHU7w">
-                        <ref role="3cqZAo" to="9w4s:~ImageLoader.USE_DARK" resolve="USE_DARK" />
-                        <ref role="1PxDUh" to="9w4s:~ImageLoader" resolve="ImageLoader" />
-                      </node>
-                      <node concept="10M0yZ" id="2NwO_B10nnD" role="3uHU7B">
-                        <ref role="3cqZAo" to="9w4s:~ImageLoader.USE_SVG" resolve="USE_SVG" />
-                        <ref role="1PxDUh" to="9w4s:~ImageLoader" resolve="ImageLoader" />
-                      </node>
-                    </node>
-                    <node concept="2YIFZM" id="2NwO_B10nnE" role="37wK5m">
-                      <ref role="37wK5l" to="l5y2:~ScaleContext.createIdentity()" resolve="createIdentity" />
-                      <ref role="1Pybhc" to="l5y2:~ScaleContext" resolve="ScaleContext" />
-                    </node>
+                  <node concept="3clFbT" id="61fF4gohX0M" role="37wK5m">
+                    <property role="3clFbU" value="true" />
+                  </node>
+                  <node concept="2YIFZM" id="61fF4gohY9o" role="37wK5m">
+                    <ref role="37wK5l" to="l5y2:~ScaleContext.createIdentity()" resolve="createIdentity" />
+                    <ref role="1Pybhc" to="l5y2:~ScaleContext" resolve="ScaleContext" />
                   </node>
                 </node>
               </node>
             </node>
             <node concept="3clFbH" id="2NwO_B10oIa" role="3cqZAp" />
+            <node concept="3cpWs8" id="61fF4goi2bE" role="3cqZAp">
+              <node concept="3cpWsn" id="61fF4goi2bC" role="3cpWs9">
+                <property role="3TUv4t" value="true" />
+                <property role="TrG5h" value="prefix" />
+                <node concept="17QB3L" id="61fF4goi2DK" role="1tU5fm" />
+                <node concept="2YIFZM" id="61fF4goi4F1" role="33vP2m">
+                  <ref role="37wK5l" to="18ew:~FileUtil.getNameWithoutExtension(java.lang.String)" resolve="getNameWithoutExtension" />
+                  <ref role="1Pybhc" to="18ew:~FileUtil" resolve="FileUtil" />
+                  <node concept="37vLTw" id="61fF4goi59y" role="37wK5m">
+                    <ref role="3cqZAo" node="5S2eoIGsuvV" resolve="sourcePath" />
+                  </node>
+                </node>
+              </node>
+            </node>
             <node concept="3cpWs6" id="2NwO_B10PKY" role="3cqZAp">
               <node concept="2OqwBi" id="2NwO_B10JIG" role="3cqZAk">
                 <property role="hSjvv" value="true" />
@@ -615,12 +619,23 @@
                         <node concept="1bVj0M" id="2NwO_B10rdR" role="37wK5m">
                           <node concept="3clFbS" id="2NwO_B10rdS" role="1bW5cS">
                             <node concept="3clFbF" id="2NwO_B10w_H" role="3cqZAp">
-                              <node concept="2OqwBi" id="2NwO_B10xez" role="3clFbG">
-                                <node concept="37vLTw" id="2NwO_B10w_G" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="2NwO_B10upB" resolve="desc" />
+                              <node concept="2OqwBi" id="61fF4goia0R" role="3clFbG">
+                                <node concept="2OqwBi" id="2NwO_B10xez" role="2Oq$k0">
+                                  <node concept="37vLTw" id="2NwO_B10w_G" role="2Oq$k0">
+                                    <ref role="3cqZAo" node="2NwO_B10upB" resolve="desc" />
+                                  </node>
+                                  <node concept="2OwXpG" id="2pcxryDCOWB" role="2OqNvi">
+                                    <ref role="2Oxat5" to="3iga:~ImageDescriptor.pathTransform" resolve="pathTransform" />
+                                  </node>
                                 </node>
-                                <node concept="2OwXpG" id="2pcxryDCOWB" role="2OqNvi">
-                                  <ref role="2Oxat5" to="3iga:~ImageDescriptor.path" resolve="path" />
+                                <node concept="liA8E" id="60GyyEZfQ5a" role="2OqNvi">
+                                  <ref role="37wK5l" to="ouht:~Function2.invoke(java.lang.Object,java.lang.Object)" resolve="invoke" />
+                                  <node concept="37vLTw" id="60GyyEZgjaE" role="37wK5m">
+                                    <ref role="3cqZAo" node="61fF4goi2bC" resolve="prefix" />
+                                  </node>
+                                  <node concept="37vLTw" id="60GyyEZgloq" role="37wK5m">
+                                    <ref role="3cqZAo" node="2NwO_B1060e" resolve="ext" />
+                                  </node>
                                 </node>
                               </node>
                             </node>
@@ -658,7 +673,7 @@
                     <ref role="37wK5l" to="1ctc:~Stream.distinct()" resolve="distinct" />
                   </node>
                 </node>
-                <node concept="liA8E" id="2NwO_B10NxT" role="2OqNvi">
+                <node concept="liA8E" id="1vDXMASUVlp" role="2OqNvi">
                   <ref role="37wK5l" to="1ctc:~Stream.toList()" resolve="toList" />
                 </node>
               </node>
