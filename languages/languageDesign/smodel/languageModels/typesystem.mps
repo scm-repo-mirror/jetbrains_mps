@@ -429,6 +429,7 @@
         <reference id="1144195396777" name="linkInParent" index="1Bn3mz" />
       </concept>
       <concept id="2285351689971718149" name="jetbrains.mps.lang.smodel.structure.AggregationLinkType" flags="ig" index="3GbmH5" />
+      <concept id="2285351689971718193" name="jetbrains.mps.lang.smodel.structure.AssociationLinkType" flags="ig" index="3GbmHL" />
       <concept id="1172326502327" name="jetbrains.mps.lang.smodel.structure.Concept_IsExactlyOperation" flags="nn" index="3O6GUB">
         <child id="1206733650006" name="conceptArgument" index="3QVz_e" />
       </concept>
@@ -16918,6 +16919,50 @@
     <node concept="1YaCAy" id="7eq243tTAL0" role="1YuTPh">
       <property role="TrG5h" value="op" />
       <ref role="1YaFvo" to="tp25:7eq243tT_Ux" resolve="Node_PresentationOperation" />
+    </node>
+  </node>
+  <node concept="2sgARr" id="hQmXF8m">
+    <property role="2RFo0w" value="true" />
+    <property role="TrG5h" value="supertypesOf_ClassifierType_SReferenceLink_AssociationLinkType" />
+    <property role="3GE5qa" value="type" />
+    <node concept="3clFbS" id="hQmXF8n" role="2sgrp5">
+      <node concept="3cpWs6" id="hQmYhZo" role="3cqZAp">
+        <node concept="2c44tf" id="hQmYiiv" role="3cqZAk">
+          <node concept="3GbmHL" id="58gVJnKzUKC" role="2c44tc" />
+        </node>
+      </node>
+    </node>
+    <node concept="1Yb3XT" id="hQmXTo$" role="1YuTPh">
+      <property role="TrG5h" value="set" />
+      <node concept="2DMOqp" id="hQmXTo_" role="1YbcFS">
+        <node concept="2c44tf" id="7oTZmjkCr2N" role="HM535">
+          <node concept="3uibUv" id="58gVJnKzUIV" role="2c44tc">
+            <ref role="3uigEE" to="c17a:~SReferenceLink" resolve="SReferenceLink" />
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="2sgARr" id="58gVJnL_K0q">
+    <property role="2RFo0w" value="true" />
+    <property role="TrG5h" value="supertypesOf_ClassifierType_SContainmentLink_AggregationLinkType" />
+    <property role="3GE5qa" value="type" />
+    <node concept="3clFbS" id="58gVJnL_K0r" role="2sgrp5">
+      <node concept="3cpWs6" id="58gVJnL_K0s" role="3cqZAp">
+        <node concept="2c44tf" id="58gVJnL_K0t" role="3cqZAk">
+          <node concept="3GbmH5" id="58gVJnL_K3I" role="2c44tc" />
+        </node>
+      </node>
+    </node>
+    <node concept="1Yb3XT" id="58gVJnL_K0v" role="1YuTPh">
+      <property role="TrG5h" value="set" />
+      <node concept="2DMOqp" id="58gVJnL_K0w" role="1YbcFS">
+        <node concept="2c44tf" id="58gVJnL_K0x" role="HM535">
+          <node concept="3uibUv" id="58gVJnL_K0y" role="2c44tc">
+            <ref role="3uigEE" to="c17a:~SContainmentLink" resolve="SContainmentLink" />
+          </node>
+        </node>
+      </node>
     </node>
   </node>
 </model>
