@@ -3749,11 +3749,6 @@
             <ref role="3bR37D" to="ffeo:mXGwHwhVPj" resolve="JDK" />
           </node>
         </node>
-        <node concept="1SiIV0" id="QfMQtuMyvu" role="3bR37C">
-          <node concept="3bR9La" id="QfMQtuMyvv" role="1SiIV1">
-            <ref role="3bR37D" to="ffeo:7Kfy9QB6Lh7" resolve="jetbrains.mps.typesystemEngine" />
-          </node>
-        </node>
         <node concept="1SiIV0" id="QfMQtuMyvw" role="3bR37C">
           <node concept="3bR9La" id="QfMQtuMyvx" role="1SiIV1">
             <ref role="3bR37D" to="ffeo:ymnOULAU1u" resolve="jetbrains.mps.lang.test.runtime" />
@@ -3767,11 +3762,6 @@
         <node concept="1SiIV0" id="QfMQtuMyv$" role="3bR37C">
           <node concept="3bR9La" id="QfMQtuMyv_" role="1SiIV1">
             <ref role="3bR37D" to="ffeo:7Kfy9QB6LfQ" resolve="jetbrains.mps.kernel" />
-          </node>
-        </node>
-        <node concept="1SiIV0" id="QfMQtuMyvA" role="3bR37C">
-          <node concept="3bR9La" id="QfMQtuMyvB" role="1SiIV1">
-            <ref role="3bR37D" to="ffeo:1xb0AuwN7WS" resolve="JUnit" />
           </node>
         </node>
         <node concept="1BupzO" id="73GUf$umRK0" role="3bR31x">
@@ -3796,6 +3786,11 @@
             <node concept="3qWCbU" id="73GUf$umRK2" role="3LXTna">
               <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
             </node>
+          </node>
+        </node>
+        <node concept="1SiIV0" id="462EY4K9YPQ" role="3bR37C">
+          <node concept="3bR9La" id="462EY4K9YPR" role="1SiIV1">
+            <ref role="3bR37D" to="ffeo:7Kfy9QB6L0h" resolve="jetbrains.mps.baseLanguage.collections" />
           </node>
         </node>
       </node>
@@ -6448,6 +6443,11 @@
             <node concept="3qWCbU" id="73GUf$umQFz" role="3LXTna">
               <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
             </node>
+          </node>
+        </node>
+        <node concept="1SiIV0" id="462EY4JIhmA" role="3bR37C">
+          <node concept="3bR9La" id="462EY4JIhmB" role="1SiIV1">
+            <ref role="3bR37D" to="ffeo:1ia2VB5guYy" resolve="MPS.IDEA" />
           </node>
         </node>
       </node>

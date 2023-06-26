@@ -7448,12 +7448,12 @@
         <node concept="3UR2Jj" id="58gVJnLq2PE" role="lGtFl">
           <node concept="TZ5HA" id="58gVJnLq2PF" role="TZ5H$">
             <node concept="1dT_AC" id="58gVJnLq2PG" role="1dT_Ay">
-              <property role="1dT_AB" value="This tests two things: compatibility with SReferenceLink and association (likewise with aggregation), and the ability to infer" />
+              <property role="1dT_AB" value="This tests two things: compatibility with SReferenceLink and association (likewise with aggregation), and" />
             </node>
           </node>
-          <node concept="TZ5HA" id="58gVJnLFwxk" role="TZ5H$">
-            <node concept="1dT_AC" id="58gVJnLFwxl" role="1dT_Ay">
-              <property role="1dT_AB" value="a type from a function call return." />
+          <node concept="TZ5HA" id="462EY4JHrz8" role="TZ5H$">
+            <node concept="1dT_AC" id="462EY4JHrz9" role="1dT_Ay">
+              <property role="1dT_AB" value="use of such &quot;equal&quot; types in collection types." />
             </node>
           </node>
         </node>

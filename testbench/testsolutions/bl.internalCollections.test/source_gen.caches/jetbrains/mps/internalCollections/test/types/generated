@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="-cal37dk2vseyh5qtialpu0cnduxg9lr">
-  <files names="CollectionTypesVariance_Test.java:GenericCollections_Test.java" />
+<product version="3" modelHash="-1mmcmod15e3vntiqgfoo5nov5g1wku6">
+  <files names="CollectionTypesVariance_Test.java:GenericCollections_Test.java:SetSubtyping_Test.java" />
 </product>
 
