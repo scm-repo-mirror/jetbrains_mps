@@ -12,6 +12,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.List;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -27,6 +28,8 @@ public class DocWord_KeyMap extends KeyMapImpl {
     this.putAction("ctrl", "VK_3", action);
     action = new DocWord_KeyMap_Action3();
     this.putAction("ctrl", "VK_0", action);
+    action = new DocWord_KeyMap_Action4();
+    this.putAction("any", "space char", action);
   }
   public static class DocWord_KeyMap_Action0 extends KeyMapActionImpl {
     public DocWord_KeyMap_Action0() {
@@ -177,6 +180,43 @@ public class DocWord_KeyMap extends KeyMapImpl {
     }
     public String getKeyStroke() {
       return "ctrl 0";
+    }
+  }
+  public static class DocWord_KeyMap_Action4 extends KeyMapActionImpl {
+    public DocWord_KeyMap_Action4() {
+      this.setShownInPopupMenu(false);
+    }
+    public boolean isMenuAlwaysShown() {
+      return false;
+    }
+    public boolean canExecute(final EditorContext editorContext) {
+      EditorCell contextCell = editorContext.getContextCell();
+      if ((contextCell == null)) {
+        return false;
+      }
+      SNode contextNode = contextCell.getSNode();
+      if (contextNode == null) {
+        return false;
+      }
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.Word$Dn))) {
+        return false;
+      }
+      return this.canExecute_internal(editorContext, contextNode, this.getSelectedNodes(editorContext));
+    }
+    public void execute(final EditorContext editorContext) {
+      EditorCell contextCell = editorContext.getContextCell();
+      this.execute_internal(editorContext, contextCell.getSNode(), this.getSelectedNodes(editorContext));
+    }
+    private boolean canExecute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
+      return editorContext.getSelectionManager().getSelection() instanceof EditorCellLabelSelection;
+    }
+    private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
+      DocSplitWordStratagy stratagy = new DocSplitWordStratagy(SNodeOperations.cast(node, CONCEPTS.Word$Dn), editorContext, true);
+      stratagy.execute();
+      stratagy.replaceTemplates();
+    }
+    public String getKeyStroke() {
+      return " space char";
     }
   }
 

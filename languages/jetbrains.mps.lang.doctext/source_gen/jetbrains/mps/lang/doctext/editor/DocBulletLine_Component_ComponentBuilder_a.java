@@ -19,16 +19,19 @@ import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
+import jetbrains.mps.lang.text.editor.Line_Actions;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
+import jetbrains.mps.lang.text.editor.EmptyLineActions;
 import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class DocBulletLine_Component_ComponentBuilder_a extends AbstractEditorBuilder {
@@ -55,8 +58,9 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.setCellId("Collection_hevme_a");
     editorCell.addEditorCell(createReadOnlyModelAccessor_0());
     editorCell.addEditorCell(createConstant_0());
-    editorCell.addEditorCell(createRefNodeList_0());
     editorCell.addEditorCell(createConstant_1());
+    editorCell.addEditorCell(createRefNodeList_0());
+    editorCell.addEditorCell(createConstant_3());
     return editorCell;
   }
   private EditorCell createReadOnlyModelAccessor_0() {
@@ -84,7 +88,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
   private EditorCell createConstant_0() {
-    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "• ");
+    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "•");
     editorCell.setCellId("Constant_hevme_b0");
     Style style = new StyleImpl();
     style.set(StyleAttributes.SELECTABLE, false);
@@ -94,18 +98,29 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.setDefaultText("");
     return editorCell;
   }
+  private EditorCell createConstant_1() {
+    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, " ");
+    editorCell.setCellId("Constant_hevme_c0");
+    editorCell.setDefaultText("");
+    return editorCell;
+  }
   private EditorCell createRefNodeList_0() {
-    AbstractCellListHandler handler = new elementsListHandler_hevme_c0(myNode, getEditorContext());
+    AbstractCellListHandler handler = new elementsListHandler_hevme_d0(myNode, getEditorContext());
     EditorCell_Collection editorCell = handler.createCells(new CellLayout_Indent(), false);
     editorCell.setCellId("DBLC_refNodeList_elements");
+    Style style = new StyleImpl();
+    style.set(StyleAttributes.INDENT_LAYOUT_WRAP_ANCHOR, true);
+    style.set(StyleAttributes.INDENT_LAYOUT_INDENT_ANCHOR, true);
+    editorCell.getStyle().putAll(style);
+    Line_Actions.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.setSRole(handler.getElementSRole());
     return editorCell;
   }
-  private static class elementsListHandler_hevme_c0 extends RefNodeListHandler {
+  private static class elementsListHandler_hevme_d0 extends RefNodeListHandler {
     @NotNull
     private SNode myNode;
 
-    public elementsListHandler_hevme_c0(SNode ownerNode, EditorContext context) {
+    public elementsListHandler_hevme_d0(SNode ownerNode, EditorContext context) {
       super(context, false);
       myNode = ownerNode;
     }
@@ -120,7 +135,13 @@ import org.jetbrains.mps.openapi.language.SConcept;
     public SAbstractConcept getChildSConcept() {
       return CONCEPTS.TextElement$WN;
     }
+    public SNode createNodeToInsert(EditorContext editorContext, SNode prevNode, SNode nextNode, int index) {
+      return nodeFactory(prevNode, nextNode, index);
+    }
 
+    public SNode nodeFactory(SNode prevNode, SNode nextNode, int index) {
+      return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, "jetbrains.mps.lang.text.structure.Word"));
+    }
     public EditorCell createNodeCell(SNode elementNode) {
       EditorCell elementCell = getUpdateSession().updateChildNodeCell(elementNode);
       installElementCellActions(elementNode, elementCell, false);
@@ -128,10 +149,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(elementsListHandler_hevme_c0.this.getNode(), LINKS.elements$_j45));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(elementsListHandler_hevme_d0.this.getNode(), LINKS.elements$_j45));
       try {
         EditorCell emptyCell = null;
-        emptyCell = super.createEmptyCell();
+        emptyCell = createConstant_2();
         installElementCellActions(null, emptyCell, true);
         setCellContext(emptyCell);
         return emptyCell;
@@ -167,10 +188,17 @@ import org.jetbrains.mps.openapi.language.SConcept;
         }
       }
     }
+    private EditorCell createConstant_2() {
+      EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "");
+      editorCell.setCellId("Constant_hevme_a3a");
+      EmptyLineActions.setCellActions(editorCell, myNode, getEditorContext());
+      editorCell.setDefaultText("");
+      return editorCell;
+    }
   }
-  private EditorCell createConstant_1() {
+  private EditorCell createConstant_3() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, " ");
-    editorCell.setCellId("Constant_hevme_d0");
+    editorCell.setCellId("Constant_hevme_e0");
     Style style = new StyleImpl();
     style.set(StyleAttributes.SELECTABLE, false);
     style.set(StyleAttributes.PUNCTUATION_LEFT, true);

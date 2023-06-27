@@ -9,10 +9,8 @@ import jetbrains.mps.openapi.editor.descriptor.ConceptEditor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import java.util.Collections;
 import jetbrains.mps.openapi.editor.descriptor.ConceptEditorComponent;
-import jetbrains.mps.openapi.editor.descriptor.TransformationMenu;
-import jetbrains.mps.openapi.editor.descriptor.NamedMenuId;
-import java.util.Arrays;
 import jetbrains.mps.openapi.editor.cells.KeyMap;
+import java.util.Arrays;
 import jetbrains.mps.lang.smodel.ConceptSwitchIndex;
 import jetbrains.mps.lang.smodel.ConceptSwitchIndexBuilder;
 import jetbrains.mps.smodel.adapter.ids.MetaIdFactory;
@@ -41,18 +39,12 @@ public class EditorAspectDescriptorImpl extends EditorAspectDescriptorBase {
     return Collections.emptyList();
   }
   private Collection<ConceptEditorComponent> getDeclaredEC_1(String editorComponentId) {
-    if ("jetbrains.mps.lang.text.editor.Line_Component".equals(editorComponentId)) {
-      return Collections.singletonList(new DocLine_Component());
-    }
-    return Collections.emptyList();
-  }
-  private Collection<ConceptEditorComponent> getDeclaredEC_2(String editorComponentId) {
     if ("jetbrains.mps.lang.text.editor.NumberedLine_Component".equals(editorComponentId)) {
       return Collections.singletonList(new DocNumberedLine_Component());
     }
     return Collections.emptyList();
   }
-  private Collection<ConceptEditorComponent> getDeclaredEC_3(String editorComponentId) {
+  private Collection<ConceptEditorComponent> getDeclaredEC_2(String editorComponentId) {
     if ("jetbrains.mps.lang.text.editor.Word_Component".equals(editorComponentId)) {
       return Collections.singletonList(new DocWord_Component());
     }
@@ -68,8 +60,6 @@ public class EditorAspectDescriptorImpl extends EditorAspectDescriptorBase {
         return getDeclaredEC_1(editorComponentId);
       case 2:
         return getDeclaredEC_2(editorComponentId);
-      case 3:
-        return getDeclaredEC_3(editorComponentId);
       default:
     }
     return Collections.emptyList();
@@ -78,30 +68,10 @@ public class EditorAspectDescriptorImpl extends EditorAspectDescriptorBase {
 
   @NotNull
   @Override
-  public Collection<TransformationMenu> getDeclaredNamedTransformationMenus(NamedMenuId menuId) {
-    SAbstractConcept cncpt = (SAbstractConcept) menuId.getConcept();
-    switch (conceptIndex2.index(cncpt)) {
-      case 0:
-        if (true) {
-          switch (menuId.getFqName()) {
-            case "jetbrains.mps.lang.doctext.editor.LineConversion":
-              return Arrays.asList(new TransformationMenu[]{new LineConversion()});
-            default:
-          }
-        }
-        break;
-      default:
-    }
-
-    return Collections.<TransformationMenu>emptyList();
-  }
-  @NotNull
-  @Override
   public Collection<KeyMap> getDeclaredKeyMaps() {
     return Arrays.<KeyMap>asList(new DocWord_KeyMap());
   }
 
   private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xd304f2474944479dL, 0xac8b972b953bcdfeL, 0xa5fce56f6c81ea5L), MetaIdFactory.conceptId(0xd304f2474944479dL, 0xac8b972b953bcdfeL, 0x1ec73eba25ccfb44L), MetaIdFactory.conceptId(0xd304f2474944479dL, 0xac8b972b953bcdfeL, 0x1ec73eba25d93728L), MetaIdFactory.conceptId(0xd304f2474944479dL, 0xac8b972b953bcdfeL, 0x1ec73eba25d94c98L)).seal();
-  private static final ConceptSwitchIndex conceptIndex1 = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0xf2f8c94a6f2a8faL), MetaIdFactory.conceptId(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L), MetaIdFactory.conceptId(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x603abc0b9c5e5042L), MetaIdFactory.conceptId(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L)).seal();
-  private static final ConceptSwitchIndex conceptIndex2 = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35ee7L)).seal();
+  private static final ConceptSwitchIndex conceptIndex1 = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0xf2f8c94a6f2a8faL), MetaIdFactory.conceptId(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x603abc0b9c5e5042L), MetaIdFactory.conceptId(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L)).seal();
 }

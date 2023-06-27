@@ -16,7 +16,6 @@ import jetbrains.mps.generator.template.SourceSubstituteMacroNodesContext;
 import jetbrains.mps.generator.template.TemplateVarContext;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
-import jetbrains.mps.internal.collections.runtime.ISelector;
 import java.util.Map;
 import jetbrains.mps.generator.impl.query.ReductionRuleCondition;
 import java.util.HashMap;
@@ -108,11 +107,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return ((Iterable<SNode>) _context.getVariable("var:concepts"));
   }
   public static Object varMacro_Value_10_0(final TemplateVarContext _context) {
-    return ListSequence.fromList(SModelOperations.nodes(_context.getInputModel(), CONCEPTS.AbstractConceptDeclaration$KA)).sort(new ISelector<SNode, String>() {
-      public String select(SNode it) {
-        return SPropertyOperations.getString(it, PROPS.name$MnvL);
-      }
-    }, true);
+    return ListSequence.fromList(SModelOperations.nodes(_context.getInputModel(), CONCEPTS.AbstractConceptDeclaration$KA)).sort((it) -> SPropertyOperations.getString(it, PROPS.name$MnvL), true);
   }
   private final Map<String, ReductionRuleCondition> rrcMethods = new HashMap<String, ReductionRuleCondition>();
   {
