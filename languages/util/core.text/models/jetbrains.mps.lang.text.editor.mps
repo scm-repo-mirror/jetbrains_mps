@@ -126,6 +126,7 @@
       <concept id="1078939183254" name="jetbrains.mps.lang.editor.structure.CellModel_Component" flags="sg" stub="3162947552742194261" index="PMmxH">
         <reference id="1078939183255" name="editorComponent" index="PMmxG" />
       </concept>
+      <concept id="4323500428121233431" name="jetbrains.mps.lang.editor.structure.EditorCellId" flags="ng" index="2SqB2G" />
       <concept id="1164914519156" name="jetbrains.mps.lang.editor.structure.CellMenuPart_ReplaceNode_CustomNodeConcept" flags="ng" index="UkePV">
         <reference id="1164914727930" name="replacementConcept" index="Ul1FP" />
       </concept>
@@ -243,6 +244,7 @@
         <reference id="1139959269582" name="actionMap" index="1ERwB7" />
         <child id="1142887637401" name="renderingCondition" index="pqm2j" />
         <child id="1164826688380" name="menuDescriptor" index="P5bDN" />
+        <child id="4323500428121274054" name="id" index="2SqHTX" />
         <child id="4202667662392416064" name="transformationMenu" index="3vIgyS" />
       </concept>
       <concept id="1073389446423" name="jetbrains.mps.lang.editor.structure.CellModel_Collection" flags="sn" stub="3013115976261988961" index="3EZMnI">
@@ -35172,6 +35174,9 @@
           <node concept="UkePV" id="1V7fFC_ZIPI" role="OY2wv">
             <ref role="Ul1FP" to="zqge:8D0iRqSPVB" resolve="TextElement" />
           </node>
+        </node>
+        <node concept="2SqB2G" id="27hjRHfcKN9" role="2SqHTX">
+          <property role="TrG5h" value="property_value" />
         </node>
       </node>
       <node concept="3F0ifn" id="1V7fFC_ZIPJ" role="3EZMnx">
