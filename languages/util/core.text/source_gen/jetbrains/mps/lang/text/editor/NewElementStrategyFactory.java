@@ -141,15 +141,20 @@ public class NewElementStrategyFactory {
       return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, "jetbrains.mps.lang.text.structure.Word"));
     }
   }
-  private static class SplitWordStrategy extends AddNewWordStrategy {
+
+
+  /**
+   * Access specifiers were changed to extend class in jetbrains.mps.lang.doctext
+   */
+  public static class SplitWordStrategy extends AddNewWordStrategy {
 
     private final WordSplitter mySplitter;
-    /*package*/ SplitWordStrategy(SNode word, EditorContext editorContext, boolean addNext) {
+    public SplitWordStrategy(SNode word, EditorContext editorContext, boolean addNext) {
       super(word, editorContext, addNext);
       mySplitter = new WordSplitter(word, editorContext);
     }
     @Override
-    /*package*/ void execute() {
+    public void execute() {
       if (myAddNext) {
         SPropertyOperations.assign(SNodeOperations.cast(myElement, CONCEPTS.Word$Dn), PROPS.value$zQr_, mySplitter.getLeftText());
       } else {

@@ -3,6 +3,7 @@
   <persistence version="9" />
   <languages>
     <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="-1" />
+    <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="2" />
     <devkit ref="2677cb18-f558-4e33-bc38-a5139cee06dc(jetbrains.mps.devkit.language-design)" />
   </languages>
   <imports>
@@ -594,6 +595,7 @@
       <concept id="8970989240999019143" name="jetbrains.mps.baseLanguage.javadoc.structure.TextCommentLinePart" flags="ng" index="1dT_AC">
         <property id="8970989240999019144" name="text" index="1dT_AB" />
       </concept>
+      <concept id="2068944020170241612" name="jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocComment" flags="ng" index="3UR2Jj" />
     </language>
     <language id="446c26eb-2b7b-4bf0-9b35-f83fa582753e" name="jetbrains.mps.lang.modelapi">
       <concept id="361130699826193249" name="jetbrains.mps.lang.modelapi.structure.ModulePointer" flags="ng" index="1dCxOk">
@@ -2558,6 +2560,8 @@
       </node>
       <node concept="3Tm6S6" id="5MT8pi2AC7O" role="1B3o_S" />
     </node>
+    <node concept="2tJIrI" id="1axET_i6ihI" role="jymVt" />
+    <node concept="2tJIrI" id="1axET_i6r$w" role="jymVt" />
     <node concept="312cEu" id="5MT8pi2Fl6k" role="jymVt">
       <property role="2bfB8j" value="false" />
       <property role="1sVAO0" value="false" />
@@ -2625,6 +2629,7 @@
           <property role="TrG5h" value="addNext" />
           <node concept="10P_77" id="5MT8pi2Fl6I" role="1tU5fm" />
         </node>
+        <node concept="3Tm1VV" id="62qirg$nueE" role="1B3o_S" />
       </node>
       <node concept="3clFb_" id="5MT8pi2FIPN" role="jymVt">
         <property role="1EzhhJ" value="false" />
@@ -2704,6 +2709,7 @@
             </node>
           </node>
         </node>
+        <node concept="3Tm1VV" id="1axET_i4myQ" role="1B3o_S" />
       </node>
       <node concept="2tJIrI" id="5MT8pi2Fl6J" role="jymVt" />
       <node concept="3clFb_" id="5MT8pi2Fl7h" role="jymVt">
@@ -2746,7 +2752,14 @@
           </node>
         </node>
       </node>
-      <node concept="3Tm6S6" id="5MT8pi2Fl7p" role="1B3o_S" />
+      <node concept="3Tm1VV" id="1axET_i4kab" role="1B3o_S" />
+      <node concept="3UR2Jj" id="1axET_i6_3m" role="lGtFl">
+        <node concept="TZ5HA" id="1axET_i6_3n" role="TZ5H$">
+          <node concept="1dT_AC" id="1axET_i6_3o" role="1dT_Ay">
+            <property role="1dT_AB" value="Access specifiers were changed to extend class in jetbrains.mps.lang.doctext" />
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="2tJIrI" id="5MT8pi2EU83" role="jymVt" />
     <node concept="2tJIrI" id="5MT8pi2AD8d" role="jymVt" />
@@ -35427,13 +35440,13 @@
             <property role="VOm3f" value="true" />
           </node>
         </node>
+        <node concept="1Bt7hp" id="1HQJlW9E71V" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
         <node concept="3F2HdR" id="1HQJlW9E71T" role="3EZMnx">
           <ref role="1NtTu8" to="zqge:2cLqkTm6J5B" resolve="elements" />
           <ref role="1ERwB7" node="28Rzg6NOh$" resolve="Line_Actions" />
           <node concept="l2Vlx" id="1HQJlW9E71U" role="2czzBx" />
-        </node>
-        <node concept="1Bt7hp" id="1HQJlW9E71V" role="3F10Kt">
-          <property role="VOm3f" value="true" />
         </node>
       </node>
       <node concept="l2Vlx" id="1HQJlW9E71W" role="2iSdaV" />
