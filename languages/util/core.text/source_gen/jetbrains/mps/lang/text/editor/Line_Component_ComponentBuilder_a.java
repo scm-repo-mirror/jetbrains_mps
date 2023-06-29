@@ -48,7 +48,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
   private EditorCell createCollection_0() {
     EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Indent());
-    editorCell.setCellId("Collection_ppz0ah_a");
+    editorCell.setCellId("Collection_78ent8_a");
     CopyPasteLine.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.addEditorCell(createConstant_0());
     editorCell.addEditorCell(createRefNodeList_0());
@@ -69,7 +69,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
   private EditorCell createRefNodeList_0() {
     AbstractCellListHandler handler = new elementsListHandler_ppz0ah_b0(myNode, getEditorContext());
     EditorCell_Collection editorCell = handler.createCells(new CellLayout_Indent(), false);
-    editorCell.setCellId("LC_refNodeList_elements");
+    editorCell.setCellId("Collection_78ent8_a");
     Style style = new StyleImpl();
     style.set(StyleAttributes.INDENT_LAYOUT_WRAP_ANCHOR, true);
     style.set(StyleAttributes.INDENT_LAYOUT_INDENT_ANCHOR, true);
