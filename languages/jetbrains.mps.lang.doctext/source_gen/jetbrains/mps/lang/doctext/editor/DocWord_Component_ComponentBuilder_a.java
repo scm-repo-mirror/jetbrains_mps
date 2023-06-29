@@ -97,7 +97,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       getCellFactory().setPropertyInfo(new SPropertyInfo(myNode, property));
       EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new SPropertyAccessor(myNode, property, false, true), myNode);
       editorCell.setDefaultText("");
-      editorCell.setCellId("property_value");
+      editorCell.setCellId("DWC_property_value");
       Style style = new StyleImpl();
       new WordTextStyleStyleClass(this).apply(style, editorCell);
       style.set(StyleAttributes.FIRST_POSITION_ALLOWED, true);
