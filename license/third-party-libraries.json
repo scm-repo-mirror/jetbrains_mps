@@ -151,7 +151,7 @@
 }, {
   "name" : "Grazie AI",
   "url" : "https://packages.jetbrains.team/maven/p/grazi/grazie-platform-public/",
-  "version" : "0.2.162",
+  "version" : "0.2.164",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://www.apache.org/licenses/LICENSE-2.0"
 }, {
@@ -235,13 +235,13 @@
 }, {
   "name" : "IntelliJ IDEA Code Coverage Agent",
   "url" : "https://github.com/jetbrains/intellij-coverage",
-  "version" : "1.0.713",
+  "version" : "1.0.723",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://github.com/JetBrains/intellij-coverage/blob/master/LICENSE"
 }, {
   "name" : "IntelliJ IDEA Test Discovery Agent",
   "url" : "https://github.com/JetBrains/intellij-coverage/tree/master/test-discovery",
-  "version" : "1.0.713",
+  "version" : "1.0.723",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://github.com/JetBrains/intellij-coverage/blob/master/LICENSE"
 }, {
@@ -595,7 +595,7 @@
 }, {
   "name" : "Xerial SQLite JDBC",
   "url" : "https://github.com/xerial/sqlite-jdbc",
-  "version" : "3.41.0-jb.2",
+  "version" : "3.42.0-jb.1",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://github.com/xerial/sqlite-jdbc/blob/master/LICENSE"
 }, {
@@ -739,7 +739,7 @@
 }, {
   "name" : "jb-jdi",
   "url" : "https://github.com/JetBrains/intellij-deps-jdi",
-  "version" : "2.25",
+  "version" : "2.26",
   "license" : "GPL 2.0 + Classpath",
   "licenseUrl" : "https://raw.githubusercontent.com/JetBrains/intellij-deps-jdi/master/LICENSE.txt"
 }, {
@@ -895,25 +895,25 @@
 }, {
   "name" : "rd Swing integration",
   "url" : "https://github.com/JetBrains/rd/tree/master/rd-kt/rd-swing",
-  "version" : "2023.2.2-preview1",
+  "version" : "2023.2.2",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://github.com/JetBrains/rd/blob/master/LICENSE"
 }, {
   "name" : "rd core",
   "url" : "https://github.com/JetBrains/rd/tree/master/rd-kt/rd-core",
-  "version" : "2023.2.2-preview1",
+  "version" : "2023.2.2",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://github.com/JetBrains/rd/blob/master/LICENSE"
 }, {
   "name" : "rd framework",
   "url" : "https://github.com/JetBrains/rd/tree/master/rd-kt/rd-framework",
-  "version" : "2023.2.2-preview1",
+  "version" : "2023.2.2",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://github.com/JetBrains/rd/blob/master/LICENSE"
 }, {
   "name" : "rd text buffers",
   "url" : "https://github.com/JetBrains/rd/tree/master/rd-kt/rd-text",
-  "version" : "2023.2.2-preview1",
+  "version" : "2023.2.2",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://github.com/JetBrains/rd/blob/master/LICENSE"
 }, {

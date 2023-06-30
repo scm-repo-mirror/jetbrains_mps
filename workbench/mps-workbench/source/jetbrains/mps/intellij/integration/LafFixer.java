@@ -16,7 +16,6 @@
 package jetbrains.mps.intellij.integration;
 
 import com.intellij.ide.AppLifecycleListener;
-import com.intellij.ide.WelcomeWizardUtil;
 import com.intellij.ide.ui.laf.LafManagerImpl;
 import com.intellij.openapi.application.Application;
 import com.intellij.openapi.application.ApplicationManager;
@@ -49,7 +48,8 @@ final class LafFixer {
       // Only do this in test mode and change default laf - state should not be persisted
       // Default MPS run configurations override config path and in process execution avoids this code
       // As result user settings for laf should not be affected
-      WelcomeWizardUtil.setWizardLAF("com.intellij.ide.ui.laf.IntelliJLaf");
+      // Deleted in IDEA b2fe8e65ab1507a66ee1845310db63d53cefabca
+      // WelcomeWizardUtil.setWizardLAF("com.intellij.ide.ui.laf.IntelliJLaf");
     }
   }
 
