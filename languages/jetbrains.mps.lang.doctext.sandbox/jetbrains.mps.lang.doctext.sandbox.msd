@@ -5,11 +5,6 @@
       <sourceRoot location="models" />
     </modelRoot>
   </models>
-  <facets>
-    <facet compile="off" classes="off" ext="no" type="java">
-      <classes generated="true" path="${module}/classes_gen" />
-    </facet>
-  </facets>
   <languageVersions>
     <language slang="l:ceab5195-25ea-4f22-9b92-103b95ca8c0c:jetbrains.mps.lang.core" version="2" />
     <language slang="l:d304f247-4944-479d-ac8b-972b953bcdfe:jetbrains.mps.lang.doctext" version="0" />
