@@ -14,6 +14,7 @@ import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.lang.text.behavior.Line__BehaviorDescriptor;
 import jetbrains.mps.openapi.editor.selection.Selection;
 import jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -34,7 +35,7 @@ public class NewElementStrategyFactory {
   }
   public static TextStrategy createNewElementStrategy(SNode node, EditorContext editorContext, boolean isFirstPosition) {
     if (SNodeOperations.isInstanceOf(node, CONCEPTS.Word$Dn)) {
-      return new SplitWordStrategy(SNodeOperations.cast(node, CONCEPTS.Word$Dn), editorContext, !(isFirstPosition));
+      return new IntroduceElementStrategy(SNodeOperations.cast(node, CONCEPTS.Word$Dn), editorContext, !(isFirstPosition));
     } else {
       return new AddNewWordStrategy(node, editorContext, !(isFirstPosition));
     }
@@ -163,6 +164,54 @@ public class NewElementStrategyFactory {
         return mySplitter.getRightWord();
       } else {
         return mySplitter.getLeftWord();
+      }
+    }
+  }
+
+  /*package*/ static class IntroduceElementStrategy extends SplitWordStrategy {
+    public IntroduceElementStrategy(SNode word, EditorContext editorContext, boolean addNext) {
+      super(word, editorContext, addNext);
+    }
+
+    /*package*/ void execute() {
+      super.execute();
+      replaceTemplates();
+    }
+
+    public void replaceTemplates() {
+      switch (SPropertyOperations.getString(SNodeOperations.cast(myElement, CONCEPTS.Word$Dn), PROPS.value$zQr_)) {
+        case "```":
+          SNodeOperations.replaceWithAnother(myElement, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2b7b49e536031fe9L, "jetbrains.mps.lang.text.structure.NodeWrapperElement")));
+          break;
+      }
+      if (ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(myElement), CONCEPTS.Line$yC), LINKS.elements$_j45)).count() == 2 && SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(SNodeOperations.getParent(myElement))), CONCEPTS.Line$yC)) {
+        switch (SPropertyOperations.getString(SNodeOperations.cast(myElement, CONCEPTS.Word$Dn), PROPS.value$zQr_)) {
+          case "-":
+            SNode newParentBulletLine = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0xf2f8c94a6f2a8faL, "jetbrains.mps.lang.text.structure.BulletLine"));
+            Line__BehaviorDescriptor.addTextElement_idWJz9iAYdP6.invoke(newParentBulletLine, SNodeOperations.cast(SNodeOperations.getChildren(SNodeOperations.getParent(myElement)).get(1), CONCEPTS.Word$Dn));
+            SNodeOperations.replaceWithAnother(SNodeOperations.getParent(myElement), newParentBulletLine);
+            break;
+          case "1.":
+            SNode newParentNumberedLine = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x603abc0b9c5e5042L, "jetbrains.mps.lang.text.structure.NumberedLine"));
+            Line__BehaviorDescriptor.addTextElement_idWJz9iAYdP6.invoke(newParentNumberedLine, SNodeOperations.cast(SNodeOperations.getChildren(SNodeOperations.getParent(myElement)).get(1), CONCEPTS.Word$Dn));
+            SNodeOperations.replaceWithAnother(SNodeOperations.getParent(myElement), newParentNumberedLine);
+            break;
+          case "#":
+            SNode newParentHeader1 = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x1ec73eba25ccfb44L, "jetbrains.mps.lang.text.structure.Header1"));
+            Line__BehaviorDescriptor.addTextElement_idWJz9iAYdP6.invoke(newParentHeader1, SNodeOperations.cast(SNodeOperations.getChildren(SNodeOperations.getParent(myElement)).get(1), CONCEPTS.Word$Dn));
+            SNodeOperations.replaceWithAnother(SNodeOperations.getParent(myElement), newParentHeader1);
+            break;
+          case "##":
+            SNode Header2 = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x1ec73eba25d93728L, "jetbrains.mps.lang.text.structure.Header2"));
+            Line__BehaviorDescriptor.addTextElement_idWJz9iAYdP6.invoke(Header2, SNodeOperations.cast(SNodeOperations.getChildren(SNodeOperations.getParent(myElement)).get(1), CONCEPTS.Word$Dn));
+            SNodeOperations.replaceWithAnother(SNodeOperations.getParent(myElement), Header2);
+            break;
+          case "###":
+            SNode Header3 = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x1ec73eba25d94c98L, "jetbrains.mps.lang.text.structure.Header3"));
+            Line__BehaviorDescriptor.addTextElement_idWJz9iAYdP6.invoke(Header3, SNodeOperations.cast(SNodeOperations.getChildren(SNodeOperations.getParent(myElement)).get(1), CONCEPTS.Word$Dn));
+            SNodeOperations.replaceWithAnother(SNodeOperations.getParent(myElement), Header3);
+            break;
+        }
       }
     }
   }
