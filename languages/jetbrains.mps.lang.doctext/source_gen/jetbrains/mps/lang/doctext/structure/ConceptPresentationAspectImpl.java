@@ -10,10 +10,6 @@ import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_DocText;
-  private ConceptPresentation props_Header;
-  private ConceptPresentation props_Header1;
-  private ConceptPresentation props_Header2;
-  private ConceptPresentation props_Header3;
 
   @Override
   @Nullable
@@ -27,33 +23,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_DocText = cpb.create();
         }
         return props_DocText;
-      case LanguageConceptSwitch.Header:
-        if (props_Header == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          props_Header = cpb.create();
-        }
-        return props_Header;
-      case LanguageConceptSwitch.Header1:
-        if (props_Header1 == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("header 1");
-          props_Header1 = cpb.create();
-        }
-        return props_Header1;
-      case LanguageConceptSwitch.Header2:
-        if (props_Header2 == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("header 2");
-          props_Header2 = cpb.create();
-        }
-        return props_Header2;
-      case LanguageConceptSwitch.Header3:
-        if (props_Header3 == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("header 3");
-          props_Header3 = cpb.create();
-        }
-        return props_Header3;
     }
     return null;
   }

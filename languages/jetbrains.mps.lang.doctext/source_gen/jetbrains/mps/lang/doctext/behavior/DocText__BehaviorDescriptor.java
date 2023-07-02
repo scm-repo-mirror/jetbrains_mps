@@ -32,10 +32,10 @@ public final class DocText__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static List<SNode> getLines_id6GJhO0n1Xys(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getChildren(__thisNode__, LINKS.lines$h$cc);
+    return SLinkOperations.getChildren(__thisNode__, LINKS.lines$4Ez6);
   }
   /*package*/ static void addLine_id7q4YwcerggR(@NotNull SNode __thisNode__, SNode l) {
-    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.lines$h$cc)).addElement(l);
+    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.lines$4Ez6)).addElement(l);
   }
 
   /*package*/ DocText__BehaviorDescriptor() {
@@ -88,6 +88,6 @@ public final class DocText__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink lines$h$cc = MetaAdapterFactory.getContainmentLink(0xd304f2474944479dL, 0xac8b972b953bcdfeL, 0xa5fce56f6c81ea5L, 0x1ec73eba269d7189L, "lines");
+    /*package*/ static final SContainmentLink lines$4Ez6 = MetaAdapterFactory.getContainmentLink(0xd304f2474944479dL, 0xac8b972b953bcdfeL, 0xa5fce56f6c81ea5L, 0x3d1f117681e68108L, "lines");
   }
 }

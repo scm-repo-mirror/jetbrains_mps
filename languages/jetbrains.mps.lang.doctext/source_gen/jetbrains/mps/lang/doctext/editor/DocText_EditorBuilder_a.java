@@ -51,7 +51,14 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.setBig(true);
     setCellContext(editorCell);
     Text_InsertPlaceholder_ActionMap.setCellActions(editorCell, myNode, getEditorContext());
-    editorCell.addEditorCell(createCollection_1());
+    try {
+      getCellFactory().pushCellContext();
+      getCellFactory().addCellContextHints(new String[]{});
+      editorCell.addEditorCell(createCollection_1());
+      setInnerCellsContext(editorCell);
+    } finally {
+      getCellFactory().popCellContext();
+    }
     return editorCell;
   }
   private EditorCell createCollection_1() {
@@ -82,7 +89,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return LINKS.lines$h$cc;
+      return LINKS.lines$4Ez6;
     }
     public SAbstractConcept getChildSConcept() {
       return CONCEPTS.Line$yC;
@@ -95,7 +102,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(linesListHandler_avpfmb_a0a.this.getNode(), LINKS.lines$h$cc));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(linesListHandler_avpfmb_a0a.this.getNode(), LINKS.lines$4Ez6));
       try {
         EditorCell emptyCell = null;
         emptyCell = createConstant_0();
@@ -134,18 +141,6 @@ import org.jetbrains.mps.openapi.language.SConcept;
         }
       }
     }
-    @Override
-    protected void createInnerCells() {
-      try {
-        getCellFactory().pushCellContext();
-        getCellFactory().addCellContextHints(new String[]{"jetbrains.mps.lang.doctext.editor.Documentation.documentation"});
-        getCellFactory().removeCellContextHints();
-        super.createInnerCells();
-        setInnerCellsContext();
-      } finally {
-        getCellFactory().popCellContext();
-      }
-    }
     private EditorCell createConstant_0() {
       EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "");
       editorCell.setCellId("Constant_avpfmb_a0a0");
@@ -155,7 +150,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink lines$h$cc = MetaAdapterFactory.getContainmentLink(0xd304f2474944479dL, 0xac8b972b953bcdfeL, 0xa5fce56f6c81ea5L, 0x1ec73eba269d7189L, "lines");
+    /*package*/ static final SContainmentLink lines$4Ez6 = MetaAdapterFactory.getContainmentLink(0xd304f2474944479dL, 0xac8b972b953bcdfeL, 0xa5fce56f6c81ea5L, 0x3d1f117681e68108L, "lines");
   }
 
   private static final class CONCEPTS {
