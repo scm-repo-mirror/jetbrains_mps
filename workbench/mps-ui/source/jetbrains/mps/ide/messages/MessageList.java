@@ -24,6 +24,7 @@ import com.intellij.openapi.Disposable;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.ActionPlaces;
 import com.intellij.openapi.actionSystem.ActionToolbar;
+import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
@@ -670,6 +671,12 @@ public abstract class MessageList implements IMessageList, SearchHistoryStorage,
       super("", tooltip, icon);
       myIcon = icon;
       mySelected = true;
+    }
+
+    @Override
+    public @NotNull ActionUpdateThread getActionUpdateThread() {
+      // Hope UIManager.getDisabledIcon() doesn't need EDT
+      return ActionUpdateThread.BGT;
     }
 
     @Override
