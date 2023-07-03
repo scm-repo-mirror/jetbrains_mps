@@ -673,7 +673,7 @@
                   <ref role="3uigEE" to="otax:~KotlinClassMetadata" resolve="KotlinClassMetadata" />
                 </node>
                 <node concept="2YIFZM" id="k9v0TRwXic" role="33vP2m">
-                  <ref role="37wK5l" to="otax:~KotlinClassMetadata.read(kotlinx.metadata.jvm.KotlinClassHeader)" resolve="read" />
+                  <ref role="37wK5l" to="otax:~KotlinClassMetadata.read(kotlin.Metadata)" resolve="read" />
                   <ref role="1Pybhc" to="otax:~KotlinClassMetadata" resolve="KotlinClassMetadata" />
                   <node concept="37vLTw" id="k9v0TRwXid" role="37wK5m">
                     <ref role="3cqZAo" node="k9v0TRutGO" resolve="kotlinData" />
@@ -1136,7 +1136,7 @@
                                           <ref role="3uigEE" to="otax:~KotlinClassMetadata" resolve="KotlinClassMetadata" />
                                         </node>
                                         <node concept="2YIFZM" id="7k0Xl9V46yN" role="33vP2m">
-                                          <ref role="37wK5l" to="otax:~KotlinClassMetadata.read(kotlinx.metadata.jvm.KotlinClassHeader)" resolve="read" />
+                                          <ref role="37wK5l" to="otax:~KotlinClassMetadata.read(kotlin.Metadata)" resolve="read" />
                                           <ref role="1Pybhc" to="otax:~KotlinClassMetadata" resolve="KotlinClassMetadata" />
                                           <node concept="37vLTw" id="7k0Xl9V46yO" role="37wK5m">
                                             <ref role="3cqZAo" node="7k0Xl9V3n_N" resolve="kotlinData" />
@@ -5274,7 +5274,7 @@
                           <ref role="3uigEE" to="otax:~KotlinClassMetadata" resolve="KotlinClassMetadata" />
                         </node>
                         <node concept="2YIFZM" id="ET9GRkwAFw" role="33vP2m">
-                          <ref role="37wK5l" to="otax:~KotlinClassMetadata.read(kotlinx.metadata.jvm.KotlinClassHeader)" resolve="read" />
+                          <ref role="37wK5l" to="otax:~KotlinClassMetadata.read(kotlin.Metadata)" resolve="read" />
                           <ref role="1Pybhc" to="otax:~KotlinClassMetadata" resolve="KotlinClassMetadata" />
                           <node concept="37vLTw" id="ET9GRkwAFx" role="37wK5m">
                             <ref role="3cqZAo" node="ET9GRkwAFc" resolve="kotlinData" />

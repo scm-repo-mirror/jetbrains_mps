@@ -39810,10 +39810,10 @@
       <property role="26EafJ" value="lib/junit4.jar" />
     </node>
     <node concept="26EafG" id="4nX__hM7qC8" role="26Ea7d">
-      <property role="26EafJ" value="lib/kotlin-compiler-client-embeddable-1.7.0.jar" />
+      <property role="26EafJ" value="lib/kotlin-compiler-client-embeddable-1.8.22.jar" />
     </node>
     <node concept="26EafG" id="4nX__hM7qCy" role="26Ea7d">
-      <property role="26EafJ" value="lib/kotlinx-metadata-jvm-0.4.2.jar" />
+      <property role="26EafJ" value="lib/kotlinx-metadata-jvm-0.6.2.jar" />
     </node>
     <node concept="26EafG" id="4nX__hM7qCX" role="26Ea7d">
       <property role="26EafJ" value="lib/mps-annotations.jar" />
@@ -51857,7 +51857,7 @@
             <node concept="2Ry0Ak" id="6wLf4lx9D_g" role="iGT6I">
               <property role="2Ry0Am" value="lib" />
               <node concept="2Ry0Ak" id="6wLf4lx9D_j" role="2Ry0An">
-                <property role="2Ry0Am" value="kotlinx-metadata-jvm-0.4.2.jar" />
+                <property role="2Ry0Am" value="kotlinx-metadata-jvm-0.6.2.jar" />
               </node>
             </node>
           </node>
@@ -51873,7 +51873,7 @@
             <node concept="2Ry0Ak" id="3lXF82mbBh5" role="iGT6I">
               <property role="2Ry0Am" value="lib" />
               <node concept="2Ry0Ak" id="3lXF82mbBja" role="2Ry0An">
-                <property role="2Ry0Am" value="kotlin-compiler-client-embeddable-1.7.0.jar" />
+                <property role="2Ry0Am" value="kotlin-compiler-client-embeddable-1.8.22.jar" />
               </node>
             </node>
           </node>
@@ -53035,7 +53035,7 @@
           <node concept="2Ry0Ak" id="342RIYSThyF" role="iGT6I">
             <property role="2Ry0Am" value="lib" />
             <node concept="2Ry0Ak" id="342RIYSThEH" role="2Ry0An">
-              <property role="2Ry0Am" value="kotlin-compiler-client-embeddable-1.7.0.jar" />
+              <property role="2Ry0Am" value="kotlin-compiler-client-embeddable-1.8.22.jar" />
             </node>
           </node>
         </node>
@@ -53046,7 +53046,7 @@
           <node concept="2Ry0Ak" id="2ZkYPo74Wvi" role="iGT6I">
             <property role="2Ry0Am" value="lib" />
             <node concept="2Ry0Ak" id="2ZkYPo74Wvl" role="2Ry0An">
-              <property role="2Ry0Am" value="kotlinx-metadata-jvm-0.4.2.jar" />
+              <property role="2Ry0Am" value="kotlinx-metadata-jvm-0.6.2.jar" />
             </node>
           </node>
         </node>
@@ -54416,7 +54416,7 @@
           <node concept="398BVA" id="3PMETvloFjm" role="17Grwy">
             <ref role="398BVh" node="5MjKXSexX$G" resolve="platform_lib" />
             <node concept="2Ry0Ak" id="3PMETvloFkE" role="iGT6I">
-              <property role="2Ry0Am" value="kotlinx-metadata-jvm-0.4.2.jar" />
+              <property role="2Ry0Am" value="kotlinx-metadata-jvm-0.6.2.jar" />
             </node>
           </node>
         </node>
@@ -54652,7 +54652,7 @@
                   <node concept="2Ry0Ak" id="1ACpgrwmP84" role="2Ry0An">
                     <property role="2Ry0Am" value="lib" />
                     <node concept="2Ry0Ak" id="1ACpgrwmP85" role="2Ry0An">
-                      <property role="2Ry0Am" value="kotlin-stdlib-common-1.7.0.jar" />
+                      <property role="2Ry0Am" value="kotlin-stdlib-common-1.8.22.jar" />
                     </node>
                   </node>
                 </node>
@@ -54671,7 +54671,7 @@
                   <node concept="2Ry0Ak" id="1ACpgrwmP8b" role="2Ry0An">
                     <property role="2Ry0Am" value="lib" />
                     <node concept="2Ry0Ak" id="1ACpgrwmP8c" role="2Ry0An">
-                      <property role="2Ry0Am" value="kotlin-stdlib-1.7.0.jar" />
+                      <property role="2Ry0Am" value="kotlin-stdlib-1.8.22.jar" />
                     </node>
                   </node>
                 </node>
@@ -54823,7 +54823,7 @@
                   <node concept="2Ry0Ak" id="4xYibpMP5B" role="2Ry0An">
                     <property role="2Ry0Am" value="lib" />
                     <node concept="2Ry0Ak" id="4xYibpMP5C" role="2Ry0An">
-                      <property role="2Ry0Am" value="kotlin-stdlib-1.7.0.jar" />
+                      <property role="2Ry0Am" value="kotlin-stdlib-1.8.22.jar" />
                     </node>
                   </node>
                 </node>
@@ -54840,7 +54840,7 @@
                   <node concept="2Ry0Ak" id="4xYibpMP5X" role="2Ry0An">
                     <property role="2Ry0Am" value="lib" />
                     <node concept="2Ry0Ak" id="4xYibpMP5Y" role="2Ry0An">
-                      <property role="2Ry0Am" value="kotlin-stdlib-common-1.7.0.jar" />
+                      <property role="2Ry0Am" value="kotlin-stdlib-common-1.8.22.jar" />
                     </node>
                   </node>
                 </node>

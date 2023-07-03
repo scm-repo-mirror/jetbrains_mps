@@ -29,11 +29,11 @@
     <import index="b66x" ref="6944825c-ddc2-4099-8cc7-5e6dbbf7f0be/java:kotlinx.metadata.internal.metadata.deserialization(jetbrains.mps.kotlin.stubs/)" />
     <import index="747n" ref="r:3391afe4-c131-4e6c-87cf-990834a43a93(jetbrains.mps.kotlin.stubs.common)" />
     <import index="e6zq" ref="6944825c-ddc2-4099-8cc7-5e6dbbf7f0be/java:kotlinx.metadata.internal.metadata.builtins(jetbrains.mps.kotlin.stubs/)" />
-    <import index="fz3c" ref="6944825c-ddc2-4099-8cc7-5e6dbbf7f0be/java:kotlinx.metadata.impl(jetbrains.mps.kotlin.stubs/)" />
     <import index="hcm8" ref="r:72a7bf00-0175-42ca-b99b-fe8519b6a16f(jetbrains.mps.kotlin.structure)" />
     <import index="f1as" ref="6944825c-ddc2-4099-8cc7-5e6dbbf7f0be/java:kotlinx.metadata.internal.protobuf(jetbrains.mps.kotlin.stubs/)" />
     <import index="g3pb" ref="r:d76e16ee-a528-4ca0-b2d6-9eed9a9b1d1c(jetbrains.mps.kotlin.stubs.common.metadata)" />
     <import index="t3el" ref="r:46b5a205-6da9-4b5a-ac93-05f04740d2d2(jetbrains.mps.kotlin.stubs.common.references)" />
+    <import index="dm2t" ref="6944825c-ddc2-4099-8cc7-5e6dbbf7f0be/java:kotlinx.metadata.internal(jetbrains.mps.kotlin.stubs/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -1177,8 +1177,8 @@
                 </node>
                 <node concept="3clFbF" id="2AaqzlsrSJx" role="3cqZAp">
                   <node concept="2YIFZM" id="2AaqzlssDGS" role="3clFbG">
-                    <ref role="37wK5l" to="fz3c:~ReadersKt.accept(kotlinx.metadata.internal.metadata.ProtoBuf$PackageFragment,kotlinx.metadata.KmModuleFragmentVisitor,kotlinx.metadata.internal.metadata.deserialization.NameResolver,java.util.List)" resolve="accept" />
-                    <ref role="1Pybhc" to="fz3c:~ReadersKt" resolve="ReadersKt" />
+                    <ref role="37wK5l" to="dm2t:~ReadersKt.accept(kotlinx.metadata.internal.metadata.ProtoBuf$PackageFragment,kotlinx.metadata.KmModuleFragmentVisitor,kotlinx.metadata.internal.metadata.deserialization.NameResolver,java.util.List)" resolve="accept" />
+                    <ref role="1Pybhc" to="dm2t:~ReadersKt" resolve="ReadersKt" />
                     <node concept="37vLTw" id="2AaqzlssDGT" role="37wK5m">
                       <ref role="3cqZAo" node="2AaqzlsrLX1" resolve="pkg" />
                     </node>
@@ -1191,7 +1191,7 @@
                     <node concept="2ShNRf" id="2AaqzlssNOi" role="37wK5m">
                       <node concept="Tc6Ow" id="2AaqzlssQS3" role="2ShVmc">
                         <node concept="3uibUv" id="2AaqzlssViF" role="HW$YZ">
-                          <ref role="3uigEE" to="fz3c:~ReadContextExtension" resolve="ReadContextExtension" />
+                          <ref role="3uigEE" to="dm2t:~ReadContextExtension" resolve="ReadContextExtension" />
                         </node>
                       </node>
                     </node>

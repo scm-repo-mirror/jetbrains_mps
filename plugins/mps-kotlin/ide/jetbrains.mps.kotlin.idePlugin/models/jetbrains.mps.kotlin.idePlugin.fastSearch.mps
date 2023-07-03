@@ -43,11 +43,11 @@
     <import index="f46w" ref="6944825c-ddc2-4099-8cc7-5e6dbbf7f0be/java:kotlinx.metadata.internal.metadata(jetbrains.mps.kotlin.stubs/)" />
     <import index="747n" ref="r:3391afe4-c131-4e6c-87cf-990834a43a93(jetbrains.mps.kotlin.stubs.common)" />
     <import index="z352" ref="6944825c-ddc2-4099-8cc7-5e6dbbf7f0be/java:kotlinx.metadata(jetbrains.mps.kotlin.stubs/)" />
-    <import index="fz3c" ref="6944825c-ddc2-4099-8cc7-5e6dbbf7f0be/java:kotlinx.metadata.impl(jetbrains.mps.kotlin.stubs/)" />
     <import index="hcm8" ref="r:72a7bf00-0175-42ca-b99b-fe8519b6a16f(jetbrains.mps.kotlin.structure)" />
     <import index="i0ub" ref="r:91eb39d8-e8a0-4f7f-a1c1-123c488c7158(jetbrains.mps.kotlin.idePlugin.fileTypes)" />
     <import index="g3pb" ref="r:d76e16ee-a528-4ca0-b2d6-9eed9a9b1d1c(jetbrains.mps.kotlin.stubs.common.metadata)" />
     <import index="lktc" ref="5a9ccb4c-d683-45a8-bc1d-ecfdfb8366f0/java:gnu.trove(gnu.trove/)" />
+    <import index="dm2t" ref="6944825c-ddc2-4099-8cc7-5e6dbbf7f0be/java:kotlinx.metadata.internal(jetbrains.mps.kotlin.stubs/)" />
     <import index="wyuk" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.components(MPS.Core/)" implicit="true" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
     <import index="1m72" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.components(MPS.IDEA/)" implicit="true" />
@@ -3135,8 +3135,8 @@
         </node>
         <node concept="3clFbF" id="2AaqzlsrSJx" role="3cqZAp">
           <node concept="2YIFZM" id="2AaqzlssDGS" role="3clFbG">
-            <ref role="37wK5l" to="fz3c:~ReadersKt.accept(kotlinx.metadata.internal.metadata.ProtoBuf$PackageFragment,kotlinx.metadata.KmModuleFragmentVisitor,kotlinx.metadata.internal.metadata.deserialization.NameResolver,java.util.List)" resolve="accept" />
-            <ref role="1Pybhc" to="fz3c:~ReadersKt" resolve="ReadersKt" />
+            <ref role="37wK5l" to="dm2t:~ReadersKt.accept(kotlinx.metadata.internal.metadata.ProtoBuf$PackageFragment,kotlinx.metadata.KmModuleFragmentVisitor,kotlinx.metadata.internal.metadata.deserialization.NameResolver,java.util.List)" resolve="accept" />
+            <ref role="1Pybhc" to="dm2t:~ReadersKt" resolve="ReadersKt" />
             <node concept="37vLTw" id="2AaqzlssDGT" role="37wK5m">
               <ref role="3cqZAo" node="2AaqzlsrLX1" resolve="pkg" />
             </node>
@@ -3149,7 +3149,7 @@
             <node concept="2ShNRf" id="2AaqzlssNOi" role="37wK5m">
               <node concept="Tc6Ow" id="2AaqzlssQS3" role="2ShVmc">
                 <node concept="3uibUv" id="2AaqzlssViF" role="HW$YZ">
-                  <ref role="3uigEE" to="fz3c:~ReadContextExtension" resolve="ReadContextExtension" />
+                  <ref role="3uigEE" to="dm2t:~ReadContextExtension" resolve="ReadContextExtension" />
                 </node>
               </node>
             </node>

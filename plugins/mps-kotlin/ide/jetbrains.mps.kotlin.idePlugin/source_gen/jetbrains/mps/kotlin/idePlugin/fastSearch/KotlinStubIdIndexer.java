@@ -19,10 +19,10 @@ import kotlinx.metadata.internal.metadata.builtins.BuiltInsProtoBuf;
 import kotlinx.metadata.internal.metadata.ProtoBuf;
 import java.io.IOException;
 import kotlinx.metadata.internal.metadata.deserialization.NameResolverImpl;
-import kotlinx.metadata.impl.ReadersKt;
+import kotlinx.metadata.internal.ReadersKt;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
-import kotlinx.metadata.impl.ReadContextExtension;
+import kotlinx.metadata.internal.ReadContextExtension;
 
 /**
  * Indexes the content of kotlin metadata files (declared in plugin.xml of mps kotlin).
