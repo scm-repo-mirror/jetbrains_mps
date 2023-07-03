@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="197m6250i1y80vlaqm6j41pdhktfm1n">
-  <files names="DocText_Editor.java:DocText_EditorBuilder_a.java:EditorAspectDescriptorImpl.java" />
+<product version="3" modelHash="-b6opbmozvuq6mh7rudf8oct10e6brbf">
+  <files names="DocText_Editor.java:DocText_EditorBuilder_a.java:DocText_SubstituteMenuContribution.java:EditorAspectDescriptorImpl.java" />
 </product>
 
