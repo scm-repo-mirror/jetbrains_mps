@@ -247,7 +247,7 @@ with_targets:
         for (final ITarget trg : Sequence.fromIterable(toExecute)) {
           LOG.debug("Executing " + trg.getName());
           try {
-            Iterable<ITarget> impre = Sequence.fromIterable(targetRange.immediatePrecursors(trg.getName())).where((it) -> it.producesOutput());
+            Iterable<ITarget> impre = targetRange.immediatePrecursors(trg.getName());
             Iterable<IResource> preInput = Sequence.fromIterable(impre).select((t) -> results.getResult(t.getName())).translate((r) -> r.output());
             Iterable<? extends IResource> allinput = (Sequence.fromIterable(impre).isEmpty() ? scriptInput : preInput);
             Iterable<IResource> rawInput = Sequence.fromIterable(allinput).distinct().ofType(IResource.class).toList();
