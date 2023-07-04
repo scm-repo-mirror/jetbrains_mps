@@ -44,6 +44,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class DocumentationFacetTab extends BaseTab implements FacetTab {
 
@@ -137,7 +138,7 @@ public class DocumentationFacetTab extends BaseTab implements FacetTab {
 
     // languages in devkit.documentation
     List<Language> devKitLanguages = documentationDevKit.getExportedLanguages();
-    List<SLanguage> devKitSLanguages = devKitLanguages.stream().map(MetaAdapterByDeclaration::getLanguage).toList();
+    List<SLanguage> devKitSLanguages = devKitLanguages.stream().map(MetaAdapterByDeclaration::getLanguage).collect(Collectors.toList());
 
     if (Collections.disjoint(inUse, devKitSLanguages)) {
       imports.removeUsedDevKit(docDevKitSModelRef);
