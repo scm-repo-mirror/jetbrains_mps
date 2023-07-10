@@ -294,6 +294,9 @@
       <concept id="1950447826681509042" name="jetbrains.mps.lang.editor.structure.ApplyStyleClass" flags="lg" index="3Xmtl4">
         <child id="1950447826683828796" name="target" index="3XvnJa" />
       </concept>
+      <concept id="8428109087107030357" name="jetbrains.mps.lang.editor.structure.SubstituteMenuPart_ReferenceScope" flags="ng" index="3XHNnq">
+        <reference id="8428109087107339113" name="reference" index="3XGfJA" />
+      </concept>
       <concept id="1166049232041" name="jetbrains.mps.lang.editor.structure.AbstractComponent" flags="ng" index="1XWOmA">
         <reference id="1166049300910" name="conceptDeclaration" index="1XX52x" />
       </concept>
@@ -36154,6 +36157,14 @@
       </node>
       <node concept="l2Vlx" id="6MMfM8JH7S0" role="2iSdaV" />
     </node>
+  </node>
+  <node concept="22mcaB" id="6MMfM8JH737">
+    <property role="3GE5qa" value="doc" />
+    <ref role="aqKnT" to="zqge:6N0oV4ThMNB" resolve="TextNodeReference" />
+    <node concept="3XHNnq" id="6MMfM8JH77L" role="3ft7WO">
+      <ref role="3XGfJA" to="zqge:rh3Y2YeW$V" resolve="reference" />
+    </node>
+    <node concept="22hDWj" id="6MMfM8JH760" role="22hAXT" />
   </node>
 </model>
 
