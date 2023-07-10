@@ -13,8 +13,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import kotlinx.metadata.jvm.KotlinClassHeader;
 import kotlinx.metadata.jvm.KotlinClassMetadata;
-import java.util.concurrent.atomic.AtomicReference;
-import jetbrains.mps.kotlin.stubs.common.metadata.ClassVisitor;
+import jetbrains.mps.kotlin.stubs.common.metadata.KtClassParser;
 
 @GeneratedClass(node = "r:bdaa2532-d0d0-46ce-8145-d47be9b807a4(jetbrains.mps.kotlin.stubs.jvmStubs)/8963686186946753488", model = "r:bdaa2532-d0d0-46ce-8145-d47be9b807a4(jetbrains.mps.kotlin.stubs.jvmStubs)")
 public class JvmVisitorContext extends VisitorContext {
@@ -48,11 +47,10 @@ public class JvmVisitorContext extends VisitorContext {
           // Only handle classes
           if (metadata instanceof KotlinClassMetadata.Class) {
             // Class file
-            final AtomicReference<SNode> klass = new AtomicReference<SNode>();
-            ((KotlinClassMetadata.Class) metadata).accept(new ClassVisitor(context, true, (newValue) -> klass.set(newValue)));
-            if (klass.get() != null) {
-              this.addClass(klass.get());
-              return klass.get();
+            SNode res = KtClassParser.parseClass(((KotlinClassMetadata.Class) metadata).toKmClass(), context, true);
+            if (res != null) {
+              this.addClass(res);
+              return res;
             }
           }
         }

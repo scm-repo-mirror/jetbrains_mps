@@ -7,6 +7,8 @@ import jetbrains.mps.lang.typesystem.runtime.NonTypesystemRule_Runtime;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
+import jetbrains.mps.smodel.SModelStereotype;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Set;
 import jetbrains.mps.kotlin.api.members.SourcedSignature;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
@@ -30,7 +32,6 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -44,7 +45,11 @@ public class check_IClassLike_InheritedMembers_NonTypesystemRule extends Abstrac
   public check_IClassLike_InheritedMembers_NonTypesystemRule() {
   }
   public void applyRule(final SNode myClass, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    final Set<SourcedSignature> selfSignatures = SetSequence.fromSet(new HashSet<SourcedSignature>());
+    if (SModelStereotype.isStubModel(SNodeOperations.getModel(myClass))) {
+      return;
+    }
+
+    final Set<SourcedSignature> selfSignatures = SetSequence.fromSet(new HashSet<>());
     final SNode thisType = IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(myClass);
 
     // Take all kind of signatures (property, functions, whatever user language define)
@@ -60,11 +65,11 @@ public class check_IClassLike_InheritedMembers_NonTypesystemRule extends Abstrac
       }
     };
 
-    final Map<MemberSignature, SourcedSignature> superSignatures = MapSequence.fromMap(new HashMap<MemberSignature, SourcedSignature>());
+    final Map<MemberSignature, SourcedSignature> superSignatures = MapSequence.fromMap(new HashMap<>());
     Sequence.fromIterable(SuperTypesVisitor.visit(thisType, visitor, (v) -> v.getMembers())).visitAll((it) -> MapSequence.fromMap(superSignatures).put(it.getSignature(), it));
 
-    final List<SourcedSignature> newSignatures = ListSequence.fromList(new ArrayList<SourcedSignature>());
-    final Map<SourcedSignature, SourcedSignature> inheritedSignatures = MapSequence.fromMap(new HashMap<SourcedSignature, SourcedSignature>());
+    final List<SourcedSignature> newSignatures = ListSequence.fromList(new ArrayList<>());
+    final Map<SourcedSignature, SourcedSignature> inheritedSignatures = MapSequence.fromMap(new HashMap<>());
     SetSequence.fromSet(selfSignatures).visitAll((it) -> {
       SourcedSignature superSig = MapSequence.fromMap(superSignatures).get(it.getSignature());
       if (superSig != null) {

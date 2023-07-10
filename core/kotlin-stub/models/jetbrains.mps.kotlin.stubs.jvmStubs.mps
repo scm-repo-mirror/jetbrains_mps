@@ -24,7 +24,6 @@
     <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
     <import index="hcm8" ref="r:72a7bf00-0175-42ca-b99b-fe8519b6a16f(jetbrains.mps.kotlin.structure)" />
-    <import index="wwqx" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.logging(MPS.Core/)" />
     <import index="ends" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.extapi.persistence(MPS.Core/)" />
     <import index="3ju5" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.vfs(MPS.Core/)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
@@ -44,6 +43,10 @@
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
+      <concept id="1224071154655" name="jetbrains.mps.baseLanguage.structure.AsExpression" flags="nn" index="0kSF2">
+        <child id="1224071154657" name="classifierType" index="0kSFW" />
+        <child id="1224071154656" name="expression" index="0kSFX" />
+      </concept>
       <concept id="1080223426719" name="jetbrains.mps.baseLanguage.structure.OrExpression" flags="nn" index="22lmx$" />
       <concept id="1082485599095" name="jetbrains.mps.baseLanguage.structure.BlockStatement" flags="nn" index="9aQIb">
         <child id="1082485599096" name="statements" index="9aQI4" />
@@ -85,7 +88,6 @@
       <concept id="1145552977093" name="jetbrains.mps.baseLanguage.structure.GenericNewExpression" flags="nn" index="2ShNRf">
         <child id="1145553007750" name="creator" index="2ShVmc" />
       </concept>
-      <concept id="1070462154015" name="jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" flags="ig" index="Wx3nA" />
       <concept id="1070475354124" name="jetbrains.mps.baseLanguage.structure.ThisExpression" flags="nn" index="Xjq3P" />
       <concept id="1070475587102" name="jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" flags="nn" index="XkiVB" />
       <concept id="1070475926800" name="jetbrains.mps.baseLanguage.structure.StringLiteral" flags="nn" index="Xl_RD">
@@ -188,9 +190,6 @@
       <concept id="1081516740877" name="jetbrains.mps.baseLanguage.structure.NotExpression" flags="nn" index="3fqX7Q">
         <child id="1081516765348" name="expression" index="3fr31v" />
       </concept>
-      <concept id="1160998861373" name="jetbrains.mps.baseLanguage.structure.AssertStatement" flags="nn" index="1gVbGN">
-        <child id="1160998896846" name="condition" index="1gVkn0" />
-      </concept>
       <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ng" index="1ndlxa">
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
@@ -242,9 +241,6 @@
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
       <concept id="1146644623116" name="jetbrains.mps.baseLanguage.structure.PrivateVisibility" flags="nn" index="3Tm6S6" />
       <concept id="1146644641414" name="jetbrains.mps.baseLanguage.structure.ProtectedVisibility" flags="nn" index="3Tmbuc" />
-      <concept id="1116615150612" name="jetbrains.mps.baseLanguage.structure.ClassifierClassExpression" flags="nn" index="3VsKOn">
-        <reference id="1116615189566" name="classifier" index="3VsUkX" />
-      </concept>
       <concept id="1080120340718" name="jetbrains.mps.baseLanguage.structure.AndExpression" flags="nn" index="1Wc70l" />
       <concept id="1170345865475" name="jetbrains.mps.baseLanguage.structure.AnonymousClass" flags="ig" index="1Y3b0j">
         <reference id="1170346070688" name="classifier" index="1Y3XeK" />
@@ -399,32 +395,6 @@
   <node concept="312cEu" id="2ntakj1pRh8">
     <property role="TrG5h" value="KotlinJvmStubModelDescriptor" />
     <property role="3GE5qa" value="model" />
-    <node concept="Wx3nA" id="5HlCeYoHvYL" role="jymVt">
-      <property role="TrG5h" value="LOG" />
-      <property role="3TUv4t" value="true" />
-      <node concept="3uibUv" id="1iIkS8Rm0VG" role="1tU5fm">
-        <ref role="3uigEE" to="wwqx:~Logger" resolve="Logger" />
-      </node>
-      <node concept="3Tm6S6" id="5HlCeYoHvYN" role="1B3o_S" />
-      <node concept="2YIFZM" id="2hdoiXOQYb3" role="33vP2m">
-        <ref role="37wK5l" to="wwqx:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
-        <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
-        <node concept="3VsKOn" id="2hdoiXOQYb4" role="37wK5m">
-          <ref role="3VsUkX" node="2ntakj1pRh8" resolve="KotlinJvmStubModelDescriptor" />
-        </node>
-      </node>
-    </node>
-    <node concept="312cEg" id="1Oh4A_0I1nl" role="jymVt">
-      <property role="TrG5h" value="myImportsToAdd" />
-      <node concept="3Tm6S6" id="1Oh4A_0HWqW" role="1B3o_S" />
-      <node concept="10Nm6u" id="5nTz9jS3Py2" role="33vP2m" />
-      <node concept="3vKaQO" id="5nTz9jRY8FQ" role="1tU5fm">
-        <node concept="3uibUv" id="5nTz9jRY8FT" role="3O5elw">
-          <ref role="3uigEE" to="mhbf:~SModelReference" resolve="SModelReference" />
-        </node>
-      </node>
-    </node>
-    <node concept="2tJIrI" id="5nTz9jRZHhd" role="jymVt" />
     <node concept="3Tm1VV" id="2ntakj1pRh9" role="1B3o_S" />
     <node concept="3clFbW" id="2ntakj1pRhi" role="jymVt">
       <property role="TrG5h" value="JavaClassStubModelDescriptor" />
@@ -749,67 +719,30 @@
                       </node>
                     </node>
                   </node>
-                  <node concept="3cpWs8" id="k9v0TR$oPr" role="3cqZAp">
-                    <node concept="3cpWsn" id="k9v0TR$oPs" role="3cpWs9">
-                      <property role="TrG5h" value="klass" />
-                      <node concept="3uibUv" id="k9v0TR$oPp" role="1tU5fm">
-                        <ref role="3uigEE" to="i5cy:~AtomicReference" resolve="AtomicReference" />
-                        <node concept="3Tqbb2" id="k9v0TR$q6V" role="11_B2D">
-                          <ref role="ehGHo" to="hcm8:2Aaqzls4g9O" resolve="IClassLike" />
-                        </node>
-                      </node>
-                      <node concept="2ShNRf" id="5HBSc0eJI_i" role="33vP2m">
-                        <node concept="1pGfFk" id="5HBSc0eJIwk" role="2ShVmc">
-                          <ref role="37wK5l" to="i5cy:~AtomicReference.&lt;init&gt;()" resolve="AtomicReference" />
-                          <node concept="3Tqbb2" id="5HBSc0eJIwl" role="1pMfVU">
-                            <ref role="ehGHo" to="hcm8:2Aaqzls4g9O" resolve="IClassLike" />
-                          </node>
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                  <node concept="3clFbF" id="k9v0TR$30i" role="3cqZAp">
-                    <node concept="2OqwBi" id="k9v0TR$5fA" role="3clFbG">
-                      <node concept="1eOMI4" id="k9v0TR$30e" role="2Oq$k0">
-                        <node concept="10QFUN" id="k9v0TR$30b" role="1eOMHV">
-                          <node concept="3uibUv" id="k9v0TR$30g" role="10QFUM">
-                            <ref role="3uigEE" to="otax:~KotlinClassMetadata$Class" resolve="KotlinClassMetadata.Class" />
-                          </node>
-                          <node concept="37vLTw" id="k9v0TR$30h" role="10QFUP">
-                            <ref role="3cqZAo" node="k9v0TRwXib" resolve="metadata" />
-                          </node>
-                        </node>
-                      </node>
-                      <node concept="liA8E" id="k9v0TR$6BD" role="2OqNvi">
-                        <ref role="37wK5l" to="otax:~KotlinClassMetadata$Class.accept(kotlinx.metadata.KmClassVisitor)" resolve="accept" />
-                        <node concept="2ShNRf" id="k9v0TR$844" role="37wK5m">
-                          <node concept="1pGfFk" id="k9v0TR$duk" role="2ShVmc">
-                            <property role="373rjd" value="true" />
-                            <ref role="37wK5l" to="g3pb:2AaqzlsjFIH" resolve="ClassVisitor" />
-                            <node concept="37vLTw" id="3kLGH8ACb7M" role="37wK5m">
-                              <ref role="3cqZAo" node="3kLGH8ACb7E" resolve="context" />
+                  <node concept="3cpWs6" id="4s8_snw8E0U" role="3cqZAp">
+                    <node concept="2YIFZM" id="30flKNoHBq5" role="3cqZAk">
+                      <ref role="37wK5l" to="g3pb:30flKNoqeNf" resolve="parseClass" />
+                      <ref role="1Pybhc" to="g3pb:2Aaqzls33jf" resolve="KtClassParser" />
+                      <node concept="2OqwBi" id="30flKNoHlKc" role="37wK5m">
+                        <node concept="1eOMI4" id="k9v0TR$30e" role="2Oq$k0">
+                          <node concept="10QFUN" id="k9v0TR$30b" role="1eOMHV">
+                            <node concept="3uibUv" id="k9v0TR$30g" role="10QFUM">
+                              <ref role="3uigEE" to="otax:~KotlinClassMetadata$Class" resolve="KotlinClassMetadata.Class" />
                             </node>
-                            <node concept="3clFbT" id="5HBSc0eKm6Y" role="37wK5m">
-                              <property role="3clFbU" value="true" />
-                            </node>
-                            <node concept="37Ijox" id="5HBSc0eKQuk" role="37wK5m">
-                              <ref role="37Ijqf" to="i5cy:~AtomicReference.set(java.lang.Object)" resolve="set" />
-                              <node concept="37vLTw" id="5HBSc0eKQuj" role="wWaWy">
-                                <ref role="3cqZAo" node="k9v0TR$oPs" resolve="klass" />
-                              </node>
+                            <node concept="37vLTw" id="k9v0TR$30h" role="10QFUP">
+                              <ref role="3cqZAo" node="k9v0TRwXib" resolve="metadata" />
                             </node>
                           </node>
                         </node>
+                        <node concept="liA8E" id="30flKNoHpiD" role="2OqNvi">
+                          <ref role="37wK5l" to="otax:~KotlinClassMetadata$Class.toKmClass()" resolve="toKmClass" />
+                        </node>
                       </node>
-                    </node>
-                  </node>
-                  <node concept="3cpWs6" id="k9v0TR$JAV" role="3cqZAp">
-                    <node concept="2OqwBi" id="k9v0TR$U4o" role="3cqZAk">
-                      <node concept="37vLTw" id="k9v0TR$Ltt" role="2Oq$k0">
-                        <ref role="3cqZAo" node="k9v0TR$oPs" resolve="klass" />
+                      <node concept="37vLTw" id="30flKNoHPiq" role="37wK5m">
+                        <ref role="3cqZAo" node="3kLGH8ACb7E" resolve="context" />
                       </node>
-                      <node concept="liA8E" id="k9v0TR$W$b" role="2OqNvi">
-                        <ref role="37wK5l" to="i5cy:~AtomicReference.get()" resolve="get" />
+                      <node concept="3clFbT" id="30flKNoHTE4" role="37wK5m">
+                        <property role="3clFbU" value="true" />
                       </node>
                     </node>
                   </node>
@@ -868,40 +801,52 @@
                       </node>
                     </node>
                   </node>
-                  <node concept="3clFbF" id="k9v0TRy2do" role="3cqZAp">
-                    <node concept="2OqwBi" id="k9v0TRy3wc" role="3clFbG">
-                      <node concept="1eOMI4" id="k9v0TRy2dk" role="2Oq$k0">
-                        <node concept="10QFUN" id="k9v0TRy2dh" role="1eOMHV">
-                          <node concept="3uibUv" id="k9v0TRy2dm" role="10QFUM">
-                            <ref role="3uigEE" to="otax:~KotlinClassMetadata$FileFacade" resolve="KotlinClassMetadata.FileFacade" />
-                          </node>
-                          <node concept="37vLTw" id="k9v0TRy2dn" role="10QFUP">
-                            <ref role="3cqZAo" node="k9v0TRwXib" resolve="metadata" />
-                          </node>
+                  <node concept="3clFbH" id="30flKNoHi90" role="3cqZAp" />
+                  <node concept="3clFbF" id="4s8_snwaFyE" role="3cqZAp">
+                    <node concept="2OqwBi" id="4s8_snwaMW0" role="3clFbG">
+                      <node concept="2OqwBi" id="4s8_snwaH$a" role="2Oq$k0">
+                        <node concept="37vLTw" id="4s8_snwaFyC" role="2Oq$k0">
+                          <ref role="3cqZAo" node="k9v0TR_6xP" resolve="ktFile" />
+                        </node>
+                        <node concept="3Tsc0h" id="4s8_snwaJCc" role="2OqNvi">
+                          <ref role="3TtcxE" to="hcm8:2yYXHtl6Jy9" resolve="declarations" />
                         </node>
                       </node>
-                      <node concept="liA8E" id="k9v0TRy4L0" role="2OqNvi">
-                        <ref role="37wK5l" to="otax:~KotlinClassMetadata$FileFacade.accept(kotlinx.metadata.KmPackageVisitor)" resolve="accept" />
-                        <node concept="2OqwBi" id="5aKf707g9_T" role="37wK5m">
-                          <node concept="2ShNRf" id="5aKf707g9_U" role="2Oq$k0">
-                            <node concept="1pGfFk" id="5aKf707g9_V" role="2ShVmc">
-                              <property role="373rjd" value="true" />
-                              <ref role="37wK5l" to="g3pb:3kLGH8AC5MA" resolve="ModuleVisitor" />
-                              <node concept="37vLTw" id="5aKf707g9_W" role="37wK5m">
-                                <ref role="3cqZAo" node="k9v0TR_6xP" resolve="ktFile" />
-                              </node>
-                              <node concept="37vLTw" id="5aKf707g9_X" role="37wK5m">
-                                <ref role="3cqZAo" node="3kLGH8ACb7E" resolve="context" />
+                      <node concept="X8dFx" id="4s8_snwaQK2" role="2OqNvi">
+                        <node concept="2YIFZM" id="4s8_snwamBa" role="25WWJ7">
+                          <ref role="37wK5l" to="g3pb:4s8_snw5tsw" resolve="parseDeclarations" />
+                          <ref role="1Pybhc" to="g3pb:30flKNonMxp" resolve="KtModuleParser" />
+                          <node concept="2OqwBi" id="30flKNoH8Wi" role="37wK5m">
+                            <node concept="1eOMI4" id="30flKNoH74X" role="2Oq$k0">
+                              <node concept="10QFUN" id="30flKNoH74Y" role="1eOMHV">
+                                <node concept="3uibUv" id="30flKNoH74Z" role="10QFUM">
+                                  <ref role="3uigEE" to="otax:~KotlinClassMetadata$FileFacade" resolve="KotlinClassMetadata.FileFacade" />
+                                </node>
+                                <node concept="37vLTw" id="30flKNoH750" role="10QFUP">
+                                  <ref role="3cqZAo" node="k9v0TRwXib" resolve="metadata" />
+                                </node>
                               </node>
                             </node>
+                            <node concept="liA8E" id="30flKNoHaLm" role="2OqNvi">
+                              <ref role="37wK5l" to="otax:~KotlinClassMetadata$FileFacade.toKmPackage()" resolve="toKmPackage" />
+                            </node>
                           </node>
-                          <node concept="liA8E" id="5aKf707g9_Y" role="2OqNvi">
-                            <ref role="37wK5l" to="g3pb:2Aaqzlsc7zX" resolve="visitPackage" />
+                          <node concept="2OqwBi" id="4s8_snwawy$" role="37wK5m">
+                            <node concept="37vLTw" id="4s8_snwau$Z" role="2Oq$k0">
+                              <ref role="3cqZAo" node="3kLGH8ACb7E" resolve="context" />
+                            </node>
+                            <node concept="liA8E" id="4s8_snwayt5" role="2OqNvi">
+                              <ref role="37wK5l" to="g3pb:ET9GRk$GgJ" resolve="getPackageName" />
+                            </node>
+                          </node>
+                          <node concept="37vLTw" id="4s8_snwa_zh" role="37wK5m">
+                            <ref role="3cqZAo" node="3kLGH8ACb7E" resolve="context" />
                           </node>
                         </node>
                       </node>
                     </node>
                   </node>
+                  <node concept="3clFbH" id="4s8_snwb1I9" role="3cqZAp" />
                   <node concept="3cpWs6" id="k9v0TR_5bQ" role="3cqZAp">
                     <node concept="37vLTw" id="k9v0TR_6xT" role="3cqZAk">
                       <ref role="3cqZAo" node="k9v0TR_6xP" resolve="ktFile" />
@@ -971,32 +916,6 @@
                       </node>
                     </node>
                   </node>
-                  <node concept="3cpWs8" id="7k0Xl9V1HVM" role="3cqZAp">
-                    <node concept="3cpWsn" id="7k0Xl9V1HVN" role="3cpWs9">
-                      <property role="TrG5h" value="visitor" />
-                      <node concept="3uibUv" id="7k0Xl9V1HVO" role="1tU5fm">
-                        <ref role="3uigEE" to="z352:~KmPackageVisitor" resolve="KmPackageVisitor" />
-                      </node>
-                      <node concept="2OqwBi" id="7k0Xl9V1HVP" role="33vP2m">
-                        <node concept="2ShNRf" id="7k0Xl9V1HVQ" role="2Oq$k0">
-                          <node concept="1pGfFk" id="7k0Xl9V1HVR" role="2ShVmc">
-                            <property role="373rjd" value="true" />
-                            <ref role="37wK5l" to="g3pb:3kLGH8AC5MA" resolve="ModuleVisitor" />
-                            <node concept="37vLTw" id="7k0Xl9V1HVS" role="37wK5m">
-                              <ref role="3cqZAo" node="7k0Xl9V1G1Z" resolve="ktFile" />
-                            </node>
-                            <node concept="37vLTw" id="7k0Xl9V1HVT" role="37wK5m">
-                              <ref role="3cqZAo" node="3kLGH8ACb7E" resolve="context" />
-                            </node>
-                          </node>
-                        </node>
-                        <node concept="liA8E" id="7k0Xl9V1HVU" role="2OqNvi">
-                          <ref role="37wK5l" to="g3pb:2Aaqzlsc7zX" resolve="visitPackage" />
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                  <node concept="3clFbH" id="7k0Xl9V38Z2" role="3cqZAp" />
                   <node concept="3clFbF" id="7k0Xl9V1jXC" role="3cqZAp">
                     <node concept="2OqwBi" id="7k0Xl9V1A2v" role="3clFbG">
                       <node concept="2OqwBi" id="7k0Xl9V1kVA" role="2Oq$k0">
@@ -1129,48 +1048,60 @@
                                 <node concept="3clFbH" id="7k0Xl9V3nA5" role="3cqZAp" />
                                 <node concept="3clFbJ" id="7k0Xl9V3YEj" role="3cqZAp">
                                   <node concept="3clFbS" id="7k0Xl9V3YEl" role="3clFbx">
-                                    <node concept="3cpWs8" id="7k0Xl9V46yK" role="3cqZAp">
-                                      <node concept="3cpWsn" id="7k0Xl9V46yL" role="3cpWs9">
-                                        <property role="TrG5h" value="metadata" />
-                                        <node concept="3uibUv" id="7k0Xl9V46yM" role="1tU5fm">
-                                          <ref role="3uigEE" to="otax:~KotlinClassMetadata" resolve="KotlinClassMetadata" />
-                                        </node>
-                                        <node concept="2YIFZM" id="7k0Xl9V46yN" role="33vP2m">
-                                          <ref role="37wK5l" to="otax:~KotlinClassMetadata.read(kotlin.Metadata)" resolve="read" />
-                                          <ref role="1Pybhc" to="otax:~KotlinClassMetadata" resolve="KotlinClassMetadata" />
-                                          <node concept="37vLTw" id="7k0Xl9V46yO" role="37wK5m">
-                                            <ref role="3cqZAo" node="7k0Xl9V3n_N" resolve="kotlinData" />
-                                          </node>
-                                        </node>
-                                      </node>
-                                    </node>
-                                    <node concept="3clFbH" id="7k0Xl9V3YEk" role="3cqZAp" />
-                                    <node concept="1gVbGN" id="7k0Xl9V4fWs" role="3cqZAp">
-                                      <node concept="2ZW3vV" id="7k0Xl9V4jUc" role="1gVkn0">
-                                        <node concept="3uibUv" id="7k0Xl9V4maj" role="2ZW6by">
+                                    <node concept="3cpWs8" id="4s8_snwa39b" role="3cqZAp">
+                                      <node concept="3cpWsn" id="4s8_snwa39c" role="3cpWs9">
+                                        <property role="TrG5h" value="part" />
+                                        <node concept="3uibUv" id="4s8_snwa1Xp" role="1tU5fm">
                                           <ref role="3uigEE" to="otax:~KotlinClassMetadata$MultiFileClassPart" resolve="KotlinClassMetadata.MultiFileClassPart" />
                                         </node>
-                                        <node concept="37vLTw" id="7k0Xl9V4iat" role="2ZW6bz">
-                                          <ref role="3cqZAo" node="7k0Xl9V46yL" resolve="metadata" />
-                                        </node>
-                                      </node>
-                                    </node>
-                                    <node concept="3clFbF" id="7k0Xl9V4qyE" role="3cqZAp">
-                                      <node concept="2OqwBi" id="7k0Xl9V4wGG" role="3clFbG">
-                                        <node concept="1eOMI4" id="7k0Xl9V4qyC" role="2Oq$k0">
-                                          <node concept="10QFUN" id="7k0Xl9V4qy_" role="1eOMHV">
-                                            <node concept="3uibUv" id="7k0Xl9V4s8B" role="10QFUM">
-                                              <ref role="3uigEE" to="otax:~KotlinClassMetadata$MultiFileClassPart" resolve="KotlinClassMetadata.MultiFileClassPart" />
-                                            </node>
-                                            <node concept="37vLTw" id="7k0Xl9V4tSk" role="10QFUP">
-                                              <ref role="3cqZAo" node="7k0Xl9V46yL" resolve="metadata" />
+                                        <node concept="0kSF2" id="4s8_snwa39d" role="33vP2m">
+                                          <node concept="3uibUv" id="4s8_snwa39e" role="0kSFW">
+                                            <ref role="3uigEE" to="otax:~KotlinClassMetadata$MultiFileClassPart" resolve="KotlinClassMetadata.MultiFileClassPart" />
+                                          </node>
+                                          <node concept="2YIFZM" id="4s8_snwa39f" role="0kSFX">
+                                            <ref role="37wK5l" to="otax:~KotlinClassMetadata.read(kotlin.Metadata)" resolve="read" />
+                                            <ref role="1Pybhc" to="otax:~KotlinClassMetadata" resolve="KotlinClassMetadata" />
+                                            <node concept="37vLTw" id="4s8_snwa39g" role="37wK5m">
+                                              <ref role="3cqZAo" node="7k0Xl9V3n_N" resolve="kotlinData" />
                                             </node>
                                           </node>
                                         </node>
-                                        <node concept="liA8E" id="7k0Xl9V4yt9" role="2OqNvi">
-                                          <ref role="37wK5l" to="otax:~KotlinClassMetadata$MultiFileClassPart.accept(kotlinx.metadata.KmPackageVisitor)" resolve="accept" />
-                                          <node concept="37vLTw" id="7k0Xl9V4$qF" role="37wK5m">
-                                            <ref role="3cqZAo" node="7k0Xl9V1HVN" resolve="visitor" />
+                                      </node>
+                                    </node>
+                                    <node concept="3clFbH" id="4s8_snw9T1A" role="3cqZAp" />
+                                    <node concept="3clFbF" id="4s8_snw9pVB" role="3cqZAp">
+                                      <node concept="2OqwBi" id="4s8_snw9ztg" role="3clFbG">
+                                        <node concept="2OqwBi" id="4s8_snw9rT1" role="2Oq$k0">
+                                          <node concept="37vLTw" id="4s8_snw9pV_" role="2Oq$k0">
+                                            <ref role="3cqZAo" node="7k0Xl9V1G1Z" resolve="ktFile" />
+                                          </node>
+                                          <node concept="3Tsc0h" id="4s8_snw9tO8" role="2OqNvi">
+                                            <ref role="3TtcxE" to="hcm8:2yYXHtl6Jy9" resolve="declarations" />
+                                          </node>
+                                        </node>
+                                        <node concept="X8dFx" id="4s8_snw9DOD" role="2OqNvi">
+                                          <node concept="2YIFZM" id="4s8_snw9Vl$" role="25WWJ7">
+                                            <ref role="37wK5l" to="g3pb:4s8_snw5tsw" resolve="parseDeclarations" />
+                                            <ref role="1Pybhc" to="g3pb:30flKNonMxp" resolve="KtModuleParser" />
+                                            <node concept="2OqwBi" id="4s8_snw9Vl_" role="37wK5m">
+                                              <node concept="37vLTw" id="4s8_snwaeeU" role="2Oq$k0">
+                                                <ref role="3cqZAo" node="4s8_snwa39c" resolve="part" />
+                                              </node>
+                                              <node concept="liA8E" id="4s8_snw9VlE" role="2OqNvi">
+                                                <ref role="37wK5l" to="otax:~KotlinClassMetadata$MultiFileClassPart.toKmPackage()" resolve="toKmPackage" />
+                                              </node>
+                                            </node>
+                                            <node concept="2OqwBi" id="4s8_snw9VlF" role="37wK5m">
+                                              <node concept="37vLTw" id="4s8_snw9VlG" role="2Oq$k0">
+                                                <ref role="3cqZAo" node="3kLGH8ACb7E" resolve="context" />
+                                              </node>
+                                              <node concept="liA8E" id="4s8_snw9VlH" role="2OqNvi">
+                                                <ref role="37wK5l" to="g3pb:ET9GRk$GgJ" resolve="getPackageName" />
+                                              </node>
+                                            </node>
+                                            <node concept="37vLTw" id="4s8_snw9VlI" role="37wK5m">
+                                              <ref role="3cqZAo" node="3kLGH8ACb7E" resolve="context" />
+                                            </node>
                                           </node>
                                         </node>
                                       </node>
@@ -5308,56 +5239,35 @@
                             </node>
                           </node>
                         </node>
-                        <node concept="3cpWs8" id="ET9GRkwAFX" role="3cqZAp">
-                          <node concept="3cpWsn" id="ET9GRkwAFY" role="3cpWs9">
-                            <property role="TrG5h" value="klass" />
-                            <node concept="3uibUv" id="ET9GRkwAFZ" role="1tU5fm">
-                              <ref role="3uigEE" to="i5cy:~AtomicReference" resolve="AtomicReference" />
-                              <node concept="3Tqbb2" id="ET9GRkwAG0" role="11_B2D">
-                                <ref role="ehGHo" to="hcm8:2Aaqzls4g9O" resolve="IClassLike" />
-                              </node>
+                        <node concept="3cpWs8" id="4s8_snwcgO1" role="3cqZAp">
+                          <node concept="3cpWsn" id="4s8_snwcgO2" role="3cpWs9">
+                            <property role="TrG5h" value="res" />
+                            <node concept="3Tqbb2" id="4s8_snwcgwA" role="1tU5fm">
+                              <ref role="ehGHo" to="hcm8:2Aaqzls4g9O" resolve="IClassLike" />
                             </node>
-                            <node concept="2ShNRf" id="ET9GRkwAG1" role="33vP2m">
-                              <node concept="1pGfFk" id="ET9GRkwAG2" role="2ShVmc">
-                                <ref role="37wK5l" to="i5cy:~AtomicReference.&lt;init&gt;()" resolve="AtomicReference" />
-                                <node concept="3Tqbb2" id="ET9GRkwAG3" role="1pMfVU">
-                                  <ref role="ehGHo" to="hcm8:2Aaqzls4g9O" resolve="IClassLike" />
-                                </node>
-                              </node>
-                            </node>
-                          </node>
-                        </node>
-                        <node concept="3clFbF" id="ET9GRkwAG4" role="3cqZAp">
-                          <node concept="2OqwBi" id="ET9GRkwAG5" role="3clFbG">
-                            <node concept="1eOMI4" id="ET9GRkwAG6" role="2Oq$k0">
-                              <node concept="10QFUN" id="ET9GRkwAG7" role="1eOMHV">
-                                <node concept="3uibUv" id="ET9GRkwAG8" role="10QFUM">
-                                  <ref role="3uigEE" to="otax:~KotlinClassMetadata$Class" resolve="KotlinClassMetadata.Class" />
-                                </node>
-                                <node concept="37vLTw" id="ET9GRkwAG9" role="10QFUP">
-                                  <ref role="3cqZAo" node="ET9GRkwAFu" resolve="metadata" />
-                                </node>
-                              </node>
-                            </node>
-                            <node concept="liA8E" id="ET9GRkwAGa" role="2OqNvi">
-                              <ref role="37wK5l" to="otax:~KotlinClassMetadata$Class.accept(kotlinx.metadata.KmClassVisitor)" resolve="accept" />
-                              <node concept="2ShNRf" id="ET9GRkwAGb" role="37wK5m">
-                                <node concept="1pGfFk" id="ET9GRkwAGc" role="2ShVmc">
-                                  <property role="373rjd" value="true" />
-                                  <ref role="37wK5l" to="g3pb:2AaqzlsjFIH" resolve="ClassVisitor" />
-                                  <node concept="37vLTw" id="ET9GRkwAGd" role="37wK5m">
-                                    <ref role="3cqZAo" node="ET9GRkwAFi" resolve="context" />
-                                  </node>
-                                  <node concept="3clFbT" id="ET9GRkwAGe" role="37wK5m">
-                                    <property role="3clFbU" value="true" />
-                                  </node>
-                                  <node concept="37Ijox" id="ET9GRkwAGf" role="37wK5m">
-                                    <ref role="37Ijqf" to="i5cy:~AtomicReference.set(java.lang.Object)" resolve="set" />
-                                    <node concept="37vLTw" id="ET9GRkwAGg" role="wWaWy">
-                                      <ref role="3cqZAo" node="ET9GRkwAFY" resolve="klass" />
+                            <node concept="2YIFZM" id="4s8_snwcgO3" role="33vP2m">
+                              <ref role="37wK5l" to="g3pb:30flKNoqeNf" resolve="parseClass" />
+                              <ref role="1Pybhc" to="g3pb:2Aaqzls33jf" resolve="KtClassParser" />
+                              <node concept="2OqwBi" id="4s8_snwcgO4" role="37wK5m">
+                                <node concept="1eOMI4" id="4s8_snwcgO5" role="2Oq$k0">
+                                  <node concept="10QFUN" id="4s8_snwcgO6" role="1eOMHV">
+                                    <node concept="3uibUv" id="4s8_snwcgO7" role="10QFUM">
+                                      <ref role="3uigEE" to="otax:~KotlinClassMetadata$Class" resolve="KotlinClassMetadata.Class" />
+                                    </node>
+                                    <node concept="37vLTw" id="4s8_snwcgO8" role="10QFUP">
+                                      <ref role="3cqZAo" node="ET9GRkwAFu" resolve="metadata" />
                                     </node>
                                   </node>
                                 </node>
+                                <node concept="liA8E" id="4s8_snwcgO9" role="2OqNvi">
+                                  <ref role="37wK5l" to="otax:~KotlinClassMetadata$Class.toKmClass()" resolve="toKmClass" />
+                                </node>
+                              </node>
+                              <node concept="37vLTw" id="4s8_snwcgOa" role="37wK5m">
+                                <ref role="3cqZAo" node="ET9GRkwAFi" resolve="context" />
+                              </node>
+                              <node concept="3clFbT" id="4s8_snwcgOb" role="37wK5m">
+                                <property role="3clFbU" value="true" />
                               </node>
                             </node>
                           </node>
@@ -5369,37 +5279,22 @@
                                 <node concept="Xjq3P" id="2vozdiVqm5E" role="2Oq$k0" />
                                 <node concept="liA8E" id="2vozdiVqny8" role="2OqNvi">
                                   <ref role="37wK5l" to="g3pb:6UEu$_UEDEe" resolve="addClass" />
-                                  <node concept="2OqwBi" id="2vozdiVqoPw" role="37wK5m">
-                                    <node concept="37vLTw" id="2vozdiVqoaK" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="ET9GRkwAFY" resolve="klass" />
-                                    </node>
-                                    <node concept="liA8E" id="2vozdiVqpQg" role="2OqNvi">
-                                      <ref role="37wK5l" to="i5cy:~AtomicReference.get()" resolve="get" />
-                                    </node>
+                                  <node concept="37vLTw" id="4s8_snwcjVo" role="37wK5m">
+                                    <ref role="3cqZAo" node="4s8_snwcgO2" resolve="res" />
                                   </node>
                                 </node>
                               </node>
                             </node>
                             <node concept="3cpWs6" id="ET9GRkwAGh" role="3cqZAp">
-                              <node concept="2OqwBi" id="ET9GRkwAGi" role="3cqZAk">
-                                <node concept="37vLTw" id="ET9GRkwAGj" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="ET9GRkwAFY" resolve="klass" />
-                                </node>
-                                <node concept="liA8E" id="ET9GRkwAGk" role="2OqNvi">
-                                  <ref role="37wK5l" to="i5cy:~AtomicReference.get()" resolve="get" />
-                                </node>
+                              <node concept="37vLTw" id="4s8_snwckqX" role="3cqZAk">
+                                <ref role="3cqZAo" node="4s8_snwcgO2" resolve="res" />
                               </node>
                             </node>
                           </node>
                           <node concept="3y3z36" id="2vozdiVqi3n" role="3clFbw">
                             <node concept="10Nm6u" id="2vozdiVqi_d" role="3uHU7w" />
-                            <node concept="2OqwBi" id="2vozdiVqgns" role="3uHU7B">
-                              <node concept="37vLTw" id="2vozdiVqfOf" role="2Oq$k0">
-                                <ref role="3cqZAo" node="ET9GRkwAFY" resolve="klass" />
-                              </node>
-                              <node concept="liA8E" id="2vozdiVqhiQ" role="2OqNvi">
-                                <ref role="37wK5l" to="i5cy:~AtomicReference.get()" resolve="get" />
-                              </node>
+                            <node concept="37vLTw" id="4s8_snwciol" role="3uHU7B">
+                              <ref role="3cqZAo" node="4s8_snwcgO2" resolve="res" />
                             </node>
                           </node>
                         </node>

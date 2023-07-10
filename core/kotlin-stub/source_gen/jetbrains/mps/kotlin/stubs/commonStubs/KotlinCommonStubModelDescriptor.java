@@ -23,17 +23,8 @@ import jetbrains.mps.smodel.SModel;
 import jetbrains.mps.kotlin.stubs.common.references.KotlinJvmReferenceSolver;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.io.InputStream;
-import kotlinx.metadata.internal.metadata.deserialization.BinaryVersion;
-import kotlinx.metadata.internal.metadata.builtins.BuiltInsBinaryVersion;
-import kotlinx.metadata.internal.protobuf.ExtensionRegistryLite;
-import kotlinx.metadata.internal.metadata.builtins.BuiltInsProtoBuf;
-import kotlinx.metadata.internal.metadata.ProtoBuf;
-import jetbrains.mps.kotlin.stubs.common.metadata.ModuleVisitor;
-import kotlinx.metadata.internal.metadata.deserialization.NameResolverImpl;
-import kotlinx.metadata.internal.ReadersKt;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import java.util.ArrayList;
-import kotlinx.metadata.internal.ReadContextExtension;
+import kotlinx.metadata.internal.common.KotlinCommonMetadata;
+import jetbrains.mps.kotlin.stubs.common.metadata.KtModuleParser;
 import java.io.IOException;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -73,27 +64,13 @@ public class KotlinCommonStubModelDescriptor extends KotlinStubModelDescriptor<S
       for (IFile file : Sequence.fromIterable(topFiles)) {
         InputStream inputStream = file.openInputStream();
 
-        // File version (not with .knm files)
-        if (!(file.getName().endsWith(KotlinCommonConstants.KOTLIN_METADATA_LIB_EXTENSION))) {
-          BinaryVersion fileVersion = BuiltInsBinaryVersion.Companion.readFrom(inputStream);
-          if (!(fileVersion.isCompatible())) {
-            LOG.warning("file " + file.getPath() + " has incompatible kotlin binary version (" + fileVersion.toString() + ")");
-            continue;
-          }
-        }
-
-        // Parse (registry with extensions allows to get annotations)
-        ExtensionRegistryLite registry = ExtensionRegistryLite.newInstance();
-        BuiltInsProtoBuf.registerAllExtensions(registry);
-        ProtoBuf.PackageFragment pkg = ProtoBuf.PackageFragment.parseFrom(inputStream, registry);
-
-        // Visit
+        // Read and parse metadata
         SNode root = createRootNode(file);
-        ModuleVisitor visitor = new ModuleVisitor(root, refFactory, getModelId().getModelName());
-        NameResolverImpl nameSolver = new NameResolverImpl(pkg.getStrings(), pkg.getQualifiedNames());
-        ReadersKt.accept(pkg, visitor, nameSolver, ListSequence.fromList(new ArrayList<ReadContextExtension>()));
-
-        model.addRootNode(root);
+        KotlinCommonMetadata commonMetadata = KotlinCommonMetadata.read(inputStream.readAllBytes());
+        if (commonMetadata != null) {
+          KtModuleParser.parseModule(commonMetadata.toKmModuleFragment(), root, refFactory, getModelId().getModelName());
+          model.addRootNode(root);
+        }
       }
 
       return refFactory.getImports();

@@ -23,6 +23,7 @@
     <import index="y5e1" ref="r:4464540a-9650-433f-b716-ed95bbac5a69(jetbrains.mps.lang.test.matcher)" />
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
     <import index="1ctc" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.stream(JDK/)" />
+    <import index="1xrd" ref="b50d89c0-0fb9-4105-b652-222148c26a9b/kotlin:kotlin.collections(jetbrains.mps.kotlin.stdlib/)" implicit="true" />
   </imports>
   <registry>
     <language id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test">
@@ -38,6 +39,7 @@
       <concept id="1225469856668" name="jetbrains.mps.lang.test.structure.ModelExpression" flags="nn" index="1jGwE1" />
       <concept id="1216913645126" name="jetbrains.mps.lang.test.structure.NodesTestCase" flags="lg" index="1lH9Xt">
         <property id="2616911529524314943" name="accessMode" index="3DII0k" />
+        <child id="1216993439383" name="methods" index="1qtyYc" />
         <child id="1217501822150" name="nodesToCheck" index="1SKRRt" />
         <child id="1217501895093" name="testMethods" index="1SL9yI" />
       </concept>
@@ -71,11 +73,13 @@
       <concept id="1068498886296" name="jetbrains.mps.baseLanguage.structure.VariableReference" flags="nn" index="37vLTw">
         <reference id="1068581517664" name="variableDeclaration" index="3cqZAo" />
       </concept>
+      <concept id="1068498886292" name="jetbrains.mps.baseLanguage.structure.ParameterDeclaration" flags="ir" index="37vLTG" />
       <concept id="4972933694980447171" name="jetbrains.mps.baseLanguage.structure.BaseVariableDeclaration" flags="ng" index="19Szcq">
         <child id="5680397130376446158" name="type" index="1tU5fm" />
       </concept>
       <concept id="1068580123132" name="jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration" flags="ng" index="3clF44">
         <child id="1068580123133" name="returnType" index="3clF45" />
+        <child id="1068580123134" name="parameter" index="3clF46" />
         <child id="1068580123135" name="body" index="3clF47" />
       </concept>
       <concept id="1068580123155" name="jetbrains.mps.baseLanguage.structure.ExpressionStatement" flags="nn" index="3clFbF">
@@ -115,6 +119,9 @@
       </concept>
     </language>
     <language id="6b3888c1-9802-44d8-8baf-f8e6c33ed689" name="jetbrains.mps.kotlin">
+      <concept id="1243006380186304290" name="jetbrains.mps.kotlin.structure.IWithReceiver" flags="ng" index="21N7il">
+        <child id="8521376398798405093" name="receiverType" index="39xbXa" />
+      </concept>
       <concept id="1243006380186327175" name="jetbrains.mps.kotlin.structure.IReturnType" flags="ng" index="21NdcK">
         <child id="1243006380186327176" name="returnType" index="21NdcZ" />
       </concept>
@@ -224,6 +231,7 @@
       <concept id="2936055411798373314" name="jetbrains.mps.kotlin.structure.InlineFunctionModifier" flags="ng" index="1XD0kl" />
       <concept id="2936055411798373312" name="jetbrains.mps.kotlin.structure.OperatorFunctionModifier" flags="ng" index="1XD0kn" />
       <concept id="2936055411798373324" name="jetbrains.mps.kotlin.structure.TypeProjection" flags="ng" index="1XD0kr">
+        <property id="2441172150877037100" name="variance" index="9uIGf" />
         <child id="2936055411798374015" name="type" index="1XD02C" />
       </concept>
       <concept id="2936055411798373271" name="jetbrains.mps.kotlin.structure.InternalVisibility" flags="ng" index="1XD0l0" />
@@ -236,6 +244,22 @@
       </concept>
       <concept id="2936055411803573749" name="jetbrains.mps.kotlin.structure.ITypeParameters" flags="ng" index="1XPbGy">
         <child id="2936055411803573750" name="typeParameters" index="1XPbGx" />
+      </concept>
+    </language>
+    <language id="443f4c36-fcf5-4eb6-9500-8d06ed259e3e" name="jetbrains.mps.baseLanguage.classifiers">
+      <concept id="1205752633985" name="jetbrains.mps.baseLanguage.classifiers.structure.ThisClassifierExpression" flags="nn" index="2WthIp" />
+      <concept id="1205756064662" name="jetbrains.mps.baseLanguage.classifiers.structure.IMemberOperation" flags="ng" index="2WEnae">
+        <reference id="1205756909548" name="member" index="2WH_rO" />
+      </concept>
+      <concept id="1205769003971" name="jetbrains.mps.baseLanguage.classifiers.structure.DefaultClassifierMethodDeclaration" flags="ng" index="2XrIbr" />
+      <concept id="1205769149993" name="jetbrains.mps.baseLanguage.classifiers.structure.DefaultClassifierMethodCallOperation" flags="nn" index="2XshWL">
+        <child id="1205770614681" name="actualArgument" index="2XxRq1" />
+      </concept>
+    </language>
+    <language id="446c26eb-2b7b-4bf0-9b35-f83fa582753e" name="jetbrains.mps.lang.modelapi">
+      <concept id="4733039728785194814" name="jetbrains.mps.lang.modelapi.structure.NamedNodeReference" flags="ng" index="ZC_QK">
+        <reference id="7256306938026143658" name="target" index="2aWVGs" />
+        <child id="7256306938026143676" name="child" index="2aWVGa" />
       </concept>
     </language>
     <language id="acfc188d-d5d6-4598-b370-6f4a983f05b2" name="jetbrains.mps.baseLanguage.methodReferences">
@@ -265,10 +289,18 @@
         <reference id="1177026940964" name="conceptDeclaration" index="cht4Q" />
       </concept>
       <concept id="1179409122411" name="jetbrains.mps.lang.smodel.structure.Node_ConceptMethodCall" flags="nn" index="2qgKlT" />
+      <concept id="7400021826771268254" name="jetbrains.mps.lang.smodel.structure.SNodePointerType" flags="ig" index="2sp9CU" />
+      <concept id="7400021826774799413" name="jetbrains.mps.lang.smodel.structure.NodePointerExpression" flags="ng" index="2tJFMh">
+        <child id="7400021826774799510" name="ref" index="2tJFKM" />
+      </concept>
+      <concept id="4065387505485742749" name="jetbrains.mps.lang.smodel.structure.AbstractPointerResolveOperation" flags="ng" index="2yCiFS">
+        <child id="3648723375513868575" name="repositoryArg" index="Vysub" />
+      </concept>
       <concept id="2396822768958367367" name="jetbrains.mps.lang.smodel.structure.AbstractTypeCastExpression" flags="nn" index="$5XWr">
         <child id="6733348108486823193" name="leftExpression" index="1m5AlR" />
         <child id="3906496115198199033" name="conceptArgument" index="3oSUPX" />
       </concept>
+      <concept id="3648723375513868532" name="jetbrains.mps.lang.smodel.structure.NodePointer_ResolveOperation" flags="ng" index="Vyspw" />
       <concept id="1172008320231" name="jetbrains.mps.lang.smodel.structure.Node_IsNotNullOperation" flags="nn" index="3x8VRR" />
       <concept id="1140137987495" name="jetbrains.mps.lang.smodel.structure.SNodeTypeCastExpression" flags="nn" index="1PxgMI">
         <property id="1238684351431" name="asCast" index="1BlNFB" />
@@ -1268,10 +1300,18 @@
   <node concept="1lH9Xt" id="2dcS_OZubCZ">
     <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <property role="TrG5h" value="StubSamplesLoading" />
-    <node concept="1LZb2c" id="2dcS_OZujUq" role="1SL9yI">
-      <property role="TrG5h" value="resultTypeLoading" />
-      <node concept="3cqZAl" id="2dcS_OZujUr" role="3clF45" />
-      <node concept="3clFbS" id="2dcS_OZujUv" role="3clF47">
+    <node concept="2XrIbr" id="61M21yhdj20" role="1qtyYc">
+      <property role="TrG5h" value="assertLoadedAs" />
+      <node concept="37vLTG" id="61M21yhdk1c" role="3clF46">
+        <property role="TrG5h" value="reference" />
+        <node concept="2sp9CU" id="61M21yhdM2j" role="1tU5fm" />
+      </node>
+      <node concept="37vLTG" id="61M21yhdk29" role="3clF46">
+        <property role="TrG5h" value="compareTo" />
+        <node concept="3Tqbb2" id="61M21yhdk2M" role="1tU5fm" />
+      </node>
+      <node concept="3cqZAl" id="61M21yhdjZD" role="3clF45" />
+      <node concept="3clFbS" id="61M21yhdj22" role="3clF47">
         <node concept="3SKdUt" id="2dcS_OZw6Ku" role="3cqZAp">
           <node concept="1PaTwC" id="2dcS_OZw6Kv" role="1aUNEU">
             <node concept="3oM_SD" id="2dcS_OZw6MI" role="1PaTwD">
@@ -1409,16 +1449,11 @@
               <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
             </node>
             <node concept="2OqwBi" id="2dcS_OZv31O" role="33vP2m">
-              <node concept="2YIFZM" id="2dcS_OZv31P" role="2Oq$k0">
-                <ref role="37wK5l" to="wbbs:6zWVWr2jhR5" resolve="pointerOf" />
-                <ref role="1Pybhc" to="wbbs:4XaBo_Yu8Ms" resolve="BuiltIn" />
-                <node concept="Xl_RD" id="2dcS_OZv31Q" role="37wK5m">
-                  <property role="Xl_RC" value="kotlin/Result" />
-                </node>
+              <node concept="37vLTw" id="61M21yhdQiK" role="2Oq$k0">
+                <ref role="3cqZAo" node="61M21yhdk1c" resolve="reference" />
               </node>
-              <node concept="liA8E" id="2dcS_OZv31R" role="2OqNvi">
-                <ref role="37wK5l" to="w1kc:~SNodePointer.resolve(org.jetbrains.mps.openapi.module.SRepository)" resolve="resolve" />
-                <node concept="2OqwBi" id="2dcS_OZv31S" role="37wK5m">
+              <node concept="Vyspw" id="61M21yhdRYb" role="2OqNvi">
+                <node concept="2OqwBi" id="2dcS_OZv31S" role="Vysub">
                   <node concept="1jGwE1" id="2dcS_OZv31T" role="2Oq$k0" />
                   <node concept="liA8E" id="2dcS_OZv31U" role="2OqNvi">
                     <ref role="37wK5l" to="mhbf:~SModel.getRepository()" resolve="getRepository" />
@@ -1441,8 +1476,8 @@
               <node concept="2ShNRf" id="2dcS_OZAWCv" role="2Oq$k0">
                 <node concept="1pGfFk" id="2dcS_OZAWCw" role="2ShVmc">
                   <ref role="37wK5l" to="y5e1:39D1ywqVsdl" resolve="NodesMatcher" />
-                  <node concept="3xONca" id="2dcS_OZAWCx" role="37wK5m">
-                    <ref role="3xOPvv" node="2dcS_OZuMGa" resolve="expected" />
+                  <node concept="37vLTw" id="61M21yhdmT_" role="37wK5m">
+                    <ref role="3cqZAo" node="61M21yhdk29" resolve="compareTo" />
                   </node>
                   <node concept="37vLTw" id="2dcS_OZAWCy" role="37wK5m">
                     <ref role="3cqZAo" node="2dcS_OZv31N" resolve="stubLoaded" />
@@ -1502,6 +1537,169 @@
               </node>
               <node concept="liA8E" id="2dcS_OZAZvL" role="2OqNvi">
                 <ref role="37wK5l" to="33ny:~List.isEmpty()" resolve="isEmpty" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1LZb2c" id="2dcS_OZujUq" role="1SL9yI">
+      <property role="TrG5h" value="resultClassLoading" />
+      <node concept="3cqZAl" id="2dcS_OZujUr" role="3clF45" />
+      <node concept="3clFbS" id="2dcS_OZujUv" role="3clF47">
+        <node concept="3clFbF" id="61M21yhdlL1" role="3cqZAp">
+          <node concept="2OqwBi" id="61M21yhdlKV" role="3clFbG">
+            <node concept="2WthIp" id="61M21yhdlKY" role="2Oq$k0" />
+            <node concept="2XshWL" id="61M21yhdlL0" role="2OqNvi">
+              <ref role="2WH_rO" node="61M21yhdj20" resolve="assertLoadedAs" />
+              <node concept="2tJFMh" id="61M21yhdWbb" role="2XxRq1">
+                <node concept="ZC_QK" id="61M21yhdWe0" role="2tJFKM">
+                  <ref role="2aWVGs" to="0:~~Result" resolve="Result" />
+                  <node concept="ZC_QK" id="61M21yhdWhK" role="2aWVGa">
+                    <ref role="2aWVGs" to="0:~kotlin/Result" resolve="Result" />
+                  </node>
+                </node>
+              </node>
+              <node concept="3xONca" id="61M21yhdmdI" role="2XxRq1">
+                <ref role="3xOPvv" node="2dcS_OZuMGa" resolve="expected" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1LZb2c" id="61M21yhdgEw" role="1SL9yI">
+      <property role="TrG5h" value="componentFunctionLoading" />
+      <node concept="3cqZAl" id="61M21yhdgEx" role="3clF45" />
+      <node concept="3clFbS" id="61M21yhdgE_" role="3clF47">
+        <node concept="3SKdUt" id="61M21yhdnJr" role="3cqZAp">
+          <node concept="1PaTwC" id="61M21yhdnJs" role="1aUNEU">
+            <node concept="3oM_SD" id="61M21yhdnKs" role="1PaTwD">
+              <property role="3oM_SC" value="This" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnKu" role="1PaTwD">
+              <property role="3oM_SC" value="method" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnKE" role="1PaTwD">
+              <property role="3oM_SC" value="uses" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnKI" role="1PaTwD">
+              <property role="3oM_SC" value="type" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnKN" role="1PaTwD">
+              <property role="3oM_SC" value="parameter" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnKT" role="1PaTwD">
+              <property role="3oM_SC" value="both" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnL0" role="1PaTwD">
+              <property role="3oM_SC" value="in" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnL8" role="1PaTwD">
+              <property role="3oM_SC" value="its" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnLh" role="1PaTwD">
+              <property role="3oM_SC" value="receiver" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnLr" role="1PaTwD">
+              <property role="3oM_SC" value="type" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnLA" role="1PaTwD">
+              <property role="3oM_SC" value="and" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnLM" role="1PaTwD">
+              <property role="3oM_SC" value="return" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnMs" role="1PaTwD">
+              <property role="3oM_SC" value="type" />
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="61M21yhdnNu" role="3cqZAp">
+          <node concept="1PaTwC" id="61M21yhdnNv" role="1aUNEU">
+            <node concept="3oM_SD" id="61M21yhdnO$" role="1PaTwD">
+              <property role="3oM_SC" value="If" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnOA" role="1PaTwD">
+              <property role="3oM_SC" value="this" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnOD" role="1PaTwD">
+              <property role="3oM_SC" value="fails" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnOH" role="1PaTwD">
+              <property role="3oM_SC" value="after" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnOM" role="1PaTwD">
+              <property role="3oM_SC" value="stubs" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnOS" role="1PaTwD">
+              <property role="3oM_SC" value="changes," />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnOZ" role="1PaTwD">
+              <property role="3oM_SC" value="make" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnP7" role="1PaTwD">
+              <property role="3oM_SC" value="sure" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnPg" role="1PaTwD">
+              <property role="3oM_SC" value="loading" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnPq" role="1PaTwD">
+              <property role="3oM_SC" value="of" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnP_" role="1PaTwD">
+              <property role="3oM_SC" value="type" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnPL" role="1PaTwD">
+              <property role="3oM_SC" value="parameters" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnPY" role="1PaTwD">
+              <property role="3oM_SC" value="into" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnQc" role="1PaTwD">
+              <property role="3oM_SC" value="context" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnQr" role="1PaTwD">
+              <property role="3oM_SC" value="happens" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnQF" role="1PaTwD">
+              <property role="3oM_SC" value="before" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnQW" role="1PaTwD">
+              <property role="3oM_SC" value="loading" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnRe" role="1PaTwD">
+              <property role="3oM_SC" value="of" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnRx" role="1PaTwD">
+              <property role="3oM_SC" value="receiver" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnRP" role="1PaTwD">
+              <property role="3oM_SC" value="and" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnSa" role="1PaTwD">
+              <property role="3oM_SC" value="return" />
+            </node>
+            <node concept="3oM_SD" id="61M21yhdnSw" role="1PaTwD">
+              <property role="3oM_SC" value="type." />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="61M21yhdnwp" role="3cqZAp">
+          <node concept="2OqwBi" id="61M21yhdnwj" role="3clFbG">
+            <node concept="2WthIp" id="61M21yhdnwm" role="2Oq$k0" />
+            <node concept="2XshWL" id="61M21yhdnwo" role="2OqNvi">
+              <ref role="2WH_rO" node="61M21yhdj20" resolve="assertLoadedAs" />
+              <node concept="2tJFMh" id="61M21yhdWy_" role="2XxRq1">
+                <node concept="ZC_QK" id="61M21yhdWzd" role="2tJFKM">
+                  <ref role="2aWVGs" to="1xrd:~~_ArraysKt" resolve="_ArraysKt" />
+                  <node concept="ZC_QK" id="61M21yhdWBg" role="2aWVGa">
+                    <ref role="2aWVGs" to="1xrd:~#kotlin/Array&lt;0&gt;.component2&lt;1&gt;()" resolve="component2" />
+                  </node>
+                </node>
+              </node>
+              <node concept="3xONca" id="61M21yhdnFZ" role="2XxRq1">
+                <ref role="3xOPvv" node="61M21yhdnFn" resolve="component2" />
               </node>
             </node>
           </node>
@@ -1793,9 +1991,6 @@
               <node concept="1XD08$" id="2dcS_OZqSpK" role="ICcUN" />
               <node concept="1hPHs5" id="2dcS_OZqSpL" role="THmaL" />
               <node concept="1XD0kl" id="2dcS_OZqSpM" role="1XPytU" />
-              <node concept="1XD0fq" id="~Result.Companion.failure&lt;1&gt;(Throwable).T" role="1XPbGx">
-                <property role="TrG5h" value="T" />
-              </node>
               <node concept="1XD0bi" id="~Result.Companion.failure&lt;1&gt;(Throwable).exception" role="1XbAXm">
                 <property role="TrG5h" value="exception" />
                 <node concept="1XD088" id="2dcS_OZqSpP" role="37iW8f">
@@ -1806,7 +2001,7 @@
                 <ref role="1SePDO" node="~kotlin/Result" resolve="Result" />
                 <node concept="1XD0kr" id="2dcS_OZqSpS" role="TPadX">
                   <node concept="9pJMI" id="2dcS_OZqSpR" role="1XD02C">
-                    <ref role="9pJMH" node="~Result.Companion.failure&lt;1&gt;(Throwable).T" resolve="T" />
+                    <ref role="9pJMH" node="62i6k5ZFuiy" resolve="T" />
                   </node>
                 </node>
               </node>
@@ -1830,6 +2025,9 @@
                   </node>
                 </node>
               </node>
+              <node concept="1XD0fq" id="62i6k5ZFuiy" role="1XPbGx">
+                <property role="TrG5h" value="T" />
+              </node>
             </node>
             <node concept="1XD0bz" id="~Result.Companion.success&lt;1&gt;(1)" role="KS$fE">
               <property role="TrG5h" value="success" />
@@ -1837,20 +2035,17 @@
               <node concept="1XD08$" id="2dcS_OZqSq3" role="ICcUN" />
               <node concept="1hPHs5" id="2dcS_OZqSq4" role="THmaL" />
               <node concept="1XD0kl" id="2dcS_OZqSq5" role="1XPytU" />
-              <node concept="1XD0fq" id="~Result.Companion.success&lt;1&gt;(1).T" role="1XPbGx">
-                <property role="TrG5h" value="T" />
-              </node>
               <node concept="1XD0bi" id="~Result.Companion.success&lt;1&gt;(1).value" role="1XbAXm">
                 <property role="TrG5h" value="value" />
                 <node concept="9pJMI" id="2dcS_OZqSq8" role="37iW8f">
-                  <ref role="9pJMH" node="~Result.Companion.success&lt;1&gt;(1).T" resolve="T" />
+                  <ref role="9pJMH" node="62i6k5ZFyFB" resolve="T" />
                 </node>
               </node>
               <node concept="1XD088" id="2dcS_OZqSq9" role="21NdcZ">
                 <ref role="1SePDO" node="~kotlin/Result" resolve="Result" />
                 <node concept="1XD0kr" id="2dcS_OZqSqb" role="TPadX">
                   <node concept="9pJMI" id="2dcS_OZqSqa" role="1XD02C">
-                    <ref role="9pJMH" node="~Result.Companion.success&lt;1&gt;(1).T" resolve="T" />
+                    <ref role="9pJMH" node="62i6k5ZFyFB" resolve="T" />
                   </node>
                 </node>
               </node>
@@ -1873,6 +2068,9 @@
                     </node>
                   </node>
                 </node>
+              </node>
+              <node concept="1XD0fq" id="62i6k5ZFyFB" role="1XPbGx">
+                <property role="TrG5h" value="T" />
               </node>
             </node>
           </node>
@@ -1977,6 +2175,48 @@
         <node concept="15s5l7" id="4VmoUSG16mt" role="lGtFl">
           <property role="1eyWvh" value="FLAVOUR_ISSUE_KIND=&quot;reference scopes (reference scopes)&quot;;FLAVOUR_MESSAGE=&quot;The reference  SinceKotlin (constructor) is out of search scope&quot;;FLAVOUR_NODE_FEATURE=&quot;constructor&quot;;FLAVOUR_RULE_ID=&quot;[r:133e8cac-c6ad-447f-a90c-5146ca3b1aed(jetbrains.mps.kotlin.constraints)/4929770680970670614]&quot;;" />
           <property role="huDt6" value="The reference  SinceKotlin (constructor) is out of search scope" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="61M21yhda4L" role="1SKRRt">
+      <node concept="1XD0fY" id="61M21yhdcoO" role="1qenE9">
+        <property role="TrG5h" value="arrayFunction" />
+        <node concept="eKYAL" id="61M21yhdcoQ" role="1XD0Tu" />
+        <node concept="1XD0bz" id="~#kotlin/Array&lt;0&gt;.component2&lt;1&gt;()" role="1XD0Tu">
+          <property role="TrG5h" value="component2" />
+          <node concept="1XD0l2" id="61M21yhc2ZO" role="2BPcuh" />
+          <node concept="1XD08$" id="61M21yhc2ZP" role="ICcUN" />
+          <node concept="1hPHs5" id="61M21yhc2ZQ" role="THmaL" />
+          <node concept="1XD0kn" id="61M21yhc2ZR" role="1XPytU" />
+          <node concept="1XD0kl" id="61M21yhc2ZS" role="1XPytU" />
+          <node concept="1XD0fq" id="~#kotlin/Array&lt;0&gt;.component2&lt;1&gt;().T" role="1XPbGx">
+            <property role="TrG5h" value="T" />
+          </node>
+          <node concept="1XD088" id="61M21yhc2ZU" role="39xbXa">
+            <ref role="1SePDO" to="0:~kotlin/Array" resolve="Array" />
+            <node concept="1XD0kr" id="61M21yhc2ZW" role="TPadX">
+              <property role="9uIGf" value="27wMicCAy8v/out" />
+              <node concept="9pJMI" id="61M21yhc2ZV" role="1XD02C">
+                <ref role="9pJMH" node="~#kotlin/Array&lt;0&gt;.component2&lt;1&gt;().T" resolve="T" />
+              </node>
+            </node>
+          </node>
+          <node concept="9pJMI" id="61M21yhc2ZX" role="21NdcZ">
+            <ref role="9pJMH" node="~#kotlin/Array&lt;0&gt;.component2&lt;1&gt;().T" resolve="T" />
+          </node>
+          <node concept="1XD0mC" id="61M21yhc2ZZ" role="36UvSs">
+            <node concept="3N2tND" id="61M21yhc2ZY" role="AqMKl">
+              <ref role="3N3xrh" to="iu4r:~kotlin/internal/InlineOnly" resolve="InlineOnly" />
+            </node>
+          </node>
+          <node concept="3xLA65" id="61M21yhdnFn" role="lGtFl">
+            <property role="TrG5h" value="component2" />
+          </node>
+        </node>
+        <node concept="eKYAL" id="61M21yhdcoS" role="1XD0Tu" />
+        <node concept="15s5l7" id="61M21yhdnFh" role="lGtFl">
+          <property role="1eyWvh" value="FLAVOUR_ISSUE_KIND=&quot;reference scopes (reference scopes)&quot;;FLAVOUR_MESSAGE=&quot;The reference  InlineOnly (constructor) is out of search scope&quot;;FLAVOUR_NODE_FEATURE=&quot;constructor&quot;;FLAVOUR_RULE_ID=&quot;[r:133e8cac-c6ad-447f-a90c-5146ca3b1aed(jetbrains.mps.kotlin.constraints)/4929770680970670614]&quot;;" />
+          <property role="huDt6" value="The reference  InlineOnly (constructor) is out of search scope" />
         </node>
       </node>
     </node>

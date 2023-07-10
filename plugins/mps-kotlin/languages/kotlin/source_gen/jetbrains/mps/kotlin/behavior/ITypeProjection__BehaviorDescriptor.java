@@ -30,7 +30,8 @@ public final class ITypeProjection__BehaviorDescriptor extends BaseBHDescriptor 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static SEnumerationLiteral getVarianceAfterSubstitution_id27wMicCGKaq(@NotNull SNode __thisNode__, SEnumerationLiteral input) {
+  @NotNull
+  /*package*/ static SEnumerationLiteral getVarianceAfterSubstitution_id27wMicCGKaq(@NotNull SNode __thisNode__, @NotNull SEnumerationLiteral input) {
     return input;
   }
 

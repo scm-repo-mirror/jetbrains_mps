@@ -7,7 +7,6 @@ import jetbrains.mps.lang.typesystem.runtime.NonTypesystemRule_Runtime;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
-import jetbrains.mps.kotlin.behavior.IInheritExplicitly__BehaviorDescriptor;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
@@ -18,16 +17,13 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 public class check_IInheritExplicitly_CircularReferences_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_IInheritExplicitly_CircularReferences_NonTypesystemRule() {
   }
-  public void applyRule(final SNode iInheritExplicitly, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    CircularDependenciesScanner scanner = new CircularDependenciesScanner();
-    IInheritExplicitly__BehaviorDescriptor.visitSuperTypes_id1WN66f3AYxj.invoke(iInheritExplicitly, scanner);
-
-    scanner.getCircularReference().ifPresent((circular) -> {
+  public void applyRule(final SNode node, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
+    if (new CircularDependenciesScanner(node).hasCircularReference()) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
-        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(iInheritExplicitly, "There's a cycle in the inheritance hierarchy for this type", "r:aff09eac-afd3-4057-bdd8-e02a572d1436(jetbrains.mps.kotlin.typesystem)", "685380225822696379", null, errorTarget);
+        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(node, "There's a cycle in the inheritance hierarchy for this type", "r:aff09eac-afd3-4057-bdd8-e02a572d1436(jetbrains.mps.kotlin.typesystem)", "685380225822696379", null, errorTarget);
       }
-    });
+    }
   }
   public SAbstractConcept getApplicableConcept() {
     return CONCEPTS.IInheritExplicitly$UG;

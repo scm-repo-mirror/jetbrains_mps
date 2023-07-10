@@ -15,12 +15,20 @@ import org.jetbrains.mps.openapi.language.SConcept;
  * Same as constructors scope but only include annotation classes
  */
 public class AnnotationConstructorsScope extends ConstructorsScope {
-  public AnnotationConstructorsScope(SNode contextNode) {
+  private final boolean myIsStubModel;
+
+  public AnnotationConstructorsScope(SNode contextNode, boolean isStubModel) {
     super(contextNode);
+    myIsStubModel = isStubModel;
   }
 
   @Override
   public boolean isExcluded(SNode node) {
+    // Stubs refer directly to class as a constructor, not to existing constructors
+    if (myIsStubModel) {
+      return false;
+    }
+
     return super.isExcluded(node) || !((boolean) IClassLike__BehaviorDescriptor.hasModifier_id2NtWm0y2Y2A.invoke(IConstructorDeclaration__BehaviorDescriptor.getConstructedClass_id7WpE6U5evQG.invoke(SNodeOperations.as(node, CONCEPTS.IConstructorDeclaration$rR)), CONCEPTS.AnnotationClassModifier$vN));
   }
 

@@ -9,7 +9,6 @@ import java.util.List;
 import kotlinx.metadata.internal.metadata.ProtoBuf;
 import kotlinx.metadata.internal.ReadContext;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import kotlinx.metadata.KmAnnotation;
 import kotlinx.metadata.internal.ReadUtilsKt;
 import org.jetbrains.annotations.NotNull;
 import kotlinx.metadata.KmClassVisitor;
@@ -48,25 +47,45 @@ import kotlinx.metadata.internal.extensions.KmTypeExtension;
 import kotlinx.metadata.internal.extensions.KmTypeAliasExtension;
 import kotlinx.metadata.internal.extensions.KmValueParameterExtension;
 
+/**
+ * Nightmare class containing everything necessary for the metadata extension point.
+ * 
+ * How to read annotations? - some info
+ * - Annotations are not part of the data loaded from the common protobuf definition (there are extensions used to read
+ * annotations)
+ * - Depending on the context (Jvm, KLib, builtins), protobuf field used may vary (this supports builtins)
+ * - When reading a protobuf object to be converted into KmXXXX objects, registered extensions are all read and stored
+ *   Example for Class:
+ *    - createClassExtension method is called for each registered extension point (returning empty objects so far)
+ *    - resulting objects are stored in some extensions arrays (at time of writing, private)
+ *    - readClassExtension is called with the protobuf data upon conversion to KmClass, since the object returned with
+ *      createClassExtension is provided there (disguised as a visitor), we can fill some data there
+ *    - calling visitExtension(AnnotationExtention) will retrieve the object (disguised as a visitor as well), which
+ *      allows to read the data
+ * 
+ * Visitor API is marked deprecated, so this may break at some point (with hopefully a better way to read extensions).
+ * This class is registered as an extension point in idea (using .service file).
+ */
 @GeneratedClass(node = "r:d76e16ee-a528-4ca0-b2d6-9eed9a9b1d1c(jetbrains.mps.kotlin.stubs.common.metadata)/2828244920254256256", model = "r:d76e16ee-a528-4ca0-b2d6-9eed9a9b1d1c(jetbrains.mps.kotlin.stubs.common.metadata)")
 public class AnnotationsMetadataExtensions implements MetadataExtensions {
+
   public <MessageType extends GeneratedMessageLite.ExtendableMessage> void readAnnotations(Object visitor, MessageType element, GeneratedMessageLite.GeneratedExtension<MessageType, List<ProtoBuf.Annotation>> extension, ReadContext context) {
-    if (!(visitor instanceof AnnotationVisitor)) {
+    AnnotationExtension actualVisitor = as_p8h4kj_a0a0a1(visitor, AnnotationExtension.class);
+    if (actualVisitor == null) {
       return;
     }
-    AnnotationVisitor annotationVisitor = ((AnnotationVisitor) visitor);
 
+    // TODO we could support JVM and KLib annotations there by having multiple extensions provided (one for jvm, one for klib, one for builtins)
     List<ProtoBuf.Annotation> annotations = (List<ProtoBuf.Annotation>) element.getExtension(extension);
     for (ProtoBuf.Annotation annotation : ListSequence.fromList(annotations)) {
-      KmAnnotation readAnnotation = ReadUtilsKt.readAnnotation(annotation, context.getStrings());
-      annotationVisitor.visitAnnotation(readAnnotation);
+      actualVisitor.addAnnotations(ReadUtilsKt.readAnnotation(annotation, context.getStrings()));
     }
   }
 
   @Override
   public void readClassExtensions(@NotNull KmClassVisitor visitor, @NotNull ProtoBuf.Class aClass, @NotNull ReadContext context) {
     if (Flags.HAS_ANNOTATIONS.get(aClass.getFlags())) {
-      readAnnotations(visitor.visitExtensions(AnnotationVisitor.type), aClass, BuiltInsProtoBuf.classAnnotation, context);
+      readAnnotations(visitor.visitExtensions(AnnotationExtension.type), aClass, BuiltInsProtoBuf.classAnnotation, context);
     }
   }
 
@@ -81,28 +100,28 @@ public class AnnotationsMetadataExtensions implements MetadataExtensions {
   @Override
   public void readFunctionExtensions(@NotNull KmFunctionVisitor visitor, @NotNull ProtoBuf.Function function, @NotNull ReadContext context) {
     if (Flags.HAS_ANNOTATIONS.get(function.getFlags())) {
-      readAnnotations(visitor.visitExtensions(AnnotationVisitor.type), function, BuiltInsProtoBuf.functionAnnotation, context);
+      readAnnotations(visitor.visitExtensions(AnnotationExtension.type), function, BuiltInsProtoBuf.functionAnnotation, context);
     }
   }
   @Override
   public void readPropertyExtensions(@NotNull KmPropertyVisitor visitor, @NotNull ProtoBuf.Property property, @NotNull ReadContext context) {
     if (Flags.HAS_ANNOTATIONS.get(property.getFlags())) {
-      readAnnotations(visitor.visitExtensions(AnnotationVisitor.type), property, BuiltInsProtoBuf.propertyAnnotation, context);
+      readAnnotations(visitor.visitExtensions(AnnotationExtension.type), property, BuiltInsProtoBuf.propertyAnnotation, context);
     }
   }
   @Override
   public void readConstructorExtensions(@NotNull KmConstructorVisitor visitor, @NotNull ProtoBuf.Constructor constructor, @NotNull ReadContext context) {
     if (Flags.HAS_ANNOTATIONS.get(constructor.getFlags())) {
-      readAnnotations(visitor.visitExtensions(AnnotationVisitor.type), constructor, BuiltInsProtoBuf.constructorAnnotation, context);
+      readAnnotations(visitor.visitExtensions(AnnotationExtension.type), constructor, BuiltInsProtoBuf.constructorAnnotation, context);
     }
   }
   @Override
   public void readTypeParameterExtensions(@NotNull KmTypeParameterVisitor visitor, @NotNull ProtoBuf.TypeParameter parameter, @NotNull ReadContext context) {
-    readAnnotations(visitor.visitExtensions(AnnotationVisitor.type), parameter, BuiltInsProtoBuf.typeParameterAnnotation, context);
+    readAnnotations(visitor.visitExtensions(AnnotationExtension.type), parameter, BuiltInsProtoBuf.typeParameterAnnotation, context);
   }
   @Override
   public void readTypeExtensions(@NotNull KmTypeVisitor visitor, @NotNull ProtoBuf.Type type, @NotNull ReadContext context) {
-    readAnnotations(visitor.visitExtensions(AnnotationVisitor.type), type, BuiltInsProtoBuf.typeAnnotation, context);
+    readAnnotations(visitor.visitExtensions(AnnotationExtension.type), type, BuiltInsProtoBuf.typeAnnotation, context);
   }
   @Override
   public void readTypeAliasExtensions(@NotNull KmTypeAliasVisitor visitor, @NotNull ProtoBuf.TypeAlias alias, @NotNull ReadContext context) {
@@ -111,7 +130,7 @@ public class AnnotationsMetadataExtensions implements MetadataExtensions {
   @Override
   public void readValueParameterExtensions(@NotNull KmValueParameterVisitor visitor, @NotNull ProtoBuf.ValueParameter parameter, @NotNull ReadContext context) {
     if (Flags.HAS_ANNOTATIONS.get(parameter.getFlags())) {
-      readAnnotations(visitor.visitExtensions(AnnotationVisitor.type), parameter, BuiltInsProtoBuf.parameterAnnotation, context);
+      readAnnotations(visitor.visitExtensions(AnnotationExtension.type), parameter, BuiltInsProtoBuf.parameterAnnotation, context);
     }
   }
 
@@ -165,54 +184,145 @@ public class AnnotationsMetadataExtensions implements MetadataExtensions {
   public KmValueParameterExtensionVisitor writeValueParameterExtensions(@NotNull KmExtensionType type, @NotNull ProtoBuf.ValueParameter.Builder builder, @NotNull WriteContext context) {
     return null;
   }
+
+  public class AnnotationClassExtentionVisitor extends AnnotationExtension implements KmClassExtensionVisitor {
+  }
+  public class AnnotationClassExtention extends AnnotationClassExtentionVisitor implements KmClassExtension {
+    public void accept(@NotNull KmClassExtensionVisitor visitor) {
+      if (visitor instanceof AnnotationClassExtentionVisitor) {
+        ListSequence.fromList(((AnnotationClassExtentionVisitor) visitor).getAnnotations()).addSequence(ListSequence.fromList(getAnnotations()));
+      }
+    }
+  }
   @NotNull
   @Override
   public KmClassExtension createClassExtension() {
-    return null;
+    return new AnnotationClassExtention();
   }
+
   @NotNull
   @Override
   public KmPackageExtension createPackageExtension() {
-    return null;
+    // Not used here
+    return new KmPackageExtension() {
+      public KmExtensionType getType() {
+        return AnnotationExtension.type;
+      }
+      public void accept(@NotNull KmPackageExtensionVisitor visitor) {
+      }
+    };
   }
+
   @NotNull
   @Override
   public KmModuleFragmentExtension createModuleFragmentExtensions() {
-    return null;
+    // Not used here
+    return new KmModuleFragmentExtension() {
+      public KmExtensionType getType() {
+        return AnnotationExtension.type;
+      }
+      @Override
+      public void accept(@NotNull KmModuleFragmentExtensionVisitor visitor) {
+      }
+    };
+  }
+
+  public class AnnotationFunctionExtentionVisitor extends AnnotationExtension implements KmFunctionExtensionVisitor {
+  }
+  public class AnnotationFunctionExtention extends AnnotationFunctionExtentionVisitor implements KmFunctionExtension {
+    public void accept(@NotNull KmFunctionExtensionVisitor visitor) {
+      if (visitor instanceof AnnotationFunctionExtentionVisitor) {
+        ListSequence.fromList(((AnnotationFunctionExtentionVisitor) visitor).getAnnotations()).addSequence(ListSequence.fromList(getAnnotations()));
+      }
+    }
   }
   @NotNull
   @Override
   public KmFunctionExtension createFunctionExtension() {
-    return null;
+    return new AnnotationFunctionExtention();
+  }
+
+  public class AnnotationPropertyExtentionVisitor extends AnnotationExtension implements KmPropertyExtensionVisitor {
+  }
+  public class AnnotationPropertyExtention extends AnnotationPropertyExtentionVisitor implements KmPropertyExtension {
+    public void accept(@NotNull KmPropertyExtensionVisitor visitor) {
+      if (visitor instanceof AnnotationPropertyExtentionVisitor) {
+        ListSequence.fromList(((AnnotationPropertyExtentionVisitor) visitor).getAnnotations()).addSequence(ListSequence.fromList(getAnnotations()));
+      }
+    }
   }
   @NotNull
   @Override
   public KmPropertyExtension createPropertyExtension() {
-    return null;
+    return new AnnotationPropertyExtention();
+  }
+
+  public class AnnotationConstructorExtentionVisitor extends AnnotationExtension implements KmConstructorExtensionVisitor {
+  }
+  public class AnnotationConstructorExtention extends AnnotationConstructorExtentionVisitor implements KmConstructorExtension {
+    public void accept(@NotNull KmConstructorExtensionVisitor visitor) {
+      if (visitor instanceof AnnotationConstructorExtentionVisitor) {
+        ListSequence.fromList(((AnnotationConstructorExtentionVisitor) visitor).getAnnotations()).addSequence(ListSequence.fromList(getAnnotations()));
+      }
+    }
   }
   @NotNull
   @Override
   public KmConstructorExtension createConstructorExtension() {
-    return null;
+    return new AnnotationConstructorExtention();
+  }
+
+  public class AnnotationTypeParameterExtentionVisitor extends AnnotationExtension implements KmTypeParameterExtensionVisitor {
+  }
+  public class AnnotationTypeParameterExtention extends AnnotationTypeParameterExtentionVisitor implements KmTypeParameterExtension {
+    public void accept(@NotNull KmTypeParameterExtensionVisitor visitor) {
+      if (visitor instanceof AnnotationTypeParameterExtentionVisitor) {
+        ListSequence.fromList(((AnnotationTypeParameterExtentionVisitor) visitor).getAnnotations()).addSequence(ListSequence.fromList(getAnnotations()));
+      }
+    }
   }
   @NotNull
   @Override
   public KmTypeParameterExtension createTypeParameterExtension() {
-    return null;
+    return new AnnotationTypeParameterExtention();
+  }
+
+  public class AnnotationTypeExtentionVisitor extends AnnotationExtension implements KmTypeExtensionVisitor {
+  }
+  public class AnnotationTypeExtention extends AnnotationTypeExtentionVisitor implements KmTypeExtension {
+    public void accept(@NotNull KmTypeExtensionVisitor visitor) {
+      if (visitor instanceof AnnotationTypeExtentionVisitor) {
+        ListSequence.fromList(((AnnotationTypeExtentionVisitor) visitor).getAnnotations()).addSequence(ListSequence.fromList(getAnnotations()));
+      }
+    }
   }
   @NotNull
   @Override
   public KmTypeExtension createTypeExtension() {
-    return null;
+    return new AnnotationTypeExtention();
   }
+
   @Nullable
   @Override
   public KmTypeAliasExtension createTypeAliasExtension() {
     return null;
   }
+
+  public class AnnotationValueParameterExtentionVisitor extends AnnotationExtension implements KmValueParameterExtensionVisitor {
+  }
+  public class AnnotationValueParameterExtention extends AnnotationValueParameterExtentionVisitor implements KmValueParameterExtension {
+    public void accept(@NotNull KmValueParameterExtensionVisitor visitor) {
+      if (visitor instanceof AnnotationValueParameterExtentionVisitor) {
+        ListSequence.fromList(((AnnotationValueParameterExtentionVisitor) visitor).getAnnotations()).addSequence(ListSequence.fromList(getAnnotations()));
+      }
+    }
+  }
   @Nullable
   @Override
   public KmValueParameterExtension createValueParameterExtension() {
-    return null;
+    return new AnnotationValueParameterExtention();
+  }
+  private static <T> T as_p8h4kj_a0a0a1(Object o, Class<T> type) {
+    return (type.isInstance(o) ? (T) o : null);
   }
 }

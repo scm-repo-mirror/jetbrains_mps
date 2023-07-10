@@ -5,6 +5,7 @@ package jetbrains.mps.kotlin.stubs.common;
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.kotlin.stubs.common.metadata.VisitorContext;
 import java.util.StringJoiner;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
 
 /**
@@ -19,9 +20,8 @@ public class FunctionIdBuilder {
   protected final String myName;
   protected final String myHolderFqName;
   protected String functionFqName;
-  protected int typeParameterCount = 0;
   protected final StringJoiner parameters = new StringJoiner(",");
-  protected final TypeParameterIdSection typeParameters = new TypeParameterIdSection();
+  protected TypeParameterIdSection typeParameters = null;
 
   public FunctionIdBuilder(VisitorContext ctx, String prefixedName, String holder) {
     context = ctx;
@@ -34,9 +34,8 @@ public class FunctionIdBuilder {
     functionFqName = myHolderFqName + "#" + context.packageLocalName(receiver) + myName;
   }
 
-  public void addTypeParameter(String bound) {
-    typeParameterCount++;
-    typeParameters.add(bound);
+  public void setTypeParameters(@Nullable TypeParameterIdSection typeParameters) {
+    this.typeParameters = typeParameters;
   }
 
   public void addArgument(String argumentId) {
@@ -45,13 +44,15 @@ public class FunctionIdBuilder {
 
   public String build(boolean enfoceShortNotation) {
     StringBuilder builder = new StringBuilder(functionFqName);
-    builder.append(typeParameters.toString(enfoceShortNotation));
+    if (typeParameters != null) {
+      builder.append(typeParameters.toString(enfoceShortNotation));
+    }
     builder.append("(").append(parameters.toString()).append(")");
     return builder.toString();
   }
 
   public void applyOn(SNode node) {
-    if (typeParameters.hasNonAnyBounds()) {
+    if (typeParameters != null && typeParameters.hasNonAnyBounds()) {
       String fullId = build(false);
       context.setId(node, fullId, new KtFunctionNodeId(KtFunctionNodeId.ID_PREFIX + fullId));
       return;

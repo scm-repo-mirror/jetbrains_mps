@@ -5,10 +5,9 @@ package jetbrains.mps.kotlin.stubs.jvmStubs;
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.kotlin.stubs.common.KotlinStubModelDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.logging.Logger;
-import java.util.Collection;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import jetbrains.mps.extapi.persistence.FolderSetDataSource;
+import java.util.Collection;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
@@ -18,22 +17,20 @@ import jetbrains.mps.kotlin.stubs.common.references.KotlinJvmReferenceSolver;
 import kotlinx.metadata.jvm.KotlinClassHeader;
 import jetbrains.mps.kotlin.stubs.common.metadata.VisitorContext;
 import kotlinx.metadata.jvm.KotlinClassMetadata;
-import java.util.concurrent.atomic.AtomicReference;
-import jetbrains.mps.kotlin.stubs.common.metadata.ClassVisitor;
+import jetbrains.mps.kotlin.stubs.common.metadata.KtClassParser;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.kotlin.stubs.common.metadata.ModuleVisitor;
-import kotlinx.metadata.KmPackageVisitor;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.kotlin.stubs.common.metadata.KtModuleParser;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.SModel;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 @GeneratedClass(node = "r:bdaa2532-d0d0-46ce-8145-d47be9b807a4(jetbrains.mps.kotlin.stubs.jvmStubs)/2728382324535686216", model = "r:bdaa2532-d0d0-46ce-8145-d47be9b807a4(jetbrains.mps.kotlin.stubs.jvmStubs)")
 public class KotlinJvmStubModelDescriptor extends KotlinStubModelDescriptor<SNode> {
-  private static final Logger LOG = Logger.getLogger(KotlinJvmStubModelDescriptor.class);
-  private Collection<SModelReference> myImportsToAdd = null;
-
   public KotlinJvmStubModelDescriptor(SModelReference modelReference, FolderSetDataSource source) {
     super(modelReference, source);
   }
@@ -63,20 +60,18 @@ public class KotlinJvmStubModelDescriptor extends KotlinStubModelDescriptor<SNod
         return KotlinMetadataLazyExtractor.createKotlinRootNode(metadata, file);
       } else if (metadata instanceof KotlinClassMetadata.Class) {
         // Class file
-        final AtomicReference<SNode> klass = new AtomicReference<SNode>();
-        ((KotlinClassMetadata.Class) metadata).accept(new ClassVisitor(context, true, (newValue) -> klass.set(newValue)));
-        return klass.get();
+        return KtClassParser.parseClass(((KotlinClassMetadata.Class) metadata).toKmClass(), context, true);
 
       } else if (metadata instanceof KotlinClassMetadata.FileFacade) {
         // Create file
         SNode ktFile = SNodeOperations.as(KotlinMetadataLazyExtractor.createKotlinRootNode(metadata, file), CONCEPTS.KotlinFile$4h);
-        ((KotlinClassMetadata.FileFacade) metadata).accept(new ModuleVisitor(ktFile, context).visitPackage());
+
+        ListSequence.fromList(SLinkOperations.getChildren(ktFile, LINKS.declarations$NgHw)).addSequence(ListSequence.fromList(KtModuleParser.parseDeclarations(((KotlinClassMetadata.FileFacade) metadata).toKmPackage(), context.getPackageName(), context)));
+
         return ktFile;
       } else if (metadata instanceof KotlinClassMetadata.MultiFileClassFacade) {
         // Aggregate all facade parts under a single file
-        SNode ktFile = SNodeOperations.as(KotlinMetadataLazyExtractor.createKotlinRootNode(metadata, file), CONCEPTS.KotlinFile$4h);
-        final KmPackageVisitor visitor = new ModuleVisitor(ktFile, context).visitPackage();
-
+        final SNode ktFile = SNodeOperations.as(KotlinMetadataLazyExtractor.createKotlinRootNode(metadata, file), CONCEPTS.KotlinFile$4h);
         ((KotlinClassMetadata.MultiFileClassFacade) metadata).getPartClassNames().forEach(new Consumer<String>() {
           public void accept(String fileName) {
             IFile subfile = file.getParent().findChild(fileName.substring(fileName.lastIndexOf("/") + 1) + ".class");
@@ -85,10 +80,9 @@ public class KotlinJvmStubModelDescriptor extends KotlinStubModelDescriptor<SNod
               KotlinClassHeader kotlinData = KotlinMetadataLazyExtractor.getKotlinData(loader, context.getPackageName().replace("/", "."));
 
               if (kotlinData != null) {
-                KotlinClassMetadata metadata = KotlinClassMetadata.read(kotlinData);
+                KotlinClassMetadata.MultiFileClassPart part = as_sluuth_a0a0a3a1a0a0a0a2a2d0f0g(KotlinClassMetadata.read(kotlinData), KotlinClassMetadata.MultiFileClassPart.class);
 
-                assert metadata instanceof KotlinClassMetadata.MultiFileClassPart;
-                ((KotlinClassMetadata.MultiFileClassPart) metadata).accept(visitor);
+                ListSequence.fromList(SLinkOperations.getChildren(ktFile, LINKS.declarations$NgHw)).addSequence(ListSequence.fromList(KtModuleParser.parseDeclarations(part.toKmPackage(), context.getPackageName(), context)));
               }
             }
           }
@@ -127,8 +121,15 @@ public class KotlinJvmStubModelDescriptor extends KotlinStubModelDescriptor<SNod
 
     return refFactory.getImports();
   }
+  private static <T> T as_sluuth_a0a0a3a1a0a0a0a2a2d0f0g(Object o, Class<T> type) {
+    return (type.isInstance(o) ? (T) o : null);
+  }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept KotlinFile$4h = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af529L, "jetbrains.mps.kotlin.structure.KotlinFile");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink declarations$NgHw = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af529L, 0x28bef6d7551af889L, "declarations");
   }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="-4oge1rg90nrcd43d3uaj46jy2bh8xor">
-  <files names="JvmStubsLoading_Test.java" />
+<product version="3" modelHash="-2b1v6r8dofqfaowska0n5sqnj1tpw3x">
+  <files names="FunctionTypeReceiverLoading_Test.java:JvmStubsLoading_Test.java:StubSamplesLoading_Test.java" />
 </product>
 

@@ -77,6 +77,11 @@ public final class FunctionType__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static String toString_id4nn3FPlZH$r(@NotNull SNode __thisNode__, final boolean erased) {
     StringBuilder builder = new StringBuilder();
+    // TODO supported in kotlin, not in jvm erased signatures
+    if (SPropertyOperations.getBoolean(__thisNode__, PROPS.isNullable$KWwD)) {
+      builder.append("(");
+    }
+
     if (SPropertyOperations.getBoolean(__thisNode__, PROPS.isSuspend$O_58)) {
       builder.append("suspend ");
     }
@@ -95,7 +100,7 @@ public final class FunctionType__BehaviorDescriptor extends BaseBHDescriptor {
 
     // TODO supported in kotlin, not in jvm erased signatures
     if (SPropertyOperations.getBoolean(__thisNode__, PROPS.isNullable$KWwD)) {
-      builder.append("?");
+      builder.append(")?");
     }
 
     return builder.toString();
@@ -190,7 +195,7 @@ public final class FunctionType__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty isSuspend$O_58 = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af37dL, 0x5ed2c2ae17f045e9L, "isSuspend");
     /*package*/ static final SProperty isNullable$KWwD = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af542L, 0x56840864ad823b96L, "isNullable");
+    /*package*/ static final SProperty isSuspend$O_58 = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af37dL, 0x5ed2c2ae17f045e9L, "isSuspend");
   }
 }

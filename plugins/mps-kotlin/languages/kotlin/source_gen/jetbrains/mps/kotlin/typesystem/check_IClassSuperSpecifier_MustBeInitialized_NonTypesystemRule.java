@@ -7,9 +7,10 @@ import jetbrains.mps.lang.typesystem.runtime.NonTypesystemRule_Runtime;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
+import jetbrains.mps.smodel.SModelStereotype;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.kotlin.behavior.ISuperTypeSpecifier__BehaviorDescriptor;
 import jetbrains.mps.kotlin.behavior.IInheritExplicitly__BehaviorDescriptor;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
@@ -22,6 +23,10 @@ public class check_IClassSuperSpecifier_MustBeInitialized_NonTypesystemRule exte
   public check_IClassSuperSpecifier_MustBeInitialized_NonTypesystemRule() {
   }
   public void applyRule(final SNode specifier, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
+    if (SModelStereotype.isStubModel(SNodeOperations.getModel(specifier))) {
+      return;
+    }
+
     // Only if primary constructor is set
     if ((boolean) ISuperTypeSpecifier__BehaviorDescriptor.isClass_id1$jFvlEiPXX.invoke(specifier) && (boolean) IInheritExplicitly__BehaviorDescriptor.hasPrimaryConstructor_id1$jFvlEi5P5.invoke(SNodeOperations.as(SNodeOperations.getParent(specifier), CONCEPTS.IInheritExplicitly$UG))) {
       {

@@ -55,6 +55,9 @@
       <concept id="7358760241248942182" name="jetbrains.mps.kotlin.structure.Comment" flags="ng" index="gXE$l">
         <child id="7358760241248948562" name="lines" index="gXG0x" />
       </concept>
+      <concept id="183384254773978485" name="jetbrains.mps.kotlin.structure.NullableType" flags="ng" index="hI6pR">
+        <child id="183384254773980948" name="type" index="hI6Km" />
+      </concept>
       <concept id="781120894705658104" name="jetbrains.mps.kotlin.structure.IKotlinFile" flags="ng" index="2_hZ6C">
         <child id="2936055411798374534" name="fileAnnotations" index="1XD0Th" />
       </concept>
@@ -84,11 +87,18 @@
       <concept id="7960033071994915322" name="jetbrains.mps.kotlin.structure.IAnnotated" flags="ng" index="36UvSt">
         <child id="7960033071994915323" name="annotations" index="36UvSs" />
       </concept>
+      <concept id="7188675108981477346" name="jetbrains.mps.kotlin.structure.Parameter" flags="ng" index="37iW8e">
+        <child id="7188675108981477347" name="type" index="37iW8f" />
+      </concept>
       <concept id="4929770680970628281" name="jetbrains.mps.kotlin.structure.Annotation" flags="ng" index="3N2tND">
         <reference id="4929770680970643073" name="constructor" index="3N3xrh" />
       </concept>
+      <concept id="4662566628538083705" name="jetbrains.mps.kotlin.structure.FunctionCallExpression" flags="ng" index="1NbEFs" />
       <concept id="6664176324866782072" name="jetbrains.mps.kotlin.structure.IClassReference" flags="ng" index="1SePDR">
         <reference id="6664176324866782075" name="class" index="1SePDO" />
+      </concept>
+      <concept id="2936055411806083456" name="jetbrains.mps.kotlin.structure.IFunctionParameters" flags="ng" index="1XbAXn">
+        <child id="2936055411806083457" name="parameters" index="1XbAXm" />
       </concept>
       <concept id="2936055411798373599" name="jetbrains.mps.kotlin.structure.ClassType" flags="ng" index="1XD088" />
       <concept id="2936055411798373622" name="jetbrains.mps.kotlin.structure.ConstructorSuperSpecifier" flags="ng" index="1XD08x">
@@ -105,8 +115,15 @@
       <concept id="2936055411798373481" name="jetbrains.mps.kotlin.structure.ClassDeclaration" flags="ng" index="1XD0aY">
         <child id="2936055411798374242" name="modifier" index="1XD06P" />
       </concept>
+      <concept id="2936055411798373381" name="jetbrains.mps.kotlin.structure.FunctionParameter" flags="ng" index="1XD0bi" />
       <concept id="2936055411798373385" name="jetbrains.mps.kotlin.structure.AnnotationClassModifier" flags="ng" index="1XD0bu" />
-      <concept id="2936055411798373428" name="jetbrains.mps.kotlin.structure.FunctionDeclaration" flags="ng" index="1XD0bz" />
+      <concept id="2936055411798373428" name="jetbrains.mps.kotlin.structure.FunctionDeclaration" flags="ng" index="1XD0bz">
+        <property id="4908873499999643325" name="isOverride" index="3qOnjd" />
+        <child id="2936055411803476397" name="modifiers" index="1XPytU" />
+      </concept>
+      <concept id="2936055411798373439" name="jetbrains.mps.kotlin.structure.AbstractFunctionCall" flags="ng" index="1XD0bC">
+        <reference id="1991556721072067817" name="function" index="AarEw" />
+      </concept>
       <concept id="2936055411798373697" name="jetbrains.mps.kotlin.structure.ReceiverType" flags="ng" index="1XD0em">
         <child id="2936055411798374592" name="type" index="1XD0Sn" />
       </concept>
@@ -125,6 +142,7 @@
       <concept id="2936055411798373328" name="jetbrains.mps.kotlin.structure.IntegerLiteral" flags="ng" index="1XD0k7">
         <property id="2936055411798374019" name="value" index="1XD01k" />
       </concept>
+      <concept id="2936055411798373312" name="jetbrains.mps.kotlin.structure.OperatorFunctionModifier" flags="ng" index="1XD0kn" />
       <concept id="2936055411798373367" name="jetbrains.mps.kotlin.structure.SetUseSiteTarget" flags="ng" index="1XD0kw" />
       <concept id="2936055411798373366" name="jetbrains.mps.kotlin.structure.GetUseSiteTarget" flags="ng" index="1XD0kx" />
       <concept id="2936055411798373365" name="jetbrains.mps.kotlin.structure.PropertyUseSiteTarget" flags="ng" index="1XD0ky" />
@@ -139,6 +157,9 @@
       <concept id="2936055411798373247" name="jetbrains.mps.kotlin.structure.AnnotationList" flags="ng" index="1XD0mC">
         <child id="1991556721076093531" name="target" index="AqMKi" />
         <child id="1991556721076093532" name="annotations" index="AqMKl" />
+      </concept>
+      <concept id="2936055411798373245" name="jetbrains.mps.kotlin.structure.FunctionType" flags="ng" index="1XD0mE">
+        <child id="2936055411798373905" name="returnType" index="1XD036" />
       </concept>
       <concept id="2936055411798373223" name="jetbrains.mps.kotlin.structure.PropertyDefaultAssignement" flags="ng" index="1XD0mK">
         <child id="2936055411798373866" name="expression" index="1XD0cX" />
@@ -1185,6 +1206,266 @@
         </node>
         <node concept="7CXmI" id="A2XqWwkEKA" role="lGtFl">
           <node concept="7OXhh" id="A2XqWwkELH" role="7EUXB">
+            <property role="GvXf4" value="true" />
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="1lH9Xt" id="41oFOFuWGXF">
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
+    <property role="TrG5h" value="SignatureInheritance" />
+    <node concept="1qefOq" id="41oFOFuWGXG" role="1SKRRt">
+      <node concept="1XD0fY" id="41oFOFuWGXK" role="1qenE9">
+        <property role="TrG5h" value="myfile" />
+        <node concept="eKYAL" id="41oFOFuWGXM" role="1XD0Tu" />
+        <node concept="gXE$l" id="41oFOFuWHpx" role="1XD0Tu">
+          <node concept="1PaTwC" id="41oFOFuWHpz" role="gXG0x">
+            <node concept="3oM_SD" id="41oFOFuWHqt" role="1PaTwD">
+              <property role="3oM_SC" value="Test" />
+            </node>
+            <node concept="3oM_SD" id="41oFOFuWHqv" role="1PaTwD">
+              <property role="3oM_SC" value="proper" />
+            </node>
+            <node concept="3oM_SD" id="41oFOFuWHqy" role="1PaTwD">
+              <property role="3oM_SC" value="loading" />
+            </node>
+            <node concept="3oM_SD" id="41oFOFuWHqA" role="1PaTwD">
+              <property role="3oM_SC" value="of" />
+            </node>
+            <node concept="3oM_SD" id="41oFOFuWHqF" role="1PaTwD">
+              <property role="3oM_SC" value="hierarchy" />
+            </node>
+            <node concept="3oM_SD" id="41oFOFuWHqL" role="1PaTwD">
+              <property role="3oM_SC" value="and" />
+            </node>
+            <node concept="3oM_SD" id="41oFOFuWHqS" role="1PaTwD">
+              <property role="3oM_SC" value="signature" />
+            </node>
+            <node concept="3oM_SD" id="41oFOFuWHr0" role="1PaTwD">
+              <property role="3oM_SC" value="building" />
+            </node>
+          </node>
+        </node>
+        <node concept="1XD0aY" id="41oFOFuWHcX" role="1XD0Tu">
+          <property role="TrG5h" value="Class1" />
+          <node concept="1XD0bz" id="41oFOFuWHcY" role="KS$fE">
+            <property role="TrG5h" value="equals" />
+            <property role="3qOnjd" value="true" />
+            <node concept="1XD0bi" id="41oFOFuWHcZ" role="1XbAXm">
+              <property role="TrG5h" value="other" />
+              <node concept="hI6pR" id="41oFOFuWHd0" role="37iW8f">
+                <node concept="1XD088" id="41oFOFuWHd1" role="hI6Km">
+                  <ref role="1SePDO" to="0:~kotlin/Any" resolve="Any" />
+                </node>
+              </node>
+            </node>
+            <node concept="1NbEFs" id="41oFOFuWHd2" role="THmaL">
+              <ref role="AarEw" to="0:~.TODO()" resolve="TODO" />
+            </node>
+            <node concept="1XD0kn" id="41oFOFuWHd3" role="1XPytU" />
+          </node>
+        </node>
+        <node concept="eKYAL" id="41oFOFuWHkY" role="1XD0Tu" />
+        <node concept="1XD0aY" id="1qppQtOYBdd" role="1XD0Tu">
+          <property role="TrG5h" value="Class2" />
+          <node concept="1XD0bz" id="41oFOFuWH4h" role="KS$fE">
+            <property role="TrG5h" value="equals" />
+            <property role="3qOnjd" value="true" />
+            <node concept="1XD0bi" id="41oFOFuWH4i" role="1XbAXm">
+              <property role="TrG5h" value="other" />
+              <node concept="1XD088" id="41oFOFuWH4j" role="37iW8f">
+                <ref role="1SePDO" to="0:~kotlin/Any" resolve="Any" />
+              </node>
+            </node>
+            <node concept="1NbEFs" id="41oFOFuWH4k" role="THmaL">
+              <ref role="AarEw" to="0:~.TODO()" resolve="TODO" />
+            </node>
+            <node concept="1XD0kn" id="41oFOFuWH4l" role="1XPytU" />
+            <node concept="7CXmI" id="41oFOFuWHi6" role="lGtFl">
+              <node concept="1TM$A" id="41oFOFuWHiJ" role="7EUXB">
+                <node concept="2PYRI3" id="41oFOFuWHiK" role="3lydEf">
+                  <ref role="39XzEq" to="lrl3:$q1KckZojn" />
+                </node>
+                <node concept="1DMPye" id="41oFOFuWHiL" role="1DMPz9">
+                  <property role="1DMPyf" value="Error: 'equals(Any)' overrides nothing" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="eKYAL" id="41oFOFuWHk6" role="1XD0Tu" />
+        <node concept="1XD0aY" id="41oFOFuWHeL" role="1XD0Tu">
+          <property role="TrG5h" value="Class3" />
+          <node concept="1XD0bz" id="41oFOFuWHeM" role="KS$fE">
+            <property role="TrG5h" value="equals" />
+            <node concept="1XD0bi" id="41oFOFuWHeN" role="1XbAXm">
+              <property role="TrG5h" value="other" />
+              <node concept="hI6pR" id="41oFOFuWHeO" role="37iW8f">
+                <node concept="1XD088" id="41oFOFuWHeP" role="hI6Km">
+                  <ref role="1SePDO" to="0:~kotlin/Any" resolve="Any" />
+                </node>
+              </node>
+            </node>
+            <node concept="1NbEFs" id="41oFOFuWHeQ" role="THmaL">
+              <ref role="AarEw" to="0:~.TODO()" resolve="TODO" />
+            </node>
+            <node concept="1XD0kn" id="41oFOFuWHeR" role="1XPytU" />
+            <node concept="7CXmI" id="41oFOFuWHj5" role="lGtFl">
+              <node concept="1TM$A" id="41oFOFuWHjI" role="7EUXB">
+                <node concept="2PYRI3" id="41oFOFuWHjJ" role="3lydEf">
+                  <ref role="39XzEq" to="lrl3:$q1Kcl0pSd" />
+                </node>
+                <node concept="1DMPye" id="41oFOFuWHjK" role="1DMPz9">
+                  <property role="1DMPyf" value="Error: 'equals(Any?)' hides member of supertype and needs 'override' modifier" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="eKYAL" id="41oFOFuWHr9" role="1XD0Tu" />
+        <node concept="1XXB1C" id="41oFOFuWH$t" role="1XD0Tu">
+          <property role="TrG5h" value="ExpectFunction" />
+          <node concept="1XD0bz" id="41oFOFuWH_S" role="KS$fE">
+            <property role="TrG5h" value="expect" />
+            <node concept="1XD0bi" id="41oFOFuWH_Z" role="1XbAXm">
+              <property role="TrG5h" value="func" />
+              <node concept="hI6pR" id="41oFOFuWHCs" role="37iW8f">
+                <node concept="1XD0mE" id="41oFOFuWHA8" role="hI6Km">
+                  <node concept="1XD088" id="41oFOFuWHAj" role="1XD036">
+                    <ref role="1SePDO" to="0:~kotlin/Int" resolve="Int" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1XD0aY" id="41oFOFuWHDY" role="1XD0Tu">
+          <property role="TrG5h" value="Class4" />
+          <node concept="1XD0bz" id="41oFOFuWHFw" role="KS$fE">
+            <property role="TrG5h" value="expect" />
+            <property role="3qOnjd" value="true" />
+            <node concept="1XD0bi" id="41oFOFuWHFx" role="1XbAXm">
+              <property role="TrG5h" value="func" />
+              <node concept="hI6pR" id="41oFOFuWHFy" role="37iW8f">
+                <node concept="1XD0mE" id="41oFOFuWHFz" role="hI6Km">
+                  <node concept="1XD088" id="41oFOFuWHF$" role="1XD036">
+                    <ref role="1SePDO" to="0:~kotlin/Int" resolve="Int" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="KYwOn" id="41oFOFuWHH9" role="AST3G">
+            <ref role="KYwOm" node="41oFOFuWH$t" resolve="ExpectFunction" />
+          </node>
+        </node>
+        <node concept="1XD0aY" id="41oFOFuWHIe" role="1XD0Tu">
+          <property role="TrG5h" value="Class5" />
+          <node concept="gXE$l" id="41oFOFuWHLR" role="KS$fE">
+            <node concept="1PaTwC" id="41oFOFuWHLT" role="gXG0x">
+              <node concept="3oM_SD" id="41oFOFuWHMg" role="1PaTwD">
+                <property role="3oM_SC" value="This" />
+              </node>
+              <node concept="3oM_SD" id="41oFOFuWHMp" role="1PaTwD">
+                <property role="3oM_SC" value="ensures" />
+              </node>
+              <node concept="3oM_SD" id="41oFOFuWHM_" role="1PaTwD">
+                <property role="3oM_SC" value="()" />
+              </node>
+              <node concept="3oM_SD" id="41oFOFuWHMD" role="1PaTwD">
+                <property role="3oM_SC" value="-&gt;" />
+              </node>
+              <node concept="3oM_SD" id="41oFOFuWHMI" role="1PaTwD">
+                <property role="3oM_SC" value="Int?" />
+              </node>
+              <node concept="3oM_SD" id="41oFOFuWHMO" role="1PaTwD">
+                <property role="3oM_SC" value="is" />
+              </node>
+              <node concept="3oM_SD" id="41oFOFuWHMV" role="1PaTwD">
+                <property role="3oM_SC" value="not" />
+              </node>
+              <node concept="3oM_SD" id="41oFOFuWHN3" role="1PaTwD">
+                <property role="3oM_SC" value="the" />
+              </node>
+              <node concept="3oM_SD" id="41oFOFuWHNc" role="1PaTwD">
+                <property role="3oM_SC" value="same" />
+              </node>
+              <node concept="3oM_SD" id="41oFOFuWHNm" role="1PaTwD">
+                <property role="3oM_SC" value="as" />
+              </node>
+              <node concept="3oM_SD" id="41oFOFuWHNH" role="1PaTwD">
+                <property role="3oM_SC" value="(()" />
+              </node>
+              <node concept="3oM_SD" id="41oFOFuWHNU" role="1PaTwD">
+                <property role="3oM_SC" value="-&gt;" />
+              </node>
+              <node concept="3oM_SD" id="41oFOFuWHO8" role="1PaTwD">
+                <property role="3oM_SC" value="Int)?" />
+              </node>
+              <node concept="3oM_SD" id="41oFOFuWHOn" role="1PaTwD">
+                <property role="3oM_SC" value="on" />
+              </node>
+              <node concept="3oM_SD" id="41oFOFuWHOB" role="1PaTwD">
+                <property role="3oM_SC" value="signatures" />
+              </node>
+              <node concept="3oM_SD" id="41oFOFuWHOS" role="1PaTwD">
+                <property role="3oM_SC" value="(which" />
+              </node>
+              <node concept="3oM_SD" id="41oFOFuWHPa" role="1PaTwD">
+                <property role="3oM_SC" value="are" />
+              </node>
+              <node concept="3oM_SD" id="41oFOFuWHPt" role="1PaTwD">
+                <property role="3oM_SC" value="text" />
+              </node>
+              <node concept="3oM_SD" id="41oFOFuWHPL" role="1PaTwD">
+                <property role="3oM_SC" value="based)" />
+              </node>
+              <node concept="3oM_SD" id="41oFOFuWHNx" role="1PaTwD">
+                <property role="3oM_SC" value="" />
+              </node>
+            </node>
+          </node>
+          <node concept="1XD0bz" id="41oFOFuWHIf" role="KS$fE">
+            <property role="TrG5h" value="expect" />
+            <property role="3qOnjd" value="true" />
+            <node concept="1XD0bi" id="41oFOFuWHIg" role="1XbAXm">
+              <property role="TrG5h" value="func" />
+              <node concept="1XD0mE" id="41oFOFuWHIi" role="37iW8f">
+                <node concept="hI6pR" id="41oFOFuWHKs" role="1XD036">
+                  <node concept="1XD088" id="41oFOFuWHIj" role="hI6Km">
+                    <ref role="1SePDO" to="0:~kotlin/Int" resolve="Int" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="7CXmI" id="41oFOFuWHS8" role="lGtFl">
+              <node concept="1TM$A" id="41oFOFuWHTk" role="7EUXB">
+                <node concept="2PYRI3" id="41oFOFuWHTl" role="3lydEf">
+                  <ref role="39XzEq" to="lrl3:$q1KckZojn" />
+                </node>
+                <node concept="1DMPye" id="41oFOFuWHTm" role="1DMPz9">
+                  <property role="1DMPyf" value="Error: 'expect(() -&gt; Int?)' overrides nothing" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="KYwOn" id="41oFOFuWHIk" role="AST3G">
+            <ref role="KYwOm" node="41oFOFuWH$t" resolve="ExpectFunction" />
+          </node>
+          <node concept="7CXmI" id="41oFOFuWHQ$" role="lGtFl">
+            <node concept="1TM$A" id="41oFOFuWHRK" role="7EUXB">
+              <node concept="2PYRI3" id="41oFOFuWHRL" role="3lydEf">
+                <ref role="39XzEq" to="lrl3:$q1Kcl07E5" />
+              </node>
+              <node concept="1DMPye" id="41oFOFuWHRM" role="1DMPz9">
+                <property role="1DMPyf" value="Error: Class 'Class5' is not abstract and does not implement abstract base class member expect((() -&gt; Int)?)" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="7CXmI" id="41oFOFuWHlR" role="lGtFl">
+          <node concept="7OXhh" id="41oFOFuWHmg" role="7EUXB">
             <property role="GvXf4" value="true" />
           </node>
         </node>

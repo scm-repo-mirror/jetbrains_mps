@@ -58,7 +58,7 @@
       <node id="1641409847557072492" at="13,0,14,0" concept="5" trace="hasNonAny" />
       <node id="1641409847557277945" at="16,33,17,45" concept="4" />
       <node id="1641409847557294826" at="18,5,19,0" concept="13" />
-      <node id="1641409847557081703" at="20,95,21,30" concept="4" />
+      <node id="1641409847557081703" at="20,120,21,30" concept="4" />
       <node id="1641409847557090817" at="22,12,23,23" concept="4" />
       <node id="1641409847557083528" at="23,23,24,32" concept="4" />
       <node id="1641409847557093561" at="25,5,26,0" concept="13" />
@@ -77,7 +77,7 @@
       <node id="1641409847557104977" at="34,0,44,0" concept="9" trace="toString#(Z)Ljava/lang/String;" />
       <node id="1641409847557072794" at="15,0,29,0" concept="9" trace="add#(Ljava/lang/String;)V" />
       <scope id="1641409847557264911" at="16,33,17,45" />
-      <scope id="1641409847557073128" at="20,95,21,30" />
+      <scope id="1641409847557073128" at="20,120,21,30" />
       <scope id="3877099508391507103" at="30,36,31,21" />
       <scope id="1641409847557105912" at="35,21,36,16" />
       <scope id="1641409847557162237" at="40,12,41,31" />
@@ -562,13 +562,12 @@
   </root>
   <root nodeRef="r:3391afe4-c131-4e6c-87cf-990834a43a93(jetbrains.mps.kotlin.stubs.common)/7974320546219450901">
     <file name="FunctionIdBuilder.java">
-      <node id="7974320546219491476" at="15,0,16,0" concept="14" trace="FUNCTION_ID_PREFIX" />
-      <node id="7974320546218524262" at="16,0,17,0" concept="14" trace="CONSTRUCTOR_ID_PREFIX" />
-      <node id="7974320546219520215" at="18,0,19,0" concept="5" trace="context" />
-      <node id="7974320546219531875" at="19,0,20,0" concept="5" trace="myName" />
-      <node id="6796889329212596987" at="20,0,21,0" concept="5" trace="myHolderFqName" />
-      <node id="9139541785487051812" at="21,0,22,0" concept="5" trace="functionFqName" />
-      <node id="6773130175748974187" at="22,0,23,0" concept="5" trace="typeParameterCount" />
+      <node id="7974320546219491476" at="16,0,17,0" concept="14" trace="FUNCTION_ID_PREFIX" />
+      <node id="7974320546218524262" at="17,0,18,0" concept="14" trace="CONSTRUCTOR_ID_PREFIX" />
+      <node id="7974320546219520215" at="19,0,20,0" concept="5" trace="context" />
+      <node id="7974320546219531875" at="20,0,21,0" concept="5" trace="myName" />
+      <node id="6796889329212596987" at="21,0,22,0" concept="5" trace="myHolderFqName" />
+      <node id="9139541785487051812" at="22,0,23,0" concept="5" trace="functionFqName" />
       <node id="5472609653820463017" at="23,0,24,0" concept="5" trace="parameters" />
       <node id="3877099508391374092" at="24,0,25,0" concept="5" trace="typeParameters" />
       <node id="7974320546219520219" at="26,84,27,18" concept="4" />
@@ -576,58 +575,59 @@
       <node id="6796889329212603828" at="28,26,29,54" concept="4" />
       <node id="5499868008608480757" at="29,54,30,45" concept="4" />
       <node id="5499868008608495928" at="33,44,34,88" concept="4" />
-      <node id="6773130175748978213" at="37,46,38,25" concept="4" />
-      <node id="2370919886961666457" at="38,25,39,30" concept="4" />
-      <node id="5472609653820484701" at="42,46,43,57" concept="4" />
-      <node id="6767752332562595397" at="46,52,47,62" concept="10" />
-      <node id="3877099508391425805" at="47,62,48,65" concept="4" />
-      <node id="6767752332562595435" at="48,65,49,66" concept="4" />
-      <node id="6767752332562640534" at="49,66,50,30" concept="11" />
-      <node id="6767752332562687469" at="54,43,55,35" concept="10" />
-      <node id="6767752332562673646" at="55,35,56,93" concept="4" />
-      <node id="6369487365722565353" at="56,93,57,13" concept="11" />
-      <node id="6767752332562762669" at="58,5,59,0" concept="13" />
-      <node id="9139541785486984729" at="59,0,60,33" concept="12" />
-      <node id="8100188086721045035" at="60,33,61,37" concept="4" />
+      <node id="8384616013941955971" at="37,82,38,41" concept="4" />
+      <node id="5472609653820484701" at="41,46,42,57" concept="4" />
+      <node id="6767752332562595397" at="45,52,46,62" concept="10" />
+      <node id="3877099508391425805" at="47,33,48,67" concept="4" />
+      <node id="6767752332562595435" at="49,5,50,66" concept="4" />
+      <node id="6767752332562640534" at="50,66,51,30" concept="11" />
+      <node id="6767752332562687469" at="55,69,56,35" concept="10" />
+      <node id="6767752332562673646" at="56,35,57,93" concept="4" />
+      <node id="6369487365722565353" at="57,93,58,13" concept="11" />
+      <node id="6767752332562762669" at="59,5,60,0" concept="13" />
+      <node id="9139541785486984729" at="60,0,61,33" concept="12" />
+      <node id="8100188086721045035" at="61,33,62,37" concept="4" />
       <node id="7974320546219474448" at="33,0,36,0" concept="9" trace="setReceiver#(Ljava/lang/String;)V" />
-      <node id="7974320546219548848" at="42,0,45,0" concept="9" trace="addArgument#(Ljava/lang/String;)V" />
-      <node id="6773130175748964124" at="37,0,41,0" concept="9" trace="addTypeParameter#(Ljava/lang/String;)V" />
-      <node id="6767752332562668758" at="53,35,58,5" concept="8" />
+      <node id="8384616013941946394" at="37,0,40,0" concept="9" trace="setTypeParameters#(Ljetbrains/mps/kotlin/stubs/common/TypeParameterIdSection;)V" />
+      <node id="7974320546219548848" at="41,0,44,0" concept="9" trace="addArgument#(Ljava/lang/String;)V" />
+      <node id="8384616013941976843" at="46,62,49,5" concept="8" />
+      <node id="6767752332562668758" at="54,35,59,5" concept="8" />
       <node id="7974320546219451177" at="26,0,32,0" concept="2" trace="FunctionIdBuilder#(Ljetbrains/mps/kotlin/stubs/common/metadata/VisitorContext;Ljava/lang/String;Ljava/lang/String;)V" />
-      <node id="6767752332562591772" at="46,0,52,0" concept="9" trace="build#(Z)Ljava/lang/String;" />
-      <node id="7974320546219573150" at="53,0,63,0" concept="9" trace="applyOn#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="6767752332562591772" at="45,0,53,0" concept="9" trace="build#(Z)Ljava/lang/String;" />
+      <node id="7974320546219573150" at="54,0,64,0" concept="9" trace="applyOn#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <scope id="7974320546219474449" at="33,44,34,88" />
-      <scope id="7974320546219548851" at="42,46,43,57" />
-      <scope id="6773130175748964127" at="37,46,39,30" />
+      <scope id="8384616013941946397" at="37,82,38,41" />
+      <scope id="7974320546219548851" at="41,46,42,57" />
+      <scope id="8384616013941976845" at="47,33,48,67" />
       <scope id="7974320546219474448" at="33,0,36,0">
         <var name="receiver" id="7974320546219474470" />
       </scope>
-      <scope id="7974320546219548848" at="42,0,45,0">
+      <scope id="8384616013941946394" at="37,0,40,0">
+        <var name="typeParameters" id="8384616013941948670" />
+      </scope>
+      <scope id="7974320546219548848" at="41,0,44,0">
         <var name="argumentId" id="7974320546219550478" />
       </scope>
-      <scope id="6767752332562668760" at="54,43,57,13">
+      <scope id="6767752332562668760" at="55,69,58,13">
         <var name="fullId" id="6767752332562687470" />
       </scope>
       <scope id="7974320546219451181" at="26,84,30,45" />
-      <scope id="6773130175748964124" at="37,0,41,0">
-        <var name="bound" id="2370919886961663352" />
-      </scope>
-      <scope id="6767752332562591775" at="46,52,50,30">
-        <var name="builder" id="6767752332562595398" />
-      </scope>
       <scope id="7974320546219451177" at="26,0,32,0">
         <var name="ctx" id="7974320546219519864" />
         <var name="holder" id="7974320546219451203" />
         <var name="prefixedName" id="7974320546219530632" />
       </scope>
-      <scope id="6767752332562591772" at="46,0,52,0">
+      <scope id="6767752332562591775" at="45,52,51,30">
+        <var name="builder" id="6767752332562595398" />
+      </scope>
+      <scope id="6767752332562591772" at="45,0,53,0">
         <var name="enfoceShortNotation" id="6767752332562593963" />
       </scope>
-      <scope id="7974320546219573153" at="53,35,61,37" />
-      <scope id="7974320546219573150" at="53,0,63,0">
+      <scope id="7974320546219573153" at="54,35,62,37" />
+      <scope id="7974320546219573150" at="54,0,64,0">
         <var name="node" id="7974320546219644136" />
       </scope>
-      <unit id="7974320546219450901" at="13,0,64,0" name="jetbrains.mps.kotlin.stubs.common.FunctionIdBuilder" />
+      <unit id="7974320546219450901" at="14,0,65,0" name="jetbrains.mps.kotlin.stubs.common.FunctionIdBuilder" />
     </file>
   </root>
   <root nodeRef="r:3391afe4-c131-4e6c-87cf-990834a43a93(jetbrains.mps.kotlin.stubs.common)/8317865157550790678">

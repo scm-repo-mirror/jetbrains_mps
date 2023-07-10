@@ -17,7 +17,7 @@ public class TypeParameterIdSection {
       typeParameters = new StringJoiner(",");
     }
 
-    if (upper == null || Objects.equals(upper, "Any") || Objects.equals(upper, "kotlin/Any")) {
+    if ((upper == null || upper.length() == 0) || Objects.equals(upper, "Any") || Objects.equals(upper, "kotlin/Any")) {
       typeParameters.add("*");
     } else {
       hasNonAny = true;

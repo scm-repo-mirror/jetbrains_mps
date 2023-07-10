@@ -16,6 +16,7 @@ import jetbrains.mps.kotlin.stubs.common.KotlinStringBasedNodeIdMap;
 import jetbrains.mps.kotlin.stubs.common.metadata.VisitorContext;
 import java.util.StringJoiner;
 import java.util.List;
+import jetbrains.mps.kotlin.stubs.common.TypeParameterIdSection;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import jetbrains.mps.kotlin.stubs.common.KtFunctionNodeId;
@@ -129,10 +130,12 @@ public class mps35026_Test {
       legacyIdBuilder.addArgument(arg);
     }
 
+    TypeParameterIdSection typeParameters = new TypeParameterIdSection();
     for (String arg : typeParametersBound) {
-      idBuilder.addTypeParameter(arg);
+      typeParameters.add(arg);
       legacyIdBuilder.addTypeParameter();
     }
+    idBuilder.setTypeParameters(typeParameters);
 
     return MultiTuple.<FunctionIdBuilder,LegacyFunctionIdBuilder>from(idBuilder, legacyIdBuilder);
   }

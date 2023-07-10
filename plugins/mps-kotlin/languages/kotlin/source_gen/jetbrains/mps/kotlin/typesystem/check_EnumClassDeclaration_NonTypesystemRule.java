@@ -7,6 +7,8 @@ import jetbrains.mps.lang.typesystem.runtime.NonTypesystemRule_Runtime;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
+import jetbrains.mps.smodel.SModelStereotype;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.kotlin.behavior.ISuperTypeSpecifier__BehaviorDescriptor;
@@ -22,6 +24,10 @@ public class check_EnumClassDeclaration_NonTypesystemRule extends AbstractNonTyp
   public check_EnumClassDeclaration_NonTypesystemRule() {
   }
   public void applyRule(final SNode enumClassDeclaration, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
+    if (SModelStereotype.isStubModel(SNodeOperations.getModel(enumClassDeclaration))) {
+      return;
+    }
+
     ListSequence.fromList(SLinkOperations.getChildren(enumClassDeclaration, LINKS.superclasses$6CkZ)).where((it) -> (boolean) ISuperTypeSpecifier__BehaviorDescriptor.isClass_id1$jFvlEiPXX.invoke(it)).visitAll((it) -> {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();

@@ -15603,6 +15603,16 @@
             </node>
           </node>
         </node>
+        <node concept="1SiIV0" id="2dcS_OZUtFa" role="3bR37C">
+          <node concept="3bR9La" id="2dcS_OZUtFb" role="1SiIV1">
+            <ref role="3bR37D" to="ffeo:Ye$g8PO8Uc" resolve="jetbrains.mps.kotlin" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="2dcS_OZUtFc" role="3bR37C">
+          <node concept="3bR9La" id="2dcS_OZUtFd" role="1SiIV1">
+            <ref role="3bR37D" to="ffeo:6aIAM_Qd5ki" resolve="jetbrains.mps.lang.test.matcher" />
+          </node>
+        </node>
       </node>
       <node concept="1E1JtA" id="1CUeZUoS3fP" role="2G$12L">
         <property role="BnDLt" value="true" />

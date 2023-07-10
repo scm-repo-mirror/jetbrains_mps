@@ -25,15 +25,11 @@
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
     <import index="guwi" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.io(JDK/)" />
     <import index="wwqx" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.logging(MPS.Core/)" />
-    <import index="f46w" ref="6944825c-ddc2-4099-8cc7-5e6dbbf7f0be/java:kotlinx.metadata.internal.metadata(jetbrains.mps.kotlin.stubs/)" />
-    <import index="b66x" ref="6944825c-ddc2-4099-8cc7-5e6dbbf7f0be/java:kotlinx.metadata.internal.metadata.deserialization(jetbrains.mps.kotlin.stubs/)" />
     <import index="747n" ref="r:3391afe4-c131-4e6c-87cf-990834a43a93(jetbrains.mps.kotlin.stubs.common)" />
-    <import index="e6zq" ref="6944825c-ddc2-4099-8cc7-5e6dbbf7f0be/java:kotlinx.metadata.internal.metadata.builtins(jetbrains.mps.kotlin.stubs/)" />
     <import index="hcm8" ref="r:72a7bf00-0175-42ca-b99b-fe8519b6a16f(jetbrains.mps.kotlin.structure)" />
-    <import index="f1as" ref="6944825c-ddc2-4099-8cc7-5e6dbbf7f0be/java:kotlinx.metadata.internal.protobuf(jetbrains.mps.kotlin.stubs/)" />
     <import index="g3pb" ref="r:d76e16ee-a528-4ca0-b2d6-9eed9a9b1d1c(jetbrains.mps.kotlin.stubs.common.metadata)" />
     <import index="t3el" ref="r:46b5a205-6da9-4b5a-ac93-05f04740d2d2(jetbrains.mps.kotlin.stubs.common.references)" />
-    <import index="dm2t" ref="6944825c-ddc2-4099-8cc7-5e6dbbf7f0be/java:kotlinx.metadata.internal(jetbrains.mps.kotlin.stubs/)" />
+    <import index="nhf8" ref="6944825c-ddc2-4099-8cc7-5e6dbbf7f0be/java:kotlinx.metadata.internal.common(jetbrains.mps.kotlin.stubs/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -84,9 +80,6 @@
       <concept id="1081236700937" name="jetbrains.mps.baseLanguage.structure.StaticMethodCall" flags="nn" index="2YIFZM">
         <reference id="1144433194310" name="classConcept" index="1Pybhc" />
       </concept>
-      <concept id="1070533707846" name="jetbrains.mps.baseLanguage.structure.StaticFieldReference" flags="nn" index="10M0yZ">
-        <reference id="1144433057691" name="classifier" index="1PxDUh" />
-      </concept>
       <concept id="1070534058343" name="jetbrains.mps.baseLanguage.structure.NullLiteral" flags="nn" index="10Nm6u" />
       <concept id="1070534644030" name="jetbrains.mps.baseLanguage.structure.BooleanType" flags="in" index="10P_77" />
       <concept id="1068390468200" name="jetbrains.mps.baseLanguage.structure.FieldDeclaration" flags="ig" index="312cEg" />
@@ -135,9 +128,6 @@
       </concept>
       <concept id="1068581242863" name="jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration" flags="nr" index="3cpWsn" />
       <concept id="1068581517677" name="jetbrains.mps.baseLanguage.structure.VoidType" flags="in" index="3cqZAl" />
-      <concept id="1081516740877" name="jetbrains.mps.baseLanguage.structure.NotExpression" flags="nn" index="3fqX7Q">
-        <child id="1081516765348" name="expression" index="3fr31v" />
-      </concept>
       <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ng" index="1ndlxa">
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
@@ -168,7 +158,6 @@
         <child id="8276990574886367510" name="catchClause" index="1zxBo5" />
         <child id="8276990574886367508" name="body" index="1zxBo7" />
       </concept>
-      <concept id="1082113931046" name="jetbrains.mps.baseLanguage.structure.ContinueStatement" flags="nn" index="3N13vt" />
       <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
         <child id="8356039341262087992" name="line" index="1aUNEU" />
       </concept>
@@ -253,7 +242,6 @@
         <child id="1237721435808" name="initValue" index="HW$Y0" />
         <child id="1237721435807" name="elementType" index="HW$YZ" />
       </concept>
-      <concept id="1160600644654" name="jetbrains.mps.baseLanguage.collections.structure.ListCreatorWithInit" flags="nn" index="Tc6Ow" />
       <concept id="7125221305512719026" name="jetbrains.mps.baseLanguage.collections.structure.CollectionType" flags="in" index="3vKaQO" />
       <concept id="5686963296372573083" name="jetbrains.mps.baseLanguage.collections.structure.AbstractContainerType" flags="in" index="3O5elB">
         <child id="5686963296372573084" name="elementType" index="3O5elw" />
@@ -906,202 +894,19 @@
                   </node>
                 </node>
                 <node concept="3clFbH" id="2Aaqzlstehe" role="3cqZAp" />
-                <node concept="3SKdUt" id="2Aaqzlstg3p" role="3cqZAp">
-                  <node concept="1PaTwC" id="2Aaqzlstg3q" role="1aUNEU">
-                    <node concept="3oM_SD" id="2AaqzlstgZu" role="1PaTwD">
-                      <property role="3oM_SC" value="File" />
-                    </node>
-                    <node concept="3oM_SD" id="2AaqzlstgZw" role="1PaTwD">
-                      <property role="3oM_SC" value="version" />
-                    </node>
-                    <node concept="3oM_SD" id="6Fx$R0LUBC2" role="1PaTwD">
-                      <property role="3oM_SC" value="(not" />
-                    </node>
-                    <node concept="3oM_SD" id="6Fx$R0LUBIi" role="1PaTwD">
-                      <property role="3oM_SC" value="with" />
-                    </node>
-                    <node concept="3oM_SD" id="6Fx$R0LUBM7" role="1PaTwD">
-                      <property role="3oM_SC" value=".knm" />
-                    </node>
-                    <node concept="3oM_SD" id="6Fx$R0LUBPj" role="1PaTwD">
-                      <property role="3oM_SC" value="files)" />
-                    </node>
-                  </node>
-                </node>
-                <node concept="3clFbJ" id="6Fx$R0LUoEa" role="3cqZAp">
-                  <node concept="3clFbS" id="6Fx$R0LUoEc" role="3clFbx">
-                    <node concept="3cpWs8" id="6wISvADN1Rh" role="3cqZAp">
-                      <node concept="3cpWsn" id="6wISvADN1Ri" role="3cpWs9">
-                        <property role="TrG5h" value="fileVersion" />
-                        <node concept="3uibUv" id="6wISvADN1wi" role="1tU5fm">
-                          <ref role="3uigEE" to="b66x:~BinaryVersion" resolve="BinaryVersion" />
-                        </node>
-                        <node concept="2OqwBi" id="6wISvADN1Rj" role="33vP2m">
-                          <node concept="liA8E" id="6wISvADN1Rl" role="2OqNvi">
-                            <ref role="37wK5l" to="e6zq:~BuiltInsBinaryVersion$Companion.readFrom(java.io.InputStream)" resolve="readFrom" />
-                            <node concept="37vLTw" id="6wISvADN1Rm" role="37wK5m">
-                              <ref role="3cqZAo" node="6wISvADMKKF" resolve="inputStream" />
-                            </node>
-                          </node>
-                          <node concept="10M0yZ" id="5zYAipSQQki" role="2Oq$k0">
-                            <ref role="3cqZAo" to="e6zq:~BuiltInsBinaryVersion.Companion" resolve="Companion" />
-                            <ref role="1PxDUh" to="e6zq:~BuiltInsBinaryVersion" resolve="BuiltInsBinaryVersion" />
-                          </node>
-                        </node>
-                      </node>
-                    </node>
-                    <node concept="3clFbJ" id="6UEu$_UDZhY" role="3cqZAp">
-                      <node concept="3clFbS" id="6UEu$_UDZi0" role="3clFbx">
-                        <node concept="3clFbF" id="RexVsHiMOX" role="3cqZAp">
-                          <node concept="2OqwBi" id="RexVsHiPyy" role="3clFbG">
-                            <node concept="37vLTw" id="RexVsHiMOV" role="2Oq$k0">
-                              <ref role="3cqZAo" node="5HlCeYoHvYL" resolve="LOG" />
-                            </node>
-                            <node concept="liA8E" id="RexVsHiRoF" role="2OqNvi">
-                              <ref role="37wK5l" to="wwqx:~Logger.warning(java.lang.String)" resolve="warning" />
-                              <node concept="3cpWs3" id="RexVsHkZMF" role="37wK5m">
-                                <node concept="Xl_RD" id="RexVsHkZZY" role="3uHU7w">
-                                  <property role="Xl_RC" value=")" />
-                                </node>
-                                <node concept="3cpWs3" id="6wISvADNdTV" role="3uHU7B">
-                                  <node concept="3cpWs3" id="RexVsHj5MQ" role="3uHU7B">
-                                    <node concept="3cpWs3" id="RexVsHjc7e" role="3uHU7B">
-                                      <node concept="2OqwBi" id="RexVsHjfCA" role="3uHU7w">
-                                        <node concept="2GrUjf" id="RexVsHjevQ" role="2Oq$k0">
-                                          <ref role="2Gs0qQ" node="3RX8MRB$ci" resolve="file" />
-                                        </node>
-                                        <node concept="liA8E" id="RexVsHjl09" role="2OqNvi">
-                                          <ref role="37wK5l" to="3ju5:~IFile.getPath()" resolve="getPath" />
-                                        </node>
-                                      </node>
-                                      <node concept="Xl_RD" id="RexVsHj7Qw" role="3uHU7B">
-                                        <property role="Xl_RC" value="file " />
-                                      </node>
-                                    </node>
-                                    <node concept="Xl_RD" id="6wISvADN8gQ" role="3uHU7w">
-                                      <property role="Xl_RC" value=" has incompatible kotlin binary version (" />
-                                    </node>
-                                  </node>
-                                  <node concept="2OqwBi" id="6wISvADNgW2" role="3uHU7w">
-                                    <node concept="37vLTw" id="6wISvADNfLS" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="6wISvADN1Ri" resolve="fileVersion" />
-                                    </node>
-                                    <node concept="liA8E" id="6wISvADNivA" role="2OqNvi">
-                                      <ref role="37wK5l" to="b66x:~BinaryVersion.toString()" resolve="toString" />
-                                    </node>
-                                  </node>
-                                </node>
-                              </node>
-                            </node>
-                          </node>
-                        </node>
-                        <node concept="3N13vt" id="RexVsHl62c" role="3cqZAp" />
-                      </node>
-                      <node concept="3fqX7Q" id="13KYllCaT_B" role="3clFbw">
-                        <node concept="2OqwBi" id="13KYllCaT_D" role="3fr31v">
-                          <node concept="37vLTw" id="13KYllCaT_E" role="2Oq$k0">
-                            <ref role="3cqZAo" node="6wISvADN1Ri" resolve="fileVersion" />
-                          </node>
-                          <node concept="liA8E" id="13KYllCaT_F" role="2OqNvi">
-                            <ref role="37wK5l" to="b66x:~BinaryVersion.isCompatible()" resolve="isCompatible" />
-                          </node>
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                  <node concept="3fqX7Q" id="6Fx$R0LU$qj" role="3clFbw">
-                    <node concept="2OqwBi" id="6Fx$R0LU$ql" role="3fr31v">
-                      <node concept="2OqwBi" id="6Fx$R0LU$qm" role="2Oq$k0">
-                        <node concept="2GrUjf" id="3RX8MRBJmF" role="2Oq$k0">
-                          <ref role="2Gs0qQ" node="3RX8MRB$ci" resolve="file" />
-                        </node>
-                        <node concept="liA8E" id="6Fx$R0LU$qo" role="2OqNvi">
-                          <ref role="37wK5l" to="3ju5:~IFile.getName()" resolve="getName" />
-                        </node>
-                      </node>
-                      <node concept="liA8E" id="6Fx$R0LU$qp" role="2OqNvi">
-                        <ref role="37wK5l" to="wyt6:~String.endsWith(java.lang.String)" resolve="endsWith" />
-                        <node concept="10M0yZ" id="6Fx$R0LU$qq" role="37wK5m">
-                          <ref role="3cqZAo" node="6Fx$R0LTgvW" resolve="KOTLIN_METADATA_LIB_EXTENSION" />
-                          <ref role="1PxDUh" node="2ntakj1spSh" resolve="KotlinCommonConstants" />
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                </node>
-                <node concept="3clFbH" id="2AaqzlstgZ$" role="3cqZAp" />
-                <node concept="3SKdUt" id="2AaqzlssYvy" role="3cqZAp">
-                  <node concept="1PaTwC" id="2AaqzlssYvz" role="1aUNEU">
-                    <node concept="3oM_SD" id="2AaqzlssZrG" role="1PaTwD">
-                      <property role="3oM_SC" value="Parse" />
-                    </node>
-                    <node concept="3oM_SD" id="1L_$dPBaF5m" role="1PaTwD">
-                      <property role="3oM_SC" value="(registry" />
-                    </node>
-                    <node concept="3oM_SD" id="1L_$dPBaFkA" role="1PaTwD">
-                      <property role="3oM_SC" value="with" />
-                    </node>
-                    <node concept="3oM_SD" id="1L_$dPBaFr$" role="1PaTwD">
-                      <property role="3oM_SC" value="extensions" />
-                    </node>
-                    <node concept="3oM_SD" id="1L_$dPBaFDt" role="1PaTwD">
-                      <property role="3oM_SC" value="allows" />
-                    </node>
-                    <node concept="3oM_SD" id="1L_$dPBaFQp" role="1PaTwD">
-                      <property role="3oM_SC" value="to" />
-                    </node>
-                    <node concept="3oM_SD" id="1L_$dPBaFQw" role="1PaTwD">
-                      <property role="3oM_SC" value="get" />
-                    </node>
-                    <node concept="3oM_SD" id="1L_$dPBaQzq" role="1PaTwD">
-                      <property role="3oM_SC" value="annotations)" />
-                    </node>
-                  </node>
-                </node>
-                <node concept="3cpWs8" id="1L_$dPBa9mr" role="3cqZAp">
-                  <node concept="3cpWsn" id="1L_$dPBa9ms" role="3cpWs9">
-                    <property role="TrG5h" value="registry" />
-                    <node concept="3uibUv" id="1L_$dPBa7xc" role="1tU5fm">
-                      <ref role="3uigEE" to="f1as:~ExtensionRegistryLite" resolve="ExtensionRegistryLite" />
-                    </node>
-                    <node concept="2YIFZM" id="1L_$dPBa9mt" role="33vP2m">
-                      <ref role="37wK5l" to="f1as:~ExtensionRegistryLite.newInstance()" resolve="newInstance" />
-                      <ref role="1Pybhc" to="f1as:~ExtensionRegistryLite" resolve="ExtensionRegistryLite" />
-                    </node>
-                  </node>
-                </node>
-                <node concept="3clFbF" id="1L_$dPBaiX9" role="3cqZAp">
-                  <node concept="2YIFZM" id="1L_$dPBaomX" role="3clFbG">
-                    <ref role="37wK5l" to="e6zq:~BuiltInsProtoBuf.registerAllExtensions(kotlinx.metadata.internal.protobuf.ExtensionRegistryLite)" resolve="registerAllExtensions" />
-                    <ref role="1Pybhc" to="e6zq:~BuiltInsProtoBuf" resolve="BuiltInsProtoBuf" />
-                    <node concept="37vLTw" id="1L_$dPBaybA" role="37wK5m">
-                      <ref role="3cqZAo" node="1L_$dPBa9ms" resolve="registry" />
-                    </node>
-                  </node>
-                </node>
-                <node concept="3cpWs8" id="2AaqzlsrLX0" role="3cqZAp">
-                  <node concept="3cpWsn" id="2AaqzlsrLX1" role="3cpWs9">
-                    <property role="TrG5h" value="pkg" />
-                    <node concept="3uibUv" id="2AaqzlsrLkZ" role="1tU5fm">
-                      <ref role="3uigEE" to="f46w:~ProtoBuf$PackageFragment" resolve="ProtoBuf.PackageFragment" />
-                    </node>
-                    <node concept="2YIFZM" id="2AaqzlsrLX2" role="33vP2m">
-                      <ref role="1Pybhc" to="f46w:~ProtoBuf$PackageFragment" resolve="ProtoBuf.PackageFragment" />
-                      <ref role="37wK5l" to="f46w:~ProtoBuf$PackageFragment.parseFrom(java.io.InputStream,kotlinx.metadata.internal.protobuf.ExtensionRegistryLite)" resolve="parseFrom" />
-                      <node concept="37vLTw" id="2AaqzlsrLX3" role="37wK5m">
-                        <ref role="3cqZAo" node="6wISvADMKKF" resolve="inputStream" />
-                      </node>
-                      <node concept="37vLTw" id="1L_$dPBaBLT" role="37wK5m">
-                        <ref role="3cqZAo" node="1L_$dPBa9ms" resolve="registry" />
-                      </node>
-                    </node>
-                  </node>
-                </node>
-                <node concept="3clFbH" id="2Aaqzlst29n" role="3cqZAp" />
                 <node concept="3SKdUt" id="2Aaqzlst1d8" role="3cqZAp">
                   <node concept="1PaTwC" id="2Aaqzlst1d9" role="1aUNEU">
                     <node concept="3oM_SD" id="2Aaqzlst29l" role="1PaTwD">
-                      <property role="3oM_SC" value="Visit" />
+                      <property role="3oM_SC" value="Read" />
+                    </node>
+                    <node concept="3oM_SD" id="4JVbw4USz48" role="1PaTwD">
+                      <property role="3oM_SC" value="and" />
+                    </node>
+                    <node concept="3oM_SD" id="4JVbw4USz4b" role="1PaTwD">
+                      <property role="3oM_SC" value="parse" />
+                    </node>
+                    <node concept="3oM_SD" id="4JVbw4USz4f" role="1PaTwD">
+                      <property role="3oM_SC" value="metadata" />
                     </node>
                   </node>
                 </node>
@@ -1119,95 +924,74 @@
                     </node>
                   </node>
                 </node>
-                <node concept="3cpWs8" id="2AaqzlsroNW" role="3cqZAp">
-                  <node concept="3cpWsn" id="2AaqzlsroNX" role="3cpWs9">
-                    <property role="TrG5h" value="visitor" />
-                    <node concept="3uibUv" id="2AaqzlsroNY" role="1tU5fm">
-                      <ref role="3uigEE" to="g3pb:2Aaqzlsc6HK" resolve="ModuleVisitor" />
+                <node concept="3cpWs8" id="30flKNopJn1" role="3cqZAp">
+                  <node concept="3cpWsn" id="30flKNopJn2" role="3cpWs9">
+                    <property role="TrG5h" value="commonMetadata" />
+                    <node concept="3uibUv" id="30flKNopHJ6" role="1tU5fm">
+                      <ref role="3uigEE" to="nhf8:~KotlinCommonMetadata" resolve="KotlinCommonMetadata" />
                     </node>
-                    <node concept="2ShNRf" id="2AaqzlsrqYO" role="33vP2m">
-                      <node concept="1pGfFk" id="2AaqzlsrqEZ" role="2ShVmc">
-                        <ref role="37wK5l" to="g3pb:2Aaqzlsc8On" resolve="ModuleVisitor" />
-                        <node concept="37vLTw" id="7SVeP54jHf3" role="37wK5m">
+                    <node concept="2YIFZM" id="30flKNopJn3" role="33vP2m">
+                      <ref role="37wK5l" to="nhf8:~KotlinCommonMetadata.read(byte[])" resolve="read" />
+                      <ref role="1Pybhc" to="nhf8:~KotlinCommonMetadata" resolve="KotlinCommonMetadata" />
+                      <node concept="2OqwBi" id="30flKNopJn4" role="37wK5m">
+                        <node concept="37vLTw" id="30flKNopJn5" role="2Oq$k0">
+                          <ref role="3cqZAo" node="6wISvADMKKF" resolve="inputStream" />
+                        </node>
+                        <node concept="liA8E" id="30flKNopJn6" role="2OqNvi">
+                          <ref role="37wK5l" to="guwi:~InputStream.readAllBytes()" resolve="readAllBytes" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="3clFbJ" id="5sdg7HBYnjO" role="3cqZAp">
+                  <node concept="3clFbS" id="5sdg7HBYnjQ" role="3clFbx">
+                    <node concept="3clFbF" id="30flKNooTdT" role="3cqZAp">
+                      <node concept="2YIFZM" id="30flKNoKbBu" role="3clFbG">
+                        <ref role="37wK5l" to="g3pb:4s8_snw8VmS" resolve="parseModule" />
+                        <ref role="1Pybhc" to="g3pb:30flKNonMxp" resolve="KtModuleParser" />
+                        <node concept="2OqwBi" id="30flKNoKbBv" role="37wK5m">
+                          <node concept="37vLTw" id="30flKNoKbBw" role="2Oq$k0">
+                            <ref role="3cqZAo" node="30flKNopJn2" resolve="commonMetadata" />
+                          </node>
+                          <node concept="liA8E" id="30flKNoKbBx" role="2OqNvi">
+                            <ref role="37wK5l" to="nhf8:~KotlinCommonMetadata.toKmModuleFragment()" resolve="toKmModuleFragment" />
+                          </node>
+                        </node>
+                        <node concept="37vLTw" id="30flKNoKbBy" role="37wK5m">
                           <ref role="3cqZAo" node="7SVeP54jHf0" resolve="root" />
                         </node>
-                        <node concept="37vLTw" id="6ZbwqG7WJzO" role="37wK5m">
+                        <node concept="37vLTw" id="30flKNoKbBz" role="37wK5m">
                           <ref role="3cqZAo" node="2b3dSh2thmF" resolve="refFactory" />
                         </node>
-                        <node concept="2OqwBi" id="6UEu$_UDfOO" role="37wK5m">
-                          <node concept="1rXfSq" id="6UEu$_UDeqy" role="2Oq$k0">
+                        <node concept="2OqwBi" id="30flKNoKbB$" role="37wK5m">
+                          <node concept="1rXfSq" id="30flKNoKbB_" role="2Oq$k0">
                             <ref role="37wK5l" to="g3l6:~SModelBase.getModelId()" resolve="getModelId" />
                           </node>
-                          <node concept="liA8E" id="6UEu$_UDhFv" role="2OqNvi">
+                          <node concept="liA8E" id="30flKNoKbBA" role="2OqNvi">
                             <ref role="37wK5l" to="mhbf:~SModelId.getModelName()" resolve="getModelName" />
                           </node>
                         </node>
                       </node>
                     </node>
-                  </node>
-                </node>
-                <node concept="3cpWs8" id="1qPNK2_rN8Q" role="3cqZAp">
-                  <node concept="3cpWsn" id="1qPNK2_rN8R" role="3cpWs9">
-                    <property role="TrG5h" value="nameSolver" />
-                    <node concept="3uibUv" id="1qPNK2_rG8n" role="1tU5fm">
-                      <ref role="3uigEE" to="b66x:~NameResolverImpl" resolve="NameResolverImpl" />
-                    </node>
-                    <node concept="2ShNRf" id="1qPNK2_rOeo" role="33vP2m">
-                      <node concept="1pGfFk" id="1qPNK2_rOep" role="2ShVmc">
-                        <ref role="37wK5l" to="b66x:~NameResolverImpl.&lt;init&gt;(kotlinx.metadata.internal.metadata.ProtoBuf$StringTable,kotlinx.metadata.internal.metadata.ProtoBuf$QualifiedNameTable)" resolve="NameResolverImpl" />
-                        <node concept="2OqwBi" id="1qPNK2_rOeq" role="37wK5m">
-                          <node concept="37vLTw" id="1qPNK2_rOer" role="2Oq$k0">
-                            <ref role="3cqZAo" node="2AaqzlsrLX1" resolve="pkg" />
-                          </node>
-                          <node concept="liA8E" id="1qPNK2_rOes" role="2OqNvi">
-                            <ref role="37wK5l" to="f46w:~ProtoBuf$PackageFragment.getStrings()" resolve="getStrings" />
-                          </node>
+                    <node concept="3clFbF" id="2b3dSh2thn7" role="3cqZAp">
+                      <node concept="2OqwBi" id="2b3dSh2thn8" role="3clFbG">
+                        <node concept="37vLTw" id="2b3dSh2thn9" role="2Oq$k0">
+                          <ref role="3cqZAo" node="2b3dSh2rspl" resolve="model" />
                         </node>
-                        <node concept="2OqwBi" id="1qPNK2_rOet" role="37wK5m">
-                          <node concept="37vLTw" id="1qPNK2_rOeu" role="2Oq$k0">
-                            <ref role="3cqZAo" node="2AaqzlsrLX1" resolve="pkg" />
-                          </node>
-                          <node concept="liA8E" id="1qPNK2_rOev" role="2OqNvi">
-                            <ref role="37wK5l" to="f46w:~ProtoBuf$PackageFragment.getQualifiedNames()" resolve="getQualifiedNames" />
+                        <node concept="liA8E" id="2b3dSh2thna" role="2OqNvi">
+                          <ref role="37wK5l" to="w1kc:~SModel.addRootNode(org.jetbrains.mps.openapi.model.SNode)" resolve="addRootNode" />
+                          <node concept="37vLTw" id="7SVeP54jNKk" role="37wK5m">
+                            <ref role="3cqZAo" node="7SVeP54jHf0" resolve="root" />
                           </node>
                         </node>
                       </node>
                     </node>
                   </node>
-                </node>
-                <node concept="3clFbF" id="2AaqzlsrSJx" role="3cqZAp">
-                  <node concept="2YIFZM" id="2AaqzlssDGS" role="3clFbG">
-                    <ref role="37wK5l" to="dm2t:~ReadersKt.accept(kotlinx.metadata.internal.metadata.ProtoBuf$PackageFragment,kotlinx.metadata.KmModuleFragmentVisitor,kotlinx.metadata.internal.metadata.deserialization.NameResolver,java.util.List)" resolve="accept" />
-                    <ref role="1Pybhc" to="dm2t:~ReadersKt" resolve="ReadersKt" />
-                    <node concept="37vLTw" id="2AaqzlssDGT" role="37wK5m">
-                      <ref role="3cqZAo" node="2AaqzlsrLX1" resolve="pkg" />
-                    </node>
-                    <node concept="37vLTw" id="2AaqzlssDGU" role="37wK5m">
-                      <ref role="3cqZAo" node="2AaqzlsroNX" resolve="visitor" />
-                    </node>
-                    <node concept="37vLTw" id="1qPNK2_rN90" role="37wK5m">
-                      <ref role="3cqZAo" node="1qPNK2_rN8R" resolve="nameSolver" />
-                    </node>
-                    <node concept="2ShNRf" id="2AaqzlssNOi" role="37wK5m">
-                      <node concept="Tc6Ow" id="2AaqzlssQS3" role="2ShVmc">
-                        <node concept="3uibUv" id="2AaqzlssViF" role="HW$YZ">
-                          <ref role="3uigEE" to="dm2t:~ReadContextExtension" resolve="ReadContextExtension" />
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                </node>
-                <node concept="3clFbH" id="2AaqzlsrGk0" role="3cqZAp" />
-                <node concept="3clFbF" id="2b3dSh2thn7" role="3cqZAp">
-                  <node concept="2OqwBi" id="2b3dSh2thn8" role="3clFbG">
-                    <node concept="37vLTw" id="2b3dSh2thn9" role="2Oq$k0">
-                      <ref role="3cqZAo" node="2b3dSh2rspl" resolve="model" />
-                    </node>
-                    <node concept="liA8E" id="2b3dSh2thna" role="2OqNvi">
-                      <ref role="37wK5l" to="w1kc:~SModel.addRootNode(org.jetbrains.mps.openapi.model.SNode)" resolve="addRootNode" />
-                      <node concept="37vLTw" id="7SVeP54jNKk" role="37wK5m">
-                        <ref role="3cqZAo" node="7SVeP54jHf0" resolve="root" />
-                      </node>
+                  <node concept="3y3z36" id="5sdg7HBYrQ4" role="3clFbw">
+                    <node concept="10Nm6u" id="5sdg7HBYtJ6" role="3uHU7w" />
+                    <node concept="37vLTw" id="5sdg7HBYqJ9" role="3uHU7B">
+                      <ref role="3cqZAo" node="30flKNopJn2" resolve="commonMetadata" />
                     </node>
                   </node>
                 </node>

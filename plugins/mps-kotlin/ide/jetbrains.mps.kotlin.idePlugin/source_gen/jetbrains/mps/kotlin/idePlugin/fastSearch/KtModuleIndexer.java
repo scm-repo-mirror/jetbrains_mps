@@ -6,41 +6,34 @@ import jetbrains.mps.annotations.GeneratedClass;
 import kotlinx.metadata.KmModuleFragmentVisitor;
 import java.util.Map;
 import com.intellij.psi.impl.cache.impl.id.IdIndexEntry;
-import gnu.trove.THashMap;
+import java.util.HashMap;
 import jetbrains.mps.kotlin.stubs.common.KotlinId;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.kotlin.stubs.common.KotlinLanguage;
-import org.jetbrains.annotations.Nullable;
-import kotlinx.metadata.KmClassVisitor;
-import kotlinx.metadata.KmPackageVisitor;
-import kotlinx.metadata.KmFunctionVisitor;
-import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.kotlin.stubs.common.metadata.EnumFlags;
+import kotlinx.metadata.KmModuleFragment;
+import kotlinx.metadata.KmPackage;
+import kotlinx.metadata.KmClass;
+import kotlinx.metadata.internal.metadata.ProtoBuf;
 import kotlinx.metadata.internal.metadata.deserialization.Flags;
+import jetbrains.mps.kotlin.stubs.common.metadata.EnumFlags;
+import jetbrains.mps.kotlin.stubs.common.metadata.AnnotationExtension;
+import kotlinx.metadata.KmType;
+import kotlinx.metadata.KmClassifier;
+import kotlinx.metadata.KmTypeProjection;
+import kotlinx.metadata.KmConstructor;
+import kotlinx.metadata.KmValueParameter;
+import kotlinx.metadata.KmTypeParameter;
+import kotlinx.metadata.KmFunction;
 import jetbrains.mps.internal.collections.runtime.Sequence;
-import kotlinx.metadata.KmPropertyVisitor;
-import kotlinx.metadata.KmTypeAliasVisitor;
-import kotlinx.metadata.KmPackageExtensionVisitor;
-import kotlinx.metadata.KmExtensionType;
-import jetbrains.mps.kotlin.stubs.common.metadata.AnnotationVisitor;
+import kotlinx.metadata.KmProperty;
+import kotlinx.metadata.KmTypeAlias;
+import kotlinx.metadata.KmExtensionVisitor;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import kotlinx.metadata.KmAnnotation;
 import jetbrains.mps.internal.collections.runtime.IMapping;
 import kotlinx.metadata.KmAnnotationArgument;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import kotlinx.metadata.KmTypeVisitor;
-import kotlinx.metadata.KmVariance;
-import kotlinx.metadata.KmTypeExtensionVisitor;
-import java.util.Objects;
-import kotlinx.metadata.internal.metadata.ProtoBuf;
-import kotlinx.metadata.KmTypeParameterVisitor;
-import kotlinx.metadata.KmConstructorVisitor;
-import kotlinx.metadata.KmClassExtensionVisitor;
-import kotlinx.metadata.KmValueParameterVisitor;
-import kotlinx.metadata.KmConstructorExtensionVisitor;
-import kotlinx.metadata.KmValueParameterExtensionVisitor;
-import kotlinx.metadata.KmPropertyExtensionVisitor;
-import kotlinx.metadata.KmFunctionExtensionVisitor;
+import kotlinx.metadata.KmFlexibleTypeUpperBound;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -54,7 +47,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
  */
 @GeneratedClass(node = "r:839db98b-6aa7-4fd6-a3a0-c413dbdb3e27(jetbrains.mps.kotlin.idePlugin.fastSearch)/8550542210338422830", model = "r:839db98b-6aa7-4fd6-a3a0-c413dbdb3e27(jetbrains.mps.kotlin.idePlugin.fastSearch)")
 public class KtModuleIndexer extends KmModuleFragmentVisitor {
-  private Map<IdIndexEntry, Integer> entries = new THashMap<>();
+  private Map<IdIndexEntry, Integer> entries = new HashMap<>();
 
   public Map<IdIndexEntry, Integer> getEntries() {
     return this.entries;
@@ -81,309 +74,248 @@ public class KtModuleIndexer extends KmModuleFragmentVisitor {
     entries.put(new IdIndexEntry(packageName + "@" + KotlinLanguage.ModelKind.COMMON.stereotype, true), 0);
   }
 
-  @Nullable
-  @Override
-  public KmClassVisitor visitClass() {
-    return KT_CLASS_INDEXER;
+  public void indexModule(KmModuleFragment fragment) {
+    fragment.getClasses().forEach(this::indexClass);
+    KmPackage pkg = fragment.getPkg();
+    if (pkg != null) {
+      pkg.getFunctions().forEach(this::indexFunction);
+      pkg.getProperties().forEach(this::indexProperty);
+      pkg.getTypeAliases().forEach(this::indexTypeAlias);
+    }
   }
 
-  public KmPackageVisitor visitPackage() {
-    return new KmPackageVisitor() {
-      public KmFunctionVisitor visitFunction(int flags, @NotNull String name) {
-        putConcepts(EnumFlags.getVisibility(Flags.VISIBILITY.get(flags)), EnumFlags.getModality(Flags.MODALITY.get(flags)));
-        putConcepts(Sequence.fromIterable(EnumFlags.getFunctionModifiers(flags)).toGenericArray(SAbstractConcept.class));
-        return KT_FUNCTION_INDEXER;
-      }
-      public KmPropertyVisitor visitProperty(int flags, @NotNull String name, int getterFlags, int setterFlags) {
-        putConcepts(CONCEPTS.CompiledStubStatement$Af);
-        return KT_PROPERTY_INDEXER;
-      }
-      public KmTypeAliasVisitor visitTypeAlias(int flags, String name) {
-        return KT_TYPE_ALIAS_INDEXER;
-      }
-      public KmPackageExtensionVisitor visitExtensions(KmExtensionType type) {
-        return super.visitExtensions(type);
-      }
-    };
-  }
-
-  private final AnnotationVisitor KT_ANNOTATION_VISITOR = new AnnotationVisitor() {
-    public void visitAnnotation(KmAnnotation annotation) {
-      putRef(annotation.getClassName());
-      putConcepts(CONCEPTS.Annotation$q5, CONCEPTS.AnnotationList$je);
-
-      for (IMapping<String, KmAnnotationArgument> arg : MapSequence.fromMap(annotation.getArguments())) {
-        // TODO here, we cannot really create reference to the parameter
-        visitValue(arg.value());
-      }
+  public void indexClass(KmClass klass) {
+    int flags = klass.getFlags();
+    ProtoBuf.Class.Kind classKind = Flags.CLASS_KIND.get(flags);
+    if (classKind == ProtoBuf.Class.Kind.ANNOTATION_CLASS) {
+      putConcepts(CONCEPTS.AnnotationClassModifier$vN);
     }
 
-    public void visitValue(KmAnnotationArgument arg) {
-      if (arg instanceof KmAnnotationArgument.LiteralValue) {
-        KmAnnotationArgument.LiteralValue lit = (KmAnnotationArgument.LiteralValue) arg;
+    putConcepts(EnumFlags.getClassConcept(classKind), EnumFlags.getVisibility(Flags.VISIBILITY.get(flags)), EnumFlags.getModality(Flags.MODALITY.get(flags)));
 
-        if (lit instanceof KmAnnotationArgument.BooleanValue) {
-          putConcepts(CONCEPTS.BooleanLiteral$6F);
-        } else if (lit instanceof KmAnnotationArgument.StringValue) {
-          putConcepts(CONCEPTS.StringLiteral$V8, CONCEPTS.StringLiteralLine$E7, CONCEPTS.StringLiteralRaw$ar);
-        } else if (lit instanceof KmAnnotationArgument.CharValue) {
-          putConcepts(CONCEPTS.CharLiteral$iM);
-        } else if (lit instanceof KmAnnotationArgument.DoubleValue || lit instanceof KmAnnotationArgument.FloatValue) {
-          putConcepts(CONCEPTS.RealLiteral$jh);
-        } else {
-          // short, int, byte, long, ushort, uint, ubyte, ulong
-          putConcepts(CONCEPTS.IntegerLiteral$7a);
-        }
-      } else if (arg instanceof KmAnnotationArgument.KClassValue) {
-        KmAnnotationArgument.KClassValue value = (KmAnnotationArgument.KClassValue) arg;
-        putClassRef(value.getClassName());
-        if (value.getArrayDimensionCount() > 1) {
-          putConcepts(CONCEPTS.TypeProjection$5e);
-          putRef("kotlin/Array");
-        }
-        putConcepts(CONCEPTS.MemberNavigationOperation$7I, CONCEPTS.ClassMemberTarget$le, CONCEPTS.ReceiverType$$f);
-      } else if (arg instanceof KmAnnotationArgument.EnumValue) {
-        KmAnnotationArgument.EnumValue value = ((KmAnnotationArgument.EnumValue) arg);
-        putClassRef(value.getEnumClassName());
-        putRef(value.getEnumClassName() + "." + value.getEnumEntryName());
-        putConcepts(CONCEPTS.ReceiverType$$f, CONCEPTS.VariableRefExpression$J$, CONCEPTS.NavigationOperation$4I);
-      } else if (arg instanceof KmAnnotationArgument.ArrayValue) {
-        KmAnnotationArgument.ArrayValue array = ((KmAnnotationArgument.ArrayValue) arg);
+    if (Flags.IS_INNER.get(flags)) {
+      putConcepts(CONCEPTS.InnerClassModifier$wL);
+    } else if (Flags.IS_DATA.get(flags)) {
+      putConcepts(CONCEPTS.DataClassModifier$wi);
+    }
 
-        // Arguments
-        for (KmAnnotationArgument subArg : ListSequence.fromList(array.getElements())) {
-          visitValue(subArg);
-        }
-
-        putConcepts(CONCEPTS.CollectionLiteral$1O);
-      } else if (arg instanceof KmAnnotationArgument.AnnotationValue) {
-        visitAnnotation(((KmAnnotationArgument.AnnotationValue) arg).getAnnotation());
-        putConcepts(CONCEPTS.FunctionCallExpression$EQ);
-      }
-    }
-  };
-
-  private KmTypeVisitor KT_TYPE_INDEXER = new KmTypeVisitor() {
-    public void visitClass(@NotNull String fqName) {
-      putRef(fqName);
-      putConcepts((fqName.matches("kotlin\\/Function[0-9]+") ? CONCEPTS.FunctionType$ig : CONCEPTS.ClassType$jI));
-    }
-    public void visitTypeAlias(@NotNull String fqName) {
-      putRef(fqName);
-      putConcepts(CONCEPTS.TypeAliasType$sB);
-    }
-    public void visitTypeParameter(int id) {
-      putConcepts(CONCEPTS.TypeParameterReference$ya);
-    }
-    public void visitStarProjection() {
-      putConcepts(CONCEPTS.StarProjection$5H);
-    }
-    public KmTypeVisitor visitArgument(int flags, @NotNull KmVariance variance) {
-      // Might be a function type (no need for projection), but hard to know that
-      putConcepts(CONCEPTS.TypeProjection$5e);
-      return KT_TYPE_INDEXER;
-    }
-    public KmTypeVisitor visitFlexibleTypeUpperBound(int flags, @Nullable String typeFlexibilityId) {
-      return KT_TYPE_INDEXER;
-    }
-    public KmTypeExtensionVisitor visitExtensions(@NotNull KmExtensionType type) {
-      if (Objects.equals(AnnotationVisitor.type, type)) {
-        return KT_ANNOTATION_VISITOR;
-      }
-      return super.visitExtensions(type);
-    }
-  };
-
-  public final KmClassVisitor KT_CLASS_INDEXER = new KmClassVisitor() {
-    public void visit(int flags, @NotNull String name) {
-      ProtoBuf.Class.Kind classKind = Flags.CLASS_KIND.get(flags);
-      if (classKind == ProtoBuf.Class.Kind.ANNOTATION_CLASS) {
-        putConcepts(CONCEPTS.AnnotationClassModifier$vN);
-      }
-
-      putConcepts(EnumFlags.getClassConcept(classKind), EnumFlags.getVisibility(Flags.VISIBILITY.get(flags)), EnumFlags.getModality(Flags.MODALITY.get(flags)));
-
-      if (Flags.IS_INNER.get(flags)) {
-        putConcepts(CONCEPTS.InnerClassModifier$wL);
-      } else if (Flags.IS_DATA.get(flags)) {
-        putConcepts(CONCEPTS.DataClassModifier$wi);
-      }
-
-      super.visit(flags, name);
-    }
-    public KmTypeParameterVisitor visitTypeParameter(int flags, String name, int id, KmVariance variance) {
-      return KT_TYPE_PARAMATER_INDEXER;
-    }
-    public KmFunctionVisitor visitFunction(int flags, String name) {
-      putConcepts(EnumFlags.getVisibility(Flags.VISIBILITY.get(flags)), EnumFlags.getModality(Flags.MODALITY.get(flags)));
-      putConcepts(Sequence.fromIterable(EnumFlags.getFunctionModifiers(flags)).toGenericArray(SAbstractConcept.class));
-      return KT_FUNCTION_INDEXER;
-    }
-    public KmPropertyVisitor visitProperty(int flags, String name, int getterFlags, int setterFlags) {
-      putConcepts(CONCEPTS.CompiledStubStatement$Af);
-      return KT_PROPERTY_INDEXER;
-    }
-    public KmTypeAliasVisitor visitTypeAlias(int flags, String name) {
-      return KT_TYPE_ALIAS_INDEXER;
-    }
-    public KmTypeVisitor visitSupertype(int flags) {
+    klass.getTypeParameters().forEach(this::indexTypeParameter);
+    klass.getFunctions().forEach(this::indexFunction);
+    klass.getProperties().forEach(this::indexProperty);
+    klass.getTypeAliases().forEach(this::indexTypeAlias);
+    if (!(klass.getSupertypes().isEmpty())) {
       putConcepts(CONCEPTS.SuperClassSpecifier$ZV);
-      return KT_TYPE_INDEXER;
+      klass.getSupertypes().forEach(this::indexType);
     }
-    public KmConstructorVisitor visitConstructor(int flags) {
-      return (Flags.IS_SECONDARY.get(flags) ? KT_CONSTRUCTOR_INDEXER : KT_PRIMARY_CONSTRUCTOR_INDEXER);
-    }
-    public void visitEnumEntry(@NotNull String name) {
+    if (!(klass.getEnumEntries().isEmpty())) {
       putConcepts(CONCEPTS.EnumEntry$ji);
     }
-    public KmTypeVisitor visitInlineClassUnderlyingType(int flags) {
-      return KT_TYPE_INDEXER;
+    indexType(klass.getInlineClassUnderlyingType());
+    indexExtensionsAnnotations(klass.visitExtensions(AnnotationExtension.type));
+  }
+
+  public void indexType(KmType type) {
+    if (type == null) {
+      return;
     }
-    public KmClassExtensionVisitor visitExtensions(@NotNull KmExtensionType type) {
-      if (Objects.equals(AnnotationVisitor.type, type)) {
-        return KT_ANNOTATION_VISITOR;
+
+    KmClassifier classifier = type.getClassifier();
+    if (classifier instanceof KmClassifier.Class) {
+      String fqName = ((KmClassifier.Class) classifier).getName();
+      putRef(fqName);
+      putConcepts((fqName.matches("kotlin\\/Function[0-9]+") ? CONCEPTS.FunctionType$ig : CONCEPTS.ClassType$jI));
+    } else if (classifier instanceof KmClassifier.TypeAlias) {
+      String fqName = ((KmClassifier.TypeAlias) classifier).getName();
+      putRef(fqName);
+      putConcepts(CONCEPTS.TypeAliasType$sB);
+    } else {
+      putConcepts(CONCEPTS.TypeParameterReference$ya);
+    }
+
+    type.getArguments().forEach((arg) -> {
+      if (arg == KmTypeProjection.STAR) {
+        putConcepts(CONCEPTS.StarProjection$5H);
+      } else {
+        // Might be a function type (no need for projection), but hard to know that
+        putConcepts(CONCEPTS.TypeProjection$5e);
+        indexType(arg.getType());
       }
-      return super.visitExtensions(type);
-    }
-  };
+    });
 
-  private KmTypeAliasVisitor KT_TYPE_ALIAS_INDEXER = new KmTypeAliasVisitor() {
-    public KmTypeParameterVisitor visitTypeParameter(int flags, String name, int id, KmVariance variance) {
-      return KT_TYPE_PARAMATER_INDEXER;
-    }
-    public KmTypeVisitor visitUnderlyingType(int flags) {
-      return KT_TYPE_INDEXER;
-    }
-    public KmTypeVisitor visitExpandedType(int flags) {
-      return KT_TYPE_INDEXER;
-    }
-    public void visitEnd() {
-      putConcepts(CONCEPTS.TypeAlias$qF);
-    }
-    public void visitAnnotation(@NotNull KmAnnotation annotation) {
-      KT_ANNOTATION_VISITOR.visitAnnotation(annotation);
-    }
-  };
+    indexType(check_x019md_a0h0q(type.getFlexibleTypeUpperBound()));
+    indexExtensionsAnnotations(type.visitExtensions(AnnotationExtension.type));
+  }
 
-
-  private final KmConstructorVisitor KT_CONSTRUCTOR_INDEXER = new KmConstructorVisitor() {
-    public KmValueParameterVisitor visitValueParameter(int flags, @NotNull String name) {
-      putConcepts(CONCEPTS.FunctionParameter$tR);
-      return KT_PARAMETER_INDEXER;
-    }
-    public void visitEnd() {
+  public void indexConstructor(KmConstructor constructor) {
+    Boolean secondary = Flags.IS_SECONDARY.get(constructor.getFlags());
+    if (secondary) {
       putConcepts(CONCEPTS.SecondaryConstructor$Lg);
-    }
-    public KmConstructorExtensionVisitor visitExtensions(@NotNull KmExtensionType type) {
-      if (Objects.equals(AnnotationVisitor.type, type)) {
-        return KT_ANNOTATION_VISITOR;
-      }
-      return super.visitExtensions(type);
-    }
-  };
-
-  private final KmConstructorVisitor KT_PRIMARY_CONSTRUCTOR_INDEXER = new KmConstructorVisitor() {
-    public KmValueParameterVisitor visitValueParameter(int flags, @NotNull String name) {
-      putConcepts(CONCEPTS.ClassParameter$wQ);
-      return KT_PARAMETER_INDEXER;
-    }
-    public void visitEnd() {
+    } else {
       putConcepts(CONCEPTS.PrimaryConstructor$QJ);
     }
-    public KmConstructorExtensionVisitor visitExtensions(@NotNull KmExtensionType type) {
-      if (Objects.equals(AnnotationVisitor.type, type)) {
-        return KT_ANNOTATION_VISITOR;
+
+    if (!(constructor.getValueParameters().isEmpty())) {
+      if (secondary) {
+        putConcepts(CONCEPTS.FunctionParameter$tR);
+      } else {
+        putConcepts(CONCEPTS.ClassParameter$wQ);
       }
-      return super.visitExtensions(type);
-    }
-  };
-
-  private final KmValueParameterVisitor KT_PARAMETER_INDEXER = new KmValueParameterVisitor() {
-    public KmTypeVisitor visitType(int flags) {
-      return KT_TYPE_INDEXER;
-    }
-    public KmTypeVisitor visitVarargElementType(int flags) {
-      return KT_TYPE_INDEXER;
-    }
-    public KmValueParameterExtensionVisitor visitExtensions(@NotNull KmExtensionType type) {
-      if (Objects.equals(AnnotationVisitor.type, type)) {
-        return KT_ANNOTATION_VISITOR;
-      }
-      return super.visitExtensions(type);
-    }
-  };
-
-  private final KmPropertyVisitor KT_PROPERTY_INDEXER = new KmPropertyVisitor() {
-    public KmTypeParameterVisitor visitTypeParameter(int flags, String name, int id, KmVariance variance) {
-      return KT_TYPE_PARAMATER_INDEXER;
+      constructor.getValueParameters().forEach(this::indexValueParameter);
     }
 
-    public KmTypeVisitor visitReceiverParameterType(int flags) {
-      return KT_TYPE_INDEXER;
-    }
-
-    public KmValueParameterVisitor visitSetterParameter(int flags, @NotNull String name) {
-      return KT_PARAMETER_INDEXER;
-    }
-    public KmTypeVisitor visitReturnType(int flags) {
-      return KT_TYPE_INDEXER;
-    }
-    public void visitEnd() {
-      putConcepts(CONCEPTS.PropertyDeclaration$SE);
-    }
-    public KmPropertyExtensionVisitor visitExtensions(@NotNull KmExtensionType type) {
-      if (Objects.equals(AnnotationVisitor.type, type)) {
-        return KT_ANNOTATION_VISITOR;
-      }
-      return super.visitExtensions(type);
-    }
-  };
+    indexExtensionsAnnotations(constructor.visitExtensions(AnnotationExtension.type));
+  }
 
 
-  private final KmTypeParameterVisitor KT_TYPE_PARAMATER_INDEXER = new KmTypeParameterVisitor() {
-    public KmTypeVisitor visitUpperBound(int flags) {
-      // We may not always have it though
+  public void indexValueParameter(KmValueParameter param) {
+    if (param == null) {
+      return;
+    }
+
+    indexType(param.getType());
+    indexType(param.getVarargElementType());
+    indexExtensionsAnnotations(param.visitExtensions(AnnotationExtension.type));
+  }
+
+  public void indexTypeParameter(KmTypeParameter typeParam) {
+    putConcepts(CONCEPTS.TypeParameter$oc);
+    if (typeParam.getUpperBounds().size() > 1) {
       putConcepts(CONCEPTS.TypeConstraint$NN);
-      return KT_TYPE_INDEXER;
     }
-    public void visitEnd() {
-      putConcepts(CONCEPTS.TypeParameter$oc);
-    }
-  };
+    typeParam.getUpperBounds().forEach(this::indexType);
+  }
 
+  public void indexFunction(KmFunction fun) {
+    // from class, package
+    int flags = fun.getFlags();
+    putConcepts(CONCEPTS.FunctionDeclaration$oD, EnumFlags.getVisibility(Flags.VISIBILITY.get(flags)), EnumFlags.getModality(Flags.MODALITY.get(flags)));
+    putConcepts(Sequence.fromIterable(EnumFlags.getFunctionModifiers(flags)).toGenericArray(SAbstractConcept.class));
 
-  private final KmFunctionVisitor KT_FUNCTION_INDEXER = new KmFunctionVisitor() {
-    public KmTypeParameterVisitor visitTypeParameter(int flags, String name, int id, KmVariance variance) {
-      return KT_TYPE_PARAMATER_INDEXER;
-    }
-    public KmTypeVisitor visitReceiverParameterType(int flags) {
-      return KT_TYPE_INDEXER;
-    }
-
-    public KmValueParameterVisitor visitValueParameter(int flags, @NotNull String name) {
+    fun.getTypeParameters().forEach(this::indexTypeParameter);
+    indexType(fun.getReturnType());
+    indexType(fun.getReceiverParameterType());
+    if (!(fun.getValueParameters().isEmpty())) {
       putConcepts(CONCEPTS.FunctionParameter$tR);
-      return KT_PARAMETER_INDEXER;
+      fun.getValueParameters().forEach(this::indexValueParameter);
     }
 
-    public KmTypeVisitor visitReturnType(int flags) {
-      return KT_TYPE_INDEXER;
-    }
+    indexExtensionsAnnotations(fun.visitExtensions(AnnotationExtension.type));
+  }
 
-    public void visitEnd() {
-      putConcepts(CONCEPTS.FunctionDeclaration$oD);
-    }
+  public void indexProperty(KmProperty prop) {
+    // from class, package
+    putConcepts(CONCEPTS.CompiledStubStatement$Af);
+    putConcepts(CONCEPTS.PropertyDeclaration$SE);
 
-    public KmFunctionExtensionVisitor visitExtensions(@NotNull KmExtensionType type) {
-      if (Objects.equals(AnnotationVisitor.type, type)) {
-        return KT_ANNOTATION_VISITOR;
+    prop.getTypeParameters().forEach(this::indexTypeParameter);
+    indexValueParameter(prop.getSetterParameter());
+    indexType(prop.getReceiverParameterType());
+    indexType(prop.getReturnType());
+
+    indexExtensionsAnnotations(prop.visitExtensions(AnnotationExtension.type));
+  }
+
+  public void indexTypeAlias(KmTypeAlias typeAlias) {
+    putConcepts(CONCEPTS.TypeAlias$qF);
+
+    typeAlias.getTypeParameters().forEach(this::indexTypeParameter);
+    this.indexType(typeAlias.getUnderlyingType());
+    this.indexType(typeAlias.getExpandedType());
+    typeAlias.getAnnotations().forEach(this::indexAnnotation);
+  }
+
+  public void indexExtensionsAnnotations(KmExtensionVisitor visitor) {
+    AnnotationExtension extension = as_x019md_a0a0a13(visitor, AnnotationExtension.class);
+    if (extension != null) {
+      ListSequence.fromList(extension.getAnnotations()).visitAll((annotation) -> KtModuleIndexer.this.indexAnnotation(annotation));
+    }
+  }
+
+  public void indexAnnotation(KmAnnotation annotation) {
+    putRef(annotation.getClassName());
+    putConcepts(CONCEPTS.Annotation$q5, CONCEPTS.AnnotationList$je);
+
+    for (IMapping<String, KmAnnotationArgument> arg : MapSequence.fromMap(annotation.getArguments())) {
+      // TODO here, we cannot really create reference to the parameter
+      indexValue(arg.value());
+    }
+  }
+
+  public void indexValue(KmAnnotationArgument arg) {
+    if (arg instanceof KmAnnotationArgument.LiteralValue) {
+      KmAnnotationArgument.LiteralValue lit = (KmAnnotationArgument.LiteralValue) arg;
+
+      if (lit instanceof KmAnnotationArgument.BooleanValue) {
+        putConcepts(CONCEPTS.BooleanLiteral$6F);
+      } else if (lit instanceof KmAnnotationArgument.StringValue) {
+        putConcepts(CONCEPTS.StringLiteral$V8, CONCEPTS.StringLiteralLine$E7, CONCEPTS.StringLiteralRaw$ar);
+      } else if (lit instanceof KmAnnotationArgument.CharValue) {
+        putConcepts(CONCEPTS.CharLiteral$iM);
+      } else if (lit instanceof KmAnnotationArgument.DoubleValue || lit instanceof KmAnnotationArgument.FloatValue) {
+        putConcepts(CONCEPTS.RealLiteral$jh);
+      } else {
+        // short, int, byte, long, ushort, uint, ubyte, ulong
+        putConcepts(CONCEPTS.IntegerLiteral$7a);
       }
-      return super.visitExtensions(type);
+    } else if (arg instanceof KmAnnotationArgument.KClassValue) {
+      KmAnnotationArgument.KClassValue value = (KmAnnotationArgument.KClassValue) arg;
+      putClassRef(value.getClassName());
+      if (value.getArrayDimensionCount() > 1) {
+        putConcepts(CONCEPTS.TypeProjection$5e);
+        putRef("kotlin/Array");
+      }
+      putConcepts(CONCEPTS.MemberNavigationOperation$7I, CONCEPTS.ClassMemberTarget$le, CONCEPTS.ReceiverType$$f);
+    } else if (arg instanceof KmAnnotationArgument.EnumValue) {
+      KmAnnotationArgument.EnumValue value = ((KmAnnotationArgument.EnumValue) arg);
+      putClassRef(value.getEnumClassName());
+      putRef(value.getEnumClassName() + "." + value.getEnumEntryName());
+      putConcepts(CONCEPTS.ReceiverType$$f, CONCEPTS.VariableRefExpression$J$, CONCEPTS.NavigationOperation$4I);
+    } else if (arg instanceof KmAnnotationArgument.ArrayValue) {
+      KmAnnotationArgument.ArrayValue array = ((KmAnnotationArgument.ArrayValue) arg);
+
+      // Arguments
+      for (KmAnnotationArgument subArg : ListSequence.fromList(array.getElements())) {
+        indexValue(subArg);
+      }
+
+      putConcepts(CONCEPTS.CollectionLiteral$1O);
+    } else if (arg instanceof KmAnnotationArgument.AnnotationValue) {
+      indexAnnotation(((KmAnnotationArgument.AnnotationValue) arg).getAnnotation());
+      putConcepts(CONCEPTS.FunctionCallExpression$EQ);
     }
-  };
+  }
+  private static KmType check_x019md_a0h0q(KmFlexibleTypeUpperBound checkedDotOperand) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.getType();
+    }
+    return null;
+  }
+  private static <T> T as_x019md_a0a0a13(Object o, Class<T> type) {
+    return (type.isInstance(o) ? (T) o : null);
+  }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ClassType$jI = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4dfL, "jetbrains.mps.kotlin.structure.ClassType");
+    /*package*/ static final SConcept AnnotationClassModifier$vN = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af409L, "jetbrains.mps.kotlin.structure.AnnotationClassModifier");
+    /*package*/ static final SConcept InnerClassModifier$wL = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af40bL, "jetbrains.mps.kotlin.structure.InnerClassModifier");
+    /*package*/ static final SConcept DataClassModifier$wi = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af40aL, "jetbrains.mps.kotlin.structure.DataClassModifier");
+    /*package*/ static final SConcept SuperClassSpecifier$ZV = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc8310b9b194L, "jetbrains.mps.kotlin.structure.SuperClassSpecifier");
+    /*package*/ static final SConcept EnumEntry$ji = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af533L, "jetbrains.mps.kotlin.structure.EnumEntry");
+    /*package*/ static final SConcept FunctionType$ig = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af37dL, "jetbrains.mps.kotlin.structure.FunctionType");
+    /*package*/ static final SConcept TypeAliasType$sB = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6fcb81ab07d43684L, "jetbrains.mps.kotlin.structure.TypeAliasType");
+    /*package*/ static final SConcept TypeParameterReference$ya = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x21e0c9232886358dL, "jetbrains.mps.kotlin.structure.TypeParameterReference");
+    /*package*/ static final SConcept StarProjection$5H = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3cdL, "jetbrains.mps.kotlin.structure.StarProjection");
+    /*package*/ static final SConcept TypeProjection$5e = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3ccL, "jetbrains.mps.kotlin.structure.TypeProjection");
+    /*package*/ static final SConcept SecondaryConstructor$Lg = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af393L, "jetbrains.mps.kotlin.structure.SecondaryConstructor");
+    /*package*/ static final SConcept PrimaryConstructor$QJ = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af418L, "jetbrains.mps.kotlin.structure.PrimaryConstructor");
+    /*package*/ static final SConcept FunctionParameter$tR = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af405L, "jetbrains.mps.kotlin.structure.FunctionParameter");
+    /*package*/ static final SConcept ClassParameter$wQ = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af53aL, "jetbrains.mps.kotlin.structure.ClassParameter");
+    /*package*/ static final SConcept TypeParameter$oc = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, "jetbrains.mps.kotlin.structure.TypeParameter");
+    /*package*/ static final SConcept TypeConstraint$NN = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af51cL, "jetbrains.mps.kotlin.structure.TypeConstraint");
+    /*package*/ static final SConcept FunctionDeclaration$oD = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af434L, "jetbrains.mps.kotlin.structure.FunctionDeclaration");
     /*package*/ static final SConcept CompiledStubStatement$Af = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x18b9b886496f6f83L, "jetbrains.mps.kotlin.structure.CompiledStubStatement");
+    /*package*/ static final SConcept PropertyDeclaration$SE = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4a1L, "jetbrains.mps.kotlin.structure.PropertyDeclaration");
+    /*package*/ static final SConcept TypeAlias$qF = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4e2L, "jetbrains.mps.kotlin.structure.TypeAlias");
     /*package*/ static final SConcept Annotation$q5 = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x446a1050b763ccb9L, "jetbrains.mps.kotlin.structure.Annotation");
     /*package*/ static final SConcept AnnotationList$je = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af37fL, "jetbrains.mps.kotlin.structure.AnnotationList");
     /*package*/ static final SConcept BooleanLiteral$6F = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3cfL, "jetbrains.mps.kotlin.structure.BooleanLiteral");
@@ -393,7 +325,6 @@ public class KtModuleIndexer extends KmModuleFragmentVisitor {
     /*package*/ static final SConcept CharLiteral$iM = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3d3L, "jetbrains.mps.kotlin.structure.CharLiteral");
     /*package*/ static final SConcept RealLiteral$jh = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3d4L, "jetbrains.mps.kotlin.structure.RealLiteral");
     /*package*/ static final SConcept IntegerLiteral$7a = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3d0L, "jetbrains.mps.kotlin.structure.IntegerLiteral");
-    /*package*/ static final SConcept TypeProjection$5e = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3ccL, "jetbrains.mps.kotlin.structure.TypeProjection");
     /*package*/ static final SConcept MemberNavigationOperation$7I = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb790a3792dL, "jetbrains.mps.kotlin.structure.MemberNavigationOperation");
     /*package*/ static final SConcept ClassMemberTarget$le = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af537L, "jetbrains.mps.kotlin.structure.ClassMemberTarget");
     /*package*/ static final SConcept ReceiverType$$f = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af541L, "jetbrains.mps.kotlin.structure.ReceiverType");
@@ -401,23 +332,5 @@ public class KtModuleIndexer extends KmModuleFragmentVisitor {
     /*package*/ static final SConcept NavigationOperation$4I = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af450L, "jetbrains.mps.kotlin.structure.NavigationOperation");
     /*package*/ static final SConcept CollectionLiteral$1O = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af44aL, "jetbrains.mps.kotlin.structure.CollectionLiteral");
     /*package*/ static final SConcept FunctionCallExpression$EQ = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x40b4c3a5339a6979L, "jetbrains.mps.kotlin.structure.FunctionCallExpression");
-    /*package*/ static final SConcept FunctionType$ig = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af37dL, "jetbrains.mps.kotlin.structure.FunctionType");
-    /*package*/ static final SConcept TypeAliasType$sB = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6fcb81ab07d43684L, "jetbrains.mps.kotlin.structure.TypeAliasType");
-    /*package*/ static final SConcept TypeParameterReference$ya = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x21e0c9232886358dL, "jetbrains.mps.kotlin.structure.TypeParameterReference");
-    /*package*/ static final SConcept StarProjection$5H = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3cdL, "jetbrains.mps.kotlin.structure.StarProjection");
-    /*package*/ static final SConcept AnnotationClassModifier$vN = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af409L, "jetbrains.mps.kotlin.structure.AnnotationClassModifier");
-    /*package*/ static final SConcept InnerClassModifier$wL = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af40bL, "jetbrains.mps.kotlin.structure.InnerClassModifier");
-    /*package*/ static final SConcept DataClassModifier$wi = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af40aL, "jetbrains.mps.kotlin.structure.DataClassModifier");
-    /*package*/ static final SConcept SuperClassSpecifier$ZV = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc8310b9b194L, "jetbrains.mps.kotlin.structure.SuperClassSpecifier");
-    /*package*/ static final SConcept EnumEntry$ji = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af533L, "jetbrains.mps.kotlin.structure.EnumEntry");
-    /*package*/ static final SConcept TypeAlias$qF = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4e2L, "jetbrains.mps.kotlin.structure.TypeAlias");
-    /*package*/ static final SConcept FunctionParameter$tR = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af405L, "jetbrains.mps.kotlin.structure.FunctionParameter");
-    /*package*/ static final SConcept SecondaryConstructor$Lg = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af393L, "jetbrains.mps.kotlin.structure.SecondaryConstructor");
-    /*package*/ static final SConcept ClassParameter$wQ = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af53aL, "jetbrains.mps.kotlin.structure.ClassParameter");
-    /*package*/ static final SConcept PrimaryConstructor$QJ = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af418L, "jetbrains.mps.kotlin.structure.PrimaryConstructor");
-    /*package*/ static final SConcept PropertyDeclaration$SE = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4a1L, "jetbrains.mps.kotlin.structure.PropertyDeclaration");
-    /*package*/ static final SConcept TypeConstraint$NN = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af51cL, "jetbrains.mps.kotlin.structure.TypeConstraint");
-    /*package*/ static final SConcept TypeParameter$oc = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, "jetbrains.mps.kotlin.structure.TypeParameter");
-    /*package*/ static final SConcept FunctionDeclaration$oD = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af434L, "jetbrains.mps.kotlin.structure.FunctionDeclaration");
   }
 }

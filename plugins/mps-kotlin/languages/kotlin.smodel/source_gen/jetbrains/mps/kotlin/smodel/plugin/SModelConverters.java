@@ -36,10 +36,10 @@ public class SModelConverters extends Extension.Default<TypeConverterEngine<SNod
     engine.declareMapping(CONCEPTS.SNodePointerType$3X, (it) -> createNodeReferenceType_1wzh1g_a0a1a0f0e(asConceptProjection(SLinkOperations.getTarget(SNodeOperations.as(it, CONCEPTS.SNodePointerType$3X), LINKS.concept$cytz))));
 
     // No concept equivalent -> BaseConcept
-    engine.declareMapping(CONCEPTS.AggregationLinkType$1r, (SNode it) -> createAggregationLinkType_1wzh1g_a0a1a0i0e());
-    engine.declareMapping(CONCEPTS.AssociationLinkType$9A, (SNode it) -> createReferenceLinkType_1wzh1g_a0a1a0j0e());
+    engine.declareMapping(CONCEPTS.AggregationLinkType$1r, (it) -> createAggregationLinkType_1wzh1g_a0a1a0i0e());
+    engine.declareMapping(CONCEPTS.AssociationLinkType$9A, (it) -> createReferenceLinkType_1wzh1g_a0a1a0j0e());
 
-    engine.declareMapping(CONCEPTS.SEnumerationMemberType$td, (SNode it) -> createJavaClassType_1wzh1g_a0a1a0l0e());
+    engine.declareMapping(CONCEPTS.SEnumerationMemberType$td, (it) -> createJavaClassType_1wzh1g_a0a1a0l0e());
   }
 
   public TypeConverterEngine<SNode, SNode> get() {

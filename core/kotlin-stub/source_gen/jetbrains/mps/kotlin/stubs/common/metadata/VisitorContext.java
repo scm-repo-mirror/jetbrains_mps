@@ -4,28 +4,38 @@ package jetbrains.mps.kotlin.stubs.common.metadata;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.logging.Logger;
-import java.util.List;
-import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import java.util.ArrayList;
 import java.util.Map;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
+import org.jetbrains.mps.openapi.model.SNode;
 import java.util.HashMap;
+import jetbrains.mps.internal.collections.runtime.MapSequence;
+import java.util.List;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.kotlin.stubs.common.references.KotlinJvmReferenceSolver;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.IMapping;
+import kotlinx.metadata.KmTypeParameter;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
+import jetbrains.mps.kotlin.stubs.common.TypeParameterIdSection;
+import java.util.Collections;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.util.ArrayList;
 import jetbrains.mps.kotlin.stubs.common.references.StereotypeReference;
 import org.jetbrains.mps.openapi.model.ResolveInfo;
 import jetbrains.mps.kotlin.stubs.common.KotlinId;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
+import kotlinx.metadata.KmExtensionVisitor;
+import kotlinx.metadata.KmAnnotation;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 
@@ -33,17 +43,19 @@ import org.jetbrains.mps.openapi.language.SReferenceLink;
 public class VisitorContext {
   private static final Logger LOG = Logger.getLogger(VisitorContext.class);
 
-  protected final List<SNode> parameters = ListSequence.fromList(new ArrayList<SNode>());
+  protected Map<Integer, SNode> parameters = new HashMap<>();
   protected final Map<String, SNode> declarations = MapSequence.fromMap(new HashMap<String, SNode>());
   protected final Map<SNode, List<Tuples._2<SNode, String>>> lateInitIds = MapSequence.fromMap(new HashMap<SNode, List<Tuples._2<SNode, String>>>());
   protected final Map<Integer, List<SNode>> lateInitParameterRefs = MapSequence.fromMap(new HashMap<Integer, List<SNode>>());
   protected final SNode enclosingFile;
   private final String packageName;
   private final KotlinJvmReferenceSolver referenceFactory;
+  private final KtAnnotationParser annotationInserter;
 
   public VisitorContext(KotlinJvmReferenceSolver referenceFactory, String moduleName, SNode enclosing) {
     this.enclosingFile = enclosing;
     this.referenceFactory = referenceFactory;
+    this.annotationInserter = new KtAnnotationParser(this);
 
     // Package name is expressed with / separated values while module name uses dots
     int atIndex = moduleName.indexOf("@");
@@ -74,12 +86,50 @@ public class VisitorContext {
     return MapSequence.fromMap(declarations).get(key);
   }
 
+  public void withTypeParameters(List<KmTypeParameter> typeParameters, final SNode holder, final String holderFqName, _FunctionTypes._void_P2_E0<? super List<SNode>, ? super TypeParameterIdSection> handler) {
+    // Backup type parameters
+    Map<Integer, SNode> previousState = parameters;
+
+    List<SNode> constraints = Collections.emptyList();
+    final TypeParameterIdSection descriptorBuilder = new TypeParameterIdSection();
+
+    if (!(typeParameters.isEmpty())) {
+      // Copy map, so that after this method the parameters are the same as before
+      // Unlike this map, late init parameters are not rolled back, since parameters may be defined afterwards in another scope. Ids are designed in such a way that in regular order of parsing, there will not be errors (nested classes are parsed first, then the containing which may defined these ids, following classes will have their own parameters then)
+      parameters = new HashMap<>(parameters);
+
+      constraints = typeParameters.stream().flatMap((typeParam) -> {
+        // Will declare type parameter there
+        final SNode newNode = SLinkOperations.addNewChild(holder, LINKS.typeParameters$eq6K, CONCEPTS.TypeParameter$oc);
+
+        Tuples._2<Stream<SNode>, String> res = KtTypeParameterParser.parseTypeParameter(typeParam, newNode, holderFqName, VisitorContext.this);
+        descriptorBuilder.add(res._1());
+
+        int id = typeParam.getId();
+        parameters.put(id, newNode);
+
+        // Get late init values and fix those
+        ListSequence.fromList(MapSequence.fromMap(lateInitParameterRefs).get(id)).visitAll((it) -> SLinkOperations.setTarget(it, LINKS.parameter$ofYr, newNode));
+        ListSequence.fromList(MapSequence.fromMap(lateInitParameterRefs).get(id)).clear();
+
+        return res._0();
+      }).collect(Collectors.<SNode>toList());
+    }
+
+    // Build type parameters into the holder
+    // Run internal build
+    handler.invoke(constraints, descriptorBuilder);
+
+    // Restore previous state
+    parameters = previousState;
+  }
+
   public void setTypeParameter(SNode reference, int index) {
-    if (ListSequence.fromList(parameters).count() <= index || ListSequence.fromList(parameters).getElement(index) == null) {
+    if (!(parameters.containsKey(index))) {
       // Add to late inits type parameters
       lateInitParameterRefs.computeIfAbsent(index, (i_) -> ListSequence.fromList(new ArrayList<>())).add(reference);
     } else {
-      SLinkOperations.setTarget(reference, LINKS.parameter$ofYr, ListSequence.fromList(parameters).getElement(index));
+      SLinkOperations.setTarget(reference, LINKS.parameter$ofYr, parameters.get(index));
     }
   }
 
@@ -91,25 +141,6 @@ public class VisitorContext {
 
   protected List<StereotypeReference.ClassStereotype> fqNameToNodeIds(String fqName) {
     return ListSequence.fromListAndArray(new ArrayList<StereotypeReference.ClassStereotype>(), new StereotypeReference.KotlinClassReference(fqName));
-  }
-
-  public void declareParameter(int id, final SNode param) {
-    // Should be at max one addition
-    assert id - ListSequence.fromList(parameters).count() <= 1 : "some parameter definition have been skipped";
-    if (ListSequence.fromList(parameters).count() <= id) {
-      ListSequence.fromList(parameters).addElement(param);
-    } else {
-      ListSequence.fromList(parameters).setElement(id, param);
-    }
-
-    // Erase previously set parameters up to that point
-    for (int i = id + 1; i < ListSequence.fromList(parameters).count(); i++) {
-      parameters.set(i, null);
-    }
-
-    // Get late init values and fix those
-    ListSequence.fromList(MapSequence.fromMap(lateInitParameterRefs).get(id)).visitAll((it) -> SLinkOperations.setTarget(it, LINKS.parameter$ofYr, param));
-    ListSequence.fromList(MapSequence.fromMap(lateInitParameterRefs).get(id)).clear();
   }
 
   public void unhandledPart(String description) {
@@ -137,6 +168,14 @@ public class VisitorContext {
 
   public void setId(SNode node, String fqName) {
     setId(node, fqName, KotlinId.kotlinId(fqName));
+  }
+
+  public void setChildId(SNode node, @Nullable String knownParentId, String name) {
+    if (knownParentId != null) {
+      setId(node, knownParentId + "." + name);
+    } else {
+      setChildId(node, name);
+    }
   }
 
   public void setId(SNode node, String fqName, SNodeId idImpl) {
@@ -175,11 +214,31 @@ public class VisitorContext {
     ListSequence.fromList(MapSequence.fromMap(lateInitIds).get(parent)).addElement(MultiTuple.<SNode,String>from(node, localName));
   }
 
+  /**
+   * Insert annotation read from AnnotationExtension into the annotated node.
+   * 
+   * @param readAnnotationExtension object returned from visitExtensions(AnnotationExtension.type)
+   * @param annotated node to append annotations to, if applicable
+   */
+  public void addAnnotations(KmExtensionVisitor readAnnotationExtension, SNode annotated) {
+    AnnotationExtension extension = as_2ry668_a0a0a93(readAnnotationExtension, AnnotationExtension.class);
+    if (extension != null && SNodeOperations.isInstanceOf(annotated, CONCEPTS.IAnnotated$X8) && ListSequence.fromList(extension.getAnnotations()).isNotEmpty()) {
+      addAnnotations(extension.getAnnotations(), SNodeOperations.cast(annotated, CONCEPTS.IAnnotated$X8));
+    }
+  }
+
+  public void addAnnotations(Iterable<KmAnnotation> annotations, final SNode annotated) {
+    Sequence.fromIterable(annotations).visitAll((annotation) -> annotationInserter.addInto(annotation, annotated));
+  }
+
   public String getPackageName() {
     return this.packageName;
   }
   public KotlinJvmReferenceSolver getReferenceFactory() {
     return this.referenceFactory;
+  }
+  private static <T> T as_2ry668_a0a0a93(Object o, Class<T> type) {
+    return (type.isInstance(o) ? (T) o : null);
   }
 
   private static final class PROPS {
@@ -188,10 +247,13 @@ public class VisitorContext {
 
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IDeclaration$3J = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4d3L, "jetbrains.mps.kotlin.structure.IDeclaration");
+    /*package*/ static final SConcept TypeParameter$oc = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, "jetbrains.mps.kotlin.structure.TypeParameter");
+    /*package*/ static final SInterfaceConcept IAnnotated$X8 = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6e77b7e7a89e49faL, "jetbrains.mps.kotlin.structure.IAnnotated");
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink declarations$NgHw = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af529L, 0x28bef6d7551af889L, "declarations");
+    /*package*/ static final SContainmentLink typeParameters$eq6K = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7556a4df5L, 0x28bef6d7556a4df6L, "typeParameters");
     /*package*/ static final SReferenceLink parameter$ofYr = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x21e0c9232886358dL, 0x21e0c9232886358eL, "parameter");
   }
 }

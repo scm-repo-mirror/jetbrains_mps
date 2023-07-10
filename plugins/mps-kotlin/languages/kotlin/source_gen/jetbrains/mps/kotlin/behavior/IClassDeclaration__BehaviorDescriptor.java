@@ -14,6 +14,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration;
 import jetbrains.mps.kotlin.scopes.signed.ScopeCollector;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.kotlin.api.types.identifiers.TypeKey;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
@@ -26,6 +27,7 @@ import jetbrains.mps.lang.scopes.runtime.ScopeUtils;
 import jetbrains.mps.lang.core.behavior.ScopeProvider__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.kotlin.api.types.identifiers.ClassTypeKey;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -48,8 +50,9 @@ public final class IClassDeclaration__BehaviorDescriptor extends BaseBHDescripto
   public static final SMethod<String> getPackageName_id74Z9X$ygjTm = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPackageName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8160284863354715734L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<SConcept> getConstructorDefaultVisibility_idu1nygduECM = new SMethodBuilder<SConcept>(new SJavaCompoundTypeImpl((Class<SConcept>) ((Class) Object.class))).name("getConstructorDefaultVisibility").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(540816939199146546L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<Boolean> isAbstractClass_id$q1KckYQOy = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isAbstractClass").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(655844405554146594L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<TypeKey> getSelfTypeKey_id9DkAreHC7z = new SMethodBuilder<TypeKey>(new SJavaCompoundTypeImpl(TypeKey.class)).name("getSelfTypeKey").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(173760662138683875L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getScope_id52_Geb4QDV$, getThisType_id46gC9M6gB68, getPresentation_idhEwIMiw, getTypeParameters_idTmm2uCbI_X, getNestedName_id1d2BQ0ZyA$g, collectScope_id7DyvjiA20yV, getImportRoot_id1d2BQ0ZAmKw, getPackageName_id74Z9X$ygjTm, getConstructorDefaultVisibility_idu1nygduECM, isAbstractClass_id$q1KckYQOy);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getScope_id52_Geb4QDV$, getThisType_id46gC9M6gB68, getPresentation_idhEwIMiw, getTypeParameters_idTmm2uCbI_X, getNestedName_id1d2BQ0ZyA$g, collectScope_id7DyvjiA20yV, getImportRoot_id1d2BQ0ZAmKw, getPackageName_id74Z9X$ygjTm, getConstructorDefaultVisibility_idu1nygduECM, isAbstractClass_id$q1KckYQOy, getSelfTypeKey_id9DkAreHC7z);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -115,6 +118,9 @@ public final class IClassDeclaration__BehaviorDescriptor extends BaseBHDescripto
   /*package*/ static boolean isAbstractClass_id$q1KckYQOy(@NotNull SNode __thisNode__) {
     return ((boolean) IInheritable__BehaviorDescriptor.isAbstract_id4KPNZIZDjbY.invoke(__thisNode__));
   }
+  /*package*/ static TypeKey getSelfTypeKey_id9DkAreHC7z(@NotNull SNode __thisNode__) {
+    return new ClassTypeKey(SNodeOperations.getPointer(__thisNode__));
+  }
 
   /*package*/ IClassDeclaration__BehaviorDescriptor() {
   }
@@ -151,6 +157,8 @@ public final class IClassDeclaration__BehaviorDescriptor extends BaseBHDescripto
         return (T) ((SConcept) getConstructorDefaultVisibility_idu1nygduECM(node));
       case 9:
         return (T) ((Boolean) isAbstractClass_id$q1KckYQOy(node));
+      case 10:
+        return (T) ((TypeKey) getSelfTypeKey_id9DkAreHC7z(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

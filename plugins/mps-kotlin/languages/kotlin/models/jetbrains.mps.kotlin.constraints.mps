@@ -25,6 +25,7 @@
     <import index="sjya" ref="r:8a99441d-539c-493f-b884-7b6b084d024b(jetbrains.mps.kotlin.scopes.signed)" />
     <import index="nww" ref="r:f44f82b0-1fd9-4105-a80c-2fa6e5033003(jetbrains.mps.kotlin.signatures)" />
     <import index="wbbs" ref="r:63fc91b7-ce2b-43fd-a9e4-94a1182c5fb3(jetbrains.mps.kotlin.api.builtins)" />
+    <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
     <import index="tpfp" ref="r:00000000-0000-4000-0000-011c89590519(jetbrains.mps.baseLanguage.regexp.jetbrains.mps.regexp.accessory)" implicit="true" />
     <import index="mx11" ref="r:fa9de6a8-90b7-4d2a-a9a9-a40c05cf603b(jetbrains.mps.kotlin.api.types.identifiers)" implicit="true" />
   </imports>
@@ -262,6 +263,7 @@
         <child id="6733348108486823193" name="leftExpression" index="1m5AlR" />
         <child id="3906496115198199033" name="conceptArgument" index="3oSUPX" />
       </concept>
+      <concept id="1143234257716" name="jetbrains.mps.lang.smodel.structure.Node_GetModelOperation" flags="nn" index="I4A8Y" />
       <concept id="1883223317721008708" name="jetbrains.mps.lang.smodel.structure.IfInstanceOfStatement" flags="nn" index="Jncv_">
         <reference id="1883223317721008712" name="nodeConcept" index="JncvD" />
         <child id="1883223317721008709" name="body" index="Jncv$" />
@@ -2512,6 +2514,14 @@
                   <property role="373rjd" value="true" />
                   <ref role="37wK5l" node="5pwU7dGvGXf" resolve="AnnotationConstructorsScope" />
                   <node concept="2rP1CM" id="5pwU7dGvMww" role="37wK5m" />
+                  <node concept="2YIFZM" id="1i4a6GN5eFP" role="37wK5m">
+                    <ref role="1Pybhc" to="w1kc:~SModelStereotype" resolve="SModelStereotype" />
+                    <ref role="37wK5l" to="w1kc:~SModelStereotype.isStubModel(org.jetbrains.mps.openapi.model.SModel)" resolve="isStubModel" />
+                    <node concept="2OqwBi" id="4JVbw4UatEt" role="37wK5m">
+                      <node concept="2rP1CM" id="4JVbw4Uatlv" role="2Oq$k0" />
+                      <node concept="I4A8Y" id="4JVbw4UatPH" role="2OqNvi" />
+                    </node>
+                  </node>
                 </node>
               </node>
             </node>
@@ -3310,10 +3320,21 @@
     <node concept="3uibUv" id="5pwU7dGvGKJ" role="1zkMxy">
       <ref role="3uigEE" to="sjya:6Ijh6DJ_fG_" resolve="ConstructorsScope" />
     </node>
+    <node concept="312cEg" id="4JVbw4UaqW2" role="jymVt">
+      <property role="TrG5h" value="myIsStubModel" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm6S6" id="4JVbw4UaqW3" role="1B3o_S" />
+      <node concept="10P_77" id="4JVbw4UaqW5" role="1tU5fm" />
+    </node>
+    <node concept="2tJIrI" id="4JVbw4Uasus" role="jymVt" />
     <node concept="3clFbW" id="5pwU7dGvGXf" role="jymVt">
       <node concept="37vLTG" id="5pwU7dGvGXg" role="3clF46">
         <property role="TrG5h" value="contextNode" />
         <node concept="3Tqbb2" id="5pwU7dGvGXh" role="1tU5fm" />
+      </node>
+      <node concept="37vLTG" id="4JVbw4UaqjJ" role="3clF46">
+        <property role="TrG5h" value="isStubModel" />
+        <node concept="10P_77" id="4JVbw4UaqTF" role="1tU5fm" />
       </node>
       <node concept="3cqZAl" id="5pwU7dGvGXi" role="3clF45" />
       <node concept="3Tm1VV" id="5pwU7dGvGXj" role="1B3o_S" />
@@ -3322,6 +3343,16 @@
           <ref role="37wK5l" to="sjya:4oNDtERh_gB" resolve="ConstructorsScope" />
           <node concept="37vLTw" id="5pwU7dGvGXs" role="37wK5m">
             <ref role="3cqZAo" node="5pwU7dGvGXg" resolve="contextNode" />
+          </node>
+        </node>
+        <node concept="3clFbF" id="4JVbw4UaqW6" role="3cqZAp">
+          <node concept="37vLTI" id="4JVbw4UaqW8" role="3clFbG">
+            <node concept="37vLTw" id="4JVbw4UaqWb" role="37vLTJ">
+              <ref role="3cqZAo" node="4JVbw4UaqW2" resolve="myIsStubModel" />
+            </node>
+            <node concept="37vLTw" id="4JVbw4UaqWc" role="37vLTx">
+              <ref role="3cqZAo" node="4JVbw4UaqjJ" resolve="isStubModel" />
+            </node>
           </node>
         </node>
       </node>
@@ -3336,6 +3367,57 @@
         <node concept="3Tqbb2" id="5pwU7dGvH43" role="1tU5fm" />
       </node>
       <node concept="3clFbS" id="5pwU7dGvH4Y" role="3clF47">
+        <node concept="3SKdUt" id="4JVbw4Uav3b" role="3cqZAp">
+          <node concept="1PaTwC" id="4JVbw4Uav3c" role="1aUNEU">
+            <node concept="3oM_SD" id="4JVbw4Uav9N" role="1PaTwD">
+              <property role="3oM_SC" value="Stubs" />
+            </node>
+            <node concept="3oM_SD" id="4JVbw4Uavau" role="1PaTwD">
+              <property role="3oM_SC" value="refer" />
+            </node>
+            <node concept="3oM_SD" id="4JVbw4Uavaz" role="1PaTwD">
+              <property role="3oM_SC" value="directly" />
+            </node>
+            <node concept="3oM_SD" id="4JVbw4UavaE" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="4JVbw4UavaN" role="1PaTwD">
+              <property role="3oM_SC" value="class" />
+            </node>
+            <node concept="3oM_SD" id="4JVbw4UavaY" role="1PaTwD">
+              <property role="3oM_SC" value="as" />
+            </node>
+            <node concept="3oM_SD" id="4JVbw4Uavbb" role="1PaTwD">
+              <property role="3oM_SC" value="a" />
+            </node>
+            <node concept="3oM_SD" id="4JVbw4Uavbq" role="1PaTwD">
+              <property role="3oM_SC" value="constructor," />
+            </node>
+            <node concept="3oM_SD" id="4JVbw4UavbF" role="1PaTwD">
+              <property role="3oM_SC" value="not" />
+            </node>
+            <node concept="3oM_SD" id="4JVbw4UavbY" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="4JVbw4Uavcj" role="1PaTwD">
+              <property role="3oM_SC" value="existing" />
+            </node>
+            <node concept="3oM_SD" id="4JVbw4UavcE" role="1PaTwD">
+              <property role="3oM_SC" value="constructors" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbJ" id="4JVbw4Uarwi" role="3cqZAp">
+          <node concept="3clFbS" id="4JVbw4Uarwk" role="3clFbx">
+            <node concept="3cpWs6" id="4JVbw4Uas9F" role="3cqZAp">
+              <node concept="3clFbT" id="4JVbw4UascU" role="3cqZAk" />
+            </node>
+          </node>
+          <node concept="37vLTw" id="4JVbw4UarCO" role="3clFbw">
+            <ref role="3cqZAo" node="4JVbw4UaqW2" resolve="myIsStubModel" />
+          </node>
+        </node>
+        <node concept="3clFbH" id="4JVbw4Uasit" role="3cqZAp" />
         <node concept="3clFbF" id="5pwU7dGvH52" role="3cqZAp">
           <node concept="22lmx$" id="5pwU7dGvJgS" role="3clFbG">
             <node concept="3nyPlj" id="5pwU7dGvH51" role="3uHU7B">

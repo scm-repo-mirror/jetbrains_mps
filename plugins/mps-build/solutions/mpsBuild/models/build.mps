@@ -54447,6 +54447,11 @@
             <ref role="3bR37D" node="67xNhT4NRcz" resolve="gnu.trove" />
           </node>
         </node>
+        <node concept="1SiIV0" id="2dcS_OZUtHS" role="3bR37C">
+          <node concept="3bR9La" id="2dcS_OZUtHT" role="1SiIV1">
+            <ref role="3bR37D" node="7Kfy9QB6L2N" resolve="jetbrains.mps.baseLanguage.tuples.runtime" />
+          </node>
+        </node>
       </node>
       <node concept="1E1JtA" id="1G33vFC9dMs" role="2G$12L">
         <property role="BnDLt" value="true" />

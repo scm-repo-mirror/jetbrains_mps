@@ -17,8 +17,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Objects;
-import jetbrains.mps.lang.project.behavior.Module__BehaviorDescriptor;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -40,7 +38,9 @@ public final class InternalVisibility__BehaviorDescriptor extends BaseBHDescript
     if (declModel == null || callModel == null) {
       return false;
     }
-    return Objects.equals(Module__BehaviorDescriptor.getModuleReference_id7OJukvJ5PmG.invoke(SModelOperations.getModuleStub(declModel)), Module__BehaviorDescriptor.getModuleReference_id7OJukvJ5PmG.invoke(SModelOperations.getModuleStub(callModel)));
+
+    // Do not use .module as it returns a node, we only need the module reference directly there
+    return Objects.equals(declModel.getModule().getModuleReference(), callModel.getModule().getModuleReference());
   }
 
   /*package*/ InternalVisibility__BehaviorDescriptor() {

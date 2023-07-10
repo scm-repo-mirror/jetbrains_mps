@@ -48,6 +48,7 @@ public final class StarProjection__BehaviorDescriptor extends BaseBHDescriptor {
       }
     }
   }
+  @NotNull
   /*package*/ static SEnumerationLiteral getVarianceAfterSubstitution_id27wMicCGKaq(@NotNull SNode __thisNode__, SEnumerationLiteral input) {
     if (SEnumOperations.isMember(input, 0x21e0c923289a218aL)) {
       return input;
