@@ -4361,6 +4361,9 @@
     <node concept="PrWs8" id="58ySuOXQ$EN" role="PrDN$">
       <ref role="PrY4T" node="7DyvjiA1ZY9" resolve="ISignatureScopeProvider" />
     </node>
+    <node concept="PrWs8" id="2dcS_OZGz5c" role="PrDN$">
+      <ref role="PrY4T" to="tpck:2WmWrdnSpX2" resolve="ICanSuppressErrors" />
+    </node>
   </node>
   <node concept="1TIwiD" id="1ZM$$KyRxib">
     <property role="EcuMT" value="2302063215239894155" />
