@@ -7882,7 +7882,7 @@
         <ref role="37wK5l" to="33ny:~Arrays.asList(java.lang.Object...)" resolve="asList" />
         <ref role="1Pybhc" to="33ny:~Arrays" resolve="Arrays" />
         <node concept="Xl_RD" id="VazYWZvLD9" role="37wK5m">
-          <property role="Xl_RC" value="3rd-party-rt.jar" />
+          <property role="Xl_RC" value="util-8.jar" />
         </node>
         <node concept="Xl_RD" id="3R9KYLtnFc7" role="37wK5m">
           <property role="Xl_RC" value="util.jar" />
