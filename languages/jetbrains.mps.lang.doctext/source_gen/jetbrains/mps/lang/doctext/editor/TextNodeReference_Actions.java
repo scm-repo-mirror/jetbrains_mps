@@ -5,15 +5,18 @@ package jetbrains.mps.lang.doctext.editor;
 import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
-import jetbrains.mps.lang.text.editor.NewElementStrategyFactory;
-import jetbrains.mps.openapi.editor.cells.EditorCell;
-import jetbrains.mps.openapi.editor.cells.CellTraversalUtil;
-import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.lang.text.editor.NewElementStrategyFactory;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.text.editor.TextDeleteStrategyFactory;
+import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class TextNodeReference_Actions {
 
@@ -23,18 +26,17 @@ public class TextNodeReference_Actions {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        NewElementStrategyFactory.createNewLineStrategy(node, editorContext, true, false).execute();
-      }
-
-    };
-  }
-  /*package*/ static AbstractCellAction createAction_INSERT_BEFORE(final SNode node) {
-    return new AbstractCellAction() {
-      public void execute(EditorContext editorContext) {
-        this.execute_internal(editorContext, node);
-      }
-      public void execute_internal(EditorContext editorContext, SNode node) {
-        NewElementStrategyFactory.createNewLineStrategy(node, editorContext, true, true).execute();
+        CaretPositionHelper helper = new CaretPositionHelper(editorContext);
+        int caretPosition = helper.getCaretPosition();
+        int length = helper.getLength();
+        if (caretPosition == 0) {
+          if (!(SNodeOperations.getPrevSibling(node) != null)) {
+            SNodeOperations.insertNewPrevSiblingChild(node, MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, "jetbrains.mps.lang.text.structure.Word"));
+          }
+          NewElementStrategyFactory.createNewLineStrategy(node, editorContext, true, true).execute();
+        } else if (caretPosition == length) {
+          NewElementStrategyFactory.createNewLineStrategy(node, editorContext, true, false).execute();
+        }
       }
 
     };
@@ -45,9 +47,22 @@ public class TextNodeReference_Actions {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        EditorCell currentCell = editorContext.getSelectedCell();
-        EditorCell prevCell = CellTraversalUtil.getPrevSibling(currentCell);
-        editorContext.selectWRTFocusPolicy(prevCell);
+        if (new CaretPositionHelper(editorContext).getLength() == 0) {
+          SNodeOperations.deleteNode(node);
+        } else {
+          if (SNodeOperations.isInstanceOf(SNodeOperations.getPrevSibling(node), CONCEPTS.Word$Dn) && SPropertyOperations.getString(SNodeOperations.as(SNodeOperations.getPrevSibling(node), CONCEPTS.Word$Dn), PROPS.value$zQr_) == "") {
+            SNodeOperations.deleteNode(SNodeOperations.getPrevSibling(node));
+          } else {
+            TextDeleteStrategyFactory.createDeleteStrategy(node, editorContext, false).execute();
+          }
+        }
+      }
+      @Override
+      public boolean canExecute(EditorContext editorContext) {
+        return this.canExecute_internal(editorContext, node);
+      }
+      public boolean canExecute_internal(EditorContext editorContext, SNode node) {
+        return new CaretPositionHelper(editorContext).getCaretPosition() == 0;
       }
 
     };
@@ -58,10 +73,11 @@ public class TextNodeReference_Actions {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        if (DeletionApproverUtil.approve(editorContext, node)) {
-          return;
+        if (new CaretPositionHelper(editorContext).getCaretPosition() == 0) {
+          SNodeOperations.deleteNode(node);
+        } else {
+          TextDeleteStrategyFactory.createDeleteStrategy(node, editorContext, true).execute();
         }
-        SNodeOperations.deleteNode(node);
       }
 
     };
@@ -96,7 +112,6 @@ public class TextNodeReference_Actions {
 
     // set cell actions defined directly in this action map
     editorCell.setAction(CellActionType.INSERT, createAction_INSERT(node));
-    editorCell.setAction(CellActionType.INSERT_BEFORE, createAction_INSERT_BEFORE(node));
     editorCell.setAction(CellActionType.BACKSPACE, createAction_BACKSPACE(node));
     editorCell.setAction(CellActionType.DELETE, createAction_DELETE(node));
   }
@@ -109,14 +124,19 @@ public class TextNodeReference_Actions {
     if (Objects.equals(actionType, CellActionType.INSERT)) {
       editorCell.setAction(actionType, createAction_INSERT(node));
     }
-    if (Objects.equals(actionType, CellActionType.INSERT_BEFORE)) {
-      editorCell.setAction(actionType, createAction_INSERT_BEFORE(node));
-    }
     if (Objects.equals(actionType, CellActionType.BACKSPACE)) {
       editorCell.setAction(actionType, createAction_BACKSPACE(node));
     }
     if (Objects.equals(actionType, CellActionType.DELETE)) {
       editorCell.setAction(actionType, createAction_DELETE(node));
     }
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Word$Dn = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, "jetbrains.mps.lang.text.structure.Word");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$zQr_ = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x229012ddae35f05L, "value");
   }
 }

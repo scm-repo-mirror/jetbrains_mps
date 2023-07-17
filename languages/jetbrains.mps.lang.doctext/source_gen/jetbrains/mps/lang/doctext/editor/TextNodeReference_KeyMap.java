@@ -10,7 +10,6 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.List;
-import jetbrains.mps.openapi.editor.cells.EditorCell_Label;
 import jetbrains.mps.lang.text.editor.NewElementStrategyFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -48,9 +47,14 @@ public class TextNodeReference_KeyMap extends KeyMapImpl {
       this.execute_internal(editorContext, contextCell.getSNode(), this.getSelectedNodes(editorContext));
     }
     private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
-      EditorCell cell = editorContext.getSelectedCell();
-      int caretPosition = ((EditorCell_Label) cell).getCaretPosition();
-      NewElementStrategyFactory.createNewElementStrategy(node, editorContext, caretPosition == 0).execute();
+      CaretPositionHelper helper = new CaretPositionHelper(editorContext);
+      int caretPosition = helper.getCaretPosition();
+      int length = helper.getLength();
+      if (caretPosition == 0) {
+        NewElementStrategyFactory.createNewElementStrategy(node, editorContext, true).execute();
+      } else if (caretPosition == length) {
+        NewElementStrategyFactory.createNewElementStrategy(node, editorContext, false).execute();
+      }
     }
     public String getKeyStroke() {
       return "  ";
