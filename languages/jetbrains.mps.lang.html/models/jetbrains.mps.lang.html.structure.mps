@@ -52,9 +52,9 @@
   <node concept="1TIwiD" id="1v8pb4C94uF">
     <property role="EcuMT" value="1713730370259929003" />
     <property role="TrG5h" value="HtmlOpeningTag" />
-    <property role="34LRSv" value="&lt;element&gt;" />
     <property role="3GE5qa" value="" />
     <property role="R4oN_" value="opening tag" />
+    <property role="34LRSv" value="&lt;element&gt;" />
     <ref role="1TJDcQ" node="2YAlhTM27Z" resolve="HtmlContent" />
     <node concept="1TJgyi" id="1v8pb4C9gLj" role="1TKVEl">
       <property role="IQ2nx" value="1713730370259979347" />
@@ -72,9 +72,9 @@
   <node concept="1TIwiD" id="1v8pb4C94Dh">
     <property role="EcuMT" value="1713730370259929681" />
     <property role="TrG5h" value="HtmlClosingTag" />
-    <property role="34LRSv" value="&lt;/element&gt;" />
     <property role="3GE5qa" value="" />
     <property role="R4oN_" value="closing tag" />
+    <property role="34LRSv" value="&lt;/element&gt;" />
     <ref role="1TJDcQ" node="2YAlhTM27Z" resolve="HtmlContent" />
     <node concept="1TJgyi" id="1v8pb4C9gXJ" role="1TKVEl">
       <property role="IQ2nx" value="1713730370259980143" />

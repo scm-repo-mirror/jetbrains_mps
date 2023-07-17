@@ -12,21 +12,25 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
-public final class ConvertToLine_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
+public final class WrapInTag_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
 
-  public ConvertToLine_Intention() {
-    super(Kind.NORMAL, false, new SNodePointer("r:4384e589-21bf-4354-995a-ca7eb530b7f5(jetbrains.mps.lang.html.intentions)", "1727157740674629404"));
+  public WrapInTag_Intention() {
+    super(Kind.NORMAL, false, new SNodePointer("r:4384e589-21bf-4354-995a-ca7eb530b7f5(jetbrains.mps.lang.html.intentions)", "1067906505786551289"));
   }
 
   @Override
   public String getPresentation() {
-    return "ConvertToLine";
+    return "WrapInTag";
   }
 
   @Override
@@ -46,12 +50,15 @@ public final class ConvertToLine_Intention extends AbstractIntentionDescriptor i
 
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      return "Convert Tag to Line";
+      return "Convert to Tag";
     }
 
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNodeOperations.replaceWithNewChild(node, CONCEPTS.HtmlLine$u);
+      SNode tag = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x5c842a42c54b10b2L, "jetbrains.mps.lang.html.structure.HtmlTag"));
+      SNode line = SNodeOperations.copyNode(SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.HtmlLine$u));
+      ListSequence.fromList(SLinkOperations.getChildren(tag, LINKS.content$P4hr)).insertElement(0, line);
+      SNodeOperations.replaceWithAnother(SNodeOperations.getParent(node), tag);
     }
 
     @Override
@@ -63,12 +70,16 @@ public final class ConvertToLine_Intention extends AbstractIntentionDescriptor i
 
     @Override
     public IntentionDescriptor getDescriptor() {
-      return ConvertToLine_Intention.this;
+      return WrapInTag_Intention.this;
     }
 
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept HtmlLine$u = MetaAdapterFactory.getConcept(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0xbe995479a944fcL, "jetbrains.mps.lang.html.structure.HtmlLine");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink content$P4hr = MetaAdapterFactory.getContainmentLink(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x5c842a42c54b10b2L, 0x16838b3fce9a4922L, "content");
   }
 }

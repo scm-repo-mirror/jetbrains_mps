@@ -46,7 +46,7 @@ public final class ConvertToTag_Intention extends AbstractIntentionDescriptor im
 
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      return "Convert line to tag";
+      return "Convert to tag";
     }
 
     @Override
