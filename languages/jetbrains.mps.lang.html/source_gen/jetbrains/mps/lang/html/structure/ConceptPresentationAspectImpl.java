@@ -52,7 +52,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.HtmlContent:
         if (props_HtmlContent == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("HtmlContent");
           props_HtmlContent = cpb.create();
         }
         return props_HtmlContent;
