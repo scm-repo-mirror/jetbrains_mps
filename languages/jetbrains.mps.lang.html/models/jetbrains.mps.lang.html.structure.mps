@@ -94,7 +94,7 @@
       <property role="20kJfa" value="value" />
       <property role="20lbJX" value="fLJekj5/0..n" />
       <property role="IQ2ns" value="6666499814681541918" />
-      <ref role="20lvS9" node="5M4a$b5jfOs" resolve="HtmlValuePart" />
+      <ref role="20lvS9" node="5M4a$b5jfOv" resolve="HtmlTextValue" />
     </node>
     <node concept="1TJgyi" id="5M4a$b5iSRQ" role="1TKVEl">
       <property role="TrG5h" value="attrName" />

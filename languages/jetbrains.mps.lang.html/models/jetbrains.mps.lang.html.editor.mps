@@ -87,9 +87,7 @@
         <child id="5692353713941573325" name="textFunction" index="1hCUd6" />
       </concept>
       <concept id="8449131619432941427" name="jetbrains.mps.lang.editor.structure.TransformationMenuPart_Super" flags="ng" index="L$LW2" />
-      <concept id="1164824717996" name="jetbrains.mps.lang.editor.structure.CellMenuDescriptor" flags="ng" index="OXEIz">
-        <child id="1164824815888" name="cellMenuPart" index="OY2wv" />
-      </concept>
+      <concept id="1164824717996" name="jetbrains.mps.lang.editor.structure.CellMenuDescriptor" flags="ng" index="OXEIz" />
       <concept id="1136916919141" name="jetbrains.mps.lang.editor.structure.CellKeyMapItem" flags="lg" index="2PxR9H">
         <property id="1141091278922" name="caretPolicy" index="2IlM53" />
         <child id="1136916998332" name="keystroke" index="2PyaAO" />
@@ -101,9 +99,6 @@
       </concept>
       <concept id="1136917249679" name="jetbrains.mps.lang.editor.structure.CellKeyMap_IsApplicableFunction" flags="in" index="2Pz7Y7" />
       <concept id="1136917288805" name="jetbrains.mps.lang.editor.structure.CellKeyMap_ExecuteFunction" flags="in" index="2PzhpH" />
-      <concept id="1164914519156" name="jetbrains.mps.lang.editor.structure.CellMenuPart_ReplaceNode_CustomNodeConcept" flags="ng" index="UkePV">
-        <reference id="1164914727930" name="replacementConcept" index="Ul1FP" />
-      </concept>
       <concept id="1186402211651" name="jetbrains.mps.lang.editor.structure.StyleSheet" flags="ng" index="V5hpn">
         <child id="1186402402630" name="styles" index="V601i" />
       </concept>
@@ -589,22 +584,15 @@
     <property role="3GE5qa" value="" />
     <ref role="1XX52x" to="7vgx:1v8pb4C94uF" resolve="HtmlOpeningTag" />
     <node concept="3EZMnI" id="1v8pb4C9gPr" role="2wV5jI">
-      <node concept="3F0ifn" id="3raGBnhiHOu" role="3EZMnx">
-        <ref role="1ERwB7" node="5MT8pi2G2ot" resolve="Tag_LeftBrace_ActionMap" />
-        <ref role="34QXea" node="5MT8pi2zC3e" resolve="Tag_LeftBrace_KeyMap" />
-        <node concept="11LMrY" id="2cLqkTmdxt7" role="3F10Kt">
-          <property role="VOm3f" value="true" />
-        </node>
-        <node concept="VPM3Z" id="2cLqkTmdxtf" role="3F10Kt">
-          <property role="VOm3f" value="false" />
-        </node>
-      </node>
       <node concept="3F0ifn" id="2YAlhTtxWH" role="3EZMnx">
         <property role="3F0ifm" value="&lt;" />
         <ref role="1k5W1q" node="5M4a$b5iSSc" resolve="htmlTagPunctuation" />
-        <ref role="34QXea" node="5MT8pi2zC3e" resolve="Tag_LeftBrace_KeyMap" />
         <ref role="1ERwB7" node="5MT8pi2G2ot" resolve="Tag_LeftBrace_ActionMap" />
+        <ref role="34QXea" node="5MT8pi2zC3e" resolve="Tag_LeftBrace_KeyMap" />
         <node concept="11LMrY" id="2YAlhTtxWI" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+        <node concept="11L4FC" id="3P2zp3qHr4h" role="3F10Kt">
           <property role="VOm3f" value="true" />
         </node>
         <node concept="3mYdg7" id="2YAlhTtxWJ" role="3F10Kt">
@@ -671,21 +659,14 @@
     <property role="3GE5qa" value="" />
     <ref role="1XX52x" to="7vgx:1v8pb4C94Dh" resolve="HtmlClosingTag" />
     <node concept="3EZMnI" id="2YAlhTAJ0o" role="2wV5jI">
-      <node concept="3F0ifn" id="3raGBnhjIge" role="3EZMnx">
-        <ref role="34QXea" node="5MT8pi2zC3e" resolve="Tag_LeftBrace_KeyMap" />
-        <ref role="1ERwB7" node="5MT8pi2G2ot" resolve="Tag_LeftBrace_ActionMap" />
-        <node concept="11LMrY" id="3raGBnhjIgf" role="3F10Kt">
-          <property role="VOm3f" value="true" />
-        </node>
-        <node concept="VPM3Z" id="3raGBnhjIgg" role="3F10Kt">
-          <property role="VOm3f" value="false" />
-        </node>
-      </node>
       <node concept="3F0ifn" id="2YAlhTAJ0p" role="3EZMnx">
         <property role="3F0ifm" value="&lt;/" />
         <ref role="1k5W1q" node="5M4a$b5iSSc" resolve="htmlTagPunctuation" />
         <ref role="34QXea" node="5MT8pi2zC3e" resolve="Tag_LeftBrace_KeyMap" />
         <ref role="1ERwB7" node="4eW2rsAY9UI" resolve="HtmlClosingTag_Convert_Actions" />
+        <node concept="11L4FC" id="3P2zp3qH2cd" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
         <node concept="11LMrY" id="2YAlhTAJ0q" role="3F10Kt">
           <property role="VOm3f" value="true" />
         </node>
@@ -2128,11 +2109,6 @@
         <ref role="34QXea" node="5M4a$b5jqYM" resolve="HtmlTextValue_text" />
         <ref role="1k5W1q" node="5M4a$b5iSSb" resolve="htmlAttributeValue" />
         <ref role="1NtTu8" to="7vgx:5M4a$b5jfOw" resolve="text" />
-        <node concept="OXEIz" id="2EZ251g0mM7" role="P5bDN">
-          <node concept="UkePV" id="2EZ251g0mM8" role="OY2wv">
-            <ref role="Ul1FP" to="7vgx:5M4a$b5jfOs" resolve="HtmlValuePart" />
-          </node>
-        </node>
       </node>
       <node concept="l2Vlx" id="2EZ251g0mLH" role="2iSdaV" />
     </node>
@@ -2150,10 +2126,6 @@
     <node concept="1xolST" id="5M4a$b5jlmZ" role="2wV5jI">
       <property role="1xolSY" value="&lt;no value&gt;" />
     </node>
-  </node>
-  <node concept="22mcaB" id="1wEcoXjJGxI">
-    <ref role="aqKnT" to="7vgx:5M4a$b5jfOs" resolve="HtmlValuePart" />
-    <node concept="22hDWj" id="6UtCO5dGVMl" role="22hAXT" />
   </node>
   <node concept="3ICUPy" id="1wEcoXjJGoA">
     <ref role="aqKnT" to="7vgx:5M4a$b5jfOs" resolve="HtmlValuePart" />

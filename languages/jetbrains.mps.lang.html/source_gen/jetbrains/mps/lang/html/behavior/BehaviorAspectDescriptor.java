@@ -12,11 +12,17 @@ import jetbrains.mps.lang.smodel.ConceptSwitchIndexBuilder;
 import jetbrains.mps.smodel.adapter.ids.MetaIdFactory;
 
 public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor {
+  private final BHDescriptor myHtmlLine__BehaviorDescriptor = new HtmlLine__BehaviorDescriptor();
+  private final BHDescriptor myHtmlContent__BehaviorDescriptor = new HtmlContent__BehaviorDescriptor();
   private final BHDescriptor myHtmlWord__BehaviorDescriptor = new HtmlWord__BehaviorDescriptor();
   private final BHDescriptor myHtmlOpeningTag__BehaviorDescriptor = new HtmlOpeningTag__BehaviorDescriptor();
   private final BHDescriptor myHtmlClosingTag__BehaviorDescriptor = new HtmlClosingTag__BehaviorDescriptor();
   private final BHDescriptor myHtmlTag__BehaviorDescriptor = new HtmlTag__BehaviorDescriptor();
+  private final BHDescriptor myHtmlBaseAttribute__BehaviorDescriptor = new HtmlBaseAttribute__BehaviorDescriptor();
+  private final BHDescriptor myHtmlAttribute__BehaviorDescriptor = new HtmlAttribute__BehaviorDescriptor();
   private final BHDescriptor myHtmlFile__BehaviorDescriptor = new HtmlFile__BehaviorDescriptor();
+  private final BHDescriptor myHtmlValuePart__BehaviorDescriptor = new HtmlValuePart__BehaviorDescriptor();
+  private final BHDescriptor myHtmlTextValue__BehaviorDescriptor = new HtmlTextValue__BehaviorDescriptor();
 
   public BehaviorAspectDescriptor() {
   }
@@ -26,18 +32,30 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
     SAbstractConcept cncpt = concept;
     switch (conceptIndex.index(cncpt)) {
       case 0:
-        return myHtmlClosingTag__BehaviorDescriptor;
+        return myHtmlAttribute__BehaviorDescriptor;
       case 1:
-        return myHtmlFile__BehaviorDescriptor;
+        return myHtmlBaseAttribute__BehaviorDescriptor;
       case 2:
-        return myHtmlOpeningTag__BehaviorDescriptor;
+        return myHtmlClosingTag__BehaviorDescriptor;
       case 3:
-        return myHtmlTag__BehaviorDescriptor;
+        return myHtmlContent__BehaviorDescriptor;
       case 4:
+        return myHtmlFile__BehaviorDescriptor;
+      case 5:
+        return myHtmlLine__BehaviorDescriptor;
+      case 6:
+        return myHtmlOpeningTag__BehaviorDescriptor;
+      case 7:
+        return myHtmlTag__BehaviorDescriptor;
+      case 8:
+        return myHtmlTextValue__BehaviorDescriptor;
+      case 9:
+        return myHtmlValuePart__BehaviorDescriptor;
+      case 10:
         return myHtmlWord__BehaviorDescriptor;
       default:
     }
     return null;
   }
-  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x17c864b128244a51L), MetaIdFactory.conceptId(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x5c842a42c54c94c0L), MetaIdFactory.conceptId(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x17c864b1282447abL), MetaIdFactory.conceptId(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x5c842a42c54b10b2L), MetaIdFactory.conceptId(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x16838b3fce9aa513L)).seal();
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x5c842a42c54b8df3L), MetaIdFactory.conceptId(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x5c842a42c54b10b3L), MetaIdFactory.conceptId(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x17c864b128244a51L), MetaIdFactory.conceptId(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0xbe995479c821ffL), MetaIdFactory.conceptId(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x5c842a42c54c94c0L), MetaIdFactory.conceptId(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0xbe995479a944fcL), MetaIdFactory.conceptId(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x17c864b1282447abL), MetaIdFactory.conceptId(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x5c842a42c54b10b2L), MetaIdFactory.conceptId(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x5c842a42c54cfd1fL), MetaIdFactory.conceptId(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x5c842a42c54cfd1cL), MetaIdFactory.conceptId(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x16838b3fce9aa513L)).seal();
 }

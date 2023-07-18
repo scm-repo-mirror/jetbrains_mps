@@ -12,8 +12,8 @@ import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Indent;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
 import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
-import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.lang.html.editor.HtmlSS_StyleSheet.htmlTagPunctuationStyleClass;
+import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.openapi.editor.menus.transformation.SPropertyInfo;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Property;
@@ -55,28 +55,16 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.setBig(true);
     setCellContext(editorCell);
     editorCell.addEditorCell(createConstant_0());
-    editorCell.addEditorCell(createConstant_1());
     editorCell.addEditorCell(createProperty_0());
-    editorCell.addEditorCell(createConstant_2());
+    editorCell.addEditorCell(createConstant_1());
     return editorCell;
   }
   private EditorCell createConstant_0() {
-    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "");
+    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "</");
     editorCell.setCellId("Constant_yskulq_a0");
     Style style = new StyleImpl();
-    style.set(StyleAttributes.PUNCTUATION_RIGHT, true);
-    style.set(StyleAttributes.SELECTABLE, false);
-    editorCell.getStyle().putAll(style);
-    Tag_LeftBrace_ActionMap.setCellActions(editorCell, myNode, getEditorContext());
-    editorCell.addKeyMap(new Tag_LeftBrace_KeyMap());
-    editorCell.setDefaultText("");
-    return editorCell;
-  }
-  private EditorCell createConstant_1() {
-    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "</");
-    editorCell.setCellId("Constant_yskulq_b0");
-    Style style = new StyleImpl();
     new htmlTagPunctuationStyleClass(this).apply(style, editorCell);
+    style.set(StyleAttributes.PUNCTUATION_LEFT, true);
     style.set(StyleAttributes.PUNCTUATION_RIGHT, true);
     style.set(StyleAttributes.MATCHING_LABEL, "openTag");
     editorCell.getStyle().putAll(style);
@@ -110,9 +98,9 @@ import org.jetbrains.mps.openapi.language.SConcept;
       getCellFactory().popCellContext();
     }
   }
-  private EditorCell createConstant_2() {
+  private EditorCell createConstant_1() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, ">");
-    editorCell.setCellId("Constant_yskulq_d0");
+    editorCell.setCellId("Constant_yskulq_c0");
     Tag_RightBrace_ActionMap.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.addKeyMap(new Tag_RightBrace_KeyMap());
     editorCell.setDefaultText("");

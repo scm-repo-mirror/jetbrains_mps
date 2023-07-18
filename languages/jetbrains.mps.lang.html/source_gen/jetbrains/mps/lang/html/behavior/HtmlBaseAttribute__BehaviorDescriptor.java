@@ -13,27 +13,22 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SProperty;
 
-public final class HtmlWord__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x16838b3fce9aa513L, "jetbrains.mps.lang.html.structure.HtmlWord");
+public final class HtmlBaseAttribute__BehaviorDescriptor extends BaseBHDescriptor {
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x5c842a42c54b10b3L, "jetbrains.mps.lang.html.structure.HtmlBaseAttribute");
 
-  public static final SMethod<String> representAsText_idVhXOWqXN6b = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("representAsText").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1067906505790402955L).languageId(0xad374b804d24ba45L, 0x8a10cb27224943abL).build2();
+  public static final SMethod<String> representAsText_id3P2zp3qJQPk = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("representAsText").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4414246238061292884L).languageId(0xad374b804d24ba45L, 0x8a10cb27224943abL).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(representAsText_idVhXOWqXN6b);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(representAsText_id3P2zp3qJQPk);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static String representAsText_idVhXOWqXN6b(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getString(__thisNode__, PROPS.value$ozQo);
-  }
 
-  /*package*/ HtmlWord__BehaviorDescriptor() {
+  /*package*/ HtmlBaseAttribute__BehaviorDescriptor() {
   }
 
   @Override
@@ -48,8 +43,6 @@ public final class HtmlWord__BehaviorDescriptor extends BaseBHDescriptor {
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
-      case 0:
-        return (T) ((String) representAsText_idVhXOWqXN6b(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -77,9 +70,5 @@ public final class HtmlWord__BehaviorDescriptor extends BaseBHDescriptor {
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty value$ozQo = MetaAdapterFactory.getProperty(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x16838b3fce9aa513L, 0x16838b3fce9aaa68L, "value");
   }
 }

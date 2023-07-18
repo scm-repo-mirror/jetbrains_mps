@@ -13,27 +13,40 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
-public final class HtmlWord__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x16838b3fce9aa513L, "jetbrains.mps.lang.html.structure.HtmlWord");
+public final class HtmlLine__BehaviorDescriptor extends BaseBHDescriptor {
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0xbe995479a944fcL, "jetbrains.mps.lang.html.structure.HtmlLine");
 
-  public static final SMethod<String> representAsText_idVhXOWqXN6b = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("representAsText").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1067906505790402955L).languageId(0xad374b804d24ba45L, 0x8a10cb27224943abL).build2();
+  public static final SMethod<String> representAsText_id2iG$EWuTXv2 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("representAsText").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2642648362195081154L).languageId(0xad374b804d24ba45L, 0x8a10cb27224943abL).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(representAsText_idVhXOWqXN6b);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(representAsText_id2iG$EWuTXv2);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static String representAsText_idVhXOWqXN6b(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getString(__thisNode__, PROPS.value$ozQo);
+  /*package*/ static String representAsText_id2iG$EWuTXv2(@NotNull SNode __thisNode__) {
+    StringBuilder builder = new StringBuilder();
+    boolean first = true;
+    for (SNode w : SLinkOperations.getChildren(__thisNode__, LINKS.elements$M3SS)) {
+      String textualRepresentation = HtmlContent__BehaviorDescriptor.representAsText_idVhXOWqXN6b.invoke(w);
+      if (first) {
+        first = false;
+      } else {
+        builder.append(" ");
+      }
+      if ((textualRepresentation != null && textualRepresentation.length() > 0)) {
+        builder.append(textualRepresentation);
+      }
+    }
+    return builder.toString();
   }
 
-  /*package*/ HtmlWord__BehaviorDescriptor() {
+  /*package*/ HtmlLine__BehaviorDescriptor() {
   }
 
   @Override
@@ -49,7 +62,7 @@ public final class HtmlWord__BehaviorDescriptor extends BaseBHDescriptor {
     }
     switch (methodIndex) {
       case 0:
-        return (T) ((String) representAsText_idVhXOWqXN6b(node));
+        return (T) ((String) representAsText_id2iG$EWuTXv2(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -79,7 +92,7 @@ public final class HtmlWord__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class PROPS {
-    /*package*/ static final SProperty value$ozQo = MetaAdapterFactory.getProperty(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x16838b3fce9aa513L, 0x16838b3fce9aaa68L, "value");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink elements$M3SS = MetaAdapterFactory.getContainmentLink(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0xbe995479a944fcL, 0xbe995479a94d8aL, "elements");
   }
 }

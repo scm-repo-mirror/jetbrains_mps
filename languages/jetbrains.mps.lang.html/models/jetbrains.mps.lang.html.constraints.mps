@@ -1612,9 +1612,6 @@
       </node>
     </node>
   </node>
-  <node concept="1M2fIO" id="2EZ251fZO7o">
-    <ref role="1M2myG" to="7vgx:5M4a$b5jfOs" resolve="HtmlValuePart" />
-  </node>
   <node concept="1M2fIO" id="2YAlhTuc7U">
     <property role="3GE5qa" value="" />
     <ref role="1M2myG" to="7vgx:1v8pb4C94uF" resolve="HtmlOpeningTag" />

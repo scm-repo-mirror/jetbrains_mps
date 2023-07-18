@@ -5,24 +5,33 @@ package jetbrains.mps.lang.html.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import java.util.List;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
+import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
+import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
+import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
+import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class HtmlClosingTag__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x17c864b128244a51L, "jetbrains.mps.lang.html.structure.HtmlClosingTag");
 
+  public static final SMethod<String> representAsText_idVhXOWqXN6b = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("representAsText").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1067906505790402955L).languageId(0xad374b804d24ba45L, 0x8a10cb27224943abL).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList();
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(representAsText_idVhXOWqXN6b);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
+  /*package*/ static String representAsText_idVhXOWqXN6b(@NotNull SNode __thisNode__) {
+    return "</" + SPropertyOperations.getString(__thisNode__, PROPS.tagName$9lI7) + ">";
+  }
 
   /*package*/ HtmlClosingTag__BehaviorDescriptor() {
   }
@@ -39,6 +48,8 @@ public final class HtmlClosingTag__BehaviorDescriptor extends BaseBHDescriptor {
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
+      case 0:
+        return (T) ((String) representAsText_idVhXOWqXN6b(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -66,5 +77,9 @@ public final class HtmlClosingTag__BehaviorDescriptor extends BaseBHDescriptor {
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty tagName$9lI7 = MetaAdapterFactory.getProperty(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x17c864b128244a51L, 0x17c864b128250f6fL, "tagName");
   }
 }
