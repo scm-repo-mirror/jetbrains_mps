@@ -6,6 +6,8 @@ import jetbrains.mps.generator.runtime.Generated;
 import jetbrains.mps.generator.impl.query.QueryProviderBase;
 import jetbrains.mps.generator.template.BaseMappingRuleContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.text.behavior.Line__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.generator.template.PropertyMacroContext;
 import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -15,7 +17,6 @@ import javax.swing.SwingUtilities;
 import jetbrains.mps.editor.runtime.HeadlessEditorComponent;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.generator.template.IfMacroContext;
-import jetbrains.mps.lang.text.behavior.IndentedPoint__BehaviorDescriptor;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
@@ -41,9 +42,9 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.generator.impl.query.IfMacroCondition;
 import jetbrains.mps.generator.impl.query.VariableValueQuery;
 import jetbrains.mps.lang.smodel.EnumerationLiteralsIndex;
+import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.language.SConcept;
 
 @Generated
 public class QueriesGenerated extends QueryProviderBase {
@@ -61,6 +62,18 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   public static boolean rule_Condition_0_3(final BaseMappingRuleContext _context) {
     return SPropertyOperations.getBoolean(_context.getNode(), PROPS.underlined$SQS1);
+  }
+  public static boolean rule_Condition_0_4(final BaseMappingRuleContext _context) {
+    return !((boolean) Line__BehaviorDescriptor.isEmptyLine_id1YnOZxAO76B.invoke(SNodeOperations.as(_context.getNode(), CONCEPTS.Header$d7)));
+  }
+  public static boolean rule_Condition_0_5(final BaseMappingRuleContext _context) {
+    return (boolean) Line__BehaviorDescriptor.isEmptyLine_id1YnOZxAO76B.invoke(SNodeOperations.as(_context.getNode(), CONCEPTS.Header$d7));
+  }
+  public static boolean rule_Condition_0_6(final BaseMappingRuleContext _context) {
+    return !((boolean) Line__BehaviorDescriptor.isEmptyLine_id1YnOZxAO76B.invoke(SNodeOperations.as(_context.getNode(), CONCEPTS.Line$yC)));
+  }
+  public static boolean rule_Condition_0_7(final BaseMappingRuleContext _context) {
+    return (boolean) Line__BehaviorDescriptor.isEmptyLine_id1YnOZxAO76B.invoke(SNodeOperations.as(_context.getNode(), CONCEPTS.Line$yC));
   }
   public static Object propertyMacro_GetValue_0_0(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(_context.getNode(), PROPS.url$SIrt);
@@ -101,17 +114,26 @@ public class QueriesGenerated extends QueryProviderBase {
   public static Object propertyMacro_GetValue_9_0(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL);
   }
+  public static boolean ifMacro_Condition_3_0(final IfMacroContext _context) {
+    return (boolean) Line__BehaviorDescriptor.isFirstLine_id647WjQal7cZ.invoke(_context.getNode());
+  }
+  public static boolean ifMacro_Condition_3_1(final IfMacroContext _context) {
+    return !((boolean) Line__BehaviorDescriptor.isLastLine_id647WjQalOgm.invoke(_context.getNode()));
+  }
+  public static boolean ifMacro_Condition_3_2(final IfMacroContext _context) {
+    return (boolean) Line__BehaviorDescriptor.isLastLine_id647WjQalOgm.invoke(_context.getNode());
+  }
   public static boolean ifMacro_Condition_4_0(final IfMacroContext _context) {
-    return (boolean) IndentedPoint__BehaviorDescriptor.isFirstPosition_id5xPwFDOE8Ju.invoke(_context.getNode());
+    return (boolean) Line__BehaviorDescriptor.isFirstLine_id647WjQal7cZ.invoke(_context.getNode());
   }
   public static boolean ifMacro_Condition_4_1(final IfMacroContext _context) {
-    return (boolean) IndentedPoint__BehaviorDescriptor.isLastPosition_id5xPwFDOE9mY.invoke(_context.getNode());
+    return (boolean) Line__BehaviorDescriptor.isLastLine_id647WjQalOgm.invoke(_context.getNode());
   }
   public static boolean ifMacro_Condition_5_0(final IfMacroContext _context) {
-    return (boolean) IndentedPoint__BehaviorDescriptor.isFirstPosition_id5xPwFDOE8Ju.invoke(_context.getNode());
+    return (boolean) Line__BehaviorDescriptor.isFirstLine_id647WjQal7cZ.invoke(_context.getNode());
   }
   public static boolean ifMacro_Condition_5_1(final IfMacroContext _context) {
-    return (boolean) IndentedPoint__BehaviorDescriptor.isLastPosition_id5xPwFDOE9mY.invoke(_context.getNode());
+    return (boolean) Line__BehaviorDescriptor.isLastLine_id647WjQalOgm.invoke(_context.getNode());
   }
   public static SNode sourceNodeQuery_9_0(final SourceSubstituteMacroNodeContext _context) {
     return Sequence.fromIterable(SLinkOperations.collect(new IAttributeDescriptor.NodeAttribute(CONCEPTS.DocumentedNodeAnnotation$ug).list(_context.getNode()), LINKS.text$Dgpy)).first();
@@ -144,6 +166,10 @@ public class QueriesGenerated extends QueryProviderBase {
     rrcMethods.put("6840382393700870087", new RRC(i++));
     rrcMethods.put("3955314254461347346", new RRC(i++));
     rrcMethods.put("3955314254461352155", new RRC(i++));
+    rrcMethods.put("2217810310723288657", new RRC(i++));
+    rrcMethods.put("6991822193134593842", new RRC(i++));
+    rrcMethods.put("4076956234021247387", new RRC(i++));
+    rrcMethods.put("6991822193134597420", new RRC(i++));
   }
   @Override
   @NotNull
@@ -167,6 +193,14 @@ public class QueriesGenerated extends QueryProviderBase {
           return QueriesGenerated.rule_Condition_0_2(ctx);
         case 3:
           return QueriesGenerated.rule_Condition_0_3(ctx);
+        case 4:
+          return QueriesGenerated.rule_Condition_0_4(ctx);
+        case 5:
+          return QueriesGenerated.rule_Condition_0_5(ctx);
+        case 6:
+          return QueriesGenerated.rule_Condition_0_6(ctx);
+        case 7:
+          return QueriesGenerated.rule_Condition_0_7(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no condition method for rule %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
@@ -202,7 +236,7 @@ public class QueriesGenerated extends QueryProviderBase {
   {
     int i = 0;
     snsqMethods.put("3955314254461918493", new SNsQ(i++));
-    snsqMethods.put("3955314254461947023", new SNsQ(i++));
+    snsqMethods.put("6991822193134684032", new SNsQ(i++));
     snsqMethods.put("3955314254462790684", new SNsQ(i++));
     snsqMethods.put("3955314254462871661", new SNsQ(i++));
     snsqMethods.put("3955314254462305245", new SNsQ(i++));
@@ -284,6 +318,9 @@ public class QueriesGenerated extends QueryProviderBase {
   private final Map<String, IfMacroCondition> imcMethods = new HashMap<String, IfMacroCondition>();
   {
     int i = 0;
+    imcMethods.put("6991822193134689578", new IfMC(i++));
+    imcMethods.put("6991822193134693440", new IfMC(i++));
+    imcMethods.put("6991822193134695868", new IfMC(i++));
     imcMethods.put("3955314254462439770", new IfMC(i++));
     imcMethods.put("3955314254462435271", new IfMC(i++));
     imcMethods.put("3955314254462871647", new IfMC(i++));
@@ -304,12 +341,18 @@ public class QueriesGenerated extends QueryProviderBase {
     public boolean check(@NotNull IfMacroContext ctx) throws GenerationFailureException {
       switch (methodKey) {
         case 0:
-          return QueriesGenerated.ifMacro_Condition_4_0(ctx);
+          return QueriesGenerated.ifMacro_Condition_3_0(ctx);
         case 1:
-          return QueriesGenerated.ifMacro_Condition_4_1(ctx);
+          return QueriesGenerated.ifMacro_Condition_3_1(ctx);
         case 2:
-          return QueriesGenerated.ifMacro_Condition_5_0(ctx);
+          return QueriesGenerated.ifMacro_Condition_3_2(ctx);
         case 3:
+          return QueriesGenerated.ifMacro_Condition_4_0(ctx);
+        case 4:
+          return QueriesGenerated.ifMacro_Condition_4_1(ctx);
+        case 5:
+          return QueriesGenerated.ifMacro_Condition_5_0(ctx);
+        case 6:
           return QueriesGenerated.ifMacro_Condition_5_1(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no condition method for if macro %s (key: #%d)", ctx.getTemplateReference(), methodKey));
@@ -353,15 +396,17 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Header$d7 = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x6cb23f222fb47accL, "jetbrains.mps.lang.text.structure.Header");
+    /*package*/ static final SConcept Line$yC = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, "jetbrains.mps.lang.text.structure.Line");
+    /*package*/ static final SConcept DocumentedNodeAnnotation$ug = MetaAdapterFactory.getConcept(0x343f8205dc88465bL, 0x9c5bce46b5f1c193L, 0x3b971d44f99760b4L, "jetbrains.mps.lang.core.doc.structure.DocumentedNodeAnnotation");
+    /*package*/ static final SConcept AbstractConceptDeclaration$KA = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+  }
+
   private static final class LINKS {
     /*package*/ static final SReferenceLink reference$xWiG = MetaAdapterFactory.getReferenceLink(0xd304f2474944479dL, 0xac8b972b953bcdfeL, 0x6cc063b139472ce7L, 0x6d10fe0be3bc93bL, "reference");
     /*package*/ static final SContainmentLink text$Dgpy = MetaAdapterFactory.getContainmentLink(0x343f8205dc88465bL, 0x9c5bce46b5f1c193L, 0x3b971d44f99760b4L, 0x1ec73eba262d6d52L, "text");
     /*package*/ static final SContainmentLink lines$4Ez6 = MetaAdapterFactory.getContainmentLink(0xd304f2474944479dL, 0xac8b972b953bcdfeL, 0xa5fce56f6c81ea5L, 0x3d1f117681e68108L, "lines");
     /*package*/ static final SContainmentLink elements$_j45 = MetaAdapterFactory.getContainmentLink(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, 0x2331694e561af167L, "elements");
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SConcept DocumentedNodeAnnotation$ug = MetaAdapterFactory.getConcept(0x343f8205dc88465bL, 0x9c5bce46b5f1c193L, 0x3b971d44f99760b4L, "jetbrains.mps.lang.core.doc.structure.DocumentedNodeAnnotation");
-    /*package*/ static final SConcept AbstractConceptDeclaration$KA = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
   }
 }
