@@ -5,12 +5,30 @@ package jetbrains.mps.lang.html.textGen;
 import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
-import jetbrains.mps.lang.html.behavior.HtmlBaseAttribute__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class HtmlAttribute_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
-    tgs.append(HtmlBaseAttribute__BehaviorDescriptor.representAsText_id3P2zp3qJQPk.invoke(ctx.getPrimaryInput()));
+    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.attrName$E5Iq));
+    tgs.append("=\"");
+    for (SNode item : SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.value$j0vy)) {
+      tgs.appendNode(item);
+    }
+    tgs.append("\"");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty attrName$E5Iq = MetaAdapterFactory.getProperty(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x5c842a42c54b8df3L, 0x5c842a42c54b8df6L, "attrName");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink value$j0vy = MetaAdapterFactory.getContainmentLink(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x5c842a42c54b8df3L, 0x5c842a42c54cfd1eL, "value");
   }
 }

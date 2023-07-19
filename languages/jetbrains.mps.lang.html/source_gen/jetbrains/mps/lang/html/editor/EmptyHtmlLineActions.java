@@ -6,43 +6,22 @@ import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import java.util.Objects;
-import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SProperty;
 
-public class Tag_LeftBrace_ActionMap {
+public class EmptyHtmlLineActions {
 
-  /*package*/ static AbstractCellAction createAction_BACKSPACE(final SNode node) {
-    return new AbstractCellAction() {
-      public void execute(EditorContext editorContext) {
-        this.execute_internal(editorContext, node);
-      }
-      public void execute_internal(EditorContext editorContext, SNode node) {
-        if (SNodeOperations.isInstanceOf(SNodeOperations.getPrevSibling(node), CONCEPTS.HtmlWord$P2) && (SPropertyOperations.getString(SNodeOperations.as(SNodeOperations.getPrevSibling(node), CONCEPTS.HtmlWord$P2), PROPS.value$ozQo) == "" || SPropertyOperations.getString(SNodeOperations.as(SNodeOperations.getPrevSibling(node), CONCEPTS.HtmlWord$P2), PROPS.value$ozQo) == null)) {
-          SNodeOperations.deleteNode(SNodeOperations.getPrevSibling(node));
-        } else {
-          HtmlTextDeleteStrategyFactory.createDeleteStrategy(node, editorContext, false).execute();
-        }
-      }
-
-    };
-  }
   /*package*/ static AbstractCellAction createAction_DELETE(final SNode node) {
     return new AbstractCellAction() {
       public void execute(EditorContext editorContext) {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        if (DeletionApproverUtil.approve(editorContext, node)) {
-          return;
-        }
         SNodeOperations.deleteNode(node);
       }
 
@@ -54,7 +33,18 @@ public class Tag_LeftBrace_ActionMap {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        HtmlNewElementStrategyFactory.createNewLineStrategy(node, editorContext, true, true).execute();
+        SNodeOperations.insertNextSiblingChild(node, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0xbe995479a944fcL, "jetbrains.mps.lang.html.structure.HtmlLine")));
+      }
+
+    };
+  }
+  /*package*/ static AbstractCellAction createAction_INSERT_BEFORE(final SNode node) {
+    return new AbstractCellAction() {
+      public void execute(EditorContext editorContext) {
+        this.execute_internal(editorContext, node);
+      }
+      public void execute_internal(EditorContext editorContext, SNode node) {
+        SNodeOperations.insertPrevSiblingChild(node, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0xbe995479a944fcL, "jetbrains.mps.lang.html.structure.HtmlLine")));
       }
 
     };
@@ -88,9 +78,9 @@ public class Tag_LeftBrace_ActionMap {
     // set cell actions from all imported action maps
 
     // set cell actions defined directly in this action map
-    editorCell.setAction(CellActionType.BACKSPACE, createAction_BACKSPACE(node));
     editorCell.setAction(CellActionType.DELETE, createAction_DELETE(node));
     editorCell.setAction(CellActionType.INSERT, createAction_INSERT(node));
+    editorCell.setAction(CellActionType.INSERT_BEFORE, createAction_INSERT_BEFORE(node));
   }
 
   public static void setDefinedCellActionsOfType(EditorCell editorCell, SNode node, EditorContext context, CellActionType actionType) {
@@ -98,22 +88,14 @@ public class Tag_LeftBrace_ActionMap {
     // set cell action(s) of the given type from imported action maps
 
     // set cell action of the given type defined directly in this action map
-    if (Objects.equals(actionType, CellActionType.BACKSPACE)) {
-      editorCell.setAction(actionType, createAction_BACKSPACE(node));
-    }
     if (Objects.equals(actionType, CellActionType.DELETE)) {
       editorCell.setAction(actionType, createAction_DELETE(node));
     }
     if (Objects.equals(actionType, CellActionType.INSERT)) {
       editorCell.setAction(actionType, createAction_INSERT(node));
     }
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SConcept HtmlWord$P2 = MetaAdapterFactory.getConcept(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x16838b3fce9aa513L, "jetbrains.mps.lang.html.structure.HtmlWord");
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty value$ozQo = MetaAdapterFactory.getProperty(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x16838b3fce9aa513L, 0x16838b3fce9aaa68L, "value");
+    if (Objects.equals(actionType, CellActionType.INSERT_BEFORE)) {
+      editorCell.setAction(actionType, createAction_INSERT_BEFORE(node));
+    }
   }
 }

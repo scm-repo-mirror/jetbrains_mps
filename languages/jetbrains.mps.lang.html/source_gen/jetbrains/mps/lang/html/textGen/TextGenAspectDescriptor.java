@@ -25,16 +25,22 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
     switch (myIndex.index(concept)) {
       case LanguageConceptSwitch.HtmlAttribute:
         return new HtmlAttribute_TextGen();
+      case LanguageConceptSwitch.HtmlClosingTag:
+        return new HtmlClosingTag_TextGen();
       case LanguageConceptSwitch.HtmlDocument:
         return new HtmlDocument_TextGen();
       case LanguageConceptSwitch.HtmlFile:
         return new HtmlFile_TextGen();
       case LanguageConceptSwitch.HtmlLine:
         return new HtmlLine_TextGen();
+      case LanguageConceptSwitch.HtmlOpeningTag:
+        return new HtmlOpeningTag_TextGen();
       case LanguageConceptSwitch.HtmlTag:
         return new HtmlTag_TextGen();
       case LanguageConceptSwitch.HtmlTextValue:
         return new HtmlTextValue_TextGen();
+      case LanguageConceptSwitch.HtmlWord:
+        return new HtmlWord_TextGen();
     }
     return null;
   }

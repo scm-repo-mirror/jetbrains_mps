@@ -5,7 +5,6 @@ package jetbrains.mps.lang.html.textGen;
 import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
@@ -20,9 +19,6 @@ public class HtmlTag_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
-    if ((SNodeOperations.getPrevSibling(ctx.getPrimaryInput()) != null)) {
-      tgs.indent();
-    }
     tgs.append("<");
     tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.tagName$h88K));
     if (ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.attributes$h7TJ)).isNotEmpty()) {
@@ -43,11 +39,12 @@ public class HtmlTag_TextGen extends TextGenDescriptorBase {
       return;
     }
     tgs.append(">");
-    if ((boolean) HtmlTag__BehaviorDescriptor.isMultiLine_idVhXOWqV8wJ.invoke(ctx.getPrimaryInput())) {
+    if ((boolean) HtmlTag__BehaviorDescriptor.isMultiline_idVhXOWqV8wJ.invoke(ctx.getPrimaryInput())) {
+      tgs.appendNode(ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.content$P4hr)).first());
       tgs.newLine();
       ctx.getBuffer().area().increaseIndent();
       {
-        Iterable<SNode> collection = SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.content$P4hr);
+        Iterable<SNode> collection = ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.content$P4hr)).tailListSequence(1);
         final SNode lastItem = Sequence.fromIterable(collection).last();
         for (SNode item : collection) {
           tgs.appendNode(item);
@@ -58,6 +55,7 @@ public class HtmlTag_TextGen extends TextGenDescriptorBase {
       }
       ctx.getBuffer().area().decreaseIndent();
       tgs.newLine();
+      tgs.indent();
     } else {
       for (SNode item : SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.content$P4hr)) {
         tgs.appendNode(item);

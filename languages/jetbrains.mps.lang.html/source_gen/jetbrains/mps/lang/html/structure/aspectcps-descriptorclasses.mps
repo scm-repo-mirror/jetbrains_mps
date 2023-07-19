@@ -3823,7 +3823,7 @@
               <property role="3oM_SC" value="extends:" />
             </node>
             <node concept="3oM_SD" id="lI" role="1PaTwD">
-              <property role="3oM_SC" value="jetbrains.mps.lang.html.structure.HtmlPart" />
+              <property role="3oM_SC" value="jetbrains.mps.lang.html.structure.HtmlContent" />
             </node>
           </node>
         </node>
@@ -3845,7 +3845,7 @@
                 <property role="1adDun" value="0xad374b804d24ba45L" />
               </node>
               <node concept="1adDum" id="lP" role="37wK5m">
-                <property role="1adDun" value="0x17f818d073f11b34L" />
+                <property role="1adDun" value="0xbe995479c821ffL" />
               </node>
             </node>
           </node>
@@ -4049,7 +4049,7 @@
                           <property role="1adDun" value="0xad374b804d24ba45L" />
                         </node>
                         <node concept="1adDum" id="n3" role="37wK5m">
-                          <property role="1adDun" value="0x17f818d073f11b34L" />
+                          <property role="1adDun" value="0xbe995479a944fcL" />
                         </node>
                       </node>
                     </node>

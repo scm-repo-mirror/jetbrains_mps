@@ -23,14 +23,14 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 public final class HtmlTag__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x8a10cb27224943abL, 0xad374b804d24ba45L, 0x5c842a42c54b10b2L, "jetbrains.mps.lang.html.structure.HtmlTag");
 
-  public static final SMethod<Boolean> isMultiLine_idVhXOWqV8wJ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isMultiLine").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1067906505789704239L).languageId(0xad374b804d24ba45L, 0x8a10cb27224943abL).build2();
+  public static final SMethod<Boolean> isMultiline_idVhXOWqV8wJ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isMultiline").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1067906505789704239L).languageId(0xad374b804d24ba45L, 0x8a10cb27224943abL).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isMultiLine_idVhXOWqV8wJ);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isMultiline_idVhXOWqV8wJ);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static boolean isMultiLine_idVhXOWqV8wJ(@NotNull SNode __thisNode__) {
+  /*package*/ static boolean isMultiline_idVhXOWqV8wJ(@NotNull SNode __thisNode__) {
     return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.content$P4hr)).count() > 1;
   }
 
@@ -50,7 +50,7 @@ public final class HtmlTag__BehaviorDescriptor extends BaseBHDescriptor {
     }
     switch (methodIndex) {
       case 0:
-        return (T) ((Boolean) isMultiLine_idVhXOWqV8wJ(node));
+        return (T) ((Boolean) isMultiline_idVhXOWqV8wJ(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
