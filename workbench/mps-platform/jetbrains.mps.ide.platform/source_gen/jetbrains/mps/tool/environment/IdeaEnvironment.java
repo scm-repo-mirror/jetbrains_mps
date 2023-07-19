@@ -177,6 +177,8 @@ public final class IdeaEnvironment extends EnvironmentBase {
       System.setProperty(IDEA_USE_CORE_CL, Boolean.TRUE.toString());
     }
     if (myConfig.isTestMode()) {
+      // Circumvent JBUIScale.computeSystemScaleFactor "Must be precomputed" error in tests
+      System.setProperty("hidpi", Boolean.FALSE.toString());
       // Force GraphicsEnvironment to cache headless false state before TestApplicationManager resets it to true
       System.setProperty("java.awt.headless", Boolean.FALSE.toString());
       GraphicsEnvironment.isHeadless();

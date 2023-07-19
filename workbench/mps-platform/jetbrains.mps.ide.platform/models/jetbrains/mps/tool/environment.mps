@@ -1429,6 +1429,52 @@
         </node>
         <node concept="3clFbJ" id="4OPNMy2cD0Q" role="3cqZAp">
           <node concept="3clFbS" id="4OPNMy2cD0S" role="3clFbx">
+            <node concept="3SKdUt" id="7jMxDUIKzVP" role="3cqZAp">
+              <node concept="1PaTwC" id="7jMxDUIKzVQ" role="1aUNEU">
+                <node concept="3oM_SD" id="7jMxDUIJZYn" role="1PaTwD">
+                  <property role="3oM_SC" value="Circumvent" />
+                </node>
+                <node concept="3oM_SD" id="7jMxDUIJZNx" role="1PaTwD">
+                  <property role="3oM_SC" value="JBUIScale.computeSystemScaleFactor" />
+                </node>
+                <node concept="3oM_SD" id="7jMxDUIJZNy" role="1PaTwD">
+                  <property role="3oM_SC" value="&quot;Must" />
+                </node>
+                <node concept="3oM_SD" id="7jMxDUIJZNz" role="1PaTwD">
+                  <property role="3oM_SC" value="be" />
+                </node>
+                <node concept="3oM_SD" id="7jMxDUIJZN$" role="1PaTwD">
+                  <property role="3oM_SC" value="precomputed&quot;" />
+                </node>
+                <node concept="3oM_SD" id="7jMxDUIJZN_" role="1PaTwD">
+                  <property role="3oM_SC" value="error" />
+                </node>
+                <node concept="3oM_SD" id="7jMxDUIJZNA" role="1PaTwD">
+                  <property role="3oM_SC" value="in" />
+                </node>
+                <node concept="3oM_SD" id="7jMxDUIJZNB" role="1PaTwD">
+                  <property role="3oM_SC" value="tests" />
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="7jMxDUIKzVR" role="3cqZAp">
+              <node concept="2YIFZM" id="7jMxDUIKzVS" role="3clFbG">
+                <ref role="1Pybhc" to="wyt6:~System" resolve="System" />
+                <ref role="37wK5l" to="wyt6:~System.setProperty(java.lang.String,java.lang.String)" resolve="setProperty" />
+                <node concept="Xl_RD" id="7jMxDUIKzVT" role="37wK5m">
+                  <property role="Xl_RC" value="hidpi" />
+                </node>
+                <node concept="2OqwBi" id="7jMxDUIKzVU" role="37wK5m">
+                  <node concept="10M0yZ" id="7jMxDUIKzVV" role="2Oq$k0">
+                    <ref role="1PxDUh" to="wyt6:~Boolean" resolve="Boolean" />
+                    <ref role="3cqZAo" to="wyt6:~Boolean.FALSE" resolve="FALSE" />
+                  </node>
+                  <node concept="liA8E" id="7jMxDUIKzVW" role="2OqNvi">
+                    <ref role="37wK5l" to="wyt6:~Boolean.toString()" resolve="toString" />
+                  </node>
+                </node>
+              </node>
+            </node>
             <node concept="3SKdUt" id="3brbVNVVH$p" role="3cqZAp">
               <node concept="1PaTwC" id="3brbVNVVH$q" role="1aUNEU">
                 <node concept="3oM_SD" id="3brbVNVVH$s" role="1PaTwD">
