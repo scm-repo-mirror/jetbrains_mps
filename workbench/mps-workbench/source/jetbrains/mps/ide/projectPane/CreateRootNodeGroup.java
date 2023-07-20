@@ -18,6 +18,7 @@ package jetbrains.mps.ide.projectPane;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
+import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeRootContext;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import jetbrains.mps.ide.ui.tree.smodel.PackageNode;
 import jetbrains.mps.project.DevKit;
@@ -26,7 +27,7 @@ import jetbrains.mps.smodel.BootstrapLanguages;
 import jetbrains.mps.smodel.SModelOperations;
 import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.smodel.SNodeUtil;
-import jetbrains.mps.smodel.constraints.ModelConstraints;
+import jetbrains.mps.smodel.constraints.ConstraintsCanBeFacade;
 import jetbrains.mps.smodel.language.BasicAspectRootConfiguration;
 import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.smodel.language.LanguageAspectDescriptor;
@@ -219,7 +220,9 @@ public class CreateRootNodeGroup extends BaseGroup {
       if (c.isAbstract() || !(c instanceof SConcept)) {
         continue;
       }
-      if (!ModelConstraints.canBeRoot(c, targetModel) || CreateRootFilterEP.getInstance().shouldBeRemoved(c)) {
+
+      final boolean canBeRoot = ConstraintsCanBeFacade.checkCanBeRoot(new CanBeRootContext(c, targetModel)).isEmpty();
+      if (!canBeRoot || CreateRootFilterEP.getInstance().shouldBeRemoved(c)) {
         continue;
       }
       if (isConceptDeprecatedOrExperimental(c)) {
