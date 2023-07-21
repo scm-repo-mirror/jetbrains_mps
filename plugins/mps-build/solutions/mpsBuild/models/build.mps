@@ -7096,6 +7096,11 @@
             <ref role="3bR37D" node="7Kfy9QB6Lg8" resolve="jetbrains.mps.runtime" />
           </node>
         </node>
+        <node concept="1SiIV0" id="7bd0cO8cOZf" role="3bR37C">
+          <node concept="3bR9La" id="7bd0cO8cOZg" role="1SiIV1">
+            <ref role="3bR37D" node="3qkjbZn8cF0" resolve="jetbrains.mps.lang.feedback.problem.legacy-constraints" />
+          </node>
+        </node>
         <node concept="398BVA" id="6wK_PpNA8BZ" role="3LF7KH">
           <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
           <node concept="2Ry0Ak" id="6wK_PpNA8C0" role="iGT6I">
@@ -7106,11 +7111,6 @@
                 <property role="2Ry0Am" value="jetbrains.mps.editor.runtime.msd" />
               </node>
             </node>
-          </node>
-        </node>
-        <node concept="1SiIV0" id="7bd0cO8cOZf" role="3bR37C">
-          <node concept="3bR9La" id="7bd0cO8cOZg" role="1SiIV1">
-            <ref role="3bR37D" node="3qkjbZn8cF0" resolve="jetbrains.mps.lang.feedback.problem.legacy-constraints" />
           </node>
         </node>
         <node concept="1SiIV0" id="6IZ_b08qD_A" role="3bR37C">
@@ -52452,11 +52452,17 @@
       <node concept="nCB5N" id="SHPhCCYouF" role="nCB5Z">
         <ref role="nCB5Y" node="1s0vtrwURQP" resolve="mps-annotations" />
       </node>
-      <node concept="nCB5N" id="SHPhCCYouN" role="nCB5Z">
-        <ref role="nCB5Y" node="1FaKCGJSzEy" resolve="mps-kernel" />
-      </node>
       <node concept="nCB5N" id="SHPhCCYouX" role="nCB5Z">
         <ref role="nCB5Y" node="42Iv58Wf3Ei" resolve="mps-smodel" />
+      </node>
+      <node concept="nCB5N" id="LSPZqinmJr" role="nCB5Z">
+        <ref role="nCB5Y" node="6e4RFSGTIz7" resolve="mps-behavior-api" />
+      </node>
+      <node concept="nCB5N" id="LSPZqinmM3" role="nCB5Z">
+        <ref role="nCB5Y" node="6e4RFSGTAMz" resolve="mps-behavior-runtime" />
+      </node>
+      <node concept="nCB5N" id="SHPhCCYouN" role="nCB5Z">
+        <ref role="nCB5Y" node="1FaKCGJSzEy" resolve="mps-kernel" />
       </node>
     </node>
     <node concept="398b33" id="5RhptgddDKp" role="3989C9">

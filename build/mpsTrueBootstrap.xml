@@ -513,7 +513,7 @@
     </javac2>
   </target>
   
-  <target name="java.compile.constraints-runtime" depends="java.compile.mps-annotations, java.compile.mps-openapi, java.compile.feeback-context, java.compile.mps-logging, java.compile.util-core, java.compile.mps-smodel, java.compile.mps-closures, java.compile.mps-collections, java.compile.mps-tuples, java.compile.mps-references, java.compile.mps-core-components, java.compile.mps-behavior-api, java.compile.mps-messaging, java.compile.vfs, java.compile.java.modules.cycle.1">
+  <target name="java.compile.constraints-runtime" depends="java.compile.mps-annotations, java.compile.mps-openapi, java.compile.feeback-context, java.compile.mps-logging, java.compile.util-core, java.compile.mps-smodel, java.compile.mps-behavior-api, java.compile.mps-closures, java.compile.mps-collections, java.compile.mps-tuples, java.compile.mps-references, java.compile.mps-core-components, java.compile.mps-messaging, java.compile.vfs, java.compile.java.modules.cycle.1">
     <mkdir dir="${mps_home}/core/aspects/constraints/constraints-runtime/source" />
     <mkdir dir="${build.tmp}/java/out/constraints-runtime" />
     <javac2 destdir="${build.tmp}/java/out/constraints-runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
@@ -528,12 +528,12 @@
         <pathelement path="${build.tmp}/java/out/mps-logging" />
         <pathelement path="${build.tmp}/java/out/util-core" />
         <pathelement path="${build.tmp}/java/out/mps-smodel" />
+        <pathelement path="${build.tmp}/java/out/mps-behavior-api" />
         <pathelement path="${build.tmp}/java/out/mps-closures" />
         <pathelement path="${build.tmp}/java/out/mps-collections" />
         <pathelement path="${build.tmp}/java/out/mps-tuples" />
         <pathelement path="${build.tmp}/java/out/mps-references" />
         <pathelement path="${build.tmp}/java/out/mps-core-components" />
-        <pathelement path="${build.tmp}/java/out/mps-behavior-api" />
         <pathelement path="${build.tmp}/java/out/mps-messaging" />
         <pathelement path="${build.tmp}/java/out/vfs" />
         <path refid="path.java.library.annotations-lib" />
