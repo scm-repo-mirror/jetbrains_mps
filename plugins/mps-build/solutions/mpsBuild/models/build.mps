@@ -621,6 +621,13 @@
           </node>
         </node>
       </node>
+      <node concept="25yagZ" id="7pKJZ9k9cRP" role="PiKyV">
+        <node concept="3yqu4x" id="7pKJZ9k9cRQ" role="25yagT">
+          <node concept="3yrxFa" id="7pKJZ9k9cRR" role="3yqu4I">
+            <ref role="3yrxFb" node="7pKJZ9jKTAd" />
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="PiPfp" id="16Vg0jOconl" role="3989C9">
       <property role="TrG5h" value="junit-4.12" />
@@ -25871,6 +25878,13 @@
         <node concept="3_J27D" id="2IvONq5WAvd" role="13uQ07">
           <node concept="3Mxwew" id="2IvONq5WAw1" role="3MwsjC">
             <property role="3MwjfP" value="stats.jar" />
+          </node>
+        </node>
+      </node>
+      <node concept="13uQ2_" id="7pKJZ9jKTAd" role="39821P">
+        <node concept="3_J27D" id="7pKJZ9jKTAf" role="13uQ07">
+          <node concept="3Mxwew" id="7pKJZ9jKTN2" role="3MwsjC">
+            <property role="3MwjfP" value="platform-loader.jar" />
           </node>
         </node>
       </node>
