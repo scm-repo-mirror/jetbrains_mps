@@ -633,9 +633,6 @@
       <node concept="3F0A7n" id="2YAlhTtxWK" role="3EZMnx">
         <ref role="1NtTu8" to="7vgx:1v8pb4C9gLj" resolve="tagName" />
         <ref role="1k5W1q" node="5M4a$b5iSRB" resolve="htmlTagName" />
-        <node concept="3mYdg7" id="2YAlhTtxWL" role="3F10Kt">
-          <property role="1413C4" value="htmltag" />
-        </node>
         <node concept="A1WHr" id="4eW2rsAXyRP" role="3vIgyS">
           <ref role="2ZyFGn" to="7vgx:1v8pb4C94uF" resolve="HtmlOpeningTag" />
         </node>
@@ -1686,9 +1683,6 @@
       <node concept="3F0A7n" id="5M4a$b5iL2Y" role="3EZMnx">
         <ref role="1NtTu8" to="7vgx:5M4a$b5iL2Q" resolve="tagName" />
         <ref role="1k5W1q" node="5M4a$b5iSRB" resolve="htmlTagName" />
-        <node concept="3mYdg7" id="2EZ251g0bTF" role="3F10Kt">
-          <property role="1413C4" value="htmltag" />
-        </node>
         <node concept="A1WHu" id="1wEcoXjJHe_" role="3vIgyS">
           <ref role="A1WHt" node="1wEcoXjJGl7" resolve="transform_ElementAttributes_HtmlTag" />
         </node>
@@ -1746,9 +1740,6 @@
             <node concept="11L4FC" id="64xzUTVoro6" role="3F10Kt">
               <property role="VOm3f" value="true" />
             </node>
-            <node concept="3mYdg7" id="2EZ251g0hjd" role="3F10Kt">
-              <property role="1413C4" value="openTag" />
-            </node>
           </node>
         </node>
         <node concept="pkWqt" id="64xzUTVornp" role="3e4ffs">
@@ -1787,9 +1778,6 @@
                 <ref role="1k5W1q" node="5M4a$b5iSSc" resolve="htmlTagPunctuation" />
                 <node concept="11L4FC" id="5M4a$b5iSRy" role="3F10Kt">
                   <property role="VOm3f" value="true" />
-                </node>
-                <node concept="3mYdg7" id="2EZ251g0hjf" role="3F10Kt">
-                  <property role="1413C4" value="openTag" />
                 </node>
               </node>
               <node concept="3F2HdR" id="5VHUSIg3$L1" role="3EZMnx">
@@ -1903,9 +1891,6 @@
                   <node concept="11LMrY" id="1q3yNZeAIdc" role="3F10Kt">
                     <property role="VOm3f" value="true" />
                   </node>
-                  <node concept="3mYdg7" id="2EZ251g0hO1" role="3F10Kt">
-                    <property role="1413C4" value="openTag" />
-                  </node>
                 </node>
                 <node concept="3F2HdR" id="1q3yNZeAIdi" role="3EZMnx">
                   <ref role="1NtTu8" to="7vgx:1q3yNZeA$$y" resolve="content" />
@@ -1964,9 +1949,6 @@
             </node>
             <node concept="VPM3Z" id="5M4a$b5jbWu" role="3F10Kt">
               <property role="VOm3f" value="true" />
-            </node>
-            <node concept="3mYdg7" id="2EZ251g0gi5" role="3F10Kt">
-              <property role="1413C4" value="xmltag" />
             </node>
           </node>
           <node concept="3F0ifn" id="2eIZDSBsaAs" role="3EZMnx">
