@@ -117,6 +117,8 @@
       <modulePath path="$PROJECT_DIR$/languages/core/stub/trove/gnu.trove.msd" folder="core.stub" />
       <modulePath path="$PROJECT_DIR$/languages/jetbrains.mps.core.xml.doc/jetbrains.mps.core.xml.doc.mpl" folder="core.languages.xml" />
       <modulePath path="$PROJECT_DIR$/languages/jetbrains.mps.lang.core.doc/jetbrains.mps.lang.core.doc.mpl" folder="core.languages" />
+      <modulePath path="$PROJECT_DIR$/languages/jetbrains.mps.lang.css.sandbox/jetbrains.mps.lang.css.sandbox.msd" folder="core.languages" />
+      <modulePath path="$PROJECT_DIR$/languages/jetbrains.mps.lang.css/jetbrains.mps.lang.css.mpl" folder="core.languages" />
       <modulePath path="$PROJECT_DIR$/languages/jetbrains.mps.lang.doctext.sandbox/jetbrains.mps.lang.doctext.sandbox.msd" folder="core.languages" />
       <modulePath path="$PROJECT_DIR$/languages/jetbrains.mps.lang.doctext/jetbrains.mps.lang.doctext.mpl" folder="core.languages.text" />
       <modulePath path="$PROJECT_DIR$/languages/jetbrains.mps.lang.html/jetbrains.mps.lang.html.mpl" folder="core.languages" />
