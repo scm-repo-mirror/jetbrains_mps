@@ -25,7 +25,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class DiscardSmartClosureParameterDeclaration extends MigrationScriptBase {
-  private final String description = "DiscardSmartClosureParameterDeclaration";
+  private final String description = "Replace collection-specific closure parameters with generic ones";
   public String getCaption() {
     return description;
   }

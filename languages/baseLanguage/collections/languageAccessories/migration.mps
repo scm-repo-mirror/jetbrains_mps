@@ -517,9 +517,12 @@
       <node concept="3Tm1VV" id="6QWJOWB_RJ8" role="1B3o_S" />
       <node concept="10P_77" id="6QWJOWB_RJ9" role="1tU5fm" />
     </node>
-    <node concept="3tTeZs" id="6QWJOWB_RJa" role="jymVt">
-      <property role="3tTeZt" value="&lt;description&gt;" />
-      <ref role="3tTeZr" to="slm6:1_lSsE3RFpE" resolve="description" />
+    <node concept="3tYpXE" id="5JnI0HUCV3d" role="jymVt">
+      <property role="TrG5h" value="description" />
+      <property role="3tYpXF" value="Replace collection-specific closure parameters with generic ones" />
+      <ref role="25KYV2" to="slm6:1_lSsE3RFpE" resolve="description" />
+      <node concept="3Tm1VV" id="5JnI0HUCV3f" role="1B3o_S" />
+      <node concept="17QB3L" id="5JnI0HUCV3g" role="1tU5fm" />
     </node>
     <node concept="q3mfD" id="6QWJOWB_RJb" role="jymVt">
       <property role="TrG5h" value="execute" />
