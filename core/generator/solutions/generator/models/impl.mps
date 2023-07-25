@@ -68,7 +68,7 @@
       <concept id="1188207840427" name="jetbrains.mps.baseLanguage.structure.AnnotationInstance" flags="nn" index="2AHcQZ">
         <reference id="1188208074048" name="annotation" index="2AI5Lk" />
       </concept>
-      <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ngI" index="2AJDlI">
+      <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ng" index="2AJDlI">
         <child id="1188208488637" name="annotation" index="2AJF6D" />
       </concept>
       <concept id="1154032098014" name="jetbrains.mps.baseLanguage.structure.AbstractLoopStatement" flags="nn" index="2LF5Ji">
@@ -125,7 +125,7 @@
         <property id="1176718929932" name="isFinal" index="3TUv4t" />
         <child id="1068431790190" name="initializer" index="33vP2m" />
       </concept>
-      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ngI" index="366HgL">
+      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ng" index="366HgL">
         <property id="1513279640906337053" name="inferTypeParams" index="373rjd" />
       </concept>
       <concept id="1068498886296" name="jetbrains.mps.baseLanguage.structure.VariableReference" flags="nn" index="37vLTw">
@@ -191,7 +191,7 @@
       <concept id="1160998861373" name="jetbrains.mps.baseLanguage.structure.AssertStatement" flags="nn" index="1gVbGN">
         <child id="1160998896846" name="condition" index="1gVkn0" />
       </concept>
-      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ngI" index="1ndlxa">
+      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ng" index="1ndlxa">
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
       </concept>
@@ -225,7 +225,7 @@
       <concept id="1184952934362" name="jetbrains.mps.baseLanguage.structure.DimensionExpression" flags="nn" index="3$GHV9">
         <child id="1184953288404" name="expression" index="3$I4v7" />
       </concept>
-      <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ngI" index="1B3ioH">
+      <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ng" index="1B3ioH">
         <child id="1178549979242" name="visibility" index="1B3o_S" />
       </concept>
       <concept id="1144226303539" name="jetbrains.mps.baseLanguage.structure.ForeachStatement" flags="nn" index="1DcWWT">
@@ -414,7 +414,7 @@
       <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
         <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
       </concept>
-      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ngI" index="TrEIO">
+      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
       <concept id="709746936026466394" name="jetbrains.mps.lang.core.structure.ChildAttribute" flags="ng" index="3VBwX9">
@@ -10733,6 +10733,30 @@
                         </node>
                         <node concept="liA8E" id="4y_AjJOKLF2" role="2OqNvi">
                           <ref role="37wK5l" to="ap4t:~GenerationPlanBuilder.fork()" resolve="fork" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="3clFbF" id="3F3D3JGkR39" role="3cqZAp">
+                    <node concept="2OqwBi" id="3F3D3JGkXpY" role="3clFbG">
+                      <node concept="37vLTw" id="3F3D3JGkR37" role="2Oq$k0">
+                        <ref role="3cqZAo" node="4y_AjJOKLEZ" resolve="branchBuilder" />
+                      </node>
+                      <node concept="liA8E" id="3F3D3JGl5eu" role="2OqNvi">
+                        <ref role="37wK5l" to="ap4t:~GenerationPlanBuilder.setGenerationTarget(java.lang.String)" resolve="setGenerationTarget" />
+                        <node concept="2OqwBi" id="3F3D3JGlwmo" role="37wK5m">
+                          <node concept="1PxgMI" id="3F3D3JGlwmp" role="2Oq$k0">
+                            <property role="1BlNFB" value="true" />
+                            <node concept="chp4Y" id="3F3D3JGlwmq" role="3oSUPX">
+                              <ref role="cht4Q" to="bjdw:2JQwL_F4Efb" resolve="Fork" />
+                            </node>
+                            <node concept="37vLTw" id="3F3D3JGlwmr" role="1m5AlR">
+                              <ref role="3cqZAo" node="1UVrAZQmVl7" resolve="stepNode" />
+                            </node>
+                          </node>
+                          <node concept="3TrcHB" id="3F3D3JGlwms" role="2OqNvi">
+                            <ref role="3TsBF5" to="bjdw:3eG4OcT$N6X" resolve="gentarget" />
+                          </node>
                         </node>
                       </node>
                     </node>
