@@ -1,5 +1,5 @@
 /*
- * Copyright 2000-2022 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+ * Copyright 2000-2023 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
  */
 package jetbrains.mps.make.kotlin;
 
@@ -17,7 +17,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -77,7 +76,7 @@ public class KotlinBuildFileSerialization {
     if (classpath != null) {
       classpath.forEach(it -> {
         Element classPathEntry = new Element(ModuleXmlParser.CLASSPATH);
-        classPathEntry.setAttribute(ModuleXmlParser.PATH, it);
+        classPathEntry.setAttribute(ModuleXmlParser.PATH, it.toString());
         moduleXml.addContent(classPathEntry);
       });
     }

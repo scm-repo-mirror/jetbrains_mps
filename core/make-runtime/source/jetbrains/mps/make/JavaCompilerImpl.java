@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,6 @@ import jetbrains.mps.util.performance.IPerformanceTracer.NullPerformanceTracer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.TestOnly;
-import org.jetbrains.mps.openapi.util.SubProgressKind;
 
 import javax.tools.Diagnostic;
 import javax.tools.Diagnostic.Kind;
@@ -44,13 +43,13 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.ServiceLoader;
 import java.util.ServiceLoader.Provider;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
@@ -157,7 +156,7 @@ final class JavaCompilerImpl implements AutoCloseable {
         return MPSCompilationResult.noJavaCompiledCompilationResult();
       }
       tracer.push(InternalJavaCompiler.CALCULATING_DEPS_MSG);
-      final List<Path> classpath = modules.getCompileClasspath().stream().map(Path::of).collect(Collectors.toUnmodifiableList());
+      final List<Path> classpath = List.of(new LinkedHashSet<>(modules.getCompileClasspath()).toArray(new Path[0]));
       tracer.pop(1);
       //
       tracer.push(InternalJavaCompiler.COMPILING_JAVA_MSG);

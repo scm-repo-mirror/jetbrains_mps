@@ -54,6 +54,7 @@ import org.jetbrains.mps.openapi.util.SubProgressKind;
 
 import javax.tools.JavaCompiler;
 import java.io.File;
+import java.nio.file.Path;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -342,6 +343,10 @@ public final class ModuleMaker {
 
     // requires SModule knowledge
     void evaluateClasspath(JM jm) {
+      // FIXME getClassPath() is ok for scenarios when jm.getClasspath() is used as a dependency target,
+      //       but not ok for the module's own compilation classpath (generally doesn't need classes_gen)
+      //       Besides, #getCompileClasspath(Collection, boolean) suggests we may add classes_gen
+      //       explicitly, when needed, which makes this story even more entangled.
       jm.setClasspath(SModuleOperations.getJavaFacet(toOriginChecked(jm)).getClassPath());
     }
 
@@ -736,7 +741,7 @@ public final class ModuleMaker {
     }
 
     @Override
-    public Collection<String> getCompileClasspath() {
+    public Collection<Path> getCompileClasspath() {
       return getCompileClasspath(myModules, true);
     }
 
@@ -745,23 +750,23 @@ public final class ModuleMaker {
      * @param modules modules to get the classpath from
      * @return list of paths
      */
-    public static Collection<String> getCompileClasspath(Collection<JM> modules, boolean withClassesOut) {
+    public static Collection<Path> getCompileClasspath(Collection<JM> modules, boolean withClassesOut) {
       HashSet<JM> seen = new HashSet<>();
       ArrayDeque<JM> queue = new ArrayDeque<>(modules);
-      HashSet<String> rv = new LinkedHashSet<>();
+      HashSet<Path> rv = new LinkedHashSet<>();
       do {
         final JM jm = queue.removeFirst();
         if (seen.add(jm)) {
           // classes_gen will contain some kotlin files now used for compilation
           if (withClassesOut && jm.mySources != null && !jm.mySources.myKotlinFiles.isEmpty() && jm.getClassesOut() != null) {
-            rv.add(jm.getClassesOut().getAbsolutePath());
+            rv.add(jm.getClassesOut().toPath());
           }
 
           if (jm.myClasspath == null) {
             System.out.printf("Module %s got no classpath!\n", jm.name());
             continue;
           }
-          rv.addAll(jm.myClasspath);
+          jm.myClasspath.stream().map(Path::of).forEach(rv::add);
           jm.dependsFrom().forEach(queue::add);
         }
       } while (!queue.isEmpty());

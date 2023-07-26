@@ -1,15 +1,15 @@
 /*
- * Copyright 2000-2021 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+ * Copyright 2000-2023 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
  */
 package jetbrains.mps.make;
 
 import jetbrains.mps.make.BaseModuleContainer.JavaModule;
 import jetbrains.mps.make.ModuleAnalyzer.ModuleAnalyzerResult;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 
 import java.io.File;
+import java.nio.file.Path;
 import java.util.Collection;
 import java.util.stream.Stream;
 
@@ -43,7 +43,7 @@ interface BaseModuleContainer<T extends JavaModule> {
   }
 
   Stream<T> getDirtyModules();
-  Collection<String> getCompileClasspath();
+  Collection<Path> getCompileClasspath();
   ModuleAnalyzerResult analyze();  // default: return new ModuleAnalyzer().analyze(getModules());?
 
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,6 +35,7 @@ import org.junit.Test;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -137,8 +138,8 @@ public class JavaCompilerTest {
       }
 
       @Override
-      public Collection<String> getCompileClasspath() {
-        return Arrays.asList(junitLib.getAbsolutePath());
+      public Collection<Path> getCompileClasspath() {
+        return List.of(junitLib.toPath());
       }
 
       @Override
