@@ -12,11 +12,12 @@ import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.progress.ProgressIndicator;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import jetbrains.mps.progress.ProgressMonitorAdapter;
-import jetbrains.mps.make.ModuleMaker;
 import jetbrains.mps.ide.messages.DefaultMessageHandler;
+import jetbrains.mps.make.ModuleMaker;
 import jetbrains.mps.messages.MessageKind;
 import jetbrains.mps.compiler.JavaCompilerOptionsComponent;
 import jetbrains.mps.make.MPSCompilationResult;
+import jetbrains.mps.messages.Message;
 import jetbrains.mps.classloading.ClassLoaderManager;
 
 public class DefaultMakeTask extends Task.Modal {
@@ -36,7 +37,8 @@ public class DefaultMakeTask extends Task.Modal {
     final ProgressMonitor monitor = new ProgressMonitorAdapter(indicator);
     monitor.start("", (needClean ? 10 : 9));
     try {
-      final ModuleMaker maker = new ModuleMaker(new DefaultMessageHandler(getProject()).restrict(MessageKind.ERROR));
+      DefaultMessageHandler mh = new DefaultMessageHandler(getProject());
+      final ModuleMaker maker = new ModuleMaker(mh.restrict(MessageKind.ERROR));
       myProject.getModelAccess().runReadAction(() -> {
         if (needClean) {
           maker.clean(modules, monitor.subTask(1));
@@ -47,7 +49,14 @@ public class DefaultMakeTask extends Task.Modal {
 
       final MPSCompilationResult mpsCompilationResult = maker.make(monitor.subTask(4));
 
+      if (mpsCompilationResult.isOk()) {
+        mh.handle(Message.info(getClass(), String.format("Compilation of %d modules completed successfully", SetSequence.fromSet(modules).count()), null, null));
+      } else if (mpsCompilationResult.isAborted()) {
+        mh.handle(Message.info(getClass(), "Compilation aborted", null, null));
+      }
+
       if (mpsCompilationResult.isReloadingNeeded()) {
+        mh.handle(Message.info(getClass(), String.format("%d affected modules require re-load", mpsCompilationResult.getAffectedModules().size()), null, null));
         myProject.getComponent(ClassLoaderManager.class).reload(mpsCompilationResult.getAffectedModules(), monitor.subTask(2));
       }
     } finally {
