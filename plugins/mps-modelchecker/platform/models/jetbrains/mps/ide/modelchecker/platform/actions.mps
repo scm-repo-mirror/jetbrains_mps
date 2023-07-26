@@ -4314,9 +4314,31 @@
         <ref role="2AI5Lk" to="mhfm:~NonNls" resolve="NonNls" />
       </node>
       <node concept="3clFbS" id="3KDENWMZ08H" role="3clF47">
+        <node concept="3SKdUt" id="2qP59qVYcFE" role="3cqZAp">
+          <node concept="1PaTwC" id="2qP59qVYcFF" role="1aUNEU">
+            <node concept="3oM_SD" id="2qP59qVYeFF" role="1PaTwD">
+              <property role="3oM_SC" value="have" />
+            </node>
+            <node concept="3oM_SD" id="2qP59qVYeFG" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="2qP59qVYeFH" role="1PaTwD">
+              <property role="3oM_SC" value="match" />
+            </node>
+            <node concept="3oM_SD" id="2qP59qVYeFI" role="1PaTwD">
+              <property role="3oM_SC" value="one" />
+            </node>
+            <node concept="3oM_SD" id="2qP59qVYeFJ" role="1PaTwD">
+              <property role="3oM_SC" value="in" />
+            </node>
+            <node concept="3oM_SD" id="2qP59qVYeFK" role="1PaTwD">
+              <property role="3oM_SC" value="plugin.xml" />
+            </node>
+          </node>
+        </node>
         <node concept="3clFbF" id="3KDENWMZ08J" role="3cqZAp">
           <node concept="Xl_RD" id="3KDENWMZ7Gk" role="3clFbG">
-            <property role="Xl_RC" value="model.checker" />
+            <property role="Xl_RC" value="preferences.modelCheckerSettings" />
           </node>
         </node>
       </node>
@@ -4354,6 +4376,28 @@
         <ref role="2AI5Lk" to="mhfm:~Nls" resolve="Nls" />
       </node>
       <node concept="3clFbS" id="3KDENWMZ090" role="3clF47">
+        <node concept="3SKdUt" id="2qP59qVYeKn" role="3cqZAp">
+          <node concept="1PaTwC" id="2qP59qVYeKo" role="1aUNEU">
+            <node concept="3oM_SD" id="2qP59qVYeKp" role="1PaTwD">
+              <property role="3oM_SC" value="have" />
+            </node>
+            <node concept="3oM_SD" id="2qP59qVYeKq" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="2qP59qVYeKr" role="1PaTwD">
+              <property role="3oM_SC" value="match" />
+            </node>
+            <node concept="3oM_SD" id="2qP59qVYeKs" role="1PaTwD">
+              <property role="3oM_SC" value="one" />
+            </node>
+            <node concept="3oM_SD" id="2qP59qVYeKt" role="1PaTwD">
+              <property role="3oM_SC" value="in" />
+            </node>
+            <node concept="3oM_SD" id="2qP59qVYeKu" role="1PaTwD">
+              <property role="3oM_SC" value="plugin.xml" />
+            </node>
+          </node>
+        </node>
         <node concept="3clFbF" id="3KDENWMZ092" role="3cqZAp">
           <node concept="Xl_RD" id="3KDENWMZcBt" role="3clFbG">
             <property role="Xl_RC" value="Model Checker" />

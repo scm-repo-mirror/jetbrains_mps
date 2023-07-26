@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -395,7 +395,8 @@ final class GenerationSettingsPreferencesPage implements SearchableConfigurable 
   @NotNull
   @Override
   public String getId() {
-    return "generator.manager";
+    // have to match one in MPSComponents.xml
+    return "preferences.generationSettings";
   }
 
   @Nullable
@@ -407,6 +408,7 @@ final class GenerationSettingsPreferencesPage implements SearchableConfigurable 
   @Nls
   @Override
   public String getDisplayName() {
+    // have to match one in MPSComponents.xml
     return "Generator";
   }
 

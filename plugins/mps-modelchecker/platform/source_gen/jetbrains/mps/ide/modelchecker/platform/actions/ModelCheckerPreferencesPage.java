@@ -129,7 +129,8 @@ public class ModelCheckerPreferencesPage implements SearchableConfigurable {
   @NotNull
   @NonNls
   public String getId() {
-    return "model.checker";
+    // have to match one in plugin.xml
+    return "preferences.modelCheckerSettings";
   }
   @Nullable
   public Runnable enableSearch(String string) {
@@ -137,6 +138,7 @@ public class ModelCheckerPreferencesPage implements SearchableConfigurable {
   }
   @Nls
   public String getDisplayName() {
+    // have to match one in plugin.xml
     return "Model Checker";
   }
   @Nullable

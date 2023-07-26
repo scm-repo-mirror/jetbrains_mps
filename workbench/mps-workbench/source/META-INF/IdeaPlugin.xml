@@ -165,9 +165,9 @@
 
     <!--MPS patch: add two setting pages-->
     <projectConfigurable groupId="build" groupWeight="130" instance="jetbrains.mps.library.ProjectLibraryManagerConfigurable"
-                         id="preferences.projectLibraryManager" nonDefaultProject="true"/>
+                         id="preferences.projectLibraryManager" displayName="Project Libraries" nonDefaultProject="true"/>
     <applicationConfigurable groupId="build" groupWeight="120" instance="jetbrains.mps.library.LibraryManagerConfigurable"
-                             id="preferences.libraryManager"/>
+                             id="preferences.libraryManager" displayName="Global Libraries"/>
 
     <!-- allow mps to open mpr projects from command line -->
     <projectOpenProcessor implementation="jetbrains.mps.ide.project.MpsProjectOpenProcessor"/>
