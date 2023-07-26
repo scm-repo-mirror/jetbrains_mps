@@ -95,7 +95,7 @@
     <!--Editor Hints-->
     <projectConfigurable groupId="editor" groupWeight="180" dynamic="true"
                          instance="jetbrains.mps.nodeEditor.hintsSettings.ConceptEditorHintConfigurable"
-                         displayName="Editor Hints" order="after preferences.sourceCode" nonDefaultProject="true"/>
+                         displayName="MPS Editor Hints" order="after preferences.sourceCode" nonDefaultProject="true"/>
   </extensions>
 
   <actions>
