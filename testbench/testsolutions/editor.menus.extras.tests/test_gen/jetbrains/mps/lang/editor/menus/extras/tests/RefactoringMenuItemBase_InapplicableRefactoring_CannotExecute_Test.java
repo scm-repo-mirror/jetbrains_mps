@@ -11,6 +11,11 @@ import org.junit.jupiter.api.Test;
 import jetbrains.mps.lang.test.runtime.BaseEditorTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
 import org.jetbrains.mps.openapi.module.SRepository;
+import com.intellij.openapi.Disposable;
+import com.intellij.openapi.util.Disposer;
+import com.intellij.ide.impl.HeadlessDataManager;
+import jetbrains.mps.ide.ThreadUtils;
+import jetbrains.mps.smodel.ModelReadRunnable;
 import jetbrains.mps.refactoring.framework.IRefactoring;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.nodeEditor.menus.transformation.DefaultTransformationMenuContext;
@@ -42,15 +47,17 @@ public class RefactoringMenuItemBase_InapplicableRefactoring_CannotExecute_Test 
     public void testMethodImpl() throws Exception {
       initEditorComponent("6820996345400829105", "");
       SRepository repository = getEditorComponent().getEditorContext().getRepository();
-
-      repository.getModelAccess().runReadAction(() -> {
+      Disposable dd = Disposer.newDisposable();
+      HeadlessDataManager.fallbackToProductionDataManager(dd);
+      ThreadUtils.runInUIThreadAndWait(new ModelReadRunnable(repository, () -> {
         IRefactoring refactoring = ActionLookupUtils.getRefactoring(myProject, new SNodePointer("r:2f49f947-e2b6-4dd2-87ae-7938deb42899(jetbrains.mps.lang.editor.menus.extras.testLanguage.refactorings)", "121597702824488195"));
 
         DefaultTransformationMenuContext context = DefaultTransformationMenuContext.createInitialContextForCell(getEditorComponent().getSelectedCell(), "irrelevant location");
 
         ActionItem item = new RefactoringMenuItemBase(context, refactoring);
         Assert.assertFalse(item.canExecute("irrelevant pattern"));
-      });
+      }));
+      Disposer.dispose(dd);
     }
   }
 }
