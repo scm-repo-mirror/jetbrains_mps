@@ -1223,6 +1223,9 @@
       <node concept="nCB5N" id="4_qKb05xjz0" role="nCB5Z">
         <ref role="nCB5Y" node="4_qKb05xiaz" resolve="aux-runtimes" />
       </node>
+      <node concept="nCB5N" id="6KhqnhloBdM" role="nCB5Z">
+        <ref role="nCB5Y" node="uKctmfwPD8" resolve="refactoring" />
+      </node>
       <node concept="398b2D" id="5cCcm$KAKd2" role="398b2p">
         <node concept="398BVA" id="5cCcm$KAKd3" role="398b2C">
           <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
@@ -1246,9 +1249,6 @@
           <property role="nFU4j" value="source_gen" />
           <property role="3LZaj6" value="source" />
         </node>
-      </node>
-      <node concept="nCB5N" id="6KhqnhloBdM" role="nCB5Z">
-        <ref role="nCB5Y" node="uKctmfwPD8" resolve="refactoring" />
       </node>
     </node>
     <node concept="398b33" id="3cAdGiIRUkj" role="3989C9">
@@ -2933,6 +2933,21 @@
           </node>
           <node concept="L2wRC" id="4X1d9kMCEGg" role="39821P">
             <ref role="L2wRA" node="4X1d9kMCbcv" resolve="jetbrains.mps.ide.refactoring.platform" />
+            <node concept="3yLZsm" id="6KhqnhlwOkv" role="3yL2VB">
+              <property role="3yLZsk" value="/lib/mps-platform.jar" />
+              <node concept="398BVA" id="6KhqnhlwOx6" role="3yLZsn">
+                <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
+                <node concept="2Ry0Ak" id="6KhqnhlwOGT" role="iGT6I">
+                  <property role="2Ry0Am" value="workbench" />
+                  <node concept="2Ry0Ak" id="6KhqnhlwOSF" role="2Ry0An">
+                    <property role="2Ry0Am" value="mps-refactoring" />
+                    <node concept="2Ry0Ak" id="6KhqnhlwOTA" role="2Ry0An">
+                      <property role="2Ry0Am" value="classes" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
           </node>
           <node concept="L2wRC" id="3fmo8W3tgEH" role="39821P">
             <ref role="L2wRA" node="7Kfy9QB6KYw" resolve="jetbrains.mps.baseLanguage.search" />
@@ -24721,6 +24736,22 @@
             </node>
             <node concept="3qWCbU" id="73GUf$ummU0" role="3LXTna">
               <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
+            </node>
+          </node>
+        </node>
+        <node concept="1E1SXE" id="6KhqnhlwMg$" role="3bR37C">
+          <property role="1E1SXH" value="true" />
+          <ref role="1E1SXG" node="uKctmfwBHi" resolve="mps-refactoring" />
+          <node concept="398BVA" id="6KhqnhlwMDX" role="17Grwy">
+            <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
+            <node concept="2Ry0Ak" id="6KhqnhlwMYV" role="iGT6I">
+              <property role="2Ry0Am" value="workbench" />
+              <node concept="2Ry0Ak" id="6KhqnhlwNtT" role="2Ry0An">
+                <property role="2Ry0Am" value="mps-refactoring" />
+                <node concept="2Ry0Ak" id="6KhqnhlwNCP" role="2Ry0An">
+                  <property role="2Ry0Am" value="classes" />
+                </node>
+              </node>
             </node>
           </node>
         </node>
