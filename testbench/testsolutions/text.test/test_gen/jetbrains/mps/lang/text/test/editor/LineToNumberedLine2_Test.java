@@ -12,16 +12,16 @@ import jetbrains.mps.lang.test.runtime.BaseEditorTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
 
 @MPSLaunch
-public class LineToBulletLine_Test extends BaseTransformationTest {
+public class LineToNumberedLine2_Test extends BaseTransformationTest {
   @RegisterExtension
-  private static final TestParametersCacheExtension ourParametersCacheExtension = new TestParametersCacheExtension(new TestParametersCache(LineToBulletLine_Test.class, "${mps_home}", "r:6cf522f1-8af4-45dd-b0f5-721b6e5caab5(jetbrains.mps.lang.text.test.editor@tests)", false));
+  private static final TestParametersCacheExtension ourParametersCacheExtension = new TestParametersCacheExtension(new TestParametersCache(LineToNumberedLine2_Test.class, "${mps_home}", "r:6cf522f1-8af4-45dd-b0f5-721b6e5caab5(jetbrains.mps.lang.text.test.editor@tests)", false));
 
-  public LineToBulletLine_Test() {
+  public LineToNumberedLine2_Test() {
     super(ourParametersCacheExtension.getParametersCache());
   }
 
   @Test
-  public void test_LineToBulletLine() throws Throwable {
+  public void test_LineToNumberedLine2() throws Throwable {
     new TestBody(this).testMethod();
   }
 
@@ -33,7 +33,7 @@ public class LineToBulletLine_Test extends BaseTransformationTest {
 
     @Override
     public void testMethodImpl() throws Exception {
-      initEditorComponent("4404258161319654193", "4404258161319654373");
+      initEditorComponent("3204829416671991434", "3204829416671991761");
       typeString(" ");
     }
   }

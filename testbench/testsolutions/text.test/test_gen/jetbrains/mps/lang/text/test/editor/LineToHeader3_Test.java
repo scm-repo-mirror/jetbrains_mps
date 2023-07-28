@@ -33,7 +33,7 @@ public class LineToHeader3_Test extends BaseTransformationTest {
 
     @Override
     public void testMethodImpl() throws Exception {
-      initEditorComponent("4404258161319655041", "4404258161319655133");
+      initEditorComponent("3204829416672058654", "3204829416672058801");
       typeString(" ");
     }
   }
