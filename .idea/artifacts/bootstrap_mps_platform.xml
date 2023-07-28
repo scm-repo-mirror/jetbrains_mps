@@ -13,6 +13,7 @@
         <element id="module-output" name="mps-ui" />
         <element id="module-output" name="vfs-tracking" />
         <element id="module-output" name="psi" />
+        <element id="module-output" name="mps-refactoring" />
       </element>
     </root>
   </artifact>

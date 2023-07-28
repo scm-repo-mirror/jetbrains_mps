@@ -8,7 +8,6 @@
       <sourceFolder url="file://$MODULE_DIR$/source" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/jetbrains.mps.ide.platform/source_gen" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/jetbrains.mps.ide.refactoring.platform/source_gen" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/migration/source" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -23,7 +22,6 @@
     <orderEntry type="module" module-name="mps-icons" />
     <orderEntry type="module" module-name="kernel-resources" />
     <orderEntry type="module" module-name="java-stub" />
-    <orderEntry type="module" module-name="refactoring-runtime" />
     <orderEntry type="module" module-name="findUsages-runtime" />
     <orderEntry type="module" module-name="environment" />
     <orderEntry type="module" module-name="platform" exported="" />
@@ -31,7 +29,6 @@
     <orderEntry type="module" module-name="persistence" />
     <orderEntry type="module" module-name="tuples-runtime" />
     <orderEntry type="module" module-name="generator-engine" />
-    <orderEntry type="module" module-name="refactoring" />
     <orderEntry type="module" module-name="resources_en" />
     <orderEntry type="module" module-name="ant-mps-common" />
     <orderEntry type="module" module-name="editing-runtime" />
