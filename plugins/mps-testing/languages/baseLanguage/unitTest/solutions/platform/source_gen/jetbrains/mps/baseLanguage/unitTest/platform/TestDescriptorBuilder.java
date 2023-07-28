@@ -5,6 +5,11 @@ package jetbrains.mps.baseLanguage.unitTest.platform;
 import java.util.Map;
 import java.util.HashMap;
 
+/**
+ * A builder for {@link jetbrains.mps.baseLanguage.unitTest.platform.TestDescriptor }.
+ * <p>
+ * Only one of {@link jetbrains.mps.baseLanguage.unitTest.platform.TestDescriptorBuilder#newTest(String, SNodeTestSource) } or {@link jetbrains.mps.baseLanguage.unitTest.platform.TestDescriptorBuilder#newTestContainer(String, SNodeTestSource) } should be called.
+ */
 public class TestDescriptorBuilder {
 
   private final TestDescriptor myContainer;
@@ -17,6 +22,9 @@ public class TestDescriptorBuilder {
     myContainer = container;
   }
 
+  /**
+   * Call this to create a new test. 
+   */
   public TestDescriptorBuilder newTest(String name, SNodeTestSource testSource) {
     myName = name;
     myTestSource = testSource;
@@ -24,6 +32,9 @@ public class TestDescriptorBuilder {
     return this;
   }
 
+  /**
+   * Call this to create a new test container.
+   */
   public TestDescriptorBuilder newTestContainer(String name, SNodeTestSource testSource) {
     myName = name;
     myTestSource = testSource;
@@ -36,6 +47,9 @@ public class TestDescriptorBuilder {
     return this;
   }
 
+  /**
+   * Invoke this method after having configured the builder to commit the test/test container to its own container.
+   */
   public TestDescriptor add() {
     TestDescriptor descriptor = new TestDescriptor(myName, myTestSource, myKind, myProperties);
     myContainer.addTest(descriptor);

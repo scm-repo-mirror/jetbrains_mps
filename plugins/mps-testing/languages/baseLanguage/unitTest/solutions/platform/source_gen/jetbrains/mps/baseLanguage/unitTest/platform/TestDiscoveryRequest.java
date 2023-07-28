@@ -5,6 +5,9 @@ package jetbrains.mps.baseLanguage.unitTest.platform;
 import java.util.Optional;
 import org.jetbrains.mps.openapi.model.SNode;
 
+/**
+ * The request object that is sent to a {@link jetbrains.mps.baseLanguage.unitTest.platform.TestDiscoveryParticipant }.
+ */
 public class TestDiscoveryRequest {
 
   private final TestDescriptor myRootContainer;
@@ -13,6 +16,9 @@ public class TestDiscoveryRequest {
     myRootContainer = rootContainer;
   }
 
+  /**
+   * Allows to access the container that is to contain all the tests created for this request.
+   */
   public final TestDescriptor peekContainer() {
     return myRootContainer;
   }

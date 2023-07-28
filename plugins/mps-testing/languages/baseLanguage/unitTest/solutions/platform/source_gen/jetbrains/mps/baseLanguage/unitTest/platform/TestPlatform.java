@@ -12,6 +12,10 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * Defines the API for MPS Test Platform.
+ * 
+ */
 public class TestPlatform {
 
   /**
@@ -19,6 +23,9 @@ public class TestPlatform {
    */
   private static TestPlatform INSTANCE = new TestPlatform();
 
+  /**
+   * Provides access to the singleton instance. 
+   */
   public static TestPlatform getInstance() {
     return INSTANCE;
   }
@@ -27,6 +34,9 @@ public class TestPlatform {
   private List<TestSessionListener> myTestSessionListeners = new CopyOnWriteArrayList<>();
   private ConcurrentLinkedDeque<TestSession> myCurrentSession = new ConcurrentLinkedDeque<TestSession>();
 
+  /**
+   * Private to prevent instantiation.
+   */
   private TestPlatform() {
   }
 

@@ -206,12 +206,29 @@
       </concept>
     </language>
     <language id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc">
+      <concept id="2546654756694997551" name="jetbrains.mps.baseLanguage.javadoc.structure.LinkInlineDocTag" flags="ng" index="92FcH">
+        <child id="2546654756694997556" name="reference" index="92FcQ" />
+        <child id="3106559687488913694" name="line" index="2XjZqd" />
+      </concept>
       <concept id="6832197706140896242" name="jetbrains.mps.baseLanguage.javadoc.structure.FieldDocComment" flags="ng" index="z59LJ" />
       <concept id="5349172909345501395" name="jetbrains.mps.baseLanguage.javadoc.structure.BaseDocComment" flags="ng" index="P$AiS">
         <child id="8465538089690331502" name="body" index="TZ5H$" />
       </concept>
+      <concept id="5349172909345532724" name="jetbrains.mps.baseLanguage.javadoc.structure.MethodDocComment" flags="ng" index="P$JXv" />
       <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA">
         <child id="8970989240999019149" name="part" index="1dT_Ay" />
+      </concept>
+      <concept id="2217234381367049075" name="jetbrains.mps.baseLanguage.javadoc.structure.CodeInlineDocTag" flags="ng" index="VVOAv">
+        <child id="3106559687488741665" name="line" index="2Xj1qM" />
+      </concept>
+      <concept id="2217234381367530212" name="jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocReference" flags="ng" index="VXe08">
+        <reference id="2217234381367530213" name="classifier" index="VXe09" />
+      </concept>
+      <concept id="2217234381367530195" name="jetbrains.mps.baseLanguage.javadoc.structure.MethodDocReference" flags="ng" index="VXe0Z">
+        <reference id="2217234381367530196" name="methodDeclaration" index="VXe0S" />
+      </concept>
+      <concept id="8970989240999019145" name="jetbrains.mps.baseLanguage.javadoc.structure.InlineTagCommentLinePart" flags="ng" index="1dT_AA">
+        <child id="6962838954693749192" name="tag" index="qph3F" />
       </concept>
       <concept id="8970989240999019143" name="jetbrains.mps.baseLanguage.javadoc.structure.TextCommentLinePart" flags="ng" index="1dT_AC">
         <property id="8970989240999019144" name="text" index="1dT_AB" />
@@ -935,6 +952,74 @@
     </node>
     <node concept="2tJIrI" id="2BZ01qX_0fA" role="jymVt" />
     <node concept="3Tm1VV" id="X4wbLw1YY6" role="1B3o_S" />
+    <node concept="3UR2Jj" id="642Zr9Kzp5J" role="lGtFl">
+      <node concept="TZ5HA" id="642Zr9Kzp5K" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9Kzp5L" role="1dT_Ay">
+          <property role="1dT_AB" value="Represents a single test in MPS Test Platform." />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="34IurLCk51X" role="TZ5H$">
+        <node concept="1dT_AC" id="34IurLCk51Y" role="1dT_Ay">
+          <property role="1dT_AB" value="See " />
+        </node>
+        <node concept="1dT_AA" id="34IurLCk7l9" role="1dT_Ay">
+          <node concept="92FcH" id="34IurLCk7lj" role="qph3F">
+            <node concept="TZ5HA" id="34IurLCk7ll" role="2XjZqd" />
+            <node concept="VXe08" id="34IurLCk7TU" role="92FcQ">
+              <ref role="VXe09" node="4chG8iItd4i" resolve="TestPlatform" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="34IurLCk7l8" role="1dT_Ay">
+          <property role="1dT_AB" value="." />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="642Zr9Kzqi2" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9Kzqi3" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;p&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="642Zr9KzsI3" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9KzsI4" role="1dT_Ay">
+          <property role="1dT_AB" value="A test can be: " />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="642Zr9Kzv5Q" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9Kzv5R" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;ul&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="642Zr9KzvRg" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9KzvRh" role="1dT_Ay">
+          <property role="1dT_AB" value="  &lt;li&gt;regular test&lt;/li&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="642Zr9KzwCK" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9KzwCL" role="1dT_Ay">
+          <property role="1dT_AB" value="  &lt;li&gt;test container&lt;/li&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="642Zr9Kzxqi" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9Kzxqj" role="1dT_Ay">
+          <property role="1dT_AB" value="  &lt;li&gt;root&lt;/li&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="642Zr9KzybE" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9KzybF" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;/ul&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="642Zr9KzyXg" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9KzyXh" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;p&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="642Zr9KzzIo" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9KzzIp" role="1dT_Ay">
+          <property role="1dT_AB" value="" />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="312cEu" id="2v6DJPJt3SN">
     <property role="TrG5h" value="SNodeTestSource" />
@@ -1396,6 +1481,13 @@
           <ref role="1PxDUh" to="wyt6:~Boolean" resolve="Boolean" />
         </node>
       </node>
+      <node concept="z59LJ" id="642Zr9K$Cjy" role="lGtFl">
+        <node concept="TZ5HA" id="642Zr9K$Cjz" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9K$Cj$" role="1dT_Ay">
+            <property role="1dT_AB" value="Indicates that a test should be run in &quot;compatibility mode&quot;, only relevant for legacy tests using JUnit 3." />
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="2tJIrI" id="2v6DJPJv9is" role="jymVt" />
     <node concept="Wx3nA" id="2v6DJPJvtAp" role="jymVt">
@@ -1418,6 +1510,13 @@
           <ref role="1PxDUh" to="wyt6:~Boolean" resolve="Boolean" />
         </node>
       </node>
+      <node concept="z59LJ" id="642Zr9K$N$p" role="lGtFl">
+        <node concept="TZ5HA" id="642Zr9K$N$q" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9K$N$r" role="1dT_Ay">
+            <property role="1dT_AB" value="Indicates that the test can be run &quot;in process&quot;." />
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="2tJIrI" id="2v6DJPJvtAo" role="jymVt" />
     <node concept="Wx3nA" id="2v6DJPJvGun" role="jymVt">
@@ -1438,6 +1537,35 @@
         <node concept="10M0yZ" id="2v6DJPJvHbd" role="37wK5m">
           <ref role="3cqZAo" to="wyt6:~Boolean.FALSE" resolve="FALSE" />
           <ref role="1PxDUh" to="wyt6:~Boolean" resolve="Boolean" />
+        </node>
+      </node>
+      <node concept="z59LJ" id="642Zr9K$S3$" role="lGtFl">
+        <node concept="TZ5HA" id="642Zr9K$S3_" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9K$S3A" role="1dT_Ay">
+            <property role="1dT_AB" value="An instance of the MPS platform should be launched before the test can be executed." />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="642Zr9K$WNe" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9K$WNf" role="1dT_Ay">
+            <property role="1dT_AB" value="&lt;p&gt;" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="642Zr9K_1wV" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9K_1wW" role="1dT_Ay">
+            <property role="1dT_AB" value="See " />
+          </node>
+          <node concept="1dT_AA" id="642Zr9K_5ZA" role="1dT_Ay">
+            <node concept="VVOAv" id="642Zr9K_61$" role="qph3F">
+              <node concept="TZ5HA" id="642Zr9K_61B" role="2Xj1qM">
+                <node concept="1dT_AC" id="642Zr9K_7Gz" role="1dT_Ay">
+                  <property role="1dT_AB" value="jetbrains.mps.lang.test.runtime.ProjectTestHelper" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="1dT_AC" id="642Zr9K_5Z_" role="1dT_Ay">
+            <property role="1dT_AB" value="." />
+          </node>
         </node>
       </node>
     </node>
@@ -2033,6 +2161,36 @@
       </node>
       <node concept="3Tm1VV" id="2BZ01qXB6ZK" role="1B3o_S" />
       <node concept="3clFbS" id="2BZ01qXB6ZL" role="3clF47" />
+      <node concept="P$JXv" id="642Zr9Kzltz" role="lGtFl">
+        <node concept="TZ5HA" id="642Zr9Kzlt$" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9Kzlt_" role="1dT_Ay">
+            <property role="1dT_AB" value="Returns an instance of " />
+          </node>
+          <node concept="1dT_AA" id="642Zr9Kzlvv" role="1dT_Ay">
+            <node concept="92FcH" id="642Zr9KzlvP" role="qph3F">
+              <node concept="TZ5HA" id="642Zr9KzlvR" role="2XjZqd" />
+              <node concept="VXe08" id="642Zr9KzlwA" role="92FcQ">
+                <ref role="VXe09" to="33ny:~Optional" resolve="Optional" />
+              </node>
+            </node>
+          </node>
+          <node concept="1dT_AC" id="642Zr9Kzlvu" role="1dT_Ay">
+            <property role="1dT_AB" value=" that either contains the test descriptor, or " />
+          </node>
+          <node concept="1dT_AA" id="642Zr9Kzl$B" role="1dT_Ay">
+            <node concept="VVOAv" id="642Zr9Kzl_6" role="qph3F">
+              <node concept="TZ5HA" id="642Zr9Kzl_8" role="2Xj1qM">
+                <node concept="1dT_AC" id="642Zr9Kzl_$" role="1dT_Ay">
+                  <property role="1dT_AB" value="Optional.empty()" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="1dT_AC" id="642Zr9Kzl$A" role="1dT_Ay">
+            <property role="1dT_AB" value="" />
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="2tJIrI" id="2BZ01qXB6Yg" role="jymVt" />
     <node concept="3clFb_" id="82DhFsCRc" role="jymVt">
@@ -2043,9 +2201,44 @@
         <ref role="3uigEE" to="33ny:~List" resolve="List" />
         <node concept="3bZ5Sz" id="82DhFuq47" role="11_B2D" />
       </node>
+      <node concept="P$JXv" id="642Zr9Kzdq1" role="lGtFl">
+        <node concept="TZ5HA" id="642Zr9Kzdq2" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9Kzdq3" role="1dT_Ay">
+            <property role="1dT_AB" value="List of concepts that potentially can be tests. The method " />
+          </node>
+          <node concept="1dT_AA" id="642Zr9KzkPc" role="1dT_Ay">
+            <node concept="92FcH" id="642Zr9KzkPy" role="qph3F">
+              <node concept="TZ5HA" id="642Zr9KzkP$" role="2XjZqd" />
+              <node concept="VXe0Z" id="642Zr9KzlpH" role="92FcQ">
+                <ref role="VXe0S" node="2BZ01qXB6ZH" resolve="discover" />
+              </node>
+            </node>
+          </node>
+          <node concept="1dT_AC" id="642Zr9KzkPb" role="1dT_Ay">
+            <property role="1dT_AB" value=" is going to be called for all " />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="642Zr9Kzls9" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9Kzlsa" role="1dT_Ay">
+            <property role="1dT_AB" value="instances of these concepts in the scope. " />
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="2tJIrI" id="82DhFsmUH" role="jymVt" />
     <node concept="3Tm1VV" id="2BZ01qXB6Na" role="1B3o_S" />
+    <node concept="3UR2Jj" id="642Zr9KyMlj" role="lGtFl">
+      <node concept="TZ5HA" id="642Zr9KyMlk" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9KyMll" role="1dT_Ay">
+          <property role="1dT_AB" value="Implementing this interface allows a component to participate in the test discovery. " />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="642Zr9KyMnd" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9KyMne" role="1dT_Ay">
+          <property role="1dT_AB" value="" />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="312cEu" id="2BZ01qXB7eE">
     <property role="TrG5h" value="TestDiscoveryRequest" />
@@ -2096,6 +2289,13 @@
           </node>
         </node>
       </node>
+      <node concept="P$JXv" id="642Zr9K$6B5" role="lGtFl">
+        <node concept="TZ5HA" id="642Zr9K$6B6" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9K$6B7" role="1dT_Ay">
+            <property role="1dT_AB" value="Allows to access the container that is to contain all the tests created for this request." />
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="2tJIrI" id="2VjRkhsHvat" role="jymVt" />
     <node concept="3clFb_" id="2VjRkhsHvuE" role="jymVt">
@@ -2138,6 +2338,24 @@
     </node>
     <node concept="2tJIrI" id="2BZ01qXTu0B" role="jymVt" />
     <node concept="3Tm1VV" id="2BZ01qXB7eF" role="1B3o_S" />
+    <node concept="3UR2Jj" id="642Zr9KzERm" role="lGtFl">
+      <node concept="TZ5HA" id="642Zr9KzERn" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9KzERo" role="1dT_Ay">
+          <property role="1dT_AB" value="The request object that is sent to a " />
+        </node>
+        <node concept="1dT_AA" id="642Zr9KzEVF" role="1dT_Ay">
+          <node concept="92FcH" id="642Zr9KzEVL" role="qph3F">
+            <node concept="TZ5HA" id="642Zr9KzEVN" role="2XjZqd" />
+            <node concept="VXe08" id="642Zr9KzEW6" role="92FcQ">
+              <ref role="VXe09" node="2BZ01qXB6N9" resolve="TestDiscoveryParticipant" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="642Zr9KzEVE" role="1dT_Ay">
+          <property role="1dT_AB" value="." />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="3HP615" id="2BZ01qYxICO">
     <property role="TrG5h" value="TestSource" />
@@ -2211,6 +2429,13 @@
     </node>
     <node concept="2tJIrI" id="2BZ01qYyvpy" role="jymVt" />
     <node concept="3Tm1VV" id="2BZ01qYxICP" role="1B3o_S" />
+    <node concept="3UR2Jj" id="642Zr9Kz_ov" role="lGtFl">
+      <node concept="TZ5HA" id="642Zr9Kz_ow" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9Kz_ox" role="1dT_Ay">
+          <property role="1dT_AB" value="Represents the test source, such as an SNode." />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="312cEu" id="2BZ01qXSVbC">
     <property role="TrG5h" value="TestDescriptorBuilder" />
@@ -2340,6 +2565,13 @@
           <node concept="Xjq3P" id="2BZ01qY$G4J" role="3clFbG" />
         </node>
       </node>
+      <node concept="P$JXv" id="642Zr9KzXi5" role="lGtFl">
+        <node concept="TZ5HA" id="642Zr9KzXi6" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9KzXi7" role="1dT_Ay">
+            <property role="1dT_AB" value="Call this to create a new test. " />
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="2tJIrI" id="2BZ01qXT4Xu" role="jymVt" />
     <node concept="3clFb_" id="2BZ01qXT2h1" role="jymVt">
@@ -2392,6 +2624,13 @@
         </node>
         <node concept="3clFbF" id="2BZ01qY$GGG" role="3cqZAp">
           <node concept="Xjq3P" id="2BZ01qY$GGE" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="P$JXv" id="642Zr9KzXDE" role="lGtFl">
+        <node concept="TZ5HA" id="642Zr9KzXDF" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9KzXDG" role="1dT_Ay">
+            <property role="1dT_AB" value="Call this to create a new test container." />
+          </node>
         </node>
       </node>
     </node>
@@ -2495,9 +2734,66 @@
           </node>
         </node>
       </node>
+      <node concept="P$JXv" id="642Zr9KzY_Q" role="lGtFl">
+        <node concept="TZ5HA" id="642Zr9KzY_R" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9KzY_S" role="1dT_Ay">
+            <property role="1dT_AB" value="Invoke this method after having configured the builder to commit the test/test container to its own container." />
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="2tJIrI" id="2BZ01qXT5a4" role="jymVt" />
     <node concept="3Tm1VV" id="2BZ01qXSVbD" role="1B3o_S" />
+    <node concept="3UR2Jj" id="642Zr9KzVIx" role="lGtFl">
+      <node concept="TZ5HA" id="642Zr9KzVIy" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9KzVIz" role="1dT_Ay">
+          <property role="1dT_AB" value="A builder for " />
+        </node>
+        <node concept="1dT_AA" id="642Zr9KzVWg" role="1dT_Ay">
+          <node concept="92FcH" id="642Zr9KzVWq" role="qph3F">
+            <node concept="TZ5HA" id="642Zr9KzVWs" role="2XjZqd" />
+            <node concept="VXe08" id="642Zr9KzVWJ" role="92FcQ">
+              <ref role="VXe09" node="X4wbLw1YY5" resolve="TestDescriptor" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="642Zr9KzVWf" role="1dT_Ay">
+          <property role="1dT_AB" value="." />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="642Zr9KzY78" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9KzY79" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;p&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="642Zr9KzYnA" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9KzYnB" role="1dT_Ay">
+          <property role="1dT_AB" value="Only one of " />
+        </node>
+        <node concept="1dT_AA" id="642Zr9KzYz8" role="1dT_Ay">
+          <node concept="92FcH" id="642Zr9KzYzi" role="qph3F">
+            <node concept="TZ5HA" id="642Zr9KzYzk" role="2XjZqd" />
+            <node concept="VXe0Z" id="642Zr9KzYzB" role="92FcQ">
+              <ref role="VXe0S" node="2BZ01qXSZma" resolve="newTest" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="642Zr9KzYz7" role="1dT_Ay">
+          <property role="1dT_AB" value=" or " />
+        </node>
+        <node concept="1dT_AA" id="642Zr9KzY$k" role="1dT_Ay">
+          <node concept="92FcH" id="642Zr9KzY$z" role="qph3F">
+            <node concept="TZ5HA" id="642Zr9KzY$_" role="2XjZqd" />
+            <node concept="VXe0Z" id="642Zr9KzY$O" role="92FcQ">
+              <ref role="VXe0S" node="2BZ01qXT2h1" resolve="newTestContainer" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="642Zr9KzY$j" role="1dT_Ay">
+          <property role="1dT_AB" value=" should be called." />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="312cEu" id="4chG8iItd4i">
     <property role="TrG5h" value="TestPlatform" />
@@ -2532,6 +2828,13 @@
         <node concept="3clFbF" id="4chG8iItzqX" role="3cqZAp">
           <node concept="37vLTw" id="4chG8iItzqW" role="3clFbG">
             <ref role="3cqZAo" node="4chG8iIteJo" resolve="INSTANCE" />
+          </node>
+        </node>
+      </node>
+      <node concept="P$JXv" id="642Zr9K_gno" role="lGtFl">
+        <node concept="TZ5HA" id="642Zr9K_gnp" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9K_gnq" role="1dT_Ay">
+            <property role="1dT_AB" value="Provides access to the singleton instance. " />
           </node>
         </node>
       </node>
@@ -2592,6 +2895,13 @@
       <node concept="3cqZAl" id="2VjRkhsFqfB" role="3clF45" />
       <node concept="3Tm6S6" id="2VjRkhsFqjR" role="1B3o_S" />
       <node concept="3clFbS" id="2VjRkhsFqfD" role="3clF47" />
+      <node concept="P$JXv" id="642Zr9KyM8y" role="lGtFl">
+        <node concept="TZ5HA" id="642Zr9KyM8z" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9KyM8$" role="1dT_Ay">
+            <property role="1dT_AB" value="Private to prevent instantiation." />
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="2tJIrI" id="2VjRkhsQqVs" role="jymVt" />
     <node concept="3clFb_" id="2VjRkhsQueP" role="jymVt">
@@ -3119,6 +3429,18 @@
     </node>
     <node concept="2tJIrI" id="2VjRkhsFXIK" role="jymVt" />
     <node concept="3Tm1VV" id="4chG8iItd4j" role="1B3o_S" />
+    <node concept="3UR2Jj" id="642Zr9K_ajA" role="lGtFl">
+      <node concept="TZ5HA" id="642Zr9K_ajB" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9K_ajC" role="1dT_Ay">
+          <property role="1dT_AB" value="Defines the API for MPS Test Platform." />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="642Zr9K_f1q" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9K_f1r" role="1dT_Ay">
+          <property role="1dT_AB" value="" />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="3HP615" id="4rQ9_5dBfUM">
     <property role="TrG5h" value="TestSessionListener" />
@@ -3150,6 +3472,24 @@
     </node>
     <node concept="2tJIrI" id="4rQ9_5dBfW2" role="jymVt" />
     <node concept="3Tm1VV" id="4rQ9_5dBfUN" role="1B3o_S" />
+    <node concept="3UR2Jj" id="642Zr9K_Nla" role="lGtFl">
+      <node concept="TZ5HA" id="642Zr9K_Nlb" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9K_Nlc" role="1dT_Ay">
+          <property role="1dT_AB" value="Implement this interface to receive notifications from the " />
+        </node>
+        <node concept="1dT_AA" id="642Zr9K_NmT" role="1dT_Ay">
+          <node concept="92FcH" id="642Zr9K_Nn3" role="qph3F">
+            <node concept="TZ5HA" id="642Zr9K_Nn5" role="2XjZqd" />
+            <node concept="VXe08" id="642Zr9K_NnG" role="92FcQ">
+              <ref role="VXe09" node="4rQ9_5dBfWe" resolve="TestSession" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="642Zr9K_NmS" role="1dT_Ay">
+          <property role="1dT_AB" value="." />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="312cEu" id="4rQ9_5dBfWe">
     <property role="TrG5h" value="TestSession" />
@@ -3274,9 +3614,60 @@
       <node concept="16euLQ" id="4rQ9_5dO11j" role="16eVyc">
         <property role="TrG5h" value="T" />
       </node>
+      <node concept="P$JXv" id="642Zr9KAirG" role="lGtFl">
+        <node concept="TZ5HA" id="642Zr9KAirH" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9KAirI" role="1dT_Ay">
+            <property role="1dT_AB" value="Enables to retrieve an accessory object associated with this test session at the" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="642Zr9KAiW1" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9KAiW2" role="1dT_Ay">
+            <property role="1dT_AB" value="moment it is created. " />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="642Zr9KAl0e" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9KAl0f" role="1dT_Ay">
+            <property role="1dT_AB" value="&lt;p&gt;" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="642Zr9KAknn" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9KAkno" role="1dT_Ay">
+            <property role="1dT_AB" value="The only accessory kind currently supported is " />
+          </node>
+          <node concept="1dT_AA" id="642Zr9KAknp" role="1dT_Ay">
+            <node concept="VVOAv" id="642Zr9KAknq" role="qph3F">
+              <node concept="TZ5HA" id="642Zr9KAknr" role="2Xj1qM">
+                <node concept="1dT_AC" id="642Zr9KAkns" role="1dT_Ay">
+                  <property role="1dT_AB" value="jetbrains.mps.tool.Environment" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="1dT_AC" id="642Zr9KAknt" role="1dT_Ay">
+            <property role="1dT_AB" value="." />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="642Zr9KAknu" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9KAknv" role="1dT_Ay">
+            <property role="1dT_AB" value="This accessory object is necessary in order to provide tests with possibility" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="642Zr9KAknw" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9KAknx" role="1dT_Ay">
+            <property role="1dT_AB" value="to interact with SModel API and other interfaces in MPS platform." />
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="2tJIrI" id="4rQ9_5dBfXo" role="jymVt" />
     <node concept="3Tm1VV" id="4rQ9_5dBfWf" role="1B3o_S" />
+    <node concept="3UR2Jj" id="642Zr9KAhNL" role="lGtFl">
+      <node concept="TZ5HA" id="642Zr9KAhNM" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9KAhNN" role="1dT_Ay">
+          <property role="1dT_AB" value="Represents a test session." />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="312cEu" id="4rQ9_5dOfYm">
     <property role="TrG5h" value="TestSessionConfig" />
@@ -3355,6 +3746,45 @@
       <node concept="16euLQ" id="4rQ9_5dOgw1" role="16eVyc">
         <property role="TrG5h" value="T" />
       </node>
+      <node concept="P$JXv" id="642Zr9KA7t7" role="lGtFl">
+        <node concept="TZ5HA" id="642Zr9KA7t8" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9KA7t9" role="1dT_Ay">
+            <property role="1dT_AB" value="Associates an accessory object with a to be created session." />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="642Zr9KA7XR" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9KA7XS" role="1dT_Ay">
+            <property role="1dT_AB" value="&lt;p&gt;" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="642Zr9KA87x" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9KA87y" role="1dT_Ay">
+            <property role="1dT_AB" value="The only accessory kind currently supported is " />
+          </node>
+          <node concept="1dT_AA" id="642Zr9KA8ru" role="1dT_Ay">
+            <node concept="VVOAv" id="642Zr9KA8sR" role="qph3F">
+              <node concept="TZ5HA" id="642Zr9KA8sT" role="2Xj1qM">
+                <node concept="1dT_AC" id="642Zr9KAfYA" role="1dT_Ay">
+                  <property role="1dT_AB" value="jetbrains.mps.tool.Environment" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="1dT_AC" id="642Zr9KA8rt" role="1dT_Ay">
+            <property role="1dT_AB" value="." />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="642Zr9KAfZg" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9KAfZh" role="1dT_Ay">
+            <property role="1dT_AB" value="This accessory object is necessary in order to provide tests with possibility" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="642Zr9KAh0t" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9KAh0u" role="1dT_Ay">
+            <property role="1dT_AB" value="to interact with SModel API and other interfaces in MPS platform." />
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="2tJIrI" id="4rQ9_5dOg0I" role="jymVt" />
     <node concept="3clFb_" id="4rQ9_5dOwUD" role="jymVt">
@@ -3378,6 +3808,24 @@
       </node>
     </node>
     <node concept="3Tm1VV" id="4rQ9_5dOfYn" role="1B3o_S" />
+    <node concept="3UR2Jj" id="642Zr9K_PR2" role="lGtFl">
+      <node concept="TZ5HA" id="642Zr9K_PR3" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9K_PR4" role="1dT_Ay">
+          <property role="1dT_AB" value="Configures and creates an instance of " />
+        </node>
+        <node concept="1dT_AA" id="642Zr9K_Q7z" role="1dT_Ay">
+          <node concept="92FcH" id="642Zr9K_Q7D" role="qph3F">
+            <node concept="TZ5HA" id="642Zr9K_Q7F" role="2XjZqd" />
+            <node concept="VXe08" id="642Zr9K_Q7Y" role="92FcQ">
+              <ref role="VXe09" node="4rQ9_5dBfWe" resolve="TestSession" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="642Zr9K_Q7y" role="1dT_Ay">
+          <property role="1dT_AB" value="" />
+        </node>
+      </node>
+    </node>
   </node>
 </model>
 

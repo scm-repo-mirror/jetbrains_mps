@@ -10,6 +10,19 @@ import java.util.Optional;
 import java.util.Objects;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Represents a single test in MPS Test Platform.
+ * See {@link jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform }.
+ * <p>
+ * A test can be: 
+ * <ul>
+ *   <li>regular test</li>
+ *   <li>test container</li>
+ *   <li>root</li>
+ * </ul>
+ * <p>
+ * 
+ */
 public class TestDescriptor {
 
   private final String myName;

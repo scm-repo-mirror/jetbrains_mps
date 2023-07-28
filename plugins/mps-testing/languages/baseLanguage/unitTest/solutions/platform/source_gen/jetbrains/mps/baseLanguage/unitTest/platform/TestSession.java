@@ -6,6 +6,9 @@ import java.util.Map;
 import java.util.Optional;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Represents a test session.
+ */
 public class TestSession {
 
   private final Map<Object, Object> myAccessories;
@@ -14,6 +17,14 @@ public class TestSession {
     myAccessories = Map.copyOf(accessories);
   }
 
+  /**
+   * Enables to retrieve an accessory object associated with this test session at the
+   * moment it is created. 
+   * <p>
+   * The only accessory kind currently supported is {@code jetbrains.mps.tool.Environment}.
+   * This accessory object is necessary in order to provide tests with possibility
+   * to interact with SModel API and other interfaces in MPS platform.
+   */
   public <T> Optional<T> getAccessory(@NotNull Class<T> accessoryClass) {
     if (myAccessories.containsKey(accessoryClass)) {
       return Optional.of(accessoryClass.cast(myAccessories.get(accessoryClass)));

@@ -10,10 +10,21 @@ import java.util.Objects;
  */
 public class TestProperties {
 
+  /**
+   * Indicates that a test should be run in "compatibility mode", only relevant for legacy tests using JUnit 3.
+   */
   public static Key<Boolean> USE_COMPATIBILITY_MODE = TestProperties.keyOf("useCompatibilityMode", Boolean.FALSE);
 
+  /**
+   * Indicates that the test can be run "in process".
+   */
   public static Key<Boolean> CAN_RUN_IN_PROCESS = TestProperties.keyOf("canRunInProcess", Boolean.TRUE);
 
+  /**
+   * An instance of the MPS platform should be launched before the test can be executed.
+   * <p>
+   * See {@code jetbrains.mps.lang.test.runtime.ProjectTestHelper}.
+   */
   public static Key<Boolean> REQUIRES_MPS_PLATFORM = TestProperties.keyOf("requiresMpsPlatform", Boolean.FALSE);
 
   protected TestProperties() {
