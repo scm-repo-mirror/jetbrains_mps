@@ -446,30 +446,19 @@ public final class DefaultModelRoot extends FileBasedModelRoot implements Copyab
     FileDataSource source = (FileDataSource) result.getDataSource();
     IFile newFile = source.getFile();
     if (!newFile.equals(oldFile)) {
+      DSourceAndOptions<DataSource> tempResult = getDataSourceFactoryBridge().createFileDataSource(new SModelName(newName + "_temp_" + System.currentTimeMillis()), sourceRoot);
+      FileDataSource tempSource = (FileDataSource) tempResult.getDataSource();
+      IFile tempNewFile = tempSource.getFile();
+      tempNewFile.getParent().mkdirs();
+      tempNewFile.createNewFile();
+      dataSource.setFile(tempNewFile);
+      FileUtil.deleteWithAllEmptyDirs(oldFile);
 
-      final VirtualFileSystem fs = VirtualFileManager.getInstance().getFileSystem("file");
-      if (fs != null) {
-        final String oldName = oldFile.getName();
-        final String oldNameNoExtension = oldName.substring(0, oldName.lastIndexOf("."));
-        final VirtualFile oldFileByPath = fs.findFileByPath(oldFile.getPath());
-        if (oldFileByPath != null && !oldFileByPath.isCaseSensitive() && !oldFileByPath.getFileSystem().isCaseSensitive() && newName.equalsIgnoreCase(oldNameNoExtension) &&
-            !newName.equals(oldNameNoExtension)) {
-          //Case-only rename on case-insensitive file system, let's go via an intermediate temp file
-          DSourceAndOptions<DataSource> tempResult = getDataSourceFactoryBridge().createFileDataSource(new SModelName(newName + "_temp"), sourceRoot);
-          FileDataSource tempSource = (FileDataSource) tempResult.getDataSource();
-          IFile tempNewFile = tempSource.getFile();
-          tempNewFile.getParent().mkdirs();
-          tempNewFile.createNewFile();
-          dataSource.setFile(tempNewFile);
-          FileUtil.deleteWithAllEmptyDirs(oldFile);
-          oldFile = tempNewFile;
-        }
-      }
       newFile.getParent().mkdirs();
       newFile.createNewFile();
       // at the moment, there's no mechanism to replace model's datasource, hence we replace file of the original source here.
       dataSource.setFile(newFile);
-      FileUtil.deleteWithAllEmptyDirs(oldFile);
+      FileUtil.deleteWithAllEmptyDirs(tempNewFile);
     }
   }
 
