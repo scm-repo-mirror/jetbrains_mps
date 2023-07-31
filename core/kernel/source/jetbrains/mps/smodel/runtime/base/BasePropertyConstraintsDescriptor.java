@@ -20,18 +20,15 @@ import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDispatchable;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.util.DepthFirstConceptIterator;
 
-public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDispatchable {
+public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDescriptor {
   private final SProperty myProperty;
   private final ConstraintsDescriptor myContainer;
-
-  private final boolean myOwnGet, myOwnSet, myOwnValidate;
 
   private final PropertyConstraintsDescriptor getterDescriptor;
   private final PropertyConstraintsDescriptor setterDescriptor;
@@ -43,10 +40,11 @@ public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDis
   public BasePropertyConstraintsDescriptor(SProperty property, ConstraintsDescriptor container, boolean ownGet, boolean ownSet, boolean ownValidate) {
     myProperty = property;
     myContainer = container;
-    myOwnGet = ownGet;
-    myOwnSet = ownSet;
-    myOwnValidate = ownValidate;
 
+    // FIXME for whatever reason similar logic in BaseReferenceConstraintsDescriptor is different with respect to ownXXX check
+    //       And I feel it wasn't right to keep an d use  hasOwn() check in 1feba01a. After all, each parent already got 'something' using
+    //       inheritance, and getParentCalculatedDescriptor() method name suggests we expect this pre-'calculated' value.
+    //       Therefore, I feel approach I take here, with direct access to parent 'pre-calculated' value, is the right one.
     getterDescriptor = ownGet ? this : getSomethingUsingInheritance(GETTER_INHERITANCE_PARAMETERS, property, container);
     setterDescriptor = ownSet ? this : getSomethingUsingInheritance(SETTER_INHERITANCE_PARAMETERS, property, container);
     validatorDescriptor = ownValidate ? this : getSomethingUsingInheritance(VALIDATOR_INHERITANCE_PARAMETERS, property, container);
@@ -71,13 +69,6 @@ public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDis
 
       if (parentPropertyDescriptor instanceof BasePropertyConstraintsDescriptor) {
         parentCalculated = parameters.getParentCalculatedDescriptor((BasePropertyConstraintsDescriptor) parentPropertyDescriptor);
-      } else if (parentPropertyDescriptor instanceof PropertyConstraintsDispatchable) {
-        // dead code? all PCD are BasePropertyConstraintsDescriptor!
-        if (parameters.hasOwn((PropertyConstraintsDispatchable) parentPropertyDescriptor)) {
-          parentCalculated = parentPropertyDescriptor;
-        } else {
-          parentCalculated = null; // go on with iteration
-        }
       } else {
         parentCalculated = parentPropertyDescriptor;
       }
@@ -103,21 +94,6 @@ public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDis
   }
 
   @Override
-  public boolean hasOwnGetter() {
-    return myOwnGet;
-  }
-
-  @Override
-  public boolean hasOwnSetter() {
-    return myOwnSet;
-  }
-
-  @Override
-  public boolean hasOwnValidator() {
-    return myOwnValidate;
-  }
-
-  @Override
   public SProperty getSProperty() {
     return myProperty;
   }
@@ -129,10 +105,10 @@ public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDis
 
   @Override
   public Object getValue(SNode node) {
-    if (!isGetterDefault()) {
-      return getterDescriptor.getValue(node);
-    } else {
+    if (isGetterDefault()) {
       return myProperty.getType().fromString(node.getProperty(myProperty));
+    } else {
+      return getterDescriptor.getValue(node);
     }
   }
 
@@ -161,41 +137,9 @@ public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDis
 
   private interface InheritanceCalculateParameters {
     PropertyConstraintsDescriptor getParentCalculatedDescriptor(BasePropertyConstraintsDescriptor parentDescriptor);
-
-    boolean hasOwn(PropertyConstraintsDispatchable parentDescriptor);
   }
 
-  private static final InheritanceCalculateParameters GETTER_INHERITANCE_PARAMETERS = new InheritanceCalculateParameters() {
-    @Override
-    public PropertyConstraintsDescriptor getParentCalculatedDescriptor(BasePropertyConstraintsDescriptor parentDescriptor) {
-      return parentDescriptor.getterDescriptor;
-    }
-
-    @Override
-    public boolean hasOwn(PropertyConstraintsDispatchable parentDescriptor) {
-      return parentDescriptor.hasOwnGetter();
-    }
-  };
-  private static final InheritanceCalculateParameters SETTER_INHERITANCE_PARAMETERS = new InheritanceCalculateParameters() {
-    @Override
-    public PropertyConstraintsDescriptor getParentCalculatedDescriptor(BasePropertyConstraintsDescriptor parentDescriptor) {
-      return parentDescriptor.setterDescriptor;
-    }
-
-    @Override
-    public boolean hasOwn(PropertyConstraintsDispatchable parentDescriptor) {
-      return parentDescriptor.hasOwnSetter();
-    }
-  };
-  private static final InheritanceCalculateParameters VALIDATOR_INHERITANCE_PARAMETERS = new InheritanceCalculateParameters() {
-    @Override
-    public PropertyConstraintsDescriptor getParentCalculatedDescriptor(BasePropertyConstraintsDescriptor parentDescriptor) {
-      return parentDescriptor.validatorDescriptor;
-    }
-
-    @Override
-    public boolean hasOwn(PropertyConstraintsDispatchable parentDescriptor) {
-      return parentDescriptor.hasOwnValidator();
-    }
-  };
+  private static final InheritanceCalculateParameters GETTER_INHERITANCE_PARAMETERS = parentDescriptor -> parentDescriptor.getterDescriptor;
+  private static final InheritanceCalculateParameters SETTER_INHERITANCE_PARAMETERS = parentDescriptor -> parentDescriptor.setterDescriptor;
+  private static final InheritanceCalculateParameters VALIDATOR_INHERITANCE_PARAMETERS = parentDescriptor -> parentDescriptor.validatorDescriptor;
 }
