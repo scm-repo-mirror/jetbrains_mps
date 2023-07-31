@@ -1221,7 +1221,7 @@
         <ref role="nCB5Y" node="3dkXFAFkSFA" resolve="mps-persistence" />
       </node>
       <node concept="nCB5N" id="4_qKb05xjz0" role="nCB5Z">
-        <ref role="nCB5Y" node="4_qKb05xiaz" resolve="aux-runtimes" />
+        <ref role="nCB5Y" node="4_qKb05xiaz" resolve="findUsages-runtime" />
       </node>
       <node concept="nCB5N" id="6KhqnhloBdM" role="nCB5Z">
         <ref role="nCB5Y" node="uKctmfwPD8" resolve="refactoring" />
@@ -1516,7 +1516,7 @@
         <ref role="nCB5Y" node="2MtyMjH3qzU" resolve="mps-typesystem" />
       </node>
       <node concept="nCB5N" id="4_qKb05GBx4" role="nCB5Z">
-        <ref role="nCB5Y" node="4_qKb05xiaz" resolve="aux-runtimes" />
+        <ref role="nCB5Y" node="4_qKb05xiaz" resolve="findUsages-runtime" />
       </node>
       <node concept="nCB5N" id="3naTEl9uty3" role="nCB5Z">
         <ref role="nCB5Y" node="5RhptgddDxG" resolve="feedback-api" />
@@ -1723,7 +1723,7 @@
         <ref role="nCB5Y" node="47JXWa7IVSW" resolve="pattern-runtime" />
       </node>
       <node concept="nCB5N" id="4_qKb05xjAA" role="nCB5Z">
-        <ref role="nCB5Y" node="4_qKb05xiaz" resolve="aux-runtimes" />
+        <ref role="nCB5Y" node="4_qKb05xiaz" resolve="findUsages-runtime" />
       </node>
       <node concept="3_7P_l" id="WgHS__ALjP" role="3_45bX">
         <ref role="3_7fsG" node="WgHS__ALjN" />
@@ -1753,7 +1753,7 @@
         <ref role="nCB5Y" node="1FaKCGJSzEy" resolve="mps-kernel" />
       </node>
       <node concept="nCB5N" id="uKctmfwXv5" role="nCB5Z">
-        <ref role="nCB5Y" node="4_qKb05xiaz" resolve="aux-runtimes" />
+        <ref role="nCB5Y" node="4_qKb05xiaz" resolve="findUsages-runtime" />
       </node>
     </node>
     <node concept="398b33" id="uKctmfwXQw" role="3989C9">
@@ -1780,7 +1780,7 @@
         <ref role="nCB5Y" node="1FaKCGJSzEy" resolve="mps-kernel" />
       </node>
       <node concept="nCB5N" id="uKctmfwXQC" role="nCB5Z">
-        <ref role="nCB5Y" node="4_qKb05xiaz" resolve="aux-runtimes" />
+        <ref role="nCB5Y" node="4_qKb05xiaz" resolve="findUsages-runtime" />
       </node>
     </node>
     <node concept="398b33" id="uKctmfwBHi" role="3989C9">
@@ -1816,7 +1816,7 @@
         <ref role="nCB5Y" node="uKctmfwXQw" resolve="refactoring-runtime" />
       </node>
       <node concept="nCB5N" id="uKctmfwFHF" role="nCB5Z">
-        <ref role="nCB5Y" node="4_qKb05xiaz" resolve="aux-runtimes" />
+        <ref role="nCB5Y" node="4_qKb05xiaz" resolve="findUsages-runtime" />
       </node>
     </node>
     <node concept="398b33" id="7KapL9OAx4G" role="3989C9">
@@ -1877,7 +1877,7 @@
         <ref role="nCB5Y" node="7NoQ7Z63Z9b" resolve="mps-debuginfo-impl" />
       </node>
       <node concept="nCB5N" id="4_qKb05Oowt" role="nCB5Z">
-        <ref role="nCB5Y" node="4_qKb05xiaz" resolve="aux-runtimes" />
+        <ref role="nCB5Y" node="4_qKb05xiaz" resolve="findUsages-runtime" />
       </node>
     </node>
     <node concept="398b33" id="5_uX04TlQXW" role="3989C9">
@@ -2007,7 +2007,7 @@
         <ref role="nCB5Y" node="2MtyMjH3qzU" resolve="mps-typesystem" />
       </node>
       <node concept="nCB5N" id="5vs0A7T1Xe2" role="nCB5Z">
-        <ref role="nCB5Y" node="4_qKb05xiaz" resolve="aux-runtimes" />
+        <ref role="nCB5Y" node="4_qKb05xiaz" resolve="findUsages-runtime" />
       </node>
       <node concept="398b2D" id="16Vg0jOdbWa" role="398b2p">
         <node concept="nFU4i" id="16Vg0jOdbWf" role="nFU4p">
@@ -2319,7 +2319,7 @@
             <ref role="Saw0g" node="47JXWa7IVSW" resolve="pattern-runtime" />
           </node>
           <node concept="Saw0i" id="4_qKb05xjwk" role="39821P">
-            <ref role="Saw0g" node="4_qKb05xiaz" resolve="aux-runtimes" />
+            <ref role="Saw0g" node="4_qKb05xiaz" resolve="findUsages-runtime" />
           </node>
           <node concept="3_J27D" id="IFRVVI696F" role="Nbhlr">
             <node concept="3Mxwew" id="IFRVVI696G" role="3MwsjC">
@@ -2446,7 +2446,7 @@
         </node>
         <node concept="3981dx" id="16Vg0jOco4n" role="39821P">
           <node concept="Saw0i" id="1M_KWzLkQda" role="39821P">
-            <ref role="Saw0g" node="1WZWsoqIz7X" resolve="mps-migration" />
+            <ref role="Saw0g" node="1WZWsoqIz7X" resolve="migrations-runtime" />
           </node>
           <node concept="Saw0i" id="2fQZjorSjPN" role="39821P">
             <ref role="Saw0g" node="16Vg0jOco3P" resolve="mps-platform" />
@@ -4023,7 +4023,7 @@
         </node>
         <node concept="1E1SXE" id="4_qKb05xjtq" role="3bR37C">
           <property role="1E1SXH" value="true" />
-          <ref role="1E1SXG" node="4_qKb05xiaz" resolve="aux-runtimes" />
+          <ref role="1E1SXG" node="4_qKb05xiaz" resolve="findUsages-runtime" />
         </node>
         <node concept="1SiIV0" id="VCtQSj7LRC" role="3bR37C">
           <node concept="3bR9La" id="VCtQSj7LRD" role="1SiIV1">
@@ -5447,7 +5447,7 @@
         </node>
         <node concept="1E1SXE" id="4Gy9vLKSFzD" role="3bR37C">
           <property role="1E1SXH" value="true" />
-          <ref role="1E1SXG" node="4_qKb05xiaz" resolve="aux-runtimes" />
+          <ref role="1E1SXG" node="4_qKb05xiaz" resolve="findUsages-runtime" />
           <node concept="398BVA" id="4Gy9vLKSG3Q" role="17Grwy">
             <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
             <node concept="2Ry0Ak" id="4Gy9vLKSG9f" role="iGT6I">
@@ -7152,6 +7152,11 @@
             <ref role="3bR37D" node="1TaHNgiIbIQ" resolve="MPS.Core" />
           </node>
         </node>
+        <node concept="1SiIV0" id="2GlX5XptWDN" role="3bR37C">
+          <node concept="3bR9La" id="2GlX5XptWDO" role="1SiIV1">
+            <ref role="3bR37D" node="3qkjbZn8cF0" resolve="jetbrains.mps.lang.feedback.problem.legacy-constraints" />
+          </node>
+        </node>
         <node concept="1E1SXE" id="6OGItEzJuDq" role="3bR37C">
           <property role="1E1SXH" value="true" />
           <ref role="1E1SXG" node="SHPhCCYooj" resolve="constraints-runtime" />
@@ -7223,6 +7228,11 @@
         <node concept="1SiIV0" id="7bd0cO8cOZf" role="3bR37C">
           <node concept="3bR9La" id="7bd0cO8cOZg" role="1SiIV1">
             <ref role="3bR37D" node="3qkjbZn8cF0" resolve="jetbrains.mps.lang.feedback.problem.legacy-constraints" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="2GlX5XptVO0" role="3bR37C">
+          <node concept="3bR9La" id="2GlX5XptVO1" role="1SiIV1">
+            <ref role="3bR37D" node="3qkjbZn808a" resolve="jetbrains.mps.lang.constraints.rules.runtime" />
           </node>
         </node>
         <node concept="398BVA" id="6wK_PpNA8BZ" role="3LF7KH">
@@ -11960,6 +11970,12 @@
         <node concept="1SiIV0" id="3qkjbZn8g2i" role="3bR37C">
           <node concept="3bR9La" id="3qkjbZn8g2j" role="1SiIV1">
             <ref role="3bR37D" node="3qkjbZn8eBg" resolve="jetbrains.mps.lang.feedback.problem.rt" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="3EPQLYw2yAW" role="3bR37C">
+          <node concept="3bR9La" id="3EPQLYw2yAX" role="1SiIV1">
+            <property role="3bR36h" value="true" />
+            <ref role="3bR37D" node="3qkjbZn8c2m" resolve="jetbrains.mps.lang.feedback.context" />
           </node>
         </node>
         <node concept="1E1SXE" id="SaxjPBkfMT" role="3bR37C">
@@ -18996,7 +19012,7 @@
         </node>
         <node concept="1E1SXE" id="1M_KWzLkW1T" role="3bR37C">
           <property role="1E1SXH" value="true" />
-          <ref role="1E1SXG" node="1WZWsoqIz7X" resolve="mps-migration" />
+          <ref role="1E1SXG" node="1WZWsoqIz7X" resolve="migrations-runtime" />
           <node concept="398BVA" id="2qP59qVK4a4" role="17Grwy">
             <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
             <node concept="2Ry0Ak" id="2qP59qVK4lF" role="iGT6I">
@@ -25106,7 +25122,7 @@
         <ref role="nCB5Y" node="PI$1s21VRQ" resolve="dataflow-rt" />
       </node>
       <node concept="nCB5N" id="4_qKb05xjCy" role="nCB5Z">
-        <ref role="nCB5Y" node="4_qKb05xiaz" resolve="aux-runtimes" />
+        <ref role="nCB5Y" node="4_qKb05xiaz" resolve="findUsages-runtime" />
       </node>
       <node concept="nCB5N" id="3oXfwtWDHTf" role="nCB5Z">
         <ref role="nCB5Y" node="3dkXFAFkSFA" resolve="mps-persistence" />
@@ -42857,7 +42873,7 @@
         <ref role="nCB5Y" node="2xKmvAPr90j" resolve="mps-java-core" />
       </node>
       <node concept="nCB5N" id="4_qKb05xjE0" role="nCB5Z">
-        <ref role="nCB5Y" node="4_qKb05xiaz" resolve="aux-runtimes" />
+        <ref role="nCB5Y" node="4_qKb05xiaz" resolve="findUsages-runtime" />
       </node>
     </node>
     <node concept="1E1JtA" id="5xwbQ0eEV3B" role="3989C9">
@@ -49831,7 +49847,7 @@
         </node>
       </node>
       <node concept="nCB5N" id="4MIWQsbUgDE" role="nCB5Z">
-        <ref role="nCB5Y" node="1WZWsoqIz7X" resolve="mps-migration" />
+        <ref role="nCB5Y" node="1WZWsoqIz7X" resolve="migrations-runtime" />
       </node>
       <node concept="nCB5N" id="1nJh0raUWjF" role="nCB5Z">
         <ref role="nCB5Y" node="16Vg0jOco3P" resolve="mps-platform" />
@@ -52646,6 +52662,9 @@
       </node>
       <node concept="nCB5N" id="LSPZqinmM3" role="nCB5Z">
         <ref role="nCB5Y" node="6e4RFSGTAMz" resolve="mps-behavior-runtime" />
+      </node>
+      <node concept="nCB5N" id="2VRo7LB1q4" role="nCB5Z">
+        <ref role="nCB5Y" node="SHPhCCYuJN" resolve="messages-for-legacy-constraints" />
       </node>
       <node concept="nCB5N" id="SHPhCCYouN" role="nCB5Z">
         <ref role="nCB5Y" node="1FaKCGJSzEy" resolve="mps-kernel" />
