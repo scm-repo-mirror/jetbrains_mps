@@ -23,6 +23,7 @@
     <import index="tpc2" ref="r:00000000-0000-4000-0000-011c8959029e(jetbrains.mps.lang.editor.structure)" />
     <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
     <import index="gp7a" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project.dependency(MPS.Core/)" />
+    <import index="79pm" ref="8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.smodel.runtime.base(jetbrains.mps.lang.constraints.rules.runtime/)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
     <import index="6xgk" ref="r:6e9ad488-5df2-49e4-8c01-8a7f3812adf7(jetbrains.mps.lang.scopes.runtime)" />
     <import index="o8zo" ref="r:314576fc-3aee-4386-a0a5-a38348ac317d(jetbrains.mps.scope)" />
@@ -421,7 +422,7 @@
       <uo k="s:originTrace" v="n:609408910514948654" />
     </node>
     <node concept="3uibUv" id="2" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:609408910514948654" />
     </node>
     <node concept="3clFbW" id="3" role="jymVt">
@@ -432,7 +433,7 @@
       <node concept="3clFbS" id="7" role="3clF47">
         <uo k="s:originTrace" v="n:609408910514948654" />
         <node concept="XkiVB" id="9" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:609408910514948654" />
           <node concept="1BaE9c" id="a" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -485,7 +486,7 @@
           <uo k="s:originTrace" v="n:609408910514948654" />
         </node>
         <node concept="3uibUv" id="l" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:609408910514948654" />
         </node>
       </node>
@@ -497,7 +498,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:609408910514948654" />
             <node concept="3uibUv" id="r" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:609408910514948654" />
             </node>
             <node concept="2ShNRf" id="s" role="33vP2m">
@@ -506,8 +507,8 @@
                 <uo k="s:originTrace" v="n:609408910514948654" />
                 <node concept="1Y3b0j" id="u" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:609408910514948654" />
                   <node concept="1BaE9c" id="v" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -785,7 +786,7 @@
                 <uo k="s:originTrace" v="n:609408910514948654" />
               </node>
               <node concept="3uibUv" id="1E" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:609408910514948654" />
               </node>
             </node>
@@ -799,7 +800,7 @@
                   <uo k="s:originTrace" v="n:609408910514948654" />
                 </node>
                 <node concept="3uibUv" id="1H" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:609408910514948654" />
                 </node>
               </node>
@@ -824,7 +825,7 @@
                   <uo k="s:originTrace" v="n:609408910514948654" />
                 </node>
                 <node concept="liA8E" id="1O" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:609408910514948654" />
                 </node>
               </node>
@@ -857,7 +858,7 @@
       <uo k="s:originTrace" v="n:4088952938557443050" />
     </node>
     <node concept="3uibUv" id="1S" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:4088952938557443050" />
     </node>
     <node concept="3clFbW" id="1T" role="jymVt">
@@ -868,7 +869,7 @@
       <node concept="3clFbS" id="1X" role="3clF47">
         <uo k="s:originTrace" v="n:4088952938557443050" />
         <node concept="XkiVB" id="1Z" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:4088952938557443050" />
           <node concept="1BaE9c" id="20" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -921,7 +922,7 @@
           <uo k="s:originTrace" v="n:4088952938557443050" />
         </node>
         <node concept="3uibUv" id="2b" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:4088952938557443050" />
         </node>
       </node>
@@ -933,7 +934,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:4088952938557443050" />
             <node concept="3uibUv" id="2h" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:4088952938557443050" />
             </node>
             <node concept="2ShNRf" id="2i" role="33vP2m">
@@ -942,8 +943,8 @@
                 <uo k="s:originTrace" v="n:4088952938557443050" />
                 <node concept="1Y3b0j" id="2k" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:4088952938557443050" />
                   <node concept="1BaE9c" id="2l" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -1530,7 +1531,7 @@
                 <uo k="s:originTrace" v="n:4088952938557443050" />
               </node>
               <node concept="3uibUv" id="4S" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:4088952938557443050" />
               </node>
             </node>
@@ -1544,7 +1545,7 @@
                   <uo k="s:originTrace" v="n:4088952938557443050" />
                 </node>
                 <node concept="3uibUv" id="4V" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:4088952938557443050" />
                 </node>
               </node>
@@ -1569,7 +1570,7 @@
                   <uo k="s:originTrace" v="n:4088952938557443050" />
                 </node>
                 <node concept="liA8E" id="52" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:4088952938557443050" />
                 </node>
               </node>
@@ -1602,7 +1603,7 @@
       <uo k="s:originTrace" v="n:1227090161254" />
     </node>
     <node concept="3uibUv" id="56" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1227090161254" />
     </node>
     <node concept="3clFbW" id="57" role="jymVt">
@@ -1613,7 +1614,7 @@
       <node concept="3clFbS" id="5c" role="3clF47">
         <uo k="s:originTrace" v="n:1227090161254" />
         <node concept="XkiVB" id="5e" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1227090161254" />
           <node concept="1BaE9c" id="5f" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -1901,7 +1902,7 @@
       <uo k="s:originTrace" v="n:7788343466325537474" />
     </node>
     <node concept="3uibUv" id="6n" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:7788343466325537474" />
     </node>
     <node concept="3clFbW" id="6o" role="jymVt">
@@ -1912,7 +1913,7 @@
       <node concept="3clFbS" id="6s" role="3clF47">
         <uo k="s:originTrace" v="n:7788343466325537474" />
         <node concept="XkiVB" id="6u" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:7788343466325537474" />
           <node concept="1BaE9c" id="6v" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -1965,7 +1966,7 @@
           <uo k="s:originTrace" v="n:7788343466325537474" />
         </node>
         <node concept="3uibUv" id="6E" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:7788343466325537474" />
         </node>
       </node>
@@ -1977,7 +1978,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:7788343466325537474" />
             <node concept="3uibUv" id="6K" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:7788343466325537474" />
             </node>
             <node concept="2ShNRf" id="6L" role="33vP2m">
@@ -1986,8 +1987,8 @@
                 <uo k="s:originTrace" v="n:7788343466325537474" />
                 <node concept="1Y3b0j" id="6N" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:7788343466325537474" />
                   <node concept="1BaE9c" id="6O" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -2101,7 +2102,7 @@
                 <uo k="s:originTrace" v="n:7788343466325537474" />
               </node>
               <node concept="3uibUv" id="7g" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:7788343466325537474" />
               </node>
             </node>
@@ -2115,7 +2116,7 @@
                   <uo k="s:originTrace" v="n:7788343466325537474" />
                 </node>
                 <node concept="3uibUv" id="7j" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:7788343466325537474" />
                 </node>
               </node>
@@ -2140,7 +2141,7 @@
                   <uo k="s:originTrace" v="n:7788343466325537474" />
                 </node>
                 <node concept="liA8E" id="7q" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:7788343466325537474" />
                 </node>
               </node>
@@ -2173,7 +2174,7 @@
       <uo k="s:originTrace" v="n:4323500428148828478" />
     </node>
     <node concept="3uibUv" id="7u" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:4323500428148828478" />
     </node>
     <node concept="3clFbW" id="7v" role="jymVt">
@@ -2184,7 +2185,7 @@
       <node concept="3clFbS" id="7z" role="3clF47">
         <uo k="s:originTrace" v="n:4323500428148828478" />
         <node concept="XkiVB" id="7_" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:4323500428148828478" />
           <node concept="1BaE9c" id="7A" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -2237,7 +2238,7 @@
           <uo k="s:originTrace" v="n:4323500428148828478" />
         </node>
         <node concept="3uibUv" id="7L" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:4323500428148828478" />
         </node>
       </node>
@@ -2249,7 +2250,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:4323500428148828478" />
             <node concept="3uibUv" id="7R" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:4323500428148828478" />
             </node>
             <node concept="2ShNRf" id="7S" role="33vP2m">
@@ -2258,8 +2259,8 @@
                 <uo k="s:originTrace" v="n:4323500428148828478" />
                 <node concept="1Y3b0j" id="7U" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:4323500428148828478" />
                   <node concept="1BaE9c" id="7V" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -2373,7 +2374,7 @@
                 <uo k="s:originTrace" v="n:4323500428148828478" />
               </node>
               <node concept="3uibUv" id="8n" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:4323500428148828478" />
               </node>
             </node>
@@ -2387,7 +2388,7 @@
                   <uo k="s:originTrace" v="n:4323500428148828478" />
                 </node>
                 <node concept="3uibUv" id="8q" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:4323500428148828478" />
                 </node>
               </node>
@@ -2412,7 +2413,7 @@
                   <uo k="s:originTrace" v="n:4323500428148828478" />
                 </node>
                 <node concept="liA8E" id="8x" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:4323500428148828478" />
                 </node>
               </node>
@@ -2445,7 +2446,7 @@
       <uo k="s:originTrace" v="n:1227090233322" />
     </node>
     <node concept="3uibUv" id="8_" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1227090233322" />
     </node>
     <node concept="3clFbW" id="8A" role="jymVt">
@@ -2456,7 +2457,7 @@
       <node concept="3clFbS" id="8F" role="3clF47">
         <uo k="s:originTrace" v="n:1227090233322" />
         <node concept="XkiVB" id="8H" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1227090233322" />
           <node concept="1BaE9c" id="8I" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -2743,7 +2744,7 @@
       <uo k="s:originTrace" v="n:1213104846218" />
     </node>
     <node concept="3uibUv" id="9Q" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1213104846218" />
     </node>
     <node concept="3clFbW" id="9R" role="jymVt">
@@ -2754,7 +2755,7 @@
       <node concept="3clFbS" id="9V" role="3clF47">
         <uo k="s:originTrace" v="n:1213104846218" />
         <node concept="XkiVB" id="9X" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1213104846218" />
           <node concept="1BaE9c" id="9Y" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -2807,7 +2808,7 @@
           <uo k="s:originTrace" v="n:1213104846218" />
         </node>
         <node concept="3uibUv" id="a9" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1213104846218" />
         </node>
       </node>
@@ -2819,7 +2820,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:1213104846218" />
             <node concept="3uibUv" id="af" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:1213104846218" />
             </node>
             <node concept="2ShNRf" id="ag" role="33vP2m">
@@ -2828,8 +2829,8 @@
                 <uo k="s:originTrace" v="n:1213104846218" />
                 <node concept="1Y3b0j" id="ai" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1213104846218" />
                   <node concept="1BaE9c" id="aj" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -3117,7 +3118,7 @@
                 <uo k="s:originTrace" v="n:1213104846218" />
               </node>
               <node concept="3uibUv" id="bv" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:1213104846218" />
               </node>
             </node>
@@ -3131,7 +3132,7 @@
                   <uo k="s:originTrace" v="n:1213104846218" />
                 </node>
                 <node concept="3uibUv" id="by" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1213104846218" />
                 </node>
               </node>
@@ -3156,7 +3157,7 @@
                   <uo k="s:originTrace" v="n:1213104846218" />
                 </node>
                 <node concept="liA8E" id="bD" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:1213104846218" />
                 </node>
               </node>
@@ -3188,7 +3189,7 @@
       <uo k="s:originTrace" v="n:1213104855916" />
     </node>
     <node concept="3uibUv" id="bH" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1213104855916" />
     </node>
     <node concept="3clFbW" id="bI" role="jymVt">
@@ -3199,7 +3200,7 @@
       <node concept="3clFbS" id="bM" role="3clF47">
         <uo k="s:originTrace" v="n:1213104855916" />
         <node concept="XkiVB" id="bO" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1213104855916" />
           <node concept="1BaE9c" id="bP" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -3252,7 +3253,7 @@
           <uo k="s:originTrace" v="n:1213104855916" />
         </node>
         <node concept="3uibUv" id="c0" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1213104855916" />
         </node>
       </node>
@@ -3264,7 +3265,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:1213104855916" />
             <node concept="3uibUv" id="c6" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:1213104855916" />
             </node>
             <node concept="2ShNRf" id="c7" role="33vP2m">
@@ -3273,8 +3274,8 @@
                 <uo k="s:originTrace" v="n:1213104855916" />
                 <node concept="1Y3b0j" id="c9" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1213104855916" />
                   <node concept="1BaE9c" id="ca" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -3562,7 +3563,7 @@
                 <uo k="s:originTrace" v="n:1213104855916" />
               </node>
               <node concept="3uibUv" id="dm" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:1213104855916" />
               </node>
             </node>
@@ -3576,7 +3577,7 @@
                   <uo k="s:originTrace" v="n:1213104855916" />
                 </node>
                 <node concept="3uibUv" id="dp" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1213104855916" />
                 </node>
               </node>
@@ -3601,7 +3602,7 @@
                   <uo k="s:originTrace" v="n:1213104855916" />
                 </node>
                 <node concept="liA8E" id="dw" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:1213104855916" />
                 </node>
               </node>
@@ -3634,7 +3635,7 @@
       <uo k="s:originTrace" v="n:1227090241439" />
     </node>
     <node concept="3uibUv" id="d$" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1227090241439" />
     </node>
     <node concept="3clFbW" id="d_" role="jymVt">
@@ -3645,7 +3646,7 @@
       <node concept="3clFbS" id="dE" role="3clF47">
         <uo k="s:originTrace" v="n:1227090241439" />
         <node concept="XkiVB" id="dG" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1227090241439" />
           <node concept="1BaE9c" id="dH" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -3932,7 +3933,7 @@
       <uo k="s:originTrace" v="n:1213104859540" />
     </node>
     <node concept="3uibUv" id="eP" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1213104859540" />
     </node>
     <node concept="3clFbW" id="eQ" role="jymVt">
@@ -3943,7 +3944,7 @@
       <node concept="3clFbS" id="eT" role="3clF47">
         <uo k="s:originTrace" v="n:1213104859540" />
         <node concept="XkiVB" id="eV" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1213104859540" />
           <node concept="1BaE9c" id="eW" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -3988,7 +3989,7 @@
       <uo k="s:originTrace" v="n:1213104840151" />
     </node>
     <node concept="3uibUv" id="f4" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1213104840151" />
     </node>
     <node concept="3clFbW" id="f5" role="jymVt">
@@ -3999,7 +4000,7 @@
       <node concept="3clFbS" id="fb" role="3clF47">
         <uo k="s:originTrace" v="n:1213104840151" />
         <node concept="XkiVB" id="fd" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1213104840151" />
           <node concept="1BaE9c" id="fe" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -4282,7 +4283,7 @@
           <uo k="s:originTrace" v="n:1213104840151" />
         </node>
         <node concept="3uibUv" id="gm" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1213104840151" />
         </node>
       </node>
@@ -4294,7 +4295,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:1213104840151" />
             <node concept="3uibUv" id="gs" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:1213104840151" />
             </node>
             <node concept="2ShNRf" id="gt" role="33vP2m">
@@ -4303,8 +4304,8 @@
                 <uo k="s:originTrace" v="n:1213104840151" />
                 <node concept="1Y3b0j" id="gv" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1213104840151" />
                   <node concept="1BaE9c" id="gw" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -4418,7 +4419,7 @@
                 <uo k="s:originTrace" v="n:1213104840151" />
               </node>
               <node concept="3uibUv" id="gW" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:1213104840151" />
               </node>
             </node>
@@ -4432,7 +4433,7 @@
                   <uo k="s:originTrace" v="n:1213104840151" />
                 </node>
                 <node concept="3uibUv" id="gZ" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1213104840151" />
                 </node>
               </node>
@@ -4457,7 +4458,7 @@
                   <uo k="s:originTrace" v="n:1213104840151" />
                 </node>
                 <node concept="liA8E" id="h6" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:1213104840151" />
                 </node>
               </node>
@@ -4760,7 +4761,7 @@
       <uo k="s:originTrace" v="n:5374238436954737026" />
     </node>
     <node concept="3uibUv" id="il" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:5374238436954737026" />
     </node>
     <node concept="3clFbW" id="im" role="jymVt">
@@ -4771,7 +4772,7 @@
       <node concept="3clFbS" id="ir" role="3clF47">
         <uo k="s:originTrace" v="n:5374238436954737026" />
         <node concept="XkiVB" id="it" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:5374238436954737026" />
           <node concept="1BaE9c" id="iu" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -5121,7 +5122,7 @@
       <uo k="s:originTrace" v="n:1213104846625" />
     </node>
     <node concept="3uibUv" id="jR" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1213104846625" />
     </node>
     <node concept="3clFbW" id="jS" role="jymVt">
@@ -5132,7 +5133,7 @@
       <node concept="3clFbS" id="jW" role="3clF47">
         <uo k="s:originTrace" v="n:1213104846625" />
         <node concept="XkiVB" id="jY" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1213104846625" />
           <node concept="1BaE9c" id="jZ" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -5185,7 +5186,7 @@
           <uo k="s:originTrace" v="n:1213104846625" />
         </node>
         <node concept="3uibUv" id="ka" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1213104846625" />
         </node>
       </node>
@@ -5197,7 +5198,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:1213104846625" />
             <node concept="3uibUv" id="kg" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:1213104846625" />
             </node>
             <node concept="2ShNRf" id="kh" role="33vP2m">
@@ -5206,8 +5207,8 @@
                 <uo k="s:originTrace" v="n:1213104846625" />
                 <node concept="1Y3b0j" id="kj" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1213104846625" />
                   <node concept="1BaE9c" id="kk" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -5453,7 +5454,7 @@
                 <uo k="s:originTrace" v="n:1213104846625" />
               </node>
               <node concept="3uibUv" id="ll" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:1213104846625" />
               </node>
             </node>
@@ -5467,7 +5468,7 @@
                   <uo k="s:originTrace" v="n:1213104846625" />
                 </node>
                 <node concept="3uibUv" id="lo" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1213104846625" />
                 </node>
               </node>
@@ -5492,7 +5493,7 @@
                   <uo k="s:originTrace" v="n:1213104846625" />
                 </node>
                 <node concept="liA8E" id="lv" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:1213104846625" />
                 </node>
               </node>
@@ -5524,7 +5525,7 @@
       <uo k="s:originTrace" v="n:1213104846421" />
     </node>
     <node concept="3uibUv" id="lz" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1213104846421" />
     </node>
     <node concept="3clFbW" id="l$" role="jymVt">
@@ -5535,7 +5536,7 @@
       <node concept="3clFbS" id="lC" role="3clF47">
         <uo k="s:originTrace" v="n:1213104846421" />
         <node concept="XkiVB" id="lE" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1213104846421" />
           <node concept="1BaE9c" id="lF" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -5588,7 +5589,7 @@
           <uo k="s:originTrace" v="n:1213104846421" />
         </node>
         <node concept="3uibUv" id="lQ" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1213104846421" />
         </node>
       </node>
@@ -5600,7 +5601,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:1213104846421" />
             <node concept="3uibUv" id="lW" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:1213104846421" />
             </node>
             <node concept="2ShNRf" id="lX" role="33vP2m">
@@ -5609,8 +5610,8 @@
                 <uo k="s:originTrace" v="n:1213104846421" />
                 <node concept="1Y3b0j" id="lZ" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1213104846421" />
                   <node concept="1BaE9c" id="m0" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -5952,7 +5953,7 @@
                 <uo k="s:originTrace" v="n:1213104846421" />
               </node>
               <node concept="3uibUv" id="ns" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:1213104846421" />
               </node>
             </node>
@@ -5966,7 +5967,7 @@
                   <uo k="s:originTrace" v="n:1213104846421" />
                 </node>
                 <node concept="3uibUv" id="nv" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1213104846421" />
                 </node>
               </node>
@@ -5991,7 +5992,7 @@
                   <uo k="s:originTrace" v="n:1213104846421" />
                 </node>
                 <node concept="liA8E" id="nA" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:1213104846421" />
                 </node>
               </node>
@@ -6023,7 +6024,7 @@
       <uo k="s:originTrace" v="n:1213104860417" />
     </node>
     <node concept="3uibUv" id="nE" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1213104860417" />
     </node>
     <node concept="3clFbW" id="nF" role="jymVt">
@@ -6034,7 +6035,7 @@
       <node concept="3clFbS" id="nJ" role="3clF47">
         <uo k="s:originTrace" v="n:1213104860417" />
         <node concept="XkiVB" id="nL" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1213104860417" />
           <node concept="1BaE9c" id="nM" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -6087,7 +6088,7 @@
           <uo k="s:originTrace" v="n:1213104860417" />
         </node>
         <node concept="3uibUv" id="nX" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1213104860417" />
         </node>
       </node>
@@ -6099,7 +6100,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:1213104860417" />
             <node concept="3uibUv" id="o3" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:1213104860417" />
             </node>
             <node concept="2ShNRf" id="o4" role="33vP2m">
@@ -6108,8 +6109,8 @@
                 <uo k="s:originTrace" v="n:1213104860417" />
                 <node concept="1Y3b0j" id="o6" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1213104860417" />
                   <node concept="1BaE9c" id="o7" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -6412,7 +6413,7 @@
                 <uo k="s:originTrace" v="n:1213104860417" />
               </node>
               <node concept="3uibUv" id="pp" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:1213104860417" />
               </node>
             </node>
@@ -6426,7 +6427,7 @@
                   <uo k="s:originTrace" v="n:1213104860417" />
                 </node>
                 <node concept="3uibUv" id="ps" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1213104860417" />
                 </node>
               </node>
@@ -6451,7 +6452,7 @@
                   <uo k="s:originTrace" v="n:1213104860417" />
                 </node>
                 <node concept="liA8E" id="pz" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:1213104860417" />
                 </node>
               </node>
@@ -6483,7 +6484,7 @@
       <uo k="s:originTrace" v="n:1213104860579" />
     </node>
     <node concept="3uibUv" id="pB" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1213104860579" />
     </node>
     <node concept="3clFbW" id="pC" role="jymVt">
@@ -6494,7 +6495,7 @@
       <node concept="3clFbS" id="pG" role="3clF47">
         <uo k="s:originTrace" v="n:1213104860579" />
         <node concept="XkiVB" id="pI" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1213104860579" />
           <node concept="1BaE9c" id="pJ" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -6547,7 +6548,7 @@
           <uo k="s:originTrace" v="n:1213104860579" />
         </node>
         <node concept="3uibUv" id="pU" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1213104860579" />
         </node>
       </node>
@@ -6559,7 +6560,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:1213104860579" />
             <node concept="3uibUv" id="q0" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:1213104860579" />
             </node>
             <node concept="2ShNRf" id="q1" role="33vP2m">
@@ -6568,8 +6569,8 @@
                 <uo k="s:originTrace" v="n:1213104860579" />
                 <node concept="1Y3b0j" id="q3" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1213104860579" />
                   <node concept="1BaE9c" id="q4" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -6911,7 +6912,7 @@
                 <uo k="s:originTrace" v="n:1213104860579" />
               </node>
               <node concept="3uibUv" id="rw" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:1213104860579" />
               </node>
             </node>
@@ -6925,7 +6926,7 @@
                   <uo k="s:originTrace" v="n:1213104860579" />
                 </node>
                 <node concept="3uibUv" id="rz" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1213104860579" />
                 </node>
               </node>
@@ -6950,7 +6951,7 @@
                   <uo k="s:originTrace" v="n:1213104860579" />
                 </node>
                 <node concept="liA8E" id="rE" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:1213104860579" />
                 </node>
               </node>
@@ -6983,7 +6984,7 @@
       <uo k="s:originTrace" v="n:625126330682991629" />
     </node>
     <node concept="3uibUv" id="rI" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:625126330682991629" />
     </node>
     <node concept="3clFbW" id="rJ" role="jymVt">
@@ -6994,7 +6995,7 @@
       <node concept="3clFbS" id="rO" role="3clF47">
         <uo k="s:originTrace" v="n:625126330682991629" />
         <node concept="XkiVB" id="rQ" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:625126330682991629" />
           <node concept="1BaE9c" id="rR" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -7439,7 +7440,7 @@
       <uo k="s:originTrace" v="n:1216381238253" />
     </node>
     <node concept="3uibUv" id="tF" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1216381238253" />
     </node>
     <node concept="3clFbW" id="tG" role="jymVt">
@@ -7450,7 +7451,7 @@
       <node concept="3clFbS" id="tK" role="3clF47">
         <uo k="s:originTrace" v="n:1216381238253" />
         <node concept="XkiVB" id="tM" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1216381238253" />
           <node concept="1BaE9c" id="tN" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -7503,7 +7504,7 @@
           <uo k="s:originTrace" v="n:1216381238253" />
         </node>
         <node concept="3uibUv" id="tY" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1216381238253" />
         </node>
       </node>
@@ -7515,7 +7516,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:1216381238253" />
             <node concept="3uibUv" id="u4" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:1216381238253" />
             </node>
             <node concept="2ShNRf" id="u5" role="33vP2m">
@@ -7524,8 +7525,8 @@
                 <uo k="s:originTrace" v="n:1216381238253" />
                 <node concept="1Y3b0j" id="u7" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1216381238253" />
                   <node concept="1BaE9c" id="u8" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -7771,7 +7772,7 @@
                 <uo k="s:originTrace" v="n:1216381238253" />
               </node>
               <node concept="3uibUv" id="v9" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:1216381238253" />
               </node>
             </node>
@@ -7785,7 +7786,7 @@
                   <uo k="s:originTrace" v="n:1216381238253" />
                 </node>
                 <node concept="3uibUv" id="vc" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1216381238253" />
                 </node>
               </node>
@@ -7810,7 +7811,7 @@
                   <uo k="s:originTrace" v="n:1216381238253" />
                 </node>
                 <node concept="liA8E" id="vj" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:1216381238253" />
                 </node>
               </node>
@@ -7842,7 +7843,7 @@
       <uo k="s:originTrace" v="n:1213104856673" />
     </node>
     <node concept="3uibUv" id="vn" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1213104856673" />
     </node>
     <node concept="3clFbW" id="vo" role="jymVt">
@@ -7853,7 +7854,7 @@
       <node concept="3clFbS" id="vs" role="3clF47">
         <uo k="s:originTrace" v="n:1213104856673" />
         <node concept="XkiVB" id="vu" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1213104856673" />
           <node concept="1BaE9c" id="vv" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -7906,7 +7907,7 @@
           <uo k="s:originTrace" v="n:1213104856673" />
         </node>
         <node concept="3uibUv" id="vE" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1213104856673" />
         </node>
       </node>
@@ -7918,7 +7919,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:1213104856673" />
             <node concept="3uibUv" id="vK" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:1213104856673" />
             </node>
             <node concept="2ShNRf" id="vL" role="33vP2m">
@@ -7927,8 +7928,8 @@
                 <uo k="s:originTrace" v="n:1213104856673" />
                 <node concept="1Y3b0j" id="vN" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1213104856673" />
                   <node concept="1BaE9c" id="vO" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -8211,7 +8212,7 @@
                 <uo k="s:originTrace" v="n:1213104856673" />
               </node>
               <node concept="3uibUv" id="wZ" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:1213104856673" />
               </node>
             </node>
@@ -8225,7 +8226,7 @@
                   <uo k="s:originTrace" v="n:1213104856673" />
                 </node>
                 <node concept="3uibUv" id="x2" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1213104856673" />
                 </node>
               </node>
@@ -8250,7 +8251,7 @@
                   <uo k="s:originTrace" v="n:1213104856673" />
                 </node>
                 <node concept="liA8E" id="x9" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:1213104856673" />
                 </node>
               </node>
@@ -8283,7 +8284,7 @@
       <uo k="s:originTrace" v="n:7825776669681653847" />
     </node>
     <node concept="3uibUv" id="xd" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:7825776669681653847" />
     </node>
     <node concept="3clFbW" id="xe" role="jymVt">
@@ -8294,7 +8295,7 @@
       <node concept="3clFbS" id="xi" role="3clF47">
         <uo k="s:originTrace" v="n:7825776669681653847" />
         <node concept="XkiVB" id="xk" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:7825776669681653847" />
           <node concept="1BaE9c" id="xl" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -8347,7 +8348,7 @@
           <uo k="s:originTrace" v="n:7825776669681653847" />
         </node>
         <node concept="3uibUv" id="xw" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:7825776669681653847" />
         </node>
       </node>
@@ -8359,7 +8360,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:7825776669681653847" />
             <node concept="3uibUv" id="xA" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:7825776669681653847" />
             </node>
             <node concept="2ShNRf" id="xB" role="33vP2m">
@@ -8368,8 +8369,8 @@
                 <uo k="s:originTrace" v="n:7825776669681653847" />
                 <node concept="1Y3b0j" id="xD" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:7825776669681653847" />
                   <node concept="1BaE9c" id="xE" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -8647,7 +8648,7 @@
                 <uo k="s:originTrace" v="n:7825776669681653847" />
               </node>
               <node concept="3uibUv" id="yP" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:7825776669681653847" />
               </node>
             </node>
@@ -8661,7 +8662,7 @@
                   <uo k="s:originTrace" v="n:7825776669681653847" />
                 </node>
                 <node concept="3uibUv" id="yS" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:7825776669681653847" />
                 </node>
               </node>
@@ -8686,7 +8687,7 @@
                   <uo k="s:originTrace" v="n:7825776669681653847" />
                 </node>
                 <node concept="liA8E" id="yZ" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:7825776669681653847" />
                 </node>
               </node>
@@ -8719,7 +8720,7 @@
       <uo k="s:originTrace" v="n:772883491822712739" />
     </node>
     <node concept="3uibUv" id="z3" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:772883491822712739" />
     </node>
     <node concept="3clFbW" id="z4" role="jymVt">
@@ -8730,7 +8731,7 @@
       <node concept="3clFbS" id="z8" role="3clF47">
         <uo k="s:originTrace" v="n:772883491822712739" />
         <node concept="XkiVB" id="za" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:772883491822712739" />
           <node concept="1BaE9c" id="zb" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -8783,7 +8784,7 @@
           <uo k="s:originTrace" v="n:772883491822712739" />
         </node>
         <node concept="3uibUv" id="zm" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:772883491822712739" />
         </node>
       </node>
@@ -8795,7 +8796,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:772883491822712739" />
             <node concept="3uibUv" id="zs" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:772883491822712739" />
             </node>
             <node concept="2ShNRf" id="zt" role="33vP2m">
@@ -8804,8 +8805,8 @@
                 <uo k="s:originTrace" v="n:772883491822712739" />
                 <node concept="1Y3b0j" id="zv" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:772883491822712739" />
                   <node concept="1BaE9c" id="zw" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -9036,7 +9037,7 @@
                 <uo k="s:originTrace" v="n:772883491822712739" />
               </node>
               <node concept="3uibUv" id="$t" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:772883491822712739" />
               </node>
             </node>
@@ -9050,7 +9051,7 @@
                   <uo k="s:originTrace" v="n:772883491822712739" />
                 </node>
                 <node concept="3uibUv" id="$w" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:772883491822712739" />
                 </node>
               </node>
@@ -9075,7 +9076,7 @@
                   <uo k="s:originTrace" v="n:772883491822712739" />
                 </node>
                 <node concept="liA8E" id="$B" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:772883491822712739" />
                 </node>
               </node>
@@ -9108,7 +9109,7 @@
       <uo k="s:originTrace" v="n:772883491822835237" />
     </node>
     <node concept="3uibUv" id="$F" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:772883491822835237" />
     </node>
     <node concept="3clFbW" id="$G" role="jymVt">
@@ -9119,7 +9120,7 @@
       <node concept="3clFbS" id="$K" role="3clF47">
         <uo k="s:originTrace" v="n:772883491822835237" />
         <node concept="XkiVB" id="$M" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:772883491822835237" />
           <node concept="1BaE9c" id="$N" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -9172,7 +9173,7 @@
           <uo k="s:originTrace" v="n:772883491822835237" />
         </node>
         <node concept="3uibUv" id="$Y" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:772883491822835237" />
         </node>
       </node>
@@ -9184,7 +9185,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:772883491822835237" />
             <node concept="3uibUv" id="_4" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:772883491822835237" />
             </node>
             <node concept="2ShNRf" id="_5" role="33vP2m">
@@ -9193,8 +9194,8 @@
                 <uo k="s:originTrace" v="n:772883491822835237" />
                 <node concept="1Y3b0j" id="_7" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:772883491822835237" />
                   <node concept="1BaE9c" id="_8" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -9425,7 +9426,7 @@
                 <uo k="s:originTrace" v="n:772883491822835237" />
               </node>
               <node concept="3uibUv" id="A5" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:772883491822835237" />
               </node>
             </node>
@@ -9439,7 +9440,7 @@
                   <uo k="s:originTrace" v="n:772883491822835237" />
                 </node>
                 <node concept="3uibUv" id="A8" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:772883491822835237" />
                 </node>
               </node>
@@ -9464,7 +9465,7 @@
                   <uo k="s:originTrace" v="n:772883491822835237" />
                 </node>
                 <node concept="liA8E" id="Af" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:772883491822835237" />
                 </node>
               </node>
@@ -9496,7 +9497,7 @@
       <uo k="s:originTrace" v="n:1213104846580" />
     </node>
     <node concept="3uibUv" id="Aj" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1213104846580" />
     </node>
     <node concept="3clFbW" id="Ak" role="jymVt">
@@ -9507,7 +9508,7 @@
       <node concept="3clFbS" id="Ar" role="3clF47">
         <uo k="s:originTrace" v="n:1213104846580" />
         <node concept="XkiVB" id="At" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1213104846580" />
           <node concept="1BaE9c" id="Au" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -9755,7 +9756,7 @@
         <node concept="3clFbS" id="Bu" role="3clF47">
           <uo k="s:originTrace" v="n:1213104846580" />
           <node concept="XkiVB" id="Bw" role="3cqZAp">
-            <ref role="37wK5l" to="79pl:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean,boolean)" resolve="BasePropertyConstraintsDescriptor" />
+            <ref role="37wK5l" to="79pm:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean,boolean)" resolve="BasePropertyConstraintsDescriptor" />
             <uo k="s:originTrace" v="n:1213104846580" />
             <node concept="1BaE9c" id="Bx" role="37wK5m">
               <property role="1ouuDV" value="PROPS" />
@@ -9941,7 +9942,7 @@
         <uo k="s:originTrace" v="n:1213104846580" />
       </node>
       <node concept="3uibUv" id="Br" role="1zkMxy">
-        <ref role="3uigEE" to="79pl:~BasePropertyConstraintsDescriptor" resolve="BasePropertyConstraintsDescriptor" />
+        <ref role="3uigEE" to="79pm:~BasePropertyConstraintsDescriptor" resolve="BasePropertyConstraintsDescriptor" />
         <uo k="s:originTrace" v="n:1213104846580" />
       </node>
     </node>
@@ -9961,7 +9962,7 @@
           <uo k="s:originTrace" v="n:1213104846580" />
         </node>
         <node concept="3uibUv" id="Ck" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1213104846580" />
         </node>
       </node>
@@ -9980,7 +9981,7 @@
                 <uo k="s:originTrace" v="n:1213104846580" />
               </node>
               <node concept="3uibUv" id="Cs" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:1213104846580" />
               </node>
             </node>
@@ -9994,7 +9995,7 @@
                   <uo k="s:originTrace" v="n:1213104846580" />
                 </node>
                 <node concept="3uibUv" id="Cv" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1213104846580" />
                 </node>
               </node>
@@ -10122,7 +10123,7 @@
       <uo k="s:originTrace" v="n:5944657839017577715" />
     </node>
     <node concept="3uibUv" id="CW" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:5944657839017577715" />
     </node>
     <node concept="3clFbW" id="CX" role="jymVt">
@@ -10133,7 +10134,7 @@
       <node concept="3clFbS" id="D4" role="3clF47">
         <uo k="s:originTrace" v="n:5944657839017577715" />
         <node concept="XkiVB" id="D6" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:5944657839017577715" />
           <node concept="1BaE9c" id="D7" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -10414,7 +10415,7 @@
         <node concept="3clFbS" id="Eh" role="3clF47">
           <uo k="s:originTrace" v="n:5944657839017577715" />
           <node concept="XkiVB" id="Ej" role="3cqZAp">
-            <ref role="37wK5l" to="79pl:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean,boolean)" resolve="BasePropertyConstraintsDescriptor" />
+            <ref role="37wK5l" to="79pm:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean,boolean)" resolve="BasePropertyConstraintsDescriptor" />
             <uo k="s:originTrace" v="n:5944657839017577715" />
             <node concept="1BaE9c" id="Ek" role="37wK5m">
               <property role="1ouuDV" value="PROPS" />
@@ -10652,7 +10653,7 @@
         <uo k="s:originTrace" v="n:5944657839017577715" />
       </node>
       <node concept="3uibUv" id="Ee" role="1zkMxy">
-        <ref role="3uigEE" to="79pl:~BasePropertyConstraintsDescriptor" resolve="BasePropertyConstraintsDescriptor" />
+        <ref role="3uigEE" to="79pm:~BasePropertyConstraintsDescriptor" resolve="BasePropertyConstraintsDescriptor" />
         <uo k="s:originTrace" v="n:5944657839017577715" />
       </node>
     </node>
@@ -10672,7 +10673,7 @@
           <uo k="s:originTrace" v="n:5944657839017577715" />
         </node>
         <node concept="3uibUv" id="Fk" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:5944657839017577715" />
         </node>
       </node>
@@ -10691,7 +10692,7 @@
                 <uo k="s:originTrace" v="n:5944657839017577715" />
               </node>
               <node concept="3uibUv" id="Fs" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:5944657839017577715" />
               </node>
             </node>
@@ -10705,7 +10706,7 @@
                   <uo k="s:originTrace" v="n:5944657839017577715" />
                 </node>
                 <node concept="3uibUv" id="Fv" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:5944657839017577715" />
                 </node>
               </node>
@@ -11720,7 +11721,7 @@
         <node concept="3cpWs6" id="Ge" role="3cqZAp">
           <node concept="2ShNRf" id="Lx" role="3cqZAk">
             <node concept="1pGfFk" id="Ly" role="2ShVmc">
-              <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+              <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
               <node concept="37vLTw" id="Lz" role="37wK5m">
                 <ref role="3cqZAo" node="Ga" resolve="concept" />
               </node>
@@ -11738,7 +11739,7 @@
       <uo k="s:originTrace" v="n:5391719598193867631" />
     </node>
     <node concept="3uibUv" id="LA" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:5391719598193867631" />
     </node>
     <node concept="3clFbW" id="LB" role="jymVt">
@@ -11749,7 +11750,7 @@
       <node concept="3clFbS" id="LG" role="3clF47">
         <uo k="s:originTrace" v="n:5391719598193867631" />
         <node concept="XkiVB" id="LI" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:5391719598193867631" />
           <node concept="1BaE9c" id="LJ" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -12185,7 +12186,7 @@
       <uo k="s:originTrace" v="n:332515575062623034" />
     </node>
     <node concept="3uibUv" id="Nx" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:332515575062623034" />
     </node>
     <node concept="3clFbW" id="Ny" role="jymVt">
@@ -12196,7 +12197,7 @@
       <node concept="3clFbS" id="NB" role="3clF47">
         <uo k="s:originTrace" v="n:332515575062623034" />
         <node concept="XkiVB" id="ND" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:332515575062623034" />
           <node concept="1BaE9c" id="NE" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -12711,7 +12712,7 @@
       <uo k="s:originTrace" v="n:1227090207453" />
     </node>
     <node concept="3uibUv" id="PL" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1227090207453" />
     </node>
     <node concept="3clFbW" id="PM" role="jymVt">
@@ -12722,7 +12723,7 @@
       <node concept="3clFbS" id="PR" role="3clF47">
         <uo k="s:originTrace" v="n:1227090207453" />
         <node concept="XkiVB" id="PT" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1227090207453" />
           <node concept="1BaE9c" id="PU" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -13696,7 +13697,7 @@
       <uo k="s:originTrace" v="n:1630016958697057557" />
     </node>
     <node concept="3uibUv" id="UB" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1630016958697057557" />
     </node>
     <node concept="3clFbW" id="UC" role="jymVt">
@@ -13707,7 +13708,7 @@
       <node concept="3clFbS" id="UH" role="3clF47">
         <uo k="s:originTrace" v="n:1630016958697057557" />
         <node concept="XkiVB" id="UJ" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1630016958697057557" />
           <node concept="1BaE9c" id="UK" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -14216,7 +14217,7 @@
       <uo k="s:originTrace" v="n:1630016958698374830" />
     </node>
     <node concept="3uibUv" id="WN" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1630016958698374830" />
     </node>
     <node concept="3clFbW" id="WO" role="jymVt">
@@ -14227,7 +14228,7 @@
       <node concept="3clFbS" id="WS" role="3clF47">
         <uo k="s:originTrace" v="n:1630016958698374830" />
         <node concept="XkiVB" id="WU" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1630016958698374830" />
           <node concept="1BaE9c" id="WV" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -14280,7 +14281,7 @@
           <uo k="s:originTrace" v="n:1630016958698374830" />
         </node>
         <node concept="3uibUv" id="X6" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1630016958698374830" />
         </node>
       </node>
@@ -14292,7 +14293,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:1630016958698374830" />
             <node concept="3uibUv" id="Xc" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:1630016958698374830" />
             </node>
             <node concept="2ShNRf" id="Xd" role="33vP2m">
@@ -14301,8 +14302,8 @@
                 <uo k="s:originTrace" v="n:1630016958698374830" />
                 <node concept="1Y3b0j" id="Xf" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1630016958698374830" />
                   <node concept="1BaE9c" id="Xg" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -14416,7 +14417,7 @@
                 <uo k="s:originTrace" v="n:1630016958698374830" />
               </node>
               <node concept="3uibUv" id="XG" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:1630016958698374830" />
               </node>
             </node>
@@ -14430,7 +14431,7 @@
                   <uo k="s:originTrace" v="n:1630016958698374830" />
                 </node>
                 <node concept="3uibUv" id="XJ" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1630016958698374830" />
                 </node>
               </node>
@@ -14455,7 +14456,7 @@
                   <uo k="s:originTrace" v="n:1630016958698374830" />
                 </node>
                 <node concept="liA8E" id="XQ" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:1630016958698374830" />
                 </node>
               </node>
@@ -14488,7 +14489,7 @@
       <uo k="s:originTrace" v="n:5188168501463728165" />
     </node>
     <node concept="3uibUv" id="XU" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:5188168501463728165" />
     </node>
     <node concept="3clFbW" id="XV" role="jymVt">
@@ -14499,7 +14500,7 @@
       <node concept="3clFbS" id="Y1" role="3clF47">
         <uo k="s:originTrace" v="n:5188168501463728165" />
         <node concept="XkiVB" id="Y3" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:5188168501463728165" />
           <node concept="1BaE9c" id="Y4" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -14550,7 +14551,7 @@
         <node concept="3clFbS" id="Yg" role="3clF47">
           <uo k="s:originTrace" v="n:5188168501463728165" />
           <node concept="XkiVB" id="Yi" role="3cqZAp">
-            <ref role="37wK5l" to="79pl:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean,boolean)" resolve="BasePropertyConstraintsDescriptor" />
+            <ref role="37wK5l" to="79pm:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean,boolean)" resolve="BasePropertyConstraintsDescriptor" />
             <uo k="s:originTrace" v="n:5188168501463728165" />
             <node concept="1BaE9c" id="Yj" role="37wK5m">
               <property role="1ouuDV" value="PROPS" />
@@ -14772,7 +14773,7 @@
         <uo k="s:originTrace" v="n:5188168501463728165" />
       </node>
       <node concept="3uibUv" id="Yd" role="1zkMxy">
-        <ref role="3uigEE" to="79pl:~BasePropertyConstraintsDescriptor" resolve="BasePropertyConstraintsDescriptor" />
+        <ref role="3uigEE" to="79pm:~BasePropertyConstraintsDescriptor" resolve="BasePropertyConstraintsDescriptor" />
         <uo k="s:originTrace" v="n:5188168501463728165" />
       </node>
     </node>
@@ -14792,7 +14793,7 @@
           <uo k="s:originTrace" v="n:5188168501463728165" />
         </node>
         <node concept="3uibUv" id="Zh" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:5188168501463728165" />
         </node>
       </node>
@@ -14811,7 +14812,7 @@
                 <uo k="s:originTrace" v="n:5188168501463728165" />
               </node>
               <node concept="3uibUv" id="Zp" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:5188168501463728165" />
               </node>
             </node>
@@ -14825,7 +14826,7 @@
                   <uo k="s:originTrace" v="n:5188168501463728165" />
                 </node>
                 <node concept="3uibUv" id="Zs" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:5188168501463728165" />
                 </node>
               </node>
@@ -14915,7 +14916,7 @@
           <uo k="s:originTrace" v="n:5188168501463728165" />
         </node>
         <node concept="3uibUv" id="ZK" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:5188168501463728165" />
         </node>
       </node>
@@ -14927,7 +14928,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:5188168501463728165" />
             <node concept="3uibUv" id="ZQ" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:5188168501463728165" />
             </node>
             <node concept="2ShNRf" id="ZR" role="33vP2m">
@@ -14936,8 +14937,8 @@
                 <uo k="s:originTrace" v="n:5188168501463728165" />
                 <node concept="1Y3b0j" id="ZT" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:5188168501463728165" />
                   <node concept="1BaE9c" id="ZU" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -15218,7 +15219,7 @@
                 <uo k="s:originTrace" v="n:5188168501463728165" />
               </node>
               <node concept="3uibUv" id="116" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:5188168501463728165" />
               </node>
             </node>
@@ -15232,7 +15233,7 @@
                   <uo k="s:originTrace" v="n:5188168501463728165" />
                 </node>
                 <node concept="3uibUv" id="119" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:5188168501463728165" />
                 </node>
               </node>
@@ -15257,7 +15258,7 @@
                   <uo k="s:originTrace" v="n:5188168501463728165" />
                 </node>
                 <node concept="liA8E" id="11g" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:5188168501463728165" />
                 </node>
               </node>
@@ -15290,7 +15291,7 @@
       <uo k="s:originTrace" v="n:1630016958697344100" />
     </node>
     <node concept="3uibUv" id="11k" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1630016958697344100" />
     </node>
     <node concept="3clFbW" id="11l" role="jymVt">
@@ -15301,7 +15302,7 @@
       <node concept="3clFbS" id="11p" role="3clF47">
         <uo k="s:originTrace" v="n:1630016958697344100" />
         <node concept="XkiVB" id="11r" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1630016958697344100" />
           <node concept="1BaE9c" id="11s" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -15354,7 +15355,7 @@
           <uo k="s:originTrace" v="n:1630016958697344100" />
         </node>
         <node concept="3uibUv" id="11B" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1630016958697344100" />
         </node>
       </node>
@@ -15366,7 +15367,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:1630016958697344100" />
             <node concept="3uibUv" id="11H" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:1630016958697344100" />
             </node>
             <node concept="2ShNRf" id="11I" role="33vP2m">
@@ -15375,8 +15376,8 @@
                 <uo k="s:originTrace" v="n:1630016958697344100" />
                 <node concept="1Y3b0j" id="11K" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1630016958697344100" />
                   <node concept="1BaE9c" id="11L" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -15663,7 +15664,7 @@
                 <uo k="s:originTrace" v="n:1630016958697344100" />
               </node>
               <node concept="3uibUv" id="12Z" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:1630016958697344100" />
               </node>
             </node>
@@ -15677,7 +15678,7 @@
                   <uo k="s:originTrace" v="n:1630016958697344100" />
                 </node>
                 <node concept="3uibUv" id="132" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1630016958697344100" />
                 </node>
               </node>
@@ -15702,7 +15703,7 @@
                   <uo k="s:originTrace" v="n:1630016958697344100" />
                 </node>
                 <node concept="liA8E" id="139" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:1630016958697344100" />
                 </node>
               </node>
@@ -15735,7 +15736,7 @@
       <uo k="s:originTrace" v="n:1630016958697347701" />
     </node>
     <node concept="3uibUv" id="13d" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1630016958697347701" />
     </node>
     <node concept="3clFbW" id="13e" role="jymVt">
@@ -15746,7 +15747,7 @@
       <node concept="3clFbS" id="13i" role="3clF47">
         <uo k="s:originTrace" v="n:1630016958697347701" />
         <node concept="XkiVB" id="13k" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1630016958697347701" />
           <node concept="1BaE9c" id="13l" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -15799,7 +15800,7 @@
           <uo k="s:originTrace" v="n:1630016958697347701" />
         </node>
         <node concept="3uibUv" id="13w" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1630016958697347701" />
         </node>
       </node>
@@ -15811,7 +15812,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:1630016958697347701" />
             <node concept="3uibUv" id="13A" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:1630016958697347701" />
             </node>
             <node concept="2ShNRf" id="13B" role="33vP2m">
@@ -15820,8 +15821,8 @@
                 <uo k="s:originTrace" v="n:1630016958697347701" />
                 <node concept="1Y3b0j" id="13D" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1630016958697347701" />
                   <node concept="1BaE9c" id="13E" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -16102,7 +16103,7 @@
                 <uo k="s:originTrace" v="n:1630016958697347701" />
               </node>
               <node concept="3uibUv" id="14Q" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:1630016958697347701" />
               </node>
             </node>
@@ -16116,7 +16117,7 @@
                   <uo k="s:originTrace" v="n:1630016958697347701" />
                 </node>
                 <node concept="3uibUv" id="14T" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1630016958697347701" />
                 </node>
               </node>
@@ -16141,7 +16142,7 @@
                   <uo k="s:originTrace" v="n:1630016958697347701" />
                 </node>
                 <node concept="liA8E" id="150" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:1630016958697347701" />
                 </node>
               </node>
@@ -16174,7 +16175,7 @@
       <uo k="s:originTrace" v="n:1873972548978313577" />
     </node>
     <node concept="3uibUv" id="154" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1873972548978313577" />
     </node>
     <node concept="3clFbW" id="155" role="jymVt">
@@ -16185,7 +16186,7 @@
       <node concept="3clFbS" id="159" role="3clF47">
         <uo k="s:originTrace" v="n:1873972548978313577" />
         <node concept="XkiVB" id="15b" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1873972548978313577" />
           <node concept="1BaE9c" id="15c" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -16705,7 +16706,7 @@
       <uo k="s:originTrace" v="n:332515575062472883" />
     </node>
     <node concept="3uibUv" id="17p" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:332515575062472883" />
     </node>
     <node concept="3clFbW" id="17q" role="jymVt">
@@ -16716,7 +16717,7 @@
       <node concept="3clFbS" id="17v" role="3clF47">
         <uo k="s:originTrace" v="n:332515575062472883" />
         <node concept="XkiVB" id="17x" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:332515575062472883" />
           <node concept="1BaE9c" id="17y" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -17873,7 +17874,7 @@
       <uo k="s:originTrace" v="n:1227861662670" />
     </node>
     <node concept="3uibUv" id="1cr" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1227861662670" />
     </node>
     <node concept="3clFbW" id="1cs" role="jymVt">
@@ -17884,7 +17885,7 @@
       <node concept="3clFbS" id="1cw" role="3clF47">
         <uo k="s:originTrace" v="n:1227861662670" />
         <node concept="XkiVB" id="1cy" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1227861662670" />
           <node concept="1BaE9c" id="1cz" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -17937,7 +17938,7 @@
           <uo k="s:originTrace" v="n:1227861662670" />
         </node>
         <node concept="3uibUv" id="1cI" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1227861662670" />
         </node>
       </node>
@@ -17949,7 +17950,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:1227861662670" />
             <node concept="3uibUv" id="1cO" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:1227861662670" />
             </node>
             <node concept="2ShNRf" id="1cP" role="33vP2m">
@@ -17958,8 +17959,8 @@
                 <uo k="s:originTrace" v="n:1227861662670" />
                 <node concept="1Y3b0j" id="1cR" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1227861662670" />
                   <node concept="1BaE9c" id="1cS" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -18205,7 +18206,7 @@
                 <uo k="s:originTrace" v="n:1227861662670" />
               </node>
               <node concept="3uibUv" id="1dT" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:1227861662670" />
               </node>
             </node>
@@ -18219,7 +18220,7 @@
                   <uo k="s:originTrace" v="n:1227861662670" />
                 </node>
                 <node concept="3uibUv" id="1dW" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1227861662670" />
                 </node>
               </node>
@@ -18244,7 +18245,7 @@
                   <uo k="s:originTrace" v="n:1227861662670" />
                 </node>
                 <node concept="liA8E" id="1e3" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:1227861662670" />
                 </node>
               </node>
@@ -18277,7 +18278,7 @@
       <uo k="s:originTrace" v="n:4510086454767559154" />
     </node>
     <node concept="3uibUv" id="1e7" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:4510086454767559154" />
     </node>
     <node concept="3clFbW" id="1e8" role="jymVt">
@@ -18288,7 +18289,7 @@
       <node concept="3clFbS" id="1ec" role="3clF47">
         <uo k="s:originTrace" v="n:4510086454767559154" />
         <node concept="XkiVB" id="1ee" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:4510086454767559154" />
           <node concept="1BaE9c" id="1ef" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -18341,7 +18342,7 @@
           <uo k="s:originTrace" v="n:4510086454767559154" />
         </node>
         <node concept="3uibUv" id="1eq" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:4510086454767559154" />
         </node>
       </node>
@@ -18353,7 +18354,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:4510086454767559154" />
             <node concept="3uibUv" id="1ew" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:4510086454767559154" />
             </node>
             <node concept="2ShNRf" id="1ex" role="33vP2m">
@@ -18362,8 +18363,8 @@
                 <uo k="s:originTrace" v="n:4510086454767559154" />
                 <node concept="1Y3b0j" id="1ez" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:4510086454767559154" />
                   <node concept="1BaE9c" id="1e$" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -18477,7 +18478,7 @@
                 <uo k="s:originTrace" v="n:4510086454767559154" />
               </node>
               <node concept="3uibUv" id="1f0" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:4510086454767559154" />
               </node>
             </node>
@@ -18491,7 +18492,7 @@
                   <uo k="s:originTrace" v="n:4510086454767559154" />
                 </node>
                 <node concept="3uibUv" id="1f3" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:4510086454767559154" />
                 </node>
               </node>
@@ -18516,7 +18517,7 @@
                   <uo k="s:originTrace" v="n:4510086454767559154" />
                 </node>
                 <node concept="liA8E" id="1fa" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:4510086454767559154" />
                 </node>
               </node>
@@ -18549,7 +18550,7 @@
       <uo k="s:originTrace" v="n:1225459364437" />
     </node>
     <node concept="3uibUv" id="1fe" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1225459364437" />
     </node>
     <node concept="3clFbW" id="1ff" role="jymVt">
@@ -18560,7 +18561,7 @@
       <node concept="3clFbS" id="1fk" role="3clF47">
         <uo k="s:originTrace" v="n:1225459364437" />
         <node concept="XkiVB" id="1fm" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1225459364437" />
           <node concept="1BaE9c" id="1fn" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -18611,7 +18612,7 @@
         <node concept="3clFbS" id="1f$" role="3clF47">
           <uo k="s:originTrace" v="n:1225459364437" />
           <node concept="XkiVB" id="1fA" role="3cqZAp">
-            <ref role="37wK5l" to="79pl:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean,boolean)" resolve="BasePropertyConstraintsDescriptor" />
+            <ref role="37wK5l" to="79pm:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean,boolean)" resolve="BasePropertyConstraintsDescriptor" />
             <uo k="s:originTrace" v="n:1225459364437" />
             <node concept="1BaE9c" id="1fB" role="37wK5m">
               <property role="1ouuDV" value="PROPS" />
@@ -18869,7 +18870,7 @@
         <uo k="s:originTrace" v="n:1225459364437" />
       </node>
       <node concept="3uibUv" id="1fx" role="1zkMxy">
-        <ref role="3uigEE" to="79pl:~BasePropertyConstraintsDescriptor" resolve="BasePropertyConstraintsDescriptor" />
+        <ref role="3uigEE" to="79pm:~BasePropertyConstraintsDescriptor" resolve="BasePropertyConstraintsDescriptor" />
         <uo k="s:originTrace" v="n:1225459364437" />
       </node>
     </node>
@@ -18889,7 +18890,7 @@
           <uo k="s:originTrace" v="n:1225459364437" />
         </node>
         <node concept="3uibUv" id="1gH" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1225459364437" />
         </node>
       </node>
@@ -18908,7 +18909,7 @@
                 <uo k="s:originTrace" v="n:1225459364437" />
               </node>
               <node concept="3uibUv" id="1gP" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:1225459364437" />
               </node>
             </node>
@@ -18922,7 +18923,7 @@
                   <uo k="s:originTrace" v="n:1225459364437" />
                 </node>
                 <node concept="3uibUv" id="1gS" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1225459364437" />
                 </node>
               </node>
@@ -19005,7 +19006,7 @@
       <uo k="s:originTrace" v="n:1227090255088" />
     </node>
     <node concept="3uibUv" id="1h9" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1227090255088" />
     </node>
     <node concept="3clFbW" id="1ha" role="jymVt">
@@ -19016,7 +19017,7 @@
       <node concept="3clFbS" id="1hf" role="3clF47">
         <uo k="s:originTrace" v="n:1227090255088" />
         <node concept="XkiVB" id="1hh" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1227090255088" />
           <node concept="1BaE9c" id="1hi" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -19304,7 +19305,7 @@
       <uo k="s:originTrace" v="n:3622263992595042295" />
     </node>
     <node concept="3uibUv" id="1iq" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:3622263992595042295" />
     </node>
     <node concept="3clFbW" id="1ir" role="jymVt">
@@ -19315,7 +19316,7 @@
       <node concept="3clFbS" id="1iw" role="3clF47">
         <uo k="s:originTrace" v="n:3622263992595042295" />
         <node concept="XkiVB" id="1iy" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:3622263992595042295" />
           <node concept="1BaE9c" id="1iz" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -19725,7 +19726,7 @@
       <uo k="s:originTrace" v="n:8428109087107344311" />
     </node>
     <node concept="3uibUv" id="1kd" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:8428109087107344311" />
     </node>
     <node concept="3clFbW" id="1ke" role="jymVt">
@@ -19736,7 +19737,7 @@
       <node concept="3clFbS" id="1ki" role="3clF47">
         <uo k="s:originTrace" v="n:8428109087107344311" />
         <node concept="XkiVB" id="1kk" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:8428109087107344311" />
           <node concept="1BaE9c" id="1kl" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -19789,7 +19790,7 @@
           <uo k="s:originTrace" v="n:8428109087107344311" />
         </node>
         <node concept="3uibUv" id="1kw" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:8428109087107344311" />
         </node>
       </node>
@@ -19801,7 +19802,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:8428109087107344311" />
             <node concept="3uibUv" id="1kA" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:8428109087107344311" />
             </node>
             <node concept="2ShNRf" id="1kB" role="33vP2m">
@@ -19810,8 +19811,8 @@
                 <uo k="s:originTrace" v="n:8428109087107344311" />
                 <node concept="1Y3b0j" id="1kD" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:8428109087107344311" />
                   <node concept="1BaE9c" id="1kE" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -20078,7 +20079,7 @@
                 <uo k="s:originTrace" v="n:8428109087107344311" />
               </node>
               <node concept="3uibUv" id="1lM" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:8428109087107344311" />
               </node>
             </node>
@@ -20092,7 +20093,7 @@
                   <uo k="s:originTrace" v="n:8428109087107344311" />
                 </node>
                 <node concept="3uibUv" id="1lP" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:8428109087107344311" />
                 </node>
               </node>
@@ -20117,7 +20118,7 @@
                   <uo k="s:originTrace" v="n:8428109087107344311" />
                 </node>
                 <node concept="liA8E" id="1lW" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:8428109087107344311" />
                 </node>
               </node>
@@ -20150,7 +20151,7 @@
       <uo k="s:originTrace" v="n:8210508057161665553" />
     </node>
     <node concept="3uibUv" id="1m0" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:8210508057161665553" />
     </node>
     <node concept="3clFbW" id="1m1" role="jymVt">
@@ -20161,7 +20162,7 @@
       <node concept="3clFbS" id="1m6" role="3clF47">
         <uo k="s:originTrace" v="n:8210508057161665553" />
         <node concept="XkiVB" id="1m8" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:8210508057161665553" />
           <node concept="1BaE9c" id="1m9" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -20499,7 +20500,7 @@
       <uo k="s:originTrace" v="n:1630016958698440087" />
     </node>
     <node concept="3uibUv" id="1nu" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1630016958698440087" />
     </node>
     <node concept="3clFbW" id="1nv" role="jymVt">
@@ -20510,7 +20511,7 @@
       <node concept="3clFbS" id="1nz" role="3clF47">
         <uo k="s:originTrace" v="n:1630016958698440087" />
         <node concept="XkiVB" id="1n_" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1630016958698440087" />
           <node concept="1BaE9c" id="1nA" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -20563,7 +20564,7 @@
           <uo k="s:originTrace" v="n:1630016958698440087" />
         </node>
         <node concept="3uibUv" id="1nL" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1630016958698440087" />
         </node>
       </node>
@@ -20575,7 +20576,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:1630016958698440087" />
             <node concept="3uibUv" id="1nR" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:1630016958698440087" />
             </node>
             <node concept="2ShNRf" id="1nS" role="33vP2m">
@@ -20584,8 +20585,8 @@
                 <uo k="s:originTrace" v="n:1630016958698440087" />
                 <node concept="1Y3b0j" id="1nU" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1630016958698440087" />
                   <node concept="1BaE9c" id="1nV" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -20870,7 +20871,7 @@
                 <uo k="s:originTrace" v="n:1630016958698440087" />
               </node>
               <node concept="3uibUv" id="1p8" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:1630016958698440087" />
               </node>
             </node>
@@ -20884,7 +20885,7 @@
                   <uo k="s:originTrace" v="n:1630016958698440087" />
                 </node>
                 <node concept="3uibUv" id="1pb" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1630016958698440087" />
                 </node>
               </node>
@@ -20909,7 +20910,7 @@
                   <uo k="s:originTrace" v="n:1630016958698440087" />
                 </node>
                 <node concept="liA8E" id="1pi" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:1630016958698440087" />
                 </node>
               </node>
@@ -20942,7 +20943,7 @@
       <uo k="s:originTrace" v="n:6524522039911214607" />
     </node>
     <node concept="3uibUv" id="1pm" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:6524522039911214607" />
     </node>
     <node concept="3clFbW" id="1pn" role="jymVt">
@@ -20953,7 +20954,7 @@
       <node concept="3clFbS" id="1pr" role="3clF47">
         <uo k="s:originTrace" v="n:6524522039911214607" />
         <node concept="XkiVB" id="1pt" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:6524522039911214607" />
           <node concept="1BaE9c" id="1pu" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -21006,7 +21007,7 @@
           <uo k="s:originTrace" v="n:6524522039911214607" />
         </node>
         <node concept="3uibUv" id="1pD" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:6524522039911214607" />
         </node>
       </node>
@@ -21018,7 +21019,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:6524522039911214607" />
             <node concept="3uibUv" id="1pJ" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:6524522039911214607" />
             </node>
             <node concept="2ShNRf" id="1pK" role="33vP2m">
@@ -21027,8 +21028,8 @@
                 <uo k="s:originTrace" v="n:6524522039911214607" />
                 <node concept="1Y3b0j" id="1pM" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:6524522039911214607" />
                   <node concept="1BaE9c" id="1pN" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -21142,7 +21143,7 @@
                 <uo k="s:originTrace" v="n:6524522039911214607" />
               </node>
               <node concept="3uibUv" id="1qf" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:6524522039911214607" />
               </node>
             </node>
@@ -21156,7 +21157,7 @@
                   <uo k="s:originTrace" v="n:6524522039911214607" />
                 </node>
                 <node concept="3uibUv" id="1qi" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:6524522039911214607" />
                 </node>
               </node>
@@ -21181,7 +21182,7 @@
                   <uo k="s:originTrace" v="n:6524522039911214607" />
                 </node>
                 <node concept="liA8E" id="1qp" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:6524522039911214607" />
                 </node>
               </node>
@@ -21214,7 +21215,7 @@
       <uo k="s:originTrace" v="n:1630016958698471624" />
     </node>
     <node concept="3uibUv" id="1qt" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1630016958698471624" />
     </node>
     <node concept="3clFbW" id="1qu" role="jymVt">
@@ -21225,7 +21226,7 @@
       <node concept="3clFbS" id="1qz" role="3clF47">
         <uo k="s:originTrace" v="n:1630016958698471624" />
         <node concept="XkiVB" id="1q_" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1630016958698471624" />
           <node concept="1BaE9c" id="1qA" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -21513,7 +21514,7 @@
       <uo k="s:originTrace" v="n:1630016958698473081" />
     </node>
     <node concept="3uibUv" id="1rI" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1630016958698473081" />
     </node>
     <node concept="3clFbW" id="1rJ" role="jymVt">
@@ -21524,7 +21525,7 @@
       <node concept="3clFbS" id="1rO" role="3clF47">
         <uo k="s:originTrace" v="n:1630016958698473081" />
         <node concept="XkiVB" id="1rQ" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1630016958698473081" />
           <node concept="1BaE9c" id="1rR" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -21812,7 +21813,7 @@
       <uo k="s:originTrace" v="n:7671875129588410968" />
     </node>
     <node concept="3uibUv" id="1sZ" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:7671875129588410968" />
     </node>
     <node concept="3clFbW" id="1t0" role="jymVt">
@@ -21823,7 +21824,7 @@
       <node concept="3clFbS" id="1t5" role="3clF47">
         <uo k="s:originTrace" v="n:7671875129588410968" />
         <node concept="XkiVB" id="1t7" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:7671875129588410968" />
           <node concept="1BaE9c" id="1t8" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -21874,7 +21875,7 @@
         <node concept="3clFbS" id="1tk" role="3clF47">
           <uo k="s:originTrace" v="n:7671875129588410968" />
           <node concept="XkiVB" id="1tm" role="3cqZAp">
-            <ref role="37wK5l" to="79pl:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean,boolean)" resolve="BasePropertyConstraintsDescriptor" />
+            <ref role="37wK5l" to="79pm:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean,boolean)" resolve="BasePropertyConstraintsDescriptor" />
             <uo k="s:originTrace" v="n:7671875129588410968" />
             <node concept="1BaE9c" id="1tn" role="37wK5m">
               <property role="1ouuDV" value="PROPS" />
@@ -21990,7 +21991,7 @@
         <uo k="s:originTrace" v="n:7671875129588410968" />
       </node>
       <node concept="3uibUv" id="1th" role="1zkMxy">
-        <ref role="3uigEE" to="79pl:~BasePropertyConstraintsDescriptor" resolve="BasePropertyConstraintsDescriptor" />
+        <ref role="3uigEE" to="79pm:~BasePropertyConstraintsDescriptor" resolve="BasePropertyConstraintsDescriptor" />
         <uo k="s:originTrace" v="n:7671875129588410968" />
       </node>
     </node>
@@ -22010,7 +22011,7 @@
           <uo k="s:originTrace" v="n:7671875129588410968" />
         </node>
         <node concept="3uibUv" id="1tQ" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:7671875129588410968" />
         </node>
       </node>
@@ -22029,7 +22030,7 @@
                 <uo k="s:originTrace" v="n:7671875129588410968" />
               </node>
               <node concept="3uibUv" id="1tY" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:7671875129588410968" />
               </node>
             </node>
@@ -22043,7 +22044,7 @@
                   <uo k="s:originTrace" v="n:7671875129588410968" />
                 </node>
                 <node concept="3uibUv" id="1u1" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:7671875129588410968" />
                 </node>
               </node>
@@ -22126,7 +22127,7 @@
       <uo k="s:originTrace" v="n:1630016958698441540" />
     </node>
     <node concept="3uibUv" id="1ui" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1630016958698441540" />
     </node>
     <node concept="3clFbW" id="1uj" role="jymVt">
@@ -22137,7 +22138,7 @@
       <node concept="3clFbS" id="1un" role="3clF47">
         <uo k="s:originTrace" v="n:1630016958698441540" />
         <node concept="XkiVB" id="1up" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1630016958698441540" />
           <node concept="1BaE9c" id="1uq" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -22402,7 +22403,7 @@
       <uo k="s:originTrace" v="n:1630016958698363142" />
     </node>
     <node concept="3uibUv" id="1vr" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1630016958698363142" />
     </node>
     <node concept="3clFbW" id="1vs" role="jymVt">
@@ -22413,7 +22414,7 @@
       <node concept="3clFbS" id="1vx" role="3clF47">
         <uo k="s:originTrace" v="n:1630016958698363142" />
         <node concept="XkiVB" id="1vz" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1630016958698363142" />
           <node concept="1BaE9c" id="1v$" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -22701,7 +22702,7 @@
       <uo k="s:originTrace" v="n:5120245198449804925" />
     </node>
     <node concept="3uibUv" id="1wG" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:5120245198449804925" />
     </node>
     <node concept="3clFbW" id="1wH" role="jymVt">
@@ -22712,7 +22713,7 @@
       <node concept="3clFbS" id="1wL" role="3clF47">
         <uo k="s:originTrace" v="n:5120245198449804925" />
         <node concept="XkiVB" id="1wN" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:5120245198449804925" />
           <node concept="1BaE9c" id="1wO" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -22765,7 +22766,7 @@
           <uo k="s:originTrace" v="n:5120245198449804925" />
         </node>
         <node concept="3uibUv" id="1wZ" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:5120245198449804925" />
         </node>
       </node>
@@ -22777,7 +22778,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:5120245198449804925" />
             <node concept="3uibUv" id="1x5" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:5120245198449804925" />
             </node>
             <node concept="2ShNRf" id="1x6" role="33vP2m">
@@ -22786,8 +22787,8 @@
                 <uo k="s:originTrace" v="n:5120245198449804925" />
                 <node concept="1Y3b0j" id="1x8" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:5120245198449804925" />
                   <node concept="1BaE9c" id="1x9" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -23154,7 +23155,7 @@
                 <uo k="s:originTrace" v="n:5120245198449804925" />
               </node>
               <node concept="3uibUv" id="1yH" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:5120245198449804925" />
               </node>
             </node>
@@ -23168,7 +23169,7 @@
                   <uo k="s:originTrace" v="n:5120245198449804925" />
                 </node>
                 <node concept="3uibUv" id="1yK" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:5120245198449804925" />
                 </node>
               </node>
@@ -23193,7 +23194,7 @@
                   <uo k="s:originTrace" v="n:5120245198449804925" />
                 </node>
                 <node concept="liA8E" id="1yR" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:5120245198449804925" />
                 </node>
               </node>
@@ -23226,7 +23227,7 @@
       <uo k="s:originTrace" v="n:8254632857052578629" />
     </node>
     <node concept="3uibUv" id="1yV" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:8254632857052578629" />
     </node>
     <node concept="3clFbW" id="1yW" role="jymVt">
@@ -23237,7 +23238,7 @@
       <node concept="3clFbS" id="1z0" role="3clF47">
         <uo k="s:originTrace" v="n:8254632857052578629" />
         <node concept="XkiVB" id="1z2" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:8254632857052578629" />
           <node concept="1BaE9c" id="1z3" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -23290,7 +23291,7 @@
           <uo k="s:originTrace" v="n:8254632857052578629" />
         </node>
         <node concept="3uibUv" id="1ze" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:8254632857052578629" />
         </node>
       </node>
@@ -23302,7 +23303,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:8254632857052578629" />
             <node concept="3uibUv" id="1zk" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:8254632857052578629" />
             </node>
             <node concept="2ShNRf" id="1zl" role="33vP2m">
@@ -23311,8 +23312,8 @@
                 <uo k="s:originTrace" v="n:8254632857052578629" />
                 <node concept="1Y3b0j" id="1zn" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:8254632857052578629" />
                   <node concept="1BaE9c" id="1zo" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -23636,7 +23637,7 @@
                 <uo k="s:originTrace" v="n:8254632857052578629" />
               </node>
               <node concept="3uibUv" id="1$J" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:8254632857052578629" />
               </node>
             </node>
@@ -23650,7 +23651,7 @@
                   <uo k="s:originTrace" v="n:8254632857052578629" />
                 </node>
                 <node concept="3uibUv" id="1$M" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:8254632857052578629" />
                 </node>
               </node>
@@ -23675,7 +23676,7 @@
                   <uo k="s:originTrace" v="n:8254632857052578629" />
                 </node>
                 <node concept="liA8E" id="1$T" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:8254632857052578629" />
                 </node>
               </node>
@@ -23708,7 +23709,7 @@
       <uo k="s:originTrace" v="n:422708224287891218" />
     </node>
     <node concept="3uibUv" id="1$X" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:422708224287891218" />
     </node>
     <node concept="3clFbW" id="1$Y" role="jymVt">
@@ -23719,7 +23720,7 @@
       <node concept="3clFbS" id="1_2" role="3clF47">
         <uo k="s:originTrace" v="n:422708224287891218" />
         <node concept="XkiVB" id="1_4" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:422708224287891218" />
           <node concept="1BaE9c" id="1_5" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -23772,7 +23773,7 @@
           <uo k="s:originTrace" v="n:422708224287891218" />
         </node>
         <node concept="3uibUv" id="1_g" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:422708224287891218" />
         </node>
       </node>
@@ -23784,7 +23785,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:422708224287891218" />
             <node concept="3uibUv" id="1_m" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:422708224287891218" />
             </node>
             <node concept="2ShNRf" id="1_n" role="33vP2m">
@@ -23793,8 +23794,8 @@
                 <uo k="s:originTrace" v="n:422708224287891218" />
                 <node concept="1Y3b0j" id="1_p" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:422708224287891218" />
                   <node concept="1BaE9c" id="1_q" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -24025,7 +24026,7 @@
                 <uo k="s:originTrace" v="n:422708224287891218" />
               </node>
               <node concept="3uibUv" id="1An" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:422708224287891218" />
               </node>
             </node>
@@ -24039,7 +24040,7 @@
                   <uo k="s:originTrace" v="n:422708224287891218" />
                 </node>
                 <node concept="3uibUv" id="1Aq" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:422708224287891218" />
                 </node>
               </node>
@@ -24064,7 +24065,7 @@
                   <uo k="s:originTrace" v="n:422708224287891218" />
                 </node>
                 <node concept="liA8E" id="1Ax" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:422708224287891218" />
                 </node>
               </node>
@@ -24097,7 +24098,7 @@
       <uo k="s:originTrace" v="n:4202667662394333180" />
     </node>
     <node concept="3uibUv" id="1A_" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:4202667662394333180" />
     </node>
     <node concept="3clFbW" id="1AA" role="jymVt">
@@ -24108,7 +24109,7 @@
       <node concept="3clFbS" id="1AE" role="3clF47">
         <uo k="s:originTrace" v="n:4202667662394333180" />
         <node concept="XkiVB" id="1AG" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:4202667662394333180" />
           <node concept="1BaE9c" id="1AH" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -24161,7 +24162,7 @@
           <uo k="s:originTrace" v="n:4202667662394333180" />
         </node>
         <node concept="3uibUv" id="1AS" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:4202667662394333180" />
         </node>
       </node>
@@ -24173,7 +24174,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:4202667662394333180" />
             <node concept="3uibUv" id="1AY" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:4202667662394333180" />
             </node>
             <node concept="2ShNRf" id="1AZ" role="33vP2m">
@@ -24182,8 +24183,8 @@
                 <uo k="s:originTrace" v="n:4202667662394333180" />
                 <node concept="1Y3b0j" id="1B1" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:4202667662394333180" />
                   <node concept="1BaE9c" id="1B2" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -24468,7 +24469,7 @@
                 <uo k="s:originTrace" v="n:4202667662394333180" />
               </node>
               <node concept="3uibUv" id="1Cf" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:4202667662394333180" />
               </node>
             </node>
@@ -24482,7 +24483,7 @@
                   <uo k="s:originTrace" v="n:4202667662394333180" />
                 </node>
                 <node concept="3uibUv" id="1Ci" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:4202667662394333180" />
                 </node>
               </node>
@@ -24507,7 +24508,7 @@
                   <uo k="s:originTrace" v="n:4202667662394333180" />
                 </node>
                 <node concept="liA8E" id="1Cp" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:4202667662394333180" />
                 </node>
               </node>
@@ -24540,7 +24541,7 @@
       <uo k="s:originTrace" v="n:2314756748950088815" />
     </node>
     <node concept="3uibUv" id="1Ct" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:2314756748950088815" />
     </node>
     <node concept="3clFbW" id="1Cu" role="jymVt">
@@ -24551,7 +24552,7 @@
       <node concept="3clFbS" id="1Cy" role="3clF47">
         <uo k="s:originTrace" v="n:2314756748950088815" />
         <node concept="XkiVB" id="1C$" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:2314756748950088815" />
           <node concept="1BaE9c" id="1C_" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -24604,7 +24605,7 @@
           <uo k="s:originTrace" v="n:2314756748950088815" />
         </node>
         <node concept="3uibUv" id="1CK" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:2314756748950088815" />
         </node>
       </node>
@@ -24616,7 +24617,7 @@
             <property role="TrG5h" value="d0" />
             <uo k="s:originTrace" v="n:2314756748950088815" />
             <node concept="3uibUv" id="1CQ" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
               <uo k="s:originTrace" v="n:2314756748950088815" />
             </node>
             <node concept="2ShNRf" id="1CR" role="33vP2m">
@@ -24625,8 +24626,8 @@
                 <uo k="s:originTrace" v="n:2314756748950088815" />
                 <node concept="1Y3b0j" id="1CT" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:2314756748950088815" />
                   <node concept="1BaE9c" id="1CU" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
@@ -24740,7 +24741,7 @@
                 <uo k="s:originTrace" v="n:2314756748950088815" />
               </node>
               <node concept="3uibUv" id="1Dm" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:2314756748950088815" />
               </node>
             </node>
@@ -24754,7 +24755,7 @@
                   <uo k="s:originTrace" v="n:2314756748950088815" />
                 </node>
                 <node concept="3uibUv" id="1Dp" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:2314756748950088815" />
                 </node>
               </node>
@@ -24779,7 +24780,7 @@
                   <uo k="s:originTrace" v="n:2314756748950088815" />
                 </node>
                 <node concept="liA8E" id="1Dw" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                   <uo k="s:originTrace" v="n:2314756748950088815" />
                 </node>
               </node>
@@ -24812,7 +24813,7 @@
       <uo k="s:originTrace" v="n:5624877018226902513" />
     </node>
     <node concept="3uibUv" id="1D$" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:5624877018226902513" />
     </node>
     <node concept="3clFbW" id="1D_" role="jymVt">
@@ -24823,7 +24824,7 @@
       <node concept="3clFbS" id="1DE" role="3clF47">
         <uo k="s:originTrace" v="n:5624877018226902513" />
         <node concept="XkiVB" id="1DG" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:5624877018226902513" />
           <node concept="1BaE9c" id="1DH" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -25111,7 +25112,7 @@
       <uo k="s:originTrace" v="n:1638911550608572439" />
     </node>
     <node concept="3uibUv" id="1EP" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:1638911550608572439" />
     </node>
     <node concept="3clFbW" id="1EQ" role="jymVt">
@@ -25122,7 +25123,7 @@
       <node concept="3clFbS" id="1EV" role="3clF47">
         <uo k="s:originTrace" v="n:1638911550608572439" />
         <node concept="XkiVB" id="1EX" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1638911550608572439" />
           <node concept="1BaE9c" id="1EY" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
@@ -25173,7 +25174,7 @@
         <node concept="3clFbS" id="1Fa" role="3clF47">
           <uo k="s:originTrace" v="n:1638911550608572439" />
           <node concept="XkiVB" id="1Fc" role="3cqZAp">
-            <ref role="37wK5l" to="79pl:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean,boolean)" resolve="BasePropertyConstraintsDescriptor" />
+            <ref role="37wK5l" to="79pm:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean,boolean)" resolve="BasePropertyConstraintsDescriptor" />
             <uo k="s:originTrace" v="n:1638911550608572439" />
             <node concept="1BaE9c" id="1Fd" role="37wK5m">
               <property role="1ouuDV" value="PROPS" />
@@ -25289,7 +25290,7 @@
         <uo k="s:originTrace" v="n:1638911550608572439" />
       </node>
       <node concept="3uibUv" id="1F7" role="1zkMxy">
-        <ref role="3uigEE" to="79pl:~BasePropertyConstraintsDescriptor" resolve="BasePropertyConstraintsDescriptor" />
+        <ref role="3uigEE" to="79pm:~BasePropertyConstraintsDescriptor" resolve="BasePropertyConstraintsDescriptor" />
         <uo k="s:originTrace" v="n:1638911550608572439" />
       </node>
     </node>
@@ -25309,7 +25310,7 @@
           <uo k="s:originTrace" v="n:1638911550608572439" />
         </node>
         <node concept="3uibUv" id="1FG" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1638911550608572439" />
         </node>
       </node>
@@ -25328,7 +25329,7 @@
                 <uo k="s:originTrace" v="n:1638911550608572439" />
               </node>
               <node concept="3uibUv" id="1FO" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:1638911550608572439" />
               </node>
             </node>
@@ -25342,7 +25343,7 @@
                   <uo k="s:originTrace" v="n:1638911550608572439" />
                 </node>
                 <node concept="3uibUv" id="1FR" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1638911550608572439" />
                 </node>
               </node>
@@ -25425,7 +25426,7 @@
       <uo k="s:originTrace" v="n:8874023590560517085" />
     </node>
     <node concept="3uibUv" id="1G8" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
       <uo k="s:originTrace" v="n:8874023590560517085" />
     </node>
     <node concept="3clFbW" id="1G9" role="jymVt">
@@ -25436,7 +25437,7 @@
       <node concept="3clFbS" id="1Gd" role="3clF47">
         <uo k="s:originTrace" v="n:8874023590560517085" />
         <node concept="XkiVB" id="1Gf" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:8874023590560517085" />
           <node concept="1BaE9c" id="1Gg" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />

@@ -45,7 +45,6 @@
     <import index="u42p" ref="r:986938bb-bdb1-4307-b062-e4647a4db0f9(jetbrains.mps.ide.platform.refactoring)" />
     <import index="dxuu" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:javax.swing(JDK/)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
-    <import index="ze1i" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.runtime(MPS.Core/)" />
     <import index="thjj" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.featureStatistics(MPS.IDEA/)" />
     <import index="2yc6" ref="r:d9efd362-28b8-4f70-9bcd-fb582528d11c(jetbrains.mps.lang.core.refactorings)" />
     <import index="9oh" ref="r:de82dfab-9448-49ba-813e-2b0579f7fb15(jetbrains.mps.ide.platform.actions)" />
@@ -76,7 +75,7 @@
     <import index="6tbz" ref="r:e7c3bc1e-bce9-494c-bef3-a2cbdbbaff66(jetbrains.mps.ide.refactoring)" />
     <import index="ge2m" ref="r:bd8551c6-e2e3-4499-a261-45b0c886d1d1(jetbrains.mps.refactoring.framework)" />
     <import index="l7us" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.icons(MPS.Platform/)" />
-    <import index="ze1j" ref="8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.smodel.runtime(jetbrains.mps.lang.constraints.rules.runtime/)" />
+    <import index="ze1i" ref="8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.smodel.runtime(jetbrains.mps.lang.constraints.rules.runtime/)" />
     <import index="4o98" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.core.platform(MPS.Core/)" />
     <import index="y38" ref="r:4c8c6241-8bf4-4d04-84a1-f7fd7fcbdc2c(jetbrains.mps.refactoring.runtime.access)" />
     <import index="82uw" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.function(JDK/)" />
@@ -3123,7 +3122,7 @@
           <node concept="3cpWsn" id="LaLafJXgT$" role="3cpWs9">
             <property role="TrG5h" value="cd" />
             <node concept="3uibUv" id="LaLafJXgTt" role="1tU5fm">
-              <ref role="3uigEE" to="ze1j:~ConstraintsDescriptor" resolve="ConstraintsDescriptor" />
+              <ref role="3uigEE" to="ze1i:~ConstraintsDescriptor" resolve="ConstraintsDescriptor" />
             </node>
             <node concept="2OqwBi" id="LaLafJXgT_" role="33vP2m">
               <node concept="2YIFZM" id="LaLafJXgTA" role="2Oq$k0">
@@ -3150,7 +3149,7 @@
                 <ref role="3cqZAo" node="LaLafJXgT$" resolve="cd" />
               </node>
               <node concept="liA8E" id="1yYqhLB_7zx" role="2OqNvi">
-                <ref role="37wK5l" to="ze1j:~ConstraintsDescriptor.getProperty(org.jetbrains.mps.openapi.language.SProperty)" resolve="getProperty" />
+                <ref role="37wK5l" to="ze1i:~ConstraintsDescriptor.getProperty(org.jetbrains.mps.openapi.language.SProperty)" resolve="getProperty" />
                 <node concept="355D3s" id="1SNZnic040R" role="37wK5m">
                   <ref role="355D3t" to="tpck:h0TrEE$" resolve="INamedConcept" />
                   <ref role="355D3u" to="tpck:h0TrG11" resolve="name" />
@@ -3229,7 +3228,7 @@
           <node concept="3cpWsn" id="4nmoJNYHOp" role="3cpWs9">
             <property role="TrG5h" value="cd" />
             <node concept="3uibUv" id="4nmoJNYHOq" role="1tU5fm">
-              <ref role="3uigEE" to="ze1j:~ConstraintsDescriptor" resolve="ConstraintsDescriptor" />
+              <ref role="3uigEE" to="ze1i:~ConstraintsDescriptor" resolve="ConstraintsDescriptor" />
             </node>
             <node concept="2OqwBi" id="4nmoJNYHOr" role="33vP2m">
               <node concept="2YIFZM" id="4nmoJNYHOs" role="2Oq$k0">
@@ -3256,7 +3255,7 @@
                 <ref role="3cqZAo" node="4nmoJNYHOp" resolve="cd" />
               </node>
               <node concept="liA8E" id="4nmoJNYHO$" role="2OqNvi">
-                <ref role="37wK5l" to="ze1j:~ConstraintsDescriptor.getProperty(org.jetbrains.mps.openapi.language.SProperty)" resolve="getProperty" />
+                <ref role="37wK5l" to="ze1i:~ConstraintsDescriptor.getProperty(org.jetbrains.mps.openapi.language.SProperty)" resolve="getProperty" />
                 <node concept="355D3s" id="4nmoJNYHO_" role="37wK5m">
                   <ref role="355D3t" to="tpck:h0TrEE$" resolve="INamedConcept" />
                   <ref role="355D3u" to="tpck:h0TrG11" resolve="name" />

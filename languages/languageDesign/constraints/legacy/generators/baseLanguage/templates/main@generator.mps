@@ -41,6 +41,7 @@
     <import index="tp48" ref="r:00000000-0000-4000-0000-011c89590374(jetbrains.mps.baseLanguage.classifiers.generator.baseLanguage.template.main@generator)" />
     <import index="tp4f" ref="r:00000000-0000-4000-0000-011c89590373(jetbrains.mps.baseLanguage.classifiers.structure)" />
     <import index="ze1j" ref="8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.smodel.runtime(jetbrains.mps.lang.constraints.rules.runtime/)" />
+    <import index="79pm" ref="8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.smodel.runtime.base(jetbrains.mps.lang.constraints.rules.runtime/)" />
     <import index="tpek" ref="r:00000000-0000-4000-0000-011c895902c0(jetbrains.mps.baseLanguage.behavior)" implicit="true" />
   </imports>
   <registry>
@@ -1088,14 +1089,14 @@
         </node>
       </node>
     </node>
-    <node concept="3uibUv" id="6s7bPiw2uRl" role="1zkMxy">
-      <ref role="3uigEE" to="79pl:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
+    <node concept="3uibUv" id="5dJecnWqAb4" role="1zkMxy">
+      <ref role="3uigEE" to="79pm:~BaseConstraintsDescriptor" resolve="BaseConstraintsDescriptor" />
     </node>
     <node concept="3clFbW" id="1UB_YWUhqYx" role="jymVt">
       <node concept="3cqZAl" id="1UB_YWUhqYy" role="3clF45" />
       <node concept="3clFbS" id="1UB_YWUhqYz" role="3clF47">
         <node concept="XkiVB" id="3g99cIN5jgI" role="3cqZAp">
-          <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+          <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <node concept="10Nm6u" id="23CHI7KI1sl" role="37wK5m">
             <node concept="5jKBG" id="za$VMvkNMD" role="lGtFl">
               <ref role="v9R2y" to="tp27:5DcBNiM8Rtt" resolve="reduce_ConceptDeclaration2SAbstractConcept" />
@@ -2315,7 +2316,7 @@
         <node concept="3Tm1VV" id="5KWsMXTLwOA" role="1B3o_S" />
         <node concept="3clFbS" id="5KWsMXTLwOC" role="3clF47">
           <node concept="XkiVB" id="5KWsMXTLwOE" role="3cqZAp">
-            <ref role="37wK5l" to="79pl:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean,boolean)" resolve="BasePropertyConstraintsDescriptor" />
+            <ref role="37wK5l" to="79pm:~BasePropertyConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SProperty,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean,boolean)" resolve="BasePropertyConstraintsDescriptor" />
             <node concept="10Nm6u" id="5KWsMXTLD$k" role="37wK5m">
               <node concept="5jKBG" id="5KWsMXTLD$l" role="lGtFl">
                 <ref role="v9R2y" to="tp27:5DcBNiM88Ty" resolve="reduce_PropertyDeclaration_SProperty" />
@@ -2941,8 +2942,8 @@
           </node>
         </node>
       </node>
-      <node concept="3uibUv" id="5KWsMXTLu0r" role="1zkMxy">
-        <ref role="3uigEE" to="79pl:~BasePropertyConstraintsDescriptor" resolve="BasePropertyConstraintsDescriptor" />
+      <node concept="3uibUv" id="5dJecnWqK1_" role="1zkMxy">
+        <ref role="3uigEE" to="79pm:~BasePropertyConstraintsDescriptor" resolve="BasePropertyConstraintsDescriptor" />
       </node>
     </node>
     <node concept="3clFb_" id="3g99cIN5ji3" role="jymVt">
@@ -2956,7 +2957,7 @@
           <ref role="3uigEE" to="c17a:~SProperty" resolve="SProperty" />
         </node>
         <node concept="3uibUv" id="3g99cIN5ji7" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
         </node>
       </node>
       <node concept="3clFbS" id="3g99cIN5ji8" role="3clF47">
@@ -2969,7 +2970,7 @@
                 <ref role="3uigEE" to="c17a:~SProperty" resolve="SProperty" />
               </node>
               <node concept="3uibUv" id="3g99cIN5jiQ" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
               </node>
             </node>
             <node concept="2ShNRf" id="3g99cIN5jiR" role="33vP2m">
@@ -2979,7 +2980,7 @@
                   <ref role="3uigEE" to="c17a:~SProperty" resolve="SProperty" />
                 </node>
                 <node concept="3uibUv" id="1TWFJuLCWPa" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                 </node>
               </node>
             </node>
@@ -3121,7 +3122,7 @@
           <ref role="3uigEE" to="c17a:~SReferenceLink" resolve="SReferenceLink" />
         </node>
         <node concept="3uibUv" id="3g99cIN5jo8" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
         </node>
       </node>
       <node concept="3clFbS" id="3g99cIN5jo9" role="3clF47">
@@ -3129,14 +3130,14 @@
           <node concept="3cpWsn" id="EhgL95j6OZ" role="3cpWs9">
             <property role="TrG5h" value="d" />
             <node concept="3uibUv" id="EhgL95j6P0" role="1tU5fm">
-              <ref role="3uigEE" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+              <ref role="3uigEE" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
             </node>
             <node concept="2ShNRf" id="3g99cIN5joJ" role="33vP2m">
               <node concept="YeOm9" id="3g99cIN5joK" role="2ShVmc">
                 <node concept="1Y3b0j" id="3g99cIN5joL" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="79pl:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="1Y3XeK" to="79pm:~BaseReferenceConstraintsDescriptor" resolve="BaseReferenceConstraintsDescriptor" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,jetbrains.mps.smodel.runtime.ConstraintsDescriptor,boolean,boolean)" resolve="BaseReferenceConstraintsDescriptor" />
                   <node concept="10Nm6u" id="23CHI7KNLM$" role="37wK5m">
                     <node concept="5jKBG" id="za$VMvkNMH" role="lGtFl">
                       <ref role="v9R2y" to="tp27:5DcBNiM8ykU" resolve="reduce_LinkDeclaration_SLink" />
@@ -3457,7 +3458,7 @@
                 <ref role="3uigEE" to="c17a:~SReferenceLink" resolve="SReferenceLink" />
               </node>
               <node concept="3uibUv" id="3g99cIN5jov" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
               </node>
             </node>
             <node concept="2ShNRf" id="3g99cIN5jow" role="33vP2m">
@@ -3467,7 +3468,7 @@
                   <ref role="3uigEE" to="c17a:~SReferenceLink" resolve="SReferenceLink" />
                 </node>
                 <node concept="3uibUv" id="1TWFJuLDX3J" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~ReferenceConstraintsDescriptor" resolve="ReferenceConstraintsDescriptor" />
                 </node>
               </node>
             </node>
@@ -3485,7 +3486,7 @@
                   <ref role="3cqZAo" node="EhgL95j6OZ" resolve="d" />
                 </node>
                 <node concept="liA8E" id="EhgL95kPqR" role="2OqNvi">
-                  <ref role="37wK5l" to="79pl:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
+                  <ref role="37wK5l" to="79pm:~BaseReferenceConstraintsDescriptor.getReference()" resolve="getReference" />
                 </node>
               </node>
               <node concept="37vLTw" id="EhgL95kTzi" role="37wK5m">
@@ -3997,7 +3998,7 @@
         <node concept="3cpWs6" id="1TWFJuLAF3M" role="3cqZAp">
           <node concept="2ShNRf" id="1TWFJuLAF3N" role="3cqZAk">
             <node concept="1pGfFk" id="1TWFJuLAF3O" role="2ShVmc">
-              <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
+              <ref role="37wK5l" to="79pm:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
               <node concept="37vLTw" id="1TWFJuLAF3P" role="37wK5m">
                 <ref role="3cqZAo" node="1TWFJuL$UeO" resolve="concept" />
               </node>

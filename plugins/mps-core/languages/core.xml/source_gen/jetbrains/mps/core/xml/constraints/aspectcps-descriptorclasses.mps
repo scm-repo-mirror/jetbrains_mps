@@ -7,7 +7,6 @@
   <languages />
   <imports>
     <import index="h228" ref="r:edc2e1a3-c4ab-4f36-a908-e29e4c77f1bb(jetbrains.mps.core.xml.constraints)" />
-    <import index="79pl" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.runtime.base(MPS.Core/)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
@@ -19,6 +18,7 @@
     <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
     <import index="iuxj" ref="r:64db3a92-5968-4a73-b456-34504a2d97a6(jetbrains.mps.core.xml.structure)" />
+    <import index="79pl" ref="8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.smodel.runtime.base(jetbrains.mps.lang.constraints.rules.runtime/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -1136,7 +1136,7 @@
           <uo k="s:originTrace" v="n:6666499814681620721" />
         </node>
         <node concept="3uibUv" id="4k" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:6666499814681620721" />
         </node>
       </node>
@@ -1155,7 +1155,7 @@
                 <uo k="s:originTrace" v="n:6666499814681620721" />
               </node>
               <node concept="3uibUv" id="4s" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:6666499814681620721" />
               </node>
             </node>
@@ -1169,7 +1169,7 @@
                   <uo k="s:originTrace" v="n:6666499814681620721" />
                 </node>
                 <node concept="3uibUv" id="4v" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:6666499814681620721" />
                 </node>
               </node>
@@ -1565,7 +1565,7 @@
           <uo k="s:originTrace" v="n:1622293396948985398" />
         </node>
         <node concept="3uibUv" id="67" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1622293396948985398" />
         </node>
       </node>
@@ -1584,7 +1584,7 @@
                 <uo k="s:originTrace" v="n:1622293396948985398" />
               </node>
               <node concept="3uibUv" id="6f" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:1622293396948985398" />
               </node>
             </node>
@@ -1598,7 +1598,7 @@
                   <uo k="s:originTrace" v="n:1622293396948985398" />
                 </node>
                 <node concept="3uibUv" id="6i" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1622293396948985398" />
                 </node>
               </node>
@@ -1994,7 +1994,7 @@
           <uo k="s:originTrace" v="n:3080189811177216002" />
         </node>
         <node concept="3uibUv" id="7U" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:3080189811177216002" />
         </node>
       </node>
@@ -2013,7 +2013,7 @@
                 <uo k="s:originTrace" v="n:3080189811177216002" />
               </node>
               <node concept="3uibUv" id="82" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:3080189811177216002" />
               </node>
             </node>
@@ -2027,7 +2027,7 @@
                   <uo k="s:originTrace" v="n:3080189811177216002" />
                 </node>
                 <node concept="3uibUv" id="85" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:3080189811177216002" />
                 </node>
               </node>
@@ -2423,7 +2423,7 @@
           <uo k="s:originTrace" v="n:3080189811177199799" />
         </node>
         <node concept="3uibUv" id="9H" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:3080189811177199799" />
         </node>
       </node>
@@ -2442,7 +2442,7 @@
                 <uo k="s:originTrace" v="n:3080189811177199799" />
               </node>
               <node concept="3uibUv" id="9P" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:3080189811177199799" />
               </node>
             </node>
@@ -2456,7 +2456,7 @@
                   <uo k="s:originTrace" v="n:3080189811177199799" />
                 </node>
                 <node concept="3uibUv" id="9S" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:3080189811177199799" />
                 </node>
               </node>
@@ -2852,7 +2852,7 @@
           <uo k="s:originTrace" v="n:1622293396949036131" />
         </node>
         <node concept="3uibUv" id="bw" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1622293396949036131" />
         </node>
       </node>
@@ -2871,7 +2871,7 @@
                 <uo k="s:originTrace" v="n:1622293396949036131" />
               </node>
               <node concept="3uibUv" id="bC" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:1622293396949036131" />
               </node>
             </node>
@@ -2885,7 +2885,7 @@
                   <uo k="s:originTrace" v="n:1622293396949036131" />
                 </node>
                 <node concept="3uibUv" id="bF" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1622293396949036131" />
                 </node>
               </node>
@@ -3918,7 +3918,7 @@
           <uo k="s:originTrace" v="n:2133624044437898956" />
         </node>
         <node concept="3uibUv" id="g0" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:2133624044437898956" />
         </node>
       </node>
@@ -3937,7 +3937,7 @@
                 <uo k="s:originTrace" v="n:2133624044437898956" />
               </node>
               <node concept="3uibUv" id="g8" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:2133624044437898956" />
               </node>
             </node>
@@ -3951,7 +3951,7 @@
                   <uo k="s:originTrace" v="n:2133624044437898956" />
                 </node>
                 <node concept="3uibUv" id="gb" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:2133624044437898956" />
                 </node>
               </node>
@@ -4447,7 +4447,7 @@
           <uo k="s:originTrace" v="n:6666499814681447914" />
         </node>
         <node concept="3uibUv" id="if" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:6666499814681447914" />
         </node>
       </node>
@@ -4466,7 +4466,7 @@
                 <uo k="s:originTrace" v="n:6666499814681447914" />
               </node>
               <node concept="3uibUv" id="in" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:6666499814681447914" />
               </node>
             </node>
@@ -4480,7 +4480,7 @@
                   <uo k="s:originTrace" v="n:6666499814681447914" />
                 </node>
                 <node concept="3uibUv" id="iq" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:6666499814681447914" />
                 </node>
               </node>
@@ -4876,7 +4876,7 @@
           <uo k="s:originTrace" v="n:6666499814681547968" />
         </node>
         <node concept="3uibUv" id="k2" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:6666499814681547968" />
         </node>
       </node>
@@ -4895,7 +4895,7 @@
                 <uo k="s:originTrace" v="n:6666499814681547968" />
               </node>
               <node concept="3uibUv" id="ka" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:6666499814681547968" />
               </node>
             </node>
@@ -4909,7 +4909,7 @@
                   <uo k="s:originTrace" v="n:6666499814681547968" />
                 </node>
                 <node concept="3uibUv" id="kd" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:6666499814681547968" />
                 </node>
               </node>
@@ -5305,7 +5305,7 @@
           <uo k="s:originTrace" v="n:1622293396949069715" />
         </node>
         <node concept="3uibUv" id="lP" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1622293396949069715" />
         </node>
       </node>
@@ -5324,7 +5324,7 @@
                 <uo k="s:originTrace" v="n:1622293396949069715" />
               </node>
               <node concept="3uibUv" id="lX" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:1622293396949069715" />
               </node>
             </node>
@@ -5338,7 +5338,7 @@
                   <uo k="s:originTrace" v="n:1622293396949069715" />
                 </node>
                 <node concept="3uibUv" id="m0" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1622293396949069715" />
                 </node>
               </node>
@@ -5984,7 +5984,7 @@
           <uo k="s:originTrace" v="n:2133624044438029135" />
         </node>
         <node concept="3uibUv" id="oG" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:2133624044438029135" />
         </node>
       </node>
@@ -6003,7 +6003,7 @@
                 <uo k="s:originTrace" v="n:2133624044438029135" />
               </node>
               <node concept="3uibUv" id="oP" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:2133624044438029135" />
               </node>
             </node>
@@ -6017,7 +6017,7 @@
                   <uo k="s:originTrace" v="n:2133624044438029135" />
                 </node>
                 <node concept="3uibUv" id="oS" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:2133624044438029135" />
                 </node>
               </node>
@@ -10469,7 +10469,7 @@
           <uo k="s:originTrace" v="n:6666499814681587454" />
         </node>
         <node concept="3uibUv" id="G_" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:6666499814681587454" />
         </node>
       </node>
@@ -10488,7 +10488,7 @@
                 <uo k="s:originTrace" v="n:6666499814681587454" />
               </node>
               <node concept="3uibUv" id="GH" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:6666499814681587454" />
               </node>
             </node>
@@ -10502,7 +10502,7 @@
                   <uo k="s:originTrace" v="n:6666499814681587454" />
                 </node>
                 <node concept="3uibUv" id="GK" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:6666499814681587454" />
                 </node>
               </node>
@@ -10898,7 +10898,7 @@
           <uo k="s:originTrace" v="n:1122581627194121462" />
         </node>
         <node concept="3uibUv" id="Io" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:1122581627194121462" />
         </node>
       </node>
@@ -10917,7 +10917,7 @@
                 <uo k="s:originTrace" v="n:1122581627194121462" />
               </node>
               <node concept="3uibUv" id="Iw" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:1122581627194121462" />
               </node>
             </node>
@@ -10931,7 +10931,7 @@
                   <uo k="s:originTrace" v="n:1122581627194121462" />
                 </node>
                 <node concept="3uibUv" id="Iz" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:1122581627194121462" />
                 </node>
               </node>
@@ -11383,7 +11383,7 @@
           <uo k="s:originTrace" v="n:7604553062773750443" />
         </node>
         <node concept="3uibUv" id="Kq" role="11_B2D">
-          <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+          <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
           <uo k="s:originTrace" v="n:7604553062773750443" />
         </node>
       </node>
@@ -11402,7 +11402,7 @@
                 <uo k="s:originTrace" v="n:7604553062773750443" />
               </node>
               <node concept="3uibUv" id="Ky" role="11_B2D">
-                <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                 <uo k="s:originTrace" v="n:7604553062773750443" />
               </node>
             </node>
@@ -11416,7 +11416,7 @@
                   <uo k="s:originTrace" v="n:7604553062773750443" />
                 </node>
                 <node concept="3uibUv" id="K_" role="1pMfVU">
-                  <ref role="3uigEE" to="ze1i:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
+                  <ref role="3uigEE" to="ze1j:~PropertyConstraintsDescriptor" resolve="PropertyConstraintsDescriptor" />
                   <uo k="s:originTrace" v="n:7604553062773750443" />
                 </node>
               </node>
