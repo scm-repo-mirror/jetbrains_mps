@@ -78,7 +78,9 @@ public class AndOrTransforms_LogicalExpression_ext_2_Contribution extends Transf
   }
 
   private class TMP_Param_m0wxkr_a0 extends ParameterizedMenuPart<String, TransformationMenuItem, TransformationMenuContext> {
-
+    /*package*/ TMP_Param_m0wxkr_a0() {
+      super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:6aa6f228-56c3-4d3a-b03e-4204df10c967(jetbrains.mps.samples.KajaAndOr.editor)", "1741258697587184590")));
+    }
     @NotNull
     @Override
     protected List<TransformationMenuItem> createItems(String parameter, TransformationMenuContext context) {
@@ -89,17 +91,6 @@ public class AndOrTransforms_LogicalExpression_ext_2_Contribution extends Transf
     @Override
     protected Iterable<? extends String> getParameters(TransformationMenuContext _context) {
       return ListSequence.fromListAndArray(new ArrayList<String>(), "and", "or");
-    }
-    @NotNull
-    @Override
-    public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:6aa6f228-56c3-4d3a-b03e-4204df10c967(jetbrains.mps.samples.KajaAndOr.editor)", "1741258697587184590")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
 
     private class TMP_Action_m0wxkr_a0a extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
@@ -177,7 +168,9 @@ public class AndOrTransforms_LogicalExpression_ext_2_Contribution extends Transf
     }
   }
   private class TMP_Param_m0wxkr_a1 extends ParameterizedMenuPart<String, TransformationMenuItem, TransformationMenuContext> {
-
+    /*package*/ TMP_Param_m0wxkr_a1() {
+      super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:6aa6f228-56c3-4d3a-b03e-4204df10c967(jetbrains.mps.samples.KajaAndOr.editor)", "1741258697587184671")));
+    }
     @NotNull
     @Override
     protected List<TransformationMenuItem> createItems(String parameter, TransformationMenuContext context) {
@@ -188,17 +181,6 @@ public class AndOrTransforms_LogicalExpression_ext_2_Contribution extends Transf
     @Override
     protected Iterable<? extends String> getParameters(TransformationMenuContext _context) {
       return ListSequence.fromListAndArray(new ArrayList<String>(), "and", "or");
-    }
-    @NotNull
-    @Override
-    public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:6aa6f228-56c3-4d3a-b03e-4204df10c967(jetbrains.mps.samples.KajaAndOr.editor)", "1741258697587184671")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
 
     private class TMP_Action_m0wxkr_a0b extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {

@@ -45,21 +45,13 @@ public class SuperInterfaceMethodCall_Contribution extends SubstituteMenuBase {
   }
 
   private class SMP_Param_73nkqx_a extends ParameterizedMenuPart<SNode, SubstituteMenuItem, SubstituteMenuContext> {
+    /*package*/ SMP_Param_73nkqx_a() {
+      super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:00000000-0000-4000-0000-011c895902c3(jetbrains.mps.baseLanguage.editor)", "1741258697587052862")));
+    }
     @NotNull
     @Override
     protected List<SubstituteMenuItem> createItems(SNode parameter, SubstituteMenuContext context) {
       return new SMP_Action_73nkqx_a0(parameter).createItems(context);
-    }
-    @NotNull
-    @Override
-    public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:00000000-0000-4000-0000-011c895902c3(jetbrains.mps.baseLanguage.editor)", "1741258697587052862")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
     @Nullable
     @Override

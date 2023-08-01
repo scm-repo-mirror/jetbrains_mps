@@ -40,21 +40,13 @@ public class TestCompletionCustomization_ChildParameterizedSubstituteMenu_Substi
   }
 
   private class SMP_Param_llop6s_a extends ParameterizedMenuPart<SAbstractConcept, SubstituteMenuItem, SubstituteMenuContext> {
+    /*package*/ SMP_Param_llop6s_a() {
+      super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:83d73286-80a4-4a12-bc9a-3d442d5242fa(jetbrains.mps.lang.editor.menus.style.testLanguage.editor)", "5310043668062994180")));
+    }
     @NotNull
     @Override
     protected List<SubstituteMenuItem> createItems(SAbstractConcept parameter, SubstituteMenuContext context) {
       return new SMP_Action_llop6s_a0(parameter).createItems(context);
-    }
-    @NotNull
-    @Override
-    public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:83d73286-80a4-4a12-bc9a-3d442d5242fa(jetbrains.mps.lang.editor.menus.style.testLanguage.editor)", "5310043668062994180")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
     @Nullable
     @Override

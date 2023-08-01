@@ -69,7 +69,9 @@ public class DrawCommand_TransformationMenu extends TransformationMenuBase {
   }
 
   private class TMP_Param_oy1rtc_a0 extends ParameterizedMenuPart<String, TransformationMenuItem, TransformationMenuContext> {
-
+    /*package*/ TMP_Param_oy1rtc_a0() {
+      super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:22f33598-07c7-4dfb-8f90-72f788e27c1b(jetbrains.mps.samples.languagePatterns.Basic.editor)", "4638275137435243942")));
+    }
     @NotNull
     @Override
     protected List<TransformationMenuItem> createItems(String parameter, TransformationMenuContext context) {
@@ -80,17 +82,6 @@ public class DrawCommand_TransformationMenu extends TransformationMenuBase {
     @Override
     protected Iterable<? extends String> getParameters(TransformationMenuContext _context) {
       return ListSequence.fromListAndArray(new ArrayList<String>(), "solid", "dotted");
-    }
-    @NotNull
-    @Override
-    public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:22f33598-07c7-4dfb-8f90-72f788e27c1b(jetbrains.mps.samples.languagePatterns.Basic.editor)", "4638275137435243942")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
 
     private class TMP_Action_oy1rtc_a0a extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {

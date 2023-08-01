@@ -42,21 +42,13 @@ public class AddWorkbenchToActionParameters_Contribution extends SubstituteMenuB
   }
 
   private class SMP_Param_bkyuyj_a extends ParameterizedMenuPart<SNode, SubstituteMenuItem, SubstituteMenuContext> {
+    /*package*/ SMP_Param_bkyuyj_a() {
+      super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:dbd42a0c-01d0-4585-adc3-78799d2c649b(jetbrains.mps.lang.plugin.standalone.editor)", "1741258697587122058")));
+    }
     @NotNull
     @Override
     protected List<SubstituteMenuItem> createItems(SNode parameter, SubstituteMenuContext context) {
       return new SMP_Action_bkyuyj_a0(parameter).createItems(context);
-    }
-    @NotNull
-    @Override
-    public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:dbd42a0c-01d0-4585-adc3-78799d2c649b(jetbrains.mps.lang.plugin.standalone.editor)", "1741258697587122058")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
     @Nullable
     @Override

@@ -55,7 +55,9 @@ public class ParameterizedByPrimitiveType extends TransformationMenuBase {
   }
 
   private class TMP_Param_ud82js_a0 extends ParameterizedMenuPart<Integer, TransformationMenuItem, TransformationMenuContext> {
-
+    /*package*/ TMP_Param_ud82js_a0() {
+      super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:3b1c2f8c-f04f-4186-97fc-85ed47ba8aeb(jetbrains.mps.lang.editor.menus.testLanguage.editor)", "8477852555557899250")));
+    }
     @NotNull
     @Override
     protected List<TransformationMenuItem> createItems(Integer parameter, TransformationMenuContext context) {
@@ -105,17 +107,6 @@ __switch__:
             };
           };
         });
-      }
-    }
-    @NotNull
-    @Override
-    public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:3b1c2f8c-f04f-4186-97fc-85ed47ba8aeb(jetbrains.mps.lang.editor.menus.testLanguage.editor)", "8477852555557899250")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
       }
     }
 

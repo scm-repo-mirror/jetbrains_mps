@@ -62,21 +62,13 @@ public class PersistentConfigurationType_Contribution extends SubstituteMenuBase
       return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_67nl4b_a0(), CONCEPTS.TemplatePersistentConfigurationType$Qi));
     }
     private class SMP_Param_67nl4b_a0 extends ParameterizedMenuPart<SNode, SubstituteMenuItem, SubstituteMenuContext> {
+      /*package*/ SMP_Param_67nl4b_a0() {
+        super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:328ff5ee-9330-4068-906e-6e3bb50e6e1d(jetbrains.mps.execution.settings.editor)", "1741258697586930447")));
+      }
       @NotNull
       @Override
       protected List<SubstituteMenuItem> createItems(SNode parameter, SubstituteMenuContext context) {
         return new SMP_Action_67nl4b_a0a(parameter).createItems(context);
-      }
-      @NotNull
-      @Override
-      public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-        context.getEditorMenuTrace().pushTraceInfo();
-        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:328ff5ee-9330-4068-906e-6e3bb50e6e1d(jetbrains.mps.execution.settings.editor)", "1741258697586930447")));
-        try {
-          return super.createItems(context);
-        } finally {
-          context.getEditorMenuTrace().popTraceInfo();
-        }
       }
       @Nullable
       @Override

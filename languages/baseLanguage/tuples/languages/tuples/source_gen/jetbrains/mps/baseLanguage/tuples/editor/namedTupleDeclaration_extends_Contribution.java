@@ -65,21 +65,13 @@ public class namedTupleDeclaration_extends_Contribution extends SubstituteMenuBa
       return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_evf1f9_a0(), CONCEPTS.ClassifierType$bL));
     }
     private class SMP_Param_evf1f9_a0 extends ParameterizedMenuPart<SNode, SubstituteMenuItem, SubstituteMenuContext> {
+      /*package*/ SMP_Param_evf1f9_a0() {
+        super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:a841fea4-52c0-4064-96f2-7687a509aba5(jetbrains.mps.baseLanguage.tuples.editor)", "1741258697587120973")));
+      }
       @NotNull
       @Override
       protected List<SubstituteMenuItem> createItems(SNode parameter, SubstituteMenuContext context) {
         return new SMP_Action_evf1f9_a0a(parameter).createItems(context);
-      }
-      @NotNull
-      @Override
-      public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-        context.getEditorMenuTrace().pushTraceInfo();
-        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:a841fea4-52c0-4064-96f2-7687a509aba5(jetbrains.mps.baseLanguage.tuples.editor)", "1741258697587120973")));
-        try {
-          return super.createItems(context);
-        } finally {
-          context.getEditorMenuTrace().popTraceInfo();
-        }
       }
       @Nullable
       @Override

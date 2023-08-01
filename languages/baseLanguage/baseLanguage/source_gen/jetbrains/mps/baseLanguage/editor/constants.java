@@ -312,21 +312,13 @@ public class constants extends SubstituteMenuBase {
     }
   }
   private class SMP_Param_w0ulk7_f extends ParameterizedMenuPart<Boolean, SubstituteMenuItem, SubstituteMenuContext> {
+    /*package*/ SMP_Param_w0ulk7_f() {
+      super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:00000000-0000-4000-0000-011c895902c3(jetbrains.mps.baseLanguage.editor)", "1741258697586958519")));
+    }
     @NotNull
     @Override
     protected List<SubstituteMenuItem> createItems(Boolean parameter, SubstituteMenuContext context) {
       return new SMP_Action_w0ulk7_a5(parameter).createItems(context);
-    }
-    @NotNull
-    @Override
-    public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:00000000-0000-4000-0000-011c895902c3(jetbrains.mps.baseLanguage.editor)", "1741258697586958519")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
     @Nullable
     @Override

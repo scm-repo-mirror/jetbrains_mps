@@ -58,7 +58,9 @@ public class Parameterized extends TransformationMenuBase {
   }
 
   private class TMP_Param_3h2zbg_a0 extends ParameterizedMenuPart<Integer, TransformationMenuItem, TransformationMenuContext> {
-
+    /*package*/ TMP_Param_3h2zbg_a0() {
+      super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:1ed8add9-1a05-4a2d-a8ee-1a24e378c5f6(jetbrains.mps.lang.editor.menus.contextAssistant.testExtendingLanguage.editor)", "4233361609417483785")));
+    }
     @NotNull
     @Override
     protected List<TransformationMenuItem> createItems(Integer parameter, TransformationMenuContext context) {
@@ -69,17 +71,6 @@ public class Parameterized extends TransformationMenuBase {
     @Override
     protected Iterable<? extends Integer> getParameters(TransformationMenuContext _context) {
       return ListSequence.fromListAndArray(new ArrayList<Integer>(), 1, 2, 3, 4);
-    }
-    @NotNull
-    @Override
-    public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:1ed8add9-1a05-4a2d-a8ee-1a24e378c5f6(jetbrains.mps.lang.editor.menus.contextAssistant.testExtendingLanguage.editor)", "4233361609417483785")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
 
     private class TMP_Action_3h2zbg_a0a extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {

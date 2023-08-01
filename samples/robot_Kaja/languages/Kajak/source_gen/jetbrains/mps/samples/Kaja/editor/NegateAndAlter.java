@@ -165,7 +165,9 @@ public class NegateAndAlter extends TransformationMenuBase {
     }
   }
   private class TMP_Param_egefa8_b0 extends ParameterizedMenuPart<String, TransformationMenuItem, TransformationMenuContext> {
-
+    /*package*/ TMP_Param_egefa8_b0() {
+      super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:18c202d7-badd-41dd-bd9e-9d42a045e4f4(jetbrains.mps.samples.Kaja.editor)", "1741258697587172947")));
+    }
     @NotNull
     @Override
     protected List<TransformationMenuItem> createItems(String parameter, TransformationMenuContext context) {
@@ -176,17 +178,6 @@ public class NegateAndAlter extends TransformationMenuBase {
     @Override
     protected Iterable<? extends String> getParameters(TransformationMenuContext _context) {
       return ListSequence.fromListAndArray(new ArrayList<String>(), "heading", "mark", "full", "wall", "looking");
-    }
-    @NotNull
-    @Override
-    public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:18c202d7-badd-41dd-bd9e-9d42a045e4f4(jetbrains.mps.samples.Kaja.editor)", "1741258697587172947")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
 
     private class TMP_Action_egefa8_a1a extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {

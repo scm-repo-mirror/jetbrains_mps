@@ -281,7 +281,9 @@ public class MenuTraceTransformationChild_TransformationMenu extends Transformat
 
   }
   private class TMP_Param_mhpf25_e0 extends ParameterizedMenuPart<String, TransformationMenuItem, TransformationMenuContext> {
-
+    /*package*/ TMP_Param_mhpf25_e0() {
+      super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:12055fd0-2d7f-4ac3-93ec-28bb09579a63(jetbrains.mps.lang.editor.editorTest.editor)", "1384684774806558677")));
+    }
     @NotNull
     @Override
     protected List<TransformationMenuItem> createItems(String parameter, TransformationMenuContext context) {
@@ -292,17 +294,6 @@ public class MenuTraceTransformationChild_TransformationMenu extends Transformat
     @Override
     protected Iterable<? extends String> getParameters(TransformationMenuContext _context) {
       return ListSequence.fromListAndArray(new ArrayList<String>(), "parameter");
-    }
-    @NotNull
-    @Override
-    public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:12055fd0-2d7f-4ac3-93ec-28bb09579a63(jetbrains.mps.lang.editor.editorTest.editor)", "1384684774806558677")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
 
     private class TMP_Action_mhpf25_a4a extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {

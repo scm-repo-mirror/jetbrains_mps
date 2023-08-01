@@ -49,21 +49,13 @@ public class GenerationContextOp_ContextVarRef_SubstituteMenu extends Substitute
   }
 
   private class SMP_Param_adcwvm_a extends ParameterizedMenuPart<String, SubstituteMenuItem, SubstituteMenuContext> {
+    /*package*/ SMP_Param_adcwvm_a() {
+      super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:00000000-0000-4000-0000-011c895902f0(jetbrains.mps.lang.generator.generationContext.editor)", "1741258697587063894")));
+    }
     @NotNull
     @Override
     protected List<SubstituteMenuItem> createItems(String parameter, SubstituteMenuContext context) {
       return new SMP_Action_adcwvm_a0(parameter).createItems(context);
-    }
-    @NotNull
-    @Override
-    public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:00000000-0000-4000-0000-011c895902f0(jetbrains.mps.lang.generator.generationContext.editor)", "1741258697587063894")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
     @Nullable
     @Override

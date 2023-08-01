@@ -42,21 +42,13 @@ public class LoopMacroNamespaceAccessor_SubstituteMenu extends SubstituteMenuBas
   }
 
   private class SMP_Param_go89nz_b extends ParameterizedMenuPart<SEnumerationLiteral, SubstituteMenuItem, SubstituteMenuContext> {
+    /*package*/ SMP_Param_go89nz_b() {
+      super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:00000000-0000-4000-0000-011c895902e3(jetbrains.mps.lang.generator.editor)", "1501378878163416959")));
+    }
     @NotNull
     @Override
     protected List<SubstituteMenuItem> createItems(SEnumerationLiteral parameter, SubstituteMenuContext context) {
       return new SMP_Action_go89nz_a1(parameter).createItems(context);
-    }
-    @NotNull
-    @Override
-    public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:00000000-0000-4000-0000-011c895902e3(jetbrains.mps.lang.generator.editor)", "1501378878163416959")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
     @Nullable
     @Override

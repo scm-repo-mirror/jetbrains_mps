@@ -80,7 +80,9 @@ public class CustomOperatorUsageTransform_Contribution extends TransformationMen
   }
 
   private class TMP_Param_z54bif_a0 extends ParameterizedMenuPart<SNode, TransformationMenuItem, TransformationMenuContext> {
-
+    /*package*/ TMP_Param_z54bif_a0() {
+      super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:13d16a02-6fc1-4986-8d3c-61aadbaeccd7(jetbrains.mps.baseLanguage.overloadedOperators.editor)", "1741258697587178581")));
+    }
     @NotNull
     @Override
     protected List<TransformationMenuItem> createItems(SNode parameter, TransformationMenuContext context) {
@@ -91,17 +93,6 @@ public class CustomOperatorUsageTransform_Contribution extends TransformationMen
     @Override
     protected Iterable<? extends SNode> getParameters(TransformationMenuContext _context) {
       return (List<SNode>) CustomOperatorUsage__BehaviorDescriptor.getVisibleCustomOperators_idZogSShiOAT.invoke(SNodeOperations.asSConcept(CONCEPTS.CustomOperatorUsage$Hd), _context.getModel());
-    }
-    @NotNull
-    @Override
-    public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:13d16a02-6fc1-4986-8d3c-61aadbaeccd7(jetbrains.mps.baseLanguage.overloadedOperators.editor)", "1741258697587178581")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
 
     private class TMP_Action_z54bif_a0a extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {

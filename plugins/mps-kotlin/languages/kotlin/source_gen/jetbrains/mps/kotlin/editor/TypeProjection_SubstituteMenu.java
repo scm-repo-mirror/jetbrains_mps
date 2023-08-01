@@ -100,21 +100,13 @@ public class TypeProjection_SubstituteMenu extends SubstituteMenuBase {
     }
   }
   private class SMP_Param_srsv3r_b extends ParameterizedMenuPart<SEnumerationLiteral, SubstituteMenuItem, SubstituteMenuContext> {
+    /*package*/ SMP_Param_srsv3r_b() {
+      super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:5e60d3fe-71b1-4c17-b38e-424792223875(jetbrains.mps.kotlin.editor)", "6153771967695269758")));
+    }
     @NotNull
     @Override
     protected List<SubstituteMenuItem> createItems(SEnumerationLiteral parameter, SubstituteMenuContext context) {
       return new SMP_Action_srsv3r_a1(parameter).createItems(context);
-    }
-    @NotNull
-    @Override
-    public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:5e60d3fe-71b1-4c17-b38e-424792223875(jetbrains.mps.kotlin.editor)", "6153771967695269758")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
     @Nullable
     @Override

@@ -400,7 +400,9 @@ public class Regexp_TransformationMenu extends TransformationMenuBase {
 
     }
     private class TMP_Param_luzgqn_d0b extends ParameterizedMenuPart<SConcept, TransformationMenuItem, TransformationMenuContext> {
-
+      /*package*/ TMP_Param_luzgqn_d0b() {
+        super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:00000000-0000-4000-0000-011c89590516(jetbrains.mps.baseLanguage.regexp.editor)", "1741258697587056681")));
+      }
       @NotNull
       @Override
       protected List<TransformationMenuItem> createItems(SConcept parameter, TransformationMenuContext context) {
@@ -411,17 +413,6 @@ public class Regexp_TransformationMenu extends TransformationMenuBase {
       @Override
       protected Iterable<? extends SConcept> getParameters(TransformationMenuContext _context) {
         return ListSequence.fromListAndArray(new ArrayList<SConcept>(), CONCEPTS.StarRegexp$8, CONCEPTS.PlusRegexp$Ye, CONCEPTS.QuestionRegexp$sg, CONCEPTS.LazyPlusRegexp$Du, CONCEPTS.LazyQuestionRegexp$hb, CONCEPTS.LazyStarRegexp$tp);
-      }
-      @NotNull
-      @Override
-      public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-        context.getEditorMenuTrace().pushTraceInfo();
-        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:00000000-0000-4000-0000-011c89590516(jetbrains.mps.baseLanguage.regexp.editor)", "1741258697587056681")));
-        try {
-          return super.createItems(context);
-        } finally {
-          context.getEditorMenuTrace().popTraceInfo();
-        }
       }
 
       private class TMP_Action_luzgqn_a3a1 extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
@@ -634,7 +625,9 @@ public class Regexp_TransformationMenu extends TransformationMenuBase {
 
   }
   private class TMP_Param_luzgqn_d1 extends ParameterizedMenuPart<SConcept, TransformationMenuItem, TransformationMenuContext> {
-
+    /*package*/ TMP_Param_luzgqn_d1() {
+      super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:00000000-0000-4000-0000-011c89590516(jetbrains.mps.baseLanguage.regexp.editor)", "1741258697587056801")));
+    }
     @NotNull
     @Override
     protected List<TransformationMenuItem> createItems(SConcept parameter, TransformationMenuContext context) {
@@ -654,17 +647,6 @@ public class Regexp_TransformationMenu extends TransformationMenuBase {
         }
         return true;
       }).toList();
-    }
-    @NotNull
-    @Override
-    public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:00000000-0000-4000-0000-011c89590516(jetbrains.mps.baseLanguage.regexp.editor)", "1741258697587056801")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
 
     private class TMP_Action_luzgqn_a3b extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
@@ -812,7 +794,9 @@ public class Regexp_TransformationMenu extends TransformationMenuBase {
     }
   }
   private class TMP_Param_luzgqn_f1 extends ParameterizedMenuPart<SNode, TransformationMenuItem, TransformationMenuContext> {
-
+    /*package*/ TMP_Param_luzgqn_f1() {
+      super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:00000000-0000-4000-0000-011c89590516(jetbrains.mps.baseLanguage.regexp.editor)", "1741258697587057009")));
+    }
     @NotNull
     @Override
     protected List<TransformationMenuItem> createItems(SNode parameter, TransformationMenuContext context) {
@@ -823,17 +807,6 @@ public class Regexp_TransformationMenu extends TransformationMenuBase {
     @Override
     protected Iterable<? extends SNode> getParameters(TransformationMenuContext _context) {
       return SModelOperations.nodesIncludingImported(SNodeOperations.getModel(_context.getNode()), CONCEPTS.PredefinedSymbolClassDeclaration$K0);
-    }
-    @NotNull
-    @Override
-    public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:00000000-0000-4000-0000-011c89590516(jetbrains.mps.baseLanguage.regexp.editor)", "1741258697587057009")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
 
     private class TMP_Action_luzgqn_a5b extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
@@ -917,7 +890,9 @@ public class Regexp_TransformationMenu extends TransformationMenuBase {
     }
   }
   private class TMP_Param_luzgqn_g1 extends ParameterizedMenuPart<SNode, TransformationMenuItem, TransformationMenuContext> {
-
+    /*package*/ TMP_Param_luzgqn_g1() {
+      super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:00000000-0000-4000-0000-011c89590516(jetbrains.mps.baseLanguage.regexp.editor)", "1741258697587057091")));
+    }
     @NotNull
     @Override
     protected List<TransformationMenuItem> createItems(SNode parameter, TransformationMenuContext context) {
@@ -928,17 +903,6 @@ public class Regexp_TransformationMenu extends TransformationMenuBase {
     @Override
     protected Iterable<? extends SNode> getParameters(TransformationMenuContext _context) {
       return SModelOperations.nodesIncludingImported(SNodeOperations.getModel(_context.getNode()), CONCEPTS.RegexpDeclaration$6D);
-    }
-    @NotNull
-    @Override
-    public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:00000000-0000-4000-0000-011c89590516(jetbrains.mps.baseLanguage.regexp.editor)", "1741258697587057091")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
 
     private class TMP_Action_luzgqn_a6b extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {

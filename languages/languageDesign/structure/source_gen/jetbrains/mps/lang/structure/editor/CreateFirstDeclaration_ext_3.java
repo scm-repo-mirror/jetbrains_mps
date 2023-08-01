@@ -178,7 +178,9 @@ public class CreateFirstDeclaration_ext_3 extends TransformationMenuBase {
 
     }
     private class TMP_Param_zaql1a_b0a extends ParameterizedMenuPart<SNode, TransformationMenuItem, TransformationMenuContext> {
-
+      /*package*/ TMP_Param_zaql1a_b0a() {
+        super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:00000000-0000-4000-0000-011c8959028d(jetbrains.mps.lang.structure.editor)", "1741258697587065330")));
+      }
       @NotNull
       @Override
       protected List<TransformationMenuItem> createItems(SNode parameter, TransformationMenuContext context) {
@@ -189,17 +191,6 @@ public class CreateFirstDeclaration_ext_3 extends TransformationMenuBase {
       @Override
       protected Iterable<? extends SNode> getParameters(TransformationMenuContext _context) {
         return Sequence.fromIterable(Scopes.forConcepts(_context.getNode(), CONCEPTS.AbstractConceptDeclaration$KA).getAvailableElements("")).select((it) -> SNodeOperations.as(it, CONCEPTS.AbstractConceptDeclaration$KA)).where((it) -> it != null).toList();
-      }
-      @NotNull
-      @Override
-      public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-        context.getEditorMenuTrace().pushTraceInfo();
-        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:00000000-0000-4000-0000-011c8959028d(jetbrains.mps.lang.structure.editor)", "1741258697587065330")));
-        try {
-          return super.createItems(context);
-        } finally {
-          context.getEditorMenuTrace().popTraceInfo();
-        }
       }
 
       private class TMP_Action_zaql1a_a1a0 extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {

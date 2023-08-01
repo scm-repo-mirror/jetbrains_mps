@@ -40,21 +40,13 @@ public class BuildSource_JavaContentFolder_SubstituteMenu extends SubstituteMenu
   }
 
   private class SMP_Param_v1e5qc_a extends ParameterizedMenuPart<String, SubstituteMenuItem, SubstituteMenuContext> {
+    /*package*/ SMP_Param_v1e5qc_a() {
+      super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:00f69407-23a8-49a2-a236-9e89a32679aa(jetbrains.mps.build.editor)", "1741258697587201658")));
+    }
     @NotNull
     @Override
     protected List<SubstituteMenuItem> createItems(String parameter, SubstituteMenuContext context) {
       return new SMP_Action_v1e5qc_a0(parameter).createItems(context);
-    }
-    @NotNull
-    @Override
-    public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:00f69407-23a8-49a2-a236-9e89a32679aa(jetbrains.mps.build.editor)", "1741258697587201658")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
     @Nullable
     @Override

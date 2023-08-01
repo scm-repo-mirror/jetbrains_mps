@@ -42,21 +42,13 @@ public class ToolKeystroke_SubstituteMenu extends SubstituteMenuBase {
   }
 
   private class SMP_Param_846jr0_a extends ParameterizedMenuPart<SEnumerationLiteral, SubstituteMenuItem, SubstituteMenuContext> {
+    /*package*/ SMP_Param_846jr0_a() {
+      super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:00000000-0000-4000-0000-011c89590363(jetbrains.mps.lang.plugin.editor)", "471625927505792533")));
+    }
     @NotNull
     @Override
     protected List<SubstituteMenuItem> createItems(SEnumerationLiteral parameter, SubstituteMenuContext context) {
       return new SMP_Action_846jr0_a0(parameter).createItems(context);
-    }
-    @NotNull
-    @Override
-    public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:00000000-0000-4000-0000-011c89590363(jetbrains.mps.lang.plugin.editor)", "471625927505792533")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
     @Nullable
     @Override

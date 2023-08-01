@@ -92,7 +92,9 @@ public class TextCommentLinePart_TransformationMenu extends TransformationMenuBa
   }
 
   private class TMP_Param_rifg0n_a1 extends ParameterizedMenuPart<String, TransformationMenuItem, TransformationMenuContext> {
-
+    /*package*/ TMP_Param_rifg0n_a1() {
+      super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:87ed07dc-bdb2-44c5-8db4-8d5a74e959ff(jetbrains.mps.baseLanguage.javadoc.editor)", "1741258697587168113")));
+    }
     @NotNull
     @Override
     protected List<TransformationMenuItem> createItems(String parameter, TransformationMenuContext context) {
@@ -111,17 +113,6 @@ public class TextCommentLinePart_TransformationMenu extends TransformationMenuBa
         ListSequence.fromList(options).addElement("@return");
       }
       return options;
-    }
-    @NotNull
-    @Override
-    public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:87ed07dc-bdb2-44c5-8db4-8d5a74e959ff(jetbrains.mps.baseLanguage.javadoc.editor)", "1741258697587168113")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
 
     private class TMP_Action_rifg0n_a0b extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {

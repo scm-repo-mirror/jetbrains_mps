@@ -67,21 +67,13 @@ public class ResultStatement_subs extends SubstituteMenuBase {
       return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_358bbk_a0(), CONCEPTS.ResultStatement$fI));
     }
     private class SMP_Param_358bbk_a0 extends ParameterizedMenuPart<SEnumerationLiteral, SubstituteMenuItem, SubstituteMenuContext> {
+      /*package*/ SMP_Param_358bbk_a0() {
+        super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:997bd332-957d-4e59-bb10-bc8a630d5568(jetbrains.mps.make.script.editor)", "1741258697587105057")));
+      }
       @NotNull
       @Override
       protected List<SubstituteMenuItem> createItems(SEnumerationLiteral parameter, SubstituteMenuContext context) {
         return new SMP_Action_358bbk_a0a(parameter).createItems(context);
-      }
-      @NotNull
-      @Override
-      public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-        context.getEditorMenuTrace().pushTraceInfo();
-        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:997bd332-957d-4e59-bb10-bc8a630d5568(jetbrains.mps.make.script.editor)", "1741258697587105057")));
-        try {
-          return super.createItems(context);
-        } finally {
-          context.getEditorMenuTrace().popTraceInfo();
-        }
       }
       @Nullable
       @Override

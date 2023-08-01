@@ -91,7 +91,9 @@ public class ActionTestSidetransformAnotherAbstractChild_TransformationMenu exte
   }
 
   private class TMP_Param_qh3wu9_a1 extends ParameterizedMenuPart<SConcept, TransformationMenuItem, TransformationMenuContext> {
-
+    /*package*/ TMP_Param_qh3wu9_a1() {
+      super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:6f930e62-d183-4ca9-a17e-cab70bc506c7(jetbrains.mps.lang.actions.testLanguage.editor)", "1741258697587036339")));
+    }
     @NotNull
     @Override
     protected List<TransformationMenuItem> createItems(SConcept parameter, TransformationMenuContext context) {
@@ -102,17 +104,6 @@ public class ActionTestSidetransformAnotherAbstractChild_TransformationMenu exte
     @Override
     protected Iterable<? extends SConcept> getParameters(TransformationMenuContext _context) {
       return ListSequence.fromList(SConceptOperations.getAllSubConcepts2(CONCEPTS.ActionTestSidetransformAnotherChildCommonSuperConcept$yl, _context.getModel())).where((it) -> !(it.isAbstract())).toList();
-    }
-    @NotNull
-    @Override
-    public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:6f930e62-d183-4ca9-a17e-cab70bc506c7(jetbrains.mps.lang.actions.testLanguage.editor)", "1741258697587036339")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
 
     private class TMP_Action_qh3wu9_a0b extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
@@ -186,7 +177,9 @@ public class ActionTestSidetransformAnotherAbstractChild_TransformationMenu exte
     }
   }
   private class TMP_Param_qh3wu9_a2 extends ParameterizedMenuPart<SConcept, TransformationMenuItem, TransformationMenuContext> {
-
+    /*package*/ TMP_Param_qh3wu9_a2() {
+      super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:6f930e62-d183-4ca9-a17e-cab70bc506c7(jetbrains.mps.lang.actions.testLanguage.editor)", "1741258697587036402")));
+    }
     @NotNull
     @Override
     protected List<TransformationMenuItem> createItems(SConcept parameter, TransformationMenuContext context) {
@@ -197,17 +190,6 @@ public class ActionTestSidetransformAnotherAbstractChild_TransformationMenu exte
     @Override
     protected Iterable<? extends SConcept> getParameters(TransformationMenuContext _context) {
       return ListSequence.fromList(SConceptOperations.getAllSubConcepts2(CONCEPTS.ActionTestSidetransformAnotherChildCommonSuperConcept$yl, _context.getModel())).where((it) -> !(it.isAbstract())).toList();
-    }
-    @NotNull
-    @Override
-    public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:6f930e62-d183-4ca9-a17e-cab70bc506c7(jetbrains.mps.lang.actions.testLanguage.editor)", "1741258697587036402")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
 
     private class TMP_Action_qh3wu9_a0c extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {

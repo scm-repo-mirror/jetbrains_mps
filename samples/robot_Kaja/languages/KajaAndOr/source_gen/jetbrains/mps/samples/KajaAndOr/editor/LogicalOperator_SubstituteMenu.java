@@ -38,21 +38,13 @@ public class LogicalOperator_SubstituteMenu extends SubstituteMenuBase {
   }
 
   private class SMP_Param_vciz2d_a extends ParameterizedMenuPart<SConcept, SubstituteMenuItem, SubstituteMenuContext> {
+    /*package*/ SMP_Param_vciz2d_a() {
+      super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:6aa6f228-56c3-4d3a-b03e-4204df10c967(jetbrains.mps.samples.KajaAndOr.editor)", "1741258697587098604")));
+    }
     @NotNull
     @Override
     protected List<SubstituteMenuItem> createItems(SConcept parameter, SubstituteMenuContext context) {
       return new SMP_Action_vciz2d_a0(parameter).createItems(context);
-    }
-    @NotNull
-    @Override
-    public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:6aa6f228-56c3-4d3a-b03e-4204df10c967(jetbrains.mps.samples.KajaAndOr.editor)", "1741258697587098604")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
     @Nullable
     @Override

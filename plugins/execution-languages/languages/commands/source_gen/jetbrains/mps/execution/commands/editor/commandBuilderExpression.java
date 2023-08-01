@@ -41,21 +41,13 @@ public class commandBuilderExpression extends SubstituteMenuBase {
   }
 
   private class SMP_Param_rk0f2c_a extends ParameterizedMenuPart<SNode, SubstituteMenuItem, SubstituteMenuContext> {
+    /*package*/ SMP_Param_rk0f2c_a() {
+      super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:e255c21e-d39c-4295-8088-dd96816b455c(jetbrains.mps.execution.commands.editor)", "1741258697587104190")));
+    }
     @NotNull
     @Override
     protected List<SubstituteMenuItem> createItems(SNode parameter, SubstituteMenuContext context) {
       return new SMP_Action_rk0f2c_a0(parameter).createItems(context);
-    }
-    @NotNull
-    @Override
-    public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:e255c21e-d39c-4295-8088-dd96816b455c(jetbrains.mps.execution.commands.editor)", "1741258697587104190")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
     @Nullable
     @Override

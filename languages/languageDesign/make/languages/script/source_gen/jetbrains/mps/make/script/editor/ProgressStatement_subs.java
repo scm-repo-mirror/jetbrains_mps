@@ -102,21 +102,13 @@ public class ProgressStatement_subs extends SubstituteMenuBase {
       }
     }
     private class SMP_Param_kz2qu0_d0 extends ParameterizedMenuPart<SNode, SubstituteMenuItem, SubstituteMenuContext> {
+      /*package*/ SMP_Param_kz2qu0_d0() {
+        super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:997bd332-957d-4e59-bb10-bc8a630d5568(jetbrains.mps.make.script.editor)", "1741258697587105481")));
+      }
       @NotNull
       @Override
       protected List<SubstituteMenuItem> createItems(SNode parameter, SubstituteMenuContext context) {
         return new SMP_Action_kz2qu0_a3a(parameter).createItems(context);
-      }
-      @NotNull
-      @Override
-      public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-        context.getEditorMenuTrace().pushTraceInfo();
-        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:997bd332-957d-4e59-bb10-bc8a630d5568(jetbrains.mps.make.script.editor)", "1741258697587105481")));
-        try {
-          return super.createItems(context);
-        } finally {
-          context.getEditorMenuTrace().popTraceInfo();
-        }
       }
       @Nullable
       @Override
@@ -179,21 +171,13 @@ public class ProgressStatement_subs extends SubstituteMenuBase {
 
     }
     private class SMP_Param_kz2qu0_e0 extends ParameterizedMenuPart<SNode, SubstituteMenuItem, SubstituteMenuContext> {
+      /*package*/ SMP_Param_kz2qu0_e0() {
+        super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:997bd332-957d-4e59-bb10-bc8a630d5568(jetbrains.mps.make.script.editor)", "1741258697587105601")));
+      }
       @NotNull
       @Override
       protected List<SubstituteMenuItem> createItems(SNode parameter, SubstituteMenuContext context) {
         return new SMP_Action_kz2qu0_a4a(parameter).createItems(context);
-      }
-      @NotNull
-      @Override
-      public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-        context.getEditorMenuTrace().pushTraceInfo();
-        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:997bd332-957d-4e59-bb10-bc8a630d5568(jetbrains.mps.make.script.editor)", "1741258697587105601")));
-        try {
-          return super.createItems(context);
-        } finally {
-          context.getEditorMenuTrace().popTraceInfo();
-        }
       }
       @Nullable
       @Override

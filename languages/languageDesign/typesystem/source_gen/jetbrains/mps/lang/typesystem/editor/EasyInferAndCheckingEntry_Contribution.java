@@ -72,21 +72,13 @@ public class EasyInferAndCheckingEntry_Contribution extends SubstituteMenuBase {
       return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_myynyp_a0(), CONCEPTS.CreateLessThanInequationStatement$Qs));
     }
     private class SMP_Param_myynyp_a0 extends ParameterizedMenuPart<String, SubstituteMenuItem, SubstituteMenuContext> {
+      /*package*/ SMP_Param_myynyp_a0() {
+        super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:00000000-0000-4000-0000-011c895902b0(jetbrains.mps.lang.typesystem.editor)", "1741258697587166785")));
+      }
       @NotNull
       @Override
       protected List<SubstituteMenuItem> createItems(String parameter, SubstituteMenuContext context) {
         return new SMP_Action_myynyp_a0a(parameter).createItems(context);
-      }
-      @NotNull
-      @Override
-      public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-        context.getEditorMenuTrace().pushTraceInfo();
-        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:00000000-0000-4000-0000-011c895902b0(jetbrains.mps.lang.typesystem.editor)", "1741258697587166785")));
-        try {
-          return super.createItems(context);
-        } finally {
-          context.getEditorMenuTrace().popTraceInfo();
-        }
       }
       @Nullable
       @Override

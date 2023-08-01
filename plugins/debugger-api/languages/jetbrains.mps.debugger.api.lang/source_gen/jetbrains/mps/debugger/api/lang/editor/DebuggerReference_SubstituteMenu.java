@@ -49,21 +49,13 @@ public class DebuggerReference_SubstituteMenu extends SubstituteMenuBase {
   }
 
   private class SMP_Param_kfxouf_a extends ParameterizedMenuPart<String, SubstituteMenuItem, SubstituteMenuContext> {
+    /*package*/ SMP_Param_kfxouf_a() {
+      super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:600c053c-afd8-419c-b24b-2550d269af72(jetbrains.mps.debugger.api.lang.editor)", "1741258697587147834")));
+    }
     @NotNull
     @Override
     protected List<SubstituteMenuItem> createItems(String parameter, SubstituteMenuContext context) {
       return new SMP_Action_kfxouf_a0(parameter).createItems(context);
-    }
-    @NotNull
-    @Override
-    public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:600c053c-afd8-419c-b24b-2550d269af72(jetbrains.mps.debugger.api.lang.editor)", "1741258697587147834")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
     @Nullable
     @Override

@@ -113,7 +113,9 @@ public class ThisClassifierExpression_TransformationMenu extends TransformationM
       return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new TMP_Param_myg648_a0b());
     }
     private class TMP_Param_myg648_a0b extends ParameterizedMenuPart<SNode, TransformationMenuItem, TransformationMenuContext> {
-
+      /*package*/ TMP_Param_myg648_a0b() {
+        super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:00000000-0000-4000-0000-011c89590370(jetbrains.mps.baseLanguage.classifiers.editor)", "1741258697587053465")));
+      }
       @NotNull
       @Override
       protected List<TransformationMenuItem> createItems(SNode parameter, TransformationMenuContext context) {
@@ -124,17 +126,6 @@ public class ThisClassifierExpression_TransformationMenu extends TransformationM
       @Override
       protected Iterable<? extends SNode> getParameters(TransformationMenuContext _context) {
         return (List<SNode>) ThisClassifierExpression__BehaviorDescriptor.getPossibleClassifiers_idhJm8WEN.invoke(_context.getNode());
-      }
-      @NotNull
-      @Override
-      public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-        context.getEditorMenuTrace().pushTraceInfo();
-        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:00000000-0000-4000-0000-011c89590370(jetbrains.mps.baseLanguage.classifiers.editor)", "1741258697587053465")));
-        try {
-          return super.createItems(context);
-        } finally {
-          context.getEditorMenuTrace().popTraceInfo();
-        }
       }
 
       private class TMP_Action_myg648_a0a1 extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {

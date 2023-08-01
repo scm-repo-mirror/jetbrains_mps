@@ -72,7 +72,9 @@ public class ConceptTypeParameter_TransformationMenu extends TransformationMenuB
   }
 
   private class TMP_Param_wnfc0w_a0 extends ParameterizedMenuPart<SEnumerationLiteral, TransformationMenuItem, TransformationMenuContext> {
-
+    /*package*/ TMP_Param_wnfc0w_a0() {
+      super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:ea3af2e4-d2a0-4af5-9025-3843d79c1cde(jetbrains.mps.kotlin.smodel.editor)", "4217388692997057258")));
+    }
     @NotNull
     @Override
     protected List<TransformationMenuItem> createItems(SEnumerationLiteral parameter, TransformationMenuContext context) {
@@ -83,17 +85,6 @@ public class ConceptTypeParameter_TransformationMenu extends TransformationMenuB
     @Override
     protected Iterable<? extends SEnumerationLiteral> getParameters(TransformationMenuContext _context) {
       return SEnumOperations.getMembers(MetaAdapterFactory.getEnumeration(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x21e0c923289a2189L, "jetbrains.mps.kotlin.structure.VarianceModifier"));
-    }
-    @NotNull
-    @Override
-    public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:ea3af2e4-d2a0-4af5-9025-3843d79c1cde(jetbrains.mps.kotlin.smodel.editor)", "4217388692997057258")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
 
     private class TMP_Action_wnfc0w_a0a extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {

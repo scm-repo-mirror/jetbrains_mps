@@ -116,7 +116,9 @@ public class LinkDeclaration_TransformationMenu extends TransformationMenuBase {
       return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new TMP_Param_bjuler_a0b());
     }
     private class TMP_Param_bjuler_a0b extends ParameterizedMenuPart<SNode, TransformationMenuItem, TransformationMenuContext> {
-
+      /*package*/ TMP_Param_bjuler_a0b() {
+        super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:00000000-0000-4000-0000-011c8959028d(jetbrains.mps.lang.structure.editor)", "1741258697587064920")));
+      }
       @NotNull
       @Override
       protected List<TransformationMenuItem> createItems(SNode parameter, TransformationMenuContext context) {
@@ -140,17 +142,6 @@ public class LinkDeclaration_TransformationMenu extends TransformationMenuBase {
           }));
         }
         return ListSequence.fromList(result).distinct().toList();
-      }
-      @NotNull
-      @Override
-      public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-        context.getEditorMenuTrace().pushTraceInfo();
-        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:00000000-0000-4000-0000-011c8959028d(jetbrains.mps.lang.structure.editor)", "1741258697587064920")));
-        try {
-          return super.createItems(context);
-        } finally {
-          context.getEditorMenuTrace().popTraceInfo();
-        }
       }
 
       private class TMP_Action_bjuler_a0a1 extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {

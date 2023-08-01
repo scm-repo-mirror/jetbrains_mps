@@ -39,21 +39,13 @@ public class AttributeInfo_IsMultiple_SubstituteMenu extends SubstituteMenuBase 
   }
 
   private class SMP_Param_lk1ofo_a extends ParameterizedMenuPart<Boolean, SubstituteMenuItem, SubstituteMenuContext> {
+    /*package*/ SMP_Param_lk1ofo_a() {
+      super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:00000000-0000-4000-0000-011c8959028d(jetbrains.mps.lang.structure.editor)", "1741258697587094588")));
+    }
     @NotNull
     @Override
     protected List<SubstituteMenuItem> createItems(Boolean parameter, SubstituteMenuContext context) {
       return new SMP_Action_lk1ofo_a0(parameter).createItems(context);
-    }
-    @NotNull
-    @Override
-    public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:00000000-0000-4000-0000-011c8959028d(jetbrains.mps.lang.structure.editor)", "1741258697587094588")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
     @Nullable
     @Override

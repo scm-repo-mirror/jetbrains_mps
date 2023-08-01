@@ -262,7 +262,9 @@ public class ML_SideTransforms_Expression_Contribution extends TransformationMen
       return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new TMP_Param_7vmljf_a2a());
     }
     private class TMP_Param_7vmljf_a2a extends ParameterizedMenuPart<SConcept, TransformationMenuItem, TransformationMenuContext> {
-
+      /*package*/ TMP_Param_7vmljf_a2a() {
+        super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:93eafd6e-0a56-402c-930d-564027be226b(jetbrains.mps.baseLanguage.math.editor)", "5123146117298459872")));
+      }
       @NotNull
       @Override
       protected List<TransformationMenuItem> createItems(SConcept parameter, TransformationMenuContext context) {
@@ -279,17 +281,6 @@ public class ML_SideTransforms_Expression_Contribution extends TransformationMen
           }
         }
         return result;
-      }
-      @NotNull
-      @Override
-      public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-        context.getEditorMenuTrace().pushTraceInfo();
-        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:93eafd6e-0a56-402c-930d-564027be226b(jetbrains.mps.baseLanguage.math.editor)", "5123146117298459872")));
-        try {
-          return super.createItems(context);
-        } finally {
-          context.getEditorMenuTrace().popTraceInfo();
-        }
       }
 
       private class TMP_Action_7vmljf_a0c0 extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {

@@ -107,21 +107,13 @@ public class Type_SubstituteMenu extends SubstituteMenuBase {
         return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_mqq6an_a0a(), CONCEPTS.TypeVariableReference$WL), new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_mqq6an_b0a(), CONCEPTS.ClassifierType$bL));
       }
       private class SMP_Param_mqq6an_a0a extends ParameterizedMenuPart<SNode, SubstituteMenuItem, SubstituteMenuContext> {
+        /*package*/ SMP_Param_mqq6an_a0a() {
+          super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:00000000-0000-4000-0000-011c895902c3(jetbrains.mps.baseLanguage.editor)", "1741258697586959375")));
+        }
         @NotNull
         @Override
         protected List<SubstituteMenuItem> createItems(SNode parameter, SubstituteMenuContext context) {
           return new SMP_Action_mqq6an_a0a0(parameter).createItems(context);
-        }
-        @NotNull
-        @Override
-        public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-          context.getEditorMenuTrace().pushTraceInfo();
-          context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:00000000-0000-4000-0000-011c895902c3(jetbrains.mps.baseLanguage.editor)", "1741258697586959375")));
-          try {
-            return super.createItems(context);
-          } finally {
-            context.getEditorMenuTrace().popTraceInfo();
-          }
         }
         @Nullable
         @Override
@@ -184,21 +176,13 @@ public class Type_SubstituteMenu extends SubstituteMenuBase {
 
       }
       private class SMP_Param_mqq6an_b0a extends ParameterizedMenuPart<SNode, SubstituteMenuItem, SubstituteMenuContext> {
+        /*package*/ SMP_Param_mqq6an_b0a() {
+          super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:00000000-0000-4000-0000-011c895902c3(jetbrains.mps.baseLanguage.editor)", "1741258697586959461")));
+        }
         @NotNull
         @Override
         protected List<SubstituteMenuItem> createItems(SNode parameter, SubstituteMenuContext context) {
           return new SMP_Action_mqq6an_a1a0(parameter).createItems(context);
-        }
-        @NotNull
-        @Override
-        public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-          context.getEditorMenuTrace().pushTraceInfo();
-          context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:00000000-0000-4000-0000-011c895902c3(jetbrains.mps.baseLanguage.editor)", "1741258697586959461")));
-          try {
-            return super.createItems(context);
-          } finally {
-            context.getEditorMenuTrace().popTraceInfo();
-          }
         }
         @Nullable
         @Override

@@ -42,21 +42,13 @@ public class ActionTestChildToWrap1_SubstituteMenu extends SubstituteMenuBase {
   }
 
   private class SMP_Param_kxaev4_a extends ParameterizedMenuPart<SConcept, SubstituteMenuItem, SubstituteMenuContext> {
+    /*package*/ SMP_Param_kxaev4_a() {
+      super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:6f930e62-d183-4ca9-a17e-cab70bc506c7(jetbrains.mps.lang.actions.testLanguage.editor)", "1741258697587039175")));
+    }
     @NotNull
     @Override
     protected List<SubstituteMenuItem> createItems(SConcept parameter, SubstituteMenuContext context) {
       return new SMP_Action_kxaev4_a0(parameter).createItems(context);
-    }
-    @NotNull
-    @Override
-    public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:6f930e62-d183-4ca9-a17e-cab70bc506c7(jetbrains.mps.lang.actions.testLanguage.editor)", "1741258697587039175")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
     @Nullable
     @Override

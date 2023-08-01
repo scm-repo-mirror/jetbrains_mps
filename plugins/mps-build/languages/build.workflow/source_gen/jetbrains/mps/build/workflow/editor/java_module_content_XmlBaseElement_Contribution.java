@@ -63,21 +63,13 @@ public class java_module_content_XmlBaseElement_Contribution extends SubstituteM
       return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_fc12n3_a0(), CONCEPTS.XmlElement$fP));
     }
     private class SMP_Param_fc12n3_a0 extends ParameterizedMenuPart<String, SubstituteMenuItem, SubstituteMenuContext> {
+      /*package*/ SMP_Param_fc12n3_a0() {
+        super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:1267752b-a233-4432-a848-3e68e0ea0db1(jetbrains.mps.build.workflow.editor)", "1741258697587102726")));
+      }
       @NotNull
       @Override
       protected List<SubstituteMenuItem> createItems(String parameter, SubstituteMenuContext context) {
         return new SMP_Action_fc12n3_a0a(parameter).createItems(context);
-      }
-      @NotNull
-      @Override
-      public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-        context.getEditorMenuTrace().pushTraceInfo();
-        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:1267752b-a233-4432-a848-3e68e0ea0db1(jetbrains.mps.build.workflow.editor)", "1741258697587102726")));
-        try {
-          return super.createItems(context);
-        } finally {
-          context.getEditorMenuTrace().popTraceInfo();
-        }
       }
       @Nullable
       @Override

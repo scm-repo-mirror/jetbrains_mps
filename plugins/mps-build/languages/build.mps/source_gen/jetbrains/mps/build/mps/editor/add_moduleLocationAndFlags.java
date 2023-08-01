@@ -94,7 +94,9 @@ public class add_moduleLocationAndFlags extends TransformationMenuBase {
       return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new TMP_Param_vydzh3_a0a());
     }
     private class TMP_Param_vydzh3_a0a extends ParameterizedMenuPart<SEnumerationLiteral, TransformationMenuItem, TransformationMenuContext> {
-
+      /*package*/ TMP_Param_vydzh3_a0a() {
+        super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:589e3942-2f2d-42a2-9312-986a1d3e2f7f(jetbrains.mps.build.mps.editor)", "1741258697587175871")));
+      }
       @NotNull
       @Override
       protected List<TransformationMenuItem> createItems(SEnumerationLiteral parameter, TransformationMenuContext context) {
@@ -105,17 +107,6 @@ public class add_moduleLocationAndFlags extends TransformationMenuBase {
       @Override
       protected Iterable<? extends SEnumerationLiteral> getParameters(TransformationMenuContext _context) {
         return Sequence.fromArray(new SEnumerationLiteral[]{SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3be316509db4513L, "jetbrains.mps.build.mps.structure.BuildMps_ModuleSourcesKind"), 0x3be316509db455cL, "tests"), SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3be316509db4513L, "jetbrains.mps.build.mps.structure.BuildMps_ModuleSourcesKind"), 0x3be316509db4553L, "sources_and_tests")});
-      }
-      @NotNull
-      @Override
-      public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-        context.getEditorMenuTrace().pushTraceInfo();
-        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:589e3942-2f2d-42a2-9312-986a1d3e2f7f(jetbrains.mps.build.mps.editor)", "1741258697587175871")));
-        try {
-          return super.createItems(context);
-        } finally {
-          context.getEditorMenuTrace().popTraceInfo();
-        }
       }
 
       private class TMP_Action_vydzh3_a0a0 extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {

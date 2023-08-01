@@ -95,21 +95,13 @@ public class MenuTraceSubstituteChild_SubstituteMenu extends SubstituteMenuBase 
     }
   }
   private class SMP_Param_fxbim_c extends ParameterizedMenuPart<String, SubstituteMenuItem, SubstituteMenuContext> {
+    /*package*/ SMP_Param_fxbim_c() {
+      super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:12055fd0-2d7f-4ac3-93ec-28bb09579a63(jetbrains.mps.lang.editor.editorTest.editor)", "913276302143987497")));
+    }
     @NotNull
     @Override
     protected List<SubstituteMenuItem> createItems(String parameter, SubstituteMenuContext context) {
       return new SMP_Action_fxbim_a2(parameter).createItems(context);
-    }
-    @NotNull
-    @Override
-    public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:12055fd0-2d7f-4ac3-93ec-28bb09579a63(jetbrains.mps.lang.editor.editorTest.editor)", "913276302143987497")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
     @Nullable
     @Override

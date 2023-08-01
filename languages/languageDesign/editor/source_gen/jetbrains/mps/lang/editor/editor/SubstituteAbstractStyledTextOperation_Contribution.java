@@ -42,21 +42,13 @@ public class SubstituteAbstractStyledTextOperation_Contribution extends Substitu
   }
 
   private class SMP_Param_86ir5e_a extends ParameterizedMenuPart<SConcept, SubstituteMenuItem, SubstituteMenuContext> {
+    /*package*/ SMP_Param_86ir5e_a() {
+      super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:00000000-0000-4000-0000-011c89590299(jetbrains.mps.lang.editor.editor)", "1741258697587153200")));
+    }
     @NotNull
     @Override
     protected List<SubstituteMenuItem> createItems(SConcept parameter, SubstituteMenuContext context) {
       return new SMP_Action_86ir5e_a0(parameter).createItems(context);
-    }
-    @NotNull
-    @Override
-    public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:00000000-0000-4000-0000-011c89590299(jetbrains.mps.lang.editor.editor)", "1741258697587153200")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
     @Nullable
     @Override

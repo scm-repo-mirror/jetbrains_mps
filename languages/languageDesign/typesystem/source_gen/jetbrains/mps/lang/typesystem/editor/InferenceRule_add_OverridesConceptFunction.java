@@ -96,7 +96,9 @@ public class InferenceRule_add_OverridesConceptFunction extends TransformationMe
       return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new TMP_Param_5qd74_a0a());
     }
     private class TMP_Param_5qd74_a0a extends ParameterizedMenuPart<String, TransformationMenuItem, TransformationMenuContext> {
-
+      /*package*/ TMP_Param_5qd74_a0a() {
+        super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:00000000-0000-4000-0000-011c895902b0(jetbrains.mps.lang.typesystem.editor)", "1741258697587166502")));
+      }
       @NotNull
       @Override
       protected List<TransformationMenuItem> createItems(String parameter, TransformationMenuContext context) {
@@ -107,17 +109,6 @@ public class InferenceRule_add_OverridesConceptFunction extends TransformationMe
       @Override
       protected Iterable<? extends String> getParameters(TransformationMenuContext _context) {
         return Arrays.asList("true", "false", "{");
-      }
-      @NotNull
-      @Override
-      public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-        context.getEditorMenuTrace().pushTraceInfo();
-        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:00000000-0000-4000-0000-011c895902b0(jetbrains.mps.lang.typesystem.editor)", "1741258697587166502")));
-        try {
-          return super.createItems(context);
-        } finally {
-          context.getEditorMenuTrace().popTraceInfo();
-        }
       }
 
       private class TMP_Action_5qd74_a0a0 extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {

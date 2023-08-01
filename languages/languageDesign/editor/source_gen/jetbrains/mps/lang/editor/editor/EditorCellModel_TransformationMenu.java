@@ -208,7 +208,9 @@ public class EditorCellModel_TransformationMenu extends TransformationMenuBase {
 
   }
   private class TMP_Param_puymhi_c0 extends ParameterizedMenuPart<SNode, TransformationMenuItem, TransformationMenuContext> {
-
+    /*package*/ TMP_Param_puymhi_c0() {
+      super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:00000000-0000-4000-0000-011c89590299(jetbrains.mps.lang.editor.editor)", "8887077936721881133")));
+    }
     @NotNull
     @Override
     protected List<TransformationMenuItem> createItems(SNode parameter, TransformationMenuContext context) {
@@ -233,17 +235,6 @@ public class EditorCellModel_TransformationMenu extends TransformationMenuBase {
 
       Iterable<SNode> notEditedProperties = Sequence.fromIterable(allConceptProperties).subtract(Sequence.fromIterable(editedProperties)).sort((it) -> (SNodeOperations.is(it, new SNodePointer("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1169194664001")) ? 0 : 1), true);
       return (Sequence.fromIterable(notEditedProperties).isEmpty() ? Collections.<SNode>emptyList() : Collections.singletonList(Sequence.fromIterable(notEditedProperties).first()));
-    }
-    @NotNull
-    @Override
-    public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:00000000-0000-4000-0000-011c89590299(jetbrains.mps.lang.editor.editor)", "8887077936721881133")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
 
     private class TMP_Action_puymhi_a2a extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
@@ -373,7 +364,9 @@ public class EditorCellModel_TransformationMenu extends TransformationMenuBase {
 
   }
   private class TMP_Param_puymhi_e0 extends ParameterizedMenuPart<SNode, TransformationMenuItem, TransformationMenuContext> {
-
+    /*package*/ TMP_Param_puymhi_e0() {
+      super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:00000000-0000-4000-0000-011c89590299(jetbrains.mps.lang.editor.editor)", "381764939119266829")));
+    }
     @NotNull
     @Override
     protected List<TransformationMenuItem> createItems(SNode parameter, TransformationMenuContext context) {
@@ -414,17 +407,6 @@ public class EditorCellModel_TransformationMenu extends TransformationMenuBase {
 
       Iterable<SNode> notEditedLinks = Sequence.fromIterable(allConceptLinks).subtract(Sequence.fromIterable(editedLinks));
       return (Sequence.fromIterable(notEditedLinks).isEmpty() ? Collections.<SNode>emptyList() : Collections.singletonList(Sequence.fromIterable(notEditedLinks).first()));
-    }
-    @NotNull
-    @Override
-    public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:00000000-0000-4000-0000-011c89590299(jetbrains.mps.lang.editor.editor)", "381764939119266829")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
 
     private class TMP_Action_puymhi_a4a extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {

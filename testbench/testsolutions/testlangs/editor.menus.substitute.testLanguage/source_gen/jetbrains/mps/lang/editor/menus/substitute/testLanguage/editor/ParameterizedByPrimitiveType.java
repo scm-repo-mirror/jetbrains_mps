@@ -36,21 +36,13 @@ public class ParameterizedByPrimitiveType extends SubstituteMenuBase {
   }
 
   private class SMP_Param_ud82js_a extends ParameterizedMenuPart<Integer, SubstituteMenuItem, SubstituteMenuContext> {
+    /*package*/ SMP_Param_ud82js_a() {
+      super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:d793eea9-8b7b-4c58-a7a2-62336f54dcce(jetbrains.mps.lang.editor.menus.substitute.testLanguage.editor)", "8477852555558591228")));
+    }
     @NotNull
     @Override
     protected List<SubstituteMenuItem> createItems(Integer parameter, SubstituteMenuContext context) {
       return new SMP_Action_ud82js_a0(parameter).createItems(context);
-    }
-    @NotNull
-    @Override
-    public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:d793eea9-8b7b-4c58-a7a2-62336f54dcce(jetbrains.mps.lang.editor.menus.substitute.testLanguage.editor)", "8477852555558591228")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
     @Nullable
     @Override

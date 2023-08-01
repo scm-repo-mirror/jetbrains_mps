@@ -51,21 +51,13 @@ public class TargetDependency_SubstituteMenu extends SubstituteMenuBase {
   }
 
   private class SMP_Param_70edxa_a extends ParameterizedMenuPart<Tuples._2<SEnumerationLiteral, SNode>, SubstituteMenuItem, SubstituteMenuContext> {
+    /*package*/ SMP_Param_70edxa_a() {
+      super(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:53dc5a43-c15e-4a00-8af6-c42420ba30d9(jetbrains.mps.make.facet.editor)", "1741258697587108852")));
+    }
     @NotNull
     @Override
     protected List<SubstituteMenuItem> createItems(Tuples._2<SEnumerationLiteral, SNode> parameter, SubstituteMenuContext context) {
       return new SMP_Action_70edxa_a0(parameter).createItems(context);
-    }
-    @NotNull
-    @Override
-    public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:53dc5a43-c15e-4a00-8af6-c42420ba30d9(jetbrains.mps.make.facet.editor)", "1741258697587108852")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
     @Nullable
     @Override

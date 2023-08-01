@@ -69,7 +69,9 @@ public class LiteralMessageAllowsMacros extends TransformationMenuBase {
   }
 
   private class TMP_Param_bp93v8_a0 extends ParameterizedMenuPart<SNode, TransformationMenuItem, TransformationMenuContext> {
-
+    /*package*/ TMP_Param_bp93v8_a0() {
+      super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:46037634-9be0-4da8-8dd8-3cb367171177(jetbrains.mps.lang.messages.editor)", "4356326056162107836")));
+    }
     @NotNull
     @Override
     protected List<TransformationMenuItem> createItems(SNode parameter, TransformationMenuContext context) {
@@ -80,17 +82,6 @@ public class LiteralMessageAllowsMacros extends TransformationMenuBase {
     @Override
     protected Iterable<? extends SNode> getParameters(TransformationMenuContext _context) {
       return SNodeOperations.ofConcept(Scope.getScope(_context.getNode(), _context.getNode(), CONCEPTS.TypedDef$H3).getAvailableElements(null), CONCEPTS.TypedDef$H3);
-    }
-    @NotNull
-    @Override
-    public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:46037634-9be0-4da8-8dd8-3cb367171177(jetbrains.mps.lang.messages.editor)", "4356326056162107836")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
 
     private class TMP_Action_bp93v8_a0a extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {

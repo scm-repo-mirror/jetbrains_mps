@@ -78,7 +78,9 @@ public class ReplaceQualifierReference_Pattern extends TransformationMenuBase {
   }
 
   private class TMP_Param_7swimr_a0 extends ParameterizedMenuPart<SNode, TransformationMenuItem, TransformationMenuContext> {
-
+    /*package*/ TMP_Param_7swimr_a0() {
+      super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:00000000-0000-4000-0000-011c89590342(jetbrains.mps.lang.pattern.editor)", "7939357357339337670")));
+    }
     @NotNull
     @Override
     protected List<TransformationMenuItem> createItems(SNode parameter, TransformationMenuContext context) {
@@ -89,17 +91,6 @@ public class ReplaceQualifierReference_Pattern extends TransformationMenuBase {
     @Override
     protected Iterable<? extends SNode> getParameters(TransformationMenuContext _context) {
       return SNodeOperations.ofConcept(IClassifierType__BehaviorDescriptor.getMembers_id6r77ob2V1Fr.invoke(IClassifier__BehaviorDescriptor.getThisType_id6r77ob2UWbY.invoke(QualifiedReference__BehaviorDescriptor.getClassifier_id7S22xyoLQG7.invoke(_context.getNode()))), CONCEPTS.PatternBuilderClassifierMember$kC);
-    }
-    @NotNull
-    @Override
-    public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:00000000-0000-4000-0000-011c89590342(jetbrains.mps.lang.pattern.editor)", "7939357357339337670")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
 
     private class TMP_Action_7swimr_a0a extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {

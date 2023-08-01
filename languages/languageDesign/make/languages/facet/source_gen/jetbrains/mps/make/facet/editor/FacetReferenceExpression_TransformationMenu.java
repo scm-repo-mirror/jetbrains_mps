@@ -116,7 +116,9 @@ public class FacetReferenceExpression_TransformationMenu extends TransformationM
       return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Param_bw4iz1_a0b(), CONCEPTS.TargetReferenceExpression$k4));
     }
     private class TMP_Param_bw4iz1_a0b extends ParameterizedMenuPart<SNode, TransformationMenuItem, TransformationMenuContext> {
-
+      /*package*/ TMP_Param_bw4iz1_a0b() {
+        super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:53dc5a43-c15e-4a00-8af6-c42420ba30d9(jetbrains.mps.make.facet.editor)", "1741258697587108341")));
+      }
       @NotNull
       @Override
       protected List<TransformationMenuItem> createItems(SNode parameter, TransformationMenuContext context) {
@@ -127,17 +129,6 @@ public class FacetReferenceExpression_TransformationMenu extends TransformationM
       @Override
       protected Iterable<? extends SNode> getParameters(TransformationMenuContext _context) {
         return SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), LINKS.reference$adKT), LINKS.facet$Asbo), LINKS.targetDeclaration$z39X);
-      }
-      @NotNull
-      @Override
-      public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-        context.getEditorMenuTrace().pushTraceInfo();
-        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:53dc5a43-c15e-4a00-8af6-c42420ba30d9(jetbrains.mps.make.facet.editor)", "1741258697587108341")));
-        try {
-          return super.createItems(context);
-        } finally {
-          context.getEditorMenuTrace().popTraceInfo();
-        }
       }
 
       private class TMP_Action_bw4iz1_a0a1 extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {

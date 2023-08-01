@@ -63,7 +63,9 @@ public class TestTransformExceptionParameterizedChild_TransformationMenu extends
   }
 
   private class TMP_Param_ucwuuv_a0 extends ParameterizedMenuPart<String, TransformationMenuItem, TransformationMenuContext> {
-
+    /*package*/ TMP_Param_ucwuuv_a0() {
+      super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:73252a8a-5dfe-41ab-9452-7c5453e47c1f(jetbrains.mps.lang.editor.menus.sideTransform.testLanguage.editor)", "8955468859940950421")));
+    }
     @NotNull
     @Override
     protected List<TransformationMenuItem> createItems(String parameter, TransformationMenuContext context) {
@@ -74,17 +76,6 @@ public class TestTransformExceptionParameterizedChild_TransformationMenu extends
     @Override
     protected Iterable<? extends String> getParameters(TransformationMenuContext _context) {
       throw new RuntimeException("Intentional exception - ignore this");
-    }
-    @NotNull
-    @Override
-    public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:73252a8a-5dfe-41ab-9452-7c5453e47c1f(jetbrains.mps.lang.editor.menus.sideTransform.testLanguage.editor)", "8955468859940950421")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
     }
 
     private class TMP_Action_ucwuuv_a0a extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
