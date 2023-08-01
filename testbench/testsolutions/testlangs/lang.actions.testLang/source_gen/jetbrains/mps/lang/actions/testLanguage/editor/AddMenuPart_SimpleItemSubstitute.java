@@ -167,7 +167,7 @@ public class AddMenuPart_SimpleItemSubstitute extends SubstituteMenuBase {
           tmpVar = tmpVar && _context.getLink() != null;
           tmpVar = tmpVar && _context.getModel() != null;
 
-          return IconResourceUtil.getIconResourceForConcept(MetaAdapterFactory.getConcept(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x2365c14e167220f9L, "jetbrains.mps.lang.actions.testLanguage.structure.ActionTestChild1"));
+          return IconResourceUtil.getIconResourceForConcept(CONCEPTS.ActionTestChild1$4Y);
         }
         @Override
         public boolean canExecute(@NotNull String pattern) {

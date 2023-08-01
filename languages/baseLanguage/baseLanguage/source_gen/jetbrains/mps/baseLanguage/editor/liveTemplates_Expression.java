@@ -19,12 +19,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.baseLanguage.actions.ModuleDependencyUtils;
 import jetbrains.mps.smodel.runtime.IconResource;
 import jetbrains.mps.smodel.runtime.IconResourceUtil;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 
@@ -82,7 +82,7 @@ public class liveTemplates_Expression extends SubstituteMenuBase {
       @Nullable
       @Override
       public IconResource getIcon(@NotNull String pattern) {
-        return IconResourceUtil.getIconResourceForConcept(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration"));
+        return IconResourceUtil.getIconResourceForConcept(CONCEPTS.InstanceMethodDeclaration$39);
       }
       @Override
       public void select(@NotNull SNode createdNode, @NotNull String pattern) {
@@ -131,7 +131,7 @@ public class liveTemplates_Expression extends SubstituteMenuBase {
       @Nullable
       @Override
       public IconResource getIcon(@NotNull String pattern) {
-        return IconResourceUtil.getIconResourceForConcept(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration"));
+        return IconResourceUtil.getIconResourceForConcept(CONCEPTS.InstanceMethodDeclaration$39);
       }
       @Override
       public void select(@NotNull SNode createdNode, @NotNull String pattern) {
@@ -176,6 +176,7 @@ public class liveTemplates_Expression extends SubstituteMenuBase {
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept DotExpression$yW = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
+    /*package*/ static final SConcept InstanceMethodDeclaration$39 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
     /*package*/ static final SConcept InstanceMethodCallOperation$uu = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118154a6332L, "jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation");
   }
 

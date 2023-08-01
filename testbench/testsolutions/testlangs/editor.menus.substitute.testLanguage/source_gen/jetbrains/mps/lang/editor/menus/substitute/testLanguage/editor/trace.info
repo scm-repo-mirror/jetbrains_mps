@@ -16724,7 +16724,7 @@
       <node id="7740539356288132934" at="179,69,180,56" concept="2" />
       <node id="7740539356288132942" at="180,56,181,65" concept="2" />
       <node id="7740539356288132950" at="181,65,182,45" concept="2" />
-      <node id="562388756445105061" at="182,45,183,209" concept="8" />
+      <node id="562388756445105061" at="182,45,183,92" concept="8" />
       <node id="7740539356288137460" at="187,55,188,60" concept="7" />
       <node id="7740539356288137466" at="188,60,189,69" concept="2" />
       <node id="7740539356288137474" at="189,69,190,56" concept="2" />
@@ -17079,13 +17079,14 @@
       <node id="8998492695587447825" at="1031,0,1032,0" concept="11" trace="superChild$KzG4" />
       <node id="8998492695587447825" at="1032,0,1033,0" concept="11" trace="notSubconcept$YWSh" />
       <node id="8998492695587447825" at="1036,0,1037,0" concept="11" trace="TestSubstituteChild$Hk" />
-      <node id="8998492695587447825" at="1037,0,1038,0" concept="11" trace="BaseConcept$gP" />
-      <node id="8998492695587447825" at="1038,0,1039,0" concept="11" trace="TestSubstituteToWrapFromSubstituteMenu$AM" />
-      <node id="8998492695587447825" at="1039,0,1040,0" concept="11" trace="TestSubstituteSubChild1$_O" />
-      <node id="8998492695587447825" at="1040,0,1041,0" concept="11" trace="TestSubstituteSubChild2$Aj" />
-      <node id="8998492695587447825" at="1041,0,1042,0" concept="11" trace="TestSubstituteSubChildSmartReference_WithMenu$CI" />
-      <node id="8998492695587447825" at="1042,0,1043,0" concept="11" trace="TestSubstituteNotSubconceptOfChild$Lr" />
-      <node id="8998492695587447825" at="1046,0,1047,0" concept="11" trace="name$MnvL" />
+      <node id="8998492695587447825" at="1037,0,1038,0" concept="11" trace="ConceptDeclaration$gH" />
+      <node id="8998492695587447825" at="1038,0,1039,0" concept="11" trace="BaseConcept$gP" />
+      <node id="8998492695587447825" at="1039,0,1040,0" concept="11" trace="TestSubstituteToWrapFromSubstituteMenu$AM" />
+      <node id="8998492695587447825" at="1040,0,1041,0" concept="11" trace="TestSubstituteSubChild1$_O" />
+      <node id="8998492695587447825" at="1041,0,1042,0" concept="11" trace="TestSubstituteSubChild2$Aj" />
+      <node id="8998492695587447825" at="1042,0,1043,0" concept="11" trace="TestSubstituteSubChildSmartReference_WithMenu$CI" />
+      <node id="8998492695587447825" at="1043,0,1044,0" concept="11" trace="TestSubstituteNotSubconceptOfChild$Lr" />
+      <node id="8998492695587447825" at="1047,0,1048,0" concept="11" trace="name$MnvL" />
       <node id="8998492695587447825" at="54,0,57,0" concept="1" trace="TestSubstituteChild_SubstituteMenu#()V" />
       <node id="8998492695587456846" at="265,0,268,0" concept="1" trace="SMP_Action_ddv2zo_a0b#(Ljava/lang/String;)V" />
       <node id="8998492695587481211" at="344,0,347,0" concept="1" trace="SMP_Wrap_ddv2zo_a2#()V" />
@@ -17529,7 +17530,7 @@
       <scope id="7740539356288122785" at="167,67,173,20">
         <var name="tmpVar" id="7740539356288123652" />
       </scope>
-      <scope id="7740539356288131444" at="177,62,183,209">
+      <scope id="7740539356288131444" at="177,62,183,92">
         <var name="tmpVar" id="7740539356288132921" />
       </scope>
       <scope id="7740539356288136996" at="187,55,193,22">
@@ -17832,9 +17833,9 @@
         <var name="_context" id="7577899271409213529" />
         <var name="item" id="7577899271409213529" />
       </scope>
-      <unit id="8998492695587447825" at="1045,0,1048,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.editor.TestSubstituteChild_SubstituteMenu$PROPS" />
+      <unit id="8998492695587447825" at="1046,0,1049,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.editor.TestSubstituteChild_SubstituteMenu$PROPS" />
       <unit id="7740539356288110370" at="82,14,90,7" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.editor.TestSubstituteChild_SubstituteMenu$SMP_Group_ddv2zo_a$1" />
-      <unit id="8998492695587447825" at="1035,0,1044,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.editor.TestSubstituteChild_SubstituteMenu$CONCEPTS" />
+      <unit id="8998492695587447825" at="1035,0,1045,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.editor.TestSubstituteChild_SubstituteMenu$CONCEPTS" />
       <unit id="8998492695587515357" at="828,0,843,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.editor.TestSubstituteChild_SubstituteMenu$SMP_Group_ddv2zo_h$SMP_Subconcepts_ddv2zo_a7" />
       <unit id="9151323058739123061" at="943,0,958,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.editor.TestSubstituteChild_SubstituteMenu$SMP_Group_ddv2zo_k$SMP_Subconcepts_ddv2zo_a01" />
       <unit id="4647688914605703910" at="980,0,995,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.editor.TestSubstituteChild_SubstituteMenu$SMP_Group_ddv2zo_l$SMP_Subconcepts_ddv2zo_a11" />
@@ -17866,7 +17867,7 @@
       <unit id="8998492695587475462" at="322,0,461,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.editor.TestSubstituteChild_SubstituteMenu$SMP_Group_ddv2zo_c" />
       <unit id="2036960817570860181" at="606,0,745,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.editor.TestSubstituteChild_SubstituteMenu$SMP_Group_ddv2zo_e" />
       <unit id="7577899271409213522" at="461,0,606,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.editor.TestSubstituteChild_SubstituteMenu$SMP_Group_ddv2zo_d" />
-      <unit id="8998492695587447825" at="53,0,1049,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.editor.TestSubstituteChild_SubstituteMenu" />
+      <unit id="8998492695587447825" at="53,0,1050,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.editor.TestSubstituteChild_SubstituteMenu" />
     </file>
   </root>
   <root nodeRef="r:d793eea9-8b7b-4c58-a7a2-62336f54dcce(jetbrains.mps.lang.editor.menus.substitute.testLanguage.editor)/8998492695587456021">

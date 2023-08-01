@@ -180,7 +180,7 @@ public class TestSubstituteChild_SubstituteMenu extends SubstituteMenuBase {
           tmpVar = tmpVar && _context.getLink() != null;
           tmpVar = tmpVar && _context.getEditorContext() != null;
           tmpVar = tmpVar && pattern != null;
-          return IconResourceUtil.getIconResourceForConcept(MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration"));
+          return IconResourceUtil.getIconResourceForConcept(CONCEPTS.ConceptDeclaration$gH);
         }
         @Nullable
         @Override
@@ -1034,6 +1034,7 @@ public class TestSubstituteChild_SubstituteMenu extends SubstituteMenuBase {
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept TestSubstituteChild$Hk = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x7ce1116e3a6fb0beL, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteChild");
+    /*package*/ static final SConcept ConceptDeclaration$gH = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
     /*package*/ static final SConcept BaseConcept$gP = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
     /*package*/ static final SConcept TestSubstituteToWrapFromSubstituteMenu$AM = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x7ce1116e3a6ff2aaL, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteToWrapFromSubstituteMenu");
     /*package*/ static final SConcept TestSubstituteSubChild1$_O = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x7ce1116e3a6ff2a8L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteSubChild1");

@@ -62,7 +62,7 @@
   <registry>
     <language id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources">
       <concept id="562388756444790046" name="jetbrains.mps.lang.resources.structure.ConceptIconResourceExpression" flags="ng" index="ynFM6">
-        <reference id="562388756444790088" name="concept_old" index="ynFNg" />
+        <child id="4786190798786350692" name="concept" index="mzb_8" />
       </concept>
     </language>
     <language id="13744753-c81f-424a-9c1b-cf8943bf4e86" name="jetbrains.mps.lang.sharedConcepts">
@@ -61676,7 +61676,9 @@
           <node concept="3clFbS" id="1wEcoXjIH4r" role="2VODD2">
             <node concept="3clFbF" id="1wEcoXjIH4s" role="3cqZAp">
               <node concept="ynFM6" id="1wEcoXjIH4S" role="3clFbG">
-                <ref role="ynFNg" to="tpee:fzclF8t" resolve="InstanceMethodDeclaration" />
+                <node concept="chp4Y" id="1k_OxLOcBD5" role="mzb_8">
+                  <ref role="cht4Q" to="tpee:fzclF8t" resolve="InstanceMethodDeclaration" />
+                </node>
               </node>
             </node>
           </node>
@@ -61758,7 +61760,9 @@
           <node concept="3clFbS" id="1wEcoXjIH6j" role="2VODD2">
             <node concept="3clFbF" id="1wEcoXjIH6k" role="3cqZAp">
               <node concept="ynFM6" id="1wEcoXjIH6K" role="3clFbG">
-                <ref role="ynFNg" to="tpee:fzclF8t" resolve="InstanceMethodDeclaration" />
+                <node concept="chp4Y" id="1k_OxLOcBOG" role="mzb_8">
+                  <ref role="cht4Q" to="tpee:fzclF8t" resolve="InstanceMethodDeclaration" />
+                </node>
               </node>
             </node>
           </node>

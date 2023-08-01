@@ -22,7 +22,6 @@
   <registry>
     <language id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources">
       <concept id="562388756444790046" name="jetbrains.mps.lang.resources.structure.ConceptIconResourceExpression" flags="ng" index="ynFM6">
-        <reference id="562388756444790088" name="concept_old" index="ynFNg" />
         <child id="4786190798786350692" name="concept" index="mzb_8" />
       </concept>
     </language>
@@ -4256,7 +4255,9 @@
               <node concept="3clFbH" id="1wEcoXjJ1yk" role="3cqZAp" />
               <node concept="3cpWs6" id="1wEcoXjJ1yl" role="3cqZAp">
                 <node concept="ynFM6" id="1wEcoXjJ1yS" role="3cqZAk">
-                  <ref role="ynFNg" to="kxd5:2d_KkSmsy3T" resolve="ActionTestChild1" />
+                  <node concept="chp4Y" id="1k_OxLOcGJW" role="mzb_8">
+                    <ref role="cht4Q" to="kxd5:2d_KkSmsy3T" resolve="ActionTestChild1" />
+                  </node>
                 </node>
               </node>
             </node>

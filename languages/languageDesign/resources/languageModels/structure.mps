@@ -309,12 +309,6 @@
       <property role="20kJfa" value="concept" />
       <ref role="20lvS9" to="tp25:hzMxujR" resolve="IRefConceptArg" />
     </node>
-    <node concept="1TJgyj" id="ve0pw_$bP8" role="1TKVEi">
-      <property role="IQ2ns" value="562388756444790088" />
-      <property role="20kJfa" value="concept_old" />
-      <ref role="20lvS9" to="tpce:h0PkWnZ" resolve="AbstractConceptDeclaration" />
-      <node concept="asaX9" id="49FXMLkTOTy" role="lGtFl" />
-    </node>
   </node>
   <node concept="1TIwiD" id="ve0pw_$_Kq">
     <property role="EcuMT" value="562388756444896282" />

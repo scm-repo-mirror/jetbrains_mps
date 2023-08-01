@@ -22,7 +22,7 @@
         <child id="562388756444896284" name="node" index="yn5Q4" />
       </concept>
       <concept id="562388756444790046" name="jetbrains.mps.lang.resources.structure.ConceptIconResourceExpression" flags="ng" index="ynFM6">
-        <reference id="562388756444790088" name="concept_old" index="ynFNg" />
+        <child id="4786190798786350692" name="concept" index="mzb_8" />
       </concept>
       <concept id="5979521222239143262" name="jetbrains.mps.lang.resources.structure.IconResourceExpression" flags="ng" index="2SwGe0">
         <child id="5979521222239172928" name="icon" index="2SwzYu" />
@@ -5262,7 +5262,9 @@
               </node>
               <node concept="3clFbF" id="ve0pw__oI_" role="3cqZAp">
                 <node concept="ynFM6" id="ve0pw__oIz" role="3clFbG">
-                  <ref role="ynFNg" to="tpce:f_TIwhg" resolve="ConceptDeclaration" />
+                  <node concept="chp4Y" id="1k_OxLOcSuq" role="mzb_8">
+                    <ref role="cht4Q" to="tpce:f_TIwhg" resolve="ConceptDeclaration" />
+                  </node>
                 </node>
               </node>
             </node>

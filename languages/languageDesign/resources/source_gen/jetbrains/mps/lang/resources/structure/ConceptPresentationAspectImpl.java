@@ -77,8 +77,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         return props_ColorLiteral;
       case LanguageConceptSwitch.ConceptIconResourceExpression:
         if (props_ConceptIconResourceExpression == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7ce01982590bd1eL);
-          cpb.deprecateAssociation(0x7ce01982590bd48L, "concept_old");
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.rawPresentation("conceptIcon");
           props_ConceptIconResourceExpression = cpb.create();
         }
