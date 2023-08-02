@@ -278,13 +278,13 @@ public class QueriesGenerated extends QueryProviderBase {
     return SLinkOperations.getChildren(_context.getNode(), LINKS.elements$_j45);
   }
   public static Iterable<SNode> sourceNodesQuery_4_1(final SourceSubstituteMacroNodesContext _context) {
-    return SLinkOperations.getChildren(_context.getNode(), LINKS.parentLists$2JxE);
+    return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.parentLists$2JxE)).reversedList();
   }
   public static Iterable<SNode> sourceNodesQuery_5_0(final SourceSubstituteMacroNodesContext _context) {
     return SLinkOperations.getChildren(_context.getNode(), LINKS.elements$_j45);
   }
   public static Iterable<SNode> sourceNodesQuery_5_1(final SourceSubstituteMacroNodesContext _context) {
-    return SLinkOperations.getChildren(_context.getNode(), LINKS.parentLists$2JxE);
+    return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.parentLists$2JxE)).reversedList();
   }
   public static Iterable<SNode> sourceNodesQuery_6_0(final SourceSubstituteMacroNodesContext _context) {
     return SLinkOperations.getChildren(_context.getNode(), LINKS.elements$_j45);
