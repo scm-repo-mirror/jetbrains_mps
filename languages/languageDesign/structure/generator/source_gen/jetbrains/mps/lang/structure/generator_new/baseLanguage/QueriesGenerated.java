@@ -32,6 +32,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.generator.template.ReferenceMacroContext;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.generator.template.IfMacroContext;
+import java.util.Objects;
 import jetbrains.mps.lang.core.behavior.IDeprecatable__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
@@ -46,7 +47,6 @@ import org.jetbrains.mps.openapi.module.SModule;
 import java.util.UUID;
 import jetbrains.mps.project.ModuleId;
 import jetbrains.mps.smodel.presentation.SmartAliasHelper;
-import java.util.Objects;
 import jetbrains.mps.generator.template.TemplateQueryContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import jetbrains.mps.generator.template.TemplateVarContext;
@@ -353,14 +353,14 @@ public class QueriesGenerated extends QueryProviderBase {
     return _context.getOutputNodeByInputNodeAndMappingLabel(_context.getNode(), "EnumerationDescriptorCons");
   }
   public static Object referenceMacro_GetReferent_1_1(final ReferenceMacroContext _context) {
-    return ((String) _context.getVariable("var:kind"));
+    return ((SNodeReference) _context.getVariable("var:kind"));
   }
   public static Object referenceMacro_GetReferent_1_2(final ReferenceMacroContext _context) {
     SNode cd = SNodeOperations.as(_context.getNode(), CONCEPTS.ConceptDeclaration$gH);
     if (SEnumOperations.isMember(SPropertyOperations.getEnum(cd, PROPS.staticScope$PjQk), 0x4b014033eedc8be8L)) {
-      return "GLOBAL";
+      return new SNodePointer("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.runtime(MPS.Core/)", "~StaticScope.GLOBAL");
     }
-    return (SEnumOperations.isMember(SPropertyOperations.getEnum(cd, PROPS.staticScope$PjQk), 0x4b014033eedc8becL) ? "NONE" : "ROOT");
+    return (SEnumOperations.isMember(SPropertyOperations.getEnum(cd, PROPS.staticScope$PjQk), 0x4b014033eedc8becL) ? new SNodePointer("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.runtime(MPS.Core/)", "~StaticScope.NONE") : new SNodePointer("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.runtime(MPS.Core/)", "~StaticScope.ROOT"));
   }
   public static Object referenceMacro_GetReferent_9_0(final ReferenceMacroContext _context) {
     SNode defaultMember = SLinkOperations.getTarget(_context.getNode(), LINKS.defaultMember$SFBr);
@@ -409,7 +409,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return SNodeOperations.isInstanceOf(_context.getNode(), CONCEPTS.ConceptDeclaration$gH);
   }
   public static boolean ifMacro_Condition_1_8(final IfMacroContext _context) {
-    return !("NORMAL".equals(((String) _context.getVariable("var:kind")))) || !(SEnumOperations.isMember(SPropertyOperations.getEnum(SNodeOperations.as(_context.getNode(), CONCEPTS.ConceptDeclaration$gH), PROPS.staticScope$PjQk), 0x4b014033eedc8be8L));
+    return !(Objects.equals(new SNodePointer("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.runtime(MPS.Core/)", "~ConceptKind.NORMAL"), ((SNodeReference) _context.getVariable("var:kind")))) || !(SEnumOperations.isMember(SPropertyOperations.getEnum(SNodeOperations.as(_context.getNode(), CONCEPTS.ConceptDeclaration$gH), PROPS.staticScope$PjQk), 0x4b014033eedc8be8L));
   }
   public static boolean ifMacro_Condition_1_9(final IfMacroContext _context) {
     return isNotEmptyString(SPropertyOperations.getString(_context.getNode(), PROPS.conceptAlias$OL_L));
@@ -751,17 +751,16 @@ public class QueriesGenerated extends QueryProviderBase {
     final SNodeReference implStubNode = new SNodePointer("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "6999738288738427190");
     final SNodeReference implNode = new SNodePointer("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1319728274783077719");
     // order copied from BaseConceptDescriptor.getConceptKind
-    // FIXME introduce SNodeReference return value from RM and use it here
     if ((Sequence.fromIterable(allSuperConcepts).findFirst((it) -> SNodeOperations.getPointer(it).equals(ifacePartNode)) != null)) {
-      return "INTERFACE";
+      return new SNodePointer("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.runtime(MPS.Core/)", "~ConceptKind.INTERFACE");
     }
     if ((Sequence.fromIterable(allSuperConcepts).findFirst((it) -> SNodeOperations.getPointer(it).equals(implStubNode)) != null)) {
-      return "IMPLEMENTATION_WITH_STUB";
+      return new SNodePointer("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.runtime(MPS.Core/)", "~ConceptKind.IMPLEMENTATION_WITH_STUB");
     }
     if ((Sequence.fromIterable(allSuperConcepts).findFirst((it) -> SNodeOperations.getPointer(it).equals(implNode)) != null)) {
-      return "IMPLEMENTATION";
+      return new SNodePointer("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.runtime(MPS.Core/)", "~ConceptKind.IMPLEMENTATION");
     }
-    return "NORMAL";
+    return new SNodePointer("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.runtime(MPS.Core/)", "~ConceptKind.NORMAL");
   }
   public static Object varMacro_Value_3_0(final TemplateVarContext _context) {
     return ListSequence.fromList(SModelOperations.nodes(_context.getInputModel(), CONCEPTS.AbstractConceptDeclaration$KA)).sort((it) -> SPropertyOperations.getString(it, PROPS.name$MnvL), true);
