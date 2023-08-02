@@ -36,7 +36,7 @@
       <concept id="1188207840427" name="jetbrains.mps.baseLanguage.structure.AnnotationInstance" flags="nn" index="2AHcQZ">
         <reference id="1188208074048" name="annotation" index="2AI5Lk" />
       </concept>
-      <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ng" index="2AJDlI">
+      <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ngI" index="2AJDlI">
         <child id="1188208488637" name="annotation" index="2AJF6D" />
       </concept>
       <concept id="1197027756228" name="jetbrains.mps.baseLanguage.structure.DotExpression" flags="nn" index="2OqwBi">
@@ -141,7 +141,7 @@
       <concept id="1079359253375" name="jetbrains.mps.baseLanguage.structure.ParenthesizedExpression" flags="nn" index="1eOMI4">
         <child id="1079359253376" name="expression" index="1eOMHV" />
       </concept>
-      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ng" index="1ndlxa">
+      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ngI" index="1ndlxa">
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
       </concept>
@@ -166,7 +166,7 @@
       <concept id="1184952934362" name="jetbrains.mps.baseLanguage.structure.DimensionExpression" flags="nn" index="3$GHV9">
         <child id="1184953288404" name="expression" index="3$I4v7" />
       </concept>
-      <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ng" index="1B3ioH">
+      <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ngI" index="1B3ioH">
         <child id="1178549979242" name="visibility" index="1B3o_S" />
       </concept>
       <concept id="1163668896201" name="jetbrains.mps.baseLanguage.structure.TernaryOperatorExpression" flags="nn" index="3K4zz7">
@@ -184,7 +184,7 @@
       <concept id="1178893518978" name="jetbrains.mps.baseLanguage.structure.ThisConstructorInvocation" flags="nn" index="1VxSAg" />
     </language>
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
-      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
+      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ngI" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
     </language>
@@ -2052,14 +2052,14 @@
               </node>
             </node>
             <node concept="37vLTw" id="19IglfvZ0w2" role="37vLTJ">
-              <ref role="3cqZAo" node="19IglfvYYOG" resolve="myDisableStartupModuleMaker" />
+              <ref role="3cqZAo" node="19IglfvYYOG" resolve="myDisableMakeOnStartup" />
             </node>
           </node>
         </node>
         <node concept="3clFbF" id="19IglfvZ0w3" role="3cqZAp">
           <node concept="2OqwBi" id="19IglfvZ0w4" role="3clFbG">
             <node concept="37vLTw" id="19IglfvZ0w5" role="2Oq$k0">
-              <ref role="3cqZAo" node="19IglfvYYOG" resolve="myDisableStartupModuleMaker" />
+              <ref role="3cqZAo" node="19IglfvYYOG" resolve="myDisableMakeOnStartup" />
             </node>
             <node concept="liA8E" id="19IglfvZ0w6" role="2OqNvi">
               <ref role="37wK5l" to="dxuu:~AbstractButton.setSelected(boolean)" resolve="setSelected" />
@@ -2068,7 +2068,7 @@
                   <ref role="3cqZAo" node="2qvp1d_nwIm" resolve="myMakeConfig" />
                 </node>
                 <node concept="liA8E" id="19IglfvZ0w9" role="2OqNvi">
-                  <ref role="37wK5l" to="4tc7:19IglfvX2ED" resolve="isDisableStartupModuleMaker" />
+                  <ref role="37wK5l" to="4tc7:19IglfvX2ED" resolve="isDisableMakeOnStartup" />
                 </node>
               </node>
             </node>
@@ -2082,7 +2082,7 @@
             <node concept="liA8E" id="19IglfvZ0wd" role="2OqNvi">
               <ref role="37wK5l" to="z60i:~Container.add(java.awt.Component,java.lang.Object)" resolve="add" />
               <node concept="37vLTw" id="19IglfvZ0we" role="37wK5m">
-                <ref role="3cqZAo" node="19IglfvYYOG" resolve="myDisableStartupModuleMaker" />
+                <ref role="3cqZAo" node="19IglfvYYOG" resolve="myDisableMakeOnStartup" />
               </node>
               <node concept="10M0yZ" id="5Cdkp1SZYlM" role="37wK5m">
                 <ref role="3cqZAo" to="z60i:~BorderLayout.SOUTH" resolve="SOUTH" />
@@ -2130,7 +2130,7 @@
             <node concept="3y3z36" id="19IglfvZ9Ti" role="3uHU7w">
               <node concept="2OqwBi" id="19IglfvZ9Tj" role="3uHU7w">
                 <node concept="37vLTw" id="19IglfvZ9Tk" role="2Oq$k0">
-                  <ref role="3cqZAo" node="19IglfvYYOG" resolve="myDisableStartupModuleMaker" />
+                  <ref role="3cqZAo" node="19IglfvYYOG" resolve="myDisableMakeOnStartup" />
                 </node>
                 <node concept="liA8E" id="19IglfvZ9Tl" role="2OqNvi">
                   <ref role="37wK5l" to="dxuu:~AbstractButton.isSelected()" resolve="isSelected" />
@@ -2141,7 +2141,7 @@
                   <ref role="3cqZAo" node="2qvp1d_nwIm" resolve="myMakeConfig" />
                 </node>
                 <node concept="liA8E" id="19IglfvZ9To" role="2OqNvi">
-                  <ref role="37wK5l" to="4tc7:19IglfvX2ED" resolve="isDisableStartupModuleMaker" />
+                  <ref role="37wK5l" to="4tc7:19IglfvX2ED" resolve="isDisableMakeOnStartup" />
                 </node>
               </node>
             </node>
@@ -2182,10 +2182,10 @@
               <ref role="3cqZAo" node="2qvp1d_nwIm" resolve="myMakeConfig" />
             </node>
             <node concept="liA8E" id="19IglfvZeIy" role="2OqNvi">
-              <ref role="37wK5l" to="4tc7:19IglfvX2EJ" resolve="setDisableStartupModuleMaker" />
+              <ref role="37wK5l" to="4tc7:19IglfvX2EJ" resolve="setDisableMakeOnStartup" />
               <node concept="2OqwBi" id="19IglfvZeIz" role="37wK5m">
                 <node concept="37vLTw" id="19IglfvZeI$" role="2Oq$k0">
-                  <ref role="3cqZAo" node="19IglfvYYOG" resolve="myDisableStartupModuleMaker" />
+                  <ref role="3cqZAo" node="19IglfvYYOG" resolve="myDisableMakeOnStartup" />
                 </node>
                 <node concept="liA8E" id="19IglfvZeI_" role="2OqNvi">
                   <ref role="37wK5l" to="dxuu:~AbstractButton.isSelected()" resolve="isSelected" />
@@ -2226,7 +2226,7 @@
         <node concept="3clFbF" id="19IglfvZi9q" role="3cqZAp">
           <node concept="2OqwBi" id="19IglfvZi9r" role="3clFbG">
             <node concept="37vLTw" id="19IglfvZi9s" role="2Oq$k0">
-              <ref role="3cqZAo" node="19IglfvYYOG" resolve="myDisableStartupModuleMaker" />
+              <ref role="3cqZAo" node="19IglfvYYOG" resolve="myDisableMakeOnStartup" />
             </node>
             <node concept="liA8E" id="19IglfvZi9t" role="2OqNvi">
               <ref role="37wK5l" to="dxuu:~AbstractButton.setSelected(boolean)" resolve="setSelected" />
@@ -2235,7 +2235,7 @@
                   <ref role="3cqZAo" node="2qvp1d_nwIm" resolve="myMakeConfig" />
                 </node>
                 <node concept="liA8E" id="19IglfvZi9w" role="2OqNvi">
-                  <ref role="37wK5l" to="4tc7:19IglfvX2ED" resolve="isDisableStartupModuleMaker" />
+                  <ref role="37wK5l" to="4tc7:19IglfvX2ED" resolve="isDisableMakeOnStartup" />
                 </node>
               </node>
             </node>

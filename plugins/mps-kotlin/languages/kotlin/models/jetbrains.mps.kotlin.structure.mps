@@ -96,7 +96,7 @@
         <property id="1193676396447" name="virtualPackage" index="3GE5qa" />
         <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
       </concept>
-      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
+      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ngI" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
     </language>
@@ -1943,7 +1943,7 @@
       <ref role="PrY4T" node="6TRHYuCB$BU" resolve="IAnnotated" />
     </node>
     <node concept="PrWs8" id="RScLqpSBGw" role="PzmwI">
-      <ref role="PrY4T" node="7Iv8Cw7qLdE" resolve="IDataFlowSource" />
+      <ref role="PrY4T" node="7Iv8Cw7qLdE" resolve="ITypecheckingRoot" />
     </node>
     <node concept="1TJgyj" id="5g3vQLKcgVQ" role="1TKVEi">
       <property role="IQ2ns" value="6053822427831537398" />

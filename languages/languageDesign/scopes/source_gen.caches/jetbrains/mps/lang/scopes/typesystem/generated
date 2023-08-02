@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="8rnwn1uss5r2m76q1l9t53le0l0tbo8">
+<product version="3" modelHash="aeqynxp7dlyt4mu6tn6fs7evm6yv9my">
   <files names="TypesystemDescriptor.java:check_ComeFromExpression_NonTypesystemRule.java:check_CompositeWithParentScopeExpression_NonTypesystemRule.java:check_ParentScope_NonTypesystemRule.java:typeof_ComeFromExpression_InferenceRule.java:typeof_CompositeWithParentScopeExpression_InferenceRule.java:typeof_ParentScope_InferenceRule.java" />
 </product>
 

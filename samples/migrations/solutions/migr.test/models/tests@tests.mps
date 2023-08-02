@@ -34,13 +34,13 @@
       <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
         <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
       </concept>
-      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
+      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ngI" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
       <concept id="8703179436978668945" name="jetbrains.mps.lang.core.structure.MigrationDataAnnotation" flags="ng" index="1tnI87">
         <child id="6807933448470330574" name="dataNode" index="2sU5YC" />
       </concept>
-      <concept id="8703179436979359251" name="jetbrains.mps.lang.core.structure.MigrationAnnotation" flags="ng" index="1tp6A5">
+      <concept id="8703179436979359251" name="jetbrains.mps.lang.core.structure.MigrationAnnotation" flags="ngI" index="1tp6A5">
         <property id="8703179436979359252" name="createdByScript" index="1tp6A2" />
       </concept>
     </language>

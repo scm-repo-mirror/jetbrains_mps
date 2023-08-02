@@ -78,7 +78,7 @@
         <child id="1068581242865" name="localVariableDeclaration" index="3cpWs9" />
       </concept>
       <concept id="1068581242863" name="jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration" flags="nr" index="3cpWsn" />
-      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ng" index="1ndlxa">
+      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ngI" index="1ndlxa">
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
       </concept>
@@ -93,7 +93,7 @@
         <reference id="7256306938026143658" name="target" index="2aWVGs" />
         <child id="7256306938026143676" name="child" index="2aWVGa" />
       </concept>
-      <concept id="361130699826268407" name="jetbrains.mps.lang.modelapi.structure.NodeIdentity" flags="ng" index="1dCfq2" />
+      <concept id="361130699826268407" name="jetbrains.mps.lang.modelapi.structure.NodeIdentity" flags="ngI" index="1dCfq2" />
       <concept id="361130699826193248" name="jetbrains.mps.lang.modelapi.structure.ModelPointer" flags="ng" index="1dCxOl">
         <property id="1863527487546097494" name="modelId" index="1XweGQ" />
         <child id="679099339649067980" name="name" index="1j$8Uc" />
@@ -121,7 +121,7 @@
       <concept id="3661776679762942774" name="jetbrains.mps.lang.smodel.structure.Node_IsOperation" flags="ng" index="1QLmlb">
         <child id="3661776679762942860" name="ref" index="1QLmnL" />
       </concept>
-      <concept id="3320646261221695077" name="jetbrains.mps.lang.smodel.structure.INodePointerArg" flags="ng" index="1QN51b" />
+      <concept id="3320646261221695077" name="jetbrains.mps.lang.smodel.structure.INodePointerArg" flags="ngI" index="1QN51b" />
       <concept id="3320646261221695165" name="jetbrains.mps.lang.smodel.structure.NodePointerArg_Identity" flags="ng" index="1QN52j">
         <child id="3320646261221695238" name="ref" index="1QN54C" />
       </concept>
@@ -149,7 +149,7 @@
       <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
         <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
       </concept>
-      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
+      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ngI" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
     </language>

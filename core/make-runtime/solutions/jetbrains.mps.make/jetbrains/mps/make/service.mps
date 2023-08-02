@@ -48,7 +48,7 @@
         <reference id="1188208074048" name="annotation" index="2AI5Lk" />
         <child id="1188214630783" name="value" index="2B76xF" />
       </concept>
-      <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ng" index="2AJDlI">
+      <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ngI" index="2AJDlI">
         <child id="1188208488637" name="annotation" index="2AJF6D" />
       </concept>
       <concept id="1188214545140" name="jetbrains.mps.baseLanguage.structure.AnnotationInstanceValue" flags="ng" index="2B6LJw">
@@ -107,7 +107,7 @@
         <property id="1176718929932" name="isFinal" index="3TUv4t" />
         <child id="1068431790190" name="initializer" index="33vP2m" />
       </concept>
-      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ng" index="366HgL">
+      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ngI" index="366HgL">
         <property id="1513279640906337053" name="inferTypeParams" index="373rjd" />
       </concept>
       <concept id="1109279763828" name="jetbrains.mps.baseLanguage.structure.TypeVariableDeclaration" flags="ng" index="16euLQ">
@@ -181,7 +181,7 @@
       <concept id="1081516740877" name="jetbrains.mps.baseLanguage.structure.NotExpression" flags="nn" index="3fqX7Q">
         <child id="1081516765348" name="expression" index="3fr31v" />
       </concept>
-      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ng" index="1ndlxa">
+      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ngI" index="1ndlxa">
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
       </concept>
@@ -210,7 +210,7 @@
       <concept id="8276990574909231788" name="jetbrains.mps.baseLanguage.structure.FinallyClause" flags="ng" index="1wplmZ">
         <child id="8276990574909234106" name="finallyBody" index="1wplMD" />
       </concept>
-      <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ng" index="1B3ioH">
+      <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ngI" index="1B3ioH">
         <child id="1178549979242" name="visibility" index="1B3o_S" />
       </concept>
       <concept id="1144226303539" name="jetbrains.mps.baseLanguage.structure.ForeachStatement" flags="nn" index="1DcWWT">
@@ -270,7 +270,7 @@
       <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
         <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
       </concept>
-      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
+      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ngI" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
     </language>
@@ -781,7 +781,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="4uO1VCfEPqG" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" />
+        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
         <node concept="2B6LJw" id="4uO1VCfEPzE" role="2B76xF">
           <ref role="2B6OnR" to="wyt6:~Deprecated.forRemoval()" resolve="forRemoval" />
           <node concept="3clFbT" id="4uO1VCfEP_H" role="2B70Vg">
@@ -867,7 +867,7 @@
             <node concept="2ShNRf" id="4uO1VCfD2m3" role="37vLTx">
               <node concept="1pGfFk" id="4uO1VCfD8wK" role="2ShVmc">
                 <property role="373rjd" value="true" />
-                <ref role="37wK5l" to="i9so:4uO1VCfBhGF" resolve="FAILURE" />
+                <ref role="37wK5l" to="i9so:4uO1VCfBhGF" resolve="IResult.FAILURE" />
                 <node concept="Xl_RD" id="4uO1VCfDc9Z" role="37wK5m">
                   <property role="Xl_RC" value="not started" />
                 </node>
@@ -1077,7 +1077,7 @@
                                       <ref role="3VsUkX" node="6eQ0BhLYtbb" resolve="CoreMakeTask" />
                                     </node>
                                     <node concept="37vLTw" id="4uO1VCfBZBK" role="37wK5m">
-                                      <ref role="3cqZAo" node="4uO1VCfBZBI" resolve="string" />
+                                      <ref role="3cqZAo" node="4uO1VCfBZBI" resolve="msg" />
                                     </node>
                                   </node>
                                 </node>
@@ -1091,7 +1091,7 @@
                               </node>
                               <node concept="2ShNRf" id="4uO1VCfC8Xp" role="37vLTx">
                                 <node concept="1pGfFk" id="4uO1VCfC8Xq" role="2ShVmc">
-                                  <ref role="37wK5l" to="i9so:4uO1VCfB6tz" resolve="SUCCESS" />
+                                  <ref role="37wK5l" to="i9so:4uO1VCfB6tz" resolve="IResult.SUCCESS" />
                                   <node concept="37vLTw" id="4uO1VCfCdzb" role="37wK5m">
                                     <ref role="3cqZAo" node="4uO1VCfBZBI" resolve="msg" />
                                   </node>
@@ -1190,7 +1190,7 @@
                               </node>
                               <node concept="2ShNRf" id="41innpAi2jT" role="37vLTx">
                                 <node concept="1pGfFk" id="41innpAi2jU" role="2ShVmc">
-                                  <ref role="37wK5l" to="i9so:4uO1VCfBhGF" resolve="FAILURE" />
+                                  <ref role="37wK5l" to="i9so:4uO1VCfBhGF" resolve="IResult.FAILURE" />
                                   <node concept="37vLTw" id="4uO1VCfCAE_" role="37wK5m">
                                     <ref role="3cqZAo" node="41innpAi2jo" resolve="msg" />
                                   </node>
@@ -1998,7 +1998,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="4uO1VCfDjyn" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" />
+        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
         <node concept="2B6LJw" id="4uO1VCfDkO9" role="2B76xF">
           <ref role="2B6OnR" to="wyt6:~Deprecated.forRemoval()" resolve="forRemoval" />
           <node concept="3clFbT" id="4uO1VCfDkQB" role="2B70Vg">
@@ -2030,7 +2030,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="4PnTmO3JS5y" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" />
+        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
         <node concept="2B6LJw" id="4PnTmO3JXem" role="2B76xF">
           <ref role="2B6OnR" to="wyt6:~Deprecated.forRemoval()" resolve="forRemoval" />
           <node concept="3clFbT" id="4PnTmO3JXfY" role="2B70Vg">
@@ -2061,7 +2061,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="4uO1VCfDl0O" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" />
+        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
       </node>
     </node>
     <node concept="2tJIrI" id="4bOkk0MKu5n" role="jymVt" />
@@ -2088,7 +2088,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="4PnTmO3LnRr" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" />
+        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
         <node concept="2B6LJw" id="4PnTmO3LsKd" role="2B76xF">
           <ref role="2B6OnR" to="wyt6:~Deprecated.forRemoval()" resolve="forRemoval" />
           <node concept="3clFbT" id="4PnTmO3LsKe" role="2B70Vg">

@@ -71,7 +71,7 @@
         <reference id="1188208074048" name="annotation" index="2AI5Lk" />
         <child id="1188214630783" name="value" index="2B76xF" />
       </concept>
-      <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ng" index="2AJDlI">
+      <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ngI" index="2AJDlI">
         <child id="1188208488637" name="annotation" index="2AJF6D" />
       </concept>
       <concept id="1188214545140" name="jetbrains.mps.baseLanguage.structure.AnnotationInstanceValue" flags="ng" index="2B6LJw">
@@ -136,7 +136,7 @@
         <property id="1176718929932" name="isFinal" index="3TUv4t" />
         <child id="1068431790190" name="initializer" index="33vP2m" />
       </concept>
-      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ng" index="366HgL">
+      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ngI" index="366HgL">
         <property id="1513279640906337053" name="inferTypeParams" index="373rjd" />
       </concept>
       <concept id="1109279763828" name="jetbrains.mps.baseLanguage.structure.TypeVariableDeclaration" flags="ng" index="16euLQ">
@@ -214,7 +214,7 @@
       <concept id="1160998861373" name="jetbrains.mps.baseLanguage.structure.AssertStatement" flags="nn" index="1gVbGN">
         <child id="1160998896846" name="condition" index="1gVkn0" />
       </concept>
-      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ng" index="1ndlxa">
+      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ngI" index="1ndlxa">
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
       </concept>
@@ -252,7 +252,7 @@
       <concept id="1184952934362" name="jetbrains.mps.baseLanguage.structure.DimensionExpression" flags="nn" index="3$GHV9">
         <child id="1184953288404" name="expression" index="3$I4v7" />
       </concept>
-      <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ng" index="1B3ioH">
+      <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ngI" index="1B3ioH">
         <child id="1178549979242" name="visibility" index="1B3o_S" />
       </concept>
       <concept id="1107796713796" name="jetbrains.mps.baseLanguage.structure.Interface" flags="ig" index="3HP615" />
@@ -311,7 +311,7 @@
       <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
         <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
       </concept>
-      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
+      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ngI" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
     </language>
@@ -1846,9 +1846,9 @@
                   <ref role="37wK5l" to="rk9m:7UmW2QiY4tP" resolve="FutureValue" />
                   <node concept="2ShNRf" id="9D0Ba05vkQ" role="37wK5m">
                     <node concept="1pGfFk" id="9D0Ba05vkR" role="2ShVmc">
-                      <ref role="37wK5l" to="i9so:4uO1VCfB6tz" resolve="SUCCESS" />
+                      <ref role="37wK5l" to="i9so:4uO1VCfB6tz" resolve="IResult.SUCCESS" />
                       <node concept="37vLTw" id="4uO1VCfS4nE" role="37wK5m">
-                        <ref role="3cqZAo" node="4uO1VCfS4nC" resolve="string" />
+                        <ref role="3cqZAo" node="4uO1VCfS4nC" resolve="msg" />
                       </node>
                       <node concept="10Nm6u" id="9D0Ba05vkS" role="37wK5m" />
                     </node>
@@ -1959,7 +1959,7 @@
                 </node>
                 <node concept="2ShNRf" id="41innpAoSu$" role="37wK5m">
                   <node concept="1pGfFk" id="41innpAoSu_" role="2ShVmc">
-                    <ref role="37wK5l" node="9D0Ba05v2h" resolve="Controller" />
+                    <ref role="37wK5l" node="9D0Ba05v2h" resolve="WorkbenchMakeService.Controller" />
                     <node concept="37vLTw" id="41innpAoSuA" role="37wK5m">
                       <ref role="3cqZAo" node="9D0Ba05vjs" resolve="controller" />
                     </node>
@@ -2242,7 +2242,7 @@
                               <node concept="1rXfSq" id="4uO1VCfIEaW" role="3clFbG">
                                 <ref role="37wK5l" node="9D0Ba05vlK" resolve="displayInfo" />
                                 <node concept="37vLTw" id="4uO1VCfPiBp" role="37wK5m">
-                                  <ref role="3cqZAo" node="4uO1VCfPiBl" resolve="string" />
+                                  <ref role="3cqZAo" node="4uO1VCfPiBl" resolve="msg" />
                                 </node>
                               </node>
                             </node>
@@ -3958,11 +3958,11 @@
                 <node concept="liA8E" id="9D0Ba05uBC" role="2OqNvi">
                   <ref role="37wK5l" to="i5cy:~AtomicReference.compareAndSet(java.lang.Object,java.lang.Object)" resolve="compareAndSet" />
                   <node concept="Rm8GO" id="9D0Ba05uBD" role="37wK5m">
-                    <ref role="1Px2BO" node="9D0Ba05uHf" resolve="TaskState" />
+                    <ref role="1Px2BO" node="9D0Ba05uHf" resolve="MakeTask.TaskState" />
                     <ref role="Rm8GQ" node="9D0Ba05uJR" resolve="NOT_STARTED" />
                   </node>
                   <node concept="Rm8GO" id="9D0Ba05uBE" role="37wK5m">
-                    <ref role="1Px2BO" node="9D0Ba05uHf" resolve="TaskState" />
+                    <ref role="1Px2BO" node="9D0Ba05uHf" resolve="MakeTask.TaskState" />
                     <ref role="Rm8GQ" node="9D0Ba05uJS" resolve="RUNNING" />
                   </node>
                 </node>
@@ -4084,7 +4084,7 @@
                             <ref role="37wK5l" to="i5cy:~AtomicReference.set(java.lang.Object)" resolve="set" />
                             <node concept="Rm8GO" id="22idfY1l1gM" role="37wK5m">
                               <ref role="Rm8GQ" node="9D0Ba05uJU" resolve="CANCELLED" />
-                              <ref role="1Px2BO" node="9D0Ba05uHf" resolve="TaskState" />
+                              <ref role="1Px2BO" node="9D0Ba05uHf" resolve="MakeTask.TaskState" />
                             </node>
                           </node>
                         </node>
@@ -4110,12 +4110,12 @@
                   <node concept="liA8E" id="22idfY1jXrB" role="2OqNvi">
                     <ref role="37wK5l" to="i5cy:~AtomicReference.compareAndSet(java.lang.Object,java.lang.Object)" resolve="compareAndSet" />
                     <node concept="Rm8GO" id="22idfY1jY_X" role="37wK5m">
-                      <ref role="1Px2BO" node="9D0Ba05uHf" resolve="TaskState" />
+                      <ref role="1Px2BO" node="9D0Ba05uHf" resolve="MakeTask.TaskState" />
                       <ref role="Rm8GQ" node="9D0Ba05uJS" resolve="RUNNING" />
                     </node>
                     <node concept="Rm8GO" id="22idfY1k1vu" role="37wK5m">
                       <ref role="Rm8GQ" node="9D0Ba05uJT" resolve="DONE" />
-                      <ref role="1Px2BO" node="9D0Ba05uHf" resolve="TaskState" />
+                      <ref role="1Px2BO" node="9D0Ba05uHf" resolve="MakeTask.TaskState" />
                     </node>
                   </node>
                 </node>
@@ -4291,12 +4291,12 @@
               <node concept="liA8E" id="22idfY1klfZ" role="2OqNvi">
                 <ref role="37wK5l" to="i5cy:~AtomicReference.compareAndSet(java.lang.Object,java.lang.Object)" resolve="compareAndSet" />
                 <node concept="Rm8GO" id="22idfY1kmqK" role="37wK5m">
-                  <ref role="1Px2BO" node="9D0Ba05uHf" resolve="TaskState" />
+                  <ref role="1Px2BO" node="9D0Ba05uHf" resolve="MakeTask.TaskState" />
                   <ref role="Rm8GQ" node="9D0Ba05uJR" resolve="NOT_STARTED" />
                 </node>
                 <node concept="Rm8GO" id="22idfY1krAP" role="37wK5m">
                   <ref role="Rm8GQ" node="9D0Ba05uJU" resolve="CANCELLED" />
-                  <ref role="1Px2BO" node="9D0Ba05uHf" resolve="TaskState" />
+                  <ref role="1Px2BO" node="9D0Ba05uHf" resolve="MakeTask.TaskState" />
                 </node>
               </node>
             </node>
@@ -4308,11 +4308,11 @@
                 <ref role="37wK5l" to="i5cy:~AtomicReference.compareAndSet(java.lang.Object,java.lang.Object)" resolve="compareAndSet" />
                 <node concept="Rm8GO" id="22idfY1kvq6" role="37wK5m">
                   <ref role="Rm8GQ" node="9D0Ba05uJS" resolve="RUNNING" />
-                  <ref role="1Px2BO" node="9D0Ba05uHf" resolve="TaskState" />
+                  <ref role="1Px2BO" node="9D0Ba05uHf" resolve="MakeTask.TaskState" />
                 </node>
                 <node concept="Rm8GO" id="22idfY1kubi" role="37wK5m">
                   <ref role="Rm8GQ" node="9D0Ba05uJU" resolve="CANCELLED" />
-                  <ref role="1Px2BO" node="9D0Ba05uHf" resolve="TaskState" />
+                  <ref role="1Px2BO" node="9D0Ba05uHf" resolve="MakeTask.TaskState" />
                 </node>
               </node>
             </node>
@@ -4364,7 +4364,7 @@
           <node concept="3cpWsn" id="22idfY1kwXw" role="3cpWs9">
             <property role="TrG5h" value="state" />
             <node concept="3uibUv" id="22idfY1kvF2" role="1tU5fm">
-              <ref role="3uigEE" node="9D0Ba05uHf" resolve="TaskState" />
+              <ref role="3uigEE" node="9D0Ba05uHf" resolve="MakeTask.TaskState" />
             </node>
             <node concept="2OqwBi" id="22idfY1kwXx" role="33vP2m">
               <node concept="37vLTw" id="22idfY1kwXy" role="2Oq$k0">
@@ -4384,7 +4384,7 @@
                 <ref role="1Px2BO" node="9D0Ba05uHf" resolve="MakeTask.TaskState" />
               </node>
               <node concept="37vLTw" id="22idfY1kwX_" role="3uHU7B">
-                <ref role="3cqZAo" node="22idfY1kwXw" resolve="" />
+                <ref role="3cqZAo" node="22idfY1kwXw" resolve="state" />
               </node>
             </node>
             <node concept="3y3z36" id="9D0Ba05uDn" role="3uHU7B">
@@ -4393,7 +4393,7 @@
                 <ref role="1Px2BO" node="9D0Ba05uHf" resolve="MakeTask.TaskState" />
               </node>
               <node concept="37vLTw" id="22idfY1kwX$" role="3uHU7B">
-                <ref role="3cqZAo" node="22idfY1kwXw" resolve="" />
+                <ref role="3cqZAo" node="22idfY1kwXw" resolve="state" />
               </node>
             </node>
           </node>
@@ -4684,11 +4684,11 @@
                 <ref role="3cqZAo" node="2UA$I15WvlH" resolve="configuration" />
               </node>
               <node concept="2OwXpG" id="19IglfvX1_z" role="2OqNvi">
-                <ref role="2Oxat5" node="19IglfvW4MV" resolve="myDisableStartupModuleMaker" />
+                <ref role="2Oxat5" node="19IglfvW4MV" resolve="myDisableMakeOnStartup" />
               </node>
             </node>
             <node concept="37vLTw" id="19IglfvX1_$" role="37vLTJ">
-              <ref role="3cqZAo" node="19IglfvW4MV" resolve="myDisableStartupModuleMaker" />
+              <ref role="3cqZAo" node="19IglfvW4MV" resolve="myDisableMakeOnStartup" />
             </node>
           </node>
         </node>
@@ -4737,7 +4737,7 @@
       <node concept="3clFbS" id="19IglfvX2EE" role="3clF47">
         <node concept="3cpWs6" id="19IglfvX2EF" role="3cqZAp">
           <node concept="37vLTw" id="19IglfvX2EG" role="3cqZAk">
-            <ref role="3cqZAo" node="19IglfvW4MV" resolve="myDisableStartupModuleMaker" />
+            <ref role="3cqZAo" node="19IglfvW4MV" resolve="myDisableMakeOnStartup" />
           </node>
         </node>
       </node>
@@ -4755,7 +4755,7 @@
               <ref role="3cqZAo" node="19IglfvX2ER" resolve="value" />
             </node>
             <node concept="37vLTw" id="19IglfvX2EQ" role="37vLTJ">
-              <ref role="3cqZAo" node="19IglfvW4MV" resolve="myDisableStartupModuleMaker" />
+              <ref role="3cqZAo" node="19IglfvW4MV" resolve="myDisableMakeOnStartup" />
             </node>
           </node>
         </node>

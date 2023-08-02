@@ -101,7 +101,7 @@
       </concept>
       <concept id="1068581242863" name="jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration" flags="nr" index="3cpWsn" />
       <concept id="1081506762703" name="jetbrains.mps.baseLanguage.structure.GreaterThanExpression" flags="nn" index="3eOSWO" />
-      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ng" index="1ndlxa">
+      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ngI" index="1ndlxa">
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
       </concept>
@@ -196,7 +196,7 @@
       <concept id="7153261420283491153" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteExceptionParent" flags="ng" index="3mLoSd" />
       <concept id="368966953912091576" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteSpecialChildAttribute" flags="ng" index="1oPLr5" />
       <concept id="3262439767570552768" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteGrandChildWithConstraints" flags="ng" index="3qo1hI" />
-      <concept id="9067909425367276827" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteSmartRef_Interface" flags="ng" index="1BInaf">
+      <concept id="9067909425367276827" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteSmartRef_Interface" flags="ngI" index="1BInaf">
         <reference id="9067909425367276830" name="childToReference" index="1BInaa" />
       </concept>
       <concept id="8629363476786100059" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteSpecialSubChild" flags="ng" index="3CkhW7" />
@@ -266,7 +266,7 @@
         <property id="1193676396447" name="virtualPackage" index="3GE5qa" />
         <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
       </concept>
-      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
+      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ngI" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
     </language>

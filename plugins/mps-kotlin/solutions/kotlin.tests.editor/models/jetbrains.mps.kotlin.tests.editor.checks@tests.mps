@@ -26,7 +26,7 @@
       <concept id="7835233914439520906" name="jetbrains.mps.lang.test.structure.AbstractNodeRuleCheckOperation" flags="ng" index="mZCkL">
         <child id="710597951278798299" name="expectedMessage" index="1DMPz9" />
       </concept>
-      <concept id="7691029917083872157" name="jetbrains.mps.lang.test.structure.IRuleReference" flags="ng" index="2u4UPC">
+      <concept id="7691029917083872157" name="jetbrains.mps.lang.test.structure.IRuleReference" flags="ngI" index="2u4UPC">
         <reference id="8333855927540250453" name="declaration" index="39XzEq" />
       </concept>
       <concept id="4531408400484511853" name="jetbrains.mps.lang.test.structure.ReportErrorStatementReference" flags="ng" index="2PYRI3" />
@@ -48,7 +48,7 @@
       <concept id="1243006380186890016" name="jetbrains.mps.kotlin.structure.UnaryExpression" flags="ng" index="21Pmin">
         <child id="1243006380186890019" name="operand" index="21Pmik" />
       </concept>
-      <concept id="7996321249597408849" name="jetbrains.mps.kotlin.structure.IInheritExplicitly" flags="ng" index="6Oumu">
+      <concept id="7996321249597408849" name="jetbrains.mps.kotlin.structure.IInheritExplicitly" flags="ngI" index="6Oumu">
         <child id="1991556721067228837" name="superclasses" index="AST3G" />
       </concept>
       <concept id="5622728304609204267" name="jetbrains.mps.kotlin.structure.EmptyDeclaration" flags="ng" index="eKYAL" />
@@ -58,14 +58,14 @@
       <concept id="183384254773978485" name="jetbrains.mps.kotlin.structure.NullableType" flags="ng" index="hI6pR">
         <child id="183384254773980948" name="type" index="hI6Km" />
       </concept>
-      <concept id="781120894705658104" name="jetbrains.mps.kotlin.structure.IKotlinFile" flags="ng" index="2_hZ6C">
+      <concept id="781120894705658104" name="jetbrains.mps.kotlin.structure.IKotlinFile" flags="ngI" index="2_hZ6C">
         <child id="2936055411798374534" name="fileAnnotations" index="1XD0Th" />
       </concept>
       <concept id="1991556721070973461" name="jetbrains.mps.kotlin.structure.EmptyStatement" flags="ng" index="AQkLs" />
-      <concept id="6013275720582937818" name="jetbrains.mps.kotlin.structure.IInheritable" flags="ng" index="ICcUM">
+      <concept id="6013275720582937818" name="jetbrains.mps.kotlin.structure.IInheritable" flags="ngI" index="ICcUM">
         <child id="6013275720582937819" name="inheritance" index="ICcUN" />
       </concept>
-      <concept id="2324909103759097704" name="jetbrains.mps.kotlin.structure.IWithClassBody" flags="ng" index="KS$fF">
+      <concept id="2324909103759097704" name="jetbrains.mps.kotlin.structure.IWithClassBody" flags="ngI" index="KS$fF">
         <child id="2324909103759097705" name="members" index="KS$fE" />
       </concept>
       <concept id="2324909103760650644" name="jetbrains.mps.kotlin.structure.SuperClassSpecifier" flags="ng" index="KYwOn">
@@ -75,16 +75,16 @@
         <property id="2936055411806090009" name="isReadonly" index="1Xb$ne" />
         <child id="2936055411798374330" name="assignment" index="1XD05H" />
       </concept>
-      <concept id="1314219036498225646" name="jetbrains.mps.kotlin.structure.IStatementHolder" flags="ng" index="THmaI">
+      <concept id="1314219036498225646" name="jetbrains.mps.kotlin.structure.IStatementHolder" flags="ngI" index="THmaI">
         <child id="1314219036498225649" name="statements" index="THmaL" />
       </concept>
-      <concept id="6565639133219057675" name="jetbrains.mps.kotlin.structure.IArguments" flags="ng" index="TWioa">
+      <concept id="6565639133219057675" name="jetbrains.mps.kotlin.structure.IArguments" flags="ngI" index="TWioa">
         <child id="6565639133219057676" name="arguments" index="TWiod" />
       </concept>
       <concept id="5533310174484620657" name="jetbrains.mps.kotlin.structure.VariableRefExpression" flags="ng" index="UZU4S">
         <reference id="5533310174484620658" name="target" index="UZU4V" />
       </concept>
-      <concept id="7960033071994915322" name="jetbrains.mps.kotlin.structure.IAnnotated" flags="ng" index="36UvSt">
+      <concept id="7960033071994915322" name="jetbrains.mps.kotlin.structure.IAnnotated" flags="ngI" index="36UvSt">
         <child id="7960033071994915323" name="annotations" index="36UvSs" />
       </concept>
       <concept id="7188675108981477346" name="jetbrains.mps.kotlin.structure.Parameter" flags="ng" index="37iW8e">
@@ -94,10 +94,10 @@
         <reference id="4929770680970643073" name="constructor" index="3N3xrh" />
       </concept>
       <concept id="4662566628538083705" name="jetbrains.mps.kotlin.structure.FunctionCallExpression" flags="ng" index="1NbEFs" />
-      <concept id="6664176324866782072" name="jetbrains.mps.kotlin.structure.IClassReference" flags="ng" index="1SePDR">
+      <concept id="6664176324866782072" name="jetbrains.mps.kotlin.structure.IClassReference" flags="ngI" index="1SePDR">
         <reference id="6664176324866782075" name="class" index="1SePDO" />
       </concept>
-      <concept id="2936055411806083456" name="jetbrains.mps.kotlin.structure.IFunctionParameters" flags="ng" index="1XbAXn">
+      <concept id="2936055411806083456" name="jetbrains.mps.kotlin.structure.IFunctionParameters" flags="ngI" index="1XbAXn">
         <child id="2936055411806083457" name="parameters" index="1XbAXm" />
       </concept>
       <concept id="2936055411798373599" name="jetbrains.mps.kotlin.structure.ClassType" flags="ng" index="1XD088" />
@@ -167,7 +167,7 @@
       <concept id="2936055411798373152" name="jetbrains.mps.kotlin.structure.CatchBlock" flags="ng" index="1XD0nR">
         <child id="2936055411798373827" name="type" index="1XD0ck" />
       </concept>
-      <concept id="2936055411803573749" name="jetbrains.mps.kotlin.structure.ITypeParameters" flags="ng" index="1XPbGy">
+      <concept id="2936055411803573749" name="jetbrains.mps.kotlin.structure.ITypeParameters" flags="ngI" index="1XPbGy">
         <child id="2936055411803573750" name="typeParameters" index="1XPbGx" />
       </concept>
       <concept id="2936055411801360063" name="jetbrains.mps.kotlin.structure.InterfaceDeclaration" flags="ng" index="1XXB1C" />
@@ -180,7 +180,7 @@
       <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
         <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
       </concept>
-      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
+      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ngI" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
     </language>

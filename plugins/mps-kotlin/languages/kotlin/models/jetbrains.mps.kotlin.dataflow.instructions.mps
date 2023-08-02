@@ -44,7 +44,7 @@
       <concept id="1188207840427" name="jetbrains.mps.baseLanguage.structure.AnnotationInstance" flags="nn" index="2AHcQZ">
         <reference id="1188208074048" name="annotation" index="2AI5Lk" />
       </concept>
-      <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ng" index="2AJDlI">
+      <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ngI" index="2AJDlI">
         <child id="1188208488637" name="annotation" index="2AJF6D" />
       </concept>
       <concept id="1197027756228" name="jetbrains.mps.baseLanguage.structure.DotExpression" flags="nn" index="2OqwBi">
@@ -107,7 +107,7 @@
         <property id="1176718929932" name="isFinal" index="3TUv4t" />
         <child id="1068431790190" name="initializer" index="33vP2m" />
       </concept>
-      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ng" index="366HgL">
+      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ngI" index="366HgL">
         <property id="1513279640906337053" name="inferTypeParams" index="373rjd" />
       </concept>
       <concept id="1109279763828" name="jetbrains.mps.baseLanguage.structure.TypeVariableDeclaration" flags="ng" index="16euLQ" />
@@ -173,7 +173,7 @@
       <concept id="1081516740877" name="jetbrains.mps.baseLanguage.structure.NotExpression" flags="nn" index="3fqX7Q">
         <child id="1081516765348" name="expression" index="3fr31v" />
       </concept>
-      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ng" index="1ndlxa">
+      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ngI" index="1ndlxa">
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
       </concept>
@@ -197,7 +197,7 @@
         <child id="1202077744034" name="visibility" index="3xqFEP" />
       </concept>
       <concept id="1081855346303" name="jetbrains.mps.baseLanguage.structure.BreakStatement" flags="nn" index="3zACq4" />
-      <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ng" index="1B3ioH">
+      <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ngI" index="1B3ioH">
         <child id="1178549979242" name="visibility" index="1B3o_S" />
       </concept>
       <concept id="1107796713796" name="jetbrains.mps.baseLanguage.structure.Interface" flags="ig" index="3HP615" />
@@ -262,7 +262,7 @@
         <child id="7915009415671751864" name="type" index="2FaQuo" />
       </concept>
       <concept id="237887375562511215" name="jetbrains.mps.baseLanguage.methodReferences.structure.MethodReference" flags="ng" index="37Ijox" />
-      <concept id="3507059745126391419" name="jetbrains.mps.baseLanguage.methodReferences.structure.IMethodReference" flags="ng" index="3UZKCU">
+      <concept id="3507059745126391419" name="jetbrains.mps.baseLanguage.methodReferences.structure.IMethodReference" flags="ngI" index="3UZKCU">
         <reference id="237887375562511297" name="method" index="37Ijqf" />
         <child id="962278442658307079" name="target" index="wWaWy" />
       </concept>
@@ -277,7 +277,7 @@
         <property id="1193676396447" name="virtualPackage" index="3GE5qa" />
         <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
       </concept>
-      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
+      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ngI" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
       <concept id="4222318806802425298" name="jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation" flags="ng" index="15s5l7">
@@ -758,7 +758,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="4YVeo2liNDx" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="3sznAbix8gC" role="jymVt" />
@@ -861,16 +861,16 @@
       <node concept="37vLTG" id="7tZ5YSUG$fP" role="3clF46">
         <property role="TrG5h" value="o" />
         <node concept="3uibUv" id="7tZ5YSUG$fQ" role="1tU5fm">
-          <ref role="3uigEE" to="wyt6:~Object" />
+          <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
         </node>
       </node>
       <node concept="2AHcQZ" id="7tZ5YSUG$fR" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="3sznAbix8mF" role="jymVt" />
     <node concept="2AHcQZ" id="5J4Txs1y81Q" role="2AJF6D">
-      <ref role="2AI5Lk" to="mhfm:~ApiStatus$Experimental" resolve="Experimental" />
+      <ref role="2AI5Lk" to="mhfm:~ApiStatus$Experimental" resolve="ApiStatus.Experimental" />
     </node>
     <node concept="3UR2Jj" id="5J4Txs1y8Iv" role="lGtFl">
       <node concept="TZ5HA" id="5J4Txs1y8Iw" role="TZ5H$">
@@ -1007,15 +1007,15 @@
     <node concept="2tJIrI" id="1y9h1ag0gni" role="jymVt" />
     <node concept="QsSxf" id="4X7P4q$0rmR" role="Qtgdg">
       <property role="TrG5h" value="TRUE" />
-      <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" />
+      <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
     </node>
     <node concept="QsSxf" id="4X7P4q$0rre" role="Qtgdg">
       <property role="TrG5h" value="FALSE" />
-      <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" />
+      <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
     </node>
     <node concept="QsSxf" id="4X7P4q$0rxF" role="Qtgdg">
       <property role="TrG5h" value="UNKNOWN" />
-      <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" />
+      <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
     </node>
     <node concept="3Tm1VV" id="4X7P4q$0rkP" role="1B3o_S" />
     <node concept="3clFb_" id="1y9h1ag0guM" role="jymVt">
@@ -1035,11 +1035,11 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="1y9h1ag0guR" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2AHcQZ" id="5J4Txs1y59I" role="2AJF6D">
-      <ref role="2AI5Lk" to="mhfm:~ApiStatus$Experimental" resolve="Experimental" />
+      <ref role="2AI5Lk" to="mhfm:~ApiStatus$Experimental" resolve="ApiStatus.Experimental" />
     </node>
     <node concept="3UR2Jj" id="5J4Txs1y98t" role="lGtFl">
       <node concept="TZ5HA" id="5J4Txs1y98u" role="TZ5H$">
@@ -1312,7 +1312,7 @@
       <property role="TrG5h" value="T" />
     </node>
     <node concept="2AHcQZ" id="5J4Txs1y4i2" role="2AJF6D">
-      <ref role="2AI5Lk" to="mhfm:~ApiStatus$Experimental" resolve="Experimental" />
+      <ref role="2AI5Lk" to="mhfm:~ApiStatus$Experimental" resolve="ApiStatus.Experimental" />
     </node>
   </node>
   <node concept="312cEu" id="4X7P4q$1doc">
@@ -2225,7 +2225,7 @@
                   <node concept="2OqwBi" id="7h$eT$YiDdd" role="2Oq$k0">
                     <property role="hSjvv" value="true" />
                     <node concept="37vLTw" id="7h$eT$YiDde" role="2Oq$k0">
-                      <ref role="3cqZAo" node="4YVeo2mjVb5" resolve="filter" />
+                      <ref role="3cqZAo" node="4YVeo2mjVb5" resolve="applicable" />
                     </node>
                     <node concept="liA8E" id="7h$eT$YiDdf" role="2OqNvi">
                       <ref role="37wK5l" to="1ctc:~Stream.flatMap(java.util.function.Function)" resolve="flatMap" />
@@ -2341,7 +2341,7 @@
       <node concept="37vLTG" id="4X7P4q$bEql" role="3clF46">
         <property role="TrG5h" value="interpretor" />
         <node concept="3uibUv" id="4X7P4q$bEqm" role="1tU5fm">
-          <ref role="3uigEE" node="4X7P4q$192z" resolve="Interpretor" />
+          <ref role="3uigEE" node="4X7P4q$192z" resolve="DataflowEvaluator" />
           <node concept="16syzq" id="4X7P4q$bEqn" role="11_B2D">
             <ref role="16sUi3" node="4X7P4q$bEqo" resolve="T" />
           </node>
@@ -2401,7 +2401,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="5J4Txs1eFhb" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~ApiStatus$Experimental" resolve="Experimental" />
+        <ref role="2AI5Lk" to="mhfm:~ApiStatus$Experimental" resolve="ApiStatus.Experimental" />
       </node>
     </node>
     <node concept="2tJIrI" id="1y9h1agCZjr" role="jymVt" />
@@ -2418,7 +2418,7 @@
                 <ref role="3uigEE" to="wyt6:~Integer" resolve="Integer" />
               </node>
               <node concept="3uibUv" id="1y9h1agDln0" role="11_B2D">
-                <ref role="3uigEE" node="4X7P4q$3qKR" resolve="InstructionState" />
+                <ref role="3uigEE" node="4X7P4q$3qKR" resolve="DataflowEvalRunner.InstructionState" />
                 <node concept="16syzq" id="1y9h1agDln1" role="11_B2D">
                   <ref role="16sUi3" node="1y9h1agDlnX" resolve="T" />
                 </node>
@@ -2493,7 +2493,7 @@
                                   <node concept="2ShNRf" id="1y9h1agD9MQ" role="3cqZAk">
                                     <node concept="1pGfFk" id="1y9h1agD9MR" role="2ShVmc">
                                       <property role="373rjd" value="true" />
-                                      <ref role="37wK5l" node="4X7P4q$56uJ" resolve="InstructionState" />
+                                      <ref role="37wK5l" node="4X7P4q$56uJ" resolve="DataflowEvalRunner.InstructionState" />
                                       <node concept="37vLTw" id="4YVeo2me89J" role="37wK5m">
                                         <ref role="3cqZAo" node="1y9h1agDlnU" resolve="interpretor" />
                                       </node>
@@ -2572,7 +2572,7 @@
                   <ref role="37Ijqf" node="4X7P4q$a17s" resolve="getStates" />
                   <node concept="2FaPjH" id="1a0KsPCPcvH" role="wWaWy">
                     <node concept="3uibUv" id="1a0KsPCPcvD" role="2FaQuo">
-                      <ref role="3uigEE" node="4X7P4q$3qKR" resolve="InstructionState" />
+                      <ref role="3uigEE" node="4X7P4q$3qKR" resolve="DataflowEvalRunner.InstructionState" />
                       <node concept="16syzq" id="1a0KsPCPcvG" role="11_B2D">
                         <ref role="16sUi3" node="1y9h1agDlnX" resolve="T" />
                       </node>
@@ -2620,7 +2620,7 @@
       <node concept="37vLTG" id="1y9h1agDlnU" role="3clF46">
         <property role="TrG5h" value="interpretor" />
         <node concept="3uibUv" id="1y9h1agDlnV" role="1tU5fm">
-          <ref role="3uigEE" node="4X7P4q$192z" resolve="Interpretor" />
+          <ref role="3uigEE" node="4X7P4q$192z" resolve="DataflowEvaluator" />
           <node concept="16syzq" id="1y9h1agDlnW" role="11_B2D">
             <ref role="16sUi3" node="1y9h1agDlnX" resolve="T" />
           </node>
@@ -2630,7 +2630,7 @@
         <property role="TrG5h" value="T" />
       </node>
       <node concept="2AHcQZ" id="5J4Txs1s5di" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~ApiStatus$Experimental" resolve="Experimental" />
+        <ref role="2AI5Lk" to="mhfm:~ApiStatus$Experimental" resolve="ApiStatus.Experimental" />
       </node>
       <node concept="P$JXv" id="5J4Txs1slbW" role="lGtFl">
         <node concept="TZ5HA" id="5J4Txs1slbX" role="TZ5H$">
@@ -2711,7 +2711,7 @@
         <node concept="37vLTG" id="4X7P4q$3wXm" role="3clF46">
           <property role="TrG5h" value="interpretor" />
           <node concept="3uibUv" id="4X7P4q$3xdl" role="1tU5fm">
-            <ref role="3uigEE" node="4X7P4q$192z" resolve="Interpretor" />
+            <ref role="3uigEE" node="4X7P4q$192z" resolve="DataflowEvaluator" />
             <node concept="16syzq" id="4X7P4q$3xeo" role="11_B2D">
               <ref role="16sUi3" node="4X7P4q$3t17" resolve="T" />
             </node>
@@ -3230,7 +3230,7 @@
           </node>
         </node>
         <node concept="3uibUv" id="4X7P4q$8lZO" role="3clF45">
-          <ref role="3uigEE" node="4X7P4q$3qKR" resolve="InstructionState" />
+          <ref role="3uigEE" node="4X7P4q$3qKR" resolve="DataflowEvalRunner.InstructionState" />
           <node concept="16syzq" id="4X7P4q$8pxE" role="11_B2D">
             <ref role="16sUi3" node="4X7P4q$3t17" resolve="T" />
           </node>
@@ -3417,7 +3417,7 @@
       </node>
     </node>
     <node concept="2AHcQZ" id="2Q54suPb$WH" role="2AJF6D">
-      <ref role="2AI5Lk" to="mhfm:~ApiStatus$Experimental" resolve="Experimental" />
+      <ref role="2AI5Lk" to="mhfm:~ApiStatus$Experimental" resolve="ApiStatus.Experimental" />
     </node>
   </node>
 </model>
