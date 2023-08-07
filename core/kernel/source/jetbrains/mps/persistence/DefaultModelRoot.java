@@ -15,6 +15,9 @@
  */
 package jetbrains.mps.persistence;
 
+import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.openapi.vfs.VirtualFileManager;
+import com.intellij.openapi.vfs.VirtualFileSystem;
 import jetbrains.mps.extapi.model.SModelBase;
 import jetbrains.mps.extapi.module.SModuleBase;
 import jetbrains.mps.extapi.persistence.CopyNotSupportedException;
@@ -270,7 +273,6 @@ public final class DefaultModelRoot extends FileBasedModelRoot implements Copyab
   /**
    * Creates model in the default source root via default factory
    *
-   * @see Defaults#sourceRoot
    * @return null if there was IOException
    */
   @Override
@@ -444,11 +446,19 @@ public final class DefaultModelRoot extends FileBasedModelRoot implements Copyab
     FileDataSource source = (FileDataSource) result.getDataSource();
     IFile newFile = source.getFile();
     if (!newFile.equals(oldFile)) {
+      DSourceAndOptions<DataSource> tempResult = getDataSourceFactoryBridge().createFileDataSource(new SModelName(newName + "_temp_" + System.currentTimeMillis()), sourceRoot);
+      FileDataSource tempSource = (FileDataSource) tempResult.getDataSource();
+      IFile tempNewFile = tempSource.getFile();
+      tempNewFile.getParent().mkdirs();
+      tempNewFile.createNewFile();
+      dataSource.setFile(tempNewFile);
+      FileUtil.deleteWithAllEmptyDirs(oldFile);
+
       newFile.getParent().mkdirs();
       newFile.createNewFile();
       // at the moment, there's no mechanism to replace model's datasource, hence we replace file of the original source here.
       dataSource.setFile(newFile);
-      FileUtil.deleteWithAllEmptyDirs(oldFile);
+      FileUtil.deleteWithAllEmptyDirs(tempNewFile);
     }
   }
 

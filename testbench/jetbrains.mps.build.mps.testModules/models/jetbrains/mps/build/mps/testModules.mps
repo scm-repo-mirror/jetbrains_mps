@@ -13,6 +13,7 @@
     <import index="8ytb" ref="r:0fc0617b-a58c-4b18-af63-dc67be77023b(mps.test.findusages@tests)" />
     <import index="5lan" ref="r:4201854c-2b50-4609-9031-1ebdf87d3bf7(JavaCompilationXmlConflict.test.test@tests)" />
     <import index="dlic" ref="r:688f53d4-3997-403e-9588-25640f0414aa(jetbrains.mps.persistence.transients.tests@tests)" />
+    <import index="5fgz" ref="r:306699ac-7981-4117-bc07-ec2d425bff05(TestModelRename.test@tests)" />
   </imports>
   <registry>
     <language id="9f846aef-4e4a-4a84-828e-7e83fe2697f2" name="jetbrains.mps.build.mps.testManifest">
@@ -56,14 +57,17 @@
     <node concept="2Uj$md" id="4tzJw0sqrFJ" role="2Uj_Yd">
       <ref role="2Uj$mc" to="8ytb:4tzJw0sqrF_" resolve="FindUsages" />
     </node>
-    <node concept="2Uj$md" id="7Grmxs6$VNH" role="2Uj_Yd">
-      <ref role="2Uj$mc" to="dlic:7Grmxs6$_Op" resolve="TransientConceptFeatures" />
-    </node>
     <node concept="1dCxOl" id="4JE22xb2zS5" role="3cVaLd">
       <property role="1XweGQ" value="r:12897c41-1d23-444a-8c3d-8a254e74f9b6" />
       <node concept="1j_P7g" id="4JE22xb2zS6" role="1j$8Uc">
         <property role="1j_P7h" value="jetbrains.mps.ide.build.tests.generatedTests" />
       </node>
+    </node>
+    <node concept="2Uj$md" id="7Grmxs6$VNH" role="2Uj_Yd">
+      <ref role="2Uj$mc" to="dlic:7Grmxs6$_Op" resolve="TransientConceptFeatures" />
+    </node>
+    <node concept="2Uj$md" id="1fvQcDvH7Oa" role="2Uj_Yd">
+      <ref role="2Uj$mc" to="5fgz:1fvQcDvHjaU" resolve="ModelRename" />
     </node>
   </node>
 </model>
