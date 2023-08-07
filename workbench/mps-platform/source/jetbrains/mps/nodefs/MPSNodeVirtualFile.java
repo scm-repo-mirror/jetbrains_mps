@@ -16,22 +16,27 @@
 package jetbrains.mps.nodefs;
 
 import com.intellij.openapi.fileEditor.impl.FileEditorManagerImpl;
+import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.VirtualFileSystem;
+import com.intellij.psi.search.ProjectAwareVirtualFile;
 import com.intellij.util.LocalTimeCounter;
 import jetbrains.mps.extapi.module.TransientSModule;
+import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.logging.Logger;
+import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
 import java.io.InputStream;
 import java.io.OutputStream;
 
-public final class MPSNodeVirtualFile extends VirtualFile {
+public final class MPSNodeVirtualFile extends VirtualFile implements ProjectAwareVirtualFile {
   private static final byte[] CONTENTS = new byte[0];
   private static final Logger LOG = Logger.getLogger(MPSNodeVirtualFile.class);
   static final String NODE_PREFIX = "node://";
@@ -243,5 +248,12 @@ public final class MPSNodeVirtualFile extends VirtualFile {
 
   public void setModificationStamp(long newValue) {
     myModificationStamp = newValue;
+  }
+
+  @Override
+  public boolean isInProject(@NotNull Project project) {
+    final MPSProject mpsProject = ProjectHelper.fromIdeaProject(project);
+    final SModel model = myNode.getModelReference().resolve(mpsProject.getRepository());
+    return model!=null && !model.isReadOnly();
   }
 }
