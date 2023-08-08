@@ -18,6 +18,7 @@
     <dependency reexport="false">b0a89157-db40-4955-b2ac-edf8fcc90dde(JavaCompilationXmlConflict.test)</dependency>
     <dependency reexport="false">744e8fdc-be86-476c-90fa-c51c36b899e5(jetbrains.mps.persistence.transients.tests)</dependency>
     <dependency reexport="false">5de85764-70e6-4e9a-8618-d85dc0eb0843(TestModelRename)</dependency>
+    <dependency reexport="false">7cb9725f-b441-49fd-97a7-f8cc78dc90bd(testModelRenaming)</dependency>
   </dependencies>
   <languageVersions>
     <language slang="l:9f846aef-4e4a-4a84-828e-7e83fe2697f2:jetbrains.mps.build.mps.testManifest" version="0" />
@@ -43,6 +44,7 @@
     <module reference="9ebe73c6-437b-4a56-95a7-1d7eec081f24(mps.test.findusages)" version="0" />
     <module reference="64b24ebe-97a2-466e-83d8-bd3afefcbb41(refactoring.test)" version="0" />
     <module reference="cea8814f-0f47-4ffe-8d0a-783b568230cb(sampleSolution)" version="0" />
+    <module reference="7cb9725f-b441-49fd-97a7-f8cc78dc90bd(testModelRenaming)" version="0" />
     <module reference="f2f32c65-17db-4e68-ad2f-8b0e2554dbd6(tests.testPersistence)" version="0" />
   </dependencyVersions>
 </solution>
