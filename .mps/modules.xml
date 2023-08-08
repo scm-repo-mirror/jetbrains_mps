@@ -549,6 +549,7 @@
       <modulePath path="$PROJECT_DIR$/testbench/modules/testBehavior/languages/L5/BHL5.mpl" folder="tests.testBehavior" />
       <modulePath path="$PROJECT_DIR$/testbench/modules/testBehavior/languages/L6/BHL6.mpl" folder="tests.testBehavior" />
       <modulePath path="$PROJECT_DIR$/testbench/modules/testBehavior/languages/L7/BHL7.mpl" folder="tests.testBehavior" />
+      <modulePath path="$PROJECT_DIR$/testbench/modules/testBehavior/solutions/TestBehavior/TestBehavior.msd" folder="tests.testBehavior" />
       <modulePath path="$PROJECT_DIR$/testbench/modules/testBehavior/solutions/TestBehaviorReflective/TestBehaviorReflective.msd" folder="tests.testBehavior" />
       <modulePath path="$PROJECT_DIR$/testbench/modules/testBehavior/solutions/UtilSolution/UtilSolution.msd" folder="tests.testBehavior" />
       <modulePath path="$PROJECT_DIR$/testbench/modules/testClassLoading/languages/L1/L1.mpl" folder="tests.testClassLoading" />

@@ -949,13 +949,13 @@
       </node>
     </node>
     <node concept="13uUGR" id="QQUW4evYfw" role="1l3spa">
-      <ref role="13uUGO" to="ffeo:6eCuTcwOnJO" />
+      <ref role="13uUGO" to="ffeo:6eCuTcwOnJO" resolve="IDEA" />
       <node concept="398BVA" id="QQUW4evYfx" role="13uUGP">
         <ref role="398BVh" node="QQUW4evYf_" resolve="idea_home" />
       </node>
     </node>
     <node concept="2sgV4H" id="QQUW4evYfy" role="1l3spa">
-      <ref role="1l3spb" to="ffeo:3IKDaVZmzS6" />
+      <ref role="1l3spb" to="ffeo:3IKDaVZmzS6" resolve="mps" />
       <node concept="398BVA" id="QQUW4evYfz" role="2JcizS">
         <ref role="398BVh" node="QQUW4evYf$" resolve="mps_home" />
       </node>

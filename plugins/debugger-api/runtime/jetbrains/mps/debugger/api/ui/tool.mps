@@ -958,7 +958,7 @@
                 </node>
                 <node concept="10M0yZ" id="2WwZUT5eEUb" role="37wK5m">
                   <ref role="3cqZAo" to="z2i8:~AllIcons$Debugger.Console" resolve="Console" />
-                  <ref role="1PxDUh" to="z2i8:~AllIcons$Debugger" resolve="Debugger" />
+                  <ref role="1PxDUh" to="z2i8:~AllIcons$Debugger" resolve="AllIcons.Debugger" />
                 </node>
                 <node concept="2OqwBi" id="3SnNvqCbxPF" role="37wK5m">
                   <node concept="37vLTw" id="2BHiRxgmihk" role="2Oq$k0">
