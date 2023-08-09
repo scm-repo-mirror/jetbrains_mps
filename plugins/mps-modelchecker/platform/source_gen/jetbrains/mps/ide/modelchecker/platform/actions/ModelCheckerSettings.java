@@ -16,6 +16,13 @@ import java.util.ArrayList;
 import jetbrains.mps.errors.CheckerRegistry;
 import jetbrains.mps.errors.item.IssueKindReportItem;
 
+/**
+ * A persistent state component responsible for accessing and editing "Model Checker" settings.
+ * <p>
+ * See {@link jetbrains.mps.checkers.IChecker }
+ * See {@link jetbrains.mps.ide.modelchecker.platform.actions.ModelCheckerTool }
+ * See {@link jetbrains.mps.ide.modelchecker.platform.actions.ModelCheckerViewer }
+ */
 @State(name = "ModelCheckerSettings", storages = @Storage(value = "modelCheckerSettings.xml")
 , reportStatistic = true)
 @GeneratedClass(node = "r:5754bb7d-f802-4a0f-bd3d-0764f0d71413(jetbrains.mps.ide.modelchecker.platform.actions)/3719390199793464912", model = "r:5754bb7d-f802-4a0f-bd3d-0764f0d71413(jetbrains.mps.ide.modelchecker.platform.actions)")
@@ -39,6 +46,14 @@ public class ModelCheckerSettings implements PersistentStateComponent<ModelCheck
     return ApplicationManager.getApplication().getService(ModelCheckerSettings.class);
   }
 
+  /**
+   * Retrieves the list of all "specific" (in the sense that they are doing some job themselves) checkers 
+   * currently active according to the settings. 
+   * <p>
+   * See {@link jetbrains.mps.errors.item.IssueKindReportItem } for the list of checker levels. 
+   * Checkers registered at the level {@code KindLevel.MANUAL } are included if "additional checks" is selected.
+   * <p>
+   */
   public List<IChecker<?, ?>> getSpecificCheckers(@NotNull Project mpsProject) {
     List<IChecker<?, ?>> result = ListSequence.fromList(new ArrayList<IChecker<?, ?>>());
     CheckerRegistry checkerRegistry = mpsProject.getComponent(CheckerRegistry.class);

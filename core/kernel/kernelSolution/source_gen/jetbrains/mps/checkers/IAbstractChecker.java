@@ -8,6 +8,13 @@ import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.util.Consumer;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 
+/**
+ * Unfortunately named composite checker.
+ * <p>
+ * An instance of this interface is never a "concrete" (a.k.a. "specific") checker, rather it is always composed
+ * of other checkers, abstract or otherwise. 
+ * 
+ */
 @GeneratedClass(node = "r:ba41e9c6-15ca-4a47-95f2-6a81c2318547(jetbrains.mps.checkers)/4057642946561766034", model = "r:ba41e9c6-15ca-4a47-95f2-6a81c2318547(jetbrains.mps.checkers)")
 public interface IAbstractChecker<O, I extends ReportItem> {
   void check(O toCheck, SRepository repository, Consumer<? super I> errorCollector, ProgressMonitor monitor);

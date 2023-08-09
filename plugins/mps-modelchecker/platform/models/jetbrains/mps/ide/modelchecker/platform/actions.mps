@@ -6,6 +6,7 @@
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
+    <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="2" />
   </languages>
   <imports>
     <import index="unno" ref="r:61e3d524-8c49-4491-b5e3-f6d6e9364527(jetbrains.mps.util)" />
@@ -334,6 +335,35 @@
         <child id="1199569916463" name="body" index="1bW5cS" />
       </concept>
     </language>
+    <language id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc">
+      <concept id="2546654756694997551" name="jetbrains.mps.baseLanguage.javadoc.structure.LinkInlineDocTag" flags="ng" index="92FcH">
+        <child id="2546654756694997556" name="reference" index="92FcQ" />
+        <child id="3106559687488913694" name="line" index="2XjZqd" />
+      </concept>
+      <concept id="5349172909345501395" name="jetbrains.mps.baseLanguage.javadoc.structure.BaseDocComment" flags="ng" index="P$AiS">
+        <child id="8465538089690331502" name="body" index="TZ5H$" />
+      </concept>
+      <concept id="5349172909345532724" name="jetbrains.mps.baseLanguage.javadoc.structure.MethodDocComment" flags="ng" index="P$JXv" />
+      <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA">
+        <child id="8970989240999019149" name="part" index="1dT_Ay" />
+      </concept>
+      <concept id="2217234381367049075" name="jetbrains.mps.baseLanguage.javadoc.structure.CodeInlineDocTag" flags="ng" index="VVOAv">
+        <child id="3106559687488741665" name="line" index="2Xj1qM" />
+      </concept>
+      <concept id="2217234381367530212" name="jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocReference" flags="ng" index="VXe08">
+        <reference id="2217234381367530213" name="classifier" index="VXe09" />
+      </concept>
+      <concept id="2217234381367530195" name="jetbrains.mps.baseLanguage.javadoc.structure.MethodDocReference" flags="ng" index="VXe0Z">
+        <reference id="2217234381367530196" name="methodDeclaration" index="VXe0S" />
+      </concept>
+      <concept id="8970989240999019145" name="jetbrains.mps.baseLanguage.javadoc.structure.InlineTagCommentLinePart" flags="ng" index="1dT_AA">
+        <child id="6962838954693749192" name="tag" index="qph3F" />
+      </concept>
+      <concept id="8970989240999019143" name="jetbrains.mps.baseLanguage.javadoc.structure.TextCommentLinePart" flags="ng" index="1dT_AC">
+        <property id="8970989240999019144" name="text" index="1dT_AB" />
+      </concept>
+      <concept id="2068944020170241612" name="jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocComment" flags="ng" index="3UR2Jj" />
+    </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
       <concept id="1204834851141" name="jetbrains.mps.lang.smodel.structure.PoundExpression" flags="ng" index="25Kdxt">
         <child id="1204834868751" name="expression" index="25KhWn" />
@@ -376,6 +406,7 @@
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
       <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
         <property id="1193676396447" name="virtualPackage" index="3GE5qa" />
+        <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
       </concept>
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
@@ -787,6 +818,61 @@
         </node>
         <node concept="2AHcQZ" id="3GsVPVaO877" role="2AJF6D">
           <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="P$JXv" id="3LCCkAq3hEc" role="lGtFl">
+        <node concept="TZ5HA" id="3LCCkAq3hEd" role="TZ5H$">
+          <node concept="1dT_AC" id="3LCCkAq3hEe" role="1dT_Ay">
+            <property role="1dT_AB" value="Retrieves the list of all &quot;specific&quot; (in the sense that they are doing some job themselves) checkers " />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="3LCCkAqNjuc" role="TZ5H$">
+          <node concept="1dT_AC" id="3LCCkAqNjud" role="1dT_Ay">
+            <property role="1dT_AB" value="currently active according to the settings. " />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="3LCCkAq3jAd" role="TZ5H$">
+          <node concept="1dT_AC" id="3LCCkAq3jAe" role="1dT_Ay">
+            <property role="1dT_AB" value="&lt;p&gt;" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="3LCCkAq3kUq" role="TZ5H$">
+          <node concept="1dT_AC" id="3LCCkAq3kUr" role="1dT_Ay">
+            <property role="1dT_AB" value="See " />
+          </node>
+          <node concept="1dT_AA" id="3LCCkAq3lEE" role="1dT_Ay">
+            <node concept="92FcH" id="3LCCkAq3lGg" role="qph3F">
+              <node concept="TZ5HA" id="3LCCkAq3lGi" role="2XjZqd" />
+              <node concept="VXe08" id="3LCCkAq3KpJ" role="92FcQ">
+                <ref role="VXe09" to="d6hs:~IssueKindReportItem" resolve="IssueKindReportItem" />
+              </node>
+            </node>
+          </node>
+          <node concept="1dT_AC" id="3LCCkAq3lED" role="1dT_Ay">
+            <property role="1dT_AB" value=" for the list of checker levels. " />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="3LCCkAq3KCE" role="TZ5H$">
+          <node concept="1dT_AC" id="3LCCkAq3KCF" role="1dT_Ay">
+            <property role="1dT_AB" value="Checkers registered at the level " />
+          </node>
+          <node concept="1dT_AA" id="3LCCkAq3Mn9" role="1dT_Ay">
+            <node concept="VVOAv" id="3LCCkAq3Osf" role="qph3F">
+              <node concept="TZ5HA" id="3LCCkAq3Osj" role="2Xj1qM">
+                <node concept="1dT_AC" id="3LCCkAq3Otl" role="1dT_Ay">
+                  <property role="1dT_AB" value="KindLevel.MANUAL " />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="1dT_AC" id="3LCCkAq3Mn8" role="1dT_Ay">
+            <property role="1dT_AB" value=" are included if &quot;additional checks&quot; is selected." />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="3LCCkAqlYSk" role="TZ5H$">
+          <node concept="1dT_AC" id="3LCCkAqlYSl" role="1dT_Ay">
+            <property role="1dT_AB" value="&lt;p&gt;" />
+          </node>
         </node>
       </node>
     </node>
@@ -1337,6 +1423,66 @@
         <ref role="2B6OnR" to="1m72:~State.reportStatistic()" resolve="reportStatistic" />
         <node concept="3clFbT" id="5Kg_WlnjfwP" role="2B70Vg">
           <property role="3clFbU" value="true" />
+        </node>
+      </node>
+    </node>
+    <node concept="3UR2Jj" id="3LCCkAqlR2w" role="lGtFl">
+      <node concept="TZ5HA" id="3LCCkAqlR2x" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqlR2y" role="1dT_Ay">
+          <property role="1dT_AB" value="A persistent state component responsible for accessing and editing &quot;Model Checker&quot; settings." />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqlT9k" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqlT9l" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;p&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqlUo9" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqlUoa" role="1dT_Ay">
+          <property role="1dT_AB" value="See " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqlVC0" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqlVD4" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqlVD6" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqlVPN" role="92FcQ">
+              <ref role="VXe09" to="wsw7:4r$i1_aEwSg" resolve="IChecker" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqlVBZ" role="1dT_Ay">
+          <property role="1dT_AB" value="" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqlW5S" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqlW5T" role="1dT_Ay">
+          <property role="1dT_AB" value="See " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqlXlP" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqlXmT" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqlXmV" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqlXqU" role="92FcQ">
+              <ref role="VXe09" node="3etVqSRK$al" resolve="ModelCheckerTool" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqlXlO" role="1dT_Ay">
+          <property role="1dT_AB" value="" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqlXt7" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqlXt8" role="1dT_Ay">
+          <property role="1dT_AB" value="See " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqlXt9" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqlXta" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqlXtb" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqlXtc" role="92FcQ">
+              <ref role="VXe09" node="3etVqSRRNr5" resolve="ModelCheckerViewer" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqlXtd" role="1dT_Ay">
+          <property role="1dT_AB" value="" />
         </node>
       </node>
     </node>
@@ -2238,6 +2384,74 @@
     </node>
     <node concept="3uibUv" id="6MDTP4X4Eip" role="EKbjA">
       <ref role="3uigEE" to="9erk:~SearchTask" resolve="SearchTask" />
+    </node>
+    <node concept="3UR2Jj" id="3LCCkAqoCtY" role="lGtFl">
+      <node concept="TZ5HA" id="3LCCkAqoCtZ" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqoCu0" role="1dT_Ay">
+          <property role="1dT_AB" value="The main engine that launches the checkers specified in the constructor." />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqpArC" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqpArD" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;p&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqpCdz" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqpCd$" role="1dT_Ay">
+          <property role="1dT_AB" value="The &quot;scope&quot; of the operation, that is the object to run checkers on, can be specified by calling" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqpDQD" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqpDQE" role="1dT_Ay">
+          <property role="1dT_AB" value="" />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqpG1L" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqpG2P" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqpG2R" role="2XjZqd" />
+            <node concept="VXe0Z" id="3LCCkAqpG9K" role="92FcQ">
+              <ref role="VXe0S" node="6MDTP4X3QBK" resolve="addModelScope" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqpG1K" role="1dT_Ay">
+          <property role="1dT_AB" value=" and " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqpGo5" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqpGo6" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqpGo7" role="2XjZqd" />
+            <node concept="VXe0Z" id="3LCCkAqpGo8" role="92FcQ">
+              <ref role="VXe0S" node="6MDTP4X3VLG" resolve="addModuleScope" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqpGFl" role="1dT_Ay">
+          <property role="1dT_AB" value="." />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqOJQW" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqOJQX" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;p&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqOLpQ" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqOLpR" role="1dT_Ay">
+          <property role="1dT_AB" value="Checkers are executed using a helper object: " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqONjP" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqONjW" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqONjY" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqONpT" role="92FcQ">
+              <ref role="VXe09" to="wsw7:3etVqSRKzLq" resolve="ModelCheckerBuilder" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqONjO" role="1dT_Ay">
+          <property role="1dT_AB" value="." />
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqpGk5" role="1dT_Ay">
+          <property role="1dT_AB" value="" />
+        </node>
+      </node>
     </node>
   </node>
   <node concept="312cEu" id="3etVqSRKzzT">
@@ -4769,6 +4983,29 @@
         </node>
       </node>
       <node concept="3Tm1VV" id="3pNk_u$9zRE" role="1B3o_S" />
+      <node concept="P$JXv" id="3LCCkAqp124" role="lGtFl">
+        <node concept="TZ5HA" id="3LCCkAqp125" role="TZ5H$">
+          <node concept="1dT_AC" id="3LCCkAqp126" role="1dT_Ay">
+            <property role="1dT_AB" value="Does what the name says. For convenience, checkers specified explicitly, if any, override the default  &quot;specific&quot; " />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="3LCCkAqpc$x" role="TZ5H$">
+          <node concept="1dT_AC" id="3LCCkAqpc$y" role="1dT_Ay">
+            <property role="1dT_AB" value="checkers that are returned by " />
+          </node>
+          <node concept="1dT_AA" id="3LCCkAqpxEg" role="1dT_Ay">
+            <node concept="92FcH" id="3LCCkAqpxGq" role="qph3F">
+              <node concept="TZ5HA" id="3LCCkAqpxGs" role="2XjZqd" />
+              <node concept="VXe0Z" id="3LCCkAqpxMv" role="92FcQ">
+                <ref role="VXe0S" node="3GsVPVaO85s" resolve="getSpecificCheckers" />
+              </node>
+            </node>
+          </node>
+          <node concept="1dT_AC" id="3LCCkAqpxEf" role="1dT_Ay">
+            <property role="1dT_AB" value="." />
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="3clFb_" id="4aNWY1v2hQb" role="jymVt">
       <property role="TrG5h" value="checkModulesAndShowResult" />
@@ -5826,6 +6063,56 @@
       <ref role="3uigEE" to="wsw7:3RAxiQnEFwn" resolve="IChecker.AbstractModelChecker" />
       <node concept="3uibUv" id="320sejmfXei" role="11_B2D">
         <ref role="3uigEE" to="d6hs:~IssueKindReportItem" resolve="IssueKindReportItem" />
+      </node>
+    </node>
+    <node concept="3UR2Jj" id="3LCCkAq65NQ" role="lGtFl">
+      <node concept="TZ5HA" id="3LCCkAq65NR" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAq65NS" role="1dT_Ay">
+          <property role="1dT_AB" value="Defines an API for a checker that analyzes an instance of " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqMsTA" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqMsUJ" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqMsUL" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqMD2_" role="92FcQ">
+              <ref role="VXe09" to="mhbf:~SModel" resolve="SModel" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqMsT_" role="1dT_Ay">
+          <property role="1dT_AB" value=" and produces a list of " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqMsM$" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqMsNC" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqMsNE" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqMDmc" role="92FcQ">
+              <ref role="VXe09" to="d6hs:~IssueKindReportItem" resolve="IssueKindReportItem" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqMsMz" role="1dT_Ay">
+          <property role="1dT_AB" value="." />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqMqXy" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqMqXz" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;p&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqMEfh" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqMEfi" role="1dT_Ay">
+          <property role="1dT_AB" value="Really unfortunately named class that essentially is just an adapter for " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqN1mZ" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqN1o3" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqN1o5" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqN1_K" role="92FcQ">
+              <ref role="VXe09" to="wsw7:4r$i1_aEwSg" resolve="IChecker" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqN1mY" role="1dT_Ay">
+          <property role="1dT_AB" value="." />
+        </node>
       </node>
     </node>
   </node>
@@ -8820,6 +9107,77 @@
     <node concept="3Tm1VV" id="xWHpBq5$qW" role="1B3o_S" />
     <node concept="3uibUv" id="6UWbfHqhtTp" role="EKbjA">
       <ref role="3uigEE" to="1m72:~BaseComponent" resolve="BaseComponent" />
+    </node>
+    <node concept="3UR2Jj" id="3LCCkAqldkQ" role="lGtFl">
+      <node concept="TZ5HA" id="3LCCkAqldkR" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqldkS" role="1dT_Ay">
+          <property role="1dT_AB" value="Responsible for registering a bunch of random &quot;specific&quot; checkers with " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqleNt" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqleNz" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqleN_" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqlkEh" role="92FcQ">
+              <ref role="VXe09" to="2gg1:~CheckerRegistry" resolve="CheckerRegistry" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqleNs" role="1dT_Ay">
+          <property role="1dT_AB" value="" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqlkPu" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqlkPv" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;p&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqlniH" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqlniI" role="1dT_Ay">
+          <property role="1dT_AB" value="See " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqlojE" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqlokI" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqlokK" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqlomN" role="92FcQ">
+              <ref role="VXe09" node="3etVqSRK$6n" resolve="UnresolvedReferencesChecker" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqlojD" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;br&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqlos3" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqlos4" role="1dT_Ay">
+          <property role="1dT_AB" value="See " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqlos5" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqlos6" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqlos7" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqlos8" role="92FcQ">
+              <ref role="VXe09" node="3etVqSRT$IF" resolve="GeneratorTemplatesChecker" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqlos9" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;br&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqlpJt" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqlpJu" role="1dT_Ay">
+          <property role="1dT_AB" value="See " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqlpJv" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqlpJw" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqlpJx" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqlpJy" role="92FcQ">
+              <ref role="VXe09" node="4ascWT9fo$P" resolve="ProperGenPlanChecker" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqlpJz" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;br&gt;" />
+        </node>
+      </node>
     </node>
   </node>
   <node concept="312cEu" id="4ascWT9fo$P">

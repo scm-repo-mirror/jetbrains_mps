@@ -39,6 +39,10 @@ public class ModelCheckerTool extends BaseTabbedProjectTool {
     newViewer.checkModels(models, "models");
     return newViewer;
   }
+  /**
+   * Does what the name says. For convenience, checkers specified explicitly, if any, override the default  "specific" 
+   * checkers that are returned by {@link jetbrains.mps.ide.modelchecker.platform.actions.ModelCheckerSettings#getSpecificCheckers(jetbrains.mps.project.Project) }.
+   */
   public void checkModelsAndShowResult(List<SModel> models, IChecker<?, ?>... checkers) {
     ModelCheckerViewer newViewer = createViewerForTab();
     ModelCheckerIssueFinder finder;

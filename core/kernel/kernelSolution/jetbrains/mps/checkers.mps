@@ -355,6 +355,9 @@
       <concept id="2217234381367049075" name="jetbrains.mps.baseLanguage.javadoc.structure.CodeInlineDocTag" flags="ng" index="VVOAv">
         <child id="3106559687488741665" name="line" index="2Xj1qM" />
       </concept>
+      <concept id="2217234381367530212" name="jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocReference" flags="ng" index="VXe08">
+        <reference id="2217234381367530213" name="classifier" index="VXe09" />
+      </concept>
       <concept id="2217234381367530195" name="jetbrains.mps.baseLanguage.javadoc.structure.MethodDocReference" flags="ng" index="VXe0Z">
         <reference id="2217234381367530196" name="methodDeclaration" index="VXe0S" />
       </concept>
@@ -726,6 +729,34 @@
       <ref role="3uigEE" node="3RAxiQnEFHw" resolve="IChecker.AbstractNodeChecker" />
       <node concept="3uibUv" id="3RAxiQnFf9R" role="11_B2D">
         <ref role="3uigEE" to="d6hs:~NodeReportItem" resolve="NodeReportItem" />
+      </node>
+    </node>
+    <node concept="3UR2Jj" id="3LCCkAqDKmR" role="lGtFl">
+      <node concept="TZ5HA" id="3LCCkAqDKmS" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqDKmT" role="1dT_Ay">
+          <property role="1dT_AB" value="Redefines the API for checkers that are expected to be run from within an editor context. " />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqDMxK" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqDMxL" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;p&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqDN04" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqDN05" role="1dT_Ay">
+          <property role="1dT_AB" value="See " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqDNwK" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqDNxO" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqDNxQ" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqDNyV" role="92FcQ">
+              <ref role="VXe09" node="1EmyK$ncKqS" resolve="LanguageErrorsCollector" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqDNwJ" role="1dT_Ay">
+          <property role="1dT_AB" value="" />
+        </node>
       </node>
     </node>
   </node>
@@ -4366,6 +4397,103 @@
         <ref role="3uigEE" to="mhbf:~SModelListenerBase" resolve="SModelListenerBase" />
       </node>
     </node>
+    <node concept="3UR2Jj" id="3LCCkAqrZ$Y" role="lGtFl">
+      <node concept="TZ5HA" id="3LCCkAqrZ$Z" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqrZ_0" role="1dT_Ay">
+          <property role="1dT_AB" value="Used by " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqti4G" role="1dT_Ay">
+          <node concept="VVOAv" id="3LCCkAqti5K" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqti5M" role="2Xj1qM">
+              <node concept="1dT_AC" id="3LCCkAqti6O" role="1dT_Ay">
+                <property role="1dT_AB" value="jetbrains.mps.editor.runtime.ErrorComponent" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqti4F" role="1dT_Ay">
+          <property role="1dT_AB" value=". " />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqtljO" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqtljP" role="1dT_Ay">
+          <property role="1dT_AB" value="Responsible for collecting and tracking errors reported by instances of" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqsc4A" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqsc4B" role="1dT_Ay">
+          <property role="1dT_AB" value="" />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqsq1x" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqsq2_" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqsq2B" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqsqx0" role="92FcQ">
+              <ref role="VXe09" node="6qi2OtU3u$c" resolve="AbstractNodeCheckerInEditor" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqsq1w" role="1dT_Ay">
+          <property role="1dT_AB" value=" for a specific editor component." />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqsqMH" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqsqMI" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;p&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqER4I" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqER4J" role="1dT_Ay">
+          <property role="1dT_AB" value="Maintains internal map of nodes to error items reported, and tries to correctly guess when entries in this map" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqF0ze" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqF0zf" role="1dT_Ay">
+          <property role="1dT_AB" value="are to be cleared (invalidated)." />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqEGQa" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqEGQb" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;p&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqs_2g" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqs_2h" role="1dT_Ay">
+          <property role="1dT_AB" value="See " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqsIaE" role="1dT_Ay">
+          <node concept="VVOAv" id="3LCCkAqt7Rt" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqt7Rw" role="2Xj1qM">
+              <node concept="1dT_AC" id="3LCCkAqt7Xp" role="1dT_Ay">
+                <property role="1dT_AB" value="jetbrains.mps.editor.runtime.ErrorComponents" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqsIaD" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;br&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqGNfw" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqGNfx" role="1dT_Ay">
+          <property role="1dT_AB" value="See " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqGXO3" role="1dT_Ay">
+          <node concept="VVOAv" id="3LCCkAqGXOa" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqGXOc" role="2Xj1qM">
+              <node concept="1dT_AC" id="3LCCkAqGYr4" role="1dT_Ay">
+                <property role="1dT_AB" value="jetbrains.mps.editor.runtime.LanguageEditorChecker" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqGXO2" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;br&gt;" />
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqtin5" role="1dT_Ay">
+          <property role="1dT_AB" value="" />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="312cEu" id="6qi2OtU3tVa">
     <property role="TrG5h" value="TargetConceptChecker" />
@@ -6562,6 +6690,93 @@
       </node>
     </node>
     <node concept="3Tm1VV" id="1EmyK$ncKqT" role="1B3o_S" />
+    <node concept="3UR2Jj" id="3LCCkAqDOle" role="lGtFl">
+      <node concept="TZ5HA" id="3LCCkAqDOlf" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqDOlg" role="1dT_Ay">
+          <property role="1dT_AB" value="A helper class used in " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqDOQJ" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqDOQP" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqDOQR" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqEpAq" role="92FcQ">
+              <ref role="VXe09" node="6qi2OtU3u$c" resolve="AbstractNodeCheckerInEditor" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqDOQI" role="1dT_Ay">
+          <property role="1dT_AB" value=" as a way to provide interface to error collecting" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqEpYz" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqEpY$" role="1dT_Ay">
+          <property role="1dT_AB" value="and dependency tracking facility. " />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqEq71" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqEq72" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;p&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqEqaF" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqEqaG" role="1dT_Ay">
+          <property role="1dT_AB" value="Here by &quot;dependency&quot; is meant any node that is &quot;accessed&quot; while running checks on the &quot;current&quot; node, " />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqEqKS" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqEqKT" role="1dT_Ay">
+          <property role="1dT_AB" value="and only makes sense when used in conjunction with " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqEr0f" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqEr1j" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqEr1l" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqEr5k" role="92FcQ">
+              <ref role="VXe09" node="6qi2OtU3u0m" resolve="LanguageErrorsComponent" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqEr0e" role="1dT_Ay">
+          <property role="1dT_AB" value="." />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqEr7j" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqEr7k" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;p&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqErb8" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqErb9" role="1dT_Ay">
+          <property role="1dT_AB" value="The method " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqErfY" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqErh2" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqErh4" role="2XjZqd" />
+            <node concept="VXe0Z" id="3LCCkAqErmZ" role="92FcQ">
+              <ref role="VXe0S" node="1EmyK$neXu3" resolve="runCheckingAction" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqErfX" role="1dT_Ay">
+          <property role="1dT_AB" value=" can be used to automatically track and add all dependencies" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqErzj" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqErzk" role="1dT_Ay">
+          <property role="1dT_AB" value="that arise when the " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqErK0" role="1dT_Ay">
+          <node concept="VVOAv" id="3LCCkAqErK6" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqErK8" role="2Xj1qM">
+              <node concept="1dT_AC" id="3LCCkAqErLa" role="1dT_Ay">
+                <property role="1dT_AB" value="action" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqErJZ" role="1dT_Ay">
+          <property role="1dT_AB" value=" is executed. " />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="3HP615" id="4r$i1_aEwSg">
     <property role="TrG5h" value="IChecker" />
@@ -8437,6 +8652,148 @@
         </node>
       </node>
     </node>
+    <node concept="3UR2Jj" id="3LCCkAqmSF8" role="lGtFl">
+      <node concept="TZ5HA" id="3LCCkAqmSF9" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqmSFa" role="1dT_Ay">
+          <property role="1dT_AB" value="An aggregating checker that calls all the checkers from " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqn10z" role="1dT_Ay">
+          <node concept="VVOAv" id="3LCCkAqn13z" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqn13_" role="2Xj1qM">
+              <node concept="1dT_AC" id="3LCCkAqn13D" role="1dT_Ay">
+                <property role="1dT_AB" value="origins" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqn10y" role="1dT_Ay">
+          <property role="1dT_AB" value=" parameter to the constructor in sequence." />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqyp7L" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqyp7M" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;p&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqyrrX" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqyrrY" role="1dT_Ay">
+          <property role="1dT_AB" value="The process is organized into the following steps: " />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqytwh" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqytwi" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;ol&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqyvPv" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqyvPw" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;li&gt;First all the checkers from " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqyy8X" role="1dT_Ay">
+          <node concept="VVOAv" id="3LCCkAqyy93" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqyy95" role="2Xj1qM">
+              <node concept="1dT_AC" id="3LCCkAqyyb5" role="1dT_Ay">
+                <property role="1dT_AB" value="origins" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqyy8W" role="1dT_Ay">
+          <property role="1dT_AB" value=" are called in sequence&lt;/li&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqy_vK" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqy_vL" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;li&gt;Then all the errors reported by these are wrapped into " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqyBTb" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqyBUf" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqyBUh" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqyCaw" role="92FcQ">
+              <ref role="VXe09" node="x6gRTxw0GB" resolve="SuppressableError" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqyBTa" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;/li&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqyCq2" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqyCq3" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;li&gt;These wrapped errors are then passed to the " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqyF33" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqyF47" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqyF49" role="2XjZqd" />
+            <node concept="VXe0Z" id="3LCCkAqyFb2" role="92FcQ">
+              <ref role="VXe0S" node="x6gRTxwIaR" resolve="getPostprocessor" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqyF32" role="1dT_Ay">
+          <property role="1dT_AB" value=" of every checker&lt;/li&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAq_BOu" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAq_BOv" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;li&gt;Only errors not suppressed in the previous step get reported to " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAq_Efc" role="1dT_Ay">
+          <node concept="VVOAv" id="3LCCkAq_Egg" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAq_Egi" role="2Xj1qM">
+              <node concept="1dT_AC" id="3LCCkAq_Eii" role="1dT_Ay">
+                <property role="1dT_AB" value="errorCollector" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAq_Efb" role="1dT_Ay">
+          <property role="1dT_AB" value=" object, " />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAq_J0d" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAq_J0e" role="1dT_Ay">
+          <property role="1dT_AB" value="    along with any additional errors produced by the &quot;post processors&quot;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqyFmN" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqyFmO" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;/ol&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqyygV" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqyygW" role="1dT_Ay">
+          <property role="1dT_AB" value="See " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqyOF2" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqyOG6" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqyOG8" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqyOL5" role="92FcQ">
+              <ref role="VXe09" node="x6gRTxvP6V" resolve="CheckingSession" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqyOF1" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;br&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAq$88S" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAq$88T" role="1dT_Ay">
+          <property role="1dT_AB" value="See " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAq$88U" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAq$88V" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAq$88W" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAq$88X" role="92FcQ">
+              <ref role="VXe09" node="4c7y4qc4pe6" resolve="ICheckingPostprocessor" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAq$88Y" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;br&gt;" />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="312cEu" id="76Xff8JNNvn">
     <property role="3GE5qa" value="util" />
@@ -8615,6 +8972,42 @@
       </node>
       <node concept="2AHcQZ" id="76Xff8JNNwx" role="2AJF6D">
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3UR2Jj" id="3LCCkAqnVgd" role="lGtFl">
+      <node concept="TZ5HA" id="3LCCkAqnVge" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqnVgf" role="1dT_Ay">
+          <property role="1dT_AB" value="Conditionally applies the checker passed as " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqnVG_" role="1dT_Ay">
+          <node concept="VVOAv" id="3LCCkAqnVHD" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqnVHF" role="2Xj1qM">
+              <node concept="1dT_AC" id="3LCCkAqnVHJ" role="1dT_Ay">
+                <property role="1dT_AB" value="origin" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqnVG$" role="1dT_Ay">
+          <property role="1dT_AB" value=" parameter to the constructor, based on " />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqnVOz" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqnVO$" role="1dT_Ay">
+          <property role="1dT_AB" value="boolean value returned from the function " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqnWhG" role="1dT_Ay">
+          <node concept="VVOAv" id="3LCCkAqnWiK" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqnWiM" role="2Xj1qM">
+              <node concept="1dT_AC" id="3LCCkAqnWjO" role="1dT_Ay">
+                <property role="1dT_AB" value="accept" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqnWhF" role="1dT_Ay">
+          <property role="1dT_AB" value=" passed as the second parameter." />
+        </node>
       </node>
     </node>
   </node>
@@ -9253,6 +9646,42 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
+    <node concept="3UR2Jj" id="3LCCkAqni$S" role="lGtFl">
+      <node concept="TZ5HA" id="3LCCkAqni$T" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqni$U" role="1dT_Ay">
+          <property role="1dT_AB" value="Applies the checker specified in the " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqnpqB" role="1dT_Ay">
+          <node concept="VVOAv" id="3LCCkAqnpsI" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqnpsK" role="2Xj1qM">
+              <node concept="1dT_AC" id="3LCCkAqnptM" role="1dT_Ay">
+                <property role="1dT_AB" value="origin" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqnpqA" role="1dT_Ay">
+          <property role="1dT_AB" value=" parameter to the constructor, " />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqnpTU" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqnpTV" role="1dT_Ay">
+          <property role="1dT_AB" value="to all objects received from the " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqnp9U" role="1dT_Ay">
+          <node concept="VVOAv" id="3LCCkAqnpaY" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqnpb0" role="2Xj1qM">
+              <node concept="1dT_AC" id="3LCCkAqnpc2" role="1dT_Ay">
+                <property role="1dT_AB" value="iterate" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqnp9T" role="1dT_Ay">
+          <property role="1dT_AB" value=" passed as the second parameter." />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="312cEu" id="76Xff8JQkKa">
     <property role="3GE5qa" value="util" />
@@ -9529,6 +9958,33 @@
       <property role="TrG5h" value="I" />
       <node concept="3uibUv" id="3xfDcbRbJkW" role="3ztrMU">
         <ref role="3uigEE" to="d6hs:~ReportItem" resolve="ReportItem" />
+      </node>
+    </node>
+    <node concept="3UR2Jj" id="3LCCkAq1k_c" role="lGtFl">
+      <node concept="TZ5HA" id="3LCCkAq1k_d" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAq1k_e" role="1dT_Ay">
+          <property role="1dT_AB" value="Unfortunately named composite checker." />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAq1kO1" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAq1kO2" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;p&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAq1kTE" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAq1kTF" role="1dT_Ay">
+          <property role="1dT_AB" value="An instance of this interface is never a &quot;concrete&quot; (a.k.a. &quot;specific&quot;) checker, rather it is always composed" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAq1lhx" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAq1lhy" role="1dT_Ay">
+          <property role="1dT_AB" value="of other checkers, abstract or otherwise. " />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAq1kO7" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAq1kO8" role="1dT_Ay">
+          <property role="1dT_AB" value="" />
+        </node>
       </node>
     </node>
   </node>
@@ -10059,6 +10515,13 @@
         </node>
       </node>
       <node concept="3Tm1VV" id="3RyqwUute7l" role="1B3o_S" />
+      <node concept="3UR2Jj" id="3LCCkAqodKe" role="lGtFl">
+        <node concept="TZ5HA" id="3LCCkAqodKf" role="TZ5H$">
+          <node concept="1dT_AC" id="3LCCkAqodKg" role="1dT_Ay">
+            <property role="1dT_AB" value="Implements the &quot;builder&quot; pattern for collecting input data to the composite checker." />
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="2tJIrI" id="kXqcYk2_bK" role="jymVt" />
     <node concept="3clFb_" id="6bXa3O$aFCh" role="jymVt">
@@ -10363,6 +10826,29 @@
         </node>
       </node>
       <node concept="3Tm1VV" id="6bXa3O$8YQ2" role="1B3o_S" />
+      <node concept="P$JXv" id="3LCCkAqojCK" role="lGtFl">
+        <node concept="TZ5HA" id="3LCCkAqojCL" role="TZ5H$">
+          <node concept="1dT_AC" id="3LCCkAqojCM" role="1dT_Ay">
+            <property role="1dT_AB" value="Creates a composite checker from all &quot;specific&quot; checkers that is intended to process objects " />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="3LCCkAqotAm" role="TZ5H$">
+          <node concept="1dT_AC" id="3LCCkAqotAn" role="1dT_Ay">
+            <property role="1dT_AB" value="of type " />
+          </node>
+          <node concept="1dT_AA" id="3LCCkAqoxjl" role="1dT_Ay">
+            <node concept="92FcH" id="3LCCkAqoxjz" role="qph3F">
+              <node concept="TZ5HA" id="3LCCkAqoxj_" role="2XjZqd" />
+              <node concept="VXe08" id="3LCCkAqoxmI" role="92FcQ">
+                <ref role="VXe09" node="4QJbmJH1Aa8" resolve="ItemsToCheck" />
+              </node>
+            </node>
+          </node>
+          <node concept="1dT_AC" id="3LCCkAqoxjk" role="1dT_Ay">
+            <property role="1dT_AB" value="." />
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="2tJIrI" id="6bXa3O$8Xaf" role="jymVt" />
     <node concept="3clFb_" id="6bXa3O$aA7L" role="jymVt">
@@ -11608,6 +12094,61 @@
       </node>
     </node>
     <node concept="3Tm1VV" id="3etVqSRKzPp" role="1B3o_S" />
+    <node concept="3UR2Jj" id="3LCCkAqNJlU" role="lGtFl">
+      <node concept="TZ5HA" id="3LCCkAqNJlV" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqNJlW" role="1dT_Ay">
+          <property role="1dT_AB" value="Builder that is capable to create composite checker out of a collection of &quot;specific&quot; checkers, " />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqNYpZ" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqNYq0" role="1dT_Ay">
+          <property role="1dT_AB" value="which can be any of the subclasses of " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqNWrX" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqNWt1" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqNWt3" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqNWyY" role="92FcQ">
+              <ref role="VXe09" node="3RAxiQnF9iT" resolve="AbstractChecker" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqNWrW" role="1dT_Ay">
+          <property role="1dT_AB" value=". " />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqO6jY" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqO6jZ" role="1dT_Ay">
+          <property role="1dT_AB" value="The resulting checker is an instance of " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqOa2t" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqOa3x" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqOa3z" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqOa5A" role="92FcQ">
+              <ref role="VXe09" node="3xfDcbRbJai" resolve="IAbstractChecker" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqOa2s" role="1dT_Ay">
+          <property role="1dT_AB" value=" and can accept " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqOc6F" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqOc7O" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqOc7Q" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqOcdL" role="92FcQ">
+              <ref role="VXe09" node="4QJbmJH1Aa8" resolve="ItemsToCheck" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqOc6E" role="1dT_Ay">
+          <property role="1dT_AB" value="." />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqOd5M" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqOd5N" role="1dT_Ay">
+          <property role="1dT_AB" value="" />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="312cEu" id="34otMr4EAM2">
     <property role="TrG5h" value="ModuleImportQuickFix" />
@@ -12740,6 +13281,163 @@
     <node concept="3uibUv" id="4c7y4qc4WGr" role="1zkMxy">
       <ref role="3uigEE" node="6qi2OtU3u$c" resolve="AbstractNodeCheckerInEditor" />
     </node>
+    <node concept="3UR2Jj" id="3LCCkAqzsod" role="lGtFl">
+      <node concept="TZ5HA" id="3LCCkAqzsoe" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqzsof" role="1dT_Ay">
+          <property role="1dT_AB" value="A special kind of checker that does nothing, but does have a " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqzwDY" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqzwE4" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqzwE6" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqzxVB" role="92FcQ">
+              <ref role="VXe09" node="4c7y4qc4pe6" resolve="ICheckingPostprocessor" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqzwDX" role="1dT_Ay">
+          <property role="1dT_AB" value=" to process errors" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqzyJ3" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqzyJ4" role="1dT_Ay">
+          <property role="1dT_AB" value="reported by other checkers. " />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqz_bN" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqz_bO" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;p&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqAxdL" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqAxdM" role="1dT_Ay">
+          <property role="1dT_AB" value="The only action this checker does in its &quot;post processor&quot; is to try to see whether there is an" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqA$0u" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqA$0v" role="1dT_Ay">
+          <property role="1dT_AB" value="instance of " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqAAp4" role="1dT_Ay">
+          <node concept="VVOAv" id="3LCCkAqAAx3" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqAAx7" role="2Xj1qM">
+              <node concept="1dT_AC" id="3LCCkAqAAz9" role="1dT_Ay">
+                <property role="1dT_AB" value="ISuppressErrors" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqAAp3" role="1dT_Ay">
+          <property role="1dT_AB" value=" concept interface in the ancestor of the node that is the target of the" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqAAWn" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqAAWo" role="1dT_Ay">
+          <property role="1dT_AB" value="reported error. If yes, it is consulted via a call to " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqAD$E" role="1dT_Ay">
+          <node concept="VVOAv" id="3LCCkAqADBE" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqADBG" role="2Xj1qM">
+              <node concept="1dT_AC" id="3LCCkAqAG8T" role="1dT_Ay">
+                <property role="1dT_AB" value="ISuppressErrors#suppress" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqAD$D" role="1dT_Ay">
+          <property role="1dT_AB" value=" behaviour method, and " />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqAGor" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqAGos" role="1dT_Ay">
+          <property role="1dT_AB" value="if that method returns true, the error is suppressed and a replacement (an instance of " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqAJb3" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqAJd5" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqAJd7" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqAJj2" role="92FcQ">
+              <ref role="VXe09" node="2YpZF2DykVW" resolve="SuppressedWrapperReportItem" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqAJb2" role="1dT_Ay">
+          <property role="1dT_AB" value=") is added to the list of error items. " />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqAKjA" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqAKjB" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;p&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqAMDA" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqAMDB" role="1dT_Ay">
+          <property role="1dT_AB" value="Only instances of " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqAOvy" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqAOwA" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqAOwC" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqAOFt" role="92FcQ">
+              <ref role="VXe09" to="d6hs:~NodeReportItem" resolve="NodeReportItem" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqAOvx" role="1dT_Ay">
+          <property role="1dT_AB" value=" are taken into consideration." />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqAPJ2" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqAPJ3" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;p&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqAS5b" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqAS5c" role="1dT_Ay">
+          <property role="1dT_AB" value="See " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqAUtj" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqAUtp" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqAUtr" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqAUyo" role="92FcQ">
+              <ref role="VXe09" node="5TGjZPCODxZ" resolve="ErrorReportHelper" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqAUti" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;br&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqAUzx" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqAUzy" role="1dT_Ay">
+          <property role="1dT_AB" value="See " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqAWWI" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqAWXM" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqAWXO" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqAX0P" role="92FcQ">
+              <ref role="VXe09" to="d6hs:~NodeReportItem" resolve="NodeReportItem" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqAWWH" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;br&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqAXYA" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqAXYB" role="1dT_Ay">
+          <property role="1dT_AB" value="See " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqB0bC" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqB0cG" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqB0cI" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqB0hF" role="92FcQ">
+              <ref role="VXe09" node="x6gRTxvP6V" resolve="CheckingSession" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqB0bB" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;br&gt;" />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="3HP615" id="4c7y4qc4pe6">
     <property role="TrG5h" value="ICheckingPostprocessor" />
@@ -12906,6 +13604,33 @@
           </node>
         </node>
       </node>
+      <node concept="P$JXv" id="3LCCkAqAnoT" role="lGtFl">
+        <node concept="TZ5HA" id="3LCCkAqAnoU" role="TZ5H$">
+          <node concept="1dT_AC" id="3LCCkAqAnoV" role="1dT_Ay">
+            <property role="1dT_AB" value="Provides access to the errors collected so far." />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="3LCCkAqAnLh" role="TZ5H$">
+          <node concept="1dT_AC" id="3LCCkAqAnLi" role="1dT_Ay">
+            <property role="1dT_AB" value="&lt;p&gt;" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="3LCCkAqAnQe" role="TZ5H$">
+          <node concept="1dT_AC" id="3LCCkAqAnQf" role="1dT_Ay">
+            <property role="1dT_AB" value="NB! The returned map is not supposed to be modified by the caller. " />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="3LCCkAqAoqn" role="TZ5H$">
+          <node concept="1dT_AC" id="3LCCkAqAoqo" role="1dT_Ay">
+            <property role="1dT_AB" value="&lt;p&gt;" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="3LCCkAqAovZ" role="TZ5H$">
+          <node concept="1dT_AC" id="3LCCkAqAow0" role="1dT_Ay">
+            <property role="1dT_AB" value="FIXME nowhere in the code are keys of the map accessed, nor is there any need to do so. " />
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="2tJIrI" id="4DOzqvBrrzT" role="jymVt" />
     <node concept="3clFb_" id="4DOzqvBrrc2" role="jymVt">
@@ -12926,6 +13651,61 @@
       <property role="TrG5h" value="I" />
       <node concept="3uibUv" id="4DOzqvBrHe3" role="3ztrMU">
         <ref role="3uigEE" to="d6hs:~IssueKindReportItem" resolve="IssueKindReportItem" />
+      </node>
+    </node>
+    <node concept="3UR2Jj" id="3LCCkAqAfBp" role="lGtFl">
+      <node concept="TZ5HA" id="3LCCkAqAfBq" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqAfBr" role="1dT_Ay">
+          <property role="1dT_AB" value="Used together with " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqAhT4" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqAhU8" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqAhUa" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqAi8t" role="92FcQ">
+              <ref role="VXe09" node="4c7y4qc4V7B" resolve="SuppressErrorsChecker" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqAhT3" role="1dT_Ay">
+          <property role="1dT_AB" value=" to help reduce clutter in the errors reported to the user. " />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqAiw_" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqAiwA" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;p&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqAi_R" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqAi_S" role="1dT_Ay">
+          <property role="1dT_AB" value="See " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqAiFd" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqAiGh" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqAiGj" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqAiIm" role="92FcQ">
+              <ref role="VXe09" node="4c7y4qc4V7B" resolve="SuppressErrorsChecker" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqAiFc" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;br&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3LCCkAqAiJn" role="TZ5H$">
+        <node concept="1dT_AC" id="3LCCkAqAiJo" role="1dT_Ay">
+          <property role="1dT_AB" value="See " />
+        </node>
+        <node concept="1dT_AA" id="3LCCkAqAiNQ" role="1dT_Ay">
+          <node concept="92FcH" id="3LCCkAqAiOU" role="qph3F">
+            <node concept="TZ5HA" id="3LCCkAqAiOW" role="2XjZqd" />
+            <node concept="VXe08" id="3LCCkAqAiQZ" role="92FcQ">
+              <ref role="VXe09" node="76Xff8JNDHp" resolve="AggregatingChecker" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="3LCCkAqAiNP" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;br&gt;" />
+        </node>
       </node>
     </node>
   </node>

@@ -20,6 +20,20 @@ import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
 
+/**
+ * An aggregating checker that calls all the checkers from {@code origins} parameter to the constructor in sequence.
+ * <p>
+ * The process is organized into the following steps: 
+ * <ol>
+ * <li>First all the checkers from {@code origins} are called in sequence</li>
+ * <li>Then all the errors reported by these are wrapped into {@link jetbrains.mps.checkers.CheckingSession.SuppressableError }</li>
+ * <li>These wrapped errors are then passed to the {@link jetbrains.mps.checkers.IChecker#getPostprocessor() } of every checker</li>
+ * <li>Only errors not suppressed in the previous step get reported to {@code errorCollector} object, 
+ *     along with any additional errors produced by the "post processors"
+ * </ol>
+ * See {@link jetbrains.mps.checkers.CheckingSession }<br>
+ * See {@link jetbrains.mps.checkers.ICheckingPostprocessor }<br>
+ */
 @GeneratedClass(node = "r:ba41e9c6-15ca-4a47-95f2-6a81c2318547(jetbrains.mps.checkers)/8195773907765992281", model = "r:ba41e9c6-15ca-4a47-95f2-6a81c2318547(jetbrains.mps.checkers)")
 public class AggregatingChecker<O> implements IAbstractChecker<O, IssueKindReportItem> {
   private List<? extends IChecker<O, ? extends IssueKindReportItem>> myOrigins;
