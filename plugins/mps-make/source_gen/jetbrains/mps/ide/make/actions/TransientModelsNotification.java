@@ -45,7 +45,7 @@ public class TransientModelsNotification {
   public void projectClosed() {
     myProject.getComponent(MakeServiceComponent.class).get().removeListener(myMakeNotificationListener);
     myProject.getComponent(GenerationSettingsProvider.class).removeSettingsListener(mySettingsListener);
-    myStatusBar.removeWidget(myWidget.ID());
+    myStatusBar.removeWidget(TransientModelsWidget.WIDGET_ID);
     Disposer.dispose(myWidget);
     myStatusBar = null;
     myDisplayer = null;

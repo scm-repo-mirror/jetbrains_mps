@@ -4643,13 +4643,9 @@
             </node>
             <node concept="liA8E" id="7u1yMHJYqu2" role="2OqNvi">
               <ref role="37wK5l" to="jkny:~StatusBar.removeWidget(java.lang.String)" resolve="removeWidget" />
-              <node concept="2OqwBi" id="7u1yMHJYqu4" role="37wK5m">
-                <node concept="37vLTw" id="2BHiRxeuXiP" role="2Oq$k0">
-                  <ref role="3cqZAo" node="7u1yMHJYqtH" resolve="myWidget" />
-                </node>
-                <node concept="liA8E" id="7u1yMHJYqu8" role="2OqNvi">
-                  <ref role="37wK5l" node="7u1yMHJYasQ" resolve="ID" />
-                </node>
+              <node concept="10M0yZ" id="52Hn5FWrLA_" role="37wK5m">
+                <ref role="3cqZAo" node="hP8D6fqe8s" resolve="WIDGET_ID" />
+                <ref role="1PxDUh" node="7u1yMHJY9Sm" resolve="PluginStateWidget" />
               </node>
             </node>
           </node>
@@ -4723,6 +4719,15 @@
     </node>
     <node concept="3uibUv" id="7u1yMHJYasi" role="EKbjA">
       <ref role="3uigEE" to="jkny:~StatusBarWidget$IconPresentation" resolve="StatusBarWidget.IconPresentation" />
+    </node>
+    <node concept="Wx3nA" id="hP8D6fqe8s" role="jymVt">
+      <property role="TrG5h" value="WIDGET_ID" />
+      <property role="3TUv4t" value="true" />
+      <node concept="17QB3L" id="hP8D6fqe8u" role="1tU5fm" />
+      <node concept="Xl_RD" id="hP8D6fqe8v" role="33vP2m">
+        <property role="Xl_RC" value="MpsPluginStateMonitor" />
+      </node>
+      <node concept="3Tm1VV" id="hP8D6fqe8t" role="1B3o_S" />
     </node>
     <node concept="Wx3nA" id="7u1yMHJYqsl" role="jymVt">
       <property role="TrG5h" value="LOG" />
@@ -5526,9 +5531,9 @@
         <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
       </node>
       <node concept="3clFbS" id="7u1yMHJYasU" role="3clF47">
-        <node concept="3clFbF" id="7u1yMHJYat3" role="3cqZAp">
-          <node concept="Xl_RD" id="7u1yMHJYat9" role="3clFbG">
-            <property role="Xl_RC" value="MpsPluginStateMonitor" />
+        <node concept="3clFbF" id="52Hn5FWqAxD" role="3cqZAp">
+          <node concept="37vLTw" id="52Hn5FWqAxC" role="3clFbG">
+            <ref role="3cqZAo" node="hP8D6fqe8s" resolve="WIDGET_ID" />
           </node>
         </node>
       </node>

@@ -22,6 +22,7 @@ import javax.swing.Timer;
 
 @GeneratedClass(node = "r:20925211-384c-4c5f-b751-56b79dd3b32e(jetbrains.mps.plugin)/8611316981187517974", model = "r:20925211-384c-4c5f-b751-56b79dd3b32e(jetbrains.mps.plugin)")
 public class PluginStateWidget implements StatusBarWidget, StatusBarWidget.IconPresentation {
+  public static final String WIDGET_ID = "MpsPluginStateMonitor";
   private static final Logger LOG = Logger.getLogger(PluginStateWidget.class);
   private static final int INITIAL_DELAY = 4000;
   private static final int CRITICAL_DELAY = 16000;
@@ -107,7 +108,7 @@ public class PluginStateWidget implements StatusBarWidget, StatusBarWidget.IconP
   @NotNull
   @Override
   public String ID() {
-    return "MpsPluginStateMonitor";
+    return WIDGET_ID;
   }
   private void tick() {
     LOG.assertLog(!(ThreadUtils.isInEDT()), "You should not do this in EDT");

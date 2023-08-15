@@ -11737,13 +11737,9 @@
             </node>
             <node concept="liA8E" id="5do60t9v4aZ" role="2OqNvi">
               <ref role="37wK5l" to="jkny:~StatusBar.removeWidget(java.lang.String)" resolve="removeWidget" />
-              <node concept="2OqwBi" id="5do60t9v4b0" role="37wK5m">
-                <node concept="liA8E" id="5do60t9v4b2" role="2OqNvi">
-                  <ref role="37wK5l" node="hP8D6fqe8g" resolve="ID" />
-                </node>
-                <node concept="37vLTw" id="2BHiRxeuwkg" role="2Oq$k0">
-                  <ref role="3cqZAo" node="5do60t9v3W5" resolve="myWidget" />
-                </node>
+              <node concept="10M0yZ" id="52Hn5FWmK3N" role="37wK5m">
+                <ref role="3cqZAo" node="hP8D6fqe8s" resolve="WIDGET_ID" />
+                <ref role="1PxDUh" node="hP8D6fqe6p" resolve="TransientModelsWidget" />
               </node>
             </node>
           </node>
