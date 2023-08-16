@@ -7,7 +7,6 @@ import jetbrains.mps.logging.Logger;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Map;
-import java.util.Set;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
@@ -21,16 +20,17 @@ import jetbrains.mps.smodel.loading.ModelLoadingState;
 import org.jetbrains.mps.openapi.persistence.ModelLoadException;
 import jetbrains.mps.smodel.DefaultSModel;
 import jetbrains.mps.smodel.persistence.def.ModelReadException;
+import java.util.stream.Stream;
+import org.jetbrains.mps.openapi.persistence.StreamDataSource;
 import jetbrains.mps.extapi.model.SModelData;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.internal.collections.runtime.SetSequence;
-import java.util.HashSet;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.io.InputStream;
+import java.io.IOException;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import jetbrains.mps.util.FileUtil;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -43,7 +43,7 @@ public class PropertyFilesStubModelDescriptor extends RegularModelDescriptor {
   private static final Logger LOG = Logger.getLogger(PropertyFilesStubModelDescriptor.class);
   private static final SLanguage PROPERTY_DEF_LANGUAGE = MetaAdapterFactory.getLanguage(0x3379a6ba4e584d2dL, 0xbe6ae17044723bd3L, "jetbrains.mps.samples.PropertyDefinition");
   private static final int PROPERTY_DEF_LANGUAGE_VERSION = 0;
-  private Map<String, Set<SNode>> myRootsPerFile = MapSequence.fromMap(new HashMap<String, Set<SNode>>());
+  private Map<String, SNode> myRootsByFile = MapSequence.fromMap(new HashMap<>());
   private Map<SNodeId, SNode> myRootsById = MapSequence.fromMap(new HashMap<SNodeId, SNode>());
 
   public PropertyFilesStubModelDescriptor(@NotNull SModelReference modelReference, @NotNull DataSource ds) {
@@ -67,62 +67,60 @@ public class PropertyFilesStubModelDescriptor extends RegularModelDescriptor {
 
   private SModel readModel() throws ModelLoadException {
     SModel modelData = new DefaultSModel(this.getReference());
-    processStreams(getSource().getAvailableStreams(), modelData);
+    processStreams(getSource().getSubStreams(), modelData);
     modelData.addLanguage(PROPERTY_DEF_LANGUAGE);
     modelData.setLanguageImportVersion(PROPERTY_DEF_LANGUAGE, PROPERTY_DEF_LANGUAGE_VERSION);
     return modelData;
   }
 
-  private void processStreams(Iterable<String> names, SModelData into) throws ModelLoadException {
+  private void processStreams(Stream<StreamDataSource> streams, SModelData into) throws ModelLoadException {
     SContainmentLink containmentOfProperties = LINKS.properties$$hSY;
-    for (String fileName : names) {
-      Set<SNode> oldNodes = SetSequence.fromSetWithValues(new HashSet<SNode>(), MapSequence.fromMap(myRootsPerFile).get(fileName));
+    for (StreamDataSource ds : Sequence.fromIterable(Sequence.fromStream(streams))) {
+      final String streamName = ds.getStreamName();
+      SNode oldNode = MapSequence.fromMap(myRootsByFile).get(streamName);
+      final InputStream in;
       try {
-        InputStream in = getSource().openInputStream(fileName);
-        try {
-          // we've come from an event and the file has been deleted
-          if (in == null) {
-            SetSequence.fromSet(oldNodes).visitAll((it) -> SNodeOperations.deleteNode(it));
-            MapSequence.fromMap(myRootsPerFile).removeKey(fileName);
-            continue;
-          }
-          SNode propertyFileRootNode = createPropertyCollection_fmf8ck_a0c0b0b0b0l(fileName);
-
-          BufferedReader streamReader = new BufferedReader(new InputStreamReader(in, FileUtil.DEFAULT_CHARSET));
-          String line = streamReader.readLine();
-          while (line != null) {
-            int separatorIndex = line.indexOf("=");
-            if (separatorIndex < 1 || separatorIndex > line.length() - 1) {
-              if (LOG.isInfoLevel()) {
-                LOG.info(String.format("No key=value separator found on this line: %d", line));
-              }
-            } else {
-              String key = trim_fmf8ck_a0a0a0b0g0b0b0b0l(line.substring(0, separatorIndex));
-              String value = trim_fmf8ck_a0a1a0b0g0b0b0b0l(line.substring(separatorIndex + 1, line.length()));
-              SNode currentProperty = createProperty_fmf8ck_a0c0a1a6a1a1a1a11(key, value);
-              propertyFileRootNode.addChild(containmentOfProperties, currentProperty);
-            }
-            line = streamReader.readLine();
-          }
-
-          final SNodeId newNodeId = propertyFileRootNode.getNodeId();
-          SNode oldNode = SetSequence.fromSet(oldNodes).where((it) -> it.getNodeId().equals(newNodeId)).first();
-          if (oldNode == null) {
-            into.addRootNode(propertyFileRootNode);
-            SetSequence.fromSet(oldNodes).removeElement(oldNode);
-          } else {
-            SNodeOperations.replaceWithAnother(oldNode, propertyFileRootNode);
-          }
-          MapSequence.fromMap(myRootsById).put(propertyFileRootNode.getNodeId(), propertyFileRootNode);
-
-          SetSequence.fromSet(oldNodes).visitAll((it) -> SNodeOperations.deleteNode(it));
-          // We only have one root contributed by a file into the model, so the collection only holds a single entry
-          MapSequence.fromMap(myRootsPerFile).put(fileName, SetSequence.fromSetAndArray(new HashSet<SNode>(), propertyFileRootNode));
-        } finally {
-          FileUtil.closeFileSafe(in);
-        }
+        in = ds.openInputStream();
       } catch (IOException e) {
-        throw new ModelLoadException("Could not read the model " + this.getReference(), new ArrayList<org.jetbrains.mps.openapi.model.SModel.Problem>(), e);
+        // we've come from an event and the file has been deleted
+        // I hope detach tolerates null
+        SNodeOperations.deleteNode(oldNode);
+        MapSequence.fromMap(myRootsByFile).removeKey(streamName);
+        continue;
+      }
+
+      try {
+        SNode propertyFileRootNode = createPropertyCollection_fmf8ck_a0a0f0b0l(streamName);
+
+        BufferedReader streamReader = new BufferedReader(new InputStreamReader(in, FileUtil.DEFAULT_CHARSET));
+        String line = streamReader.readLine();
+        while (line != null) {
+          int separatorIndex = line.indexOf("=");
+          if (separatorIndex < 1 || separatorIndex > line.length() - 1) {
+            if (LOG.isInfoLevel()) {
+              LOG.info(String.format("No key=value separator found on this line: %d", line));
+            }
+          } else {
+            String key = trim_fmf8ck_a0a0a0b0e0f0b0l(line.substring(0, separatorIndex));
+            String value = trim_fmf8ck_a0a1a0b0e0f0b0l(line.substring(separatorIndex + 1, line.length()));
+            SNode currentProperty = createProperty_fmf8ck_a0c0a1a4a5a1a11(key, value);
+            propertyFileRootNode.addChild(containmentOfProperties, currentProperty);
+          }
+          line = streamReader.readLine();
+        }
+
+        final SNodeId newNodeId = propertyFileRootNode.getNodeId();
+        if (oldNode != null && oldNode.getNodeId().equals(newNodeId)) {
+          SNodeOperations.replaceWithAnother(oldNode, propertyFileRootNode);
+        } else {
+          into.addRootNode(propertyFileRootNode);
+          SNodeOperations.deleteNode(oldNode);
+        }
+
+        MapSequence.fromMap(myRootsById).put(newNodeId, propertyFileRootNode);
+        MapSequence.fromMap(myRootsByFile).put(streamName, propertyFileRootNode);
+      } catch (IOException ex) {
+        throw new ModelLoadException("Could not read the model " + this.getReference(), new ArrayList<org.jetbrains.mps.openapi.model.SModel.Problem>(), ex);
       }
     }
   }
@@ -138,21 +136,21 @@ public class PropertyFilesStubModelDescriptor extends RegularModelDescriptor {
     return (MultiStreamDataSource) super.getSource();
   }
 
-  private static SNode createPropertyCollection_fmf8ck_a0c0b0b0b0l(String p0) {
+  private static SNode createPropertyCollection_fmf8ck_a0a0f0b0l(String p0) {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.PropertyCollection$kJ);
     n0.setProperty(PROPS.name$MnvL, p0);
     return n0.getResult();
   }
-  private static SNode createProperty_fmf8ck_a0c0a1a6a1a1a1a11(String p0, String p1) {
+  private static SNode createProperty_fmf8ck_a0c0a1a4a5a1a11(String p0, String p1) {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.Property$mc);
     n0.setProperty(PROPS.name$MnvL, p0);
     n0.setProperty(PROPS.value$xdym, p1);
     return n0.getResult();
   }
-  public static String trim_fmf8ck_a0a0a0b0g0b0b0b0l(String str) {
+  public static String trim_fmf8ck_a0a0a0b0e0f0b0l(String str) {
     return (str == null ? null : str.trim());
   }
-  public static String trim_fmf8ck_a0a1a0b0g0b0b0b0l(String str) {
+  public static String trim_fmf8ck_a0a1a0b0e0f0b0l(String str) {
     return (str == null ? null : str.trim());
   }
 
