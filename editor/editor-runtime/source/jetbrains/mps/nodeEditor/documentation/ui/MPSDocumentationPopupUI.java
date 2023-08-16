@@ -15,15 +15,12 @@ import com.intellij.ui.popup.AbstractPopup;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.JComponent;
-import javax.swing.JTextArea;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MPSDocumentationPopupUI implements Disposable {
   private MPSDocumentationUI myUI;
-
-  private final JComponent myToolbar;
   private JComponent myToolbarComponent;
   private JComponent myCorner;
   private JComponent myComponent;
@@ -32,9 +29,6 @@ public class MPSDocumentationPopupUI implements Disposable {
 
   public MPSDocumentationPopupUI(MPSDocumentationUI ui){
     myUI = ui;
-
-    myToolbar = new JTextArea();
-    myToolbar.setToolTipText("Documentation");
 
     DocumentationHintEditorPane editorPane = ui.getEditorPane();
 
