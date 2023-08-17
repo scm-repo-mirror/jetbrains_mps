@@ -11,6 +11,7 @@ import com.intellij.ui.popup.AbstractPopup;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.nodeEditor.documentation.ui.MPSDocumentationPopupUI;
 import jetbrains.mps.nodeEditor.documentation.ui.MPSDocumentationUI;
+
 import java.awt.Frame;
 import java.awt.Point;
 
@@ -29,8 +30,7 @@ public class MPSDocumentationManager {
    * Show a quick documentation
    */
   public void showQuickDocumentation(Frame owner, Project project, Point location, String doc){
-    MPSDocumentationPopupUI popupUI = new MPSDocumentationPopupUI(new MPSDocumentationUI(project, doc));
-
+    MPSDocumentationPopupUI popupUI = new MPSDocumentationPopupUI(new MPSDocumentationUI(doc));
     ComponentPopupBuilder builder = JBPopupFactory.getInstance().createComponentPopupBuilder(popupUI.getComponent(), popupUI.getPreferableFocusComponent()).setProject(project).setResizable(true).setMovable(true).setFocusable(true).setModalContext(true);
     AbstractPopup popup = (AbstractPopup) builder.createPopup();
     popupUI.setPopup(popup);
