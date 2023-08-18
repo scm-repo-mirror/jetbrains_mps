@@ -430,8 +430,8 @@
       </build>
     </channel>
     <channel id="MPS223EAP" name="MPS 2022.3" status="eap"
-             url="https://www.jetbrains.com/mps/nextversion"
-             feedback="http://youtrack.jetbrains.net"
+             url="https://www.jetbrains.com/mps/download"
+             feedback="http://youtrack.jetbrains.net/issues/MPS"
              majorVersion="2022" minorVersoin="3">
       <build number="223.8836.1185" version="2022.3">
         <message>JetBrains MPS 2022.3 is now available.</message>
@@ -445,6 +445,15 @@
       <build number="223.8836.1185" version="2022.3">
         <message>JetBrains MPS 2022.3 is now available.</message>
         <button name="Download" url="https://www.jetbrains.com/mps/download" download="true"/>
+      </build>
+    </channel>
+    <channel id="MPS232EAP" name="MPS 2023.2" status="eap"
+             url="https://www.jetbrains.com/mps/nextversion"
+             feedback="http://youtrack.jetbrains.net/issues/MPS"
+             majorVersion="2023" minorVersoin="2">
+      <build number="232.8660.471" version="2023.2">
+        <message>JetBrains MPS 2023.2 EAP1 is now available.</message>
+        <button name="Download" url="https://www.jetbrains.com/mps/nextversion" download="true"/>
       </build>
     </channel>
   </product>
