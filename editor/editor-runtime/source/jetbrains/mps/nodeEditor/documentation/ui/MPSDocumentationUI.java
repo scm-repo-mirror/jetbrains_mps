@@ -3,26 +3,22 @@
  */
 package jetbrains.mps.nodeEditor.documentation.ui;
 
-import com.intellij.ide.DataManager;
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.actionSystem.DataProvider;
 import jetbrains.mps.nodeEditor.documentation.MPSDocumentationEditorPane;
 import jetbrains.mps.nodeEditor.documentation.MPSDocumentationScrollPane;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import javax.swing.JScrollPane;
 
 public class MPSDocumentationUI implements DataProvider, Disposable {
 
-  JScrollPane myScrollPane;
-  MPSDocumentationEditorPane myEditorPane;
+  /*package*/ final MPSDocumentationScrollPane myScrollPane;
+  /*package*/ final MPSDocumentationEditorPane myEditorPane;
 
-  public MPSDocumentationUI(String documentation){
-    myScrollPane =  new MPSDocumentationScrollPane();
-    myEditorPane = new MPSDocumentationEditorPane();;
+  public MPSDocumentationUI(String documentation) {
+    myScrollPane = new MPSDocumentationScrollPane();
     myEditorPane = new MPSDocumentationEditorPane();
     myScrollPane.setViewportView(myEditorPane);
-    DataManager.registerDataProvider(myEditorPane, this);
     myEditorPane.setText(documentation);
   }
 

@@ -7,5 +7,5 @@ import com.intellij.lang.documentation.DocumentationMarkup;
 
 public interface MPSDocumentationMarkup extends DocumentationMarkup {
   String MPS_PREFORMATTED_TEXT_START = "<pre>";
-  String MPS_PREFORMATTED_TEXT_END= "</pre>";
+  String MPS_PREFORMATTED_TEXT_END = "</pre>";
 }

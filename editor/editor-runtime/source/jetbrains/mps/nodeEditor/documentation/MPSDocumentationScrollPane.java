@@ -6,12 +6,12 @@ package jetbrains.mps.nodeEditor.documentation;
 import com.intellij.ui.components.JBScrollPane;
 import com.intellij.util.ui.JBDimension;
 import com.intellij.util.ui.JBUI;
+
 import javax.swing.JScrollBar;
 import java.awt.Dimension;
 import java.awt.Insets;
 
 public final class MPSDocumentationScrollPane extends JBScrollPane {
-
   private static final JBDimension MIN_DEFAULT = new JBDimension(300, 36);
   private static final JBDimension MAX_DEFAULT = new JBDimension(950, 500);
 

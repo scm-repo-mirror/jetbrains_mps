@@ -56,7 +56,6 @@ public final class MPSDocumentationEditorPane extends JEditorPane implements Dis
     getCaret().setVisible(false);
   }
 
-
   private static int getPreferredContentWidth(int textLength) {
     final int contentLengthPreferredSize;
     if (textLength < 200) {
@@ -69,11 +68,11 @@ public final class MPSDocumentationEditorPane extends JEditorPane implements Dis
     return contentLengthPreferredSize;
   }
 
-  public int getPreferredHeight() {
+  int getPreferredHeight() {
     return getPreferredSize().height;
   }
 
-  public int getPreferredWidth() {
+  int getPreferredWidth() {
     int preferredDefinitionWidth = getPreferredSectionWidth("definition");
     int preferredLocationWidth = getPreferredSectionWidth("bottom");
     int preferredContentWidth = getPreferredContentWidth(getDocument().getLength());
@@ -97,5 +96,4 @@ public final class MPSDocumentationEditorPane extends JEditorPane implements Dis
     }
     return null;
   }
-
 }

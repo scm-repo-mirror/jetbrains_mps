@@ -19,7 +19,6 @@ import java.awt.Color;
 import java.util.List;
 
 class MPSDocumentationHtmlUtil {
-
   private static final Color SECTION_COLOR = Gray.get(0x90);
 
   private MPSDocumentationHtmlUtil() {
@@ -87,5 +86,4 @@ class MPSDocumentationHtmlUtil {
         ".section { color: " + sectionColor + "; padding-right: 4px; white-space:nowrap;}"
     );
   }
-
 }

@@ -14,7 +14,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class PopupMouseListener extends MouseAdapter {
-
   private final @NotNull JBPopup myPopup;
 
   private PopupMouseListener(@NotNull JBPopup popup) {

@@ -22,6 +22,8 @@ import com.intellij.ui.components.JBLayeredPane;
 import com.intellij.ui.popup.AbstractPopup;
 import com.intellij.util.ui.UIUtil;
 import jetbrains.mps.nodeEditor.documentation.MPSDocumentationEditorPane;
+import jetbrains.mps.nodeEditor.documentation.MPSDocumentationScrollPane;
+import jetbrains.mps.nodeEditor.documentation.MPSDocumentationToolWindowManager;
 import jetbrains.mps.nodeEditor.documentation.PopupMouseListener;
 import org.jetbrains.annotations.NotNull;
 
@@ -38,43 +40,24 @@ import java.util.List;
 
 public class MPSDocumentationPopupUI implements Disposable {
   private MPSDocumentationUI myUI;
-  private final JScrollPane myScrollPane;
+  private final MPSDocumentationScrollPane myScrollPane;
   private final MPSDocumentationEditorPane myEditorPane;
   private final JComponent myToolbarComponent;
   private final ActionButton myCorner;
   private final JComponent myComponent;
-  private  boolean myToolbarSelected = true;
+  private boolean myToolbarSelected = true;
   private AbstractPopup myPopup;
 
-  public MPSDocumentationPopupUI(MPSDocumentationUI ui){
-    myEditorPane = ui.myEditorPane;
-    myScrollPane = ui.myScrollPane;
-
-    ToggleAction showToolbarAction = new ToggleAction("Show Toolbar") {
-
-      @Override
-      public boolean isSelected(@NotNull AnActionEvent e) {
-        return myToolbarSelected;
-      }
-
-      @Override
-      public void setSelected(@NotNull AnActionEvent e, boolean state) {
-        myToolbarSelected = state;
-        showToolbar(state);
-      }
-
-      @NotNull
-      @Override
-      public ActionUpdateThread getActionUpdateThread() {
-        return super.getActionUpdateThread();
-      }
-    };
-
+  public MPSDocumentationPopupUI(MPSDocumentationUI ui) {
+    myUI = ui;
+    myEditorPane = myUI.myEditorPane;
+    myScrollPane = myUI.myScrollPane;
 
     List<AnAction> secondaryActions = new ArrayList<>();
-    secondaryActions.add(showToolbarAction);
+    secondaryActions.add(new ShowToolbarAction("Show Toolbar"));
+    secondaryActions.add(new OpenInToolwindowAction("Open In Toolbar"));
     DefaultActionGroup toolbarActionGroup = new DefaultActionGroup();
-    for (AnAction secondaryAction : secondaryActions){
+    for (AnAction secondaryAction : secondaryActions) {
       toolbarActionGroup.addAction(secondaryAction).setAsSecondary(true);
     }
     DefaultActionGroup gearActions = new DefaultActionGroup();
@@ -100,11 +83,12 @@ public class MPSDocumentationPopupUI implements Disposable {
       @Override
       public void doLayout() {
         Rectangle r = getBounds();
-        for (Component component:
-             getComponents()) {
+        for (Component component :
+            getComponents()) {
           if (component == myScrollPane) {
             component.setBounds(0, 0, r.width, r.height);
-          } if (component == myCorner) {
+          }
+          if (component == myCorner) {
             Dimension d = component.getPreferredSize();
             component.setBounds(r.width - d.width - 2, r.height - d.height - 2, d.width, d.height);
           }
@@ -127,34 +111,69 @@ public class MPSDocumentationPopupUI implements Disposable {
 
   @Override
   public void dispose() {
-    if (myUI != null){
+    if (myUI != null) {
       Disposer.dispose(myUI);
       myUI = null;
     }
   }
 
-  public JComponent getComponent(){
+  public JComponent getComponent() {
     return myComponent;
   }
 
-  public JComponent getPreferableFocusComponent(){
+  public JComponent getPreferableFocusComponent() {
     return myEditorPane;
   }
 
-  public void setPopup(AbstractPopup popup){
+  public void setPopup(AbstractPopup popup) {
     myPopup = popup;
     PopupMouseListener.dragPopupByComponent(popup, myToolbarComponent);
   }
 
-  private void showToolbar(boolean value){
+  private void showToolbar(boolean value) {
     myToolbarComponent.setVisible(value);
     myCorner.setVisible(!value);
     updateSize();
   }
 
-  private void updateSize(){
+  private void updateSize() {
     if (myPopup != null) {
       myPopup.setSize(myPopup.getPreferredContentSize());
+    }
+  }
+
+  private class OpenInToolwindowAction extends AnAction {
+    OpenInToolwindowAction(String text) {
+      super(text);
+    }
+
+    @Override
+    public void actionPerformed(@NotNull AnActionEvent e) {
+      MPSDocumentationToolWindowManager.getInstance(myPopup.getProject()).showInToolWindow(myUI);
+      myPopup.cancel();
+    }
+  }
+
+  private class ShowToolbarAction extends ToggleAction {
+    ShowToolbarAction(String text) {
+      super(text);
+    }
+
+    @Override
+    public boolean isSelected(@NotNull AnActionEvent e) {
+      return myToolbarSelected;
+    }
+
+    @Override
+    public void setSelected(@NotNull AnActionEvent e, boolean state) {
+      myToolbarSelected = state;
+      showToolbar(state);
+    }
+
+    @NotNull
+    @Override
+    public ActionUpdateThread getActionUpdateThread() {
+      return super.getActionUpdateThread();
     }
   }
 
