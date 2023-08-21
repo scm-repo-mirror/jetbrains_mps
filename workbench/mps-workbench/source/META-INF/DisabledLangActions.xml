@@ -16,7 +16,7 @@
 <idea-plugin>
   <actions>
     <action id="ServiceView.ShowServices" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
-    <action id="ServicewView.ConfigureServices" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
+    <action id="ServiceView.ConfigureServices" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
 
 
     <action id="ClassNameCompletion" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
