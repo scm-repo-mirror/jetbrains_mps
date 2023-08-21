@@ -1906,7 +1906,7 @@
                   <node concept="1eOMI4" id="46IaplawtU0" role="2Oq$k0">
                     <node concept="10QFUN" id="46IaplawtU1" role="1eOMHV">
                       <node concept="3uibUv" id="46IaplawtU2" role="10QFUM">
-                        <ref role="3uigEE" to="pa15:~PersistenceVersionAware" resolve="PersistenceVersionAware" />
+                        <ref role="3uigEE" to="pa15:~LoadedStrategyAware" resolve="LoadedStrategyAware" />
                       </node>
                       <node concept="37vLTw" id="46IaplawtU3" role="10QFUP">
                         <ref role="3cqZAo" node="46IaplawqWs" resolve="inMemoryModel" />
@@ -1925,7 +1925,7 @@
           </node>
           <node concept="2ZW3vV" id="46IaplawrZl" role="3clFbw">
             <node concept="3uibUv" id="46Iaplawsp_" role="2ZW6by">
-              <ref role="3uigEE" to="pa15:~PersistenceVersionAware" resolve="PersistenceVersionAware" />
+              <ref role="3uigEE" to="pa15:~LoadedStrategyAware" resolve="LoadedStrategyAware" />
             </node>
             <node concept="37vLTw" id="46IaplawrKA" role="2ZW6bz">
               <ref role="3cqZAo" node="46IaplawqWs" resolve="inMemoryModel" />

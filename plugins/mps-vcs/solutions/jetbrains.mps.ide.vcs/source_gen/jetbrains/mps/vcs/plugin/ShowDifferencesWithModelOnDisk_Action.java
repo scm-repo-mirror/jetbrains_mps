@@ -16,7 +16,7 @@ import org.jetbrains.mps.openapi.model.EditableSModel;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.project.MPSProject;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
-import jetbrains.mps.persistence.PersistenceVersionAware;
+import jetbrains.mps.persistence.LoadedStrategyAware;
 import jetbrains.mps.persistence.PersistenceUtil;
 import jetbrains.mps.extapi.persistence.ModelFactoryService;
 import java.util.List;
@@ -73,8 +73,8 @@ public class ShowDifferencesWithModelOnDisk_Action extends BaseAction {
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     SModel inMemoryModel = event.getData(MPSCommonDataKeys.MODEL);
     ModelFactory modelFactory = null;
-    if (inMemoryModel instanceof PersistenceVersionAware) {
-      modelFactory = ((PersistenceVersionAware) inMemoryModel).getModelFactory();
+    if (inMemoryModel instanceof LoadedStrategyAware) {
+      modelFactory = ((LoadedStrategyAware) inMemoryModel).getModelFactory();
     }
     DataSource datasource = inMemoryModel.getSource();
     SModel diskModel;
