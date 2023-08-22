@@ -4415,5 +4415,15 @@
       <ref role="20lvS9" to="tpck:gw2VY9q" resolve="BaseConcept" />
     </node>
   </node>
+  <node concept="1TIwiD" id="7bKZA$p5BJq">
+    <property role="EcuMT" value="8282399442080267226" />
+    <property role="TrG5h" value="ValueClassModifier" />
+    <property role="34LRSv" value="value" />
+    <property role="R4oN_" value="annotation class modifier" />
+    <property role="3GE5qa" value="declaration.class.modifier" />
+    <node concept="PrWs8" id="7bKZA$p5BJr" role="PzmwI">
+      <ref role="PrY4T" node="2yYXHtl6Jg6" resolve="IClassModifier" />
+    </node>
+  </node>
 </model>
 

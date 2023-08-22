@@ -8197,5 +8197,18 @@
       </node>
     </node>
   </node>
+  <node concept="WtQ9Q" id="7bKZA$p5BJR">
+    <property role="3GE5qa" value="declaration.class.modifier" />
+    <ref role="WuzLi" to="hcm8:7bKZA$p5BJq" resolve="ValueClassModifier" />
+    <node concept="11bSqf" id="7bKZA$p5BJS" role="11c4hB">
+      <node concept="3clFbS" id="7bKZA$p5BJT" role="2VODD2">
+        <node concept="lc7rE" id="7bKZA$p5BJU" role="3cqZAp">
+          <node concept="la8eA" id="7bKZA$p5BJV" role="lcghm">
+            <property role="lacIc" value="value" />
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
 </model>
 
