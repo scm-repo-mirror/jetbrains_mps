@@ -600,6 +600,48 @@
         </node>
       </node>
     </node>
+    <node concept="37WvkG" id="2PDO6W2jc6y" role="37WGs$">
+      <ref role="37XkoT" to="hcm8:2yYXHtl6Jd$" resolve="ObjectDeclaration" />
+      <node concept="37Y9Zx" id="2PDO6W2jc6z" role="37ZfLb">
+        <node concept="3clFbS" id="2PDO6W2jc6$" role="2VODD2">
+          <node concept="Jncv_" id="2PDO6W2jcab" role="3cqZAp">
+            <ref role="JncvD" to="hcm8:2AtO9a4X07a" resolve="IncompleteDeclaration" />
+            <node concept="1r4N5L" id="2PDO6W2jcaP" role="JncvB" />
+            <node concept="3clFbS" id="2PDO6W2jcad" role="Jncv$">
+              <node concept="3clFbF" id="2PDO6W2jcc_" role="3cqZAp">
+                <node concept="37vLTI" id="2PDO6W2jez$" role="3clFbG">
+                  <node concept="2OqwBi" id="2PDO6W2jfxA" role="37vLTx">
+                    <node concept="2OqwBi" id="2PDO6W2jf0F" role="2Oq$k0">
+                      <node concept="Jnkvi" id="2PDO6W2jeLz" role="2Oq$k0">
+                        <ref role="1M0zk5" node="2PDO6W2jcae" resolve="incomplete" />
+                      </node>
+                      <node concept="3TrEf2" id="2PDO6W2jfjD" role="2OqNvi">
+                        <ref role="3Tt5mk" to="hcm8:1$jFvlCUrqs" resolve="classModifier" />
+                      </node>
+                    </node>
+                    <node concept="1mIQ4w" id="2PDO6W2jfWx" role="2OqNvi">
+                      <node concept="chp4Y" id="2PDO6W2jfZy" role="cj9EA">
+                        <ref role="cht4Q" to="hcm8:2yYXHtl6Jga" resolve="DataClassModifier" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="2OqwBi" id="2PDO6W2jcAl" role="37vLTJ">
+                    <node concept="1r4Lsj" id="2PDO6W2jcc$" role="2Oq$k0" />
+                    <node concept="3TrcHB" id="2PDO6W2jdf7" role="2OqNvi">
+                      <ref role="3TsBF5" to="hcm8:7bKZA$p5CCN" resolve="isData" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="JncvC" id="2PDO6W2jcae" role="JncvA">
+              <property role="TrG5h" value="incomplete" />
+              <node concept="2jxLKc" id="2PDO6W2jcaf" role="1tU5fm" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
     <node concept="37WvkG" id="1$jFvlCUKvo" role="37WGs$">
       <ref role="37XkoT" to="hcm8:2yYXHtl6JhD" resolve="ClassDeclaration" />
       <node concept="37Y9Zx" id="1$jFvlCUKvp" role="37ZfLb">

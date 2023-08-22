@@ -180,6 +180,11 @@
     <node concept="1QGGSu" id="5sECd$vml1F" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/objectKotlin.svg" />
     </node>
+    <node concept="1TJgyi" id="7bKZA$p5CCN" role="1TKVEl">
+      <property role="IQ2nx" value="8282399442080270899" />
+      <property role="TrG5h" value="isData" />
+      <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+    </node>
   </node>
   <node concept="PlHQZ" id="2yYXHtl6JdA">
     <property role="EcuMT" value="2936055411798373222" />
