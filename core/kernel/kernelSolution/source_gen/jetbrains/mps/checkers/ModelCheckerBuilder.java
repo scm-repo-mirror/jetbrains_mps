@@ -5,6 +5,8 @@ package jetbrains.mps.checkers;
 import jetbrains.mps.annotations.GeneratedClass;
 import org.apache.log4j.Logger;
 import org.apache.log4j.LogManager;
+import jetbrains.mps.progress.TaskScheduler;
+import jetbrains.mps.progress.DefaultTaskScheduler;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.module.SModule;
@@ -21,6 +23,7 @@ import org.apache.log4j.Level;
 import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.util.Consumer;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
+import jetbrains.mps.progress.AbstractTask;
 import org.jetbrains.mps.openapi.util.SubProgressKind;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
@@ -41,6 +44,7 @@ public class ModelCheckerBuilder {
   private static final Logger LOG = LogManager.getLogger(ModelCheckerBuilder.class);
 
   private final ModelExtractor myModelExtractor;
+  private TaskScheduler myTaskScheduler = new DefaultTaskScheduler();
   public ModelCheckerBuilder(ModelExtractor modelExtractor) {
     myModelExtractor = modelExtractor;
   }
@@ -107,6 +111,11 @@ public class ModelCheckerBuilder {
     public List<SModule> modules = ListSequence.fromList(new ArrayList<SModule>());
   }
 
+  public ModelCheckerBuilder withTaskScheduler(TaskScheduler taskExecutor) {
+    this.myTaskScheduler = taskExecutor;
+    return this;
+  }
+
   /**
    * Creates a composite checker from all "specific" checkers that is intended to process objects 
    * of type {@link jetbrains.mps.checkers.ModelCheckerBuilder.ItemsToCheck }.
@@ -138,73 +147,125 @@ public class ModelCheckerBuilder {
   private IAbstractChecker<ItemsToCheck, IssueKindReportItem> createChecker(final List<IChecker<SModel, ? extends IssueKindReportItem>> specificModelCheckers, final List<IChecker<SModule, ? extends IssueKindReportItem>> specificModuleCheckers) {
     return new IAbstractChecker<ItemsToCheck, IssueKindReportItem>() {
       public void check(ItemsToCheck itemsToCheck, SRepository repository, Consumer<? super IssueKindReportItem> errorCollector, ProgressMonitor monitor) {
+        AbstractTask checkTask = checkTask(itemsToCheck, repository, errorCollector);
+        myTaskScheduler.schedule(checkTask, monitor).complete();
+      }
+
+      @Override
+      public AbstractTask checkTask(final ItemsToCheck itemsToCheck, final SRepository repository, final Consumer<? super IssueKindReportItem> errorCollector) {
         List<SModule> modules = ListSequence.fromList(itemsToCheck.modules).translate(new ITranslator2<SModule, SModule>() {
           public Iterable<SModule> translate(SModule it) {
             return myModelExtractor.getSubModules(it);
           }
         }).toListSequence();
         List<SModel> models = itemsToCheck.models;
-        int work = ListSequence.fromList(models).count() + ListSequence.fromList(modules).count() + ListSequence.fromList(modules).translate(new ITranslator2<SModule, SModel>() {
+        final int work = ListSequence.fromList(models).count() + ListSequence.fromList(modules).count() + ListSequence.fromList(modules).translate(new ITranslator2<SModule, SModel>() {
           public Iterable<SModel> translate(SModule it) {
             return myModelExtractor.getModels(it);
           }
         }).count();
-        monitor.start("Checking", work);
 
-        try {
-          IAbstractChecker<SModule, ? extends IssueKindReportItem> generalModuleChecker = aggreagateSpecificCheckers(specificModuleCheckers, (SModule m) -> m.getModuleName());
-          IAbstractChecker<SModel, ? extends IssueKindReportItem> generalModelChecker = skipNullModules(aggreagateSpecificCheckers(specificModelCheckers, (SModel m) -> m.getName().getLongName()));
-
-          for (SModel model : ListSequence.fromList(models)) {
-            if (monitor.isCanceled()) {
-              break;
-            }
-            try {
-              generalModelChecker.check(model, repository, errorCollector, monitor.subTask(1, SubProgressKind.REPLACING));
-            } catch (Exception ex) {
-              if (LOG.isEnabledFor(Level.ERROR)) {
-                LOG.error("Failed to check model " + model.getName(), ex);
-              }
-              IssueKindReportItem ri = new ExceptionForModel(model.getReference(), ex);
-              errorCollector.accept(ri);
-              return;
-            }
+        AbstractTask.Builder taskBuilder = new AbstractTask.Builder();
+        taskBuilder.addTask(() -> {
+        });
+        taskBuilder.addTask(new AbstractTask.SimpleTask("checking") {
+          @Override
+          protected void run() {
+            myMonitor.start("Checking", work);
           }
+        });
 
+        AbstractTask.Builder builder = new AbstractTask.Builder();
+        IAbstractChecker<SModule, ? extends IssueKindReportItem> generalModuleChecker = aggreagateSpecificCheckers(specificModuleCheckers, (SModule m) -> m.getModuleName());
+        IAbstractChecker<SModel, ? extends IssueKindReportItem> generalModelChecker = skipNullModules(aggreagateSpecificCheckers(specificModelCheckers, (SModel m) -> m.getName().getLongName()));
 
-          for (SModule module : ListSequence.fromList(modules)) {
-            if (monitor.isCanceled()) {
-              break;
+        for (SModel model : ListSequence.fromList(models)) {
+          builder.addTask(new AbstractTask.DelegatingTask(generalModelChecker.checkTask(model, repository, errorCollector)) {
+
+            @Override
+            public void initMonitor(ProgressMonitor monitor) {
+              myMonitor = monitor.subTask(1, SubProgressKind.REPLACING);
             }
-            try {
-              generalModuleChecker.check(module, repository, errorCollector, monitor.subTask(1, SubProgressKind.REPLACING));
-            } catch (Exception ex) {
+            @Override
+            public boolean isReady() {
+              return !(myMonitor.isCanceled());
+            }
+            @Override
+            public void onThrowable(Throwable t) {
               if (LOG.isEnabledFor(Level.ERROR)) {
-                LOG.error("Failed to check module " + module.getModuleName(), ex);
+                LOG.error("Failed to check model " + model.getName(), t);
               }
-              IssueKindReportItem ri = new ExceptionForModule(module.getModuleReference(), ex);
+              IssueKindReportItem ri = new ExceptionForModel(model.getReference(), new RuntimeException(t));
               errorCollector.accept(ri);
-              return;
             }
-            for (SModel model : ListSequence.fromList(myModelExtractor.getModels(module))) {
-              if (monitor.isCanceled()) {
-                break;
-              }
-              try {
-                generalModelChecker.check(model, repository, errorCollector, monitor.subTask(1, SubProgressKind.REPLACING));
-              } catch (Exception ex) {
-                if (LOG.isEnabledFor(Level.ERROR)) {
-                  LOG.error("Failed to check model " + model.getName(), ex);
-                }
-                IssueKindReportItem ri = new ExceptionForModel(model.getReference(), ex);
-                errorCollector.accept(ri);
-                return;
-              }
+            @Override
+            public void onFinished() {
+              myMonitor.done();
             }
-          }
-        } finally {
-          monitor.done();
+          });
         }
+
+        for (SModule module : ListSequence.fromList(modules)) {
+          builder.addTask(new AbstractTask.DelegatingTask(generalModuleChecker.checkTask(module, repository, errorCollector)) {
+
+            @Override
+            public void initMonitor(ProgressMonitor monitor) {
+              myMonitor = monitor.subTask(1, SubProgressKind.REPLACING);
+            }
+            @Override
+            public boolean isReady() {
+              return !(myMonitor.isCanceled());
+            }
+            @Override
+            public void onThrowable(Throwable t) {
+              if (LOG.isEnabledFor(Level.ERROR)) {
+                LOG.error("Failed to check module " + module.getModuleName(), t);
+              }
+              IssueKindReportItem ri = new ExceptionForModule(module.getModuleReference(), new RuntimeException(t));
+              errorCollector.accept(ri);
+            }
+            @Override
+            public void onFinished() {
+              myMonitor.done();
+            }
+          });
+
+          for (SModel model : ListSequence.fromList(myModelExtractor.getModels(module))) {
+            builder.addTask(new AbstractTask.DelegatingTask(generalModelChecker.checkTask(model, repository, errorCollector)) {
+
+              @Override
+              public void initMonitor(ProgressMonitor monitor) {
+                myMonitor = monitor.subTask(1, SubProgressKind.REPLACING);
+              }
+              @Override
+              public boolean isReady() {
+                return !(myMonitor.isCanceled());
+              }
+              @Override
+              public void onThrowable(Throwable t) {
+                if (LOG.isEnabledFor(Level.ERROR)) {
+                  LOG.error("Failed to check model " + model.getName(), t);
+                }
+                IssueKindReportItem ri = new ExceptionForModel(model.getReference(), new RuntimeException(t));
+                errorCollector.accept(ri);
+              }
+              @Override
+              public void onFinished() {
+                myMonitor.done();
+              }
+            });
+          }
+        }
+        taskBuilder.addTask(builder.asParallel());
+
+        taskBuilder.addTask(new AbstractTask.SimpleTask("checking finished") {
+
+          @Override
+          public void onFinished() {
+            myMonitor.done();
+          }
+        });
+        return taskBuilder.asSequential();
       }
     };
   }
