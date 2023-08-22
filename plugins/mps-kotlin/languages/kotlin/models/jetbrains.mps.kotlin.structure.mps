@@ -1961,6 +1961,17 @@
     <node concept="PrWs8" id="213J8chjiJt" role="PzmwI">
       <ref role="PrY4T" node="213J8chjiEQ" resolve="IVariableIdentifier" />
     </node>
+    <node concept="PrWs8" id="7bKZA$p0je4" role="PzmwI">
+      <ref role="PrY4T" node="6cg9X74Le0Z" resolve="IVisible" />
+    </node>
+    <node concept="PrWs8" id="7bKZA$p0njK" role="PzmwI">
+      <ref role="PrY4T" node="5dNsAxXOVNq" resolve="IInheritable" />
+    </node>
+    <node concept="1TJgyi" id="7bKZA$oYaoq" role="1TKVEl">
+      <property role="IQ2nx" value="8282399442078311962" />
+      <property role="TrG5h" value="isOverride" />
+      <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+    </node>
     <node concept="1TJgyi" id="1502VugFRO8" role="1TKVEl">
       <property role="IQ2nx" value="1243006380188597512" />
       <property role="TrG5h" value="isProperty" />
