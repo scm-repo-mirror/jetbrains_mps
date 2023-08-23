@@ -305,8 +305,8 @@ public class Inequalities {
     }
     return false;
   }
-
-  private void collectNodesTransitive(SNode node, Set<SNode> collected, boolean isLeft, Map<SNode, RelationBlock> typesToBlocks, AbstractRelation relation, Set<SNode> alreadyPassed) {
+  
+  private void collectNodesTransitive(SNode node, Set<SNode> collectForward, Set<SNode> collectBackward, boolean isLeft, Map<SNode, RelationBlock> typesToBlocks, AbstractRelation relation, Set<SNode> alreadyPassed) {
     // Patching a deficiency of this algorithm: we're listening to equation/inequation adding, but not removing
     // TODO: update the incremental maps on equation/inequation removal
     Set<RelationBlock> blocks = new THashSet<>(myNodesToBlocksInc.getByFirst(node));
@@ -333,12 +333,19 @@ public class Inequalities {
       if (cur == node) {
         if (!TypesUtil.isVariable(other)) {
           SNode type = myState.expand(other);
-          collected.add(type);
+          collectForward.add(type);
           typesToBlocks.put(type, block);
-        } else {
-          if (!alreadyPassed.contains(other)){
-            collectNodesTransitive(other, collected, isLeft, typesToBlocks, relation, alreadyPassed);
-          }
+        } else if (!alreadyPassed.contains(other)){
+            collectNodesTransitive(other, collectForward, collectBackward, isLeft, typesToBlocks, relation, alreadyPassed);
+        }
+      }
+      else if (other == node) {
+        if (!TypesUtil.isVariable(cur)) {
+          SNode type = myState.expand(cur);
+          collectBackward.add(type);
+          typesToBlocks.put(type, block);
+        } else if (!alreadyPassed.contains(cur)){
+          collectNodesTransitive(cur, collectBackward, collectForward, !isLeft, typesToBlocks, relation, alreadyPassed);
         }
       }
     }
@@ -369,10 +376,11 @@ public class Inequalities {
     assert TypesUtil.isVariable(node);
     Set<SNode> rightTypes = new LinkedHashSet<>();
     Set<SNode> leftTypes = new LinkedHashSet<>();
-    collectNodesTransitive(node, leftTypes, false, typesToBlocks, relation, new HashSet<>());
-    if (!mySolveOnlyRight) {
-      collectNodesTransitive(node, rightTypes, true, typesToBlocks, relation, new HashSet<>());
-    }
+    // to handle the following system: y <= x, TypeA <= y, y <= TypeB
+    // (solving for x we get TypeA with mySolveOnlyRight, while TypeB may be preferrable)
+    // collect all types, moving in both directions at once
+    // ignore mySolveOnlyRight (seems to be unnecessary now)
+    collectNodesTransitive(node, leftTypes, rightTypes, false, typesToBlocks, relation, new HashSet<>());
     return relation.solve(node, leftTypes, rightTypes, myState, typesToBlocks);
   }
 
