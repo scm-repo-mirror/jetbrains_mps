@@ -54,6 +54,12 @@ public class CleanModule_Action extends BaseAction {
     }
     {
       List<SModule> p = event.getData(MPSCommonDataKeys.MODULES);
+      if (p == null) {
+        return false;
+      }
+      if (p.isEmpty()) {
+        return false;
+      }
     }
     return true;
   }
