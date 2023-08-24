@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <solution name="jetbrains.mps.build.mps.runner.test.buildscript" uuid="5cebcf39-faf5-4609-8f61-fb38c85e731e" moduleVersion="0">
   <models>
-    <modelRoot contentPath="${module}" type="default">
+    <modelRoot type="default" contentPath="${module}">
       <sourceRoot location="models" />
     </modelRoot>
   </models>
   <facets>
-    <facet type="java" compile="mps" classes="mps" ext="no">
-      <classes generated="true" path="${module}/classes_gen" />
-    </facet>
+    <facet folders="true" type="plaintext" />
   </facets>
   <dependencies>
     <dependency reexport="false">422c2909-59d6-41a9-b318-40e6256b250f(jetbrains.mps.ide.build)</dependency>
