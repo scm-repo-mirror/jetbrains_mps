@@ -89,6 +89,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptGeneratorInternal_BuildSourcePath = createDescriptorForGeneratorInternal_BuildSourcePath();
   /*package*/ final ConceptDescriptor myConceptGeneratorInternal_PluginExpanded = createDescriptorForGeneratorInternal_PluginExpanded();
   /*package*/ final ConceptDescriptor myConceptGeneratorInternal_String = createDescriptorForGeneratorInternal_String();
+  /*package*/ final EnumerationDescriptor myEnumerationBuildMps_GeneratorOptions_MessageLevel = new EnumerationDescriptor_BuildMps_GeneratorOptions_MessageLevel();
   /*package*/ final EnumerationDescriptor myEnumerationBuildMps_GeneratorOptions_SkipUnmodifiedModels = new EnumerationDescriptor_BuildMps_GeneratorOptions_SkipUnmodifiedModels();
   /*package*/ final EnumerationDescriptor myEnumerationBuildMps_ModuleSourcesKind = new EnumerationDescriptor_BuildMps_ModuleSourcesKind();
   /*package*/ final ConstrainedStringDatatypeDescriptor myCSDatatypequalifiedName = new ConstrainedStringDatatypeDescriptorImpl(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4dea347cL, "qualifiedName", "r:0353b795-df17-4050-9687-ee47eeb7094f(jetbrains.mps.build.mps.structure)/6592112598314529916", "[a-zA-Z_][a-zA-Z_0-9]*(\\.[a-zA-Z_][a-zA-Z_0-9]*)*");
@@ -261,7 +262,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<DataTypeDescriptor> getDataTypeDescriptors() {
-    return Arrays.asList(myEnumerationBuildMps_GeneratorOptions_SkipUnmodifiedModels, myEnumerationBuildMps_ModuleSourcesKind, myCSDatatypequalifiedName);
+    return Arrays.asList(myEnumerationBuildMps_GeneratorOptions_MessageLevel, myEnumerationBuildMps_GeneratorOptions_SkipUnmodifiedModels, myEnumerationBuildMps_ModuleSourcesKind, myCSDatatypequalifiedName);
   }
 
   /*package*/ int internalIndex(SAbstractConcept c) {
@@ -669,6 +670,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.property("hideWarnings", 0x36a924c4406d57f3L).type(PrimitiveTypeId.BOOLEAN).origin("3938719774425307123").done();
     b.property("createStaticRefs", 0x5ab0fd79b0feb375L).type(PrimitiveTypeId.BOOLEAN).origin("6535001758416941941").done();
     b.property("skipUnmodifiedModels", 0x37b3e610a73b826L).type(MetaIdFactory.dataTypeId(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x37b3e610a73c6cbL)).origin("4241665505353454201").done();
+    b.property("messageLevel", 0x188f61e0d025cf73L).type(MetaIdFactory.dataTypeId(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x188f61e0d025c872L)).origin("1769740796772601715").done();
     b.alias("generator options");
     return b.create();
   }

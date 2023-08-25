@@ -1488,13 +1488,11 @@
       <property role="TrG5h" value="skipUnmodifiedModels" />
       <property role="IQ2nx" value="250862790757300262" />
       <ref role="AX2Wp" node="3Ftr4R6BFCC" resolve="BuildMps_GeneratorOptions_SkipUnmodifiedModels" />
-      <node concept="3l_iC" id="3Ftr4R6BH9U" role="lGtFl">
-        <node concept="1TJgyi" id="dVfA4asVwA" role="3l_iP">
-          <property role="IQ2nx" value="250862790757300262" />
-          <property role="TrG5h" value="skipUnmodifiedModels" />
-          <ref role="AX2Wp" node="3Ftr4R6BFCC" resolve="BuildMps_GeneratorOptions_SkipUnmodifiedModels" />
-        </node>
-      </node>
+    </node>
+    <node concept="1TJgyi" id="1yfou3g9sXN" role="1TKVEl">
+      <property role="IQ2nx" value="1769740796772601715" />
+      <property role="TrG5h" value="messageLevel" />
+      <ref role="AX2Wp" node="1yfou3g9sxM" resolve="BuildMps_GeneratorOptions_MessageLevel" />
     </node>
     <node concept="PrWs8" id="3Iy_$1rs43y" role="PzmwI">
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
@@ -1851,6 +1849,22 @@
     </node>
     <node concept="t5JxF" id="7M00clbFm5z" role="lGtFl">
       <property role="t5JxN" value="Captures GENERATES_INTO dependency scope; to respect runtime modules of languages that show up during m2m" />
+    </node>
+  </node>
+  <node concept="25R3W" id="1yfou3g9sxM">
+    <property role="3F6X1D" value="1769740796772599922" />
+    <property role="TrG5h" value="BuildMps_GeneratorOptions_MessageLevel" />
+    <node concept="25R33" id="1yfou3g9sxN" role="25R1y">
+      <property role="3tVfz5" value="1769740796772599923" />
+      <property role="TrG5h" value="info" />
+    </node>
+    <node concept="25R33" id="1yfou3g9sFW" role="25R1y">
+      <property role="3tVfz5" value="1769740796772600572" />
+      <property role="TrG5h" value="warn" />
+    </node>
+    <node concept="25R33" id="1yfou3g9sJn" role="25R1y">
+      <property role="3tVfz5" value="1769740796772600791" />
+      <property role="TrG5h" value="error" />
     </node>
   </node>
 </model>

@@ -5217,6 +5217,9 @@
         <node concept="lj46D" id="3Iy_$1rs8RE" role="3F10Kt">
           <property role="VOm3f" value="true" />
         </node>
+        <node concept="ljvvj" id="1yfou3gekVp" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
         <node concept="l2Vlx" id="3Iy_$1rs7VC" role="2iSdaV" />
         <node concept="3F0ifn" id="3Iy_$1rs8fa" role="3EZMnx">
           <property role="3F0ifm" value="strict mode" />
@@ -5277,7 +5280,7 @@
           </node>
         </node>
         <node concept="3F0ifn" id="3qD9ch0rlJ_" role="3EZMnx">
-          <property role="3F0ifm" value="hide warnings" />
+          <property role="3F0ifm" value="hide child role warnings" />
           <ref role="1k5W1q" to="o2va:hwW5xkg" resolve="keyword" />
         </node>
         <node concept="3F0A7n" id="3qD9ch0rlJA" role="3EZMnx">
@@ -5304,6 +5307,17 @@
         </node>
         <node concept="3F0A7n" id="dVfA4asW7M" role="3EZMnx">
           <ref role="1NtTu8" to="kdzh:3Ftr4R6BH9T" resolve="skipUnmodifiedModels" />
+          <node concept="ljvvj" id="1yfou3g9uPo" role="3F10Kt">
+            <property role="VOm3f" value="true" />
+          </node>
+        </node>
+        <node concept="3F0ifn" id="1yfou3g9uoy" role="3EZMnx">
+          <property role="3F0ifm" value="message level" />
+        </node>
+        <node concept="3F0A7n" id="1yfou3g9uFK" role="3EZMnx">
+          <property role="1O74Pk" value="true" />
+          <property role="1$x2rV" value="&lt;default&gt;" />
+          <ref role="1NtTu8" to="kdzh:1yfou3g9sXN" resolve="messageLevel" />
         </node>
       </node>
       <node concept="3F0ifn" id="3Iy_$1rw17p" role="3EZMnx">
