@@ -59,19 +59,21 @@ public class MigrationTask {
   private LocalHistoryAction myCurrentChange = null;
   private final List<ScriptApplied> myWereRun = ListSequence.fromList(new ArrayList<ScriptApplied>());
   private final boolean myHaltOnFailedPrecheck;
+  private final boolean myHaltOnNotMigratedLibs;
 
   private final ProgressMonitorAdapter myMonitor;
 
   public MigrationTask(MigrationSession session, ProgressMonitorAdapter monitor) {
-    this(session, monitor, true);
+    this(session, monitor, true, true);
   }
 
-  public MigrationTask(MigrationSession session, ProgressMonitorAdapter monitor, boolean haltOnFailedPrecheck) {
+  public MigrationTask(MigrationSession session, ProgressMonitorAdapter monitor, boolean haltOnFailedPrecheck, boolean haltOnNotMigratedLibs) {
     mySession = session;
     myMonitor = monitor;
     mySession.setCurrentStage(0);
     myMonitor.start("Migrating...", 100);
     myHaltOnFailedPrecheck = haltOnFailedPrecheck;
+    myHaltOnNotMigratedLibs = haltOnNotMigratedLibs;
   }
 
   public void run() {
@@ -136,7 +138,15 @@ public class MigrationTask {
     if (checkAndIncStage(3)) {
       Map<SModule, SModule> errsToShow = checkMigratedLibs(myMonitor.subTask(5));
       if (MapSequence.fromMap(errsToShow).isNotEmpty()) {
-        throw new NotMigratedLibsError(errsToShow);
+        final NotMigratedLibsError error = new NotMigratedLibsError(errsToShow);
+        if (myHaltOnNotMigratedLibs) {
+          throw error;
+        } else {
+          if (LOG.isWarningLevel()) {
+            LOG.warning("Some dependent modules are not migrated, ignoring...");
+          }
+          mySession.getProject().getModelAccess().runReadAction(() -> error.logProblems(new LogHandler(org.apache.log4j.Logger.getLogger(MigrationTask.class))));
+        }
       }
     }
 
@@ -151,12 +161,7 @@ public class MigrationTask {
           if (LOG.isWarningLevel()) {
             LOG.warning("Migration pre-check has failed, ignoring...");
           }
-          mySession.getProject().getModelAccess().runReadAction(new Runnable() {
-            @Override
-            public void run() {
-              preCheckError.logProblems(new LogHandler(Logger.getLogger(MigrationTask.class)));
-            }
-          });
+          mySession.getProject().getModelAccess().runReadAction(() -> preCheckError.logProblems(new LogHandler(Logger.getLogger(MigrationTask.class))));
         }
       }
     }
@@ -212,7 +217,7 @@ public class MigrationTask {
     // in tests, we have EmptyProgressIndicator and use NON_MODAL
     // FIXME with proper modality for an indicator initialized in MigrationStep, likely this code is not needed, as invokeAndWait
     //      would pick proper modality (the one from PI) for us. But don't want to touch this in 21.3 RC
-    JComponent modalityComponent = check_ajmasp_a0g0eb(as_ajmasp_a0a0g0fb(myMonitor.getIndicator(), InlineProgressIndicator.class));
+    JComponent modalityComponent = check_ajmasp_a0g0fb(as_ajmasp_a0a0g0gb(myMonitor.getIndicator(), InlineProgressIndicator.class));
     ModalityState modalityState = (modalityComponent == null ? ModalityState.NON_MODAL : ModalityState.stateForComponent(modalityComponent));
     ApplicationManager.getApplication().invokeAndWait(() -> {
       if (myCurrentChange == null) {
@@ -320,7 +325,7 @@ public class MigrationTask {
     final Project project = mySession.getProject();
     String caption = "Updating versions...";
     runLocalHistoryRecord(caption, () -> {
-      JComponent modalityComponent = check_ajmasp_a0a0b0c0qb(as_ajmasp_a0a0a0b0c0rb(myMonitor.getIndicator(), InlineProgressIndicator.class));
+      JComponent modalityComponent = check_ajmasp_a0a0b0c0rb(as_ajmasp_a0a0a0b0c0sb(myMonitor.getIndicator(), InlineProgressIndicator.class));
       ModalityState modalityState = (modalityComponent == null ? ModalityState.NON_MODAL : ModalityState.stateForComponent(modalityComponent));
 
       ApplicationManager.getApplication().invokeAndWait(() -> project.getRepository().getModelAccess().executeCommand(() -> {
@@ -338,7 +343,7 @@ public class MigrationTask {
     m.start(caption, ListSequence.fromList(allModules.value).count() + 10);
     runLocalHistoryRecord(caption, () -> {
       try {
-        JComponent modalityComponent = check_ajmasp_a0a0a0b0f0sb(as_ajmasp_a0a0a0a0b0f0tb(myMonitor.getIndicator(), InlineProgressIndicator.class));
+        JComponent modalityComponent = check_ajmasp_a0a0a0b0f0tb(as_ajmasp_a0a0a0a0b0f0ub(myMonitor.getIndicator(), InlineProgressIndicator.class));
         ModalityState modalityState = (modalityComponent == null ? ModalityState.NON_MODAL : ModalityState.stateForComponent(modalityComponent));
 
         for (final SModule module : ListSequence.fromList(allModules.value)) {
@@ -450,31 +455,31 @@ public class MigrationTask {
     });
     return res.value;
   }
-  private static JComponent check_ajmasp_a0g0eb(InlineProgressIndicator checkedDotOperand) {
+  private static JComponent check_ajmasp_a0g0fb(InlineProgressIndicator checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getComponent();
     }
     return null;
   }
-  private static JComponent check_ajmasp_a0a0b0c0qb(InlineProgressIndicator checkedDotOperand) {
+  private static JComponent check_ajmasp_a0a0b0c0rb(InlineProgressIndicator checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getComponent();
     }
     return null;
   }
-  private static JComponent check_ajmasp_a0a0a0b0f0sb(InlineProgressIndicator checkedDotOperand) {
+  private static JComponent check_ajmasp_a0a0a0b0f0tb(InlineProgressIndicator checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getComponent();
     }
     return null;
   }
-  private static <T> T as_ajmasp_a0a0g0fb(Object o, Class<T> type) {
+  private static <T> T as_ajmasp_a0a0g0gb(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
-  private static <T> T as_ajmasp_a0a0a0b0c0rb(Object o, Class<T> type) {
+  private static <T> T as_ajmasp_a0a0a0b0c0sb(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
-  private static <T> T as_ajmasp_a0a0a0a0b0f0tb(Object o, Class<T> type) {
+  private static <T> T as_ajmasp_a0a0a0a0b0f0ub(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
 }
