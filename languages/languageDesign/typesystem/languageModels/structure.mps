@@ -789,6 +789,11 @@
     <property role="3GE5qa" value="definition.type" />
     <property role="EcuMT" value="1185281562363" />
     <ref role="1TJDcQ" to="tpee:fz3vP1H" resolve="Type" />
+    <node concept="1TJgyi" id="3qDC_E6FIdA" role="1TKVEl">
+      <property role="IQ2nx" value="3938857858802574182" />
+      <property role="TrG5h" value="pullUp" />
+      <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+    </node>
     <node concept="PrWs8" id="hfSilrW" role="PzmwI">
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
     </node>
