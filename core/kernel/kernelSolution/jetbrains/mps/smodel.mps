@@ -1707,6 +1707,20 @@
       </node>
     </node>
     <node concept="2tJIrI" id="6z0EkmmFnsc" role="jymVt" />
+    <node concept="Wx3nA" id="3qDC_E6GMTB" role="jymVt">
+      <property role="3TUv4t" value="true" />
+      <property role="TrG5h" value="property_RuntimeTypeVariable_pullUp" />
+      <node concept="3Tm1VV" id="3qDC_E6GOlB" role="1B3o_S" />
+      <node concept="3uibUv" id="3qDC_E6GNf$" role="1tU5fm">
+        <ref role="3uigEE" to="c17a:~SProperty" resolve="SProperty" />
+      </node>
+      <node concept="355D3s" id="3qDC_E6GNZi" role="33vP2m">
+        <property role="B6XcY" value="true" />
+        <ref role="355D3t" to="tpd4:hfSilrV" resolve="RuntimeTypeVariable" />
+        <ref role="355D3u" to="tpd4:3qDC_E6FIdA" resolve="pullUp" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="3qDC_E6GOpj" role="jymVt" />
     <node concept="3clFbW" id="1YioXbrr5pd" role="jymVt">
       <node concept="3cqZAl" id="1YioXbrr5pe" role="3clF45" />
       <node concept="3Tm6S6" id="6V6PZUYbP0g" role="1B3o_S" />
