@@ -306,18 +306,14 @@ public class Inequalities {
     return false;
   }
   
-  private void collectNodesTransitive(SNode node, Set<SNode> collectForward, Set<SNode> collectBackward, boolean isLeft, Map<SNode, RelationBlock> typesToBlocks, AbstractRelation relation, Set<SNode> alreadyPassed) {
+  private void collectNodesTransitive(SNode toSolve, Set<SNode> collectForward, Set<SNode> collectBackward, boolean isLeft, Map<SNode, RelationBlock> typesToBlocks, AbstractRelation relation, Set<SNode> alreadyPassed) {
     // Patching a deficiency of this algorithm: we're listening to equation/inequation adding, but not removing
     // TODO: update the incremental maps on equation/inequation removal
-    Set<RelationBlock> blocks = new THashSet<>(myNodesToBlocksInc.getByFirst(node));
+    Set<RelationBlock> blocks = new THashSet<>(myNodesToBlocksInc.getByFirst(toSolve));
     final Set<Block> stateBlocks = myState.getBlocks();
-    for(Iterator<RelationBlock> it = blocks.iterator(); it.hasNext();) {
-      final RelationBlock next = it.next();
-      if(!stateBlocks.contains(next) || isRecursive(next)) { // recursive relations are solved at the end
-        it.remove();
-      }
-    }
-    alreadyPassed.add(node);
+    // recursive relations are solved at the end
+    blocks.removeIf(next -> !stateBlocks.contains(next) || isRecursive(next));
+    alreadyPassed.add(toSolve);
     blocks = getRelationBlocks(blocks, relation);
     for (RelationBlock block : blocks) {
       if (block.isCheckOnly()) {
@@ -328,24 +324,19 @@ public class Inequalities {
       if (right == left) {
         continue;
       }
-      SNode cur = isLeft ? left : right;
-      SNode other = isLeft ? right : left;
-      if (cur == node) {
-        if (!TypesUtil.isVariable(other)) {
-          SNode type = myState.expand(other);
-          collectForward.add(type);
+      SNode nowSolving = isLeft ? left : right;
+      SNode nowOpposite = isLeft ? right : left;
+      if (nowSolving == toSolve || nowOpposite == toSolve) {
+        boolean forward = nowSolving == toSolve;
+        Set<SNode> cfwd = forward ? collectForward : collectBackward;
+        Set<SNode> cbwd = forward ? collectBackward : collectForward;
+        SNode nextToSolve = forward ? nowOpposite : nowSolving;
+        if (!TypesUtil.isVariable(nextToSolve)) {
+          SNode type = myState.expand(nextToSolve);
+          cfwd.add(type);
           typesToBlocks.put(type, block);
-        } else if (!alreadyPassed.contains(other)){
-            collectNodesTransitive(other, collectForward, collectBackward, isLeft, typesToBlocks, relation, alreadyPassed);
-        }
-      }
-      else if (other == node) {
-        if (!TypesUtil.isVariable(cur)) {
-          SNode type = myState.expand(cur);
-          collectBackward.add(type);
-          typesToBlocks.put(type, block);
-        } else if (!alreadyPassed.contains(cur)){
-          collectNodesTransitive(cur, collectBackward, collectForward, !isLeft, typesToBlocks, relation, alreadyPassed);
+        } else if (!alreadyPassed.contains(nextToSolve)){
+          collectNodesTransitive(nextToSolve, cfwd, cbwd, forward == isLeft, typesToBlocks, relation, alreadyPassed);
         }
       }
     }
