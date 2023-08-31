@@ -79,9 +79,10 @@
     <!-- This is needed for JDK solution loading. Is better to be replaced by lazy loading. Also a possible solution is to load JDK solution with IO FS -->
     <virtualFileSystem implementationClass="com.intellij.openapi.vfs.impl.jrt.JrtFileSystemImpl" key="jrt" physical="true"/>
 
-    <projectConfigurable displayName="Project Settings" instance="jetbrains.mps.workbench.dialogs.project.properties.project.ProjectPropertiesPrefsPage" id="project.options.prefs.page" nonDefaultProject="true"/>
-    <applicationConfigurable groupId="build" groupWeight="150" instance="jetbrains.mps.smodel.ModelValidationConfigurable" id="preferences.modelValidationSettings" displayName="Model Validation"/>
-    <applicationConfigurable groupId="build" groupWeight="140" instance="jetbrains.mps.ide.generator.GenerationSettingsPreferencesPage" id="preferences.generationSettings" displayName="Generator"/>
+    <projectConfigurable parentId="build"   displayName="Project Settings" instance="jetbrains.mps.workbench.dialogs.project.properties.project.ProjectPropertiesPrefsPage"
+                         id="project.options.prefs.page" nonDefaultProject="true" groupWeight="-10"/>
+    <applicationConfigurable parentId="build" groupWeight="150" instance="jetbrains.mps.smodel.ModelValidationConfigurable" id="preferences.modelValidationSettings" displayName="Model Validation"/>
+    <applicationConfigurable parentId="build" groupWeight="140" instance="jetbrains.mps.ide.generator.GenerationSettingsPreferencesPage" id="preferences.generationSettings" displayName="Generator"/>
 
     <fileEditorProvider implementation="jetbrains.mps.workbench.editors.MPSLanguageEditorProvider"/>
 
