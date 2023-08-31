@@ -65,7 +65,7 @@ public final class SetMultilineDotExpressionLineStyle_Intention extends Abstract
     }
 
     private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-      return ListSequence.fromList(DotExpression__BehaviorDescriptor.getAllDots_id2c6AtCN58E1.invoke(node)).any((it) -> !(SPropertyOperations.getBoolean(it, PROPS.isMultiline$uBO0)));
+      return (boolean) DotExpression__BehaviorDescriptor.isMultiline_id6to_vySiwwX.invoke(node) && ListSequence.fromList(DotExpression__BehaviorDescriptor.getAllDots_id2c6AtCN58E1.invoke(node)).any((it) -> !(SPropertyOperations.getBoolean(it, PROPS.isMultiline$uBO0)));
     }
 
 

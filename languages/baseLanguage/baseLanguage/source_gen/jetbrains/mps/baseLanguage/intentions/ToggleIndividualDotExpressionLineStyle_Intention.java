@@ -13,6 +13,7 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.baseLanguage.behavior.DotExpression__BehaviorDescriptor;
 import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
@@ -58,12 +59,18 @@ public final class ToggleIndividualDotExpressionLineStyle_Intention extends Abst
 
     @Override
     public boolean isApplicable(final SNode node, final EditorContext editorContext) {
+      if (!(isApplicableToNode(node, editorContext))) {
+        return false;
+      }
       if (editorContext.getSelectedNode() != node && !(isVisibleInChild(node, editorContext.getSelectedNode(), editorContext))) {
         return false;
       }
       return true;
     }
 
+    private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
+      return (boolean) DotExpression__BehaviorDescriptor.isMultiline_id6to_vySiwwX.invoke(node);
+    }
 
     private boolean isVisibleInChild(final SNode node, final SNode childNode, final EditorContext editorContext) {
       return Objects.equals(SNodeOperations.getParent(childNode), node);

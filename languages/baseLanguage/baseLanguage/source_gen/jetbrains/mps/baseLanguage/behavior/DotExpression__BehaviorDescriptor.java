@@ -40,8 +40,9 @@ public final class DotExpression__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Void> setSyntacticallyLeftSideExpression_id1wHCnsn58ZK = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setSyntacticallyLeftSideExpression").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1742226163722653680L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<PrecedenceUtil.Precedence> getPrecedenceLevel_id1O90zDONSxM = new SMethodBuilder<PrecedenceUtil.Precedence>(new SJavaCompoundTypeImpl(PrecedenceUtil.Precedence.class)).name("getPrecedenceLevel").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2092205951981422706L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
   public static final SMethod<List<SNode>> getAllDots_id2c6AtCN58E1 = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getAllDots").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2523873803626646145L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
+  public static final SMethod<Boolean> isMultiline_id6to_vySiwwX = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isMultiline").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7446866879333402685L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLValue_idhEwJgmE, getClassifier_idhEwIPI9, getOperandType_id7GulAc9z0dN, getVariableExpectedName_idhEwJgm_, isLegalAsStatement_idi26MfYG, allowsNullOperand_id3Yy2P0QQESt, lvalue_id1653mnvAgpj, getSyntacticallyLeftSideExpression_id1wHCnsn590c, setSyntacticallyLeftSideExpression_id1wHCnsn58ZK, getPrecedenceLevel_id1O90zDONSxM, getAllDots_id2c6AtCN58E1);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLValue_idhEwJgmE, getClassifier_idhEwIPI9, getOperandType_id7GulAc9z0dN, getVariableExpectedName_idhEwJgm_, isLegalAsStatement_idi26MfYG, allowsNullOperand_id3Yy2P0QQESt, lvalue_id1653mnvAgpj, getSyntacticallyLeftSideExpression_id1wHCnsn590c, setSyntacticallyLeftSideExpression_id1wHCnsn58ZK, getPrecedenceLevel_id1O90zDONSxM, getAllDots_id2c6AtCN58E1, isMultiline_id6to_vySiwwX);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -92,6 +93,9 @@ public final class DotExpression__BehaviorDescriptor extends BaseBHDescriptor {
     }
     return result;
   }
+  /*package*/ static boolean isMultiline_id6to_vySiwwX(@NotNull SNode __thisNode__) {
+    return true;
+  }
 
   /*package*/ DotExpression__BehaviorDescriptor() {
   }
@@ -127,6 +131,8 @@ public final class DotExpression__BehaviorDescriptor extends BaseBHDescriptor {
         return null;
       case 10:
         return (T) ((List<SNode>) getAllDots_id2c6AtCN58E1(node));
+      case 11:
+        return (T) ((Boolean) isMultiline_id6to_vySiwwX(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
