@@ -55,7 +55,7 @@ public class MPSDocumentationPopupUI implements Disposable {
 
     List<AnAction> secondaryActions = new ArrayList<>();
     secondaryActions.add(new ShowToolbarAction("Show Toolbar"));
-    secondaryActions.add(new OpenInToolwindowAction("Open In Toolbar"));
+    secondaryActions.add(new OpenInToolwindowAction("Open In Tool Window"));
     DefaultActionGroup toolbarActionGroup = new DefaultActionGroup();
     for (AnAction secondaryAction : secondaryActions) {
       toolbarActionGroup.addAction(secondaryAction).setAsSecondary(true);
