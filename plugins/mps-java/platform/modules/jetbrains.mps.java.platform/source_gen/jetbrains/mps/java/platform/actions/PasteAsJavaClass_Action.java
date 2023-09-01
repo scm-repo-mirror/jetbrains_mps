@@ -16,6 +16,10 @@ import jetbrains.mps.java.platform.util.JavaPaster;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.EditableSModel;
 import jetbrains.mps.project.MPSProject;
+import com.intellij.openapi.project.Project;
+import jetbrains.mps.ide.project.ProjectHelper;
+import com.intellij.openapi.progress.ProgressManager;
+import jetbrains.mps.progress.ProgressMonitorAdapter;
 
 @GeneratedClass(node = "r:c6bc30d1-d0d1-44c6-ba7e-90e78619615e(jetbrains.mps.java.platform.actions)/2872212824181502651", model = "r:c6bc30d1-d0d1-44c6-ba7e-90e78619615e(jetbrains.mps.java.platform.actions)")
 public class PasteAsJavaClass_Action extends BaseAction {
@@ -24,8 +28,7 @@ public class PasteAsJavaClass_Action extends BaseAction {
   public PasteAsJavaClass_Action() {
     super("Paste as Java Class", "", ICON);
     this.setIsAlwaysVisible(false);
-    this.setActionAccess(ActionAccess.UNDO_PROJECT);
-    updateInBackground(true);
+    this.setActionAccess(ActionAccess.NONE);
   }
   @Override
   public boolean isDumbAware() {
@@ -67,6 +70,16 @@ public class PasteAsJavaClass_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    new JavaPaster().pasteJavaAsClass(event.getData(MPSCommonDataKeys.MODEL), event.getData(MPSCommonDataKeys.MPS_PROJECT));
+    Project ideaProject = ProjectHelper.toIdeaProject(event.getData(MPSCommonDataKeys.MPS_PROJECT));
+    ProgressManager pm = ProgressManager.getInstance();
+    pm.runProcessWithProgressSynchronously(() -> {
+      ProgressMonitorAdapter monitor = new ProgressMonitorAdapter(ProgressManager.getInstance().getProgressIndicator());
+      monitor.start("Paste a Java class", 5);
+      try {
+        new JavaPaster().pasteJavaAsClass(event.getData(MPSCommonDataKeys.MODEL), event.getData(MPSCommonDataKeys.MPS_PROJECT), monitor, event.getData(MPSCommonDataKeys.MPS_PROJECT).getRepository());
+      } finally {
+        monitor.done();
+      }
+    }, "Paste a Java class", false, ideaProject);
   }
 }

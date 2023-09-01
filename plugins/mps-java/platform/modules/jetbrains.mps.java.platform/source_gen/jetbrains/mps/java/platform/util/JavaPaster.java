@@ -6,6 +6,8 @@ import jetbrains.mps.annotations.GeneratedClass;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.java.core.newparser.FeatureKind;
 import jetbrains.mps.project.Project;
+import jetbrains.mps.progress.ProgressMonitorAdapter;
+import org.jetbrains.mps.openapi.module.SRepository;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.ui.Messages;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -16,16 +18,18 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.java.core.newparser.JavaParser;
+import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
+import com.intellij.openapi.application.ModalityState;
 import jetbrains.mps.smodel.ModelImports;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.java.core.newparser.JavaToMpsConverter;
 import jetbrains.mps.ide.messages.MessagesViewTool;
-import jetbrains.mps.progress.EmptyProgressMonitor;
 import jetbrains.mps.java.core.newparser.JavaParseException;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -38,7 +42,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 @GeneratedClass(node = "r:ba675e48-daa4-42f0-bb41-6ecb53e4758b(jetbrains.mps.java.platform.util)/5646944109420335310", model = "r:ba675e48-daa4-42f0-bb41-6ecb53e4758b(jetbrains.mps.java.platform.util)")
 public class JavaPaster {
 
-  public void pasteJava(SNode anchor, FeatureKind featureKind, Project project) {
+  public void pasteJava(final SNode anchor, final FeatureKind featureKind, final Project project, final ProgressMonitorAdapter progress, final SRepository repository) {
     String javaCode = getStringFromClipboard();
     if (javaCode == null) {
       ApplicationManager.getApplication().invokeLater(new Runnable() {
@@ -49,10 +53,12 @@ public class JavaPaster {
       });
       return;
     }
-    pasteJavaAsNode(anchor, anchor.getModel(), javaCode, featureKind, project);
+    progress.advance(1);
+    pasteJavaAsNode(anchor, anchor.getModel(), javaCode, featureKind, project, progress, repository);
+    progress.advance(1);
   }
 
-  public void pasteJavaAsClass(SModel model, Project project) {
+  public void pasteJavaAsClass(SModel model, Project project, ProgressMonitorAdapter progress, final SRepository repository) {
     String javaCode = getStringFromClipboard();
     if (javaCode == null) {
       ApplicationManager.getApplication().invokeLater(new Runnable() {
@@ -63,7 +69,9 @@ public class JavaPaster {
       });
       return;
     }
-    pasteJavaAsNode(null, model, javaCode, FeatureKind.CLASS, project);
+    progress.advance(1);
+    pasteJavaAsNode(null, model, javaCode, FeatureKind.CLASS, project, progress, repository);
+    progress.advance(1);
   }
 
   public String getStringFromClipboard() {
@@ -92,8 +100,8 @@ public class JavaPaster {
     return null;
   }
 
-  public void pasteJavaAsNode(SNode anchor, final SModel model, String javaCode, final FeatureKind featureKind, Project project) {
-    // This value seems to be the maximum that the parser can parse and the editor can than render
+  public void pasteJavaAsNode(final SNode anchor, final SModel model, String javaCode, final FeatureKind featureKind, final Project project, final ProgressMonitorAdapter progress, final SRepository repository) {
+    //         This value seems to be the maximum that the parser can parse and the editor can than render
     if (javaCode.length() > 50000) {
       ApplicationManager.getApplication().invokeLater(new Runnable() {
         @Override
@@ -107,61 +115,91 @@ public class JavaPaster {
 
     try {
       // JavaParser.tryResolveUnknowns(nodes) ==> YetUnknownResolver
-      SNode context = null;
+      final Wrappers._T<SNode> context = new Wrappers._T<SNode>(null);
       if (FeatureKind.CLASS_CONTENT.equals(featureKind)) {
-        context = SNodeOperations.getNodeAncestor(anchor, CONCEPTS.Classifier$Ix, true, false);
+        repository.getModelAccess().runReadAction(() -> context.value = SNodeOperations.getNodeAncestor(anchor, CONCEPTS.Classifier$Ix, true, false));
       }
-      JavaParser.JavaParseResult parseResult = parser.parse(javaCode, featureKind, context, true);
-      List<SNode> nodes = parseResult.getNodes();
 
+      ProgressMonitor subTask = progress.subTask(1);
+      subTask.start("Parsing", 1);
+      final JavaParser.JavaParseResult parseResult = parser.parse(javaCode, featureKind, context.value, true);
+      subTask.advance(1);
+      subTask.done();
+      final List<SNode> nodes = parseResult.getNodes();
       if (ListSequence.fromList(nodes).isEmpty()) {
         // Avoid AWT event inside write action (action calls this code from command)
         ApplicationManager.getApplication().invokeLater(() -> Messages.showInfoMessage(String.format("Text buffer does not contain data that can be parsed as %s", (featureKind == FeatureKind.CLASS_CONTENT ? "Class content" : "Java")), "Buffer Data Is Unsuitable"));
         return;
       }
-      switch (featureKind) {
-        case CLASS:
-          ListSequence.fromList(nodes).visitAll((node) -> SModelOperations.addRootNode(model, node));
-          break;
-        case CLASS_CONTENT:
-          for (SNode node : ListSequence.fromList(nodes)) {
-            if (SNodeOperations.isInstanceOf(node, CONCEPTS.InstanceMethodDeclaration$39)) {
-              pasteMember(SNodeOperations.cast(node, CONCEPTS.InstanceMethodDeclaration$39), anchor, CONCEPTS.Classifier$Ix);
-            } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.StaticFieldDeclaration$jR)) {
-              pasteMember(SNodeOperations.cast(node, CONCEPTS.StaticFieldDeclaration$jR), anchor, CONCEPTS.Classifier$Ix);
-            } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.FieldDeclaration$ie)) {
-              pasteMember(SNodeOperations.cast(node, CONCEPTS.FieldDeclaration$ie), anchor, CONCEPTS.ClassConcept$bK);
-            } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.StaticMethodDeclaration$FJ)) {
-              pasteMember(SNodeOperations.cast(node, CONCEPTS.StaticMethodDeclaration$FJ), anchor, CONCEPTS.Classifier$Ix);
-            } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.ConstructorDeclaration$yG)) {
-              pasteMember(SNodeOperations.cast(node, CONCEPTS.ConstructorDeclaration$yG), anchor, CONCEPTS.ClassConcept$bK);
-            } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.AnnotationMethodDeclaration$4O)) {
-              pasteMember(SNodeOperations.cast(node, CONCEPTS.AnnotationMethodDeclaration$4O), anchor, CONCEPTS.Annotation$he);
-            } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.Classifier$Ix)) {
-              pasteMember(SNodeOperations.cast(node, CONCEPTS.Classifier$Ix), anchor, CONCEPTS.Classifier$Ix);
+      final ProgressMonitor pastingSubtask = progress.subTask(1);
+      pastingSubtask.start("Pasting nodes", ListSequence.fromList(nodes).count());
+
+      ApplicationManager.getApplication().invokeAndWait(new Runnable() {
+        @Override
+        public void run() {
+          repository.getModelAccess().executeCommand(() -> {
+            switch (featureKind) {
+              case CLASS:
+                ListSequence.fromList(nodes).visitAll((node) -> {
+                  SModelOperations.addRootNode(model, node);
+                  pastingSubtask.advance(1);
+                });
+                break;
+              case CLASS_CONTENT:
+                for (SNode node : ListSequence.fromList(nodes)) {
+                  if (SNodeOperations.isInstanceOf(node, CONCEPTS.InstanceMethodDeclaration$39)) {
+                    pasteMember(SNodeOperations.cast(node, CONCEPTS.InstanceMethodDeclaration$39), anchor, CONCEPTS.Classifier$Ix);
+                  } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.StaticFieldDeclaration$jR)) {
+                    pasteMember(SNodeOperations.cast(node, CONCEPTS.StaticFieldDeclaration$jR), anchor, CONCEPTS.Classifier$Ix);
+                  } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.FieldDeclaration$ie)) {
+                    pasteMember(SNodeOperations.cast(node, CONCEPTS.FieldDeclaration$ie), anchor, CONCEPTS.ClassConcept$bK);
+                  } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.StaticMethodDeclaration$FJ)) {
+                    pasteMember(SNodeOperations.cast(node, CONCEPTS.StaticMethodDeclaration$FJ), anchor, CONCEPTS.Classifier$Ix);
+                  } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.ConstructorDeclaration$yG)) {
+                    pasteMember(SNodeOperations.cast(node, CONCEPTS.ConstructorDeclaration$yG), anchor, CONCEPTS.ClassConcept$bK);
+                  } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.AnnotationMethodDeclaration$4O)) {
+                    pasteMember(SNodeOperations.cast(node, CONCEPTS.AnnotationMethodDeclaration$4O), anchor, CONCEPTS.Annotation$he);
+                  } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.Classifier$Ix)) {
+                    pasteMember(SNodeOperations.cast(node, CONCEPTS.Classifier$Ix), anchor, CONCEPTS.Classifier$Ix);
+                  }
+                  pastingSubtask.advance(1);
+                }
+                break;
+              case STATEMENTS:
+                for (SNode node : ListSequence.fromList(nodes)) {
+                  pasteAtAnchorInRole(node, anchor, CONCEPTS.StatementList$m_, LINKS.statement$53DE);
+                  pastingSubtask.advance(1);
+                }
+                break;
+              default:
             }
-          }
-          break;
-        case STATEMENTS:
-          for (SNode node : ListSequence.fromList(nodes)) {
-            pasteAtAnchorInRole(node, anchor, CONCEPTS.StatementList$m_, LINKS.statement$53DE);
-          }
-          break;
-        default:
-      }
-
-      // import used languages
-      if (parseResult.getLanguages() != null) {
-        ModelImports imports = new ModelImports(model);
-        for (SLanguage lang : SetSequence.fromSet(parseResult.getLanguages())) {
-          imports.addUsedLanguage(lang);
+          });
         }
+      }, ModalityState.defaultModalityState());
+
+      pastingSubtask.done();
+      // import used languages
+
+      final ProgressMonitor resolvingSubtask = progress.subTask(1);
+
+      if (parseResult.getLanguages() != null) {
+        ApplicationManager.getApplication().invokeAndWait(new Runnable() {
+          @Override
+          public void run() {
+            repository.getModelAccess().executeCommand(() -> {
+              ModelImports imports = new ModelImports(model);
+              for (SLanguage lang : SetSequence.fromSet(parseResult.getLanguages())) {
+                imports.addUsedLanguage(lang);
+              }
+              // trying to resolve names when nodes are already in a model
+              JavaToMpsConverter mfParser = new JavaToMpsConverter(model, project.getRepository(), MessagesViewTool.getInstance(project).newHandler());
+              mfParser.tryResolveRefs(nodes, featureKind, resolvingSubtask);
+            });
+          }
+        }, ModalityState.defaultModalityState());
+      } else {
+        resolvingSubtask.done();
       }
-
-      // trying to resolve names when nodes are already in a model
-      JavaToMpsConverter mfParser = new JavaToMpsConverter(model, project.getRepository(), MessagesViewTool.getInstance(project).newHandler());
-      mfParser.tryResolveRefs(nodes, featureKind, new EmptyProgressMonitor());
-
     } catch (final JavaParseException ex) {
       ApplicationManager.getApplication().invokeLater(() -> Messages.showErrorDialog(String.format("Error message: %s", ex.getMessage()), "Java Parsing Error"));
     }
