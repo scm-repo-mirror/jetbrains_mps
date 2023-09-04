@@ -183,6 +183,7 @@
     <import index="zdap" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.util.text(MPS.IDEA/)" />
     <import index="prsh" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor.documentation(MPS.Editor/)" />
     <import index="a6r3" ref="86441d7a-e194-42da-81a5-2161ec62a379/java:jetbrains.mps.ide.ui(MPS.Workbench/)" />
+    <import index="hhnx" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.editor.runtime(MPS.Editor/)" />
     <import index="22ra" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.update(MPS.Editor/)" implicit="true" />
     <import index="tpcn" ref="r:00000000-0000-4000-0000-011c8959028b(jetbrains.mps.lang.structure.behavior)" implicit="true" />
   </imports>
@@ -47346,22 +47347,22 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="5JgJuLBWAGs" role="3cqZAp">
-          <node concept="37vLTI" id="5JgJuLBWAGt" role="3clFbG">
-            <node concept="37vLTw" id="5JgJuLBWAGu" role="37vLTJ">
+        <node concept="3clFbF" id="L5M0cu9AY0" role="3cqZAp">
+          <node concept="37vLTI" id="L5M0cu9AY1" role="3clFbG">
+            <node concept="37vLTw" id="L5M0cu9AY2" role="37vLTJ">
               <ref role="3cqZAo" node="5JgJuLBWE36" resolve="tb" />
             </node>
-            <node concept="2OqwBi" id="5JgJuLBWAGv" role="37vLTx">
-              <node concept="2OqwBi" id="5JgJuLBWAGw" role="2Oq$k0">
-                <node concept="37vLTw" id="5JgJuLBWAGx" role="2Oq$k0">
+            <node concept="2OqwBi" id="L5M0cu9AY3" role="37vLTx">
+              <node concept="2OqwBi" id="L5M0cu9AY4" role="2Oq$k0">
+                <node concept="37vLTw" id="L5M0cu9AY5" role="2Oq$k0">
                   <ref role="3cqZAo" node="5JgJuLBWAGi" resolve="component" />
                 </node>
-                <node concept="liA8E" id="5JgJuLBWAGy" role="2OqNvi">
+                <node concept="liA8E" id="L5M0cu9AY6" role="2OqNvi">
                   <ref role="37wK5l" to="exr9:~EditorComponent.getRootCell()" resolve="getRootCell" />
                 </node>
               </node>
-              <node concept="liA8E" id="5JgJuLBWAGz" role="2OqNvi">
-                <ref role="37wK5l" to="f4zo:~EditorCell.renderText()" resolve="renderText" />
+              <node concept="liA8E" id="L5M0cu9AY7" role="2OqNvi">
+                <ref role="37wK5l" to="f4zo:~EditorCell.renderHtml()" resolve="renderHtml" />
               </node>
             </node>
           </node>

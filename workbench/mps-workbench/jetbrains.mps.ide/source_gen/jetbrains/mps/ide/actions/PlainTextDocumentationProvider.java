@@ -39,7 +39,7 @@ public class PlainTextDocumentationProvider {
     HeadlessEditorComponent component = new HeadlessEditorComponent(repo);
     component.editNode(docTextNode);
     TextBuilder tb;
-    tb = component.getRootCell().renderText();
+    tb = component.getRootCell().renderHtml();
     return tb.getText();
   }
 
