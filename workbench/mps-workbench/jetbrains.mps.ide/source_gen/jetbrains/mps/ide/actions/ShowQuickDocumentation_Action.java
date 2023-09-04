@@ -22,12 +22,10 @@ import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
+import jetbrains.mps.openapi.editor.cells.EditorCellContext;
 import org.jetbrains.mps.openapi.language.SConceptFeature;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import org.jetbrains.mps.openapi.model.SReference;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 @GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/2625078824549984775", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
 public class ShowQuickDocumentation_Action extends BaseAction {
@@ -103,27 +101,23 @@ public class ShowQuickDocumentation_Action extends BaseAction {
   private SNode findTargetNode(final AnActionEvent event) {
     final SNode selectedNode = event.getData(MPSEditorDataKeys.EDITOR_CELL).getSNode();
     SModel selectedNodeModel = SNodeOperations.getModel(selectedNode);
-    final Wrappers._T<SNode> targetNode = new Wrappers._T<SNode>(event.getData(MPSEditorDataKeys.EDITOR_COMPONENT).getEditedNode());
-    SConceptFeature role = event.getData(MPSEditorDataKeys.EDITOR_CELL).getSRole();
-
-    if (SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(selectedNode)), CONCEPTS.ConceptDeclaration$gH)) {
-      if (role == null) {
-        return targetNode.value;
-      }
-    }
+    final EditorCellContext context = event.getData(MPSEditorDataKeys.EDITOR_CELL).getCellContext();
+    final SConceptFeature role = event.getData(MPSEditorDataKeys.EDITOR_CELL).getSRole();
+    final Wrappers._T<SNode> targetNode = new Wrappers._T<SNode>(null);
 
     selectedNodeModel.getRepository().getModelAccess().runReadAction(() -> {
-      SReference reference = ListSequence.fromList(SNodeOperations.getReferences(selectedNode)).first();
-      if (reference != null) {
-        targetNode.value = reference.getTargetNode();
-      } else {
-        targetNode.value = null;
+      if (role instanceof SReferenceLink) {
+        targetNode.value = ListSequence.fromList(SNodeOperations.getReferences(selectedNode)).first().getTargetNode();
+        return;
+      }
+      if (context != null) {
+        if (context.getPropertyInfo().getProperty().getName() == "name") {
+          targetNode.value = selectedNode;
+        }
+        return;
       }
     });
-    return targetNode.value;
-  }
 
-  private static final class CONCEPTS {
-    /*package*/ static final SConcept ConceptDeclaration$gH = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+    return targetNode.value;
   }
 }
