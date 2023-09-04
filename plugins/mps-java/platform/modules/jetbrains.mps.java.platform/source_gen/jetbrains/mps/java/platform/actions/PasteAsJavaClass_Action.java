@@ -20,6 +20,7 @@ import com.intellij.openapi.project.Project;
 import jetbrains.mps.ide.project.ProjectHelper;
 import com.intellij.openapi.progress.ProgressManager;
 import jetbrains.mps.progress.ProgressMonitorAdapter;
+import jetbrains.mps.ide.IdeBundle;
 
 @GeneratedClass(node = "r:c6bc30d1-d0d1-44c6-ba7e-90e78619615e(jetbrains.mps.java.platform.actions)/2872212824181502651", model = "r:c6bc30d1-d0d1-44c6-ba7e-90e78619615e(jetbrains.mps.java.platform.actions)")
 public class PasteAsJavaClass_Action extends BaseAction {
@@ -74,12 +75,12 @@ public class PasteAsJavaClass_Action extends BaseAction {
     ProgressManager pm = ProgressManager.getInstance();
     pm.runProcessWithProgressSynchronously(() -> {
       ProgressMonitorAdapter monitor = new ProgressMonitorAdapter(ProgressManager.getInstance().getProgressIndicator());
-      monitor.start("Paste a Java class", 5);
+      monitor.start(IdeBundle.message("actions.pasteAsJavaClass.progressTitle"), 5);
       try {
         new JavaPaster().pasteJavaAsClass(event.getData(MPSCommonDataKeys.MODEL), event.getData(MPSCommonDataKeys.MPS_PROJECT), monitor, event.getData(MPSCommonDataKeys.MPS_PROJECT).getRepository());
       } finally {
         monitor.done();
       }
-    }, "Paste a Java class", false, ideaProject);
+    }, IdeBundle.message("actions.pasteAsJavaClass.progressTitle"), false, ideaProject);
   }
 }

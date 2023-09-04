@@ -22,6 +22,7 @@ import com.intellij.openapi.project.Project;
 import jetbrains.mps.ide.project.ProjectHelper;
 import com.intellij.openapi.progress.ProgressManager;
 import jetbrains.mps.progress.ProgressMonitorAdapter;
+import jetbrains.mps.ide.IdeBundle;
 import jetbrains.mps.java.core.newparser.FeatureKind;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -87,13 +88,13 @@ public class PasteAsJavaMethods_Action extends BaseAction {
     ProgressManager pm = ProgressManager.getInstance();
     pm.runProcessWithProgressSynchronously(() -> {
       ProgressMonitorAdapter monitor = new ProgressMonitorAdapter(ProgressManager.getInstance().getProgressIndicator());
-      monitor.start("Paste Java class content", 5);
+      monitor.start(IdeBundle.message("actions.pasteAsJavaMethods.progressTitle"), 5);
       try {
         new JavaPaster().pasteJava(((SNode) MapSequence.fromMap(_params).get("anchorNode")), FeatureKind.CLASS_CONTENT, ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")), monitor, ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getRepository());
       } finally {
         monitor.done();
       }
-    }, "Paste Java class content", false, ideaProject);
+    }, IdeBundle.message("actions.pasteAsJavaMethods.progressTitle"), false, ideaProject);
   }
 
   private static final class CONCEPTS {

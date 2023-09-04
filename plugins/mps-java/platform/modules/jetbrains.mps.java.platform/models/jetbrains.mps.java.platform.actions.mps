@@ -15,6 +15,7 @@
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
     <use id="63650c59-16c8-498a-99c8-005c7ee9515d" name="jetbrains.mps.lang.access" version="-1" />
     <use id="64d34fcd-ad02-4e73-aff8-a581124c2e30" name="jetbrains.mps.lang.findUsages" version="-1" />
+    <use id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging" version="0" />
   </languages>
   <imports>
     <import index="c1ko" ref="r:ba675e48-daa4-42f0-bb41-6ecb53e4758b(jetbrains.mps.java.platform.util)" />
@@ -795,12 +796,12 @@
                       <node concept="2ShNRf" id="2NPXMNWPy2p" role="33vP2m">
                         <node concept="1pGfFk" id="2NPXMNWPy2q" role="2ShVmc">
                           <ref role="37wK5l" to="mk90:~ProgressMonitorAdapter.&lt;init&gt;(com.intellij.openapi.progress.ProgressIndicator)" resolve="ProgressMonitorAdapter" />
-                          <node concept="2OqwBi" id="2NPXMNWPy2r" role="37wK5m">
-                            <node concept="2YIFZM" id="2NPXMNWPy2s" role="2Oq$k0">
+                          <node concept="2OqwBi" id="371nO8IFRIj" role="37wK5m">
+                            <node concept="2YIFZM" id="371nO8IFRIk" role="2Oq$k0">
                               <ref role="37wK5l" to="xygl:~ProgressManager.getInstance()" resolve="getInstance" />
                               <ref role="1Pybhc" to="xygl:~ProgressManager" resolve="ProgressManager" />
                             </node>
-                            <node concept="liA8E" id="2NPXMNWPy2t" role="2OqNvi">
+                            <node concept="liA8E" id="371nO8IFRIl" role="2OqNvi">
                               <ref role="37wK5l" to="xygl:~ProgressManager.getProgressIndicator()" resolve="getProgressIndicator" />
                             </node>
                           </node>
@@ -815,10 +816,14 @@
                       </node>
                       <node concept="liA8E" id="2NPXMNWPy2x" role="2OqNvi">
                         <ref role="37wK5l" to="mk8z:~ProgressMonitorBase.start(java.lang.String,int)" resolve="start" />
-                        <node concept="Xl_RD" id="2NPXMNWPy2y" role="37wK5m">
-                          <property role="Xl_RC" value="Paste a Java class" />
+                        <node concept="2YIFZM" id="371nO8IDzX2" role="37wK5m">
+                          <ref role="37wK5l" to="3a50:~IdeBundle.message(java.lang.String,java.lang.Object...)" resolve="message" />
+                          <ref role="1Pybhc" to="3a50:~IdeBundle" resolve="IdeBundle" />
+                          <node concept="Xl_RD" id="371nO8IDzX3" role="37wK5m">
+                            <property role="Xl_RC" value="actions.pasteAsJavaClass.progressTitle" />
+                          </node>
                         </node>
-                        <node concept="3cmrfG" id="2NPXMNWPy2z" role="37wK5m">
+                        <node concept="3cmrfG" id="371nO8ID$kZ" role="37wK5m">
                           <property role="3cmrfH" value="5" />
                         </node>
                       </node>
@@ -884,8 +889,12 @@
                   </node>
                 </node>
               </node>
-              <node concept="Xl_RD" id="2NPXMNWPy2Q" role="37wK5m">
-                <property role="Xl_RC" value="Paste a Java class" />
+              <node concept="2YIFZM" id="5G1$zV08bIy" role="37wK5m">
+                <ref role="37wK5l" to="3a50:~IdeBundle.message(java.lang.String,java.lang.Object...)" resolve="message" />
+                <ref role="1Pybhc" to="3a50:~IdeBundle" resolve="IdeBundle" />
+                <node concept="Xl_RD" id="5G1$zV08bIz" role="37wK5m">
+                  <property role="Xl_RC" value="actions.pasteAsJavaClass.progressTitle" />
+                </node>
               </node>
               <node concept="3clFbT" id="2NPXMNWPy2R" role="37wK5m" />
               <node concept="37vLTw" id="2NPXMNWPy2S" role="37wK5m">
@@ -1058,8 +1067,12 @@
                       </node>
                       <node concept="liA8E" id="2NPXMNWOZLv" role="2OqNvi">
                         <ref role="37wK5l" to="mk8z:~ProgressMonitorBase.start(java.lang.String,int)" resolve="start" />
-                        <node concept="Xl_RD" id="2NPXMNWOZLw" role="37wK5m">
-                          <property role="Xl_RC" value="Paste Java class content" />
+                        <node concept="2YIFZM" id="5G1$zV08gpr" role="37wK5m">
+                          <ref role="37wK5l" to="3a50:~IdeBundle.message(java.lang.String,java.lang.Object...)" resolve="message" />
+                          <ref role="1Pybhc" to="3a50:~IdeBundle" resolve="IdeBundle" />
+                          <node concept="Xl_RD" id="5G1$zV08gps" role="37wK5m">
+                            <property role="Xl_RC" value="actions.pasteAsJavaMethods.progressTitle" />
+                          </node>
                         </node>
                         <node concept="3cmrfG" id="2NPXMNWOZLx" role="37wK5m">
                           <property role="3cmrfH" value="5" />
@@ -1131,8 +1144,12 @@
                   </node>
                 </node>
               </node>
-              <node concept="Xl_RD" id="2NPXMNWOZM6" role="37wK5m">
-                <property role="Xl_RC" value="Paste Java class content" />
+              <node concept="2YIFZM" id="5G1$zV08fiO" role="37wK5m">
+                <ref role="37wK5l" to="3a50:~IdeBundle.message(java.lang.String,java.lang.Object...)" resolve="message" />
+                <ref role="1Pybhc" to="3a50:~IdeBundle" resolve="IdeBundle" />
+                <node concept="Xl_RD" id="5G1$zV08fiP" role="37wK5m">
+                  <property role="Xl_RC" value="actions.pasteAsJavaMethods.progressTitle" />
+                </node>
               </node>
               <node concept="3clFbT" id="2NPXMNWOZM7" role="37wK5m" />
               <node concept="37vLTw" id="2NPXMNWOZM8" role="37wK5m">
@@ -1290,8 +1307,12 @@
                       </node>
                       <node concept="liA8E" id="1thkW02_6rb" role="2OqNvi">
                         <ref role="37wK5l" to="mk8z:~ProgressMonitorBase.start(java.lang.String,int)" resolve="start" />
-                        <node concept="Xl_RD" id="1thkW02_6rc" role="37wK5m">
-                          <property role="Xl_RC" value="Paste as Java statements" />
+                        <node concept="2YIFZM" id="5G1$zV08iGJ" role="37wK5m">
+                          <ref role="37wK5l" to="3a50:~IdeBundle.message(java.lang.String,java.lang.Object...)" resolve="message" />
+                          <ref role="1Pybhc" to="3a50:~IdeBundle" resolve="IdeBundle" />
+                          <node concept="Xl_RD" id="5G1$zV08iGK" role="37wK5m">
+                            <property role="Xl_RC" value="actions.pasteAsJavaStatements.progressTitle" />
+                          </node>
                         </node>
                         <node concept="3cmrfG" id="1thkW02_6rd" role="37wK5m">
                           <property role="3cmrfH" value="5" />
@@ -1363,8 +1384,12 @@
                   </node>
                 </node>
               </node>
-              <node concept="Xl_RD" id="3Vjoma3lE1J" role="37wK5m">
-                <property role="Xl_RC" value="Paste as Java statements" />
+              <node concept="2YIFZM" id="5G1$zV08hH8" role="37wK5m">
+                <ref role="37wK5l" to="3a50:~IdeBundle.message(java.lang.String,java.lang.Object...)" resolve="message" />
+                <ref role="1Pybhc" to="3a50:~IdeBundle" resolve="IdeBundle" />
+                <node concept="Xl_RD" id="5G1$zV08hH9" role="37wK5m">
+                  <property role="Xl_RC" value="actions.pasteAsJavaStatements.progressTitle" />
+                </node>
               </node>
               <node concept="3clFbT" id="3Vjoma3lFEF" role="37wK5m" />
               <node concept="37vLTw" id="3Vjoma3lHb6" role="37wK5m">

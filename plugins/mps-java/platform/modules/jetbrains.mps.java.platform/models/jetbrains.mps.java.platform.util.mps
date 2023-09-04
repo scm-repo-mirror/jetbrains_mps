@@ -1165,8 +1165,12 @@
                 </node>
                 <node concept="liA8E" id="7l_0bgAz6Lc" role="2OqNvi">
                   <ref role="37wK5l" to="yyf4:~ProgressMonitor.start(java.lang.String,int)" resolve="start" />
-                  <node concept="Xl_RD" id="7l_0bgAzftq" role="37wK5m">
-                    <property role="Xl_RC" value="Parsing" />
+                  <node concept="2YIFZM" id="5G1$zV08hH8" role="37wK5m">
+                    <ref role="37wK5l" to="ddhc:~IdeBundle.message(java.lang.String,java.lang.Object...)" resolve="message" />
+                    <ref role="1Pybhc" to="ddhc:~IdeBundle" resolve="IdeBundle" />
+                    <node concept="Xl_RD" id="5G1$zV08hH9" role="37wK5m">
+                      <property role="Xl_RC" value="actions.pasteAsJava.progressLabel.parsing" />
+                    </node>
                   </node>
                   <node concept="3cmrfG" id="7l_0bgAzjOu" role="37wK5m">
                     <property role="3cmrfH" value="1" />
@@ -1365,8 +1369,12 @@
                 </node>
                 <node concept="liA8E" id="2nyN1rjsFD5" role="2OqNvi">
                   <ref role="37wK5l" to="yyf4:~ProgressMonitor.start(java.lang.String,int)" resolve="start" />
-                  <node concept="Xl_RD" id="2nyN1rjsJo3" role="37wK5m">
-                    <property role="Xl_RC" value="Pasting nodes" />
+                  <node concept="2YIFZM" id="5G1$zV08Bi1" role="37wK5m">
+                    <ref role="37wK5l" to="ddhc:~IdeBundle.message(java.lang.String,java.lang.Object...)" resolve="message" />
+                    <ref role="1Pybhc" to="ddhc:~IdeBundle" resolve="IdeBundle" />
+                    <node concept="Xl_RD" id="5G1$zV08Bi2" role="37wK5m">
+                      <property role="Xl_RC" value="actions.pasteAsJava.progressLabel.pastingNodes" />
+                    </node>
                   </node>
                   <node concept="2OqwBi" id="7l_0bgAzx0s" role="37wK5m">
                     <node concept="37vLTw" id="7l_0bgAzuOt" role="2Oq$k0">

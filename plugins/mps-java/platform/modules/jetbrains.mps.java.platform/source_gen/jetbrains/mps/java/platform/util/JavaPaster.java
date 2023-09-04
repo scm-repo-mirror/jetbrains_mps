@@ -21,6 +21,7 @@ import jetbrains.mps.java.core.newparser.JavaParser;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
+import com.intellij.ide.IdeBundle;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
@@ -121,7 +122,7 @@ public class JavaPaster {
       }
 
       ProgressMonitor subTask = progress.subTask(1);
-      subTask.start("Parsing", 1);
+      subTask.start(IdeBundle.message("actions.pasteAsJava.progressLabel.parsing"), 1);
       final JavaParser.JavaParseResult parseResult = parser.parse(javaCode, featureKind, context.value, true);
       subTask.advance(1);
       subTask.done();
@@ -132,7 +133,7 @@ public class JavaPaster {
         return;
       }
       final ProgressMonitor pastingSubtask = progress.subTask(1);
-      pastingSubtask.start("Pasting nodes", ListSequence.fromList(nodes).count());
+      pastingSubtask.start(IdeBundle.message("actions.pasteAsJava.progressLabel.pastingNodes"), ListSequence.fromList(nodes).count());
 
       ApplicationManager.getApplication().invokeAndWait(new Runnable() {
         @Override
