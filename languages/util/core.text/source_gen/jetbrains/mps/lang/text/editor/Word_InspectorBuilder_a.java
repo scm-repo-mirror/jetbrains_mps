@@ -197,7 +197,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     try {
       final SProperty property = PROPS.url$SIrt;
       getCellFactory().setPropertyInfo(new SPropertyInfo(myNode, property));
-      EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new SPropertyAccessor(myNode, property, false, false), myNode);
+      EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new SPropertyAccessor(myNode, property, false, true), myNode);
       editorCell.setDefaultText("<no url>");
       editorCell.setCellId("property_url");
       editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));
