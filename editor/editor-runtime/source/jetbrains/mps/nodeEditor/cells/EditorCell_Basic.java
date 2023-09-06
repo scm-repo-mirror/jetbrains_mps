@@ -17,6 +17,7 @@ package jetbrains.mps.nodeEditor.cells;
 
 import com.intellij.util.ui.UIUtil;
 import gnu.trove.TIntObjectHashMap;
+import jetbrains.mps.editor.runtime.HtmlBuilder;
 import jetbrains.mps.editor.runtime.TextBuilderImpl;
 import jetbrains.mps.editor.runtime.commands.EditorCommand;
 import jetbrains.mps.editor.runtime.impl.LayoutConstraints;
@@ -776,8 +777,8 @@ public abstract class EditorCell_Basic implements EditorCell, Entry<jetbrains.mp
     return new TextBuilderImpl();
   }
 
-  public TextBuilder renderHtml(){
-    return new TextBuilderImpl();
+  public HtmlBuilder renderHtml(){
+    return new HtmlBuilder();
   }
 
   @Override

@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.nodeEditor.cells;
 
+import jetbrains.mps.editor.runtime.HtmlBuilder;
 import jetbrains.mps.nodeEditor.TestEditorEnvironment;
 import jetbrains.mps.nodeEditor.cells.collections.AbstractContainerParameterizedTest;
 import jetbrains.mps.nodeEditor.cells.collections.CellContainer;
@@ -408,7 +409,7 @@ public class ContainerTests<T> extends AbstractContainerParameterizedTest<T> {
     }
 
     @Override
-    public TextBuilder renderHtml() {
+    public HtmlBuilder renderHtml() {
       return null;
     }
 

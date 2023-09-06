@@ -16,6 +16,7 @@
 package jetbrains.mps.nodeEditor.cells;
 
 import com.intellij.openapi.command.CommandProcessor;
+import jetbrains.mps.editor.runtime.HtmlBuilder;
 import jetbrains.mps.editor.runtime.TextBuilderImpl;
 import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import jetbrains.mps.editor.runtime.cells.CaretState;
@@ -871,11 +872,11 @@ public abstract class EditorCell_Label extends EditorCell_Basic implements jetbr
   }
 
   @Override
-  public TextBuilder renderHtml() {
+  public HtmlBuilder renderHtml() {
     if (getRenderedText().isEmpty() || " ".equals(getRenderedText())) {
-      return new TextBuilderImpl(getRenderedText());
+      return new HtmlBuilder(getRenderedText());
     }
-    return new TextBuilderImpl(getRenderedHtml());
+    return new HtmlBuilder(getRenderedHtml());
   }
 
   public int getCharWidth() {

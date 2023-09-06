@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.openapi.editor.cells;
 
+import jetbrains.mps.editor.runtime.HtmlBuilder;
 import jetbrains.mps.openapi.editor.EditorComponent;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.TextBuilder;
@@ -254,7 +255,7 @@ public interface EditorCell {
    */
   TextBuilder renderText();
 
-  TextBuilder renderHtml();
+  HtmlBuilder renderHtml();
 
   /**
    * Marking current cell as "big" cell - the top-most cell available in the editor for associated node.
