@@ -182,8 +182,8 @@
     <import index="g84" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.lang.documentation(MPS.IDEA/)" />
     <import index="zdap" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.util.text(MPS.IDEA/)" />
     <import index="prsh" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor.documentation(MPS.Editor/)" />
-    <import index="a6r3" ref="86441d7a-e194-42da-81a5-2161ec62a379/java:jetbrains.mps.ide.ui(MPS.Workbench/)" />
     <import index="uddc" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.menus.transformation(MPS.Editor/)" />
+    <import index="a6r3" ref="86441d7a-e194-42da-81a5-2161ec62a379/java:jetbrains.mps.ide.ui(MPS.Workbench/)" />
     <import index="hhnx" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.editor.runtime(MPS.Editor/)" />
     <import index="22ra" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.update(MPS.Editor/)" implicit="true" />
     <import index="tpcn" ref="r:00000000-0000-4000-0000-011c8959028b(jetbrains.mps.lang.structure.behavior)" implicit="true" />
@@ -46828,10 +46828,10 @@
                 <node concept="3clFbS" id="4V5fR5MN5QU" role="3clFbx">
                   <node concept="3clFbF" id="4V5fR5MNm0E" role="3cqZAp">
                     <node concept="37vLTI" id="4V5fR5MNnjO" role="3clFbG">
+                      <node concept="37vLTw" id="4V5fR5MNm0C" role="37vLTJ">
+                        <ref role="3cqZAo" node="6upYUvM0pAw" resolve="targetNode" />
+                      </node>
                       <node concept="2OqwBi" id="4V5fR5MNto1" role="37vLTx">
-                        <node concept="liA8E" id="4V5fR5MNto7" role="2OqNvi">
-                          <ref role="37wK5l" to="mhbf:~SReference.getTargetNode()" resolve="getTargetNode" />
-                        </node>
                         <node concept="2OqwBi" id="4V5fR5MNto2" role="2Oq$k0">
                           <node concept="2OqwBi" id="4V5fR5MNto3" role="2Oq$k0">
                             <node concept="37vLTw" id="4V5fR5MNto4" role="2Oq$k0">
@@ -46841,9 +46841,9 @@
                           </node>
                           <node concept="1uHKPH" id="4V5fR5MNto6" role="2OqNvi" />
                         </node>
-                      </node>
-                      <node concept="37vLTw" id="4V5fR5MNm0C" role="37vLTJ">
-                        <ref role="3cqZAo" node="6upYUvM0pAw" resolve="targetNode" />
+                        <node concept="liA8E" id="4V5fR5MNto7" role="2OqNvi">
+                          <ref role="37wK5l" to="mhbf:~SReference.getTargetNode()" resolve="getTargetNode" />
+                        </node>
                       </node>
                     </node>
                   </node>
@@ -47415,6 +47415,47 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbF" id="5$at6LAkWFm" role="3cqZAp">
+          <node concept="2OqwBi" id="5$at6LAkYkC" role="3clFbG">
+            <node concept="37vLTw" id="5$at6LAkWFk" role="2Oq$k0">
+              <ref role="3cqZAo" node="2tUtjEnzJlx" resolve="sb" />
+            </node>
+            <node concept="liA8E" id="5$at6LAl3wS" role="2OqNvi">
+              <ref role="37wK5l" to="wyt6:~StringBuilder.append(java.lang.String)" resolve="append" />
+              <node concept="3cpWs3" id="5$at6LAlbWu" role="37wK5m">
+                <node concept="2OqwBi" id="5$at6LAlmC_" role="3uHU7w">
+                  <node concept="2OqwBi" id="5$at6LAlhq9" role="2Oq$k0">
+                    <node concept="37vLTw" id="5$at6LAleDI" role="2Oq$k0">
+                      <ref role="3cqZAo" node="5c8BzTYRzOA" resolve="myNode" />
+                    </node>
+                    <node concept="liA8E" id="5$at6LAljNN" role="2OqNvi">
+                      <ref role="37wK5l" to="mhbf:~SNode.getConcept()" resolve="getConcept" />
+                    </node>
+                  </node>
+                  <node concept="liA8E" id="5$at6LAlpLL" role="2OqNvi">
+                    <ref role="37wK5l" to="c17a:~SAbstractConcept.getName()" resolve="getName" />
+                  </node>
+                </node>
+                <node concept="Xl_RD" id="5$at6LAl5Av" role="3uHU7B">
+                  <property role="Xl_RC" value="Concept: " />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="5$at6LAlwPC" role="3cqZAp">
+          <node concept="2OqwBi" id="5$at6LAl$nn" role="3clFbG">
+            <node concept="37vLTw" id="5$at6LAlwPA" role="2Oq$k0">
+              <ref role="3cqZAo" node="2tUtjEnzJlx" resolve="sb" />
+            </node>
+            <node concept="liA8E" id="5$at6LAlCFE" role="2OqNvi">
+              <ref role="37wK5l" to="wyt6:~StringBuilder.append(java.lang.String)" resolve="append" />
+              <node concept="Xl_RD" id="5$at6LAlF38" role="37wK5m">
+                <property role="Xl_RC" value="&lt;br&gt;" />
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3clFbF" id="4b1hQOJ9Ogk" role="3cqZAp">
           <node concept="2OqwBi" id="4b1hQOJ9OzX" role="3clFbG">
             <node concept="37vLTw" id="4b1hQOJ9Ogi" role="2Oq$k0">
@@ -47424,7 +47465,7 @@
               <ref role="37wK5l" to="wyt6:~StringBuilder.append(java.lang.String)" resolve="append" />
               <node concept="3cpWs3" id="4b1hQOJa0SD" role="37wK5m">
                 <node concept="Xl_RD" id="4b1hQOJa22l" role="3uHU7B">
-                  <property role="Xl_RC" value="Node name: " />
+                  <property role="Xl_RC" value="Name: " />
                 </node>
                 <node concept="2OqwBi" id="4b1hQOJ9XwW" role="3uHU7w">
                   <node concept="37vLTw" id="4b1hQOJ9UqM" role="2Oq$k0">

@@ -46,7 +46,9 @@ public class PlainTextDocumentationProvider {
   public String getDecoratedDocumentation() {
     StringBuilder sb = new StringBuilder();
     sb.append(MPSDocumentationMarkup.DEFINITION_START);
-    sb.append("Node name: " + myNode.getName());
+    sb.append("Concept: " + myNode.getConcept().getName());
+    sb.append("<br>");
+    sb.append("Name: " + myNode.getName());
     sb.append(MPSDocumentationMarkup.DEFINITION_END);
     sb.append(MPSDocumentationMarkup.CONTENT_START);
     sb.append(getDocumentationContent());
