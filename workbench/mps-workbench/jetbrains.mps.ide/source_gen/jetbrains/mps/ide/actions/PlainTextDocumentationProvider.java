@@ -11,7 +11,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.editor.runtime.HeadlessEditorComponent;
-import jetbrains.mps.openapi.editor.TextBuilder;
+import jetbrains.mps.editor.runtime.HtmlBuilder;
 import jetbrains.mps.nodeEditor.documentation.MPSDocumentationMarkup;
 import com.intellij.openapi.util.text.HtmlChunk;
 import javax.swing.Icon;
@@ -38,9 +38,9 @@ public class PlainTextDocumentationProvider {
     SRepository repo = model.getRepository();
     HeadlessEditorComponent component = new HeadlessEditorComponent(repo);
     component.editNode(docTextNode);
-    TextBuilder tb;
+    HtmlBuilder tb;
     tb = component.getRootCell().renderHtml();
-    return tb.getText();
+    return tb.getHtmlText();
   }
 
   public String getDecoratedDocumentation() {
@@ -48,9 +48,9 @@ public class PlainTextDocumentationProvider {
     sb.append(MPSDocumentationMarkup.DEFINITION_START);
     sb.append("Node name: " + myNode.getName());
     sb.append(MPSDocumentationMarkup.DEFINITION_END);
-    sb.append(MPSDocumentationMarkup.CONTENT_START + MPSDocumentationMarkup.MPS_PREFORMATTED_TEXT_START);
+    sb.append(MPSDocumentationMarkup.CONTENT_START);
     sb.append(getDocumentationContent());
-    sb.append(MPSDocumentationMarkup.MPS_PREFORMATTED_TEXT_END + MPSDocumentationMarkup.CONTENT_END);
+    sb.append(MPSDocumentationMarkup.CONTENT_END);
     sb.append(HtmlChunk.div().setClass("bottom").child(getModelInfo()));
     return sb.toString();
   }

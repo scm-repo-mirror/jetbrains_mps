@@ -184,6 +184,7 @@
     <import index="prsh" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor.documentation(MPS.Editor/)" />
     <import index="a6r3" ref="86441d7a-e194-42da-81a5-2161ec62a379/java:jetbrains.mps.ide.ui(MPS.Workbench/)" />
     <import index="uddc" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.menus.transformation(MPS.Editor/)" />
+    <import index="hhnx" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.editor.runtime(MPS.Editor/)" />
     <import index="22ra" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.update(MPS.Editor/)" implicit="true" />
     <import index="tpcn" ref="r:00000000-0000-4000-0000-011c8959028b(jetbrains.mps.lang.structure.behavior)" implicit="true" />
   </imports>
@@ -47345,7 +47346,7 @@
           <node concept="3cpWsn" id="5JgJuLBWE36" role="3cpWs9">
             <property role="TrG5h" value="tb" />
             <node concept="3uibUv" id="5JgJuLBWE37" role="1tU5fm">
-              <ref role="3uigEE" to="cj4x:~TextBuilder" resolve="TextBuilder" />
+              <ref role="3uigEE" to="hhnx:~HtmlBuilder" resolve="HtmlBuilder" />
             </node>
           </node>
         </node>
@@ -47363,7 +47364,7 @@
                   <ref role="37wK5l" to="exr9:~EditorComponent.getRootCell()" resolve="getRootCell" />
                 </node>
               </node>
-              <node concept="liA8E" id="L5M0cu9AY7" role="2OqNvi">
+              <node concept="liA8E" id="7jItmCRfAh0" role="2OqNvi">
                 <ref role="37wK5l" to="f4zo:~EditorCell.renderHtml()" resolve="renderHtml" />
               </node>
             </node>
@@ -47374,8 +47375,8 @@
             <node concept="37vLTw" id="5c8BzTYU8t1" role="2Oq$k0">
               <ref role="3cqZAo" node="5JgJuLBWE36" resolve="tb" />
             </node>
-            <node concept="liA8E" id="5c8BzTYU97X" role="2OqNvi">
-              <ref role="37wK5l" to="cj4x:~TextBuilder.getText()" resolve="getText" />
+            <node concept="liA8E" id="7jItmCRfBVW" role="2OqNvi">
+              <ref role="37wK5l" to="hhnx:~HtmlBuilder.getHtmlText()" resolve="getHtmlText" />
             </node>
           </node>
         </node>
@@ -47458,15 +47459,9 @@
             </node>
             <node concept="liA8E" id="2tUtjEn$Dt1" role="2OqNvi">
               <ref role="37wK5l" to="wyt6:~StringBuilder.append(java.lang.String)" resolve="append" />
-              <node concept="3cpWs3" id="2tUtjEn$FnK" role="37wK5m">
-                <node concept="10M0yZ" id="2tUtjEn$FnL" role="3uHU7B">
-                  <ref role="3cqZAo" to="g84:~DocumentationMarkup.CONTENT_START" resolve="CONTENT_START" />
-                  <ref role="1PxDUh" to="prsh:~MPSDocumentationMarkup" resolve="MPSDocumentationMarkup" />
-                </node>
-                <node concept="10M0yZ" id="2tUtjEn$FnM" role="3uHU7w">
-                  <ref role="3cqZAo" to="prsh:~MPSDocumentationMarkup.MPS_PREFORMATTED_TEXT_START" resolve="MPS_PREFORMATTED_TEXT_START" />
-                  <ref role="1PxDUh" to="prsh:~MPSDocumentationMarkup" resolve="MPSDocumentationMarkup" />
-                </node>
+              <node concept="10M0yZ" id="2tUtjEn$FnL" role="37wK5m">
+                <ref role="3cqZAo" to="g84:~DocumentationMarkup.CONTENT_START" resolve="CONTENT_START" />
+                <ref role="1PxDUh" to="prsh:~MPSDocumentationMarkup" resolve="MPSDocumentationMarkup" />
               </node>
             </node>
           </node>
@@ -47491,15 +47486,9 @@
             </node>
             <node concept="liA8E" id="2tUtjEn_5pX" role="2OqNvi">
               <ref role="37wK5l" to="wyt6:~StringBuilder.append(java.lang.String)" resolve="append" />
-              <node concept="3cpWs3" id="2tUtjEn_eeF" role="37wK5m">
-                <node concept="10M0yZ" id="2tUtjEn_iHP" role="3uHU7w">
-                  <ref role="3cqZAo" to="g84:~DocumentationMarkup.CONTENT_END" resolve="CONTENT_END" />
-                  <ref role="1PxDUh" to="prsh:~MPSDocumentationMarkup" resolve="MPSDocumentationMarkup" />
-                </node>
-                <node concept="10M0yZ" id="2tUtjEn_a$$" role="3uHU7B">
-                  <ref role="3cqZAo" to="prsh:~MPSDocumentationMarkup.MPS_PREFORMATTED_TEXT_END" resolve="MPS_PREFORMATTED_TEXT_END" />
-                  <ref role="1PxDUh" to="prsh:~MPSDocumentationMarkup" resolve="MPSDocumentationMarkup" />
-                </node>
+              <node concept="10M0yZ" id="2tUtjEn_iHP" role="37wK5m">
+                <ref role="3cqZAo" to="g84:~DocumentationMarkup.CONTENT_END" resolve="CONTENT_END" />
+                <ref role="1PxDUh" to="prsh:~MPSDocumentationMarkup" resolve="MPSDocumentationMarkup" />
               </node>
             </node>
           </node>
