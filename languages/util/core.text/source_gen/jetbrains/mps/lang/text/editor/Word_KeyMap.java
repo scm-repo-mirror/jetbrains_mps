@@ -41,18 +41,22 @@ public class Word_KeyMap extends KeyMapImpl {
     action = new Word_KeyMap_Action5();
     this.putAction("ctrl", "VK_3", action);
     action = new Word_KeyMap_Action6();
-    this.putAction("ctrl", "VK_1", action);
+    this.putAction("ctrl", "VK_4", action);
     action = new Word_KeyMap_Action7();
-    this.putAction("any", " ", action);
+    this.putAction("ctrl", "VK_5", action);
     action = new Word_KeyMap_Action8();
-    this.putAction("any", " ", action);
+    this.putAction("ctrl", "VK_6", action);
     action = new Word_KeyMap_Action9();
     this.putAction("any", " ", action);
     action = new Word_KeyMap_Action10();
     this.putAction("any", " ", action);
     action = new Word_KeyMap_Action11();
-    this.putAction("none", "VK_TAB", action);
+    this.putAction("any", " ", action);
     action = new Word_KeyMap_Action12();
+    this.putAction("any", " ", action);
+    action = new Word_KeyMap_Action13();
+    this.putAction("none", "VK_TAB", action);
+    action = new Word_KeyMap_Action14();
     this.putAction("shift", "VK_TAB", action);
   }
   public static class Word_KeyMap_Action0 extends KeyMapActionImpl {
@@ -300,19 +304,99 @@ public class Word_KeyMap extends KeyMapImpl {
       return SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.Line$yC);
     }
     private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
-      if (SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(SNodeOperations.getParent(node))), CONCEPTS.Header$d7) && SPropertyOperations.getEnum(SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.Header$d7), PROPS.level$YKTp) == SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x6cb23f222fb40ea2L, "jetbrains.mps.lang.text.structure.HeaderEnum"), 0x6cb23f222fb40ea3L, "Header1")) {
+      if (SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(SNodeOperations.getParent(node))), CONCEPTS.Header$d7) && SPropertyOperations.getEnum(SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.Header$d7), PROPS.level$YKTp) == SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x6cb23f222fb40ea2L, "jetbrains.mps.lang.text.structure.HeaderEnum"), 0x2ef408c1b21eff0fL, "Header4")) {
         SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.getParent(node), CONCEPTS.Line$yC);
         return;
       }
       SNode replaceWithNewInitialized = SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.getParent(node), CONCEPTS.Header$d7);
-      SPropertyOperations.assignEnum(SNodeOperations.as(replaceWithNewInitialized, CONCEPTS.Header$d7), PROPS.level$YKTp, SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x6cb23f222fb40ea2L, "jetbrains.mps.lang.text.structure.HeaderEnum"), 0x6cb23f222fb40ea3L, "Header1"));
+      SPropertyOperations.assignEnum(SNodeOperations.as(replaceWithNewInitialized, CONCEPTS.Header$d7), PROPS.level$YKTp, SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x6cb23f222fb40ea2L, "jetbrains.mps.lang.text.structure.HeaderEnum"), 0x2ef408c1b21eff0fL, "Header4"));
     }
     public String getKeyStroke() {
-      return "ctrl 1";
+      return "ctrl 4";
     }
   }
   public static class Word_KeyMap_Action7 extends KeyMapActionImpl {
     public Word_KeyMap_Action7() {
+      this.setShownInPopupMenu(false);
+    }
+    public boolean isMenuAlwaysShown() {
+      return false;
+    }
+    public boolean canExecute(final EditorContext editorContext) {
+      EditorCell contextCell = editorContext.getContextCell();
+      if ((contextCell == null)) {
+        return false;
+      }
+      SNode contextNode = contextCell.getSNode();
+      if (contextNode == null) {
+        return false;
+      }
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.Word$Dn))) {
+        return false;
+      }
+      return this.canExecute_internal(editorContext, contextNode, this.getSelectedNodes(editorContext));
+    }
+    public void execute(final EditorContext editorContext) {
+      EditorCell contextCell = editorContext.getContextCell();
+      this.execute_internal(editorContext, contextCell.getSNode(), this.getSelectedNodes(editorContext));
+    }
+    private boolean canExecute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
+      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.Line$yC);
+    }
+    private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
+      if (SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(SNodeOperations.getParent(node))), CONCEPTS.Header$d7) && SPropertyOperations.getEnum(SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.Header$d7), PROPS.level$YKTp) == SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x6cb23f222fb40ea2L, "jetbrains.mps.lang.text.structure.HeaderEnum"), 0x2ef408c1b21eff14L, "Header5")) {
+        SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.getParent(node), CONCEPTS.Line$yC);
+        return;
+      }
+      SNode replaceWithNewInitialized = SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.getParent(node), CONCEPTS.Header$d7);
+      SPropertyOperations.assignEnum(SNodeOperations.as(replaceWithNewInitialized, CONCEPTS.Header$d7), PROPS.level$YKTp, SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x6cb23f222fb40ea2L, "jetbrains.mps.lang.text.structure.HeaderEnum"), 0x2ef408c1b21eff14L, "Header5"));
+    }
+    public String getKeyStroke() {
+      return "ctrl 5";
+    }
+  }
+  public static class Word_KeyMap_Action8 extends KeyMapActionImpl {
+    public Word_KeyMap_Action8() {
+      this.setShownInPopupMenu(false);
+    }
+    public boolean isMenuAlwaysShown() {
+      return false;
+    }
+    public boolean canExecute(final EditorContext editorContext) {
+      EditorCell contextCell = editorContext.getContextCell();
+      if ((contextCell == null)) {
+        return false;
+      }
+      SNode contextNode = contextCell.getSNode();
+      if (contextNode == null) {
+        return false;
+      }
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.Word$Dn))) {
+        return false;
+      }
+      return this.canExecute_internal(editorContext, contextNode, this.getSelectedNodes(editorContext));
+    }
+    public void execute(final EditorContext editorContext) {
+      EditorCell contextCell = editorContext.getContextCell();
+      this.execute_internal(editorContext, contextCell.getSNode(), this.getSelectedNodes(editorContext));
+    }
+    private boolean canExecute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
+      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.Line$yC);
+    }
+    private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
+      if (SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(SNodeOperations.getParent(node))), CONCEPTS.Header$d7) && SPropertyOperations.getEnum(SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.Header$d7), PROPS.level$YKTp) == SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x6cb23f222fb40ea2L, "jetbrains.mps.lang.text.structure.HeaderEnum"), 0x2ef408c1b21eff1aL, "Header6")) {
+        SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.getParent(node), CONCEPTS.Line$yC);
+        return;
+      }
+      SNode replaceWithNewInitialized = SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.getParent(node), CONCEPTS.Header$d7);
+      SPropertyOperations.assignEnum(SNodeOperations.as(replaceWithNewInitialized, CONCEPTS.Header$d7), PROPS.level$YKTp, SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x6cb23f222fb40ea2L, "jetbrains.mps.lang.text.structure.HeaderEnum"), 0x2ef408c1b21eff1aL, "Header6"));
+    }
+    public String getKeyStroke() {
+      return "ctrl 6";
+    }
+  }
+  public static class Word_KeyMap_Action9 extends KeyMapActionImpl {
+    public Word_KeyMap_Action9() {
       super.setCaretPolicy(KeyMapAction.CARET_AT_LAST_POSITION);
       this.setShownInPopupMenu(false);
     }
@@ -344,8 +428,8 @@ public class Word_KeyMap extends KeyMapImpl {
       return "  ";
     }
   }
-  public static class Word_KeyMap_Action8 extends KeyMapActionImpl {
-    public Word_KeyMap_Action8() {
+  public static class Word_KeyMap_Action10 extends KeyMapActionImpl {
+    public Word_KeyMap_Action10() {
       this.setShownInPopupMenu(false);
     }
     public boolean isMenuAlwaysShown() {
@@ -379,8 +463,8 @@ public class Word_KeyMap extends KeyMapImpl {
       return "  ";
     }
   }
-  public static class Word_KeyMap_Action9 extends KeyMapActionImpl {
-    public Word_KeyMap_Action9() {
+  public static class Word_KeyMap_Action11 extends KeyMapActionImpl {
+    public Word_KeyMap_Action11() {
       super.setCaretPolicy(KeyMapAction.CARET_AT_FIRST_POSITION);
       this.setShownInPopupMenu(false);
     }
@@ -412,8 +496,8 @@ public class Word_KeyMap extends KeyMapImpl {
       return "  ";
     }
   }
-  public static class Word_KeyMap_Action10 extends KeyMapActionImpl {
-    public Word_KeyMap_Action10() {
+  public static class Word_KeyMap_Action12 extends KeyMapActionImpl {
+    public Word_KeyMap_Action12() {
       super.setCaretPolicy(KeyMapAction.CARET_AT_INTERMEDIATE_POSITION);
       this.setShownInPopupMenu(false);
     }
@@ -445,8 +529,8 @@ public class Word_KeyMap extends KeyMapImpl {
       return "  ";
     }
   }
-  public static class Word_KeyMap_Action11 extends KeyMapActionImpl {
-    public Word_KeyMap_Action11() {
+  public static class Word_KeyMap_Action13 extends KeyMapActionImpl {
+    public Word_KeyMap_Action13() {
       this.setShownInPopupMenu(false);
     }
     public boolean isMenuAlwaysShown() {
@@ -489,8 +573,8 @@ public class Word_KeyMap extends KeyMapImpl {
       return "none TAB";
     }
   }
-  public static class Word_KeyMap_Action12 extends KeyMapActionImpl {
-    public Word_KeyMap_Action12() {
+  public static class Word_KeyMap_Action14 extends KeyMapActionImpl {
+    public Word_KeyMap_Action14() {
       this.setShownInPopupMenu(false);
     }
     public boolean isMenuAlwaysShown() {

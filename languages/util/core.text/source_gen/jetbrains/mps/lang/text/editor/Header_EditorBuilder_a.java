@@ -156,16 +156,22 @@ import org.jetbrains.mps.openapi.language.SProperty;
   private int _StyleParameter_QueryFunction_tbyzlb_a0b0() {
     switch (enumSwitchIndex.indexNullable(SPropertyOperations.getEnum(getNode(), PROPS.level$YKTp))) {
       case 0:
-        return 25;
+        return 22;
       case 1:
-        return 20;
+        return 18;
       case 2:
         return 15;
+      case 3:
+        return 13;
+      case 4:
+        return 11;
+      case 5:
+        return 8;
       default:
-        return 25;
+        return 13;
     }
   }
-  private static final EnumerationLiteralsIndex enumSwitchIndex = EnumerationLiteralsIndex.build(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x6cb23f222fb40ea2L, 0x6cb23f222fb40ea3L, 0x6cb23f222fb40f40L, 0x6cb23f222fb40fdfL);
+  private static final EnumerationLiteralsIndex enumSwitchIndex = EnumerationLiteralsIndex.build(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x6cb23f222fb40ea2L, 0x6cb23f222fb40ea3L, 0x6cb23f222fb40f40L, 0x6cb23f222fb40fdfL, 0x2ef408c1b21eff0fL, 0x2ef408c1b21eff14L, 0x2ef408c1b21eff1aL);
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink elements$_j45 = MetaAdapterFactory.getContainmentLink(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, 0x2331694e561af167L, "elements");

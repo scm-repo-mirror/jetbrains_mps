@@ -31,6 +31,12 @@ public class TextNodeReference_KeyMap extends KeyMapImpl {
     this.putAction("ctrl", "VK_2", action);
     action = new TextNodeReference_KeyMap_Action3();
     this.putAction("ctrl", "VK_3", action);
+    action = new TextNodeReference_KeyMap_Action4();
+    this.putAction("ctrl", "VK_4", action);
+    action = new TextNodeReference_KeyMap_Action5();
+    this.putAction("ctrl", "VK_5", action);
+    action = new TextNodeReference_KeyMap_Action6();
+    this.putAction("ctrl", "VK_6", action);
   }
   public static class TextNodeReference_KeyMap_Action0 extends KeyMapActionImpl {
     public TextNodeReference_KeyMap_Action0() {
@@ -189,6 +195,126 @@ public class TextNodeReference_KeyMap extends KeyMapImpl {
     }
     public String getKeyStroke() {
       return "ctrl 3";
+    }
+  }
+  public static class TextNodeReference_KeyMap_Action4 extends KeyMapActionImpl {
+    public TextNodeReference_KeyMap_Action4() {
+      this.setShownInPopupMenu(false);
+    }
+    public boolean isMenuAlwaysShown() {
+      return false;
+    }
+    public boolean canExecute(final EditorContext editorContext) {
+      EditorCell contextCell = editorContext.getContextCell();
+      if ((contextCell == null)) {
+        return false;
+      }
+      SNode contextNode = contextCell.getSNode();
+      if (contextNode == null) {
+        return false;
+      }
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.TextNodeReference$_8))) {
+        return false;
+      }
+      return this.canExecute_internal(editorContext, contextNode, this.getSelectedNodes(editorContext));
+    }
+    public void execute(final EditorContext editorContext) {
+      EditorCell contextCell = editorContext.getContextCell();
+      this.execute_internal(editorContext, contextCell.getSNode(), this.getSelectedNodes(editorContext));
+    }
+    private boolean canExecute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
+      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.Line$yC);
+    }
+    private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
+      if (SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(SNodeOperations.getParent(node))), CONCEPTS.Header$d7) && SPropertyOperations.getEnum(SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.Header$d7), PROPS.level$YKTp) == SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x6cb23f222fb40ea2L, "jetbrains.mps.lang.text.structure.HeaderEnum"), 0x2ef408c1b21eff0fL, "Header4")) {
+        SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.getParent(node), CONCEPTS.Line$yC);
+        return;
+      }
+      SNode replaceWithNewInitialized = SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.getParent(node), CONCEPTS.Header$d7);
+      SPropertyOperations.assignEnum(SNodeOperations.as(replaceWithNewInitialized, CONCEPTS.Header$d7), PROPS.level$YKTp, SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x6cb23f222fb40ea2L, "jetbrains.mps.lang.text.structure.HeaderEnum"), 0x2ef408c1b21eff0fL, "Header4"));
+    }
+    public String getKeyStroke() {
+      return "ctrl 4";
+    }
+  }
+  public static class TextNodeReference_KeyMap_Action5 extends KeyMapActionImpl {
+    public TextNodeReference_KeyMap_Action5() {
+      this.setShownInPopupMenu(false);
+    }
+    public boolean isMenuAlwaysShown() {
+      return false;
+    }
+    public boolean canExecute(final EditorContext editorContext) {
+      EditorCell contextCell = editorContext.getContextCell();
+      if ((contextCell == null)) {
+        return false;
+      }
+      SNode contextNode = contextCell.getSNode();
+      if (contextNode == null) {
+        return false;
+      }
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.TextNodeReference$_8))) {
+        return false;
+      }
+      return this.canExecute_internal(editorContext, contextNode, this.getSelectedNodes(editorContext));
+    }
+    public void execute(final EditorContext editorContext) {
+      EditorCell contextCell = editorContext.getContextCell();
+      this.execute_internal(editorContext, contextCell.getSNode(), this.getSelectedNodes(editorContext));
+    }
+    private boolean canExecute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
+      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.Line$yC);
+    }
+    private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
+      if (SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(SNodeOperations.getParent(node))), CONCEPTS.Header$d7) && SPropertyOperations.getEnum(SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.Header$d7), PROPS.level$YKTp) == SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x6cb23f222fb40ea2L, "jetbrains.mps.lang.text.structure.HeaderEnum"), 0x2ef408c1b21eff14L, "Header5")) {
+        SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.getParent(node), CONCEPTS.Line$yC);
+        return;
+      }
+      SNode replaceWithNewInitialized = SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.getParent(node), CONCEPTS.Header$d7);
+      SPropertyOperations.assignEnum(SNodeOperations.as(replaceWithNewInitialized, CONCEPTS.Header$d7), PROPS.level$YKTp, SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x6cb23f222fb40ea2L, "jetbrains.mps.lang.text.structure.HeaderEnum"), 0x2ef408c1b21eff14L, "Header5"));
+    }
+    public String getKeyStroke() {
+      return "ctrl 5";
+    }
+  }
+  public static class TextNodeReference_KeyMap_Action6 extends KeyMapActionImpl {
+    public TextNodeReference_KeyMap_Action6() {
+      this.setShownInPopupMenu(false);
+    }
+    public boolean isMenuAlwaysShown() {
+      return false;
+    }
+    public boolean canExecute(final EditorContext editorContext) {
+      EditorCell contextCell = editorContext.getContextCell();
+      if ((contextCell == null)) {
+        return false;
+      }
+      SNode contextNode = contextCell.getSNode();
+      if (contextNode == null) {
+        return false;
+      }
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.TextNodeReference$_8))) {
+        return false;
+      }
+      return this.canExecute_internal(editorContext, contextNode, this.getSelectedNodes(editorContext));
+    }
+    public void execute(final EditorContext editorContext) {
+      EditorCell contextCell = editorContext.getContextCell();
+      this.execute_internal(editorContext, contextCell.getSNode(), this.getSelectedNodes(editorContext));
+    }
+    private boolean canExecute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
+      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.Line$yC);
+    }
+    private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
+      if (SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(SNodeOperations.getParent(node))), CONCEPTS.Header$d7) && SPropertyOperations.getEnum(SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.Header$d7), PROPS.level$YKTp) == SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x6cb23f222fb40ea2L, "jetbrains.mps.lang.text.structure.HeaderEnum"), 0x2ef408c1b21eff1aL, "Header6")) {
+        SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.getParent(node), CONCEPTS.Line$yC);
+        return;
+      }
+      SNode replaceWithNewInitialized = SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.getParent(node), CONCEPTS.Header$d7);
+      SPropertyOperations.assignEnum(SNodeOperations.as(replaceWithNewInitialized, CONCEPTS.Header$d7), PROPS.level$YKTp, SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x6cb23f222fb40ea2L, "jetbrains.mps.lang.text.structure.HeaderEnum"), 0x2ef408c1b21eff1aL, "Header6"));
+    }
+    public String getKeyStroke() {
+      return "ctrl 6";
     }
   }
 

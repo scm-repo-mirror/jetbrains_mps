@@ -61,7 +61,7 @@
         <property id="1193676396447" name="virtualPackage" index="3GE5qa" />
         <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
       </concept>
-      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
+      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ngI" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
     </language>
@@ -404,6 +404,21 @@
       <property role="3tVfz5" value="7832392118012481503" />
       <property role="TrG5h" value="Header3" />
       <property role="1L1pqM" value="3" />
+    </node>
+    <node concept="25R33" id="2VO2c6M7JWf" role="25R1y">
+      <property role="3tVfz5" value="3383338848072171279" />
+      <property role="TrG5h" value="Header4" />
+      <property role="1L1pqM" value="4" />
+    </node>
+    <node concept="25R33" id="2VO2c6M7JWk" role="25R1y">
+      <property role="3tVfz5" value="3383338848072171284" />
+      <property role="TrG5h" value="Header5" />
+      <property role="1L1pqM" value="5" />
+    </node>
+    <node concept="25R33" id="2VO2c6M7JWq" role="25R1y">
+      <property role="3tVfz5" value="3383338848072171290" />
+      <property role="TrG5h" value="Header6" />
+      <property role="1L1pqM" value="6" />
     </node>
   </node>
   <node concept="Az7Fb" id="647WjQbr3zI">
