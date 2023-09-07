@@ -47574,7 +47574,7 @@
           <node concept="3cpWsn" id="5JgJuLBWE36" role="3cpWs9">
             <property role="TrG5h" value="tb" />
             <node concept="3uibUv" id="5JgJuLBWE37" role="1tU5fm">
-              <ref role="3uigEE" to="cj4x:~HtmlTextBuilder" resolve="HtmlTextBuilder" />
+              <ref role="3uigEE" to="hhnx:~HtmlBuilder" resolve="HtmlBuilder" />
             </node>
           </node>
         </node>
@@ -47604,7 +47604,7 @@
               <ref role="3cqZAo" node="5JgJuLBWE36" resolve="tb" />
             </node>
             <node concept="liA8E" id="7jItmCRfBVW" role="2OqNvi">
-              <ref role="37wK5l" to="cj4x:~HtmlTextBuilder.getHtmlText()" resolve="getHtmlText" />
+              <ref role="37wK5l" to="hhnx:~HtmlBuilder.getHtmlText()" resolve="getHtmlText" />
             </node>
           </node>
         </node>
