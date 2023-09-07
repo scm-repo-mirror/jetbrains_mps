@@ -2137,11 +2137,7 @@
     <node concept="2kB4xC" id="3AMbuf1a7On" role="1l3spd">
       <property role="TrG5h" value="version.eap" />
       <node concept="aVJcg" id="3AMbuf1a7Oo" role="aVJcv">
-        <node concept="NbPM2" id="3AMbuf1a7Op" role="aVJcq">
-          <node concept="3Mxwew" id="4$Jpg3da3Lt" role="3MwsjC">
-            <property role="3MwjfP" value=" EAP" />
-          </node>
-        </node>
+        <node concept="NbPM2" id="3AMbuf1a7Op" role="aVJcq" />
       </node>
     </node>
     <node concept="2kB4xC" id="5HVSRHdVf2d" role="1l3spd">
@@ -28832,7 +28828,7 @@
         </node>
         <node concept="NbPM2" id="6Iq8148f_YW" role="HFWMp">
           <node concept="3Mxwew" id="2$8uTVzLlTJ" role="3MwsjC">
-            <property role="3MwjfP" value="MPS232EAP" />
+            <property role="3MwjfP" value="MPS232" />
           </node>
         </node>
       </node>
@@ -28915,11 +28911,7 @@
             <ref role="3Mxwex" node="3AMbuf1N5Oy" resolve="version.bugfixNr" />
           </node>
         </node>
-        <node concept="NbPM2" id="3AMbuf6qfk7" role="3ZAF11">
-          <node concept="3Mxwey" id="4$Jpg3da3Op" role="3MwsjC">
-            <ref role="3Mxwex" node="3AMbuf1a7On" resolve="version.eap" />
-          </node>
-        </node>
+        <node concept="NbPM2" id="3AMbuf6qfk7" role="3ZAF11" />
       </node>
       <node concept="2pNNFK" id="4Nc8eEDY$eW" role="27hc03">
         <property role="2pNNFO" value="youtrack" />
