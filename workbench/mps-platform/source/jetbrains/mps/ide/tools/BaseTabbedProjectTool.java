@@ -48,7 +48,7 @@ public abstract class BaseTabbedProjectTool extends BaseProjectTool {
   @Override
   protected void doUnregister() {
     ContentManager contentManager = getContentManager();
-    if (contentManager != null && !contentManager.isDisposed()) {
+    if (contentManager != null && !contentManager.isDisposed() && !getProject().isDisposed()) {
       contentManager.removeAllContents(true);
     }
   }
