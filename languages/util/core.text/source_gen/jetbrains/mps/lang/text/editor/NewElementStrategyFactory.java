@@ -110,6 +110,7 @@ public class NewElementStrategyFactory {
     @Override
     public void execute() {
       SPropertyOperations.assign(SNodeOperations.cast(myElement, CONCEPTS.Word$Dn), PROPS.value$zQr_, mySplitter.getLeftText());
+      replacePatternsWithFormats(myElement);
       super.execute();
     }
 
@@ -184,6 +185,7 @@ public class NewElementStrategyFactory {
       super.execute();
       replacePatternsWithConcepts();
       replacePatternsWithNewLines();
+      replacePatternsWithFormats(myElement);
     }
 
     public void replacePatternsWithConcepts() {
@@ -295,6 +297,38 @@ public class NewElementStrategyFactory {
     }
   }
 
+  private static void replacePatternsWithFormats(SNode element) {
+    String horizontalRules = "(\\*{3,})||(~{3,})||(_{3,})";
+    String boldFormat = "(\\*\\*.+\\*\\*)||(__.+__)";
+    String italicForamt = "(\\*.+\\*)||(_.+_)";
+    String italicBoldFormat = "(\\*\\*\\*.+\\*\\*\\*)||(___.+___)";
+    String underlinedFormat = "~~.+~~";
+    if (SPropertyOperations.getString(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.value$zQr_).matches(horizontalRules)) {
+      return;
+    }
+    if (SPropertyOperations.getString(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.value$zQr_).matches(underlinedFormat)) {
+      SPropertyOperations.assign(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.underlined$SQS1, true);
+      SPropertyOperations.assign(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.value$zQr_, SPropertyOperations.getString(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.value$zQr_).substring(2, SPropertyOperations.getString(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.value$zQr_).length() - 2));
+    }
+    if (SPropertyOperations.getString(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.value$zQr_).matches(italicBoldFormat)) {
+      SPropertyOperations.assign(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.bold$SBR1, true);
+      SPropertyOperations.assign(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.italic$SC$4, true);
+      SPropertyOperations.assign(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.value$zQr_, SPropertyOperations.getString(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.value$zQr_).substring(3, SPropertyOperations.getString(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.value$zQr_).length() - 3));
+    } else if (SPropertyOperations.getString(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.value$zQr_).matches(boldFormat)) {
+      SPropertyOperations.assign(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.bold$SBR1, true);
+      SPropertyOperations.assign(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.value$zQr_, SPropertyOperations.getString(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.value$zQr_).substring(2, SPropertyOperations.getString(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.value$zQr_).length() - 2));
+    } else if (SPropertyOperations.getString(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.value$zQr_).matches(italicForamt)) {
+      SPropertyOperations.assign(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.italic$SC$4, true);
+      SPropertyOperations.assign(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.value$zQr_, SPropertyOperations.getString(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.value$zQr_).substring(1, SPropertyOperations.getString(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.value$zQr_).length() - 1));
+    }
+    if (SPropertyOperations.getString(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.value$zQr_).matches(underlinedFormat)) {
+      SPropertyOperations.assign(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.underlined$SQS1, true);
+      SPropertyOperations.assign(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.value$zQr_, SPropertyOperations.getString(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.value$zQr_).substring(2, SPropertyOperations.getString(SNodeOperations.cast(element, CONCEPTS.Word$Dn), PROPS.value$zQr_).length() - 2));
+    }
+
+  }
+
+
   private static final class CONCEPTS {
     /*package*/ static final SConcept Word$Dn = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, "jetbrains.mps.lang.text.structure.Word");
     /*package*/ static final SConcept Line$yC = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, "jetbrains.mps.lang.text.structure.Line");
@@ -310,5 +344,8 @@ public class NewElementStrategyFactory {
     /*package*/ static final SProperty value$zQr_ = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x229012ddae35f05L, "value");
     /*package*/ static final SProperty level$YKTp = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x6cb23f222fb47accL, 0x6cb23f222fb47b9dL, "level");
     /*package*/ static final SProperty url$SIrt = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d485L, "url");
+    /*package*/ static final SProperty underlined$SQS1 = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d494L, "underlined");
+    /*package*/ static final SProperty bold$SBR1 = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d47eL, "bold");
+    /*package*/ static final SProperty italic$SC$4 = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d481L, "italic");
   }
 }
