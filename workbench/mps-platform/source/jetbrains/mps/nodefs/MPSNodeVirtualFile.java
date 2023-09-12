@@ -253,7 +253,14 @@ public final class MPSNodeVirtualFile extends VirtualFile implements ProjectAwar
   @Override
   public boolean isInProject(@NotNull Project project) {
     final MPSProject mpsProject = ProjectHelper.fromIdeaProject(project);
-    final SModel model = myNode.getModelReference().resolve(mpsProject.getRepository());
-    return model!=null && !model.isReadOnly();
+    if (mpsProject!=null && mpsProject.getRepository()!=null) {
+      final boolean[] result = new boolean[]{false};
+      mpsProject.getRepository().getModelAccess().runReadAction(() -> {
+        final SModel model = myNode.getModelReference().resolve(mpsProject.getRepository());
+        result[0] = model != null && !model.isReadOnly();
+      });
+      return result[0];
+    }
+    return false;
   }
 }
