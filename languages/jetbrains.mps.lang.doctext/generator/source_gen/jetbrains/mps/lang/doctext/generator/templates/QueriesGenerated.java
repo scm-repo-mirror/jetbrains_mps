@@ -4,6 +4,7 @@ package jetbrains.mps.lang.doctext.generator.templates;
 
 import jetbrains.mps.generator.runtime.Generated;
 import jetbrains.mps.generator.impl.query.QueryProviderBase;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.generator.template.DropRootRuleContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.generator.template.BaseMappingRuleContext;
@@ -59,6 +60,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 @Generated
 public class QueriesGenerated extends QueryProviderBase {
+  private static final Logger LOG = Logger.getLogger(QueriesGenerated.class);
   public QueriesGenerated() {
     super(1);
   }
@@ -219,12 +221,44 @@ public class QueriesGenerated extends QueryProviderBase {
     return (boolean) Line__BehaviorDescriptor.isFirstLine_id647WjQal7cZ.invoke(_context.getNode());
   }
   public static boolean ifMacro_Condition_4_1(final IfMacroContext _context) {
-    return (boolean) Line__BehaviorDescriptor.isLastLine_id647WjQalOgm.invoke(_context.getNode());
+    if (!(SNodeOperations.isInstanceOf(SNodeOperations.getNextSibling(_context.getNode()), CONCEPTS.IndentedPoint$BF))) {
+      return true;
+    }
+    if (SPropertyOperations.getInteger(SNodeOperations.as(SNodeOperations.getNextSibling(_context.getNode()), CONCEPTS.IndentedPoint$BF), PROPS.indentation$8ZOp) <= SPropertyOperations.getInteger(SNodeOperations.as(_context.getNode(), CONCEPTS.IndentedPoint$BF), PROPS.indentation$8ZOp)) {
+      return true;
+    }
+    return false;
   }
   public static boolean ifMacro_Condition_4_2(final IfMacroContext _context) {
     return (boolean) Line__BehaviorDescriptor.isLastLine_id647WjQalOgm.invoke(_context.getNode());
   }
   public static boolean ifMacro_Condition_4_3(final IfMacroContext _context) {
+    return (boolean) Line__BehaviorDescriptor.isLastLine_id647WjQalOgm.invoke(_context.getNode());
+  }
+  public static boolean ifMacro_Condition_4_4(final IfMacroContext _context) {
+    SNode firstLine = null;
+    if ((boolean) Line__BehaviorDescriptor.isFirstLine_id647WjQal7cZ.invoke(SNodeOperations.as(_context.getNode(), CONCEPTS.BulletLine$ef))) {
+      firstLine = _context.getNode();
+    } else {
+      for (SNode p : SNodeOperations.getPrevSiblings(_context.getNode(), false)) {
+        if (SPropertyOperations.getInteger(SNodeOperations.as(p, CONCEPTS.IndentedPoint$BF), PROPS.indentation$8ZOp) == SPropertyOperations.getInteger(SNodeOperations.as(_context.getNode(), CONCEPTS.IndentedPoint$BF), PROPS.indentation$8ZOp) && (boolean) Line__BehaviorDescriptor.isFirstLine_id647WjQal7cZ.invoke(SNodeOperations.as(p, CONCEPTS.Line$yC))) {
+          firstLine = p;
+          break;
+        }
+      }
+    }
+    if (!(SNodeOperations.isInstanceOf(SNodeOperations.getPrevSibling(firstLine), CONCEPTS.IndentedPoint$BF))) {
+      return false;
+    }
+    if (SPropertyOperations.getInteger(SNodeOperations.as(SNodeOperations.getPrevSibling(firstLine), CONCEPTS.IndentedPoint$BF), PROPS.indentation$8ZOp) < SPropertyOperations.getInteger(SNodeOperations.as(_context.getNode(), CONCEPTS.IndentedPoint$BF), PROPS.indentation$8ZOp)) {
+      return true;
+    }
+    return false;
+  }
+  public static boolean ifMacro_Condition_4_5(final IfMacroContext _context) {
+    return (boolean) Line__BehaviorDescriptor.isLastLine_id647WjQalOgm.invoke(_context.getNode());
+  }
+  public static boolean ifMacro_Condition_4_6(final IfMacroContext _context) {
     if (!(SPropertyOperations.getInteger(SNodeOperations.as(SNodeOperations.getNextSibling(_context.getNode()), CONCEPTS.IndentedPoint$BF), PROPS.indentation$8ZOp) > SPropertyOperations.getInteger(SNodeOperations.as(_context.getNode(), CONCEPTS.IndentedPoint$BF), PROPS.indentation$8ZOp))) {
       return false;
     }
@@ -253,6 +287,9 @@ public class QueriesGenerated extends QueryProviderBase {
       lastNestedLineIndex = SNodeOperations.getIndexInParent(ListSequence.fromList(SNodeOperations.getPrevSiblings(_context.getNode(), false)).last());
     }
     if (lastNestedLineIndex == SNodeOperations.getIndexInParent(((SNode) _context.getVariable("var:node")))) {
+      if (LOG.isWarningLevel()) {
+        LOG.warning("" + SNodeOperations.getIndexInParent(_context.getNode()));
+      }
       return true;
     }
     return false;
@@ -261,12 +298,44 @@ public class QueriesGenerated extends QueryProviderBase {
     return (boolean) Line__BehaviorDescriptor.isFirstLine_id647WjQal7cZ.invoke(_context.getNode());
   }
   public static boolean ifMacro_Condition_5_1(final IfMacroContext _context) {
-    return (boolean) Line__BehaviorDescriptor.isLastLine_id647WjQalOgm.invoke(_context.getNode());
+    if (!(SNodeOperations.isInstanceOf(SNodeOperations.getNextSibling(_context.getNode()), CONCEPTS.IndentedPoint$BF))) {
+      return true;
+    }
+    if (SPropertyOperations.getInteger(SNodeOperations.as(SNodeOperations.getNextSibling(_context.getNode()), CONCEPTS.IndentedPoint$BF), PROPS.indentation$8ZOp) <= SPropertyOperations.getInteger(SNodeOperations.as(_context.getNode(), CONCEPTS.IndentedPoint$BF), PROPS.indentation$8ZOp)) {
+      return true;
+    }
+    return false;
   }
   public static boolean ifMacro_Condition_5_2(final IfMacroContext _context) {
     return (boolean) Line__BehaviorDescriptor.isLastLine_id647WjQalOgm.invoke(_context.getNode());
   }
   public static boolean ifMacro_Condition_5_3(final IfMacroContext _context) {
+    return (boolean) Line__BehaviorDescriptor.isLastLine_id647WjQalOgm.invoke(_context.getNode());
+  }
+  public static boolean ifMacro_Condition_5_4(final IfMacroContext _context) {
+    SNode firstLine = null;
+    if ((boolean) Line__BehaviorDescriptor.isFirstLine_id647WjQal7cZ.invoke(SNodeOperations.as(_context.getNode(), CONCEPTS.NumberedLine$k0))) {
+      firstLine = _context.getNode();
+    } else {
+      for (SNode p : SNodeOperations.getPrevSiblings(_context.getNode(), false)) {
+        if (SPropertyOperations.getInteger(SNodeOperations.as(p, CONCEPTS.IndentedPoint$BF), PROPS.indentation$8ZOp) == SPropertyOperations.getInteger(SNodeOperations.as(_context.getNode(), CONCEPTS.IndentedPoint$BF), PROPS.indentation$8ZOp) && (boolean) Line__BehaviorDescriptor.isFirstLine_id647WjQal7cZ.invoke(SNodeOperations.as(p, CONCEPTS.Line$yC))) {
+          firstLine = p;
+          break;
+        }
+      }
+    }
+    if (!(SNodeOperations.isInstanceOf(SNodeOperations.getPrevSibling(firstLine), CONCEPTS.IndentedPoint$BF))) {
+      return false;
+    }
+    if (SPropertyOperations.getInteger(SNodeOperations.as(SNodeOperations.getPrevSibling(firstLine), CONCEPTS.IndentedPoint$BF), PROPS.indentation$8ZOp) < SPropertyOperations.getInteger(SNodeOperations.as(_context.getNode(), CONCEPTS.IndentedPoint$BF), PROPS.indentation$8ZOp)) {
+      return true;
+    }
+    return false;
+  }
+  public static boolean ifMacro_Condition_5_5(final IfMacroContext _context) {
+    return (boolean) Line__BehaviorDescriptor.isLastLine_id647WjQalOgm.invoke(_context.getNode());
+  }
+  public static boolean ifMacro_Condition_5_6(final IfMacroContext _context) {
     if (!(SPropertyOperations.getInteger(SNodeOperations.as(SNodeOperations.getNextSibling(_context.getNode()), CONCEPTS.IndentedPoint$BF), PROPS.indentation$8ZOp) > SPropertyOperations.getInteger(SNodeOperations.as(_context.getNode(), CONCEPTS.IndentedPoint$BF), PROPS.indentation$8ZOp))) {
       return false;
     }
@@ -554,9 +623,9 @@ public class QueriesGenerated extends QueryProviderBase {
     int i = 0;
     snsqMethods.put("3955314254461918493", new SNsQ(i++));
     snsqMethods.put("6991822193134684032", new SNsQ(i++));
-    snsqMethods.put("3955314254462790684", new SNsQ(i++));
+    snsqMethods.put("5725746539857546925", new SNsQ(i++));
     snsqMethods.put("7379557344503216082", new SNsQ(i++));
-    snsqMethods.put("3955314254462871661", new SNsQ(i++));
+    snsqMethods.put("5725746539857612859", new SNsQ(i++));
     snsqMethods.put("7379557344519256677", new SNsQ(i++));
     snsqMethods.put("3955314254462305245", new SNsQ(i++));
     snsqMethods.put("7783284526703747048", new SNsQ(i++));
@@ -717,11 +786,17 @@ public class QueriesGenerated extends QueryProviderBase {
     imcMethods.put("6991822193134695868", new IfMC(i++));
     imcMethods.put("6991822193140758493", new IfMC(i++));
     imcMethods.put("3955314254462439770", new IfMC(i++));
+    imcMethods.put("5725746539857548888", new IfMC(i++));
     imcMethods.put("3955314254462435271", new IfMC(i++));
+    imcMethods.put("5725746539859556153", new IfMC(i++));
+    imcMethods.put("5725746539859556162", new IfMC(i++));
     imcMethods.put("7379557344503216068", new IfMC(i++));
     imcMethods.put("7379557344503216090", new IfMC(i++));
     imcMethods.put("3955314254462871647", new IfMC(i++));
-    imcMethods.put("3955314254462871670", new IfMC(i++));
+    imcMethods.put("5725746539857612867", new IfMC(i++));
+    imcMethods.put("5725746539857694564", new IfMC(i++));
+    imcMethods.put("5725746539859477651", new IfMC(i++));
+    imcMethods.put("5725746539859477662", new IfMC(i++));
     imcMethods.put("7379557344519256663", new IfMC(i++));
     imcMethods.put("7379557344519256685", new IfMC(i++));
     imcMethods.put("7783284526703860003", new IfMC(i++));
@@ -764,32 +839,44 @@ public class QueriesGenerated extends QueryProviderBase {
         case 6:
           return QueriesGenerated.ifMacro_Condition_4_3(ctx);
         case 7:
-          return QueriesGenerated.ifMacro_Condition_5_0(ctx);
+          return QueriesGenerated.ifMacro_Condition_4_4(ctx);
         case 8:
-          return QueriesGenerated.ifMacro_Condition_5_1(ctx);
+          return QueriesGenerated.ifMacro_Condition_4_5(ctx);
         case 9:
-          return QueriesGenerated.ifMacro_Condition_5_2(ctx);
+          return QueriesGenerated.ifMacro_Condition_4_6(ctx);
         case 10:
-          return QueriesGenerated.ifMacro_Condition_5_3(ctx);
+          return QueriesGenerated.ifMacro_Condition_5_0(ctx);
         case 11:
-          return QueriesGenerated.ifMacro_Condition_10_0(ctx);
+          return QueriesGenerated.ifMacro_Condition_5_1(ctx);
         case 12:
-          return QueriesGenerated.ifMacro_Condition_10_1(ctx);
+          return QueriesGenerated.ifMacro_Condition_5_2(ctx);
         case 13:
-          return QueriesGenerated.ifMacro_Condition_10_2(ctx);
+          return QueriesGenerated.ifMacro_Condition_5_3(ctx);
         case 14:
-          return QueriesGenerated.ifMacro_Condition_10_3(ctx);
+          return QueriesGenerated.ifMacro_Condition_5_4(ctx);
         case 15:
-          return QueriesGenerated.ifMacro_Condition_10_4(ctx);
+          return QueriesGenerated.ifMacro_Condition_5_5(ctx);
         case 16:
-          return QueriesGenerated.ifMacro_Condition_10_5(ctx);
+          return QueriesGenerated.ifMacro_Condition_5_6(ctx);
         case 17:
-          return QueriesGenerated.ifMacro_Condition_10_6(ctx);
+          return QueriesGenerated.ifMacro_Condition_10_0(ctx);
         case 18:
-          return QueriesGenerated.ifMacro_Condition_10_7(ctx);
+          return QueriesGenerated.ifMacro_Condition_10_1(ctx);
         case 19:
-          return QueriesGenerated.ifMacro_Condition_10_8(ctx);
+          return QueriesGenerated.ifMacro_Condition_10_2(ctx);
         case 20:
+          return QueriesGenerated.ifMacro_Condition_10_3(ctx);
+        case 21:
+          return QueriesGenerated.ifMacro_Condition_10_4(ctx);
+        case 22:
+          return QueriesGenerated.ifMacro_Condition_10_5(ctx);
+        case 23:
+          return QueriesGenerated.ifMacro_Condition_10_6(ctx);
+        case 24:
+          return QueriesGenerated.ifMacro_Condition_10_7(ctx);
+        case 25:
+          return QueriesGenerated.ifMacro_Condition_10_8(ctx);
+        case 26:
           return QueriesGenerated.ifMacro_Condition_10_9(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no condition method for if macro %s (key: #%d)", ctx.getTemplateReference(), methodKey));
