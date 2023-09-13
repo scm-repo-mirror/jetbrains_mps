@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,27 +51,11 @@ public interface IReferentPresentationProvider {
   /**
    * 3.4->3.5 compatibility method. after 3.5 use {@link #DEFAULT_PRESENTATION} instead
    * [artem] In 2020.1 the method is referenced in editor templates, can not replace it with the constant.
+   *         Templates were updated in 2023.2, keep the method for a year or two (to facilitate compiled editor code), then drop.
+   *         However, perhaps, it's easier to un-deprecate the method, I don't quite understand why it's bad.
    */
   @Deprecated(since = "2017.2", forRemoval = true)
   static IReferentPresentationProvider getDefaultPresentation(@NotNull SReferenceLink link) {
     return DEFAULT_PRESENTATION;
-  }
-
-  /**
-   * 3.4->3.5 compatibility method. after 3.5 use {@link #DEFAULT_MATCHING_TEXT} instead
-   * TODO check if the method is referenced in editor templates, replace two uses in hand-written code with the constance if not
-   */
-  @Deprecated(since = "2017.2", forRemoval = true)
-  static IReferentPresentationProvider getDefaultMatchingText(@NotNull SReferenceLink link) {
-    return DEFAULT_MATCHING_TEXT;
-  }
-
-  /**
-   * 3.4->3.5 compatibility method. after 3.5 use {@link #DEFAULT_VISIBLE_MATCHING_TEXT} instead
-   * TODO check if the method is referenced in editor templates, replace two uses in hand-written code with the constance if not
-   */
-  @Deprecated(since = "2017.2", forRemoval = true)
-  static IReferentPresentationProvider getDefaultVisibleMatchingText(@NotNull SReferenceLink link) {
-    return DEFAULT_VISIBLE_MATCHING_TEXT;
   }
 }
