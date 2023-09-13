@@ -17,11 +17,9 @@ import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.scopes.runtime.SimpleScope;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.baseLanguage.behavior.IMemberContainer__BehaviorDescriptor;
-import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.scope.EmptyScope;
+import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
+import jetbrains.mps.baseLanguage.behavior.IMemberContainer__BehaviorDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -47,16 +45,10 @@ public class DirectMethodSpecification_Constraints extends BaseConstraintsDescri
           public Scope createScope(final ReferenceConstraintsContext _context) {
             SNode ancestor = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.ExtractInterfaceMigration$Jf, true, false);
             SNode classifierSpecification = SNodeOperations.as(SLinkOperations.getTarget(ancestor, LINKS.oldClassifier$dQay), CONCEPTS.DirectClassifierSpecification$s$);
-            if (classifierSpecification != null) {
-              return new SimpleScope(ListSequence.fromList(IMemberContainer__BehaviorDescriptor.getMembers_idhEwJjl2.invoke(SLinkOperations.getTarget(classifierSpecification, LINKS.classifier$$MQn))).where((it) -> SNodeOperations.isInstanceOf(it, CONCEPTS.InstanceMethodDeclaration$39))) {
-                @Nullable
-                @Override
-                public String getReferenceText(@NotNull SNode target) {
-                  return target.getName();
-                }
-              };
+            if (classifierSpecification == null) {
+              return new EmptyScope();
             }
-            return new EmptyScope();
+            return new NamedElementsScope(SNodeOperations.ofConcept(IMemberContainer__BehaviorDescriptor.getMembers_idhEwJjl2.invoke(SLinkOperations.getTarget(classifierSpecification, LINKS.classifier$$MQn)), CONCEPTS.InstanceMethodDeclaration$39));
           }
         };
       }

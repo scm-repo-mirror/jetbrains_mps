@@ -8,8 +8,8 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.scope.EmptyScope;
 import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.scope.VisibleDepsSearchScope;
 import jetbrains.mps.scope.FilteringScope;
@@ -17,9 +17,8 @@ import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__Behavio
 import jetbrains.mps.scope.ModelsScope;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class Scopes {
   public static Scope forConceptsInSameLanguage(SModel model, SAbstractConcept metaConcept) {
@@ -27,8 +26,7 @@ public class Scopes {
     if (language == null) {
       return new EmptyScope();
     }
-    Scope slc = structureRootsScope(Sequence.<Language>singleton(language), metaConcept);
-    return new FullyQualifiedNamedElementsScope(SNodeOperations.ofConcept(slc.getAvailableElements(null), CONCEPTS.INamedStructureElement$gD));
+    return structureRootsScope(Sequence.<Language>singleton(language), metaConcept);
   }
   public static Scope forConcepts(SNode contextNode, SAbstractConcept metaConcept) {
     return forConcepts(SNodeOperations.getModel(contextNode), metaConcept);
@@ -43,9 +41,7 @@ public class Scopes {
     }
     Iterable<SModule> visibleModules = new VisibleDepsSearchScope(contextModule.getRepository(), contextModule).getModules();
 
-    Scope slc = structureRootsScope(Sequence.fromIterable(visibleModules).ofType(Language.class), metaConcept);
-
-    return new FullyQualifiedNamedElementsScope(SNodeOperations.ofConcept(slc.getAvailableElements(null), CONCEPTS.INamedStructureElement$gD));
+    return structureRootsScope(Sequence.fromIterable(visibleModules).ofType(Language.class), metaConcept);
   }
 
   /**
@@ -93,7 +89,6 @@ public class Scopes {
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SInterfaceConcept INamedStructureElement$gD = MetaAdapterFactory.getInterfaceConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x160b046db90a2b95L, "jetbrains.mps.lang.structure.structure.INamedStructureElement");
     /*package*/ static final SConcept AbstractConceptDeclaration$KA = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
     /*package*/ static final SConcept ConceptDeclaration$gH = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
   }

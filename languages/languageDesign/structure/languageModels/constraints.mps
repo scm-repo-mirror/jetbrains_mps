@@ -303,9 +303,6 @@
         <child id="1144104376918" name="parameter" index="1xVPHs" />
       </concept>
       <concept id="1179409122411" name="jetbrains.mps.lang.smodel.structure.Node_ConceptMethodCall" flags="nn" index="2qgKlT" />
-      <concept id="4693937538533521280" name="jetbrains.mps.lang.smodel.structure.OfConceptOperation" flags="ng" index="v3k3i">
-        <child id="4693937538533538124" name="requestedConcept" index="v3oSu" />
-      </concept>
       <concept id="2396822768958367367" name="jetbrains.mps.lang.smodel.structure.AbstractTypeCastExpression" flags="nn" index="$5XWr">
         <child id="6733348108486823193" name="leftExpression" index="1m5AlR" />
         <child id="3906496115198199033" name="conceptArgument" index="3oSUPX" />
@@ -1478,50 +1475,21 @@
             </node>
           </node>
         </node>
-        <node concept="3cpWs8" id="1sHxFwesfBr" role="3cqZAp">
-          <node concept="3cpWsn" id="1sHxFwesfBs" role="3cpWs9">
-            <property role="TrG5h" value="slc" />
-            <node concept="3uibUv" id="1sHxFwes8Xk" role="1tU5fm">
-              <ref role="3uigEE" to="o8zo:3fifI_xCtN$" resolve="Scope" />
-            </node>
-            <node concept="1rXfSq" id="1sHxFwesfBt" role="33vP2m">
-              <ref role="37wK5l" node="1sHxFwerZUW" resolve="structureRootsScope" />
-              <node concept="2ShNRf" id="1sHxFwesfBu" role="37wK5m">
-                <node concept="2HTt$P" id="1sHxFwesfBv" role="2ShVmc">
-                  <node concept="3uibUv" id="1sHxFwesfBw" role="2HTBi0">
-                    <ref role="3uigEE" to="w1kc:~Language" resolve="Language" />
-                  </node>
-                  <node concept="37vLTw" id="1sHxFwesfBx" role="2HTEbv">
-                    <ref role="3cqZAo" node="1sHxFwerS_R" resolve="language" />
-                  </node>
+        <node concept="3cpWs6" id="6yYldE4i7e_" role="3cqZAp">
+          <node concept="1rXfSq" id="6yYldE4i9jv" role="3cqZAk">
+            <ref role="37wK5l" node="1sHxFwerZUW" resolve="structureRootsScope" />
+            <node concept="2ShNRf" id="6yYldE4i9jw" role="37wK5m">
+              <node concept="2HTt$P" id="6yYldE4i9jx" role="2ShVmc">
+                <node concept="3uibUv" id="6yYldE4i9jy" role="2HTBi0">
+                  <ref role="3uigEE" to="w1kc:~Language" resolve="Language" />
                 </node>
-              </node>
-              <node concept="37vLTw" id="1sHxFwesfBy" role="37wK5m">
-                <ref role="3cqZAo" node="6dmIS6Mspb8" resolve="metaConcept" />
+                <node concept="37vLTw" id="6yYldE4i9jz" role="2HTEbv">
+                  <ref role="3cqZAo" node="1sHxFwerS_R" resolve="language" />
+                </node>
               </node>
             </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="6dmIS6MsoDX" role="3cqZAp">
-          <node concept="2ShNRf" id="6dmIS6MsoDV" role="3clFbG">
-            <node concept="1pGfFk" id="6dmIS6MsoVi" role="2ShVmc">
-              <ref role="37wK5l" node="50vK5YapiA6" resolve="FullyQualifiedNamedElementsScope" />
-              <node concept="2OqwBi" id="1sHxFwesi87" role="37wK5m">
-                <node concept="2OqwBi" id="1sHxFweshIX" role="2Oq$k0">
-                  <node concept="37vLTw" id="1sHxFweshIY" role="2Oq$k0">
-                    <ref role="3cqZAo" node="1sHxFwesfBs" resolve="slc" />
-                  </node>
-                  <node concept="liA8E" id="1sHxFweshIZ" role="2OqNvi">
-                    <ref role="37wK5l" to="o8zo:3fifI_xCtP7" resolve="getAvailableElements" />
-                    <node concept="10Nm6u" id="1sHxFwesiOI" role="37wK5m" />
-                  </node>
-                </node>
-                <node concept="v3k3i" id="1sHxFwesiEU" role="2OqNvi">
-                  <node concept="chp4Y" id="1sHxFwesjmm" role="v3oSu">
-                    <ref role="cht4Q" to="tpce:1ob16QT2yIl" resolve="INamedStructureElement" />
-                  </node>
-                </node>
-              </node>
+            <node concept="37vLTw" id="6yYldE4i9j$" role="37wK5m">
+              <ref role="3cqZAo" node="6dmIS6Mspb8" resolve="metaConcept" />
             </node>
           </node>
         </node>
@@ -1663,52 +1631,22 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbH" id="5D5SMhc$7_r" role="3cqZAp" />
-        <node concept="3cpWs8" id="5D5SMhc$9v1" role="3cqZAp">
-          <node concept="3cpWsn" id="5D5SMhc$9v2" role="3cpWs9">
-            <property role="TrG5h" value="slc" />
-            <node concept="3uibUv" id="5D5SMhc$9v3" role="1tU5fm">
-              <ref role="3uigEE" to="o8zo:3fifI_xCtN$" resolve="Scope" />
-            </node>
-            <node concept="1rXfSq" id="5D5SMhc$b$w" role="33vP2m">
-              <ref role="37wK5l" node="1sHxFwerZUW" resolve="structureRootsScope" />
-              <node concept="2OqwBi" id="5D5SMhc$axS" role="37wK5m">
-                <node concept="37vLTw" id="5D5SMhc$axT" role="2Oq$k0">
-                  <ref role="3cqZAo" node="5D5SMhczT7r" resolve="visibleModules" />
-                </node>
-                <node concept="UnYns" id="5D5SMhc$axU" role="2OqNvi">
-                  <node concept="3uibUv" id="5D5SMhc$axV" role="UnYnz">
-                    <ref role="3uigEE" to="w1kc:~Language" resolve="Language" />
-                  </node>
-                </node>
-              </node>
-              <node concept="37vLTw" id="5D5SMhc$d1B" role="37wK5m">
-                <ref role="3cqZAo" node="5D5SMhczOUT" resolve="metaConcept" />
-              </node>
-            </node>
-          </node>
-        </node>
         <node concept="3clFbH" id="5D5SMhczSxs" role="3cqZAp" />
-        <node concept="3clFbF" id="5D5SMhczOUW" role="3cqZAp">
-          <node concept="2ShNRf" id="5D5SMhczOUX" role="3clFbG">
-            <node concept="1pGfFk" id="5D5SMhczOUY" role="2ShVmc">
-              <ref role="37wK5l" node="50vK5YapiA6" resolve="FullyQualifiedNamedElementsScope" />
-              <node concept="2OqwBi" id="5D5SMhc$hUK" role="37wK5m">
-                <node concept="2OqwBi" id="5D5SMhc$eBa" role="2Oq$k0">
-                  <node concept="37vLTw" id="5D5SMhc$e5g" role="2Oq$k0">
-                    <ref role="3cqZAo" node="5D5SMhc$9v2" resolve="slc" />
-                  </node>
-                  <node concept="liA8E" id="5D5SMhc$fzI" role="2OqNvi">
-                    <ref role="37wK5l" to="o8zo:3fifI_xCtP7" resolve="getAvailableElements" />
-                    <node concept="10Nm6u" id="5D5SMhc$gb$" role="37wK5m" />
-                  </node>
-                </node>
-                <node concept="v3k3i" id="5D5SMhc$iJ6" role="2OqNvi">
-                  <node concept="chp4Y" id="5D5SMhc$kw1" role="v3oSu">
-                    <ref role="cht4Q" to="tpce:1ob16QT2yIl" resolve="INamedStructureElement" />
-                  </node>
+        <node concept="3cpWs6" id="6yYldE4ia_b" role="3cqZAp">
+          <node concept="1rXfSq" id="6yYldE4ibGr" role="3cqZAk">
+            <ref role="37wK5l" node="1sHxFwerZUW" resolve="structureRootsScope" />
+            <node concept="2OqwBi" id="6yYldE4ibGs" role="37wK5m">
+              <node concept="37vLTw" id="6yYldE4ibGt" role="2Oq$k0">
+                <ref role="3cqZAo" node="5D5SMhczT7r" resolve="visibleModules" />
+              </node>
+              <node concept="UnYns" id="6yYldE4ibGu" role="2OqNvi">
+                <node concept="3uibUv" id="6yYldE4ibGv" role="UnYnz">
+                  <ref role="3uigEE" to="w1kc:~Language" resolve="Language" />
                 </node>
               </node>
+            </node>
+            <node concept="37vLTw" id="6yYldE4ibGw" role="37wK5m">
+              <ref role="3cqZAo" node="5D5SMhczOUT" resolve="metaConcept" />
             </node>
           </node>
         </node>
@@ -2105,6 +2043,46 @@
         <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
       </node>
       <node concept="3clFbS" id="50vK5Yapius" role="3clF47">
+        <node concept="3SKdUt" id="6yYldE4i3XC" role="3cqZAp">
+          <node concept="1PaTwC" id="6yYldE4i3XD" role="1aUNEU">
+            <node concept="3oM_SD" id="6yYldE4i43y" role="1PaTwD">
+              <property role="3oM_SC" value="FWIW," />
+            </node>
+            <node concept="3oM_SD" id="6yYldE4i4CU" role="1PaTwD">
+              <property role="3oM_SC" value="SimpleScope.resolve()" />
+            </node>
+            <node concept="3oM_SD" id="6yYldE4i44r" role="1PaTwD">
+              <property role="3oM_SC" value="uses" />
+            </node>
+            <node concept="3oM_SD" id="6yYldE4i44w" role="1PaTwD">
+              <property role="3oM_SC" value="the" />
+            </node>
+            <node concept="3oM_SD" id="6yYldE4i45t" role="1PaTwD">
+              <property role="3oM_SC" value="same" />
+            </node>
+            <node concept="3oM_SD" id="6yYldE4i45A" role="1PaTwD">
+              <property role="3oM_SC" value="method" />
+            </node>
+            <node concept="3oM_SD" id="6yYldE4i46B" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="6yYldE4i4kO" role="1PaTwD">
+              <property role="3oM_SC" value="convert" />
+            </node>
+            <node concept="3oM_SD" id="6yYldE4i4um" role="1PaTwD">
+              <property role="3oM_SC" value="text" />
+            </node>
+            <node concept="3oM_SD" id="6yYldE4i4$y" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="6yYldE4i4$P" role="1PaTwD">
+              <property role="3oM_SC" value="node" />
+            </node>
+            <node concept="3oM_SD" id="6yYldE4i4AQ" role="1PaTwD">
+              <property role="3oM_SC" value="back" />
+            </node>
+          </node>
+        </node>
         <node concept="3clFbF" id="50vK5Yapiut" role="3cqZAp">
           <node concept="2OqwBi" id="50vK5Yapiuu" role="3clFbG">
             <node concept="2qgKlT" id="50vK5Yapiuv" role="2OqNvi">
@@ -2133,6 +2111,16 @@
       <node concept="TZ5HA" id="50vK5YarWJU" role="TZ5H$">
         <node concept="1dT_AC" id="50vK5YarWJV" role="1dT_Ay">
           <property role="1dT_AB" value="A simple scope for a sequence of concepts which uses the concept's fully qualified name as its reference text." />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="6yYldE4i56U" role="TZ5H$">
+        <node concept="1dT_AC" id="6yYldE4i56V" role="1dT_Ay">
+          <property role="1dT_AB" value="[artem] I don't quite understand the benefit of this scope, does it make sense when regular refInfo is not enough? " />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="6yYldE4kfCc" role="TZ5H$">
+        <node concept="1dT_AC" id="6yYldE4kfCd" role="1dT_Ay">
+          <property role="1dT_AB" value="What's the process preserves result of getReferenceText() for later use in resolve()?" />
         </node>
       </node>
     </node>
