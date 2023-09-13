@@ -62,7 +62,8 @@ public class ReferenceResolveInEditor {
       return ri;
     }
     // No idea why we resort to scopes if our goal is to fix broken reference
-    SModule module = check_m4k4rt_a0f0j(SNodeOperations.getModel(sourceNode));
+    //  Perhaps, the idea is to get "proper/actual" resolveInfo, the one that could be used with the scope later to get node back.
+    SModule module = check_m4k4rt_a0g0j(SNodeOperations.getModel(sourceNode));
     SNode target = jetbrains.mps.util.SNodeOperations.getTargetNodeSilently(ref);
     if (target != null && module != null) {
       Scope scope = ModelConstraints.getScope(ref);
@@ -109,7 +110,7 @@ public class ReferenceResolveInEditor {
     }
     return (result != null && result.canSubstituteStrictly(resolveInfo) ? result : null);
   }
-  private static SModule check_m4k4rt_a0f0j(SModel checkedDotOperand) {
+  private static SModule check_m4k4rt_a0g0j(SModel checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getModule();
     }

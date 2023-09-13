@@ -8,12 +8,6 @@ import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.smodel.SModelOperations;
-import org.jetbrains.mps.openapi.model.SReference;
-import org.jetbrains.mps.openapi.model.SNode;
-import org.jetbrains.mps.openapi.module.SModule;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.scope.Scope;
-import jetbrains.mps.smodel.constraints.ModelConstraints;
 
 @GeneratedClass(node = "r:f77c2bf1-6f5c-4cb2-b314-a84dd502542e(jetbrains.mps.resolve)/5447047924422371423", model = "r:f77c2bf1-6f5c-4cb2-b314-a84dd502542e(jetbrains.mps.resolve)")
 public class ReferenceResolverUtils {
@@ -31,29 +25,5 @@ public class ReferenceResolverUtils {
       }
     }
     return true;
-  }
-  /**
-   * 
-   * @deprecated Use of SRefenence (has source node info) along with distinct sourceNode is confusing
-   */
-  @Deprecated(forRemoval = true, since = "2021.2")
-  public static String getResolveInfo(SReference reference, SNode sourceNode) {
-    String result = ((jetbrains.mps.smodel.SReference) reference).getResolveInfo();
-    if (result != null) {
-      return result;
-    }
-    SModule module = check_y1vr00_a0c0b(SNodeOperations.getModel(sourceNode));
-    SNode target = jetbrains.mps.util.SNodeOperations.getTargetNodeSilently(reference);
-    if (target != null && module != null) {
-      Scope scope = ModelConstraints.getScope(reference);
-      result = scope.getReferenceText(sourceNode, target);
-    }
-    return result;
-  }
-  private static SModule check_y1vr00_a0c0b(SModel checkedDotOperand) {
-    if (null != checkedDotOperand) {
-      return checkedDotOperand.getModule();
-    }
-    return null;
   }
 }
