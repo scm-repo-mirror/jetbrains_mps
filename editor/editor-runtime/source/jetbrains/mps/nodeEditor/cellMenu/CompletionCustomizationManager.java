@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,6 @@ import jetbrains.mps.nodeEditor.EditorSettings;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.EditorCellContext;
 import jetbrains.mps.openapi.editor.cells.SubstituteAction;
-import jetbrains.mps.openapi.editor.descriptor.EditorAspectDescriptor;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation.FromNode;
@@ -75,12 +74,8 @@ class CompletionCustomizationManager {
     myCustomizers = new HashSet<>();
     if (myShouldApplyCustomStyle) {
       initContext(contextCell);
-      LanguageRegistry.getInstance(contextCell.getEditorComponent().getEditorContext().getRepository()).withAvailableLanguages(languageRuntime -> {
-        EditorAspectDescriptor aspect = languageRuntime.getAspect(EditorAspectDescriptor.class);
-        if (aspect != null) {
-          myCustomizers.addAll(aspect.getEditorMenuItemCustomizers());
-        }
-      });
+      final LanguageRegistry lr = LanguageRegistry.getInstance(contextCell.getEditorComponent().getEditorContext().getRepository());
+      CompletionItemCustomizationUtil.apply(lr, myCustomizers::add);
     }
   }
 

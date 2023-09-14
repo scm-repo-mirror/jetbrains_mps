@@ -18,13 +18,13 @@ package jetbrains.mps.nodeEditor.menus.substitute;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.lang.editor.menus.transformation.InUsedLanguagesPredicate;
 import jetbrains.mps.logging.Logger;
+import jetbrains.mps.nodeEditor.cellMenu.CompletionItemCustomizationUtil;
 import jetbrains.mps.nodeEditor.menus.CachingPredicate;
 import jetbrains.mps.nodeEditor.menus.CanBeChildPredicate;
 import jetbrains.mps.nodeEditor.menus.CanBeParentPredicate;
 import jetbrains.mps.nodeEditor.menus.IsSubconceptOfPredicate;
 import jetbrains.mps.nodeEditor.menus.MenuItemFactory;
 import jetbrains.mps.openapi.editor.EditorContext;
-import jetbrains.mps.openapi.editor.descriptor.EditorAspectDescriptor;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTrace;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuContext;
@@ -178,13 +178,7 @@ public class DefaultSubstituteMenuContext implements SubstituteMenuContext {
   public static DefaultSubstituteMenuContext createInitialContextForNode(SContainmentLink containmentLink, SAbstractConcept targetConcept, SNode parentNode,
                                                                          SNode currentChild, EditorContext editorContext, EditorMenuTrace trace) {
     Set<EditorMenuItemCustomizer> customizers = new HashSet<>();
-    LanguageRegistry.getInstance(editorContext.getRepository()).withAvailableLanguages(languageRuntime -> {
-      EditorAspectDescriptor aspect = languageRuntime.getAspect(EditorAspectDescriptor.class);
-      if (aspect != null) {
-        Collection<EditorMenuItemCustomizer> editorMenuItemCustomizers = aspect.getEditorMenuItemCustomizers();
-        customizers.addAll(editorMenuItemCustomizers);
-      }
-    });
+    CompletionItemCustomizationUtil.apply(LanguageRegistry.getInstance(editorContext.getRepository()), customizers::add);
     return new DefaultSubstituteMenuContextBuilder(parentNode, editorContext)
                .setContainmentLink(containmentLink)
                .setTargetConcept(targetConcept)
