@@ -22,6 +22,7 @@ import jetbrains.mps.smodel.resources.MResource;
 import jetbrains.mps.project.Project;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
+import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPointerOperations;
 import jetbrains.mps.ide.messages.MessagesViewTool;
@@ -29,7 +30,6 @@ import jetbrains.mps.messages.IMessageHandler;
 import jetbrains.mps.generator.ModelGenerationPlan;
 import jetbrains.mps.generator.InterpretedPlanProvider;
 import jetbrains.mps.smodel.language.LanguageRegistry;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.generator.GenerationSettingsProvider;
 import jetbrains.mps.generator.IModifiableGenerationSettings;
 import jetbrains.mps.generator.GenerationOptions;
@@ -140,15 +140,16 @@ public class Documentation_Facet extends IFacet.Stub {
           switch (0) {
             case 0:
               if (vars(pa.global()).needCustomPlan() != null && ((Boolean) vars(pa.global()).needCustomPlan())) {
-                Project project = monitor.getSession().getProject();
+                final Project project = monitor.getSession().getProject();
 
-                SModelReference genPlanModel = PersistenceFacade.getInstance().createModelReference("r:d60a90cf-2588-4702-a0e4-f4d58abef57b(jetbrains.mps.lang.descriptor.structure_doc@genplan)");
-                final SModel planModel = SPointerOperations.resolveModel(genPlanModel, project.getRepository());
+                final SModelReference genPlanModel = PersistenceFacade.getInstance().createModelReference("r:d1cf1bdc-d32d-481e-8ec6-73dc1f9dcb76(jetbrains.mps.lang.descriptor.structure_doc@genplan)");
+                final Wrappers._T<SModel> planModel = new Wrappers._T<SModel>();
+                project.getRepository().getModelAccess().runReadAction(() -> planModel.value = SPointerOperations.resolveModel(genPlanModel, project.getRepository()));
                 MessagesViewTool messagesView = MessagesViewTool.getInstance(project);
                 IMessageHandler mh = messagesView.newHandler();
                 final ModelGenerationPlan.Provider mgpProvider = new InterpretedPlanProvider(LanguageRegistry.getInstance(project.getRepository()), mh, genPlanModel, project.getRepository());
                 final Wrappers._T<ModelGenerationPlan> plan = new Wrappers._T<ModelGenerationPlan>(null);
-                project.getRepository().getModelAccess().runReadAction(() -> plan.value = mgpProvider.getPlan(planModel));
+                project.getRepository().getModelAccess().runReadAction(() -> plan.value = mgpProvider.getPlan(planModel.value));
 
                 GenerationSettingsProvider gsp = monitor.getSession().getProject().getComponent(GenerationSettingsProvider.class);
                 IModifiableGenerationSettings settings = gsp.getGenerationSettings();
