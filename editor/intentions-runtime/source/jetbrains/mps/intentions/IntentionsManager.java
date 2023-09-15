@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,8 +38,8 @@ import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import jetbrains.mps.openapi.intentions.IntentionExecutable;
 import jetbrains.mps.openapi.intentions.IntentionFactory;
 import jetbrains.mps.openapi.intentions.Kind;
+import jetbrains.mps.smodel.ModelDependencyResolver;
 import jetbrains.mps.smodel.SLanguageHierarchy;
-import jetbrains.mps.smodel.SModelOperations;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.smodel.language.LanguageRuntime;
 import jetbrains.mps.typechecking.TypecheckingFacade;
@@ -306,7 +306,8 @@ public class IntentionsManager implements PersistentStateComponent<IntentionsMan
     ArrayList<IntentionAspectDescriptor> activeIntentionAspects = new ArrayList<>();
     // respect migration scripts from imported languages only
     ArrayList<MigrationRefactoringIntentions> activeIntentionsFromMigrationScripts = new ArrayList<>();
-    for (SLanguage l : new SLanguageHierarchy(languageRegistry, SModelOperations.getAllLanguageImports(node.getModel())).getExtended()) {
+    ModelDependencyResolver mdr = new ModelDependencyResolver(languageRegistry, editorContext.getRepository());
+    for (SLanguage l : new SLanguageHierarchy(languageRegistry, mdr.usedLanguages(node.getModel())).getExtended()) {
       final LanguageRuntime lr = languageRegistry.getLanguage(l);
       if (lr == null) {
         continue;
