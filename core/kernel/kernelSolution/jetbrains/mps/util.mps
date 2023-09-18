@@ -4211,10 +4211,11 @@
           <node concept="3cpWsn" id="2mTpoiCtrQ3" role="3cpWs9">
             <property role="TrG5h" value="resolveInfo" />
             <property role="3TUv4t" value="false" />
-            <node concept="2YIFZM" id="2mTpoiCtzsR" role="33vP2m">
-              <ref role="1Pybhc" to="w1kc:~SNodeUtil" resolve="SNodeUtil" />
-              <ref role="37wK5l" to="w1kc:~SNodeUtil.getResolveInfo(org.jetbrains.mps.openapi.model.SNode)" resolve="getResolveInfo" />
-              <node concept="1PxgMI" id="3QHKN49YY$" role="37wK5m">
+            <node concept="3uibUv" id="2mTpoiCtrQ5" role="1tU5fm">
+              <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+            </node>
+            <node concept="2OqwBi" id="2rC_Cqza6rS" role="33vP2m">
+              <node concept="1PxgMI" id="3QHKN49YY$" role="2Oq$k0">
                 <property role="1BlNFB" value="true" />
                 <node concept="37vLTw" id="2mTpoiCtrQ9" role="1m5AlR">
                   <ref role="3cqZAo" node="5T4fSAVTn3h" resolve="n" />
@@ -4223,40 +4224,36 @@
                   <ref role="cht4Q" to="tpck:hqLv6T6" resolve="IResolveInfo" />
                 </node>
               </node>
-            </node>
-            <node concept="3uibUv" id="2mTpoiCtrQ5" role="1tU5fm">
-              <ref role="3uigEE" to="wyt6:~String" resolve="String" />
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbJ" id="2mTpoiCtrQc" role="3cqZAp">
-          <node concept="3y3z36" id="2mTpoiCtrQd" role="3clFbw">
-            <node concept="37vLTw" id="2mTpoiCtrQe" role="3uHU7B">
-              <ref role="3cqZAo" node="2mTpoiCtrQ3" resolve="resolveInfo" />
-            </node>
-            <node concept="10Nm6u" id="2mTpoiCtrQf" role="3uHU7w" />
-          </node>
-          <node concept="3clFbS" id="2mTpoiCtrQh" role="3clFbx">
-            <node concept="3cpWs6" id="2mTpoiCtrQi" role="3cqZAp">
-              <node concept="37vLTw" id="2mTpoiCtrQj" role="3cqZAk">
-                <ref role="3cqZAo" node="2mTpoiCtrQ3" resolve="resolveInfo" />
+              <node concept="3TrcHB" id="2rC_Cqza8gs" role="2OqNvi">
+                <ref role="3TsBF5" to="tpck:hqLvdgl" resolve="resolveInfo" />
               </node>
             </node>
           </node>
         </node>
         <node concept="3cpWs6" id="2mTpoiCtrQk" role="3cqZAp">
-          <node concept="2OqwBi" id="3QHKN4a5X7" role="3cqZAk">
-            <node concept="1PxgMI" id="3QHKN4a5Nl" role="2Oq$k0">
-              <property role="1BlNFB" value="true" />
-              <node concept="37vLTw" id="2mTpoiCtzFh" role="1m5AlR">
-                <ref role="3cqZAo" node="5T4fSAVTn3h" resolve="n" />
-              </node>
-              <node concept="chp4Y" id="714IaVdGZlq" role="3oSUPX">
-                <ref role="cht4Q" to="tpck:h0TrEE$" resolve="INamedConcept" />
+          <node concept="3K4zz7" id="2rC_Cqzab$2" role="3cqZAk">
+            <node concept="37vLTw" id="2rC_CqzabDj" role="3K4E3e">
+              <ref role="3cqZAo" node="2mTpoiCtrQ3" resolve="resolveInfo" />
+            </node>
+            <node concept="3y3z36" id="2rC_CqzaaKC" role="3K4Cdx">
+              <node concept="10Nm6u" id="2rC_Cqzabx5" role="3uHU7w" />
+              <node concept="37vLTw" id="2rC_Cqza9Vk" role="3uHU7B">
+                <ref role="3cqZAo" node="2mTpoiCtrQ3" resolve="resolveInfo" />
               </node>
             </node>
-            <node concept="3TrcHB" id="3QHKN4afXC" role="2OqNvi">
-              <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
+            <node concept="2OqwBi" id="3QHKN4a5X7" role="3K4GZi">
+              <node concept="1PxgMI" id="3QHKN4a5Nl" role="2Oq$k0">
+                <property role="1BlNFB" value="true" />
+                <node concept="37vLTw" id="2mTpoiCtzFh" role="1m5AlR">
+                  <ref role="3cqZAo" node="5T4fSAVTn3h" resolve="n" />
+                </node>
+                <node concept="chp4Y" id="714IaVdGZlq" role="3oSUPX">
+                  <ref role="cht4Q" to="tpck:h0TrEE$" resolve="INamedConcept" />
+                </node>
+              </node>
+              <node concept="3TrcHB" id="3QHKN4afXC" role="2OqNvi">
+                <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
+              </node>
             </node>
           </node>
         </node>
@@ -4273,10 +4270,25 @@
             <property role="1dT_AB" value="This will be replaced by getting resolve info from a reference in a context containing it" />
           </node>
         </node>
+        <node concept="TZ5HA" id="3TdPJoXEL$Y" role="TZ5H$">
+          <node concept="1dT_AC" id="3TdPJoXEL$Z" role="1dT_Ay">
+            <property role="1dT_AB" value="[artem] Well, I believe this one has to be replaced with Scope, with IResolveInfo being a default fallback. " />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="3TdPJoXEMnd" role="TZ5H$">
+          <node concept="1dT_AC" id="3TdPJoXEMne" role="1dT_Ay">
+            <property role="1dT_AB" value="  Neither this method nor SNodeUtil shall be used by MPS code as it makes an assumption scope impl complies with the way we build resolveInfo here." />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="3TdPJoXEMFK" role="TZ5H$">
+          <node concept="1dT_AC" id="3TdPJoXEMFL" role="1dT_Ay">
+            <property role="1dT_AB" value="  Instead, it's Scope responsibility to build and process resolveInfo" />
+          </node>
+        </node>
         <node concept="TZ5HI" id="2DYuqezwYaF" role="3nqlJM">
           <node concept="TZ5HA" id="2DYuqezwYaG" role="3HnX3l">
             <node concept="1dT_AC" id="2DYuqezwYdF" role="1dT_Ay">
-              <property role="1dT_AB" value="use SNodeUtil.getResolveInfo (note it does not return name in case of !isInstanceOf(IResolveInfo))" />
+              <property role="1dT_AB" value="use scopes to obtain actual resolveInfo; Use reference.resolveInfo to find out value stored with an association link instance." />
             </node>
           </node>
         </node>

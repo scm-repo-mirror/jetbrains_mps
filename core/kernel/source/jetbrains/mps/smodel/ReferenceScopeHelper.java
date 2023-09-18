@@ -22,7 +22,7 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * THIS IS MPS-INTERNAL STUFF AND MAY CHANGE WITHOUT NOTICE. DON'T USE OUTSIDE OF MPS CORE.
- *
+ * <br/>
  * Each time one tries to navigate dynamic reference, there's a new Scope instance created and consulted.
  * It's obvious there' no need to build scope again and again unless a model has been modified.
  * {@code ReferenceScopeHelper} is deemed to address this kind of scope caching.
@@ -59,7 +59,7 @@ public class ReferenceScopeHelper {
    * Default context implementation is transparent and doesn't cache anything.
    * </p>
    *
-   * @return evaluation conext for scope, never {@code null}
+   * @return evaluation context for scope, never {@code null}
    * @since 2021.2
    */
   public EvaluateScopeContext getContext() {

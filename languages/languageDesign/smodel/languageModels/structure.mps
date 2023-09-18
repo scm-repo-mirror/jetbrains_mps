@@ -1687,6 +1687,9 @@
     <node concept="PrWs8" id="4WR1jK$23yk" role="PzmwI">
       <ref role="PrY4T" node="1lUJQtrPjRM" resolve="IReferenceOperation" />
     </node>
+    <node concept="t5JxF" id="3TdPJoXEvic" role="lGtFl">
+      <property role="t5JxN" value="operation to retrieve resolve information recorded with a reference; doesn't construct new one if unknown" />
+    </node>
   </node>
   <node concept="1TIwiD" id="1lvHLgR6tlS">
     <property role="R5$K7" value="false" />

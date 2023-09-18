@@ -219,16 +219,16 @@ public class SNodeOperations {
   }
   /**
    * This will be replaced by getting resolve info from a reference in a context containing it
+   * [artem] Well, I believe this one has to be replaced with Scope, with IResolveInfo being a default fallback. 
+   *   Neither this method nor SNodeUtil shall be used by MPS code as it makes an assumption scope impl complies with the way we build resolveInfo here.
+   *   Instead, it's Scope responsibility to build and process resolveInfo
    * 
-   * @deprecated use SNodeUtil.getResolveInfo (note it does not return name in case of !isInstanceOf(IResolveInfo))
+   * @deprecated use scopes to obtain actual resolveInfo; Use reference.resolveInfo to find out value stored with an association link instance.
    */
   @Deprecated
   public static String getResolveInfo(SNode n) {
-    String resolveInfo = SNodeUtil.getResolveInfo(jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations.as(n, CONCEPTS.IResolveInfo$$k));
-    if (resolveInfo != null) {
-      return resolveInfo;
-    }
-    return SPropertyOperations.getString(jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations.as(n, CONCEPTS.INamedConcept$Kd), PROPS.name$MnvL);
+    String resolveInfo = SPropertyOperations.getString(jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations.as(n, CONCEPTS.IResolveInfo$$k), PROPS.resolveInfo$lW9a);
+    return (resolveInfo != null ? resolveInfo : SPropertyOperations.getString(jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations.as(n, CONCEPTS.INamedConcept$Kd), PROPS.name$MnvL));
   }
   /**
    * 
@@ -351,6 +351,7 @@ public class SNodeOperations {
   }
 
   private static final class PROPS {
+    /*package*/ static final SProperty resolveInfo$lW9a = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x116b17c6e46L, 0x116b17cd415L, "resolveInfo");
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

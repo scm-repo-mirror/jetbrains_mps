@@ -18,7 +18,6 @@ import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.model.SReference;
-import jetbrains.mps.smodel.SNodeUtil;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.smodel.DynamicReference;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
@@ -182,12 +181,9 @@ public abstract class BaseLanguageTextGen {
       tgs.append("???");
       return;
     }
-    String name = SNodeUtil.getResolveInfo(targetNode);
+    String name = BaseLanguageTextGen.actualTargetPresentation(reference, targetNode, ctx);
     if (name == null) {
-      tgs.reportError(String.format("No resolve info for node %s", targetNode));
-      name = targetNode.getName();
-    }
-    if (name == null) {
+      tgs.reportError(String.format("No resolve/presentation info for node %s", targetNode));
       tgs.append("???");
     } else {
       tgs.append(name);
@@ -258,10 +254,17 @@ public abstract class BaseLanguageTextGen {
         // FIXME I suppose this is rather an error when a reference we expect to point to Classifier (or any known exception
         //  as cons decl, above). Why to resort to resolveInfo?! 
         packageName = SModelOperations.getModelName(SNodeOperations.getModel(targetNode));
-        shortName = jetbrains.mps.util.SNodeOperations.getResolveInfo(targetNode);
+        shortName = BaseLanguageTextGen.actualTargetPresentation(reference, targetNode, ctx);
       }
       return MultiTuple.<String,String>from((packageName == null ? "" : packageName), shortName);
     }
+  }
+  protected static String actualTargetPresentation(SReference scopeOrigin, SNode target, final TextGenContext ctx) {
+    final TextGenSupport tgs = new TextGenSupport(ctx);
+    // FIXME don't assume all references use IResolveInfo.resolveInf/INamedConcept.name for presentation. After all, it's Scope that handles getReferenceText/resolve pair
+    //      Besides, I don't quite agree Scope's resolve info and a text presentation for code generation is the same (pretty much as well as IResolveInfo/INamedConcept 
+    //     are not. I feel there's to be something special for TextGen case. node.getPresentation()?
+    return jetbrains.mps.util.SNodeOperations.getResolveInfo(target);
   }
   protected static String getPackageName(SNode cls, final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);

@@ -6659,6 +6659,18 @@
           </node>
         </node>
       </node>
+      <node concept="P$JXv" id="3TdPJoXECZC" role="lGtFl">
+        <node concept="TZ5HA" id="3TdPJoXECZD" role="TZ5H$">
+          <node concept="1dT_AC" id="3TdPJoXECZE" role="1dT_Ay">
+            <property role="1dT_AB" value="Runtime for ref.resolveInfo operation, retrieves stored information, if any." />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="3TdPJoXED_Y" role="TZ5H$">
+          <node concept="1dT_AC" id="3TdPJoXED_Z" role="1dT_Ay">
+            <property role="1dT_AB" value="Unlike SNodeOperations.getResolveInfo() or SNodeUtil.getResolveInfo(), this method doesn't construct any." />
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="2YIFZL" id="5hvwTWxptnE" role="jymVt">
       <property role="TrG5h" value="isDynamic" />

@@ -203,6 +203,10 @@ public final class SLinkOperations {
     }
     return reference.getLink();
   }
+  /**
+   * Runtime for ref.resolveInfo operation, retrieves stored information, if any.
+   * Unlike SNodeOperations.getResolveInfo() or SNodeUtil.getResolveInfo(), this method doesn't construct any.
+   */
   public static String getResolveInfo(SReference reference) {
     if (reference == null) {
       return null;

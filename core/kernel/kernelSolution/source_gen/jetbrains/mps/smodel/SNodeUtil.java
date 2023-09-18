@@ -56,7 +56,6 @@ public final class SNodeUtil {
   public static final SConcept concept_StaticMethodDeclaration = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf0aL, "jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration");
   public static final SConcept concept_ConstructorDeclaration = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
 
-  public static final SInterfaceConcept concept_IResolveInfo = BootstrapAdapterFactory.getInterface(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x116b17c6e46L, "jetbrains.mps.lang.core.structure.IResolveInfo");
   public static final SInterfaceConcept concept_INamedConcept = BootstrapAdapterFactory.getInterface(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
   public static final SConcept concept_BaseConcept = BootstrapAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
   public static final SConceptId conceptId_BaseConcept = MetaIdHelper.getConcept(concept_BaseConcept);
@@ -100,6 +99,11 @@ public final class SNodeUtil {
   public static String getConceptAlias(SNode concept) {
     return SPropertyOperations.getString(concept, PROPS.conceptAlias$OL_L);
   }
+  /**
+   * 
+   * @deprecated if you got node<IResolveInfo>, use node.resolveInfo directly; if not, consider using Scope.getReferenceText not to rely on specific implementation.
+   */
+  @Deprecated
   public static String getResolveInfo(SNode node) {
     return SPropertyOperations.getString(node, PROPS.resolveInfo$lW9a);
   }
