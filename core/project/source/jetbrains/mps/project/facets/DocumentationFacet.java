@@ -11,6 +11,7 @@ import jetbrains.mps.util.IFileUtil;
 import jetbrains.mps.util.MacrosFactory;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.IFileSystem;
+import org.jetbrains.annotations.ApiStatus.Experimental;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -51,12 +52,14 @@ public class DocumentationFacet extends ModuleFacetBase implements GenerationTar
     return withModelName(myOutputCacheRoot, model);
   }
 
+  @Experimental
   public void setLocation(@Nullable IFile location) {
     myOutputRoot = location;
     //todo: myOutputCacheRoot =
     myOutputCacheRoot = location;
   }
 
+  @Experimental
   public IFile getLocation() {
     return myOutputRoot;
   }

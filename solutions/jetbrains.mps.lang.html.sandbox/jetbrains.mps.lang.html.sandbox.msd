@@ -27,6 +27,7 @@
     <module reference="ceab5195-25ea-4f22-9b92-103b95ca8c0c(jetbrains.mps.lang.core)" version="0" />
     <module reference="8a10cb27-2249-43ab-ad37-4b804d24ba45(jetbrains.mps.lang.html)" version="0" />
     <module reference="559cad88-722b-47ed-bb1c-653be1944729(jetbrains.mps.lang.html.sandbox)" version="0" />
+    <module reference="9ded098b-ad6a-4657-bfd9-48636cfe8bc3(jetbrains.mps.lang.traceable)" version="0" />
   </dependencyVersions>
 </solution>
 
