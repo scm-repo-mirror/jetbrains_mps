@@ -451,8 +451,8 @@
              url="https://www.jetbrains.com/mps/nextversion"
              feedback="http://youtrack.jetbrains.net/issues/MPS"
              majorVersion="2023" minorVersoin="2">
-      <build number="232.8660.471" version="2023.2">
-        <message>JetBrains MPS 2023.2 EAP1 is now available.</message>
+      <build number="232.8660.663" version="2023.2">
+        <message>JetBrains MPS 2023.2 RC1 is now available.</message>
         <button name="Download" url="https://www.jetbrains.com/mps/nextversion" download="true"/>
       </build>
     </channel>
