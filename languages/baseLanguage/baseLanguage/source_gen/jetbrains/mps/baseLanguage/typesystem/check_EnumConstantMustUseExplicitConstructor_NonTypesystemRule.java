@@ -16,10 +16,13 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.errors.BaseQuickFixProvider;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class check_EnumConstantMustUseExplicitConstructor_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_EnumConstantMustUseExplicitConstructor_NonTypesystemRule() {
@@ -55,6 +58,20 @@ public class check_EnumConstantMustUseExplicitConstructor_NonTypesystemRule exte
             _reporter_2309309498.addIntentionProvider(intentionProvider);
           }
         }
+      } else {
+        SNode candidateConstructor = Sequence.fromIterable(ClassConcept__BehaviorDescriptor.constructors_id4_LVZ3pCvsd.invoke(enumClass)).where((it) -> ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.parameter$5xBj)).count() == ListSequence.fromList(SLinkOperations.getChildren(enumConstant, LINKS.actualArgument$pzdx)).count()).findFirst((constructor) -> ListSequence.fromList(SLinkOperations.getChildren(constructor, LINKS.parameter$5xBj)).all((p) -> {
+          SNode argType = TypecheckingFacade.getFromContext().getTypeOf(ListSequence.fromList(SLinkOperations.getChildren(enumConstant, LINKS.actualArgument$pzdx)).getElement(SNodeOperations.getIndexInParent(p)));
+          return TypecheckingFacade.getFromContext().isSubtype(argType, SLinkOperations.getTarget(p, LINKS.type$a1UY));
+        }));
+        {
+          final MessageTarget errorTarget = new NodeMessageTarget();
+          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(enumConstant, "no suitable constructor is available", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "6510682441484681043", null, errorTarget);
+          {
+            BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.baseLanguage.typesystem.SetExplicitEnumConstructurToEnumConstant_QuickFix", "6510682441484701216", true);
+            intentionProvider.putArgument("constructorToSet", candidateConstructor);
+            _reporter_2309309498.addIntentionProvider(intentionProvider);
+          }
+        }
       }
       // MethodCallsFixer_Rule takes care of the missing reference, if the constructor reference is null
     }
@@ -76,5 +93,8 @@ public class check_EnumConstantMustUseExplicitConstructor_NonTypesystemRule exte
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink baseMethodDeclaration$pyYw = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
+    /*package*/ static final SContainmentLink actualArgument$pzdx = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument");
+    /*package*/ static final SContainmentLink parameter$5xBj = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter");
+    /*package*/ static final SContainmentLink type$a1UY = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
   }
 }
