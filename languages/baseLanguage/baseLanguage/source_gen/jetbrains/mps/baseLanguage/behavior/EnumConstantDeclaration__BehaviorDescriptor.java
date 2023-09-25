@@ -29,6 +29,8 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.scope.ListScope;
 import jetbrains.mps.scope.CompositeScope;
 import jetbrains.mps.lang.core.behavior.ScopeProvider__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPointerOperations;
+import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
@@ -37,7 +39,6 @@ import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class EnumConstantDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, "jetbrains.mps.baseLanguage.structure.EnumConstantDeclaration");
@@ -133,8 +134,8 @@ public final class EnumConstantDeclaration__BehaviorDescriptor extends BaseBHDes
     if ((enumClass == null)) {
       return null;
     }
-    if ((SLinkOperations.getTarget(__thisNode__, LINKS.baseMethodDeclaration$pyYw) != null)) {
-      return SLinkOperations.getTarget(__thisNode__, LINKS.baseMethodDeclaration$pyYw);
+    if (Sequence.fromIterable(ClassConcept__BehaviorDescriptor.constructors_id4_LVZ3pCvsd.invoke(enumClass)).isEmpty()) {
+      return SPointerOperations.resolveNode(new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object.<init>()"), SNodeOperations.getModel(__thisNode__).getRepository());
     }
     SNode candidateConstructor = Sequence.fromIterable(ClassConcept__BehaviorDescriptor.constructors_id4_LVZ3pCvsd.invoke(enumClass)).where((it) -> ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.parameter$5xBj)).count() == ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.actualArgument$pzdx)).count()).findFirst((constructor) -> ListSequence.fromList(SLinkOperations.getChildren(constructor, LINKS.parameter$5xBj)).all((p) -> {
       SNode argType = TypecheckingFacade.getFromContext().getTypeOf(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.actualArgument$pzdx)).getElement(SNodeOperations.getIndexInParent(p)));
@@ -231,7 +232,6 @@ public final class EnumConstantDeclaration__BehaviorDescriptor extends BaseBHDes
   private static final class LINKS {
     /*package*/ static final SContainmentLink method$pGvv = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, 0x6d60019ab157734L, "method");
     /*package*/ static final SContainmentLink visibility$Yyua = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
-    /*package*/ static final SReferenceLink baseMethodDeclaration$pyYw = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
     /*package*/ static final SContainmentLink actualArgument$pzdx = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument");
     /*package*/ static final SContainmentLink parameter$5xBj = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter");
     /*package*/ static final SContainmentLink type$a1UY = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
