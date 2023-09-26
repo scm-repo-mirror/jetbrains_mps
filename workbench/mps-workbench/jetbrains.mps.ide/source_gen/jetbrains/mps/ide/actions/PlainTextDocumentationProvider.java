@@ -4,14 +4,20 @@ package jetbrains.mps.ide.actions;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.internal.collections.runtime.Sequence;
+import org.jetbrains.mps.openapi.module.SRepository;
+import jetbrains.mps.openapi.editor.cells.EditorCell;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.openapi.editor.cells.EditorCellContext;
+import jetbrains.mps.openapi.editor.menus.transformation.SPropertyInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.model.SModel;
-import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.editor.runtime.HeadlessEditorComponent;
 import jetbrains.mps.openapi.editor.HtmlTextBuilder;
+import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.nodeEditor.documentation.MPSDocumentationMarkup;
 import com.intellij.openapi.util.text.HtmlChunk;
 import javax.swing.Icon;
@@ -29,6 +35,52 @@ public class PlainTextDocumentationProvider {
     myNode = node;
   }
 
+  public PlainTextDocumentationProvider(SRepository repository, EditorCell currentCell) {
+    myNode = findTargetNode(repository, currentCell);
+  }
+
+  private SNode findTargetNode(SRepository repository, EditorCell currentCell) {
+    SNode contextNode = null;
+    SReferenceLink referenceLink = null;
+    SProperty property = null;
+    do {
+      if (currentCell.getSRole() instanceof SReferenceLink) {
+        contextNode = currentCell.getSNode();
+        referenceLink = ((SReferenceLink) currentCell.getSRole());
+        break;
+      } else {
+        EditorCellContext cellContext = currentCell.getCellContext();
+        if (cellContext != null) {
+          SPropertyInfo propertyInfo = cellContext.getPropertyInfo();
+          if (propertyInfo != null) {
+            contextNode = currentCell.getSNode();
+            property = propertyInfo.getProperty();
+            break;
+          }
+          if (cellContext.getNodeLocation() != null) {
+            contextNode = cellContext.getNodeLocation().getContextNode();
+            break;
+          }
+        }
+      }
+      if (currentCell.isBig()) {
+        contextNode = currentCell.getSNode();
+        break;
+      }
+      currentCell = currentCell.getParent();
+    } while (currentCell != null);
+
+    if (referenceLink != null) {
+      return SLinkOperations.getTarget(contextNode, referenceLink);
+
+    } else if (property != null) {
+      return property.getSourceNode().resolve(repository);
+
+    } else {
+      return contextNode;
+    }
+  }
+
   private String getDocumentationContent() {
     if ((Sequence.fromIterable(SLinkOperations.collect(new IAttributeDescriptor.NodeAttribute(CONCEPTS.DocumentedNodeAnnotation$ug).list(SNodeOperations.as(myNode, CONCEPTS.DocumentationObjective$OD)), LINKS.text$Dgpy)).first() == null)) {
       return "";
@@ -43,7 +95,11 @@ public class PlainTextDocumentationProvider {
     return tb.getHtmlText();
   }
 
+  @Nullable
   public String getDecoratedDocumentation() {
+    if (myNode == null) {
+      return null;
+    }
     StringBuilder sb = new StringBuilder();
     sb.append(MPSDocumentationMarkup.DEFINITION_START);
     sb.append("Concept: " + myNode.getConcept().getName());
