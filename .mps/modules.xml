@@ -562,6 +562,7 @@
       <modulePath path="$PROJECT_DIR$/testbench/modules/testDataFlow/languages/testCustomDataFlow/jetbrains.mps.testCustomDataFlow.mpl" folder="tests.testDataflow" />
       <modulePath path="$PROJECT_DIR$/testbench/modules/testDataFlow/languages/testExtendingAnalyzer/testExtendingAnalyzer.mpl" folder="tests.testDataflow" />
       <modulePath path="$PROJECT_DIR$/testbench/modules/testDataFlow/solutions/analyzers.test/analyzers.test.msd" folder="tests.testDataflow" />
+      <modulePath path="$PROJECT_DIR$/testbench/modules/testDataFlow/solutions/lang.rt.test/jetbrains.mps.dataflow.test.msd" folder="tests.testDataflow" />
       <modulePath path="$PROJECT_DIR$/testbench/modules/testDefaultEditor/languages/editor.languageForDeletedConcepts/jetbrains.mps.lang.editor.testDefaultEditor.languageForDeletedConcepts.mpl" folder="tests" />
       <modulePath path="$PROJECT_DIR$/testbench/modules/testDefaultEditor/languages/testDefaultEditor/testDefaultEditor.mpl" folder="tests" />
       <modulePath path="$PROJECT_DIR$/testbench/modules/testDepViewer/tests.testDepViewer.msd" folder="tests" />
