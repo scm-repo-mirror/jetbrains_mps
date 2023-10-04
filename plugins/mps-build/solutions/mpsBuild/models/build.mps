@@ -24456,6 +24456,7 @@
         <property role="TrG5h" value="jetbrains.mps.ide.editor" />
         <property role="3LESm3" value="5b1f863d-65a0-41a6-a801-33896be24202" />
         <property role="2GAjPV" value="true" />
+        <property role="BnDLt" value="true" />
         <node concept="3rtmxn" id="EpEP7iii6Y" role="3bR31x">
           <node concept="3LXTmp" id="EpEP7iii6Z" role="3rtmxm">
             <node concept="3qWCbU" id="EpEP7iii70" role="3LXTna">
@@ -24736,10 +24737,6 @@
               </node>
             </node>
           </node>
-        </node>
-        <node concept="1E1SXE" id="7KapL9OABnr" role="3bR37C">
-          <property role="1E1SXH" value="true" />
-          <ref role="1E1SXG" node="7KapL9OAx4G" resolve="mps-ui" />
         </node>
         <node concept="1SiIV0" id="2a9bszgrv0v" role="3bR37C">
           <node concept="3bR9La" id="2a9bszgrv0u" role="1SiIV1">

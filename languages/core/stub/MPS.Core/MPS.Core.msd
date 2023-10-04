@@ -9,16 +9,6 @@
       <sourceRoot location="mps-persistence.jar" />
       <Sources zipPath="${mps_home}/lib/MPS-src.zip"/>
     </modelRoot>
-    <modelRoot contentPath="${platform_lib}" type="java_classes">
-      <!-- For historical reasons, next libraries were exposed through MPS.Core; need to write migration code to update references to proper solutions -->
-      <sourceRoot location="util-8.jar" />
-      <sourceRoot location="util_rt.jar" />
-      <PackageScope>
-        <!-- References to gnu.trove and org.jdom stubs in MPS.Core has been migrated in 2022.3; keep for one release and remove these in 2023.1 or .2 -->
-        <include prefix="gnu.trove."/> <!-- trove4j.jar -->
-        <include prefix="org.jdom."/> <!-- jdom.jar -->
-      </PackageScope>
-    </modelRoot>
   </models>
   <facets>
     <facet type="java" compile="ext" classes="provided" ext="no">
@@ -31,9 +21,6 @@
       <library location="${mps_home}/lib/mps-closures.jar" />
       <library location="${mps_home}/lib/mps-collections.jar" />
       <library location="${mps_home}/lib/mps-tuples.jar" />
-      <!-- Some code expects MPS.Core to provide next libraries as classpath. Don't want to add guava, xstream, asm-all unless have to do so-->
-      <library location="${platform_lib}/util-8.jar" /> <!-- this one is for jdom -->
-      <library location="${platform_lib}/util_rt.jar" /> <!-- this one is for trove -->
     </facet>
   </facets>
   <sourcePath />
