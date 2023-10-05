@@ -3912,6 +3912,12 @@
         <node concept="1E1SXE" id="6iXh2SsYGtr" role="3bR37C">
           <property role="1E1SXH" value="true" />
           <ref role="1E1SXG" node="1FaKCGJSzEy" resolve="mps-kernel" />
+          <node concept="398BVA" id="6avsKl2iTNR" role="17Grwy">
+            <ref role="398BVh" node="3CewbsuA8IN" resolve="platform_lib" />
+            <node concept="2Ry0Ak" id="6avsKl2iVd1" role="iGT6I">
+              <property role="2Ry0Am" value="mps-core.jar" />
+            </node>
+          </node>
         </node>
         <node concept="1E1SXE" id="3dkXFAFlcLF" role="3bR37C">
           <property role="1E1SXH" value="true" />
@@ -4182,6 +4188,11 @@
           <node concept="3bR9La" id="6e64Z0SONXp" role="1SiIV1">
             <property role="3bR36h" value="true" />
             <ref role="3bR37D" node="1ia2VB5guYy" resolve="MPS.IDEA" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="tbAd_wSbF$" role="3bR37C">
+          <node concept="3bR9La" id="tbAd_wSbF_" role="1SiIV1">
+            <ref role="3bR37D" node="HHlBn9$wJ2" resolve="org.jdom" />
           </node>
         </node>
       </node>
@@ -53115,11 +53126,9 @@
         <ref role="nCB5Y" node="SHPhCCYuJN" resolve="messages-for-legacy-constraints" />
       </node>
       <node concept="2sjeV3" id="6FsijxbeQnr" role="nCB5Z">
-        <property role="2a2d0E" value="true" />
         <ref role="2sjeV2" node="6FsijxbeQd3" resolve="gnu.trove" />
       </node>
       <node concept="2sjeV3" id="6FsijxbeQo1" role="nCB5Z">
-        <property role="2a2d0E" value="true" />
         <ref role="2sjeV2" node="6FsijxbePt8" resolve="org.jdom" />
       </node>
       <node concept="nCB5N" id="7FonrDkn4fs" role="nCB5Z">

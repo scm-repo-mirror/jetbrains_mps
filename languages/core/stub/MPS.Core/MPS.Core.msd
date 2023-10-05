@@ -17,10 +17,6 @@
 
       <!-- shall extract next out of MPS.Core -->
       <library location="${mps_home}/lib/mps-persistence.jar" />
-      <!-- moreover, next are exposed through respective solutions, do we need them in MPS.Core? mps-core code does depend from runtime classes, but do we need to manifest this as java libs of MPS.Core-->
-      <library location="${mps_home}/lib/mps-closures.jar" />
-      <library location="${mps_home}/lib/mps-collections.jar" />
-      <library location="${mps_home}/lib/mps-tuples.jar" />
     </facet>
   </facets>
   <sourcePath />
@@ -33,6 +29,15 @@
     <!-- next two have to disappear once we break constraints-kernel cycle -->
     <dependency reexport="false">aaaaf3e2-decf-4e97-bf80-9109eab759ee(jetbrains.mps.lang.feedback.problem.legacy-constraints)</dependency>
     <dependency reexport="false">8e98f4e2-decf-4e97-bf80-9109e8b759ee(jetbrains.mps.lang.constraints.rules.runtime)</dependency>
+    <!--
+        perhaps, need these as a replacement for facet/library@location with mps-[closures|collections|tuples].jar;
+        although I'm still uncertain what's the right way. There's no references to elements of these in the MPS.Core stubs, dependencies
+        look 'unused' in module properties. We might need these in case we expose some generated using these runtimes as stubs. Looks like
+        we've got no such stubs at the moment, therefore left commented out
+    <dependency reexport="false">4c6a28d1-2c60-478d-b36e-db9b3cbb21fb(closures.runtime)</dependency>
+    <dependency reexport="false">9b80526e-f0bf-4992-bdf5-cee39c1833f3(collections.runtime)</dependency>
+    <dependency reexport="false">d44dab97-aaac-44cb-9745-8a14db674c03(jetbrains.mps.baseLanguage.tuples.runtime)</dependency>
+    -->
   </dependencies>
 </solution>
 

@@ -828,6 +828,11 @@
             <ref role="3bR37D" to="ffeo:1TaHNgiIbIQ" resolve="MPS.Core" />
           </node>
         </node>
+        <node concept="1SiIV0" id="6avsKl2kbke" role="3bR37C">
+          <node concept="3bR9La" id="6avsKl2kbkf" role="1SiIV1">
+            <ref role="3bR37D" to="ffeo:HHlBn9$wJ2" resolve="org.jdom" />
+          </node>
+        </node>
         <node concept="1BupzO" id="11vUesBXTcq" role="3bR31x">
           <property role="3ZfqAx" value="models" />
           <property role="1Hdu6h" value="true" />
