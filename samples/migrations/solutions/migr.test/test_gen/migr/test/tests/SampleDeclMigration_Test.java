@@ -33,7 +33,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
 @MPSLaunch
 public class SampleDeclMigration_Test extends BaseTransformationTest {
   @RegisterExtension
-  private static final TestParametersCacheExtension ourParametersCacheExtension = new TestParametersCacheExtension(new TestParametersCache(SampleDeclMigration_Test.class, "${module}/../..", "r:6e4b2d34-6979-4587-970a-72cdf9e24f7c(migr.test.tests@tests)", false));
+  private static final TestParametersCacheExtension ourParametersCacheExtension = new TestParametersCacheExtension(new TestParametersCache(SampleDeclMigration_Test.class, "${project_home}", "r:6e4b2d34-6979-4587-970a-72cdf9e24f7c(migr.test.tests@tests)", false));
 
   @RegisterExtension
   private ExecuteCommandExtension myCommandExtension = new ExecuteCommandExtension(this);
