@@ -48,7 +48,11 @@ import jetbrains.mps.extapi.persistence.FolderSetDataSource;
 import jetbrains.mps.ide.vfs.FileSystemBridge;
 import jetbrains.mps.vfs.IFile;
 import java.util.ArrayList;
+import jetbrains.mps.vfs.QualifiedPath;
+import com.intellij.openapi.vfs.VirtualFileSystem;
+import com.intellij.openapi.vfs.VirtualFileManager;
 import java.util.Arrays;
+import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.util.indexing.FileBasedIndex;
 import com.intellij.psi.impl.cache.impl.id.IdIndex;
 import com.intellij.openapi.progress.ProcessCanceledException;
@@ -174,6 +178,8 @@ public class StubModelsFastFindSupport implements FindUsagesParticipant, Disposa
     Set<FolderSetDataSource> sources = new HashSet<FolderSetDataSource>();
     final FileSystemBridge fsBridge = myModelFilter.project().getFileSystem();
 
+    final HashSet<IFile> complainedAbout = new HashSet<>();
+
     for (final SModel sm : models) {
       if (!(sm instanceof JavaClassStubModelDescriptor)) {
         continue;
@@ -185,13 +191,17 @@ public class StubModelsFastFindSupport implements FindUsagesParticipant, Disposa
         continue;
       }
 
-      HashSet<IFile> complainedAbout = new HashSet<>();
 
       Collection<IFile> files = source.getAffectedFiles();
       ArrayList<VirtualFile> vFiles = new ArrayList<VirtualFile>();
       for (IFile path : files) {
         // FIXME see MPSModelsFastFindSupport.findCandidates, there's need for additional VF check
-        final VirtualFile vf = fsBridge.asVirtualFile(path);
+        VirtualFile vf = fsBridge.asVirtualFile(path);
+        if (vf == null) {
+          final QualifiedPath qp = path.getQualifiedPath();
+          final VirtualFileSystem ideaFS = VirtualFileManager.getInstance().getFileSystem(qp.getFsId());
+          vf = (ideaFS == null ? null : ideaFS.findFileByPath(qp.getPath()));
+        }
         if (vf == null) {
           if (complainedAbout.add(path)) {
             if (LOG.isWarningLevel()) {
@@ -222,7 +232,8 @@ public class StubModelsFastFindSupport implements FindUsagesParticipant, Disposa
     }
 
     // filter files with usages
-    ConcreteFilesGlobalSearchScope allFiles = new ConcreteFilesGlobalSearchScope(myModelFilter.project().getProject(), scopeFiles.getSecond());
+    final Project ideaProject = myModelFilter.project().getProject();
+    GlobalSearchScope allFiles = new ConcreteFilesGlobalSearchScope(ideaProject, scopeFiles.getSecond());
     final Set<SModel> result = new HashSet<SModel>();
     for (T elem : elems) {
       try {
