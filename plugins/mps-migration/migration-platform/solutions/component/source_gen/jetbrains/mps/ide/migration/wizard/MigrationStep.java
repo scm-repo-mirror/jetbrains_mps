@@ -205,11 +205,6 @@ public class MigrationStep extends BaseStep {
     }
 
     @Override
-    protected void queueRunningUpdate(@NotNull Runnable update) {
-      throw new UnsupportedOperationException();
-    }
-
-    @Override
     protected boolean isFinished() {
       return myTaskCompleted.test(null);
     }

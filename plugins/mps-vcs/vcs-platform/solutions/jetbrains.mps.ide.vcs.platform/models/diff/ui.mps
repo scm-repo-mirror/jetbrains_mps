@@ -17857,7 +17857,7 @@
         </node>
         <node concept="3clFbF" id="3szaEXSA4K0" role="3cqZAp">
           <node concept="1rXfSq" id="3szaEXSA4JY" role="3clFbG">
-            <ref role="37wK5l" to="jkm4:~FrameWrapper.setOnCloseHandler(com.intellij.openapi.util.BooleanGetter)" resolve="setOnCloseHandler" />
+            <ref role="37wK5l" to="jkm4:~FrameWrapper.setOnCloseHandler(java.util.function.BooleanSupplier)" resolve="setOnCloseHandler" />
             <node concept="1bVj0M" id="3szaEXSAcN9" role="37wK5m">
               <node concept="3clFbS" id="3szaEXSAcNa" role="1bW5cS">
                 <node concept="3clFbF" id="PUMJsq1uJS" role="3cqZAp">
