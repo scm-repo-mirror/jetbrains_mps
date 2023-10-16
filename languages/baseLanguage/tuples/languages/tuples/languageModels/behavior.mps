@@ -813,6 +813,39 @@
     <node concept="13hLZK" id="i1Lz95Z" role="13h7CW">
       <node concept="3clFbS" id="i1Lz960" role="2VODD2" />
     </node>
+    <node concept="13i0hz" id="79$CF9VcBP$" role="13h7CS">
+      <property role="TrG5h" value="isChildAssignedInAssignment" />
+      <ref role="13i0hy" to="tpek:79$CF9VcmHc" resolve="isChildAssignedInAssignment" />
+      <node concept="3Tm1VV" id="79$CF9VcBP_" role="1B3o_S" />
+      <node concept="3clFbS" id="79$CF9VcBPG" role="3clF47">
+        <node concept="3clFbF" id="79$CF9VcDR0" role="3cqZAp">
+          <node concept="2OqwBi" id="79$CF9VcH8b" role="3clFbG">
+            <node concept="2OqwBi" id="79$CF9VcE3l" role="2Oq$k0">
+              <node concept="13iPFW" id="79$CF9VcDQZ" role="2Oq$k0" />
+              <node concept="3Tsc0h" id="79$CF9VcEh8" role="2OqNvi">
+                <ref role="3TtcxE" to="cx9y:i1LsocI" resolve="component" />
+              </node>
+            </node>
+            <node concept="3JPx81" id="79$CF9VcL6L" role="2OqNvi">
+              <node concept="1PxgMI" id="79$CF9VcLQU" role="25WWJ7">
+                <property role="1BlNFB" value="true" />
+                <node concept="chp4Y" id="79$CF9VcLTg" role="3oSUPX">
+                  <ref role="cht4Q" to="tpee:fz3vP1J" resolve="Expression" />
+                </node>
+                <node concept="37vLTw" id="79$CF9VcLba" role="1m5AlR">
+                  <ref role="3cqZAo" node="79$CF9VcBPH" resolve="child" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="37vLTG" id="79$CF9VcBPH" role="3clF46">
+        <property role="TrG5h" value="child" />
+        <node concept="3Tqbb2" id="79$CF9VcBPI" role="1tU5fm" />
+      </node>
+      <node concept="10P_77" id="79$CF9VcBPJ" role="3clF45" />
+    </node>
     <node concept="13i0hz" id="1653mnvAgn6" role="13h7CS">
       <property role="2Ki8OM" value="true" />
       <property role="TrG5h" value="getLeftBracket" />

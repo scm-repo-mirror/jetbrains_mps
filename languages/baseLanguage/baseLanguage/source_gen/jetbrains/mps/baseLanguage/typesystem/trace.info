@@ -31186,7 +31186,7 @@
       <node id="7970711249077251808" at="44,5,45,76" concept="12" />
       <node id="2384678130019230146" at="46,25,47,18" concept="13" />
       <node id="2384678130019351035" at="48,5,49,51" concept="12" />
-      <node id="2384678130019230180" at="50,210,51,18" concept="13" />
+      <node id="2384678130019230180" at="50,178,51,18" concept="13" />
       <node id="7970711249077251843" at="52,5,53,17" concept="13" />
       <node id="7255638311037670430" at="56,84,57,235" concept="13" />
       <node id="2466039659638204096" at="60,48,61,19" concept="13" />
@@ -31231,7 +31231,7 @@
       <node id="7970711249077251764" at="149,0,150,0" concept="16" trace="UnaryMinus$na" />
       <node id="7970711249077251764" at="150,0,151,0" concept="16" trace="AbstractUnaryNumberOperation$Q6" />
       <node id="7970711249077251764" at="151,0,152,0" concept="16" trace="BaseAssignmentExpression$PA" />
-      <node id="7970711249077251764" at="152,0,153,0" concept="16" trace="DotExpression$yW" />
+      <node id="7970711249077251764" at="152,0,153,0" concept="16" trace="Expression$mB" />
       <node id="7970711249077251764" at="153,0,154,0" concept="16" trace="ThisExpression$$o" />
       <node id="7970711249077251764" at="154,0,155,0" concept="16" trace="ConstructorDeclaration$yG" />
       <node id="7970711249077251764" at="155,0,156,0" concept="16" trace="InstanceInitializer$4x" />
@@ -31247,13 +31247,12 @@
       <node id="7970711249077251764" at="165,0,166,0" concept="16" trace="ShortType$ro" />
       <node id="7970711249077251764" at="169,0,170,0" concept="16" trace="expression$uRUg" />
       <node id="7970711249077251764" at="170,0,171,0" concept="16" trace="lValue$splI" />
-      <node id="7970711249077251764" at="171,0,172,0" concept="16" trace="operation$gs9E" />
-      <node id="7970711249077251764" at="172,0,173,0" concept="16" trace="variableDeclaration$N1XG" />
-      <node id="7970711249077251764" at="173,0,174,0" concept="16" trace="initializer$2twD" />
-      <node id="7970711249077251764" at="174,0,175,0" concept="16" trace="operand$w6IR" />
-      <node id="7970711249077251764" at="175,0,176,0" concept="16" trace="fieldDeclaration$H7Ag" />
-      <node id="7970711249077251764" at="179,0,180,0" concept="16" trace="name$MnvL" />
-      <node id="7970711249077251764" at="180,0,181,0" concept="16" trace="charConstant$DOTs" />
+      <node id="7970711249077251764" at="171,0,172,0" concept="16" trace="variableDeclaration$N1XG" />
+      <node id="7970711249077251764" at="172,0,173,0" concept="16" trace="initializer$2twD" />
+      <node id="7970711249077251764" at="173,0,174,0" concept="16" trace="operand$w6IR" />
+      <node id="7970711249077251764" at="174,0,175,0" concept="16" trace="fieldDeclaration$H7Ag" />
+      <node id="7970711249077251764" at="178,0,179,0" concept="16" trace="name$MnvL" />
+      <node id="7970711249077251764" at="179,0,180,0" concept="16" trace="charConstant$DOTs" />
       <node id="7970711249077251766" at="28,0,30,0" concept="3" trace="CheckingUtil#()V" />
       <node id="5706606249115198071" at="30,44,33,5" concept="10" />
       <node id="5749030987683755344" at="37,48,40,5" concept="10" />
@@ -31289,7 +31288,7 @@
       <scope id="5749030987683755345" at="38,363,39,18" />
       <scope id="7970711249077251778" at="42,29,43,19" />
       <scope id="2384678130019230138" at="46,25,47,18" />
-      <scope id="2384678130019230151" at="50,210,51,18" />
+      <scope id="2384678130019230151" at="50,178,51,18" />
       <scope id="7255638311037667384" at="56,84,57,235" />
       <scope id="2466039659638202950" at="60,48,61,19" />
       <scope id="2466039659637467606" at="64,26,65,19" />
@@ -31371,10 +31370,10 @@
         <var name="expectedType" id="6460384142117029476" />
         <var name="expr" id="6460384142117029534" />
       </scope>
-      <unit id="7970711249077251764" at="178,0,182,0" name="jetbrains.mps.baseLanguage.typesystem.CheckingUtil$PROPS" />
-      <unit id="7970711249077251764" at="168,0,177,0" name="jetbrains.mps.baseLanguage.typesystem.CheckingUtil$LINKS" />
+      <unit id="7970711249077251764" at="177,0,181,0" name="jetbrains.mps.baseLanguage.typesystem.CheckingUtil$PROPS" />
+      <unit id="7970711249077251764" at="168,0,176,0" name="jetbrains.mps.baseLanguage.typesystem.CheckingUtil$LINKS" />
       <unit id="7970711249077251764" at="148,0,167,0" name="jetbrains.mps.baseLanguage.typesystem.CheckingUtil$CONCEPTS" />
-      <unit id="7970711249077251764" at="26,0,183,0" name="jetbrains.mps.baseLanguage.typesystem.CheckingUtil" />
+      <unit id="7970711249077251764" at="26,0,182,0" name="jetbrains.mps.baseLanguage.typesystem.CheckingUtil" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/8011059391323083094">

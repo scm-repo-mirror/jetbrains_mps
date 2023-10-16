@@ -9,25 +9,29 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
+import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.baseLanguage.behavior.Expression__BehaviorDescriptor;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class IndexedTupleLiteral__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12071708c13L, "jetbrains.mps.baseLanguage.tuples.structure.IndexedTupleLiteral");
 
   public static final SMethod<Boolean> isLValue_idhEwJgmE = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLValue").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1213877519786L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
+  public static final SMethod<Boolean> isChildAssignedInAssignment_id79$CF9VcmHc = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isChildAssignedInAssignment").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8242892105449565004L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<String> getLeftBracket_id1653mnvAgn6 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getLeftBracket").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1262430001741497798L).languageId(0xb8d207e93feba96aL, 0xa247e09e243545baL).build2();
   public static final SMethod<String> getRightBracket_id1653mnvAgtJ = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getRightBracket").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1262430001741498223L).languageId(0xb8d207e93feba96aL, 0xa247e09e243545baL).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLValue_idhEwJgmE, getLeftBracket_id1653mnvAgn6, getRightBracket_id1653mnvAgtJ);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLValue_idhEwJgmE, isChildAssignedInAssignment_id79$CF9VcmHc, getLeftBracket_id1653mnvAgn6, getRightBracket_id1653mnvAgtJ);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -39,6 +43,9 @@ public final class IndexedTupleLiteral__BehaviorDescriptor extends BaseBHDescrip
       }
     }
     return true;
+  }
+  /*package*/ static boolean isChildAssignedInAssignment_id79$CF9VcmHc(@NotNull SNode __thisNode__, SNode child) {
+    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.component$uznI)).contains(SNodeOperations.as(child, CONCEPTS.Expression$mB));
   }
   /*package*/ static String getLeftBracket_id1653mnvAgn6(@NotNull SAbstractConcept __thisConcept__) {
     return "[";
@@ -64,6 +71,8 @@ public final class IndexedTupleLiteral__BehaviorDescriptor extends BaseBHDescrip
     switch (methodIndex) {
       case 0:
         return (T) ((Boolean) isLValue_idhEwJgmE(node));
+      case 1:
+        return (T) ((Boolean) isChildAssignedInAssignment_id79$CF9VcmHc(node, (SNode) parameters[0]));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -76,9 +85,9 @@ public final class IndexedTupleLiteral__BehaviorDescriptor extends BaseBHDescrip
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
-      case 1:
-        return (T) ((String) getLeftBracket_id1653mnvAgn6(concept));
       case 2:
+        return (T) ((String) getLeftBracket_id1653mnvAgn6(concept));
+      case 3:
         return (T) ((String) getRightBracket_id1653mnvAgtJ(concept));
       default:
         throw new BHMethodNotFoundException(this, method);
@@ -99,5 +108,9 @@ public final class IndexedTupleLiteral__BehaviorDescriptor extends BaseBHDescrip
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink component$uznI = MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12071708c13L, 0x1207171832eL, "component");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Expression$mB = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
   }
 }
