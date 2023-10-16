@@ -115,7 +115,7 @@ public class PluginLoaderRegistry implements Disposable {
     mpsPlatform.findComponent(LanguageRegistry.class).addRegistryListener(myClassesListener);
   }
 
-  private void signalAppInitialized() {
+  void signalAppInitialized() {
     myAppInitialized.set(true);
     // XXX invoked from ApplicationInitializedListener which "doesn't guarantee EDT", but OTOH doesn't
     //     guarantee NOT EDT, while run() here asserts !EDT
@@ -831,18 +831,6 @@ public class PluginLoaderRegistry implements Disposable {
       Delta<T> tDelta = new Delta<>(this);
       clear();
       return tDelta;
-    }
-  }
-
-  @SuppressWarnings("UnstableApiUsage")
-  public static class MyApplicationInitializedListener implements ApplicationInitializedListener {
-    /**
-     * Somehow TaskModal#queue does not work properly during app initialization (see #runTask).
-     * So I call UpdatingTask#run explicitly
-     */
-    @Override
-    public void componentsInitialized() {
-      PluginLoaderRegistry.getInstance().signalAppInitialized();
     }
   }
 }
