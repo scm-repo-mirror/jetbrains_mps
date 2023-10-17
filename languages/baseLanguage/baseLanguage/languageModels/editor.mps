@@ -4,7 +4,6 @@
   <attribute name="doNotGenerate" value="false" />
   <languages>
     <use id="443f4c36-fcf5-4eb6-9500-8d06ed259e3e" name="jetbrains.mps.baseLanguage.classifiers" version="-1" />
-    <use id="13744753-c81f-424a-9c1b-cf8943bf4e86" name="jetbrains.mps.lang.sharedConcepts" version="-1" />
     <use id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core" version="-1" />
     <use id="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" name="jetbrains.mps.lang.actions" version="-1" />
     <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="-1" />
@@ -64,9 +63,6 @@
       <concept id="562388756444790046" name="jetbrains.mps.lang.resources.structure.ConceptIconResourceExpression" flags="ng" index="ynFM6">
         <child id="4786190798786350692" name="concept" index="mzb_8" />
       </concept>
-    </language>
-    <language id="13744753-c81f-424a-9c1b-cf8943bf4e86" name="jetbrains.mps.lang.sharedConcepts">
-      <concept id="1161622753914" name="jetbrains.mps.lang.sharedConcepts.structure.ConceptFunctionParameter_operationContext" flags="nn" index="1Q79dO" />
     </language>
     <language id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor">
       <concept id="1402906326896143883" name="jetbrains.mps.lang.editor.structure.CellKeyMap_FunctionParm_selectedNode" flags="nn" index="0GJ7k" />
@@ -11614,9 +11610,14 @@
                         <ref role="3uigEE" to="z1c3:~Project" resolve="Project" />
                       </node>
                       <node concept="2OqwBi" id="2Bet8mWh58_" role="33vP2m">
-                        <node concept="1Q79dO" id="2Bet8mWh58$" role="2Oq$k0" />
                         <node concept="liA8E" id="2Bet8mWh58D" role="2OqNvi">
                           <ref role="37wK5l" to="w1kc:~IOperationContext.getProject()" resolve="getProject" />
+                        </node>
+                        <node concept="2OqwBi" id="3eCjKC6HM7m" role="2Oq$k0">
+                          <node concept="1Q80Hx" id="3eCjKC6HKZH" role="2Oq$k0" />
+                          <node concept="liA8E" id="3eCjKC6HPjE" role="2OqNvi">
+                            <ref role="37wK5l" to="cj4x:~EditorContext.getOperationContext()" resolve="getOperationContext" />
+                          </node>
                         </node>
                       </node>
                     </node>

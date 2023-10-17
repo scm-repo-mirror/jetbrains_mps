@@ -71,10 +71,6 @@
     <ref role="aqKnT" to="tpcw:uYrIA378mk" resolve="ConceptFunctionParameter_progressMonitor" />
     <node concept="22hDWj" id="xzgvwPPpDe" role="22hAXT" />
   </node>
-  <node concept="22mcaB" id="1wEcoXjJMCS">
-    <ref role="aqKnT" to="tpcw:gTQ799U" resolve="ConceptFunctionParameter_operationContext" />
-    <node concept="22hDWj" id="xzgvwPPpDf" role="22hAXT" />
-  </node>
   <node concept="22mcaB" id="1wEcoXjJMCT">
     <ref role="aqKnT" to="tpcw:gTQ7B__" resolve="ConceptFunctionParameter_scope" />
     <node concept="22hDWj" id="xzgvwPPpDg" role="22hAXT" />

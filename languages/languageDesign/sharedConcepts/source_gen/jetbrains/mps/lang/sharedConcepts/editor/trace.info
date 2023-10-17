@@ -6,7 +6,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070475587102:jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" />
   <root>
     <file name="EditorAspectDescriptorImpl.java">
-      <unit at="15,0,42,0" name="jetbrains.mps.lang.sharedConcepts.editor.EditorAspectDescriptorImpl" />
+      <unit at="15,0,40,0" name="jetbrains.mps.lang.sharedConcepts.editor.EditorAspectDescriptorImpl" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902bb(jetbrains.mps.lang.sharedConcepts.editor)/1203541329669">
@@ -95,15 +95,6 @@
       <scope id="1741258697587239479" at="10,68,11,249" />
       <scope id="1741258697587239479" at="10,0,13,0" />
       <unit id="1741258697587239479" at="9,0,15,0" name="jetbrains.mps.lang.sharedConcepts.editor.ConceptFunctionParameter_progressMonitor_SubstituteMenu" />
-    </file>
-  </root>
-  <root nodeRef="r:00000000-0000-4000-0000-011c895902bb(jetbrains.mps.lang.sharedConcepts.editor)/1741258697587239480">
-    <file name="ConceptFunctionParameter_operationContext_SubstituteMenu.java">
-      <node id="1741258697587239480" at="10,69,11,250" concept="3" />
-      <node id="1741258697587239480" at="10,0,13,0" concept="0" trace="ConceptFunctionParameter_operationContext_SubstituteMenu#()V" />
-      <scope id="1741258697587239480" at="10,69,11,250" />
-      <scope id="1741258697587239480" at="10,0,13,0" />
-      <unit id="1741258697587239480" at="9,0,15,0" name="jetbrains.mps.lang.sharedConcepts.editor.ConceptFunctionParameter_operationContext_SubstituteMenu" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902bb(jetbrains.mps.lang.sharedConcepts.editor)/1741258697587239481">

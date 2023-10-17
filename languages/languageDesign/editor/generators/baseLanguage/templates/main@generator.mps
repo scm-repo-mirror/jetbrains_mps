@@ -7326,35 +7326,6 @@
         <ref role="v9R2y" to="tpe8:gCCYkhx" resolve="reduce_ConceptFunctionParameter_default" />
       </node>
     </node>
-    <node concept="3aamgX" id="5wWsuvnUj6j" role="3acgRq">
-      <ref role="30HIoZ" to="tpcw:gTQ799U" resolve="ConceptFunctionParameter_operationContext" />
-      <node concept="1Koe21" id="5wWsuvnUjh1" role="1lVwrX">
-        <node concept="3clFb_" id="5wWsuvnUjjZ" role="1Koe22">
-          <property role="TrG5h" value="m" />
-          <node concept="3clFbS" id="5wWsuvnUjk2" role="3clF47">
-            <node concept="3clFbF" id="5wWsuvnUtbb" role="3cqZAp">
-              <node concept="2OqwBi" id="5wWsuvnUtiY" role="3clFbG">
-                <node concept="37vLTw" id="5wWsuvnUtba" role="2Oq$k0">
-                  <ref role="3cqZAo" node="5wWsuvnUsKo" resolve="editorContext" />
-                </node>
-                <node concept="liA8E" id="5wWsuvnUtrI" role="2OqNvi">
-                  <ref role="37wK5l" to="cj4x:~EditorContext.getOperationContext()" resolve="getOperationContext" />
-                </node>
-                <node concept="raruj" id="5wWsuvnUtwn" role="lGtFl" />
-              </node>
-            </node>
-          </node>
-          <node concept="3cqZAl" id="5wWsuvnUsky" role="3clF45" />
-          <node concept="3Tm1VV" id="5wWsuvnUjk4" role="1B3o_S" />
-          <node concept="37vLTG" id="5wWsuvnUsKo" role="3clF46">
-            <property role="TrG5h" value="editorContext" />
-            <node concept="3uibUv" id="5wWsuvnUsKn" role="1tU5fm">
-              <ref role="3uigEE" to="cj4x:~EditorContext" resolve="EditorContext" />
-            </node>
-          </node>
-        </node>
-      </node>
-    </node>
   </node>
   <node concept="bUwia" id="gCzbheK">
     <property role="TrG5h" value="MAPPING_queryFunction" />

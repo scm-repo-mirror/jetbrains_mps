@@ -2129,6 +2129,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.class_(false, false, false);
     // extends: jetbrains.mps.baseLanguage.structure.ConceptFunction
     b.super_(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L);
+    b.parent(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1d5f3105ba2b044bL);
     b.origin("r:00000000-0000-4000-0000-011c8959029e(jetbrains.mps.lang.editor.structure)/1180616057533");
     b.version(3);
     b.kind(ConceptKind.INTERFACE, StaticScope.NONE);
