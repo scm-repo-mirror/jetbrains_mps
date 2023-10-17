@@ -77,7 +77,7 @@
         <property id="8618885170173601779" name="head" index="2Ry0Am" />
         <child id="8618885170173601778" name="tail" index="2Ry0An" />
       </concept>
-      <concept id="2591537044435828007" name="jetbrains.mps.build.structure.BuildSource_CompilablePart" flags="ngI" index="Saw0h">
+      <concept id="2591537044435828007" name="jetbrains.mps.build.structure.BuildSource_CompilablePart" flags="ng" index="Saw0h">
         <property id="7687809870062809395" name="withKotlin" index="ZpmtF" />
       </concept>
       <concept id="2591537044435828004" name="jetbrains.mps.build.structure.BuildLayout_CompileOutputOf" flags="ng" index="Saw0i">
@@ -132,14 +132,11 @@
       <concept id="8654221991637384182" name="jetbrains.mps.build.structure.BuildFileIncludesSelector" flags="ng" index="3qWCbU">
         <property id="8654221991637384184" name="pattern" index="3qWCbO" />
       </concept>
-      <concept id="4701820937132344003" name="jetbrains.mps.build.structure.BuildLayout_Container" flags="ngI" index="1y1bJS">
+      <concept id="4701820937132344003" name="jetbrains.mps.build.structure.BuildLayout_Container" flags="ng" index="1y1bJS">
         <child id="7389400916848037006" name="children" index="39821P" />
       </concept>
       <concept id="5610619299013057363" name="jetbrains.mps.build.structure.BuildLayout_ImportContent" flags="ng" index="3ygNvl">
         <reference id="5610619299013057365" name="target" index="3ygNvj" />
-      </concept>
-      <concept id="5610619299014446503" name="jetbrains.mps.build.structure.BuildSource_JavaLibraryExternalJar" flags="ng" index="3yqu4x">
-        <child id="5610619299014446504" name="extJar" index="3yqu4I" />
       </concept>
       <concept id="5610619299014531832" name="jetbrains.mps.build.structure.BuildSource_JavaLibraryExternalJarFolder" flags="ng" index="3yqFpY">
         <property id="2059522355690539028" name="includeRecursively" index="2HvuMZ" />
@@ -187,7 +184,7 @@
       <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
         <property id="1193676396447" name="virtualPackage" index="3GE5qa" />
       </concept>
-      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ngI" index="TrEIO">
+      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
     </language>
@@ -1206,16 +1203,6 @@
         </node>
       </node>
     </node>
-    <node concept="PiPfp" id="7quUOWmbjD$" role="3989C9">
-      <property role="TrG5h" value="idea-devkit-jps" />
-      <node concept="25yagZ" id="7quUOWmbsOU" role="PiKyV">
-        <node concept="3yqu4x" id="7quUOWmbsOQ" role="25yagT">
-          <node concept="3yrxFa" id="5i_vir09mrX" role="3yqu4I">
-            <ref role="3yrxFb" to="ffeo:7quUOWmbqGO" />
-          </node>
-        </node>
-      </node>
-    </node>
     <node concept="PiPfp" id="3L2iO8sIVea" role="3989C9">
       <property role="TrG5h" value="mps-testing-artifacts" />
       <node concept="25yagZ" id="3L2iO8sLKhW" role="PiKyV">
@@ -1526,9 +1513,6 @@
       </node>
       <node concept="nCB5N" id="7qAM8QHhzwE" role="nCB5Z">
         <ref role="nCB5Y" node="3ZROizBXHBA" resolve="mps-java-jps-plugin" />
-      </node>
-      <node concept="2sjeV3" id="7quUOWmbsPp" role="nCB5Z">
-        <ref role="2sjeV2" node="7quUOWmbjD$" resolve="idea-devkit-jps" />
       </node>
       <node concept="2sjeV3" id="4gzZMp9tuNe" role="nCB5Z">
         <ref role="2sjeV2" node="4gzZMp9tuO_" resolve="idea-jps-tests" />

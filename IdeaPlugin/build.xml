@@ -511,9 +511,6 @@
         <fileset dir="${ideaPath}/plugins/java/lib">
           <include name="**/*.jar"/>
         </fileset>
-        <fileset dir="${ideaPath}/plugins/devkit/lib">
-          <include name="devkit-jps.jar"/>
-        </fileset>
         <!-- all JPS jars as specified in plugin.xmlS -->
         <pathelement path="${jps.classpath}"/>
         <!-- enumerating additional jard for testing -->

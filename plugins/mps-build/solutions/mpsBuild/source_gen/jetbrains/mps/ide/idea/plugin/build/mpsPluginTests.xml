@@ -52,10 +52,6 @@
     <fileset file="${mps_home}/lib/jps/jps-build-test.jar" />
   </path>
   
-  <path id="path.java.library.idea-devkit-jps">
-    <fileset file="${artifacts.IDEA}/plugins/devkit/lib/devkit-jps.jar" />
-  </path>
-  
   <path id="path.java.library.mps-testing-artifacts">
     <fileset dir="${artifacts.mpsTesting}/mps-testing" includes="**/*.jar" />
   </path>
@@ -269,7 +265,6 @@
         <fileset file="${artifacts.IDEA}/lib/stats.jar" />
         <fileset file="${artifacts.IDEA}/lib/platform-loader.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
-        <path refid="path.java.library.idea-devkit-jps" />
         <path refid="path.java.library.idea-jps-tests" />
         <fileset dir="${artifacts.IDEA}/plugins/java/lib" includes="*.jar" />
         <fileset file="${artifacts.IDEA}/lib/junit4.jar" />
