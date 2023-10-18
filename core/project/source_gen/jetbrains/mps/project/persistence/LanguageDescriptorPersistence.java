@@ -105,11 +105,9 @@ public class LanguageDescriptorPersistence {
 
         // odd 'stubModelEntry' name for auxiliary classpath is due to legacy
         List<String> javaLibs = Sequence.fromIterable(XmlUtil.children(XmlUtil.first(languageElement, "stubModelEntries"), "stubModelEntry")).select((mee) -> mee.getAttributeValue("path")).toList();
-        result_v3r4p8_a0a0a0c0h.getJavaLibOriginalValues().addAll(javaLibs);
         result_v3r4p8_a0a0a0c0h.getJavaLibPersistedValues().addAll(ListSequence.fromList(javaLibs).select((it) -> myMacroHelper.expandPath(it)).toList());
 
         List<String> sources = Sequence.fromIterable(XmlUtil.children(XmlUtil.first(languageElement, "sourcePath"), "source")).select((it) -> it.getAttributeValue("path")).toList();
-        result_v3r4p8_a0a0a0c0h.getSourcePathOriginalValue().addAll(sources);
         result_v3r4p8_a0a0a0c0h.getSourcePathPersistedValue().addAll(ListSequence.fromList(sources).select((it) -> myMacroHelper.expandPath(it)).toList());
         return result_v3r4p8_a0a0a0c0h;
       }).invoke();

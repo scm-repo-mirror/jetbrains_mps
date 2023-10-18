@@ -1213,6 +1213,9 @@ public class QueriesGenerated extends QueryProviderBase {
   public static Object templateArgumentQuery_0_3(final TemplateArgumentContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.plugin$9ewC);
   }
+  public static Object templateArgumentQuery_0_4(final TemplateArgumentContext _context) {
+    return SLinkOperations.getTarget(_context.getNode(), LINKS.plugin$ZarS);
+  }
   public static Object templateArgumentQuery_3_0(final TemplateArgumentContext _context) {
     return (((Boolean) _context.getVariable("separateJarWithSources")) ? BuildMpsLayout_ModuleJars__BehaviorDescriptor.getSourceModuleJarName_id6v5CVv8csP9.invoke(_context.getNode()) : null);
   }
@@ -1248,9 +1251,6 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   public static Object templateArgumentQuery_7_5(final TemplateArgumentContext _context) {
     return new String[0];
-  }
-  public static Object templateArgumentQuery_0_4(final TemplateArgumentContext _context) {
-    return SLinkOperations.getTarget(_context.getNode(), LINKS.plugin$ZarS);
   }
   public static Object templateArgumentQuery_7_6(final TemplateArgumentContext _context) {
     return (SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), LINKS.module$iRYT), LINKS.path$iYKB) != null);
@@ -1574,6 +1574,10 @@ public class QueriesGenerated extends QueryProviderBase {
   public static void mapSrcMacro_post_0_2(final MapSrcMacroPostProcContext _context) {
     // not sure there's need for preserveLocations when we have distinct DH for build.mps and mps.build steps
     DependenciesHelper.get(_context, SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.BuildProject$ae, false, false), "build.mps").preserveLocations(_context.getNode(), _context.getOutputNode());
+    _context.registerMappingLabel(SLinkOperations.getTarget(_context.getNode(), LINKS.plugin$9ewC), "PLUGIN2LAYOUT", _context.getOutputNode());
+  }
+  public static void mapSrcMacro_post_0_3(final MapSrcMacroPostProcContext _context) {
+    _context.registerMappingLabel(SLinkOperations.getTarget(_context.getNode(), LINKS.plugin$ZarS), "PLUGIN2LAYOUT", _context.getOutputNode());
   }
   public static void mapSrcMacro_post_7_0(final MapSrcMacroPostProcContext _context) {
     DependenciesHelper.get(_context, SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.BuildProject$ae, false, false), "build.mps").preserveLocations(_context.getNode(), _context.getOutputNode());
@@ -1786,7 +1790,7 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   public static Object varMacro_Value_10_8(final TemplateVarContext _context) {
     List<Tuples._2<SNode, String>> dependencies = new ProjectDependency(_context, _context.getNode()).collectDependencies().getDependencies();
-    return ListSequence.fromList(dependencies).select((it) -> createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a104(it._1(), it._0())).toList();
+    return ListSequence.fromList(dependencies).select((it) -> createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a204(it._1(), it._0())).toList();
   }
   public static Object varMacro_Value_10_9(final TemplateVarContext _context) {
     MPSModulesPartitioner partitioner = new MPSModulesPartitioner(_context.getNode());
@@ -3203,19 +3207,19 @@ public class QueriesGenerated extends QueryProviderBase {
     caqMethods.put("4964617264469629189", new CAQ(2));
     caqMethods.put("4676212293436886238", new CAQ(3));
     caqMethods.put("4031822141870046784", new CAQ(4));
-    caqMethods.put("763829979706275425", new CAQ(5));
-    caqMethods.put("1241280061045711831", new CAQ(6));
-    caqMethods.put("8062866996715238024", new CAQ(7));
-    caqMethods.put("1241280061045633251", new CAQ(8));
-    caqMethods.put("1241280061045812456", new CAQ(9));
-    caqMethods.put("1241280061045812468", new CAQ(10));
-    caqMethods.put("1241280061045812484", new CAQ(11));
-    caqMethods.put("1241280061045657510", new CAQ(12));
-    caqMethods.put("763829979706157118", new CAQ(13));
-    caqMethods.put("1241280061045610327", new CAQ(14));
-    caqMethods.put("1241280061045658611", new CAQ(15));
-    caqMethods.put("6136186284559414533", new CAQ(16));
-    caqMethods.put("4031822141870040830", new CAQ(17));
+    caqMethods.put("7135065582587537216", new CAQ(5));
+    caqMethods.put("763829979706275425", new CAQ(6));
+    caqMethods.put("1241280061045711831", new CAQ(7));
+    caqMethods.put("8062866996715238024", new CAQ(8));
+    caqMethods.put("1241280061045633251", new CAQ(9));
+    caqMethods.put("1241280061045812456", new CAQ(10));
+    caqMethods.put("1241280061045812468", new CAQ(11));
+    caqMethods.put("1241280061045812484", new CAQ(12));
+    caqMethods.put("1241280061045657510", new CAQ(13));
+    caqMethods.put("763829979706157118", new CAQ(14));
+    caqMethods.put("1241280061045610327", new CAQ(15));
+    caqMethods.put("1241280061045658611", new CAQ(16));
+    caqMethods.put("6136186284559414533", new CAQ(17));
     caqMethods.put("1241280061046504134", new CAQ(18));
     caqMethods.put("4912951749633721708", new CAQ(19));
     caqMethods.put("4912951749633723518", new CAQ(20));
@@ -3245,31 +3249,31 @@ public class QueriesGenerated extends QueryProviderBase {
         case 4:
           return QueriesGenerated.templateArgumentQuery_0_3(ctx);
         case 5:
-          return QueriesGenerated.templateArgumentQuery_3_0(ctx);
-        case 6:
-          return QueriesGenerated.templateArgumentQuery_3_1(ctx);
-        case 7:
-          return QueriesGenerated.templateArgumentQuery_3_2(ctx);
-        case 8:
-          return QueriesGenerated.templateArgumentQuery_3_3(ctx);
-        case 9:
-          return QueriesGenerated.templateArgumentQuery_3_4(ctx);
-        case 10:
-          return QueriesGenerated.templateArgumentQuery_3_5(ctx);
-        case 11:
-          return QueriesGenerated.templateArgumentQuery_3_6(ctx);
-        case 12:
-          return QueriesGenerated.templateArgumentQuery_7_1(ctx);
-        case 13:
-          return QueriesGenerated.templateArgumentQuery_7_2(ctx);
-        case 14:
-          return QueriesGenerated.templateArgumentQuery_7_3(ctx);
-        case 15:
-          return QueriesGenerated.templateArgumentQuery_7_4(ctx);
-        case 16:
-          return QueriesGenerated.templateArgumentQuery_7_5(ctx);
-        case 17:
           return QueriesGenerated.templateArgumentQuery_0_4(ctx);
+        case 6:
+          return QueriesGenerated.templateArgumentQuery_3_0(ctx);
+        case 7:
+          return QueriesGenerated.templateArgumentQuery_3_1(ctx);
+        case 8:
+          return QueriesGenerated.templateArgumentQuery_3_2(ctx);
+        case 9:
+          return QueriesGenerated.templateArgumentQuery_3_3(ctx);
+        case 10:
+          return QueriesGenerated.templateArgumentQuery_3_4(ctx);
+        case 11:
+          return QueriesGenerated.templateArgumentQuery_3_5(ctx);
+        case 12:
+          return QueriesGenerated.templateArgumentQuery_3_6(ctx);
+        case 13:
+          return QueriesGenerated.templateArgumentQuery_7_1(ctx);
+        case 14:
+          return QueriesGenerated.templateArgumentQuery_7_2(ctx);
+        case 15:
+          return QueriesGenerated.templateArgumentQuery_7_3(ctx);
+        case 16:
+          return QueriesGenerated.templateArgumentQuery_7_4(ctx);
+        case 17:
+          return QueriesGenerated.templateArgumentQuery_7_5(ctx);
         case 18:
           return QueriesGenerated.templateArgumentQuery_7_6(ctx);
         case 19:
@@ -3286,7 +3290,8 @@ public class QueriesGenerated extends QueryProviderBase {
     mppMethods.put("687702229766712927", new PPQ(0));
     mppMethods.put("687702229768150158", new PPQ(1));
     mppMethods.put("3747750384908358182", new PPQ(2));
-    mppMethods.put("4031822141866335512", new PPQ(3));
+    mppMethods.put("7135065582587549935", new PPQ(3));
+    mppMethods.put("4031822141866335512", new PPQ(4));
   }
   @NotNull
   @Override
@@ -3311,6 +3316,9 @@ public class QueriesGenerated extends QueryProviderBase {
           QueriesGenerated.mapSrcMacro_post_0_2(ctx);
           return;
         case 3:
+          QueriesGenerated.mapSrcMacro_post_0_3(ctx);
+          return;
+        case 4:
           QueriesGenerated.mapSrcMacro_post_7_0(ctx);
           return;
         default:
@@ -3328,7 +3336,7 @@ public class QueriesGenerated extends QueryProviderBase {
     n0.setProperty(PROPS.path$oN2q, p0);
     return n0.getResult();
   }
-  private static SNode createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a104(String p0, SNode p1) {
+  private static SNode createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a204(String p0, SNode p1) {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.GeneratorInternal_ProjectDependency$bb);
     n0.setProperty(PROPS.path$URGX, p0);
     n0.setReferenceTarget(LINKS.project$ciHu, p1);
