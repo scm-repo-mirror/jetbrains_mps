@@ -7,6 +7,7 @@
   <property name="build.layout" location="${build.dir}/artifacts/mpsImplementationStripping" />
   <property name="mps_home" location="" />
   <property name="idea_home" location="${mps_home}" />
+  <property name="kotlinc_home" location="${mps_home}/plugins/mps-kotlin/kotlinc" />
   <property name="artifacts.mps" location="${mps_home}" />
   <property name="artifacts.IDEA" location="${idea_home}" />
   <property file="${artifacts.mps}/build.properties" prefix="import.mps" />
@@ -57,6 +58,8 @@
   <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="path.javac2.classpath" />
   
   <taskdef resource="jetbrains/mps/build/ant/antlib.xml" classpathref="path.mps.ant.path" />
+  
+  <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlinc_home}/lib/kotlin-ant.jar"></typedef>
   
   <generator-settings id="m2m-defaults" strictMode="true" parallelThreads="8" inplaceTransform="false" warnWrongChild="true" createStaticRefs="true" skipUnmodifiedModels="${mps.generator.skipUnmodifiedModels}" />
   
@@ -475,6 +478,7 @@
       </jvmargs>
       <macro name="mps_home" path="${mps_home}" />
       <macro name="idea_home" path="${idea_home}" />
+      <macro name="kotlinc_home" path="${kotlinc_home}" />
     </generate>
   </target>
   
@@ -487,6 +491,9 @@
   <target name="java.compile.jetbrains.mps.build.stripping.tests" depends="java.compile.jetbrains.mps.samples.JavaKaja, fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.build.stripping.tests" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.build.stripping.tests" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.build.stripping.tests">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src path="${basedir}/testbench/testsolutions/jetbrains.mps.build.stripping.tests/test_gen/" />
       <classpath>
@@ -561,6 +568,9 @@
     <mkdir dir="${basedir}/samples/robot_Kaja/languages/Kajak/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.samples.Kaja" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.samples.Kaja" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.samples.Kaja">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/samples/robot_Kaja/languages/Kajak/source_gen" />
@@ -630,6 +640,9 @@
     <mkdir dir="${basedir}/samples/robot_Kaja/languages/Kajak/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.samples.Kaja#3265739055509559144" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.samples.Kaja#3265739055509559144" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.samples.Kaja#3265739055509559144">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/samples/robot_Kaja/languages/Kajak/generator/source_gen" />
@@ -694,6 +707,9 @@
     <mkdir dir="${basedir}/samples/robot_Kaja/solutions/JavaKajak/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.samples.JavaKaja" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.samples.JavaKaja" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.samples.JavaKaja">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/samples/robot_Kaja/solutions/JavaKajak/source_gen" />

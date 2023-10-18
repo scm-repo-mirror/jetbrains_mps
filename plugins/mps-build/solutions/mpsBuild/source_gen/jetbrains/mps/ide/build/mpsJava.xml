@@ -5,6 +5,7 @@
   <property name="build.layout" location="${build.dir}/artifacts/mpsJava" />
   <property name="mps_home" location="${basedir}" />
   <property name="idea_home" location="" />
+  <property name="kotlinc_home" location="${mps_home}/plugins/mps-kotlin/kotlinc" />
   <property name="artifacts.mpsJavaPlatform" location="${build.dir}/artifacts/mpsJavaPlatform" />
   <property name="artifacts.mpsBootstrapCore" location="${build.dir}/artifacts/mpsBootstrapCore" />
   <property name="artifacts.mpsWorkbench" location="${build.dir}/artifacts/mpsWorkbench" />
@@ -51,6 +52,8 @@
   <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="path.javac2.classpath" />
   
   <taskdef resource="jetbrains/mps/build/ant/antlib.xml" classpathref="path.mps.ant.path" />
+  
+  <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlinc_home}/lib/kotlin-ant.jar"></typedef>
   
   <generator-settings id="m2m-defaults" strictMode="true" parallelThreads="8" inplaceTransform="false" warnWrongChild="true" createStaticRefs="true" skipUnmodifiedModels="${mps.generator.skipUnmodifiedModels}" />
   
@@ -304,6 +307,7 @@
       </jvmargs>
       <macro name="mps_home" path="${mps_home}" />
       <macro name="idea_home" path="${idea_home}" />
+      <macro name="kotlinc_home" path="${kotlinc_home}" />
     </generate>
   </target>
   
@@ -339,6 +343,9 @@
     <mkdir dir="${mps_home}/plugins/mps-java/workbench/modules/jetbrains.mps.java.workbench/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.java.workbench" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.java.workbench" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.java.workbench">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/plugins/mps-java/workbench/modules/jetbrains.mps.java.workbench/source_gen" />

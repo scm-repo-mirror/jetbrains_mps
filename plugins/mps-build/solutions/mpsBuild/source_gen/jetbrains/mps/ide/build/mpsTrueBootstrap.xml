@@ -5,6 +5,7 @@
   <property name="build.layout" location="${build.dir}/artifacts/mpsTrueBootstrap" />
   <property name="mps_home" location="${basedir}" />
   <property name="idea_home" location="" />
+  <property name="kotlinc_home" location="${mps_home}/plugins/mps-kotlin/kotlinc" />
   <property name="artifacts.IDEA" location="${idea_home}" />
   <property name="environment" value="env" />
   <property name="env.JAVA_HOME" value="${java.home}/.." />
@@ -79,6 +80,8 @@
   </path>
   
   <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="path.javac2.classpath" />
+  
+  <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlinc_home}/lib/kotlin-ant.jar"></typedef>
   
   <target name="assemble" depends="classes">
     <mkdir dir="${build.layout}" />
@@ -185,6 +188,9 @@
     <mkdir dir="${mps_home}/core/mps-annotations/source" />
     <mkdir dir="${build.tmp}/java/out/mps-annotations" />
     <javac2 destdir="${build.tmp}/java/out/mps-annotations" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-annotations">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/core/mps-annotations/source" />
@@ -200,6 +206,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/tuples/runtime/source_gen" />
     <mkdir dir="${build.tmp}/java/out/mps-tuples" />
     <javac2 destdir="${build.tmp}/java/out/mps-tuples" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-tuples">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/tuples/runtime/source_gen" />
@@ -212,6 +221,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/closures/runtime/source_gen" />
     <mkdir dir="${build.tmp}/java/out/mps-closures" />
     <javac2 destdir="${build.tmp}/java/out/mps-closures" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-closures">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/closures/runtime/source_gen" />
@@ -224,6 +236,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/references/runtime/source" />
     <mkdir dir="${build.tmp}/java/out/mps-references" />
     <javac2 destdir="${build.tmp}/java/out/mps-references" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-references">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/references/runtime/source" />
@@ -236,6 +251,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/collections/runtime/source_gen" />
     <mkdir dir="${build.tmp}/java/out/mps-collections" />
     <javac2 destdir="${build.tmp}/java/out/mps-collections" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-collections">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/collections/runtime/source_gen" />
@@ -253,6 +271,9 @@
     <mkdir dir="${mps_home}/core/tool/common/source_gen" />
     <mkdir dir="${build.tmp}/java/out/ant-mps" />
     <javac2 destdir="${build.tmp}/java/out/ant-mps" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="ant-mps">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/core/tool/ant/source_gen" />
@@ -276,6 +297,9 @@
     <mkdir dir="${mps_home}/core/openapi/source" />
     <mkdir dir="${build.tmp}/java/out/mps-openapi" />
     <javac2 destdir="${build.tmp}/java/out/mps-openapi" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-openapi">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/core/openapi/source" />
@@ -292,6 +316,9 @@
     <mkdir dir="${mps_home}/core/logging/source" />
     <mkdir dir="${build.tmp}/java/out/mps-logging" />
     <javac2 destdir="${build.tmp}/java/out/mps-logging" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-logging">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/core/logging/source" />
@@ -310,6 +337,9 @@
     <mkdir dir="${mps_home}/core/mps-messaging/source" />
     <mkdir dir="${build.tmp}/java/out/mps-messaging" />
     <javac2 destdir="${build.tmp}/java/out/mps-messaging" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-messaging">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/core/mps-messaging/source" />
@@ -328,6 +358,9 @@
     <mkdir dir="${mps_home}/startup/boot-util/source" />
     <mkdir dir="${build.tmp}/java/out/mps-boot-util" />
     <javac2 destdir="${build.tmp}/java/out/mps-boot-util" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-boot-util">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/startup/boot-util/source" />
@@ -346,6 +379,9 @@
   <target name="java.compile.mps-core-components" depends="java.compile.mps-annotations">
     <mkdir dir="${build.tmp}/java/out/mps-core-components" />
     <javac2 destdir="${build.tmp}/java/out/mps-core-components" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-core-components">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src path="${mps_home}/core/components/source" />
       <classpath>
@@ -359,6 +395,9 @@
   <target name="java.compile.util-core" depends="java.compile.mps-annotations, java.compile.mps-openapi">
     <mkdir dir="${build.tmp}/java/out/util-core" />
     <javac2 destdir="${build.tmp}/java/out/util-core" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="util-core">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src path="${mps_home}/core/util/source" />
       <classpath>
@@ -375,6 +414,9 @@
   <target name="java.compile.vfs" depends="java.compile.mps-annotations, java.compile.mps-openapi, java.compile.mps-logging, java.compile.mps-core-components, java.compile.util-core">
     <mkdir dir="${build.tmp}/java/out/vfs" />
     <javac2 destdir="${build.tmp}/java/out/vfs" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="vfs">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <pathelement path="${mps_home}/core/vfs/source" />
@@ -398,6 +440,9 @@
   <target name="java.compile.mps-smodel" depends="java.compile.mps-annotations, java.compile.mps-openapi, java.compile.mps-logging, java.compile.util-core">
     <mkdir dir="${build.tmp}/java/out/mps-smodel" />
     <javac2 destdir="${build.tmp}/java/out/mps-smodel" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-smodel">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src path="${mps_home}/core/smodel/source" />
       <classpath>
@@ -458,6 +503,9 @@
     <mkdir dir="${mps_home}/core/aspects/behavior/behavior-runtime/source" />
     <mkdir dir="${build.tmp}/java/out/mps-behavior-runtime" />
     <javac2 destdir="${build.tmp}/java/out/mps-behavior-runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-behavior-runtime">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/core/aspects/behavior/behavior-runtime/source" />
@@ -490,6 +538,9 @@
     <mkdir dir="${mps_home}/core/aspects/behavior/behavior-api/source" />
     <mkdir dir="${build.tmp}/java/out/mps-behavior-api" />
     <javac2 destdir="${build.tmp}/java/out/mps-behavior-api" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-behavior-api">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/core/aspects/behavior/behavior-api/source" />
@@ -513,6 +564,9 @@
     <mkdir dir="${mps_home}/core/aspects/constraints/constraints-runtime/source" />
     <mkdir dir="${build.tmp}/java/out/constraints-runtime" />
     <javac2 destdir="${build.tmp}/java/out/constraints-runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="constraints-runtime">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/core/aspects/constraints/constraints-runtime/source" />
@@ -547,6 +601,9 @@
     <mkdir dir="${mps_home}/core/aspects/feedback/context/source" />
     <mkdir dir="${build.tmp}/java/out/feeback-context" />
     <javac2 destdir="${build.tmp}/java/out/feeback-context" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="feeback-context">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/core/aspects/feedback/context/source" />
@@ -564,6 +621,9 @@
     <mkdir dir="${mps_home}/core/aspects/feedback/messages-for-legacy-constraints/source" />
     <mkdir dir="${build.tmp}/java/out/messages-for-legacy-constraints" />
     <javac2 destdir="${build.tmp}/java/out/messages-for-legacy-constraints" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="messages-for-legacy-constraints">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/core/aspects/feedback/messages-for-legacy-constraints/source" />
@@ -583,6 +643,9 @@
     <mkdir dir="${mps_home}/core/aspects/feedback/problem/source" />
     <mkdir dir="${build.tmp}/java/out/feedback-problem" />
     <javac2 destdir="${build.tmp}/java/out/feedback-problem" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="feedback-problem">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/core/aspects/feedback/problem/source" />
@@ -600,6 +663,9 @@
   <target name="java.compile.mps-kernel" depends="java.compile.mps-annotations, java.compile.mps-openapi, java.compile.mps-logging, java.compile.util-core, java.compile.mps-smodel, java.compile.mps-closures, java.compile.mps-collections, java.compile.mps-tuples, java.compile.mps-references, java.compile.mps-core-components, java.compile.mps-behavior-api, java.compile.mps-messaging, java.compile.mps-boot-util, java.compile.feeback-context, java.compile.feedback-problem, java.compile.messages-for-legacy-constraints, java.compile.vfs, java.compile.java.modules.cycle.1">
     <mkdir dir="${build.tmp}/java/out/mps-kernel" />
     <javac2 destdir="${build.tmp}/java/out/mps-kernel" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-kernel">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <pathelement path="${mps_home}/core/kernel/source" />
@@ -639,6 +705,9 @@
   <target name="java.compile.mps-project" depends="java.compile.mps-annotations, java.compile.mps-openapi, java.compile.mps-logging, java.compile.util-core, java.compile.mps-smodel, java.compile.mps-closures, java.compile.mps-collections, java.compile.mps-tuples, java.compile.mps-references, java.compile.mps-core-components, java.compile.mps-behavior-api, java.compile.mps-messaging, java.compile.feeback-context, java.compile.vfs, java.compile.java.modules.cycle.1">
     <mkdir dir="${build.tmp}/java/out/mps-project" />
     <javac2 destdir="${build.tmp}/java/out/mps-project" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-project">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <pathelement path="${mps_home}/core/project/source" />
@@ -677,6 +746,9 @@
     <mkdir dir="${mps_home}/core/kotlin-stub/source_gen" />
     <mkdir dir="${build.tmp}/java/out/mps-persistence" />
     <javac2 destdir="${build.tmp}/java/out/mps-persistence" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-persistence">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/core/persistence/source" />
@@ -723,6 +795,9 @@
   <target name="java.compile.platform-persistence-only" depends="java.compile.mps-annotations, java.compile.mps-openapi, java.compile.mps-logging, java.compile.util-core, java.compile.mps-smodel, java.compile.mps-closures, java.compile.mps-collections, java.compile.mps-tuples, java.compile.mps-references, java.compile.mps-project, java.compile.mps-core-components, java.compile.mps-behavior-api, java.compile.mps-behavior-runtime, java.compile.mps-messaging, java.compile.feeback-context, java.compile.constraints-runtime, java.compile.vfs, java.compile.mps-kernel, java.compile.mps-persistence">
     <mkdir dir="${build.tmp}/java/out/platform-persistence-only" />
     <javac2 destdir="${build.tmp}/java/out/platform-persistence-only" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="platform-persistence-only">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <pathelement path="${mps_home}/core/platform/source" />
@@ -760,6 +835,9 @@
     <mkdir dir="${mps_home}/core/tool/builder/source_gen/jetbrains/mps/tool/builder/converter" />
     <mkdir dir="${build.tmp}/java/out/mps-tool-convertModels" />
     <javac2 destdir="${build.tmp}/java/out/mps-tool-convertModels" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-tool-convertModels">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/core/tool/builder/source_gen/jetbrains/mps/tool/builder/converter" />

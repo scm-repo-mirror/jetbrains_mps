@@ -1276,6 +1276,9 @@
     <mkdir dir="${plugin_home}/ide/jetbrains.mps.kotlin.idePlugin/source_gen" />
     <mkdir dir="${build.tmp}/java/out/kotlinIde" />
     <javac2 destdir="${build.tmp}/java/out/kotlinIde" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="kotlinIde">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${plugin_home}/ide/jetbrains.mps.kotlin.idePlugin/source_gen" />
@@ -1328,6 +1331,9 @@
     <mkdir dir="${plugin_home}/languages/kotlin/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.kotlin" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.kotlin" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.kotlin">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${plugin_home}/languages/kotlin/source_gen" />
@@ -1462,6 +1468,9 @@
     <mkdir dir="${plugin_home}/languages/kotlin.javaRefs/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.kotlin.javaRefs" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.kotlin.javaRefs" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.kotlin.javaRefs">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${plugin_home}/languages/kotlin.javaRefs/source_gen" />
@@ -1531,6 +1540,9 @@
     <mkdir dir="${plugin_home}/languages/baseLanguage.kotlinRefs/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.kotlinRefs" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.kotlinRefs" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.kotlinRefs">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${plugin_home}/languages/baseLanguage.kotlinRefs/source_gen" />
@@ -1600,6 +1612,9 @@
     <mkdir dir="${plugin_home}/languages/kotlin.internal/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.kotlin.internal" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.kotlin.internal" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.kotlin.internal">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${plugin_home}/languages/kotlin.internal/source_gen" />
@@ -1666,6 +1681,9 @@
     <mkdir dir="${plugin_home}/languages/kotlin.internal/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.kotlin.internal.generator" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.kotlin.internal.generator" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.kotlin.internal.generator">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${plugin_home}/languages/kotlin.internal/generator/source_gen" />
@@ -1730,6 +1748,9 @@
     <mkdir dir="${plugin_home}/languages/kotlin.smodel/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.kotlin.smodel" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.kotlin.smodel" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.kotlin.smodel">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${plugin_home}/languages/kotlin.smodel/source_gen" />
@@ -1808,6 +1829,9 @@
     <mkdir dir="${plugin_home}/languages/kotlin.smodel/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.kotlin.smodel.generator" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.kotlin.smodel.generator" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.kotlin.smodel.generator">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${plugin_home}/languages/kotlin.smodel/generator/source_gen" />
@@ -1923,6 +1947,9 @@
     <mkdir dir="${plugin_home}/solutions/kotlin.baseLanguage.runtime/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.kotlin.baseLanguage.runtime" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.kotlin.baseLanguage.runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.kotlin.baseLanguage.runtime">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${plugin_home}/solutions/kotlin.baseLanguage.runtime/source_gen" />

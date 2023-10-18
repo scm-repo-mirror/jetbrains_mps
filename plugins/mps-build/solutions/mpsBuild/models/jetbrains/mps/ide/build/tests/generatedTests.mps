@@ -45,6 +45,9 @@
         <property id="8618885170173601779" name="head" index="2Ry0Am" />
         <child id="8618885170173601778" name="tail" index="2Ry0An" />
       </concept>
+      <concept id="2591537044435828007" name="jetbrains.mps.build.structure.BuildSource_CompilablePart" flags="ngI" index="Saw0h">
+        <property id="7687809870062809395" name="withKotlin" index="ZpmtF" />
+      </concept>
       <concept id="6647099934206700647" name="jetbrains.mps.build.structure.BuildJavaPlugin" flags="ng" index="10PD9b" />
       <concept id="7181125477683417252" name="jetbrains.mps.build.structure.BuildExternalLayoutDependency" flags="ng" index="13uUGR">
         <reference id="7181125477683417255" name="layout" index="13uUGO" />
@@ -156,6 +159,7 @@
       <node concept="1E1JtD" id="11vUesBXT7G" role="2G$12L">
         <property role="TrG5h" value="jetbrains.mps.persistence.transients" />
         <property role="3LESm3" value="8a1d24e1-cf4e-440a-9855-08a714a1c1f3" />
+        <property role="ZpmtF" value="true" />
         <node concept="55IIr" id="11vUesBXT7H" role="3LF7KH">
           <node concept="2Ry0Ak" id="11vUesBXT7I" role="iGT6I">
             <property role="2Ry0Am" value="testbench" />
@@ -229,6 +233,7 @@
         <property role="TrG5h" value="tests.testPersistence" />
         <property role="3LESm3" value="f2f32c65-17db-4e68-ad2f-8b0e2554dbd6" />
         <property role="aoJFB" value="eYcmk9QOlj/sources_and_tests" />
+        <property role="ZpmtF" value="true" />
         <node concept="55IIr" id="11vUesBXT7W" role="3LF7KH">
           <node concept="2Ry0Ak" id="11vUesBXT7X" role="iGT6I">
             <property role="2Ry0Am" value="testbench" />
@@ -310,6 +315,7 @@
         <property role="TrG5h" value="CloneModule.test" />
         <property role="3LESm3" value="99305b9b-aa2f-490a-a517-130cdd46b087" />
         <property role="aoJFB" value="eYcmk9QOlj/sources_and_tests" />
+        <property role="ZpmtF" value="true" />
         <node concept="55IIr" id="11vUesBXT89" role="3LF7KH">
           <node concept="2Ry0Ak" id="11vUesBXT8a" role="iGT6I">
             <property role="2Ry0Am" value="testbench" />
@@ -406,6 +412,7 @@
         <property role="TrG5h" value="JavaCompilationXmlConflict.test" />
         <property role="3LESm3" value="b0a89157-db40-4955-b2ac-edf8fcc90dde" />
         <property role="aoJFB" value="eYcmk9QOlj/sources_and_tests" />
+        <property role="ZpmtF" value="true" />
         <node concept="55IIr" id="11vUesBXT8m" role="3LF7KH">
           <node concept="2Ry0Ak" id="11vUesBXT8n" role="iGT6I">
             <property role="2Ry0Am" value="testbench" />
@@ -497,6 +504,7 @@
         <property role="TrG5h" value="refactoring.test" />
         <property role="3LESm3" value="64b24ebe-97a2-466e-83d8-bd3afefcbb41" />
         <property role="aoJFB" value="eYcmk9QOlj/sources_and_tests" />
+        <property role="ZpmtF" value="true" />
         <node concept="55IIr" id="11vUesBXT8z" role="3LF7KH">
           <node concept="2Ry0Ak" id="11vUesBXT8$" role="iGT6I">
             <property role="2Ry0Am" value="testbench" />
@@ -694,6 +702,7 @@
         <property role="TrG5h" value="mps.test.findusages" />
         <property role="3LESm3" value="9ebe73c6-437b-4a56-95a7-1d7eec081f24" />
         <property role="aoJFB" value="eYcmk9QOlj/sources_and_tests" />
+        <property role="ZpmtF" value="true" />
         <node concept="55IIr" id="11vUesBXT8K" role="3LF7KH">
           <node concept="2Ry0Ak" id="11vUesBXT8L" role="iGT6I">
             <property role="2Ry0Am" value="testbench" />
@@ -780,6 +789,7 @@
         <property role="TrG5h" value="jetbrains.mps.persistence.transients.tests" />
         <property role="3LESm3" value="744e8fdc-be86-476c-90fa-c51c36b899e5" />
         <property role="aoJFB" value="eYcmk9QOlj/sources_and_tests" />
+        <property role="ZpmtF" value="true" />
         <node concept="55IIr" id="11vUesBXT8X" role="3LF7KH">
           <node concept="2Ry0Ak" id="11vUesBXT8Y" role="iGT6I">
             <property role="2Ry0Am" value="testbench" />
@@ -865,6 +875,7 @@
         <property role="TrG5h" value="testModelRenaming" />
         <property role="3LESm3" value="7cb9725f-b441-49fd-97a7-f8cc78dc90bd" />
         <property role="aoJFB" value="eYcmk9QOlj/sources_and_tests" />
+        <property role="ZpmtF" value="true" />
         <node concept="55IIr" id="11vUesBXT9c" role="3LF7KH">
           <node concept="2Ry0Ak" id="11vUesBXT9d" role="iGT6I">
             <property role="2Ry0Am" value="testbench" />
@@ -1032,6 +1043,21 @@
         <property role="2Ry0Am" value="build" />
         <node concept="2Ry0Ak" id="11vUesBXT9W" role="2Ry0An">
           <property role="2Ry0Am" value="tests" />
+        </node>
+      </node>
+    </node>
+    <node concept="398rNT" id="2KA2zfKHONn" role="1l3spd">
+      <property role="TrG5h" value="kotlinc_home" />
+      <node concept="398BVA" id="2KA2zfKHONo" role="398pKh">
+        <ref role="398BVh" node="11vUesBXT9E" resolve="mps_home" />
+        <node concept="2Ry0Ak" id="2KA2zfKHONp" role="iGT6I">
+          <property role="2Ry0Am" value="plugins" />
+          <node concept="2Ry0Ak" id="2KA2zfKHONq" role="2Ry0An">
+            <property role="2Ry0Am" value="mps-kotlin" />
+            <node concept="2Ry0Ak" id="2KA2zfKHONr" role="2Ry0An">
+              <property role="2Ry0Am" value="kotlinc" />
+            </node>
+          </node>
         </node>
       </node>
     </node>

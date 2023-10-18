@@ -7,6 +7,7 @@
   <property name="build.layout" location="${build.dir}/artifacts/mpsTest" />
   <property name="mps_home" location="" />
   <property name="idea_home" location="${mps_home}" />
+  <property name="kotlinc_home" location="${mps_home}/plugins/mps-kotlin/kotlinc" />
   <property name="artifacts.mps" location="${mps_home}" />
   <property name="artifacts.mpsEditor" location="${build.dir}/artifacts/mpsEditor" />
   <property name="artifacts.mpsTesting" location="${build.dir}/artifacts/mpsTesting" />
@@ -60,6 +61,8 @@
   <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="path.javac2.classpath" />
   
   <taskdef resource="jetbrains/mps/build/ant/antlib.xml" classpathref="path.mps.ant.path" />
+  
+  <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlinc_home}/lib/kotlin-ant.jar"></typedef>
   
   <generator-settings id="m2m-defaults" strictMode="true" parallelThreads="8" inplaceTransform="false" warnWrongChild="true" createStaticRefs="true" skipUnmodifiedModels="${mps.generator.skipUnmodifiedModels}" />
   
@@ -1261,6 +1264,7 @@
       </jvmargs>
       <macro name="mps_home" path="${mps_home}" />
       <macro name="idea_home" path="${idea_home}" />
+      <macro name="kotlinc_home" path="${kotlinc_home}" />
     </generate>
   </target>
   
@@ -1301,6 +1305,9 @@
   <target name="java.compile.jetbrains.mps.lang.test.test" depends="fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.test.test" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.test.test" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.test.test">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src path="${basedir}/testbench/testsolutions/test.test/test_gen/" />
       <classpath>
@@ -1373,6 +1380,9 @@
     <mkdir dir="${basedir}/testbench/testsolutions/extension.test/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.extension.tests" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.extension.tests" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.extension.tests">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/testbench/testsolutions/extension.test/source_gen" />
@@ -1440,6 +1450,9 @@
     <mkdir dir="${basedir}/samples/math/runtimeSolution/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.math.runtime" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.math.runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.math.runtime">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/samples/math/runtimeSolution/source_gen" />
@@ -1459,6 +1472,9 @@
     <mkdir dir="${basedir}/samples/math/solutions/jetbrains.mps.baseLanguage.math.tests/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.math.tests" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.math.tests" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.math.tests">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/samples/math/solutions/jetbrains.mps.baseLanguage.math.tests/source_gen" />
@@ -1480,6 +1496,9 @@
     <mkdir dir="${basedir}/plugins/mps-testing/languages/patternTest/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.pattern.testLang" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.pattern.testLang" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.pattern.testLang">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/plugins/mps-testing/languages/patternTest/source_gen" />
@@ -1571,6 +1590,9 @@
     <mkdir dir="${basedir}/plugins/mps-testing/languages/patternTest/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.pattern.testLang#8707387027762047836" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.pattern.testLang#8707387027762047836" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.pattern.testLang#8707387027762047836">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/plugins/mps-testing/languages/patternTest/generator/source_gen" />
@@ -1662,6 +1684,9 @@
     <mkdir dir="${basedir}/testbench/testsolutions/pattern.test/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.pattern.test" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.pattern.test" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.pattern.test">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/testbench/testsolutions/pattern.test/source_gen" />
@@ -1741,6 +1766,9 @@
     <mkdir dir="${basedir}/testbench/testsolutions/make.test/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.make.tests" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.make.tests" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.make.tests">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/testbench/testsolutions/make.test/source_gen" />
@@ -1820,6 +1848,9 @@
     <mkdir dir="${basedir}/languages/languageDesign/traceinfo/traceMacro.testlang/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.traceInfo.tracemacro.testlang" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.traceInfo.tracemacro.testlang" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.traceInfo.tracemacro.testlang">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/traceinfo/traceMacro.testlang/source_gen" />
@@ -1860,6 +1891,9 @@
     <mkdir dir="${basedir}/languages/languageDesign/traceinfo/traceMacro.testlang/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.traceInfo.tracemacro.testlang#7980748436587788163" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.traceInfo.tracemacro.testlang#7980748436587788163" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.traceInfo.tracemacro.testlang#7980748436587788163">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/traceinfo/traceMacro.testlang/generator/source_gen" />
@@ -1902,6 +1936,9 @@
   <target name="java.compile.jetbrains.mps.traceInfo.test" depends="fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.traceInfo.test" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.traceInfo.test" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.traceInfo.test">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src path="${basedir}/testbench/testsolutions/traceInfo.test/test_gen/" />
       <classpath>
@@ -1973,6 +2010,9 @@
     <mkdir dir="${basedir}/languages/languageDesign/generator/test/inputLang/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.transformation.test.inputLang">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/generator/test/inputLang/source_gen" />
@@ -2037,6 +2077,9 @@
     <mkdir dir="${basedir}/languages/languageDesign/generator/test/inputLang/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang#1195164860857" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputLang#1195164860857" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.transformation.test.inputLang#1195164860857">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/generator/test/inputLang/generator/source_gen" />
@@ -2099,6 +2142,9 @@
     <mkdir dir="${basedir}/languages/languageDesign/generator/test/outputLang/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.transformation.test.outputLang" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.transformation.test.outputLang" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.transformation.test.outputLang">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/generator/test/outputLang/source_gen" />
@@ -2159,6 +2205,9 @@
     <mkdir dir="${basedir}/languages/languageDesign/generator/test/outputLang/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.transformation.test.outputLang#1209603905948" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.transformation.test.outputLang#1209603905948" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.transformation.test.outputLang#1209603905948">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/languages/languageDesign/generator/test/outputLang/generator/source_gen" />
@@ -2216,6 +2265,9 @@
     <mkdir dir="${basedir}/testbench/testsolutions/generator.inputModels.test/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputModels" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.transformation.test.inputModels" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.transformation.test.inputModels">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/testbench/testsolutions/generator.inputModels.test/source_gen" />

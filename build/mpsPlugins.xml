@@ -6,6 +6,7 @@
   <property name="idea_home" location="" />
   <property name="mps_home" location="${basedir}" />
   <property name="plugin_home" location="${mps_home}/plugins" />
+  <property name="kotlinc_home" location="${mps_home}/plugins/mps-kotlin/kotlinc" />
   <property name="artifacts.mpsBootstrapCore" location="${build.dir}/artifacts/mpsBootstrapCore" />
   <property name="artifacts.mpsCore" location="${build.dir}/artifacts/mpsCore" />
   <property name="artifacts.mpsJava" location="${build.dir}/artifacts/mpsJava" />
@@ -56,6 +57,8 @@
   <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="path.javac2.classpath" />
   
   <taskdef resource="jetbrains/mps/build/ant/antlib.xml" classpathref="path.mps.ant.path" />
+  
+  <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlinc_home}/lib/kotlin-ant.jar"></typedef>
   
   <generator-settings id="m2m-defaults" strictMode="true" parallelThreads="8" inplaceTransform="false" warnWrongChild="true" createStaticRefs="true" skipUnmodifiedModels="${mps.generator.skipUnmodifiedModels}" />
   
@@ -939,6 +942,7 @@
       <macro name="idea_home" path="${idea_home}" />
       <macro name="mps_home" path="${mps_home}" />
       <macro name="plugin_home" path="${plugin_home}" />
+      <macro name="kotlinc_home" path="${kotlinc_home}" />
     </generate>
   </target>
   
@@ -990,6 +994,9 @@
     <mkdir dir="${mps_home}/plugins/mps-modelchecker/platform/source_gen" />
     <mkdir dir="${build.tmp}/java/out/mps-modelchecker" />
     <javac2 destdir="${build.tmp}/java/out/mps-modelchecker" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-modelchecker">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <pathelement path="${mps_home}/plugins/mps-modelchecker/source" />
@@ -1045,6 +1052,9 @@
     <mkdir dir="${plugin_home}/mps-ide/modules/tools.todo/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.ide.tools.todo" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.ide.tools.todo" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.ide.tools.todo">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${plugin_home}/mps-ide/modules/tools.todo/source_gen" />
@@ -1099,6 +1109,9 @@
     <mkdir dir="${plugin_home}/mps-ide/modules/lang.core/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.core.pluginSolution" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.core.pluginSolution" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.core.pluginSolution">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${plugin_home}/mps-ide/modules/lang.core/source_gen" />
@@ -1163,6 +1176,9 @@
     <mkdir dir="${plugin_home}/mps-ide/modules/lang.text/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.text.pluginSolution" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.text.pluginSolution" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.text.pluginSolution">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${plugin_home}/mps-ide/modules/lang.text/source_gen" />
@@ -1218,6 +1234,9 @@
     <mkdir dir="${plugin_home}/mps-ide/modules/lang.script/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.script.pluginSolution" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.script.pluginSolution" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.script.pluginSolution">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${plugin_home}/mps-ide/modules/lang.script/source_gen" />
@@ -1274,6 +1293,9 @@
     <mkdir dir="${plugin_home}/mps-ide/modules/lang.typesystem/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.typesystem.pluginSolution" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.typesystem.pluginSolution" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.typesystem.pluginSolution">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${plugin_home}/mps-ide/modules/lang.typesystem/source_gen" />
@@ -1338,6 +1360,9 @@
     <mkdir dir="${plugin_home}/mps-ide/modules/bl.lightweightdsl/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.lightweightdsl.pluginSolution" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.lightweightdsl.pluginSolution" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.lightweightdsl.pluginSolution">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${plugin_home}/mps-ide/modules/bl.lightweightdsl/source_gen" />
@@ -1397,6 +1422,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/migration/solutions/actions/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.migration.actions" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.migration.actions" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.migration.actions">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/migration/solutions/actions/source_gen" />
@@ -1458,6 +1486,9 @@
     <mkdir dir="${plugin_home}/mps-rcp/modules/ide.refactoring/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.ide.refactoring" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.ide.refactoring" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.ide.refactoring">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${plugin_home}/mps-rcp/modules/ide.refactoring/source_gen" />
@@ -1519,6 +1550,9 @@
     <mkdir dir="${mps_home}/plugins/mps-memtool/source" />
     <mkdir dir="${build.tmp}/java/out/mps-memtool" />
     <javac2 destdir="${build.tmp}/java/out/mps-memtool" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-memtool">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/plugins/mps-memtool/source" />
@@ -1569,6 +1603,9 @@
     <mkdir dir="${mps_home}/plugins/mps-samples/sources" />
     <mkdir dir="${build.tmp}/java/out/mps-samples" />
     <javac2 destdir="${build.tmp}/java/out/mps-samples" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-samples">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/plugins/mps-samples/sources" />

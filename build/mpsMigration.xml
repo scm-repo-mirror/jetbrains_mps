@@ -6,6 +6,7 @@
   <property name="idea_home" location="" />
   <property name="mps_home" location="${basedir}" />
   <property name="plugin_home" location="${mps_home}/plugins/mps-migration" />
+  <property name="kotlinc_home" location="${mps_home}/plugins/mps-kotlin/kotlinc" />
   <property name="artifacts.mpsBootstrapCore" location="${build.dir}/artifacts/mpsBootstrapCore" />
   <property name="artifacts.mpsCore" location="${build.dir}/artifacts/mpsCore" />
   <property name="artifacts.mpsWorkbench" location="${build.dir}/artifacts/mpsWorkbench" />
@@ -57,6 +58,8 @@
   <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="path.javac2.classpath" />
   
   <taskdef resource="jetbrains/mps/build/ant/antlib.xml" classpathref="path.mps.ant.path" />
+  
+  <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlinc_home}/lib/kotlin-ant.jar"></typedef>
   
   <generator-settings id="m2m-defaults" strictMode="true" parallelThreads="8" inplaceTransform="false" warnWrongChild="true" createStaticRefs="true" skipUnmodifiedModels="${mps.generator.skipUnmodifiedModels}" />
   
@@ -494,6 +497,7 @@
       <macro name="idea_home" path="${idea_home}" />
       <macro name="mps_home" path="${mps_home}" />
       <macro name="plugin_home" path="${plugin_home}" />
+      <macro name="kotlinc_home" path="${kotlinc_home}" />
     </generate>
   </target>
   
@@ -557,6 +561,9 @@
     <mkdir dir="${plugin_home}/solutions/migration.workbench/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.migration.workbench" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.migration.workbench" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.migration.workbench">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${plugin_home}/solutions/migration.workbench/source_gen" />
@@ -618,6 +625,9 @@
     <mkdir dir="${mps_home}/plugins/mps-project-migrations/solution/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.ide.mpsmigration" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.ide.mpsmigration" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.ide.mpsmigration">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/plugins/mps-project-migrations/solution/source_gen" />

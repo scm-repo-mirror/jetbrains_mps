@@ -16735,6 +16735,9 @@
   <target name="java.compile.scripts-runtime" depends="fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/scripts-runtime" />
     <javac2 destdir="${build.tmp}/java/out/scripts-runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="scripts-runtime">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src path="${mps_home}/workbench/scripts-runtime/source" />
       <classpath>
@@ -16768,6 +16771,9 @@
   <target name="java.compile.pattern-runtime" depends="fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/pattern-runtime" />
     <javac2 destdir="${build.tmp}/java/out/pattern-runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="pattern-runtime">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src path="${mps_home}/core/patternRuntime/source" />
       <classpath>
@@ -16801,6 +16807,9 @@
   <target name="java.compile.mps-typesystem" depends="java.compile.pattern-runtime, fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/mps-typesystem" />
     <javac2 destdir="${build.tmp}/java/out/mps-typesystem" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-typesystem">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <pathelement path="${mps_home}/core/typechecking/source" />
@@ -16841,6 +16850,9 @@
   <target name="java.compile.findUsages-runtime" depends="fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/findUsages-runtime" />
     <javac2 destdir="${build.tmp}/java/out/findUsages-runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="findUsages-runtime">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src path="${mps_home}/core/findUsages-runtime/source_gen" />
       <classpath>
@@ -16911,6 +16923,9 @@
   <target name="java.compile.mps-make-rt" depends="java.compile.mps-generator, java.compile.java.modules.cycle.1, fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/mps-make-rt" />
     <javac2 destdir="${build.tmp}/java/out/mps-make-rt" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-make-rt">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <pathelement path="${mps_home}/core/make-runtime/source" />
@@ -16954,6 +16969,9 @@
   <target name="java.compile.kernel-resources" depends="java.compile.mps-generator, java.compile.java.modules.cycle.1, fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/kernel-resources" />
     <javac2 destdir="${build.tmp}/java/out/kernel-resources" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="kernel-resources">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src path="${mps_home}/core/resources/source_gen" />
       <classpath>
@@ -16989,6 +17007,9 @@
   <target name="java.compile.mps-debuginfo-api" depends="fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/mps-debuginfo-api" />
     <javac2 destdir="${build.tmp}/java/out/mps-debuginfo-api" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-debuginfo-api">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src path="${mps_home}/core/debuginfo/api/source" />
       <classpath>
@@ -17011,6 +17032,9 @@
   <target name="java.compile.mps-debuginfo-impl" depends="java.compile.mps-debuginfo-api, java.compile.mps-generator, fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/mps-debuginfo-impl" />
     <javac2 destdir="${build.tmp}/java/out/mps-debuginfo-impl" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-debuginfo-impl">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src path="${mps_home}/core/debuginfo/impl/source" />
       <classpath>
@@ -17046,6 +17070,9 @@
   <target name="java.compile.mps-generator" depends="java.compile.mps-typesystem, java.compile.pattern-runtime, fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/mps-generator" />
     <javac2 destdir="${build.tmp}/java/out/mps-generator" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-generator">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <pathelement path="${mps_home}/core/generator/source" />
@@ -17087,6 +17114,9 @@
     <mkdir dir="${mps_home}/core/aspects/feedback/feedback-api/source" />
     <mkdir dir="${build.tmp}/java/out/feedback-api" />
     <javac2 destdir="${build.tmp}/java/out/feedback-api" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="feedback-api">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/core/aspects/feedback/feedback-api/source" />
@@ -17124,6 +17154,9 @@
     <mkdir dir="${mps_home}/core/aspects/feedback/messages-api/source" />
     <mkdir dir="${build.tmp}/java/out/messages-api" />
     <javac2 destdir="${build.tmp}/java/out/messages-api" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="messages-api">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/core/aspects/feedback/messages-api/source" />
@@ -17150,6 +17183,9 @@
     <mkdir dir="${mps_home}/core/aspects/feedback/messages-for-rules/source" />
     <mkdir dir="${build.tmp}/java/out/messages-for-rules" />
     <javac2 destdir="${build.tmp}/java/out/messages-for-rules" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="messages-for-rules">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/core/aspects/feedback/messages-for-rules/source" />
@@ -17173,6 +17209,9 @@
     <mkdir dir="${mps_home}/core/aspects/feedback/messages-for-structure/source" />
     <mkdir dir="${build.tmp}/java/out/messages-for-structure" />
     <javac2 destdir="${build.tmp}/java/out/messages-for-structure" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="messages-for-structure">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/core/aspects/feedback/messages-for-structure/source" />
@@ -17194,6 +17233,9 @@
   <target name="java.compile.mps-project-check" depends="java.compile.mps-generator, java.compile.feedback-api, java.compile.messages-api, java.compile.messages-for-structure, java.compile.messages-for-rules, fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/mps-project-check" />
     <javac2 destdir="${build.tmp}/java/out/mps-project-check" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-project-check">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src path="${mps_home}/core/project-check/source" />
       <classpath>
@@ -17234,6 +17276,9 @@
   <target name="java.compile.mps-textgen" depends="java.compile.mps-debuginfo-api, fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/mps-textgen" />
     <javac2 destdir="${build.tmp}/java/out/mps-textgen" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-textgen">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src path="${mps_home}/core/textgen/source" />
       <classpath>
@@ -17268,6 +17313,9 @@
   <target name="java.compile.migrations-runtime" depends="java.compile.findUsages-runtime, java.compile.refactoring, fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/migrations-runtime" />
     <javac2 destdir="${build.tmp}/java/out/migrations-runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="migrations-runtime">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src path="${mps_home}/languages/languageDesign/migration/solutions/runtime/source_gen" />
       <classpath>
@@ -17305,6 +17353,9 @@
     <mkdir dir="${mps_home}/editor/editor-api/source" />
     <mkdir dir="${build.tmp}/java/out/mps-editor-api" />
     <javac2 destdir="${build.tmp}/java/out/mps-editor-api" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-editor-api">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/editor/editor-api/source" />
@@ -17342,6 +17393,9 @@
     <mkdir dir="${mps_home}/editor/editorlang-runtime/source_gen" />
     <mkdir dir="${build.tmp}/java/out/mps-editorlang-runtime" />
     <javac2 destdir="${build.tmp}/java/out/mps-editorlang-runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-editorlang-runtime">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/editor/editorlang-runtime/source" />
@@ -17381,6 +17435,9 @@
     <mkdir dir="${mps_home}/editor/editing-runtime/source_gen" />
     <mkdir dir="${build.tmp}/java/out/mps-editing" />
     <javac2 destdir="${build.tmp}/java/out/mps-editing" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-editing">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/editor/editing-runtime/source_gen" />
@@ -17419,6 +17476,9 @@
     <mkdir dir="${mps_home}/core/tool/common/source_gen" />
     <mkdir dir="${build.tmp}/java/out/mps-environment" />
     <javac2 destdir="${build.tmp}/java/out/mps-environment" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-environment">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/core/tool/environment/source_gen" />
@@ -17463,6 +17523,9 @@
     <mkdir dir="${mps_home}/core/tool/builder/source_gen" />
     <mkdir dir="${build.tmp}/java/out/mps-tool" />
     <javac2 destdir="${build.tmp}/java/out/mps-tool" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-tool">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/core/tool/builder/source_gen" />
@@ -17504,6 +17567,9 @@
   <target name="java.compile.platform" depends="java.compile.mps-generator, java.compile.mps-debuginfo-api, java.compile.mps-textgen, java.compile.kernel-resources, java.compile.mps-make-rt, java.compile.mps-project-check, java.compile.mps-typesystem, java.compile.findUsages-runtime, java.compile.feedback-api, fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/platform" />
     <javac2 destdir="${build.tmp}/java/out/platform" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="platform">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <pathelement path="${mps_home}/core/platform/source" />
@@ -17558,6 +17624,9 @@
   <target name="java.compile.vfs-tracking" depends="java.compile.mps-generator, java.compile.kernel-resources, java.compile.mps-make-rt, java.compile.idea-platform, java.compile.platform, java.compile.mps-environment, java.compile.mps-platform, java.compile.mps-editor-api, fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/vfs-tracking" />
     <javac2 destdir="${build.tmp}/java/out/vfs-tracking" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="vfs-tracking">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src path="${mps_home}/platform/vfs-tracking/source" />
       <classpath>
@@ -17601,6 +17670,9 @@
     <mkdir dir="${mps_home}/platform/psi/sources" />
     <mkdir dir="${build.tmp}/java/out/psi" />
     <javac2 destdir="${build.tmp}/java/out/psi" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="psi">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/platform/psi/sources" />
@@ -17704,6 +17776,9 @@
   <target name="java.compile.refactoring" depends="java.compile.findUsages-runtime, fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/refactoring" />
     <javac2 destdir="${build.tmp}/java/out/refactoring" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="refactoring">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src path="${mps_home}/workbench/mps-refactoring/j.m.refactoring/source_gen" />
       <classpath>
@@ -17738,6 +17813,9 @@
   <target name="java.compile.refactoring-runtime" depends="java.compile.findUsages-runtime, fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/refactoring-runtime" />
     <javac2 destdir="${build.tmp}/java/out/refactoring-runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="refactoring-runtime">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src path="${mps_home}/workbench/mps-refactoring/j.m.refactoring.runtime/source_gen" />
       <classpath>
@@ -17772,6 +17850,9 @@
   <target name="java.compile.mps-refactoring" depends="java.compile.mps-generator, java.compile.kernel-resources, java.compile.mps-make-rt, java.compile.idea-platform, java.compile.platform, java.compile.mps-environment, java.compile.mps-platform, java.compile.refactoring, java.compile.refactoring-runtime, java.compile.findUsages-runtime, fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/mps-refactoring" />
     <javac2 destdir="${build.tmp}/java/out/mps-refactoring" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-refactoring">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src path="${mps_home}/workbench/mps-refactoring/jetbrains.mps.ide.refactoring.platform/source_gen" />
       <classpath>
@@ -17818,6 +17899,9 @@
     <mkdir dir="${mps_home}/workbench/mps-ui/source_gen" />
     <mkdir dir="${build.tmp}/java/out/mps-ui" />
     <javac2 destdir="${build.tmp}/java/out/mps-ui" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-ui">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/workbench/mps-ui/source" />
@@ -17870,6 +17954,9 @@
     <mkdir dir="${mps_home}/workbench/mps-icons/source" />
     <mkdir dir="${build.tmp}/java/out/mps-icons" />
     <javac2 destdir="${build.tmp}/java/out/mps-icons" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-icons">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/workbench/mps-icons/source" />
@@ -17894,6 +17981,9 @@
     <mkdir dir="${mps_home}/workbench/mps-debugger/source_gen" />
     <mkdir dir="${build.tmp}/java/out/mps-debugger" />
     <javac2 destdir="${build.tmp}/java/out/mps-debugger" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-debugger">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/workbench/mps-debugger/source_gen" />
@@ -17944,6 +18034,9 @@
   <target name="java.compile.mps-editor" depends="java.compile.mps-editing, java.compile.mps-generator, java.compile.kernel-resources, java.compile.mps-make-rt, java.compile.idea-platform, java.compile.platform, java.compile.mps-environment, java.compile.mps-platform, java.compile.mps-ui, java.compile.mps-editor-api, java.compile.mps-editorlang-runtime, java.compile.mps-icons, java.compile.scripts-runtime, java.compile.mps-typesystem, java.compile.findUsages-runtime, java.compile.mps-project-check, fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/mps-editor" />
     <javac2 destdir="${build.tmp}/java/out/mps-editor" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-editor">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <pathelement path="${mps_home}/editor/editor-runtime/source" />
@@ -18012,6 +18105,9 @@
   <target name="java.compile.mps-test" depends="java.compile.mps-tool, java.compile.mps-generator, java.compile.kernel-resources, java.compile.mps-make-rt, java.compile.idea-platform, java.compile.platform, java.compile.mps-environment, java.compile.mps-platform, java.compile.mps-project-check, java.compile.mps-typesystem, fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/mps-test" />
     <javac2 destdir="${build.tmp}/java/out/mps-test" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="mps-test">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <pathelement path="${mps_home}/testbench/sources" />
@@ -18062,6 +18158,9 @@
     <mkdir dir="${mps_home}/plugins/mps-build/solutions/jetbrains.mps.build.mps.runner.runtime/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.build.mps.runner.runtime" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.build.mps.runner.runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.build.mps.runner.runtime">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/plugins/mps-build/solutions/jetbrains.mps.build.mps.runner.runtime/source_gen" />
@@ -18231,6 +18330,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/baseLanguage.util/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.util" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.util" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.util">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/baseLanguage.util/source_gen" />
@@ -18299,6 +18401,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/baseLanguage/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/baseLanguage/source_gen" />
@@ -18372,6 +18477,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/baseLanguage/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage#1129914002933" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage#1129914002933" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage#1129914002933">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/baseLanguage/generator/source_gen" />
@@ -18444,6 +18552,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/closures/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.closures" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.closures" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.closures">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/closures/source_gen" />
@@ -18516,6 +18627,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/closures/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.closures#1199623535494" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.closures#1199623535494" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.closures#1199623535494">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/closures/generator/source_gen" />
@@ -18597,6 +18711,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/collections/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.collections" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.collections" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.collections">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/collections/source_gen" />
@@ -18669,6 +18786,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/collections/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.collections#1151699677197" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.collections#1151699677197" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.collections#1151699677197">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/collections/generator/source_gen" />
@@ -18750,6 +18870,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/baseLanguageInternal/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguageInternal" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguageInternal" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguageInternal">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/baseLanguageInternal/source_gen" />
@@ -18822,6 +18945,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/baseLanguageInternal/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguageInternal#1238251529692" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguageInternal#1238251529692" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguageInternal#1238251529692">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/baseLanguageInternal/generator/source_gen" />
@@ -18895,6 +19021,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/blTypes/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.blTypes" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.blTypes" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.blTypes">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/blTypes/source_gen" />
@@ -18964,6 +19093,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/checkDot/languages/checkedDots/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.checkedDots" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.checkedDots" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.checkedDots">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/checkDot/languages/checkedDots/source_gen" />
@@ -19036,6 +19168,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/checkDot/languages/checkedDots/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.checkedDots#4549711462050000009" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.checkedDots#4549711462050000009" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.checkedDots#4549711462050000009">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/checkDot/languages/checkedDots/generator/source_gen" />
@@ -19108,6 +19243,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/classifiers/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.classifiers" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.classifiers" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.classifiers">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/classifiers/source_gen" />
@@ -19180,6 +19318,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/classifiers/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.classifiers#1205839057922" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.classifiers#1205839057922" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.classifiers#1205839057922">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/classifiers/generator/source_gen" />
@@ -19253,6 +19394,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/constructors/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.constructors" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.constructors" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.constructors">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/constructors/source_gen" />
@@ -19329,6 +19473,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/constructors/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.constructors#4413962600136203329" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.constructors#4413962600136203329" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.constructors#4413962600136203329">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/constructors/generator/source_gen" />
@@ -19400,6 +19547,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/javadoc/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.javadoc" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.javadoc" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.javadoc">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/javadoc/source_gen" />
@@ -19472,6 +19622,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/jdk7/languages/jdk7/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.jdk7" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.jdk7" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.jdk7">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/jdk7/languages/jdk7/source_gen" />
@@ -19544,6 +19697,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/jdk7/languages/jdk7/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.jdk7#616711547384942258" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.jdk7#616711547384942258" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.jdk7#616711547384942258">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/jdk7/languages/jdk7/generator/source_gen" />
@@ -19616,6 +19772,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/jdk8/languages/jdk8/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.jdk8" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.jdk8" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.jdk8">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/jdk8/languages/jdk8/source_gen" />
@@ -19692,6 +19851,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/jdk8/languages/methodReferences/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.methodReferences" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.methodReferences" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.methodReferences">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/jdk8/languages/methodReferences/source_gen" />
@@ -19769,6 +19931,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/jdk8/languages/methodReferences/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.methodReferences.generator" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.methodReferences.generator" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.methodReferences.generator">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/jdk8/languages/methodReferences/generator/source_gen" />
@@ -19842,6 +20007,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/logging/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.logging" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.logging" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.logging">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/logging/source_gen" />
@@ -19918,6 +20086,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/logging/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.logging#1167240554582" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.logging#1167240554582" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.logging#1167240554582">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/logging/generator/source_gen" />
@@ -19990,6 +20161,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/logging/runtime/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.logging.runtime" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.logging.runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.logging.runtime">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/logging/runtime/source_gen" />
@@ -20011,6 +20185,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/overloadedOperators/languages/overloadedOperators/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.overloadedOperators" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.overloadedOperators" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.overloadedOperators">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/overloadedOperators/languages/overloadedOperators/source_gen" />
@@ -20088,6 +20265,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/overloadedOperators/languages/overloadedOperators/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.overloadedOperators#6677452554239623057" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.overloadedOperators#6677452554239623057" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.overloadedOperators#6677452554239623057">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/overloadedOperators/languages/overloadedOperators/generator/source_gen" />
@@ -20160,6 +20340,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/tuples/languages/tuples/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.tuples" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.tuples" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.tuples">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/tuples/languages/tuples/source_gen" />
@@ -20232,6 +20415,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/tuples/languages/tuples/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.tuples#1238919486295" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.tuples#1238919486295" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.tuples#1238919486295">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/tuples/languages/tuples/generator/source_gen" />
@@ -20305,6 +20491,9 @@
     <mkdir dir="${mps_home}/languages/util/extensionMethod/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.extensionMethods" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.extensionMethods" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.extensionMethods">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/util/extensionMethod/source_gen" />
@@ -20377,6 +20566,9 @@
     <mkdir dir="${mps_home}/languages/util/extensionMethod/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.extensionMethods#6225815798156427146" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.extensionMethods#6225815798156427146" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.extensionMethods#6225815798156427146">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/util/extensionMethod/generator/source_gen" />
@@ -20449,6 +20641,9 @@
     <mkdir dir="${mps_home}/languages/util/regexp/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.regexp" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.regexp" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.regexp">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/util/regexp/source_gen" />
@@ -20522,6 +20717,9 @@
     <mkdir dir="${mps_home}/languages/util/regexp/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.regexp#1174510748147" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.regexp#1174510748147" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.regexp#1174510748147">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/util/regexp/generator/source_gen" />
@@ -20596,6 +20794,9 @@
     <mkdir dir="${mps_home}/languages/util/regexp/solutions/jetbrains.mps.baseLanguage.regexp.runtime/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.regexp.runtime" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.regexp.runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.regexp.runtime">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/util/regexp/solutions/jetbrains.mps.baseLanguage.regexp.runtime/source_gen" />
@@ -20614,6 +20815,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/baseLanguage.scopes/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.scopes" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.scopes" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.scopes">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/baseLanguage.scopes/source_gen" />
@@ -20682,6 +20886,9 @@
     <mkdir dir="${mps_home}/languages/util/builders/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.builders" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.builders" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.builders">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/util/builders/source_gen" />
@@ -20758,6 +20965,9 @@
     <mkdir dir="${mps_home}/languages/util/builders/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.builders#7057666463730688471" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.builders#7057666463730688471" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.builders#7057666463730688471">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/util/builders/generator/source_gen" />
@@ -20830,6 +21040,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/varVariable/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.varVariable" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.varVariable" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.varVariable">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/varVariable/source_gen" />
@@ -20909,6 +21122,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/varVariable/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.varVariable#8067700594454597207" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.varVariable#8067700594454597207" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.varVariable#8067700594454597207">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/varVariable/generator/source_gen" />
@@ -20984,6 +21200,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/doubleDispatch/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.doubleDispatch" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.doubleDispatch" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.doubleDispatch">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/doubleDispatch/source_gen" />
@@ -21060,6 +21279,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/doubleDispatch/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.doubleDispatch#4496691318496554192" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.doubleDispatch#4496691318496554192" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.doubleDispatch#4496691318496554192">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/doubleDispatch/generator/source_gen" />
@@ -21132,6 +21354,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/feedback/feedback/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.feedback" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.feedback" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.feedback">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/feedback/feedback/source_gen" />
@@ -21206,6 +21431,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/feedback/feedback/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.feedback#01" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.feedback#01" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.feedback#01">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/feedback/feedback/generator/source_gen" />
@@ -21275,6 +21503,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/feedback/messages/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.messages" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.messages" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.feedback.messages">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/feedback/messages/source_gen" />
@@ -21354,6 +21585,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/feedback/messages/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.messages#01" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.messages#01" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.feedback.messages#01">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/feedback/messages/generator/source_gen" />
@@ -21427,6 +21661,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/messages/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.messages" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.messages" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.messages">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/messages/source_gen" />
@@ -21504,6 +21741,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/messages/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.messages#8657450212265151934" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.messages#8657450212265151934" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.messages#8657450212265151934">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/messages/generator/source_gen" />
@@ -21578,6 +21818,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/feedback/problem/problem/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.feedback.problem">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/feedback/problem/problem/source_gen" />
@@ -21654,6 +21897,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/feedback/problem/problem/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem#01" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem#01" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.feedback.problem#01">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/feedback/problem/problem/generator/source_gen" />
@@ -21722,6 +21968,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/feedback/problem/childAndProp/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem.childAndProp" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem.childAndProp" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.feedback.problem.childAndProp">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/feedback/problem/childAndProp/source_gen" />
@@ -21807,6 +22056,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/feedback/problem/childAndProp/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem.childAndProp#01" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem.childAndProp#01" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.feedback.problem.childAndProp#01">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/feedback/problem/childAndProp/generator/source_gen" />
@@ -21880,6 +22132,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/feedback/problem/failingRule/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem.failingRule" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem.failingRule" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.feedback.problem.failingRule">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/feedback/problem/failingRule/source_gen" />
@@ -21963,6 +22218,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/feedback/problem/failingRule/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem.failingRule#01" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem.failingRule#01" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.feedback.problem.failingRule#01">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/feedback/problem/failingRule/generator/source_gen" />
@@ -22036,6 +22294,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/feedback/problem/scopes/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem.scopes" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem.scopes" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.feedback.problem.scopes">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/feedback/problem/scopes/source_gen" />
@@ -22121,6 +22382,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/feedback/problem/scopes/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem.scopes#01" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem.scopes#01" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.feedback.problem.scopes#01">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/feedback/problem/scopes/generator/source_gen" />
@@ -22194,6 +22458,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/feedback/problem/structural/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem.structural" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem.structural" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.feedback.problem.structural">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/feedback/problem/structural/source_gen" />
@@ -22269,6 +22536,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/feedback/problem/structural/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem.structural#01" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem.structural#01" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.feedback.problem.structural#01">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/feedback/problem/structural/generator/source_gen" />
@@ -22341,6 +22611,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/feedback/skeleton/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.skeleton" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.skeleton" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.feedback.skeleton">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/feedback/skeleton/source_gen" />
@@ -22422,6 +22695,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/feedback/skeleton/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.skeleton#01" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.skeleton#01" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.feedback.skeleton#01">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/feedback/skeleton/generator/source_gen" />
@@ -22497,6 +22773,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/constraints/legacy-msg-specification/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.constraints.msg.specification" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.constraints.msg.specification" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.constraints.msg.specification">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/constraints/legacy-msg-specification/source_gen" />
@@ -22670,6 +22949,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/context/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.context" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.context" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.context">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/context/source_gen" />
@@ -22747,6 +23029,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/context/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.context#01" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.context#01" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.context#01">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/context/generator/source_gen" />
@@ -22815,6 +23100,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/context.defs/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.context.defs" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.context.defs" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.context.defs">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/context.defs/source_gen" />
@@ -22968,6 +23256,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/context.defs/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.context.defs#01" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.context.defs#01" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.context.defs#01">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/context.defs/generator/source_gen" />
@@ -23041,6 +23332,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/analyzers/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.dataFlow.analyzers" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.dataFlow.analyzers" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.dataFlow.analyzers">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/analyzers/source_gen" />
@@ -23193,6 +23487,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/analyzers/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.dataFlow.analyzers#9177062368042328054" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.dataFlow.analyzers#9177062368042328054" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.dataFlow.analyzers#9177062368042328054">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/analyzers/generator/source_gen" />
@@ -23275,6 +23572,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/analyzers/runtime/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.analyzers.runtime" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.analyzers.runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.analyzers.runtime">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/analyzers/runtime/source_gen" />
@@ -23321,6 +23621,9 @@
     <mkdir dir="${mps_home}/languages/core/core/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.core" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.core" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.core">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/core/core/source_gen" />
@@ -23392,6 +23695,9 @@
     <mkdir dir="${mps_home}/languages/core/core/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.core#9100558062448742579" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.core#9100558062448742579" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.core#9100558062448742579">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/core/core/generator/source_gen" />
@@ -23459,6 +23765,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/actions/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.actions" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.actions" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.actions">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/actions/source_gen" />
@@ -23531,6 +23840,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/actions/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.actions#1154466409006" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.actions#1154466409006" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.actions#1154466409006">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/actions/generator/source_gen" />
@@ -23614,6 +23926,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/behavior/languages/behavior/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.behavior" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.behavior" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.behavior">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/behavior/languages/behavior/source_gen" />
@@ -23686,6 +24001,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/behavior/languages/behavior/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.behavior#1225195312923" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.behavior#1225195312923" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.behavior#1225195312923">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/behavior/languages/behavior/generator/source_gen" />
@@ -23763,6 +24081,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/constraints/legacy/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.constraints" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.constraints" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.constraints">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/constraints/legacy/source_gen" />
@@ -23835,6 +24156,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/constraints/legacy/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.constraints#1147476727047" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.constraints#1147476727047" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.constraints#1147476727047">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/constraints/legacy/generator/source_gen" />
@@ -23919,6 +24243,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/constraints/rules/kinds/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.constraints.rules.kinds" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.constraints.rules.kinds" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.constraints.rules.kinds">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/constraints/rules/kinds/source_gen" />
@@ -23994,6 +24321,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/constraints/rules/kinds/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.constraints.rules.kinds#1867733327984468203" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.constraints.rules.kinds#1867733327984468203" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.constraints.rules.kinds#1867733327984468203">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/constraints/rules/kinds/generator/source_gen" />
@@ -24066,6 +24396,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/constraints/rules/rules/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.constraints.rules" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.constraints.rules" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.constraints.rules">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/constraints/rules/rules/source_gen" />
@@ -24151,6 +24484,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/constraints/rules/rules/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.constraints.rules#01" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.constraints.rules#01" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.constraints.rules#01">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/constraints/rules/rules/generator/source_gen" />
@@ -24231,6 +24567,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/messages/rules/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.rulesAndMessages" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.rulesAndMessages" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.rulesAndMessages">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/messages/rules/source_gen" />
@@ -24314,6 +24653,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/messages/rules/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.rulesAndMessages#01" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.rulesAndMessages#01" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.rulesAndMessages#01">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/messages/rules/generator/source_gen" />
@@ -24394,6 +24736,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/constraints/rules/skeleton/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.constraints.rules.skeleton" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.constraints.rules.skeleton" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.constraints.rules.skeleton">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/constraints/rules/skeleton/source_gen" />
@@ -24477,6 +24822,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/constraints/rules/skeleton/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.constraints.rules.skeleton#1867733327984464082" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.constraints.rules.skeleton#1867733327984464082" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.constraints.rules.skeleton#1867733327984464082">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/constraints/rules/skeleton/generator/source_gen" />
@@ -24555,6 +24903,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/dataFlow/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.dataFlow" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.dataFlow" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.dataFlow">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/dataFlow/source_gen" />
@@ -24627,6 +24978,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/dataFlow/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.dataFlow#1206455293228" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.dataFlow#1206455293228" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.dataFlow#1206455293228">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/dataFlow/generator/source_gen" />
@@ -24708,6 +25062,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/dataFlowRuntime/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.dataFlow.runtime" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.dataFlow.runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.dataFlow.runtime">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/dataFlowRuntime/source_gen" />
@@ -24753,6 +25110,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/editor/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.editor" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.editor" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.editor">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/editor/source_gen" />
@@ -24825,6 +25185,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/editor/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.editor#1129914002149" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.editor#1129914002149" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.editor#1129914002149">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/editor/generator/source_gen" />
@@ -24911,6 +25274,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/jetbrains.mps.lang.editor.imageGen/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.editor.imageGen" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.editor.imageGen" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.editor.imageGen">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/jetbrains.mps.lang.editor.imageGen/source_gen" />
@@ -24989,6 +25355,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/jetbrains.mps.lang.editor.imageGen/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.editor.imageGen#3245637733310290135" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.editor.imageGen#3245637733310290135" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.editor.imageGen#3245637733310290135">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/jetbrains.mps.lang.editor.imageGen/generator/source_gen" />
@@ -25061,6 +25430,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/editor.menus.extras/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.editor.menus.extras" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.editor.menus.extras" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.editor.menus.extras">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/editor.menus.extras/source_gen" />
@@ -25148,6 +25520,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/editor.menus.extras/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.editor.menus.extras#2926686622729974589" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.editor.menus.extras#2926686622729974589" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.editor.menus.extras#2926686622729974589">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/editor.menus.extras/generator/source_gen" />
@@ -25232,6 +25607,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/editor.menus.extras/runtime/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.editor.menus.extras.runtime" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.editor.menus.extras.runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.editor.menus.extras.runtime">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/editor.menus.extras/runtime/source_gen" />
@@ -25291,6 +25669,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/extension/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.extension" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.extension" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.extension">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/extension/source_gen" />
@@ -25373,6 +25754,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/extension/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.extension#3729007189729193566" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.extension#3729007189729193566" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.extension#3729007189729193566">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/extension/generator/source_gen" />
@@ -25446,6 +25830,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/findUsages/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.findUsages" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.findUsages" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.findUsages">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/findUsages/source_gen" />
@@ -25518,6 +25905,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/findUsages/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.findUsages#1197044805809" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.findUsages#1197044805809" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.findUsages#1197044805809">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/findUsages/generator/source_gen" />
@@ -25594,6 +25984,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/customAspect/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.aspect" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.aspect" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.aspect">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/customAspect/source_gen" />
@@ -25677,6 +26070,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/customAspect/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.aspect#3274906159125927726" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.aspect#3274906159125927726" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.aspect#3274906159125927726">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/customAspect/generator/source_gen" />
@@ -25756,6 +26152,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/util/jetbrains.mps.lang.util.order/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.util.order" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.util.order" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.util.order">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/util/jetbrains.mps.lang.util.order/source_gen" />
@@ -25832,6 +26231,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/util/jetbrains.mps.lang.util.order/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.util.order#174635545557533742" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.util.order#174635545557533742" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.util.order#174635545557533742">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/util/jetbrains.mps.lang.util.order/generator/source_gen" />
@@ -25904,6 +26306,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/generator/languages/descriptor/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.descriptor" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.descriptor" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.descriptor">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/generator/languages/descriptor/source_gen" />
@@ -25976,6 +26381,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/generator/languages/descriptor/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.descriptor#9020561928507175817" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.descriptor#9020561928507175817" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.descriptor#9020561928507175817">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/generator/languages/descriptor/generator/source_gen" />
@@ -26055,6 +26463,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/generator/xmodel.aspects/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.descriptor.aspects" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.descriptor.aspects" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.descriptor.aspects">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/generator/xmodel.aspects/source_gen" />
@@ -26153,6 +26564,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/generator/languages/generationContext/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.generator.generationContext" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.generator.generationContext" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.generator.generationContext">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/generator/languages/generationContext/source_gen" />
@@ -26234,6 +26648,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/generator/languages/generationContext/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.generator.generationContext#1216862161405" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.generator.generationContext#1216862161405" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.generator.generationContext#1216862161405">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/generator/languages/generationContext/generator/source_gen" />
@@ -26306,6 +26723,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/generator/languages/generationParameters/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.generator.generationParameters" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.generator.generationParameters" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.generator.generationParameters">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/generator/languages/generationParameters/source_gen" />
@@ -26383,6 +26803,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/generator/languages/generationParameters/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.generator.generationParameters#650531548512001931" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.generator.generationParameters#650531548512001931" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.generator.generationParameters#650531548512001931">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/generator/languages/generationParameters/generator/source_gen" />
@@ -26457,6 +26880,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/generator/languages/templateLanguage/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.generator" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.generator" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.generator">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/generator/languages/templateLanguage/source_gen" />
@@ -26545,6 +26971,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/generator/languages/templateLanguage/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.generator#1167163152317" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.generator#1167163152317" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.generator#1167163152317">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/generator/languages/templateLanguage/generator/source_gen" />
@@ -26630,6 +27059,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/generator/languages/plan/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.generator.plan" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.generator.plan" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.generator.plan">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/generator/languages/plan/source_gen" />
@@ -26711,6 +27143,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/intentions/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.intentions" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.intentions" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.intentions">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/intentions/source_gen" />
@@ -26783,6 +27218,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/intentions/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.intentions#1192798684353" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.intentions#1192798684353" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.intentions#1192798684353">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/intentions/generator/source_gen" />
@@ -26863,6 +27301,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/lightweightdsl/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.lightweightdsl" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.lightweightdsl" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.lightweightdsl">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/lightweightdsl/source_gen" />
@@ -26935,6 +27376,9 @@
     <mkdir dir="${mps_home}/languages/baseLanguage/lightweightdsl/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.lightweightdsl#3751132065236752909" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.lightweightdsl#3751132065236752909" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.baseLanguage.lightweightdsl#3751132065236752909">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/baseLanguage/lightweightdsl/generator/source_gen" />
@@ -27008,6 +27452,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/migration/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.migration" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.migration" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.migration">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/migration/source_gen" />
@@ -27080,6 +27527,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/migration/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.migration#3735414794051522719" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.migration#3735414794051522719" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.migration#3735414794051522719">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/migration/generator/source_gen" />
@@ -27166,6 +27616,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/pattern/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.pattern" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.pattern" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.pattern">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/pattern/source_gen" />
@@ -27238,6 +27691,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/pattern/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.pattern#1174810948060" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.pattern#1174810948060" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.pattern#1174810948060">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/pattern/generator/source_gen" />
@@ -27320,6 +27776,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/plugin/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.plugin" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.plugin" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.plugin">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/plugin/source_gen" />
@@ -27393,6 +27852,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/plugin/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.plugin#1203080439937" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.plugin#1203080439937" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.plugin#1203080439937">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/plugin/generator/source_gen" />
@@ -27475,6 +27937,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/checkedName/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.checkedName" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.checkedName" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.checkedName">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/checkedName/source_gen" />
@@ -27545,6 +28010,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/checkedName/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.checkedName#4844813484172930521" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.checkedName#4844813484172930521" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.checkedName#4844813484172930521">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/checkedName/generator/source_gen" />
@@ -27620,6 +28088,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/access/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.access" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.access" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.access">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/access/source_gen" />
@@ -27697,6 +28168,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/access/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.access#8974276187400410207" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.access#8974276187400410207" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.access#8974276187400410207">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/access/generator/source_gen" />
@@ -27770,6 +28244,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/resources/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.resources" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.resources" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.resources">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/resources/source_gen" />
@@ -27842,6 +28319,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/resources/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.resources#8974276187400288250" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.resources#8974276187400288250" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.resources#8974276187400288250">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/resources/generator/source_gen" />
@@ -27921,6 +28401,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/project/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.project" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.project" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.project">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/project/source_gen" />
@@ -27992,6 +28475,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/quotation/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.quotation" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.quotation" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.quotation">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/quotation/source_gen" />
@@ -28064,6 +28550,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/quotation/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.quotation#1196351859310" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.quotation#1196351859310" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.quotation#1196351859310">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/quotation/generator/source_gen" />
@@ -28143,6 +28632,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/refactoring/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.refactoring" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.refactoring" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.refactoring">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/refactoring/source_gen" />
@@ -28215,6 +28707,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/refactoring/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.refactoring#1189697379687" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.refactoring#1189697379687" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.refactoring#1189697379687">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/refactoring/generator/source_gen" />
@@ -28291,6 +28786,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/refactoring/participant/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.refactoring.participant" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.refactoring.participant" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.refactoring.participant">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/refactoring/participant/source_gen" />
@@ -28361,6 +28859,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/script/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.script" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.script" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.script">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/script/source_gen" />
@@ -28433,6 +28934,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/script/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.script#1172274134493" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.script#1172274134493" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.script#1172274134493">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/script/generator/source_gen" />
@@ -28509,6 +29013,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/sharedConcepts/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.sharedConcepts" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.sharedConcepts" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.sharedConcepts">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/sharedConcepts/source_gen" />
@@ -28581,6 +29088,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/sharedConcepts/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.sharedConcepts#1161623873951" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.sharedConcepts#1161623873951" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.sharedConcepts#1161623873951">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/sharedConcepts/generator/source_gen" />
@@ -28653,6 +29163,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/smodel/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.smodel" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.smodel" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.smodel">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/smodel/source_gen" />
@@ -28725,6 +29238,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/smodel/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.smodel#1139186730696" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.smodel#1139186730696" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.smodel#1139186730696">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/smodel/generator/source_gen" />
@@ -28804,6 +29320,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/slanguage/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.slanguage" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.slanguage" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.slanguage">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/slanguage/source_gen" />
@@ -28890,6 +29409,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/slanguage/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.slanguage#8149169565821881093" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.slanguage#8149169565821881093" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.slanguage#8149169565821881093">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/slanguage/generator/source_gen" />
@@ -28971,6 +29493,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/structure/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.structure" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.structure" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.structure">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/structure/source_gen" />
@@ -29044,6 +29569,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/structure/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.structure#1170324972255" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.structure#1170324972255" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.structure#1170324972255">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/structure/generator/source_gen" />
@@ -29122,6 +29650,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/struct.ldgen/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.structure.ldgen" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.structure.ldgen" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.structure.ldgen">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/struct.ldgen/source_gen" />
@@ -29198,6 +29729,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/textGen/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.textGen" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.textGen" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.textGen">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/textGen/source_gen" />
@@ -29270,6 +29804,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/textGen/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.textGen#1233678176149" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.textGen#1233678176149" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.textGen#1233678176149">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/textGen/generator/source_gen" />
@@ -29351,6 +29888,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/traceable/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.traceable" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.traceable" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.traceable">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/traceable/source_gen" />
@@ -29420,6 +29960,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/typesystem/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.typesystem" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.typesystem" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.typesystem">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/typesystem/source_gen" />
@@ -29492,6 +30035,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/typesystem/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.typesystem#1174411220599" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.typesystem#1174411220599" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.typesystem#1174411220599">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/typesystem/generator/source_gen" />
@@ -29578,6 +30124,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/scopes/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.scopes" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.scopes" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.scopes">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/scopes/source_gen" />
@@ -29657,6 +30206,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/scopes/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.scopes#8077936094962908999" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.scopes#8077936094962908999" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.scopes#8077936094962908999">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/scopes/generator/source_gen" />
@@ -29733,6 +30285,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/scopes/runtime/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.scopes.runtime" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.scopes.runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.scopes.runtime">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/scopes/runtime/source_gen" />
@@ -29799,6 +30354,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/smodel.query/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.smodel.query" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.smodel.query" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.smodel.query">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/smodel.query/source_gen" />
@@ -29871,6 +30429,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/smodel.query/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.smodel.query#5336086527852811409" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.smodel.query#5336086527852811409" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.smodel.query#5336086527852811409">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/smodel.query/generator/source_gen" />
@@ -29944,6 +30505,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/smodel.query.rt/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.smodel.query.runtime" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.smodel.query.runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.smodel.query.runtime">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/smodel.query.rt/source_gen" />
@@ -29989,6 +30553,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/modelapi/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.modelapi" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.modelapi" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.modelapi">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/modelapi/source_gen" />
@@ -30061,6 +30628,9 @@
     <mkdir dir="${mps_home}/plugins/mps-core/languages/core.xml/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.core.xml" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.core.xml" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.core.xml">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/plugins/mps-core/languages/core.xml/source_gen" />
@@ -30136,6 +30706,9 @@
     <mkdir dir="${mps_home}/plugins/mps-core/languages/core.xml.sax/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.core.xml.sax" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.core.xml.sax" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.core.xml.sax">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/plugins/mps-core/languages/core.xml.sax/source_gen" />
@@ -30212,6 +30785,9 @@
     <mkdir dir="${mps_home}/plugins/mps-core/languages/core.xml.sax/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.core.xml.sax#2264311582634171386" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.core.xml.sax#2264311582634171386" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.core.xml.sax#2264311582634171386">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/plugins/mps-core/languages/core.xml.sax/generator/source_gen" />
@@ -30284,6 +30860,9 @@
     <mkdir dir="${mps_home}/languages/util/core.text/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.text" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.text" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.text">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/util/core.text/source_gen" />
@@ -30436,6 +31015,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/make/languages/facet/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.make.facet" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.make.facet" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.make.facet">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/make/languages/facet/source_gen" />
@@ -30598,6 +31180,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/make/languages/facet/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.make.facet#5086995156117116954" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.make.facet#5086995156117116954" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.make.facet#5086995156117116954">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/make/languages/facet/generator/source_gen" />
@@ -30680,6 +31265,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/make/languages/script/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.make.script" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.make.script" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.make.script">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/make/languages/script/source_gen" />
@@ -30760,6 +31348,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/make/languages/script/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.make.script#4629164904928166564" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.make.script#4629164904928166564" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.make.script#4629164904928166564">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/make/languages/script/generator/source_gen" />
@@ -30836,6 +31427,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/make/languages/gentest/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.tool.gentest" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.tool.gentest" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.tool.gentest">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/make/languages/gentest/source_gen" />
@@ -30914,6 +31508,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/make/languages/reduced/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.make.reduced" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.make.reduced" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.make.reduced">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/make/languages/reduced/source_gen" />
@@ -30988,6 +31585,9 @@
     <mkdir dir="${mps_home}/languages/util/makeup/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.makeup" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.makeup" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.makeup">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/util/makeup/source_gen" />
@@ -31059,6 +31659,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/make/solutions/jetbrains.mps.make.facets/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.make.facets" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.make.facets" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.make.facets">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/make/solutions/jetbrains.mps.make.facets/source_gen" />

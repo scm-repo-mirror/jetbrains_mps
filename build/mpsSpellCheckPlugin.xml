@@ -5,6 +5,7 @@
   <property name="build.layout" location="${build.dir}/artifacts/mpsSpellCheckPlugin" />
   <property name="idea_home" location="" />
   <property name="mps_home" location="${basedir}" />
+  <property name="kotlinc_home" location="${mps_home}/plugins/mps-kotlin/kotlinc" />
   <property name="artifacts.mpsBootstrapCore" location="${build.dir}/artifacts/mpsBootstrapCore" />
   <property name="artifacts.mpsWorkbench" location="${build.dir}/artifacts/mpsWorkbench" />
   <property name="artifacts.IDEA" location="${idea_home}" />
@@ -28,6 +29,8 @@
   </path>
   
   <taskdef resource="jetbrains/mps/build/ant/antlib.xml" classpathref="path.mps.ant.path" />
+  
+  <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlinc_home}/lib/kotlin-ant.jar"></typedef>
   
   <generator-settings id="m2m-defaults" strictMode="true" parallelThreads="8" inplaceTransform="false" warnWrongChild="true" createStaticRefs="true" skipUnmodifiedModels="${mps.generator.skipUnmodifiedModels}" />
   
@@ -260,6 +263,7 @@
       </jvmargs>
       <macro name="idea_home" path="${idea_home}" />
       <macro name="mps_home" path="${mps_home}" />
+      <macro name="kotlinc_home" path="${kotlinc_home}" />
     </generate>
   </target>
   
@@ -286,7 +290,10 @@
   <target name="java.compile.jetbrains.mps.editor.spellcheck" depends="fetchDependencies">
     <mkdir dir="${mps_home}/plugins/mps-spellcheck/modules/spellcheck/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.editor.spellcheck" />
-    <javac destdir="${build.tmp}/java/out/jetbrains.mps.editor.spellcheck" fork="true" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+    <javac destdir="${build.tmp}/java/out/jetbrains.mps.editor.spellcheck" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.editor.spellcheck">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/plugins/mps-spellcheck/modules/spellcheck/source_gen" />

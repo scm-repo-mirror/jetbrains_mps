@@ -551,6 +551,9 @@
     <mkdir dir="${mps_home}/workbench/typesystemUi/source" />
     <mkdir dir="${build.tmp}/java/out/typesystem-ui" />
     <javac2 destdir="${build.tmp}/java/out/typesystem-ui" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="typesystem-ui">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/workbench/typesystemUi/source" />
@@ -662,6 +665,9 @@
     <mkdir dir="${mps_home}/startup/src" />
     <mkdir dir="${build.tmp}/java/out/startup" />
     <javac2 destdir="${build.tmp}/java/out/startup" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="startup">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/startup/src" />
@@ -693,6 +699,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/plugin-standalone/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.plugin.standalone" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.plugin.standalone" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.plugin.standalone">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/plugin-standalone/source_gen" />
@@ -765,6 +774,9 @@
     <mkdir dir="${mps_home}/languages/languageDesign/plugin-standalone/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.plugin.standalone#481983775135098857" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.plugin.standalone#481983775135098857" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.plugin.standalone#481983775135098857">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/languages/languageDesign/plugin-standalone/generator/source_gen" />

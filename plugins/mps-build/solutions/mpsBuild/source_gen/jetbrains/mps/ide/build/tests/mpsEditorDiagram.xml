@@ -7,6 +7,7 @@
   <property name="build.layout" location="${build.dir}/artifacts/mpsEditorDiagram" />
   <property name="mps_home" location="" />
   <property name="idea_home" location="${mps_home}" />
+  <property name="kotlinc_home" location="${mps_home}/plugins/mps-kotlin/kotlinc" />
   <property name="artifacts.mps" location="${mps_home}" />
   <property name="artifacts.IDEA" location="${idea_home}" />
   <property file="${artifacts.mps}/build.properties" prefix="import.mps" />
@@ -57,6 +58,8 @@
   <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="path.javac2.classpath" />
   
   <taskdef resource="jetbrains/mps/build/ant/antlib.xml" classpathref="path.mps.ant.path" />
+  
+  <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlinc_home}/lib/kotlin-ant.jar"></typedef>
   
   <generator-settings id="m2m-defaults" strictMode="true" parallelThreads="8" inplaceTransform="false" warnWrongChild="true" createStaticRefs="true" skipUnmodifiedModels="${mps.generator.skipUnmodifiedModels}" />
   
@@ -442,6 +445,7 @@
       </jvmargs>
       <macro name="mps_home" path="${mps_home}" />
       <macro name="idea_home" path="${idea_home}" />
+      <macro name="kotlinc_home" path="${kotlinc_home}" />
     </generate>
   </target>
   
@@ -455,6 +459,9 @@
     <mkdir dir="${basedir}/plugins/mps-diagram-editor/test/jetbrains.mps.lang.editor.figures.sandbox/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.editor.figures.sandbox" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.editor.figures.sandbox" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.editor.figures.sandbox">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/plugins/mps-diagram-editor/test/jetbrains.mps.lang.editor.figures.sandbox/source_gen" />
@@ -523,6 +530,9 @@
   <target name="java.compile.jetbrains.mps.lang.editor.diagram.tests" depends="java.compile.jetbrains.mps.lang.editor.diagram.testLanguage, fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.editor.diagram.tests" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.editor.diagram.tests" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.editor.diagram.tests">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src path="${basedir}/plugins/mps-diagram-editor/test/jetbrains.mps.lang.editor.diagram.tests/test_gen/" />
       <classpath>
@@ -619,6 +629,9 @@
     <mkdir dir="${basedir}/plugins/mps-diagram-editor/test/jetbrains.mps.lang.editor.diagram.testLanguage/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.editor.diagram.testLanguage" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.editor.diagram.testLanguage" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.lang.editor.diagram.testLanguage">        
+        <compilerarg value="-jvm-target=11"></compilerarg>
+      </withKotlin>
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${basedir}/plugins/mps-diagram-editor/test/jetbrains.mps.lang.editor.diagram.testLanguage/source_gen" />
