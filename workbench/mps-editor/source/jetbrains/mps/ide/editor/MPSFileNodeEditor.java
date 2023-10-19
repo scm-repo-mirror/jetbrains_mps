@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,7 @@ import com.intellij.openapi.fileEditor.FileEditorState;
 import com.intellij.openapi.fileEditor.FileEditorStateLevel;
 import com.intellij.openapi.util.UserDataHolderBase;
 import jetbrains.mps.ide.editor.BaseNodeEditor.BaseEditorState;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.nodefs.MPSNodeVirtualFile;
 import jetbrains.mps.openapi.editor.Editor;
 import jetbrains.mps.openapi.editor.EditorState;
@@ -37,6 +38,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.EditableSModel;
 import org.jetbrains.mps.openapi.model.SModel;
+import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.module.SRepository;
 
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -95,13 +98,11 @@ public class MPSFileNodeEditor extends UserDataHolderBase implements DocumentsEd
   @NonNls
   @NotNull
   public String getName() {
-    return new ModelAccessHelper(myProject.getModelAccess()).runReadAction(() -> {
-      if (waitingForNodeFile()) {
-        return "Editor waiting for node";
-      }
-      assert myFile.getNode() != null : String.format("File does not contain node: %s", myFile.toString());
-      return myFile.getNode().getName();
-    });
+    if (waitingForNodeFile()) {
+      return "Editor waiting for node";
+    }
+    // that's what EditorTabTitleProviderImpl does, see no reason to differ.
+    return myFile.getPresentableName();
   }
 
   @Override
@@ -157,9 +158,21 @@ public class MPSFileNodeEditor extends UserDataHolderBase implements DocumentsEd
     if (waitingForNodeFile()) {
       return false;
     }
-    return new ModelAccessHelper(myProject.getModelAccess()).runReadAction(() -> {
-      assert myFile.getNode() != null : String.format("File does not contain node: %s", myFile.toString());
-      SModel md = myFile.getNode().getModel();
+    if (!myFile.isValid()) {
+      // XXX I wonder if we can recognize read-only files (e.g. for transient or stub models) and shortcut isModified === false?
+      return false;
+    }
+    // XXX I believe it's sort of implicit assumption that editor's context has project repository, too.
+    //     To use same repo editor uses seems to me fair approach, however. Just requires a lot of changes in this class
+//    final SRepository repo = myNodeEditor.getEditorContext().getRepository();
+    final SRepository repo = myProject.getRepository();
+    return repo.getModelAccess().computeReadAction(() -> {
+      final SNode fileNode = myFile.getSNodePointer().resolve(repo);
+      if (fileNode == null) {
+        Logger.getLogger(MPSFileNodeEditor.class).info(String.format("File does not contain node: %s", myFile));
+        return false;
+      }
+      SModel md = fileNode.getModel();
       return md instanceof EditableSModel && ((EditableSModel) md).isChanged();
     });
   }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,14 +15,10 @@
  */
 package jetbrains.mps.ide.editor.icons;
 
-import com.intellij.openapi.application.ApplicationManager;
-import com.intellij.openapi.components.ProjectComponent;
-import com.intellij.openapi.fileEditor.ex.FileEditorManagerEx;
+import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.util.messages.MessageBusConnection;
 import jetbrains.mps.nodefs.NodeFileEventListener;
-import jetbrains.mps.nodefs.NodeVirtualFileSystem;
 
 import java.util.Collection;
 
@@ -31,48 +27,22 @@ import java.util.Collection;
  *        need this distinct component? Does IDEA listen to file changes or it's indeed our responsibility to update editors on VF change?
  * XXX Why it's distinct from NodeFileIconProvider?
  */
-public class NodeIconUpdater implements ProjectComponent {
+public class NodeIconUpdater implements NodeFileEventListener {
   private final Project myProject;
-  private final FileEditorManagerEx myFileEditorManagerEx;
-  private final NodeFileEventListener myFileListener;
 
   public NodeIconUpdater(Project project) {
     myProject = project;
-    myFileEditorManagerEx = FileEditorManagerEx.getInstanceEx(project);
-    // TODO Would be more effective to be an ApplicationComponent and listen to bulk changes (BulkFileListener)
-    // however, there's no way to find out MPSProject from MPSNodeVirtualFile at the moment, and without a project
-    // can't access FileEditorManagerEx.
-    myFileListener = new NodeFileEventListener() {
-      @Override
-      public void changed(Collection<VirtualFile> vf) {
-        vf.forEach(NodeIconUpdater.this::refresh);
-      }
-
-      @Override
-      public void beforeDelete(Collection<VirtualFile> vf) {
-        vf.forEach(myFileEditorManagerEx::closeFile);
-      }
-    };
   }
 
   @Override
-  public void projectOpened() {
-    if (ApplicationManager.getApplication().isHeadlessEnvironment() || ApplicationManager.getApplication().isUnitTestMode()) {
-      return;
-    }
-    final MessageBusConnection conn = myProject.getMessageBus().connect(myProject);
-    conn.subscribe(NodeVirtualFileSystem.NODE_FS_CHANGES, myFileListener);
+  public void changed(Collection<VirtualFile> vf) {
+    final FileEditorManager fm = FileEditorManager.getInstance(myProject);
+    vf.forEach(fm::updateFilePresentation);
   }
 
   @Override
-  public void projectClosed() {
-//    NodeVirtualFileSystem.getInstance().removeVirtualFileListener(myFileListener);
-  }
-
-  private void refresh(VirtualFile vf) {
-//    if (false == vf instanceof MPSNodeVirtualFile) {
-//      return;
-//    }
-    myFileEditorManagerEx.updateFilePresentation(vf);
+  public void beforeDelete(Collection<VirtualFile> vf) {
+    final FileEditorManager fm = FileEditorManager.getInstance(myProject);
+    vf.forEach(fm::closeFile);
   }
 }

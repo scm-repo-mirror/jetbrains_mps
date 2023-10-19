@@ -41,10 +41,6 @@
 
   <project-components>
     <component>
-      <implementation-class>jetbrains.mps.ide.editor.icons.NodeIconUpdater</implementation-class>
-    </component>
-
-    <component>
       <interface-class>jetbrains.mps.nodeEditor.Highlighter</interface-class>
       <implementation-class>jetbrains.mps.nodeEditor.Highlighter</implementation-class>
       <headless-implementation-class>jetbrains.mps.nodeEditor.EmptyHighlighter</headless-implementation-class>
@@ -72,6 +68,12 @@
     </component>
 
   </project-components>
+
+  <projectListeners>
+    <listener class="jetbrains.mps.ide.editor.icons.NodeIconUpdater"
+              topic="jetbrains.mps.nodefs.NodeFileEventListener"
+              activeInHeadlessMode="false"/>
+  </projectListeners>
 
   <extensions defaultExtensionNs="com.intellij">
     <applicationService serviceImplementation="jetbrains.mps.nodeEditor.EditorSettings"/>
