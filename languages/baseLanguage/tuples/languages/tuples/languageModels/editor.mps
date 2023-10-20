@@ -3205,5 +3205,15 @@
     <ref role="aqKnT" to="cx9y:i2pR1d_" resolve="NamedTupleType" />
     <node concept="22hDWj" id="xzgvwPPp5J" role="22hAXT" />
   </node>
+  <node concept="24kQdi" id="3xYtul1rnLD">
+    <ref role="1XX52x" to="cx9y:3xYtul1rirb" resolve="LocalVariableDeclarationInTuple" />
+    <node concept="3EZMnI" id="3xYtul1rnLT" role="2wV5jI">
+      <node concept="3F1sOY" id="3xYtul1rnMa" role="3EZMnx">
+        <ref role="1NtTu8" to="cx9y:3xYtul1rito" resolve="variable" />
+      </node>
+      <node concept="l2Vlx" id="3xYtul1rnLW" role="2iSdaV" />
+      <node concept="VPM3Z" id="3xYtul1rnMZ" role="3F10Kt" />
+    </node>
+  </node>
 </model>
 

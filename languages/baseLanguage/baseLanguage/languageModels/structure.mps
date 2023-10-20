@@ -108,6 +108,9 @@
     <node concept="PrWs8" id="huGcV1G" role="PzmwI">
       <ref role="PrY4T" node="huG8N3O" resolve="TypeDerivable" />
     </node>
+    <node concept="PrWs8" id="3xYtul1wD01" role="PzmwI">
+      <ref role="PrY4T" node="i1Ircah" resolve="ILocalVariableElement" />
+    </node>
   </node>
   <node concept="1TIwiD" id="fz7wK6G">
     <property role="R5$K7" value="true" />
