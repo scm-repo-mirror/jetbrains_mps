@@ -19,17 +19,11 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.build.mps.behavior.BuildMps_IdeaPluginContent__BehaviorDescriptor;
 import jetbrains.mps.generator.template.TemplateQueryContext;
 import jetbrains.mps.build.util.DependenciesHelper;
-import jetbrains.mps.build.util.VisibleArtifacts;
 import jetbrains.mps.build.behavior.BuildLayout_PathElement__BehaviorDescriptor;
-import jetbrains.mps.build.util.Context;
-import jetbrains.mps.build.behavior.BuildLayout_Container__BehaviorDescriptor;
-import jetbrains.mps.build.behavior.BuildString__BehaviorDescriptor;
-import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
@@ -41,11 +35,6 @@ public class ModulePlugins {
 
   public ModulePlugins(SNode initialProject) {
     myInitialProject = initialProject;
-  }
-
-  @Deprecated
-  public void collect(@NotNull MPSModulesClosure closure, @NotNull List<SNode> additionalPlugins) {
-    collect(closure.getAllModules(), additionalPlugins);
   }
 
   public void collect(@NotNull Iterable<SNode> modules, @NotNull List<SNode> additionalPlugins) {
@@ -107,7 +96,7 @@ public class ModulePlugins {
 
   public String[] getPluginPaths(TemplateQueryContext context) {
     // XXX why implicit select (getPlugins().path) doesn't work?
-    return ListSequence.fromList(getPlugins(context, false)).select((it) -> SPropertyOperations.getString(it, PROPS.path$4PFd)).toGenericArray(String.class);
+    return ListSequence.fromList(getPlugins(context)).select((it) -> SPropertyOperations.getString(it, PROPS.path$4PFd)).toGenericArray(String.class);
   }
 
   /**
@@ -118,51 +107,29 @@ public class ModulePlugins {
     return myNonPluginModules;
   }
 
-  public List<SNode> getPlugins(final TemplateQueryContext context, final boolean allowFromSameProject) {
-    // FIXME refactor last use of allowFromSameProject==true (runMps) to use reference macro to same-project artifacts (as in reduce_TestModules)
+  public List<SNode> getPlugins(final TemplateQueryContext context) {
     final DependenciesHelper helper = DependenciesHelper.get(context, myInitialProject, "build.mps");
-    final VisibleArtifacts local;
-    if (allowFromSameProject) {
-      // generally, BP deals with artifacts available through dependencies from other BuildProjects
-      // however, there are scenarios (like run and test aspects), that legitimately depend on outcome of 'assemble'
-      // task of this project and may need access to e.g. plugins from the same project they are declared in. 
-      // For this purpose, we keep this argument.
-      // Same project artifacts used to be part of DH for a long time (FetchDependenciesProcessor collected them)
-      // I take this chance to strip off some aspect of DH functionality in my quest to get rid of it completely some day.
-      local = new VisibleArtifacts(myInitialProject);
-      local.collectProjectArtifacts();
-    } else {
-      local = null;
-    }
+    // FTR, generally, BP deals with artifacts available through dependencies from other BuildProjects
+    // however, there are scenarios (like run and test aspects), that legitimately depend on outcome of 'assemble'
+    // task of this project and may need access to e.g. plugins from the same project they are declared in. 
+    // Here, we collect "external" plugins, declared in dependencies. For local plugins, use reference macro to local artifacts:
+    //    1) RR in aliases that transforms BML_Plugin into folder
+    //    2) BNL_PluginDescriptor --> container/META-INF/plugin.xml
     return Sequence.fromIterable(this.getDependency()).select((it) -> {
       SNode layoutNode = helper.getArtifact(it);
-      if ((layoutNode == null) && allowFromSameProject && SNodeOperations.getNodeAncestor(it, CONCEPTS.BuildProject$ae, false, false) == myInitialProject) {
-        layoutNode = local.findArtifact(it);
-      }
       if ((layoutNode == null)) {
         context.showWarningMessage(myInitialProject, String.format("The plugin '%s' was not found in the layout of `%s'", SPropertyOperations.getString(it, PROPS.name$MnvL), SPropertyOperations.getString(myInitialProject, PROPS.name$MnvL)));
         return null;
       }
       String val = BuildLayout_PathElement__BehaviorDescriptor.location_id6b4RkXS8sT2.invoke(layoutNode, helper, it);
-      if (val == null && allowFromSameProject && SNodeOperations.getNodeAncestor(layoutNode, CONCEPTS.BuildProject$ae, false, false) == myInitialProject) {
-        Context cc = Context.defaultContext(context);
-        if (SNodeOperations.isInstanceOf(layoutNode, CONCEPTS.BuildMpsLayout_Plugin$cj)) {
-          // RR in aliases that transforms BML_Plugin into folder
-          String pv = BuildLayout_Container__BehaviorDescriptor.getChildrenOutputDir_WithMacro_id450ejGzh8bb.invoke(SNodeOperations.as(local.parent(layoutNode), CONCEPTS.BuildLayout_Container$vv), cc);
-          val = pv + '/' + BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(it, LINKS.containerName$xQbG), cc.getMacros(myInitialProject));
-        } else if (SNodeOperations.isInstanceOf(layoutNode, CONCEPTS.BuildMpsLayout_PluginDescriptor$on)) {
-          // container/META-INF/plugin.xml
-          val = BuildLayout_Container__BehaviorDescriptor.getChildrenOutputDir_WithMacro_id450ejGzh8bb.invoke(SNodeOperations.as(local.parent(local.parent(layoutNode)), CONCEPTS.BuildLayout_Container$vv), cc);
-        }
-      }
       if (val == null) {
         context.showWarningMessage(myInitialProject, String.format("Found no location for plugin '%s'", SPropertyOperations.getString(it, PROPS.name$MnvL)));
         return null;
       }
-      return MultiTuple.<String,String>from(val, SPropertyOperations.getString(it, PROPS.id$W4AX));
-    }).where(new NotNullWhereFilter()).sort((it) -> it._0(), true).select((it) -> createGeneratorInternal_PluginExpanded_ookyii_a0a0a0a4a61(it._0(), it._1())).toList();
+      return createGeneratorInternal_PluginExpanded_ookyii_a4a0a0a0a7a41(val, SPropertyOperations.getString(it, PROPS.id$W4AX));
+    }).where(new NotNullWhereFilter()).sort((it) -> SPropertyOperations.getString(it, PROPS.path$4PFd), true).toList();
   }
-  private static SNode createGeneratorInternal_PluginExpanded_ookyii_a0a0a0a4a61(String p0, String p1) {
+  private static SNode createGeneratorInternal_PluginExpanded_ookyii_a4a0a0a0a7a41(String p0, String p1) {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.GeneratorInternal_PluginExpanded$$Z);
     n0.setProperty(PROPS.path$4PFd, p0);
     n0.setProperty(PROPS.id$4PUe, p1);
@@ -173,8 +140,6 @@ public class ModulePlugins {
     /*package*/ static final SConcept BuildProject$ae = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
     /*package*/ static final SConcept BuildMpsLayout_Plugin$cj = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb6eL, "jetbrains.mps.build.mps.structure.BuildMpsLayout_Plugin");
     /*package*/ static final SConcept BuildMps_IdeaPlugin$po = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, "jetbrains.mps.build.mps.structure.BuildMps_IdeaPlugin");
-    /*package*/ static final SInterfaceConcept BuildLayout_Container$vv = MetaAdapterFactory.getInterfaceConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4140393b234482c3L, "jetbrains.mps.build.structure.BuildLayout_Container");
-    /*package*/ static final SConcept BuildMpsLayout_PluginDescriptor$on = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4dee437cL, "jetbrains.mps.build.mps.structure.BuildMpsLayout_PluginDescriptor");
     /*package*/ static final SConcept GeneratorInternal_PluginExpanded$$Z = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3283ab1237f81c49L, "jetbrains.mps.build.mps.structure.GeneratorInternal_PluginExpanded");
   }
 
@@ -190,6 +155,5 @@ public class ModulePlugins {
     /*package*/ static final SReferenceLink plugin$9ewC = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb6eL, 0x5b7be37b4dee5919L, "plugin");
     /*package*/ static final SContainmentLink parts$mGDj = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x668c6cfbafacf6f2L, "parts");
     /*package*/ static final SContainmentLink content$9T6D = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, 0x5b7be37b4de9bbeaL, "content");
-    /*package*/ static final SContainmentLink containerName$xQbG = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, 0x5b7be37b4def2c96L, "containerName");
   }
 }

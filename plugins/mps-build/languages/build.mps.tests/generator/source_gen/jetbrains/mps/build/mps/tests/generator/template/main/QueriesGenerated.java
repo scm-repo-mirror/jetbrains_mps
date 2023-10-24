@@ -182,7 +182,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return Sequence.fromIterable(seq).sort((it) -> SPropertyOperations.getString(it, PROPS.name$MnvL), true);
   }
   public static Iterable<SNode> sourceNodesQuery_0_5(final SourceSubstituteMacroNodesContext _context) {
-    return ((ModulePlugins) _context.getVariable("var:requiredPlugins")).getPlugins(_context, false);
+    return ((ModulePlugins) _context.getVariable("var:requiredPlugins")).getPlugins(_context);
   }
   public static Iterable<SNode> sourceNodesQuery_0_6(final SourceSubstituteMacroNodesContext _context) {
     final SNode thisProject = SNodeOperations.cast(SNodeOperations.getContainingRoot(_context.getNode()), CONCEPTS.BuildProject$ae);

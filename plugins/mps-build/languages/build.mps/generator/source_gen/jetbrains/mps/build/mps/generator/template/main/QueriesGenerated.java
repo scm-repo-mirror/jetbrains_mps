@@ -1455,7 +1455,7 @@ public class QueriesGenerated extends QueryProviderBase {
   public static Iterable<SNode> sourceNodesQuery_9_6(final SourceSubstituteMacroNodesContext _context) {
     // XXX Although there's GeneratorInternal_PluginExpanded now, I hope to replace it with 
     //    just _IdeaPlugin reference some day, which is to be reduced to path value later.
-    return ((ModulePlugins) _context.getVariable("var:requiredPlugins")).getPlugins(_context, false);
+    return ((ModulePlugins) _context.getVariable("var:requiredPlugins")).getPlugins(_context);
 
   }
   public static Iterable<SNode> sourceNodesQuery_9_7(final SourceSubstituteMacroNodesContext _context) {

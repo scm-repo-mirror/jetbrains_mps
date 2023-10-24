@@ -99,7 +99,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return _context.getOutputNodeByInputNodeAndMappingLabel(_context.getNode(), "MODULE2LAYOUT");
   }
   public static Iterable<SNode> sourceNodesQuery_0_0(final SourceSubstituteMacroNodesContext _context) {
-    return ((ModulePlugins) _context.getVariable("var:requiredPlugins")).getPlugins(_context, false);
+    return ((ModulePlugins) _context.getVariable("var:requiredPlugins")).getPlugins(_context);
   }
   public static Iterable<SNode> sourceNodesQuery_0_1(final SourceSubstituteMacroNodesContext _context) {
     final SNode thisProject = ((SNode) _context.getVariable("var:buildProject"));
