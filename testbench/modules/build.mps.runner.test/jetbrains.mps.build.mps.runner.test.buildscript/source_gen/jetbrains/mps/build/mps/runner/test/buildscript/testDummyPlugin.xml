@@ -265,7 +265,7 @@
   <target name="run.jetbrains.mps.build.mps.runner.test.test6" depends="assemble">
     <echo message="Running code from jetbrains.mps.build.mps.runner.test.test6 solution in MPS" />
     <runMPS solution="adb4254c-4802-47c5-ab55-bf6f81cce0f5(jetbrains.mps.build.mps.runner.test.test6)" startClass="jetbrains.mps.build.mps.runner.test.test6.MainClass" startMethod="mpsMain">
-      <plugin path="${build.layout}/dummy-mps" id="dummy.mps" />
+      <plugin id="dummy.mps" path="${build.layout}/dummy-mps" />
       <library file="${artifacts.mps}/languages/baseLanguage/closures.runtime.jar" />
       <library file="${artifacts.mps}/languages/baseLanguage/collections.runtime.jar" />
       <library file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.blTypes.jar" />
