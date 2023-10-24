@@ -1805,19 +1805,22 @@
       <node id="6153771967696091530" at="14,54,15,55" concept="8" />
       <node id="6153771967696091535" at="15,55,16,20" concept="3" />
       <node id="6153771967697526819" at="16,20,17,107" concept="3" />
-      <node id="6153771967696091600" at="17,107,18,21" concept="3" />
-      <node id="6153771967696091620" at="18,21,19,86" concept="3" />
-      <node id="6153771967696091530" at="23,0,24,0" concept="12" trace="variables$EO9Z" />
-      <node id="6153771967696091530" at="24,0,25,0" concept="12" trace="type$CMFM" />
-      <node id="6153771967696091530" at="13,0,21,0" concept="7" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
-      <scope id="6153771967696091530" at="14,54,19,86">
+      <node id="6153771967696091600" at="17,107,18,20" concept="3" />
+      <node id="5527181570959030118" at="19,86,20,23" concept="3" />
+      <node id="5527181570959030494" at="20,23,21,88" concept="3" />
+      <node id="6153771967696091530" at="26,0,27,0" concept="12" trace="variables$EO9Z" />
+      <node id="6153771967696091530" at="27,0,28,0" concept="12" trace="type$CMFM" />
+      <node id="5527181570959026571" at="18,20,22,5" concept="6" />
+      <node id="6153771967696091530" at="13,0,24,0" concept="7" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <scope id="5527181570959026573" at="19,86,21,88" />
+      <scope id="6153771967696091530" at="14,54,22,5">
         <var name="tgs" id="6153771967696091530" />
       </scope>
-      <scope id="6153771967696091530" at="13,0,21,0">
+      <scope id="6153771967696091530" at="13,0,24,0">
         <var name="ctx" id="6153771967696091530" />
       </scope>
-      <unit id="6153771967696091530" at="22,0,26,0" name="jetbrains.mps.kotlin.textGen.MultiLambdaParameter_TextGen$LINKS" />
-      <unit id="6153771967696091530" at="12,0,27,0" name="jetbrains.mps.kotlin.textGen.MultiLambdaParameter_TextGen" />
+      <unit id="6153771967696091530" at="25,0,29,0" name="jetbrains.mps.kotlin.textGen.MultiLambdaParameter_TextGen$LINKS" />
+      <unit id="6153771967696091530" at="12,0,30,0" name="jetbrains.mps.kotlin.textGen.MultiLambdaParameter_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
       <node id="6153771967696091530" at="175,54,176,50" concept="9" />

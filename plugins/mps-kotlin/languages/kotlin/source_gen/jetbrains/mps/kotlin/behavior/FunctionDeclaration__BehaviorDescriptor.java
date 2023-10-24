@@ -65,8 +65,9 @@ public final class FunctionDeclaration__BehaviorDescriptor extends BaseBHDescrip
   public static final SMethod<Boolean> isRunnable_idoITd3IthrB = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isRunnable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(445544999161239271L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<String> getClassName_id7klTmOSHg_9 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getClassFqName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8436901734214076745L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(KtEnvironmentConfig.class, ""));
   public static final SMethod<SConcept> getDefaultVisibility_id2WVyZr43qIN = new SMethodBuilder<SConcept>(new SJavaCompoundTypeImpl((Class<SConcept>) ((Class) Object.class))).name("getDefaultVisibility").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3403467835375987635L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<SNode> asSingleExpression_id18X2O0FvKfA = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("asSingleExpression").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1314219036497609702L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateDeclarations_id213J8cgCCAN, populateSignatures_id18X2O0FJBER, isAbstract_id4KPNZIZDjbY, getParameters_id6f3juM$_Kx4, getReturnType_id6QVUYzas5Of, getReturnExpression_id6yQJbFyGtec, getReceiverType_id2gj5XQXMFhP, isExtension_id4Cl0D9hBslM, getTypeParameters_id1VI7K1kLcNv, getScope_id52_Geb4QDV$, collectSpecificScope_id1yTI8p9qmpS, getModifiers_id4q11fqJUzWN, getDefaultInheritance_id6jE_6dusz0P, getThisTypeReferences_idxpyqH1FuA0, collectScope_id7DyvjiA20yV, isRunnable_idoITd3IthrB, getClassName_id7klTmOSHg_9, getDefaultVisibility_id2WVyZr43qIN);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateDeclarations_id213J8cgCCAN, populateSignatures_id18X2O0FJBER, isAbstract_id4KPNZIZDjbY, getParameters_id6f3juM$_Kx4, getReturnType_id6QVUYzas5Of, getReturnExpression_id6yQJbFyGtec, getReceiverType_id2gj5XQXMFhP, isExtension_id4Cl0D9hBslM, getTypeParameters_id1VI7K1kLcNv, getScope_id52_Geb4QDV$, collectSpecificScope_id1yTI8p9qmpS, getModifiers_id4q11fqJUzWN, getDefaultInheritance_id6jE_6dusz0P, getThisTypeReferences_idxpyqH1FuA0, collectScope_id7DyvjiA20yV, isRunnable_idoITd3IthrB, getClassName_id7klTmOSHg_9, getDefaultVisibility_id2WVyZr43qIN, asSingleExpression_id18X2O0FvKfA);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -184,6 +185,14 @@ public final class FunctionDeclaration__BehaviorDescriptor extends BaseBHDescrip
     }
     return ((SConcept) IVisible__BehaviorDescriptor.getDefaultVisibility_id2WVyZr43qIN.invoke0(__thisNode__, CONCEPTS.IVisible$LZ));
   }
+  /*package*/ static SNode asSingleExpression_id18X2O0FvKfA(@NotNull SNode __thisNode__) {
+    // Functions returning Unit are always blocks
+    if (BuiltIn.UNIT.isReferedBy(SNodeOperations.as(SLinkOperations.getTarget(__thisNode__, LINKS.returnType$fGYV), CONCEPTS.IClassReference$3H))) {
+      return null;
+    }
+
+    return ((SNode) IStatementHolder__BehaviorDescriptor.asSingleExpression_id18X2O0FvKfA.invoke0(__thisNode__, CONCEPTS.IStatementHolder$84));
+  }
 
   /*package*/ FunctionDeclaration__BehaviorDescriptor() {
   }
@@ -239,6 +248,8 @@ public final class FunctionDeclaration__BehaviorDescriptor extends BaseBHDescrip
         return (T) ((String) getClassName_id7klTmOSHg_9(node, (KtEnvironmentConfig) parameters[0]));
       case 17:
         return (T) ((SConcept) getDefaultVisibility_id2WVyZr43qIN(node));
+      case 18:
+        return (T) ((SNode) asSingleExpression_id18X2O0FvKfA(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -290,6 +301,7 @@ public final class FunctionDeclaration__BehaviorDescriptor extends BaseBHDescrip
     /*package*/ static final SInterfaceConcept IThisReceiverProvider$mP = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x85989ab41addf50L, "jetbrains.mps.kotlin.structure.IThisReceiverProvider");
     /*package*/ static final SConcept KotlinFile$4h = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af529L, "jetbrains.mps.kotlin.structure.KotlinFile");
     /*package*/ static final SInterfaceConcept IVisible$LZ = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x631027d1c4c4e03fL, "jetbrains.mps.kotlin.structure.IVisible");
+    /*package*/ static final SInterfaceConcept IClassReference$3H = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5c7be90f2440b378L, "jetbrains.mps.kotlin.structure.IClassReference");
   }
 
   private static final class PROPS {
