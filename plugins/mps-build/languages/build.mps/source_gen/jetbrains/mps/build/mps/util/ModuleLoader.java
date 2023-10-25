@@ -121,7 +121,7 @@ public final class ModuleLoader {
 
     String moduleFilePath = BuildSourcePath__BehaviorDescriptor.getLocalPath_id4Kip2_918Y$.invoke(SLinkOperations.getTarget(module, LINKS.path$iYKB), myBuildContext);
     if (moduleFilePath == null) {
-      reportError(String.format("cannot import module file for %s: file doesn't exist (%s)", SPropertyOperations.getString(module, PROPS.name$MnvL), BuildSourcePath__BehaviorDescriptor.getAntPath_id7ro1ZztyOh5.invoke(SLinkOperations.getTarget(module, LINKS.path$iYKB), myBuildContext)), module);
+      reportError(String.format("cannot import module file for %s: file doesn't exist (%s)", SPropertyOperations.getString(module, PROPS.name$MnvL), BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(module, LINKS.path$iYKB))), module);
       return null;
     }
 

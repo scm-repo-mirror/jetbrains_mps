@@ -41,7 +41,6 @@ import jetbrains.mps.project.structure.modules.GeneratorDescriptor;
 import jetbrains.mps.build.mps.behavior.BuildMps_AbstractModule__BehaviorDescriptor;
 import jetbrains.mps.project.structure.model.ModelRootDescriptor;
 import jetbrains.mps.persistence.PersistenceRegistry;
-import jetbrains.mps.build.util.RelativePathHelper;
 import jetbrains.mps.project.facets.JavaModuleFacet;
 import org.jetbrains.mps.openapi.persistence.ModelRoot;
 import jetbrains.mps.persistence.DefaultModelRoot;
@@ -161,7 +160,12 @@ public final class ModuleChecker {
     }
 
     // in case of doFullImport/doPartialImport, collectSources has to go in front of checkGenerators(), which needs Language module already instantiated
-    collectSources(type);
+    try {
+      collectSources(type);
+    } catch (PathConverter.PathConvertException e) {
+      report(e.getMessage());
+      return;
+    }
 
     if (SNodeOperations.isInstanceOf(module, CONCEPTS.BuildMps_Language$RA)) {
       LanguageChecker lc = new LanguageChecker((LanguageDescriptor) myModuleDescriptor, SNodeOperations.cast(module, CONCEPTS.BuildMps_Language$RA));
@@ -635,7 +639,7 @@ public final class ModuleChecker {
     }
   }
 
-  public void collectSources(CheckType type) {
+  public void collectSources(CheckType type) throws PathConverter.PathConvertException {
     SNode module = SNodeOperations.cast(myModule, CONCEPTS.BuildMps_Module$JW);
     // indeed, it's odd way to figure out if there's a model that would produce sources to compile, but ModuleChecker as a whole is odd, why would I bother to make this one perfect?
     final boolean hasModels = Sequence.fromIterable(((Iterable<ModelRootDescriptor>) myModuleDescriptor.getModelRootDescriptors())).any((it) -> PersistenceRegistry.DEFAULT_MODEL_ROOT.equals(it.getType()));
@@ -646,15 +650,13 @@ public final class ModuleChecker {
 
       List<SNode> prevRoots = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(module, LINKS.sources$mT1j), CONCEPTS.BuildMps_ModuleModelRoot$Ie)).where((it) -> SPropertyOperations.getBoolean(it, PROPS.extracted$UUL7)).toList();
 
-      // see comment next to makeRelative use, below, regarding hardcoded parent location knowledge
-      // XXX instead of myModuleDescriptoFile, could use module.path.getLocalPath()
-      RelativePathHelper moduleRelativePathHelper = new RelativePathHelper(myModuleDescriptorFile.getParent().getPath());
       SModule loadedModule = getLoadedModule();
       if (loadedModule != null) {
         final JavaModuleFacet jmf = loadedModule.getFacet(JavaModuleFacet.class);
         // here used to be some confusing logic with presence of sources and models, I see no reason to check it here
         // shall be checking rule, if necessary
         SPropertyOperations.assign(module, PROPS.doNotCompile$4EF, jmf == null || jmf.getCompile() != JavaModuleFacet.Compile.MPS);
+
 
         for (ModelRoot mr : loadedModule.getModelRoots()) {
           // XXX it's not clear why we do not copy model roots other than default here.
@@ -673,21 +675,17 @@ public final class ModuleChecker {
             // XXX I'm aware this approach likely to break the moment one introduces new model roots, just can't craft an utter solution at the moment.
             SNode prev = (ListSequence.fromList(prevRoots).isEmpty() ? null : ListSequence.fromList(prevRoots).removeElementAt(0));
 
-            String deployName = null;
-            try {
-              // We used to imply model roots reside under a parent folder of a module descriptor file (in contentOf_BuildMpsLayout_ModuleSources).
-              // Now, we just extracted the logic here and make the name of the deployment folder explicit.
-              // FIXME in fact, we shall reference these names inside generated/copied module descriptors and stop implying they match names in the original descriptor source
-              deployName = moduleRelativePathHelper.makeRelative(path.getPath());
-            } catch (RelativePathHelper.PathException ex) {
-              report(String.format("Failed to make model root path %s relative to module %s, using default folder name for deployment", sr, moduleRelativePathHelper.getBasePath()), ex);
-              deployName = "models";
-            }
+            // We used to imply model roots reside under a parent folder of a module descriptor file (in contentOf_BuildMpsLayout_ModuleSources).
+            // Now, we just extracted the logic here and make the name of the deployment folder explicit.
+            // FIXME in fact, we shall reference these names inside generated/copied module descriptors and stop implying they match names in the original descriptor source
+            // FWIW, we used to build relative path to module descriptor file here, but as it's just the folder name (single segment), I don't see a reason to bother with RelativePathHelper
+            String deployName = myPathConverter.moduleRelativePart(path.getPath());
             // this somewhat puzzling logic is here as a tribute to an attempt to keep single BM_ModuleModelRoot per DefaultModelRoot
             // which turned out not nice as source module still listed 2 sources under the root, and complained about missing models 
             // when reading deployed module. Indeed, would be better to have it fixed in templates not to combine all locations of 
             // BM_ModuleModelRoot into a single output folder, but this approach, here, looks easier
             buildModuleFacade.withModelRoot(prev, deployName);
+            // seems that true is equivalent of prev.extracted; given how we build prevRoots
             buildModuleFacade.addSourcesToCurrentModelRoot(p, true);
             buildModuleFacade.popModelRoot();
           }
@@ -1119,17 +1117,12 @@ public final class ModuleChecker {
     }
   }
 
-  private SNode convertPath(String path) {
+  private SNode convertPath(String path) throws PathConverter.PathConvertException {
     // XXX why on earth do we produce list here and ignore all but first element everywhere?
-    try {
-      return ListSequence.fromList(myPathConverter.convertPath(path)).first();
-    } catch (PathConverter.PathConvertException ex) {
-      report("Failed to convert path " + path, ex);
-      return null;
-    }
+    return ListSequence.fromList(myPathConverter.convertPath(path)).first();
   }
 
-  private SNode convertPath(@Nullable IFile file) {
+  private SNode convertPath(@Nullable IFile file) throws PathConverter.PathConvertException {
     if (file == null) {
       return null;
     }

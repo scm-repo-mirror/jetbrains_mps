@@ -18,6 +18,7 @@ import jetbrains.mps.build.behavior.BuildFolderMacro__BehaviorDescriptor;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.util.MacrosFactory;
+import jetbrains.mps.vfs.path.FilePath;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.io.File;
 import java.io.IOException;
@@ -75,8 +76,29 @@ public class PathConverter {
     return workingDirectory.getBasePath();
   }
 
+  /*package*/ String moduleRelativePart(String path) throws PathConvertException {
+    if (myModuleLocation == null) {
+      throw new PathConvertException(String.format("No module location known attempting to convert path %s", path));
+    }
+    path = normalizePath(path, false);
+    if (path.startsWith(MacrosFactory.MODULE)) {
+      return path.substring(MacrosFactory.MODULE.length());
+    }
+    if (path.equals(myModuleLocation.getPath())) {
+      return "";
+    }
+    if (FilePath.fromStringInDefaultFormat(path).startsWith(myModuleLocation.toPath())) {
+      // fall-through, relativize() not implemented
+    }
+    String moduleLocWithTrailingSlash = normalizePath(myModuleLocation.getPath(), true);
+    if (path.startsWith(moduleLocWithTrailingSlash)) {
+      return path.substring(moduleLocWithTrailingSlash.length());
+    }
+    throw new PathConvertException(String.format("Path %s is not relative to module location %s", path, myModuleLocation));
+  }
+
   /**
-   * Produce a path node using supplied path factory/builder to instatiate them
+   * Produce a path node using supplied path factory/builder to instantiate them
    * 
    * @return never null
    */
