@@ -885,7 +885,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return (SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), LINKS.module$zG3S), LINKS.path$iYKB) != null);
   }
   public static boolean ifMacro_Condition_2_1(final IfMacroContext _context) {
-    return SPropertyOperations.getBoolean(((SNode) _context.getVariable("var:modelRoot")), PROPS.convert2binary$GPhk);
+    return SPropertyOperations.getBoolean((SNode) _context.getVariable("loop:inputNode"), PROPS.convert2binary$GPhk);
   }
   public static boolean ifMacro_Condition_2_2(final IfMacroContext _context) {
     return (SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), LINKS.module$zG3S), LINKS.path$iYKB) != null);
@@ -1665,9 +1665,6 @@ public class QueriesGenerated extends QueryProviderBase {
   public static Object varMacro_Value_2_0(final TemplateVarContext _context) {
     return _context.getNode();
   }
-  public static Object varMacro_Value_2_1(final TemplateVarContext _context) {
-    return _context.getNode();
-  }
   public static Object varMacro_Value_3_0(final TemplateVarContext _context) {
     // need one to access template input from inside the nested loop
     return _context.getNode();
@@ -1776,7 +1773,7 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   public static Object varMacro_Value_9_7(final TemplateVarContext _context) {
     List<Tuples._2<SNode, String>> dependencies = new ProjectDependency(_context, _context.getNode()).collectDependencies().getDependencies();
-    return ListSequence.fromList(dependencies).select((it) -> createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a993(it._1(), it._0())).toList();
+    return ListSequence.fromList(dependencies).select((it) -> createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a893(it._1(), it._0())).toList();
   }
   public static Object varMacro_Value_9_8(final TemplateVarContext _context) {
     MPSModulesPartitioner partitioner = new MPSModulesPartitioner(_context.getNode());
@@ -3104,19 +3101,18 @@ public class QueriesGenerated extends QueryProviderBase {
     vvqMethods.put("4034100441902321122", new VVQ(4));
     vvqMethods.put("1362762974881123189", new VVQ(5));
     vvqMethods.put("2409421742521905590", new VVQ(6));
-    vvqMethods.put("8137134783397647618", new VVQ(7));
-    vvqMethods.put("2409421742521905593", new VVQ(8));
-    vvqMethods.put("2409421742521905596", new VVQ(9));
-    vvqMethods.put("4031822141866304303", new VVQ(10));
-    vvqMethods.put("2409421742521905606", new VVQ(11));
-    vvqMethods.put("2409421742521905610", new VVQ(12));
-    vvqMethods.put("2409421742521905625", new VVQ(13));
-    vvqMethods.put("5121314058278757759", new VVQ(14));
-    vvqMethods.put("4438567763349653940", new VVQ(15));
-    vvqMethods.put("1933226676407279753", new VVQ(16));
-    vvqMethods.put("2409421742521905633", new VVQ(17));
-    vvqMethods.put("2409421742521905636", new VVQ(18));
-    vvqMethods.put("2409421742521905640", new VVQ(19));
+    vvqMethods.put("2409421742521905593", new VVQ(7));
+    vvqMethods.put("2409421742521905596", new VVQ(8));
+    vvqMethods.put("4031822141866304303", new VVQ(9));
+    vvqMethods.put("2409421742521905606", new VVQ(10));
+    vvqMethods.put("2409421742521905610", new VVQ(11));
+    vvqMethods.put("2409421742521905625", new VVQ(12));
+    vvqMethods.put("5121314058278757759", new VVQ(13));
+    vvqMethods.put("4438567763349653940", new VVQ(14));
+    vvqMethods.put("1933226676407279753", new VVQ(15));
+    vvqMethods.put("2409421742521905633", new VVQ(16));
+    vvqMethods.put("2409421742521905636", new VVQ(17));
+    vvqMethods.put("2409421742521905640", new VVQ(18));
   }
   @NotNull
   @Override
@@ -3147,30 +3143,28 @@ public class QueriesGenerated extends QueryProviderBase {
         case 6:
           return QueriesGenerated.varMacro_Value_2_0(ctx);
         case 7:
-          return QueriesGenerated.varMacro_Value_2_1(ctx);
-        case 8:
           return QueriesGenerated.varMacro_Value_3_0(ctx);
-        case 9:
+        case 8:
           return QueriesGenerated.varMacro_Value_6_0(ctx);
-        case 10:
+        case 9:
           return QueriesGenerated.varMacro_Value_7_0(ctx);
-        case 11:
+        case 10:
           return QueriesGenerated.varMacro_Value_9_0(ctx);
-        case 12:
+        case 11:
           return QueriesGenerated.varMacro_Value_9_1(ctx);
-        case 13:
+        case 12:
           return QueriesGenerated.varMacro_Value_9_2(ctx);
-        case 14:
+        case 13:
           return QueriesGenerated.varMacro_Value_9_3(ctx);
-        case 15:
+        case 14:
           return QueriesGenerated.varMacro_Value_9_4(ctx);
-        case 16:
+        case 15:
           return QueriesGenerated.varMacro_Value_9_5(ctx);
-        case 17:
+        case 16:
           return QueriesGenerated.varMacro_Value_9_6(ctx);
-        case 18:
+        case 17:
           return QueriesGenerated.varMacro_Value_9_7(ctx);
-        case 19:
+        case 18:
           return QueriesGenerated.varMacro_Value_9_8(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
@@ -3303,7 +3297,7 @@ public class QueriesGenerated extends QueryProviderBase {
       }
     }
   }
-  private static SNode createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a993(String p0, SNode p1) {
+  private static SNode createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a893(String p0, SNode p1) {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.GeneratorInternal_ProjectDependency$bb);
     n0.setProperty(PROPS.path$URGX, p0);
     n0.setReferenceTarget(LINKS.project$ciHu, p1);

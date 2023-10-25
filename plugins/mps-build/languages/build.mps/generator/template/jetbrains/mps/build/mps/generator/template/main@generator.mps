@@ -875,7 +875,6 @@
         <child id="4356762679305675653" name="path" index="3yLZsn" />
       </concept>
       <concept id="1692280246134781712" name="jetbrains.mps.build.mps.structure.BuildMpsLayout_ModuleSources" flags="ng" index="3$exzU">
-        <property id="4643216374596270214" name="modelsOnly" index="1vpBKR" />
         <reference id="1692280246134781713" name="module" index="3$exzV" />
       </concept>
       <concept id="4278635856200826393" name="jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyJar" flags="ng" index="1BurEX">
@@ -5815,11 +5814,8 @@
                       <node concept="3TrcHB" id="73GUf$tT76C" role="2OqNvi">
                         <ref role="3TsBF5" to="kdzh:73GUf$tQg_C" resolve="convert2binary" />
                       </node>
-                      <node concept="2OqwBi" id="73GUf$tT6K5" role="2Oq$k0">
-                        <node concept="1iwH7S" id="73GUf$tT6_n" role="2Oq$k0" />
-                        <node concept="1psM6Z" id="73GUf$tT6T2" role="2OqNvi">
-                          <ref role="1psM6Y" node="73GUf$tT5k2" resolve="modelRoot" />
-                        </node>
+                      <node concept="$GB7w" id="3QjSZgCSJQ9" role="2Oq$k0">
+                        <property role="26SvY3" value="1jlY2aid0ut/inputNode" />
                       </node>
                     </node>
                   </node>
@@ -6079,18 +6075,6 @@
               <node concept="3clFbF" id="1kfMLj5GOA3" role="3cqZAp">
                 <node concept="37vLTw" id="1kfMLj5GOA2" role="3clFbG">
                   <ref role="3cqZAo" node="1kfMLj5GA5m" resolve="modelRoots" />
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="1ps_y7" id="73GUf$tT5k1" role="lGtFl">
-          <node concept="1ps_xZ" id="73GUf$tT5k2" role="1ps_xO">
-            <property role="TrG5h" value="modelRoot" />
-            <node concept="2jfdEK" id="73GUf$tT5k3" role="1ps_xN">
-              <node concept="3clFbS" id="73GUf$tT5k4" role="2VODD2">
-                <node concept="3clFbF" id="73GUf$tT6sg" role="3cqZAp">
-                  <node concept="30H73N" id="73GUf$tT6sf" role="3clFbG" />
                 </node>
               </node>
             </node>
@@ -6850,7 +6834,6 @@
           <node concept="3981dx" id="16hzwWwBkYQ" role="39821P">
             <node concept="398223" id="2d0qgmCd0Sx" role="39821P">
               <node concept="3$exzU" id="1kfMLj5Gd_x" role="39821P">
-                <property role="1vpBKR" value="true" />
                 <ref role="3$exzV" node="6CY5wCYZIX6" resolve="aaa" />
                 <node concept="1ZhdrF" id="1kfMLj5Gd_y" role="lGtFl">
                   <property role="2qtEX8" value="module" />
