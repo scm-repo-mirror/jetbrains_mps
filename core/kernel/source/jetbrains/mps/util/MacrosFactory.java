@@ -159,6 +159,9 @@ public final class MacrosFactory implements MacroHelper.Source {
         // I'm not sure if I agree with this, but without a change in IFileSystem we'd better guard it here
         final String grandParentPrefix = anchorParent.getParent().getPath();
         if (pathStartsWith(absolutePath, grandParentPrefix)) {
+          // FIXME there's corner case when anchorFile is /a/module/module.msd; "/a".getParent() gives "/", any absolute path starts with it,
+          //       but shrink->FileUtil.getRelativePath fails with exception. Although it's not quite common to keep modules that close to
+          //       the root, worth fixing. Use CloneModule_Test for check
           alternatives.add(MODULE + "/../.." + shrink(absolutePath, grandParentPrefix));
         }
       }
