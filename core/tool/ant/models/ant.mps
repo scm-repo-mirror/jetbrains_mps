@@ -5942,71 +5942,24 @@
             <property role="Xl_RC" value="MPS home folder must be specified. Use either mpshome task attribute or mps_home or mps.home Ant property to specify home folder." />
           </node>
         </node>
-        <node concept="3cpWs8" id="4OPNMy29iT3" role="3cqZAp">
-          <node concept="3cpWsn" id="4OPNMy29iT4" role="3cpWs9">
-            <property role="3TUv4t" value="false" />
-            <property role="TrG5h" value="containsBuildTxt" />
-            <node concept="10P_77" id="4OPNMy29iT5" role="1tU5fm" />
-            <node concept="3clFbT" id="4OPNMy29iT6" role="33vP2m">
-              <property role="3clFbU" value="false" />
-            </node>
-          </node>
-        </node>
-        <node concept="1DcWWT" id="4OPNMy29iT7" role="3cqZAp">
-          <node concept="2OqwBi" id="4OPNMy29iT8" role="1DdaDG">
-            <node concept="37vLTw" id="4OPNMy29iT9" role="2Oq$k0">
-              <ref role="3cqZAo" node="4OPNMy29iTx" resolve="mpsHome" />
-            </node>
-            <node concept="liA8E" id="4OPNMy29iTa" role="2OqNvi">
-              <ref role="37wK5l" to="guwi:~File.listFiles()" resolve="listFiles" />
-            </node>
-          </node>
-          <node concept="3cpWsn" id="4OPNMy29iTb" role="1Duv9x">
-            <property role="3TUv4t" value="false" />
-            <property role="TrG5h" value="child" />
-            <node concept="3uibUv" id="4OPNMy29iTc" role="1tU5fm">
-              <ref role="3uigEE" to="guwi:~File" resolve="File" />
-            </node>
-          </node>
-          <node concept="3clFbS" id="4OPNMy29iTd" role="2LFqv$">
-            <node concept="3clFbJ" id="4OPNMy29iTe" role="3cqZAp">
-              <node concept="2OqwBi" id="4OPNMy29iTf" role="3clFbw">
-                <node concept="2OqwBi" id="4OPNMy29iTg" role="2Oq$k0">
-                  <node concept="37vLTw" id="4OPNMy29iTh" role="2Oq$k0">
-                    <ref role="3cqZAo" node="4OPNMy29iTb" resolve="child" />
-                  </node>
-                  <node concept="liA8E" id="4OPNMy29iTi" role="2OqNvi">
-                    <ref role="37wK5l" to="guwi:~File.getPath()" resolve="getPath" />
-                  </node>
+        <node concept="1gVbGN" id="4yJL2wVNmT0" role="3cqZAp">
+          <node concept="2OqwBi" id="4yJL2wVNGgN" role="1gVkn0">
+            <node concept="2ShNRf" id="4yJL2wVN_P6" role="2Oq$k0">
+              <node concept="1pGfFk" id="4yJL2wVN_Pq" role="2ShVmc">
+                <ref role="37wK5l" to="guwi:~File.&lt;init&gt;(java.io.File,java.lang.String)" resolve="File" />
+                <node concept="37vLTw" id="4yJL2wVN_Pr" role="37wK5m">
+                  <ref role="3cqZAo" node="4OPNMy29iTx" resolve="mpsHome" />
                 </node>
-                <node concept="liA8E" id="4OPNMy29iTj" role="2OqNvi">
-                  <ref role="37wK5l" to="wyt6:~String.equals(java.lang.Object)" resolve="equals" />
-                  <node concept="Xl_RD" id="4OPNMy29iTk" role="37wK5m">
-                    <property role="Xl_RC" value="build.txt" />
-                  </node>
+                <node concept="Xl_RD" id="4yJL2wVN_Ps" role="37wK5m">
+                  <property role="Xl_RC" value="build.txt" />
                 </node>
               </node>
-              <node concept="3clFbS" id="4OPNMy29iTl" role="3clFbx">
-                <node concept="3clFbF" id="4OPNMy29iTm" role="3cqZAp">
-                  <node concept="37vLTI" id="4OPNMy29iTn" role="3clFbG">
-                    <node concept="37vLTw" id="4OPNMy29iTo" role="37vLTJ">
-                      <ref role="3cqZAo" node="4OPNMy29iT4" resolve="containsBuildTxt" />
-                    </node>
-                    <node concept="3clFbT" id="4OPNMy29iTp" role="37vLTx">
-                      <property role="3clFbU" value="true" />
-                    </node>
-                  </node>
-                </node>
-                <node concept="3zACq4" id="4OPNMy29iTq" role="3cqZAp" />
-              </node>
+            </node>
+            <node concept="liA8E" id="4yJL2wVNGgO" role="2OqNvi">
+              <ref role="37wK5l" to="guwi:~File.exists()" resolve="exists" />
             </node>
           </node>
-        </node>
-        <node concept="1gVbGN" id="4OPNMy29iTr" role="3cqZAp">
-          <node concept="37vLTw" id="4OPNMy29iTs" role="1gVkn0">
-            <ref role="3cqZAo" node="4OPNMy29iT4" resolve="containsBuildTxt" />
-          </node>
-          <node concept="Xl_RD" id="4OPNMy29iTt" role="1gVpfI">
+          <node concept="Xl_RD" id="4yJL2wVNmSZ" role="1gVpfI">
             <property role="Xl_RC" value="MPS home folder is the folder where build.txt file is located. Please correct mpshome attribute, mps_home/mps.home property, depending on which was set" />
           </node>
         </node>
