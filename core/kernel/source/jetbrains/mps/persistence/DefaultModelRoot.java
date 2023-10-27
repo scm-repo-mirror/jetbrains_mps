@@ -15,9 +15,6 @@
  */
 package jetbrains.mps.persistence;
 
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.openapi.vfs.VirtualFileManager;
-import com.intellij.openapi.vfs.VirtualFileSystem;
 import jetbrains.mps.extapi.model.SModelBase;
 import jetbrains.mps.extapi.module.SModuleBase;
 import jetbrains.mps.extapi.persistence.CopyNotSupportedException;
@@ -532,27 +529,8 @@ public final class DefaultModelRoot extends FileBasedModelRoot implements Copyab
     // XXX proper implementation shall do what save() method does without need to instantiate DefaultModelRoot
     DefaultModelRoot result = new DefaultModelRoot(0);
     result.setContentDirectory(contentRoot);
-    class SourceRootPrim implements SourceRoot {
-      private final IFile myModelDir;
-
-      SourceRootPrim(IFile modelRoot) {
-        myModelDir = modelRoot;
-      }
-
-      @NotNull
-      @Override
-      public String getPath() {
-        return myModelDir.getPath();
-      }
-
-      @NotNull
-      @Override
-      public IFile getAbsolutePath() {
-        return myModelDir;
-      }
-    }
     for (IFile md : modelDir) {
-      result.addSourceRoot(SourceRootKinds.SOURCES, new SourceRootPrim(md));
+      result.addSourceRoot(SourceRootKinds.SOURCES, new DefaultSourceRoot(md));
     }
     return result.toDescriptor();
   }
@@ -577,6 +555,7 @@ public final class DefaultModelRoot extends FileBasedModelRoot implements Copyab
    */
   public static ModelRootDescriptor createSingleFolderDescriptor(@NotNull final File modelDir) {
     // that's what #save(Memento) does, just without IFile
+    // FIXME revisit, now save() is much more relaxed about IFile use. Still uses MacroFactory, though
     ModelRootDescriptor result = new ModelRootDescriptor(PersistenceRegistry.DEFAULT_MODEL_ROOT);
     final Memento memento = result.getMemento();
     memento.put("type", PersistenceRegistry.DEFAULT_MODEL_ROOT);

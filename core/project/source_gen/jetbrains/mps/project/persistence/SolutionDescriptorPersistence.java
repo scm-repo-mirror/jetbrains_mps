@@ -67,7 +67,7 @@ public class SolutionDescriptorPersistence {
         final String result_8ckma3_a21a0a0a0b0k = myMacroHelper.expandPath(XmlUtil.stringWithDefault(rootElement, "generatorOutputPath", SOURCE_GEN_DEFAULT));
         result_8ckma3_a0a0a0b0k.setOutputPath(result_8ckma3_a21a0a0a0b0k);
 
-        result_8ckma3_a0a0a0b0k.getModelRootDescriptors().addAll(ModuleDescriptorPersistence.loadModelRoots(XmlUtil.children(XmlUtil.first(rootElement, "models"), "modelRoot"), myMacroHelper));
+        result_8ckma3_a0a0a0b0k.getModelRootDescriptors().addAll(ModuleDescriptorPersistence.loadModelRoots(XmlUtil.children(XmlUtil.first(rootElement, "models"), "modelRoot")));
 
         result_8ckma3_a0a0a0b0k.setNeedsExternalIdeaCompile(XmlUtil.first(rootElement, "compileInIDEA") != null);
 
@@ -75,7 +75,7 @@ public class SolutionDescriptorPersistence {
 
         Element facets = XmlUtil.first(rootElement, "facets");
         if (facets != null) {
-          result_8ckma3_a0a0a0b0k.getModuleFacetDescriptors().addAll(ModuleDescriptorPersistence.loadFacets(XmlUtil.children(facets, "facet"), myMacroHelper));
+          result_8ckma3_a0a0a0b0k.getModuleFacetDescriptors().addAll(ModuleDescriptorPersistence.loadFacets(XmlUtil.children(facets, "facet")));
         }
 
 
@@ -118,12 +118,12 @@ public class SolutionDescriptorPersistence {
     }
 
     Element models = new Element("models");
-    ModuleDescriptorPersistence.saveModelRoots(models, descriptor.getModelRootDescriptors(), myMacroHelper);
+    ModuleDescriptorPersistence.saveModelRoots(models, descriptor.getModelRootDescriptors());
     result.addContent(models);
 
     if (!(descriptor.getModuleFacetDescriptors().isEmpty())) {
       Element facets = new Element("facets");
-      ModuleDescriptorPersistence.saveFacets(facets, descriptor.getModuleFacetDescriptors(), myMacroHelper);
+      ModuleDescriptorPersistence.saveFacets(facets, descriptor.getModuleFacetDescriptors());
       result.addContent(facets);
     }
 

@@ -75,12 +75,12 @@ public class GeneratorDescriptorPersistence {
 
         Element models = XmlUtil.first(generatorElement, "models");
         if (models != null) {
-          result_wk2vdq_a0a0a0a0h.getModelRootDescriptors().addAll(ModuleDescriptorPersistence.loadModelRoots(XmlUtil.children(models, "modelRoot"), myMacroHelper));
+          result_wk2vdq_a0a0a0a0h.getModelRootDescriptors().addAll(ModuleDescriptorPersistence.loadModelRoots(XmlUtil.children(models, "modelRoot")));
         }
 
         Element facets = XmlUtil.first(generatorElement, "facets");
         if (facets != null) {
-          result_wk2vdq_a0a0a0a0h.getModuleFacetDescriptors().addAll(ModuleDescriptorPersistence.loadFacets(XmlUtil.children(facets, "facet"), myMacroHelper));
+          result_wk2vdq_a0a0a0a0h.getModuleFacetDescriptors().addAll(ModuleDescriptorPersistence.loadFacets(XmlUtil.children(facets, "facet")));
         }
 
         ModuleDescriptorPersistence.loadDependencies(result_wk2vdq_a0a0a0a0h, generatorElement);
@@ -144,12 +144,12 @@ public class GeneratorDescriptorPersistence {
     }
 
     Element models = new Element("models");
-    ModuleDescriptorPersistence.saveModelRoots(models, descriptor.getModelRootDescriptors(), myMacroHelper);
+    ModuleDescriptorPersistence.saveModelRoots(models, descriptor.getModelRootDescriptors());
     generator.addContent(models);
 
     if (!(descriptor.getModuleFacetDescriptors().isEmpty())) {
       Element facets = new Element("facets");
-      ModuleDescriptorPersistence.saveFacets(facets, descriptor.getModuleFacetDescriptors(), myMacroHelper);
+      ModuleDescriptorPersistence.saveFacets(facets, descriptor.getModuleFacetDescriptors());
       generator.addContent(facets);
     }
 

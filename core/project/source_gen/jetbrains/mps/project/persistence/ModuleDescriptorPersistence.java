@@ -156,11 +156,12 @@ public class ModuleDescriptorPersistence {
     }
   }
 
-  public static List<ModelRootDescriptor> loadModelRoots(Iterable<Element> modelRootElements, MacroHelper macroHelper) {
+  public static List<ModelRootDescriptor> loadModelRoots(Iterable<Element> modelRootElements) {
+    MacroHelper macroHelper = null;
     List<ModelRootDescriptor> result = ListSequence.fromList(new ArrayList<ModelRootDescriptor>());
     for (Element element : modelRootElements) {
       Memento m = new MementoImpl();
-      readMemento(m, element, macroHelper);
+      readMemento(m, element, null);
       String type = element.getAttributeValue("type");
       if (type == null) {
         // This is debug code to find out cause of https://youtrack.jetbrains.com/issue/MPS-22589.
@@ -175,7 +176,7 @@ public class ModuleDescriptorPersistence {
     return result;
   }
 
-  public static List<ModuleFacetDescriptor> loadFacets(Iterable<Element> facetElements, MacroHelper macroHelper) {
+  public static List<ModuleFacetDescriptor> loadFacets(Iterable<Element> facetElements) {
     List<ModuleFacetDescriptor> result = ListSequence.fromList(new ArrayList<ModuleFacetDescriptor>());
     for (Element element : facetElements) {
       Memento m = new MementoImpl();
@@ -229,7 +230,7 @@ public class ModuleDescriptorPersistence {
     return name.equals("path") || name.endsWith("Path");
   }
 
-  public static void saveFacets(Element result, Collection<ModuleFacetDescriptor> facets, MacroHelper macroHelper) {
+  public static void saveFacets(Element result, Collection<ModuleFacetDescriptor> facets) {
     for (ModuleFacetDescriptor facet : CollectionSequence.fromCollection(facets)) {
       Memento memento = facet.getMemento();
       Element facetElement = new Element("facet");
@@ -240,11 +241,11 @@ public class ModuleDescriptorPersistence {
     }
   }
 
-  public static void saveModelRoots(Element result, Collection<ModelRootDescriptor> modelRoots, MacroHelper macroHelper) {
+  public static void saveModelRoots(Element result, Collection<ModelRootDescriptor> modelRoots) {
     for (ModelRootDescriptor root : CollectionSequence.fromCollection(modelRoots)) {
       Memento memento = root.getMemento();
       Element modelRoot = new Element("modelRoot");
-      writeMemento(memento, modelRoot, macroHelper);
+      writeMemento(memento, modelRoot, null);
       String type = root.getType();
       if ((type != null && type.length() > 0) && !("obsolete".equals(type))) {
         modelRoot.setAttribute("type", type);

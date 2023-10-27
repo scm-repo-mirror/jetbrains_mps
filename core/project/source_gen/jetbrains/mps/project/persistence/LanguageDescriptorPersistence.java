@@ -68,12 +68,12 @@ public class LanguageDescriptorPersistence {
 
         Element modelsTag = XmlUtil.first(languageElement, "models");
         if (modelsTag != null) {
-          result_v3r4p8_a0a0a0c0g.getModelRootDescriptors().addAll(ModuleDescriptorPersistence.loadModelRoots(XmlUtil.children(modelsTag, "modelRoot"), myMacroHelper));
+          result_v3r4p8_a0a0a0c0g.getModelRootDescriptors().addAll(ModuleDescriptorPersistence.loadModelRoots(XmlUtil.children(modelsTag, "modelRoot")));
         }
 
         Element facets = XmlUtil.first(languageElement, "facets");
         if (facets != null) {
-          result_v3r4p8_a0a0a0c0g.getModuleFacetDescriptors().addAll(ModuleDescriptorPersistence.loadFacets(XmlUtil.children(facets, "facet"), myMacroHelper));
+          result_v3r4p8_a0a0a0c0g.getModuleFacetDescriptors().addAll(ModuleDescriptorPersistence.loadFacets(XmlUtil.children(facets, "facet")));
         }
 
 
@@ -133,12 +133,12 @@ public class LanguageDescriptorPersistence {
     languageElement.setAttribute("moduleVersion", Integer.toString(descriptor.getModuleVersion()));
 
     Element models = new Element("models");
-    ModuleDescriptorPersistence.saveModelRoots(models, descriptor.getModelRootDescriptors(), myMacroHelper);
+    ModuleDescriptorPersistence.saveModelRoots(models, descriptor.getModelRootDescriptors());
     languageElement.addContent(models);
 
     if (!(descriptor.getModuleFacetDescriptors().isEmpty())) {
       Element facets = new Element("facets");
-      ModuleDescriptorPersistence.saveFacets(facets, descriptor.getModuleFacetDescriptors(), myMacroHelper);
+      ModuleDescriptorPersistence.saveFacets(facets, descriptor.getModuleFacetDescriptors());
       languageElement.addContent(facets);
     }
 
