@@ -335,7 +335,7 @@ public final class ModuleChecker {
       //     as the build project node. Therefore, I add these dependencies in doPartialImport as well (not only in doFullImport), so that they are readily available in cmdline build, even though I don't like the fact
       //  I make them visible for an end-user.
       SModel gp = descriptor.getAssociatedGenPlan().resolve(SNodeOperations.getModel(myModule).getRepository());
-      if (gp == null && type.doPartialImport || (type.doCheck && !(type.doFullImport))) {
+      if (gp == null && !(type.doFullImport) && (type.doCheck || type.doPartialImport)) {
         //  in full import, just rely on extracted information; don't stop generation if can't load GP model
         report(String.format("Missing associated generation plan %s", descriptor.getAssociatedGenPlan().getModelName()));
         return;
