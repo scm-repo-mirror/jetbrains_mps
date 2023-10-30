@@ -91,6 +91,7 @@ public final class ModuleRuntime {
 
   /**
    * PROVISIONAL API, DON'T USE OUTSIDE PluginLoaderRegistry code
+   * Right now, limited to resources in classpath, so for modules loaded from sources and {module}/classes_gen/ CP, can't access e.g. {module}/icons/
    */
   @NotNull
   public InputStream getOwnResource(@NotNull String fqn) throws IOException {

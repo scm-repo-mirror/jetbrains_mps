@@ -20,6 +20,7 @@ import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.nodeEditor.EditorSettings;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.project.AbstractModule;
+import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.MacrosFactory;
 import jetbrains.mps.vfs.IFile;
@@ -35,9 +36,13 @@ import javax.swing.ImageIcon;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.stream.Stream;
 
 public class EditorCell_Image extends EditorCell_Basic {
   private ImageAlignment myAlignment = ImageAlignment.justify;
@@ -221,6 +226,33 @@ public class EditorCell_Image extends EditorCell_Basic {
     @Override
     public Icon loadIcon(EditorContext context, SNode node) {
       assert myModule != null || myModuleRef != null;
+      // try deployed location first
+      if (myPath.startsWith(MacrosFactory.MODULE) && myPath.length() > MacrosFactory.MODULE.length()+1) {
+        // there's '/' b/w module macro and the rest of the path, we gonna strip it off, make sure we don't get out of bounds
+        AtomicReference<Icon> loaded = new AtomicReference<>(null);
+        LanguageRegistry.getInstance(context.getRepository()).withModuleRuntime(Stream.of(myModuleRef == null ? myModule.getModuleReference() : myModuleRef), mr -> {
+          final String asAbsoluteResourcePath = myPath.substring(MacrosFactory.MODULE.length() );
+          // see below for explanation why do we handle svg and png in a different way
+          try (InputStream is = mr.getOwnResource(asAbsoluteResourcePath.substring(1))) {
+            // not sure if I need to remove leading slash, just seen iconUtil.kt strips one off before passing the value to CL.getResource(), and I know
+            // "startup.properties" lookup doesn't use one. However, seems that CL shall take absolute path, need to investigate more.
+            //
+            // getOwnResource() helps us make sure file exists (IconLoader.findIcon, despite its contract, give != null value for non-existent resource)
+            if (asAbsoluteResourcePath.toLowerCase().endsWith(".svg") || asAbsoluteResourcePath.toLowerCase().endsWith(".png")) {
+              loaded.set(IconLoader.findIcon(asAbsoluteResourcePath, mr.getModuleClassLoader()));
+            } else {
+              loaded.set(new ImageIcon(is.readAllBytes(), asAbsoluteResourcePath));
+            }
+          } catch (IOException e) {
+            // FIXME error = WIP, to info() level once done
+            LOG.error(String.format("Can't load icon [%s]%s", mr.getSourceModule().getModuleName(), asAbsoluteResourcePath), e);
+            // ignore
+          }
+        });
+        if (loaded.get() != null) {
+          return loaded.get();
+        }
+      }
       SModule m = myModule != null ? myModule : myModuleRef.resolve(context.getRepository());
       if (m == null) {
         return null;
@@ -251,7 +283,7 @@ public class EditorCell_Image extends EditorCell_Basic {
         try {
           URL iconUrl = iconFile.getUrl();
           String extension = FileUtil.getExtension(iconFile.getName());
-          if ("svg".equals(extension) || "png".equals(extension)) {
+          if ("svg".equalsIgnoreCase(extension) || "png".equalsIgnoreCase(extension)) {
             // IconLoader only supports SVG and PNG, which are also the supported formats for MPS images
             iconCache.put(fullPath, IconLoader.findIcon(iconUrl, false));
           } else {

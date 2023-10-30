@@ -22,9 +22,13 @@ import org.jetbrains.annotations.Nullable;
 import java.lang.ref.WeakReference;
 
 /**
- * handy mechanism for image/icon resources referenced from generated code (where it's easy oto access Class/ClassLoader)
+ * handy mechanism for image/icon resources referenced from generated code (where it's easy to access Class/ClassLoader)
  * There's no uniform way to access a resource for both source and deployed module; most scenarios in MPS resort
  * to {@code ${module}/path} and {@code MacrosFactory} which has its own issues with handling files inside bundled module jar.
+ * <p>
+ *   Note, however, with a rise of {@link ModuleRuntime#getOwnResource(String)}, there's a slight chance we can come up
+ *   with unified approach w/o need to resort to AbstractModule, IFile and MacroFactory.
+ * </p>
  */
 public class IconResource {
   private final String myIconResId;

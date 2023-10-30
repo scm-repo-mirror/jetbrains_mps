@@ -756,7 +756,20 @@ public final class LanguageRegistry implements CoreComponent, DeployListener {
     } finally {
       myRuntimeInstanceAccess.readLock().unlock();
     }
+  }
 
+  /**
+   * Generified {@link #withAvailableLanguages(Stream, Consumer)} for any module runtime.
+   * @param operation invoked for each discovered module runtime
+   * @since 2023.3
+   */
+  public void withModuleRuntime(Stream<SModuleReference> modules, Consumer<ModuleRuntime> operation) {
+    try {
+      myRuntimeInstanceAccess.readLock().lock();
+      modules.map(myModuleRuntime::get).filter(Objects::nonNull).forEach(operation);
+    } finally {
+      myRuntimeInstanceAccess.readLock().unlock();
+    }
   }
 
   private static void processLinkageErrorForLanguage(Language language, LinkageError linkageError) {
