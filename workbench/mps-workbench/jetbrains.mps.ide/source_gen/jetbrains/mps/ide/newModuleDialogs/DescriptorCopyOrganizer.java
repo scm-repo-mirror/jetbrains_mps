@@ -12,7 +12,7 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.project.structure.modules.ModuleDescriptor;
 import jetbrains.mps.project.structure.modules.LanguageDescriptor;
 import jetbrains.mps.project.structure.modules.GeneratorDescriptor;
-import jetbrains.mps.project.structure.modules.SolutionDescriptor;
+import jetbrains.mps.project.ProjectPathUtil;
 import jetbrains.mps.project.ModuleId;
 import jetbrains.mps.project.structure.modules.DeploymentDescriptor;
 
@@ -75,25 +75,20 @@ import jetbrains.mps.project.structure.modules.DeploymentDescriptor;
     if (myModulePathConverter != null) {
       hackModuleDescriptor(copyDescriptor);
 
-      if (copyDescriptor instanceof SolutionDescriptor) {
-        hackSolutionDescriptor((SolutionDescriptor) copyDescriptor);
-      } else
       if (copyDescriptor instanceof LanguageDescriptor) {
-        hackLanguageDescriptor((LanguageDescriptor) copyDescriptor);
-        ((LanguageDescriptor) copyDescriptor).getGenerators().forEach((GeneratorDescriptor genDescriptor) -> {
-          hackGeneratorDescriptor(genDescriptor);
-          hackModuleDescriptor(genDescriptor);
-        });
-      } else if (copyDescriptor instanceof GeneratorDescriptor) {
-        // we may face GeneratorDescriptor for standalone shall Generators 
-        hackGeneratorDescriptor((GeneratorDescriptor) copyDescriptor);
-        hackModuleDescriptor((GeneratorDescriptor) copyDescriptor);
+        ((LanguageDescriptor) copyDescriptor).getGenerators().forEach(this::hackModuleDescriptor);
       }
+      // JFTR, we may face copyDescriptor instanceof GeneratorDescriptor for standalone Generators 
     }
     return copyDescriptor;
   }
 
   private void hackModuleDescriptor(final ModuleDescriptor copyDescriptor) {
+    // will go away when these paths are restrained to be relative [from the module file] or absolute without regard to the module file
+    String generatorOutputPath = ProjectPathUtil.getGeneratorOutputPath(copyDescriptor);
+    if (generatorOutputPath != null) {
+      ProjectPathUtil.setGeneratorOutputPath(copyDescriptor, myModulePathConverter.source2Target(generatorOutputPath));
+    }
     hackDeploymentDescriptor(copyDescriptor);
   }
 
@@ -120,33 +115,6 @@ import jetbrains.mps.project.structure.modules.DeploymentDescriptor;
     if (deploymentDescriptor != null) {
       deploymentDescriptor.setSourcesJar(myModulePathConverter.source2Target(deploymentDescriptor.getSourcesJar()));
       deploymentDescriptor.setDescriptorFile(myModulePathConverter.source2Target(deploymentDescriptor.getDescriptorFile()));
-    }
-  }
-
-  /**
-   * will go away when these paths are restrained to be relative [from the module file] or absolute without regard to the module file
-   */
-  private void hackSolutionDescriptor(@NotNull SolutionDescriptor copyDescriptor) {
-    final String outputPath = copyDescriptor.getOutputPath();
-    if (outputPath != null) {
-      copyDescriptor.setOutputPath(myModulePathConverter.source2Target(outputPath));
-    }
-  }
-
-  /**
-   * will go away when these paths are restrained to be relative [from the module file] or absolute without regard to the module file
-   */
-  private void hackLanguageDescriptor(@NotNull LanguageDescriptor copyDescriptor) {
-    final String genPath = copyDescriptor.getGenPath();
-    if (genPath != null) {
-      copyDescriptor.setGenPath(myModulePathConverter.source2Target(genPath));
-    }
-  }
-
-  private void hackGeneratorDescriptor(@NotNull GeneratorDescriptor genDescriptor) {
-    String outputPath = genDescriptor.getOutputPath();
-    if (outputPath != null) {
-      genDescriptor.setOutputPath(myModulePathConverter.source2Target(outputPath));
     }
   }
 }
