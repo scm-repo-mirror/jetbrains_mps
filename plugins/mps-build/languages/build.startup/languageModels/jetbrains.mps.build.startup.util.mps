@@ -994,6 +994,17 @@
                   </node>
                 </node>
               </node>
+              <node concept="2pJPED" id="3eQw_GyjXlb" role="36be1Z">
+                <ref role="2pJxaS" to="s7om:3nFPImNgRtc" resolve="SimpleVmOptions" />
+                <node concept="2pJxcG" id="3eQw_GyjXlc" role="2pJxcM">
+                  <ref role="2pJxcJ" to="s7om:3nFPImNgRtd" resolve="options" />
+                  <node concept="WxPPo" id="3eQw_GyjXld" role="28ntcv">
+                    <node concept="Xl_RD" id="3eQw_GyjXle" role="WxPPp">
+                      <property role="Xl_RC" value="-Dintellij.platform.load.app.info.from.resources=true" />
+                    </node>
+                  </node>
+                </node>
+              </node>
               <node concept="2pJPED" id="3rleFKvpH23" role="36be1Z">
                 <ref role="2pJxaS" to="s7om:3nFPImNgRtc" resolve="SimpleVmOptions" />
                 <node concept="2pJxcG" id="3rleFKvpH24" role="2pJxcM">

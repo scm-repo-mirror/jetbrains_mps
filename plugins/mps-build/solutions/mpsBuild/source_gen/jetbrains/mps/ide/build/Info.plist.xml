@@ -158,6 +158,9 @@
         <key>idea.vendor.name</key>
         <string>JetBrains</string>
         
+        <key>intellij.platform.load.app.info.from.resources</key>
+        <string>true</string>
+        
         <key>idea.executable</key>
         <string>mps</string>
         
