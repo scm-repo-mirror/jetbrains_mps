@@ -98,9 +98,7 @@ public final class MacrosFactory implements MacroHelper.Source {
    */
 @Deprecated(since = "2018.1", forRemoval = true)
   public static MacroHelper forModule(AbstractModule module) {
-    // todo: if descriptor file == null?
-    IFile file = module.getDescriptorFile();
-    return file == null ? null : forModuleFile(file);
+    return forModule((SModule) module);
   }
 
   public static MacroHelper forProjectFile(IFile projectFile) {

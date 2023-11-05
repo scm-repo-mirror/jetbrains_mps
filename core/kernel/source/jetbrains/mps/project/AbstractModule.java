@@ -353,7 +353,7 @@ public abstract class AbstractModule extends SModuleBase implements EditableSMod
       //       Perhaps, shall introduce Memento to keep MD settings instead of fields? Or to keep fields and introduce MD.load/save()
       //       with Memento to populate the fields?
       // Note, in persistence, we use empty string to indicate null (aka "no value")
-      moduleDescriptor.setOutputRoot(myOutputRoot == null ? null : myOutputRoot.shrink(MacrosFactory.forModule(this)));
+      moduleDescriptor.setOutputRoot(myOutputRoot == null ? null : myOutputRoot.shrink(MacrosFactory.forModule((SModule) this)));
       // clear old value just in case, not to get serialized
       ProjectPathUtil._setGeneratorOutputPathPrim(moduleDescriptor, null);
       var descriptors = new LinkedList<>(moduleDescriptor.getModelRootDescriptors());
@@ -495,7 +495,7 @@ public abstract class AbstractModule extends SModuleBase implements EditableSMod
       }
       descriptor.markOutputRootLegacyValue(false);
       if (myOutputRoot != null) {
-        final Function<String, IFile> path2file = s -> myFileSystem.getFile(MacrosFactory.forModule(this).expandPath(s));
+        final Function<String, IFile> path2file = s -> myFileSystem.getFile(MacrosFactory.forModule((SModule) this).expandPath(s));
         myOutputRoot.resolve(path2file);
         // let legacy code, using PPU.getGOP(), access actual value
         ProjectPathUtil._setGeneratorOutputPathPrim(descriptor, myOutputRoot.resolved() ? myOutputRoot.resolvedPath() : myOutputRoot.value());

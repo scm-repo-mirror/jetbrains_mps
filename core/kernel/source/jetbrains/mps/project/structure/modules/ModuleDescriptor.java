@@ -435,8 +435,7 @@ public class ModuleDescriptor implements CopyableDescriptor<ModuleDescriptor>  {
       stream.writeModuleReference(ref);
     }
 
-    stream.writeStrings(myJavaLibs);
-    stream.writeStrings(mySourcePaths);
+    stream.writeString(myOutputRoot);
 
     stream.writeByte(myDeploymentDescriptor != null ? 0x1 : 0x70);
     if (myDeploymentDescriptor != null) {
@@ -477,10 +476,8 @@ public class ModuleDescriptor implements CopyableDescriptor<ModuleDescriptor>  {
     }
 
     myJavaLibs.clear();
-    myJavaLibs.addAll(stream.readStrings());
-
     mySourcePaths.clear();
-    mySourcePaths.addAll(stream.readStrings());
+    myOutputRoot = stream.readString();
 
     byte b = stream.readByte();
     if (b == 0x1) {
