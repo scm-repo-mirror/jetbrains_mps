@@ -10,6 +10,7 @@ import com.intellij.openapi.project.Project;
 import com.intellij.ui.HintHint;
 import com.intellij.ui.LightweightHint;
 import com.intellij.util.ui.JBUI;
+import jetbrains.mps.nodeEditor.documentation.MPSDocumentationToolWindowManager;
 import jetbrains.mps.nodeEditor.documentation.ui.MPSDocumentationPopupUI;
 import jetbrains.mps.nodeEditor.documentation.ui.MPSDocumentationUI;
 import org.jetbrains.annotations.NotNull;
@@ -79,6 +80,13 @@ public class HoverInfo {
       boolean jointPopup,
       @NotNull PopupBridge bridge) {
     MPSDocumentationUI ui = new MPSDocumentationUI(myQuickDocMessage);
+
+    MPSDocumentationToolWindowManager manager = MPSDocumentationToolWindowManager.getInstance(project);
+    if (MPSDocumentationToolWindowManager.getInstance(project).isVisible()) {
+      manager.showInToolWindow(ui);
+      return null;
+    }
+
     MPSDocumentationPopupUI popupUI = new MPSDocumentationPopupUI(project, ui);
     if (jointPopup) {
       popupUI.jointHover();
