@@ -13,10 +13,10 @@ class PopupBridge {
   private AbstractPopup myPopup;
   private Consumer<? super AbstractPopup> myConsumer;
 
-  public PopupBridge() {
+  PopupBridge() {
   }
 
-  public void setPopup(@NotNull AbstractPopup popup) {
+  void setPopup(@NotNull AbstractPopup popup) {
     assert myPopup == null;
     myPopup = popup;
     if (myConsumer != null) {
@@ -30,12 +30,11 @@ class PopupBridge {
     return myPopup;
   }
 
-  public void performWhenAvailable(@NotNull Consumer<? super AbstractPopup> consumer) {
+  void performWhenAvailable(@NotNull Consumer<? super AbstractPopup> consumer) {
     if (myPopup == null) {
       myConsumer = consumer;
     } else {
       consumer.accept(myPopup);
     }
   }
-
 }
