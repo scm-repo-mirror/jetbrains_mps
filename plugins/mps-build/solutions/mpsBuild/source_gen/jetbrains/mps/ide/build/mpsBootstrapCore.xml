@@ -17750,7 +17750,6 @@
       <src>
         <pathelement path="${mps_home}/workbench/mps-platform/source" />
         <pathelement path="${mps_home}/workbench/mps-platform/jetbrains.mps.ide.platform/source_gen" />
-        <pathelement path="${mps_home}/workbench/mps-platform/migration/source" />
         <pathelement path="${mps_home}/languages/baseLanguage/baseLanguage.search/source_gen" />
       </src>
       <classpath>
@@ -17794,7 +17793,6 @@
       <fileset dir="${mps_home}/workbench/mps-platform/source" includes="**/*.dic" />
       <fileset dir="${mps_home}/workbench/mps-platform/source" includes="**/*.properties, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
       <fileset dir="${mps_home}/workbench/mps-platform/jetbrains.mps.ide.platform/source_gen" includes="**/*.properties, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
-      <fileset dir="${mps_home}/workbench/mps-platform/migration/source" includes="**/*.properties, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
       <fileset dir="${mps_home}/languages/baseLanguage/baseLanguage.search/source_gen" includes="**/*.properties, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
     </copy>
   </target>

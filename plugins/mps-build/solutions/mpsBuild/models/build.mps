@@ -1630,24 +1630,6 @@
           <property role="3LZaj6" value="source" />
         </node>
       </node>
-      <node concept="398b2D" id="3sAUyYjeWKp" role="398b2p">
-        <node concept="398BVA" id="3sAUyYjeWKq" role="398b2C">
-          <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
-          <node concept="2Ry0Ak" id="3sAUyYjeWKr" role="iGT6I">
-            <property role="2Ry0Am" value="workbench" />
-            <node concept="2Ry0Ak" id="3sAUyYjeWKs" role="2Ry0An">
-              <property role="2Ry0Am" value="mps-platform" />
-              <node concept="2Ry0Ak" id="3sAUyYjeWYa" role="2Ry0An">
-                <property role="2Ry0Am" value="migration" />
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="nFU4i" id="3sAUyYjeWKu" role="nFU4p">
-          <property role="nFU4j" value="source" />
-          <property role="3LZaj6" value="source" />
-        </node>
-      </node>
       <node concept="398b2D" id="1FaKCGJSzFL" role="398b2p">
         <node concept="398BVA" id="6wK_PpNAEal" role="398b2C">
           <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
@@ -50820,6 +50802,19 @@
                     <property role="2Ry0Am" value="source_gen" />
                   </node>
                 </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2GAZfH" id="77NErR6MeF7" role="398b2p">
+        <node concept="TIC1d" id="77NErR6MeF8" role="2GAZfG">
+          <node concept="398BVA" id="77NErR6MeF9" role="TIC6M">
+            <ref role="398BVh" node="5lGJ4TaEM2_" resolve="plugin_home" />
+            <node concept="2Ry0Ak" id="77NErR6MeFa" role="iGT6I">
+              <property role="2Ry0Am" value="migration-platform" />
+              <node concept="2Ry0Ak" id="77NErR6MeIO" role="2Ry0An">
+                <property role="2Ry0Am" value="sources" />
               </node>
             </node>
           </node>

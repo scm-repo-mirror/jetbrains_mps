@@ -114,8 +114,6 @@
     <applicationService serviceImplementation="jetbrains.mps.ide.platform.watching.WatchedRoots"/>
     <applicationService serviceImplementation="jetbrains.mps.repository.FSNotificationsImprover"/>
 
-    <projectService serviceInterface="jetbrains.mps.migration.global.MigrationProperties"
-            serviceImplementation="jetbrains.mps.migration.global.ProjectMigrationProperties"/>
     <projectService serviceImplementation="jetbrains.mps.ide.vfs.ProjectRootListenerComponent" />
 
     <fileTypeFactory implementation="jetbrains.mps.fileTypes.MPSFileTypeFactory"/>
