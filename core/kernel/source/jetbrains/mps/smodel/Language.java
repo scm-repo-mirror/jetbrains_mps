@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -369,14 +369,16 @@ public class Language extends ReloadableModuleBase implements ReloadableModule {
   @Override
   public void save() {
     super.save();
-    if (isReadOnly()) return;
+    if (isReadOnly() || getDescriptorFile() == null) {
+      return;
+    }
 
     if (myLanguageDescriptor.getLoadException() != null){
       return;
     }
 
     try {
-      DescriptorIO<LanguageDescriptor> io = DescriptorIOFacade.getInstance().standardProvider().languageDescriptorIO();
+      DescriptorIO<LanguageDescriptor> io = new DescriptorIOFacade().standardProvider().languageDescriptorIO();
       io.writeToFile(getModuleDescriptor(), getDescriptorFile());
     } catch (Exception ex) {
       Logger.getLogger(getClass()).error("Save failed", ex);

@@ -75,8 +75,7 @@ public final class ModuleLoader {
     myMsgHandler = msgHandler;
     // TODO enforce outer code to specify FS to avoid singleton access
     myFS = FileSystem.getInstance();
-    // TODO need access to plafrom to obtain DescriptorIOFacade instance, or supply from caller.
-    myDescriptorIO = DescriptorIOFacade.getInstance();
+    myDescriptorIO = new DescriptorIOFacade();
   }
 
   public ModuleLoader useFileSystem(FileSystem fs) {
@@ -140,13 +139,18 @@ public final class ModuleLoader {
       reportError(String.format("cannot import module file for %s: file is a directory (%s)", SPropertyOperations.getString(module, PROPS.name$MnvL), moduleFilePath), module);
       return null;
     }
+    if (!(myDescriptorIO.isModuleDescriptorFile(file))) {
+      reportError(String.format("cannot import module from %s: unknown descriptor persistence", moduleFilePath), module);
+      return null;
+    }
     // provisional hack until I get rid of IFile use in ModuleChecker (load SModule here and use other means to get module relative path)
     myModuleDescriptorFile = file;
 
     ModuleDescriptor md = null;
     try {
       MacroHelper helper = new ModuleMacroHelper(myBuildProject, myMsgHandler);
-      md = myDescriptorIO.readFromModuleFile(helper, file);
+      // FIXME ModuleMacroHelper is not necessary any more, but I need to make use of its MMH.unknownMacros logic to help craft BuildProject's initial macros
+      md = myDescriptorIO.fromFileType(file).readFromFile(file);
       if (md.getLoadException() != null) {
         reportError(String.format("cannot import module file for %s: exception: %s", SPropertyOperations.getString(module, PROPS.name$MnvL), md.getLoadException().getMessage()), module);
       }

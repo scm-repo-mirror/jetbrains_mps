@@ -82,16 +82,16 @@ class MPSModuleCollector {
         continue;
       }
       // XXX what's the reason for custom MyMacroHelper, why not MacrosFactory.forModuleFile()
-      MacroHelper expander = new MyMacroHelper(moduleIFile);
+      final MacroHelper expander = new MyMacroHelper(moduleIFile);
       ModuleDescriptor md;
       try {
-        md = myDescriptorIO.readFromModuleFile(expander, moduleIFile);
-        if (md == null) {
-          // well, this is embarrassing. the contract of DescriptorIOFacade and that of DescriptorIO is flawed, undocumented and inconsistent.
-          // Generally, DescriptorIO.readFromFile returns !null, e.g. a matching empty object with load exception set, except for .iml case, when it
-          // produces null. I can fix this, but just don't want to spend another day dealing with irrelevant bad API.
-          continue; // treat this as legal case as we face a lot of .iml files during GeneratorsRunner job, and none of these are of interest anyway.
-        }
+        md = myDescriptorIO.fromFileType(moduleIFile).readFromFile(moduleIFile);
+//        if (md == null) {
+//          // well, this is embarrassing. the contract of DescriptorIOFacade and that of DescriptorIO is flawed, undocumented and inconsistent.
+//          // Generally, DescriptorIO.readFromFile returns !null, e.g. a matching empty object with load exception set, except for .iml case, when it
+//          // produces null. I can fix this, but just don't want to spend another day dealing with irrelevant bad API.
+//          continue; // treat this as legal case as we face a lot of .iml files during GeneratorsRunner job, and none of these are of interest anyway.
+//        }
         if (md.getLoadException() != null) {
           throw new RuntimeException(String.format("Failed to read %s", moduleIFile), md.getLoadException());
         }

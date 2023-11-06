@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -217,7 +217,7 @@ public class Generator extends ReloadableModuleBase {
         return;
       }
       try {
-        DescriptorIO<GeneratorDescriptor> io = DescriptorIOFacade.getInstance().standardProvider().generatorDescriptorIO();
+        DescriptorIO<GeneratorDescriptor> io = new DescriptorIOFacade().standardProvider().generatorDescriptorIO();
         io.writeToFile(getModuleDescriptor(), getDescriptorFile());
       } catch (Exception ex) {
         Logger.getLogger(getClass()).error("Save failed", ex);
