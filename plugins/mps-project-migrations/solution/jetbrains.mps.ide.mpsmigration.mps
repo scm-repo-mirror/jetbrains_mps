@@ -8,7 +8,6 @@
   </languages>
   <imports>
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
-    <import index="bdll" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.migration.global(MPS.Platform/)" />
     <import index="xooo" ref="r:558fab87-39e0-4c7a-8cc2-5ede083c891b(jetbrains.mps.ide.mpsmigration.v_2019_3)" />
     <import index="hkxy" ref="r:86c973b9-f718-41ea-a160-01462892e653(jetbrains.mps.ide.mpsmigration.v_2019_1)" />
     <import index="o6n5" ref="r:80120231-6b9d-496a-9363-8f1bb4f714e1(jetbrains.mps.ide.mpsmigration.v_2018_2)" />
@@ -18,6 +17,7 @@
     <import index="2xfj" ref="r:c6fba34e-4357-4714-9dd8-1533e4f5e3d6(jetbrains.mps.ide.mpsmigration.v_2021_3)" />
     <import index="dbfg" ref="r:f2e11908-db0f-48eb-8e2d-578735933578(jetbrains.mps.ide.mpsmigration.v_2022_3)" />
     <import index="91dc" ref="r:df283b68-31d2-45c2-9780-517b448495e1(jetbrains.mps.ide.mpsmigration.v_2023_1)" />
+    <import index="bdll" ref="a5b1c28d-abeb-49a6-a58c-559039616d64/java:jetbrains.mps.migration.global(jetbrains.mps.migration.component/)" />
   </imports>
   <registry>
     <language id="ef7bf5ac-d06c-4342-b11d-e42104eb9343" name="jetbrains.mps.lang.plugin.standalone">

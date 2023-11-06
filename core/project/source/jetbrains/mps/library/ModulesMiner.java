@@ -557,6 +557,7 @@ public final class ModulesMiner {
         // trying to load new format : replacing paths like **.jar!/module ->
         // Here, macroHelper have to be the same as the one used to load sourceModuleDescriptor, and it's just a hidden knowledge that
         // DescriptorIOFacade uses same approach to construct its macro helper.
+        // FIXME with no macro expansion on MD persistence, no need to shink anything here
         String contentPath = macroHelper.shrinkPath(rootDescriptor.getMemento().get(FileBasedModelRoot.CONTENT_PATH));
         if (contentPath == null || !contentPath.startsWith(MacrosFactory.MODULE)) {
           continue;

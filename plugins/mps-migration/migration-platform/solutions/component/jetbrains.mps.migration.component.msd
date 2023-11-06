@@ -5,11 +5,25 @@
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />
     </modelRoot>
+    <modelRoot contentPath="${module}/../../" type="java_classes">
+      <!-- see Java facet, below, for notes on path -->
+      <sourceRoot location="lib/migration-platform.jar" />
+    </modelRoot>
   </models>
   <facets>
     <facet type="java" compile="ext" classes="provided" ext="no">
       <classes generated="true" />
-      <library location="${mps_home}/plugins/mps-migration/migration-platform/lib/migration-platform.jar" />
+      <library location="${module}/../../lib/migration-platform.jar" />
+      <!--
+        Deployment layout:
+            plugins/mps-migration/solutions/j.m.migration.component.jar
+            plugins/mps-migration/lib/migration-platform.jar     (i.e. ${module}/../lib/, note single ../ level change)
+        Note, ModuleMiner is capable of rewriting model root paths starting with ${module} only,
+        therefore I don't use ${mps_home}/plugins here. It also needs contentPath, sourceRoot[@path] won't work.
+        To deal with ../../lib/ vs ../lib difference, we rely on the fact MM.fixJavaStubModelRoots() matching jar name only.
+        Besides, we use migration-platform.jar in IdeaPlugin/mps-migration. We don't use modules yet,
+        but if we decide to, we'd can not use ${mps_home} for library location.
+       -->
     </facet>
   </facets>
   <dependencies>
@@ -22,8 +36,6 @@
     <dependency reexport="false">90746344-04fd-4286-97d5-b46ae6a81709(jetbrains.mps.lang.migration)</dependency>
     <dependency reexport="true">528ff3b9-5fc4-40dd-931f-c6ce3650640e(jetbrains.mps.lang.migration.runtime)</dependency>
     <dependency reexport="false">8d29d73f-ed99-4652-ae0a-083cdfe53c34(jetbrains.mps.ide.platform)</dependency>
-    <dependency reexport="false">c72da2b9-7cce-4447-8389-f407dc1158b7(jetbrains.mps.lang.structure)</dependency>
-    <dependency reexport="false">f3061a53-9226-4cc5-a443-f952ceaf5816(jetbrains.mps.baseLanguage)</dependency>
     <dependency reexport="false">9882f4ad-1955-46fe-8269-94189e5dbbf2(jetbrains.mps.lang.migration.util)</dependency>
     <dependency reexport="false">5187f5c9-b8a8-4309-90b3-14f9919bd2d8(jetbrains.mps.refactoring)</dependency>
     <dependency reexport="false">a1250a4d-c090-42c3-ad7c-d298a3357dd4(jetbrains.mps.make.runtime)</dependency>
@@ -62,13 +74,10 @@
     <module reference="fdaaf35f-8ee3-4c37-b09d-9efaeaaa7a41(jetbrains.mps.core.tool.environment)" version="0" />
     <module reference="8d29d73f-ed99-4652-ae0a-083cdfe53c34(jetbrains.mps.ide.platform)" version="0" />
     <module reference="2d3c70e9-aab2-4870-8d8d-6036800e4103(jetbrains.mps.kernel)" version="0" />
-    <module reference="d936855b-48da-4812-a8a0-2bfddd633ac5(jetbrains.mps.lang.behavior.api)" version="0" />
     <module reference="ceab5195-25ea-4f22-9b92-103b95ca8c0c(jetbrains.mps.lang.core)" version="0" />
     <module reference="90746344-04fd-4286-97d5-b46ae6a81709(jetbrains.mps.lang.migration)" version="0" />
     <module reference="528ff3b9-5fc4-40dd-931f-c6ce3650640e(jetbrains.mps.lang.migration.runtime)" version="0" />
     <module reference="9882f4ad-1955-46fe-8269-94189e5dbbf2(jetbrains.mps.lang.migration.util)" version="0" />
-    <module reference="d7eb0a2a-bd50-4576-beae-e4a89db35f20(jetbrains.mps.lang.scopes.runtime)" version="0" />
-    <module reference="c72da2b9-7cce-4447-8389-f407dc1158b7(jetbrains.mps.lang.structure)" version="0" />
     <module reference="9ded098b-ad6a-4657-bfd9-48636cfe8bc3(jetbrains.mps.lang.traceable)" version="0" />
     <module reference="a1250a4d-c090-42c3-ad7c-d298a3357dd4(jetbrains.mps.make.runtime)" version="0" />
     <module reference="a5b1c28d-abeb-49a6-a58c-559039616d64(jetbrains.mps.migration.component)" version="0" />
