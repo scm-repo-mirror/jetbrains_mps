@@ -93,14 +93,6 @@ public final class MacrosFactory implements MacroHelper.Source {
     return getGlobal();
   }
 
-  /**
-   * @deprecated why would anyone care to cast openapi.SModule to AbstractModule? Use {@link #forModule(SModule)} instead.
-   */
-@Deprecated(since = "2018.1", forRemoval = true)
-  public static MacroHelper forModule(AbstractModule module) {
-    return forModule((SModule) module);
-  }
-
   public static MacroHelper forProjectFile(IFile projectFile) {
     return new MacroHelperImpl(projectFile, new ProjectMacros(PathMacros.getInstance()));
   }

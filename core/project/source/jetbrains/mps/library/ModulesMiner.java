@@ -21,7 +21,6 @@ import jetbrains.mps.generator.fileGenerator.FileGenerationUtil;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.persistence.MementoImpl;
 import jetbrains.mps.persistence.PersistenceRegistry;
-import jetbrains.mps.project.ProjectPathUtil;
 import jetbrains.mps.project.io.DescriptorIO;
 import jetbrains.mps.project.io.DescriptorIOException;
 import jetbrains.mps.project.io.DescriptorIOFacade;
@@ -281,7 +280,9 @@ public final class ModulesMiner {
         return true;
       }
 
-      processExcludes(moduleXml, moduleDescriptor); // do I really need to exclude anything for DD? There's source module, indeed.
+      // we don't dive into deployed modules (no nested modules at deployment), nothing to exclude.
+      // well, technically we can still exclude sources and library locations (could be outside a module), but generally
+      // when discovering deployed modules, we don't expect code to look into unexpected, nested layouts
       fillOutcome(new ModuleHandle(moduleXml, moduleDescriptor), false);
       // even if we didn't succeed to read a module, presence of META-INF/module.xml prevents processing of any other possible
       // module location under moduleHome
@@ -629,8 +630,7 @@ public final class ModulesMiner {
   // part of processExcludes() with common code for any module type
   @SuppressWarnings("removal")
   private void processModuleExcludes(jetbrains.mps.vfs.openapi.FileSystem fileSystem, MacroHelper macroHelper, ModuleDescriptor descriptor) {
-    // FIXME keep use of legacy value as it comes with default; need to refactor this later
-    String generatorOutputPath = ProjectPathUtil._getGeneratorOutputPathPrim(descriptor);
+    String generatorOutputPath = descriptor.getOutputRoot();
     if (generatorOutputPath != null) {
       IFile genOutputFile = fileSystem.getFile(macroHelper.expandPath(generatorOutputPath));
       excludeGeneratedSourcesDir(genOutputFile);
@@ -695,10 +695,7 @@ public final class ModulesMiner {
   private void excludeGeneratedSourcesDir(IFile sourceDir) {
     if (sourceDir != null) {
       myExcludes.add(sourceDir);
-      // todo: why?
-      if (!sourceDir.isReadOnly()) {
-        myExcludes.add(FileGenerationUtil.getCachesDir(sourceDir));
-      }
+      myExcludes.add(FileGenerationUtil.getCachesDir(sourceDir));
     }
   }
 
