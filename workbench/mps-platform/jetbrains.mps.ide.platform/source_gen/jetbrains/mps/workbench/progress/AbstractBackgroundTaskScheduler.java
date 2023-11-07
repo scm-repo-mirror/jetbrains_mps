@@ -5,6 +5,9 @@ package jetbrains.mps.workbench.progress;
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.progress.DefaultTaskScheduler;
 import jetbrains.mps.project.Project;
+import java.util.concurrent.Executor;
+import org.jetbrains.mps.openapi.module.ModelAccess;
+import jetbrains.mps.smodel.ModelAccessBase;
 import jetbrains.mps.progress.IdleWork;
 import java.util.Collection;
 import jetbrains.mps.progress.ProgressTask;
@@ -21,9 +24,16 @@ import java.util.function.Consumer;
 @GeneratedClass(node = "r:38f1070b-d1ae-4036-84ce-ffb866741b84(jetbrains.mps.workbench.progress)/5860855079808959130", model = "r:38f1070b-d1ae-4036-84ce-ffb866741b84(jetbrains.mps.workbench.progress)")
 public abstract class AbstractBackgroundTaskScheduler<TASK> extends DefaultTaskScheduler {
   private final Project myMpsProject;
+  private Executor readExecutor;
 
   public AbstractBackgroundTaskScheduler(Project mpsProject) {
     this.myMpsProject = mpsProject;
+    ModelAccess modelAccess = mpsProject.getRepository().getModelAccess();
+    if (modelAccess instanceof ModelAccessBase) {
+      this.readExecutor = ((ModelAccessBase) modelAccess).shareRead();
+    } else {
+      this.readExecutor = new DefaultTaskScheduler.DirectExecutor();
+    }
   }
 
   @Override
@@ -33,6 +43,11 @@ public abstract class AbstractBackgroundTaskScheduler<TASK> extends DefaultTaskS
       runWithQueue(tasks, queue, monitor);
       queue.waitForTasksToFinish();
     });
+  }
+
+  @Override
+  public Executor executor() {
+    return readExecutor;
   }
 
   protected void runWithQueue(Collection<ProgressTask> tasks, AbstractTaskQueue<TASK> queue, final ProgressMonitor monitor) {
@@ -101,4 +116,5 @@ public abstract class AbstractBackgroundTaskScheduler<TASK> extends DefaultTaskS
   public interface TaskRunnable extends Consumer<Runnable> {
 
   }
+
 }

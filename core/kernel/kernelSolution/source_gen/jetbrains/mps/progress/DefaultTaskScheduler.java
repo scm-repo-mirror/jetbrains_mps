@@ -5,6 +5,7 @@ package jetbrains.mps.progress;
 import jetbrains.mps.annotations.GeneratedClass;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import java.util.Collection;
+import java.util.concurrent.Executor;
 
 @GeneratedClass(node = "r:37761ffb-9538-49ac-a331-c8121d2c14b2(jetbrains.mps.progress)/4352906377363159179", model = "r:37761ffb-9538-49ac-a331-c8121d2c14b2(jetbrains.mps.progress)")
 public class DefaultTaskScheduler implements TaskScheduler {
@@ -33,6 +34,11 @@ public class DefaultTaskScheduler implements TaskScheduler {
     return scheduleSequential(tasks, monitor);
   }
 
+  @Override
+  public Executor executor() {
+    return new DirectExecutor();
+  }
+
   private void runAndWait(ProgressTask task, ProgressMonitor monitor) {
     try {
       // FIXME track task state
@@ -48,6 +54,13 @@ public class DefaultTaskScheduler implements TaskScheduler {
       task.onThrowable(err);
     } finally {
       task.onFinished();
+    }
+  }
+
+  public static class DirectExecutor implements Executor {
+    @Override
+    public void execute(Runnable runnable) {
+      runnable.run();
     }
   }
 

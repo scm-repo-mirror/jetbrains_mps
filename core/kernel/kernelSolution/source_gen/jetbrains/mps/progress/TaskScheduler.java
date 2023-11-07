@@ -5,6 +5,7 @@ package jetbrains.mps.progress;
 import jetbrains.mps.annotations.GeneratedClass;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import java.util.Collection;
+import java.util.concurrent.Executor;
 
 /**
  * Represents the central point of control for launching a series of {@link jetbrains.mps.progress.ProgressTask }
@@ -22,4 +23,5 @@ public interface TaskScheduler {
 
   IdleWork scheduleParallel(Collection<ProgressTask> tasks, ProgressMonitor monitor);
 
+  Executor executor();
 }

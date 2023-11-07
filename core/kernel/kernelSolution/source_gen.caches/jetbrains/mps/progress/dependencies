@@ -16,8 +16,10 @@
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
   <dependency className="jetbrains.mps.progress.DefaultTaskScheduler">
     <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="java.lang.Runnable" />
     <classNode dependClassName="java.lang.Throwable" />
     <classNode dependClassName="java.util.Collection" />
+    <classNode dependClassName="java.util.concurrent.Executor" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
     <classNode dependClassName="jetbrains.mps.progress.IdleWork" />
     <classNode dependClassName="jetbrains.mps.progress.ProgressTask" />
@@ -27,6 +29,7 @@
   <dependency className="jetbrains.mps.progress.IdleWork">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.Runnable" />
+    <classNode dependClassName="java.util.concurrent.Executor" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
   </dependency>
   <dependency className="jetbrains.mps.progress.ProgressTask">
@@ -48,6 +51,7 @@
   </dependency>
   <dependency className="jetbrains.mps.progress.TaskScheduler">
     <classNode dependClassName="java.util.Collection" />
+    <classNode dependClassName="java.util.concurrent.Executor" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
     <classNode dependClassName="jetbrains.mps.progress.IdleWork" />
     <classNode dependClassName="jetbrains.mps.progress.ProgressTask" />

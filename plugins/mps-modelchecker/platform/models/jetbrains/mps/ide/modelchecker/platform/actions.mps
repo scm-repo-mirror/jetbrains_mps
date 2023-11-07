@@ -1867,6 +1867,34 @@
               <ref role="37wK5l" to="w1kc:~ModelAccessHelper.runReadAction(jetbrains.mps.util.Computable)" resolve="runReadAction" />
               <node concept="1bVj0M" id="6MDTP4X6ntV" role="37wK5m">
                 <node concept="3clFbS" id="6MDTP4X6ntW" role="1bW5cS">
+                  <node concept="3SKdUt" id="3uj8hNy2ys5" role="3cqZAp">
+                    <node concept="1PaTwC" id="3uj8hNy2ys6" role="1aUNEU">
+                      <node concept="3oM_SD" id="3uj8hNy2$pQ" role="1PaTwD">
+                        <property role="3oM_SC" value="the" />
+                      </node>
+                      <node concept="3oM_SD" id="3uj8hNy2$pS" role="1PaTwD">
+                        <property role="3oM_SC" value="issues" />
+                      </node>
+                      <node concept="3oM_SD" id="3uj8hNy2Q1f" role="1PaTwD">
+                        <property role="3oM_SC" value="are" />
+                      </node>
+                      <node concept="3oM_SD" id="3uj8hNy2Rmc" role="1PaTwD">
+                        <property role="3oM_SC" value="going" />
+                      </node>
+                      <node concept="3oM_SD" id="3uj8hNy2WbQ" role="1PaTwD">
+                        <property role="3oM_SC" value="to" />
+                      </node>
+                      <node concept="3oM_SD" id="3uj8hNy2Wcm" role="1PaTwD">
+                        <property role="3oM_SC" value="come" />
+                      </node>
+                      <node concept="3oM_SD" id="3uj8hNy3141" role="1PaTwD">
+                        <property role="3oM_SC" value="in" />
+                      </node>
+                      <node concept="3oM_SD" id="3uj8hNy35Me" role="1PaTwD">
+                        <property role="3oM_SC" value="concurrently" />
+                      </node>
+                    </node>
+                  </node>
                   <node concept="3cpWs8" id="7V$Ix1Rxjgg" role="3cqZAp">
                     <node concept="3cpWsn" id="7V$Ix1Rxjgh" role="3cpWs9">
                       <property role="TrG5h" value="errorCollector" />
@@ -1878,9 +1906,19 @@
                       </node>
                       <node concept="2ShNRf" id="6MDTP4X5Fga" role="33vP2m">
                         <node concept="1pGfFk" id="6MDTP4X5H6h" role="2ShVmc">
-                          <ref role="37wK5l" to="18ew:~CollectConsumer.&lt;init&gt;()" resolve="CollectConsumer" />
+                          <ref role="37wK5l" to="18ew:~CollectConsumer.&lt;init&gt;(java.util.Collection)" resolve="CollectConsumer" />
                           <node concept="3uibUv" id="6MDTP4X5HVj" role="1pMfVU">
                             <ref role="3uigEE" to="d6hs:~IssueKindReportItem" resolve="IssueKindReportItem" />
+                          </node>
+                          <node concept="2YIFZM" id="3uj8hNy2pWK" role="37wK5m">
+                            <ref role="37wK5l" to="33ny:~Collections.synchronizedList(java.util.List)" resolve="synchronizedList" />
+                            <ref role="1Pybhc" to="33ny:~Collections" resolve="Collections" />
+                            <node concept="2ShNRf" id="3uj8hNy1QpG" role="37wK5m">
+                              <node concept="1pGfFk" id="3uj8hNy23QV" role="2ShVmc">
+                                <property role="373rjd" value="true" />
+                                <ref role="37wK5l" to="33ny:~ArrayList.&lt;init&gt;()" resolve="ArrayList" />
+                              </node>
+                            </node>
                           </node>
                         </node>
                       </node>
@@ -2255,6 +2293,7 @@
                       </node>
                     </node>
                   </node>
+                  <node concept="3clFbH" id="3uj8hNy1bpI" role="3cqZAp" />
                   <node concept="3cpWs8" id="7V$Ix1Rxjg1" role="3cqZAp">
                     <node concept="3cpWsn" id="7V$Ix1Rxjg2" role="3cpWs9">
                       <property role="TrG5h" value="result" />

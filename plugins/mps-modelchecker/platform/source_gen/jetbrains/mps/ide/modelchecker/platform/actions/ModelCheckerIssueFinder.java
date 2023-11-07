@@ -19,6 +19,7 @@ import jetbrains.mps.errors.item.IssueKindReportItem;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.CollectConsumer;
+import java.util.Collections;
 import jetbrains.mps.progress.TaskScheduler;
 import jetbrains.mps.workbench.progress.IdeaPlatformTaskScheduler;
 import jetbrains.mps.progress.DefaultTaskScheduler;
@@ -71,7 +72,8 @@ public class ModelCheckerIssueFinder implements SearchTask {
   @Override
   public SearchResults<IssueKindReportItem> execute(final ProgressMonitor monitor) {
     return new ModelAccessHelper(myRepository).runReadAction(() -> {
-      CollectConsumer<IssueKindReportItem> errorCollector = new CollectConsumer<IssueKindReportItem>();
+      // the issues are going to come in concurrently
+      CollectConsumer<IssueKindReportItem> errorCollector = new CollectConsumer<IssueKindReportItem>(Collections.synchronizedList(new ArrayList<>()));
       List<IChecker<?, ? extends IssueKindReportItem>> specificCheckers = ListSequence.fromList(new ArrayList<IChecker<?, ? extends IssueKindReportItem>>());
       ListSequence.fromList(specificCheckers).addSequence(ListSequence.fromList(getSpecificCheckers()));
       // FIXME it's odd to create checker here provided outer code cares about ModelCheckerSettings and IssueKindReportItem anyway.
@@ -85,6 +87,7 @@ public class ModelCheckerIssueFinder implements SearchTask {
       IAbstractChecker<ModelCheckerBuilder.ItemsToCheck, IssueKindReportItem> abstractChecker = modelCheckerBuilder.createChecker(specificCheckers);
 
       abstractChecker.check(itemsToCheck, myRepository, errorCollector, monitor);
+
       SearchResults<IssueKindReportItem> result = new SearchResults<IssueKindReportItem>();
       for (IssueKindReportItem error : errorCollector.getResult()) {
         result.getSearchResults().add(getSearchResultForReportItem(error));

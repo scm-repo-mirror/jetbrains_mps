@@ -143,7 +143,7 @@ public abstract class ProgressTask {
     }
     @Override
     public IdleWork schedule(TaskScheduler scheduler) {
-      return IdleWork.Support.run(this::run);
+      return IdleWork.Support.execute(this::run, scheduler.executor());
     }
     protected void run() {
       myRunnable.run();

@@ -29,6 +29,7 @@
     <classNode dependClassName="java.lang.Runnable" />
     <classNode dependClassName="java.util.Collection" />
     <classNode dependClassName="java.util.concurrent.CountDownLatch" />
+    <classNode dependClassName="java.util.concurrent.Executor" />
     <classNode dependClassName="java.util.concurrent.TimeUnit" />
     <classNode dependClassName="java.util.function.BooleanSupplier" />
     <classNode dependClassName="java.util.function.Consumer" />
@@ -37,6 +38,8 @@
     <classNode dependClassName="jetbrains.mps.progress.IdleWork" />
     <classNode dependClassName="jetbrains.mps.progress.ProgressTask" />
     <classNode dependClassName="jetbrains.mps.project.Project" />
+    <classNode dependClassName="jetbrains.mps.smodel.ModelAccessBase" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.module.ModelAccess" />
     <classNode dependClassName="org.jetbrains.mps.openapi.util.ProgressMonitor" />
     <classNode extendsClassName="jetbrains.mps.progress.DefaultTaskScheduler" />
   </dependency>
