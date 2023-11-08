@@ -410,7 +410,9 @@ public final class Renamer {
 
   // if module name is a prefix of it's model's name or they are equals - rename the model, too
   private void renameModelsIfNeeded(@NotNull AbstractModule module, @NotNull String oldModuleName, @NotNull String newModuleName) {
-    for (SModel m : module.getModels()) {
+    final List<SModel> allModels = module.getModels();
+    final List<String> allOldLongNames = allModels.stream().map(SModel::getName).map(SModelName::getLongName).collect(Collectors.toList());
+    for (SModel m : allModels) {
       if (!m.isReadOnly()) {
         SModelName oldModelName = m.getName();
         if (oldModelName.getNamespace().startsWith(oldModuleName) || oldModelName.getLongName().equals(oldModuleName)) {
@@ -437,7 +439,9 @@ public final class Renamer {
               newModelName = oldModelName.getSimpleName();
             }
             SModelName newSModelName = new SModelName(newModelNamespace, newModelName, oldModelName.getStereotype());
-            ((EditableSModel) m).rename(newSModelName.getValue(), m.getSource() instanceof FileDataSource);
+            if (!allOldLongNames.contains(newSModelName.getLongName())) {
+              ((EditableSModel) m).rename(newSModelName.getValue(), m.getSource() instanceof FileDataSource);
+            }
           }
         }
       }
