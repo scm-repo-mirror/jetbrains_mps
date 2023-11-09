@@ -40,7 +40,7 @@ public class IdeaPlatformTaskScheduler extends AbstractBackgroundTaskScheduler<T
       public void run(@NotNull ProgressIndicator pind) {
         task.initMonitor(monitor);
         if (task.isReady()) {
-          task.schedule(IdeaPlatformTaskScheduler.this).finish();
+          task.schedule(IdeaPlatformTaskScheduler.this).run();
         }
       }
       @Override

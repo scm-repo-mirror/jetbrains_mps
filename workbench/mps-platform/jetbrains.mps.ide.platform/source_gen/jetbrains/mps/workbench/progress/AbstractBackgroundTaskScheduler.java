@@ -8,11 +8,12 @@ import jetbrains.mps.project.Project;
 import java.util.concurrent.Executor;
 import org.jetbrains.mps.openapi.module.ModelAccess;
 import jetbrains.mps.smodel.ModelAccessBase;
-import jetbrains.mps.progress.IdleWork;
+import java.util.concurrent.RunnableFuture;
 import java.util.Collection;
 import jetbrains.mps.progress.ProgressTask;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import java.util.concurrent.FutureTask;
 import com.intellij.util.concurrency.QueueProcessor;
 import java.util.concurrent.CountDownLatch;
 import java.util.function.BooleanSupplier;
@@ -37,17 +38,17 @@ public abstract class AbstractBackgroundTaskScheduler<TASK> extends DefaultTaskS
   }
 
   @Override
-  public IdleWork scheduleParallel(final Collection<ProgressTask> tasks, final ProgressMonitor monitor) {
+  public RunnableFuture<Void> scheduleAllParallel(final Collection<ProgressTask> tasks, final ProgressMonitor monitor) {
     final AbstractTaskQueue<TASK> queue = createQueue(CollectionSequence.fromCollection(tasks).count());
-    return IdleWork.Support.run(() -> {
+    return new FutureTask<>(() -> {
       runWithQueue(tasks, queue, monitor);
       queue.waitForTasksToFinish();
-    });
+    }, null);
   }
 
   @Override
-  public Executor executor() {
-    return readExecutor;
+  public RunnableFuture<Void> execute(final Runnable runnable) {
+    return new FutureTask<>(() -> readExecutor.execute(runnable), null);
   }
 
   protected void runWithQueue(Collection<ProgressTask> tasks, AbstractTaskQueue<TASK> queue, final ProgressMonitor monitor) {

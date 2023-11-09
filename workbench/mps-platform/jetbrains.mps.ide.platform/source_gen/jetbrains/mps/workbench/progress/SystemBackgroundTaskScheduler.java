@@ -116,7 +116,7 @@ public class SystemBackgroundTaskScheduler extends AbstractBackgroundTaskSchedul
       try {
         TaskScheduler scheduler = ((TaskSchedulerProgressMonitor) progressMonitor).getScheduler();
         task.initMonitor(progressMonitor);
-        task.schedule(scheduler).finish();
+        task.schedule(scheduler).run();
       } finally {
         if (continuation != null) {
           continuation.run();
