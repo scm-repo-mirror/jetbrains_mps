@@ -40883,6 +40883,9 @@
     <node concept="26EafG" id="4nX__hM7r3o" role="26Ea7d">
       <property role="26EafJ" value="lib/mps-resources_en.jar" />
     </node>
+    <node concept="26EafG" id="7LE2I2UQ$Tl" role="26Ea7d">
+      <property role="26EafJ" value="lib/mps-scripts-rt.jar" />
+    </node>
     <node concept="26EafG" id="4nX__hM7r4n" role="26Ea7d">
       <property role="26EafJ" value="lib/mps-test.jar" />
     </node>
