@@ -43373,7 +43373,7 @@
   <node concept="sE7Ow" id="5I8fr3HGQqZ">
     <property role="3GE5qa" value="Menu.ProjectPane.Model.Actions" />
     <property role="TrG5h" value="RenameModelsNamespace" />
-    <property role="2uzpH1" value="Rename" />
+    <property role="2uzpH1" value="Rename Model Namespace" />
     <property role="1teQrl" value="true" />
     <property role="72QZ$" value="true" />
     <node concept="1DS2jV" id="5I8fr3HGRpQ" role="1NuT2Z">
@@ -44228,7 +44228,7 @@
                         <property role="373rjd" value="true" />
                         <ref role="37wK5l" to="wyt6:~StringBuilder.&lt;init&gt;(java.lang.String)" resolve="StringBuilder" />
                         <node concept="Xl_RD" id="nXmepOKqEM" role="37wK5m">
-                          <property role="Xl_RC" value="&lt;html&gt;&lt;p&gt;Some models were not be renamed:&lt;/p&gt;&lt;ul&gt;" />
+                          <property role="Xl_RC" value="&lt;html&gt;&lt;p&gt;Some models could not be renamed because of name collisions:&lt;/p&gt;&lt;ul&gt;" />
                         </node>
                       </node>
                     </node>
@@ -44297,23 +44297,118 @@
                     </node>
                   </node>
                 </node>
-                <node concept="3clFbF" id="7i1Zd7U0yL_" role="3cqZAp">
-                  <node concept="2YIFZM" id="769MfTWGtMo" role="3clFbG">
-                    <ref role="37wK5l" to="jkm4:~Messages.showWarningDialog(java.lang.String,java.lang.String)" resolve="showWarningDialog" />
-                    <ref role="1Pybhc" to="jkm4:~Messages" resolve="Messages" />
-                    <node concept="2OqwBi" id="nXmepOKACD" role="37wK5m">
-                      <node concept="37vLTw" id="I_OS_UeswK" role="2Oq$k0">
-                        <ref role="3cqZAo" node="nXmepOKqEJ" resolve="builder" />
+                <node concept="3cpWs8" id="3UKYyL8N77$" role="3cqZAp">
+                  <node concept="3cpWsn" id="3UKYyL8N77_" role="3cpWs9">
+                    <property role="TrG5h" value="bb" />
+                    <node concept="3uibUv" id="3UKYyL8N77A" role="1tU5fm">
+                      <ref role="3uigEE" to="gspm:~BalloonBuilder" resolve="BalloonBuilder" />
+                    </node>
+                    <node concept="2OqwBi" id="3UKYyL8N77B" role="33vP2m">
+                      <node concept="liA8E" id="3UKYyL8N77R" role="2OqNvi">
+                        <ref role="37wK5l" to="gspm:~BalloonBuilder.setHideOnKeyOutside(boolean)" resolve="setHideOnKeyOutside" />
+                        <node concept="3clFbT" id="4R68tBA7CxM" role="37wK5m">
+                          <property role="3clFbU" value="true" />
+                        </node>
                       </node>
-                      <node concept="liA8E" id="nXmepOKBqB" role="2OqNvi">
-                        <ref role="37wK5l" to="wyt6:~StringBuilder.toString()" resolve="toString" />
+                      <node concept="2OqwBi" id="3UKYyL8N77C" role="2Oq$k0">
+                        <node concept="liA8E" id="3UKYyL8N77O" role="2OqNvi">
+                          <ref role="37wK5l" to="gspm:~BalloonBuilder.setHideOnClickOutside(boolean)" resolve="setHideOnClickOutside" />
+                          <node concept="3clFbT" id="4R68tBA7Cn6" role="37wK5m">
+                            <property role="3clFbU" value="true" />
+                          </node>
+                        </node>
+                        <node concept="2OqwBi" id="3UKYyL8N77D" role="2Oq$k0">
+                          <node concept="liA8E" id="3UKYyL8N77L" role="2OqNvi">
+                            <ref role="37wK5l" to="gspm:~BalloonBuilder.setHideOnAction(boolean)" resolve="setHideOnAction" />
+                            <node concept="3clFbT" id="4R68tBA7Cak" role="37wK5m">
+                              <property role="3clFbU" value="true" />
+                            </node>
+                          </node>
+                          <node concept="2OqwBi" id="3UKYyL8N77E" role="2Oq$k0">
+                            <node concept="liA8E" id="3UKYyL8N77G" role="2OqNvi">
+                              <ref role="37wK5l" to="gspm:~JBPopupFactory.createHtmlTextBalloonBuilder(java.lang.String,javax.swing.Icon,java.awt.Color,javax.swing.event.HyperlinkListener)" resolve="createHtmlTextBalloonBuilder" />
+                              <node concept="2OqwBi" id="5o8enYAV0mg" role="37wK5m">
+                                <node concept="37vLTw" id="5o8enYAUY$L" role="2Oq$k0">
+                                  <ref role="3cqZAo" node="nXmepOKqEJ" resolve="builder" />
+                                </node>
+                                <node concept="liA8E" id="5o8enYAV3no" role="2OqNvi">
+                                  <ref role="37wK5l" to="wyt6:~StringBuilder.toString()" resolve="toString" />
+                                </node>
+                              </node>
+                              <node concept="10Nm6u" id="3UKYyL8N77I" role="37wK5m" />
+                              <node concept="10M0yZ" id="3UKYyL8N77J" role="37wK5m">
+                                <ref role="3cqZAo" to="lzb2:~LightColors.YELLOW" resolve="YELLOW" />
+                                <ref role="1PxDUh" to="lzb2:~LightColors" resolve="LightColors" />
+                              </node>
+                              <node concept="10Nm6u" id="3UKYyL8N77K" role="37wK5m" />
+                            </node>
+                            <node concept="2YIFZM" id="3UKYyL8N77F" role="2Oq$k0">
+                              <ref role="37wK5l" to="gspm:~JBPopupFactory.getInstance()" resolve="getInstance" />
+                              <ref role="1Pybhc" to="gspm:~JBPopupFactory" resolve="JBPopupFactory" />
+                            </node>
+                          </node>
+                        </node>
                       </node>
                     </node>
-                    <node concept="2YIFZM" id="769MfTWGtMp" role="37wK5m">
-                      <ref role="37wK5l" to="3a50:~IdeBundle.message(java.lang.String,java.lang.Object...)" resolve="message" />
-                      <ref role="1Pybhc" to="3a50:~IdeBundle" resolve="IdeBundle" />
-                      <node concept="Xl_RD" id="769MfTWGtMq" role="37wK5m">
-                        <property role="Xl_RC" value="dialogs.virtual.package.rename.on.models.title" />
+                  </node>
+                </node>
+                <node concept="3clFbF" id="3UKYyL8N783" role="3cqZAp">
+                  <node concept="2OqwBi" id="3UKYyL8N785" role="3clFbG">
+                    <node concept="37vLTw" id="3GM_nagTy70" role="2Oq$k0">
+                      <ref role="3cqZAo" node="3UKYyL8N77_" resolve="bb" />
+                    </node>
+                    <node concept="liA8E" id="3UKYyL8N789" role="2OqNvi">
+                      <ref role="37wK5l" to="gspm:~BalloonBuilder.setFadeoutTime(long)" resolve="setFadeoutTime" />
+                      <node concept="3cmrfG" id="3UKYyL8N78a" role="37wK5m">
+                        <property role="3cmrfH" value="15000" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="3cpWs8" id="66yJKVnNaY2" role="3cqZAp">
+                  <node concept="3cpWsn" id="C3dcc38Tee" role="3cpWs9">
+                    <property role="TrG5h" value="balloon" />
+                    <property role="3TUv4t" value="true" />
+                    <node concept="2OqwBi" id="5ortMJzsKro" role="33vP2m">
+                      <node concept="liA8E" id="5ortMJzsKrs" role="2OqNvi">
+                        <ref role="37wK5l" to="gspm:~BalloonBuilder.createBalloon()" resolve="createBalloon" />
+                      </node>
+                      <node concept="37vLTw" id="3GM_nagT_RU" role="2Oq$k0">
+                        <ref role="3cqZAo" node="3UKYyL8N77_" resolve="builder" />
+                      </node>
+                    </node>
+                    <node concept="3uibUv" id="C3dcc38Tef" role="1tU5fm">
+                      <ref role="3uigEE" to="gspm:~Balloon" resolve="Balloon" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="3clFbF" id="6jmxPpgDSW6" role="3cqZAp">
+                  <node concept="2OqwBi" id="6jmxPpgDU5S" role="3clFbG">
+                    <node concept="37vLTw" id="6jmxPpgDSW4" role="2Oq$k0">
+                      <ref role="3cqZAo" node="C3dcc38Tee" resolve="balloon" />
+                    </node>
+                    <node concept="liA8E" id="6jmxPpgDV0n" role="2OqNvi">
+                      <ref role="37wK5l" to="gspm:~Balloon.show(javax.swing.JLayeredPane)" resolve="show" />
+                      <node concept="2OqwBi" id="6jmxPpgE7lG" role="37wK5m">
+                        <node concept="2OqwBi" id="6jmxPpgE1YO" role="2Oq$k0">
+                          <node concept="2OqwBi" id="6jmxPpgDWZY" role="2Oq$k0">
+                            <node concept="2OqwBi" id="6jmxPpgDV5a" role="2Oq$k0">
+                              <node concept="2WthIp" id="6jmxPpgDV5d" role="2Oq$k0" />
+                              <node concept="1DTwFV" id="6jmxPpgDV5f" role="2OqNvi">
+                                <ref role="2WH_rO" node="5I8fr3HGRpS" resolve="treeNode" />
+                              </node>
+                            </node>
+                            <node concept="liA8E" id="6jmxPpgE0fW" role="2OqNvi">
+                              <ref role="37wK5l" to="7e8u:~MPSTreeNode.getTree()" resolve="getTree" />
+                            </node>
+                          </node>
+                          <node concept="liA8E" id="6jmxPpgE5CB" role="2OqNvi">
+                            <ref role="37wK5l" to="dxuu:~JComponent.getRootPane()" resolve="getRootPane" />
+                          </node>
+                        </node>
+                        <node concept="liA8E" id="6jmxPpgE9xn" role="2OqNvi">
+                          <ref role="37wK5l" to="dxuu:~JRootPane.getLayeredPane()" resolve="getLayeredPane" />
+                        </node>
                       </node>
                     </node>
                   </node>

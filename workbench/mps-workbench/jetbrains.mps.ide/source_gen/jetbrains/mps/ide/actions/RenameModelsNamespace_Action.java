@@ -31,13 +31,17 @@ import jetbrains.mps.ide.refactoring.ModelNameValidator;
 import com.intellij.util.ui.UIUtil;
 import jetbrains.mps.extapi.persistence.FileDataSource;
 import jetbrains.mps.refactoring.Renamer;
+import com.intellij.openapi.ui.popup.BalloonBuilder;
+import com.intellij.openapi.ui.popup.JBPopupFactory;
+import com.intellij.ui.LightColors;
+import com.intellij.openapi.ui.popup.Balloon;
 
 @GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/6595589484395587263", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
 public class RenameModelsNamespace_Action extends BaseAction {
   private static final Icon ICON = null;
 
   public RenameModelsNamespace_Action() {
-    super("Rename", "", ICON);
+    super("Rename Model Namespace", "", ICON);
     this.setIsAlwaysVisible(false);
     this.setExecuteOutsideCommand(true);
   }
@@ -155,14 +159,17 @@ public class RenameModelsNamespace_Action extends BaseAction {
         ((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository().saveAll();
       });
       if (ListSequence.fromList(errors).isNotEmpty()) {
-        StringBuilder builder = new StringBuilder("<html><p>Some models were not be renamed:</p><ul>");
+        StringBuilder builder = new StringBuilder("<html><p>Some models could not be renamed because of name collisions:</p><ul>");
         for (String error : errors) {
           builder.append("<li>");
           builder.append(error);
           builder.append("</li>");
         }
         builder.append("</ul></html>");
-        Messages.showWarningDialog(builder.toString(), IdeBundle.message("dialogs.virtual.package.rename.on.models.title"));
+        BalloonBuilder bb = JBPopupFactory.getInstance().createHtmlTextBalloonBuilder(builder.toString(), null, LightColors.YELLOW, null).setHideOnAction(true).setHideOnClickOutside(true).setHideOnKeyOutside(true);
+        bb.setFadeoutTime(15000);
+        final Balloon balloon = bb.createBalloon();
+        balloon.show(((NamespaceTextNode) MapSequence.fromMap(_params).get("treeNode")).getTree().getRootPane().getLayeredPane());
       }
     }
   }
