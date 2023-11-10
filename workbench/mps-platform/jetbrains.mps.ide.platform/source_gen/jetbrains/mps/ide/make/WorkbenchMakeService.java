@@ -255,7 +255,7 @@ public class WorkbenchMakeService extends AbstractMakeService implements IMakeSe
       task = new Task.Backgroundable(ideaPrj, scrName, true) {
         @Override
         public void run(@NotNull ProgressIndicator indicator) {
-          new TaskWrap(ff).run(new ProgressMonitorAdapter(indicator));
+          ff.run(new ProgressMonitorAdapter(indicator));
         }
 
         @Override
@@ -267,7 +267,7 @@ public class WorkbenchMakeService extends AbstractMakeService implements IMakeSe
       task = new Task.Modal(ideaPrj, scrName, true) {
         @Override
         public void run(@NotNull ProgressIndicator indicator) {
-          new TaskWrap(ff).run(new ProgressMonitorAdapter(indicator));
+          ff.run(new ProgressMonitorAdapter(indicator));
         }
         @Override
         public void onCancel() {
