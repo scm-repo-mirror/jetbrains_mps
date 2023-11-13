@@ -16,15 +16,10 @@
 package jetbrains.mps.smodel;
 
 import jetbrains.mps.logging.Logger;
-import jetbrains.mps.project.ModuleId;
 import jetbrains.mps.project.structure.modules.ModuleReference;
-import jetbrains.mps.smodel.SModelId.ForeignSModelId;
 import jetbrains.mps.smodel.SModelId.ModelNameSModelId;
 import jetbrains.mps.util.Computable;
-import jetbrains.mps.util.Pair;
 import jetbrains.mps.util.StringUtil;
-import jetbrains.mps.util.annotation.Hack;
-import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.annotations.Immutable;
@@ -32,10 +27,8 @@ import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelId;
 import org.jetbrains.mps.openapi.model.SModelName;
 import org.jetbrains.mps.openapi.module.SModule;
-import org.jetbrains.mps.openapi.module.SModuleId;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.module.SRepository;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade.IncorrectModelReferenceFormatException;
 
 import java.util.Objects;
@@ -159,66 +152,6 @@ public final class SModelReference implements org.jetbrains.mps.openapi.model.SM
 
   /**
    * Format: <code>[ moduleID / ] modelID [ ([moduleName /] modelName ) ]</code>
-   * {@implNote} refactor use of the method in VCSPersistenceUtil and move the body into PersistenceRegistry
-   * @deprecated use generic {@link #parseReferenceInternal(String)} to split into different parts and then use respective factory to produce
-   *             proper instances. Note, there are scenarios in VCS/legacy persistence support that require alternative processing of old model/module identities
-   */
-  @Deprecated(since = "2023.3", forRemoval = true)
-  @Contract(value = "null->null")
-  public static Pair<Pair<SModuleId, String>, Pair<SModelId, String>> parseReference_internal(@Nullable String s) {
-    final String[] p = parseReferenceInternal(s);
-    if (p == null || p[1] == null) {
-      throw new IllegalArgumentException(s);
-    }
-
-    SModuleId moduleId = null;
-    SModelId modelId;
-    String moduleName = p[2];
-    String modelName = p[3];
-
-    // XXX perhaps, can parameterise the method with PF instance for purposes of legal format support from VCSPersistenceUtil?
-    final PersistenceFacade pf = PersistenceFacade.getInstance();
-
-    if (p[0] != null && !p[0].isBlank()) {
-      moduleId = pf.createModuleId(p[0]);
-    }
-
-    if (p[1].indexOf(':') >= 0) {
-      // temporary: SModelReference can be created without active PersistenceFacade
-      if (pf == null) {
-        // FIXME get rid of facade == null case, if any
-        // Besides, shall move the code to PersistenceRegistry, as it's responsible for prefixes and factory pick
-        LOG.warning("Please report stacktrace, which would help us to find out improper MPS initialization sequence", new Throwable());
-      }
-      modelId = pf != null
-                ? pf.createModelId(p[1])
-                : jetbrains.mps.smodel.SModelId.fromString(p[1]);
-    } else {
-      // dead code? I suspect ModelNameSModelId, if any, would start with "m:" prefix and we'd never get into else clause
-      // OTOH, there seems to be a special hack in toString(), that persists ModelNameSModelId without the prefix
-      modelId = new ModelNameSModelId(p[1]);
-    }
-
-
-    if (modelName == null || modelName.isBlank()) {
-      modelName = modelId.getModelName();
-      if (modelName == null) {
-        throw new IncorrectModelReferenceFormatException("Incomplete model reference, the presentation part is absent");
-      }
-    }
-
-    if (moduleId == null) {
-      moduleId = extractModuleIdFromModelIdIfJavaStub(modelId);
-    }
-
-    if (isLegacyJavaStubModelId(modelId)) {
-      modelId = newJavaPackageStubFromLegacy(modelId);
-    }
-
-    return new Pair<>(new Pair<>(moduleId, moduleName), new Pair<>(modelId, modelName));
-  }
-
-  /**
    * @return null or 4-element array, with [module id, model id, moduleName, modelName] elements, all optional
    */
   public static String[] parseReferenceInternal(@Nullable String s) {
@@ -260,88 +193,6 @@ public final class SModelReference implements org.jetbrains.mps.openapi.model.SM
       }
     }
     return new String[] {moduleId, modelID, moduleName, modelName};
-  }
-
-  /**
-   * This temporary code suites the purpose to homogenize java_stub model references, that used
-   * to be kept in two different formats (one is "module id/model id including module id/(module name/model name)"
-   * and another "model id including module id(module name/model name)". If there's module id anyway, why
-   * would anyone keep it to model id then, and common patter for model reference (with module id coming first) shall be used.
-   *
-   * Once all model references to java stub are updated, this code shall cease to exist.
-   *
-   * IMPORTANT: there's a fly in the ointment, though - we shall read references of old models, and thus shall keep this code
-   * forever. Perhaps, we can move it into persistence/vcs modules and bury it there? Another alternative is to introduce
-   * new model identity to replace 'f:' identity, and leave dedicated SModelId factory for the legacy support in vcs/persistence only.
-   */
-  @Deprecated(since = "3.3", forRemoval = true)
-  @Nullable
-  @Hack
-  private static SModuleId extractModuleIdFromModelIdIfJavaStub(SModelId modelId) {
-    if (isVerboseJavaStubModelId(modelId)) {
-      String idValue = ((ForeignSModelId) modelId).getId();
-      String stereo = SModelStereotype.getStubStereotypeForId(LanguageID.JAVA);
-      if (idValue.length() > stereo.length() + 2 && idValue.startsWith(stereo) && idValue.charAt(stereo.length()) == '#') {
-        // two forms of legacy stub model id:
-        //    f:java_stub#module id#package name
-        //    f:java_stub#package name
-        int secondHashIndex = idValue.indexOf('#', stereo.length() + 1);
-        // there are two hash chars and non-empty package name
-        if (secondHashIndex != -1 && idValue.length() > secondHashIndex) {
-          return ModuleId.fromString(idValue.substring(stereo.length()+1, secondHashIndex));
-        }
-      }
-    }
-    return null;
-  }
-
-  /**
-   * IMPORTANT: see {@link #extractModuleIdFromModelIdIfJavaStub(SModelId)} for the reasons we didn't remove it.
-   *
-   * Compatibility code to migrate stub model id with module id to an 'honest' model id without module id.
-   *
-   * @return <code>true</code> if it's model id of java stub and it includes module id as it used to do in MPS 3.2 and earlier
-   */
-@Deprecated(since = "3.3", forRemoval = true)
-  private static boolean isVerboseJavaStubModelId(SModelId id) {
-    if (ForeignSModelId.TYPE.equals(id.getType()) && id instanceof ForeignSModelId) {
-      String idValue = ((ForeignSModelId) id).getId();
-      String stereo = SModelStereotype.getStubStereotypeForId(LanguageID.JAVA);
-      if (idValue.length() > stereo.length() + 2 && idValue.startsWith(stereo) && idValue.charAt(stereo.length()) == '#') {
-        // legacy stub model id: f:java_stub#module id#package name
-        //    new stub model id: f:java_stub#package name
-        int secondHashIndex = idValue.indexOf('#', stereo.length() + 1);
-        // there are two hash chars and non-empty package name
-        return secondHashIndex != -1 && idValue.length() > secondHashIndex;
-      }
-    }
-    return false;
-  }
-
-  /**
-   * IMPORTANT: see {@link #extractModuleIdFromModelIdIfJavaStub(SModelId)} for the reasons we didn't remove it.
-   * @return <code>true</code> if it's model id of java stub in its legacy form (i.e. foreign, f:java_stub#...), either with or without module id part.
-   */
-@Deprecated(since = "3.3", forRemoval = true)
-  private static boolean isLegacyJavaStubModelId(SModelId id) {
-    if (ForeignSModelId.TYPE.equals(id.getType()) && id instanceof ForeignSModelId) {
-      String idValue = ((ForeignSModelId) id).getId();
-      String stereo = SModelStereotype.getStubStereotypeForId(LanguageID.JAVA);
-      return (idValue.length() > stereo.length() + 2 && idValue.startsWith(stereo) && idValue.charAt(stereo.length()) == '#');
-    }
-    return false;
-  }
-
-  /**
-   * Here we duplicate code of JavaPackageNameStub, not to introduce dependency to [java-stub] module
-   */
-  @Deprecated(since = "3.3", forRemoval = true)
-  @Hack
-  private static SModelId newJavaPackageStubFromLegacy(SModelId id) {
-    // pre: isLegacyJavaStubModel()
-    String idValue = ((ForeignSModelId) id).getId();
-    int lastHash = idValue.lastIndexOf('#');
-    return PersistenceFacade.getInstance().createModelId(LanguageID.JAVA + ':' + idValue.substring(lastHash + 1));
   }
 
   public String toString() {

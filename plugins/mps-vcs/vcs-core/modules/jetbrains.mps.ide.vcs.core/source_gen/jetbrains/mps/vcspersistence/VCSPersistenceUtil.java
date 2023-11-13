@@ -33,11 +33,14 @@ import jetbrains.mps.extapi.model.ModelWithAttributes;
 import org.jetbrains.annotations.NotNull;
 import java.util.function.BiConsumer;
 import org.jetbrains.mps.openapi.model.SModelReference;
-import jetbrains.mps.util.Pair;
 import org.jetbrains.mps.openapi.module.SModuleId;
 import org.jetbrains.mps.openapi.model.SModelId;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import jetbrains.mps.project.structure.modules.ModuleReference;
+import jetbrains.mps.smodel.SModelStereotype;
+import jetbrains.mps.smodel.LanguageID;
+import jetbrains.mps.project.ModuleId;
+import jetbrains.mps.java.stub.JavaPackageNameStub;
 
 @GeneratedClass(node = "r:57faf072-5a23-4c30-9cf6-da73f0e0a8ad(jetbrains.mps.vcspersistence)/2076945889653642029", model = "r:57faf072-5a23-4c30-9cf6-da73f0e0a8ad(jetbrains.mps.vcspersistence)")
 public class VCSPersistenceUtil {
@@ -192,45 +195,109 @@ public class VCSPersistenceUtil {
   }
 
   public static SModelReference createModelReference(String modelUID) {
-    Pair<Pair<SModuleId, String>, Pair<SModelId, String>> parseResult = jetbrains.mps.smodel.SModelReference.parseReference_internal(modelUID);
-    SModuleId moduleId = parseResult.o1.o1;
-    String moduleName = parseResult.o1.o2;
-    SModelId modelId = parseResult.o2.o1;
-    String modelName = parseResult.o2.o2;
-    SModuleReference moduleRef = (moduleId != null || moduleName != null ? new ModuleReference(moduleName, moduleId) : null);
-    if (moduleRef == null && !(modelId.isGloballyUnique())) {
-      // make globally unique anyway to avoid exception for old models without modules
-      modelId = new SModelIdProxy(modelId);
+    String[] parseResult = jetbrains.mps.smodel.SModelReference.parseReferenceInternal(modelUID);
+    final PersistenceFacade pf = PersistenceFacade.getInstance();
+    SModuleId moduleId = null;
+    SModelId modelId;
+    String moduleName = parseResult[2];
+    String modelName = parseResult[3];
+    if (isNotEmptyString(parseResult[0])) {
+      moduleId = pf.createModuleId(parseResult[0]);
     }
+    if (parseResult[1] != null && parseResult[1].indexOf(':') >= 0) {
+      modelId = pf.createModelId(parseResult[1]);
+    } else {
+      // see smodel.SModelReference for puzzled rant
+      modelId = new jetbrains.mps.smodel.SModelId.ModelNameSModelId(parseResult[1]);
+    }
+    if ((modelName == null || modelName.length() == 0)) {
+      modelName = modelId.getModelName();
+    }
+
+    if (moduleId == null) {
+      moduleId = extractModuleIdFromModelIdIfJavaStub(modelId);
+    }
+
+    if (isLegacyJavaStubModelId(modelId) && moduleId != null) {
+      // legacy (foreign) model id is globally-unique, while new one required module id.
+      // If we fail to extract module id, keep the old model id, should be enough for merge/diff purposes.
+      modelId = newJavaPackageStubFromLegacy(modelId);
+    }
+
+    SModuleReference moduleRef = (moduleId != null || moduleName != null ? new ModuleReference(moduleName, moduleId) : null);
     return new jetbrains.mps.smodel.SModelReference(moduleRef, modelId, modelName);
   }
 
-  private static class SModelIdProxy implements SModelId {
-    private final SModelId myOldModelId;
-    public SModelIdProxy(SModelId modelId) {
-      myOldModelId = modelId;
+  /**
+   *  This code is to homogenize java_stub model references, that used
+   *  to be kept in two different formats (one is "module id/model id including module id/(module name/model name)"
+   *  and another "model id including module id(module name/model name)". If there's module id anyway, why
+   *  would anyone keep it to model id then, and common pattern for model reference (with module id coming first) shall be used.
+   * 
+   *  IMPORTANT: we shall read references of old models, and thus shall keep this code forever.
+   */
+  @Nullable
+  private static SModuleId extractModuleIdFromModelIdIfJavaStub(SModelId modelId) {
+    if (isVerboseJavaStubModelId(modelId)) {
+      String idValue = ((jetbrains.mps.smodel.SModelId.ForeignSModelId) modelId).getId();
+      String stereo = SModelStereotype.getStubStereotypeForId(LanguageID.JAVA);
+      if (idValue.length() > stereo.length() + 2 && idValue.startsWith(stereo) && idValue.charAt(stereo.length()) == '#') {
+        // two forms of legacy stub model id:
+        // f:java_stub#module id#package name
+        // f:java_stub#package name
+        int secondHashIndex = idValue.indexOf('#', stereo.length() + 1);
+        // there are two hash chars and non-empty package name
+        if (secondHashIndex != -1 && idValue.length() > secondHashIndex) {
+          return ModuleId.fromString(idValue.substring(stereo.length() + 1, secondHashIndex));
+        }
+      }
     }
-    public String getType() {
-      return myOldModelId.getType();
+    return null;
+  }
+  /**
+   *  IMPORTANT: see {@link #extractModuleIdFromModelIdIfJavaStub(SModelId)} for the reasons we didn't remove it.
+   *  Compatibility code to migrate stub model id with module id to an 'honest' model id without module id.
+   * 
+   *  @return <code>true</code> if it's model id of java stub and it includes module id as it used to do in MPS 3.2 and earlier
+   */
+  private static boolean isVerboseJavaStubModelId(SModelId id) {
+    if (jetbrains.mps.smodel.SModelId.ForeignSModelId.TYPE.equals(id.getType()) && id instanceof jetbrains.mps.smodel.SModelId.ForeignSModelId) {
+      String idValue = ((jetbrains.mps.smodel.SModelId.ForeignSModelId) id).getId();
+      String stereo = SModelStereotype.getStubStereotypeForId(LanguageID.JAVA);
+      if (idValue.length() > stereo.length() + 2 && idValue.startsWith(stereo) && idValue.charAt(stereo.length()) == '#') {
+        // legacy stub model id: f:java_stub#module id#package name
+        // new stub model id: f:java_stub#package name
+        int secondHashIndex = idValue.indexOf('#', stereo.length() + 1);
+        // there are two hash chars and non-empty package name
+        return secondHashIndex != -1 && idValue.length() > secondHashIndex;
+      }
     }
-    public boolean isGloballyUnique() {
-      return true;
-    }
-    public String getModelName() {
-      return myOldModelId.getModelName();
-    }
-    @Override
-    public int hashCode() {
-      return myOldModelId.hashCode();
-    }
-    @Override
-    public boolean equals(Object object) {
-      return object instanceof SModelIdProxy && myOldModelId.equals(((SModelIdProxy) object).myOldModelId);
-    }
-    @Override
-    public String toString() {
-      return myOldModelId.toString();
-    }
+    return false;
+  }
 
+  /**
+   * IMPORTANT: see {@link #extractModuleIdFromModelIdIfJavaStub(SModelId)} for the reasons we didn't remove it.
+   * @return <code>true</code> if it's model id of java stub in its legacy form (i.e. foreign, f:java_stub#...), either with or without module id part.
+   */
+  private static boolean isLegacyJavaStubModelId(SModelId id) {
+    if (jetbrains.mps.smodel.SModelId.ForeignSModelId.TYPE.equals(id.getType()) && id instanceof jetbrains.mps.smodel.SModelId.ForeignSModelId) {
+      String idValue = ((jetbrains.mps.smodel.SModelId.ForeignSModelId) id).getId();
+      String stereo = SModelStereotype.getStubStereotypeForId(LanguageID.JAVA);
+      return (idValue.length() > stereo.length() + 2 && idValue.startsWith(stereo) && idValue.charAt(stereo.length()) == '#');
+    }
+    return false;
+  }
+
+  /**
+   * pre: isLegacyJavaStubModel()
+   */
+  private static SModelId newJavaPackageStubFromLegacy(SModelId id) {
+    String idValue = ((jetbrains.mps.smodel.SModelId.ForeignSModelId) id).getId();
+    int lastHash = idValue.lastIndexOf('#');
+    return new JavaPackageNameStub(idValue.substring(lastHash + 1)).asModelId();
+  }
+
+  private static boolean isNotEmptyString(String str) {
+    return str != null && str.length() > 0;
   }
 }
