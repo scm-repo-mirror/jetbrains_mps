@@ -17,7 +17,6 @@
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
     <import index="4it6" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.loading(MPS.Core/)" />
-    <import index="tzbx" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.nodeidmap(MPS.Core/)" />
     <import index="1ltj" ref="r:aa7e8178-3b66-4295-bcce-165c85d78006(jetbrains.mps.baseLanguage.javastub)" />
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
@@ -854,14 +853,9 @@
                         </node>
                         <node concept="2ShNRf" id="1$0KT$2MbxN" role="33vP2m">
                           <node concept="1pGfFk" id="1$0KT$2MbxO" role="2ShVmc">
-                            <ref role="37wK5l" to="w1kc:~SModel.&lt;init&gt;(org.jetbrains.mps.openapi.model.SModelReference,jetbrains.mps.smodel.nodeidmap.INodeIdToNodeMap)" resolve="SModel" />
+                            <ref role="37wK5l" to="w1kc:~SModel.&lt;init&gt;(org.jetbrains.mps.openapi.model.SModelReference)" resolve="SModel" />
                             <node concept="1rXfSq" id="1$0KT$2MbxP" role="37wK5m">
                               <ref role="37wK5l" to="g3l6:~SModelBase.getReference()" resolve="getReference" />
-                            </node>
-                            <node concept="2ShNRf" id="1$0KT$2MbxQ" role="37wK5m">
-                              <node concept="1pGfFk" id="2gddEz7bhi1" role="2ShVmc">
-                                <ref role="37wK5l" to="tzbx:~MigratingJavaStubRefsNodeIdMap.&lt;init&gt;()" resolve="MigratingJavaStubRefsNodeIdMap" />
-                              </node>
                             </node>
                           </node>
                         </node>
@@ -1187,14 +1181,9 @@
             </node>
             <node concept="2ShNRf" id="5JsnGMj1qeo" role="33vP2m">
               <node concept="1pGfFk" id="5JsnGMj1qep" role="2ShVmc">
-                <ref role="37wK5l" to="w1kc:~SModel.&lt;init&gt;(org.jetbrains.mps.openapi.model.SModelReference,jetbrains.mps.smodel.nodeidmap.INodeIdToNodeMap)" resolve="SModel" />
+                <ref role="37wK5l" to="w1kc:~SModel.&lt;init&gt;(org.jetbrains.mps.openapi.model.SModelReference)" resolve="SModel" />
                 <node concept="1rXfSq" id="5JsnGMj1qeq" role="37wK5m">
                   <ref role="37wK5l" to="g3l6:~SModelBase.getReference()" resolve="getReference" />
-                </node>
-                <node concept="2ShNRf" id="1bLNqh3MkFC" role="37wK5m">
-                  <node concept="1pGfFk" id="2gddEz7beBs" role="2ShVmc">
-                    <ref role="37wK5l" to="tzbx:~MigratingJavaStubRefsNodeIdMap.&lt;init&gt;()" resolve="MigratingJavaStubRefsNodeIdMap" />
-                  </node>
                 </node>
               </node>
             </node>

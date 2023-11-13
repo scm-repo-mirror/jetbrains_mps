@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * THIS CLASS IS NO LONGER IN USE. KEEP IF FOR 2023.3 JUST IN CASE AND REMOVE THEN.
+ *
  * if not stub id everything works the same
  *
  * if stub id then we have the following:

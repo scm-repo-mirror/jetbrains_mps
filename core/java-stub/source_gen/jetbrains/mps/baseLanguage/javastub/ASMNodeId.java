@@ -8,7 +8,6 @@ import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.baseLanguage.javastub.asm.ASMClass;
 import jetbrains.mps.baseLanguage.javastub.asm.ASMField;
 import jetbrains.mps.baseLanguage.javastub.asm.ASMMethod;
-import jetbrains.mps.smodel.StringBasedIdForJavaStubMethods;
 import jetbrains.mps.baseLanguage.javastub.asm.ASMType;
 import jetbrains.mps.baseLanguage.javastub.asm.ASMClassType;
 import jetbrains.mps.baseLanguage.javastub.asm.ASMParameterizedType;
@@ -47,11 +46,6 @@ public class ASMNodeId {
     sb.append('(');
     ASMNodeId.appendList(sb, method.getParameterTypes());
     sb.append(')');
-    if (!(method.isConstructor())) {
-      sb.append(':');
-      appendType(sb, method.getReturnType());
-      return new StringBasedIdForJavaStubMethods(StringBasedIdForJavaStubMethods.ID_PREFIX + sb.toString());
-    }
     return jetbrains.mps.smodel.SNodeId.Foreign.fromIdNoPrefix(sb.toString());
   }
   public static SNodeId createAnnotationMethodId(String fqClassName, String methodName) {
