@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,6 @@ package jetbrains.mps.persistence;
 import jetbrains.mps.components.CoreComponent;
 import jetbrains.mps.extapi.persistence.ModelFactoryService;
 import jetbrains.mps.extapi.persistence.datasource.DataSourceFactoryRuleService;
-import jetbrains.mps.logging.Logger;
 import jetbrains.mps.project.ModuleId;
 import jetbrains.mps.project.structure.modules.ModuleReference;
 import jetbrains.mps.smodel.SModelId.ForeignSModelId;
@@ -30,6 +29,7 @@ import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.smodel.StringBasedIdForJavaStubMethods;
 import jetbrains.mps.smodel.adapter.structure.concept.SAbstractConceptAdapter;
 import jetbrains.mps.smodel.adapter.structure.language.SLanguageAdapter;
+import jetbrains.mps.util.Pair;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -134,7 +134,11 @@ public class PersistenceRegistry extends org.jetbrains.mps.openapi.persistence.P
   @NotNull
   @Override
   public SModuleId createModuleId(@NotNull String text) {
-    return ModuleId.fromString(text);
+    try {
+      return ModuleId.fromString(text);
+    } catch (IllegalArgumentException e) {
+      throw new IncorrectModelReferenceFormatException("Could not parse module id from the string " + text, e);
+    }
   }
 
   @NotNull
@@ -182,7 +186,14 @@ public class PersistenceRegistry extends org.jetbrains.mps.openapi.persistence.P
   @NotNull
   @Override
   public SModelReference createModelReference(@NotNull String text) {
-    return jetbrains.mps.smodel.SModelReference.parseReference(text);
+    Pair<Pair<SModuleId, String>, Pair<SModelId, String>> parseResult = jetbrains.mps.smodel.SModelReference.parseReference_internal(text);
+    SModuleId moduleId = parseResult.o1.o1;
+    String moduleName = parseResult.o1.o2;
+    SModelId modelId = parseResult.o2.o1;
+    String modelName = parseResult.o2.o2;
+    SModuleReference moduleRef =
+        moduleId != null || moduleName != null ? new jetbrains.mps.project.structure.modules.ModuleReference(moduleName, moduleId) : null;
+    return new jetbrains.mps.smodel.SModelReference(moduleRef, modelId, modelName);
   }
 
   @Override

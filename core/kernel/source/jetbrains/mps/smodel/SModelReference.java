@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.smodel;
 
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.project.ModuleId;
 import jetbrains.mps.project.structure.modules.ModuleReference;
 import jetbrains.mps.smodel.SModelId.ForeignSModelId;
@@ -23,7 +24,6 @@ import jetbrains.mps.util.Computable;
 import jetbrains.mps.util.Pair;
 import jetbrains.mps.util.StringUtil;
 import jetbrains.mps.util.annotation.Hack;
-import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -158,84 +158,49 @@ public final class SModelReference implements org.jetbrains.mps.openapi.model.SM
   }
 
   /**
-   * @deprecated This code shall move to private method of PersistenceRegistry, which would dispatch to proper
-   *   registered factories. Use {@link PersistenceFacade#createModelReference(String)} instead.
    * Format: <code>[ moduleID / ] modelID [ ([moduleName /] modelName ) ]</code>
+   * {@implNote} refactor use of the method in VCSPersistenceUtil and move the body into PersistenceRegistry
+   * @deprecated use generic {@link #parseReferenceInternal(String)} to split into different parts and then use respective factory to produce
+   *             proper instances. Note, there are scenarios in VCS/legacy persistence support that require alternative processing of old model/module identities
    */
-  @NotNull
-@Deprecated(since = "3.3", forRemoval = true)
-  public static SModelReference parseReference(String s) {
-    Pair<Pair<SModuleId, String>, Pair<SModelId, String>> parseResult = parseReference_internal(s);
-    SModuleId moduleId = parseResult.o1.o1;
-    String moduleName = parseResult.o1.o2;
-    SModelId modelId = parseResult.o2.o1;
-    String modelName = parseResult.o2.o2;
-    SModuleReference moduleRef =
-        moduleId != null || moduleName != null ? new jetbrains.mps.project.structure.modules.ModuleReference(moduleName, moduleId) : null;
-    return new SModelReference(moduleRef, modelId, modelName);
-  }
-
+  @Deprecated(since = "2023.3", forRemoval = true)
   @Contract(value = "null->null")
   public static Pair<Pair<SModuleId, String>, Pair<SModelId, String>> parseReference_internal(@Nullable String s) {
-    if (s == null) return null;
-    s = s.trim();
-    int lParen = s.indexOf('(');
-    int rParen = s.lastIndexOf(')');
-    String presentationPart = null;
-    if (lParen > 0 && rParen == s.length() - 1) {
-      presentationPart = s.substring(lParen + 1, rParen);
-      s = s.substring(0, lParen);
-      lParen = s.indexOf('(');
-      rParen = s.lastIndexOf(')');
-    }
-    if (lParen != -1 || rParen != -1) {
-      throw new IncorrectModelReferenceFormatException("parentheses do not match in: `" + s + "'");
+    final String[] p = parseReferenceInternal(s);
+    if (p == null || p[1] == null) {
+      throw new IllegalArgumentException(s);
     }
 
     SModuleId moduleId = null;
-    int slash = s.indexOf('/');
-    if (slash >= 0) {
-      // FIXME I wonder why there's no SModuleIdFactory and corresponding methods in PersistenceFacade
-      try {
-        moduleId = ModuleId.fromString(StringUtil.unescapeRefChars(s.substring(0, slash)));
-      } catch (IllegalArgumentException e) {
-        throw new IncorrectModelReferenceFormatException("Could not parse module id from the string " + s, e);
-      }
-      s = s.substring(slash + 1);
+    SModelId modelId;
+    String moduleName = p[2];
+    String modelName = p[3];
+
+    // XXX perhaps, can parameterise the method with PF instance for purposes of legal format support from VCSPersistenceUtil?
+    final PersistenceFacade pf = PersistenceFacade.getInstance();
+
+    if (p[0] != null && !p[0].isBlank()) {
+      moduleId = pf.createModuleId(p[0]);
     }
 
-    String modelIDString = StringUtil.unescapeRefChars(s);
-    SModelId modelId;
-    if (modelIDString.indexOf(':') >= 0) {
-      PersistenceFacade facade = PersistenceFacade.getInstance();
+    if (p[1].indexOf(':') >= 0) {
       // temporary: SModelReference can be created without active PersistenceFacade
-      if (facade == null) {
+      if (pf == null) {
         // FIXME get rid of facade == null case, if any
         // Besides, shall move the code to PersistenceRegistry, as it's responsible for prefixes and factory pick
         LOG.warning("Please report stacktrace, which would help us to find out improper MPS initialization sequence", new Throwable());
       }
-      modelId = facade != null
-          ? facade.createModelId(modelIDString)
-          : jetbrains.mps.smodel.SModelId.fromString(modelIDString);
+      modelId = pf != null
+                ? pf.createModelId(p[1])
+                : jetbrains.mps.smodel.SModelId.fromString(p[1]);
     } else {
       // dead code? I suspect ModelNameSModelId, if any, would start with "m:" prefix and we'd never get into else clause
       // OTOH, there seems to be a special hack in toString(), that persists ModelNameSModelId without the prefix
-      modelId = new ModelNameSModelId(modelIDString);
+      modelId = new ModelNameSModelId(p[1]);
     }
 
-    String moduleName = null;
-    String modelName = null;
-    if (presentationPart != null) {
-      slash = presentationPart.indexOf('/');
-      if (slash >= 0) {
-        moduleName = StringUtil.unescapeRefChars(presentationPart.substring(0, slash));
-        modelName = StringUtil.unescapeRefChars(presentationPart.substring(slash + 1));
-      } else {
-        modelName = StringUtil.unescapeRefChars(presentationPart);
-      }
-    }
 
-    if (modelName == null || modelName.isEmpty()) {
+    if (modelName == null || modelName.isBlank()) {
       modelName = modelId.getModelName();
       if (modelName == null) {
         throw new IncorrectModelReferenceFormatException("Incomplete model reference, the presentation part is absent");
@@ -251,6 +216,50 @@ public final class SModelReference implements org.jetbrains.mps.openapi.model.SM
     }
 
     return new Pair<>(new Pair<>(moduleId, moduleName), new Pair<>(modelId, modelName));
+  }
+
+  /**
+   * @return null or 4-element array, with [module id, model id, moduleName, modelName] elements, all optional
+   */
+  public static String[] parseReferenceInternal(@Nullable String s) {
+    if (s == null) {
+      return null;
+    }
+    s = s.trim();
+    int lParen = s.indexOf('(');
+    int rParen = s.lastIndexOf(')');
+    String presentationPart = null;
+    if (lParen > 0 && rParen == s.length() - 1) {
+      presentationPart = s.substring(lParen + 1, rParen);
+      s = s.substring(0, lParen);
+      lParen = s.indexOf('(');
+      rParen = s.lastIndexOf(')');
+    }
+    if (lParen != -1 || rParen != -1) {
+      throw new IncorrectModelReferenceFormatException("parentheses do not match in: `" + s + "'");
+    }
+
+    String moduleId = null;
+    int slash = s.indexOf('/');
+    if (slash >= 0) {
+      moduleId = StringUtil.unescapeRefChars(s.substring(0, slash));
+      s = s.substring(slash + 1);
+    }
+
+    String modelID = StringUtil.unescapeRefChars(s);
+
+    String moduleName = null;
+    String modelName = null;
+    if (presentationPart != null) {
+      slash = presentationPart.indexOf('/');
+      if (slash >= 0) {
+        moduleName = StringUtil.unescapeRefChars(presentationPart.substring(0, slash));
+        modelName = StringUtil.unescapeRefChars(presentationPart.substring(slash + 1));
+      } else {
+        modelName = StringUtil.unescapeRefChars(presentationPart);
+      }
+    }
+    return new String[] {moduleId, modelID, moduleName, modelName};
   }
 
   /**

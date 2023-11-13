@@ -119,7 +119,7 @@ public class DefaultModelPersistence implements ModelFactory, IndexAwareModelFac
     }
 
     final SModelHeader header = SModelHeader.create(ModelPersistence.LAST_VERSION);
-    final SModelReference modelReference = PersistenceFacade.getInstance().createModelReference(null, SModelId.generate(), modelName.getValue());
+    final SModelReference modelReference = PersistenceFacade.getInstance().createModelReference(null, SModelId.generate(), modelName);
     header.setModelReference(modelReference);
     final DefaultSModelDescriptor rv = new DefaultSModelDescriptor(new PersistenceFacility(this, (StreamDataSource) dataSource), header);
     // Hack to ensure newly created model is indeed empty. Otherwise, with StreamDataSource pointing to existing model stream, an attempt to

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -117,7 +117,7 @@ public class FilePerRootModelFactory implements ModelFactory, IndexAwareModelFac
       throw new UnsupportedDataSourceException(dataSource);
     }
 
-    SModelReference ref = FACADE().createModelReference(null, SModelId.generate(), modelName.getValue());
+    SModelReference ref = FACADE().createModelReference(null, SModelId.generate(), modelName);
     final SModelHeader header = SModelHeader.create(ModelPersistence.LAST_VERSION);
     header.setModelReference(ref);
     return new DefaultSModelDescriptor(new PersistenceFacility(this, (MultiStreamDataSource) dataSource), header);
