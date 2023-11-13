@@ -64,6 +64,7 @@
         <child id="1068498886297" name="rValue" index="37vLTx" />
         <child id="1068498886295" name="lValue" index="37vLTJ" />
       </concept>
+      <concept id="1153422305557" name="jetbrains.mps.baseLanguage.structure.LessThanOrEqualsExpression" flags="nn" index="2dkUwp" />
       <concept id="2323553266850475941" name="jetbrains.mps.baseLanguage.structure.IHasModifiers" flags="ngI" index="2frcj7">
         <child id="2323553266850475953" name="modifiers" index="2frcjj" />
       </concept>
@@ -15784,6 +15785,64 @@
             </node>
           </node>
         </node>
+        <node concept="3SKdUt" id="1rmEMPlChry" role="3cqZAp">
+          <node concept="1PaTwC" id="1rmEMPlChrz" role="1aUNEU">
+            <node concept="3oM_SD" id="1rmEMPlChIb" role="1PaTwD">
+              <property role="3oM_SC" value="guice-3.0.jar" />
+            </node>
+            <node concept="3oM_SD" id="1rmEMPlChId" role="1PaTwD">
+              <property role="3oM_SC" value="library" />
+            </node>
+            <node concept="3oM_SD" id="1rmEMPlChJm" role="1PaTwD">
+              <property role="3oM_SC" value="keeps" />
+            </node>
+            <node concept="3oM_SD" id="1rmEMPlChLA" role="1PaTwD">
+              <property role="3oM_SC" value="top-level" />
+            </node>
+            <node concept="3oM_SD" id="1rmEMPlChTH" role="1PaTwD">
+              <property role="3oM_SC" value="classes" />
+            </node>
+            <node concept="3oM_SD" id="1rmEMPlChN1" role="1PaTwD">
+              <property role="3oM_SC" value="with" />
+            </node>
+            <node concept="3oM_SD" id="1rmEMPlChOd" role="1PaTwD">
+              <property role="3oM_SC" value="name" />
+            </node>
+            <node concept="3oM_SD" id="1rmEMPlChPq" role="1PaTwD">
+              <property role="3oM_SC" value="starting" />
+            </node>
+            <node concept="3oM_SD" id="1rmEMPlChQo" role="1PaTwD">
+              <property role="3oM_SC" value="with" />
+            </node>
+            <node concept="3oM_SD" id="1rmEMPlChQx" role="1PaTwD">
+              <property role="3oM_SC" value="'$'," />
+            </node>
+            <node concept="3oM_SD" id="1rmEMPlChWE" role="1PaTwD">
+              <property role="3oM_SC" value="e.g." />
+            </node>
+            <node concept="3oM_SD" id="1rmEMPlChY9" role="1PaTwD">
+              <property role="3oM_SC" value="com.google.inject.internal.asm.$AnnotationVisitor," />
+            </node>
+            <node concept="3oM_SD" id="1rmEMPlCn0S" role="1PaTwD">
+              <property role="3oM_SC" value="hence" />
+            </node>
+            <node concept="3oM_SD" id="1rmEMPlCn16" role="1PaTwD">
+              <property role="3oM_SC" value="&lt;=" />
+            </node>
+            <node concept="3oM_SD" id="1rmEMPlCn3b" role="1PaTwD">
+              <property role="3oM_SC" value="0," />
+            </node>
+            <node concept="3oM_SD" id="1rmEMPlCn4x" role="1PaTwD">
+              <property role="3oM_SC" value="not" />
+            </node>
+            <node concept="3oM_SD" id="1rmEMPlCn5S" role="1PaTwD">
+              <property role="3oM_SC" value="==" />
+            </node>
+            <node concept="3oM_SD" id="1rmEMPlCn7K" role="1PaTwD">
+              <property role="3oM_SC" value="-1" />
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs6" id="1Yjou_Od3RM" role="3cqZAp">
           <node concept="2YIFZM" id="1Yjou_Od3RN" role="3cqZAk">
             <ref role="1Pybhc" node="6hYzBiUOvcI" resolve="ASMNodeId" />
@@ -15806,12 +15865,12 @@
               <node concept="37vLTw" id="1Yjou_Od3RU" role="3K4E3e">
                 <ref role="3cqZAo" node="1Yjou_Od3R_" resolve="className" />
               </node>
-              <node concept="3clFbC" id="1Yjou_Od3RV" role="3K4Cdx">
-                <node concept="3cmrfG" id="1Yjou_Od3RW" role="3uHU7w">
-                  <property role="3cmrfH" value="-1" />
-                </node>
+              <node concept="2dkUwp" id="1rmEMPlCpTg" role="3K4Cdx">
                 <node concept="37vLTw" id="1Yjou_Od3RX" role="3uHU7B">
                   <ref role="3cqZAo" node="1Yjou_Od3RG" resolve="i" />
+                </node>
+                <node concept="3cmrfG" id="1Yjou_Od3RW" role="3uHU7w">
+                  <property role="3cmrfH" value="0" />
                 </node>
               </node>
             </node>

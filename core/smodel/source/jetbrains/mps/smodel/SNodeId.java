@@ -145,7 +145,7 @@ public abstract class SNodeId implements Comparable<SNodeId>, org.jetbrains.mps.
      * @since 2023.3
      */
     public static Foreign fromIdNoPrefix(@NotNull String id) {
-      assert id.length() > 0 && id.charAt(0) != '~';
+      assert id.length() > 0 && id.charAt(0) != '~' : id;
       return new Foreign(id.intern(), 0);
     }
 

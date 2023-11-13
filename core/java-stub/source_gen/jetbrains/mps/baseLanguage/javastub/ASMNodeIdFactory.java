@@ -64,6 +64,7 @@ import jetbrains.mps.util.NameUtil;
   public SNodeId createTopClassifierId(ASMClassType t) {
     String className = NameUtil.shortNameFromLongName(t.getName());
     int i = className.indexOf('$');
-    return ASMNodeId.createId((i == -1 ? className : className.substring(0, i)));
+    // guice-3.0.jar library keeps top-level classes with name starting with '$', e.g. com.google.inject.internal.asm.$AnnotationVisitor, hence <= 0, not == -1
+    return ASMNodeId.createId((i <= 0 ? className : className.substring(0, i)));
   }
 }
