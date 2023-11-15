@@ -1200,7 +1200,7 @@
         <uo k="s:originTrace" v="n:4241665505353448609" />
       </node>
       <node concept="2YIFZM" id="5L" role="33vP2m">
-        <ref role="37wK5l" to="ksn4:~EnumerationLiteralsIndex.build(long,long,long,long...):jetbrains.mps.lang.smodel.EnumerationLiteralsIndex" resolve="build" />
+        <ref role="37wK5l" to="ksn4:~EnumerationLiteralsIndex.build(long,long,long,long...)" resolve="build" />
         <ref role="1Pybhc" to="ksn4:~EnumerationLiteralsIndex" resolve="EnumerationLiteralsIndex" />
         <uo k="s:originTrace" v="n:4241665505353448609" />
         <node concept="1adDum" id="5M" role="37wK5m">
@@ -1500,7 +1500,7 @@
                 <uo k="s:originTrace" v="n:4241665505353448609" />
               </node>
               <node concept="liA8E" id="70" role="2OqNvi">
-                <ref role="37wK5l" to="ksn4:~EnumerationLiteralsIndex.index(long):int" resolve="index" />
+                <ref role="37wK5l" to="ksn4:~EnumerationLiteralsIndex.index(long)" resolve="index" />
                 <uo k="s:originTrace" v="n:4241665505353448609" />
                 <node concept="37vLTw" id="71" role="37wK5m">
                   <ref role="3cqZAo" node="6P" resolve="idValue" />
@@ -1542,7 +1542,7 @@
               <uo k="s:originTrace" v="n:4241665505353448609" />
             </node>
             <node concept="liA8E" id="7a" role="2OqNvi">
-              <ref role="37wK5l" to="33ny:~List.get(int):java.lang.Object" resolve="get" />
+              <ref role="37wK5l" to="33ny:~List.get(int)" resolve="get" />
               <uo k="s:originTrace" v="n:4241665505353448609" />
               <node concept="37vLTw" id="7b" role="37wK5m">
                 <ref role="3cqZAo" node="6W" resolve="index" />

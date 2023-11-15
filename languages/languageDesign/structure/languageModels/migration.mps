@@ -4137,14 +4137,14 @@
                   <node concept="Xl_RD" id="2h4xHXnpTv5" role="3uHU7w" />
                   <node concept="2OqwBi" id="2h4xHXnp0vH" role="3uHU7B">
                     <node concept="2YIFZM" id="2h4xHXnp05R" role="2Oq$k0">
-                      <ref role="37wK5l" to="e8bb:~MetaIdByDeclaration.getEnumLiteralId(org.jetbrains.mps.openapi.model.SNode):jetbrains.mps.smodel.adapter.ids.SEnumerationLiteralId" resolve="getEnumLiteralId" />
+                      <ref role="37wK5l" to="e8bb:~MetaIdByDeclaration.getEnumLiteralId(org.jetbrains.mps.openapi.model.SNode)" resolve="getEnumLiteralId" />
                       <ref role="1Pybhc" to="e8bb:~MetaIdByDeclaration" resolve="MetaIdByDeclaration" />
                       <node concept="2GrUjf" id="2h4xHXnp0hr" role="37wK5m">
                         <ref role="2Gs0qQ" node="LU8F6FTZHf" resolve="oldMember" />
                       </node>
                     </node>
                     <node concept="liA8E" id="2h4xHXnp_xJ" role="2OqNvi">
-                      <ref role="37wK5l" to="e8bb:~SEnumerationLiteralId.getIdValue():long" resolve="getIdValue" />
+                      <ref role="37wK5l" to="e8bb:~SEnumerationLiteralId.getIdValue()" resolve="getIdValue" />
                     </node>
                   </node>
                 </node>
@@ -6331,7 +6331,7 @@
                 <ref role="1PxDUh" to="xx25:~SPrimitiveTypes" resolve="SPrimitiveTypes" />
               </node>
               <node concept="liA8E" id="2UidVq6VTvv" role="2OqNvi">
-                <ref role="37wK5l" to="c17a:~SDataType.fromString(java.lang.String):java.lang.Object" resolve="fromString" />
+                <ref role="37wK5l" to="c17a:~SDataType.fromString(java.lang.String)" resolve="fromString" />
                 <node concept="2OqwBi" id="2UidVq6VTvw" role="37wK5m">
                   <node concept="37vLTw" id="2UidVq6VTvx" role="2Oq$k0">
                     <ref role="3cqZAo" node="2UidVq6VTvn" resolve="oldMember" />

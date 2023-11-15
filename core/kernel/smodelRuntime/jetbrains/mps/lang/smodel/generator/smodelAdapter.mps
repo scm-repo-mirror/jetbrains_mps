@@ -985,7 +985,7 @@
         <node concept="3clFbF" id="50Pb80HKj$C" role="3cqZAp">
           <node concept="2YIFZM" id="50Pb80HKj$E" role="3clFbG">
             <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
-            <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getEnumeration(long,long,long,java.lang.String):org.jetbrains.mps.openapi.language.SEnumeration" resolve="getEnumeration" />
+            <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getEnumeration(long,long,long,java.lang.String)" resolve="getEnumeration" />
             <node concept="37vLTw" id="50Pb80HKk65" role="37wK5m">
               <ref role="3cqZAo" node="2nIYwg$4QY1" resolve="uuidHigh" />
             </node>
@@ -1548,7 +1548,7 @@
                 <ref role="3cqZAo" node="3cOWKdeCy1W" resolve="enumeration" />
               </node>
               <node concept="liA8E" id="3cOWKdeCCGn" role="2OqNvi">
-                <ref role="37wK5l" to="c17a:~SEnumeration.getLiteral(java.lang.String):org.jetbrains.mps.openapi.language.SEnumerationLiteral" resolve="getLiteral" />
+                <ref role="37wK5l" to="c17a:~SEnumeration.getLiteral(java.lang.String)" resolve="getLiteral" />
                 <node concept="37vLTw" id="3cOWKdeCCQU" role="37wK5m">
                   <ref role="3cqZAo" node="3cOWKdeC_jh" resolve="name" />
                 </node>
@@ -1670,13 +1670,13 @@
             <node concept="3clFbJ" id="RUp6jEzDux" role="3cqZAp">
               <node concept="2YIFZM" id="RUp6jEzDuy" role="3clFbw">
                 <ref role="1Pybhc" to="33ny:~Objects" resolve="Objects" />
-                <ref role="37wK5l" to="33ny:~Objects.equals(java.lang.Object,java.lang.Object):boolean" resolve="equals" />
+                <ref role="37wK5l" to="33ny:~Objects.equals(java.lang.Object,java.lang.Object)" resolve="equals" />
                 <node concept="2OqwBi" id="RUp6jEzEfq" role="37wK5m">
                   <node concept="37vLTw" id="RUp6jEzE9y" role="2Oq$k0">
                     <ref role="3cqZAo" node="RUp6jEzDuD" resolve="l" />
                   </node>
                   <node concept="liA8E" id="RUp6jEzEA8" role="2OqNvi">
-                    <ref role="37wK5l" to="c17a:~SEnumerationLiteral.getPresentation():java.lang.String" resolve="getPresentation" />
+                    <ref role="37wK5l" to="c17a:~SEnumerationLiteral.getPresentation()" resolve="getPresentation" />
                   </node>
                 </node>
                 <node concept="37vLTw" id="RUp6jEzDWy" role="37wK5m">
@@ -1703,7 +1703,7 @@
               <ref role="3cqZAo" node="3cOWKdeCDl2" resolve="enumeration" />
             </node>
             <node concept="liA8E" id="RUp6jEzDuH" role="2OqNvi">
-              <ref role="37wK5l" to="c17a:~SEnumeration.getLiterals():java.util.Collection" resolve="getLiterals" />
+              <ref role="37wK5l" to="c17a:~SEnumeration.getLiterals()" resolve="getLiterals" />
             </node>
           </node>
         </node>
@@ -1745,7 +1745,7 @@
                 <ref role="3cqZAo" node="3cOWKdeDGQi" resolve="enumeration" />
               </node>
               <node concept="liA8E" id="3cOWKdeDJuK" role="2OqNvi">
-                <ref role="37wK5l" to="c17a:~SEnumeration.getLiterals():java.util.Collection" resolve="getLiterals" />
+                <ref role="37wK5l" to="c17a:~SEnumeration.getLiterals()" resolve="getLiterals" />
               </node>
             </node>
           </node>
@@ -1872,7 +1872,7 @@
                 <ref role="3cqZAo" node="RUp6jEzzqr" resolve="enumMember" />
               </node>
               <node concept="liA8E" id="RUp6jEz_9w" role="2OqNvi">
-                <ref role="37wK5l" to="c17a:~SEnumerationLiteral.getName():java.lang.String" resolve="getName" />
+                <ref role="37wK5l" to="c17a:~SEnumerationLiteral.getName()" resolve="getName" />
               </node>
             </node>
           </node>
@@ -1898,7 +1898,7 @@
                 <ref role="3cqZAo" node="7Dhah7Zc_EF" resolve="enumMember" />
               </node>
               <node concept="liA8E" id="7Dhah7ZcBs6" role="2OqNvi">
-                <ref role="37wK5l" to="c17a:~SEnumerationLiteral.getPresentation():java.lang.String" resolve="getPresentation" />
+                <ref role="37wK5l" to="c17a:~SEnumerationLiteral.getPresentation()" resolve="getPresentation" />
               </node>
             </node>
             <node concept="3clFbC" id="7Dhah7ZcAgU" role="3K4Cdx">
@@ -1927,14 +1927,14 @@
             <node concept="3clFbC" id="Zz8cWS9dIa" role="3uHU7w">
               <node concept="2OqwBi" id="Zz8cWS9e7u" role="3uHU7B">
                 <node concept="2YIFZM" id="Zz8cWS9d3K" role="2Oq$k0">
-                  <ref role="37wK5l" to="e8bb:~MetaIdHelper.getEnumerationLiteral(org.jetbrains.mps.openapi.language.SEnumerationLiteral):jetbrains.mps.smodel.adapter.ids.SEnumerationLiteralId" resolve="getEnumerationLiteral" />
+                  <ref role="37wK5l" to="e8bb:~MetaIdHelper.getEnumerationLiteral(org.jetbrains.mps.openapi.language.SEnumerationLiteral)" resolve="getEnumerationLiteral" />
                   <ref role="1Pybhc" to="e8bb:~MetaIdHelper" resolve="MetaIdHelper" />
                   <node concept="37vLTw" id="Zz8cWS9dqj" role="37wK5m">
                     <ref role="3cqZAo" node="45eRmv0a7zy" resolve="enumMember" />
                   </node>
                 </node>
                 <node concept="liA8E" id="Zz8cWS9eN_" role="2OqNvi">
-                  <ref role="37wK5l" to="e8bb:~SEnumerationLiteralId.getIdValue():long" resolve="getIdValue" />
+                  <ref role="37wK5l" to="e8bb:~SEnumerationLiteralId.getIdValue()" resolve="getIdValue" />
                 </node>
               </node>
               <node concept="37vLTw" id="45eRmv0abJz" role="3uHU7w">
@@ -14140,7 +14140,7 @@
             <node concept="3clFbF" id="4uA70LEnwYa" role="3cqZAp">
               <node concept="2YIFZM" id="4uA70LEnwYb" role="3clFbG">
                 <ref role="1Pybhc" to="mhbf:~SNodeAccessUtil" resolve="SNodeAccessUtil" />
-                <ref role="37wK5l" to="mhbf:~SNodeAccessUtil.setPropertyValue(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.language.SProperty,java.lang.Object):void" resolve="setPropertyValue" />
+                <ref role="37wK5l" to="mhbf:~SNodeAccessUtil.setPropertyValue(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.language.SProperty,java.lang.Object)" resolve="setPropertyValue" />
                 <node concept="37vLTw" id="4uA70LEnwYc" role="37wK5m">
                   <ref role="3cqZAo" node="4uA70LEnsb1" resolve="node" />
                 </node>
@@ -14211,7 +14211,7 @@
             <node concept="3clFbF" id="5okb0OxU87v" role="3cqZAp">
               <node concept="2YIFZM" id="5okb0OxU87w" role="3clFbG">
                 <ref role="1Pybhc" to="mhbf:~SNodeAccessUtil" resolve="SNodeAccessUtil" />
-                <ref role="37wK5l" to="mhbf:~SNodeAccessUtil.setPropertyValue(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.language.SProperty,java.lang.Object):void" resolve="setPropertyValue" />
+                <ref role="37wK5l" to="mhbf:~SNodeAccessUtil.setPropertyValue(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.language.SProperty,java.lang.Object)" resolve="setPropertyValue" />
                 <node concept="37vLTw" id="5okb0OxU87x" role="37wK5m">
                   <ref role="3cqZAo" node="5okb0OxU87A" resolve="node" />
                 </node>
@@ -14693,7 +14693,7 @@
                 </node>
                 <node concept="2YIFZM" id="4uA70LEncOx" role="33vP2m">
                   <ref role="1Pybhc" to="mhbf:~SNodeAccessUtil" resolve="SNodeAccessUtil" />
-                  <ref role="37wK5l" to="mhbf:~SNodeAccessUtil.getPropertyValue(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.language.SProperty):java.lang.Object" resolve="getPropertyValue" />
+                  <ref role="37wK5l" to="mhbf:~SNodeAccessUtil.getPropertyValue(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.language.SProperty)" resolve="getPropertyValue" />
                   <node concept="37vLTw" id="4uA70LEncOy" role="37wK5m">
                     <ref role="3cqZAo" node="4uA70LEn51U" resolve="node" />
                   </node>

@@ -4146,7 +4146,7 @@
                   <node concept="2ShNRf" id="1JCPbEQpqDZ" role="37vLTx">
                     <node concept="1pGfFk" id="1JCPbEQpwuz" role="2ShVmc">
                       <property role="373rjd" value="true" />
-                      <ref role="37wK5l" to="w1kc:~SModelId$ModelNameSModelId.&lt;init&gt;(java.lang.String)" resolve="ModelNameSModelId" />
+                      <ref role="37wK5l" to="w1kc:~SModelId$ModelNameSModelId.&lt;init&gt;(java.lang.String)" resolve="SModelId.ModelNameSModelId" />
                       <node concept="AH0OO" id="1JCPbEQpxa7" role="37wK5m">
                         <node concept="3cmrfG" id="1JCPbEQpxay" role="AHEQo">
                           <property role="3cmrfH" value="1" />
@@ -4440,7 +4440,7 @@
                         <ref role="3cqZAo" node="1JCPbEQpI48" resolve="modelId" />
                       </node>
                       <node concept="3uibUv" id="1JCPbEQpI4m" role="10QFUM">
-                        <ref role="3uigEE" to="w1kc:~SModelId$ForeignSModelId" resolve="ForeignSModelId" />
+                        <ref role="3uigEE" to="w1kc:~SModelId$ForeignSModelId" resolve="SModelId.ForeignSModelId" />
                       </node>
                     </node>
                   </node>
@@ -4754,13 +4754,13 @@
                 <ref role="3cqZAo" node="1JCPbEQpI5i" resolve="id" />
               </node>
               <node concept="3uibUv" id="1JCPbEQpI5q" role="2ZW6by">
-                <ref role="3uigEE" to="w1kc:~SModelId$ForeignSModelId" resolve="ForeignSModelId" />
+                <ref role="3uigEE" to="w1kc:~SModelId$ForeignSModelId" resolve="SModelId.ForeignSModelId" />
               </node>
             </node>
             <node concept="2OqwBi" id="1JCPbEQqlRJ" role="3uHU7B">
               <node concept="10M0yZ" id="1JCPbEQql0Z" role="2Oq$k0">
                 <ref role="3cqZAo" to="w1kc:~SModelId$ForeignSModelId.TYPE" resolve="TYPE" />
-                <ref role="1PxDUh" to="w1kc:~SModelId$ForeignSModelId" resolve="ForeignSModelId" />
+                <ref role="1PxDUh" to="w1kc:~SModelId$ForeignSModelId" resolve="SModelId.ForeignSModelId" />
               </node>
               <node concept="liA8E" id="1JCPbEQqncj" role="2OqNvi">
                 <ref role="37wK5l" to="wyt6:~String.equals(java.lang.Object)" resolve="equals" />
@@ -4787,7 +4787,7 @@
                         <ref role="3cqZAo" node="1JCPbEQpI5i" resolve="id" />
                       </node>
                       <node concept="3uibUv" id="1JCPbEQqt5h" role="10QFUM">
-                        <ref role="3uigEE" to="w1kc:~SModelId$ForeignSModelId" resolve="ForeignSModelId" />
+                        <ref role="3uigEE" to="w1kc:~SModelId$ForeignSModelId" resolve="SModelId.ForeignSModelId" />
                       </node>
                     </node>
                   </node>
@@ -5063,7 +5063,7 @@
                         <ref role="3cqZAo" node="1JCPbEQqJF$" resolve="id" />
                       </node>
                       <node concept="3uibUv" id="1JCPbEQqTcC" role="10QFUM">
-                        <ref role="3uigEE" to="w1kc:~SModelId$ForeignSModelId" resolve="ForeignSModelId" />
+                        <ref role="3uigEE" to="w1kc:~SModelId$ForeignSModelId" resolve="SModelId.ForeignSModelId" />
                       </node>
                     </node>
                   </node>
@@ -5157,13 +5157,13 @@
                 <ref role="3cqZAo" node="1JCPbEQqJF$" resolve="id" />
               </node>
               <node concept="3uibUv" id="1JCPbEQqROe" role="2ZW6by">
-                <ref role="3uigEE" to="w1kc:~SModelId$ForeignSModelId" resolve="ForeignSModelId" />
+                <ref role="3uigEE" to="w1kc:~SModelId$ForeignSModelId" resolve="SModelId.ForeignSModelId" />
               </node>
             </node>
             <node concept="2OqwBi" id="1JCPbEQqROf" role="3uHU7B">
               <node concept="10M0yZ" id="1JCPbEQqROg" role="2Oq$k0">
                 <ref role="3cqZAo" to="w1kc:~SModelId$ForeignSModelId.TYPE" resolve="TYPE" />
-                <ref role="1PxDUh" to="w1kc:~SModelId$ForeignSModelId" resolve="ForeignSModelId" />
+                <ref role="1PxDUh" to="w1kc:~SModelId$ForeignSModelId" resolve="SModelId.ForeignSModelId" />
               </node>
               <node concept="liA8E" id="1JCPbEQqROh" role="2OqNvi">
                 <ref role="37wK5l" to="wyt6:~String.equals(java.lang.Object)" resolve="equals" />
@@ -5219,7 +5219,7 @@
                     <ref role="3cqZAo" node="1JCPbEQrdPR" resolve="id" />
                   </node>
                   <node concept="3uibUv" id="1JCPbEQriAe" role="10QFUM">
-                    <ref role="3uigEE" to="w1kc:~SModelId$ForeignSModelId" resolve="ForeignSModelId" />
+                    <ref role="3uigEE" to="w1kc:~SModelId$ForeignSModelId" resolve="SModelId.ForeignSModelId" />
                   </node>
                 </node>
               </node>

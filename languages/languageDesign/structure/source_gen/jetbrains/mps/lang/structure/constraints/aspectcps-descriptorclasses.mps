@@ -6536,7 +6536,7 @@
             </node>
             <node concept="2YIFZM" id="ql" role="3uHU7w">
               <ref role="1Pybhc" to="w1kc:~SModelStereotype" resolve="SModelStereotype" />
-              <ref role="37wK5l" to="w1kc:~SModelStereotype.isGeneratorModel(org.jetbrains.mps.openapi.model.SModel):boolean" resolve="isGeneratorModel" />
+              <ref role="37wK5l" to="w1kc:~SModelStereotype.isGeneratorModel(org.jetbrains.mps.openapi.model.SModel)" resolve="isGeneratorModel" />
               <uo k="s:originTrace" v="n:1075010451653674071" />
               <node concept="1Q6Npb" id="qo" role="37wK5m">
                 <uo k="s:originTrace" v="n:1075010451653674072" />

@@ -20022,7 +20022,7 @@
                 <node concept="3fqX7Q" id="5UYpxeVafBl" role="3clFbG">
                   <node concept="2YIFZM" id="7d$WBe36J_C" role="3fr31v">
                     <ref role="1Pybhc" to="w1kc:~SModelStereotype" resolve="SModelStereotype" />
-                    <ref role="37wK5l" to="w1kc:~SModelStereotype.isStubModel(org.jetbrains.mps.openapi.model.SModel):boolean" resolve="isStubModel" />
+                    <ref role="37wK5l" to="w1kc:~SModelStereotype.isStubModel(org.jetbrains.mps.openapi.model.SModel)" resolve="isStubModel" />
                     <node concept="2OqwBi" id="7d$WBe36J_D" role="37wK5m">
                       <node concept="pncrf" id="7d$WBe36J_E" role="2Oq$k0" />
                       <node concept="I4A8Y" id="7d$WBe36J_F" role="2OqNvi" />
@@ -20047,7 +20047,7 @@
                 <node concept="3fqX7Q" id="5UYpxeVajU3" role="3clFbG">
                   <node concept="2YIFZM" id="7d$WBe36KGL" role="3fr31v">
                     <ref role="1Pybhc" to="w1kc:~SModelStereotype" resolve="SModelStereotype" />
-                    <ref role="37wK5l" to="w1kc:~SModelStereotype.isStubModel(org.jetbrains.mps.openapi.model.SModel):boolean" resolve="isStubModel" />
+                    <ref role="37wK5l" to="w1kc:~SModelStereotype.isStubModel(org.jetbrains.mps.openapi.model.SModel)" resolve="isStubModel" />
                     <node concept="2OqwBi" id="7d$WBe36KGM" role="37wK5m">
                       <node concept="pncrf" id="7d$WBe36KGN" role="2Oq$k0" />
                       <node concept="I4A8Y" id="7d$WBe36KGO" role="2OqNvi" />
