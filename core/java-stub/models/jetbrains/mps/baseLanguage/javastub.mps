@@ -1204,7 +1204,7 @@
         <node concept="3cpWs6" id="1Yjou_OuYMk" role="3cqZAp">
           <node concept="2YIFZM" id="1Yjou_Ov01V" role="3cqZAk">
             <ref role="37wK5l" to="w1kc:~SNodeId$Foreign.fromIdNoPrefix(java.lang.String)" resolve="fromIdNoPrefix" />
-            <ref role="1Pybhc" to="w1kc:~SNodeId$Foreign" resolve="Foreign" />
+            <ref role="1Pybhc" to="w1kc:~SNodeId$Foreign" resolve="SNodeId.Foreign" />
             <node concept="2YIFZM" id="6hYzBiUOvcY" role="37wK5m">
               <ref role="37wK5l" to="18ew:~NameUtil.shortNameFromLongName(java.lang.String)" resolve="shortNameFromLongName" />
               <ref role="1Pybhc" to="18ew:~NameUtil" resolve="NameUtil" />
@@ -1238,7 +1238,7 @@
         <node concept="3cpWs6" id="1Yjou_Ov44g" role="3cqZAp">
           <node concept="2YIFZM" id="1Yjou_Ov44h" role="3cqZAk">
             <ref role="37wK5l" to="w1kc:~SNodeId$Foreign.fromIdNoPrefix(java.lang.String)" resolve="fromIdNoPrefix" />
-            <ref role="1Pybhc" to="w1kc:~SNodeId$Foreign" resolve="Foreign" />
+            <ref role="1Pybhc" to="w1kc:~SNodeId$Foreign" resolve="SNodeId.Foreign" />
             <node concept="3cpWs3" id="1Yjou_OvfoP" role="37wK5m">
               <node concept="3cpWs3" id="1Yjou_Ovcvr" role="3uHU7B">
                 <node concept="2YIFZM" id="6hYzBiUOvdf" role="3uHU7B">
@@ -1288,7 +1288,7 @@
         <node concept="3cpWs6" id="1Yjou_OvgKb" role="3cqZAp">
           <node concept="2YIFZM" id="1Yjou_OvgKc" role="3cqZAk">
             <ref role="37wK5l" to="w1kc:~SNodeId$Foreign.fromIdNoPrefix(java.lang.String)" resolve="fromIdNoPrefix" />
-            <ref role="1Pybhc" to="w1kc:~SNodeId$Foreign" resolve="Foreign" />
+            <ref role="1Pybhc" to="w1kc:~SNodeId$Foreign" resolve="SNodeId.Foreign" />
             <node concept="3cpWs3" id="1Yjou_OvgKd" role="37wK5m">
               <node concept="3cpWs3" id="1Yjou_OvgKe" role="3uHU7B">
                 <node concept="1Xhbcc" id="1Yjou_OvgKj" role="3uHU7w">
@@ -1470,7 +1470,7 @@
         <node concept="3cpWs6" id="1Yjou_OvrjU" role="3cqZAp">
           <node concept="2YIFZM" id="1Yjou_OvsEZ" role="3cqZAk">
             <ref role="37wK5l" to="w1kc:~SNodeId$Foreign.fromIdNoPrefix(java.lang.String)" resolve="fromIdNoPrefix" />
-            <ref role="1Pybhc" to="w1kc:~SNodeId$Foreign" resolve="Foreign" />
+            <ref role="1Pybhc" to="w1kc:~SNodeId$Foreign" resolve="SNodeId.Foreign" />
             <node concept="2OqwBi" id="1Yjou_Ovw_M" role="37wK5m">
               <node concept="37vLTw" id="1Yjou_Ovvyf" role="2Oq$k0">
                 <ref role="3cqZAo" node="6hYzBiUOvdN" resolve="sb" />
@@ -1570,7 +1570,7 @@
         <node concept="3cpWs6" id="6hYzBiUOvf$" role="3cqZAp">
           <node concept="2YIFZM" id="1Yjou_OG$08" role="3cqZAk">
             <ref role="37wK5l" to="w1kc:~SNodeId$Foreign.fromIdNoPrefix(java.lang.String)" resolve="fromIdNoPrefix" />
-            <ref role="1Pybhc" to="w1kc:~SNodeId$Foreign" resolve="Foreign" />
+            <ref role="1Pybhc" to="w1kc:~SNodeId$Foreign" resolve="SNodeId.Foreign" />
             <node concept="2OqwBi" id="1Yjou_OG$09" role="37wK5m">
               <node concept="37vLTw" id="1Yjou_OG$0a" role="2Oq$k0">
                 <ref role="3cqZAo" node="6hYzBiUOvfb" resolve="sb" />

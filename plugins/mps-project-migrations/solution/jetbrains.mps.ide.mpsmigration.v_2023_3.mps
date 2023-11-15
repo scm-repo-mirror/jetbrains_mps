@@ -525,7 +525,7 @@
                                           <ref role="37wK5l" to="w1kc:~StaticReference.setTargetNodeId(org.jetbrains.mps.openapi.model.SNodeId)" resolve="setTargetNodeId" />
                                           <node concept="2YIFZM" id="5K75G_4KPtg" role="37wK5m">
                                             <ref role="37wK5l" to="w1kc:~SNodeId$Foreign.fromIdNoPrefix(java.lang.String)" resolve="fromIdNoPrefix" />
-                                            <ref role="1Pybhc" to="w1kc:~SNodeId$Foreign" resolve="Foreign" />
+                                            <ref role="1Pybhc" to="w1kc:~SNodeId$Foreign" resolve="SNodeId.Foreign" />
                                             <node concept="2OqwBi" id="5K75G_4JSU6" role="37wK5m">
                                               <node concept="37vLTw" id="5K75G_4JRwE" role="2Oq$k0">
                                                 <ref role="3cqZAo" node="5K75G_4JuHN" resolve="idValue" />
@@ -563,7 +563,7 @@
                                   <node concept="1Wc70l" id="5K75G_4IY38" role="3clFbw">
                                     <node concept="2ZW3vV" id="5K75G_4ISBH" role="3uHU7B">
                                       <node concept="3uibUv" id="5K75G_4ITAS" role="2ZW6by">
-                                        <ref role="3uigEE" to="w1kc:~SNodeId$Foreign" resolve="Foreign" />
+                                        <ref role="3uigEE" to="w1kc:~SNodeId$Foreign" resolve="SNodeId.Foreign" />
                                       </node>
                                       <node concept="2OqwBi" id="5K75G_4IQxJ" role="2ZW6bz">
                                         <node concept="37vLTw" id="5K75G_4IPCx" role="2Oq$k0">
@@ -593,7 +593,7 @@
                                                   <node concept="1eOMI4" id="5K75G_4J3Ci" role="2Oq$k0">
                                                     <node concept="10QFUN" id="5K75G_4J1Tw" role="1eOMHV">
                                                       <node concept="3uibUv" id="5K75G_4J7dI" role="10QFUM">
-                                                        <ref role="3uigEE" to="w1kc:~SNodeId$Foreign" resolve="Foreign" />
+                                                        <ref role="3uigEE" to="w1kc:~SNodeId$Foreign" resolve="SNodeId.Foreign" />
                                                       </node>
                                                       <node concept="2OqwBi" id="5K75G_4J5oy" role="10QFUP">
                                                         <node concept="37vLTw" id="5K75G_4IZ3h" role="2Oq$k0">

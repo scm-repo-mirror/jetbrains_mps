@@ -3565,7 +3565,7 @@
                         <ref role="37wK5l" to="mhbf:~ResolveInfo.of(java.lang.String)" resolve="of" />
                         <ref role="1Pybhc" to="mhbf:~ResolveInfo" resolve="ResolveInfo" />
                         <node concept="37vLTw" id="1xmxtbb$LkN" role="37wK5m">
-                          <ref role="3cqZAo" node="1xmxtbb$LkL" resolve="string" />
+                          <ref role="3cqZAo" node="1xmxtbb$LkL" resolve="riString" />
                         </node>
                       </node>
                       <node concept="37vLTw" id="6t2BHuRFrmD" role="37vLTJ">
@@ -3605,7 +3605,7 @@
                             </node>
                           </node>
                           <node concept="37vLTw" id="1xmxtbb$LkO" role="37wK5m">
-                            <ref role="3cqZAo" node="1xmxtbb$LkL" resolve="string" />
+                            <ref role="3cqZAo" node="1xmxtbb$LkL" resolve="riString" />
                           </node>
                         </node>
                         <node concept="37vLTw" id="6t2BHuRFq24" role="37vLTJ">
@@ -3699,7 +3699,7 @@
                           <ref role="37wK5l" to="mhbf:~ResolveInfo.of(java.lang.String)" resolve="of" />
                           <ref role="1Pybhc" to="mhbf:~ResolveInfo" resolve="ResolveInfo" />
                           <node concept="37vLTw" id="1xmxtbb$LkP" role="37wK5m">
-                            <ref role="3cqZAo" node="1xmxtbb$LkL" resolve="string" />
+                            <ref role="3cqZAo" node="1xmxtbb$LkL" resolve="riString" />
                           </node>
                         </node>
                         <node concept="37vLTw" id="6t2BHuRFAa9" role="37vLTJ">
@@ -3762,7 +3762,7 @@
                               </node>
                             </node>
                             <node concept="37vLTw" id="1xmxtbb$LkQ" role="37wK5m">
-                              <ref role="3cqZAo" node="1xmxtbb$LkL" resolve="string" />
+                              <ref role="3cqZAo" node="1xmxtbb$LkL" resolve="riString" />
                             </node>
                           </node>
                           <node concept="37vLTw" id="6t2BHuRFxoN" role="37vLTJ">
