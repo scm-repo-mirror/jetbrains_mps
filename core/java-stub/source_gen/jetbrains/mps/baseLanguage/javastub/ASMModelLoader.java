@@ -47,9 +47,12 @@ public final class ASMModelLoader {
   }
 
   public void populateRoots(SModelData modelData) {
+    // I don't care to keep this factory for completeModel, even if this means duplicating ids for top-level classes.
+    // keeping instance of this map outside of this class likely annoy more than do any good.
+    ASMNodeIdFactory nodeIdFactory = new ASMNodeIdFactory(50);
     // XXX may pass openapi.SModel in addition to SModelData so that ClassifierLoader may use model as factory
     for (IFile classfile : getTopClassFiles()) {
-      ClassifierLoader loader = new ClassifierLoader(classfile, myOnlyPublic, mySkipPrivate);
+      ClassifierLoader loader = new ClassifierLoader(classfile, myOnlyPublic, mySkipPrivate, nodeIdFactory);
       SNode c = loader.createClassifier();
       if (c != null) {
         modelData.addRootNode(c);
@@ -60,8 +63,9 @@ public final class ASMModelLoader {
   public Collection<SModelReference> completeModel(SModel partialModel, SModelData completeModelData, Function<ASMClass, Documentation> docSupplier) {
     try {
       StubReferenceFactory refFactory = new StubReferenceFactory(myModule, partialModel, SModelStereotype.JAVA_STUB);
+      ASMNodeIdFactory nodeIdFactory = new ASMNodeIdFactory(100);
       for (IFile classfile : getTopClassFiles()) {
-        ClassifierLoader rootLoader = new ClassifierLoader(classfile, myOnlyPublic, mySkipPrivate);
+        ClassifierLoader rootLoader = new ClassifierLoader(classfile, myOnlyPublic, mySkipPrivate, nodeIdFactory);
         SNode c = rootLoader.createClassifier();
         if (c != null) {
           rootLoader.updateClassifier(c, refFactory, docSupplier);

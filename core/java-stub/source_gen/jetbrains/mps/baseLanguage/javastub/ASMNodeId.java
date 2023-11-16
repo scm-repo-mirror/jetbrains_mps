@@ -5,7 +5,6 @@ package jetbrains.mps.baseLanguage.javastub;
 import jetbrains.mps.annotations.GeneratedClass;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import jetbrains.mps.util.NameUtil;
-import jetbrains.mps.baseLanguage.javastub.asm.ASMClass;
 import jetbrains.mps.baseLanguage.javastub.asm.ASMField;
 import jetbrains.mps.baseLanguage.javastub.asm.ASMMethod;
 import jetbrains.mps.baseLanguage.javastub.asm.ASMType;
@@ -22,31 +21,27 @@ import java.util.List;
 import java.util.Iterator;
 
 @GeneratedClass(node = "r:aa7e8178-3b66-4295-bcce-165c85d78006(jetbrains.mps.baseLanguage.javastub)/7241381882860008238", model = "r:aa7e8178-3b66-4295-bcce-165c85d78006(jetbrains.mps.baseLanguage.javastub)")
-public class ASMNodeId {
-  public ASMNodeId() {
+public final class ASMNodeId {
+  private ASMNodeId() {
   }
   public static SNodeId createId(String fqClassName) {
-    return jetbrains.mps.smodel.SNodeId.Foreign.fromIdNoPrefix(NameUtil.shortNameFromLongName(fqClassName));
+    return create(NameUtil.shortNameFromLongName(fqClassName));
   }
-  public static SNodeId createId(ASMClass cls, ASMField field) {
-    return jetbrains.mps.smodel.SNodeId.Foreign.fromIdNoPrefix(ASMNodeId.shortNameFromSlashedLongName(cls.getName()) + '.' + field.getName());
+  /*package*/ static SNodeId createId(String classShortName, ASMField field) {
+    return create(classShortName + '.' + field.getName());
   }
   public static SNodeId createFieldId(String fqClassName, String fieldName) {
-    return jetbrains.mps.smodel.SNodeId.Foreign.fromIdNoPrefix(NameUtil.shortNameFromLongName(fqClassName) + '.' + fieldName);
+    return create(NameUtil.shortNameFromLongName(fqClassName) + '.' + fieldName);
   }
-  public static SNodeId createId(ASMClass cls, ASMMethod method) {
+  /*package*/ static SNodeId createId(String classShortName, ASMMethod method) {
     StringBuilder sb = new StringBuilder();
-    sb.append(ASMNodeId.shortNameFromSlashedLongName(cls.getName()));
+    sb.append(classShortName);
     sb.append('.');
-    if (method.isConstructor()) {
-      sb.append("<init>");
-    } else {
-      sb.append(method.getName());
-    }
+    sb.append(method.getName());
     sb.append('(');
     ASMNodeId.appendList(sb, method.getParameterTypes());
     sb.append(')');
-    return jetbrains.mps.smodel.SNodeId.Foreign.fromIdNoPrefix(sb.toString());
+    return create(sb.toString());
   }
   public static SNodeId createAnnotationMethodId(String fqClassName, String methodName) {
     StringBuilder sb = new StringBuilder();
@@ -54,10 +49,14 @@ public class ASMNodeId {
     sb.append('.');
     sb.append(methodName);
     sb.append("()");
-    return jetbrains.mps.smodel.SNodeId.Foreign.fromIdNoPrefix(sb.toString());
+    return create(sb.toString());
   }
 
-  private static String shortNameFromSlashedLongName(String slashedLongName) {
+  /*package*/ static jetbrains.mps.smodel.SNodeId.Foreign create(String value) {
+    return jetbrains.mps.smodel.SNodeId.Foreign.fromIdNoPrefix(value);
+  }
+
+  /*package*/ static String shortNameFromSlashedLongName(String slashedLongName) {
     int offset = slashedLongName.lastIndexOf('/');
     if (offset < 0) {
       return slashedLongName;

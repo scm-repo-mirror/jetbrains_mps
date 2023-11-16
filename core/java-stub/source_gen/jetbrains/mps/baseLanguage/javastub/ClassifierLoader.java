@@ -7,9 +7,9 @@ import jetbrains.mps.logging.Logger;
 import jetbrains.mps.vfs.IFile;
 import org.jetbrains.org.objectweb.asm.ClassReader;
 import org.jetbrains.org.objectweb.asm.tree.InnerClassNode;
-import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.stubs.javastub.classpath.ClassifierKind;
+import org.jetbrains.mps.openapi.model.SNodeId;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.smodel.LazySNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -41,8 +41,13 @@ public class ClassifierLoader {
   protected final IFile myFile;
   protected ClassReader myClassReader;
   protected InnerClassNode myInnerClassDescriptor;
+  private final ASMNodeIdFactory myNodeIdFactory;
 
   public ClassifierLoader(IFile file, boolean onlyPublic, boolean skipPrivate) {
+    this(file, onlyPublic, skipPrivate, new ASMNodeIdFactory(100));
+  }
+
+  public ClassifierLoader(IFile file, boolean onlyPublic, boolean skipPrivate, ASMNodeIdFactory nodeIdFactory) {
     mySkipPrivate = skipPrivate;
     myOnlyPublic = onlyPublic;
     myFile = file;
@@ -57,15 +62,12 @@ public class ClassifierLoader {
         }
       }
     }
+    myNodeIdFactory = nodeIdFactory;
   }
 
   protected ClassifierLoader(IFile file, ClassifierLoader outer, InnerClassNode innerClassStruct) {
-    this(file, outer.myOnlyPublic, outer.mySkipPrivate);
+    this(file, outer.myOnlyPublic, outer.mySkipPrivate, outer.myNodeIdFactory);
     myInnerClassDescriptor = innerClassStruct;
-  }
-
-  public SNodeId createNodeId() {
-    return ASMNodeId.createId(getClassName(myFile));
   }
 
   public SNode createClassifier() {
@@ -112,9 +114,9 @@ public class ClassifierLoader {
       // public, final, abstract are taken from the class, JLS 4.1, table 4.1
       SPropertyOperations.assign(rv, PROPS.nonStatic$aWW8, !(isStatic));
       if (isProtected) {
-        SLinkOperations.setTarget(rv, LINKS.visibility$Yyua, createProtectedVisibility_eoyrbu_a0a0h0l0n());
+        SLinkOperations.setTarget(rv, LINKS.visibility$Yyua, createProtectedVisibility_eoyrbu_a0a0h0l0o());
       } else if (isPrivate) {
-        SLinkOperations.setTarget(rv, LINKS.visibility$Yyua, createPrivateVisibility_eoyrbu_a0a0a7a11a31());
+        SLinkOperations.setTarget(rv, LINKS.visibility$Yyua, createPrivateVisibility_eoyrbu_a0a0a7a11a41());
       }
     }
     return rv;
@@ -170,7 +172,7 @@ public class ClassifierLoader {
     assert myClassReader != null;
     ASMClass ac = new ASMClass(myClassReader, true);
     Documentation doc = docSupplier.apply(ac);
-    new ClassifierUpdater(ac, mySkipPrivate, refFactory, doc).update(classifier);
+    new ClassifierUpdater(ac, mySkipPrivate, refFactory, doc, myNodeIdFactory).update(classifier);
     for (ClassifierLoader innerLoader : getInnerClassifiers(ac)) {
       SNode inner = innerLoader.createClassifier();
       if (inner != null) {
@@ -200,11 +202,11 @@ public class ClassifierLoader {
   public ClassReader getClassReader() {
     return this.myClassReader;
   }
-  private static SNode createProtectedVisibility_eoyrbu_a0a0h0l0n() {
+  private static SNode createProtectedVisibility_eoyrbu_a0a0h0l0o() {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.ProtectedVisibility$hr);
     return n0.getResult();
   }
-  private static SNode createPrivateVisibility_eoyrbu_a0a0a7a11a31() {
+  private static SNode createPrivateVisibility_eoyrbu_a0a0a7a11a41() {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.PrivateVisibility$l0);
     return n0.getResult();
   }
