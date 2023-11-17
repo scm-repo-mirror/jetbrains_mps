@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,6 +17,10 @@ package jetbrains.mps.util;
 
 import gnu.trove.THashSet;
 
+/**
+ * @deprecated of dubious value, don't use. Replace with regular HashSet/THashSet
+ */
+@Deprecated(since = "2023.3", forRemoval = true)
 public class InternAwareStringSet extends THashSet<String> {
   public InternAwareStringSet() {
     super(2, (float) 0.8);

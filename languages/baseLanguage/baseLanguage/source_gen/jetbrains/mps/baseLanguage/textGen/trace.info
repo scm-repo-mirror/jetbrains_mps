@@ -4920,54 +4920,35 @@
   </root>
   <root nodeRef="r:c6eeedda-084d-4659-9c4d-80b7768f2bb2(jetbrains.mps.baseLanguage.textGen)/2375442768070475842">
     <file name="ClassifierUnitContext.java">
-      <node id="8250292662928251547" at="14,0,15,0" concept="6" trace="myClassifierNode" />
-      <node id="2375442768070491927" at="15,0,16,0" concept="6" trace="myImports" />
-      <node id="8250292662928258494" at="17,57,18,109" concept="13" />
-      <node id="8250292662928254780" at="18,109,19,41" concept="5" />
-      <node id="2375442768070493257" at="19,41,20,54" concept="5" />
-      <node id="2375442768070515816" at="23,111,24,107" concept="13" />
-      <node id="2375442768070516253" at="24,107,25,112" concept="13" />
-      <node id="6010780875090484422" at="25,112,26,87" concept="13" />
-      <node id="2375442768070512796" at="26,87,27,84" concept="12" />
-      <node id="1387846870916190067" at="30,99,31,149" concept="13" />
-      <node id="1387846870915853746" at="31,149,32,86" concept="12" />
-      <node id="3705114034149612240" at="40,49,41,29" concept="13" />
-      <node id="3705114034149652194" at="45,45,46,76" concept="13" />
-      <node id="3705114034149660614" at="46,76,47,96" concept="13" />
-      <node id="8250292662928225835" at="47,96,48,46" concept="13" />
-      <node id="8250292662928316633" at="48,46,49,62" concept="11" />
-      <node id="8250292662928073130" at="49,62,50,56" concept="12" />
-      <node id="1387846870915853684" at="30,0,34,0" concept="10" trace="getRefTextFor#(Ljava/lang/String;Ljava/lang/String;Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/baseLanguage/textGen/ImportEntry;" />
-      <node id="2375442768070560232" at="39,0,43,0" concept="10" trace="registerDependenciesOf#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <node id="2375442768070477864" at="17,0,22,0" concept="3" trace="ClassifierUnitContext#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <node id="2375442768070497827" at="23,0,29,0" concept="10" trace="getClassifierRefText#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;Ljava/lang/String;Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/baseLanguage/textGen/ImportEntry;" />
-      <node id="8250292662928068383" at="44,0,52,0" concept="10" trace="getDependencies#()Ljetbrains/mps/make/java/RootDependencies;" />
-      <scope id="2375442768070560235" at="40,49,41,29" />
-      <scope id="1387846870915853693" at="30,99,32,86" />
-      <scope id="2375442768070477867" at="17,57,20,54" />
-      <scope id="2375442768070497831" at="23,111,27,84" />
-      <scope id="1387846870915853684" at="30,0,34,0">
+      <node id="2375442768070491927" at="12,0,13,0" concept="6" trace="myImports" />
+      <node id="2375442768070493257" at="14,57,15,54" concept="5" />
+      <node id="2375442768070515816" at="18,111,19,107" concept="13" />
+      <node id="2375442768070516253" at="19,107,20,112" concept="13" />
+      <node id="6010780875090484422" at="20,112,21,87" concept="13" />
+      <node id="2375442768070512796" at="21,87,22,84" concept="12" />
+      <node id="1387846870916190067" at="25,99,26,149" concept="13" />
+      <node id="1387846870915853746" at="26,149,27,86" concept="12" />
+      <node id="2375442768070477864" at="14,0,17,0" concept="3" trace="ClassifierUnitContext#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="1387846870915853684" at="25,0,29,0" concept="10" trace="getRefTextFor#(Ljava/lang/String;Ljava/lang/String;Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/baseLanguage/textGen/ImportEntry;" />
+      <node id="2375442768070497827" at="18,0,24,0" concept="10" trace="getClassifierRefText#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;Ljava/lang/String;Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/baseLanguage/textGen/ImportEntry;" />
+      <scope id="2375442768070477867" at="14,57,15,54" />
+      <scope id="1387846870915853693" at="25,99,27,86" />
+      <scope id="2375442768070477864" at="14,0,17,0">
+        <var name="topClassifierNode" id="2375442768070491771" />
+      </scope>
+      <scope id="2375442768070497831" at="18,111,22,84" />
+      <scope id="1387846870915853684" at="25,0,29,0">
         <var name="contextNode" id="1387846870915853689" />
         <var name="packageName" id="1387846870915853685" />
         <var name="rootToImport" id="1387846870915853687" />
       </scope>
-      <scope id="2375442768070560232" at="39,0,43,0">
-        <var name="cls" id="2375442768070560508" />
-      </scope>
-      <scope id="2375442768070477864" at="17,0,22,0">
-        <var name="topClassifierNode" id="2375442768070491771" />
-      </scope>
-      <scope id="8250292662928068387" at="45,45,50,56">
-        <var name="nodeFQName" id="8250292662928316634" />
-      </scope>
-      <scope id="2375442768070497827" at="23,0,29,0">
+      <scope id="2375442768070497827" at="18,0,24,0">
         <var name="contextNode" id="2375442768070512663" />
         <var name="fqName" id="2375442768070512661" />
         <var name="packageName" id="2375442768070512659" />
         <var name="target" id="5036999749031988007" />
       </scope>
-      <scope id="8250292662928068383" at="44,0,52,0" />
-      <unit id="2375442768070475842" at="13,0,53,0" name="jetbrains.mps.baseLanguage.textGen.ClassifierUnitContext" />
+      <unit id="2375442768070475842" at="11,0,30,0" name="jetbrains.mps.baseLanguage.textGen.ClassifierUnitContext" />
     </file>
   </root>
   <root nodeRef="r:c6eeedda-084d-4659-9c4d-80b7768f2bb2(jetbrains.mps.baseLanguage.textGen)/2519056534000777264">

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,6 +17,10 @@ package jetbrains.mps.util;
 
 import java.util.ArrayList;
 
+/**
+ * @deprecated of dubious value, don't use. Replace with regular ArrayList
+ */
+@Deprecated(since = "2023.3", forRemoval = true)
 public class InternAwareStringList extends ArrayList<String> {
   public InternAwareStringList() {
     super();

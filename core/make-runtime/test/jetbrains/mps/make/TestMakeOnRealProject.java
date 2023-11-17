@@ -33,7 +33,6 @@ import jetbrains.mps.project.structure.modules.SolutionDescriptor;
 import jetbrains.mps.smodel.BootstrapLanguages;
 import jetbrains.mps.smodel.GeneralModuleFactory;
 import jetbrains.mps.smodel.Language;
-import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.smodel.ModelImports;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.testbench.TestModuleFactoryBase;
@@ -72,9 +71,8 @@ import java.util.stream.Collectors;
  * NOTE, we don't check class loading here, just presence of .class files, see #checkModuleCompiled()
  *
  * TODO rewrite module creation via existing functionality.
- * FIXME shall use TestModuleFactoryBase to create modules, and createEmptyProject() instead of temp dir and solutions added there.
- *       Once there's project, shall drop use of MPSModuleRepository (take one from Project),
- *       OTOH, TestModuleFactoryBase seems to have in-memory storage, while this test needs real files to compile.
+ * FIXME shall use LangaugeProducer/SolutionProducer instead of hand-crafted code
+ *
  * @see jetbrains.mps.classloading.ModulesReloadTest
  */
 public class TestMakeOnRealProject implements EnvironmentAware {
@@ -156,8 +154,9 @@ public class TestMakeOnRealProject implements EnvironmentAware {
   public void testNothingToCompileAfterCompilation() throws InterruptedException {
     doSolutionsCompilation();
 
-    ModuleSources sources = new ModuleSources(myCreatedSolution, new Dependencies(Collections.emptyList()));
-    Assert.assertEquals(0, sources.getFilesToCompile().size());
+    ModuleSources sources = new ModuleSources(myCreatedSolution);
+    // getFilesToCompile() just gives set of found source files now; the test is no-op
+    Assert.assertEquals(1, sources.getFilesToCompile().size());
   }
 
   /**
@@ -174,7 +173,7 @@ public class TestMakeOnRealProject implements EnvironmentAware {
       Assert.fail("Can't touch the file " + javaFile);
     }
 
-    ModuleSources sources = new ModuleSources(myCreatedSolution, new Dependencies(Collections.emptyList()));
+    ModuleSources sources = new ModuleSources(myCreatedSolution);
     Collection<JavaFile> filesToCompile = sources.getFilesToCompile();
     Assert.assertEquals(1, filesToCompile.size());
   }
@@ -186,9 +185,14 @@ public class TestMakeOnRealProject implements EnvironmentAware {
     IFile outputPath = myCreatedSolution.getFacet(JavaModuleFacet.class).getOutputRoot();
     outputPath.findChild(TEST_JAVA_FILE).delete();
 
-    ModuleSources sources = new ModelAccessHelper(ourModelAccess).runReadAction(() -> new ModuleSources(myCreatedSolution, new Dependencies(Collections.singleton((SModule) myCreatedSolution))));
-    Collection<File> filesToDelete = sources.getFilesToDelete();
-    Assert.assertEquals(1, filesToDelete.size());
+    ModuleSources sources = new ModuleSources(myCreatedSolution);
+    Collection<JavaFile> filesToCompile = sources.getFilesToCompile();
+    // XXX we used to walk output and notice present .class against missing .java to detect "files to delete"
+    //     as we don't walk output any longer, just make sure the file doesn't accidentally show up among those
+    //     to compile. This doesn't make much sense as we don't use ModuleSources at real ModuleMaker scenarios,
+    //     but I don't want to refactor these tests now.
+    Assert.assertFalse(filesToCompile.stream().map(JavaFile::getFile).map(File::getName).anyMatch(TEST_JAVA_FILE::equals));
+    Assert.assertEquals(0, filesToCompile.size());
   }
 
 

@@ -85,6 +85,7 @@ public class RegularTextUnit implements TextUnit, CompatibilityTextUnit {
 
   /**
    * XXX Perhaps, getAssociatedData(Class) would be better name?
+   * XXX Promote method to TextUnit!
    *
    * Access context object compatible with the supplied class.
    * Return the instance supplied through {@link #addContextObject(String, Object)}, if any.
