@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,18 +27,28 @@ import org.jetbrains.mps.openapi.model.SNode;
  * FIXME with legacy TextGenBuffer and TraceInfoCollector gone, this is just a regular TextGenContext implementation, the name has to get changed to reflect this
  * @author Artem Tikhomirov
  */
-@Deprecated(since = "3.3", forRemoval = true)
 public final class TextGenTransitionContext implements TextGenContext {
   private final SNode myInput;
   private final RegularTextUnit myTextUnit;
   private final ErrorCollector myErrorCollector;
   private final TextBuffer myBuffer;
 
+  private final TextGenRegistry myRegistry;
+
   public TextGenTransitionContext(@NotNull SNode input, @NotNull RegularTextUnit textUnit, @NotNull ErrorCollector errorCollector, @NotNull TextBuffer buffer) {
     myInput = input;
     myTextUnit = textUnit;
     myErrorCollector = errorCollector;
     myBuffer = buffer;
+    myRegistry = TextGenRegistry.getInstance();
+  }
+
+  private TextGenTransitionContext(@NotNull SNode input, TextGenTransitionContext copyFrom) {
+    myInput = input;
+    myTextUnit = copyFrom.myTextUnit;
+    myErrorCollector = copyFrom.myErrorCollector;
+    myBuffer = copyFrom.myBuffer;
+    myRegistry = copyFrom.myRegistry;
   }
 
   @NotNull
@@ -55,9 +65,13 @@ public final class TextGenTransitionContext implements TextGenContext {
   /**
    * invoke descriptor for the given node, no attribute processing done.
    */
-  public void generateText(@NotNull SNode newInput) {
-    TextGenTransitionContext ctx = newInput == myInput ? this : new TextGenTransitionContext(newInput, myTextUnit, myErrorCollector, myBuffer);
-    TextGenRegistry.getInstance().getTextGenDescriptor(newInput).generateText(ctx);
+  /*package*/ void generateText(@NotNull SNode newInput) {
+    TextGenTransitionContext ctx = newInput == myInput ? this : new TextGenTransitionContext(newInput, this);
+    getTextGenRegistry().getTextGenDescriptor(newInput).generateText(ctx);
+  }
+
+  /*package*/ TextGenRegistry getTextGenRegistry() {
+    return myRegistry;
   }
 
   // not to confuse this TextGenContext with objects associated with TextUnit, meaningful in its context only
