@@ -22,12 +22,11 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
 
 /**
- * Context implementation for transition period, while we delegate to SNodeTextGen and use original TextGenBuffer.
+ * Implementation of a context for {@link jetbrains.mps.text.rt.TextGenDescriptor#generateText(TextGenContext)}.
  * This class is not intended for use in client code, only MPS internals may use it.
- * FIXME with legacy TextGenBuffer and TraceInfoCollector gone, this is just a regular TextGenContext implementation, the name has to get changed to reflect this
  * @author Artem Tikhomirov
  */
-public final class TextGenTransitionContext implements TextGenContext {
+public final class TextGenContextImpl implements TextGenContext {
   private final SNode myInput;
   private final RegularTextUnit myTextUnit;
   private final ErrorCollector myErrorCollector;
@@ -35,7 +34,7 @@ public final class TextGenTransitionContext implements TextGenContext {
 
   private final TextGenRegistry myRegistry;
 
-  public TextGenTransitionContext(@NotNull SNode input, @NotNull RegularTextUnit textUnit, @NotNull ErrorCollector errorCollector, @NotNull TextBuffer buffer) {
+  public TextGenContextImpl(@NotNull SNode input, @NotNull RegularTextUnit textUnit, @NotNull ErrorCollector errorCollector, @NotNull TextBuffer buffer) {
     myInput = input;
     myTextUnit = textUnit;
     myErrorCollector = errorCollector;
@@ -43,7 +42,7 @@ public final class TextGenTransitionContext implements TextGenContext {
     myRegistry = TextGenRegistry.getInstance();
   }
 
-  private TextGenTransitionContext(@NotNull SNode input, TextGenTransitionContext copyFrom) {
+  private TextGenContextImpl(@NotNull SNode input, TextGenContextImpl copyFrom) {
     myInput = input;
     myTextUnit = copyFrom.myTextUnit;
     myErrorCollector = copyFrom.myErrorCollector;
@@ -66,7 +65,7 @@ public final class TextGenTransitionContext implements TextGenContext {
    * invoke descriptor for the given node, no attribute processing done.
    */
   /*package*/ void generateText(@NotNull SNode newInput) {
-    TextGenTransitionContext ctx = newInput == myInput ? this : new TextGenTransitionContext(newInput, this);
+    TextGenContextImpl ctx = newInput == myInput ? this : new TextGenContextImpl(newInput, this);
     getTextGenRegistry().getTextGenDescriptor(newInput).generateText(ctx);
   }
 

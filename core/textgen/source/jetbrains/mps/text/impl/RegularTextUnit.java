@@ -163,7 +163,7 @@ public class RegularTextUnit implements TextUnit, CompatibilityTextUnit {
     // Proper way is likely to try/catch/re-throw here.
     myState = Status.Failed;
     myErrorCollector = new ErrorCollector();
-    TextGenTransitionContext tgContext = new TextGenTransitionContext(myStartNode, this, myErrorCollector, trueBuffer);
+    TextGenContextImpl tgContext = new TextGenContextImpl(myStartNode, this, myErrorCollector, trueBuffer);
 
     TextGenSupport tgs = new TextGenSupport(tgContext);
     tgs.appendNode(myStartNode);

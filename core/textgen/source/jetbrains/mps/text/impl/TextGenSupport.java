@@ -45,7 +45,7 @@ public final class TextGenSupport implements TextArea {
 
   public TextGenSupport(@NotNull TextGenContext context) {
     myContext = context;
-    myTraceInfoCollector = ((TextGenTransitionContext) context).getTextUnitContextObject(TraceInfoCollector.class.getName(), TraceInfoCollector.class);
+    myTraceInfoCollector = ((TextGenContextImpl) context).getTextUnitContextObject(TraceInfoCollector.class.getName(), TraceInfoCollector.class);
   }
 
   public boolean needPositions() {
@@ -162,8 +162,8 @@ public final class TextGenSupport implements TextArea {
     getContextImpl().foundError(message, myContext.getPrimaryInput(), null);
   }
 
-  private TextGenTransitionContext getContextImpl() {
-    return ((TextGenTransitionContext) myContext);
+  private TextGenContextImpl getContextImpl() {
+    return ((TextGenContextImpl) myContext);
   }
 
   /**
