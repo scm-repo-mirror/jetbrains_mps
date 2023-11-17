@@ -21,6 +21,8 @@ import com.intellij.openapi.vcs.VcsListener;
 import com.intellij.openapi.vcs.FileStatusManager;
 import com.intellij.openapi.application.Application;
 import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.application.AccessToken;
+import com.intellij.util.SlowOperations;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.vcs.AbstractVcsHelper;
 import java.util.Arrays;
@@ -114,7 +116,10 @@ public class MPSVcsManager implements ProjectComponent {
     if (projectFile == null) {
       return;
     }
-    FileStatus currentStatus = FileStatusManager.getInstance(myProject).getStatus(projectFile);
+    FileStatus currentStatus;
+    try (AccessToken ignored = SlowOperations.allowSlowOperations("known-issues")) {
+      currentStatus = FileStatusManager.getInstance(myProject).getStatus(projectFile);
+    }
     if (currentStatus != myLastProjectStatus) {
       if (currentStatus == FileStatus.MERGED_WITH_CONFLICTS || currentStatus == FileStatus.MERGED_WITH_BOTH_CONFLICTS) {
         int answer = Messages.showYesNoDialog(myProject, "You have your project file unmerged. It is strongly recommended to merge it before continuing. " + "\nDo you want to merge it now?", "Unmerged Project File", Messages.getWarningIcon());
