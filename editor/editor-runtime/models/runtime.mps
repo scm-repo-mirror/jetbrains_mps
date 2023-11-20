@@ -4580,7 +4580,7 @@
           <node concept="3cpWsn" id="4_YM0vJWrdW" role="3cpWs9">
             <property role="TrG5h" value="mover" />
             <node concept="3uibUv" id="4_YM0vJWrdX" role="1tU5fm">
-              <ref role="3uigEE" to="18ew:~ComputeRunnable" resolve="ComputeRunnable" />
+              <ref role="3uigEE" to="18ew:~ModelComputeRunnable" resolve="ModelComputeRunnable" />
               <node concept="3uibUv" id="4_YM0vJWORd" role="11_B2D">
                 <ref role="3uigEE" to="wyt6:~Boolean" resolve="Boolean" />
               </node>
@@ -4787,7 +4787,7 @@
                 <ref role="3cqZAo" node="4_YM0vJWrdW" resolve="mover" />
               </node>
               <node concept="liA8E" id="4_YM0vJX9yZ" role="2OqNvi">
-                <ref role="37wK5l" to="18ew:~AbstractComputeRunnable.getResult()" resolve="getResult" />
+                <ref role="37wK5l" to="18ew:~ModelComputeRunnable.getResult()" resolve="getResult" />
               </node>
             </node>
           </node>

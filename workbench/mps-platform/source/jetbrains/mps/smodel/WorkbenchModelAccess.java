@@ -250,6 +250,8 @@ public final class WorkbenchModelAccess extends ModelAccess implements Disposabl
 
   @Override
   public void executeCommand(Runnable r) {
+    LOG.warning("Command are associated with a project. Use ModelAccess from a repository associated with a Project rather than global ModelAccess instance", new Throwable());
+    // much like smodel.ModelAccess#executeCommandInEDT(), shall not be invoked through WMA instance, rather with ProjectModelAccess only.
     executeCommand(r, CurrentProjectAccessUtil.getMPSProjectFromUI());
   }
 

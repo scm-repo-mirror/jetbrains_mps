@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,6 @@ import jetbrains.mps.logging.Logger;
 import jetbrains.mps.smodel.references.ImmatureReferences;
 import jetbrains.mps.smodel.references.UnregisteredNodes;
 import jetbrains.mps.util.Computable;
-import jetbrains.mps.util.ComputeRunnable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
@@ -93,9 +92,7 @@ public abstract class ModelAccess extends AbstractModelAccess implements ModelCo
     if (canRead()) {
       return c.compute();
     }
-    ComputeRunnable<T> r = new ComputeRunnable<>(c);
-    runReadAction(r);
-    return r.getResult();
+    return computeReadAction(c::compute);
   }
 
   @Override
@@ -103,9 +100,7 @@ public abstract class ModelAccess extends AbstractModelAccess implements ModelCo
     if (canWrite()) {
       return c.compute();
     }
-    ComputeRunnable<T> r = new ComputeRunnable<>(c);
-    runWriteAction(r);
-    return r.getResult();
+    return computeWriteAction(c::compute);
   }
 
   protected final void assertNotWriteFromRead() {

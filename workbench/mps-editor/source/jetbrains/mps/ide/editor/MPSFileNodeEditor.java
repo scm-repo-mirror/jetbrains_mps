@@ -32,7 +32,6 @@ import jetbrains.mps.openapi.editor.Editor;
 import jetbrains.mps.openapi.editor.EditorState;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.ModelAccessHelper;
-import jetbrains.mps.util.AbstractComputeRunnable;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -140,14 +139,8 @@ public class MPSFileNodeEditor extends UserDataHolderBase implements DocumentsEd
       myProject.getModelAccess().runWriteAction(() -> myNodeEditor.loadState(editorState));
     } else {
       myNodeEditor.loadState(editorState);
-      AbstractComputeRunnable<EditorState> runnable = new AbstractComputeRunnable<EditorState>() {
-        @Override
-        protected EditorState compute() {
-          return myNodeEditor.saveState();
-        }
-      };
-      myProject.getModelAccess().runReadAction(runnable);
-      if (runnable.getResult().getClass() != editorState.getClass()) {
+      final EditorState result = myProject.getModelAccess().computeReadAction(myNodeEditor::saveState);
+      if (result.getClass() != editorState.getClass()) {
         myDelayedState = editorState;
       }
     }

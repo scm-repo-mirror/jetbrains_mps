@@ -11,7 +11,6 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import java.util.ArrayList;
-import jetbrains.mps.util.ComputeRunnable;
 import jetbrains.mps.util.ModelComputeRunnable;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -71,7 +70,7 @@ public class IntelligentNodeMover {
     if (!(myIsValid)) {
       throw new IllegalStateException("IntelligentNodeMover has invalid state. Nodes to move have different parents of different containment links");
     }
-    ComputeRunnable<Boolean> mover = new ModelComputeRunnable<Boolean>(() -> {
+    ModelComputeRunnable<Boolean> mover = new ModelComputeRunnable<Boolean>(() -> {
       PlaceToMove placeToMove = findPlaceToMove();
       if (placeToMove == null) {
         return false;
