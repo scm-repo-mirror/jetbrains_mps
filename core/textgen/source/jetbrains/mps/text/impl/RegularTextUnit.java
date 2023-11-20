@@ -60,14 +60,26 @@ public class RegularTextUnit implements TextUnit, CompatibilityTextUnit {
   private ErrorCollector myErrorCollector;
   private List<Pair<String,Object>> myContextObjects;
 
+  /**
+   * @deprecated use {@link #RegularTextUnit(SNode, String, String, Charset, ComponentHost)} instead
+   */
+  @Deprecated(since = "2023.3", forRemoval = true)
   public RegularTextUnit(@NotNull SNode root, @NotNull String filename) {
     this(root, filename, null, null);
   }
 
+  /**
+   * @deprecated use {@link #RegularTextUnit(SNode, String, String, Charset, ComponentHost)} instead
+   */
+  @Deprecated(since = "2023.3", forRemoval = true)
   public RegularTextUnit(@NotNull SNode root, @NotNull String filename, @Nullable Charset encoding) {
     this(root, filename, null, encoding);
   }
 
+  /**
+   * @deprecated use {@link #RegularTextUnit(SNode, String, String, Charset, ComponentHost)} instead
+   */
+  @Deprecated(since = "2023.3", forRemoval = true)
   public RegularTextUnit(@NotNull SNode root, @NotNull String filename, @Nullable String unitPath, @Nullable Charset encoding) {
     myStartNode = root;
     myFilename = filename;

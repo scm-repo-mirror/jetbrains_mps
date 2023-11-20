@@ -214,7 +214,7 @@ public class TextGen_Facet extends IFacet.Stub {
               }
 
               final Project mpsProject = monitor.getSession().getProject();
-              final TextGeneratorEngine tgEngine = new TextGeneratorEngine(messageHandler);
+              final TextGeneratorEngine tgEngine = new TextGeneratorEngine(messageHandler, mpsProject.getPlatform());
 
               if (modelsCount == 0) {
                 // jftr, ArrayBlockingQueue doesn't tolerate 0 size
@@ -519,7 +519,7 @@ public class TextGen_Facet extends IFacet.Stub {
           final Iterable<GResource> input = (Iterable<GResource>) (Iterable) rawInput;
           switch (0) {
             case 0:
-              final TextGeneratorEngine tgEngine = new TextGeneratorEngine(monitor.getSession().getMessageHandler());
+              final TextGeneratorEngine tgEngine = new TextGeneratorEngine(monitor.getSession().getMessageHandler(), monitor.getSession().getProject().getPlatform());
               try {
                 int modelsCount = 0;
                 for (GResource resource : Sequence.fromIterable(input)) {

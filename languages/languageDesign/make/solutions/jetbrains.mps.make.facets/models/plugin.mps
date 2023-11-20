@@ -1254,9 +1254,17 @@
                 </node>
                 <node concept="2ShNRf" id="7A08csWbPMZ" role="33vP2m">
                   <node concept="1pGfFk" id="7A08csWbPN0" role="2ShVmc">
-                    <ref role="37wK5l" to="ao3:~TextGeneratorEngine.&lt;init&gt;(jetbrains.mps.messages.IMessageHandler)" resolve="TextGeneratorEngine" />
+                    <ref role="37wK5l" to="ao3:~TextGeneratorEngine.&lt;init&gt;(jetbrains.mps.messages.IMessageHandler,jetbrains.mps.components.ComponentHost)" resolve="TextGeneratorEngine" />
                     <node concept="37vLTw" id="7A08csWbR3c" role="37wK5m">
                       <ref role="3cqZAo" node="7A08csWbR36" resolve="messageHandler" />
+                    </node>
+                    <node concept="2OqwBi" id="3_yk01VttFX" role="37wK5m">
+                      <node concept="37vLTw" id="3_yk01VtsG1" role="2Oq$k0">
+                        <ref role="3cqZAo" node="7A08csWclcg" resolve="mpsProject" />
+                      </node>
+                      <node concept="liA8E" id="3_yk01VtwmL" role="2OqNvi">
+                        <ref role="37wK5l" to="z1c3:~Project.getPlatform()" resolve="getPlatform" />
+                      </node>
                     </node>
                   </node>
                 </node>
@@ -5460,11 +5468,22 @@
                 </node>
                 <node concept="2ShNRf" id="BfgvErhHBv" role="33vP2m">
                   <node concept="1pGfFk" id="BfgvErhIVy" role="2ShVmc">
-                    <ref role="37wK5l" to="ao3:~TextGeneratorEngine.&lt;init&gt;(jetbrains.mps.messages.IMessageHandler)" resolve="TextGeneratorEngine" />
+                    <ref role="37wK5l" to="ao3:~TextGeneratorEngine.&lt;init&gt;(jetbrains.mps.messages.IMessageHandler,jetbrains.mps.components.ComponentHost)" resolve="TextGeneratorEngine" />
                     <node concept="2OqwBi" id="13CsAhVSOGu" role="37wK5m">
                       <node concept="2_BwXt" id="1LzZ23Mg8hZ" role="2Oq$k0" />
                       <node concept="liA8E" id="13CsAhVSOUH" role="2OqNvi">
                         <ref role="37wK5l" to="hfuk:7yGn3z4N4Nw" resolve="getMessageHandler" />
+                      </node>
+                    </node>
+                    <node concept="2OqwBi" id="3_yk01VtzLe" role="37wK5m">
+                      <node concept="2OqwBi" id="3_yk01VtyDS" role="2Oq$k0">
+                        <node concept="2_BwXt" id="3_yk01VtyfV" role="2Oq$k0" />
+                        <node concept="liA8E" id="3_yk01Vtzag" role="2OqNvi">
+                          <ref role="37wK5l" to="hfuk:2BjwmTxTf34" resolve="getProject" />
+                        </node>
+                      </node>
+                      <node concept="liA8E" id="3_yk01Vt$UP" role="2OqNvi">
+                        <ref role="37wK5l" to="z1c3:~Project.getPlatform()" resolve="getPlatform" />
                       </node>
                     </node>
                   </node>

@@ -40,6 +40,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.module.ModelAccess;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
@@ -63,6 +64,10 @@ public final class TextGeneratorEngine {
   private final IMessageHandler myMessages;
   private final ComponentHost myPlatform;
 
+  /**
+   * @deprecated use {@link #TextGeneratorEngine(IMessageHandler, ComponentHost)} constructor
+   */
+  @Deprecated(since = "2023.3", forRemoval = true)
   public TextGeneratorEngine(@NotNull IMessageHandler messageHandler) {
     this(messageHandler, new ComponentHost() {
       @Override
@@ -147,7 +152,11 @@ public final class TextGeneratorEngine {
   }
 
   private static List<TextUnit> breakdownToUnits(@NotNull SModel model, @NotNull ComponentHost platform) {
-    Collection<TextGenAspectDescriptor> tgad = TextGenRegistry.getInstance().getAspects(model);
+    final TextGenRegistry tgr = platform.findComponent(TextGenRegistry.class);
+    if (tgr == null) {
+      return Collections.emptyList();
+    }
+    Collection<TextGenAspectDescriptor> tgad = tgr.getAspects(model);
     ModelOutline rv = new ModelOutline(model, platform);
     for (TextGenAspectDescriptor d : tgad) {
       d.breakdownToUnits(rv);
@@ -171,7 +180,7 @@ public final class TextGeneratorEngine {
     modelData.addRootNode(CopyUtil.copyAndPreserveId(node));
     TrivialModelDescriptor model = new TrivialModelDescriptor(modelData);
     // FIXME needs access to ComponentHost
-    final List<TextUnit> textUnits = breakdownToUnits(model, new ComponentHost() {
+    final ComponentHost ch = new ComponentHost() {
       @Override
       public <T extends CoreComponent> @Nullable T findComponent(@NotNull Class<T> componentClass) {
         if (componentClass == TextGenRegistry.class) {
@@ -179,12 +188,13 @@ public final class TextGeneratorEngine {
         }
         return null;
       }
-    });
+    };
+    final List<TextUnit> textUnits = breakdownToUnits(model, ch);
     final TextUnit textUnit;
     if (textUnits.size() == 1) {
       textUnit = textUnits.get(0);
     } else {
-      textUnit = new RegularTextUnit(node, "dummy.txt", null);
+      textUnit = new RegularTextUnit(node, "dummy.txt", null, null, ch);
     }
 
     textUnit.generate();
