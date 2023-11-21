@@ -761,7 +761,7 @@ final class PlatformEditorEmulation implements Editor {
   private AbstractPopup createHint(JComponent component) {
     return (AbstractPopup) JBPopupFactory.getInstance()
                                          .createComponentPopupBuilder(component, component)
-                                         .setRequestFocus(true)
+                                         .setRequestFocus(false)
                                          .setMovable(true)
                                          .setResizable(true)
                                          .setCancelOnClickOutside(false)
