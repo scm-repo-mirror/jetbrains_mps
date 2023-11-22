@@ -23,14 +23,23 @@ import jetbrains.mps.internal.collections.runtime.IMapping;
 public class ModelsToResources {
   private final Iterable<SModel> models;
   private _FunctionTypes._return_P1_E0<? extends Boolean, ? super SModel> myCanGenerateCondition;
+  private final boolean myCleanMake;
 
   /**
    * 
    * @param models models to break down by module to constitute a MResource. Only models that satisfy 'are subject to generation' criteria (see {@link GenerationFacade} are taken into account.
    */
   public ModelsToResources(Iterable<SModel> models) {
+    this(models, false);
+  }
+  /**
+   * 
+   * @param models models to break down by module to constitute a MResource. Only models that satisfy 'are subject to generation' criteria (see {@link GenerationFacade} are taken into account.
+   */
+  public ModelsToResources(Iterable<SModel> models, boolean cleanMake) {
     this.models = models;
     myCanGenerateCondition = (SModel it) -> GenerationFacade.canGenerate(it);
+    myCleanMake = cleanMake;
   }
 
   /**
@@ -62,7 +71,9 @@ public class ModelsToResources {
     }
     return SetSequence.fromSet(MapSequence.fromMap(groupByModule).mappingsSet()).select(new ISelector<IMapping<SModule, List<SModel>>, MResource>() {
       public MResource select(IMapping<SModule, List<SModel>> map) {
-        return new MResource(map.key(), map.value());
+        MResource mres = new MResource(map.key(), map.value());
+        mres.setValue(MakeKeys.CLEAN_MAKE, myCleanMake);
+        return mres;
       }
     }).ofType(IResource.class).toListSequence();
   }
