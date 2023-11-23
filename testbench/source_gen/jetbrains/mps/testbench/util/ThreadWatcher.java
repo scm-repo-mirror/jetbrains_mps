@@ -87,6 +87,9 @@ public class ThreadWatcher implements Output {
 
       // com.intellij.util.io.FilePageCacheLockFree#DEFAULT_HOUSEKEEPER_THREAD_NAME
       builder.append("|(FilePageCache housekeeper)");
+
+      // com.intellij.util.io.DirectByteBufferAllocator#singleThreadAllocator
+      builder.append("|(DirectBufferWrapper allocation thread)");
       // --------------------------------
 
 

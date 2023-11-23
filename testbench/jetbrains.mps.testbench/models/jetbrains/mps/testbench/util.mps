@@ -919,6 +919,27 @@
               </node>
             </node>
           </node>
+          <node concept="3clFbH" id="59U9m59kjl5" role="3cqZAp" />
+          <node concept="3SKdUt" id="59U9m59kjl2" role="3cqZAp">
+            <node concept="1PaTwC" id="59U9m59kjl3" role="1aUNEU">
+              <node concept="3oM_SD" id="59U9m59knaW" role="1PaTwD">
+                <property role="3oM_SC" value="com.intellij.util.io.DirectByteBufferAllocator#singleThreadAllocator" />
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbF" id="59U9m59kjkX" role="3cqZAp">
+            <node concept="2OqwBi" id="59U9m59kjkY" role="3clFbG">
+              <node concept="37vLTw" id="59U9m59kjkZ" role="2Oq$k0">
+                <ref role="3cqZAo" node="3m4z3Ef4MhY" resolve="builder" />
+              </node>
+              <node concept="liA8E" id="59U9m59kjl0" role="2OqNvi">
+                <ref role="37wK5l" to="wyt6:~StringBuilder.append(java.lang.String)" resolve="append" />
+                <node concept="Xl_RD" id="59U9m59kjl1" role="37wK5m">
+                  <property role="Xl_RC" value="|(DirectBufferWrapper allocation thread)" />
+                </node>
+              </node>
+            </node>
+          </node>
           <node concept="3SKdUt" id="3m4z3Ef6VAX" role="3cqZAp">
             <node concept="1PaTwC" id="3m4z3Ef6VAY" role="1aUNEU">
               <node concept="3oM_SD" id="3m4z3Ef6WpE" role="1PaTwD">
