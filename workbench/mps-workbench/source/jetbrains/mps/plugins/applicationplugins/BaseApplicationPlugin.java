@@ -53,6 +53,11 @@ public abstract class BaseApplicationPlugin implements ApplicationPlugin {
 
   //----------plugin id------------
 
+  // FIXME the only place we use (and abuse) PluginId is MPSAction.unregisterActions(), where we pass
+  //       this non-IDEA identity to IDEA's ActionManagerEx. Once/if IDEA starts to expect proper PluginId
+  //       there (e.g. the one for known/installed plugin), we are screwed as this getId() here reflects
+  //       name of the MPS module, and not necessarily match distribution plugin id (let alone not all
+  //       MPS modules get distributed as IDEA plugins)
   @NotNull
   protected abstract PluginId getId();
 

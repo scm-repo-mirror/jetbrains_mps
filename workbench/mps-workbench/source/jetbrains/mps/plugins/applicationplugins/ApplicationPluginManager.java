@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,15 +40,6 @@ public class ApplicationPluginManager extends BasePluginManager<BaseApplicationP
 
   public ApplicationPluginManager() {
     myPlatform = MPSCoreComponents.getInstance().getPlatform();
-  }
-
-  public BaseApplicationPlugin getPlugin(PluginId id) {
-    for (BaseApplicationPlugin p : getPlugins()) {
-      if (p.getId().equals(id)) {
-        return p;
-      }
-    }
-    return null;
   }
 
   @Override
