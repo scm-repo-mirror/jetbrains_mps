@@ -48,9 +48,9 @@ public abstract class SNodeUndoableAction implements UndoItem {
     return VFSChange.NOT_CHANGED;
   }
 
-  public SModel getModel() {
-    final SNode affectedNode = getAffectedNode();
-    return affectedNode!=null ? affectedNode.getModel() : null;
+  @Nullable
+  public SModel getAffectedModel() {
+    return null;
   }
 
   public enum VFSChange {

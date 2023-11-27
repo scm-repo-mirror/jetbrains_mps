@@ -4,23 +4,22 @@
 package jetbrains.mps.extapi.model;
 
 import jetbrains.mps.smodel.SNodeUndoableAction;
-import jetbrains.mps.smodel.event.SModelRenamedEvent;
 import org.jetbrains.mps.openapi.model.SModel;
 
-final class PerRootPersistenceModelRenameUndoableAction extends SNodeUndoableAction {
+final class ModelRenameUndoableAction extends SNodeUndoableAction {
   final EditableSModelBase myModel;
   final String oldName;
   final String newName;
 
-  public PerRootPersistenceModelRenameUndoableAction(SModelRenamedEvent event) {
+  public ModelRenameUndoableAction(EditableSModelBase model, String oldName, String newName) {
     super(null);
-    myModel = (EditableSModelBase) event.getModel();
-    oldName = event.getOldName();
-    newName = event.getNewName();
+    this.myModel = model;
+    this.oldName = oldName;
+    this.newName = newName;
   }
 
   @Override
-  public SModel getModel() {
+  public SModel getAffectedModel() {
     return myModel;
   }
 

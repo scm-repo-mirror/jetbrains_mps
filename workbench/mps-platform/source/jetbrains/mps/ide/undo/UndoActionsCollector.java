@@ -65,7 +65,7 @@ public class UndoActionsCollector {
     myIsGlobal |= action.getAssociatedVfsChange() != VFSChange.NOT_CHANGED;
 
     if (action.getAssociatedVfsChange() == VFSChange.PER_ROOT_MODEL_RENAME) {
-      SModel model = action.getModel();
+      SModel model = action.getAffectedModel();
       if (model != null) {
         MPSModelVirtualFile file = NodeVirtualFileSystem.getInstance().getFileFor(myUndoContext.getRepository(), model.getReference());
         assert file.isValid() :

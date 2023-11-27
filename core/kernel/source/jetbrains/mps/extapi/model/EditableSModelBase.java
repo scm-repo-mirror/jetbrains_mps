@@ -343,8 +343,7 @@ public abstract class EditableSModelBase extends SModelBase implements EditableS
     }
     save();
 
-    SModelRenamedEvent event = new SModelRenamedEvent(this, oldName.getModelName(), newModelName);
-    fireModelRenamed(event);
+    fireModelRenamed(new SModelRenamedEvent(this, oldName.getModelName(), newModelName));
     fireModelRenamed(oldName);
 
     if (!changeFile) {
@@ -353,7 +352,7 @@ public abstract class EditableSModelBase extends SModelBase implements EditableS
       if (modelAccess instanceof ModelCommandContext.Provider) {
         final ModelCommandContext cc = ((Provider) modelAccess).getCommandContext(this);
         if (cc != null) {
-          cc.registerActionWithUndo(new PerRootPersistenceModelRenameUndoableAction(event));
+          cc.registerActionWithUndo(new ModelRenameUndoableAction(this, oldName.getModelName(), newModelName));
         }
       }
     }
