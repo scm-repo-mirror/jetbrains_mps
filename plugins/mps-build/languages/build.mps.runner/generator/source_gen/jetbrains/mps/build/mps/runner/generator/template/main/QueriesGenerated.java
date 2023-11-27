@@ -15,9 +15,9 @@ import jetbrains.mps.build.mps.runner.behavior.BuildSolutionRunnerAspect__Behavi
 import jetbrains.mps.generator.template.ReferenceMacroContext;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodesContext;
 import jetbrains.mps.build.mps.util.ModulePlugins;
-import jetbrains.mps.build.mps.util.MPSModulesClosure;
 import jetbrains.mps.build.mps.util.ModuleFinder;
 import jetbrains.mps.generator.template.TemplateVarContext;
+import jetbrains.mps.build.mps.util.MPSModulesClosure;
 import java.util.Map;
 import jetbrains.mps.generator.impl.query.SourceNodesQuery;
 import java.util.HashMap;
@@ -106,12 +106,13 @@ public class QueriesGenerated extends QueryProviderBase {
     return Sequence.fromIterable(((ModulePlugins) _context.getVariable("var:requiredPlugins")).getDependency()).where((it) -> SNodeOperations.getNodeAncestor(it, CONCEPTS.BuildProject$ae, false, false) == thisProject);
   }
   public static Iterable<SNode> sourceNodesQuery_0_2(final SourceSubstituteMacroNodesContext _context) {
-    Iterable<SNode> libs = ((MPSModulesClosure) _context.getVariable("var:closure")).getAllModules();
-    return ModuleFinder.findModules(Sequence.fromIterable(libs).where((it) -> SNodeOperations.getNodeAncestor(it, CONCEPTS.BuildProject$ae, false, false) != ((SNode) _context.getVariable("var:buildProject"))), _context, _context.getNode());
+    Iterable<SNode> libs = ((ModulePlugins) _context.getVariable("var:requiredPlugins")).getModulesNotInPlugins();
+    final SNode project = ((SNode) _context.getVariable("var:buildProject"));
+    return ModuleFinder.findModules(Sequence.fromIterable(libs).where((it) -> SNodeOperations.getNodeAncestor(it, CONCEPTS.BuildProject$ae, false, false) != project), _context, _context.getNode());
   }
   public static Iterable<SNode> sourceNodesQuery_0_3(final SourceSubstituteMacroNodesContext _context) {
     // see reduce_TestModules, LOOP for mps.tests.path for details
-    Iterable<SNode> libs = ((MPSModulesClosure) _context.getVariable("var:closure")).getAllModules();
+    Iterable<SNode> libs = ((ModulePlugins) _context.getVariable("var:requiredPlugins")).getModulesNotInPlugins();
     final SNode project = ((SNode) _context.getVariable("var:buildProject"));
     return Sequence.fromIterable(libs).where((it) -> SNodeOperations.getNodeAncestor(it, CONCEPTS.BuildProject$ae, false, false) == project);
   }

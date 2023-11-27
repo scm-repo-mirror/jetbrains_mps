@@ -718,13 +718,28 @@
                             </node>
                             <node concept="2OqwBi" id="6Z57pH4II8t" role="33vP2m">
                               <node concept="liA8E" id="6Z57pH4II8u" role="2OqNvi">
-                                <ref role="37wK5l" to="tken:2pk5iwY3SS_" resolve="getAllModules" />
+                                <ref role="37wK5l" to="tken:3QoXtOXW166" resolve="getModulesNotInPlugins" />
                               </node>
                               <node concept="2OqwBi" id="6Z57pH4II8v" role="2Oq$k0">
                                 <node concept="1psM6Z" id="6Z57pH4IRIT" role="2OqNvi">
-                                  <ref role="1psM6Y" node="6Z57pH4IRIQ" resolve="closure" />
+                                  <ref role="1psM6Y" node="3f8fofNjB3Y" resolve="requiredPlugins" />
                                 </node>
                                 <node concept="1iwH7S" id="6Z57pH4II8x" role="2Oq$k0" />
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                        <node concept="3cpWs8" id="5mhgabR25Ve" role="3cqZAp">
+                          <node concept="3cpWsn" id="5mhgabR25Vf" role="3cpWs9">
+                            <property role="TrG5h" value="project" />
+                            <property role="3TUv4t" value="true" />
+                            <node concept="3Tqbb2" id="5mhgabR24E1" role="1tU5fm">
+                              <ref role="ehGHo" to="3ior:4RPz6WoY4Cj" resolve="BuildProject" />
+                            </node>
+                            <node concept="2OqwBi" id="5mhgabR25Vg" role="33vP2m">
+                              <node concept="1iwH7S" id="5mhgabR25Vh" role="2Oq$k0" />
+                              <node concept="1psM6Z" id="5mhgabR25Vi" role="2OqNvi">
+                                <ref role="1psM6Y" node="6Z57pH4ITf8" resolve="buildProject" />
                               </node>
                             </node>
                           </node>
@@ -742,11 +757,8 @@
                                   <node concept="3clFbS" id="3vNUe1zfXzB" role="1bW5cS">
                                     <node concept="3clFbF" id="3vNUe1zfYhB" role="3cqZAp">
                                       <node concept="3y3z36" id="3vNUe1zg0S$" role="3clFbG">
-                                        <node concept="2OqwBi" id="3vNUe1zg28I" role="3uHU7w">
-                                          <node concept="1iwH7S" id="3vNUe1zg1sE" role="2Oq$k0" />
-                                          <node concept="1psM6Z" id="3vNUe1zg2Fz" role="2OqNvi">
-                                            <ref role="1psM6Y" node="6Z57pH4ITf8" resolve="buildProject" />
-                                          </node>
+                                        <node concept="37vLTw" id="5mhgabR2igb" role="3uHU7w">
+                                          <ref role="3cqZAo" node="5mhgabR25Vf" resolve="project" />
                                         </node>
                                         <node concept="2OqwBi" id="3vNUe1zfYUL" role="3uHU7B">
                                           <node concept="37vLTw" id="3vNUe1zfYhA" role="2Oq$k0">
@@ -842,13 +854,13 @@
                             </node>
                             <node concept="2OqwBi" id="3vNUe1zg3qd" role="33vP2m">
                               <node concept="liA8E" id="3vNUe1zg3qe" role="2OqNvi">
-                                <ref role="37wK5l" to="tken:2pk5iwY3SS_" resolve="getAllModules" />
+                                <ref role="37wK5l" to="tken:3QoXtOXW166" resolve="getModulesNotInPlugins" />
                               </node>
                               <node concept="2OqwBi" id="3vNUe1zg3qf" role="2Oq$k0">
-                                <node concept="1psM6Z" id="3vNUe1zg3qg" role="2OqNvi">
-                                  <ref role="1psM6Y" node="6Z57pH4IRIQ" resolve="closure" />
-                                </node>
                                 <node concept="1iwH7S" id="3vNUe1zg3qh" role="2Oq$k0" />
+                                <node concept="1psM6Z" id="5mhgabR1Lw6" role="2OqNvi">
+                                  <ref role="1psM6Y" node="3f8fofNjB3Y" resolve="requiredPlugins" />
+                                </node>
                               </node>
                             </node>
                           </node>
