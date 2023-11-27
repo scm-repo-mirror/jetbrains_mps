@@ -346,6 +346,7 @@ public abstract class EditableSModelBase extends SModelBase implements EditableS
     fireModelRenamed(new SModelRenamedEvent(this, oldName.getModelName(), newModelName));
     fireModelRenamed(oldName);
 
+    //TODO apply to normal persistence as well to fix MPS-32728
     if (!changeFile) {
       //per-root persistence
       ModelAccess modelAccess = getRepository().getModelAccess();

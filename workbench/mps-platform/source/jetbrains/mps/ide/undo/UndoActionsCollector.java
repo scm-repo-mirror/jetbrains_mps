@@ -79,6 +79,10 @@ public class UndoActionsCollector {
               "Invalid file was returned by VFS node is not available: " + rootNode + ", deleted = " + (rootNode.getModel() == null);
 
           myChangedFiles.computeIfAbsent(model.getModelId(), k -> new ArrayList<>()).add(nodeFile);
+          Document document = MPSUndoUtil.getDoc(nodeFile);
+          if (document != null) {
+            myDocumentReferences.add(MPSUndoUtil.getRefForDoc(document));
+          }
         }
       }
     } else {
