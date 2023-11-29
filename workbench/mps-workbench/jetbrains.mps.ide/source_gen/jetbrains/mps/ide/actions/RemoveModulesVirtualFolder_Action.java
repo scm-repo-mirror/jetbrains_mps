@@ -16,9 +16,14 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.ui.Messages;
 import org.jetbrains.mps.openapi.module.ModelAccess;
+import java.util.List;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import com.intellij.openapi.command.undo.UndoManager;
+import com.intellij.openapi.command.undo.UndoableAction;
+import com.intellij.openapi.command.undo.UnexpectedUndoException;
 import jetbrains.mps.ide.projectPane.ProjectPane;
+import com.intellij.openapi.command.undo.DocumentReference;
 
 @GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/6595589484397007419", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
 public class RemoveModulesVirtualFolder_Action extends BaseAction {
@@ -70,6 +75,7 @@ public class RemoveModulesVirtualFolder_Action extends BaseAction {
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     final NamespaceTextNode node = ((NamespaceTextNode) event.getData(MPSCommonDataKeys.TREE_NODE));
+    final String originalPackageName = node.getName();
 
     if (Messages.showYesNoDialog(event.getData(CommonDataKeys.PROJECT), IdeBundle.message("dialogs.virtual.package.remove.text"), IdeBundle.message("dialogs.virtual.package.remove.title"), Messages.getQuestionIcon()) != Messages.OK) {
       return;
@@ -77,9 +83,41 @@ public class RemoveModulesVirtualFolder_Action extends BaseAction {
 
     final ModelAccess modelAccess = event.getData(MPSCommonDataKeys.MPS_PROJECT).getRepository().getModelAccess();
     modelAccess.executeCommandInEDT(() -> {
-      for (SModule module : ListSequence.fromList(node.getModulesUnder())) {
+      List<SModule> modulesUnder = node.getModulesUnder();
+      for (SModule module : ListSequence.fromList(modulesUnder)) {
         event.getData(MPSCommonDataKeys.MPS_PROJECT).setVirtualFolder(module, null);
       }
+
+      UndoManager um = UndoManager.getInstance(event.getData(MPSCommonDataKeys.MPS_PROJECT).getProject());
+      um.undoableActionPerformed(new UndoableAction() {
+        @Override
+        public void undo() throws UnexpectedUndoException {
+          for (SModule module : ListSequence.fromList(modulesUnder)) {
+            event.getData(MPSCommonDataKeys.MPS_PROJECT).setVirtualFolder(module, originalPackageName);
+          }
+          ProjectPane.getInstance(event.getData(CommonDataKeys.PROJECT)).rebuild();
+        }
+
+        @Override
+        public void redo() throws UnexpectedUndoException {
+          for (SModule module : ListSequence.fromList(modulesUnder)) {
+            event.getData(MPSCommonDataKeys.MPS_PROJECT).setVirtualFolder(module, null);
+          }
+          ProjectPane.getInstance(event.getData(CommonDataKeys.PROJECT)).rebuild();
+        }
+
+        @Override
+        public DocumentReference[] getAffectedDocuments() {
+          return new DocumentReference[0];
+        }
+
+        @Override
+        public boolean isGlobal() {
+          return true;
+        }
+      });
+
+
       RemoveModulesVirtualFolder_Action.this.getProjectPane(event).rebuild();
     });
   }
