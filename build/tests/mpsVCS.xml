@@ -225,6 +225,7 @@
       </src>
       <classpath>
         <fileset file="${artifacts.mps}/lib/mps-core.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-platform.jar" />
         <fileset file="${artifacts.mps}/lib/mps-annotations.jar" />
         <fileset file="${artifacts.mps}/lib/mps-openapi.jar" />
         <fileset file="${artifacts.mps}/lib/mps-closures.jar" />
@@ -239,16 +240,27 @@
         <fileset file="${artifacts.mps}/lib/mps-project-check.jar" />
         <fileset file="${artifacts.IDEA}/plugins/vcs-git/lib/git4idea-rt.jar" />
         <fileset file="${artifacts.IDEA}/plugins/vcs-git/lib/vcs-git.jar" />
-        <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
-        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
+        <fileset file="${artifacts.IDEA}/lib/app.jar" />
+        <fileset file="${artifacts.IDEA}/lib/app-client.jar" />
+        <fileset file="${artifacts.IDEA}/lib/lib.jar" />
+        <fileset file="${artifacts.IDEA}/lib/lib-client.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util.jar" />
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
+        <fileset file="${artifacts.IDEA}/lib/forms_rt.jar" />
+        <fileset file="${artifacts.IDEA}/lib/java-impl.jar" />
+        <fileset file="${artifacts.IDEA}/lib/jps-model.jar" />
+        <fileset file="${artifacts.IDEA}/lib/testFramework.jar" />
+        <fileset file="${artifacts.IDEA}/lib/stats.jar" />
+        <fileset file="${artifacts.IDEA}/lib/platform-loader.jar" />
+        <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
       </classpath>
     </javac>
   </target>
   
   <target name="run.jetbrains.mps.vcs.tests" depends="assemble">
     <echo message="Running code from jetbrains.mps.vcs.tests solution in MPS" />
-    <runMPS solution="ed3e0fd1-3ac2-4543-b6b2-d6d0bea8bf18(jetbrains.mps.vcs.tests)" startClass="jetbrains.mps.vcs.tests.MainClass" startMethod="mpsMain">
+    <runMPS solution="ed3e0fd1-3ac2-4543-b6b2-d6d0bea8bf18(jetbrains.mps.vcs.tests)" startClass="jetbrains.mps.vcs.tests.CheckGit4IdeaStubs" startMethod="mpsMain">
       <plugin path="${artifacts.mps}/plugins/mps-core" id="jetbrains.mps.core" />
       <plugin path="${artifacts.mps}/plugins/mps-git4idea" id="jetbrains.mps.git4idea.stubs" />
       <plugin path="${artifacts.mps}/plugins/vcs-git" id="Git4Idea" />
