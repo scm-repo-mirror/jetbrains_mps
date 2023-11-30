@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model ref="r:6ba2667b-185e-45cd-ac65-e4b9d66da28e(jetbrains.mps.smodel.resources)">
   <persistence version="9" />
-  <attribute name="doNotGenerate" value="false" />
   <languages>
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="0" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
@@ -61,7 +60,7 @@
       <concept id="1188207840427" name="jetbrains.mps.baseLanguage.structure.AnnotationInstance" flags="nn" index="2AHcQZ">
         <reference id="1188208074048" name="annotation" index="2AI5Lk" />
       </concept>
-      <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ngI" index="2AJDlI">
+      <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ng" index="2AJDlI">
         <child id="1188208488637" name="annotation" index="2AJF6D" />
       </concept>
       <concept id="2820489544401957797" name="jetbrains.mps.baseLanguage.structure.DefaultClassCreator" flags="nn" index="HV5vD">
@@ -116,7 +115,7 @@
         <property id="1176718929932" name="isFinal" index="3TUv4t" />
         <child id="1068431790190" name="initializer" index="33vP2m" />
       </concept>
-      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ngI" index="366HgL">
+      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ng" index="366HgL">
         <property id="1513279640906337053" name="inferTypeParams" index="373rjd" />
       </concept>
       <concept id="1068498886296" name="jetbrains.mps.baseLanguage.structure.VariableReference" flags="nn" index="37vLTw">
@@ -168,7 +167,7 @@
       <concept id="1081516740877" name="jetbrains.mps.baseLanguage.structure.NotExpression" flags="nn" index="3fqX7Q">
         <child id="1081516765348" name="expression" index="3fr31v" />
       </concept>
-      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ngI" index="1ndlxa">
+      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ng" index="1ndlxa">
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
       </concept>
@@ -197,7 +196,7 @@
         <child id="8276990574909234106" name="finallyBody" index="1wplMD" />
       </concept>
       <concept id="1073239437375" name="jetbrains.mps.baseLanguage.structure.NotEqualsExpression" flags="nn" index="3y3z36" />
-      <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ngI" index="1B3ioH">
+      <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ng" index="1B3ioH">
         <child id="1178549979242" name="visibility" index="1B3o_S" />
       </concept>
       <concept id="1144226303539" name="jetbrains.mps.baseLanguage.structure.ForeachStatement" flags="nn" index="1DcWWT">
@@ -270,7 +269,7 @@
       <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
         <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
       </concept>
-      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ngI" index="TrEIO">
+      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
     </language>
@@ -1495,12 +1494,12 @@
       <property role="3TUv4t" value="true" />
       <node concept="3Tm1VV" id="gLj2gn8nQX" role="1B3o_S" />
       <node concept="3uibUv" id="gLj2gn6zNt" role="1tU5fm">
-        <ref role="3uigEE" node="gLj2gn6u2X" resolve="CleanMake" />
+        <ref role="3uigEE" node="gLj2gn6u2X" resolve="MakeKeys.CleanMake" />
       </node>
       <node concept="2ShNRf" id="gLj2gn6zZM" role="33vP2m">
         <node concept="HV5vD" id="gLj2gn6$dY" role="2ShVmc">
           <property role="373rjd" value="true" />
-          <ref role="HV5vE" node="gLj2gn6u2X" resolve="CleanMake" />
+          <ref role="HV5vE" node="gLj2gn6u2X" resolve="MakeKeys.CleanMake" />
         </node>
       </node>
     </node>
@@ -1510,7 +1509,7 @@
       <property role="1EXbeo" value="true" />
       <node concept="3Tm1VV" id="gLj2gn6u2Y" role="1B3o_S" />
       <node concept="3uibUv" id="gLj2gn6ue$" role="1zkMxy">
-        <ref role="3uigEE" to="upz5:gLj2gn3oI7" resolve="Key" />
+        <ref role="3uigEE" to="upz5:gLj2gn3oI7" resolve="Dictionary.Key" />
         <node concept="3uibUv" id="gLj2gn6y4X" role="11_B2D">
           <ref role="3uigEE" to="wyt6:~Boolean" resolve="Boolean" />
         </node>
@@ -1542,7 +1541,7 @@
           </node>
         </node>
         <node concept="2AHcQZ" id="gLj2gn6usa" role="2AJF6D">
-          <ref role="2AI5Lk" to="wyt6:~Override" />
+          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
       </node>
       <node concept="3clFb_" id="gLj2gn6vfq" role="jymVt">
@@ -1555,13 +1554,13 @@
               <ref role="37wK5l" to="33ny:~Objects.hashCode(java.lang.Object)" resolve="hashCode" />
               <ref role="1Pybhc" to="33ny:~Objects" resolve="Objects" />
               <node concept="3VsKOn" id="gLj2gn6AF1" role="37wK5m">
-                <ref role="3VsUkX" node="gLj2gn6u2X" resolve="CleanMake" />
+                <ref role="3VsUkX" node="gLj2gn6u2X" resolve="MakeKeys.CleanMake" />
               </node>
             </node>
           </node>
         </node>
         <node concept="2AHcQZ" id="gLj2gn6vfw" role="2AJF6D">
-          <ref role="2AI5Lk" to="wyt6:~Override" />
+          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
       </node>
       <node concept="3clFb_" id="gLj2gn6vfz" role="jymVt">
@@ -1579,7 +1578,7 @@
             <node concept="1Wc70l" id="gLj2gn6CxV" role="3clFbG">
               <node concept="2ZW3vV" id="gLj2gn6CQX" role="3uHU7w">
                 <node concept="3uibUv" id="gLj2gn6D3M" role="2ZW6by">
-                  <ref role="3uigEE" node="gLj2gn6u2X" resolve="CleanMake" />
+                  <ref role="3uigEE" node="gLj2gn6u2X" resolve="MakeKeys.CleanMake" />
                 </node>
                 <node concept="37vLTw" id="gLj2gn6CGI" role="2ZW6bz">
                   <ref role="3cqZAo" node="gLj2gn6vfB" resolve="obj" />
@@ -1595,7 +1594,7 @@
           </node>
         </node>
         <node concept="2AHcQZ" id="gLj2gn6vfE" role="2AJF6D">
-          <ref role="2AI5Lk" to="wyt6:~Override" />
+          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
       </node>
     </node>

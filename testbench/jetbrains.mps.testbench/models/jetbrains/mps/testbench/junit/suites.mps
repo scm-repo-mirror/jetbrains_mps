@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model ref="r:984811b0-078d-45d7-bf58-fa501204c2fc(jetbrains.mps.testbench.junit.suites)">
   <persistence version="9" />
+  <attribute name="doNotGenerate" value="false" />
   <languages>
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="-1" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="2" />
@@ -5299,10 +5300,10 @@
                 <property role="373rjd" value="true" />
                 <ref role="37wK5l" to="u3gh:1Yn_vPPAhyN" resolve="SystemBackgroundTaskScheduler" />
                 <node concept="37vLTw" id="1Yn_vPPASrf" role="37wK5m">
-                  <ref role="3cqZAo" node="1Yn_vPPASrd" resolve="contextProject" />
+                  <ref role="3cqZAo" node="1Yn_vPPASrd" resolve="mpsProject" />
                 </node>
                 <node concept="37vLTw" id="1Yn_vPPBOy$" role="37wK5m">
-                  <ref role="3cqZAo" node="1Yn_vPPBOyp" resolve="shareRead" />
+                  <ref role="3cqZAo" node="1Yn_vPPBOyp" resolve="shareReadExecutor" />
                 </node>
               </node>
             </node>
