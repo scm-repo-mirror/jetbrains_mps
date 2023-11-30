@@ -441,6 +441,7 @@ public class Generate_Facet extends IFacet.Stub {
                       tb.addAll(Sequence.fromIterable(res.models()).toListSequence());
                       List<GeneratorTask> tasks = tb.getResult();
                       for (GeneratorTask t : tasks) {
+                        t.setUserObject(res);
                         Target_configure.vars(pa.global()).transientModelsProvider().associate(t, tm);
                       }
                       rv.addAll(tasks);
