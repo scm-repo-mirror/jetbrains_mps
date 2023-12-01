@@ -144,7 +144,7 @@ public final class MPSCore extends ComponentPlugin implements ComponentHost {
     init(new DescriptorModelComponent(myModuleRepository,
                                       new LanguageDescriptorModelProvider(myLanguageRegistry),
                                       new GeneratorDescriptorModelProvider(),
-                                      new GenericDescriptorModelProvider()));
+                                      new GenericDescriptorModelProvider(myLanguageRegistry)));
     init(new TypeRegistry());
 
     myProjectManager = init(new ProjectManager());

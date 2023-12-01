@@ -25,6 +25,8 @@ import jetbrains.mps.smodel.SModelId.IntegerSModelId;
 import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.smodel.SnapshotModelData;
 import jetbrains.mps.smodel.TrivialModelDescriptor;
+import jetbrains.mps.smodel.language.LanguageRegistry;
+import jetbrains.mps.smodel.runtime.ModuleRuntime.Extension.MatchRequest;
 import org.jetbrains.mps.annotations.Internal;
 import org.jetbrains.mps.openapi.model.SModelId;
 import org.jetbrains.mps.openapi.model.SModelName;
@@ -50,6 +52,11 @@ public class GenericDescriptorModelProvider extends DescriptorModelProvider {
   private final SModelId myDescriptorModelId = new IntegerSModelId(0x0f040404);
 
   private final Map<SModelReference, DescriptorModel> myModels = Collections.synchronizedMap(new HashMap<>());
+  private final LanguageRegistry myLanguageRegistry;
+
+  public GenericDescriptorModelProvider(LanguageRegistry languageRegistry) {
+    myLanguageRegistry = languageRegistry;
+  }
 
   @Override
   public boolean isApplicable(SModule module) {
@@ -82,7 +89,8 @@ public class GenericDescriptorModelProvider extends DescriptorModelProvider {
     if (dm != null) {
       dm.invalidate();
     } else {
-      dm = new DescriptorModel(modelReference, module);
+      final DescriptorModel fdm;
+      fdm = dm = new DescriptorModel(modelReference, module);
       /*
       lang.descriptor legitimately mentions lang.smodel as its generation target.
       lang.smodel has MPS.Core runtime solution (is it right?).
@@ -96,6 +104,9 @@ public class GenericDescriptorModelProvider extends DescriptorModelProvider {
       // Perhaps, shall add lang.descriptor conditionally once there
       // are extensions/extpoints/lang.plugin elements in the solution?
       dm.addEngagedOnGenerationLanguage(BootstrapLanguages.getLanguageDescriptorLang());
+      myLanguageRegistry.withAvailableExtensions(DescriptorModelContributor.class,
+                                                 new MatchRequest() { /*"solution", "@descriptor" */},
+                                                 e -> e.contribute(GenericDescriptorModelProvider.this, module, fdm));
       myModels.put(modelReference, dm);
       ((SModuleBase) module).registerModel(dm);
     }

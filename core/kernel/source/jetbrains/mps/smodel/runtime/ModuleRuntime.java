@@ -34,6 +34,7 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 /**
  * Generic representation of a deployed module.
@@ -150,6 +151,17 @@ public final class ModuleRuntime {
       myModuleActivator.deactivate();
       myModuleActivator = null;
     }
+  }
+
+  /**
+   * PROVISIONAL API, DON'T USE OUTSIDE OF MPS INTERNALS.
+   * INSTEAD, RELY on {@code LanguageRegistry#withAvailableExtensions}
+   * @since 2023.3
+   */
+  public  <T> Stream<Extension<T>> extensionsFor(Class<T> kind) {
+    // FIXME implement
+    // XXX decide if matchRequest goes in here or is checked outside
+    return Stream.empty();
   }
 
   // instantiated once during module lifecycle

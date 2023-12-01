@@ -34,6 +34,8 @@ import jetbrains.mps.smodel.adapter.ids.SLanguageId;
 import jetbrains.mps.smodel.runtime.ILanguageAspect;
 import jetbrains.mps.smodel.runtime.ModuleDeploymentListener;
 import jetbrains.mps.smodel.runtime.ModuleRuntime;
+import jetbrains.mps.smodel.runtime.ModuleRuntime.Extension;
+import jetbrains.mps.smodel.runtime.ModuleRuntime.Extension.MatchRequest;
 import jetbrains.mps.smodel.runtime.ModuleRuntime.Flags;
 import jetbrains.mps.smodel.runtime.ModuleRuntime.ModuleRuntimeContext;
 import jetbrains.mps.smodel.runtime.impl.GeneratorRuntimeActivator;
@@ -60,6 +62,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.locks.ReadWriteLock;
@@ -767,6 +770,16 @@ public final class LanguageRegistry implements CoreComponent, DeployListener {
     try {
       myRuntimeInstanceAccess.readLock().lock();
       modules.map(myModuleRuntime::get).filter(Objects::nonNull).forEach(operation);
+    } finally {
+      myRuntimeInstanceAccess.readLock().unlock();
+    }
+  }
+
+  public <T> void withAvailableExtensions(final Class<T> kind, final MatchRequest matchRequest, Consumer<T> operation) {
+    try {
+      myRuntimeInstanceAccess.readLock().lock();
+      myModuleRuntime.values().stream().flatMap(mr -> mr.extensionsFor(kind)).filter(e -> e.matches(matchRequest))
+                     .map(Extension::get).filter(Optional::isPresent).map(Optional::get).forEach(operation);
     } finally {
       myRuntimeInstanceAccess.readLock().unlock();
     }
