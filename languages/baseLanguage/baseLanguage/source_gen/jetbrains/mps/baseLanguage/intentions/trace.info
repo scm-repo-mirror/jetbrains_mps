@@ -7665,7 +7665,7 @@
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c6(jetbrains.mps.baseLanguage.intentions)/3445966219251817275">
     <file name="IntentionsDescriptor.java">
       <node id="3445966219251817275" at="342,90,343,67" concept="5" />
-      <node id="3445966219251817275" at="573,46,574,55" concept="5" />
+      <node id="3445966219251817275" at="574,55,575,55" concept="5" />
     </file>
     <file name="ReplacePropertyWithField_Intention.java">
       <node id="3445966219251817275" at="26,0,27,0" concept="6" trace="myCachedExecutable" />
@@ -7741,7 +7741,7 @@
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c6(jetbrains.mps.baseLanguage.intentions)/3445966219255869242">
     <file name="IntentionsDescriptor.java">
       <node id="3445966219255869242" at="189,65,190,67" concept="5" />
-      <node id="3445966219255869242" at="574,55,575,55" concept="5" />
+      <node id="3445966219255869242" at="573,46,574,55" concept="5" />
     </file>
     <file name="ReplaceFieldWithProperty_Intention.java">
       <node id="3445966219255869242" at="26,0,27,0" concept="6" trace="myCachedExecutable" />
