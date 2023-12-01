@@ -4270,6 +4270,13 @@
             <property role="1dT_AB" value="This will be replaced by getting resolve info from a reference in a context containing it" />
           </node>
         </node>
+        <node concept="TZ5HI" id="2DYuqezwYaF" role="3nqlJM">
+          <node concept="TZ5HA" id="2DYuqezwYaG" role="3HnX3l">
+            <node concept="1dT_AC" id="2DYuqezwYdF" role="1dT_Ay">
+              <property role="1dT_AB" value="use scopes to obtain actual resolveInfo; Use reference.resolveInfo to find out value stored with an association link instance." />
+            </node>
+          </node>
+        </node>
         <node concept="TZ5HA" id="3TdPJoXEL$Y" role="TZ5H$">
           <node concept="1dT_AC" id="3TdPJoXEL$Z" role="1dT_Ay">
             <property role="1dT_AB" value="[artem] Well, I believe this one has to be replaced with Scope, with IResolveInfo being a default fallback. " />
@@ -4283,13 +4290,6 @@
         <node concept="TZ5HA" id="3TdPJoXEMFK" role="TZ5H$">
           <node concept="1dT_AC" id="3TdPJoXEMFL" role="1dT_Ay">
             <property role="1dT_AB" value="  Instead, it's Scope responsibility to build and process resolveInfo" />
-          </node>
-        </node>
-        <node concept="TZ5HI" id="2DYuqezwYaF" role="3nqlJM">
-          <node concept="TZ5HA" id="2DYuqezwYaG" role="3HnX3l">
-            <node concept="1dT_AC" id="2DYuqezwYdF" role="1dT_Ay">
-              <property role="1dT_AB" value="use scopes to obtain actual resolveInfo; Use reference.resolveInfo to find out value stored with an association link instance." />
-            </node>
           </node>
         </node>
       </node>

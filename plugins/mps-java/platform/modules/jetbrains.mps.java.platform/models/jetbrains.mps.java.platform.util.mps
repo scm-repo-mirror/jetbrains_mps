@@ -408,6 +408,13 @@
     <node concept="2tJIrI" id="$QEGdhUjXi" role="jymVt" />
     <node concept="3clFb_" id="4TtYrYGuXmD" role="jymVt">
       <property role="TrG5h" value="pasteJava" />
+      <node concept="37vLTG" id="4TtYrYGuXmG" role="3clF46">
+        <property role="TrG5h" value="anchor" />
+        <property role="3TUv4t" value="true" />
+        <node concept="3uibUv" id="4TtYrYGuXmH" role="1tU5fm">
+          <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
+        </node>
+      </node>
       <node concept="3cqZAl" id="4TtYrYGuXmF" role="3clF45" />
       <node concept="3Tm1VV" id="4TtYrYGuXmE" role="1B3o_S" />
       <node concept="3clFbS" id="4TtYrYGuXmM" role="3clF47">
@@ -533,13 +540,6 @@
           </node>
         </node>
       </node>
-      <node concept="37vLTG" id="4TtYrYGuXmG" role="3clF46">
-        <property role="TrG5h" value="anchor" />
-        <property role="3TUv4t" value="true" />
-        <node concept="3uibUv" id="4TtYrYGuXmH" role="1tU5fm">
-          <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
-        </node>
-      </node>
       <node concept="37vLTG" id="4TtYrYGuXmK" role="3clF46">
         <property role="TrG5h" value="featureKind" />
         <property role="3TUv4t" value="true" />
@@ -583,19 +583,6 @@
         <property role="TrG5h" value="project" />
         <node concept="3uibUv" id="MCyGswqxeL" role="1tU5fm">
           <ref role="3uigEE" to="z1c3:~Project" resolve="Project" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="6to_vyT_bdu" role="3clF46">
-        <property role="TrG5h" value="progress" />
-        <node concept="3uibUv" id="6to_vyT_evP" role="1tU5fm">
-          <ref role="3uigEE" to="mk90:~ProgressMonitorAdapter" resolve="ProgressMonitorAdapter" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="3Vjoma3p67q" role="3clF46">
-        <property role="TrG5h" value="repository" />
-        <property role="3TUv4t" value="true" />
-        <node concept="3uibUv" id="3Vjoma3p67r" role="1tU5fm">
-          <ref role="3uigEE" to="lui2:~SRepository" resolve="SRepository" />
         </node>
       </node>
       <node concept="3cqZAl" id="4TtYrYGuXn8" role="3clF45" />
@@ -714,6 +701,19 @@
               </node>
             </node>
           </node>
+        </node>
+      </node>
+      <node concept="37vLTG" id="6to_vyT_bdu" role="3clF46">
+        <property role="TrG5h" value="progress" />
+        <node concept="3uibUv" id="6to_vyT_evP" role="1tU5fm">
+          <ref role="3uigEE" to="mk90:~ProgressMonitorAdapter" resolve="ProgressMonitorAdapter" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="3Vjoma3p67q" role="3clF46">
+        <property role="TrG5h" value="repository" />
+        <property role="3TUv4t" value="true" />
+        <node concept="3uibUv" id="3Vjoma3p67r" role="1tU5fm">
+          <ref role="3uigEE" to="lui2:~SRepository" resolve="SRepository" />
         </node>
       </node>
     </node>
@@ -2113,8 +2113,6 @@
           </node>
         </node>
       </node>
-      <node concept="3Tm1VV" id="4TtYrYGuXoI" role="1B3o_S" />
-      <node concept="3cqZAl" id="4TtYrYGuXoJ" role="3clF45" />
       <node concept="37vLTG" id="4TtYrYGuXoK" role="3clF46">
         <property role="TrG5h" value="anchor" />
         <property role="3TUv4t" value="true" />
@@ -2125,6 +2123,8 @@
         <property role="3TUv4t" value="true" />
         <node concept="H_c77" id="1eLg33xvAIP" role="1tU5fm" />
       </node>
+      <node concept="3Tm1VV" id="4TtYrYGuXoI" role="1B3o_S" />
+      <node concept="3cqZAl" id="4TtYrYGuXoJ" role="3clF45" />
       <node concept="37vLTG" id="4TtYrYGuXoO" role="3clF46">
         <property role="TrG5h" value="javaCode" />
         <node concept="17QB3L" id="1eLg33xvAIO" role="1tU5fm" />

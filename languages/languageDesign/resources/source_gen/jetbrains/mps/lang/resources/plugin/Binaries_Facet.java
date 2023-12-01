@@ -38,6 +38,7 @@ import jetbrains.mps.make.script.IFeedback;
 import jetbrains.mps.internal.make.runtime.java.FileDeltaCollector;
 import jetbrains.mps.internal.make.runtime.util.FilesDelta;
 import jetbrains.mps.internal.make.runtime.util.DeltaKey;
+import jetbrains.mps.smodel.resources.MakeKeys;
 import jetbrains.mps.internal.make.runtime.util.StaleFilesCollector;
 import jetbrains.mps.smodel.resources.DResource;
 import jetbrains.mps.vfs.FileSystem;
@@ -95,42 +96,46 @@ public class Binaries_Facet extends IFacet.Stub {
                 final SRepository repository = monitor.getSession().getProject().getRepository();
                 final Wrappers._boolean fail = new Wrappers._boolean(false);
                 repository.getModelAccess().runReadAction(() -> {
-                  for (final SModel model : Sequence.fromIterable(input).translate((res) -> Sequence.fromIterable(res.models()).ofType(SModel.class))) {
-                    Stream<IFile> possibleLocations = GenerationTargetFacet.stream(model).map((GenerationTargetFacet f) -> f.getOutputLocation(model));
-                    IFile outputLocation = possibleLocations.filter(Objects::nonNull).findFirst().orElse(null);
-                    final IFile outputDir = Target_make.vars(pa.global()).alternateOutput().invoke(outputLocation);
-                    Iterable<Tuples._2<IFile, byte[]>> generatedBinaryFiles;
-                    try {
-                      generatedBinaryFiles = ListSequence.fromList(SModelOperations.nodes(model, CONCEPTS.Resource$gs)).translate((it) -> (List<Tuples._2<IFile, byte[]>>) Resource__BehaviorDescriptor.generate_id7Mb2akaesv8.invoke(it, outputDir)).where(new NotNullWhereFilter()).toList();
-                    } catch (ResourceGenerationException rge) {
-                      monitor.reportFeedback(new IFeedback.ERROR(String.valueOf(rge.getMessage())));
-                      if (LOG.isErrorLevel()) {
-                        LOG.error("", rge);
+                  for (MResource in : Sequence.fromIterable(input)) {
+                    Iterable<SModel> models = Sequence.fromIterable(in.models()).ofType(SModel.class);
+                    for (final SModel model : Sequence.fromIterable(models)) {
+                      Stream<IFile> possibleLocations = GenerationTargetFacet.stream(model).map((GenerationTargetFacet f) -> f.getOutputLocation(model));
+                      IFile outputLocation = possibleLocations.filter(Objects::nonNull).findFirst().orElse(null);
+                      final IFile outputDir = Target_make.vars(pa.global()).alternateOutput().invoke(outputLocation);
+                      Iterable<Tuples._2<IFile, byte[]>> generatedBinaryFiles;
+                      try {
+                        generatedBinaryFiles = ListSequence.fromList(SModelOperations.nodes(model, CONCEPTS.Resource$gs)).translate((it) -> (List<Tuples._2<IFile, byte[]>>) Resource__BehaviorDescriptor.generate_id7Mb2akaesv8.invoke(it, outputDir)).where(new NotNullWhereFilter()).toList();
+                      } catch (ResourceGenerationException rge) {
+                        monitor.reportFeedback(new IFeedback.ERROR(String.valueOf(rge.getMessage())));
+                        if (LOG.isErrorLevel()) {
+                          LOG.error("", rge);
+                        }
+                        fail.value = true;
+                        break;
                       }
-                      fail.value = true;
-                      break;
-                    }
-                    if (Sequence.fromIterable(generatedBinaryFiles).isEmpty()) {
-                      continue;
-                    }
+                      if (Sequence.fromIterable(generatedBinaryFiles).isEmpty()) {
+                        continue;
+                      }
 
-                    final FileDeltaCollector fdc = new FileDeltaCollector(new FilesDelta(new DeltaKey(model.getModule(), model)), outputDir, fp);
-                    Sequence.fromIterable(generatedBinaryFiles).visitAll((d) -> {
-                      if (d._1() != null) {
-                        fdc.saveStream(d._0(), d._1());
+                      final FileDeltaCollector fdc = new FileDeltaCollector(new FilesDelta(new DeltaKey(model.getModule(), model)), outputDir, fp);
+                      Sequence.fromIterable(generatedBinaryFiles).visitAll((d) -> {
+                        if (d._1() != null) {
+                          fdc.saveStream(d._0(), d._1());
+                        }
+                      });
+                      if (!(in.getValue(MakeKeys.CLEAN_MAKE))) {
+                        // though StaleFilesCollector is discouraged, we need to delete old resource files, therefore we have to use it here unless we move Resource processing into textgen aspect
+                        // In case of 'clean' session, it's TextGen facet that collects (and reports as stale) all files under output dir.
+                        // For an ordinary build (clean == false), I leave this code as I suppose it may report outdated (aka stale) resource files.
+                        // Java files, or anything coming from TextGen facet, are handled by files recorded in 'generated'.
+                        // I hope to refactor the whole Make process to keep content creation logic separate from delta authoring, so that we won't need to 
+                        // deal with stale 'Resource' artifacts here explicitly, but until then, have to keep ordinary build and renamed resource file scenario in mind
+                        new StaleFilesCollector(outputDir).updateDelta(fdc.getDelta());
                       }
-                    });
-                    if (!(monitor.getSession().isCleanMake())) {
-                      // though StaleFilesCollector is discouraged, we need to delete old resource files, therefore we have to use it here unless we move Resource processing into textgen aspect
-                      // In case of 'clean' session, it's TextGen facet that collects (and reports as stale) all files under output dir.
-                      // For an ordinary build (clean == false), I leave this code as I suppose it may report outdated (aka stale) resource files.
-                      // Java files, or anything coming from TextGen facet, are handled by files recorded in 'generated'.
-                      // I hope to refactor the whole Make process to keep content creation logic separate from delta authoring, so that we won't need to 
-                      // deal with stale 'Resource' artifacts here explicitly, but until then, have to keep ordinary build and renamed resource file scenario in mind
-                      new StaleFilesCollector(outputDir).updateDelta(fdc.getDelta());
+                      ListSequence.fromList(deltaList).addElement(fdc.getDelta());
                     }
-                    ListSequence.fromList(deltaList).addElement(fdc.getDelta());
                   }
+
                 });
                 if (fail.value) {
                   return new IResult.FAILURE(_output_8acy7z_a0a);
