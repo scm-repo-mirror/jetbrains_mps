@@ -359,6 +359,19 @@ public class MPSModuleRepository extends SRepositoryBase implements CoreComponen
     }
   }
 
+  @Override
+  public boolean needsSave() {
+    if (getModelAccess().canRead()) {
+      return checkModulesModelsChanged();
+    }
+    return getModelAccess().computeReadAction(this::checkModulesModelsChanged);
+  }
+
+  private boolean checkModulesModelsChanged() {
+    boolean changedModule = myModules.stream().filter(EditableSModule.class::isInstance).map(EditableSModule.class::cast).anyMatch(EditableSModule::isChanged);
+    return changedModule || myModelRepository.hasModelsToSave();
+  }
+
   //
 
 
