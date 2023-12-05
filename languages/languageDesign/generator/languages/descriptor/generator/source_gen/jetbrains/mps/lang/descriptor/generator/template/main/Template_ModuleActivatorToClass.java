@@ -61,7 +61,7 @@ public class Template_ModuleActivatorToClass extends TemplateDeclarationBase {
         if (QueriesGenerated.ifMacro_Condition_11_0(new IfMacroContext(context1, ifMacroRef))) {
           final SNode tnode6 = environment.createOutputNode(myConcepts[4]);
           {
-            tnode6.setProperty(myProperties[0], "activate");
+            tnode6.setProperty(myProperties[0], "contribute");
             TemplateContext context2 = context1.subContext();
             {
               final SNode tnode7 = environment.createOutputNode(myConcepts[2]);

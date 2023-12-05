@@ -19,6 +19,7 @@ import jetbrains.mps.classloading.ModuleClassLoader;
 import jetbrains.mps.components.ComponentHost;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.util.NameUtil;
+import jetbrains.mps.util.Pair;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.annotations.Internal;
@@ -30,11 +31,14 @@ import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
+import java.util.stream.Stream.Builder;
 
 /**
  * Generic representation of a deployed module.
@@ -121,6 +125,9 @@ public final class ModuleRuntime {
     return myProvidesExtensions;
   }
 
+  private Class<?>[] myBasicExtensionKeys;
+  private Extension<?>[] myBasicExtensionValues;
+
   public void activate(final ModuleRuntimeContext context) {
       try {
         myModuleActivator = myActivatorFactory.newInstance(this, context);
@@ -132,13 +139,23 @@ public final class ModuleRuntime {
         return;
       }
       try {
+        final List<Pair<Class<?>, Extension<?>>> registrations = new ArrayList<>();
         final ActivatorContext ac = new ActivatorContext() {
           @Override
           public <T> void extension(Class<T> key, Extension<T> ext) {
-            // FIXME no op
+            registrations.add(new Pair<>(key, ext));
           }
         };
-        myModuleActivator.activate(ac);
+        myModuleActivator.activate();
+        myModuleActivator.contribute(ac);
+        if (!registrations.isEmpty()) {
+          myBasicExtensionKeys = new Class<?>[registrations.size()];
+          myBasicExtensionValues = new Extension<?>[registrations.size()];
+          for (int i = 0, x = registrations.size(); i < x; i++) {
+            myBasicExtensionKeys[i] = registrations.get(i).o1;
+            myBasicExtensionValues[i] = registrations.get(i).o2;
+          }
+        }
       } catch (Throwable th) {
         final String cn = NameUtil.compactNamespace(myModuleActivator.getClass().getName());
         final String mn = NameUtil.compactNamespace(myModuleReference.getModuleName());
@@ -149,6 +166,10 @@ public final class ModuleRuntime {
   public void deactivate(final ModuleRuntimeContext context) {
     if (myModuleActivator != null) {
       myModuleActivator.deactivate();
+      myBasicExtensionKeys = null;
+      // XXX we can detect which extensions have been instantiated and let them do cleanup, if necessary
+      //     like if the class implements, say, optional Disposable, we can invoke it here.
+      myBasicExtensionValues = null;
       myModuleActivator = null;
     }
   }
@@ -159,9 +180,20 @@ public final class ModuleRuntime {
    * @since 2023.3
    */
   public  <T> Stream<Extension<T>> extensionsFor(Class<T> kind) {
-    // FIXME implement
     // XXX decide if matchRequest goes in here or is checked outside
-    return Stream.empty();
+    if (myBasicExtensionKeys == null) {
+      return Stream.empty();
+    }
+    Builder<Extension<T>> builder = null;
+    for (int i = 0; i < myBasicExtensionKeys.length; i++) {
+      if (myBasicExtensionKeys[i] == kind) {
+        if (builder == null) {
+          builder = Stream.builder();
+          builder.add((Extension<T>) myBasicExtensionValues[i]);
+        }
+      }
+    }
+    return builder == null ? Stream.empty() : builder.build();
   }
 
   // instantiated once during module lifecycle
@@ -204,11 +236,10 @@ public final class ModuleRuntime {
   public interface Activator {
     default void activate() {}
     /**
-     * @implNote shall always call {@link #activate()} as the first activity (unless we deprecate and remove the method)
+     * {@link #activate()} comes first, followed by this method in case there's need to supply extensions
      * @since 2023.3
      */
-    default void activate(@NotNull ActivatorContext ctx) {
-      activate();
+    default void contribute(@NotNull ActivatorContext ctx) {
     }
     default void deactivate() {}
   }

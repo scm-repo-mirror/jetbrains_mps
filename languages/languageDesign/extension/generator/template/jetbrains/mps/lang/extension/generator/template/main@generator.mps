@@ -1477,7 +1477,7 @@
     <node concept="312cEu" id="4gr$69f_LMz" role="13RCb5">
       <property role="TrG5h" value="Activator" />
       <node concept="3clFb_" id="4gr$69f_LNr" role="jymVt">
-        <property role="TrG5h" value="activate" />
+        <property role="TrG5h" value="contribute" />
         <node concept="3clFbS" id="4gr$69f_LNu" role="3clF47">
           <node concept="3clFbF" id="4gr$69f_LRM" role="3cqZAp">
             <node concept="2OqwBi" id="4gr$69f_Mh1" role="3clFbG">
