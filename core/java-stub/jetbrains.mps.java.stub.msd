@@ -13,7 +13,7 @@
     </modelRoot>
   </models>
   <facets>
-    <facet type="java" compile="ext" classes="provided" ext="yes">
+    <facet type="java" compile="ext" classes="provided" ext="no">
       <classes generated="true" />
       <library location="${module}/classes" />
       <library location="${platform_lib}/util-8.jar" />
