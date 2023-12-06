@@ -26,11 +26,10 @@ import jetbrains.mps.project.modules.DevkitProducer;
 import jetbrains.mps.project.modules.LanguageAndSolutionsProducer;
 import jetbrains.mps.project.modules.LanguageProducer;
 import jetbrains.mps.project.modules.SolutionProducer;
-import jetbrains.mps.project.structure.GenericDescriptorModelProvider;
-import jetbrains.mps.project.structure.LanguageDescriptorModelProvider.LanguageModelDescriptor;
 import jetbrains.mps.refactoring.Renamer;
 import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.smodel.Language;
+import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.Reference;
 import jetbrains.mps.vfs.IFile;
@@ -278,9 +277,7 @@ public abstract class ModuleIDETests extends ModuleInProjectTest {
 
       // Check models namespace is changed
       for (SModel model : module.getModels()) {
-        if (!(model instanceof GenericDescriptorModelProvider.DescriptorModel || model instanceof LanguageModelDescriptor)) {
-          Assert.assertEquals(newModuleName, model.getName().getNamespace());
-        }
+        Assert.assertEquals(newModuleName, SModelStereotype.isDescriptorModel(model)? model.getName().getLongName() : model.getName().getNamespace());
       }
 
       // Check model file name stays simple despite namespace change

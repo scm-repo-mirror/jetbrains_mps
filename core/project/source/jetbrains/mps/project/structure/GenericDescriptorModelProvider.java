@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,6 @@ import jetbrains.mps.smodel.SnapshotModelData;
 import jetbrains.mps.smodel.TrivialModelDescriptor;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.smodel.runtime.ModuleRuntime.Extension.MatchRequest;
-import org.jetbrains.mps.annotations.Internal;
 import org.jetbrains.mps.openapi.model.SModelId;
 import org.jetbrains.mps.openapi.model.SModelName;
 import org.jetbrains.mps.openapi.model.SModelReference;
@@ -60,7 +59,7 @@ public class GenericDescriptorModelProvider extends DescriptorModelProvider {
 
   @Override
   public boolean isApplicable(SModule module) {
-    if (module.isPackaged()) {
+    if (module.isPackaged() || module.isReadOnly() /*isn't isReadOnly enough? isPackaged has to imply r/o, I guess*/) {
       return false;
     }
     // PROVISIONAL, I'd like to test it for solutions first, then would expand to other module kinds.
@@ -148,8 +147,7 @@ public class GenericDescriptorModelProvider extends DescriptorModelProvider {
     return new jetbrains.mps.smodel.SModelReference(module.getModuleReference(), myDescriptorModelId, new SModelName(moduleName, SModelStereotype.DESCRIPTOR));
   }
 
-  @Internal
-  public static class DescriptorModel extends TrivialModelDescriptor /*implements GeneratableSModel*/ {
+  /*package*/ static class DescriptorModel extends TrivialModelDescriptor /*implements GeneratableSModel*/ {
     private final SModule myModule;
     private String myHash;
 

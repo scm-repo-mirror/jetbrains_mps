@@ -183,16 +183,14 @@ public class LanguageDescriptorModelProvider extends DescriptorModelProvider {
     myListener.attach(language);
     Language module = (Language) language;
     SModelReference ref = getSModelReference(module);
-    if (!myModels.containsKey(ref)) {
+    LanguageModelDescriptor ldm = myModels.get(ref);
+    if (ldm == null) {
       createModel(ref, module);
     } else {
       if (!nodeChange){
-        myModels.get(ref).updateGenerationLanguages();
+        ldm.updateGenerationLanguages();
       }
-      LanguageModelDescriptor languageModelDescriptor = myModels.get(ref);
-      if (languageModelDescriptor != null) {
-        languageModelDescriptor.invalidate();
-      }
+      ldm.invalidate();
     }
   }
 

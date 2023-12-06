@@ -7122,14 +7122,6 @@
                 </node>
               </node>
               <node concept="3clFbJ" id="4fSpAVATXhG" role="9aQIa">
-                <node concept="2ZW3vV" id="4fSpAVATXhJ" role="3clFbw">
-                  <node concept="37vLTw" id="4fSpAVATXhH" role="2ZW6bz">
-                    <ref role="3cqZAo" node="4fSpAVATXhP" resolve="model" />
-                  </node>
-                  <node concept="3uibUv" id="4fSpAVATXhI" role="2ZW6by">
-                    <ref role="3uigEE" to="rqo8:~LanguageDescriptorModelProvider$LanguageModelDescriptor" resolve="LanguageDescriptorModelProvider.LanguageModelDescriptor" />
-                  </node>
-                </node>
                 <node concept="3clFbS" id="4fSpAVATXhL" role="3clFbx">
                   <node concept="3SKdUt" id="5Mq5ERFH5em" role="3cqZAp">
                     <node concept="1PaTwC" id="5Mq5ERFH5rA" role="1aUNEU">
@@ -7313,6 +7305,13 @@
                     </node>
                   </node>
                 </node>
+                <node concept="2YIFZM" id="1rltmuNCJds" role="3clFbw">
+                  <ref role="37wK5l" to="w1kc:~SModelStereotype.isDescriptorModel(org.jetbrains.mps.openapi.model.SModel)" resolve="isDescriptorModel" />
+                  <ref role="1Pybhc" to="w1kc:~SModelStereotype" resolve="SModelStereotype" />
+                  <node concept="37vLTw" id="1rltmuNCJdt" role="37wK5m">
+                    <ref role="3cqZAo" node="4fSpAVATXhP" resolve="model" />
+                  </node>
+                </node>
               </node>
               <node concept="3clFbS" id="4fSpAVATXh$" role="3clFbx">
                 <node concept="3clFbJ" id="4fSpAVATXh_" role="3cqZAp">
@@ -7407,12 +7406,11 @@
           </node>
           <node concept="3clFbS" id="4fSpAVATXi_" role="2LFqv$">
             <node concept="3clFbJ" id="4fSpAVATXiN" role="3cqZAp">
-              <node concept="2ZW3vV" id="4fSpAVATXiQ" role="3clFbw">
-                <node concept="37vLTw" id="4fSpAVATXiO" role="2ZW6bz">
+              <node concept="2YIFZM" id="1rltmuNCIza" role="3clFbw">
+                <ref role="37wK5l" to="w1kc:~SModelStereotype.isDescriptorModel(org.jetbrains.mps.openapi.model.SModel)" resolve="isDescriptorModel" />
+                <ref role="1Pybhc" to="w1kc:~SModelStereotype" resolve="SModelStereotype" />
+                <node concept="37vLTw" id="1rltmuNCIO9" role="37wK5m">
                   <ref role="3cqZAo" node="4fSpAVATXiW" resolve="model" />
-                </node>
-                <node concept="3uibUv" id="4fSpAVATXiP" role="2ZW6by">
-                  <ref role="3uigEE" to="rqo8:~LanguageDescriptorModelProvider$LanguageModelDescriptor" resolve="LanguageDescriptorModelProvider.LanguageModelDescriptor" />
                 </node>
               </node>
               <node concept="3clFbS" id="4fSpAVATXiS" role="3clFbx">
@@ -7532,14 +7530,6 @@
           </node>
           <node concept="3clFbS" id="4fSpAVATXjj" role="2LFqv$">
             <node concept="3clFbJ" id="4fSpAVATXjt" role="3cqZAp">
-              <node concept="2ZW3vV" id="4fSpAVATXjw" role="3clFbw">
-                <node concept="37vLTw" id="4fSpAVATXju" role="2ZW6bz">
-                  <ref role="3cqZAo" node="4fSpAVATXjA" resolve="model" />
-                </node>
-                <node concept="3uibUv" id="4fSpAVATXjv" role="2ZW6by">
-                  <ref role="3uigEE" to="rqo8:~LanguageDescriptorModelProvider$LanguageModelDescriptor" resolve="LanguageDescriptorModelProvider.LanguageModelDescriptor" />
-                </node>
-              </node>
               <node concept="3clFbS" id="4fSpAVATXjy" role="3clFbx">
                 <node concept="3SKdUt" id="4fSpAVATXkD" role="3cqZAp">
                   <node concept="1PaTwC" id="ATZLwXor4f" role="1aUNEU">
@@ -7572,6 +7562,13 @@
                       </node>
                     </node>
                   </node>
+                </node>
+              </node>
+              <node concept="2YIFZM" id="1rltmuNCJ1c" role="3clFbw">
+                <ref role="37wK5l" to="w1kc:~SModelStereotype.isDescriptorModel(org.jetbrains.mps.openapi.model.SModel)" resolve="isDescriptorModel" />
+                <ref role="1Pybhc" to="w1kc:~SModelStereotype" resolve="SModelStereotype" />
+                <node concept="37vLTw" id="1rltmuNCJ1d" role="37wK5m">
+                  <ref role="3cqZAo" node="4fSpAVATXjA" resolve="model" />
                 </node>
               </node>
             </node>
