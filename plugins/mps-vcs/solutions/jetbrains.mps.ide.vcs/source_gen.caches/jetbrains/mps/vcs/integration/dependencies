@@ -32,6 +32,7 @@
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
     <classNode dependClassName="jetbrains.mps.ide.project.ProjectHelper" />
     <classNode dependClassName="jetbrains.mps.ide.vfs.IdeaFileSystem" />
+    <classNode dependClassName="jetbrains.mps.ide.vfs.MPSSavingRequestor" />
     <classNode dependClassName="jetbrains.mps.project.MPSProject" />
     <classNode dependClassName="jetbrains.mps.smodel.SModelFileTracker" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />

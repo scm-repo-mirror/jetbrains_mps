@@ -512,8 +512,7 @@ public class IdeaFile implements IFile, CachingFile {
       throw new UnsupportedOperationException("Cannot write to JAR files");
     } else {
       virtualFile = renameIfCaseSensitive(virtualFile);
-//      return virtualFile.getOutputStream(getFileSystem());
-      return virtualFile.getOutputStream(new SavingRequestor(){});
+      return virtualFile.getOutputStream(new MPSSavingRequestor());
     }
   }
 
