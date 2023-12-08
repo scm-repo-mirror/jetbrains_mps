@@ -61,7 +61,7 @@ public class RenameModelDialog extends RenameDialog {
     super.doRefactoringAction();
   }
 
-  private static void renameModel(@NotNull EditableSModel model, @NotNull String newName) {
+  private static void renameModel(@NotNull MPSProject project, @NotNull EditableSModel model, @NotNull String newName) {
     model.rename(newName, model.getSource() instanceof FileDataSource);
     Renamer.updateModelAndModuleReferences(project);
     project.getRepository().saveAll();
