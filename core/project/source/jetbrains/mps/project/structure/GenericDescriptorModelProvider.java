@@ -179,7 +179,7 @@ public class GenericDescriptorModelProvider extends DescriptorModelProvider {
 
     @Override
     public boolean isGeneratable() {
-      return true;
+      return getRootNodes().iterator().hasNext();
     }
 
     @Override
