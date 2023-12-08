@@ -1448,11 +1448,17 @@
                         <node concept="3clFbF" id="2CbzOko6nbs" role="3cqZAp">
                           <node concept="1Wc70l" id="22sDcpIXaee" role="3clFbG">
                             <node concept="3fqX7Q" id="2CbzOko6nbq" role="3uHU7B">
-                              <node concept="2YIFZM" id="2CbzOko6nj8" role="3fr31v">
-                                <ref role="37wK5l" to="4hrd:~VirtualFileUtils.isFileEventFromMPS(com.intellij.openapi.vfs.newvfs.events.VFileEvent)" resolve="isFileEventFromMPS" />
-                                <ref role="1Pybhc" to="4hrd:~VirtualFileUtils" resolve="VirtualFileUtils" />
-                                <node concept="37vLTw" id="2CbzOko6nj9" role="37wK5m">
-                                  <ref role="3cqZAo" node="2CbzOko6mZc" resolve="it" />
+                              <node concept="2ZW3vV" id="32ypd$_0Tc" role="3fr31v">
+                                <node concept="3uibUv" id="6usFZJUE0OW" role="2ZW6by">
+                                  <ref role="3uigEE" to="4hrd:~MPSSavingRequestor" resolve="MPSSavingRequestor" />
+                                </node>
+                                <node concept="2OqwBi" id="32ypd$$Fhf" role="2ZW6bz">
+                                  <node concept="37vLTw" id="32ypd$$EqN" role="2Oq$k0">
+                                    <ref role="3cqZAo" node="2CbzOko6mZc" resolve="it" />
+                                  </node>
+                                  <node concept="liA8E" id="32ypd$$ZZe" role="2OqNvi">
+                                    <ref role="37wK5l" to="p3o1:~VFileEvent.getRequestor()" resolve="getRequestor" />
+                                  </node>
                                 </node>
                               </node>
                             </node>
@@ -8628,6 +8634,9 @@
                   <node concept="3clFbS" id="hwfPVmjvXB" role="1zxBo7">
                     <node concept="3cpWs6" id="hwfPVmjyYS" role="3cqZAp">
                       <node concept="2OqwBi" id="hwfPVmjqa7" role="3cqZAk">
+                        <node concept="liA8E" id="hwfPVmjqmC" role="2OqNvi">
+                          <ref role="37wK5l" to="t6h5:~Constructor.newInstance(java.lang.Object...)" resolve="newInstance" />
+                        </node>
                         <node concept="2OqwBi" id="6V2p7Iuk9dx" role="2Oq$k0">
                           <node concept="37vLTw" id="hwfPVmjq1U" role="2Oq$k0">
                             <ref role="3cqZAo" node="491od_XK1Qj" resolve="participantClass" />
@@ -8635,9 +8644,6 @@
                           <node concept="liA8E" id="6V2p7Iuk9Xg" role="2OqNvi">
                             <ref role="37wK5l" to="wyt6:~Class.getDeclaredConstructor(java.lang.Class...)" resolve="getDeclaredConstructor" />
                           </node>
-                        </node>
-                        <node concept="liA8E" id="hwfPVmjqmC" role="2OqNvi">
-                          <ref role="37wK5l" to="t6h5:~Constructor.newInstance(java.lang.Object...)" resolve="newInstance" />
                         </node>
                       </node>
                     </node>
@@ -8656,8 +8662,8 @@
                       <node concept="3clFbF" id="hwfPVmjwpE" role="3cqZAp">
                         <node concept="2OqwBi" id="hwfPVmjwOC" role="3clFbG">
                           <node concept="2YIFZM" id="hwfPVmjwys" role="2Oq$k0">
-                            <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
                             <ref role="37wK5l" to="wwqx:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
+                            <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
                             <node concept="1rXfSq" id="hwfPVmjwB3" role="37wK5m">
                               <ref role="37wK5l" to="wyt6:~Object.getClass()" resolve="getClass" />
                             </node>

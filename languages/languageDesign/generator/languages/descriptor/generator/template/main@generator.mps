@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model ref="r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508(jetbrains.mps.lang.descriptor.generator.template.main@generator)">
   <persistence version="9" />
-  <attribute name="doNotGenerate" value="false" />
   <languages>
     <use id="df345b11-b8c7-4213-ac66-48d2a9b75d88" name="jetbrains.mps.baseLanguageInternal" version="-1" />
     <use id="f4ad079d-bc71-4ffb-9600-9328705cf998" name="jetbrains.mps.lang.descriptor" version="-1" />
@@ -2073,18 +2072,18 @@
         <property role="TrG5h" value="models" />
         <property role="3TUv4t" value="true" />
         <node concept="3Tm6S6" id="eB6_hfBaQG" role="1B3o_S" />
-        <node concept="2ShNRf" id="3ihidTMXVbd" role="33vP2m">
-          <node concept="1pGfFk" id="3ihidTMY2$a" role="2ShVmc">
-            <property role="373rjd" value="true" />
-            <ref role="37wK5l" to="i5cy:~AtomicReference.&lt;init&gt;()" resolve="AtomicReference" />
-          </node>
-        </node>
         <node concept="3uibUv" id="3ihidTMXKVj" role="1tU5fm">
           <ref role="3uigEE" to="i5cy:~AtomicReference" resolve="AtomicReference" />
           <node concept="10Q1$e" id="OBSkGZVngz" role="11_B2D">
             <node concept="3uibUv" id="OBSkGZVngw" role="10Q1$1">
               <ref role="3uigEE" to="r99k:~TemplateModel" resolve="TemplateModel" />
             </node>
+          </node>
+        </node>
+        <node concept="2ShNRf" id="3ihidTMXVbd" role="33vP2m">
+          <node concept="1pGfFk" id="3ihidTMY2$a" role="2ShVmc">
+            <property role="373rjd" value="true" />
+            <ref role="37wK5l" to="i5cy:~AtomicReference.&lt;init&gt;()" resolve="AtomicReference" />
           </node>
         </node>
       </node>

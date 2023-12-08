@@ -21,6 +21,7 @@ import java.util.List;
 import com.intellij.openapi.vfs.newvfs.events.VFileDeleteEvent;
 import com.intellij.openapi.vfs.newvfs.events.VFileContentChangeEvent;
 import java.util.function.Predicate;
+import jetbrains.mps.ide.vfs.MPSSavingRequestor;
 import java.util.stream.Collectors;
 import com.intellij.openapi.vcs.AbstractVcs;
 
@@ -89,7 +90,7 @@ public class GeneratedFileConflictResolving {
       Predicate<VFileEvent> p = new Predicate<VFileEvent>() {
         @Override
         public boolean test(VFileEvent e) {
-          return e.getRequestor() instanceof IdeaFileSystem;
+          return e.getRequestor() instanceof MPSSavingRequestor;
         }
       };
       return events.stream().filter(p).collect(Collectors.<VFileEvent>toList());

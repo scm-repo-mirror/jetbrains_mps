@@ -3990,17 +3990,17 @@
         </node>
         <node concept="3clFbF" id="4lRieqsPmx8" role="3cqZAp">
           <node concept="2OqwBi" id="4lRieqsPqmO" role="3clFbG">
+            <node concept="liA8E" id="4lRieqsPt9q" role="2OqNvi">
+              <ref role="37wK5l" to="dr5r:~Logger.addHandler(java.util.logging.Handler)" resolve="addHandler" />
+              <node concept="37vLTw" id="4lRieqsPvP1" role="37wK5m">
+                <ref role="3cqZAo" node="4lRieqsNdCv" resolve="myListener" />
+              </node>
+            </node>
             <node concept="2YIFZM" id="1lYeGqZXH8p" role="2Oq$k0">
               <ref role="37wK5l" to="dr5r:~Logger.getLogger(java.lang.String)" resolve="getLogger" />
               <ref role="1Pybhc" to="dr5r:~Logger" resolve="Logger" />
               <node concept="Xl_RD" id="1lYeGqZXH8q" role="37wK5m">
                 <property role="Xl_RC" value="" />
-              </node>
-            </node>
-            <node concept="liA8E" id="4lRieqsPt9q" role="2OqNvi">
-              <ref role="37wK5l" to="dr5r:~Logger.addHandler(java.util.logging.Handler)" resolve="addHandler" />
-              <node concept="37vLTw" id="4lRieqsPvP1" role="37wK5m">
-                <ref role="3cqZAo" node="4lRieqsNdCv" resolve="myListener" />
               </node>
             </node>
           </node>

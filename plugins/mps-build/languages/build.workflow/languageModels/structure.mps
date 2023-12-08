@@ -281,11 +281,6 @@
         <property role="t5JxN" value="Experimental, see similar property of BuildSource_JavaModule" />
       </node>
     </node>
-    <node concept="1TJgyi" id="6EK__xlPJF1" role="1TKVEl">
-      <property role="IQ2nx" value="7687809870062877377" />
-      <property role="TrG5h" value="withKotlin" />
-      <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
-    </node>
     <node concept="1TJgyj" id="6S1jmf0vFO_" role="1TKVEi">
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="sources" />
@@ -323,6 +318,11 @@
     </node>
     <node concept="PrWs8" id="47XTuiHNzzR" role="PzmwI">
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    </node>
+    <node concept="1TJgyi" id="6EK__xlPJF1" role="1TKVEl">
+      <property role="IQ2nx" value="7687809870062877377" />
+      <property role="TrG5h" value="withKotlin" />
+      <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
     </node>
   </node>
   <node concept="1TIwiD" id="47XTuiHNzz4">

@@ -1689,16 +1689,16 @@
                       </node>
                     </node>
                     <node concept="1Z5TYs" id="3cMB_4iXlTE" role="3cqZAp">
+                      <node concept="mw_s8" id="3cMB_4iXJKw" role="1ZfhKB">
+                        <node concept="1Z$b5t" id="3cMB_4iXJKu" role="mwGJk">
+                          <ref role="1Z$eMM" node="hfpTQfl" resolve="elementType" />
+                        </node>
+                      </node>
                       <node concept="mw_s8" id="3cMB_4iXlTH" role="1ZfhK$">
                         <node concept="1Z2H0r" id="3cMB_4iXlfE" role="mwGJk">
                           <node concept="37vLTw" id="3cMB_4iXlp_" role="1Z2MuG">
                             <ref role="3cqZAo" node="hfpUDYm" resolve="variable" />
                           </node>
-                        </node>
-                      </node>
-                      <node concept="mw_s8" id="3cMB_4iXJKw" role="1ZfhKB">
-                        <node concept="1Z$b5t" id="3cMB_4iXJKu" role="mwGJk">
-                          <ref role="1Z$eMM" node="hfpTQfl" resolve="elementType" />
                         </node>
                       </node>
                     </node>
@@ -13922,7 +13922,7 @@
               </node>
               <node concept="mw_s8" id="20SdAGCpP2l" role="1ZfhKB">
                 <node concept="2YIFZM" id="20SdAGCpQyf" role="mwGJk">
-                  <ref role="37wK5l" to="tp2g:hwak6Ex" resolve="unbounded" />
+                  <ref role="37wK5l" to="tp2g:hwak6Ex" resolve="copyTypeRecursively" />
                   <ref role="1Pybhc" to="tp2g:hv18zCR" resolve="ClassifierTypeUtil" />
                   <node concept="1PxgMI" id="20SdAGCpRaO" role="37wK5m">
                     <property role="1BlNFB" value="true" />

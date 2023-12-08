@@ -3900,8 +3900,8 @@
             <node concept="1pGfFk" id="6DVIxeQOJci" role="2ShVmc">
               <ref role="37wK5l" to="et5u:~LogHandler.&lt;init&gt;(jetbrains.mps.logging.Logger)" resolve="LogHandler" />
               <node concept="2YIFZM" id="6DVIxeQOJcj" role="37wK5m">
-                <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
                 <ref role="37wK5l" to="wwqx:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
+                <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
                 <node concept="3VsKOn" id="6DVIxeQOJck" role="37wK5m">
                   <ref role="3VsUkX" node="50RHf4RGVPk" resolve="VisibleModules" />
                 </node>
@@ -24771,9 +24771,6 @@
                         <node concept="3cpWs8" id="4KQJrW6gebc" role="3cqZAp">
                           <node concept="3cpWsn" id="4KQJrW6gebd" role="3cpWs9">
                             <property role="TrG5h" value="path" />
-                            <node concept="3uibUv" id="3FFAlh74BZ4" role="1tU5fm">
-                              <ref role="3uigEE" to="3ju5:~IFile" resolve="IFile" />
-                            </node>
                             <node concept="2OqwBi" id="4KQJrW6gebf" role="33vP2m">
                               <node concept="37vLTw" id="4KQJrW6gebg" role="2Oq$k0">
                                 <ref role="3cqZAo" node="6m8wrPAU4bT" resolve="sr" />
@@ -24781,6 +24778,9 @@
                               <node concept="liA8E" id="4KQJrW6gebh" role="2OqNvi">
                                 <ref role="37wK5l" to="ends:~SourceRoot.getAbsolutePath()" resolve="getAbsolutePath" />
                               </node>
+                            </node>
+                            <node concept="3uibUv" id="3FFAlh74BZ4" role="1tU5fm">
+                              <ref role="3uigEE" to="3ju5:~IFile" resolve="IFile" />
                             </node>
                           </node>
                         </node>

@@ -7107,14 +7107,14 @@
           <node concept="3cpWs3" id="18jf_F1WDtO" role="3cqZAk">
             <node concept="3cpWs3" id="18jf_F1WDtP" role="3uHU7B">
               <node concept="3cpWs3" id="18jf_F1WDtQ" role="3uHU7B">
-                <node concept="Xl_RD" id="18jf_F1WDtS" role="3uHU7w">
-                  <property role="Xl_RC" value=" [" />
-                </node>
                 <node concept="2OqwBi" id="ivXwD0FO7g" role="3uHU7B">
                   <node concept="37vLTw" id="18jf_F1WDtR" role="2Oq$k0">
                     <ref role="3cqZAo" node="18jf_F1WDu0" resolve="node" />
                   </node>
                   <node concept="2Iv5rx" id="ivXwD0FO7h" role="2OqNvi" />
+                </node>
+                <node concept="Xl_RD" id="18jf_F1WDtS" role="3uHU7w">
+                  <property role="Xl_RC" value=" [" />
                 </node>
               </node>
               <node concept="2OqwBi" id="18jf_F1WDtT" role="3uHU7w">
@@ -8832,14 +8832,14 @@
         <node concept="3clFbH" id="63oasX2eHq0" role="3cqZAp" />
         <node concept="RRSsy" id="3jYQuSB39L0" role="3cqZAp">
           <node concept="3cpWs3" id="6RioKE3H1JB" role="RRSoy">
-            <node concept="Xl_RD" id="6RioKE3GLOo" role="3uHU7B">
-              <property role="Xl_RC" value="Collecting errors in the root " />
-            </node>
             <node concept="2OqwBi" id="ivXwD0FO8f" role="3uHU7w">
               <node concept="37vLTw" id="6RioKE3H4gl" role="2Oq$k0">
                 <ref role="3cqZAo" node="3fCX6WCBvHQ" resolve="myRoot" />
               </node>
               <node concept="2Iv5rx" id="ivXwD0FO8g" role="2OqNvi" />
+            </node>
+            <node concept="Xl_RD" id="6RioKE3GLOo" role="3uHU7B">
+              <property role="Xl_RC" value="Collecting errors in the root " />
             </node>
           </node>
         </node>
