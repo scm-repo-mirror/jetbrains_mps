@@ -53,6 +53,8 @@
     <import index="bd8o" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.application(MPS.IDEA/)" />
     <import index="pexp" ref="r:97d6b60a-b381-42e8-9ea4-402ec93eaf11(jetbrains.mps.ide.refactoring.plugin)" />
     <import index="emwx" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:javax.lang.model(JDK/)" />
+    <import index="hlw7" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.save(MPS.Platform/)" />
+    <import index="1p3" ref="r:79655025-bd36-445f-8b79-189312ab627e(jetbrains.mps.smodel.undo)" />
   </imports>
   <registry>
     <language id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin">
@@ -281,7 +283,6 @@
         <child id="8974276187400348171" name="commandClosureLiteral" index="1QHqEI" />
       </concept>
       <concept id="8974276187400348181" name="jetbrains.mps.lang.access.structure.ExecuteLightweightCommandStatement" flags="nn" index="1QHqEK" />
-      <concept id="8974276187400348177" name="jetbrains.mps.lang.access.structure.ExecuteCommandStatement" flags="nn" index="1QHqEO" />
     </language>
     <language id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures">
       <concept id="1199569711397" name="jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral" flags="nn" index="1bVj0M">
@@ -3152,42 +3153,120 @@
             </node>
           </node>
         </node>
-        <node concept="1QHqEO" id="7msLDqME3k1" role="3cqZAp">
-          <node concept="1QHqEC" id="7msLDqME3k3" role="1QHqEI">
-            <node concept="3clFbS" id="7msLDqME3k5" role="1bW5cS">
-              <node concept="3clFbF" id="7msLDqME3uH" role="3cqZAp">
-                <node concept="2YIFZM" id="4FkYMYI0tre" role="3clFbG">
-                  <ref role="1Pybhc" node="29N7xYwTG4h" resolve="RenameModelDialog" />
-                  <ref role="37wK5l" node="769yZq7hMSH" resolve="renameModel" />
-                  <node concept="37vLTw" id="66tCjltenuf" role="37wK5m">
+        <node concept="3clFbF" id="7A_8l27inM$" role="3cqZAp">
+          <node concept="2OqwBi" id="7A_8l27iqaE" role="3clFbG">
+            <node concept="2ShNRf" id="7A_8l27ip16" role="2Oq$k0">
+              <node concept="1pGfFk" id="7A_8l27ip1k" role="2ShVmc">
+                <ref role="37wK5l" to="hlw7:~SaveRepositoryCommand.&lt;init&gt;(org.jetbrains.mps.openapi.module.SRepository)" resolve="SaveRepositoryCommand" />
+                <node concept="2OqwBi" id="7A_8l27iqKq" role="37wK5m">
+                  <node concept="37vLTw" id="7A_8l27ip1m" role="2Oq$k0">
                     <ref role="3cqZAo" node="3_F3cCDBnK" resolve="myProject" />
                   </node>
-                  <node concept="37vLTw" id="4FkYMYI0trf" role="37wK5m">
-                    <ref role="3cqZAo" node="29N7xYwTG4w" resolve="myModelDescriptor" />
+                  <node concept="liA8E" id="7A_8l27iqKr" role="2OqNvi">
+                    <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
                   </node>
-                  <node concept="2OqwBi" id="6cEFRXI_2c3" role="37wK5m">
-                    <node concept="37vLTw" id="4FkYMYI0trg" role="2Oq$k0">
-                      <ref role="3cqZAo" node="2174XWuQEdQ" resolve="newModelName" />
+                </node>
+              </node>
+            </node>
+            <node concept="liA8E" id="7A_8l27iqaF" role="2OqNvi">
+              <ref role="37wK5l" to="hlw7:~SaveRepositoryCommand.execute()" resolve="execute" />
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs8" id="7A_8l27inMD" role="3cqZAp">
+          <node concept="3cpWsn" id="7A_8l27inMC" role="3cpWs9">
+            <property role="TrG5h" value="cmd" />
+            <node concept="3uibUv" id="7A_8l27inME" role="1tU5fm">
+              <ref role="3uigEE" to="1p3:5Mv7D6Gsx4V" resolve="NamedCommand" />
+            </node>
+            <node concept="2ShNRf" id="7A_8l27inMF" role="33vP2m">
+              <node concept="YeOm9" id="7A_8l27inMG" role="2ShVmc">
+                <node concept="1Y3b0j" id="7A_8l27inMH" role="YeSDq">
+                  <ref role="1Y3XeK" to="1p3:5Mv7D6Gsx4V" resolve="NamedCommand" />
+                  <ref role="37wK5l" to="1p3:5Mv7D6GsxcY" resolve="NamedCommand" />
+                  <node concept="3clFb_" id="7A_8l27inMI" role="jymVt">
+                    <property role="TrG5h" value="run" />
+                    <node concept="2AHcQZ" id="7A_8l27inMJ" role="2AJF6D">
+                      <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
                     </node>
-                    <node concept="liA8E" id="6cEFRXI_2eu" role="2OqNvi">
-                      <ref role="37wK5l" to="mhbf:~SModelName.getValue()" resolve="getValue" />
+                    <node concept="3clFbS" id="7A_8l27inMK" role="3clF47">
+                      <node concept="3clFbF" id="7A_8l27inML" role="3cqZAp">
+                        <node concept="2YIFZM" id="7A_8l27ip1K" role="3clFbG">
+                          <ref role="1Pybhc" node="29N7xYwTG4h" resolve="RenameModelDialog" />
+                          <ref role="37wK5l" node="769yZq7hMSH" resolve="renameModel" />
+                          <node concept="37vLTw" id="1ANc$0lU9mt" role="37wK5m">
+                            <ref role="3cqZAo" node="3_F3cCDBnK" resolve="myProject" />
+                          </node>
+                          <node concept="37vLTw" id="7A_8l27ip1L" role="37wK5m">
+                            <ref role="3cqZAo" node="29N7xYwTG4w" resolve="myModelDescriptor" />
+                          </node>
+                          <node concept="2OqwBi" id="7A_8l27iqzV" role="37wK5m">
+                            <node concept="37vLTw" id="7A_8l27ip1N" role="2Oq$k0">
+                              <ref role="3cqZAo" node="2174XWuQEdQ" resolve="newModelName" />
+                            </node>
+                            <node concept="liA8E" id="7A_8l27iqzW" role="2OqNvi">
+                              <ref role="37wK5l" to="mhbf:~SModelName.getValue()" resolve="getValue" />
+                            </node>
+                          </node>
+                        </node>
+                      </node>
                     </node>
+                    <node concept="3Tm1VV" id="7A_8l27inMP" role="1B3o_S" />
+                    <node concept="3cqZAl" id="7A_8l27inMQ" role="3clF45" />
+                  </node>
+                  <node concept="2YIFZM" id="7A_8l27ioUe" role="37wK5m">
+                    <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
+                    <ref role="37wK5l" to="wyt6:~String.format(java.lang.String,java.lang.Object...)" resolve="format" />
+                    <node concept="Xl_RD" id="7A_8l27ioUf" role="37wK5m">
+                      <property role="Xl_RC" value="Rename model %s" />
+                    </node>
+                    <node concept="2OqwBi" id="7A_8l27it2v" role="37wK5m">
+                      <node concept="2OqwBi" id="7A_8l27iss0" role="2Oq$k0">
+                        <node concept="37vLTw" id="7A_8l27irPf" role="2Oq$k0">
+                          <ref role="3cqZAo" node="29N7xYwTG4w" resolve="myModelDescriptor" />
+                        </node>
+                        <node concept="liA8E" id="7A_8l27iss1" role="2OqNvi">
+                          <ref role="37wK5l" to="mhbf:~SModel.getName()" resolve="getName" />
+                        </node>
+                      </node>
+                      <node concept="liA8E" id="7A_8l27it2w" role="2OqNvi">
+                        <ref role="37wK5l" to="mhbf:~SModelName.getLongName()" resolve="getLongName" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="3clFbT" id="2w5uQksUAZm" role="37wK5m">
+                    <property role="3clFbU" value="true" />
                   </node>
                 </node>
               </node>
             </node>
           </node>
-          <node concept="2OqwBi" id="2sTGsLqfsHA" role="ukAjM">
-            <node concept="37vLTw" id="2sTGsLqfsGo" role="2Oq$k0">
-              <ref role="3cqZAo" node="3_F3cCDBnK" resolve="myProject" />
+        </node>
+        <node concept="3clFbF" id="7A_8l27hQyo" role="3cqZAp">
+          <node concept="2OqwBi" id="7A_8l27hV4C" role="3clFbG">
+            <node concept="2OqwBi" id="7A_8l27hUaj" role="2Oq$k0">
+              <node concept="2OqwBi" id="7A_8l27hTbS" role="2Oq$k0">
+                <node concept="37vLTw" id="7A_8l27hRk5" role="2Oq$k0">
+                  <ref role="3cqZAo" node="3_F3cCDBnK" resolve="myProject" />
+                </node>
+                <node concept="liA8E" id="7A_8l27hTbT" role="2OqNvi">
+                  <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
+                </node>
+              </node>
+              <node concept="liA8E" id="7A_8l27hUak" role="2OqNvi">
+                <ref role="37wK5l" to="lui2:~SRepository.getModelAccess()" resolve="getModelAccess" />
+              </node>
             </node>
-            <node concept="liA8E" id="2sTGsLqfsUt" role="2OqNvi">
-              <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
+            <node concept="liA8E" id="7A_8l27hV4D" role="2OqNvi">
+              <ref role="37wK5l" to="lui2:~ModelAccess.executeCommand(java.lang.Runnable)" resolve="executeCommand" />
+              <node concept="37vLTw" id="7A_8l27iuBE" role="37wK5m">
+                <ref role="3cqZAo" node="7A_8l27inMC" resolve="cmd" />
+              </node>
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="2174XWuQEdH" role="3cqZAp">
-          <node concept="3nyPlj" id="2174XWuQEdI" role="3clFbG">
+        <node concept="3clFbF" id="167uZV0FFmR" role="3cqZAp">
+          <node concept="3nyPlj" id="167uZV0FFmS" role="3clFbG">
             <ref role="37wK5l" to="u42p:1t_LRy89$4Q" resolve="doRefactoringAction" />
           </node>
         </node>
@@ -3227,21 +3306,6 @@
         </node>
       </node>
       <node concept="3clFbS" id="769yZq7hMSO" role="3clF47">
-        <node concept="3clFbF" id="769yZq7hMSP" role="3cqZAp">
-          <node concept="2OqwBi" id="769yZq7hMSQ" role="3clFbG">
-            <node concept="2OqwBi" id="769yZq7hNx2" role="2Oq$k0">
-              <node concept="37vLTw" id="769yZq7hNx1" role="2Oq$k0">
-                <ref role="3cqZAo" node="66tCjlteka_" resolve="project" />
-              </node>
-              <node concept="liA8E" id="769yZq7hNx3" role="2OqNvi">
-                <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
-              </node>
-            </node>
-            <node concept="liA8E" id="769yZq7hNIg" role="2OqNvi">
-              <ref role="37wK5l" to="lui2:~SRepository.saveAll()" resolve="saveAll" />
-            </node>
-          </node>
-        </node>
         <node concept="3clFbF" id="769yZq7hMST" role="3cqZAp">
           <node concept="2OqwBi" id="769yZq7hNrP" role="3clFbG">
             <node concept="37vLTw" id="769yZq7hNrO" role="2Oq$k0">
