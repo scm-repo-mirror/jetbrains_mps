@@ -2419,6 +2419,9 @@
                         <node concept="2YIFZM" id="7A_8l27ip1K" role="3clFbG">
                           <ref role="1Pybhc" node="29N7xYwTG4h" resolve="RenameModelDialog" />
                           <ref role="37wK5l" node="769yZq7hMSH" resolve="renameModel" />
+                          <node concept="37vLTw" id="1ANc$0lU9mt" role="37wK5m">
+                            <ref role="3cqZAo" node="3_F3cCDBnK" resolve="myProject" />
+                          </node>
                           <node concept="37vLTw" id="7A_8l27ip1L" role="37wK5m">
                             <ref role="3cqZAo" node="29N7xYwTG4w" resolve="myModelDescriptor" />
                           </node>

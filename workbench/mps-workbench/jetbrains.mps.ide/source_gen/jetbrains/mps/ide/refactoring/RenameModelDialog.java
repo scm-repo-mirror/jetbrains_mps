@@ -54,7 +54,7 @@ public class RenameModelDialog extends RenameDialog {
     NamedCommand cmd = new NamedCommand(String.format("Rename model %s", NameUtil.compactNamespace(myModelDescriptor.getName().getLongName())), true) {
       @Override
       public void run() {
-        RenameModelDialog.renameModel(myModelDescriptor, newModelName.getValue());
+        RenameModelDialog.renameModel(myProject, myModelDescriptor, newModelName.getValue());
       }
     };
     myProject.getRepository().getModelAccess().executeCommand(cmd);
