@@ -6,9 +6,9 @@
     <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="-1" />
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="-1" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="-1" />
-    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
     <use id="c7fb639f-be78-4307-89b0-b5959c3fa8c8" name="jetbrains.mps.lang.text" version="0" />
+    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
   <imports>
@@ -20465,6 +20465,12 @@
                     </node>
                   </node>
                   <node concept="1Wc70l" id="5UKdgDPvLfm" role="3clFbw">
+                    <node concept="3y3z36" id="37uLid2oXgA" role="3uHU7B">
+                      <node concept="37vLTw" id="7FhmtY6tVYs" role="3uHU7B">
+                        <ref role="3cqZAo" node="7FhmtY6tVpQ" resolve="gp" />
+                      </node>
+                      <node concept="10Nm6u" id="7FhmtY6tW8B" role="3uHU7w" />
+                    </node>
                     <node concept="3y3z36" id="5UKdgDPztNo" role="3uHU7w">
                       <node concept="10Nm6u" id="5UKdgDPzXCw" role="3uHU7w" />
                       <node concept="1eOMI4" id="5UKdgDPwrG4" role="3uHU7B">
@@ -20481,12 +20487,6 @@
                           </node>
                         </node>
                       </node>
-                    </node>
-                    <node concept="3y3z36" id="37uLid2oXgA" role="3uHU7B">
-                      <node concept="37vLTw" id="7FhmtY6tVYs" role="3uHU7B">
-                        <ref role="3cqZAo" node="7FhmtY6tVpQ" resolve="gp" />
-                      </node>
-                      <node concept="10Nm6u" id="7FhmtY6tW8B" role="3uHU7w" />
                     </node>
                   </node>
                 </node>

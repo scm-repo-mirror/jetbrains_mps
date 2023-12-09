@@ -104,9 +104,9 @@
     <import index="ifj7" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.vfs.util(MPS.Core/)" />
     <import index="jtsr" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.project(MPS.OpenAPI/)" />
     <import index="dj99" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.execution.configurations(MPS.IDEA/)" />
-    <import index="drih" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.editor.colors(MPS.IDEA/)" />
     <import index="s9o5" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.editor(MPS.IDEA/)" />
     <import index="mmaq" ref="f647e48e-4568-4f4c-b48a-1546492c6a2e/java:org.jdom(org.jdom/)" />
+    <import index="drih" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.editor.colors(MPS.IDEA/)" />
     <import index="tprs" ref="r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)" implicit="true" />
     <import index="v23q" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi(MPS.IDEA/)" implicit="true" />
     <import index="hypd" ref="r:aa31e43e-9240-4f4d-b6db-5c1c9a86c59e(jetbrains.mps.lang.project.structure)" implicit="true" />
@@ -7479,12 +7479,6 @@
               <node concept="liA8E" id="5yNeVI8LrsX" role="2OqNvi">
                 <ref role="37wK5l" to="dxuu:~JComponent.setForeground(java.awt.Color)" resolve="setForeground" />
                 <node concept="3K4zz7" id="5yNeVI8LrsY" role="37wK5m">
-                  <node concept="37vLTw" id="6gnWJiGOCWp" role="3K4E3e">
-                    <ref role="3cqZAo" node="6gnWJiGNvvn" resolve="myPortOk" />
-                  </node>
-                  <node concept="37vLTw" id="6gnWJiGOJMA" role="3K4GZi">
-                    <ref role="3cqZAo" node="6gnWJiGNyYP" resolve="myPortBad" />
-                  </node>
                   <node concept="2OqwBi" id="5yNeVI8LrsZ" role="3K4Cdx">
                     <node concept="liA8E" id="5yNeVI8Lrt1" role="2OqNvi">
                       <ref role="37wK5l" to="dxuu:~JFormattedTextField.isEditValid()" resolve="isEditValid" />
@@ -7492,6 +7486,12 @@
                     <node concept="37vLTw" id="2BHiRxeuPGZ" role="2Oq$k0">
                       <ref role="3cqZAo" node="5yNeVI8Lru3" resolve="myPortTextField" />
                     </node>
+                  </node>
+                  <node concept="37vLTw" id="6gnWJiGOCWp" role="3K4E3e">
+                    <ref role="3cqZAo" node="6gnWJiGNvvn" resolve="myPortOk" />
+                  </node>
+                  <node concept="37vLTw" id="6gnWJiGOJMA" role="3K4GZi">
+                    <ref role="3cqZAo" node="6gnWJiGNyYP" resolve="myPortBad" />
                   </node>
                 </node>
               </node>

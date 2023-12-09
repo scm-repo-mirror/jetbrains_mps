@@ -2672,11 +2672,11 @@
               </node>
             </node>
             <node concept="2OqwBi" id="3$C2wb7q2Gb" role="37vLTx">
-              <node concept="liA8E" id="6gnWJiGylnD" role="2OqNvi">
-                <ref role="37wK5l" to="8m69:~TextAttributes.getBackgroundColor()" resolve="getBackgroundColor" />
-              </node>
               <node concept="37vLTw" id="6gnWJiGykim" role="2Oq$k0">
                 <ref role="3cqZAo" node="6gnWJiGxGT3" resolve="taDiffChange" />
+              </node>
+              <node concept="liA8E" id="6gnWJiGylnD" role="2OqNvi">
+                <ref role="37wK5l" to="8m69:~TextAttributes.getBackgroundColor()" resolve="getBackgroundColor" />
               </node>
             </node>
           </node>
@@ -2694,11 +2694,11 @@
               </node>
             </node>
             <node concept="2OqwBi" id="3$C2wb7q2Go" role="37vLTx">
-              <node concept="liA8E" id="6gnWJiGyprw" role="2OqNvi">
-                <ref role="37wK5l" to="8m69:~TextAttributes.getBackgroundColor()" resolve="getBackgroundColor" />
-              </node>
               <node concept="37vLTw" id="6gnWJiGynkc" role="2Oq$k0">
                 <ref role="3cqZAo" node="6gnWJiGxLat" resolve="taDiffConflict" />
+              </node>
+              <node concept="liA8E" id="6gnWJiGyprw" role="2OqNvi">
+                <ref role="37wK5l" to="8m69:~TextAttributes.getBackgroundColor()" resolve="getBackgroundColor" />
               </node>
             </node>
           </node>
@@ -2828,11 +2828,11 @@
               </node>
             </node>
             <node concept="2OqwBi" id="2ogabBqR9nO" role="37vLTx">
-              <node concept="37vLTw" id="6gnWJiGx$JZ" role="2Oq$k0">
-                <ref role="3cqZAo" node="6gnWJiGx$JT" resolve="taDiffInsert" />
-              </node>
               <node concept="liA8E" id="2ogabBqR9FP" role="2OqNvi">
                 <ref role="37wK5l" to="8m69:~TextAttributes.getErrorStripeColor()" resolve="getErrorStripeColor" />
+              </node>
+              <node concept="37vLTw" id="6gnWJiGx$JZ" role="2Oq$k0">
+                <ref role="3cqZAo" node="6gnWJiGx$JT" resolve="taDiffInsert" />
               </node>
             </node>
           </node>
@@ -2849,11 +2849,11 @@
               </node>
             </node>
             <node concept="2OqwBi" id="2ogabBqRfVu" role="37vLTx">
-              <node concept="37vLTw" id="6gnWJiGxDqo" role="2Oq$k0">
-                <ref role="3cqZAo" node="6gnWJiGxDqi" resolve="taDiffDelete" />
-              </node>
               <node concept="liA8E" id="2ogabBqRfV$" role="2OqNvi">
                 <ref role="37wK5l" to="8m69:~TextAttributes.getErrorStripeColor()" resolve="getErrorStripeColor" />
+              </node>
+              <node concept="37vLTw" id="6gnWJiGxDqo" role="2Oq$k0">
+                <ref role="3cqZAo" node="6gnWJiGxDqi" resolve="taDiffDelete" />
               </node>
             </node>
           </node>
@@ -2870,11 +2870,11 @@
               </node>
             </node>
             <node concept="2OqwBi" id="2ogabBqRg4V" role="37vLTx">
-              <node concept="37vLTw" id="6gnWJiGxGT9" role="2Oq$k0">
-                <ref role="3cqZAo" node="6gnWJiGxGT3" resolve="taDiffChange" />
-              </node>
               <node concept="liA8E" id="2ogabBqRg51" role="2OqNvi">
                 <ref role="37wK5l" to="8m69:~TextAttributes.getErrorStripeColor()" resolve="getErrorStripeColor" />
+              </node>
+              <node concept="37vLTw" id="6gnWJiGxGT9" role="2Oq$k0">
+                <ref role="3cqZAo" node="6gnWJiGxGT3" resolve="taDiffChange" />
               </node>
             </node>
           </node>
@@ -2891,11 +2891,11 @@
               </node>
             </node>
             <node concept="2OqwBi" id="71ZVM0hlxsW" role="37vLTx">
-              <node concept="37vLTw" id="6gnWJiGxLaz" role="2Oq$k0">
-                <ref role="3cqZAo" node="6gnWJiGxLat" resolve="taDiffConflict" />
-              </node>
               <node concept="liA8E" id="71ZVM0hlxt2" role="2OqNvi">
                 <ref role="37wK5l" to="8m69:~TextAttributes.getErrorStripeColor()" resolve="getErrorStripeColor" />
+              </node>
+              <node concept="37vLTw" id="6gnWJiGxLaz" role="2Oq$k0">
+                <ref role="3cqZAo" node="6gnWJiGxLat" resolve="taDiffConflict" />
               </node>
             </node>
           </node>

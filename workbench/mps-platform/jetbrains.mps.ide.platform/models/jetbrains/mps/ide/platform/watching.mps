@@ -1448,11 +1448,17 @@
                         <node concept="3clFbF" id="2CbzOko6nbs" role="3cqZAp">
                           <node concept="1Wc70l" id="22sDcpIXaee" role="3clFbG">
                             <node concept="3fqX7Q" id="2CbzOko6nbq" role="3uHU7B">
-                              <node concept="2YIFZM" id="2CbzOko6nj8" role="3fr31v">
-                                <ref role="37wK5l" to="4hrd:~VirtualFileUtils.isFileEventFromMPS(com.intellij.openapi.vfs.newvfs.events.VFileEvent)" resolve="isFileEventFromMPS" />
-                                <ref role="1Pybhc" to="4hrd:~VirtualFileUtils" resolve="VirtualFileUtils" />
-                                <node concept="37vLTw" id="2CbzOko6nj9" role="37wK5m">
-                                  <ref role="3cqZAo" node="2CbzOko6mZc" resolve="it" />
+                              <node concept="2ZW3vV" id="32ypd$_0Tc" role="3fr31v">
+                                <node concept="3uibUv" id="6usFZJUE0OW" role="2ZW6by">
+                                  <ref role="3uigEE" to="4hrd:~MPSSavingRequestor" resolve="MPSSavingRequestor" />
+                                </node>
+                                <node concept="2OqwBi" id="32ypd$$Fhf" role="2ZW6bz">
+                                  <node concept="37vLTw" id="32ypd$$EqN" role="2Oq$k0">
+                                    <ref role="3cqZAo" node="2CbzOko6mZc" resolve="it" />
+                                  </node>
+                                  <node concept="liA8E" id="32ypd$$ZZe" role="2OqNvi">
+                                    <ref role="37wK5l" to="p3o1:~VFileEvent.getRequestor()" resolve="getRequestor" />
+                                  </node>
                                 </node>
                               </node>
                             </node>

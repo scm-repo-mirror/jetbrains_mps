@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model ref="r:5a764b6f-e05f-4050-b22c-cbcad1577f1b(jetbrains.mps.ide.refactoring)">
   <persistence version="9" />
+  <attribute name="doNotGenerate" value="false" />
   <languages>
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="-1" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="-1" />
@@ -805,16 +806,6 @@
           <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
         </node>
       </node>
-      <node concept="37vLTG" id="CBwdDm0yD9" role="3clF46">
-        <property role="TrG5h" value="currentModelDescriptor" />
-        <property role="3TUv4t" value="true" />
-        <node concept="3uibUv" id="CBwdDm0$Gf" role="1tU5fm">
-          <ref role="3uigEE" to="mhbf:~EditableSModel" resolve="EditableSModel" />
-        </node>
-        <node concept="2AHcQZ" id="5i4P_m2jg1i" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-        </node>
-      </node>
       <node concept="3clFbS" id="6iwuqdLyLNK" role="3clF47">
         <node concept="3cpWs8" id="6iwuqdLzFxL" role="3cqZAp">
           <node concept="3cpWsn" id="6iwuqdLzFxM" role="3cpWs9">
@@ -1131,6 +1122,16 @@
         </node>
         <node concept="x79VA" id="4Ym$GAXgE4x" role="3nqlJM">
           <property role="x79VB" value="validation error text or null if name is valid" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="CBwdDm0yD9" role="3clF46">
+        <property role="TrG5h" value="currentModelDescriptor" />
+        <property role="3TUv4t" value="true" />
+        <node concept="3uibUv" id="CBwdDm0$Gf" role="1tU5fm">
+          <ref role="3uigEE" to="mhbf:~EditableSModel" resolve="EditableSModel" />
+        </node>
+        <node concept="2AHcQZ" id="5i4P_m2jg1i" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
         </node>
       </node>
     </node>
