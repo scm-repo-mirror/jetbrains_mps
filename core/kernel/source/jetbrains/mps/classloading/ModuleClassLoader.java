@@ -32,6 +32,7 @@ import java.security.ProtectionDomain;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Optional;
@@ -63,6 +64,7 @@ public final class ModuleClassLoader extends MPSModuleClassLoader {
 
   private volatile Collection<ClassLoader> myDependenciesClassLoaders;
   private volatile boolean myDisposed;
+  private Throwable myDisposeTrace;
   private final Object myPackageLock = new Object();
 
   static {
@@ -84,7 +86,7 @@ public final class ModuleClassLoader extends MPSModuleClassLoader {
 
   private void checkNotDisposed() throws ModuleClassLoaderIsDisposedException {
     if (isDisposed()) {
-      throw new ModuleClassLoaderIsDisposedException(String.format("ClassLoader of the module '%s' is disposed and not operable!", getModule()), getModule());
+      throw new ModuleClassLoaderIsDisposedException(getModule(), myDisposeTrace);
     }
   }
 
@@ -333,7 +335,10 @@ public final class ModuleClassLoader extends MPSModuleClassLoader {
    * The motive is to allow a ClassLoading client to dispose asynchronously in the Event Dispatch Thread.
    */
   public void dispose() {
-    myDisposed = true;
+    if (!myDisposed) {
+      myDisposed = true;
+      myDisposeTrace = new Throwable(String.format("ORIGINAL DISPOSE TRACE @%tT", new Date())).fillInStackTrace();
+    }
     myClasses.clear();
     if (myDependenciesClassLoaders != null) {
       myDependenciesClassLoaders.clear();
@@ -357,14 +362,21 @@ public final class ModuleClassLoader extends MPSModuleClassLoader {
 
   public static class ModuleClassLoaderIsDisposedException extends IllegalStateException {
     private final ReloadableModule myModule;
+    private final Throwable myDisposeTrace;
 
-    private ModuleClassLoaderIsDisposedException(String msg, @NotNull ReloadableModule module) {
-      super(msg);
+    /*package*/ ModuleClassLoaderIsDisposedException(@NotNull ReloadableModule module, @Nullable Throwable disposeTrace) {
+      super(String.format("ClassLoader of the module '%s' is disposed and not operable!", module), disposeTrace);
       myModule = module;
+      myDisposeTrace = disposeTrace;
     }
 
     public ReloadableModule getModule() {
       return myModule;
+    }
+
+    @Nullable
+    public Throwable getDisposeTrace() {
+      return myDisposeTrace;
     }
   }
 }
