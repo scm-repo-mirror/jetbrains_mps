@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,9 +43,9 @@ public class ModulesReloadTestStress extends ModulesReloadTest {
       }
 
       private void checkModuleWatched(SModule module) {
+        clm.getClassLoader(module); // to initiate a refresh session in CLManager
         if (module instanceof ReloadableModule) {
           ReloadableModule reloadableModule = (ReloadableModule) module;
-          reloadableModule.getClassLoader(); // to initiate a refresh session in CLManager
           assertTrue("The module " + module + " is not watched by class loading", clm.getModulesWatcher().isModuleWatched(reloadableModule));
         }
       }

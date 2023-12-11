@@ -5,26 +5,29 @@ package jetbrains.mps.lang.test.junit5;
 import jetbrains.mps.core.platform.Platform;
 import java.util.function.Supplier;
 import java.util.Collection;
+import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
+import jetbrains.mps.persistence.PersistenceRegistry;
+import jetbrains.mps.classloading.ClassLoaderManager;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.smodel.MPSModuleRepository;
 import jetbrains.mps.smodel.ModelAccessHelper;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
-import jetbrains.mps.persistence.PersistenceRegistry;
 import org.jetbrains.mps.openapi.module.SModule;
-import jetbrains.mps.module.ReloadableModule;
+import jetbrains.mps.project.SModuleOperations;
 import jetbrains.mps.baseLanguage.unitTest.platform.JUnitPlatform;
 
 public class ModuleClassLoaderUtil {
 
-  public static ClassLoader classLoaderForTestExecution(final Platform platform, final Supplier<Collection<String>> candidateModuleRefs) {
+  public static ClassLoader classLoaderForTestExecution(Platform platform, final Supplier<Collection<String>> candidateModuleRefs) {
+    final PersistenceFacade pf = platform.findComponent(PersistenceRegistry.class);
+    final ClassLoaderManager clm = platform.findComponent(ClassLoaderManager.class);
+    // until CLM exposes SRepository it interacts with, imply it's MPSModuleRepository one
     final SRepository repo = platform.findComponent(MPSModuleRepository.class);
     return new ModelAccessHelper(repo).runReadAction(() -> {
-      final PersistenceFacade pf = platform.findComponent(PersistenceRegistry.class);
       for (String ref : candidateModuleRefs.get()) {
         SModule module = pf.createModuleReference(ref).resolve(repo);
-        if (module instanceof ReloadableModule) {
+        if (module != null && SModuleOperations.classesAvailableToMPS(module)) {
           try {
-            ClassLoader mcl = ((ReloadableModule) module).getClassLoader();
+            ClassLoader mcl = clm.getClassLoader(module);
             Class<?> cls = mcl.loadClass(JUnitPlatform.JUNIT5_TEST_ENGINE_CLASS);
             if (cls != null) {
               return mcl;
@@ -35,11 +38,12 @@ public class ModuleClassLoaderUtil {
         }
       }
       SModule junit5Module = pf.createModuleReference(JUnitPlatform.JUNIT5_LIBS_MODULE_REF).resolve(repo);
-      if (junit5Module instanceof ReloadableModule) {
-        return ((ReloadableModule) junit5Module).getClassLoader();
+      if (junit5Module != null && SModuleOperations.classesAvailableToMPS(junit5Module)) {
+        return clm.getClassLoader(junit5Module);
       }
       // if nothing works
       return Thread.currentThread().getContextClassLoader();
+      // XXX why not CLM.defaultCL() (need to expose it, though)
     });
   }
 

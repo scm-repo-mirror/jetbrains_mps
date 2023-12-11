@@ -332,7 +332,7 @@ public final class LanguageRegistry implements CoreComponent, DeployListener {
 
   @Nullable
   private ModuleRuntime createRuntime(Solution solution) {
-    return new ModuleRuntime(solution.getModuleReference(), solution.getClassLoader(), deduceRuntimeFlags(solution));
+    return new ModuleRuntime(solution.getModuleReference(), myClassLoaderManager.getClassLoader(solution), deduceRuntimeFlags(solution));
   }
 
   private static Flags[] deduceRuntimeFlags(AbstractModule am) {
@@ -620,7 +620,7 @@ public final class LanguageRegistry implements CoreComponent, DeployListener {
           myLanguagesById.put(sl, langRuntime);
           final LanguageRuntimeActivator activator = new LanguageRuntimeActivator(langRuntime);
           ModuleRuntime.ActivatorFactory af = (mr,ctx) -> activator;
-          loadedRuntimes.add(new ModuleRuntime(language.getModuleReference(),language.getClassLoader(), af, Flags.WithExtensions), true);
+          loadedRuntimes.add(new ModuleRuntime(language.getModuleReference(),myClassLoaderManager.getClassLoader(language), af, Flags.WithExtensions), true);
           // perhaps, has to be part of loadedRuntimes cycle, below, but this is the place I've got Language instance,
           // don't want to bother recording Pairs
           fixupLanguageRuntime(language, langRuntime);
@@ -653,7 +653,7 @@ public final class LanguageRegistry implements CoreComponent, DeployListener {
         LanguageRuntime srcLangRuntime = generatorRuntime.getSourceLanguage();
         srcLangRuntime.register(generatorRuntime);
         GeneratorRuntimeActivator activator = new GeneratorRuntimeActivator(generatorRuntime);
-        loadedRuntimes.add(new ModuleRuntime(generator.getModuleReference(), generator.getClassLoader(), (mr, ctx)->activator, Flags.NoExtensions), false);
+        loadedRuntimes.add(new ModuleRuntime(generator.getModuleReference(), myClassLoaderManager.getClassLoader(generator), (mr, ctx)->activator, Flags.NoExtensions), false);
       }
       monitor.advance(1);
 
