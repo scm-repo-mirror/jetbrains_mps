@@ -267,8 +267,11 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
       BrowseFilesListener listener = new BrowseFilesListener(myCompileOut, "", "", outputPathsChooserDescriptor);
       myCompileOutPath = new FieldPanel(myCompileOut, null, null, listener, EmptyRunnable.getInstance());
       FileChooserFactory.getInstance().installFileCompletion(myCompileOutPath.getTextField(), outputPathsChooserDescriptor, true, null);
-      //TODO initialize from the API
-      myCompileOutPath.setText(PathUtil.toSystemDependent(myJavaModuleFacet.getOutputRoot().getParent().toRealPath() + "/classes_gen"));
+      if (myJavaModuleFacet.getClassesGen() == null) {
+        myCompileOutPath.setText("");
+      } else {
+        myCompileOutPath.setText(myJavaModuleFacet.getClassesGen().getPath());
+      }
       compileOutputBox.add(myCompileOutPath);
 
       final JBBox pn2 = JBBox.createHorizontalBox();
@@ -547,6 +550,7 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
     if (myJavaModuleFacet.getModule() instanceof Solution) {
       SolutionDescriptor descriptor = (SolutionDescriptor) myJavaModuleFacet.getAbstractModule().getModuleDescriptor();
       assert descriptor != null;
+      solutionCheck |= !myCompileOutPath.getText().equals(myJavaModuleFacet.getClassesGen()!=null ? myJavaModuleFacet.getClassesGen().getPath() : "");
       final Compile c = myJavaModuleFacet.getCompile();
       if (myCompileInMPS.isSelected()) {
         solutionCheck |= c != Compile.MPS;
@@ -560,7 +564,6 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
       if (myCompileIDEA != null) {
         solutionCheck |= descriptor.needsExternalIdeaCompile() != myCompileIDEA.isSelected();
       }
-      //TODO detect changes to the myCompileOutPath field
       //TODO detect changes to the load library checkboxes
       solutionCheck |= !new LanguageLevelPresentation(myJavaModuleFacet.getLanguageLevel()).equals(myLanguageLevel.getSelectedItem());
       final LoadClasses l = myJavaModuleFacet.getLoadClasses();
@@ -590,17 +593,21 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
     if (myJavaModuleFacet.getModule() instanceof Solution) {
       SolutionDescriptor descriptor = (SolutionDescriptor) myJavaModuleFacet.getAbstractModule().getModuleDescriptor();
       assert descriptor != null;
-      if (myCompileInMPS.isSelected()) {
+      if(!myCompileOutPath.getText().isBlank()) {
+        myJavaModuleFacet.setGeneratedClassesLocation(new PathSpec(myCompileOutPath.getText()));
+      } else {
+        //Keep this as a fallback in case the gen class location is null
         if (myJavaModuleFacet.getClassesGen() == null) {
           myJavaModuleFacet.setGeneratedClassesLocation(myJavaModuleFacet.getAbstractModule().getModuleSourceDir().findChild(AbstractModule.CLASSES_GEN));
         }
+      }
+      if (myCompileInMPS.isSelected()) {
         myJavaModuleFacet.setCompile(Compile.MPS);
       } else if (myCompileExternal.isSelected()) {
         myJavaModuleFacet.setCompile(Compile.External);
       } else {
         myJavaModuleFacet.setCompile(Compile.None);
       }
-      //TODO apply the myCompileOutPath field
       if (myClassLoadMPS.isSelected()) {
         myJavaModuleFacet.setLoadClasses(LoadClasses.ManagedByMPS);
       } else if (myClassLoadContributor.isSelected()) {
@@ -625,6 +632,7 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
       mySourcePathsChanged = false;
     }
 
+    //TODO apply the libraries load option
     if (myLibrariesChanged) {
       // Remember list of libraries before update
       final PathSpecBundle oldLibraries = myJavaModuleFacet.getJavaLibrarySpec();
