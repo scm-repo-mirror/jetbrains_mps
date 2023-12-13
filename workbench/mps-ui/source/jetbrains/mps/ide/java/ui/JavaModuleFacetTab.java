@@ -68,7 +68,6 @@ import jetbrains.mps.project.structure.modules.SolutionDescriptor;
 import jetbrains.mps.util.PathSpec;
 import jetbrains.mps.util.PathSpecBundle;
 import jetbrains.mps.vfs.IFile;
-import jetbrains.mps.vfs.util.PathUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.SModuleFacet;
@@ -80,10 +79,10 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.event.ChangeListener;
+import javax.swing.event.TableModelEvent;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
-import javax.swing.table.TableModel;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Insets;
@@ -114,7 +113,6 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
   private JBRadioButton myExtNone, myExtPlugin;
 
   private ComboBox<LanguageLevelPresentation> myLanguageLevel;
-  private JBLabel myUpdateModelRoots;
   private JComponent mySourcePathsTablePanel;
   private JComponent myLibrariesTablePanel;
   private FieldPanel myCompileOutPath;
@@ -360,11 +358,11 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
                                                              GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0,
                                                                false));
 
-    myUpdateModelRoots = new JBLabel(PropertiesBundle.message("facet.java.update.roots"), AllIcons.General.Information, JBLabel.LEFT);
-    advancedTab.add(myUpdateModelRoots, new GridConstraints(row, 0, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL,
-                                                            GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED,
-                                                            null, null, null, 0,
-                                                            false));
+    JBLabel updateModelRoots = new JBLabel(PropertiesBundle.message("facet.java.update.roots"), AllIcons.General.Information, JBLabel.LEFT);
+    advancedTab.add(updateModelRoots, new GridConstraints(row, 0, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL,
+                                                          GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED,
+                                                          null, null, null, 0,
+                                                          false));
 
     setTabComponent(advancedTab);
   }
@@ -739,6 +737,7 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
       if (columnIndex == getCheckboxColumnIndex()) {
         myLoadFlags.set(rowIndex, (Boolean)aValue);
+        fireTableChanged(new TableModelEvent(this, rowIndex, rowIndex, columnIndex));
       } else {
         super.setValueAt(aValue, rowIndex, columnIndex);
       }
