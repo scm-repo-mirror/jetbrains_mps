@@ -93,7 +93,6 @@ import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.DevKit;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.project.ModuleInstanceCondition;
-import jetbrains.mps.project.ProjectPathUtil;
 import jetbrains.mps.project.Solution;
 import jetbrains.mps.project.VisibleModuleCondition;
 import jetbrains.mps.project.structure.modules.Dependency;
@@ -115,7 +114,6 @@ import jetbrains.mps.smodel.ModelReadRunnable;
 import jetbrains.mps.smodel.ModuleDependencyVersions;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.util.Computable;
-import jetbrains.mps.util.ComputeRunnable;
 import jetbrains.mps.util.ConditionalIterable;
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.IterableUtil;
@@ -552,7 +550,7 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
       }
       if (renameTo != null) {
         final String finalRenameTo = renameTo;
-        Renamer r = new Renamer(myMPSProject, myModule, null);
+        Renamer r = new Renamer((MPSProject) myMPSProject, myModule, null);
         myMPSProject.getModelAccess().runReadAction(r::collectRenames);
         r.prepareRename(finalRenameTo);
         if (r.hasPrimaryRename() || r.hasDependantRenames()) {
@@ -615,10 +613,11 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
         if (isDevkit) {
           selectionSet = new ConditionalIterable<>(selectionSet, new VisibleModuleCondition());
         }
-        ComputeRunnable<List<SModuleReference>> c = new ComputeRunnable<>(new ModuleCollector(selectionSet));
-        myMPSProject.getModelAccess().runReadAction(c);
+
+        final ModuleCollector moduleCollector = new ModuleCollector(selectionSet);
+        final List<SModuleReference> c = myMPSProject.getModelAccess().computeReadAction(moduleCollector::compute);
         final String dialogTitle = isDevkit ? "Choose DevKit contents" : "Choose modules";
-        final List<SModuleReference> list = CommonChoosers.showModuleSetChooser(myMPSProject, dialogTitle, c.getResult());
+        final List<SModuleReference> list = CommonChoosers.showModuleSetChooser(myMPSProject, dialogTitle, c);
         if (list.isEmpty()) {
           return;
         }
@@ -800,9 +799,9 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
       decorator.setAddAction(anActionButton -> {
         Iterable<SModule> modules = new ConditionalIterable<>(getProjectModules(), new ModuleInstanceCondition(Solution.class));
         modules = new ConditionalIterable<>(modules, new VisibleModuleCondition());
-        ComputeRunnable<List<SModuleReference>> c = new ComputeRunnable<>(new ModuleCollector(modules));
-        myMPSProject.getModelAccess().runReadAction(c);
-        List<SModuleReference> list = CommonChoosers.showModuleSetChooser(myMPSProject, "Choose solutions", c.getResult());
+        final ModuleCollector moduleCollector = new ModuleCollector(modules);
+        List<SModuleReference> c = myMPSProject.getModelAccess().computeReadAction(moduleCollector::compute);
+        List<SModuleReference> list = CommonChoosers.showModuleSetChooser(myMPSProject, "Choose solutions", c);
         for (SModuleReference reference : list) {
           myRuntimeTableModel.addItem(reference);
         }

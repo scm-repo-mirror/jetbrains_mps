@@ -22,6 +22,7 @@ import jetbrains.mps.library.ModulesMiner;
 import jetbrains.mps.library.ModulesMiner.ModuleHandle;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.project.AbstractModule;
+import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.project.ModuleId;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.project.ProjectBase;
@@ -84,7 +85,7 @@ public final class Renamer {
   private static final Logger LOG = Logger.getLogger(Renamer.class);
 
   private final Consumer<RenameProblem> myHandler;
-  private final Project myProject;
+  private final MPSProject myProject;
 
   private final AbstractModule myModule;
 
@@ -95,7 +96,7 @@ public final class Renamer {
   // modules that are not directly affected by change of primary rename but may need an update in their name/file/dir anyway
   private List<ModuleRenameInfo> myRelatedRenames;
 
-  public Renamer(@NotNull Project project, @NotNull AbstractModule module, @Nullable Consumer<RenameProblem> handler) {
+  public Renamer(@NotNull MPSProject project, @NotNull AbstractModule module, @Nullable Consumer<RenameProblem> handler) {
     myProject = project;
     myModule = module;
     myHandler = handler == null ? DEFAULT_PROBLEM_HANDLER : handler;
@@ -559,7 +560,7 @@ public final class Renamer {
 
   private void removeFromProject(Collection<ModuleRenameInfo> modules) {
     for (ModuleRenameInfo ri : modules) {
-      final String vf = ((ProjectBase) myProject).getVirtualFolder(ri.module);
+      final String vf = myProject.getVirtualFolder(ri.module);
       ri.virtualFolderInProject = vf;
       myProject.removeModule(ri.module);
     }
@@ -568,7 +569,7 @@ public final class Renamer {
   private void assignBackToProject(Collection<ModuleRenameInfo> modules) {
     for (ModuleRenameInfo ri : modules) {
       myProject.addModule(ri.module);
-      ((ProjectBase) myProject).setVirtualFolder(ri.module, ri.virtualFolderInProject);
+      myProject.setVirtualFolder(ri.module, ri.virtualFolderInProject);
     }
   }
 
