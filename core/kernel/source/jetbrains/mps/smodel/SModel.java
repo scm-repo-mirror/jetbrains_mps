@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2023 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -831,6 +831,8 @@ public class SModel implements SModelData, UpdateModeSupport {
   // To allow update of models not yet attached to a repo (e.g. when we read a model and are going to attach it in with
   // refreshed state, rather than attach first and then refresh), we pass repository from outside rather than using this.getRepository()
   public boolean updateExternalReferences(@NotNull SRepository repository) {
+    // XXX I don't like this forced loading, to me, it has to be external code that shall care
+    // about model loading state, however, dealing with this use won't help to address 7 others
     enforceFullLoad();
 
     boolean changed = false;
