@@ -2651,13 +2651,13 @@
       <node id="2317011900301897330" at="74,0,75,0" concept="7" trace="myMpsProject" />
       <node id="1344224899829778612" at="75,0,76,0" concept="7" trace="myRightToLeft" />
       <node id="6410246949269566052" at="76,0,77,0" concept="7" trace="myFailedToLoadModelPanel" />
-      <node id="2317011900301948688" at="79,165,80,27" concept="6" />
+      <node id="2317011900301948688" at="79,183,80,27" concept="6" />
       <node id="1344224899829841560" at="80,27,81,32" concept="6" />
       <node id="6428851428108294765" at="81,32,82,42" concept="6" />
       <node id="6132599322919262039" at="82,42,83,27" concept="6" />
-      <node id="4652592318748338389" at="83,27,84,90" concept="6" />
-      <node id="4652592318748338396" at="84,90,85,96" concept="6" />
-      <node id="4652592318748338402" at="85,96,86,119" concept="6" />
+      <node id="4652592318748338389" at="83,27,84,100" concept="6" />
+      <node id="4652592318748338396" at="84,100,85,106" concept="6" />
+      <node id="4652592318748338402" at="85,106,86,119" concept="6" />
       <node id="4652592318748338415" at="86,119,87,0" concept="15" />
       <node id="1842339384767886460" at="88,24,89,84" concept="12" />
       <node id="4652592318748338440" at="89,84,90,43" concept="6" />
@@ -2751,8 +2751,8 @@
       <node id="8527827051430621595" at="322,0,323,0" concept="11" trace="getLayers#()Ljava/util/List;" />
       <node id="8527827051430624283" at="323,0,324,0" concept="11" trace="setLayers#(Ljava/util/List;)V" />
       <node id="8480558849560280918" at="327,60,328,102" concept="13" />
-      <node id="2214273178345491610" at="336,93,337,137" concept="18" />
-      <node id="842807776370764997" at="337,137,338,54" concept="6" />
+      <node id="2214273178345491610" at="336,111,337,156" concept="18" />
+      <node id="842807776370764997" at="337,156,338,54" concept="6" />
       <node id="7443630596572392747" at="338,54,339,39" concept="6" />
       <node id="401415880416189401" at="344,34,345,20" concept="13" />
       <node id="401415880416189405" at="346,7,347,44" concept="13" />
@@ -2764,8 +2764,8 @@
       <node id="8527827051431329742" at="365,63,366,24" concept="6" />
       <node id="747161126334169036" at="371,0,372,0" concept="7" trace="myDiffFileEditor" />
       <node id="1547603040233276193" at="372,0,373,0" concept="7" trace="myCommandContext" />
-      <node id="7168952380157210480" at="376,77,377,160" concept="18" />
-      <node id="7168952380157195679" at="377,160,378,50" concept="6" />
+      <node id="7168952380157210480" at="376,95,377,179" concept="18" />
+      <node id="7168952380157195679" at="377,179,378,50" concept="6" />
       <node id="2095681145636662481" at="378,50,379,307" concept="6" />
       <node id="6865829888094651477" at="379,307,380,88" concept="6" />
       <node id="842807776370934290" at="380,88,381,55" concept="6" />
@@ -2835,7 +2835,7 @@
       <node id="8527827051425586149" at="124,0,129,0" concept="11" trace="getLayersUnderMouse#(Ljava/awt/event/MouseEvent;Z)Ljava/util/List;" />
       <node id="420247541587420197" at="178,0,183,0" concept="11" trace="editNode#(Lorg/jetbrains/mps/openapi/model/SNodeId;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
       <node id="7328379120088332573" at="299,72,304,9" concept="10" />
-      <node id="2214273178345476806" at="336,0,341,0" concept="3" trace="MyInspectorEditorComponent#(Lorg/jetbrains/mps/openapi/module/SRepository;Z)V" />
+      <node id="2214273178345476806" at="336,0,341,0" concept="3" trace="MyInspectorEditorComponent#(Lorg/jetbrains/mps/openapi/module/SRepository;ZZ)V" />
       <node id="8527827051431170383" at="358,0,363,0" concept="11" trace="getLayers#()Ljava/util/List;" />
       <node id="8527827051431401898" at="423,0,428,0" concept="11" trace="getLayers#()Ljava/util/List;" />
       <node id="7461519972922701583" at="139,0,146,0" concept="11" trace="showInspector#(Z)V" />
@@ -2848,11 +2848,11 @@
       <node id="4578905056600669983" at="406,0,413,0" concept="11" trace="getData#(Ljava/lang/String;)Ljava/lang/Object;" />
       <node id="4652592318748338583" at="220,0,228,0" concept="11" trace="highlightChange#(Lorg/jetbrains/mps/openapi/model/SModel;Ljetbrains/mps/vcs/diff/changes/ModelChange;ZLjetbrains/mps/vcs/diff/ui/common/ChangeEditorMessage/ConflictChecker;)V" />
       <node id="2317011900302546296" at="230,110,238,8" concept="6" />
-      <node id="7168952380157195670" at="376,0,384,0" concept="3" trace="MainEditorComponent#(Lorg/jetbrains/mps/openapi/module/SRepository;Z)V" />
+      <node id="7168952380157195670" at="376,0,384,0" concept="3" trace="MainEditorComponent#(Lorg/jetbrains/mps/openapi/module/SRepository;ZZ)V" />
       <node id="5277200897193743037" at="168,0,177,0" concept="11" trace="editRoot#(Lorg/jetbrains/mps/openapi/model/SNodeId;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
       <node id="7328379120088332534" at="296,0,305,7" concept="9" />
       <node id="4878872762785415374" at="229,0,244,0" concept="11" trace="highlightChanges#(Lorg/jetbrains/mps/openapi/model/SModel;Ljava/lang/Iterable;ZLjetbrains/mps/vcs/diff/ui/common/ChangeEditorMessage/ConflictChecker;)V" />
-      <node id="4652592318748338377" at="79,0,104,0" concept="3" trace="DiffEditor#(Ljetbrains/mps/project/MPSProject;Lorg/jetbrains/mps/openapi/model/SModel;Lorg/jetbrains/mps/openapi/model/SNodeId;Ljava/lang/String;ZZ)V" />
+      <node id="4652592318748338377" at="79,0,104,0" concept="3" trace="DiffEditor#(Ljetbrains/mps/project/MPSProject;Lorg/jetbrains/mps/openapi/model/SModel;Lorg/jetbrains/mps/openapi/model/SNodeId;Ljava/lang/String;ZZZ)V" />
       <node id="7328379120088114602" at="283,0,308,0" concept="11" trace="getTooltipRenderer#(Ljava/awt/event/MouseEvent;)Lcom/intellij/codeInsight/hint/TooltipRenderer;" />
       <scope id="7461519972922538033" at="100,27,101,55" />
       <scope id="1344224899829941880" at="105,39,106,25" />
@@ -2947,7 +2947,7 @@
       <scope id="401415880416119312" at="268,0,271,0">
         <var name="type" id="401415880416141886" />
       </scope>
-      <scope id="2214273178345480537" at="336,93,339,39" />
+      <scope id="2214273178345480537" at="336,111,339,39" />
       <scope id="1547603040233301801" at="419,0,422,0" />
       <scope id="8527827051424678259" at="119,0,123,0">
         <var name="inspector" id="8527827051430907355" />
@@ -3002,6 +3002,7 @@
         <var name="needToEdit" id="2239014200641716536" />
       </scope>
       <scope id="2214273178345476806" at="336,0,341,0">
+        <var name="readOnly" id="8731110499686392953" />
         <var name="repository" id="2214273178345476810" />
         <var name="rightToLeft" id="6428851428110326587" />
       </scope>
@@ -3013,7 +3014,7 @@
       <scope id="4878872762785661728" at="231,129,237,86">
         <var name="messages" id="4878872762785415379" />
       </scope>
-      <scope id="7168952380157195678" at="376,77,382,39" />
+      <scope id="7168952380157195678" at="376,95,382,39" />
       <scope id="7461519972922701583" at="139,0,146,0">
         <var name="show" id="7461519972922718577" />
       </scope>
@@ -3047,6 +3048,7 @@
         <var name="model" id="4652592318748338631" />
       </scope>
       <scope id="7168952380157195670" at="376,0,384,0">
+        <var name="readOnly" id="8731110499686207745" />
         <var name="repository" id="7168952380157195672" />
         <var name="rightToLeft" id="7168952380157195676" />
       </scope>
@@ -3070,13 +3072,14 @@
         <var name="bigRenderer" id="7328379120088332526" />
         <var name="selectedLayers" id="1301651965720067285" />
       </scope>
-      <scope id="4652592318748338388" at="79,165,102,5" />
+      <scope id="4652592318748338388" at="79,183,102,5" />
       <scope id="4652592318748338377" at="79,0,104,0">
         <var name="contentTitle" id="4652592318748338384" />
         <var name="isInspectorShown" id="7461519972922626401" />
         <var name="model" id="1842339384767842319" />
         <var name="nodeId" id="1842339384767862821" />
         <var name="project" id="2529722078439962623" />
+        <var name="readOnly" id="8731110499686147994" />
         <var name="rightToLeft" id="4652592318748338386" />
       </scope>
       <scope id="7328379120088114602" at="283,0,308,0">
