@@ -2672,11 +2672,11 @@
               </node>
             </node>
             <node concept="2OqwBi" id="3$C2wb7q2Gb" role="37vLTx">
-              <node concept="liA8E" id="6gnWJiGylnD" role="2OqNvi">
-                <ref role="37wK5l" to="8m69:~TextAttributes.getBackgroundColor()" resolve="getBackgroundColor" />
-              </node>
               <node concept="37vLTw" id="6gnWJiGykim" role="2Oq$k0">
                 <ref role="3cqZAo" node="6gnWJiGxGT3" resolve="taDiffChange" />
+              </node>
+              <node concept="liA8E" id="6gnWJiGylnD" role="2OqNvi">
+                <ref role="37wK5l" to="8m69:~TextAttributes.getBackgroundColor()" resolve="getBackgroundColor" />
               </node>
             </node>
           </node>
@@ -2694,11 +2694,11 @@
               </node>
             </node>
             <node concept="2OqwBi" id="3$C2wb7q2Go" role="37vLTx">
-              <node concept="liA8E" id="6gnWJiGyprw" role="2OqNvi">
-                <ref role="37wK5l" to="8m69:~TextAttributes.getBackgroundColor()" resolve="getBackgroundColor" />
-              </node>
               <node concept="37vLTw" id="6gnWJiGynkc" role="2Oq$k0">
                 <ref role="3cqZAo" node="6gnWJiGxLat" resolve="taDiffConflict" />
+              </node>
+              <node concept="liA8E" id="6gnWJiGyprw" role="2OqNvi">
+                <ref role="37wK5l" to="8m69:~TextAttributes.getBackgroundColor()" resolve="getBackgroundColor" />
               </node>
             </node>
           </node>
@@ -2828,11 +2828,11 @@
               </node>
             </node>
             <node concept="2OqwBi" id="2ogabBqR9nO" role="37vLTx">
-              <node concept="37vLTw" id="6gnWJiGx$JZ" role="2Oq$k0">
-                <ref role="3cqZAo" node="6gnWJiGx$JT" resolve="taDiffInsert" />
-              </node>
               <node concept="liA8E" id="2ogabBqR9FP" role="2OqNvi">
                 <ref role="37wK5l" to="8m69:~TextAttributes.getErrorStripeColor()" resolve="getErrorStripeColor" />
+              </node>
+              <node concept="37vLTw" id="6gnWJiGx$JZ" role="2Oq$k0">
+                <ref role="3cqZAo" node="6gnWJiGx$JT" resolve="taDiffInsert" />
               </node>
             </node>
           </node>
@@ -2849,11 +2849,11 @@
               </node>
             </node>
             <node concept="2OqwBi" id="2ogabBqRfVu" role="37vLTx">
-              <node concept="37vLTw" id="6gnWJiGxDqo" role="2Oq$k0">
-                <ref role="3cqZAo" node="6gnWJiGxDqi" resolve="taDiffDelete" />
-              </node>
               <node concept="liA8E" id="2ogabBqRfV$" role="2OqNvi">
                 <ref role="37wK5l" to="8m69:~TextAttributes.getErrorStripeColor()" resolve="getErrorStripeColor" />
+              </node>
+              <node concept="37vLTw" id="6gnWJiGxDqo" role="2Oq$k0">
+                <ref role="3cqZAo" node="6gnWJiGxDqi" resolve="taDiffDelete" />
               </node>
             </node>
           </node>
@@ -2870,11 +2870,11 @@
               </node>
             </node>
             <node concept="2OqwBi" id="2ogabBqRg4V" role="37vLTx">
-              <node concept="37vLTw" id="6gnWJiGxGT9" role="2Oq$k0">
-                <ref role="3cqZAo" node="6gnWJiGxGT3" resolve="taDiffChange" />
-              </node>
               <node concept="liA8E" id="2ogabBqRg51" role="2OqNvi">
                 <ref role="37wK5l" to="8m69:~TextAttributes.getErrorStripeColor()" resolve="getErrorStripeColor" />
+              </node>
+              <node concept="37vLTw" id="6gnWJiGxGT9" role="2Oq$k0">
+                <ref role="3cqZAo" node="6gnWJiGxGT3" resolve="taDiffChange" />
               </node>
             </node>
           </node>
@@ -2891,11 +2891,11 @@
               </node>
             </node>
             <node concept="2OqwBi" id="71ZVM0hlxsW" role="37vLTx">
-              <node concept="37vLTw" id="6gnWJiGxLaz" role="2Oq$k0">
-                <ref role="3cqZAo" node="6gnWJiGxLat" resolve="taDiffConflict" />
-              </node>
               <node concept="liA8E" id="71ZVM0hlxt2" role="2OqNvi">
                 <ref role="37wK5l" to="8m69:~TextAttributes.getErrorStripeColor()" resolve="getErrorStripeColor" />
+              </node>
+              <node concept="37vLTw" id="6gnWJiGxLaz" role="2Oq$k0">
+                <ref role="3cqZAo" node="6gnWJiGxLat" resolve="taDiffConflict" />
               </node>
             </node>
           </node>
@@ -10719,6 +10719,9 @@
                 <node concept="37vLTw" id="2BHiRxgm7vC" role="37wK5m">
                   <ref role="3cqZAo" node="42hl10VHazi" resolve="rightToLeft" />
                 </node>
+                <node concept="37vLTw" id="7$F8FPOuA46" role="37wK5m">
+                  <ref role="3cqZAo" node="7$F8FPOuuuq" resolve="readOnly" />
+                </node>
               </node>
             </node>
             <node concept="37vLTw" id="2BHiRxeuMvT" role="37vLTJ">
@@ -10744,6 +10747,9 @@
                 </node>
                 <node concept="37vLTw" id="5$RR$ZQhY00" role="37wK5m">
                   <ref role="3cqZAo" node="42hl10VHazi" resolve="rightToLeft" />
+                </node>
+                <node concept="37vLTw" id="7$F8FPOuFIc" role="37wK5m">
+                  <ref role="3cqZAo" node="7$F8FPOuuuq" resolve="readOnly" />
                 </node>
               </node>
             </node>
@@ -11026,6 +11032,10 @@
       <node concept="37vLTG" id="42hl10VHazi" role="3clF46">
         <property role="TrG5h" value="rightToLeft" />
         <node concept="10P_77" id="42hl10VHazj" role="1tU5fm" />
+      </node>
+      <node concept="37vLTG" id="7$F8FPOuuuq" role="3clF46">
+        <property role="TrG5h" value="readOnly" />
+        <node concept="10P_77" id="7$F8FPOuy3o" role="1tU5fm" />
       </node>
       <node concept="37vLTG" id="6ucDe7Iyh5x" role="3clF46">
         <property role="TrG5h" value="isInspectorShown" />
@@ -13142,23 +13152,31 @@
             </node>
             <node concept="2OqwBi" id="o22Q$svQET" role="37wK5m">
               <node concept="2OqwBi" id="5$RR$ZQhLoa" role="2Oq$k0">
-                <node concept="2OqwBi" id="71dZSFH4aZC" role="2Oq$k0">
-                  <node concept="2OqwBi" id="5$RR$ZQhLob" role="2Oq$k0">
-                    <node concept="2ShNRf" id="5$RR$ZQhLoc" role="2Oq$k0">
-                      <node concept="1pGfFk" id="5$RR$ZQhLod" role="2ShVmc">
-                        <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.&lt;init&gt;()" resolve="EditorConfigurationBuilder" />
+                <node concept="2OqwBi" id="7$F8FPOvyPl" role="2Oq$k0">
+                  <node concept="2OqwBi" id="71dZSFH4aZC" role="2Oq$k0">
+                    <node concept="2OqwBi" id="5$RR$ZQhLob" role="2Oq$k0">
+                      <node concept="2ShNRf" id="5$RR$ZQhLoc" role="2Oq$k0">
+                        <node concept="1pGfFk" id="5$RR$ZQhLod" role="2ShVmc">
+                          <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.&lt;init&gt;()" resolve="EditorConfigurationBuilder" />
+                        </node>
+                      </node>
+                      <node concept="liA8E" id="5$RR$ZQhLoe" role="2OqNvi">
+                        <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.rightToLeft(boolean)" resolve="rightToLeft" />
+                        <node concept="37vLTw" id="5$RR$ZQhTIT" role="37wK5m">
+                          <ref role="3cqZAo" node="5$RR$ZQhPGV" resolve="rightToLeft" />
+                        </node>
                       </node>
                     </node>
-                    <node concept="liA8E" id="5$RR$ZQhLoe" role="2OqNvi">
-                      <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.rightToLeft(boolean)" resolve="rightToLeft" />
-                      <node concept="37vLTw" id="5$RR$ZQhTIT" role="37wK5m">
-                        <ref role="3cqZAo" node="5$RR$ZQhPGV" resolve="rightToLeft" />
-                      </node>
+                    <node concept="liA8E" id="71dZSFH4bgZ" role="2OqNvi">
+                      <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.showSelectionLine(boolean)" resolve="showSelectionLine" />
+                      <node concept="3clFbT" id="71dZSFH4cD2" role="37wK5m" />
                     </node>
                   </node>
-                  <node concept="liA8E" id="71dZSFH4bgZ" role="2OqNvi">
-                    <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.showSelectionLine(boolean)" resolve="showSelectionLine" />
-                    <node concept="3clFbT" id="71dZSFH4cD2" role="37wK5m" />
+                  <node concept="liA8E" id="7$F8FPOv$YV" role="2OqNvi">
+                    <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.readOnly(boolean)" resolve="readOnly" />
+                    <node concept="37vLTw" id="7$F8FPOvEKN" role="37wK5m">
+                      <ref role="3cqZAo" node="7$F8FPOvqhT" resolve="readOnly" />
+                    </node>
                   </node>
                 </node>
                 <node concept="liA8E" id="71dZSFH4cW4" role="2OqNvi">
@@ -13198,6 +13216,10 @@
               </node>
             </node>
           </node>
+        </node>
+        <node concept="37vLTG" id="7$F8FPOvqhT" role="3clF46">
+          <property role="TrG5h" value="readOnly" />
+          <node concept="10P_77" id="7$F8FPOvupR" role="1tU5fm" />
         </node>
       </node>
       <node concept="2tJIrI" id="1I2O4_rhaEe" role="jymVt" />
@@ -13415,30 +13437,38 @@
             </node>
             <node concept="2OqwBi" id="o22Q$svz1e" role="37wK5m">
               <node concept="2OqwBi" id="3gquIuDtRrx" role="2Oq$k0">
-                <node concept="2OqwBi" id="3gquIuDtOuD" role="2Oq$k0">
-                  <node concept="2OqwBi" id="71dZSFH3QdV" role="2Oq$k0">
-                    <node concept="2OqwBi" id="3gquIuDtLzg" role="2Oq$k0">
-                      <node concept="2ShNRf" id="3gquIuDtcfg" role="2Oq$k0">
-                        <node concept="1pGfFk" id="3gquIuDtJYy" role="2ShVmc">
-                          <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.&lt;init&gt;()" resolve="EditorConfigurationBuilder" />
+                <node concept="2OqwBi" id="7$F8FPOuTOS" role="2Oq$k0">
+                  <node concept="2OqwBi" id="3gquIuDtOuD" role="2Oq$k0">
+                    <node concept="2OqwBi" id="71dZSFH3QdV" role="2Oq$k0">
+                      <node concept="2OqwBi" id="3gquIuDtLzg" role="2Oq$k0">
+                        <node concept="2ShNRf" id="3gquIuDtcfg" role="2Oq$k0">
+                          <node concept="1pGfFk" id="3gquIuDtJYy" role="2ShVmc">
+                            <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.&lt;init&gt;()" resolve="EditorConfigurationBuilder" />
+                          </node>
+                        </node>
+                        <node concept="liA8E" id="3gquIuDtLQX" role="2OqNvi">
+                          <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.showErrorsGutter(boolean)" resolve="showErrorsGutter" />
+                          <node concept="3clFbT" id="5$RR$ZQhZnK" role="37wK5m">
+                            <property role="3clFbU" value="true" />
+                          </node>
                         </node>
                       </node>
-                      <node concept="liA8E" id="3gquIuDtLQX" role="2OqNvi">
-                        <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.showErrorsGutter(boolean)" resolve="showErrorsGutter" />
-                        <node concept="3clFbT" id="5$RR$ZQhZnK" role="37wK5m">
-                          <property role="3clFbU" value="true" />
-                        </node>
+                      <node concept="liA8E" id="71dZSFH3QAS" role="2OqNvi">
+                        <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.showSelectionLine(boolean)" resolve="showSelectionLine" />
+                        <node concept="3clFbT" id="71dZSFH47Fc" role="37wK5m" />
                       </node>
                     </node>
-                    <node concept="liA8E" id="71dZSFH3QAS" role="2OqNvi">
-                      <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.showSelectionLine(boolean)" resolve="showSelectionLine" />
-                      <node concept="3clFbT" id="71dZSFH47Fc" role="37wK5m" />
+                    <node concept="liA8E" id="3gquIuDtONb" role="2OqNvi">
+                      <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.rightToLeft(boolean)" resolve="rightToLeft" />
+                      <node concept="37vLTw" id="3gquIuDtRmh" role="37wK5m">
+                        <ref role="3cqZAo" node="6dXf3jYXvms" resolve="rightToLeft" />
+                      </node>
                     </node>
                   </node>
-                  <node concept="liA8E" id="3gquIuDtONb" role="2OqNvi">
-                    <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.rightToLeft(boolean)" resolve="rightToLeft" />
-                    <node concept="37vLTw" id="3gquIuDtRmh" role="37wK5m">
-                      <ref role="3cqZAo" node="6dXf3jYXvms" resolve="rightToLeft" />
+                  <node concept="liA8E" id="7$F8FPOuWo4" role="2OqNvi">
+                    <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.readOnly(boolean)" resolve="readOnly" />
+                    <node concept="37vLTw" id="7$F8FPOv2p0" role="37wK5m">
+                      <ref role="3cqZAo" node="7$F8FPOuH41" resolve="readOnly" />
                     </node>
                   </node>
                 </node>
@@ -13528,6 +13558,10 @@
           </node>
         </node>
         <node concept="3Tm1VV" id="6dXf3jYXvmC" role="1B3o_S" />
+        <node concept="37vLTG" id="7$F8FPOuH41" role="3clF46">
+          <property role="TrG5h" value="readOnly" />
+          <node concept="10P_77" id="7$F8FPOuPwb" role="1tU5fm" />
+        </node>
       </node>
       <node concept="3uibUv" id="42hl10VHayB" role="1zkMxy">
         <ref role="3uigEE" to="exr9:~EditorComponent" resolve="EditorComponent" />
