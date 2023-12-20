@@ -460,7 +460,9 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
 
     myLibrariesTable.showLoadCheckbox(myClassLoadMPS.isSelected());
 
-//    librariesTable.setTableHeader(null);
+    //TODO remove to enable headers once the API is ready for library loading flags
+    myLibrariesTable.setTableHeader(null);
+
     myLibrariesTable.setShowHorizontalLines(false);
     myLibrariesTable.setShowVerticalLines(false);
     myLibrariesTable.setAutoCreateRowSorter(false);
@@ -867,6 +869,8 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
     }
 
     private void showLoadCheckbox(boolean flag) {
+      //TODO remove once the API is ready for library loading flags
+      flag = false;
       if (flag) {
         final TableColumn checkboxColumn = getColumnModel().getColumn(0);
         checkboxColumn.setMaxWidth(85);
