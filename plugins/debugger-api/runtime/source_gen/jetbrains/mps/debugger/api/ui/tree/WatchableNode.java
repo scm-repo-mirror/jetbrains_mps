@@ -7,7 +7,6 @@ import jetbrains.mps.debug.api.programState.IWatchable;
 import jetbrains.mps.debug.api.AbstractUiState;
 import jetbrains.mps.ide.ui.tree.TextTreeNode;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.debug.api.programState.Watchable2;
 import jetbrains.mps.debug.api.programState.IValue;
 import javax.swing.tree.TreeModel;
 import com.intellij.ui.tree.AsyncTreeModel;
@@ -29,7 +28,7 @@ public class WatchableNode extends AbstractWatchableNode {
   private final TextTreeNode myEvaluateInProgress;
 
   public WatchableNode(@NotNull IWatchable w, AbstractUiState state) {
-    super((w instanceof Watchable2 ? ((Watchable2) w).getSourceNode() : ((w.getNode() == null ? null : w.getNode().getReference()))));
+    super(w.getSourceNode());
     myWatchable = w;
     myState = state;
     setNodeIdentifier(calculateNodeId(w));

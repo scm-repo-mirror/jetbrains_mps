@@ -29,7 +29,6 @@ import jetbrains.mps.debug.api.programState.WatchablesCategory;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.model.SNodeReference;
-import jetbrains.mps.debug.api.programState.Watchable2;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -99,7 +98,7 @@ public class VariablesTree extends MPSTree implements DataProvider {
     Map<WatchablesCategory, Map<SNodeReference, List<IWatchable>>> nodeToVarsMapByCategory = MapSequence.fromMap(new HashMap<WatchablesCategory, Map<SNodeReference, List<IWatchable>>>());
     for (IWatchable watchable : watchables) {
       WatchablesCategory category = watchable.getCategory();
-      SNodeReference node = (watchable instanceof Watchable2 ? ((Watchable2) watchable).getSourceNode() : ((watchable.getNode() == null ? null : watchable.getNode().getReference())));
+      SNodeReference node = watchable.getSourceNode();
       if (node == null) {
         List<IWatchable> orphanes = MapSequence.fromMap(orphanesByCategory).get(category);
         if (orphanes == null) {
