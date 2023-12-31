@@ -66,13 +66,12 @@ public class BreakpointsUiComponent extends BreakpointsUiComponentEx<IBreakpoint
   @Override
   public void initComponent() {
     super.init();
-    // FIXME there seems to be no more reason to setBreakpointsIO in a different thread, as it no longer 
-    //      requires model read (see MPS-15134, and changes to BreakpointManagerComponent that ceased to 
-    //      obtain model read).
-    ApplicationManager.getApplication().executeOnPooledThread(() -> myBreakpointsManagerComponent.setBreakpointsIO(new MyBreakpointsIO()));
     DebugSessionManagerComponent component = DebugSessionManagerComponent.getInstance(myProject);
     component.addDebugSessionListener(myDebugSessionListener);
     myBreakpointsManagerComponent.addChangeListener(myBreakpointManagerListener);
+    // setBreakpointsIO re-reads BP state and notifies about added/removed BP, which we need our myBreakpointManagerListener
+    // to process, hence first addChangeListener, then setBreakpointsIO
+    myBreakpointsManagerComponent.setBreakpointsIO(new MyBreakpointsIO(myProject));
   }
   @Override
   public void disposeComponent() {
@@ -219,9 +218,13 @@ public class BreakpointsUiComponent extends BreakpointsUiComponentEx<IBreakpoint
   public static BreakpointsUiComponent getInstance(Project project) {
     return project.getComponent(BreakpointsUiComponent.class);
   }
-  private class MyBreakpointsIO implements BreakpointManagerComponent.IBreakpointsIO {
-    private MyBreakpointsIO() {
+  private static class MyBreakpointsIO implements BreakpointManagerComponent.IBreakpointsIO {
+    private final Project myProject;
+
+    /*package*/ MyBreakpointsIO(Project ideaProject) {
+      myProject = ideaProject;
     }
+
     @Override
     public IBreakpoint readBreakpoint(@NotNull Element element) {
       String kindName = element.getAttributeValue(BreakpointsUiComponent.KIND_TAG);
@@ -233,11 +236,7 @@ public class BreakpointsUiComponent extends BreakpointsUiComponentEx<IBreakpoint
       if (provider == null) {
         return null;
       }
-      IBreakpoint breakpoint = provider.loadFromState((Element) element.getChildren().get(0), kind, myProject);
-      if (breakpoint != null) {
-        breakpoint.addBreakpointListener(myBreakpointListener);
-      }
-      return breakpoint;
+      return provider.loadFromState((Element) element.getChildren().get(0), kind, myProject);
     }
     @Override
     public Element writeBreakpoint(@NotNull IBreakpoint breakpoint) {
@@ -256,6 +255,7 @@ public class BreakpointsUiComponent extends BreakpointsUiComponentEx<IBreakpoint
       return null;
     }
   }
+
   private class MyBreakpointManagerListener implements BreakpointManagerComponent.IBreakpointManagerListener {
     private MyBreakpointManagerListener() {
     }
