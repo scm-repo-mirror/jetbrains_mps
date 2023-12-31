@@ -29,8 +29,6 @@
     <import index="bd8o" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.application(MPS.IDEA/)" />
     <import index="qkt" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.actionSystem(MPS.IDEA/)" />
     <import index="qq03" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.actions(MPS.Platform/)" />
-    <import index="alof" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.project(MPS.Platform/)" />
-    <import index="zobu" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.debugger.core.breakpoints(MPS.Platform/)" />
     <import index="lzb2" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ui(MPS.IDEA/)" />
     <import index="k3nr" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.ide.editor(MPS.Editor/)" />
     <import index="exr9" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor(MPS.Editor/)" />
@@ -43,6 +41,7 @@
     <import index="lwvz" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.selection(MPS.Editor/)" />
     <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" implicit="true" />
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" implicit="true" />
+    <import index="4jgh" ref="r:e85e5755-b656-44cc-a19b-af0b99b30b13(jetbrains.mps.debugger.core.breakpoints)" implicit="true" />
   </imports>
   <registry>
     <language id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources">
@@ -1705,7 +1704,7 @@
               </node>
             </node>
             <node concept="liA8E" id="68aArIS9HJZ" role="2OqNvi">
-              <ref role="37wK5l" to="zobu:~BreakpointsUiComponentEx.toggleBreakpoint(jetbrains.mps.openapi.editor.cells.EditorCell)" resolve="toggleBreakpoint" />
+              <ref role="37wK5l" to="4jgh:3SnNvqCbyKT" resolve="toggleBreakpoint" />
               <node concept="2OqwBi" id="68aArIS9HK0" role="37wK5m">
                 <node concept="2WthIp" id="68aArIS9HK1" role="2Oq$k0" />
                 <node concept="1DTwFV" id="68aArIS9HK2" role="2OqNvi">
@@ -1766,7 +1765,7 @@
                 </node>
                 <node concept="2OqwBi" id="68aArIS9HKe" role="3uHU7w">
                   <node concept="liA8E" id="68aArIS9HKl" role="2OqNvi">
-                    <ref role="37wK5l" to="zobu:~BreakpointsUiComponentEx.isDebuggable(jetbrains.mps.openapi.editor.cells.EditorCell)" resolve="isDebuggable" />
+                    <ref role="37wK5l" to="4jgh:3SnNvqCbyLf" resolve="isDebuggable" />
                     <node concept="2OqwBi" id="68aArIS9HKm" role="37wK5m">
                       <node concept="2WthIp" id="68aArIS9HKn" role="2Oq$k0" />
                       <node concept="1DTwFV" id="68aArIS9HKo" role="2OqNvi">
