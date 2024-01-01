@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2023 JetBrains s.r.o.
+ * Copyright 2003-2024 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,6 @@ import jetbrains.mps.smodel.runtime.ModuleRuntime.Flags;
 import jetbrains.mps.smodel.runtime.ModuleRuntime.ModuleRuntimeContext;
 import jetbrains.mps.smodel.runtime.impl.GeneratorRuntimeActivator;
 import jetbrains.mps.smodel.runtime.impl.LanguageRuntimeActivator;
-import jetbrains.mps.util.CollectionUtil;
 import jetbrains.mps.util.NameUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -70,6 +69,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.lang.String.format;
@@ -505,7 +505,7 @@ public final class LanguageRegistry implements CoreComponent, DeployListener {
       myRuntimeInstanceAccess.writeLock().lock();
       monitor.start("Solution Runtime", 5);
       final UnloadRecord modulesToUnload = new UnloadRecord();
-      for (Solution s : CollectionUtil.filter(Solution.class, unloadedModules)) {
+      for (Solution s : collectSolutionModules(unloadedModules)) {
         // get, not remove as we notify all first, and only then remove them.
         final ModuleRuntime moduleRuntime = myModuleRuntime.get(s.getModuleReference());
         if (moduleRuntime == null) {
@@ -658,7 +658,7 @@ public final class LanguageRegistry implements CoreComponent, DeployListener {
       monitor.advance(1);
 
       monitor.step("Solution Runtime");
-      for (Solution s : CollectionUtil.filter(Solution.class, loadedModules)) {
+      for (Solution s : collectSolutionModules(loadedModules)) {
         ModuleRuntime moduleRuntime = createRuntime(s);
         if (moduleRuntime == null) {
           continue;
@@ -693,12 +693,18 @@ public final class LanguageRegistry implements CoreComponent, DeployListener {
     myDeploymentNotification.dispatch(false, () -> {});
   }
 
-  private Collection<Language> collectLanguageModules(Set<? extends SModule> modules) {
-    return CollectionUtil.filter(Language.class, modules);
+  private static Collection<Language> collectLanguageModules(Collection<ReloadableModule> modules) {
+    return collectModules(Language.class, modules);
   }
-
-  private Collection<Generator> collectGeneratorModules(Set<? extends SModule> modules) {
-    return CollectionUtil.filter(Generator.class, modules);
+  private static Collection<Generator> collectGeneratorModules(Collection<ReloadableModule> modules) {
+    return collectModules(Generator.class, modules);
+  }
+  private static Collection<Solution> collectSolutionModules(Collection<ReloadableModule> modules) {
+    return collectModules(Solution.class, modules);
+  }
+  private static <E extends SModule> Collection<E> collectModules(Class<E> cls, Collection<ReloadableModule> modules) {
+    // I assume no SModule duplicates comes from CLM dispatch, but in case it's not true, toSet() might be better
+    return modules.stream().map(ReloadableModule::getModule).filter(cls::isInstance).map(cls::cast).collect(Collectors.toList());
   }
 
   private void reinitialize() {

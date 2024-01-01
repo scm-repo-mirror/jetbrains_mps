@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2023 JetBrains s.r.o.
+ * Copyright 2003-2024 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ import jetbrains.mps.classloading.MPSModuleClassLoader;
 import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.SModule;
+import org.jetbrains.mps.openapi.module.SModuleReference;
 
 /**
  * BEWARE this interface will cease to extend {@code SModule}, don't cast your {@code SModule} instances to this one!
@@ -40,8 +41,8 @@ import org.jetbrains.mps.openapi.module.SModule;
  * So the language L in the given example is clearly a reloadable module.
  * <p>
  * As for 191 the common workflow must look like this:
- *
  * <code>
+ * <pre>
  * default void invokeMethodFoo(@NotNull ReloadableModule module) {
  * DeploymentStatus status = module.getStatus();
  *   if (!status.canBeDeployed()) {
@@ -60,12 +61,17 @@ import org.jetbrains.mps.openapi.module.SModule;
  *     e.printStackTrace();
  *   }
  * }
+ * </pre>
  * </code>
  *
- * @see ClassLoaderManager -- the central place for class managing in the MPS, however that class should not be accessed by anyone anymore.
+ * @apiNote The only legitimate association of {@code ReloadableModule} with {@code SModule} is to get latter by {@link #getModule()}<br/>
+ *          To go from {@code SModule} to {@code ReloadableModule}, one shall use {@code ClassLoaderManager}, although generally client
+ *          code shall be a subscriber to CLM events to get {@code ReloadableModule} instances there, rather than trying to discover one
+ *          from {@code SModule}.<br/>
+ * @see ClassLoaderManager ClassLoaderManager -- the central place for class managing in the MPS, however that class should not be accessed by anyone anymore.
  * @author apyshkin
  * @deprecated this interface is not bad per se, just the fact it extends {@code SModule} is unfortunate.
- *             Eventually, {@code ClassLoaderManager} shall use this one (perhaps, aggregating SModule)
+ *             Eventually, {@code ClassLoaderManager} shall use this one (and aggregate SModule)
  *             for its CL purposes, keeping SModule hierarchy (Solution, Language, Generator, etc) independent.
  */
 @Deprecated(forRemoval = false, since = "2023.3")
@@ -117,6 +123,28 @@ public interface ReloadableModule extends SModule {
     Logger.getLogger(getClass()).warnDeprecatedUse("use getClassLoader() directly");
     return getClassLoader();
   }
+
+  /**
+   * The only legitimate way to discover source {@code SModule} from {@code ReloadableModule}.
+   * @apiNote Generally, shall not return {@code null}, at least during proper lifecycle access. Instances of reloadable
+   * module are not supposed to be kept by client code, and the moment they get exposed e.g. to {@code DeployListener}
+   * access to underlaying {@code SModule} is possible. Perhaps, the contract of the method would evolve to throw an
+   * exception if accessing the underlaying module at a wrong moment (e.g. by keeping {@code ReloadableModule} instance in a listener).<br/>
+   * For identification purposes, use {@link #getModuleReference()}
+   * @implNote as long as {@code ReloadableModule} <em>extends</em> {@code SModule}, just return {@code this}.<br/>
+   *           CLM could keep the instances as it sees fit.
+   * @return original "source" module for this classloading counterpart
+   */
+  @NotNull
+  default SModule getModule() {
+    return this;
+  }
+
+  /**
+   * @return Identification of the module, matches the one of originating {@code SModule}
+   */
+  @NotNull
+  SModuleReference getModuleReference();
 
   interface DeploymentStatus {
     /**

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2023 JetBrains s.r.o.
+ * Copyright 2003-2024 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -109,12 +109,12 @@ public class ExtensionRegistry extends BaseExtensionRegistry implements CoreComp
     monitor.done();
   }
 
-  private ExtensionDescriptor findExtensionDescriptor(SModule mod) {
-    if (mod instanceof ReloadableModule && SModuleOperations.canSupplyExtensionsForMPS(mod)) {
+  private static ExtensionDescriptor findExtensionDescriptor(ReloadableModule mod) {
+    if (SModuleOperations.canSupplyExtensionsForMPS(mod.getModule())) {
       // TODO: more flexible way of loading extensions from a module
       String namespace = mod.getModuleName();
       String className = namespace + ".plugin.ExtensionDescriptor";
-      Object compiled = getObjectByClassName(className, (ReloadableModule) mod);
+      Object compiled = getObjectByClassName(className, mod);
       if (compiled instanceof ExtensionDescriptor) {
         return (ExtensionDescriptor) compiled;
       }
@@ -124,9 +124,9 @@ public class ExtensionRegistry extends BaseExtensionRegistry implements CoreComp
   }
 
   @Nullable
-  private Object getObjectByClassName(String className, ReloadableModule module) {
+  private static Object getObjectByClassName(String className, ReloadableModule module) {
     try {
-      Class<?> clazz = myClm.getClassLoader(module).loadOwnClass(className);
+      Class<?> clazz = module.getOwnClass(className);
       return clazz.getDeclaredConstructor().newInstance();
     } catch (Throwable e) {
       LOG.trace("error loading class\"" + className + "\"", e);
