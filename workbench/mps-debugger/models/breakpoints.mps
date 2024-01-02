@@ -2650,6 +2650,193 @@
         </node>
       </node>
       <node concept="3clFbS" id="3SnNvqCbySL" role="3clF47">
+        <node concept="3SKdUt" id="7HUjavqIES" role="3cqZAp">
+          <node concept="1PaTwC" id="7HUjavqIET" role="1aUNEU">
+            <node concept="3oM_SD" id="7HUjavqIZ6" role="1PaTwD">
+              <property role="3oM_SC" value="XXX" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqIZ8" role="1PaTwD">
+              <property role="3oM_SC" value="could" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJ4g" role="1PaTwD">
+              <property role="3oM_SC" value="use" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJ4k" role="1PaTwD">
+              <property role="3oM_SC" value="getServiceIfCreated()" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJ5f" role="1PaTwD">
+              <property role="3oM_SC" value="once" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJ71" role="1PaTwD">
+              <property role="3oM_SC" value="BreakpointUiComponent" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJd2" role="1PaTwD">
+              <property role="3oM_SC" value="can" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJe0" role="1PaTwD">
+              <property role="3oM_SC" value="get" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqTVk" role="1PaTwD">
+              <property role="3oM_SC" value="initialized" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJe9" role="1PaTwD">
+              <property role="3oM_SC" value="depending" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJf9" role="1PaTwD">
+              <property role="3oM_SC" value="on" />
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="7HUjavqJzb" role="3cqZAp">
+          <node concept="1PaTwC" id="7HUjavqJzc" role="1aUNEU">
+            <node concept="3oM_SD" id="7HUjavqJES" role="1PaTwD">
+              <property role="3oM_SC" value=" " />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJEU" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJGT" role="1PaTwD">
+              <property role="3oM_SC" value="BP" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJHN" role="1PaTwD">
+              <property role="3oM_SC" value="presence" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJKq" role="1PaTwD">
+              <property role="3oM_SC" value="(i.e." />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJLm" role="1PaTwD">
+              <property role="3oM_SC" value="independent" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJMj" role="1PaTwD">
+              <property role="3oM_SC" value="of" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJMr" role="1PaTwD">
+              <property role="3oM_SC" value="this" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJNq" role="1PaTwD">
+              <property role="3oM_SC" value="EC" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJOq" role="1PaTwD">
+              <property role="3oM_SC" value="listener)," />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJQh" role="1PaTwD">
+              <property role="3oM_SC" value="but" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJQt" role="1PaTwD">
+              <property role="3oM_SC" value="now" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJRw" role="1PaTwD">
+              <property role="3oM_SC" value="for" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJUv" role="1PaTwD">
+              <property role="3oM_SC" value="BreakpointUiComponent" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJUI" role="1PaTwD">
+              <property role="3oM_SC" value="needs" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJVO" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqJW5" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="7HUjavqJYn" role="3cqZAp">
+          <node concept="1PaTwC" id="7HUjavqJY4" role="1aUNEU">
+            <node concept="3oM_SD" id="7HUjavqJY3" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqKkc" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqKkT" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqL3m" role="1PaTwD">
+              <property role="3oM_SC" value="install" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqKm3" role="1PaTwD">
+              <property role="3oM_SC" value="BreakpointManagerListener" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqKqK" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqKr6" role="1PaTwD">
+              <property role="3oM_SC" value="find" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqKtD" role="1PaTwD">
+              <property role="3oM_SC" value="out" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqKuB" role="1PaTwD">
+              <property role="3oM_SC" value="if" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqKvg" role="1PaTwD">
+              <property role="3oM_SC" value="there" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqKvq" role="1PaTwD">
+              <property role="3oM_SC" value="are" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqKwr" role="1PaTwD">
+              <property role="3oM_SC" value="any" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqKwR" role="1PaTwD">
+              <property role="3oM_SC" value="BP," />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqKyE" role="1PaTwD">
+              <property role="3oM_SC" value="hence" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqK_4" role="1PaTwD">
+              <property role="3oM_SC" value="we" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqK_j" role="1PaTwD">
+              <property role="3oM_SC" value="use" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqK_N" role="1PaTwD">
+              <property role="3oM_SC" value="EC" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqKAU" role="1PaTwD">
+              <property role="3oM_SC" value="listener" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqKBG" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="7HUjavqKRi" role="3cqZAp">
+          <node concept="1PaTwC" id="7HUjavqKRj" role="1aUNEU">
+            <node concept="3oM_SD" id="7HUjavqKTi" role="1PaTwD">
+              <property role="3oM_SC" value=" " />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqL0u" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqL4K" role="1PaTwD">
+              <property role="3oM_SC" value="let" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqL9j" role="1PaTwD">
+              <property role="3oM_SC" value="BreakpointUiComponent" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqLhE" role="1PaTwD">
+              <property role="3oM_SC" value="initialize" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqLkc" role="1PaTwD">
+              <property role="3oM_SC" value="and" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqLxF" role="1PaTwD">
+              <property role="3oM_SC" value="register" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqLyV" role="1PaTwD">
+              <property role="3oM_SC" value="with" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqLnQ" role="1PaTwD">
+              <property role="3oM_SC" value="BreakpointManagerComponent" />
+            </node>
+            <node concept="3oM_SD" id="7HUjavqLwq" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs8" id="650dotajf2b" role="3cqZAp">
           <node concept="3cpWsn" id="650dotajf2c" role="3cpWs9">
             <property role="TrG5h" value="bpIntegration" />
@@ -2661,7 +2848,7 @@
                 <ref role="3cqZAo" node="650dota7FAu" resolve="myProject" />
               </node>
               <node concept="liA8E" id="650dotajf2f" role="2OqNvi">
-                <ref role="37wK5l" to="1m72:~ComponentManager.getServiceIfCreated(java.lang.Class)" resolve="getServiceIfCreated" />
+                <ref role="37wK5l" to="1m72:~ComponentManager.getService(java.lang.Class)" resolve="getService" />
                 <node concept="3VsKOn" id="650dotajf2g" role="37wK5m">
                   <ref role="3VsUkX" node="650dota6Ocn" resolve="BreakpointEditorIntegration" />
                 </node>
@@ -2689,6 +2876,153 @@
             <node concept="10Nm6u" id="650dotajLpr" role="3uHU7w" />
             <node concept="37vLTw" id="650dotajCmd" role="3uHU7B">
               <ref role="3cqZAo" node="650dotajf2c" resolve="bpIntegration" />
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="3H716kiOvby" role="3cqZAp">
+          <node concept="1PaTwC" id="3H716kiOvbz" role="1aUNEU">
+            <node concept="3oM_SD" id="3H716kiOvcU" role="1PaTwD">
+              <property role="3oM_SC" value="XXX" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOvmm" role="1PaTwD">
+              <property role="3oM_SC" value="if" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOvmq" role="1PaTwD">
+              <property role="3oM_SC" value="we" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOvn$" role="1PaTwD">
+              <property role="3oM_SC" value="switch" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOvp_" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOvqL" role="1PaTwD">
+              <property role="3oM_SC" value="getServiceIfCreated()" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOvy7" role="1PaTwD">
+              <property role="3oM_SC" value="or" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOvyi" role="1PaTwD">
+              <property role="3oM_SC" value="use" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOwHQ" role="1PaTwD">
+              <property role="3oM_SC" value="EditorComponentLifecycleListener" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOwJ6" role="1PaTwD">
+              <property role="3oM_SC" value="from" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOwJx" role="1PaTwD">
+              <property role="3oM_SC" value="plugin.ProjectPart," />
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="3H716kiOx7y" role="3cqZAp">
+          <node concept="1PaTwC" id="3H716kiOx7z" role="1aUNEU">
+            <node concept="3oM_SD" id="3H716kiOx97" role="1PaTwD">
+              <property role="3oM_SC" value=" " />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOxsl" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOxtm" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOxuK" role="1PaTwD">
+              <property role="3oM_SC" value="need" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOxvV" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOxw1" role="1PaTwD">
+              <property role="3oM_SC" value="be" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOxwo" role="1PaTwD">
+              <property role="3oM_SC" value="careful" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOxyG" role="1PaTwD">
+              <property role="3oM_SC" value="with" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOxzV" role="1PaTwD">
+              <property role="3oM_SC" value="mouse" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOxBn" role="1PaTwD">
+              <property role="3oM_SC" value="listener" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOxBM" role="1PaTwD">
+              <property role="3oM_SC" value="installed" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOxEa" role="1PaTwD">
+              <property role="3oM_SC" value="in" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOxFt" role="1PaTwD">
+              <property role="3oM_SC" value="BreakpointUiComponentEx" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOxLj" role="1PaTwD">
+              <property role="3oM_SC" value="-" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOxMo" role="1PaTwD">
+              <property role="3oM_SC" value="likely," />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOxNY" role="1PaTwD">
+              <property role="3oM_SC" value="the" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOxPl" role="1PaTwD">
+              <property role="3oM_SC" value="listener" />
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="3H716kiOy4i" role="3cqZAp">
+          <node concept="1PaTwC" id="3H716kiOy4j" role="1aUNEU">
+            <node concept="3oM_SD" id="3H716kiOy6a" role="1PaTwD">
+              <property role="3oM_SC" value=" " />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOydm" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOydq" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOydT" role="1PaTwD">
+              <property role="3oM_SC" value="would" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOyeO" role="1PaTwD">
+              <property role="3oM_SC" value="be" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOyeU" role="1PaTwD">
+              <property role="3oM_SC" value="necessary" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOyix" role="1PaTwD">
+              <property role="3oM_SC" value="regardless" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOyjZ" role="1PaTwD">
+              <property role="3oM_SC" value="of" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOykY" role="1PaTwD">
+              <property role="3oM_SC" value="BP" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOyme" role="1PaTwD">
+              <property role="3oM_SC" value="presence" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOynv" role="1PaTwD">
+              <property role="3oM_SC" value="(i.e." />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOytj" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOyox" role="1PaTwD">
+              <property role="3oM_SC" value="toggle" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOyp$" role="1PaTwD">
+              <property role="3oM_SC" value="new" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOypM" role="1PaTwD">
+              <property role="3oM_SC" value="BP" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOyuT" role="1PaTwD">
+              <property role="3oM_SC" value="by" />
+            </node>
+            <node concept="3oM_SD" id="3H716kiOyva" role="1PaTwD">
+              <property role="3oM_SC" value="clicking)" />
             </node>
           </node>
         </node>
@@ -2725,7 +3059,7 @@
                 <ref role="3cqZAo" node="650dota7FAu" resolve="myProject" />
               </node>
               <node concept="liA8E" id="650dotakix2" role="2OqNvi">
-                <ref role="37wK5l" to="1m72:~ComponentManager.getServiceIfCreated(java.lang.Class)" resolve="getServiceIfCreated" />
+                <ref role="37wK5l" to="1m72:~ComponentManager.getService(java.lang.Class)" resolve="getService" />
                 <node concept="3VsKOn" id="650dotakix3" role="37wK5m">
                   <ref role="3VsUkX" node="650dota6Ocn" resolve="BreakpointEditorIntegration" />
                 </node>

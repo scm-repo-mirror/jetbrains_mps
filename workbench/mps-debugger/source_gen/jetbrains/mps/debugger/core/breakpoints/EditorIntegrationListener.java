@@ -18,14 +18,21 @@ public class EditorIntegrationListener implements EditorComponentCreateListener 
 
   @Override
   public void editorComponentCreated(@NotNull EditorComponent editorComponent) {
-    BreakpointEditorIntegration bpIntegration = myProject.getServiceIfCreated(BreakpointEditorIntegration.class);
+    // XXX could use getServiceIfCreated() once BreakpointUiComponent can get initialized depending on
+    //    BP presence (i.e. independent of this EC listener), but now for BreakpointUiComponent needs to 
+    //    install BreakpointManagerListener to find out if there are any BP, hence we use EC listener to
+    //    let BreakpointUiComponent initialize and register with BreakpointManagerComponent 
+    BreakpointEditorIntegration bpIntegration = myProject.getService(BreakpointEditorIntegration.class);
     if (bpIntegration != null) {
       bpIntegration.installBreakpoints(editorComponent);
     }
+    // XXX if we switch to getServiceIfCreated() or use EditorComponentLifecycleListener from plugin.ProjectPart,
+    //     need to be careful with mouse listener installed in BreakpointUiComponentEx - likely, the listener
+    //     would be necessary regardless of BP presence (i.e. to toggle new BP by clicking)
   }
   @Override
   public void editorComponentDisposed(@NotNull EditorComponent editorComponent) {
-    BreakpointEditorIntegration bpIntegration = myProject.getServiceIfCreated(BreakpointEditorIntegration.class);
+    BreakpointEditorIntegration bpIntegration = myProject.getService(BreakpointEditorIntegration.class);
     if (bpIntegration != null) {
       bpIntegration.uninstallBreakpoints(editorComponent);
     }

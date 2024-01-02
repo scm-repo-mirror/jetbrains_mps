@@ -260,34 +260,41 @@
     <file name="EditorIntegrationListener.java">
       <node id="7007659875368876446" at="13,0,14,0" concept="3" trace="myProject" />
       <node id="7007659875368876450" at="15,53,16,24" concept="2" />
-      <node id="7007659875371905163" at="20,80,21,113" concept="7" />
-      <node id="3023423084377493309" at="22,32,23,56" concept="2" />
-      <node id="7007659875372181565" at="27,81,28,113" concept="7" />
-      <node id="3023423084377493323" at="29,32,30,58" concept="2" />
+      <node id="139023567150574264" at="20,80,21,102" concept="9" />
+      <node id="139023567150577867" at="21,102,22,105" concept="9" />
+      <node id="139023567150579607" at="22,105,23,104" concept="9" />
+      <node id="139023567150583250" at="23,104,24,92" concept="9" />
+      <node id="7007659875371905163" at="24,92,25,104" concept="7" />
+      <node id="3023423084377493309" at="26,32,27,56" concept="2" />
+      <node id="4271387603738161890" at="28,5,29,113" concept="9" />
+      <node id="4271387603738169826" at="29,113,30,109" concept="9" />
+      <node id="4271387603738173714" at="30,109,31,91" concept="9" />
+      <node id="7007659875372181565" at="34,81,35,104" concept="7" />
+      <node id="3023423084377493323" at="36,32,37,58" concept="2" />
       <node id="4474271214083123734" at="15,0,18,0" concept="1" trace="EditorIntegrationListener#(Lcom/intellij/openapi/project/Project;)V" />
-      <node id="7007659875371986681" at="21,113,24,5" concept="5" />
-      <node id="7007659875372181572" at="28,113,31,5" concept="5" />
-      <node id="4474271214083123737" at="19,0,26,0" concept="6" trace="editorComponentCreated#(Ljetbrains/mps/nodeEditor/EditorComponent;)V" />
-      <node id="4474271214083123742" at="26,0,33,0" concept="6" trace="editorComponentDisposed#(Ljetbrains/mps/nodeEditor/EditorComponent;)V" />
+      <node id="7007659875371986681" at="25,104,28,5" concept="5" />
+      <node id="7007659875372181572" at="35,104,38,5" concept="5" />
+      <node id="4474271214083123742" at="33,0,40,0" concept="6" trace="editorComponentDisposed#(Ljetbrains/mps/nodeEditor/EditorComponent;)V" />
+      <node id="4474271214083123737" at="19,0,33,0" concept="6" trace="editorComponentCreated#(Ljetbrains/mps/nodeEditor/EditorComponent;)V" />
       <scope id="4474271214083124784" at="15,53,16,24" />
-      <scope id="7007659875371986683" at="22,32,23,56" />
-      <scope id="7007659875372181573" at="29,32,30,58" />
+      <scope id="7007659875371986683" at="26,32,27,56" />
+      <scope id="7007659875372181573" at="36,32,37,58" />
       <scope id="4474271214083123734" at="15,0,18,0">
         <var name="project" id="7007659875368851031" />
       </scope>
-      <scope id="4474271214083124785" at="20,80,24,5">
-        <var name="bpIntegration" id="7007659875371905164" />
-      </scope>
-      <scope id="4474271214083124793" at="27,81,31,5">
+      <scope id="4474271214083124793" at="34,81,38,5">
         <var name="bpIntegration" id="7007659875372181566" />
       </scope>
-      <scope id="4474271214083123737" at="19,0,26,0">
-        <var name="editorComponent" id="4474271214083123740" />
-      </scope>
-      <scope id="4474271214083123742" at="26,0,33,0">
+      <scope id="4474271214083123742" at="33,0,40,0">
         <var name="editorComponent" id="4474271214083123745" />
       </scope>
-      <unit id="4474271214083123731" at="11,0,34,0" name="jetbrains.mps.debugger.core.breakpoints.EditorIntegrationListener" />
+      <scope id="4474271214083124785" at="20,80,31,91">
+        <var name="bpIntegration" id="7007659875371905164" />
+      </scope>
+      <scope id="4474271214083123737" at="19,0,33,0">
+        <var name="editorComponent" id="4474271214083123740" />
+      </scope>
+      <unit id="4474271214083123731" at="11,0,41,0" name="jetbrains.mps.debugger.core.breakpoints.EditorIntegrationListener" />
     </file>
   </root>
   <root nodeRef="r:e85e5755-b656-44cc-a19b-af0b99b30b13(jetbrains.mps.debugger.core.breakpoints)/7007659875368649495">
