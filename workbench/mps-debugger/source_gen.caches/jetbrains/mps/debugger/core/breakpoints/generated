@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="9o0om0otfgsp8hcu03ibo8xeb9xoply">
-  <files names="BreakpointIconRenderrerEx.java:BreakpointPainterEx.java:BreakpointsUiComponentEx.java" />
+<product version="3" modelHash="-aks8a45r3kzsnkwbd12mbhw7q87tdir">
+  <files names="BreakpointEditorIntegration.java:BreakpointIconRenderrerEx.java:BreakpointPainterEx.java:BreakpointsUiComponentEx.java:EditorIntegrationListener.java" />
 </product>
 

@@ -5,7 +5,6 @@ package jetbrains.mps.debugger.api.ui.breakpoints;
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.debugger.core.breakpoints.BreakpointsUiComponentEx;
 import jetbrains.mps.debug.api.breakpoints.ILocationBreakpoint;
-import com.intellij.openapi.components.ProjectComponent;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.debug.api.BreakpointManagerComponent;
@@ -37,12 +36,13 @@ import jetbrains.mps.debug.api.breakpoints.BreakpointProvidersManager;
 import com.intellij.openapi.ui.Messages;
 import jetbrains.mps.debugger.core.breakpoints.BreakpointIconRenderrerEx;
 import jetbrains.mps.debugger.core.breakpoints.BreakpointPainterEx;
+import jetbrains.mps.debugger.core.breakpoints.BreakpointEditorIntegration;
 import jetbrains.mps.debug.api.breakpoints.IBreakpointListener;
 import jetbrains.mps.debug.api.AbstractDebugSession;
 import jetbrains.mps.debug.api.SessionChangeAdapter;
 
 @GeneratedClass(node = "r:e8d15a56-f89d-47fc-ac9f-8a35d3539ac3(jetbrains.mps.debugger.api.ui.breakpoints)/4474271214083118038", model = "r:e8d15a56-f89d-47fc-ac9f-8a35d3539ac3(jetbrains.mps.debugger.api.ui.breakpoints)")
-public class BreakpointsUiComponent extends BreakpointsUiComponentEx<ILocationBreakpoint> implements ProjectComponent {
+public class BreakpointsUiComponent extends BreakpointsUiComponentEx<ILocationBreakpoint> {
   private static final Logger LOG = Logger.getLogger(BreakpointsUiComponent.class);
   private final MPSProject myMPSProject;
   private final BreakpointManagerComponent myBreakpointsManagerComponent;
@@ -56,18 +56,13 @@ public class BreakpointsUiComponent extends BreakpointsUiComponentEx<ILocationBr
     super(ideaProject);
     myMPSProject = ProjectHelper.fromIdeaProjectOrFail(ideaProject);
     myBreakpointsManagerComponent = BreakpointManagerComponent.getInstance(ideaProject);
-    // Breakpoints UI Component
-  }
-
-  @Override
-  public void initComponent() {
-    super.init();
     DebugSessionManagerComponent component = DebugSessionManagerComponent.getInstance(myProject);
     component.addDebugSessionListener(myDebugSessionListener);
     myBreakpointsManagerComponent.addChangeListener(myBreakpointManagerListener);
   }
+
   @Override
-  public void disposeComponent() {
+  public void dispose() {
     myBreakpointsManagerComponent.removeChangeListener(myBreakpointManagerListener);
     DebugSessionManagerComponent component = DebugSessionManagerComponent.getInstance(myProject);
     component.removeDebugSessionListener(myDebugSessionListener);
@@ -202,14 +197,10 @@ public class BreakpointsUiComponent extends BreakpointsUiComponentEx<ILocationBr
   protected BreakpointPainterEx<ILocationBreakpoint> createPainter(ILocationBreakpoint breakpoint) {
     return new BreakpointPainter(breakpoint);
   }
-  @Override
-  public void projectOpened() {
-  }
-  @Override
-  public void projectClosed() {
-  }
+
   public static BreakpointsUiComponent getInstance(Project project) {
-    return project.getComponent(BreakpointsUiComponent.class);
+    BreakpointEditorIntegration bpIntegration = project.getService(BreakpointEditorIntegration.class);
+    return (bpIntegration instanceof BreakpointsUiComponent ? (BreakpointsUiComponent) bpIntegration : null);
   }
 
   private class MyBreakpointManagerListener implements BreakpointManagerComponent.IBreakpointManagerListener {

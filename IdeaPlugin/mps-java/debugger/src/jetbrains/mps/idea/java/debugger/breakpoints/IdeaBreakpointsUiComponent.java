@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2023 JetBrains s.r.o.
+ * Copyright 2003-2024 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,6 +34,7 @@ import com.intellij.xdebugger.XDebuggerManager;
 import com.intellij.xdebugger.XDebuggerUtil;
 import com.intellij.xdebugger.breakpoints.XBreakpoint;
 import com.intellij.xdebugger.breakpoints.XBreakpointListener;
+import jetbrains.mps.debugger.core.breakpoints.BreakpointEditorIntegration;
 import jetbrains.mps.debugger.core.breakpoints.BreakpointsUiComponentEx;
 import jetbrains.mps.ide.editor.util.EditorComponentUtil;
 import jetbrains.mps.ide.project.ProjectHelper;
@@ -53,25 +54,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class IdeaBreakpointsUiComponent extends BreakpointsUiComponentEx<BreakpointWithHighlighter> implements ProjectComponent {
-  private MessageBusConnection myMessageBusConnection;
-
+public class IdeaBreakpointsUiComponent extends BreakpointsUiComponentEx<BreakpointWithHighlighter> {
   public IdeaBreakpointsUiComponent(Project project) {
     super(project);
   }
 
-  @Override
-  public void initComponent() {
-    super.init();
-    myMessageBusConnection = myProject.getMessageBus().connect();
-    myMessageBusConnection.subscribe(XBreakpointListener.TOPIC, new MyBreakpointListener());  }
-
-  @Override
-  public void disposeComponent() {
-    super.dispose();
-    myMessageBusConnection.disconnect();
-  }
-
+  @NotNull
   @Override
   protected Set<BreakpointWithHighlighter> getBreakpointsForComponent(@NotNull final EditorComponent component) {
     final Set<BreakpointWithHighlighter> result = new HashSet<>();
@@ -108,7 +96,6 @@ public class IdeaBreakpointsUiComponent extends BreakpointsUiComponentEx<Breakpo
       }
     });
   }
-
 
   @Override
   protected BreakpointPainter createPainter(BreakpointWithHighlighter breakpoint) {
@@ -183,39 +170,48 @@ public class IdeaBreakpointsUiComponent extends BreakpointsUiComponentEx<Breakpo
     }
   }
 
-  private class MyBreakpointListener implements XBreakpointListener {
+  public static class BreakpointListener implements XBreakpointListener<XBreakpoint<?>> {
+    private final Project myProject;
+
+    public BreakpointListener(Project project) {
+      myProject = project;
+    }
+
 
     @Override
-    public void breakpointAdded(@NotNull XBreakpoint breakpoint) {
+    public void breakpointAdded(@NotNull XBreakpoint<?> breakpoint) {
       breakpointChanged(breakpoint);
     }
 
     @Override
-    public void breakpointRemoved(@NotNull XBreakpoint breakpoint) {
+    public void breakpointRemoved(@NotNull XBreakpoint<?> breakpoint) {
       breakpointChanged(breakpoint);
     }
 
     @Override
-    public void breakpointChanged(@NotNull XBreakpoint breakpointNoUse) {
-      clearAllEditors();
+    public void breakpointChanged(@NotNull XBreakpoint<?> breakpointNoUse) {
+      final BreakpointEditorIntegration bpIntegration = myProject.getServiceIfCreated(BreakpointEditorIntegration.class);
+      if (false == bpIntegration instanceof IdeaBreakpointsUiComponent) {
+        return;
+      }
+      final IdeaBreakpointsUiComponent cc = (IdeaBreakpointsUiComponent) bpIntegration;
+      cc.clearAllEditors();
 
       // XXX why do we remove/re-add all BPs here instead of managing them individually like BreakpointsUiComponent does?
       final List<Breakpoint> breakpoints = DebuggerManagerEx.getInstanceEx(myProject).getBreakpointManager().getBreakpoints();
       for (Breakpoint breakpoint : breakpoints) {
         if (breakpoint instanceof BreakpointWithHighlighter) {
           BreakpointWithHighlighter breakpointWithHighlighter = (BreakpointWithHighlighter) breakpoint;
-          addLocationBreakpoint(breakpointWithHighlighter);
+          cc.addLocationBreakpoint(breakpointWithHighlighter);
         }
       }
 
-      repaintBreakpoints();
-      ApplicationManager.getApplication().invokeLater(new Runnable() {
-        @Override
-        public void run() {
-          List<EditorComponent> allEditorComponents = EditorComponentUtil.getAllEditorComponents(FileEditorManager.getInstance(myProject), true);
-          for (EditorComponent component : allEditorComponents) {
-            component.repaint();
-          }
+      cc.repaintBreakpoints();
+      ApplicationManager.getApplication().invokeLater(() -> {
+        List<EditorComponent> allEditorComponents = EditorComponentUtil.getAllEditorComponents(FileEditorManager.getInstance(myProject), true);
+        for (EditorComponent component : allEditorComponents) {
+          // FWIW, BreakpointsUiComponent does repaintExternalComponent(). Which one is right?
+          component.repaint();
         }
       });
     }
