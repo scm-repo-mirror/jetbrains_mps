@@ -175,6 +175,13 @@
       <property role="20lbJX" value="fLJekj6/_1__n" />
       <ref role="20lvS9" node="2p1v3tObwT_" resolve="IconLayerDescription" />
     </node>
+    <node concept="1TJgyj" id="7MKI4BBUT$V" role="1TKVEi">
+      <property role="IQ2ns" value="8984883884167239995" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="newuiLayers" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <ref role="20lvS9" node="2p1v3tObwT_" resolve="IconLayerDescription" />
+    </node>
     <node concept="PrWs8" id="2p1v3tObwP6" role="PzmwI">
       <ref role="PrY4T" node="2p1v3tOa9VI" resolve="Icon" />
     </node>
