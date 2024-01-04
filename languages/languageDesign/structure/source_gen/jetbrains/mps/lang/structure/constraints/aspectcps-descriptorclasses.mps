@@ -12,6 +12,7 @@
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
     <import index="tpcn" ref="r:00000000-0000-4000-0000-011c8959028b(jetbrains.mps.lang.structure.behavior)" />
+    <import index="sn11" ref="r:836426ab-a6f4-4fa3-9a9c-34c02ed6ab5d(jetbrains.mps.ide.icons)" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" />
     <import index="tpcc" ref="r:00000000-0000-4000-0000-011c89590290(jetbrains.mps.lang.structure.plugin)" />
@@ -29,7 +30,6 @@
     <import index="2k9e" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.adapter.structure(MPS.Core/)" />
     <import index="ze1i" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.runtime(MPS.Core/)" />
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
-    <import index="lzb2" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ui(MPS.IDEA/)" />
     <import index="ze1j" ref="8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.smodel.runtime(jetbrains.mps.lang.constraints.rules.runtime/)" />
   </imports>
   <registry>
@@ -8545,8 +8545,8 @@
           </node>
         </node>
         <node concept="2YIFZM" id="z1" role="3K4Cdx">
-          <ref role="37wK5l" to="lzb2:~ExperimentalUI.isNewUI()" resolve="isNewUI" />
-          <ref role="1Pybhc" to="lzb2:~ExperimentalUI" resolve="ExperimentalUI" />
+          <ref role="37wK5l" to="sn11:44LDkFPBIdh" resolve="isNewUIActive" />
+          <ref role="1Pybhc" to="sn11:3RymrDRZj9k" resolve="IconLoadingUtil" />
         </node>
       </node>
     </node>
@@ -8580,8 +8580,8 @@
           </node>
         </node>
         <node concept="2YIFZM" id="zd" role="3K4Cdx">
-          <ref role="37wK5l" to="lzb2:~ExperimentalUI.isNewUI()" resolve="isNewUI" />
-          <ref role="1Pybhc" to="lzb2:~ExperimentalUI" resolve="ExperimentalUI" />
+          <ref role="37wK5l" to="sn11:44LDkFPBIdh" resolve="isNewUIActive" />
+          <ref role="1Pybhc" to="sn11:3RymrDRZj9k" resolve="IconLoadingUtil" />
         </node>
       </node>
     </node>
