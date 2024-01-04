@@ -111,14 +111,9 @@
       </concept>
       <concept id="1188207840427" name="jetbrains.mps.baseLanguage.structure.AnnotationInstance" flags="nn" index="2AHcQZ">
         <reference id="1188208074048" name="annotation" index="2AI5Lk" />
-        <child id="1188214630783" name="value" index="2B76xF" />
       </concept>
       <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ngI" index="2AJDlI">
         <child id="1188208488637" name="annotation" index="2AJF6D" />
-      </concept>
-      <concept id="1188214545140" name="jetbrains.mps.baseLanguage.structure.AnnotationInstanceValue" flags="ng" index="2B6LJw">
-        <reference id="1188214555875" name="key" index="2B6OnR" />
-        <child id="1188214607812" name="value" index="2B70Vg" />
       </concept>
       <concept id="2820489544401957797" name="jetbrains.mps.baseLanguage.structure.DefaultClassCreator" flags="nn" index="HV5vD">
         <reference id="2820489544401957798" name="classifier" index="HV5vE" />
@@ -603,28 +598,6 @@
     </node>
     <node concept="3uibUv" id="285c2S_XGDB" role="EKbjA">
       <ref role="3uigEE" node="4D3Y1hNxTJF" resolve="IStartupMigrationExecutor" />
-    </node>
-    <node concept="2AHcQZ" id="5SsFeroaaka" role="2AJF6D">
-      <ref role="2AI5Lk" to="1m72:~State" resolve="State" />
-      <node concept="2B6LJw" id="5SsFeroaakb" role="2B76xF">
-        <ref role="2B6OnR" to="1m72:~State.name()" resolve="name" />
-        <node concept="Xl_RD" id="5SsFeroaakc" role="2B70Vg">
-          <property role="Xl_RC" value="MigrationTrigger" />
-        </node>
-      </node>
-      <node concept="2B6LJw" id="5SsFeroaakd" role="2B76xF">
-        <ref role="2B6OnR" to="1m72:~State.storages()" resolve="storages" />
-        <node concept="2AHcQZ" id="ftM8OcOf4v" role="2B70Vg">
-          <ref role="2AI5Lk" to="1m72:~Storage" resolve="Storage" />
-          <node concept="2B6LJw" id="4PleL4ONw24" role="2B76xF">
-            <ref role="2B6OnR" to="1m72:~Storage.value()" resolve="value" />
-            <node concept="10M0yZ" id="ftM8OcNcf3" role="2B70Vg">
-              <ref role="3cqZAo" to="1m72:~StoragePathMacros.WORKSPACE_FILE" resolve="WORKSPACE_FILE" />
-              <ref role="1PxDUh" to="1m72:~StoragePathMacros" resolve="StoragePathMacros" />
-            </node>
-          </node>
-        </node>
-      </node>
     </node>
     <node concept="3Tm1VV" id="5SsFeroaak1" role="1B3o_S" />
     <node concept="3uibUv" id="5SsFeroaakf" role="1zkMxy">
