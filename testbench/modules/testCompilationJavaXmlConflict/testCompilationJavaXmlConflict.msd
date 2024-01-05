@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="testCompilationJavaXmlConflict" uuid="7fd0088b-58e6-4c37-8992-b90cdf376011" moduleVersion="0" pluginKind="PLUGIN_OTHER" compileInMPS="true">
+<solution name="testCompilationJavaXmlConflict" uuid="7fd0088b-58e6-4c37-8992-b90cdf376011" moduleVersion="0">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />
@@ -10,7 +10,6 @@
       <classes generated="true" path="${module}/classes_gen" />
     </facet>
   </facets>
-  <sourcePath />
   <dependencies>
     <dependency reexport="false">6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)</dependency>
     <dependency reexport="false">498d89d2-c2e9-11e2-ad49-6cf049e62fe5(MPS.IDEA)</dependency>
