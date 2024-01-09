@@ -614,6 +614,9 @@
       <concept id="1145567426890" name="jetbrains.mps.lang.smodel.structure.SNodeListCreator" flags="nn" index="2T8Vx0">
         <child id="1145567471833" name="createdType" index="2T96Bj" />
       </concept>
+      <concept id="1966870290088668512" name="jetbrains.mps.lang.smodel.structure.Enum_MemberLiteral" flags="ng" index="2ViDtV">
+        <reference id="1966870290088668516" name="memberDeclaration" index="2ViDtZ" />
+      </concept>
       <concept id="1171407110247" name="jetbrains.mps.lang.smodel.structure.Node_GetAncestorOperation" flags="nn" index="2Xjw5R" />
       <concept id="3562215692195599741" name="jetbrains.mps.lang.smodel.structure.SLinkImplicitSelect" flags="nn" index="13MTOL">
         <reference id="3562215692195600259" name="link" index="13MTZf" />
@@ -660,6 +663,9 @@
       <concept id="2453008993612559839" name="jetbrains.mps.lang.smodel.structure.EnumSwitchExpression" flags="ng" index="3X5UdL">
         <child id="2453008993612714935" name="cases" index="3X5gkp" />
         <child id="2453008993612559840" name="enumExpression" index="3X5Ude" />
+      </concept>
+      <concept id="5779574625830813396" name="jetbrains.mps.lang.smodel.structure.EnumerationIdRefExpression" flags="ng" index="1XH99k">
+        <reference id="5779574625830813397" name="enumDeclaration" index="1XH99l" />
       </concept>
     </language>
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
@@ -11253,7 +11259,7 @@
       <node concept="3Tm1VV" id="4LNA5o6dMsy" role="1B3o_S" />
       <node concept="3clFbS" id="4LNA5o6dMsz" role="3clF47">
         <node concept="XkiVB" id="3P7s6VtYpOH" role="3cqZAp">
-          <ref role="37wK5l" to="eqyk:~GeneratedTool.&lt;init&gt;(com.intellij.openapi.project.Project,java.lang.String,java.util.Map,javax.swing.Icon,com.intellij.openapi.wm.ToolWindowAnchor,boolean)" resolve="GeneratedTool" />
+          <ref role="37wK5l" to="eqyk:~GeneratedTool.&lt;init&gt;(com.intellij.openapi.project.Project,java.lang.String,java.util.Map,javax.swing.Icon,com.intellij.openapi.wm.ToolWindowAnchor,boolean,boolean)" resolve="GeneratedTool" />
           <node concept="37vLTw" id="2BHiRxgm7QI" role="37wK5m">
             <ref role="3cqZAo" node="4LNA5o6dMtX" resolve="project" />
           </node>
@@ -11459,6 +11465,33 @@
                       <node concept="3clFbS" id="3P7s6VtYpQm" role="9aQI4">
                         <node concept="3cpWs6" id="3P7s6VtYpQn" role="3cqZAp">
                           <node concept="10Nm6u" id="3P7s6VtYpQo" role="3cqZAk" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbT" id="6ynJ8PRvE7S" role="37wK5m">
+            <property role="3clFbU" value="true" />
+            <node concept="1W57fq" id="6ynJ8PRvEEK" role="lGtFl">
+              <node concept="3IZrLx" id="6ynJ8PRvEEL" role="3IZSJc">
+                <node concept="3clFbS" id="6ynJ8PRvEEM" role="2VODD2">
+                  <node concept="3clFbF" id="6ynJ8PRvEZb" role="3cqZAp">
+                    <node concept="3clFbC" id="6ynJ8PRvGSL" role="3clFbG">
+                      <node concept="2OqwBi" id="6ynJ8PRvJ8g" role="3uHU7w">
+                        <node concept="1XH99k" id="6ynJ8PRvHeU" role="2Oq$k0">
+                          <ref role="1XH99l" to="tp4k:3Ftr4R6BFqN" resolve="ToolPosition" />
+                        </node>
+                        <node concept="2ViDtV" id="6ynJ8PRvJWa" role="2OqNvi">
+                          <ref role="2ViDtZ" to="tp4k:6ynJ8PRv7RF" resolve="BOTTOM_RIGHT" />
+                        </node>
+                      </node>
+                      <node concept="2OqwBi" id="6ynJ8PRvFTv" role="3uHU7B">
+                        <node concept="30H73N" id="6ynJ8PRvEZa" role="2Oq$k0" />
+                        <node concept="3TrcHB" id="6ynJ8PRvGs9" role="2OqNvi">
+                          <ref role="3TsBF5" to="tp4k:3Ftr4R6BH7r" resolve="position" />
                         </node>
                       </node>
                     </node>
