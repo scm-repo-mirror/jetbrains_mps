@@ -22,6 +22,7 @@ import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.MacroHelper;
+import jetbrains.mps.util.MacroHelper.MacroNoHelper;
 import jetbrains.mps.util.MacrosFactory;
 import jetbrains.mps.util.PathSpec;
 import jetbrains.mps.vfs.IFile;
@@ -214,7 +215,9 @@ public abstract class FileBasedModelRoot extends ModelRootBase implements FileEv
       copyMemento(this.memento, memento);
       return;
     }
-    final MacroHelper mh = MacrosFactory.forModule(getModule());
+    // detached model root instance (no module) likely shall not shrink paths at all - use of global variables
+    // would be of no help once memento populates another root instance
+    final MacroHelper mh = getModule() == null ? new MacroNoHelper() : MacrosFactory.forModule(getModule());
     if (myContentDir != null) {
       memento.put(CONTENT_PATH, myContentDir.shrink(mh));
     }
