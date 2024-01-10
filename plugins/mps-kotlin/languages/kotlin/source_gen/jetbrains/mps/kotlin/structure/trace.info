@@ -17,7 +17,7 @@
       <unit at="11,0,2255,0" name="jetbrains.mps.kotlin.structure.ConceptPresentationAspectImpl" />
     </file>
     <file name="IconContainer.java">
-      <unit at="7,0,23,0" name="jetbrains.mps.kotlin.structure.IconContainer" />
+      <unit at="8,0,24,0" name="jetbrains.mps.kotlin.structure.IconContainer" />
     </file>
     <file name="LanguageConceptSwitch.java">
       <unit at="10,0,562,0" name="jetbrains.mps.kotlin.structure.LanguageConceptSwitch" />

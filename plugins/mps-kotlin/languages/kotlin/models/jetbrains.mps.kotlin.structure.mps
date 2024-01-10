@@ -16,6 +16,7 @@
   <registry>
     <language id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources">
       <concept id="8974276187400029883" name="jetbrains.mps.lang.resources.structure.FileIcon" flags="ng" index="1QGGSu">
+        <property id="1805901909778165289" name="newuiFile" index="uyjgh" />
         <property id="2756621024541341363" name="file" index="1iqoE4" />
       </concept>
     </language>
@@ -179,6 +180,7 @@
     </node>
     <node concept="1QGGSu" id="5sECd$vml1F" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/objectKotlin.svg" />
+      <property role="uyjgh" value="${module}/icons/objectKotlin_newui.svg" />
     </node>
     <node concept="1TJgyi" id="7bKZA$p5CCN" role="1TKVEl">
       <property role="IQ2nx" value="8282399442080270899" />
@@ -354,6 +356,7 @@
     </node>
     <node concept="1QGGSu" id="58ySuOXMdg9" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/classInitializerKotlin.svg" />
+      <property role="uyjgh" value="${module}/icons/classInitializerKotlin_newui.svg" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6Jem">
@@ -748,6 +751,7 @@
     </node>
     <node concept="1QGGSu" id="4xtEcGT2API" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/kotlin_script.svg" />
+      <property role="uyjgh" value="${module}/icons/kotlinScript_newui.svg" />
     </node>
   </node>
   <node concept="PlHQZ" id="2yYXHtl6JfN">
@@ -855,6 +859,7 @@
     </node>
     <node concept="1QGGSu" id="58ySuOXMg16" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/value.svg" />
+      <property role="uyjgh" value="${module}/icons/value_newui.svg" />
     </node>
   </node>
   <node concept="PlHQZ" id="2yYXHtl6Jg6">
@@ -925,6 +930,7 @@
     </node>
     <node concept="1QGGSu" id="58ySuOXMcXP" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/classInitializerKotlin.svg" />
+      <property role="uyjgh" value="${module}/icons/classInitializerKotlin_newui.svg" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6Jgu">
@@ -1236,6 +1242,7 @@
     </node>
     <node concept="1QGGSu" id="5sECd$vmc2j" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/classKotlin.svg" />
+      <property role="uyjgh" value="${module}/icons/classKotlin_newui.svg" />
     </node>
   </node>
   <node concept="PlHQZ" id="2yYXHtl6JhF">
@@ -1518,6 +1525,7 @@
     </node>
     <node concept="1QGGSu" id="58ySuOXMhPn" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/typeAlias.svg" />
+      <property role="uyjgh" value="${module}/icons/typeAlias_newui.svg" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6Jj_">
@@ -1763,6 +1771,7 @@
     </node>
     <node concept="1QGGSu" id="58ySuOXMi0n" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/lambda.svg" />
+      <property role="uyjgh" value="${module}/icons/lambda_newui.svg" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6Jks">
@@ -1855,6 +1864,7 @@
     </node>
     <node concept="1QGGSu" id="4xtEcGSY$wQ" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/kotlin.svg" />
+      <property role="uyjgh" value="${module}/icons/kotlin_newui.svg" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6JkE">
@@ -1986,6 +1996,7 @@
     </node>
     <node concept="1QGGSu" id="58ySuOXMfKp" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/value.svg" />
+      <property role="uyjgh" value="${module}/icons/value_newui.svg" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6Jl1">
@@ -2170,6 +2181,7 @@
     </node>
     <node concept="1QGGSu" id="58ySuOXMfrD" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/value.svg" />
+      <property role="uyjgh" value="${module}/icons/value_newui.svg" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6JlR">
@@ -2250,6 +2262,7 @@
     </node>
     <node concept="1QGGSu" id="58ySuOXMiq1" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/objectKotlin.svg" />
+      <property role="uyjgh" value="${module}/icons/objectKotlin_newui.svg" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6Jm9">
@@ -2476,6 +2489,7 @@
     </node>
     <node concept="1QGGSu" id="5sECd$vmkoc" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/enumKotlin.svg" />
+      <property role="uyjgh" value="${module}/icons/enumKotlin_newui.svg" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtli8qZ">
@@ -2495,6 +2509,7 @@
     </node>
     <node concept="1QGGSu" id="5sECd$vmki4" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/interfaceKotlin.svg" />
+      <property role="uyjgh" value="${module}/icons/interfaceKotlin_newui.svg" />
     </node>
   </node>
   <node concept="PlHQZ" id="2yYXHtlqd9D">
