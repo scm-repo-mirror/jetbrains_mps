@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2023 JetBrains s.r.o.
+ * Copyright 2003-2024 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -79,7 +79,6 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
 
   private PathSpec myGeneratedClassesLocation = null;
 
-  private boolean myTransitionalNewValues = false;
   private Compile myCompile = Compile.MPS;
   private LoadClasses myLoadClasses = LoadClasses.ManagedByMPS;
   private LoadExtensions myLoadExtensions = LoadExtensions.NotAvailable;
@@ -88,6 +87,8 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
   private JavaLanguageLevel myJavaLanguageLevel = null;
   private PathSpecBundle myLibraryBundle = new PathSpecBundle();
   private PathSpecBundle myAdditionalSources = new PathSpecBundle();
+
+  // myTransitionLibraryBundle and myTransitionExtraSources stay in 23.3; we still write these back on save (unless 23.2 migration moved them to JMF)
   private boolean myTransitionLibraryBundle = true;
   private boolean myTransitionExtraSources = true;
 
@@ -251,11 +252,9 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
     }
     final MacroHelper mh = MacrosFactory.forModule(getModule());
     toUpdate.put(PATH_KEY, myGeneratedClassesLocation != null ? myGeneratedClassesLocation.shrink(mh) : null);
-    if (!myTransitionalNewValues) {
-      memento.put(KEY_COMPILE, myCompile.toPersistenceValue());
-      memento.put(KEY_CLASSLOADER, myLoadClasses.toPersistenceValue());
-      memento.put(KEY_EXTENSION, myLoadExtensions.toPersistenceValue());
-    }
+    memento.put(KEY_COMPILE, myCompile.toPersistenceValue());
+    memento.put(KEY_CLASSLOADER, myLoadClasses.toPersistenceValue());
+    memento.put(KEY_EXTENSION, myLoadExtensions.toPersistenceValue());
     if (!myTransitionLibraryBundle) {
       memento.clearChildren(LIBRARY_KEY);
       for (PathSpec jl : myLibraryBundle) {
@@ -293,7 +292,7 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
       //       for myGeneratedClassesLocation. However, there was none and code that creates JMF seems to care about
       //       source output explicitly (producers). Nevertheless, shall unify approach -
       //       whether it's here we set defaults or external code does (and whether it uses JMF API or FacetDescriptor memento)
-      // the rest of the fields get their defaults ok (myTransitionalNewValues == false, and compile/classes/ext are mostly fine)
+      // the rest of the fields get their defaults ok
       if (getModule() instanceof Language) {
         // this is the only setting different in L/G/D/S defaults
         myLoadExtensions = LoadExtensions.Plugin;
@@ -408,7 +407,6 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
       }
     }
     // configure defaults for transition
-    myTransitionalNewValues = true;
     AbstractModule module = getAbstractModule();
     ModuleDescriptor descriptor = module.getModuleDescriptor();
     if (descriptor != null) {
@@ -453,17 +451,14 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
     // if there are serialized values, use them
     final String compileValue = memento.get(KEY_COMPILE);
     if (compileValue != null) {
-      myTransitionalNewValues = false;
       myCompile = Compile.fromPersistenceValue(compileValue, Compile.None);
     }
     final String clValue = memento.get(KEY_CLASSLOADER);
     if (clValue != null) {
-      myTransitionalNewValues = false;
       myLoadClasses = LoadClasses.fromPersistenceValue(clValue, LoadClasses.NotAvailable);
     }
     final String extValue = memento.get(KEY_EXTENSION);
     if (extValue != null) {
-      myTransitionalNewValues = false;
       myLoadExtensions = LoadExtensions.fromPersistenceValue(extValue, LoadExtensions.NotAvailable);
     }
   }
@@ -487,19 +482,16 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
 
   @Override
   public void setCompile(Compile compile) {
-    myTransitionalNewValues = false;
     myCompile = compile;
   }
 
   @Override
   public void setLoadClasses(LoadClasses loadClasses) {
-    myTransitionalNewValues = false;
     myLoadClasses = loadClasses;
   }
 
   @Override
   public void setLoadExtensions(LoadExtensions loadExtensions) {
-    myTransitionalNewValues = false;
     myLoadExtensions = loadExtensions;
   }
 
