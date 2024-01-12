@@ -144,6 +144,7 @@ public class Ide_ApplicationPlugin extends BaseApplicationPlugin {
     addGroup(new ProjectActionsRenameProjectContainer_ActionGroup(this));
     addGroup(new ProjectActions_ActionGroup(this));
     addGroup(new ProjectNewActions_ActionGroup(this));
+    addGroup(new ProjectPanePopupMenu_ActionGroup(this));
     addGroup(new PropertyNodeActions_ActionGroup(this));
     addGroup(new ReferenceNodeActions_ActionGroup(this));
     addGroup(new SearchUsages_ActionGroup(this));
@@ -230,6 +231,7 @@ public class Ide_ApplicationPlugin extends BaseApplicationPlugin {
     insertGroupIntoAnother(MessagesViewActions_ActionGroup.ID, "MPS.MessagesView", null);
     insertGroupIntoAnother(PrintNodePosition_Addition_ActionGroup.ID, EditorInternal_ActionGroup.ID, null);
     insertGroupIntoAnother(Search_ActionGroup.ID, "FindMenuGroup", null);
+    insertGroupIntoAnother(ProjectPanePopupMenu_ActionGroup.ID, "ProjectViewPopupMenu", null);
     insertGroupIntoAnother(View_ActionGroup.ID, "ViewMenu", null);
     insertGroupIntoAnother(StructurePopup_ActionGroup.ID, "GoToEditorPopupAddition_ActionGroupother", null);
   }

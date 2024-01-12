@@ -11,17 +11,15 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
+import jetbrains.mps.VisibleModuleRegistry;
 import jetbrains.mps.ide.findusages.model.scopes.GlobalScope;
 import jetbrains.mps.project.MPSProject;
-import jetbrains.mps.VisibleModuleRegistry;
 import jetbrains.mps.scope.ConditionalScope;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.projectPane.ProjectPane;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.smodel.ModelAccessHelper;
-import javax.swing.SwingUtilities;
 
 @GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/1216124527478", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
 public class ShowInLogicalView_Action extends BaseAction {
@@ -40,13 +38,14 @@ public class ShowInLogicalView_Action extends BaseAction {
   @Override
   public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
     SModule module = (((SNode) MapSequence.fromMap(_params).get("node")).getModel() == null ? null : ((SNode) MapSequence.fromMap(_params).get("node")).getModel().getModule());
-    if (module == null) {
-      return false;
+    boolean ourModule = module != null;
+    if (ourModule) {
+      VisibleModuleRegistry visibleModules = new VisibleModuleRegistry();
+      GlobalScope globalScope = new GlobalScope(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")));
+      new ConditionalScope(globalScope, visibleModules::isVisible, null).getModules();
+      ourModule &= Sequence.fromIterable(((Iterable<SModule>) new ConditionalScope(globalScope, visibleModules::isVisible, null).getModules())).contains(module);
     }
-    GlobalScope globalScope = new GlobalScope(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")));
-    VisibleModuleRegistry visibleModules = new VisibleModuleRegistry();
-    ConditionalScope visibleModulesScope = new ConditionalScope(globalScope, visibleModules::isVisible, null);
-    return Sequence.fromIterable(((Iterable<SModule>) visibleModulesScope.getModules())).contains(module);
+    return ourModule;
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
@@ -77,12 +76,12 @@ public class ShowInLogicalView_Action extends BaseAction {
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     // XXX perhaps, shall use ProjectPaneNavigator?
     final ProjectPane pane = ProjectPane.getInstance(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")));
-    final Wrappers._T<SNodeReference> nodeToSelect = new Wrappers._T<SNodeReference>();
+    SNodeReference nodeToSelect;
     if (pane.showNodeStructure()) {
-      nodeToSelect.value = ((SNode) MapSequence.fromMap(_params).get("node")).getReference();
+      nodeToSelect = ((SNode) MapSequence.fromMap(_params).get("node")).getReference();
     } else {
-      nodeToSelect.value = new ModelAccessHelper(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getModelAccess()).runReadAction(() -> ((SNode) MapSequence.fromMap(_params).get("node")).getContainingRoot().getReference());
+      nodeToSelect = new ModelAccessHelper(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getModelAccess()).runReadAction(() -> ((SNode) MapSequence.fromMap(_params).get("node")).getContainingRoot().getReference());
     }
-    SwingUtilities.invokeLater(() -> pane.selectNode(nodeToSelect.value, true));
+    pane.selectNode(nodeToSelect, true);
   }
 }

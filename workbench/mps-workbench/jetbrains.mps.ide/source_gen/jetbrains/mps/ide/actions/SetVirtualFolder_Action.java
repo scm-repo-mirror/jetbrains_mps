@@ -8,9 +8,8 @@ import javax.swing.Icon;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import java.util.List;
-import javax.swing.tree.TreeNode;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
-import jetbrains.mps.ide.ui.tree.module.ProjectModuleTreeNode;
+import jetbrains.mps.ide.ui.tree.ContextValueProvider;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.project.MPSProject;
 import org.jetbrains.annotations.NotNull;
@@ -43,19 +42,21 @@ public class SetVirtualFolder_Action extends BaseAction {
   @Override
   public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
     // project.isProjectModule would say true for a generator under a language, and we don't want to set VF for it
-    boolean isApplicable = !(((List<TreeNode>) MapSequence.fromMap(_params).get("treeNodes")).isEmpty());
-    for (TreeNode tn : ((List<TreeNode>) MapSequence.fromMap(_params).get("treeNodes"))) {
-      if (!(tn instanceof ProjectModuleTreeNode)) {
-        isApplicable = false;
-        break;
-      }
-      if (tn.getParent() instanceof ProjectModuleTreeNode) {
+    boolean isApplicable = !(((List<Object>) MapSequence.fromMap(_params).get("selectedValues")).isEmpty());
+    for (Object selectedObject : ((List<Object>) MapSequence.fromMap(_params).get("selectedObjects"))) {
+      if (selectedObject instanceof ContextValueProvider && ((ContextValueProvider) selectedObject).parentContextValueOfType(SModule.class).isPresent()) {
         // see RemoveVirtualFolder action for explanation of the check
         isApplicable = false;
         break;
       }
+    }
+    for (Object selectedValue : ((List<Object>) MapSequence.fromMap(_params).get("selectedValues"))) {
+      if (!(selectedValue instanceof SModule)) {
+        isApplicable = false;
+        break;
+      }
 
-      SModule module = ((ProjectModuleTreeNode) tn).getModule();
+      SModule module = (SModule) selectedValue;
       if (!(((MPSProject) MapSequence.fromMap(_params).get("project")).isProjectModule(module))) {
         isApplicable = false;
         break;
@@ -87,8 +88,18 @@ public class SetVirtualFolder_Action extends BaseAction {
       }
     }
     {
-      List<TreeNode> p = event.getData(MPSCommonDataKeys.TREE_NODES);
-      MapSequence.fromMap(_params).put("treeNodes", p);
+      List<Object> p = event.getData(MPSCommonDataKeys.VALUES);
+      MapSequence.fromMap(_params).put("selectedValues", p);
+      if (p == null) {
+        return false;
+      }
+      if (p.isEmpty()) {
+        return false;
+      }
+    }
+    {
+      List<Object> p = event.getData(MPSCommonDataKeys.USER_OBJECTS);
+      MapSequence.fromMap(_params).put("selectedObjects", p);
       if (p == null) {
         return false;
       }
@@ -100,7 +111,7 @@ public class SetVirtualFolder_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    final List<SModule> modules = ((List<TreeNode>) MapSequence.fromMap(_params).get("treeNodes")).stream().map(ProjectModuleTreeNode.class::cast).map(ProjectModuleTreeNode::getModule).collect(Collectors.<SModule>toList());
+    final List<SModule> modules = ((List<Object>) MapSequence.fromMap(_params).get("selectedValues")).stream().map(SModule.class::cast).collect(Collectors.<SModule>toList());
     final MPSProject mpsProject = ((MPSProject) MapSequence.fromMap(_params).get("project"));
     List<String> allVFs = modules.stream().map((SModule m) -> mpsProject.getVirtualFolder(m)).distinct().collect(Collectors.<String>toList());
     // used to take VF common for all modules, but I don't see any reason not to take just any, we ask user for input anyway

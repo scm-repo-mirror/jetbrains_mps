@@ -7,13 +7,12 @@ import jetbrains.mps.workbench.action.BaseAction;
 import javax.swing.Icon;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
-import jetbrains.mps.ide.ui.tree.smodel.PackageNode;
-import jetbrains.mps.ide.ui.tree.smodel.SModelTreeNode;
+import jetbrains.mps.ide.ui.tree.ContextValueProvider;
+import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.project.MPSProject;
 import java.awt.Frame;
-import javax.swing.tree.TreeNode;
-import org.jetbrains.mps.openapi.model.SModel;
+import jetbrains.mps.ide.ui.tree.VirtualFolder;
 import org.jetbrains.mps.openapi.module.ModelAccess;
 import javax.swing.JOptionPane;
 import java.util.Collection;
@@ -40,7 +39,7 @@ public class RenamePackage_Action extends BaseAction {
   }
   @Override
   public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
-    return ((PackageNode) event.getData(MPSCommonDataKeys.TREE_NODE)).getAncestor(SModelTreeNode.class) != null;
+    return ((ContextValueProvider) event.getData(MPSCommonDataKeys.USER_OBJECT)).contextValueOfType(SModel.class).isPresent();
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
@@ -64,11 +63,20 @@ public class RenamePackage_Action extends BaseAction {
       }
     }
     {
-      TreeNode p = event.getData(MPSCommonDataKeys.TREE_NODE);
+      Object p = event.getData(MPSCommonDataKeys.VALUE);
       if (p == null) {
         return false;
       }
-      if (p != null && !(p instanceof PackageNode)) {
+      if (p != null && !(p instanceof VirtualFolder.Nodes)) {
+        return false;
+      }
+    }
+    {
+      Object p = event.getData(MPSCommonDataKeys.USER_OBJECT);
+      if (p == null) {
+        return false;
+      }
+      if (p != null && !(p instanceof ContextValueProvider)) {
         return false;
       }
     }
@@ -76,12 +84,11 @@ public class RenamePackage_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    PackageNode treeNode = ((PackageNode) event.getData(MPSCommonDataKeys.TREE_NODE));
-    final SModel model = treeNode.getAncestor(SModelTreeNode.class).getModel();
+    final SModel model = ((ContextValueProvider) event.getData(MPSCommonDataKeys.USER_OBJECT)).contextValueOfType(SModel.class).get();
     if (model == null) {
       return;
     }
-    final String packageName = treeNode.getPackage();
+    final String packageName = ((VirtualFolder.Nodes) event.getData(MPSCommonDataKeys.VALUE)).getName();
     ModelAccess modelAccess = event.getData(MPSCommonDataKeys.MPS_PROJECT).getRepository().getModelAccess();
     final String newName = (String) JOptionPane.showInputDialog(event.getData(MPSCommonDataKeys.FRAME), "Enter virtual folder name", "Rename Virtual Folder", JOptionPane.INFORMATION_MESSAGE, null, null, packageName);
     if (newName == null) {
