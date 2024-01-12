@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2023 JetBrains s.r.o.
+ * Copyright 2003-2024 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -105,6 +105,11 @@ class PlatformBase implements Platform {
     while (!myComponentPlugins.isEmpty()) {
       myComponentPlugins.pop().dispose();
     }
+  }
+
+  @Override
+  public void install(ComponentPlugin componentPlugin) {
+    initAndRegister(componentPlugin);
   }
 
   private <T extends ComponentPlugin> T initAndRegister(T plugin) {

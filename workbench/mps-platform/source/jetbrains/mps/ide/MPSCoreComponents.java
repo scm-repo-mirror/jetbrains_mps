@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2024 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,8 +52,10 @@ public class MPSCoreComponents implements Disposable {
   public MPSCoreComponents() {
     @NotNull ManagingFS fs = ManagingFS.getInstance();
     @NotNull ModelAccess access = ApplicationManager.getApplication().getComponent(ModelAccess.class);
-    var delegate = PlatformFactory.initPlatform(PlatformOptionsBuilder.ALL);
-    myPlatform = new BLPlatform(delegate);
+    myPlatform = PlatformFactory.initPlatform(PlatformOptionsBuilder.ALL);
+    // XXX likely, shall introduce an extension point to contribute CP instances w/o explicit dependency here;
+    //     could use one for future [mps-editor]/MPSEditorComponentPlugin  ([mps-editor] depends from [mps-platform] and I can't have direct reference)
+    myPlatform.install(new MPSBaseLanguage());
 
     // Required to maintain correct dispose order between PersistenceFacade and FileBasedIndexImpl.
     Disposer.register(this, (PersistentFSImpl) fs);
@@ -102,32 +104,5 @@ public class MPSCoreComponents implements Disposable {
   public static MPSCoreComponents getInstance() {
     // With IDEA's "service" approach, I don't have other option but to follow platform's approach at least for few elements like MPSCoreComponents
     return ApplicationManager.getApplication().getComponent(MPSCoreComponents.class);
-  }
-
-  private static class BLPlatform implements Platform {
-    private final Platform myDelegate;
-    private final MPSBaseLanguage myBaseLanguage;
-
-    private BLPlatform(@NotNull Platform delegate) {
-      myDelegate = delegate;
-      myBaseLanguage = new MPSBaseLanguage();
-      myBaseLanguage.init();
-    }
-
-    @Nullable
-    @Override
-    public <T extends CoreComponent> T findComponent(@NotNull Class<T> componentClass) {
-      var c = myDelegate.findComponent(componentClass);
-      if (c != null) {
-        return c;
-      }
-      return myBaseLanguage.findComponent(componentClass);
-    }
-
-    @Override
-    public void dispose() {
-      myBaseLanguage.dispose();
-      myDelegate.dispose();
-    }
   }
 }
