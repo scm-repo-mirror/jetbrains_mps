@@ -7288,9 +7288,9 @@
             <ref role="3bR37D" node="1TaHNgiIbIZ" resolve="MPS.Editor" />
           </node>
         </node>
-        <node concept="1SiIV0" id="2Qa9MYMHtQ9" role="3bR37C">
-          <node concept="3bR9La" id="2Qa9MYMHtQ8" role="1SiIV1">
-            <ref role="3bR37D" node="7Kfy9QB6L4X" resolve="jetbrains.mps.lang.editor" />
+        <node concept="1SiIV0" id="4_dLHbdl3Y1" role="3bR37C">
+          <node concept="3bR9La" id="4_dLHbdl3Y2" role="1SiIV1">
+            <ref role="3bR37D" node="7Kfy9QB6KXW" resolve="jetbrains.mps.lang.core" />
           </node>
         </node>
         <node concept="1E1SXE" id="6mTG60y4t7E" role="3bR37C">
