@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2024 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,9 +18,6 @@ package jetbrains.mps.ide.editor;
 import com.intellij.concurrency.JobScheduler;
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.editor.ex.EditorSettingsExternalizable;
-import jetbrains.mps.core.platform.DynamicComponentWarden;
-import jetbrains.mps.core.platform.DynamicComponentWarden.Token;
-import jetbrains.mps.editor.EditorComponentTrackService;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.nodeEditor.EditorSettingsListener;
 import jetbrains.mps.nodeEditor.caret.CaretManager;
@@ -34,24 +31,14 @@ import java.util.concurrent.TimeUnit;
  * Date: 29/07/16
  */
 public class IdeaCaretManager extends CaretManager implements EditorSettingsListener, Disposable {
-  private Token myComponentTracker;
-
   public IdeaCaretManager() {
     CaretManager.ourInstance = this;
-    MPSCoreComponents cc = MPSCoreComponents.getInstance();
-    // FIXME provisional placement not to add dedicated app listener/component for EditorComponentTrackService
-    //   I'd like to test this approach first. Eventually, likely need something as MPSEditor ComponentPlugin
-    //   Now we piggy-back IdeaCaretManager from [mps-editor]
-    final DynamicComponentWarden dcw = cc.getPlatform().findComponent(DynamicComponentWarden.class);
-    myComponentTracker = dcw.publish(EditorComponentTrackService.class, new EditorComponentTracker());
   }
 
   @Override
   public void dispose() {
-    if (myComponentTracker != null) {
-      myComponentTracker.discard();
-      myComponentTracker = null;
-    }
+    // XXX shall I cancel scheduled "blink" or pass this disposable as parent somewhere?
+    ourInstance = null;
   }
 
   @Override
