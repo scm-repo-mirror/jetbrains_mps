@@ -36,7 +36,6 @@
     <import index="hfuk" ref="r:b25dd364-bc3f-4a66-97d1-262009610c5e(jetbrains.mps.make)" />
     <import index="18ew" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util(MPS.Core/)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
-    <import index="fyhk" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps(MPS.Core/)" />
     <import index="mte5" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.ide.findusages.model.scopes(MPS.Core/)" />
     <import index="mk8z" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.progress(MPS.Core/)" />
     <import index="yyf4" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.util(MPS.OpenAPI/)" />
@@ -560,6 +559,14 @@
     <property role="1sVAO0" value="false" />
     <property role="1EXbeo" value="false" />
     <property role="3GE5qa" value="migrationTrigger" />
+    <node concept="312cEg" id="1uGDk4lQxBs" role="jymVt">
+      <property role="TrG5h" value="myProject" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm6S6" id="1uGDk4lQxBt" role="1B3o_S" />
+      <node concept="3uibUv" id="1uGDk4lQC1g" role="1tU5fm">
+        <ref role="3uigEE" to="4nm9:~Project" resolve="Project" />
+      </node>
+    </node>
     <node concept="312cEg" id="1AzqgyAfbh5" role="jymVt">
       <property role="TrG5h" value="myMpsProject" />
       <property role="3TUv4t" value="true" />
@@ -601,9 +608,6 @@
       <ref role="3uigEE" node="4D3Y1hNxTJF" resolve="IStartupMigrationExecutor" />
     </node>
     <node concept="3Tm1VV" id="5SsFeroaak1" role="1B3o_S" />
-    <node concept="3uibUv" id="5SsFeroaakf" role="1zkMxy">
-      <ref role="3uigEE" to="1m72:~AbstractProjectComponent" resolve="AbstractProjectComponent" />
-    </node>
     <node concept="2tJIrI" id="3gptLqNJql_" role="jymVt" />
     <node concept="312cEg" id="1AzqgyAfyJP" role="jymVt">
       <property role="TrG5h" value="myVersionUpdater" />
@@ -825,101 +829,13 @@
       <node concept="3cqZAl" id="1AzqgyAfaNl" role="3clF45" />
       <node concept="3Tm1VV" id="1AzqgyAfaNm" role="1B3o_S" />
       <node concept="3clFbS" id="1AzqgyAfaNo" role="3clF47">
-        <node concept="XkiVB" id="3gptLqNJbTq" role="3cqZAp">
-          <ref role="37wK5l" to="1m72:~AbstractProjectComponent.&lt;init&gt;(com.intellij.openapi.project.Project)" resolve="AbstractProjectComponent" />
-          <node concept="37vLTw" id="3gptLqNJc29" role="37wK5m">
-            <ref role="3cqZAo" node="3gptLqNJbqi" resolve="ideaProject" />
-          </node>
-        </node>
-        <node concept="3SKdUt" id="3vN4EqLw4Lp" role="3cqZAp">
-          <node concept="1PaTwC" id="3vN4EqLw4Lq" role="1aUNEU">
-            <node concept="3oM_SD" id="3vN4EqLw4Lr" role="1PaTwD">
-              <property role="3oM_SC" value="FIXME" />
+        <node concept="3clFbF" id="1uGDk4lQVyS" role="3cqZAp">
+          <node concept="37vLTI" id="1uGDk4lQXgY" role="3clFbG">
+            <node concept="37vLTw" id="1uGDk4lQZac" role="37vLTx">
+              <ref role="3cqZAo" node="3gptLqNJbqi" resolve="ideaProject" />
             </node>
-            <node concept="3oM_SD" id="3vN4EqLw56Z" role="1PaTwD">
-              <property role="3oM_SC" value="doesn't" />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw572" role="1PaTwD">
-              <property role="3oM_SC" value="need" />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw576" role="1PaTwD">
-              <property role="3oM_SC" value="to" />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw57C" role="1PaTwD">
-              <property role="3oM_SC" value="be" />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw57Q" role="1PaTwD">
-              <property role="3oM_SC" value="a" />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw57X" role="1PaTwD">
-              <property role="3oM_SC" value="project" />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw585" role="1PaTwD">
-              <property role="3oM_SC" value="component." />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw58m" role="1PaTwD">
-              <property role="3oM_SC" value="Perhaps," />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw58w" role="1PaTwD">
-              <property role="3oM_SC" value="not" />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw58F" role="1PaTwD">
-              <property role="3oM_SC" value="even" />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw58R" role="1PaTwD">
-              <property role="3oM_SC" value="a" />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw594" role="1PaTwD">
-              <property role="3oM_SC" value="project" />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw59i" role="1PaTwD">
-              <property role="3oM_SC" value="Service." />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw59T" role="1PaTwD">
-              <property role="3oM_SC" value="Shall" />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw5a9" role="1PaTwD">
-              <property role="3oM_SC" value="get" />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw5aE" role="1PaTwD">
-              <property role="3oM_SC" value="activated" />
-            </node>
-          </node>
-        </node>
-        <node concept="3SKdUt" id="3vN4EqLw5N2" role="3cqZAp">
-          <node concept="1PaTwC" id="3vN4EqLw5N3" role="1aUNEU">
-            <node concept="3oM_SD" id="3vN4EqLw5N4" role="1PaTwD">
-              <property role="3oM_SC" value="" />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw5Ph" role="1PaTwD">
-              <property role="3oM_SC" value="" />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw6bB" role="1PaTwD">
-              <property role="3oM_SC" value="" />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw6bF" role="1PaTwD">
-              <property role="3oM_SC" value="" />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw6bK" role="1PaTwD">
-              <property role="3oM_SC" value="" />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw6lR" role="1PaTwD">
-              <property role="3oM_SC" value="by" />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw6m6" role="1PaTwD">
-              <property role="3oM_SC" value="listeners" />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw6me" role="1PaTwD">
-              <property role="3oM_SC" value="attached" />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw6mv" role="1PaTwD">
-              <property role="3oM_SC" value="by" />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw6mD" role="1PaTwD">
-              <property role="3oM_SC" value="a" />
-            </node>
-            <node concept="3oM_SD" id="3vN4EqLw6mO" role="1PaTwD">
-              <property role="3oM_SC" value="StartupActivity" />
+            <node concept="37vLTw" id="1uGDk4lQVyQ" role="37vLTJ">
+              <ref role="3cqZAo" node="1uGDk4lQxBs" resolve="myProject" />
             </node>
           </node>
         </node>
@@ -1305,7 +1221,7 @@
               <ref role="37wK5l" to="v27p:~StartupManager.getInstance(com.intellij.openapi.project.Project)" resolve="getInstance" />
               <ref role="1Pybhc" to="v27p:~StartupManager" resolve="StartupManager" />
               <node concept="37vLTw" id="42QwkrkoNeq" role="37wK5m">
-                <ref role="3cqZAo" to="1m72:~AbstractProjectComponent.myProject" resolve="myProject" />
+                <ref role="3cqZAo" node="1uGDk4lQxBs" resolve="myProject" />
               </node>
             </node>
             <node concept="liA8E" id="42QwkrkoHhK" role="2OqNvi">
@@ -1335,7 +1251,7 @@
                               </node>
                               <node concept="2OqwBi" id="6KYDQEnyozS" role="3clFbw">
                                 <node concept="37vLTw" id="6KYDQEnylkN" role="2Oq$k0">
-                                  <ref role="3cqZAo" to="1m72:~AbstractProjectComponent.myProject" resolve="myProject" />
+                                  <ref role="3cqZAo" node="1uGDk4lQxBs" resolve="myProject" />
                                 </node>
                                 <node concept="liA8E" id="6KYDQEnyv3W" role="2OqNvi">
                                   <ref role="37wK5l" to="1m72:~ComponentManager.isDisposed()" resolve="isDisposed" />
@@ -2540,7 +2456,7 @@
               <ref role="1Pybhc" to="v27p:~StartupManager" resolve="StartupManager" />
               <ref role="37wK5l" to="v27p:~StartupManager.getInstance(com.intellij.openapi.project.Project)" resolve="getInstance" />
               <node concept="37vLTw" id="5qnBhKy0r0q" role="37wK5m">
-                <ref role="3cqZAo" to="1m72:~AbstractProjectComponent.myProject" resolve="myProject" />
+                <ref role="3cqZAo" node="1uGDk4lQxBs" resolve="myProject" />
               </node>
             </node>
             <node concept="liA8E" id="1AzqgyAhkjp" role="2OqNvi">
@@ -2599,7 +2515,7 @@
                                             <ref role="1Y3XeK" to="xygl:~Task$Modal" resolve="Task.Modal" />
                                             <ref role="37wK5l" to="xygl:~Task$Modal.&lt;init&gt;(com.intellij.openapi.project.Project,java.lang.String,boolean)" resolve="Task.Modal" />
                                             <node concept="37vLTw" id="5qnBhKy0r0r" role="37wK5m">
-                                              <ref role="3cqZAo" to="1m72:~AbstractProjectComponent.myProject" resolve="myProject" />
+                                              <ref role="3cqZAo" node="1uGDk4lQxBs" resolve="myProject" />
                                             </node>
                                             <node concept="Xl_RD" id="1548xle1a3_" role="37wK5m">
                                               <property role="Xl_RC" value="Synchronizing Files..." />
@@ -2916,7 +2832,7 @@
                                                           <ref role="37wK5l" to="xygl:~Task$Modal.&lt;init&gt;(com.intellij.openapi.project.Project,java.lang.String,boolean)" resolve="Task.Modal" />
                                                           <ref role="1Y3XeK" to="xygl:~Task$Modal" resolve="Task.Modal" />
                                                           <node concept="37vLTw" id="1548xle07df" role="37wK5m">
-                                                            <ref role="3cqZAo" to="1m72:~AbstractProjectComponent.myProject" resolve="myProject" />
+                                                            <ref role="3cqZAo" node="1uGDk4lQxBs" resolve="myProject" />
                                                           </node>
                                                           <node concept="Xl_RD" id="1548xle07dg" role="37wK5m">
                                                             <property role="Xl_RC" value="Collecting Errors" />
@@ -3251,7 +3167,7 @@
                         </node>
                         <node concept="2OqwBi" id="6KYDQEnzJIH" role="37wK5m">
                           <node concept="37vLTw" id="6KYDQEnzGcz" role="2Oq$k0">
-                            <ref role="3cqZAo" to="1m72:~AbstractProjectComponent.myProject" resolve="myProject" />
+                            <ref role="3cqZAo" node="1uGDk4lQxBs" resolve="myProject" />
                           </node>
                           <node concept="liA8E" id="6KYDQEnzQ_c" role="2OqNvi">
                             <ref role="37wK5l" to="1m72:~ComponentManager.getDisposed()" resolve="getDisposed" />
@@ -4097,7 +4013,7 @@
                   <node concept="1pGfFk" id="2BADSPNH74D" role="2ShVmc">
                     <ref role="37wK5l" to="o8ag:5SsFeroaau7" resolve="MigrationWizard" />
                     <node concept="37vLTw" id="2BADSPNH74E" role="37wK5m">
-                      <ref role="3cqZAo" to="1m72:~AbstractProjectComponent.myProject" resolve="myProject" />
+                      <ref role="3cqZAo" node="1uGDk4lQxBs" resolve="myProject" />
                     </node>
                     <node concept="37vLTw" id="2BADSPNH74F" role="37wK5m">
                       <ref role="3cqZAo" node="2BADSPNH74t" resolve="session" />
@@ -4468,7 +4384,7 @@
             <ref role="37wK5l" to="4hrd:~VirtualFileUtils.refreshSynchronouslyRecursively(com.intellij.openapi.vfs.VirtualFile,org.jetbrains.mps.openapi.util.ProgressMonitor)" resolve="refreshSynchronouslyRecursively" />
             <node concept="2OqwBi" id="5qfN6LqBVY4" role="37wK5m">
               <node concept="37vLTw" id="5qfN6LqBVo4" role="2Oq$k0">
-                <ref role="3cqZAo" to="1m72:~AbstractProjectComponent.myProject" resolve="myProject" />
+                <ref role="3cqZAo" node="1uGDk4lQxBs" resolve="myProject" />
               </node>
               <node concept="liA8E" id="5qfN6LqBWDa" role="2OqNvi">
                 <ref role="37wK5l" to="4nm9:~Project.getBaseDir()" resolve="getBaseDir" />
@@ -4818,14 +4734,7 @@
     <node concept="3clFbW" id="4D3Y1hNyLMS" role="jymVt">
       <node concept="3cqZAl" id="4D3Y1hNyLMU" role="3clF45" />
       <node concept="3Tm1VV" id="4D3Y1hNyLMV" role="1B3o_S" />
-      <node concept="3clFbS" id="4D3Y1hNyLMW" role="3clF47">
-        <node concept="XkiVB" id="4D3Y1hNyLTE" role="3cqZAp">
-          <ref role="37wK5l" to="1m72:~AbstractProjectComponent.&lt;init&gt;(com.intellij.openapi.project.Project)" resolve="AbstractProjectComponent" />
-          <node concept="37vLTw" id="4D3Y1hNyLVn" role="37wK5m">
-            <ref role="3cqZAo" node="4D3Y1hNyLRM" resolve="project" />
-          </node>
-        </node>
-      </node>
+      <node concept="3clFbS" id="4D3Y1hNyLMW" role="3clF47" />
       <node concept="37vLTG" id="4D3Y1hNyLRM" role="3clF46">
         <property role="TrG5h" value="project" />
         <node concept="3uibUv" id="4D3Y1hNyLRL" role="1tU5fm">
@@ -4834,19 +4743,6 @@
       </node>
     </node>
     <node concept="2tJIrI" id="7lByCvU$frq" role="jymVt" />
-    <node concept="3clFb_" id="4D3Y1hNyKaP" role="jymVt">
-      <property role="1EzhhJ" value="false" />
-      <property role="TrG5h" value="projectOpened" />
-      <property role="DiZV1" value="false" />
-      <node concept="3Tm1VV" id="4D3Y1hNyKaQ" role="1B3o_S" />
-      <node concept="3cqZAl" id="4D3Y1hNyKaS" role="3clF45" />
-      <node concept="3clFbS" id="4D3Y1hNyKaT" role="3clF47" />
-      <node concept="2AHcQZ" id="4D3Y1hNyKaU" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="2tJIrI" id="hp8s8Tajn" role="jymVt" />
-    <node concept="2tJIrI" id="hp8s8TajT" role="jymVt" />
     <node concept="3clFb_" id="hp8s8TaoX" role="jymVt">
       <property role="TrG5h" value="setProblemHandler" />
       <node concept="3Tm1VV" id="hp8s8TaoZ" role="1B3o_S" />
@@ -4883,9 +4779,6 @@
     <node concept="3Tm1VV" id="4D3Y1hNyApZ" role="1B3o_S" />
     <node concept="3uibUv" id="285c2S_XCWa" role="EKbjA">
       <ref role="3uigEE" node="4D3Y1hNxTJF" resolve="IStartupMigrationExecutor" />
-    </node>
-    <node concept="3uibUv" id="4D3Y1hNyJn2" role="1zkMxy">
-      <ref role="3uigEE" to="1m72:~AbstractProjectComponent" resolve="AbstractProjectComponent" />
     </node>
   </node>
   <node concept="3HP615" id="4D3Y1hNxTJF">

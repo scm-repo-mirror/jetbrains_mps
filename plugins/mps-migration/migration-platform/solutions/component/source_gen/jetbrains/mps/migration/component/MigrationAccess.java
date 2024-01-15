@@ -15,7 +15,6 @@ import com.intellij.openapi.application.ApplicationManager;
 import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.ide.migration.HeadlessMigrationExecutor;
 import jetbrains.mps.ide.migration.MigrationTrigger;
-import com.intellij.openapi.components.ProjectComponent;
 import jetbrains.mps.project.Project;
 import org.jetbrains.annotations.NotNull;
 
@@ -61,8 +60,8 @@ public class MigrationAccess implements CoreComponent {
         myProjectManager.addProjectListener(myProjectListener);
       }
     }
-    if (rv instanceof ProjectComponent) {
-      ((ProjectComponent) rv).projectOpened();
+    if (rv instanceof MigrationTrigger) {
+      ((MigrationTrigger) rv).projectOpened();
     }
     return rv;
   }
@@ -76,8 +75,8 @@ public class MigrationAccess implements CoreComponent {
         myProjectListener = null;
       }
     }
-    if (ee instanceof ProjectComponent) {
-      ((ProjectComponent) ee).projectClosed();
+    if (ee instanceof MigrationTrigger) {
+      ((MigrationTrigger) ee).projectClosed();
     }
   }
 

@@ -702,7 +702,7 @@
                 <node concept="1eOMI4" id="5eQdigYaiSy" role="2Oq$k0">
                   <node concept="10QFUN" id="5eQdigYaiSz" role="1eOMHV">
                     <node concept="3uibUv" id="5eQdigYaiS$" role="10QFUM">
-                      <ref role="3uigEE" to="1m72:~ProjectComponent" resolve="ProjectComponent" />
+                      <ref role="3uigEE" to="bim2:5SsFeroaajZ" resolve="MigrationTrigger" />
                     </node>
                     <node concept="37vLTw" id="5eQdigYaiS_" role="10QFUP">
                       <ref role="3cqZAo" node="5eQdigY7p7H" resolve="rv" />
@@ -710,14 +710,14 @@
                   </node>
                 </node>
                 <node concept="liA8E" id="5eQdigYaiSA" role="2OqNvi">
-                  <ref role="37wK5l" to="1m72:~ProjectComponent.projectOpened()" resolve="projectOpened" />
+                  <ref role="37wK5l" to="bim2:1AzqgyAfalq" resolve="projectOpened" />
                 </node>
               </node>
             </node>
           </node>
           <node concept="2ZW3vV" id="5eQdigYaiSB" role="3clFbw">
             <node concept="3uibUv" id="5eQdigYaiSC" role="2ZW6by">
-              <ref role="3uigEE" to="1m72:~ProjectComponent" resolve="ProjectComponent" />
+              <ref role="3uigEE" to="bim2:5SsFeroaajZ" resolve="MigrationTrigger" />
             </node>
             <node concept="37vLTw" id="5eQdigYalel" role="2ZW6bz">
               <ref role="3cqZAo" node="5eQdigY7p7H" resolve="rv" />
@@ -821,7 +821,7 @@
                 <node concept="1eOMI4" id="5eQdigY8xzM" role="2Oq$k0">
                   <node concept="10QFUN" id="5eQdigY8xzJ" role="1eOMHV">
                     <node concept="3uibUv" id="5eQdigY8xzO" role="10QFUM">
-                      <ref role="3uigEE" to="1m72:~ProjectComponent" resolve="ProjectComponent" />
+                      <ref role="3uigEE" to="bim2:5SsFeroaajZ" resolve="MigrationTrigger" />
                     </node>
                     <node concept="37vLTw" id="5eQdigY8xzP" role="10QFUP">
                       <ref role="3cqZAo" node="5eQdigY8gVO" resolve="ee" />
@@ -829,14 +829,14 @@
                   </node>
                 </node>
                 <node concept="liA8E" id="5eQdigY8y_A" role="2OqNvi">
-                  <ref role="37wK5l" to="1m72:~ProjectComponent.projectClosed()" resolve="projectClosed" />
+                  <ref role="37wK5l" to="bim2:1AzqgyAfalv" resolve="projectClosed" />
                 </node>
               </node>
             </node>
           </node>
           <node concept="2ZW3vV" id="5eQdigY8jsl" role="3clFbw">
             <node concept="3uibUv" id="5eQdigY8ssC" role="2ZW6by">
-              <ref role="3uigEE" to="1m72:~ProjectComponent" resolve="ProjectComponent" />
+              <ref role="3uigEE" to="bim2:5SsFeroaajZ" resolve="MigrationTrigger" />
             </node>
             <node concept="37vLTw" id="5eQdigY8iXq" role="2ZW6bz">
               <ref role="3cqZAo" node="5eQdigY8gVO" resolve="ee" />
