@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2023 JetBrains s.r.o.
+ * Copyright 2003-2024 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.ide.vfs;
 
-import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.WriteAction;
 import com.intellij.openapi.fileTypes.FileTypeManager;
 import com.intellij.openapi.vfs.VfsUtil;
@@ -32,7 +31,6 @@ import jetbrains.mps.vfs.VFSManager;
 import jetbrains.mps.vfs.refresh.CachingContext;
 import jetbrains.mps.vfs.refresh.CachingFile;
 import jetbrains.mps.vfs.refresh.CachingFileSystem;
-import jetbrains.mps.vfs.refresh.FileListener;
 import jetbrains.mps.vfs.refresh.FileSystemListener;
 import jetbrains.mps.vfs.util.PathFormatChecker;
 import org.jetbrains.annotations.NotNull;
@@ -75,20 +73,12 @@ public abstract class BaseIdeaFileSystem implements IFileSystem, CachingFileSyst
 
   @Override
   public void addListener(@NotNull FileSystemListener listener) {
-    addListener1(listener.getFileToListen(), listener);
+    myListenersContainer.addListener(listener, listener.getFileToListen());
   }
 
   @Override
   public void removeListener(@NotNull FileSystemListener listener) {
-    removeListener1(listener.getFileToListen(), listener);
-  }
-
-  private void addListener1(@NotNull IFile file, @NotNull FileListener listener) {
-    ApplicationManager.getApplication().runReadAction(() -> myListenersContainer.addListener(listener, file));
-  }
-
-  private void removeListener1(@NotNull IFile file, @NotNull FileListener listener) {
-    myListenersContainer.removeListener(listener, file);
+    myListenersContainer.removeListener(listener, listener.getFileToListen());
   }
 
   public FileSystemListenersContainer getListenersContainer() {

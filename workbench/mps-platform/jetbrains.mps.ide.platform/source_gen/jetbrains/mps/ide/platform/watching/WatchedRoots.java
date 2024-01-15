@@ -8,7 +8,6 @@ import java.util.Map;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import java.util.HashMap;
 import org.jetbrains.annotations.NotNull;
-import com.intellij.openapi.application.ApplicationManager;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.util.FileUtil;
 import com.intellij.openapi.vfs.impl.local.LocalFileSystemImpl;
@@ -31,7 +30,6 @@ public class WatchedRoots {
    * @return true iff a new watch request was registered at the local file system
    */
   public synchronized boolean addWatchRequest(@NotNull String path) {
-    ApplicationManager.getApplication().assertReadAccessAllowed();
     Integer count = myRequestedPaths.get(path);
     if (count != null) {
       myRequestedPaths.put(path, count + 1);
@@ -56,6 +54,8 @@ public class WatchedRoots {
       if (LOG.isDebugLevel()) {
         LOG.debug("Adding watch request for the path " + path);
       }
+      // in case we face requirement to provide read access for LFS to modify watched roots, perhaps, shall do it here in a delayed manner (pooled thread)
+      // not to face deadlocks and not to require MPS callers to grab IDEA read.
       LocalFileSystem.WatchRequest request = LocalFileSystem.getInstance().addRootToWatch(path, true);
       if (LOG.isDebugLevel()) {
         LOG.debug("Watch request added");
@@ -69,7 +69,6 @@ public class WatchedRoots {
   }
 
   public synchronized void removeWatchRequest(@NotNull String path) {
-    ApplicationManager.getApplication().assertReadAccessAllowed();
     Integer count = myRequestedPaths.get(path);
     if (count == null || count == 0) {
       if (LOG.isWarningLevel()) {
