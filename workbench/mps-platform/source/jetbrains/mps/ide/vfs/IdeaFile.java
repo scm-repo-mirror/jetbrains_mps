@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2024 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.ide.vfs;
 
+import com.intellij.openapi.application.AccessToken;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.WriteAction;
 import com.intellij.openapi.fileTypes.FileTypes;
@@ -26,6 +27,7 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.VirtualFileSystem;
 import com.intellij.openapi.vfs.newvfs.ArchiveFileSystem;
 import com.intellij.openapi.vfs.newvfs.NewVirtualFile;
+import com.intellij.util.SlowOperations;
 import jetbrains.mps.ide.platform.watching.FileSystemListenersContainer;
 import jetbrains.mps.ide.platform.watching.FileSystemListenersContainer.ListenersForPath;
 import jetbrains.mps.logging.Logger;
@@ -492,7 +494,10 @@ public class IdeaFile implements IFile, CachingFile {
     if (virtualFile == null) {
       throw new FileNotFoundException("File not found: " + myPath);
     }
-    return virtualFile.getInputStream();
+    try (AccessToken ignored = SlowOperations.allowSlowOperations("known-issues")) {
+      // there's no indication (javadoc) for VF#getInputStream() that it's not supposed to be invoked in EDT!
+      return virtualFile.getInputStream();
+    }
   }
 
   @Override
