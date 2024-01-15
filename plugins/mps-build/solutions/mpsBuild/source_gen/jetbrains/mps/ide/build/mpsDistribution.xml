@@ -137,10 +137,11 @@
       </zipfileset>
       <zipfileset file="${basedir}/bin/linux/amd64/libdbm.so" prefix="MPS ${mpsBootstrapCore.version}/bin/linux" />
       <zipfileset file="${basedir}/bin/linux/amd64/fsnotifier" prefix="MPS ${mpsBootstrapCore.version}/bin/linux" filemode="755" />
-      <zipfileset file="${basedir}/bin/linux/restart.py" prefix="MPS ${mpsBootstrapCore.version}/bin/linux" filemode="755" />
+      <zipfileset file="${basedir}/bin/linux/amd64/restarter" prefix="MPS ${mpsBootstrapCore.version}/bin/linux" filemode="755" />
       <zipfileset file="${basedir}/bin/mac/libnst64.dylib" prefix="MPS ${mpsBootstrapCore.version}/bin/mac" />
       <zipfileset file="${basedir}/bin/mac/libmacscreenmenu64.dylib" prefix="MPS ${mpsBootstrapCore.version}/bin/mac" />
-      <zipfileset file="${basedir}/bin/mac/restarter" prefix="MPS ${mpsBootstrapCore.version}/bin/mac" filemode="755" />
+      <zipfileset file="${basedir}/bin/mac/amd64/restarter" prefix="MPS ${mpsBootstrapCore.version}/bin/mac" filemode="755" />
+      <zipfileset file="${basedir}/bin/mac/aarch64/restarter" prefix="MPS ${mpsBootstrapCore.version}/bin/mac" filemode="755" />
       <zipfileset file="${basedir}/bin/mac/fsnotifier" prefix="MPS ${mpsBootstrapCore.version}/bin/mac" filemode="755" />
       <zipfileset file="${basedir}/bin/mac/printenv" prefix="MPS ${mpsBootstrapCore.version}/bin/mac" filemode="755" />
       <zipfileset file="${basedir}/build/resources/mps.icns" prefix="MPS ${mpsBootstrapCore.version}/bin/mac/Contents/Resources" />
@@ -209,7 +210,7 @@
       <tarfileset file="${basedir}/lib/pty4j/linux/x86-64/libpty.so" prefix="MPS ${mpsBootstrapCore.version}/lib/pty4j/linux/x86-64" />
       <tarfileset file="${basedir}/bin/linux/amd64/libdbm.so" prefix="MPS ${mpsBootstrapCore.version}/bin" />
       <tarfileset file="${basedir}/bin/linux/amd64/fsnotifier" prefix="MPS ${mpsBootstrapCore.version}/bin" filemode="755" />
-      <tarfileset file="${basedir}/bin/linux/restart.py" prefix="MPS ${mpsBootstrapCore.version}/bin" filemode="755" />
+      <tarfileset file="${basedir}/bin/linux/amd64/restarter" prefix="MPS ${mpsBootstrapCore.version}/bin" filemode="755" />
       <tarfileset dir="${build.tmp}/default/_dl__lbrace_build.number_rbrace_-linux.tar.gz_f755" filemode="755" prefix="MPS ${mpsBootstrapCore.version}/bin" />
       <tarfileset dir="${build.tmp}/default/_dl__lbrace_build.number_rbrace_-linux.tar.gz" />
     </tar>
@@ -313,7 +314,7 @@
       <zipfileset file="${basedir}/build/resources/mps" prefix="MPS ${mpsBootstrapCore.version}.app/Contents/MacOS" filemode="755" />
       <zipfileset file="${basedir}/bin/mac/libnst64.dylib" prefix="MPS ${mpsBootstrapCore.version}.app/Contents/bin" />
       <zipfileset file="${basedir}/bin/mac/libmacscreenmenu64.dylib" prefix="MPS ${mpsBootstrapCore.version}.app/Contents/bin" />
-      <zipfileset file="${basedir}/bin/mac/restarter" prefix="MPS ${mpsBootstrapCore.version}.app/Contents/bin" filemode="755" />
+      <zipfileset file="${basedir}/bin/mac/amd64/restarter" prefix="MPS ${mpsBootstrapCore.version}.app/Contents/bin" filemode="755" />
       <zipfileset file="${basedir}/bin/mac/fsnotifier" prefix="MPS ${mpsBootstrapCore.version}.app/Contents/bin" filemode="755" />
       <zipfileset file="${basedir}/bin/mac/printenv" prefix="MPS ${mpsBootstrapCore.version}.app/Contents/bin" filemode="755" />
       <zipfileset file="${basedir}/lib/jna/darwin-x86-64/libjnidispatch.jnilib" prefix="MPS ${mpsBootstrapCore.version}.app/Contents/lib/jna" />
@@ -363,7 +364,7 @@
       <zipfileset file="${basedir}/build/resources/mps" prefix="MPS ${mpsBootstrapCore.version}.app/Contents/MacOS" filemode="755" />
       <zipfileset file="${basedir}/bin/mac/libnst64.dylib" prefix="MPS ${mpsBootstrapCore.version}.app/Contents/bin" />
       <zipfileset file="${basedir}/bin/mac/libmacscreenmenu64.dylib" prefix="MPS ${mpsBootstrapCore.version}.app/Contents/bin" />
-      <zipfileset file="${basedir}/bin/mac/restarter" prefix="MPS ${mpsBootstrapCore.version}.app/Contents/bin" filemode="755" />
+      <zipfileset file="${basedir}/bin/mac/aarch64/restarter" prefix="MPS ${mpsBootstrapCore.version}.app/Contents/bin" filemode="755" />
       <zipfileset file="${basedir}/bin/mac/fsnotifier" prefix="MPS ${mpsBootstrapCore.version}.app/Contents/bin" filemode="755" />
       <zipfileset file="${basedir}/bin/mac/printenv" prefix="MPS ${mpsBootstrapCore.version}.app/Contents/bin" filemode="755" />
       <zipfileset file="${basedir}/lib/jna/darwin-aarch64/libjnidispatch.jnilib" prefix="MPS ${mpsBootstrapCore.version}.app/Contents/lib/jna" />
