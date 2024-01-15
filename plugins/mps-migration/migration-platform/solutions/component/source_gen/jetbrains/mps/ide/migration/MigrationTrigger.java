@@ -21,7 +21,6 @@ import java.util.List;
 import org.jetbrains.mps.openapi.module.SModule;
 import java.util.function.Consumer;
 import org.jetbrains.mps.openapi.module.SModuleReference;
-import jetbrains.mps.RuntimeFlags;
 import com.intellij.openapi.startup.StartupManager;
 import com.intellij.openapi.application.ApplicationManager;
 import org.jetbrains.annotations.NonNls;
@@ -149,18 +148,17 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
   }
 
   public void projectOpened() {
-    // this is a hack for migration task purposes
-    if (RuntimeFlags.getTestMode().isInsideTestEnvironment()) {
-      return;
-    }
-
     // wait until project is fully loaded (if not yet)
-    // FIXME apparently, there's no need for MigrationTrigger to be legacy ProjectComponent, could do with listeners
-    StartupManager.getInstance(myProject).runWhenProjectIsInitialized(() -> ApplicationManager.getApplication().invokeLater(() -> {
+    StartupManager.getInstance(myProject).runWhenProjectIsInitialized(() -> {
       addListeners();
-      checkNotDeployedLanguages();
-      checkMigrationNeeded();
-    }, myProject.getDisposed()));
+      ApplicationManager.getApplication().executeOnPooledThread(() -> {
+        if (myProject.isDisposed()) {
+          return;
+        }
+        checkNotDeployedLanguages();
+        checkMigrationNeeded();
+      });
+    });
   }
 
   public void projectClosed() {

@@ -1268,49 +1268,6 @@
       <node concept="3Tm1VV" id="1AzqgyAfalr" role="1B3o_S" />
       <node concept="3cqZAl" id="1AzqgyAfalt" role="3clF45" />
       <node concept="3clFbS" id="1AzqgyAfalu" role="3clF47">
-        <node concept="3SKdUt" id="1oo0A63IByz" role="3cqZAp">
-          <node concept="1PaTwC" id="ATZLwXojkv" role="1aUNEU">
-            <node concept="3oM_SD" id="ATZLwXojkw" role="1PaTwD">
-              <property role="3oM_SC" value="this" />
-            </node>
-            <node concept="3oM_SD" id="ATZLwXojkx" role="1PaTwD">
-              <property role="3oM_SC" value="is" />
-            </node>
-            <node concept="3oM_SD" id="ATZLwXojky" role="1PaTwD">
-              <property role="3oM_SC" value="a" />
-            </node>
-            <node concept="3oM_SD" id="ATZLwXojkz" role="1PaTwD">
-              <property role="3oM_SC" value="hack" />
-            </node>
-            <node concept="3oM_SD" id="ATZLwXojk$" role="1PaTwD">
-              <property role="3oM_SC" value="for" />
-            </node>
-            <node concept="3oM_SD" id="ATZLwXojk_" role="1PaTwD">
-              <property role="3oM_SC" value="migration" />
-            </node>
-            <node concept="3oM_SD" id="ATZLwXojkA" role="1PaTwD">
-              <property role="3oM_SC" value="task" />
-            </node>
-            <node concept="3oM_SD" id="ATZLwXojkB" role="1PaTwD">
-              <property role="3oM_SC" value="purposes" />
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbJ" id="1oo0A63Ix6Y" role="3cqZAp">
-          <node concept="3clFbS" id="1oo0A63Ix70" role="3clFbx">
-            <node concept="3cpWs6" id="1oo0A63IAp9" role="3cqZAp" />
-          </node>
-          <node concept="2OqwBi" id="1oo0A63Iyeb" role="3clFbw">
-            <node concept="2YIFZM" id="1oo0A63IzXH" role="2Oq$k0">
-              <ref role="1Pybhc" to="fyhk:~RuntimeFlags" resolve="RuntimeFlags" />
-              <ref role="37wK5l" to="fyhk:~RuntimeFlags.getTestMode()" resolve="getTestMode" />
-            </node>
-            <node concept="liA8E" id="1oo0A63Iyed" role="2OqNvi">
-              <ref role="37wK5l" to="fyhk:~TestMode.isInsideTestEnvironment()" resolve="isInsideTestEnvironment" />
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbH" id="1oo0A63IApl" role="3cqZAp" />
         <node concept="3SKdUt" id="42QwkrkoHhE" role="3cqZAp">
           <node concept="1PaTwC" id="ATZLwXojkC" role="1aUNEU">
             <node concept="3oM_SD" id="ATZLwXojkD" role="1PaTwD">
@@ -1342,55 +1299,6 @@
             </node>
           </node>
         </node>
-        <node concept="3SKdUt" id="7q2KVq0T3aQ" role="3cqZAp">
-          <node concept="1PaTwC" id="7q2KVq0T3aR" role="1aUNEU">
-            <node concept="3oM_SD" id="7q2KVq0T3aS" role="1PaTwD">
-              <property role="3oM_SC" value="FIXME" />
-            </node>
-            <node concept="3oM_SD" id="7q2KVq0T3bO" role="1PaTwD">
-              <property role="3oM_SC" value="apparently," />
-            </node>
-            <node concept="3oM_SD" id="7q2KVq0T3nQ" role="1PaTwD">
-              <property role="3oM_SC" value="there's" />
-            </node>
-            <node concept="3oM_SD" id="7q2KVq0T3nU" role="1PaTwD">
-              <property role="3oM_SC" value="no" />
-            </node>
-            <node concept="3oM_SD" id="7q2KVq0T3nZ" role="1PaTwD">
-              <property role="3oM_SC" value="need" />
-            </node>
-            <node concept="3oM_SD" id="7q2KVq0T3o5" role="1PaTwD">
-              <property role="3oM_SC" value="for" />
-            </node>
-            <node concept="3oM_SD" id="7q2KVq0T3oc" role="1PaTwD">
-              <property role="3oM_SC" value="MigrationTrigger" />
-            </node>
-            <node concept="3oM_SD" id="7q2KVq0T3os" role="1PaTwD">
-              <property role="3oM_SC" value="to" />
-            </node>
-            <node concept="3oM_SD" id="7q2KVq0T3o_" role="1PaTwD">
-              <property role="3oM_SC" value="be" />
-            </node>
-            <node concept="3oM_SD" id="7q2KVq0T3oJ" role="1PaTwD">
-              <property role="3oM_SC" value="legacy" />
-            </node>
-            <node concept="3oM_SD" id="7q2KVq0T3pa" role="1PaTwD">
-              <property role="3oM_SC" value="ProjectComponent," />
-            </node>
-            <node concept="3oM_SD" id="7q2KVq0T3pu" role="1PaTwD">
-              <property role="3oM_SC" value="could" />
-            </node>
-            <node concept="3oM_SD" id="7q2KVq0T3pF" role="1PaTwD">
-              <property role="3oM_SC" value="do" />
-            </node>
-            <node concept="3oM_SD" id="7q2KVq0T3q1" role="1PaTwD">
-              <property role="3oM_SC" value="with" />
-            </node>
-            <node concept="3oM_SD" id="7q2KVq0T3qg" role="1PaTwD">
-              <property role="3oM_SC" value="listeners" />
-            </node>
-          </node>
-        </node>
         <node concept="3clFbF" id="42QwkrkoHhG" role="3cqZAp">
           <node concept="2OqwBi" id="42QwkrkoHhH" role="3clFbG">
             <node concept="2YIFZM" id="42QwkrkoHhI" role="2Oq$k0">
@@ -1405,6 +1313,11 @@
               <node concept="1bVj0M" id="42QwkrkoHhL" role="37wK5m">
                 <property role="3yWfEV" value="true" />
                 <node concept="3clFbS" id="42QwkrkoHhM" role="1bW5cS">
+                  <node concept="3clFbF" id="7lByCvUySnk" role="3cqZAp">
+                    <node concept="1rXfSq" id="7lByCvUySnj" role="3clFbG">
+                      <ref role="37wK5l" node="7lByCvUySng" resolve="addListeners" />
+                    </node>
+                  </node>
                   <node concept="3clFbF" id="42QwkrkoHhP" role="3cqZAp">
                     <node concept="2OqwBi" id="42QwkrkoHhQ" role="3clFbG">
                       <node concept="2YIFZM" id="42QwkrkoHhR" role="2Oq$k0">
@@ -1412,13 +1325,21 @@
                         <ref role="37wK5l" to="bd8o:~ApplicationManager.getApplication()" resolve="getApplication" />
                       </node>
                       <node concept="liA8E" id="42QwkrkoHhS" role="2OqNvi">
-                        <ref role="37wK5l" to="bd8o:~Application.invokeLater(java.lang.Runnable,com.intellij.openapi.util.Condition)" resolve="invokeLater" />
+                        <ref role="37wK5l" to="bd8o:~Application.executeOnPooledThread(java.lang.Runnable)" resolve="executeOnPooledThread" />
                         <node concept="1bVj0M" id="42QwkrkoHhT" role="37wK5m">
                           <property role="3yWfEV" value="true" />
                           <node concept="3clFbS" id="42QwkrkoHhU" role="1bW5cS">
-                            <node concept="3clFbF" id="7lByCvUySnk" role="3cqZAp">
-                              <node concept="1rXfSq" id="7lByCvUySnj" role="3clFbG">
-                                <ref role="37wK5l" node="7lByCvUySng" resolve="addListeners" />
+                            <node concept="3clFbJ" id="1uGDk4lOrbz" role="3cqZAp">
+                              <node concept="3clFbS" id="1uGDk4lOrb_" role="3clFbx">
+                                <node concept="3cpWs6" id="1uGDk4lOABK" role="3cqZAp" />
+                              </node>
+                              <node concept="2OqwBi" id="6KYDQEnyozS" role="3clFbw">
+                                <node concept="37vLTw" id="6KYDQEnylkN" role="2Oq$k0">
+                                  <ref role="3cqZAo" to="1m72:~AbstractProjectComponent.myProject" resolve="myProject" />
+                                </node>
+                                <node concept="liA8E" id="6KYDQEnyv3W" role="2OqNvi">
+                                  <ref role="37wK5l" to="1m72:~ComponentManager.isDisposed()" resolve="isDisposed" />
+                                </node>
                               </node>
                             </node>
                             <node concept="3clFbF" id="1dKE89$OIrW" role="3cqZAp">
@@ -1431,14 +1352,6 @@
                                 <ref role="37wK5l" node="285c2S_WYWH" resolve="checkMigrationNeeded" />
                               </node>
                             </node>
-                          </node>
-                        </node>
-                        <node concept="2OqwBi" id="6KYDQEnyozS" role="37wK5m">
-                          <node concept="37vLTw" id="6KYDQEnylkN" role="2Oq$k0">
-                            <ref role="3cqZAo" to="1m72:~AbstractProjectComponent.myProject" resolve="myProject" />
-                          </node>
-                          <node concept="liA8E" id="6KYDQEnyv3W" role="2OqNvi">
-                            <ref role="37wK5l" to="1m72:~ComponentManager.getDisposed()" resolve="getDisposed" />
                           </node>
                         </node>
                       </node>
