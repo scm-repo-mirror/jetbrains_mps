@@ -71,7 +71,7 @@ public class MPSDocumentationManager {
     myQuickDocPopupReference = new WeakReference<>(popup);
   }
 
-  public void showHintPopup(Project project, Editor editor, String docMessage, TooltipRenderer tooltipRenderer, EditorTooltipProvider tooltipProvider, RelativePoint showPoint, Consumer<AbstractPopup> continuation) {
+  public void showHintPopup(Project project, Editor editor, String docMessage, TooltipRenderer tooltipRenderer, TooltipGroup tooltipGroup, RelativePoint showPoint, Consumer<AbstractPopup> continuation) {
     cancelProgress();
     ProgressManager.getInstance().executeProcessUnderProgress(() -> {
       cancelHintPopup();
@@ -90,7 +90,7 @@ public class MPSDocumentationManager {
         return;
       }
 
-      HoverInfo info = new HoverInfo(popupDocMessage, tooltipRenderer, tooltipProvider.getTooltipGroup());
+      HoverInfo info = new HoverInfo(popupDocMessage, tooltipRenderer, tooltipGroup);
       AbstractPopup hint = info.createHint(editor, project);
       hint.show(showPoint);
       myHintPopupReference = new WeakReference<>(hint);

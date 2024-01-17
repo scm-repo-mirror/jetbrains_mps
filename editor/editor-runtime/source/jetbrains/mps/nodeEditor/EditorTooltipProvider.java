@@ -4,11 +4,13 @@
 package jetbrains.mps.nodeEditor;
 
 import com.intellij.codeInsight.hint.TooltipGroup;
-import com.intellij.openapi.ui.popup.Balloon.Position;
 import com.intellij.codeInsight.hint.TooltipRenderer;
+import com.intellij.openapi.ui.popup.Balloon.Position;
+import jetbrains.mps.openapi.editor.message.SimpleEditorMessage;
 import org.jetbrains.annotations.Nullable;
 
 import java.awt.event.MouseEvent;
+import java.util.List;
 
 public interface EditorTooltipProvider {
   /**
@@ -16,6 +18,9 @@ public interface EditorTooltipProvider {
    */
   @Nullable TooltipRenderer getTooltipRenderer(MouseEvent e);
 
+  default TooltipRenderer getTooltipRenderer(List<? extends SimpleEditorMessage> messages) {
+    throw new UnsupportedOperationException();
+  }
 
   Position getPreferredPosition();
 

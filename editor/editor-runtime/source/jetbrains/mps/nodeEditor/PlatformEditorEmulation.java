@@ -4,9 +4,9 @@
 package jetbrains.mps.nodeEditor;
 
 import com.intellij.codeInsight.hint.TooltipController;
+import com.intellij.codeInsight.hint.TooltipGroup;
 import com.intellij.codeInsight.hint.TooltipRenderer;
 import com.intellij.ide.DataManager;
-import com.intellij.ide.IdeEventQueue;
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.actionSystem.DataContext;
@@ -43,8 +43,6 @@ import com.intellij.openapi.util.Key;
 import com.intellij.openapi.util.NlsSafe;
 import com.intellij.ui.HintHint;
 import com.intellij.ui.awt.RelativePoint;
-import com.intellij.util.Alarm;
-import com.intellij.util.Alarm.ThreadToUse;
 import com.intellij.util.containers.ContainerUtil;
 import com.intellij.util.ui.accessibility.ScreenReader;
 import jetbrains.mps.editor.runtime.DocumentationProvider;
@@ -60,12 +58,9 @@ import org.jetbrains.annotations.Nullable;
 import javax.swing.JComponent;
 import javax.swing.JScrollPane;
 import javax.swing.border.Border;
+import java.awt.Component;
 import java.awt.Insets;
 import java.awt.Point;
-import java.awt.Window;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -81,16 +76,23 @@ final class PlatformEditorEmulation implements Editor {
   private final PlatformScrollingModelEmulation myScrollingModel;
   private final MouseMotionListener myMouseMotionAdapter = new MyMouseMotionAdapter();
   private final MouseListener myMouseListener = new MyMouseAdapter();
-  private final KeyListener myKeyListener = new MyKeyListener();
-  private final Alarm myHoverAlarm;
-  private final Alarm myMoveAlarm;
-  private boolean myKeepHintOnMouseMove;
+  private HintPopupController myHintPopupController = new HintPopupController(this::showInfoToolTip);
 
   PlatformEditorEmulation(@NotNull EditorComponent editorComponent) {
     myEditorComponent = editorComponent;
     myScrollingModel = new PlatformScrollingModelEmulation(this);
-    myHoverAlarm = new Alarm(ThreadToUse.SWING_THREAD);
-    myMoveAlarm = new Alarm(ThreadToUse.SWING_THREAD);
+  }
+
+  public void installListeners(Component owner) {
+    owner.addMouseListener(myMouseListener);
+    owner.addMouseMotionListener(myMouseMotionAdapter);
+    myHintPopupController.installListeners(owner);
+  }
+
+  public void uninstallListeners(Component owner) {
+    owner.removeMouseListener(myMouseListener);
+    owner.removeMouseMotionListener(myMouseMotionAdapter);
+    myHintPopupController.uninstallListeners(owner);
   }
 
   MouseMotionListener getMouseMotionListener() {
@@ -101,28 +103,7 @@ final class PlatformEditorEmulation implements Editor {
     return myMouseListener;
   }
 
-  KeyListener getKeyListener() {
-    return myKeyListener;
-  }
-
   private class MyMouseMotionAdapter extends MouseMotionAdapter {
-    @Override
-    public void mouseMoved(MouseEvent e) {
-      if (MPSDocumentationManager.getInstance().isHintPopupShown() && myKeepHintOnMouseMove) {
-        return;
-      }
-      // FIXME magic constant 300? 600?
-      if (myMoveAlarm.getActiveRequestCount() == 0) {
-        myMoveAlarm.addRequest(() -> {
-          MPSDocumentationManager.getInstance().cancelAll();
-        }, 300);
-      }
-      myHoverAlarm.cancelAllRequests();
-      myHoverAlarm.addRequest(() -> {
-        myMoveAlarm.cancelAllRequests();
-        showInfoToolTip(e);
-      }, 600);
-    }
   }
 
   JScrollPane getScrollPane() {
@@ -534,7 +515,6 @@ final class PlatformEditorEmulation implements Editor {
 
     @Override
     public void mouseExited(MouseEvent e) {
-      myHoverAlarm.cancelAllRequests();
       EditorMouseEvent editorMouseEvent = createEditorMouseEvent(e);
       myMouseListeners.forEach(it -> it.mouseExited(editorMouseEvent));
     }
@@ -556,27 +536,6 @@ final class PlatformEditorEmulation implements Editor {
     public void mouseReleased(MouseEvent e) {
       EditorMouseEvent editorMouseEvent = createEditorMouseEvent(e);
       myMouseListeners.forEach(it -> it.mouseReleased(editorMouseEvent));
-    }
-  }
-
-  private class MyKeyListener extends KeyAdapter {
-    @Override
-    public void keyTyped(KeyEvent e) {
-      MPSDocumentationManager.getInstance().cancelAll();
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-      if (e.isActionKey()) {
-        MPSDocumentationManager.getInstance().cancelAll();
-      }
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-      if (e.isActionKey()) {
-        MPSDocumentationManager.getInstance().cancelAll();
-      }
     }
   }
 
@@ -684,7 +643,7 @@ final class PlatformEditorEmulation implements Editor {
   }
 
   /**
-   * This implementation of tooltips has been superceeded with the one relying on MPSDocumentationManager
+   * This implementation of tooltips has been superseded with the one relying on MPSDocumentationManager
    * @param e
    */
   @Deprecated(forRemoval = true)
@@ -730,34 +689,15 @@ final class PlatformEditorEmulation implements Editor {
     }
 
     final TooltipRenderer tooltipRenderer = tooltipProvider.getTooltipRenderer(event);
+    final TooltipGroup tooltipGroup = tooltipProvider.getTooltipGroup();
     final String docMessage = getDocMessage(event);
     if ((tooltipRenderer == null && docMessage == null) || this.isDisposed()) {
       return;
     }
 
-    // this clears the hint window on mouse move 
-    setKeepHintOnMouseMove(false);
-
     final RelativePoint showPoint = getShowPoint(event, isGutter);
     Project project = ProjectHelper.toIdeaProject(ProjectHelper.getProject(myEditorComponent.getRepository()));
-    MPSDocumentationManager.getInstance().showHintPopup(project, this, docMessage, tooltipRenderer, tooltipProvider, showPoint, (hint) -> {
-      Window window = hint.getPopupWindow();
-      if (window != null) {
-        IdeEventQueue.getInstance().addDispatcher(e -> {
-          if (e.getSource() == window) {
-            myMoveAlarm.cancelAllRequests();
-          }
-          if (e.getID() == MouseEvent.MOUSE_PRESSED && e.getSource() == window) {
-            setKeepHintOnMouseMove(true);
-          }
-          return false;
-        }, hint);
-      }
-    });
-  }
-
-  private void setKeepHintOnMouseMove(boolean keep) {
-    myKeepHintOnMouseMove = keep;
+    myHintPopupController.showInfoToolTip(project, this, docMessage, tooltipRenderer, tooltipGroup, showPoint);
   }
 
   @NotNull

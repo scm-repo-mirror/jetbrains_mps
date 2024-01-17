@@ -27,6 +27,7 @@ import com.intellij.openapi.actionSystem.KeyboardShortcut;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.actionSystem.Separator;
 import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.colors.EditorColors;
 import com.intellij.openapi.editor.colors.EditorColorsManager;
 import com.intellij.openapi.editor.ex.EditorSettingsExternalizable;
@@ -534,11 +535,8 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
       // TODO find a way to create good tooltips without implementing platform's Editor interface
       // this should be done with the issue https://youtrack.jetbrains.com/issue/MPSSPRT-295
       myPlatformEditorEmulation = new PlatformEditorEmulation(this);
-      addMouseListener(myPlatformEditorEmulation.getMouseListener());
-      addMouseMotionListener(myPlatformEditorEmulation.getMouseMotionListener());
-      addKeyListener(myPlatformEditorEmulation.getKeyListener());
-      myLeftHighlighter.addMouseListener(myPlatformEditorEmulation.getMouseListener());
-      myLeftHighlighter.addMouseMotionListener(myPlatformEditorEmulation.getMouseMotionListener());
+      myPlatformEditorEmulation.installListeners(this);
+      myPlatformEditorEmulation.installListeners(myLeftHighlighter);
     }
   }
 
@@ -574,12 +572,17 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
         TooltipController.getInstance().cancelTooltip(MPS_EDITOR_TOOLTIP_GROUP, null, false);
         return null;
       }
+      
+      return getTooltipRenderer(messages);
+    }
 
+    @Override
+    public TooltipRenderer getTooltipRenderer(List<? extends SimpleEditorMessage> messages) {
       LineTooltipRenderer bigRenderer = null;
       //do not show same tooltip twice
       Set<String> tooltips = null;
 
-      for (ListIterator<EditorMessageWithTarget> it = messages.listIterator(messages.size()); it.hasPrevious(); ) {
+      for (ListIterator<? extends SimpleEditorMessage> it = messages.listIterator(messages.size()); it.hasPrevious(); ) {
         final String text = it.previous().getFormattedMessage();
         if (text == null || text.isEmpty()) {
           continue;
@@ -597,6 +600,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
       }
       return bigRenderer;
     }
+
 
     @Override
     public Position getPreferredPosition() {
@@ -726,6 +730,10 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
 
   protected JScrollPane createScrollPane() {
     return new FontSizeChangingScrollPane();
+  }
+
+  protected Editor getPlatformEditorEmulation() {
+    return myPlatformEditorEmulation;
   }
 
   public JScrollPane getScrollPane() {
@@ -1619,11 +1627,8 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
       myCreateNotified = false; // not needed, just like to be pedantic
     }
     if (myPlatformEditorEmulation != null) {
-      removeMouseListener(myPlatformEditorEmulation.getMouseListener());
-      removeMouseMotionListener(myPlatformEditorEmulation.getMouseMotionListener());
-      removeKeyListener(myPlatformEditorEmulation.getKeyListener());
-      getLeftEditorHighlighter().removeMouseListener(myPlatformEditorEmulation.getMouseListener());
-      getLeftEditorHighlighter().removeMouseMotionListener(myPlatformEditorEmulation.getMouseMotionListener());
+      myPlatformEditorEmulation.uninstallListeners(this);
+      myPlatformEditorEmulation.uninstallListeners(getLeftEditorHighlighter());
       myPlatformEditorEmulation.release();
     }
     fireEditorWillBeDisposed();
