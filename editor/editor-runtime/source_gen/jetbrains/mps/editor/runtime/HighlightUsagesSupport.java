@@ -93,7 +93,7 @@ public class HighlightUsagesSupport {
     }
     final Set<SReference> refs = new HashSet<>();
     myRepository.getModelAccess().runReadAction(() -> {
-      final SNode nodeToHighlight = APICellAdapter.getSNodeWRTReference(selectedCell);
+      final SNode nodeToHighlight = APICellAdapter.getSNodeWRTReference(selectedCell, myRepository);
       if (nodeToHighlight == null) {
         return;
       }

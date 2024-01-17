@@ -10409,10 +10409,13 @@
                         <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
                       </node>
                       <node concept="2YIFZM" id="3lk$pEhes6g" role="33vP2m">
-                        <ref role="37wK5l" to="g51k:~APICellAdapter.getSNodeWRTReference(jetbrains.mps.openapi.editor.cells.EditorCell)" resolve="getSNodeWRTReference" />
+                        <ref role="37wK5l" to="g51k:~APICellAdapter.getSNodeWRTReference(jetbrains.mps.openapi.editor.cells.EditorCell,org.jetbrains.mps.openapi.module.SRepository)" resolve="getSNodeWRTReference" />
                         <ref role="1Pybhc" to="g51k:~APICellAdapter" resolve="APICellAdapter" />
                         <node concept="37vLTw" id="3lk$pEheuUu" role="37wK5m">
                           <ref role="3cqZAo" node="3lk$pEhdc7w" resolve="selectedCell" />
+                        </node>
+                        <node concept="37vLTw" id="6Tb3QKYm723" role="37wK5m">
+                          <ref role="3cqZAo" node="6$lwX$8YO$5" resolve="myRepository" />
                         </node>
                       </node>
                     </node>
