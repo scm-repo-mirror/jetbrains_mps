@@ -2442,17 +2442,20 @@
       <node concept="l2Vlx" id="5KZfyKsUqLI" role="2iSdaV" />
     </node>
     <node concept="3EZMnI" id="3XLirLm_IHP" role="6VMZX">
-      <node concept="3F0ifn" id="3XLirLm_JrW" role="3EZMnx">
-        <property role="3F0ifm" value="Experimental functionality, use with care (MPSI-36)" />
-        <ref role="1k5W1q" to="o2va:7UAfeVQSDww" resolve="comment" />
-      </node>
       <node concept="3EZMnI" id="3XLirLm_IX_" role="3EZMnx">
         <node concept="VPM3Z" id="3XLirLm_IXB" role="3F10Kt" />
         <node concept="3F0ifn" id="3XLirLm_NSV" role="3EZMnx">
-          <property role="3F0ifm" value="Use single MPS Make task:" />
+          <property role="3F0ifm" value="Execute a complete MPS make task, use the embedded java compiler:" />
         </node>
         <node concept="3F0A7n" id="3XLirLm_J36" role="3EZMnx">
           <ref role="1NtTu8" to="kdzh:3XLirLmzCUO" resolve="useMakeTask" />
+        </node>
+        <node concept="3F0ifn" id="7T1QqYgGu3" role="3EZMnx">
+          <property role="3F0ifm" value="(experimental)" />
+          <ref role="1k5W1q" to="tpco:3VARyd8XcQs" resolve="Comment" />
+          <node concept="Vb9p2" id="7T1QqYgJ05" role="3F10Kt">
+            <property role="Vbekb" value="g1_kEg4/ITALIC" />
+          </node>
         </node>
         <node concept="l2Vlx" id="3XLirLm_IXE" role="2iSdaV" />
       </node>
