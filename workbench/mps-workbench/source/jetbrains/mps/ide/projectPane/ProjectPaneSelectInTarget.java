@@ -29,6 +29,7 @@ import jetbrains.mps.nodeEditor.NodeEditorComponent;
 import jetbrains.mps.nodefs.MPSNodeVirtualFile;
 import jetbrains.mps.openapi.editor.Editor;
 import jetbrains.mps.openapi.editor.EditorComponent;
+import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.SModelFileTracker;
 import jetbrains.mps.vfs.IFile;
@@ -37,6 +38,9 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.persistence.datasource.FileExtensionDataSourceType;
+
+import java.util.Objects;
+import java.util.Optional;
 
 public final class ProjectPaneSelectInTarget extends AbstractProjectViewSelectInTarget {
   private final ProjectPane myProjectPane;
@@ -112,14 +116,11 @@ public final class ProjectPaneSelectInTarget extends AbstractProjectViewSelectIn
       return null;
     }
     IFile moduleFile = fs.fromVirtualFile(virtualFile);
-
-    // ProjectTreeFindHelper can't be correctly initialized without a tree
-    if (myProjectPane.getTree() == null) {
-      return null;
-    }
-    final ProjectModuleTreeNode moduleTreeNode = myProjectPane.createFindHelper().findModuleTreeNode(moduleFile);
-    // XXX in fact, no reason to complicate life and to use SModule to pass navigation destination, shall use tree node in doSelectIn right away
-    return moduleTreeNode == null ? null : moduleTreeNode.getModule();
+    Optional<SModule> maybeModule = myProject.getProjectModulesWithGenerators().stream()
+                                              .filter(AbstractModule.class::isInstance)
+                                              .filter((m) -> Objects.equals(((AbstractModule) m).getDescriptorFile(), moduleFile))
+                                              .findFirst();
+    return maybeModule.orElse(null);
   }
 
   private boolean isNodeFile(VirtualFile virtualFile) {
