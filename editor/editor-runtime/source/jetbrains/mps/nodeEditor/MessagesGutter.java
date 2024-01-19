@@ -415,6 +415,9 @@ public class MessagesGutter extends ButtonlessScrollBarUI.Transparent implements
 
     EditorTooltipProvider tooltipProvider = myEditorComponent.getTooltipProvider();
     final TooltipRenderer tooltipRenderer = tooltipProvider.getTooltipRenderer(messages);
+    if (tooltipRenderer == null) {
+      return;
+    }
     final TooltipGroup tooltipGroup = tooltipProvider.getTooltipGroup();
 
     Project project = ProjectHelper.toIdeaProject(ProjectHelper.getProject(myEditorComponent.getRepository()));

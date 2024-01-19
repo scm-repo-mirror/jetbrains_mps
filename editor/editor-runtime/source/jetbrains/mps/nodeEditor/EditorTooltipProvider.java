@@ -18,8 +18,12 @@ public interface EditorTooltipProvider {
    */
   @Nullable TooltipRenderer getTooltipRenderer(MouseEvent e);
 
+  /**
+   * Return an instance of {@link TooltipRenderer} that is able to render the specified messages or null,
+   * if no such renderer can be provided.
+   */
   default TooltipRenderer getTooltipRenderer(List<? extends SimpleEditorMessage> messages) {
-    throw new UnsupportedOperationException();
+    return null;
   }
 
   Position getPreferredPosition();
