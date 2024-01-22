@@ -25480,7 +25480,7 @@
       <property role="3fwGa$" value="IntelliJ" />
       <property role="TZNOO" value="11" />
       <node concept="3qWCbU" id="6Za9XhmfePi" role="2_Ic$A">
-        <property role="3qWCbO" value="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
+        <property role="3qWCbO" value="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.svg, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
       </node>
     </node>
     <node concept="398b33" id="2eDSGe9d1ou" role="3989C9">
@@ -25526,7 +25526,7 @@
       <property role="2_Ic$y" value="mps-workbench-specific" />
       <property role="TZNOO" value="11" />
       <node concept="3qWCbU" id="79wGYVsEpzE" role="2_Ic$A">
-        <property role="3qWCbO" value="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
+        <property role="3qWCbO" value="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.svg, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
       </node>
       <node concept="3LWZYq" id="79wGYVsEuM7" role="2_Ic$A">
         <property role="3LWZYl" value="idea/IdeaApplicationInfo.xml" />
@@ -39679,7 +39679,7 @@
       <property role="3fwGa$" value="IntelliJ" />
       <property role="TZNOO" value="11" />
       <node concept="3qWCbU" id="11P3qAhCOBG" role="2_Ic$A">
-        <property role="3qWCbO" value="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
+        <property role="3qWCbO" value="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.svg, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
       </node>
     </node>
     <node concept="2G$12M" id="5D1dJ7xWerb" role="3989C9">
