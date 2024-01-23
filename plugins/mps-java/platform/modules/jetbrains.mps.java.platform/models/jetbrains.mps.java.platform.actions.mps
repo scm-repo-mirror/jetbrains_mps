@@ -11012,8 +11012,12 @@
                                 </node>
                                 <node concept="liA8E" id="6Pc129LqV87" role="2OqNvi">
                                   <ref role="37wK5l" to="w1kc:~ModelDependencyScanner.walk(java.lang.Iterable)" resolve="walk" />
-                                  <node concept="37vLTw" id="6Pc129LwZkN" role="37wK5m">
-                                    <ref role="3cqZAo" node="6Pc129LwZkL" resolve="nodes" />
+                                  <node concept="2YIFZM" id="7sUY3OCYfeI" role="37wK5m">
+                                    <ref role="37wK5l" to="mhbf:~SNodeUtil.getDescendants(java.lang.Iterable)" resolve="getDescendants" />
+                                    <ref role="1Pybhc" to="mhbf:~SNodeUtil" resolve="SNodeUtil" />
+                                    <node concept="37vLTw" id="7sUY3OCYrr8" role="37wK5m">
+                                      <ref role="3cqZAo" node="6Pc129LwZkL" resolve="toScan" />
+                                    </node>
                                   </node>
                                 </node>
                               </node>
