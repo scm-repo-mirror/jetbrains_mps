@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2023 JetBrains s.r.o.
+ * Copyright 2003-2024 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -396,7 +396,8 @@ public abstract class FileBasedModelRoot extends ModelRootBase implements FileEv
 
   @Override
   public final int hashCode() {
-    return Objects.hash(myContentDir, mySourcePathStorage);
+    // Note, hashCode/equals is essential piece of functionality to make sure roots/editors kept open once unrelated attributes in ModuleDescriptor change
+    return Objects.hash(myContentDir == null ? null : myContentDir.value(), mySourcePathStorage);
   }
 
 
