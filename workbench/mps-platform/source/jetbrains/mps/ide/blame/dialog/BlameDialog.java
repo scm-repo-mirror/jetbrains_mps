@@ -24,6 +24,7 @@ import com.intellij.ide.passwordSafe.PasswordSafe;
 import com.intellij.ide.plugins.IdeaPluginDescriptor;
 import com.intellij.ide.ui.UISettings;
 import com.intellij.openapi.application.ApplicationInfo;
+import com.intellij.openapi.application.ApplicationNamesInfo;
 import com.intellij.openapi.application.ex.ApplicationInfoEx;
 import com.intellij.openapi.extensions.PluginDescriptor;
 import com.intellij.openapi.progress.ProgressIndicator;
@@ -75,6 +76,7 @@ import java.util.List;
 
 public class BlameDialog extends DialogWrapper {
   private static final String CAPTION = "Submit System Exception to Developers";
+  private static final String FULL_PRODUCT_NAME = "JetBrains MPS";
 
   private JPanel myPanel;
   private JTextField myTitleField;
@@ -471,7 +473,8 @@ public class BlameDialog extends DialogWrapper {
     final String summary = myTitleField.getText();
     final String descript = description.toString();
     final boolean hidden = myHiddenCheckBox.isSelected();
-    final String affectedVersion = ApplicationInfo.getInstance().getFullVersion();
+    // add version only if it is JetBrains MPS application itself, not other application or IDEA plugin
+    final String affectedVersion = FULL_PRODUCT_NAME.equals(ApplicationNamesInfo.getInstance().getFullProductName()) ? ApplicationInfo.getInstance().getFullVersion() : null;
     final String subsystem = mySubsystem;
     final File[] files = myFilesToAttach.toArray(new File[0]);
 
