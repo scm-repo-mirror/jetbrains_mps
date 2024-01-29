@@ -1370,7 +1370,7 @@
         <node concept="3cpWs6" id="6OtXG9KaFjH" role="3cqZAp">
           <node concept="3K4zz7" id="6OtXG9KaGic" role="3cqZAk">
             <node concept="Xl_RD" id="6OtXG9KaGBj" role="3K4GZi">
-              <property role="Xl_RC" value="Remove documentation" />
+              <property role="Xl_RC" value="Remove Doc Annotation" />
             </node>
             <node concept="Xl_RD" id="6OtXG9KaFu5" role="3K4E3e">
               <property role="Xl_RC" value="Document" />

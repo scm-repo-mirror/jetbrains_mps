@@ -34,8 +34,9 @@ public final class IntentionsDescriptor extends AbstractIntentionAspectDescripto
       case 0:
         if (true) {
           // concept
-          intentions = new IntentionFactory[1];
-          intentions[0] = new AnnotateToDocument_Intention();
+          intentions = new IntentionFactory[2];
+          intentions[0] = new AddDocumentation_Intention();
+          intentions[1] = new RemoveDocumentation_Intention();
         }
         break;
       default:
@@ -47,8 +48,9 @@ public final class IntentionsDescriptor extends AbstractIntentionAspectDescripto
   @NotNull
   @Override
   public Collection<IntentionFactory> getAllIntentions() {
-    IntentionFactory[] rv = new IntentionFactory[1];
-    rv[0] = new AnnotateToDocument_Intention();
+    IntentionFactory[] rv = new IntentionFactory[2];
+    rv[0] = new AddDocumentation_Intention();
+    rv[1] = new RemoveDocumentation_Intention();
     return Arrays.asList(rv);
   }
   private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x6d1df6c2700b0eaeL)).seal();

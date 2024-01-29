@@ -21,16 +21,16 @@ import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 
-public final class AnnotateToDocument_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
+public final class AddDocumentation_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
 
-  public AnnotateToDocument_Intention() {
+  public AddDocumentation_Intention() {
     super(Kind.NORMAL, false, new SNodePointer("r:2442b824-976f-419d-a6bc-059eb86e7b74(jetbrains.mps.lang.doctext.intentions)", "7862711839424636005"));
   }
 
   @Override
   public String getPresentation() {
-    return "AnnotateToDocument";
+    return "AddDocumentation";
   }
 
   @Override
@@ -74,7 +74,7 @@ public final class AnnotateToDocument_Intention extends AbstractIntentionDescrip
 
     @Override
     public IntentionDescriptor getDescriptor() {
-      return AnnotateToDocument_Intention.this;
+      return AddDocumentation_Intention.this;
     }
 
   }
