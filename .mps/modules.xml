@@ -216,17 +216,17 @@
       <modulePath path="$PROJECT_DIR$/languages/util/builders/sandbox/jetbrains.mps.baseLanguage.builders.sandbox.msd" folder="core.baseLanguage.builders" />
       <modulePath path="$PROJECT_DIR$/languages/util/core.doc/jetbrains.mps.lang.core.doc/jetbrains.mps.lang.core.doc.mpl" folder="core.languages" />
       <modulePath path="$PROJECT_DIR$/languages/util/core.doc/jetbrains.mps.lang.doctext/jetbrains.mps.lang.doctext.mpl" folder="core.languages.text" />
-      <modulePath path="$PROJECT_DIR$/languages/util/core.doc/jetbrains.mps.lang.doctext/sandbox/jetbrains.mps.lang.doctext.sandbox.msd" folder="core.languages" />
+      <modulePath path="$PROJECT_DIR$/languages/util/core.doc/jetbrains.mps.lang.doctext/sandbox/jetbrains.mps.lang.doctext.sandbox.msd" folder="core.languages.text" />
       <modulePath path="$PROJECT_DIR$/languages/util/core.doc/jetbrains.mps.lang.doctext/test/jetbrains.mps.lang.doctext.test.msd" folder="core.languages.text" />
       <modulePath path="$PROJECT_DIR$/languages/util/core.text/jetbrains.mps.lang.text.mpl" folder="core.languages.text" />
       <modulePath path="$PROJECT_DIR$/languages/util/execution/util/jetbrains.mps.execution.util.mpl" folder="workbench.execution" />
       <modulePath path="$PROJECT_DIR$/languages/util/ext.plug/jetbrains.mps.lang.extension.plug.msd" folder="core.extensions" />
       <modulePath path="$PROJECT_DIR$/languages/util/extension/jetbrains.mps.lang.extension.mpl" folder="core.extensions" />
-      <modulePath path="$PROJECT_DIR$/languages/util/html/jetbrains.mps.lang.css/jetbrains.mps.lang.css.mpl" folder="core.languages" />
-      <modulePath path="$PROJECT_DIR$/languages/util/html/jetbrains.mps.lang.css/sandbox/jetbrains.mps.lang.css.sandbox.msd" folder="core.languages" />
-      <modulePath path="$PROJECT_DIR$/languages/util/html/jetbrains.mps.lang.html/jetbrains.mps.lang.html.mpl" folder="core.languages" />
-      <modulePath path="$PROJECT_DIR$/languages/util/html/jetbrains.mps.lang.html/sandbox/jetbrains.mps.lang.html.sandbox.msd" folder="core.languages" />
-      <modulePath path="$PROJECT_DIR$/languages/util/html/jetbrains.mps.lang.html/test/jetbrains.mps.lang.html.test.msd" folder="core.languages" />
+      <modulePath path="$PROJECT_DIR$/languages/util/html/jetbrains.mps.lang.css/jetbrains.mps.lang.css.mpl" folder="core.languages.html" />
+      <modulePath path="$PROJECT_DIR$/languages/util/html/jetbrains.mps.lang.css/sandbox/jetbrains.mps.lang.css.sandbox.msd" folder="core.languages.html" />
+      <modulePath path="$PROJECT_DIR$/languages/util/html/jetbrains.mps.lang.html/jetbrains.mps.lang.html.mpl" folder="core.languages.html" />
+      <modulePath path="$PROJECT_DIR$/languages/util/html/jetbrains.mps.lang.html/sandbox/jetbrains.mps.lang.html.sandbox.msd" folder="core.languages.html" />
+      <modulePath path="$PROJECT_DIR$/languages/util/html/jetbrains.mps.lang.html/test/jetbrains.mps.lang.html.test.msd" folder="core.languages.html" />
       <modulePath path="$PROJECT_DIR$/languages/util/makeup/jetbrains.mps.lang.makeup.mpl" folder="core.languages" />
       <modulePath path="$PROJECT_DIR$/languages/util/regexp/jetbrains.mps.baseLanguage.regexp.mpl" folder="core.baseLanguage.regexp" />
       <modulePath path="$PROJECT_DIR$/languages/util/regexp/solutions/jetbrains.mps.baseLanguage.regexp.runtime/jetbrains.mps.baseLanguage.regexp.runtime.msd" folder="core.baseLanguage.regexp" />
