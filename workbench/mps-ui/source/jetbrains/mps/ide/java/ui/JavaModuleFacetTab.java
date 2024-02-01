@@ -230,9 +230,9 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
       myCompileNone.setSelected(myJavaModuleFacet.getCompile() == Compile.None);
       jmfSettings.add(pn1);
 
-      myCompileInMPS.addChangeListener(e -> myLanguageLevel.setModel(myLanguageLevel.getModel()));
+      myCompileInMPS.addActionListener(e -> myLanguageLevel.setModel(myLanguageLevel.getModel()));
 
-      final ChangeListener compileListener = changeEvent -> {
+      final ActionListener compileListener = changeEvent -> {
         final boolean isNone = changeEvent.getSource() == myCompileNone;
         myCompileOutPath.setEnabled(!isNone);
         myClassLoadMPS.setEnabled(!isNone);
@@ -244,9 +244,9 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
         mySourcePathsTablePanel.setEnabled(myCompileInMPS.isSelected());
         myLibrariesTablePanel.setEnabled(myCompileInMPS.isSelected() || myCompileExternal.isSelected());
       };
-      myCompileInMPS.addChangeListener(compileListener);
-      myCompileExternal.addChangeListener(compileListener);
-      myCompileNone.addChangeListener(compileListener);
+      myCompileInMPS.addActionListener(compileListener);
+      myCompileExternal.addActionListener(compileListener);
+      myCompileNone.addActionListener(compileListener);
 
       final JBBox compileOutputBox = JBBox.createHorizontalBox();
       compileOutputBox.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -328,20 +328,20 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
       al.setBorder(JBUI.Borders.empty(5,5,0,0));
       jmfSettings.add(al);
 
-      ChangeListener updTitle = (e) -> {
+      ActionListener updTitle = (e) -> {
         final String usageText = detectKnownUsageMode();
         myUsageScenarioLabel.setText(usageText == null ? "Custom usage scenario" : usageText);
         jmfSettings.invalidate();
       };
-      updTitle.stateChanged(null);
-      myCompileInMPS.addChangeListener(updTitle);
-      myCompileExternal.addChangeListener(updTitle);
-      myCompileNone.addChangeListener(updTitle);
-      myClassLoadMPS.addChangeListener(updTitle);
-      myClassLoadContributor.addChangeListener(updTitle);
-      myClassLoadNone.addChangeListener(updTitle);
-      myExtPlugin.addChangeListener(updTitle);
-      myExtNone.addChangeListener(updTitle);
+      updTitle.actionPerformed(null);
+      myCompileInMPS.addActionListener(updTitle);
+      myCompileExternal.addActionListener(updTitle);
+      myCompileNone.addActionListener(updTitle);
+      myClassLoadMPS.addActionListener(updTitle);
+      myClassLoadContributor.addActionListener(updTitle);
+      myClassLoadNone.addActionListener(updTitle);
+      myExtPlugin.addActionListener(updTitle);
+      myExtNone.addActionListener(updTitle);
 
       // LanguageLevelPresentation.toString(), invoked from setSelectedItem, needs access to initialized myCompileInMPS
       myLanguageLevel.setSelectedItem(new LanguageLevelPresentation(myJavaModuleFacet.getLanguageLevel()));
