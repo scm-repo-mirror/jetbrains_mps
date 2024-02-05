@@ -719,7 +719,7 @@
                   </node>
                 </node>
                 <node concept="liA8E" id="3UQQw2lYJHB" role="2OqNvi">
-                  <ref role="37wK5l" to="sjya:3UQQw2lYdV3" resolve="noReceiverMembers" />
+                  <ref role="37wK5l" to="sjya:3UQQw2lYdV3" resolve="noExtensionMembers" />
                 </node>
               </node>
               <node concept="liA8E" id="3UQQw2lY_Hc" role="2OqNvi">
@@ -786,7 +786,7 @@
                     </node>
                   </node>
                   <node concept="liA8E" id="3UQQw2lYIh6" role="2OqNvi">
-                    <ref role="37wK5l" to="sjya:3UQQw2lYdV3" resolve="noReceiverMembers" />
+                    <ref role="37wK5l" to="sjya:3UQQw2lYdV3" resolve="noExtensionMembers" />
                   </node>
                 </node>
                 <node concept="liA8E" id="3UQQw2lzlEi" role="2OqNvi">
@@ -1125,7 +1125,7 @@
                   </node>
                 </node>
                 <node concept="liA8E" id="3UQQw2lYw$p" role="2OqNvi">
-                  <ref role="37wK5l" to="sjya:3UQQw2lYdV3" resolve="noReceiverMembers" />
+                  <ref role="37wK5l" to="sjya:3UQQw2lYdV3" resolve="noExtensionMembers" />
                 </node>
               </node>
               <node concept="liA8E" id="3UQQw2lYxr3" role="2OqNvi">

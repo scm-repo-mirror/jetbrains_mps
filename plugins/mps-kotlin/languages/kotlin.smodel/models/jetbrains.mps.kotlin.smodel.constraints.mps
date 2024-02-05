@@ -168,7 +168,7 @@
                     </node>
                   </node>
                   <node concept="liA8E" id="3UQQw2lYMlo" role="2OqNvi">
-                    <ref role="37wK5l" to="sjya:3UQQw2lYdV3" resolve="noReceiverMembers" />
+                    <ref role="37wK5l" to="sjya:3UQQw2lYdV3" resolve="noExtensionMembers" />
                   </node>
                 </node>
                 <node concept="liA8E" id="3UQQw2lDo1t" role="2OqNvi">

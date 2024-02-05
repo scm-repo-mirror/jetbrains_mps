@@ -1049,7 +1049,11 @@
                   <node concept="1pGfFk" id="5$XWI2QCFs0" role="2ShVmc">
                     <property role="373rjd" value="true" />
                     <ref role="37wK5l" to="sjya:4oNDtERh_gB" resolve="ConstructorsScope" />
-                    <node concept="2rP1CM" id="5$XWI2QCF$q" role="37wK5m" />
+                    <node concept="2YIFZM" id="pkrm6jtbzj" role="37wK5m">
+                      <ref role="37wK5l" to="sjya:pkrm6jsXeP" resolve="of" />
+                      <ref role="1Pybhc" to="sjya:pkrm6jsSJ5" resolve="ScopeContext" />
+                      <node concept="2rP1CM" id="pkrm6jtbFf" role="37wK5m" />
+                    </node>
                   </node>
                 </node>
                 <node concept="35c_gC" id="5$XWI2QCJ56" role="37wK5m">

@@ -1270,11 +1270,6 @@
       <ref role="PrY4T" node="2yYXHtl6JhF" resolve="IParameterModifier" />
     </node>
   </node>
-  <node concept="PlHQZ" id="2yYXHtl6JhN">
-    <property role="EcuMT" value="2936055411798373491" />
-    <property role="TrG5h" value="IPlatformModifier" />
-    <property role="3GE5qa" value="declaration.modifier" />
-  </node>
   <node concept="1TIwiD" id="2yYXHtl6JhO">
     <property role="EcuMT" value="2936055411798373492" />
     <property role="TrG5h" value="ExpectPlatformModifier" />
@@ -1283,9 +1278,6 @@
     <property role="3GE5qa" value="declaration.modifier" />
     <node concept="PrWs8" id="2yYXHtl6JIm" role="PzmwI">
       <ref role="PrY4T" node="2yYXHtl6JhN" resolve="IPlatformModifier" />
-    </node>
-    <node concept="PrWs8" id="2AaqzlrRBf$" role="PzmwI">
-      <ref role="PrY4T" node="2yYXHtl6JeY" resolve="IFunctionModifier" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6JhP">
@@ -4454,6 +4446,88 @@
     <node concept="PrWs8" id="7EfieuW$tD0" role="PrDN$">
       <ref role="PrY4T" node="2yYXHtl6Jjg" resolve="IExpression" />
     </node>
+  </node>
+  <node concept="1TIwiD" id="7xxJ3oHTQux">
+    <property role="EcuMT" value="8674421298176681889" />
+    <property role="TrG5h" value="TargetPlatforms" />
+    <property role="3GE5qa" value="platform" />
+    <property role="R4oN_" value="target platform for given root" />
+    <ref role="1TJDcQ" to="tpck:2ULFgo8_XDk" resolve="NodeAttribute" />
+    <node concept="1TJgyj" id="6IEyNxjYWnG" role="1TKVEi">
+      <property role="IQ2ns" value="7758166382142539244" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="platform" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" node="6IEyNxjZ283" resolve="TargetPlatform" />
+    </node>
+    <node concept="M6xJ_" id="7xxJ3oHTQ_0" role="lGtFl">
+      <property role="Hh88m" value="targetPlatform" />
+      <node concept="trNpa" id="7xxJ3oHTQG_" role="EQaZv">
+        <ref role="trN6q" node="74Z9X$ygekT" resolve="IKotlinRoot" />
+      </node>
+      <node concept="tn0Fv" id="6IEyNxk503s" role="HhnKV" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="6IEyNxjYK5J">
+    <property role="EcuMT" value="7758166382142488943" />
+    <property role="3GE5qa" value="platform.provided" />
+    <property role="TrG5h" value="JvmTargetPlatform" />
+    <property role="34LRSv" value="jvm" />
+    <ref role="1TJDcQ" node="6IEyNxjZ283" resolve="TargetPlatform" />
+  </node>
+  <node concept="1TIwiD" id="6IEyNxjZ1CK">
+    <property role="EcuMT" value="7758166382142560816" />
+    <property role="3GE5qa" value="platform.provided" />
+    <property role="TrG5h" value="SourceSetTargetPlatform" />
+    <ref role="1TJDcQ" node="6IEyNxjZ283" resolve="TargetPlatform" />
+    <node concept="1TJgyj" id="3xoAZRy8X_h" role="1TKVEi">
+      <property role="IQ2ns" value="4060166578797533521" />
+      <property role="20kJfa" value="sourceSet" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" node="3xoAZRy8Ux2" resolve="SourceSetDeclaration" />
+    </node>
+    <node concept="RPilO" id="3xoAZRy8XK6" role="lGtFl">
+      <ref role="RPilL" node="3xoAZRy8X_h" resolve="sourceSet" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="6IEyNxjZ283">
+    <property role="TrG5h" value="TargetPlatform" />
+    <property role="3GE5qa" value="platform" />
+    <property role="EcuMT" value="7758166382142488390" />
+    <property role="R5$K7" value="true" />
+  </node>
+  <node concept="1TIwiD" id="3xoAZRy8Ux2">
+    <property role="EcuMT" value="4060166578797520962" />
+    <property role="3GE5qa" value="platform" />
+    <property role="TrG5h" value="SourceSetDeclaration" />
+    <property role="19KtqR" value="true" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyj" id="3xoAZRy8V0q" role="1TKVEi">
+      <property role="IQ2ns" value="4060166578797522970" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="platforms" />
+      <property role="20lbJX" value="fLJekj6/_1__n" />
+      <ref role="20lvS9" node="6IEyNxjZ283" resolve="TargetPlatform" />
+    </node>
+    <node concept="PrWs8" id="3xoAZRy8UUX" role="PzmwI">
+      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    </node>
+    <node concept="1AhYRh" id="3xoAZRyCMUu" role="lGtFl" />
+  </node>
+  <node concept="PlHQZ" id="2yYXHtl6JhN">
+    <property role="EcuMT" value="2936055411798373491" />
+    <property role="TrG5h" value="IPlatformModifier" />
+    <property role="3GE5qa" value="declaration.modifier" />
+    <node concept="PrWs8" id="rI4V6uYWYs" role="PrDN$">
+      <ref role="PrY4T" node="2yYXHtl6JeY" resolve="IFunctionModifier" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="6Mh9$DhtGYW">
+    <property role="EcuMT" value="7823076128355438524" />
+    <property role="3GE5qa" value="platform.provided" />
+    <property role="TrG5h" value="CommonTargetPlatform" />
+    <property role="34LRSv" value="common" />
+    <ref role="1TJDcQ" node="6IEyNxjZ283" resolve="TargetPlatform" />
   </node>
 </model>
 

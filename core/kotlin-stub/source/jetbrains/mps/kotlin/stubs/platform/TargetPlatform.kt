@@ -21,6 +21,10 @@ open class TargetPlatform @JvmOverloads constructor(
     companion object {
         @JvmStatic
         val Common = TargetPlatform(setOf(JvmPlatform, JsPlatform, NativePlatform("all")), true)
+
+        @JvmStatic
+        val mpsDefault: TargetPlatform
+            get() = TargetPlatform(JvmPlatform)
     }
 
     override fun toString(): String =
