@@ -564,6 +564,9 @@
         <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.core.jar" />
       </classpath>
     </javac>
+    <copy todir="${build.tmp}/java/out/jetbrains.mps.samples.propertyPersistenceDef">
+      <fileset dir="${basedir}/solutions/jetbrains.mps.samples.propertyPersistenceDef/source_gen" excludes="**/*.java" />
+    </copy>
   </target>
   
   <target name="java.compile.jetbrains.mps.samples.propertyPersistence.ideaPlugin">
@@ -576,6 +579,9 @@
       </src>
       <classpath />
     </javac>
+    <copy todir="${build.tmp}/java/out/jetbrains.mps.samples.propertyPersistence.ideaPlugin">
+      <fileset dir="${basedir}/solutions/jetbrains.mps.samples.propertyPersistence.ideaPlugin/source_gen" excludes="**/*.java" />
+    </copy>
   </target>
   
   <target name="java.compile.jetbrains.mps.samples.PropertyDefinition" depends="fetchDependencies">
@@ -634,6 +640,9 @@
         <fileset file="${artifacts.mps}/languages/runtimes/jetbrains.mps.lang.smodel.query.runtime.jar" />
       </classpath>
     </javac>
+    <copy todir="${build.tmp}/java/out/jetbrains.mps.samples.PropertyDefinition">
+      <fileset dir="${basedir}/languages/jetbrains.mps.samples.PropertyDefinition/source_gen" excludes="**/*.java" />
+    </copy>
   </target>
   
   <target name="java.compile.jetbrains.mps.samples.PropertyDefinition#01" depends="java.compile.jetbrains.mps.samples.PropertyDefinition, fetchDependencies">
@@ -688,6 +697,9 @@
         <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.core.jar" />
       </classpath>
     </javac>
+    <copy todir="${build.tmp}/java/out/jetbrains.mps.samples.PropertyDefinition#01">
+      <fileset dir="${basedir}/languages/jetbrains.mps.samples.PropertyDefinition/generator/source_gen" excludes="**/*.java" />
+    </copy>
   </target>
   
   <target name="cleanSources">

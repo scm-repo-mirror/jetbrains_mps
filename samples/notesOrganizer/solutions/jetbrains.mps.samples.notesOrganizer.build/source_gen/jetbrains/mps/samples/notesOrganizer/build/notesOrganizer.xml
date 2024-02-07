@@ -477,6 +477,9 @@
         <fileset file="${artifacts.mpsPlugin}/mps-core/languages/languageDesign/jetbrains.mps.lang.traceable.jar" />
       </classpath>
     </javac>
+    <copy todir="${build.tmp}/java/out/jetbrains.mps.samples.notesOrganizer">
+      <fileset dir="${basedir}/languages/jetbrains.mps.samples.notesOrganizer/source_gen" excludes="**/*.java" />
+    </copy>
   </target>
   
   <target name="java.compile.jetbrains.mps.samples.notesOrganizer#8908453262579799816" depends="java.compile.jetbrains.mps.samples.notesOrganizer, fetchDependencies">
@@ -533,6 +536,9 @@
         <fileset file="${artifacts.mpsPlugin}/mps-core/languages/languageDesign/jetbrains.mps.lang.core.jar" />
       </classpath>
     </javac>
+    <copy todir="${build.tmp}/java/out/jetbrains.mps.samples.notesOrganizer#8908453262579799816">
+      <fileset dir="${basedir}/languages/jetbrains.mps.samples.notesOrganizer/generator/source_gen" excludes="**/*.java" />
+    </copy>
   </target>
   
   <target name="cleanSources">

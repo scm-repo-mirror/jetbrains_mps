@@ -233,6 +233,9 @@
         <fileset file="${artifacts.p1}/jetbrains.mps.generator.xmodel.test.jar" />
       </classpath>
     </javac>
+    <copy todir="${build.tmp}/java/out/jetbrains.mps.generator.xmodel.test2">
+      <fileset dir="${basedir}/languages/languageDesign/generator/project.xmodel.test1/xmodel.test2/source_gen" excludes="**/*.java" />
+    </copy>
   </target>
   
   <target name="cleanSources">

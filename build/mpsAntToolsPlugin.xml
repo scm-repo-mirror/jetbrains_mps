@@ -290,6 +290,9 @@
         <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
       </classpath>
     </javac>
+    <copy todir="${build.tmp}/java/out/jetbrains.mps.tool.make">
+      <fileset dir="${mps_home}/plugins/mps-ant-make/solutions/tool.make/source_gen" excludes="**/*.java" />
+    </copy>
   </target>
   
   <target name="cleanSources">

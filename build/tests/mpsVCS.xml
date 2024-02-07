@@ -257,6 +257,9 @@
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
       </classpath>
     </javac>
+    <copy todir="${build.tmp}/java/out/jetbrains.mps.vcs.tests">
+      <fileset dir="${plugin_home}/tests/vcs.tests/source_gen" excludes="**/*.java" />
+    </copy>
   </target>
   
   <target name="run.jetbrains.mps.vcs.tests" depends="assemble">

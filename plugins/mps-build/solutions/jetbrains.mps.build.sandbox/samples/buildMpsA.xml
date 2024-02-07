@@ -97,6 +97,9 @@
         <fileset file="${build.tmp}/deps/buildMpsB/MpsB.zip/abcde.jar" />
       </classpath>
     </javac>
+    <copy todir="${build.tmp}/java/out/A">
+      <fileset dir="${basedir}/jetbrains.mps.build.sandbox/samples/buildD/src" excludes="**/*.java" />
+    </copy>
   </target>
   
   <target name="java.compile.testImportJarReexport" depends="java.compile.A, fetchDependencies">
@@ -112,5 +115,8 @@
         <fileset file="${build.tmp}/deps/buildMpsB/MpsB.zip/abcde.jar" />
       </classpath>
     </javac>
+    <copy todir="${build.tmp}/java/out/testImportJarReexport">
+      <fileset dir="${basedir}/jetbrains.mps.build.sandbox/samples/buildA/src" excludes="**/*.java" />
+    </copy>
   </target>
 </project>

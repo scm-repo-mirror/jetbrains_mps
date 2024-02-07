@@ -120,5 +120,8 @@
         <fileset file="${artifacts.IDEA}/lib/junit4.jar" />
       </classpath>
     </javac>
+    <copy todir="${build.tmp}/java/out/mps-tesing-plugin">
+      <fileset dir="${basedir}/IdeaPlugin/mps-testing/src" excludes="**/*.java" />
+    </copy>
   </target>
 </project>

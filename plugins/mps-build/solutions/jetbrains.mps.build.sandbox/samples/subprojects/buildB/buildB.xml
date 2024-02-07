@@ -94,5 +94,8 @@
         <fileset file="${build.tmp}/deps/buildA/abcde.zip/abcde.jar" />
       </classpath>
     </javac>
+    <copy todir="${build.tmp}/java/out/module-B">
+      <fileset dir="${basedir}/moduleB/src" excludes="**/*.java" />
+    </copy>
   </target>
 </project>

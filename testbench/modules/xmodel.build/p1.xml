@@ -360,6 +360,9 @@
         <fileset file="${artifacts.mps}/lib/mps-references.jar" />
       </classpath>
     </javac>
+    <copy todir="${build.tmp}/java/out/jetbrains.mps.generator.xmodel.test">
+      <fileset dir="${basedir}/languages/languageDesign/generator/project.xmodel.test1/xmodel.test/source_gen" excludes="**/*.java" />
+    </copy>
   </target>
   
   <target name="java.compile.jetbrains.mps.generator.test.xmodel.lang1" depends="fetchDependencies">
@@ -413,6 +416,9 @@
         <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.traceable.jar" />
       </classpath>
     </javac>
+    <copy todir="${build.tmp}/java/out/jetbrains.mps.generator.test.xmodel.lang1">
+      <fileset dir="${basedir}/languages/languageDesign/generator/project.xmodel.test1/xmodel.lang1/source_gen" excludes="**/*.java" />
+    </copy>
   </target>
   
   <target name="java.compile.jetbrains.mps.generator.test.xmodel.lang1#7618674748894117488" depends="java.compile.jetbrains.mps.generator.test.xmodel.lang1, fetchDependencies">
@@ -466,6 +472,9 @@
         <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.traceable.jar" />
       </classpath>
     </javac>
+    <copy todir="${build.tmp}/java/out/jetbrains.mps.generator.test.xmodel.lang1#7618674748894117488">
+      <fileset dir="${basedir}/languages/languageDesign/generator/project.xmodel.test1/xmodel.lang1/generator/source_gen" excludes="**/*.java" />
+    </copy>
   </target>
   
   <target name="cleanSources">
