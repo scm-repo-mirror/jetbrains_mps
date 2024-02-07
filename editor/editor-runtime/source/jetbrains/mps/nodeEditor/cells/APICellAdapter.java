@@ -62,15 +62,16 @@ public class APICellAdapter {
     if (target != null) {
       return target;
     }
-    SNode node;
-    if (repository != null) {
-      // TODO: Fixes MPS-36700 by checking the node is still valid. However proper way would be to keep SNodeReference in cells and resolve as necessary
-      node = cell.getSNode().getReference().resolve(repository);
-    } else {
-      node = cell.getSNode();
-    }
+    SNode node = cell.getSNode();
     if (node == null) {
       return null;
+    }
+    if (repository != null) {
+      // TODO: Fixes MPS-36700 by checking the node is still valid. However proper way would be to keep SNodeReference in cells and resolve as necessary
+      node = node.getReference().resolve(repository);
+      if (node == null) {
+        return null;
+      }
     }
     SConceptFeature role = cell.getSRole();
     SNode referentNode = role instanceof SReferenceLink ? node.getReferenceTarget(((SReferenceLink) role)) : null;

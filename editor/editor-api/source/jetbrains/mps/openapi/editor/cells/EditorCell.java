@@ -212,6 +212,7 @@ public interface EditorCell {
 
   boolean isSingleNodeCell();
 
+  @Nullable
   SNode getSNode();
 
   void putUserObject(Object key, Object value);
