@@ -174,6 +174,7 @@ public class VCSPersistenceUtil {
       } else {
         myHeader.setOptionalProperty(key, value);
       }
+      // this model doesn't track "changed" state
     }
     @Nullable
     @Override
