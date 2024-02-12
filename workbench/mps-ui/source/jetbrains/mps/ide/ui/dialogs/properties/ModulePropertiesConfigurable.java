@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2023 JetBrains s.r.o.
+ * Copyright 2003-2024 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -1654,6 +1654,7 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
           // (2) not to use Facet instance to represent a tab but rather ModuleFacetDescriptor (the code that adds facet in apply
           // goes from Facet instance through MFD anyway). Latter change is far greater and would expose memento keys to UI
           // (now FacetTab could use typed access of Facet instance), which is not perfect either.
+          // XXX I wonder why not to extend ModuleFacet interface with another, explicit `loadDefaults()` method?
           myFacet.load(new MementoImpl());
         }
         if (myFacetTab == null) {
