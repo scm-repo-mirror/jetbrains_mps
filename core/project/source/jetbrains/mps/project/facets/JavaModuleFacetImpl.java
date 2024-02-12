@@ -120,7 +120,7 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
   }
   public void setGeneratedClassesLocation(PathSpec classesGen) {
     myGeneratedClassesLocation = classesGen;
-    resolvePaths(Collections.emptyList(),Collections.emptyList());
+    resolvePaths(Collections.emptyList(), Collections.emptyList());
   }
 
   @NotNull
@@ -275,7 +275,7 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
     }
   }
 
-  private static boolean isBlank(Memento memento) {
+  /*package*/ static boolean isBlank(Memento memento) {
     return memento.getType() == null && !memento.getKeys().iterator().hasNext() && !memento.getChildren().iterator().hasNext();
   }
 
