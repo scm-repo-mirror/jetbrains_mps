@@ -41,11 +41,11 @@ public class CheckVisibility_Test extends BaseTransformationTest {
     public void test_CheckVisibility() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        InlineMethodRefactoring ref = new InlineMethodRefactoring(getNodeById("1230053114888"));
+        InlineMethodRefactoring ref = new InlineMethodRefactoring(getAnnotatedNode("call1"));
         Assert.assertTrue(ref.getProblems().length() > 0);
-        ref = new InlineMethodRefactoring(getNodeById("1230053114893"));
+        ref = new InlineMethodRefactoring(getAnnotatedNode("call2"));
         Assert.assertTrue(ref.getProblems().length() > 0);
-        ref = new InlineMethodRefactoring(getNodeById("1230053114898"));
+        ref = new InlineMethodRefactoring(getAnnotatedNode("call3"));
         Assert.assertTrue(ref.getProblems().length() == 0);
       });
     }

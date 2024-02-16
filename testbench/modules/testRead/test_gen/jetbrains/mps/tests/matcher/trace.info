@@ -12,7 +12,7 @@
       <node id="7037818788705053903" at="32,52,33,19" concept="4" />
       <node id="7037818788705053903" at="37,36,38,69" concept="1" />
       <node id="7037818788705076480" at="41,53,42,22" concept="1" />
-      <node id="7037818788705076480" at="42,22,43,147" concept="1" />
+      <node id="7037818788705076480" at="42,22,43,121" concept="1" />
       <node id="7037818788705053903" at="18,0,20,0" concept="3" trace="ourParametersCacheExtension" />
       <node id="7037818788705053903" at="21,0,24,0" concept="0" trace="MPS_36509_Test#()V" />
       <node id="7037818788705053903" at="32,0,35,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
@@ -23,7 +23,7 @@
       <scope id="7037818788705076480" at="26,51,27,42" />
       <scope id="7037818788705053903" at="32,52,33,19" />
       <scope id="7037818788705053903" at="37,36,38,69" />
-      <scope id="7037818788705076480" at="41,53,43,147" />
+      <scope id="7037818788705076480" at="41,53,43,121" />
       <scope id="7037818788705053903" at="21,0,24,0" />
       <scope id="7037818788705053903" at="32,0,35,0">
         <var name="owner" id="7037818788705053903" />

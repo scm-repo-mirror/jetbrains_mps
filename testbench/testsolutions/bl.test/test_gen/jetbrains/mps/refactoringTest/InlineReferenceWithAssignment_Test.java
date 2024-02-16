@@ -46,11 +46,11 @@ public class InlineReferenceWithAssignment_Test extends BaseTransformationTest {
     public void test_InlineReferenceWithAssignment() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        InlineVariableRefactoring ref = InlineVariableRefactoring.createRefactoring(getNodeById("1230053266560"));
+        InlineVariableRefactoring ref = InlineVariableRefactoring.createRefactoring(getAnnotatedNode("ref"));
         ref.doRefactoring();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230053266543"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230053266567"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

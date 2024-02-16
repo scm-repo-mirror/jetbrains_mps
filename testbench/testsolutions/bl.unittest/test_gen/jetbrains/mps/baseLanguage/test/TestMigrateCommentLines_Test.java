@@ -47,10 +47,10 @@ public class TestMigrateCommentLines_Test extends BaseTransformationTest {
     public void test_MigrateBlock() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        new ReplaceSingleLineCommentsWithGenericComments().execute(SNodeOperations.getModel(getNodeById("494962652073962810")).getModule());
+        new ReplaceSingleLineCommentsWithGenericComments().execute(SNodeOperations.getModel(getAnnotatedNode("before")).getModule());
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("494962652073962810"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("494962652073963254"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

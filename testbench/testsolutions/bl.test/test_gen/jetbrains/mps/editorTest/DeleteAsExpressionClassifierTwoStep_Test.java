@@ -39,7 +39,7 @@ public class DeleteAsExpressionClassifierTwoStep_Test extends BaseTransformation
       initEditorComponent("8979250711586516844", "8979250711586516805");
       EditorTestUtil.runWithTwoStepDeletion(() -> {
         invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");
-        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getNodeById("8979250711586533925"))));
+        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getAnnotatedNode("classifier"))));
         invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");
       }, true);
     }

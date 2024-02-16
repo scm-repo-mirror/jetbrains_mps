@@ -46,11 +46,11 @@ public class MoveMethodWithMethods_Test extends BaseTransformationTest {
     public void test_MoveMethodWithMethods() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        MoveStaticMethodRefactoring ref = new MoveStaticMethodRefactoring(getNodeById("1230053302586"), getNodeById("1230053302602"));
+        MoveStaticMethodRefactoring ref = new MoveStaticMethodRefactoring(getAnnotatedNode("method"), getAnnotatedNode("before2"));
         ref.doRefactoring();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230053302585"), getNodeById("1230053302602"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230053302606"), getNodeById("1230053302614"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before1"), getAnnotatedNode("before2"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after1"), getAnnotatedNode("after2"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

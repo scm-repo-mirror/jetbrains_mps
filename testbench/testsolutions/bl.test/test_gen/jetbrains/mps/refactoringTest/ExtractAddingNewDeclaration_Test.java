@@ -48,13 +48,13 @@ public class ExtractAddingNewDeclaration_Test extends BaseTransformationTest {
     public void test_ExtractAddingNewDeclaration() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        ExtractMethodRefactoringParameters params = ExtractMethodFactory.createParameters(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("6195342755328023616"), getNodeById("6195342755328023620")));
+        ExtractMethodRefactoringParameters params = ExtractMethodFactory.createParameters(ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("l1"), getAnnotatedNode("l2")));
         params.setName("foo");
         ExtractMethodRefactoring ref = ExtractMethodFactory.createRefactoring(params);
         ref.doRefactor();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("6195342755328023611"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("6195342755328023664"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

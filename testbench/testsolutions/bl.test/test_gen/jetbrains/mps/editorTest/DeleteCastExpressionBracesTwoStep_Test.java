@@ -39,7 +39,7 @@ public class DeleteCastExpressionBracesTwoStep_Test extends BaseTransformationTe
       initEditorComponent("8979250711589030015", "8979250711589029970");
       EditorTestUtil.runWithTwoStepDeletion(() -> {
         invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");
-        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getNodeById("8979250711589033216"))));
+        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getAnnotatedNode("type"))));
         invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");
       }, true);
 

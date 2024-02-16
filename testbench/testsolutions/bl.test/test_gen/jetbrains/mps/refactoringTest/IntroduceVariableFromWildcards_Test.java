@@ -47,21 +47,21 @@ public class IntroduceVariableFromWildcards_Test extends BaseTransformationTest 
       initTestNodes();
       runWithinCommand(() -> {
         IntroduceLocalVariableRefactoring refactoring = new IntroduceLocalVariableRefactoring();
-        refactoring.init(getNodeById("6974242407276767373"), null);
+        refactoring.init(getAnnotatedNode("introduce1"), null);
         refactoring.setName("b");
         refactoring.setReplacingAll(true);
         refactoring.doRefactoring();
-        refactoring.init(getNodeById("6974242407276767385"), null);
+        refactoring.init(getAnnotatedNode("introduce2"), null);
         refactoring.setName("b");
         refactoring.setReplacingAll(true);
         refactoring.doRefactoring();
-        refactoring.init(getNodeById("6974242407276767398"), null);
+        refactoring.init(getAnnotatedNode("introduce3"), null);
         refactoring.setName("b");
         refactoring.setReplacingAll(true);
         refactoring.doRefactoring();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("6974242407276767367"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("6974242407276777254"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

@@ -46,11 +46,11 @@ public class InlineMethodThatChangesParameters_Test extends BaseTransformationTe
     public void test_InlineMethodThatChangesParameters() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        InlineMethodRefactoring ref = new InlineMethodRefactoring(getNodeById("1230053073166"));
+        InlineMethodRefactoring ref = new InlineMethodRefactoring(getAnnotatedNode("call"));
         ref.doRefactor();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230053073155"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230053073191"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

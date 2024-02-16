@@ -46,11 +46,11 @@ public class InlineMethodWithConceptFunctionParameters_Test extends BaseTransfor
     public void test_InlineMethodWithConceptFunctionParameters() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        InlineMethodRefactoring ref = new InlineMethodRefactoring(getNodeById("4412735672780109165"));
+        InlineMethodRefactoring ref = new InlineMethodRefactoring(getAnnotatedNode("call"));
         ref.doRefactor();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("4412735672780109162"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("4412735672780116650"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

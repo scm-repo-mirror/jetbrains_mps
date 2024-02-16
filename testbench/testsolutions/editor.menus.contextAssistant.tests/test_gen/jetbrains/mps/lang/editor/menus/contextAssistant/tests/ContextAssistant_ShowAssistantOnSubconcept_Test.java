@@ -42,7 +42,7 @@ public class ContextAssistant_ShowAssistantOnSubconcept_Test extends BaseTransfo
       SwingUtilities.invokeAndWait(() -> editorContext.getRepository().getModelAccess().runReadAction(() -> {
         ContextAssistantManager contextAssistantManager = editorContext.getContextAssistantManager();
 
-        getEditorComponent().getSelectionManager().setSelection(getNodeById("9025427969322528788"));
+        getEditorComponent().getSelectionManager().setSelection(getAnnotatedNode("base"));
         contextAssistantManager.updateImmediately();
         Assert.assertNotNull(contextAssistantManager.getActiveAssistant());
         Assert.assertNotNull(contextAssistantManager.getActiveMenuItems());

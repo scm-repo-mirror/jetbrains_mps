@@ -46,11 +46,11 @@ public class InlineInBehaviorWithThis_Test extends BaseTransformationTest {
     public void test_InlineInBehaviorWithThis() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        InlineMethodRefactoring ref = new InlineMethodRefactoring(getNodeById("1230053040904"));
+        InlineMethodRefactoring ref = new InlineMethodRefactoring(getAnnotatedNode("call"));
         ref.doRefactor();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230053040890"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230053040908"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

@@ -339,7 +339,7 @@
             <node concept="3981dx" id="fzIHCHioZT" role="39821P">
               <property role="TrG5h" value="test.jar" />
               <node concept="3xLA65" id="fzIHCHioZU" role="lGtFl">
-                <property role="TrG5h" value="test.jar" />
+                <property role="TrG5h" value="test.jar.nested" />
               </node>
               <node concept="398223" id="71TRJIlH7Vc" role="39821P">
                 <property role="TrG5h" value="internalFolder" />

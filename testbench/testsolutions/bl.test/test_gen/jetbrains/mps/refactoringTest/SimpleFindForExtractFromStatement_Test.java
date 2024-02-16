@@ -49,7 +49,7 @@ public class SimpleFindForExtractFromStatement_Test extends BaseTransformationTe
     public void test_SimpleFindForExtractFromStatementTest() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        ExtractMethodRefactoringParameters params = ExtractMethodFactory.createParameters(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("8556882668095222071")));
+        ExtractMethodRefactoringParameters params = ExtractMethodFactory.createParameters(ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("replace")));
         params.setName("print");
         ExtractMethodRefactoring ref = ExtractMethodFactory.createRefactoring(params);
         SNode res = ref.doRefactor();
@@ -58,8 +58,8 @@ public class SimpleFindForExtractFromStatement_Test extends BaseTransformationTe
           matchRef.replaceMatch(match, res);
         }
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("8556882668095222066"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("8556882668095222150"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

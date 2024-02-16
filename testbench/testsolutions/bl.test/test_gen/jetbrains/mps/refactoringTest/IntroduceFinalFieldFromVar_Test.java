@@ -49,15 +49,15 @@ public class IntroduceFinalFieldFromVar_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         IntroduceFieldRefactoring refactoring = new IntroduceFieldRefactoring();
-        refactoring.init(getNodeById("8599380872150708421"), null);
+        refactoring.init(getAnnotatedNode("introduce"), null);
         refactoring.setName("i");
         refactoring.setIsFinal(true);
         refactoring.setFieldInitializationPlace(FieldInitializationPlace.FIELD);
         refactoring.setVisibilityLevel(VisibilityLevel.PRIVATE);
         refactoring.doRefactoring();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("8599380872150708413"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("8599380872150708428"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

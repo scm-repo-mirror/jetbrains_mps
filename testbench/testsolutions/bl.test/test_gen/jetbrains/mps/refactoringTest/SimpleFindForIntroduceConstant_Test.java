@@ -48,14 +48,14 @@ public class SimpleFindForIntroduceConstant_Test extends BaseTransformationTest 
       initTestNodes();
       runWithinCommand(() -> {
         IntroduceConstantRefactoring refactoring = new IntroduceConstantRefactoring();
-        refactoring.init(getNodeById("7568753874916187344"), null);
+        refactoring.init(getAnnotatedNode("introduce"), null);
         refactoring.setName("s");
         refactoring.setReplacingAll(true);
         refactoring.setVisibilityLevel(VisibilityLevel.PRIVATE);
         refactoring.doRefactoring();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7568753874916187327"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7568753874916187375"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

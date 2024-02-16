@@ -39,7 +39,7 @@ public class TwoStepDeleteChildFromParent_Test extends BaseTransformationTest {
       initEditorComponent("1241246198933157188", "1241246198933157191");
       EditorTestUtil.runWithTwoStepDeletion(() -> {
         invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");
-        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getNodeById("1241246198933454532"))));
+        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getAnnotatedNode("child"))));
         invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");
       }, true);
     }

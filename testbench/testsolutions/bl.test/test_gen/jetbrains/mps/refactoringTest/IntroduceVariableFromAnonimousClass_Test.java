@@ -47,13 +47,13 @@ public class IntroduceVariableFromAnonimousClass_Test extends BaseTransformation
       initTestNodes();
       runWithinCommand(() -> {
         IntroduceLocalVariableRefactoring refactoring = new IntroduceLocalVariableRefactoring();
-        refactoring.init(getNodeById("3109730807963543246"), null);
+        refactoring.init(getAnnotatedNode("introduce"), null);
         refactoring.setName("i");
         refactoring.setReplacingAll(true);
         refactoring.doRefactoring();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3109730807963543202"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3109730807963601732"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

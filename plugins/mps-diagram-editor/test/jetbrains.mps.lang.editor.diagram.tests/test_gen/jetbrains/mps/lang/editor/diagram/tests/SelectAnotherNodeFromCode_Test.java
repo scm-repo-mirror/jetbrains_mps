@@ -43,7 +43,7 @@ public class SelectAnotherNodeFromCode_Test extends BaseTransformationTest {
     @Override
     public void testMethodImpl() throws Exception {
       initEditorComponent("8041297453110598745", "8041297453110598749");
-      SwingUtilities.invokeAndWait(() -> getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> getEditorComponent().selectNode(getNodeById("8041297453110598748"))));
+      SwingUtilities.invokeAndWait(() -> getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> getEditorComponent().selectNode(getAnnotatedNode("node"))));
       final Wrappers._T<Mapper<? super SNode, ?>> descendantMapper = new Wrappers._T<Mapper<? super SNode, ?>>();
       getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> {
         EditorCell selectedCell = getEditorComponent().getSelectedCell();

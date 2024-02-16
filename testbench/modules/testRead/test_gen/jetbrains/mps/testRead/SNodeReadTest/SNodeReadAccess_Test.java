@@ -147,8 +147,8 @@ public class SNodeReadAccess_Test extends BaseTransformationTest {
     public void test_addChild() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        SNode sNode = getNodeById("8150353254540236424");
-        SNode child = getNodeById("8150353254540236551");
+        SNode sNode = getAnnotatedNode("block");
+        SNode child = getAnnotatedNode("expression");
         final SContainmentLink containmentLink = child.getContainmentLink();
         child.getParent().removeChild(child);
 
@@ -163,7 +163,7 @@ public class SNodeReadAccess_Test extends BaseTransformationTest {
     public void test_getChildren() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        SNode sNode = getNodeById("8150353254540236424");
+        SNode sNode = getAnnotatedNode("block");
 
         StatCountNodeReadAccessInEditorListener listener = new StatCountNodeReadAccessInEditorListener(sNode);
         NodeReadAccessCasterInEditor.setCellBuildNodeReadAccessListener(listener);
@@ -177,7 +177,7 @@ public class SNodeReadAccess_Test extends BaseTransformationTest {
     public void test_getProperty() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        SNode sNode = getNodeById("4195712261513743413");
+        SNode sNode = getAnnotatedNode("ifStatement");
         sNode.setProperty(PROPS.forceOneLine$S6eN, "true");
 
         StatCountNodeReadAccessInEditorListener listener = new StatCountNodeReadAccessInEditorListener(sNode);
@@ -191,7 +191,7 @@ public class SNodeReadAccess_Test extends BaseTransformationTest {
     public void test_getReference() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        SNode sNode = getNodeById("4265636116363098320");
+        SNode sNode = getAnnotatedNode("ref");
 
         StatCountNodeReadAccessInEditorListener listener = new StatCountNodeReadAccessInEditorListener(sNode);
         NodeReadAccessCasterInEditor.setCellBuildNodeReadAccessListener(listener);
@@ -204,7 +204,7 @@ public class SNodeReadAccess_Test extends BaseTransformationTest {
     public void test_getReferenceTarget() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        SNode sNode = getNodeById("4265636116363098320");
+        SNode sNode = getAnnotatedNode("ref");
 
         StatCountNodeReadAccessInEditorListener listener = new StatCountNodeReadAccessInEditorListener(sNode);
         NodeReadAccessCasterInEditor.setCellBuildNodeReadAccessListener(listener);
@@ -217,7 +217,7 @@ public class SNodeReadAccess_Test extends BaseTransformationTest {
     public void test_getUserObject() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        SNode sNode = getNodeById("8150353254540236424");
+        SNode sNode = getAnnotatedNode("block");
 
         StatCountNodeReadAccessInEditorListener listener = new StatCountNodeReadAccessInEditorListener(sNode);
         NodeReadAccessCasterInEditor.setCellBuildNodeReadAccessListener(listener);
@@ -230,7 +230,7 @@ public class SNodeReadAccess_Test extends BaseTransformationTest {
     public void test_hasProperty() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        SNode sNode = getNodeById("4195712261513743413");
+        SNode sNode = getAnnotatedNode("ifStatement");
 
         StatCountNodeReadAccessInEditorListener listener = new StatCountNodeReadAccessInEditorListener(sNode);
         NodeReadAccessCasterInEditor.setCellBuildNodeReadAccessListener(listener);
@@ -243,8 +243,8 @@ public class SNodeReadAccess_Test extends BaseTransformationTest {
     public void test_insertChildBefore() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        SNode sNode = getNodeById("8150353254540236424");
-        SNode child = getNodeById("8150353254540236551");
+        SNode sNode = getAnnotatedNode("block");
+        SNode child = getAnnotatedNode("expression");
         child.getParent().removeChild(child);
 
         StatCountNodeReadAccessInEditorListener listener = new StatCountNodeReadAccessInEditorListener(sNode);
@@ -258,7 +258,7 @@ public class SNodeReadAccess_Test extends BaseTransformationTest {
     public void test_putUserObject() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        SNode sNode = getNodeById("8150353254540236424");
+        SNode sNode = getAnnotatedNode("block");
 
         StatCountNodeReadAccessInEditorListener listener = new StatCountNodeReadAccessInEditorListener(sNode);
         NodeReadAccessCasterInEditor.setCellBuildNodeReadAccessListener(listener);
@@ -271,8 +271,8 @@ public class SNodeReadAccess_Test extends BaseTransformationTest {
     public void test_removeChild() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        SNode sNode = getNodeById("8150353254540236424");
-        SNode child = getNodeById("8150353254540236551");
+        SNode sNode = getAnnotatedNode("block");
+        SNode child = getAnnotatedNode("expression");
         child.getParent().removeChild(child);
         sNode.addChild(LINKS.statements$q65M, child);
 
@@ -287,7 +287,7 @@ public class SNodeReadAccess_Test extends BaseTransformationTest {
     public void test_setProperty() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        SNode sNode = getNodeById("4195712261513743413");
+        SNode sNode = getAnnotatedNode("ifStatement");
 
         StatCountNodeReadAccessInEditorListener listener = new StatCountNodeReadAccessInEditorListener(sNode);
         NodeReadAccessCasterInEditor.setCellBuildNodeReadAccessListener(listener);
@@ -300,12 +300,12 @@ public class SNodeReadAccess_Test extends BaseTransformationTest {
     public void test_setReference() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        SNode sNode = getNodeById("4265636116363098320");
+        SNode sNode = getAnnotatedNode("ref");
 
         StatCountNodeReadAccessInEditorListener listener = new StatCountNodeReadAccessInEditorListener(sNode);
         NodeReadAccessCasterInEditor.setCellBuildNodeReadAccessListener(listener);
 
-        sNode.setReference(LINKS.variableDeclaration$N1XG, SNodeOperations.getReference(getNodeById("4265636116363098320"), LINKS.variableDeclaration$N1XG));
+        sNode.setReference(LINKS.variableDeclaration$N1XG, SNodeOperations.getReference(getAnnotatedNode("ref"), LINKS.variableDeclaration$N1XG));
 
         TestBody.this.assertMethod("public void jetbrains.mps.smodel.SNode.setReference(java.lang.String,org.jetbrains.mps.openapi.model.SReference)", listener.getResults().o1);
       });
@@ -313,12 +313,12 @@ public class SNodeReadAccess_Test extends BaseTransformationTest {
     public void test_setReferenceTarget() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        SNode sNode = getNodeById("4265636116363098320");
+        SNode sNode = getAnnotatedNode("ref");
 
         StatCountNodeReadAccessInEditorListener listener = new StatCountNodeReadAccessInEditorListener(sNode);
         NodeReadAccessCasterInEditor.setCellBuildNodeReadAccessListener(listener);
 
-        sNode.setReferenceTarget(LINKS.variableDeclaration$N1XG, getNodeById("4195712261513781527"));
+        sNode.setReferenceTarget(LINKS.variableDeclaration$N1XG, getAnnotatedNode("decl"));
 
         TestBody.this.assertMethod("public void jetbrains.mps.smodel.SNode.setReferenceTarget(java.lang.String,org.jetbrains.mps.openapi.model.SNode)", listener.getResults().o1);
       });
@@ -326,7 +326,7 @@ public class SNodeReadAccess_Test extends BaseTransformationTest {
     public void test_parameterLessMethods() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        SNode sNode = getNodeById("8150353254540236424");
+        SNode sNode = getAnnotatedNode("block");
 
         StatCountNodeReadAccessInEditorListener listener = new StatCountNodeReadAccessInEditorListener(sNode);
         NodeReadAccessCasterInEditor.setCellBuildNodeReadAccessListener(listener);

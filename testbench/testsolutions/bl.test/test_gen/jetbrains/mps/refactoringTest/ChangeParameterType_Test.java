@@ -51,13 +51,13 @@ public class ChangeParameterType_Test extends BaseTransformationTest {
     public void test_ChangeParameterType() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        ChangeMethodSignatureParameters params = new ChangeMethodSignatureParameters(getNodeById("1230052943886"));
+        ChangeMethodSignatureParameters params = new ChangeMethodSignatureParameters(getAnnotatedNode("method"));
         SLinkOperations.setTarget(ListSequence.fromList(SLinkOperations.getChildren(params.getDeclaration(), LINKS.parameter$5xBj)).first(), LINKS.type$a1UY, _quotation_createNode_69x5rj_a0b0a0b0f6());
-        ChangeMethodSignatureRefactoring ref = new ChangeMethodSignatureRefactoring(params, getNodeById("1230052943886"));
+        ChangeMethodSignatureRefactoring ref = new ChangeMethodSignatureRefactoring(params, getAnnotatedNode("method"));
         ref.doRefactoring();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052943885"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052943898"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

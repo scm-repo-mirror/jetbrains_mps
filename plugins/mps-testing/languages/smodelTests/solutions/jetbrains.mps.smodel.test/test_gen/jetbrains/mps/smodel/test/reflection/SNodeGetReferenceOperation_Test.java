@@ -63,19 +63,19 @@ public class SNodeGetReferenceOperation_Test extends BaseTransformationTest {
 
     public void test_empty() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> Assert.assertNull(SNodeOperations.getReference(getNodeById("2906110183022090593"), LINKS.root$cBIX)));
+      runWithinCommand(() -> Assert.assertNull(SNodeOperations.getReference(getAnnotatedNode("emptyReferenceContainer"), LINKS.root$cBIX)));
     }
     public void test_byLinkDeclaration() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
         SNode rootLinkDeclaration = SLinkOperations.findLinkDeclaration(LINKS.root$cBIX);
-        SReference rootContainerReference = SNodeOperations.getReference(getNodeById("2906110183022122680"), LINKS.root$cBIX);
-        Assert.assertEquals(getNodeById("2906110183022122666"), SLinkOperations.getTargetNode(rootContainerReference));
+        SReference rootContainerReference = SNodeOperations.getReference(getAnnotatedNode("referenceContainerSub"), LINKS.root$cBIX);
+        Assert.assertEquals(getAnnotatedNode("rootContainer"), SLinkOperations.getTargetNode(rootContainerReference));
         Assert.assertEquals(rootLinkDeclaration, SLinkOperations.findLinkDeclaration(rootContainerReference));
         Assert.assertEquals(LINKS.root$cBIX, SLinkOperations.getRefLink(rootContainerReference));
         Assert.assertNotNull(SLinkOperations.getResolveInfo(rootContainerReference));
-        SReference leftChildReference = SNodeOperations.getReference(getNodeById("2906110183022122680"), LINKS.leftChild$f5Cu);
-        Assert.assertEquals(getNodeById("2906110183022122667"), SLinkOperations.getTargetNode(leftChildReference));
+        SReference leftChildReference = SNodeOperations.getReference(getAnnotatedNode("referenceContainerSub"), LINKS.leftChild$f5Cu);
+        Assert.assertEquals(getAnnotatedNode("leftChild"), SLinkOperations.getTargetNode(leftChildReference));
         Assert.assertEquals(SLinkOperations.findLinkDeclaration(LINKS.leftChild$f5Cu), SLinkOperations.findLinkDeclaration(leftChildReference));
         Assert.assertEquals(SPropertyOperations.getString(SLinkOperations.findLinkDeclaration(LINKS.leftChild$f5Cu), PROPS.role$Nsjf), check_l3bw6i_a9a0a1a6k(SLinkOperations.getRefLink(leftChildReference)));
         Assert.assertNotNull(SLinkOperations.getResolveInfo(leftChildReference));
@@ -84,12 +84,12 @@ public class SNodeGetReferenceOperation_Test extends BaseTransformationTest {
     public void test_bySpecializedLinkDeclaration() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        SReference refByOriginalLink = SNodeOperations.getReference(getNodeById("2906110183022122680"), LINKS.rightChild$f5Rv);
-        Assert.assertEquals(getNodeById("2906110183022122670"), SLinkOperations.getTargetNode(refByOriginalLink));
+        SReference refByOriginalLink = SNodeOperations.getReference(getAnnotatedNode("referenceContainerSub"), LINKS.rightChild$f5Rv);
+        Assert.assertEquals(getAnnotatedNode("rightChild"), SLinkOperations.getTargetNode(refByOriginalLink));
         Assert.assertEquals(SLinkOperations.findLinkDeclaration(LINKS.rightChild$f5Rv), SLinkOperations.findLinkDeclaration(refByOriginalLink));
         Assert.assertEquals(SPropertyOperations.getString(SLinkOperations.findLinkDeclaration(LINKS.rightChild$f5Rv), PROPS.role$Nsjf), check_l3bw6i_a3a0a1a7k(SLinkOperations.getRefLink(refByOriginalLink)));
         Assert.assertNotNull(SLinkOperations.getResolveInfo(refByOriginalLink));
-        SReference refBySpecializedLink = SNodeOperations.getReference(getNodeById("2906110183022122680"), LINKS.rightChild$f5Rv);
+        SReference refBySpecializedLink = SNodeOperations.getReference(getAnnotatedNode("referenceContainerSub"), LINKS.rightChild$f5Rv);
         Assert.assertEquals(refByOriginalLink, refBySpecializedLink);
       });
     }
@@ -99,14 +99,14 @@ public class SNodeGetReferenceOperation_Test extends BaseTransformationTest {
         SNode nullReferenceContainer = null;
         Assert.assertNull(SNodeOperations.getReference(nullReferenceContainer, LINKS.rightChild$f5Rv));
         SReferenceLink n = null;
-        Assert.assertNull(SNodeOperations.getReference(getNodeById("2906110183022090593"), n));
+        Assert.assertNull(SNodeOperations.getReference(getAnnotatedNode("emptyReferenceContainer"), n));
       });
     }
     public void test_invalidLinkDeclaration() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
         SReferenceLink invalidLink = LINKS.specializedLink$7ZCN;
-        Assert.assertNull(SNodeOperations.getReference(getNodeById("2906110183022122680"), invalidLink));
+        Assert.assertNull(SNodeOperations.getReference(getAnnotatedNode("referenceContainerSub"), invalidLink));
       });
     }
 

@@ -62,23 +62,23 @@ public class TestProgramWithModeSpecified_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         MPSProgramBuilder builder = new MPSProgramBuilder(null, new InstructionBuilder(), new ProgramBuilderContextImpl(Collections.singletonList(new ConceptDataFlowModeId("jetbrains.mps.lang.dataFlow.structure.IntraProcedural_BuilderMode"))));
-        Program program = builder.buildProgram(getNodeById("2955426575105884969"));
-        Assert.assertTrue(program.getInstructions().size() == ListSequence.fromList(SLinkOperations.getChildren(getNodeById("2955426575105884969"), LINKS.child$G3Ei)).count() + 1);
+        Program program = builder.buildProgram(getAnnotatedNode("root"));
+        Assert.assertTrue(program.getInstructions().size() == ListSequence.fromList(SLinkOperations.getChildren(getAnnotatedNode("root"), LINKS.child$G3Ei)).count() + 1);
       });
     }
     public void test_testNonEmptyInstructionsWithMoreSpecificModeSpecified() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
         MPSProgramBuilder builder = new MPSProgramBuilder(null, new InstructionBuilder(), new ProgramBuilderContextImpl(Arrays.asList(new ConceptDataFlowModeId("jetbrains.mps.testCustomDataFlow.structure.IntraProceduralSpecific_BuilderMode"), new ConceptDataFlowModeId("jetbrains.mps.lang.dataFlow.structure.IntraProcedural_BuilderMode"))));
-        Program program = builder.buildProgram(getNodeById("2955426575105884969"));
-        Assert.assertTrue(program.getInstructions().size() == ListSequence.fromList(SLinkOperations.getChildren(getNodeById("2955426575105884969"), LINKS.child$G3Ei)).count() * 2 + 1);
+        Program program = builder.buildProgram(getAnnotatedNode("root"));
+        Assert.assertTrue(program.getInstructions().size() == ListSequence.fromList(SLinkOperations.getChildren(getAnnotatedNode("root"), LINKS.child$G3Ei)).count() * 2 + 1);
       });
     }
     public void test_testEmptyInstructionsWithModeSpecified() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
         MPSProgramBuilder builder = new MPSProgramBuilder(null, new InstructionBuilder(), new ProgramBuilderContextImpl(Collections.<IDataFlowModeId>emptyList()));
-        Program program = builder.buildProgram(getNodeById("2955426575105884969"));
+        Program program = builder.buildProgram(getAnnotatedNode("root"));
         Assert.assertTrue(program.getInstructions().size() == 1 && Objects.equals(program.getEnd(), program.getInstructions().get(0)));
       });
     }

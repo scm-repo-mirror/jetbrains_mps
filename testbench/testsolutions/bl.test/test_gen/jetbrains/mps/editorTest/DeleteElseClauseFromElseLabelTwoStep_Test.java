@@ -39,7 +39,7 @@ public class DeleteElseClauseFromElseLabelTwoStep_Test extends BaseTransformatio
       initEditorComponent("8979250711597942506", "4258541826862682407");
       EditorTestUtil.runWithTwoStepDeletion(() -> {
         invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");
-        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getNodeById("8979250711597942516"))));
+        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getAnnotatedNode("else"))));
         invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");
       }, true);
     }

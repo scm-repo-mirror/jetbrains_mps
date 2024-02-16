@@ -52,14 +52,14 @@ public class TwoParametersWithSameType_Test extends BaseTransformationTest {
     public void test_TwoParametersWithSameType() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        ChangeMethodSignatureParameters params = new ChangeMethodSignatureParameters(getNodeById("1230052944135"));
+        ChangeMethodSignatureParameters params = new ChangeMethodSignatureParameters(getAnnotatedNode("method"));
         SPropertyOperations.assign(ListSequence.fromList(SLinkOperations.getChildren(params.getDeclaration(), LINKS.parameter$5xBj)).first(), PROPS.name$MnvL, "arg1");
         SPropertyOperations.assign(ListSequence.fromList(SLinkOperations.getChildren(params.getDeclaration(), LINKS.parameter$5xBj)).getElement(1), PROPS.name$MnvL, "arg2");
-        ChangeMethodSignatureRefactoring ref = new ChangeMethodSignatureRefactoring(params, getNodeById("1230052944135"));
+        ChangeMethodSignatureRefactoring ref = new ChangeMethodSignatureRefactoring(params, getAnnotatedNode("method"));
         ref.doRefactoring();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052944134"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052944149"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

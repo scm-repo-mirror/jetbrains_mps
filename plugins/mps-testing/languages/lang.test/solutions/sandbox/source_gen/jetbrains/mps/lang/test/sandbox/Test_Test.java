@@ -88,28 +88,28 @@ public class Test_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         // Check statement was moved to node annotation
-        // check getNodeById(string):node<> error messages
+        // check getAnnotatedNode(string):node<> error messages
       });
     }
     public void test_hasType() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
         // Check statement was moved to node annotation
-        // check getNodeById(string):node<> error messages
+        // check getAnnotatedNode(string):node<> error messages
       });
     }
     public void test_hasError() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
         // Check statement was moved to node annotation
-        // check getNodeById(string):node<> error messages
+        // check getAnnotatedNode(string):node<> error messages
       });
     }
     public void test_hasTypeInSet() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
         // Check statement was moved to node annotation
-        // check getNodeById(string):node<> error messages
+        // check getAnnotatedNode(string):node<> error messages
       });
     }
     public void test_ErrorMessagesCheck2501421320959199196() throws Exception {

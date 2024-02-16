@@ -46,11 +46,11 @@ public class OneReturnWithNotVariableParameters_Test extends BaseTransformationT
     public void test_OneReturnWithNotVariableParameters() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        InlineMethodRefactoring ref = new InlineMethodRefactoring(getNodeById("1230053073351"));
+        InlineMethodRefactoring ref = new InlineMethodRefactoring(getAnnotatedNode("call"));
         ref.doRefactor();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230053073338"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230053073378"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

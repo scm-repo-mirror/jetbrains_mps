@@ -46,10 +46,10 @@ public class ConvertAnonymousWithParameterReference_Test extends BaseTransformat
     public void test_WithParameterReferenceTest() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        new ConvertAnonymousRefactoring(getNodeById("995475547969867898"), "MyComparable").doRefactor();
+        new ConvertAnonymousRefactoring(getAnnotatedNode("convert"), "MyComparable").doRefactor();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("995475547969867890"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("995475547969867969"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

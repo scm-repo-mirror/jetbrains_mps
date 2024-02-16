@@ -46,10 +46,10 @@ public class FindInputVariables_Test extends BaseTransformationTest {
     public void test_inputVariablesTest() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        ExtractMethodRefactoringAnalyzer a = new ExtractMethodRefactoringAnalyzer(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052444319"), getNodeById("1230052444324"), getNodeById("1230052444331")));
+        ExtractMethodRefactoringAnalyzer a = new ExtractMethodRefactoringAnalyzer(ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("l1"), getAnnotatedNode("l2"), getAnnotatedNode("l3")));
         List<MethodParameter> vars = a.getInputVariables();
         Assert.assertEquals(1, ListSequence.fromList(vars).count());
-        Assert.assertEquals(getNodeById("1230052444315"), ListSequence.fromList(vars).first().getDeclaration());
+        Assert.assertEquals(getAnnotatedNode("var"), ListSequence.fromList(vars).first().getDeclaration());
       });
     }
 

@@ -40,7 +40,7 @@ public class hasSameSignatureTest_Test extends BaseTransformationTest {
 
     public void test_list() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> Assert.assertTrue((boolean) BaseMethodDeclaration__BehaviorDescriptor.hasSameSignature_idhEwIB0z.invoke(getNodeById("5157939743593407754"), getNodeById("5157939743593407754"))));
+      runWithinCommand(() -> Assert.assertTrue((boolean) BaseMethodDeclaration__BehaviorDescriptor.hasSameSignature_idhEwIB0z.invoke(getAnnotatedNode("method"), getAnnotatedNode("method"))));
     }
 
   }

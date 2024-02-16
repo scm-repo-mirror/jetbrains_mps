@@ -52,7 +52,7 @@ public class ExtractMethodFromClosure_Test extends BaseTransformationTest {
     public void test_ExtractMethodFromClosure() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        ExtractMethodRefactoringParameters params = ExtractMethodFactory.createParameters(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("5161277940733600941"), getNodeById("5161277940733600950")));
+        ExtractMethodRefactoringParameters params = ExtractMethodFactory.createParameters(ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("extract1"), getAnnotatedNode("extract2")));
         params.setName("foo");
         MethodParameter p0 = ListSequence.fromList(params.getParameters()).getElement(0);
         MethodParameter p1 = ListSequence.fromList(params.getParameters()).getElement(1);
@@ -63,8 +63,8 @@ public class ExtractMethodFromClosure_Test extends BaseTransformationTest {
         ExtractMethodRefactoring ref = ExtractMethodFactory.createRefactoring(params);
         ref.doRefactor();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("5161277940733600919"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("5161277940733600997"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

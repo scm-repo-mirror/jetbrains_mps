@@ -68,57 +68,57 @@ public class RoundTrip_Test extends BaseTransformationTest {
     public void test_Simple() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        String genCode = JavaToMpsUtils.generateCode(getNodeById("4795297196607508732"));
-        new JavaToMpsUtils(myProject.getRepository()).checkStringStubs(genCode, getNodeById("4795297196607508732"));
+        String genCode = JavaToMpsUtils.generateCode(getAnnotatedNode("SimpleClass"));
+        new JavaToMpsUtils(myProject.getRepository()).checkStringStubs(genCode, getAnnotatedNode("SimpleClass"));
       });
     }
     public void test_Methods() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        String genCode = JavaToMpsUtils.generateCode(getNodeById("4795297196607508741"));
-        new JavaToMpsUtils(myProject.getRepository()).checkStringStubs(genCode, getNodeById("4795297196607508741"));
+        String genCode = JavaToMpsUtils.generateCode(getAnnotatedNode("ClassMethods"));
+        new JavaToMpsUtils(myProject.getRepository()).checkStringStubs(genCode, getAnnotatedNode("ClassMethods"));
       });
     }
     public void test_Fields() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        String genCode = JavaToMpsUtils.generateCode(getNodeById("8083368042256391114"));
-        new JavaToMpsUtils(myProject.getRepository()).checkStringStubs(genCode, getNodeById("8083368042256391114"));
+        String genCode = JavaToMpsUtils.generateCode(getAnnotatedNode("ClassFields"));
+        new JavaToMpsUtils(myProject.getRepository()).checkStringStubs(genCode, getAnnotatedNode("ClassFields"));
       });
     }
     public void test_TypeVars() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        String genCode = JavaToMpsUtils.generateCode(getNodeById("7030568040400121707"));
-        new JavaToMpsUtils(myProject.getRepository()).checkStringStubs(genCode, getNodeById("7030568040400121707"));
+        String genCode = JavaToMpsUtils.generateCode(getAnnotatedNode("TypeVars"));
+        new JavaToMpsUtils(myProject.getRepository()).checkStringStubs(genCode, getAnnotatedNode("TypeVars"));
       });
     }
     public void test_OuterClassThis() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        String genCode = JavaToMpsUtils.generateCode(getNodeById("1369191534307040156"));
-        new JavaToMpsUtils(myProject.getRepository()).checkString(genCode, getNodeById("1369191534307040156"), false);
+        String genCode = JavaToMpsUtils.generateCode(getAnnotatedNode("OuterClassThis"));
+        new JavaToMpsUtils(myProject.getRepository()).checkString(genCode, getAnnotatedNode("OuterClassThis"), false);
       });
     }
     public void test_VarargMethods() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        String genCode = JavaToMpsUtils.generateCode(getNodeById("1369191534311251786"));
-        new JavaToMpsUtils(myProject.getRepository()).checkString(genCode, getNodeById("1369191534311251786"), false);
+        String genCode = JavaToMpsUtils.generateCode(getAnnotatedNode("VarargMethods"));
+        new JavaToMpsUtils(myProject.getRepository()).checkString(genCode, getAnnotatedNode("VarargMethods"), false);
       });
     }
     public void test_MethodReferences() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        String genCode = JavaToMpsUtils.generateCode(getNodeById("5418740741038056300"));
-        new JavaToMpsUtils(myProject.getRepository()).checkString(genCode, getNodeById("5418740741038056300"), false);
+        String genCode = JavaToMpsUtils.generateCode(getAnnotatedNode("MethodRefs"));
+        new JavaToMpsUtils(myProject.getRepository()).checkString(genCode, getAnnotatedNode("MethodRefs"), false);
       });
     }
     public void test_DiamondOp() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        String genCode = JavaToMpsUtils.generateCode(getNodeById("2811173755042788712"));
-        new JavaToMpsUtils(myProject.getRepository()).checkString(genCode, getNodeById("2811173755042788712"), false);
+        String genCode = JavaToMpsUtils.generateCode(getAnnotatedNode("DiamondOp"));
+        new JavaToMpsUtils(myProject.getRepository()).checkString(genCode, getAnnotatedNode("DiamondOp"), false);
       });
     }
 

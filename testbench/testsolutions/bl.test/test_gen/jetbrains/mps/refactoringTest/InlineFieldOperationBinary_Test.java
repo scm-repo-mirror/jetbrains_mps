@@ -46,10 +46,10 @@ public class InlineFieldOperationBinary_Test extends BaseTransformationTest {
     public void test_simpleInlineVariable() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        new InlineFieldReferenceOperationRefactoring(getNodeById("1925215630523008324")).doRefactoring();
+        new InlineFieldReferenceOperationRefactoring(getAnnotatedNode("ref")).doRefactoring();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("6923327169066964273"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("2359164386490345018"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

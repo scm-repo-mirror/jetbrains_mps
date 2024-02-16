@@ -77,10 +77,10 @@ public class Pattern_References_Test extends BaseTransformationTest {
       runWithinCommand(() -> {
         boolean matches;
         {
-          SNode matchedNode_kxljzf_b0b = _quotation_createNode_1sosjx_a0a0b0a0b0g8(getNodeById("8950533135207579936"));
+          SNode matchedNode_kxljzf_b0b = _quotation_createNode_1sosjx_a0a0b0a0b0g8(getAnnotatedNode("variableToReference"));
           {
             boolean matches_kxljzf_a1a1 = false;
-            GeneratedMatchingPattern matchingPattern_kxljzf_a1a1 = new Pattern_kxljzf_a0b0b0b0b(_quotation_createNode_1sosjx_a0a0b0b0b0a0b0g8(getNodeById("8950533135207579936")));
+            GeneratedMatchingPattern matchingPattern_kxljzf_a1a1 = new Pattern_kxljzf_a0b0b0b0b(_quotation_createNode_1sosjx_a0a0b0b0b0a0b0g8(getAnnotatedNode("variableToReference")));
             matches_kxljzf_a1a1 = matchingPattern_kxljzf_a1a1.match(matchedNode_kxljzf_b0b);
             if (matches_kxljzf_a1a1) {
               matches = true;

@@ -47,13 +47,13 @@ public class FindAndMoveFromIfForIntroduceLocalVar_Test extends BaseTransformati
       initTestNodes();
       runWithinCommand(() -> {
         IntroduceLocalVariableRefactoring refactoring = new IntroduceLocalVariableRefactoring();
-        refactoring.init(getNodeById("7568753874916244242"), null);
+        refactoring.init(getAnnotatedNode("introduce"), null);
         refactoring.setName("s");
         refactoring.setReplacingAll(true);
         refactoring.doRefactoring();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7568753874916244226"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7568753874916244316"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

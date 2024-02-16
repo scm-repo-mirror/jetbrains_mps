@@ -57,16 +57,16 @@ public class TestProgramWithMoreSpecificMode_Test extends BaseTransformationTest
       initTestNodes();
       runWithinCommand(() -> {
         MPSProgramBuilder builder = new MPSProgramBuilder(null, new InstructionBuilder(), new ProgramBuilderContextImpl(Collections.singletonList(new ConceptDataFlowModeId("jetbrains.mps.lang.dataFlow.structure.IntraProcedural_BuilderMode"))));
-        Program program = builder.buildProgram(getNodeById("7078910619969226058"));
-        Assert.assertTrue(program.getInstructions().size() == ListSequence.fromList(SLinkOperations.getChildren(getNodeById("7078910619969226058"), LINKS.child$cKRN)).count() + 1);
+        Program program = builder.buildProgram(getAnnotatedNode("root"));
+        Assert.assertTrue(program.getInstructions().size() == ListSequence.fromList(SLinkOperations.getChildren(getAnnotatedNode("root"), LINKS.child$cKRN)).count() + 1);
       });
     }
     public void test_testMoreSpecificMode() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
         MPSProgramBuilder builder = new MPSProgramBuilder(null, new InstructionBuilder(), new ProgramBuilderContextImpl(Arrays.asList(new ConceptDataFlowModeId("jetbrains.mps.testCustomDataFlow.structure.IntraProceduralSpecific_BuilderMode"), new ConceptDataFlowModeId("jetbrains.mps.lang.dataFlow.structure.IntraProcedural_BuilderMode"))));
-        Program program = builder.buildProgram(getNodeById("7078910619969226058"));
-        Assert.assertTrue(program.getInstructions().size() == ListSequence.fromList(SLinkOperations.getChildren(getNodeById("7078910619969226058"), LINKS.child$cKRN)).count() + Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(getNodeById("7078910619969226058"), LINKS.child$cKRN), LINKS.child$fPvo)).count() + 1);
+        Program program = builder.buildProgram(getAnnotatedNode("root"));
+        Assert.assertTrue(program.getInstructions().size() == ListSequence.fromList(SLinkOperations.getChildren(getAnnotatedNode("root"), LINKS.child$cKRN)).count() + Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(getAnnotatedNode("root"), LINKS.child$cKRN), LINKS.child$fPvo)).count() + 1);
       });
     }
 

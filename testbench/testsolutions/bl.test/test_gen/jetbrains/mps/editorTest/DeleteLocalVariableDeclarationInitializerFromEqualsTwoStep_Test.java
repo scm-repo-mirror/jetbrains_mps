@@ -39,7 +39,7 @@ public class DeleteLocalVariableDeclarationInitializerFromEqualsTwoStep_Test ext
       initEditorComponent("8979250711603162370", "8979250711603162387");
       EditorTestUtil.runWithTwoStepDeletion(() -> {
         invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");
-        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getNodeById("8979250711603169136"))));
+        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getAnnotatedNode("initializer"))));
         invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");
       }, true);
     }

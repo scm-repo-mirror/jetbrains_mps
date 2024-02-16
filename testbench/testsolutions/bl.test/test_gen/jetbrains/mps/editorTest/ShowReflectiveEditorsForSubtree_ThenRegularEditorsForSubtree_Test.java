@@ -43,7 +43,7 @@ public class ShowReflectiveEditorsForSubtree_ThenRegularEditorsForSubtree_Test e
       Assert.assertTrue(isActionApplicable("jetbrains.mps.ide.editor.actions.ShowReflectiveEditorsForSubtree_Action"));
       Assert.assertFalse(isActionApplicable("jetbrains.mps.ide.editor.actions.ShowRegularEditor_Action"));
 
-      ReflectiveEditorActionsUtil.runReadInEDTAndWait(getEditorComponent(), () -> getEditorComponent().selectNode(getNodeById("897648160459353473")));
+      ReflectiveEditorActionsUtil.runReadInEDTAndWait(getEditorComponent(), () -> getEditorComponent().selectNode(getAnnotatedNode("child")));
       Assert.assertFalse(ReflectiveHintsManager.shouldShowReflectiveEditor(getEditorComponent().getSelectedCell().getCellContext()));
       Assert.assertTrue(isActionApplicable("jetbrains.mps.ide.editor.actions.ShowReflectiveEditor_Action"));
       Assert.assertTrue(isActionApplicable("jetbrains.mps.ide.editor.actions.ShowReflectiveEditorsForSubtree_Action"));

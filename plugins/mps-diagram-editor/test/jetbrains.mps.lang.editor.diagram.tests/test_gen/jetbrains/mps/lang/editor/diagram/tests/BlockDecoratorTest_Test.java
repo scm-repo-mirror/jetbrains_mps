@@ -46,7 +46,7 @@ public class BlockDecoratorTest_Test extends BaseTransformationTest {
       initEditorComponent("141381309807688262", "141381309807688282");
       Mapper descendantMapper;
       final Wrappers._T<SNode> node = new Wrappers._T<SNode>();
-      getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> node.value = getNodeById("141381309807688263"));
+      getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> node.value = getAnnotatedNode("node"));
       descendantMapper = DecoratorTestRunner.prepareAndGetMapper(node.value, getEditorComponent(), BlockCell.class);
       Assert.assertTrue(descendantMapper != null);
       Assert.assertTrue(descendantMapper.getTarget() != null);

@@ -46,10 +46,10 @@ public class ConvertAnonymousWithLocalVariables_Test extends BaseTransformationT
     public void test_AbstractClassTest() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        new ConvertAnonymousRefactoring(getNodeById("3109730807963748209"), "MyComparable").doRefactor();
+        new ConvertAnonymousRefactoring(getAnnotatedNode("convert"), "MyComparable").doRefactor();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3109730807963748198"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3109730807963748251"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

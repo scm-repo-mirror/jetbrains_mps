@@ -39,7 +39,7 @@ public class DeleteTryCatchStatementCatchClauseTwoStep_Test extends BaseTransfor
       initEditorComponent("5758795789001077038", "5758795789001081677");
       EditorTestUtil.runWithTwoStepDeletion(() -> {
         invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");
-        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getNodeById("2640093672105151080"))));
+        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getAnnotatedNode("catch"))));
         invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");
       }, true);
     }

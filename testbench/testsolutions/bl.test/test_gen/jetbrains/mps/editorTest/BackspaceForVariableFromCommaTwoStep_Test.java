@@ -39,7 +39,7 @@ public class BackspaceForVariableFromCommaTwoStep_Test extends BaseTransformatio
       initEditorComponent("8979250711594028302", "8979250711594028316");
       EditorTestUtil.runWithTwoStepDeletion(() -> {
         invokeAction("jetbrains.mps.ide.editor.actions.Backspace_Action");
-        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getNodeById("8979250711594028310"))));
+        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getAnnotatedNode("var"))));
         invokeAction("jetbrains.mps.ide.editor.actions.Backspace_Action");
       }, true);
     }

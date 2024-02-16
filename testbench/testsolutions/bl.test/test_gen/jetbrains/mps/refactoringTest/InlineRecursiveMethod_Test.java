@@ -40,7 +40,7 @@ public class InlineRecursiveMethod_Test extends BaseTransformationTest {
 
     public void test_InlineRecursiveMethod() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> Assert.assertTrue(new InlineMethodModel(getNodeById("1230052989285")).getErrors() != null));
+      runWithinCommand(() -> Assert.assertTrue(new InlineMethodModel(getAnnotatedNode("definition")).getErrors() != null));
     }
 
   }

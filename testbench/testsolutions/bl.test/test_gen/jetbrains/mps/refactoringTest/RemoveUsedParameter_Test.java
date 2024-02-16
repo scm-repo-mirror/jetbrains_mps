@@ -51,14 +51,14 @@ public class RemoveUsedParameter_Test extends BaseTransformationTest {
     public void test_RemoveParameter() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        ChangeMethodSignatureParameters params = new ChangeMethodSignatureParameters(getNodeById("6221851280922498867"));
+        ChangeMethodSignatureParameters params = new ChangeMethodSignatureParameters(getAnnotatedNode("method"));
         ListSequence.fromList(SLinkOperations.getChildren(params.getDeclaration(), LINKS.parameter$5xBj)).clear();
-        ChangeMethodSignatureRefactoring ref = new ChangeMethodSignatureRefactoring(params, getNodeById("6221851280922498867"));
-        ref.setUsages(Sequence.fromIterable(Sequence.<SNode>singleton(getNodeById("6221851280922946029"))).toList());
+        ChangeMethodSignatureRefactoring ref = new ChangeMethodSignatureRefactoring(params, getAnnotatedNode("method"));
+        ref.setUsages(Sequence.fromIterable(Sequence.<SNode>singleton(getAnnotatedNode("usage"))).toList());
         ref.doRefactoring();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("6221851280922498864"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("6221851280922498875"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

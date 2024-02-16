@@ -36,15 +36,15 @@ public class ShowReflectiveEditorsForSubtree_ThenRegularEditorsForSubtree_ThenRe
     @Override
     public void testMethodImpl() throws Exception {
       initEditorComponent("8335132831461797704", "");
-      ReflectiveEditorActionsUtil.runReadInEDTAndWait(getEditorComponent(), () -> getEditorComponent().selectNode(getNodeById("8335132831461799372")));
+      ReflectiveEditorActionsUtil.runReadInEDTAndWait(getEditorComponent(), () -> getEditorComponent().selectNode(getAnnotatedNode("node")));
       invokeAction("jetbrains.mps.ide.editor.actions.ShowReflectiveEditorsForSubtree_Action");
       invokeAction("jetbrains.mps.ide.editor.actions.ShowRegularEditor_Action");
       invokeAction("jetbrains.mps.ide.editor.actions.ShowReflectiveEditor_Action");
 
       getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> {
-        Assert.assertFalse(ReflectiveHintsManager.shouldShowReflectiveEditor(getEditorComponent().getBigValidCellForNode(getNodeById("8335132831461799369")).getCellContext()));
-        Assert.assertTrue(ReflectiveHintsManager.shouldShowReflectiveEditor(getEditorComponent().getBigValidCellForNode(getNodeById("8335132831461799372")).getCellContext()));
-        Assert.assertFalse(ReflectiveHintsManager.shouldShowReflectiveEditor(getEditorComponent().getBigValidCellForNode(getNodeById("8335132831461799374")).getCellContext()));
+        Assert.assertFalse(ReflectiveHintsManager.shouldShowReflectiveEditor(getEditorComponent().getBigValidCellForNode(getAnnotatedNode("parent")).getCellContext()));
+        Assert.assertTrue(ReflectiveHintsManager.shouldShowReflectiveEditor(getEditorComponent().getBigValidCellForNode(getAnnotatedNode("node")).getCellContext()));
+        Assert.assertFalse(ReflectiveHintsManager.shouldShowReflectiveEditor(getEditorComponent().getBigValidCellForNode(getAnnotatedNode("child")).getCellContext()));
       });
     }
   }

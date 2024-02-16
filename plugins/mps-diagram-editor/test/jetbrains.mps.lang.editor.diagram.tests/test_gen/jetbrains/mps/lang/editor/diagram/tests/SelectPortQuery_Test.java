@@ -58,7 +58,7 @@ public class SelectPortQuery_Test extends BaseTransformationTest {
         EditorCell selectedCell = getEditorComponent().getSelectedCell();
         Assert.assertTrue(selectedCell != null);
         DiagramCell diagramCell = CellFinderUtil.findChildByClass(getEditorComponent().getRootCell(), DiagramCell.class, true);
-        descendantMapper.value = diagramCell.getRootMapper().getDescendantMapper(SPropertyOperations.getString(getNodeById("2278461409092334466"), PROPS.name$MnvL));
+        descendantMapper.value = diagramCell.getRootMapper().getDescendantMapper(SPropertyOperations.getString(getAnnotatedNode("port"), PROPS.name$MnvL));
       });
       Assert.assertTrue(descendantMapper.value != null && descendantMapper.value.getTarget() != null);
       Assert.assertTrue(((View) descendantMapper.value.getTarget()).focused().get());

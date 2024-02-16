@@ -183,10 +183,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("7696059916860905171"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("localIntVarDeclaration"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7696059916860905171"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7696059916860905177"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("localIntVarDeclaration"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("localIntVarDeclarationResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -196,10 +196,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("770214570644685905"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("localBoxedIntVarDeclaration"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("770214570644685905"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("770214570644685876"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("localBoxedIntVarDeclaration"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("localBoxedIntVarDeclarationResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -209,10 +209,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("5325372602757295239"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("localBoxedIntVarSecondDeclaration"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("5325372602757295239"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("5325372602757295198"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("localBoxedIntVarSecondDeclaration"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("localBoxedIntVarSecondDeclarationResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -222,10 +222,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("7413144797245913935"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("localIntVarAssignment"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7413144797245913935"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7413144797245913909"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("localIntVarAssignment"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("localIntVarAssignmentResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -235,10 +235,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("7413144797245913989"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("localBoxedIntVarAssignment"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7413144797245913989"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7413144797245913953"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("localBoxedIntVarAssignment"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("localBoxedIntVarAssignmentResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -248,10 +248,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("770214570644685977"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("localObjectVarDeclaration"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("770214570644685977"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("770214570644685989"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("localObjectVarDeclaration"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("localObjectVarDeclarationResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -261,10 +261,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("7413144797245757998"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("localObjectVarAssignment"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7413144797245757998"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7413144797245757972"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("localObjectVarAssignment"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("localObjectVarAssignmentResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -274,10 +274,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("7413144797245923859"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("localUnBoxedIntVarAssignment"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7413144797245923859"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7413144797245923876"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("localUnBoxedIntVarAssignment"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("localUnBoxedIntVarAssignmentResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -287,10 +287,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("7413144797245923961"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("localUnBoxedIntVarDeclaration"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7413144797245923961"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7413144797245923933"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("localUnBoxedIntVarDeclaration"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("localUnBoxedIntVarDeclarationResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -300,10 +300,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("89292631370179160"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("andAssignmentExpression"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("89292631370179160"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("89292631370179173"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("andAssignmentExpression"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("andAssignmentExpressionResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -313,10 +313,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("89292631370192756"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("divAssignmentExpression"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("89292631370192756"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("89292631370192721"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("divAssignmentExpression"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("divAssignmentExpressionResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -326,10 +326,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("89292631370192832"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("leftShiftAssignmentExpression"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("89292631370192832"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("89292631370192797"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("leftShiftAssignmentExpression"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("leftShiftAssignmentExpressionResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -339,10 +339,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("89292631370193076"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("minusAssignmentExpression"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("89292631370193076"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("89292631370193041"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("minusAssignmentExpression"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("minusAssignmentExpressionResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -352,10 +352,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("89292631370193027"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("mulAssignmentExpression"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("89292631370193027"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("89292631370192992"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("mulAssignmentExpression"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("mulAssignmentExpressionResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -365,10 +365,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("89292631370193174"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("orAssignmentExpression"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("89292631370193174"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("89292631370193139"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("orAssignmentExpression"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("orAssignmentExpressionResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -378,10 +378,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("89292631370192978"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("plusAssignmentExpression"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("89292631370192978"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("89292631370192943"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("plusAssignmentExpression"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("plusAssignmentExpressionResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -391,10 +391,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("89292631370192929"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("remAssignmentExpression"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("89292631370192929"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("89292631370192894"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("remAssignmentExpression"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("remAssignmentExpressionResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -404,10 +404,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("89292631370196925"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("rightShiftAssignmentExpression"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("89292631370196925"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("89292631370196890"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("rightShiftAssignmentExpression"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("rightShiftAssignmentExpressionResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -417,10 +417,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("89292631370193125"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("xorAssignmentExpression"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("89292631370193125"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("89292631370193090"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("xorAssignmentExpression"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("xorAssignmentExpressionResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -430,10 +430,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("8638796163619040027"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("lowLevelVarInForeach"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("8638796163619040027"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("8638796163619040052"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("lowLevelVarInForeach"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("lowLevelVarInForeachResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -443,10 +443,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("1774703052633005927"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("lowLevelIntVarInForeach"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1774703052633005927"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1774703052633005891"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("lowLevelIntVarInForeach"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("lowLevelIntVarInForeachResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -456,10 +456,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("6583956526375658290"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("notNullString"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("6583956526375658290"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("6583956526375658320"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("notNullString"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("notNullStringResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -469,10 +469,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("4322674958982459627"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("nodeReferenceCountViewer"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("4322674958982459627"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("4322674958982459588"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("nodeReferenceCountViewer"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("nodeReferenceCountViewerResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -482,10 +482,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("2281056005883150420"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("arrayInForeach"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("2281056005883150420"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("2281056005883150387"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("arrayInForeach"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("arrayInForeachResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -495,10 +495,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("8071722462615359845"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("newArrayOfString"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("8071722462615359845"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("8071722462615359820"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("newArrayOfString"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("newArrayOfStringResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -508,10 +508,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("335932010435400776"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("newEmptyArrayOfString"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("335932010435400776"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("335932010435400763"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("newEmptyArrayOfString"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("newEmptyArrayOfStringResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -521,10 +521,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("4609929908986493504"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("newEmptyArrayOfInt"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("4609929908986493504"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("4609929908986493492"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("newEmptyArrayOfInt"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("newEmptyArrayOfIntResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -534,10 +534,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("4816137365279714846"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("optimizeToStringForString"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("4816137365279714846"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("4816137365279714835"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("optimizeToStringForString"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("optimizeToStringForStringResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -547,10 +547,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("4587766555754887084"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("ternaryOperatorForString"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("4587766555754887084"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("4587766555754887053"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("ternaryOperatorForString"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("ternaryOperatorForStringResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -560,10 +560,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("4587766555754950815"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("ternaryOperatorForStringIfTrue"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("4587766555754950815"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("4587766555754950781"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("ternaryOperatorForStringIfTrue"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("ternaryOperatorForStringIfTrueResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -573,10 +573,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("4587766555754950765"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("ternaryOperatorForStringCondition"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("4587766555754950765"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("4587766555754950731"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("ternaryOperatorForStringCondition"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("ternaryOperatorForStringConditionResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -586,10 +586,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("1247401079809823525"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("urlClassloaderCast"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1247401079809823525"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1247401079809823497"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("urlClassloaderCast"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("urlClassloaderCastResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -599,10 +599,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("5586226261252332124"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("primitiveCast"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("5586226261252332124"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("5586226261252332106"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("primitiveCast"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("primitiveCastResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -612,10 +612,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("3525964900474412386"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("objectCast"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3525964900474412386"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3525964900474412367"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("objectCast"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("objectCastResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();
@@ -625,10 +625,10 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TestBody.this.init();
-        TransformatorBuilder.getInstance().build(getNodeById("5586226261252332095"), false).transformEvaluator();
+        TransformatorBuilder.getInstance().build(getAnnotatedNode("arrayCast"), false).transformEvaluator();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("5586226261252332095"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("5586226261252332077"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("arrayCast"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("arrayCastResult"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
         TestBody.this.dispose();

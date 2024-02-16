@@ -39,7 +39,7 @@ public class PortHasNoDecoratorTest_Test extends BaseTransformationTest {
     public void testMethodImpl() throws Exception {
       initEditorComponent("1560508619094462935", "1560508619094462940");
       final Wrappers._T<Mapper> descendantMapper = new Wrappers._T<Mapper>();
-      getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> descendantMapper.value = DecoratorTestRunner.getMapper(getNodeById("1560508619094462938"), getEditorComponent()));
+      getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> descendantMapper.value = DecoratorTestRunner.getMapper(getAnnotatedNode("port"), getEditorComponent()));
       Assert.assertTrue(descendantMapper.value != null);
       Assert.assertTrue(descendantMapper.value.getTarget() != null);
       Assert.assertTrue(descendantMapper.value.getTarget() instanceof PortDecoratorView);

@@ -67,34 +67,34 @@ public class MacroTest_Test extends BaseTransformationTest {
 
     public void test_normalScope() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> Assert.assertTrue(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("193602448594327348"), CONCEPTS.BuildMacro$qd, getNodeById("193602448594330636")).getAvailableElements("")).contains(getNodeById("193602448594330632"))));
+      runWithinCommand(() -> Assert.assertTrue(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getAnnotatedNode("build"), CONCEPTS.BuildMacro$qd, getAnnotatedNode("resourcesMacro")).getAvailableElements("")).contains(getAnnotatedNode("buildMacro"))));
     }
     public void test_onlySeePreviouslyDeclaredMacro() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> Assert.assertFalse(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("193602448594327348"), CONCEPTS.BuildMacro$qd, getNodeById("193602448594330632")).getAvailableElements("")).contains(getNodeById("193602448594330636"))));
+      runWithinCommand(() -> Assert.assertFalse(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getAnnotatedNode("build"), CONCEPTS.BuildMacro$qd, getAnnotatedNode("buildMacro")).getAvailableElements("")).contains(getAnnotatedNode("resourcesMacro"))));
     }
     public void test_doNotSeeItsefl() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> Assert.assertFalse(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("763409143595572700"), CONCEPTS.BuildMacro$qd, getNodeById("763409143595572705")).getAvailableElements("")).contains(getNodeById("763409143595572705"))));
+      runWithinCommand(() -> Assert.assertFalse(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getAnnotatedNode("build2"), CONCEPTS.BuildMacro$qd, getAnnotatedNode("resources2")).getAvailableElements("")).contains(getAnnotatedNode("resources2"))));
     }
     public void test_doNotSeeImported() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        Assert.assertFalse(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("763409143595572700"), CONCEPTS.BuildMacro$qd, getNodeById("763409143595572705")).getAvailableElements("")).contains(getNodeById("193602448594330632")));
-        Assert.assertFalse(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("763409143595572700"), CONCEPTS.BuildMacro$qd, getNodeById("763409143595572705")).getAvailableElements("")).contains(getNodeById("193602448594330636")));
+        Assert.assertFalse(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getAnnotatedNode("build2"), CONCEPTS.BuildMacro$qd, getAnnotatedNode("resources2")).getAvailableElements("")).contains(getAnnotatedNode("buildMacro")));
+        Assert.assertFalse(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getAnnotatedNode("build2"), CONCEPTS.BuildMacro$qd, getAnnotatedNode("resources2")).getAvailableElements("")).contains(getAnnotatedNode("resourcesMacro")));
       });
     }
     public void test_seeImportedVariableInScope() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> Assert.assertTrue(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("763409143595572700"), CONCEPTS.BuildMacro$qd, getNodeById("384280137912153739")).getAvailableElements("")).contains(getNodeById("384280137912153734"))));
+      runWithinCommand(() -> Assert.assertTrue(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getAnnotatedNode("build2"), CONCEPTS.BuildMacro$qd, getAnnotatedNode("referenceVariable")).getAvailableElements("")).contains(getAnnotatedNode("variable"))));
     }
     public void test_doNotSeeForwardVariabletInScope() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> Assert.assertFalse(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("384280137912153749"), CONCEPTS.BuildMacro$qd, getNodeById("384280137912153758")).getAvailableElements("")).contains(getNodeById("384280137912153753"))));
+      runWithinCommand(() -> Assert.assertFalse(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getAnnotatedNode("testVarReferences"), CONCEPTS.BuildMacro$qd, getAnnotatedNode("forwardReference")).getAvailableElements("")).contains(getAnnotatedNode("middle"))));
     }
     public void test_seeBackwardVariableInScope() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> Assert.assertTrue(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("384280137912153749"), CONCEPTS.BuildMacro$qd, getNodeById("384280137912153762")).getAvailableElements("")).contains(getNodeById("384280137912153753"))));
+      runWithinCommand(() -> Assert.assertTrue(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getAnnotatedNode("testVarReferences"), CONCEPTS.BuildMacro$qd, getAnnotatedNode("backwardReference")).getAvailableElements("")).contains(getAnnotatedNode("middle"))));
     }
 
   }

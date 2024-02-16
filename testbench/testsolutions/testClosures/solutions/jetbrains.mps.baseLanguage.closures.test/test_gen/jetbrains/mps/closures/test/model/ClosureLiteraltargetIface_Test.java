@@ -52,7 +52,7 @@ public class ClosureLiteraltargetIface_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TemplateQueryContext genContext = TestBody.this.getContext();
-        SNode literal = getNodeById("7178287329507578897");
+        SNode literal = getAnnotatedNode("literal");
         new ClosureLiteralTarget(genContext).setTarget(literal, _quotation_createNode_u745oo_b0a2a0a1a5h(), _quotation_createNode_u745oo_c0a2a0a1a5h());
         TestBody.this.assertLiteralTarget(genContext, literal, _quotation_createNode_u745oo_c0a3a0a1a5h());
       });
@@ -61,7 +61,7 @@ public class ClosureLiteraltargetIface_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TemplateQueryContext genContext = TestBody.this.getContext();
-        SNode literal = getNodeById("7178287329507578897");
+        SNode literal = getAnnotatedNode("literal");
         new ClosureLiteralTarget(genContext).setTarget(literal, _quotation_createNode_u745oo_b0a2a0a1a6h(), _quotation_createNode_u745oo_c0a2a0a1a6h());
         TestBody.this.assertLiteralTarget(genContext, literal, _quotation_createNode_u745oo_c0a3a0a1a6h());
       });

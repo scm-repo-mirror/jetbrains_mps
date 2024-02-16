@@ -46,11 +46,11 @@ public class InlineLocalVariableReferenceWithoutDeclarationDeleting_Test extends
     public void test_InlineLocalVariableReferenceWithoutDeclarationDeleting() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        InlineVariableRefactoring ref = InlineVariableRefactoring.createRefactoring(getNodeById("1230053266450"));
+        InlineVariableRefactoring ref = InlineVariableRefactoring.createRefactoring(getAnnotatedNode("ref"));
         ref.doRefactoring();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230053266437"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230053266458"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

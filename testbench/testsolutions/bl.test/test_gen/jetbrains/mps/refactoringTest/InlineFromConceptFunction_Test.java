@@ -52,11 +52,11 @@ public class InlineFromConceptFunction_Test extends BaseTransformationTest {
     public void test_deinition() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        InlineVariableRefactoring ref = new InlineVariableAssignmentRefactoring(getNodeById("1230053266370"));
+        InlineVariableRefactoring ref = new InlineVariableAssignmentRefactoring(getAnnotatedNode("definition"));
         ref.doRefactoring();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230053266367"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230053266381"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });
@@ -64,11 +64,11 @@ public class InlineFromConceptFunction_Test extends BaseTransformationTest {
     public void test_reference() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        InlineVariableRefactoring ref = new InlineVariableReferenceRefactoring(getNodeById("1230053266377"));
+        InlineVariableRefactoring ref = new InlineVariableReferenceRefactoring(getAnnotatedNode("reference"));
         ref.doRefactoring();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230053266367"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230053266381"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

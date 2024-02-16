@@ -65,7 +65,7 @@ public class Include_MenuAndTargetNodeCorrespondence_Test extends BaseTransforma
       runWithinCommand(() -> {
         {
           List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), createSNodeType_sxmjox_a0a0a0a0a0b0f8());
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), ConceptFunction__BehaviorDescriptor.getExpectedReturnType_idhEwIGRD.invoke(getNodeById("2705676212747008292")));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), ConceptFunction__BehaviorDescriptor.getExpectedReturnType_idhEwIGRD.invoke(getAnnotatedNode("targetNodeForMenu")));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

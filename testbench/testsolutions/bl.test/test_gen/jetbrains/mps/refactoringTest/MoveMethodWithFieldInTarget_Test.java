@@ -46,11 +46,11 @@ public class MoveMethodWithFieldInTarget_Test extends BaseTransformationTest {
     public void test_MoveMethodWithFields2() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        MoveStaticMethodRefactoring ref = new MoveStaticMethodRefactoring(getNodeById("6207813756273751684"), getNodeById("6207813756273751693"));
+        MoveStaticMethodRefactoring ref = new MoveStaticMethodRefactoring(getAnnotatedNode("method"), getAnnotatedNode("target"));
         ref.doRefactoring();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("8924724747233086399"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("8924724747233088287"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

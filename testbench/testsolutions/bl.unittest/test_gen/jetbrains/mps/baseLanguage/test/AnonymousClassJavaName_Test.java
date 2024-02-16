@@ -43,11 +43,11 @@ public class AnonymousClassJavaName_Test extends BaseTransformationTest {
     public void test_testJavaNames() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        assert AnonymousClass__BehaviorDescriptor.getJavaName_id2_jKYQ0K_an.invoke(SLinkOperations.getTarget(getNodeById("6649467621789782586"), LINKS.cls$Saf6)).endsWith("Foo$Bar$1");
-        assert AnonymousClass__BehaviorDescriptor.getJavaName_id2_jKYQ0K_an.invoke(SLinkOperations.getTarget(getNodeById("6649467621789787135"), LINKS.cls$Saf6)).endsWith("Foo$Bar$2");
-        assert AnonymousClass__BehaviorDescriptor.getJavaName_id2_jKYQ0K_an.invoke(SLinkOperations.getTarget(getNodeById("6649467621789793415"), LINKS.cls$Saf6)).endsWith("Foo$Bar$2$1");
-        assert AnonymousClass__BehaviorDescriptor.getJavaName_id2_jKYQ0K_an.invoke(SLinkOperations.getTarget(getNodeById("6649467621789799984"), LINKS.cls$Saf6)).endsWith("Foo$Bar$2$2");
-        assert AnonymousClass__BehaviorDescriptor.getJavaName_id2_jKYQ0K_an.invoke(SLinkOperations.getTarget(getNodeById("7102466869931833255"), LINKS.cls$Saf6)).endsWith("Foo$Bar$3$Baz$1");
+        assert AnonymousClass__BehaviorDescriptor.getJavaName_id2_jKYQ0K_an.invoke(SLinkOperations.getTarget(getAnnotatedNode("r1"), LINKS.cls$Saf6)).endsWith("Foo$Bar$1");
+        assert AnonymousClass__BehaviorDescriptor.getJavaName_id2_jKYQ0K_an.invoke(SLinkOperations.getTarget(getAnnotatedNode("r2"), LINKS.cls$Saf6)).endsWith("Foo$Bar$2");
+        assert AnonymousClass__BehaviorDescriptor.getJavaName_id2_jKYQ0K_an.invoke(SLinkOperations.getTarget(getAnnotatedNode("r3"), LINKS.cls$Saf6)).endsWith("Foo$Bar$2$1");
+        assert AnonymousClass__BehaviorDescriptor.getJavaName_id2_jKYQ0K_an.invoke(SLinkOperations.getTarget(getAnnotatedNode("r4"), LINKS.cls$Saf6)).endsWith("Foo$Bar$2$2");
+        assert AnonymousClass__BehaviorDescriptor.getJavaName_id2_jKYQ0K_an.invoke(SLinkOperations.getTarget(getAnnotatedNode("r5"), LINKS.cls$Saf6)).endsWith("Foo$Bar$3$Baz$1");
       });
     }
 

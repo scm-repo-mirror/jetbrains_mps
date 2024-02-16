@@ -34,7 +34,7 @@ public class InvokeParameterizedIntentionWithNode_Test extends BaseTransformatio
     @Override
     public void testMethodImpl() throws Exception {
       initEditorComponent("3148679935644987430", "3148679935644987444");
-      invokeParameterizedIntention("jetbrains.mps.lang.editor.editorTest.intentions.MoveAttributeToNodeParam_Intention", getNodeById("3148679935644987437"), myStart.getNode());
+      invokeParameterizedIntention("jetbrains.mps.lang.editor.editorTest.intentions.MoveAttributeToNodeParam_Intention", getAnnotatedNode("param"), myStart.getNode());
     }
   }
 }

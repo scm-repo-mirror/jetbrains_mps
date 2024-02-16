@@ -46,10 +46,10 @@ public class ConvertAnonymousWithTypeParameters_Test extends BaseTransformationT
     public void test_TypeParametersTest() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        new ConvertAnonymousRefactoring(getNodeById("9160497614872088338"), "MyIterable").doRefactor();
+        new ConvertAnonymousRefactoring(getAnnotatedNode("convert"), "MyIterable").doRefactor();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("9160497614872088318"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("9160497614872087740"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

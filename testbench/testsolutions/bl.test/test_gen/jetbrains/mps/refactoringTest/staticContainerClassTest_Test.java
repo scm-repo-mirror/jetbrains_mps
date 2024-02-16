@@ -54,17 +54,17 @@ public class staticContainerClassTest_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         SNode call = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf09L, "jetbrains.mps.baseLanguage.structure.StaticMethodCall"));
-        SLinkOperations.setTarget(call, LINKS.baseMethodDeclaration$pyYw, getNodeById("1230052684711"));
-        SLinkOperations.setTarget(call, LINKS.classConcept$M5BC, getNodeById("1230052684710"));
-        SNodeOperations.replaceWithAnother(getNodeById("1230052684702"), call);
-        ExtractMethodRefactoringParameters params = ExtractMethodFactory.createParameters(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052684691"), getNodeById("6195342755327940882")));
+        SLinkOperations.setTarget(call, LINKS.baseMethodDeclaration$pyYw, getAnnotatedNode("method"));
+        SLinkOperations.setTarget(call, LINKS.classConcept$M5BC, getAnnotatedNode("containerAfter"));
+        SNodeOperations.replaceWithAnother(getAnnotatedNode("expression"), call);
+        ExtractMethodRefactoringParameters params = ExtractMethodFactory.createParameters(ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("l1"), getAnnotatedNode("l2")));
         params.setName("foo");
         ExtractMethodRefactoring ref = ExtractMethodFactory.createRefactoring(params);
-        ref.setStaticContainer(getNodeById("1230052684706"));
+        ref.setStaticContainer(getAnnotatedNode("containerBefore"));
         ref.doRefactor();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052684688"), getNodeById("1230052684706"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052684698"), getNodeById("1230052684710"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"), getAnnotatedNode("containerBefore"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"), getAnnotatedNode("containerAfter"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

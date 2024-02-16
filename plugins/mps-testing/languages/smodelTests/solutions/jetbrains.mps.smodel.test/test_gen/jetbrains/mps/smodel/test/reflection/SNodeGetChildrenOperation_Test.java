@@ -75,24 +75,24 @@ public class SNodeGetChildrenOperation_Test extends BaseTransformationTest {
 
     public void test_childContainingLinks() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> TestUtilities.assertEquals(Sequence.fromArray(new SContainmentLink[]{LINKS.child_1_n$IYmu, LINKS.childSubConcept_0_n$apX}), ListSequence.fromList(SNodeOperations.getChildren(getNodeById("8758390115029078426"))).select((it) -> it.getContainmentLink())));
+      runWithinCommand(() -> TestUtilities.assertEquals(Sequence.fromArray(new SContainmentLink[]{LINKS.child_1_n$IYmu, LINKS.childSubConcept_0_n$apX}), ListSequence.fromList(SNodeOperations.getChildren(getAnnotatedNode("root"))).select((it) -> it.getContainmentLink())));
     }
     public void test_childContaininLinksForSpecializedChildren() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> Assert.assertEquals(LINKS.grandChild_0_1$IWEt, getNodeById("2600026384779198859").getContainmentLink()));
+      runWithinCommand(() -> Assert.assertEquals(LINKS.grandChild_0_1$IWEt, getAnnotatedNode("specializedGrandChild").getContainmentLink()));
     }
     public void test_childContainingRoles() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> TestUtilities.assertEquals(Sequence.fromArray(new SContainmentLink[]{LINKS.child_1_n$IYmu, LINKS.childSubConcept_0_n$apX}), ListSequence.fromList(SNodeOperations.getChildren(getNodeById("8758390115029078426"))).select((it) -> it.getContainmentLink())));
+      runWithinCommand(() -> TestUtilities.assertEquals(Sequence.fromArray(new SContainmentLink[]{LINKS.child_1_n$IYmu, LINKS.childSubConcept_0_n$apX}), ListSequence.fromList(SNodeOperations.getChildren(getAnnotatedNode("root"))).select((it) -> it.getContainmentLink())));
     }
     public void test_unspecifiedChildren() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        int initialSize = ListSequence.fromList(SNodeOperations.getChildren(getNodeById("2166349271756548531"))).count();
+        int initialSize = ListSequence.fromList(SNodeOperations.getChildren(getAnnotatedNode("rootWithUnspecifiedChild"))).count();
         SNode unspecifiedChild = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x3dd540b968e9fc4L, "jetbrains.mps.lang.smodelTests.structure.GrandChild"));
-        SContainmentLink unspecifiedChildRole = TestBody.this.addUnspecifiedChild(getNodeById("2166349271756548531"), unspecifiedChild);
-        Assert.assertEquals(initialSize + 1, ListSequence.fromList(SNodeOperations.getChildren(getNodeById("2166349271756548531"))).count());
-        Iterable<SNode> unspecifiedChildren = ListSequence.fromList(SNodeOperations.getChildren(getNodeById("2166349271756548531"))).where((it) -> !(SNodeOperations.getContainingLink(it).isValid()));
+        SContainmentLink unspecifiedChildRole = TestBody.this.addUnspecifiedChild(getAnnotatedNode("rootWithUnspecifiedChild"), unspecifiedChild);
+        Assert.assertEquals(initialSize + 1, ListSequence.fromList(SNodeOperations.getChildren(getAnnotatedNode("rootWithUnspecifiedChild"))).count());
+        Iterable<SNode> unspecifiedChildren = ListSequence.fromList(SNodeOperations.getChildren(getAnnotatedNode("rootWithUnspecifiedChild"))).where((it) -> !(SNodeOperations.getContainingLink(it).isValid()));
         Assert.assertEquals(1, Sequence.fromIterable(unspecifiedChildren).count());
         SNode theChild = Sequence.fromIterable(unspecifiedChildren).first();
         Assert.assertEquals(unspecifiedChildRole, theChild.getContainmentLink());
@@ -110,18 +110,18 @@ public class SNodeGetChildrenOperation_Test extends BaseTransformationTest {
     public void test_childrenByLinkDeclaration() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        List<SNode> singleChild = SNodeOperations.getChildren(getNodeById("8758390115029078426"), LINKS.child_1_n$IYmu);
+        List<SNode> singleChild = SNodeOperations.getChildren(getAnnotatedNode("root"), LINKS.child_1_n$IYmu);
         Assert.assertEquals(1, ListSequence.fromList(singleChild).count());
-        Assert.assertEquals(getNodeById("8758390115029078427"), ListSequence.fromList(singleChild).first());
-        List<SNode> twins = SNodeOperations.getChildren(getNodeById("5815925154349132137"), LINKS.child_1_n$IYmu);
-        TestUtilities.assertEquals(Sequence.fromArray(new SNode[]{getNodeById("5815925154349132142"), getNodeById("5815925154349132138")}), twins);
+        Assert.assertEquals(getAnnotatedNode("leftChild"), ListSequence.fromList(singleChild).first());
+        List<SNode> twins = SNodeOperations.getChildren(getAnnotatedNode("rootWithTwins"), LINKS.child_1_n$IYmu);
+        TestUtilities.assertEquals(Sequence.fromArray(new SNode[]{getAnnotatedNode("firstTwin"), getAnnotatedNode("secondTwin")}), twins);
       });
     }
     public void test_childrenByLinkDeclarationSpecialized() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        TestUtilities.assertEquals(Sequence.fromArray(new SNode[]{getNodeById("2600026384779198859")}), SNodeOperations.getChildren(getNodeById("8758390115029078430"), LINKS.grandChild_0_1$IWEt));
-        TestUtilities.assertEquals(Sequence.fromArray(new SNode[]{getNodeById("2600026384779198859")}), SNodeOperations.getChildren(getNodeById("8758390115029078430"), LINKS.grandChild_0_1$IWEt));
+        TestUtilities.assertEquals(Sequence.fromArray(new SNode[]{getAnnotatedNode("specializedGrandChild")}), SNodeOperations.getChildren(getAnnotatedNode("rightChild"), LINKS.grandChild_0_1$IWEt));
+        TestUtilities.assertEquals(Sequence.fromArray(new SNode[]{getAnnotatedNode("specializedGrandChild")}), SNodeOperations.getChildren(getAnnotatedNode("rightChild"), LINKS.grandChild_0_1$IWEt));
       });
     }
     public void test_childrenByLinkDeclarationOnNull() throws Exception {
@@ -130,7 +130,7 @@ public class SNodeGetChildrenOperation_Test extends BaseTransformationTest {
         SNode nullNode = null;
         Assert.assertTrue(ListSequence.fromList(SNodeOperations.getChildren(nullNode, LINKS.child_0_n$IY7t)).isEmpty());
         SContainmentLink nullLinkDeclaration = null;
-        Assert.assertTrue(ListSequence.fromList(SNodeOperations.getChildren(getNodeById("8758390115029078426"), nullLinkDeclaration)).isEmpty());
+        Assert.assertTrue(ListSequence.fromList(SNodeOperations.getChildren(getAnnotatedNode("root"), nullLinkDeclaration)).isEmpty());
       });
     }
 

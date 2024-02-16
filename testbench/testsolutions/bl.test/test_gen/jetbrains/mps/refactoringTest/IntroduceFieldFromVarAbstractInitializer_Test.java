@@ -49,15 +49,15 @@ public class IntroduceFieldFromVarAbstractInitializer_Test extends BaseTransform
       initTestNodes();
       runWithinCommand(() -> {
         IntroduceFieldRefactoring refactoring = new IntroduceFieldRefactoring();
-        refactoring.init(getNodeById("2505393827681576458"), null);
+        refactoring.init(getAnnotatedNode("introduce"), null);
         refactoring.setName("i");
         refactoring.setIsFinal(false);
         refactoring.setFieldInitializationPlace(FieldInitializationPlace.METHOD);
         refactoring.setVisibilityLevel(VisibilityLevel.PRIVATE);
         refactoring.doRefactoring();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("2505393827681576450"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7029856046060820557"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

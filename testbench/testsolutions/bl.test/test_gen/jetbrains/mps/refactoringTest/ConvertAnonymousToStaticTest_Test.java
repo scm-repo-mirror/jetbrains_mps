@@ -46,10 +46,10 @@ public class ConvertAnonymousToStaticTest_Test extends BaseTransformationTest {
     public void test_ToStaticTest() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        new ConvertAnonymousRefactoring(getNodeById("2230400082818031604"), "MyIStatic").doRefactor();
+        new ConvertAnonymousRefactoring(getAnnotatedNode("convert"), "MyIStatic").doRefactor();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("2230400082818031598"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("2230400082818059859"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

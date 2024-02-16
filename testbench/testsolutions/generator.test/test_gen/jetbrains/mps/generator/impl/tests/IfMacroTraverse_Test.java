@@ -47,8 +47,8 @@ public class IfMacroTraverse_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         // MPS-34370, check_TemplateCallMacro
-        SNode inputNodeTypeInsideOfMacro = NodeMacro__BehaviorDescriptor.getInputNodeTypeInsideOfMacro_idhEwIosJ.invoke(getNodeById("2920122809304199339"));
-        SNode previousNodeMacro = NodeMacro__BehaviorDescriptor.getPreviousNodeMacro_idhEwIot7.invoke(getNodeById("2920122809304199339"));
+        SNode inputNodeTypeInsideOfMacro = NodeMacro__BehaviorDescriptor.getInputNodeTypeInsideOfMacro_idhEwIosJ.invoke(getAnnotatedNode("CallMacro"));
+        SNode previousNodeMacro = NodeMacro__BehaviorDescriptor.getPreviousNodeMacro_idhEwIot7.invoke(getAnnotatedNode("CallMacro"));
         // before the fix, parent traversal lead us to parent of IF and eventually COPY-SRC, where its smodelAttribute query 
         // gives node<Attribute>
         Assert.assertFalse(SNodeOperations.is(inputNodeTypeInsideOfMacro, new SNodePointer("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "5169995583184591161")));

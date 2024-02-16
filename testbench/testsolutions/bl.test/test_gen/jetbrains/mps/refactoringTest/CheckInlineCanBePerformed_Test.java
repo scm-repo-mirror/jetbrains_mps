@@ -41,16 +41,16 @@ public class CheckInlineCanBePerformed_Test extends BaseTransformationTest {
     public void test_CheckInlineCanBePerformed() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        Assert.assertNull(new InlineMethodModel(getNodeById("1230053187326")).getErrors());
-        Assert.assertTrue(new InlineMethodModel(getNodeById("1230053187332")).getErrors() != null);
-        Assert.assertNull(new InlineMethodModel(getNodeById("1230053187337")).getErrors());
-        Assert.assertNull(new InlineMethodModel(getNodeById("1230053187342")).getErrors());
-        Assert.assertTrue(new InlineMethodModel(getNodeById("1230053187347")).getErrors() != null);
-        Assert.assertNull(new InlineMethodModel(getNodeById("1230053187351")).getErrors());
-        Assert.assertNotNull(new InlineMethodModel(getNodeById("4516930249753972654")).getErrors());
-        Assert.assertNotNull(new InlineMethodModel(getNodeById("8924724747233233998")).getErrors());
-        Assert.assertNull(new InlineMethodModel(getNodeById("8924724747233354928")).getErrors());
-        Assert.assertNull(new InlineMethodModel(getNodeById("8924724747233546124")).getErrors());
+        Assert.assertNull(new InlineMethodModel(getAnnotatedNode("call1")).getErrors());
+        Assert.assertTrue(new InlineMethodModel(getAnnotatedNode("call2")).getErrors() != null);
+        Assert.assertNull(new InlineMethodModel(getAnnotatedNode("call3")).getErrors());
+        Assert.assertNull(new InlineMethodModel(getAnnotatedNode("call4")).getErrors());
+        Assert.assertTrue(new InlineMethodModel(getAnnotatedNode("call5")).getErrors() != null);
+        Assert.assertNull(new InlineMethodModel(getAnnotatedNode("call6")).getErrors());
+        Assert.assertNotNull(new InlineMethodModel(getAnnotatedNode("call7")).getErrors());
+        Assert.assertNotNull(new InlineMethodModel(getAnnotatedNode("call8")).getErrors());
+        Assert.assertNull(new InlineMethodModel(getAnnotatedNode("call9")).getErrors());
+        Assert.assertNull(new InlineMethodModel(getAnnotatedNode("call10")).getErrors());
       });
     }
 

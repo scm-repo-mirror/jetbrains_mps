@@ -41,9 +41,9 @@ public class CheckStaticVisibility_Test extends BaseTransformationTest {
     public void test_CheckStaticVisibility() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        InlineMethodRefactoring ref = new InlineMethodRefactoring(getNodeById("1230053114810"));
+        InlineMethodRefactoring ref = new InlineMethodRefactoring(getAnnotatedNode("call_1"));
         Assert.assertTrue(ref.getProblems().length() > 0);
-        ref = new InlineMethodRefactoring(getNodeById("1230053114813"));
+        ref = new InlineMethodRefactoring(getAnnotatedNode("call_2"));
         Assert.assertTrue(ref.getProblems().length() > 0);
       });
     }

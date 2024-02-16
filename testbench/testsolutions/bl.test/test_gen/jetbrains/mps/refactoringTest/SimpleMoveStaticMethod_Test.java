@@ -44,8 +44,8 @@ public class SimpleMoveStaticMethod_Test extends BaseTransformationTest {
     public void test_SimpleMoveStaticMethod() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        MoveStaticMethodRefactoring refactoring = new MoveStaticMethodRefactoring(getNodeById("3014415391767789137"), getNodeById("3014415391767789150"));
-        SearchResults<SNode> results = new SearchResults(Collections.emptyList(), Collections.singletonList(new SearchResult(getNodeById("3014415391767789131"), "usage")));
+        MoveStaticMethodRefactoring refactoring = new MoveStaticMethodRefactoring(getAnnotatedNode("move"), getAnnotatedNode("before2"));
+        SearchResults<SNode> results = new SearchResults(Collections.emptyList(), Collections.singletonList(new SearchResult(getAnnotatedNode("usage"), "usage")));
         refactoring.setUsages(results);
         refactoring.doRefactoring();
       });

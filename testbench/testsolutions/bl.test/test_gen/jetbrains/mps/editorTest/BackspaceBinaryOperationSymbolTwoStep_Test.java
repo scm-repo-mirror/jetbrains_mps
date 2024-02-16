@@ -40,7 +40,7 @@ public class BackspaceBinaryOperationSymbolTwoStep_Test extends BaseTransformati
       EditorTestUtil.runWithTwoStepDeletion(() -> {
         invokeAction("jetbrains.mps.ide.editor.actions.Backspace_Action");
         invokeAction("jetbrains.mps.ide.editor.actions.Backspace_Action");
-        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getNodeById("8979250711588898369"))));
+        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getAnnotatedNode("left"))));
         invokeAction("jetbrains.mps.ide.editor.actions.Backspace_Action");
       }, true);
     }

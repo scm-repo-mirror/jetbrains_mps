@@ -46,10 +46,10 @@ public class ConvertAnonymousWithTypeVariablesTest_Test extends BaseTransformati
     public void test_TypeVariablesTest() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        new ConvertAnonymousRefactoring(getNodeById("2230400082817266637"), "MyParam").doRefactor();
+        new ConvertAnonymousRefactoring(getAnnotatedNode("convert"), "MyParam").doRefactor();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("2230400082817266612"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("2230400082817278239"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

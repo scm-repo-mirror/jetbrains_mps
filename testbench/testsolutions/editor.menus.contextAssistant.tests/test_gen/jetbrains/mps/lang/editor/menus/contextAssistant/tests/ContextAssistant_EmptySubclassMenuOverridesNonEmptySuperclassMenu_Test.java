@@ -43,12 +43,12 @@ public class ContextAssistant_EmptySubclassMenuOverridesNonEmptySuperclassMenu_T
       SwingUtilities.invokeAndWait(() -> editorContext.getRepository().getModelAccess().runReadAction(() -> {
         ContextAssistantManager contextAssistantManager = editorContext.getContextAssistantManager();
 
-        getEditorComponent().getSelectionManager().setSelection(((SNode) getNodeById("1966322953445270119")));
+        getEditorComponent().getSelectionManager().setSelection(((SNode) getAnnotatedNode("base")));
         contextAssistantManager.updateImmediately();
         Assert.assertNotNull(contextAssistantManager.getActiveAssistant());
         Assert.assertNotNull(contextAssistantManager.getActiveMenuItems());
 
-        getEditorComponent().getSelectionManager().setSelection(((SNode) getNodeById("1966322953445265940")));
+        getEditorComponent().getSelectionManager().setSelection(((SNode) getAnnotatedNode("subconcept")));
         contextAssistantManager.updateImmediately();
         Assert.assertNull(contextAssistantManager.getActiveAssistant());
         Assert.assertNull(contextAssistantManager.getActiveMenuItems());

@@ -40,7 +40,7 @@ public class MPS_36509_Test extends BaseTransformationTest {
 
     public void test_NodeMatcher() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> Assert.assertFalse(new SNodeMatcher().match(getNodeById("7037818788705056569"), getNodeById("7037818788705056844"))));
+      runWithinCommand(() -> Assert.assertFalse(new SNodeMatcher().match(getAnnotatedNode("a"), getAnnotatedNode("b"))));
     }
 
   }

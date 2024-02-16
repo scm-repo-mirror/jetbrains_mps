@@ -1584,9 +1584,6 @@
               </node>
             </node>
           </node>
-          <node concept="3xLA65" id="3gywHr8yNyA" role="lGtFl">
-            <property role="TrG5h" value="intermediateCell" />
-          </node>
         </node>
         <node concept="10MCW0" id="3gywHr8yNyB" role="10MCVZ" />
       </node>

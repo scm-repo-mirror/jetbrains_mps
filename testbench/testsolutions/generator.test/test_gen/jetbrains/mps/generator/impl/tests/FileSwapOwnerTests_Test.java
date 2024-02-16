@@ -95,9 +95,9 @@ public class FileSwapOwnerTests_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         try {
-          SNode node = FileSwapOwner.writeAndReadNode(getNodeById("1732396662099564449"));
+          SNode node = FileSwapOwner.writeAndReadNode(getAnnotatedNode("testNode"));
           {
-            List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1732396662099564449"));
+            List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("testNode"));
             List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), node);
             Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
           }
@@ -163,10 +163,10 @@ public class FileSwapOwnerTests_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         Map<Object, Object> userObjects = MapSequence.fromMap(new LinkedHashMap<Object, Object>(16, (float) 0.75, false));
-        MapSequence.fromMap(userObjects).put(new SNodePointer(getNodeById("1732396662099564449")), new SNodePointer(getNodeById("1732396662099564449")));
-        MapSequence.fromMap(userObjects).put(SModelOperations.getPointer(SNodeOperations.getModel(getNodeById("1732396662099564449"))), PersistenceFacade.getInstance().createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"));
-        MapSequence.fromMap(userObjects).put(getNodeById("1732396662099564449").getNodeId(), new SNodePointer(getNodeById("1732396662099564449")));
-        MapSequence.fromMap(userObjects).put(SNodeOperations.getModel(getNodeById("1732396662099564449")).getModelId(), SModelOperations.getPointer(SNodeOperations.getModel(getNodeById("1732396662099564449"))));
+        MapSequence.fromMap(userObjects).put(new SNodePointer(getAnnotatedNode("testNode")), new SNodePointer(getAnnotatedNode("testNode")));
+        MapSequence.fromMap(userObjects).put(SModelOperations.getPointer(SNodeOperations.getModel(getAnnotatedNode("testNode"))), PersistenceFacade.getInstance().createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"));
+        MapSequence.fromMap(userObjects).put(getAnnotatedNode("testNode").getNodeId(), new SNodePointer(getAnnotatedNode("testNode")));
+        MapSequence.fromMap(userObjects).put(SNodeOperations.getModel(getAnnotatedNode("testNode")).getModelId(), SModelOperations.getPointer(SNodeOperations.getModel(getAnnotatedNode("testNode"))));
         TestBody.this.testUserObjectsSaving(userObjects);
       });
     }
@@ -193,11 +193,11 @@ public class FileSwapOwnerTests_Test extends BaseTransformationTest {
       runWithinCommand(() -> {
         Map<Object, Object> userObjects = MapSequence.fromMap(new LinkedHashMap<Object, Object>(16, (float) 0.75, false));
         MapSequence.fromMap(userObjects).put("1", "1");
-        MapSequence.fromMap(userObjects).put(getNodeById("1732396662099564449"), getNodeById("1732396662099564449"));
+        MapSequence.fromMap(userObjects).put(getAnnotatedNode("testNode"), getAnnotatedNode("testNode"));
         MapSequence.fromMap(userObjects).put("2", "2");
 
         Map<Object, Object> userObjectsToSkip = MapSequence.fromMap(new LinkedHashMap<Object, Object>(16, (float) 0.75, false));
-        MapSequence.fromMap(userObjectsToSkip).put(getNodeById("1732396662099564449"), getNodeById("1732396662099564449"));
+        MapSequence.fromMap(userObjectsToSkip).put(getAnnotatedNode("testNode"), getAnnotatedNode("testNode"));
 
         TestBody.this.testUserObjectsSaving(userObjects, userObjectsToSkip);
       });
@@ -208,13 +208,13 @@ public class FileSwapOwnerTests_Test extends BaseTransformationTest {
       try {
 
         for (IMapping<Object, Object> object : MapSequence.fromMap(userObjects)) {
-          getNodeById("1732396662099564449").putUserObject(object.key(), object.value());
+          getAnnotatedNode("testNode").putUserObject(object.key(), object.value());
         }
 
-        SNode readNode = FileSwapOwner.writeAndReadNode(getNodeById("1732396662099564449"));
+        SNode readNode = FileSwapOwner.writeAndReadNode(getAnnotatedNode("testNode"));
 
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1732396662099564449"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("testNode"));
           List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), readNode);
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }

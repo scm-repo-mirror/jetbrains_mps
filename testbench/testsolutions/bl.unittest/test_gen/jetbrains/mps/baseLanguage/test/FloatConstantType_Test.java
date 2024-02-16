@@ -52,12 +52,12 @@ public class FloatConstantType_Test extends BaseTransformationTest {
     public void test_testTypes() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        assert SNodeOperations.isInstanceOf(getNodeById("5868639094257266015"), CONCEPTS.FloatingPointConstant$3o);
-        assert SNodeOperations.isInstanceOf(getNodeById("5868639094257283261"), CONCEPTS.FloatingPointConstant$3o);
-        assert SNodeOperations.isInstanceOf(getNodeById("5868639094257285927"), CONCEPTS.FloatingPointFloatConstant$Qh);
-        assert SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(getNodeById("5868639094257266015")), CONCEPTS.DoubleType$x0);
-        assert SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(getNodeById("5868639094257283261")), CONCEPTS.DoubleType$x0);
-        assert SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(getNodeById("5868639094257285927")), CONCEPTS.FloatType$up);
+        assert SNodeOperations.isInstanceOf(getAnnotatedNode("constant1"), CONCEPTS.FloatingPointConstant$3o);
+        assert SNodeOperations.isInstanceOf(getAnnotatedNode("constant2"), CONCEPTS.FloatingPointConstant$3o);
+        assert SNodeOperations.isInstanceOf(getAnnotatedNode("constant3"), CONCEPTS.FloatingPointFloatConstant$Qh);
+        assert SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(getAnnotatedNode("constant1")), CONCEPTS.DoubleType$x0);
+        assert SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(getAnnotatedNode("constant2")), CONCEPTS.DoubleType$x0);
+        assert SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(getAnnotatedNode("constant3")), CONCEPTS.FloatType$up);
       });
     }
     public void test_ErrorMessagesCheck5868639094267614275() throws Exception {

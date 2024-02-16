@@ -52,17 +52,17 @@ public class ReturnStatement_Test extends BaseTransformationTest {
     public void test_alwaysReturn() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        Assert.assertNull(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052642367"))));
-        Assert.assertNull(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052642367"), getNodeById("1230052642388"))));
+        Assert.assertNull(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("l1"))));
+        Assert.assertNull(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("l1"), getAnnotatedNode("l2"))));
       });
     }
     public void test_retunInAnonymousClass() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> Assert.assertNull(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052642353")))));
+      runWithinCommand(() -> Assert.assertNull(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("l3")))));
     }
     public void test_notAlwaysReturn() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> Assert.assertTrue(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052642395"))) != null));
+      runWithinCommand(() -> Assert.assertTrue(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("l4"))) != null));
     }
 
   }

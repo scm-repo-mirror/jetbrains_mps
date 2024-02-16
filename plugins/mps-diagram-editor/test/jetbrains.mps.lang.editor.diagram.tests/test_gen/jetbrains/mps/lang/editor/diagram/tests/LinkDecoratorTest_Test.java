@@ -45,7 +45,7 @@ public class LinkDecoratorTest_Test extends BaseTransformationTest {
     public void testMethodImpl() throws Exception {
       initEditorComponent("1638882350373488135", "1560508619093517333");
       final Wrappers._T<SNode> node = new Wrappers._T<SNode>();
-      getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> node.value = getNodeById("1638882350373488142"));
+      getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> node.value = getAnnotatedNode("node"));
       Mapper descendantMapper;
       descendantMapper = DecoratorTestRunner.prepareAndGetMapper(node.value, getEditorComponent(), ConnectorCell.class);
       Assert.assertTrue(descendantMapper != null);

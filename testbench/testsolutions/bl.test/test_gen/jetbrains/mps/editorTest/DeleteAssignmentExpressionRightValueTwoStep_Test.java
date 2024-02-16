@@ -39,7 +39,7 @@ public class DeleteAssignmentExpressionRightValueTwoStep_Test extends BaseTransf
       initEditorComponent("8979250711586543616", "8979250711586543572");
       EditorTestUtil.runWithTwoStepDeletion(() -> {
         invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");
-        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getNodeById("8979250711586566839"))));
+        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getAnnotatedNode("rightValue"))));
         invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");
       }, true);
 

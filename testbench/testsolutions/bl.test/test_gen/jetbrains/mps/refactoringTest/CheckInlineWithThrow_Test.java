@@ -40,7 +40,7 @@ public class CheckInlineWithThrow_Test extends BaseTransformationTest {
 
     public void test_CheckInlineWithThrow() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> Assert.assertNull(new InlineMethodModel(getNodeById("1230053187517")).getErrors()));
+      runWithinCommand(() -> Assert.assertNull(new InlineMethodModel(getAnnotatedNode("call")).getErrors()));
     }
 
   }

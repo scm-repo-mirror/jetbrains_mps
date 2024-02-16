@@ -39,7 +39,7 @@ public class TwoStepBackspacePreviousChild_Test extends BaseTransformationTest {
       initEditorComponent("1241246198933554470", "1241246198933554476");
       EditorTestUtil.runWithTwoStepDeletion(() -> {
         invokeAction("jetbrains.mps.ide.editor.actions.Backspace_Action");
-        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getNodeById("1241246198933554472"))));
+        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getAnnotatedNode("previous"))));
         invokeAction("jetbrains.mps.ide.editor.actions.Backspace_Action");
       }, true);
     }

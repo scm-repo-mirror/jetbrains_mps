@@ -39,7 +39,7 @@ public class TwoStepDeleteChildWithAttributeChildSelected_Test extends BaseTrans
       initEditorComponent("2420730201805048222", "2420730201805053591");
       EditorTestUtil.runWithTwoStepDeletion(() -> {
         invokeAction("jetbrains.mps.ide.editor.actions.Backspace_Action");
-        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getNodeById("2420730201805053144"))));
+        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getAnnotatedNode("attribute"))));
         invokeAction("jetbrains.mps.ide.editor.actions.Backspace_Action");
       }, true);
     }

@@ -44,7 +44,7 @@ public class ConceptFunctioParameterTest_Test extends BaseTransformationTest {
     public void test_ConceptFunctioParameterTest() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        ExtractMethodRefactoringAnalyzer analyzer = new ExtractMethodRefactoringAnalyzer(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052406746"), getNodeById("1230052406751")));
+        ExtractMethodRefactoringAnalyzer analyzer = new ExtractMethodRefactoringAnalyzer(ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("l1"), getAnnotatedNode("l2")));
         Assert.assertEquals(1, ListSequence.fromList(analyzer.getInputVariables()).count());
       });
     }

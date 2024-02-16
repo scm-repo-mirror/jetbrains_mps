@@ -50,13 +50,13 @@ public class ChangeSigantureOfInterface_Test extends BaseTransformationTest {
     public void test_ChangeSigantureOfInterface() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        ChangeMethodSignatureParameters parameters = new ChangeMethodSignatureParameters(getNodeById("418758558327019496"));
+        ChangeMethodSignatureParameters parameters = new ChangeMethodSignatureParameters(getAnnotatedNode("method"));
         SPropertyOperations.assign(parameters.getDeclaration(), PROPS.name$MnvL, "myMethod");
-        ChangeMethodSignatureRefactoring ref = new ChangeMethodSignatureRefactoring(parameters, getNodeById("418758558327028802"));
+        ChangeMethodSignatureRefactoring ref = new ChangeMethodSignatureRefactoring(parameters, getAnnotatedNode("implementing"));
         ref.doRefactoring();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("418758558327028812"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("418758558327019475"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("result"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("toCheck"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

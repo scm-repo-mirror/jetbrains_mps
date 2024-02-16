@@ -87,11 +87,11 @@ public class JavaToMps_Test extends BaseTransformationTest {
 
     public void test_SelfRef() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> new JavaToMpsUtils(myProject.getRepository()).checkFile(TestBody.this.testsLocation().findChild("singleFiles").findChild("selfref"), getNodeById("4795297196607521155")));
+      runWithinCommand(() -> new JavaToMpsUtils(myProject.getRepository()).checkFile(TestBody.this.testsLocation().findChild("singleFiles").findChild("selfref"), getAnnotatedNode("selfRef")));
     }
     public void test_ClassWInnerInterace() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> new JavaToMpsUtils(myProject.getRepository()).checkFile(TestBody.this.testsLocation().findChild("singleFiles").findChild("classwiface"), getNodeById("1218582063869484741")));
+      runWithinCommand(() -> new JavaToMpsUtils(myProject.getRepository()).checkFile(TestBody.this.testsLocation().findChild("singleFiles").findChild("classwiface"), getAnnotatedNode("claz")));
     }
     public void test_Closures() throws Exception {
       initTestNodes();
@@ -119,7 +119,7 @@ public class JavaToMps_Test extends BaseTransformationTest {
     }
     public void test_ClassNesting() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> new JavaToMpsUtils(myProject.getRepository()).checkFile(TestBody.this.testsLocation().findChild("singleFiles").findChild("nestcontainer"), getNodeById("8083368042256419834")));
+      runWithinCommand(() -> new JavaToMpsUtils(myProject.getRepository()).checkFile(TestBody.this.testsLocation().findChild("singleFiles").findChild("nestcontainer"), getAnnotatedNode("DeepNest")));
     }
     public void test_FullSource() throws Exception {
       initTestNodes();

@@ -63,8 +63,8 @@ public class NodeOperationsApplicableFlags_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         List<SConcept> allConcepts = Sequence.fromIterable(TestBody.this.getAllNodeOperations()).toList();
-        final SNode dtString = SPointerOperations.resolveNode(new SNodePointer("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1082983041843"), SNodeOperations.getModel(getNodeById("6410670351275225853")).getRepository());
-        final SNode dtLinkMetclass = SPointerOperations.resolveNode(new SNodePointer("r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)", "4241665505353447573"), SNodeOperations.getModel(getNodeById("6410670351275225853")).getRepository());
+        final SNode dtString = SPointerOperations.resolveNode(new SNodePointer("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1082983041843"), SNodeOperations.getModel(getAnnotatedNode("testNode")).getRepository());
+        final SNode dtLinkMetclass = SPointerOperations.resolveNode(new SNodePointer("r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)", "4241665505353447573"), SNodeOperations.getModel(getAnnotatedNode("testNode")).getRepository());
         Assert.assertNotNull(dtString);
         Assert.assertNotNull(dtLinkMetclass);
         for (SConcept c : ListSequence.fromList(allConcepts)) {
@@ -90,7 +90,7 @@ public class NodeOperationsApplicableFlags_Test extends BaseTransformationTest {
     public void test_allConceptsAreIncludedInTest() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        Set<SLanguage> allLanguages = SetSequence.fromSetWithValues(new HashSet<SLanguage>(), LanguageRegistry.getInstance(SNodeOperations.getModel(getNodeById("6410670351275225853")).getRepository()).getAllLanguages());
+        Set<SLanguage> allLanguages = SetSequence.fromSetWithValues(new HashSet<SLanguage>(), LanguageRegistry.getInstance(SNodeOperations.getModel(getAnnotatedNode("testNode")).getRepository()).getAllLanguages());
         Assert.assertTrue(SetSequence.fromSet(allLanguages).contains(MetaAdapterFactory.getLanguage(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, "jetbrains.mps.lang.smodel")));
         Assert.assertTrue(SetSequence.fromSet(allLanguages).contains(MetaAdapterFactory.getLanguage(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, "jetbrains.mps.lang.editor")));
         Assert.assertTrue(SetSequence.fromSet(allLanguages).contains(MetaAdapterFactory.getLanguage(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, "jetbrains.mps.lang.typesystem")));
@@ -101,7 +101,7 @@ public class NodeOperationsApplicableFlags_Test extends BaseTransformationTest {
 
     public Iterable<SConcept> getAllNodeOperations() {
       SNode var6410670351275231787 = getNodeById("6410670351275225853");
-      Set<SLanguage> allLanguages = SetSequence.fromSetWithValues(new HashSet<SLanguage>(), LanguageRegistry.getInstance(SNodeOperations.getModel(getNodeById("6410670351275225853")).getRepository()).getAllLanguages());
+      Set<SLanguage> allLanguages = SetSequence.fromSetWithValues(new HashSet<SLanguage>(), LanguageRegistry.getInstance(SNodeOperations.getModel(getAnnotatedNode("testNode")).getRepository()).getAllLanguages());
       Iterable<SAbstractConcept> allSubConcepts = SConceptOperations.getAllSubConcepts(CONCEPTS.SNodeOperation$pA, allLanguages);
       return Sequence.fromIterable(allSubConcepts).ofType(SConcept.class);
     }

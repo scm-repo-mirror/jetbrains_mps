@@ -48,14 +48,14 @@ public class IntroduceConstantFromAnonimousClass_Test extends BaseTransformation
       initTestNodes();
       runWithinCommand(() -> {
         IntroduceConstantRefactoring refactoring = new IntroduceConstantRefactoring();
-        refactoring.init(getNodeById("2163048091639854989"), null);
+        refactoring.init(getAnnotatedNode("introduce"), null);
         refactoring.setName("s");
         refactoring.setReplacingAll(true);
         refactoring.setVisibilityLevel(VisibilityLevel.PUBLIC);
         refactoring.doRefactoring();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("2163048091639854958"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("2163048091639855016"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

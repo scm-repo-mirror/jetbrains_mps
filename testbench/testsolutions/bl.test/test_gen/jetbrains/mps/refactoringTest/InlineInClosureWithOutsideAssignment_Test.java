@@ -47,11 +47,11 @@ public class InlineInClosureWithOutsideAssignment_Test extends BaseTransformatio
     public void test_InlineInClosureWithOutsideAssingmentTest() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        InlineVariableRefactoring ref = new InlineVariableReferenceRefactoring(getNodeById("7093131866560585802"));
+        InlineVariableRefactoring ref = new InlineVariableReferenceRefactoring(getAnnotatedNode("inline"));
         ref.doRefactoring();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7093131866560585780"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7093131866560585820"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

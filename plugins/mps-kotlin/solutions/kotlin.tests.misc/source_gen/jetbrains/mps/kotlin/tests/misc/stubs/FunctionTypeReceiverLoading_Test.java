@@ -53,7 +53,7 @@ public class FunctionTypeReceiverLoading_Test extends BaseTransformationTest {
         // Expected signature of the with signature is with(T, T.() -> R): R, this tests the function type only
         // Regularly, stubs seem to stop loading the receiver type on function types
         // This test ensures loading still happens.
-        SNode function = SLinkOperations.getTarget(getNodeById("3463082351151617521"), LINKS.function$Weyv);
+        SNode function = SLinkOperations.getTarget(getAnnotatedNode("withCall"), LINKS.function$Weyv);
 
         // General assumptions on with() function before reaching the actual function type (if this fails, check with kotlin lang that the signature has not changed or been removed)
         Iterator<SNode> params = ListSequence.fromList(IFunctionDeclaration__BehaviorDescriptor.getParameters_id6f3juM$_Kx4.invoke(function)).iterator();

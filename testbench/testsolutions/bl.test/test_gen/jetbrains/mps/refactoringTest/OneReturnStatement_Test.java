@@ -47,11 +47,11 @@ public class OneReturnStatement_Test extends BaseTransformationTest {
 
     public void test_oneReturnStatement() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> Assert.assertNull(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052642181")))));
+      runWithinCommand(() -> Assert.assertNull(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("l1")))));
     }
     public void test_returnAndOutVariable() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> Assert.assertTrue(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052642191"), getNodeById("1230052642198"))) != null));
+      runWithinCommand(() -> Assert.assertTrue(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("l2"), getAnnotatedNode("l3"))) != null));
     }
 
   }

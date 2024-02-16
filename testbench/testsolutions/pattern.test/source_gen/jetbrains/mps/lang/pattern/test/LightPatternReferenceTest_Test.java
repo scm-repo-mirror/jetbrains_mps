@@ -66,7 +66,7 @@ public class LightPatternReferenceTest_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         boolean matches;
-        SNode nodeToMatch = _quotation_createNode_9nn70n_a0b0a0b0g8(getNodeById("8187773339868709516"));
+        SNode nodeToMatch = _quotation_createNode_9nn70n_a0b0a0b0g8(getAnnotatedNode("constructor"));
         if (new LightPattern_Reference_Test.Pattern4_Pattern().match(nodeToMatch)) {
           matches = true;
         } else {
@@ -79,11 +79,11 @@ public class LightPatternReferenceTest_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         boolean matches;
-        SNode nodeToMatch = _quotation_createNode_9nn70n_a0b0a0b0h8(getNodeById("8187773339868709516"));
+        SNode nodeToMatch = _quotation_createNode_9nn70n_a0b0a0b0h8(getAnnotatedNode("constructor"));
         if (new LightPattern_Reference_Test.Pattern5_Pattern().match(nodeToMatch)) {
-          matches = LightPattern_Reference_Test.Pattern5_Pattern.getVar(nodeToMatch) == getNodeById("8187773339868709516");
+          matches = LightPattern_Reference_Test.Pattern5_Pattern.getVar(nodeToMatch) == getAnnotatedNode("constructor");
           System.out.println(LightPattern_Reference_Test.Pattern5_Pattern.getVar(nodeToMatch).getModel());
-          System.out.println(getNodeById("8187773339868709516").getModel());
+          System.out.println(getAnnotatedNode("constructor").getModel());
         } else {
           matches = false;
         }

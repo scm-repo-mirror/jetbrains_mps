@@ -54,7 +54,7 @@ public class AddParameterWithDefault_Test extends BaseTransformationTest {
     public void test_AddParameterWithDefault() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        ChangeMethodSignatureParameters params = new ChangeMethodSignatureParameters(getNodeById("3613779214163202937"));
+        ChangeMethodSignatureParameters params = new ChangeMethodSignatureParameters(getAnnotatedNode("method"));
 
         // Add params
         SNode doubleParam = _quotation_createNode_49gob3_a0d0a0b0f6();
@@ -69,18 +69,18 @@ public class AddParameterWithDefault_Test extends BaseTransformationTest {
 
         // Usages
         List<SNode> usages = ListSequence.fromList(new ArrayList<SNode>(2));
-        ListSequence.fromList(usages).addElement(getNodeById("3613779214163208652"));
-        ListSequence.fromList(usages).addElement(getNodeById("3613779214163202948"));
+        ListSequence.fromList(usages).addElement(getAnnotatedNode("usage1"));
+        ListSequence.fromList(usages).addElement(getAnnotatedNode("usage2"));
 
         // Create refactoring and add usages
-        ChangeMethodSignatureRefactoring ref = new ChangeMethodSignatureRefactoring(params, getNodeById("3613779214163202937"), defaultValues, false);
+        ChangeMethodSignatureRefactoring ref = new ChangeMethodSignatureRefactoring(params, getAnnotatedNode("method"), defaultValues, false);
         ref.setUsages(usages);
 
         ref.doRefactoring();
 
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3613779214163202936"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3613779214163138399"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

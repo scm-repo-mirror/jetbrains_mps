@@ -45,7 +45,7 @@ public class PortDecoratorTest_Test extends BaseTransformationTest {
     public void testMethodImpl() throws Exception {
       initEditorComponent("1560508619094015368", "1560508619094015372");
       final Wrappers._T<SNode> node = new Wrappers._T<SNode>();
-      getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> node.value = getNodeById("1560508619094050075"));
+      getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> node.value = getAnnotatedNode("port"));
 
       Mapper descendantMapper;
       descendantMapper = DecoratorTestRunner.prepareAndGetMapper(node.value, getEditorComponent(), PortCell.class);

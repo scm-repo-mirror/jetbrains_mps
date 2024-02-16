@@ -71,11 +71,11 @@ public class SuppressErrorsPerformanceTest_Test extends BaseTransformationTest {
 
     public Duration measureSuppressPerformance(int modelSize) {
       SNode var5968606277576107105 = getNodeById("5968606277576107085");
-      ListSequence.fromList(SLinkOperations.getChildren(getNodeById("5968606277576107085"), LINKS.item$upGD)).clear();
+      ListSequence.fromList(SLinkOperations.getChildren(getAnnotatedNode("response"), LINKS.item$upGD)).clear();
       for (int i = 0; i < modelSize; i++) {
-        ListSequence.fromList(SLinkOperations.getChildren(getNodeById("5968606277576107085"), LINKS.item$upGD)).addElement(createNodeResponseItem_wxn1w7_a0a0a2a7g());
+        ListSequence.fromList(SLinkOperations.getChildren(getAnnotatedNode("response"), LINKS.item$upGD)).addElement(createNodeResponseItem_wxn1w7_a0a0a2a7g());
       }
-      SModel modelToCheck = SNodeOperations.getModel(getNodeById("5968606277576107085"));
+      SModel modelToCheck = SNodeOperations.getModel(getAnnotatedNode("response"));
       IChecker<SNode, NodeReportItem> structureChecker = new StructureChecker();
       long startTime = System.nanoTime();
       IAbstractChecker<ModelCheckerBuilder.ItemsToCheck, IssueKindReportItem> checker = new ModelCheckerBuilder(false).createChecker(ListSequence.fromListAndArray(new ArrayList<IChecker<?, ? extends IssueKindReportItem>>(), structureChecker, new SuppressErrorsChecker()));

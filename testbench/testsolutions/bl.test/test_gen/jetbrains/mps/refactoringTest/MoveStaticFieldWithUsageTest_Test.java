@@ -46,12 +46,12 @@ public class MoveStaticFieldWithUsageTest_Test extends BaseTransformationTest {
     public void test_UsageTest() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        MoveStaticFieldRefactoring refactoring = new MoveStaticFieldRefactoring(getNodeById("8495840634675243980"), getNodeById("8495840634675243991"));
+        MoveStaticFieldRefactoring refactoring = new MoveStaticFieldRefactoring(getAnnotatedNode("field"), getAnnotatedNode("before2"));
         refactoring.doRefactoring();
-        refactoring.replaceSingleUsage(getNodeById("8495840634675645880"));
+        refactoring.replaceSingleUsage(getAnnotatedNode("ref1"));
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("8495840634675243979"), getNodeById("8495840634675243991"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("8495840634675645396"), getNodeById("8495840634675299897"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before1"), getAnnotatedNode("before2"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after1"), getAnnotatedNode("after2"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

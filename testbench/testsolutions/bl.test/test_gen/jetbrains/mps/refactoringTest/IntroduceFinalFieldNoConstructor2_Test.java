@@ -49,15 +49,15 @@ public class IntroduceFinalFieldNoConstructor2_Test extends BaseTransformationTe
       initTestNodes();
       runWithinCommand(() -> {
         IntroduceFieldRefactoring refactoring = new IntroduceFieldRefactoring();
-        refactoring.init(getNodeById("8599380872151162396"), null);
+        refactoring.init(getAnnotatedNode("introduce"), null);
         refactoring.setName("b");
         refactoring.setIsFinal(true);
         refactoring.setFieldInitializationPlace(FieldInitializationPlace.CONSTRUCTOR);
         refactoring.setVisibilityLevel(VisibilityLevel.PRIVATE);
         refactoring.doRefactoring();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("8599380872151162388"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("8599380872151162403"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

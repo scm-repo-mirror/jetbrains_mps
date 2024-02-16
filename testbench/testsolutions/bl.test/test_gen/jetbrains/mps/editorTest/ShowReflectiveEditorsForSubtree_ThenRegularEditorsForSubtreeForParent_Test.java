@@ -36,16 +36,16 @@ public class ShowReflectiveEditorsForSubtree_ThenRegularEditorsForSubtreeForPare
     @Override
     public void testMethodImpl() throws Exception {
       initEditorComponent("8710742295992475517", "");
-      ReflectiveEditorActionsUtil.runReadInEDTAndWait(getEditorComponent(), () -> getEditorComponent().selectNode(getNodeById("8710742295992475520")));
+      ReflectiveEditorActionsUtil.runReadInEDTAndWait(getEditorComponent(), () -> getEditorComponent().selectNode(getAnnotatedNode("node")));
       invokeAction("jetbrains.mps.ide.editor.actions.ShowReflectiveEditorsForSubtree_Action");
 
-      ReflectiveEditorActionsUtil.runReadInEDTAndWait(getEditorComponent(), () -> getEditorComponent().selectNode(getNodeById("8710742295992475517")));
+      ReflectiveEditorActionsUtil.runReadInEDTAndWait(getEditorComponent(), () -> getEditorComponent().selectNode(getAnnotatedNode("parent")));
       invokeAction("jetbrains.mps.ide.editor.actions.ShowRegularEditor_Action");
 
       getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> {
-        Assert.assertFalse(ReflectiveHintsManager.shouldShowReflectiveEditor(getEditorComponent().getBigValidCellForNode(getNodeById("8710742295992475517")).getCellContext()));
-        Assert.assertFalse(ReflectiveHintsManager.shouldShowReflectiveEditor(getEditorComponent().getBigValidCellForNode(getNodeById("8710742295992475520")).getCellContext()));
-        Assert.assertFalse(ReflectiveHintsManager.shouldShowReflectiveEditor(getEditorComponent().getBigValidCellForNode(getNodeById("8710742295992475522")).getCellContext()));
+        Assert.assertFalse(ReflectiveHintsManager.shouldShowReflectiveEditor(getEditorComponent().getBigValidCellForNode(getAnnotatedNode("parent")).getCellContext()));
+        Assert.assertFalse(ReflectiveHintsManager.shouldShowReflectiveEditor(getEditorComponent().getBigValidCellForNode(getAnnotatedNode("node")).getCellContext()));
+        Assert.assertFalse(ReflectiveHintsManager.shouldShowReflectiveEditor(getEditorComponent().getBigValidCellForNode(getAnnotatedNode("child")).getCellContext()));
       });
     }
   }

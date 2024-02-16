@@ -24,10 +24,10 @@
       <node id="6382244103892478556" at="66,198,67,149" concept="1" />
       <node id="5710903617882125008" at="67,149,68,154" concept="1" />
       <node id="5968606277576107105" at="72,63,73,72" concept="4" />
-      <node id="5968606277576107130" at="73,72,74,118" concept="1" />
-      <node id="5968606277576125452" at="75,43,76,166" concept="1" />
-      <node id="5968606277576192532" at="77,7,78,89" concept="4" />
-      <node id="5968606277576287362" at="78,89,79,80" concept="4" />
+      <node id="5968606277576107130" at="73,72,74,112" concept="1" />
+      <node id="5968606277576125452" at="75,43,76,160" concept="1" />
+      <node id="5968606277576192532" at="77,7,78,83" concept="4" />
+      <node id="5968606277576287362" at="78,83,79,80" concept="4" />
       <node id="5968606277576301142" at="79,80,80,41" concept="4" />
       <node id="5968606277576304295" at="80,41,81,272" concept="4" />
       <node id="5968606277576155154" at="81,272,82,185" concept="1" />
@@ -42,7 +42,7 @@
       <node id="5968606277575949799" at="37,0,39,0" concept="7" trace="ourParametersCacheExtension" />
       <node id="5968606277575949799" at="40,0,43,0" concept="0" trace="SuppressErrorsPerformanceTest_Test#()V" />
       <node id="5968606277575949799" at="51,0,54,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="5968606277576136068" at="74,118,77,7" concept="2" />
+      <node id="5968606277576136068" at="74,112,77,7" concept="2" />
       <node id="5968606277576107113" at="44,0,48,0" concept="3" trace="test_testPerformance#()V" />
       <node id="5968606277575949799" at="55,0,59,0" concept="3" trace="initTestNodes#()V" />
       <node id="5968606277576152429" at="86,0,91,0" concept="8" trace="createNodeResponseItem_wxn1w7_a0a0a2a7g#()Lorg/jetbrains/mps/openapi/model/SNode;" />
@@ -53,12 +53,12 @@
       <scope id="5968606277576107113" at="45,55,46,46" />
       <scope id="5968606277575949799" at="51,52,52,19" />
       <scope id="5968606277575949799" at="56,36,57,46" />
-      <scope id="5968606277576136070" at="75,43,76,166" />
+      <scope id="5968606277576136070" at="75,43,76,160" />
       <scope id="5968606277575949799" at="40,0,43,0" />
       <scope id="5968606277575949799" at="51,0,54,0">
         <var name="owner" id="5968606277575949799" />
       </scope>
-      <scope id="5968606277576136068" at="74,118,77,7">
+      <scope id="5968606277576136068" at="74,112,77,7">
         <var name="i" id="5968606277576136071" />
       </scope>
       <scope id="5968606277576152429" at="86,68,89,28">

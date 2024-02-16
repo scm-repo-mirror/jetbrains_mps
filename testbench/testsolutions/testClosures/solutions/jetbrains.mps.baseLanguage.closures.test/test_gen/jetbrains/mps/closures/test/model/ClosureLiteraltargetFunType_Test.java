@@ -55,8 +55,8 @@ public class ClosureLiteraltargetFunType_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         TemplateQueryContext genContext = TestBody.this.getContext();
-        SNode literal = getNodeById("6374750171056867612");
-        SNode funtype = getNodeById("6374750171056867639");
+        SNode literal = getAnnotatedNode("literal");
+        SNode funtype = getAnnotatedNode("funtype");
         new ClosureLiteralTarget(genContext).setTarget(literal, FunctionType__BehaviorDescriptor.getDeclarationRuntimeType_idhTOKQzf.invoke(funtype), _quotation_createNode_7325qm_c0a3a0a1a5h());
         TestBody.this.assertLiteralTarget(genContext, literal, _quotation_createNode_7325qm_c0a4a0a1a5h());
       });

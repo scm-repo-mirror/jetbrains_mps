@@ -54,26 +54,26 @@ public class TypeCheckingErrors_Test extends BaseTransformationTest {
     public void test_mps18720() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getNodeById("1301553664997476018"), null)).isEmpty();
-        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getNodeById("3441689827373215907"), null)).isEmpty();
+        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getAnnotatedNode("mps18720"), null)).isEmpty();
+        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getAnnotatedNode("mps18720_2"), null)).isEmpty();
       });
     }
     public void test_varar_raw() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getNodeById("1089557578627275112"), null)).all((it) -> SuppressErrorsChecker.FLAVOUR_ACTIVE_SUPPRESSOR.canGet(it));
+        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getAnnotatedNode("varar_raw"), null)).all((it) -> SuppressErrorsChecker.FLAVOUR_ACTIVE_SUPPRESSOR.canGet(it));
       });
     }
     public void test_lbt_subtypeof_param() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getNodeById("360223900466887047"), null)).isEmpty();
+        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getAnnotatedNode("lbt_subtype"), null)).isEmpty();
       });
     }
     public void test_meet_with_variable_excluded_from_lcs() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getNodeById("6368058149914761648"), null)).isEmpty();
+        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getAnnotatedNode("meet_var"), null)).isEmpty();
       });
     }
 

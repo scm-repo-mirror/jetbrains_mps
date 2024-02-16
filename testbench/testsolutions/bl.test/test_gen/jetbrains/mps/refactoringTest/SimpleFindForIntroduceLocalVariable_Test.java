@@ -47,13 +47,13 @@ public class SimpleFindForIntroduceLocalVariable_Test extends BaseTransformation
       initTestNodes();
       runWithinCommand(() -> {
         IntroduceLocalVariableRefactoring refactoring = new IntroduceLocalVariableRefactoring();
-        refactoring.init(getNodeById("7568753874916226573"), null);
+        refactoring.init(getAnnotatedNode("introduce"), null);
         refactoring.setReplacingAll(true);
         refactoring.setName("k");
         refactoring.doRefactoring();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7568753874916226564"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7568753874916226634"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

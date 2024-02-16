@@ -63,7 +63,7 @@ public class UnexpectedReturnInAnonymousClass_Test extends BaseTransformationTes
       initTestNodes();
       runWithinCommand(() -> {
         // Check statement was moved to node annotation
-        // check getNodeById(string):node<> error messages
+        // check getAnnotatedNode(string):node<> error messages
       });
     }
     public void test_NodeReturnExpectedErrorCheck6923385624929494145() throws Exception {

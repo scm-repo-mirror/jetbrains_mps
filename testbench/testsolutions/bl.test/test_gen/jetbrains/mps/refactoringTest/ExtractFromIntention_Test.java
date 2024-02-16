@@ -52,17 +52,17 @@ public class ExtractFromIntention_Test extends BaseTransformationTest {
     public void test_extractExpression() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        SLinkOperations.setTarget(getNodeById("1230052684533"), LINKS.classConcept$M5BC, getNodeById("1230052684539"));
-        SLinkOperations.setTarget(getNodeById("1230052684533"), LINKS.baseMethodDeclaration$pyYw, getNodeById("1230052684540"));
-        ExtractMethodRefactoringParameters params = ExtractMethodFactory.createParameters(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052684515")));
+        SLinkOperations.setTarget(getAnnotatedNode("call"), LINKS.classConcept$M5BC, getAnnotatedNode("after2"));
+        SLinkOperations.setTarget(getAnnotatedNode("call"), LINKS.baseMethodDeclaration$pyYw, getAnnotatedNode("method"));
+        ExtractMethodRefactoringParameters params = ExtractMethodFactory.createParameters(ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("extract")));
         params.setName("foo");
         params.setVisibilityLevel(VisibilityLevel.PUBLIC);
         ExtractMethodRefactoring ref = ExtractMethodFactory.createRefactoring(params);
-        ref.setStaticContainer(getNodeById("1230052684521"));
+        ref.setStaticContainer(getAnnotatedNode("before2"));
         ref.doRefactor();
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052684511"), getNodeById("1230052684521"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052684529"), getNodeById("1230052684539"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before1"), getAnnotatedNode("before2"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after1"), getAnnotatedNode("after2"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

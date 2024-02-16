@@ -45,7 +45,7 @@ public class ContextAssistant_HiddenWhenNoMenu_Test extends BaseTransformationTe
         Assert.assertNotNull(contextAssistantManager.getActiveAssistant());
         Assert.assertNotNull(contextAssistantManager.getActiveMenuItems());
 
-        getEditorComponent().getSelectionManager().setSelection(getNodeById("6183626235528683202"));
+        getEditorComponent().getSelectionManager().setSelection(getAnnotatedNode("parentNode"));
 
         contextAssistantManager.updateImmediately();
 

@@ -46,12 +46,12 @@ public class MoveMethodWithParameters_Test extends BaseTransformationTest {
     public void test_check() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        MoveStaticMethodRefactoring ref = new MoveStaticMethodRefactoring(getNodeById("5142438244427169034"), getNodeById("5142438244427184181"));
+        MoveStaticMethodRefactoring ref = new MoveStaticMethodRefactoring(getAnnotatedNode("method"), getAnnotatedNode("beforeB"));
         ref.doRefactoring();
-        ref.replaceSingleUsage(getNodeById("6765021202370589782"));
+        ref.replaceSingleUsage(getAnnotatedNode("usage"));
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("5142438244427169028"), getNodeById("5142438244427184181"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("5142438244427184190"), getNodeById("5142438244427184203"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("beforeA"), getAnnotatedNode("beforeB"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("afterA"), getAnnotatedNode("afterB"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

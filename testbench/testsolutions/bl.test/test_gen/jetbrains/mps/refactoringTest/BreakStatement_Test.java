@@ -55,19 +55,19 @@ public class BreakStatement_Test extends BaseTransformationTest {
 
     public void test_noBreaks() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> Assert.assertNull(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052480270")))));
+      runWithinCommand(() -> Assert.assertNull(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("l1")))));
     }
     public void test_oneBreak() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> Assert.assertNull(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052480275")))));
+      runWithinCommand(() -> Assert.assertNull(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("l2")))));
     }
     public void test_oneContionue() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> Assert.assertNull(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052480282")))));
+      runWithinCommand(() -> Assert.assertNull(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("l3")))));
     }
     public void test_breakAndContinue() throws Exception {
       initTestNodes();
-      runWithinCommand(() -> Assert.assertTrue(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052480275"), getNodeById("1230052480282"))) != null));
+      runWithinCommand(() -> Assert.assertTrue(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("l2"), getAnnotatedNode("l3"))) != null));
     }
 
   }

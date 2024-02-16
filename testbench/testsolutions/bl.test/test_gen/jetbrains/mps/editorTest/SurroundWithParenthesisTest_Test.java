@@ -50,12 +50,12 @@ public class SurroundWithParenthesisTest_Test extends BaseTransformationTest {
     public void test_noBinaryOperation() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        ParenthesisUtil.createUnmatchedLeftParenthesis(getNodeById("2329139814027568804"));
-        ParenthesisUtil.createUnmatchedRightParenthesis(getNodeById("2329139814027568804"));
+        ParenthesisUtil.createUnmatchedLeftParenthesis(getAnnotatedNode("before1Expr"));
+        ParenthesisUtil.createUnmatchedRightParenthesis(getAnnotatedNode("before1Expr"));
 
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("2329139814027569571"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("2329139814027568774"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after1"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before1"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });
@@ -63,11 +63,11 @@ public class SurroundWithParenthesisTest_Test extends BaseTransformationTest {
     public void test_thereIsAlreadyParenthesis() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        ParenthesisUtil.createUnmatchedLeftParenthesis(getNodeById("3852894662483230127"));
-        ParenthesisUtil.createUnmatchedRightParenthesis(getNodeById("3852894662483230127"));
+        ParenthesisUtil.createUnmatchedLeftParenthesis(getAnnotatedNode("exprToTransform2"));
+        ParenthesisUtil.createUnmatchedRightParenthesis(getAnnotatedNode("exprToTransform2"));
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3852894662483230135"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3852894662483230126"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after2"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before2"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

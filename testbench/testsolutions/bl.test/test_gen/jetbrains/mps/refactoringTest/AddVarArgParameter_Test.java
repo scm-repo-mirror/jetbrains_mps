@@ -53,7 +53,7 @@ public class AddVarArgParameter_Test extends BaseTransformationTest {
     public void test_AddParameterWithDefault() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        ChangeMethodSignatureParameters params = new ChangeMethodSignatureParameters(getNodeById("3053244449233869682"));
+        ChangeMethodSignatureParameters params = new ChangeMethodSignatureParameters(getAnnotatedNode("method"));
 
         // Add params
         SNode intArityParam = _quotation_createNode_os1acc_a0d0a0b0f6();
@@ -62,17 +62,17 @@ public class AddVarArgParameter_Test extends BaseTransformationTest {
 
         // Usages
         List<SNode> usages = ListSequence.fromList(new ArrayList<SNode>(2));
-        ListSequence.fromList(usages).addSequence(ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(getNodeById("3053244449233869694"), LINKS.body$5xQk), LINKS.statement$53DE)).select((it) -> SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.ExpressionStatement$O8), LINKS.expression$5L7M), CONCEPTS.LocalMethodCall$zT)));
+        ListSequence.fromList(usages).addSequence(ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(getAnnotatedNode("usagesList"), LINKS.body$5xQk), LINKS.statement$53DE)).select((it) -> SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.ExpressionStatement$O8), LINKS.expression$5L7M), CONCEPTS.LocalMethodCall$zT)));
 
         // Create refactoring and add usages
-        ChangeMethodSignatureRefactoring ref = new ChangeMethodSignatureRefactoring(params, getNodeById("3053244449233869682"));
+        ChangeMethodSignatureRefactoring ref = new ChangeMethodSignatureRefactoring(params, getAnnotatedNode("method"));
         ref.setUsages(usages);
 
         ref.doRefactoring();
 
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3053244449233869681"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3053244449233869718"));
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("before"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getAnnotatedNode("after"));
           Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
       });

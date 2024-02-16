@@ -39,7 +39,7 @@ public class DeleteUpperBoundTwoStep_Test extends BaseTransformationTest {
       initEditorComponent("5758795789001418928", "5758795789001418940");
       EditorTestUtil.runWithTwoStepDeletion(() -> {
         invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");
-        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getNodeById("5758795789001422947"), "extends")));
+        getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(() -> Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), getAnnotatedNode("upperBound"), "extends")));
         invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");
       }, true);
     }
