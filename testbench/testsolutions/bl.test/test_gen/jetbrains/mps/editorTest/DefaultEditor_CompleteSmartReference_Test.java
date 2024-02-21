@@ -35,7 +35,7 @@ public class DefaultEditor_CompleteSmartReference_Test extends BaseTransformatio
 
     @Override
     public void testMethodImpl() throws Exception {
-      initEditorComponent("3670689702814822133", "3670689702814822138");
+      initEditorComponent("6346868930830323188", "6346868930830365816");
       typeString("Timur");
       invokeAction("jetbrains.mps.ide.editor.actions.Complete_Action");
       pressKeys(ListSequence.fromListAndArray(new ArrayList<String>(), " ENTER"));
