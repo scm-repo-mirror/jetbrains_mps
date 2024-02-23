@@ -38,6 +38,7 @@ import jetbrains.mps.vcs.diff.ui.common.DiffModelUtil;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.mps.openapi.module.ModelAccess;
 import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.application.ModalityState;
 import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
@@ -201,6 +202,9 @@ public class ModelDifferenceViewer implements DataProvider {
 
     // TODO This is a workaround for the bugfix. We should try to avoid write actions here at all. Same should be done with write actions in the constructor. Maybe we should think about using a separate repository for temporary models.
     executeSafeInWriteAction(() -> {
+      if (myProject.isDisposed()) {
+        return;
+      }
       syncMetadataChanges();
       unregisterModels();
     });
@@ -216,7 +220,7 @@ public class ModelDifferenceViewer implements DataProvider {
       r.run();
     } else if (modelAccess.canRead()) {
       // invoke later to prevent IllegalModelAccessException
-      ApplicationManager.getApplication().invokeLater(() -> executeInWriteAction(r));
+      ApplicationManager.getApplication().invokeLater(() -> executeInWriteAction(r), ModalityState.nonModal());
     } else {
       executeInWriteAction(r);
     }
