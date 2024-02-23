@@ -21,6 +21,7 @@ import com.intellij.ide.PasteProvider;
 import com.intellij.ide.dnd.aware.DnDAwareTree;
 import com.intellij.ide.projectView.ProjectView;
 import com.intellij.ide.projectView.impl.AbstractProjectViewPaneWithAsyncSupport;
+import com.intellij.ide.projectView.impl.BaseProjectViewPaneWithAsyncSupport;
 import com.intellij.ide.projectView.impl.ProjectViewState;
 import com.intellij.ide.util.treeView.AbstractTreeStructureBase;
 import com.intellij.openapi.actionSystem.ActionPlaces;
@@ -94,7 +95,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPaneWithAsyncSupport {
+public abstract class BaseLogicalViewProjectPane extends BaseProjectViewPaneWithAsyncSupport {
   private final VirtualFileManagerListener myRefreshListener = new RefreshListener();
   private final MyRepositoryListener myRepositoryListener = new MyRepositoryListener();
   protected boolean myDisposed;
