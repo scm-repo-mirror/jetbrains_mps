@@ -6,6 +6,7 @@ package jetbrains.mps;
 import com.intellij.idea.Main;
 import com.intellij.openapi.application.PathManager;
 import com.intellij.openapi.util.SystemInfo;
+import com.intellij.openapi.util.registry.Registry;
 
 import java.io.File;
 import java.nio.file.DirectoryStream;
@@ -34,6 +35,10 @@ public class Launcher {
     System.setProperty("idea.platform.prefix", "Idea");
     System.setProperty("ide.new.project.model", Boolean.toString(false)); // Temporary disable new project model in all places
     System.setProperty("splash", Boolean.toString(true));
+
+    // fix MPS-36675 for 2023.3, should be removed in 2024.1
+    Registry.get("github.enable.combined.diff").setValue(false);
+    Registry.get("gitlab.enable.combined.diff").setValue(false);
 
     // Temporary workaround for loading plugins when running MPS from sources
     if (Files.isDirectory(Paths.get(PathManager.getHomePath(), ".mps"))) {
