@@ -8,8 +8,11 @@ import com.intellij.ide.projectView.ViewSettings;
 import com.intellij.ide.util.treeView.AbstractTreeNode;
 import com.intellij.ide.util.treeView.InplaceCommentAppender;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.util.registry.Registry;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.ui.SimpleTextAttributes;
+import jetbrains.mps.errors.MessageStatus;
+import jetbrains.mps.errors.item.ReportItem;
 import jetbrains.mps.ide.icons.GlobalIconManager;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.project.MissionControl;
@@ -23,6 +26,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 
 import java.util.Collection;
+import java.util.List;
 
 /**
  * @author Fedor Isakov
@@ -61,15 +65,27 @@ public class SimpleModelProjectViewNode extends BranchProjectViewNode<SModel> {
         {
           presentation.addText(getPresentableText(), SimpleTextAttributes.REGULAR_ATTRIBUTES);
           presentation.setIcon(GlobalIconManager.getInstance().getIconFor(getValue()));
+
+          updateTooltip(presentation);
         }
     );
+  }
+
+  protected void updateTooltip(@NotNull PresentationData presentation) {
+    Project project = getProject();
+    MissionControl missionControl = MissionControl.getInstance(project);
+    if (missionControl != null ){
+      MessageStatus status = Registry.is("mps.ProjectPane.messages.error.only") ? MessageStatus.ERROR : MessageStatus.WARNING;
+      List<ReportItem> messages = missionControl.getMessagesContainer().getMessages(getValue().getReference(), status, false) ;
+      presentation.setTooltip(formatErrorsToolTip(messages));
+    }
   }
 
   @Override
   protected void appendInplaceComments(@NotNull InplaceCommentAppender appender) {
     MissionControl missionControl = MissionControl.getInstance(myProject);
     if (missionControl != null) {
-      missionControl.getInfoMessages(getValue()).forEach(msg -> {
+      missionControl.getMessagesContainer().getInfoMessages(getValue()).forEach(msg -> {
         if (msg instanceof ModelInplaceComment) {
           appender.append(String.format("(%s)", msg.getMessage()), SimpleTextAttributes.GRAY_ITALIC_ATTRIBUTES);
         }

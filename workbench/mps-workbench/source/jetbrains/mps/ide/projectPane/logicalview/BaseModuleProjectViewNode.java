@@ -3,15 +3,21 @@
  */
 package jetbrains.mps.ide.projectPane.logicalview;
 
+import com.intellij.ide.projectView.PresentationData;
 import com.intellij.ide.projectView.ViewSettings;
 import com.intellij.ide.util.treeView.AbstractTreeNode;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.util.registry.Registry;
+import jetbrains.mps.errors.MessageStatus;
+import jetbrains.mps.errors.item.ReportItem;
+import jetbrains.mps.project.MissionControl;
 import jetbrains.mps.util.IterableUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.module.SModule;
 
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Base implementation for a project node corresponding to a module. 
@@ -36,6 +42,16 @@ public abstract class BaseModuleProjectViewNode<Value extends SModule> extends B
 
   protected String getVirtualFolder(SModel model) {
     return model.getName().getNamespace();
+  }
+
+  protected void updateTooltip(@NotNull PresentationData presentation) {
+    Project project = getProject();
+    MissionControl missionControl = MissionControl.getInstance(project);
+    if (missionControl != null ){
+      MessageStatus status = Registry.is("mps.ProjectPane.messages.error.only") ? MessageStatus.ERROR : MessageStatus.WARNING;
+      List<ReportItem> messages = missionControl.getMessagesContainer().getMessages(getValue().getModuleReference(), status, false) ;
+      presentation.setTooltip(formatErrorsToolTip(messages));
+    }
   }
 
 }

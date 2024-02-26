@@ -11,10 +11,10 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.registry.Registry;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.ui.LayeredIcon;
+import jetbrains.mps.errors.MessageStatus;
+import jetbrains.mps.errors.item.ReportItem;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.ui.tree.ContextValueProvider;
-import jetbrains.mps.ide.ui.tree.VirtualFolder;
-import jetbrains.mps.ide.ui.tree.VirtualFolder.Modules;
 import jetbrains.mps.ide.vfs.IdeaFileSystem;
 import jetbrains.mps.nodefs.MPSNodeVirtualFile;
 import jetbrains.mps.project.AbstractModule;
@@ -35,12 +35,9 @@ import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 
 import javax.swing.Icon;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.function.Function;
 
 /**
  * Defines basic structure of the project view nodes hierarchy.
@@ -171,7 +168,25 @@ public abstract class LogicalProjectViewNode<Value> extends ProjectViewNode<Valu
 
     Project project = getProject();
     MissionControl missionControl = MissionControl.getInstance(project);
-    return missionControl != null && missionControl.hasErrorsInHierarchy(this::contains);
+    if (missionControl != null) {
+      return Registry.is("mps.ProjectPane.messages.error.only") ?
+             missionControl.getMessagesContainer().hasErrorsInHierarchy(this::contains) :
+             missionControl.getMessagesContainer().hasWarningsOrErrorsInHierarchy(this::contains);
+    }
+    return false;
+  }
+
+  protected String formatErrorsToolTip(List<ReportItem> errorMessages) {
+    if (errorMessages.isEmpty()) {
+      return null;
+    }
+    StringBuilder sb = new StringBuilder();
+    ReportItem firstItem = errorMessages.get(0);
+    sb.append(firstItem.getSeverity()).append(": ").append(firstItem.getMessage());
+    if (errorMessages.size() > 1) {
+      sb.append(" (and ").append(errorMessages.size() - 1).append(" more issues)");
+    }
+    return sb.toString();
   }
 
   protected abstract boolean contains(SObject sObject);
@@ -200,5 +215,4 @@ public abstract class LogicalProjectViewNode<Value> extends ProjectViewNode<Valu
     }
     return null;
   }
-
 }

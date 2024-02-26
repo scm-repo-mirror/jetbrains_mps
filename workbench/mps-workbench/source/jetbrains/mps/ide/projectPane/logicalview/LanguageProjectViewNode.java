@@ -9,11 +9,15 @@ import com.intellij.ide.projectView.PresentationData;
 import com.intellij.ide.projectView.ViewSettings;
 import com.intellij.ide.util.treeView.AbstractTreeNode;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.util.registry.Registry;
 import com.intellij.openapi.vfs.VirtualFile;
+import jetbrains.mps.errors.MessageStatus;
+import jetbrains.mps.errors.item.ReportItem;
 import jetbrains.mps.ide.icons.GlobalIconManager;
 import jetbrains.mps.ide.icons.IdeIcons;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.ui.tree.module.StereotypeProvider;
+import jetbrains.mps.project.MissionControl;
 import jetbrains.mps.smodel.SObject;
 import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.smodel.Language;
@@ -98,6 +102,17 @@ public class LanguageProjectViewNode extends BranchProjectViewNode<Language> {
   protected void update(@NotNull PresentationData presentation) {
     presentation.setPresentableText(getValue().getModuleName());
     presentation.setIcon(IdeIcons.LANGUAGE_ICON);
+    updateTooltip(presentation);
+  }
+
+  protected void updateTooltip(@NotNull PresentationData presentation) {
+    Project project = getProject();
+    MissionControl missionControl = MissionControl.getInstance(project);
+    if (missionControl != null ){
+      MessageStatus status = Registry.is("mps.ProjectPane.messages.error.only") ? MessageStatus.ERROR : MessageStatus.WARNING;
+      List<ReportItem> messages = missionControl.getMessagesContainer().getMessages(getValue().getModuleReference(), status, false) ;
+      presentation.setTooltip(formatErrorsToolTip(messages));
+    }
   }
 
   @Override
@@ -133,9 +148,11 @@ public class LanguageProjectViewNode extends BranchProjectViewNode<Language> {
               Icon icon = GlobalIconManager.getInstance().getIconFor(getValue());
               presentation.setIcon(icon);
               presentation.setPresentableText(getValue().getName().getShortNameWithStereotype());
+              updateTooltip(presentation);
           }
       );
     }
+
   }
 
   protected static class AccessorySModelProjectViewNode extends BranchProjectViewNode<Language> {

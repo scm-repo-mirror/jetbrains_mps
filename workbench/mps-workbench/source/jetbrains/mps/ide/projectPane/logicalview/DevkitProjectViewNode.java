@@ -8,14 +8,19 @@ import com.intellij.ide.projectView.PresentationData;
 import com.intellij.ide.projectView.ViewSettings;
 import com.intellij.ide.util.treeView.AbstractTreeNode;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.util.registry.Registry;
 import com.intellij.openapi.vfs.VirtualFile;
+import jetbrains.mps.errors.MessageStatus;
+import jetbrains.mps.errors.item.ReportItem;
 import jetbrains.mps.ide.icons.IdeIcons;
 import jetbrains.mps.project.DevKit;
 import jetbrains.mps.smodel.SObject;
+import jetbrains.mps.project.MissionControl;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.SModule;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 import java.util.function.Supplier;
 
@@ -61,6 +66,17 @@ public class DevkitProjectViewNode extends BranchProjectViewNode<DevKit> {
   protected void update(@NotNull PresentationData presentation) {
     presentation.setPresentableText(getValue().getModuleName());
     presentation.setIcon(IdeIcons.DEVKIT_ICON);
+    updateTooltip(presentation);
+  }
+
+  protected void updateTooltip(@NotNull PresentationData presentation) {
+    Project project = getProject();
+    MissionControl missionControl = MissionControl.getInstance(project);
+    if (missionControl != null ){
+      MessageStatus status = Registry.is("mps.ProjectPane.messages.error.only") ? MessageStatus.ERROR : MessageStatus.WARNING;
+      List<ReportItem> messages = missionControl.getMessagesContainer().getMessages(getValue().getModuleReference(), status, false) ;
+      presentation.setTooltip(formatErrorsToolTip(messages));
+    }
   }
 
   @Override

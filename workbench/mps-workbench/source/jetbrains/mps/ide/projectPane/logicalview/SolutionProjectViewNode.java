@@ -8,10 +8,14 @@ import com.intellij.ide.projectView.PresentationData;
 import com.intellij.ide.projectView.ViewSettings;
 import com.intellij.ide.util.treeView.AbstractTreeNode;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.util.registry.Registry;
 import com.intellij.openapi.vfs.VirtualFile;
+import jetbrains.mps.errors.MessageStatus;
+import jetbrains.mps.errors.item.ReportItem;
 import jetbrains.mps.icons.MPSIcons.Nodes.Models;
 import jetbrains.mps.ide.icons.IdeIcons;
 import jetbrains.mps.ide.ui.tree.module.StereotypeProvider;
+import jetbrains.mps.project.MissionControl;
 import jetbrains.mps.smodel.SObject;
 import jetbrains.mps.project.Solution;
 import jetbrains.mps.smodel.LanguageID;
@@ -81,7 +85,9 @@ public class SolutionProjectViewNode extends BaseModuleProjectViewNode<Solution>
   protected void update(@NotNull PresentationData presentation) {
     presentation.setPresentableText(getValue().getModuleName());
     presentation.setIcon(IdeIcons.SOLUTION_ICON);
+    updateTooltip(presentation);
   }
+
 
   @Override
   public int getTypeSortWeight(boolean sortByType) {
