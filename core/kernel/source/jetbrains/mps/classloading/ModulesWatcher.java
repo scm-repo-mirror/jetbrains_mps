@@ -154,9 +154,10 @@ public class ModulesWatcher {
    */
   private void refillStatusMap() {
     synchronized (myStatusMapLock) {
-      var invalidModules = findInvalidModules(false);
+      final Collection<SModuleReference> allModules = getAllModules();
+      var invalidModules = findInvalidModules(allModules);
       myStatusMap.clear();
-      for (SModuleReference mRef : getAllModules()) {
+      for (SModuleReference mRef : allModules) {
         myStatusMap.put(mRef, VALID);
       }
       var allInvalidModules = getBackDependencies(invalidModules.keySet());
@@ -166,7 +167,7 @@ public class ModulesWatcher {
       if (!invalidModules.isEmpty()) {
         String message = String.format("%d modules are marked as invalid roots for class loading out of %d modules [totally in the repository]:",
                                        invalidModules.size(),
-                                       getAllModules().size());
+                                       allModules.size());
         LOG.warning(message);
         printMap(invalidModules, LOG::warning);
       }
@@ -234,25 +235,20 @@ public class ModulesWatcher {
 
   @TestOnly
   Map<SModuleReference, String> findAndPrintInvalidModulesProblems() {
-    // FIXME printErrors - take map and LOG.error here instead of arg
-    return findInvalidModules(true);
+    // XXX strange code - why would tests care to log these messages?
+    Map<SModuleReference, String> rv = findInvalidModules(getAllModules());
+    rv.values().forEach(LOG::error);
+    return rv;
   }
 
   @NotNull
-  private Map<SModuleReference, String> findInvalidModules(boolean printErrors) {
+  private Map<SModuleReference, String> findInvalidModules(Collection<SModuleReference> allModules) {
     myRepository.getModelAccess().checkReadAccess();
 
     Map<SModuleReference, String> mRefToProblem = new HashMap<>();
-    Collection<? extends SModuleReference> allModuleRefs = getAllModules();
-    for (SModuleReference mRef : allModuleRefs) {
-      if (!mRefToProblem.containsKey(mRef)) {
-        String msg = getModuleProblemMessage(mRef);
-        if (msg == null) {
-          continue;
-        }
-        if (printErrors) {
-          LOG.error(msg);
-        }
+    for (SModuleReference mRef : allModules) {
+      String msg = getModuleProblemMessage(mRef);
+      if (msg != null) {
         mRefToProblem.put(mRef, msg);
       }
     }
@@ -281,15 +277,6 @@ public class ModulesWatcher {
       // are no longer capable to load classes (see MPS-36688)
       return String.format("%s doesn't provide classes", mRef.getModuleName());
     }
-    for (SDependency dep : module.getDeclaredDependencies()) {
-      if (dep.getScope() == SDependencyScope.DESIGN || dep.getScope() == SDependencyScope.GENERATES_INTO) {
-        continue;
-      }
-      if (isModuleDisposed(dep.getTargetModule())) {
-        return String.format("%s depends on a disposed module %s and therefore was marked invalid for class loading", module, dep.getTargetModule());
-      }
-      // XXX could check target for 'watchable' if need an extra message why certain module is not loaded due to a change in its dependencies
-    }
     return null;
   }
 
@@ -306,7 +293,7 @@ public class ModulesWatcher {
     }
   }
 
-  Collection<? extends SModuleReference> getAllModules() {
+  Collection<SModuleReference> getAllModules() {
     return myModuleUpdater.getModules();
   }
 
