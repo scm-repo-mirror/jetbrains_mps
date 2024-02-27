@@ -80,20 +80,6 @@ import java.util.stream.Collectors;
           rv.add(target.getModuleReference());
         }
       }
-      // hack to deal with defect in RuntimeDependencies in mps.build.mps.util, where I forgot to iterate over
-      // 'extends' dependency. Remove once defect has been fixed (6de6b0c7) and at least one release was there.
-      // Just keep in mind, with LinkedHashSet rv, doesn't hurt to keep this longer than utterly necessary.
-      if (module instanceof Language) {
-        for (SModuleReference extLanRef : ((Language) module).getExtendedLanguageRefs()) {
-          final SModule extLang = extLanRef.resolve(myRepository);
-          if (extLang != null) {
-            rv.add(extLang.getModuleReference());
-          } else {
-            // errorContainer.langSourceModuleCannotBeResolved();
-            errorContainer.depCannotBeResolved(module, new SDependencyImpl(extLanRef, null, SDependencyScope.EXTENDS, true));
-          }
-        }
-      }
     } else {
       rv = new LinkedHashSet<>(20);
       // sources or no DD use

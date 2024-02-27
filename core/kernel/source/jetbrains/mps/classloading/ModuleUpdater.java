@@ -188,12 +188,9 @@ public class ModuleUpdater {
    */
   private void updateAllEdges() {
     myRepository.getModelAccess().checkReadAccess();
-    Collection<? extends SModuleReference> allRefs = myDepGraphHolder.getVertices();
+    Collection<SModuleReference> allRefs = myDepGraphHolder.getVertices();
     for (SModuleReference ref : allRefs) {
       ReloadableModule module = myRefStorage.resolveRef(ref);
-      if (comesWithInvalidIdeaPluginFacet(module)) {
-        continue;
-      }
       assert module != null;
       Stream<SModuleReference> deps = getDepsWithErrors(module);
       if (myDependencyCollector.withErrors(module.getModuleReference())) {
@@ -209,17 +206,6 @@ public class ModuleUpdater {
         }
       });
     }
-  }
-
-  private boolean comesWithInvalidIdeaPluginFacet(ReloadableModule module) {
-    // keep it for a while. once our project is migrated and there are not ideaPlugin facets, we should not get this message, ever.
-    var facet = module.getFacet(IdeaPluginModuleFacet.class);
-    if (facet != null && !facet.isValid()) {
-      SearchError error = ErrorContainer.SearchError.of("The module '" + module.getModuleReference() + "' comes with invalid idea plugin facet '" + facet.getPluginId() + "'");
-      myDependencyCollector.addError(module, Collections.singletonList(error));
-      return true;
-    }
-    return false;
   }
 
   private boolean updateReloadedVertices(Set<? extends ReloadableModule> modulesToReload) {
