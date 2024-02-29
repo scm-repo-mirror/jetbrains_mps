@@ -3249,11 +3249,6 @@
       <ref role="PrY4T" node="hxndl_i" resolve="IMethodCall" />
     </node>
   </node>
-  <node concept="Az7Fb" id="3H1xM9LtLda">
-    <property role="TrG5h" value="_LongType_String" />
-    <property role="FLfZY" value="-?[0-9]+(l|L)" />
-    <property role="3F6X1D" value="4269842503726207818" />
-  </node>
   <node concept="Az7Fb" id="4_5hYVHKxAU">
     <property role="TrG5h" value="_FloatNumberValue" />
     <property role="FLfZY" value="-?[0-9]+\\.[0-9]*([Ee][\\+\\-]?[0-9]+)?[fF]" />
@@ -3895,11 +3890,11 @@
     <property role="2_RsDV" value="4G1g3fIR8JG/none" />
     <property role="3GE5qa" value="primitive" />
     <property role="EcuMT" value="4269842503726207156" />
-    <ref role="1TJDcQ" node="fz3vP1J" resolve="Expression" />
+    <ref role="1TJDcQ" node="7fGiXOMF9Tk" resolve="AbstractLongLiteral" />
     <node concept="1TJgyi" id="3H1xM9LtL2P" role="1TKVEl">
-      <property role="TrG5h" value="value" />
+      <property role="TrG5h" value="numValue" />
       <property role="IQ2nx" value="4269842503726207157" />
-      <ref role="AX2Wp" node="3H1xM9LtLda" resolve="_LongType_String" />
+      <ref role="AX2Wp" node="7fGiXOMF9Mm" resolve="_HexLongType_String" />
     </node>
   </node>
   <node concept="1TIwiD" id="4_5hYVHKxAT">
@@ -5032,6 +5027,36 @@
     <node concept="t5JxF" id="17QotHQYUNf" role="lGtFl">
       <property role="t5JxN" value="mark a type as inferred, meaning its type can be derived from context" />
     </node>
+  </node>
+  <node concept="Az7Fb" id="7fGiXOMF9Mm">
+    <property role="TrG5h" value="_LongType_String" />
+    <property role="FLfZY" value="-?[0-9]+(l|L)" />
+    <property role="3F6X1D" value="4269842503726207818" />
+  </node>
+  <node concept="1TIwiD" id="7fGiXOMF9Tk">
+    <property role="EcuMT" value="8353134822275456596" />
+    <property role="3GE5qa" value="primitive" />
+    <property role="TrG5h" value="AbstractLongLiteral" />
+    <property role="R5$K7" value="true" />
+    <ref role="1TJDcQ" node="fz3vP1J" resolve="Expression" />
+  </node>
+  <node concept="1TIwiD" id="7fGiXOMF9Vj">
+    <property role="EcuMT" value="8353134822275456723" />
+    <property role="3GE5qa" value="primitive" />
+    <property role="TrG5h" value="HexLongLiteral" />
+    <property role="R4oN_" value="hexadecimal long literal" />
+    <property role="34LRSv" value="0x" />
+    <ref role="1TJDcQ" node="7fGiXOMF9Tk" resolve="AbstractLongLiteral" />
+    <node concept="1TJgyi" id="7fGiXOMF9Ws" role="1TKVEl">
+      <property role="IQ2nx" value="8353134822275456796" />
+      <property role="TrG5h" value="hexValue" />
+      <ref role="AX2Wp" node="6M4GgamW9$m" resolve="_HexaLongType_String" />
+    </node>
+  </node>
+  <node concept="Az7Fb" id="6M4GgamW9$m">
+    <property role="3F6X1D" value="7819569477702424854" />
+    <property role="TrG5h" value="_HexaLongType_String" />
+    <property role="FLfZY" value="[0-9a-fA-F]+(l|L)" />
   </node>
 </model>
 

@@ -20,7 +20,7 @@ public class check_LongLiteral_within_range_NonTypesystemRule extends AbstractNo
   public check_LongLiteral_within_range_NonTypesystemRule() {
   }
   public void applyRule(final SNode longLiteral, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    String value = SPropertyOperations.getString(longLiteral, PROPS.value$b84M);
+    String value = SPropertyOperations.getString(longLiteral, PROPS.numValue$b84M);
     if (value == null) {
       return;
     }
@@ -44,7 +44,7 @@ public class check_LongLiteral_within_range_NonTypesystemRule extends AbstractNo
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty value$b84M = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3b418722717710b4L, 0x3b418722717710b5L, "value");
+    /*package*/ static final SProperty numValue$b84M = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3b418722717710b4L, 0x3b418722717710b5L, "numValue");
   }
 
   private static final class CONCEPTS {

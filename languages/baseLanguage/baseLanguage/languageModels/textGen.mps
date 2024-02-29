@@ -9794,7 +9794,7 @@
             <node concept="2OqwBi" id="3H1xM9LzLyJ" role="lb14g">
               <node concept="117lpO" id="3H1xM9LzLyK" role="2Oq$k0" />
               <node concept="3TrcHB" id="3H1xM9LzLyL" role="2OqNvi">
-                <ref role="3TsBF5" to="tpee:3H1xM9LtL2P" resolve="value" />
+                <ref role="3TsBF5" to="tpee:3H1xM9LtL2P" resolve="numValue" />
               </node>
             </node>
           </node>
@@ -14512,6 +14512,29 @@
             <property role="lacIc" value="***/" />
           </node>
           <node concept="l8MVK" id="7bmrZB8TOb1" role="lcghm" />
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="WtQ9Q" id="7fGiXOMF_xn">
+    <property role="3GE5qa" value="primitive" />
+    <ref role="WuzLi" to="tpee:7fGiXOMF9Vj" resolve="HexLongLiteral" />
+    <node concept="11bSqf" id="7fGiXOMF_xo" role="11c4hB">
+      <node concept="3clFbS" id="7fGiXOMF_xp" role="2VODD2">
+        <node concept="lc7rE" id="7fGiXOMF_y0" role="3cqZAp">
+          <node concept="l9hG8" id="7fGiXOMF_y1" role="lcghm">
+            <node concept="3cpWs3" id="7fGiXOMF_y2" role="lb14g">
+              <node concept="2OqwBi" id="7fGiXOMF_y3" role="3uHU7w">
+                <node concept="117lpO" id="7fGiXOMF_y4" role="2Oq$k0" />
+                <node concept="3TrcHB" id="7fGiXOMF_y5" role="2OqNvi">
+                  <ref role="3TsBF5" to="tpee:7fGiXOMF9Ws" resolve="hexValue" />
+                </node>
+              </node>
+              <node concept="Xl_RD" id="7fGiXOMF_y6" role="3uHU7B">
+                <property role="Xl_RC" value="0x" />
+              </node>
+            </node>
+          </node>
         </node>
       </node>
     </node>
