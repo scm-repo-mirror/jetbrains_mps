@@ -165,16 +165,23 @@ public class constants extends SubstituteMenuBase {
         return canExecute_internal(pattern, true);
       }
       public boolean canExecute_internal(@NotNull String pattern, boolean strictly) {
-        if (!(SNodeOperations.isInstanceOf(_context.getCurrentTargetNode(), CONCEPTS.IntegerConstant$Na))) {
+        if (!(SNodeOperations.isInstanceOf(_context.getCurrentTargetNode(), CONCEPTS.IntegerConstant$Na)) && !(SNodeOperations.isInstanceOf(_context.getCurrentTargetNode(), CONCEPTS.HexLongLiteral$8Z))) {
           return false;
         }
         Object hexResult = constants.this._additional_parseHexIntegerValue(pattern);
         Object intResult = constants.this._additional_parseIntegerValue(pattern);
-        // Prefer Int constant, if possible
-        if (!(SNodeOperations.isInstanceOf(_context.getCurrentTargetNode(), CONCEPTS.HexLongLiteral$8Z)) && intResult != SType.NOT_A_VALUE) {
-          return false;
+        if (SNodeOperations.isInstanceOf(_context.getCurrentTargetNode(), CONCEPTS.IntegerConstant$Na)) {
+          if (intResult != SType.NOT_A_VALUE) {
+            // Do not make an int into hex int when the pattern is int
+            return false;
+          } else {
+            return (hexResult == null ? !(strictly) : (strictly) && hexResult != SType.NOT_A_VALUE);
+          }
         }
-        return (hexResult == null ? !(strictly) : strictly && hexResult != SType.NOT_A_VALUE);
+        if (SNodeOperations.isInstanceOf(_context.getCurrentTargetNode(), CONCEPTS.HexLongLiteral$8Z)) {
+          return (hexResult == null ? !(strictly) : hexResult != SType.NOT_A_VALUE);
+        }
+        return false;
       }
     }
   }
