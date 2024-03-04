@@ -3892,7 +3892,7 @@
     <property role="EcuMT" value="4269842503726207156" />
     <ref role="1TJDcQ" node="7fGiXOMF9Tk" resolve="AbstractLongLiteral" />
     <node concept="1TJgyi" id="3H1xM9LtL2P" role="1TKVEl">
-      <property role="TrG5h" value="numValue" />
+      <property role="TrG5h" value="value" />
       <property role="IQ2nx" value="4269842503726207157" />
       <ref role="AX2Wp" node="7fGiXOMF9Mm" resolve="_HexLongType_String" />
     </node>

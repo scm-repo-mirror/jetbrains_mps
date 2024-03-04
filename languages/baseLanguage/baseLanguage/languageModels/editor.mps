@@ -16384,7 +16384,7 @@
   <node concept="24kQdi" id="3H1xM9LtLdb">
     <ref role="1XX52x" to="tpee:3H1xM9LtL2O" resolve="LongLiteral" />
     <node concept="3F0A7n" id="3H1xM9LvE2o" role="2wV5jI">
-      <ref role="1NtTu8" to="tpee:3H1xM9LtL2P" resolve="numValue" />
+      <ref role="1NtTu8" to="tpee:3H1xM9LtL2P" resolve="value" />
       <node concept="VechU" id="3H1xM9LvE2p" role="3F10Kt">
         <property role="Vb096" value="blue" />
       </node>
@@ -51851,7 +51851,7 @@
                         <ref role="3cqZAo" node="1wEcoXjII2e" resolve="lit" />
                       </node>
                       <node concept="3TrcHB" id="1wEcoXjII2o" role="2OqNvi">
-                        <ref role="3TsBF5" to="tpee:3H1xM9LtL2P" resolve="numValue" />
+                        <ref role="3TsBF5" to="tpee:3H1xM9LtL2P" resolve="value" />
                       </node>
                     </node>
                   </node>

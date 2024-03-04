@@ -354,7 +354,7 @@ public class BL_node_factories {
       {
         final SNode other = sampleNode;
         if (SNodeOperations.isInstanceOf(other, CONCEPTS.LongLiteral$y2)) {
-          String value = SPropertyOperations.getString(other, PROPS.numValue$b84M);
+          String value = SPropertyOperations.getString(other, PROPS.value$b84M);
           if (value.startsWith("0x")) {
             value = value.substring(2, value.length());
           }
@@ -395,7 +395,7 @@ public class BL_node_factories {
       {
         final SNode other = sampleNode;
         if (SNodeOperations.isInstanceOf(other, CONCEPTS.LongLiteral$y2)) {
-          String value = SPropertyOperations.getString(other, PROPS.numValue$b84M);
+          String value = SPropertyOperations.getString(other, PROPS.value$b84M);
           if (value.endsWith("L") || value.endsWith("l")) {
             value = value.substring(0, value.length() - 1);
           }
@@ -433,7 +433,7 @@ public class BL_node_factories {
       {
         final SNode other = sampleNode;
         if (SNodeOperations.isInstanceOf(other, CONCEPTS.LongLiteral$y2)) {
-          String value = SPropertyOperations.getString(other, PROPS.numValue$b84M);
+          String value = SPropertyOperations.getString(other, PROPS.value$b84M);
           if (value.endsWith("L") || value.endsWith("l")) {
             value = value.substring(0, value.length() - 1);
           }
@@ -471,7 +471,7 @@ public class BL_node_factories {
       {
         final SNode other = sampleNode;
         if (SNodeOperations.isInstanceOf(other, CONCEPTS.LongLiteral$y2)) {
-          String value = SPropertyOperations.getString(other, PROPS.numValue$b84M);
+          String value = SPropertyOperations.getString(other, PROPS.value$b84M);
           if (value.endsWith("L") || value.endsWith("l")) {
             value = value.substring(0, value.length() - 1);
           }
@@ -523,7 +523,7 @@ public class BL_node_factories {
     /*package*/ static final SProperty isSynchronized$58UL = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x3b576cda23612c7aL, "isSynchronized");
     /*package*/ static final SProperty isNative$GNAF = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6c6b6a1e379f9408L, 0x73f30e3df95c0b73L, "isNative");
     /*package*/ static final SProperty isFinal$gvTP = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0x111f9e9f00cL, "isFinal");
-    /*package*/ static final SProperty numValue$b84M = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3b418722717710b4L, 0x3b418722717710b5L, "numValue");
+    /*package*/ static final SProperty value$b84M = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3b418722717710b4L, 0x3b418722717710b5L, "value");
     /*package*/ static final SProperty hexValue$ZIVH = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x73ec4bdd32ac9ed3L, 0x73ec4bdd32ac9f1cL, "hexValue");
     /*package*/ static final SProperty value$jgCM = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value");
     /*package*/ static final SProperty value$JSvS = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1129761e073L, 0x11297628b3cL, "value");

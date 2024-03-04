@@ -9794,7 +9794,7 @@
             <node concept="2OqwBi" id="3H1xM9LzLyJ" role="lb14g">
               <node concept="117lpO" id="3H1xM9LzLyK" role="2Oq$k0" />
               <node concept="3TrcHB" id="3H1xM9LzLyL" role="2OqNvi">
-                <ref role="3TsBF5" to="tpee:3H1xM9LtL2P" resolve="numValue" />
+                <ref role="3TsBF5" to="tpee:3H1xM9LtL2P" resolve="value" />
               </node>
             </node>
           </node>

@@ -31,11 +31,11 @@ public final class LongLiteral__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static Object getCompileTimeConstantValue_idi1LP2xI(@NotNull SNode __thisNode__, SModule module) {
-    if (SPropertyOperations.getString(__thisNode__, PROPS.numValue$b84M) == null) {
+    if (SPropertyOperations.getString(__thisNode__, PROPS.value$b84M) == null) {
       return 0;
     }
     try {
-      String value = (SPropertyOperations.getString(__thisNode__, PROPS.numValue$b84M).endsWith("l") || SPropertyOperations.getString(__thisNode__, PROPS.numValue$b84M).endsWith("L") ? SPropertyOperations.getString(__thisNode__, PROPS.numValue$b84M).substring(0, SPropertyOperations.getString(__thisNode__, PROPS.numValue$b84M).length() - 1) : SPropertyOperations.getString(__thisNode__, PROPS.numValue$b84M));
+      String value = (SPropertyOperations.getString(__thisNode__, PROPS.value$b84M).endsWith("l") || SPropertyOperations.getString(__thisNode__, PROPS.value$b84M).endsWith("L") ? SPropertyOperations.getString(__thisNode__, PROPS.value$b84M).substring(0, SPropertyOperations.getString(__thisNode__, PROPS.value$b84M).length() - 1) : SPropertyOperations.getString(__thisNode__, PROPS.value$b84M));
       return Long.parseLong(value);
     } catch (NumberFormatException e) {
       return null;
@@ -89,6 +89,6 @@ public final class LongLiteral__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty numValue$b84M = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3b418722717710b4L, 0x3b418722717710b5L, "numValue");
+    /*package*/ static final SProperty value$b84M = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3b418722717710b4L, 0x3b418722717710b5L, "value");
   }
 }

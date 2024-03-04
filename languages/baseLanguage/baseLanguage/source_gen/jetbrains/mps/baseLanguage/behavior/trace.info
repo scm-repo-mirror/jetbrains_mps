@@ -448,8 +448,8 @@
       <node id="1213877208335" at="46,86,47,47" concept="12" />
       <node id="8847328628797640265" at="49,85,50,15" concept="12" />
       <node id="390501544462342631" at="52,99,53,193" concept="11" />
-      <node id="390501544462342637" at="53,193,54,60" concept="5" />
-      <node id="390501544462342643" at="54,60,55,13" concept="12" />
+      <node id="390501544462342637" at="53,193,54,57" concept="5" />
+      <node id="390501544462342643" at="54,57,55,13" concept="12" />
       <node id="1213877208326" at="62,114,63,21" concept="5" />
       <node id="1213877208326" at="67,114,68,49" concept="11" />
       <node id="1213877208326" at="69,26,70,56" concept="19" />
@@ -479,7 +479,7 @@
       <node id="1213877208336" at="127,34,128,227" concept="5" />
       <node id="1213877208336" at="128,227,129,211" concept="5" />
       <node id="1213877208336" at="129,211,130,24" concept="12" />
-      <node id="1213877208326" at="134,0,135,0" concept="15" trace="numValue$b84M" />
+      <node id="1213877208326" at="134,0,135,0" concept="15" trace="value$b84M" />
       <node id="1213877208326" at="37,0,39,0" concept="16" trace="___init___#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="1213877208326" at="58,0,60,0" concept="3" trace="LongType__BehaviorDescriptor#()V" />
       <node id="1213877208326" at="40,0,43,0" concept="16" trace="getBoxedType_idhEwIzNC#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
@@ -24000,9 +24000,9 @@
       <node id="2857825852300608424" at="24,0,25,0" concept="15" trace="CONCEPT" />
       <node id="2857825852300608424" at="26,0,27,0" concept="15" trace="getCompileTimeConstantValue_idi1LP2xI" />
       <node id="2857825852300608424" at="28,0,29,0" concept="15" trace="BH_METHODS" />
-      <node id="8353134822279176872" at="34,83,35,15" concept="12" />
-      <node id="875204272656503019" at="37,9,38,410" concept="11" />
-      <node id="2857825852300608959" at="38,410,39,35" concept="12" />
+      <node id="8353134822279176872" at="34,80,35,15" concept="12" />
+      <node id="875204272656503019" at="37,9,38,395" concept="11" />
+      <node id="2857825852300608959" at="38,395,39,35" concept="12" />
       <node id="2857825852300608966" at="40,39,41,18" concept="12" />
       <node id="2857825852300608424" at="49,114,50,21" concept="5" />
       <node id="2857825852300608424" at="54,114,55,49" concept="11" />
@@ -24014,7 +24014,7 @@
       <node id="2857825852300608424" at="74,14,75,58" concept="19" />
       <node id="2857825852300608424" at="81,48,82,22" concept="12" />
       <node id="2857825852300608424" at="87,40,88,19" concept="12" />
-      <node id="2857825852300608424" at="92,0,93,0" concept="15" trace="numValue$b84M" />
+      <node id="2857825852300608424" at="92,0,93,0" concept="15" trace="value$b84M" />
       <node id="2857825852300608424" at="30,0,32,0" concept="16" trace="___init___#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="2857825852300608424" at="45,0,47,0" concept="3" trace="LongLiteral__BehaviorDescriptor#()V" />
       <node id="8353134822279176870" at="33,112,36,5" concept="9" />
@@ -24031,7 +24031,7 @@
       <node id="2857825852300608424" at="53,0,66,0" concept="10" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
       <scope id="2857825852300608424" at="30,63,30,63" />
       <scope id="2857825852300608424" at="45,49,45,49" />
-      <scope id="8353134822279176871" at="34,83,35,15" />
+      <scope id="8353134822279176871" at="34,80,35,15" />
       <scope id="2857825852300608965" at="40,39,41,18" />
       <scope id="2857825852300608424" at="49,114,50,21" />
       <scope id="2857825852300608424" at="56,26,57,56" />
