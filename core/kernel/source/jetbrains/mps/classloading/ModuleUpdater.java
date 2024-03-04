@@ -257,6 +257,8 @@ import java.util.stream.Stream;
       newModuleDeps.forEach(depRef -> {
         if (!currentDeps.remove(depRef)) {
           // new (not seen before) dependency edge
+          // FIXME have to distinguish 2 scenarios here: (a) dependency is necessary for CL --> need an edge; (b) it's a design-time dependency --> edge isn't necessary
+          // XXX how come myDependencyCollector reports non-CL dependency here?
           if (!myDepGraphHolder.contains(depRef)) {
             myDepGraphHolder.add(depRef);
             // see no point to update myRefStorage here, wait for depRef module to show up through repository's moduleAdded()

@@ -123,6 +123,7 @@ public class GraphHolder<V> {
     }
   }
 
+  // exclusive
   public void fillIncomingEdgesShallow(Iterable<? extends V> vv, Collection<? super V> result) {
     checkGraphsCorrectness();
     for(V v : vv) {
@@ -134,6 +135,7 @@ public class GraphHolder<V> {
     return !myConjugateGraph.getOuts(v).isEmpty();
   }
 
+  // inclusive
   public void fillIncomingEdgesDeep(Iterable<? extends V> vv, Collection<? super V> result) {
     checkGraphsCorrectness();
     myConjugateGraph.dfs(vv, result::add);
