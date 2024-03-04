@@ -174,7 +174,7 @@ public class constants extends SubstituteMenuBase {
         if (!(SNodeOperations.isInstanceOf(_context.getCurrentTargetNode(), CONCEPTS.HexLongLiteral$8Z)) && intResult != SType.NOT_A_VALUE) {
           return false;
         }
-        return (hexResult == null ? !(strictly) : hexResult != SType.NOT_A_VALUE);
+        return (hexResult == null ? !(strictly) : strictly && hexResult != SType.NOT_A_VALUE);
       }
     }
   }
