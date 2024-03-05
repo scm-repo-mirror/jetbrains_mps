@@ -204,6 +204,7 @@
         <fileset file="${artifacts.IDEA}/lib/stats.jar" />
         <fileset file="${artifacts.IDEA}/lib/platform-loader.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
+        <fileset file="${artifacts.IDEA}/lib/trove.jar" />
         <path refid="path.java.library.mps-testing-artifacts" />
         <fileset dir="${artifacts.IDEA}/plugins/java/lib" includes="*.jar" />
         <fileset file="${artifacts.IDEA}/lib/junit4.jar" />
@@ -267,6 +268,7 @@
         <fileset file="${artifacts.IDEA}/lib/stats.jar" />
         <fileset file="${artifacts.IDEA}/lib/platform-loader.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
+        <fileset file="${artifacts.IDEA}/lib/trove.jar" />
         <path refid="path.java.library.idea-jps-tests" />
         <fileset dir="${artifacts.IDEA}/plugins/java/lib" includes="*.jar" />
         <fileset file="${artifacts.IDEA}/lib/junit4.jar" />
