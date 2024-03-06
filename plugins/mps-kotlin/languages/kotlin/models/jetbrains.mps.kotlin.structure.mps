@@ -2295,6 +2295,9 @@
     <node concept="PrWs8" id="2zU6wHFnfeR" role="PrDN$">
       <ref role="PrY4T" node="7Iv8Cw7qLdE" resolve="ITypecheckingRoot" />
     </node>
+    <node concept="PrWs8" id="4DC0lW7c08" role="PrDN$">
+      <ref role="PrY4T" node="5D4bOjrr8CG" resolve="IFunctionCall" />
+    </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6Jmh">
     <property role="EcuMT" value="2936055411798373777" />
@@ -4175,6 +4178,9 @@
     </node>
     <node concept="PrWs8" id="1$jFvlEU7BR" role="PrDN$">
       <ref role="PrY4T" node="2gj5XQXEpsk" resolve="ITypeArguments" />
+    </node>
+    <node concept="PrWs8" id="4DC0lWfTKn" role="PrDN$">
+      <ref role="PrY4T" node="5D4bOjrr8CG" resolve="IFunctionCall" />
     </node>
     <node concept="t5JxF" id="1$jFvlEW9v6" role="lGtFl">
       <property role="t5JxN" value="inheritance specifier that initialize the parent type with a constructor call" />
