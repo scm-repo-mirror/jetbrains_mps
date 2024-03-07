@@ -448,7 +448,7 @@
       </build>
     </channel>
     <channel id="MPS232EAP" name="MPS 2023.2" status="eap"
-             url="https://www.jetbrains.com/mps/download"
+             url="https://www.jetbrains.com/mps/download/previous.html"
              feedback="http://youtrack.jetbrains.net/issues/MPS"
              majorVersion="2023" minorVersoin="2">
       <build number="232.10072.781" version="2023.2">
@@ -457,7 +457,7 @@
       </build>
     </channel>
     <channel id="MPS232" name="MPS 2023.2" status="release"
-             url="https://www.jetbrains.com/mps/download"
+             url="https://www.jetbrains.com/mps/download/previous.html"
              feedback="http://youtrack.jetbrains.net/issues/MPS"
              majorVersion="2023" minorVersoin="2">
       <build number="232.10072.781" version="2023.2">
@@ -466,7 +466,7 @@
       </build>
     </channel>
     <channel id="MPS233EAP" name="MPS 2023.3" status="eap"
-             url="https://www.jetbrains.com/mps/nextversion"
+             url="https://www.jetbrains.com/mps/download"
              feedback="http://youtrack.jetbrains.net/issues/MPS"
              majorVersion="2023" minorVersoin="3">
       <build number="233.13135.979" version="2023.3">
