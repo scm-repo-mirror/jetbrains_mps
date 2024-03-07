@@ -453,7 +453,7 @@
              majorVersion="2023" minorVersoin="2">
       <build number="232.10072.781" version="2023.2">
         <message>JetBrains MPS 2023.2 is now available.</message>
-        <button name="Download" url="https://www.jetbrains.com/mps/download" download="true"/>
+        <button name="Download" url="https://www.jetbrains.com/mps/download/previous.html" download="true"/>
       </build>
     </channel>
     <channel id="MPS232" name="MPS 2023.2" status="release"
@@ -462,16 +462,25 @@
              majorVersion="2023" minorVersoin="2">
       <build number="232.10072.781" version="2023.2">
         <message>JetBrains MPS 2023.2 is now available.</message>
-        <button name="Download" url="https://www.jetbrains.com/mps/download" download="true"/>
+        <button name="Download" url="https://www.jetbrains.com/mps/download/previous.html" download="true"/>
       </build>
     </channel>
     <channel id="MPS233EAP" name="MPS 2023.3" status="eap"
              url="https://www.jetbrains.com/mps/nextversion"
              feedback="http://youtrack.jetbrains.net/issues/MPS"
              majorVersion="2023" minorVersoin="3">
-      <build number="233.13135.841" version="2023.3 RC1">
-        <message>JetBrains MPS 2023.3 RC1 is now available.</message>
-        <button name="Download" url="https://www.jetbrains.com/mps/nextversion" download="true"/>
+      <build number="233.13135.979" version="2023.3">
+        <message>JetBrains MPS 2023.3 is now available.</message>
+        <button name="Download" url="https://www.jetbrains.com/mps/download" download="true"/>
+      </build>
+    </channel>
+    <channel id="MPS233" name="MPS 2023.3" status="release"
+             url="https://www.jetbrains.com/mps/download"
+             feedback="http://youtrack.jetbrains.net/issues/MPS"
+             majorVersion="2023" minorVersoin="3">
+      <build number="233.13135.979" version="2023.3">
+        <message>JetBrains MPS 2023.3 is now available.</message>
+        <button name="Download" url="https://www.jetbrains.com/mps/download" download="true"/>
       </build>
     </channel>
   </product>
