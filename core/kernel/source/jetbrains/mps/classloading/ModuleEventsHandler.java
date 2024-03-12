@@ -17,6 +17,7 @@ package jetbrains.mps.classloading;
 
 import jetbrains.mps.module.ReloadableModule;
 import jetbrains.mps.module.ReloadableModuleBase;
+import jetbrains.mps.progress.EmptyProgressMonitor;
 import jetbrains.mps.smodel.SRepositoryBatchListener;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.SModule;
@@ -93,7 +94,7 @@ class ModuleEventsHandler implements SRepositoryBatchListener {
     modulesToUpdate.sort(MODULE_COMPARATOR);
     List<ReloadableModuleBase> modulesToLoad = visitor.getModulesToLoad();
     modulesToLoad.sort(MODULE_COMPARATOR);
-    myManager.processModuleChanges(modulesToLoad, modulesToUnload, modulesToUpdate);
+    myManager.processModuleChanges(modulesToLoad, modulesToUnload, modulesToUpdate, new EmptyProgressMonitor());
   }
 
   public void pause() {

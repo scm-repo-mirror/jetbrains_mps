@@ -495,7 +495,15 @@ public class ClassLoaderManager implements CoreComponent {
   public void reloadModules(Iterable<? extends SModule> modules, @NotNull ProgressMonitor monitor) {
     checkWriteAccess();
     refresh();
-    doReloadModules(modules, monitor);
+    // this is a hack. just a missstep towards better code (once reload process with a new watcher loguc is streamlined, we won't need casts)
+    // perhaps, we can just ask watcher to give us tracked modules among these
+    Collection<ReloadableModuleBase> modulesToReload = new LinkedHashSet();
+    for (SModule module : modules) {
+      if (module instanceof ReloadableModuleBase) {
+        modulesToReload.add((ReloadableModuleBase) module);
+      }
+    }
+    processModuleChanges(Collections.emptyList(), Collections.emptyList(), new ArrayList<>(modulesToReload), monitor);
   }
 
   /**
@@ -526,41 +534,29 @@ public class ClassLoaderManager implements CoreComponent {
   }
 
 
-  void doReloadModules(Iterable<? extends SModule> modules, @NotNull ProgressMonitor monitor) {
+  private void doReloadModules(Collection<? extends ReloadableModule> modules, @NotNull ProgressMonitor monitor) {
     checkWriteAccess();
-    if (IterableUtils.isEmpty(modules)) {
+    if (modules.isEmpty()) {
       LOG.info("Reloaded 0 modules");
       return;
     }
     try {
       long beginTime = System.nanoTime();
       monitor.start("Reloading Modules", 2);
-      boolean silentMode = true;
-      for (SModule module : modules) {
-        if (!(module instanceof TempModule)) {
-          silentMode = false;
-          break;
-        }
-      }
-      Collection<ReloadableModule> modulesToReload = new LinkedHashSet();
       for (SModule module : modules) {
         if (!(module instanceof TempModule) && module.getRepository() == null) {
+          // FIXME I don't quite undertand how come TempModule from console could get repository == null (e4ebe803, MPS-20789 10yo! hotfix!!)
           throw new IllegalStateException(String.format("Cannot reload the module %s which does not belong to a repository", module));
         }
-        if (module instanceof ReloadableModule) {
-          modulesToReload.add((ReloadableModule) module);
-        }
       }
-      if (modulesToReload.isEmpty()) return;
+      Collection<ReloadableModule> modulesToReload = new LinkedHashSet<>(modules);
 
       myModulesWatcher.updateModules(modulesToReload);
       Collection<? extends ReloadableModule> unloadedModules = unloadModules(myModulesWatcher.getModuleRefs(modulesToReload), monitor.subTask(1));
       modulesToReload.addAll(unloadedModules);
       Collection<ReloadableModule> loadedModules = preLoadModules(modulesToReload, monitor.subTask(1));
 
-      if (!silentMode) {
-        LOG.info(String.format("Reloaded %d module(s) in %.3f s", loadedModules.size(), (System.nanoTime() - beginTime) / 1e9));
-      }
+      LOG.info(String.format("Reloaded %d module(s) in %.3f s", loadedModules.size(), (System.nanoTime() - beginTime) / 1e9));
     } finally {
       monitor.done();
     }
@@ -636,10 +632,13 @@ public class ClassLoaderManager implements CoreComponent {
     }
   }
 
-  /*package*/ void processModuleChanges(List<ReloadableModuleBase> toLoad, List<SModuleReference> toUnload, List<ReloadableModuleBase> toUpdate) {
+  /*package*/ void processModuleChanges(List<ReloadableModuleBase> toLoad, List<SModuleReference> toUnload, List<ReloadableModuleBase> toUpdate,
+                                        @NotNull ProgressMonitor monitor) {
+
+    monitor.start("", 3);
     if (!toUnload.isEmpty()) {
       // fixme this is wrong but otherwise we will never unload them
-      unloadModules(toUnload, new EmptyProgressMonitor());
+      unloadModules(toUnload, monitor.subTask(1, SubProgressKind.REPLACING));
       myModulesWatcher.removeModules(toUnload);
     }
     if (!toLoad.isEmpty()) {
@@ -648,16 +647,16 @@ public class ClassLoaderManager implements CoreComponent {
       //  it will be possible when we generate classpath and do not have to grab the read lock when calculating the dependencies
       //  then we will be able to return the up-to-date classloader without
       // TODO ^^^ as the logic moved to CLM, update the comment
-      preLoadModules(toLoad, new EmptyProgressMonitor());
+      preLoadModules(toLoad, monitor.subTask(1, SubProgressKind.REPLACING));
     }
     if (!toUpdate.isEmpty()) {
       // fixme ?
       //   likely, the use of CLM, as the comment above, for preLoadModules() suggests
-      doReloadModules(toUpdate, new EmptyProgressMonitor());
+      doReloadModules(toUpdate, monitor.subTask(1, SubProgressKind.REPLACING));
       // XXX myModulesWatcher.updateModules() happens from CLM.doReloadModules(). Shall either move all myModulesWatcher notifications into CLM
       //     or to move updateModules here!
     }
-
+    monitor.done();
   }
 
   enum DeploymentStatuses implements DeploymentStatus {
