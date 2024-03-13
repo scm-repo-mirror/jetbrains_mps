@@ -142,13 +142,17 @@ import java.util.stream.Stream;
           affectedForRemove.add(myRefStorage2.get(cm));
         });
 
+        HashSet<SModuleReference> aniticipated = new HashSet<>();
         for (ReloadableModule module : myModulesToAdd) {
           SModuleReference mRef = module.getModuleReference();
           if (myDepGraphHolder.contains(mRef)) {
             LOG.debug("Module being added has been expected " + module);
             // we've been expecting this module to show up
             myDepGraphHolder.fillIncomingEdgesShallow(Collections.singleton(mRef), recalculateStatus);
+            // XXX perhaps, deep incoming CModule into affectedForRemove?
             storageUpdate(module, affectedForRemove, affectedForAdd);
+            // anticipated module, all others that depend from it shall get loaded (if their dependencies are satisfied)
+            aniticipated.add(mRef);
           } else {
             LOG.debug("Adding previously unknown module " + module);
             myDepGraphHolder.add(mRef);
@@ -163,7 +167,9 @@ import java.util.stream.Stream;
           if (myDepGraphHolder.contains(mRef)) {
             // assert myRefStorage.resolveRef(mRef) != null;  FIXME CoreTestSuite and TemplateModelScanTest get here at dispose/closeProject, investigate
             myDepGraphHolder.fillIncomingEdgesShallow(Collections.singleton(mRef), recalculateStatus);
+            // XXX perhaps, deep incoming CModule into affectedForRemove?
             storageUpdate(module, affectedForRemove, affectedForAdd);
+            aniticipated.add(mRef);
           } else {
             LOG.debug("Adding changed module " + module);
             myDepGraphHolder.add(mRef);
@@ -172,6 +178,11 @@ import java.util.stream.Stream;
           recalculateEdges.add(mRef); // changed module, regardless of what we knew about it, need to figure out its dependencies again
           recalculateStatus.add(mRef);
         }
+        // modules with broken dependencies that were expected but not met, get a chance to load
+        myDepGraphHolder.fillIncomingEdgesDeep(aniticipated, cm -> {
+          affectedForAdd.add(myRefStorage2.get(cm));
+        });
+
         recalculateStatus.removeAll(removedCModuleRefs);
         HashSet<SModuleReference> newTargets = new HashSet<>(); // if changed modules yield any new vertex, update it status
         updateEdges(recalculateEdges, newTargets); // XXX updateEdges may report verticies that lost incoming edge, to check here if the vertex got no incoming refs and we can drop it from the graph, see +2 lines below. FUTURE
