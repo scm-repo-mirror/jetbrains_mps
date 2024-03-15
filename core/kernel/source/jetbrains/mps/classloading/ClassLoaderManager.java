@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2023 JetBrains s.r.o.
+ * Copyright 2003-2024 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,6 +40,7 @@ import org.jetbrains.mps.openapi.util.SubProgressKind;
 import org.jetbrains.mps.util.Condition;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashSet;
@@ -47,6 +48,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 import static java.lang.ClassLoader.getSystemClassLoader;
 import static jetbrains.mps.classloading.ClassLoadingProgress.LOADED;
@@ -200,17 +202,18 @@ public class ClassLoaderManager implements CoreComponent {
 
   private final SRepository myRepository;
 
-  private final MPSClassLoadersRegistry myClassLoadersHolder;
+  private final MPSClassLoadersRegistry myClassLoadersHolder; // TODO ideally, shall be satisfied with SModuleReference and no repo access
 
   private final ModulesWatcher myModulesWatcher;
 
-  private final ClassLoadingBroadCaster myBroadCaster;
+  private final ClassLoadingBroadCaster myBroadCaster; // needs ReloadableModule instance as its DeployListener operates with it
 
   private final ModuleEventsHandler myRepositoryListener;
 
   public ClassLoaderManager(@NotNull SRepository repository) {
     myRepository = repository;
     myModulesWatcher = new ModulesWatcher(myRepository, myWatchableCondition);
+    // needs watcher just to obtain dependencies when creating CL support. FIXME pass a factory e.g. onLazyLoaded and don't expose watcher (or SModule/repo!)
     myClassLoadersHolder = new MPSClassLoadersRegistry(myModulesWatcher);
     // XXX ModuleEventsHandler implies we care about ReloadableModuleBase instances, and the rest of this code
     //     sort of assumes it receives these instances (e.g. conditions)
@@ -443,38 +446,35 @@ public class ClassLoaderManager implements CoreComponent {
    * FIXME not sure supplied modules match myMPSLoadableCondition, perhaps externally-managed modules are
    *       among these, as well. If yes, this means we dispatch different set of modules in onLoaded and in onUnloaded
    */
-  @NotNull
-  Collection<ReloadableModule> unloadModules(Iterable<? extends SModuleReference> modules, @NotNull ProgressMonitor monitor) {
+  private void unloadModules(Iterable<? extends ReloadableModule> modules, @NotNull ProgressMonitor monitor) {
     // pre: modules - transitive closure
     checkWriteAccess();
     monitor.start("Unloading", 6);
     try {
-      return runTransaction(() -> {
-        Condition<SModuleReference> loadedCondition = new NotCondition<>(myUnloadedRefCondition);
-        Set<SModuleReference> modulesToUnload = filterModules(modules, loadedCondition);
-        if (modulesToUnload.isEmpty()) return Collections.emptySet();
+      runTransaction(() -> {
+        Condition<ReloadableModule> loadedCondition = new NotCondition<>(myUnloadedCondition);
+        // LAZY_LOADED or LOADED
+        Set<ReloadableModule> modulesToUnload = filterModules(modules, loadedCondition);
+        if (modulesToUnload.isEmpty()) {
+          return;
+        }
         monitor.advance(1);
 
         LOG.debug("Unloading " + modulesToUnload.size() + " modules");
-        Collection<ReloadableModule> unloadedModules = myBroadCaster.onUnload(modulesToUnload, monitor.subTask(4, SubProgressKind.AS_COMMENT));
-        // FIXME likely, due to the nature of myBroadCaster.onUnload, modulesToUnload would contain modules with MPS-managed CL only
-        //       (broadcaster keeps map of modules it sent event for, and it doesn't send any for non-MPS compile modules at the moment)
-        myClassLoadersHolder.doUnloadModules(modulesToUnload);
+        myBroadCaster.onUnload(modulesToUnload, monitor.subTask(4, SubProgressKind.AS_COMMENT));
+        // FIXME Do modulesToUnload contain modules with MPS-managed CL only? What happens for modules with IDEA CL delegate?
+        myClassLoadersHolder.doUnloadModules(modulesToUnload.stream().map(ReloadableModule::getModuleReference).collect(Collectors.toList()));
         monitor.advance(1);
-
-        return unloadedModules;
       });
     } finally {
       monitor.done();
     }
   }
 
-  static <M> Set<M> filterModules(Iterable<? extends M> modules, Condition<M>... conditions) {
-    CompositeCondition<M> compositeCondition = new CompositeCondition<>(conditions);
+  static <M> Set<M> filterModules(Iterable<? extends M> modules, Condition<? super M>... conditions) {
+    CompositeCondition<M> compositeCondition = new CompositeCondition<M>(conditions);
     Set<M> filteredModules = new LinkedHashSet<>();
-    for (M module : modules) {
-      if (compositeCondition.met(module)) filteredModules.add(module);
-    }
+    StreamSupport.stream(modules.spliterator(), false).filter(compositeCondition.asPredicate()).forEach(filteredModules::add);
     return filteredModules;
   }
 
@@ -617,7 +617,7 @@ public class ClassLoaderManager implements CoreComponent {
     UpdateOutcome r = myModulesWatcher.update(toLoad, toUnload, toUpdate, monitor.subTask(2, SubProgressKind.REPLACING));
     // FIXME combine next 2 into single transaction
     // FIXME unload shall take the list as complete closure and not look into myModylesWatcher
-    unloadModules(r.unloaded.stream().map(ReloadableModule::getModuleReference).collect(Collectors.toList()), monitor.subTask(1, SubProgressKind.REPLACING));
+    unloadModules(r.unloaded, monitor.subTask(1, SubProgressKind.REPLACING));
     // FIXME preLoadModules shall take the list as complete set and not look into myModulesWatcher and its deps
     preLoadModules(r.loaded, monitor.subTask(1, SubProgressKind.REPLACING));
 
@@ -659,16 +659,18 @@ public class ClassLoaderManager implements CoreComponent {
 
   // conditions part
   private static class CompositeCondition<T> implements Condition<T> {
-    private final Condition<T>[] myConditions;
+    private final Condition<? super T>[] myConditions;
 
-    public CompositeCondition(Condition<T>... conditions) {
+    public CompositeCondition(Condition<? super T>... conditions) {
       myConditions = conditions;
     }
 
     @Override
     public boolean met(T t) {
-      for (Condition<T> condition : myConditions) {
-        if (!condition.met(t)) return false;
+      for (Condition<? super T> condition : myConditions) {
+        if (!condition.met(t)) {
+          return false;
+        }
       }
       return true;
     }
