@@ -51,10 +51,11 @@ import java.util.stream.Collectors;
   private final SRepository myRepository;
   private final Map<SModuleReference, List<SearchError>> myModulesWithAbsentDeps = new HashMap<>();
 
-  private UsedModulesCollector myModulesCollector;
+  private final UsedModulesCollector myModulesCollector;
 
-  public CLDependencies(SRepository repository) {
+  public CLDependencies(@NotNull SRepository repository) {
     myRepository = repository;
+    myModulesCollector = new UsedModulesCollector(repository);
   }
 
   /**
@@ -150,10 +151,5 @@ import java.util.stream.Collectors;
   /*package*/ List<SearchError> getLegacyDependencyErrors(SModuleReference mref) {
     List<SearchError> rv = myModulesWithAbsentDeps.get(mref);
     return rv != null ? Collections.unmodifiableList(rv) : Collections.emptyList();
-  }
-
-  public void reset() {
-    myModulesWithAbsentDeps.clear();
-    myModulesCollector = new UsedModulesCollector(myRepository);
   }
 }

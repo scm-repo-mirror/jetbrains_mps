@@ -38,12 +38,10 @@ public class GraphHolder<V> {
   }
 
   public int getEdgesCount() {
-    checkGraphsCorrectness();
     return myGraph.getEdgesCount();
   }
 
   public int getVerticesCount() {
-    checkGraphsCorrectness();
     return myGraph.getVerticesCount();
   }
 
