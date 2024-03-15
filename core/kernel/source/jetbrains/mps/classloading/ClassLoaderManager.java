@@ -40,7 +40,6 @@ import org.jetbrains.mps.openapi.util.SubProgressKind;
 import org.jetbrains.mps.util.Condition;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashSet;
@@ -120,7 +119,7 @@ import static jetbrains.mps.classloading.ClassLoadingProgress.UNLOADED;
  *
  * Repository lock policy
  * Every reload requires a repository write lock. Actual ModuleClassLoader construction happens inside the read action,
- * @see #doLoadModules(Collection, ProgressMonitor)
+ * @see #createClassloaders(Collection, ProgressMonitor)
  *
  *
  * FIXME logic here must be rewritten in a more abstract way to allow both lazy and non-lazy implementations
@@ -306,7 +305,7 @@ public class ClassLoaderManager implements CoreComponent {
     if (!myValidCondition.met(reloadableModule)) {
       return DEFAULT_DELEGATING_TO_SYSTEM_CL;
     }
-    doLoadModules(Collections.singleton(reloadableModule), new EmptyProgressMonitor());
+    createClassloaders(Collections.singleton(reloadableModule), new EmptyProgressMonitor());
     MPSModuleClassLoader classLoader = myClassLoadersHolder.getClassLoader(reloadableModule.getModuleReference());
     return classLoader != null ? classLoader : DEFAULT_DELEGATING_TO_SYSTEM_CL;
   }
@@ -318,17 +317,14 @@ public class ClassLoaderManager implements CoreComponent {
   @Internal
   public void runTransaction(@NotNull Runnable transaction) {
     myRepository.getModelAccess().checkReadAccess();
-    runTransaction(() -> {
-      transaction.run();
-      return "no_result";
-    });
+    _runTransaction(transaction);
   }
 
-  private <T> T runTransaction(@NotNull Computable<T> transaction) {
+  private void _runTransaction(@NotNull Runnable transaction) {
     // FIXME use tryLock(timeout), and, perhaps, few attempts for uses from CLM (where 'write' is held)
     myLoadingModulesLock.lock();
     try {
-      return transaction.compute();
+      transaction.run();
     } finally {
       myLoadingModulesLock.unlock();
     }
@@ -340,11 +336,11 @@ public class ClassLoaderManager implements CoreComponent {
   @Deprecated(since = "201", forRemoval = true)
   @Internal
   public void runNonReloadableSection(@NotNull Runnable runnable) {
-    myRepository.getModelAccess().runReadAction(myRepositoryListener::pause);
+    myRepositoryListener.pause();
     try {
       runnable.run();
     } finally {
-      myRepository.getModelAccess().runReadAction(myRepositoryListener::proceed);
+      myRepositoryListener.proceed();
     }
   }
 
@@ -360,7 +356,7 @@ public class ClassLoaderManager implements CoreComponent {
 
   /**
    * @param modules are modules which are about to load. The notifications for {@link DeployListener} are sent here.
-   * The actual load happens in {@link #doLoadModules} on a method call of {@link #getClassLoader}.
+   * The actual load happens in {@link #createClassloaders} on a method call of {@link #getClassLoader}.
    *
    * Note: currently we need to broadcast load/unload events because there are clients of {@link DeployListener}
    * These clients need to be rewritten in a lazy way, i.e. using only #getClass [#getClassLoader] method. (do they?)
@@ -371,7 +367,7 @@ public class ClassLoaderManager implements CoreComponent {
     monitor.start("Loading", 6);
 
     try {
-      runTransaction(() -> {
+      _runTransaction(() -> {
         // TODO would be great to send out events only for modules with non-empty CL, i.e. to avoid
         //       warnings like "Missing language runtime class" on loaded + "No language with id" on unloaded
         //       for modules not yet compiled
@@ -402,13 +398,16 @@ public class ClassLoaderManager implements CoreComponent {
    * @see #myValidCondition
    */
   @NotNull
-  private Collection<ReloadableModule> doLoadModules(final Collection<? extends ReloadableModule> modules, final ProgressMonitor monitor) {
+  private void createClassloaders(final Collection<? extends ReloadableModule> modules, final ProgressMonitor monitor) {
     monitor.start("Loading", 1);
     try {
-      return runTransaction(() -> {
+      // this is the only place we can't be sure there's model read, hence it's vital to go with runTransaction() that doesn't assert read.
+      // XXX Note, there's no guarantee getClassLoader() -> createClassLoaders is invoked from a thread with model read (although indeed it happens for
+      //     SModule which implies model read. Not the case e.g. for our own ModulesReloadTest
+      _runTransaction(() -> {
         Set<ReloadableModule> modulesToLoad = filterModules(modules, myValidCondition);
         if (modulesToLoad.isEmpty()) {
-          return Collections.emptySet();
+          return;
         }
 
         // transitive closure
@@ -419,7 +418,7 @@ public class ClassLoaderManager implements CoreComponent {
         modulesToLoad.addAll(myModulesWatcher.getResolvedDependencies(modulesToLoad));
         modulesToLoad = filterModules(modulesToLoad, myNotLoadedCondition);
         if (modulesToLoad.isEmpty()) {
-          return Collections.emptySet();
+          return;
         }
 
         LOG.debug("Loading " + modulesToLoad.size() + " modules");
@@ -431,7 +430,6 @@ public class ClassLoaderManager implements CoreComponent {
           LOG.warning(String.format("Some modules are not preloaded yet, request to load (%s), unloaded: (%s)", s1, s2));
         }
         myClassLoadersHolder.doLoadModules(modulesToLoad);
-        return modulesToLoad;
       });
     } finally {
       monitor.done();
@@ -451,7 +449,7 @@ public class ClassLoaderManager implements CoreComponent {
     checkWriteAccess();
     monitor.start("Unloading", 6);
     try {
-      runTransaction(() -> {
+      _runTransaction(() -> {
         Condition<ReloadableModule> loadedCondition = new NotCondition<>(myUnloadedCondition);
         // LAZY_LOADED or LOADED
         Set<ReloadableModule> modulesToUnload = filterModules(modules, loadedCondition);
