@@ -47,9 +47,12 @@ import java.util.stream.Stream;
 /*package*/ final class ModuleUpdater {
   private static final Logger LOG = Logger.getLogger(ModuleUpdater.class);
 
-  private volatile boolean myChangedFlag = false;
+  // inv: only modules unknown to the graph, freshly added and not known e.g. as a broken/valid dependency target
   private final Set<ReloadableModule> myModulesToAdd = new LinkedHashSet<>();
+  // inv: modules graph have already seen, either valid/broken.
   private final Set<ReloadableModule> myModulesToReload = new LinkedHashSet<>();
+  // inv: modules known to the graph, generally valid (although I could imagine moduleA (known) -> moduleB (reported as dep target), moduleB
+  //      not matching "watchable" condition AND never changed, hence never making it neither to addModules() nor to updateModules(changed)
   private final Set<SModuleReference> myModulesToRemove = new LinkedHashSet<>();
   private final GraphHolder<SModuleReference> myDepGraphHolder;
   private final Map<SModuleReference, CModule> myRefStorage2;
@@ -68,18 +71,32 @@ import java.util.stream.Stream;
   // pre: modules.forEach(we've seen this module - either as a CL objective or as a broken/valid dependency target thereof)
   /*package*/ void updateModules(@NotNull Collection<? extends ReloadableModule> modules) {
     for (ReloadableModule module : modules) {
-      myModulesToReload.add(module);
-      myChangedFlag = true;
+      if (myDepGraphHolder.contains(module.getModuleReference())) {
+        myModulesToReload.add(module); // CModule
+        myModulesToAdd.remove(module);
+        myModulesToRemove.remove(module.getModuleReference()); // CModule
+      } else {
+        // e.g. module didn't have JMF, we ignored it on add, nobody depends; now got JMF, and is reported as "changed"
+        myModulesToReload.remove(module);
+        myModulesToAdd.add(module);
+        myModulesToRemove.remove(module.getModuleReference()); // assert noneMatch
+      }
     }
   }
 
   // pre: modules.forEach(module is CL objective/suitable for CL)
   /*package*/ void addModules(@NotNull Collection<? extends ReloadableModule> modules) {
     for (ReloadableModule module : modules) {
-      myChangedFlag = true;
-      myModulesToAdd.add(module);
-      myModulesToRemove.remove(module.getModuleReference());
-      // XXX do we need to care about myModulesToReload here?
+      if (myDepGraphHolder.contains(module.getModuleReference())) {
+        assert !myModulesToAdd.contains(module);
+        myModulesToReload.add(module); // CModule?
+        myModulesToRemove.remove(module.getModuleReference()); // TODO CModule
+      } else {
+        myModulesToAdd.add(module);
+        assert !myModulesToReload.contains(module); // just in case, for the sake of completeness. can't imagine we get "changed" first, and then "added"
+        myModulesToRemove.remove(module.getModuleReference()); // can't remove(CModule), OTOH could be just assert myModulesToRemove.noneMatch(cm.getMR() == module.MR())
+        // as there's no chance to get removeModules() for known MR and then addModules() as unknown (we don't remove anything from the graph while collecting changes)
+      }
     }
   }
 
@@ -92,7 +109,6 @@ import java.util.stream.Stream;
           myModulesToReload.remove(instance.getModule());
         }
         myModulesToRemove.add(mRef);
-        myChangedFlag = true;
       }
     }
   }
@@ -103,7 +119,6 @@ import java.util.stream.Stream;
     // assumes appropriate model access
       LOG.debug(String.format("Refreshing classloading graph adding: %d, removing %d, updating %d", myModulesToAdd.size(),
           myModulesToRemove.size(), myModulesToReload.size()));
-        myChangedFlag = false;
 
         assert !CollectionUtil.intersects(myModulesToAdd.stream().map(ReloadableModule::getModuleReference).collect(Collectors.toList()), myModulesToRemove);
         for (SModuleReference mRef : myModulesToRemove) {
@@ -134,46 +149,31 @@ import java.util.stream.Stream;
           affectedForRemove.add(myRefStorage2.get(cm));
         });
 
-        HashSet<SModuleReference> aniticipated = new HashSet<>();
         for (ReloadableModule module : myModulesToAdd) {
           SModuleReference mRef = module.getModuleReference();
-          if (myDepGraphHolder.contains(mRef)) {
-            LOG.debug("Module being added has been expected " + module);
-            // we've been expecting this module to show up
-            myDepGraphHolder.fillIncomingEdgesShallow(Collections.singleton(mRef), recalculateStatus);
-            // XXX perhaps, deep incoming CModule into affectedForRemove?
-            storageUpdate(module);
-            // anticipated module, all others that depend from it shall get loaded (if their dependencies are satisfied)
-            aniticipated.add(mRef);
-          } else {
-            LOG.debug("Adding previously unknown module " + module);
-            myDepGraphHolder.add(mRef);
-            storageAdd(module);
-          }
-          recalculateEdges.add(mRef); // either known or unknown, need to make sure its edges are correct,
-                                      // 'known' in added - likely mean we anticipated its appearance as a dependency target of another module
+          assert !myDepGraphHolder.contains(mRef);
+          LOG.debug("Adding previously unknown module " + module);
+          myDepGraphHolder.add(mRef);
+          storageAdd(module);
+          recalculateEdges.add(mRef); // unknown, need its edges.
           recalculateStatus.add(mRef);
         }
         HashSet<SModuleReference> knownAndChanged = new HashSet<>();
         for (ReloadableModule module : myModulesToReload) {
           SModuleReference mRef = module.getModuleReference();
-          if (myDepGraphHolder.contains(mRef)) {
-            // assert myRefStorage.resolveRef(mRef) != null;  FIXME CoreTestSuite and TemplateModelScanTest get here at dispose/closeProject, investigate
-            myDepGraphHolder.fillIncomingEdgesShallow(Collections.singleton(mRef), recalculateStatus);
-            // XXX perhaps, deep incoming CModule into affectedForRemove?
-            storageUpdate(module);
-            aniticipated.add(mRef);
-            knownAndChanged.add(mRef);
-          } else {
-            LOG.debug("Adding changed module " + module);
-            myDepGraphHolder.add(mRef);
-            storageAdd(module);
-          }
-          recalculateEdges.add(mRef); // changed module, regardless of what we knew about it, need to figure out its dependencies again
+          assert myDepGraphHolder.contains(mRef);
+          // could be CModule.getModule() == null, if we anticipated its appearance as a dependency target of another module
+          LOG.debug("Adding changed module " + module);
+          myDepGraphHolder.fillIncomingEdgesShallow(Collections.singleton(mRef), recalculateStatus);
+          // anticipated module, all others that depend from it shall get loaded (if their dependencies are satisfied)
+          knownAndChanged.add(mRef);
+          // XXX perhaps, deep incoming CModule into affectedForRemove?
+          storageUpdate(module);
+          recalculateEdges.add(mRef); // need to figure out its dependencies again
           recalculateStatus.add(mRef);
         }
         // modules with broken dependencies that were expected but not met, get a chance to load
-        myDepGraphHolder.fillIncomingEdgesDeep(aniticipated, cm -> {
+        myDepGraphHolder.fillIncomingEdgesDeep(knownAndChanged, cm -> {
           affectedForAdd.add(myRefStorage2.get(cm));
         });
         // changed modules we've known before - what if it's a dependency change to a module long gone?
@@ -278,7 +278,7 @@ import java.util.stream.Stream;
   }
 
   public boolean isDirty() {
-    return myChangedFlag;
+    return !(myModulesToAdd.isEmpty() && myModulesToReload.isEmpty() && myModulesToRemove.isEmpty());
   }
 
   private void storageForget(SModuleReference mRef) {

@@ -123,6 +123,8 @@ public class ModulesWatcher {
       // XXX here we assume modules are unique
       ArrayList<ReloadableModule> known = new ArrayList<>(changed.size());
       ArrayList<ReloadableModule> unknown = new ArrayList<>();
+      // I'd love to move this code to updateModules(), but need to filter unknown with myWatchableCondition, and don't want MU to know about one
+      // although now, with MU as local instance here, not a big deal to pass myWatchableCondition right into updateModules()
       for (ReloadableModule m : changed) {
         if (myDepGraphHolder.contains(m.getModuleReference())) {
           known.add(m);
@@ -130,6 +132,8 @@ public class ModulesWatcher {
           unknown.add(m);
         }
       }
+      // XXX order we process events here is suspicious. What if removed event comes *after* added, yet here we reverse processing order
+      // FIXME better is to get ordered list of events, and add/remove/update according to their order!
       moduleUpdater.removeModules(removed);
       moduleUpdater.addModules(Stream.concat(added.stream(), unknown.stream()).filter(myWatchableCondition).collect(Collectors.toList()));
       moduleUpdater.updateModules(known);

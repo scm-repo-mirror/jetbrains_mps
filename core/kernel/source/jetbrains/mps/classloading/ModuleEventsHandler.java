@@ -88,6 +88,7 @@ class ModuleEventsHandler implements SRepositoryBatchListener {
     }
 
     // fixme we should move rather to the accurate events processing instead of calculating status for each module
+    // FIXME replace with ordered list of events, not to guess whether we have to process added then removed or vice versa!
     List<SModuleReference> modulesToUnload = visitor.getModulesToUnload();
     modulesToUnload.sort(MODULE_COMPARATOR.reversed());
     List<ReloadableModuleBase> modulesToUpdate = visitor.getModulesToUpdate();
