@@ -40,6 +40,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -56,11 +57,9 @@ final class MPSClassLoadersRegistry {
   private final Map<SModuleReference, ModuleClassLoaderSupport> myMPSClassLoaders = new HashMap<>();
   private final Map<SModuleReference, MPSModuleClassLoader> myIDEAClassLoaders = new HashMap<>();
   private final Map<SModuleReference, ClassLoadingProgress> myMPSLoadableModules = new HashMap<>();
-  private final ModulesWatcher myModulesWatcher;
   private final ModuleClassLoaderDisposer myModuleClassLoaderDisposer = new ModuleClassLoaderDisposer(this);
 
-  public MPSClassLoadersRegistry(ModulesWatcher modulesWatcher) {
-    myModulesWatcher = modulesWatcher;
+  public MPSClassLoadersRegistry() {
   }
 
   /*package*/ MPSModuleClassLoader getClassLoader(@NotNull SModuleReference mref) {
@@ -102,10 +101,12 @@ final class MPSClassLoadersRegistry {
   }
 
   /**
+   * Note, this method doesn't destroy any CL, it merely records a fact there are no CL for a module and forgets their instances
+   *
    * @param toUnload for these modules ModuleClassLoaders were disposed
    * @return modules which changed their ClassLoadingProgress from LAZY_LOADED or LOADED to UNLOADED.
    */
-  public void doUnloadModules(Collection<SModuleReference> toUnload) {
+  /*package*/ void forgetClassLoaders(Collection<SModuleReference> toUnload) {
     for (SModuleReference mRef : toUnload) {
       if (!myMPSLoadableModules.containsKey(mRef)) {
         LOG.error("", new IllegalStateException("Module " + mRef + " is not loaded -- cannot unload"));
@@ -147,8 +148,9 @@ final class MPSClassLoadersRegistry {
 
   /**
    * @param toLoad for these modules ModuleClassLoaders were actually created
+   * @param deps answers with dependencies of a module
    */
-  /*package*/ void createClassLoaders(final Collection<? extends ReloadableModule> toLoad) {
+  /*package*/ void createClassLoaders(final Collection<? extends ReloadableModule> toLoad, Function<SModuleReference, Collection<SModuleReference>> deps) {
     ArrayList<ReloadableModule> forExtLoader = new ArrayList<>();
     for (ReloadableModule module : toLoad) {
       SModuleReference moduleReference = module.getModuleReference();
@@ -158,7 +160,7 @@ final class MPSClassLoadersRegistry {
       } else if (progress == ClassLoadingProgress.LAZY_LOADED) {
         final JavaModuleFacet jmf = module.getFacet(JavaModuleFacet.class);
         if (jmf.getLoadClasses() == LoadClasses.ManagedByMPS) {
-          ModuleClassLoaderSupport clSupport = prepareModuleClassLoader(module);
+          ModuleClassLoaderSupport clSupport = prepareModuleClassLoader(module, deps);
           myMPSClassLoaders.put(moduleReference, clSupport);
         } else if (jmf.getLoadClasses() == LoadClasses.ManagedByContributor) {
           forExtLoader.add(module); // do these at once later
@@ -172,12 +174,12 @@ final class MPSClassLoadersRegistry {
     prepareExternalClassLoader(forExtLoader);
   }
 
-  private ModuleClassLoaderSupport prepareModuleClassLoader(@NotNull ReloadableModule module) {
+  private ModuleClassLoaderSupport prepareModuleClassLoader(@NotNull ReloadableModule module, Function<SModuleReference, Collection<SModuleReference>> dependencies) {
     LOG.debug("Creating ModuleClassLoader for " + module);
-    // FIXME myModulesWatcher is not a state of this class, rather an argument (as a Function, perhaps) to #createClassLoaders()
-    Collection<SModuleReference> deps = myModulesWatcher.getDependencies(Collections.singletonList(module.getModuleReference()));
+    final Collection<SModuleReference> deps = dependencies.apply(module.getModuleReference());
     // we don't need SModule/ReloadableModule instance for dependencies, all CLs (or at least their respective support)
     // have to be initialized the moment we ask for dependencies
+    // XXX I wonder if for dependencies we have to go through CLM.getClassLoader() instead of this.getClassLoader(), for uniformity.
     final ModuleClassLoaderSupport support = ModuleClassLoaderSupport.create(module, () -> deps.stream()
                                                                                                .map(this::getClassLoader)
                                                                                                .distinct()

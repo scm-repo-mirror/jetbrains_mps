@@ -194,7 +194,8 @@ public class ClassLoaderManager implements CoreComponent {
 
   private final SRepository myRepository;
 
-  private final MPSClassLoadersRegistry myClassLoadersHolder; // TODO ideally, shall be satisfied with SModuleReference and no repo access
+  // TODO ideally, shall be satisfied with SModuleReference and no repo access, at the moment still needs SRepo access
+  private final MPSClassLoadersRegistry myClassLoadersHolder = new MPSClassLoadersRegistry();
 
   private final ModulesWatcher myModulesWatcher;
 
@@ -205,8 +206,6 @@ public class ClassLoaderManager implements CoreComponent {
   public ClassLoaderManager(@NotNull SRepository repository) {
     myRepository = repository;
     myModulesWatcher = new ModulesWatcher(myRepository, myWatchableCondition);
-    // needs watcher just to obtain dependencies when creating CL support. FIXME pass a factory e.g. onLazyLoaded and don't expose watcher (or SModule/repo!)
-    myClassLoadersHolder = new MPSClassLoadersRegistry(myModulesWatcher);
     // XXX ModuleEventsHandler implies we care about ReloadableModuleBase instances, and the rest of this code
     //     sort of assumes it receives these instances (e.g. conditions)
     myRepositoryListener = new ModuleEventsHandler(repository, this);
@@ -375,7 +374,7 @@ public class ClassLoaderManager implements CoreComponent {
     // XXX in fact, with immediate subsequent createClassLoaders(), it's almost useless, but I left it for another round of refactoring
     myClassLoadersHolder.markLazyLoaded(modulesPreLoad.stream().map(ReloadableModule::getModuleReference).collect(Collectors.toList()));
     // while we still hold model read for SModule, crate CLs for them
-    myClassLoadersHolder.createClassLoaders(modulesPreLoad);
+    myClassLoadersHolder.createClassLoaders(modulesPreLoad, mr -> myModulesWatcher.getDependencies(mr));
     monitor.advance(1);
     myBroadCaster.onLoad(modulesPreLoad, monitor.subTask(4, SubProgressKind.AS_COMMENT));
 
@@ -403,9 +402,10 @@ public class ClassLoaderManager implements CoreComponent {
     monitor.advance(1);
 
     LOG.debug("Unloading " + modulesToUnload.size() + " modules");
+    // XXX onUnload() creates a session that tracks discarded CLs, while there's also myClassLoadersHolder that discards CLs as well. Can't be combined?
     myBroadCaster.onUnload(modulesToUnload, monitor.subTask(4, SubProgressKind.AS_COMMENT));
     // FIXME Do modulesToUnload contain modules with MPS-managed CL only? What happens for modules with IDEA CL delegate?
-    myClassLoadersHolder.doUnloadModules(modulesToUnload.stream().map(ReloadableModule::getModuleReference).collect(Collectors.toList()));
+    myClassLoadersHolder.forgetClassLoaders(modulesToUnload.stream().map(ReloadableModule::getModuleReference).collect(Collectors.toList()));
     monitor.advance(1);
     monitor.done();
   }

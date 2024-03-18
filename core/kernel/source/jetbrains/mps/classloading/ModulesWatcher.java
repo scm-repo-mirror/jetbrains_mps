@@ -29,6 +29,7 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import org.jetbrains.mps.util.Condition;
 
 import java.text.MessageFormat;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -228,9 +229,9 @@ public class ModulesWatcher {
                                          "it has a direct dependency on another invalid module ''{1}''", module, depRef));
         }
       }
-      Collection<SModuleReference> dependencies = new LinkedHashSet<>(getDependencies(Collections.singleton(module)));
+      Collection<SModuleReference> dependencies = new LinkedHashSet<>(getDependencies(module));
       dependencies.removeAll(directDependencies); // I've already shown these
-      dependencies.remove(module);
+      dependencies.remove(module); // well, it's not there, getDependencies() is exclusive of the starting element
       for (var depRef : dependencies) {
         if (rootInvalid.contains(depRef)) {
           LOG.trace(MessageFormat.format("The module ''{0}'' is" +
@@ -348,11 +349,11 @@ public class ModulesWatcher {
   /**
    * @return all dependencies of this module (closed set under dependency-relation)
    */
-  public Collection<SModuleReference> getDependencies(Iterable<SModuleReference> mRefs) {
+  public Collection<SModuleReference> getDependencies(SModuleReference mRef) {
     synchronized (myDepGraphLock) {
-      final Collection<SModuleReference> result = new ArrayList<>();
-      myDepGraphHolder.fillOutgoingEdgesDeep(mRefs, result::add);
-      mRefs.forEach(result::remove);
+      final Collection<SModuleReference> result = new ArrayDeque<>(); // I assume the vertex we start with would be the first one to get added, hence cheap to remove
+      myDepGraphHolder.fillOutgoingEdgesDeep(Collections.singleton(mRef), result::add);
+      result.remove(mRef);
       return result;
     }
   }
