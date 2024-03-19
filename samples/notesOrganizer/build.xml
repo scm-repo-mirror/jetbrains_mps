@@ -42,19 +42,6 @@
   
   <target name="assemble" depends="classes, declare-mps-tasks">
     <mkdir dir="${build.layout}/notesOrganizer" />
-    <mkdir dir="${build.layout}/notesOrganizer/META-INF" />
-    <echoxml file="${build.layout}/notesOrganizer/META-INF/plugin.xml">
-      <idea-plugin xmlns:xi="http://www.w3.org/2001/XInclude">
-        <id>notesOrganizer</id>
-        <name>notesOrganizer</name>
-        <version>1.0</version>
-        <depends>jetbrains.mps.core</depends>
-        
-        <extensions defaultExtensionNs="com.intellij">
-          <mps.LanguageLibrary dir="/languages" />
-        </extensions>
-      </idea-plugin>
-    </echoxml>
     <mkdir dir="${build.layout}/notesOrganizer/lib" />
     <mkdir dir="${build.tmp}/default/notesOrganizer.jar" />
     <mkdir dir="${build.tmp}/default/notesOrganizer.jar/META-INF" />

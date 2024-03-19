@@ -35,20 +35,6 @@
   <target name="assemble" depends="classes, declare-mps-tasks">
     <mkdir dir="${build.layout}/plugins" />
     <mkdir dir="${build.layout}/plugins/mps-buildTest2" />
-    <mkdir dir="${build.layout}/plugins/mps-buildTest2/META-INF" />
-    <echoxml file="${build.layout}/plugins/mps-buildTest2/META-INF/plugin.xml">
-      <idea-plugin xmlns:xi="http://www.w3.org/2001/XInclude">
-        <id>jetbrains.mps.buildTest2</id>
-        <name>Build Test SandBox</name>
-        <version>1.0.0</version>
-        <depends>jetbrains.mps.core</depends>
-        <depends>jetbrains.mps.build</depends>
-        
-        <extensions defaultExtensionNs="com.intellij">
-          <mps.LanguageLibrary dir="/languages" />
-        </extensions>
-      </idea-plugin>
-    </echoxml>
     <mkdir dir="${build.layout}/plugins/mps-buildTest2/lib" />
     <mkdir dir="${build.tmp}/default/mps-buildTest2.jar" />
     <mkdir dir="${build.tmp}/default/mps-buildTest2.jar/META-INF" />

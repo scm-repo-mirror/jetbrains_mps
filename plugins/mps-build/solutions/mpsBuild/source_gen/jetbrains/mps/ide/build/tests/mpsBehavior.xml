@@ -69,20 +69,6 @@
   <target name="assemble" depends="classes, declare-mps-tasks">
     <mkdir dir="${build.layout}/behavior-tests" />
     <mkdir dir="${build.layout}/behavior-tests/test.behavior.plugin" />
-    <mkdir dir="${build.layout}/behavior-tests/test.behavior.plugin/META-INF" />
-    <echoxml file="${build.layout}/behavior-tests/test.behavior.plugin/META-INF/plugin.xml">
-      <idea-plugin xmlns:xi="http://www.w3.org/2001/XInclude">
-        <id>test.behavior.plugin</id>
-        <name>MPS Test Behavior Plugin</name>
-        <description>a plugin to test behavior reflective calls</description>
-        <version>${mpsBootstrapCore.version}</version>
-        <depends>jetbrains.mps.core</depends>
-        
-        <extensions defaultExtensionNs="com.intellij">
-          <mps.LanguageLibrary dir="/languages" />
-        </extensions>
-      </idea-plugin>
-    </echoxml>
     <mkdir dir="${build.layout}/behavior-tests/test.behavior.plugin/lib" />
     <mkdir dir="${build.tmp}/default/test.behavior.plugin.jar" />
     <mkdir dir="${build.tmp}/default/test.behavior.plugin.jar/META-INF" />

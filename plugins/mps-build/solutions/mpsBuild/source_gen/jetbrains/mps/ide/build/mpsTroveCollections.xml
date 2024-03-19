@@ -60,20 +60,6 @@
   
   <target name="assemble" depends="classes, declare-mps-tasks">
     <mkdir dir="${build.layout}/mps-trove" />
-    <mkdir dir="${build.layout}/mps-trove/META-INF" />
-    <echoxml file="${build.layout}/mps-trove/META-INF/plugin.xml">
-      <idea-plugin xmlns:xi="http://www.w3.org/2001/XInclude">
-        <id>jetbrains.mps.trove</id>
-        <name>Trove Collections language for MPS</name>
-        <version>${mpsBootstrapCore.version}</version>
-        <vendor url="http://www.jetbrains.com/mps/">JetBrains</vendor>
-        <depends>jetbrains.mps.core</depends>
-        
-        <extensions defaultExtensionNs="com.intellij">
-          <mps.LanguageLibrary dir="/languages" />
-        </extensions>
-      </idea-plugin>
-    </echoxml>
     <mkdir dir="${build.layout}/mps-trove/lib" />
     <mkdir dir="${build.tmp}/default/mps-trove.jar" />
     <mkdir dir="${build.tmp}/default/mps-trove.jar/META-INF" />

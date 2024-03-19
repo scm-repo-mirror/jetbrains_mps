@@ -61,10 +61,6 @@
   
   <target name="assemble" depends="classes, declare-mps-tasks">
     <mkdir dir="${build.layout}/mps-execution-api" />
-    <mkdir dir="${build.layout}/mps-execution-api/META-INF" />
-    <copy todir="${build.layout}/mps-execution-api/META-INF">
-      <fileset file="${mps_home}/plugins/execution-api/META-INF/plugin.xml" />
-    </copy>
     <mkdir dir="${build.layout}/mps-execution-api/lib" />
     <jar destfile="${build.layout}/mps-execution-api/lib/execution-api.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/execution-api" />
@@ -400,10 +396,6 @@
       <zipfileset dir="${build.tmp}/customProcessors/copyModels/plugins-execution-api-languages-common-languageModels" prefix="module/languageModels" />
     </jar>
     <mkdir dir="${build.layout}/mps-debugger-api" />
-    <mkdir dir="${build.layout}/mps-debugger-api/META-INF" />
-    <copy todir="${build.layout}/mps-debugger-api/META-INF">
-      <fileset file="${mps_home}/plugins/debugger-api/META-INF/plugin.xml" />
-    </copy>
     <mkdir dir="${build.layout}/mps-debugger-api/lib" />
     <jar destfile="${build.layout}/mps-debugger-api/lib/mps-debugger-api.jar" duplicate="preserve">
       <zipfileset file="${mps_home}/plugins/debugger-api/META-INF/plugin.xml" prefix="META-INF" />
@@ -707,10 +699,6 @@
       <zipfileset dir="${build.tmp}/customProcessors/copyModels/plugins-debugger-api-languages-jetbrains.mps.debugger.api.lang-generator-template" prefix="module/generator/template" />
     </jar>
     <mkdir dir="${build.layout}/mps-debugger-java" />
-    <mkdir dir="${build.layout}/mps-debugger-java/META-INF" />
-    <copy todir="${build.layout}/mps-debugger-java/META-INF">
-      <fileset file="${mps_home}/plugins/debugger-java/META-INF/plugin.xml" />
-    </copy>
     <mkdir dir="${build.layout}/mps-debugger-java/lib" />
     <jar destfile="${build.layout}/mps-debugger-java/lib/debugger-java.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/debugger-java" />

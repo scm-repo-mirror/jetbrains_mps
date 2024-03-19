@@ -65,10 +65,6 @@
   
   <target name="assemble" depends="classes, declare-mps-tasks">
     <mkdir dir="${build.layout}/mps-execution-languages" />
-    <mkdir dir="${build.layout}/mps-execution-languages/META-INF" />
-    <copy todir="${build.layout}/mps-execution-languages/META-INF">
-      <fileset file="${mps_home}/plugins/execution-languages/META-INF/plugin.xml" />
-    </copy>
     <mkdir dir="${build.layout}/mps-execution-languages/lib" />
     <jar destfile="${build.layout}/mps-execution-languages/lib/mps-execution-languages.jar" duplicate="preserve">
       <zipfileset file="${mps_home}/plugins/execution-languages/META-INF/plugin.xml" prefix="META-INF" />
@@ -711,10 +707,6 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.execution.devkit.jar" />
     </jar>
     <mkdir dir="${build.layout}/mps-execution-configurations" />
-    <mkdir dir="${build.layout}/mps-execution-configurations/META-INF" />
-    <copy todir="${build.layout}/mps-execution-configurations/META-INF">
-      <fileset file="${mps_home}/plugins/execution-configurations/META-INF/plugin.xml" />
-    </copy>
     <mkdir dir="${build.layout}/mps-execution-configurations/lib" />
     <jar destfile="${build.layout}/mps-execution-configurations/lib/mps-execution-configurations.jar" duplicate="preserve">
       <zipfileset file="${mps_home}/plugins/execution-configurations/META-INF/plugin.xml" prefix="META-INF" />

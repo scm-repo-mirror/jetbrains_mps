@@ -37,20 +37,6 @@
   
   <target name="assemble" depends="classes, declare-mps-tasks">
     <mkdir dir="${build.layout}/test1" />
-    <mkdir dir="${build.layout}/test1/META-INF" />
-    <echoxml file="${build.layout}/test1/META-INF/plugin.xml">
-      <idea-plugin xmlns:xi="http://www.w3.org/2001/XInclude">
-        <id>test</id>
-        <name>test plugin</name>
-        <version>1.1</version>
-        <depends>jetbrains.mps.core</depends>
-        <depends>jetbrains.mps.build</depends>
-        
-        <extensions defaultExtensionNs="com.intellij">
-          <mps.LanguageLibrary dir="/languages" />
-        </extensions>
-      </idea-plugin>
-    </echoxml>
     <mkdir dir="${build.layout}/test1/lib" />
     <mkdir dir="${build.tmp}/default/test1.jar" />
     <mkdir dir="${build.tmp}/default/test1.jar/META-INF" />

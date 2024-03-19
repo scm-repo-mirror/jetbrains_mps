@@ -31,10 +31,6 @@
   
   <target name="assemble" depends="classes, declare-mps-tasks">
     <mkdir dir="${build.layout}/jetpad" />
-    <mkdir dir="${build.layout}/jetpad/META-INF" />
-    <copy todir="${build.layout}/jetpad/META-INF">
-      <fileset file="${mps_home}/plugins/jetpad/META-INF/plugin.xml" />
-    </copy>
     <mkdir dir="${build.layout}/jetpad/lib" />
     <jar destfile="${build.layout}/jetpad/lib/jetpad.jar" duplicate="preserve">
       <zipfileset file="${mps_home}/plugins/jetpad/META-INF/plugin.xml" prefix="META-INF" />
