@@ -309,6 +309,7 @@ public final class CreateProjectWizard extends DialogWrapper {
         if (!Objects.equals(myValue, myProjectName.getText())) {
           myValue = myProjectName.getText();
           updateProjectPath();
+          checkSettings();
         }
       }
     });
@@ -378,7 +379,7 @@ public final class CreateProjectWizard extends DialogWrapper {
 
     if (myProjectName.getText().isEmpty()) {
       getOKAction().setEnabled(false);
-      setErrorText("Project name can not be empty");
+      setErrorText("Project name cannot be empty");
 
       return;
     }
