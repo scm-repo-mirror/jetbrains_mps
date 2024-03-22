@@ -264,7 +264,7 @@ public class InspectorTool extends BaseTool implements EditorInspector, ProjectC
       // FWIW, project instance is available at cons time (to access StyleRegistry, eventually).
       final Style wpStyle = StyleRegistry.getInstance().getStyle("WARNING_PANEL");
       setBackground(wpStyle.get(StyleAttributes.TEXT_BACKGROUND_COLOR));
-      setBorder(BorderFactory.createEmptyBorder(0, 4, 0, 4));
+      setBorder(BorderFactory.createEmptyBorder(10, 4, 10, 4));
 
       myLabel.setForeground(MPSColors.BLACK);
 
