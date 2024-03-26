@@ -23333,6 +23333,12 @@
             </node>
           </node>
         </node>
+        <node concept="2pNNFK" id="2We9Qx2lwiW" role="3o6s8t">
+          <property role="2pNNFO" value="depends" />
+          <node concept="3o6iSG" id="2We9Qx2lwM1" role="3o6s8t">
+            <property role="3o6i5n" value="com.intellij.modules.platform" />
+          </node>
+        </node>
         <node concept="2pNNFK" id="5HVSRHdWira" role="3o6s8t">
           <property role="2pNNFO" value="depends" />
           <node concept="1WS0z7" id="5HVSRHdWitf" role="lGtFl">
