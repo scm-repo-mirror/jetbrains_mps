@@ -38,6 +38,8 @@ import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 import java.awt.datatransfer.DataFlavor;
+import java.util.Collections;
+import org.jetbrains.annotations.NotNull;
 import java.util.Collection;
 import jetbrains.mps.project.Project;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -283,14 +285,36 @@ public final class CopyPasteUtil {
     setClipboardContents(new SNodeTransferable(nodes, stringBuilder.toString()));
   }
   public static void copyNodeToClipboard(SNode node) {
-    List<SNode> list = new ArrayList<SNode>();
-    list.add(node);
-    CopyPasteUtil.copyNodesToClipboard(list);
+    CopyPasteUtil.copyNodesToClipboard(Collections.singletonList(node));
   }
+  /**
+   * 
+   * @deprecated use {@link jetbrains.mps.ide.datatransfer.CopyPasteUtil#getNodesFromClipboard() } instead
+   */
+  @Deprecated(since = "2024.1", forRemoval = true)
   public static List<SNode> getNodesFromClipboard(SModel model) {
-    return CopyPasteUtil.getPasteNodeDataFromClipboard(model).getNodes();
+    return getNodesFromClipboard();
   }
+  public static List<SNode> getNodesFromClipboard() {
+    PasteNodeData pnd = getPasteNodeData();
+    List<SNode> rv = pnd.getNodes();
+    return rv;
+  }
+
+  /**
+   * 
+   * @deprecated use {@link jetbrains.mps.ide.datatransfer.CopyPasteUtil#getPasteNodeData() } instead
+   */
+  @Deprecated(forRemoval = true, since = "2024.1")
   public static PasteNodeData getPasteNodeDataFromClipboard(SModel model) {
+    return getPasteNodeData();
+  }
+  /**
+   * 
+   * @since 2024.1
+   */
+  @NotNull
+  public static PasteNodeData getPasteNodeData() {
     Transferable content = null;
     for (Transferable trf : CopyPasteManagerEx.getInstanceEx().getAllContents()) {
       if (trf != null && trf.isDataFlavorSupported(SModelDataFlavor.sNode)) {
@@ -301,25 +325,15 @@ public final class CopyPasteUtil {
     if (content == null) {
       return PasteNodeData.emptyPasteNodeData();
     }
-    if (content.isDataFlavorSupported(SModelDataFlavor.sNode)) {
-      SNodeTransferable nodeTransferable;
-      try {
-        nodeTransferable = (SNodeTransferable) content.getTransferData(SModelDataFlavor.sNode);
-        return nodeTransferable.createNodeData();
-      } catch (UnsupportedFlavorException e) {
-        if (LOG.isErrorLevel()) {
-          LOG.error("Exception", e);
-        }
-      } catch (IOException e) {
-        if (LOG.isErrorLevel()) {
-          LOG.error("Exception", e);
-        }
+    try {
+      SNodeTransferable nodeTransferable = (SNodeTransferable) content.getTransferData(SModelDataFlavor.sNode);
+      return nodeTransferable.createNodeData();
+    } catch (UnsupportedFlavorException | IOException e) {
+      if (LOG.isErrorLevel()) {
+        LOG.error("Exception", e);
       }
     }
     return PasteNodeData.emptyPasteNodeData();
-  }
-  public static SNode getNodeFromClipboard(SModel model) {
-    return CopyPasteUtil.getNodesFromClipboard(model).get(0);
   }
 
   @Nullable

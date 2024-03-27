@@ -19,9 +19,9 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import jetbrains.mps.util.Pair;
 import jetbrains.mps.workbench.MPSDataKeys;
-import org.jetbrains.mps.openapi.module.ModelAccess;
 import jetbrains.mps.datatransfer.PasteNodeData;
 import jetbrains.mps.ide.datatransfer.CopyPasteUtil;
+import org.jetbrains.mps.openapi.module.SRepository;
 import java.util.Set;
 import org.jetbrains.mps.openapi.model.SReference;
 import jetbrains.mps.util.SNodeOperations;
@@ -30,7 +30,6 @@ import jetbrains.mps.datatransfer.PasteEnv;
 import jetbrains.mps.resolve.ResolverComponent;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
 import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import com.intellij.ide.CopyPasteManagerEx;
 import jetbrains.mps.ide.datatransfer.SModelDataFlavor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -100,49 +99,44 @@ public class PasteNode_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    ModelAccess modelAccess = ((MPSProject) MapSequence.fromMap(_params).get("project")).getModelAccess();
-    PasteNodeData pasteNodeData = PasteNode_Action.this.getPasteData(modelAccess, _params);
-    final Runnable addImportsRunnable = CopyPasteUtil.addImportsWithDialog(pasteNodeData, ((SModel) MapSequence.fromMap(_params).get("contextModel")), ((MPSProject) MapSequence.fromMap(_params).get("project")));
+    PasteNodeData pasteNodeData = CopyPasteUtil.getPasteNodeData();
     final List<SNode> pasteNodes = pasteNodeData.getNodes();
-    final Set<SReference> refsToResolve = pasteNodeData.getRequireResolveReferences();
     if (pasteNodes == null || pasteNodes.size() == 0) {
       return;
     }
+    final MPSProject mpsProject = ((MPSProject) MapSequence.fromMap(_params).get("project"));
+    final SRepository repo = (((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")) == null ? mpsProject.getRepository() : ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getEditorContext().getRepository());
+    final Runnable addImportsRunnable = CopyPasteUtil.addImportsWithDialog(pasteNodeData, ((SModel) MapSequence.fromMap(_params).get("contextModel")), mpsProject);
+    final Set<SReference> refsToResolve = pasteNodeData.getRequireResolveReferences();
 
-    modelAccess.executeCommandInEDT(() -> {
+    repo.getModelAccess().executeCommandInEDT(() -> {
       if (SNodeOperations.isModelDisposed(((SModel) MapSequence.fromMap(_params).get("contextModel")))) {
         return;
       }
       if (addImportsRunnable != null) {
         addImportsRunnable.run();
       }
+      final NodePaster paster = new NodePaster(pasteNodes);
       if (((SNode) MapSequence.fromMap(_params).get("node")) == null) {
-        NodePaster paster = new NodePaster(pasteNodes);
         if (!(paster.canPasteAsRoots())) {
           return;
         }
         paster.pasteAsRoots(((SModel) MapSequence.fromMap(_params).get("contextModel")), PasteNode_Action.this.getContextPackage(_params));
       } else {
-        NodePaster paster = new NodePaster(pasteNodes);
         if (!(paster.canPaste(((SNode) MapSequence.fromMap(_params).get("node")), PasteEnv.PROJECT_TREE))) {
           return;
         }
         paster.paste(((SNode) MapSequence.fromMap(_params).get("node")), PasteEnv.PROJECT_TREE, PasteNode_Action.this.getContextPackage(_params));
       }
-      ResolverComponent.getInstance().resolveScopesOnly(refsToResolve, ((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository());
+      mpsProject.getComponent(ResolverComponent.class).resolveScopesOnly(refsToResolve, repo);
       // make sure editor will be open
       if (((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")) == null) {
         SNode root = pasteNodes.get(0).getContainingRoot();
         assert root != null;
-        new EditorNavigator(((MPSProject) MapSequence.fromMap(_params).get("project"))).shallFocus(true).shallSelect(true).open(root.getReference());
-        new ProjectPaneNavigator(((MPSProject) MapSequence.fromMap(_params).get("project"))).select(root.getReference());
+        new EditorNavigator(mpsProject).shallFocus(true).shallSelect(true).open(root.getReference());
+        new ProjectPaneNavigator(mpsProject).select(root.getReference());
       }
     });
-  }
-  private PasteNodeData getPasteData(ModelAccess modelAccess, final Map<String, Object> _params) {
-    final Wrappers._T<PasteNodeData> result = new Wrappers._T<PasteNodeData>();
-    modelAccess.runReadAction(() -> result.value = CopyPasteUtil.getPasteNodeDataFromClipboard(((SModel) MapSequence.fromMap(_params).get("contextModel"))));
-    return result.value;
   }
   private boolean canPasteNodes(final Map<String, Object> _params) {
     return CopyPasteManagerEx.getInstanceEx().areDataFlavorsAvailable(SModelDataFlavor.sNode);

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2024 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -73,7 +73,7 @@ public class CellAction_PasteNode extends AbstractCellAction {
     if (selectedNodes.isEmpty()) {
       return false;
     }
-    List<SNode> pasteNodes = CopyPasteUtil.getNodesFromClipboard(selectedNodes.get(0).getModel());
+    List<SNode> pasteNodes = CopyPasteUtil.getNodesFromClipboard();
 
     if (pasteNodes == null || pasteNodes.isEmpty()) {
       // it used to be ok because conversion would be invoked in this case
@@ -170,7 +170,7 @@ public class CellAction_PasteNode extends AbstractCellAction {
       return;
     }
 
-    final PasteNodeData pasteNodeData = CopyPasteUtil.getPasteNodeDataFromClipboard(modelToPaste);
+    final PasteNodeData pasteNodeData = CopyPasteUtil.getPasteNodeData();
 
     ApplicationManager.getApplication().invokeLater(() -> {
       final Runnable addImportsRunnable = CopyPasteUtil.addImportsWithDialog(pasteNodeData, modelToPaste, mpsProject);
