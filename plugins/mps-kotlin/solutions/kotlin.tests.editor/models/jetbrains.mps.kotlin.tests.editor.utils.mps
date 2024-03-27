@@ -13,6 +13,7 @@
       <concept id="2323553266850475941" name="jetbrains.mps.baseLanguage.structure.IHasModifiers" flags="ngI" index="2frcj7">
         <child id="2323553266850475953" name="modifiers" index="2frcjj" />
       </concept>
+      <concept id="1465982738277781862" name="jetbrains.mps.baseLanguage.structure.PlaceholderMember" flags="nn" index="2tJIrI" />
       <concept id="4678410916365116210" name="jetbrains.mps.baseLanguage.structure.DefaultModifier" flags="ng" index="2JFqV2" />
       <concept id="1068390468198" name="jetbrains.mps.baseLanguage.structure.ClassConcept" flags="ig" index="312cEu">
         <child id="1095933932569" name="implementedInterface" index="EKbjA" />
@@ -23,8 +24,10 @@
       </concept>
       <concept id="1068580123165" name="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" flags="ig" index="3clFb_" />
       <concept id="1068580123136" name="jetbrains.mps.baseLanguage.structure.StatementList" flags="sn" stub="5293379017992965193" index="3clFbS" />
+      <concept id="1068580123140" name="jetbrains.mps.baseLanguage.structure.ConstructorDeclaration" flags="ig" index="3clFbW" />
       <concept id="1068581517677" name="jetbrains.mps.baseLanguage.structure.VoidType" flags="in" index="3cqZAl" />
       <concept id="1107461130800" name="jetbrains.mps.baseLanguage.structure.Classifier" flags="ng" index="3pOWGL">
+        <property id="521412098689998745" name="nonStatic" index="2bfB8j" />
         <child id="5375687026011219971" name="member" index="jymVt" unordered="true" />
       </concept>
       <concept id="1107535904670" name="jetbrains.mps.baseLanguage.structure.ClassifierType" flags="in" index="3uibUv">
@@ -177,6 +180,26 @@
       <node concept="3clFbS" id="1DhEmk59cWp" role="3clF47" />
       <node concept="3Tm1VV" id="1DhEmk59cUS" role="1B3o_S" />
       <node concept="3cqZAl" id="1DhEmk59cV6" role="3clF45" />
+    </node>
+    <node concept="2tJIrI" id="6TifRYAexne" role="jymVt" />
+    <node concept="312cEu" id="6TifRYAexq7" role="jymVt">
+      <property role="TrG5h" value="OtherClassWithConstructor" />
+      <node concept="3clFbW" id="6TifRYAexrH" role="jymVt">
+        <node concept="3cqZAl" id="6TifRYAexrJ" role="3clF45" />
+        <node concept="3clFbS" id="6TifRYAexrK" role="3clF47" />
+        <node concept="3Tm1VV" id="6TifRYAexsP" role="1B3o_S" />
+      </node>
+      <node concept="3Tm1VV" id="6TifRYAexst" role="1B3o_S" />
+    </node>
+    <node concept="312cEu" id="6TifRYAexBr" role="jymVt">
+      <property role="TrG5h" value="OtherClassWithNestedConstructor" />
+      <property role="2bfB8j" value="true" />
+      <node concept="3clFbW" id="6TifRYAexBs" role="jymVt">
+        <node concept="3cqZAl" id="6TifRYAexBt" role="3clF45" />
+        <node concept="3clFbS" id="6TifRYAexBu" role="3clF47" />
+        <node concept="3Tm1VV" id="6TifRYAexBv" role="1B3o_S" />
+      </node>
+      <node concept="3Tm1VV" id="6TifRYAexBw" role="1B3o_S" />
     </node>
     <node concept="3Tm1VV" id="1DhEmk596LE" role="1B3o_S" />
     <node concept="3uibUv" id="1DhEmk59e9O" role="EKbjA">

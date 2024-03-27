@@ -8678,6 +8678,16 @@
         <ref role="3uigEE" to="hez:1KzjWTsTA9Z" resolve="MemberReceiver" />
       </node>
     </node>
+    <node concept="312cEg" id="7ffJaDH1Vr8" role="jymVt">
+      <property role="TrG5h" value="additionalScopes" />
+      <node concept="3Tmbuc" id="7ffJaDH1RSZ" role="1B3o_S" />
+      <node concept="_YKpA" id="7ffJaDH1UQg" role="1tU5fm">
+        <node concept="3uibUv" id="7ffJaDH1VnI" role="_ZDj9">
+          <ref role="3uigEE" node="6Ijh6DJDHpd" resolve="SignatureScope" />
+        </node>
+      </node>
+      <node concept="10Nm6u" id="7ffJaDH1XRS" role="33vP2m" />
+    </node>
     <node concept="2tJIrI" id="3UQQw2lwP7J" role="jymVt" />
     <node concept="3clFbW" id="3UQQw2lwzRT" role="jymVt">
       <node concept="3cqZAl" id="3UQQw2lwzRU" role="3clF45" />
@@ -8785,20 +8795,12 @@
     <node concept="3clFb_" id="3UQQw2lAo2P" role="jymVt">
       <property role="TrG5h" value="membersReceiver" />
       <node concept="3clFbS" id="3UQQw2lAo2S" role="3clF47">
-        <node concept="3clFbF" id="3UQQw2lDMfj" role="3cqZAp">
-          <node concept="37vLTI" id="3UQQw2lDR3k" role="3clFbG">
-            <node concept="3clFbT" id="3UQQw2lDREO" role="37vLTx">
-              <property role="3clFbU" value="true" />
-            </node>
-            <node concept="2OqwBi" id="3UQQw2lDNbL" role="37vLTJ">
-              <node concept="Xjq3P" id="3UQQw2lDMfh" role="2Oq$k0" />
-              <node concept="2OwXpG" id="3UQQw2lDOO9" role="2OqNvi">
-                <ref role="2Oxat5" node="3UQQw2lDKXN" resolve="forceIncludeInstance" />
-              </node>
-            </node>
+        <node concept="3clFbF" id="1DGOPBN8pmJ" role="3cqZAp">
+          <node concept="1rXfSq" id="1DGOPBN8pmH" role="3clFbG">
+            <ref role="37wK5l" node="1DGOPBN86Dz" resolve="forceInstanceInclusion" />
           </node>
         </node>
-        <node concept="3clFbH" id="3DLhCcp_7x6" role="3cqZAp" />
+        <node concept="3clFbH" id="1DGOPBN8qYc" role="3cqZAp" />
         <node concept="3cpWs6" id="3UQQw2lA_XU" role="3cqZAp">
           <node concept="2YIFZM" id="3UQQw2lAxni" role="3cqZAk">
             <ref role="37wK5l" node="3UQQw2l3ZPy" resolve="withMemberReceiver" />
@@ -8868,6 +8870,49 @@
         <node concept="TZ5HA" id="3pL_ro06NFH" role="TZ5H$">
           <node concept="1dT_AC" id="3pL_ro06NFI" role="1dT_Ay">
             <property role="1dT_AB" value="- `::member`: will get the scope from both the standalone methods and the contextual receivers (this@*)" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="1DGOPBN7U0Y" role="jymVt" />
+    <node concept="3clFb_" id="1DGOPBN86Dz" role="jymVt">
+      <property role="TrG5h" value="forceInstanceInclusion" />
+      <node concept="3clFbS" id="1DGOPBN86DA" role="3clF47">
+        <node concept="3clFbF" id="1DGOPBN8djj" role="3cqZAp">
+          <node concept="37vLTI" id="1DGOPBN8jDw" role="3clFbG">
+            <node concept="3clFbT" id="1DGOPBN8kLS" role="37vLTx">
+              <property role="3clFbU" value="true" />
+            </node>
+            <node concept="2OqwBi" id="1DGOPBN8e$z" role="37vLTJ">
+              <node concept="Xjq3P" id="1DGOPBN8dji" role="2Oq$k0" />
+              <node concept="2OwXpG" id="1DGOPBN8gBf" role="2OqNvi">
+                <ref role="2Oxat5" node="3UQQw2lDKXN" resolve="forceIncludeInstance" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs6" id="1DGOPBN8vSo" role="3cqZAp">
+          <node concept="Xjq3P" id="1DGOPBN8ugX" role="3cqZAk" />
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="1DGOPBN7XzJ" role="1B3o_S" />
+      <node concept="3uibUv" id="1DGOPBN801Y" role="3clF45">
+        <ref role="3uigEE" node="3UQQw2lwzMq" resolve="KotlinScopes" />
+      </node>
+      <node concept="P$JXv" id="1DGOPBN8xsE" role="lGtFl">
+        <node concept="TZ5HA" id="1DGOPBN8xsF" role="TZ5H$">
+          <node concept="1dT_AC" id="1DGOPBN8xsG" role="1dT_Ay">
+            <property role="1dT_AB" value="This enabled inclusion of instance members, regardless of whether the type is static or not." />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="1DGOPBN8$1G" role="TZ5H$">
+          <node concept="1dT_AC" id="1DGOPBN8$1H" role="1dT_Ay">
+            <property role="1dT_AB" value="" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="1DGOPBN8Akj" role="TZ5H$">
+          <node concept="1dT_AC" id="1DGOPBN8Akk" role="1dT_Ay">
+            <property role="1dT_AB" value="This should mainly be used for member references (...::member)" />
           </node>
         </node>
       </node>
@@ -9301,6 +9346,57 @@
         </node>
       </node>
     </node>
+    <node concept="2tJIrI" id="7ffJaDH1Yq9" role="jymVt" />
+    <node concept="3clFb_" id="7ffJaDH23Zt" role="jymVt">
+      <property role="TrG5h" value="plus" />
+      <node concept="3clFbS" id="7ffJaDH23Zw" role="3clF47">
+        <node concept="3clFbJ" id="7ffJaDH2dOx" role="3cqZAp">
+          <node concept="3clFbS" id="7ffJaDH2dOz" role="3clFbx">
+            <node concept="3clFbF" id="7ffJaDH2kGS" role="3cqZAp">
+              <node concept="37vLTI" id="7ffJaDH2mo$" role="3clFbG">
+                <node concept="2ShNRf" id="7ffJaDH2ow2" role="37vLTx">
+                  <node concept="Tc6Ow" id="7ffJaDH2nI8" role="2ShVmc" />
+                </node>
+                <node concept="37vLTw" id="7ffJaDH2kGQ" role="37vLTJ">
+                  <ref role="3cqZAo" node="7ffJaDH1Vr8" resolve="additionalScopes" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbC" id="7ffJaDH2ieS" role="3clFbw">
+            <node concept="10Nm6u" id="7ffJaDH2j5P" role="3uHU7w" />
+            <node concept="37vLTw" id="7ffJaDH2fpE" role="3uHU7B">
+              <ref role="3cqZAo" node="7ffJaDH1Vr8" resolve="additionalScopes" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="7ffJaDH2aue" role="3cqZAp">
+          <node concept="2OqwBi" id="7ffJaDH2rDG" role="3clFbG">
+            <node concept="37vLTw" id="7ffJaDH2aud" role="2Oq$k0">
+              <ref role="3cqZAo" node="7ffJaDH1Vr8" resolve="additionalScopes" />
+            </node>
+            <node concept="TSZUe" id="7ffJaDH2ueF" role="2OqNvi">
+              <node concept="37vLTw" id="7ffJaDH2vRZ" role="25WWJ7">
+                <ref role="3cqZAo" node="7ffJaDH26ku" resolve="scope" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs6" id="7ffJaDH2yNJ" role="3cqZAp">
+          <node concept="Xjq3P" id="7ffJaDH2yVk" role="3cqZAk" />
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="7ffJaDH212v" role="1B3o_S" />
+      <node concept="3uibUv" id="7ffJaDH23n2" role="3clF45">
+        <ref role="3uigEE" node="3UQQw2lwzMq" resolve="KotlinScopes" />
+      </node>
+      <node concept="37vLTG" id="7ffJaDH26ku" role="3clF46">
+        <property role="TrG5h" value="scope" />
+        <node concept="3uibUv" id="7ffJaDH26kt" role="1tU5fm">
+          <ref role="3uigEE" node="6Ijh6DJDHpd" resolve="SignatureScope" />
+        </node>
+      </node>
+    </node>
     <node concept="2tJIrI" id="3UQQw2lOiCy" role="jymVt" />
     <node concept="3clFb_" id="3UQQw2lxSjd" role="jymVt">
       <property role="TrG5h" value="buildScopes" />
@@ -9699,6 +9795,19 @@
           </node>
           <node concept="37vLTw" id="3DLhCcpAgMR" role="3clFbw">
             <ref role="3cqZAo" node="3pL_ro0pjmf" resolve="useHierarchy" />
+          </node>
+        </node>
+        <node concept="3clFbH" id="7ffJaDH2_ic" role="3cqZAp" />
+        <node concept="3clFbF" id="7ffJaDH2Ap1" role="3cqZAp">
+          <node concept="2OqwBi" id="7ffJaDH2COl" role="3clFbG">
+            <node concept="37vLTw" id="7ffJaDH2AoZ" role="2Oq$k0">
+              <ref role="3cqZAo" node="3UQQw2lB1E4" resolve="scopes" />
+            </node>
+            <node concept="X8dFx" id="7ffJaDH2FIp" role="2OqNvi">
+              <node concept="37vLTw" id="7ffJaDH2Hnt" role="25WWJ7">
+                <ref role="3cqZAo" node="7ffJaDH1Vr8" resolve="additionalScopes" />
+              </node>
+            </node>
           </node>
         </node>
         <node concept="3clFbH" id="3UQQw2l$hcw" role="3cqZAp" />

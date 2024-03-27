@@ -16287,6 +16287,11 @@
             <ref role="3bR37D" to="ffeo:3PMETvlnxVs" resolve="jetbrains.mps.kotlin.stubs" />
           </node>
         </node>
+        <node concept="1SiIV0" id="6TifRYAeKU9" role="3bR37C">
+          <node concept="3bR9La" id="6TifRYAeKUa" role="1SiIV1">
+            <ref role="3bR37D" to="ffeo:Ye$g8PO8TM" resolve="jetbrains.mps.kotlin.javaRefs" />
+          </node>
+        </node>
       </node>
     </node>
     <node concept="55IIr" id="1CUeZUoS3hh" role="auvoZ">
