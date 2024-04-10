@@ -275,11 +275,23 @@ final class MPSClassLoadersRegistry {
           return new HashSet<>(myModuleClassloaders2Dispose);
         }
 
+        private Object actualDisposeRequestor = null;
+
         @Override
         public void release(@NotNull Object requestor) {
-          myBlockingRequestors.remove(requestor);
+          Boolean value = myBlockingRequestors.remove(requestor);
+          if (value == null) {
+            LOG.warning("Please report next message and the steps that lead to it to MPS-36887");
+            LOG.error("DisposeSession release comes from an unknown (already removed?) requestor " + requestor);
+          }
           synchronized (DisposeSession.this) {
             if (isNotBlocked() && isReadyToDispose()) {
+              if (actualDisposeRequestor!= null) {
+                LOG.warning("Please report next message and the steps that lead to it to MPS-36887");
+                LOG.error(String.format("DisposeSession.release(%s) faces previous completed release(%s)", requestor, actualDisposeRequestor));
+              } else {
+                actualDisposeRequestor = requestor;
+              }
               doDispose();
             }
           }
