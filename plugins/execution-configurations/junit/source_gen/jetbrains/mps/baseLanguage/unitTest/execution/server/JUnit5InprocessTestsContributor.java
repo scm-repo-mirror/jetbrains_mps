@@ -23,8 +23,6 @@ import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.test.junit5.ModuleClassLoaderUtil;
 import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
-import org.jetbrains.mps.openapi.module.SModuleReference;
 import jetbrains.mps.module.ModuleClassLoaderIsNullException;
 import org.junit.platform.engine.discovery.DiscoverySelectors;
 
@@ -138,11 +136,7 @@ public class JUnit5InprocessTestsContributor extends AbstractInProcessTestMixin 
 
   protected ClassLoader testModuleContextClassLoader() {
     return ModuleClassLoaderUtil.classLoaderForTestExecution(myEnv.getPlatform(), () -> {
-      return Sequence.fromIterable(((Iterable<ITestNodeWrapper>) myTestNodes)).select(new _FunctionTypes._return_P1_E0<SModuleReference, ITestNodeWrapper>() {
-        public SModuleReference invoke(ITestNodeWrapper this0) {
-          return this0.getTestNodeModule();
-        }
-      }).select((this0) -> this0.toString()).toList();
+      return Sequence.fromIterable(((Iterable<ITestNodeWrapper>) myTestNodes)).select((this0) -> this0.getTestNodeModule()).select((this0) -> this0.toString()).toList();
 
     });
   }

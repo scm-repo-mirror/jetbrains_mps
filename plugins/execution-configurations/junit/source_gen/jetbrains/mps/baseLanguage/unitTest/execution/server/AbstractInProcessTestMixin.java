@@ -31,7 +31,7 @@ public abstract class AbstractInProcessTestMixin extends AbstractJUnitTestMixin 
     myClassloaderManager = mpsProject.getComponent(ClassLoaderManager.class);
   }
 
-  protected void notifyByBaloon(String msg, final ITestNodeWrapper<?> wrapper, Exception e) {
+  protected void notifyByBaloon(String msg, final ITestNodeWrapper wrapper, Exception e) {
     String msgWithLink = String.format(msg, "<a href=\"\">" + wrapper.getFqName() + "</a>");
     ExecutionUtil.handleExecutionError(myProject.getProject(), ToolWindowId.RUN, myConfigurationName, e, msgWithLink, new HyperlinkListener() {
       public void hyperlinkUpdate(HyperlinkEvent event) {
@@ -43,11 +43,11 @@ public abstract class AbstractInProcessTestMixin extends AbstractJUnitTestMixin 
     });
   }
 
-  protected void notifyByBaloonCLNF(ClassNotFoundException e, ITestNodeWrapper<?> testNode) {
+  protected void notifyByBaloonCLNF(ClassNotFoundException e, ITestNodeWrapper testNode) {
     notifyByBaloon("The class of the test could not be found.<br>Please ensure that the test %s is built and deployed.", testNode, e);
   }
 
-  protected void notifyByBaloonCheckException(InProcessExecutionFilter.InProcessCheckException e, ITestNodeWrapper<?> testNode) {
+  protected void notifyByBaloonCheckException(InProcessExecutionFilter.InProcessCheckException e, ITestNodeWrapper testNode) {
     notifyByBaloon(e.getFormattedMsg(), testNode, e);
   }
 

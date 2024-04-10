@@ -211,12 +211,6 @@
       <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ngI" index="366HgL">
         <property id="1513279640906337053" name="inferTypeParams" index="373rjd" />
       </concept>
-      <concept id="1109279763828" name="jetbrains.mps.baseLanguage.structure.TypeVariableDeclaration" flags="ng" index="16euLQ">
-        <child id="1214996921760" name="bound" index="3ztrMU" />
-      </concept>
-      <concept id="1109279851642" name="jetbrains.mps.baseLanguage.structure.GenericDeclaration" flags="ng" index="16eOlS">
-        <child id="1109279881614" name="typeVariableDeclaration" index="16eVyc" />
-      </concept>
       <concept id="1068498886296" name="jetbrains.mps.baseLanguage.structure.VariableReference" flags="nn" index="37vLTw">
         <reference id="1068581517664" name="variableDeclaration" index="3cqZAo" />
       </concept>
@@ -582,10 +576,6 @@
     <property role="TrG5h" value="ITestNodeWrapper" />
     <property role="3GE5qa" value="wrappers" />
     <node concept="3Tm1VV" id="56tRMpP_ejL" role="1B3o_S" />
-    <node concept="16euLQ" id="56tRMpP_ejM" role="16eVyc">
-      <property role="TrG5h" value="N" />
-      <node concept="3Tqbb2" id="56tRMpP_ejN" role="3ztrMU" />
-    </node>
     <node concept="2tJIrI" id="723FpCMRRlD" role="jymVt" />
     <node concept="3clFb_" id="56tRMpP_ejc" role="jymVt">
       <property role="TrG5h" value="getNodePointer" />
@@ -755,34 +745,14 @@
       <node concept="3clFbS" id="4Tt$OebmKWF" role="3clF47" />
     </node>
     <node concept="3UR2Jj" id="Hl1mFRytJ2" role="lGtFl">
-      <node concept="TZ5HA" id="Hl1mFRytJ3" role="TZ5H$">
-        <node concept="1dT_AC" id="Hl1mFRytJ4" role="1dT_Ay">
-          <property role="1dT_AB" value="FIXME  external code sometimes wraps access to methods of this class with model read. It's odd an confusing." />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="Hl1mFRy$6O" role="TZ5H$">
-        <node concept="1dT_AC" id="Hl1mFRy$6P" role="1dT_Ay">
-          <property role="1dT_AB" value="Implementation sometime wrap node access to own model read, sometimes not (e.g. JUnit4TestWrapper does getNode()?.getFqName(), where " />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="Hl1mFRy$d0" role="TZ5H$">
-        <node concept="1dT_AC" id="Hl1mFRy$d1" role="1dT_Ay">
-          <property role="1dT_AB" value="getNode() grabs model read, but there's no explicit read for getFqName, and it's up to external code to contribute some. This has to be refactored, " />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="Hl1mFRy$d8" role="TZ5H$">
-        <node concept="1dT_AC" id="Hl1mFRy$d9" role="1dT_Ay">
-          <property role="1dT_AB" value="and clear contract what to expect from methods of this class has to be established. I.e. if getTestCase() of a wrapper with !isTestCase (i.e. test method)" />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="Hl1mFRy$di" role="TZ5H$">
-        <node concept="1dT_AC" id="Hl1mFRy$dj" role="1dT_Ay">
-          <property role="1dT_AB" value="is allowed to return new instance each time; if a name (getFqnName) is expected to change and what's in getName()." />
-        </node>
-      </node>
       <node concept="TZ5HA" id="Hl1mFRy$du" role="TZ5H$">
         <node concept="1dT_AC" id="Hl1mFRy$dv" role="1dT_Ay">
-          <property role="1dT_AB" value="To me, the need to wrap access to the methods of this class with model read is an indicator of poor design." />
+          <property role="1dT_AB" value="ITestNodeWrapper represents a test that originates at some node mainly for UI presentation/interaction, as well as some execution/startup expectations." />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="4TQYI01jaRf" role="TZ5H$">
+        <node concept="1dT_AC" id="4TQYI01jaRg" role="1dT_Ay">
+          <property role="1dT_AB" value="Implementations shall not assume any model access requirement." />
         </node>
       </node>
     </node>
@@ -15026,7 +14996,6 @@
       <node concept="3Tm6S6" id="2BZ01qXyCIb" role="1B3o_S" />
       <node concept="3uibUv" id="2BZ01qXyCId" role="1tU5fm">
         <ref role="3uigEE" node="56tRMpP_ej7" resolve="ITestNodeWrapper" />
-        <node concept="3Tqbb2" id="2BZ01qXyCIe" role="11_B2D" />
       </node>
     </node>
     <node concept="312cEg" id="2BZ01qXzSBt" role="jymVt">
@@ -15037,7 +15006,6 @@
         <ref role="3uigEE" to="33ny:~List" resolve="List" />
         <node concept="3uibUv" id="2BZ01qXzSBv" role="11_B2D">
           <ref role="3uigEE" node="56tRMpP_ej7" resolve="ITestNodeWrapper" />
-          <node concept="3Tqbb2" id="2BZ01qXzSBw" role="11_B2D" />
         </node>
       </node>
     </node>
@@ -15152,7 +15120,6 @@
                       </node>
                       <node concept="3uibUv" id="2BZ01qYABjf" role="3PaCim">
                         <ref role="3uigEE" node="56tRMpP_ej7" resolve="ITestNodeWrapper" />
-                        <node concept="3Tqbb2" id="2BZ01qYABjg" role="11_B2D" />
                       </node>
                     </node>
                   </node>
@@ -15212,7 +15179,6 @@
     <node concept="3Tm1VV" id="2BZ01qXwV_k" role="1B3o_S" />
     <node concept="3uibUv" id="2BZ01qXwVNH" role="EKbjA">
       <ref role="3uigEE" node="56tRMpP_ej7" resolve="ITestNodeWrapper" />
-      <node concept="3Tqbb2" id="2BZ01qXwVVy" role="11_B2D" />
     </node>
     <node concept="3clFb_" id="2BZ01qXwVYH" role="jymVt">
       <property role="TrG5h" value="getNodePointer" />

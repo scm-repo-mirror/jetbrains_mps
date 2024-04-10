@@ -10168,7 +10168,6 @@
         <property role="3TUv4t" value="true" />
         <node concept="3uibUv" id="5kPsWkS6HdO" role="1tU5fm">
           <ref role="3uigEE" to="sfqd:56tRMpP_ej7" resolve="ITestNodeWrapper" />
-          <node concept="3qTvmN" id="5kPsWkS6HeI" role="11_B2D" />
         </node>
       </node>
       <node concept="37vLTG" id="5kPsWkS7hTz" role="3clF46">
@@ -10193,7 +10192,6 @@
         <property role="TrG5h" value="testNode" />
         <node concept="3uibUv" id="6ESy0uAwVg1" role="1tU5fm">
           <ref role="3uigEE" to="sfqd:56tRMpP_ej7" resolve="ITestNodeWrapper" />
-          <node concept="3qTvmN" id="6ESy0uAwW8b" role="11_B2D" />
         </node>
       </node>
       <node concept="3clFbS" id="6ESy0uAwVfS" role="3clF47">
@@ -10228,7 +10226,6 @@
         <property role="TrG5h" value="testNode" />
         <node concept="3uibUv" id="6ESy0uAx9V7" role="1tU5fm">
           <ref role="3uigEE" to="sfqd:56tRMpP_ej7" resolve="ITestNodeWrapper" />
-          <node concept="3qTvmN" id="6ESy0uAx9V8" role="11_B2D" />
         </node>
       </node>
       <node concept="3clFbS" id="6ESy0uAx9V9" role="3clF47">

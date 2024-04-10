@@ -10,7 +10,6 @@ import jetbrains.mps.project.Project;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import com.intellij.execution.runners.ExecutionUtil;
 import jetbrains.mps.project.MPSProject;
@@ -40,16 +39,8 @@ public class JUnitInProcessRunStarter implements JUnitProcessStarter {
 
   public JUnitInProcessRunStarter(@NotNull Project mpsProject, @NotNull JUnitTests_Configuration runConfiguration, @NotNull Iterable<ITestNodeWrapper> testNodeWrappers) {
 
-    List<ITestNodeWrapper> legacyTests = Sequence.fromIterable(testNodeWrappers).where(new _FunctionTypes._return_P1_E0<Boolean, ITestNodeWrapper>() {
-      public Boolean invoke(ITestNodeWrapper it) {
-        return it.useCompatibilityMode();
-      }
-    }).toList();
-    List<ITestNodeWrapper> jupiterTests = Sequence.fromIterable(testNodeWrappers).where(new _FunctionTypes._return_P1_E0<Boolean, ITestNodeWrapper>() {
-      public Boolean invoke(ITestNodeWrapper it) {
-        return !(it.useCompatibilityMode());
-      }
-    }).toList();
+    List<ITestNodeWrapper> legacyTests = Sequence.fromIterable(testNodeWrappers).where((it) -> it.useCompatibilityMode()).toList();
+    List<ITestNodeWrapper> jupiterTests = Sequence.fromIterable(testNodeWrappers).where((it) -> !(it.useCompatibilityMode())).toList();
     if (ListSequence.fromList(legacyTests).isNotEmpty() && ListSequence.fromList(jupiterTests).isNotEmpty()) {
       ExecutionUtil.handleExecutionError(((MPSProject) mpsProject).getProject(), ToolWindowId.RUN, runConfiguration.getName(), new ExecutionException(""), "Could not run legacy and modern tests together, some tests are skipped", null);
     }
