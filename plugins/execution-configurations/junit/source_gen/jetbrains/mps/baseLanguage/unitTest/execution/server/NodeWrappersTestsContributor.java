@@ -29,6 +29,10 @@ public class NodeWrappersTestsContributor extends AbstractInProcessTestMixin imp
     myRunnerBuilder = new PushEnvironmentRunnerBuilder(new InProcessEnvironment());
   }
 
+  @Override
+  protected void executeSafe() throws Throwable {
+    executeWithJunit4(gatherTests());
+  }
 
   @Override
   public Iterable<Request> gatherTests() {

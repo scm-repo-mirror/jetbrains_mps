@@ -28,6 +28,11 @@ public class CommandLineTestsContributor extends AbstractJUnitTestMixin implemen
     myRunnerBuilder = new AllDefaultPossibilitiesBuilder(true);
   }
 
+  @Override
+  protected void executeSafe() throws Throwable {
+    executeWithJunit4(gatherTests());
+  }
+
   private String[] inlineFilesContents(String[] args) throws IOException {
     List<String> newArgs = new LinkedList<String>();
     for (int num = 0; num < args.length; ++num) {
