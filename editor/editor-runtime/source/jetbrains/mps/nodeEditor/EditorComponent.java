@@ -1,5 +1,5 @@
 /*
- * Copyright 2000-2023 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+ * Copyright 2000-2024 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
  */
 package jetbrains.mps.nodeEditor;
 
@@ -17,6 +17,7 @@ import com.intellij.ide.ui.UISettings;
 import com.intellij.openapi.actionSystem.ActionGroup;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.ActionPlaces;
+import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
@@ -3157,9 +3158,24 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     public boolean isCutVisible(@NotNull DataContext dataContext) {
       return true;
     }
+
+    @Override
+    @NotNull
+    public ActionUpdateThread getActionUpdateThread() {
+      // See same method in MyCopyProvider, below, for considerations.
+      return ActionUpdateThread.BGT;
+    }
   }
 
   private class MyCopyProvider implements CopyProvider {
+    @Override
+    public @NotNull ActionUpdateThread getActionUpdateThread() {
+      // XXX not sure selection manager from #isCopyEnabled() is ok w/ uses from thread other than EDT,
+      //     decided to see if BGT causes any trouble. If it does, EDT is fine (#isCopyEnabled() is fast in out cease)
+      //     although a thread-safe SelectionManager might be a viable alternative.
+      return ActionUpdateThread.BGT;
+    }
+
     @Override
     public void performCopy(@NotNull DataContext dataContext) {
       getModelAccess().executeCommandInEDT(new EditorCommand(getCommandContext()) {
@@ -3203,6 +3219,13 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     @Override
     public boolean isPasteEnabled(@NotNull DataContext dataContext) {
       return true;
+    }
+
+    @Override
+    @NotNull
+    public ActionUpdateThread getActionUpdateThread() {
+      // not sure if this affects isPasteEnabled() only or isPastePossible() as well. If latter, see same method in MyCopyProvider, above, for considerations.
+      return ActionUpdateThread.BGT;
     }
   }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2024 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ import com.intellij.ide.projectView.ProjectView;
 import com.intellij.ide.projectView.impl.AbstractProjectViewPane;
 import com.intellij.ide.projectView.impl.ProjectViewState;
 import com.intellij.openapi.actionSystem.ActionPlaces;
+import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.actionSystem.DataContext;
@@ -591,6 +592,12 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
     public boolean isCopyVisible(@NotNull DataContext dataContext) {
       return true;
     }
+
+    @Override
+    @NotNull
+    public ActionUpdateThread getActionUpdateThread() {
+      return myAction.getActionUpdateThread();
+    }
   }
 
   private static class MyPasteProvider implements PasteProvider {
@@ -613,6 +620,13 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
       myAction.update(event);
       return event.getPresentation().isEnabled();
     }
+
+    @Override
+    @NotNull
+    public ActionUpdateThread getActionUpdateThread() {
+      // PasteNode_Action update uses EDT, is it correct?
+      return myAction.getActionUpdateThread();
+    }
   }
 
   private static class MyCutProvider implements CutProvider {
@@ -634,6 +648,12 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
     @Override
     public boolean isCutVisible(@NotNull DataContext dataContext) {
       return true;
+    }
+
+    @Override
+    @NotNull
+    public ActionUpdateThread getActionUpdateThread() {
+      return myAction.getActionUpdateThread();
     }
   }
 
