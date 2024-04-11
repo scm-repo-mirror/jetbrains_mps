@@ -21,17 +21,12 @@ import jetbrains.mps.module.ModuleClassLoaderIsNullException;
  * Knows how to launch TransformationTest with TestRunner suited for in-process test execution
  * XXX similar to ScriptTestContributor (for tests executed from command line), although unlike STE supports individual test methods.
  */
-public class NodeWrappersTestsContributor extends AbstractInProcessTestMixin implements TestsContributor {
+public class NodeWrappersTestsContributor extends AbstractInProcessTestContributor implements TestsContributor {
   private final PushEnvironmentRunnerBuilder myRunnerBuilder;
 
   public NodeWrappersTestsContributor(MPSProject mpsProject, String runConfigurationName, Iterable<? extends ITestNodeWrapper> testNodes) {
     super(mpsProject, runConfigurationName, testNodes);
     myRunnerBuilder = new PushEnvironmentRunnerBuilder(new InProcessEnvironment());
-  }
-
-  @Override
-  protected void executeSafe() throws Throwable {
-    executeWithJunit4(gatherTests());
   }
 
   @Override

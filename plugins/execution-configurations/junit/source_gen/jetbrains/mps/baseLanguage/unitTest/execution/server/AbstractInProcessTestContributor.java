@@ -16,15 +16,14 @@ import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.classloading.MPSModuleClassLoader;
 import jetbrains.mps.classloading.ModuleClassLoader;
 
-public abstract class AbstractInProcessTestMixin extends AbstractJUnitTestMixin {
+public abstract class AbstractInProcessTestContributor {
 
   protected final String myConfigurationName;
   protected final Iterable<? extends ITestNodeWrapper> myTestNodes;
   protected final MPSProject myProject;
   protected final ClassLoaderManager myClassloaderManager;
 
-  public AbstractInProcessTestMixin(MPSProject mpsProject, String runConfigurationName, Iterable<? extends ITestNodeWrapper> testNodes) {
-    super(false);
+  public AbstractInProcessTestContributor(MPSProject mpsProject, String runConfigurationName, Iterable<? extends ITestNodeWrapper> testNodes) {
     myConfigurationName = runConfigurationName;
     myTestNodes = testNodes;
     myProject = mpsProject;

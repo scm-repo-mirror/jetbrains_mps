@@ -38874,7 +38874,7 @@
         </node>
         <node concept="1SiIV0" id="2Oogzg3RlY6" role="3bR37C">
           <node concept="3bR9La" id="2Oogzg3RlY7" role="1SiIV1">
-            <ref role="3bR37D" node="2Oogzg3vg0R" resolve="jetbrains.mps.baseLanguage.unitTest.platform" />
+            <ref role="3bR37D" node="4MVYzzgl7sL" resolve="jetbrains.mps.lang.test.junit5" />
           </node>
         </node>
       </node>

@@ -4,7 +4,7 @@ package jetbrains.mps.execution.configurations.implementation.plugin.plugin;
 
 import jetbrains.mps.logging.Logger;
 import java.util.concurrent.TimeUnit;
-import jetbrains.mps.baselanguage.unitTest.execution.launcher.TestsContributor;
+import jetbrains.mps.baselanguage.unitTest.execution.launcher.TestExecutor;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
@@ -15,10 +15,14 @@ import com.intellij.execution.runners.ExecutionUtil;
 import jetbrains.mps.project.MPSProject;
 import com.intellij.openapi.wm.ToolWindowId;
 import com.intellij.execution.ExecutionException;
+import jetbrains.mps.baseLanguage.unitTest.execution.server.JUnit4TestExecutor;
 import jetbrains.mps.baseLanguage.unitTest.execution.server.NodeWrappersTestsContributor;
+import java.util.function.Supplier;
+import jetbrains.mps.lang.test.junit5.ModuleClassLoaderUtil;
+import jetbrains.mps.ide.MPSCoreComponents;
+import jetbrains.mps.baseLanguage.unitTest.execution.server.JUnit5TestExecutor;
 import jetbrains.mps.baseLanguage.unitTest.execution.server.JUnit5InprocessTestsContributor;
 import com.intellij.execution.process.ProcessHandler;
-import jetbrains.mps.baselanguage.unitTest.execution.launcher.DelegatingTestExecutor;
 import java.util.concurrent.Future;
 import jetbrains.mps.baseLanguage.unitTest.execution.server.AbstractJUnitTestMixin;
 import com.intellij.openapi.application.ApplicationManager;
@@ -33,7 +37,7 @@ import com.intellij.execution.process.ProcessOutputTypes;
 public class JUnitInProcessRunStarter implements JUnitProcessStarter {
   private static final Logger LOG = Logger.getLogger(JUnitInProcessRunStarter.class);
   private static final int MSECS_TO_WAIT_FOR_START = (int) TimeUnit.SECONDS.toMillis(50);
-  private final TestsContributor myTestsContributor;
+  private final TestExecutor myTestsExecutor;
   private final FakeProcess myFakeProcess = new FakeProcess();
   private final TestInProcessRunState myTestRunState;
 
@@ -44,7 +48,17 @@ public class JUnitInProcessRunStarter implements JUnitProcessStarter {
     if (ListSequence.fromList(legacyTests).isNotEmpty() && ListSequence.fromList(jupiterTests).isNotEmpty()) {
       ExecutionUtil.handleExecutionError(((MPSProject) mpsProject).getProject(), ToolWindowId.RUN, runConfiguration.getName(), new ExecutionException(""), "Could not run legacy and modern tests together, some tests are skipped", null);
     }
-    myTestsContributor = (ListSequence.fromList(legacyTests).isNotEmpty() ? new NodeWrappersTestsContributor((MPSProject) mpsProject, runConfiguration.getName(), testNodeWrappers) : new JUnit5InprocessTestsContributor((MPSProject) mpsProject, runConfiguration.getName(), testNodeWrappers));
+    if (ListSequence.fromList(legacyTests).isNotEmpty()) {
+      myTestsExecutor = new JUnit4TestExecutor(new NodeWrappersTestsContributor((MPSProject) mpsProject, runConfiguration.getName(), testNodeWrappers));
+    } else {
+      // FIXME if I switch TestContributor to using TestDescriptor or ExecutionScript.TestRecord (unified test presentation instead of
+      //     ITestNodeWrapper, Script or plain cmdline as it's now), code to find out CL for test modules could be hidden inside TestExecutor
+      final List<String> testNodeModules = Sequence.fromIterable(testNodeWrappers).select((this0) -> this0.getTestNodeModule()).select((this0) -> this0.toString()).toList();
+      // FIXME switch to ComponentHost and take one from mpsProject.getPlatform, rather than MPSCoreComponents
+      // FIXME if I can't get rid of ModuleClassLoaderUtil, at least consider moving it out of lang.test.junit5, as it's not specific to JUnit5 case
+      Supplier<ClassLoader> contextCL = () -> ModuleClassLoaderUtil.classLoaderForTestExecution(MPSCoreComponents.getInstance().getPlatform(), () -> testNodeModules);
+      myTestsExecutor = new JUnit5TestExecutor(new JUnit5InprocessTestsContributor((MPSProject) mpsProject, runConfiguration.getName(), testNodeWrappers), false, contextCL);
+    }
     myTestRunState = TestInProcessRunState.getInstance(((MPSProject) mpsProject).getProject());
   }
 
@@ -62,8 +76,7 @@ public class JUnitInProcessRunStarter implements JUnitProcessStarter {
     if (!(checkExecutionIsPossible())) {
       return new EmptyProcessHandler();
     }
-    final DelegatingTestExecutor executor = new DelegatingTestExecutor(myTestsContributor);
-    final Future<?> future = doExecute(executor);
+    final Future<?> future = doExecute(myTestsExecutor);
     // can use TestInProcessRunState instead of both process and future parameter, isDone == TERMINATED, startNotify() == INITIALIZED -> READYTOEXECUTE
     // Alternatively, FakeProcess.init may do INITIALIZED -> READYTOEXECUTE, and rely on default ProcessHandler.isProcessTerminated implementation instead of Future.isDone
     final FakeProcessHandler process = new FakeProcessHandler(myFakeProcess, future) {
@@ -78,8 +91,8 @@ public class JUnitInProcessRunStarter implements JUnitProcessStarter {
         // XXX why not isRunning() or at least !isTerminating && !isTerminated(); do we care to request stop few times?
         if (!(myTestRunState.isTerminated())) {
           myTestRunState.advance(RunStateEnum.RUNNING, RunStateEnum.TERMINATING);
-          if (myTestsContributor instanceof AbstractJUnitTestMixin) {
-            ((AbstractJUnitTestMixin) myTestsContributor).stopRun();
+          if (myTestsExecutor instanceof AbstractJUnitTestMixin) {
+            ((AbstractJUnitTestMixin) myTestsExecutor).stopRun();
           }
         }
         // once test execution is over, the runnable at thread pool get control, myFakeProcess receives exit code and is destroyed.
@@ -91,7 +104,7 @@ public class JUnitInProcessRunStarter implements JUnitProcessStarter {
     return process;
   }
 
-  private Future<?> doExecute(final DelegatingTestExecutor executor) {
+  private Future<?> doExecute(final TestExecutor executor) {
     return ApplicationManager.getApplication().executeOnPooledThread(new Runnable() {
       @Override
       public void run() {
