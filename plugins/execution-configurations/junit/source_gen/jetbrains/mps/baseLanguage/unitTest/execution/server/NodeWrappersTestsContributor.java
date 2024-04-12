@@ -32,6 +32,8 @@ public class NodeWrappersTestsContributor extends AbstractInProcessTestContribut
 
   @Override
   public Iterable<Request> gatherTests() {
+    //  FIXME review if I can make use of AbstractTestConverter logic here (not to duplicate).
+    //       FWIW, InProcessExecutionFilter could be applied before transfigure(), and ITestNodeWrapper easily transforms into TestRecord
     return new ModelAccessHelper(myProject.getModelAccess()).runReadAction(() -> {
       final List<Request> requestList = new ArrayList<Request>();
       InProcessExecutionFilter filter = new InProcessExecutionFilter();
