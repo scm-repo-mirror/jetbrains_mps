@@ -516,31 +516,6 @@
             </node>
           </node>
           <node concept="3clFbS" id="5m2bsnoLBGp" role="3clFbx">
-            <node concept="3SKdUt" id="5m2bsnoOMAB" role="3cqZAp">
-              <node concept="1PaTwC" id="5m2bsnoOMAC" role="1aUNEU">
-                <node concept="3oM_SD" id="5m2bsnoOMCt" role="1PaTwD">
-                  <property role="3oM_SC" value="" />
-                </node>
-                <node concept="3oM_SD" id="5m2bsnoOMZ$" role="1PaTwD">
-                  <property role="3oM_SC" value="FIXME" />
-                </node>
-                <node concept="3oM_SD" id="5m2bsnoON02" role="1PaTwD">
-                  <property role="3oM_SC" value="move" />
-                </node>
-                <node concept="3oM_SD" id="5m2bsnoONN0" role="1PaTwD">
-                  <property role="3oM_SC" value="TestSessionConfig" />
-                </node>
-                <node concept="3oM_SD" id="5m2bsnoONXM" role="1PaTwD">
-                  <property role="3oM_SC" value="out" />
-                </node>
-                <node concept="3oM_SD" id="5m2bsnoONZ9" role="1PaTwD">
-                  <property role="3oM_SC" value="of" />
-                </node>
-                <node concept="3oM_SD" id="5m2bsnoOO06" role="1PaTwD">
-                  <property role="3oM_SC" value="JUnit5TestExecutor!" />
-                </node>
-              </node>
-            </node>
             <node concept="3cpWs8" id="4iq05MkH5eR" role="3cqZAp">
               <node concept="3cpWsn" id="4iq05MkH5eS" role="3cpWs9">
                 <property role="TrG5h" value="cls" />

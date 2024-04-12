@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.unitTest.execution.server;
 
 import jetbrains.mps.baselanguage.unitTest.execution.launcher.TestsContributor;
 import jetbrains.mps.testbench.junit.runners.PushEnvironmentRunnerBuilder;
+import jetbrains.mps.tool.environment.Environment;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
 import org.junit.runner.Request;
@@ -24,9 +25,9 @@ import jetbrains.mps.module.ModuleClassLoaderIsNullException;
 public class NodeWrappersTestsContributor extends AbstractInProcessTestContributor implements TestsContributor {
   private final PushEnvironmentRunnerBuilder myRunnerBuilder;
 
-  public NodeWrappersTestsContributor(MPSProject mpsProject, String runConfigurationName, Iterable<? extends ITestNodeWrapper> testNodes) {
+  public NodeWrappersTestsContributor(Environment env, MPSProject mpsProject, String runConfigurationName, Iterable<? extends ITestNodeWrapper> testNodes) {
     super(mpsProject, runConfigurationName, testNodes);
-    myRunnerBuilder = new PushEnvironmentRunnerBuilder(new InProcessEnvironment());
+    myRunnerBuilder = new PushEnvironmentRunnerBuilder(env);
   }
 
   @Override

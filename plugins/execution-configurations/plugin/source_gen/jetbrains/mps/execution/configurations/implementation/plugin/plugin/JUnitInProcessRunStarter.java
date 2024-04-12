@@ -15,13 +15,17 @@ import com.intellij.execution.runners.ExecutionUtil;
 import jetbrains.mps.project.MPSProject;
 import com.intellij.openapi.wm.ToolWindowId;
 import com.intellij.execution.ExecutionException;
+import jetbrains.mps.tool.environment.Environment;
+import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.baseLanguage.unitTest.execution.server.JUnit4TestExecutor;
 import jetbrains.mps.baseLanguage.unitTest.execution.server.NodeWrappersTestsContributor;
 import java.util.function.Supplier;
 import jetbrains.mps.lang.test.junit5.ModuleClassLoaderUtil;
-import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.baseLanguage.unitTest.execution.server.JUnit5TestExecutor;
 import jetbrains.mps.baseLanguage.unitTest.execution.server.JUnit5InprocessTestsContributor;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestSessionConfig;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestSession;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform;
 import com.intellij.execution.process.ProcessHandler;
 import java.util.concurrent.Future;
 import jetbrains.mps.baseLanguage.unitTest.execution.server.AbstractJUnitTestMixin;
@@ -48,16 +52,29 @@ public class JUnitInProcessRunStarter implements JUnitProcessStarter {
     if (ListSequence.fromList(legacyTests).isNotEmpty() && ListSequence.fromList(jupiterTests).isNotEmpty()) {
       ExecutionUtil.handleExecutionError(((MPSProject) mpsProject).getProject(), ToolWindowId.RUN, runConfiguration.getName(), new ExecutionException(""), "Could not run legacy and modern tests together, some tests are skipped", null);
     }
+    final Environment inProcessEnv = new InProcessEnvironment(MPSCoreComponents.getInstance().getPlatform());
     if (ListSequence.fromList(legacyTests).isNotEmpty()) {
-      myTestsExecutor = new JUnit4TestExecutor(new NodeWrappersTestsContributor((MPSProject) mpsProject, runConfiguration.getName(), testNodeWrappers), false);
+      myTestsExecutor = new JUnit4TestExecutor(new NodeWrappersTestsContributor(inProcessEnv, (MPSProject) mpsProject, runConfiguration.getName(), testNodeWrappers), false);
     } else {
       // FIXME if I switch TestContributor to using TestDescriptor or ExecutionScript.TestRecord (unified test presentation instead of
       //     ITestNodeWrapper, Script or plain cmdline as it's now), code to find out CL for test modules could be hidden inside TestExecutor
       final List<String> testNodeModules = Sequence.fromIterable(testNodeWrappers).select((this0) -> this0.getTestNodeModule()).select((this0) -> this0.toString()).toList();
-      // FIXME switch to ComponentHost and take one from mpsProject.getPlatform, rather than MPSCoreComponents
+      // FIXME switch to ComponentHost and take one from mpsProject.getPlatform, rather than MPSCoreComponents/Environment
       // FIXME if I can't get rid of ModuleClassLoaderUtil, at least consider moving it out of lang.test.junit5, as it's not specific to JUnit5 case
-      Supplier<ClassLoader> contextCL = () -> ModuleClassLoaderUtil.classLoaderForTestExecution(MPSCoreComponents.getInstance().getPlatform(), () -> testNodeModules);
-      myTestsExecutor = new JUnit5TestExecutor(new JUnit5InprocessTestsContributor((MPSProject) mpsProject, runConfiguration.getName(), testNodeWrappers), false, contextCL);
+      Supplier<ClassLoader> contextCL = () -> ModuleClassLoaderUtil.classLoaderForTestExecution(inProcessEnv.getPlatform(), () -> testNodeModules);
+      myTestsExecutor = new JUnit5TestExecutor(new JUnit5InprocessTestsContributor((MPSProject) mpsProject, runConfiguration.getName(), testNodeWrappers), false, contextCL) {
+
+        @Override
+        protected void executeSafe() throws Throwable {
+          TestSessionConfig sessionConfig = new TestSessionConfig().withAccessory(Environment.class, inProcessEnv);
+          TestSession testSession = TestPlatform.getInstance().openSession(sessionConfig);
+          try {
+            super.executeSafe();
+          } finally {
+            TestPlatform.getInstance().closeSession(testSession);
+          }
+        }
+      };
     }
     myTestRunState = TestInProcessRunState.getInstance(((MPSProject) mpsProject).getProject());
   }

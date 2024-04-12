@@ -38,7 +38,6 @@ public class DefaultTestExecutor extends DelegatingTestExecutor {
     CommandLineTestContributor tc = new CommandLineTestContributor(args);
     TestExecutor exec;
     if (hasJUnit5Option(args)) {
-      //  FIXME move TestSessionConfig out of JUnit5TestExecutor!
       Class<?> cls = Class.forName("jetbrains.mps.baseLanguage.unitTest.execution.server.JUnit5TestExecutor");
       Constructor<?> ctor = cls.getConstructor(TestsContributor.class, boolean.class, Supplier.class);
       exec = (TestExecutor) ctor.newInstance(tc, true, ((_FunctionTypes._return_P0_E0<ClassLoader>) () -> Thread.currentThread().getContextClassLoader()));
