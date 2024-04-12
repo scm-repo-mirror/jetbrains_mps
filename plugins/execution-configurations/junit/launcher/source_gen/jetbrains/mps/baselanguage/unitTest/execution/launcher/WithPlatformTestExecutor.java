@@ -27,12 +27,12 @@ import java.lang.reflect.InvocationTargetException;
  * 
  * FIXME At the moment, starts MPS on top of IDEA platform with no explicitly specified plugins (effectively means any available). 
  *       Would be great to configure that.
+ * Note, it's essential to extend DefaultTestExecutor as TestParameters.comprises() relies on the fact
  */
 public class WithPlatformTestExecutor extends DefaultTestExecutor {
   private static final String EXECUTION_SOLUTION = "f618e99a-2641-465c-bb54-31fe76f9e285(jetbrains.mps.baseLanguage.unitTest.execution)";
 
-  public WithPlatformTestExecutor(TestsContributor testsContributor) {
-    super(testsContributor);
+  public WithPlatformTestExecutor() {
   }
 
   /**

@@ -4,7 +4,6 @@ package jetbrains.mps.baselanguage.unitTest.execution.launcher;
 
 import java.lang.reflect.Constructor;
 import java.util.function.Supplier;
-import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import java.io.IOException;
 import java.util.Arrays;
 import org.junit.runner.Request;
@@ -18,17 +17,18 @@ import java.util.ArrayList;
 
 /**
  * Command-line front-end to launch BTestCase or JUnit3/JUnit4 ClassConcept without need for MPS instance/environment
- * XXX Unfortunate name, no idea what 'default' refers to.
+ * XXX Unfortunate name, no idea what 'default' refers to. Now, 'TestExecutor' suffix doesn't make much sense either.
+ *     This is merely an POJO main to launch tests in a given mode.
  * FIXME assumes executor classes are in classpath and share CP with that of this class (to take TestExecutor.class parameter)
  *       Proper implementation shall pick JUnit4/5 main() right away at the caller (i.e. DTE has to be split into 2, and placed into different modules), 
  *       so that this class could have proper dependencies.
+ * FIXME instead of looking into -junit5 option, could have 2 distinct main() and make decision which one to invoke based on TestParameters
  */
-public class DefaultTestExecutor extends DelegatingTestExecutor {
+public class DefaultTestExecutor {
   public static final int EXIT_CODE_FOR_EXCEPTION = -12345;
   public static final String JUNIT5_OPTION = "-junit5";
 
-  public DefaultTestExecutor(TestsContributor testsContributor) {
-    super(testsContributor);
+  public DefaultTestExecutor() {
   }
 
   /**
@@ -40,7 +40,8 @@ public class DefaultTestExecutor extends DelegatingTestExecutor {
     if (hasJUnit5Option(args)) {
       Class<?> cls = Class.forName("jetbrains.mps.baseLanguage.unitTest.execution.server.JUnit5TestExecutor");
       Constructor<?> ctor = cls.getConstructor(TestsContributor.class, boolean.class, Supplier.class);
-      exec = (TestExecutor) ctor.newInstance(tc, true, ((_FunctionTypes._return_P0_E0<ClassLoader>) () -> Thread.currentThread().getContextClassLoader()));
+      Supplier<ClassLoader> getCL = () -> Thread.currentThread().getContextClassLoader();
+      exec = (TestExecutor) ctor.newInstance(tc, true, getCL);
     } else {
       Class<?> cls = Class.forName("jetbrains.mps.baseLanguage.unitTest.execution.server.JUnit4TestExecutor");
       Constructor<?> ctor = cls.getConstructor(TestsContributor.class, boolean.class);
@@ -68,20 +69,6 @@ public class DefaultTestExecutor extends DelegatingTestExecutor {
 
   protected static boolean hasJUnit5Option(String[] args) throws IOException {
     return Arrays.stream(args).anyMatch(JUNIT5_OPTION::equals);
-  }
-
-  protected void run() {
-    init();
-    execute();
-  }
-
-  protected void exit() {
-    if (getExecutionError() != null) {
-      System.exit(EXIT_CODE_FOR_EXCEPTION);
-    } else {
-      // we don't expect test cancellation requests here
-      System.exit(getFailureCount());
-    }
   }
 
   private static class CommandLineTestContributor implements TestsContributor {
