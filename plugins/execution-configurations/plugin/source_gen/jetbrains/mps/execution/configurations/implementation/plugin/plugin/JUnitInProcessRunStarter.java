@@ -49,7 +49,7 @@ public class JUnitInProcessRunStarter implements JUnitProcessStarter {
       ExecutionUtil.handleExecutionError(((MPSProject) mpsProject).getProject(), ToolWindowId.RUN, runConfiguration.getName(), new ExecutionException(""), "Could not run legacy and modern tests together, some tests are skipped", null);
     }
     if (ListSequence.fromList(legacyTests).isNotEmpty()) {
-      myTestsExecutor = new JUnit4TestExecutor(new NodeWrappersTestsContributor((MPSProject) mpsProject, runConfiguration.getName(), testNodeWrappers));
+      myTestsExecutor = new JUnit4TestExecutor(new NodeWrappersTestsContributor((MPSProject) mpsProject, runConfiguration.getName(), testNodeWrappers), false);
     } else {
       // FIXME if I switch TestContributor to using TestDescriptor or ExecutionScript.TestRecord (unified test presentation instead of
       //     ITestNodeWrapper, Script or plain cmdline as it's now), code to find out CL for test modules could be hidden inside TestExecutor

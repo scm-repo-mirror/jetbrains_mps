@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.unitTest.execution.server;
 
 import jetbrains.mps.tool.environment.Environment;
 import java.util.function.Supplier;
+import jetbrains.mps.baselanguage.unitTest.execution.launcher.TestsContributor;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestSessionConfig;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestSession;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform;
@@ -25,6 +26,10 @@ public class JUnit5TestExecutor extends AbstractJUnitTestMixin {
     myTestContributor = testContributor;
     myContextCL = contextCL;
     //  FIXME similar to AbstractJUnit5Launcher and subclasses. Eventually, shall get converged into single facility
+  }
+
+  public JUnit5TestExecutor(TestsContributor testContributor, boolean redirectStdOutErr, Supplier<ClassLoader> contextCL) {
+    this(new JUnit5TestContributorConverter(testContributor), redirectStdOutErr, contextCL);
   }
 
   @Override
@@ -64,5 +69,11 @@ public class JUnit5TestExecutor extends AbstractJUnitTestMixin {
     } finally {
       this.myFailureCount = listener.getFailuresCount();
     }
+  }
+
+  @Override
+  protected void processThrowable(Throwable t) {
+    super.processThrowable(t);
+    t.printStackTrace(System.err);
   }
 }
