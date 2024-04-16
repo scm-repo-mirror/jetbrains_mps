@@ -15720,7 +15720,7 @@
                     <ref role="37wK5l" to="34h4:2u2lerfkiGC" resolve="JUnit4TestExecutor" />
                     <node concept="2ShNRf" id="2u2lerflA6H" role="37wK5m">
                       <node concept="1pGfFk" id="2u2lerflA6I" role="2ShVmc">
-                        <ref role="37wK5l" to="4l68:5Ti9jVZ8rCT" />
+                        <ref role="37wK5l" to="4l68:5Ti9jVZ8rCT" resolve="NodeWrappersTestsContributor" />
                         <node concept="37vLTw" id="5m2bsnp046E" role="37wK5m">
                           <ref role="3cqZAo" node="5m2bsnoZHQA" resolve="inProcessEnv" />
                         </node>
@@ -16068,7 +16068,7 @@
                             <node concept="3clFbS" id="2u2lerfliaJ" role="1bW5cS">
                               <node concept="3clFbF" id="2u2lerfliaN" role="3cqZAp">
                                 <node concept="37vLTw" id="2u2lerfmNI8" role="3clFbG">
-                                  <ref role="3cqZAo" node="2u2lerfmNHU" resolve="list" />
+                                  <ref role="3cqZAo" node="2u2lerfmNHU" resolve="testNodeModules" />
                                 </node>
                               </node>
                             </node>
@@ -16143,7 +16143,7 @@
                                   <node concept="2ShNRf" id="4rQ9_5efOyS" role="2Oq$k0">
                                     <node concept="1pGfFk" id="4rQ9_5efOyT" role="2ShVmc">
                                       <property role="373rjd" value="true" />
-                                      <ref role="37wK5l" to="4u8o:4rQ9_5dOg04" />
+                                      <ref role="37wK5l" to="4u8o:4rQ9_5dOg04" resolve="TestSessionConfig" />
                                     </node>
                                   </node>
                                   <node concept="liA8E" id="4rQ9_5efOyU" role="2OqNvi">
@@ -19118,7 +19118,7 @@
       <node concept="3cqZAl" id="1_D5Bk1ORkF" role="3clF45" />
       <node concept="3clFbS" id="1_D5Bk1ORkH" role="3clF47">
         <node concept="XkiVB" id="4k06bsQpQAk" role="3cqZAp">
-          <ref role="37wK5l" to="79ha:1_D5Bk1O3Cj" />
+          <ref role="37wK5l" to="79ha:1_D5Bk1O3Cj" resolve="AbstractEnvironment" />
           <node concept="37vLTw" id="5m2bsnp0wiU" role="37wK5m">
             <ref role="3cqZAo" node="5m2bsnp0v7D" resolve="mpsPlatform" />
           </node>

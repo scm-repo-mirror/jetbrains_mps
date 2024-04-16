@@ -2012,7 +2012,7 @@
       <property role="2GAjPV" value="true" />
       <property role="ZpmtF" value="true" />
       <node concept="398BVA" id="5lGJ4Tajp26" role="3LF7KH">
-        <ref role="398BVh" node="3K2ouyA1A$M" resolve="plugin_homd" />
+        <ref role="398BVh" node="3K2ouyA1A$M" resolve="plugin_home" />
         <node concept="2Ry0Ak" id="5lGJ4Tajp2c" role="iGT6I">
           <property role="2Ry0Am" value="migration-platform" />
           <node concept="2Ry0Ak" id="5lGJ4Tajp2h" role="2Ry0An">
@@ -2109,7 +2109,7 @@
             </node>
           </node>
           <node concept="3yrxFa" id="5lGJ4Tb9H$e" role="2gdwQb">
-            <ref role="3yrxFb" to="ffeo:1VTNP4xgbrz" />
+            <ref role="3yrxFb" to="ffeo:1VTNP4xgbrz" resolve="migration-platform.jar" />
           </node>
         </node>
       </node>

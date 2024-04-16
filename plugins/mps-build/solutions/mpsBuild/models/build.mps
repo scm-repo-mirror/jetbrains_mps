@@ -37185,7 +37185,7 @@
                 </node>
               </node>
               <node concept="m_q07" id="43_f$S$IheP" role="39821P">
-                <ref role="m_q06" node="5CFKsRWRuFN" />
+                <ref role="m_q06" node="5CFKsRWRuFN" resolve="jetbrains.mps.debugger.api" />
               </node>
             </node>
           </node>

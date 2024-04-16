@@ -314,7 +314,7 @@
       <property role="3TUv4t" value="true" />
       <node concept="3Tm6S6" id="1zHDQsywvke" role="1B3o_S" />
       <node concept="3uibUv" id="2ZbjobgvwPb" role="1tU5fm">
-        <ref role="3uigEE" node="2ZbjobguwR7" />
+        <ref role="3uigEE" node="2ZbjobguwR7" resolve="TestRawKey" />
       </node>
     </node>
     <node concept="312cEg" id="1zHDQsywvkj" role="jymVt">
@@ -792,7 +792,7 @@
       </node>
       <node concept="3Tm6S6" id="2Zbjobgr8gh" role="1B3o_S" />
       <node concept="3uibUv" id="2ZbjobgvAoM" role="3clF45">
-        <ref role="3uigEE" node="2ZbjobguwR7" />
+        <ref role="3uigEE" node="2ZbjobguwR7" resolve="TestRawKey" />
       </node>
       <node concept="37vLTG" id="2Zbjobgr8oh" role="3clF46">
         <property role="TrG5h" value="description" />
@@ -819,7 +819,7 @@
             <node concept="3cpWs6" id="2ZbjobgralA" role="3cqZAp">
               <node concept="2ShNRf" id="2ZbjobgralB" role="3cqZAk">
                 <node concept="1pGfFk" id="2ZbjobgralC" role="2ShVmc">
-                  <ref role="37wK5l" node="1XbiPVzvbLB" />
+                  <ref role="37wK5l" node="1XbiPVzvbLB" resolve="TestMethodStringKey" />
                   <node concept="37vLTw" id="2ZbjobgrcKg" role="37wK5m">
                     <ref role="3cqZAo" node="2ZbjobgralJ" resolve="testCaseFqName" />
                   </node>
@@ -834,7 +834,7 @@
         <node concept="3cpWs6" id="2Zbjobgrc$8" role="3cqZAp">
           <node concept="2ShNRf" id="2Zbjobgrc$E" role="3cqZAk">
             <node concept="1pGfFk" id="2ZbjobgrcJA" role="2ShVmc">
-              <ref role="37wK5l" node="2ZbjobgpQWv" />
+              <ref role="37wK5l" node="2ZbjobgpQWv" resolve="TestCaseStringKey" />
               <node concept="37vLTw" id="2ZbjobgrcKS" role="37wK5m">
                 <ref role="3cqZAo" node="2ZbjobgralJ" resolve="testCaseFqName" />
               </node>
@@ -844,7 +844,7 @@
       </node>
       <node concept="3Tm6S6" id="2ZbjobgralH" role="1B3o_S" />
       <node concept="3uibUv" id="2ZbjobgvAoP" role="3clF45">
-        <ref role="3uigEE" node="2ZbjobguwR7" />
+        <ref role="3uigEE" node="2ZbjobguwR7" resolve="TestRawKey" />
       </node>
       <node concept="37vLTG" id="2ZbjobgralJ" role="3clF46">
         <property role="TrG5h" value="testCaseFqName" />
@@ -999,7 +999,7 @@
               <ref role="3cqZAo" node="1zHDQsywvkd" resolve="myTestKey" />
             </node>
             <node concept="liA8E" id="2ZbjobgrxAF" role="2OqNvi">
-              <ref role="37wK5l" node="2ZbjobgruKR" />
+              <ref role="37wK5l" node="2ZbjobgruKR" resolve="getTestCaseFqName" />
             </node>
           </node>
         </node>
@@ -1018,7 +1018,7 @@
                 <node concept="1eOMI4" id="2Zbjobgq4vm" role="2Oq$k0">
                   <node concept="10QFUN" id="2Zbjobgq4yc" role="1eOMHV">
                     <node concept="3uibUv" id="2Zbjobgq4yj" role="10QFUM">
-                      <ref role="3uigEE" node="1XbiPVzvbJi" />
+                      <ref role="3uigEE" node="1XbiPVzvbJi" resolve="TestMethodStringKey" />
                     </node>
                     <node concept="37vLTw" id="2Zbjobgq4v$" role="10QFUP">
                       <ref role="3cqZAo" node="1zHDQsywvkd" resolve="myTestKey" />
@@ -1026,14 +1026,14 @@
                   </node>
                 </node>
                 <node concept="liA8E" id="2Zbjobgq4S7" role="2OqNvi">
-                  <ref role="37wK5l" node="1XbiPVzAdYQ" />
+                  <ref role="37wK5l" node="1XbiPVzAdYQ" resolve="getTestMethodFqName" />
                 </node>
               </node>
             </node>
           </node>
           <node concept="2ZW3vV" id="2Zbjobgq4uM" role="3clFbw">
             <node concept="3uibUv" id="2Zbjobgq4uT" role="2ZW6by">
-              <ref role="3uigEE" node="1XbiPVzvbJi" />
+              <ref role="3uigEE" node="1XbiPVzvbJi" resolve="TestMethodStringKey" />
             </node>
             <node concept="37vLTw" id="2Zbjobgq46F" role="2ZW6bz">
               <ref role="3cqZAo" node="1zHDQsywvkd" resolve="myTestKey" />
@@ -1064,7 +1064,7 @@
       </node>
       <node concept="3Tm1VV" id="2ZbjobgrDI3" role="1B3o_S" />
       <node concept="3uibUv" id="2ZbjobgvwP8" role="3clF45">
-        <ref role="3uigEE" node="2ZbjobguwR7" />
+        <ref role="3uigEE" node="2ZbjobguwR7" resolve="TestRawKey" />
       </node>
       <node concept="2AHcQZ" id="2ZbjobgrDQp" role="2AJF6D">
         <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
@@ -1224,7 +1224,7 @@
     <property role="TrG5h" value="TestRawKey" />
     <node concept="3Tm1VV" id="2ZbjobguwR8" role="1B3o_S" />
     <node concept="3uibUv" id="2ZbjobguwRd" role="3HQHJm">
-      <ref role="3uigEE" node="2ZbjobgpR3W" />
+      <ref role="3uigEE" node="2ZbjobgpR3W" resolve="TestKey" />
     </node>
     <node concept="3UR2Jj" id="2zvrUBdpGnP" role="lGtFl">
       <node concept="TZ5HA" id="2zvrUBdpGnQ" role="TZ5H$">

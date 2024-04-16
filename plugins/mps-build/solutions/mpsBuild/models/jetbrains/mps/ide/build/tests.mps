@@ -16709,11 +16709,11 @@
           </node>
         </node>
         <node concept="24YFd4" id="4ZZ2R77b9l2" role="24YFd7">
-          <ref role="24YFd5" to="ffeo:6OJi9XVRc7A" />
+          <ref role="24YFd5" to="ffeo:6OJi9XVRc7A" resolve="jetbrains.mps.ide.mpsmigration" />
         </node>
       </node>
       <node concept="22LTRM" id="4ZZ2R77b8rB" role="22LTRK">
-        <ref role="22LTRN" node="4ZZ2R77b8rE" resolve="jetbrains.mps.tests.sraMigration" />
+        <ref role="22LTRN" node="4ZZ2R77b8rE" resolve="jetbrains.mps.tests.migration" />
       </node>
     </node>
     <node concept="2_Ic$z" id="4ZZ2R77b8rC" role="3989C9">
@@ -16844,7 +16844,7 @@
     </node>
     <node concept="1l3spV" id="4ZZ2R77b8sl" role="1l3spN">
       <node concept="L2wRC" id="4ZZ2R77b8sm" role="39821P">
-        <ref role="L2wRA" node="4ZZ2R77b8rE" resolve="jetbrains.mps.tests.sraMigration" />
+        <ref role="L2wRA" node="4ZZ2R77b8rE" resolve="jetbrains.mps.tests.migration" />
       </node>
     </node>
     <node concept="10PD9b" id="4ZZ2R77b8sn" role="10PD9s" />
