@@ -39122,6 +39122,11 @@
             <ref role="3bR37D" node="1xb0AuwN7WS" resolve="JUnit" />
           </node>
         </node>
+        <node concept="1SiIV0" id="4a2eZHNDLjA" role="3bR37C">
+          <node concept="3bR9La" id="4a2eZHNDLjB" role="1SiIV1">
+            <ref role="3bR37D" node="1ULLXZL0gZG" resolve="org.junit.junit5" />
+          </node>
+        </node>
         <node concept="1BupzO" id="465rK6MmPyr" role="3bR31x">
           <property role="3ZfqAx" value="models" />
           <property role="1Hdu6h" value="true" />

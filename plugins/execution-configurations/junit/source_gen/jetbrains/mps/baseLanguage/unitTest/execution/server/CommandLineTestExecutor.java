@@ -9,6 +9,7 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.baselanguage.unitTest.execution.launcher.JUnit4TestExecutor;
 import java.util.function.Supplier;
 import jetbrains.mps.lang.test.junit5.ModuleClassLoaderUtil;
+import jetbrains.mps.baselanguage.unitTest.execution.launcher.JUnit5TestExecutor;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestSessionConfig;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestSession;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform;
