@@ -35,11 +35,13 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Enumeration;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 /**
  * MPS implementation of <code>java.lang.ClassLoader</code> which uses non-standard way of class loading delegation.
@@ -228,7 +230,7 @@ public final class ModuleClassLoader extends MPSModuleClassLoader {
   }
 
   private Class<?> loadFromDeps(String name) throws ClassNotFoundException {
-    Collection<? extends ClassLoader> dependencyClassLoaders = getDependencyClassLoaders();
+    Collection<ClassLoader> dependencyClassLoaders = getDependencyClassLoaders();
 
     if (LOG.isDebugLevel()) {
       LOG.debug(String.format("Looking for %d among %d dependencies of %s", name, dependencyClassLoaders.size(), getName()));
@@ -310,6 +312,7 @@ public final class ModuleClassLoader extends MPSModuleClassLoader {
   public URL getOwnResource(String name) {
     // unlike getResource(), don't look up in parent/bootstrap CL, we care about resources of this module only
     // unlike this.findResource(), don't look up in dependencies
+    // Perhaps, the method shall get exposed in superclass (next to loadOwnClass()) for uniformity with delegating CL for "provided CL" scenario
     return myClassPathItem.getResource(name);
   }
 
@@ -317,15 +320,17 @@ public final class ModuleClassLoader extends MPSModuleClassLoader {
   @Override
   protected URL findResource(String name) {
     checkNotDisposed();
-    List<ClassLoader> classLoadersToCheck = new ArrayList<>();
-    classLoadersToCheck.add(this);
-    classLoadersToCheck.addAll(getDependencyClassLoaders());
-    for (ClassLoader dep : classLoadersToCheck) {
+    Stream<ClassLoader> classLoadersToCheck = Stream.concat(Stream.of(this), getDependencyClassLoaders().stream());
+    for (Iterator<ClassLoader> it = classLoadersToCheck.iterator(); it.hasNext(); ) {
+      final ClassLoader dep = it.next();
+      URL res;
       if (dep instanceof ModuleClassLoader) {
-        URL res = ((ModuleClassLoader) dep).getOwnResource(name);
-        if (res != null) {
-          return res;
-        }
+        res = ((ModuleClassLoader) dep).getOwnResource(name);
+      } else {
+        res = dep.getResource(name); // see getOwnResource(), above
+      }
+      if (res != null) {
+        return res;
       }
     }
 
@@ -335,17 +340,22 @@ public final class ModuleClassLoader extends MPSModuleClassLoader {
   @Override
   protected Enumeration<URL> findResources(String name) {
     checkNotDisposed();
-    List<ClassLoader> classLoadersToCheck = new ArrayList<>();
-    classLoadersToCheck.add(this);
-    classLoadersToCheck.addAll(getDependencyClassLoaders());
+    Stream<ClassLoader> classLoadersToCheck = Stream.concat(Stream.of(this), getDependencyClassLoaders().stream());
     List<URL> result = new ArrayList<>();
-    for (ClassLoader dep : classLoadersToCheck) {
-      if (dep instanceof ModuleClassLoader) {
+    for (Iterator<ClassLoader> it = classLoadersToCheck.iterator(); it.hasNext(); ) {
+      final ClassLoader dep = it.next();
+      try {
         Enumeration<URL> resources;
-        resources = ((ModuleClassLoader) dep).myClassPathItem.getResources(name);
+        if (dep instanceof ModuleClassLoader) {
+          resources = ((ModuleClassLoader) dep).myClassPathItem.getResources(name);
+        } else {
+          resources = dep.getResources(name);
+        }
         while (resources.hasMoreElements()) {
           result.add(resources.nextElement());
         }
+      } catch (Exception ex) {
+        LOG.debug(String.format("Attempt to find resources from CL %s failed", dep), ex);
       }
     }
 
