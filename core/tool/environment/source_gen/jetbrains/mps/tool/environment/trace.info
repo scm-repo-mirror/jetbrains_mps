@@ -1148,7 +1148,7 @@
       <node id="2512881978346632635" at="159,52,160,230" concept="12" />
       <node id="2512881978346611779" at="160,230,161,0" concept="14" />
       <node id="1882491593136301060" at="162,12,163,218" concept="12" />
-      <node id="1166932148934788584" at="167,51,168,68" concept="11" />
+      <node id="1166932148934788584" at="167,51,168,86" concept="11" />
       <node id="1166932148934710766" at="169,41,170,50" concept="13" />
       <node id="1166932148934901678" at="170,50,171,196" concept="12" />
       <node id="1166932148934975866" at="172,12,173,188" concept="12" />
@@ -1210,7 +1210,7 @@
       <node id="6720224224383981410" at="72,62,77,5" concept="9" />
       <node id="5953662031016781672" at="191,0,196,0" concept="10" trace="addDistributedPlugin#(Ljava/lang/String;Ljava/lang/String;)Ljetbrains/mps/tool/environment/EnvironmentConfig;" />
       <node id="33726302329160869" at="78,41,84,5" concept="9" />
-      <node id="1166932148934710764" at="168,68,174,5" concept="9" />
+      <node id="1166932148934710764" at="168,86,174,5" concept="9" />
       <node id="106664114202338215" at="52,0,59,0" concept="10" trace="getPlugins#()Ljava/util/Set;" />
       <node id="2512881978346600991" at="157,49,164,5" concept="9" />
       <node id="6170820365632484401" at="197,0,204,0" concept="10" trace="withBootstrapLibraries#()Ljetbrains/mps/tool/environment/EnvironmentConfig;" />

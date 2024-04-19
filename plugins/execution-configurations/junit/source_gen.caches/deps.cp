@@ -7,6 +7,7 @@
   <uses language="l:83888646-71ce-4f1c-9c53-c54016f6ad4f:jetbrains.mps.baseLanguage.collections" />
   <uses language="l:f2801650-65d5-424e-bb1b-463a8781b786:jetbrains.mps.baseLanguage.javadoc" />
   <uses language="l:760a0a8c-eabb-4521-8bfd-65db761a9ba3:jetbrains.mps.baseLanguage.logging" />
+  <uses language="l:acfc188d-d5d6-4598-b370-6f4a983f05b2:jetbrains.mps.baseLanguage.methodReferences" />
   <uses language="l:a247e09e-2435-45ba-b8d2-07e93feba96a:jetbrains.mps.baseLanguage.tuples" />
   <uses language="l:df345b11-b8c7-4213-ac66-48d2a9b75d88:jetbrains.mps.baseLanguageInternal" />
   <uses language="l:fbc14279-5e2a-4c87-a5d1-5f7061e6c456:jetbrains.mps.debugger.api.lang" />
@@ -61,7 +62,6 @@
   <uses module="86ef8290-12bb-4ca7-947f-093788f263a9(jetbrains.mps.lang.project)" kind="dp" />
   <uses module="d7eb0a2a-bd50-4576-beae-e4a89db35f20(jetbrains.mps.lang.scopes.runtime)" kind="rt" />
   <uses module="8585453e-6bfb-4d80-98de-b16074f1d86c(jetbrains.mps.lang.test)" kind="dp" />
-  <uses module="c234a56a-502f-4751-aded-6f9846fff7ce(jetbrains.mps.lang.test.junit5)" kind="dp" />
   <uses module="9ded098b-ad6a-4657-bfd9-48636cfe8bc3(jetbrains.mps.lang.traceable)" kind="dp" />
   <uses module="9a4afe51-f114-4595-b5df-048ce3c596be(jetbrains.mps.runtime)" kind="rt+dp" />
   <uses module="d9e6c08a-a7b1-4ef6-8c54-57d93e9e0ce0(jetbrains.mps.tool.common)" kind="dp" />

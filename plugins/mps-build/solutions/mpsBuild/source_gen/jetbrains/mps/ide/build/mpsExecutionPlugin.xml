@@ -980,7 +980,6 @@
           <module ref="04b376d5-fc16-403b-a344-c68b30193c6a(jetbrains.mps.execution.library)" kind="cl" />
           <module ref="86ef8290-12bb-4ca7-947f-093788f263a9(jetbrains.mps.lang.project)" kind="cl" />
           <module ref="8585453e-6bfb-4d80-98de-b16074f1d86c(jetbrains.mps.lang.test)" kind="cl" />
-          <module ref="c234a56a-502f-4751-aded-6f9846fff7ce(jetbrains.mps.lang.test.junit5)" kind="cl" />
           <module ref="9a4afe51-f114-4595-b5df-048ce3c596be(jetbrains.mps.runtime)" kind="cl" />
           <module ref="d9e6c08a-a7b1-4ef6-8c54-57d93e9e0ce0(jetbrains.mps.tool.common)" kind="cl" />
           <module ref="f647e48e-4568-4f4c-b48a-1546492c6a2e(org.jdom)" kind="cl" />
@@ -2221,7 +2220,6 @@
         <fileset file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.project.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.scopes.runtime.jar" />
         <fileset file="${artifacts.mpsTesting}/mps-testing/languages/languageDesign/jetbrains.mps.lang.test.jar" />
-        <fileset file="${artifacts.mpsTesting}/mps-testing/languages/languageDesign/jetbrains.mps.lang.test.junit5.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.traceable.jar" />
         <fileset dir="${artifacts.mpsTesting}/mps-junit5/lib" includes="apiguardian-api-1.1.2.jar" />
         <fileset dir="${artifacts.mpsTesting}/mps-junit5/lib" includes="junit-jupiter-api-5.9.3.jar" />

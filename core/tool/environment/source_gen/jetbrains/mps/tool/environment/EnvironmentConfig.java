@@ -165,7 +165,7 @@ public class EnvironmentConfig {
   }
 
   public EnvironmentConfig withExecutionPlugins() {
-    EnvironmentConfig ec = withDebuggerPlugin().withTestingPlugin();
+    EnvironmentConfig ec = withDebuggerPlugin().withTestingPlugin().withBuildPlugin();
     if (!(PathManager.isFromSources())) {
       // same idea as in withDebuggerPlugin, above
       return ec.addDistributedPlugin("mps-execution-languages", "jetbrains.mps.execution.languages").addDistributedPlugin("mps-execution-configurations", "jetbrains.mps.execution.configurations");

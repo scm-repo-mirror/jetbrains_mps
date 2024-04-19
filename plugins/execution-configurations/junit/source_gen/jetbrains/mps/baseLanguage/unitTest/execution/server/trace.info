@@ -538,67 +538,64 @@
   </root>
   <root nodeRef="r:a8dde698-9468-4a76-b89d-abdfa4716001(jetbrains.mps.baseLanguage.unitTest.execution.server)/6161537567973315435">
     <file name="CommandLineTestExecutor.java">
-      <node id="6161537567973358198" at="23,0,24,0" concept="5" trace="myEnv" />
-      <node id="6161537567973358201" at="24,0,25,0" concept="5" trace="myExecScript" />
-      <node id="6161537567973534587" at="25,0,26,0" concept="5" trace="myTestExecutor" />
-      <node id="6161537567973367319" at="27,96,28,16" concept="4" />
-      <node id="6161537567973367323" at="28,16,29,30" concept="4" />
+      <node id="6161537567973358198" at="22,0,23,0" concept="5" trace="myEnv" />
+      <node id="6161537567973358201" at="23,0,24,0" concept="5" trace="myExecScript" />
+      <node id="6161537567973534587" at="24,0,25,0" concept="5" trace="myTestExecutor" />
+      <node id="6161537567973367319" at="26,96,27,16" concept="4" />
+      <node id="6161537567973367323" at="27,16,28,30" concept="4" />
+      <node id="6903154799929031845" at="28,30,29,109" concept="12" />
       <node id="6161537567973628274" at="34,68,35,140" concept="12" />
       <node id="6161537567973555081" at="35,140,36,111" concept="4" />
-      <node id="6161537567974049202" at="37,12,38,140" concept="12" />
-      <node id="6161537567973968005" at="39,120,40,86" concept="11" />
-      <node id="6161537567973968023" at="40,86,41,0" concept="13" />
-      <node id="6161537567973672280" at="42,9,43,74" concept="12" />
-      <node id="5113316557572753589" at="46,55,47,108" concept="10" />
-      <node id="5113316557572762549" at="47,108,48,90" concept="10" />
-      <node id="6161537567973661183" at="49,15,50,32" concept="4" />
-      <node id="6161537567973715391" at="51,21,52,65" concept="4" />
-      <node id="6161537567973536170" at="56,5,57,26" concept="4" />
-      <node id="6161537567973538795" at="60,25,61,29" concept="4" />
-      <node id="6161537567973541005" at="64,25,65,29" concept="4" />
-      <node id="6161537567973544422" at="68,32,69,44" concept="11" />
-      <node id="6161537567973552654" at="73,40,74,46" concept="11" />
-      <node id="6161537567973328531" at="27,0,31,0" concept="2" trace="CommandLineTestExecutor#(Ljetbrains/mps/tool/environment/Environment;Ljetbrains/mps/baselanguage/unitTest/execution/launcher/ExecutorScript;)V" />
-      <node id="6161537567973958807" at="38,140,42,9" concept="10" />
-      <node id="6161537567973367780" at="59,0,63,0" concept="9" trace="execute#()V" />
-      <node id="6161537567973367789" at="63,0,67,0" concept="9" trace="dispose#()V" />
-      <node id="6161537567973367798" at="67,0,71,0" concept="9" trace="getFailureCount#()I" />
-      <node id="6161537567973665925" at="48,90,53,11" concept="17" />
-      <node id="6161537567973367810" at="71,0,76,0" concept="9" trace="getExecutionError#()Ljava/lang/Throwable;" />
-      <node id="6161537567973661172" at="45,0,55,0" concept="9" trace="executeSafe#()V" />
-      <node id="6161537567973630361" at="43,74,55,8" concept="4" />
-      <node id="6161537567973491040" at="37,10,56,5" concept="1" />
-      <node id="6161537567973488740" at="33,22,56,5" concept="8" />
-      <node id="6161537567973367771" at="32,0,59,0" concept="9" trace="init#()V" />
-      <scope id="6161537567973665927" at="49,15,50,32" />
-      <scope id="6161537567973667047" at="51,21,52,65" />
-      <scope id="6161537567973367787" at="60,25,61,29" />
-      <scope id="6161537567973367796" at="64,25,65,29" />
-      <scope id="6161537567973367806" at="68,32,69,44" />
-      <scope id="6161537567973367819" at="73,40,74,46" />
-      <scope id="6161537567973328535" at="27,96,29,30" />
+      <node id="6161537567973958807" at="37,12,38,77" concept="10" />
+      <node id="6161537567973672280" at="38,77,39,74" concept="12" />
+      <node id="5113316557572753589" at="42,55,43,108" concept="10" />
+      <node id="5113316557572762549" at="43,108,44,90" concept="10" />
+      <node id="6161537567973661183" at="45,15,46,32" concept="4" />
+      <node id="6161537567973715391" at="47,21,48,65" concept="4" />
+      <node id="6161537567973536170" at="52,5,53,26" concept="4" />
+      <node id="6161537567973538795" at="56,25,57,29" concept="4" />
+      <node id="6161537567973541005" at="60,25,61,29" concept="4" />
+      <node id="6161537567973544422" at="64,32,65,44" concept="11" />
+      <node id="6161537567973552654" at="69,40,70,46" concept="11" />
+      <node id="6161537567973367780" at="55,0,59,0" concept="9" trace="execute#()V" />
+      <node id="6161537567973367789" at="59,0,63,0" concept="9" trace="dispose#()V" />
+      <node id="6161537567973367798" at="63,0,67,0" concept="9" trace="getFailureCount#()I" />
+      <node id="6161537567973328531" at="26,0,31,0" concept="2" trace="CommandLineTestExecutor#(Ljetbrains/mps/tool/environment/Environment;Ljetbrains/mps/baselanguage/unitTest/execution/launcher/ExecutorScript;)V" />
+      <node id="6161537567973665925" at="44,90,49,11" concept="17" />
+      <node id="6161537567973367810" at="67,0,72,0" concept="9" trace="getExecutionError#()Ljava/lang/Throwable;" />
+      <node id="6161537567973661172" at="41,0,51,0" concept="9" trace="executeSafe#()V" />
+      <node id="6161537567973630361" at="39,74,51,8" concept="4" />
+      <node id="6161537567973491040" at="37,10,52,5" concept="1" />
+      <node id="6161537567973488740" at="33,22,52,5" concept="8" />
+      <node id="6161537567973367771" at="32,0,55,0" concept="9" trace="init#()V" />
+      <scope id="6161537567973665927" at="45,15,46,32" />
+      <scope id="6161537567973667047" at="47,21,48,65" />
+      <scope id="6161537567973367787" at="56,25,57,29" />
+      <scope id="6161537567973367796" at="60,25,61,29" />
+      <scope id="6161537567973367806" at="64,32,65,44" />
+      <scope id="6161537567973367819" at="69,40,70,46" />
       <scope id="6161537567973488742" at="34,68,36,111" />
-      <scope id="6161537567973968004" at="39,120,41,0" />
-      <scope id="6161537567973328531" at="27,0,31,0">
+      <scope id="6161537567973328535" at="26,96,29,109" />
+      <scope id="6161537567973367780" at="55,0,59,0" />
+      <scope id="6161537567973367789" at="59,0,63,0" />
+      <scope id="6161537567973367798" at="63,0,67,0" />
+      <scope id="6161537567973328531" at="26,0,31,0">
         <var name="env" id="6161537567973348713" />
         <var name="execScript" id="6161537567973348716" />
       </scope>
-      <scope id="6161537567973367780" at="59,0,63,0" />
-      <scope id="6161537567973367789" at="63,0,67,0" />
-      <scope id="6161537567973367798" at="67,0,71,0" />
-      <scope id="6161537567973367810" at="71,0,76,0" />
-      <scope id="6161537567973661181" at="46,55,53,11">
+      <scope id="6161537567973367810" at="67,0,72,0" />
+      <scope id="6161537567973661181" at="42,55,49,11">
         <var name="sessionConfig" id="5113316557572753590" />
         <var name="testSession" id="5113316557572762550" />
       </scope>
-      <scope id="6161537567973661172" at="45,0,55,0" />
-      <scope id="6161537567973491041" at="37,12,55,8">
+      <scope id="6161537567973661172" at="41,0,51,0" />
+      <scope id="6161537567973491041" at="37,12,51,8">
         <var name="getCL" id="6161537567973958813" />
       </scope>
-      <scope id="6161537567973367778" at="33,22,57,26" />
-      <scope id="6161537567973367771" at="32,0,59,0" />
-      <unit id="6161537567973644479" at="44,27,55,7" name="jetbrains.mps.baseLanguage.unitTest.execution.server.CommandLineTestExecutor$1" />
-      <unit id="6161537567973315435" at="22,0,78,0" name="jetbrains.mps.baseLanguage.unitTest.execution.server.CommandLineTestExecutor" />
+      <scope id="6161537567973367778" at="33,22,53,26" />
+      <scope id="6161537567973367771" at="32,0,55,0" />
+      <unit id="6161537567973644479" at="40,27,51,7" name="jetbrains.mps.baseLanguage.unitTest.execution.server.CommandLineTestExecutor$1" />
+      <unit id="6161537567973315435" at="21,0,74,0" name="jetbrains.mps.baseLanguage.unitTest.execution.server.CommandLineTestExecutor" />
     </file>
   </root>
   <root nodeRef="r:a8dde698-9468-4a76-b89d-abdfa4716001(jetbrains.mps.baseLanguage.unitTest.execution.server)/6796535740154100268">

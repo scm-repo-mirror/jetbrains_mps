@@ -39059,11 +39059,6 @@
             <ref role="3bR37D" node="2Oogzg3vg0R" resolve="jetbrains.mps.baseLanguage.unitTest.platform" />
           </node>
         </node>
-        <node concept="1SiIV0" id="5pvGTa8$dVS" role="3bR37C">
-          <node concept="3bR9La" id="5pvGTa8$dVT" role="1SiIV1">
-            <ref role="3bR37D" node="4MVYzzgl7sL" resolve="jetbrains.mps.lang.test.junit5" />
-          </node>
-        </node>
       </node>
     </node>
     <node concept="2G$12M" id="465rK6MmP63" role="3989C9">

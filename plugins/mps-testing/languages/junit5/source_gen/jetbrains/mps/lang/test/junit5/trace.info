@@ -12,7 +12,6 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/6329021646629104954:jetbrains.mps.baseLanguage.structure.SingleLineComment" />
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123157:jetbrains.mps.baseLanguage.structure.Statement" />
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070462154015:jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" />
-  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1081236700938:jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" />
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070475587102:jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" />
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/5351203823916750322:jetbrains.mps.baseLanguage.structure.TryUniversalStatement" />
   <root nodeRef="r:e59b0550-8a55-4ba7-959c-684743b5ee3c(jetbrains.mps.lang.test.junit5)/4406376019435112088">
@@ -58,9 +57,9 @@
       <node id="4406376019435666455" at="97,0,100,0" concept="6" trace="getTestReportsDir#()Ljava/io/File;" />
       <node id="5794342746866056564" at="101,0,104,0" concept="6" trace="isOpenTestReport#()Z" />
       <node id="4406376019435621881" at="105,0,108,0" concept="6" trace="isRunningOnTeamCity#()Z" />
-      <node id="9186374207729292665" at="54,84,60,5" concept="14" />
+      <node id="9186374207729292665" at="54,84,60,5" concept="13" />
       <node id="5794342746866488071" at="72,33,78,7" concept="5" />
-      <node id="9186374207729532534" at="43,84,50,5" concept="14" />
+      <node id="9186374207729532534" at="43,84,50,5" concept="13" />
       <node id="4406376019435246760" at="71,46,79,5" concept="5" />
       <node id="9186374207729274519" at="53,0,62,0" concept="6" trace="launchTestsWithContextCL#(Ljava/lang/ClassLoader;Ljava/util/Collection;Lorg/junit/platform/launcher/TestExecutionListener;)V" />
       <node id="819766574538588460" at="86,0,96,0" concept="6" trace="buildRequest#(Ljava/util/Collection;)Lorg/junit/platform/launcher/LauncherDiscoveryRequest;" />
@@ -129,7 +128,7 @@
   <root nodeRef="r:e59b0550-8a55-4ba7-959c-684743b5ee3c(jetbrains.mps.lang.test.junit5)/4406376019435843347">
     <file name="SimpleJUnit5Launcher.java">
       <node id="4406376019435848344" at="11,0,12,0" concept="3" trace="myTestClasses" />
-      <node id="4406376019435845854" at="13,90,14,23" concept="13" />
+      <node id="4406376019435845854" at="13,90,14,23" concept="12" />
       <node id="4406376019435848350" at="14,23,15,37" concept="2" />
       <node id="4406376019441043535" at="19,28,20,60" concept="7" />
       <node id="9186374207729342640" at="20,60,21,59" concept="2" />
@@ -158,7 +157,7 @@
       <node id="5794342746866039856" at="17,0,18,0" concept="11" trace="TEST_REPORTS_OPENTEST" />
       <node id="8987195388768842647" at="19,0,20,0" concept="3" trace="myWorkerCallback" />
       <node id="8987195388768897504" at="20,0,21,0" concept="3" trace="myWhatToDo" />
-      <node id="4406376019435840716" at="22,98,23,23" concept="13" />
+      <node id="4406376019435840716" at="22,98,23,23" concept="12" />
       <node id="8987195388768897508" at="23,23,24,31" concept="2" />
       <node id="8987195388768842651" at="24,31,25,37" concept="2" />
       <node id="6060921217238343516" at="29,28,30,111" concept="7" />
@@ -205,7 +204,7 @@
       <node id="5529288089447638934" at="22,0,27,0" concept="1" trace="ScriptJUnit5Launcher#(Ljetbrains/mps/tool/common/Script;Ljetbrains/mps/tool/environment/Environment;Ljetbrains/mps/lang/test/launcher/WorkerCallback;)V" />
       <node id="819766574538479192" at="60,0,65,7" concept="2" />
       <node id="5794342746866110451" at="94,0,99,0" concept="6" trace="isOpenTestReport#()Z" />
-      <node id="819766574538479170" at="51,106,57,9" concept="14" />
+      <node id="819766574538479170" at="51,106,57,9" concept="13" />
       <node id="6586284036924529213" at="80,34,86,5" concept="5" />
       <node id="819766574538479160" at="50,0,59,0" concept="6" trace="visitTestRoot#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;Ljava/lang/ClassLoader;)V" />
       <node id="819766574538479153" at="48,57,59,6" concept="7" />
@@ -361,61 +360,6 @@
         <var name="testRootNode" id="6060921217248818686" />
       </scope>
       <unit id="6060921217248788864" at="7,0,12,0" name="jetbrains.mps.lang.test.junit5.TestDiscoveryVisitor" />
-    </file>
-  </root>
-  <root nodeRef="r:e59b0550-8a55-4ba7-959c-684743b5ee3c(jetbrains.mps.lang.test.junit5)/6223890651984036788">
-    <file name="ModuleClassLoaderUtil.java">
-      <node id="6223890651984173968" at="20,132,21,83" concept="7" />
-      <node id="3067269595560779321" at="21,83,22,84" concept="7" />
-      <node id="3067269595560826235" at="22,84,23,90" concept="9" />
-      <node id="6223890651984166488" at="23,90,24,79" concept="7" />
-      <node id="6223890651984255514" at="26,52,27,69" concept="7" />
-      <node id="6223890651984343001" at="29,15,30,57" concept="7" />
-      <node id="6223890651984320554" at="30,57,31,81" concept="7" />
-      <node id="6223890651984338301" at="32,30,33,25" concept="8" />
-      <node id="6223890651984312190" at="35,46,36,21" concept="9" />
-      <node id="6223890651984352356" at="39,7,40,106" concept="7" />
-      <node id="6223890651984352370" at="41,90,42,48" concept="8" />
-      <node id="6223890651984358210" at="43,7,44,25" concept="9" />
-      <node id="6223890651984358215" at="44,25,45,60" concept="8" />
-      <node id="3067269595560862243" at="45,60,46,64" concept="9" />
-      <node id="6223890651984328845" at="31,81,34,13" concept="5" />
-      <node id="6223890651984352368" at="40,106,43,7" concept="5" />
-      <node id="6223890651984307892" at="28,80,37,11" concept="14" />
-      <node id="6223890651984267281" at="27,69,38,9" concept="5" />
-      <node id="6223890651984198451" at="25,60,39,7" concept="4" />
-      <node id="6223890651984081706" at="24,79,47,7" concept="8" />
-      <node id="6223890651984043214" at="20,0,49,0" concept="12" trace="classLoaderForTestExecution#(Ljetbrains/mps/core/platform/Platform;Ljava/util/function/Supplier;)Ljava/lang/ClassLoader;" />
-      <scope id="6223890651984328847" at="32,30,33,25" />
-      <scope id="6223890651984307898" at="35,46,36,21" />
-      <scope id="6223890651984352369" at="41,90,42,48" />
-      <scope id="6223890651984307895" at="35,11,37,11">
-        <var name="e" id="6223890651984307899" />
-      </scope>
-      <scope id="6223890651984307893" at="29,15,34,13">
-        <var name="cls" id="6223890651984320555" />
-        <var name="mcl" id="6223890651984343002" />
-      </scope>
-      <scope id="6223890651984267283" at="28,80,37,11" />
-      <scope id="6223890651984198454" at="26,52,38,9">
-        <var name="module" id="6223890651984255515" />
-      </scope>
-      <scope id="6223890651984198451" at="25,60,39,7">
-        <var name="ref" id="6223890651984198455" />
-      </scope>
-      <scope id="6223890651984143847" at="25,60,46,64">
-        <var name="junit5Module" id="6223890651984352357" />
-      </scope>
-      <scope id="6223890651984043146" at="20,132,47,7">
-        <var name="clm" id="3067269595560779322" />
-        <var name="pf" id="6223890651984173969" />
-        <var name="repo" id="6223890651984166489" />
-      </scope>
-      <scope id="6223890651984043214" at="20,0,49,0">
-        <var name="candidateModuleRefs" id="6223890651984046729" />
-        <var name="platform" id="6223890651984045742" />
-      </scope>
-      <unit id="6223890651984036788" at="18,0,51,0" name="jetbrains.mps.lang.test.junit5.ModuleClassLoaderUtil" />
     </file>
   </root>
   <root nodeRef="r:e59b0550-8a55-4ba7-959c-684743b5ee3c(jetbrains.mps.lang.test.junit5)/819766574533564192">

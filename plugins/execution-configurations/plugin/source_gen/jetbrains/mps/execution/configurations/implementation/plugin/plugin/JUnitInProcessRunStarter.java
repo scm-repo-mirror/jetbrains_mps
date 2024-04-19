@@ -20,7 +20,6 @@ import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.baselanguage.unitTest.execution.launcher.JUnit4TestExecutor;
 import jetbrains.mps.baseLanguage.unitTest.execution.server.NodeWrappersTestsContributor;
 import java.util.function.Supplier;
-import jetbrains.mps.lang.test.junit5.ModuleClassLoaderUtil;
 import jetbrains.mps.baselanguage.unitTest.execution.launcher.JUnit5TestExecutor;
 import jetbrains.mps.baseLanguage.unitTest.execution.server.JUnit5InprocessTestsContributor;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestSessionConfig;
@@ -56,12 +55,7 @@ public class JUnitInProcessRunStarter implements JUnitProcessStarter {
     if (ListSequence.fromList(legacyTests).isNotEmpty()) {
       myTestsExecutor = new JUnit4TestExecutor(new NodeWrappersTestsContributor(inProcessEnv, (MPSProject) mpsProject, runConfiguration.getName(), testNodeWrappers), false);
     } else {
-      // FIXME if I switch TestContributor to using TestDescriptor or ExecutionScript.TestRecord (unified test presentation instead of
-      //     ITestNodeWrapper, Script or plain cmdline as it's now), code to find out CL for test modules could be hidden inside TestExecutor
-      final List<String> testNodeModules = Sequence.fromIterable(testNodeWrappers).select((this0) -> this0.getTestNodeModule()).select((this0) -> this0.toString()).toList();
-      // FIXME switch to ComponentHost and take one from mpsProject.getPlatform, rather than MPSCoreComponents/Environment
-      // FIXME if I can't get rid of ModuleClassLoaderUtil, at least consider moving it out of lang.test.junit5, as it's not specific to JUnit5 case
-      Supplier<ClassLoader> contextCL = () -> ModuleClassLoaderUtil.classLoaderForTestExecution(inProcessEnv.getPlatform(), () -> testNodeModules);
+      Supplier<ClassLoader> contextCL = JUnit5TestExecutor.class::getClassLoader;
       myTestsExecutor = new JUnit5TestExecutor(new JUnit5InprocessTestsContributor((MPSProject) mpsProject, runConfiguration.getName(), testNodeWrappers), false, contextCL) {
 
         @Override

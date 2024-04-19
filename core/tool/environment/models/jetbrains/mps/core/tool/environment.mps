@@ -1666,12 +1666,17 @@
             <node concept="3uibUv" id="10LLDHmfrrN" role="1tU5fm">
               <ref role="3uigEE" node="6rx4kZDk5A9" resolve="EnvironmentConfig" />
             </node>
-            <node concept="2OqwBi" id="10LLDHmfsnE" role="33vP2m">
-              <node concept="1rXfSq" id="10LLDHmfsnF" role="2Oq$k0">
-                <ref role="37wK5l" node="1CvX25dz6g2" resolve="withDebuggerPlugin" />
+            <node concept="2OqwBi" id="714o3OXVc3w" role="33vP2m">
+              <node concept="2OqwBi" id="10LLDHmfsnE" role="2Oq$k0">
+                <node concept="1rXfSq" id="10LLDHmfsnF" role="2Oq$k0">
+                  <ref role="37wK5l" node="1CvX25dz6g2" resolve="withDebuggerPlugin" />
+                </node>
+                <node concept="liA8E" id="10LLDHmfsnG" role="2OqNvi">
+                  <ref role="37wK5l" node="2btCvgzFoBq" resolve="withTestingPlugin" />
+                </node>
               </node>
-              <node concept="liA8E" id="10LLDHmfsnG" role="2OqNvi">
-                <ref role="37wK5l" node="2btCvgzFoBq" resolve="withTestingPlugin" />
+              <node concept="liA8E" id="714o3OXVlCz" role="2OqNvi">
+                <ref role="37wK5l" node="ECLZhkqBgM" resolve="withBuildPlugin" />
               </node>
             </node>
           </node>
