@@ -706,10 +706,13 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode, SNodeAssoci
       setReference(role, ((ResolveInfoExt) resolveInfo).create(this, role));
     } else if (resolveInfo instanceof ResolveInfo.S) {
       String ri = ((ResolveInfo.S) resolveInfo).getValue();
-      setReference(role, DynamicReference.createDynamicReference(role, this, null, ri));
+      assertCanChange();
+      doSetAssociation(role, new DynamicPtr(ri));
     } else if (resolveInfo instanceof ResolveInfo.PS) {
       ResolveInfo.PS ri = (ResolveInfo.PS) resolveInfo;
-      setReference(role, SReference.create(role, this, ri.getTargetNode(), ri.getValue()));
+      assertCanChange();
+      SNodeReference target = ri.getTargetNode();
+      doSetAssociation(role, new IndirectNodePtr(target.getModelReference(), target.getNodeId(), ri.getValue()));
     } else if (resolveInfo == null) {
       LOG.warning("Unexpected use of ResolveInfo == null. Reference would be removed, although explicit dropReference() has to be used", new Throwable());
       dropReference(role);

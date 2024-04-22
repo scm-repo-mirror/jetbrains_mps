@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2023 JetBrains s.r.o.
+ * Copyright 2003-2024 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -60,32 +60,6 @@ public abstract class SReference implements org.jetbrains.mps.openapi.model.SRef
       return new StaticReference(id, sourceNode, ad);
     }
     return new StaticReference(id, sourceNode, new DirectNode(targetNode));
-  }
-
-  /**
-   * @deprecated see {@link #create(SReferenceLink, SNode, SNode)}, above, for explanation
-   */
-  @Deprecated(since = "2021.2")
-  public static SReference create(SReferenceLink role, SNode sourceNode, SModelReference targetModelReference, SNodeId targetNodeId) {
-    // XXX no uses in MPS or mbeddr
-    return create(role, sourceNode, targetModelReference, targetNodeId, null);
-  }
-  /**
-   * create 'mature' reference
-   * @deprecated see {@link #create(SReferenceLink, SNode, SNode)}, above, for explanation
-   */
-  @Deprecated(since = "2021.2")
-  public static SReference create(SReferenceLink role, SNode sourceNode, SModelReference targetModelReference, SNodeId targetNodeId, String resolveInfo) {
-    // XXX no uses of the method in MPS outside of this class
-    return new StaticReference(role, sourceNode, new IndirectNodePtr(targetModelReference, targetNodeId, resolveInfo));
-  }
-  /**
-   * @deprecated see {@link #create(SReferenceLink, SNode, SNode)}, above, for explanation
-   */
-  @Deprecated(since = "2021.2")
-  public static SReference create(SReferenceLink role, SNode sourceNode, SNodeReference pointer, String resolveInfo) {
-    // 2 uses in MPS own internal classes: 1 in SNode impl, +1 in Generator
-    return create(role, sourceNode, pointer.getModelReference(), pointer.getNodeId(), resolveInfo);
   }
 
   @Override
