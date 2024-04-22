@@ -16,8 +16,6 @@
 package jetbrains.mps.smodel;
 
 import jetbrains.mps.logging.Logger;
-import jetbrains.mps.smodel.AssociationData.DirectNode;
-import jetbrains.mps.smodel.AssociationData.IndirectNodePtr;
 import jetbrains.mps.util.WeakSet;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -42,24 +40,6 @@ public abstract class SReference implements org.jetbrains.mps.openapi.model.SRef
   protected SReference(@NotNull SReferenceLink role, SNode sourceNode) {
     myRoleId = role;
     mySourceNode = sourceNode;
-  }
-
-  /**
-   * @deprecated Constructing SReference objects with purpose to {@code SNode.setReference()} is discouraged,
-   *             use alternative {@code SNode.setReference()} methods.
-   *             This method have to stay for at least a year to facilitate migration of user code.
-   *             Generally, clients have to use smodel language to manipulate references, but there could be code that does that
-   *             through SNode OpenAPI.
-   */
-  @Deprecated(since = "2021.2")
-  public static SReference create(SReferenceLink id, SNode sourceNode, SNode targetNode) {
-    // XXX 1 use in MPS (Generator impl)
-    if (sourceNode.getModel() != null && targetNode.getModel() != null) {
-      // 'mature' reference
-      final IndirectNodePtr ad = new IndirectNodePtr(targetNode.getModel().getReference(), targetNode.getNodeId(), targetNode.getName());
-      return new StaticReference(id, sourceNode, ad);
-    }
-    return new StaticReference(id, sourceNode, new DirectNode(targetNode));
   }
 
   @Override

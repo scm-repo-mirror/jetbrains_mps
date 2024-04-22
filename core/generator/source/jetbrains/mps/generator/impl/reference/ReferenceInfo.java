@@ -19,6 +19,7 @@ import jetbrains.mps.extapi.model.ResolveInfoExt;
 import jetbrains.mps.smodel.DynamicReference;
 import jetbrains.mps.smodel.DynamicReference.DynamicReferenceOrigin;
 import jetbrains.mps.smodel.SNodePointer;
+import jetbrains.mps.util.SNodeOperations;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
@@ -68,7 +69,14 @@ public abstract class ReferenceInfo {
   protected final ResolveInfo createStaticReference(@NotNull PostponedReference ref, @NotNull final SNode target) {
     // FIXME investigate scenario when target is detached node and target.getReference() doesn't yield anything
     //       ResolveInfo.of() could make use of.
-    return (ResolveInfoExt) (source, link) -> jetbrains.mps.smodel.SReference.create(link, source, target);
+    if (ref.getSourceNode().getModel() != null && target.getModel() != null) {
+      // 'mature' reference (includes source node into condition to make sure indirect reference could get resolved later,
+      //    although I'd prefer not to check this eventually (now I'm fighting other issues, namely use if ResolveInfoExt and SReference factories).
+      // use of SNodeOperations.getResolveInfo (instead of simple node.getName that used to be in j.m.smodel.SReference#create)
+      //    inspired by ReferenceInfo_CopiedInputNode.
+      return ResolveInfo.of(target.getReference(), SNodeOperations.getResolveInfo(target));
+    }
+    return ResolveInfo.of(target);
   }
 
   public final static class DRI implements ResolveInfoExt {

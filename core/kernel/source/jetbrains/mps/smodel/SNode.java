@@ -31,6 +31,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.ResolveInfo;
+import org.jetbrains.mps.openapi.model.ResolveInfo.N;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
 import java.util.ArrayList;
@@ -713,6 +714,9 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode, SNodeAssoci
       assertCanChange();
       SNodeReference target = ri.getTargetNode();
       doSetAssociation(role, new IndirectNodePtr(target.getModelReference(), target.getNodeId(), ri.getValue()));
+    } else if (resolveInfo instanceof ResolveInfo.N) {
+      assertCanChange();
+      doSetAssociation(role, new DirectNode(((N) resolveInfo).getTargetNode()));
     } else if (resolveInfo == null) {
       LOG.warning("Unexpected use of ResolveInfo == null. Reference would be removed, although explicit dropReference() has to be used", new Throwable());
       dropReference(role);
