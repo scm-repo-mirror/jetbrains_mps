@@ -30,6 +30,7 @@ import com.intellij.openapi.ui.popup.Balloon;
 import jetbrains.mps.project.structure.modules.ModuleReference;
 import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
 import com.intellij.openapi.actionSystem.AnAction;
+import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.util.IStatus;
@@ -223,6 +224,12 @@ import jetbrains.mps.migration.global.ProjectMigrationsRegistry;
   private static class ShowProjectDetails extends AnAction {
     /*package*/ ShowProjectDetails() {
       super("Show Details");
+    }
+
+    @NotNull
+    @Override
+    public ActionUpdateThread getActionUpdateThread() {
+      return ActionUpdateThread.BGT;
     }
     @Override
     public void update(@NotNull AnActionEvent e) {
