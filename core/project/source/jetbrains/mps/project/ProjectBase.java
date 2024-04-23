@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2023 JetBrains s.r.o.
+ * Copyright 2003-2024 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -109,7 +109,7 @@ public abstract class ProjectBase extends Project {
     return myModuleLoader.allPaths();
   }
 
-  // all project modules, inclding language-hosted generators, are registered with a project as owner.
+  // all project modules, including language-hosted generators, are registered with a project as owner.
   /*package*/ void associateWithProjectRepo(SModule module) {
     SRepositoryExt repository = (SRepositoryExt) getRepository();
     // generally, module is already registered with a repo, as the primary mechanism to create a module instance, ModuleRepositoryFacade#instantiateModule,
