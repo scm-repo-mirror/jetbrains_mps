@@ -21,7 +21,7 @@
   <description>The plugin provides support for MPS in IDEA</description>
   <version>2024.1</version>
   <vendor url="http://www.jetbrains.com/mps/">JetBrains</vendor>
-  <idea-version since-build="233.1" until-build="241.1"/>
+  <idea-version since-build="241.1" until-build="242.1"/>
 
   <depends optional="true" config-file="idea-support.xml">com.intellij.modules.java</depends>
   <depends optional="true" config-file="intellij-ides-support.xml">com.intellij.modules.platform</depends>
