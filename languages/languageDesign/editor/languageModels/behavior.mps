@@ -27698,5 +27698,31 @@
       <node concept="10P_77" id="441vB8LLA_r" role="3clF45" />
     </node>
   </node>
+  <node concept="13h7C7" id="6hHPzJjZ$HB">
+    <property role="3GE5qa" value="Stylesheet" />
+    <ref role="13h7C2" to="tpc2:6hHPzJjZ$mY" resolve="PlaceholderStyleSheetItem" />
+    <node concept="13hLZK" id="6hHPzJjZ$HC" role="13h7CW">
+      <node concept="3clFbS" id="6hHPzJjZ$HD" role="2VODD2" />
+    </node>
+    <node concept="13i0hz" id="6hHPzJjZ$Me" role="13h7CS">
+      <property role="TrG5h" value="getStyleAttribute" />
+      <ref role="13i0hy" node="3a0zHG4tjdX" resolve="getStyleAttribute" />
+      <node concept="3Tm1VV" id="6hHPzJjZ$Mh" role="1B3o_S" />
+      <node concept="3clFbS" id="6hHPzJjZ$Mj" role="3clF47">
+        <node concept="3cpWs6" id="6hHPzJjZOXe" role="3cqZAp">
+          <node concept="10M0yZ" id="6hHPzJjZP47" role="3cqZAk">
+            <ref role="3cqZAo" to="5ueo:~StyleAttributes.PLACEHOLDER" resolve="PLACEHOLDER" />
+            <ref role="1PxDUh" to="5ueo:~StyleAttributes" resolve="StyleAttributes" />
+          </node>
+        </node>
+      </node>
+      <node concept="3uibUv" id="6hHPzJjZ$Mk" role="3clF45">
+        <ref role="3uigEE" to="hox0:~StyleAttribute" resolve="StyleAttribute" />
+        <node concept="3uibUv" id="6hHPzJjZ$Ml" role="11_B2D">
+          <ref role="3uigEE" to="wyt6:~Boolean" resolve="Boolean" />
+        </node>
+      </node>
+    </node>
+  </node>
 </model>
 

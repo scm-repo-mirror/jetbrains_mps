@@ -21967,9 +21967,18 @@
       </node>
     </node>
     <node concept="3aamgX" id="5hGzT1$6GlX" role="3aUrZf">
-      <ref role="30HIoZ" to="tpc2:hX1L4JR" resolve="PunctuationLeftStyleClassItem" />
+      <ref role="30HIoZ" to="tpc2:6hHPzJjZ$mY" resolve="PlaceholderStyleSheetItem" />
       <node concept="gft3U" id="5hGzT1$6GlY" role="1lVwrX">
-        <node concept="10M0yZ" id="5hGzT1$6GlZ" role="gfFT$">
+        <node concept="10M0yZ" id="6bDSKBb4dtB" role="gfFT$">
+          <ref role="3cqZAo" to="5ueo:~StyleAttributes.PLACEHOLDER" resolve="PLACEHOLDER" />
+          <ref role="1PxDUh" to="5ueo:~StyleAttributes" resolve="StyleAttributes" />
+        </node>
+      </node>
+    </node>
+    <node concept="3aamgX" id="6bDSKBb4c5T" role="3aUrZf">
+      <ref role="30HIoZ" to="tpc2:hX1L4JR" resolve="PunctuationLeftStyleClassItem" />
+      <node concept="gft3U" id="6bDSKBb4c5U" role="1lVwrX">
+        <node concept="10M0yZ" id="6bDSKBb4c5V" role="gfFT$">
           <ref role="1PxDUh" to="5ueo:~StyleAttributes" resolve="StyleAttributes" />
           <ref role="3cqZAo" to="5ueo:~StyleAttributes.PUNCTUATION_LEFT" resolve="PUNCTUATION_LEFT" />
         </node>
@@ -28178,7 +28187,7 @@
     </node>
     <node concept="3aamgX" id="1OmL7qf0l8c" role="3aUrZf">
       <property role="36QftV" value="true" />
-      <ref role="30HIoZ" to="tpc2:hgV6hR6" resolve="StyleClassItem" />
+      <ref role="30HIoZ" to="tpc2:6hHPzJjZ$mY" resolve="PlaceholderStyleSheetItem" />
       <node concept="1Koe21" id="1OmL7qfQG62" role="1lVwrX">
         <node concept="312cEu" id="1OmL7qfQG63" role="1Koe22">
           <property role="TrG5h" value="StyleClass" />
@@ -28254,10 +28263,157 @@
                 </node>
                 <node concept="raruj" id="1OmL7qfQG6N" role="lGtFl" />
               </node>
+              <node concept="3clFbF" id="t6CabkazQi" role="3cqZAp">
+                <node concept="2OqwBi" id="t6CabkazQj" role="3clFbG">
+                  <node concept="37vLTw" id="t6CabkazQk" role="2Oq$k0">
+                    <ref role="3cqZAo" node="1OmL7qfQG6h" resolve="style" />
+                  </node>
+                  <node concept="liA8E" id="t6CabkazQl" role="2OqNvi">
+                    <ref role="37wK5l" to="hox0:~Style.set(jetbrains.mps.openapi.editor.style.StyleAttribute,int,java.lang.Object)" resolve="set" />
+                    <node concept="10M0yZ" id="t6CabkaG1U" role="37wK5m">
+                      <ref role="3cqZAo" to="5ueo:~StyleAttributes.EDITABLE" resolve="EDITABLE" />
+                      <ref role="1PxDUh" to="5ueo:~StyleAttributes" resolve="StyleAttributes" />
+                    </node>
+                    <node concept="3cmrfG" id="t6CabkazQo" role="37wK5m">
+                      <property role="3cmrfH" value="0" />
+                      <node concept="17Uvod" id="t6CabkazQp" role="lGtFl">
+                        <property role="P4ACc" value="f3061a53-9226-4cc5-a443-f952ceaf5816/1068580320020/1068580320021" />
+                        <property role="2qtEX9" value="value" />
+                        <node concept="3zFVjK" id="t6CabkazQq" role="3zH0cK">
+                          <node concept="3clFbS" id="t6CabkazQr" role="2VODD2">
+                            <node concept="3clFbF" id="t6CabkazQs" role="3cqZAp">
+                              <node concept="v3LJS" id="t6CabkazQt" role="3clFbG">
+                                <ref role="v3LJV" node="25KLsjZICRq" resolve="priority" />
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                      <node concept="1W57fq" id="t6CabkazQu" role="lGtFl">
+                        <node concept="3IZrLx" id="t6CabkazQv" role="3IZSJc">
+                          <node concept="3clFbS" id="t6CabkazQw" role="2VODD2">
+                            <node concept="3clFbF" id="t6CabkazQx" role="3cqZAp">
+                              <node concept="3eOSWO" id="t6CabkazQy" role="3clFbG">
+                                <node concept="3cmrfG" id="t6CabkazQz" role="3uHU7w">
+                                  <property role="3cmrfH" value="0" />
+                                </node>
+                                <node concept="v3LJS" id="t6CabkazQ$" role="3uHU7B">
+                                  <ref role="v3LJV" node="25KLsjZICRq" resolve="priority" />
+                                </node>
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="3clFbT" id="t6CabkaGH2" role="37wK5m" />
+                  </node>
+                </node>
+                <node concept="raruj" id="t6CabkazQB" role="lGtFl" />
+              </node>
             </node>
           </node>
           <node concept="3Tm1VV" id="1OmL7qfQG6P" role="1B3o_S" />
           <node concept="3uibUv" id="3wekS$9bFOc" role="EKbjA">
+            <ref role="3uigEE" to="qvne:6OQfiPCHBbE" resolve="EditorBuilderEnvironment" />
+          </node>
+        </node>
+      </node>
+      <node concept="30G5F_" id="t6CabkaiNV" role="30HLyM">
+        <node concept="3clFbS" id="t6CabkaiNW" role="2VODD2">
+          <node concept="3clFbF" id="t6Cabkaypo" role="3cqZAp">
+            <node concept="2OqwBi" id="t6CabkayPv" role="3clFbG">
+              <node concept="30H73N" id="t6Cabkaypn" role="2Oq$k0" />
+              <node concept="3TrcHB" id="t6CabkazAu" role="2OqNvi">
+                <ref role="3TsBF5" to="tpc2:hgVOm7r" resolve="flag" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="3aamgX" id="t6Cabkah82" role="3aUrZf">
+      <property role="36QftV" value="true" />
+      <ref role="30HIoZ" to="tpc2:hgV6hR6" resolve="StyleClassItem" />
+      <node concept="1Koe21" id="t6Cabkah83" role="1lVwrX">
+        <node concept="312cEu" id="t6Cabkah84" role="1Koe22">
+          <property role="TrG5h" value="StyleClass" />
+          <property role="1sVAO0" value="true" />
+          <node concept="3clFb_" id="t6Cabkah85" role="jymVt">
+            <property role="1EzhhJ" value="false" />
+            <property role="TrG5h" value="apply" />
+            <node concept="37vLTG" id="t6Cabkah86" role="3clF46">
+              <property role="TrG5h" value="style" />
+              <node concept="3uibUv" id="t6Cabkah87" role="1tU5fm">
+                <ref role="3uigEE" to="hox0:~Style" resolve="Style" />
+              </node>
+            </node>
+            <node concept="37vLTG" id="t6Cabkah88" role="3clF46">
+              <property role="TrG5h" value="editorCell" />
+              <node concept="3uibUv" id="t6Cabkah89" role="1tU5fm">
+                <ref role="3uigEE" to="f4zo:~EditorCell" resolve="EditorCell" />
+              </node>
+            </node>
+            <node concept="3cqZAl" id="t6Cabkah8a" role="3clF45" />
+            <node concept="3Tm1VV" id="t6Cabkah8b" role="1B3o_S" />
+            <node concept="3clFbS" id="t6Cabkah8c" role="3clF47">
+              <node concept="3clFbF" id="t6Cabkah8d" role="3cqZAp">
+                <node concept="2OqwBi" id="t6Cabkah8e" role="3clFbG">
+                  <node concept="37vLTw" id="t6Cabkah8f" role="2Oq$k0">
+                    <ref role="3cqZAo" node="t6Cabkah86" resolve="style" />
+                  </node>
+                  <node concept="liA8E" id="t6Cabkah8g" role="2OqNvi">
+                    <ref role="37wK5l" to="hox0:~Style.set(jetbrains.mps.openapi.editor.style.StyleAttribute,int,java.lang.Object)" resolve="set" />
+                    <node concept="10Nm6u" id="t6Cabkah8h" role="37wK5m">
+                      <node concept="1sPUBX" id="t6Cabkah8i" role="lGtFl">
+                        <ref role="v9R2y" node="5hGzT1$4cwp" resolve="StyleAttribute" />
+                      </node>
+                    </node>
+                    <node concept="3cmrfG" id="t6Cabkah8j" role="37wK5m">
+                      <property role="3cmrfH" value="0" />
+                      <node concept="17Uvod" id="t6Cabkah8k" role="lGtFl">
+                        <property role="P4ACc" value="f3061a53-9226-4cc5-a443-f952ceaf5816/1068580320020/1068580320021" />
+                        <property role="2qtEX9" value="value" />
+                        <node concept="3zFVjK" id="t6Cabkah8l" role="3zH0cK">
+                          <node concept="3clFbS" id="t6Cabkah8m" role="2VODD2">
+                            <node concept="3clFbF" id="t6Cabkah8n" role="3cqZAp">
+                              <node concept="v3LJS" id="t6Cabkah8o" role="3clFbG">
+                                <ref role="v3LJV" node="25KLsjZICRq" resolve="priority" />
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                      <node concept="1W57fq" id="t6Cabkah8p" role="lGtFl">
+                        <node concept="3IZrLx" id="t6Cabkah8q" role="3IZSJc">
+                          <node concept="3clFbS" id="t6Cabkah8r" role="2VODD2">
+                            <node concept="3clFbF" id="t6Cabkah8s" role="3cqZAp">
+                              <node concept="3eOSWO" id="t6Cabkah8t" role="3clFbG">
+                                <node concept="3cmrfG" id="t6Cabkah8u" role="3uHU7w">
+                                  <property role="3cmrfH" value="0" />
+                                </node>
+                                <node concept="v3LJS" id="t6Cabkah8v" role="3uHU7B">
+                                  <ref role="v3LJV" node="25KLsjZICRq" resolve="priority" />
+                                </node>
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="10Nm6u" id="t6Cabkah8w" role="37wK5m">
+                      <node concept="1sPUBX" id="t6Cabkah8x" role="lGtFl">
+                        <ref role="v9R2y" node="hgVfGhP" resolve="StyleAttributeValue" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="raruj" id="t6Cabkah8y" role="lGtFl" />
+              </node>
+            </node>
+          </node>
+          <node concept="3Tm1VV" id="t6Cabkah8z" role="1B3o_S" />
+          <node concept="3uibUv" id="t6Cabkah8$" role="EKbjA">
             <ref role="3uigEE" to="qvne:6OQfiPCHBbE" resolve="EditorBuilderEnvironment" />
           </node>
         </node>
