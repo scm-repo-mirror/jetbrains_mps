@@ -7051,14 +7051,14 @@
           <node concept="3cpWs3" id="18jf_F1WDtO" role="3cqZAk">
             <node concept="3cpWs3" id="18jf_F1WDtP" role="3uHU7B">
               <node concept="3cpWs3" id="18jf_F1WDtQ" role="3uHU7B">
-                <node concept="Xl_RD" id="18jf_F1WDtS" role="3uHU7w">
-                  <property role="Xl_RC" value=" [" />
-                </node>
                 <node concept="2OqwBi" id="ivXwD0FO7g" role="3uHU7B">
                   <node concept="37vLTw" id="18jf_F1WDtR" role="2Oq$k0">
                     <ref role="3cqZAo" node="18jf_F1WDu0" resolve="node" />
                   </node>
                   <node concept="2Iv5rx" id="ivXwD0FO7h" role="2OqNvi" />
+                </node>
+                <node concept="Xl_RD" id="18jf_F1WDtS" role="3uHU7w">
+                  <property role="Xl_RC" value=" [" />
                 </node>
               </node>
               <node concept="2OqwBi" id="18jf_F1WDtT" role="3uHU7w">
@@ -7498,8 +7498,19 @@
             <node concept="2OqwBi" id="34euvBSFncQ" role="2Oq$k0">
               <node concept="2ShNRf" id="34euvBSFmn5" role="2Oq$k0">
                 <node concept="1pGfFk" id="34euvBSFmWY" role="2ShVmc">
-                  <ref role="37wK5l" to="wsw7:6bXa3O$ak8k" resolve="ModelCheckerBuilder" />
-                  <node concept="3clFbT" id="fM_JX6m3Bh" role="37wK5m" />
+                  <ref role="37wK5l" to="wsw7:6nj_ILmBNrL" resolve="ModelCheckerBuilder" />
+                  <node concept="2OqwBi" id="1p3K8b3cAa8" role="37wK5m">
+                    <node concept="2ShNRf" id="1p3K8b3caG4" role="2Oq$k0">
+                      <node concept="1pGfFk" id="1p3K8b3cwEc" role="2ShVmc">
+                        <property role="373rjd" value="true" />
+                        <ref role="37wK5l" to="wsw7:6pnunaLnyyn" resolve="ModelsExtractorImpl" />
+                      </node>
+                    </node>
+                    <node concept="liA8E" id="1p3K8b3cAMq" role="2OqNvi">
+                      <ref role="37wK5l" to="wsw7:34euvBSCGJN" resolve="includeStubs" />
+                      <node concept="3clFbT" id="1p3K8b3cBxw" role="37wK5m" />
+                    </node>
+                  </node>
                 </node>
               </node>
               <node concept="liA8E" id="34euvBSFqp5" role="2OqNvi">
@@ -8776,14 +8787,14 @@
         <node concept="3clFbH" id="63oasX2eHq0" role="3cqZAp" />
         <node concept="RRSsy" id="3jYQuSB39L0" role="3cqZAp">
           <node concept="3cpWs3" id="6RioKE3H1JB" role="RRSoy">
-            <node concept="Xl_RD" id="6RioKE3GLOo" role="3uHU7B">
-              <property role="Xl_RC" value="Collecting errors in the root " />
-            </node>
             <node concept="2OqwBi" id="ivXwD0FO8f" role="3uHU7w">
               <node concept="37vLTw" id="6RioKE3H4gl" role="2Oq$k0">
                 <ref role="3cqZAo" node="3fCX6WCBvHQ" resolve="myRoot" />
               </node>
               <node concept="2Iv5rx" id="ivXwD0FO8g" role="2OqNvi" />
+            </node>
+            <node concept="Xl_RD" id="6RioKE3GLOo" role="3uHU7B">
+              <property role="Xl_RC" value="Collecting errors in the root " />
             </node>
           </node>
         </node>

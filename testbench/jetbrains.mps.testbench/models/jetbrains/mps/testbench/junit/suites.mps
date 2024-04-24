@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model ref="r:984811b0-078d-45d7-bf58-fa501204c2fc(jetbrains.mps.testbench.junit.suites)">
   <persistence version="9" />
-  <attribute name="doNotGenerate" value="false" />
   <languages>
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="-1" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="-1" />
@@ -61,11 +60,11 @@
     <import index="bd8o" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.application(MPS.IDEA/)" />
     <import index="ap4t" ref="215c4c45-ba99-49f5-9ab7-4b6901a63cfd/java:jetbrains.mps.generator(MPS.Generator/)" />
     <import index="w8cm" ref="215c4c45-ba99-49f5-9ab7-4b6901a63cfd/java:jetbrains.mps.generator.impl.dependencies(MPS.Generator/)" />
-    <import index="35tq" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.scope(MPS.Core/)" />
-    <import index="y49u" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.util(MPS.OpenAPI/)" />
-    <import index="zf81" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.net(JDK/)" />
-    <import index="7x5y" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.nio.charset(JDK/)" />
     <import index="u3gh" ref="r:38f1070b-d1ae-4036-84ce-ffb866741b84(jetbrains.mps.workbench.progress)" />
+    <import index="zf81" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.net(JDK/)" />
+    <import index="y49u" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.util(MPS.OpenAPI/)" />
+    <import index="7x5y" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.nio.charset(JDK/)" />
+    <import index="35tq" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.scope(MPS.Core/)" />
     <import index="5zyv" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.concurrent(JDK/)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
     <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" implicit="true" />
@@ -5102,8 +5101,8 @@
                           </node>
                           <node concept="2OqwBi" id="3612de$o0xT" role="37wK5m">
                             <node concept="2ShNRf" id="3612de$o0xU" role="2Oq$k0">
-                              <node concept="HV5vD" id="3612de$o0xV" role="2ShVmc">
-                                <ref role="HV5vE" to="wsw7:7X3$Ctw7ww1" resolve="ModelCheckerBuilder.ModelsExtractorImpl" />
+                              <node concept="1pGfFk" id="1p3K8b36Zke" role="2ShVmc">
+                                <ref role="37wK5l" to="wsw7:6pnunaLnyyn" resolve="ModelsExtractorImpl" />
                               </node>
                             </node>
                             <node concept="liA8E" id="3612de$o0xW" role="2OqNvi">
@@ -5326,12 +5325,6 @@
         <node concept="3clFbF" id="34euvBSFlYj" role="3cqZAp">
           <node concept="2OqwBi" id="34euvBSFBrh" role="3clFbG">
             <node concept="2OqwBi" id="34euvBSFncQ" role="2Oq$k0">
-              <node concept="liA8E" id="34euvBSFqp5" role="2OqNvi">
-                <ref role="37wK5l" to="wsw7:6bXa3O$aFCh" resolve="createChecker" />
-                <node concept="37vLTw" id="34euvBSFqy2" role="37wK5m">
-                  <ref role="3cqZAo" node="2$EeqAz24yW" resolve="checkers" />
-                </node>
-              </node>
               <node concept="2OqwBi" id="55lWainuhx3" role="2Oq$k0">
                 <node concept="2ShNRf" id="34euvBSFmn5" role="2Oq$k0">
                   <node concept="1pGfFk" id="34euvBSFmWY" role="2ShVmc">
@@ -5346,6 +5339,12 @@
                   <node concept="37vLTw" id="55lWainNKuy" role="37wK5m">
                     <ref role="3cqZAo" node="55lWainYYrT" resolve="scheduler" />
                   </node>
+                </node>
+              </node>
+              <node concept="liA8E" id="34euvBSFqp5" role="2OqNvi">
+                <ref role="37wK5l" to="wsw7:6bXa3O$aFCh" resolve="createChecker" />
+                <node concept="37vLTw" id="34euvBSFqy2" role="37wK5m">
+                  <ref role="3cqZAo" node="2$EeqAz24yW" resolve="checkers" />
                 </node>
               </node>
             </node>
