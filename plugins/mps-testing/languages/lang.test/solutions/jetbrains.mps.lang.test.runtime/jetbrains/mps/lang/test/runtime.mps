@@ -81,16 +81,16 @@
     <import index="ev0w" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.typechecking.backend(MPS.Core/)" />
     <import index="80j5" ref="215c4c45-ba99-49f5-9ab7-4b6901a63cfd/java:jetbrains.mps.generator.impl(MPS.Generator/)" />
     <import index="i5cy" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.concurrent.atomic(JDK/)" />
-    <import index="rbkg" ref="63b449db-0918-4a4a-a891-2c430ab133e4/java:org.junit.jupiter.api.extension(org.junit.junit5/)" />
+    <import index="9fia" ref="r:48cf50db-7ea3-4b1e-ab16-c3d84cbcf0df(jetbrains.mps.lang.dataFlow.framework.instructions)" />
     <import index="yqm7" ref="63b449db-0918-4a4a-a891-2c430ab133e4/java:org.junit.jupiter.api(org.junit.junit5/)" />
-    <import index="4rfc" ref="r:3cf16c72-eb63-43af-9e50-31efa02178ea(jetbrains.mps.baseLanguage.unitTest.runtime)" />
-    <import index="4u8o" ref="r:a7abd5f1-5d9a-4c90-a542-3e14c173186d(jetbrains.mps.baseLanguage.unitTest.platform)" />
     <import index="tpe3" ref="r:00000000-0000-4000-0000-011c895902d7(jetbrains.mps.baseLanguage.unitTest.structure)" />
     <import index="tpe5" ref="r:00000000-0000-4000-0000-011c895902d1(jetbrains.mps.baseLanguage.unitTest.behavior)" />
+    <import index="4u8o" ref="r:a7abd5f1-5d9a-4c90-a542-3e14c173186d(jetbrains.mps.baseLanguage.unitTest.platform)" />
     <import index="ze1i" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.runtime(MPS.Core/)" />
+    <import index="4rfc" ref="r:3cf16c72-eb63-43af-9e50-31efa02178ea(jetbrains.mps.baseLanguage.unitTest.runtime)" />
+    <import index="rbkg" ref="63b449db-0918-4a4a-a891-2c430ab133e4/java:org.junit.jupiter.api.extension(org.junit.junit5/)" />
     <import index="ymjd" ref="r:f076de5c-ea08-4e23-95cb-3ac8654d592e(jetbrains.mps.lang.dataFlow.framework.analyzers)" />
     <import index="8qxk" ref="r:3dddb2c7-b2ba-4381-896a-2e702ca1fb6e(jetbrains.mps.lang.dataFlow.framework)" />
-    <import index="9fia" ref="r:48cf50db-7ea3-4b1e-ab16-c3d84cbcf0df(jetbrains.mps.lang.dataFlow.framework.instructions)" />
     <import index="35tq" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.scope(MPS.Core/)" implicit="true" />
   </imports>
   <registry>
@@ -137,7 +137,7 @@
         <reference id="1188208074048" name="annotation" index="2AI5Lk" />
         <child id="1188214630783" name="value" index="2B76xF" />
       </concept>
-      <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ngI" index="2AJDlI">
+      <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ng" index="2AJDlI">
         <child id="1188208488637" name="annotation" index="2AJF6D" />
       </concept>
       <concept id="1188214545140" name="jetbrains.mps.baseLanguage.structure.AnnotationInstanceValue" flags="ng" index="2B6LJw">
@@ -223,7 +223,7 @@
         <property id="1176718929932" name="isFinal" index="3TUv4t" />
         <child id="1068431790190" name="initializer" index="33vP2m" />
       </concept>
-      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ngI" index="366HgL">
+      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ng" index="366HgL">
         <property id="1513279640906337053" name="inferTypeParams" index="373rjd" />
       </concept>
       <concept id="1109279763828" name="jetbrains.mps.baseLanguage.structure.TypeVariableDeclaration" flags="ng" index="16euLQ" />
@@ -305,7 +305,7 @@
         <child id="1160998896846" name="condition" index="1gVkn0" />
         <child id="1160998916832" name="message" index="1gVpfI" />
       </concept>
-      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ngI" index="1ndlxa">
+      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ng" index="1ndlxa">
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
       </concept>
@@ -349,7 +349,7 @@
       <concept id="1184952934362" name="jetbrains.mps.baseLanguage.structure.DimensionExpression" flags="nn" index="3$GHV9">
         <child id="1184953288404" name="expression" index="3$I4v7" />
       </concept>
-      <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ngI" index="1B3ioH">
+      <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ng" index="1B3ioH">
         <child id="1178549979242" name="visibility" index="1B3o_S" />
       </concept>
       <concept id="1144226303539" name="jetbrains.mps.baseLanguage.structure.ForeachStatement" flags="nn" index="1DcWWT">
@@ -477,7 +477,7 @@
       <concept id="1172073500303" name="jetbrains.mps.baseLanguage.unitTest.structure.Message" flags="ng" index="3_1$Yv">
         <child id="1172073511101" name="message" index="3_1BAH" />
       </concept>
-      <concept id="1172075514136" name="jetbrains.mps.baseLanguage.unitTest.structure.MessageHolder" flags="ngI" index="3_9gw8">
+      <concept id="1172075514136" name="jetbrains.mps.baseLanguage.unitTest.structure.MessageHolder" flags="ng" index="3_9gw8">
         <child id="1172075534298" name="message" index="3_9lra" />
       </concept>
     </language>
@@ -563,7 +563,7 @@
         <property id="1193676396447" name="virtualPackage" index="3GE5qa" />
         <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
       </concept>
-      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ngI" index="TrEIO">
+      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
       <concept id="709746936026466394" name="jetbrains.mps.lang.core.structure.ChildAttribute" flags="ng" index="3VBwX9">
@@ -7553,8 +7553,19 @@
             <node concept="2OqwBi" id="34euvBSFncQ" role="2Oq$k0">
               <node concept="2ShNRf" id="34euvBSFmn5" role="2Oq$k0">
                 <node concept="1pGfFk" id="34euvBSFmWY" role="2ShVmc">
-                  <ref role="37wK5l" to="wsw7:6bXa3O$ak8k" resolve="ModelCheckerBuilder" />
-                  <node concept="3clFbT" id="fM_JX6m3Bh" role="37wK5m" />
+                  <ref role="37wK5l" to="wsw7:6nj_ILmBNrL" resolve="ModelCheckerBuilder" />
+                  <node concept="2OqwBi" id="1p3K8b3cAa8" role="37wK5m">
+                    <node concept="2ShNRf" id="1p3K8b3caG4" role="2Oq$k0">
+                      <node concept="1pGfFk" id="1p3K8b3cwEc" role="2ShVmc">
+                        <property role="373rjd" value="true" />
+                        <ref role="37wK5l" to="wsw7:6pnunaLnyyn" resolve="ModelsExtractorImpl" />
+                      </node>
+                    </node>
+                    <node concept="liA8E" id="1p3K8b3cAMq" role="2OqNvi">
+                      <ref role="37wK5l" to="wsw7:34euvBSCGJN" resolve="includeStubs" />
+                      <node concept="3clFbT" id="1p3K8b3cBxw" role="37wK5m" />
+                    </node>
+                  </node>
                 </node>
               </node>
               <node concept="liA8E" id="34euvBSFqp5" role="2OqNvi">
@@ -16929,6 +16940,117 @@
     <node concept="2tJIrI" id="4fbem5Qnjez" role="jymVt" />
     <node concept="3Tm1VV" id="4fbem5Qn9jP" role="1B3o_S" />
   </node>
+  <node concept="3HP615" id="VKgNXrh2J3">
+    <property role="2bfB8j" value="true" />
+    <property role="TrG5h" value="Fixture" />
+    <node concept="2tJIrI" id="VKgNXrhCwl" role="jymVt" />
+    <node concept="3clFb_" id="VKgNXrhCgm" role="jymVt">
+      <property role="TrG5h" value="model" />
+      <node concept="H_c77" id="VKgNXrhCtc" role="3clF45" />
+      <node concept="3Tm1VV" id="VKgNXrhCgp" role="1B3o_S" />
+      <node concept="3clFbS" id="VKgNXrhCgq" role="3clF47" />
+      <node concept="P$JXv" id="642Zr9KB1jJ" role="lGtFl">
+        <node concept="TZ5HA" id="642Zr9KB1jK" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9KB1jL" role="1dT_Ay">
+            <property role="1dT_AB" value="Returns the sandbox model created for this fixture." />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="VKgNXrhC4N" role="jymVt" />
+    <node concept="3clFb_" id="VKgNXrh9Yf" role="jymVt">
+      <property role="TrG5h" value="copied" />
+      <node concept="37vLTG" id="VKgNXrharm" role="3clF46">
+        <property role="TrG5h" value="id" />
+        <node concept="17QB3L" id="VKgNXrixpH" role="1tU5fm" />
+      </node>
+      <node concept="3Tqbb2" id="VKgNXrhalX" role="3clF45" />
+      <node concept="3Tm1VV" id="VKgNXrh9Yi" role="1B3o_S" />
+      <node concept="3clFbS" id="VKgNXrh9Yj" role="3clF47" />
+      <node concept="P$JXv" id="VKgNXrix9u" role="lGtFl">
+        <node concept="TZ5HA" id="VKgNXrix9v" role="TZ5H$">
+          <node concept="1dT_AC" id="VKgNXrix9w" role="1dT_Ay">
+            <property role="1dT_AB" value="Looks up and returns a copied root with given ID." />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="642Zr9KB1TD" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9KB1TE" role="1dT_Ay">
+            <property role="1dT_AB" value="Must be invoked from read action. " />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="VKgNXrhBWF" role="jymVt" />
+    <node concept="3clFb_" id="VKgNXrh$wl" role="jymVt">
+      <property role="TrG5h" value="original" />
+      <node concept="3Tqbb2" id="VKgNXrh$St" role="3clF45" />
+      <node concept="3Tm1VV" id="VKgNXrh$wo" role="1B3o_S" />
+      <node concept="3clFbS" id="VKgNXrh$wp" role="3clF47" />
+      <node concept="37vLTG" id="VKgNXrh_lR" role="3clF46">
+        <property role="TrG5h" value="id" />
+        <node concept="17QB3L" id="VKgNXrix$5" role="1tU5fm" />
+      </node>
+      <node concept="P$JXv" id="VKgNXrixbD" role="lGtFl">
+        <node concept="TZ5HA" id="642Zr9KB1XR" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9KB1XS" role="1dT_Ay">
+            <property role="1dT_AB" value="Looks up and returns an SNode instance in the original model with given ID." />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="642Zr9KB1WE" role="TZ5H$">
+          <node concept="1dT_AC" id="642Zr9KB1WF" role="1dT_Ay">
+            <property role="1dT_AB" value="Must be invoked from read action." />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="VKgNXrhBXX" role="jymVt" />
+    <node concept="3Tm1VV" id="VKgNXrh2J4" role="1B3o_S" />
+    <node concept="3UR2Jj" id="642Zr9KAZub" role="lGtFl">
+      <node concept="TZ5HA" id="642Zr9KAZuc" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9KAZud" role="1dT_Ay">
+          <property role="1dT_AB" value="An abstraction of a test fixture that is created for tests operating on copy of MPS model in a sandbox environment." />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="642Zr9KB1an" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9KB1ao" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;p&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="642Zr9KB1b_" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9KB1bA" role="1dT_Ay">
+          <property role="1dT_AB" value="A fixture implementation should provide:" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="642Zr9KB1dT" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9KB1dU" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;ul&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="642Zr9KB1fb" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9KB1fc" role="1dT_Ay">
+          <property role="1dT_AB" value="  &lt;li&gt;the SModel instance corresponding to a copy of original smodel&lt;/li&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="642Zr9KB1gN" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9KB1gO" role="1dT_Ay">
+          <property role="1dT_AB" value="  &lt;li&gt;lookup mechanism for a node in the original test model&lt;/li&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="642Zr9KBjuR" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9KBjuS" role="1dT_Ay">
+          <property role="1dT_AB" value="  &lt;li&gt;search for a copied root node with given id&lt;/li&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="642Zr9KBjxY" role="TZ5H$">
+        <node concept="1dT_AC" id="642Zr9KBjxZ" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;/ul&gt;" />
+        </node>
+      </node>
+    </node>
+    <node concept="2AHcQZ" id="642Zr9KB1PF" role="2AJF6D">
+      <ref role="2AI5Lk" to="mhfm:~ApiStatus$Experimental" resolve="ApiStatus.Experimental" />
+    </node>
+  </node>
   <node concept="312cEu" id="4dqLDEYYwgD">
     <property role="TrG5h" value="TestParametersCacheExtension" />
     <property role="3GE5qa" value="transformation" />
@@ -17326,6 +17448,87 @@
       <node concept="TZ5HA" id="4dqLDEZfg6N" role="TZ5H$">
         <node concept="1dT_AC" id="4dqLDEZfg6O" role="1dT_Ay">
           <property role="1dT_AB" value="An extension to run test method as a command." />
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="3HP615" id="VKgNXrcRCn">
+    <property role="TrG5h" value="Testable" />
+    <node concept="2tJIrI" id="VKgNXrcRDm" role="jymVt" />
+    <node concept="3clFb_" id="VKgNXrcRKE" role="jymVt">
+      <property role="TrG5h" value="test" />
+      <node concept="3clFbS" id="VKgNXrcRKH" role="3clF47" />
+      <node concept="3Tm1VV" id="VKgNXrcRKI" role="1B3o_S" />
+      <node concept="3cqZAl" id="VKgNXrcRKr" role="3clF45" />
+      <node concept="3uibUv" id="VKgNXrdIE9" role="Sfmx6">
+        <ref role="3uigEE" to="wyt6:~Exception" resolve="Exception" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="VKgNXrcRDr" role="jymVt" />
+    <node concept="3Tm1VV" id="VKgNXrcRCo" role="1B3o_S" />
+    <node concept="3UR2Jj" id="VKgNXrdISa" role="lGtFl">
+      <node concept="TZ5HA" id="VKgNXrdISb" role="TZ5H$">
+        <node concept="1dT_AC" id="VKgNXrdISc" role="1dT_Ay">
+          <property role="1dT_AB" value="Enables to wrap executable code that throws arbitrary checked exceptions." />
+        </node>
+      </node>
+    </node>
+    <node concept="2AHcQZ" id="VKgNXrexF8" role="2AJF6D">
+      <ref role="2AI5Lk" to="wyt6:~FunctionalInterface" resolve="FunctionalInterface" />
+    </node>
+  </node>
+  <node concept="3HP615" id="VKgNXrh_v$">
+    <property role="TrG5h" value="FixtureTestable" />
+    <node concept="2tJIrI" id="VKgNXrh_Sy" role="jymVt" />
+    <node concept="3clFb_" id="VKgNXrh_Qt" role="jymVt">
+      <property role="TrG5h" value="test" />
+      <node concept="3cqZAl" id="VKgNXrh_Qv" role="3clF45" />
+      <node concept="3Tm1VV" id="VKgNXrh_Qw" role="1B3o_S" />
+      <node concept="3clFbS" id="VKgNXrh_Qx" role="3clF47" />
+      <node concept="37vLTG" id="VKgNXrhBOd" role="3clF46">
+        <property role="TrG5h" value="fixture" />
+        <node concept="3uibUv" id="VKgNXrhBOc" role="1tU5fm">
+          <ref role="3uigEE" node="VKgNXrh2J3" resolve="Fixture" />
+        </node>
+      </node>
+      <node concept="3uibUv" id="VKgNXrhCYI" role="Sfmx6">
+        <ref role="3uigEE" to="wyt6:~Exception" resolve="Exception" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="VKgNXrh_S0" role="jymVt" />
+    <node concept="3Tm1VV" id="VKgNXrh_v_" role="1B3o_S" />
+    <node concept="2AHcQZ" id="VKgNXrh_F$" role="2AJF6D">
+      <ref role="2AI5Lk" to="wyt6:~FunctionalInterface" resolve="FunctionalInterface" />
+    </node>
+    <node concept="2AHcQZ" id="642Zr9KB3N3" role="2AJF6D">
+      <ref role="2AI5Lk" to="mhfm:~ApiStatus$Experimental" resolve="ApiStatus.Experimental" />
+    </node>
+    <node concept="3UR2Jj" id="VKgNXrhDcN" role="lGtFl">
+      <node concept="TZ5HA" id="VKgNXrhDcO" role="TZ5H$">
+        <node concept="1dT_AC" id="VKgNXrhDcP" role="1dT_Ay">
+          <property role="1dT_AB" value="A variant of " />
+        </node>
+        <node concept="1dT_AA" id="VKgNXrhDeh" role="1dT_Ay">
+          <node concept="92FcH" id="642Zr9KAZpX" role="qph3F">
+            <node concept="TZ5HA" id="642Zr9KAZq1" role="2XjZqd" />
+            <node concept="VXe08" id="642Zr9KAZqk" role="92FcQ">
+              <ref role="VXe09" node="VKgNXrcRCn" resolve="Testable" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="VKgNXrhDeg" role="1dT_Ay">
+          <property role="1dT_AB" value=" that accepts " />
+        </node>
+        <node concept="1dT_AA" id="VKgNXrhF0p" role="1dT_Ay">
+          <node concept="92FcH" id="642Zr9KAZp6" role="qph3F">
+            <node concept="TZ5HA" id="642Zr9KAZpa" role="2XjZqd" />
+            <node concept="VXe08" id="642Zr9KAZpt" role="92FcQ">
+              <ref role="VXe09" node="VKgNXrh2J3" resolve="Fixture" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="VKgNXrhF0o" role="1dT_Ay">
+          <property role="1dT_AB" value="." />
         </node>
       </node>
     </node>
@@ -18875,198 +19078,6 @@
       </node>
     </node>
     <node concept="2AHcQZ" id="642Zr9KAr1u" role="2AJF6D">
-      <ref role="2AI5Lk" to="mhfm:~ApiStatus$Experimental" resolve="ApiStatus.Experimental" />
-    </node>
-  </node>
-  <node concept="3HP615" id="VKgNXrcRCn">
-    <property role="TrG5h" value="Testable" />
-    <node concept="2tJIrI" id="VKgNXrcRDm" role="jymVt" />
-    <node concept="3clFb_" id="VKgNXrcRKE" role="jymVt">
-      <property role="TrG5h" value="test" />
-      <node concept="3clFbS" id="VKgNXrcRKH" role="3clF47" />
-      <node concept="3Tm1VV" id="VKgNXrcRKI" role="1B3o_S" />
-      <node concept="3cqZAl" id="VKgNXrcRKr" role="3clF45" />
-      <node concept="3uibUv" id="VKgNXrdIE9" role="Sfmx6">
-        <ref role="3uigEE" to="wyt6:~Exception" resolve="Exception" />
-      </node>
-    </node>
-    <node concept="2tJIrI" id="VKgNXrcRDr" role="jymVt" />
-    <node concept="3Tm1VV" id="VKgNXrcRCo" role="1B3o_S" />
-    <node concept="3UR2Jj" id="VKgNXrdISa" role="lGtFl">
-      <node concept="TZ5HA" id="VKgNXrdISb" role="TZ5H$">
-        <node concept="1dT_AC" id="VKgNXrdISc" role="1dT_Ay">
-          <property role="1dT_AB" value="Enables to wrap executable code that throws arbitrary checked exceptions." />
-        </node>
-      </node>
-    </node>
-    <node concept="2AHcQZ" id="VKgNXrexF8" role="2AJF6D">
-      <ref role="2AI5Lk" to="wyt6:~FunctionalInterface" resolve="FunctionalInterface" />
-    </node>
-  </node>
-  <node concept="3HP615" id="VKgNXrh_v$">
-    <property role="TrG5h" value="FixtureTestable" />
-    <node concept="2tJIrI" id="VKgNXrh_Sy" role="jymVt" />
-    <node concept="3clFb_" id="VKgNXrh_Qt" role="jymVt">
-      <property role="TrG5h" value="test" />
-      <node concept="3cqZAl" id="VKgNXrh_Qv" role="3clF45" />
-      <node concept="3Tm1VV" id="VKgNXrh_Qw" role="1B3o_S" />
-      <node concept="3clFbS" id="VKgNXrh_Qx" role="3clF47" />
-      <node concept="37vLTG" id="VKgNXrhBOd" role="3clF46">
-        <property role="TrG5h" value="fixture" />
-        <node concept="3uibUv" id="VKgNXrhBOc" role="1tU5fm">
-          <ref role="3uigEE" node="VKgNXrh2J3" resolve="Fixture" />
-        </node>
-      </node>
-      <node concept="3uibUv" id="VKgNXrhCYI" role="Sfmx6">
-        <ref role="3uigEE" to="wyt6:~Exception" resolve="Exception" />
-      </node>
-    </node>
-    <node concept="2tJIrI" id="VKgNXrh_S0" role="jymVt" />
-    <node concept="3Tm1VV" id="VKgNXrh_v_" role="1B3o_S" />
-    <node concept="2AHcQZ" id="VKgNXrh_F$" role="2AJF6D">
-      <ref role="2AI5Lk" to="wyt6:~FunctionalInterface" resolve="FunctionalInterface" />
-    </node>
-    <node concept="2AHcQZ" id="642Zr9KB3N3" role="2AJF6D">
-      <ref role="2AI5Lk" to="mhfm:~ApiStatus$Experimental" resolve="ApiStatus.Experimental" />
-    </node>
-    <node concept="3UR2Jj" id="VKgNXrhDcN" role="lGtFl">
-      <node concept="TZ5HA" id="VKgNXrhDcO" role="TZ5H$">
-        <node concept="1dT_AC" id="VKgNXrhDcP" role="1dT_Ay">
-          <property role="1dT_AB" value="A variant of " />
-        </node>
-        <node concept="1dT_AA" id="VKgNXrhDeh" role="1dT_Ay">
-          <node concept="92FcH" id="642Zr9KAZpX" role="qph3F">
-            <node concept="TZ5HA" id="642Zr9KAZq1" role="2XjZqd" />
-            <node concept="VXe08" id="642Zr9KAZqk" role="92FcQ">
-              <ref role="VXe09" node="VKgNXrcRCn" resolve="Testable" />
-            </node>
-          </node>
-        </node>
-        <node concept="1dT_AC" id="VKgNXrhDeg" role="1dT_Ay">
-          <property role="1dT_AB" value=" that accepts " />
-        </node>
-        <node concept="1dT_AA" id="VKgNXrhF0p" role="1dT_Ay">
-          <node concept="92FcH" id="642Zr9KAZp6" role="qph3F">
-            <node concept="TZ5HA" id="642Zr9KAZpa" role="2XjZqd" />
-            <node concept="VXe08" id="642Zr9KAZpt" role="92FcQ">
-              <ref role="VXe09" node="VKgNXrh2J3" resolve="Fixture" />
-            </node>
-          </node>
-        </node>
-        <node concept="1dT_AC" id="VKgNXrhF0o" role="1dT_Ay">
-          <property role="1dT_AB" value="." />
-        </node>
-      </node>
-    </node>
-  </node>
-  <node concept="3HP615" id="VKgNXrh2J3">
-    <property role="2bfB8j" value="true" />
-    <property role="TrG5h" value="Fixture" />
-    <node concept="2tJIrI" id="VKgNXrhCwl" role="jymVt" />
-    <node concept="3clFb_" id="VKgNXrhCgm" role="jymVt">
-      <property role="TrG5h" value="model" />
-      <node concept="H_c77" id="VKgNXrhCtc" role="3clF45" />
-      <node concept="3Tm1VV" id="VKgNXrhCgp" role="1B3o_S" />
-      <node concept="3clFbS" id="VKgNXrhCgq" role="3clF47" />
-      <node concept="P$JXv" id="642Zr9KB1jJ" role="lGtFl">
-        <node concept="TZ5HA" id="642Zr9KB1jK" role="TZ5H$">
-          <node concept="1dT_AC" id="642Zr9KB1jL" role="1dT_Ay">
-            <property role="1dT_AB" value="Returns the sandbox model created for this fixture." />
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="2tJIrI" id="VKgNXrhC4N" role="jymVt" />
-    <node concept="3clFb_" id="VKgNXrh9Yf" role="jymVt">
-      <property role="TrG5h" value="copied" />
-      <node concept="37vLTG" id="VKgNXrharm" role="3clF46">
-        <property role="TrG5h" value="id" />
-        <node concept="17QB3L" id="VKgNXrixpH" role="1tU5fm" />
-      </node>
-      <node concept="3Tqbb2" id="VKgNXrhalX" role="3clF45" />
-      <node concept="3Tm1VV" id="VKgNXrh9Yi" role="1B3o_S" />
-      <node concept="3clFbS" id="VKgNXrh9Yj" role="3clF47" />
-      <node concept="P$JXv" id="VKgNXrix9u" role="lGtFl">
-        <node concept="TZ5HA" id="VKgNXrix9v" role="TZ5H$">
-          <node concept="1dT_AC" id="VKgNXrix9w" role="1dT_Ay">
-            <property role="1dT_AB" value="Looks up and returns a copied root with given ID." />
-          </node>
-        </node>
-        <node concept="TZ5HA" id="642Zr9KB1TD" role="TZ5H$">
-          <node concept="1dT_AC" id="642Zr9KB1TE" role="1dT_Ay">
-            <property role="1dT_AB" value="Must be invoked from read action. " />
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="2tJIrI" id="VKgNXrhBWF" role="jymVt" />
-    <node concept="3clFb_" id="VKgNXrh$wl" role="jymVt">
-      <property role="TrG5h" value="original" />
-      <node concept="3Tqbb2" id="VKgNXrh$St" role="3clF45" />
-      <node concept="3Tm1VV" id="VKgNXrh$wo" role="1B3o_S" />
-      <node concept="3clFbS" id="VKgNXrh$wp" role="3clF47" />
-      <node concept="37vLTG" id="VKgNXrh_lR" role="3clF46">
-        <property role="TrG5h" value="id" />
-        <node concept="17QB3L" id="VKgNXrix$5" role="1tU5fm" />
-      </node>
-      <node concept="P$JXv" id="VKgNXrixbD" role="lGtFl">
-        <node concept="TZ5HA" id="642Zr9KB1XR" role="TZ5H$">
-          <node concept="1dT_AC" id="642Zr9KB1XS" role="1dT_Ay">
-            <property role="1dT_AB" value="Looks up and returns an SNode instance in the original model with given ID." />
-          </node>
-        </node>
-        <node concept="TZ5HA" id="642Zr9KB1WE" role="TZ5H$">
-          <node concept="1dT_AC" id="642Zr9KB1WF" role="1dT_Ay">
-            <property role="1dT_AB" value="Must be invoked from read action." />
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="2tJIrI" id="VKgNXrhBXX" role="jymVt" />
-    <node concept="3Tm1VV" id="VKgNXrh2J4" role="1B3o_S" />
-    <node concept="3UR2Jj" id="642Zr9KAZub" role="lGtFl">
-      <node concept="TZ5HA" id="642Zr9KAZuc" role="TZ5H$">
-        <node concept="1dT_AC" id="642Zr9KAZud" role="1dT_Ay">
-          <property role="1dT_AB" value="An abstraction of a test fixture that is created for tests operating on copy of MPS model in a sandbox environment." />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="642Zr9KB1an" role="TZ5H$">
-        <node concept="1dT_AC" id="642Zr9KB1ao" role="1dT_Ay">
-          <property role="1dT_AB" value="&lt;p&gt;" />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="642Zr9KB1b_" role="TZ5H$">
-        <node concept="1dT_AC" id="642Zr9KB1bA" role="1dT_Ay">
-          <property role="1dT_AB" value="A fixture implementation should provide:" />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="642Zr9KB1dT" role="TZ5H$">
-        <node concept="1dT_AC" id="642Zr9KB1dU" role="1dT_Ay">
-          <property role="1dT_AB" value="&lt;ul&gt;" />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="642Zr9KB1fb" role="TZ5H$">
-        <node concept="1dT_AC" id="642Zr9KB1fc" role="1dT_Ay">
-          <property role="1dT_AB" value="  &lt;li&gt;the SModel instance corresponding to a copy of original smodel&lt;/li&gt;" />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="642Zr9KB1gN" role="TZ5H$">
-        <node concept="1dT_AC" id="642Zr9KB1gO" role="1dT_Ay">
-          <property role="1dT_AB" value="  &lt;li&gt;lookup mechanism for a node in the original test model&lt;/li&gt;" />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="642Zr9KBjuR" role="TZ5H$">
-        <node concept="1dT_AC" id="642Zr9KBjuS" role="1dT_Ay">
-          <property role="1dT_AB" value="  &lt;li&gt;search for a copied root node with given id&lt;/li&gt;" />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="642Zr9KBjxY" role="TZ5H$">
-        <node concept="1dT_AC" id="642Zr9KBjxZ" role="1dT_Ay">
-          <property role="1dT_AB" value="&lt;/ul&gt;" />
-        </node>
-      </node>
-    </node>
-    <node concept="2AHcQZ" id="642Zr9KB1PF" role="2AJF6D">
       <ref role="2AI5Lk" to="mhfm:~ApiStatus$Experimental" resolve="ApiStatus.Experimental" />
     </node>
   </node>
