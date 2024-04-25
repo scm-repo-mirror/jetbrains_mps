@@ -303,7 +303,9 @@ import java.util.function.Predicate;
     if (module instanceof TempModule) return;
     SObject sObject = SObject.of(module);
     if (module instanceof AbstractModule) {
-      cacheModuleReference(((AbstractModule) module).getDescriptorFile(), module.getModuleReference());
+      IFile descriptorFile = ((AbstractModule) module).getDescriptorFile();
+      if (descriptorFile == null) return;
+      cacheModuleReference(descriptorFile, module.getModuleReference());
     }
     myUpdateCardinality.computeIfAbsent(sObject, __ -> new AtomicInteger(0)).incrementAndGet();
     myUpdatesQueue.add(updateFun.apply(new Update(sObject)));
