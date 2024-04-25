@@ -36,8 +36,12 @@ import java.util.Objects;
  */
 public class SimpleNodeProjectViewNode extends BranchProjectViewNode<SNode> implements Navigatable {
 
+  private final boolean myIsRoot;
+
   protected SimpleNodeProjectViewNode(Project project, @NotNull SNode sNode, ViewSettings viewSettings) {
     super(project, sNode, viewSettings);
+    // this constructor is only ever called from within a read action
+    myIsRoot = sNode.getParent() == null;
   }
 
   @Override
@@ -83,6 +87,11 @@ public class SimpleNodeProjectViewNode extends BranchProjectViewNode<SNode> impl
 
     presentation.setPresentableText(text);
     presentation.setIcon(GlobalIconManager.getInstance().getIconFor(getValue()));
+  }
+
+  @Override
+  public boolean expandOnDoubleClick() {
+    return !myIsRoot; // root nodes must be navigable
   }
 
   @Override
