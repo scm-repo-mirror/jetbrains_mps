@@ -31,7 +31,7 @@ public interface MPSProjectViewSettings extends ProjectViewSettings {
       myShowVisibilityIcons = settings != null && settings.isShowVisibilityIcons();
       myUseFileNestingRules = settings == null || settings.isUseFileNestingRules();
       myShowDescriptorModels = settings != null && settings.isShowDescriptorModels();
-      myShowErrorsOnly = settings != null && settings.isShowDescriptorModels();
+      myShowErrorsOnly = settings == null || settings.isShowErrorsOnly();
     }
 
     @Override
