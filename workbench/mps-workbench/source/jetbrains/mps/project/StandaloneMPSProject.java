@@ -162,32 +162,4 @@ public class StandaloneMPSProject extends MPSProject implements PersistentStateC
   public static StandaloneMPSProject open(@NotNull String projectPath) throws JDOMException, InvalidDataException, IOException {
     return (StandaloneMPSProject) MPSProject.open(projectPath);
   }
-
-
-  // AP: fixme these two methods are working with the UI virtual paths; I want them to be extracted somewhere else
-  /**
-   * @deprecated use the one from {@link ProjectBase#getVirtualFolder(SModule)} instead.
-   *             Pay attention to nullable contract change, however.
-   */
-  @Nullable
-  @Deprecated(forRemoval = true, since = "2022.1")
-  public String getFolderFor(@NotNull SModule module) {
-    ModulePath modulePath = getPath(module);
-    if (modulePath != null) {
-      return modulePath.getVirtualFolder();
-    } else {
-      LOG.warning("Could not find module path for the module " + module);
-      return null;
-    }
-  }
-
-  // XXX there's no reason to keep this method if ProjectBase#setVirtualFolder get exposed and MPS model references to this one get updated.
-
-  /**
-   * @deprecated use {@link ProjectBase#setVirtualFolder(SModule, String)} instead
-   */
-  @Deprecated(forRemoval = true, since = "2022.1")
-  public void setFolderFor(@NotNull SModule module, String newFolder) {
-    super.setVirtualFolder(module, newFolder);
-  }
 }
