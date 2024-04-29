@@ -61,17 +61,17 @@ public class RulesManager extends AbstractLanguageProcessor {
   }
 
   @Override
-  protected boolean processLoadedLangugage(LanguageRuntime language, TObjectIntHashMap<String> languageRanks) {
+  protected void processLoadedLangugage(LanguageRuntime language, TObjectIntHashMap<String> languageRanks) {
     IHelginsDescriptor typesystem = null;
     try {
       typesystem = language.getAspect(IHelginsDescriptor.class);
     } catch (LinkageError linkageError) {
       LOG.warning("Problems with creating typesystem descriptor " + linkageError.getMessage());
     } catch (Throwable t) {
-      LOG.warning("Error while loading language: " + language.getNamespace(), t);
+      LOG.error("Error while loading language: " + language.getNamespace(), t);
     }
     if (typesystem == null) {
-      return false;
+      return;
     }
     try {
       myInferenceRules.addRuleSetItem(typesystem.getInferenceRules(), languageRanks::get);
@@ -84,11 +84,8 @@ public class RulesManager extends AbstractLanguageProcessor {
       myNonTypeSystemRules.addRuleSetItem(typesystem.getNonTypesystemRules());
       myOverloadedOperationsManager.addOverloadedOperationsTypeProviders(typesystem.getOverloadedOperationsTypesProviders());
     } catch (RuntimeException t) {
-      LOG.error("Error while loading language: " + language.getNamespace(), t);
-      clearCache();
-      return false;
+      // ignore ?!
     }
-    return true;
   }
 
 

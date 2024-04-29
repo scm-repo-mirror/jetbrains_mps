@@ -12,6 +12,7 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -44,7 +45,7 @@ public abstract class AbstractLanguageProcessor {
     }
   }
 
-  protected abstract boolean processLoadedLangugage(LanguageRuntime language, TObjectIntHashMap<String> languageRanks);
+  protected abstract void processLoadedLangugage(LanguageRuntime language, TObjectIntHashMap<String> languageRanks);
 
   protected abstract void clearCache();
 
@@ -60,11 +61,12 @@ public abstract class AbstractLanguageProcessor {
     while (!myLanguagesToLoad.isEmpty()) {
       LanguageRuntime language = myLanguagesToLoad.removeFirst();
       assert !myLoadedLanguages.contains(language);
-      if (processLoadedLangugage(language, languageRanks)) {
+      try {
+        processLoadedLangugage(language, languageRanks);
         myLoadedLanguages.add(language);
-      } else {
+      } catch (RuntimeException e) {
         myLanguagesToLoad.addFirst(language);
-        return; // better luck next time
+        throw e;
       }
     }
     myNeedsLoading = false;
