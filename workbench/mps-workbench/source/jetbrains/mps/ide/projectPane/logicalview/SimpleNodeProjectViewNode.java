@@ -90,6 +90,11 @@ public class SimpleNodeProjectViewNode extends BranchProjectViewNode<SNode> impl
   }
 
   @Override
+  public boolean isAutoExpandAllowed() {
+    return false;
+  }
+
+  @Override
   public boolean expandOnDoubleClick() {
     return !myIsRoot; // root nodes must be navigable
   }
