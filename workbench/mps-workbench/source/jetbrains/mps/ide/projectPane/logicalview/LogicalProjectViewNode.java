@@ -21,11 +21,11 @@ import jetbrains.mps.nodefs.MPSNodeVirtualFile;
 import jetbrains.mps.project.DevKit;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.project.MissionControl;
-import jetbrains.mps.smodel.SObject;
 import jetbrains.mps.project.Solution;
 import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.SModelFileTracker;
+import jetbrains.mps.smodel.SObject;
 import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModelReference;
@@ -36,12 +36,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
  * Defines basic structure of the project view nodes hierarchy.
  * Also contains utility support for bridging IDEA's VirtualFile-based API with MPS's SModel.
- * 
+ *
  * @author Fedor Isakov
  */
 public abstract class LogicalProjectViewNode<Value> extends ProjectViewNode<Value> implements ContextValueProvider {
@@ -79,7 +80,7 @@ public abstract class LogicalProjectViewNode<Value> extends ProjectViewNode<Valu
    *   <li>SNode</li>
    * </ul>.
    * <p>These are wrapped into {@link SObject} and returned as a collection.
-   * 
+   *
    * @return collection of SObject instances corresponding to {@code virtualFile} or an empty collection
    */
   protected Collection<SObject> extractSObjects(VirtualFile virtualFile) {
@@ -94,14 +95,15 @@ public abstract class LogicalProjectViewNode<Value> extends ProjectViewNode<Valu
       if (!sModuleReferences.isEmpty()) {
         List<SObject> modules = new ArrayList<>(2);
         mpsProject.getModelAccess()
-                   .runReadAction(() -> {
-                     for (SModuleReference ref : sModuleReferences) {
-                       modules.add(SObject.of(ref.resolve(mpsProject.getRepository())));
-                     }
-                   });
+                  .runReadAction(() ->
+                                     sModuleReferences.stream()
+                                                      .map(ref -> ref.resolve(mpsProject.getRepository()))
+                                                      .filter(Objects::nonNull)
+                                                      .map(SObject::of)
+                                                      .forEach(modules::add));
         return modules;
       }
-      
+
       SModelReference modelRef = SModelFileTracker.getInstance(mpsProject.getRepository()).modelFor(file);
       if (modelRef != null) {
         return mpsProject.getModelAccess()
