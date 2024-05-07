@@ -6,6 +6,7 @@ package jetbrains.mps.ide.ui.dialogs.properties.roots.editors;
 import com.intellij.icons.AllIcons.Actions;
 import com.intellij.icons.AllIcons.Nodes;
 import com.intellij.idea.ActionsBundle;
+import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
@@ -105,6 +106,11 @@ public class FileBasedModelRootEditor implements ModelRootEntryEditor {
             @Override
             protected SourceRootKind getKind() {
               return kind;
+            }
+
+            @Override
+            public @NotNull ActionUpdateThread getActionUpdateThread() {
+              return ActionUpdateThread.EDT;
             }
           };
 //      modelRootAnAction.registerCustomShortcutSet(new CustomShortcutSet(KeyStroke.getKeyStroke(KeyEvent.VK_M, InputEvent.ALT_MASK)), myTree);

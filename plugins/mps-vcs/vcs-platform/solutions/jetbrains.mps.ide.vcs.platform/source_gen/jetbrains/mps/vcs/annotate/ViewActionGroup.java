@@ -87,6 +87,11 @@ import com.intellij.openapi.vcs.VcsBundle;
         AnnotationOptions.getInstance().setColorMode(myColorMode);
       }
     }
+    @NotNull
+    @Override
+    public ActionUpdateThread getActionUpdateThread() {
+      return ActionUpdateThread.BGT;
+    }
   }
 
   private class ShortNameOption extends ToggleAction {
@@ -107,6 +112,11 @@ import com.intellij.openapi.vcs.VcsBundle;
       if (b) {
         AnnotationOptions.getInstance().setShortNameType(myShortNameType);
       }
+    }
+    @NotNull
+    @Override
+    public ActionUpdateThread getActionUpdateThread() {
+      return ActionUpdateThread.BGT;
     }
   }
 }

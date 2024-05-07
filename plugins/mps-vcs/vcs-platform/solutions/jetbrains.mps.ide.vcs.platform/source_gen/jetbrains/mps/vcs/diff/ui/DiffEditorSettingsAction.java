@@ -12,6 +12,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.ToggleAction;
 import com.intellij.openapi.project.DumbAware;
 import jetbrains.mps.vcs.diff.ui.common.DiffSettingsUtil;
+import com.intellij.openapi.actionSystem.ActionUpdateThread;
 
 @GeneratedClass(node = "r:df1b052a-af27-4b87-80fc-1492fa2192be(jetbrains.mps.vcs.diff.ui)/4621883088124559446", model = "r:df1b052a-af27-4b87-80fc-1492fa2192be(jetbrains.mps.vcs.diff.ui)")
 /*package*/ final class DiffEditorSettingsAction extends BaseGroup {
@@ -51,6 +52,12 @@ import jetbrains.mps.vcs.diff.ui.common.DiffSettingsUtil;
     @Override
     public void setSelected(@NotNull AnActionEvent p1, boolean p2) {
       DiffSettingsUtil.setUseShortDescriptionsOption(p2);
+    }
+
+    @NotNull
+    @Override
+    public ActionUpdateThread getActionUpdateThread() {
+      return ActionUpdateThread.BGT;
     }
   }
 

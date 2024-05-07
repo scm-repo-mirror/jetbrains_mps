@@ -459,6 +459,11 @@ public class ModelPropertiesConfigurable extends MPSPropertiesConfigurable {
             }
           });
         }
+
+        @Override
+        public @NotNull ActionUpdateThread getActionUpdateThread() {
+          return ActionUpdateThread.EDT;
+        }
       };
       removeUnusedLang.setEnabled(!myIsReadOnly);
       decorator.addExtraAction(removeUnusedLang);

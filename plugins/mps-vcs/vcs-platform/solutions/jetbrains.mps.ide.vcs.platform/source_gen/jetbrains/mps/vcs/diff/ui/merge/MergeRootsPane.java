@@ -50,6 +50,7 @@ import com.intellij.openapi.diff.DiffBundle;
 import jetbrains.mps.workbench.action.BaseGroup;
 import com.intellij.openapi.actionSystem.AnAction;
 import jetbrains.mps.vcs.diff.ui.common.DiffSettingsUtil;
+import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.diff.tools.util.DiffSplitter;
 import java.awt.Graphics;
 import com.intellij.openapi.actionSystem.ActionGroup;
@@ -299,6 +300,12 @@ public class MergeRootsPane implements PropertyChangeListener {
     @Override
     public void setSelected(@NotNull AnActionEvent p1, boolean p2) {
       DiffSettingsUtil.setUseShortDescriptionsOption(p2);
+    }
+
+    @NotNull
+    @Override
+    public ActionUpdateThread getActionUpdateThread() {
+      return ActionUpdateThread.BGT;
     }
   }
 

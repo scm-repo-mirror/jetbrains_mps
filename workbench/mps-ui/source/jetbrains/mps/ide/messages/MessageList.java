@@ -534,11 +534,17 @@ public abstract class MessageList implements IMessageList, SearchHistoryStorage,
 
     group.add(new AnAction("Show Help for This Message", null, null) {
       @Override
-      public void update(AnActionEvent e) {
+      public void update(@NotNull AnActionEvent e) {
         boolean enabled = getHelpUrlForCurrentMessage() != null;
         Presentation presentation = e.getPresentation();
         presentation.setEnabled(enabled);
         presentation.setVisible(enabled);
+      }
+
+      @Override
+      public @NotNull ActionUpdateThread getActionUpdateThread() {
+        // JList.getSelectedValuesList()
+        return ActionUpdateThread.EDT;
       }
 
       @Override
@@ -652,7 +658,12 @@ public abstract class MessageList implements IMessageList, SearchHistoryStorage,
     }
 
     @Override
-    public void update(AnActionEvent e) {
+    public @NotNull ActionUpdateThread getActionUpdateThread() {
+      return ActionUpdateThread.BGT;
+    }
+
+    @Override
+    public void update(@NotNull AnActionEvent e) {
       super.update(e);
       e.getPresentation().setEnabled(myTextToCopy != null);
     }

@@ -26,6 +26,7 @@ import jetbrains.mps.openapi.navigation.EditorNavigator;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import jetbrains.mps.ide.hierarchy.toggle.GroupedToggleAction;
 import jetbrains.mps.ide.hierarchy.icons.Icons;
+import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import jetbrains.mps.ide.hierarchy.toggle.ToggleActionGroup;
 import com.intellij.openapi.actionSystem.ToggleAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -130,12 +131,22 @@ public abstract class AbstractHierarchyView extends BaseProjectTool {
         myHierarchyTree.setParentHierarchy(false);
         myHierarchyTree.rebuildNow();
       }
+      @NotNull
+      @Override
+      public ActionUpdateThread getActionUpdateThread() {
+        return ActionUpdateThread.EDT;
+      }
     };
     GroupedToggleAction parentAction = new GroupedToggleAction("Parent Hierarchy", "Show parent hierarchy", Icons.PARENT_ICON, false) {
       @Override
       public void select() {
         myHierarchyTree.setParentHierarchy(true);
         myHierarchyTree.rebuildNow();
+      }
+      @NotNull
+      @Override
+      public ActionUpdateThread getActionUpdateThread() {
+        return ActionUpdateThread.EDT;
       }
     };
 
@@ -156,6 +167,12 @@ public abstract class AbstractHierarchyView extends BaseProjectTool {
         mySelected = state;
         myHierarchyTree.setIsOnlyInOneModel(mySelected);
       }
+
+      @NotNull
+      @Override
+      public ActionUpdateThread getActionUpdateThread() {
+        return ActionUpdateThread.EDT;
+      }
     };
 
     ToggleAction generatorModelsAction = new ToggleAction("Show Generator Classes", "Show classes from generator models in hierarchy", Icons.GENERATOR_ICON) {
@@ -170,6 +187,12 @@ public abstract class AbstractHierarchyView extends BaseProjectTool {
       public void setSelected(@NotNull AnActionEvent e, boolean state) {
         mySelected = state;
         myHierarchyTree.setShowGeneratorModels(mySelected);
+      }
+
+      @NotNull
+      @Override
+      public ActionUpdateThread getActionUpdateThread() {
+        return ActionUpdateThread.EDT;
       }
     };
 
