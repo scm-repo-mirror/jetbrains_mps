@@ -43,7 +43,7 @@ public class BaseGroup extends DefaultActionGroup implements DumbAware {
   private boolean myIsInternal = false;
   private boolean myIsAlwaysVisible = true;
 
-  private ActionUpdateThread myUpdateThread;
+  private ActionUpdateThread myUpdateThread = ActionUpdateThread.EDT;
 
   public BaseGroup(String name) {
     this(name, name);
@@ -157,10 +157,6 @@ public class BaseGroup extends DefaultActionGroup implements DumbAware {
 
   @Override
   public @NotNull ActionUpdateThread getActionUpdateThread() {
-    // copied from BaseAction
-    if (myUpdateThread == null) {
-      myUpdateThread = Registry.is("mps.actions.old_edt", false) ? ActionUpdateThread.OLD_EDT : ActionUpdateThread.EDT;
-    }
     return myUpdateThread;
   }
 
