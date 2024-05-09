@@ -18188,7 +18188,7 @@
       <compilerarg value="-Xlint:none" />
       <src>
         <pathelement path="${mps_home}/testbench/sources" />
-        <pathelement path="${mps_home}/testbench/source_gen" />
+        <pathelement path="${mps_home}/testbench/jetbrains.mps.testbench/source_gen" />
       </src>
       <classpath>
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-annotations.jar" />
@@ -18227,7 +18227,7 @@
     </javac2>
     <copy todir="${build.tmp}/java/out/mps-test">
       <fileset dir="${mps_home}/testbench/sources" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.svg, **/*.txt, **/*.ico, **/*.zip, **/*.info, META-INF/services/**/*" />
-      <fileset dir="${mps_home}/testbench/source_gen" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.svg, **/*.txt, **/*.ico, **/*.zip, **/*.info, META-INF/services/**/*" />
+      <fileset dir="${mps_home}/testbench/jetbrains.mps.testbench/source_gen" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.svg, **/*.txt, **/*.ico, **/*.zip, **/*.info, META-INF/services/**/*" />
     </copy>
   </target>
   

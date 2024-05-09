@@ -2074,14 +2074,25 @@
           <property role="3LZaj6" value="4zlO3QTanjS/source" />
           <property role="nFU4j" value="sources" />
         </node>
-        <node concept="nFU4i" id="1tWbYFNh9AC" role="nFU4p">
-          <property role="nFU4j" value="source_gen" />
-          <property role="3LZaj6" value="source" />
-        </node>
         <node concept="398BVA" id="6IDbu_efiiD" role="398b2C">
           <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
           <node concept="2Ry0Ak" id="6IDbu_efiiE" role="iGT6I">
             <property role="2Ry0Am" value="testbench" />
+          </node>
+        </node>
+      </node>
+      <node concept="398b2D" id="EYvN5kMYcZ" role="398b2p">
+        <node concept="nFU4i" id="1tWbYFNh9AC" role="nFU4p">
+          <property role="nFU4j" value="source_gen" />
+          <property role="3LZaj6" value="source" />
+        </node>
+        <node concept="398BVA" id="EYvN5kMYi1" role="398b2C">
+          <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
+          <node concept="2Ry0Ak" id="EYvN5kMYmS" role="iGT6I">
+            <property role="2Ry0Am" value="testbench" />
+            <node concept="2Ry0Ak" id="EYvN5kMYrO" role="2Ry0An">
+              <property role="2Ry0Am" value="jetbrains.mps.testbench" />
+            </node>
           </node>
         </node>
       </node>
