@@ -539,20 +539,6 @@
       <property role="IQ2ns" value="3143335925185262981" />
       <ref role="20lvS9" node="hHqefK1" resolve="TestNode" />
     </node>
-    <node concept="1TJgyj" id="hSLiRz$" role="1TKVEi">
-      <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="nodeToEdit" />
-      <property role="IQ2ns" value="1229187676388" />
-      <ref role="20lvS9" to="tpck:gw2VY9q" resolve="BaseConcept" />
-      <node concept="asaX9" id="2IvnPUIp4O2" role="lGtFl" />
-    </node>
-    <node concept="1TJgyj" id="hSLiZfj" role="1TKVEi">
-      <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="result" />
-      <property role="IQ2ns" value="1229187707859" />
-      <ref role="20lvS9" to="tpck:gw2VY9q" resolve="BaseConcept" />
-      <node concept="asaX9" id="2IvnPUIp4O4" role="lGtFl" />
-    </node>
     <node concept="1TJgyj" id="hSLjaOj" role="1TKVEi">
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="code" />

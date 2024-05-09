@@ -220,12 +220,10 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         return props_EditorOperation;
       case LanguageConceptSwitch.EditorTestCase:
         if (props_EditorTestCase == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L);
-          cpb.deprecateAggregation(0x11e314b78e4L, "nodeToEdit");
-          cpb.deprecateAggregation(0x11e314bf3d3L, "result");
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
           cpb.helpUrl(HELP_URL);
-          cpb.icon(IconContainer.RESOURCE_a0a5a0a81b0dd);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a81b0dd);
           props_EditorTestCase = cpb.create();
         }
         return props_EditorTestCase;

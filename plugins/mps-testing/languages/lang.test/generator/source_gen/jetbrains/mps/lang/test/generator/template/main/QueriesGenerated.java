@@ -200,7 +200,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return (String) ITestMethod__BehaviorDescriptor.getTestName_idhGBohAB.invoke(_context.getNode());
   }
   public static Object propertyMacro_GetValue_8_4(final PropertyMacroContext _context) {
-    SNode nodeToEdit = (SLinkOperations.getTarget(_context.getNode(), LINKS.nodeToEdit$SO8n) != null ? SLinkOperations.getTarget(_context.getNode(), LINKS.nodeToEdit$SO8n) : SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), LINKS.testNodeBefore$aUeC), LINKS.nodeToCheck$OBcW));
+    SNode nodeToEdit = SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), LINKS.testNodeBefore$aUeC), LINKS.nodeToCheck$OBcW);
     if ((nodeToEdit == null)) {
       _context.showErrorMessage(_context.getNode(), "A node in the 'before' section must be provided");
     }
@@ -210,7 +210,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return nodeToEdit.getNodeId().toString();
   }
   public static Object propertyMacro_GetValue_8_5(final PropertyMacroContext _context) {
-    SNode nodeResult = (SLinkOperations.getTarget(_context.getNode(), LINKS.result$sGjR) != null ? SLinkOperations.getTarget(_context.getNode(), LINKS.result$sGjR) : SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), LINKS.testNodeResult$bm9v), LINKS.nodeToCheck$OBcW));
+    SNode nodeResult = SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), LINKS.testNodeResult$bm9v), LINKS.nodeToCheck$OBcW);
     if (nodeResult != null) {
       return nodeResult.getNodeId().toString();
     } else {
@@ -1377,10 +1377,8 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SContainmentLink operation$gs9E = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation");
     /*package*/ static final SReferenceLink declaration$hXIv = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x119e1d33213L, 0x119e1d356c6L, "declaration");
     /*package*/ static final SReferenceLink intention$m3$T = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11d72af5892L, 0x11d72afec1bL, "intention");
-    /*package*/ static final SContainmentLink nodeToEdit$SO8n = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x11e314b78e4L, "nodeToEdit");
     /*package*/ static final SContainmentLink testNodeBefore$aUeC = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x2b9f5f5eae643562L, "testNodeBefore");
     /*package*/ static final SContainmentLink nodeToCheck$OBcW = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, 0x11b5a397b92L, "nodeToCheck");
-    /*package*/ static final SContainmentLink result$sGjR = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x11e314bf3d3L, "result");
     /*package*/ static final SContainmentLink testNodeResult$bm9v = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x2b9f5f5eae643585L, "testNodeResult");
     /*package*/ static final SReferenceLink intention$gTRv = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x83a4b2183e44b99L, 0x83a4b2183e44b9aL, "intention");
     /*package*/ static final SReferenceLink migration$XW2Z = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x5bf7864595dddf89L, 0x5bf7864595dddf8aL, "migration");
