@@ -95,24 +95,6 @@ public class ProjectPane extends BaseLogicalViewProjectPane {
   private DnDTarget myDropTarget;
   private DnDSource myDragSource;
 
-  private final SRepositoryListener myRepositoryListener = new SRepositoryListener() {
-    @Override
-    public void moduleAdded(@NotNull SModule module) {
-      if (module instanceof TempModule || module instanceof TempModule2) {
-        return;
-      }
-      // fixme why do not we add only module node here?
-      ProjectPane.this.updateFromRoot(true);
-    }
-
-    @Override
-    public void beforeModuleRemoved(@NotNull SModule module) {
-      if (module instanceof TempModule || module instanceof TempModule2) {
-        return;
-      }
-      ProjectPane.this.updateFromRoot(true);
-    }
-  };
   private final ReloadListener myReloadListener;
 
   public static final String ID = ProjectViewPane.ID;
@@ -184,7 +166,6 @@ public class ProjectPane extends BaseLogicalViewProjectPane {
     super.removeListeners();
     myConnection.disconnect();
     myConnection = null;
-    getMPSProject().getRepository().removeRepositoryListener(myRepositoryListener);
   }
 
   @Override
@@ -199,7 +180,6 @@ public class ProjectPane extends BaseLogicalViewProjectPane {
     });
     myConnection.subscribe(FileEditorManagerListener.FILE_EDITOR_MANAGER, myEditorListener);
     myConnection.subscribe(MissionControlListener.MISSION_CONTROL_UPDATE, (MissionControlListener) this::refresh);
-    getMPSProject().getRepository().addRepositoryListener(myRepositoryListener);
   }
 
   @Hack

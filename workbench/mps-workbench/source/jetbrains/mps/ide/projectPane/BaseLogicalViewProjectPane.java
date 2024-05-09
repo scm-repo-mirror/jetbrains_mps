@@ -72,6 +72,8 @@ import jetbrains.mps.project.Solution;
 import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.RepoListenerRegistrar;
+import jetbrains.mps.smodel.tempmodel.TempModule;
+import jetbrains.mps.smodel.tempmodel.TempModule2;
 import jetbrains.mps.util.Pair;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.workbench.ActionPlace;
@@ -661,6 +663,16 @@ public abstract class BaseLogicalViewProjectPane extends BaseProjectViewPaneWith
     @Override
     public void repositoryChanged() {
       myNeedRebuild = true;
+    }
+
+    @Override
+    public void moduleAdded(@NotNull SModule module) {
+      myNeedRebuild |= !(module instanceof TempModule || module instanceof TempModule2);
+    }
+
+    @Override
+    public void beforeModuleRemoved(@NotNull SModule module) {
+      myNeedRebuild |= !(module instanceof TempModule || module instanceof TempModule2);
     }
 
     @Override
