@@ -58,6 +58,8 @@
     <import index="i5cy" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.concurrent.atomic(JDK/)" />
     <import index="v23q" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi(MPS.IDEA/)" />
     <import index="xygl" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.progress(MPS.IDEA/)" />
+    <import index="bd8o" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.application(MPS.IDEA/)" />
+    <import index="9w4s" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.util(MPS.IDEA/)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
     <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" implicit="true" />
   </imports>
@@ -311,9 +313,11 @@
         <child id="1170075728144" name="expression" index="1HWFw0" />
         <child id="1170075736412" name="block" index="1HWHxc" />
       </concept>
+      <concept id="5351203823916832286" name="jetbrains.mps.baseLanguage.structure.ResourceVariable" flags="ng" index="3J1hQo" />
       <concept id="5351203823916750322" name="jetbrains.mps.baseLanguage.structure.TryUniversalStatement" flags="nn" index="3J1_TO">
         <child id="8276990574886367510" name="catchClause" index="1zxBo5" />
         <child id="8276990574886367508" name="body" index="1zxBo7" />
+        <child id="5351203823916750334" name="resource" index="3J1_TS" />
       </concept>
       <concept id="1163668896201" name="jetbrains.mps.baseLanguage.structure.TernaryOperatorExpression" flags="nn" index="3K4zz7">
         <child id="1163668914799" name="condition" index="3K4Cdx" />
@@ -8782,19 +8786,37 @@
                                 </node>
                               </node>
                             </node>
-                            <node concept="3cpWs6" id="4henvQNvFYj" role="3cqZAp">
-                              <node concept="2OqwBi" id="4henvQNvFYq" role="3cqZAk">
-                                <node concept="2YIFZM" id="4henvQNvFYr" role="2Oq$k0">
-                                  <ref role="1Pybhc" to="jlcu:~FileStatusManager" resolve="FileStatusManager" />
-                                  <ref role="37wK5l" to="jlcu:~FileStatusManager.getInstance(com.intellij.openapi.project.Project)" resolve="getInstance" />
-                                  <node concept="37vLTw" id="4henvQNvFYs" role="37wK5m">
-                                    <ref role="3cqZAo" node="2JwSLRbzlnZ" resolve="myProject" />
+                            <node concept="3J1_TO" id="4bwsEYIUr8G" role="3cqZAp">
+                              <node concept="3clFbS" id="4bwsEYIUr8I" role="1zxBo7">
+                                <node concept="3cpWs6" id="4henvQNvFYj" role="3cqZAp">
+                                  <node concept="2OqwBi" id="4henvQNvFYq" role="3cqZAk">
+                                    <node concept="2YIFZM" id="4henvQNvFYr" role="2Oq$k0">
+                                      <ref role="1Pybhc" to="jlcu:~FileStatusManager" resolve="FileStatusManager" />
+                                      <ref role="37wK5l" to="jlcu:~FileStatusManager.getInstance(com.intellij.openapi.project.Project)" resolve="getInstance" />
+                                      <node concept="37vLTw" id="4henvQNvFYs" role="37wK5m">
+                                        <ref role="3cqZAo" node="2JwSLRbzlnZ" resolve="myProject" />
+                                      </node>
+                                    </node>
+                                    <node concept="liA8E" id="4henvQNvFYt" role="2OqNvi">
+                                      <ref role="37wK5l" to="jlcu:~FileStatusManager.getStatus(com.intellij.openapi.vfs.VirtualFile)" resolve="getStatus" />
+                                      <node concept="37vLTw" id="4henvQNvFYu" role="37wK5m">
+                                        <ref role="3cqZAo" node="4henvQNvFYf" resolve="file" />
+                                      </node>
+                                    </node>
                                   </node>
                                 </node>
-                                <node concept="liA8E" id="4henvQNvFYt" role="2OqNvi">
-                                  <ref role="37wK5l" to="jlcu:~FileStatusManager.getStatus(com.intellij.openapi.vfs.VirtualFile)" resolve="getStatus" />
-                                  <node concept="37vLTw" id="4henvQNvFYu" role="37wK5m">
-                                    <ref role="3cqZAo" node="4henvQNvFYf" resolve="file" />
+                              </node>
+                              <node concept="3J1hQo" id="4bwsEYIUr8J" role="3J1_TS">
+                                <property role="3TUv4t" value="true" />
+                                <property role="TrG5h" value="ignored" />
+                                <node concept="3uibUv" id="4bwsEYIUIdn" role="1tU5fm">
+                                  <ref role="3uigEE" to="bd8o:~AccessToken" resolve="AccessToken" />
+                                </node>
+                                <node concept="2YIFZM" id="4bwsEYIVKh0" role="33vP2m">
+                                  <ref role="37wK5l" to="9w4s:~SlowOperations.allowSlowOperations(java.lang.String)" resolve="allowSlowOperations" />
+                                  <ref role="1Pybhc" to="9w4s:~SlowOperations" resolve="SlowOperations" />
+                                  <node concept="Xl_RD" id="4bwsEYIVZsK" role="37wK5m">
+                                    <property role="Xl_RC" value="known-issues" />
                                   </node>
                                 </node>
                               </node>

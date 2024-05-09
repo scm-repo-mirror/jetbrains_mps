@@ -41,6 +41,8 @@ import jetbrains.mps.extapi.persistence.FileSystemBasedDataSource;
 import java.util.function.Function;
 import jetbrains.mps.vfs.IFile;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.openapi.application.AccessToken;
+import com.intellij.util.SlowOperations;
 import com.intellij.openapi.vcs.FileStatusManager;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -301,7 +303,9 @@ public final class ChangesTracking {
         if (file == null) {
           return FileStatus.DELETED;
         }
-        return FileStatusManager.getInstance(myProject).getStatus(file);
+        try (AccessToken ignored = SlowOperations.allowSlowOperations("known-issues")) {
+          return FileStatusManager.getInstance(myProject).getStatus(file);
+        }
       }
     }).findFirst().orElse(FileStatus.DELETED);
   }
