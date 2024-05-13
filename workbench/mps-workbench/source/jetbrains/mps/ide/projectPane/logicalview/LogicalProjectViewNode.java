@@ -155,10 +155,12 @@ public abstract class LogicalProjectViewNode<Value> extends ProjectViewNode<Valu
   @Override
   protected void postprocess(@NotNull PresentationData presentation) {
     super.postprocess(presentation);
-    MissionControl missionControl = MissionControl.getInstance(getProject());
-    if (missionControl != null) {
-      if (missionControl.getMessagesContainer().hasMessagesInHierarchy(this::containsSObject, this::shouldMarkModified, MessageStatus.OK, true)) {
-        presentation.setIcon(getModifiedIcon(presentation.getIcon(true)));
+    if (Registry.is("mps.projectView.generationRequired.icon")) {
+      MissionControl missionControl = MissionControl.getInstance(getProject());
+      if (missionControl != null) {
+        if (missionControl.getMessagesContainer().hasMessagesInHierarchy(this::containsSObject, this::shouldMarkModified, MessageStatus.OK, true)) {
+          presentation.setIcon(getModifiedIcon(presentation.getIcon(true)));
+        }
       }
     }
   }

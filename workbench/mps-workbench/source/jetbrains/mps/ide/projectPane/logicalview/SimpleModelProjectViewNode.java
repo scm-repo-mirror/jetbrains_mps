@@ -8,6 +8,7 @@ import com.intellij.ide.projectView.ViewSettings;
 import com.intellij.ide.util.treeView.AbstractTreeNode;
 import com.intellij.ide.util.treeView.InplaceCommentAppender;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.util.registry.Registry;
 import com.intellij.ui.SimpleTextAttributes;
 import jetbrains.mps.errors.MessageStatus;
 import jetbrains.mps.errors.item.ReportItem;
@@ -77,10 +78,13 @@ public class SimpleModelProjectViewNode extends BranchProjectViewNode<SModel> {
 
   @Override
   protected void appendInplaceComments(@NotNull InplaceCommentAppender appender) {
+    boolean useIcon = Registry.is("mps.projectView.generationRequired.icon");
     MissionControl missionControl = MissionControl.getInstance(myProject);
     if (missionControl != null) {
       missionControl.getMessagesContainer().getInfoMessages(getValue()).forEach(msg -> {
-        if ((msg instanceof HasGenerationStatus && ((HasGenerationStatus) msg).getStatus() != GenerationStatus.REQUIRED)) {
+        if (msg instanceof HasGenerationStatus &&
+            (!useIcon || ((HasGenerationStatus) msg).getStatus() != GenerationStatus.REQUIRED))
+        {
           appender.append(String.format(" (%s)", msg.getMessage()), SimpleTextAttributes.GRAY_ATTRIBUTES);
         }
       });
