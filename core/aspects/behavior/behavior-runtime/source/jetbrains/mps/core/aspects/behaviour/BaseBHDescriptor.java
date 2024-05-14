@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2023 JetBrains s.r.o.
+ * Copyright 2003-2024 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -215,6 +215,7 @@ public abstract class BaseBHDescriptor implements BHDescriptor {
     if (!Objects.equals(constructor.getConcept(), getConcept())) {
       throw new IllegalArgumentException("Concept of the passed constructor and the concept of the descriptor must coincide");
     }
+    // XXX this is the only class that makes [behavior-runtime] to depend on [kernel]!
     SNode node = SModelOperations.createNewNode(model, null, myConcept);
     new ConstructionHandler(myAncestorCache, myConcept, myBehaviorRegistry).initNode(node, constructor, getParametersArray(Collections.emptyList(), parameters));
     return node;
