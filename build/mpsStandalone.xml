@@ -64,9 +64,9 @@
     <copy todir="${build.layout}/plugins/platform-images">
       <fileset dir="${basedir}/plugins/platform-images" />
     </copy>
-    <mkdir dir="${build.layout}/plugins/settingsRepository" />
-    <copy todir="${build.layout}/plugins/settingsRepository">
-      <fileset dir="${basedir}/plugins/settingsRepository" />
+    <mkdir dir="${build.layout}/plugins/settingsSync" />
+    <copy todir="${build.layout}/plugins/settingsSync">
+      <fileset dir="${basedir}/plugins/settingsSync" />
     </copy>
     <mkdir dir="${build.layout}/plugins/tasks" />
     <copy todir="${build.layout}/plugins/tasks">
