@@ -94,6 +94,7 @@
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/dataFlow/generator/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/dataFlow/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/dataFlowRuntime/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/documentation/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/editor.menus.extras/generator/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/editor.menus.extras/runtime/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/editor.menus.extras/source_gen" includeSubdirectories="true" />
@@ -117,7 +118,6 @@
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/feedback/skeleton/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/findUsages/generator/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/findUsages/source_gen" includeSubdirectories="true" />
-      <directory url="file://$PROJECT_DIR$/languages/languageDesign/generator/doc.aspects/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/generator/languages/descriptor/generator/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/generator/languages/descriptor/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/generator/languages/errorReporting/generator/source_gen" includeSubdirectories="true" />
@@ -865,3 +865,4 @@
     <option name="MAXIMUM_HEAP_SIZE" value="1024" />
   </component>
 </project>
+
