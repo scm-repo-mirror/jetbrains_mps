@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.lang.descriptor.doc.aspects" uuid="f0aec392-47e3-40ae-a843-4519e73ec102" moduleVersion="0">
+<solution name="jetbrains.mps.lang.documentation.genplan" uuid="f0aec392-47e3-40ae-a843-4519e73ec102" moduleVersion="0">
   <models>
-    <modelRoot type="default" contentPath="${module}">
+    <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />
     </modelRoot>
   </models>
@@ -10,9 +10,6 @@
       <classes generated="true" path="${module}/classes_gen" />
     </facet>
   </facets>
-  <dependencies>
-    <dependency reexport="false">a9e4c532-c5f5-4bb7-99ef-42abb73bbb70(jetbrains.mps.lang.descriptor.aspects)</dependency>
-  </dependencies>
   <languageVersions>
     <language slang="l:f3061a53-9226-4cc5-a443-f952ceaf5816:jetbrains.mps.baseLanguage" version="12" />
     <language slang="l:fd392034-7849-419d-9071-12563d152375:jetbrains.mps.baseLanguage.closures" version="0" />
@@ -24,8 +21,7 @@
     <language slang="l:9ded098b-ad6a-4657-bfd9-48636cfe8bc3:jetbrains.mps.lang.traceable" version="0" />
   </languageVersions>
   <dependencyVersions>
-    <module reference="a9e4c532-c5f5-4bb7-99ef-42abb73bbb70(jetbrains.mps.lang.descriptor.aspects)" version="0" />
-    <module reference="f0aec392-47e3-40ae-a843-4519e73ec102(jetbrains.mps.lang.descriptor.doc.aspects)" version="0" />
+    <module reference="f0aec392-47e3-40ae-a843-4519e73ec102(jetbrains.mps.lang.documentation.genplan)" version="0" />
   </dependencyVersions>
 </solution>
 

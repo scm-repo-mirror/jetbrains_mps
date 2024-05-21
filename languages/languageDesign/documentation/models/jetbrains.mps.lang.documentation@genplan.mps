@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model ref="r:d1cf1bdc-d32d-481e-8ec6-73dc1f9dcb76(jetbrains.mps.lang.descriptor.structure_doc@genplan)">
+<model ref="r:d1cf1bdc-d32d-481e-8ec6-73dc1f9dcb76(jetbrains.mps.lang.documentation@genplan)">
   <persistence version="9" />
   <attribute name="doNotGenerate" value="true" />
   <languages>
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
     <use id="7ab1a6fa-0a11-4b95-9e48-75f363d6cb00" name="jetbrains.mps.lang.generator.plan" version="2" />
   </languages>
-  <imports>
-    <import index="3fl4" ref="r:76bfc090-b159-48c2-be6d-12e9e4928f13(jetbrains.mps.lang.descriptor.structure@genplan)" />
-  </imports>
+  <imports />
   <registry>
     <language id="7ab1a6fa-0a11-4b95-9e48-75f363d6cb00" name="jetbrains.mps.lang.generator.plan">
       <concept id="7595781251204543685" name="jetbrains.mps.lang.generator.plan.structure.ForkOf" flags="ng" index="2GXXo8">
-        <property id="7595781251204543844" name="gentarget" index="2GXXuD" />
         <reference id="7595781251204543817" name="primary" index="2GXXu4" />
       </concept>
       <concept id="1152961914448136207" name="jetbrains.mps.lang.generator.plan.structure.LanguageEntry" flags="ng" index="2Qf6Nf">
         <child id="1152961914448136208" name="language" index="2Qf6Ng" />
       </concept>
+      <concept id="1692978518378815071" name="jetbrains.mps.lang.generator.plan.structure.ForkAs" flags="ng" index="Rabix">
+        <property id="1692978518378815178" name="gentarget" index="RabgO" />
+      </concept>
       <concept id="1820634577908471803" name="jetbrains.mps.lang.generator.plan.structure.Plan" flags="ng" index="2VgMpV">
         <child id="7595781251204551294" name="forkOf" index="2GXN2N" />
+        <child id="1692978518378946914" name="forkAs" index="R9CIs" />
         <child id="1820634577908471815" name="steps" index="2VgMA7" />
       </concept>
       <concept id="1820634577908471810" name="jetbrains.mps.lang.generator.plan.structure.Transform" flags="ng" index="2VgMA2">
@@ -54,9 +55,11 @@
         </node>
       </node>
     </node>
-    <node concept="2GXXo8" id="6_DCGR5FlZH" role="2GXN2N">
-      <property role="2GXXuD" value="documentation" />
-      <ref role="2GXXu4" to="3fl4:52lx2FqHOn$" resolve="LangStructurePlan" />
+    <node concept="2GXXo8" id="6RmmpomBo8T" role="2GXN2N">
+      <ref role="2GXXu4" node="2iKjvgosNNj" resolve="DocumentationPlan" />
+    </node>
+    <node concept="Rabix" id="6RmmpomCHge" role="R9CIs">
+      <property role="RabgO" value="documentation" />
     </node>
   </node>
 </model>

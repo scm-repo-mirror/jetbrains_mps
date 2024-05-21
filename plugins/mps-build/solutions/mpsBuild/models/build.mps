@@ -41429,7 +41429,7 @@
       </node>
       <node concept="1E1JtA" id="6_DCGR5trr0" role="2G$12L">
         <property role="BnDLt" value="true" />
-        <property role="TrG5h" value="jetbrains.mps.lang.descriptor.doc.aspects" />
+        <property role="TrG5h" value="jetbrains.mps.lang.documentation.genplan" />
         <property role="3LESm3" value="f0aec392-47e3-40ae-a843-4519e73ec102" />
         <node concept="3rtmxn" id="6_DCGR5trr1" role="3bR31x">
           <node concept="3LXTmp" id="6_DCGR5trr2" role="3rtmxm">
@@ -41460,12 +41460,9 @@
             <node concept="2Ry0Ak" id="6_DCGR5trrb" role="2Ry0An">
               <property role="2Ry0Am" value="languageDesign" />
               <node concept="2Ry0Ak" id="6_DCGR5trrc" role="2Ry0An">
-                <property role="2Ry0Am" value="generator" />
+                <property role="2Ry0Am" value="documentation" />
                 <node concept="2Ry0Ak" id="6_DCGR5trrd" role="2Ry0An">
-                  <property role="2Ry0Am" value="doc.aspects" />
-                  <node concept="2Ry0Ak" id="2NAK__Dvcrj" role="2Ry0An">
-                    <property role="2Ry0Am" value="jetbrains.mps.lang.descriptor.doc.aspects.msd" />
-                  </node>
+                  <property role="2Ry0Am" value="jetbrains.mps.lang.documentation.genplan.msd" />
                 </node>
               </node>
             </node>
@@ -41475,33 +41472,25 @@
           <property role="3ZfqAx" value="models" />
           <property role="1Hdu6h" value="true" />
           <property role="1HemKv" value="true" />
-          <node concept="3LXTmp" id="6_DCGR5tuao" role="1HemKq">
-            <node concept="398BVA" id="6_DCGR5tuac" role="3LXTmr">
+          <node concept="3LXTmp" id="VsWVdcAnZi" role="1HemKq">
+            <node concept="398BVA" id="VsWVdcAnZ8" role="3LXTmr">
               <ref role="398BVh" node="5D1dJ7xWere" resolve="mps_home" />
-              <node concept="2Ry0Ak" id="6_DCGR5tuad" role="iGT6I">
+              <node concept="2Ry0Ak" id="VsWVdcAnZ9" role="iGT6I">
                 <property role="2Ry0Am" value="languages" />
-                <node concept="2Ry0Ak" id="6_DCGR5tuae" role="2Ry0An">
+                <node concept="2Ry0Ak" id="VsWVdcAnZa" role="2Ry0An">
                   <property role="2Ry0Am" value="languageDesign" />
-                  <node concept="2Ry0Ak" id="6_DCGR5tuaf" role="2Ry0An">
-                    <property role="2Ry0Am" value="generator" />
-                    <node concept="2Ry0Ak" id="6_DCGR5tuag" role="2Ry0An">
-                      <property role="2Ry0Am" value="doc.aspects" />
-                      <node concept="2Ry0Ak" id="6_DCGR5tuah" role="2Ry0An">
-                        <property role="2Ry0Am" value="models" />
-                      </node>
+                  <node concept="2Ry0Ak" id="VsWVdcAnZb" role="2Ry0An">
+                    <property role="2Ry0Am" value="documentation" />
+                    <node concept="2Ry0Ak" id="VsWVdcAnZc" role="2Ry0An">
+                      <property role="2Ry0Am" value="models" />
                     </node>
                   </node>
                 </node>
               </node>
             </node>
-            <node concept="3qWCbU" id="6_DCGR5tuap" role="3LXTna">
+            <node concept="3qWCbU" id="VsWVdcAnZj" role="3LXTna">
               <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
             </node>
-          </node>
-        </node>
-        <node concept="1SiIV0" id="5hLXIXKYsqd" role="3bR37C">
-          <node concept="3bR9La" id="5hLXIXKYsqe" role="1SiIV1">
-            <ref role="3bR37D" node="4DalL5sdlK7" resolve="jetbrains.mps.lang.descriptor.aspects" />
           </node>
         </node>
       </node>
