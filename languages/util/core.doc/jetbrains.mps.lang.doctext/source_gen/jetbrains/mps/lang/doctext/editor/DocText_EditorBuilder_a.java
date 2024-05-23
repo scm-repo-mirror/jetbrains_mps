@@ -154,6 +154,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "");
       editorCell.setCellId("Constant_avpfmb_a0a0");
       DocText_DELETE.setCellActions(editorCell, myNode, getEditorContext());
+      editorCell.addKeyMap(new DocText_createEmptyLine());
       editorCell.setDefaultText("<no documentation>");
       return editorCell;
     }
