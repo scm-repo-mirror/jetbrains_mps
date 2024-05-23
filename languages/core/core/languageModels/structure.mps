@@ -636,5 +636,13 @@
     <property role="3GE5qa" value="attributes.editing.comment" />
     <property role="TrG5h" value="IGenericComment" />
   </node>
+  <node concept="PlHQZ" id="2se02g_X34z">
+    <property role="EcuMT" value="2814186972408721699" />
+    <property role="3GE5qa" value="attributes.editing.comment" />
+    <property role="TrG5h" value="DocumentationContent" />
+    <node concept="PrWs8" id="2se02g_X34W" role="PrDN$">
+      <ref role="PrY4T" node="3xhyJYa45Zm" resolve="IPlaceholderContent" />
+    </node>
+  </node>
 </model>
 

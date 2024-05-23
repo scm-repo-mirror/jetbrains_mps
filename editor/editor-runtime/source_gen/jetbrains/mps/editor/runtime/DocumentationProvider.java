@@ -82,7 +82,7 @@ public class DocumentationProvider {
 
 
   private String getDocumentationContent() {
-    SNode docTextNode = Sequence.fromIterable(SLinkOperations.collect(new IAttributeDescriptor.NodeAttribute(CONCEPTS.DocumentedNodeAnnotation$ug).list(SNodeOperations.as(myNode, CONCEPTS.DocumentationObjective$OD)), LINKS.text$Dgpy)).first();
+    SNode docTextNode = Sequence.fromIterable(SLinkOperations.collect(new IAttributeDescriptor.NodeAttribute(CONCEPTS.DocumentationAnnotation$ug).list(SNodeOperations.as(myNode, CONCEPTS.DocumentationObjective$OD)), LINKS.text$Dgpy)).first();
     SModel model = SNodeOperations.getModel(docTextNode);
     SRepository repo = model.getRepository();
     HeadlessEditorComponent component = new HeadlessEditorComponent(repo);
@@ -97,7 +97,7 @@ public class DocumentationProvider {
     if (myNode == null) {
       return null;
     }
-    if ((Sequence.fromIterable(SLinkOperations.collect(new IAttributeDescriptor.NodeAttribute(CONCEPTS.DocumentedNodeAnnotation$ug).list(SNodeOperations.as(myNode, CONCEPTS.DocumentationObjective$OD)), LINKS.text$Dgpy)).first() == null)) {
+    if ((Sequence.fromIterable(SLinkOperations.collect(new IAttributeDescriptor.NodeAttribute(CONCEPTS.DocumentationAnnotation$ug).list(SNodeOperations.as(myNode, CONCEPTS.DocumentationObjective$OD)), LINKS.text$Dgpy)).first() == null)) {
       return null;
     }
     StringBuilder sb = new StringBuilder();
@@ -121,7 +121,7 @@ public class DocumentationProvider {
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept DocumentedNodeAnnotation$ug = MetaAdapterFactory.getConcept(0x343f8205dc88465bL, 0x9c5bce46b5f1c193L, 0x3b971d44f99760b4L, "jetbrains.mps.lang.core.doc.structure.DocumentedNodeAnnotation");
+    /*package*/ static final SConcept DocumentationAnnotation$ug = MetaAdapterFactory.getConcept(0x343f8205dc88465bL, 0x9c5bce46b5f1c193L, 0x3b971d44f99760b4L, "jetbrains.mps.lang.core.doc.structure.DocumentationAnnotation");
     /*package*/ static final SInterfaceConcept DocumentationObjective$OD = MetaAdapterFactory.getInterfaceConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x6d1df6c2700b0eaeL, "jetbrains.mps.lang.structure.structure.DocumentationObjective");
   }
 

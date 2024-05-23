@@ -12663,7 +12663,7 @@
                   </node>
                   <node concept="3CFZ6_" id="5JgJuLBWAG1" role="2OqNvi">
                     <node concept="3CFYIy" id="5JgJuLBWAG2" role="3CFYIz">
-                      <ref role="3CFYIx" to="hdb0:3In7kjT_Q2O" resolve="DocumentedNodeAnnotation" />
+                      <ref role="3CFYIx" to="hdb0:3In7kjT_Q2O" resolve="DocumentationAnnotation" />
                     </node>
                   </node>
                 </node>
@@ -12815,7 +12815,7 @@
                   </node>
                   <node concept="3CFZ6_" id="68kV0IQ0HIB" role="2OqNvi">
                     <node concept="3CFYIy" id="68kV0IQ0HIC" role="3CFYIz">
-                      <ref role="3CFYIx" to="hdb0:3In7kjT_Q2O" resolve="DocumentedNodeAnnotation" />
+                      <ref role="3CFYIx" to="hdb0:3In7kjT_Q2O" resolve="DocumentationAnnotation" />
                     </node>
                   </node>
                 </node>
