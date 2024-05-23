@@ -106,7 +106,7 @@ public class SimpleNodeProjectViewNode extends BranchProjectViewNode<SNode> impl
 
   @Override
   public boolean expandOnDoubleClick() {
-    return !myIsRoot; // root nodes must be navigable
+    return false; // nodes must be navigable
   }
 
   @Override
