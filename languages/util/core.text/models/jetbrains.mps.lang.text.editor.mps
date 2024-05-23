@@ -84,6 +84,7 @@
       <concept id="8329266386016608055" name="jetbrains.mps.lang.editor.structure.ApproveDelete_Operation" flags="ng" index="2xy62i">
         <child id="8329266386016685951" name="editorContext" index="2xHN3q" />
       </concept>
+      <concept id="795210086017940429" name="jetbrains.mps.lang.editor.structure.ReadOnlyStyleClassItem" flags="lg" index="xShMh" />
       <concept id="6718020819487620876" name="jetbrains.mps.lang.editor.structure.TransformationMenuReference_Default" flags="ng" index="A1WHr" />
       <concept id="6718020819487620873" name="jetbrains.mps.lang.editor.structure.TransformationMenuReference_Named" flags="ng" index="A1WHu">
         <reference id="6718020819487620874" name="menu" index="A1WHt" />
@@ -5570,6 +5571,9 @@
         <node concept="VPM3Z" id="2cLqkTm9FDM" role="3F10Kt">
           <property role="VOm3f" value="false" />
         </node>
+        <node concept="xShMh" id="2se02g_TDNO" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
         <node concept="11L4FC" id="6RljYLccd1S" role="3F10Kt">
           <property role="VOm3f" value="true" />
         </node>
@@ -6339,11 +6343,8 @@
                       <node concept="2ShNRf" id="2cLqkTmciq1" role="3cqZAk">
                         <node concept="1pGfFk" id="2cLqkTmciq2" role="2ShVmc">
                           <ref role="37wK5l" node="2cLqkTmaz7N" resolve="TextDeleteStrategyFactory.RemoveWholeTextStrategy" />
-                          <node concept="2OqwBi" id="2cLqkTmckx6" role="37wK5m">
-                            <node concept="37vLTw" id="2cLqkTmckdg" role="2Oq$k0">
-                              <ref role="3cqZAo" node="2cLqkTmc6_w" resolve="currentLine" />
-                            </node>
-                            <node concept="1mfA1w" id="2cLqkTmckXE" role="2OqNvi" />
+                          <node concept="37vLTw" id="2cLqkTmckdg" role="37wK5m">
+                            <ref role="3cqZAo" node="2cLqkTmc6_w" resolve="currentLine" />
                           </node>
                           <node concept="37vLTw" id="2cLqkTmciq5" role="37wK5m">
                             <ref role="3cqZAo" node="2cLqkTmc5Jq" resolve="editorContext" />
@@ -7163,9 +7164,9 @@
     </node>
     <node concept="312cEu" id="2cLqkTmaz7I" role="jymVt">
       <property role="2bfB8j" value="false" />
-      <property role="TrG5h" value="RemoveWholeTextStrategy" />
+      <property role="TrG5h" value="RemoveLastLineStrategy" />
       <node concept="312cEg" id="2cLqkTmaz7J" role="jymVt">
-        <property role="TrG5h" value="myCommentText" />
+        <property role="TrG5h" value="myLine" />
         <node concept="3Tm6S6" id="2cLqkTmaz7K" role="1B3o_S" />
         <node concept="3Tqbb2" id="2cLqkTmaz7L" role="1tU5fm" />
       </node>
@@ -7185,7 +7186,7 @@
           <node concept="3clFbF" id="2cLqkTmaz7U" role="3cqZAp">
             <node concept="37vLTI" id="2cLqkTmaz7V" role="3clFbG">
               <node concept="37vLTw" id="2cLqkTmaz7W" role="37vLTJ">
-                <ref role="3cqZAo" node="2cLqkTmaz7J" resolve="myCommentText" />
+                <ref role="3cqZAo" node="2cLqkTmaz7J" resolve="myLine" />
               </node>
               <node concept="37vLTw" id="2cLqkTmaz7X" role="37vLTx">
                 <ref role="3cqZAo" node="2cLqkTmaz84" resolve="text" />
@@ -7223,7 +7224,7 @@
               <node concept="10P_77" id="2cLqkTmaz8c" role="1tU5fm" />
               <node concept="2OqwBi" id="2cLqkTmaz8d" role="33vP2m">
                 <node concept="37vLTw" id="2cLqkTmaz8e" role="2Oq$k0">
-                  <ref role="3cqZAo" node="2cLqkTmaz7J" resolve="myCommentText" />
+                  <ref role="3cqZAo" node="2cLqkTmaz7J" resolve="myLine" />
                 </node>
                 <node concept="2xy62i" id="2cLqkTmaz8f" role="2OqNvi">
                   <node concept="37vLTw" id="2cLqkTmaz8g" role="2xHN3q">
@@ -7238,7 +7239,7 @@
               <node concept="3clFbF" id="2cLqkTmaz8j" role="3cqZAp">
                 <node concept="2OqwBi" id="2cLqkTmaz8k" role="3clFbG">
                   <node concept="37vLTw" id="2cLqkTmaz8l" role="2Oq$k0">
-                    <ref role="3cqZAo" node="2cLqkTmaz7J" resolve="myCommentText" />
+                    <ref role="3cqZAo" node="2cLqkTmaz7J" resolve="myLine" />
                   </node>
                   <node concept="3YRAZt" id="2cLqkTmaz8m" role="2OqNvi" />
                 </node>

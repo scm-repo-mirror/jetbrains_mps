@@ -259,8 +259,8 @@
       <node id="2535923850359206929" at="288,76,289,110" concept="1" />
       <node id="2535923850359206929" at="289,110,290,17" concept="1" />
       <node id="9143182410139490168" at="290,17,291,202" concept="1" />
-      <node id="2535923850359210936" at="291,202,292,198" concept="1" />
-      <node id="2535923850359206929" at="292,198,293,49" concept="1" />
+      <node id="2535923850359210936" at="291,202,292,197" concept="1" />
+      <node id="2535923850359206929" at="292,197,293,49" concept="1" />
       <node id="2535923850359206929" at="293,49,294,22" concept="6" />
       <node id="2535923850359206929" at="283,0,296,0" concept="9" trace="createDescriptorForText#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
       <scope id="2535923850359206929" at="101,38,102,29" />

@@ -55,7 +55,7 @@ public class TextDeleteStrategyFactory {
       if ((Objects.equals(SNodeOperations.getConcept(neighbourContainer), SNodeOperations.getConcept(lineContainer)) || SNodeOperations.isInstanceOf(neighbourContainer, CONCEPTS.Line$yC)) && (neighbourLine != null)) {
         return new RemoveLineStrategy(currentNode, currentLine, neighbourLine, editorContext, isForward);
       } else {
-        return new RemoveWholeTextStrategy(SNodeOperations.getParent(currentLine), editorContext, isForward);
+        return new RemoveLastLineStrategy(currentLine, editorContext, isForward);
       }
     }
 
@@ -162,19 +162,19 @@ public class TextDeleteStrategyFactory {
       }
     }
   }
-  private static class RemoveWholeTextStrategy extends TextDeleteStrategy {
-    private SNode myCommentText;
+  private static class RemoveLastLineStrategy extends TextDeleteStrategy {
+    private SNode myLine;
 
-    /*package*/ RemoveWholeTextStrategy(SNode text, EditorContext editorContext, boolean isForward) {
+    /*package*/ RemoveLastLineStrategy(SNode text, EditorContext editorContext, boolean isForward) {
       super(editorContext, isForward);
-      myCommentText = text;
+      myLine = text;
     }
 
     @Override
     public void execute() {
-      boolean wasApproved = DeletionApproverUtil.approve(myEditorContext, myCommentText);
+      boolean wasApproved = DeletionApproverUtil.approve(myEditorContext, myLine);
       if (!(wasApproved)) {
-        SNodeOperations.deleteNode(myCommentText);
+        SNodeOperations.deleteNode(myLine);
       }
     }
   }
