@@ -10,7 +10,7 @@
     <import index="zqge" ref="r:59e90602-6655-4552-86eb-441a42a9a0e4(jetbrains.mps.lang.text.structure)" />
     <import index="vdrq" ref="r:85354f47-14fd-40e6-a7cc-2d1aa842c4cd(jetbrains.mps.lang.text.behavior)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
-    <import index="w5ms" ref="r:c17bb0de-76cd-48ca-9cc0-ce1b39396c8b(jetbrains.mps.lang.doctext.structure)" implicit="true" />
+    <import index="w5ms" ref="r:c17bb0de-76cd-48ca-9cc0-ce1b39396c8b(jetbrains.mps.lang.doctext.structure)" />
   </imports>
   <registry>
     <language id="af65afd8-f0dd-4942-87d9-63a55f2a9db1" name="jetbrains.mps.lang.behavior">
@@ -33,6 +33,7 @@
       <concept id="1137021947720" name="jetbrains.mps.baseLanguage.structure.ConceptFunction" flags="in" index="2VMwT0">
         <child id="1137022507850" name="body" index="2VODD2" />
       </concept>
+      <concept id="1070534644030" name="jetbrains.mps.baseLanguage.structure.BooleanType" flags="in" index="10P_77" />
       <concept id="1068498886296" name="jetbrains.mps.baseLanguage.structure.VariableReference" flags="nn" index="37vLTw">
         <reference id="1068581517664" name="variableDeclaration" index="3cqZAo" />
       </concept>
@@ -51,6 +52,9 @@
       </concept>
       <concept id="1068580123136" name="jetbrains.mps.baseLanguage.structure.StatementList" flags="sn" stub="5293379017992965193" index="3clFbS">
         <child id="1068581517665" name="statement" index="3cqZAp" />
+      </concept>
+      <concept id="1068580123137" name="jetbrains.mps.baseLanguage.structure.BooleanConstant" flags="nn" index="3clFbT">
+        <property id="1068580123138" name="value" index="3clFbU" />
       </concept>
       <concept id="1068581517677" name="jetbrains.mps.baseLanguage.structure.VoidType" flags="in" index="3cqZAl" />
       <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ngI" index="1B3ioH">
@@ -94,6 +98,19 @@
     <ref role="13h7C2" to="w5ms:DvN_rQM1U_" resolve="DocText" />
     <node concept="13hLZK" id="6GJhO0n9ZM0" role="13h7CW">
       <node concept="3clFbS" id="6GJhO0n9ZM1" role="2VODD2" />
+    </node>
+    <node concept="13i0hz" id="pB77MxsX8R" role="13h7CS">
+      <property role="TrG5h" value="canBeEmpty" />
+      <ref role="13i0hy" to="vdrq:pB77MxqCkE" resolve="canBeEmpty" />
+      <node concept="3Tm1VV" id="pB77MxsX8S" role="1B3o_S" />
+      <node concept="3clFbS" id="pB77MxsX8X" role="3clF47">
+        <node concept="3clFbF" id="pB77MxsXy8" role="3cqZAp">
+          <node concept="3clFbT" id="pB77MxsXy7" role="3clFbG">
+            <property role="3clFbU" value="true" />
+          </node>
+        </node>
+      </node>
+      <node concept="10P_77" id="pB77MxsX8Y" role="3clF45" />
     </node>
     <node concept="13i0hz" id="6GJhO0n9ZM_" role="13h7CS">
       <property role="TrG5h" value="getLines" />

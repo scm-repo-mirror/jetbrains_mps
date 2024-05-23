@@ -578,6 +578,17 @@
   </node>
   <node concept="13h7C7" id="6GJhO0n1Xyh">
     <ref role="13h7C2" to="zqge:6GJhO0n1XxQ" resolve="IHoldLines" />
+    <node concept="13i0hz" id="pB77MxqCkE" role="13h7CS">
+      <property role="13i0it" value="true" />
+      <property role="TrG5h" value="canBeEmpty" />
+      <node concept="3Tm1VV" id="pB77MxqCkF" role="1B3o_S" />
+      <node concept="10P_77" id="pB77MxqCmQ" role="3clF45" />
+      <node concept="3clFbS" id="pB77MxqCkH" role="3clF47">
+        <node concept="3clFbF" id="pB77MxqCu4" role="3cqZAp">
+          <node concept="3clFbT" id="pB77MxqCu3" role="3clFbG" />
+        </node>
+      </node>
+    </node>
     <node concept="13i0hz" id="6GJhO0n1Xys" role="13h7CS">
       <property role="13i0iv" value="true" />
       <property role="13i0it" value="true" />

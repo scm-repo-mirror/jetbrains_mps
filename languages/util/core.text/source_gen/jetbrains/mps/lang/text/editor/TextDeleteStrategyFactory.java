@@ -12,9 +12,11 @@ import jetbrains.mps.editor.runtime.cells.CellIdManager;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.text.behavior.IHoldLines__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 
@@ -174,7 +176,11 @@ public class TextDeleteStrategyFactory {
     public void execute() {
       boolean wasApproved = DeletionApproverUtil.approve(myEditorContext, myLine);
       if (!(wasApproved)) {
-        SNodeOperations.deleteNode(myLine);
+        if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(myLine), CONCEPTS.IHoldLines$ky) && ListSequence.fromList(IHoldLines__BehaviorDescriptor.getLines_id6GJhO0n1Xys.invoke(SNodeOperations.cast(SNodeOperations.getParent(myLine), CONCEPTS.IHoldLines$ky))).count() == 1 && !((boolean) IHoldLines__BehaviorDescriptor.canBeEmpty_idpB77MxqCkE.invoke(SNodeOperations.cast(SNodeOperations.getParent(myLine), CONCEPTS.IHoldLines$ky)))) {
+          SNodeOperations.deleteNode(SNodeOperations.getParent(myLine));
+        } else {
+          SNodeOperations.deleteNode(myLine);
+        }
       }
     }
   }
@@ -216,6 +222,7 @@ public class TextDeleteStrategyFactory {
     /*package*/ static final SConcept TextElement$WN = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35ee7L, "jetbrains.mps.lang.text.structure.TextElement");
     /*package*/ static final SConcept Word$Dn = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, "jetbrains.mps.lang.text.structure.Word");
     /*package*/ static final SConcept Line$yC = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, "jetbrains.mps.lang.text.structure.Line");
+    /*package*/ static final SInterfaceConcept IHoldLines$ky = MetaAdapterFactory.getInterfaceConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x6b2f47401707d876L, "jetbrains.mps.lang.text.structure.IHoldLines");
   }
 
   private static final class PROPS {
