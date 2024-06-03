@@ -1350,19 +1350,20 @@
       <node id="4853409916376461016" at="17,0,18,0" concept="7" trace="myParametersCache" />
       <node id="4853409916376507028" at="19,66,20,35" concept="6" />
       <node id="4853409916376594176" at="23,51,24,29" concept="12" />
-      <node id="4853409916376518325" at="40,68,41,30" concept="6" />
+      <node id="4853409916376518325" at="41,36,42,32" concept="6" />
       <node id="4853409916376504278" at="19,0,22,0" concept="3" trace="TestParametersCacheExtension#(Ljetbrains/mps/lang/test/runtime/TestParametersCache;)V" />
       <node id="4853409916376582832" at="23,0,26,0" concept="10" trace="getParametersCache#()Ljetbrains/mps/lang/test/runtime/TestParametersCache;" />
       <node id="4853409916376452672" at="27,0,30,0" concept="10" trace="beforeAll#(Lorg/junit/jupiter/api/extension/ExtensionContext;)V" />
       <node id="4853409916376452681" at="31,0,34,0" concept="10" trace="afterAll#(Lorg/junit/jupiter/api/extension/ExtensionContext;)V" />
       <node id="4853409916376515590" at="35,0,38,0" concept="10" trace="beforeEach#(Lorg/junit/jupiter/api/extension/ExtensionContext;)V" />
-      <node id="4853409916376515601" at="39,0,43,0" concept="10" trace="afterEach#(Lorg/junit/jupiter/api/extension/ExtensionContext;)V" />
+      <node id="7978162869571062897" at="40,68,43,5" concept="9" />
+      <node id="4853409916376515601" at="39,0,45,0" concept="10" trace="afterEach#(Lorg/junit/jupiter/api/extension/ExtensionContext;)V" />
       <scope id="4853409916376452679" at="28,68,28,68" />
       <scope id="4853409916376452689" at="32,67,32,67" />
       <scope id="4853409916376515599" at="36,69,36,69" />
       <scope id="4853409916376504282" at="19,66,20,35" />
       <scope id="4853409916376582836" at="23,51,24,29" />
-      <scope id="4853409916376515611" at="40,68,41,30" />
+      <scope id="7978162869571062899" at="41,36,42,32" />
       <scope id="4853409916376504278" at="19,0,22,0">
         <var name="cache" id="4853409916376504933" />
       </scope>
@@ -1376,10 +1377,11 @@
       <scope id="4853409916376515590" at="35,0,38,0">
         <var name="context" id="4853409916376515594" />
       </scope>
-      <scope id="4853409916376515601" at="39,0,43,0">
+      <scope id="4853409916376515611" at="40,68,43,5" />
+      <scope id="4853409916376515601" at="39,0,45,0">
         <var name="context" id="4853409916376515605" />
       </scope>
-      <unit id="4853409916376450089" at="15,0,44,0" name="jetbrains.mps.lang.test.runtime.TestParametersCacheExtension" />
+      <unit id="4853409916376450089" at="15,0,46,0" name="jetbrains.mps.lang.test.runtime.TestParametersCacheExtension" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895903a2(jetbrains.mps.lang.test.runtime)/4853409916380836063">
@@ -2606,6 +2608,59 @@
       </scope>
       <scope id="7835233914435876914" at="46,0,64,0" />
       <unit id="7835233914435876874" at="18,0,84,0" name="jetbrains.mps.lang.test.runtime.CheckErrorMessagesRunnable" />
+    </file>
+  </root>
+  <root nodeRef="r:00000000-0000-4000-0000-011c895903a2(jetbrains.mps.lang.test.runtime)/7978162869567891193">
+    <file name="TestParametersCacheBuilder.java">
+      <node id="7978162869567891193" at="8,0,9,0" concept="15" trace="LOG" />
+      <node id="7978162869568123067" at="10,0,11,0" concept="7" trace="modelRef" />
+      <node id="7978162869568102851" at="11,0,12,0" concept="7" trace="projectPath" />
+      <node id="7978162869568106954" at="12,0,13,0" concept="7" trace="reopenProject" />
+      <node id="7978162869569072477" at="13,0,14,0" concept="7" trace="owner" />
+      <node id="7978162869568189277" at="15,53,16,67" concept="6" />
+      <node id="7978162869568190879" at="16,67,17,93" concept="6" />
+      <node id="7978162869569079896" at="17,93,18,23" concept="6" />
+      <node id="7978162869568205862" at="21,63,22,29" concept="6" />
+      <node id="7978162869568221123" at="22,29,23,16" concept="12" />
+      <node id="7978162869568150154" at="27,30,28,37" concept="6" />
+      <node id="7978162869568163592" at="29,5,30,16" concept="12" />
+      <node id="7978162869568136873" at="34,32,35,41" concept="6" />
+      <node id="7978162869568148505" at="36,5,37,16" concept="12" />
+      <node id="7978162869570753506" at="42,31,43,102" concept="6" />
+      <node id="7978162869570841506" at="44,7,45,18" concept="12" />
+      <node id="7978162869567894987" at="46,5,47,80" concept="12" />
+      <node id="7978162869568165167" at="26,69,29,5" concept="9" />
+      <node id="7978162869568843688" at="33,74,36,5" concept="9" />
+      <node id="7978162869570753506" at="41,30,44,7" concept="9" />
+      <node id="7978162869568129281" at="21,0,25,0" concept="10" trace="modelRef#(Ljava/lang/String;)Ljetbrains/mps/lang/test/runtime/TestParametersCacheBuilder;" />
+      <node id="7978162869568188823" at="15,0,20,0" concept="3" trace="TestParametersCacheBuilder#(Ljava/lang/Class;)V" />
+      <node id="7978162869568132373" at="26,0,32,0" concept="10" trace="projectPath#(Ljava/lang/String;)Ljetbrains/mps/lang/test/runtime/TestParametersCacheBuilder;" />
+      <node id="7978162869568134258" at="33,0,39,0" concept="10" trace="reopenProject#(Ljava/lang/Boolean;)Ljetbrains/mps/lang/test/runtime/TestParametersCacheBuilder;" />
+      <node id="7978162869570696807" at="40,38,46,5" concept="9" />
+      <node id="7978162869567892121" at="40,0,49,0" concept="10" trace="build#()Ljetbrains/mps/lang/test/runtime/TestParametersCache;" />
+      <scope id="7978162869568165169" at="27,30,28,37" />
+      <scope id="7978162869568843690" at="34,32,35,41" />
+      <scope id="7978162869570753506" at="42,31,43,102" />
+      <scope id="7978162869568129285" at="21,63,23,16" />
+      <scope id="7978162869568188827" at="15,53,18,23" />
+      <scope id="7978162869568129281" at="21,0,25,0">
+        <var name="modelRef" id="7978162869568130431" />
+      </scope>
+      <scope id="7978162869568132378" at="26,69,30,16" />
+      <scope id="7978162869568134263" at="33,74,37,16" />
+      <scope id="7978162869570696809" at="41,30,45,18" />
+      <scope id="7978162869568188823" at="15,0,20,0">
+        <var name="owner" id="7978162869569072255" />
+      </scope>
+      <scope id="7978162869568132373" at="26,0,32,0">
+        <var name="projectPath" id="7978162869568132374" />
+      </scope>
+      <scope id="7978162869568134258" at="33,0,39,0">
+        <var name="reopenProject" id="7978162869568840308" />
+      </scope>
+      <scope id="7978162869567892125" at="40,38,47,80" />
+      <scope id="7978162869567892121" at="40,0,49,0" />
+      <unit id="7978162869567891193" at="7,0,50,0" name="jetbrains.mps.lang.test.runtime.TestParametersCacheBuilder" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895903a2(jetbrains.mps.lang.test.runtime)/8951526261572145239">

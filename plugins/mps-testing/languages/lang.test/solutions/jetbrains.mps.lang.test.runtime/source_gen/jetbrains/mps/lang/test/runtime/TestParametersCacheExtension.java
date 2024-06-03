@@ -38,6 +38,8 @@ public class TestParametersCacheExtension implements Extension, BeforeAllCallbac
 
   @Override
   public void afterEach(ExtensionContext context) throws Exception {
-    myParametersCache.clean();
+    if (myParametersCache != null) {
+      myParametersCache.clean();
+    }
   }
 }
