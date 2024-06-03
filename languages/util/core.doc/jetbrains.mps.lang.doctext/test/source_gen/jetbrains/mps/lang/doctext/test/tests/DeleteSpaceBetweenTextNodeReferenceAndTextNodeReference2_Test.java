@@ -6,7 +6,7 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import jetbrains.mps.lang.test.runtime.TestParametersCacheExtension;
-import jetbrains.mps.lang.test.runtime.TestParametersCache;
+import jetbrains.mps.lang.test.runtime.TestParametersCacheBuilder;
 import org.junit.jupiter.api.Test;
 import jetbrains.mps.lang.test.runtime.BaseEditorTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -15,7 +15,7 @@ import jetbrains.mps.lang.test.runtime.EditorTestUtil;
 @MPSLaunch
 public class DeleteSpaceBetweenTextNodeReferenceAndTextNodeReference2_Test extends BaseTransformationTest {
   @RegisterExtension
-  private static final TestParametersCacheExtension ourParametersCacheExtension = new TestParametersCacheExtension(new TestParametersCache(DeleteSpaceBetweenTextNodeReferenceAndTextNodeReference2_Test.class, "${mps_home}", "r:0f6e0ac5-6758-4c48-a618-b40d4f02a1a6(jetbrains.mps.lang.doctext.test.tests@tests)", false));
+  private static final TestParametersCacheExtension ourParametersCacheExtension = new TestParametersCacheExtension(new TestParametersCacheBuilder(DeleteSpaceBetweenTextNodeReferenceAndTextNodeReference2_Test.class).projectPath("${mps_home}").modelRef("r:0f6e0ac5-6758-4c48-a618-b40d4f02a1a6(jetbrains.mps.lang.doctext.test.tests@tests)").reopenProject(false).build());
 
   public DeleteSpaceBetweenTextNodeReferenceAndTextNodeReference2_Test() {
     super(ourParametersCacheExtension.getParametersCache());
