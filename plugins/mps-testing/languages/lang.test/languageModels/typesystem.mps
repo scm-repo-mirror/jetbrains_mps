@@ -170,14 +170,10 @@
         <child id="3906496115198199033" name="conceptArgument" index="3oSUPX" />
       </concept>
       <concept id="1143226024141" name="jetbrains.mps.lang.smodel.structure.SModelType" flags="in" index="H_c77" />
-      <concept id="1143234257716" name="jetbrains.mps.lang.smodel.structure.Node_GetModelOperation" flags="nn" index="I4A8Y" />
       <concept id="1145404486709" name="jetbrains.mps.lang.smodel.structure.SemanticDowncastExpression" flags="nn" index="2JrnkZ">
         <child id="1145404616321" name="leftExpression" index="2JrQYb" />
       </concept>
       <concept id="1171305280644" name="jetbrains.mps.lang.smodel.structure.Node_GetDescendantsOperation" flags="nn" index="2Rf3mk" />
-      <concept id="1171315804604" name="jetbrains.mps.lang.smodel.structure.Model_RootsOperation" flags="nn" index="2RRcyG">
-        <child id="6750920497477046361" name="conceptArgument" index="3MHsoP" />
-      </concept>
       <concept id="2644386474301421077" name="jetbrains.mps.lang.smodel.structure.LinkIdRefExpression" flags="nn" index="359W_D">
         <reference id="2644386474301421078" name="conceptDeclaration" index="359W_E" />
         <reference id="2644386474301421079" name="linkDeclaration" index="359W_F" />
@@ -544,80 +540,6 @@
     <node concept="1YaCAy" id="50vRVamfPZx" role="1YuTPh">
       <property role="TrG5h" value="expression" />
       <ref role="1YaFvo" to="tp5g:50vRVameF3Z" resolve="EditorComponentExpression" />
-    </node>
-  </node>
-  <node concept="18kY7G" id="1mwpTqNMIVZ">
-    <property role="TrG5h" value="checkITestCase_And_TestInfo" />
-    <node concept="3clFbS" id="1mwpTqNMIW0" role="18ibNy">
-      <node concept="3clFbJ" id="1mwpTqNMB5D" role="3cqZAp">
-        <node concept="3clFbS" id="1mwpTqNMB5F" role="3clFbx">
-          <node concept="a7r0C" id="1mwpTqNMIZm" role="3cqZAp">
-            <node concept="Xl_RD" id="1mwpTqNMIZp" role="a7wSD">
-              <property role="Xl_RC" value="TestInfo root pointing the the test project should be created in the model to properly code in all environments" />
-            </node>
-            <node concept="1YBJjd" id="1mwpTqNMIZq" role="1urrMF">
-              <ref role="1YBMHb" node="1mwpTqNMIW1" resolve="iTestCase" />
-            </node>
-          </node>
-        </node>
-        <node concept="1Wc70l" id="1mwpTqNMIV5" role="3clFbw">
-          <node concept="2OqwBi" id="1mwpTqNMIYY" role="3uHU7w">
-            <node concept="2OqwBi" id="1mwpTqNMIVS" role="2Oq$k0">
-              <node concept="2OqwBi" id="1mwpTqNMIVt" role="2Oq$k0">
-                <node concept="1YBJjd" id="1mwpTqNMIY9" role="2Oq$k0">
-                  <ref role="1YBMHb" node="1mwpTqNMIW1" resolve="iTestCase" />
-                </node>
-                <node concept="I4A8Y" id="1mwpTqNMIVy" role="2OqNvi" />
-              </node>
-              <node concept="2RRcyG" id="1mwpTqNMIVY" role="2OqNvi">
-                <node concept="chp4Y" id="5QK5AMJp7yH" role="3MHsoP">
-                  <ref role="cht4Q" to="tp5g:4qWC2JVrBca" resolve="TestInfo" />
-                </node>
-              </node>
-            </node>
-            <node concept="1v1jN8" id="2WVu3RsDKWh" role="2OqNvi" />
-          </node>
-          <node concept="1Wc70l" id="1Zcerrmzf9n" role="3uHU7B">
-            <node concept="2OqwBi" id="1ZcerrmzfM8" role="3uHU7w">
-              <node concept="1PxgMI" id="1ZcerrmzfrU" role="2Oq$k0">
-                <node concept="chp4Y" id="1ZcerrmzfxB" role="3oSUPX">
-                  <ref role="cht4Q" to="tp5g:1Zcerrmzb_y" resolve="TestProjectAware" />
-                </node>
-                <node concept="1YBJjd" id="1ZcerrmzfgZ" role="1m5AlR">
-                  <ref role="1YBMHb" node="1mwpTqNMIW1" resolve="iTestCase" />
-                </node>
-              </node>
-              <node concept="2qgKlT" id="1ZcerrmzfVX" role="2OqNvi">
-                <ref role="37wK5l" to="tp5o:1Zcerrmz81D" resolve="requiresTestInfo" />
-              </node>
-            </node>
-            <node concept="1Wc70l" id="1Zcerrmz8Vp" role="3uHU7B">
-              <node concept="2OqwBi" id="1mwpTqNMB61" role="3uHU7B">
-                <node concept="1YBJjd" id="1mwpTqNMIY8" role="2Oq$k0">
-                  <ref role="1YBMHb" node="1mwpTqNMIW1" resolve="iTestCase" />
-                </node>
-                <node concept="2qgKlT" id="1mwpTqNMITU" role="2OqNvi">
-                  <ref role="37wK5l" to="tpe5:2RMg39tmiFh" resolve="isMpsStartRequired" />
-                </node>
-              </node>
-              <node concept="2OqwBi" id="1ZcerrmzeJN" role="3uHU7w">
-                <node concept="1YBJjd" id="1Zcerrmzb6b" role="2Oq$k0">
-                  <ref role="1YBMHb" node="1mwpTqNMIW1" resolve="iTestCase" />
-                </node>
-                <node concept="1mIQ4w" id="1Zcerrmzf1w" role="2OqNvi">
-                  <node concept="chp4Y" id="1Zcerrmzf3f" role="cj9EA">
-                    <ref role="cht4Q" to="tp5g:1Zcerrmzb_y" resolve="TestProjectAware" />
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="1YaCAy" id="1mwpTqNMIW1" role="1YuTPh">
-      <property role="TrG5h" value="iTestCase" />
-      <ref role="1YaFvo" to="tpe3:hGB2rPm" resolve="ITestCase" />
     </node>
   </node>
   <node concept="18kY7G" id="3CVcUJxN1tW">
