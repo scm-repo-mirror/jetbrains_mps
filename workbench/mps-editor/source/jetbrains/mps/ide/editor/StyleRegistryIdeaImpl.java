@@ -38,7 +38,9 @@ import jetbrains.mps.util.Pair;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.Color;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class StyleRegistryIdeaImpl extends StyleRegistry {
@@ -73,11 +75,21 @@ public class StyleRegistryIdeaImpl extends StyleRegistry {
    */
   @SuppressWarnings("UseJBColor")
   private void fillCustomStyles() {
-    StyleImpl da = new StyleImpl();;
+    StyleImpl da = new StyleImpl();
     final Color cc = isDarkTheme() ? Color.GREEN : Color.RED;
     // logic for new color taken from DeletionApproverImpl
     da.set(StyleAttributes.TEXT_BACKGROUND_COLOR, new Color(cc.getRed(), cc.getGreen(), cc.getBlue(), cc.getAlpha() / 5));
     setStyle("DELETION_APPROVER", da);
+
+    // afaiu, IDEA's EditorColorsScheme.getAttributes() gives TextAttributes with overridden values only (no inherited/derived)
+    // which makes it tricky to use getStyle("IDEA_STYLE") w/o knowledge which exact attributes the style specifies.
+    // I didn't find a way for TextAttributes to supply defaults (other than TextAttributesKey.getDefaultAttributes(), which
+    // is seems quite cumbersome), therefore, use our own Style hierarchy for generic values.
+    // Another possible approach is to use HighlighterColors.TEXT, which I believe does the same (didn't check, though).
+    StyleImpl def = new StyleImpl();
+    def.set(StyleAttributes.TEXT_COLOR, getEditorForeground());
+    def.set(StyleAttributes.TEXT_BACKGROUND_COLOR, getEditorBackground());
+    setStyle("EDITOR_DEFAULTS", def);
   }
 
   @Override
@@ -155,7 +167,14 @@ public class StyleRegistryIdeaImpl extends StyleRegistry {
       // TODO: check if specified key is valid. We should return null for unknown keys...
       style = new StyleImpl();
 
-      TextAttributes textAttributes = getColorsScheme().getAttributes(TextAttributesKey.find(key));
+      final TextAttributesKey taKey = TextAttributesKey.find(key);
+      TextAttributes textAttributes = getColorsScheme().getAttributes(taKey);
+      if (textAttributes == null) {
+        // XXX not sure if this is the right way to use IDEA platform, just need to deal with the fact
+        //     getAttributes():TextAttributes doesn't necessarily give me complete set of all attributes
+        //     I'm interested in
+        textAttributes = taKey.getDefaultAttributes();
+      }
       if (textAttributes == null) {
         textAttributes = new TextAttributes();
       }
@@ -166,7 +185,9 @@ public class StyleRegistryIdeaImpl extends StyleRegistry {
         style.set(StyleAttributes.UNDERLINED, textAttributes.getEffectType() == EffectType.LINE_UNDERSCORE);
         style.set(StyleAttributes.STRIKE_OUT, textAttributes.getEffectType() == EffectType.STRIKEOUT);
       }
-
+      // see fillCustomStyles()
+      final Style defaults = super.getStyle("EDITOR_DEFAULTS");
+      style.setParent(defaults, List.of(StyleAttributes.TEXT_COLOR, StyleAttributes.TEXT_BACKGROUND_COLOR));
       setStyle(key, style);
     }
     return style;
