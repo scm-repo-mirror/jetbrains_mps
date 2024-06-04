@@ -6,10 +6,11 @@ import jetbrains.mps.lang.test.launcher.WorkerCallback;
 import jetbrains.mps.tool.common.Script;
 import jetbrains.mps.tool.environment.Environment;
 import jetbrains.mps.project.Project;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestSessionConfig;
 import java.util.List;
+import java.io.File;
 import java.util.ArrayList;
 import org.jetbrains.mps.openapi.model.SNode;
-import java.io.File;
 
 public class ScriptJUnit5Launcher extends AbstractJUnit5Launcher {
 
@@ -42,6 +43,18 @@ public class ScriptJUnit5Launcher extends AbstractJUnit5Launcher {
     myWorkerCallback.failBuild();
 
     return failureDetector.failuresCount();
+  }
+
+  @Override
+  public TestSessionConfig configureSession(TestSessionConfig config) {
+    List<File> projectDirectories = myWhatToDo.getProjectDirectories();
+    if (!(projectDirectories.isEmpty())) {
+      if (projectDirectories.size() > 1) {
+        myWorkerCallback.error("only one project directory can be specified", new IllegalStateException());
+      }
+      config = config.withProperty("mps.test.project.path", projectDirectories.get(0).getAbsolutePath());
+    }
+    return config;
   }
 
   private List<Class<?>> collectTestClasses(final Project project) {

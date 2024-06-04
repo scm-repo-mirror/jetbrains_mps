@@ -57,6 +57,9 @@
         <child id="1068498886297" name="rValue" index="37vLTx" />
         <child id="1068498886295" name="lValue" index="37vLTJ" />
       </concept>
+      <concept id="2323553266850475941" name="jetbrains.mps.baseLanguage.structure.IHasModifiers" flags="ngI" index="2frcj7">
+        <child id="2323553266850475953" name="modifiers" index="2frcjj" />
+      </concept>
       <concept id="1202948039474" name="jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation" flags="nn" index="liA8E" />
       <concept id="8118189177080264853" name="jetbrains.mps.baseLanguage.structure.AlternativeType" flags="ig" index="nSUau">
         <child id="8118189177080264854" name="alternative" index="nSUat" />
@@ -71,6 +74,7 @@
       <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ngI" index="2AJDlI">
         <child id="1188208488637" name="annotation" index="2AJF6D" />
       </concept>
+      <concept id="4678410916365116210" name="jetbrains.mps.baseLanguage.structure.DefaultModifier" flags="ng" index="2JFqV2" />
       <concept id="1154032098014" name="jetbrains.mps.baseLanguage.structure.AbstractLoopStatement" flags="nn" index="2LF5Ji">
         <child id="1154032183016" name="body" index="2LFqv$" />
       </concept>
@@ -321,6 +325,9 @@
       </concept>
       <concept id="2217234381367530212" name="jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocReference" flags="ng" index="VXe08">
         <reference id="2217234381367530213" name="classifier" index="VXe09" />
+      </concept>
+      <concept id="2217234381367530195" name="jetbrains.mps.baseLanguage.javadoc.structure.MethodDocReference" flags="ng" index="VXe0Z">
+        <reference id="2217234381367530196" name="methodDeclaration" index="VXe0S" />
       </concept>
       <concept id="8970989240999019145" name="jetbrains.mps.baseLanguage.javadoc.structure.InlineTagCommentLinePart" flags="ng" index="1dT_AA">
         <child id="6962838954693749192" name="tag" index="qph3F" />
@@ -7428,11 +7435,68 @@
         </node>
       </node>
     </node>
+    <node concept="2tJIrI" id="6dghH8IXNip" role="jymVt" />
+    <node concept="3clFb_" id="6dghH8IXNke" role="jymVt">
+      <property role="TrG5h" value="setProjectUrl" />
+      <node concept="37vLTG" id="6dghH8IXNlP" role="3clF46">
+        <property role="TrG5h" value="projectUrlSupplier" />
+        <node concept="3uibUv" id="6dghH8IXNAq" role="1tU5fm">
+          <ref role="3uigEE" to="82uw:~Supplier" resolve="Supplier" />
+          <node concept="17QB3L" id="22rviD7ePki" role="11_B2D" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="6dghH8IXNkh" role="3clF47" />
+      <node concept="3Tm1VV" id="6dghH8IXNki" role="1B3o_S" />
+      <node concept="3cqZAl" id="6dghH8IXNk2" role="3clF45" />
+      <node concept="2JFqV2" id="6dghH8IXNjl" role="2frcjj" />
+    </node>
     <node concept="3Tm1VV" id="7KC1aYnI6jE" role="1B3o_S" />
     <node concept="3UR2Jj" id="7KC1aYnI6nm" role="lGtFl">
       <node concept="TZ5HA" id="7KC1aYnI6nn" role="TZ5H$">
         <node concept="1dT_AC" id="7KC1aYnI6no" role="1dT_Ay">
-          <property role="1dT_AB" value="Indication that a class implementing this interface needs an Environment dependency injected." />
+          <property role="1dT_AB" value="Indication that a class implementing this interface needs an Environment dependency injected. Implementors" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="6dghH8IXNEP" role="TZ5H$">
+        <node concept="1dT_AC" id="6dghH8IXNEQ" role="1dT_Ay">
+          <property role="1dT_AB" value="must override method " />
+        </node>
+        <node concept="1dT_AA" id="6dghH8IXNFt" role="1dT_Ay">
+          <node concept="92FcH" id="6dghH8IXNFz" role="qph3F">
+            <node concept="TZ5HA" id="6dghH8IXNF_" role="2XjZqd" />
+            <node concept="VXe0Z" id="6dghH8IXO3W" role="92FcQ">
+              <ref role="VXe0S" node="7KC1aYnI6li" resolve="setEnvironment" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="6dghH8IXNFs" role="1dT_Ay">
+          <property role="1dT_AB" value=" and store the passed value." />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="6dghH8IXNDH" role="TZ5H$">
+        <node concept="1dT_AC" id="6dghH8IXNDI" role="1dT_Ay">
+          <property role="1dT_AB" value="&lt;p&gt;" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="6dghH8IXNEg" role="TZ5H$">
+        <node concept="1dT_AC" id="6dghH8IXNEh" role="1dT_Ay">
+          <property role="1dT_AB" value="Additionally, the optional method " />
+        </node>
+        <node concept="1dT_AA" id="6dghH8IXO4t" role="1dT_Ay">
+          <node concept="92FcH" id="6dghH8IXO4z" role="qph3F">
+            <node concept="TZ5HA" id="6dghH8IXO4_" role="2XjZqd" />
+            <node concept="VXe0Z" id="6dghH8IXO4G" role="92FcQ">
+              <ref role="VXe0S" node="6dghH8IXNke" resolve="setStartupData" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="6dghH8IXO4s" role="1dT_Ay">
+          <property role="1dT_AB" value=" can be overridden to store the provided supplier" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="22rviD7ePs2" role="TZ5H$">
+        <node concept="1dT_AC" id="22rviD7ePs3" role="1dT_Ay">
+          <property role="1dT_AB" value="of project URL (filesystem path) to be used when running this test instance." />
         </node>
       </node>
     </node>

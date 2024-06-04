@@ -43,7 +43,7 @@
     <import index="34h4" ref="r:263b648a-3e00-426c-ab4b-ba47ccd788c9(jetbrains.mps.baselanguage.unitTest.execution.launcher)" />
     <import index="4u8o" ref="r:a7abd5f1-5d9a-4c90-a542-3e14c173186d(jetbrains.mps.baseLanguage.unitTest.platform)" />
     <import index="82uw" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.function(JDK/)" />
-    <import index="asz6" ref="r:067fd2c9-d009-4506-91db-a69992d65964(jetbrains.mps.tool.common)" implicit="true" />
+    <import index="asz6" ref="r:067fd2c9-d009-4506-91db-a69992d65964(jetbrains.mps.tool.common)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -2751,9 +2751,12 @@
           <node concept="2ShNRf" id="1amXqSrMNK" role="YScLw">
             <node concept="1pGfFk" id="1amXqSs1b5" role="2ShVmc">
               <property role="373rjd" value="true" />
-              <ref role="37wK5l" to="wyt6:~UnsupportedOperationException.&lt;init&gt;(java.lang.String)" resolve="UnsupportedOperationException" />
+              <ref role="37wK5l" to="wyt6:~UnsupportedOperationException.&lt;init&gt;(java.lang.String,java.lang.Throwable)" resolve="UnsupportedOperationException" />
               <node concept="Xl_RD" id="1amXqSs2Eu" role="37wK5m">
                 <property role="Xl_RC" value="not implemented" />
+              </node>
+              <node concept="37vLTw" id="3cloUJrOsWm" role="37wK5m">
+                <ref role="3cqZAo" node="1amXqSrkks" resolve="e" />
               </node>
             </node>
           </node>
@@ -2808,9 +2811,12 @@
           <node concept="2ShNRf" id="1amXqSs9vI" role="YScLw">
             <node concept="1pGfFk" id="1amXqSs9vJ" role="2ShVmc">
               <property role="373rjd" value="true" />
-              <ref role="37wK5l" to="wyt6:~UnsupportedOperationException.&lt;init&gt;(java.lang.String)" resolve="UnsupportedOperationException" />
+              <ref role="37wK5l" to="wyt6:~UnsupportedOperationException.&lt;init&gt;(java.lang.String,java.lang.Throwable)" resolve="UnsupportedOperationException" />
               <node concept="Xl_RD" id="1amXqSs9vK" role="37wK5m">
                 <property role="Xl_RC" value="not implemented" />
+              </node>
+              <node concept="37vLTw" id="3cloUJrOuzg" role="37wK5m">
+                <ref role="3cqZAo" node="1amXqSrkkI" resolve="e" />
               </node>
             </node>
           </node>
@@ -5402,20 +5408,36 @@
                                 <node concept="3uibUv" id="4rQ9_5efOc$" role="1tU5fm">
                                   <ref role="3uigEE" to="4u8o:4rQ9_5dOfYm" resolve="TestSessionConfig" />
                                 </node>
-                                <node concept="2OqwBi" id="4rQ9_5efOyR" role="33vP2m">
-                                  <node concept="2ShNRf" id="4rQ9_5efOyS" role="2Oq$k0">
-                                    <node concept="1pGfFk" id="4rQ9_5efOyT" role="2ShVmc">
-                                      <property role="373rjd" value="true" />
-                                      <ref role="37wK5l" to="4u8o:4rQ9_5dOg04" resolve="TestSessionConfig" />
+                                <node concept="2OqwBi" id="6dghH8J6liI" role="33vP2m">
+                                  <node concept="2OqwBi" id="4rQ9_5efOyR" role="2Oq$k0">
+                                    <node concept="2ShNRf" id="4rQ9_5efOyS" role="2Oq$k0">
+                                      <node concept="1pGfFk" id="4rQ9_5efOyT" role="2ShVmc">
+                                        <property role="373rjd" value="true" />
+                                        <ref role="37wK5l" to="4u8o:4rQ9_5dOg04" resolve="TestSessionConfig" />
+                                      </node>
+                                    </node>
+                                    <node concept="liA8E" id="4rQ9_5efOyU" role="2OqNvi">
+                                      <ref role="37wK5l" to="4u8o:4rQ9_5dOgvK" resolve="withAccessory" />
+                                      <node concept="3VsKOn" id="4rQ9_5efOyV" role="37wK5m">
+                                        <ref role="3VsUkX" to="79ha:HKKzfMjqRV" resolve="Environment" />
+                                      </node>
+                                      <node concept="37vLTw" id="4rQ9_5efOyW" role="37wK5m">
+                                        <ref role="3cqZAo" node="5m2bsnphFDQ" resolve="myEnv" />
+                                      </node>
                                     </node>
                                   </node>
-                                  <node concept="liA8E" id="4rQ9_5efOyU" role="2OqNvi">
-                                    <ref role="37wK5l" to="4u8o:4rQ9_5dOgvK" resolve="withAccessory" />
-                                    <node concept="3VsKOn" id="4rQ9_5efOyV" role="37wK5m">
-                                      <ref role="3VsUkX" to="79ha:HKKzfMjqRV" resolve="Environment" />
+                                  <node concept="liA8E" id="6dghH8J6mn8" role="2OqNvi">
+                                    <ref role="37wK5l" to="4u8o:15ZFihwSBZV" resolve="withProperty" />
+                                    <node concept="Xl_RD" id="3mL9Y7qZCNO" role="37wK5m">
+                                      <property role="Xl_RC" value="mps.test.project.path" />
                                     </node>
-                                    <node concept="37vLTw" id="4rQ9_5efOyW" role="37wK5m">
-                                      <ref role="3cqZAo" node="5m2bsnphFDQ" resolve="myEnv" />
+                                    <node concept="2OqwBi" id="6dghH8J6rlt" role="37wK5m">
+                                      <node concept="37vLTw" id="6dghH8J6qMr" role="2Oq$k0">
+                                        <ref role="3cqZAo" node="5m2bsnphFDT" resolve="myExecScript" />
+                                      </node>
+                                      <node concept="liA8E" id="7CPkROryw_K" role="2OqNvi">
+                                        <ref role="37wK5l" to="34h4:4kPdGMZT17X" resolve="getProjectUrl" />
+                                      </node>
                                     </node>
                                   </node>
                                 </node>

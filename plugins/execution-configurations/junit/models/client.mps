@@ -53,6 +53,8 @@
     <import index="hypd" ref="r:aa31e43e-9240-4f4d-b6db-5c1c9a86c59e(jetbrains.mps.lang.project.structure)" />
     <import index="4u8o" ref="r:a7abd5f1-5d9a-4c90-a542-3e14c173186d(jetbrains.mps.baseLanguage.unitTest.platform)" />
     <import index="lxc5" ref="r:b25f8540-4e18-427d-a8ac-60f947a3fbc1(jetbrains.mps.baselanguage.unitTest.execution)" />
+    <import index="z1c4" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.project(MPS.Platform/)" />
+    <import index="4nm9" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.project(MPS.IDEA/)" />
     <import index="1ctc" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.stream(JDK/)" implicit="true" />
   </imports>
   <registry>
@@ -10186,6 +10188,19 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbF" id="4kPdGMZSy65" role="3cqZAp">
+          <node concept="2OqwBi" id="4kPdGMZS$L5" role="3clFbG">
+            <node concept="37vLTw" id="4kPdGMZSy63" role="2Oq$k0">
+              <ref role="3cqZAo" node="58KCQIw8AYS" resolve="args" />
+            </node>
+            <node concept="liA8E" id="4kPdGMZSCa1" role="2OqNvi">
+              <ref role="37wK5l" to="34h4:4kPdGMZSC9Z" resolve="setProjectUrl" />
+              <node concept="1rXfSq" id="4kPdGN08NDb" role="37wK5m">
+                <ref role="37wK5l" node="4kPdGN08gXF" resolve="getProjectUrl" />
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs8" id="58KCQIw8AYW" role="3cqZAp">
           <node concept="3cpWsn" id="58KCQIw8AYX" role="3cpWs9">
             <property role="TrG5h" value="startupArgs" />
@@ -12308,6 +12323,86 @@
       <node concept="TZ5HA" id="58KCQIw92NW" role="TZ5H$">
         <node concept="1dT_AC" id="58KCQIw92NX" role="1dT_Ay">
           <property role="1dT_AB" value="Calculates required modules, macros and other stuff for the external process test run" />
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="4kPdGN08mfQ" role="jymVt" />
+    <node concept="3clFb_" id="4kPdGN08gXF" role="jymVt">
+      <property role="TrG5h" value="getProjectUrl" />
+      <node concept="3Tm6S6" id="4kPdGN08gXG" role="1B3o_S" />
+      <node concept="17QB3L" id="4kPdGN08pEa" role="3clF45" />
+      <node concept="3clFbS" id="4kPdGN08gX6" role="3clF47">
+        <node concept="3clFbJ" id="4kPdGN08gX7" role="3cqZAp">
+          <node concept="3clFbS" id="4kPdGN08gX8" role="3clFbx">
+            <node concept="3cpWs8" id="4kPdGN08gX9" role="3cqZAp">
+              <node concept="3cpWsn" id="4kPdGN08gXa" role="3cpWs9">
+                <property role="TrG5h" value="project" />
+                <node concept="3uibUv" id="4kPdGN08gXb" role="1tU5fm">
+                  <ref role="3uigEE" to="z1c3:~Project" resolve="Project" />
+                </node>
+                <node concept="2OqwBi" id="4kPdGN08gXc" role="33vP2m">
+                  <node concept="1eOMI4" id="4kPdGN08gXd" role="2Oq$k0">
+                    <node concept="10QFUN" id="4kPdGN08gXe" role="1eOMHV">
+                      <node concept="3uibUv" id="4kPdGN08gXf" role="10QFUM">
+                        <ref role="3uigEE" to="z1c3:~ProjectRepository" resolve="ProjectRepository" />
+                      </node>
+                      <node concept="37vLTw" id="4kPdGN08gXC" role="10QFUP">
+                        <ref role="3cqZAo" node="58KCQIw8mYo" resolve="myRepo" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="liA8E" id="4kPdGN08gXh" role="2OqNvi">
+                    <ref role="37wK5l" to="z1c3:~ProjectRepository.getProject()" resolve="getProject" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbJ" id="4kPdGN08gXi" role="3cqZAp">
+              <node concept="3clFbS" id="4kPdGN08gXj" role="3clFbx">
+                <node concept="3cpWs6" id="4kPdGN08vyB" role="3cqZAp">
+                  <node concept="2OqwBi" id="4kPdGN08DEu" role="3cqZAk">
+                    <node concept="2OqwBi" id="4kPdGN08DEv" role="2Oq$k0">
+                      <node concept="1eOMI4" id="4kPdGN08DEw" role="2Oq$k0">
+                        <node concept="10QFUN" id="4kPdGN08DEx" role="1eOMHV">
+                          <node concept="3uibUv" id="4kPdGN08DEy" role="10QFUM">
+                            <ref role="3uigEE" to="z1c4:~MPSProject" resolve="MPSProject" />
+                          </node>
+                          <node concept="37vLTw" id="4kPdGN08DEz" role="10QFUP">
+                            <ref role="3cqZAo" node="4kPdGN08gXa" resolve="project" />
+                          </node>
+                        </node>
+                      </node>
+                      <node concept="liA8E" id="4kPdGN08DE$" role="2OqNvi">
+                        <ref role="37wK5l" to="z1c4:~MPSProject.getProject()" resolve="getProject" />
+                      </node>
+                    </node>
+                    <node concept="liA8E" id="4kPdGN08DE_" role="2OqNvi">
+                      <ref role="37wK5l" to="4nm9:~Project.getPresentableUrl()" resolve="getPresentableUrl" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="2ZW3vV" id="4kPdGN08gXv" role="3clFbw">
+                <node concept="3uibUv" id="4kPdGN08gXw" role="2ZW6by">
+                  <ref role="3uigEE" to="z1c4:~MPSProject" resolve="MPSProject" />
+                </node>
+                <node concept="37vLTw" id="4kPdGN08gXx" role="2ZW6bz">
+                  <ref role="3cqZAo" node="4kPdGN08gXa" resolve="project" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="2ZW3vV" id="4kPdGN08gXy" role="3clFbw">
+            <node concept="3uibUv" id="4kPdGN08gXz" role="2ZW6by">
+              <ref role="3uigEE" to="z1c3:~ProjectRepository" resolve="ProjectRepository" />
+            </node>
+            <node concept="37vLTw" id="4kPdGN08gXB" role="2ZW6bz">
+              <ref role="3cqZAo" node="58KCQIw8mYo" resolve="myRepo" />
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs6" id="4kPdGN08KVo" role="3cqZAp">
+          <node concept="10Nm6u" id="4kPdGN08KZM" role="3cqZAk" />
         </node>
       </node>
     </node>

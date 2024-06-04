@@ -86,9 +86,9 @@
       <node id="20930126051907729" at="41,120,42,144" concept="10" />
       <node id="20930126052248511" at="42,144,43,66" concept="11" />
       <node id="20930126051981982" at="47,87,48,47" concept="12" />
-      <node id="20930126052000273" at="48,47,49,63" concept="16" />
+      <node id="20930126052000273" at="48,47,49,66" concept="16" />
       <node id="20930126052104166" at="53,111,54,47" concept="12" />
-      <node id="20930126052104173" at="54,47,55,63" concept="16" />
+      <node id="20930126052104173" at="54,47,55,66" concept="16" />
       <node id="20930126051752705" at="22,0,26,0" concept="2" trace="JUnit5ScriptTestContributor#(Ljetbrains/mps/tool/environment/Environment;Ljava/util/Collection;)V" />
       <node id="20930126051758090" at="27,0,31,0" concept="9" trace="collectSelectors#()Ljava/util/List;" />
       <node id="20930126051886359" at="46,0,51,0" concept="9" trace="createFailedRequestForClass#(Ljava/lang/String;Ljava/lang/Exception;)Lorg/junit/platform/engine/DiscoverySelector;" />
@@ -103,8 +103,8 @@
       <scope id="20930126051907672" at="41,120,43,66">
         <var name="testClass" id="20930126051907730" />
       </scope>
-      <scope id="20930126051886366" at="47,87,49,63" />
-      <scope id="20930126051886384" at="53,111,55,63" />
+      <scope id="20930126051886366" at="47,87,49,66" />
+      <scope id="20930126051886384" at="53,111,55,66" />
       <scope id="20930126051752705" at="22,0,26,0">
         <var name="env" id="20930126051754576" />
         <var name="tests" id="20930126051754579" />
@@ -546,8 +546,8 @@
       <node id="6161537567973628274" at="32,68,33,140" concept="12" />
       <node id="6161537567973555081" at="33,140,34,111" concept="4" />
       <node id="6161537567973672280" at="35,12,36,74" concept="12" />
-      <node id="5113316557572753589" at="39,55,40,108" concept="10" />
-      <node id="5113316557572762549" at="40,108,41,90" concept="10" />
+      <node id="5113316557572753589" at="39,55,40,176" concept="10" />
+      <node id="5113316557572762549" at="40,176,41,90" concept="10" />
       <node id="6161537567973661183" at="42,15,43,32" concept="4" />
       <node id="6161537567973715391" at="44,21,45,65" concept="4" />
       <node id="6161537567973536170" at="49,5,50,26" concept="4" />

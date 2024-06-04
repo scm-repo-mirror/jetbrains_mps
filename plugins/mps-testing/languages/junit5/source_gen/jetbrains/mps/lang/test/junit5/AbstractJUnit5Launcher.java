@@ -40,7 +40,7 @@ public abstract class AbstractJUnit5Launcher {
 
   public void launchTestsWithSession(Collection<Class<?>> testClasses, TestExecutionListener executionListener) {
     TestSessionConfig sessionConfig = new TestSessionConfig().withAccessory(Environment.class, myEnvironment);
-    TestSession testSession = TestPlatform.getInstance().openSession(sessionConfig);
+    TestSession testSession = TestPlatform.getInstance().openSession(configureSession(sessionConfig));
     try {
       // this class is instantiated via ModuleClassCode which ensures proper MPS classloader for the code.
       ClassLoader contextCL = getClass().getClassLoader();
@@ -48,6 +48,10 @@ public abstract class AbstractJUnit5Launcher {
     } finally {
       TestPlatform.getInstance().closeSession(testSession);
     }
+  }
+
+  public TestSessionConfig configureSession(TestSessionConfig config) {
+    return config;
   }
 
   protected void launchTestsWithContextCL(ClassLoader contextCL, Collection<Class<?>> testClasses, TestExecutionListener executionListener) {

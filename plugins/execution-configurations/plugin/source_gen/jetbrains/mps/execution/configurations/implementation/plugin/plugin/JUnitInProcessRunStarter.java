@@ -43,7 +43,7 @@ public class JUnitInProcessRunStarter implements JUnitProcessStarter {
   private final FakeProcess myFakeProcess = new FakeProcess();
   private final TestInProcessRunState myTestRunState;
 
-  public JUnitInProcessRunStarter(@NotNull Project mpsProject, @NotNull JUnitTests_Configuration runConfiguration, @NotNull Iterable<ITestNodeWrapper> testNodeWrappers) {
+  public JUnitInProcessRunStarter(@NotNull final Project mpsProject, @NotNull JUnitTests_Configuration runConfiguration, @NotNull Iterable<ITestNodeWrapper> testNodeWrappers) {
 
     List<ITestNodeWrapper> legacyTests = Sequence.fromIterable(testNodeWrappers).where((it) -> it.useCompatibilityMode()).toList();
     List<ITestNodeWrapper> jupiterTests = Sequence.fromIterable(testNodeWrappers).where((it) -> !(it.useCompatibilityMode())).toList();
@@ -58,7 +58,7 @@ public class JUnitInProcessRunStarter implements JUnitProcessStarter {
 
         @Override
         protected void executeSafe() throws Throwable {
-          TestSessionConfig sessionConfig = new TestSessionConfig().withAccessory(Environment.class, inProcessEnv);
+          TestSessionConfig sessionConfig = new TestSessionConfig().withAccessory(Environment.class, inProcessEnv).withProperty("mps.test.project.path", ((MPSProject) mpsProject).getProject().getPresentableUrl());
           TestSession testSession = TestPlatform.getInstance().openSession(sessionConfig);
           try {
             super.executeSafe();

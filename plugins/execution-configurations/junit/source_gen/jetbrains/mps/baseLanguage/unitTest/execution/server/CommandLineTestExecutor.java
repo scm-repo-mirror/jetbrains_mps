@@ -37,7 +37,7 @@ public class CommandLineTestExecutor implements TestExecutor {
       myTestExecutor = new JUnit5TestExecutor(new JUnit5ScriptTestContributor(myEnv, myExecScript.getTests()), true) {
         @Override
         protected void executeSafe() throws Throwable {
-          TestSessionConfig sessionConfig = new TestSessionConfig().withAccessory(Environment.class, myEnv);
+          TestSessionConfig sessionConfig = new TestSessionConfig().withAccessory(Environment.class, myEnv).withProperty("mps.test.project.path", myExecScript.getProjectUrl());
           TestSession testSession = TestPlatform.getInstance().openSession(sessionConfig);
           try {
             super.executeSafe();
