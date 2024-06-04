@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2024 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -83,9 +83,7 @@ public abstract class BaseNodeEditor implements Editor {
       myMessageBusConnection.subscribe(
           EditorColorsManager.TOPIC, (EditorColorsListener) scheme -> {
             if (myEditorComponent != null) {
-              // XXX no idea why update comes first, and backround change next
               myEditorComponent.update();
-              myEditorComponent.setBackground(StyleRegistry.getInstance().getEditorBackground());
             }
           }
       );

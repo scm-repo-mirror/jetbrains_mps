@@ -368,7 +368,6 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     myRootCell = new EditorCell_Constant(getEditorContext(), null, "");
     myRootCell.setSelectable(false);
 
-    setBackground(StyleRegistry.getInstance().getEditorBackground());
     if (configuration.showSelectionLine) {
       myAdditionalPainters.add(new SelectedLinePainter());
     }
@@ -1064,7 +1063,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   public Color getBackground() {
     // intentional override of JComponent method to facilitate split of EC and JComponent
     // review uses and decide whether the method has to be part of this class API, EC API or cease to exist
-    return super.getBackground();
+    return getStyleRegistry().getEditorBackground();
   }
 
   /**
@@ -2393,7 +2392,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
 
     turnOnAliasingIfPossible(g);
 
-    g.setColor(getStyleRegistry().getEditorBackground());
+    g.setColor(getBackground());
     Rectangle bounds = g.getClipBounds();
 
     g.fillRect(bounds.x, bounds.y, bounds.width, bounds.height);
