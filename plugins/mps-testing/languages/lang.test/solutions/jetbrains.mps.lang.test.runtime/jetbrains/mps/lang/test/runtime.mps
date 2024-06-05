@@ -78,7 +78,6 @@
     <import index="1ctc" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.stream(JDK/)" />
     <import index="1ka" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.typechecking(MPS.Core/)" />
     <import index="ev0w" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.typechecking.backend(MPS.Core/)" />
-    <import index="80j5" ref="215c4c45-ba99-49f5-9ab7-4b6901a63cfd/java:jetbrains.mps.generator.impl(MPS.Generator/)" />
     <import index="i5cy" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.concurrent.atomic(JDK/)" />
     <import index="rbkg" ref="63b449db-0918-4a4a-a891-2c430ab133e4/java:org.junit.jupiter.api.extension(org.junit.junit5/)" />
     <import index="yqm7" ref="63b449db-0918-4a4a-a891-2c430ab133e4/java:org.junit.jupiter.api(org.junit.junit5/)" />
@@ -87,7 +86,6 @@
     <import index="tpe3" ref="r:00000000-0000-4000-0000-011c895902d7(jetbrains.mps.baseLanguage.unitTest.structure)" />
     <import index="tpe5" ref="r:00000000-0000-4000-0000-011c895902d1(jetbrains.mps.baseLanguage.unitTest.behavior)" />
     <import index="ze1i" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.runtime(MPS.Core/)" />
-    <import index="asz6" ref="r:067fd2c9-d009-4506-91db-a69992d65964(jetbrains.mps.tool.common)" />
     <import index="82uw" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.function(JDK/)" />
     <import index="35tq" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.scope(MPS.Core/)" implicit="true" />
   </imports>
@@ -4858,9 +4856,17 @@
                     </node>
                     <node concept="2ShNRf" id="4POnHPbmis4" role="33vP2m">
                       <node concept="1pGfFk" id="4POnHPbmis5" role="2ShVmc">
-                        <ref role="37wK5l" node="3fCX6WCBvHU" resolve="TestsErrorsChecker" />
+                        <ref role="37wK5l" node="2lja8zi28uQ" />
                         <node concept="37vLTw" id="4POnHPbmis6" role="37wK5m">
                           <ref role="3cqZAo" node="hSPZLlg" resolve="myBefore" />
+                        </node>
+                        <node concept="2OqwBi" id="1QLX2Gg2_JR" role="37wK5m">
+                          <node concept="37vLTw" id="1QLX2Gg2zo$" role="2Oq$k0">
+                            <ref role="3cqZAo" node="hPjx680" resolve="myProject" />
+                          </node>
+                          <node concept="liA8E" id="1QLX2Gg2GaS" role="2OqNvi">
+                            <ref role="37wK5l" to="z1c3:~Project.getPlatform()" resolve="getPlatform" />
+                          </node>
                         </node>
                       </node>
                     </node>
@@ -8213,10 +8219,35 @@
           <ref role="3uigEE" to="wyuk:~ComponentHost" resolve="ComponentHost" />
         </node>
         <node concept="2AHcQZ" id="3q9wAW4rarw" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
         </node>
       </node>
       <node concept="3clFbS" id="fM_JX6v8cL" role="3clF47">
+        <node concept="3SKdUt" id="2xlO_Lwi9Pl" role="3cqZAp">
+          <node concept="1PaTwC" id="2xlO_Lwi9Pm" role="1aUNEU">
+            <node concept="3oM_SD" id="2xlO_Lwi9Pn" role="1PaTwD">
+              <property role="3oM_SC" value="FWIW," />
+            </node>
+            <node concept="3oM_SD" id="2xlO_LwibCY" role="1PaTwD">
+              <property role="3oM_SC" value="there's" />
+            </node>
+            <node concept="3oM_SD" id="2xlO_LwibD2" role="1PaTwD">
+              <property role="3oM_SC" value="same/similar" />
+            </node>
+            <node concept="3oM_SD" id="2xlO_LwibDA" role="1PaTwD">
+              <property role="3oM_SC" value="list" />
+            </node>
+            <node concept="3oM_SD" id="2xlO_LwibDF" role="1PaTwD">
+              <property role="3oM_SC" value="in" />
+            </node>
+            <node concept="3oM_SD" id="2xlO_LwibDL" role="1PaTwD">
+              <property role="3oM_SC" value="deprecated" />
+            </node>
+            <node concept="3oM_SD" id="2xlO_LwibEo" role="1PaTwD">
+              <property role="3oM_SC" value="TestsErrorsChecker" />
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs8" id="fM_JX6va0L" role="3cqZAp">
           <node concept="3cpWsn" id="fM_JX6va0M" role="3cpWs9">
             <property role="TrG5h" value="result" />
@@ -8590,7 +8621,7 @@
           <ref role="3uigEE" to="wyuk:~ComponentHost" resolve="ComponentHost" />
         </node>
         <node concept="2AHcQZ" id="3q9wAW4t15M" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
         </node>
       </node>
       <node concept="3Tm1VV" id="fM_JX6v38J" role="1B3o_S" />
@@ -8705,6 +8736,16 @@
             <property role="1dT_AB" value="works with node from original model" />
           </node>
         </node>
+        <node concept="TZ5HI" id="2xlO_Lwi26B" role="3nqlJM">
+          <node concept="TZ5HA" id="2xlO_Lwi26C" role="3HnX3l">
+            <node concept="1dT_AC" id="2xlO_Lwi2hl" role="1dT_Ay">
+              <property role="1dT_AB" value="in use as runtime for deprecated CheckNodeForErrors, won't be necessary once the concept gone." />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2xlO_Lwi26D" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Deprecated" />
       </node>
     </node>
     <node concept="2tJIrI" id="62XJ9UeIdvm" role="jymVt" />
@@ -9304,9 +9345,6 @@
       <node concept="3uibUv" id="2lja8zi2_op" role="1tU5fm">
         <ref role="3uigEE" to="wyuk:~ComponentHost" resolve="ComponentHost" />
       </node>
-      <node concept="2AHcQZ" id="2lja8zi2BLT" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-      </node>
     </node>
     <node concept="2tJIrI" id="16ZaSqD$0n1" role="jymVt" />
     <node concept="312cEg" id="1CWvv8TeN$o" role="jymVt">
@@ -9334,26 +9372,6 @@
           <node concept="1dT_AC" id="1CWvv8TeN$A" role="1dT_Ay">
             <property role="1dT_AB" value="contains cached warnings and errors for the current root" />
           </node>
-        </node>
-      </node>
-    </node>
-    <node concept="2tJIrI" id="16ZaSqD$hGc" role="jymVt" />
-    <node concept="3clFbW" id="3fCX6WCBvHU" role="jymVt">
-      <node concept="3cqZAl" id="3fCX6WCBvHV" role="3clF45" />
-      <node concept="3clFbS" id="3fCX6WCBvHW" role="3clF47">
-        <node concept="1VxSAg" id="2lja8zi2CyQ" role="3cqZAp">
-          <ref role="37wK5l" node="2lja8zi28uQ" resolve="TestsErrorsChecker" />
-          <node concept="37vLTw" id="2lja8zi2CDk" role="37wK5m">
-            <ref role="3cqZAo" node="3fCX6WCBvI4" resolve="root" />
-          </node>
-          <node concept="10Nm6u" id="2lja8zi2CHi" role="37wK5m" />
-        </node>
-      </node>
-      <node concept="3Tm1VV" id="3fCX6WCBvI3" role="1B3o_S" />
-      <node concept="37vLTG" id="3fCX6WCBvI4" role="3clF46">
-        <property role="TrG5h" value="root" />
-        <node concept="3Tqbb2" id="3fCX6WCBvI5" role="1tU5fm">
-          <ref role="ehGHo" to="tpck:gw2VY9q" resolve="BaseConcept" />
         </node>
       </node>
     </node>
@@ -9408,7 +9426,7 @@
           <ref role="3uigEE" to="wyuk:~ComponentHost" resolve="ComponentHost" />
         </node>
         <node concept="2AHcQZ" id="2lja8zi2v3l" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
         </node>
       </node>
     </node>
@@ -10230,6 +10248,11 @@
           <node concept="1dT_AC" id="5CXWFgmWtEV" role="1dT_Ay">
             <property role="1dT_AB" value="needs to be united with the common model checking logic. Here we have the second cache of the same things." />
           </node>
+        </node>
+      </node>
+      <node concept="TZ5HA" id="2xlO_Lwizs0" role="TZ5H$">
+        <node concept="1dT_AC" id="2xlO_Lwizs1" role="1dT_Ay">
+          <property role="1dT_AB" value="XXX I wonder what's the proper replacement for this code, what's &quot;common model checking logic&quot; is. There's NodeCheckerUtil next to this class, with pretty similar logic, imo." />
         </node>
       </node>
     </node>
@@ -11816,16 +11839,6 @@
           <ref role="3uigEE" to="79ha:HKKzfMjqRV" resolve="Environment" />
         </node>
       </node>
-      <node concept="37vLTG" id="6dghH8JgpSt" role="3clF46">
-        <property role="TrG5h" value="projectUrlSupplier" />
-        <node concept="3uibUv" id="22rviD7f613" role="1tU5fm">
-          <ref role="3uigEE" to="82uw:~Supplier" resolve="Supplier" />
-          <node concept="17QB3L" id="22rviD7f614" role="11_B2D" />
-        </node>
-        <node concept="2AHcQZ" id="22rviD7f9kv" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-        </node>
-      </node>
       <node concept="3cqZAl" id="BMoFi_xPWM" role="3clF45" />
       <node concept="3Tm1VV" id="BMoFi_xPWN" role="1B3o_S" />
       <node concept="3clFbS" id="BMoFi_xPWO" role="3clF47">
@@ -11920,6 +11933,16 @@
       </node>
       <node concept="3uibUv" id="BMoFi_ybrv" role="Sfmx6">
         <ref role="3uigEE" to="wyt6:~Exception" resolve="Exception" />
+      </node>
+      <node concept="37vLTG" id="6dghH8JgpSt" role="3clF46">
+        <property role="TrG5h" value="projectUrlSupplier" />
+        <node concept="3uibUv" id="22rviD7f613" role="1tU5fm">
+          <ref role="3uigEE" to="82uw:~Supplier" resolve="Supplier" />
+          <node concept="17QB3L" id="22rviD7f614" role="11_B2D" />
+        </node>
+        <node concept="2AHcQZ" id="22rviD7f9kv" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+        </node>
       </node>
     </node>
     <node concept="2tJIrI" id="5LbRjS1pIgu" role="jymVt" />
@@ -12069,13 +12092,6 @@
         <property role="3TUv4t" value="false" />
         <node concept="3uibUv" id="BMoFi_tyZ1" role="1tU5fm">
           <ref role="3uigEE" to="79ha:HKKzfMjqRV" resolve="Environment" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="6dghH8JgK9l" role="3clF46">
-        <property role="TrG5h" value="projectUrlSupplier" />
-        <node concept="3uibUv" id="22rviD7fbE9" role="1tU5fm">
-          <ref role="3uigEE" to="82uw:~Supplier" resolve="Supplier" />
-          <node concept="17QB3L" id="22rviD7fbEa" role="11_B2D" />
         </node>
       </node>
       <node concept="3uibUv" id="BMoFi_qkxA" role="Sfmx6">
@@ -12266,10 +12282,10 @@
             </node>
           </node>
           <node concept="2OqwBi" id="BMoFi_qky3" role="3clFbw">
+            <node concept="17RlXB" id="BMoFi_r3wP" role="2OqNvi" />
             <node concept="37vLTw" id="6dghH8JgQx2" role="2Oq$k0">
               <ref role="3cqZAo" node="6dghH8JgQx0" resolve="string" />
             </node>
-            <node concept="17RlXB" id="BMoFi_r3wP" role="2OqNvi" />
           </node>
         </node>
         <node concept="3SKdUt" id="BMoFi_qky6" role="3cqZAp">
@@ -12844,6 +12860,13 @@
       </node>
       <node concept="3cqZAl" id="BMoFi_qk$g" role="3clF45" />
       <node concept="3Tm6S6" id="BMoFi_qAWU" role="1B3o_S" />
+      <node concept="37vLTG" id="6dghH8JgK9l" role="3clF46">
+        <property role="TrG5h" value="projectUrlSupplier" />
+        <node concept="3uibUv" id="22rviD7fbE9" role="1tU5fm">
+          <ref role="3uigEE" to="82uw:~Supplier" resolve="Supplier" />
+          <node concept="17QB3L" id="22rviD7fbEa" role="11_B2D" />
+        </node>
+      </node>
     </node>
     <node concept="3uibUv" id="5LbRjS1nr1U" role="EKbjA">
       <ref role="3uigEE" to="a19p:~TestRule" resolve="TestRule" />

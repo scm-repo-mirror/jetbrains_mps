@@ -54,26 +54,26 @@ public class TypeCheckingErrors_Test extends BaseTransformationTest {
     public void test_mps18720() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getAnnotatedNode("mps18720"), null)).isEmpty();
-        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getAnnotatedNode("mps18720_2"), null)).isEmpty();
+        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getAnnotatedNode("mps18720"), myProject.getPlatform())).isEmpty();
+        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getAnnotatedNode("mps18720_2"), myProject.getPlatform())).isEmpty();
       });
     }
     public void test_varar_raw() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getAnnotatedNode("varar_raw"), null)).all((it) -> SuppressErrorsChecker.FLAVOUR_ACTIVE_SUPPRESSOR.canGet(it));
+        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getAnnotatedNode("varar_raw"), myProject.getPlatform())).all((it) -> SuppressErrorsChecker.FLAVOUR_ACTIVE_SUPPRESSOR.canGet(it));
       });
     }
     public void test_lbt_subtypeof_param() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getAnnotatedNode("lbt_subtype"), null)).isEmpty();
+        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getAnnotatedNode("lbt_subtype"), myProject.getPlatform())).isEmpty();
       });
     }
     public void test_meet_with_variable_excluded_from_lcs() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getAnnotatedNode("meet_var"), null)).isEmpty();
+        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getAnnotatedNode("meet_var"), myProject.getPlatform())).isEmpty();
       });
     }
 

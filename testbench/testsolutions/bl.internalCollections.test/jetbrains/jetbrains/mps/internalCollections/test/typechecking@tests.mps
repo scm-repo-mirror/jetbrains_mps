@@ -4,7 +4,6 @@
   <languages>
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="0" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="2" />
-    <use id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest" version="1" />
     <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="6" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
@@ -18,6 +17,7 @@
     <import index="d6hs" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.errors.item(MPS.Core/)" />
     <import index="tp6m" ref="r:00000000-0000-4000-0000-011c895903a2(jetbrains.mps.lang.test.runtime)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
+    <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
   </imports>
   <registry>
@@ -31,6 +31,7 @@
       <concept id="1215607067978" name="jetbrains.mps.lang.test.structure.CheckNodeForErrorMessagesOperation" flags="ng" index="7OXhh">
         <property id="3743352646565420194" name="includeSelf" index="GvXf4" />
       </concept>
+      <concept id="1225467090849" name="jetbrains.mps.lang.test.structure.ProjectExpression" flags="nn" index="1jxXqW" />
       <concept id="1216913645126" name="jetbrains.mps.lang.test.structure.NodesTestCase" flags="lg" index="1lH9Xt">
         <property id="2616911529524314943" name="accessMode" index="3DII0k" />
         <child id="1217501822150" name="nodesToCheck" index="1SKRRt" />
@@ -253,7 +254,12 @@
               <node concept="3xONca" id="fM_JX6vV$X" role="37wK5m">
                 <ref role="3xOPvv" node="1SpWSthEf$C" resolve="mps18720" />
               </node>
-              <node concept="10Nm6u" id="3q9wAW4t20f" role="37wK5m" />
+              <node concept="2OqwBi" id="2xlO_LwfDVA" role="37wK5m">
+                <node concept="1jxXqW" id="2xlO_LwfD$l" role="2Oq$k0" />
+                <node concept="liA8E" id="2xlO_LwfHXA" role="2OqNvi">
+                  <ref role="37wK5l" to="z1c3:~Project.getPlatform()" resolve="getPlatform" />
+                </node>
+              </node>
             </node>
             <node concept="1v1jN8" id="fM_JX6w2ub" role="2OqNvi" />
           </node>
@@ -266,7 +272,12 @@
               <node concept="3xONca" id="fM_JX6w2xX" role="37wK5m">
                 <ref role="3xOPvv" node="2Z3lEB3DZ2O" resolve="mps18720_2" />
               </node>
-              <node concept="10Nm6u" id="3q9wAW4t228" role="37wK5m" />
+              <node concept="2OqwBi" id="2xlO_Lwic_N" role="37wK5m">
+                <node concept="1jxXqW" id="2xlO_Lwic_O" role="2Oq$k0" />
+                <node concept="liA8E" id="2xlO_Lwic_P" role="2OqNvi">
+                  <ref role="37wK5l" to="z1c3:~Project.getPlatform()" resolve="getPlatform" />
+                </node>
+              </node>
             </node>
             <node concept="1v1jN8" id="fM_JX6w2w3" role="2OqNvi" />
           </node>
@@ -285,7 +296,12 @@
               <node concept="3xONca" id="2IvnPUIlRc1" role="37wK5m">
                 <ref role="3xOPvv" node="WuSHxk$Sd8" resolve="varar_raw" />
               </node>
-              <node concept="10Nm6u" id="3q9wAW4t23M" role="37wK5m" />
+              <node concept="2OqwBi" id="2xlO_LwicCH" role="37wK5m">
+                <node concept="1jxXqW" id="2xlO_LwicCI" role="2Oq$k0" />
+                <node concept="liA8E" id="2xlO_LwicCJ" role="2OqNvi">
+                  <ref role="37wK5l" to="z1c3:~Project.getPlatform()" resolve="getPlatform" />
+                </node>
+              </node>
             </node>
             <node concept="2HxqBE" id="2aQPn0Pu6KB" role="2OqNvi">
               <node concept="1bVj0M" id="2aQPn0Pu6KD" role="23t8la">
@@ -327,7 +343,12 @@
               <node concept="3xONca" id="2IvnPUInpWA" role="37wK5m">
                 <ref role="3xOPvv" node="jZLrEqVQY6" resolve="lbt_subtype" />
               </node>
-              <node concept="10Nm6u" id="3q9wAW4t2fx" role="37wK5m" />
+              <node concept="2OqwBi" id="2xlO_LwicOO" role="37wK5m">
+                <node concept="1jxXqW" id="2xlO_LwicOP" role="2Oq$k0" />
+                <node concept="liA8E" id="2xlO_LwicOQ" role="2OqNvi">
+                  <ref role="37wK5l" to="z1c3:~Project.getPlatform()" resolve="getPlatform" />
+                </node>
+              </node>
             </node>
             <node concept="1v1jN8" id="2IvnPUInm_a" role="2OqNvi" />
           </node>
@@ -346,7 +367,12 @@
               <node concept="3xONca" id="2IvnPUInq41" role="37wK5m">
                 <ref role="3xOPvv" node="4N6G47O3Sxe" resolve="meet_var" />
               </node>
-              <node concept="10Nm6u" id="3q9wAW4t2hD" role="37wK5m" />
+              <node concept="2OqwBi" id="2xlO_LwicRc" role="37wK5m">
+                <node concept="1jxXqW" id="2xlO_LwicRd" role="2Oq$k0" />
+                <node concept="liA8E" id="2xlO_LwicRe" role="2OqNvi">
+                  <ref role="37wK5l" to="z1c3:~Project.getPlatform()" resolve="getPlatform" />
+                </node>
+              </node>
             </node>
             <node concept="1v1jN8" id="2IvnPUInq1J" role="2OqNvi" />
           </node>
