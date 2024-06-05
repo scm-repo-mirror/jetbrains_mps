@@ -132,7 +132,7 @@ public abstract class TopHierarchyProjectViewNode<Value> extends BranchProjectVi
       children.add(new ModulesPoolFolderProjectViewNode(getProject(), new SolutionsModulesPool(), getSettings(), 0,
                                                         () -> IterableUtil.asList(solutionsScope.getModules())));
 
-      ConditionalScope languagesScope = new ConditionalScope(visibleScope, Language.class::isInstance, null);
+      ConditionalScope languagesScope = new ConditionalScope(visibleScope, (m) -> m instanceof Language || m instanceof Generator, null);
       children.add(new ModulesPoolFolderProjectViewNode(getProject(), new LanguagesModulesPool(), getSettings(), 1,
                                                         () -> IterableUtil.asList(languagesScope.getModules())));
 
