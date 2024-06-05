@@ -25,6 +25,9 @@
 
   <target name="unpack">
     <unzip src="${mps.zip}" dest="${build.tmp}"/>
+    <copy todir="${mps_build_home}/lib/jna">
+      <fileset dir="${mps_build_home}/lib/jna/amd64" includes="*.*"/>
+    </copy>
   </target>
 
   <target name="check-project-structure" depends="unpack">
