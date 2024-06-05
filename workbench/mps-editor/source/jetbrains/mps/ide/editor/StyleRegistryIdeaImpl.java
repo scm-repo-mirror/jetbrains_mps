@@ -100,10 +100,16 @@ public class StyleRegistryIdeaImpl extends StyleRegistry {
     // right for us (e.g. IDEA using direct color/color key references, like EditorColors.NOTIFICATION_BACKGROUND). However, I'd like to
     // stick to single approach, with Style in its core, therefore I need to adjust Style we build from IDEA to match our expectations.
     final Style ipStyle = getStyle("INFORMATION_PANEL");
-    final EditorColorsScheme colorsScheme = getColorsScheme();
-    final Color color = colorsScheme.getColor(EditorColors.NOTIFICATION_BACKGROUND);
+    final Color color = getColorsScheme().getColor(EditorColors.NOTIFICATION_BACKGROUND);
     ipStyle.set(StyleAttributes.TEXT_BACKGROUND_COLOR, color);
-//    final Style wpStyle = getStyle("WARNING_PANEL");
+
+    // in light ui, warnings has yellowish background specified, but none in the Dark, newUI theme.
+    // the replacement value stolen from MPS-36959 fix (c676df40), although I don't quite agree warnings have to share
+    // background with informational messages.
+    final Style wpStyle = getStyle("WARNING_PANEL");
+    if (!wpStyle.isSpecified(StyleAttributes.TEXT_BACKGROUND_COLOR)) {
+      wpStyle.set(StyleAttributes.TEXT_BACKGROUND_COLOR, color);
+    }
   }
 
   @Override

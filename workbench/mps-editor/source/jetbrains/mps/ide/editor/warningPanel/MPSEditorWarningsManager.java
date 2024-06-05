@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2024 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ import com.intellij.util.messages.MessageBusConnection;
 import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.classloading.ClassLoaderManager;
 import jetbrains.mps.classloading.DeployListener;
+import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.ThreadUtils;
 import jetbrains.mps.ide.editor.MPSFileNodeEditor;
@@ -39,6 +40,8 @@ import jetbrains.mps.module.ReloadableModule;
 import jetbrains.mps.nodefs.MPSNodeVirtualFile;
 import jetbrains.mps.openapi.editor.Editor;
 import jetbrains.mps.openapi.editor.EditorComponent;
+import jetbrains.mps.openapi.editor.style.Style;
+import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.ModelReadRunnable;
 import jetbrains.mps.smodel.RepoListenerRegistrar;
@@ -52,6 +55,7 @@ import org.jetbrains.mps.openapi.model.SNodeUtil;
 import org.jetbrains.mps.openapi.module.SRepositoryContentAdapter;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -141,20 +145,33 @@ public class MPSEditorWarningsManager implements ProjectComponent {
     EditorComponent editorComponent = nodeEditor.getCurrentEditorComponent();
     if (editorComponent != null && editorComponent.isDisposed()) return;
 
-    SNode node;
+    final SNode node;
+    final StyleRegistry styleRegistry;
     if (editorComponent != null) {
       node = editorComponent.getEditedNode();
+      styleRegistry = editorComponent.getStyleRegistry();
     } else {
+      // Why do we care about warnings in an editor that didn't get EC? What kind of editor is it?
       MPSNodeVirtualFile file = editor.getFile();
       node = file != null && file.isValid() ? file.getNode() : null;
+      styleRegistry = myProject.getComponent(StyleRegistry.class);
     }
-    if (node == null || !SNodeUtil.isAccessible(node, myProject.getRepository())) return;
+    if (node == null || !SNodeUtil.isAccessible(node, myProject.getRepository())) {
+      return;
+    }
 
-    EditorWarningsProvider[] providers = Extensions.getExtensions(EditorWarningsProvider.EP_NAME);
+    final Style wpStyle = styleRegistry.getStyle("WARNING_PANEL");
+    Color bg = wpStyle.get(StyleAttributes.TEXT_BACKGROUND_COLOR);
+    Color fg = wpStyle.get(StyleAttributes.TEXT_COLOR);
+
+    List<EditorWarningsProvider> providers = EditorWarningsProvider.EP_NAME.getExtensionList();
 
     for (EditorWarningsProvider provider : providers) {
       WarningPanel panel = provider.getWarningPanel(node, myProject.getProject());
       if (panel != null) {
+        // facilitate same style (bg/fg) for all warnings
+        panel.setBackground(bg);
+        panel.setForeground(fg);
         newWarnings.add(panel);
       }
     }
