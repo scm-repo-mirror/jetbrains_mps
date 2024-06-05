@@ -20,6 +20,7 @@ import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
 import com.intellij.openapi.editor.colors.CodeInsightColors;
 import com.intellij.openapi.editor.colors.ColorKey;
+import com.intellij.openapi.editor.colors.EditorColors;
 import com.intellij.openapi.editor.colors.EditorColorsListener;
 import com.intellij.openapi.editor.colors.EditorColorsManager;
 import com.intellij.openapi.editor.colors.EditorColorsScheme;
@@ -90,6 +91,19 @@ public class StyleRegistryIdeaImpl extends StyleRegistry {
     def.set(StyleAttributes.TEXT_COLOR, getEditorForeground());
     def.set(StyleAttributes.TEXT_BACKGROUND_COLOR, getEditorBackground());
     setStyle("EDITOR_DEFAULTS", def);
+
+    adjustStylesFromIDEA();
+  }
+
+  private void adjustStylesFromIDEA() {
+    // in IDEA, not all TextAttributes are defined per TextAttributesKey, and neither IDEA delegation nor our own (EDITOR_DEFAULTS) works
+    // right for us (e.g. IDEA using direct color/color key references, like EditorColors.NOTIFICATION_BACKGROUND). However, I'd like to
+    // stick to single approach, with Style in its core, therefore I need to adjust Style we build from IDEA to match our expectations.
+    final Style ipStyle = getStyle("INFORMATION_PANEL");
+    final EditorColorsScheme colorsScheme = getColorsScheme();
+    final Color color = colorsScheme.getColor(EditorColors.NOTIFICATION_BACKGROUND);
+    ipStyle.set(StyleAttributes.TEXT_BACKGROUND_COLOR, color);
+//    final Style wpStyle = getStyle("WARNING_PANEL");
   }
 
   @Override
@@ -242,6 +256,7 @@ public class StyleRegistryIdeaImpl extends StyleRegistry {
       addIdeaMappingsExt("EXECUTIONPOINT", "EXECUTIONPOINT_ATTRIBUTES");
 
       addIdeaMappingsExt("WARNING_PANEL", CodeInsightColors.WARNINGS_ATTRIBUTES.getExternalName());
+      addIdeaMappingsExt("INFORMATION_PANEL", CodeInsightColors.INFORMATION_ATTRIBUTES.getExternalName());
 
       //addIdeaMappingsExt("","");
     } catch (StyleRegistryMappingKeyException e) {

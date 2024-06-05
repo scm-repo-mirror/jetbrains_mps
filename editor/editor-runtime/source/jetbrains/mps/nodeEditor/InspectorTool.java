@@ -61,6 +61,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -254,22 +256,23 @@ public class InspectorTool extends BaseTool implements EditorInspector, ProjectC
   private final class MyMessagePanel extends JPanel {
     private static final String NO_CONCEPT_MESSAGE = "<no node>";
 
-    private JLabel myLabel = new JLabel();
-    private HyperlinkLabel myOpenConceptLabel = new HyperlinkLabel("Open Concept Declaration");
+    private final JLabel myLabel = new JLabel();
+    private final HyperlinkLabel myOpenConceptLabel = new HyperlinkLabel("Open Concept Declaration");
+    private final Color myBackgroundColor; // for reasons see #setBackground() override
     private SNode myNode;
 
-    private MyMessagePanel(StyleRegistry styleRegistry) {
-      setLayout(new BorderLayout());
+    MyMessagePanel(StyleRegistry styleRegistry) {
+      super(new BorderLayout());
 
-      // there's also INFO_ATTRIBUTES in CodeInsightColors, but perhaps worth to come with own style for 'messages' panel?
-      final Style wpStyle = styleRegistry.getStyle("WARNING_PANEL");
-      setBackground(wpStyle.get(StyleAttributes.TEXT_BACKGROUND_COLOR));
+      final Style wpStyle = styleRegistry.getStyle("INFORMATION_PANEL");
+      myBackgroundColor = wpStyle.get(StyleAttributes.TEXT_BACKGROUND_COLOR);
       setBorder(BorderFactory.createEmptyBorder(10, 4, 10, 4));
 
-      // XXX I wonder if we shall consult StyleRegistry here, instead. E.g. wpStyle.get(StyleAttributes.TEXT_COLOR)
-      //     Indeed, JBColor works for light and dark themes, nevertheless, it's odd to have
-      //     hardcoded color when we can use style indirection
-      myLabel.setForeground(MPSColors.BLACK);
+      // unfortunately, wpStyle.get() now gives plain Color which doesn't reflect scheme changes (i.e. the moment user changes
+      // UI scheme, tool windows are not re-created, just re-painted, keeping the old Color values. Restart helps.
+      // In the perfect world, it's StyleRegistryIdeaImpl that has to ensure proper JBColor is in use (the one that knows about or reacts
+      // to scheme change in a way that doesn't require us to care here)
+      myLabel.setForeground(wpStyle.get(StyleAttributes.TEXT_COLOR));
 
       add(myLabel, BorderLayout.CENTER);
       add(myOpenConceptLabel, BorderLayout.EAST);
@@ -295,6 +298,18 @@ public class InspectorTool extends BaseTool implements EditorInspector, ProjectC
         myLabel.setText(node.getConcept().getQualifiedName());
         myOpenConceptLabel.setVisible(true);
       }
+    }
+
+    @Override
+    public void setBackground(Color bg) {
+      // intentionally no-op to facilitate custom style-managed background color.
+      // for whatever reason, ToolWindowImpl.kt, in ensureContentInitialized() -> createContentIfNeeded(), forces all components
+      // within content manager to paint with default background (when isNewUi, see line 599)
+    }
+
+    @Override
+    public Color getBackground() {
+      return myBackgroundColor;
     }
   }
 }
