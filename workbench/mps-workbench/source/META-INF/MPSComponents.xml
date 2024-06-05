@@ -20,9 +20,6 @@
       <implementation-class>jetbrains.mps.plugins.applicationplugins.ApplicationPluginManager</implementation-class>
     </component>
     <component>
-      <implementation-class>jetbrains.mps.plugins.PluginLoaderRegistry</implementation-class>
-    </component>
-    <component>
       <implementation-class>jetbrains.mps.ide.generator.GenerationSettings</implementation-class>
     </component>
     <component>
@@ -106,6 +103,8 @@
 
     <notificationGroup id="jetbrains.mps.ide.make.StartupModuleMaker" displayType="STICKY_BALLOON" key="smm.group.name" bundle="jetbrains.mps.ide.make.Messages"/>
     <applicationService serviceImplementation="jetbrains.mps.ide.generator.GeneratorCacheComponent"/>
+    <!-- next app service and app init listeners work together -->
+    <applicationService serviceImplementation="jetbrains.mps.plugins.PluginLoaderRegistry"/>
     <applicationInitializedListener implementation="jetbrains.mps.plugins.MPSApplicationInitializedListener"/>
   </extensions>
 
