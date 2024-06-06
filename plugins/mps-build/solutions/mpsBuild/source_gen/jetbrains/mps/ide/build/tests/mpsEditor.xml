@@ -3358,7 +3358,7 @@
       <plugin id="jetbrains.mps.core" path="${artifacts.mpsCore}/mps-core" />
       <plugin id="jetbrains.mps.junit5" path="${artifacts.mpsTesting}/mps-junit5" />
       <plugin id="jetbrains.mps.testing" path="${artifacts.mpsTesting}/mps-testing" />
-      
+      <project path="${basedir}" />
       <testmodules>        
         <path refid="mps.tests.path" />
       </testmodules>

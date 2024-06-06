@@ -1237,7 +1237,7 @@
       <plugin id="jetbrains.mps.junit5" path="${artifacts.mps}/plugins/mps-junit5" />
       <plugin id="jetbrains.mps.testing" path="${artifacts.mps}/plugins/mps-testing" />
       <plugin id="test.behavior.plugin" path="${build.layout}/behavior-tests/test.behavior.plugin" />
-      
+      <project path="${basedir}" />
       <testmodules>        
         <path refid="mps.tests.path" />
       </testmodules>

@@ -2293,7 +2293,7 @@
       <plugin id="jetbrains.mps.execution.api" path="${artifacts.mps}/plugins/mps-execution-api" />
       <plugin id="jetbrains.mps.junit5" path="${artifacts.mps}/plugins/mps-junit5" />
       <plugin id="jetbrains.mps.testing" path="${artifacts.mps}/plugins/mps-testing" />
-      
+      <project path="${basedir}" />
       <testmodules>        
         <path refid="mps.tests.path" />
       </testmodules>
