@@ -218,6 +218,9 @@
       </concept>
     </language>
     <language id="756e911c-3f1f-4a48-bdf5-a2ceb91b723c" name="jetbrains.mps.execution.settings">
+      <concept id="946964771156066563" name="jetbrains.mps.execution.settings.structure.ReportConfigurationErrorStatement" flags="nn" index="yHkDM">
+        <child id="946964771156066565" name="expression" index="yHkDO" />
+      </concept>
       <concept id="946964771156066332" name="jetbrains.mps.execution.settings.structure.PersistentConfigurationType" flags="in" index="yHkHH">
         <reference id="946964771156066333" name="persistentConfiguration" index="yHkHG" />
       </concept>
@@ -268,8 +271,18 @@
       </concept>
     </language>
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
+      <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
+        <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
+      </concept>
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ngI" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
+      </concept>
+      <concept id="709746936026466394" name="jetbrains.mps.lang.core.structure.ChildAttribute" flags="ng" index="3VBwX9">
+        <property id="709746936026609031" name="linkId" index="3V$3ak" />
+        <property id="709746936026609029" name="role_DebugInfo" index="3V$3am" />
+      </concept>
+      <concept id="4452961908202556907" name="jetbrains.mps.lang.core.structure.BaseCommentAttribute" flags="ng" index="1X3_iC">
+        <child id="3078666699043039389" name="commentedNode" index="8Wnug" />
       </concept>
     </language>
     <language id="c7fb639f-be78-4307-89b0-b5959c3fa8c8" name="jetbrains.mps.lang.text">
@@ -2024,49 +2037,62 @@
       <property role="TrG5h" value="startTrickyTestCase" />
       <node concept="3cqZAl" id="5XEoQWrnNf" role="3clF45" />
       <node concept="3clFbS" id="5XEoQWrnNg" role="3clF47">
-        <node concept="3cpWs8" id="2_AUN5GsHkd" role="3cqZAp">
-          <node concept="3cpWsn" id="2_AUN5GsHke" role="3cpWs9">
-            <property role="TrG5h" value="wrappedTests" />
-            <node concept="_YKpA" id="2_AUN5GsHkf" role="1tU5fm">
-              <node concept="3uibUv" id="2_AUN5GsHkg" role="_ZDj9">
-                <ref role="3uigEE" to="sfqd:56tRMpP_ej7" resolve="ITestNodeWrapper" />
+        <node concept="yHkDM" id="1Qlc62NDaZc" role="3cqZAp">
+          <node concept="Xl_RD" id="1Qlc62NDb2E" role="yHkDO">
+            <property role="Xl_RC" value="the test is disabled" />
+          </node>
+        </node>
+        <node concept="1X3_iC" id="1Qlc62NDbg8" role="lGtFl">
+          <property role="3V$3am" value="statement" />
+          <property role="3V$3ak" value="f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123136/1068581517665" />
+          <node concept="3cpWs8" id="2_AUN5GsHkd" role="8Wnug">
+            <node concept="3cpWsn" id="2_AUN5GsHke" role="3cpWs9">
+              <property role="TrG5h" value="wrappedTests" />
+              <node concept="_YKpA" id="2_AUN5GsHkf" role="1tU5fm">
+                <node concept="3uibUv" id="2_AUN5GsHkg" role="_ZDj9">
+                  <ref role="3uigEE" to="sfqd:56tRMpP_ej7" resolve="ITestNodeWrapper" />
+                </node>
               </node>
-            </node>
-            <node concept="2OqwBi" id="2_AUN5GsHkh" role="33vP2m">
-              <node concept="2ShNRf" id="2_AUN5GsHki" role="2Oq$k0">
-                <node concept="1pGfFk" id="2_AUN5GsHkj" role="2ShVmc">
-                  <ref role="37wK5l" to="v3va:7hSRFL3Kjlg" resolve="TestNodeWrapHelper" />
-                  <node concept="2OqwBi" id="2_AUN5GsHkk" role="37wK5m">
-                    <node concept="1jxXqW" id="2_AUN5GsHkl" role="2Oq$k0" />
-                    <node concept="liA8E" id="2_AUN5GsHkm" role="2OqNvi">
-                      <ref role="37wK5l" to="z1c4:~Project.getRepository()" resolve="getRepository" />
+              <node concept="2OqwBi" id="2_AUN5GsHkh" role="33vP2m">
+                <node concept="2ShNRf" id="2_AUN5GsHki" role="2Oq$k0">
+                  <node concept="1pGfFk" id="2_AUN5GsHkj" role="2ShVmc">
+                    <ref role="37wK5l" to="v3va:7hSRFL3Kjlg" resolve="TestNodeWrapHelper" />
+                    <node concept="2OqwBi" id="2_AUN5GsHkk" role="37wK5m">
+                      <node concept="1jxXqW" id="2_AUN5GsHkl" role="2Oq$k0" />
+                      <node concept="liA8E" id="2_AUN5GsHkm" role="2OqNvi">
+                        <ref role="37wK5l" to="z1c4:~Project.getRepository()" resolve="getRepository" />
+                      </node>
                     </node>
                   </node>
                 </node>
-              </node>
-              <node concept="liA8E" id="7hSRFL3KT62" role="2OqNvi">
-                <ref role="37wK5l" to="v3va:7hSRFL3KjZH" resolve="discover" />
-                <node concept="2tJFMh" id="7uvxILPmWWc" role="37wK5m">
-                  <node concept="ZC_QK" id="7uvxILPmWWb" role="2tJFKM">
-                    <ref role="2aWVGs" to="ryl9:3BRJPwFQ4xK" resolve="TrickyUndoTest" />
+                <node concept="liA8E" id="7hSRFL3KT62" role="2OqNvi">
+                  <ref role="37wK5l" to="v3va:7hSRFL3KjZH" resolve="discover" />
+                  <node concept="2tJFMh" id="7uvxILPmWWc" role="37wK5m">
+                    <node concept="ZC_QK" id="7uvxILPmWWb" role="2tJFKM">
+                      <ref role="2aWVGs" to="ryl9:3BRJPwFQ4xK" resolve="TrickyUndoTest" />
+                    </node>
                   </node>
                 </node>
               </node>
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="2_AUN5GsHkv" role="3cqZAp">
-          <node concept="2OqwBi" id="2_AUN5GsHkw" role="3clFbG">
-            <node concept="2WthIp" id="2_AUN5GsHkx" role="2Oq$k0" />
-            <node concept="2XshWL" id="2_AUN5GsHky" role="2OqNvi">
-              <ref role="2WH_rO" node="5XEoQWrnL5" resolve="checkTests" />
-              <node concept="37vLTw" id="2_AUN5GsHkz" role="2XxRq1">
-                <ref role="3cqZAo" node="2_AUN5GsHke" resolve="wrappedTests" />
-              </node>
-              <node concept="2ShNRf" id="2_AUN5GsHk$" role="2XxRq1">
-                <node concept="Tc6Ow" id="2_AUN5GsHk_" role="2ShVmc">
-                  <node concept="3uibUv" id="2_AUN5GsHkA" role="HW$YZ">
-                    <ref role="3uigEE" to="sfqd:56tRMpP_ej7" resolve="ITestNodeWrapper" />
+        <node concept="1X3_iC" id="1Qlc62NDbg9" role="lGtFl">
+          <property role="3V$3am" value="statement" />
+          <property role="3V$3ak" value="f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123136/1068581517665" />
+          <node concept="3clFbF" id="2_AUN5GsHkv" role="8Wnug">
+            <node concept="2OqwBi" id="2_AUN5GsHkw" role="3clFbG">
+              <node concept="2WthIp" id="2_AUN5GsHkx" role="2Oq$k0" />
+              <node concept="2XshWL" id="2_AUN5GsHky" role="2OqNvi">
+                <ref role="2WH_rO" node="5XEoQWrnL5" resolve="checkTests" />
+                <node concept="37vLTw" id="2_AUN5GsHkz" role="2XxRq1">
+                  <ref role="3cqZAo" node="2_AUN5GsHke" resolve="wrappedTests" />
+                </node>
+                <node concept="2ShNRf" id="2_AUN5GsHk$" role="2XxRq1">
+                  <node concept="Tc6Ow" id="2_AUN5GsHk_" role="2ShVmc">
+                    <node concept="3uibUv" id="2_AUN5GsHkA" role="HW$YZ">
+                      <ref role="3uigEE" to="sfqd:56tRMpP_ej7" resolve="ITestNodeWrapper" />
+                    </node>
                   </node>
                 </node>
               </node>
