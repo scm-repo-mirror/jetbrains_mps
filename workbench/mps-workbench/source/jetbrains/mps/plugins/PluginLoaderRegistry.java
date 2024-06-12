@@ -31,6 +31,9 @@ import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.util.IconLoader;
 import com.intellij.openapi.wm.ex.WindowManagerEx;
 import com.intellij.openapi.wm.impl.ProjectFrameHelper;
+import com.intellij.util.EventDispatcher;
+import com.intellij.util.messages.MessageBusConnection;
+import com.intellij.util.messages.Topic;
 import jetbrains.mps.core.platform.Platform;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.ThreadUtils;
@@ -71,6 +74,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * <p>
  * It listens for class loading events, calculate the plugin contributors which need to be updated and notifies these managers.
  * <p>
+ * This is an application service. There's a `PluginReloadingListener` topic with reloading events dispatched.
  */
 public class PluginLoaderRegistry implements Disposable {
   private static final Logger LOG = Logger.getLogger(PluginLoaderRegistry.class);
@@ -78,7 +82,9 @@ public class PluginLoaderRegistry implements Disposable {
   private final SchedulingUpdateListener myClassesListener = new SchedulingUpdateListener();
   private final Set<PluginContributor> myCurrentContributors = new LinkedHashSet<>();
   private final Set<PluginLoader> myCurrentLoaders = new LinkedHashSet<>();
-  private final List<PluginReloadingListener> myReloadingListeners = new CopyOnWriteArrayList<>();
+  @Topic.AppLevel
+  public static final Topic<PluginReloadingListener> TOPIC = Topic.create("MPS Plugin Management", PluginReloadingListener.class);
+  private final EventDispatcher<PluginReloadingListener> myReloadingListeners = EventDispatcher.create(PluginReloadingListener.class);
 
   private final AtomicBoolean myUpdateIsScheduledInEDT = new AtomicBoolean(false);
   private final AtomicBoolean myAppInitialized = new AtomicBoolean();
@@ -98,6 +104,8 @@ public class PluginLoaderRegistry implements Disposable {
     MPSCoreComponents coreComponents = MPSCoreComponents.getInstance();
     Platform mpsPlatform = coreComponents.getPlatform();
     mpsPlatform.findComponent(LanguageRegistry.class).addRegistryListener(myClassesListener);
+    final MessageBusConnection mbc = ApplicationManager.getApplication().getMessageBus().connect(this);
+    mbc.subscribe(TOPIC, myReloadingListeners.getMulticaster());
   }
 
   void signalAppInitialized() {
@@ -123,37 +131,39 @@ public class PluginLoaderRegistry implements Disposable {
   }
 
   private void fireAfterPluginsLoaded(List<PluginContributor> contributorsToLoad) {
-    if (LOG.isDebugLevel()) {
-      final String m = "Dispatch %d contributors loaded to %d listeners";
-      LOG.debug(String.format(m, contributorsToLoad.size(), myReloadingListeners.size()));
-    }
     if (contributorsToLoad.isEmpty()) {
       return;
     }
-    for (PluginReloadingListener listener : myReloadingListeners) {
-      listener.afterPluginsLoaded(contributorsToLoad);
+    if (LOG.isDebugLevel()) {
+      // there's no way to tell the number of actual topic listeners, therefore we
+      // assume there's at least one to perform dispatch, and optionally those registered directly
+      final String m = "Dispatch %d contributors loaded to %d or more listeners";
+      LOG.debug(String.format(m, contributorsToLoad.size(), 1 + myReloadingListeners.getListeners().size()));
     }
+    getPublisher().afterPluginsLoaded(contributorsToLoad);
   }
 
   private void fireBeforePluginsUnloaded(List<PluginContributor> contributorsToUnload) {
-    if (LOG.isDebugLevel()) {
-      final String m = "Dispatch %d contributors unloaded to %d listeners";
-      LOG.debug(String.format(m, contributorsToUnload.size(), myReloadingListeners.size()));
-    }
     if (contributorsToUnload.isEmpty()) {
       return;
     }
-    for (PluginReloadingListener listener : myReloadingListeners) {
-      listener.beforePluginsUnloaded(contributorsToUnload);
+    if (LOG.isDebugLevel()) {
+      final String m = "Dispatch %d contributors unloaded to %d or more listeners";
+      LOG.debug(String.format(m, contributorsToUnload.size(), 1 + myReloadingListeners.getListeners().size()));
     }
+    getPublisher().beforePluginsUnloaded(contributorsToUnload);
   }
 
   public void addReloadingListener(@NotNull PluginReloadingListener listener) {
-    myReloadingListeners.add(listener);
+    myReloadingListeners.addListener(listener);
   }
 
   public void removeReloadingListener(PluginReloadingListener listener) {
-    myReloadingListeners.remove(listener);
+    myReloadingListeners.removeListener(listener);
+  }
+
+  private static PluginReloadingListener getPublisher() {
+    return ApplicationManager.getApplication().getMessageBus().syncPublisher(TOPIC);
   }
 
   /**
