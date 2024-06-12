@@ -126,7 +126,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
             ApplicationManager.getApplication().invokeLater(new Runnable() {
               @Override
               public void run() {
-                Messages.showErrorDialog(myEditorComponent, "The URL is invalid.");
+                Messages.showErrorDialog(myEditorComponent, "The specified link is invalid.");
                 reshowPopup(wordValue, linkValue);
               }
             });
