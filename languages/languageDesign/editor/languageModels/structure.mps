@@ -167,6 +167,9 @@
     <node concept="PrWs8" id="2hxg_BDjOEC" role="PzmwI">
       <ref role="PrY4T" to="tpce:2hxg_BDjKM4" resolve="IConceptAspect" />
     </node>
+    <node concept="PrWs8" id="2Fdw$d5cEJT" role="PzmwI">
+      <ref role="PrY4T" to="tpce:6OtXG9K2KUI" resolve="DocumentationObjective" />
+    </node>
     <node concept="1sEMCm" id="5Jed3OJ9HKD" role="bvy1s">
       <property role="1sEMCp" value="editor.html#editoroverview" />
       <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
@@ -591,6 +594,9 @@
     </node>
     <node concept="PrWs8" id="4$$3zrO4flA" role="PzmwI">
       <ref role="PrY4T" to="tpce:2hxg_BDjKM4" resolve="IConceptAspect" />
+    </node>
+    <node concept="PrWs8" id="5qG9LSWF4LC" role="PzmwI">
+      <ref role="PrY4T" to="tpce:6OtXG9K2KUI" resolve="DocumentationObjective" />
     </node>
     <node concept="1sEMCm" id="5Jed3OJg8Ae" role="bvy1s">
       <property role="1sEMCp" value="editor.html#editoroverview" />
