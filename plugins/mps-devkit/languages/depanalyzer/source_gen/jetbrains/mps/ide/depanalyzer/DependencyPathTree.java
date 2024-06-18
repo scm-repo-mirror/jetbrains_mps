@@ -41,7 +41,7 @@ public class DependencyPathTree extends MPSTree implements DataProvider {
   }
   private void buildTree(DepLink depNode, Map<Dependency, LinkFrom> visited) {
     List<DepLink> dependencyPath = ListSequence.fromList(new LinkedList<DepLink>());
-    // unwind up to source of depdendency path, effectively reversing it, top (source of dep) -> bottom (target of dep)
+    // unwind up to source of dependency path, effectively reversing it, top (source of dep) -> bottom (target of dep)
     while (depNode != null) {
       ListSequence.fromList(dependencyPath).insertElement(0, depNode);
       depNode = depNode.parent();

@@ -22,10 +22,6 @@ import jetbrains.mps.project.structure.modules.DevkitDescriptor;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import jetbrains.mps.project.structure.modules.ModuleDescriptor;
-import jetbrains.mps.internal.collections.runtime.SetSequence;
-import java.util.Set;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 
 public final class DependencyUtil {
@@ -247,28 +243,7 @@ public final class DependencyUtil {
       }
     }));
   }
-  private static Iterable<SModuleReference> getReexportDeps(SModule module) {
-    return Sequence.fromIterable(((Iterable<SDependency>) module.getDeclaredDependencies())).where(new IWhereFilter<SDependency>() {
-      public boolean accept(SDependency dep) {
-        return dep.isReexport();
-      }
-    }).select(new ISelector<SDependency, SModuleReference>() {
-      public SModuleReference select(SDependency dep) {
-        return dep.getTargetModule();
-      }
-    });
-  }
-  private static Iterable<SModuleReference> getNonreexportDeps(ModuleDescriptor descr) {
-    return SetSequence.fromSet(((Set<jetbrains.mps.project.structure.modules.Dependency>) descr.getDependencies())).where(new IWhereFilter<jetbrains.mps.project.structure.modules.Dependency>() {
-      public boolean accept(jetbrains.mps.project.structure.modules.Dependency dep) {
-        return !(dep.isReexport());
-      }
-    }).select(new ISelector<jetbrains.mps.project.structure.modules.Dependency, SModuleReference>() {
-      public SModuleReference select(jetbrains.mps.project.structure.modules.Dependency dep) {
-        return dep.getModuleRef();
-      }
-    });
-  }
+
   public enum LinkType {
     Depends("depends on"),
     ReexportsDep("reexports dependency on"),
@@ -319,10 +294,11 @@ public final class DependencyUtil {
     Role() {
     }
     public boolean isUsedLanguage() {
+      // FWIW a language extended by used language is considered 'used', see #addExtendedLanguages()
       return this == Role.UsedLanguage;
     }
     public boolean isDependency() {
-      return this == Role.RegularDependency || this == Role.OwnedGenerator || this == Role.RuntimeDependency;
+      return this == Role.RegularDependency || this == Role.SourceLanguage || this == Role.RuntimeDependency;
     }
   }
   public static class Dependency extends MultiTuple._2<SModuleReference, Role> {
