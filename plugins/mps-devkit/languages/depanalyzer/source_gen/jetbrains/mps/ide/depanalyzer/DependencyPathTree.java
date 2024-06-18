@@ -73,6 +73,9 @@ public class DependencyPathTree extends MPSTree implements DataProvider {
     // merge dependency paths by role and module
     for (DepLink dep : ListSequence.fromList(myAllDependencies)) {
       buildTree(dep, deps);
+      for (DepLink rd : ListSequence.fromList(dep.reusedFrom())) {
+        buildTree(rd, deps);
+      }
     }
     // attach roots of merged paths to top node
     for (LinkFrom lf : Sequence.fromIterable(MapSequence.fromMap(deps).values())) {
