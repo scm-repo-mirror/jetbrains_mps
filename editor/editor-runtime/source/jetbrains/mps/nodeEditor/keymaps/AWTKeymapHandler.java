@@ -196,7 +196,7 @@ public class AWTKeymapHandler extends KeymapHandler<KeyEvent> {
   @Override
   public void showActionsMenu(Collection<Pair<KeyMapAction, EditorCell>> actionsInfo, final EditorContext editorContext, EditorCell selectedCell) {
     JPopupMenu menu = new JPopupMenu();
-    final Color selectionColor = UIUtil.getTreeSelectionBackground();
+    final Color selectionColor = UIUtil.getTreeSelectionBackground(true);
     int index = 1;
     for (Pair<KeyMapAction, EditorCell> actionAndContextCell : actionsInfo) {
       final KeyMapAction action = actionAndContextCell.o1;
