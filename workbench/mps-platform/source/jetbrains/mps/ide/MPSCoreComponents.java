@@ -31,6 +31,7 @@ import jetbrains.mps.library.LibraryInitializer;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.persistence.PersistenceRegistry;
 import jetbrains.mps.smodel.MPSModuleRepository;
+import jetbrains.mps.smodel.WorkbenchModelAccess;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.ModelAccess;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
@@ -52,7 +53,9 @@ public class MPSCoreComponents implements Disposable {
 
   public MPSCoreComponents() {
     @NotNull ManagingFS fs = ManagingFS.getInstance();
-    @NotNull ModelAccess access = ApplicationManager.getApplication().getComponent(ModelAccess.class);
+    // Make sure WMA has a chance to MA.setInstance() *before* MPSModuleRepository and its GlobalModelAccess need one
+    ModelAccess access = WorkbenchModelAccess.getInstance();
+    assert access != null;
     myPlatform = PlatformFactory.initPlatform(PlatformOptionsBuilder.ALL);
     final ExtensionPointName<ComponentPluginFactory> cpfExtPoint = ExtensionPointName.create("jetbrains.mps.componentPluginFactory");
     for (ComponentPluginFactory cpf : cpfExtPoint.getExtensionList()) {

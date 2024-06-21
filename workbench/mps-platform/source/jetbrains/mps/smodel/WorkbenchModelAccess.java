@@ -53,11 +53,10 @@ public final class WorkbenchModelAccess extends ModelAccess implements Disposabl
    * PROVISIONAL CODE
    * DON'T USE OUTSIDE OF MPS.
    * IN MPS, DON'T USE UNLESS FOR TRANSITION PURPOSES
-   * @return IDEA App Component
+   * @return IDEA App Service instance
    */
   public static WorkbenchModelAccess getInstance() {
-    //noinspection deprecation
-    return (WorkbenchModelAccess) ApplicationManager.getApplication().getComponent(org.jetbrains.mps.openapi.module.ModelAccess.class);
+    return (WorkbenchModelAccess) ApplicationManager.getApplication().getService(org.jetbrains.mps.openapi.module.ModelAccess.class);
   }
 
   public WorkbenchModelAccess() {

@@ -44,10 +44,6 @@
       <implementation-class>jetbrains.mps.ide.vfs.IdeaFileSystem</implementation-class>
     </component>
     <component>
-      <interface-class>org.jetbrains.mps.openapi.module.ModelAccess</interface-class>
-      <implementation-class>jetbrains.mps.smodel.WorkbenchModelAccess</implementation-class>
-    </component>
-    <component>
       <implementation-class>jetbrains.mps.ide.persistence.PersistenceComponent</implementation-class>
     </component>
     <component>
@@ -108,6 +104,10 @@
     <applicationService serviceImplementation="jetbrains.mps.VisibleModuleRegistry"/>
     <applicationService serviceImplementation="jetbrains.mps.ide.platform.watching.WatchedRoots"/>
     <applicationService serviceImplementation="jetbrains.mps.repository.FSNotificationsImprover"/>
+
+    <applicationService
+            serviceInterface="org.jetbrains.mps.openapi.module.ModelAccess"
+            serviceImplementation="jetbrains.mps.smodel.WorkbenchModelAccess" />
 
     <projectService serviceImplementation="jetbrains.mps.ide.vfs.ProjectRootListenerComponent" />
 
