@@ -304,7 +304,7 @@ import java.util.stream.Stream;
     }
 
     protected final String toString(String name) {
-      return String.format("'%s' module %s (%d:%d  @%tT)", myRef.getModuleName(), myGen, mySeq, myCreated);
+      return String.format("'%s' module %s (%d:%d  @%tT)", name, myRef.getModuleName(), myGen, mySeq, myCreated);
     }
   }
 
