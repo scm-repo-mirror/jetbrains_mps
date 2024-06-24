@@ -347,6 +347,7 @@
       <concept id="2105528055260548241" name="jetbrains.mps.build.mps.structure.BuildMpsLayout_FolderWithSources" flags="ng" index="1bldCd" />
       <concept id="5253498789149381388" name="jetbrains.mps.build.mps.structure.BuildMps_Module" flags="ng" index="3bQrTs">
         <property id="1500819558096356884" name="doNotCompile" index="2GAjPV" />
+        <property id="2928402740576877067" name="code" index="3vZFNd" />
         <child id="5253498789149547825" name="sources" index="3bR31x" />
         <child id="5253498789149547704" name="dependencies" index="3bR37C" />
       </concept>
@@ -33706,8 +33707,8 @@
         <property role="BnDLt" value="true" />
         <property role="TrG5h" value="jetbrains.mps.ide.build" />
         <property role="3LESm3" value="422c2909-59d6-41a9-b318-40e6256b250f" />
-        <property role="2GAjPV" value="true" />
         <property role="ZpmtF" value="true" />
+        <property role="3vZFNd" value="3kCd1ud3JDF/none" />
         <node concept="3rtmxn" id="EpEP7iihZR" role="3bR31x">
           <node concept="3LXTmp" id="EpEP7iihZS" role="3rtmxm">
             <node concept="3qWCbU" id="EpEP7iihZT" role="3LXTna">

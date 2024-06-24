@@ -117,7 +117,6 @@
           <module ref="0cf935df-4699-4e9c-a132-fa109541cba3(jetbrains.mps.build.mps)" kind="cl" />
           <module ref="d5033cee-f632-44b6-b308-89d4fbde34ff(jetbrains.mps.build.startup)" kind="cl" />
           <module ref="019b622b-0aef-4dd3-86d0-4eef01f3f6bb(jetbrains.mps.ide)" kind="cl" />
-          <module ref="422c2909-59d6-41a9-b318-40e6256b250f(jetbrains.mps.ide.build)" kind="cl" />
           <module ref="5b1f863d-65a0-41a6-a801-33896be24202(jetbrains.mps.ide.editor)" kind="cl" />
           <module ref="8d29d73f-ed99-4652-ae0a-083cdfe53c34(jetbrains.mps.ide.platform)" kind="cl" />
           <module ref="86ef8290-12bb-4ca7-947f-093788f263a9(jetbrains.mps.lang.project)" kind="cl" />
@@ -258,7 +257,6 @@
           <module ref="0cf935df-4699-4e9c-a132-fa109541cba3(jetbrains.mps.build.mps)" kind="cl" />
           <module ref="9f846aef-4e4a-4a84-828e-7e83fe2697f2(jetbrains.mps.build.mps.testManifest)" kind="cl" />
           <module ref="3600cb0a-44dd-4a5b-9968-22924406419e(jetbrains.mps.build.mps.tests)" kind="cl" />
-          <module ref="422c2909-59d6-41a9-b318-40e6256b250f(jetbrains.mps.ide.build)" kind="cl" />
           <module ref="ceab5195-25ea-4f22-9b92-103b95ca8c0c(jetbrains.mps.lang.core)" kind="cl" />
           <module ref="446c26eb-2b7b-4bf0-9b35-f83fa582753e(jetbrains.mps.lang.modelapi)" kind="cl" />
         </dependencies>
