@@ -94,7 +94,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
   }
   private Color _StyleParameter_QueryFunction_xkqo7y_a1b0() {
-    return _EditorUtil.grayIfNotSelectable(getNode());
+    return _EditorUtil.grayIfNotSelectable(getNode(), getEditorContext());
   }
   private Color _StyleParameter_QueryFunction_xkqo7y_a2b0() {
     return getEditorContext().getEditorComponent().getStyleRegistry().getStyle("ERROR_CELL").get(StyleAttributes.TEXT_BACKGROUND_COLOR);

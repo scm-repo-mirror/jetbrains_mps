@@ -100,6 +100,12 @@ public class StyleRegistryIdeaImpl extends StyleRegistry {
     reflectiveEditorFirstLabelCellStyle.set(StyleAttributes.BACKGROUND_COLOR, reflectiveEditorFirstLabelColor); // just in case, not sure what's the difference b/w the two
     setStyle("REFLECTIVE_EDITOR_FIRST_LABEL", reflectiveEditorFirstLabelCellStyle);
 
+    final StyleImpl cellCollectionTagStyle = new StyleImpl();
+    final JBColor cellCollectionTagColor = new  JBColor(new  Color(230, 230, 230), new  Color(84, 84, 84));
+    cellCollectionTagStyle.set(StyleAttributes.TEXT_BACKGROUND_COLOR, cellCollectionTagColor);
+    cellCollectionTagStyle.set(StyleAttributes.BACKGROUND_COLOR, cellCollectionTagColor); // just in case, not sure what's the difference b/w the two
+    setStyle("CELL_COLLECTION_TAG_BACKGROUND", cellCollectionTagStyle);
+
     final StyleImpl sc = new StyleImpl();
     sc.set(StyleAttributes.TEXT_COLOR, getEditorForeground());
     final JBColor bg = new JBColor(new Color(235, 244, 254), new Color(0x141D29));

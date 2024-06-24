@@ -4,13 +4,16 @@ package jetbrains.mps.lang.editor.editor;
 
 import java.awt.Color;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.openapi.editor.EditorContext;
+import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.lang.editor.behavior.EditorCellModel__BehaviorDescriptor;
-import jetbrains.mps.nodeEditor.MPSColors;
+import com.intellij.ui.JBColor;
 
 public class _EditorUtil {
-  public static Color grayIfNotSelectable(SNode cellModel) {
+  public static Color grayIfNotSelectable(SNode cellModel, EditorContext editorContext) {
+    Color bgColor = editorContext.getEditorComponent().getStyleRegistry().getStyle("CELL_COLLECTION_TAG_BACKGROUND").get(StyleAttributes.TEXT_BACKGROUND_COLOR);
     if (!((boolean) EditorCellModel__BehaviorDescriptor.isSelectable_idhJF6SX1.invoke(cellModel))) {
-      return MPSColors.gray_bg;
+      return (bgColor != null ? bgColor : new JBColor(new Color(230, 230, 230), new Color(84, 84, 84)));
     }
     return null;
   }
