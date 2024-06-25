@@ -52,6 +52,8 @@
     <import index="5ueo" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.editor.runtime.style(MPS.Editor/)" />
     <import index="hox0" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.style(MPS.Editor/)" />
     <import index="lzb2" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ui(MPS.IDEA/)" />
+    <import index="drih" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.editor.colors(MPS.IDEA/)" />
+    <import index="8m69" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.editor.markup(MPS.IDEA/)" implicit="true" />
   </imports>
   <registry>
     <language id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor">
@@ -8545,7 +8547,61 @@
       <property role="3F0ifm" value="---&gt;" />
       <ref role="1k5W1q" node="i0pPgF8" resolve="rootCellModelStyle" />
       <node concept="VechU" id="hEZR8m0" role="3F10Kt">
-        <property role="Vb096" value="fLJRk5A/lightGray" />
+        <property role="Vb096" value="fLwANPn/red" />
+        <node concept="3ZlJ5R" id="4BXg6kaxhMD" role="VblUZ">
+          <node concept="3clFbS" id="4BXg6kaxhME" role="2VODD2">
+            <node concept="3cpWs8" id="4pZwcVPQCX$" role="3cqZAp">
+              <node concept="3cpWsn" id="4pZwcVPQCXz" role="3cpWs9">
+                <property role="TrG5h" value="scheme" />
+                <node concept="3uibUv" id="4pZwcVPQCX_" role="1tU5fm">
+                  <ref role="3uigEE" to="drih:~EditorColorsScheme" resolve="EditorColorsScheme" />
+                </node>
+                <node concept="2OqwBi" id="4pZwcVPQFhp" role="33vP2m">
+                  <node concept="2YIFZM" id="4pZwcVPQFdn" role="2Oq$k0">
+                    <ref role="1Pybhc" to="drih:~EditorColorsManager" resolve="EditorColorsManager" />
+                    <ref role="37wK5l" to="drih:~EditorColorsManager.getInstance()" resolve="getInstance" />
+                  </node>
+                  <node concept="liA8E" id="4pZwcVPQFhq" role="2OqNvi">
+                    <ref role="37wK5l" to="drih:~EditorColorsManager.getSchemeForCurrentUITheme()" resolve="getSchemeForCurrentUITheme" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3cpWs8" id="4pZwcVPQCXD" role="3cqZAp">
+              <node concept="3cpWsn" id="4pZwcVPQCXC" role="3cpWs9">
+                <property role="TrG5h" value="foregroundColor" />
+                <node concept="3uibUv" id="4pZwcVPQCXE" role="1tU5fm">
+                  <ref role="3uigEE" to="z60i:~Color" resolve="Color" />
+                </node>
+                <node concept="2OqwBi" id="4pZwcVPQFg3" role="33vP2m">
+                  <node concept="2OqwBi" id="4pZwcVPQFdc" role="2Oq$k0">
+                    <node concept="37vLTw" id="4pZwcVPQDbG" role="2Oq$k0">
+                      <ref role="3cqZAo" node="4pZwcVPQCXz" resolve="scheme" />
+                    </node>
+                    <node concept="liA8E" id="4pZwcVPQFdd" role="2OqNvi">
+                      <ref role="37wK5l" to="drih:~TextAttributesScheme.getAttributes(com.intellij.openapi.editor.colors.TextAttributesKey)" resolve="getAttributes" />
+                      <node concept="2YIFZM" id="4pZwcVPQFde" role="37wK5m">
+                        <ref role="1Pybhc" to="drih:~TextAttributesKey" resolve="TextAttributesKey" />
+                        <ref role="37wK5l" to="drih:~TextAttributesKey.createTextAttributesKey(java.lang.String)" resolve="createTextAttributesKey" />
+                        <node concept="Xl_RD" id="4pZwcVPQFdf" role="37wK5m">
+                          <property role="Xl_RC" value="DEFAULT_LINE_COMMENT" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="liA8E" id="4pZwcVPQFg4" role="2OqNvi">
+                    <ref role="37wK5l" to="8m69:~TextAttributes.getForegroundColor()" resolve="getForegroundColor" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3cpWs6" id="4pZwcVPQGou" role="3cqZAp">
+              <node concept="37vLTw" id="4pZwcVPQGFF" role="3cqZAk">
+                <ref role="3cqZAo" node="4pZwcVPQCXC" resolve="foregroundColor" />
+              </node>
+            </node>
+          </node>
+        </node>
       </node>
     </node>
   </node>
