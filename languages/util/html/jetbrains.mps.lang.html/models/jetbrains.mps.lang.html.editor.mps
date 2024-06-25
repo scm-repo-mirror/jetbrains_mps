@@ -6500,7 +6500,7 @@
           <node concept="3clFbS" id="1vS6d1NZqeS" role="2VODD2">
             <node concept="3clFbF" id="4eW2rsATtg4" role="3cqZAp">
               <node concept="Xl_RD" id="4eW2rsATtg3" role="3clFbG">
-                <property role="Xl_RC" value="&lt;!" />
+                <property role="Xl_RC" value="&lt;&lt;" />
               </node>
             </node>
           </node>
@@ -6582,7 +6582,7 @@
           <node concept="3clFbS" id="2eIZDSBsBDs" role="2VODD2">
             <node concept="3clFbF" id="2eIZDSBsBDt" role="3cqZAp">
               <node concept="Xl_RD" id="2eIZDSBsBDu" role="3clFbG">
-                <property role="Xl_RC" value="&lt;@" />
+                <property role="Xl_RC" value="&lt;&gt;" />
               </node>
             </node>
           </node>
