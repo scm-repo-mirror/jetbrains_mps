@@ -936,8 +936,15 @@ public final class ModuleMaker {
           }
 
           kotlinSubTracer.start(KOTLIN_COMPILE_MSG, 1);
-          cycleCompilationResults.add(compileKotlin(kotlinCompilerRunner, modulesContainer));
+          var kotlinResult = compileKotlin(kotlinCompilerRunner, modulesContainer);
+          cycleCompilationResults.add(kotlinResult);
           kotlinSubTracer.done();
+
+          // Error while compiling Kotlin, should not proceed to compile Java as it can bring confusion
+          if (!kotlinResult.isOk()) {
+            cycleTracer.done();
+            continue;
+          }
         }
 
         // Java compilation
