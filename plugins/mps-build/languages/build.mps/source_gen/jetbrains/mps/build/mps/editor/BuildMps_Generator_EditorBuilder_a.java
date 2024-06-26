@@ -378,7 +378,9 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     if (nodeCondition_leuqor_a2e0()) {
       editorCell.addEditorCell(createConstant_6());
     }
-    editorCell.addEditorCell(createCollection_4());
+    if (nodeCondition_leuqor_a3e0()) {
+      editorCell.addEditorCell(createCollection_4());
+    }
     editorCell.addEditorCell(createRefNodeList_0());
     editorCell.addEditorCell(createConstant_10());
     editorCell.addEditorCell(createRefNodeList_1());
@@ -389,6 +391,9 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
   }
   private boolean nodeCondition_leuqor_a2e0() {
     return SPropertyOperations.getBoolean(myNode, PROPS.doNotCompile$4EF);
+  }
+  private boolean nodeCondition_leuqor_a3e0() {
+    return SPropertyOperations.getBoolean(myNode, PROPS.doNotCompile$4EF) == false;
   }
   private EditorCell createConstant_4() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "content:");

@@ -144,7 +144,9 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.addEditorCell(createConstant_3());
     }
     editorCell.addEditorCell(createComponent_0());
-    editorCell.addEditorCell(createCollection_4());
+    if (nodeCondition_ju7sd7_a4b0a()) {
+      editorCell.addEditorCell(createCollection_4());
+    }
     editorCell.addEditorCell(createRefNodeList_0());
     editorCell.addEditorCell(createConstant_7());
     editorCell.addEditorCell(createRefNodeList_1());
@@ -155,6 +157,9 @@ import org.jetbrains.mps.openapi.language.SConcept;
   }
   private boolean nodeCondition_ju7sd7_a2b0a() {
     return SPropertyOperations.getBoolean(myNode, PROPS.doNotCompile$4EF);
+  }
+  private boolean nodeCondition_ju7sd7_a4b0a() {
+    return SPropertyOperations.getBoolean(myNode, PROPS.doNotCompile$4EF) == false;
   }
   private EditorCell createConstant_1() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "content:");
