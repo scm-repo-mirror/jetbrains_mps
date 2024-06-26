@@ -38,7 +38,7 @@ public class ReplaceDoNotCompileFlagWithEnum extends MigrationScriptBase {
         SNode snode = node;
         if (snode.hasProperty(PROPS.doNotCompile$4EF)) {
           if (SPropertyOperations.getBoolean(node, PROPS.doNotCompile$4EF)) {
-            SPropertyOperations.setEnum(node, PROPS.code$OceX, 0x352834178d0efa69L, "compile_ext");
+            SPropertyOperations.setEnum(node, PROPS.javaCode$OceX, 0x352834178d0efa69L, "compile_ext");
           }
           snode.setProperty(PROPS.doNotCompile$4EF, null);
         }
@@ -55,6 +55,6 @@ public class ReplaceDoNotCompileFlagWithEnum extends MigrationScriptBase {
 
   private static final class PROPS {
     /*package*/ static final SProperty doNotCompile$4EF = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, 0x14d3fb6fb84ac614L, "doNotCompile");
-    /*package*/ static final SProperty code$OceX = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, 0x28a3c6c6f75d7a0bL, "code");
+    /*package*/ static final SProperty javaCode$OceX = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, 0x28a3c6c6f75d7a0bL, "javaCode");
   }
 }
