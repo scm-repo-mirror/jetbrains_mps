@@ -8,6 +8,8 @@ import com.intellij.ide.projectView.PresentationData;
 import com.intellij.ide.projectView.ViewSettings;
 import com.intellij.ide.util.treeView.AbstractTreeNode;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.vcs.FileStatus;
+import com.intellij.openapi.vcs.FileStatusManager;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.pom.Navigatable;
 import com.intellij.ui.LayeredIcon;
@@ -18,7 +20,10 @@ import jetbrains.mps.ide.icons.GlobalIconManager;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.ui.util.NodeAttributesUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.nodefs.MPSNodeVirtualFile;
+import jetbrains.mps.nodefs.NodeVirtualFileSystem;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
+import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.SObject;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -44,6 +49,18 @@ public class SimpleNodeProjectViewNode extends BranchProjectViewNode<SNode> impl
     super(project, sNode, viewSettings);
     // this constructor is only ever called from within a read action
     myIsRoot = sNode.getParent() == null;
+  }
+
+  @Override
+  public FileStatus getFileStatus() {
+    if (myIsRoot) {
+      MPSProject mpsProject = ProjectHelper.fromIdeaProject(getProject());
+      MPSNodeVirtualFile virtualFile = NodeVirtualFileSystem.getInstance().getFileFor(mpsProject.getRepository(), getValue());
+      if (virtualFile != null) {
+        return FileStatusManager.getInstance(myProject).getStatus(virtualFile);
+      }
+    }
+    return FileStatus.NOT_CHANGED;
   }
 
   @Override
