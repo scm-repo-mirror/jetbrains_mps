@@ -17,13 +17,18 @@ package jetbrains.mps.nodeEditor;
 
 import com.intellij.ide.IdeTooltip;
 import com.intellij.ide.IdeTooltipManager;
+import com.intellij.openapi.project.Project;
 import com.intellij.ui.HintHint;
+import jetbrains.mps.editor.runtime.DocumentationProvider;
 import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
+import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.nodeEditor.actions.CursorPositionTracker;
 import jetbrains.mps.nodeEditor.cells.CellFinderUtil;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Label;
 import jetbrains.mps.nodeEditor.cells.GeometryUtil;
+import jetbrains.mps.nodeEditor.documentation.MPSDocumentationToolWindowManager;
+import jetbrains.mps.nodeEditor.documentation.ui.MPSDocumentationUI;
 import jetbrains.mps.nodeEditor.selection.NodeRangeSelection;
 import jetbrains.mps.nodeEditor.selection.SelectUpUtil;
 import jetbrains.mps.openapi.editor.EditorComponent;
@@ -125,6 +130,7 @@ public class NodeEditorActions {
         EditorCell_Label label = (EditorCell_Label) target;
         label.end();
       }
+      updateDocInToolWindow(context, target);
     }
 
     private EditorCell getDeepestSelectedCell(EditorContext context) {
@@ -276,6 +282,7 @@ public class NodeEditorActions {
         EditorCell_Label label = (EditorCell_Label) target;
         label.home();
       }
+      updateDocInToolWindow(context, target);
     }
 
     private EditorCell getDeepestSelectedCell(EditorContext context) {
@@ -318,6 +325,7 @@ public class NodeEditorActions {
       target.setCaretX(caretX);
       context.getEditorComponent().changeSelection(target);
       myPositionTracker.savePosition(caretX);
+      updateDocInToolWindow(context, target);
     }
 
     private EditorCell getDeepestSelectedCell(EditorContext context) {
@@ -369,6 +377,7 @@ public class NodeEditorActions {
       target.setCaretX(caretX);
       context.getEditorComponent().changeSelection(target);
       myPositionTracker.savePosition(caretX);
+      updateDocInToolWindow(context, target);
     }
 
     private EditorCell getDeepestSelectedCell(EditorContext context) {
@@ -835,6 +844,14 @@ public class NodeEditorActions {
     @Override
     public void execute(EditorContext context) {
       getSearchPanel(context).deactivate();
+    }
+  }
+
+  private static void updateDocInToolWindow(EditorContext context, EditorCell target){
+    String decoratedDocumentation = new DocumentationProvider(context.getRepository(), target).getDecoratedDocumentation();
+    Project project = ProjectHelper.toIdeaProject(ProjectHelper.getProject(context.getRepository()));
+    if (decoratedDocumentation != null && MPSDocumentationToolWindowManager.getInstance(project).isVisible()) {
+      MPSDocumentationToolWindowManager.getInstance(project).showInToolWindow(new MPSDocumentationUI(decoratedDocumentation));
     }
   }
 }
