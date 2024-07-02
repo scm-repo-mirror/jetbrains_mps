@@ -156,10 +156,10 @@
       <node id="2524418899405715525" at="67,36,68,26" concept="1" />
       <node id="2524418899405712435" at="70,7,71,53" concept="1" />
       <node id="6514227258510635162" at="74,55,75,58" concept="6" />
-      <node id="6514227258510739050" at="75,58,76,65" concept="1" />
-      <node id="6514227258510728610" at="76,65,77,0" concept="9" />
+      <node id="6514227258510739050" at="75,58,76,81" concept="1" />
+      <node id="6514227258510728610" at="76,81,77,0" concept="9" />
       <node id="6514227258510728664" at="79,43,80,36" concept="7" />
-      <node id="6514227258510741783" at="82,6,83,76" concept="1" />
+      <node id="6514227258510741783" at="82,6,83,92" concept="1" />
       <node id="2448987392438708227" at="86,62,87,57" concept="8" />
       <node id="2448987392438611961" at="89,40,90,30" concept="7" />
       <node id="2448987392438660316" at="96,6,97,24" concept="1" />
@@ -351,7 +351,7 @@
         <var name="builder" id="2524418899405712411" />
         <var name="integers" id="2524418899405712399" />
       </scope>
-      <scope id="6514227258510634004" at="74,55,83,76">
+      <scope id="6514227258510634004" at="74,55,83,92">
         <var name="absCaller" id="6514227258510728658" />
         <var name="caller" id="6514227258510635163" />
       </scope>
@@ -374,11 +374,11 @@
       <unit id="2324181818097501603" at="24,17,28,7" name="jetbrains.mps.baseLanguage.methodReferences.test.tests.MethodReferences_Test$1" />
       <unit id="2524418899405715525" at="66,32,70,5" name="jetbrains.mps.baseLanguage.methodReferences.test.tests.MethodReferences_Test$2" />
       <unit id="6514227258510728664" at="78,61,82,5" name="jetbrains.mps.baseLanguage.methodReferences.test.tests.MethodReferences_Test$3" />
-      <unit id="2448987392438611961" at="88,62,92,5" name="jetbrains.mps.baseLanguage.methodReferences.test.tests.MethodReferences_Test$4$1" />
+      <unit id="2448987392438611961" at="88,64,92,5" name="jetbrains.mps.baseLanguage.methodReferences.test.tests.MethodReferences_Test$4$1" />
       <unit id="492036769776878082" at="178,17,182,7" name="jetbrains.mps.baseLanguage.methodReferences.test.tests.MethodReferences_Test$5" />
       <unit id="5126121278210659680" at="184,15,188,5" name="jetbrains.mps.baseLanguage.methodReferences.test.tests.MethodReferences_Test$6" />
       <unit id="2524418899405753039" at="148,0,154,0" name="jetbrains.mps.baseLanguage.methodReferences.test.tests.MethodReferences_Test$Builder" />
-      <unit id="2448987392438616097" at="88,34,96,5" name="jetbrains.mps.baseLanguage.methodReferences.test.tests.MethodReferences_Test$4" />
+      <unit id="2448987392438616097" at="88,42,96,5" name="jetbrains.mps.baseLanguage.methodReferences.test.tests.MethodReferences_Test$4" />
       <unit id="2524418899405700725" at="140,0,148,0" name="jetbrains.mps.baseLanguage.methodReferences.test.tests.MethodReferences_Test$AbstractVisited" />
       <unit id="2055055257265769423" at="160,0,175,0" name="jetbrains.mps.baseLanguage.methodReferences.test.tests.MethodReferences_Test$ItemContainer" />
       <unit id="6436749721962900816" at="18,0,197,0" name="jetbrains.mps.baseLanguage.methodReferences.test.tests.MethodReferences_Test" />

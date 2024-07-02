@@ -63,8 +63,8 @@ public class Generics_Test extends BaseTransformationTest {
     new TestBody(this).test_ErrorMessagesCheck4246614868164066979();
   }
   @Test
-  public void test_NodeTypeSystemCheck5956182814459540021() throws Throwable {
-    new TestBody(this).test_NodeTypeSystemCheck5956182814459540021();
+  public void test_NodeIsNotSubtypeOfCheck4588525175599359244() throws Throwable {
+    new TestBody(this).test_NodeIsNotSubtypeOfCheck4588525175599359244();
   }
   @Test
   public void test_NodeIncompatibleMethodSignatureCheck5956182814459569874() throws Throwable {
@@ -310,14 +310,14 @@ public class Generics_Test extends BaseTransformationTest {
       initTestNodes();
       runWithinCommand(() -> {
         SNode nodeToCheck = getNodeById("4246614868164066942");
-        new CheckErrorMessagesRunnable(nodeToCheck, false, false, myProject.getPlatform()).includeSelf(false).exclude(Arrays.<CheckExpectedMessageRunnable>asList(new CheckExpectedMessageRunnable.CheckExpectedTypesystemMessageRunnable(getNodeById("3951985765451231549"), MessageStatus.ERROR, "Error: incompatible types: java.lang.Number and java.lang.Object", myProject.getRepository(), myProject.getPlatform()), new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(getNodeById("4246614868164066956"), MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "2234318170389157992"), "Error: Incompatible method signature", myProject.getRepository(), myProject.getPlatform()))).run();
+        new CheckErrorMessagesRunnable(nodeToCheck, false, false, myProject.getPlatform()).includeSelf(false).exclude(Arrays.<CheckExpectedMessageRunnable>asList(new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(getNodeById("3951985765451231549"), MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "5875805516898273487"), "Error: Object is not a subtype of Number", myProject.getRepository(), myProject.getPlatform()), new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(getNodeById("4246614868164066956"), MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "2234318170389157992"), "Error: Incompatible method signature", myProject.getRepository(), myProject.getPlatform()))).run();
       });
     }
-    public void test_NodeTypeSystemCheck5956182814459540021() throws Exception {
+    public void test_NodeIsNotSubtypeOfCheck4588525175599359244() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
         SNode nodeToCheck = getNodeById("3951985765451231549");
-        new CheckExpectedMessageRunnable.CheckExpectedTypesystemMessageRunnable(nodeToCheck, MessageStatus.ERROR, "Error: incompatible types: java.lang.Number and java.lang.Object", myProject.getRepository(), myProject.getPlatform()).run();
+        new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "5875805516898273487"), "Error: Object is not a subtype of Number", myProject.getRepository(), myProject.getPlatform()).run();
       });
     }
     public void test_NodeIncompatibleMethodSignatureCheck5956182814459569874() throws Exception {

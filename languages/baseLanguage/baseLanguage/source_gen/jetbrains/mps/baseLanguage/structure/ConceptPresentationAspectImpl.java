@@ -158,6 +158,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_IMethodLike;
   private ConceptPresentation props_IOperation;
   private ConceptPresentation props_IParameter;
+  private ConceptPresentation props_IRawTypeHolder;
   private ConceptPresentation props_ISkipsReturn;
   private ConceptPresentation props_IStatementListContainer;
   private ConceptPresentation props_IStaticContainerForMethods;
@@ -1384,6 +1385,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_IParameter = cpb.create();
         }
         return props_IParameter;
+      case LanguageConceptSwitch.IRawTypeHolder:
+        if (props_IRawTypeHolder == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IRawTypeHolder = cpb.create();
+        }
+        return props_IRawTypeHolder;
       case LanguageConceptSwitch.ISkipsReturn:
         if (props_ISkipsReturn == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

@@ -73,19 +73,19 @@ public class MethodReferences_Test {
   @Test
   public void test_testCastContext() throws Exception {
     Object caller = (Builder<String, String>) String::new;
-    Assert.assertEquals(((Builder) caller).make("Test"), "Test");
+    Assert.assertEquals(((Builder<String, String>) caller).make("Test"), "Test");
 
     Object absCaller = (AbstractBuilder<String, String>) new AbstractBuilder<String, String>() {
       public String make(String original) {
         return new String(original);
       }
     };
-    Assert.assertEquals(((AbstractBuilder) absCaller).make("Test"), "Test");
+    Assert.assertEquals(((AbstractBuilder<String, String>) absCaller).make("Test"), "Test");
   }
   @Test
   public void test_testConstructorContext() throws Exception {
     // Method reference in constructor call with generics
-    AbstractVisited visited = new AbstractVisited<String>(new AbstractBuilder<String, String>() {
+    AbstractVisited<String> visited = new AbstractVisited<>(new AbstractBuilder<String, String>() {
       public String make(String this0) {
         return this0.intern();
       }
