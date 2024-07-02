@@ -968,6 +968,9 @@
     <node concept="PrWs8" id="7plk_f0weUh" role="PzmwI">
       <ref role="PrY4T" node="1wHCnsn58oY" resolve="IBinaryLike" />
     </node>
+    <node concept="PrWs8" id="6SseLh99l1T" role="PzmwI">
+      <ref role="PrY4T" node="6SseLh999Lm" resolve="IRawTypeHolder" />
+    </node>
   </node>
   <node concept="1TIwiD" id="fJfqX4d">
     <property role="R4oN_" value="not-expression" />
@@ -5057,6 +5060,11 @@
     <property role="3F6X1D" value="7819569477702424854" />
     <property role="TrG5h" value="_HexaLongType_String" />
     <property role="FLfZY" value="[0-9a-fA-F]+(l|L)" />
+  </node>
+  <node concept="PlHQZ" id="6SseLh999Lm">
+    <property role="EcuMT" value="7934281601832492118" />
+    <property role="3GE5qa" value="type" />
+    <property role="TrG5h" value="IRawTypeHolder" />
   </node>
 </model>
 
