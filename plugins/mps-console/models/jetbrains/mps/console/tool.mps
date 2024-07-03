@@ -7347,6 +7347,32 @@
           </node>
         </node>
       </node>
+      <node concept="2tJIrI" id="5tBo2jR9_Zh" role="jymVt" />
+      <node concept="3clFb_" id="5tBo2jR9PGy" role="jymVt">
+        <property role="TrG5h" value="getActionUpdateThread" />
+        <node concept="3Tm1VV" id="5tBo2jR9PG$" role="1B3o_S" />
+        <node concept="2AHcQZ" id="5tBo2jR9PGA" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+        <node concept="3uibUv" id="5tBo2jR9PGB" role="3clF45">
+          <ref role="3uigEE" to="qkt:~ActionUpdateThread" resolve="ActionUpdateThread" />
+        </node>
+        <node concept="3clFbS" id="5tBo2jR9PGD" role="3clF47">
+          <node concept="3cpWs6" id="5tBo2jRaQ$A" role="3cqZAp">
+            <node concept="2OqwBi" id="5tBo2jRbrvL" role="3cqZAk">
+              <node concept="37vLTw" id="5tBo2jRbieq" role="2Oq$k0">
+                <ref role="3cqZAo" node="6ysF3v1j_w0" resolve="myDefaultPasteProvider" />
+              </node>
+              <node concept="liA8E" id="5tBo2jRbGA_" role="2OqNvi">
+                <ref role="37wK5l" to="qkt:~ActionUpdateThreadAware.getActionUpdateThread()" resolve="getActionUpdateThread" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="2AHcQZ" id="5tBo2jR9PGE" role="2AJF6D">
+          <ref role="2AI5Lk" to="wyt6:~Override" />
+        </node>
+      </node>
     </node>
     <node concept="2tJIrI" id="4gO8GruPUMT" role="jymVt" />
     <node concept="3clFb_" id="4gO8GruR6JJ" role="jymVt">

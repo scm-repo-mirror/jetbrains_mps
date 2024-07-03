@@ -71,6 +71,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
+import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.persistence.PersistenceUtil;
 import jetbrains.mps.extapi.persistence.ModelFactoryService;
@@ -385,6 +386,12 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
     }
     public boolean isPasteEnabled(@NotNull DataContext context) {
       return myDefaultPasteProvider.isPasteEnabled(context);
+    }
+
+    @NotNull
+    @Override
+    public ActionUpdateThread getActionUpdateThread() {
+      return myDefaultPasteProvider.getActionUpdateThread();
     }
   }
 
