@@ -4050,6 +4050,9 @@
                       <node concept="Xl_RD" id="1$mDfZ_DXSt" role="2BsfMF">
                         <property role="Xl_RC" value="java.desktop/javax.swing.plaf.basic" />
                       </node>
+                      <node concept="Xl_RD" id="rnX0t1ueN4" role="2BsfMF">
+                        <property role="Xl_RC" value="java.desktop/javax.swing.text" />
+                      </node>
                       <node concept="Xl_RD" id="1$mDfZ_DXSS" role="2BsfMF">
                         <property role="Xl_RC" value="java.desktop/javax.swing.text.html" />
                       </node>

@@ -150,6 +150,9 @@
           <property role="Xl_RC" value="java.desktop/javax.swing.plaf.basic" />
         </node>
         <node concept="Xl_RD" id="1$mDfZ_DXSS" role="2BsfMF">
+          <property role="Xl_RC" value="java.desktop/javax.swing.text" />
+        </node>
+        <node concept="Xl_RD" id="43qvtA_Jmii" role="2BsfMF">
           <property role="Xl_RC" value="java.desktop/javax.swing.text.html" />
         </node>
         <node concept="Xl_RD" id="1$mDfZ_DXTk" role="2BsfMF">

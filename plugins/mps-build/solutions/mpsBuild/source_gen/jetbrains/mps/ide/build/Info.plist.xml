@@ -122,6 +122,7 @@
         <string>--add-opens=java.desktop/java.awt.peer=ALL-UNNAMED</string>
         <string>--add-opens=java.desktop/javax.swing=ALL-UNNAMED</string>
         <string>--add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED</string>
+        <string>--add-opens=java.desktop/javax.swing.text=ALL-UNNAMED</string>
         <string>--add-opens=java.desktop/javax.swing.text.html=ALL-UNNAMED</string>
         <string>--add-opens=java.desktop/sun.awt.datatransfer=ALL-UNNAMED</string>
         <string>--add-opens=java.desktop/sun.awt.image=ALL-UNNAMED</string>
