@@ -19,7 +19,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.ExpressionWithId:
         if (props_ExpressionWithId == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("ExpressionWithId");
+          cpb.rawPresentation("expr-with-id");
           props_ExpressionWithId = cpb.create();
         }
         return props_ExpressionWithId;

@@ -16,15 +16,15 @@
       <unit at="10,0,28,0" name="jetbrains.mps.samples.nodeuid.lang.structure.LanguageConceptSwitch" />
     </file>
     <file name="StructureAspectDescriptor.java">
-      <unit at="14,0,59,0" name="jetbrains.mps.samples.nodeuid.lang.structure.StructureAspectDescriptor" />
+      <unit at="14,0,60,0" name="jetbrains.mps.samples.nodeuid.lang.structure.StructureAspectDescriptor" />
     </file>
   </root>
   <root nodeRef="r:2ce4e65c-c1eb-45f5-a612-2d46a1bf9cef(jetbrains.mps.samples.nodeuid.lang.structure)/5306028619768876669">
     <file name="ConceptPresentationAspectImpl.java">
       <node id="5306028619768876669" at="12,0,13,0" concept="1" trace="props_ExpressionWithId" />
       <node id="5306028619768876669" at="20,45,21,76" concept="3" />
-      <node id="5306028619768876669" at="21,76,22,50" concept="0" />
-      <node id="5306028619768876669" at="22,50,23,48" concept="0" />
+      <node id="5306028619768876669" at="21,76,22,46" concept="0" />
+      <node id="5306028619768876669" at="22,46,23,48" concept="0" />
       <node id="5306028619768876669" at="24,9,25,38" concept="4" />
       <node id="5306028619768876669" at="19,50,24,9" concept="2" />
       <scope id="5306028619768876669" at="20,45,23,48">
@@ -45,13 +45,14 @@
       <node id="5306028619768876669" at="52,63,53,70" concept="0" />
       <node id="5306028619768876669" at="53,70,54,121" concept="0" />
       <node id="5306028619768876669" at="54,121,55,17" concept="0" />
-      <node id="5306028619768876669" at="55,17,56,22" concept="4" />
-      <node id="5306028619768876669" at="49,0,58,0" concept="7" trace="createDescriptorForExpressionWithId#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
+      <node id="5306028619768876669" at="55,17,56,28" concept="0" />
+      <node id="5306028619768876669" at="56,28,57,22" concept="4" />
+      <node id="5306028619768876669" at="49,0,59,0" concept="7" trace="createDescriptorForExpressionWithId#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
       <scope id="5306028619768876669" at="37,50,38,41" />
-      <scope id="5306028619768876669" at="49,74,56,22">
+      <scope id="5306028619768876669" at="49,74,57,22">
         <var name="b" id="5306028619768876669" />
       </scope>
-      <scope id="5306028619768876669" at="49,0,58,0" />
+      <scope id="5306028619768876669" at="49,0,59,0" />
     </file>
   </root>
 </debug-info>
