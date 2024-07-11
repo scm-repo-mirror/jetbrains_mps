@@ -258,6 +258,11 @@ public class MPSDocumentationManager {
 
 
     private @Nullable JComponent createQuickDocComponent(@NotNull Project project, boolean jointPopup) {
+      // If the flag is set to false, the documentation popup will not appear on mouse movement. It can only be displayed using the shortcut.
+      if(!MPSDocumentationManager.getInstance().getShowOnMouseMove()) {
+        return null;
+      }
+
       this.myPopupUI = new MPSDocumentationPopupUI(project, new MPSDocumentationUI(project, myQuickDocMessage));
       if (jointPopup) {
         myPopupUI.jointHover();
