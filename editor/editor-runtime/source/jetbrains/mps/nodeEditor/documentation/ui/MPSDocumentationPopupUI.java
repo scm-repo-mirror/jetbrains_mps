@@ -85,6 +85,7 @@ public class MPSDocumentationPopupUI implements Disposable {
     Presentation presentation = new Presentation();
     presentation.setIcon(AllIcons.Actions.More);
     presentation.putClientProperty(ActionButton.HIDE_DROPDOWN_ICON, true);
+    presentation.setPopupGroup(true);
     myCorner = new ActionButton(gearActions, presentation, ActionPlaces.UNKNOWN, new Dimension(20, 20));
     myCorner.setNoIconsInPopup(true);
 
