@@ -271,8 +271,9 @@ public class MPSDocumentationManager {
     }
 
     private AbstractPopup createHintPopup(JComponent component) {
+      JComponent preferableFocusComponent = myPopupUI == null ? component :  myPopupUI.getPreferableFocusComponent();
       return (AbstractPopup) JBPopupFactory.getInstance()
-                                           .createComponentPopupBuilder(component, component)
+                                           .createComponentPopupBuilder(component, preferableFocusComponent)
                                            .setRequestFocus(false)
                                            .setFocusable(true)
                                            .setMovable(true)
