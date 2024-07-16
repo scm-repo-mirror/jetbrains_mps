@@ -9,6 +9,11 @@ import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 
 // provisional step, to be replaced with ReloadableModule
+// REVIEW: the name "CModule" is meaningless
+// REVIEW: the class seems to be just a pair of SModule and SModuleReference
+// REVIEW: likely, this represents a union type (either, or)
+// REVIEW: the subclasses (Existing, Updated, Uknown) are not adding any functionality
+// REVIEW: could be replaced with an enum
 /*package*/ abstract class CModule {
   @NotNull
   public abstract SModuleReference getModuleReference();

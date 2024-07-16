@@ -52,17 +52,28 @@ import java.util.stream.Stream;
   private final GraphHolder<SModuleReference, CModule> myDepGraph;
   private final Function<SModule, Stream<SModuleReference>> myDependencySupplier;
   // unordered. FIXME rename (hide?)
+  // REVIEW: internal fields are exposed and can be potentially modifed from outside
+  // REVIEW: none of CModule's descendants implement equals/hashCode contract, why use set and not list?
+  // REVIEW: why breaking the naming convention for these fields? other fields follow my* convention
   /*package*/ final Set<CModule> affectedForRemove = new HashSet<>();
   /*package*/ final Set<CModule> affectedForAdd = new HashSet<>();
   private final int myGen;
   private int mySeq;
 
 
+  // REVIEW: the parameter graph passed to this constructor is modified by methods in this class
+  // REVIEW: is it supposed to be private? if not, why keep it as a field?
   public ModuleUpdater(GraphHolder<SModuleReference, CModule> graph, Function<SModule, Stream<SModuleReference>> dependencySupplier, int genSeed) {
     myDepGraph = graph;
     myDependencySupplier = dependencySupplier;
     myGen = genSeed;
   }
+
+  // REVIEW: the purpose of the three methods below  [update|add|remove]Modules
+  // REVIEW: seems to be to prime the contents of myModulesTo[Reload|Add|Remove]
+  // REVIEW: before finally calling refreshGraph
+  // REVIEW: this can be expressed better with a "parameter object" pattern (using e.g. a "builder")
+  // REVIEW: otherwise the intent is not clear
 
   // pre: modules.forEach(we've seen this module - either as a CL objective or as a broken/valid dependency target thereof)
   /*package*/ void updateModules(@NotNull Collection<? extends ReloadableModule> modules) {
@@ -125,6 +136,11 @@ import java.util.stream.Stream;
           // XXX if we remove from myRefStorage2 here, what happens when we resurrect the module as a necessary dependency
           storageForget(mRef);
         }
+    // REVIEW: what are the pre-invariant for affectedForRemove field?
+    // REVIEW: this field doesn't seem to be initialized prior to calling this method,
+    // REVIEW: but a call to storageForget above may actually affect its state
+    // REVIEW: also, this method both reads from and writes to affectedForRemove, this raises questions about the intent
+    // REVIEW: what happens if this method is called multiple times?
         final List<SModuleReference> removedCModuleRefs = affectedForRemove.stream().map(CModule::getModuleReference).collect(Collectors.toList());
 
         HashSet<SModuleReference> checkNoLongerInGraph = new HashSet<>(removedCModuleRefs); // inv: forEach(myRefStorage[v].module == null); we don't
@@ -141,6 +157,8 @@ import java.util.stream.Stream;
         final HashSet<SModuleReference> recalculateStatus = new HashSet<>();
         final HashSet<SModuleReference> recalculateEdges = new HashSet<>();
         myDepGraph.fillIncomingEdgesShallow(removedCModuleRefs, recalculateStatus);
+    // REVIEW: removedCModuleRefs is created by iterating over the same field affectedForRemove 15 lines above
+    // REVIEW: what is the intent of this action? wee seem to be doing sort of dfs on the graph, but what is the idea?
         myDepGraph.visitIncomingDeep(removedCModuleRefs, affectedForRemove::add);
 
         for (ReloadableModule module : myModulesToAdd) {
@@ -162,6 +180,10 @@ import java.util.stream.Stream;
           myDepGraph.fillIncomingEdgesShallow(Collections.singleton(mRef), recalculateStatus);
           // deep incoming CModule into affectedForRemove -> all CLs for modules that may use classes of this one has to be reloaded
           // to get their list of dependent classloaders updated.
+    // REVIEW: this runs a dfs starting from mRef, which comes from myModulesToReload
+    // REVIEW: compare this with a call to storageUpdate 10 lines below --
+    // REVIEW: we are going to update affectedForRemove again with the same input data
+    // REVIEW: what is the point of all this?
           myDepGraph.visitIncomingDeep(Collections.singleton(mRef), affectedForRemove::add);
           // anticipated module, all others that depend on it shall get loaded (if their dependencies are satisfied)
           knownAndChanged.add(mRef);
@@ -170,6 +192,8 @@ import java.util.stream.Stream;
         }
         // well, in fact it should be knownAndChanged, just don't want to go throw SModuleReference->SModule map again, and
         // therefore sort of rely on flawless assert myDepGraph.contains(mRef) in the loop, above
+    // REVIEW: storageUpdate has a side effect of also updating affectedForRemove contents
+    // REVIEW: the intent of affectedForRemove is totally unclear
         myModulesToReload.forEach(this::storageUpdate);
 
         // modules with broken dependencies that were expected but not met, get a chance to load
@@ -218,7 +242,11 @@ import java.util.stream.Stream;
         myModulesToAdd.clear();
         myModulesToReload.clear();
 
+    // REVIEW: forStatusUpdate is never accessed (see the only callsite of this method)
         return forStatusUpdate;
+    // REVIEW: what are the post-invariants of this method in regard to affectedForAdd and affectedForRemove?
+    // REVIEW: both affectedForAdd and affectedForRemove could be made local variables and returned from this method
+    // REVIEW: wrapped in an object representing the results 
   }
 
 
@@ -265,6 +293,11 @@ import java.util.stream.Stream;
   public boolean isDirty() {
     return !(myModulesToAdd.isEmpty() && myModulesToReload.isEmpty() && myModulesToRemove.isEmpty());
   }
+
+  // REVIEW: the names of the four methods below storage[Forget|Update|Add|AddUnknown]
+  // REVIEW: are misleading: in fact the underlying graph gets updated
+  // REVIEW: while affectedFor[Remove|Add] collect either old or new vertices from the graph
+  // REVIEW: can this functionality be extracted directly to the GraphHolder?
 
   private void storageForget(SModuleReference mRef) {
     CModule removed = myDepGraph.update(mRef, new Unknown(mRef, myGen, mySeq++));

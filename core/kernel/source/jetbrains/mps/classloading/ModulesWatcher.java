@@ -138,6 +138,7 @@ public class ModulesWatcher {
         final int wasEdges = myDepGraph.getEdgesCount();
         final int wasVertices = myDepGraph.getVerticesCount();
 
+        // REVIEW: the returned value is ignored and this is the only place where this method is called
         moduleUpdater.refreshGraph();
 
         LOG.debug("Difference in the vertex count after validation " + (myDepGraph.getVerticesCount() - wasVertices));
