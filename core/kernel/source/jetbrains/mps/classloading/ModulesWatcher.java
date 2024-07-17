@@ -139,6 +139,9 @@ public class ModulesWatcher {
         final int wasVertices = myDepGraph.getVerticesCount();
 
         // REVIEW: the returned value is ignored and this is the only place where this method is called
+        //    There's refillStatusMap() call down here, which is supposed to make use of this information eventually.
+        //    Now, for historical reasons, complete map is refreshed, which is not effective if just a coupled of modules
+        //    got updated
         moduleUpdater.refreshGraph();
 
         LOG.debug("Difference in the vertex count after validation " + (myDepGraph.getVerticesCount() - wasVertices));
