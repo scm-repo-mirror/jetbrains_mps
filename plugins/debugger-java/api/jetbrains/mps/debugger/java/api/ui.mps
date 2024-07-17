@@ -143,15 +143,15 @@
       </node>
     </node>
     <node concept="Wx3nA" id="15fzu3GFwxo" role="jymVt">
-      <property role="TrG5h" value="THREAD_AT_BREAKPOINT" />
+      <property role="TrG5h" value="THREAD_CURRENT" />
       <property role="3TUv4t" value="true" />
       <node concept="3uibUv" id="15fzu3GFwxp" role="1tU5fm">
         <ref role="3uigEE" to="dxuu:~Icon" resolve="Icon" />
       </node>
       <node concept="3Tm1VV" id="15fzu3GFwxq" role="1B3o_S" />
-      <node concept="10M0yZ" id="7tJbp6UEwcx" role="33vP2m">
+      <node concept="10M0yZ" id="29Sl4s9L4wK" role="33vP2m">
+        <ref role="3cqZAo" to="z2i8:~AllIcons$Debugger.ThreadCurrent" resolve="ThreadCurrent" />
         <ref role="1PxDUh" to="z2i8:~AllIcons$Debugger" resolve="AllIcons.Debugger" />
-        <ref role="3cqZAo" to="z2i8:~AllIcons$Debugger.ThreadAtBreakpoint" resolve="ThreadAtBreakpoint" />
       </node>
     </node>
     <node concept="3clFbW" id="2Y$mRnICmiq" role="jymVt">
