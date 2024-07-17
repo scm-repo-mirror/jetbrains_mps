@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.ide.bookmark;
 
+import com.intellij.icons.AllIcons.Toolwindows;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.State;
@@ -43,7 +44,7 @@ public class BookmarksTool extends BaseProjectTool implements PersistentStateCom
   private TreeState myTreeState;
 
   public BookmarksTool(Project project) {
-    super(project, "Bookmarks tool", null, null, ToolWindowAnchor.LEFT, false, true);
+    super(project, "Bookmarks tool", null, Toolwindows.ToolWindowBookmarks, ToolWindowAnchor.LEFT, false, true);
   }
 
   @Override
