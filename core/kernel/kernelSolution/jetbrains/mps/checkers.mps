@@ -6513,7 +6513,7 @@
       <node concept="3clFb_" id="1D7Kbt3rHJk" role="jymVt">
         <property role="TrG5h" value="catchingErrors" />
         <node concept="3uibUv" id="1D7Kbt3rNRz" role="3clF45">
-          <ref role="3uigEE" node="3RAxiQnEFam" resolve="AbstractModuleChecker" />
+          <ref role="3uigEE" node="3RAxiQnEFam" resolve="IChecker.AbstractModuleChecker" />
           <node concept="16syzq" id="1D7Kbt3rPZF" role="11_B2D">
             <ref role="16sUi3" node="3RAxiQnEFeB" resolve="I" />
           </node>
@@ -6526,21 +6526,21 @@
                 <node concept="1Y3b0j" id="1D7Kbt3s1nJ" role="YeSDq">
                   <property role="2bfB8j" value="true" />
                   <property role="373rjd" value="true" />
-                  <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" />
-                  <ref role="1Y3XeK" node="3RAxiQnEFam" resolve="AbstractModuleChecker" />
+                  <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
+                  <ref role="1Y3XeK" node="3RAxiQnEFam" resolve="IChecker.AbstractModuleChecker" />
                   <node concept="3Tm1VV" id="1D7Kbt3s1nK" role="1B3o_S" />
                   <node concept="3clFb_" id="1D7Kbt3s4X6" role="jymVt">
                     <property role="2aFKle" value="false" />
                     <property role="TrG5h" value="getCategory" />
                     <node concept="3Tm1VV" id="1D7Kbt3s4X8" role="1B3o_S" />
                     <node concept="3uibUv" id="1D7Kbt3s4X9" role="3clF45">
-                      <ref role="3uigEE" to="d6hs:~IssueKindReportItem$CheckerCategory" resolve="CheckerCategory" />
+                      <ref role="3uigEE" to="d6hs:~IssueKindReportItem$CheckerCategory" resolve="IssueKindReportItem.CheckerCategory" />
                     </node>
                     <node concept="3clFbS" id="1D7Kbt3s508" role="3clF47">
                       <node concept="3clFbF" id="1D7Kbt3sfSH" role="3cqZAp">
                         <node concept="2OqwBi" id="1D7Kbt3skTv" role="3clFbG">
                           <node concept="Xjq3P" id="1D7Kbt3sfSG" role="2Oq$k0">
-                            <ref role="1HBi2w" node="3RAxiQnEFam" resolve="AbstractModuleChecker" />
+                            <ref role="1HBi2w" node="3RAxiQnEFam" resolve="IChecker.AbstractModuleChecker" />
                           </node>
                           <node concept="liA8E" id="1D7Kbt3sp3c" role="2OqNvi">
                             <ref role="37wK5l" node="3xfDcbRdDB8" resolve="getCategory" />
@@ -6549,7 +6549,7 @@
                       </node>
                     </node>
                     <node concept="2AHcQZ" id="1D7Kbt3s509" role="2AJF6D">
-                      <ref role="2AI5Lk" to="wyt6:~Override" />
+                      <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
                     </node>
                   </node>
                   <node concept="3clFb_" id="1D7Kbt3sSLx" role="jymVt">
@@ -6572,7 +6572,7 @@
                       <node concept="3clFbF" id="1D7Kbt3t3gV" role="3cqZAp">
                         <node concept="2OqwBi" id="1D7Kbt3t94f" role="3clFbG">
                           <node concept="Xjq3P" id="1D7Kbt3t3gU" role="2Oq$k0">
-                            <ref role="1HBi2w" node="3RAxiQnEFam" resolve="AbstractModuleChecker" />
+                            <ref role="1HBi2w" node="3RAxiQnEFam" resolve="IChecker.AbstractModuleChecker" />
                           </node>
                           <node concept="liA8E" id="1D7Kbt3thxt" role="2OqNvi">
                             <ref role="37wK5l" node="x6gRTxxdRt" resolve="getPostprocessor" />
@@ -6644,7 +6644,7 @@
                                         <property role="TrG5h" value="getIssueKind" />
                                         <node concept="3Tm1VV" id="7EYwLjMWO22" role="1B3o_S" />
                                         <node concept="3uibUv" id="7EYwLjMWO23" role="3clF45">
-                                          <ref role="3uigEE" to="d6hs:~IssueKindReportItem$ItemKind" resolve="ItemKind" />
+                                          <ref role="3uigEE" to="d6hs:~IssueKindReportItem$ItemKind" resolve="IssueKindReportItem.ItemKind" />
                                         </node>
                                         <node concept="3clFbS" id="7EYwLjMWO24" role="3clF47">
                                           <node concept="3clFbF" id="7EYwLjMWO25" role="3cqZAp">
@@ -6654,7 +6654,7 @@
                                                   <ref role="37wK5l" node="3xfDcbRdDB8" resolve="getCategory" />
                                                 </node>
                                                 <node concept="Xjq3P" id="7EYwLjMXSxG" role="2Oq$k0">
-                                                  <ref role="1HBi2w" node="3RAxiQnEFam" resolve="AbstractModuleChecker" />
+                                                  <ref role="1HBi2w" node="3RAxiQnEFam" resolve="IChecker.AbstractModuleChecker" />
                                                 </node>
                                               </node>
                                               <node concept="liA8E" id="7EYwLjMWO2a" role="2OqNvi">
@@ -6734,7 +6734,7 @@
                           <node concept="3clFbF" id="7EYwLjMWO2x" role="3cqZAp">
                             <node concept="2OqwBi" id="7EYwLjMWO2y" role="3clFbG">
                               <node concept="Xjq3P" id="7EYwLjMWO2z" role="2Oq$k0">
-                                <ref role="1HBi2w" node="3RAxiQnEFam" resolve="AbstractModuleChecker" />
+                                <ref role="1HBi2w" node="3RAxiQnEFam" resolve="IChecker.AbstractModuleChecker" />
                               </node>
                               <node concept="liA8E" id="7EYwLjMWO2$" role="2OqNvi">
                                 <ref role="37wK5l" node="1EzqTC0eAhk" resolve="check" />
@@ -6770,7 +6770,7 @@
                       <node concept="3clFbF" id="1D7Kbt3tAuy" role="3cqZAp">
                         <node concept="2OqwBi" id="1D7Kbt3tJ4F" role="3clFbG">
                           <node concept="Xjq3P" id="1D7Kbt3tAux" role="2Oq$k0">
-                            <ref role="1HBi2w" node="3RAxiQnEFam" resolve="AbstractModuleChecker" />
+                            <ref role="1HBi2w" node="3RAxiQnEFam" resolve="IChecker.AbstractModuleChecker" />
                           </node>
                           <node concept="liA8E" id="1D7Kbt3tMDX" role="2OqNvi">
                             <ref role="37wK5l" to="wyt6:~Object.toString()" resolve="toString" />
@@ -6779,7 +6779,7 @@
                       </node>
                     </node>
                     <node concept="2AHcQZ" id="1D7Kbt3tmxM" role="2AJF6D">
-                      <ref role="2AI5Lk" to="wyt6:~Override" />
+                      <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
                     </node>
                   </node>
                 </node>
@@ -6812,7 +6812,7 @@
       <node concept="3clFb_" id="1D7Kbt3v0RE" role="jymVt">
         <property role="TrG5h" value="catchingErrors" />
         <node concept="3uibUv" id="1D7Kbt3v0RF" role="3clF45">
-          <ref role="3uigEE" node="3RAxiQnEFwn" resolve="AbstractModelChecker" />
+          <ref role="3uigEE" node="3RAxiQnEFwn" resolve="IChecker.AbstractModelChecker" />
           <node concept="16syzq" id="1D7Kbt3v0RG" role="11_B2D">
             <ref role="16sUi3" node="3RAxiQnEFwp" resolve="I" />
           </node>
@@ -6825,21 +6825,21 @@
                 <node concept="1Y3b0j" id="1D7Kbt3v0RM" role="YeSDq">
                   <property role="2bfB8j" value="true" />
                   <property role="373rjd" value="true" />
-                  <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" />
-                  <ref role="1Y3XeK" node="3RAxiQnEFwn" resolve="AbstractModelChecker" />
+                  <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
+                  <ref role="1Y3XeK" node="3RAxiQnEFwn" resolve="IChecker.AbstractModelChecker" />
                   <node concept="3Tm1VV" id="1D7Kbt3v0RN" role="1B3o_S" />
                   <node concept="3clFb_" id="1D7Kbt3v0Sb" role="jymVt">
                     <property role="2aFKle" value="false" />
                     <property role="TrG5h" value="getCategory" />
                     <node concept="3Tm1VV" id="1D7Kbt3v0Sc" role="1B3o_S" />
                     <node concept="3uibUv" id="1D7Kbt3v0Sd" role="3clF45">
-                      <ref role="3uigEE" to="d6hs:~IssueKindReportItem$CheckerCategory" resolve="CheckerCategory" />
+                      <ref role="3uigEE" to="d6hs:~IssueKindReportItem$CheckerCategory" resolve="IssueKindReportItem.CheckerCategory" />
                     </node>
                     <node concept="3clFbS" id="1D7Kbt3v0Se" role="3clF47">
                       <node concept="3clFbF" id="1D7Kbt3v0Sf" role="3cqZAp">
                         <node concept="2OqwBi" id="1D7Kbt3v0Sg" role="3clFbG">
                           <node concept="Xjq3P" id="1D7Kbt3v0Sh" role="2Oq$k0">
-                            <ref role="1HBi2w" node="3RAxiQnEFwn" resolve="AbstractModelChecker" />
+                            <ref role="1HBi2w" node="3RAxiQnEFwn" resolve="IChecker.AbstractModelChecker" />
                           </node>
                           <node concept="liA8E" id="1D7Kbt3v0Si" role="2OqNvi">
                             <ref role="37wK5l" node="3xfDcbRdDB8" resolve="getCategory" />
@@ -6848,7 +6848,7 @@
                       </node>
                     </node>
                     <node concept="2AHcQZ" id="1D7Kbt3v0Sj" role="2AJF6D">
-                      <ref role="2AI5Lk" to="wyt6:~Override" />
+                      <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
                     </node>
                   </node>
                   <node concept="3clFb_" id="1D7Kbt3v0Sk" role="jymVt">
@@ -6871,7 +6871,7 @@
                       <node concept="3clFbF" id="1D7Kbt3v0Sr" role="3cqZAp">
                         <node concept="2OqwBi" id="1D7Kbt3v0Ss" role="3clFbG">
                           <node concept="Xjq3P" id="1D7Kbt3v0St" role="2Oq$k0">
-                            <ref role="1HBi2w" node="3RAxiQnEFwn" resolve="AbstractModelChecker" />
+                            <ref role="1HBi2w" node="3RAxiQnEFwn" resolve="IChecker.AbstractModelChecker" />
                           </node>
                           <node concept="liA8E" id="1D7Kbt3v0Su" role="2OqNvi">
                             <ref role="37wK5l" node="x6gRTxxdRt" resolve="getPostprocessor" />
@@ -6890,7 +6890,7 @@
                       <node concept="3clFbF" id="1D7Kbt3v0S$" role="3cqZAp">
                         <node concept="2OqwBi" id="1D7Kbt3v0S_" role="3clFbG">
                           <node concept="Xjq3P" id="1D7Kbt3v0SA" role="2Oq$k0">
-                            <ref role="1HBi2w" node="3RAxiQnEFwn" resolve="AbstractModelChecker" />
+                            <ref role="1HBi2w" node="3RAxiQnEFwn" resolve="IChecker.AbstractModelChecker" />
                           </node>
                           <node concept="liA8E" id="1D7Kbt3v0SB" role="2OqNvi">
                             <ref role="37wK5l" to="wyt6:~Object.toString()" resolve="toString" />
@@ -6899,7 +6899,7 @@
                       </node>
                     </node>
                     <node concept="2AHcQZ" id="1D7Kbt3v0SC" role="2AJF6D">
-                      <ref role="2AI5Lk" to="wyt6:~Override" />
+                      <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
                     </node>
                   </node>
                   <node concept="3clFb_" id="1D7Kbt3v0RO" role="jymVt">
@@ -6965,7 +6965,7 @@
                                         <property role="TrG5h" value="getIssueKind" />
                                         <node concept="3Tm1VV" id="7EYwLjMVk_H" role="1B3o_S" />
                                         <node concept="3uibUv" id="7EYwLjMVk_I" role="3clF45">
-                                          <ref role="3uigEE" to="d6hs:~IssueKindReportItem$ItemKind" resolve="ItemKind" />
+                                          <ref role="3uigEE" to="d6hs:~IssueKindReportItem$ItemKind" resolve="IssueKindReportItem.ItemKind" />
                                         </node>
                                         <node concept="3clFbS" id="7EYwLjMVk_J" role="3clF47">
                                           <node concept="3clFbF" id="7EYwLjMVk_K" role="3cqZAp">
@@ -6975,7 +6975,7 @@
                                                   <ref role="37wK5l" node="3xfDcbRdDB8" resolve="getCategory" />
                                                 </node>
                                                 <node concept="Xjq3P" id="7EYwLjMWc4E" role="2Oq$k0">
-                                                  <ref role="1HBi2w" node="3RAxiQnEFwn" resolve="AbstractModelChecker" />
+                                                  <ref role="1HBi2w" node="3RAxiQnEFwn" resolve="IChecker.AbstractModelChecker" />
                                                 </node>
                                               </node>
                                               <node concept="liA8E" id="7EYwLjMVk_P" role="2OqNvi">
@@ -7055,7 +7055,7 @@
                           <node concept="3clFbF" id="7EYwLjMVkAc" role="3cqZAp">
                             <node concept="2OqwBi" id="7EYwLjMVkAd" role="3clFbG">
                               <node concept="Xjq3P" id="7EYwLjMVkAe" role="2Oq$k0">
-                                <ref role="1HBi2w" node="3RAxiQnEFwn" resolve="AbstractModelChecker" />
+                                <ref role="1HBi2w" node="3RAxiQnEFwn" resolve="IChecker.AbstractModelChecker" />
                               </node>
                               <node concept="liA8E" id="7EYwLjMVkAf" role="2OqNvi">
                                 <ref role="37wK5l" node="1EzqTC0eAhk" resolve="check" />
@@ -7122,7 +7122,7 @@
             <node concept="3cpWsn" id="76WrRQZeioM" role="3cpWs9">
               <property role="TrG5h" value="catchingErrors" />
               <node concept="3uibUv" id="76WrRQZbK_x" role="1tU5fm">
-                <ref role="3uigEE" node="3RAxiQnEF_M" resolve="AbstractRootChecker" />
+                <ref role="3uigEE" node="3RAxiQnEF_M" resolve="IChecker.AbstractRootChecker" />
                 <node concept="16syzq" id="76WrRQZbK_$" role="11_B2D">
                   <ref role="16sUi3" node="3RAxiQnEF_O" resolve="I" />
                 </node>
@@ -7132,8 +7132,8 @@
                   <node concept="1Y3b0j" id="76WrRQZeSyu" role="YeSDq">
                     <property role="2bfB8j" value="true" />
                     <property role="373rjd" value="true" />
-                    <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" />
-                    <ref role="1Y3XeK" node="3RAxiQnEF_M" resolve="AbstractRootChecker" />
+                    <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
+                    <ref role="1Y3XeK" node="3RAxiQnEF_M" resolve="IChecker.AbstractRootChecker" />
                     <node concept="3Tm1VV" id="76WrRQZeSyv" role="1B3o_S" />
                     <node concept="16syzq" id="76WrRQZf1sb" role="2Ghqu4">
                       <ref role="16sUi3" node="3RAxiQnEF_O" resolve="I" />
@@ -7143,13 +7143,13 @@
                       <property role="TrG5h" value="getCategory" />
                       <node concept="3Tm1VV" id="76WrRQZf6BF" role="1B3o_S" />
                       <node concept="3uibUv" id="76WrRQZf6BG" role="3clF45">
-                        <ref role="3uigEE" to="d6hs:~IssueKindReportItem$CheckerCategory" resolve="CheckerCategory" />
+                        <ref role="3uigEE" to="d6hs:~IssueKindReportItem$CheckerCategory" resolve="IssueKindReportItem.CheckerCategory" />
                       </node>
                       <node concept="3clFbS" id="76WrRQZf6BV" role="3clF47">
                         <node concept="3clFbF" id="76WrRQZhLyV" role="3cqZAp">
                           <node concept="2OqwBi" id="76WrRQZhRnr" role="3clFbG">
                             <node concept="Xjq3P" id="76WrRQZhLyX" role="2Oq$k0">
-                              <ref role="1HBi2w" node="3RAxiQnEF_M" resolve="AbstractRootChecker" />
+                              <ref role="1HBi2w" node="3RAxiQnEF_M" resolve="IChecker.AbstractRootChecker" />
                             </node>
                             <node concept="liA8E" id="76WrRQZi7df" role="2OqNvi">
                               <ref role="37wK5l" node="3xfDcbRdDB8" resolve="getCategory" />
@@ -7158,7 +7158,7 @@
                         </node>
                       </node>
                       <node concept="2AHcQZ" id="76WrRQZf6BW" role="2AJF6D">
-                        <ref role="2AI5Lk" to="wyt6:~Override" />
+                        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
                       </node>
                     </node>
                     <node concept="3clFb_" id="76WrRQZfGGl" role="jymVt">
@@ -7181,7 +7181,7 @@
                         <node concept="3clFbF" id="76WrRQZfGGB" role="3cqZAp">
                           <node concept="2OqwBi" id="76WrRQZhuGB" role="3clFbG">
                             <node concept="Xjq3P" id="76WrRQZhnbp" role="2Oq$k0">
-                              <ref role="1HBi2w" node="3RAxiQnEF_M" resolve="AbstractRootChecker" />
+                              <ref role="1HBi2w" node="3RAxiQnEF_M" resolve="IChecker.AbstractRootChecker" />
                             </node>
                             <node concept="liA8E" id="76WrRQZhAGU" role="2OqNvi">
                               <ref role="37wK5l" node="x6gRTxxdRt" resolve="getPostprocessor" />
@@ -7200,7 +7200,7 @@
                         <node concept="3clFbF" id="76WrRQZfsN6" role="3cqZAp">
                           <node concept="2OqwBi" id="76WrRQZgY57" role="3clFbG">
                             <node concept="Xjq3P" id="76WrRQZgAKi" role="2Oq$k0">
-                              <ref role="1HBi2w" node="3RAxiQnEF_M" resolve="AbstractRootChecker" />
+                              <ref role="1HBi2w" node="3RAxiQnEF_M" resolve="IChecker.AbstractRootChecker" />
                             </node>
                             <node concept="liA8E" id="76WrRQZheMA" role="2OqNvi">
                               <ref role="37wK5l" to="wyt6:~Object.toString()" resolve="toString" />
@@ -7209,7 +7209,7 @@
                         </node>
                       </node>
                       <node concept="2AHcQZ" id="76WrRQZfsN4" role="2AJF6D">
-                        <ref role="2AI5Lk" to="wyt6:~Override" />
+                        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
                       </node>
                     </node>
                     <node concept="3clFb_" id="76WrRQZf6Bc" role="jymVt">
@@ -7275,7 +7275,7 @@
                                           <property role="TrG5h" value="getIssueKind" />
                                           <node concept="3Tm1VV" id="7EYwLjMUeGG" role="1B3o_S" />
                                           <node concept="3uibUv" id="7EYwLjMUeGH" role="3clF45">
-                                            <ref role="3uigEE" to="d6hs:~IssueKindReportItem$ItemKind" resolve="ItemKind" />
+                                            <ref role="3uigEE" to="d6hs:~IssueKindReportItem$ItemKind" resolve="IssueKindReportItem.ItemKind" />
                                           </node>
                                           <node concept="3clFbS" id="7EYwLjMUeGI" role="3clF47">
                                             <node concept="3clFbF" id="7EYwLjMUeGJ" role="3cqZAp">
@@ -7285,7 +7285,7 @@
                                                     <ref role="37wK5l" node="3xfDcbRdDB8" resolve="getCategory" />
                                                   </node>
                                                   <node concept="Xjq3P" id="7EYwLjMUzxT" role="2Oq$k0">
-                                                    <ref role="1HBi2w" node="3RAxiQnEF_M" resolve="AbstractRootChecker" />
+                                                    <ref role="1HBi2w" node="3RAxiQnEF_M" resolve="IChecker.AbstractRootChecker" />
                                                   </node>
                                                 </node>
                                                 <node concept="liA8E" id="7EYwLjMUeGO" role="2OqNvi">
@@ -7365,7 +7365,7 @@
                             <node concept="3clFbF" id="7EYwLjMUeHb" role="3cqZAp">
                               <node concept="2OqwBi" id="7EYwLjMUeHc" role="3clFbG">
                                 <node concept="Xjq3P" id="7EYwLjMUeHd" role="2Oq$k0">
-                                  <ref role="1HBi2w" node="3RAxiQnEF_M" resolve="AbstractRootChecker" />
+                                  <ref role="1HBi2w" node="3RAxiQnEF_M" resolve="IChecker.AbstractRootChecker" />
                                 </node>
                                 <node concept="liA8E" id="7EYwLjMUeHe" role="2OqNvi">
                                   <ref role="37wK5l" node="1EzqTC0eAhk" resolve="check" />
@@ -7414,7 +7414,7 @@
                 <node concept="1pGfFk" id="IMyJ9Jxn0m" role="2ShVmc">
                   <ref role="37wK5l" node="76Xff8JNYMc" resolve="IteratingChecker" />
                   <node concept="37vLTw" id="76WrRQZeioO" role="37wK5m">
-                    <ref role="3cqZAo" node="76WrRQZeioM" resolve="checker" />
+                    <ref role="3cqZAo" node="76WrRQZeioM" resolve="catchingErrors" />
                   </node>
                   <node concept="1bVj0M" id="IMyJ9Jxs3r" role="37wK5m">
                     <node concept="3clFbS" id="IMyJ9Jxs3t" role="1bW5cS">
@@ -7646,7 +7646,7 @@
             <node concept="3cpWsn" id="76WrRQZvfN0" role="3cpWs9">
               <property role="TrG5h" value="catchingErrors" />
               <node concept="3uibUv" id="76WrRQZvaZd" role="1tU5fm">
-                <ref role="3uigEE" node="3RAxiQnEFHw" resolve="AbstractNodeChecker" />
+                <ref role="3uigEE" node="3RAxiQnEFHw" resolve="IChecker.AbstractNodeChecker" />
                 <node concept="16syzq" id="76WrRQZvaZg" role="11_B2D">
                   <ref role="16sUi3" node="3RAxiQnEFHy" resolve="I" />
                 </node>
@@ -7656,8 +7656,8 @@
                   <node concept="1Y3b0j" id="76WrRQZwerP" role="YeSDq">
                     <property role="2bfB8j" value="true" />
                     <property role="373rjd" value="true" />
-                    <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" />
-                    <ref role="1Y3XeK" node="3RAxiQnEFHw" resolve="AbstractNodeChecker" />
+                    <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
+                    <ref role="1Y3XeK" node="3RAxiQnEFHw" resolve="IChecker.AbstractNodeChecker" />
                     <node concept="3Tm1VV" id="76WrRQZwerQ" role="1B3o_S" />
                     <node concept="16syzq" id="76WrRQZw81O" role="2Ghqu4">
                       <ref role="16sUi3" node="3RAxiQnEFHy" resolve="I" />
@@ -7667,13 +7667,13 @@
                       <property role="TrG5h" value="getCategory" />
                       <node concept="3Tm1VV" id="76WrRQZwmZ9" role="1B3o_S" />
                       <node concept="3uibUv" id="76WrRQZwmZa" role="3clF45">
-                        <ref role="3uigEE" to="d6hs:~IssueKindReportItem$CheckerCategory" resolve="CheckerCategory" />
+                        <ref role="3uigEE" to="d6hs:~IssueKindReportItem$CheckerCategory" resolve="IssueKindReportItem.CheckerCategory" />
                       </node>
                       <node concept="3clFbS" id="76WrRQZwmZp" role="3clF47">
                         <node concept="3clFbF" id="76WrRQZylPs" role="3cqZAp">
                           <node concept="2OqwBi" id="76WrRQZyr58" role="3clFbG">
                             <node concept="Xjq3P" id="76WrRQZylPt" role="2Oq$k0">
-                              <ref role="1HBi2w" node="3RAxiQnEFHw" resolve="AbstractNodeChecker" />
+                              <ref role="1HBi2w" node="3RAxiQnEFHw" resolve="IChecker.AbstractNodeChecker" />
                             </node>
                             <node concept="liA8E" id="76WrRQZyyC4" role="2OqNvi">
                               <ref role="37wK5l" node="3xfDcbRdDB8" resolve="getCategory" />
@@ -7682,7 +7682,7 @@
                         </node>
                       </node>
                       <node concept="2AHcQZ" id="76WrRQZwmZq" role="2AJF6D">
-                        <ref role="2AI5Lk" to="wyt6:~Override" />
+                        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
                       </node>
                     </node>
                     <node concept="3clFb_" id="76WrRQZwD03" role="jymVt">
@@ -7705,7 +7705,7 @@
                         <node concept="3clFbF" id="76WrRQZxYzy" role="3cqZAp">
                           <node concept="2OqwBi" id="76WrRQZy4Wg" role="3clFbG">
                             <node concept="Xjq3P" id="76WrRQZxYzz" role="2Oq$k0">
-                              <ref role="1HBi2w" node="3RAxiQnEFHw" resolve="AbstractNodeChecker" />
+                              <ref role="1HBi2w" node="3RAxiQnEFHw" resolve="IChecker.AbstractNodeChecker" />
                             </node>
                             <node concept="liA8E" id="76WrRQZybov" role="2OqNvi">
                               <ref role="37wK5l" node="x6gRTxxdRt" resolve="getPostprocessor" />
@@ -7724,7 +7724,7 @@
                         <node concept="3clFbF" id="76WrRQZxpqt" role="3cqZAp">
                           <node concept="2OqwBi" id="76WrRQZxvDx" role="3clFbG">
                             <node concept="Xjq3P" id="76WrRQZxpqu" role="2Oq$k0">
-                              <ref role="1HBi2w" node="3RAxiQnEFHw" resolve="AbstractNodeChecker" />
+                              <ref role="1HBi2w" node="3RAxiQnEFHw" resolve="IChecker.AbstractNodeChecker" />
                             </node>
                             <node concept="liA8E" id="76WrRQZxA7a" role="2OqNvi">
                               <ref role="37wK5l" to="wyt6:~Object.toString()" resolve="toString" />
@@ -7733,7 +7733,7 @@
                         </node>
                       </node>
                       <node concept="2AHcQZ" id="76WrRQZwSb8" role="2AJF6D">
-                        <ref role="2AI5Lk" to="wyt6:~Override" />
+                        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
                       </node>
                     </node>
                     <node concept="3clFb_" id="76WrRQZwmYE" role="jymVt">
@@ -7799,14 +7799,14 @@
                                           <property role="TrG5h" value="getIssueKind" />
                                           <node concept="3Tm1VV" id="7EYwLjMRNPO" role="1B3o_S" />
                                           <node concept="3uibUv" id="7EYwLjMRNPP" role="3clF45">
-                                            <ref role="3uigEE" to="d6hs:~IssueKindReportItem$ItemKind" resolve="ItemKind" />
+                                            <ref role="3uigEE" to="d6hs:~IssueKindReportItem$ItemKind" resolve="IssueKindReportItem.ItemKind" />
                                           </node>
                                           <node concept="3clFbS" id="7EYwLjMRNPQ" role="3clF47">
                                             <node concept="3clFbF" id="7EYwLjMRNPR" role="3cqZAp">
                                               <node concept="2OqwBi" id="7EYwLjMRNPS" role="3clFbG">
                                                 <node concept="2OqwBi" id="7EYwLjMRNPT" role="2Oq$k0">
                                                   <node concept="Xjq3P" id="7EYwLjMRNPU" role="2Oq$k0">
-                                                    <ref role="1HBi2w" node="3RAxiQnEFHw" resolve="AbstractNodeChecker" />
+                                                    <ref role="1HBi2w" node="3RAxiQnEFHw" resolve="IChecker.AbstractNodeChecker" />
                                                   </node>
                                                   <node concept="liA8E" id="7EYwLjMRNPV" role="2OqNvi">
                                                     <ref role="37wK5l" node="3xfDcbRdDB8" resolve="getCategory" />
@@ -7889,7 +7889,7 @@
                             <node concept="3clFbF" id="76WrRQZx8Uu" role="3cqZAp">
                               <node concept="2OqwBi" id="76WrRQZyCVO" role="3clFbG">
                                 <node concept="Xjq3P" id="76WrRQZx8Ut" role="2Oq$k0">
-                                  <ref role="1HBi2w" node="3RAxiQnEFHw" resolve="AbstractNodeChecker" />
+                                  <ref role="1HBi2w" node="3RAxiQnEFHw" resolve="IChecker.AbstractNodeChecker" />
                                 </node>
                                 <node concept="liA8E" id="76WrRQZyIog" role="2OqNvi">
                                   <ref role="37wK5l" node="1EzqTC0eAhk" resolve="check" />
@@ -7941,7 +7941,7 @@
                 <node concept="1pGfFk" id="320sejm97f9" role="2ShVmc">
                   <ref role="37wK5l" node="76Xff8JNYMc" resolve="IteratingChecker" />
                   <node concept="37vLTw" id="76WrRQZvfN2" role="37wK5m">
-                    <ref role="3cqZAo" node="76WrRQZvfN0" resolve="checker" />
+                    <ref role="3cqZAo" node="76WrRQZvfN0" resolve="catchingErrors" />
                   </node>
                   <node concept="1bVj0M" id="320sejm97fb" role="37wK5m">
                     <node concept="3clFbS" id="320sejm97fc" role="1bW5cS">
@@ -12028,7 +12028,7 @@
                     <node concept="3cpWsn" id="1D7Kbt3u$Lq" role="3cpWs9">
                       <property role="TrG5h" value="moduleChecker" />
                       <node concept="3uibUv" id="1D7Kbt3r_5m" role="1tU5fm">
-                        <ref role="3uigEE" node="3RAxiQnEFwn" resolve="AbstractModelChecker" />
+                        <ref role="3uigEE" node="3RAxiQnEFwn" resolve="IChecker.AbstractModelChecker" />
                         <node concept="3qTvmN" id="1D7Kbt3r_5p" role="11_B2D" />
                       </node>
                       <node concept="10QFUN" id="1D7Kbt3u$Lr" role="33vP2m">
@@ -12036,7 +12036,7 @@
                           <ref role="3cqZAo" node="34euvBSFxHT" resolve="checker" />
                         </node>
                         <node concept="3uibUv" id="1D7Kbt3u$Lt" role="10QFUM">
-                          <ref role="3uigEE" node="3RAxiQnEFwn" resolve="AbstractModelChecker" />
+                          <ref role="3uigEE" node="3RAxiQnEFwn" resolve="IChecker.AbstractModelChecker" />
                           <node concept="3qTvmN" id="1D7Kbt3u$Lu" role="11_B2D" />
                         </node>
                       </node>
@@ -12084,7 +12084,7 @@
                                 <ref role="3cqZAo" node="34euvBSFxHT" resolve="checker" />
                               </node>
                               <node concept="3uibUv" id="5P_sMle64UC" role="10QFUM">
-                                <ref role="3uigEE" node="3RAxiQnEF_M" resolve="AbstractRootChecker" />
+                                <ref role="3uigEE" node="3RAxiQnEF_M" resolve="IChecker.AbstractRootChecker" />
                                 <node concept="3qTvmN" id="5P_sMle64UD" role="11_B2D" />
                               </node>
                             </node>
@@ -12121,7 +12121,7 @@
                                 <ref role="3cqZAo" node="34euvBSFxHT" resolve="checker" />
                               </node>
                               <node concept="3uibUv" id="5P_sMle6blP" role="10QFUM">
-                                <ref role="3uigEE" node="3RAxiQnEFHw" resolve="AbstractNodeChecker" />
+                                <ref role="3uigEE" node="3RAxiQnEFHw" resolve="IChecker.AbstractNodeChecker" />
                                 <node concept="3qTvmN" id="5P_sMle6blQ" role="11_B2D" />
                               </node>
                             </node>
@@ -12156,7 +12156,7 @@
                   <node concept="3cpWsn" id="1D7Kbt3u34j" role="3cpWs9">
                     <property role="TrG5h" value="moduleChecker" />
                     <node concept="3uibUv" id="1D7Kbt3u0tT" role="1tU5fm">
-                      <ref role="3uigEE" node="3RAxiQnEFam" resolve="AbstractModuleChecker" />
+                      <ref role="3uigEE" node="3RAxiQnEFam" resolve="IChecker.AbstractModuleChecker" />
                       <node concept="3qUE_q" id="1D7Kbt3u0u0" role="11_B2D">
                         <node concept="3uibUv" id="1D7Kbt3u0u1" role="3qUE_r">
                           <ref role="3uigEE" to="d6hs:~IssueKindReportItem" resolve="IssueKindReportItem" />
@@ -12168,7 +12168,7 @@
                         <ref role="3cqZAo" node="34euvBSFxHT" resolve="checker" />
                       </node>
                       <node concept="3uibUv" id="1D7Kbt3u34m" role="10QFUM">
-                        <ref role="3uigEE" node="3RAxiQnEFam" resolve="AbstractModuleChecker" />
+                        <ref role="3uigEE" node="3RAxiQnEFam" resolve="IChecker.AbstractModuleChecker" />
                         <node concept="3qUE_q" id="1D7Kbt3u34n" role="11_B2D">
                           <node concept="3uibUv" id="1D7Kbt3u34o" role="3qUE_r">
                             <ref role="3uigEE" to="d6hs:~IssueKindReportItem" resolve="IssueKindReportItem" />

@@ -4805,7 +4805,7 @@
                           <node concept="3clFbF" id="6SEp174MF1S" role="3cqZAp">
                             <node concept="2OqwBi" id="6SEp174Nz1o" role="3clFbG">
                               <node concept="37vLTw" id="1OextiL6Ktb" role="2Oq$k0">
-                                <ref role="3cqZAo" node="1OextiL6Kt5" resolve="keepNodeId" />
+                                <ref role="3cqZAo" node="1OextiL6Kt5" resolve="nd" />
                               </node>
                               <node concept="liA8E" id="6SEp174N$rs" role="2OqNvi">
                                 <ref role="37wK5l" to="w1kc:~NodeDuplicator.duplicate(org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SModel)" resolve="duplicate" />
