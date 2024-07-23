@@ -54,10 +54,6 @@
 
   <project-components>
     <component>
-      <implementation-class>jetbrains.mps.ide.codeStyle.CodeStyleSettingsComponent</implementation-class>
-      <loadForDefaultProject/>
-    </component>
-    <component>
       <implementation-class>jetbrains.mps.ide.compiler.CompilerSettingsComponent</implementation-class>
     </component>
     <component>
@@ -110,6 +106,7 @@
             serviceImplementation="jetbrains.mps.smodel.WorkbenchModelAccess" />
 
     <projectService serviceImplementation="jetbrains.mps.ide.vfs.ProjectRootListenerComponent" />
+    <projectService serviceImplementation="jetbrains.mps.ide.codeStyle.CodeStyleSettingsComponent" /> <!-- NEED loadForDefaultProject, how to  -->
 
     <fileTypeFactory implementation="jetbrains.mps.fileTypes.MPSFileTypeFactory"/>
 
