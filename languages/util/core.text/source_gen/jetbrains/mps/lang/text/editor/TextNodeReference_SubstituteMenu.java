@@ -65,17 +65,6 @@ public class TextNodeReference_SubstituteMenu extends SubstituteMenuBase {
         return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x6cc063b139472ce7L, "jetbrains.mps.lang.text.structure.TextNodeReference"));
       }
 
-      @Override
-      public boolean canExecute(@NotNull String pattern) {
-        return canExecute_internal(pattern, false);
-      }
-      @Override
-      public boolean canExecuteStrictly(@NotNull String pattern) {
-        return canExecute_internal(pattern, true);
-      }
-      public boolean canExecute_internal(@NotNull String pattern, boolean strictly) {
-        return pattern.length() == 0;
-      }
     }
   }
   public class SMP_Group_j3smla_b extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {

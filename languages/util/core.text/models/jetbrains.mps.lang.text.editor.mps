@@ -37840,25 +37840,6 @@
           </node>
         </node>
       </node>
-      <node concept="16NL3D" id="4Jml0YJ_s8s" role="upBLP">
-        <node concept="16Na2f" id="4Jml0YJ_s8t" role="16NL3A">
-          <node concept="3clFbS" id="4Jml0YJ_s8u" role="2VODD2">
-            <node concept="3clFbF" id="4Jml0YJ_sgQ" role="3cqZAp">
-              <node concept="3clFbC" id="4Jml0YJGh4L" role="3clFbG">
-                <node concept="2OqwBi" id="4Jml0YJ_sKw" role="3uHU7B">
-                  <node concept="ub8z3" id="4Jml0YJ_sgP" role="2Oq$k0" />
-                  <node concept="liA8E" id="4Jml0YJ_thh" role="2OqNvi">
-                    <ref role="37wK5l" to="wyt6:~String.length()" resolve="length" />
-                  </node>
-                </node>
-                <node concept="3cmrfG" id="4Jml0YJGfZP" role="3uHU7w">
-                  <property role="3cmrfH" value="0" />
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
     </node>
     <node concept="3VyMlK" id="4Jml0YJ_s2J" role="3ft7WO" />
   </node>
@@ -39542,25 +39523,6 @@
     <property role="3GE5qa" value="doc" />
     <ref role="aqKnT" to="zqge:6N0oV4ThMNB" resolve="TextNodeReference" />
     <node concept="3eGOop" id="4oj2UCRZQTz" role="3ft7WO">
-      <node concept="16NL3D" id="4oj2UCS0o82" role="upBLP">
-        <node concept="16Na2f" id="4oj2UCS0o84" role="16NL3A">
-          <node concept="3clFbS" id="4oj2UCS0o86" role="2VODD2">
-            <node concept="3clFbF" id="4oj2UCS0op_" role="3cqZAp">
-              <node concept="3clFbC" id="4oj2UCS0Byq" role="3clFbG">
-                <node concept="3cmrfG" id="4oj2UCS0DUZ" role="3uHU7w">
-                  <property role="3cmrfH" value="0" />
-                </node>
-                <node concept="2OqwBi" id="4oj2UCS0q5O" role="3uHU7B">
-                  <node concept="ub8z3" id="4oj2UCS0op$" role="2Oq$k0" />
-                  <node concept="liA8E" id="4oj2UCS0u1e" role="2OqNvi">
-                    <ref role="37wK5l" to="wyt6:~String.length()" resolve="length" />
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
       <node concept="ucgPf" id="4oj2UCRZQT_" role="3aKz83">
         <node concept="3clFbS" id="4oj2UCRZQTB" role="2VODD2">
           <node concept="3clFbF" id="4oj2UCRZYtU" role="3cqZAp">
