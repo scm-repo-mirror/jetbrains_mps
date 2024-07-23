@@ -14,6 +14,8 @@
     <import index="cm0a" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.codeStyle(MPS.Platform/)" />
     <import index="alof" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.project(MPS.Platform/)" />
     <import index="4nm9" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.project(MPS.IDEA/)" />
+    <import index="l46t" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.compiler(MPS.Core/)" />
+    <import index="biux" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.compiler(MPS.Platform/)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
   </imports>
   <registry>
@@ -303,6 +305,35 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbF" id="1$HBUlSfLWw" role="3cqZAp">
+          <node concept="2OqwBi" id="1$HBUlSfLWx" role="3clFbG">
+            <node concept="37vLTw" id="1$HBUlSfLWy" role="2Oq$k0">
+              <ref role="3cqZAo" node="3Ssq9B$kCRE" resolve="ctx" />
+            </node>
+            <node concept="liA8E" id="1$HBUlSfLWz" role="2OqNvi">
+              <ref role="37wK5l" to="ze1i:~ModuleRuntime$ActivatorContext.extension(java.lang.Class,jetbrains.mps.smodel.runtime.ModuleRuntime$Extension)" resolve="extension" />
+              <node concept="3VsKOn" id="1$HBUlSfLW$" role="37wK5m">
+                <ref role="3VsUkX" to="l46t:~JavaCompilerOptions$Provider" resolve="Provider" />
+              </node>
+              <node concept="2YIFZM" id="1$HBUlSfLW_" role="37wK5m">
+                <ref role="37wK5l" to="ze1i:~ModuleRuntime$Extension.of(java.util.function.Supplier,java.lang.String...)" resolve="of" />
+                <ref role="1Pybhc" to="ze1i:~ModuleRuntime$Extension" resolve="ModuleRuntime.Extension" />
+                <node concept="1bVj0M" id="1$HBUlSfLWA" role="37wK5m">
+                  <node concept="3clFbS" id="1$HBUlSfLWB" role="1bW5cS">
+                    <node concept="3clFbF" id="1$HBUlSfLWC" role="3cqZAp">
+                      <node concept="2ShNRf" id="1$HBUlSfLWD" role="3clFbG">
+                        <node concept="HV5vD" id="1$HBUlSfLWE" role="2ShVmc">
+                          <property role="373rjd" value="true" />
+                          <ref role="HV5vE" node="3IgO9E$qK_r" resolve="JCOP" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
       </node>
       <node concept="2AHcQZ" id="3Ssq9B$kCRI" role="2AJF6D">
         <ref role="2AI5Lk" to="wyt6:~Override" />
@@ -311,6 +342,7 @@
     <node concept="2tJIrI" id="3Ssq9B$lrXC" role="jymVt" />
     <node concept="312cEu" id="3Ssq9B$ls6Z" role="jymVt">
       <property role="TrG5h" value="CSSP" />
+      <property role="1EXbeo" value="true" />
       <node concept="2tJIrI" id="3Ssq9B$lseZ" role="jymVt" />
       <node concept="3Tm6S6" id="3Ssq9B$ls22" role="1B3o_S" />
       <node concept="3uibUv" id="3Ssq9B$lsdt" role="EKbjA">
@@ -397,6 +429,100 @@
           </node>
         </node>
         <node concept="2AHcQZ" id="3Ssq9B$lsgJ" role="2AJF6D">
+          <ref role="2AI5Lk" to="wyt6:~Override" />
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="3IgO9E$qKkz" role="jymVt" />
+    <node concept="312cEu" id="3IgO9E$qK_r" role="jymVt">
+      <property role="1EXbeo" value="true" />
+      <property role="TrG5h" value="JCOP" />
+      <node concept="2tJIrI" id="pB3GLV0902" role="jymVt" />
+      <node concept="3Tm6S6" id="3IgO9E$qLji" role="1B3o_S" />
+      <node concept="3uibUv" id="pB3GLV05Sb" role="EKbjA">
+        <ref role="3uigEE" to="l46t:~JavaCompilerOptions$Provider" resolve="JavaCompilerOptions.Provider" />
+      </node>
+      <node concept="3clFb_" id="pB3GLV092j" role="jymVt">
+        <property role="TrG5h" value="getJavaCompilerOptions" />
+        <node concept="3Tm1VV" id="pB3GLV092k" role="1B3o_S" />
+        <node concept="3uibUv" id="pB3GLV092m" role="3clF45">
+          <ref role="3uigEE" to="l46t:~JavaCompilerOptions" resolve="JavaCompilerOptions" />
+        </node>
+        <node concept="37vLTG" id="pB3GLV092n" role="3clF46">
+          <property role="TrG5h" value="project" />
+          <node concept="3uibUv" id="pB3GLV092o" role="1tU5fm">
+            <ref role="3uigEE" to="z1c3:~Project" resolve="Project" />
+          </node>
+        </node>
+        <node concept="3clFbS" id="pB3GLV092p" role="3clF47">
+          <node concept="3cpWs8" id="pB3GLV09yv" role="3cqZAp">
+            <node concept="3cpWsn" id="pB3GLV09yw" role="3cpWs9">
+              <property role="TrG5h" value="ideaProject" />
+              <node concept="3uibUv" id="pB3GLV09yx" role="1tU5fm">
+                <ref role="3uigEE" to="4nm9:~Project" resolve="Project" />
+              </node>
+              <node concept="2YIFZM" id="pB3GLV09yy" role="33vP2m">
+                <ref role="37wK5l" to="alof:~ProjectHelper.toIdeaProject(jetbrains.mps.project.Project)" resolve="toIdeaProject" />
+                <ref role="1Pybhc" to="alof:~ProjectHelper" resolve="ProjectHelper" />
+                <node concept="37vLTw" id="pB3GLV09yz" role="37wK5m">
+                  <ref role="3cqZAo" node="pB3GLV092n" resolve="project" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbJ" id="pB3GLV09y$" role="3cqZAp">
+            <node concept="3clFbC" id="pB3GLV09y_" role="3clFbw">
+              <node concept="10Nm6u" id="pB3GLV09yA" role="3uHU7w" />
+              <node concept="37vLTw" id="pB3GLV09yB" role="3uHU7B">
+                <ref role="3cqZAo" node="pB3GLV09yw" resolve="ideaProject" />
+              </node>
+            </node>
+            <node concept="3clFbS" id="pB3GLV09yC" role="3clFbx">
+              <node concept="3cpWs6" id="pB3GLV09yD" role="3cqZAp">
+                <node concept="10Nm6u" id="pB3GLV09yE" role="3cqZAk" />
+              </node>
+            </node>
+            <node concept="9aQIb" id="pB3GLV09yF" role="9aQIa">
+              <node concept="3clFbS" id="pB3GLV09yG" role="9aQI4">
+                <node concept="3cpWs8" id="pB3GLV09yH" role="3cqZAp">
+                  <node concept="3cpWsn" id="pB3GLV09yI" role="3cpWs9">
+                    <property role="TrG5h" value="cs" />
+                    <node concept="3uibUv" id="pB3GLV09yJ" role="1tU5fm">
+                      <ref role="3uigEE" to="biux:~CompilerSettingsComponent" resolve="CompilerSettingsComponent" />
+                    </node>
+                    <node concept="2YIFZM" id="pB3GLV09yK" role="33vP2m">
+                      <ref role="37wK5l" to="biux:~CompilerSettingsComponent.getInstance(com.intellij.openapi.project.Project)" resolve="getInstance" />
+                      <ref role="1Pybhc" to="biux:~CompilerSettingsComponent" resolve="CompilerSettingsComponent" />
+                      <node concept="37vLTw" id="pB3GLV09yL" role="37wK5m">
+                        <ref role="3cqZAo" node="pB3GLV09yw" resolve="ideaProject" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="3cpWs6" id="pB3GLV09yM" role="3cqZAp">
+                  <node concept="3K4zz7" id="pB3GLV09yN" role="3cqZAk">
+                    <node concept="10Nm6u" id="pB3GLV09yO" role="3K4E3e" />
+                    <node concept="3clFbC" id="pB3GLV09yP" role="3K4Cdx">
+                      <node concept="10Nm6u" id="pB3GLV09yQ" role="3uHU7w" />
+                      <node concept="37vLTw" id="pB3GLV09yR" role="3uHU7B">
+                        <ref role="3cqZAo" node="pB3GLV09yI" resolve="css" />
+                      </node>
+                    </node>
+                    <node concept="2OqwBi" id="pB3GLV09yS" role="3K4GZi">
+                      <node concept="37vLTw" id="pB3GLV09yT" role="2Oq$k0">
+                        <ref role="3cqZAo" node="pB3GLV09yI" resolve="css" />
+                      </node>
+                      <node concept="liA8E" id="pB3GLV09yU" role="2OqNvi">
+                        <ref role="37wK5l" to="biux:~CompilerSettingsComponent.createOptions()" resolve="createOptions" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="2AHcQZ" id="pB3GLV092q" role="2AJF6D">
           <ref role="2AI5Lk" to="wyt6:~Override" />
         </node>
       </node>

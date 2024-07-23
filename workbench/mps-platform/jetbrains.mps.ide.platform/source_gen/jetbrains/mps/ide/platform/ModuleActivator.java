@@ -7,10 +7,12 @@ import jetbrains.mps.smodel.runtime.ModuleRuntime;
 import jetbrains.mps.components.ComponentHost;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.baseLanguage.util.CodeStyleSettingsProvider;
+import jetbrains.mps.compiler.JavaCompilerOptions;
 import jetbrains.mps.baseLanguage.util.CodeStyleSettings;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.codeStyle.CodeStyleSettingsComponent;
+import jetbrains.mps.ide.compiler.CompilerSettingsComponent;
 
 @GeneratedClass(node = "r:c3f8847b-5450-45d4-8ef0-445954b1dc9e(jetbrains.mps.ide.platform)/4475567139869328645", model = "r:c3f8847b-5450-45d4-8ef0-445954b1dc9e(jetbrains.mps.ide.platform)")
 public final class ModuleActivator implements ModuleRuntime.Activator {
@@ -25,9 +27,10 @@ public final class ModuleActivator implements ModuleRuntime.Activator {
   public void contribute(@NotNull ModuleRuntime.ActivatorContext ctx) {
     // I don't care if there's new CSSP instance each time extension is needed, CSSP is stateless (once this starts to matter for ext registration)
     ctx.extension(CodeStyleSettingsProvider.class, ModuleRuntime.Extension.of(() -> new CSSP()));
+    ctx.extension(JavaCompilerOptions.Provider.class, ModuleRuntime.Extension.of(() -> new JCOP()));
   }
 
-  private static class CSSP implements CodeStyleSettingsProvider {
+  private static final class CSSP implements CodeStyleSettingsProvider {
 
     @Override
     public CodeStyleSettings getSettings(Project project) {
@@ -37,6 +40,20 @@ public final class ModuleActivator implements ModuleRuntime.Activator {
       } else {
         CodeStyleSettingsComponent css = CodeStyleSettingsComponent.getInstance(ideaProject);
         return (css == null ? null : css.getState());
+      }
+    }
+  }
+
+  private static final class JCOP implements JavaCompilerOptions.Provider {
+
+    @Override
+    public JavaCompilerOptions getJavaCompilerOptions(Project project) {
+      com.intellij.openapi.project.Project ideaProject = ProjectHelper.toIdeaProject(project);
+      if (ideaProject == null) {
+        return null;
+      } else {
+        CompilerSettingsComponent cs = CompilerSettingsComponent.getInstance(ideaProject);
+        return (cs == null ? null : cs.createOptions());
       }
     }
   }

@@ -11,39 +11,58 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/6329021646629104954:jetbrains.mps.baseLanguage.structure.SingleLineComment" />
   <root nodeRef="r:c3f8847b-5450-45d4-8ef0-445954b1dc9e(jetbrains.mps.ide.platform)/4475567139869328645">
     <file name="ModuleActivator.java">
-      <node id="4475567139869330517" at="17,0,18,0" concept="3" trace="myPlatform" />
-      <node id="4475567139869330521" at="19,53,20,29" concept="2" />
-      <node id="4475567139869615571" at="25,71,26,147" concept="8" />
-      <node id="4475567139869332441" at="26,147,27,97" concept="2" />
-      <node id="4475567139869591916" at="33,59,34,94" concept="6" />
-      <node id="4475567139869607044" at="35,32,36,20" concept="7" />
-      <node id="4475567139869607645" at="37,14,38,93" concept="6" />
-      <node id="4475567139869607050" at="38,93,39,53" concept="7" />
-      <node id="4475567139869330295" at="19,0,22,0" concept="1" trace="ModuleActivator#(Ljetbrains/mps/components/ComponentHost;)V" />
-      <node id="4475567139869607046" at="37,12,40,7" concept="0" />
-      <node id="4475567139869330917" at="24,0,29,0" concept="5" trace="contribute#(Ljetbrains/mps/smodel/runtime/ModuleRuntime/ActivatorContext;)V" />
-      <node id="4475567139869607055" at="34,94,40,7" concept="4" />
-      <node id="4475567139869541416" at="32,0,42,0" concept="5" trace="getSettings#(Ljetbrains/mps/project/Project;)Ljetbrains/mps/baseLanguage/util/CodeStyleSettings;" />
-      <scope id="4475567139869330299" at="19,53,20,29" />
-      <scope id="4475567139869607058" at="35,32,36,20" />
-      <scope id="4475567139869330925" at="25,71,27,97" />
-      <scope id="4475567139869607048" at="37,14,39,53">
+      <node id="4475567139869330517" at="19,0,20,0" concept="3" trace="myPlatform" />
+      <node id="4475567139869330521" at="21,53,22,29" concept="2" />
+      <node id="4475567139869615571" at="27,71,28,147" concept="8" />
+      <node id="4475567139869332441" at="28,147,29,97" concept="2" />
+      <node id="1814281757936000800" at="29,97,30,100" concept="2" />
+      <node id="4475567139869591916" at="36,59,37,94" concept="6" />
+      <node id="4475567139869607044" at="38,32,39,20" concept="7" />
+      <node id="4475567139869607645" at="40,14,41,93" concept="6" />
+      <node id="4475567139869607050" at="41,93,42,53" concept="7" />
+      <node id="461353758228519071" at="50,72,51,94" concept="6" />
+      <node id="461353758228519081" at="52,32,53,20" concept="7" />
+      <node id="461353758228519085" at="54,14,55,90" concept="6" />
+      <node id="461353758228519090" at="55,90,56,56" concept="7" />
+      <node id="4475567139869330295" at="21,0,24,0" concept="1" trace="ModuleActivator#(Ljetbrains/mps/components/ComponentHost;)V" />
+      <node id="4475567139869607046" at="40,12,43,7" concept="0" />
+      <node id="461353758228519083" at="54,12,57,7" concept="0" />
+      <node id="4475567139869330917" at="26,0,32,0" concept="5" trace="contribute#(Ljetbrains/mps/smodel/runtime/ModuleRuntime/ActivatorContext;)V" />
+      <node id="4475567139869607055" at="37,94,43,7" concept="4" />
+      <node id="461353758228519076" at="51,94,57,7" concept="4" />
+      <node id="4475567139869541416" at="35,0,45,0" concept="5" trace="getSettings#(Ljetbrains/mps/project/Project;)Ljetbrains/mps/baseLanguage/util/CodeStyleSettings;" />
+      <node id="461353758228517011" at="49,0,59,0" concept="5" trace="getJavaCompilerOptions#(Ljetbrains/mps/project/Project;)Ljetbrains/mps/compiler/JavaCompilerOptions;" />
+      <scope id="4475567139869330299" at="21,53,22,29" />
+      <scope id="4475567139869607058" at="38,32,39,20" />
+      <scope id="461353758228519080" at="52,32,53,20" />
+      <scope id="4475567139869607048" at="40,14,42,53">
         <var name="css" id="4475567139869607646" />
       </scope>
-      <scope id="4475567139869330295" at="19,0,22,0">
+      <scope id="461353758228519084" at="54,14,56,56">
+        <var name="cs" id="461353758228519086" />
+      </scope>
+      <scope id="4475567139869330295" at="21,0,24,0">
         <var name="mpsPlatform" id="4475567139869330395" />
       </scope>
-      <scope id="4475567139869330917" at="24,0,29,0">
+      <scope id="4475567139869330925" at="27,71,30,100" />
+      <scope id="4475567139869330917" at="26,0,32,0">
         <var name="ctx" id="4475567139869330922" />
       </scope>
-      <scope id="4475567139869541422" at="33,59,40,7">
+      <scope id="4475567139869541422" at="36,59,43,7">
         <var name="ideaProject" id="4475567139869591917" />
       </scope>
-      <scope id="4475567139869541416" at="32,0,42,0">
+      <scope id="461353758228517017" at="50,72,57,7">
+        <var name="ideaProject" id="461353758228519072" />
+      </scope>
+      <scope id="4475567139869541416" at="35,0,45,0">
         <var name="project" id="4475567139869541419" />
       </scope>
-      <unit id="4475567139869540799" at="30,0,43,0" name="jetbrains.mps.ide.platform.ModuleActivator$CSSP" />
-      <unit id="4475567139869328645" at="15,0,44,0" name="jetbrains.mps.ide.platform.ModuleActivator" />
+      <scope id="461353758228517011" at="49,0,59,0">
+        <var name="project" id="461353758228517015" />
+      </scope>
+      <unit id="4475567139869540799" at="33,0,46,0" name="jetbrains.mps.ide.platform.ModuleActivator$CSSP" />
+      <unit id="4292159807486101851" at="47,0,60,0" name="jetbrains.mps.ide.platform.ModuleActivator$JCOP" />
+      <unit id="4475567139869328645" at="17,0,61,0" name="jetbrains.mps.ide.platform.ModuleActivator" />
     </file>
   </root>
 </debug-info>

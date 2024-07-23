@@ -48,7 +48,7 @@ public class JavaCompilerOptions {
     return myReleaseTarget;
   }
 
-  interface Provider {
+  public interface Provider {
     JavaCompilerOptions getJavaCompilerOptions(Project project);
   }
 }
