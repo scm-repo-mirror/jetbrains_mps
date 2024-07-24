@@ -199,6 +199,8 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
   private final List<FacetCheckBox> myCheckBoxes = new ArrayList<>();
   private final FacetTabsPersistence myFacetTabsPersistence;
 
+  private AddFacetsTab myControlTab;
+
   // We are tightly coupled with IDEA IDE here, no reason to be shy about project kind.
   public ModulePropertiesConfigurable(SModule module, MPSProject project) {
     super(project);
@@ -226,6 +228,7 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
         registerTabs(new GeneratorAdvancesTab((Generator) myModule, new GeneratorDependencyProvider(moduleDependenciesTab)));
       }
     }
+    // facet tabs and managing AddFacetTab get updated on each apply to reflect actual SModuleFacet instances, see #apply(), below
     for (SModuleFacet moduleFacet : myModule.getFacets()) {
       Tab facetTab = myFacetTabsPersistence.getFacetTab(moduleFacet);
       if (facetTab != null) {
@@ -233,7 +236,7 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
       }
     }
 
-    registerTabs(new AddFacetsTab());
+    registerTabs(myControlTab = new AddFacetsTab());
   }
 
   @Override
@@ -242,6 +245,32 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
       return false;
     }
     return super.isModified();
+  }
+
+  @Override
+  public void apply() {
+    super.apply();
+    final int selectedTabIndex = getSelectedTabIndex();
+    myFacetTabsPersistence.forEachTab(this::removeTab);
+    myFacetTabsPersistence.clearTabs();
+    removeTab(myControlTab);
+    myModuleRepository.getModelAccess().runReadAction(() -> {
+      // unlike similar code in the cons, above, we init() and add tabs right away
+      for (SModuleFacet moduleFacet : myModule.getFacets()) {
+        Tab facetTab = myFacetTabsPersistence.getFacetTab(moduleFacet);
+        if (facetTab != null) {
+          facetTab.init();
+          addTab(facetTab);
+        }
+      }
+      myControlTab = new AddFacetsTab();
+      myControlTab.init();
+      addTab(myControlTab);
+    });
+    if (getTabsCount() > selectedTabIndex) {
+      // XXX indeed, not a very nice assumption that new tabs are in the same order, just didn't find a better way to keep actual tab open
+      selectTab(selectedTabIndex);
+    }
   }
 
   @Override
