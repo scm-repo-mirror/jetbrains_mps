@@ -170,6 +170,10 @@ public abstract class MPSPropertiesConfigurable implements Configurable {
     return myTabs.get(index);
   }
 
+  public final int getSelectedTabIndex() {
+    return myTabbedPaneWrapper.getSelectedIndex();
+  }
+
   public void selectTab(Tab tab) {
     selectTab(indexOfTab(tab));
   }
