@@ -216,6 +216,7 @@
       <modulePath path="$PROJECT_DIR$/languages/util/builders/sandbox/jetbrains.mps.baseLanguage.builders.sandbox.msd" folder="core.baseLanguage.builders" />
       <modulePath path="$PROJECT_DIR$/languages/util/core.doc/jetbrains.mps.lang.core.doc/jetbrains.mps.lang.core.doc.mpl" folder="core.languages" />
       <modulePath path="$PROJECT_DIR$/languages/util/core.doc/jetbrains.mps.lang.doctext/jetbrains.mps.lang.doctext.mpl" folder="core.languages.text" />
+      <modulePath path="$PROJECT_DIR$/languages/util/core.doc/jetbrains.mps.lang.doctext/runtime/jetbrains.mps.lang.doctext.runtime.msd" folder="core.languages.text" />
       <modulePath path="$PROJECT_DIR$/languages/util/core.text/jetbrains.mps.lang.text.mpl" folder="core.languages.text" />
       <modulePath path="$PROJECT_DIR$/languages/util/execution/util/jetbrains.mps.execution.util.mpl" folder="workbench.execution" />
       <modulePath path="$PROJECT_DIR$/languages/util/ext.plug/jetbrains.mps.lang.extension.plug.msd" folder="core.extensions" />
@@ -384,7 +385,7 @@
       <modulePath path="$PROJECT_DIR$/plugins/mps-testing/languages/test.dk/jetbrains.mps.devkit.tests.devkit" folder="core.languages.test" />
       <modulePath path="$PROJECT_DIR$/plugins/mps-testing/solutions/launcher/jetbrains.mps.lang.test.launcher.msd" folder="core.languages.test" />
       <modulePath path="$PROJECT_DIR$/plugins/mps-tooltips/languages/jetbrains.mps.lang.editor.doc.runtime/jetbrains.mps.lang.editor.doc.runtime.msd" folder="core.aspects.editor.documentation" />
-      <modulePath path="$PROJECT_DIR$/plugins/mps-tooltips/languages/jetbrains.mps.lang.editor.doc/jetbrains.mps.lang.editor.doc.mpl" folder="core.aspects.editor.tooltips" />
+      <modulePath path="$PROJECT_DIR$/plugins/mps-tooltips/languages/jetbrains.mps.lang.editor.doc/jetbrains.mps.lang.editor.doc.mpl" folder="core.aspects.editor.documentation" />
       <modulePath path="$PROJECT_DIR$/plugins/mps-tooltips/languages/tooltips.runtime/jetbrains.mps.lang.editor.tooltips.runtime.msd" folder="core.aspects.editor.tooltips" />
       <modulePath path="$PROJECT_DIR$/plugins/mps-tooltips/languages/tooltips/jetbrains.mps.lang.editor.tooltips.mpl" folder="core.aspects.editor.tooltips" />
       <modulePath path="$PROJECT_DIR$/plugins/mps-vcs/languages/jetbrains.mps.devkit.aspect.vcs/jetbrains.mps.devkit.aspect.vcs.devkit" folder="platform.vcs" />
@@ -544,7 +545,6 @@
       <modulePath path="$PROJECT_DIR$/samples/xmlPersistence/languages/jetbrains.mps.samples.xmlPersistence.ideaPlugin/jetbrains.mps.samples.xmlPersistence.ideaPlugin.msd" folder="samples.persistence" />
       <modulePath path="$PROJECT_DIR$/samples/xmlPersistence/languages/jetbrains.mps.samples.xmlPersistence/jetbrains.mps.samples.xmlPersistence.msd" folder="samples.persistence" />
       <modulePath path="$PROJECT_DIR$/solutions/jetbrains.mps.lang.text.runtime/jetbrains.mps.lang.text.runtime.msd" folder="core.languages.text" />
-      <modulePath path="$PROJECT_DIR$/languages/util/core.doc/jetbrains.mps.lang.doctext/runtime/jetbrains.mps.lang.doctext.runtime.msd" folder="core.languages.text" />
       <modulePath path="$PROJECT_DIR$/testbench/ideatestsolutions/ide.vcs.test/jetbrains.mps.ide.vcs.test.msd" folder="platform.vcs.tests" />
       <modulePath path="$PROJECT_DIR$/testbench/jetbrains.mps.build.mps.testModules/jetbrains.mps.build.mps.testModules.msd" folder="platform.build" />
       <modulePath path="$PROJECT_DIR$/testbench/jetbrains.mps.testbench.make/jetbrains.mps.testbench.make.msd" folder="testbench" />
