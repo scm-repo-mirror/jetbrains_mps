@@ -29,6 +29,7 @@ import jetbrains.mps.project.validation.ValidationUtil;
 import jetbrains.mps.smodel.MPSModuleRepository;
 import jetbrains.mps.smodel.RepoListenerRegistrar;
 import jetbrains.mps.smodel.SModelAdapter;
+import jetbrains.mps.smodel.SModelFileTracker;
 import jetbrains.mps.smodel.SModelInternal;
 import jetbrains.mps.smodel.SObject;
 import jetbrains.mps.smodel.tempmodel.TempModule;
@@ -121,6 +122,16 @@ import java.util.function.Predicate;
       result = myModuleReferencesCache.getOrDefault(extractIoFile(descriptionFile), createCache());
     }
     return new SmartList<>(result);
+  }
+
+  protected SModelReference lookupProjectModel(IFile descriptionFile) {
+    SModelFileTracker fileTracker = SModelFileTracker.getInstance(ProjectHelper.fromIdeaProject(myProject).getRepository());
+    SModelReference result = fileTracker.modelFor(descriptionFile);
+    if (result == null) {
+      // model descriptor file might have been loaded with the "default" file system (java.io.File-based)
+      result = fileTracker.modelFor(extractIoFile(descriptionFile));
+    }
+    return result;
   }
 
   @Nullable

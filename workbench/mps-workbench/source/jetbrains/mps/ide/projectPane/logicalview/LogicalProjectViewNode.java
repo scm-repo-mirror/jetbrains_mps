@@ -123,7 +123,7 @@ public abstract class LogicalProjectViewNode<Value> extends ProjectViewNode<Valu
         return modules;
       }
 
-      SModelReference modelRef = SModelFileTracker.getInstance(mpsProject.getRepository()).modelFor(file);
+      SModelReference modelRef = MissionControl.getInstance(getProject()).lookupProjectModel(file);
       if (modelRef != null) {
         return mpsProject.getModelAccess()
                          .computeReadAction(() -> {
