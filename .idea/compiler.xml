@@ -226,8 +226,8 @@
       <directory url="file://$PROJECT_DIR$/languages/util/builders/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/util/core.doc/jetbrains.mps.lang.core.doc/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/util/core.doc/jetbrains.mps.lang.doctext/generator/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/util/core.doc/jetbrains.mps.lang.doctext/runtime/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/util/core.doc/jetbrains.mps.lang.doctext/source_gen" includeSubdirectories="true" />
-      <directory url="file://$PROJECT_DIR$/languages/util/core.doc/jetbrains.mps.lang.doctext/test/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/util/core.text/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/util/execution/util/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/util/ext.plug/source_gen" includeSubdirectories="true" />
@@ -412,6 +412,9 @@
       <directory url="file://$PROJECT_DIR$/plugins/mps-testing/languages/smodelTests/solutions/jetbrains.mps.smodel.test/test_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/plugins/mps-testing/languages/smodelTests/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/plugins/mps-testing/solutions/launcher/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/plugins/mps-tooltips/languages/jetbrains.mps.lang.editor.doc.runtime/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/plugins/mps-tooltips/languages/jetbrains.mps.lang.editor.doc/generator/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/plugins/mps-tooltips/languages/jetbrains.mps.lang.editor.doc/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/plugins/mps-tooltips/languages/tooltips.runtime/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/plugins/mps-tooltips/languages/tooltips/generator/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/plugins/mps-tooltips/languages/tooltips/source_gen" includeSubdirectories="true" />
