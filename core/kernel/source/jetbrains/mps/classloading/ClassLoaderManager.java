@@ -478,24 +478,6 @@ public class ClassLoaderManager implements CoreComponent {
   }
 
   /**
-   * @deprecated Use instance methods of this class
-   */
-  @Deprecated(forRemoval = true, since = "2022.2")
-  public static void reload(@NotNull List<SModule> modules) {
-    LOG.warnDeprecatedUse("CLM.reload() has been deprecated and will be removed in the next release");
-    List<ReloadableModule> reloadableModules = new ArrayList<>();
-    for (SModule module : modules) {
-      if (module instanceof ReloadableModule) {
-        reloadableModules.add((ReloadableModule) module);
-      }
-    }
-    if (reloadableModules.isEmpty()) {
-      return;
-    }
-    ClassLoaderManager.getInstance().reloadModules(reloadableModules);
-  }
-
-  /**
    * @see #reloadModules(Iterable, org.jetbrains.mps.openapi.util.ProgressMonitor)
    */
   public void reloadModules(Iterable<? extends SModule> modules) {
@@ -620,15 +602,6 @@ public class ClassLoaderManager implements CoreComponent {
    * Answers if it is possible to associate a ClassLoader (whether IDEA-delegating or true MPS module CL) with the module
    */
   private final Condition<SModule> myWatchableCondition = SModuleOperations::classesAvailableToMPS;
-
-  /**
-   * @deprecated dubious single use, bad name (rather answers if module *can* get MPS CL, not if module got any or has been loaded)
-   *             Alternatively, use {@link SModuleOperations#classloadingManagedByMPS(SModule)}
-   */
-  @Deprecated(forRemoval = true, since = "2023.1")
-  public boolean isLoadedByMPS(@NotNull ReloadableModule module) {
-    return ModuleClassLoaderSupport.canCreate(module);
-  }
 
   /**
    * status of this module is valid in the dependencies graph

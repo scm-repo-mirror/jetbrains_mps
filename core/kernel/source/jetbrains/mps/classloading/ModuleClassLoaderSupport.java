@@ -17,14 +17,10 @@ package jetbrains.mps.classloading;
 
 import jetbrains.mps.module.ReloadableModule;
 import jetbrains.mps.project.facets.JavaModuleFacet;
-import jetbrains.mps.project.facets.JavaModuleFacet.LoadClasses;
-import jetbrains.mps.reloading.ClassBytesProvider.ClassBytes;
 import jetbrains.mps.reloading.IClassPathItem;
 import jetbrains.mps.util.NameUtil;
 import org.jetbrains.annotations.NotNull;
 
-import java.net.URL;
-import java.util.Enumeration;
 import java.util.List;
 import java.util.function.Supplier;
 
@@ -52,23 +48,6 @@ public class ModuleClassLoaderSupport {
     myClassPathItem = classPathItem;
     // module access needs model lock, walk it as long as the instance is valid, do not delay.
     myRootClassLoader = new RootClassloaderLookup(module).get();
-  }
-
-  /**
-   * @return true if MPS manages classes of this module (not IDEA plugin) and
-   * it is possible to create ModuleClassLoader for this module.
-   * <p>
-   * TODO: must be just MPS_FACET
-   * ext point possible here
-   */
-  /*package*/ static boolean canCreate(@NotNull ReloadableModule module) {
-    JavaModuleFacet facet = module.getFacet(JavaModuleFacet.class);
-    // first part is equivalent to SModuleOperations.isCompileInMPS(), just don't want to introduce another [kernel]-[project]
-    // dependency. XXX perhaps, SModuleOperations shall move to kernel?
-    // FTR, we used to have 'getFacet(CCLF) == null' here. If we ever get to an alternative where CL is supplied
-    // neither from MPS nor deployment provider, but by third-party means (i.e. true CustomClassLoadingFacet, not just its rudimentary
-    // IDEA lackey), we'd need another LoadClasses constant anyway (not ManagedByMPS)
-    return facet != null && facet.getLoadClasses() == LoadClasses.ManagedByMPS;
   }
 
   public static ModuleClassLoaderSupport create(@NotNull ReloadableModule module,
