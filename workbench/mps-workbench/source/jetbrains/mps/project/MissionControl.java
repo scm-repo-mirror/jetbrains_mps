@@ -27,6 +27,7 @@ import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 
 import java.util.Collection;
@@ -98,6 +99,10 @@ public class MissionControl implements Disposable {
 
   public Collection<SModuleReference> lookupProjectModule(IFile descriptionFile) {
     return Collections.unmodifiableCollection(myChangesMonitor.lookupProjectModule(descriptionFile));
+  }
+
+  public SModelReference lookupProjectModel(IFile descriptionFile) {
+    return myChangesMonitor.lookupProjectModel(descriptionFile);
   }
 
   public MessagesContainer getMessagesContainer() {
