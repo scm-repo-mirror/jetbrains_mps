@@ -75,10 +75,10 @@
         <node concept="3F1sOY" id="2yJIINoF0iV" role="3EZMnx">
           <ref role="1NtTu8" to="kaxz:5TFSJ7ml5bA" resolve="name" />
         </node>
+        <node concept="l2Vlx" id="5NifZHjzee8" role="2iSdaV" />
         <node concept="3F0ifn" id="2yJIINoVbAT" role="3EZMnx">
           <property role="3F0ifm" value="&gt;" />
         </node>
-        <node concept="l2Vlx" id="5NifZHjzee8" role="2iSdaV" />
       </node>
       <node concept="2iRkQZ" id="4omk_tmE6UW" role="2iSdaV" />
       <node concept="VPXOz" id="4omk_tmE6UX" role="3F10Kt">
