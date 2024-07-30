@@ -143,10 +143,6 @@ public abstract class EditorCell_Label extends EditorCell_Basic implements jetbr
     if (isBold) {
       htmlChunk = htmlChunk.bold();
     }
-    boolean isItalic = this.getRenderedTextLine().getFont().isItalic();
-    if (isItalic) {
-      htmlChunk = htmlChunk.italic();
-    }
     boolean isUnderlined = this.getRenderedTextLine().isUnderlined();
     if (isUnderlined) {
       htmlChunk = htmlChunk.wrapWith("u");
