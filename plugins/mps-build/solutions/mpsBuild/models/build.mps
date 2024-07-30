@@ -7304,6 +7304,12 @@
             <ref role="3bR37D" node="7Kfy9QB6LaO" resolve="jetbrains.mps.lang.structure" />
           </node>
         </node>
+        <node concept="1SiIV0" id="Qbfxd3u3GB" role="3bR37C">
+          <node concept="3bR9La" id="Qbfxd3u3GC" role="1SiIV1">
+            <property role="3bR36h" value="true" />
+            <ref role="3bR37D" node="3HV74$ebibC" resolve="jetbrains.mps.lang.text" />
+          </node>
+        </node>
       </node>
       <node concept="1E1JtA" id="2Qa9MYMHrcB" role="2G$12L">
         <property role="BnDLt" value="true" />
@@ -16908,15 +16914,15 @@
         </node>
         <node concept="398BVA" id="3OmDuhj1fyF" role="3LF7KH">
           <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
-          <node concept="2Ry0Ak" id="3OmDuhj1fz9" role="iGT6I">
+          <node concept="2Ry0Ak" id="4Y8lZfoJcvB" role="iGT6I">
             <property role="2Ry0Am" value="languages" />
-            <node concept="2Ry0Ak" id="3OmDuhj1fzc" role="2Ry0An">
+            <node concept="2Ry0Ak" id="4Y8lZfoJc$l" role="2Ry0An">
               <property role="2Ry0Am" value="languageDesign" />
-              <node concept="2Ry0Ak" id="2oFucROW1BW" role="2Ry0An">
+              <node concept="2Ry0Ak" id="4Y8lZfoJcD3" role="2Ry0An">
                 <property role="2Ry0Am" value="jetbrains.mps.lang.editor.doc" />
-                <node concept="2Ry0Ak" id="2oFucROW1Ll" role="2Ry0An">
+                <node concept="2Ry0Ak" id="4Y8lZfoJcUU" role="2Ry0An">
                   <property role="2Ry0Am" value="runtime" />
-                  <node concept="2Ry0Ak" id="2oFucROW1UI" role="2Ry0An">
+                  <node concept="2Ry0Ak" id="4Y8lZfoJcZC" role="2Ry0An">
                     <property role="2Ry0Am" value="jetbrains.mps.lang.editor.doc.runtime.msd" />
                   </node>
                 </node>
@@ -23607,10 +23613,10 @@
     <node concept="2G$12M" id="3HV74$ebibB" role="3989C9">
       <property role="TrG5h" value="text" />
       <node concept="1E1JtD" id="3HV74$ebibC" role="2G$12L">
+        <property role="BnDLt" value="true" />
         <property role="TrG5h" value="jetbrains.mps.lang.text" />
         <property role="3LESm3" value="c7fb639f-be78-4307-89b0-b5959c3fa8c8" />
         <property role="ZpmtF" value="true" />
-        <property role="BnDLt" value="true" />
         <node concept="398BVA" id="3HV74$ebibD" role="3LF7KH">
           <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
           <node concept="2Ry0Ak" id="3HV74$ebibE" role="iGT6I">
