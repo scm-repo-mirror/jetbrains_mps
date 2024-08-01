@@ -16798,7 +16798,7 @@
           </node>
         </node>
         <node concept="1E0d5M" id="3OmDuhj1fxT" role="1E1XAP">
-          <ref role="1E0d5P" node="3OmDuhj1fyw" />
+          <ref role="1E0d5P" node="3OmDuhj1fyw" resolve="jetbrains.mps.lang.editor.doc.runtime" />
         </node>
         <node concept="1SiIV0" id="3OmDuhj1fxU" role="3bR37C">
           <node concept="1Busua" id="3OmDuhj1fxV" role="1SiIV1">
