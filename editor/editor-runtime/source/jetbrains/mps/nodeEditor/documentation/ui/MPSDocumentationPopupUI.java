@@ -38,6 +38,8 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Rectangle;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,8 +58,6 @@ public class MPSDocumentationPopupUI implements Disposable {
     myUI = ui;
     myEditorPane = myUI.myEditorPane;
     myScrollPane = myUI.myScrollPane;
-
-    Disposer.register(this, myUI);
 
     DefaultActionGroup navigateActions = ui.getNavigateActions();
 
@@ -110,6 +110,7 @@ public class MPSDocumentationPopupUI implements Disposable {
           }
         }
       }
+
       @Override
       public Dimension getPreferredSize() {
         return myScrollPane.getPreferredSize();
@@ -125,10 +126,36 @@ public class MPSDocumentationPopupUI implements Disposable {
     openInToolwindowAction.registerCustomShortcutSet(KeymapUtil.getActiveKeymapShortcuts(IdeActions.ACTION_QUICK_JAVADOC), myComponent, this);
 
     showToolbar(MPSDocumentationManager.getInstance().getToolbarSelected());
+
+    ComponentListener editorPaneListener = new ComponentListener() {
+      @Override
+      public void componentResized(ComponentEvent e) {
+        updateSize();
+      }
+
+      @Override
+      public void componentMoved(ComponentEvent e) {
+      }
+
+      @Override
+      public void componentShown(ComponentEvent e) {
+      }
+
+      @Override
+      public void componentHidden(ComponentEvent e) {
+      }
+    };
+    myEditorPane.addComponentListener(editorPaneListener);
+    Disposer.register(this, () -> myEditorPane.removeComponentListener(editorPaneListener));
   }
 
   @Override
   public void dispose() {
+    MPSDocumentationUI ui = myUI;
+    if (ui != null) {
+      Disposer.dispose(ui);
+      myUI = null;
+    }
   }
 
   public JComponent getComponent() {
@@ -173,9 +200,9 @@ public class MPSDocumentationPopupUI implements Disposable {
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
       assert myPopup != null;
-      myPopup.cancel();
       MPSDocumentationUI ui = myUI;
       myUI = null;
+      myPopup.cancel();
       MPSDocumentationToolWindowManager.getInstance(myProject).showInToolWindow(ui);
     }
   }

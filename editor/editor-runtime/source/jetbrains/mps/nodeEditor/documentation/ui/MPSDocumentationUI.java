@@ -214,6 +214,7 @@ public class MPSDocumentationUI implements DataProvider, Disposable {
 
   private void restoreContext(@NotNull Context context) {
     myEditorPane.setText(context.getDecoratedDocumentation());
+    myEditorPane.setSize(myEditorPane.getPreferredSize());
     myNode = context.getNode();
   }
 
