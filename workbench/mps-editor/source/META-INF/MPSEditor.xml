@@ -32,6 +32,10 @@
       <implementation-class>jetbrains.mps.nodeEditor.InspectorTool</implementation-class>
     </component>
 
+    <component>
+      <implementation-class>jetbrains.mps.nodeEditor.documentation.DocumentationTool</implementation-class>
+    </component>
+
   </project-components>
 
   <projectListeners>
