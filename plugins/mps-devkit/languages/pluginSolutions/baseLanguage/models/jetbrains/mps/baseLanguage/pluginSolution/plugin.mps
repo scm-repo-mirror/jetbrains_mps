@@ -26393,11 +26393,7 @@
   <node concept="tC5Ba" id="3vLAl751$OS">
     <property role="3GE5qa" value="Groups" />
     <property role="TrG5h" value="ShowAsIntentions" />
-    <node concept="ftmFs" id="3vLAl752ykt" role="ftER_">
-      <node concept="tCFHf" id="3vLAl752ylm" role="ftvYc">
-        <ref role="tCJdB" node="3vLAl751GVK" resolve="CreateMatchingConstructor" />
-      </node>
-    </node>
+    <node concept="ftmFs" id="3vLAl752ykt" role="ftER_" />
     <node concept="tT9cl" id="3vLAl751$UO" role="2f5YQi">
       <ref role="tU$_T" to="ekwn:5YEoTZrFokU" resolve="ActionsAsIntentions" />
     </node>
@@ -28261,6 +28257,18 @@
           <ref role="2AI5Lk" to="wyt6:~Override" />
         </node>
       </node>
+    </node>
+  </node>
+  <node concept="tC5Ba" id="2Mc3Cvw10MR">
+    <property role="3GE5qa" value="Groups" />
+    <property role="TrG5h" value="ShowAsErrorIntentions" />
+    <node concept="ftmFs" id="2Mc3Cvw10MS" role="ftER_">
+      <node concept="tCFHf" id="2Mc3Cvw10MT" role="ftvYc">
+        <ref role="tCJdB" node="3vLAl751GVK" resolve="CreateMatchingConstructor" />
+      </node>
+    </node>
+    <node concept="tT9cl" id="2Mc3Cvw10MU" role="2f5YQi">
+      <ref role="tU$_T" to="ekwn:2C5h550i4Al" resolve="ActionsAsErrorIntentions" />
     </node>
   </node>
 </model>

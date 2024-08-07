@@ -401,7 +401,7 @@
   <root nodeRef="r:dfc27cab-2d08-4c79-ac99-e95209e18392(jetbrains.mps.baseLanguage.pluginSolution.plugin)/225095413451945663">
     <file name="PluginSolution_ApplicationPlugin.java">
       <node id="225095413451945663" at="45,53,46,57" concept="6" />
-      <node id="225095413451945672" at="50,37,51,136" concept="6" />
+      <node id="225095413451945672" at="51,37,52,136" concept="6" />
     </file>
     <file name="RefactoringAdditions_ActionGroup.java">
       <node id="225095413451945663" at="10,0,11,0" concept="16" trace="ID" />
@@ -2002,8 +2002,8 @@
   </root>
   <root nodeRef="r:dfc27cab-2d08-4c79-ac99-e95209e18392(jetbrains.mps.baseLanguage.pluginSolution.plugin)/3201523885428168342">
     <file name="PluginSolution_ApplicationPlugin.java">
-      <node id="3201523885428168342" at="47,53,48,58" concept="6" />
-      <node id="3201523885428168344" at="51,136,52,206" concept="6" />
+      <node id="3201523885428168342" at="48,53,49,58" concept="6" />
+      <node id="3201523885428168344" at="52,136,53,206" concept="6" />
     </file>
     <file name="TouchBarDefault_shift_ActionGroup.java">
       <node id="3201523885428168342" at="10,0,11,0" concept="16" trace="ID" />
@@ -2020,23 +2020,41 @@
       <unit id="3201523885428168342" at="9,0,20,0" name="jetbrains.mps.baseLanguage.pluginSolution.plugin.TouchBarDefault_shift_ActionGroup" />
     </file>
   </root>
+  <root nodeRef="r:dfc27cab-2d08-4c79-ac99-e95209e18392(jetbrains.mps.baseLanguage.pluginSolution.plugin)/3209956611150056631">
+    <file name="PluginSolution_ApplicationPlugin.java">
+      <node id="3209956611150056631" at="46,57,47,58" concept="6" />
+      <node id="3209956611150056634" at="53,206,54,144" concept="6" />
+    </file>
+    <file name="ShowAsErrorIntentions_ActionGroup.java">
+      <node id="3209956611150056631" at="10,0,11,0" concept="16" trace="ID" />
+      <node id="3209956611150056631" at="12,79,13,47" concept="18" />
+      <node id="3209956611150056631" at="13,47,14,25" concept="6" />
+      <node id="3209956611150056631" at="14,25,15,20" concept="6" />
+      <node id="3209956611150056633" at="15,20,16,138" concept="6" />
+      <node id="3209956611150056631" at="12,0,18,0" concept="4" trace="ShowAsErrorIntentions_ActionGroup#(Ljetbrains/mps/workbench/action/ApplicationPlugin;)V" />
+      <scope id="3209956611150056631" at="12,79,16,138" />
+      <scope id="3209956611150056631" at="12,0,18,0">
+        <var name="plugin" id="3209956611150056631" />
+      </scope>
+      <unit id="3209956611150056631" at="9,0,19,0" name="jetbrains.mps.baseLanguage.pluginSolution.plugin.ShowAsErrorIntentions_ActionGroup" />
+    </file>
+  </root>
   <root nodeRef="r:dfc27cab-2d08-4c79-ac99-e95209e18392(jetbrains.mps.baseLanguage.pluginSolution.plugin)/4031171717950229816">
     <file name="PluginSolution_ApplicationPlugin.java">
-      <node id="4031171717950229816" at="46,57,47,53" concept="6" />
-      <node id="4031171717950230196" at="52,206,53,134" concept="6" />
+      <node id="4031171717950229816" at="47,58,48,53" concept="6" />
+      <node id="4031171717950230196" at="54,144,55,134" concept="6" />
     </file>
     <file name="ShowAsIntentions_ActionGroup.java">
       <node id="4031171717950229816" at="10,0,11,0" concept="16" trace="ID" />
       <node id="4031171717950229816" at="12,74,13,42" concept="18" />
       <node id="4031171717950229816" at="13,42,14,25" concept="6" />
       <node id="4031171717950229816" at="14,25,15,20" concept="6" />
-      <node id="4031171717950481750" at="15,20,16,133" concept="6" />
-      <node id="4031171717950229816" at="12,0,18,0" concept="4" trace="ShowAsIntentions_ActionGroup#(Ljetbrains/mps/workbench/action/ApplicationPlugin;)V" />
-      <scope id="4031171717950229816" at="12,74,16,133" />
-      <scope id="4031171717950229816" at="12,0,18,0">
+      <node id="4031171717950229816" at="12,0,17,0" concept="4" trace="ShowAsIntentions_ActionGroup#(Ljetbrains/mps/workbench/action/ApplicationPlugin;)V" />
+      <scope id="4031171717950229816" at="12,74,15,20" />
+      <scope id="4031171717950229816" at="12,0,17,0">
         <var name="plugin" id="4031171717950229816" />
       </scope>
-      <unit id="4031171717950229816" at="9,0,19,0" name="jetbrains.mps.baseLanguage.pluginSolution.plugin.ShowAsIntentions_ActionGroup" />
+      <unit id="4031171717950229816" at="9,0,18,0" name="jetbrains.mps.baseLanguage.pluginSolution.plugin.ShowAsIntentions_ActionGroup" />
     </file>
   </root>
   <root nodeRef="r:dfc27cab-2d08-4c79-ac99-e95209e18392(jetbrains.mps.baseLanguage.pluginSolution.plugin)/4031171717950263024">
@@ -3835,7 +3853,7 @@
       <unit id="523306208222557990" at="12,0,35,0" name="jetbrains.mps.baseLanguage.pluginSolution.plugin.CheckExtensions_AppPluginPart" />
     </file>
     <file name="PluginSolution_ApplicationPlugin.java">
-      <node id="523306208222557990" at="63,66,64,51" concept="6" />
+      <node id="523306208222557990" at="65,66,66,51" concept="6" />
     </file>
   </root>
   <root nodeRef="r:dfc27cab-2d08-4c79-ac99-e95209e18392(jetbrains.mps.baseLanguage.pluginSolution.plugin)/523306208222644928">
@@ -3967,7 +3985,7 @@
       <unit id="5300313260164424007" at="7,0,17,0" name="jetbrains.mps.baseLanguage.pluginSolution.plugin.Mac_10_5_KeymapChanges" />
     </file>
     <file name="PluginSolution_ApplicationPlugin.java">
-      <node id="5300313260164424007" at="58,71,59,72" concept="6" />
+      <node id="5300313260164424007" at="60,71,61,72" concept="6" />
     </file>
   </root>
   <root nodeRef="r:dfc27cab-2d08-4c79-ac99-e95209e18392(jetbrains.mps.baseLanguage.pluginSolution.plugin)/5300313260164424437">
@@ -3992,7 +4010,7 @@
       <unit id="5300313260164424437" at="7,0,26,0" name="jetbrains.mps.baseLanguage.pluginSolution.plugin.Default_KeymapChanges" />
     </file>
     <file name="PluginSolution_ApplicationPlugin.java">
-      <node id="5300313260164424437" at="57,92,58,71" concept="6" />
+      <node id="5300313260164424437" at="59,92,60,71" concept="6" />
     </file>
   </root>
   <root nodeRef="r:dfc27cab-2d08-4c79-ac99-e95209e18392(jetbrains.mps.baseLanguage.pluginSolution.plugin)/5834644128080987394">
@@ -4265,7 +4283,7 @@
     </file>
     <file name="PluginSolution_ApplicationPlugin.java">
       <node id="6573807532044005513" at="44,13,45,53" concept="6" />
-      <node id="6573807532044005514" at="53,134,54,93" concept="6" />
+      <node id="6573807532044005514" at="55,134,56,93" concept="6" />
     </file>
   </root>
   <root nodeRef="r:dfc27cab-2d08-4c79-ac99-e95209e18392(jetbrains.mps.baseLanguage.pluginSolution.plugin)/7162597690965088109">
@@ -4274,31 +4292,31 @@
       <node id="7162597690965088109" at="22,27,23,16" concept="13" />
       <node id="7162597690965088109" at="26,30,27,29" concept="14" />
       <node id="7162597690965088109" at="43,40,44,13" concept="14" />
-      <node id="7162597690965088109" at="56,48,57,92" concept="12" />
-      <node id="7162597690965088109" at="59,72,60,15" concept="13" />
+      <node id="7162597690965088109" at="58,48,59,92" concept="12" />
+      <node id="7162597690965088109" at="61,72,62,15" concept="13" />
       <node id="7162597690965088109" at="18,0,20,0" concept="4" trace="PluginSolution_ApplicationPlugin#()V" />
       <node id="7162597690965088109" at="21,0,25,0" concept="11" trace="getId#()Lcom/intellij/openapi/extensions/PluginId;" />
-      <node id="7162597690965088109" at="62,0,66,0" concept="11" trace="fillCustomParts#(Ljava/util/List;)V" />
-      <node id="7162597690965088109" at="50,0,56,0" concept="11" trace="adjustRegularGroups#()V" />
-      <node id="7162597690965088109" at="56,0,62,0" concept="11" trace="initKeymaps#()Ljava/util/List;" />
-      <node id="7162597690965088109" at="26,0,50,0" concept="11" trace="createGroups#()V" />
+      <node id="7162597690965088109" at="64,0,68,0" concept="11" trace="fillCustomParts#(Ljava/util/List;)V" />
+      <node id="7162597690965088109" at="58,0,64,0" concept="11" trace="initKeymaps#()Ljava/util/List;" />
+      <node id="7162597690965088109" at="51,0,58,0" concept="11" trace="adjustRegularGroups#()V" />
+      <node id="7162597690965088109" at="26,0,51,0" concept="11" trace="createGroups#()V" />
       <scope id="7162597690965088109" at="18,45,18,45" />
       <scope id="7162597690965088109" at="22,27,23,16" />
-      <scope id="7162597690965088109" at="63,66,64,51" />
+      <scope id="7162597690965088109" at="65,66,66,51" />
       <scope id="7162597690965088109" at="18,0,20,0" />
       <scope id="7162597690965088109" at="21,0,25,0" />
-      <scope id="7162597690965088109" at="50,37,54,93" />
-      <scope id="7162597690965088109" at="56,48,60,15">
+      <scope id="7162597690965088109" at="58,48,62,15">
         <var name="res" id="7162597690965088109" />
       </scope>
-      <scope id="7162597690965088109" at="62,0,66,0">
+      <scope id="7162597690965088109" at="64,0,68,0">
         <var name="parts" id="7162597690965088109" />
       </scope>
-      <scope id="7162597690965088109" at="50,0,56,0" />
-      <scope id="7162597690965088109" at="56,0,62,0" />
-      <scope id="7162597690965088109" at="26,30,48,58" />
-      <scope id="7162597690965088109" at="26,0,50,0" />
-      <unit id="7162597690965088109" at="15,0,67,0" name="jetbrains.mps.baseLanguage.pluginSolution.plugin.PluginSolution_ApplicationPlugin" />
+      <scope id="7162597690965088109" at="51,37,56,93" />
+      <scope id="7162597690965088109" at="58,0,64,0" />
+      <scope id="7162597690965088109" at="51,0,58,0" />
+      <scope id="7162597690965088109" at="26,30,49,58" />
+      <scope id="7162597690965088109" at="26,0,51,0" />
+      <unit id="7162597690965088109" at="15,0,69,0" name="jetbrains.mps.baseLanguage.pluginSolution.plugin.PluginSolution_ApplicationPlugin" />
     </file>
   </root>
   <root nodeRef="r:dfc27cab-2d08-4c79-ac99-e95209e18392(jetbrains.mps.baseLanguage.pluginSolution.plugin)/7464946958060829895">
