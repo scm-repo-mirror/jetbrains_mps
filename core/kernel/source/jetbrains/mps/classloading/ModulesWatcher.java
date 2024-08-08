@@ -25,10 +25,10 @@ import org.jetbrains.annotations.TestOnly;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.module.SRepository;
+import org.jetbrains.mps.openapi.module.event.SRepositoryEvent;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import org.jetbrains.mps.util.Condition;
 
-import java.text.MessageFormat;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -39,8 +39,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static jetbrains.mps.classloading.ModulesWatcher.DefaultStatuses.INVALID_NO_RECORD;
 import static jetbrains.mps.classloading.ModulesWatcher.DefaultStatuses.SIMPLY_INVALID;
@@ -107,30 +105,14 @@ public class ModulesWatcher {
     }
   }
 
-  UpdateOutcome update(Collection<? extends ReloadableModule> added, Collection<SModuleReference> removed, Collection<? extends ReloadableModule> changed, ProgressMonitor progressMonitor) {
+  UpdateOutcome update(List<SRepositoryEvent> changes, ProgressMonitor progressMonitor) {
     myRepository.getModelAccess().checkWriteAccess(); // either end of write or explicit reload from within write
 
     final CLDependencies dependencyCollector = new CLDependencies(myRepository);
+    final UpdateOutcome rv = new UpdateOutcome();
     synchronized (myDepGraphLock) {
       final ModuleUpdater moduleUpdater = new ModuleUpdater(myDepGraph, m -> dependencyCollector.directlyUsedModules(m).stream(), myUpdateNumber++);
-      // XXX here we assume modules are unique
-      ArrayList<ReloadableModule> known = new ArrayList<>(changed.size());
-      ArrayList<ReloadableModule> unknown = new ArrayList<>();
-      // I'd love to move this code to updateModules(), but need to filter unknown with myWatchableCondition, and don't want MU to know about one
-      // although now, with MU as local instance here, not a big deal to pass myWatchableCondition right into updateModules()
-      for (ReloadableModule m : changed) {
-        if (myDepGraph.contains(m.getModuleReference())) {
-          known.add(m);
-        } else {
-          unknown.add(m);
-        }
-      }
-      // XXX order we process events here is suspicious. What if removed event comes *after* added, yet here we reverse processing order
-      // FIXME better is to get ordered list of events, and add/remove/update according to their order!
-      moduleUpdater.removeModules(removed);
-      moduleUpdater.addModules(Stream.concat(added.stream(), unknown.stream()).filter(myWatchableCondition).collect(Collectors.toList()));
-      moduleUpdater.updateModules(known);
-      UpdateOutcome rv = new UpdateOutcome();
+      moduleUpdater.processRepositoryChanges(changes, myWatchableCondition);
       if (moduleUpdater.isDirty()) {
         LOG.debug("Recount status map for modules");
         final long beginTime = System.nanoTime();

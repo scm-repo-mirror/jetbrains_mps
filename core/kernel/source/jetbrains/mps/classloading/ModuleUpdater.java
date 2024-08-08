@@ -22,7 +22,15 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleReference;
+import org.jetbrains.mps.openapi.module.event.SModuleAddedEvent;
+import org.jetbrains.mps.openapi.module.event.SModuleChangedEvent;
+import org.jetbrains.mps.openapi.module.event.SModuleEventVisitor;
+import org.jetbrains.mps.openapi.module.event.SModuleRemovedEvent;
+import org.jetbrains.mps.openapi.module.event.SModuleRemovingEvent;
+import org.jetbrains.mps.openapi.module.event.SRepositoryEvent;
+import org.jetbrains.mps.openapi.module.event.SRepositoryModuleEvent;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -31,6 +39,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -81,6 +90,48 @@ import java.util.stream.Stream;
     myGen = genSeed;
   }
 
+
+  /*package*/ void processRepositoryChanges(List<SRepositoryEvent> changes, final Predicate<SModule> suitsClassLoading) {
+    // FIXME check present logic accounts for different events for the same module
+    SModuleEventVisitor v = new SModuleEventVisitor() {
+      @Override
+      public void visit(SModuleAddedEvent event) {
+        SModule module = event.getModule();
+        if (module instanceof ReloadableModule && suitsClassLoading.test(module)) {
+          addModules(((ReloadableModule) module));
+        }
+      }
+
+      @Override
+      public void visit(SModuleRemovedEvent event) {
+        removeModules(event.getModuleReference());
+      }
+
+      @Override
+      public void visit(SModuleChangedEvent event) {
+        SModule module = event.getModule();
+        if (module instanceof ReloadableModule) {
+          if (myDepGraph.contains(module.getModuleReference())) {
+            // if we've seen it, what it if actual instance doesn't suite CL needs any more?
+            if (suitsClassLoading.test(module)) {
+              updateModules(((ReloadableModule) module));
+            } else {
+              removeModules(module.getModuleReference());
+            }
+          } else if (suitsClassLoading.test(module)) {
+            // didn't see the module, add for CL
+            addModules(((ReloadableModule) module));
+          }
+        }
+      }
+    };
+    // FIXME for some reason BatchEventsProcessor doesn't send SModuleRemovingEvent (which seems to be just a placeholder for now).
+    //       I wonder why not to use it, as we care about instance identity and module reference, therefore can deal with detached SModule instance
+    for (SRepositoryEvent e : changes) {
+      e.accept(v);
+    }
+  }
+
   // REVIEW: the purpose of the three methods below  [update|add|remove]Modules
   // REVIEW: seems to be to prime the contents of myModulesTo[Reload|Add|Remove]
   // REVIEW: before finally calling refreshGraph
@@ -90,49 +141,45 @@ import java.util.stream.Stream;
   //    may lead to wrong results (e.g. sequence of remove, add, remove for the same module). Has to become a single method
   //    that takes ordered list of update events.
 
-  // pre: modules.forEach(we've seen this module - either as a CL objective or as a broken/valid dependency target thereof)
-  /*package*/ void updateModules(@NotNull Collection<? extends ReloadableModule> modules) {
-    for (ReloadableModule module : modules) {
-      if (myDepGraph.contains(module.getModuleReference())) {
-        myModulesToReload.add(module); // CModule
-        myModulesToAdd.remove(module);
-        myModulesToRemove.remove(module.getModuleReference()); // CModule
-      } else {
-        // e.g. module didn't have JMF, we ignored it on add, nobody depends; now got JMF, and is reported as "changed"
-        myModulesToReload.remove(module);
-        myModulesToAdd.add(module);
-        myModulesToRemove.remove(module.getModuleReference()); // assert noneMatch
-      }
+  // pre: module: we've seen this module - either as a CL objective or as a broken/valid dependency target thereof
+  /*package*/ void updateModules(@NotNull ReloadableModule module) {
+    if (myDepGraph.contains(module.getModuleReference())) {
+      myModulesToReload.add(module); // CModule
+      myModulesToAdd.remove(module);
+      myModulesToRemove.remove(module.getModuleReference()); // CModule
+    } else {
+      // e.g. module didn't have JMF, we ignored it on add, nobody depends; now got JMF, and is reported as "changed"
+      // FIXME drop this logic as it's done 1 level up
+      myModulesToReload.remove(module);
+      myModulesToAdd.add(module);
+      myModulesToRemove.remove(module.getModuleReference()); // assert noneMatch
     }
   }
 
-  // pre: modules.forEach(module is CL objective/suitable for CL)
-  /*package*/ void addModules(@NotNull Collection<? extends ReloadableModule> modules) {
-    for (ReloadableModule module : modules) {
-      if (myDepGraph.contains(module.getModuleReference())) {
-        assert !myModulesToAdd.contains(module);
-        myModulesToReload.add(module); // CModule?
-        myModulesToRemove.remove(module.getModuleReference()); // TODO CModule
-      } else {
-        myModulesToAdd.add(module);
-        assert !myModulesToReload.contains(module); // just in case, for the sake of completeness. can't imagine we get "changed" first, and then "added"
-        myModulesToRemove.remove(
-            module.getModuleReference()); // can't remove(CModule), OTOH could be just assert myModulesToRemove.noneMatch(cm.getMR() == module.MR())
-        // as there's no chance to get removeModules() for known MR and then addModules() as unknown (we don't remove anything from the graph while collecting changes)
-      }
+  // pre: module is CL objective/suitable for CL
+  /*package*/ void addModules(@NotNull ReloadableModule module) {
+    // FIXME move contains() logic outside
+    if (myDepGraph.contains(module.getModuleReference())) {
+      assert !myModulesToAdd.contains(module);
+      myModulesToReload.add(module); // CModule?
+      myModulesToRemove.remove(module.getModuleReference()); // TODO CModule
+    } else {
+      myModulesToAdd.add(module);
+      assert !myModulesToReload.contains(module); // just in case, for the sake of completeness. can't imagine we get "changed" first, and then "added"
+      myModulesToRemove.remove(
+          module.getModuleReference()); // can't remove(CModule), OTOH could be just assert myModulesToRemove.noneMatch(cm.getMR() == module.MR())
+      // as there's no chance to get removeModules() for known MR and then addModules() as unknown (we don't remove anything from the graph while collecting changes)
     }
   }
 
-  /*package*/ void removeModules(@NotNull Collection<? extends SModuleReference> mRefs) {
-    for (SModuleReference mRef : mRefs) {
-      final CModule instance = myDepGraph.get(mRef); // not remove(), leave actual changes to refreshGraph()
-      if (instance != null) {
-        if (instance.getModule() != null) {
-          myModulesToAdd.remove(instance.getModule());
-          myModulesToReload.remove(instance.getModule());
-        }
-        myModulesToRemove.add(mRef);
+  /*package*/ void removeModules(@NotNull SModuleReference mRef) {
+    final CModule instance = myDepGraph.get(mRef); // not remove(), leave actual changes to refreshGraph()
+    if (instance != null) {
+      if (instance.getModule() != null) {
+        myModulesToAdd.remove(instance.getModule());
+        myModulesToReload.remove(instance.getModule());
       }
+      myModulesToRemove.add(mRef);
     }
   }
 

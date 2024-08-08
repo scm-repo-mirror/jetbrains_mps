@@ -33,6 +33,8 @@ import org.jetbrains.mps.annotations.Internal;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.module.SRepository;
+import org.jetbrains.mps.openapi.module.event.SModuleChangedEvent;
+import org.jetbrains.mps.openapi.module.event.SRepositoryEvent;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import org.jetbrains.mps.openapi.util.SubProgressKind;
 import org.jetbrains.mps.util.Condition;
@@ -446,7 +448,8 @@ public class ClassLoaderManager implements CoreComponent {
         modulesToReload.add((ReloadableModuleBase) module);
       }
     }
-    processModuleChanges(Collections.emptyList(), Collections.emptyList(), new ArrayList<>(modulesToReload), monitor);
+    // report modules as changed to trigger update of their CL
+    processModuleChanges(modulesToReload.stream().map(SModuleChangedEvent::new).collect(Collectors.toList()), monitor);
     LOG.info(String.format("Reloaded %d module(s) in %.3f s", modulesToReload.size(), (System.nanoTime() - beginTime) / 1e9));
   }
 
@@ -532,12 +535,11 @@ public class ClassLoaderManager implements CoreComponent {
   /**
    * requires exclusive/write access to CL repository
    */
-  /*package*/ void processModuleChanges(List<ReloadableModuleBase> toLoad, List<SModuleReference> toUnload, List<ReloadableModuleBase> toUpdate,
-                                        @NotNull ProgressMonitor monitor) {
+  /*package*/ void processModuleChanges(List<SRepositoryEvent> events, @NotNull ProgressMonitor monitor) {
     checkWriteAccess();
     monitor.start("", 4);
     _runTransaction(() -> {
-      final UpdateOutcome r = myModulesWatcher.update(toLoad, toUnload, toUpdate, monitor.subTask(2, SubProgressKind.REPLACING));
+      final UpdateOutcome r = myModulesWatcher.update(events, monitor.subTask(2, SubProgressKind.REPLACING));
       unloadModules(r.unloaded, monitor.subTask(1, SubProgressKind.REPLACING));
       preLoadModules(r.loaded, monitor.subTask(1, SubProgressKind.REPLACING));
     });
