@@ -42,15 +42,15 @@ public class MPSDocumentationUI implements DataProvider, Disposable {
   private static final Logger LOG = Logger.getLogger(MPSDocumentationUI.class);
   /*package*/ final MPSDocumentationScrollPane myScrollPane;
   /*package*/ final MPSDocumentationEditorPane myEditorPane;
-  private final Stack<Context> myBackStack = new Stack<>();
-  private final Stack<Context> myForwardStack = new Stack<>();
+  private final Stack<DocumentationProvider> myBackStack = new Stack<>();
+  private final Stack<DocumentationProvider> myForwardStack = new Stack<>();
   private final Project myProject;
   private final DefaultActionGroup myNavigateActions;
-  private SNode myNode;
+  /*package*/ DocumentationProvider myCurrentProvider;
 
   public MPSDocumentationUI(@NotNull Project project, @NotNull DocumentationProvider provider) {
     myProject = project;
-    myNode = provider.getNode();
+    myCurrentProvider = provider;
     myScrollPane = new MPSDocumentationScrollPane();
     myEditorPane = new MPSDocumentationEditorPane();
     Disposer.register(this, myEditorPane);
@@ -106,15 +106,15 @@ public class MPSDocumentationUI implements DataProvider, Disposable {
     if (link.startsWith(MPSDocumentationManagerProtocol.S_NODE_REFERENCE)) {
       jetbrains.mps.project.Project mpsProject = ProjectHelper.fromIdeaProject(myProject);
 
-      Context[] contexts = new Context[]{null};
+      DocumentationProvider[] providers = new DocumentationProvider[]{null};
       mpsProject.getModelAccess().runReadAction(() -> {
         SNode targetNode = MPSDocumentationUtil.getSNodeForLink(mpsProject, link);
-        contexts[0] = new Context(new DocumentationProvider(targetNode, mpsProject.getRepository()).getDecoratedDocumentation(), targetNode);
+        providers[0] = new DocumentationProvider(targetNode, mpsProject.getRepository());
       });
 
-      if (contexts[0].getDecoratedDocumentation() != null && !contexts[0].getDecoratedDocumentation().isEmpty()) {
-        myBackStack.push(getCurrentContext());
-        restoreContext(contexts[0]);
+      if (providers[0].getDecoratedDocumentation() != null && !providers[0].getDecoratedDocumentation().isEmpty()) {
+        myBackStack.push(myCurrentProvider);
+        restoreProvider(providers[0]);
       }
     }
     if (link.startsWith(MPSDocumentationManagerProtocol.URL)) {
@@ -180,7 +180,7 @@ public class MPSDocumentationUI implements DataProvider, Disposable {
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
       MPSDocumentationManager.getInstance().cancelAll();
-      new EditorNavigator(ProjectHelper.fromIdeaProject(myProject)).shallFocus(true).open(myNode.getReference());
+      new EditorNavigator(ProjectHelper.fromIdeaProject(myProject)).shallFocus(true).open(myCurrentProvider.getNode().getReference());
     }
 
     @Override
@@ -193,46 +193,23 @@ public class MPSDocumentationUI implements DataProvider, Disposable {
     if (myBackStack.empty()) {
       return;
     }
-    Context context = myBackStack.pop();
-    myForwardStack.push(getCurrentContext());
-    restoreContext(context);
+    DocumentationProvider provider = myBackStack.pop();
+    myForwardStack.push(myCurrentProvider);
+    restoreProvider(provider);
   }
 
   private void goForward() {
     if (myForwardStack.isEmpty()) {
       return;
     }
-    Context context = myForwardStack.pop();
-    myBackStack.push(getCurrentContext());
-    restoreContext(context);
+    DocumentationProvider provider = myForwardStack.pop();
+    myBackStack.push(myCurrentProvider);
+    restoreProvider(provider);
   }
 
-  private Context getCurrentContext() {
-    String decoratedDocumentation = myEditorPane.getText();
-    return new Context(decoratedDocumentation, myNode);
-  }
-
-  private void restoreContext(@NotNull Context context) {
-    myEditorPane.setText(context.getDecoratedDocumentation());
+  private void restoreProvider(@NotNull DocumentationProvider provider) {
+    myEditorPane.setText(provider.getDecoratedDocumentation());
     myEditorPane.setSize(myEditorPane.getPreferredSize());
-    myNode = context.getNode();
-  }
-
-  private static class Context {
-    private final String myDecoratedDocumentation;
-    private final SNode myNode;
-
-    Context(String decoratedDocumentation, SNode node) {
-      myDecoratedDocumentation = decoratedDocumentation;
-      myNode = node;
-    }
-
-    String getDecoratedDocumentation() {
-      return myDecoratedDocumentation;
-    }
-
-    SNode getNode() {
-      return myNode;
-    }
+    myCurrentProvider = provider;
   }
 }
