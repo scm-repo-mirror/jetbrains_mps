@@ -42,7 +42,7 @@ import java.util.stream.Stream;
 
 /**
  * Logic to update CL graph based on module dependencies.
- * Collects change deltas and process them at once with {@link #refreshGraph()}.
+ * Collects change deltas in {@link #processRepositoryChanges(List, Predicate)}, process them and update graph in {@link #refreshGraph(Collection, Collection)}.
  * Doesn't get/track any locks, created for a single operation and shall get discarded once update is over.
  * Please note, this class is a run-and-discard operation, with a number of parameters and few output values, and very limited usage scenario (new->use->discard)
  */
@@ -316,6 +316,8 @@ import java.util.stream.Stream;
 
     // FIXME update status for modules in forStatusUpdate
 
+    myAffectedForRemove.clear();
+    myAffectedForAdd.clear();
     myModulesToRemove.clear();
     myModulesToAdd.clear();
     myModulesToReload.clear();

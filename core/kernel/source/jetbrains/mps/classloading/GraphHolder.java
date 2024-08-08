@@ -29,6 +29,7 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
+import java.util.stream.Stream;
 
 /**
  * @param <V> vertex of a graph
@@ -70,6 +71,10 @@ public final class GraphHolder<V, W> {
   public Collection<V> getVertices() {
     checkGraphsCorrectness();
     return Collections.unmodifiableCollection(myGraph.getVertices());
+  }
+
+  public Stream<W> getValues() {
+    return myValueStorage.values().stream();
   }
 
   public W add(V v, W value) {
@@ -141,6 +146,11 @@ public final class GraphHolder<V, W> {
   public void fillOutgoingEdgesDeep(Iterable<? extends V> vv, Consumer<? super V> result) {
     checkGraphsCorrectness();
     myGraph.dfs(vv, result);
+  }
+
+  // exclusive of value for V
+  public Stream<W> forOutgoingShallow(V v) {
+    return myGraph.getOuts(v).stream().map(this::get);
   }
 
   public void visitOutgoingDeep(Iterable<? extends V> vv, Consumer<? super W> result) {

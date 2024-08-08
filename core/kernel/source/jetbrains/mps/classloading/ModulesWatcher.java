@@ -37,6 +37,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import static jetbrains.mps.classloading.ModulesWatcher.DefaultStatuses.INVALID_NO_RECORD;
 import static jetbrains.mps.classloading.ModulesWatcher.DefaultStatuses.SIMPLY_INVALID;
@@ -44,13 +45,12 @@ import static jetbrains.mps.classloading.ModulesWatcher.DefaultStatuses.VALID;
 
 /**
  * This class watches all the reloadable modules, which satisfy #myWatchableCondition in the repository and dependencies between them.
- * It aims to store a status for each tracked module
  *
- * @see jetbrains.mps.classloading.ModulesWatcher.ClassLoadingStatus
- * and to return all compile depedencies of module within repository
- * @see #getDependencies(Iterable)
- * Also it keeps a dependency graph to be able to calculate back dependencies for any module
- * @see #getBackDependencies(Iterable)
+ * It keeps a dependency graph to be able to calculate forward and back dependencies for any module.
+ *
+ * It also tracks a status for each module, see {@link jetbrains.mps.classloading.ModulesWatcher.ClassLoadingStatus}
+ * and provides all compile depedencies of module within repository, see {@link #getDependencies(SModuleReference)}.
+ *
  * <p>
  * Note: due to the lazy implementation of module unloading, there is a possible situation,
  * when there are some disposed modules in ModulesWatcher.
@@ -58,26 +58,19 @@ import static jetbrains.mps.classloading.ModulesWatcher.DefaultStatuses.VALID;
  * The add/remove/update module methods are triggered from above. This class updates its state accordingly.
  * <p>
  * Notice, that read action is required on every update.
- * @see {@code ClassLoaderManager#myLoadableCondition}
- * @see {@code ClassLoaderManager#myWatchableCondition}
  */
 public class ModulesWatcher {
   private static final Logger LOG = Logger.getLogger(ModulesWatcher.class);
 
-  // guards access to myStatusMap, to ensure it's modified/queried in a consistent state
-  // unlike myDepGraphLock, this one is minimalistic, not to block getStatus() while update() is going on.
-  // if we manage to avoid use of getStatus() from external code (now CLM and ModuleReloadTest), could be guarded by the same lock as myDepGraphHolder.
-  private final Object myStatusMapLock = new Object();
-  // guards access to myDepGraphHolder+myRefStorage2
+  // inv: we keep modules capable of classloading and modules that emerged as dependency thereof
+  // for each vertex representing a module, 'outgoing' edges direct to its dependencies, while 'incoming' refer to modules that depend on the given one.
+  private final GraphHolder<SModuleReference, CModule> myDepGraph = new GraphHolder<>();
+  // guards access to myDepGraphHolder
   private final Object myDepGraphLock = new Object();
 
   private final SRepository myRepository;
-  private final Map<SModuleReference, ClassLoadingStatus> myStatusMap = new HashMap<>();
   private final Predicate<SModule> myWatchableCondition;
-  // inv: we keep modules capable of classloading and modules that emerged as dependency thereof
-  private final GraphHolder<SModuleReference, CModule> myDepGraph = new GraphHolder<>();
   private int myUpdateNumber; // just to tell one update sequence from another
-
 
   public ModulesWatcher(SRepository repository, final Predicate<SModule> watchableCondition) {
     myRepository = repository;
@@ -91,14 +84,13 @@ public class ModulesWatcher {
    */
   @NotNull
   public ClassLoadingStatus getStatus(@NotNull SModuleReference mRef) {
-    synchronized (myStatusMapLock) {
-      // be careful not to access myDepGraphHolder from within myStatusMapLock
-      ClassLoadingStatus cls = myStatusMap.get(mRef);
-      if (cls == null) {
-        LOG.warning("No classloading status is found for the module " + mRef);
+    synchronized (myDepGraphLock) {
+      CModule cm = myDepGraph.get(mRef);
+      if (cm == null) {
+        LOG.warning("No classloading information found for the module " + mRef);
         return INVALID_NO_RECORD;
       } else {
-        return cls;
+        return cm.getStatus();
       }
     }
   }
@@ -130,8 +122,6 @@ public class ModulesWatcher {
         myDepGraph.checkGraphsCorrectness();
 
         final long statusMapStart = System.nanoTime();
-        // we're inside myDepGraphLock, and about to take myStatusMapLock. Be careful not to get into scenario
-        // when myStatusMapLock is obtained first, and then myDepGraphLock.
         refillStatusMap();
 
         LOG.info(String.format("Classloading graph update took %.3f s (of that, graph refresh %.3f s)", (System.nanoTime() - beginTime) / 1e9, (statusMapStart - beginTime)/1e9));
@@ -145,45 +135,44 @@ public class ModulesWatcher {
    */
   // pre: dep graph lock & repo model read
   private void refillStatusMap() {
-    synchronized (myStatusMapLock) {
-      final Collection<SModuleReference> allModules = getAllModules();
-      var invalidModules = findInvalidModules(allModules);
-      myStatusMap.clear();
-      for (SModuleReference mRef : allModules) {
-        myStatusMap.put(mRef, VALID);
-      }
-      var allInvalidModules = getBackDependencies(invalidModules.keySet());
-      for (SModuleReference mRef : allInvalidModules) {
-        myStatusMap.put(mRef, SIMPLY_INVALID);
-      }
-      if (!invalidModules.isEmpty()) {
-        String message = String.format("%d modules are marked as invalid roots for class loading out of %d modules [totally in the repository]:",
-                                       invalidModules.size(),
-                                       allModules.size());
-        LOG.warning(message);
-        invalidModules.values().forEach(LOG::warning);
-      }
-
-      if (!invalidModules.isEmpty() && LOG.isDebugLevel()) {
-        traceInvalidDeps(invalidModules.keySet(), allInvalidModules, LOG::debug);
-      }
-      if (LOG.isInfoLevel()) {
-        LOG.info("Totally " + allInvalidModules.size() + " modules are marked invalid for class loading" + (allInvalidModules.isEmpty() ? "."
-                                                                                                                                        : ":"));
-        if (!allInvalidModules.isEmpty()) {
-          allInvalidModules.stream().map(SModuleReference::toString).forEach(LOG::info);
-        }
-      }
-
-      checkStatusMapCorrectness();
+    final Collection<SModuleReference> allModules = getAllModules();
+    var invalidModules = findInvalidModules(allModules);
+    for (SModuleReference mRef : allModules) {
+      myDepGraph.get(mRef).setStatus(VALID);
     }
+    ArrayList<CModule> allInvalidModules = new ArrayList<>(invalidModules.size() << 2);
+    // XXX FWIW, allInvalidModules includes those in invalidModules, is it what we need here? Shall we distinguish broken module vs broken dependency?
+    myDepGraph.visitIncomingDeep(invalidModules.keySet(), allInvalidModules::add);
+    allInvalidModules.forEach(im -> im.setStatus(SIMPLY_INVALID));
+
+    if (!invalidModules.isEmpty()) {
+      String message = String.format("%d modules are marked as invalid roots for class loading out of %d modules [totally in the repository]:",
+                                     invalidModules.size(),
+                                     allModules.size());
+      LOG.warning(message);
+      invalidModules.values().forEach(LOG::warning);
+    }
+
+    if (!invalidModules.isEmpty() && LOG.isDebugLevel()) {
+      traceInvalidDeps(invalidModules.keySet(), allInvalidModules.stream().map(CModule::getModuleReference).collect(Collectors.toSet()), LOG::debug);
+    }
+    if (LOG.isInfoLevel()) {
+      LOG.info("Totally " + allInvalidModules.size() + " modules are marked invalid for class loading" + (allInvalidModules.isEmpty() ? "."
+                                                                                                                                      : ":"));
+      if (!allInvalidModules.isEmpty()) {
+        allInvalidModules.stream().map(CModule::getModuleReference).map(SModuleReference::toString).forEach(LOG::info);
+      }
+    }
+
+    checkStatusMapCorrectness();
   }
 
   // pre: dep graph lock
   private void traceInvalidDeps(Collection<? extends SModuleReference> rootInvalid,
-                                Collection<? extends SModuleReference> allInvalid,
+                                Collection<? extends SModuleReference> allInvalid, // FIXME it's CModule colleciton outside, use it
                                 Consumer<String> trace) {
     for (var module : allInvalid) {
+      // FIXME this is the only use of #getDirectDepencencies(), refactor.
       Collection<SModuleReference> directDependencies = getDirectDependencies(Collections.singleton(module));
       directDependencies.remove(module);
       for (var depRef : directDependencies) {
@@ -276,27 +265,16 @@ public class ModulesWatcher {
       return Collections.singletonList(SearchError.of("Module is not in the repository"));
     }
     return Collections.emptyList();
-//    ArrayList<SModuleReference> dependencies = new ArrayList<>();
-//    myDepGraphHolder.fillOutgoingEdgesShallow(Collections.singleton(v), dependencies);
-//    if (dependencies.stream().anyMatch(d -> myRefStorage.resolveRef(d) == null)) {
-//      return Collections.singletonList(SearchError.of("Dependency is not in the repository"));
-//    }
   }
 
 
   // pre: invoked with dep graph lock & myStatusMapLock
   private void checkStatusMapCorrectness() {
-    assert myStatusMap.size() == getAllModules().size() : "Modules number inconsistency";
-    // TODO iterate over myStatusMap, find value !isValid, ask graph for incoming edges, if any is from isValid vertex
-    for (SModuleReference mRef : getAllModules()) {
-      ClassLoadingStatus status = myStatusMap.get(mRef);
-      for (SModuleReference mRef1 : getDirectDependencies(Collections.singleton(mRef))) {
-        ClassLoadingStatus status1 = myStatusMap.get(mRef1);
-        if (!status1.isValid() && status.isValid()) {
-          throw new IllegalStateException("Valid module " + mRef + " depends on invalid " + mRef1);
-        }
-      }
-    }
+    myDepGraph.getValues().filter(m1 -> m1.getStatus().isValid()).forEach(m1 -> {
+      myDepGraph.forOutgoingShallow(m1.getModuleReference()).filter(m2 -> !m2.getStatus().isValid()).findFirst().ifPresent(m2 -> {
+        throw new IllegalStateException(String.format("Valid module %s depends on invalid %s", m1.getModuleReference(), m2.getModuleReference()));
+      });
+    });
   }
 
   // read-only
@@ -317,24 +295,13 @@ public class ModulesWatcher {
     }
   }
 
+  @Deprecated()
   private Collection<SModuleReference> getDirectDependencies(Iterable<SModuleReference> mRefs) {
     synchronized (myDepGraphLock) {
       final Collection<SModuleReference> result = new ArrayList<>();
       myDepGraph.fillOutgoingEdgesShallow(mRefs, result);
       return result;
       }
-  }
-
-  /**
-   * @return all back dependencies of this module (closed set under back-dependency-relation)
-   */
-  private Collection<SModuleReference> getBackDependencies(Iterable<SModuleReference> mRefs) {
-    synchronized (myDepGraphLock) {
-      final Collection<SModuleReference> result = new LinkedHashSet<>();
-      myDepGraph.fillIncomingEdgesDeep(mRefs, result::add);
-      // XXX FWIW, result includes mRefs, is it what we need here?
-      return result;
-    }
   }
 
   @TestOnly
