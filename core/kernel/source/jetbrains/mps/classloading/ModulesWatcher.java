@@ -352,7 +352,7 @@ public class ModulesWatcher {
   }
 
   @TestOnly
-  boolean isModuleWatched(ReloadableModule module) {
+  boolean isModuleWatched(SModule module) {
     synchronized (myDepGraphLock) {
       return myDepGraph.contains(module.getModuleReference());
     }

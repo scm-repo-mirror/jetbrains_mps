@@ -26,11 +26,8 @@ import org.jetbrains.mps.openapi.module.event.SModuleAddedEvent;
 import org.jetbrains.mps.openapi.module.event.SModuleChangedEvent;
 import org.jetbrains.mps.openapi.module.event.SModuleEventVisitor;
 import org.jetbrains.mps.openapi.module.event.SModuleRemovedEvent;
-import org.jetbrains.mps.openapi.module.event.SModuleRemovingEvent;
 import org.jetbrains.mps.openapi.module.event.SRepositoryEvent;
-import org.jetbrains.mps.openapi.module.event.SRepositoryModuleEvent;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -51,10 +48,10 @@ import java.util.stream.Stream;
 /*package*/ final class ModuleUpdater {
   private static final Logger LOG = Logger.getLogger(ModuleUpdater.class);
 
-  // inv: only modules unknown to the graph, freshly added and not known e.g. as a broken/valid dependency target
-  private final Set<ReloadableModule> myModulesToAdd = new LinkedHashSet<>();
+  // inv: only modules unknown to the graph, freshly added and not previously known e.g. as a broken/valid dependency target
+  private final Set<SModule> myModulesToAdd = new LinkedHashSet<>();
   // inv: modules graph have already seen, either valid/broken.
-  private final Set<ReloadableModule> myModulesToReload = new LinkedHashSet<>();
+  private final Set<SModule> myModulesToReload = new LinkedHashSet<>();
   // inv: modules known to the graph, generally valid (although I could imagine moduleA (known) -> moduleB (reported as dep target), moduleB
   //      not matching "watchable" condition AND never changed, hence never making it neither to addModules() nor to updateModules(changed)
   private final Set<SModuleReference> myModulesToRemove = new LinkedHashSet<>();
@@ -93,12 +90,13 @@ import java.util.stream.Stream;
 
   /*package*/ void processRepositoryChanges(List<SRepositoryEvent> changes, final Predicate<SModule> suitsClassLoading) {
     // FIXME check present logic accounts for different events for the same module
+    // XXX it's only here that we still check instanceof ReloadableModule, the check that shall eventually go away (or at least get hidden in suitesClassLoading)
     SModuleEventVisitor v = new SModuleEventVisitor() {
       @Override
       public void visit(SModuleAddedEvent event) {
         SModule module = event.getModule();
         if (module instanceof ReloadableModule && suitsClassLoading.test(module)) {
-          addModules(((ReloadableModule) module));
+          addModules(module);
         }
       }
 
@@ -114,13 +112,14 @@ import java.util.stream.Stream;
           if (myDepGraph.contains(module.getModuleReference())) {
             // if we've seen it, what it if actual instance doesn't suite CL needs any more?
             if (suitsClassLoading.test(module)) {
-              updateModules(((ReloadableModule) module));
+              // XXX I wonder if update is just == remove + add?
+              updateModules(module);
             } else {
               removeModules(module.getModuleReference());
             }
           } else if (suitsClassLoading.test(module)) {
             // didn't see the module, add for CL
-            addModules(((ReloadableModule) module));
+            addModules(module);
           }
         }
       }
@@ -142,7 +141,7 @@ import java.util.stream.Stream;
   //    that takes ordered list of update events.
 
   // pre: module: we've seen this module - either as a CL objective or as a broken/valid dependency target thereof
-  /*package*/ void updateModules(@NotNull ReloadableModule module) {
+  /*package*/ void updateModules(@NotNull SModule module) {
     if (myDepGraph.contains(module.getModuleReference())) {
       myModulesToReload.add(module); // CModule
       myModulesToAdd.remove(module);
@@ -157,7 +156,7 @@ import java.util.stream.Stream;
   }
 
   // pre: module is CL objective/suitable for CL
-  /*package*/ void addModules(@NotNull ReloadableModule module) {
+  /*package*/ void addModules(@NotNull SModule module) {
     // FIXME move contains() logic outside
     if (myDepGraph.contains(module.getModuleReference())) {
       assert !myModulesToAdd.contains(module);
@@ -183,14 +182,14 @@ import java.util.stream.Stream;
     }
   }
 
-  // return modules that needs their status re-assessed. Perhaps, shall replace with ReloadableModule, once it's our true
+  // return modules that needs their status re-assessed. Perhaps, shall replace with CModule, once it's our true
   // graph vertex (not bound to SModule; could keep status right in there and also keep track of origin - which code injected a vertex)
   /*package*/ Set<SModuleReference> refreshGraph() {
     // assumes appropriate model access
     LOG.debug(String.format("Refreshing classloading graph adding: %d, removing %d, updating %d", myModulesToAdd.size(),
                             myModulesToRemove.size(), myModulesToReload.size()));
 
-    assert !CollectionUtil.intersects(myModulesToAdd.stream().map(ReloadableModule::getModuleReference).collect(Collectors.toList()), myModulesToRemove);
+    assert !CollectionUtil.intersects(myModulesToAdd.stream().map(SModule::getModuleReference).collect(Collectors.toList()), myModulesToRemove);
     for (SModuleReference mRef : myModulesToRemove) {
       if (!myDepGraph.contains(mRef)) {
         continue;
@@ -233,7 +232,7 @@ import java.util.stream.Stream;
     //     Here, for each explicitly removed module, we record all that depend on it as "subject to be unloaded (removed from CLM)"
     myDepGraph.visitIncomingDeep(removedCModuleRefs, affectedForRemove::add);
 
-    for (ReloadableModule module : myModulesToAdd) {
+    for (SModule module : myModulesToAdd) {
       SModuleReference mRef = module.getModuleReference();
       assert !myDepGraph.contains(mRef);
       LOG.debug("Adding previously unknown module " + module);
@@ -244,7 +243,7 @@ import java.util.stream.Stream;
     HashSet<SModuleReference> knownAndChanged = new HashSet<>();
     // first, collect information about current deps of modules to reload, then update CModule instances -
     // otherwise, we may miss modules to unload or attempt to unload same module more than once.
-    for (ReloadableModule module : myModulesToReload) {
+    for (SModule module : myModulesToReload) {
       SModuleReference mRef = module.getModuleReference();
       assert myDepGraph.contains(mRef);
       // could be CModule.getModule() == null, if we anticipated its appearance as a dependency target of another module

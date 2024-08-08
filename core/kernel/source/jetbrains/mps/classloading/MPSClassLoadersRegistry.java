@@ -25,6 +25,7 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.util.Consumer;
+import org.jetbrains.mps.util.Condition;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -74,6 +75,16 @@ final class MPSClassLoadersRegistry {
       return myIDEAClassLoaders.get(mref);
     }
   }
+
+  /*package*/ Condition<SModule> getUnloadedCondition() {
+    return (m -> getClassLoadingProgress(m.getModuleReference()) == ClassLoadingProgress.UNLOADED);
+  }
+
+  // LAZY_LOADED or LOADED
+  /*package*/ Condition<SModule> getLoadedCondition() {
+    return (m -> getClassLoadingProgress(m.getModuleReference()) != ClassLoadingProgress.UNLOADED);
+  }
+
 
   @Nullable
   private ModuleClassLoader getModuleClassLoader(@NotNull SModuleReference mref) {

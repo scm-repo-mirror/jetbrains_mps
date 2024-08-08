@@ -235,12 +235,6 @@ public class ClassLoaderManager implements CoreComponent {
     return myModulesWatcher;
   }
 
-  private void assertCanLoad(@NotNull SModule module) {
-    if (!(module instanceof ReloadableModule)) {
-      throw new IllegalArgumentException("The module " + module.getModuleName() + " does not comply with the MPS class loading system restrictions");
-    }
-  }
-
   /**
    * TODO refactor all usages of getClass()
    * So if {@link } method returns true and the class file is in place you will get the class
@@ -295,12 +289,11 @@ public class ClassLoaderManager implements CoreComponent {
       refresh();
     }
 
-    ReloadableModule reloadableModule = (ReloadableModule) module;
-    if (!myValidCondition.met(reloadableModule)) {
+    if (!myValidCondition.met(module)) {
       return DEFAULT_DELEGATING_TO_SYSTEM_CL;
     }
 //    createClassloaders(Collections.singleton(reloadableModule), new EmptyProgressMonitor());
-    MPSModuleClassLoader classLoader = myClassLoadersHolder.getClassLoader(reloadableModule.getModuleReference());
+    MPSModuleClassLoader classLoader = myClassLoadersHolder.getClassLoader(module.getModuleReference());
     return classLoader != null ? classLoader : DEFAULT_DELEGATING_TO_SYSTEM_CL;
   }
 
@@ -366,7 +359,7 @@ public class ClassLoaderManager implements CoreComponent {
     // XXX is it ok to assume dependencies could not be in 'lazy_loaded' state at the moment? Why myUnloadedCondition?
     // XXX myUnloadedCondition sort of implies classloading process for re-loaded module (unloaded and the loaded again) has to be complete at this point
     //     but what if/when I combine unload/preLoad into single transaction, would this assumption cause any throuble then?
-    Set<ReloadableModule> modulesPreLoad = filterModules(modules, myUnloadedCondition, myValidCondition);
+    Set<ReloadableModule> modulesPreLoad = filterModules(modules, myClassLoadersHolder.getUnloadedCondition(), myValidCondition);
     if (modulesPreLoad.isEmpty()) {
       return;
     }
@@ -396,9 +389,7 @@ public class ClassLoaderManager implements CoreComponent {
     // pre: modules - transitive closure
     checkWriteAccess();
     monitor.start("Unloading", 6);
-    Condition<ReloadableModule> loadedCondition = new NotCondition<>(myUnloadedCondition);
-    // LAZY_LOADED or LOADED
-    Set<ReloadableModule> modulesToUnload = filterModules(modules, loadedCondition);
+    Set<ReloadableModule> modulesToUnload = filterModules(modules, myClassLoadersHolder.getLoadedCondition());
     if (modulesToUnload.isEmpty()) {
       return;
     }
@@ -609,18 +600,11 @@ public class ClassLoaderManager implements CoreComponent {
    * status of this module is valid in the dependencies graph
    * @see ModulesWatcher
    */
-  private final Condition<ReloadableModule> myValidCondition = new Condition<>() {
+  private final Condition<SModule> myValidCondition = new Condition<>() {
     @Override
-    public boolean met(ReloadableModule module) {
+    public boolean met(SModule module) {
       SModuleReference mRef = module.getModuleReference();
       return myWatchableCondition.met(module) && myModulesWatcher.getStatus(mRef).isValid();
-    }
-  };
-
-  private final Condition<ReloadableModule> myUnloadedCondition = new Condition<>() {
-    @Override
-    public boolean met(ReloadableModule module) {
-      return myClassLoadersHolder.getClassLoadingProgress(module.getModuleReference()) == UNLOADED;
     }
   };
 }
