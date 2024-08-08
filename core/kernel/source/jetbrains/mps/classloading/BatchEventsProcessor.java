@@ -102,7 +102,7 @@ public class BatchEventsProcessor {
    *  model read on listener add/remove
    */
   private class MySRepositoryListener implements SRepositoryListener, SModuleListener {
-    private void addEventToList(@NotNull SRepositoryEvent event) {
+    private void addEventToList(SRepositoryEvent event) {
       synchronized (LOCK) {
         myEvents.add(event);
       }
@@ -111,18 +111,16 @@ public class BatchEventsProcessor {
     @Override
     public void moduleAdded(@NotNull SModule module) {
       if (myBatchStarted) {
-        module.addModuleListener(this); // XXX guess, this means we can't get 'changed' event w/o 'added' first.
-                                        // Is it what intended or expected/assumed anywhere? I could imagine batching starting b/w added and changed.
         addEventToList(new SModuleAddedEvent(module));
       }
+      module.addModuleListener(this);
     }
 
     @Override
     public void beforeModuleRemoved(@NotNull SModule module) {
+      module.removeModuleListener(this);
       if (myBatchStarted) {
         addEventToList(new SModuleRemovingEvent(module));
-        module.removeModuleListener(this); // FIXME hmm, I like this even less than conditioned addModuleListener, above.
-                                           // Unfortunate batch pause may leave the listener there forever!
       }
     }
 
