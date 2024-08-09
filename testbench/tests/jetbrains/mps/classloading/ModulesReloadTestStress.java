@@ -32,6 +32,7 @@ public class ModulesReloadTestStress extends ModulesReloadTest {
     return new SRepositoryListener() {
       @Override
       public void moduleAdded(@NotNull SModule module) {
+        clm.getClassLoader(module); // to initiate a refresh session in CLManager
         checkModuleWatched(module);
         clm.reloadModule(module);
       }
@@ -39,11 +40,12 @@ public class ModulesReloadTestStress extends ModulesReloadTest {
       @Override
       public void beforeModuleRemoved(@NotNull SModule module) {
         checkModuleWatched(module);
+        // FWIW, I don't think this is legitimate code in beforeModuleRemoved().
+        // If dropped, event handling logic in ModuleUpdater could get streamlined.
         clm.reloadModule(module);
       }
 
       private void checkModuleWatched(SModule module) {
-        clm.getClassLoader(module); // to initiate a refresh session in CLManager
         // here we imply all modules added/removed during tests are suitable for CL (i.e. JMF + classes)
         assertTrue("The module " + module + " is not watched by class loading", clm.getModulesWatcher().isModuleWatched(module));
       }

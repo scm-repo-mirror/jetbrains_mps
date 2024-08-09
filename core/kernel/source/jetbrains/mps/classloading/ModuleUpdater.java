@@ -24,6 +24,7 @@ import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.module.event.SModuleAddedEvent;
 import org.jetbrains.mps.openapi.module.event.SModuleChangedEvent;
 import org.jetbrains.mps.openapi.module.event.SModuleEventVisitor;
+import org.jetbrains.mps.openapi.module.event.SModuleRemovedEvent;
 import org.jetbrains.mps.openapi.module.event.SModuleRemovingEvent;
 import org.jetbrains.mps.openapi.module.event.SRepositoryEvent;
 
@@ -106,12 +107,27 @@ import java.util.stream.Stream;
 
       @Override
       public void visit(SModuleRemovingEvent event) {
-        // event.getModule() is likely already detached from a repository, but we only care about instance identity
+        // event.getModule() is to become detached from a repository, but we only care about instance identity
         // and module reference here, therefore can deal with detached SModule instance
         recordRemoved(event.getModuleReference(), event.getModule());
         // well, for completeness, may add if (myDephGraph.contains()) check, not to record mref in case the module
         // wasn't in the graph. However, still need to clean toAdd/toReload collections (could get populated by prev events),
         // therefore just need to be careful to use myModulesToRemove values in refreshGraph()
+      }
+
+      @Override
+      public void visit(SModuleRemovedEvent event) {
+        // we process SModuleRemovedEvent in addition to SModuleRemovingEvent as there could be a repo listener (like the one in
+        // ModulesReloadTestStress) which ressurects module's CL during moduleRemoved event. Therefore, SModuleRemovingEvent is
+        // primarily to clean add/update queues, while this one helps to drop module for sure, even in case its CL has been
+        // reloaded in #beforeModuleRemoved() (which I don't believe is a reasonable scenario, btw).
+        SModuleReference mref = event.getModuleReference();
+        CModule cm = myDepGraph.get(mref);
+        if (cm == null) {
+          // if the module has been alreadt removed as a result of SModuleRemovingEvent processing, no need for another CL refresh.
+          return;
+        }
+        recordRemoved(mref, cm.getModule()); // cm.getModule() could be null, it's ok.
       }
 
       @Override
@@ -349,12 +365,13 @@ import java.util.stream.Stream;
     // as there's no chance to get removeModules() for known MR and then addModules() as unknown (we don't remove anything from the graph while collecting changes)
   }
 
-  // removed for CL purposes (aka graph update), not necessarily removed from a repository
-  private void recordRemoved(@NotNull SModuleReference mref, @NotNull SModule module) {
-    // final CModule instance = myDepGraph.get(mRef); // not remove(), leave actual changes to refreshGraph() - here we just record deletion
-    //       and update pending add/reload change queues
-    myModulesToAdd.remove(module);
-    myModulesToReload.remove(module);
+  // record as removed for CL purposes (aka graph update), not necessarily removed from a repository.
+  private void recordRemoved(@NotNull SModuleReference mref, @Nullable SModule module) {
+    //here we just record deletion and update pending add/reload change queues for subsequent processing in #refreshGraph()
+    if (module != null) {
+      myModulesToAdd.remove(module);
+      myModulesToReload.remove(module);
+    }
     myModulesToRemove.add(mref);
   }
 
