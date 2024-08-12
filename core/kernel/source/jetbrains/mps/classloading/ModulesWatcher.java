@@ -42,6 +42,7 @@ import static jetbrains.mps.classloading.ModulesWatcher.DefaultStatuses.ERROR;
 import static jetbrains.mps.classloading.ModulesWatcher.DefaultStatuses.INVALID_DEPENDENCIES;
 import static jetbrains.mps.classloading.ModulesWatcher.DefaultStatuses.INVALID_NOT_LOADABLE;
 import static jetbrains.mps.classloading.ModulesWatcher.DefaultStatuses.INVALID_NO_RECORD;
+import static jetbrains.mps.classloading.ModulesWatcher.DefaultStatuses.UNDEFINED;
 import static jetbrains.mps.classloading.ModulesWatcher.DefaultStatuses.VALID;
 
 /**
@@ -149,7 +150,10 @@ public class ModulesWatcher {
         return;
       }
       // module itself seems fine, check its dependencies. This code visit dependencies first, so their status is known by now.
-      List<CModule> brokenDeps = myDepGraph.forOutgoingShallow(cm.getModuleReference()).filter(d -> !d.getStatus().isValid()).collect(Collectors.toList());
+      // however, we shall account for cycles, when two modules depend on each other, and one of the dependencies would be in UNDEFINED state.
+      // We expect that all 'UNDEFINED' would eventually show up in this visitor, and just in case there's an extra check in #checkStatusMapCorrectness()
+      // that no module is left in 'UNDEFINED' state.
+      List<CModule> brokenDeps = myDepGraph.forOutgoingShallow(cm.getModuleReference()).filter(d -> !d.getStatus().isValid() && d.getStatus() != UNDEFINED).collect(Collectors.toList());
       if (brokenDeps.isEmpty()) {
         cm.setStatus(VALID);
         return;
@@ -181,13 +185,14 @@ public class ModulesWatcher {
       LOG.warning(message);
       invalidRoots.forEach(LOG::warning);
 
-      if (!invalidDeps.isEmpty() && LOG.isDebugLevel()) {
-        invalidDeps.forEach(LOG::debug);
-      }
+    }
 
-      if (LOG.isInfoLevel()) {
-        LOG.info(String.format("Totally %d modules are marked invalid for class loading", invalidDeps.size() + invalidRoots.size()));
-      }
+    if (!invalidDeps.isEmpty() && LOG.isDebugLevel()) {
+      invalidDeps.forEach(LOG::debug);
+    }
+
+    if (LOG.isInfoLevel()) {
+      LOG.info(String.format("Totally %d modules are marked invalid for class loading", invalidDeps.size() + invalidRoots.size()));
     }
 
     checkStatusMapCorrectness();
@@ -250,6 +255,9 @@ public class ModulesWatcher {
 
   // pre: invoked with dep graph lock & myStatusMapLock
   private void checkStatusMapCorrectness() {
+    myDepGraph.getValues().filter(cm -> cm.getStatus() == UNDEFINED).findAny().ifPresent(cm -> {
+      throw new IllegalStateException(String.format("Module %s status still undefined after refresh", cm.getModuleReference()));
+    });
     myDepGraph.getValues().filter(m1 -> m1.getStatus().isValid()).forEach(m1 -> {
       myDepGraph.forOutgoingShallow(m1.getModuleReference()).filter(m2 -> !m2.getStatus().isValid()).findFirst().ifPresent(m2 -> {
         throw new IllegalStateException(String.format("Valid module %s depends on invalid %s", m1.getModuleReference(), m2.getModuleReference()));

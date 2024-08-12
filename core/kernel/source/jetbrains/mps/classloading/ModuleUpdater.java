@@ -161,6 +161,10 @@ import java.util.stream.Stream;
                             myModulesToRemove.size(), myModulesToReload.size()));
 
     assert !CollectionUtil.intersects(myModulesToAdd.stream().map(SModule::getModuleReference).collect(Collectors.toList()), myModulesToRemove);
+
+    final HashSet<SModuleReference> recalculateStatus = new HashSet<>();
+    final HashSet<SModuleReference> recalculateEdges = new HashSet<>();
+
     for (SModuleReference mRef : myModulesToRemove) {
       if (!myDepGraph.contains(mRef)) {
         continue;
@@ -168,6 +172,7 @@ import java.util.stream.Stream;
       // FIXME do we remove CModule from storage here or later, when we get to myDepGraph cleanup, and here just collect deleted CModule?
       // XXX if we remove from myRefStorage2 here, what happens when we resurrect the module as a necessary dependency
       storageForget(mRef);
+      recalculateStatus.add(mRef); // until we drop CModule from the graph, we might need to update CModule's CL status
     }
     // REVIEW: what are the pre-invariant for affectedForRemove field?
     // REVIEW: this field doesn't seem to be initialized prior to calling this method,
@@ -192,8 +197,6 @@ import java.util.stream.Stream;
     });
     myDepGraph.cleanOutgoingEdges(removedCModuleRefs);
     //
-    final HashSet<SModuleReference> recalculateStatus = new HashSet<>();
-    final HashSet<SModuleReference> recalculateEdges = new HashSet<>();
     myDepGraph.fillIncomingEdgesShallow(removedCModuleRefs, recalculateStatus);
     // REVIEW: removedCModuleRefs is created by iterating over the same field affectedForRemove 15 lines above
     // REVIEW: what is the intent of this action? wee seem to be doing sort of dfs on the graph, but what is the idea?
@@ -257,7 +260,6 @@ import java.util.stream.Stream;
       }
     });
 
-    recalculateStatus.removeAll(removedCModuleRefs);
     HashSet<SModuleReference> newTargets = new HashSet<>(); // if changed modules yield any new vertex, update it status
     updateEdges(recalculateEdges, newTargets); // XXX updateEdges may report verticies that lost incoming edge, to check here if the vertex got no incoming refs and we can drop it from the graph, see +2 lines below. FUTURE
     // now we've got graph reflecting actual dependencies, see if we can forget any removed vertex
@@ -273,6 +275,7 @@ import java.util.stream.Stream;
         if (!myDepGraph.hasIncomingEdges(mRef)) {
           LOG.debug("Removing module " + mRef);
           myDepGraph.remove(mRef);
+          recalculateStatus.remove(mRef);
           it.remove();
           anyChange = true;
         }
