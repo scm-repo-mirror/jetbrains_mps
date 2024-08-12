@@ -298,15 +298,7 @@ import java.util.stream.Stream;
     myModulesToAdd.clear();
     myModulesToReload.clear();
 
-    // REVIEW: forStatusUpdate is never accessed (see the only callsite of this method)
-    //     there's a plan to use this information for ModulesWatcher.refillStatusMap() (instead of present code
-    //     that recalculates status for the complete graph)
     return forStatusUpdate;
-    // REVIEW: what are the post-invariants of this method in regard to affectedForAdd and affectedForRemove?
-    //    don't care as it's one-off update operation.
-    // REVIEW: both affectedForAdd and affectedForRemove could be made local variables and returned from this method
-    // REVIEW: wrapped in an object representing the results
-    //    then I'll need to pass them around to various instance methods. What's the gain?
   }
 
 

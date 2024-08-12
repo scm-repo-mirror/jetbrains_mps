@@ -19,7 +19,7 @@ import org.jetbrains.mps.openapi.module.SModuleReference;
 // rely on natural (identity) equality for CModule instances
 /*package*/ abstract class CModule {
   // this field is not part of identity, but a state that makes sense only for CModules still in the graph
-  private ClassLoadingStatus myStatus = DefaultStatuses.INVALID_NOT_LOADABLE;
+  private ClassLoadingStatus myStatus = DefaultStatuses.UNDEFINED;
 
   @NotNull
   public abstract SModuleReference getModuleReference();

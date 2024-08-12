@@ -17,6 +17,7 @@ package jetbrains.mps.classloading;
 
 import jetbrains.mps.classloading.ErrorContainer.SearchError;
 import jetbrains.mps.logging.Logger;
+import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.util.annotation.Hack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -35,12 +36,15 @@ import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+import static jetbrains.mps.classloading.ModulesWatcher.DefaultStatuses.ERROR;
+import static jetbrains.mps.classloading.ModulesWatcher.DefaultStatuses.INVALID_DEPENDENCIES;
+import static jetbrains.mps.classloading.ModulesWatcher.DefaultStatuses.INVALID_NOT_LOADABLE;
 import static jetbrains.mps.classloading.ModulesWatcher.DefaultStatuses.INVALID_NO_RECORD;
-import static jetbrains.mps.classloading.ModulesWatcher.DefaultStatuses.SIMPLY_INVALID;
 import static jetbrains.mps.classloading.ModulesWatcher.DefaultStatuses.VALID;
 
 /**
@@ -110,11 +114,7 @@ public class ModulesWatcher {
         final int wasEdges = myDepGraph.getEdgesCount();
         final int wasVertices = myDepGraph.getVerticesCount();
 
-        // REVIEW: the returned value is ignored and this is the only place where this method is called
-        //    There's refillStatusMap() call down here, which is supposed to make use of this information eventually.
-        //    Now, for historical reasons, complete map is refreshed, which is not effective if just a coupled of modules
-        //    got updated
-        moduleUpdater.refreshGraph(rv.unloaded, rv.loaded);
+        final Set<SModuleReference> forStatusUpdate = moduleUpdater.refreshGraph(rv.unloaded, rv.loaded);
 
         LOG.debug("Difference in the vertex count after validation " + (myDepGraph.getVerticesCount() - wasVertices));
         LOG.debug("Difference in the edge count after validation " + (myDepGraph.getEdgesCount() - wasEdges));
@@ -122,7 +122,7 @@ public class ModulesWatcher {
         myDepGraph.checkGraphsCorrectness();
 
         final long statusMapStart = System.nanoTime();
-        refillStatusMap();
+        refillStatusMap(forStatusUpdate);
 
         LOG.info(String.format("Classloading graph update took %.3f s (of that, graph refresh %.3f s)", (System.nanoTime() - beginTime) / 1e9, (statusMapStart - beginTime)/1e9));
       }
@@ -130,67 +130,70 @@ public class ModulesWatcher {
     }
   }
 
-  /**
-   * costly because of backDeps request
-   */
   // pre: dep graph lock & repo model read
-  private void refillStatusMap() {
-    final Collection<SModuleReference> allModules = getAllModules();
-    var invalidModules = findInvalidModules(allModules);
-    for (SModuleReference mRef : allModules) {
-      myDepGraph.get(mRef).setStatus(VALID);
-    }
-    ArrayList<CModule> allInvalidModules = new ArrayList<>(invalidModules.size() << 2);
-    // XXX FWIW, allInvalidModules includes those in invalidModules, is it what we need here? Shall we distinguish broken module vs broken dependency?
-    myDepGraph.visitIncomingDeep(invalidModules.keySet(), allInvalidModules::add);
-    allInvalidModules.forEach(im -> im.setStatus(SIMPLY_INVALID));
+  private void refillStatusMap(final Collection<SModuleReference> forStatusUpdate) {
+    final List<String> invalidRoots = new ArrayList<>();
+    final List<String> invalidDeps = new ArrayList<>();
+    myDepGraph.visitOutgoingDeep(forStatusUpdate, cm -> {
+      if (!forStatusUpdate.contains(cm.getModuleReference())) {
+        // hit a dependency of one of the nodes for update, don't re-calculate its status
+        // assert cm.getStatus() != UNDEFINED
+        return;
+      }
+      if (cm.getModule() == null) {
+        cm.setStatus(INVALID_NOT_LOADABLE);
+        invalidRoots.add(String.format("%s: not tracked for classloading (no respective module facet or absent in a repository)", cm.getModuleReference().getModuleName()));
+        return;
+      }
+      String error = getModuleProblemMessage(cm.getModuleReference());
+      if (error != null) {
+        cm.setStatus(ERROR);
+        invalidRoots.add(error);
+        return;
+      }
+      // module itself seems fine, check its dependencies. This code visit dependencies first, so their status is known by now.
+      List<CModule> brokenDeps = myDepGraph.forOutgoingShallow(cm.getModuleReference()).filter(d -> !d.getStatus().isValid()).collect(Collectors.toList());
+      if (brokenDeps.isEmpty()) {
+        cm.setStatus(VALID);
+        return;
+      }
+      cm.setStatus(INVALID_DEPENDENCIES);
+      List<CModule> nonTransitive = brokenDeps.stream().filter(d -> d.getStatus() != INVALID_DEPENDENCIES).collect(Collectors.toList());
+      String msg;
+      if (nonTransitive.isEmpty()) {
+        msg = String.format("%s: all dependencies are transitively broken", cm.getModuleReference().getModuleName());
+      } else {
+        String brokenDepsNames = nonTransitive.stream()
+                                      .map(CModule::getModuleReference)
+                                      .map(SModuleReference::getModuleName)
+                                      .map(NameUtil::compactNamespace)
+                                      .collect(Collectors.joining(","));
+        if (nonTransitive.size() == brokenDeps.size()) {
+          msg = String.format("%s: depends on broken modules [%s]", cm.getModuleReference().getModuleName(), brokenDepsNames);
+        } else {
+          msg = String.format("%s: depends on broken modules [%s] and %d broken transitive dependencies", cm.getModuleReference().getModuleName(), brokenDepsNames, nonTransitive.size());
+        }
+      }
+      invalidDeps.add(msg);
+    }, true); // POST VISIT == TRUE is essential for the logic
 
-    if (!invalidModules.isEmpty()) {
-      String message = String.format("%d modules are marked as invalid roots for class loading out of %d modules [totally in the repository]:",
-                                     invalidModules.size(),
-                                     allModules.size());
+    if (!invalidRoots.isEmpty()) {
+      String message = String.format("%d modules are marked as invalid roots for class loading out of %d modules totally in the CL graph",
+                                     invalidRoots.size(),
+                                     myDepGraph.getVerticesCount());
       LOG.warning(message);
-      invalidModules.values().forEach(LOG::warning);
-    }
+      invalidRoots.forEach(LOG::warning);
 
-    if (!invalidModules.isEmpty() && LOG.isDebugLevel()) {
-      traceInvalidDeps(invalidModules.keySet(), allInvalidModules.stream().map(CModule::getModuleReference).collect(Collectors.toSet()), LOG::debug);
-    }
-    if (LOG.isInfoLevel()) {
-      LOG.info("Totally " + allInvalidModules.size() + " modules are marked invalid for class loading" + (allInvalidModules.isEmpty() ? "."
-                                                                                                                                      : ":"));
-      if (!allInvalidModules.isEmpty()) {
-        allInvalidModules.stream().map(CModule::getModuleReference).map(SModuleReference::toString).forEach(LOG::info);
+      if (!invalidDeps.isEmpty() && LOG.isDebugLevel()) {
+        invalidDeps.forEach(LOG::debug);
+      }
+
+      if (LOG.isInfoLevel()) {
+        LOG.info(String.format("Totally %d modules are marked invalid for class loading", invalidDeps.size() + invalidRoots.size()));
       }
     }
 
     checkStatusMapCorrectness();
-  }
-
-  // pre: dep graph lock
-  private void traceInvalidDeps(Collection<? extends SModuleReference> rootInvalid,
-                                Collection<? extends SModuleReference> allInvalid, // FIXME it's CModule colleciton outside, use it
-                                Consumer<String> trace) {
-    for (var module : allInvalid) {
-      // FIXME this is the only use of #getDirectDepencencies(), refactor.
-      Collection<SModuleReference> directDependencies = getDirectDependencies(Collections.singleton(module));
-      directDependencies.remove(module);
-      for (var depRef : directDependencies) {
-        if (rootInvalid.contains(depRef)) {
-          trace.accept(String.format("The module '%s' is invalid since it has a direct dependency on the root invalid module '%s'", module, depRef));
-        } else if (allInvalid.contains(depRef)) {
-          trace.accept(String.format("The module '%s' is invalid and it has a direct dependency on another invalid module '%s'", module, depRef));
-        }
-      }
-      Collection<SModuleReference> dependencies = new LinkedHashSet<>(getDependencies(module));
-      dependencies.removeAll(directDependencies); // I've already shown these
-      dependencies.remove(module); // well, it's not there, getDependencies() is exclusive of the starting element
-      for (var depRef : dependencies) {
-        if (rootInvalid.contains(depRef)) {
-          trace.accept(String.format("The module '%s' is invalid since it has a transitive dependency on the root invalid module '%s'", module, depRef));
-        }
-      }
-    }
   }
 
   /**
@@ -295,15 +298,6 @@ public class ModulesWatcher {
     }
   }
 
-  @Deprecated()
-  private Collection<SModuleReference> getDirectDependencies(Iterable<SModuleReference> mRefs) {
-    synchronized (myDepGraphLock) {
-      final Collection<SModuleReference> result = new ArrayList<>();
-      myDepGraph.fillOutgoingEdgesShallow(mRefs, result);
-      return result;
-      }
-  }
-
   @TestOnly
   boolean isModuleWatched(SModule module) {
     synchronized (myDepGraphLock) {
@@ -313,18 +307,25 @@ public class ModulesWatcher {
 
   enum DefaultStatuses implements ClassLoadingStatus {
     /**
-     * tmp invalid status.
-     * the module might be disposed itself or depend on some disposed module ref
+     * Module got issues preventing it from serving CL purposes
      */
-    @Deprecated(since = "0", forRemoval = true)
-    SIMPLY_INVALID,
+    ERROR,
     /**
-     * not tracked by ModulesWatcher
+     * Module itself is ok, but its dependencies are broken (generally, got 'ERROR' status)
+     */
+    INVALID_DEPENDENCIES,
+    /**
+     * present in the graph (e.g. as a dependency of another module) but no further knowledge
      */
     INVALID_NOT_LOADABLE,
+    /**
+     * Initial state of a CModule before it got any CL status assigned.
+     * Pretty much == INVALID_NOT_LOADABLE, just to capture any status initalization defect.
+     */
+    UNDEFINED,
 
     /**
-     * no record in the map (kind of strange case)
+     * no record in the map (module not in CL graph nor mentioned by any other module present there)
      */
     INVALID_NO_RECORD,
 
