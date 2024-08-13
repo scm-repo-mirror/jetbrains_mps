@@ -124,8 +124,6 @@ public class DocumentationProvider {
     return answer.value;
   }
 
-
-
   @Nullable
   public String getDecoratedDocumentation() {
     if (myNode == null) {
