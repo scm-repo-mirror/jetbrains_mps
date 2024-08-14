@@ -250,7 +250,11 @@ public class ModulesWatcher {
       }
     }
 
-    checkStatusMapCorrectness();
+    try {
+      checkStatusMapCorrectness();
+    } catch (IllegalStateException ex) {
+      LOG.error(ex.getMessage(), ex);
+    }
   }
 
   /**
@@ -309,13 +313,13 @@ public class ModulesWatcher {
   }
 
   // pre: invoked with dep graph lock & myStatusMapLock
-  private void checkStatusMapCorrectness() {
+  private void checkStatusMapCorrectness() throws IllegalStateException {
     myDepGraph.getValues().filter(cm -> cm.getStatus() == UNDEFINED || cm.getStatus() == PENDING).findAny().ifPresent(cm -> {
       throw new IllegalStateException(String.format("Module %s status still undefined after refresh (%s)", cm.getModuleReference(), cm.getStatus()));
     });
     myDepGraph.getValues().filter(m1 -> m1.getStatus().isValid()).forEach(m1 -> {
       myDepGraph.forOutgoingShallow(m1.getModuleReference()).filter(m2 -> !m2.getStatus().isValid()).findFirst().ifPresent(m2 -> {
-        throw new IllegalStateException(String.format("Valid module %s depends on invalid %s", m1.getModuleReference(), m2.getModuleReference()));
+        throw new IllegalStateException(String.format("Valid module %s depends on invalid (%s) %s", m1.getModuleReference(), m2.getStatus(), m2.getModuleReference()));
       });
     });
   }
