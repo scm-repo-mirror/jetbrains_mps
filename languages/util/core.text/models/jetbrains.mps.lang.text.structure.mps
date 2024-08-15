@@ -465,5 +465,13 @@
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
     </node>
   </node>
+  <node concept="PlHQZ" id="3fm7HO1ENRN">
+    <property role="EcuMT" value="3735206875515010547" />
+    <property role="TrG5h" value="IHoldDocumentation" />
+    <node concept="3MrDgS" id="3fm7HO1ENRO" role="lGtFl" />
+    <node concept="t5JxF" id="3fm7HO1ENRP" role="lGtFl">
+      <property role="t5JxN" value="Flag to trick the comment style for Words" />
+    </node>
+  </node>
 </model>
 

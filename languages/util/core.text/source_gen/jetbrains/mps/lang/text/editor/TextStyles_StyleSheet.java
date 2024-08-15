@@ -35,10 +35,10 @@ public class TextStyles_StyleSheet {
     }
 
     private boolean _StyleParameter_QueryFunction_vsrnlz_a0a() {
-      return (SNodeOperations.getNodeAncestor(getNode(), CONCEPTS.IHoldComment$Sr, false, false) == null);
+      return (SNodeOperations.getNodeAncestor(getNode(), CONCEPTS.IHoldComment$Sr, false, false) == null) && (SNodeOperations.getNodeAncestor(getNode(), CONCEPTS.IHoldDocumentation$KC, false, false) == null);
     }
     private boolean _StyleParameter_QueryFunction_vsrnlz_a1a() {
-      return (SNodeOperations.getNodeAncestor(getNode(), CONCEPTS.IHoldComment$Sr, false, false) != null);
+      return (SNodeOperations.getNodeAncestor(getNode(), CONCEPTS.IHoldComment$Sr, false, false) != null) || (SNodeOperations.getNodeAncestor(getNode(), CONCEPTS.IHoldDocumentation$KC, false, false) != null);
     }
   }
   public static class BaseWordTextStyleStyleClass extends AbstractStyleClass {
@@ -108,6 +108,7 @@ public class TextStyles_StyleSheet {
 
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IHoldComment$Sr = MetaAdapterFactory.getInterfaceConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x18ce7fcc0a02c1ffL, "jetbrains.mps.lang.text.structure.IHoldComment");
+    /*package*/ static final SInterfaceConcept IHoldDocumentation$KC = MetaAdapterFactory.getInterfaceConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x33d61edd01ab3df3L, "jetbrains.mps.lang.text.structure.IHoldDocumentation");
     /*package*/ static final SConcept Word$Dn = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, "jetbrains.mps.lang.text.structure.Word");
   }
 

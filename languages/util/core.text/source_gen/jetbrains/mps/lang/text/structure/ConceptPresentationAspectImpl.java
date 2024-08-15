@@ -15,6 +15,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_Header;
   private ConceptPresentation props_HtmlTag;
   private ConceptPresentation props_IHoldComment;
+  private ConceptPresentation props_IHoldDocumentation;
   private ConceptPresentation props_IHoldLines;
   private ConceptPresentation props_IHoldParagraphs;
   private ConceptPresentation props_IParagraph;
@@ -80,6 +81,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_IHoldComment = cpb.create();
         }
         return props_IHoldComment;
+      case LanguageConceptSwitch.IHoldDocumentation:
+        if (props_IHoldDocumentation == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IHoldDocumentation = cpb.create();
+        }
+        return props_IHoldDocumentation;
       case LanguageConceptSwitch.IHoldLines:
         if (props_IHoldLines == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
