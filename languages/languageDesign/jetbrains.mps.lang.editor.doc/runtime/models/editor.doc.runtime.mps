@@ -162,7 +162,7 @@
           <node concept="1rXfSq" id="2yJIINoQ_O5" role="3clFbG">
             <ref role="37wK5l" to="g51k:~EditorCell_Collection.addEditorCell(jetbrains.mps.openapi.editor.cells.EditorCell)" resolve="addEditorCell" />
             <node concept="37vLTw" id="7_r8VsHU2F8" role="37wK5m">
-              <ref role="3cqZAo" node="7_r8VsHU1os" resolve="openBracket" />
+              <ref role="3cqZAo" node="7_r8VsHU1os" resolve="openBracket1" />
             </node>
           </node>
         </node>
@@ -210,7 +210,7 @@
           <node concept="1rXfSq" id="2yJIINoR0Y_" role="3clFbG">
             <ref role="37wK5l" to="g51k:~EditorCell_Collection.addEditorCell(jetbrains.mps.openapi.editor.cells.EditorCell)" resolve="addEditorCell" />
             <node concept="37vLTw" id="45v$Up9huhA" role="37wK5m">
-              <ref role="3cqZAo" node="45v$Up9hsyf" resolve="closeBracket" />
+              <ref role="3cqZAo" node="45v$Up9hsyf" resolve="closeBracket2" />
             </node>
           </node>
         </node>
@@ -335,7 +335,7 @@
           <node concept="3clFbF" id="47_zCsM$wWF" role="3cqZAp">
             <node concept="37vLTI" id="47_zCsM$zcl" role="3clFbG">
               <node concept="37vLTw" id="47_zCsM$zUh" role="37vLTx">
-                <ref role="3cqZAo" node="47_zCsM$tFL" resolve="TagNameCell" />
+                <ref role="3cqZAo" node="47_zCsM$tFL" resolve="tagNameCell" />
               </node>
               <node concept="37vLTw" id="47_zCsM$wWD" role="37vLTJ">
                 <ref role="3cqZAo" node="47_zCsM$oVz" resolve="myTagNameCell" />

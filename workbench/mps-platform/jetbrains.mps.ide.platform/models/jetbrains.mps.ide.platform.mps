@@ -171,7 +171,7 @@
         <node concept="3clFbF" id="3Ssq9B$kCLp" role="3cqZAp">
           <node concept="37vLTI" id="3Ssq9B$kCLr" role="3clFbG">
             <node concept="37vLTw" id="3Ssq9B$kCLu" role="37vLTJ">
-              <ref role="3cqZAo" node="3Ssq9B$kCLl" resolve="myMpsPlatform" />
+              <ref role="3cqZAo" node="3Ssq9B$kCLl" resolve="myPlatform" />
             </node>
             <node concept="37vLTw" id="3Ssq9B$kCLv" role="37vLTx">
               <ref role="3cqZAo" node="3Ssq9B$kCJr" resolve="mpsPlatform" />
@@ -313,7 +313,7 @@
             <node concept="liA8E" id="1$HBUlSfLWz" role="2OqNvi">
               <ref role="37wK5l" to="ze1i:~ModuleRuntime$ActivatorContext.extension(java.lang.Class,jetbrains.mps.smodel.runtime.ModuleRuntime$Extension)" resolve="extension" />
               <node concept="3VsKOn" id="1$HBUlSfLW$" role="37wK5m">
-                <ref role="3VsUkX" to="l46t:~JavaCompilerOptions$Provider" resolve="Provider" />
+                <ref role="3VsUkX" to="l46t:~JavaCompilerOptions$Provider" resolve="JavaCompilerOptions.Provider" />
               </node>
               <node concept="2YIFZM" id="1$HBUlSfLW_" role="37wK5m">
                 <ref role="37wK5l" to="ze1i:~ModuleRuntime$Extension.of(java.util.function.Supplier,java.lang.String...)" resolve="of" />
@@ -324,7 +324,7 @@
                       <node concept="2ShNRf" id="1$HBUlSfLWD" role="3clFbG">
                         <node concept="HV5vD" id="1$HBUlSfLWE" role="2ShVmc">
                           <property role="373rjd" value="true" />
-                          <ref role="HV5vE" node="3IgO9E$qK_r" resolve="JCOP" />
+                          <ref role="HV5vE" node="3IgO9E$qK_r" resolve="ModuleActivator.JCOP" />
                         </node>
                       </node>
                     </node>
@@ -336,7 +336,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="3Ssq9B$kCRI" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="3Ssq9B$lrXC" role="jymVt" />
@@ -416,7 +416,7 @@
                     </node>
                     <node concept="2OqwBi" id="3Ssq9B$lGib" role="3K4GZi">
                       <node concept="37vLTw" id="3Ssq9B$lGrx" role="2Oq$k0">
-                        <ref role="3cqZAo" node="3Ssq9B$lGru" resolve="instance" />
+                        <ref role="3cqZAo" node="3Ssq9B$lGru" resolve="css" />
                       </node>
                       <node concept="liA8E" id="3Ssq9B$lGie" role="2OqNvi">
                         <ref role="37wK5l" to="cm0a:~CodeStyleSettingsComponent.getState()" resolve="getState" />
@@ -429,7 +429,7 @@
           </node>
         </node>
         <node concept="2AHcQZ" id="3Ssq9B$lsgJ" role="2AJF6D">
-          <ref role="2AI5Lk" to="wyt6:~Override" />
+          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
       </node>
     </node>
@@ -505,12 +505,12 @@
                     <node concept="3clFbC" id="pB3GLV09yP" role="3K4Cdx">
                       <node concept="10Nm6u" id="pB3GLV09yQ" role="3uHU7w" />
                       <node concept="37vLTw" id="pB3GLV09yR" role="3uHU7B">
-                        <ref role="3cqZAo" node="pB3GLV09yI" resolve="css" />
+                        <ref role="3cqZAo" node="pB3GLV09yI" resolve="cs" />
                       </node>
                     </node>
                     <node concept="2OqwBi" id="pB3GLV09yS" role="3K4GZi">
                       <node concept="37vLTw" id="pB3GLV09yT" role="2Oq$k0">
-                        <ref role="3cqZAo" node="pB3GLV09yI" resolve="css" />
+                        <ref role="3cqZAo" node="pB3GLV09yI" resolve="cs" />
                       </node>
                       <node concept="liA8E" id="pB3GLV09yU" role="2OqNvi">
                         <ref role="37wK5l" to="biux:~CompilerSettingsComponent.createOptions()" resolve="createOptions" />
@@ -523,7 +523,7 @@
           </node>
         </node>
         <node concept="2AHcQZ" id="pB3GLV092q" role="2AJF6D">
-          <ref role="2AI5Lk" to="wyt6:~Override" />
+          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
       </node>
     </node>

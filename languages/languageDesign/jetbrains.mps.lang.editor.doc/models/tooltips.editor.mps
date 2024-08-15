@@ -83,7 +83,7 @@
         </node>
         <node concept="l2Vlx" id="5NifZHjzee8" role="2iSdaV" />
         <node concept="3F1sOY" id="45v$Up9hkLn" role="3EZMnx">
-          <ref role="1NtTu8" to="kaxz:45v$Up9vLVy" />
+          <ref role="1NtTu8" to="kaxz:45v$Up9vLVy" resolve="closeBracket2" />
         </node>
       </node>
       <node concept="2iRkQZ" id="4omk_tmE6UW" role="2iSdaV" />

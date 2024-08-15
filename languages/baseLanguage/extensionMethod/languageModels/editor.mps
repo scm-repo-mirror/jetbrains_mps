@@ -1150,7 +1150,7 @@
     <ref role="aqKnT" to="uigu:1m3OroNmkwV" resolve="ExtensionMethodCall" />
     <node concept="22hDWj" id="1v5aJZUaQkQ" role="22hAXT" />
     <node concept="3XHNnq" id="1v5aJZUaQsv" role="3ft7WO">
-      <ref role="3XGfJA" to="uigu:1m3OroNmkwW" />
+      <ref role="3XGfJA" to="uigu:1m3OroNmkwW" resolve="extension" />
       <node concept="1WAQ3h" id="1v5aJZUaQsw" role="1WZ6hz">
         <node concept="3clFbS" id="1v5aJZUaQsx" role="2VODD2">
           <node concept="3clFbF" id="1v5aJZUaQL7" role="3cqZAp">

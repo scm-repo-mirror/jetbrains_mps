@@ -177,7 +177,7 @@
       <property role="TrG5h" value="project_jome" />
     </node>
     <node concept="2sgV4H" id="7LQO1Y0N8EQ" role="1l3spa">
-      <ref role="1l3spb" to="ffeo:3IKDaVZmzS6" />
+      <ref role="1l3spb" to="ffeo:3IKDaVZmzS6" resolve="mps" />
       <node concept="398BVA" id="7LQO1Y0N8ER" role="2JcizS">
         <ref role="398BVh" node="7LQO1Y0N8EP" resolve="mps_home" />
       </node>
@@ -190,7 +190,7 @@
           </node>
         </node>
         <node concept="m$_wl" id="7LQO1Y0N8FV" role="39821P">
-          <ref role="m_rDy" node="7LQO1Y0N8FE" resolve="MPS" />
+          <ref role="m_rDy" node="7LQO1Y0N8FE" resolve="org.jetbrains.mps.samples.sampleJavaExtensions" />
           <node concept="pUk6x" id="7LQO1Y0N8FW" role="pUk7w" />
         </node>
       </node>
@@ -208,10 +208,10 @@
         </node>
       </node>
       <node concept="m$f5U" id="7LQO1Y0N8FJ" role="m$_yh">
-        <ref role="m$f5T" node="7LQO1Y0N8FD" resolve="MPS" />
+        <ref role="m$f5T" node="7LQO1Y0N8FD" resolve="sampleModules" />
       </node>
       <node concept="m$_yC" id="7LQO1Y0N8FK" role="m$_yJ">
-        <ref role="m$_y1" to="ffeo:4k71ibbKLe8" />
+        <ref role="m$_y1" to="ffeo:4k71ibbKLe8" resolve="jetbrains.mps.core" />
       </node>
       <node concept="3_J27D" id="7LQO1Y0N8FL" role="m_cZH">
         <node concept="3Mxwew" id="7LQO1Y0N8FM" role="3MwsjC">

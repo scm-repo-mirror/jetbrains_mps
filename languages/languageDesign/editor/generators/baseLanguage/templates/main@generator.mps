@@ -15878,9 +15878,9 @@
       </node>
     </node>
     <node concept="3aamgX" id="45v$Up8LJZB" role="3acgRq">
-      <ref role="30HIoZ" to="tpc2:45v$Up8LIrW" resolve="CellModel_OpenBracket" />
+      <ref role="30HIoZ" to="tpc2:45v$Up8LIrW" resolve="CellModel_OpenAngleBracket" />
       <node concept="j$656" id="45v$Up8LJZC" role="1lVwrX">
-        <ref role="v9R2y" node="45v$Up8LM74" resolve="reduce_CellModel_OpenBracket" />
+        <ref role="v9R2y" node="45v$Up8LM74" resolve="reduce_CellModel_OpenAngleBracket" />
       </node>
     </node>
     <node concept="3aamgX" id="45v$Up97jal" role="3acgRq">
@@ -54320,7 +54320,7 @@
   <node concept="13MO4I" id="45v$Up8LM74">
     <property role="3GE5qa" value="sugar" />
     <property role="TrG5h" value="reduce_CellModel_OpenAngleBracket" />
-    <ref role="3gUMe" to="tpc2:45v$Up8LIrW" resolve="CellModel_OpenBracket" />
+    <ref role="3gUMe" to="tpc2:45v$Up8LIrW" resolve="CellModel_OpenAngleBracket" />
     <node concept="3EZMnI" id="45v$Up8LMVG" role="13RCb5">
       <node concept="3F0ifn" id="45v$Up8LMVH" role="3EZMnx">
         <property role="3F0ifm" value="&lt;" />
@@ -54443,7 +54443,7 @@
                   <node concept="2OqwBi" id="45v$Up8LMW$" role="3K4E3e">
                     <node concept="30H73N" id="45v$Up8LMW_" role="2Oq$k0" />
                     <node concept="3TrcHB" id="45v$Up8LMWA" role="2OqNvi">
-                      <ref role="3TsBF5" to="tpc2:45v$Up8LIrX" resolve="openBrace" />
+                      <ref role="3TsBF5" to="tpc2:45v$Up8LIrX" resolve="openBracket" />
                     </node>
                   </node>
                   <node concept="Xl_RD" id="45v$Up8LMWB" role="3K4GZi">
@@ -54454,7 +54454,7 @@
                       <node concept="2OqwBi" id="45v$Up8LMWE" role="3uHU7B">
                         <node concept="30H73N" id="45v$Up8LMWF" role="2Oq$k0" />
                         <node concept="3TrcHB" id="45v$Up8LMWG" role="2OqNvi">
-                          <ref role="3TsBF5" to="tpc2:45v$Up8LIrX" resolve="openBrace" />
+                          <ref role="3TsBF5" to="tpc2:45v$Up8LIrX" resolve="openBracket" />
                         </node>
                       </node>
                       <node concept="10Nm6u" id="45v$Up8LMWH" role="3uHU7w" />

@@ -139,7 +139,7 @@
                   <ref role="3cqZAo" node="5yGpL1944ho" resolve="docAnnotation" />
                 </node>
                 <node concept="3TrEf2" id="Qbfxd3vlet" role="2OqNvi">
-                  <ref role="3Tt5mk" to="hdb0:1V7fFCAbmPi" />
+                  <ref role="3Tt5mk" to="hdb0:1V7fFCAbmPi" resolve="text" />
                 </node>
               </node>
               <node concept="2oxUTD" id="Qbfxd3vlGm" role="2OqNvi">

@@ -2188,7 +2188,7 @@
                           <property role="2bfB8j" value="true" />
                           <property role="373rjd" value="true" />
                           <ref role="1Y3XeK" to="ze1i:~ModuleRuntime$Extension$MatchRequest" resolve="ModuleRuntime.Extension.MatchRequest" />
-                          <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" />
+                          <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
                           <node concept="3Tm1VV" id="3Ssq9B$kT7K" role="1B3o_S" />
                         </node>
                       </node>
@@ -2204,7 +2204,7 @@
                             <node concept="3clFbF" id="3Ssq9B$l6RJ" role="3cqZAp">
                               <node concept="2OqwBi" id="3Ssq9B$l7Ab" role="3clFbG">
                                 <node concept="37vLTw" id="3Ssq9B$l6RH" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="3Ssq9B$l1en" resolve="rr" />
+                                  <ref role="3cqZAo" node="3Ssq9B$l1en" resolve="firstNotNull" />
                                 </node>
                                 <node concept="liA8E" id="3Ssq9B$l85u" role="2OqNvi">
                                   <ref role="37wK5l" to="18ew:~Reference.set(java.lang.Object)" resolve="set" />
@@ -2225,7 +2225,7 @@
                           </node>
                           <node concept="2OqwBi" id="3Ssq9B$l5Bj" role="3clFbw">
                             <node concept="37vLTw" id="3Ssq9B$l5i2" role="2Oq$k0">
-                              <ref role="3cqZAo" node="3Ssq9B$l1en" resolve="rr" />
+                              <ref role="3cqZAo" node="3Ssq9B$l1en" resolve="firstNotNull" />
                             </node>
                             <node concept="liA8E" id="3Ssq9B$l6jg" role="2OqNvi">
                               <ref role="37wK5l" to="18ew:~Reference.isNull()" resolve="isNull" />
@@ -2263,7 +2263,7 @@
       </node>
       <node concept="3Tm1VV" id="30RNHFs3LrQ" role="1B3o_S" />
       <node concept="2AHcQZ" id="3Ssq9B$jr6P" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="30RNHFs3P0a" role="jymVt" />

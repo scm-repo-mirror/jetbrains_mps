@@ -8074,7 +8074,7 @@
               </node>
               <node concept="2ShNRf" id="37v3KD3_Lxq" role="37vLTx">
                 <node concept="1pGfFk" id="12Vcw85ptzv" role="2ShVmc">
-                  <ref role="37wK5l" to="6f4m:1HyHl70Zxpa" />
+                  <ref role="37wK5l" to="6f4m:1HyHl70Zxpa" resolve="MigrationScriptReference" />
                   <node concept="37vLTw" id="6lgfg0gj$N1" role="37wK5m">
                     <ref role="3cqZAo" node="1aQVcc3S50W" resolve="lang" />
                   </node>

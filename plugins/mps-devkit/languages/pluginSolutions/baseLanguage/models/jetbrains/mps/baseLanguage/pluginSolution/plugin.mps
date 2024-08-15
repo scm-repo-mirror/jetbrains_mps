@@ -27613,7 +27613,7 @@
             <node concept="3clFbC" id="2mcQqJKbTre" role="3uHU7w">
               <node concept="Rm8GO" id="2mcQqJKbW1j" role="3uHU7w">
                 <ref role="Rm8GQ" to="b0pz:~JavaModuleFacet$Compile.None" resolve="None" />
-                <ref role="1Px2BO" to="b0pz:~JavaModuleFacet$Compile" resolve="Compile" />
+                <ref role="1Px2BO" to="b0pz:~JavaModuleFacet$Compile" resolve="JavaModuleFacet.Compile" />
               </node>
               <node concept="2OqwBi" id="2mcQqJKbRot" role="3uHU7B">
                 <node concept="37vLTw" id="2mcQqJKbQEL" role="2Oq$k0">
@@ -27810,7 +27810,7 @@
             <property role="TrG5h" value="targetLevel" />
             <property role="3TUv4t" value="true" />
             <node concept="3uibUv" id="6fye98S_6af" role="1tU5fm">
-              <ref role="3uigEE" to="l46t:~JavaCompilerOptionsComponent$JavaVersion" resolve="JavaVersion" />
+              <ref role="3uigEE" to="l46t:~JavaCompilerOptionsComponent$JavaVersion" resolve="JavaCompilerOptionsComponent.JavaVersion" />
             </node>
             <node concept="2OqwBi" id="6fye98S_6ag" role="33vP2m">
               <node concept="2OqwBi" id="6fye98S_6ah" role="2Oq$k0">
@@ -27927,7 +27927,7 @@
                 <node concept="37vLTI" id="2mcQqJKd5Kv" role="3clFbG">
                   <node concept="Rm8GO" id="2mcQqJKd5Kw" role="37vLTx">
                     <ref role="Rm8GQ" to="l46t:~JavaCompilerOptionsComponent$JavaVersion.VERSION_10" resolve="VERSION_10" />
-                    <ref role="1Px2BO" to="l46t:~JavaCompilerOptionsComponent$JavaVersion" resolve="JavaVersion" />
+                    <ref role="1Px2BO" to="l46t:~JavaCompilerOptionsComponent$JavaVersion" resolve="JavaCompilerOptionsComponent.JavaVersion" />
                   </node>
                   <node concept="37vLTw" id="2mcQqJKd5Kx" role="37vLTJ">
                     <ref role="3cqZAo" node="2mcQqJKcIhT" resolve="atLeast" />
@@ -28025,7 +28025,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="2mcQqJKaBBJ" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="2mcQqJKaBNG" role="jymVt" />
@@ -28112,7 +28112,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="2mcQqJKaBC1" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="2mcQqJKeEg0" role="jymVt" />
@@ -28254,7 +28254,7 @@
           </node>
         </node>
         <node concept="2AHcQZ" id="2mcQqJKeMPB" role="2AJF6D">
-          <ref role="2AI5Lk" to="wyt6:~Override" />
+          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
       </node>
     </node>

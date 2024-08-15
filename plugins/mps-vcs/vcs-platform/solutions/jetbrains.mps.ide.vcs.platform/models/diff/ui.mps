@@ -8544,7 +8544,7 @@
             <node concept="3clFbF" id="tDYuqTvXbM" role="3cqZAp">
               <node concept="2OqwBi" id="tDYuqTvXbN" role="3clFbG">
                 <node concept="37vLTw" id="tDYuqTvXbO" role="2Oq$k0">
-                  <ref role="3cqZAo" node="4qjsehsDuDw" resolve="createScrollPane" />
+                  <ref role="3cqZAo" node="4qjsehsDuDw" resolve="scrollPane" />
                 </node>
                 <node concept="liA8E" id="tDYuqTvXbP" role="2OqNvi">
                   <ref role="37wK5l" to="dxuu:~JScrollPane.setViewportBorder(javax.swing.border.Border)" resolve="setViewportBorder" />
@@ -8560,7 +8560,7 @@
                 <node concept="liA8E" id="5zPLqcHK30v" role="2OqNvi">
                   <ref role="37wK5l" to="jkm4:~Splitter.setFirstComponent(javax.swing.JComponent)" resolve="setFirstComponent" />
                   <node concept="37vLTw" id="4qjsehsDuDz" role="37wK5m">
-                    <ref role="3cqZAo" node="4qjsehsDuDw" resolve="createScrollPane" />
+                    <ref role="3cqZAo" node="4qjsehsDuDw" resolve="scrollPane" />
                   </node>
                 </node>
                 <node concept="37vLTw" id="5zPLqcHK30y" role="2Oq$k0">
@@ -13632,7 +13632,7 @@
                         </node>
                       </node>
                       <node concept="2AHcQZ" id="708lhAb5rjJ" role="2AJF6D">
-                        <ref role="2AI5Lk" to="wyt6:~Override" />
+                        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
                       </node>
                     </node>
                   </node>
@@ -13804,7 +13804,7 @@
                         </node>
                       </node>
                       <node concept="2AHcQZ" id="708lhAb5PEz" role="2AJF6D">
-                        <ref role="2AI5Lk" to="wyt6:~Override" />
+                        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
                       </node>
                     </node>
                   </node>

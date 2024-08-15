@@ -1947,12 +1947,12 @@
                           <ref role="37wK5l" node="9D0Ba05vgk" resolve="notifyListeners" />
                           <node concept="2ShNRf" id="41innpAoSuM" role="37wK5m">
                             <node concept="1pGfFk" id="41innpAoSuN" role="2ShVmc">
-                              <ref role="37wK5l" to="hfuk:7lTD6YZtg3_" />
+                              <ref role="37wK5l" to="hfuk:7lTD6YZtg3_" resolve="MakeNotification" />
                               <node concept="Xjq3P" id="41innpAoSuO" role="37wK5m">
                                 <ref role="1HBi2w" node="9D0Ba05uYl" resolve="WorkbenchMakeService" />
                               </node>
                               <node concept="Rm8GO" id="41innpAoSuP" role="37wK5m">
-                                <ref role="1Px2BO" to="hfuk:7lTD6YZtjgd" resolve="Kind" />
+                                <ref role="1Px2BO" to="hfuk:7lTD6YZtjgd" resolve="MakeNotification.Kind" />
                                 <ref role="Rm8GQ" to="hfuk:7lTD6YZtjgj" resolve="SCRIPT_ABOUT_TO_START" />
                               </node>
                             </node>
@@ -4454,7 +4454,7 @@
       <node concept="3cqZAl" id="41innpAnahG" role="3clF45" />
       <node concept="3clFbS" id="41innpAnahI" role="3clF47">
         <node concept="XkiVB" id="41innpAnff3" role="3cqZAp">
-          <ref role="37wK5l" to="4rvk:4uO1VCfEygl" />
+          <ref role="37wK5l" to="4rvk:4uO1VCfEygl" resolve="CoreMakeTask" />
           <node concept="37vLTw" id="41innpAnfXw" role="37wK5m">
             <ref role="3cqZAo" node="41innpAnbYd" resolve="makeSeq" />
           </node>
