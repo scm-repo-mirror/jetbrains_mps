@@ -48,6 +48,20 @@ public class DocumentationProvider {
     SNode contextNode = null;
     SReferenceLink referenceLink = null;
     SProperty property = null;
+
+    /*
+      If the selected editor cell belongs to a DocumentationAnnotation, return the node associated with this annotation.
+
+    */
+
+    SNode parentNode = currentCell.getSNode();
+    while (parentNode != null) {
+      if (parentNode.isInstanceOfConcept(CONCEPTS.DocumentationAnnotation$ug)) {
+        return parentNode.getParent();
+      }
+      parentNode = parentNode.getParent();
+    }
+
     do {
       if (currentCell.getSRole() instanceof SReferenceLink) {
         contextNode = currentCell.getSNode();
