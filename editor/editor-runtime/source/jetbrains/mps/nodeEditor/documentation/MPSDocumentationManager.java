@@ -44,6 +44,7 @@ public class MPSDocumentationManager {
   private WeakReference<JBPopup> myQuickDocPopupReference;
   private WeakReference<JBPopup> myHintPopupReference;
   private boolean myShowOnMouseMove = true;
+  private boolean myShowDocumentationPopupFirst = true;
   private ProgressIndicator myCurrentProgress;
   private boolean myToolbarSelected = true;
 
@@ -59,12 +60,20 @@ public class MPSDocumentationManager {
     return myShowOnMouseMove;
   }
 
+  public boolean getShowDocumentationPopupFirst() {
+    return myShowDocumentationPopupFirst;
+  }
+
   public void setToolbarSelected(boolean state) {
     myToolbarSelected = state;
   }
 
   public void setShowOnMouseMove(boolean state) {
     myShowOnMouseMove = state;
+  }
+
+  public void setShowDocumentationPopupFirst(boolean state) {
+    myShowDocumentationPopupFirst = state;
   }
 
   /**
@@ -79,7 +88,7 @@ public class MPSDocumentationManager {
     cancelAll();
 
     MPSDocumentationUI documentationUI = new MPSDocumentationUI(project, provider);
-    if (provider.hasDocumentation() && MPSDocumentationToolWindowManager.getInstance(project).isVisible()) {
+    if (provider.hasDocumentation() && (MPSDocumentationToolWindowManager.getInstance(project).isVisible() || !myShowDocumentationPopupFirst)) {
       // redirect to the tool window
       MPSDocumentationToolWindowManager.getInstance(project).showInToolWindow(documentationUI);
       return;

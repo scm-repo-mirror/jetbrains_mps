@@ -74,6 +74,7 @@ public class MPSDocumentationUI implements DataProvider, Disposable {
 
     myCommonGearActions.add(new AdjustFontSizeAction());
     myCommonGearActions.add(new ShowOnMouseMoveAction());
+    myCommonGearActions.add(new ShowDocumentationPopupFirst());
 
     HyperlinkListener hyperlinkListener = (HyperlinkEvent e) -> {
       HyperlinkEvent.EventType type = e.getEventType();
@@ -259,6 +260,28 @@ public class MPSDocumentationUI implements DataProvider, Disposable {
     @Override
     public void setSelected(@NotNull AnActionEvent e, boolean state) {
       MPSDocumentationManager.getInstance().setShowOnMouseMove(state);
+    }
+
+    @NotNull
+    @Override
+    public ActionUpdateThread getActionUpdateThread() {
+      return ActionUpdateThread.EDT;
+    }
+  }
+
+  private static class ShowDocumentationPopupFirst extends ToggleAction {
+    ShowDocumentationPopupFirst() {
+      super("Show Documentation Popup First", null, null);
+    }
+
+    @Override
+    public boolean isSelected(@NotNull AnActionEvent e) {
+      return MPSDocumentationManager.getInstance().getShowDocumentationPopupFirst();
+    }
+
+    @Override
+    public void setSelected(@NotNull AnActionEvent e, boolean state) {
+      MPSDocumentationManager.getInstance().setShowDocumentationPopupFirst(state);
     }
 
     @NotNull
