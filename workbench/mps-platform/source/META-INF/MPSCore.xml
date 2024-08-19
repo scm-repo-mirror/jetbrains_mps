@@ -33,18 +33,7 @@
     </component>
 
     <component>
-      <implementation-class>jetbrains.mps.persistence.ModelFactoryRegister</implementation-class>
-    </component>
-
-    <component>
-      <implementation-class>jetbrains.mps.persistence.DataSourceFactoryRuleRegistrar</implementation-class>
-    </component>
-
-    <component>
       <implementation-class>jetbrains.mps.ide.vfs.IdeaFileSystem</implementation-class>
-    </component>
-    <component>
-      <implementation-class>jetbrains.mps.ide.persistence.PersistenceComponent</implementation-class>
     </component>
     <component>
       <interface-class>jetbrains.mps.ide.platform.watching.ReloadManager</interface-class>
@@ -131,5 +120,6 @@
 
   <extensions defaultExtensionNs="jetbrains.mps">
     <componentPluginFactory implementation="jetbrains.mps.baseLanguage.search.MPSBaseLanguage$Factory"/>
+    <componentPluginFactory implementation="jetbrains.mps.persistence.ModelFactoryRegister$Factory" />
   </extensions>
 </idea-plugin>
