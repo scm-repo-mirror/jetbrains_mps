@@ -56,9 +56,6 @@
     <component>
       <implementation-class>jetbrains.mps.nodefs.FileSystemProjectBridge</implementation-class>
     </component>
-    <component>
-      <implementation-class>jetbrains.mps.ide.undo.OnReloadingUndoCleaner</implementation-class>
-    </component>    <!-- migration: versions handling -->
   </project-components>
 
   <applicationListeners>
@@ -105,6 +102,7 @@
     <projectService serviceImplementation="jetbrains.mps.ide.vfs.ProjectRootListenerComponent" />
     <projectService serviceImplementation="jetbrains.mps.ide.codeStyle.CodeStyleSettingsComponent" /> <!-- NEED loadForDefaultProject, how to  -->
     <projectService serviceImplementation="jetbrains.mps.ide.compiler.CompilerSettingsComponent" />
+    <projectService serviceImplementation="jetbrains.mps.ide.undo.OnReloadingUndoCleaner" />
 
     <fileTypeFactory implementation="jetbrains.mps.fileTypes.MPSFileTypeFactory"/>
 
