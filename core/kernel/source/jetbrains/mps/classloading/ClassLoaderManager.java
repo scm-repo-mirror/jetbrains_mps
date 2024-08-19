@@ -278,21 +278,21 @@ public class ClassLoaderManager implements CoreComponent {
    */
   @NotNull
   public MPSModuleClassLoader getClassLoader(final SModule module) {
-    if (!myValidCondition.test(module)) {
-      // I'm not sure there's any reason to keep this condition, as it seems to be just some sort of optimization
-      // especially as long as there's subsequent `refresh()` call, yet there's a long story for this condition, and
-      // reluctant to remove it right away
-      return DEFAULT_DELEGATING_TO_SYSTEM_CL;
-    }
+//    if (!myValidCondition.test(module)) {
+//      // I'm not sure there's any reason to keep this condition, as it seems to be just some sort of optimization
+//      // especially as long as there's subsequent `refresh()` call, yet there's a long story for this condition, and
+//      // reluctant to remove it right away
+//      return DEFAULT_DELEGATING_TO_SYSTEM_CL;
+//    }
 
     if (myRepository.getModelAccess().canWrite()) {
       // fixme awful solution, unpredictable return value;
       //  however we need this in the during long writes where we want to see the update without explicit  #reload invocation
       refresh();
 
-      if (!myValidCondition.test(module)) {
-        return DEFAULT_DELEGATING_TO_SYSTEM_CL;
-      }
+    }
+    if (!myValidCondition.test(module)) {
+      return DEFAULT_DELEGATING_TO_SYSTEM_CL;
     }
     // myValidCondition is true here
 
