@@ -40,7 +40,6 @@ import org.jetbrains.mps.openapi.util.SubProgressKind;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -48,7 +47,6 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 
 import static java.lang.ClassLoader.getSystemClassLoader;
 import static jetbrains.mps.classloading.ClassLoadingProgress.UNLOADED;
@@ -208,9 +206,13 @@ public class ClassLoaderManager implements CoreComponent {
 
   public ClassLoaderManager(@NotNull SRepository repository) {
     myRepository = repository;
-    myModulesWatcher = new ModulesWatcher(myRepository, myWatchableCondition);
-    // XXX ModuleEventsHandler implies we care about ReloadableModuleBase instances, and the rest of this code
-    //     sort of assumes it receives these instances (e.g. conditions)
+    // watchableCondition is to filter modules that are subject to class loading. We want to watch and trace the dependencies between these.
+    // It answers if it is possible to associate a ClassLoader (whether IDEA-delegating or true MPS module CL) with the module.
+    // XXX perhaps, this condition shall include a check for actual .class present, to avoid attempts like e.g. LanguageRegistry to access classes
+    // from bare, non-compiled modules (i.e. not *can*ProvideClasses but also *does*ProvideClasses)
+    final Predicate<SModule> watchableCondition = SModuleOperations::classesAvailableToMPS;
+    myModulesWatcher = new ModulesWatcher(myRepository, watchableCondition);
+    // ModuleEventsHandler batches module events and pumps it back here, for susbequent processing by myModulesWatcher
     myRepositoryListener = new ModuleEventsHandler(repository, this);
     myBroadCaster = new ClassLoadingBroadCaster(repository.getModelAccess(), myClassLoadersHolder.getDisposer());
   }
@@ -276,11 +278,10 @@ public class ClassLoaderManager implements CoreComponent {
    */
   @NotNull
   public MPSModuleClassLoader getClassLoader(final SModule module) {
-    if (!myWatchableCondition.test(module)) {
-      // FTR, prior to use of JMF for condition, we didn't get into this if for a module removed inside the same write.
-      //      Instead, refresh(), below, brought the watcher state up-to-date. Now, module removed from a repo got no
-      //      facets, and we get into this if right away. Not sure how important is this scenario (see related change in
-      //      ModuleReloadTest#testUnload1()
+    if (!myValidCondition.test(module)) {
+      // I'm not sure there's any reason to keep this condition, as it seems to be just some sort of optimization
+      // especially as long as there's subsequent `refresh()` call, yet there's a long story for this condition, and
+      // reluctant to remove it right away
       return DEFAULT_DELEGATING_TO_SYSTEM_CL;
     }
 
@@ -288,11 +289,13 @@ public class ClassLoaderManager implements CoreComponent {
       // fixme awful solution, unpredictable return value;
       //  however we need this in the during long writes where we want to see the update without explicit  #reload invocation
       refresh();
-    }
 
-    if (!myValidCondition.test(module)) {
-      return DEFAULT_DELEGATING_TO_SYSTEM_CL;
+      if (!myValidCondition.test(module)) {
+        return DEFAULT_DELEGATING_TO_SYSTEM_CL;
+      }
     }
+    // myValidCondition is true here
+
 //    createClassloaders(Collections.singleton(reloadableModule), new EmptyProgressMonitor());
     MPSModuleClassLoader classLoader = myClassLoadersHolder.getClassLoader(module.getModuleReference());
     return classLoader != null ? classLoader : DEFAULT_DELEGATING_TO_SYSTEM_CL;
@@ -574,12 +577,6 @@ public class ClassLoaderManager implements CoreComponent {
       return myIsDeployed;
     }
   }
-
-  /**
-   * the modules we want to watch (and trace the dependencies between them)
-   * Answers if it is possible to associate a ClassLoader (whether IDEA-delegating or true MPS module CL) with the module
-   */
-  private final Predicate<SModule> myWatchableCondition = SModuleOperations::classesAvailableToMPS;
 
   /**
    * status of this module is valid in the dependencies graph
