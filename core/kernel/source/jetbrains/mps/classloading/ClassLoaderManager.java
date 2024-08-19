@@ -585,10 +585,10 @@ public class ClassLoaderManager implements CoreComponent {
    * status of this module is valid in the dependencies graph
    * @see ModulesWatcher
    */
-  private final Predicate<SModule> myValidCondition = myWatchableCondition.and(new Predicate<SModule>() {
+  private final Predicate<SModule> myValidCondition = new Predicate<SModule>() {
     @Override
     public boolean test(SModule module) {
       return myModulesWatcher.getStatus(module.getModuleReference()).isValid();
     }
-  });
+  };
 }
