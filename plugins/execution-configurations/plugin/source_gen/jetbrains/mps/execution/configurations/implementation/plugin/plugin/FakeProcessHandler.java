@@ -94,10 +94,10 @@ public abstract class FakeProcessHandler extends BaseOSProcessHandler {
   }
 
   private class BlockingReader extends BaseOutputReader {
-    private final Key myProcessOutputType;
+    private final Key<?> myProcessOutputType;
     private final String myPresentableName;
 
-    public BlockingReader(Reader reader, Key outputType, @NotNull String presentableName) {
+    public BlockingReader(Reader reader, Key<?> outputType, @NotNull String presentableName) {
       super(reader, BaseOutputReader.Options.BLOCKING);
       myProcessOutputType = outputType;
       myPresentableName = presentableName;
@@ -140,6 +140,14 @@ public abstract class FakeProcessHandler extends BaseOSProcessHandler {
           }
         }
       }
+    }
+
+    @Override
+    public void stop() {
+      super.stop();
+      // also tell the writer to stop
+      // this should resolve any potential deadlock
+      myFakeProcess.closeProcessStream(myProcessOutputType);
     }
 
     @NotNull
