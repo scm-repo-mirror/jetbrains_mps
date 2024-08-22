@@ -16,6 +16,7 @@
 package jetbrains.mps.nodeEditor.cells;
 
 import com.intellij.openapi.command.CommandProcessor;
+import com.intellij.openapi.util.text.HtmlBuilder;
 import com.intellij.openapi.util.text.HtmlChunk;
 import com.intellij.openapi.vfs.VirtualFileManager;
 import com.intellij.util.io.URLUtil;
@@ -136,7 +137,15 @@ public abstract class EditorCell_Label extends EditorCell_Basic implements jetbr
   }
 
   private String getRenderedHtml() {
-    HtmlChunk htmlChunk = HtmlChunk.text(getRenderedText());
+    HtmlBuilder htmlBuilder = new HtmlBuilder();
+    for (Character c : getRenderedText().toCharArray()) {
+      if (c == ' ') {
+        htmlBuilder.append(HtmlChunk.nbsp());
+      } else {
+        htmlBuilder.append(c.toString());
+      }
+    }
+    HtmlChunk htmlChunk = htmlBuilder.toFragment();
 
     // format
     boolean isBold = this.getRenderedTextLine().getFont().isBold();
