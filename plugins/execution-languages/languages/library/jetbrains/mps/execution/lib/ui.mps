@@ -2522,7 +2522,20 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbH" id="7OiZBHE04Aa" role="3cqZAp" />
+        <node concept="3clFbF" id="66S5nDB5jUt" role="3cqZAp">
+          <node concept="2OqwBi" id="66S5nDB5t3K" role="3clFbG">
+            <node concept="37vLTw" id="66S5nDB5jUr" role="2Oq$k0">
+              <ref role="3cqZAo" node="7OiZBHE04_U" resolve="toolbar" />
+            </node>
+            <node concept="liA8E" id="66S5nDB5_jQ" role="2OqNvi">
+              <ref role="37wK5l" to="qkt:~ActionToolbar.setTargetComponent(javax.swing.JComponent)" resolve="setTargetComponent" />
+              <node concept="37vLTw" id="66S5nDB5TQW" role="37wK5m">
+                <ref role="3cqZAo" node="7OiZBHE04_3" resolve="mainPanel" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbH" id="66S5nDB5HjI" role="3cqZAp" />
         <node concept="3clFbF" id="7OiZBHE04Ab" role="3cqZAp">
           <node concept="1rXfSq" id="1_3tIz5KrTv" role="3clFbG">
             <ref role="37wK5l" to="z60i:~Container.add(java.awt.Component,java.lang.Object)" resolve="add" />
