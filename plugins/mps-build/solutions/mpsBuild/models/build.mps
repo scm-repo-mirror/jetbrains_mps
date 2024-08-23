@@ -30759,21 +30759,6 @@
     <node concept="398b33" id="1nJh0raVm57" role="3989C9">
       <property role="TrG5h" value="mps-modelchecker" />
       <property role="ZpmtF" value="true" />
-      <node concept="398b2D" id="1nJh0raVm58" role="398b2p">
-        <node concept="398BVA" id="1nJh0raVm5a" role="398b2C">
-          <ref role="398BVh" node="5yMuYWFN8P8" resolve="mps_home" />
-          <node concept="2Ry0Ak" id="1nJh0raVm5b" role="iGT6I">
-            <property role="2Ry0Am" value="plugins" />
-            <node concept="2Ry0Ak" id="1nJh0raVm5c" role="2Ry0An">
-              <property role="2Ry0Am" value="mps-modelchecker" />
-            </node>
-          </node>
-        </node>
-        <node concept="nFU4i" id="1nJh0raVm5d" role="nFU4p">
-          <property role="nFU4j" value="source" />
-          <property role="3LZaj6" value="source" />
-        </node>
-      </node>
       <node concept="2GAZfH" id="3NkcTj4zF_A" role="398b2p">
         <node concept="TIC1d" id="3NkcTj4zF_u" role="2GAZfG">
           <node concept="398BVA" id="3NkcTj4zC9i" role="TIC6M">
@@ -30782,28 +30767,25 @@
               <property role="2Ry0Am" value="plugins" />
               <node concept="2Ry0Ak" id="3NkcTj4zC9k" role="2Ry0An">
                 <property role="2Ry0Am" value="mps-modelchecker" />
-                <node concept="2Ry0Ak" id="3NkcTj4zC_1" role="2Ry0An">
-                  <property role="2Ry0Am" value="platform" />
-                  <node concept="2Ry0Ak" id="3NkcTj4zCOZ" role="2Ry0An">
-                    <property role="2Ry0Am" value="source_gen" />
-                  </node>
+                <node concept="2Ry0Ak" id="3$nddd1zg2Z" role="2Ry0An">
+                  <property role="2Ry0Am" value="source" />
                 </node>
               </node>
             </node>
           </node>
         </node>
       </node>
-      <node concept="2GAZfH" id="6yw1ZDMgkKg" role="398b2p">
-        <node concept="TIC1d" id="6yw1ZDMgkKh" role="2GAZfG">
-          <node concept="398BVA" id="6yw1ZDMgkKi" role="TIC6M">
+      <node concept="2GAZfH" id="3$nddd1zfXC" role="398b2p">
+        <node concept="TIC1d" id="3$nddd1zfXD" role="2GAZfG">
+          <node concept="398BVA" id="3$nddd1zfXE" role="TIC6M">
             <ref role="398BVh" node="5yMuYWFN8P8" resolve="mps_home" />
-            <node concept="2Ry0Ak" id="6yw1ZDMgkKj" role="iGT6I">
+            <node concept="2Ry0Ak" id="3$nddd1zfXF" role="iGT6I">
               <property role="2Ry0Am" value="plugins" />
-              <node concept="2Ry0Ak" id="6yw1ZDMgkKk" role="2Ry0An">
+              <node concept="2Ry0Ak" id="3$nddd1zfXG" role="2Ry0An">
                 <property role="2Ry0Am" value="mps-modelchecker" />
-                <node concept="2Ry0Ak" id="6yw1ZDMgkKl" role="2Ry0An">
-                  <property role="2Ry0Am" value="solution" />
-                  <node concept="2Ry0Ak" id="3$nddd11N1x" role="2Ry0An">
+                <node concept="2Ry0Ak" id="3$nddd1zfXH" role="2Ry0An">
+                  <property role="2Ry0Am" value="platform" />
+                  <node concept="2Ry0Ak" id="3$nddd1zfXI" role="2Ry0An">
                     <property role="2Ry0Am" value="source_gen" />
                   </node>
                 </node>
@@ -30961,7 +30943,6 @@
       <property role="TrG5h" value="jetbrains.mps.ide.modelchecker" />
       <property role="3LESm3" value="190bd57b-8f4d-4411-955f-e9cc0378366a" />
       <property role="ZpmtF" value="true" />
-      <property role="3vZFNd" value="3kCd1ud3JDD/compile_ext" />
       <node concept="398BVA" id="1_7hqbu4mZ_" role="3LF7KH">
         <ref role="398BVh" node="5lGJ4TaqfAJ" resolve="plugin_home" />
         <node concept="2Ry0Ak" id="1_7hqbu4mZF" role="iGT6I">
@@ -31061,7 +31042,7 @@
             </node>
           </node>
           <node concept="3qWCbU" id="1_7hqbu4sHt" role="3LXTna">
-            <property role="3qWCbO" value="icons/**" />
+            <property role="3qWCbO" value="icons/**, startup.properties" />
           </node>
         </node>
       </node>

@@ -111,11 +111,15 @@
           <language id="l:69b8a993-9b87-4d96-bf0c-3559f4bb0c63:jetbrains.mps.lang.slanguage" />
           <language id="l:7866978e-a0f0-4cc7-81bc-4d213d9375e1:jetbrains.mps.lang.smodel" />
         </uses>
+        <classpath>
+          <entry path="." />
+        </classpath>
         <sources jar="jetbrains.mps.ide.modelchecker-src.jar" descriptor="jetbrains.mps.ide.modelchecker.msd" />
       </module>
     </echoxml>
     <jar destfile="${build.layout}/mps-modelchecker/languages/jetbrains.mps.ide.modelchecker.jar" duplicate="preserve">
-      <fileset dir="${plugin_home}/mps-modelchecker/solution" includes="icons/**" />
+      <fileset dir="${build.tmp}/java/out/jetbrains.mps.ide.modelchecker" />
+      <fileset dir="${plugin_home}/mps-modelchecker/solution" includes="icons/**, startup.properties" />
       <fileset dir="${plugin_home}/mps-modelchecker/solution/source_gen" includes="**/trace.info, **/exports, **/*.mps, **/checkpoints" />
       <fileset dir="${build.tmp}/default/jetbrains.mps.ide.modelchecker.jar" />
     </jar>
@@ -736,7 +740,7 @@
     <delete dir="${build.layout}" />
   </target>
   
-  <target name="compileJava" depends="java.compile.mps-modelchecker, java.compile.jetbrains.mps.ide.tools.todo, java.compile.jetbrains.mps.lang.core.pluginSolution, java.compile.jetbrains.mps.lang.text.pluginSolution, java.compile.jetbrains.mps.lang.script.pluginSolution, java.compile.jetbrains.mps.lang.typesystem.pluginSolution, java.compile.jetbrains.mps.baseLanguage.lightweightdsl.pluginSolution, java.compile.jetbrains.mps.lang.migration.actions, java.compile.jetbrains.mps.ide.refactoring, java.compile.mps-memtool, java.compile.mps-samples" />
+  <target name="compileJava" depends="java.compile.mps-modelchecker, java.compile.jetbrains.mps.ide.modelchecker, java.compile.jetbrains.mps.ide.tools.todo, java.compile.jetbrains.mps.lang.core.pluginSolution, java.compile.jetbrains.mps.lang.text.pluginSolution, java.compile.jetbrains.mps.lang.script.pluginSolution, java.compile.jetbrains.mps.lang.typesystem.pluginSolution, java.compile.jetbrains.mps.baseLanguage.lightweightdsl.pluginSolution, java.compile.jetbrains.mps.lang.migration.actions, java.compile.jetbrains.mps.ide.refactoring, java.compile.mps-memtool, java.compile.mps-samples" />
   
   <target name="processResources" />
   
@@ -804,8 +808,8 @@
   </target>
   
   <target name="java.compile.mps-modelchecker" depends="fetchDependencies">
+    <mkdir dir="${mps_home}/plugins/mps-modelchecker/source" />
     <mkdir dir="${mps_home}/plugins/mps-modelchecker/platform/source_gen" />
-    <mkdir dir="${mps_home}/plugins/mps-modelchecker/solution/source_gen" />
     <mkdir dir="${build.tmp}/java/out/mps-modelchecker" />
     <javac2 destdir="${build.tmp}/java/out/mps-modelchecker" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
       <withKotlin moduleName="mps-modelchecker">        
@@ -814,9 +818,8 @@
       <skip pattern="kotlin/Metadata" />
       <compilerarg value="-Xlint:none" />
       <src>
-        <pathelement path="${mps_home}/plugins/mps-modelchecker/source" />
+        <path location="${mps_home}/plugins/mps-modelchecker/source" />
         <path location="${mps_home}/plugins/mps-modelchecker/platform/source_gen" />
-        <path location="${mps_home}/plugins/mps-modelchecker/solution/source_gen" />
       </src>
       <classpath>
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
@@ -859,9 +862,75 @@
       </classpath>
     </javac2>
     <copy todir="${build.tmp}/java/out/mps-modelchecker">
-      <fileset dir="${mps_home}/plugins/mps-modelchecker/platform/source_gen" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.svg, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
-      <fileset dir="${mps_home}/plugins/mps-modelchecker/solution/source_gen" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.svg, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
       <fileset dir="${mps_home}/plugins/mps-modelchecker/source" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.svg, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
+      <fileset dir="${mps_home}/plugins/mps-modelchecker/platform/source_gen" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.svg, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
+    </copy>
+  </target>
+  
+  <target name="java.compile.jetbrains.mps.ide.modelchecker" depends="java.compile.mps-modelchecker, fetchDependencies">
+    <mkdir dir="${plugin_home}/mps-modelchecker/solution/source_gen" />
+    <mkdir dir="${build.tmp}/java/out/jetbrains.mps.ide.modelchecker" />
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.ide.modelchecker" fork="false" encoding="utf8" includeantruntime="false" debug="true" source="11" target="11">
+      <withKotlin moduleName="jetbrains.mps.ide.modelchecker">        
+        <compilerarg value="-jvm-target=11" />
+      </withKotlin>
+      <skip pattern="kotlin/Metadata" />
+      <compilerarg value="-Xlint:none" />
+      <src>
+        <path location="${plugin_home}/mps-modelchecker/solution/source_gen" />
+      </src>
+      <classpath>
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-core.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-platform.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-annotations.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-behavior-api.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-behavior-runtime.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-closures.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-collections.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-openapi.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-tuples.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-references.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-context.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-api.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-runtime.jar" />
+        <pathelement path="${build.tmp}/java/out/mps-modelchecker" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-persistence.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-environment.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-icons.jar" />
+        <fileset file="${artifacts.mpsWorkbench}/lib/mps-workbench.jar" />
+        <fileset file="${artifacts.IDEA}/lib/app.jar" />
+        <fileset file="${artifacts.IDEA}/lib/app-client.jar" />
+        <fileset file="${artifacts.IDEA}/lib/lib.jar" />
+        <fileset file="${artifacts.IDEA}/lib/lib-client.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util_rt.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
+        <fileset file="${artifacts.IDEA}/lib/forms_rt.jar" />
+        <fileset file="${artifacts.IDEA}/lib/java-frontback.jar" />
+        <fileset file="${artifacts.IDEA}/lib/java-impl.jar" />
+        <fileset file="${artifacts.IDEA}/lib/jps-model.jar" />
+        <fileset file="${artifacts.IDEA}/lib/testFramework.jar" />
+        <fileset file="${artifacts.IDEA}/lib/stats.jar" />
+        <fileset file="${artifacts.IDEA}/lib/platform-loader.jar" />
+        <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
+        <fileset file="${artifacts.IDEA}/lib/trove.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.scopes.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.core.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.generator.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.scopes.runtime.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/languages/runtimes/jetbrains.mps.lang.smodel.query.runtime.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.structure.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.traceable.jar" />
+        <path refid="path.jdk.classpath" />
+      </classpath>
+    </javac2>
+    <copy todir="${build.tmp}/java/out/jetbrains.mps.ide.modelchecker">
+      <fileset dir="${plugin_home}/mps-modelchecker/solution/source_gen" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.svg, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
     </copy>
   </target>
   

@@ -49,15 +49,6 @@
       </concept>
     </language>
     <language id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin">
-      <concept id="5023285075122009364" name="jetbrains.mps.lang.plugin.structure.IdeaInitializerDescriptor" flags="ng" index="9BnSX">
-        <property id="5023285075122009369" name="version" index="9BnSK" />
-        <property id="5023285075122009368" name="descripttion" index="9BnSL" />
-        <property id="5023285075122009371" name="vendor" index="9BnSM" />
-        <property id="5023285075122009373" name="ideaVersion" index="9BnSO" />
-        <property id="5023285075122009372" name="vendorUrl" index="9BnSP" />
-        <property id="5023285075122009366" name="id" index="9BnSZ" />
-        <property id="1573568368168371217" name="handleErrors" index="3FCvg6" />
-      </concept>
       <concept id="1207145163717" name="jetbrains.mps.lang.plugin.structure.ElementListContents" flags="ng" index="ftmFs">
         <child id="1207145201301" name="reference" index="ftvYc" />
       </concept>
@@ -107,7 +98,9 @@
         <child id="481983775135178844" name="fieldDeclaration" index="2uRRBG" />
       </concept>
       <concept id="481983775135178846" name="jetbrains.mps.lang.plugin.standalone.structure.ApplicationPluginDisposeBlock" flags="in" index="2uRRBI" />
-      <concept id="7520713872864775836" name="jetbrains.mps.lang.plugin.standalone.structure.StandalonePluginDescriptor" flags="ng" index="2DaZZR" />
+      <concept id="7520713872864775836" name="jetbrains.mps.lang.plugin.standalone.structure.StandalonePluginDescriptor" flags="ng" index="2DaZZR">
+        <property id="6862207549896125199" name="needInitConfig" index="3_H9TB" />
+      </concept>
       <concept id="3418954410726344423" name="jetbrains.mps.lang.plugin.standalone.structure.PlatformAccessExpression" flags="ng" index="XUXob" />
     </language>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -426,16 +419,6 @@
       <concept id="1172254888721" name="jetbrains.mps.baseLanguage.collections.structure.ContainsOperation" flags="nn" index="3JPx81" />
     </language>
   </registry>
-  <node concept="9BnSX" id="1gEYwydCqV0">
-    <property role="9BnSZ" value="jetbrains.mps.ide.modelchecker" />
-    <property role="3FCvg6" value="true" />
-    <property role="9BnSP" value="http://www.jetbrains.com/mps/" />
-    <property role="9BnSL" value="Audit tool for MPS models" />
-    <property role="9BnSM" value="JetBrains" />
-    <property role="TrG5h" value="Model Checker" />
-    <property role="9BnSO" value="232.1" />
-    <property role="9BnSK" value="2024.1" />
-  </node>
   <node concept="tC5Ba" id="1gEYwydCrTu">
     <property role="TrG5h" value="CheckProject" />
     <property role="3GE5qa" value="Model Checker.Groups" />
@@ -1455,7 +1438,9 @@
       <node concept="3Tm6S6" id="441vB8Me5MM" role="1B3o_S" />
     </node>
   </node>
-  <node concept="2DaZZR" id="6dAEaqvbK37" />
+  <node concept="2DaZZR" id="6dAEaqvbK37">
+    <property role="3_H9TB" value="true" />
+  </node>
   <node concept="tC5Ba" id="1kKLUrBH7uc">
     <property role="TrG5h" value="CheckNamespace" />
     <property role="3GE5qa" value="Model Checker.Groups" />
