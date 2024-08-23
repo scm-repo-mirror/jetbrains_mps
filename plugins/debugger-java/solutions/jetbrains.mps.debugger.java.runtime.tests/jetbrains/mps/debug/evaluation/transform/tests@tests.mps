@@ -19,7 +19,6 @@
     <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
     <import index="cvs4" ref="r:7f073096-c94d-44be-8c16-e03c412508f0(jetbrains.mps.debugger.java.runtime.evaluation.transform)" />
     <import index="cdx8" ref="r:9e383f3b-cf02-4e9f-861b-72b030ba5e68(jetbrains.mps.debugger.java.api.evaluation.transform)" />
-    <import index="4are" ref="r:88da44e4-ffd4-490b-bf61-1da15124dd34(jetbrains.mps.debugger.java.runtime.evaluation.proxies)" />
     <import index="qgwr" ref="r:f326a98e-32f7-47a0-ba29-239107a89ca4(jetbrains.mps.debugger.java.api.evaluation)" />
     <import index="dcbi" ref="r:ea2e6d1f-eab5-4a08-8299-1abe57148f37(jetbrains.mps.debugger.java.api.evaluation.proxies)" />
     <import index="frkw" ref="b387285c-3448-452c-b3bb-a3f8de8eaf08/java:com.sun.jdi(JDK-tools/)" />
@@ -10374,18 +10373,6 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="2GfvxUDPoFV" role="3cqZAp">
-          <node concept="2OqwBi" id="2GfvxUDPoFW" role="3clFbG">
-            <node concept="2ShNRf" id="2GfvxUDPoFX" role="2Oq$k0">
-              <node concept="1pGfFk" id="2GfvxUDPoFY" role="2ShVmc">
-                <ref role="37wK5l" to="4are:2GfvxUDMjHh" resolve="MirrorUtilImpl" />
-              </node>
-            </node>
-            <node concept="liA8E" id="2GfvxUDPoFZ" role="2OqNvi">
-              <ref role="37wK5l" to="4are:2GfvxUDMjPp" resolve="init" />
-            </node>
-          </node>
-        </node>
       </node>
     </node>
     <node concept="2YIFZL" id="2GfvxUDPoG0" role="jymVt">
@@ -10393,17 +10380,6 @@
       <node concept="3cqZAl" id="2GfvxUDPoG1" role="3clF45" />
       <node concept="3Tm1VV" id="2GfvxUDPoG2" role="1B3o_S" />
       <node concept="3clFbS" id="2GfvxUDPoG3" role="3clF47">
-        <node concept="3clFbF" id="2GfvxUDPoFj" role="3cqZAp">
-          <node concept="2OqwBi" id="2GfvxUDPoFm" role="3clFbG">
-            <node concept="2YIFZM" id="2GfvxUDPoFl" role="2Oq$k0">
-              <ref role="1Pybhc" to="4are:2GfvxUDMjHg" resolve="MirrorUtilImpl" />
-              <ref role="37wK5l" to="dcbi:6dm0XGkqAq_" resolve="getInstance" />
-            </node>
-            <node concept="liA8E" id="2GfvxUDPoFq" role="2OqNvi">
-              <ref role="37wK5l" to="dcbi:6dm0XGkqArR" resolve="dispose" />
-            </node>
-          </node>
-        </node>
         <node concept="3clFbF" id="2GfvxUDPoFs" role="3cqZAp">
           <node concept="2OqwBi" id="2GfvxUDPoFv" role="3clFbG">
             <node concept="2YIFZM" id="2GfvxUDPoFu" role="2Oq$k0">

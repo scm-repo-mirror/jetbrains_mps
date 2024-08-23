@@ -30,6 +30,13 @@
     <applicationService
             serviceInterface="jetbrains.mps.debugger.java.api.state.customViewers.CustomViewersManager"
             serviceImplementation="jetbrains.mps.debugger.java.runtime.state.customViewers.CustomViewersManagerImpl" />
+
+    <applicationService
+            serviceInterface="jetbrains.mps.debugger.java.api.evaluation.EvaluationUtils"
+            serviceImplementation="jetbrains.mps.debugger.java.runtime.evaluation.EvaluationUtilsImpl"/>
+    <applicationService
+            serviceInterface="jetbrains.mps.debugger.java.api.evaluation.proxies.MirrorUtil"
+            serviceImplementation="jetbrains.mps.debugger.java.runtime.evaluation.proxies.MirrorUtilImpl" />
   </extensions>
 
   <projectListeners>

@@ -11,10 +11,6 @@ import jetbrains.mps.debug.api.AbstractDebugSessionCreator;
 import com.intellij.openapi.project.Project;
 import jetbrains.mps.debugger.java.runtime.engine.VmCreator;
 import jetbrains.mps.debug.api.breakpoints.IBreakpointsProvider;
-import jetbrains.mps.debugger.java.runtime.evaluation.proxies.MirrorUtilImpl;
-import jetbrains.mps.debugger.java.runtime.evaluation.EvaluationUtilsImpl;
-import jetbrains.mps.debugger.java.api.evaluation.EvaluationUtils;
-import jetbrains.mps.debugger.java.api.evaluation.proxies.MirrorUtil;
 
 @GeneratedClass(node = "r:171d7488-7735-44dd-8049-f905d8fca4b0(jetbrains.mps.debugger.java.runtime)/4352118152439837554", model = "r:171d7488-7735-44dd-8049-f905d8fca4b0(jetbrains.mps.debugger.java.runtime)")
 public class JavaDebugger extends AbstractDebugger implements BaseComponent {
@@ -46,17 +42,10 @@ public class JavaDebugger extends AbstractDebugger implements BaseComponent {
   public void initComponent() {
     super.init();
     myJavaBreakpointsProvider.init();
-    new MirrorUtilImpl().init();
-    new EvaluationUtilsImpl().init();
   }
 
   @Override
   public void disposeComponent() {
-    EvaluationUtils.getInstance().dispose();
-    MirrorUtil mirrorUtil = MirrorUtil.getInstance();
-    if (mirrorUtil != null) {
-      mirrorUtil.dispose();
-    }
     myJavaBreakpointsProvider.dispose();
     super.dispose();
   }
