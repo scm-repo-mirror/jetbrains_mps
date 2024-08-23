@@ -262,7 +262,6 @@ public class MPSDocumentationManager {
                                            .setFocusable(true)
                                            .setMovable(true)
                                            .setResizable(true)
-                                           .setCancelOnClickOutside(false)
                                            .createPopup();
     }
 
