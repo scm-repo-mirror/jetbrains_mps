@@ -10,11 +10,6 @@
   <depends>com.intellij.modules.mps</depends>
 
   <application-components>
-    <!--api-->
-    <component>
-      <interface-class>jetbrains.mps.debugger.java.api.state.customViewers.CustomViewersManager</interface-class>
-      <implementation-class>jetbrains.mps.debugger.java.runtime.state.customViewers.CustomViewersManagerImpl</implementation-class>
-    </component>
     <!--runtime-->
     <component>
       <implementation-class>jetbrains.mps.debugger.java.runtime.state.customViewers.BaseLanguageCustomViewers</implementation-class>
@@ -32,7 +27,17 @@
     <mps.PluginComponentContributor application="jetbrains.mps.debugger.java.runtime.ui.actions.Runtime_ApplicationPlugin" />
     <projectService serviceImplementation="jetbrains.mps.debugger.java.runtime.engine.VMEventsProcessorManagerComponent"/>
     <projectService serviceImplementation="jetbrains.mps.debugger.java.runtime.breakpoints.BreakpointsIconCache" />
+    <applicationService
+            serviceInterface="jetbrains.mps.debugger.java.api.state.customViewers.CustomViewersManager"
+            serviceImplementation="jetbrains.mps.debugger.java.runtime.state.customViewers.CustomViewersManagerImpl" />
   </extensions>
+
+  <projectListeners>
+    <listener class="jetbrains.mps.debugger.java.runtime.state.customViewers.CustomViewersManagerImpl$DebugSessionListener"
+              topic="jetbrains.mps.debug.api.DebugSessionManagerComponent$DebugSessionListener"
+              activeInTestMode="false"
+              activeInHeadlessMode="false"/>
+  </projectListeners>
 
   <extensions defaultExtensionNs="jetbrains.mps">
     <!-- JavaNodePositionProvider comes with higher priority for NodePositionProvider key -->
