@@ -256,7 +256,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return SModelOperations.getModelName(_context.getInputModel());
   }
   public static Object propertyMacro_GetValue_10_1(final PropertyMacroContext _context) {
-    return DocumentationPathResolver.getDocFileNameWithoutExtension(_context.getNode());
+    return DocumentationPathResolver.getDocFileNameWithExtension(_context.getNode());
   }
   public static Object propertyMacro_GetValue_10_2(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL);
@@ -265,7 +265,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return SPropertyOperations.getString(_context.getNode(), PROPS.conceptShortDescription$is9d);
   }
   public static Object propertyMacro_GetValue_10_4(final PropertyMacroContext _context) {
-    return DocumentationPathResolver.getDocFileNameWithoutExtension(_context.getNode());
+    return DocumentationPathResolver.getDocFileNameWithExtension(_context.getNode());
   }
   public static Object propertyMacro_GetValue_10_5(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL);
@@ -274,19 +274,19 @@ public class QueriesGenerated extends QueryProviderBase {
     return SPropertyOperations.getString(_context.getNode(), PROPS.conceptShortDescription$is9d);
   }
   public static Object propertyMacro_GetValue_10_7(final PropertyMacroContext _context) {
-    return DocumentationPathResolver.getDocFileNameWithoutExtension(_context.getNode());
+    return DocumentationPathResolver.getDocFileNameWithExtension(_context.getNode());
   }
   public static Object propertyMacro_GetValue_10_8(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL);
   }
   public static Object propertyMacro_GetValue_10_9(final PropertyMacroContext _context) {
-    return DocumentationPathResolver.getDocFileNameWithoutExtension(_context.getNode());
+    return DocumentationPathResolver.getDocFileNameWithExtension(_context.getNode());
   }
   public static Object propertyMacro_GetValue_10_10(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL);
   }
   public static Object propertyMacro_GetValue_10_11(final PropertyMacroContext _context) {
-    return DocumentationPathResolver.getDocFileNameWithoutExtension(_context.getNode());
+    return DocumentationPathResolver.getDocFileNameWithExtension(_context.getNode());
   }
   public static Object propertyMacro_GetValue_10_12(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL);
@@ -346,25 +346,25 @@ public class QueriesGenerated extends QueryProviderBase {
     return SModelOperations.getModelName(_context.getInputModel());
   }
   public static Object propertyMacro_GetValue_15_1(final PropertyMacroContext _context) {
-    return DocumentationPathResolver.getDocFileNameWithoutExtension(_context.getNode());
+    return DocumentationPathResolver.getDocFileNameWithExtension(_context.getNode());
   }
   public static Object propertyMacro_GetValue_15_2(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL);
   }
   public static Object propertyMacro_GetValue_15_3(final PropertyMacroContext _context) {
-    return DocumentationPathResolver.getDocFileNameWithoutExtension(_context.getNode());
+    return DocumentationPathResolver.getDocFileNameWithExtension(_context.getNode());
   }
   public static Object propertyMacro_GetValue_15_4(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL);
   }
   public static Object propertyMacro_GetValue_15_5(final PropertyMacroContext _context) {
-    return DocumentationPathResolver.getDocFileNameWithoutExtension(_context.getNode());
+    return DocumentationPathResolver.getDocFileNameWithExtension(_context.getNode());
   }
   public static Object propertyMacro_GetValue_15_6(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL);
   }
   public static Object propertyMacro_GetValue_15_7(final PropertyMacroContext _context) {
-    return DocumentationPathResolver.getDocFileNameWithoutExtension(_context.getNode());
+    return DocumentationPathResolver.getDocFileNameWithExtension(_context.getNode());
   }
   public static Object propertyMacro_GetValue_15_8(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL);
@@ -434,7 +434,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return SModelOperations.getModelName(_context.getInputModel());
   }
   public static Object propertyMacro_GetValue_19_1(final PropertyMacroContext _context) {
-    return DocumentationPathResolver.getDocFileNameWithoutExtension(_context.getNode());
+    return DocumentationPathResolver.getDocFileNameWithExtension(_context.getNode());
   }
   public static Object propertyMacro_GetValue_19_2(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(SLinkOperations.getTarget(_context.getNode(), LINKS.concept$u6dL), PROPS.name$MnvL);
