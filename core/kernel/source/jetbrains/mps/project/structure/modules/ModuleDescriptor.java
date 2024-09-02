@@ -16,6 +16,7 @@
 package jetbrains.mps.project.structure.modules;
 
 import jetbrains.mps.logging.Logger;
+import jetbrains.mps.module.PersistenceContextImpl;
 import jetbrains.mps.persistence.MementoImpl;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.ModuleId;
@@ -30,6 +31,7 @@ import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleFacet;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.module.SRepository;
+import org.jetbrains.mps.openapi.persistence.ModulePersistenceContext;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 
 import java.io.IOException;
@@ -271,7 +273,7 @@ public class ModuleDescriptor implements CopyableDescriptor<ModuleDescriptor>  {
     removeFacetDescriptor(facet);
     final ModuleFacetDescriptor fd = new ModuleFacetDescriptor(facet.getFacetType(), new MementoImpl());
     // write defaults or actual values, if any
-    facet.save(fd.getMemento());
+    facet.save(fd.getMemento(), PersistenceContextImpl.empty());
     myFacets.add(fd);
   }
 
@@ -305,10 +307,10 @@ public class ModuleDescriptor implements CopyableDescriptor<ModuleDescriptor>  {
    * for editing of module settings) - it's sort of changes snapshot, applied with a single setModuleDescriptor operation, rather than sequence
    * of SModule changes.
    */
-  public final void updateFacetDescriptor(@NotNull SModuleFacet facet) {
+  public final void updateFacetDescriptor(@NotNull SModuleFacet facet, @NotNull ModulePersistenceContext context) {
     for (ModuleFacetDescriptor facetDescriptor : myFacets) {
       if (facetDescriptor.getType().equals(facet.getFacetType())) {
-        facet.save(facetDescriptor.getMemento());
+        facet.save(facetDescriptor.getMemento(), context);
         break;
       }
     }

@@ -88,6 +88,7 @@ import jetbrains.mps.ide.ui.finders.LanguageModelImportFinder;
 import jetbrains.mps.ide.ui.finders.LanguageUsagesFinder;
 import jetbrains.mps.ide.ui.finders.ModelUsagesFinder;
 import jetbrains.mps.ide.ui.finders.ModuleUsagesFinder;
+import jetbrains.mps.module.PersistenceContextImpl;
 import jetbrains.mps.persistence.MementoImpl;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.DevKit;
@@ -137,6 +138,7 @@ import org.jetbrains.mps.openapi.module.SModuleFacet;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.module.SearchScope;
+import org.jetbrains.mps.openapi.persistence.ModulePersistenceContext;
 import org.jetbrains.mps.openapi.ui.Modifiable;
 import org.jetbrains.mps.openapi.ui.persistence.Tab;
 
@@ -279,8 +281,9 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
     // changed (Tab.isModified()) facets only, but there's no (easy?) way to figure out module facet from a tab, thus
     // we save all module facets with active descriptors (it's AddFacetTab#apply() responsibility to add facet descriptors
     // for newly added facets, and to remove descriptors for unchecked facets. This sharing is questionable, perhaps, could do both here).
+    ModulePersistenceContext mpc = PersistenceContextImpl.forModule(myModule);
     for (SModuleFacet moduleFacet : myModule.getFacets()) {
-      myModuleDescriptor.updateFacetDescriptor(moduleFacet);
+      myModuleDescriptor.updateFacetDescriptor(moduleFacet, mpc);
     }
 
     if (myModule instanceof Language) {
@@ -1682,7 +1685,7 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
           // goes from Facet instance through MFD anyway). Latter change is far greater and would expose memento keys to UI
           // (now FacetTab could use typed access of Facet instance), which is not perfect either.
           // XXX I wonder why not to extend ModuleFacet interface with another, explicit `loadDefaults()` method?
-          myFacet.load(new MementoImpl());
+          myFacet.load(new MementoImpl(), PersistenceContextImpl.forModule(myModule));
         }
         if (myFacetTab == null) {
           myFacetTab = myFacetTabsPersistence.getFacetTab(myFacet);

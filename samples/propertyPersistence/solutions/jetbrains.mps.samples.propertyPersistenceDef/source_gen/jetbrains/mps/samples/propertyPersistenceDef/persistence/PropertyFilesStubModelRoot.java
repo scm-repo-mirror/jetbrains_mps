@@ -16,6 +16,7 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelId;
 import org.jetbrains.mps.openapi.persistence.Memento;
+import org.jetbrains.mps.openapi.persistence.ModulePersistenceContext;
 import java.util.Collection;
 import jetbrains.mps.extapi.persistence.SourceRoot;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
@@ -61,10 +62,10 @@ public class PropertyFilesStubModelRoot extends FileBasedModelRoot implements Co
   }
 
   @Override
-  public void load(Memento memento) {
+  public void load(@NotNull Memento memento, @NotNull ModulePersistenceContext context) {
     // This method documents how to leverage mementos. Since the parent class already handles setting up the content directory
     // and source roots, this method could in fact be deleted from this class.
-    super.load(memento);
+    super.load(memento, context);
     // use memento.get(CUSTOM_KEY) to retrieve settings. Don't forget to do the opposite, memento.put(CUSTOM_KEY, value) in save(Memento)
     // please note, this method deals with persisted state, model root is not completely initialized/attached to a model at this moment.
   }

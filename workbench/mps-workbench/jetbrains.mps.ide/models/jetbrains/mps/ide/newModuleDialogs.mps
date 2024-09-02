@@ -26,6 +26,7 @@
     <import index="dush" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)" />
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" />
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
+    <import index="j8aq" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.module(MPS.Core/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -308,16 +309,7 @@
       </node>
       <node concept="3Tm6S6" id="6CFNGGphKia" role="1B3o_S" />
     </node>
-    <node concept="312cEg" id="5dmi9bFXM8D" role="jymVt">
-      <property role="34CwA1" value="false" />
-      <property role="eg7rD" value="false" />
-      <property role="TrG5h" value="myNewFile" />
-      <property role="3TUv4t" value="true" />
-      <node concept="3uibUv" id="5dmi9bFXNeC" role="1tU5fm">
-        <ref role="3uigEE" to="3ju5:~IFile" resolve="IFile" />
-      </node>
-      <node concept="3Tm6S6" id="5dmi9bFXM8F" role="1B3o_S" />
-    </node>
+    <node concept="2tJIrI" id="1GTp_me_DZN" role="jymVt" />
     <node concept="2tJIrI" id="6o4hadNg8yz" role="jymVt" />
     <node concept="3clFbW" id="6CFNGGphKib" role="jymVt">
       <property role="DiZV1" value="false" />
@@ -371,16 +363,6 @@
             </node>
             <node concept="37vLTw" id="6CFNGGphKiu" role="37vLTx">
               <ref role="3cqZAo" node="6CFNGGphKig" resolve="newName" />
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="5dmi9bFXNpW" role="3cqZAp">
-          <node concept="37vLTI" id="5dmi9bFXNDI" role="3clFbG">
-            <node concept="37vLTw" id="5dmi9bFXNLh" role="37vLTx">
-              <ref role="3cqZAo" node="6CFNGGphKij" resolve="newFile" />
-            </node>
-            <node concept="37vLTw" id="5dmi9bFXNpU" role="37vLTJ">
-              <ref role="3cqZAo" node="5dmi9bFXM8D" resolve="myNewFile" />
             </node>
           </node>
         </node>
@@ -2312,16 +2294,6 @@
                 </node>
               </node>
             </node>
-            <node concept="3SKdUt" id="6CFNGGphPiK" role="3cqZAp">
-              <node concept="1PaTwC" id="ATZLwXosb6" role="1aUNEU">
-                <node concept="3oM_SD" id="ATZLwXosb7" role="1PaTwD">
-                  <property role="3oM_SC" value="noinspection" />
-                </node>
-                <node concept="3oM_SD" id="ATZLwXosb8" role="1PaTwD">
-                  <property role="3oM_SC" value="unchecked" />
-                </node>
-              </node>
-            </node>
             <node concept="3clFbF" id="6CFNGGphPh0" role="3cqZAp">
               <node concept="2OqwBi" id="6CFNGGphPh1" role="3clFbG">
                 <node concept="1eOMI4" id="6CFNGGphPh5" role="2Oq$k0">
@@ -2388,6 +2360,21 @@
             <node concept="10Nm6u" id="6CFNGGphPho" role="3uHU7w" />
           </node>
           <node concept="3clFbS" id="6CFNGGphPhq" role="3clFbx">
+            <node concept="3cpWs8" id="1GTp_me_RaF" role="3cqZAp">
+              <node concept="3cpWsn" id="1GTp_me_RaG" role="3cpWs9">
+                <property role="TrG5h" value="mpc" />
+                <node concept="3uibUv" id="1GTp_me_QCe" role="1tU5fm">
+                  <ref role="3uigEE" to="dush:~ModulePersistenceContext" resolve="ModulePersistenceContext" />
+                </node>
+                <node concept="2YIFZM" id="1GTp_me_RaH" role="33vP2m">
+                  <ref role="37wK5l" to="j8aq:~PersistenceContextImpl.forModule(jetbrains.mps.project.AbstractModule)" resolve="forModule" />
+                  <ref role="1Pybhc" to="j8aq:~PersistenceContextImpl" resolve="PersistenceContextImpl" />
+                  <node concept="37vLTw" id="1GTp_me_RaI" role="37wK5m">
+                    <ref role="3cqZAo" node="6CFNGGphPga" resolve="target" />
+                  </node>
+                </node>
+              </node>
+            </node>
             <node concept="3cpWs8" id="6CFNGGphPhs" role="3cqZAp">
               <node concept="3cpWsn" id="6CFNGGphPhr" role="3cpWs9">
                 <property role="3TUv4t" value="false" />
@@ -2440,9 +2427,12 @@
                       <ref role="3cqZAo" node="6CFNGGphPhJ" resolve="targetModelRoot" />
                     </node>
                     <node concept="liA8E" id="6CFNGGphPqY" role="2OqNvi">
-                      <ref role="37wK5l" to="dush:~ModelRoot.save(org.jetbrains.mps.openapi.persistence.Memento)" resolve="save" />
+                      <ref role="37wK5l" to="dush:~ModelRoot.save(org.jetbrains.mps.openapi.persistence.Memento,org.jetbrains.mps.openapi.persistence.ModulePersistenceContext)" resolve="save" />
                       <node concept="37vLTw" id="6CFNGGphPhD" role="37wK5m">
                         <ref role="3cqZAo" node="6CFNGGphPhz" resolve="targetMemento" />
+                      </node>
+                      <node concept="37vLTw" id="1GTp_me_Yq1" role="37wK5m">
+                        <ref role="3cqZAo" node="1GTp_me_RaG" resolve="mpc" />
                       </node>
                     </node>
                   </node>
@@ -2493,6 +2483,15 @@
       </node>
       <node concept="3Tm6S6" id="6CFNGGphPhQ" role="1B3o_S" />
       <node concept="3cqZAl" id="6CFNGGphPhR" role="3clF45" />
+      <node concept="2AHcQZ" id="1GTp_meA1KI" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~SuppressWarnings" resolve="SuppressWarnings" />
+        <node concept="1SXeKx" id="1GTp_meA5CZ" role="2B76xF">
+          <ref role="2B6OnR" to="wyt6:~SuppressWarnings.value()" resolve="value" />
+          <node concept="Xl_RD" id="1GTp_meA5CY" role="2B70Vg">
+            <property role="Xl_RC" value="rawtypes" />
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="3Tm1VV" id="7l6b$Kxu5in" role="1B3o_S" />
   </node>

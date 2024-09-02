@@ -18,6 +18,7 @@ package jetbrains.mps.project.facets;
 import jetbrains.mps.classloading.IdeaPluginModuleFacet;
 import jetbrains.mps.extapi.module.ModuleFacetBase;
 import jetbrains.mps.logging.Logger;
+import jetbrains.mps.module.PersistenceContextImpl;
 import jetbrains.mps.persistence.MementoImpl;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.Solution;
@@ -570,7 +571,7 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
   public static ModuleFacetDescriptor forJavaCodeModule(@Nullable JavaModuleFacet prototype) {
     if (prototype != null) {
       final ModuleFacetDescriptor rv = new ModuleFacetDescriptor(JavaModuleFacet.FACET_TYPE, new MementoImpl());
-      prototype.save(rv.getMemento());
+      prototype.save(rv.getMemento(), PersistenceContextImpl.empty());
       return rv;
     } else {
       return forNewJavaCodeModule();

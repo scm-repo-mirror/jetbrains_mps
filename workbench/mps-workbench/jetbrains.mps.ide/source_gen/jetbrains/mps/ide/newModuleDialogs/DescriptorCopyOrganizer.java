@@ -29,12 +29,11 @@ import jetbrains.mps.project.ModuleId;
   @NotNull
   private final String myNewName;
   private final ModulePathConverter myModulePathConverter;
-  private final IFile myNewFile;
+
 
   public DescriptorCopyOrganizer(@NotNull AbstractModule moduleToCopy, @NotNull String newName, @NotNull IFile newFile) {
     myModuleToCopy = moduleToCopy;
     myNewName = newName;
-    myNewFile = newFile;
     if (moduleToCopy.getDescriptorFile() != null) {
       // hackXXX methods need path conversion
       myModulePathConverter = PathConverters.forDescriptorFiles(moduleToCopy.getDescriptorFile(), newFile);
