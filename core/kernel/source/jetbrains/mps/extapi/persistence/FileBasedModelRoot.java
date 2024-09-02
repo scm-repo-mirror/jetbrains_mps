@@ -258,16 +258,12 @@ public abstract class FileBasedModelRoot extends ModelRootBase implements FileEv
     super.load(memento, context); // support subclasses that override load(Memento)
     checkNotRegistered();
 
+    this.memento = null;
+    myBrokenState = false;
     mySourcePathStorage.clearAll(); // AP: I'd rather force a single invocation of the #load method
 
-    this.memento = memento.copy();
-    // delay proper initialization until we've got SModule instance (setModule() followed by attach())
-    // but provide some minimalistic defaults to facilitate new MPSFacet scenario, when there's no
-    // associated solution yet and no way to resolve paths, but we still need to edit the root in UI
-    // MPS-as-IDEA-plugin functionality.
-    // FIXME indeed, this code duplicates code in setModule(), I just care for the 22.3 to get out now,
-    //       need a proper fix (the one that bounds myFileSystem init, use of IFile/Path/String and editing
-    //       approach for MR/MRD, both attached and detached (from a module, MPSFacet case in IdeaPlugin) scenario)
+    // FIXME need a proper fix (use of IFile/Path/String and editing approach for MR/MRD,
+    //       both attached and detached (from a module, MPSFacet case in IdeaPlugin) scenario)
     try {
       final String cpString = memento.get(CONTENT_PATH);
       if (cpString != null) {
@@ -296,33 +292,34 @@ public abstract class FileBasedModelRoot extends ModelRootBase implements FileEv
           mySourcePathStorage.addSourceRoot(kind, dsr);
         }
       }
+      // resolve PathSpec with actual IFile
+      final Function<String, IFile> path2file = PersistenceContextImpl.pathResolveFunction(context);
+      if (myContentDir != null) {
+        myContentDir.resolve(path2file);
+      }
+      for (SourceRootKind kind : getSupportedFileKinds1()) {
+        for (SourceRoot sourceRoot : mySourcePathStorage.getByKind(kind)) {
+          if (sourceRoot instanceof DefaultSourceRoot) {
+            // XXX in fact, could be re-resolve of myContentDir. Perhaps, shall record created unique PathSpec, above, and resolve only these?
+            ((DefaultSourceRoot) sourceRoot).resolve(path2file);
+          }
+        }
+      }
     } catch (Exception ex) {
       // here I hope to get setModule() later, hence info. As setModule call is not always the case (new MPSFacet),
       // get a chance to see if anything is wrong with values provided at facet creation.
       Logger.getLogger(getClass()).info(String.format("Failed to load configuration of model root: %s", ex.getMessage()));
       // keep this.memento values
+      this.memento = memento.copy();
       myBrokenState = true;
     }
   }
 
-  @SuppressWarnings("removal")
   @Override
   public void setModule(@NotNull SModuleBase module) {
     super.setModule(module);
-    // FIXME refactor load/setModule() pair, now that we pass MPC into load() and likely don't need this code here
+    // FIXME just for the sake of getFileSystem(). Uses in Java and Kotlin stubs could get refactored, uses in JPS shall cease to exist soon
     myFileSystem = module instanceof AbstractModule ? ((AbstractModule) module).getFileSystem() : null;
-    final Function<String, IFile> path2file = PersistenceContextImpl.pathResolveFunction(
-        module instanceof AbstractModule ? PersistenceContextImpl.forModule((AbstractModule) module) : null);
-    if (myContentDir != null) {
-      myContentDir.resolve(path2file);
-    }
-    for (SourceRootKind kind : getSupportedFileKinds1()) {
-      for (SourceRoot sourceRoot : mySourcePathStorage.getByKind(kind)) {
-        if (sourceRoot instanceof DefaultSourceRoot) {
-          ((DefaultSourceRoot) sourceRoot).resolve(path2file);
-        }
-      }
-    }
   }
 
   @Override
