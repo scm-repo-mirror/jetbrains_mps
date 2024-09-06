@@ -18,8 +18,10 @@ import jetbrains.mps.errors.item.ReportItem;
 import jetbrains.mps.ide.icons.GlobalIconManager;
 import jetbrains.mps.ide.icons.IdeIcons;
 import jetbrains.mps.ide.project.ProjectHelper;
+import jetbrains.mps.ide.projectPane.ProjectPane;
 import jetbrains.mps.ide.ui.tree.module.StereotypeProvider;
 import jetbrains.mps.project.GenerationStatus;
+import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.project.MissionControl;
 import jetbrains.mps.smodel.SObject;
 import jetbrains.mps.smodel.Generator;
@@ -365,6 +367,19 @@ public class LanguageProjectViewNode extends BranchProjectViewNode<Language> {
       Icon icon = IdeIcons.MODEL_ICON;
       presentation.setIcon(layeredIcon(icon, Nodes.Symlink));
     }
+
+    @Override
+    public boolean canNavigate() {
+      return true;
+    }
+
+    @Override
+    public void navigate(boolean requestFocus) {
+      MPSProject mpsProject = ProjectHelper.fromIdeaProject(getProject());
+      mpsProject.getModelAccess().runReadAction(() -> {
+        ProjectPane.getInstance(mpsProject).selectModel(getValue().resolve(mpsProject.getRepository()), requestFocus);
+      });
+    }
   }
 
   protected static class SolutionReferenceProjectViewNode extends LeafProjectViewNode<SModuleReference> {
@@ -383,6 +398,20 @@ public class LanguageProjectViewNode extends BranchProjectViewNode<Language> {
       presentation.setPresentableText(getValue().getModuleName());
       Icon icon = IdeIcons.SOLUTION_ICON;
       presentation.setIcon(layeredIcon(icon, Nodes.Symlink));
+    }
+
+
+    @Override
+    public boolean canNavigate() {
+      return true;
+    }
+
+    @Override
+    public void navigate(boolean requestFocus) {
+      MPSProject mpsProject = ProjectHelper.fromIdeaProject(getProject());
+      mpsProject.getModelAccess().runReadAction(() -> {
+        ProjectPane.getInstance(mpsProject).selectModule(getValue().resolve(mpsProject.getRepository()), requestFocus);
+      });
     }
   }
 }
