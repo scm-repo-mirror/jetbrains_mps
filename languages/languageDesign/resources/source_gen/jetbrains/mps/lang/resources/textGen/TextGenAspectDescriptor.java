@@ -10,7 +10,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.text.rt.TextGenModelOutline;
 import org.jetbrains.mps.openapi.model.SNode;
-import java.nio.charset.Charset;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -26,6 +25,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
   @Override
   public TextGenDescriptor getDescriptor(@NotNull SAbstractConcept concept) {
     switch (myIndex.index(concept)) {
+      case LanguageConceptSwitch.GeneratedImage:
+        return new GeneratedImage_TextGen();
     }
     return null;
   }
@@ -34,9 +35,7 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
   public void breakdownToUnits(@NotNull TextGenModelOutline outline) {
     for (SNode root : outline.getModel().getRootNodes()) {
       if (root.getConcept().equals(CONCEPTS.GeneratedImage$_G)) {
-        String fname = getFileName_GeneratedImage(root);
-        String ext = getFileExtension_GeneratedImage(root);
-        outline.registerTextUnit((ext == null ? fname : (fname + '.' + ext)), Charset.forName(getEncoding_GeneratedImage()), root);
+        outline.registerBinaryUnit((getFileExtension_GeneratedImage(root) == null ? getFileName_GeneratedImage(root) : getFileName_GeneratedImage(root) + '.' + getFileExtension_GeneratedImage(root)), null, root);
         continue;
       }
     }
@@ -51,9 +50,6 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
     String fn = SPropertyOperations.getString(node, PROPS.fileName$JiWl);
     int dot = fn.lastIndexOf('.');
     return (dot > 0 ? fn.substring(dot + 1) : "");
-  }
-  private static String getEncoding_GeneratedImage() {
-    return "ISO-8859-1";
   }
 
   private static final class CONCEPTS {

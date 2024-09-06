@@ -63,6 +63,9 @@ public final class TextIcon__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static List<Tuples._2<IFile, byte[]>> generate_id7Mb2akaesv8(@NotNull final SNode __thisNode__, IFile outputDir) {
 
+    if (Boolean.TRUE.booleanValue()) {
+      return null;
+    }
     if (((int) BaseConcept__BehaviorDescriptor.getMetaLevel_id3t0v3yFOD1A.invoke(__thisNode__)) != 0) {
       return null;
     }
