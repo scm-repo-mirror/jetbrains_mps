@@ -7,5 +7,5 @@ import jetbrains.mps.smodel.runtime.IconResource;
 
 @ResourceModule("a247e09e-2435-45ba-b8d2-07e93feba96a(jetbrains.mps.baseLanguage.tuples)")
 public class IconContainer {
-  protected static IconResource RESOURCE_a0a3a0a7b0l = new IconResource("namedTuple.png", "namedTuple_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_0 = new IconResource("/icons/namedTuple.png", "/icons/namedTuple_newui.svg", IconContainer.class);
 }

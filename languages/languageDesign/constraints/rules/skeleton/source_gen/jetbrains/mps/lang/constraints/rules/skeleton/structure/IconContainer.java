@@ -7,5 +7,5 @@ import jetbrains.mps.smodel.runtime.IconResource;
 
 @ResourceModule("134c38d4-e3af-4d9e-b069-1c7df0a4005d(jetbrains.mps.lang.constraints.rules.skeleton)")
 public class IconContainer {
-  protected static IconResource RESOURCE_a0a4a0a3b0f = new IconResource("constraint-rules.png", "constraint-rules_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_0 = new IconResource("/icons/constraint-rules.png", "/icons/constraint-rules_newui.svg", IconContainer.class);
 }

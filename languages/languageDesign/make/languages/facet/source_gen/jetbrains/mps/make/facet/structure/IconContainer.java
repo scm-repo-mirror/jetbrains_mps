@@ -7,5 +7,5 @@ import jetbrains.mps.smodel.runtime.IconResource;
 
 @ResourceModule("696c1165-4a59-463b-bc5d-902caab85dd0(jetbrains.mps.make.facet)")
 public class IconContainer {
-  protected static IconResource RESOURCE_a0a2a0a1b0v = new IconResource("facetDeclaration.png", "facetDeclaration_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_0 = new IconResource("/icons/facetDeclaration.png", "/icons/facetDeclaration_newui.svg", IconContainer.class);
 }

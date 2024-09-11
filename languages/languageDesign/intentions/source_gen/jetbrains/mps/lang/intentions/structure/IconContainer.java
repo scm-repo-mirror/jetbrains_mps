@@ -7,7 +7,7 @@ import jetbrains.mps.smodel.runtime.IconResource;
 
 @ResourceModule("d7a92d38-f7db-40d0-8431-763b0c3c9f20(jetbrains.mps.lang.intentions)")
 public class IconContainer {
-  protected static IconResource RESOURCE_a0a3a0a8b0u = new IconResource("intentionBulb.png", "intentionBulb_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a9b0u = new IconResource("intentionBulb.png", "intentionBulb_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a81b0u = new IconResource("surroundWithIntention.png", "surroundWithIntention_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_0 = new IconResource("/icons/intentionBulb.png", "/icons/intentionBulb_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_1 = new IconResource("/icons/intentionBulb.png", "/icons/intentionBulb_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_2 = new IconResource("/icons/surroundWithIntention.png", "/icons/surroundWithIntention_newui.svg", IconContainer.class);
 }

@@ -7,7 +7,7 @@ import jetbrains.mps.smodel.runtime.IconResource;
 
 @ResourceModule("8585453e-6bfb-4d80-98de-b16074f1d86c(jetbrains.mps.lang.test)")
 public class IconContainer {
-  protected static IconResource RESOURCE_a0a3a0a81b0dd = new IconResource("nodesTest.png", "editorTest_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a63b0dd = new IconResource("nodesTest.png", "nodesTest_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a4a0a85b0dd = new IconResource("nodesTest.png", "nodesTest_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_0 = new IconResource("/icons/nodesTest.png", "/icons/editorTest_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_1 = new IconResource("/icons/nodesTest.png", "/icons/nodesTest_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_2 = new IconResource("/icons/nodesTest.png", "/icons/nodesTest_newui.svg", IconContainer.class);
 }

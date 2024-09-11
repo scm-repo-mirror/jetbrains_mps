@@ -7,13 +7,13 @@ import jetbrains.mps.smodel.runtime.IconResource;
 
 @ResourceModule("7a5dda62-9140-4668-ab76-d5ed1746f2b2(jetbrains.mps.lang.typesystem)")
 public class IconContainer {
-  protected static IconResource RESOURCE_a0a3a0a71b0oe = new IconResource("comparison.png", "comparison_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a04b0oe = new IconResource("replacement.png", "replacement_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a14b0oe = new IconResource("rule.png", "rule_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a16b0oe = new IconResource("nontypesystem.png", "nontypesystem_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a76b0oe = new IconResource("overloadedRules.png", "overloadedRules_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a69b0oe = new IconResource("substitute.png", "substitute_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a79b0oe = new IconResource("subtyping.png", "subtyping_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a701b0oe = new IconResource("quickFix.png", "quickFix_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a2a0a111b0oe = new IconResource("variableReplacement.png", "variableReplacement_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_0 = new IconResource("/icons/comparison.png", "/icons/comparison_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_1 = new IconResource("/icons/replacement.png", "/icons/replacement_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_2 = new IconResource("/icons/rule.png", "/icons/rule_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_3 = new IconResource("/icons/nontypesystem.png", "/icons/nontypesystem_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_4 = new IconResource("/icons/overloadedRules.png", "/icons/overloadedRules_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_5 = new IconResource("/icons/substitute.png", "/icons/substitute_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_6 = new IconResource("/icons/subtyping.png", "/icons/subtyping_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_7 = new IconResource("/icons/quickFix.png", "/icons/quickFix_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_8 = new IconResource("/icons/variableReplacement.png", "/icons/variableReplacement_newui.svg", IconContainer.class);
 }

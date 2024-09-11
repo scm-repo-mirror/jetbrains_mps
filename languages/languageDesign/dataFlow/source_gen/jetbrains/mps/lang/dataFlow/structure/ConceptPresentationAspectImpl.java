@@ -100,7 +100,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
           cpb.helpUrl(HELP_URL);
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a7b0jb);
+          cpb.icon(IconContainer.RESOURCE_0);
           props_DataFlowBuilderDeclaration = cpb.create();
         }
         return props_DataFlowBuilderDeclaration;

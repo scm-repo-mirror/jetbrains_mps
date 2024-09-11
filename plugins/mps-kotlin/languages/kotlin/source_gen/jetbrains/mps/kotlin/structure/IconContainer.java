@@ -7,18 +7,18 @@ import jetbrains.mps.smodel.runtime.IconResource;
 
 @ResourceModule("6b3888c1-9802-44d8-8baf-f8e6c33ed689(jetbrains.mps.kotlin)")
 public class IconContainer {
-  protected static IconResource RESOURCE_a0a3a0a32b0qk = new IconResource("classKotlin.svg", "classKotlin_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a52b0qk = new IconResource("value.svg", "value_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a03b0qk = new IconResource("objectKotlin.svg", "objectKotlin_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a05b0qk = new IconResource("enumKotlin.svg", "enumKotlin_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a76b0qk = new IconResource("value.svg", "value_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a661b0qk = new IconResource("interfaceKotlin.svg", "interfaceKotlin_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a171b0qk = new IconResource("kotlin.svg", "kotlin_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a271b0qk = new IconResource("kotlin_script.svg", "kotlinScript_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a6a0a471b0qk = new IconResource("lambda.svg", "lambda_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a291b0qk = new IconResource("objectKotlin.svg", "objectKotlin_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a112b0qk = new IconResource("classInitializerKotlin.svg", "classInitializerKotlin_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a4a0a032b0qk = new IconResource("classInitializerKotlin.svg", "classInitializerKotlin_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a352b0qk = new IconResource("typeAlias.svg", "typeAlias_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a962b0qk = new IconResource("value.svg", "value_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_0 = new IconResource("/icons/classKotlin.svg", "/icons/classKotlin_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_1 = new IconResource("/icons/value.svg", "/icons/value_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_2 = new IconResource("/icons/objectKotlin.svg", "/icons/objectKotlin_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_3 = new IconResource("/icons/enumKotlin.svg", "/icons/enumKotlin_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_4 = new IconResource("/icons/value.svg", "/icons/value_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_5 = new IconResource("/icons/interfaceKotlin.svg", "/icons/interfaceKotlin_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_6 = new IconResource("/icons/kotlin.svg", "/icons/kotlin_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_7 = new IconResource("/icons/kotlin_script.svg", "/icons/kotlinScript_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_8 = new IconResource("/icons/lambda.svg", "/icons/lambda_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_9 = new IconResource("/icons/objectKotlin.svg", "/icons/objectKotlin_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_10 = new IconResource("/icons/classInitializerKotlin.svg", "/icons/classInitializerKotlin_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_11 = new IconResource("/icons/classInitializerKotlin.svg", "/icons/classInitializerKotlin_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_12 = new IconResource("/icons/typeAlias.svg", "/icons/typeAlias_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_13 = new IconResource("/icons/value.svg", "/icons/value_newui.svg", IconContainer.class);
 }

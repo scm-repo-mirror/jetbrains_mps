@@ -35,7 +35,7 @@ public class ConceptDeclaration_Constraints extends BaseConstraintsDescriptor {
     super(CONCEPTS.ConceptDeclaration$gH);
   }
   public IconResource getInstanceIcon(SNode node) {
-    return (SPropertyOperations.getBoolean(node, PROPS.rootable$_9pz) ? IconContainer.RESOURCE_a0a0a : IconContainer.RESOURCE_a0a0a_0);
+    return (SPropertyOperations.getBoolean(node, PROPS.rootable$_9pz) ? IconContainer.RESOURCE_0 : IconContainer.RESOURCE_1);
   }
 
   @Override

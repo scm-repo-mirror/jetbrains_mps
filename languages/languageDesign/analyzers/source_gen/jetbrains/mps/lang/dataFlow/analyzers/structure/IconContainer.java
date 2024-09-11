@@ -7,6 +7,6 @@ import jetbrains.mps.smodel.runtime.IconResource;
 
 @ResourceModule("97a52717-898f-4598-8150-573d9fd03868(jetbrains.mps.lang.dataFlow.analyzers)")
 public class IconContainer {
-  protected static IconResource RESOURCE_a0a2a0a1b0lb = new IconResource("DataFlowAnalyser.png", "DataFlowAnalyser_newui.svg", IconContainer.class);
-  protected static IconResource RESOURCE_a0a2a0a43b0lb = new IconResource("DataFlowRule.png", "DataFlowRule_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_0 = new IconResource("/icons/DataFlowAnalyser.png", "/icons/DataFlowAnalyser_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_1 = new IconResource("/icons/DataFlowRule.png", "/icons/DataFlowRule_newui.svg", IconContainer.class);
 }

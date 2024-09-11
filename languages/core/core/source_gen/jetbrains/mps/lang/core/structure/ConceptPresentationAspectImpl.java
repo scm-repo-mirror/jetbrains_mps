@@ -60,7 +60,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.Attribute:
         if (props_Attribute == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.icon(IconContainer.RESOURCE_a0a1a0a0b0rb);
+          cpb.icon(IconContainer.RESOURCE_0);
           props_Attribute = cpb.create();
         }
         return props_Attribute;

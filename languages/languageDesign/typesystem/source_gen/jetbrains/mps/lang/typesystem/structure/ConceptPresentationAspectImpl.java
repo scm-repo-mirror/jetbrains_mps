@@ -251,7 +251,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
           cpb.helpUrl(HELP_URL);
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a71b0oe);
+          cpb.icon(IconContainer.RESOURCE_0);
           props_ComparisonRule = cpb.create();
         }
         return props_ComparisonRule;
@@ -421,7 +421,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
           cpb.helpUrl(HELP_URL1);
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a04b0oe);
+          cpb.icon(IconContainer.RESOURCE_1);
           props_InequationReplacementRule = cpb.create();
         }
         return props_InequationReplacementRule;
@@ -430,7 +430,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
           cpb.helpUrl(HELP_URL2);
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a14b0oe);
+          cpb.icon(IconContainer.RESOURCE_2);
           props_InferenceRule = cpb.create();
         }
         return props_InferenceRule;
@@ -576,7 +576,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
           cpb.helpUrl(HELP_URL3);
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a16b0oe);
+          cpb.icon(IconContainer.RESOURCE_3);
           props_NonTypesystemRule = cpb.create();
         }
         return props_NonTypesystemRule;
@@ -620,7 +620,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
           cpb.helpUrl(HELP_URL4);
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a76b0oe);
+          cpb.icon(IconContainer.RESOURCE_4);
           props_OverloadedOpRulesContainer = cpb.create();
         }
         return props_OverloadedOpRulesContainer;
@@ -826,7 +826,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
           cpb.helpUrl(HELP_URL5);
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a69b0oe);
+          cpb.icon(IconContainer.RESOURCE_5);
           props_SubstituteTypeRule = cpb.create();
         }
         return props_SubstituteTypeRule;
@@ -835,7 +835,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
           cpb.helpUrl(HELP_URL6);
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a79b0oe);
+          cpb.icon(IconContainer.RESOURCE_6);
           props_SubtypingRule = cpb.create();
         }
         return props_SubtypingRule;
@@ -907,7 +907,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
           cpb.helpUrl(HELP_URL7);
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a701b0oe);
+          cpb.icon(IconContainer.RESOURCE_7);
           props_TypesystemQuickFix = cpb.create();
         }
         return props_TypesystemQuickFix;
@@ -936,7 +936,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_VariableConvertersContainer == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.rawPresentation("Variable Converters");
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a111b0oe);
+          cpb.icon(IconContainer.RESOURCE_8);
           props_VariableConvertersContainer = cpb.create();
         }
         return props_VariableConvertersContainer;

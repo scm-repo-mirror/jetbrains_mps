@@ -7,5 +7,5 @@ import jetbrains.mps.smodel.runtime.IconResource;
 
 @ResourceModule("37e03aa1-7289-49bc-8269-30de5eceec76(jetbrains.mps.vcs.mergehints)")
 public class IconContainer {
-  protected static IconResource RESOURCE_a0a5a0a0a1 = new IconResource("commit.png", "commit_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_0 = new IconResource("/icons/commit.png", "/icons/commit_newui.svg", IconContainer.class);
 }

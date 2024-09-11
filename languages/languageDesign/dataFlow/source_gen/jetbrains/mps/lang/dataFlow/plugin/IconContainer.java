@@ -7,5 +7,5 @@ import jetbrains.mps.smodel.runtime.IconResource;
 
 @ResourceModule("7fa12e9c-b949-4976-b4fa-19accbc320b4(jetbrains.mps.lang.dataFlow)")
 public class IconContainer {
-  protected static IconResource RESOURCE_a0a5a0a0a1 = new IconResource("dataFlowModel.png", "dataFlowModel_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_0 = new IconResource("/icons/dataFlowModel.png", "/icons/dataFlowModel_newui.svg", IconContainer.class);
 }

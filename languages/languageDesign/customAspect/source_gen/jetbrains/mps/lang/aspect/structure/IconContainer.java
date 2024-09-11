@@ -7,5 +7,5 @@ import jetbrains.mps.smodel.runtime.IconResource;
 
 @ResourceModule("f159adf4-3c93-40f9-9c5a-1f245a8697af(jetbrains.mps.lang.aspect)")
 public class IconContainer {
-  protected static IconResource RESOURCE_a0a3a0a5b0i = new IconResource("aspect.png", "aspect_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_0 = new IconResource("/icons/aspect.png", "/icons/aspect_newui.svg", IconContainer.class);
 }

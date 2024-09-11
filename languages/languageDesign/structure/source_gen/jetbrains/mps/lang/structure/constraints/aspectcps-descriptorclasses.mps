@@ -1679,12 +1679,12 @@
             </node>
             <node concept="10M0yZ" id="58" role="3K4E3e">
               <ref role="1PxDUh" node="yS" resolve="IconContainer" />
-              <ref role="3cqZAo" node="yU" resolve="RESOURCE_a0a0a" />
+              <ref role="3cqZAo" node="yU" resolve="RESOURCE_0" />
               <uo k="s:originTrace" v="n:1229065756974292339" />
             </node>
             <node concept="10M0yZ" id="59" role="3K4GZi">
               <ref role="1PxDUh" node="yS" resolve="IconContainer" />
-              <ref role="3cqZAo" node="yV" resolve="RESOURCE_a0a0a_0" />
+              <ref role="3cqZAo" node="yV" resolve="RESOURCE_1" />
               <uo k="s:originTrace" v="n:1229065756974292875" />
             </node>
           </node>
@@ -7508,7 +7508,7 @@
           </node>
         </node>
         <node concept="39e2AT" id="uF" role="39e2AY">
-          <ref role="39e2AS" node="yU" resolve="RESOURCE_a0a0a" />
+          <ref role="39e2AS" node="yU" resolve="RESOURCE_0" />
         </node>
       </node>
       <node concept="39e2AG" id="uD" role="39e3Y0">
@@ -7520,7 +7520,7 @@
           </node>
         </node>
         <node concept="39e2AT" id="uI" role="39e2AY">
-          <ref role="39e2AS" node="yV" resolve="RESOURCE_a0a0a_0" />
+          <ref role="39e2AS" node="yV" resolve="RESOURCE_1" />
         </node>
       </node>
     </node>
@@ -8520,7 +8520,7 @@
     <property role="3GE5qa" value="icons" />
     <node concept="3Tm1VV" id="yT" role="1B3o_S" />
     <node concept="Wx3nA" id="yU" role="jymVt">
-      <property role="TrG5h" value="RESOURCE_a0a0a" />
+      <property role="TrG5h" value="RESOURCE_0" />
       <node concept="3Tmbuc" id="yX" role="1B3o_S" />
       <node concept="3uibUv" id="yY" role="1tU5fm">
         <ref role="3uigEE" to="ze1i:~IconResource" resolve="IconResource" />
@@ -8532,11 +8532,11 @@
           <ref role="37wK5l" to="ze1i:~IconResource.&lt;init&gt;(java.lang.String,java.lang.String,java.lang.Class)" resolve="IconResource" />
           <uo k="s:originTrace" v="n:1426851521647346529" />
           <node concept="Xl_RD" id="z1" role="37wK5m">
-            <property role="Xl_RC" value="rootableConcept.png" />
+            <property role="Xl_RC" value="/icons/rootableConcept.png" />
             <uo k="s:originTrace" v="n:1426851521647346529" />
           </node>
           <node concept="Xl_RD" id="z2" role="37wK5m">
-            <property role="Xl_RC" value="rootableConcept_newui.svg" />
+            <property role="Xl_RC" value="/icons/rootableConcept_newui.svg" />
             <uo k="s:originTrace" v="n:1426851521647346529" />
           </node>
           <node concept="3VsKOn" id="z3" role="37wK5m">
@@ -8547,7 +8547,7 @@
       </node>
     </node>
     <node concept="Wx3nA" id="yV" role="jymVt">
-      <property role="TrG5h" value="RESOURCE_a0a0a_0" />
+      <property role="TrG5h" value="RESOURCE_1" />
       <node concept="3Tmbuc" id="z4" role="1B3o_S" />
       <node concept="3uibUv" id="z5" role="1tU5fm">
         <ref role="3uigEE" to="ze1i:~IconResource" resolve="IconResource" />
@@ -8559,11 +8559,11 @@
           <ref role="37wK5l" to="ze1i:~IconResource.&lt;init&gt;(java.lang.String,java.lang.String,java.lang.Class)" resolve="IconResource" />
           <uo k="s:originTrace" v="n:1426851521647351925" />
           <node concept="Xl_RD" id="z8" role="37wK5m">
-            <property role="Xl_RC" value="structure.png" />
+            <property role="Xl_RC" value="/icons/structure.png" />
             <uo k="s:originTrace" v="n:1426851521647351925" />
           </node>
           <node concept="Xl_RD" id="z9" role="37wK5m">
-            <property role="Xl_RC" value="structure_newui.svg" />
+            <property role="Xl_RC" value="/icons/structure_newui.svg" />
             <uo k="s:originTrace" v="n:1426851521647351925" />
           </node>
           <node concept="3VsKOn" id="za" role="37wK5m">

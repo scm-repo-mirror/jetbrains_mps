@@ -7,5 +7,5 @@ import jetbrains.mps.smodel.runtime.IconResource;
 
 @ResourceModule("1839bec5-cea6-41df-b9e0-c405ff35c41e(jetbrains.mps.lang.editor.imageGen)")
 public class IconContainer {
-  protected static IconResource RESOURCE_a0a2a0a0b0c = new IconResource("imageGenerator.png", "imageGenerator_newui.svg", IconContainer.class);
+  protected static IconResource RESOURCE_0 = new IconResource("/icons/imageGenerator.png", "/icons/imageGenerator_newui.svg", IconContainer.class);
 }

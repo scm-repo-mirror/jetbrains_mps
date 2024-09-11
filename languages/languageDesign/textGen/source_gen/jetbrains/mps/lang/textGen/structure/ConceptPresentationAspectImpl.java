@@ -118,7 +118,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
           cpb.helpUrl(HELP_URL);
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a8b0qb);
+          cpb.icon(IconContainer.RESOURCE_0);
           props_ConceptTextGenDeclaration = cpb.create();
         }
         return props_ConceptTextGenDeclaration;
@@ -242,7 +242,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
           cpb.helpUrl(HELP_URL1);
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a52b0qb);
+          cpb.icon(IconContainer.RESOURCE_1);
           props_LanguageTextGenDeclaration = cpb.create();
         }
         return props_LanguageTextGenDeclaration;
