@@ -29,10 +29,6 @@
     </component>
 
     <component>
-      <implementation-class>jetbrains.mps.nodeEditor.InspectorTool</implementation-class>
-    </component>
-
-    <component>
       <implementation-class>jetbrains.mps.nodeEditor.documentation.DocumentationTool</implementation-class>
     </component>
 
@@ -66,6 +62,9 @@
 
     <!-- works in conjunction with project listeners, above. -->
     <projectService serviceImplementation="jetbrains.mps.ide.editor.warningPanel.MPSEditorWarningsManager" />
+
+    <projectService serviceImplementation="jetbrains.mps.nodeEditor.InspectorTool" />
+    <postStartupActivity implementation="jetbrains.mps.nodeEditor.InspectorTool$Plug" />
 
     <fileEditorProvider implementation="jetbrains.mps.ide.editor.MPSFileNodeEditorProvider"/>
 

@@ -16,6 +16,7 @@
 package jetbrains.mps.nodeEditor;
 
 import com.intellij.ide.actions.ActivateToolWindowAction;
+import com.intellij.openapi.Disposable;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.KeyboardShortcut;
@@ -38,6 +39,7 @@ import jetbrains.mps.ide.editor.MPSEditorDataKeys;
 import jetbrains.mps.ide.icons.IdeIcons;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.tools.BaseTool;
+import jetbrains.mps.ide.util.MPSProjectActivity;
 import jetbrains.mps.nodeEditor.configuration.EditorConfigurationBuilder;
 import jetbrains.mps.nodeEditor.inspector.InspectorEditorComponent;
 import jetbrains.mps.openapi.editor.EditorInspector;
@@ -65,7 +67,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
-public class InspectorTool extends BaseTool implements EditorInspector, ProjectComponent {
+public class InspectorTool extends BaseTool implements EditorInspector, Disposable {
   public static final String ID = "Inspector";
   // Check with component registered only in plugin
   private static final boolean IS_IN_MPS_PLUGIN =
@@ -87,7 +89,8 @@ public class InspectorTool extends BaseTool implements EditorInspector, ProjectC
    */
   @Nullable
   public static InspectorTool getInstance(@Nullable jetbrains.mps.project.Project mpsProject) {
-    return mpsProject == null ? null : mpsProject.getComponent(InspectorTool.class);
+    final Project ideaProject = ProjectHelper.toIdeaProject(mpsProject);
+    return mpsProject == null ? null : ideaProject.getService(InspectorTool.class);
   }
 
   public InspectorTool(Project project) {
@@ -150,11 +153,7 @@ public class InspectorTool extends BaseTool implements EditorInspector, ProjectC
   }
 
   @Override
-  public void initComponent() {
-  }
-
-  @Override
-  public void disposeComponent() {
+  public void dispose() {
     if (myInspectorComponent == null) {
       return;
     }
@@ -162,14 +161,13 @@ public class InspectorTool extends BaseTool implements EditorInspector, ProjectC
     unregister();
   }
 
-  @Override
-  public void projectOpened() {
-    registerLater();
-  }
+  private static class Plug extends MPSProjectActivity {
 
-  @Override
-  public void projectClosed() {
-
+    @Override
+    public void runActivity(@NotNull Project project) {
+      final InspectorTool inspectorTool = InspectorTool.getInstance(ProjectHelper.fromIdeaProject(project));
+      inspectorTool.registerLater();
+    }
   }
 
   private void createTool() {
@@ -199,9 +197,12 @@ public class InspectorTool extends BaseTool implements EditorInspector, ProjectC
   }
 
   public EditorComponent getInspector() {
-    if (myComponent == null) {
-      createTool();
-    }
+    final Exception exception = ThreadUtils.runInUIThreadAndWait(() -> {
+      if (myComponent == null) {
+        createTool();
+      }
+    });
+    if(exception != null) {throw new RuntimeException("Inspector tool failed to initialize the UI in createTool().", exception);}
     return myInspectorComponent;
   }
 

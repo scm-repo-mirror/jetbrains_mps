@@ -87,7 +87,10 @@ public class Highlighter implements IHighlighter, ProjectComponent {
    * Whether to force running all checkers in power-save mode. Accessed from the highlighter thread only, therefore non-volatile.
    */
   private boolean myForceUpdateInPowerSaveModeFlag = false;
-  private InspectorTool myInspectorTool;
+
+  private InspectorTool getInspectorTool() {
+    return InspectorTool.getInstance(myMPSProject);
+  };
 
   private final DeployListener myClassesListener = new DeployListener() {
     @Override
@@ -127,7 +130,6 @@ public class Highlighter implements IHighlighter, ProjectComponent {
     myClassLoaderManager.addListener(myClassesListener);
     myEventCollector.startListening(myMPSProject.getRepository());
 
-    myInspectorTool = InspectorTool.getInstance(myMPSProject);
     // perhaps, should register myDisposable with myProject as parent not to rely
     // solely on projectClose()?
     MessageBusConnection mbCon = myProject.getMessageBus().connect(myDisposable);
@@ -156,7 +158,6 @@ public class Highlighter implements IHighlighter, ProjectComponent {
     Disposer.dispose(myDisposable);
     myEventCollector.stopListening(myMPSProject.getRepository());
     myClassLoaderManager.removeListener(myClassesListener);
-    myInspectorTool = null;
   }
 
   @Override
@@ -349,10 +350,10 @@ public class Highlighter implements IHighlighter, ProjectComponent {
   }
 
   private EditorComponent getInspector() {
-    if (myInspectorTool == null) {
+    if (getInspectorTool() == null) {
       return null;
     }
-    return myInspectorTool.getInspector();
+    return getInspectorTool().getInspector();
   }
 
   /**
