@@ -400,7 +400,7 @@ public class IdeaFile implements IFile, CachingFile {
       VirtualFile virtualFile = findVirtualFile();
       if (virtualFile != null) {
         VirtualFile existingNewLocation = virtualFile.getParent().findChild(newName);
-        if (existingNewLocation != null) {
+        if (existingNewLocation != null && !isCaseSensitiveRenameOnCaseInsensitiveFS(virtualFile, existingNewLocation, newName)) {
           LOG.info("Could not rename the file, such file already exists: " + existingNewLocation.getPath());
           return this;
         }
@@ -415,6 +415,13 @@ public class IdeaFile implements IFile, CachingFile {
       LOG.error("Could not rename the file: ", e);
       return this;
     }
+  }
+
+  private static boolean isCaseSensitiveRenameOnCaseInsensitiveFS(VirtualFile originalFile, VirtualFile newFile, @NotNull String newName) {
+    // Uses the trick with getPath() being the same despite the actual names being case-different
+    // The important guarantee is that on case-insensitive FS getPath() returns the same string for the same physical file, irrespective of the IFile instances being different objects
+    return !newName.equals(originalFile.getName()) && newName.equalsIgnoreCase(originalFile.getName()) &&
+           newFile.getPath().equals(originalFile.getPath());
   }
 
   @Override
