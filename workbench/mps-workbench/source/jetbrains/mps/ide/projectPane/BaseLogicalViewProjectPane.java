@@ -118,6 +118,9 @@ public abstract class BaseLogicalViewProjectPane extends BaseProjectViewPaneWith
   private final MyModelChangeListener myModelChangeListener = new MyModelChangeListener();
   protected boolean myDisposed;
 
+  protected final MPSProject myProjectMPS;
+
+
   private final DeployListener myClassesListener = new DeployListener() {
     @Override
     public void onUnloaded(@NotNull Set<ReloadableModule> unloadedModules, @NotNull ProgressMonitor monitor) {
@@ -176,6 +179,7 @@ public abstract class BaseLogicalViewProjectPane extends BaseProjectViewPaneWith
 
   protected BaseLogicalViewProjectPane(Project project) {
     super(project);
+    myProjectMPS = ProjectHelper.fromIdeaProject(getProject());
   }
 
   public Project getProject() {
@@ -218,8 +222,7 @@ public abstract class BaseLogicalViewProjectPane extends BaseProjectViewPaneWith
 
   @SuppressWarnings("removal")
   protected void updateFrom(IFile iFile, boolean updateStructure) {
-    MPSProject mpsProject = ProjectHelper.fromIdeaProject(getProject());
-    IdeaFileSystem fileSystem = mpsProject.getFileSystem();
+    IdeaFileSystem fileSystem = myProjectMPS.getFileSystem();
 
     VirtualFile virtualFile = fileSystem.asVirtualFile(iFile);
     if (virtualFile != null) {
@@ -327,7 +330,7 @@ public abstract class BaseLogicalViewProjectPane extends BaseProjectViewPaneWith
     }
 
     if (MPSDataKeys.MPS_PROJECT.is(dataId)) {
-      return ProjectHelper.fromIdeaProject(getProject());
+      return myProjectMPS;
     }
 
     //not found
@@ -387,7 +390,7 @@ public abstract class BaseLogicalViewProjectPane extends BaseProjectViewPaneWith
   }
 
   protected void removeListeners() {
-    jetbrains.mps.project.Project mpsProject = ProjectHelper.fromIdeaProject(getProject());
+    jetbrains.mps.project.Project mpsProject = myProjectMPS;
     mpsProject.getComponent(ClassLoaderManager.class).removeListener(myClassesListener);
     mpsProject.getModelAccess().removeCommandListener(myRepositoryListener);
     new RepoListenerRegistrar(mpsProject.getRepository(), myRepositoryListener).detach();
@@ -396,7 +399,7 @@ public abstract class BaseLogicalViewProjectPane extends BaseProjectViewPaneWith
   }
 
   protected void addListeners() {
-    jetbrains.mps.project.Project mpsProject = ProjectHelper.fromIdeaProject(getProject());
+    jetbrains.mps.project.Project mpsProject = myProjectMPS;
     new RepoListenerRegistrar(mpsProject.getRepository(), myRepositoryListener).attach();
     mpsProject.getModelAccess().addCommandListener(myRepositoryListener);
 
@@ -428,7 +431,7 @@ public abstract class BaseLogicalViewProjectPane extends BaseProjectViewPaneWith
 
   private void forAllModulesInProject(Consumer<SModule> moduleConsumer) {
     if (myProject.isDisposed()) return;
-    MPSProject mpsProject = ProjectHelper.fromIdeaProject(myProject);
+    MPSProject mpsProject = myProjectMPS;
     ApplicationManager.getApplication().invokeLater(() -> {
       mpsProject.getProjectModulesWithGenerators().forEach(moduleConsumer);
     });
@@ -642,7 +645,7 @@ public abstract class BaseLogicalViewProjectPane extends BaseProjectViewPaneWith
       return null;
     }
 
-    final FileSystemBridge fs = ProjectHelper.fromIdeaProject(myProject).getFileSystem();
+    final FileSystemBridge fs = myProjectMPS.getFileSystem();
     return selectedFilesList.stream().map(fs::asVirtualFile).filter(Objects::nonNull).toArray(VirtualFile[]::new);
   }
 
