@@ -261,6 +261,7 @@
         <child id="1174660783414" name="rightExpression" index="1ZfhKB" />
       </concept>
       <concept id="1174663118805" name="jetbrains.mps.lang.typesystem.structure.CreateLessThanInequationStatement" flags="nn" index="1ZobV4" />
+      <concept id="1174663239020" name="jetbrains.mps.lang.typesystem.structure.CreateGreaterThanInequationStatement" flags="nn" index="1ZoDhX" />
       <concept id="1174665551739" name="jetbrains.mps.lang.typesystem.structure.TypeVarDeclaration" flags="ng" index="1ZxtTE" />
       <concept id="1174666260556" name="jetbrains.mps.lang.typesystem.structure.TypeVarReference" flags="nn" index="1Z$b5t">
         <reference id="1174666276259" name="typeVarDeclaration" index="1Z$eMM" />
@@ -319,6 +320,9 @@
       <concept id="1171999116870" name="jetbrains.mps.lang.smodel.structure.Node_IsNullOperation" flags="nn" index="3w_OXm" />
       <concept id="1144101972840" name="jetbrains.mps.lang.smodel.structure.OperationParm_Concept" flags="ng" index="1xMEDy">
         <child id="1207343664468" name="conceptArgument" index="ri$Ld" />
+      </concept>
+      <concept id="1180636770613" name="jetbrains.mps.lang.smodel.structure.SNodeCreator" flags="nn" index="3zrR0B">
+        <child id="1180636770616" name="createdType" index="3zrR0E" />
       </concept>
       <concept id="1140137987495" name="jetbrains.mps.lang.smodel.structure.SNodeTypeCastExpression" flags="nn" index="1PxgMI">
         <property id="1238684351431" name="asCast" index="1BlNFB" />
@@ -1808,6 +1812,29 @@
           <node concept="1Z2H0r" id="hHsgTWM" role="mwGJk">
             <node concept="1YBJjd" id="$lsh0EgO1W" role="1Z2MuG">
               <ref role="1YBMHb" node="$lsh0EgFFc" resolve="operation" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="1ZoDhX" id="2$nlLZco0Vk" role="3cqZAp">
+        <node concept="mw_s8" id="2$nlLZco0W_" role="1ZfhKB">
+          <node concept="2ShNRf" id="2$nlLZco0Wx" role="mwGJk">
+            <node concept="3zrR0B" id="2$nlLZco1TJ" role="2ShVmc">
+              <node concept="3Tqbb2" id="2$nlLZco1TL" role="3zrR0E">
+                <ref role="ehGHo" to="tpee:f_0P_4Y" resolve="BooleanType" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="mw_s8" id="2$nlLZco0Vn" role="1ZfhK$">
+          <node concept="1Z2H0r" id="2$nlLZcnZQk" role="mwGJk">
+            <node concept="2OqwBi" id="2$nlLZco03z" role="1Z2MuG">
+              <node concept="1YBJjd" id="2$nlLZcnZTi" role="2Oq$k0">
+                <ref role="1YBMHb" node="$lsh0EgFFc" resolve="operation" />
+              </node>
+              <node concept="3TrEf2" id="2$nlLZco0kt" role="2OqNvi">
+                <ref role="3Tt5mk" to="tp4k:2$nlLZcnuCb" resolve="openTab" />
+              </node>
             </node>
           </node>
         </node>

@@ -2992,6 +2992,16 @@
         <property role="3F0ifm" value=")" />
         <ref role="1k5W1q" to="tpen:hXb$V4T" resolve="RightBracket" />
       </node>
+      <node concept="3F0ifn" id="2$nlLZcl7Dt" role="3EZMnx">
+        <property role="3F0ifm" value="open tab instantly:" />
+        <node concept="pVoyu" id="2$nlLZcl7Pp" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="3F1sOY" id="2$nlLZcnuLU" role="3EZMnx">
+        <property role="1$x2rV" value="&lt;true by default&gt;" />
+        <ref role="1NtTu8" to="tp4k:2$nlLZcnuCb" resolve="openTab" />
+      </node>
       <node concept="l2Vlx" id="6$2CuKCDA$v" role="2iSdaV" />
     </node>
   </node>
