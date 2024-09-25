@@ -30209,6 +30209,13 @@
           </node>
         </node>
       </node>
+      <node concept="28jJK3" id="5_GG3tBAPBh" role="39821P">
+        <node concept="55IIr" id="5_GG3tBAPBi" role="28jJRO">
+          <node concept="2Ry0Ak" id="5_GG3tBAPE_" role="iGT6I">
+            <property role="2Ry0Am" value="product-info.json" />
+          </node>
+        </node>
+      </node>
       <node concept="28jJK3" id="35zoHQHRZ4a" role="39821P">
         <node concept="55IIr" id="zdshbG3g5F" role="28jJRO">
           <node concept="2Ry0Ak" id="zdshbG3g5G" role="iGT6I">
