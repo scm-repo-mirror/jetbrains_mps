@@ -27,6 +27,7 @@ import jetbrains.mps.console.actions.IConsoleTool;
 import com.intellij.openapi.wm.ToolWindow;
 import jetbrains.mps.console.tool.OutputConsoleTab;
 import jetbrains.mps.console.tool.DialogConsoleTab;
+import jetbrains.mps.plugins.tool.IComponentDisposer;
 import java.util.Objects;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.behaviour.BHReflection;
@@ -96,7 +97,6 @@ public class ConsoleTool_Tool extends BaseTabbedProjectServiceTool {
     if (title == null) {
       title = "Console";
     }
-    BaseConsoleTab tab;
     IConsoleTool tool = new IConsoleTool() {
       @Override
       public boolean getPasteAsRef() {
@@ -117,18 +117,22 @@ public class ConsoleTool_Tool extends BaseTabbedProjectServiceTool {
         ConsoleTool_Tool.this.getMyself().closeTab(tab);
       }
     };
+    BaseConsoleTab tab;
     if (check_xg3v07_a6a6(tabState)) {
       tab = new OutputConsoleTab(ConsoleTool_Tool.this.myMPSProject, tool, title, history);
     } else {
       tab = new DialogConsoleTab(ConsoleTool_Tool.this.myMPSProject, tool, title, history);
     }
     ListSequence.fromList(ConsoleTool_Tool.this.myTabs).addElement(tab);
-    // TODO enable the closure
-    ConsoleTool_Tool.this.getMyself().addTab(tab, title, icon, null, openTool);
+    ConsoleTool_Tool.this.getMyself().<BaseConsoleTab>addTab(tab, title, icon, new IComponentDisposer<BaseConsoleTab>() {
+      @Override
+      public void disposeComponent(BaseConsoleTab component) {
+        ListSequence.fromList(ConsoleTool_Tool.this.myTabs).removeElement(component);
+      }
+    }, openTool);
 
     // TODO Update the build scripts to include the new "plugin" model
     // TODO persistent state
-    // TODO enable this instead of the BL instruction above once the closure issue gets resolved
     return tab;
   }
   private void initTabs() {
