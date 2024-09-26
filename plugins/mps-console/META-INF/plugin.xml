@@ -15,7 +15,7 @@
     <mps.LanguageLibrary dir="" hide="true"/>
     <errorHandler implementation="jetbrains.mps.ide.blame.CharismaReporter"/>
 
-    <projectService serviceImplementation="jetbrains.mps.console.plugin.ConsoleNewTool_Tool" />
+    <projectService serviceImplementation="jetbrains.mps.console.plugin.ConsoleTool_Tool" />
   </extensions>
 
 </idea-plugin>

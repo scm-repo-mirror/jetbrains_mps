@@ -66,7 +66,7 @@
     <import index="4nm9" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.project(MPS.IDEA/)" />
     <import index="9erk" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.ide.findusages.model(MPS.Core/)" />
     <import index="ksba" ref="r:12d1fcfd-d198-4520-8b28-436d7e8a8ae6(jetbrains.mps.console.plugin)" />
-    <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
+    <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
   </imports>
   <registry>
     <language id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin">
@@ -185,6 +185,9 @@
       <concept id="1070475926800" name="jetbrains.mps.baseLanguage.structure.StringLiteral" flags="nn" index="Xl_RD">
         <property id="1070475926801" name="value" index="Xl_RC" />
       </concept>
+      <concept id="1182160077978" name="jetbrains.mps.baseLanguage.structure.AnonymousClassCreator" flags="nn" index="YeOm9">
+        <child id="1182160096073" name="cls" index="YeSDq" />
+      </concept>
       <concept id="1081236700937" name="jetbrains.mps.baseLanguage.structure.StaticMethodCall" flags="nn" index="2YIFZM">
         <reference id="1144433194310" name="classConcept" index="1Pybhc" />
       </concept>
@@ -254,6 +257,7 @@
         <child id="1212687122400" name="typeParameter" index="1pMfVU" />
       </concept>
       <concept id="1107461130800" name="jetbrains.mps.baseLanguage.structure.Classifier" flags="ng" index="3pOWGL">
+        <property id="521412098689998745" name="nonStatic" index="2bfB8j" />
         <child id="5375687026011219971" name="member" index="jymVt" unordered="true" />
       </concept>
       <concept id="1107535904670" name="jetbrains.mps.baseLanguage.structure.ClassifierType" flags="in" index="3uibUv">
@@ -271,6 +275,9 @@
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
       <concept id="1146644623116" name="jetbrains.mps.baseLanguage.structure.PrivateVisibility" flags="nn" index="3Tm6S6" />
       <concept id="1080120340718" name="jetbrains.mps.baseLanguage.structure.AndExpression" flags="nn" index="1Wc70l" />
+      <concept id="1170345865475" name="jetbrains.mps.baseLanguage.structure.AnonymousClass" flags="ig" index="1Y3b0j">
+        <reference id="1170346070688" name="classifier" index="1Y3XeK" />
+      </concept>
     </language>
     <language id="63650c59-16c8-498a-99c8-005c7ee9515d" name="jetbrains.mps.lang.access">
       <concept id="8974276187400348173" name="jetbrains.mps.lang.access.structure.CommandClosureLiteral" flags="nn" index="1QHqEC" />
@@ -491,26 +498,43 @@
             </node>
             <node concept="2XshWL" id="gEmQOJdeN8" role="2OqNvi">
               <ref role="2WH_rO" to="ksba:2$nlLZbYsI_" resolve="runWithoutPasteAsRef" />
-              <node concept="1bVj0M" id="gEmQOJdeRV" role="2XxRq1">
-                <node concept="3clFbS" id="gEmQOJdeRW" role="1bW5cS">
-                  <node concept="3clFbF" id="gEmQOJdeRX" role="3cqZAp">
-                    <node concept="2YIFZM" id="gEmQOJdeRY" role="3clFbG">
-                      <ref role="1Pybhc" to="7bx7:~ActionUtils" resolve="ActionUtils" />
-                      <ref role="37wK5l" to="7bx7:~ActionUtils.updateAndPerformAction(com.intellij.openapi.actionSystem.AnAction,com.intellij.openapi.actionSystem.AnActionEvent)" resolve="updateAndPerformAction" />
-                      <node concept="2OqwBi" id="gEmQOJdeRZ" role="37wK5m">
-                        <node concept="2YIFZM" id="gEmQOJdeS0" role="2Oq$k0">
-                          <ref role="1Pybhc" to="qkt:~ActionManager" resolve="ActionManager" />
-                          <ref role="37wK5l" to="qkt:~ActionManager.getInstance()" resolve="getInstance" />
-                        </node>
-                        <node concept="liA8E" id="gEmQOJdeS1" role="2OqNvi">
-                          <ref role="37wK5l" to="qkt:~ActionManager.getAction(java.lang.String)" resolve="getAction" />
-                          <node concept="10M0yZ" id="gEmQOJdeS2" role="37wK5m">
-                            <ref role="1PxDUh" to="qkt:~IdeActions" resolve="IdeActions" />
-                            <ref role="3cqZAo" to="qkt:~IdeActions.ACTION_PASTE" resolve="ACTION_PASTE" />
+              <node concept="2ShNRf" id="gEmQOJeCj5" role="2XxRq1">
+                <node concept="YeOm9" id="gEmQOJeCj6" role="2ShVmc">
+                  <node concept="1Y3b0j" id="gEmQOJeCj7" role="YeSDq">
+                    <property role="2bfB8j" value="true" />
+                    <property role="373rjd" value="true" />
+                    <ref role="1Y3XeK" to="wyt6:~Runnable" resolve="Runnable" />
+                    <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
+                    <node concept="3Tm1VV" id="gEmQOJeCj8" role="1B3o_S" />
+                    <node concept="3clFb_" id="gEmQOJeCj9" role="jymVt">
+                      <property role="TrG5h" value="run" />
+                      <node concept="3Tm1VV" id="gEmQOJeCja" role="1B3o_S" />
+                      <node concept="3cqZAl" id="gEmQOJeCjb" role="3clF45" />
+                      <node concept="3clFbS" id="gEmQOJeCjc" role="3clF47">
+                        <node concept="3clFbF" id="gEmQOJeCjd" role="3cqZAp">
+                          <node concept="2YIFZM" id="gEmQOJeCje" role="3clFbG">
+                            <ref role="1Pybhc" to="7bx7:~ActionUtils" resolve="ActionUtils" />
+                            <ref role="37wK5l" to="7bx7:~ActionUtils.updateAndPerformAction(com.intellij.openapi.actionSystem.AnAction,com.intellij.openapi.actionSystem.AnActionEvent)" resolve="updateAndPerformAction" />
+                            <node concept="2OqwBi" id="gEmQOJeCjf" role="37wK5m">
+                              <node concept="2YIFZM" id="gEmQOJeCjg" role="2Oq$k0">
+                                <ref role="1Pybhc" to="qkt:~ActionManager" resolve="ActionManager" />
+                                <ref role="37wK5l" to="qkt:~ActionManager.getInstance()" resolve="getInstance" />
+                              </node>
+                              <node concept="liA8E" id="gEmQOJeCjh" role="2OqNvi">
+                                <ref role="37wK5l" to="qkt:~ActionManager.getAction(java.lang.String)" resolve="getAction" />
+                                <node concept="10M0yZ" id="gEmQOJeCji" role="37wK5m">
+                                  <ref role="1PxDUh" to="qkt:~IdeActions" resolve="IdeActions" />
+                                  <ref role="3cqZAo" to="qkt:~IdeActions.ACTION_PASTE" resolve="ACTION_PASTE" />
+                                </node>
+                              </node>
+                            </node>
+                            <node concept="tl45R" id="gEmQOJeCjj" role="37wK5m" />
                           </node>
                         </node>
                       </node>
-                      <node concept="tl45R" id="gEmQOJdeS3" role="37wK5m" />
+                      <node concept="2AHcQZ" id="gEmQOJeCjk" role="2AJF6D">
+                        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+                      </node>
                     </node>
                   </node>
                 </node>

@@ -16,7 +16,7 @@ public class Console_ProjectPlugin extends BaseProjectPlugin {
   }
   public List<BaseTool> initAllTools1(Project project) {
     List<BaseTool> tools = ListSequence.fromList(new ArrayList<BaseTool>());
-    ListSequence.fromList(tools).addElement(new ConsoleNewTool_Tool(project));
+    ListSequence.fromList(tools).addElement(new ConsoleTool_Tool(project));
     return tools;
   }
 }

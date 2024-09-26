@@ -338,8 +338,8 @@
   </node>
   <node concept="2wDNrl" id="2$nlLZbVXWa">
     <property role="3GE5qa" value="tool" />
-    <property role="TrG5h" value="ConsoleNewTool" />
-    <property role="2XNbzY" value="ConsoleNew" />
+    <property role="TrG5h" value="ConsoleTool" />
+    <property role="2XNbzY" value="Console" />
     <property role="tEvSQ" value="true" />
     <node concept="2XrIbr" id="2$nlLZc0PFd" role="2XNbBy">
       <property role="TrG5h" value="doRegister" />
