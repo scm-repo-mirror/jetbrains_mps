@@ -44,6 +44,7 @@ public class ConsoleTool_Tool extends BaseTabbedProjectServiceTool {
   private boolean pasteAsRef = true;
   private Object myself = ConsoleTool_Tool.this;
   private ContentManager contentManager;
+  private boolean disposed = false;
   public ConsoleTool_Tool(Project project) {
     super(project, "Console", MapSequence.fromMapAndEntryArray(new HashMap<String, KeyStroke>(), Map.entry("$default", KeyStroke.getKeyStroke("alt F11"))), ICON, ToolWindowAnchor.BOTTOM, true);
   }
@@ -52,12 +53,23 @@ public class ConsoleTool_Tool extends BaseTabbedProjectServiceTool {
     ConsoleTool_Tool.this.myIdeaProject = project;
     ConsoleTool_Tool.this.myMPSProject = ProjectHelper.fromIdeaProjectOrFail(project);
   }
+  public void dispose() {
+    ConsoleTool_Tool.this.disposed = true;
+    super.dispose();
+  }
   @Override
   protected boolean isInitiallyAvailable() {
     return true;
   }
+  protected void doUnregister() {
+    ConsoleTool_Tool.this.contentManager = null;
+    ListSequence.fromList(ConsoleTool_Tool.this.myTabs).clear();
+  }
   @Override
   protected void doRegister() {
+    if (ConsoleTool_Tool.this.disposed) {
+      return;
+    }
     ConsoleTool_Tool.this.contentManager = ConsoleTool_Tool.this.getMyself().getContentManager();
     ConsoleTool_Tool.this.initTabs();
   }
@@ -91,8 +103,8 @@ public class ConsoleTool_Tool extends BaseTabbedProjectServiceTool {
     }
   }
   public BaseConsoleTab addConsoleTab(@Nullable TabState tabState, @Nullable Icon icon, boolean openTool) {
-    String title = check_xg3v07_a0a0g(tabState);
-    Element history = check_xg3v07_a0b0g(check_xg3v07_a0a1a6(check_xg3v07_a0a0b0g(check_xg3v07_a0a0a1a6(tabState))));
+    String title = check_xg3v07_a0a0h(tabState);
+    Element history = check_xg3v07_a0b0h(check_xg3v07_a0a1a7(check_xg3v07_a0a0b0h(check_xg3v07_a0a0a1a7(tabState))));
     if (icon == null) {
       icon = MPSIcons.ToolWindows.OpenTerminal_13x13;
     }
@@ -120,7 +132,7 @@ public class ConsoleTool_Tool extends BaseTabbedProjectServiceTool {
       }
     };
     BaseConsoleTab tab;
-    if (check_xg3v07_a6a6(tabState)) {
+    if (check_xg3v07_a6a7(tabState)) {
       tab = new OutputConsoleTab(ConsoleTool_Tool.this.myMPSProject, tool, title, history);
     } else {
       tab = new DialogConsoleTab(ConsoleTool_Tool.this.myMPSProject, tool, title, history);
@@ -152,8 +164,8 @@ public class ConsoleTool_Tool extends BaseTabbedProjectServiceTool {
       BaseConsoleTab tab = ConsoleTool_Tool.this.addConsoleTab(null, null, false);
       cm.getContent(tab).setPinned(true);
     }
-    check_xg3v07_a5a7(cm.getContent(0));
-    check_xg3v07_a6a7(cm.getContent(0));
+    check_xg3v07_a5a8(cm.getContent(0));
+    check_xg3v07_a6a8(cm.getContent(0));
     cm.setSelectedContent(cm.getContent(0));
   }
   public void executeCommand(final SNode command) {
@@ -165,9 +177,9 @@ public class ConsoleTool_Tool extends BaseTabbedProjectServiceTool {
   }
   public DialogConsoleTab getCurrentEditableTab() {
     if (ListSequence.fromList(ConsoleTool_Tool.this.myTabs).getElement(ConsoleTool_Tool.this.getCurrentTabIndex()) instanceof DialogConsoleTab) {
-      return as_39mclg_a0a0a0t(ListSequence.fromList(ConsoleTool_Tool.this.myTabs).getElement(ConsoleTool_Tool.this.getCurrentTabIndex()), DialogConsoleTab.class);
+      return as_39mclg_a0a0a0w(ListSequence.fromList(ConsoleTool_Tool.this.myTabs).getElement(ConsoleTool_Tool.this.getCurrentTabIndex()), DialogConsoleTab.class);
     }
-    return as_39mclg_a0b0t(ListSequence.fromList(ConsoleTool_Tool.this.myTabs).getElement(0), DialogConsoleTab.class);
+    return as_39mclg_a0b0w(ListSequence.fromList(ConsoleTool_Tool.this.myTabs).getElement(0), DialogConsoleTab.class);
   }
   @Nullable
   public MyState getState() {
@@ -194,58 +206,58 @@ public class ConsoleTool_Tool extends BaseTabbedProjectServiceTool {
     }
     return result;
   }
-  private static String check_xg3v07_a0a0g(TabState checkedDotOperand) {
+  private static String check_xg3v07_a0a0h(TabState checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.title;
     }
     return null;
   }
-  private static Element check_xg3v07_a0b0g(Element checkedDotOperand) {
+  private static Element check_xg3v07_a0b0h(Element checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.clone();
     }
     return null;
   }
-  private static Element check_xg3v07_a0a1a6(List<Element> checkedDotOperand) {
+  private static Element check_xg3v07_a0a1a7(List<Element> checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.get(0);
     }
     return null;
   }
-  private static List<Element> check_xg3v07_a0a0b0g(Element checkedDotOperand) {
+  private static List<Element> check_xg3v07_a0a0b0h(Element checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getChildren();
     }
     return null;
   }
-  private static Element check_xg3v07_a0a0a1a6(TabState checkedDotOperand) {
+  private static Element check_xg3v07_a0a0a1a7(TabState checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.historyXml;
     }
     return null;
   }
-  private static boolean check_xg3v07_a6a6(TabState checkedDotOperand) {
+  private static boolean check_xg3v07_a6a7(TabState checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.isHistoryTab;
     }
     return false;
   }
-  private static void check_xg3v07_a5a7(Content checkedDotOperand) {
+  private static void check_xg3v07_a5a8(Content checkedDotOperand) {
     if (null != checkedDotOperand) {
       checkedDotOperand.setPinnable(false);
     }
 
   }
-  private static void check_xg3v07_a6a7(Content checkedDotOperand) {
+  private static void check_xg3v07_a6a8(Content checkedDotOperand) {
     if (null != checkedDotOperand) {
       checkedDotOperand.setCloseable(false);
     }
 
   }
-  private static <T> T as_39mclg_a0a0a0t(Object o, Class<T> type) {
+  private static <T> T as_39mclg_a0a0a0w(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
-  private static <T> T as_39mclg_a0b0t(Object o, Class<T> type) {
+  private static <T> T as_39mclg_a0b0w(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
 
