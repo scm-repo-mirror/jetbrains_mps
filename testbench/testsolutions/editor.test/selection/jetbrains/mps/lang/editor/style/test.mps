@@ -72,7 +72,7 @@
     <language id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor">
       <concept id="7418278005949660372" name="jetbrains.mps.lang.editor.structure.FontFamilyStyleClassItem" flags="ln" index="2biZxu" />
       <concept id="7228435049763037222" name="jetbrains.mps.lang.editor.structure.FontFamilyLiteral" flags="ng" index="1riQX7" />
-      <concept id="7228435049763093185" name="jetbrains.mps.lang.editor.structure.FontFamilyContainer" flags="ngI" index="1rj3mw">
+      <concept id="7228435049763093185" name="jetbrains.mps.lang.editor.structure.FontFamilyContainer" flags="ng" index="1rj3mw">
         <property id="7228435049763093186" name="family" index="1rj3mz" />
       </concept>
       <concept id="6029276237631252951" name="jetbrains.mps.lang.editor.structure.StyleAttributeReferenceExpression" flags="ng" index="1Z6Ecs">
@@ -131,7 +131,7 @@
       <concept id="1079359253375" name="jetbrains.mps.baseLanguage.structure.ParenthesizedExpression" flags="nn" index="1eOMI4">
         <child id="1079359253376" name="expression" index="1eOMHV" />
       </concept>
-      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ngI" index="1ndlxa">
+      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ng" index="1ndlxa">
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
       </concept>
@@ -220,7 +220,7 @@
       <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
         <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
       </concept>
-      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ngI" index="TrEIO">
+      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
     </language>
@@ -229,6 +229,10 @@
       <concept id="6519503956375920379" name="jetbrains.mps.lang.editor.editorTest.structure.StyleParent" flags="ng" index="HWV2P">
         <child id="6519503956375920411" name="child" index="HWV5l" />
       </concept>
+      <concept id="521245079298167988" name="jetbrains.mps.lang.editor.editorTest.structure.TestInspectorParent" flags="ng" index="1nhK4n">
+        <child id="521245079298592336" name="children" index="1nI9JN" />
+      </concept>
+      <concept id="521245079298590677" name="jetbrains.mps.lang.editor.editorTest.structure.TestInspectorChild" flags="ng" index="1nI99Q" />
     </language>
     <language id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections">
       <concept id="1225711141656" name="jetbrains.mps.baseLanguage.collections.structure.ListElementAccessExpression" flags="nn" index="1y4W85">
@@ -2494,10 +2498,6 @@
             </node>
           </node>
           <node concept="1bVj0M" id="rhJBLcTQp5" role="37wK5m">
-            <node concept="gl6BB" id="5W7E4fV0Y3m" role="1bW2Oz">
-              <property role="TrG5h" value="it" />
-              <node concept="2jxLKc" id="5W7E4fV0Y3n" role="1tU5fm" />
-            </node>
             <node concept="3clFbS" id="rhJBLcTQp8" role="1bW5cS">
               <node concept="3clFbF" id="rhJBLcTQp9" role="3cqZAp">
                 <node concept="1Wc70l" id="rhJBLcTQpa" role="3clFbG">
@@ -2540,6 +2540,10 @@
                 </node>
               </node>
             </node>
+            <node concept="gl6BB" id="5W7E4fV0Y3m" role="1bW2Oz">
+              <property role="TrG5h" value="it" />
+              <node concept="2jxLKc" id="5W7E4fV0Y3n" role="1tU5fm" />
+            </node>
           </node>
           <node concept="3clFbT" id="rhJBLcTQpp" role="37wK5m">
             <property role="3clFbU" value="true" />
@@ -2575,10 +2579,6 @@
             </node>
           </node>
           <node concept="1bVj0M" id="rhJBLcW1f4" role="37wK5m">
-            <node concept="gl6BB" id="5W7E4fV0Y3o" role="1bW2Oz">
-              <property role="TrG5h" value="it" />
-              <node concept="2jxLKc" id="5W7E4fV0Y3p" role="1tU5fm" />
-            </node>
             <node concept="3clFbS" id="rhJBLcW1f7" role="1bW5cS">
               <node concept="3clFbF" id="rhJBLcW1f8" role="3cqZAp">
                 <node concept="1Wc70l" id="rhJBLcW1f9" role="3clFbG">
@@ -2620,6 +2620,10 @@
                   </node>
                 </node>
               </node>
+            </node>
+            <node concept="gl6BB" id="5W7E4fV0Y3o" role="1bW2Oz">
+              <property role="TrG5h" value="it" />
+              <node concept="2jxLKc" id="5W7E4fV0Y3p" role="1tU5fm" />
             </node>
           </node>
           <node concept="3clFbT" id="rhJBLcW1fo" role="37wK5m">
@@ -2937,6 +2941,25 @@
           <property role="p6zMq" value="9" />
           <property role="p6zMs" value="9" />
           <property role="LIFWd" value="Constant_4mbnlq_e0" />
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="LiM7Y" id="sVPqdg_Ypn">
+    <property role="TrG5h" value="ManualTestInspectorStyle" />
+    <property role="3YCmrE" value="Test propagation opf read-only style from parent editor to child inspector" />
+    <node concept="1qefOq" id="sVPqdg_YzS" role="25YQCW">
+      <node concept="1nhK4n" id="sVPqdg_YzQ" role="1qenE9">
+        <property role="TrG5h" value="ParentName" />
+        <node concept="1nI99Q" id="sVPqdg_YzR" role="1nI9JN">
+          <property role="TrG5h" value="ChildName" />
+        </node>
+        <node concept="LIFWc" id="63gIxqUGKw4" role="lGtFl">
+          <property role="LIFWa" value="0" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="Constant_wi20by_a0a" />
         </node>
       </node>
     </node>
