@@ -677,15 +677,15 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   public static Object referenceMacro_GetReferent_44_0(final ReferenceMacroContext _context) {
     if (SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), PROPS.position$vm5o), 0x22ace24ea9f74879L)) {
-      return "TOP";
+      return new SNodePointer("498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.wm(MPS.IDEA/)", "~ToolWindowAnchor.TOP");
     }
     if (SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), PROPS.position$vm5o), 0x22ace24ea9f7487aL)) {
-      return "LEFT";
+      return new SNodePointer("498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.wm(MPS.IDEA/)", "~ToolWindowAnchor.LEFT");
     }
     if (SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), PROPS.position$vm5o), 0x22ace24ea9f7487bL)) {
-      return "RIGHT";
+      return new SNodePointer("498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.wm(MPS.IDEA/)", "~ToolWindowAnchor.RIGHT");
     }
-    return "BOTTOM";
+    return new SNodePointer("498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.wm(MPS.IDEA/)", "~ToolWindowAnchor.BOTTOM");
   }
   public static Object referenceMacro_GetReferent_52_0(final ReferenceMacroContext _context) {
     return _context.getOutputNodeByInputNodeAndMappingLabel(OrderConstraints__BehaviorDescriptor.getOrder_id2CFL3ni7A9T.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.order$KjPU)), "map_OrderConstructor");

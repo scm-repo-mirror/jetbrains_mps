@@ -11303,8 +11303,13 @@
                     </node>
                     <node concept="3clFbS" id="3P7s6VtYpPt" role="3clFbx">
                       <node concept="3cpWs6" id="3P7s6VtYpPu" role="3cqZAp">
-                        <node concept="Xl_RD" id="3P7s6VtYpPv" role="3cqZAk">
-                          <property role="Xl_RC" value="TOP" />
+                        <node concept="2tJFMh" id="3iJf4n4WVZu" role="3cqZAk">
+                          <node concept="ZC_QK" id="3iJf4n4WXig" role="2tJFKM">
+                            <ref role="2aWVGs" to="jkny:~ToolWindowAnchor" resolve="ToolWindowAnchor" />
+                            <node concept="ZC_QK" id="3iJf4n4X0yd" role="2aWVGa">
+                              <ref role="2aWVGs" to="jkny:~ToolWindowAnchor.TOP" resolve="TOP" />
+                            </node>
+                          </node>
                         </node>
                       </node>
                     </node>
@@ -11325,8 +11330,13 @@
                     </node>
                     <node concept="3clFbS" id="3P7s6VtYpPB" role="3clFbx">
                       <node concept="3cpWs6" id="3P7s6VtYpPC" role="3cqZAp">
-                        <node concept="Xl_RD" id="3P7s6VtYpPD" role="3cqZAk">
-                          <property role="Xl_RC" value="LEFT" />
+                        <node concept="2tJFMh" id="3iJf4n4X29q" role="3cqZAk">
+                          <node concept="ZC_QK" id="3iJf4n4X29r" role="2tJFKM">
+                            <ref role="2aWVGs" to="jkny:~ToolWindowAnchor" resolve="ToolWindowAnchor" />
+                            <node concept="ZC_QK" id="3iJf4n4X29s" role="2aWVGa">
+                              <ref role="2aWVGs" to="jkny:~ToolWindowAnchor.LEFT" resolve="LEFT" />
+                            </node>
+                          </node>
                         </node>
                       </node>
                     </node>
@@ -11334,8 +11344,13 @@
                   <node concept="3clFbJ" id="3P7s6VtYpPK" role="3cqZAp">
                     <node concept="3clFbS" id="3P7s6VtYpPL" role="3clFbx">
                       <node concept="3cpWs6" id="3P7s6VtYpPM" role="3cqZAp">
-                        <node concept="Xl_RD" id="3P7s6VtYpPN" role="3cqZAk">
-                          <property role="Xl_RC" value="RIGHT" />
+                        <node concept="2tJFMh" id="3iJf4n4X2O9" role="3cqZAk">
+                          <node concept="ZC_QK" id="3iJf4n4X2Oa" role="2tJFKM">
+                            <ref role="2aWVGs" to="jkny:~ToolWindowAnchor" resolve="ToolWindowAnchor" />
+                            <node concept="ZC_QK" id="3iJf4n4X2Ob" role="2aWVGa">
+                              <ref role="2aWVGs" to="jkny:~ToolWindowAnchor.RIGHT" resolve="RIGHT" />
+                            </node>
+                          </node>
                         </node>
                       </node>
                     </node>
@@ -11354,8 +11369,13 @@
                     </node>
                   </node>
                   <node concept="3cpWs6" id="3P7s6VtYpPU" role="3cqZAp">
-                    <node concept="Xl_RD" id="3P7s6VtYpPV" role="3cqZAk">
-                      <property role="Xl_RC" value="BOTTOM" />
+                    <node concept="2tJFMh" id="3iJf4n4X3uS" role="3cqZAk">
+                      <node concept="ZC_QK" id="3iJf4n4X3uT" role="2tJFKM">
+                        <ref role="2aWVGs" to="jkny:~ToolWindowAnchor" resolve="ToolWindowAnchor" />
+                        <node concept="ZC_QK" id="3iJf4n4X3uU" role="2aWVGa">
+                          <ref role="2aWVGs" to="jkny:~ToolWindowAnchor.BOTTOM" resolve="BOTTOM" />
+                        </node>
+                      </node>
                     </node>
                   </node>
                 </node>
