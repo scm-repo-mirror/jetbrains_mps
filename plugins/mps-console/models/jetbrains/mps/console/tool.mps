@@ -24,7 +24,6 @@
     <import index="fy8e" ref="r:89c0fb70-0977-7777-a076-5906f9d8630f(jetbrains.mps.make.facets)" />
     <import index="hfuk" ref="r:b25dd364-bc3f-4a66-97d1-262009610c5e(jetbrains.mps.make)" />
     <import index="fn29" ref="r:6ba2667b-185e-45cd-ac65-e4b9d66da28e(jetbrains.mps.smodel.resources)" />
-    <import index="v7ux" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ui.content(MPS.IDEA/)" />
     <import index="j532" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.undo(MPS.Platform/)" />
     <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
     <import index="2ymi" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ide.structureView(MPS.IDEA/)" />
@@ -43,7 +42,6 @@
     <import index="tqvn" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.tempmodel(MPS.Core/)" />
     <import index="exr9" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor(MPS.Editor/)" />
     <import index="7bx7" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.workbench.action(MPS.Platform/)" />
-    <import index="71xd" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.tools(MPS.Platform/)" />
     <import index="dxuu" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:javax.swing(JDK/)" />
     <import index="hyam" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.awt.event(JDK/)" />
     <import index="mnlj" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.beans(JDK/)" />
@@ -52,7 +50,6 @@
     <import index="5zyv" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.concurrent(JDK/)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="zn9m" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.util(MPS.IDEA/)" />
-    <import index="l7us" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.icons(MPS.Platform/)" />
     <import index="guwi" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.io(JDK/)" />
     <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" />
     <import index="1i7y" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor.datatransfer(MPS.Editor/)" />
@@ -69,8 +66,6 @@
     <import index="jkm4" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.ui(MPS.IDEA/)" />
     <import index="3s15" ref="86441d7a-e194-42da-81a5-2161ec62a379/java:jetbrains.mps.workbench(MPS.Workbench/)" />
     <import index="k3nr" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.ide.editor(MPS.Editor/)" />
-    <import index="vuw5" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.keymap(MPS.IDEA/)" />
-    <import index="z0rn" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.util.xmlb.annotations(MPS.IDEA/)" />
     <import index="vpbl" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor.commands(MPS.Editor/)" />
     <import index="3a50" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide(MPS.Platform/)" />
     <import index="oulx" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.commands(MPS.Editor/)" />
@@ -80,7 +75,6 @@
     <import index="tqbz" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ide.actions(MPS.IDEA/)" />
     <import index="ud0o" ref="r:71895ceb-c89d-4545-aa38-89d1cd891f17(jetbrains.mps.make.facet)" />
     <import index="ends" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.extapi.persistence(MPS.Core/)" />
-    <import index="4nm9" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.project(MPS.IDEA/)" />
     <import index="jlff" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.vfs(MPS.IDEA/)" />
     <import index="kip1" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.nodefs(MPS.Platform/)" />
     <import index="22ra" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.update(MPS.Editor/)" />
@@ -3484,6 +3478,41 @@
                           </node>
                         </node>
                       </node>
+                      <node concept="3clFbJ" id="gyVkU1mebJ" role="3cqZAp">
+                        <node concept="3clFbS" id="gyVkU1mebK" role="3clFbx">
+                          <node concept="3cpWs6" id="gyVkU1mebL" role="3cqZAp">
+                            <node concept="0kSF2" id="gyVkU1mH9S" role="3cqZAk">
+                              <node concept="3uibUv" id="gyVkU1mH9T" role="0kSFW">
+                                <ref role="3uigEE" to="ddhc:~PasteProvider" resolve="PasteProvider" />
+                              </node>
+                              <node concept="3nyPlj" id="gyVkU1mH9U" role="0kSFX">
+                                <ref role="37wK5l" to="exr9:~EditorComponent.getData(java.lang.String)" resolve="getData" />
+                                <node concept="2OqwBi" id="u_4lu3pxb6" role="37wK5m">
+                                  <node concept="10M0yZ" id="u_4lu3pipy" role="2Oq$k0">
+                                    <ref role="3cqZAo" to="qkt:~PlatformDataKeys.PASTE_PROVIDER" resolve="PASTE_PROVIDER" />
+                                    <ref role="1PxDUh" to="qkt:~PlatformDataKeys" resolve="PlatformDataKeys" />
+                                  </node>
+                                  <node concept="liA8E" id="u_4lu3pNwj" role="2OqNvi">
+                                    <ref role="37wK5l" to="qkt:~DataKey.getName()" resolve="getName" />
+                                  </node>
+                                </node>
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                        <node concept="2OqwBi" id="gyVkU1mebN" role="3clFbw">
+                          <node concept="10M0yZ" id="gyVkU1muoJ" role="2Oq$k0">
+                            <ref role="3cqZAo" node="gyVkU1lAw7" resolve="PARENT_PASTE_PROVIDER" />
+                            <ref role="1PxDUh" node="7nWAV$2lW2b" resolve="MPSConsoleDataKeys" />
+                          </node>
+                          <node concept="liA8E" id="gyVkU1mebP" role="2OqNvi">
+                            <ref role="37wK5l" to="qkt:~DataKey.is(java.lang.String)" resolve="is" />
+                            <node concept="37vLTw" id="gyVkU1mebQ" role="37wK5m">
+                              <ref role="3cqZAo" node="6ysF3v1j_cK" resolve="key" />
+                            </node>
+                          </node>
+                        </node>
+                      </node>
                       <node concept="3clFbJ" id="6ysF3v1j_cP" role="3cqZAp">
                         <node concept="3clFbS" id="6ysF3v1j_cQ" role="3clFbx">
                           <node concept="3cpWs6" id="6ysF3v1j_cR" role="3cqZAp">
@@ -3527,24 +3556,11 @@
                             </node>
                           </node>
                           <node concept="3cpWs6" id="2BT5gU6P2p2" role="3cqZAp">
-                            <node concept="3K4zz7" id="2BT5gU6PhoY" role="3cqZAk">
-                              <node concept="37vLTw" id="2BT5gU6Pw7f" role="3K4GZi">
-                                <ref role="3cqZAo" node="2BT5gU6Om$O" resolve="parentPasteProvider" />
-                              </node>
-                              <node concept="2OqwBi" id="3weXYUunPeJ" role="3K4Cdx">
-                                <node concept="37vLTw" id="3weXYUunLd2" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="6ysF3v1l7YE" resolve="myTool" />
-                                </node>
-                                <node concept="liA8E" id="3weXYUup1El" role="2OqNvi">
-                                  <ref role="37wK5l" to="oh9p:2$nlLZcbajN" resolve="getPasteAsRef" />
-                                </node>
-                              </node>
-                              <node concept="2ShNRf" id="6ysF3v1j_d0" role="3K4E3e">
-                                <node concept="1pGfFk" id="6ysF3v1j_d1" role="2ShVmc">
-                                  <ref role="37wK5l" node="6ysF3v1j_w4" resolve="BaseConsoleTab.MyPasteProvider" />
-                                  <node concept="37vLTw" id="2BT5gU6OFRy" role="37wK5m">
-                                    <ref role="3cqZAo" node="2BT5gU6Om$O" resolve="parentPasteProvider" />
-                                  </node>
+                            <node concept="2ShNRf" id="6ysF3v1j_d0" role="3cqZAk">
+                              <node concept="1pGfFk" id="6ysF3v1j_d1" role="2ShVmc">
+                                <ref role="37wK5l" node="6ysF3v1j_w4" />
+                                <node concept="37vLTw" id="2BT5gU6OFRy" role="37wK5m">
+                                  <ref role="3cqZAo" node="2BT5gU6Om$O" resolve="parentPasteProvider" />
                                 </node>
                               </node>
                             </node>
@@ -8600,6 +8616,33 @@
     <node concept="3Tm1VV" id="7nWAV$2lW2c" role="1B3o_S" />
     <node concept="3uibUv" id="7nWAV$2meaA" role="1zkMxy">
       <ref role="3uigEE" to="qq03:~MPSCommonDataKeys" resolve="MPSCommonDataKeys" />
+    </node>
+    <node concept="Wx3nA" id="gyVkU1lAw7" role="jymVt">
+      <property role="TrG5h" value="PARENT_PASTE_PROVIDER" />
+      <property role="3TUv4t" value="true" />
+      <node concept="2AHcQZ" id="gyVkU1lAw8" role="2AJF6D">
+        <ref role="2AI5Lk" to="qq03:~MPSCommonDataKeys$Description" resolve="MPSCommonDataKeys.Description" />
+        <node concept="2B6LJw" id="gyVkU1lAw9" role="2B76xF">
+          <ref role="2B6OnR" to="qq03:~MPSCommonDataKeys$Description.description()" resolve="description" />
+          <node concept="Xl_RD" id="gyVkU1lAwa" role="2B70Vg">
+            <property role="Xl_RC" value="the original paste provider, not the one defined by BaseConsoleTab" />
+          </node>
+        </node>
+      </node>
+      <node concept="3uibUv" id="gyVkU1lAwb" role="1tU5fm">
+        <ref role="3uigEE" to="qkt:~DataKey" resolve="DataKey" />
+        <node concept="3uibUv" id="gyVkU1lAwc" role="11_B2D">
+          <ref role="3uigEE" node="4gO8Gruz$1J" resolve="BaseConsoleTab" />
+        </node>
+      </node>
+      <node concept="2YIFZM" id="gyVkU1lAwd" role="33vP2m">
+        <ref role="1Pybhc" to="qkt:~DataKey" resolve="DataKey" />
+        <ref role="37wK5l" to="qkt:~DataKey.create(java.lang.String)" resolve="create" />
+        <node concept="Xl_RD" id="gyVkU1lAwe" role="37wK5m">
+          <property role="Xl_RC" value="MPS_ConsoleTab_Parent_Paste_Provider" />
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="gyVkU1lAwf" role="1B3o_S" />
     </node>
   </node>
   <node concept="312cEu" id="2ONldth5Ft3">

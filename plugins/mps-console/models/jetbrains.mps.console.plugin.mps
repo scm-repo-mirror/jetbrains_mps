@@ -229,16 +229,9 @@
         <child id="1081773367579" name="rightExpression" index="3uHU7w" />
         <child id="1081773367580" name="leftExpression" index="3uHU7B" />
       </concept>
-      <concept id="8276990574909231788" name="jetbrains.mps.baseLanguage.structure.FinallyClause" flags="ng" index="1wplmZ">
-        <child id="8276990574909234106" name="finallyBody" index="1wplMD" />
-      </concept>
       <concept id="1073239437375" name="jetbrains.mps.baseLanguage.structure.NotEqualsExpression" flags="nn" index="3y3z36" />
       <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ngI" index="1B3ioH">
         <child id="1178549979242" name="visibility" index="1B3o_S" />
-      </concept>
-      <concept id="5351203823916750322" name="jetbrains.mps.baseLanguage.structure.TryUniversalStatement" flags="nn" index="3J1_TO">
-        <child id="8276990574886367509" name="finallyClause" index="1zxBo6" />
-        <child id="8276990574886367508" name="body" index="1zxBo7" />
       </concept>
       <concept id="1163668896201" name="jetbrains.mps.baseLanguage.structure.TernaryOperatorExpression" flags="nn" index="3K4zz7">
         <child id="1163668914799" name="condition" index="3K4Cdx" />
@@ -443,78 +436,6 @@
         <ref role="3uigEE" to="71xd:~BaseTabbedProjectServiceTool" resolve="BaseTabbedProjectServiceTool" />
       </node>
       <node concept="3Tm6S6" id="4GSEy3uNgeZ" role="1B3o_S" />
-    </node>
-    <node concept="2XrIbr" id="2$nlLZbYprl" role="2XNbBy">
-      <property role="TrG5h" value="getPasteAsRef" />
-      <node concept="10P_77" id="2$nlLZbYpUj" role="3clF45" />
-      <node concept="3clFbS" id="2$nlLZbYprn" role="3clF47">
-        <node concept="3clFbF" id="2$nlLZbYqlx" role="3cqZAp">
-          <node concept="2OqwBi" id="2$nlLZbYqlr" role="3clFbG">
-            <node concept="2WthIp" id="2$nlLZbYqlu" role="2Oq$k0" />
-            <node concept="2BZ7hE" id="2$nlLZbYqlw" role="2OqNvi">
-              <ref role="2WH_rO" node="2$nlLZbYnKL" resolve="pasteAsRef" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="3Tm1VV" id="2$nlLZbYrup" role="1B3o_S" />
-    </node>
-    <node concept="2XrIbr" id="2$nlLZbYsI_" role="2XNbBy">
-      <property role="TrG5h" value="runWithoutPasteAsRef" />
-      <node concept="3clFbS" id="2BT5gU6I$4B" role="3clF47">
-        <node concept="3J1_TO" id="3V5HyrdwSe$" role="3cqZAp">
-          <node concept="3clFbS" id="3V5HyrdwSeA" role="1zxBo7">
-            <node concept="3clFbF" id="2BT5gU6MY10" role="3cqZAp">
-              <node concept="37vLTI" id="2BT5gU6MYii" role="3clFbG">
-                <node concept="3clFbT" id="2BT5gU6MYrV" role="37vLTx">
-                  <property role="3clFbU" value="false" />
-                </node>
-                <node concept="2OqwBi" id="2$nlLZbYsQh" role="37vLTJ">
-                  <node concept="2WthIp" id="2$nlLZbYsQk" role="2Oq$k0" />
-                  <node concept="2BZ7hE" id="2$nlLZbYsQm" role="2OqNvi">
-                    <ref role="2WH_rO" node="2$nlLZbYnKL" resolve="pasteAsRef" />
-                  </node>
-                </node>
-              </node>
-            </node>
-            <node concept="3clFbF" id="2BT5gU6NhY9" role="3cqZAp">
-              <node concept="2OqwBi" id="2BT5gU6Nlsn" role="3clFbG">
-                <node concept="37vLTw" id="2BT5gU6NhY8" role="2Oq$k0">
-                  <ref role="3cqZAo" node="2BT5gU6MKxI" resolve="toRun" />
-                </node>
-                <node concept="liA8E" id="2BT5gU6NoPI" role="2OqNvi">
-                  <ref role="37wK5l" to="wyt6:~Runnable.run()" resolve="run" />
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="1wplmZ" id="xvs04dHxXL" role="1zxBo6">
-            <node concept="3clFbS" id="3V5HyrdwSeB" role="1wplMD">
-              <node concept="3clFbF" id="2BT5gU6N4U0" role="3cqZAp">
-                <node concept="37vLTI" id="2BT5gU6N8zs" role="3clFbG">
-                  <node concept="3clFbT" id="2BT5gU6Nbrh" role="37vLTx">
-                    <property role="3clFbU" value="true" />
-                  </node>
-                  <node concept="2OqwBi" id="2$nlLZbYsXC" role="37vLTJ">
-                    <node concept="2WthIp" id="2$nlLZbYsXF" role="2Oq$k0" />
-                    <node concept="2BZ7hE" id="2$nlLZbYsXH" role="2OqNvi">
-                      <ref role="2WH_rO" node="2$nlLZbYnKL" resolve="pasteAsRef" />
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="3cqZAl" id="2BT5gU6I$4_" role="3clF45" />
-      <node concept="37vLTG" id="2BT5gU6MKxI" role="3clF46">
-        <property role="TrG5h" value="toRun" />
-        <node concept="3uibUv" id="2BT5gU6MKxH" role="1tU5fm">
-          <ref role="3uigEE" to="wyt6:~Runnable" resolve="Runnable" />
-        </node>
-      </node>
-      <node concept="3Tm1VV" id="2BT5gU6I$4A" role="1B3o_S" />
     </node>
     <node concept="2XrIbr" id="2$nlLZbYu$Y" role="2XNbBy">
       <property role="TrG5h" value="clearAll" />
@@ -769,27 +690,6 @@
                   <ref role="1Y3XeK" to="oh9p:2$nlLZc9SPm" resolve="IConsoleTool" />
                   <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
                   <node concept="3Tm1VV" id="2$nlLZchbbz" role="1B3o_S" />
-                  <node concept="3clFb_" id="2$nlLZchbb$" role="jymVt">
-                    <property role="TrG5h" value="getPasteAsRef" />
-                    <node concept="10P_77" id="2$nlLZchbb_" role="3clF45" />
-                    <node concept="3Tm1VV" id="2$nlLZchbbA" role="1B3o_S" />
-                    <node concept="3clFbS" id="2$nlLZchbbB" role="3clF47">
-                      <node concept="3clFbF" id="2$nlLZchcOJ" role="3cqZAp">
-                        <node concept="2OqwBi" id="2$nlLZchcOD" role="3clFbG">
-                          <node concept="2WthIp" id="2$nlLZchcOG" role="2Oq$k0">
-                            <ref role="32nkFo" node="2$nlLZbVXWa" resolve="ConsoleNewTool" />
-                          </node>
-                          <node concept="2XshWL" id="2$nlLZchcOI" role="2OqNvi">
-                            <ref role="2WH_rO" node="2$nlLZbYprl" resolve="getPasteAsRef" />
-                          </node>
-                        </node>
-                      </node>
-                    </node>
-                    <node concept="2AHcQZ" id="2$nlLZchbbC" role="2AJF6D">
-                      <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-                    </node>
-                  </node>
-                  <node concept="2tJIrI" id="2$nlLZchbbD" role="jymVt" />
                   <node concept="3clFb_" id="2$nlLZchbbE" role="jymVt">
                     <property role="TrG5h" value="getToolWindow" />
                     <node concept="3Tm1VV" id="2$nlLZchbbF" role="1B3o_S" />
@@ -1939,14 +1839,6 @@
       <node concept="3Tm6S6" id="2$nlLZc8dHH" role="1B3o_S" />
       <node concept="3uibUv" id="2$nlLZc8dHI" role="1tU5fm">
         <ref role="3uigEE" to="4nm9:~Project" resolve="Project" />
-      </node>
-    </node>
-    <node concept="2BZ0e9" id="2$nlLZbYnKL" role="2XNbBz">
-      <property role="TrG5h" value="pasteAsRef" />
-      <node concept="3Tm6S6" id="2$nlLZbYnKM" role="1B3o_S" />
-      <node concept="10P_77" id="2$nlLZbYofx" role="1tU5fm" />
-      <node concept="3clFbT" id="2$nlLZbYoj6" role="33vP2m">
-        <property role="3clFbU" value="true" />
       </node>
     </node>
     <node concept="2BZ0e9" id="4GSEy3uM01_" role="2XNbBz">

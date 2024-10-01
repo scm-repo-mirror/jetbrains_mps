@@ -155,12 +155,15 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
         if (MPSConsoleDataKeys.CONSOLE_TAB.is(key)) {
           return BaseConsoleTab.this;
         }
+        if (MPSConsoleDataKeys.PARENT_PASTE_PROVIDER.is(key)) {
+          return as_6q36mf_a0a0c0a0a0a0a13(super.getData(PlatformDataKeys.PASTE_PROVIDER.getName()), PasteProvider.class);
+        }
         if (PlatformDataKeys.FILE_EDITOR.is(key)) {
           return myFileEditor;
         }
         if (PlatformDataKeys.PASTE_PROVIDER.is(key)) {
-          PasteProvider parentPasteProvider = as_6q36mf_a0a0a3a0a0a0a0fb(super.getData(key), PasteProvider.class);
-          return (myTool.getPasteAsRef() ? new MyPasteProvider(parentPasteProvider) : parentPasteProvider);
+          PasteProvider parentPasteProvider = as_6q36mf_a0a0a4a0a0a0a0fb(super.getData(key), PasteProvider.class);
+          return new MyPasteProvider(parentPasteProvider);
         }
         return super.getData(key);
       }
@@ -552,7 +555,10 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
     }
 
   }
-  private static <T> T as_6q36mf_a0a0a3a0a0a0a0fb(Object o, Class<T> type) {
+  private static <T> T as_6q36mf_a0a0c0a0a0a0a13(Object o, Class<T> type) {
+    return (type.isInstance(o) ? (T) o : null);
+  }
+  private static <T> T as_6q36mf_a0a0a4a0a0a0a0fb(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
 
