@@ -5794,16 +5794,16 @@
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
       <node concept="1oajcY" id="1E3vQRZsd_a" role="1oa70y" />
     </node>
+    <node concept="1DS2jV" id="75IRN57mU_1" role="1NuT2Z">
+      <property role="TrG5h" value="project" />
+      <ref role="1DUlNI" to="qkt:~CommonDataKeys.PROJECT" resolve="PROJECT" />
+      <node concept="1oajcY" id="75IRN57mU_2" role="1oa70y" />
+    </node>
     <node concept="1GtWCo" id="6S5fI02CGAS" role="3Uehp1">
       <node concept="10M0yZ" id="1_rASLztAlh" role="1GtWoa">
         <ref role="1PxDUh" to="l7us:~MPSIcons$Actions" resolve="MPSIcons.Actions" />
         <ref role="3cqZAo" to="l7us:~MPSIcons$Actions.ShowCellInExplorer" resolve="ShowCellInExplorer" />
       </node>
-    </node>
-    <node concept="1DS2jV" id="75IRN57mU_1" role="1NuT2Z">
-      <property role="TrG5h" value="project" />
-      <ref role="1DUlNI" to="qkt:~CommonDataKeys.PROJECT" resolve="PROJECT" />
-      <node concept="1oajcY" id="75IRN57mU_2" role="1oa70y" />
     </node>
   </node>
   <node concept="tC5Ba" id="1bRM4HyGTmx">
@@ -10412,7 +10412,7 @@
                 <node concept="2WthIp" id="6_Er4i_HfCy" role="2Oq$k0" />
               </node>
               <node concept="liA8E" id="6_Er4i_HfC$" role="2OqNvi">
-                <ref role="37wK5l" to="1m72:~ComponentManager.getComponent(java.lang.Class)" resolve="getComponent" />
+                <ref role="37wK5l" to="1m72:~ComponentManager.getService(java.lang.Class)" resolve="getService" />
                 <node concept="3VsKOn" id="6_Er4i_HfC_" role="37wK5m">
                   <ref role="3VsUkX" to="bmdi:~EditorMenuTraceTool" resolve="EditorMenuTraceTool" />
                 </node>

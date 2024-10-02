@@ -15,26 +15,25 @@
  */
 package jetbrains.mps.ide.devkit.editorMenuTrace;
 
+import com.intellij.openapi.components.Service;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.MessageType;
 import com.intellij.openapi.wm.ToolWindowAnchor;
 import com.intellij.openapi.wm.ToolWindowManager;
 import jetbrains.mps.icons.MPSIcons.ToolWindows;
+import jetbrains.mps.ide.tools.BaseTabbedProjectServiceTool;
 import jetbrains.mps.ide.tools.BaseTabbedProjectTool;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import jetbrains.mps.project.MPSProject;
 import org.jetbrains.annotations.Nullable;
 
-public class EditorMenuTraceTool extends BaseTabbedProjectTool {
+@Service(Service.Level.PROJECT)
+public final class EditorMenuTraceTool extends BaseTabbedProjectServiceTool {
 
   public static final String TOOL_ID = "Menu Trace";
 
   public EditorMenuTraceTool(Project project) {
     super(project, TOOL_ID, null, ToolWindows.Default, ToolWindowAnchor.BOTTOM, false);
-  }
-
-  @Override
-  protected void createTool() {
   }
 
   public void showEditorMenuTraceInfo(@Nullable EditorMenuTraceInfo info) {
