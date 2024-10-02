@@ -6235,6 +6235,57 @@
       <unit id="3201523885428189497" at="10,0,22,0" name="jetbrains.mps.ide.actions.TouchBarDebug_ActionGroup" />
     </file>
   </root>
+  <root nodeRef="r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/3441576060450723897">
+    <file name="Ide_ApplicationPlugin.java">
+      <node id="3441576060450723897" at="249,60,250,51" concept="6" />
+    </file>
+    <file name="InstallSettings_AppPluginPart.java">
+      <node id="3441576060450724060" at="16,0,17,0" concept="7" trace="myOldModelValidationSettings" />
+      <node id="3441576060451117717" at="20,22,21,112" concept="12" />
+      <node id="3441576060451139776" at="22,22,23,120" concept="14" />
+      <node id="3441576060451152343" at="23,120,24,131" concept="14" />
+      <node id="3441576060451127725" at="24,131,25,134" concept="6" />
+      <node id="3441576060451131445" at="25,134,26,71" concept="6" />
+      <node id="3441576060451142388" at="27,5,28,7" concept="14" />
+      <node id="3441576060451155515" at="28,7,29,99" concept="12" />
+      <node id="3441576060451163809" at="29,99,30,101" concept="12" />
+      <node id="3441576060451169899" at="31,36,32,22" concept="6" />
+      <node id="3441576060451142602" at="33,5,34,0" concept="15" />
+      <node id="3441576060451133514" at="37,25,38,112" concept="12" />
+      <node id="3441576060451135504" at="39,22,40,172" concept="14" />
+      <node id="3441576060451133531" at="40,172,41,131" concept="6" />
+      <node id="3441576060451133523" at="41,131,42,77" concept="6" />
+      <node id="8956136786621673192" at="43,5,44,99" concept="12" />
+      <node id="8956136786621673199" at="44,99,45,101" concept="12" />
+      <node id="8956136786621674839" at="46,36,47,24" concept="6" />
+      <node id="3441576060450723897" at="17,0,19,0" concept="3" trace="InstallSettings_AppPluginPart#()V" />
+      <node id="3441576060451158609" at="30,101,33,5" concept="10" />
+      <node id="8956136786621674837" at="45,101,48,5" concept="10" />
+      <node id="3441576060451133521" at="38,112,43,5" concept="10" />
+      <node id="3441576060451124633" at="21,112,27,5" concept="10" />
+      <node id="3441576060450723897" at="36,0,50,0" concept="11" trace="dispose#()V" />
+      <node id="3441576060450723897" at="19,0,36,0" concept="11" trace="init#()V" />
+      <scope id="3441576060450723897" at="17,42,17,42" />
+      <scope id="3441576060451158611" at="31,36,32,22" />
+      <scope id="8956136786621674838" at="46,36,47,24" />
+      <scope id="3441576060450723897" at="17,0,19,0" />
+      <scope id="3441576060451133522" at="39,22,42,77" />
+      <scope id="3441576060451124635" at="22,22,26,71" />
+      <scope id="3441576060451133237" at="37,25,48,5">
+        <var name="gs" id="8956136786621673200" />
+        <var name="gsp" id="8956136786621673193" />
+        <var name="mvs" id="3441576060451133515" />
+      </scope>
+      <scope id="3441576060450724120" at="20,22,34,0">
+        <var name="gs" id="3441576060451163810" />
+        <var name="gsp" id="3441576060451155516" />
+        <var name="mvs" id="3441576060451117718" />
+      </scope>
+      <scope id="3441576060450723897" at="36,0,50,0" />
+      <scope id="3441576060450723897" at="19,0,36,0" />
+      <unit id="3441576060450723897" at="14,0,51,0" name="jetbrains.mps.ide.actions.InstallSettings_AppPluginPart" />
+    </file>
+  </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/3531023421907756759">
     <file name="plugin.xml">
       <unit id="3531023421907756759" at="1,0,18,14" name="jetbrains.mps.ide.actions.plugin" />
@@ -10963,17 +11014,17 @@
       <node id="7162597690968192621" at="244,67,245,15" concept="13" />
       <node id="7162597690968192621" at="19,0,21,0" concept="3" trace="Ide_ApplicationPlugin#()V" />
       <node id="7162597690968192621" at="22,0,26,0" concept="11" trace="getId#()Lcom/intellij/openapi/extensions/PluginId;" />
-      <node id="7162597690968192621" at="247,0,251,0" concept="11" trace="fillCustomParts#(Ljava/util/List;)V" />
+      <node id="7162597690968192621" at="247,0,252,0" concept="11" trace="fillCustomParts#(Ljava/util/List;)V" />
       <node id="7162597690968192621" at="239,0,247,0" concept="11" trace="initKeymaps#()Ljava/util/List;" />
       <node id="7162597690968192621" at="167,0,187,0" concept="11" trace="adjustInterfaceGroups#()V" />
       <node id="7162597690968192621" at="187,0,239,0" concept="11" trace="adjustRegularGroups#()V" />
       <node id="7162597690968192621" at="27,0,167,0" concept="11" trace="createGroups#()V" />
       <scope id="7162597690968192621" at="19,34,19,34" />
       <scope id="7162597690968192621" at="23,27,24,16" />
-      <scope id="7162597690968192621" at="248,66,249,60" />
       <scope id="7162597690968192621" at="19,0,21,0" />
+      <scope id="7162597690968192621" at="248,66,250,51" />
       <scope id="7162597690968192621" at="22,0,26,0" />
-      <scope id="7162597690968192621" at="247,0,251,0">
+      <scope id="7162597690968192621" at="247,0,252,0">
         <var name="parts" id="7162597690968192621" />
       </scope>
       <scope id="7162597690968192621" at="239,48,245,15">
@@ -10986,7 +11037,7 @@
       <scope id="7162597690968192621" at="187,0,239,0" />
       <scope id="7162597690968192621" at="27,30,165,41" />
       <scope id="7162597690968192621" at="27,0,167,0" />
-      <unit id="7162597690968192621" at="15,0,252,0" name="jetbrains.mps.ide.actions.Ide_ApplicationPlugin" />
+      <unit id="7162597690968192621" at="15,0,253,0" name="jetbrains.mps.ide.actions.Ide_ApplicationPlugin" />
     </file>
     <file name="Ide_ProjectPlugin.java">
       <node id="7162597690968192621" at="18,87,19,115" concept="12" />

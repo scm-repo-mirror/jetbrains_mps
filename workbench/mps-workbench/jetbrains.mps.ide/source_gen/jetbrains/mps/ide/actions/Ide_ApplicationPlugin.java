@@ -247,5 +247,6 @@ public class Ide_ApplicationPlugin extends BaseApplicationPlugin {
   @Override
   public void fillCustomParts(List<ApplicationPluginPart> parts) {
     parts.add(new InstallNavigationSupport_AppPluginPart());
+    parts.add(new InstallSettings_AppPluginPart());
   }
 }

@@ -11,13 +11,7 @@
 
   <application-components>
     <component>
-      <implementation-class>jetbrains.mps.smodel.ModelValidationSettings</implementation-class>
-    </component>
-    <component>
       <implementation-class>jetbrains.mps.plugins.applicationplugins.ApplicationPluginManager</implementation-class>
-    </component>
-    <component>
-      <implementation-class>jetbrains.mps.ide.generator.GenerationSettings</implementation-class>
     </component>
     <component>
       <implementation-class>jetbrains.mps.ide.project.listener.AbstractModuleWorkbenchAdjuster</implementation-class>
@@ -100,6 +94,8 @@
     <toolWindow factoryClass="jetbrains.mps.ide.bookmark.BookmarksTool$Factory"
                 id="Bookmarks tool" anchor="left" canCloseContents="true" secondary="false"
                 icon="AllIcons.Toolwindows.ToolWindowBookmarks" doNotActivateOnStart="true"/>
+    <applicationService serviceImplementation="jetbrains.mps.smodel.ModelValidationSettings" />
+    <applicationService serviceImplementation="jetbrains.mps.ide.generator.GenerationSettings" />
   </extensions>
 
   <extensions defaultExtensionNs="jetbrains.mps">
