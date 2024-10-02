@@ -5868,7 +5868,7 @@
                 </node>
               </node>
               <node concept="liA8E" id="5oSeKmCexAm" role="2OqNvi">
-                <ref role="37wK5l" to="1m72:~ComponentManager.getComponent(java.lang.Class)" resolve="getComponent" />
+                <ref role="37wK5l" to="1m72:~ComponentManager.getService(java.lang.Class)" resolve="getService" />
                 <node concept="3VsKOn" id="5oSeKmCexAn" role="37wK5m">
                   <ref role="3VsUkX" to="a0yo:~GenerationTracerViewTool" resolve="GenerationTracerViewTool" />
                 </node>
@@ -5950,7 +5950,7 @@
                 </node>
               </node>
               <node concept="liA8E" id="5oSeKmCewP_" role="2OqNvi">
-                <ref role="37wK5l" to="1m72:~ComponentManager.getComponent(java.lang.Class)" resolve="getComponent" />
+                <ref role="37wK5l" to="1m72:~ComponentManager.getService(java.lang.Class)" resolve="getService" />
                 <node concept="3VsKOn" id="5oSeKmCewUI" role="37wK5m">
                   <ref role="3VsUkX" to="a0yo:~GenerationTracerViewTool" resolve="GenerationTracerViewTool" />
                 </node>
@@ -6051,7 +6051,7 @@
                 </node>
               </node>
               <node concept="liA8E" id="5oSeKmCes58" role="2OqNvi">
-                <ref role="37wK5l" to="1m72:~ComponentManager.getComponent(java.lang.Class)" resolve="getComponent" />
+                <ref role="37wK5l" to="1m72:~ComponentManager.getService(java.lang.Class)" resolve="getService" />
                 <node concept="3VsKOn" id="5oSeKmCes59" role="37wK5m">
                   <ref role="3VsUkX" to="a0yo:~GenerationTracerViewTool" resolve="GenerationTracerViewTool" />
                 </node>
@@ -6133,7 +6133,7 @@
                 </node>
               </node>
               <node concept="liA8E" id="5oSeKmCenF0" role="2OqNvi">
-                <ref role="37wK5l" to="1m72:~ComponentManager.getComponent(java.lang.Class)" resolve="getComponent" />
+                <ref role="37wK5l" to="1m72:~ComponentManager.getService(java.lang.Class)" resolve="getService" />
                 <node concept="3VsKOn" id="5oSeKmCenF1" role="37wK5m">
                   <ref role="3VsUkX" to="a0yo:~GenerationTracerViewTool" resolve="GenerationTracerViewTool" />
                 </node>

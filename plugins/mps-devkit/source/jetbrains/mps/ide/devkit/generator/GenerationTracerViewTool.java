@@ -20,6 +20,7 @@ import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.ActionPlaces;
 import com.intellij.openapi.actionSystem.ActionToolbar;
 import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.components.Service;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.startup.StartupManager;
 import com.intellij.openapi.wm.ToolWindowAnchor;
@@ -32,10 +33,13 @@ import jetbrains.mps.generator.GenerationSettingsProvider;
 import jetbrains.mps.generator.GenerationTrace;
 import jetbrains.mps.generator.IGenerationSettings.GenTraceSettings;
 import jetbrains.mps.generator.TransientModelsProvider;
+import jetbrains.mps.ide.findusages.view.UsagesViewTool;
 import jetbrains.mps.ide.icons.IdeIcons;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.tools.BaseProjectTool;
+import jetbrains.mps.ide.tools.BaseTool;
 import jetbrains.mps.ide.tools.CloseAction;
+import jetbrains.mps.ide.util.MPSProjectActivity;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.Computable;
 import jetbrains.mps.workbench.action.ActionUtils;
@@ -56,7 +60,8 @@ import java.awt.GridBagLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GenerationTracerViewTool extends BaseProjectTool {
+@Service(Service.Level.PROJECT)
+public final class GenerationTracerViewTool extends BaseTool {
   private NoTabsComponent myNoTabsComponent;
 
   private List<GenerationTracerView> myTracerViews = new ArrayList<>();
@@ -120,8 +125,7 @@ public class GenerationTracerViewTool extends BaseProjectTool {
 
   //////////////////
 
-  @Override
-  protected void createTool(boolean early) {
+  private void createTool() {
     StartupManager.getInstance(getProject()).runWhenProjectIsInitialized(() -> {
       showNoTabsComponent();
       setTracingDataIsAvailable(hasTracingData());
@@ -292,6 +296,16 @@ public class GenerationTracerViewTool extends BaseProjectTool {
         label.setAlignmentX(Component.CENTER_ALIGNMENT);
         myLabelsPanel.add(label);
       }
+    }
+  }
+
+  private static class Plug extends MPSProjectActivity {
+
+    @Override
+    public void runActivity(@NotNull Project project) {
+      final GenerationTracerViewTool tool = project.getService(GenerationTracerViewTool.class);
+      tool.createTool();
+      tool.registerLater();
     }
   }
 }

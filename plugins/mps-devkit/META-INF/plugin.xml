@@ -26,15 +26,9 @@
   <depends>jetbrains.mps.testing</depends>
   <depends>jetbrains.mps.ide.modelchecker</depends>
 
-  <project-components>
-    <component>
-      <implementation-class>jetbrains.mps.ide.devkit.generator.GenerationTracerViewTool</implementation-class>
-    </component>
-
-  </project-components>
-
   <extensions defaultExtensionNs="com.intellij">
     <errorHandler implementation="jetbrains.mps.ide.blame.CharismaReporter" />
+    <postStartupActivity implementation="jetbrains.mps.ide.devkit.generator.GenerationTracerViewTool$Plug" />
   </extensions>
 
   <extensions defaultExtensionNs="com.intellij">
