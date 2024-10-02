@@ -28,7 +28,7 @@ public class MPSDocumentationToolWindowManager {
   }
 
   private MPSDocumentationToolWindowManager(Project project) {
-    myToolWindow = DocumentationTool.getInstance(ProjectHelper.fromIdeaProject(project));
+    myToolWindow = new DocumentationTool(project);
   }
 
   public void showInToolWindow(MPSDocumentationUI ui) {
