@@ -56,6 +56,7 @@ import jetbrains.mps.ide.findusages.view.treeholder.treeview.ViewOptions;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.tools.BaseTabbedProjectServiceTool;
 import jetbrains.mps.ide.tools.BaseTabbedProjectTool;
+import jetbrains.mps.ide.util.MPSProjectActivity;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
 import jetbrains.mps.progress.ProgressMonitorAdapter;
@@ -445,6 +446,15 @@ public final class UsagesViewTool extends BaseTabbedProjectServiceTool implement
 
       AnAction action = ActionManager.getInstance().getAction(MPSActions.FIND_USAGES_WITH_DIALOG_ACTION);
       action.actionPerformed(event);
+    }
+  }
+
+  private static class Plug extends MPSProjectActivity {
+
+    @Override
+    public void runActivity(@NotNull Project project) {
+      final UsagesViewTool tool = project.getService(UsagesViewTool.class);
+      tool.registerLater();
     }
   }
 }
