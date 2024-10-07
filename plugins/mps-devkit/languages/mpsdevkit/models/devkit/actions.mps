@@ -10383,20 +10383,19 @@
         <node concept="3cpWs8" id="6_Er4i_HfCt" role="3cqZAp">
           <node concept="3cpWsn" id="6_Er4i_HfCu" role="3cpWs9">
             <property role="TrG5h" value="tool" />
-            <node concept="3uibUv" id="WbWijtMSNP" role="1tU5fm">
-              <ref role="3uigEE" to="bmdi:~EditorMenuTraceTool" resolve="EditorMenuTraceTool" />
-            </node>
-            <node concept="2ShNRf" id="jDjKy1ZXrt" role="33vP2m">
-              <node concept="1pGfFk" id="jDjKy20xCU" role="2ShVmc">
-                <property role="373rjd" value="true" />
-                <ref role="37wK5l" to="bmdi:~EditorMenuTraceTool.&lt;init&gt;(com.intellij.openapi.project.Project)" resolve="EditorMenuTraceTool" />
-                <node concept="2OqwBi" id="jDjKy20ybh" role="37wK5m">
-                  <node concept="2WthIp" id="jDjKy20ybk" role="2Oq$k0" />
-                  <node concept="1DTwFV" id="jDjKy20ybm" role="2OqNvi">
-                    <ref role="2WH_rO" node="WbWijtNJMx" resolve="project" />
-                  </node>
+            <node concept="2OqwBi" id="6gZ$BJoW4H1" role="33vP2m">
+              <node concept="2OqwBi" id="6gZ$BJoW22h" role="2Oq$k0">
+                <node concept="2WthIp" id="6gZ$BJoW1DO" role="2Oq$k0" />
+                <node concept="1DTwFV" id="6gZ$BJoW4jg" role="2OqNvi">
+                  <ref role="2WH_rO" node="WbWijtNJMx" resolve="project" />
                 </node>
               </node>
+              <node concept="LR4U6" id="6gZ$BJoW5wF" role="2OqNvi">
+                <ref role="LR4U5" node="6gZ$BJoUSW8" resolve="EditorMenuTrace" />
+              </node>
+            </node>
+            <node concept="1xUVSX" id="6gZ$BJoW5N8" role="1tU5fm">
+              <ref role="1xYkEM" node="6gZ$BJoUSW8" resolve="EditorMenuTrace" />
             </node>
           </node>
         </node>
@@ -10489,14 +10488,14 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="6_Er4i_HfCB" role="3cqZAp">
-          <node concept="2OqwBi" id="6_Er4i_HfCC" role="3clFbG">
-            <node concept="37vLTw" id="6_Er4i_HfCD" role="2Oq$k0">
+        <node concept="3clFbF" id="6gZ$BJoW7wN" role="3cqZAp">
+          <node concept="2OqwBi" id="6gZ$BJoW7IS" role="3clFbG">
+            <node concept="37vLTw" id="6gZ$BJoW7wL" role="2Oq$k0">
               <ref role="3cqZAo" node="6_Er4i_HfCu" resolve="tool" />
             </node>
-            <node concept="liA8E" id="6_Er4i_HfCE" role="2OqNvi">
-              <ref role="37wK5l" to="bmdi:~EditorMenuTraceTool.showEditorMenuTraceInfo(jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo)" resolve="showEditorMenuTraceInfo" />
-              <node concept="37vLTw" id="WbWijtMXKM" role="37wK5m">
+            <node concept="2XshWL" id="6gZ$BJoW7UO" role="2OqNvi">
+              <ref role="2WH_rO" node="6gZ$BJoV3qn" resolve="showEditorMenuTraceInfo" />
+              <node concept="37vLTw" id="6gZ$BJoW7WU" role="2XxRq1">
                 <ref role="3cqZAo" node="WbWijtMWk1" resolve="editorMenuTraceInfo" />
               </node>
             </node>
@@ -17321,6 +17320,174 @@
       <node concept="10M0yZ" id="4ikAeUYqDNO" role="1GtWoa">
         <ref role="3cqZAo" to="l7us:~MPSIcons$ToolWindows.CellExplorer" resolve="CellExplorer" />
         <ref role="1PxDUh" to="l7us:~MPSIcons$ToolWindows" resolve="MPSIcons.ToolWindows" />
+      </node>
+    </node>
+  </node>
+  <node concept="2wDNrl" id="6gZ$BJoUSW8">
+    <property role="3GE5qa" value="InternalActions" />
+    <property role="TrG5h" value="EditorMenuTrace" />
+    <property role="2XNbzY" value="Menu Trace" />
+    <node concept="2BZ0e9" id="6gZ$BJoV4tv" role="2XNbBz">
+      <property role="TrG5h" value="myProject" />
+      <node concept="3Tm6S6" id="6gZ$BJoV4tw" role="1B3o_S" />
+      <node concept="3uibUv" id="6gZ$BJoV5dU" role="1tU5fm">
+        <ref role="3uigEE" to="4nm9:~Project" resolve="Project" />
+      </node>
+    </node>
+    <node concept="2XrIbr" id="6gZ$BJoV3qn" role="2XNbBy">
+      <property role="TrG5h" value="showEditorMenuTraceInfo" />
+      <node concept="37vLTG" id="6gZ$BJoV3OP" role="3clF46">
+        <property role="TrG5h" value="info" />
+        <node concept="3uibUv" id="6gZ$BJoV3Vz" role="1tU5fm">
+          <ref role="3uigEE" to="x4mf:~EditorMenuTraceInfo" resolve="EditorMenuTraceInfo" />
+        </node>
+        <node concept="2AHcQZ" id="6gZ$BJoV41y" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+        </node>
+      </node>
+      <node concept="3cqZAl" id="6gZ$BJoV3L4" role="3clF45" />
+      <node concept="3clFbS" id="6gZ$BJoV3qp" role="3clF47">
+        <node concept="3clFbJ" id="6gZ$BJoV45$" role="3cqZAp">
+          <node concept="3y3z36" id="6gZ$BJoV45_" role="3clFbw">
+            <node concept="37vLTw" id="6gZ$BJoV45A" role="3uHU7B">
+              <ref role="3cqZAo" node="6gZ$BJoV3OP" resolve="info" />
+            </node>
+            <node concept="10Nm6u" id="6gZ$BJoV45B" role="3uHU7w" />
+          </node>
+          <node concept="9aQIb" id="6gZ$BJoV45T" role="9aQIa">
+            <node concept="3clFbS" id="6gZ$BJoV45U" role="9aQI4">
+              <node concept="3cpWs8" id="6gZ$BJoV45W" role="3cqZAp">
+                <node concept="3cpWsn" id="6gZ$BJoV45V" role="3cpWs9">
+                  <property role="3TUv4t" value="true" />
+                  <property role="TrG5h" value="manager" />
+                  <node concept="3uibUv" id="6gZ$BJoV45X" role="1tU5fm">
+                    <ref role="3uigEE" to="jkny:~ToolWindowManager" resolve="ToolWindowManager" />
+                  </node>
+                  <node concept="2YIFZM" id="6gZ$BJoV48J" role="33vP2m">
+                    <ref role="1Pybhc" to="jkny:~ToolWindowManager" resolve="ToolWindowManager" />
+                    <ref role="37wK5l" to="jkny:~ToolWindowManager.getInstance(com.intellij.openapi.project.Project)" resolve="getInstance" />
+                    <node concept="2OqwBi" id="6gZ$BJoV7XQ" role="37wK5m">
+                      <node concept="2WthIp" id="6gZ$BJoV7XT" role="2Oq$k0" />
+                      <node concept="2BZ7hE" id="6gZ$BJoV7XV" role="2OqNvi">
+                        <ref role="2WH_rO" node="6gZ$BJoV4tv" resolve="myProject" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="3clFbF" id="6gZ$BJoV460" role="3cqZAp">
+                <node concept="2OqwBi" id="6gZ$BJoV4bt" role="3clFbG">
+                  <node concept="37vLTw" id="6gZ$BJoV48R" role="2Oq$k0">
+                    <ref role="3cqZAo" node="6gZ$BJoV45V" resolve="manager" />
+                  </node>
+                  <node concept="liA8E" id="6gZ$BJoV4bu" role="2OqNvi">
+                    <ref role="37wK5l" to="jkny:~ToolWindowManager.notifyByBalloon(java.lang.String,com.intellij.openapi.ui.MessageType,java.lang.String)" resolve="notifyByBalloon" />
+                    <node concept="Xl_RD" id="6gZ$BJoV7jM" role="37wK5m">
+                      <property role="Xl_RC" value="Menu Trace" />
+                    </node>
+                    <node concept="10M0yZ" id="6gZ$BJoV4bw" role="37wK5m">
+                      <ref role="1PxDUh" to="jkm4:~MessageType" resolve="MessageType" />
+                      <ref role="3cqZAo" to="jkm4:~MessageType.INFO" resolve="INFO" />
+                    </node>
+                    <node concept="Xl_RD" id="6gZ$BJoV4bx" role="37wK5m">
+                      <property role="Xl_RC" value="No trace for that item" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbS" id="6gZ$BJoV45D" role="3clFbx">
+            <node concept="3cpWs8" id="6gZ$BJoV45F" role="3cqZAp">
+              <node concept="3cpWsn" id="6gZ$BJoV45E" role="3cpWs9">
+                <property role="TrG5h" value="tab" />
+                <node concept="3uibUv" id="6gZ$BJoV45G" role="1tU5fm">
+                  <ref role="3uigEE" to="bmdi:~EditorMenuTraceTab" resolve="EditorMenuTraceTab" />
+                </node>
+                <node concept="2ShNRf" id="6gZ$BJoV47w" role="33vP2m">
+                  <node concept="1pGfFk" id="6gZ$BJoV48$" role="2ShVmc">
+                    <ref role="37wK5l" to="bmdi:~EditorMenuTraceTab.&lt;init&gt;(jetbrains.mps.ide.tools.BaseTabbedProjectServiceTool,jetbrains.mps.project.Project)" resolve="EditorMenuTraceTab" />
+                    <node concept="10QFUN" id="6gZ$BJoV88A" role="37wK5m">
+                      <node concept="3uibUv" id="6gZ$BJoVb0D" role="10QFUM">
+                        <ref role="3uigEE" to="71xd:~BaseTabbedProjectServiceTool" resolve="BaseTabbedProjectServiceTool" />
+                      </node>
+                      <node concept="1eOMI4" id="6gZ$BJoVbkX" role="10QFUP">
+                        <node concept="10QFUN" id="6gZ$BJoVbkU" role="1eOMHV">
+                          <node concept="3uibUv" id="6gZ$BJoVc6S" role="10QFUM">
+                            <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
+                          </node>
+                          <node concept="2WthIp" id="6gZ$BJoVcgo" role="10QFUP" />
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="2OqwBi" id="6gZ$BJoV6Jq" role="37wK5m">
+                      <node concept="2OqwBi" id="6gZ$BJoV6H9" role="2Oq$k0">
+                        <node concept="2WthIp" id="6gZ$BJoV6Hc" role="2Oq$k0" />
+                        <node concept="2BZ7hE" id="6gZ$BJoV6He" role="2OqNvi">
+                          <ref role="2WH_rO" node="6gZ$BJoV4tv" resolve="myProject" />
+                        </node>
+                      </node>
+                      <node concept="liA8E" id="6gZ$BJoV6Jr" role="2OqNvi">
+                        <ref role="37wK5l" to="1m72:~ComponentManager.getComponent(java.lang.Class)" resolve="getComponent" />
+                        <node concept="3VsKOn" id="6gZ$BJoV6Js" role="37wK5m">
+                          <ref role="3VsUkX" to="z1c4:~MPSProject" resolve="MPSProject" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="6gZ$BJoV45N" role="3cqZAp">
+              <node concept="2OqwBi" id="6gZ$BJoV4e1" role="3clFbG">
+                <node concept="37vLTw" id="6gZ$BJoV48D" role="2Oq$k0">
+                  <ref role="3cqZAo" node="6gZ$BJoV45E" resolve="tab" />
+                </node>
+                <node concept="liA8E" id="6gZ$BJoV4e2" role="2OqNvi">
+                  <ref role="37wK5l" to="bmdi:~EditorMenuTraceTab.showEditorMenuTraceInfo(jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo)" resolve="showEditorMenuTraceInfo" />
+                  <node concept="37vLTw" id="6gZ$BJoV4e3" role="37wK5m">
+                    <ref role="3cqZAo" node="6gZ$BJoV3OP" resolve="info" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="6gZ$BJoV45Q" role="3cqZAp">
+              <node concept="2OqwBi" id="6gZ$BJoV4c_" role="3clFbG">
+                <node concept="37vLTw" id="6gZ$BJoV48G" role="2Oq$k0">
+                  <ref role="3cqZAo" node="6gZ$BJoV45E" resolve="tab" />
+                </node>
+                <node concept="liA8E" id="6gZ$BJoV4cA" role="2OqNvi">
+                  <ref role="37wK5l" to="bmdi:~EditorMenuTraceTab.openTab(boolean)" resolve="openTab" />
+                  <node concept="3clFbT" id="6gZ$BJoV4cB" role="37wK5m">
+                    <property role="3clFbU" value="true" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="6gZ$BJoV4hK" role="1B3o_S" />
+    </node>
+    <node concept="1GtWCo" id="6gZ$BJoUTaa" role="1nVCmq">
+      <node concept="10M0yZ" id="6gZ$BJoV3iH" role="1GtWoa">
+        <ref role="3cqZAo" to="l7us:~MPSIcons$ToolWindows.Default" resolve="Default" />
+        <ref role="1PxDUh" to="l7us:~MPSIcons$ToolWindows" resolve="MPSIcons.ToolWindows" />
+      </node>
+    </node>
+    <node concept="2xpIHi" id="6gZ$BJoV4oz" role="uR5cp">
+      <node concept="3clFbS" id="6gZ$BJoV4o$" role="2VODD2">
+        <node concept="3clFbF" id="6gZ$BJoV63S" role="3cqZAp">
+          <node concept="37vLTI" id="6gZ$BJoV6va" role="3clFbG">
+            <node concept="2xqhHp" id="6gZ$BJoV6vA" role="37vLTx" />
+            <node concept="2OqwBi" id="6gZ$BJoV63M" role="37vLTJ">
+              <node concept="2WthIp" id="6gZ$BJoV63P" role="2Oq$k0" />
+              <node concept="2BZ7hE" id="6gZ$BJoV63R" role="2OqNvi">
+                <ref role="2WH_rO" node="6gZ$BJoV4tv" resolve="myProject" />
+              </node>
+            </node>
+          </node>
+        </node>
       </node>
     </node>
   </node>
