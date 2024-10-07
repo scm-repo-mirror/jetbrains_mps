@@ -60,7 +60,6 @@
 
     <projectService serviceImplementation="jetbrains.mps.nodeEditor.InspectorTool" />
     <postStartupActivity implementation="jetbrains.mps.nodeEditor.InspectorTool$Plug" />
-    <toolWindow id="Doc" anchor="right" icon="AllIcons.Toolwindows.Documentation" factoryClass="jetbrains.mps.nodeEditor.documentation.DocumentationTool$Factory" doNotActivateOnStart="true" canCloseContents="true"/>
 
     <fileEditorProvider implementation="jetbrains.mps.ide.editor.MPSFileNodeEditorProvider"/>
 
