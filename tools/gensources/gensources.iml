@@ -752,7 +752,6 @@
       <excludeFolder url="file://$MODULE_DIR$/../../plugins/mps-ide/modules/lang.script/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../plugins/mps-ide/modules/lang.text/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../plugins/mps-ide/modules/lang.typesystem/classes_gen" />
-      <excludeFolder url="file://$MODULE_DIR$/../../plugins/mps-ide/modules/tools.hierarchy/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../plugins/mps-ide/modules/tools.todo/classes_gen" />
     </content>
     <content url="file://$MODULE_DIR$/../../plugins/mps-java/workbench">
