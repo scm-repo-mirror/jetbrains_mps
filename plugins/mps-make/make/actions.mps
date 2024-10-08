@@ -8756,7 +8756,7 @@
                 </node>
                 <node concept="2YIFZM" id="7XY3GP2vBLn" role="37wK5m">
                   <ref role="37wK5l" node="7XY3GP2vBC9" resolve="isPopupShown" />
-                  <ref role="1Pybhc" node="C3dcc38Te3" resolve="TransientModelBallonDisplayer" />
+                  <ref role="1Pybhc" node="C3dcc38Te3" resolve="TransientModelBalloonDisplayer" />
                 </node>
               </node>
             </node>
@@ -8943,7 +8943,7 @@
         <node concept="3clFbF" id="7XY3GP2vEWx" role="3cqZAp">
           <node concept="2YIFZM" id="7XY3GP2vEWz" role="3clFbG">
             <ref role="37wK5l" node="7XY3GP2vBLo" resolve="setShowPopup" />
-            <ref role="1Pybhc" node="C3dcc38Te3" resolve="TransientModelBallonDisplayer" />
+            <ref role="1Pybhc" node="C3dcc38Te3" resolve="TransientModelBalloonDisplayer" />
             <node concept="2OqwBi" id="7XY3GP2vEW_" role="37wK5m">
               <node concept="liA8E" id="7XY3GP2vFD2" role="2OqNvi">
                 <ref role="37wK5l" to="dxuu:~AbstractButton.isSelected()" resolve="isSelected" />
@@ -10425,8 +10425,8 @@
     </node>
   </node>
   <node concept="312cEu" id="C3dcc38Te3">
-    <property role="TrG5h" value="TransientModelBallonDisplayer" />
-    <property role="3GE5qa" value="SaveTransientModels.Ballon" />
+    <property role="TrG5h" value="TransientModelBalloonDisplayer" />
+    <property role="3GE5qa" value="SaveTransientModels.Balloon" />
     <property role="1EXbeo" value="true" />
     <node concept="Wx3nA" id="6za2oG6XsvV" role="jymVt">
       <property role="TrG5h" value="ID" />
@@ -10492,34 +10492,60 @@
         </node>
       </node>
     </node>
-    <node concept="2tJIrI" id="2ZAgslkc0OY" role="jymVt" />
-    <node concept="3clFb_" id="C3dcc38V0G" role="jymVt">
-      <property role="TrG5h" value="init" />
-      <node concept="3cqZAl" id="C3dcc38V0H" role="3clF45" />
-      <node concept="3clFbS" id="C3dcc38V0J" role="3clF47">
-        <node concept="3clFbH" id="1jglHG$GeCE" role="3cqZAp" />
-      </node>
-      <node concept="3Tm1VV" id="C3dcc38V0I" role="1B3o_S" />
-      <node concept="2AHcQZ" id="2cjwp5Ma6Vi" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
-        <node concept="2B6LJw" id="2cjwp5Ma8zi" role="2B76xF">
-          <ref role="2B6OnR" to="wyt6:~Deprecated.forRemoval()" resolve="forRemoval" />
-          <node concept="3clFbT" id="2cjwp5Ma99J" role="2B70Vg">
-            <property role="3clFbU" value="true" />
-          </node>
-        </node>
-        <node concept="2B6LJw" id="2cjwp5Ma99Y" role="2B76xF">
-          <ref role="2B6OnR" to="wyt6:~Deprecated.since()" resolve="since" />
-          <node concept="Xl_RD" id="2cjwp5Ma9no" role="2B70Vg">
-            <property role="Xl_RC" value="2021.1" />
-          </node>
-        </node>
-      </node>
-    </node>
     <node concept="2tJIrI" id="2ZAgslkc0wi" role="jymVt" />
     <node concept="3clFb_" id="C3dcc38V0L" role="jymVt">
       <property role="TrG5h" value="dispose" />
-      <node concept="3clFbS" id="C3dcc38V0O" role="3clF47" />
+      <node concept="3clFbS" id="C3dcc38V0O" role="3clF47">
+        <node concept="3SKdUt" id="180CX8WMzyO" role="3cqZAp">
+          <node concept="1PaTwC" id="180CX8WMzyP" role="1aUNEU">
+            <node concept="3oM_SD" id="180CX8WM$Im" role="1PaTwD">
+              <property role="3oM_SC" value="this" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WM$Jt" role="1PaTwD">
+              <property role="3oM_SC" value="class" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WM$Kl" role="1PaTwD">
+              <property role="3oM_SC" value="has" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WM$KA" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WM$LH" role="1PaTwD">
+              <property role="3oM_SC" value="be" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WM$Me" role="1PaTwD">
+              <property role="3oM_SC" value="Disposable" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WM$N_" role="1PaTwD">
+              <property role="3oM_SC" value="as" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WM$NA" role="1PaTwD">
+              <property role="3oM_SC" value="it" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WM$Ot" role="1PaTwD">
+              <property role="3oM_SC" value="serves" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WM$P$" role="1PaTwD">
+              <property role="3oM_SC" value="a" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WM$P_" role="1PaTwD">
+              <property role="3oM_SC" value="parent" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WM$PA" role="1PaTwD">
+              <property role="3oM_SC" value="for" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WM$Qt" role="1PaTwD">
+              <property role="3oM_SC" value="a" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WM$QI" role="1PaTwD">
+              <property role="3oM_SC" value="disposable" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WM$RP" role="1PaTwD">
+              <property role="3oM_SC" value="Balloon" />
+            </node>
+          </node>
+        </node>
+      </node>
       <node concept="3cqZAl" id="C3dcc38V0M" role="3clF45" />
       <node concept="3Tm1VV" id="C3dcc38V0N" role="1B3o_S" />
       <node concept="2AHcQZ" id="3tYsUK_RXcx" role="2AJF6D">
@@ -11541,7 +11567,7 @@
       <property role="3TUv4t" value="false" />
       <node concept="3Tm6S6" id="3l7XKooDoev" role="1B3o_S" />
       <node concept="3uibUv" id="3LTvNgPOPyR" role="1tU5fm">
-        <ref role="3uigEE" node="C3dcc38Te3" resolve="TransientModelBallonDisplayer" />
+        <ref role="3uigEE" node="C3dcc38Te3" resolve="TransientModelBalloonDisplayer" />
       </node>
     </node>
     <node concept="312cEg" id="3l7XKooC7wD" role="jymVt">
@@ -12002,7 +12028,7 @@
           <node concept="22lmx$" id="7yo6vBMysss" role="3clFbw">
             <node concept="3fqX7Q" id="7yo6vBMysst" role="3uHU7w">
               <node concept="2YIFZM" id="3l7XKooDfKE" role="3fr31v">
-                <ref role="1Pybhc" node="C3dcc38Te3" resolve="TransientModelBallonDisplayer" />
+                <ref role="1Pybhc" node="C3dcc38Te3" resolve="TransientModelBalloonDisplayer" />
                 <ref role="37wK5l" node="7XY3GP2vBC9" resolve="isPopupShown" />
               </node>
             </node>

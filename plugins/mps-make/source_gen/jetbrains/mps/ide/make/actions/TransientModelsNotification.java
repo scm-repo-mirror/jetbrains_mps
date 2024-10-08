@@ -18,7 +18,7 @@ public class TransientModelsNotification {
   private final MPSProject myProject;
   private StatusBar myStatusBar;
   private TransientModelsWidget myWidget;
-  private TransientModelBallonDisplayer myDisplayer;
+  private TransientModelBalloonDisplayer myDisplayer;
   private final IModifiableGenerationSettings.Listener mySettingsListener = new IModifiableGenerationSettings.Listener() {
     public void settingsChanged() {
       // notification not necessarily comes in EDT
@@ -38,7 +38,7 @@ public class TransientModelsNotification {
     myStatusBar.addWidget(myWidget);
     myWidget.update();
 
-    myDisplayer = new TransientModelBallonDisplayer(myStatusBar, myWidget);
+    myDisplayer = new TransientModelBalloonDisplayer(myStatusBar, myWidget);
     Disposer.register(myWidget, myDisplayer);
     myProject.getComponent(GenerationSettingsProvider.class).addSettingsListener(mySettingsListener);
     myMakeService = myProject.getComponent(MakeServiceComponent.class).get();
@@ -66,7 +66,7 @@ public class TransientModelsNotification {
 
   /*package*/ void showBalloonLater() {
     GenerationSettingsProvider sp = myProject.getComponent(GenerationSettingsProvider.class);
-    if (!(sp.getGenerationSettings().isSaveTransientModels()) || !(TransientModelBallonDisplayer.isPopupShown())) {
+    if (!(sp.getGenerationSettings().isSaveTransientModels()) || !(TransientModelBalloonDisplayer.isPopupShown())) {
       return;
     }
     ThreadUtils.runInUIThreadNoWait(() -> {

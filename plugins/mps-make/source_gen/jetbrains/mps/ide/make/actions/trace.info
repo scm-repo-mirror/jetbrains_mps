@@ -1365,8 +1365,8 @@
       <node id="6005576522675274414" at="37,136,38,36" concept="4" />
       <node id="6005576522675274291" at="38,36,39,22" concept="4" />
       <node id="6005576522675274267" at="39,22,40,0" concept="12" />
-      <node id="3839308812911987443" at="40,0,41,75" concept="4" />
-      <node id="4357653976675731875" at="41,75,42,45" concept="4" />
+      <node id="3839308812911987443" at="40,0,41,76" concept="4" />
+      <node id="4357653976675731875" at="41,76,42,45" concept="4" />
       <node id="3839308812911789571" at="42,45,43,101" concept="4" />
       <node id="4821759430767460774" at="43,101,44,77" concept="4" />
       <node id="3839308812912170241" at="44,77,45,58" concept="4" />
@@ -1380,7 +1380,7 @@
       <node id="3839308812912036998" at="55,23,56,20" concept="4" />
       <node id="3839308812911877495" at="61,65,62,26" concept="4" />
       <node id="3839308812912223301" at="67,39,68,93" concept="9" />
-      <node id="8689724042318038810" at="69,115,70,13" concept="10" />
+      <node id="8689724042318038810" at="69,116,70,13" concept="10" />
       <node id="3839308812912120775" at="73,71,74,34" concept="4" />
       <node id="2248862906532644433" at="80,0,81,0" concept="5" trace="mySessionJustOpened" />
       <node id="8689724042318038886" at="84,32,85,27" concept="4" />
@@ -1405,7 +1405,7 @@
       <node id="6005576522675148124" at="35,0,47,0" concept="8" trace="projectOpened#()V" />
       <scope id="6005576522675134792" at="31,64,32,24" />
       <scope id="3839308812912070926" at="61,65,62,26" />
-      <scope id="8689724042318038809" at="69,115,70,13" />
+      <scope id="8689724042318038809" at="69,116,70,13" />
       <scope id="3839308812912104942" at="73,71,74,34" />
       <scope id="1275835579956644925" at="90,62,91,33" />
       <scope id="1275835579956644931" at="94,62,95,34" />
@@ -1568,65 +1568,62 @@
     </file>
   </root>
   <root nodeRef="r:cfccec82-df72-4483-9807-88776b4673ab(jetbrains.mps.ide.make.actions)/721478377485341571">
-    <file name="TransientModelBallonDisplayer.java">
+    <file name="TransientModelBalloonDisplayer.java">
       <node id="7550858217961932795" at="26,0,27,0" concept="13" trace="ID" />
       <node id="2022241925975928749" at="27,0,28,0" concept="5" trace="myStatusBar" />
       <node id="6005576522675274232" at="28,0,29,0" concept="5" trace="myWidget" />
-      <node id="2022241925975929612" at="30,91,31,28" concept="4" />
+      <node id="2022241925975929612" at="30,92,31,28" concept="4" />
       <node id="6005576522675274256" at="31,28,32,22" concept="4" />
-      <node id="1499794175127775786" at="36,22,37,0" concept="12" />
-      <node id="3839308812912144914" at="44,34,45,18" concept="11" />
-      <node id="621016502014035560" at="45,18,46,127" concept="9" />
-      <node id="4517385494359470564" at="46,127,47,235" concept="9" />
-      <node id="4517385494359470595" at="48,20,49,35" concept="4" />
-      <node id="7035395638377099138" at="50,5,51,52" concept="9" />
-      <node id="4517385494359433625" at="51,52,52,0" concept="12" />
-      <node id="721478377485341717" at="52,0,53,37" concept="4" />
-      <node id="7035395638377076128" at="53,37,54,0" concept="12" />
-      <node id="721478377485341620" at="54,0,55,50" concept="9" />
-      <node id="6204683942016234925" at="56,53,57,43" concept="4" />
-      <node id="2022241925975927783" at="58,12,59,45" concept="4" />
-      <node id="6204683942016234949" at="60,55,61,45" concept="4" />
-      <node id="2022241925975927719" at="62,14,63,73" concept="9" />
-      <node id="2022241925975927733" at="64,55,65,66" concept="9" />
-      <node id="2022241925975927739" at="65,66,66,59" concept="9" />
-      <node id="2022241925975927745" at="66,59,67,82" concept="9" />
-      <node id="2022241925975927754" at="67,82,68,39" concept="4" />
-      <node id="2022241925975927764" at="68,39,69,87" concept="4" />
-      <node id="6204683942016226528" at="75,70,76,43" concept="9" />
-      <node id="6204683942016226535" at="76,43,77,91" concept="9" />
-      <node id="6204683942016226549" at="77,91,78,77" concept="4" />
-      <node id="621016502014035531" at="82,76,83,19" concept="10" />
-      <node id="621016502014035541" at="84,5,85,106" concept="9" />
-      <node id="621016502014035547" at="85,106,86,115" concept="10" />
-      <node id="9186796564629073673" at="89,49,90,83" concept="9" />
-      <node id="9186796564629073680" at="90,83,91,102" concept="4" />
-      <node id="721478377485348913" at="40,0,43,0" concept="8" trace="dispose#()V" />
-      <node id="4517385494359470588" at="47,235,50,5" concept="7" />
-      <node id="621016502014035524" at="81,40,84,5" concept="7" />
-      <node id="721478377485341573" at="30,0,34,0" concept="2" trace="TransientModelBallonDisplayer#(Lcom/intellij/openapi/wm/StatusBar;Ljetbrains/mps/ide/make/actions/TransientModelsWidget;)V" />
-      <node id="721478377485348908" at="35,0,39,0" concept="8" trace="init#()V" />
-      <node id="9186796564629060696" at="89,0,93,0" concept="14" trace="setShowPopup#(Z)V" />
-      <node id="6204683942016226520" at="75,0,80,0" concept="8" trace="showForComponent#(Ljava/awt/Component;Lcom/intellij/openapi/ui/popup/Balloon;)V" />
-      <node id="2022241925975927724" at="63,73,70,9" concept="7" />
-      <node id="9186796564629060105" at="81,0,88,0" concept="14" trace="isPopupShown#()Z" />
-      <node id="6204683942016234954" at="62,12,71,7" concept="1" />
-      <node id="6204683942016234931" at="59,45,71,7" concept="7" />
-      <node id="2022241925975927717" at="58,10,72,5" concept="1" />
-      <node id="721478377485341624" at="55,50,72,5" concept="7" />
-      <node id="721478377485341577" at="44,0,74,0" concept="8" trace="showBalloon#()V" />
-      <scope id="721478377485348916" at="41,25,41,25" />
-      <scope id="721478377485348911" at="36,22,37,0" />
-      <scope id="4517385494359470589" at="48,20,49,35" />
-      <scope id="721478377485341684" at="56,53,57,43" />
-      <scope id="6204683942016234932" at="60,55,61,45" />
-      <scope id="621016502014035525" at="82,76,83,19" />
-      <scope id="721478377485341576" at="30,91,32,22" />
-      <scope id="9186796564629060698" at="89,49,91,102">
+      <node id="1297216816041048244" at="36,25,37,85" concept="11" />
+      <node id="3839308812912144914" at="40,34,41,18" concept="11" />
+      <node id="621016502014035560" at="41,18,42,127" concept="9" />
+      <node id="4517385494359470564" at="42,127,43,235" concept="9" />
+      <node id="4517385494359470595" at="44,20,45,35" concept="4" />
+      <node id="7035395638377099138" at="46,5,47,52" concept="9" />
+      <node id="4517385494359433625" at="47,52,48,0" concept="12" />
+      <node id="721478377485341717" at="48,0,49,37" concept="4" />
+      <node id="7035395638377076128" at="49,37,50,0" concept="12" />
+      <node id="721478377485341620" at="50,0,51,50" concept="9" />
+      <node id="6204683942016234925" at="52,53,53,43" concept="4" />
+      <node id="2022241925975927783" at="54,12,55,45" concept="4" />
+      <node id="6204683942016234949" at="56,55,57,45" concept="4" />
+      <node id="2022241925975927719" at="58,14,59,73" concept="9" />
+      <node id="2022241925975927733" at="60,55,61,66" concept="9" />
+      <node id="2022241925975927739" at="61,66,62,59" concept="9" />
+      <node id="2022241925975927745" at="62,59,63,82" concept="9" />
+      <node id="2022241925975927754" at="63,82,64,39" concept="4" />
+      <node id="2022241925975927764" at="64,39,65,87" concept="4" />
+      <node id="6204683942016226528" at="71,70,72,43" concept="9" />
+      <node id="6204683942016226535" at="72,43,73,91" concept="9" />
+      <node id="6204683942016226549" at="73,91,74,77" concept="4" />
+      <node id="621016502014035531" at="78,76,79,19" concept="10" />
+      <node id="621016502014035541" at="80,5,81,106" concept="9" />
+      <node id="621016502014035547" at="81,106,82,115" concept="10" />
+      <node id="9186796564629073673" at="85,49,86,83" concept="9" />
+      <node id="9186796564629073680" at="86,83,87,102" concept="4" />
+      <node id="4517385494359470588" at="43,235,46,5" concept="7" />
+      <node id="621016502014035524" at="77,40,80,5" concept="7" />
+      <node id="721478377485341573" at="30,0,34,0" concept="2" trace="TransientModelBalloonDisplayer#(Lcom/intellij/openapi/wm/StatusBar;Ljetbrains/mps/ide/make/actions/TransientModelsWidget;)V" />
+      <node id="721478377485348913" at="35,0,39,0" concept="8" trace="dispose#()V" />
+      <node id="9186796564629060696" at="85,0,89,0" concept="14" trace="setShowPopup#(Z)V" />
+      <node id="6204683942016226520" at="71,0,76,0" concept="8" trace="showForComponent#(Ljava/awt/Component;Lcom/intellij/openapi/ui/popup/Balloon;)V" />
+      <node id="2022241925975927724" at="59,73,66,9" concept="7" />
+      <node id="9186796564629060105" at="77,0,84,0" concept="14" trace="isPopupShown#()Z" />
+      <node id="6204683942016234954" at="58,12,67,7" concept="1" />
+      <node id="6204683942016234931" at="55,45,67,7" concept="7" />
+      <node id="2022241925975927717" at="54,10,68,5" concept="1" />
+      <node id="721478377485341624" at="51,50,68,5" concept="7" />
+      <node id="721478377485341577" at="40,0,70,0" concept="8" trace="showBalloon#()V" />
+      <scope id="721478377485348916" at="36,25,37,85" />
+      <scope id="4517385494359470589" at="44,20,45,35" />
+      <scope id="721478377485341684" at="52,53,53,43" />
+      <scope id="6204683942016234932" at="56,55,57,45" />
+      <scope id="621016502014035525" at="78,76,79,19" />
+      <scope id="721478377485341576" at="30,92,32,22" />
+      <scope id="9186796564629060698" at="85,49,87,102">
         <var name="settings" id="9186796564629073674" />
       </scope>
-      <scope id="721478377485348913" at="40,0,43,0" />
-      <scope id="6204683942016226524" at="75,70,78,77">
+      <scope id="6204683942016226524" at="71,70,74,77">
         <var name="offset" id="6204683942016226517" />
         <var name="point" id="6204683942016226518" />
       </scope>
@@ -1634,35 +1631,35 @@
         <var name="statusBar" id="2022241925975928747" />
         <var name="widget" id="6005576522675274252" />
       </scope>
-      <scope id="721478377485348908" at="35,0,39,0" />
-      <scope id="9186796564629060696" at="89,0,93,0">
+      <scope id="721478377485348913" at="35,0,39,0" />
+      <scope id="9186796564629060696" at="85,0,89,0">
         <var name="show" id="9186796564629060723" />
       </scope>
-      <scope id="2022241925975927732" at="64,55,69,87">
+      <scope id="2022241925975927732" at="60,55,65,87">
         <var name="bounds" id="2022241925975927740" />
         <var name="contentPane" id="2022241925975927734" />
         <var name="target" id="2022241925975927746" />
       </scope>
-      <scope id="6204683942016226520" at="75,0,80,0">
+      <scope id="6204683942016226520" at="71,0,76,0">
         <var name="ballon" id="6204683942016226563" />
         <var name="component" id="6204683942016226519" />
       </scope>
-      <scope id="621016502014021342" at="81,40,86,115">
+      <scope id="621016502014021342" at="77,40,82,115">
         <var name="displayType" id="621016502014035542" />
       </scope>
-      <scope id="9186796564629060105" at="81,0,88,0" />
-      <scope id="6204683942016234955" at="62,14,70,9">
+      <scope id="9186796564629060105" at="77,0,84,0" />
+      <scope id="6204683942016234955" at="58,14,66,9">
         <var name="rootPane" id="2022241925975927720" />
       </scope>
-      <scope id="2022241925975927718" at="58,12,71,7" />
-      <scope id="721478377485341580" at="44,34,72,5">
+      <scope id="2022241925975927718" at="54,12,67,7" />
+      <scope id="721478377485341580" at="40,34,68,5">
         <var name="balloon" id="721478377485341582" />
         <var name="builder" id="4517385494359470565" />
         <var name="component" id="721478377485341621" />
         <var name="sticky" id="621016502014035561" />
       </scope>
-      <scope id="721478377485341577" at="44,0,74,0" />
-      <unit id="721478377485341571" at="25,0,94,0" name="jetbrains.mps.ide.make.actions.TransientModelBallonDisplayer" />
+      <scope id="721478377485341577" at="40,0,70,0" />
+      <unit id="721478377485341571" at="25,0,90,0" name="jetbrains.mps.ide.make.actions.TransientModelBalloonDisplayer" />
     </file>
   </root>
   <root nodeRef="r:cfccec82-df72-4483-9807-88776b4673ab(jetbrains.mps.ide.make.actions)/7612589829595508611">
@@ -1815,21 +1812,21 @@
     <file name="WidgetSettingsPanel.java">
       <node id="821918482060600845" at="17,0,18,0" concept="5" trace="myShowPopupBox" />
       <node id="3353462584644965628" at="18,32,19,31" concept="15" />
-      <node id="821918482060600849" at="19,31,20,114" concept="4" />
-      <node id="3354109888307491340" at="20,114,21,58" concept="4" />
+      <node id="821918482060600849" at="19,31,20,115" concept="4" />
+      <node id="3354109888307491340" at="20,115,21,58" concept="4" />
       <node id="1884868727859640974" at="21,58,22,94" concept="4" />
       <node id="3354109888307413102" at="22,94,23,0" concept="12" />
       <node id="821918482060587715" at="23,0,24,62" concept="4" />
       <node id="821918482060600841" at="29,32,30,18" concept="4" />
       <node id="821918482060600843" at="30,18,31,28" concept="10" />
       <node id="821918482060600873" at="33,21,34,22" concept="4" />
-      <node id="9186796564629073697" at="36,26,37,76" concept="4" />
+      <node id="9186796564629073697" at="36,26,37,77" concept="4" />
       <node id="821918482060600854" at="36,0,39,0" concept="8" trace="onClose#()V" />
       <node id="821918482060600821" at="28,0,33,0" concept="8" trace="compute#()Ljava/lang/Boolean;" />
       <node id="821918482060594607" at="26,50,33,21" concept="9" />
       <node id="821918482060440371" at="18,0,26,0" concept="2" trace="WidgetSettingsPanel#()V" />
       <node id="821918482060594601" at="26,0,36,0" concept="8" trace="showComponent#(Lcom/intellij/ui/awt/RelativePoint;)V" />
-      <scope id="821918482060600857" at="36,26,37,76" />
+      <scope id="821918482060600857" at="36,26,37,77" />
       <scope id="821918482060600824" at="29,32,31,28" />
       <scope id="821918482060600854" at="36,0,39,0" />
       <scope id="821918482060600821" at="28,0,33,0" />
