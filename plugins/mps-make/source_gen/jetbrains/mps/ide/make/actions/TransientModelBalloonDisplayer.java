@@ -22,26 +22,27 @@ import java.awt.Dimension;
 import com.intellij.ui.awt.RelativePoint;
 import com.intellij.notification.impl.NotificationSettings;
 
-public final class TransientModelBallonDisplayer implements Disposable {
+public final class TransientModelBalloonDisplayer implements Disposable {
   private static final String ID = "Saving Transient Models Is On";
   private final StatusBar myStatusBar;
   private final TransientModelsWidget myWidget;
+  private boolean myIsDisposed = false;
 
-  public TransientModelBallonDisplayer(StatusBar statusBar, TransientModelsWidget widget) {
+  public TransientModelBalloonDisplayer(StatusBar statusBar, TransientModelsWidget widget) {
     myStatusBar = statusBar;
     myWidget = widget;
   }
 
-  @Deprecated(forRemoval = true, since = "2021.1")
-  public void init() {
-
-  }
-
   @Override
   public void dispose() {
+    // this class has to be Disposable as it serves a parent for a disposable Balloon
+    myIsDisposed = true;
   }
 
   /*package*/ void showBalloon() {
+    if (myIsDisposed) {
+      return;
+    }
     // Assumes EDT
     boolean sticky = NotificationsConfigurationImpl.getSettings(ID).getDisplayType() == NotificationDisplayType.STICKY_BALLOON;
     BalloonBuilder builder = JBPopupFactory.getInstance().createHtmlTextBalloonBuilder("Saving transient models is on", MessageType.INFO, null).setHideOnAction(!(sticky)).setHideOnClickOutside(!(sticky)).setHideOnKeyOutside(!(sticky));

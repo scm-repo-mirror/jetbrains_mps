@@ -8975,11 +8975,7 @@
     </node>
     <node concept="312cEg" id="hP8D6fqe6q" role="jymVt">
       <property role="TrG5h" value="myStatusBar" />
-      <property role="3TUv4t" value="true" />
       <node concept="3Tm6S6" id="hP8D6fqe6r" role="1B3o_S" />
-      <node concept="2AHcQZ" id="hP8D6fqe6t" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-      </node>
       <node concept="3uibUv" id="hP8D6fqe6s" role="1tU5fm">
         <ref role="3uigEE" to="jkny:~StatusBar" resolve="StatusBar" />
       </node>
@@ -9035,14 +9031,14 @@
         <ref role="3uigEE" to="z60i:~KeyboardFocusManager" resolve="KeyboardFocusManager" />
       </node>
     </node>
+    <node concept="312cEg" id="180CX8WNWJt" role="jymVt">
+      <property role="TrG5h" value="myIsDisposed" />
+      <node concept="3Tm6S6" id="180CX8WNR9t" role="1B3o_S" />
+      <node concept="10P_77" id="180CX8WNWq8" role="1tU5fm" />
+      <node concept="3clFbT" id="180CX8WQe7i" role="33vP2m" />
+    </node>
     <node concept="2tJIrI" id="3LTvNgPOwH9" role="jymVt" />
     <node concept="3clFbW" id="hP8D6fqe6y" role="jymVt">
-      <node concept="37vLTG" id="hP8D6fqe6K" role="3clF46">
-        <property role="TrG5h" value="bar" />
-        <node concept="3uibUv" id="hP8D6fqe6L" role="1tU5fm">
-          <ref role="3uigEE" to="jkny:~StatusBar" resolve="StatusBar" />
-        </node>
-      </node>
       <node concept="37vLTG" id="3l7XKooFmoR" role="3clF46">
         <property role="TrG5h" value="settings" />
         <node concept="3uibUv" id="3l7XKooFn9R" role="1tU5fm">
@@ -9052,16 +9048,6 @@
       <node concept="3cqZAl" id="hP8D6fqe6z" role="3clF45" />
       <node concept="3Tm1VV" id="hP8D6fqe6$" role="1B3o_S" />
       <node concept="3clFbS" id="hP8D6fqe6_" role="3clF47">
-        <node concept="3clFbF" id="hP8D6fqe6G" role="3cqZAp">
-          <node concept="37vLTI" id="hP8D6fqe6H" role="3clFbG">
-            <node concept="37vLTw" id="2BHiRxghfDD" role="37vLTx">
-              <ref role="3cqZAo" node="hP8D6fqe6K" resolve="bar" />
-            </node>
-            <node concept="37vLTw" id="2BHiRxeuyV_" role="37vLTJ">
-              <ref role="3cqZAo" node="hP8D6fqe6q" resolve="myStatusBar" />
-            </node>
-          </node>
-        </node>
         <node concept="3clFbF" id="3LTvNgPOI2P" role="3cqZAp">
           <node concept="37vLTI" id="3LTvNgPOIgM" role="3clFbG">
             <node concept="37vLTw" id="3l7XKooFo0A" role="37vLTx">
@@ -9072,7 +9058,6 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbH" id="1Q7UogT4gly" role="3cqZAp" />
       </node>
     </node>
     <node concept="2tJIrI" id="4_rZUNaTxM4" role="jymVt" />
@@ -9092,6 +9077,16 @@
       <node concept="3cqZAl" id="hP8D6fqe6Q" role="3clF45" />
       <node concept="3Tm1VV" id="hP8D6fqe6P" role="1B3o_S" />
       <node concept="3clFbS" id="hP8D6fqe6U" role="3clF47">
+        <node concept="3clFbF" id="180CX8WR22h" role="3cqZAp">
+          <node concept="37vLTI" id="180CX8WR3CN" role="3clFbG">
+            <node concept="37vLTw" id="180CX8WR5Ze" role="37vLTx">
+              <ref role="3cqZAo" node="hP8D6fqe6R" resolve="bar" />
+            </node>
+            <node concept="37vLTw" id="180CX8WR22f" role="37vLTJ">
+              <ref role="3cqZAo" node="hP8D6fqe6q" resolve="myStatusBar" />
+            </node>
+          </node>
+        </node>
         <node concept="3SKdUt" id="1Q7UogT4zEa" role="3cqZAp">
           <node concept="1PaTwC" id="ATZLwXoj9O" role="1aUNEU">
             <node concept="3oM_SD" id="ATZLwXoj9P" role="1PaTwD">
@@ -9508,6 +9503,14 @@
       <property role="TrG5h" value="update" />
       <node concept="3Tm1VV" id="2hEKckkLipr" role="1B3o_S" />
       <node concept="3clFbS" id="2hEKckkLhQd" role="3clF47">
+        <node concept="3clFbJ" id="180CX8WO1SZ" role="3cqZAp">
+          <node concept="3clFbS" id="180CX8WO1T1" role="3clFbx">
+            <node concept="3cpWs6" id="180CX8WObvN" role="3cqZAp" />
+          </node>
+          <node concept="37vLTw" id="180CX8WO5rq" role="3clFbw">
+            <ref role="3cqZAo" node="180CX8WNWJt" resolve="myIsDisposed" />
+          </node>
+        </node>
         <node concept="3clFbJ" id="3LTvNgPP_xC" role="3cqZAp">
           <node concept="3clFbS" id="3LTvNgPP_xE" role="3clFbx">
             <node concept="3clFbF" id="2hEKckkLhQe" role="3cqZAp">
@@ -9528,16 +9531,26 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="2hEKckkLhQi" role="3cqZAp">
-          <node concept="2OqwBi" id="2hEKckkLhQj" role="3clFbG">
-            <node concept="37vLTw" id="2BHiRxeud$I" role="2Oq$k0">
-              <ref role="3cqZAo" node="hP8D6fqe6q" resolve="myStatusBar" />
-            </node>
-            <node concept="liA8E" id="2hEKckkLhQl" role="2OqNvi">
-              <ref role="37wK5l" to="jkny:~StatusBar.updateWidget(java.lang.String)" resolve="updateWidget" />
-              <node concept="1rXfSq" id="4hiugqyzez$" role="37wK5m">
-                <ref role="37wK5l" node="hP8D6fqe8g" resolve="ID" />
+        <node concept="3clFbJ" id="180CX8WRbf0" role="3cqZAp">
+          <node concept="3clFbS" id="180CX8WRbf2" role="3clFbx">
+            <node concept="3clFbF" id="2hEKckkLhQi" role="3cqZAp">
+              <node concept="2OqwBi" id="2hEKckkLhQj" role="3clFbG">
+                <node concept="37vLTw" id="180CX8WPAtJ" role="2Oq$k0">
+                  <ref role="3cqZAo" node="hP8D6fqe6q" resolve="myStatusBar" />
+                </node>
+                <node concept="liA8E" id="2hEKckkLhQl" role="2OqNvi">
+                  <ref role="37wK5l" to="jkny:~StatusBar.updateWidget(java.lang.String)" resolve="updateWidget" />
+                  <node concept="1rXfSq" id="4hiugqyzez$" role="37wK5m">
+                    <ref role="37wK5l" node="hP8D6fqe8g" resolve="ID" />
+                  </node>
+                </node>
               </node>
+            </node>
+          </node>
+          <node concept="3y3z36" id="180CX8WRhhH" role="3clFbw">
+            <node concept="10Nm6u" id="180CX8WRk8b" role="3uHU7w" />
+            <node concept="37vLTw" id="180CX8WRfKa" role="3uHU7B">
+              <ref role="3cqZAo" node="hP8D6fqe6q" resolve="myStatusBar" />
             </node>
           </node>
         </node>
@@ -9580,6 +9593,24 @@
       <property role="TrG5h" value="dispose" />
       <property role="DiZV1" value="false" />
       <node concept="3clFbS" id="hP8D6fqe7X" role="3clF47">
+        <node concept="3clFbF" id="180CX8WOfvF" role="3cqZAp">
+          <node concept="37vLTI" id="180CX8WOi0K" role="3clFbG">
+            <node concept="3clFbT" id="180CX8WOjHo" role="37vLTx">
+              <property role="3clFbU" value="true" />
+            </node>
+            <node concept="37vLTw" id="180CX8WOfvD" role="37vLTJ">
+              <ref role="3cqZAo" node="180CX8WNWJt" resolve="myIsDisposed" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="180CX8WRCjT" role="3cqZAp">
+          <node concept="37vLTI" id="180CX8WRF_e" role="3clFbG">
+            <node concept="10Nm6u" id="180CX8WRJ_J" role="37vLTx" />
+            <node concept="37vLTw" id="180CX8WRCjR" role="37vLTJ">
+              <ref role="3cqZAo" node="hP8D6fqe6q" resolve="myStatusBar" />
+            </node>
+          </node>
+        </node>
         <node concept="3SKdUt" id="6Z63QvVfT1y" role="3cqZAp">
           <node concept="1PaTwC" id="ATZLwXoja6" role="1aUNEU">
             <node concept="3oM_SD" id="ATZLwXoja7" role="1PaTwD">
@@ -10453,6 +10484,12 @@
         <ref role="3uigEE" node="hP8D6fqe6p" resolve="TransientModelsWidget" />
       </node>
     </node>
+    <node concept="312cEg" id="180CX8WQ1de" role="jymVt">
+      <property role="TrG5h" value="myIsDisposed" />
+      <node concept="3Tm6S6" id="180CX8WPZxf" role="1B3o_S" />
+      <node concept="10P_77" id="180CX8WQ18G" role="1tU5fm" />
+      <node concept="3clFbT" id="180CX8WQ803" role="33vP2m" />
+    </node>
     <node concept="2tJIrI" id="2ZAgslkc1a0" role="jymVt" />
     <node concept="3clFbW" id="C3dcc38Te5" role="jymVt">
       <node concept="37vLTG" id="1Kgs_4ZGAYF" role="3clF46">
@@ -10545,6 +10582,16 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbF" id="180CX8WQ3a5" role="3cqZAp">
+          <node concept="37vLTI" id="180CX8WQ4lq" role="3clFbG">
+            <node concept="3clFbT" id="180CX8WQ5F5" role="37vLTx">
+              <property role="3clFbU" value="true" />
+            </node>
+            <node concept="37vLTw" id="180CX8WQ3a3" role="37vLTJ">
+              <ref role="3cqZAo" node="180CX8WQ1de" resolve="myIsDisposed" />
+            </node>
+          </node>
+        </node>
       </node>
       <node concept="3cqZAl" id="C3dcc38V0M" role="3clF45" />
       <node concept="3Tm1VV" id="C3dcc38V0N" role="1B3o_S" />
@@ -10557,6 +10604,14 @@
       <property role="TrG5h" value="showBalloon" />
       <node concept="3cqZAl" id="C3dcc38Tea" role="3clF45" />
       <node concept="3clFbS" id="C3dcc38Tec" role="3clF47">
+        <node concept="3clFbJ" id="180CX8WQLAN" role="3cqZAp">
+          <node concept="3clFbS" id="180CX8WQLAP" role="3clFbx">
+            <node concept="3cpWs6" id="180CX8WQQzZ" role="3cqZAp" />
+          </node>
+          <node concept="37vLTw" id="180CX8WQOgi" role="3clFbw">
+            <ref role="3cqZAo" node="180CX8WQ1de" resolve="myIsDisposed" />
+          </node>
+        </node>
         <node concept="3SKdUt" id="3l7XKooDV8i" role="3cqZAp">
           <node concept="1PaTwC" id="ATZLwXojbc" role="1aUNEU">
             <node concept="3oM_SD" id="ATZLwXojbd" role="1PaTwD">
@@ -11548,12 +11603,12 @@
       </node>
       <node concept="3Tm6S6" id="5do60t9uS2F" role="1B3o_S" />
     </node>
-    <node concept="312cEg" id="5do60t9v3W2" role="jymVt">
-      <property role="TrG5h" value="myStatusBar" />
-      <node concept="3uibUv" id="5do60t9v3W4" role="1tU5fm">
-        <ref role="3uigEE" to="jkny:~StatusBar" resolve="StatusBar" />
+    <node concept="312cEg" id="180CX8WOsyn" role="jymVt">
+      <property role="TrG5h" value="myRootDispose" />
+      <node concept="3Tm6S6" id="180CX8WOqd7" role="1B3o_S" />
+      <node concept="3uibUv" id="180CX8WOsuy" role="1tU5fm">
+        <ref role="3uigEE" to="v23q:~Disposable" resolve="Disposable" />
       </node>
-      <node concept="3Tm6S6" id="5do60t9v3W3" role="1B3o_S" />
     </node>
     <node concept="312cEg" id="5do60t9v3W5" role="jymVt">
       <property role="TrG5h" value="myWidget" />
@@ -11678,12 +11733,27 @@
       <property role="DiZV1" value="false" />
       <node concept="3cqZAl" id="5do60t9u_lu" role="3clF45" />
       <node concept="3clFbS" id="5do60t9u_lv" role="3clF47">
-        <node concept="3clFbF" id="5do60t9v48v" role="3cqZAp">
-          <node concept="37vLTI" id="5do60t9v48w" role="3clFbG">
-            <node concept="37vLTw" id="2BHiRxeuknI" role="37vLTJ">
-              <ref role="3cqZAo" node="5do60t9v3W2" resolve="myStatusBar" />
+        <node concept="3clFbF" id="180CX8WOvwL" role="3cqZAp">
+          <node concept="37vLTI" id="180CX8WOx1L" role="3clFbG">
+            <node concept="2YIFZM" id="180CX8WO_eM" role="37vLTx">
+              <ref role="37wK5l" to="zn9m:~Disposer.newDisposable(java.lang.String)" resolve="newDisposable" />
+              <ref role="1Pybhc" to="zn9m:~Disposer" resolve="Disposer" />
+              <node concept="Xl_RD" id="180CX8WOAvh" role="37wK5m">
+                <property role="Xl_RC" value="notify-transients" />
+              </node>
             </node>
-            <node concept="2OqwBi" id="5do60t9v4ak" role="37vLTx">
+            <node concept="37vLTw" id="180CX8WOvwJ" role="37vLTJ">
+              <ref role="3cqZAo" node="180CX8WOsyn" resolve="myRootDispose" />
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs8" id="180CX8WQy6q" role="3cqZAp">
+          <node concept="3cpWsn" id="180CX8WQy6r" role="3cpWs9">
+            <property role="TrG5h" value="statusBar" />
+            <node concept="3uibUv" id="180CX8WQy6s" role="1tU5fm">
+              <ref role="3uigEE" to="jkny:~StatusBar" resolve="StatusBar" />
+            </node>
+            <node concept="2OqwBi" id="5do60t9v4ak" role="33vP2m">
               <node concept="liA8E" id="5do60t9v4am" role="2OqNvi">
                 <ref role="37wK5l" to="jkny:~WindowManager.getStatusBar(com.intellij.openapi.project.Project)" resolve="getStatusBar" />
                 <node concept="2OqwBi" id="3l7XKooC2tp" role="37wK5m">
@@ -11702,25 +11772,34 @@
             </node>
           </node>
         </node>
+        <node concept="3cpWs8" id="180CX8WPaG2" role="3cqZAp">
+          <node concept="3cpWsn" id="180CX8WPaG3" role="3cpWs9">
+            <property role="TrG5h" value="genSettings" />
+            <property role="3TUv4t" value="true" />
+            <node concept="3uibUv" id="180CX8WPa7a" role="1tU5fm">
+              <ref role="3uigEE" to="ap4t:~GenerationSettingsProvider" resolve="GenerationSettingsProvider" />
+            </node>
+            <node concept="2OqwBi" id="180CX8WPaG4" role="33vP2m">
+              <node concept="37vLTw" id="180CX8WPaG5" role="2Oq$k0">
+                <ref role="3cqZAo" node="5do60t9uS2E" resolve="myProject" />
+              </node>
+              <node concept="liA8E" id="180CX8WPaG6" role="2OqNvi">
+                <ref role="37wK5l" to="z1c4:~MPSProject.getComponent(java.lang.Class)" resolve="getComponent" />
+                <node concept="3VsKOn" id="180CX8WPaG7" role="37wK5m">
+                  <ref role="3VsUkX" to="ap4t:~GenerationSettingsProvider" resolve="GenerationSettingsProvider" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3clFbF" id="5do60t9v48z" role="3cqZAp">
           <node concept="37vLTI" id="5do60t9v48$" role="3clFbG">
             <node concept="2ShNRf" id="5do60t9v48_" role="37vLTx">
               <node concept="1pGfFk" id="5do60t9v48A" role="2ShVmc">
                 <ref role="37wK5l" node="hP8D6fqe6y" resolve="TransientModelsWidget" />
-                <node concept="37vLTw" id="2BHiRxeuX8d" role="37wK5m">
-                  <ref role="3cqZAo" node="5do60t9v3W2" resolve="myStatusBar" />
-                </node>
                 <node concept="2OqwBi" id="3l7XKooF$Jl" role="37wK5m">
-                  <node concept="2OqwBi" id="3l7XKooF$jo" role="2Oq$k0">
-                    <node concept="37vLTw" id="3l7XKooF$jp" role="2Oq$k0">
-                      <ref role="3cqZAo" node="5do60t9uS2E" resolve="myProject" />
-                    </node>
-                    <node concept="liA8E" id="3l7XKooF$jq" role="2OqNvi">
-                      <ref role="37wK5l" to="z1c4:~MPSProject.getComponent(java.lang.Class)" resolve="getComponent" />
-                      <node concept="3VsKOn" id="3l7XKooF$jr" role="37wK5m">
-                        <ref role="3VsUkX" to="ap4t:~GenerationSettingsProvider" resolve="GenerationSettingsProvider" />
-                      </node>
-                    </node>
+                  <node concept="37vLTw" id="180CX8WPaG8" role="2Oq$k0">
+                    <ref role="3cqZAo" node="180CX8WPaG3" resolve="component" />
                   </node>
                   <node concept="liA8E" id="3l7XKooF_NM" role="2OqNvi">
                     <ref role="37wK5l" to="ap4t:~GenerationSettingsProvider.getGenerationSettings()" resolve="getGenerationSettings" />
@@ -11733,26 +11812,93 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="5do60t9v4aI" role="3cqZAp">
-          <node concept="2OqwBi" id="5do60t9v4aM" role="3clFbG">
-            <node concept="liA8E" id="5do60t9v4aS" role="2OqNvi">
-              <ref role="37wK5l" to="jkny:~StatusBar.addWidget(com.intellij.openapi.wm.StatusBarWidget)" resolve="addWidget" />
-              <node concept="37vLTw" id="2BHiRxeuHs1" role="37wK5m">
-                <ref role="3cqZAo" node="5do60t9v3W5" resolve="myWidget" />
-              </node>
+        <node concept="3SKdUt" id="180CX8WPNCJ" role="3cqZAp">
+          <node concept="1PaTwC" id="180CX8WPNCK" role="1aUNEU">
+            <node concept="3oM_SD" id="180CX8WPNCL" role="1PaTwD">
+              <property role="3oM_SC" value="explicit" />
             </node>
-            <node concept="37vLTw" id="2BHiRxeuFKC" role="2Oq$k0">
-              <ref role="3cqZAo" node="5do60t9v3W2" resolve="myStatusBar" />
+            <node concept="3oM_SD" id="180CX8WPOMj" role="1PaTwD">
+              <property role="3oM_SC" value="register()" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WPOP1" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WPOPS" role="1PaTwD">
+              <property role="3oM_SC" value="get" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WPOPT" role="1PaTwD">
+              <property role="3oM_SC" value="myWidget.dispose()" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WPOSW" role="1PaTwD">
+              <property role="3oM_SC" value="invoked" />
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="5do60t9v48N" role="3cqZAp">
-          <node concept="2OqwBi" id="5do60t9v48O" role="3clFbG">
-            <node concept="37vLTw" id="2BHiRxeumMG" role="2Oq$k0">
+        <node concept="3clFbF" id="180CX8WPJSQ" role="3cqZAp">
+          <node concept="2YIFZM" id="180CX8WPJSR" role="3clFbG">
+            <ref role="37wK5l" to="zn9m:~Disposer.register(com.intellij.openapi.Disposable,com.intellij.openapi.Disposable)" resolve="register" />
+            <ref role="1Pybhc" to="zn9m:~Disposer" resolve="Disposer" />
+            <node concept="37vLTw" id="180CX8WPJSS" role="37wK5m">
+              <ref role="3cqZAo" node="180CX8WOsyn" resolve="myRootDispose" />
+            </node>
+            <node concept="37vLTw" id="180CX8WPJST" role="37wK5m">
               <ref role="3cqZAo" node="5do60t9v3W5" resolve="myWidget" />
             </node>
-            <node concept="liA8E" id="5do60t9v48Q" role="2OqNvi">
-              <ref role="37wK5l" node="2hEKckkLhQa" resolve="update" />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="180CX8WPQr_" role="3cqZAp">
+          <node concept="1PaTwC" id="180CX8WPQrA" role="1aUNEU">
+            <node concept="3oM_SD" id="180CX8WPQrB" role="1PaTwD">
+              <property role="3oM_SC" value="registration" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WPR5w" role="1PaTwD">
+              <property role="3oM_SC" value="with" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WPR6n" role="1PaTwD">
+              <property role="3oM_SC" value="myRootDispose" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WPRcQ" role="1PaTwD">
+              <property role="3oM_SC" value="is" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WPRet" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WPReu" role="1PaTwD">
+              <property role="3oM_SC" value="get" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WPRev" role="1PaTwD">
+              <property role="3oM_SC" value="widget" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WPRfQ" role="1PaTwD">
+              <property role="3oM_SC" value="removed" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WPRgX" role="1PaTwD">
+              <property role="3oM_SC" value="from" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WPRi4" role="1PaTwD">
+              <property role="3oM_SC" value="StatusBar" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WPRkx" role="1PaTwD">
+              <property role="3oM_SC" value="on" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WPRky" role="1PaTwD">
+              <property role="3oM_SC" value="dispose" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="5do60t9v4aI" role="3cqZAp">
+          <node concept="2OqwBi" id="5do60t9v4aM" role="3clFbG">
+            <node concept="liA8E" id="5do60t9v4aS" role="2OqNvi">
+              <ref role="37wK5l" to="jkny:~StatusBar.addWidget(com.intellij.openapi.wm.StatusBarWidget,com.intellij.openapi.Disposable)" resolve="addWidget" />
+              <node concept="37vLTw" id="2BHiRxeuHs1" role="37wK5m">
+                <ref role="3cqZAo" node="5do60t9v3W5" resolve="myWidget" />
+              </node>
+              <node concept="37vLTw" id="180CX8WOHw9" role="37wK5m">
+                <ref role="3cqZAo" node="180CX8WOsyn" resolve="myRootDispose" />
+              </node>
+            </node>
+            <node concept="37vLTw" id="2BHiRxeuFKC" role="2Oq$k0">
+              <ref role="3cqZAo" node="180CX8WQy6r" resolve="myStatusBar" />
             </node>
           </node>
         </node>
@@ -11763,7 +11909,7 @@
               <node concept="1pGfFk" id="3LTvNgPOPyV" role="2ShVmc">
                 <ref role="37wK5l" node="C3dcc38Te5" resolve="TransientModelBallonDisplayer" />
                 <node concept="37vLTw" id="3l7XKooFhJg" role="37wK5m">
-                  <ref role="3cqZAo" node="5do60t9v3W2" resolve="myStatusBar" />
+                  <ref role="3cqZAo" node="180CX8WQy6r" resolve="myStatusBar" />
                 </node>
                 <node concept="37vLTw" id="3LTvNgPOPyX" role="37wK5m">
                   <ref role="3cqZAo" node="5do60t9v3W5" resolve="myWidget" />
@@ -11780,7 +11926,7 @@
             <ref role="37wK5l" to="zn9m:~Disposer.register(com.intellij.openapi.Disposable,com.intellij.openapi.Disposable)" resolve="register" />
             <ref role="1Pybhc" to="zn9m:~Disposer" resolve="Disposer" />
             <node concept="37vLTw" id="3LTvNgPOP56" role="37wK5m">
-              <ref role="3cqZAo" node="5do60t9v3W5" resolve="myWidget" />
+              <ref role="3cqZAo" node="180CX8WOsyn" resolve="myRootDispose" />
             </node>
             <node concept="37vLTw" id="3l7XKooDpyS" role="37wK5m">
               <ref role="3cqZAo" node="3l7XKooDoeu" resolve="myDisplayer" />
@@ -11789,16 +11935,8 @@
         </node>
         <node concept="3clFbF" id="3l7XKooC$o3" role="3cqZAp">
           <node concept="2OqwBi" id="3l7XKooCCd0" role="3clFbG">
-            <node concept="2OqwBi" id="3l7XKooC_n3" role="2Oq$k0">
-              <node concept="37vLTw" id="3l7XKooC$o1" role="2Oq$k0">
-                <ref role="3cqZAo" node="5do60t9uS2E" resolve="myProject" />
-              </node>
-              <node concept="liA8E" id="3l7XKooCAPj" role="2OqNvi">
-                <ref role="37wK5l" to="z1c4:~MPSProject.getComponent(java.lang.Class)" resolve="getComponent" />
-                <node concept="3VsKOn" id="3l7XKooCBML" role="37wK5m">
-                  <ref role="3VsUkX" to="ap4t:~GenerationSettingsProvider" resolve="GenerationSettingsProvider" />
-                </node>
-              </node>
+            <node concept="37vLTw" id="180CX8WPaG9" role="2Oq$k0">
+              <ref role="3cqZAo" node="180CX8WPaG3" resolve="component" />
             </node>
             <node concept="liA8E" id="3l7XKooCDiK" role="2OqNvi">
               <ref role="37wK5l" to="ap4t:~GenerationSettingsProvider.addSettingsListener(jetbrains.mps.generator.IModifiableGenerationSettings$Listener)" resolve="addSettingsListener" />
@@ -11842,6 +11980,11 @@
                 <ref role="3cqZAo" node="16OFrd77GJR" resolve="myMakeNotificationListener" />
               </node>
             </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="180CX8WOLnH" role="3cqZAp">
+          <node concept="1rXfSq" id="180CX8WOLnF" role="3clFbG">
+            <ref role="37wK5l" node="3l7XKooCQsy" resolve="updateWidgetLater" />
           </node>
         </node>
       </node>
@@ -11896,17 +12039,34 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="5do60t9v4aW" role="3cqZAp">
-          <node concept="2OqwBi" id="5do60t9v4aX" role="3clFbG">
-            <node concept="37vLTw" id="2BHiRxeugND" role="2Oq$k0">
-              <ref role="3cqZAo" node="5do60t9v3W2" resolve="myStatusBar" />
+        <node concept="3SKdUt" id="180CX8WP811" role="3cqZAp">
+          <node concept="1PaTwC" id="180CX8WP812" role="1aUNEU">
+            <node concept="3oM_SD" id="180CX8WP9eg" role="1PaTwD">
+              <property role="3oM_SC" value="widget" />
             </node>
-            <node concept="liA8E" id="5do60t9v4aZ" role="2OqNvi">
-              <ref role="37wK5l" to="jkny:~StatusBar.removeWidget(java.lang.String)" resolve="removeWidget" />
-              <node concept="10M0yZ" id="52Hn5FWmK3N" role="37wK5m">
-                <ref role="3cqZAo" node="hP8D6fqe8s" resolve="WIDGET_ID" />
-                <ref role="1PxDUh" node="hP8D6fqe6p" resolve="TransientModelsWidget" />
-              </node>
+            <node concept="3oM_SD" id="180CX8WP9h3" role="1PaTwD">
+              <property role="3oM_SC" value="registered" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WP9jh" role="1PaTwD">
+              <property role="3oM_SC" value="with" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WP9jy" role="1PaTwD">
+              <property role="3oM_SC" value="Disposable" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WP9nb" role="1PaTwD">
+              <property role="3oM_SC" value="get" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WP9nc" role="1PaTwD">
+              <property role="3oM_SC" value="automatically" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WP9ub" role="1PaTwD">
+              <property role="3oM_SC" value="removed" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WP9o3" role="1PaTwD">
+              <property role="3oM_SC" value="on" />
+            </node>
+            <node concept="3oM_SD" id="180CX8WP9ro" role="1PaTwD">
+              <property role="3oM_SC" value="dispose" />
             </node>
           </node>
         </node>
@@ -11915,15 +12075,15 @@
             <ref role="37wK5l" to="zn9m:~Disposer.dispose(com.intellij.openapi.Disposable)" resolve="dispose" />
             <ref role="1Pybhc" to="zn9m:~Disposer" resolve="Disposer" />
             <node concept="37vLTw" id="3LTvNgPOPwb" role="37wK5m">
-              <ref role="3cqZAo" node="5do60t9v3W5" resolve="myWidget" />
+              <ref role="3cqZAo" node="180CX8WOsyn" resolve="myRootDispose" />
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="3l7XKooDAaY" role="3cqZAp">
-          <node concept="37vLTI" id="3l7XKooDBKp" role="3clFbG">
-            <node concept="10Nm6u" id="3l7XKooDC92" role="37vLTx" />
-            <node concept="37vLTw" id="3l7XKooDAaW" role="37vLTJ">
-              <ref role="3cqZAo" node="5do60t9v3W2" resolve="myStatusBar" />
+        <node concept="3clFbF" id="180CX8WOSub" role="3cqZAp">
+          <node concept="37vLTI" id="180CX8WOUKC" role="3clFbG">
+            <node concept="10Nm6u" id="180CX8WOVJY" role="37vLTx" />
+            <node concept="37vLTw" id="180CX8WOSu9" role="37vLTJ">
+              <ref role="3cqZAo" node="180CX8WOsyn" resolve="myRootDispose" />
             </node>
           </node>
         </node>
@@ -11960,12 +12120,24 @@
             <ref role="37wK5l" to="3a50:~ThreadUtils.runInUIThreadNoWait(java.lang.Runnable)" resolve="runInUIThreadNoWait" />
             <node concept="1bVj0M" id="3l7XKooCSTl" role="37wK5m">
               <node concept="3clFbS" id="3l7XKooCSTm" role="1bW5cS">
+                <node concept="3cpWs8" id="180CX8WOMLW" role="3cqZAp">
+                  <node concept="3cpWsn" id="180CX8WOMLX" role="3cpWs9">
+                    <property role="TrG5h" value="widget" />
+                    <property role="3TUv4t" value="true" />
+                    <node concept="3uibUv" id="180CX8WOM0c" role="1tU5fm">
+                      <ref role="3uigEE" node="hP8D6fqe6p" resolve="TransientModelsWidget" />
+                    </node>
+                    <node concept="37vLTw" id="180CX8WOMLY" role="33vP2m">
+                      <ref role="3cqZAo" node="5do60t9v3W5" resolve="myWidget" />
+                    </node>
+                  </node>
+                </node>
                 <node concept="3clFbJ" id="3l7XKooDD4c" role="3cqZAp">
                   <node concept="3clFbS" id="3l7XKooDD4e" role="3clFbx">
                     <node concept="3clFbF" id="3l7XKooCTPR" role="3cqZAp">
                       <node concept="2OqwBi" id="3l7XKooCUEC" role="3clFbG">
-                        <node concept="37vLTw" id="3l7XKooCTPQ" role="2Oq$k0">
-                          <ref role="3cqZAo" node="5do60t9v3W5" resolve="myWidget" />
+                        <node concept="37vLTw" id="180CX8WOMM0" role="2Oq$k0">
+                          <ref role="3cqZAo" node="180CX8WOMLX" resolve="widget" />
                         </node>
                         <node concept="liA8E" id="3l7XKooCVP6" role="2OqNvi">
                           <ref role="37wK5l" node="2hEKckkLhQa" resolve="update" />
@@ -11973,22 +12145,11 @@
                       </node>
                     </node>
                   </node>
-                  <node concept="1Wc70l" id="3l7XKooDIIH" role="3clFbw">
-                    <node concept="3fqX7Q" id="3l7XKooDKHG" role="3uHU7w">
-                      <node concept="2YIFZM" id="3l7XKooDKHI" role="3fr31v">
-                        <ref role="37wK5l" to="zn9m:~Disposer.isDisposed(com.intellij.openapi.Disposable)" resolve="isDisposed" />
-                        <ref role="1Pybhc" to="zn9m:~Disposer" resolve="Disposer" />
-                        <node concept="37vLTw" id="3l7XKooDKHJ" role="37wK5m">
-                          <ref role="3cqZAo" node="5do60t9v3W5" resolve="myWidget" />
-                        </node>
-                      </node>
+                  <node concept="3y3z36" id="3l7XKooDG1P" role="3clFbw">
+                    <node concept="37vLTw" id="180CX8WOMLZ" role="3uHU7B">
+                      <ref role="3cqZAo" node="180CX8WOMLX" resolve="widget" />
                     </node>
-                    <node concept="3y3z36" id="3l7XKooDG1P" role="3uHU7B">
-                      <node concept="37vLTw" id="3l7XKooDDns" role="3uHU7B">
-                        <ref role="3cqZAo" node="5do60t9v3W5" resolve="myWidget" />
-                      </node>
-                      <node concept="10Nm6u" id="3l7XKooDGfD" role="3uHU7w" />
-                    </node>
+                    <node concept="10Nm6u" id="3l7XKooDGfD" role="3uHU7w" />
                   </node>
                 </node>
               </node>
@@ -12055,12 +12216,23 @@
             <ref role="1Pybhc" to="3a50:~ThreadUtils" resolve="ThreadUtils" />
             <node concept="1bVj0M" id="3l7XKooDR8t" role="37wK5m">
               <node concept="3clFbS" id="3l7XKooDR8u" role="1bW5cS">
+                <node concept="3cpWs8" id="180CX8WPTQI" role="3cqZAp">
+                  <node concept="3cpWsn" id="180CX8WPTQJ" role="3cpWs9">
+                    <property role="TrG5h" value="displayer" />
+                    <node concept="3uibUv" id="180CX8WPQJi" role="1tU5fm">
+                      <ref role="3uigEE" node="C3dcc38Te3" resolve="TransientModelBalloonDisplayer" />
+                    </node>
+                    <node concept="37vLTw" id="180CX8WPTQK" role="33vP2m">
+                      <ref role="3cqZAo" node="3l7XKooDoeu" resolve="myDisplayer" />
+                    </node>
+                  </node>
+                </node>
                 <node concept="3clFbJ" id="3l7XKooDLnG" role="3cqZAp">
                   <node concept="3clFbS" id="3l7XKooDLnI" role="3clFbx">
                     <node concept="3clFbF" id="3l7XKooDPf7" role="3cqZAp">
                       <node concept="2OqwBi" id="3l7XKooDPFO" role="3clFbG">
-                        <node concept="37vLTw" id="3l7XKooDPf2" role="2Oq$k0">
-                          <ref role="3cqZAo" node="3l7XKooDoeu" resolve="myDisplayer" />
+                        <node concept="37vLTw" id="180CX8WPTQM" role="2Oq$k0">
+                          <ref role="3cqZAo" node="180CX8WPTQJ" resolve="displayer" />
                         </node>
                         <node concept="liA8E" id="3l7XKooDQ2D" role="2OqNvi">
                           <ref role="37wK5l" node="C3dcc38Te9" resolve="showBalloon" />
@@ -12068,22 +12240,11 @@
                       </node>
                     </node>
                   </node>
-                  <node concept="1Wc70l" id="3l7XKooDN5E" role="3clFbw">
-                    <node concept="3fqX7Q" id="3l7XKooDOh1" role="3uHU7w">
-                      <node concept="2YIFZM" id="3l7XKooDOh3" role="3fr31v">
-                        <ref role="37wK5l" to="zn9m:~Disposer.isDisposed(com.intellij.openapi.Disposable)" resolve="isDisposed" />
-                        <ref role="1Pybhc" to="zn9m:~Disposer" resolve="Disposer" />
-                        <node concept="37vLTw" id="3l7XKooDOh4" role="37wK5m">
-                          <ref role="3cqZAo" node="3l7XKooDoeu" resolve="myDisplayer" />
-                        </node>
-                      </node>
+                  <node concept="3y3z36" id="3l7XKooDMsw" role="3clFbw">
+                    <node concept="37vLTw" id="180CX8WPTQL" role="3uHU7B">
+                      <ref role="3cqZAo" node="180CX8WPTQJ" resolve="displayer" />
                     </node>
-                    <node concept="3y3z36" id="3l7XKooDMsw" role="3uHU7B">
-                      <node concept="37vLTw" id="3l7XKooDLXA" role="3uHU7B">
-                        <ref role="3cqZAo" node="3l7XKooDoeu" resolve="myDisplayer" />
-                      </node>
-                      <node concept="10Nm6u" id="3l7XKooDMLp" role="3uHU7w" />
-                    </node>
+                    <node concept="10Nm6u" id="3l7XKooDMLp" role="3uHU7w" />
                   </node>
                 </node>
               </node>
