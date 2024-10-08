@@ -32,7 +32,6 @@
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="g4jo" ref="r:d98d04fb-4a60-4106-81cf-6cb40b67de4d(jetbrains.mps.ide.findusages.model)" />
     <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
-    <import index="j8aq" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.module(MPS.Core/)" />
     <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" />
     <import index="gp7a" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project.dependency(MPS.Core/)" />
     <import index="1m72" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.components(MPS.IDEA/)" implicit="true" />
@@ -3340,7 +3339,7 @@
           <node concept="3fqX7Q" id="5z_gLGengEI" role="3clFbw">
             <node concept="2ZW3vV" id="5z_gLGengEJ" role="3fr31v">
               <node concept="3uibUv" id="5iafRE1LGYI" role="2ZW6by">
-                <ref role="3uigEE" to="j8aq:~ReloadableModule" resolve="ReloadableModule" />
+                <ref role="3uigEE" to="z1c3:~AbstractModule" resolve="AbstractModule" />
               </node>
               <node concept="2OqwBi" id="5z_gLGenhd1" role="2ZW6bz">
                 <node concept="37vLTw" id="5z_gLGenhaD" role="2Oq$k0">

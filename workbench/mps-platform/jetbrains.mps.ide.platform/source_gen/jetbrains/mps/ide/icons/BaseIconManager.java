@@ -17,7 +17,6 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.components.ComponentHost;
 import jetbrains.mps.persistence.PersistenceRegistry;
 import java.util.Set;
-import jetbrains.mps.module.ReloadableModule;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -64,11 +63,16 @@ public class BaseIconManager {
     myNewUI = IconLoadingUtil.isNewUIActive();
   }
 
-  public void invalidate(Set<ReloadableModule> modules) {
+  public void invalidate(Set<?> modules) {
     // todo by-module invalidation
+    //     we can record SModuleReference->set<IconResource> and remove only these on invalidate(set<SModuleReference>)
+    if (LOG.isWarningLevel()) {
+      LOG.warning("Don't use BaseIconManager#invalidate(set<ReloadableModule>)", new Throwable());
+    }
     invalidate();
   }
-  /*package*/ final void invalidate() {
+
+  public final void invalidate() {
     MapSequence.fromMap(myConceptToIcon).clear();
     MapSequence.fromMap(myResToIcon).clear();
   }

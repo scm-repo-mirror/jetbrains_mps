@@ -820,9 +820,7 @@
         <property role="TrG5h" value="modules" />
         <node concept="3uibUv" id="192HKKPPvgl" role="1tU5fm">
           <ref role="3uigEE" to="33ny:~Set" resolve="Set" />
-          <node concept="3uibUv" id="192HKKPPvgm" role="11_B2D">
-            <ref role="3uigEE" to="j8aq:~ReloadableModule" resolve="ReloadableModule" />
-          </node>
+          <node concept="3qTvmN" id="6NxWNcDYgpZ" role="11_B2D" />
         </node>
       </node>
       <node concept="3cqZAl" id="192HKKPPvgn" role="3clF45" />
@@ -841,6 +839,64 @@
             </node>
           </node>
         </node>
+        <node concept="3SKdUt" id="6NxWNcDY7CT" role="3cqZAp">
+          <node concept="1PaTwC" id="6NxWNcDY7CU" role="1aUNEU">
+            <node concept="3oM_SD" id="6NxWNcDY9YE" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="6NxWNcDY9YF" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="6NxWNcDY9YX" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="6NxWNcDY9ZO" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="6NxWNcDY9ZP" role="1PaTwD">
+              <property role="3oM_SC" value="we" />
+            </node>
+            <node concept="3oM_SD" id="6NxWNcDYa06" role="1PaTwD">
+              <property role="3oM_SC" value="can" />
+            </node>
+            <node concept="3oM_SD" id="6NxWNcDYa0X" role="1PaTwD">
+              <property role="3oM_SC" value="record" />
+            </node>
+            <node concept="3oM_SD" id="6NxWNcDYa9W" role="1PaTwD">
+              <property role="3oM_SC" value="SModuleReference-&gt;set&lt;IconResource&gt;" />
+            </node>
+            <node concept="3oM_SD" id="6NxWNcDYadf" role="1PaTwD">
+              <property role="3oM_SC" value="and" />
+            </node>
+            <node concept="3oM_SD" id="6NxWNcDYae6" role="1PaTwD">
+              <property role="3oM_SC" value="remove" />
+            </node>
+            <node concept="3oM_SD" id="6NxWNcDYahV" role="1PaTwD">
+              <property role="3oM_SC" value="only" />
+            </node>
+            <node concept="3oM_SD" id="6NxWNcDYaiM" role="1PaTwD">
+              <property role="3oM_SC" value="these" />
+            </node>
+            <node concept="3oM_SD" id="6NxWNcDYaj3" role="1PaTwD">
+              <property role="3oM_SC" value="on" />
+            </node>
+            <node concept="3oM_SD" id="6NxWNcDYajU" role="1PaTwD">
+              <property role="3oM_SC" value="invalidate(set&lt;SModuleReference&gt;)" />
+            </node>
+          </node>
+        </node>
+        <node concept="RRSsy" id="6NxWNcDXcL5" role="3cqZAp">
+          <property role="RRSoG" value="gZ5fksE/warn" />
+          <node concept="Xl_RD" id="6NxWNcDXcL7" role="RRSoy">
+            <property role="Xl_RC" value="Don't use BaseIconManager#invalidate(set&lt;ReloadableModule&gt;)" />
+          </node>
+          <node concept="2ShNRf" id="6NxWNcDXfbz" role="RRSow">
+            <node concept="1pGfFk" id="6NxWNcDXHUQ" role="2ShVmc">
+              <property role="373rjd" value="true" />
+              <ref role="37wK5l" to="wyt6:~Throwable.&lt;init&gt;()" resolve="Throwable" />
+            </node>
+          </node>
+        </node>
         <node concept="3clFbF" id="6V208LM0HSZ" role="3cqZAp">
           <node concept="1rXfSq" id="6V208LM0HSX" role="3clFbG">
             <ref role="37wK5l" node="6V208LM0yLj" resolve="invalidate" />
@@ -848,6 +904,7 @@
         </node>
       </node>
     </node>
+    <node concept="2tJIrI" id="6NxWNcDXVOS" role="jymVt" />
     <node concept="3clFb_" id="6V208LM0yLj" role="jymVt">
       <property role="TrG5h" value="invalidate" />
       <property role="DiZV1" value="true" />
@@ -870,6 +927,7 @@
           </node>
         </node>
       </node>
+      <node concept="3Tm1VV" id="6NxWNcDX7$C" role="1B3o_S" />
     </node>
     <node concept="2tJIrI" id="192HKKPOwsz" role="jymVt" />
     <node concept="3clFb_" id="192HKKPOcza" role="jymVt">

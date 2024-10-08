@@ -69,6 +69,8 @@ public final class IconResource {
   }
 
   /**
+   * Note, this class is generally referenced from generated code and we assume {@code resourceProvider} parameter to point to class
+   * with proper {@link ResourceModule} annotation (serves as a way to obtain resource contents)
    * @since 2024.2
    */
   public IconResource(@NotNull String iconResId, @Nullable String iconResId_newUI, @NotNull Class<?> resourceProvider) {
