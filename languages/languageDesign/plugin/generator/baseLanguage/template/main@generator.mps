@@ -94,7 +94,7 @@
         <reference id="1188208074048" name="annotation" index="2AI5Lk" />
         <child id="1188214630783" name="value" index="2B76xF" />
       </concept>
-      <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ng" index="2AJDlI">
+      <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ngI" index="2AJDlI">
         <child id="1188208488637" name="annotation" index="2AJF6D" />
       </concept>
       <concept id="1188214545140" name="jetbrains.mps.baseLanguage.structure.AnnotationInstanceValue" flags="ng" index="2B6LJw">
@@ -222,7 +222,7 @@
         <child id="1154542793668" name="componentType" index="3g7fb8" />
         <child id="1154542803372" name="initValue" index="3g7hyw" />
       </concept>
-      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ng" index="1ndlxa">
+      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ngI" index="1ndlxa">
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
       </concept>
@@ -252,7 +252,7 @@
       </concept>
       <concept id="1073239437375" name="jetbrains.mps.baseLanguage.structure.NotEqualsExpression" flags="nn" index="3y3z36" />
       <concept id="1081855346303" name="jetbrains.mps.baseLanguage.structure.BreakStatement" flags="nn" index="3zACq4" />
-      <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ng" index="1B3ioH">
+      <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ngI" index="1B3ioH">
         <child id="1178549979242" name="visibility" index="1B3o_S" />
       </concept>
       <concept id="1144226303539" name="jetbrains.mps.baseLanguage.structure.ForeachStatement" flags="nn" index="1DcWWT">
@@ -371,7 +371,7 @@
       <concept id="5005282049925926521" name="jetbrains.mps.lang.generator.structure.TemplateArgumentParameterExpression" flags="nn" index="v3LJS">
         <reference id="5005282049925926522" name="parameter" index="v3LJV" />
       </concept>
-      <concept id="1722980698497626400" name="jetbrains.mps.lang.generator.structure.ITemplateCall" flags="ng" index="v9R3L">
+      <concept id="1722980698497626400" name="jetbrains.mps.lang.generator.structure.ITemplateCall" flags="ngI" index="v9R3L">
         <reference id="1722980698497626483" name="template" index="v9R2y" />
         <child id="1722980698497626405" name="actualArgument" index="v9R3O" />
       </concept>
@@ -440,7 +440,7 @@
       <concept id="1195502151594" name="jetbrains.mps.lang.generator.structure.MappingScriptReference" flags="lg" index="1puMqW">
         <reference id="1195502167610" name="mappingScript" index="1puQsG" />
       </concept>
-      <concept id="982871510064032177" name="jetbrains.mps.lang.generator.structure.IParameterizedTemplate" flags="ng" index="1s_3nv">
+      <concept id="982871510064032177" name="jetbrains.mps.lang.generator.structure.IParameterizedTemplate" flags="ngI" index="1s_3nv">
         <child id="982871510064032342" name="parameter" index="1s_3oS" />
       </concept>
       <concept id="982871510068000147" name="jetbrains.mps.lang.generator.structure.TemplateSwitchMacro" flags="lg" index="1sPUBX">
@@ -507,13 +507,13 @@
       <concept id="1217026863835" name="jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_GetOriginalInputModel" flags="nn" index="1st3f0" />
     </language>
     <language id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation">
-      <concept id="1196350785110" name="jetbrains.mps.lang.quotation.structure.AbstractAntiquotation" flags="ng" index="2c44t0">
+      <concept id="1196350785110" name="jetbrains.mps.lang.quotation.structure.AbstractAntiquotation" flags="ngI" index="2c44t0">
         <child id="1196350785111" name="expression" index="2c44t1" />
       </concept>
       <concept id="1196350785113" name="jetbrains.mps.lang.quotation.structure.Quotation" flags="nn" index="2c44tf">
         <child id="1196350785114" name="quotedNode" index="2c44tc" />
       </concept>
-      <concept id="4056363777117001481" name="jetbrains.mps.lang.quotation.structure.StringToTypedValueMigrationInfo" flags="ng" index="AAgTk">
+      <concept id="4056363777117001481" name="jetbrains.mps.lang.quotation.structure.StringToTypedValueMigrationInfo" flags="ngI" index="AAgTk">
         <property id="2173356959483005420" name="stringValueMigrated" index="3qcH_f" />
       </concept>
       <concept id="1196866233735" name="jetbrains.mps.lang.quotation.structure.PropertyAntiquotation" flags="ng" index="2EMmih" />
@@ -682,7 +682,7 @@
         <property id="1757699476691236116" name="role_DebugInfo" index="2qtEX8" />
         <property id="1341860900488019036" name="linkId" index="P3scX" />
       </concept>
-      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
+      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ngI" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
       <concept id="4222318806802425298" name="jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation" flags="ng" index="15s5l7">
@@ -10872,6 +10872,74 @@
     <ref role="3gUMe" to="tp4k:57l5h3LszuS" resolve="AddTabOperation" />
     <node concept="312cEu" id="2DYqLDNhjp_" role="13RCb5">
       <property role="TrG5h" value="MyGeneratedTabbedTool" />
+      <node concept="2tJIrI" id="1K93OtlOuLE" role="jymVt" />
+      <node concept="3clFbW" id="1K93OtlOveR" role="jymVt">
+        <node concept="3cqZAl" id="1K93OtlOveS" role="3clF45" />
+        <node concept="3Tm1VV" id="1K93OtlOveT" role="1B3o_S" />
+        <node concept="3clFbS" id="1K93OtlOveV" role="3clF47">
+          <node concept="XkiVB" id="1K93OtlOveX" role="3cqZAp">
+            <ref role="37wK5l" to="71xd:~BaseTabbedTool.&lt;init&gt;(com.intellij.openapi.project.Project,java.lang.String,java.util.Map,javax.swing.Icon,com.intellij.openapi.wm.ToolWindowAnchor,boolean)" resolve="BaseTabbedTool" />
+            <node concept="37vLTw" id="1K93OtlOvf1" role="37wK5m">
+              <ref role="3cqZAo" node="1K93OtlOveY" resolve="project" />
+            </node>
+            <node concept="37vLTw" id="1K93OtlOvf5" role="37wK5m">
+              <ref role="3cqZAo" node="1K93OtlOvf2" resolve="id" />
+            </node>
+            <node concept="37vLTw" id="1K93OtlOvfb" role="37wK5m">
+              <ref role="3cqZAo" node="1K93OtlOvf6" resolve="shortcutsByKeymap" />
+            </node>
+            <node concept="37vLTw" id="1K93OtlOvff" role="37wK5m">
+              <ref role="3cqZAo" node="1K93OtlOvfc" resolve="icon" />
+            </node>
+            <node concept="37vLTw" id="1K93OtlOvfj" role="37wK5m">
+              <ref role="3cqZAo" node="1K93OtlOvfg" resolve="anchor" />
+            </node>
+            <node concept="37vLTw" id="1K93OtlOvfn" role="37wK5m">
+              <ref role="3cqZAo" node="1K93OtlOvfk" resolve="canCloseContent" />
+            </node>
+          </node>
+        </node>
+        <node concept="37vLTG" id="1K93OtlOveY" role="3clF46">
+          <property role="TrG5h" value="project" />
+          <node concept="3uibUv" id="1K93OtlOvf0" role="1tU5fm">
+            <ref role="3uigEE" to="4nm9:~Project" resolve="Project" />
+          </node>
+        </node>
+        <node concept="37vLTG" id="1K93OtlOvf2" role="3clF46">
+          <property role="TrG5h" value="id" />
+          <node concept="3uibUv" id="1K93OtlOvf4" role="1tU5fm">
+            <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+          </node>
+        </node>
+        <node concept="37vLTG" id="1K93OtlOvf6" role="3clF46">
+          <property role="TrG5h" value="shortcutsByKeymap" />
+          <node concept="3uibUv" id="1K93OtlOvf8" role="1tU5fm">
+            <ref role="3uigEE" to="33ny:~Map" resolve="Map" />
+            <node concept="3uibUv" id="1K93OtlOvf9" role="11_B2D">
+              <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+            </node>
+            <node concept="3uibUv" id="1K93OtlOvfa" role="11_B2D">
+              <ref role="3uigEE" to="dxuu:~KeyStroke" resolve="KeyStroke" />
+            </node>
+          </node>
+        </node>
+        <node concept="37vLTG" id="1K93OtlOvfc" role="3clF46">
+          <property role="TrG5h" value="icon" />
+          <node concept="3uibUv" id="1K93OtlOvfe" role="1tU5fm">
+            <ref role="3uigEE" to="dxuu:~Icon" resolve="Icon" />
+          </node>
+        </node>
+        <node concept="37vLTG" id="1K93OtlOvfg" role="3clF46">
+          <property role="TrG5h" value="anchor" />
+          <node concept="3uibUv" id="1K93OtlOvfi" role="1tU5fm">
+            <ref role="3uigEE" to="jkny:~ToolWindowAnchor" resolve="ToolWindowAnchor" />
+          </node>
+        </node>
+        <node concept="37vLTG" id="1K93OtlOvfk" role="3clF46">
+          <property role="TrG5h" value="canCloseContent" />
+          <node concept="10P_77" id="1K93OtlOvfm" role="1tU5fm" />
+        </node>
+      </node>
       <node concept="3clFb_" id="2DYqLDNhjpA" role="jymVt">
         <property role="TrG5h" value="myAddTab" />
         <node concept="3cqZAl" id="2DYqLDNhjpB" role="3clF45" />
@@ -10880,7 +10948,7 @@
           <node concept="3clFbF" id="2DYqLDNhjpE" role="3cqZAp">
             <node concept="2OqwBi" id="2DYqLDNhjpF" role="3clFbG">
               <node concept="liA8E" id="2DYqLDNhjpI" role="2OqNvi">
-                <ref role="37wK5l" to="71xd:~BaseTabbedProjectTool.addTab(javax.swing.JComponent,java.lang.String,javax.swing.Icon,jetbrains.mps.plugins.tool.IComponentDisposer,boolean)" resolve="addTab" />
+                <ref role="37wK5l" to="71xd:~BaseTabbedTool.addTab(javax.swing.JComponent,java.lang.String,javax.swing.Icon,jetbrains.mps.plugins.tool.IComponentDisposer,boolean)" resolve="addTab" />
                 <node concept="raruj" id="2DYqLDNhjqi" role="lGtFl" />
                 <node concept="2ShNRf" id="7hpVa1P$w5n" role="37wK5m">
                   <node concept="1pGfFk" id="7hpVa1P$BL7" role="2ShVmc">
@@ -11123,8 +11191,8 @@
         </node>
       </node>
       <node concept="3Tm1VV" id="2DYqLDNhjqj" role="1B3o_S" />
-      <node concept="3uibUv" id="59jU$Drcu63" role="1zkMxy">
-        <ref role="3uigEE" to="71xd:~BaseTabbedProjectTool" resolve="BaseTabbedProjectTool" />
+      <node concept="3uibUv" id="1K93OtlOujv" role="1zkMxy">
+        <ref role="3uigEE" to="71xd:~BaseTabbedTool" resolve="BaseTabbedTool" />
       </node>
     </node>
   </node>
@@ -11141,7 +11209,7 @@
           <node concept="3cpWsn" id="kv6JvdBPRL" role="3cpWs9">
             <property role="TrG5h" value="tool" />
             <node concept="3uibUv" id="1_DBczKq_4E" role="1tU5fm">
-              <ref role="3uigEE" to="71xd:~BaseTabbedProjectTool" resolve="BaseTabbedProjectTool" />
+              <ref role="3uigEE" to="71xd:~BaseTabbedTool" resolve="BaseTabbedTool" />
             </node>
             <node concept="10Nm6u" id="kv6JvdBPRO" role="33vP2m" />
           </node>
@@ -11152,7 +11220,7 @@
               <ref role="3cqZAo" node="kv6JvdBPRL" resolve="tool" />
             </node>
             <node concept="liA8E" id="2DYqLDNhHsS" role="2OqNvi">
-              <ref role="37wK5l" to="71xd:~BaseTabbedProjectTool.closeTab(javax.swing.JComponent)" resolve="closeTab" />
+              <ref role="37wK5l" to="71xd:~BaseTabbedTool.closeTab(javax.swing.JComponent)" resolve="closeTab" />
               <node concept="raruj" id="2DYqLDNhHsT" role="lGtFl" />
               <node concept="2ShNRf" id="5$AmPtLg_Mg" role="37wK5m">
                 <node concept="1pGfFk" id="5$AmPtLgHez" role="2ShVmc">
@@ -11192,7 +11260,7 @@
           <node concept="3cpWsn" id="kv6JvdBPRT" role="3cpWs9">
             <property role="TrG5h" value="tool" />
             <node concept="3uibUv" id="1_DBczKq_kK" role="1tU5fm">
-              <ref role="3uigEE" to="71xd:~BaseTabbedProjectTool" resolve="BaseTabbedProjectTool" />
+              <ref role="3uigEE" to="71xd:~BaseTabbedTool" resolve="BaseTabbedTool" />
             </node>
             <node concept="10Nm6u" id="kv6JvdBPRV" role="33vP2m" />
           </node>
@@ -11203,7 +11271,7 @@
               <ref role="3cqZAo" node="kv6JvdBPRT" resolve="tool" />
             </node>
             <node concept="liA8E" id="4IVbMrJHM6H" role="2OqNvi">
-              <ref role="37wK5l" to="71xd:~BaseTabbedProjectTool.getSelectedTab()" resolve="getSelectedTab" />
+              <ref role="37wK5l" to="71xd:~BaseTabbedTool.getSelectedTab()" resolve="getSelectedTab" />
               <node concept="raruj" id="4IVbMrJI3hO" role="lGtFl" />
             </node>
           </node>
@@ -11811,7 +11879,7 @@
                   <node concept="3cpWs6" id="4LNA5o6dMvz" role="3cqZAp">
                     <node concept="2c44tf" id="4LNA5o6dMv$" role="3cqZAk">
                       <node concept="3uibUv" id="7002P5iV5Gt" role="2c44tc">
-                        <ref role="3uigEE" to="71xd:~BaseTabbedProjectServiceTool" resolve="BaseTabbedProjectServiceTool" />
+                        <ref role="3uigEE" to="71xd:~BaseTabbedTool" resolve="BaseTabbedTool" />
                       </node>
                     </node>
                   </node>
@@ -17726,6 +17794,74 @@
     <node concept="312cEu" id="3ItNAtJea0i" role="13RCb5">
       <property role="2bfB8j" value="true" />
       <property role="TrG5h" value="MyGeneratedTabbedTool" />
+      <node concept="2tJIrI" id="1K93OtlOvZ$" role="jymVt" />
+      <node concept="3clFbW" id="1K93OtlOw3H" role="jymVt">
+        <node concept="3cqZAl" id="1K93OtlOw3I" role="3clF45" />
+        <node concept="3Tm1VV" id="1K93OtlOw3J" role="1B3o_S" />
+        <node concept="3clFbS" id="1K93OtlOw3L" role="3clF47">
+          <node concept="XkiVB" id="1K93OtlOw3N" role="3cqZAp">
+            <ref role="37wK5l" to="71xd:~BaseTabbedTool.&lt;init&gt;(com.intellij.openapi.project.Project,java.lang.String,java.util.Map,javax.swing.Icon,com.intellij.openapi.wm.ToolWindowAnchor,boolean)" resolve="BaseTabbedTool" />
+            <node concept="37vLTw" id="1K93OtlOw3R" role="37wK5m">
+              <ref role="3cqZAo" node="1K93OtlOw3O" resolve="project" />
+            </node>
+            <node concept="37vLTw" id="1K93OtlOw3V" role="37wK5m">
+              <ref role="3cqZAo" node="1K93OtlOw3S" resolve="id" />
+            </node>
+            <node concept="37vLTw" id="1K93OtlOw41" role="37wK5m">
+              <ref role="3cqZAo" node="1K93OtlOw3W" resolve="shortcutsByKeymap" />
+            </node>
+            <node concept="37vLTw" id="1K93OtlOw45" role="37wK5m">
+              <ref role="3cqZAo" node="1K93OtlOw42" resolve="icon" />
+            </node>
+            <node concept="37vLTw" id="1K93OtlOw49" role="37wK5m">
+              <ref role="3cqZAo" node="1K93OtlOw46" resolve="anchor" />
+            </node>
+            <node concept="37vLTw" id="1K93OtlOw4d" role="37wK5m">
+              <ref role="3cqZAo" node="1K93OtlOw4a" resolve="canCloseContent" />
+            </node>
+          </node>
+        </node>
+        <node concept="37vLTG" id="1K93OtlOw3O" role="3clF46">
+          <property role="TrG5h" value="project" />
+          <node concept="3uibUv" id="1K93OtlOw3Q" role="1tU5fm">
+            <ref role="3uigEE" to="4nm9:~Project" resolve="Project" />
+          </node>
+        </node>
+        <node concept="37vLTG" id="1K93OtlOw3S" role="3clF46">
+          <property role="TrG5h" value="id" />
+          <node concept="3uibUv" id="1K93OtlOw3U" role="1tU5fm">
+            <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+          </node>
+        </node>
+        <node concept="37vLTG" id="1K93OtlOw3W" role="3clF46">
+          <property role="TrG5h" value="shortcutsByKeymap" />
+          <node concept="3uibUv" id="1K93OtlOw3Y" role="1tU5fm">
+            <ref role="3uigEE" to="33ny:~Map" resolve="Map" />
+            <node concept="3uibUv" id="1K93OtlOw3Z" role="11_B2D">
+              <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+            </node>
+            <node concept="3uibUv" id="1K93OtlOw40" role="11_B2D">
+              <ref role="3uigEE" to="dxuu:~KeyStroke" resolve="KeyStroke" />
+            </node>
+          </node>
+        </node>
+        <node concept="37vLTG" id="1K93OtlOw42" role="3clF46">
+          <property role="TrG5h" value="icon" />
+          <node concept="3uibUv" id="1K93OtlOw44" role="1tU5fm">
+            <ref role="3uigEE" to="dxuu:~Icon" resolve="Icon" />
+          </node>
+        </node>
+        <node concept="37vLTG" id="1K93OtlOw46" role="3clF46">
+          <property role="TrG5h" value="anchor" />
+          <node concept="3uibUv" id="1K93OtlOw48" role="1tU5fm">
+            <ref role="3uigEE" to="jkny:~ToolWindowAnchor" resolve="ToolWindowAnchor" />
+          </node>
+        </node>
+        <node concept="37vLTG" id="1K93OtlOw4a" role="3clF46">
+          <property role="TrG5h" value="canCloseContent" />
+          <node concept="10P_77" id="1K93OtlOw4c" role="1tU5fm" />
+        </node>
+      </node>
       <node concept="3clFb_" id="3ItNAtJeab1" role="jymVt">
         <property role="1EzhhJ" value="false" />
         <property role="TrG5h" value="myPinTab" />
@@ -17737,7 +17873,7 @@
             <node concept="2OqwBi" id="3ItNAtJeadG" role="3clFbG">
               <node concept="Xjq3P" id="3ItNAtJeabN" role="2Oq$k0" />
               <node concept="liA8E" id="3ItNAtJeams" role="2OqNvi">
-                <ref role="37wK5l" to="71xd:~BaseTabbedProjectTool.pinTab(javax.swing.JComponent)" resolve="pinTab" />
+                <ref role="37wK5l" to="71xd:~BaseTabbedTool.pinTab(javax.swing.JComponent)" resolve="pinTab" />
                 <node concept="2ShNRf" id="3ItNAtJeaq7" role="37wK5m">
                   <node concept="1pGfFk" id="3ItNAtJedp$" role="2ShVmc">
                     <ref role="37wK5l" to="dxuu:~JComponent.&lt;init&gt;()" resolve="JComponent" />
@@ -17766,8 +17902,8 @@
         <node concept="3cqZAl" id="3ItNAtJeaaU" role="3clF45" />
       </node>
       <node concept="3Tm1VV" id="3ItNAtJea0j" role="1B3o_S" />
-      <node concept="3uibUv" id="3ItNAtJea0W" role="1zkMxy">
-        <ref role="3uigEE" to="71xd:~BaseTabbedProjectTool" resolve="BaseTabbedProjectTool" />
+      <node concept="3uibUv" id="1K93OtlOvL7" role="1zkMxy">
+        <ref role="3uigEE" to="71xd:~BaseTabbedTool" resolve="BaseTabbedTool" />
       </node>
     </node>
   </node>
@@ -17778,6 +17914,74 @@
     <node concept="312cEu" id="4F0ra6ZrTLv" role="13RCb5">
       <property role="2bfB8j" value="true" />
       <property role="TrG5h" value="MyGeneratedTabbedTool" />
+      <node concept="3clFbW" id="6NznWq1ia2g" role="jymVt">
+        <property role="TrG5h" value="BaseTabbedTool" />
+        <node concept="3cqZAl" id="6NznWq1ia2h" role="3clF45" />
+        <node concept="3Tmbuc" id="6NznWq1ia2i" role="1B3o_S" />
+        <node concept="37vLTG" id="6NznWq1ia2k" role="3clF46">
+          <property role="TrG5h" value="project" />
+          <node concept="3uibUv" id="6NznWq1ia2l" role="1tU5fm">
+            <ref role="3uigEE" to="4nm9:~Project" resolve="Project" />
+          </node>
+        </node>
+        <node concept="37vLTG" id="6NznWq1ia2m" role="3clF46">
+          <property role="TrG5h" value="id" />
+          <node concept="3uibUv" id="6NznWq1ia2n" role="1tU5fm">
+            <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+          </node>
+        </node>
+        <node concept="37vLTG" id="6NznWq1ia2o" role="3clF46">
+          <property role="TrG5h" value="shortcutsByKeymap" />
+          <node concept="3uibUv" id="6NznWq1ia2p" role="1tU5fm">
+            <ref role="3uigEE" to="33ny:~Map" resolve="Map" />
+            <node concept="3uibUv" id="6NznWq1ia2q" role="11_B2D">
+              <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+            </node>
+            <node concept="3uibUv" id="6NznWq1ia2r" role="11_B2D">
+              <ref role="3uigEE" to="dxuu:~KeyStroke" resolve="KeyStroke" />
+            </node>
+          </node>
+        </node>
+        <node concept="37vLTG" id="6NznWq1ia2s" role="3clF46">
+          <property role="TrG5h" value="icon" />
+          <node concept="3uibUv" id="6NznWq1ia2t" role="1tU5fm">
+            <ref role="3uigEE" to="dxuu:~Icon" resolve="Icon" />
+          </node>
+        </node>
+        <node concept="37vLTG" id="6NznWq1ia2u" role="3clF46">
+          <property role="TrG5h" value="anchor" />
+          <node concept="3uibUv" id="6NznWq1ia2v" role="1tU5fm">
+            <ref role="3uigEE" to="jkny:~ToolWindowAnchor" resolve="ToolWindowAnchor" />
+          </node>
+        </node>
+        <node concept="37vLTG" id="6NznWq1ia2w" role="3clF46">
+          <property role="TrG5h" value="canCloseContent" />
+          <node concept="10P_77" id="6NznWq1ia2x" role="1tU5fm" />
+        </node>
+        <node concept="3clFbS" id="6NznWq1ia2y" role="3clF47">
+          <node concept="XkiVB" id="6NznWq1ia2z" role="3cqZAp">
+            <ref role="37wK5l" to="71xd:~BaseTabbedTool.&lt;init&gt;(com.intellij.openapi.project.Project,java.lang.String,java.util.Map,javax.swing.Icon,com.intellij.openapi.wm.ToolWindowAnchor,boolean)" resolve="BaseTabbedTool" />
+            <node concept="37vLTw" id="6NznWq1ia2$" role="37wK5m">
+              <ref role="3cqZAo" node="6NznWq1ia2k" resolve="project" />
+            </node>
+            <node concept="37vLTw" id="6NznWq1ia2_" role="37wK5m">
+              <ref role="3cqZAo" node="6NznWq1ia2m" resolve="id" />
+            </node>
+            <node concept="37vLTw" id="6NznWq1ia2A" role="37wK5m">
+              <ref role="3cqZAo" node="6NznWq1ia2o" resolve="shortcutsByKeymap" />
+            </node>
+            <node concept="37vLTw" id="6NznWq1ia2B" role="37wK5m">
+              <ref role="3cqZAo" node="6NznWq1ia2s" resolve="icon" />
+            </node>
+            <node concept="37vLTw" id="6NznWq1ia2C" role="37wK5m">
+              <ref role="3cqZAo" node="6NznWq1ia2u" resolve="anchor" />
+            </node>
+            <node concept="37vLTw" id="6NznWq1ia2D" role="37wK5m">
+              <ref role="3cqZAo" node="6NznWq1ia2w" resolve="canCloseContent" />
+            </node>
+          </node>
+        </node>
+      </node>
       <node concept="3clFb_" id="4F0ra6ZrTLw" role="jymVt">
         <property role="1EzhhJ" value="false" />
         <property role="TrG5h" value="myPinTab" />
@@ -17789,7 +17993,7 @@
             <node concept="2OqwBi" id="4F0ra6ZrTLz" role="3clFbG">
               <node concept="Xjq3P" id="4F0ra6ZrTL$" role="2Oq$k0" />
               <node concept="liA8E" id="4F0ra6ZrTL_" role="2OqNvi">
-                <ref role="37wK5l" to="71xd:~BaseTabbedProjectTool.unpinTab(javax.swing.JComponent)" resolve="unpinTab" />
+                <ref role="37wK5l" to="71xd:~BaseTabbedTool.unpinTab(javax.swing.JComponent)" resolve="unpinTab" />
                 <node concept="2ShNRf" id="4F0ra6ZrTLA" role="37wK5m">
                   <node concept="1pGfFk" id="4F0ra6ZrTLB" role="2ShVmc">
                     <ref role="37wK5l" to="dxuu:~JComponent.&lt;init&gt;()" resolve="JComponent" />
@@ -17818,8 +18022,8 @@
         <node concept="3cqZAl" id="4F0ra6ZrTLL" role="3clF45" />
       </node>
       <node concept="3Tm1VV" id="4F0ra6ZrTLM" role="1B3o_S" />
-      <node concept="3uibUv" id="4F0ra6ZrTLN" role="1zkMxy">
-        <ref role="3uigEE" to="71xd:~BaseTabbedProjectTool" resolve="BaseTabbedProjectTool" />
+      <node concept="3uibUv" id="6NznWq1i9M8" role="1zkMxy">
+        <ref role="3uigEE" to="71xd:~BaseTabbedTool" resolve="BaseTabbedTool" />
       </node>
     </node>
   </node>

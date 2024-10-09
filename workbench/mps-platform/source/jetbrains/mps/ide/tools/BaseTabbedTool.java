@@ -32,16 +32,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Replaces {@code jetbrains.mps.plugins.tool.GeneratedTabbedTool}.
- */
-public abstract class BaseTabbedProjectTool extends BaseProjectTool {
+public abstract class BaseTabbedTool extends BaseTool {
 
   private final List<IDisposableTab> myTabList = new ArrayList<>();
   private boolean myContentRemovedListenerAdded = false;
 
-  protected BaseTabbedProjectTool(Project project, String id, Map<String, KeyStroke> shortcutsByKeymap, Icon icon,
-      ToolWindowAnchor anchor, boolean canCloseContent) {
+  protected BaseTabbedTool(Project project, String id, Map<String, KeyStroke> shortcutsByKeymap, Icon icon,
+                           ToolWindowAnchor anchor, boolean canCloseContent) {
     super(project, id, shortcutsByKeymap, icon, anchor, false, canCloseContent);
   }
 
@@ -51,6 +48,16 @@ public abstract class BaseTabbedProjectTool extends BaseProjectTool {
     if (contentManager != null && !contentManager.isDisposed() && !getProject().isDisposed()) {
       contentManager.removeAllContents(true);
     }
+  }
+
+  /**
+   * Changing the visibility, since the generated subclasses need to call this method,
+   * yet the actual TabbedTool concept instances are not subclasses of {@link BaseTabbedTool}
+   * @return Delegates to the BaseTool class
+   */
+  @Override
+  public @Nullable ContentManager getContentManager() {
+    return super.getContentManager();
   }
 
   public void closeTab(JComponent component) {
@@ -154,11 +161,6 @@ public abstract class BaseTabbedProjectTool extends BaseProjectTool {
       }
     });
     myContentRemovedListenerAdded = true;
-  }
-
-  @Override
-  protected void createTool(boolean early) {
-    /* no-op */
   }
 
   @Override

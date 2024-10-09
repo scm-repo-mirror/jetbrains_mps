@@ -15,8 +15,6 @@
  */
 package jetbrains.mps.ide.bookmark;
 
-import com.intellij.icons.AllIcons;
-import com.intellij.icons.AllIcons.Toolwindows;
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.PersistentStateComponent;
@@ -26,19 +24,16 @@ import com.intellij.openapi.components.StoragePathMacros;
 import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
-import com.intellij.openapi.wm.ToolWindowAnchor;
 import com.intellij.openapi.wm.ToolWindowFactory;
 import com.intellij.openapi.wm.ToolWindowManager;
 import com.intellij.ui.ScrollPaneFactory;
 import com.intellij.ui.content.Content;
 import com.intellij.ui.content.ContentManager;
 import jetbrains.mps.ide.project.ProjectHelper;
-import jetbrains.mps.ide.tools.BaseProjectTool;
 import jetbrains.mps.ide.ui.tree.MPSTree;
 import jetbrains.mps.ide.ui.tree.MPSTree.TreeState;
 import org.jetbrains.annotations.NotNull;
 
-import javax.swing.JComponent;
 import javax.swing.JScrollPane;
 
 @State(

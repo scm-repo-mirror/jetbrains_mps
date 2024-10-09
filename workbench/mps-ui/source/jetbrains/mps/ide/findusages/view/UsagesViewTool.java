@@ -34,11 +34,9 @@ import com.intellij.openapi.progress.PerformInBackgroundOption;
 import com.intellij.openapi.progress.ProgressIndicator;
 import com.intellij.openapi.progress.Task.Backgroundable;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.startup.StartupManager;
 import com.intellij.openapi.ui.MessageType;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowAnchor;
-import com.intellij.openapi.wm.ToolWindowEP;
 import com.intellij.openapi.wm.ToolWindowManager;
 import jetbrains.mps.ide.ThreadUtils;
 import jetbrains.mps.ide.actions.MPSActions;
@@ -56,9 +54,7 @@ import jetbrains.mps.ide.findusages.view.treeholder.tree.DataTreeChangesNotifier
 import jetbrains.mps.ide.findusages.view.treeholder.treeview.INodeRepresentator;
 import jetbrains.mps.ide.findusages.view.treeholder.treeview.ViewOptions;
 import jetbrains.mps.ide.project.ProjectHelper;
-import jetbrains.mps.ide.tools.BaseTabbedProjectServiceTool;
-import jetbrains.mps.ide.tools.BaseTabbedProjectTool;
-import jetbrains.mps.ide.util.MPSProjectActivity;
+import jetbrains.mps.ide.tools.BaseTabbedTool;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
 import jetbrains.mps.progress.ProgressMonitorAdapter;
@@ -80,7 +76,7 @@ import java.util.List;
     storages = @Storage(StoragePathMacros.WORKSPACE_FILE)
 )
 @Service(Service.Level.PROJECT)
-public final class UsagesViewTool extends BaseTabbedProjectServiceTool implements PersistentStateComponent<Element> {
+public final class UsagesViewTool extends BaseTabbedTool implements PersistentStateComponent<Element> {
 
   private static final String VERSION_NUMBER = "1";
   private static final String VERSION = "version";
