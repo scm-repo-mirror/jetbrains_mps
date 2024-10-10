@@ -89,6 +89,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_PropertyMessageTarget;
   private ConceptPresentation props_PropertyNameTarget;
   private ConceptPresentation props_PropertyPatternVariableReference;
+  private ConceptPresentation props_QuickFixApplicableBlock;
   private ConceptPresentation props_QuickFixArgument;
   private ConceptPresentation props_QuickFixArgumentReference;
   private ConceptPresentation props_QuickFixDescriptionBlock;
@@ -701,6 +702,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_PropertyPatternVariableReference = cpb.create();
         }
         return props_PropertyPatternVariableReference;
+      case LanguageConceptSwitch.QuickFixApplicableBlock:
+        if (props_QuickFixApplicableBlock == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("applicable");
+          props_QuickFixApplicableBlock = cpb.create();
+        }
+        return props_QuickFixApplicableBlock;
       case LanguageConceptSwitch.QuickFixArgument:
         if (props_QuickFixArgument == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
