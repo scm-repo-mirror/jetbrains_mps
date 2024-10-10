@@ -71,6 +71,7 @@ public class ProjectCreationTest implements EnvironmentAware {
   private static final List<String> PROJECT_PROPERTIES_DIR_CONTENT = Arrays.asList(
       PROJECT_PROPERTIES_DIR + "/modules.xml",
       PROJECT_PROPERTIES_DIR + "/workspace.xml",
+      PROJECT_PROPERTIES_DIR + "/product-workspace.xml",
       PROJECT_PROPERTIES_DIR + "/migration.xml");
 
   private static final List<String> EMPTY_PROJECT_PATH_LIST_FB = Arrays.asList(
