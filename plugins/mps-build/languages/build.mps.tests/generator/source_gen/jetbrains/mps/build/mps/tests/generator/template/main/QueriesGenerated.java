@@ -91,10 +91,7 @@ public class QueriesGenerated extends QueryProviderBase {
     if (reportsDir != null) {
       return BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(reportsDir);
     }
-
-    // the value "build.tmp" is hardcoded in the gen template for BuildProject
-    // as the name of a "location macro" in the target BwfProject
-    return _context.getTemplateValue();
+    return ".";
   }
   public static Object propertyMacro_GetValue_0_4(final PropertyMacroContext _context) {
     if ((SLinkOperations.getTarget(_context.getNode(), LINKS.options$gctq) == null) || (SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), LINKS.options$gctq), LINKS.openTestReport$U4gB) == null)) {
@@ -133,18 +130,27 @@ public class QueriesGenerated extends QueryProviderBase {
     return _context.getTemplateValue();
   }
   public static Object propertyMacro_GetValue_0_13(final PropertyMacroContext _context) {
-    // the value "build.tmp" is hardcoded in the gen template for BuildProject
-    // as the name of a "location macro" in the target BwfProject
-    return _context.getTemplateValue();
+    SNode reportsDir = SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), LINKS.options$gctq), LINKS.reportsDir$43Sq);
+    if (reportsDir != null) {
+      return BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(reportsDir);
+    }
+    return ".";
   }
   public static Object propertyMacro_GetValue_0_14(final PropertyMacroContext _context) {
+    SNode reportsDir = SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), LINKS.options$gctq), LINKS.reportsDir$43Sq);
+    if (reportsDir != null) {
+      return BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(reportsDir);
+    }
+    return ".";
+  }
+  public static Object propertyMacro_GetValue_0_15(final PropertyMacroContext _context) {
     SNode project = SNodeOperations.cast(SNodeOperations.getContainingRoot(_context.getNode()), CONCEPTS.BuildProject$ae);
     if (project == null) {
       return _context.getTemplateValue();
     }
     return "*-" + SPropertyOperations.getString(project, PROPS.name$MnvL) + ".xml";
   }
-  public static Object propertyMacro_GetValue_0_15(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_0_16(final PropertyMacroContext _context) {
     return _context.getTemplateValue() + "." + SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL);
   }
   public static Object referenceMacro_GetReferent_0_0(final ReferenceMacroContext _context) {
@@ -309,6 +315,7 @@ public class QueriesGenerated extends QueryProviderBase {
     pvqMethods.put("149846544984625625", new PVQ(i++, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"), "mps.macro"));
     pvqMethods.put("149846544985221019", new PVQ(i++, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"), "mps.macro.value"));
     pvqMethods.put("881291017016005252", new PVQ(i++, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"), "${basedir}"));
+    pvqMethods.put("8658160622856544027", new PVQ(i++, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"), "${build.tmp}"));
     pvqMethods.put("5528547093808122703", new PVQ(i++, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"), "${build.tmp}"));
     pvqMethods.put("5528547093811329864", new PVQ(i++, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"), "*-name.xml"));
     pvqMethods.put("4005526075832899341", new PVQ(i++, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "test"));
@@ -360,6 +367,8 @@ public class QueriesGenerated extends QueryProviderBase {
           return QueriesGenerated.propertyMacro_GetValue_0_14(ctx);
         case 15:
           return QueriesGenerated.propertyMacro_GetValue_0_15(ctx);
+        case 16:
+          return QueriesGenerated.propertyMacro_GetValue_0_16(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
