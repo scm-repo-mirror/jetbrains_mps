@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2024 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,15 +20,14 @@ import com.intellij.openapi.project.Project;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.project.MPSProject;
+import jetbrains.mps.smodel.RepoListenerRegistrar;
 import jetbrains.mps.vfs.VFSManager;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * todo module tracking
  */
 public final class ModelTracking implements Disposable {
   private final ModelStorageConflictsListener myConflictsListener;
-  private final ModelStorageProblemsListener myProblemsListener;
   private final MPSProject myProject;
 
   public ModelTracking(Project ideaProject) {
@@ -39,26 +38,11 @@ public final class ModelTracking implements Disposable {
     myConflictsListener = new ModelStorageConflictsListener(myProject,
                                                             coreComponents.getPersistenceFacade(),
                                                             coreComponents.getPlatform().findComponent(VFSManager.class));
-    myProblemsListener = new ModelStorageProblemsListener(myProject);
-    attachListeners();
-  }
-
-  private void runRead(Runnable runnable) {
-    myProject.getRepository().getModelAccess().runReadAction(runnable);
+    new RepoListenerRegistrar(myProject.getRepository(), myConflictsListener).attach();
   }
 
   @Override
   public void dispose() {
-    detachListeners();
-  }
-
-  private void attachListeners() {
-    runRead(() -> myProject.getRepository().addRepositoryListener(myProblemsListener));
-    runRead(() -> myProject.getRepository().addRepositoryListener(myConflictsListener));
-  }
-
-  private void detachListeners() {
-    runRead(() -> myProject.getRepository().removeRepositoryListener(myConflictsListener));
-    runRead(() -> myProject.getRepository().removeRepositoryListener(myProblemsListener));
+    new RepoListenerRegistrar(myProject.getRepository(), myConflictsListener).detach();
   }
 }

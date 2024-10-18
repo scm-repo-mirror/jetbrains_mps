@@ -47,7 +47,7 @@ public final class ModelStorageProblemsListener extends SRepositoryContentAdapte
   private volatile SModelReference myLastModel;
 
 
-  /*package*/ ModelStorageProblemsListener(@NotNull MPSProject project) {
+  public ModelStorageProblemsListener(@NotNull MPSProject project) {
     myProject = project;
   }
 
