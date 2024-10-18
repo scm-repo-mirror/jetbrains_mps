@@ -16,6 +16,7 @@
 package jetbrains.mps.ide.bookmark;
 
 import com.intellij.ide.bookmarks.Bookmark;
+import com.intellij.openapi.Disposable;
 import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.ProjectComponent;
 import com.intellij.openapi.components.State;
@@ -32,8 +33,10 @@ import com.intellij.util.PlatformIcons;
 import com.intellij.util.ui.JBCachingScalableIcon;
 import jetbrains.mps.ide.bookmark.BookmarkManager.MyState;
 import jetbrains.mps.ide.project.ProjectHelper;
+import jetbrains.mps.ide.util.MPSProjectActivity;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.nodeEditor.Highlighter;
+import jetbrains.mps.nodeEditor.HighlighterContribution;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.util.Pair;
@@ -67,7 +70,7 @@ import static java.lang.Math.ceil;
     name = "MPSBookmarkManager",
     storages = @Storage(StoragePathMacros.WORKSPACE_FILE)
 )
-public class BookmarkManager implements ProjectComponent, PersistentStateComponent<MyState> {
+public class BookmarkManager implements PersistentStateComponent<MyState>, HighlighterContribution {
   private static final Logger LOG = Logger.getLogger(BookmarkManager.class);
 
   private static final Icon DEFAULT_ICON = new MyCheckedIcon();
@@ -79,7 +82,6 @@ public class BookmarkManager implements ProjectComponent, PersistentStateCompone
   private final List<SNodeReference> myUnnumberedBookmarks = new ArrayList<>();
 
   private final MPSProject myProject;
-  private Highlighter myHighlighter;
   private BookmarksHighlighter myChecker;
 
   public static BookmarkManager getInstance(Project ideaProject) {
@@ -91,18 +93,15 @@ public class BookmarkManager implements ProjectComponent, PersistentStateCompone
   }
 
   @Override
-  public void projectOpened() {
-    // There's a new extpoint to contriute checkers, see HighlighterContribution, use it!
-    myHighlighter = Highlighter.getInstance(myProject);
+  public void install(@NotNull Highlighter highlighter) {
     myChecker = new BookmarksHighlighter(this);
-    myHighlighter.addChecker(myChecker);
+    highlighter.addChecker(myChecker);
   }
 
   @Override
-  public void projectClosed() {
-    myHighlighter.removeChecker(myChecker);
+  public void uninstall(@NotNull Highlighter highlighter) {
+    highlighter.removeChecker(myChecker);
     myChecker.dispose();
-    myHighlighter = null;
   }
 
   /**

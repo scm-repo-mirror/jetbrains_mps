@@ -71,6 +71,7 @@
                     serviceImplementation="jetbrains.mps.project.MissionControl$Impl"
                     testServiceImplementation="jetbrains.mps.project.MissionControl$TestImpl"/>
     <projectService serviceImplementation="jetbrains.mps.ide.bookmark.BookmarksTool" /> <!-- in use from toolWindow extension, below -->
+    <projectService serviceImplementation="jetbrains.mps.ide.bookmark.BookmarkManager" /> <!-- in use from toolWindow extension, below -->
     <applicationService serviceInterface="jetbrains.mps.ide.platform.watching.FileSystemListenersContainer"
                         serviceImplementation="jetbrains.mps.ide.vfs.WatchingFileSystemListenersContainer" />
     <applicationService serviceImplementation="jetbrains.mps.ide.generator.TransientSwapOwnerComponent" />
@@ -101,6 +102,7 @@
   <extensions defaultExtensionNs="jetbrains.mps">
     <NodeEditorFactory implementation="jetbrains.mps.workbench.editors.TabsMPSEditorFactory"/>
     <nodeStructureViewProvider implementation="jetbrains.mps.workbench.structureview.NodeStructureViewProviderImpl"/>
+    <editor.highlighter.contributor implementation="jetbrains.mps.ide.bookmark.BookmarkManager"/>
   </extensions>
 
   <applicationListeners>
