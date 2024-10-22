@@ -40,6 +40,7 @@ import org.jetbrains.mps.openapi.module.SModule;
 
 import java.util.Collection;
 import java.util.Objects;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 /**
@@ -126,8 +127,12 @@ public abstract class TopHierarchyProjectViewNode<Value> extends BranchProjectVi
                                                              (m) -> m instanceof Language ||
                                                                     (m instanceof Generator && ((Generator)m).getModuleDescriptor().isStandaloneModule()),
                                                              null);
+      ConditionalScope languagesAndGeneratorsScope = new ConditionalScope(visibleScope,
+                                                             (m) -> m instanceof Language || m instanceof Generator,
+                                                             null);
       children.add(new ModulesPoolFolderProjectViewNode(getProject(), new LanguagesModulesPool(), getSettings(), 1,
-                                                        () -> IterableUtil.asList(languagesScope.getModules())));
+                                                        () -> IterableUtil.asList(languagesScope.getModules()),
+                                                        () -> IterableUtil.asList(languagesAndGeneratorsScope.getModules())));
 
       ConditionalScope devkitsScope = new ConditionalScope(visibleScope, DevKit.class::isInstance, null);
       children.add(new ModulesPoolFolderProjectViewNode(getProject(), new DevKitsModulesPool(), getSettings(), 2,
@@ -152,11 +157,23 @@ public abstract class TopHierarchyProjectViewNode<Value> extends BranchProjectVi
 
     private final int myOrdinal;
     private final Supplier<Collection<SModule>> myModulesSupplier;
+    private Predicate<SModule> myContainsCondition;
 
     protected ModulesPoolFolderProjectViewNode(@NotNull Project project, VirtualFolder virtualFolder, ViewSettings viewSettings, int ordinal, Supplier<Collection<SModule>> modulesSupplier) {
       super(project, virtualFolder, viewSettings);
       myOrdinal = ordinal;
       myModulesSupplier = modulesSupplier;
+      myContainsCondition = (m) -> myModulesSupplier.get().contains(m);
+    }
+
+    protected ModulesPoolFolderProjectViewNode(@NotNull Project project,
+                                               VirtualFolder virtualFolder,
+                                               ViewSettings viewSettings,
+                                               int ordinal,
+                                               Supplier<Collection<SModule>> modulesSupplier,
+                                               Supplier<Collection<SModule>> allModulesSupplier) {
+      this(project, virtualFolder, viewSettings, ordinal, modulesSupplier);
+      myContainsCondition = (m) -> allModulesSupplier.get().contains(m);
     }
 
     @Override
@@ -167,7 +184,7 @@ public abstract class TopHierarchyProjectViewNode<Value> extends BranchProjectVi
     private Boolean containsSModule(SModule sModule) {
       MPSProject mpsProject = ProjectHelper.fromIdeaProject(getProject());
       return mpsProject.getModelAccess().computeReadAction(() ->
-                myModulesSupplier.get().contains(sModule) && !mpsProject.isProjectModule(sModule));
+                myContainsCondition.test(sModule) && !mpsProject.isProjectModule(sModule));
     }
 
     @Override
