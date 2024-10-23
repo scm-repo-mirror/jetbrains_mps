@@ -1003,6 +1003,9 @@
       <concept id="4693937538533521280" name="jetbrains.mps.lang.smodel.structure.OfConceptOperation" flags="ng" index="v3k3i">
         <child id="4693937538533538124" name="requestedConcept" index="v3oSu" />
       </concept>
+      <concept id="4065387505485742749" name="jetbrains.mps.lang.smodel.structure.AbstractPointerResolveOperation" flags="ng" index="2yCiFS">
+        <child id="3648723375513868575" name="repositoryArg" index="Vysub" />
+      </concept>
       <concept id="7453996997717780434" name="jetbrains.mps.lang.smodel.structure.Node_GetSConceptOperation" flags="nn" index="2yIwOk" />
       <concept id="8758390115029295477" name="jetbrains.mps.lang.smodel.structure.SReferenceType" flags="in" index="2z4iKi" />
       <concept id="1138757581985" name="jetbrains.mps.lang.smodel.structure.Link_SetNewChildOperation" flags="nn" index="zfrQC">
@@ -1046,6 +1049,7 @@
         <child id="1145567471833" name="createdType" index="2T96Bj" />
       </concept>
       <concept id="1145573345940" name="jetbrains.mps.lang.smodel.structure.Node_GetAllSiblingsOperation" flags="nn" index="2TvwIu" />
+      <concept id="3648723375513868532" name="jetbrains.mps.lang.smodel.structure.NodePointer_ResolveOperation" flags="ng" index="Vyspw" />
       <concept id="1139184414036" name="jetbrains.mps.lang.smodel.structure.LinkList_AddNewChildOperation" flags="nn" index="WFELt">
         <reference id="1139877738879" name="concept" index="1A0vxQ" />
       </concept>
@@ -61898,15 +61902,93 @@
               </node>
             </node>
           </node>
-          <node concept="3clFbF" id="1wEcoXjIH51" role="3cqZAp">
-            <node concept="2c44tf" id="1wEcoXjIH52" role="3clFbG">
-              <node concept="2OqwBi" id="1wEcoXjIH53" role="2c44tc">
-                <node concept="10M0yZ" id="1wEcoXjIH54" role="2Oq$k0">
-                  <ref role="1PxDUh" to="wyt6:~System" resolve="System" />
-                  <ref role="3cqZAo" to="wyt6:~System.out" resolve="out" />
+          <node concept="3clFbF" id="1vZ$eE56LpV" role="3cqZAp">
+            <node concept="2pJPEk" id="1vZ$eE56LpR" role="3clFbG">
+              <node concept="2pJPED" id="1vZ$eE4StTG" role="2pJPEn">
+                <ref role="2pJxaS" to="tpee:hqOqwz4" resolve="DotExpression" />
+                <node concept="2pIpSj" id="1vZ$eE4SuxC" role="2pJxcM">
+                  <ref role="2pIpSl" to="tpee:hqOq$gm" />
+                  <node concept="2pJPED" id="1vZ$eE4SuKC" role="28nt2d">
+                    <ref role="2pJxaS" to="tpee:f_0M0x6" resolve="StaticFieldReference" />
+                    <node concept="2pIpSj" id="1vZ$eE4Svbe" role="2pJxcM">
+                      <ref role="2pIpSl" to="tpee:gDPxDYr" />
+                      <node concept="36biLy" id="1vZ$eE4Svp9" role="28nt2d">
+                        <node concept="2OqwBi" id="1vZ$eE4SwsI" role="36biLW">
+                          <node concept="2tJFMh" id="1vZ$eE4SvB3" role="2Oq$k0">
+                            <node concept="ZC_QK" id="1vZ$eE4SvRA" role="2tJFKM">
+                              <ref role="2aWVGs" to="wyt6:~System" resolve="System" />
+                            </node>
+                          </node>
+                          <node concept="Vyspw" id="1vZ$eE4SxUG" role="2OqNvi">
+                            <node concept="2OqwBi" id="1vZ$eE4Szag" role="Vysub">
+                              <node concept="2JrnkZ" id="1vZ$eE4Sz2a" role="2Oq$k0">
+                                <node concept="1rpKSd" id="1vZ$eE4SyHk" role="2JrQYb" />
+                              </node>
+                              <node concept="liA8E" id="1vZ$eE4SzqZ" role="2OqNvi">
+                                <ref role="37wK5l" to="mhbf:~SModel.getRepository()" resolve="getRepository" />
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="2pIpSj" id="1vZ$eE4SzTP" role="2pJxcM">
+                      <ref role="2pIpSl" to="tpee:f_2Pw7K" />
+                      <node concept="36biLy" id="1vZ$eE4S$9n" role="28nt2d">
+                        <node concept="2OqwBi" id="1vZ$eE4S$pX" role="36biLW">
+                          <node concept="2tJFMh" id="1vZ$eE4S$pY" role="2Oq$k0">
+                            <node concept="ZC_QK" id="1vZ$eE4S$pZ" role="2tJFKM">
+                              <ref role="2aWVGs" to="wyt6:~System" resolve="System" />
+                              <node concept="ZC_QK" id="1vZ$eE4S$Gl" role="2aWVGa">
+                                <ref role="2aWVGs" to="wyt6:~System.out" resolve="out" />
+                              </node>
+                            </node>
+                          </node>
+                          <node concept="Vyspw" id="1vZ$eE4S$q0" role="2OqNvi">
+                            <node concept="2OqwBi" id="1vZ$eE4S$q1" role="Vysub">
+                              <node concept="2JrnkZ" id="1vZ$eE4S$q2" role="2Oq$k0">
+                                <node concept="1rpKSd" id="1vZ$eE4S$q3" role="2JrQYb" />
+                              </node>
+                              <node concept="liA8E" id="1vZ$eE4S$q4" role="2OqNvi">
+                                <ref role="37wK5l" to="mhbf:~SModel.getRepository()" resolve="getRepository" />
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
                 </node>
-                <node concept="liA8E" id="1wEcoXjIH55" role="2OqNvi">
-                  <ref role="37wK5l" to="guwi:~PrintStream.println()" resolve="println" />
+                <node concept="2pIpSj" id="1vZ$eE4S_du" role="2pJxcM">
+                  <ref role="2pIpSl" to="tpee:hqOqNr4" />
+                  <node concept="2pJPED" id="1vZ$eE520F1" role="28nt2d">
+                    <ref role="2pJxaS" to="tpee:hwliAcM" resolve="InstanceMethodCallOperation" />
+                    <node concept="2pIpSj" id="1vZ$eE521ql" role="2pJxcM">
+                      <ref role="2pIpSl" to="tpee:hwllgre" />
+                      <node concept="36biLy" id="1vZ$eE521$N" role="28nt2d">
+                        <node concept="2OqwBi" id="1vZ$eE521$O" role="36biLW">
+                          <node concept="2tJFMh" id="1vZ$eE521$P" role="2Oq$k0">
+                            <node concept="ZC_QK" id="1vZ$eE521$Q" role="2tJFKM">
+                              <ref role="2aWVGs" to="guwi:~PrintStream" resolve="PrintStream" />
+                              <node concept="ZC_QK" id="1vZ$eE521$R" role="2aWVGa">
+                                <ref role="2aWVGs" to="guwi:~PrintStream.println()" resolve="println" />
+                              </node>
+                            </node>
+                          </node>
+                          <node concept="Vyspw" id="1vZ$eE521$S" role="2OqNvi">
+                            <node concept="2OqwBi" id="1vZ$eE521$T" role="Vysub">
+                              <node concept="2JrnkZ" id="1vZ$eE521$U" role="2Oq$k0">
+                                <node concept="1rpKSd" id="1vZ$eE521$V" role="2JrQYb" />
+                              </node>
+                              <node concept="liA8E" id="1vZ$eE521$W" role="2OqNvi">
+                                <ref role="37wK5l" to="mhbf:~SModel.getRepository()" resolve="getRepository" />
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
                 </node>
               </node>
             </node>
@@ -61982,15 +62064,93 @@
               </node>
             </node>
           </node>
-          <node concept="3clFbF" id="1wEcoXjIH6T" role="3cqZAp">
-            <node concept="2c44tf" id="1wEcoXjIH6U" role="3clFbG">
-              <node concept="2OqwBi" id="1wEcoXjIH6V" role="2c44tc">
-                <node concept="10M0yZ" id="1wEcoXjIH6W" role="2Oq$k0">
-                  <ref role="1PxDUh" to="wyt6:~System" resolve="System" />
-                  <ref role="3cqZAo" to="wyt6:~System.err" resolve="err" />
+          <node concept="3clFbF" id="1vZ$eE56LMS" role="3cqZAp">
+            <node concept="2pJPEk" id="1vZ$eE56LMT" role="3clFbG">
+              <node concept="2pJPED" id="1vZ$eE56LMU" role="2pJPEn">
+                <ref role="2pJxaS" to="tpee:hqOqwz4" resolve="DotExpression" />
+                <node concept="2pIpSj" id="1vZ$eE56LMV" role="2pJxcM">
+                  <ref role="2pIpSl" to="tpee:hqOq$gm" />
+                  <node concept="2pJPED" id="1vZ$eE56LMW" role="28nt2d">
+                    <ref role="2pJxaS" to="tpee:f_0M0x6" resolve="StaticFieldReference" />
+                    <node concept="2pIpSj" id="1vZ$eE56LMX" role="2pJxcM">
+                      <ref role="2pIpSl" to="tpee:gDPxDYr" />
+                      <node concept="36biLy" id="1vZ$eE56LMY" role="28nt2d">
+                        <node concept="2OqwBi" id="1vZ$eE56LMZ" role="36biLW">
+                          <node concept="2tJFMh" id="1vZ$eE56LN0" role="2Oq$k0">
+                            <node concept="ZC_QK" id="1vZ$eE56LN1" role="2tJFKM">
+                              <ref role="2aWVGs" to="wyt6:~System" resolve="System" />
+                            </node>
+                          </node>
+                          <node concept="Vyspw" id="1vZ$eE56LN2" role="2OqNvi">
+                            <node concept="2OqwBi" id="1vZ$eE56LN3" role="Vysub">
+                              <node concept="2JrnkZ" id="1vZ$eE56LN4" role="2Oq$k0">
+                                <node concept="1rpKSd" id="1vZ$eE56LN5" role="2JrQYb" />
+                              </node>
+                              <node concept="liA8E" id="1vZ$eE56LN6" role="2OqNvi">
+                                <ref role="37wK5l" to="mhbf:~SModel.getRepository()" resolve="getRepository" />
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="2pIpSj" id="1vZ$eE56LN7" role="2pJxcM">
+                      <ref role="2pIpSl" to="tpee:f_2Pw7K" />
+                      <node concept="36biLy" id="1vZ$eE56LN8" role="28nt2d">
+                        <node concept="2OqwBi" id="1vZ$eE56LN9" role="36biLW">
+                          <node concept="2tJFMh" id="1vZ$eE56LNa" role="2Oq$k0">
+                            <node concept="ZC_QK" id="1vZ$eE56LNb" role="2tJFKM">
+                              <ref role="2aWVGs" to="wyt6:~System" resolve="System" />
+                              <node concept="ZC_QK" id="1vZ$eE56LNc" role="2aWVGa">
+                                <ref role="2aWVGs" to="wyt6:~System.err" resolve="err" />
+                              </node>
+                            </node>
+                          </node>
+                          <node concept="Vyspw" id="1vZ$eE56LNd" role="2OqNvi">
+                            <node concept="2OqwBi" id="1vZ$eE56LNe" role="Vysub">
+                              <node concept="2JrnkZ" id="1vZ$eE56LNf" role="2Oq$k0">
+                                <node concept="1rpKSd" id="1vZ$eE56LNg" role="2JrQYb" />
+                              </node>
+                              <node concept="liA8E" id="1vZ$eE56LNh" role="2OqNvi">
+                                <ref role="37wK5l" to="mhbf:~SModel.getRepository()" resolve="getRepository" />
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
                 </node>
-                <node concept="liA8E" id="1wEcoXjIH6X" role="2OqNvi">
-                  <ref role="37wK5l" to="guwi:~PrintStream.println()" resolve="println" />
+                <node concept="2pIpSj" id="1vZ$eE56LNi" role="2pJxcM">
+                  <ref role="2pIpSl" to="tpee:hqOqNr4" />
+                  <node concept="2pJPED" id="1vZ$eE56LNj" role="28nt2d">
+                    <ref role="2pJxaS" to="tpee:hwliAcM" resolve="InstanceMethodCallOperation" />
+                    <node concept="2pIpSj" id="1vZ$eE56LNk" role="2pJxcM">
+                      <ref role="2pIpSl" to="tpee:hwllgre" />
+                      <node concept="36biLy" id="1vZ$eE56LNl" role="28nt2d">
+                        <node concept="2OqwBi" id="1vZ$eE56LNm" role="36biLW">
+                          <node concept="2tJFMh" id="1vZ$eE56LNn" role="2Oq$k0">
+                            <node concept="ZC_QK" id="1vZ$eE56LNo" role="2tJFKM">
+                              <ref role="2aWVGs" to="guwi:~PrintStream" resolve="PrintStream" />
+                              <node concept="ZC_QK" id="1vZ$eE56LNp" role="2aWVGa">
+                                <ref role="2aWVGs" to="guwi:~PrintStream.println()" resolve="println" />
+                              </node>
+                            </node>
+                          </node>
+                          <node concept="Vyspw" id="1vZ$eE56LNq" role="2OqNvi">
+                            <node concept="2OqwBi" id="1vZ$eE56LNr" role="Vysub">
+                              <node concept="2JrnkZ" id="1vZ$eE56LNs" role="2Oq$k0">
+                                <node concept="1rpKSd" id="1vZ$eE56LNt" role="2JrQYb" />
+                              </node>
+                              <node concept="liA8E" id="1vZ$eE56LNu" role="2OqNvi">
+                                <ref role="37wK5l" to="mhbf:~SModel.getRepository()" resolve="getRepository" />
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
                 </node>
               </node>
             </node>
