@@ -185,6 +185,9 @@
         <node concept="Xl_RD" id="1$mDfZ_F$0x" role="2BsfMF">
           <property role="Xl_RC" value="jdk.jdi/com.sun.tools.jdi" />
         </node>
+        <node concept="Xl_RD" id="1DGmarS1Qn8" role="2BsfMF">
+          <property role="Xl_RC" value="java.management/sun.management" />
+        </node>
       </node>
       <node concept="3Tm6S6" id="2_gL36cK3YM" role="1B3o_S" />
     </node>

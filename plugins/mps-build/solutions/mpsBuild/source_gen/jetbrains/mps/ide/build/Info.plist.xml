@@ -134,6 +134,7 @@
         <string>--add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</string>
         <string>--add-opens=jdk.internal.jvmstat/sun.jvmstat.monitor=ALL-UNNAMED</string>
         <string>--add-opens=jdk.jdi/com.sun.tools.jdi=ALL-UNNAMED</string>
+        <string>--add-opens=java.management/sun.management=ALL-UNNAMED</string>
         <string>--add-opens=java.desktop/sun.lwawt=ALL-UNNAMED</string>
         <string>--add-opens=java.desktop/sun.lwawt.macosx=ALL-UNNAMED</string>
         <string>--add-opens=java.desktop/com.apple.laf=ALL-UNNAMED</string>
