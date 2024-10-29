@@ -10564,12 +10564,39 @@
         </node>
       </node>
       <node concept="3clFbS" id="2bnH$y1buKQ" role="3clF47">
-        <node concept="3clFbF" id="2bnH$y1Bgwq" role="3cqZAp">
-          <node concept="2OqwBi" id="2bnH$y1ByDH" role="3clFbG">
-            <node concept="Xjq3P" id="2bnH$y1Bgwp" role="2Oq$k0" />
-            <node concept="liA8E" id="2bnH$y1C8x9" role="2OqNvi">
-              <ref role="37wK5l" node="2uw4EeWXxY_" resolve="reversedList" />
+        <node concept="3cpWs8" id="6_9DTAAji32" role="3cqZAp">
+          <node concept="3cpWsn" id="6_9DTAAji33" role="3cpWs9">
+            <property role="TrG5h" value="reversed" />
+            <node concept="3uibUv" id="6_9DTAAji34" role="1tU5fm">
+              <ref role="3uigEE" node="5Ffu4tBUyzx" resolve="LinkedListSequence" />
+              <node concept="16syzq" id="6_9DTAAji35" role="11_B2D">
+                <ref role="16sUi3" node="5Ffu4tBUyzz" resolve="T" />
+              </node>
             </node>
+            <node concept="2ShNRf" id="6_9DTAAji36" role="33vP2m">
+              <node concept="1pGfFk" id="6_9DTAAji37" role="2ShVmc">
+                <ref role="37wK5l" node="2uw4EeX3TG2" />
+                <node concept="16syzq" id="6_9DTAAji38" role="1pMfVU">
+                  <ref role="16sUi3" node="5Ffu4tBUyzz" resolve="T" />
+                </node>
+                <node concept="Xjq3P" id="6_9DTAAji39" role="37wK5m" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="6_9DTAAji3a" role="3cqZAp">
+          <node concept="2OqwBi" id="6_9DTAAji3b" role="3clFbG">
+            <node concept="37vLTw" id="6_9DTAAji3c" role="2Oq$k0">
+              <ref role="3cqZAo" node="6_9DTAAji33" resolve="reversed" />
+            </node>
+            <node concept="liA8E" id="6_9DTAAji3d" role="2OqNvi">
+              <ref role="37wK5l" node="6PIyug_WjtA" resolve="_reverse" />
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs6" id="6_9DTAAji3e" role="3cqZAp">
+          <node concept="37vLTw" id="6_9DTAAji3f" role="3cqZAk">
+            <ref role="3cqZAo" node="6_9DTAAji33" resolve="reversed" />
           </node>
         </node>
       </node>
