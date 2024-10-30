@@ -28634,6 +28634,13 @@
                   </node>
                 </node>
               </node>
+              <node concept="28jJK3" id="2YQC3bFlEZL" role="39821P">
+                <node concept="55IIr" id="2YQC3bFlEZN" role="28jJRO">
+                  <node concept="2Ry0Ak" id="2YQC3bFlF0U" role="iGT6I">
+                    <property role="2Ry0Am" value="product-info.json" />
+                  </node>
+                </node>
+              </node>
             </node>
             <node concept="398223" id="6xv$4WsFwyT" role="39821P">
               <node concept="3_J27D" id="6xv$4WsFwyU" role="Nbhlr">
@@ -28643,13 +28650,21 @@
               </node>
               <node concept="28jJK3" id="2lgcjg39YuN" role="39821P">
                 <property role="28jJZ5" value="755" />
+                <node concept="2$gBol" id="2YQC3bF5d2r" role="28jJR8">
+                  <property role="2$htvj" value="*" />
+                  <node concept="NbPM2" id="2YQC3bF5d2t" role="2$htvi">
+                    <node concept="3Mxwew" id="2YQC3bF5dfR" role="3MwsjC">
+                      <property role="3MwjfP" value="mps" />
+                    </node>
+                  </node>
+                </node>
                 <node concept="55IIr" id="2lgcjg39YuP" role="28jJRO">
                   <node concept="2Ry0Ak" id="2lgcjg39YuQ" role="iGT6I">
                     <property role="2Ry0Am" value="build" />
                     <node concept="2Ry0Ak" id="2lgcjg39YuR" role="2Ry0An">
                       <property role="2Ry0Am" value="resources" />
-                      <node concept="2Ry0Ak" id="2lgcjg39YuS" role="2Ry0An">
-                        <property role="2Ry0Am" value="mps" />
+                      <node concept="2Ry0Ak" id="2YQC3bF5d1Q" role="2Ry0An">
+                        <property role="2Ry0Am" value="mps-x64" />
                       </node>
                     </node>
                   </node>
@@ -28923,6 +28938,15 @@
                   </node>
                 </node>
               </node>
+              <node concept="1688n2" id="2YQC3bF4IXE" role="28jJR8">
+                <property role="1688n3" value="\$platform\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="2YQC3bF4IXF" role="1688n0">
+                  <node concept="3Mxwew" id="2YQC3bF4IY$" role="3MwsjC">
+                    <property role="3MwjfP" value="x86_64" />
+                  </node>
+                </node>
+              </node>
               <node concept="3co7Ac" id="6xv$4WsFwzh" role="28jJR8">
                 <property role="3co7Am" value="lf" />
                 <property role="3cpA_W" value="true" />
@@ -29012,6 +29036,13 @@
                   </node>
                 </node>
               </node>
+              <node concept="28jJK3" id="2YQC3bFlF2e" role="39821P">
+                <node concept="55IIr" id="2YQC3bFlF2f" role="28jJRO">
+                  <node concept="2Ry0Ak" id="2YQC3bFlF2g" role="iGT6I">
+                    <property role="2Ry0Am" value="product-info.json" />
+                  </node>
+                </node>
+              </node>
             </node>
             <node concept="398223" id="1dONgcPskHJ" role="39821P">
               <node concept="3_J27D" id="1dONgcPskHK" role="Nbhlr">
@@ -29021,13 +29052,21 @@
               </node>
               <node concept="28jJK3" id="1dONgcPskHM" role="39821P">
                 <property role="28jJZ5" value="755" />
+                <node concept="2$gBol" id="2YQC3bF5dgL" role="28jJR8">
+                  <property role="2$htvj" value="*" />
+                  <node concept="NbPM2" id="2YQC3bF5dgN" role="2$htvi">
+                    <node concept="3Mxwew" id="2YQC3bF5dhb" role="3MwsjC">
+                      <property role="3MwjfP" value="mps" />
+                    </node>
+                  </node>
+                </node>
                 <node concept="55IIr" id="1dONgcPskHN" role="28jJRO">
                   <node concept="2Ry0Ak" id="1dONgcPskHO" role="iGT6I">
                     <property role="2Ry0Am" value="build" />
                     <node concept="2Ry0Ak" id="1dONgcPskHP" role="2Ry0An">
                       <property role="2Ry0Am" value="resources" />
-                      <node concept="2Ry0Ak" id="1dONgcPskHQ" role="2Ry0An">
-                        <property role="2Ry0Am" value="mps" />
+                      <node concept="2Ry0Ak" id="2YQC3bF5dgp" role="2Ry0An">
+                        <property role="2Ry0Am" value="mps-aarch64" />
                       </node>
                     </node>
                   </node>
@@ -29298,6 +29337,15 @@
                 <node concept="NbPM2" id="1dONgcPskJ6" role="1688n0">
                   <node concept="3Mxwey" id="1dONgcPskJ7" role="3MwsjC">
                     <ref role="3Mxwex" node="3AMbuf1a7On" resolve="version.eap" />
+                  </node>
+                </node>
+              </node>
+              <node concept="1688n2" id="2YQC3bF4J09" role="28jJR8">
+                <property role="1688n3" value="\$platform\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="2YQC3bF4J0a" role="1688n0">
+                  <node concept="3Mxwew" id="2YQC3bF4J0b" role="3MwsjC">
+                    <property role="3MwjfP" value="arm64" />
                   </node>
                 </node>
               </node>
