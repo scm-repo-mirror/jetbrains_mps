@@ -25,6 +25,8 @@ import com.intellij.openapi.wm.ToolWindowManager;
 import com.intellij.util.ui.UIUtil;
 import jetbrains.mps.compiler.JavaCompilerOptionsComponent;
 import jetbrains.mps.compiler.JavaCompilerOptionsComponent.JavaVersion;
+import jetbrains.mps.components.ComponentHost;
+import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.compiler.CompilerSettingsComponent.CompilerState;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
@@ -87,7 +89,7 @@ public class CompilerSettingsConfigurable implements SearchableConfigurable {
     }
     CompilerSettingsComponent instance = CompilerSettingsComponent.getInstance(myProject);
     MPSProject project = ProjectHelper.fromIdeaProject(myProject);
-    JavaVersion oldJavaVer = myProject.getComponent(JavaCompilerOptionsComponent.class).getJavaCompilerOptions(project).getTargetJavaVersion();
+    JavaVersion oldJavaVer = MPSCoreComponents.getInstance().getPlatform().findComponent(JavaCompilerOptionsComponent.class).getJavaCompilerOptions(project).getTargetJavaVersion();
     instance.loadState(compilerState);
     if (selectedTargetJavaVersion != oldJavaVer) {
       UIUtil.invokeLaterIfNeeded(() -> {
