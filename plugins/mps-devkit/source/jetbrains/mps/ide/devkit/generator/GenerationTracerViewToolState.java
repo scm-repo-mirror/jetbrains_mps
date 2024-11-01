@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2024 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,6 @@ import com.intellij.openapi.startup.StartupManager;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.ui.content.Content;
 import com.intellij.ui.content.ContentManager;
-import com.intellij.ui.content.ContentManagerAdapter;
 import com.intellij.ui.content.ContentManagerEvent;
 import com.intellij.ui.content.ContentManagerListener;
 import jetbrains.mps.generator.GenerationSettingsProvider;
@@ -35,6 +34,7 @@ import jetbrains.mps.generator.TransientModelsProvider;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.tools.BaseTool;
 import jetbrains.mps.ide.tools.CloseAction;
+import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.Computable;
 import jetbrains.mps.workbench.action.ActionUtils;
@@ -57,10 +57,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class GenerationTracerViewToolState {
-  private static final String ID = "Generation Tracer";
-  private NoTabsComponent myNoTabsComponent;
+  private final NoTabsComponent myNoTabsComponent;
 
-  private List<GenerationTracerView> myTracerViews = new ArrayList<>();
+  private final List<GenerationTracerView> myTracerViews = new ArrayList<>();
   private ContentManagerListener myContentListener;
   private final TransientModelsProvider myTransientModelsOwner;
   private final Project myProject;
@@ -71,9 +70,10 @@ public final class GenerationTracerViewToolState {
   public GenerationTracerViewToolState(Project project, BaseTool tool) {
     myProject = project;
     myTool = tool;
-    myTransientModelsOwner = project.getComponent(TransientModelsProvider.class);
+    MPSProject mpsProject = ProjectHelper.fromIdeaProject(project);
+    myTransientModelsOwner = mpsProject.getComponent(TransientModelsProvider.class);
     myNoTabsComponent = new NoTabsComponent(this);
-    myTraceSettings = ProjectHelper.fromIdeaProject(project).getComponent(GenerationSettingsProvider.class).getGenerationSettings().getTraceSettings();
+    myTraceSettings = mpsProject.getComponent(GenerationSettingsProvider.class).getGenerationSettings().getTraceSettings();
   }
 
   //////
@@ -134,8 +134,8 @@ public final class GenerationTracerViewToolState {
   }
 
   private void registerContentManagerListener() {
-    myContentListener = new ContentManagerAdapter() {
-      public void contentRemoved(ContentManagerEvent event) {
+    myContentListener = new ContentManagerListener() {
+      public void contentRemoved(@NotNull ContentManagerEvent event) {
         final boolean removedNoTabsTab = event.getContent().getComponent() == myNoTabsComponent;
         //noTabs component could be removed
         if (!removedNoTabsTab) {
@@ -285,7 +285,7 @@ public final class GenerationTracerViewToolState {
     return newTrace;
   }
 
-  public static class NoTabsComponent extends JPanel {
+  public static final class NoTabsComponent extends JPanel {
     JPanel myLabelsPanel = new JPanel();
 
     public NoTabsComponent(final GenerationTracerViewToolState tool) {

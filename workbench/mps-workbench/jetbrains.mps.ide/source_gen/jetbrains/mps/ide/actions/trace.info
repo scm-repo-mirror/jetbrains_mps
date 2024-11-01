@@ -932,50 +932,50 @@
       <node id="1215890512584" at="77,55,78,50" concept="6" />
     </file>
     <file name="RemoveTransientModels_Action.java">
-      <node id="1215890512584" at="18,0,19,0" concept="16" trace="ICON" />
-      <node id="1215890512584" at="20,41,21,47" concept="18" />
-      <node id="1215890512584" at="21,47,22,34" concept="6" />
-      <node id="1215890512584" at="22,34,23,52" concept="6" />
-      <node id="1215890512584" at="23,52,24,29" concept="6" />
-      <node id="1215890512584" at="27,32,28,16" concept="13" />
-      <node id="1215890512584" at="32,53,33,19" concept="13" />
-      <node id="1217420648361" at="35,5,36,56" concept="12" />
-      <node id="8898893144448210112" at="37,22,38,21" concept="13" />
-      <node id="1215890512584" at="40,5,41,16" concept="13" />
-      <node id="1215890642543" at="44,96,45,122" concept="12" />
-      <node id="1293486314515452589" at="46,28,47,42" concept="6" />
-      <node id="1215890700606" at="48,5,49,16" concept="6" />
-      <node id="1215890512584" at="31,95,34,5" concept="10" />
-      <node id="8898893144448210112" at="36,56,39,7" concept="10" />
-      <node id="1957653214370326948" at="45,122,48,5" concept="10" />
-      <node id="1215890512584" at="26,0,30,0" concept="11" trace="isDumbAware#()Z" />
-      <node id="1215890512584" at="20,0,26,0" concept="3" trace="RemoveTransientModels_Action#()V" />
-      <node id="1217420648361" at="34,5,40,5" concept="1" />
-      <node id="1215890512584" at="43,0,51,0" concept="11" trace="doExecute#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)V" />
-      <node id="1215890512584" at="30,0,43,0" concept="11" trace="collectActionData#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)Z" />
-      <scope id="1215890512584" at="27,32,28,16" />
-      <scope id="1215890512584" at="32,53,33,19" />
-      <scope id="8898893144448210112" at="37,22,38,21" />
-      <scope id="1957653214370326950" at="46,28,47,42" />
-      <scope id="1215890512584" at="20,41,24,29" />
-      <scope id="1215890512584" at="26,0,30,0" />
-      <scope id="1217420648361" at="35,5,39,7">
-        <var name="p" id="1217420648361" />
+      <node id="1215890512584" at="17,0,18,0" concept="16" trace="ICON" />
+      <node id="1215890512584" at="19,41,20,47" concept="18" />
+      <node id="1215890512584" at="20,47,21,34" concept="6" />
+      <node id="1215890512584" at="21,34,22,52" concept="6" />
+      <node id="1215890512584" at="22,52,23,29" concept="6" />
+      <node id="1215890512584" at="26,32,27,16" concept="13" />
+      <node id="1215890512584" at="31,53,32,19" concept="13" />
+      <node id="443833450234821377" at="34,5,35,66" concept="12" />
+      <node id="443833450234821378" at="36,22,37,21" concept="13" />
+      <node id="1215890512584" at="39,5,40,16" concept="13" />
+      <node id="1215890642543" at="43,96,44,129" concept="12" />
+      <node id="1293486314515452589" at="45,28,46,42" concept="6" />
+      <node id="1215890700606" at="47,5,48,16" concept="6" />
+      <node id="1215890512584" at="30,95,33,5" concept="10" />
+      <node id="443833450234821378" at="35,66,38,7" concept="10" />
+      <node id="1957653214370326948" at="44,129,47,5" concept="10" />
+      <node id="1215890512584" at="25,0,29,0" concept="11" trace="isDumbAware#()Z" />
+      <node id="1215890512584" at="19,0,25,0" concept="3" trace="RemoveTransientModels_Action#()V" />
+      <node id="443833450234821377" at="33,5,39,5" concept="1" />
+      <node id="1215890512584" at="42,0,50,0" concept="11" trace="doExecute#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)V" />
+      <node id="1215890512584" at="29,0,42,0" concept="11" trace="collectActionData#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)Z" />
+      <scope id="1215890512584" at="26,32,27,16" />
+      <scope id="1215890512584" at="31,53,32,19" />
+      <scope id="443833450234821378" at="36,22,37,21" />
+      <scope id="1957653214370326950" at="45,28,46,42" />
+      <scope id="1215890512584" at="19,41,23,29" />
+      <scope id="1215890512584" at="25,0,29,0" />
+      <scope id="443833450234821377" at="34,5,38,7">
+        <var name="p" id="443833450234821377" />
       </scope>
-      <scope id="1215890512584" at="44,96,49,16">
+      <scope id="1215890512584" at="43,96,48,16">
         <var name="component" id="1215890642544" />
       </scope>
-      <scope id="1215890512584" at="20,0,26,0" />
-      <scope id="1215890512584" at="43,0,51,0">
+      <scope id="1215890512584" at="19,0,25,0" />
+      <scope id="1215890512584" at="42,0,50,0">
         <var name="_params" id="1215890512584" />
         <var name="event" id="1215890512584" />
       </scope>
-      <scope id="1215890512584" at="31,95,41,16" />
-      <scope id="1215890512584" at="30,0,43,0">
+      <scope id="1215890512584" at="30,95,40,16" />
+      <scope id="1215890512584" at="29,0,42,0">
         <var name="_params" id="1215890512584" />
         <var name="event" id="1215890512584" />
       </scope>
-      <unit id="1215890512584" at="16,0,52,0" name="jetbrains.mps.ide.actions.RemoveTransientModels_Action" />
+      <unit id="1215890512584" at="15,0,51,0" name="jetbrains.mps.ide.actions.RemoveTransientModels_Action" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/1215903504454">

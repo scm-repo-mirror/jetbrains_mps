@@ -31,6 +31,7 @@ import jetbrains.mps.nodefs.FileSystemProjectBridge;
 import jetbrains.mps.persistence.PersistenceRegistry;
 import jetbrains.mps.smodel.MPSModuleRepository;
 import jetbrains.mps.smodel.WorkbenchModelAccess;
+import jetbrains.mps.util.annotation.AccessAsPlatformService;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.VFSManager;
 import jetbrains.mps.vfs.tracking.ConflictResolverImpl;
@@ -148,7 +149,13 @@ public class MPSProject extends ProjectBase implements FileBasedProject, Project
 
   @Override
   public <T> T getComponent(Class<T> clazz) {
-    T rv = getProject().getComponent(clazz);;
+    T rv;
+    if (clazz.getAnnotation(AccessAsPlatformService.class) != null) {
+      rv = getProject().getService(clazz);
+    } else {
+      //noinspection UnstableApiUsage
+      rv = getProject().getComponent(clazz);
+    }
     // though would be great to support both components and services, I didn't find a reliable
     // mechanism to detect whether supplied class is component or a service. Supplied interface may
     // not be assignable to BaseComponent, only its implementation implements respective component
