@@ -16,17 +16,18 @@
 package jetbrains.mps.nodeEditor;
 
 import com.intellij.openapi.fileEditor.FileEditor;
-import com.intellij.openapi.project.Project;
-import jetbrains.mps.ide.actions.Inspector_Tool;
-import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.openapi.editor.EditorInspector;
-import jetbrains.mps.plugins.projectplugins.ProjectPluginManager;
+import jetbrains.mps.project.Project;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
 
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+
 public class InspectorTool implements EditorInspector {
 
-  private static InspectorAccessor ourAccessor;
+  private static ConcurrentMap<Project, InspectorAccessor> ourAccessors = new ConcurrentHashMap<>();
 
   public interface InspectorAccessor {
 
@@ -45,11 +46,18 @@ public class InspectorTool implements EditorInspector {
     myInspector = tool;
   }
 
-  public static void registerInspectorInstance(InspectorAccessor accessor) {
-    if (ourAccessor != null) {
+  public static void registerInspectorInstance(@NotNull jetbrains.mps.project.Project project, InspectorAccessor accessor) {
+    final Object previous = ourAccessors.putIfAbsent(project, accessor);
+    if (previous != null) {
       throw new IllegalStateException("Inspector already registered");
     }
-    ourAccessor = accessor;
+  }
+
+  public static void unregisterInspectorInstance(@NotNull jetbrains.mps.project.Project project, InspectorAccessor accessor) {
+    final boolean b = ourAccessors.remove(project, accessor);
+    if (!b) {
+      throw new IllegalStateException("Inspector already unregistered");
+    }
   }
   /**
    * This is the only endorsed way to obtain InspectorTool instance, we are going to switch from IDEA's ProjectComponent in the next release.
@@ -57,7 +65,8 @@ public class InspectorTool implements EditorInspector {
    */
   @Nullable
   public static InspectorTool getInstance(@Nullable jetbrains.mps.project.Project mpsProject) {
-    return ourAccessor == null ? null : new InspectorTool(ourAccessor);
+    final InspectorAccessor accessor = ourAccessors.get(mpsProject);
+    return accessor == null ? null : new InspectorTool(accessor);
   }
 
   @Override
