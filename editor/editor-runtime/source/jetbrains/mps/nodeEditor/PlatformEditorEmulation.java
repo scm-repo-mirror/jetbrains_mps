@@ -70,7 +70,7 @@ import java.awt.geom.Point2D;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
-final class PlatformEditorEmulation implements Editor {
+public final class PlatformEditorEmulation implements Editor {
   private final EditorComponent myEditorComponent;
   private List<EditorMouseListener> myMouseListeners = ContainerUtil.createLockFreeCopyOnWriteList();
   private final PlatformScrollingModelEmulation myScrollingModel;
@@ -675,7 +675,7 @@ final class PlatformEditorEmulation implements Editor {
     controller.showTooltipByMouseMove(this, showPoint, tr, false, tooltipProvider.getTooltipGroup(), hint);
   }
 
-  protected void cancelShowInfoToolTipRequest() {
+  public void cancelShowInfoToolTipRequest() {
     myHintPopupController.cancelAllRequests();
   }
 
