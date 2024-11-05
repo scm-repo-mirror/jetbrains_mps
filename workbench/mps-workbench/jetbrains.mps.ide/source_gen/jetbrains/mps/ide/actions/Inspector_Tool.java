@@ -9,14 +9,15 @@ import jetbrains.mps.ide.icons.IdeIcons;
 import com.intellij.openapi.project.Project;
 import jetbrains.mps.ide.tools.BaseTool;
 import com.intellij.openapi.wm.ToolWindowAnchor;
-import jetbrains.mps.openapi.editor.EditorInspector;
-import jetbrains.mps.plugins.projectplugins.ProjectPluginManager;
+import jetbrains.mps.nodeEditor.InspectorTool;
+import jetbrains.mps.nodeEditor.EditorComponent;
 import org.jetbrains.mps.openapi.model.SNode;
 import com.intellij.openapi.fileEditor.FileEditor;
+import jetbrains.mps.openapi.editor.EditorInspector;
+import jetbrains.mps.plugins.projectplugins.ProjectPluginManager;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.ide.project.ProjectHelper;
 import org.jetbrains.mps.openapi.model.SNodeUtil;
-import jetbrains.mps.nodeEditor.EditorComponent;
 import jetbrains.mps.ide.ThreadUtils;
 import javax.swing.JComponent;
 
@@ -31,6 +32,27 @@ public class Inspector_Tool extends GeneratedTool {
     super.init(project);
     Inspector_Tool.this.myContainer = new InspectorContainer(project);
     Inspector_Tool.this.myContainer.createTool();
+    InspectorTool.registerInspectorInstance(new InspectorTool.InspectorAccessor() {
+      @Override
+      public void openToolLater(boolean b) {
+        Inspector_Tool.this.openToolLater(b);
+      }
+
+      @Override
+      public EditorComponent getInspector() {
+        return ((Inspector_Tool) Inspector_Tool.this).getInspector();
+      }
+
+      @Override
+      public void inspect(SNode node, FileEditor fileEditor, String[] enabledHints, boolean readOnly) {
+        ((Inspector_Tool) Inspector_Tool.this).inspect(node, fileEditor, enabledHints, readOnly);
+      }
+
+      @Override
+      public boolean isAvailable() {
+        return Inspector_Tool.this.isAvailable();
+      }
+    });
   }
   public void dispose() {
     Inspector_Tool.this.myContainer.getInspectorComponent().dispose();

@@ -25,24 +25,39 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
 
 public class InspectorTool implements EditorInspector {
-  private final Inspector_Tool myInspector;
 
-  public InspectorTool(Inspector_Tool tool) {
+  private static InspectorAccessor ourAccessor;
+
+  public interface InspectorAccessor {
+
+    void openToolLater(boolean b);
+
+    EditorComponent getInspector();
+
+    void inspect(SNode node, FileEditor fileEditor, String[] enabledHints, boolean readOnly);
+
+    boolean isAvailable();
+  }
+
+  private final InspectorAccessor myInspector;
+
+  public InspectorTool(InspectorAccessor tool) {
     myInspector = tool;
   }
 
+  public static void registerInspectorInstance(InspectorAccessor accessor) {
+    if (ourAccessor != null) {
+      throw new IllegalStateException("Inspector already registered");
+    }
+    ourAccessor = accessor;
+  }
   /**
    * This is the only endorsed way to obtain InspectorTool instance, we are going to switch from IDEA's ProjectComponent in the next release.
    * @since 2024.1
    */
   @Nullable
   public static InspectorTool getInstance(@Nullable jetbrains.mps.project.Project mpsProject) {
-    final Project ideaProject = ProjectHelper.toIdeaProject(mpsProject);
-    if(ideaProject == null) {
-      return null;
-    }
-    final Inspector_Tool tool = ProjectPluginManager.getInstance(ideaProject).getTool(Inspector_Tool.class);
-    return tool == null ? null : new InspectorTool(tool);
+    return ourAccessor == null ? null : new InspectorTool(ourAccessor);
   }
 
   @Override
