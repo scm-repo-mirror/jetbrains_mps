@@ -51,6 +51,9 @@ public abstract class AbstractBackgroundTaskScheduler<JOB> extends DefaultTaskSc
 
   protected final void submitAll(Collection<ProgressTask> tasks, AbstractJobQueue<JOB> queue, final ProgressMonitor monitor) {
     for (final ProgressTask task : tasks) {
+      if (monitor.isCanceled()) {
+        return;
+      }
       queue.submit(createJob(task, monitor), monitor);
     }
   }
