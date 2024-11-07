@@ -751,18 +751,35 @@
       </node>
       <node concept="3clFbS" id="3SnNvqCaJW$" role="3clF47">
         <node concept="3cpWs6" id="3Gc6Q_RTZ74" role="3cqZAp">
-          <node concept="2OqwBi" id="3Gc6Q_RZCjm" role="3cqZAk">
-            <node concept="37vLTw" id="3Gc6Q_RZC9V" role="2Oq$k0">
-              <ref role="3cqZAo" node="3Gc6Q_RZzjR" resolve="myTargetCodeLocation" />
-            </node>
-            <node concept="liA8E" id="3Gc6Q_RZCpE" role="2OqNvi">
-              <ref role="37wK5l" to="fwk:~NodeTraceInfo.getPosition()" resolve="getPosition" />
-            </node>
-          </node>
+          <node concept="10Nm6u" id="2WipSYwyo4l" role="3cqZAk" />
         </node>
       </node>
       <node concept="2AHcQZ" id="3SnNvqCaJX9" role="2AJF6D">
         <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+      </node>
+      <node concept="P$JXv" id="2WipSYwyoOZ" role="lGtFl">
+        <node concept="TZ5HI" id="2WipSYwyoP0" role="3nqlJM">
+          <node concept="TZ5HA" id="2WipSYwyoP1" role="3HnX3l">
+            <node concept="1dT_AC" id="2WipSYwypm7" role="1dT_Ay">
+              <property role="1dT_AB" value="not in use, always null, clients shall pursue TraceablePositionInfo elsewhere, using proper SNode" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2WipSYwyoP2" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Deprecated" />
+        <node concept="2B6LJw" id="2WipSYwyp5w" role="2B76xF">
+          <ref role="2B6OnR" to="wyt6:~Deprecated.forRemoval()" resolve="forRemoval" />
+          <node concept="3clFbT" id="2WipSYwypg5" role="2B70Vg">
+            <property role="3clFbU" value="true" />
+          </node>
+        </node>
+        <node concept="2B6LJw" id="2WipSYwypgr" role="2B76xF">
+          <ref role="2B6OnR" to="wyt6:~Deprecated.since()" resolve="since" />
+          <node concept="Xl_RD" id="2WipSYwypks" role="2B70Vg">
+            <property role="Xl_RC" value="2024.3" />
+          </node>
+        </node>
       </node>
     </node>
     <node concept="2tJIrI" id="3Gc6Q_RWApq" role="jymVt" />
@@ -1120,6 +1137,11 @@
       <node concept="TZ5HA" id="3Gc6Q_RU74V" role="TZ5H$">
         <node concept="1dT_AC" id="3Gc6Q_RU74W" role="1dT_Ay">
           <property role="1dT_AB" value="NOTE, with all the attempts to improve it, it's bad design anyway. Location API shall not expose implementation details like TraceablePositionInfo at all." />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="2WipSYwypm8" role="TZ5H$">
+        <node concept="1dT_AC" id="2WipSYwypm9" role="1dT_Ay">
+          <property role="1dT_AB" value="XXX Now with all uses of trace info gone, this ^^^ comment deserves an update (together with removal of deprecated methods)" />
         </node>
       </node>
     </node>

@@ -6,10 +6,11 @@ import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.debug.api.breakpoints.ILocationBreakpoint;
 import jetbrains.mps.logging.Logger;
 import org.jetbrains.mps.openapi.model.SNodeReference;
-import jetbrains.mps.debug.api.breakpoints.BreakpointLocation;
+import jetbrains.mps.textgen.trace.NodeTraceInfo;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.project.Project;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.debug.api.breakpoints.BreakpointLocation;
 import jetbrains.mps.debugger.java.runtime.engine.events.EventsProcessor;
 import com.sun.jdi.ReferenceType;
 import jetbrains.mps.debugger.java.runtime.engine.RequestManager;
@@ -26,7 +27,7 @@ import java.util.Objects;
 public class LineBreakpoint extends JavaBreakpoint implements ILocationBreakpoint {
   private static final Logger LOG = Logger.getLogger(LineBreakpoint.class);
   private final SNodeReference myNode;
-  private BreakpointLocation myLocation;
+  private NodeTraceInfo myTargetCodeLocation;
 
   public LineBreakpoint(@NotNull SNodeReference nodePointer, Project project) {
     super(project);
@@ -39,17 +40,22 @@ public class LineBreakpoint extends JavaBreakpoint implements ILocationBreakpoin
   @NotNull
   @Override
   public BreakpointLocation getLocation() {
-    if (myLocation == null) {
-      myLocation = new BreakpointLocationUpdate(myNode, getRepository()).get();
+    return new BreakpointLocation(myNode);
+  }
+
+  @NotNull
+  protected NodeTraceInfo getTargetCodeLocation() {
+    if (myTargetCodeLocation == null) {
+      myTargetCodeLocation = new BreakpointLocationUpdate(myNode, getRepository()).get();
     }
-    return myLocation;
+    return myTargetCodeLocation;
   }
 
   @Override
   protected void createRequestForPreparedClass(EventsProcessor debugProcess, final ReferenceType classType) {
     RequestManager requestManager = debugProcess.getRequestManager();
     try {
-      TraceablePositionInfo targetCodePosition = getLocation().getTargetCodePosition();
+      TraceablePositionInfo targetCodePosition = getTargetCodeLocation().getPosition();
       if (targetCodePosition == null) {
         return;
       }

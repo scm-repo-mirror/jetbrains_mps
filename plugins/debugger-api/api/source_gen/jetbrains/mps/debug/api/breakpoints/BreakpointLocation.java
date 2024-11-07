@@ -21,6 +21,7 @@ import org.jetbrains.mps.openapi.model.SModelReference;
  *     persistence stuff (i.e. SNodeReference), and move target code association code elsewhere?
  * 
  * NOTE, with all the attempts to improve it, it's bad design anyway. Location API shall not expose implementation details like TraceablePositionInfo at all.
+ * XXX Now with all uses of trace info gone, this ^^^ comment deserves an update (together with removal of deprecated methods)
  */
 @GeneratedClass(node = "r:d910d08e-4a00-41f9-ac8b-b7c374586874(jetbrains.mps.debug.api.breakpoints)/4474271214082916065", model = "r:d910d08e-4a00-41f9-ac8b-b7c374586874(jetbrains.mps.debug.api.breakpoints)")
 public class BreakpointLocation {
@@ -41,9 +42,14 @@ public class BreakpointLocation {
     return myTargetCodeLocation.getNode();
   }
 
+  /**
+   * 
+   * @deprecated not in use, always null, clients shall pursue TraceablePositionInfo elsewhere, using proper SNode
+   */
   @Nullable
+  @Deprecated(forRemoval = true, since = "2024.3")
   public TraceablePositionInfo getTargetCodePosition() {
-    return myTargetCodeLocation.getPosition();
+    return null;
   }
 
   @Nullable

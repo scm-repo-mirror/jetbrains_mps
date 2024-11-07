@@ -7,6 +7,7 @@
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="2" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="2" />
+    <use id="acfc188d-d5d6-4598-b370-6f4a983f05b2" name="jetbrains.mps.baseLanguage.methodReferences" version="0" />
   </languages>
   <imports>
     <import index="qgwr" ref="r:f326a98e-32f7-47a0-ba29-239107a89ca4(jetbrains.mps.debugger.java.api.evaluation)" />
@@ -151,6 +152,9 @@
       <concept id="1068431474542" name="jetbrains.mps.baseLanguage.structure.VariableDeclaration" flags="ng" index="33uBYm">
         <property id="1176718929932" name="isFinal" index="3TUv4t" />
         <child id="1068431790190" name="initializer" index="33vP2m" />
+      </concept>
+      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ngI" index="366HgL">
+        <property id="1513279640906337053" name="inferTypeParams" index="373rjd" />
       </concept>
       <concept id="1092119917967" name="jetbrains.mps.baseLanguage.structure.MulExpression" flags="nn" index="17qRlL" />
       <concept id="1068498886296" name="jetbrains.mps.baseLanguage.structure.VariableReference" flags="nn" index="37vLTw">
@@ -333,6 +337,13 @@
       </concept>
       <concept id="2068944020170241612" name="jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocComment" flags="ng" index="3UR2Jj" />
     </language>
+    <language id="acfc188d-d5d6-4598-b370-6f4a983f05b2" name="jetbrains.mps.baseLanguage.methodReferences">
+      <concept id="237887375562511215" name="jetbrains.mps.baseLanguage.methodReferences.structure.MethodReference" flags="ng" index="37Ijox" />
+      <concept id="3507059745126391419" name="jetbrains.mps.baseLanguage.methodReferences.structure.IMethodReference" flags="ngI" index="3UZKCU">
+        <reference id="237887375562511297" name="method" index="37Ijqf" />
+        <child id="962278442658307079" name="target" index="wWaWy" />
+      </concept>
+    </language>
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
       <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
         <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
@@ -411,14 +422,14 @@
       </node>
       <node concept="3Tm6S6" id="3Gc6Q_RZ3OQ" role="1B3o_S" />
     </node>
-    <node concept="312cEg" id="2wxFklq8GmR" role="jymVt">
-      <property role="TrG5h" value="myLocation" />
+    <node concept="312cEg" id="2WipSYwwZi0" role="jymVt">
       <property role="34CwA1" value="false" />
-      <property role="3TUv4t" value="false" />
-      <node concept="3uibUv" id="2g7jLxixGtD" role="1tU5fm">
-        <ref role="3uigEE" to="rw00:3SnNvqCaJVx" resolve="BreakpointLocation" />
+      <property role="eg7rD" value="false" />
+      <property role="TrG5h" value="myTargetCodeLocation" />
+      <node concept="3Tm6S6" id="2WipSYwwZi1" role="1B3o_S" />
+      <node concept="3uibUv" id="2WipSYwwZi2" role="1tU5fm">
+        <ref role="3uigEE" to="fwk:~NodeTraceInfo" resolve="NodeTraceInfo" />
       </node>
-      <node concept="3Tm6S6" id="2wxFklq8GmT" role="1B3o_S" />
     </node>
     <node concept="312cEg" id="2wxFklq8GmV" role="jymVt">
       <property role="TrG5h" value="myMethodName" />
@@ -520,42 +531,15 @@
         <ref role="3uigEE" to="rw00:3SnNvqCaJVx" resolve="BreakpointLocation" />
       </node>
       <node concept="3clFbS" id="2wxFklq8GrV" role="3clF47">
-        <node concept="3clFbJ" id="3Gc6Q_S1HBX" role="3cqZAp">
-          <node concept="3clFbS" id="3Gc6Q_S1HBZ" role="3clFbx">
-            <node concept="3clFbF" id="3Gc6Q_S1J19" role="3cqZAp">
-              <node concept="37vLTI" id="3Gc6Q_S1JoZ" role="3clFbG">
-                <node concept="2OqwBi" id="3Gc6Q_S1LFU" role="37vLTx">
-                  <node concept="2ShNRf" id="3Gc6Q_S1JD0" role="2Oq$k0">
-                    <node concept="1pGfFk" id="3Gc6Q_S1L2k" role="2ShVmc">
-                      <ref role="37wK5l" node="3Gc6Q_RUiQ3" resolve="BreakpointLocationUpdate" />
-                      <node concept="37vLTw" id="3Gc6Q_S1Lam" role="37wK5m">
-                        <ref role="3cqZAo" node="3Gc6Q_RZ3OO" resolve="myNode" />
-                      </node>
-                      <node concept="1rXfSq" id="3Gc6Q_S1LwU" role="37wK5m">
-                        <ref role="37wK5l" node="3Gc6Q_RV57a" resolve="getRepository" />
-                      </node>
-                    </node>
-                  </node>
-                  <node concept="liA8E" id="3Gc6Q_S1LKG" role="2OqNvi">
-                    <ref role="37wK5l" node="3Gc6Q_S0aem" resolve="get" />
-                  </node>
-                </node>
-                <node concept="37vLTw" id="3Gc6Q_S1J17" role="37vLTJ">
-                  <ref role="3cqZAo" node="2wxFklq8GmR" resolve="myLocation" />
-                </node>
+        <node concept="3cpWs6" id="2WipSYwxaRk" role="3cqZAp">
+          <node concept="2ShNRf" id="2WipSYwxaRl" role="3cqZAk">
+            <node concept="1pGfFk" id="2WipSYwxaRm" role="2ShVmc">
+              <property role="373rjd" value="true" />
+              <ref role="37wK5l" to="rw00:3SnNvqCaJVF" />
+              <node concept="37vLTw" id="2WipSYwxaRn" role="37wK5m">
+                <ref role="3cqZAo" node="3Gc6Q_RZ3OO" resolve="myNode" />
               </node>
             </node>
-          </node>
-          <node concept="3clFbC" id="3Gc6Q_S1InD" role="3clFbw">
-            <node concept="10Nm6u" id="3Gc6Q_S1Iub" role="3uHU7w" />
-            <node concept="37vLTw" id="3Gc6Q_S1IgW" role="3uHU7B">
-              <ref role="3cqZAo" node="2wxFklq8GmR" resolve="myLocation" />
-            </node>
-          </node>
-        </node>
-        <node concept="3cpWs6" id="2wxFklq8GrW" role="3cqZAp">
-          <node concept="37vLTw" id="2BHiRxeuu3C" role="3cqZAk">
-            <ref role="3cqZAo" node="2wxFklq8GmR" resolve="myLocation" />
           </node>
         </node>
       </node>
@@ -564,6 +548,57 @@
       </node>
       <node concept="2AHcQZ" id="2wxFklq8GrZ" role="2AJF6D">
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="2WipSYwxi7$" role="jymVt" />
+    <node concept="3clFb_" id="2WipSYwxe2j" role="jymVt">
+      <property role="TrG5h" value="getTargetCodeLocation" />
+      <node concept="3uibUv" id="2WipSYwxe2k" role="3clF45">
+        <ref role="3uigEE" to="fwk:~NodeTraceInfo" resolve="NodeTraceInfo" />
+      </node>
+      <node concept="3Tmbuc" id="2WipSYwxe2l" role="1B3o_S" />
+      <node concept="3clFbS" id="2WipSYwxe2m" role="3clF47">
+        <node concept="3clFbJ" id="2WipSYwxe2n" role="3cqZAp">
+          <node concept="3clFbC" id="2WipSYwxe2o" role="3clFbw">
+            <node concept="10Nm6u" id="2WipSYwxe2p" role="3uHU7w" />
+            <node concept="37vLTw" id="2WipSYwxe2q" role="3uHU7B">
+              <ref role="3cqZAo" node="2WipSYwwZi0" resolve="myTargetCodeLocation" />
+            </node>
+          </node>
+          <node concept="3clFbS" id="2WipSYwxe2r" role="3clFbx">
+            <node concept="3clFbF" id="2WipSYwxe2s" role="3cqZAp">
+              <node concept="37vLTI" id="2WipSYwxe2t" role="3clFbG">
+                <node concept="37vLTw" id="2WipSYwxe2u" role="37vLTJ">
+                  <ref role="3cqZAo" node="2WipSYwwZi0" resolve="myTargetCodeLocation" />
+                </node>
+                <node concept="2OqwBi" id="2WipSYwxe2v" role="37vLTx">
+                  <node concept="2ShNRf" id="2WipSYwxe2w" role="2Oq$k0">
+                    <node concept="1pGfFk" id="2WipSYwxe2x" role="2ShVmc">
+                      <ref role="37wK5l" node="3Gc6Q_RUiQ3" />
+                      <node concept="37vLTw" id="2WipSYwxe2y" role="37wK5m">
+                        <ref role="3cqZAo" node="3Gc6Q_RZ3OO" resolve="myNode" />
+                      </node>
+                      <node concept="1rXfSq" id="2WipSYwxe2z" role="37wK5m">
+                        <ref role="37wK5l" node="3Gc6Q_RV57a" resolve="getRepository" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="liA8E" id="2WipSYwxe2$" role="2OqNvi">
+                    <ref role="37wK5l" node="3Gc6Q_S0aem" resolve="get" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs6" id="2WipSYwxe2_" role="3cqZAp">
+          <node concept="37vLTw" id="2WipSYwxe2A" role="3cqZAk">
+            <ref role="3cqZAo" node="2WipSYwwZi0" resolve="myTargetCodeLocation" />
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2WipSYwycZl" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
       </node>
     </node>
     <node concept="2tJIrI" id="3Gc6Q_S1G59" role="jymVt" />
@@ -947,10 +982,10 @@
             </node>
             <node concept="2OqwBi" id="3Gc6Q_S1znN" role="33vP2m">
               <node concept="1rXfSq" id="3Gc6Q_S1znO" role="2Oq$k0">
-                <ref role="37wK5l" node="2wxFklq8GrS" resolve="getLocation" />
+                <ref role="37wK5l" node="2WipSYwxe2j" resolve="getTargetCodeLocation" />
               </node>
               <node concept="liA8E" id="3Gc6Q_S1znP" role="2OqNvi">
-                <ref role="37wK5l" to="rw00:3SnNvqCaJWx" resolve="getTargetCodePosition" />
+                <ref role="37wK5l" to="fwk:~NodeTraceInfo.getPosition()" resolve="getPosition" />
               </node>
             </node>
           </node>
@@ -1513,14 +1548,14 @@
       </node>
       <node concept="3Tm6S6" id="2wxFklq8GJ4" role="1B3o_S" />
     </node>
-    <node concept="312cEg" id="2wxFklq8GIZ" role="jymVt">
-      <property role="TrG5h" value="myLocation" />
+    <node concept="312cEg" id="3Gc6Q_RZzjR" role="jymVt">
       <property role="34CwA1" value="false" />
-      <property role="3TUv4t" value="false" />
-      <node concept="3uibUv" id="2g7jLxixGtg" role="1tU5fm">
-        <ref role="3uigEE" to="rw00:3SnNvqCaJVx" resolve="BreakpointLocation" />
+      <property role="eg7rD" value="false" />
+      <property role="TrG5h" value="myTargetCodeLocation" />
+      <node concept="3Tm6S6" id="3Gc6Q_RZz5z" role="1B3o_S" />
+      <node concept="3uibUv" id="3Gc6Q_RZzjP" role="1tU5fm">
+        <ref role="3uigEE" to="fwk:~NodeTraceInfo" resolve="NodeTraceInfo" />
       </node>
-      <node concept="3Tm6S6" id="2wxFklq8GJ1" role="1B3o_S" />
     </node>
     <node concept="2tJIrI" id="3Gc6Q_S0n5A" role="jymVt" />
     <node concept="3clFbW" id="2wxFklq8GJ5" role="jymVt">
@@ -1609,42 +1644,15 @@
         <ref role="3uigEE" to="rw00:3SnNvqCaJVx" resolve="BreakpointLocation" />
       </node>
       <node concept="3clFbS" id="2wxFklq8GJY" role="3clF47">
-        <node concept="3clFbJ" id="3Gc6Q_S0t0d" role="3cqZAp">
-          <node concept="3clFbS" id="3Gc6Q_S0t0f" role="3clFbx">
-            <node concept="3clFbF" id="3Gc6Q_S0ugn" role="3cqZAp">
-              <node concept="37vLTI" id="3Gc6Q_S0uzA" role="3clFbG">
-                <node concept="2OqwBi" id="3Gc6Q_S0wT0" role="37vLTx">
-                  <node concept="2ShNRf" id="3Gc6Q_S0uK_" role="2Oq$k0">
-                    <node concept="1pGfFk" id="3Gc6Q_S0wat" role="2ShVmc">
-                      <ref role="37wK5l" node="3Gc6Q_RUiQ3" resolve="BreakpointLocationUpdate" />
-                      <node concept="37vLTw" id="3Gc6Q_S0wpa" role="37wK5m">
-                        <ref role="3cqZAo" node="2wxFklq8GJ2" resolve="myNode" />
-                      </node>
-                      <node concept="1rXfSq" id="3Gc6Q_S0wL6" role="37wK5m">
-                        <ref role="37wK5l" node="3Gc6Q_RV57a" resolve="getRepository" />
-                      </node>
-                    </node>
-                  </node>
-                  <node concept="liA8E" id="3Gc6Q_S0x6t" role="2OqNvi">
-                    <ref role="37wK5l" node="3Gc6Q_S0aem" resolve="get" />
-                  </node>
-                </node>
-                <node concept="37vLTw" id="3Gc6Q_S0ugl" role="37vLTJ">
-                  <ref role="3cqZAo" node="2wxFklq8GIZ" resolve="myLocation" />
-                </node>
+        <node concept="3cpWs6" id="2WipSYwwhto" role="3cqZAp">
+          <node concept="2ShNRf" id="2WipSYwwj_S" role="3cqZAk">
+            <node concept="1pGfFk" id="2WipSYwwI9l" role="2ShVmc">
+              <property role="373rjd" value="true" />
+              <ref role="37wK5l" to="rw00:3SnNvqCaJVF" resolve="BreakpointLocation" />
+              <node concept="37vLTw" id="2WipSYwwK6o" role="37wK5m">
+                <ref role="3cqZAo" node="2wxFklq8GJ2" resolve="myNode" />
               </node>
             </node>
-          </node>
-          <node concept="3clFbC" id="3Gc6Q_S0tAR" role="3clFbw">
-            <node concept="10Nm6u" id="3Gc6Q_S0tHp" role="3uHU7w" />
-            <node concept="37vLTw" id="3Gc6Q_S0twa" role="3uHU7B">
-              <ref role="3cqZAo" node="2wxFklq8GIZ" resolve="myLocation" />
-            </node>
-          </node>
-        </node>
-        <node concept="3cpWs6" id="2wxFklq8GJZ" role="3cqZAp">
-          <node concept="37vLTw" id="2BHiRxeuyKJ" role="3cqZAk">
-            <ref role="3cqZAo" node="2wxFklq8GIZ" resolve="myLocation" />
           </node>
         </node>
       </node>
@@ -1653,6 +1661,57 @@
       </node>
       <node concept="2AHcQZ" id="2wxFklq8GK2" role="2AJF6D">
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="2WipSYwvCg0" role="jymVt" />
+    <node concept="3clFb_" id="2WipSYwvEY9" role="jymVt">
+      <property role="TrG5h" value="getTargetCodeLocation" />
+      <node concept="3uibUv" id="2WipSYwvH6U" role="3clF45">
+        <ref role="3uigEE" to="fwk:~NodeTraceInfo" resolve="NodeTraceInfo" />
+      </node>
+      <node concept="3Tmbuc" id="2WipSYwvFS0" role="1B3o_S" />
+      <node concept="3clFbS" id="2WipSYwvEYd" role="3clF47">
+        <node concept="3clFbJ" id="2WipSYwvMCx" role="3cqZAp">
+          <node concept="3clFbC" id="2WipSYwvPXX" role="3clFbw">
+            <node concept="10Nm6u" id="2WipSYwvS4n" role="3uHU7w" />
+            <node concept="37vLTw" id="2WipSYwvOYO" role="3uHU7B">
+              <ref role="3cqZAo" node="3Gc6Q_RZzjR" resolve="myTargetCodeLocation" />
+            </node>
+          </node>
+          <node concept="3clFbS" id="2WipSYwvMCz" role="3clFbx">
+            <node concept="3clFbF" id="2WipSYwwcek" role="3cqZAp">
+              <node concept="37vLTI" id="2WipSYwwdmI" role="3clFbG">
+                <node concept="37vLTw" id="2WipSYwwcej" role="37vLTJ">
+                  <ref role="3cqZAo" node="3Gc6Q_RZzjR" resolve="myTargetCodeLocation" />
+                </node>
+                <node concept="2OqwBi" id="2WipSYwweIc" role="37vLTx">
+                  <node concept="2ShNRf" id="2WipSYwweId" role="2Oq$k0">
+                    <node concept="1pGfFk" id="2WipSYwweIe" role="2ShVmc">
+                      <ref role="37wK5l" node="3Gc6Q_RUiQ3" />
+                      <node concept="37vLTw" id="2WipSYwweIf" role="37wK5m">
+                        <ref role="3cqZAo" node="2wxFklq8GJ2" resolve="myNode" />
+                      </node>
+                      <node concept="1rXfSq" id="2WipSYwweIg" role="37wK5m">
+                        <ref role="37wK5l" node="3Gc6Q_RV57a" resolve="getRepository" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="liA8E" id="2WipSYwweIh" role="2OqNvi">
+                    <ref role="37wK5l" node="3Gc6Q_S0aem" resolve="get" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs6" id="2WipSYwvUes" role="3cqZAp">
+          <node concept="37vLTw" id="2WipSYwwaCc" role="3cqZAk">
+            <ref role="3cqZAo" node="3Gc6Q_RZzjR" resolve="myTargetCodeLocation" />
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2WipSYwygLz" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
       </node>
     </node>
     <node concept="2tJIrI" id="3Gc6Q_S0NPS" role="jymVt" />
@@ -1780,10 +1839,10 @@
             </node>
             <node concept="2OqwBi" id="3Gc6Q_S0Lzb" role="33vP2m">
               <node concept="1rXfSq" id="3Gc6Q_S0Lzc" role="2Oq$k0">
-                <ref role="37wK5l" node="2wxFklq8GJV" resolve="getLocation" />
+                <ref role="37wK5l" node="2WipSYwvEY9" resolve="getTargetCodeLocation" />
               </node>
               <node concept="liA8E" id="3Gc6Q_S0Lzd" role="2OqNvi">
-                <ref role="37wK5l" to="rw00:3SnNvqCaJWx" resolve="getTargetCodePosition" />
+                <ref role="37wK5l" to="fwk:~NodeTraceInfo.getPosition()" resolve="getPosition" />
               </node>
             </node>
           </node>
@@ -4044,14 +4103,14 @@
       </node>
       <node concept="3Tm6S6" id="3Gc6Q_S114u" role="1B3o_S" />
     </node>
-    <node concept="312cEg" id="2wxFklq8LRx" role="jymVt">
-      <property role="TrG5h" value="myLocation" />
+    <node concept="312cEg" id="2WipSYwwWFy" role="jymVt">
       <property role="34CwA1" value="false" />
-      <property role="3TUv4t" value="false" />
-      <node concept="3uibUv" id="2g7jLxixGsv" role="1tU5fm">
-        <ref role="3uigEE" to="rw00:3SnNvqCaJVx" resolve="BreakpointLocation" />
+      <property role="eg7rD" value="false" />
+      <property role="TrG5h" value="myTargetCodeLocation" />
+      <node concept="3Tm6S6" id="2WipSYwwWFz" role="1B3o_S" />
+      <node concept="3uibUv" id="2WipSYwwWF$" role="1tU5fm">
+        <ref role="3uigEE" to="fwk:~NodeTraceInfo" resolve="NodeTraceInfo" />
       </node>
-      <node concept="3Tm6S6" id="3Gc6Q_S0PWn" role="1B3o_S" />
     </node>
     <node concept="2tJIrI" id="3Gc6Q_S0P9V" role="jymVt" />
     <node concept="3clFbW" id="2wxFklq8LR$" role="jymVt">
@@ -4140,42 +4199,15 @@
         <ref role="3uigEE" to="rw00:3SnNvqCaJVx" resolve="BreakpointLocation" />
       </node>
       <node concept="3clFbS" id="2wxFklq8LW4" role="3clF47">
-        <node concept="3clFbJ" id="3Gc6Q_S0S_e" role="3cqZAp">
-          <node concept="3clFbS" id="3Gc6Q_S0S_f" role="3clFbx">
-            <node concept="3clFbF" id="3Gc6Q_S0S_g" role="3cqZAp">
-              <node concept="37vLTI" id="3Gc6Q_S0S_h" role="3clFbG">
-                <node concept="2OqwBi" id="3Gc6Q_S0S_i" role="37vLTx">
-                  <node concept="2ShNRf" id="3Gc6Q_S0S_j" role="2Oq$k0">
-                    <node concept="1pGfFk" id="3Gc6Q_S0S_k" role="2ShVmc">
-                      <ref role="37wK5l" node="3Gc6Q_RUiQ3" resolve="BreakpointLocationUpdate" />
-                      <node concept="37vLTw" id="3Gc6Q_S14_c" role="37wK5m">
-                        <ref role="3cqZAo" node="3Gc6Q_S114s" resolve="myNode" />
-                      </node>
-                      <node concept="1rXfSq" id="3Gc6Q_S0S_m" role="37wK5m">
-                        <ref role="37wK5l" node="3Gc6Q_RV57a" resolve="getRepository" />
-                      </node>
-                    </node>
-                  </node>
-                  <node concept="liA8E" id="3Gc6Q_S0S_n" role="2OqNvi">
-                    <ref role="37wK5l" node="3Gc6Q_S0aem" resolve="get" />
-                  </node>
-                </node>
-                <node concept="37vLTw" id="3Gc6Q_S0S_o" role="37vLTJ">
-                  <ref role="3cqZAo" node="2wxFklq8LRx" resolve="myLocation" />
-                </node>
+        <node concept="3cpWs6" id="2WipSYwwQKM" role="3cqZAp">
+          <node concept="2ShNRf" id="2WipSYwwQKN" role="3cqZAk">
+            <node concept="1pGfFk" id="2WipSYwwQKO" role="2ShVmc">
+              <property role="373rjd" value="true" />
+              <ref role="37wK5l" to="rw00:3SnNvqCaJVF" />
+              <node concept="37vLTw" id="2WipSYwwQKP" role="37wK5m">
+                <ref role="3cqZAo" node="3Gc6Q_S114s" resolve="myNode" />
               </node>
             </node>
-          </node>
-          <node concept="3clFbC" id="3Gc6Q_S0S_p" role="3clFbw">
-            <node concept="10Nm6u" id="3Gc6Q_S0S_q" role="3uHU7w" />
-            <node concept="37vLTw" id="3Gc6Q_S0S_r" role="3uHU7B">
-              <ref role="3cqZAo" node="2wxFklq8LRx" resolve="myLocation" />
-            </node>
-          </node>
-        </node>
-        <node concept="3cpWs6" id="3Gc6Q_S0S_s" role="3cqZAp">
-          <node concept="37vLTw" id="3Gc6Q_S0S_t" role="3cqZAk">
-            <ref role="3cqZAo" node="2wxFklq8LRx" resolve="myLocation" />
           </node>
         </node>
       </node>
@@ -4184,6 +4216,57 @@
       </node>
       <node concept="2AHcQZ" id="2wxFklq8LW8" role="2AJF6D">
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="2WipSYwxk1M" role="jymVt" />
+    <node concept="3clFb_" id="2WipSYwxmd4" role="jymVt">
+      <property role="TrG5h" value="getTargetCodeLocation" />
+      <node concept="3uibUv" id="2WipSYwxmd5" role="3clF45">
+        <ref role="3uigEE" to="fwk:~NodeTraceInfo" resolve="NodeTraceInfo" />
+      </node>
+      <node concept="3Tmbuc" id="2WipSYwxmd6" role="1B3o_S" />
+      <node concept="3clFbS" id="2WipSYwxmd7" role="3clF47">
+        <node concept="3clFbJ" id="2WipSYwxmd8" role="3cqZAp">
+          <node concept="3clFbC" id="2WipSYwxmd9" role="3clFbw">
+            <node concept="10Nm6u" id="2WipSYwxmda" role="3uHU7w" />
+            <node concept="37vLTw" id="2WipSYwxmdb" role="3uHU7B">
+              <ref role="3cqZAo" node="2WipSYwwWFy" resolve="myTargetCodeLocation" />
+            </node>
+          </node>
+          <node concept="3clFbS" id="2WipSYwxmdc" role="3clFbx">
+            <node concept="3clFbF" id="2WipSYwxmdd" role="3cqZAp">
+              <node concept="37vLTI" id="2WipSYwxmde" role="3clFbG">
+                <node concept="37vLTw" id="2WipSYwxmdf" role="37vLTJ">
+                  <ref role="3cqZAo" node="2WipSYwwWFy" resolve="myTargetCodeLocation" />
+                </node>
+                <node concept="2OqwBi" id="2WipSYwxmdg" role="37vLTx">
+                  <node concept="2ShNRf" id="2WipSYwxmdh" role="2Oq$k0">
+                    <node concept="1pGfFk" id="2WipSYwxmdi" role="2ShVmc">
+                      <ref role="37wK5l" node="3Gc6Q_RUiQ3" />
+                      <node concept="37vLTw" id="2WipSYwxmdj" role="37wK5m">
+                        <ref role="3cqZAo" node="3Gc6Q_S114s" resolve="myNode" />
+                      </node>
+                      <node concept="1rXfSq" id="2WipSYwxmdk" role="37wK5m">
+                        <ref role="37wK5l" node="3Gc6Q_RV57a" resolve="getRepository" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="liA8E" id="2WipSYwxmdl" role="2OqNvi">
+                    <ref role="37wK5l" node="3Gc6Q_S0aem" resolve="get" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs6" id="2WipSYwxmdm" role="3cqZAp">
+          <node concept="37vLTw" id="2WipSYwxmdn" role="3cqZAk">
+            <ref role="3cqZAo" node="2WipSYwwWFy" resolve="myTargetCodeLocation" />
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2WipSYwy7Kb" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
       </node>
     </node>
     <node concept="2tJIrI" id="3Gc6Q_S0RMK" role="jymVt" />
@@ -4235,10 +4318,10 @@
                 </node>
                 <node concept="2OqwBi" id="2WipSYwuD1h" role="33vP2m">
                   <node concept="1rXfSq" id="2WipSYwuD1i" role="2Oq$k0">
-                    <ref role="37wK5l" node="2wxFklq8LW1" resolve="getLocation" />
+                    <ref role="37wK5l" node="2WipSYwxmd4" resolve="getTargetCodeLocation" />
                   </node>
                   <node concept="liA8E" id="2WipSYwuD1j" role="2OqNvi">
-                    <ref role="37wK5l" to="rw00:3SnNvqCaJWx" resolve="getTargetCodePosition" />
+                    <ref role="37wK5l" to="fwk:~NodeTraceInfo.getPosition()" resolve="getPosition" />
                   </node>
                 </node>
               </node>
@@ -8745,26 +8828,29 @@
       <property role="DiZV1" value="false" />
       <property role="2aFKle" value="false" />
       <node concept="3clFbS" id="3Gc6Q_S0aep" role="3clF47">
-        <node concept="3cpWs6" id="3Gc6Q_S0b9l" role="3cqZAp">
-          <node concept="2OqwBi" id="3Gc6Q_S0eDc" role="3cqZAk">
-            <node concept="2ShNRf" id="3Gc6Q_S0d9g" role="2Oq$k0">
-              <node concept="1pGfFk" id="3Gc6Q_S0elv" role="2ShVmc">
-                <ref role="37wK5l" to="w1kc:~ModelAccessHelper.&lt;init&gt;(org.jetbrains.mps.openapi.module.SRepository)" resolve="ModelAccessHelper" />
-                <node concept="37vLTw" id="3Gc6Q_S0e$Q" role="37wK5m">
-                  <ref role="3cqZAo" node="3Gc6Q_RTXTs" resolve="myRepo" />
-                </node>
+        <node concept="3clFbF" id="2WipSYwxx8i" role="3cqZAp">
+          <node concept="2OqwBi" id="2WipSYwxxY3" role="3clFbG">
+            <node concept="2OqwBi" id="2WipSYwxxsn" role="2Oq$k0">
+              <node concept="37vLTw" id="2WipSYwxx8g" role="2Oq$k0">
+                <ref role="3cqZAo" node="3Gc6Q_RTXTs" resolve="myRepo" />
+              </node>
+              <node concept="liA8E" id="2WipSYwxxL3" role="2OqNvi">
+                <ref role="37wK5l" to="lui2:~SRepository.getModelAccess()" resolve="getModelAccess" />
               </node>
             </node>
-            <node concept="liA8E" id="3Gc6Q_S0eII" role="2OqNvi">
-              <ref role="37wK5l" to="w1kc:~ModelAccessHelper.runReadAction(jetbrains.mps.util.Computable)" resolve="runReadAction" />
-              <node concept="Xjq3P" id="3Gc6Q_S0eS$" role="37wK5m" />
+            <node concept="liA8E" id="2WipSYwxya0" role="2OqNvi">
+              <ref role="37wK5l" to="lui2:~ModelAccess.computeReadAction(java.util.function.Supplier)" resolve="computeReadAction" />
+              <node concept="37Ijox" id="2WipSYwxzD1" role="37wK5m">
+                <ref role="37Ijqf" node="3Gc6Q_S0aJH" resolve="compute" />
+                <node concept="Xjq3P" id="2WipSYwxyKz" role="wWaWy" />
+              </node>
             </node>
           </node>
         </node>
       </node>
       <node concept="3Tm1VV" id="3Gc6Q_S09TT" role="1B3o_S" />
       <node concept="3uibUv" id="3Gc6Q_S0ae3" role="3clF45">
-        <ref role="3uigEE" to="rw00:3SnNvqCaJVx" resolve="BreakpointLocation" />
+        <ref role="3uigEE" to="fwk:~NodeTraceInfo" resolve="NodeTraceInfo" />
       </node>
       <node concept="2AHcQZ" id="3Gc6Q_S0kkh" role="2AJF6D">
         <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
@@ -8776,9 +8862,8 @@
       <property role="TrG5h" value="compute" />
       <property role="DiZV1" value="false" />
       <property role="od$2w" value="false" />
-      <node concept="3Tm1VV" id="3Gc6Q_S0aJI" role="1B3o_S" />
       <node concept="3uibUv" id="3Gc6Q_S0aJL" role="3clF45">
-        <ref role="3uigEE" to="rw00:3SnNvqCaJVx" resolve="BreakpointLocation" />
+        <ref role="3uigEE" to="fwk:~NodeTraceInfo" resolve="NodeTraceInfo" />
       </node>
       <node concept="3clFbS" id="3Gc6Q_S0aJM" role="3clF47">
         <node concept="3cpWs8" id="3Gc6Q_S0fyu" role="3cqZAp">
@@ -8800,28 +8885,92 @@
             </node>
           </node>
         </node>
-        <node concept="3cpWs6" id="3Gc6Q_S0fN$" role="3cqZAp">
-          <node concept="3K4zz7" id="3Gc6Q_S0g4$" role="3cqZAk">
-            <node concept="2ShNRf" id="3Gc6Q_S0hLd" role="3K4GZi">
-              <node concept="1pGfFk" id="3Gc6Q_S0iZw" role="2ShVmc">
-                <ref role="37wK5l" to="rw00:3SnNvqCaJW5" resolve="BreakpointLocation" />
-                <node concept="37vLTw" id="3Gc6Q_S0j5U" role="37wK5m">
+        <node concept="3cpWs8" id="URDuznpoCb" role="3cqZAp">
+          <node concept="3cpWsn" id="URDuznpoCc" role="3cpWs9">
+            <property role="TrG5h" value="model" />
+            <node concept="3uibUv" id="URDuznpoC9" role="1tU5fm">
+              <ref role="3uigEE" to="mhbf:~SModel" resolve="SModel" />
+            </node>
+            <node concept="3K4zz7" id="2WipSYwxJlT" role="33vP2m">
+              <node concept="10Nm6u" id="2WipSYwxJLV" role="3K4E3e" />
+              <node concept="2OqwBi" id="2WipSYwxKI8" role="3K4GZi">
+                <node concept="37vLTw" id="2WipSYwxKsg" role="2Oq$k0">
+                  <ref role="3cqZAo" node="3Gc6Q_S0fyv" resolve="node" />
+                </node>
+                <node concept="liA8E" id="2WipSYwxKV9" role="2OqNvi">
+                  <ref role="37wK5l" to="mhbf:~SNode.getModel()" resolve="getModel" />
+                </node>
+              </node>
+              <node concept="3clFbC" id="2WipSYwxI$f" role="3K4Cdx">
+                <node concept="10Nm6u" id="2WipSYwxJ61" role="3uHU7w" />
+                <node concept="37vLTw" id="2WipSYwxIhs" role="3uHU7B">
                   <ref role="3cqZAo" node="3Gc6Q_S0fyv" resolve="node" />
                 </node>
               </node>
             </node>
-            <node concept="2ShNRf" id="3Gc6Q_S0gg5" role="3K4E3e">
-              <node concept="1pGfFk" id="3Gc6Q_S0hu9" role="2ShVmc">
-                <ref role="37wK5l" to="rw00:3SnNvqCaJVF" resolve="BreakpointLocation" />
-                <node concept="37vLTw" id="3Gc6Q_S0hDV" role="37wK5m">
-                  <ref role="3cqZAo" node="3Gc6Q_RUivn" resolve="myLocation" />
+          </node>
+        </node>
+        <node concept="3clFbJ" id="2WipSYwxLjA" role="3cqZAp">
+          <node concept="3clFbS" id="2WipSYwxLjC" role="3clFbx">
+            <node concept="3clFbF" id="2WipSYwxNK1" role="3cqZAp">
+              <node concept="2OqwBi" id="2WipSYwxPJS" role="3clFbG">
+                <node concept="2YIFZM" id="2WipSYwxNS3" role="2Oq$k0">
+                  <ref role="37wK5l" to="wwqx:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
+                  <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
+                  <node concept="3VsKOn" id="2WipSYwxP$2" role="37wK5m">
+                    <ref role="3VsUkX" node="3Gc6Q_RUaeU" resolve="BreakpointLocationUpdate" />
+                  </node>
+                </node>
+                <node concept="liA8E" id="2WipSYwxQ2D" role="2OqNvi">
+                  <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.String)" resolve="error" />
+                  <node concept="Xl_RD" id="3Gc6Q_RZ_fS" role="37wK5m">
+                    <property role="Xl_RC" value="Tracing doesn't make sense for free-floating nodes" />
+                  </node>
                 </node>
               </node>
             </node>
-            <node concept="3clFbC" id="3Gc6Q_S0fQ6" role="3K4Cdx">
-              <node concept="10Nm6u" id="3Gc6Q_S0g0a" role="3uHU7w" />
-              <node concept="37vLTw" id="3Gc6Q_S0fNA" role="3uHU7B">
-                <ref role="3cqZAo" node="3Gc6Q_S0fyv" resolve="node" />
+            <node concept="3cpWs6" id="2WipSYwxRpr" role="3cqZAp">
+              <node concept="2ShNRf" id="2WipSYwxSr4" role="3cqZAk">
+                <node concept="1pGfFk" id="2WipSYwxXpU" role="2ShVmc">
+                  <property role="373rjd" value="true" />
+                  <ref role="37wK5l" to="fwk:~NodeTraceInfo.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNodeReference)" resolve="NodeTraceInfo" />
+                  <node concept="37vLTw" id="2WipSYwxYqP" role="37wK5m">
+                    <ref role="3cqZAo" node="3Gc6Q_RUivn" resolve="myLocation" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbC" id="2WipSYwxMbj" role="3clFbw">
+            <node concept="10Nm6u" id="2WipSYwxMER" role="3uHU7w" />
+            <node concept="37vLTw" id="2WipSYwxLQs" role="3uHU7B">
+              <ref role="3cqZAo" node="URDuznpoCc" resolve="model" />
+            </node>
+          </node>
+          <node concept="9aQIb" id="2WipSYwxRy5" role="9aQIa">
+            <node concept="3clFbS" id="2WipSYwxRy6" role="9aQI4">
+              <node concept="3cpWs6" id="3Gc6Q_S0fN$" role="3cqZAp">
+                <node concept="2ShNRf" id="3Gc6Q_RZzKT" role="3cqZAk">
+                  <node concept="1pGfFk" id="3Gc6Q_RZ$lx" role="2ShVmc">
+                    <ref role="37wK5l" to="fwk:~NodeTraceInfo.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNode,jetbrains.mps.textgen.trace.DebugInfo)" resolve="NodeTraceInfo" />
+                    <node concept="37vLTw" id="3Gc6Q_RZ$or" role="37wK5m">
+                      <ref role="3cqZAo" node="3Gc6Q_S0fyv" resolve="node" />
+                    </node>
+                    <node concept="2OqwBi" id="URDuznpo93" role="37wK5m">
+                      <node concept="2ShNRf" id="URDuznpg$X" role="2Oq$k0">
+                        <node concept="1pGfFk" id="1MGOcNZKth0" role="2ShVmc">
+                          <ref role="37wK5l" to="fwk:~TraceInfo.&lt;init&gt;()" resolve="TraceInfo" />
+                        </node>
+                      </node>
+                      <node concept="liA8E" id="URDuznpofU" role="2OqNvi">
+                        <ref role="37wK5l" to="fwk:~TraceInfo.getDebugInfo(org.jetbrains.mps.openapi.model.SModel)" resolve="getDebugInfo" />
+                        <node concept="37vLTw" id="URDuznpoQl" role="37wK5m">
+                          <ref role="3cqZAo" node="URDuznpoCc" resolve="model" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
               </node>
             </node>
           </node>
@@ -8833,12 +8982,6 @@
         <node concept="1dT_AC" id="3Gc6Q_S0kf$" role="1dT_Ay">
           <property role="1dT_AB" value="Given persistence presentation of breakpoint location (SNodeReference now), build actual location, connected with target code, if any" />
         </node>
-      </node>
-    </node>
-    <node concept="3uibUv" id="3Gc6Q_S08XI" role="EKbjA">
-      <ref role="3uigEE" to="18ew:~Computable" resolve="Computable" />
-      <node concept="3uibUv" id="3Gc6Q_S09n6" role="11_B2D">
-        <ref role="3uigEE" to="rw00:3SnNvqCaJVx" resolve="BreakpointLocation" />
       </node>
     </node>
   </node>
