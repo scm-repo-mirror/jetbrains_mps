@@ -51991,7 +51991,7 @@
   </node>
   <node concept="sEfby" id="2GpCVW5qRfN">
     <property role="TrG5h" value="Inspector" />
-    <property role="2XNbzY" value="InspectorNew" />
+    <property role="2XNbzY" value="Inspector" />
     <property role="tEvSQ" value="true" />
     <property role="2bmUCM" value="6ynJ8PRv7RF/BOTTOM_RIGHT" />
     <property role="3GE5qa" value="inspector" />

@@ -46,7 +46,7 @@ public class Inspector_Tool extends GeneratedTool {
     }
   };
   public Inspector_Tool(Project project) {
-    super(project, "InspectorNew", BaseTool.shortcutsFromNumber(2), ICON, ToolWindowAnchor.BOTTOM, false, true);
+    super(project, "Inspector", BaseTool.shortcutsFromNumber(2), ICON, ToolWindowAnchor.BOTTOM, false, true);
   }
   public void init(Project project) {
     super.init(project);
