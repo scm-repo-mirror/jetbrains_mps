@@ -4,9 +4,7 @@
   <property name="build.tmp" location="${build.dir}/tmp/xmlPersistencePlugin" />
   <property name="build.layout" location="${build.dir}/artifacts/xmlPersistencePlugin" />
   <property name="mps_dist" location="${basedir}/../../work/MPS 2021.2" />
-  <property name="idea_home" location="${mps_dist}" />
   <property name="artifacts.mps" location="${mps_dist}" />
-  <property name="artifacts.IDEA" location="${idea_home}" />
   <property file="${artifacts.mps}/build.properties" prefix="import.mps" />
   <property name="mps.build.number" value="${import.mps.mps.build.number}" />
   <property name="mps.date" value="${import.mps.mps.date}" />
@@ -28,7 +26,7 @@
   
   <path id="path.mps.ant.path">
     <pathelement location="${artifacts.mps}/lib/ant/lib/ant-mps.jar" />
-    <fileset dir="${artifacts.IDEA}/lib">
+    <fileset dir="${artifacts.mps}/lib">
       <include name="util-8.jar" />
     </fileset>
   </path>
@@ -179,7 +177,6 @@
         <arg value="--add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED" />
       </jvmargs>
       <macro name="mps_dist" path="${mps_dist}" />
-      <macro name="idea_home" path="${idea_home}" />
     </generate>
   </target>
   
@@ -210,9 +207,9 @@
         <fileset file="${artifacts.mps}/lib/mps-persistence.jar" />
         <fileset file="${artifacts.mps}/lib/mps-project-check.jar" />
         <fileset file="${artifacts.mps}/lib/mps-textgen.jar" />
-        <fileset file="${artifacts.IDEA}/lib/util-8.jar" />
-        <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
-        <fileset file="${artifacts.IDEA}/lib/trove.jar" />
+        <fileset file="${artifacts.mps}/lib/util-8.jar" />
+        <fileset file="${artifacts.mps}/lib/annotations.jar" />
+        <fileset file="${artifacts.mps}/lib/trove.jar" />
         <fileset file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.logging.runtime.jar" />
         <fileset file="${artifacts.mps}/languages/xml/jetbrains.mps.core.xml.jar" />
         <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.traceable.jar" />
