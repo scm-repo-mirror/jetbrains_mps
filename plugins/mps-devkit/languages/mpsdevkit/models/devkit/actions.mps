@@ -17520,8 +17520,8 @@
   </node>
   <node concept="2wDNrl" id="1OUi9vCriDx">
     <property role="3GE5qa" value="Tools" />
-    <property role="TrG5h" value="GenerationTracerViewTool2" />
-    <property role="2XNbzY" value="Generation Tracer 2" />
+    <property role="TrG5h" value="GenerationTracerViewTool" />
+    <property role="2XNbzY" value="Generation Tracer" />
     <node concept="2XrIbr" id="1OUi9vCrPAe" role="2XNbBy">
       <property role="TrG5h" value="doRegister" />
       <node concept="3cqZAl" id="1OUi9vCrPAf" role="3clF45" />
