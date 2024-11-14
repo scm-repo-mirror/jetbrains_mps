@@ -28,7 +28,6 @@ import com.intellij.openapi.actionSystem.KeyboardShortcut;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.actionSystem.Separator;
 import com.intellij.openapi.application.ApplicationManager;
-import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.colors.EditorColors;
 import com.intellij.openapi.editor.colors.EditorColorsManager;
 import com.intellij.openapi.editor.ex.EditorSettingsExternalizable;
@@ -125,7 +124,6 @@ import jetbrains.mps.typechecking.TypecheckingSession;
 import jetbrains.mps.typechecking.TypecheckingSession.Flags;
 import jetbrains.mps.typechecking.TypecheckingSession.Handle;
 import jetbrains.mps.util.Computable;
-import jetbrains.mps.util.ComputeRunnable;
 import jetbrains.mps.util.Pair;
 import jetbrains.mps.util.Reference;
 import jetbrains.mps.workbench.ActionPlace;
@@ -1246,8 +1244,9 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
         requestTypecheckingSession();
       }
 
-      rebuildEditorContent();
+      rebuildEditorIgnoreViewport();
       if (hasUI()) {
+        scrollToTopLeft();
         refreshContentHighlighter();
       }
 
@@ -2056,14 +2055,26 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     return null;
   }
 
+  private void scrollToTopLeft() {
+    JScrollPane scrollPane = getScrollPane();
+    JScrollBar verticalScrollBar = scrollPane.getVerticalScrollBar();
+    verticalScrollBar.setValue(verticalScrollBar.getMinimum());
+    JScrollBar horizontalScrollBar = scrollPane.getHorizontalScrollBar();
+    horizontalScrollBar.setValue(horizontalScrollBar.getMinimum());
+  }
+
+  private void rebuildEditorIgnoreViewport() {
+    getUpdater().update();
+    relayout();
+  }
+
   @Override
   public void rebuildEditorContent() {
     assertInEDT();
 
     // XXX is myScrollPane == null possible here? perhaps, for !hasUI() case?
     ViewportState vps = new ViewportState(myScrollPane == null ? null : myScrollPane.getViewport());
-    getUpdater().update();
-    relayout();
+    rebuildEditorIgnoreViewport();
     // JFTR, this (EC) is Viewport's View component
     vps.restore(this.getPreferredSize());
   }
