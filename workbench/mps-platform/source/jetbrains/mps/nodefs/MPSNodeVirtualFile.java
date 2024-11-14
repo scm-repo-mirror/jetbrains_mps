@@ -55,8 +55,6 @@ public final class MPSNodeVirtualFile extends VirtualFile implements ProjectAwar
   MPSNodeVirtualFile(@NotNull SNodeReference nodePointer, @NotNull RepositoryVirtualFiles vfs) {
     myNode = nodePointer;
     myRepoFiles = vfs;
-    // MPS-35481 temporarily disable preview tab until properly integrated
-    putUserData(FileEditorManagerImpl.FORBID_PREVIEW_TAB, true);
     updateFields();
   }
 
