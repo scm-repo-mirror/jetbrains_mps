@@ -29701,7 +29701,16 @@
         </node>
         <node concept="3_J27D" id="6Iq8148f_YV" role="2EtnoK">
           <node concept="3Mxwew" id="6Iq8148f_YZ" role="3MwsjC">
-            <property role="3MwjfP" value="https://www.jetbrains.com/mps/download/" />
+            <property role="3MwjfP" value="https://www.jetbrains.com/mps/download/?utm_source=product&amp;utm_media=link&amp;utm_campaign=MPS&amp;utm_content=" />
+          </node>
+          <node concept="3Mxwey" id="LH9FcGByXN" role="3MwsjC">
+            <ref role="3Mxwex" node="3AMbuf1a7Ob" resolve="version.major" />
+          </node>
+          <node concept="3Mxwew" id="LH9FcGBz4j" role="3MwsjC">
+            <property role="3MwjfP" value="." />
+          </node>
+          <node concept="3Mxwey" id="LH9FcGBz5p" role="3MwsjC">
+            <ref role="3Mxwex" node="3AMbuf1a7Of" resolve="version.minor" />
           </node>
         </node>
         <node concept="NbPM2" id="6Iq8148f_YW" role="HFWMp">
