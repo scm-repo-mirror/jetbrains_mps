@@ -45159,6 +45159,23 @@
             </node>
           </node>
         </node>
+        <node concept="398223" id="4$SPvRaQ_Jo" role="39821P">
+          <node concept="3_J27D" id="4$SPvRaQ_Jp" role="Nbhlr">
+            <node concept="3Mxwew" id="4$SPvRaQ_Jv" role="3MwsjC">
+              <property role="3MwjfP" value="json" />
+            </node>
+          </node>
+          <node concept="2HvfSZ" id="4$SPvRaQ_Jr" role="39821P">
+            <node concept="55IIr" id="4$SPvRaQ_Js" role="2HvfZ0">
+              <node concept="2Ry0Ak" id="4$SPvRaQ_Jt" role="iGT6I">
+                <property role="2Ry0Am" value="plugins" />
+                <node concept="2Ry0Ak" id="4$SPvRaQ_Ju" role="2Ry0An">
+                  <property role="2Ry0Am" value="json" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="398223" id="_VJVSUXfWR" role="39821P">
           <node concept="3_J27D" id="_VJVSUXfWS" role="Nbhlr">
             <node concept="3Mxwew" id="_VJVSUXfWT" role="3MwsjC">

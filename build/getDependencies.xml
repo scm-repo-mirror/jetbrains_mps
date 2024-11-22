@@ -418,6 +418,7 @@
 
     <delete dir="${basedir}/../plugins/java" failonerror="false"/>
     <delete dir="${basedir}/../plugins/java-ide-customization" failonerror="false"/>
+    <delete dir="${basedir}/../plugins/json" failonerror="false"/>
     <delete dir="${basedir}/../plugins/copyright" failonerror="false"/>
     <delete dir="${basedir}/../plugins/properties" failonerror="false"/>
     <delete dir="${basedir}/../plugins/properties-resource-bundle-editor" failonerror="false"/>

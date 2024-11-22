@@ -80,6 +80,10 @@
     <copy todir="${build.layout}/plugins/java">
       <fileset dir="${basedir}/plugins/java" />
     </copy>
+    <mkdir dir="${build.layout}/plugins/json" />
+    <copy todir="${build.layout}/plugins/json">
+      <fileset dir="${basedir}/plugins/json" />
+    </copy>
     <mkdir dir="${build.layout}/plugins/copyright" />
     <copy todir="${build.layout}/plugins/copyright">
       <fileset dir="${basedir}/plugins/copyright" />

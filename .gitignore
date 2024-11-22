@@ -62,6 +62,7 @@ teamcity-info.xml
 # (in the same order as in the MPSProperties.groovy to simplify maintaining)
 /plugins/java
 /plugins/java-ide-customization
+/plugins/json
 /plugins/copyright
 /plugins/properties
 /plugins/properties-resource-bundle-editor
