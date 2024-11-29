@@ -12008,6 +12008,16 @@
             </node>
           </node>
         </node>
+        <node concept="3cpWs8" id="4$9ziLZ_omV" role="3cqZAp">
+          <node concept="3cpWsn" id="4$9ziLZ_omW" role="3cpWs9">
+            <property role="TrG5h" value="modelToDispose" />
+            <property role="3TUv4t" value="true" />
+            <node concept="H_c77" id="4$9ziLZ_nbo" role="1tU5fm" />
+            <node concept="37vLTw" id="4$9ziLZ_omX" role="33vP2m">
+              <ref role="3cqZAo" node="5LbRjS1o5qR" resolve="myTransientModel" />
+            </node>
+          </node>
+        </node>
         <node concept="3clFbF" id="5Nkzt7Qvdyc" role="3cqZAp">
           <node concept="2OqwBi" id="5Nkzt7Qvd$Z" role="3clFbG">
             <node concept="2OqwBi" id="6BLo1MggNJ5" role="2Oq$k0">
@@ -12032,8 +12042,8 @@
                     <node concept="2OqwBi" id="5LbRjS1pyy7" role="3clFbG">
                       <node concept="liA8E" id="5LbRjS1pyy8" role="2OqNvi">
                         <ref role="37wK5l" to="tqvn:~TemporaryModels.dispose(org.jetbrains.mps.openapi.model.SModel)" resolve="dispose" />
-                        <node concept="37vLTw" id="5LbRjS1pyy9" role="37wK5m">
-                          <ref role="3cqZAo" node="5LbRjS1o5qR" resolve="myTransientModel" />
+                        <node concept="37vLTw" id="4$9ziLZ_omZ" role="37wK5m">
+                          <ref role="3cqZAo" node="4$9ziLZ_omW" resolve="model" />
                         </node>
                       </node>
                       <node concept="2YIFZM" id="5LbRjS1pyya" role="2Oq$k0">
@@ -12042,16 +12052,16 @@
                       </node>
                     </node>
                   </node>
-                  <node concept="3clFbF" id="5LbRjS1pyyb" role="3cqZAp">
-                    <node concept="37vLTI" id="5LbRjS1pyyc" role="3clFbG">
-                      <node concept="10Nm6u" id="5LbRjS1pyyd" role="37vLTx" />
-                      <node concept="37vLTw" id="5LbRjS1pyye" role="37vLTJ">
-                        <ref role="3cqZAo" node="5LbRjS1o5qR" resolve="myTransientModel" />
-                      </node>
-                    </node>
-                  </node>
                 </node>
               </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="5LbRjS1pyyb" role="3cqZAp">
+          <node concept="37vLTI" id="5LbRjS1pyyc" role="3clFbG">
+            <node concept="10Nm6u" id="5LbRjS1pyyd" role="37vLTx" />
+            <node concept="37vLTw" id="4$9ziLZ_omY" role="37vLTJ">
+              <ref role="3cqZAo" node="5LbRjS1o5qR" resolve="myTransientModel" />
             </node>
           </node>
         </node>
@@ -18187,7 +18197,28 @@
       <node concept="3uibUv" id="4dqLDEYYwTf" role="Sfmx6">
         <ref role="3uigEE" to="wyt6:~Exception" resolve="Exception" />
       </node>
-      <node concept="3clFbS" id="4dqLDEYYwTh" role="3clF47" />
+      <node concept="3clFbS" id="4dqLDEYYwTh" role="3clF47">
+        <node concept="3clFbJ" id="6US8dKoZCLL" role="3cqZAp">
+          <node concept="3clFbS" id="6US8dKoZCLN" role="3clFbx">
+            <node concept="3clFbF" id="4dqLDEYYKUP" role="3cqZAp">
+              <node concept="2OqwBi" id="4dqLDEYYLdn" role="3clFbG">
+                <node concept="37vLTw" id="4dqLDEYYKUO" role="2Oq$k0">
+                  <ref role="3cqZAo" node="4dqLDEYYyVo" resolve="myParametersCache" />
+                </node>
+                <node concept="liA8E" id="4dqLDEYYV3l" role="2OqNvi">
+                  <ref role="37wK5l" node="4zIz0VbYSyo" resolve="clean" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3y3z36" id="6US8dKoZEtY" role="3clFbw">
+            <node concept="10Nm6u" id="6US8dKoZF8p" role="3uHU7w" />
+            <node concept="37vLTw" id="6US8dKoZDJA" role="3uHU7B">
+              <ref role="3cqZAo" node="4dqLDEYYyVo" resolve="myParametersCache" />
+            </node>
+          </node>
+        </node>
+      </node>
       <node concept="2AHcQZ" id="4dqLDEYYwTi" role="2AJF6D">
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
@@ -18225,28 +18256,7 @@
       <node concept="3uibUv" id="4dqLDEYYKgn" role="Sfmx6">
         <ref role="3uigEE" to="wyt6:~Exception" resolve="Exception" />
       </node>
-      <node concept="3clFbS" id="4dqLDEYYKgr" role="3clF47">
-        <node concept="3clFbJ" id="6US8dKoZCLL" role="3cqZAp">
-          <node concept="3clFbS" id="6US8dKoZCLN" role="3clFbx">
-            <node concept="3clFbF" id="4dqLDEYYKUP" role="3cqZAp">
-              <node concept="2OqwBi" id="4dqLDEYYLdn" role="3clFbG">
-                <node concept="37vLTw" id="4dqLDEYYKUO" role="2Oq$k0">
-                  <ref role="3cqZAo" node="4dqLDEYYyVo" resolve="myParametersCache" />
-                </node>
-                <node concept="liA8E" id="4dqLDEYYV3l" role="2OqNvi">
-                  <ref role="37wK5l" node="4zIz0VbYSyo" resolve="clean" />
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="3y3z36" id="6US8dKoZEtY" role="3clFbw">
-            <node concept="10Nm6u" id="6US8dKoZF8p" role="3uHU7w" />
-            <node concept="37vLTw" id="6US8dKoZDJA" role="3uHU7B">
-              <ref role="3cqZAo" node="4dqLDEYYyVo" resolve="myParametersCache" />
-            </node>
-          </node>
-        </node>
-      </node>
+      <node concept="3clFbS" id="4dqLDEYYKgr" role="3clF47" />
       <node concept="2AHcQZ" id="4dqLDEYYKgs" role="2AJF6D">
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
