@@ -195,6 +195,11 @@ public class MPSDocumentationPopupUI implements Disposable {
     }
 
     @Override
+    public boolean isDumbAware() {
+      return false;
+    }
+
+    @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
       assert myPopup != null;
       MPSDocumentationUI ui = myUI;
