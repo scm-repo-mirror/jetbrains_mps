@@ -52223,6 +52223,16 @@
           <ref role="3bR37D" node="5lGJ4Tajp1p" resolve="jetbrains.mps.migration.component" />
         </node>
       </node>
+      <node concept="1SiIV0" id="3hU3CpLOzYd" role="3bR37C">
+        <node concept="3bR9La" id="3hU3CpLOzYe" role="1SiIV1">
+          <ref role="3bR37D" node="14x5$qAUbkv" resolve="jetbrains.mps.lang.resources" />
+        </node>
+      </node>
+      <node concept="1SiIV0" id="3hU3CpLOzYZ" role="3bR37C">
+        <node concept="3bR9La" id="3hU3CpLOzZ0" role="1SiIV1">
+          <ref role="3bR37D" node="7Kfy9QB6Lfd" resolve="jetbrains.mps.findUsages.runtime" />
+        </node>
+      </node>
     </node>
     <node concept="398rNT" id="77ZqjhZbMDX" role="1l3spd">
       <property role="TrG5h" value="idea_home" />
