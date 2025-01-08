@@ -1990,6 +1990,12 @@
         <ref role="398BVh" node="53PdBITeUc4" resolve="mps_home" />
       </node>
     </node>
+    <node concept="398rNT" id="5JEVmB_r8c4" role="1l3spd">
+      <property role="TrG5h" value="artifacts.mps" />
+      <node concept="398BVA" id="5JEVmB_r8c6" role="398pKh">
+        <ref role="398BVh" node="53PdBITeUc4" resolve="mps_home" />
+      </node>
+    </node>
     <node concept="13uUGR" id="53PdBITeUc6" role="1l3spa">
       <ref role="13uUGO" to="ffeo:6eCuTcwOnJO" resolve="IDEA" />
       <node concept="398BVA" id="53PdBITeUc7" role="13uUGP">
