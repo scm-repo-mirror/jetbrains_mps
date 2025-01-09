@@ -8,6 +8,6 @@ import jetbrains.mps.smodel.structure.ExtensionPoint;
 
 public class ExtensionDescriptor extends DefaultExtensionDescriptor {
   public ExtensionDescriptor() {
-    super(Arrays.asList(new ExtensionPoint("jetbrains.mps.refactoring.participant.MoveModelParticipantEP"), new ExtensionPoint("jetbrains.mps.refactoring.participant.MoveNodeParticipantEP"), new ExtensionPoint("jetbrains.mps.refactoring.participant.MoveNodesActionEP"), new ExtensionPoint("jetbrains.mps.refactoring.participant.PersistentRefactoringParticipantsEP"), new ExtensionPoint("jetbrains.mps.refactoring.participant.RenameNodeParticipantEP")), null);
+    super(Arrays.asList(new ExtensionPoint("jetbrains.mps.refactoring.participant.MoveModelParticipantEP"), new ExtensionPoint("jetbrains.mps.refactoring.participant.MoveNodeParticipantEP"), new ExtensionPoint("jetbrains.mps.refactoring.participant.PersistentRefactoringParticipantsEP"), new ExtensionPoint("jetbrains.mps.refactoring.participant.RenameNodeParticipantEP")), null);
   }
 }

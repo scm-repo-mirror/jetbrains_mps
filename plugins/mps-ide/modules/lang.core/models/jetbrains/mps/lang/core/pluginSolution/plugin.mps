@@ -4272,7 +4272,7 @@
     <node concept="1GtWCo" id="j$8LF20PsC" role="1nVCmq">
       <node concept="10M0yZ" id="j$8LF20QLr" role="1GtWoa">
         <ref role="3cqZAo" to="z2i8:~AllIcons$Toolwindows.Documentation" resolve="Documentation" />
-        <ref role="1PxDUh" to="z2i8:~AllIcons$Toolwindows" resolve="Toolwindows" />
+        <ref role="1PxDUh" to="z2i8:~AllIcons$Toolwindows" resolve="AllIcons.Toolwindows" />
       </node>
     </node>
   </node>

@@ -20947,12 +20947,6 @@
             <ref role="3bR37D" node="1qokWp1VAAr" resolve="jetbrains.mps.refactoring" />
           </node>
         </node>
-        <node concept="1SiIV0" id="JWw_zseQub" role="3bR37C">
-          <node concept="3bR9La" id="JWw_zseQuc" role="1SiIV1">
-            <property role="3bR36h" value="true" />
-            <ref role="3bR37D" node="4X1d9kMCbcv" resolve="jetbrains.mps.ide.refactoring.platform" />
-          </node>
-        </node>
         <node concept="1BupzO" id="JWw_zseQun" role="3bR31x">
           <property role="3ZfqAx" value="models" />
           <property role="1Hdu6h" value="true" />

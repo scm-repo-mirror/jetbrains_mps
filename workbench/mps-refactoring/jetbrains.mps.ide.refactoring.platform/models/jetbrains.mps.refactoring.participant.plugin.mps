@@ -274,6 +274,9 @@
       </concept>
     </language>
     <language id="c0080a47-7e37-4558-bee9-9ae18e690549" name="jetbrains.mps.lang.extension">
+      <concept id="3729007189729192406" name="jetbrains.mps.lang.extension.structure.ExtensionPointDeclaration" flags="ng" index="vrV6u">
+        <child id="8029776554053057803" name="objectType" index="luc8K" />
+      </concept>
       <concept id="6626851894249711936" name="jetbrains.mps.lang.extension.structure.ExtensionPointExpression" flags="nn" index="2O5UvJ">
         <reference id="6626851894249712469" name="extensionPoint" index="2O5UnU" />
       </concept>
@@ -471,7 +474,7 @@
             <node concept="2OqwBi" id="7RCFTHVc7gu" role="33vP2m">
               <node concept="2OqwBi" id="30kw7F05kWG" role="2Oq$k0">
                 <node concept="2O5UvJ" id="30kw7F05kWH" role="2Oq$k0">
-                  <ref role="2O5UnU" to="4ugc:1F5g4zQqSPo" resolve="MoveNodesActionEP" />
+                  <ref role="2O5UnU" node="1F5g4zQqSPo" resolve="MoveNodesActionEP" />
                 </node>
                 <node concept="SfwO_" id="30kw7F05kWI" role="2OqNvi" />
               </node>
@@ -5404,6 +5407,12 @@
       <ref role="3uigEE" to="5nvm:2EZTs$tsIo8" resolve="RefactoringProcessor.RefactoringBody" />
       <node concept="3Tqbb2" id="1knX_y6nhI3" role="11_B2D" />
       <node concept="17QB3L" id="1knX_y6nhMo" role="11_B2D" />
+    </node>
+  </node>
+  <node concept="vrV6u" id="1F5g4zQqSPo">
+    <property role="TrG5h" value="MoveNodesActionEP" />
+    <node concept="3uibUv" id="5ErAoTCkxhZ" role="luc8K">
+      <ref role="3uigEE" node="1F5g4zQqSPt" resolve="MoveNodesAction" />
     </node>
   </node>
 </model>

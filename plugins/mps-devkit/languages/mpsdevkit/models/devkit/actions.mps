@@ -5868,7 +5868,7 @@
                   </node>
                 </node>
                 <node concept="LR4U6" id="2b5HLXPzfI6" role="2OqNvi">
-                  <ref role="LR4U5" node="1OUi9vCriDx" resolve="GenerationTracerViewTool2" />
+                  <ref role="LR4U5" node="1OUi9vCriDx" resolve="GenerationTracerViewTool" />
                 </node>
               </node>
               <node concept="2XshWL" id="2b5HLXPzfI7" role="2OqNvi">
@@ -5919,7 +5919,7 @@
           <node concept="3fqX7Q" id="14z8V6nEs87" role="3clFbw">
             <node concept="2OqwBi" id="14z8V6nEs88" role="3fr31v">
               <node concept="37vLTw" id="5oSeKmCeyZU" role="2Oq$k0">
-                <ref role="3cqZAo" node="5oSeKmCexAg" resolve="tool" />
+                <ref role="3cqZAo" node="5oSeKmCexAg" resolve="toolState" />
               </node>
               <node concept="liA8E" id="14z8V6nEs8a" role="2OqNvi">
                 <ref role="37wK5l" to="a0yo:~GenerationTracerViewToolState.showTraceInputData(org.jetbrains.mps.openapi.model.SNode)" resolve="showTraceInputData" />
@@ -5952,7 +5952,7 @@
                   </node>
                 </node>
                 <node concept="LR4U6" id="2b5HLXPzdln" role="2OqNvi">
-                  <ref role="LR4U5" node="1OUi9vCriDx" resolve="GenerationTracerViewTool2" />
+                  <ref role="LR4U5" node="1OUi9vCriDx" resolve="GenerationTracerViewTool" />
                 </node>
               </node>
               <node concept="2XshWL" id="2b5HLXPzfwP" role="2OqNvi">
@@ -5975,7 +5975,7 @@
                   </node>
                   <node concept="2OqwBi" id="5VaWw4eye7_" role="37wK5m">
                     <node concept="37vLTw" id="5VaWw4eye7A" role="2Oq$k0">
-                      <ref role="3cqZAo" node="5oSeKmCevcV" resolve="tool" />
+                      <ref role="3cqZAo" node="5oSeKmCevcV" resolve="toolState" />
                     </node>
                     <node concept="liA8E" id="5VaWw4eye7B" role="2OqNvi">
                       <ref role="37wK5l" to="a0yo:~GenerationTracerViewToolState.hasTraceInputData(org.jetbrains.mps.openapi.model.SModelReference)" resolve="hasTraceInputData" />
@@ -6014,7 +6014,7 @@
             <node concept="3clFbC" id="5VaWw4exXR1" role="3uHU7w">
               <node concept="10Nm6u" id="5VaWw4exXR2" role="3uHU7w" />
               <node concept="37vLTw" id="5VaWw4exXR3" role="3uHU7B">
-                <ref role="3cqZAo" node="5oSeKmCevcV" resolve="tool" />
+                <ref role="3cqZAo" node="5oSeKmCevcV" resolve="toolState" />
               </node>
             </node>
             <node concept="2OqwBi" id="5VaWw4exXR4" role="3uHU7B">
@@ -6055,7 +6055,7 @@
                   </node>
                 </node>
                 <node concept="LR4U6" id="2b5HLXPzhlq" role="2OqNvi">
-                  <ref role="LR4U5" node="1OUi9vCriDx" resolve="GenerationTracerViewTool2" />
+                  <ref role="LR4U5" node="1OUi9vCriDx" resolve="GenerationTracerViewTool" />
                 </node>
               </node>
               <node concept="2XshWL" id="2b5HLXPzhlr" role="2OqNvi">
@@ -6106,7 +6106,7 @@
           <node concept="3fqX7Q" id="14z8V6nEs9B" role="3clFbw">
             <node concept="2OqwBi" id="14z8V6nEs9C" role="3fr31v">
               <node concept="37vLTw" id="5oSeKmCesLi" role="2Oq$k0">
-                <ref role="3cqZAo" node="5oSeKmCes52" resolve="tool" />
+                <ref role="3cqZAo" node="5oSeKmCes52" resolve="toolState" />
               </node>
               <node concept="liA8E" id="14z8V6nEs9E" role="2OqNvi">
                 <ref role="37wK5l" to="a0yo:~GenerationTracerViewToolState.showTracebackData(org.jetbrains.mps.openapi.model.SNode)" resolve="showTracebackData" />
@@ -6139,7 +6139,7 @@
                   </node>
                 </node>
                 <node concept="LR4U6" id="2b5HLXPzgVg" role="2OqNvi">
-                  <ref role="LR4U5" node="1OUi9vCriDx" resolve="GenerationTracerViewTool2" />
+                  <ref role="LR4U5" node="1OUi9vCriDx" resolve="GenerationTracerViewTool" />
                 </node>
               </node>
               <node concept="2XshWL" id="2b5HLXPzgVh" role="2OqNvi">
@@ -6174,7 +6174,7 @@
                   </node>
                   <node concept="2OqwBi" id="14z8V6nEsao" role="37wK5m">
                     <node concept="37vLTw" id="5oSeKmCepEN" role="2Oq$k0">
-                      <ref role="3cqZAo" node="5oSeKmCenEV" resolve="tool" />
+                      <ref role="3cqZAo" node="5oSeKmCenEV" resolve="toolState" />
                     </node>
                     <node concept="liA8E" id="14z8V6nEsaq" role="2OqNvi">
                       <ref role="37wK5l" to="a0yo:~GenerationTracerViewToolState.hasTracebackData(org.jetbrains.mps.openapi.model.SModelReference)" resolve="hasTracebackData" />
@@ -6218,7 +6218,7 @@
             <node concept="3clFbC" id="5VaWw4ewhVD" role="3uHU7w">
               <node concept="10Nm6u" id="5VaWw4ewhXW" role="3uHU7w" />
               <node concept="37vLTw" id="5VaWw4ewhQk" role="3uHU7B">
-                <ref role="3cqZAo" node="5oSeKmCenEV" resolve="tool" />
+                <ref role="3cqZAo" node="5oSeKmCenEV" resolve="toolState" />
               </node>
             </node>
           </node>
