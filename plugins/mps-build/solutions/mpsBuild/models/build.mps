@@ -3346,7 +3346,7 @@
             <ref role="L2wRA" node="7Kfy9QB6L9q" resolve="jetbrains.mps.lang.refactoring" />
           </node>
           <node concept="L2wRC" id="1qokWp1W6ND" role="39821P">
-            <ref role="L2wRA" node="1qokWp1VHJa" resolve="jetbrains.mps.refactoring.participant" />
+            <ref role="L2wRA" node="JWw_zseP2h" resolve="jetbrains.mps.refactoring.participant" />
           </node>
           <node concept="L2wRC" id="1d41uYMV1oq" role="39821P">
             <ref role="L2wRA" node="1d41uYMTVPu" resolve="jetbrains.mps.lang.scopes" />
@@ -7273,12 +7273,6 @@
         <node concept="1SiIV0" id="6OxUhHzT_Ql" role="3bR37C">
           <node concept="3bR9La" id="6OxUhHzT_Qm" role="1SiIV1">
             <ref role="3bR37D" node="7Kfy9QB6LaO" resolve="jetbrains.mps.lang.structure" />
-          </node>
-        </node>
-        <node concept="1SiIV0" id="Qbfxd3u3GB" role="3bR37C">
-          <node concept="3bR9La" id="Qbfxd3u3GC" role="1SiIV1">
-            <property role="3bR36h" value="true" />
-            <ref role="3bR37D" node="3HV74$ebibC" resolve="jetbrains.mps.lang.text" />
           </node>
         </node>
       </node>
@@ -19412,7 +19406,7 @@
         </node>
         <node concept="1SiIV0" id="tRSO93SZkh" role="3bR37C">
           <node concept="3bR9La" id="tRSO93SZki" role="1SiIV1">
-            <ref role="3bR37D" node="1qokWp1VHJa" resolve="jetbrains.mps.refactoring.participant" />
+            <ref role="3bR37D" node="JWw_zseP2h" resolve="jetbrains.mps.refactoring.participant" />
           </node>
         </node>
         <node concept="1SiIV0" id="tRSO93SZkj" role="3bR37C">
@@ -20929,88 +20923,59 @@
           </node>
         </node>
       </node>
-      <node concept="1E1JtD" id="1qokWp1VHJa" role="2G$12L">
+      <node concept="1E1JtA" id="JWw_zseP2h" role="2G$12L">
         <property role="BnDLt" value="true" />
         <property role="TrG5h" value="jetbrains.mps.refactoring.participant" />
         <property role="3LESm3" value="d81a5f75-df55-4511-9df4-4dbac0cdcf06" />
-        <property role="ZpmtF" value="true" />
-        <node concept="3rtmxn" id="EpEP7iihE4" role="3bR31x">
-          <node concept="3LXTmp" id="EpEP7iihE5" role="3rtmxm">
-            <node concept="3qWCbU" id="EpEP7iihE6" role="3LXTna">
-              <property role="3qWCbO" value="icons/**, resources/**" />
-            </node>
-            <node concept="398BVA" id="EpEP7iihE7" role="3LXTmr">
-              <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
-              <node concept="2Ry0Ak" id="EpEP7iihE8" role="iGT6I">
-                <property role="2Ry0Am" value="languages" />
-                <node concept="2Ry0Ak" id="EpEP7iihE9" role="2Ry0An">
-                  <property role="2Ry0Am" value="languageDesign" />
-                  <node concept="2Ry0Ak" id="EpEP7iihEa" role="2Ry0An">
-                    <property role="2Ry0Am" value="refactoring" />
-                    <node concept="2Ry0Ak" id="EpEP7iihEb" role="2Ry0An">
-                      <property role="2Ry0Am" value="participant" />
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="398BVA" id="1qokWp1VIDK" role="3LF7KH">
+        <node concept="398BVA" id="JWw_zseP70" role="3LF7KH">
           <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
-          <node concept="2Ry0Ak" id="1qokWp1VIDL" role="iGT6I">
+          <node concept="2Ry0Ak" id="JWw_zsePl5" role="iGT6I">
             <property role="2Ry0Am" value="languages" />
-            <node concept="2Ry0Ak" id="1qokWp1VIDM" role="2Ry0An">
+            <node concept="2Ry0Ak" id="JWw_zsePuu" role="2Ry0An">
               <property role="2Ry0Am" value="languageDesign" />
-              <node concept="2Ry0Ak" id="1qokWp1VIDN" role="2Ry0An">
-                <property role="2Ry0Am" value="refactoring" />
-                <node concept="2Ry0Ak" id="1qokWp1VJFa" role="2Ry0An">
-                  <property role="2Ry0Am" value="participant" />
-                  <node concept="2Ry0Ak" id="1qokWp1VKGv" role="2Ry0An">
-                    <property role="2Ry0Am" value="jetbrains.mps.refactoring.participant.mpl" />
-                  </node>
+              <node concept="2Ry0Ak" id="JWw_zsePBR" role="2Ry0An">
+                <property role="2Ry0Am" value="refactoring.participant" />
+                <node concept="2Ry0Ak" id="JWw_zsePLg" role="2Ry0An">
+                  <property role="2Ry0Am" value="jetbrains.mps.refactoring.participant.msd" />
                 </node>
               </node>
             </node>
           </node>
         </node>
-        <node concept="1SiIV0" id="1qokWp1VLd9" role="3bR37C">
-          <node concept="3bR9La" id="1qokWp1VLda" role="1SiIV1">
+        <node concept="1SiIV0" id="JWw_zseQu9" role="3bR37C">
+          <node concept="3bR9La" id="JWw_zseQua" role="1SiIV1">
             <ref role="3bR37D" node="1qokWp1VAAr" resolve="jetbrains.mps.refactoring" />
           </node>
         </node>
-        <node concept="1BupzO" id="73GUf$ummLb" role="3bR31x">
+        <node concept="1SiIV0" id="JWw_zseQub" role="3bR37C">
+          <node concept="3bR9La" id="JWw_zseQuc" role="1SiIV1">
+            <property role="3bR36h" value="true" />
+            <ref role="3bR37D" node="4X1d9kMCbcv" resolve="jetbrains.mps.ide.refactoring.platform" />
+          </node>
+        </node>
+        <node concept="1BupzO" id="JWw_zseQun" role="3bR31x">
           <property role="3ZfqAx" value="models" />
           <property role="1Hdu6h" value="true" />
           <property role="1HemKv" value="true" />
-          <node concept="3LXTmp" id="73GUf$ummLc" role="1HemKq">
-            <node concept="398BVA" id="73GUf$ummKZ" role="3LXTmr">
+          <node concept="3LXTmp" id="JWw_zseQuo" role="1HemKq">
+            <node concept="398BVA" id="JWw_zseQud" role="3LXTmr">
               <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
-              <node concept="2Ry0Ak" id="73GUf$ummL0" role="iGT6I">
+              <node concept="2Ry0Ak" id="JWw_zseQue" role="iGT6I">
                 <property role="2Ry0Am" value="languages" />
-                <node concept="2Ry0Ak" id="73GUf$ummL1" role="2Ry0An">
+                <node concept="2Ry0Ak" id="JWw_zseQuf" role="2Ry0An">
                   <property role="2Ry0Am" value="languageDesign" />
-                  <node concept="2Ry0Ak" id="73GUf$ummL2" role="2Ry0An">
-                    <property role="2Ry0Am" value="refactoring" />
-                    <node concept="2Ry0Ak" id="73GUf$ummL3" role="2Ry0An">
-                      <property role="2Ry0Am" value="participant" />
-                      <node concept="2Ry0Ak" id="73GUf$ummL4" role="2Ry0An">
-                        <property role="2Ry0Am" value="models" />
-                      </node>
+                  <node concept="2Ry0Ak" id="JWw_zseQug" role="2Ry0An">
+                    <property role="2Ry0Am" value="refactoring.participant" />
+                    <node concept="2Ry0Ak" id="JWw_zseQuh" role="2Ry0An">
+                      <property role="2Ry0Am" value="models" />
                     </node>
                   </node>
                 </node>
               </node>
             </node>
-            <node concept="3qWCbU" id="73GUf$ummLd" role="3LXTna">
+            <node concept="3qWCbU" id="JWw_zseQup" role="3LXTna">
               <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
             </node>
-          </node>
-        </node>
-        <node concept="1SiIV0" id="4X1d9kMORoP" role="3bR37C">
-          <node concept="3bR9La" id="4X1d9kMORoQ" role="1SiIV1">
-            <property role="3bR36h" value="true" />
-            <ref role="3bR37D" node="4X1d9kMCbcv" resolve="jetbrains.mps.ide.refactoring.platform" />
           </node>
         </node>
       </node>
@@ -25470,7 +25435,7 @@
         </node>
         <node concept="1SiIV0" id="4X1d9kMCbC3" role="3bR37C">
           <node concept="3bR9La" id="4X1d9kMCbC4" role="1SiIV1">
-            <ref role="3bR37D" node="1qokWp1VHJa" resolve="jetbrains.mps.refactoring.participant" />
+            <ref role="3bR37D" node="JWw_zseP2h" resolve="jetbrains.mps.refactoring.participant" />
           </node>
         </node>
         <node concept="1SiIV0" id="4X1d9kMCbC5" role="3bR37C">
@@ -31740,7 +31705,7 @@
         </node>
         <node concept="1SiIV0" id="7S2uW4XOjS6" role="3bR37C">
           <node concept="3bR9La" id="7S2uW4XOjS7" role="1SiIV1">
-            <ref role="3bR37D" node="1qokWp1VHJa" resolve="jetbrains.mps.refactoring.participant" />
+            <ref role="3bR37D" node="JWw_zseP2h" resolve="jetbrains.mps.refactoring.participant" />
           </node>
         </node>
         <node concept="1SiIV0" id="7S2uW4XOjS8" role="3bR37C">
@@ -32313,7 +32278,7 @@
         </node>
         <node concept="1SiIV0" id="l1L199LeUh" role="3bR37C">
           <node concept="3bR9La" id="l1L199LeUi" role="1SiIV1">
-            <ref role="3bR37D" node="1qokWp1VHJa" resolve="jetbrains.mps.refactoring.participant" />
+            <ref role="3bR37D" node="JWw_zseP2h" resolve="jetbrains.mps.refactoring.participant" />
           </node>
         </node>
         <node concept="1SiIV0" id="l1L199LeUj" role="3bR37C">
@@ -43992,7 +43957,7 @@
         </node>
         <node concept="1SiIV0" id="1qokWp1VMi7" role="3bR37C">
           <node concept="3bR9La" id="1qokWp1VMi8" role="1SiIV1">
-            <ref role="3bR37D" node="1qokWp1VHJa" resolve="jetbrains.mps.refactoring.participant" />
+            <ref role="3bR37D" node="JWw_zseP2h" resolve="jetbrains.mps.refactoring.participant" />
           </node>
         </node>
         <node concept="1BupzO" id="73GUf$umtyK" role="3bR31x">
@@ -44136,7 +44101,7 @@
         </node>
         <node concept="1SiIV0" id="1qokWp1VMkR" role="3bR37C">
           <node concept="3bR9La" id="1qokWp1VMkS" role="1SiIV1">
-            <ref role="3bR37D" node="1qokWp1VHJa" resolve="jetbrains.mps.refactoring.participant" />
+            <ref role="3bR37D" node="JWw_zseP2h" resolve="jetbrains.mps.refactoring.participant" />
           </node>
         </node>
         <node concept="1SiIV0" id="2Qr33HirkQJ" role="3bR37C">
@@ -44666,7 +44631,7 @@
         </node>
         <node concept="1SiIV0" id="1qokWp1VMnL" role="3bR37C">
           <node concept="3bR9La" id="1qokWp1VMnM" role="1SiIV1">
-            <ref role="3bR37D" node="1qokWp1VHJa" resolve="jetbrains.mps.refactoring.participant" />
+            <ref role="3bR37D" node="JWw_zseP2h" resolve="jetbrains.mps.refactoring.participant" />
           </node>
         </node>
         <node concept="1SiIV0" id="50WrGTQHdG6" role="3bR37C">
