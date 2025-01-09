@@ -43,8 +43,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         return props_Extension;
       case LanguageConceptSwitch.ExtensionPointDeclaration:
         if (props_ExtensionPointDeclaration == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x33c018482cafa9d6L);
-          cpb.deprecateProperty(0x520ae19dd2771b96L, "extensionName");
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
           props_ExtensionPointDeclaration = cpb.create();
         }
