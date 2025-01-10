@@ -83,7 +83,7 @@ public class BreakpointsIconCache implements Disposable {
       myUpdateFromCurrent.invoke();
     }
   };
-  private final IMakeNotificationListener myMakeListener = new IMakeNotificationListener.Stub() {
+  private final IMakeNotificationListener myMakeListener = new IMakeNotificationListener() {
     @Override
     public void scriptFinished(MakeNotification notification) {
       myUpdateFromCurrent.invoke();

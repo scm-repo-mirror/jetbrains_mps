@@ -90,7 +90,7 @@ public class MigrationTrigger implements IStartupMigrationExecutor {
   private final AtomicReference<PostponedState> myPostponedState = new AtomicReference<PostponedState>();
 
   private final IMakeService myMake;
-  private final IMakeNotificationListener.Stub myMakeListener = new IMakeNotificationListener.Stub() {
+  private final IMakeNotificationListener myMakeListener = new IMakeNotificationListener() {
     private final MigrationBlock.BlockCause myCause = new MigrationBlock.BlockCause("make session is in progress");
 
     @Override

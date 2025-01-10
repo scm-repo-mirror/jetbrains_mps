@@ -238,7 +238,7 @@ public class ReloadManagerComponent extends ReloadManager implements Disposable 
     }
   }
 
-  private class NotReloadingOnMakeListener extends IMakeNotificationListener.Stub {
+  private class NotReloadingOnMakeListener implements IMakeNotificationListener {
     private boolean myInFirstRun = true;
     @Override
     public void sessionOpened(MakeNotification notification) {

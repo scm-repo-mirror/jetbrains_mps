@@ -5542,7 +5542,7 @@
           <node concept="1Y3b0j" id="62lIp2ZYzFg" role="YeSDq">
             <property role="2bfB8j" value="true" />
             <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
-            <ref role="1Y3XeK" to="hfuk:7lTD6YZtjgo" resolve="IMakeNotificationListener.Stub" />
+            <ref role="1Y3XeK" to="hfuk:7lTD6YZtjg2" resolve="IMakeNotificationListener" />
             <node concept="3Tm1VV" id="62lIp2ZYzFh" role="1B3o_S" />
             <node concept="3clFb_" id="62lIp2ZYzSV" role="jymVt">
               <property role="1EzhhJ" value="false" />

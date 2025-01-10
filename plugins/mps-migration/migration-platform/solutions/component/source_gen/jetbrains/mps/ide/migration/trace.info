@@ -2295,7 +2295,7 @@
       <unit id="1244156871959641012" at="278,48,284,11" name="jetbrains.mps.ide.migration.MigrationTrigger$4" />
       <unit id="3248948557065572999" at="436,0,442,0" name="jetbrains.mps.ide.migration.MigrationTrigger$MyPropertiesListener" />
       <unit id="1244156871959409486" at="299,54,306,17" name="jetbrains.mps.ide.migration.MigrationTrigger$5" />
-      <unit id="8567742292373954329" at="93,68,104,3" name="jetbrains.mps.ide.migration.MigrationTrigger$1" />
+      <unit id="8567742292373954329" at="93,63,104,3" name="jetbrains.mps.ide.migration.MigrationTrigger$1" />
       <unit id="4477280481616775785" at="443,0,456,0" name="jetbrains.mps.ide.migration.MigrationTrigger$MyLangDeployListener" />
       <unit id="6781485246382122239" at="74,0,457,0" name="jetbrains.mps.ide.migration.MigrationTrigger" />
     </file>

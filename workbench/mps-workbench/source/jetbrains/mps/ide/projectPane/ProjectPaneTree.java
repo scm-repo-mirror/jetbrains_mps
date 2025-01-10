@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -159,7 +159,7 @@ public class ProjectPaneTree extends ProjectTree implements NodeChildrenProvider
       }
     });
     connection.subscribe(EditorColorsManager.TOPIC, scheme -> myCellRenderer.resetColors());
-    mpsProject.getComponent(MakeServiceComponent.class).get().addListener(myMakeListener = new Stub() {
+    mpsProject.getComponent(MakeServiceComponent.class).addListener(myMakeListener = new IMakeNotificationListener() {
       @Override
       public void sessionOpened(MakeNotification notification) {
         myHighlighter.pause();
@@ -187,7 +187,7 @@ public class ProjectPaneTree extends ProjectTree implements NodeChildrenProvider
 
   @Override
   public void dispose() {
-    getProject().getComponent(MakeServiceComponent.class).get().removeListener(myMakeListener);
+    getProject().getComponent(MakeServiceComponent.class).removeListener(myMakeListener);
     myStructureUpdate.dispose();
     myHighlighter.dispose();
     removeKeyListener(myKeyListener);

@@ -724,14 +724,14 @@
       <property role="3TUv4t" value="true" />
       <node concept="3Tm6S6" id="7rAJ3yo2_VK" role="1B3o_S" />
       <node concept="3uibUv" id="7rAJ3yo2_VL" role="1tU5fm">
-        <ref role="3uigEE" to="hfuk:7lTD6YZtjgo" resolve="IMakeNotificationListener.Stub" />
+        <ref role="3uigEE" to="hfuk:7lTD6YZtjg2" resolve="IMakeNotificationListener" />
       </node>
       <node concept="2ShNRf" id="7rAJ3yo2_Wn" role="33vP2m">
         <node concept="YeOm9" id="7rAJ3yo2_Wo" role="2ShVmc">
           <node concept="1Y3b0j" id="7rAJ3yo2_Wp" role="YeSDq">
             <property role="2bfB8j" value="true" />
             <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
-            <ref role="1Y3XeK" to="hfuk:7lTD6YZtjgo" resolve="IMakeNotificationListener.Stub" />
+            <ref role="1Y3XeK" to="hfuk:7lTD6YZtjg2" resolve="IMakeNotificationListener" />
             <node concept="312cEg" id="41MBYoJtp2v" role="jymVt">
               <property role="TrG5h" value="myCause" />
               <property role="3TUv4t" value="true" />

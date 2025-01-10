@@ -6,7 +6,6 @@ import jetbrains.mps.project.MPSProject;
 import com.intellij.openapi.Disposable;
 import jetbrains.mps.generator.IModifiableGenerationSettings;
 import jetbrains.mps.make.IMakeNotificationListener;
-import jetbrains.mps.make.IMakeService;
 import com.intellij.openapi.util.Disposer;
 import com.intellij.openapi.wm.StatusBar;
 import com.intellij.openapi.wm.WindowManager;
@@ -28,7 +27,6 @@ public class TransientModelsNotification {
     }
   };
   private final IMakeNotificationListener myMakeNotificationListener = new MyMakeNotificationListener();
-  private IMakeService myMakeService;
 
   public TransientModelsNotification(final MPSProject project) {
     myProject = project;
@@ -47,14 +45,12 @@ public class TransientModelsNotification {
     myDisplayer = new TransientModelBalloonDisplayer(statusBar, myWidget);
     Disposer.register(myRootDispose, myDisplayer);
     genSettings.addSettingsListener(mySettingsListener);
-    myMakeService = myProject.getComponent(MakeServiceComponent.class).get();
-    myMakeService.addListener(myMakeNotificationListener);
+    myProject.getComponent(MakeServiceComponent.class).addListener(myMakeNotificationListener);
     updateWidgetLater();
   }
 
   public void projectClosed() {
-    myMakeService.removeListener(myMakeNotificationListener);
-    myMakeService = null;
+    myProject.getComponent(MakeServiceComponent.class).removeListener(myMakeNotificationListener);
     myProject.getComponent(GenerationSettingsProvider.class).removeSettingsListener(mySettingsListener);
     // widget registered with Disposable get automatically removed on dispose
     Disposer.dispose(myRootDispose);
@@ -93,7 +89,7 @@ public class TransientModelsNotification {
     ThreadUtils.runInUIThreadNoWait(() -> ProjectPane.getInstance(myProject).selectTransientsFolder());
   }
 
-  private class MyMakeNotificationListener extends IMakeNotificationListener.Stub {
+  private class MyMakeNotificationListener implements IMakeNotificationListener {
     private volatile boolean mySessionJustOpened;
 
     @Override
