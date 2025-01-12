@@ -7443,105 +7443,88 @@
   </root>
   <root nodeRef="r:ad87c166-8161-4e40-b79b-3d7ba4070d9e(jetbrains.mps.lang.text.editor)/5287311640348708847">
     <file name="TextEditorHelper.java">
-      <node id="5858555132908288099" at="30,47,31,85" concept="11" />
-      <node id="5858555132908295582" at="31,85,32,71" concept="11" />
-      <node id="5858555132908305820" at="33,25,34,22" concept="12" />
-      <node id="5858555132908291904" at="35,5,36,0" concept="14" />
-      <node id="8639610876406074118" at="39,13,40,62" concept="12" />
-      <node id="2794323374753459332" at="41,63,42,22" concept="12" />
-      <node id="5646944109420336636" at="44,7,45,12" concept="2" />
-      <node id="5646944109420336683" at="46,5,47,16" concept="12" />
-      <node id="6379379516775311449" at="50,101,51,146" concept="11" />
-      <node id="6379379516775311460" at="52,117,53,70" concept="5" />
-      <node id="6379379516775311473" at="55,127,56,85" concept="5" />
-      <node id="8540225684427166629" at="56,85,57,25" concept="12" />
-      <node id="8540225684427862245" at="58,12,59,72" concept="5" />
-      <node id="8540225684427864205" at="59,72,60,26" concept="12" />
-      <node id="5429826950016739927" at="64,120,65,164" concept="11" />
-      <node id="5429826950016739938" at="66,137,67,80" concept="5" />
-      <node id="5429826950016739951" at="69,137,70,100" concept="5" />
-      <node id="1491601438745909189" at="70,100,71,30" concept="12" />
-      <node id="1158917983708504292" at="72,12,73,82" concept="5" />
-      <node id="1491601438745910466" at="73,82,74,31" concept="12" />
-      <node id="5406148345929134992" at="78,125,79,105" concept="11" />
-      <node id="5406148345929135003" at="80,30,81,90" concept="11" />
-      <node id="5406148345929135012" at="81,90,82,151" concept="0" />
-      <node id="5406148345929135024" at="82,151,83,97" concept="5" />
-      <node id="5406148345929135032" at="83,97,84,59" concept="5" />
-      <node id="5406148345929151239" at="85,5,86,23" concept="12" />
-      <node id="5287311640348708847" at="90,0,91,0" concept="15" trace="TextElement$WN" />
-      <node id="5287311640348708847" at="91,0,92,0" concept="15" trace="Line$yC" />
-      <node id="5287311640348708847" at="92,0,93,0" concept="15" trace="TextualElement$9C" />
-      <node id="5287311640348708847" at="93,0,94,0" concept="15" trace="Paragraph$XF" />
-      <node id="5287311640348708847" at="94,0,95,0" concept="15" trace="Word$Dn" />
-      <node id="5287311640348708847" at="98,0,99,0" concept="15" trace="elements$_j45" />
-      <node id="5858555132908299369" at="32,71,35,5" concept="9" />
-      <node id="6379379516775311458" at="51,146,54,5" concept="9" />
-      <node id="8540225684427861670" at="58,10,61,5" concept="1" />
-      <node id="5429826950016739936" at="65,164,68,5" concept="9" />
-      <node id="1158917983708503655" at="72,10,75,5" concept="1" />
-      <node id="9112621088483063166" at="38,78,43,9" concept="21" />
-      <node id="5406148345929135001" at="79,105,85,5" concept="9" />
-      <node id="5646944109420336622" at="37,42,44,7" concept="9" />
-      <node id="8540225684427854147" at="54,5,61,5" concept="9" />
-      <node id="1158917983708495511" at="68,5,75,5" concept="9" />
-      <node id="5646944109420336615" at="36,0,46,5" concept="8" />
-      <node id="5406148345929114464" at="78,0,88,0" concept="16" trace="getOrCreateSelectedWord#(Ljetbrains/mps/openapi/editor/EditorContext;Ljava/util/List;I)Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="6379379516775311108" at="50,0,63,0" concept="16" trace="insertLineIntoLines#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="5429826950016739925" at="64,0,77,0" concept="16" trace="insertParagraphIntoParagraph#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="8553212865273137815" at="30,0,49,0" concept="16" trace="getDataFromClipboard#()Ljava/lang/Object;" />
-      <scope id="5858555132908299371" at="33,25,34,22" />
-      <scope id="2794323374753459310" at="39,13,40,62" />
-      <scope id="2794323374753459331" at="41,63,42,22" />
-      <scope id="6379379516775311459" at="52,117,53,70" />
-      <scope id="5429826950016739937" at="66,137,67,80" />
-      <scope id="2794323374753459330" at="41,9,43,9">
-        <var name="ex" id="2794323374753459334" />
-      </scope>
-      <scope id="8540225684427854149" at="55,127,57,25" />
-      <scope id="8540225684427861671" at="58,12,60,26" />
-      <scope id="1158917983708495513" at="69,137,71,30" />
-      <scope id="1158917983708503656" at="72,12,74,31" />
-      <scope id="5406148345929135002" at="80,30,84,59">
+      <node id="5858555132908288099" at="27,47,28,85" concept="11" />
+      <node id="5858555132908295582" at="28,85,29,71" concept="11" />
+      <node id="5858555132908305820" at="30,25,31,22" concept="12" />
+      <node id="6825455154331214354" at="32,5,33,64" concept="12" />
+      <node id="6379379516775311449" at="36,101,37,146" concept="11" />
+      <node id="6379379516775311460" at="38,117,39,70" concept="5" />
+      <node id="6379379516775311473" at="41,127,42,85" concept="5" />
+      <node id="8540225684427166629" at="42,85,43,25" concept="12" />
+      <node id="8540225684427862245" at="44,12,45,72" concept="5" />
+      <node id="8540225684427864205" at="45,72,46,26" concept="12" />
+      <node id="5429826950016739927" at="50,120,51,164" concept="11" />
+      <node id="5429826950016739938" at="52,137,53,80" concept="5" />
+      <node id="5429826950016739951" at="55,137,56,100" concept="5" />
+      <node id="1491601438745909189" at="56,100,57,30" concept="12" />
+      <node id="1158917983708504292" at="58,12,59,82" concept="5" />
+      <node id="1491601438745910466" at="59,82,60,31" concept="12" />
+      <node id="5406148345929134992" at="64,125,65,105" concept="11" />
+      <node id="5406148345929135003" at="66,30,67,90" concept="11" />
+      <node id="5406148345929135012" at="67,90,68,151" concept="0" />
+      <node id="5406148345929135024" at="68,151,69,97" concept="5" />
+      <node id="5406148345929135032" at="69,97,70,59" concept="5" />
+      <node id="5406148345929151239" at="71,5,72,23" concept="12" />
+      <node id="5287311640348708847" at="76,0,77,0" concept="15" trace="TextElement$WN" />
+      <node id="5287311640348708847" at="77,0,78,0" concept="15" trace="Line$yC" />
+      <node id="5287311640348708847" at="78,0,79,0" concept="15" trace="TextualElement$9C" />
+      <node id="5287311640348708847" at="79,0,80,0" concept="15" trace="Paragraph$XF" />
+      <node id="5287311640348708847" at="80,0,81,0" concept="15" trace="Word$Dn" />
+      <node id="5287311640348708847" at="84,0,85,0" concept="15" trace="elements$_j45" />
+      <node id="5858555132908299369" at="29,71,32,5" concept="9" />
+      <node id="6379379516775311458" at="37,146,40,5" concept="9" />
+      <node id="8540225684427861670" at="44,10,47,5" concept="1" />
+      <node id="5429826950016739936" at="51,164,54,5" concept="9" />
+      <node id="1158917983708503655" at="58,10,61,5" concept="1" />
+      <node id="5406148345929135001" at="65,105,71,5" concept="9" />
+      <node id="8540225684427854147" at="40,5,47,5" concept="9" />
+      <node id="1158917983708495511" at="54,5,61,5" concept="9" />
+      <node id="8553212865273137815" at="27,0,35,0" concept="16" trace="getDataFromClipboard#()Ljava/lang/Object;" />
+      <node id="5406148345929114464" at="64,0,74,0" concept="16" trace="getOrCreateSelectedWord#(Ljetbrains/mps/openapi/editor/EditorContext;Ljava/util/List;I)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="6379379516775311108" at="36,0,49,0" concept="16" trace="insertLineIntoLines#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="5429826950016739925" at="50,0,63,0" concept="16" trace="insertParagraphIntoParagraph#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <scope id="5858555132908299371" at="30,25,31,22" />
+      <scope id="6379379516775311459" at="38,117,39,70" />
+      <scope id="5429826950016739937" at="52,137,53,80" />
+      <scope id="8540225684427854149" at="41,127,43,25" />
+      <scope id="8540225684427861671" at="44,12,46,26" />
+      <scope id="1158917983708495513" at="55,137,57,30" />
+      <scope id="1158917983708503656" at="58,12,60,31" />
+      <scope id="5406148345929135002" at="66,30,70,59">
         <var name="l" id="5406148345929135004" />
       </scope>
-      <scope id="5646944109420336631" at="38,78,43,9" />
-      <scope id="5646944109420336621" at="37,42,45,12" />
-      <scope id="5406148345929114467" at="78,125,86,23">
+      <scope id="5646944109420336610" at="27,47,33,64">
+        <var name="allContents" id="5858555132908288100" />
+        <var name="nf" id="5858555132908295583" />
+      </scope>
+      <scope id="8553212865273137815" at="27,0,35,0" />
+      <scope id="5406148345929114467" at="64,125,72,23">
         <var name="currentWord" id="5406148345929134993" />
       </scope>
-      <scope id="5646944109420336615" at="36,0,46,5">
-        <var name="trf" id="5646944109420336619" />
-      </scope>
-      <scope id="5406148345929114464" at="78,0,88,0">
+      <scope id="5406148345929114464" at="64,0,74,0">
         <var name="editorContext" id="5406148345929131498" />
         <var name="indexInSelection" id="5406148345929205259" />
         <var name="selectedNodes" id="5406148345929145050" />
       </scope>
-      <scope id="6379379516775311111" at="50,101,61,5">
+      <scope id="6379379516775311111" at="36,101,47,5">
         <var name="restOfLine" id="6379379516775311450" />
       </scope>
-      <scope id="5429826950016739926" at="64,120,75,5">
+      <scope id="5429826950016739926" at="50,120,61,5">
         <var name="restOfParagraph" id="5429826950016739928" />
       </scope>
-      <scope id="6379379516775311108" at="50,0,63,0">
+      <scope id="6379379516775311108" at="36,0,49,0">
         <var name="currentLine" id="6379379516775312395" />
         <var name="currentNode" id="6379379516775313382" />
         <var name="lineToInsert" id="6379379516775315308" />
       </scope>
-      <scope id="5429826950016739925" at="64,0,77,0">
+      <scope id="5429826950016739925" at="50,0,63,0">
         <var name="currentNode" id="5429826950016739960" />
         <var name="currentParagraph" id="5429826950016739958" />
         <var name="paragraphToInsert" id="5429826950016739962" />
       </scope>
-      <scope id="5646944109420336610" at="30,47,47,16">
-        <var name="allContents" id="5858555132908288100" />
-        <var name="nf" id="5858555132908295583" />
-      </scope>
-      <scope id="8553212865273137815" at="30,0,49,0" />
-      <unit id="5287311640348708847" at="97,0,100,0" name="jetbrains.mps.lang.text.editor.TextEditorHelper$LINKS" />
-      <unit id="5287311640348708847" at="89,0,96,0" name="jetbrains.mps.lang.text.editor.TextEditorHelper$CONCEPTS" />
-      <unit id="5287311640348708847" at="28,0,101,0" name="jetbrains.mps.lang.text.editor.TextEditorHelper" />
+      <unit id="5287311640348708847" at="83,0,86,0" name="jetbrains.mps.lang.text.editor.TextEditorHelper$LINKS" />
+      <unit id="5287311640348708847" at="75,0,82,0" name="jetbrains.mps.lang.text.editor.TextEditorHelper$CONCEPTS" />
+      <unit id="5287311640348708847" at="25,0,87,0" name="jetbrains.mps.lang.text.editor.TextEditorHelper" />
     </file>
   </root>
   <root nodeRef="r:ad87c166-8161-4e40-b79b-3d7ba4070d9e(jetbrains.mps.lang.text.editor)/5429826950015714141">

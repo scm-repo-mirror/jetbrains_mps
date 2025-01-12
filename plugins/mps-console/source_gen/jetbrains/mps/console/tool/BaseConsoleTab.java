@@ -353,7 +353,7 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
           if (!(isPastePossible(context))) {
             return;
           }
-          Optional<SNodeReference> nrf = SNodeClip.findNodeReferenceFlavor(CopyPasteManagerEx.getInstanceEx().getAllContents());
+          Optional<SNodeReference> nrf = SNodeClip.peekNodeReferenceFlavor(CopyPasteManagerEx.getInstanceEx().getAllContents());
           final SNodeReference pastingNodeReference = nrf.orElse(null);
 
           EditorCell currentCell = myEditor.getSelectedCell();

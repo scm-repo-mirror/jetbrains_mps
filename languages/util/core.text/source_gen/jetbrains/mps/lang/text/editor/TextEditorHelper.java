@@ -7,9 +7,6 @@ import com.intellij.ide.CopyPasteManagerEx;
 import java.util.Optional;
 import jetbrains.mps.datatransfer.PasteNodeData;
 import jetbrains.mps.datatransfer.SNodeClip;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.UnsupportedFlavorException;
-import java.io.IOException;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.text.behavior.Line__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -29,22 +26,11 @@ public class TextEditorHelper {
 
   public static Object getDataFromClipboard() {
     Transferable[] allContents = CopyPasteManagerEx.getInstanceEx().getAllContents();
-    Optional<PasteNodeData> nf = SNodeClip.findNodeFlavor(allContents);
+    Optional<PasteNodeData> nf = SNodeClip.peekNodeFlavor(allContents);
     if (nf.isPresent()) {
       return nf.get();
     }
-
-    for (Transferable trf : allContents) {
-      if (trf != null && trf.isDataFlavorSupported(DataFlavor.stringFlavor)) {
-        try {
-          return trf.getTransferData(DataFlavor.stringFlavor);
-        } catch (UnsupportedFlavorException | IOException ex) {
-          return null;
-        }
-      }
-      break;
-    }
-    return null;
+    return SNodeClip.peekStringFlavor(allContents).orElse(null);
   }
 
   public static SNode insertLineIntoLines(SNode currentLine, SNode currentNode, SNode lineToInsert) {

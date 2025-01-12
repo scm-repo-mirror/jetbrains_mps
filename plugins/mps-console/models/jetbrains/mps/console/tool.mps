@@ -5538,15 +5538,15 @@
                                   <ref role="3uigEE" to="mhbf:~SNodeReference" resolve="SNodeReference" />
                                 </node>
                               </node>
-                              <node concept="2YIFZM" id="55dLdDTO9ie" role="33vP2m">
-                                <ref role="37wK5l" to="qzxn:~SNodeClip.findNodeReferenceFlavor(java.awt.datatransfer.Transferable[])" resolve="findNodeReferenceFlavor" />
+                              <node concept="2YIFZM" id="5USSONgjPU_" role="33vP2m">
+                                <ref role="37wK5l" to="qzxn:~SNodeClip.peekNodeReferenceFlavor(java.awt.datatransfer.Transferable[])" resolve="peekNodeReferenceFlavor" />
                                 <ref role="1Pybhc" to="qzxn:~SNodeClip" resolve="SNodeClip" />
-                                <node concept="2OqwBi" id="55dLdDTO9if" role="37wK5m">
-                                  <node concept="2YIFZM" id="55dLdDTO9ig" role="2Oq$k0">
+                                <node concept="2OqwBi" id="5USSONgjPUA" role="37wK5m">
+                                  <node concept="2YIFZM" id="5USSONgjPUB" role="2Oq$k0">
                                     <ref role="37wK5l" to="ddhc:~CopyPasteManagerEx.getInstanceEx()" resolve="getInstanceEx" />
                                     <ref role="1Pybhc" to="ddhc:~CopyPasteManagerEx" resolve="CopyPasteManagerEx" />
                                   </node>
-                                  <node concept="liA8E" id="55dLdDTO9ih" role="2OqNvi">
+                                  <node concept="liA8E" id="5USSONgjPUC" role="2OqNvi">
                                     <ref role="37wK5l" to="ddhc:~CopyPasteManagerEx.getAllContents()" resolve="getAllContents" />
                                   </node>
                                 </node>

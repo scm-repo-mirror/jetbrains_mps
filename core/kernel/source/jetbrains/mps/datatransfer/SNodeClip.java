@@ -22,24 +22,30 @@ public class SNodeClip /*implements Transferable*/ {
   public static final DataFlavor NODE = new DataFlavor(PasteNodeData.class, "SNode");
   public static final DataFlavor NODEREF = new DataFlavor(SNodeReference.class, "SNodeReference");
 
-  public static Optional<PasteNodeData> findNodeFlavor(Transferable[] content) {
-    return findFlavor(NODE, content);
+  public static Optional<PasteNodeData> peekNodeFlavor(Transferable[] content) {
+    return peekFlavor(NODE, content);
   }
 
-  public static Optional<SNodeReference> findNodeReferenceFlavor(Transferable[] content) {
-    return findFlavor(NODEREF, content);
+  public static Optional<SNodeReference> peekNodeReferenceFlavor(Transferable[] content) {
+    return peekFlavor(NODEREF, content);
   }
 
-  private static <T>  Optional<T> findFlavor(DataFlavor flavor, Transferable[] content) {
+  public static Optional<String> peekStringFlavor(Transferable[] content) {
+    return peekFlavor(DataFlavor.stringFlavor, content);
+  }
+
+  private static <T>  Optional<T> peekFlavor(DataFlavor flavor, Transferable[] content) {
     for (Transferable trf : content) {
       if (trf != null && trf.isDataFlavorSupported(flavor)) {
         try {
           T transferData = (T) trf.getTransferData(flavor);
           return Optional.of(transferData);
         } catch (UnsupportedFlavorException | IOException e) {
-          // ignore, try another one
+          // ignore
         }
       }
+      // Note, this 'break' is important, we're not looking beyond the latest clipboard content (hence 'peekXXX')
+      break;
     }
     return Optional.empty();
   }

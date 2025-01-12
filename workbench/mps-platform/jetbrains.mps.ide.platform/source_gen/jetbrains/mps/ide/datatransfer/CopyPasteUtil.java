@@ -268,7 +268,7 @@ public final class CopyPasteUtil {
    */
   @NotNull
   public static PasteNodeData getPasteNodeData() {
-    Optional<PasteNodeData> ndf = SNodeClip.findNodeFlavor(CopyPasteManagerEx.getInstanceEx().getAllContents());
+    Optional<PasteNodeData> ndf = SNodeClip.peekNodeFlavor(CopyPasteManagerEx.getInstanceEx().getAllContents());
     if (ndf.isEmpty()) {
       return PasteNodeData.emptyPasteNodeData();
     }

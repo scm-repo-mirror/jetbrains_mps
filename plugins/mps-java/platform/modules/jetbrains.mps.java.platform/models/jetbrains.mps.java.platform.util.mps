@@ -105,10 +105,6 @@
       <concept id="1070534058343" name="jetbrains.mps.baseLanguage.structure.NullLiteral" flags="nn" index="10Nm6u" />
       <concept id="1070534370425" name="jetbrains.mps.baseLanguage.structure.IntegerType" flags="in" index="10Oyi0" />
       <concept id="1070534644030" name="jetbrains.mps.baseLanguage.structure.BooleanType" flags="in" index="10P_77" />
-      <concept id="1070534934090" name="jetbrains.mps.baseLanguage.structure.CastExpression" flags="nn" index="10QFUN">
-        <child id="1070534934091" name="type" index="10QFUM" />
-        <child id="1070534934092" name="expression" index="10QFUP" />
-      </concept>
       <concept id="1068390468200" name="jetbrains.mps.baseLanguage.structure.FieldDeclaration" flags="ig" index="312cEg">
         <property id="8606350594693632173" name="isTransient" index="eg7rD" />
         <property id="1240249534625" name="isVolatile" index="34CwA1" />
@@ -233,9 +229,6 @@
       </concept>
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
       <concept id="1146644623116" name="jetbrains.mps.baseLanguage.structure.PrivateVisibility" flags="nn" index="3Tm6S6" />
-      <concept id="1116615150612" name="jetbrains.mps.baseLanguage.structure.ClassifierClassExpression" flags="nn" index="3VsKOn">
-        <reference id="1116615189566" name="classifier" index="3VsUkX" />
-      </concept>
       <concept id="1080120340718" name="jetbrains.mps.baseLanguage.structure.AndExpression" flags="nn" index="1Wc70l" />
       <concept id="1170345865475" name="jetbrains.mps.baseLanguage.structure.AnonymousClass" flags="ig" index="1Y3b0j">
         <reference id="1170346070688" name="classifier" index="1Y3XeK" />
@@ -723,188 +716,26 @@
       <node concept="17QB3L" id="$QEGdhTyDS" role="3clF45" />
       <node concept="3Tm1VV" id="4TtYrYGuXnw" role="1B3o_S" />
       <node concept="3clFbS" id="4TtYrYGuXny" role="3clF47">
-        <node concept="3cpWs8" id="4TtYrYGuXnz" role="3cqZAp">
-          <node concept="3cpWsn" id="4TtYrYGuXn$" role="3cpWs9">
-            <property role="TrG5h" value="contents" />
-            <node concept="3uibUv" id="4TtYrYGuXn_" role="1tU5fm">
-              <ref role="3uigEE" to="kt01:~Transferable" resolve="Transferable" />
-            </node>
-            <node concept="10Nm6u" id="4TtYrYGuXnA" role="33vP2m" />
-          </node>
-        </node>
-        <node concept="1DcWWT" id="4TtYrYGuXnB" role="3cqZAp">
-          <node concept="2OqwBi" id="4TtYrYGuXnC" role="1DdaDG">
-            <node concept="2YIFZM" id="4TtYrYGuXnD" role="2Oq$k0">
-              <ref role="37wK5l" to="ddhc:~CopyPasteManagerEx.getInstanceEx()" resolve="getInstanceEx" />
-              <ref role="1Pybhc" to="ddhc:~CopyPasteManagerEx" resolve="CopyPasteManagerEx" />
-            </node>
-            <node concept="liA8E" id="4TtYrYGuXnE" role="2OqNvi">
-              <ref role="37wK5l" to="ddhc:~CopyPasteManagerEx.getAllContents()" resolve="getAllContents" />
-            </node>
-          </node>
-          <node concept="3cpWsn" id="4TtYrYGuXnF" role="1Duv9x">
-            <property role="TrG5h" value="trf" />
-            <node concept="3uibUv" id="4TtYrYGuXnG" role="1tU5fm">
-              <ref role="3uigEE" to="kt01:~Transferable" resolve="Transferable" />
-            </node>
-          </node>
-          <node concept="3clFbS" id="4TtYrYGuXnH" role="2LFqv$">
-            <node concept="3clFbJ" id="4TtYrYGuXnI" role="3cqZAp">
-              <node concept="1Wc70l" id="4TtYrYGuXnJ" role="3clFbw">
-                <node concept="3y3z36" id="4TtYrYGuXnK" role="3uHU7B">
-                  <node concept="37vLTw" id="3GM_nagTAy8" role="3uHU7B">
-                    <ref role="3cqZAo" node="4TtYrYGuXnF" resolve="trf" />
-                  </node>
-                  <node concept="10Nm6u" id="4TtYrYGuXnM" role="3uHU7w" />
+        <node concept="3cpWs6" id="7B6cj6_061c" role="3cqZAp">
+          <node concept="2OqwBi" id="7B6cj6$ZW8n" role="3cqZAk">
+            <node concept="2YIFZM" id="7B6cj6$ZPzb" role="2Oq$k0">
+              <ref role="37wK5l" to="qzxn:~SNodeClip.peekStringFlavor(java.awt.datatransfer.Transferable[])" resolve="peekStringFlavor" />
+              <ref role="1Pybhc" to="qzxn:~SNodeClip" resolve="SNodeClip" />
+              <node concept="2OqwBi" id="4TtYrYGuXnC" role="37wK5m">
+                <node concept="2YIFZM" id="4TtYrYGuXnD" role="2Oq$k0">
+                  <ref role="37wK5l" to="ddhc:~CopyPasteManagerEx.getInstanceEx()" resolve="getInstanceEx" />
+                  <ref role="1Pybhc" to="ddhc:~CopyPasteManagerEx" resolve="CopyPasteManagerEx" />
                 </node>
-                <node concept="2OqwBi" id="4TtYrYGuXnN" role="3uHU7w">
-                  <node concept="37vLTw" id="3GM_nagT$tE" role="2Oq$k0">
-                    <ref role="3cqZAo" node="4TtYrYGuXnF" resolve="trf" />
-                  </node>
-                  <node concept="liA8E" id="4TtYrYGuXnP" role="2OqNvi">
-                    <ref role="37wK5l" to="kt01:~Transferable.isDataFlavorSupported(java.awt.datatransfer.DataFlavor)" resolve="isDataFlavorSupported" />
-                    <node concept="10M0yZ" id="4TtYrYGuXnQ" role="37wK5m">
-                      <ref role="1PxDUh" to="kt01:~DataFlavor" resolve="DataFlavor" />
-                      <ref role="3cqZAo" to="kt01:~DataFlavor.stringFlavor" resolve="stringFlavor" />
-                    </node>
-                  </node>
-                </node>
-              </node>
-              <node concept="3clFbS" id="4TtYrYGuXnR" role="3clFbx">
-                <node concept="3clFbF" id="4TtYrYGuXnS" role="3cqZAp">
-                  <node concept="37vLTI" id="4TtYrYGuXnT" role="3clFbG">
-                    <node concept="37vLTw" id="3GM_nagT$UD" role="37vLTJ">
-                      <ref role="3cqZAo" node="4TtYrYGuXn$" resolve="contents" />
-                    </node>
-                    <node concept="37vLTw" id="3GM_nagTzMG" role="37vLTx">
-                      <ref role="3cqZAo" node="4TtYrYGuXnF" resolve="trf" />
-                    </node>
-                  </node>
+                <node concept="liA8E" id="4TtYrYGuXnE" role="2OqNvi">
+                  <ref role="37wK5l" to="ddhc:~CopyPasteManagerEx.getAllContents()" resolve="getAllContents" />
                 </node>
               </node>
             </node>
-            <node concept="3zACq4" id="4TtYrYGuXnW" role="3cqZAp" />
-          </node>
-        </node>
-        <node concept="3clFbJ" id="4TtYrYGuXnX" role="3cqZAp">
-          <node concept="3clFbS" id="4TtYrYGuXo1" role="3clFbx">
-            <node concept="3cpWs6" id="4TtYrYGuXo2" role="3cqZAp">
-              <node concept="10Nm6u" id="4TtYrYGuXo3" role="3cqZAk" />
+            <node concept="liA8E" id="7B6cj6$ZYg9" role="2OqNvi">
+              <ref role="37wK5l" to="33ny:~Optional.orElse(java.lang.Object)" resolve="orElse" />
+              <node concept="10Nm6u" id="7B6cj6$ZZPi" role="37wK5m" />
             </node>
           </node>
-          <node concept="3clFbC" id="4TtYrYGuXnY" role="3clFbw">
-            <node concept="10Nm6u" id="4TtYrYGuXo0" role="3uHU7w" />
-            <node concept="37vLTw" id="3GM_nagTvgX" role="3uHU7B">
-              <ref role="3cqZAo" node="4TtYrYGuXn$" resolve="contents" />
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbJ" id="4TtYrYGuXo4" role="3cqZAp">
-          <node concept="3clFbS" id="4TtYrYGuXo9" role="3clFbx">
-            <node concept="3J1_TO" id="4TtYrYGuXoa" role="3cqZAp">
-              <node concept="3clFbS" id="4TtYrYGuXoq" role="1zxBo7">
-                <node concept="3cpWs8" id="4TtYrYGuXor" role="3cqZAp">
-                  <node concept="3cpWsn" id="4TtYrYGuXos" role="3cpWs9">
-                    <property role="TrG5h" value="data" />
-                    <node concept="3uibUv" id="4TtYrYGuXot" role="1tU5fm">
-                      <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
-                    </node>
-                    <node concept="2OqwBi" id="4TtYrYGuXou" role="33vP2m">
-                      <node concept="liA8E" id="4TtYrYGuXow" role="2OqNvi">
-                        <ref role="37wK5l" to="kt01:~Transferable.getTransferData(java.awt.datatransfer.DataFlavor)" resolve="getTransferData" />
-                        <node concept="10M0yZ" id="4TtYrYGuXox" role="37wK5m">
-                          <ref role="1PxDUh" to="kt01:~DataFlavor" resolve="DataFlavor" />
-                          <ref role="3cqZAo" to="kt01:~DataFlavor.stringFlavor" resolve="stringFlavor" />
-                        </node>
-                      </node>
-                      <node concept="37vLTw" id="3GM_nagTBVU" role="2Oq$k0">
-                        <ref role="3cqZAo" node="4TtYrYGuXn$" resolve="contents" />
-                      </node>
-                    </node>
-                  </node>
-                </node>
-                <node concept="3clFbJ" id="4TtYrYGuXoy" role="3cqZAp">
-                  <node concept="2ZW3vV" id="4TtYrYGuXoz" role="3clFbw">
-                    <node concept="37vLTw" id="3GM_nagTxJg" role="2ZW6bz">
-                      <ref role="3cqZAo" node="4TtYrYGuXos" resolve="data" />
-                    </node>
-                    <node concept="17QB3L" id="$QEGdhTzpf" role="2ZW6by" />
-                  </node>
-                  <node concept="3clFbS" id="4TtYrYGuXoA" role="3clFbx">
-                    <node concept="3cpWs6" id="4TtYrYGuXoB" role="3cqZAp">
-                      <node concept="10QFUN" id="4TtYrYGuXoC" role="3cqZAk">
-                        <node concept="17QB3L" id="$QEGdhTzJR" role="10QFUM" />
-                        <node concept="37vLTw" id="3GM_nagTAjr" role="10QFUP">
-                          <ref role="3cqZAo" node="4TtYrYGuXos" resolve="data" />
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                </node>
-              </node>
-              <node concept="3uVAMA" id="4TtYrYGuXob" role="1zxBo5">
-                <node concept="XOnhg" id="4TtYrYGuXof" role="1zc67B">
-                  <property role="3TUv4t" value="false" />
-                  <property role="TrG5h" value="ex" />
-                  <node concept="nSUau" id="xvs04dHR_f" role="1tU5fm">
-                    <node concept="3uibUv" id="4TtYrYGuXog" role="nSUat">
-                      <ref role="3uigEE" to="kt01:~UnsupportedFlavorException" resolve="UnsupportedFlavorException" />
-                    </node>
-                  </node>
-                </node>
-                <node concept="3clFbS" id="4TtYrYGuXoc" role="1zc67A">
-                  <node concept="3cpWs6" id="4TtYrYGuXod" role="3cqZAp">
-                    <node concept="10Nm6u" id="4TtYrYGuXoe" role="3cqZAk" />
-                  </node>
-                </node>
-              </node>
-              <node concept="3uVAMA" id="4TtYrYGuXoh" role="1zxBo5">
-                <node concept="XOnhg" id="4TtYrYGuXoo" role="1zc67B">
-                  <property role="3TUv4t" value="false" />
-                  <property role="TrG5h" value="ex" />
-                  <node concept="nSUau" id="xvs04dHR_h" role="1tU5fm">
-                    <node concept="3uibUv" id="4TtYrYGuXop" role="nSUat">
-                      <ref role="3uigEE" to="guwi:~IOException" resolve="IOException" />
-                    </node>
-                  </node>
-                </node>
-                <node concept="3clFbS" id="4TtYrYGuXoi" role="1zc67A">
-                  <node concept="3clFbF" id="4TtYrYGuXoj" role="3cqZAp">
-                    <node concept="2OqwBi" id="4TtYrYGuXok" role="3clFbG">
-                      <node concept="liA8E" id="4TtYrYGuXom" role="2OqNvi">
-                        <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.Throwable)" resolve="error" />
-                        <node concept="37vLTw" id="3GM_nagTvJU" role="37wK5m">
-                          <ref role="3cqZAo" node="4TtYrYGuXoo" resolve="ex" />
-                        </node>
-                      </node>
-                      <node concept="2YIFZM" id="Hn0$MvbYou" role="2Oq$k0">
-                        <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
-                        <ref role="37wK5l" to="wwqx:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
-                        <node concept="3VsKOn" id="Hn0$MvbYov" role="37wK5m">
-                          <ref role="3VsUkX" node="4TtYrYGuX3e" resolve="JavaPaster" />
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="2OqwBi" id="4TtYrYGuXo5" role="3clFbw">
-            <node concept="37vLTw" id="3GM_nagT$zW" role="2Oq$k0">
-              <ref role="3cqZAo" node="4TtYrYGuXn$" resolve="contents" />
-            </node>
-            <node concept="liA8E" id="4TtYrYGuXo7" role="2OqNvi">
-              <ref role="37wK5l" to="kt01:~Transferable.isDataFlavorSupported(java.awt.datatransfer.DataFlavor)" resolve="isDataFlavorSupported" />
-              <node concept="10M0yZ" id="4TtYrYGuXo8" role="37wK5m">
-                <ref role="1PxDUh" to="kt01:~DataFlavor" resolve="DataFlavor" />
-                <ref role="3cqZAo" to="kt01:~DataFlavor.stringFlavor" resolve="stringFlavor" />
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3cpWs6" id="4TtYrYGuXoF" role="3cqZAp">
-          <node concept="10Nm6u" id="4TtYrYGuXoG" role="3cqZAk" />
         </node>
       </node>
     </node>
