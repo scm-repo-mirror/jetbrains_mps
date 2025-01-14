@@ -6102,9 +6102,6 @@
         <ref role="398BVh" node="yja7V_1MyJ" resolve="mps_home" />
       </node>
     </node>
-    <node concept="2sgV4H" id="611WBGkqfsW" role="1l3spa">
-      <ref role="1l3spb" to="ffeo:6qT2v0qOlpw" resolve="mpsJavaPlatform" />
-    </node>
     <node concept="2sgV4H" id="2pZ8abj78oI" role="1l3spa">
       <ref role="1l3spb" to="ffeo:6WtY9M1bDN0" resolve="mpsJava" />
     </node>
