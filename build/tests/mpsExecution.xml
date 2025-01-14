@@ -476,6 +476,8 @@
       <plugin path="${artifacts.mps}/plugins/mps-testing" id="jetbrains.mps.testing" />
       <library file="${artifacts.mpsEditor}/languages/testDefaultEditor.jar" />
       <library file="${artifacts.mpsEditor}/tests/jetbrains.mps.baseLanguage.test.jar" />
+      <library file="${artifacts.mps}/languages/editor/jetbrains.mps.ide.editor.jar" />
+      <library file="${artifacts.mps}/languages/plaf/jetbrains.mps.ide.ui.jar" />
       <library file="${artifacts.mps}/languages/workbench-stub.jar" />
       <library file="${artifacts.mps}/languages/workbench/jetbrains.mps.ide.jar" />
       <chunk>
@@ -939,6 +941,8 @@
       <library file="${artifacts.mpsEditor}/languages/testMoveElements.jar" />
       <library file="${artifacts.mpsEditor}/languages/testSpaceCompletion.jar" />
       <library file="${artifacts.mpsEditor}/tests/jetbrains.mps.baseLanguage.test.jar" />
+      <library file="${artifacts.mps}/languages/editor/jetbrains.mps.ide.editor.jar" />
+      <library file="${artifacts.mps}/languages/plaf/jetbrains.mps.ide.ui.jar" />
       <library file="${artifacts.mps}/languages/workbench-stub.jar" />
       <library file="${artifacts.mps}/languages/workbench/jetbrains.mps.ide.jar" />
       <library file="${build.layout}/jetbrains.mps.execution.impl.tests.sandbox.jar" />
@@ -985,6 +989,8 @@
       </jvmargs>
       
       
+      <library file="${artifacts.mps}/languages/editor/jetbrains.mps.ide.editor.jar" />
+      <library file="${artifacts.mps}/languages/plaf/jetbrains.mps.ide.ui.jar" />
       <library file="${artifacts.mps}/languages/workbench-stub.jar" />
       <library file="${artifacts.mps}/languages/workbench/jetbrains.mps.ide.jar" />
       

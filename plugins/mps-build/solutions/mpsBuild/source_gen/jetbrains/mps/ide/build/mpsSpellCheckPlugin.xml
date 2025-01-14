@@ -138,6 +138,7 @@
     <echo message="generating" />
     <generate fork="true" targetJavaVersion="11" logLevel="${mps.ant.log}">      
       <settings refid="m2m-defaults" />
+      <library file="${artifacts.mpsWorkbench}/languages/editor/jetbrains.mps.ide.editor.jar" />
       <library file="${artifacts.mpsWorkbench}/languages/workbench-stub.jar" />
       <library file="${artifacts.mpsWorkbench}/languages/workbench/jetbrains.mps.lang.plugin.standalone.jar" />
       <chunk>

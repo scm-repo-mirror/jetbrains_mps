@@ -2011,6 +2011,12 @@
         <ref role="398BVh" node="53PdBITeUc4" resolve="mps_home" />
       </node>
     </node>
+    <node concept="2sgV4H" id="6xueyV$90fE" role="1l3spa">
+      <ref role="1l3spb" to="ffeo:2eDSGe9d1ot" resolve="mpsWorkbench" />
+      <node concept="398BVA" id="6xueyV$90fF" role="2JcizS">
+        <ref role="398BVh" node="53PdBITeUc4" resolve="mps_home" />
+      </node>
+    </node>
     <node concept="2sgV4H" id="Wd$cIjcwMq" role="1l3spa">
       <ref role="1l3spb" to="ffeo:ymnOULAEsd" resolve="mpsTesting" />
       <node concept="398BVA" id="6caHyB43OF9" role="2JcizS">

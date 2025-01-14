@@ -100,8 +100,8 @@
     <ant antfile="../../../build/mpsTrueBootstrap.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="../../../build/mpsBootstrapCore.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="../../../build/mpsCore.xml" inheritAll="false" useNativeBasedir="true" />
-    <ant antfile="../../../build/mpsBuild.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="../../../build/mpsWorkbench.xml" inheritAll="false" useNativeBasedir="true" />
+    <ant antfile="../../../build/mpsBuild.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="../../../build/mpsTesting.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="../../../build/mpsTroveCollections.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="../../../build/mpsPlugins.xml" inheritAll="false" useNativeBasedir="true" />
@@ -110,7 +110,6 @@
     <ant antfile="../../../build/mpsConsolePlugin.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="../../../build/mpsStandalone.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="../../../build/mpsJavaCore.xml" inheritAll="false" useNativeBasedir="true" />
-    <ant antfile="../../../build/mpsJavaPlatform.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="../../../build/mpsJava.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="../../../build/mpsHttpSupportPlugin.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="../../../build/mpsNavigationBar.xml" inheritAll="false" useNativeBasedir="true" />
@@ -155,8 +154,10 @@
     <echo message="generating" />
     <generate fork="true" targetJavaVersion="11" logLevel="${mps.ant.log}">      
       <settings refid="m2m-defaults" />
+      <plugin path="${artifacts.mps}/lib/mps-workbench.jar" id="com.intellij.modules.mps" />
       <plugin path="${artifacts.mps}/plugins/mps-build" id="jetbrains.mps.build" />
       <plugin path="${artifacts.mps}/plugins/mps-core" id="jetbrains.mps.core" />
+      <library file="${artifacts.mps}/languages/editor/jetbrains.mps.ide.editor.jar" />
       <chunk>
         <module file="${basedir}/jetbrains.mps.build.sandbox/jetbrains.mps.build.sandbox.msd" />
       </chunk>
@@ -182,11 +183,11 @@
       <target name="generate" />
       <target name="assemble" />
     </ant>
-    <ant antfile="../../../build/mpsBuild.xml" inheritAll="false" useNativeBasedir="true">
+    <ant antfile="../../../build/mpsWorkbench.xml" inheritAll="false" useNativeBasedir="true">
       <target name="generate" />
       <target name="assemble" />
     </ant>
-    <ant antfile="../../../build/mpsWorkbench.xml" inheritAll="false" useNativeBasedir="true">
+    <ant antfile="../../../build/mpsBuild.xml" inheritAll="false" useNativeBasedir="true">
       <target name="generate" />
       <target name="assemble" />
     </ant>
@@ -219,10 +220,6 @@
       <target name="assemble" />
     </ant>
     <ant antfile="../../../build/mpsJavaCore.xml" inheritAll="false" useNativeBasedir="true">
-      <target name="generate" />
-      <target name="assemble" />
-    </ant>
-    <ant antfile="../../../build/mpsJavaPlatform.xml" inheritAll="false" useNativeBasedir="true">
       <target name="generate" />
       <target name="assemble" />
     </ant>

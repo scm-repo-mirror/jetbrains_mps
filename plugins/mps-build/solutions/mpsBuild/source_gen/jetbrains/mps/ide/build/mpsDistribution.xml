@@ -479,8 +479,8 @@
     <ant antfile="build/mpsTrueBootstrap.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="build/mpsBootstrapCore.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="build/mpsCore.xml" inheritAll="false" useNativeBasedir="true" />
-    <ant antfile="build/mpsBuild.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="build/mpsWorkbench.xml" inheritAll="false" useNativeBasedir="true" />
+    <ant antfile="build/mpsBuild.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="build/mpsTesting.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="build/mpsTroveCollections.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="build/mpsPlugins.xml" inheritAll="false" useNativeBasedir="true" />

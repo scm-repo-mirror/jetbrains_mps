@@ -245,6 +245,7 @@
       <plugin path="${artifacts.mps}/plugins/mps-kotlin" id="jetbrains.mps.kotlin" />
       <plugin path="${artifacts.mps}/plugins/mps-make" id="jetbrains.mps.ide.make" />
       <plugin path="${artifacts.mps}/plugins/mps-testing" id="jetbrains.mps.testing" />
+      <library file="${artifacts.mps}/languages/editor/jetbrains.mps.ide.editor.jar" />
       <chunk>
         <module file="${basedir}/plugins/mps-kotlin/solutions/kotlin.tests.editor/jetbrains.mps.kotlin.tests.editor.msd" />
         <module file="${basedir}/plugins/mps-kotlin/solutions/kotlin.tests.misc/jetbrains.mps.kotlin.tests.misc.msd" />
@@ -458,6 +459,7 @@
       </jvmargs>
       
       
+      <library file="${artifacts.mps}/languages/editor/jetbrains.mps.ide.editor.jar" />
       
       <plugin id="com.intellij.modules.mps" path="${artifacts.mps}/lib/mps-workbench.jar" />
       <plugin id="jetbrains.mps.core" path="${artifacts.mps}/plugins/mps-core" />

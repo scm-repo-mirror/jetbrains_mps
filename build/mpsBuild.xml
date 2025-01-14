@@ -8,6 +8,7 @@
   <property name="kotlinc_home" location="${mps_home}/plugins/mps-kotlin/kotlinc" />
   <property name="artifacts.mpsBootstrapCore" location="${build.dir}/artifacts/mpsBootstrapCore" />
   <property name="artifacts.mpsCore" location="${build.dir}/artifacts/mpsCore" />
+  <property name="artifacts.mpsWorkbench" location="${build.dir}/artifacts/mpsWorkbench" />
   <property name="artifacts.IDEA" location="${idea_home}" />
   <property file="${artifacts.mpsBootstrapCore}/build.properties" prefix="import.mpsBootstrapCore" />
   <property name="mpsBootstrapCore.version.major" value="${import.mpsBootstrapCore.mpsBootstrapCore.version.major}" />
@@ -1585,6 +1586,7 @@
     <ant antfile="build/mpsTrueBootstrap.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="build/mpsBootstrapCore.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="build/mpsCore.xml" inheritAll="false" useNativeBasedir="true" />
+    <ant antfile="build/mpsWorkbench.xml" inheritAll="false" useNativeBasedir="true" />
   </target>
   
   <target name="fetchDependencies" />
@@ -1611,6 +1613,7 @@
     <generate fork="true" targetJavaVersion="11" logLevel="${mps.ant.log}">      
       <settings refid="m2m-defaults" />
       <plugin path="${artifacts.mpsCore}/mps-core" id="jetbrains.mps.core" />
+      <library file="${artifacts.mpsWorkbench}/languages/editor/jetbrains.mps.ide.editor.jar" />
       <chunk>
         <module file="${mps_home}/plugins/mps-build/languages/build/jetbrains.mps.build.mpl" />
         <module file="${mps_home}/plugins/mps-build/solutions/jetbrains.mps.build.mps.migration/jetbrains.mps.build.migration.msd" />
@@ -1651,6 +1654,10 @@
       <target name="assemble" />
     </ant>
     <ant antfile="build/mpsCore.xml" inheritAll="false" useNativeBasedir="true">
+      <target name="generate" />
+      <target name="assemble" />
+    </ant>
+    <ant antfile="build/mpsWorkbench.xml" inheritAll="false" useNativeBasedir="true">
       <target name="generate" />
       <target name="assemble" />
     </ant>
