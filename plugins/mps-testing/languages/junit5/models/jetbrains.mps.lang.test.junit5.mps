@@ -500,60 +500,6 @@
             </node>
           </node>
         </node>
-        <node concept="3SKdUt" id="400sF7FsF7N" role="3cqZAp">
-          <node concept="1PaTwC" id="400sF7FsF7O" role="1aUNEU">
-            <node concept="3oM_SD" id="400sF7FsGnj" role="1PaTwD">
-              <property role="3oM_SC" value="this" />
-            </node>
-            <node concept="3oM_SD" id="400sF7FsGnl" role="1PaTwD">
-              <property role="3oM_SC" value="method" />
-            </node>
-            <node concept="3oM_SD" id="400sF7FsGn$" role="1PaTwD">
-              <property role="3oM_SC" value="throws" />
-            </node>
-            <node concept="3oM_SD" id="400sF7FsGo0" role="1PaTwD">
-              <property role="3oM_SC" value="RuntimeException" />
-            </node>
-            <node concept="3oM_SD" id="400sF7FsGot" role="1PaTwD">
-              <property role="3oM_SC" value="in" />
-            </node>
-            <node concept="3oM_SD" id="400sF7FsGoJ" role="1PaTwD">
-              <property role="3oM_SC" value="case" />
-            </node>
-            <node concept="3oM_SD" id="400sF7FsGp2" role="1PaTwD">
-              <property role="3oM_SC" value="there" />
-            </node>
-            <node concept="3oM_SD" id="400sF7FsGpa" role="1PaTwD">
-              <property role="3oM_SC" value="were" />
-            </node>
-            <node concept="3oM_SD" id="400sF7FsGpj" role="1PaTwD">
-              <property role="3oM_SC" value="errors" />
-            </node>
-            <node concept="3oM_SD" id="400sF7FsGpD" role="1PaTwD">
-              <property role="3oM_SC" value="and" />
-            </node>
-            <node concept="3oM_SD" id="400sF7FsGq0" role="1PaTwD">
-              <property role="3oM_SC" value="failOnError" />
-            </node>
-            <node concept="3oM_SD" id="400sF7FsGqK" role="1PaTwD">
-              <property role="3oM_SC" value="is" />
-            </node>
-            <node concept="3oM_SD" id="400sF7FsGr9" role="1PaTwD">
-              <property role="3oM_SC" value="set" />
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="HwplGLOAOq" role="3cqZAp">
-          <node concept="2OqwBi" id="7MSVDs2B9TD" role="3clFbG">
-            <node concept="37vLTw" id="7MSVDs2BdTa" role="2Oq$k0">
-              <ref role="3cqZAo" node="7MSVDs2A7en" resolve="myWorkerCallback" />
-            </node>
-            <node concept="liA8E" id="7MSVDs2B9TG" role="2OqNvi">
-              <ref role="37wK5l" to="4f8w:7MSVDs2B5a0" resolve="failBuild" />
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbH" id="400sF7FsGrz" role="3cqZAp" />
         <node concept="3cpWs6" id="3OA_Uj9_ghc" role="3cqZAp">
           <node concept="2OqwBi" id="3OA_Uj9_iEn" role="3cqZAk">
             <node concept="37vLTw" id="3OA_Uj9_hMF" role="2Oq$k0">

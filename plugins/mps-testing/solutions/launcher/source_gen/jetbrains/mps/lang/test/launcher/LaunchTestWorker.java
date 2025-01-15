@@ -66,7 +66,13 @@ public class LaunchTestWorker extends WorkerBase implements WorkerCallback {
 
     if (method.get() != null && object.get() != null) {
       try {
-        method.get().invoke(object.get());
+        Object retVal = method.get().invoke(object.get());
+        if (retVal instanceof Integer) {
+          if ((Integer) retVal > 0) {
+            failBuild();
+          }
+        } else {
+        }
 
       } catch (InvocationTargetException | IllegalAccessException e) {
         error("unexpected error ", e);

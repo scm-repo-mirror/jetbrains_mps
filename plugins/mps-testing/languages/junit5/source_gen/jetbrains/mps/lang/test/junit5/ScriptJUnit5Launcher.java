@@ -42,9 +42,6 @@ public class ScriptJUnit5Launcher extends AbstractJUnit5Launcher {
     if (failureDetector.hasFailures()) {
       failureDetector.flushErrors(myWorkerCallback);
     }
-    // this method throws RuntimeException in case there were errors and failOnError is set
-    myWorkerCallback.failBuild();
-
     return failureDetector.failuresCount();
   }
 
