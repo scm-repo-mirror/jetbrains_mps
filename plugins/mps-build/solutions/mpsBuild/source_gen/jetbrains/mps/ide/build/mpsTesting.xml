@@ -923,6 +923,7 @@
     </echoxml>
     <jar destfile="${build.layout}/mps-testing/languages/gentest/jetbrains.mps.lang.test.generator.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/jetbrains.mps.lang.test.generator" />
+      <fileset dir="${mps_home}/plugins/mps-testing/languages/gentest" includes="icons/**, resources/**" />
       <fileset dir="${mps_home}/plugins/mps-testing/languages/gentest/source_gen" includes="**/trace.info, **/exports, **/*.mps, **/checkpoints" />
       <fileset dir="${build.tmp}/default/jetbrains.mps.lang.test.generator.jar" />
     </jar>

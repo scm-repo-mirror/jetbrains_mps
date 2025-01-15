@@ -46796,6 +46796,28 @@
         <node concept="1E0d5M" id="6sSwiyin8fJ" role="1E1XAP">
           <ref role="1E0d5P" node="ymnOULAU1u" resolve="jetbrains.mps.lang.test.runtime" />
         </node>
+        <node concept="3rtmxn" id="1A68Qy_Kq5m" role="3bR31x">
+          <node concept="3LXTmp" id="1A68Qy_Kq5n" role="3rtmxm">
+            <node concept="3qWCbU" id="1A68Qy_Kq5o" role="3LXTna">
+              <property role="3qWCbO" value="icons/**, resources/**" />
+            </node>
+            <node concept="398BVA" id="1A68Qy_Kq5p" role="3LXTmr">
+              <ref role="398BVh" node="ymnOULASEN" resolve="mps_home" />
+              <node concept="2Ry0Ak" id="1A68Qy_Kq5q" role="iGT6I">
+                <property role="2Ry0Am" value="plugins" />
+                <node concept="2Ry0Ak" id="1A68Qy_Kq5r" role="2Ry0An">
+                  <property role="2Ry0Am" value="mps-testing" />
+                  <node concept="2Ry0Ak" id="1A68Qy_Kq5s" role="2Ry0An">
+                    <property role="2Ry0Am" value="languages" />
+                    <node concept="2Ry0Ak" id="1A68Qy_Kq$f" role="2Ry0An">
+                      <property role="2Ry0Am" value="gentest" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="1BupzO" id="73GUf$umLZV" role="3bR31x">
           <property role="3ZfqAx" value="models" />
           <property role="1Hdu6h" value="true" />
