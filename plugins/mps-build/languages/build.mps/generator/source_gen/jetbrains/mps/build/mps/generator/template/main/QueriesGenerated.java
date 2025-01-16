@@ -1772,7 +1772,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return (options != null ? SPropertyOperations.getString(options, PROPS.generatorJvmOptions$K2H4) : null);
   }
   public static Object varMacro_Value_9_6(final TemplateVarContext _context) {
-    VisibleModules visibleModules = new VisibleModules(_context.getNode(), _context);
+    VisibleModules visibleModules = new VisibleModules(_context.getNode());
     visibleModules.collect();
     // jetbrains.mps.tool.gentest
     SNode gentest = visibleModules.resolveById("3ba7b7cf-6a5a-4981-ba0b-3302e59ffef7");
