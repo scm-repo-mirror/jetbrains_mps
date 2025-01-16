@@ -134,15 +134,14 @@ public final class MacroHelper {
     public MacroContext(SNode project, TemplateQueryContext genContext) {
       this.genContext = genContext;
       this.existingMacros = GenerationUtil.<SNode,MacroHelper>getSessionMap(project, genContext, "macroHelpers");
-      projectHelper = getMacros(project);
+      projectHelper = getMacros(SNodeOperations.as(DependenciesHelper.getOriginalNode(project, genContext), CONCEPTS.BuildProject$ae));
     }
 
     public MacroHelper getProjectHelper() {
       return projectHelper;
     }
 
-    public MacroHelper getMacros(SNode dep) {
-      dep = SNodeOperations.as(DependenciesHelper.getOriginalNode(dep, genContext), CONCEPTS.BuildProject$ae);
+    /*package*/ MacroHelper getMacros(SNode dep) {
       if (dep == null) {
         return null;
       }
@@ -165,13 +164,13 @@ public final class MacroHelper {
         return null;
       }
     }
-    public SNode getOriginalMacro(SNode macro) {
+    /*package*/ SNode getOriginalMacro(SNode macro) {
       return SNodeOperations.as(DependenciesHelper.getOriginalNode(macro, genContext), CONCEPTS.BuildMacro$qd);
     }
-    public SNode getOriginalDep(SNode dep) {
+    /*package*/ SNode getOriginalDep(SNode dep) {
       return SNodeOperations.as(DependenciesHelper.getOriginalNode(dep, genContext), CONCEPTS.BuildProjectDependency$sN);
     }
-    public void reportProblem(String message, SNode node) {
+    /*package*/ void reportProblem(String message, SNode node) {
       genContext.showErrorMessage(node, message);
     }
   }

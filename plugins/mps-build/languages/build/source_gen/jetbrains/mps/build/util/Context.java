@@ -43,6 +43,8 @@ public class Context {
     if (buildProject == null) {
       return null;
     }
+    // XXX note, this is not needed as long as MacroContext does this for us anyway. However, I'm looking into removing transition to 'original node'
+    //    altogether (see MPSSPRT-451), and, perhaps, MH would be the first to go, while this Context would need to stick to 'original' node a bit longer.
     buildProject = SNodeOperations.as(DependenciesHelper.getOriginalNode(buildProject, myGenerationContext), CONCEPTS.BuildProject$ae);
     if (buildProject == null) {
       return null;
