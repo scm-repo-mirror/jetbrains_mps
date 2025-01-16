@@ -111,10 +111,10 @@ public final class MacroHelper {
     return macroToName.get(context.getOriginalMacro(macro));
   }
   public String getExportName(SNode macro) {
-    return exportNames.get(context.getOriginalMacro(macro));
+    return exportNames.get(macro);
   }
   public String getImportName(SNode macro) {
-    return importNames.get(context.getOriginalMacro(macro));
+    return importNames.get(macro);
   }
   public String getPrefix(SNode dep) {
     return depPrefixes.get(context.getOriginalDep(dep));

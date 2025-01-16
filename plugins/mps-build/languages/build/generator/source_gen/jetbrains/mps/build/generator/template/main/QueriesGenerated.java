@@ -574,7 +574,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return (String) BuildLayout_Container__BehaviorDescriptor.getPrepareSubTaskId_id450ejGzh8bD.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.layout$r7bw));
   }
   public static Object propertyMacro_GetValue_1_12(final PropertyMacroContext _context) {
-    return IterableUtils.join(Sequence.fromIterable(((Iterable<SNode>) ((MacroHelper) _context.getVariable("var:macroHelper")).getMacrosToExport())).select((it) -> ((MacroHelper) _context.getVariable("var:macroHelper")).getExportName(it) + "=${" + ((MacroHelper) _context.getVariable("var:macroHelper")).getName(it) + "}"), "${line.separator}");
+    return IterableUtils.join(Sequence.fromIterable(((MacroHelper) _context.getVariable("var:macroHelper")).getMacrosToExport()).select((it) -> ((MacroHelper) _context.getVariable("var:macroHelper")).getExportName(it) + "=${" + ((MacroHelper) _context.getVariable("var:macroHelper")).getName(it) + "}"), "${line.separator}");
   }
   public static Object propertyMacro_GetValue_1_13(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(_context.getNode(), PROPS.path$URGX);
@@ -1227,8 +1227,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return true;
   }
   public static boolean ifMacro_Condition_1_2(final IfMacroContext _context) {
-    Iterable<SNode> s = (Iterable<SNode>) ((MacroHelper) _context.getVariable("var:macroHelper")).getMacrosToExport();
-    return Sequence.fromIterable(s).isNotEmpty();
+    return Sequence.fromIterable(((MacroHelper) _context.getVariable("var:macroHelper")).getMacrosToExport()).isNotEmpty();
   }
   public static boolean ifMacro_Condition_1_3(final IfMacroContext _context) {
     // only BuildLayoyt_Import and BuildLayout_ImportContent cared to tell needsFetch(BuildLayout)
@@ -1608,7 +1607,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return (Iterable<SNode>) ((MacroHelper) _context.getVariable("var:macroHelper")).getVarsContainers();
   }
   public static Iterable<SNode> sourceNodesQuery_1_4(final SourceSubstituteMacroNodesContext _context) {
-    return (Iterable<SNode>) ((MacroHelper) _context.getVariable("var:macroHelper")).getMacrosToImport();
+    return ((MacroHelper) _context.getVariable("var:macroHelper")).getMacrosToImport();
   }
   public static Iterable<SNode> sourceNodesQuery_1_5(final SourceSubstituteMacroNodesContext _context) {
     return SLinkOperations.getChildren(_context.getNode(), LINKS.plugins$AsCR);
