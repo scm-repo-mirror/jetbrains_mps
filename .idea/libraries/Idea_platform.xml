@@ -13,7 +13,6 @@
       <root url="jar://$PROJECT_DIR$/lib/lib.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/platform-loader.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/java-frontback.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/modules/intellij.libraries.compose.desktop.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/modules/intellij.libraries.ktor.client.cio.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/modules/intellij.libraries.ktor.client.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/modules/intellij.libraries.microba.jar!/" />
