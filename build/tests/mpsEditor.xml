@@ -7,6 +7,7 @@
   <property name="build.layout" location="${build.dir}/artifacts/mpsEditor" />
   <property name="mps_home" location="" />
   <property name="idea_home" location="${mps_home}" />
+  <property name="artifacts.mps" location="${mps_home}" />
   <property name="kotlinc_home" location="${mps_home}/plugins/mps-kotlin/kotlinc" />
   <property name="artifacts.mpsCore" location="${mps_home}/plugins" />
   <property name="artifacts.mpsBootstrapCore" location="${mps_home}" />
@@ -1706,6 +1707,7 @@
       </jvmargs>
       <macro name="mps_home" path="${mps_home}" />
       <macro name="idea_home" path="${idea_home}" />
+      <macro name="artifacts.mps" path="${artifacts.mps}" />
       <macro name="kotlinc_home" path="${kotlinc_home}" />
     </generate>
   </target>

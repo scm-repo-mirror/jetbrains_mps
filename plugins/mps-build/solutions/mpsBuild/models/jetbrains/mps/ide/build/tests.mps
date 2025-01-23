@@ -2781,6 +2781,12 @@
     <node concept="10PD9b" id="53PdBITeUcS" role="10PD9s" />
     <node concept="3b7kt6" id="53PdBITeUcT" role="10PD9s" />
     <node concept="1gjT0q" id="53PdBITeUcU" role="10PD9s" />
+    <node concept="398rNT" id="5JEVmB_r8c4" role="1l3spd">
+      <property role="TrG5h" value="artifacts.mps" />
+      <node concept="398BVA" id="5JEVmB_r8c6" role="398pKh">
+        <ref role="398BVh" node="53PdBITeUc4" resolve="mps_home" />
+      </node>
+    </node>
     <node concept="398rNT" id="2KA2zfKHO0W" role="1l3spd">
       <property role="TrG5h" value="kotlinc_home" />
       <node concept="398BVA" id="2KA2zfKHO0X" role="398pKh">

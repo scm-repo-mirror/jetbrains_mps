@@ -81,5 +81,6 @@
     <orderEntry type="module" module-name="mps-devkit" scope="RUNTIME" />
     <orderEntry type="module" module-name="mps-kotlin" scope="TEST" />
     <orderEntry type="module" module-name="mps-refactoring" scope="TEST" />
+    <orderEntry type="library" name="jna" level="project" />
   </component>
 </module>
