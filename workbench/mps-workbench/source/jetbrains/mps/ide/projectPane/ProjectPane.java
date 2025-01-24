@@ -353,7 +353,7 @@ public class ProjectPane extends BaseLogicalViewProjectPane {
       // getVirtualFile requires a resource-heavy operation
       VirtualFile virtualFile = getVirtualFile(file);
       if (virtualFile != null) {
-        ApplicationManager.getApplication().runReadAction(() ->
+        ApplicationManager.getApplication().invokeLater(() ->
             // selection is done in EDT
             createSelectInTarget().selectIn(new MySelectInContext(virtualFile), autofocus));
       } else {
