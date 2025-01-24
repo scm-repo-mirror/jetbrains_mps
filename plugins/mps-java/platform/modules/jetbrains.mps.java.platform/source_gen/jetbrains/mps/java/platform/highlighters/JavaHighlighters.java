@@ -11,7 +11,6 @@ import java.util.LinkedList;
 import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.nodeEditor.Highlighter;
-import jetbrains.mps.java.platform.highlighters.methodcallsfixer.MethodCallsFixer;
 import jetbrains.mps.nodeEditor.checking.DisposableEditorChecker;
 
 @GeneratedClass(node = "r:fa4569a3-1bd4-4159-97bc-db03b3aeff88(jetbrains.mps.java.platform.highlighters)/8432634623182781100", model = "r:fa4569a3-1bd4-4159-97bc-db03b3aeff88(jetbrains.mps.java.platform.highlighters)")
@@ -25,7 +24,6 @@ public final class JavaHighlighters implements HighlighterContribution {
   public void install(@NotNull Highlighter highlighter) {
     highlighter.addChecker(DequeSequence.fromDequeNew(myCheckers).pushElement(new OverrideMethodsChecker(highlighter.getProject())));
     highlighter.addChecker(DequeSequence.fromDequeNew(myCheckers).pushElement(new ToDoHighlighter()));
-    highlighter.addChecker(DequeSequence.fromDequeNew(myCheckers).pushElement(new MethodCallsFixer(highlighter.getProject().getRepository())));
   }
 
   @Override

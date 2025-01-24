@@ -37,7 +37,6 @@
     <import index="y49u" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.util(MPS.OpenAPI/)" />
     <import index="z1c4" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.project(MPS.Platform/)" />
     <import index="18ew" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util(MPS.Core/)" />
-    <import index="4fnz" ref="r:4133014c-7275-4ce9-a7b8-ec59b3bf11b3(jetbrains.mps.java.platform.highlighters.methodcallsfixer)" />
     <import index="cj4x" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor(MPS.Editor/)" />
     <import index="ew8r" ref="r:579b6612-4f9e-4479-8e4c-5ef2ee0f9722(jetbrains.mps.ide.editor.popup)" />
     <import index="ntzd" ref="r:bf32fdbc-530f-4631-ba64-3e7b620ac47f(jetbrains.mps.baseLanguage.util)" />
@@ -3989,41 +3988,6 @@
                   </node>
                 </node>
               </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="1W7gAtGJNK9" role="3cqZAp">
-          <node concept="2OqwBi" id="1W7gAtGJNKa" role="3clFbG">
-            <node concept="liA8E" id="1W7gAtGJNKc" role="2OqNvi">
-              <ref role="37wK5l" to="exr9:~Highlighter.addChecker(jetbrains.mps.nodeEditor.checking.EditorChecker)" resolve="addChecker" />
-              <node concept="2OqwBi" id="1W7gAtGJNKd" role="37wK5m">
-                <node concept="37vLTw" id="2BHiRxeuoOH" role="2Oq$k0">
-                  <ref role="3cqZAo" node="58syclRvsO_" resolve="myCheckers" />
-                </node>
-                <node concept="2ArzE6" id="1W7gAtGJNKf" role="2OqNvi">
-                  <node concept="2ShNRf" id="5uC6IZdzjkd" role="25WWJ7">
-                    <node concept="1pGfFk" id="SZ_Iv7TMX6" role="2ShVmc">
-                      <ref role="37wK5l" to="4fnz:SZ_Iv7SGYj" resolve="MethodCallsFixer" />
-                      <node concept="2OqwBi" id="SZ_Iv7TO40" role="37wK5m">
-                        <node concept="liA8E" id="SZ_Iv7TPCa" role="2OqNvi">
-                          <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
-                        </node>
-                        <node concept="2OqwBi" id="7rHnnspDJBV" role="2Oq$k0">
-                          <node concept="37vLTw" id="7rHnnspDJBW" role="2Oq$k0">
-                            <ref role="3cqZAo" node="7rHnnspD4hu" resolve="highlighter" />
-                          </node>
-                          <node concept="liA8E" id="7rHnnspDJBX" role="2OqNvi">
-                            <ref role="37wK5l" to="exr9:~Highlighter.getProject()" resolve="getProject" />
-                          </node>
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-            <node concept="37vLTw" id="1JsJJ3D2C56" role="2Oq$k0">
-              <ref role="3cqZAo" node="7rHnnspD4hu" resolve="highlighter" />
             </node>
           </node>
         </node>
