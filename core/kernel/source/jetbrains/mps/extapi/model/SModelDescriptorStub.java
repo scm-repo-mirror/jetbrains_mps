@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2023 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -172,13 +172,25 @@ public abstract class SModelDescriptorStub implements SModelInternal, SModel, Fa
   @Override
   public void deleteLanguageId(@NotNull SLanguage ref) {
     assertCanChange();
-    getSModel().deleteLanguage(ref);
+    if (getSModel().deleteLanguage(ref)) {
+      fireUsedLanguageRemoved(ref);
+    }
   }
 
   @Override
   public void addLanguage(@NotNull SLanguage language) {
     assertCanChange();
-    getSModel().addLanguage(language);
+    if (getSModel().addLanguage(language)) {
+      fireUsedLanguageAdded(language);
+    }
+  }
+
+  protected void fireUsedLanguageAdded(SLanguage language) {
+    // no-op
+  }
+
+  protected void fireUsedLanguageRemoved(SLanguage language) {
+    // no-op
   }
 
   @Override
@@ -202,13 +214,25 @@ public abstract class SModelDescriptorStub implements SModelInternal, SModel, Fa
   @Override
   public final void addDevKit(SModuleReference ref) {
     assertCanChange();
-    getSModel().addDevKit(ref);
+    if (getSModel().addDevKit(ref)) {
+      fireDevKitAdded(ref);
+    }
   }
 
   @Override
   public final void deleteDevKit(@NotNull SModuleReference ref) {
     assertCanChange();
-    getSModel().deleteDevKit(ref);
+    if (getSModel().deleteDevKit(ref)) {
+      fireDevKitRemoved(ref);
+    }
+  }
+
+  protected void fireDevKitAdded(SModuleReference ref) {
+    // no-op
+  }
+
+  protected void fireDevKitRemoved(SModuleReference ref) {
+    // no-op
   }
 
   @NotNull
@@ -229,18 +253,32 @@ public abstract class SModelDescriptorStub implements SModelInternal, SModel, Fa
       // don't add references to self
       return;
     }
-    getSModel().addModelImport(new ImportElement(ref));
+    if (getSModel().addModelImport(new ImportElement(ref))) {
+      fireModelImportAdded(ref);
+    }
   }
 
   @Override
   public final void deleteModelImport(SModelReference modelReference) {
     assertCanChange();
     final jetbrains.mps.smodel.SModel modelData = getSModel();
+    boolean deleted = false;
     for (ImportElement importElement : new ArrayList<>(modelData.importedModels())) {
       if (importElement.getModelReference().equals(modelReference)) {
-        modelData.deleteModelImport(importElement);
+        deleted |= modelData.deleteModelImport(importElement);
       }
     }
+    if (deleted) {
+      fireModelImportRemoved(modelReference);
+    }
+  }
+
+  protected void fireModelImportAdded(SModelReference ref) {
+    // no-op
+  }
+
+  protected void fireModelImportRemoved(SModelReference ref) {
+    // no-op
   }
 
   @NotNull

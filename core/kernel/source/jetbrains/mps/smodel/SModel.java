@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2024 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -658,20 +658,22 @@ public class SModel implements SModelData, UpdateModeSupport {
     return res;
   }
 
-  public void deleteLanguage(@NotNull SLanguage id) {
+  public boolean deleteLanguage(@NotNull SLanguage id) {
     if (myLanguagesIds.remove(id) != null) {
       fireLanguageRemovedEvent(id);
       markChanged();
+      return true;
     }
+    return false;
   }
 
-  public void addLanguage(@NotNull SLanguage language) {
+  public boolean addLanguage(@NotNull SLanguage language) {
     // FIXME where to take version value to put into myLanguagesIds if not from deprecated method???
     final int version = language.getLanguageVersion();
     Integer existingVersion = myLanguagesIds.get(language);
     if (existingVersion != null) {
       if (version == -1 || existingVersion <= version) {
-        return;
+        return false;
       }
       if (existingVersion != -1) {
         throw new VersionMismatchException(null, getModelDescriptor(), language, existingVersion, version);
@@ -680,6 +682,7 @@ public class SModel implements SModelData, UpdateModeSupport {
 
     setLanguageVersionInternal(language, version);
     fireLanguageAddedEvent(language);
+    return true;
   }
 
   public void setLanguageImportVersion(SLanguage language, int version) {
@@ -701,18 +704,22 @@ public class SModel implements SModelData, UpdateModeSupport {
     return Collections.unmodifiableList(myDevKits);
   }
 
-  public void addDevKit(SModuleReference ref) {
+  public boolean addDevKit(SModuleReference ref) {
     if (!myDevKits.contains(ref) && myDevKits.add(ref)) {
       fireDevKitAddedEvent(ref);
       markChanged();
+      return true;
     }
+    return false;
   }
 
-  public void deleteDevKit(@NotNull SModuleReference ref) {
+  public boolean deleteDevKit(@NotNull SModuleReference ref) {
     if (myDevKits.remove(ref)) {
       fireDevKitRemovedEvent(ref);
       markChanged();
+      return true;
     }
+    return false;
   }
 
   //model
@@ -721,15 +728,17 @@ public class SModel implements SModelData, UpdateModeSupport {
     return Collections.unmodifiableList(myImports);
   }
 
-  public void addModelImport(ImportElement importElement) {
+  public boolean addModelImport(ImportElement importElement) {
     // myImports is ArrayList, AL.add() doesn't check for presence.
     if (!myImports.contains(importElement) && myImports.add(importElement)) {
       fireImportAddedEvent(importElement.getModelReference());
       markChanged();
+      return true;
     }
+    return false;
   }
 
-  public void deleteModelImport(ImportElement importElement) {
+  public boolean deleteModelImport(ImportElement importElement) {
     if (myImports.remove(importElement)) {
       if (myLegacyImplicitImports != null) {
         // shall keep only if we do track implicit imports
@@ -737,7 +746,9 @@ public class SModel implements SModelData, UpdateModeSupport {
       }
       fireImportRemovedEvent(importElement.getModelReference());
       markChanged();
+      return true;
     }
+    return false;
   }
 
   /**
@@ -790,6 +801,7 @@ public class SModel implements SModelData, UpdateModeSupport {
         markChanged();
       }
     }
+    // as long as these languages make sense for m2m process, there seems to be no need to notify about changes
   }
 
   public void removeEngagedOnGenerationLanguage(SLanguage ref) {

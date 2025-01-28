@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2024 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,15 +21,21 @@ import jetbrains.mps.smodel.IllegalModelAccessException;
 import jetbrains.mps.smodel.InvalidSModel;
 import jetbrains.mps.smodel.MPSModuleRepository;
 import jetbrains.mps.smodel.NodeIdentityComponent;
+import jetbrains.mps.smodel.event.DependencyChangeBridge;
 import jetbrains.mps.smodel.event.ModelEventDispatch;
 import jetbrains.mps.smodel.event.ModelListenerDispatch;
+import jetbrains.mps.smodel.event.SModelDevKitEvent;
+import jetbrains.mps.smodel.event.SModelImportEvent;
+import jetbrains.mps.smodel.event.SModelLanguageEvent;
 import jetbrains.mps.smodel.loading.ModelLoadingState;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SLanguage;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelId;
 import org.jetbrains.mps.openapi.model.SModelListener;
+import org.jetbrains.mps.openapi.model.SModelListener.DependencyChange;
 import org.jetbrains.mps.openapi.model.SModelName;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -37,6 +43,7 @@ import org.jetbrains.mps.openapi.model.SNodeAccessListener;
 import org.jetbrains.mps.openapi.model.SNodeChangeListener;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.module.SModule;
+import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.persistence.DataSource;
 import org.jetbrains.mps.openapi.persistence.ModelRoot;
@@ -412,6 +419,36 @@ public abstract class SModelBase extends SModelDescriptorStub implements SModel 
 
   protected void fireModelReplaced() {
     myModelEventDispatch.modelReplaced(this);
+  }
+
+  @Override
+  protected void fireUsedLanguageAdded(SLanguage language) {
+    myModelEventDispatch.dependenciesChanged(this, new DependencyChangeBridge(new SModelLanguageEvent(this, language, true)));
+  }
+
+  @Override
+  protected void fireUsedLanguageRemoved(SLanguage language) {
+    myModelEventDispatch.dependenciesChanged(this, new DependencyChangeBridge(new SModelLanguageEvent(this, language, false)));
+  }
+
+  @Override
+  protected void fireDevKitAdded(SModuleReference ref) {
+    myModelEventDispatch.dependenciesChanged(this, new DependencyChangeBridge(new SModelDevKitEvent(this, ref, true)));
+  }
+
+  @Override
+  protected void fireDevKitRemoved(SModuleReference ref) {
+    myModelEventDispatch.dependenciesChanged(this, new DependencyChangeBridge(new SModelDevKitEvent(this, ref, false)));
+  }
+
+  @Override
+  protected void fireModelImportAdded(SModelReference ref) {
+    myModelEventDispatch.dependenciesChanged(this, new DependencyChangeBridge(new SModelImportEvent(this, ref, true)));
+  }
+
+  @Override
+  protected void fireModelImportRemoved(SModelReference ref) {
+    myModelEventDispatch.dependenciesChanged(this, new DependencyChangeBridge(new SModelImportEvent(this, ref, false)));
   }
 
   @Override
