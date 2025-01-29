@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2024 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,13 +28,13 @@ import jetbrains.mps.newTypesystem.context.component.IncrementalTypecheckingComp
 import jetbrains.mps.newTypesystem.context.component.NonTypeSystemComponent;
 import jetbrains.mps.newTypesystem.context.component.TypeSystemComponent;
 import jetbrains.mps.newTypesystem.state.State;
-import jetbrains.mps.smodel.SModelAdapter;
-import jetbrains.mps.smodel.SModelInternal;
+import jetbrains.mps.smodel.event.NodeChangeBridge;
 import jetbrains.mps.smodel.event.SModelChildEvent;
 import jetbrains.mps.smodel.event.SModelEvent;
 import jetbrains.mps.smodel.event.SModelEventVisitorAdapter;
 import jetbrains.mps.smodel.event.SModelPropertyEvent;
 import jetbrains.mps.smodel.event.SModelReferenceEvent;
+import jetbrains.mps.smodel.event.SModelReplacedEvent;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.smodel.runtime.ModuleDeploymentListener;
 import jetbrains.mps.typechecking.TypeInvalidationListener;
@@ -48,10 +48,11 @@ import jetbrains.mps.util.WeakSet;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;
+import org.jetbrains.mps.openapi.model.SModelListener;
 import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.model.SNodeChangeListener;
 import org.jetbrains.mps.openapi.model.SNodeUtil;
 import org.jetbrains.mps.openapi.model.SReference;
-import org.jetbrains.mps.openapi.module.SRepositoryContentAdapter;
 import org.jetbrains.mps.openapi.util.Consumer;
 
 import java.lang.ref.Reference;
@@ -64,12 +65,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.stream.Stream;
 
 public class IncrementalTypechecking extends ReportingTypechecking<State, TypeSystemComponent> {
-
-  private final ConcurrentLinkedQueue<SModelEvent> myEvents = new ConcurrentLinkedQueue<>();
-  private final ConcurrentLinkedQueue<SModel> myReplacedModels = new ConcurrentLinkedQueue<>();
 
   private final ModuleDeploymentListener myClassesListener = change -> clear();
 
@@ -77,11 +75,9 @@ public class IncrementalTypechecking extends ReportingTypechecking<State, TypeSy
 
   private final MyTypeRecalculatedListener myTypeRecalculatedListener = new MyTypeRecalculatedListener();
 
-  private final MyModelListener myModelListener = new MyModelListener();
+  private MyChangeListener myModelListener = new MyChangeListener();
 
   private MyModelListenerManager myModelListenerManager = new MyModelListenerManager();
-
-  private MySmodelListener mySModelListener = new MySmodelListener();
 
   private NonTypeSystemComponent myNonTypeSystemComponent;
 
@@ -174,7 +170,8 @@ public class IncrementalTypechecking extends ReportingTypechecking<State, TypeSy
     if (myNonTypeSystemComponent != null) {
       myNonTypeSystemComponent = null;
     }
-    mySModelListener = null;
+    myModelListener.active(false);
+    myModelListener = null;
     super.dispose();
   }
 
@@ -292,14 +289,7 @@ public class IncrementalTypechecking extends ReportingTypechecking<State, TypeSy
 
   private void processPendingEvents() {
     final MySModelEventVisitorAdapter visitor = new MySModelEventVisitorAdapter();
-    for (SModelEvent event = myEvents.poll(); event !=  null; event = myEvents.poll()) {
-      event.accept(visitor);
-    }
-    for (SModel replacedModel = myReplacedModels.poll(); replacedModel != null; replacedModel = myReplacedModels.poll()) {
-      for (SNode node : mySModelNodes.get(replacedModel)) {
-        visitor.markInvalid(node);
-      }
-    }
+    myModelListener.events().forEach(e -> e.accept(visitor));
   }
 
   public void track(SNode node) {
@@ -316,20 +306,31 @@ public class IncrementalTypechecking extends ReportingTypechecking<State, TypeSy
     }
   }
 
-  private class MyModelListener extends SModelAdapter {
-    @Override
-    public void eventFired(SModelEvent event) {
-      myEvents.add(event);
-    }
-  }
+  // The only event from SModelListener that MySModelEventVisitorAdapter cares about is 'model replaced'
+  // As it doesn't process any import/language change events, we don't implement dependenciesChanged(SModel,DependencyChange) here
+  private static class MyChangeListener extends NodeChangeBridge implements SNodeChangeListener, SModelListener {
 
-  private class MySmodelListener extends SRepositoryContentAdapter {
+    /*package*/ void attach(SModel model) {
+      model.addChangeListener(this);
+      model.addModelListener(this);
+    }
+
+    /*package*/ void detach(SModel model) {
+      model.removeChangeListener(this);
+      model.removeModelListener(this);
+    }
+
+    /*package*/ List<SModelEvent> events() {
+      return drainToList();
+    }
+
     @Override
     public void modelReplaced(SModel model) {
-      myReplacedModels.add(model);
+      recordEvents(Stream.of(new SModelReplacedEvent(model)));
     }
   }
 
+  // Doesn't care about import changes, just node/link/property and model replace
   private class MySModelEventVisitorAdapter extends SModelEventVisitorAdapter {
     @Override
     public void visitChildEvent(SModelChildEvent event) {
@@ -402,6 +403,11 @@ public class IncrementalTypechecking extends ReportingTypechecking<State, TypeSy
       markDependentOnPropertyNodesForInvalidation(event.getNode(), event.getPropertyName());
     }
 
+    @Override
+    public void visitReplacedEvent(SModelReplacedEvent event) {
+      mySModelNodes.get(event.getModel()).forEach(this::markInvalid);
+    }
+
     private void markInvalid(SNode node) {
       markDependentNodesForInvalidation(node, getTypecheckingComponent());
       markDependentNodesForInvalidation(node, myNonTypeSystemComponent);
@@ -433,9 +439,9 @@ public class IncrementalTypechecking extends ReportingTypechecking<State, TypeSy
   }
 
   private class MyModelListenerManager {
-    private ReferenceQueue<SNode> myReferenceQueue = new ReferenceQueue<>();
-    private Map<SModel, Integer> myNodesCount = new THashMap<>();
-    private Map<WeakReference, SModel> myDescriptors = new THashMap<>();
+    private final ReferenceQueue<SNode> myReferenceQueue = new ReferenceQueue<>();
+    private final Map<SModel, Integer> myNodesCount = new THashMap<>();
+    private final Map<WeakReference, SModel> myDescriptors = new THashMap<>();
 
     /**
      * Warning: this method should be called only once for each node
@@ -448,8 +454,11 @@ public class IncrementalTypechecking extends ReportingTypechecking<State, TypeSy
         return;
       }
       if (!myNodesCount.containsKey(sm)) {
-        ((SModelInternal) sm).addModelListener(myModelListener);
-        sm.addModelListener(mySModelListener);
+        if (myNodesCount.isEmpty()) {
+          // first call, start collecting events
+          myModelListener.active(true);
+        }
+        myModelListener.attach(sm);
         myNodesCount.put(sm, 1);
         mySModelNodes.put(sm, new WeakSet<>());
       } else {
@@ -474,10 +483,13 @@ public class IncrementalTypechecking extends ReportingTypechecking<State, TypeSy
         SModel sm = myDescriptors.get(ref);
         Integer count = myNodesCount.get(sm);
         if (count == 1) {
-          ((SModelInternal) sm).removeModelListener(myModelListener);
-          sm.removeModelListener(mySModelListener);
+          myModelListener.detach(sm);
           myNodesCount.remove(sm);
           mySModelNodes.remove(sm);
+          if (myNodesCount.isEmpty()) {
+            // until there's a node to track, do not collect any event
+            myModelListener.active(false);
+          }
         } else {
           myNodesCount.put(sm, count - 1);
         }
@@ -487,10 +499,7 @@ public class IncrementalTypechecking extends ReportingTypechecking<State, TypeSy
     }
 
     void dispose() {
-      for (SModel sm : Collections.unmodifiableCollection(myNodesCount.keySet())) {
-        ((SModelInternal) sm).removeModelListener(myModelListener);
-        sm.removeModelListener(mySModelListener);
-      }
+      myNodesCount.keySet().forEach(myModelListener::detach);
     }
   }
 
