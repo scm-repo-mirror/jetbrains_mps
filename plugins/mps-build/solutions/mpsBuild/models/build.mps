@@ -45468,8 +45468,8 @@
             <node concept="55IIr" id="1Zf1t7r6_nN" role="2HvfZ0">
               <node concept="2Ry0Ak" id="1Zf1t7r6_nT" role="iGT6I">
                 <property role="2Ry0Am" value="plugins" />
-                <node concept="2Ry0Ak" id="1zYaU3R$rTZ" role="2Ry0An">
-                  <property role="2Ry0Am" value="vcs-github-community" />
+                <node concept="2Ry0Ak" id="537sSHLZCye" role="2Ry0An">
+                  <property role="2Ry0Am" value="vcs-github-IC" />
                 </node>
               </node>
             </node>
