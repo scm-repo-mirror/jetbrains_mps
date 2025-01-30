@@ -122,7 +122,6 @@ public class ProjectPaneTree extends ProjectTree implements NodeChildrenProvider
     }
   };
   private final ProjectPaneTreeHighlighter myHighlighter;
-  private final TreeStructureUpdate myStructureUpdate;
   private final IMakeNotificationListener myMakeListener;
 
   public ProjectPaneTree(ProjectPane projectPane, Project project) {
@@ -136,8 +135,6 @@ public class ProjectPaneTree extends ProjectTree implements NodeChildrenProvider
     final MPSProject mpsProject = ProjectHelper.fromIdeaProject(project);
     myHighlighter = new ProjectPaneTreeHighlighter(this, mpsProject);
     myHighlighter.init();
-    myStructureUpdate = new TreeStructureUpdate(this);
-    myStructureUpdate.init();
     //enter can't be listened using keyboard actions because in this case tree's UI receives it first and just expands a node
     addKeyListener(myKeyListener);
 
@@ -188,7 +185,6 @@ public class ProjectPaneTree extends ProjectTree implements NodeChildrenProvider
   @Override
   public void dispose() {
     getProject().getComponent(MakeServiceComponent.class).removeListener(myMakeListener);
-    myStructureUpdate.dispose();
     myHighlighter.dispose();
     removeKeyListener(myKeyListener);
     super.dispose();
