@@ -145,11 +145,6 @@ public class XmlPersistenceModelDescriptor extends EditableModelDescriptor {
   }
 
   @Override
-  public boolean needsReloading() {
-    return false;
-  }
-
-  @Override
   public void reloadFromSource() {
   }
 }

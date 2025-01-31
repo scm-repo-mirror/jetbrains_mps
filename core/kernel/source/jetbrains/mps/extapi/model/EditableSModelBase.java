@@ -188,6 +188,10 @@ public abstract class EditableSModelBase extends SModelBase implements EditableS
     }
   }
 
+  /**
+   * If {@link #needsReloading()} is false then as a result of this method {@link #isChanged()} returns true
+   * Otherwise the actual save can happen much later.
+   */
   @Override
   public final void save() {
     assertCanChange();
@@ -212,6 +216,16 @@ public abstract class EditableSModelBase extends SModelBase implements EditableS
     save0();
   }
 
+  /**
+   * yes, the save might not happen right away after the invocation,
+   * for example if there is a conflict with data source ({{@link #needsReloading()} returned true} and the implementor might
+   * overwrite the data coming from the data source which is not good (losing data is never good).
+   * Realistically in 2020.3 this is the only case when the result is async, but still.
+   *
+   * Perhaps, the api could be more solid with all the {{@link #needsReloading()}} logic happening outside of EditableSModel implementations
+   * (@see EditableSModelBase#areThereAnyConflictsOnSave).
+   * But as always I doubt that changing the semantics of such a popular method is the right way
+   */
   @Override
   public CompletionStage<SaveResult> save(@NotNull SaveOptions options) {
     assertCanChange();
@@ -335,8 +349,7 @@ public abstract class EditableSModelBase extends SModelBase implements EditableS
     myTimestampTracker.updateTimestamp(getSource());
   }
 
-  @Override
-  public boolean needsReloading() {
+  protected boolean needsReloading() {
     return myTimestampTracker.needsReloading(getSource());
   }
 

@@ -34,10 +34,8 @@ public interface EditableSModel extends SModel {
   void setChanged(boolean changed);
 
   /**
-   * needs the write action lock,
-   * this method will save the model into the storage (located at {@link #getSource()}).
-   * If {@link #needsReloading()} is false then as a result of this method {@link #isChanged()} returns true
-   * Otherwise the actual save can happen much later.
+   * Save the model into the storage (located at {@link #getSource()}).
+   * Needs the write action lock.
    * @see #save(SaveOptions)
    */
   default void save() {
@@ -47,17 +45,9 @@ public interface EditableSModel extends SModel {
   /**
    * @param options describe how to behave in case of conflict
    *                where 'conflict' is the scenario when we save a changed model ({{@link #isChanged()}} is true) and
-   *                it happens that {{@link #needsReloading()}} is true.
+   *                it happens that model's data source state has been changed since the time model was loaded.
    *
    * @return a CompletionStage with the result inside.
-   * yes, the save might not happen right away after the invocation,
-   * for example if there is a conflict with data source ({{@link #needsReloading()} returned true} and the implementor might
-   * overwrite the data coming from the data source which is not good (losing data is never good).
-   * Realistically in 2020.3 this is the only case when the result is async, but still.
-   *
-   * Perhaps, the api could be more solid with all the {{@link #needsReloading()}} logic happening outside of EditableSModel implementations
-   * (@see EditableSModelBase#areThereAnyConflictsOnSave).
-   * But as always I doubt that changing the semantics of such a popular method is the right way
    */
   default CompletionStage<SaveResult> save(@NotNull SaveOptions options) {
     // FIXME I don't quite see a benefit of using CompletionStage<SaveResult> as a return value, as the only place we consume it is the
@@ -71,9 +61,6 @@ public interface EditableSModel extends SModel {
    * @param changeFile I do not like either it must be generalized or moved to a lower level (where files data sources are in place)
    */
   void rename(@NotNull String newModelName, boolean changeFile);
-
-  boolean needsReloading(); // FWIW, single use outside of implementation, need to reconsider conflict resolution approach.
-
 
   /**
    * reloads the model from the storage {@link #getSource()}

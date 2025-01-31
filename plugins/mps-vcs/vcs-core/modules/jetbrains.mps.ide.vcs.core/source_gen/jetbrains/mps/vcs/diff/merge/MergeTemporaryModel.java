@@ -79,11 +79,6 @@ public final class MergeTemporaryModel extends EditableModelDescriptor implement
     throw new UnsupportedOperationException();
   }
 
-  @Override
-  public boolean needsReloading() {
-    return false;
-  }
-
   public void setPersistenceVersion(int version) {
     if (getModelData() instanceof DefaultSModel) {
       ((DefaultSModel) getModelData()).getSModelHeader().setPersistenceVersion(version);
