@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2024 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,6 @@ import jetbrains.mps.smodel.ModelCommandContext.Provider;
 import jetbrains.mps.smodel.ModelRenameUndoableAction;
 import jetbrains.mps.smodel.event.SModelRenamedEvent;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.EditableSModel;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.model.SNodeChangeListener;
@@ -88,24 +87,6 @@ public abstract class EditableSModelBase extends SModelBase implements EditableS
     myChanged = changed;
   }
 
-  /**
-   * AP: leaving here for 2020.3, to be pulled up.
-   * I want to ensure that the proposed solution is ok
-   * @deprecated NO OP, DO NOT USE. As a providional internal-only workaround, check {@link SRepositoryExt#getConflictResolver()}
-   * @param resolver null will reset to the default resolver
-   */
-  @NotNull
-  @Deprecated(forRemoval = true)
-  public final StorageMemoryConflictResolver<EditableSModel> setConflictResolver(@Nullable StorageMemoryConflictResolver<EditableSModel> resolver) {
-    LOG.warnDeprecatedUse("Do not set conflict resolver for an individual model!");
-    return new StorageMemoryConflictResolver<EditableSModel>() {
-      @Override
-      public @NotNull CompletionStage<ConflictResolved> resolveConflict(@NotNull EditableSModel model) {
-        return CompletableFuture.completedFuture(ConflictResolved.NOTHING_HAPPENED);
-      }
-    };
-  }
-
   @Override
   public void addRootNode(@NotNull org.jetbrains.mps.openapi.model.SNode node) {
     assertCanChange();
@@ -116,11 +97,6 @@ public abstract class EditableSModelBase extends SModelBase implements EditableS
   public void removeRootNode(@NotNull org.jetbrains.mps.openapi.model.SNode node) {
     assertCanChange();
     getModelData().removeRootNode(node);
-  }
-
-  @Override
-  public boolean isReadOnly() {
-    return getSource().isReadOnly();
   }
 
   @Override

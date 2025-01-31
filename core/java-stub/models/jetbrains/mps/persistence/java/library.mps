@@ -1537,40 +1537,21 @@
                         <node concept="3cpWsn" id="2upfhDvp8gF" role="3cpWs9">
                           <property role="TrG5h" value="module" />
                           <node concept="3uibUv" id="2upfhDvp8gD" role="1tU5fm">
-                            <ref role="3uigEE" to="lui2:~SModule" resolve="SModule" />
+                            <ref role="3uigEE" to="z1c3:~AbstractModule" resolve="AbstractModule" />
                           </node>
                           <node concept="1rXfSq" id="2upfhDvp8gG" role="33vP2m">
                             <ref role="37wK5l" node="390SM3Indek" resolve="getModule" />
                           </node>
                         </node>
                       </node>
-                      <node concept="3clFbJ" id="2upfhDvp8oS" role="3cqZAp">
-                        <node concept="3clFbS" id="2upfhDvp8oU" role="3clFbx">
-                          <node concept="3clFbF" id="2upfhDvp8FB" role="3cqZAp">
-                            <node concept="2OqwBi" id="2upfhDvp8Kd" role="3clFbG">
-                              <node concept="1eOMI4" id="2upfhDvp8F$" role="2Oq$k0">
-                                <node concept="10QFUN" id="2upfhDvp8Fx" role="1eOMHV">
-                                  <node concept="3uibUv" id="2upfhDvp8FA" role="10QFUM">
-                                    <ref role="3uigEE" to="31cb:~SModuleBase" resolve="SModuleBase" />
-                                  </node>
-                                  <node concept="37vLTw" id="2upfhDvp8J$" role="10QFUP">
-                                    <ref role="3cqZAo" node="2upfhDvp8gF" resolve="module" />
-                                  </node>
-                                </node>
-                              </node>
-                              <node concept="liA8E" id="2upfhDvp8Nw" role="2OqNvi">
-                                <ref role="37wK5l" to="31cb:~SModuleBase.unregisterModel(jetbrains.mps.extapi.model.SModelBase)" resolve="unregisterModel" />
-                                <node concept="Xjq3P" id="2upfhDvp8PD" role="37wK5m" />
-                              </node>
-                            </node>
-                          </node>
-                        </node>
-                        <node concept="2ZW3vV" id="2upfhDvp8wT" role="3clFbw">
-                          <node concept="3uibUv" id="2upfhDvp8B9" role="2ZW6by">
-                            <ref role="3uigEE" to="31cb:~SModuleBase" resolve="SModuleBase" />
-                          </node>
-                          <node concept="37vLTw" id="2upfhDvp8um" role="2ZW6bz">
+                      <node concept="3clFbF" id="2upfhDvp8FB" role="3cqZAp">
+                        <node concept="2OqwBi" id="2upfhDvp8Kd" role="3clFbG">
+                          <node concept="37vLTw" id="2upfhDvp8J$" role="2Oq$k0">
                             <ref role="3cqZAo" node="2upfhDvp8gF" resolve="module" />
+                          </node>
+                          <node concept="liA8E" id="2upfhDvp8Nw" role="2OqNvi">
+                            <ref role="37wK5l" to="31cb:~SModuleBase.unregisterModel(jetbrains.mps.extapi.model.SModelBase)" resolve="unregisterModel" />
+                            <node concept="Xjq3P" id="2upfhDvp8PD" role="37wK5m" />
                           </node>
                         </node>
                       </node>
@@ -1711,6 +1692,23 @@
       </node>
       <node concept="3Tm6S6" id="5JsnGMj1qiF" role="1B3o_S" />
       <node concept="3cqZAl" id="5JsnGMj1qiG" role="3clF45" />
+    </node>
+    <node concept="2tJIrI" id="1v_IUgrujzs" role="jymVt" />
+    <node concept="2tJIrI" id="1v_IUgrujzt" role="jymVt" />
+    <node concept="3clFb_" id="1v_IUgrun5O" role="jymVt">
+      <property role="TrG5h" value="isReadOnly" />
+      <node concept="3Tm1VV" id="1v_IUgrun5P" role="1B3o_S" />
+      <node concept="10P_77" id="1v_IUgrun5R" role="3clF45" />
+      <node concept="3clFbS" id="1v_IUgrun5T" role="3clF47">
+        <node concept="3clFbF" id="1v_IUgrutBc" role="3cqZAp">
+          <node concept="3clFbT" id="1v_IUgrutBb" role="3clFbG">
+            <property role="3clFbU" value="true" />
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="1v_IUgrun5U" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
     </node>
     <node concept="2tJIrI" id="390SM3InpXX" role="jymVt" />
     <node concept="3clFb_" id="390SM3Inqfb" role="jymVt">

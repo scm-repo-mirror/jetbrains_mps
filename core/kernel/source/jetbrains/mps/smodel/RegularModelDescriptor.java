@@ -34,7 +34,7 @@ import org.jetbrains.mps.openapi.persistence.DataSource;
  * Lives in j.m.smodel, not j.m.extapi.model as it depends from smodel.SModel now, and I want API to use API classes only.
  */
 public abstract class RegularModelDescriptor extends SModelBase {
-  // FIXME SModelBase/SModelDefscriptorStub with gtSModelInternal demand we keep SModel, not SModelData
+  // FIXME SModelBase/SModelDefscriptorStub with getSModelInternal demand we keep SModel, not SModelData
   private volatile jetbrains.mps.smodel.SModel mySModel;
 
   /**

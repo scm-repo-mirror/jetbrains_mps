@@ -29,8 +29,6 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.List;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import java.util.Collections;
-import org.jetbrains.mps.openapi.module.SModule;
-import jetbrains.mps.extapi.module.SModuleBase;
 
 @GeneratedClass(node = "r:adc783db-1c21-4910-9cf7-6a22bf949a4a(jetbrains.mps.persistence.java.library)/6619269785060746048", model = "r:adc783db-1c21-4910-9cf7-6a22bf949a4a(jetbrains.mps.persistence.java.library)")
 public class JavaClassStubModelDescriptor extends RegularModelDescriptor implements ModelSourceChangeTracker.ReloadCallback {
@@ -182,10 +180,8 @@ public class JavaClassStubModelDescriptor extends RegularModelDescriptor impleme
     }
     repo.getModelAccess().runWriteAction(() -> {
       if (getSource().getPaths().isEmpty()) {
-        SModule module = getModule();
-        if (module instanceof SModuleBase) {
-          ((SModuleBase) module).unregisterModel(JavaClassStubModelDescriptor.this);
-        }
+        AbstractModule module = getModule();
+        module.unregisterModel(JavaClassStubModelDescriptor.this);
         return;
       }
       reload();
@@ -200,6 +196,12 @@ public class JavaClassStubModelDescriptor extends RegularModelDescriptor impleme
     }
     // XXX shall I synchronize(myLoadLock) so that unload and subsequent partial load are from the same thread? I'm in the write anyway.
     replace(createModel());
+  }
+
+
+  @Override
+  public boolean isReadOnly() {
+    return true;
   }
 
   @Override

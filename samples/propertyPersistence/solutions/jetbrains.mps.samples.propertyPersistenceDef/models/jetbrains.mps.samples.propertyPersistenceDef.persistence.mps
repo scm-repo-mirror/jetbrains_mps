@@ -126,6 +126,9 @@
         <property id="1176718929932" name="isFinal" index="3TUv4t" />
         <child id="1068431790190" name="initializer" index="33vP2m" />
       </concept>
+      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ngI" index="366HgL">
+        <property id="1513279640906337053" name="inferTypeParams" index="373rjd" />
+      </concept>
       <concept id="1068498886296" name="jetbrains.mps.baseLanguage.structure.VariableReference" flags="nn" index="37vLTw">
         <reference id="1068581517664" name="variableDeclaration" index="3cqZAo" />
       </concept>
@@ -161,7 +164,9 @@
       <concept id="1068580123136" name="jetbrains.mps.baseLanguage.structure.StatementList" flags="sn" stub="5293379017992965193" index="3clFbS">
         <child id="1068581517665" name="statement" index="3cqZAp" />
       </concept>
-      <concept id="1068580123137" name="jetbrains.mps.baseLanguage.structure.BooleanConstant" flags="nn" index="3clFbT" />
+      <concept id="1068580123137" name="jetbrains.mps.baseLanguage.structure.BooleanConstant" flags="nn" index="3clFbT">
+        <property id="1068580123138" name="value" index="3clFbU" />
+      </concept>
       <concept id="1068580123140" name="jetbrains.mps.baseLanguage.structure.ConstructorDeclaration" flags="ig" index="3clFbW" />
       <concept id="1068580320020" name="jetbrains.mps.baseLanguage.structure.IntegerConstant" flags="nn" index="3cmrfG">
         <property id="1068580320021" name="value" index="3cmrfH" />
@@ -1662,6 +1667,7 @@
     </node>
     <node concept="312cEg" id="4YpB5dn3TuL" role="jymVt">
       <property role="TrG5h" value="myRootsByFile" />
+      <property role="3TUv4t" value="true" />
       <node concept="2ShNRf" id="4YpB5dn3Tw0" role="33vP2m">
         <node concept="3rGOSV" id="4YpB5dn3TJl" role="2ShVmc" />
       </node>
@@ -1673,6 +1679,7 @@
     </node>
     <node concept="312cEg" id="4YpB5dn4JhS" role="jymVt">
       <property role="TrG5h" value="myRootsById" />
+      <property role="3TUv4t" value="true" />
       <node concept="2ShNRf" id="4YpB5dn4Jji" role="33vP2m">
         <node concept="3rGOSV" id="4YpB5dn4JLG" role="2ShVmc">
           <node concept="3Tqbb2" id="4YpB5dn4K10" role="3rHtpV" />
@@ -1728,6 +1735,22 @@
       </node>
     </node>
     <node concept="2tJIrI" id="3urGXjh$7hP" role="jymVt" />
+    <node concept="3clFb_" id="1v_IUgrv9rz" role="jymVt">
+      <property role="TrG5h" value="isReadOnly" />
+      <node concept="3Tm1VV" id="1v_IUgrv9r$" role="1B3o_S" />
+      <node concept="10P_77" id="1v_IUgrv9rA" role="3clF45" />
+      <node concept="3clFbS" id="1v_IUgrv9rC" role="3clF47">
+        <node concept="3clFbF" id="1v_IUgrvcTt" role="3cqZAp">
+          <node concept="3clFbT" id="1v_IUgrvcTs" role="3clFbG">
+            <property role="3clFbU" value="true" />
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="1v_IUgrv9rD" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="1v_IUgrvf1q" role="jymVt" />
     <node concept="3clFb_" id="3urGXjh$7iR" role="jymVt">
       <property role="TrG5h" value="createModel" />
       <node concept="3Tmbuc" id="3urGXjh$7iS" role="1B3o_S" />
@@ -1746,6 +1769,7 @@
             <node concept="3cpWs6" id="7xPDzzsRHIb" role="3cqZAp">
               <node concept="2ShNRf" id="7xPDzzsRHIc" role="3cqZAk">
                 <node concept="1pGfFk" id="7xPDzzsRHId" role="2ShVmc">
+                  <property role="373rjd" value="true" />
                   <ref role="37wK5l" to="w1kc:~ModelLoadResult.&lt;init&gt;(jetbrains.mps.extapi.model.SModelData,jetbrains.mps.smodel.loading.ModelLoadingState)" resolve="ModelLoadResult" />
                   <node concept="1rXfSq" id="7xPDzzsRMr6" role="37wK5m">
                     <ref role="37wK5l" node="1nLyZqZ5j_r" resolve="readModel" />
@@ -1816,6 +1840,7 @@
               <node concept="3cpWs6" id="1nLyZqZ68KI" role="3cqZAp">
                 <node concept="2ShNRf" id="1nLyZqZ68KJ" role="3cqZAk">
                   <node concept="1pGfFk" id="1nLyZqZ68KK" role="2ShVmc">
+                    <property role="373rjd" value="true" />
                     <ref role="37wK5l" to="w1kc:~ModelLoadResult.&lt;init&gt;(jetbrains.mps.extapi.model.SModelData,jetbrains.mps.smodel.loading.ModelLoadingState)" resolve="ModelLoadResult" />
                     <node concept="37vLTw" id="3sPzdxadT7x" role="37wK5m">
                       <ref role="3cqZAo" node="3sPzdxadT7i" resolve="invalidModel" />
@@ -2234,7 +2259,7 @@
                           <property role="RRSoG" value="h1akgim/info" />
                           <node concept="2OqwBi" id="6V2p7IudLMh" role="RRSoy">
                             <node concept="Xl_RD" id="3urGXjh$ERX" role="2Oq$k0">
-                              <property role="Xl_RC" value="No key=value separator found on this line: %d" />
+                              <property role="Xl_RC" value="No key=value separator found on this line: %s" />
                             </node>
                             <node concept="2cAKMz" id="6V2p7IudP8o" role="2OqNvi">
                               <node concept="37vLTw" id="6V2p7IudRLg" role="2cAKU6">
@@ -2307,21 +2332,13 @@
                                     <ref role="3cqZAo" node="3urGXjh$s34" resolve="line" />
                                   </node>
                                   <node concept="liA8E" id="3urGXjh$MOf" role="2OqNvi">
-                                    <ref role="37wK5l" to="wyt6:~String.substring(int,int)" resolve="substring" />
+                                    <ref role="37wK5l" to="wyt6:~String.substring(int)" resolve="substring" />
                                     <node concept="3cpWs3" id="3urGXjh$Osq" role="37wK5m">
                                       <node concept="3cmrfG" id="3urGXjh$OsK" role="3uHU7w">
                                         <property role="3cmrfH" value="1" />
                                       </node>
                                       <node concept="37vLTw" id="3urGXjh$Njw" role="3uHU7B">
                                         <ref role="3cqZAo" node="3urGXjh$_kS" resolve="separatorIndex" />
-                                      </node>
-                                    </node>
-                                    <node concept="2OqwBi" id="3urGXjh$PzA" role="37wK5m">
-                                      <node concept="37vLTw" id="3urGXjh$OXC" role="2Oq$k0">
-                                        <ref role="3cqZAo" node="3urGXjh$s34" resolve="line" />
-                                      </node>
-                                      <node concept="liA8E" id="3urGXjh$Q6u" role="2OqNvi">
-                                        <ref role="37wK5l" to="wyt6:~String.length()" resolve="length" />
                                       </node>
                                     </node>
                                   </node>

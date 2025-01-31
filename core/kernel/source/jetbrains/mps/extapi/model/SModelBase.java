@@ -171,21 +171,18 @@ public abstract class SModelBase extends SModelDescriptorStub implements SModel 
   @Override
   @NotNull
   public SModelReference getReference() {
-//    assertCanRead(); model reference is read-only attribute, why care about read lock?
     return myModelReference;
   }
 
   @NotNull
   @Override
   public SModelId getModelId() {
-//    assertCanRead(); model reference is read-only attribute, why care about read lock?
     return myModelReference.getModelId();
   }
 
   @Override
   @Deprecated
   public String getModelName() {
-//    assertCanRead(); model reference is read-only attribute, why care about read lock?
     return myModelReference.getModelName();
   }
 
@@ -198,7 +195,6 @@ public abstract class SModelBase extends SModelDescriptorStub implements SModel 
   @Override
   @NotNull
   public DataSource getSource() {
-//    assertCanRead(); Is source access truly read operation over model?
     return mySource;
   }
 
@@ -252,8 +248,7 @@ public abstract class SModelBase extends SModelDescriptorStub implements SModel 
 
   @Override
   public boolean isReadOnly() {
-//    assertCanRead(); no apparent reason why we shall demand read lock here. Few subclasses, that override the method, do not check access at all.
-    return true;
+    return getSource().isReadOnly(); // reasonable default
   }
 
   /**
