@@ -21,6 +21,7 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.swing.JEditorPane;
 import javax.swing.text.BadLocationException;
+import javax.swing.text.Caret;
 import javax.swing.text.Element;
 import javax.swing.text.StyledDocument;
 import javax.swing.text.View;
@@ -58,6 +59,9 @@ public final class MPSDocumentationEditorPane extends JEditorPane implements Dis
     setEditorKit(editorKit);
     setBorder(JBUI.Borders.empty());
     getCaret().setVisible(false);
+//    setEnabled(false);
+    setRequestFocusEnabled(false);
+    setFocusTraversalKeysEnabled(false);
   }
 
   @Override
