@@ -269,8 +269,7 @@ public class ProjectPane extends BaseLogicalViewProjectPane {
   @SuppressWarnings("removal")
   private void fireMessageUpdate(MessagesUpdate messagesUpdate, IFile iFile) {
     ProblemListener problemListener = getProject().getMessageBus().syncPublisher(ProblemListener.TOPIC);
-    MPSProject mpsProject = ProjectHelper.fromIdeaProject(getProject());
-    IdeaFileSystem fileSystem = mpsProject.getFileSystem();
+    IdeaFileSystem fileSystem = myProjectMPS.getFileSystem();
 
     VirtualFile virtualFile = fileSystem.asVirtualFile(iFile);
     if (virtualFile != null) {
@@ -426,7 +425,7 @@ public class ProjectPane extends BaseLogicalViewProjectPane {
   @SuppressWarnings("removal")
   @Nullable
   private VirtualFile getVirtualFile(IFile descriptorFile) {
-    IdeaFileSystem fileSystem = ProjectHelper.fromIdeaProject(myProject).getFileSystem();
+    IdeaFileSystem fileSystem = myProjectMPS.getFileSystem();
     VirtualFile virtualFile = fileSystem.asVirtualFile(descriptorFile);
     if (virtualFile == null) {
       IdeaFile ideaFile = fileSystem.getFile(descriptorFile.getPath());
