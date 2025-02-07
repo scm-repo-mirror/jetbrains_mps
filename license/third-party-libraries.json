@@ -787,13 +787,13 @@
 }, {
   "name" : "jediterm-core",
   "url" : "https://github.com/JetBrains/jediterm",
-  "version" : "3.48",
+  "version" : "3.49",
   "license" : "LGPL 3.0",
   "licenseUrl" : "https://github.com/JetBrains/jediterm/blob/master/LICENSE-LGPLv3.txt"
 }, {
   "name" : "jediterm-ui",
   "url" : "https://github.com/JetBrains/jediterm",
-  "version" : "3.48",
+  "version" : "3.49",
   "license" : "LGPL 3.0",
   "licenseUrl" : "https://github.com/JetBrains/jediterm/blob/master/LICENSE-LGPLv3.txt"
 }, {
@@ -823,7 +823,7 @@
 }, {
   "name" : "kotlin-metadata",
   "url" : "https://github.com/JetBrains/kotlin",
-  "version" : "2.1.20-Beta1",
+  "version" : "2.1.20-Beta2",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://github.com/JetBrains/kotlin/blob/master/license/LICENSE.txt"
 }, {
@@ -931,25 +931,25 @@
 }, {
   "name" : "netty-buffer",
   "url" : "https://netty.io",
-  "version" : "4.2.0.RC1",
+  "version" : "4.2.0.RC2",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://github.com/netty/netty/blob/4.1/LICENSE.txt"
 }, {
   "name" : "netty-codec-compression",
   "url" : "https://netty.io",
-  "version" : "4.2.0.RC1",
+  "version" : "4.2.0.RC2",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://github.com/netty/netty/blob/4.1/LICENSE.txt"
 }, {
   "name" : "netty-codec-http",
   "url" : "https://netty.io",
-  "version" : "4.2.0.RC1",
+  "version" : "4.2.0.RC2",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://github.com/netty/netty/blob/4.1/LICENSE.txt"
 }, {
   "name" : "netty-codec-protobuf",
   "url" : "https://netty.io",
-  "version" : "4.2.0.RC1",
+  "version" : "4.2.0.RC2",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://github.com/netty/netty/blob/4.1/LICENSE.txt"
 }, {
@@ -1003,31 +1003,31 @@
 }, {
   "name" : "rd Swing integration",
   "url" : "https://github.com/JetBrains/rd/tree/master/rd-kt/rd-swing",
-  "version" : "2024.3.1",
+  "version" : "2025.1.1",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://github.com/JetBrains/rd/blob/master/LICENSE"
 }, {
   "name" : "rd core",
   "url" : "https://github.com/JetBrains/rd/tree/master/rd-kt/rd-core",
-  "version" : "2024.3.1",
+  "version" : "2025.1.1",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://github.com/JetBrains/rd/blob/master/LICENSE"
 }, {
   "name" : "rd framework",
   "url" : "https://github.com/JetBrains/rd/tree/master/rd-kt/rd-framework",
-  "version" : "2024.3.1",
+  "version" : "2025.1.1",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://github.com/JetBrains/rd/blob/master/LICENSE"
 }, {
   "name" : "rd generator",
   "url" : "https://github.com/JetBrains/rd/tree/master/rd-kt/rd-gen",
-  "version" : "2024.3.1",
+  "version" : "2025.1.1",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://github.com/JetBrains/rd/blob/master/LICENSE"
 }, {
   "name" : "rd text buffers",
   "url" : "https://github.com/JetBrains/rd/tree/master/rd-kt/rd-text",
-  "version" : "2024.3.1",
+  "version" : "2025.1.1",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://github.com/JetBrains/rd/blob/master/LICENSE"
 }, {
