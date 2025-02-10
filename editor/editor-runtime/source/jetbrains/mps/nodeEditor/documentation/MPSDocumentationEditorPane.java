@@ -21,7 +21,6 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.swing.JEditorPane;
 import javax.swing.text.BadLocationException;
-import javax.swing.text.Caret;
 import javax.swing.text.Element;
 import javax.swing.text.StyledDocument;
 import javax.swing.text.View;
@@ -63,21 +62,6 @@ public final class MPSDocumentationEditorPane extends JEditorPane implements Dis
   @Override
   public void dispose() {
     getCaret().setVisible(false);
-  }
-
-  @Override
-  public void setCaret(Caret c) {
-    super.setCaret(c);
-    c.setVisible(false);
-  }
-
-  @Override
-  public void setCaretPosition(int position) {
-    super.setCaretPosition(position);
-    final Caret caret = getCaret();
-    if( caret != null ) {
-      caret.setVisible(false);
-    }
   }
 
   private static int getPreferredContentWidth(int textLength) {
