@@ -59,6 +59,7 @@ import jetbrains.mps.nodefs.NodeVirtualFileSystem;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.project.MessagesUpdate;
+import jetbrains.mps.project.MissionControl;
 import jetbrains.mps.project.MissionControlListener;
 import jetbrains.mps.project.MissionControlRefreshRequest;
 import jetbrains.mps.smodel.SObject;
@@ -79,6 +80,8 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.Comparator;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -220,6 +223,17 @@ public class ProjectPane extends BaseLogicalViewProjectPane {
     if (!alreadyCreated) {
       addListeners();
     }
+    // at this point initTree() has been called
+    myTree.addKeyListener(new KeyAdapter() {
+      @Override
+      public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_F5 && e.getModifiersEx() == 0) {
+          e.consume();
+          MissionControl.getInstance(myProject).refresh();
+          ProjectView.getInstance(myProject).refresh();
+        }
+      }
+    });
     return component;
   }
 
