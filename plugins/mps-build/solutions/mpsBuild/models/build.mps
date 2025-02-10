@@ -42579,6 +42579,11 @@
             </node>
           </node>
         </node>
+        <node concept="1SiIV0" id="1Up7vLxa$f4" role="3bR37C">
+          <node concept="3bR9La" id="1Up7vLxa$f5" role="1SiIV1">
+            <ref role="3bR37D" node="14x5$qAUbkv" resolve="jetbrains.mps.lang.resources" />
+          </node>
+        </node>
       </node>
       <node concept="1E1JtA" id="78GwwOvFiRN" role="2G$12L">
         <property role="TrG5h" value="jetbrains.mps.build.pluginSolution" />
