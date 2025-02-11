@@ -2985,6 +2985,21 @@
         <node concept="H_c77" id="50KxtEq6wTt" role="1tU5fm" />
       </node>
       <node concept="3clFbS" id="50KxtEq6wTd" role="3clF47">
+        <node concept="3clFbJ" id="3jiFBH5TZ5t" role="3cqZAp">
+          <node concept="3clFbS" id="3jiFBH5TZ5v" role="3clFbx">
+            <node concept="3cpWs6" id="3jiFBH5Ufpe" role="3cqZAp" />
+          </node>
+          <node concept="2OqwBi" id="3jiFBH5Uc0r" role="3clFbw">
+            <node concept="2JrnkZ" id="3jiFBH5UasN" role="2Oq$k0">
+              <node concept="37vLTw" id="3jiFBH5U1h8" role="2JrQYb">
+                <ref role="3cqZAo" node="50KxtEq6wTs" resolve="model" />
+              </node>
+            </node>
+            <node concept="liA8E" id="3jiFBH5UdEt" role="2OqNvi">
+              <ref role="37wK5l" to="mhbf:~SModel.isReadOnly()" resolve="isReadOnly" />
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs8" id="4FD577oStNk" role="3cqZAp">
           <node concept="3cpWsn" id="4FD577oStNl" role="3cpWs9">
             <property role="TrG5h" value="models" />
