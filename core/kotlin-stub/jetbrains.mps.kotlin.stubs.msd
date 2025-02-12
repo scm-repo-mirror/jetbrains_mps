@@ -10,7 +10,7 @@
       <sourceRoot location="mps-persistence.jar" />
       <PackageScope skip-private="true">
         <include prefix="jetbrains.mps.kotlin.stubs." />
-        <include prefix="kotlinx." />
+        <include prefix="kotlin.metadata." />
         <exclude prefix="jetbrains.mps.kotlin.stubs.smodel." />
       </PackageScope>
     </modelRoot>
