@@ -6,6 +6,7 @@ package jetbrains.mps.ide.projectPane.logicalview;
 import com.intellij.icons.AllIcons.Nodes;
 import com.intellij.icons.AllIcons.Scope;
 import com.intellij.ide.projectView.PresentationData;
+import com.intellij.ide.projectView.ProjectViewNode;
 import com.intellij.ide.projectView.ViewSettings;
 import com.intellij.ide.util.treeView.AbstractTreeNode;
 import com.intellij.openapi.project.Project;
@@ -39,7 +40,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.module.SModule;
-import org.jetbrains.mps.util.Condition;
 
 import java.util.Collection;
 import java.util.Objects;
@@ -110,47 +110,36 @@ public abstract class TopHierarchyProjectViewNode<Value> extends BranchProjectVi
       MPSProject mpsProject = ProjectHelper.fromIdeaProject(getProject());
       return mpsProject.getModelAccess().computeReadAction(() -> {
         ProjectManager projectManager = mpsProject.getPlatform().findComponent(ProjectManager.class);
-        Predicate<SModule> belongsToAnyProject = m -> projectManager.getOpenedProjects().stream()
-                                                                      .anyMatch(p -> p.isProjectModule(m));
-
-        VisibleModuleRegistry visibleModules = VisibleModuleRegistry.getInstance();
-        GlobalScope globalScope = new GlobalScope(mpsProject.getRepository());
-        ConditionalScope visibleScope = new ConditionalScope(globalScope, visibleModules::isVisible, null);
-        ConditionalScope nonProjectScope = new ConditionalScope(visibleScope, Condition.asCondition(Predicate.not(belongsToAnyProject)), null);
-
-        return IterableUtil.indexOf(nonProjectScope.getModules(), sModule) >= 0;
+        if (projectManager.getOpenedProjects().stream().anyMatch(p -> p.isProjectModule(sModule))) {
+          return false; // only support "select in" for non-project modules
+        }
+        return VisibleModuleRegistry.getInstance().isVisible(sModule);
       });
     }
 
     @Override
     protected void fillChildren(Collection<AbstractTreeNode<?>> children) {
       MPSProject mpsProject = ProjectHelper.fromIdeaProject(getProject());
-      ProjectManager projectManager = mpsProject.getPlatform().findComponent(ProjectManager.class);
-      Predicate<SModule> belongsToOtherProject = m -> projectManager.getOpenedProjects().stream()
-                                                             .filter(p -> !Objects.equals(p, mpsProject))
-                                                             .anyMatch(p -> p.isProjectModule(m));
-
       VisibleModuleRegistry visibleModules = VisibleModuleRegistry.getInstance();
       GlobalScope globalScope = new GlobalScope(mpsProject.getRepository());
       ConditionalScope visibleScope = new ConditionalScope(globalScope, visibleModules::isVisible, null);
-      ConditionalScope thisProjectScope = new ConditionalScope(visibleScope, Condition.asCondition(Predicate.not(belongsToOtherProject)), null);
 
-      ConditionalScope solutionsScope = new ConditionalScope(thisProjectScope, Solution.class::isInstance, null);
+      ConditionalScope solutionsScope = new ConditionalScope(visibleScope, Solution.class::isInstance, null);
       children.add(new ModulesPoolFolderProjectViewNode(getProject(), new SolutionsModulesPool(), getSettings(), 0,
                                                         () -> IterableUtil.asList(solutionsScope.getModules())));
 
-      ConditionalScope languagesScope = new ConditionalScope(thisProjectScope,
+      ConditionalScope languagesScope = new ConditionalScope(visibleScope,
                                                              (m) -> m instanceof Language ||
                                                                     (m instanceof Generator && ((Generator)m).getModuleDescriptor().isStandaloneModule()),
                                                              null);
-      ConditionalScope languagesAndGeneratorsScope = new ConditionalScope(thisProjectScope,
+      ConditionalScope languagesAndGeneratorsScope = new ConditionalScope(visibleScope,
                                                              (m) -> m instanceof Language || m instanceof Generator,
                                                              null);
       children.add(new ModulesPoolFolderProjectViewNode(getProject(), new LanguagesModulesPool(), getSettings(), 1,
                                                         () -> IterableUtil.asList(languagesScope.getModules()),
                                                         () -> IterableUtil.asList(languagesAndGeneratorsScope.getModules())));
 
-      ConditionalScope devkitsScope = new ConditionalScope(thisProjectScope, DevKit.class::isInstance, null);
+      ConditionalScope devkitsScope = new ConditionalScope(visibleScope, DevKit.class::isInstance, null);
       children.add(new ModulesPoolFolderProjectViewNode(getProject(), new DevKitsModulesPool(), getSettings(), 2,
                                                         () -> IterableUtil.asList(devkitsScope.getModules())));
     }
@@ -200,7 +189,7 @@ public abstract class TopHierarchyProjectViewNode<Value> extends BranchProjectVi
     private Boolean containsSModule(SModule sModule) {
       MPSProject mpsProject = ProjectHelper.fromIdeaProject(getProject());
       return mpsProject.getModelAccess().computeReadAction(() ->
-                myContainsCondition.test(sModule));
+                myContainsCondition.test(sModule) && !mpsProject.isProjectModule(sModule));
     }
 
     @Override
