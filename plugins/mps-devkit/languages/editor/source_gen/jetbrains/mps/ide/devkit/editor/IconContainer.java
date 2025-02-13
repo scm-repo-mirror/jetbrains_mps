@@ -7,5 +7,5 @@ import jetbrains.mps.smodel.runtime.IconResource;
 
 @ResourceModule("cae9c33a-938f-42e8-8f0f-26f001c0af63(jetbrains.mps.ide.devkit.editor)")
 public class IconContainer {
-  protected static IconResource RESOURCE_0 = new IconResource("/icons/feedback.png", null, IconContainer.class);
+  protected static IconResource RESOURCE_0 = new IconResource("/icons/feedback.png", "/icons/feedback_newui.svg", IconContainer.class);
 }
