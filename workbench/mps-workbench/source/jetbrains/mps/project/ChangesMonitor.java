@@ -1,5 +1,5 @@
 /*
- * Copyright 2000-2024 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+ * Copyright 2000-2025 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
  */
 package jetbrains.mps.project;
 
@@ -41,7 +41,6 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.module.SModule;
-import org.jetbrains.mps.openapi.module.SModuleListener;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.module.SRepositoryContentAdapter;
 
@@ -70,7 +69,6 @@ import java.util.function.Predicate;
   private final MessagesContainer myMessagesContainer;
   private final ModelGenerationStatusManager myGenerationStatusManager;
   private final MyLoadingListener myProjectListener = new MyLoadingListener();
-  private final MyModuleListener myModuleListener = new MyModuleListener();
   private final MyGenerationStatusListener myGenerationStatusListener = new MyGenerationStatusListener();
   private final MyRepositoryObserver myRepositoryObserver = new MyRepositoryObserver();
   private final MyModelChangeListener myModelChangeListener = new MyModelChangeListener();
@@ -86,7 +84,6 @@ import java.util.function.Predicate;
     myProject = project;
     myMessagesContainer = messagesContainer;
     MPSProject mpsProject = ProjectHelper.fromIdeaProject(project);
-    forAllModulesInProject(this::registerListener);
     mpsProject.addListener(myProjectListener);
     new RepoListenerRegistrar(mpsProject.getRepository(), myRepositoryObserver).attach();
     myGenerationStatusManager = mpsProject.getComponent(ModelGenerationStatusManager.class);
@@ -105,7 +102,6 @@ import java.util.function.Predicate;
       if (mpsProject != null) {
         mpsProject.removeListener(myProjectListener);
         new RepoListenerRegistrar(mpsProject.getRepository(), myRepositoryObserver).detach();
-        forAllModulesInProject(this::unregisterListener);
       }
     }
     if (myGenerationStatusManager != null) {
@@ -307,14 +303,6 @@ import java.util.function.Predicate;
     }
   }
 
-  private void registerListener(SModule module) {
-    module.addModuleListener(myModuleListener);
-  }
-
-  private void unregisterListener(SModule module) {
-    module.removeModuleListener(myModuleListener);
-  }
-
   private void unregisterListener(SModelInternal model) {
     model.removeModelListener(myModelChangeListener);
   }
@@ -393,49 +381,10 @@ import java.util.function.Predicate;
 
   }
 
-  private class MyModuleListener implements SModuleListener {
-
-    @Override
-    public void modelAdded(SModule module, SModel model) {
-      registerListener((SModelInternal) model);
-      enqueueAllModulesInProject();
-    }
-
-    @Override
-    public void beforeModelRemoved(SModule module, SModel model) {
-      unregisterListener((SModelInternal) model);
-    }
-
-    @Override
-    public void modelRemoved(SModule module, SModelReference ref) {
-      myMessagesContainer.clearMessages(ref);
-      enqueueAllModulesInProject();
-    }
-
-    @Override
-    public void modelRenamed(SModule module, SModel model, SModelReference oldRef) {
-      myMessagesContainer.clearMessages(oldRef);
-      enqueueAllModulesInProject();
-    }
-
-    @Override
-    public void moduleRenamed(@NotNull SModule module, @NotNull SModuleReference oldRef) {
-      myMessagesContainer.clearMessages(oldRef);
-      enqueueAllModulesInProject();
-    }
-
-    @Override
-    public void moduleChanged(SModule module) {
-      enqueueUpdate(module);
-      enqueueAllModulesInProject();
-    }
-  }
-
   private class MyLoadingListener implements ProjectModuleLoadingListener {
 
     @Override
     public void moduleLoaded(ModulePath modulePath, @NotNull SModule module) {
-      registerListener(module);
       cacheModuleReference(modulePath.getFile(), module.getModuleReference());
       enqueueAllModulesInProject();
     }
@@ -445,7 +394,6 @@ import java.util.function.Predicate;
       enqueueAllModulesInProject();
       clearModuleReference(modulePath.getFile(), module.getModuleReference());
       myMessagesContainer.clearMessages(module.getModuleReference());
-      unregisterListener(module);
     }
 
     @Override
@@ -479,25 +427,47 @@ import java.util.function.Predicate;
       unregisterListener((SModelInternal) model);
     }
 
+    // SModelListener events:
     @Override
     public void modelReplaced(SModel model) {
       enqueueAllModulesInProject();
     }
 
     @Override
-    public void moduleAdded(@NotNull SModule module) {
-      // the superclass's implementation does this as well
-      startListening(module);
+    protected void startListening(SModule module) {
+      super.startListening(module);
       enqueueAllModulesInProject();
     }
 
     @Override
-    public void moduleRemoved(@NotNull SModuleReference module) {
+    protected void stopListening(SModule module) {
+      super.stopListening(module);
       enqueueAllModulesInProject();
     }
+
+    // SModuleListener events:
 
     @Override
     public void moduleChanged(SModule module) {
+      enqueueUpdate(module);
+      enqueueAllModulesInProject();
+    }
+
+    @Override
+    public void modelRemoved(SModule module, SModelReference ref) {
+      myMessagesContainer.clearMessages(ref);
+      enqueueAllModulesInProject();
+    }
+
+    @Override
+    public void modelRenamed(SModule module, SModel model, SModelReference oldRef) {
+      myMessagesContainer.clearMessages(oldRef);
+      enqueueAllModulesInProject();
+    }
+
+    @Override
+    public void moduleRenamed(@NotNull SModule module, @NotNull SModuleReference oldRef) {
+      myMessagesContainer.clearMessages(oldRef);
       enqueueAllModulesInProject();
     }
   }
