@@ -27,9 +27,7 @@ import jetbrains.mps.project.validation.ModelValidator;
 import jetbrains.mps.project.validation.ValidationUtil;
 import jetbrains.mps.smodel.MPSModuleRepository;
 import jetbrains.mps.smodel.RepoListenerRegistrar;
-import jetbrains.mps.smodel.SModelAdapter;
 import jetbrains.mps.smodel.SModelFileTracker;
-import jetbrains.mps.smodel.SModelInternal;
 import jetbrains.mps.smodel.SObject;
 import jetbrains.mps.smodel.tempmodel.TempModule;
 import jetbrains.mps.smodel.tempmodel.TempModule2;
@@ -71,7 +69,6 @@ import java.util.function.Predicate;
   private final MyLoadingListener myProjectListener = new MyLoadingListener();
   private final MyGenerationStatusListener myGenerationStatusListener = new MyGenerationStatusListener();
   private final MyRepositoryObserver myRepositoryObserver = new MyRepositoryObserver();
-  private final MyModelChangeListener myModelChangeListener = new MyModelChangeListener();
   private final AtomicBoolean myEnqueueAllModulesInProject = new AtomicBoolean(true);
   private final AtomicBoolean myEnqueueAllModulesInRepository = new AtomicBoolean(true);
   private final Queue<SObject> myUpdatesQueue = new ConcurrentLinkedQueue<>();
@@ -303,14 +300,6 @@ import java.util.function.Predicate;
     }
   }
 
-  private void unregisterListener(SModelInternal model) {
-    model.removeModelListener(myModelChangeListener);
-  }
-
-  private void registerListener(SModelInternal model) {
-    model.addModelListener(myModelChangeListener);
-  }
-
   private void forAllModulesInProject(Consumer<SModule> moduleConsumer) {
     if (myProject.isDisposed()) return;
     MPSProject mpsProject = ProjectHelper.fromIdeaProject(myProject);
@@ -416,7 +405,6 @@ import java.util.function.Predicate;
     @Override
     protected void startListening(@NotNull SModel model) {
       model.addModelListener(this);
-      registerListener((SModelInternal) model);
       // ensure messages for a new model are updated
       enqueueUpdate(model);
     }
@@ -424,7 +412,6 @@ import java.util.function.Predicate;
     @Override
     protected void stopListening(@NotNull SModel model) {
       model.removeModelListener(this);
-      unregisterListener((SModelInternal) model);
     }
 
     // SModelListener events:
@@ -432,6 +419,23 @@ import java.util.function.Predicate;
     public void modelReplaced(SModel model) {
       enqueueAllModulesInProject();
     }
+
+    @Override
+    public void modelSaved(SModel model) {
+      enqueueUpdate(model);
+    }
+
+    @Override
+    public void dependenciesChanged(SModel model, DependencyChange change) {
+      enqueueUpdate(model);
+    }
+
+    @Override
+    public void nodesChanged(SModel model) {
+      enqueueUpdate(model);
+    }
+
+    //
 
     @Override
     protected void startListening(SModule module) {
@@ -471,24 +475,4 @@ import java.util.function.Predicate;
       enqueueAllModulesInProject();
     }
   }
-
-  private class MyModelChangeListener extends SModelAdapter {
-
-    @Override
-    public void modelChanged(SModel model) {
-      enqueueUpdate(model);
-    }
-
-    @Override
-    public void modelChangedDramatically(SModel model) {
-      enqueueUpdate(model);
-    }
-
-    @Override
-    public void modelSaved(SModel model) {
-      enqueueUpdate(model);
-    }
-
-  }
-
 }
