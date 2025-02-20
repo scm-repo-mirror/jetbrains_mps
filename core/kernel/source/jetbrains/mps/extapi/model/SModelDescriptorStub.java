@@ -43,29 +43,12 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * Unlike {@link SModelBase}, which is true root of model descriptor hierarchy, this class keeps
  * transition stuff like legacy SModelListeners and SModelInternal methods, our explicit though untold dependencies from smodel.SModel.
  * Perhaps, one day we can get rid of if altogether.
- *
- * TODO move listeners to openapi
  */
 public abstract class SModelDescriptorStub implements SModelInternal, SModel, FastNodeFinder.Factory {
 
   private static final Logger LOG = Logger.getLogger(SModelDescriptorStub.class);
 
   private final List<SModelListener> myModelListeners = new CopyOnWriteArrayList<>();
-
-  /**
-   * Migration to 3.0. Loads and returns model data.
-   *
-   * FIXME Replace uses of this method with getSModel(), make it abstract and implement in SModelBase subclasses.
-   *       The name getSModelInternal is misleading as it clashes with SModelInternal interface this class implements.
-   *       Though getSModel is not much better, at least in the context of SModelDescriptor it makes more sense.
-   *
-   * @deprecated use {@link SModelBase#getModelData()} or {@link #getSModel()}
-   */
-  @Deprecated(forRemoval = true)
-  public jetbrains.mps.smodel.SModel getSModelInternal() {
-    // no-op, method is scheduled for removal in 2023.x release
-    throw new UnsupportedOperationException();
-  }
 
   @Override
   public void addModelListener(@NotNull SModelListener listener) {
@@ -154,14 +137,10 @@ public abstract class SModelDescriptorStub implements SModelInternal, SModel, Fa
    * Use {@link SModelBase#getModelData()} wherever possible.
    * Use this method when accessing implementation aspects of j.m.smodel.SModel that are not exposed
    * through SModelData interface.
+   * <p>
+   * there's implicit convention that smodel.SModel has this openapi.SModel (aka descriptor) assigned once this method returns. I wonder if I need to make this explicit?
    */
-  public jetbrains.mps.smodel.SModel getSModel() {
-    // XXX there's implicit convention that smodel.SModel has this openapi.SModel (aka descriptor) assigned once
-    //     this method returns. I wonder if I need to make this explicit
-    LOG.errorWithTrace("Method SModelDescriptorStub.getSModelInternal() will be removed in the next release, override SModelDescriptorStub.getSModel(), instead");
-    // FIXME make this method abstract once getSModelInternal() gone
-    return getSModelInternal();
-  }
+  public abstract jetbrains.mps.smodel.SModel getSModel();
 
   @Override
   public java.util.Collection<SLanguage> importedLanguageIds() {
