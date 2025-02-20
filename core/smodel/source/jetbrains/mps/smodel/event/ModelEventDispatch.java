@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -150,13 +150,23 @@ public final class ModelEventDispatch {
     }
   }
 
-  public void fireNodeRemove(SNode node, SContainmentLink role, SNode child) {
+  public void fireNodeRemove(SNode node, SContainmentLink role, SNode child, SNode anchor) {
     markEditableModelChanged();
     myOnNodeChange.run();
     if (myChangeListeners.isEmpty()) {
       return;
     }
-    final SNodeRemoveEvent event = role == null ? new SNodeRemoveEvent(myModel, child) : new SNodeRemoveEvent(myModel, node, child, role);
+    int childIndex = 0;
+    if (anchor != null) {
+      for (SNode existing : node.getChildren()) {
+        childIndex++;
+        if (existing == anchor) {
+          break;
+        }
+      }
+    }
+
+    final SNodeRemoveEvent event = role == null ? new SNodeRemoveEvent(myModel, child) : new SNodeRemoveEvent(myModel, node, child, role, childIndex);
     for (SNodeChangeListener l : myChangeListeners) {
       l.nodeRemoved(event);
     }

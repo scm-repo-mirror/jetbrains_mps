@@ -104,10 +104,8 @@ public class NodeChangeBridge implements SNodeChangeListener {
         if (e.isRoot()) {
           myEvents.add(new SModelRootEvent(e.getModel(), e.getChild(), false));
         } else {
-          // there's 1 use of child index in MPS, ChildRemovedSelectionHandler, and I wonder if
-          // it's worth effort to find out index value here for this sole use (not that it's trivial, provided we don't have
-          // access to SNode implementation here)
-          myEvents.add(new SModelChildEvent(e.getModel(), false, e.getParent(), e.getAggregationLink(), -1, e.getChild()));
+          // there's 1 use of child index in MPS, ChildRemovedSelectionHandler, but it turned out to be important one.
+          myEvents.add(new SModelChildEvent(e.getModel(), false, e.getParent(), e.getAggregationLink(), e.getChildIndex(), e.getChild()));
         }
       }
     }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2024 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -305,7 +305,7 @@ final class AttachedNodeOwner extends SNodeOwner {
     if (node == null && role == null) {
       final ModelEventDispatch md = myEventDispatch;
       if (md != null) {
-        md.fireNodeRemove(null, null, child);
+        md.fireNodeRemove(null, null, child, null);
       }
       myModel.fireRootRemovedEvent(child);
       return;
@@ -317,7 +317,7 @@ final class AttachedNodeOwner extends SNodeOwner {
     //nodeRemoved(child, role);
     final ModelEventDispatch md = myEventDispatch;
     if (md != null) {
-      md.fireNodeRemove(node, role, child);
+      md.fireNodeRemove(node, role, child, anchor);
     }
   }
 
