@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2023 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,19 +28,14 @@ import jetbrains.mps.project.persistence.DeploymentDescriptorPersistence;
 import jetbrains.mps.project.persistence.ModuleReadException;
 import jetbrains.mps.project.structure.model.ModelRootDescriptor;
 import jetbrains.mps.project.structure.modules.DeploymentDescriptor;
-import jetbrains.mps.project.structure.modules.DevkitDescriptor;
 import jetbrains.mps.project.structure.modules.GeneratorDescriptor;
 import jetbrains.mps.project.structure.modules.LanguageDescriptor;
 import jetbrains.mps.project.structure.modules.ModuleDescriptor;
-import jetbrains.mps.project.structure.modules.SolutionDescriptor;
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.IFileUtil;
 import jetbrains.mps.util.MacroHelper;
 import jetbrains.mps.util.MacrosFactory;
 import jetbrains.mps.util.PathManager;
-import jetbrains.mps.util.io.ModelInputStream;
-import jetbrains.mps.util.io.ModelOutputStream;
-import jetbrains.mps.vfs.FileSystem;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.path.Path;
 import jetbrains.mps.vfs.util.PathFormatChecker.PathFormatException;
@@ -50,7 +45,6 @@ import org.jetbrains.mps.annotations.Immutable;
 import org.jetbrains.mps.openapi.persistence.Memento;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -734,44 +728,6 @@ public final class ModulesMiner {
       }
       return null;
     }
-  }
-
-  public static void saveHandle(@NotNull ModuleHandle handle, ModelOutputStream stream) throws IOException {
-    stream.writeShort(0x1be0);
-    stream.writeString(handle.getFile().getPath());
-    ModuleDescriptor descriptor = handle.getDescriptor();
-    if (descriptor instanceof LanguageDescriptor) {
-      stream.writeByte(1);
-    } else if (descriptor instanceof SolutionDescriptor) {
-      stream.writeByte(2);
-    } else if (descriptor instanceof DevkitDescriptor) {
-      stream.writeByte(3);
-    } else if (descriptor instanceof GeneratorDescriptor) {
-      stream.writeByte(4);
-    } else {
-      throw new IllegalArgumentException("unknown module:" + descriptor);
-    }
-    descriptor.save(stream);
-  }
-
-  public static ModuleHandle loadHandle(ModelInputStream stream) throws IOException {
-    if (stream.readShort() != 0x1be0) throw new IOException("bad stream: no start marker");
-    String file = stream.readString();
-    ModuleDescriptor descriptor;
-    int type = stream.readByte();
-    if (type == 1) {
-      descriptor = new LanguageDescriptor();
-    } else if (type == 2) {
-      descriptor = new SolutionDescriptor();
-    } else if (type == 3) {
-      descriptor = new DevkitDescriptor();
-    } else if (type == 4) {
-      descriptor = new GeneratorDescriptor();
-    } else {
-      throw new IOException("broken stream: invalid descriptor type");
-    }
-    descriptor.load(stream);
-    return new ModuleHandle(FileSystem.getInstance().getFile(file), descriptor);
   }
 
   @Immutable
