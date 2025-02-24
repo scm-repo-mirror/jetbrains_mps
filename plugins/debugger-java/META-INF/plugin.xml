@@ -9,12 +9,6 @@
   <depends>jetbrains.mps.core</depends>
   <depends>com.intellij.modules.mps</depends>
 
-  <application-components>
-    <component>
-      <implementation-class>jetbrains.mps.debugger.java.runtime.JavaDebugger</implementation-class>
-    </component>
-  </application-components>
-
   <extensionPoints>
     <extensionPoint qualifiedName="jetbrains.mps.debugger.valueViewer" interface="jetbrains.mps.debugger.java.api.state.proxy.ValueWrapperFactory" dynamic="true" />
   </extensionPoints>
@@ -60,5 +54,8 @@
     <debugger.valueViewer implementation="jetbrains.mps.debugger.java.runtime.state.customViewers.ArrayWrapperFactory" />
     <debugger.valueViewer implementation="jetbrains.mps.debugger.java.runtime.state.customViewers.PrimitiveWrapperFactory" />
     <debugger.valueViewer implementation="jetbrains.mps.debugger.java.runtime.state.customViewers.StringWrapperFactory" />
+
+    <debugger.implementation id="Java" class="jetbrains.mps.debugger.java.runtime.JavaDebugger"/>
+    <debugger.breakpointProvider id="Java" class="jetbrains.mps.debugger.java.runtime.breakpoints.JavaBreakpointsProvider" />
   </extensions>
 </idea-plugin>

@@ -17,6 +17,8 @@
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
     <import index="mmaq" ref="f647e48e-4568-4f4c-b48a-1546492c6a2e/java:org.jdom(org.jdom/)" />
+    <import index="9ti4" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.extensions(MPS.IDEA/)" />
+    <import index="z0rn" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.util.xmlb.annotations(MPS.IDEA/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -54,6 +56,7 @@
       <concept id="1145552977093" name="jetbrains.mps.baseLanguage.structure.GenericNewExpression" flags="nn" index="2ShNRf">
         <child id="1145553007750" name="creator" index="2ShVmc" />
       </concept>
+      <concept id="1070462154015" name="jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" flags="ig" index="Wx3nA" />
       <concept id="1070475354124" name="jetbrains.mps.baseLanguage.structure.ThisExpression" flags="nn" index="Xjq3P" />
       <concept id="1070475926800" name="jetbrains.mps.baseLanguage.structure.StringLiteral" flags="nn" index="Xl_RD">
         <property id="1070475926801" name="value" index="Xl_RC" />
@@ -80,6 +83,9 @@
       <concept id="1068431474542" name="jetbrains.mps.baseLanguage.structure.VariableDeclaration" flags="ng" index="33uBYm">
         <property id="1176718929932" name="isFinal" index="3TUv4t" />
         <child id="1068431790190" name="initializer" index="33vP2m" />
+      </concept>
+      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ngI" index="366HgL">
+        <property id="1513279640906337053" name="inferTypeParams" index="373rjd" />
       </concept>
       <concept id="1109279763828" name="jetbrains.mps.baseLanguage.structure.TypeVariableDeclaration" flags="ng" index="16euLQ">
         <property id="1214996933829" name="extends" index="3ztuRv" />
@@ -154,6 +160,7 @@
       <concept id="1107461130800" name="jetbrains.mps.baseLanguage.structure.Classifier" flags="ng" index="3pOWGL">
         <child id="5375687026011219971" name="member" index="jymVt" unordered="true" />
       </concept>
+      <concept id="1171903607971" name="jetbrains.mps.baseLanguage.structure.WildCardType" flags="in" index="3qTvmN" />
       <concept id="1171903916106" name="jetbrains.mps.baseLanguage.structure.UpperBoundType" flags="in" index="3qUE_q">
         <child id="1171903916107" name="bound" index="3qUE_r" />
       </concept>
@@ -1655,6 +1662,25 @@
     <property role="TrG5h" value="BreakpointProvidersManager" />
     <property role="1sVAO0" value="false" />
     <property role="1EXbeo" value="false" />
+    <node concept="Wx3nA" id="58ou7t7B5BF" role="jymVt">
+      <property role="TrG5h" value="EP" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm6S6" id="58ou7t7DRzp" role="1B3o_S" />
+      <node concept="3uibUv" id="58ou7t7B4n$" role="1tU5fm">
+        <ref role="3uigEE" to="9ti4:~ExtensionPointName" resolve="ExtensionPointName" />
+        <node concept="3uibUv" id="58ou7t7BqzI" role="11_B2D">
+          <ref role="3uigEE" node="58ou7t7Bd22" resolve="BreakpointProviderBean" />
+        </node>
+      </node>
+      <node concept="2YIFZM" id="58ou7t7Bcja" role="33vP2m">
+        <ref role="37wK5l" to="9ti4:~ExtensionPointName.create(java.lang.String)" resolve="create" />
+        <ref role="1Pybhc" to="9ti4:~ExtensionPointName" resolve="ExtensionPointName" />
+        <node concept="Xl_RD" id="58ou7t7Bc$5" role="37wK5m">
+          <property role="Xl_RC" value="jetbrains.mps.debugger.breakpointProvider" />
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="58ou7t7BqCx" role="jymVt" />
     <node concept="3Tm1VV" id="3SnNvqCaK4e" role="1B3o_S" />
     <node concept="312cEg" id="3SnNvqCaK4g" role="jymVt">
       <property role="TrG5h" value="myKindToProvider" />
@@ -1704,6 +1730,98 @@
           </node>
           <node concept="3uibUv" id="3SnNvqCaK4x" role="1pMfVU">
             <ref role="3uigEE" node="3SnNvqCaJaE" resolve="IBreakpointKind" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="312cEg" id="58ou7t7CcFL" role="jymVt">
+      <property role="TrG5h" value="myProviders" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm6S6" id="58ou7t7C71M" role="1B3o_S" />
+      <node concept="3uibUv" id="58ou7t7CbEn" role="1tU5fm">
+        <ref role="3uigEE" to="33ny:~Map" resolve="Map" />
+        <node concept="3uibUv" id="58ou7t7CcjJ" role="11_B2D">
+          <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+        </node>
+        <node concept="3uibUv" id="58ou7t7CcBh" role="11_B2D">
+          <ref role="3uigEE" node="3SnNvqCaJaI" resolve="IBreakpointsProvider" />
+        </node>
+      </node>
+      <node concept="2ShNRf" id="58ou7t7ChMt" role="33vP2m">
+        <node concept="1pGfFk" id="58ou7t7CrOO" role="2ShVmc">
+          <property role="373rjd" value="true" />
+          <ref role="37wK5l" to="33ny:~HashMap.&lt;init&gt;()" resolve="HashMap" />
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="58ou7t7Ai10" role="jymVt" />
+    <node concept="3clFbW" id="58ou7t7AsgA" role="jymVt">
+      <node concept="3cqZAl" id="58ou7t7AsgC" role="3clF45" />
+      <node concept="3Tm1VV" id="58ou7t7AsgD" role="1B3o_S" />
+      <node concept="3clFbS" id="58ou7t7AsgE" role="3clF47">
+        <node concept="1DcWWT" id="58ou7t7BVA0" role="3cqZAp">
+          <node concept="3clFbS" id="58ou7t7BVA3" role="2LFqv$">
+            <node concept="3cpWs8" id="58ou7t7C0sY" role="3cqZAp">
+              <node concept="3cpWsn" id="58ou7t7C0sZ" role="3cpWs9">
+                <property role="TrG5h" value="bp" />
+                <node concept="3uibUv" id="58ou7t7C0hb" role="1tU5fm">
+                  <ref role="3uigEE" node="3SnNvqCaJaI" resolve="IBreakpointsProvider" />
+                  <node concept="3qTvmN" id="58ou7t7C0hg" role="11_B2D" />
+                  <node concept="3qTvmN" id="58ou7t7C0hh" role="11_B2D" />
+                </node>
+                <node concept="2OqwBi" id="58ou7t7C0t0" role="33vP2m">
+                  <node concept="37vLTw" id="58ou7t7C0t1" role="2Oq$k0">
+                    <ref role="3cqZAo" node="58ou7t7BVA4" resolve="bpb" />
+                  </node>
+                  <node concept="liA8E" id="58ou7t7C0t2" role="2OqNvi">
+                    <ref role="37wK5l" node="58ou7t7Beiy" resolve="instantiate" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="58ou7t7BX9X" role="3cqZAp">
+              <node concept="1rXfSq" id="58ou7t7BX9W" role="3clFbG">
+                <ref role="37wK5l" node="3SnNvqCaK51" resolve="registerProvider" />
+                <node concept="37vLTw" id="58ou7t7C0t3" role="37wK5m">
+                  <ref role="3cqZAo" node="58ou7t7C0sZ" resolve="instantiate" />
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="58ou7t7CsN0" role="3cqZAp">
+              <node concept="2OqwBi" id="58ou7t7CtTj" role="3clFbG">
+                <node concept="37vLTw" id="58ou7t7CsMY" role="2Oq$k0">
+                  <ref role="3cqZAo" node="58ou7t7CcFL" resolve="myProviders" />
+                </node>
+                <node concept="liA8E" id="58ou7t7CweU" role="2OqNvi">
+                  <ref role="37wK5l" to="33ny:~Map.put(java.lang.Object,java.lang.Object)" resolve="put" />
+                  <node concept="2OqwBi" id="58ou7t7CzJK" role="37wK5m">
+                    <node concept="37vLTw" id="58ou7t7CyWW" role="2Oq$k0">
+                      <ref role="3cqZAo" node="58ou7t7BVA4" resolve="bpb" />
+                    </node>
+                    <node concept="liA8E" id="58ou7t7C$DJ" role="2OqNvi">
+                      <ref role="37wK5l" node="58ou7t7Bf86" resolve="getIdentifier" />
+                    </node>
+                  </node>
+                  <node concept="37vLTw" id="58ou7t7C_FK" role="37wK5m">
+                    <ref role="3cqZAo" node="58ou7t7C0sZ" resolve="bp" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3cpWsn" id="58ou7t7BVA4" role="1Duv9x">
+            <property role="TrG5h" value="bpb" />
+            <node concept="3uibUv" id="58ou7t7BVA8" role="1tU5fm">
+              <ref role="3uigEE" node="58ou7t7Bd22" resolve="BreakpointProviderBean" />
+            </node>
+          </node>
+          <node concept="2OqwBi" id="58ou7t7BVA9" role="1DdaDG">
+            <node concept="37vLTw" id="58ou7t7BVAa" role="2Oq$k0">
+              <ref role="3cqZAo" node="58ou7t7B5BF" resolve="EP" />
+            </node>
+            <node concept="liA8E" id="58ou7t7BVAb" role="2OqNvi">
+              <ref role="37wK5l" to="9ti4:~ExtensionPointName.getExtensionList()" resolve="getExtensionList" />
+            </node>
           </node>
         </node>
       </node>
@@ -2095,6 +2213,43 @@
         <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
       </node>
     </node>
+    <node concept="2tJIrI" id="58ou7t7CFy1" role="jymVt" />
+    <node concept="3clFb_" id="58ou7t7CABH" role="jymVt">
+      <property role="1EzhhJ" value="false" />
+      <property role="TrG5h" value="getProvider" />
+      <property role="DiZV1" value="false" />
+      <node concept="3Tm1VV" id="58ou7t7CABI" role="1B3o_S" />
+      <node concept="3uibUv" id="58ou7t7CABJ" role="3clF45">
+        <ref role="3uigEE" node="3SnNvqCaJaI" resolve="IBreakpointsProvider" />
+        <node concept="3qTvmN" id="58ou7t7D0JR" role="11_B2D" />
+        <node concept="3qTvmN" id="58ou7t7D4$a" role="11_B2D" />
+      </node>
+      <node concept="37vLTG" id="58ou7t7CABK" role="3clF46">
+        <property role="TrG5h" value="identifier" />
+        <property role="3TUv4t" value="false" />
+        <node concept="3uibUv" id="58ou7t7CABL" role="1tU5fm">
+          <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="58ou7t7CABM" role="3clF47">
+        <node concept="3cpWs6" id="58ou7t7CABN" role="3cqZAp">
+          <node concept="2OqwBi" id="58ou7t7CABO" role="3cqZAk">
+            <node concept="37vLTw" id="58ou7t7CABP" role="2Oq$k0">
+              <ref role="3cqZAo" node="58ou7t7CcFL" resolve="myProviders" />
+            </node>
+            <node concept="liA8E" id="58ou7t7CABQ" role="2OqNvi">
+              <ref role="37wK5l" to="33ny:~Map.get(java.lang.Object)" resolve="get" />
+              <node concept="37vLTw" id="58ou7t7CABR" role="37wK5m">
+                <ref role="3cqZAo" node="58ou7t7CABK" resolve="kind" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="58ou7t7CABS" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+      </node>
+    </node>
     <node concept="2tJIrI" id="4BWNBR4vNmx" role="jymVt" />
     <node concept="3clFb_" id="3SnNvqCaK75" role="jymVt">
       <property role="1EzhhJ" value="false" />
@@ -2179,6 +2334,134 @@
             </node>
           </node>
         </node>
+      </node>
+    </node>
+  </node>
+  <node concept="312cEu" id="58ou7t7Bd22">
+    <property role="TrG5h" value="BreakpointProviderBean" />
+    <node concept="3Tm1VV" id="58ou7t7Bd23" role="1B3o_S" />
+    <node concept="3uibUv" id="58ou7t7Bdbj" role="EKbjA">
+      <ref role="3uigEE" to="9ti4:~PluginAware" resolve="PluginAware" />
+    </node>
+    <node concept="312cEg" id="58ou7t7Bdjr" role="jymVt">
+      <property role="TrG5h" value="myDescriptor" />
+      <node concept="3Tm6S6" id="58ou7t7Bdjs" role="1B3o_S" />
+      <node concept="3uibUv" id="58ou7t7Bdju" role="1tU5fm">
+        <ref role="3uigEE" to="9ti4:~PluginDescriptor" resolve="PluginDescriptor" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="58ou7t7BdCr" role="jymVt" />
+    <node concept="312cEg" id="5Legb6BLzA3" role="jymVt">
+      <property role="TrG5h" value="myId" />
+      <node concept="3Tm1VV" id="5Legb6BLzAo" role="1B3o_S" />
+      <node concept="3uibUv" id="5Legb6BLzAC" role="1tU5fm">
+        <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+      </node>
+      <node concept="2AHcQZ" id="5Legb6BLzKR" role="2AJF6D">
+        <ref role="2AI5Lk" to="z0rn:~Attribute" resolve="Attribute" />
+        <node concept="2B6LJw" id="5Legb6BLB4X" role="2B76xF">
+          <ref role="2B6OnR" to="z0rn:~Attribute.value()" resolve="value" />
+          <node concept="Xl_RD" id="5Legb6BLB5P" role="2B70Vg">
+            <property role="Xl_RC" value="id" />
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="5Legb6BLzKd" role="2AJF6D">
+        <ref role="2AI5Lk" to="9ti4:~RequiredElement" resolve="RequiredElement" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="5Legb6BLzLE" role="jymVt" />
+    <node concept="312cEg" id="5Legb6BLzAS" role="jymVt">
+      <property role="TrG5h" value="myImplementationClass" />
+      <node concept="3Tm1VV" id="5Legb6BLzAT" role="1B3o_S" />
+      <node concept="3uibUv" id="5Legb6BLzAU" role="1tU5fm">
+        <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+      </node>
+      <node concept="2AHcQZ" id="5Legb6BLzDp" role="2AJF6D">
+        <ref role="2AI5Lk" to="z0rn:~Attribute" resolve="Attribute" />
+        <node concept="2B6LJw" id="5Legb6BLzJg" role="2B76xF">
+          <ref role="2B6OnR" to="z0rn:~Attribute.value()" resolve="value" />
+          <node concept="Xl_RD" id="5Legb6BLzJW" role="2B70Vg">
+            <property role="Xl_RC" value="class" />
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="5Legb6BLzCN" role="2AJF6D">
+        <ref role="2AI5Lk" to="9ti4:~RequiredElement" resolve="RequiredElement" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="58ou7t7BdZu" role="jymVt" />
+    <node concept="3clFb_" id="58ou7t7Bf86" role="jymVt">
+      <property role="TrG5h" value="getIdentifier" />
+      <node concept="3uibUv" id="58ou7t7BfoG" role="3clF45">
+        <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+      </node>
+      <node concept="3Tm1VV" id="58ou7t7Bf89" role="1B3o_S" />
+      <node concept="3clFbS" id="58ou7t7Bf8a" role="3clF47">
+        <node concept="3cpWs6" id="58ou7t7BlJG" role="3cqZAp">
+          <node concept="37vLTw" id="58ou7t7Bm97" role="3cqZAk">
+            <ref role="3cqZAo" node="5Legb6BLzA3" resolve="myId" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="58ou7t7BdZv" role="jymVt" />
+    <node concept="3clFb_" id="58ou7t7Beiy" role="jymVt">
+      <property role="TrG5h" value="instantiate" />
+      <node concept="3uibUv" id="58ou7t7BeAS" role="3clF45">
+        <ref role="3uigEE" node="3SnNvqCaJaI" resolve="IBreakpointsProvider" />
+        <node concept="3qTvmN" id="58ou7t7BoET" role="11_B2D" />
+        <node concept="3qTvmN" id="58ou7t7Bpa0" role="11_B2D" />
+      </node>
+      <node concept="3Tm1VV" id="58ou7t7Bei_" role="1B3o_S" />
+      <node concept="3clFbS" id="58ou7t7BeiA" role="3clF47">
+        <node concept="3clFbF" id="58ou7t7BmQx" role="3cqZAp">
+          <node concept="2OqwBi" id="58ou7t7BnfU" role="3clFbG">
+            <node concept="2YIFZM" id="58ou7t7BmVY" role="2Oq$k0">
+              <ref role="37wK5l" to="bd8o:~ApplicationManager.getApplication()" resolve="getApplication" />
+              <ref role="1Pybhc" to="bd8o:~ApplicationManager" resolve="ApplicationManager" />
+            </node>
+            <node concept="liA8E" id="58ou7t7Bnul" role="2OqNvi">
+              <ref role="37wK5l" to="1m72:~ComponentManager.instantiateClass(java.lang.String,com.intellij.openapi.extensions.PluginDescriptor)" resolve="instantiateClass" />
+              <node concept="37vLTw" id="58ou7t7BnPx" role="37wK5m">
+                <ref role="3cqZAo" node="5Legb6BLzAS" resolve="myImplementationClass" />
+              </node>
+              <node concept="37vLTw" id="58ou7t7BomH" role="37wK5m">
+                <ref role="3cqZAo" node="58ou7t7Bdjr" resolve="myDescriptor" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="58ou7t7BdCs" role="jymVt" />
+    <node concept="3clFb_" id="58ou7t7Bde3" role="jymVt">
+      <property role="TrG5h" value="setPluginDescriptor" />
+      <node concept="3Tm1VV" id="58ou7t7Bde4" role="1B3o_S" />
+      <node concept="3cqZAl" id="58ou7t7Bde6" role="3clF45" />
+      <node concept="37vLTG" id="58ou7t7Bde7" role="3clF46">
+        <property role="TrG5h" value="descriptor" />
+        <node concept="3uibUv" id="58ou7t7Bde8" role="1tU5fm">
+          <ref role="3uigEE" to="9ti4:~PluginDescriptor" resolve="PluginDescriptor" />
+        </node>
+        <node concept="2AHcQZ" id="58ou7t7Bde9" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="58ou7t7Bdea" role="3clF47">
+        <node concept="3clFbF" id="58ou7t7Bdjv" role="3cqZAp">
+          <node concept="37vLTI" id="58ou7t7Bdjx" role="3clFbG">
+            <node concept="37vLTw" id="58ou7t7Bdj$" role="37vLTJ">
+              <ref role="3cqZAo" node="58ou7t7Bdjr" resolve="myDescriptor" />
+            </node>
+            <node concept="37vLTw" id="58ou7t7Bdj_" role="37vLTx">
+              <ref role="3cqZAo" node="58ou7t7Bde7" resolve="descriptor" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="58ou7t7Bdeb" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
   </node>
