@@ -30,17 +30,13 @@ import org.jetbrains.annotations.NotNull;
 public class IoFileSystem implements FileSystem {
   private static final Logger LOG = Logger.getLogger(IoFileSystem.class);
 
-  // afaik there are no direct uses in mbeddr, only by means of FileSystem.getInstance()
-  public static IoFileSystem INSTANCE;
-
   private final VFSManager myManager;
 
   /**
    * IMPLEMENTATION METHOD FOR MPS INTERNAL USE!
    */
   public static FileSystem newInstance(VFSManager vfsManager) {
-    INSTANCE = new IoFileSystem(vfsManager);
-    return INSTANCE;
+    return new IoFileSystem(vfsManager);
   }
 
   private IoFileSystem(VFSManager vfsManager) {

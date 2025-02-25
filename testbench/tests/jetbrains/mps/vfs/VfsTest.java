@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2024 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,12 +17,13 @@ package jetbrains.mps.vfs;
 
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ModalityState;
+import jetbrains.mps.core.platform.Platform;
 import jetbrains.mps.ide.vfs.IdeaFileSystem;
 import jetbrains.mps.tool.environment.Environment;
 import jetbrains.mps.tool.environment.EnvironmentAware;
 import jetbrains.mps.util.IFileUtil;
 import jetbrains.mps.util.ReadUtil;
-import jetbrains.mps.vfs.impl.IoFileSystem;
+import jetbrains.mps.vfs.openapi.FileSystem;
 import org.jetbrains.annotations.NotNull;
 import org.junit.Test;
 
@@ -48,8 +49,11 @@ public class VfsTest implements EnvironmentAware {
   private static final String JAR_NAME = "testjar.zip";
   private static final String JAR_SUFFIX = "!/testjar";
 
-  private static void IO_FS_TEST(final Consumer<FileSystem> testRunnable) {
-    testRunnable.accept(IoFileSystem.INSTANCE);
+  private Platform myPlatform;
+
+  private void IO_FS_TEST(final Consumer<FileSystem> testRunnable) {
+    VFSManager vfsManager = myPlatform.findComponent(VFSManager.class);
+    testRunnable.accept(vfsManager.getUmbrellaFileSystemJavaIO());
   }
 
   private static void IDEA_FS_TEST(final Consumer<FileSystem> testRunnable) {
@@ -68,8 +72,9 @@ public class VfsTest implements EnvironmentAware {
   }
 
   @Override
-  public void setEnvironment(@NotNull Environment ignored) {
-    // Needs IdeaEnvironment, but doesn't utilize it
+  public void setEnvironment(@NotNull Environment env) {
+    // Needs IdeaEnvironment
+    myPlatform = env.getPlatform();
   }
 
   private static void doBaseVfsTest(@NotNull FileSystem fs) {

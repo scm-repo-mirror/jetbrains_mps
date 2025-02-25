@@ -34,6 +34,7 @@ import java.util.ArrayList;
 import com.intellij.testFramework.PlatformTestUtil;
 import com.intellij.openapi.vfs.impl.jar.JarFileSystemImpl;
 import jetbrains.mps.library.LibraryInitializer;
+import jetbrains.mps.vfs.VFSManager;
 import java.util.Collections;
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.Reference;
@@ -283,7 +284,9 @@ public final class IdeaEnvironment extends EnvironmentBase {
   @Override
   protected void initLibraries(@NotNull LibraryInitializer libInitializer) {
     if (SetSequence.fromSet(myConfig.getLibs()).isNotEmpty()) {
-      LibraryContributorHelper helper = new LibraryContributorHelper();
+      // defaults to IoFileSystem for now (historically), although I don't think it's bad idea to go with Java IO FS 
+      // in IdeaEnv (after all, we are for tests/tools scenarios here, don't need full magic of IDEA VFS). OTOH, there would be IDEA VFS anyway.
+      LibraryContributorHelper helper = new LibraryContributorHelper(getPlatform().findComponent(VFSManager.class).getUmbrellaFileSystemJavaIO());
       libInitializer.load(Collections.singletonList(helper.createLibContributorForLibs(myConfig.getLibs(), getRootClassLoader())));
     }
     // modules from IDEA plugins are loaded with regular platform component mechanism (ext points, PluginLibraryContributor and RepositoryInitializingComponent)

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,9 +16,9 @@
 package jetbrains.mps.util;
 
 import jetbrains.mps.logging.Logger;
-import jetbrains.mps.vfs.FileSystem;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.IFileSystem;
+import jetbrains.mps.vfs.openapi.FileSystem;
 import jetbrains.mps.vfs.path.Path;
 import jetbrains.mps.vfs.util.PathFormatChecker;
 import org.jetbrains.annotations.NotNull;
@@ -130,7 +130,7 @@ public class IFileUtil {
    */
   @Deprecated(since = "2022.1", forRemoval = true)
   public static IFile createTmpDir() {
-    return createTmpDir(FileSystem.getInstance());
+    return createTmpDir(jetbrains.mps.vfs.FileSystem.getInstance());
   }
 
   public static IFile createTmpDir(FileSystem vfs) {

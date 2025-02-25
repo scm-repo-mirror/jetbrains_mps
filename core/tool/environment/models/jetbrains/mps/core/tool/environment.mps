@@ -27,7 +27,6 @@
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" />
     <import index="v9gs" ref="r:a139668a-5a0e-46e2-a802-102190e497e5(jetbrains.mps.core.tool.environment.util)" />
     <import index="4o98" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.core.platform(MPS.Core/)" />
-    <import index="amo1" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.vfs.impl(MPS.Core/)" />
     <import index="asz6" ref="r:067fd2c9-d009-4506-91db-a69992d65964(jetbrains.mps.tool.common)" />
     <import index="wyuk" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.components(MPS.Core/)" />
     <import index="ni5j" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.regex(JDK/)" />
@@ -40,6 +39,7 @@
     <import index="18ex" ref="3a8d80d2-32d9-f1f2-4443-6a1111e12ef3/java:jetbrains.mps.util(MPS.Boot/)" />
     <import index="82uw" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.function(JDK/)" />
     <import index="embf" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.jar(JDK/)" />
+    <import index="w827" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.vfs.openapi(MPS.Core/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -2601,7 +2601,23 @@
             </node>
             <node concept="2ShNRf" id="1ROuiHSV4$" role="33vP2m">
               <node concept="1pGfFk" id="1ROuiHSV4_" role="2ShVmc">
-                <ref role="37wK5l" node="3eUNqOk8rbd" resolve="LibraryContributorHelper" />
+                <ref role="37wK5l" node="42pPXbiGsoN" />
+                <node concept="2OqwBi" id="6oGbDMFIcTA" role="37wK5m">
+                  <node concept="2OqwBi" id="6oGbDMFI8Xf" role="2Oq$k0">
+                    <node concept="37vLTw" id="6oGbDMFI8gF" role="2Oq$k0">
+                      <ref role="3cqZAo" node="11RXB4md7v2" resolve="myPlatform" />
+                    </node>
+                    <node concept="liA8E" id="6oGbDMFIbaP" role="2OqNvi">
+                      <ref role="37wK5l" to="wyuk:~ComponentHost.findComponent(java.lang.Class)" resolve="findComponent" />
+                      <node concept="3VsKOn" id="6oGbDMFIcco" role="37wK5m">
+                        <ref role="3VsUkX" to="3ju5:~VFSManager" resolve="VFSManager" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="liA8E" id="6oGbDMFIdyd" role="2OqNvi">
+                    <ref role="37wK5l" to="3ju5:~VFSManager.getUmbrellaFileSystemJavaIO()" resolve="getUmbrellaFileSystemJavaIO" />
+                  </node>
+                </node>
               </node>
             </node>
           </node>
@@ -5129,69 +5145,39 @@
       <property role="3TUv4t" value="true" />
       <node concept="3Tm6S6" id="1ROuiHYzCQ" role="1B3o_S" />
       <node concept="3uibUv" id="1ROuiHYAWy" role="1tU5fm">
-        <ref role="3uigEE" to="3ju5:~FileSystem" resolve="FileSystem" />
+        <ref role="3uigEE" to="w827:~FileSystem" resolve="FileSystem" />
       </node>
     </node>
-    <node concept="2tJIrI" id="3eUNqOk8r$e" role="jymVt" />
-    <node concept="3clFbW" id="3eUNqOk8rbd" role="jymVt">
-      <node concept="P$JXv" id="4142FbgUKWd" role="lGtFl">
-        <node concept="TZ5HA" id="1ROuiHYzYq" role="TZ5H$">
-          <node concept="1dT_AC" id="1ROuiHYzYr" role="1dT_Ay">
-            <property role="1dT_AB" value="Might take FileSystem arg, but defaults to IoFileSystem for now" />
-          </node>
-        </node>
-      </node>
-      <node concept="3cqZAl" id="3eUNqOk8rbe" role="3clF45" />
-      <node concept="3clFbS" id="3eUNqOk8rbg" role="3clF47">
-        <node concept="3clFbF" id="1ROuiHYz93" role="3cqZAp">
-          <node concept="37vLTI" id="1ROuiHYz95" role="3clFbG">
-            <node concept="10M0yZ" id="1ROuiHXbEV" role="37vLTx">
-              <ref role="3cqZAo" to="amo1:~IoFileSystem.INSTANCE" resolve="INSTANCE" />
-              <ref role="1PxDUh" to="amo1:~IoFileSystem" resolve="IoFileSystem" />
+    <node concept="2tJIrI" id="42pPXbiGpCL" role="jymVt" />
+    <node concept="3clFbW" id="42pPXbiGsoN" role="jymVt">
+      <node concept="3cqZAl" id="42pPXbiGsoP" role="3clF45" />
+      <node concept="3clFbS" id="42pPXbiGsoQ" role="3clF47">
+        <node concept="3clFbF" id="42pPXbiGx8R" role="3cqZAp">
+          <node concept="37vLTI" id="42pPXbiGxPk" role="3clFbG">
+            <node concept="37vLTw" id="42pPXbiGxWe" role="37vLTx">
+              <ref role="3cqZAo" node="42pPXbiGwNH" resolve="fs" />
             </node>
-            <node concept="37vLTw" id="1ROuiHYz99" role="37vLTJ">
-              <ref role="3cqZAo" node="1ROuiHYzCP" resolve="fs" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="3Tm1VV" id="3eUNqOk8rb6" role="1B3o_S" />
-    </node>
-    <node concept="2tJIrI" id="1ROuiHYQSU" role="jymVt" />
-    <node concept="3clFb_" id="1ROuiHYRtP" role="jymVt">
-      <property role="TrG5h" value="toIFile" />
-      <node concept="3clFbS" id="1ROuiHYRtS" role="3clF47">
-        <node concept="3cpWs6" id="1ROuiHYRXw" role="3cqZAp">
-          <node concept="2OqwBi" id="1ROuiHYS$P" role="3cqZAk">
-            <node concept="37vLTw" id="1ROuiHYSby" role="2Oq$k0">
-              <ref role="3cqZAo" node="1ROuiHYzCP" resolve="fs" />
-            </node>
-            <node concept="liA8E" id="1ROuiHYUoB" role="2OqNvi">
-              <ref role="37wK5l" to="3ju5:~FileSystem.getFile(java.lang.String)" resolve="getFile" />
-              <node concept="2OqwBi" id="1ROuiHYUXF" role="37wK5m">
-                <node concept="37vLTw" id="1ROuiHYUAZ" role="2Oq$k0">
-                  <ref role="3cqZAo" node="1ROuiHYRIn" resolve="ioFile" />
-                </node>
-                <node concept="liA8E" id="1ROuiHYVMg" role="2OqNvi">
-                  <ref role="37wK5l" to="guwi:~File.getAbsolutePath()" resolve="getAbsolutePath" />
-                </node>
+            <node concept="2OqwBi" id="42pPXbiGxgj" role="37vLTJ">
+              <node concept="Xjq3P" id="42pPXbiGx8Q" role="2Oq$k0" />
+              <node concept="2OwXpG" id="42pPXbiGxz1" role="2OqNvi">
+                <ref role="2Oxat5" node="1ROuiHYzCP" resolve="fs" />
               </node>
             </node>
           </node>
         </node>
       </node>
-      <node concept="3Tm6S6" id="1ROuiHYRc0" role="1B3o_S" />
-      <node concept="3uibUv" id="1ROuiHYRsd" role="3clF45">
-        <ref role="3uigEE" to="3ju5:~IFile" resolve="IFile" />
-      </node>
-      <node concept="37vLTG" id="1ROuiHYRIn" role="3clF46">
-        <property role="TrG5h" value="ioFile" />
-        <node concept="3uibUv" id="1ROuiHYRIm" role="1tU5fm">
-          <ref role="3uigEE" to="guwi:~File" resolve="File" />
+      <node concept="37vLTG" id="42pPXbiGwNH" role="3clF46">
+        <property role="TrG5h" value="fs" />
+        <node concept="3uibUv" id="42pPXbiGwNG" role="1tU5fm">
+          <ref role="3uigEE" to="w827:~FileSystem" resolve="FileSystem" />
+        </node>
+        <node concept="2AHcQZ" id="42pPXbiGx2_" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
         </node>
       </node>
+      <node concept="3Tm1VV" id="42pPXbiH6hG" role="1B3o_S" />
     </node>
-    <node concept="2tJIrI" id="3eUNqOk8Zx4" role="jymVt" />
+    <node concept="2tJIrI" id="1ROuiHYQSU" role="jymVt" />
     <node concept="3clFb_" id="3eUNqOk927J" role="jymVt">
       <property role="TrG5h" value="getPluginLibDescriptors" />
       <property role="DiZV1" value="false" />
@@ -5429,7 +5415,7 @@
                               <ref role="37wK5l" to="je6q:~LibDescriptor.&lt;init&gt;(jetbrains.mps.vfs.IFile,java.lang.ClassLoader)" resolve="LibDescriptor" />
                               <node concept="2OqwBi" id="6UQiGMPoqZQ" role="37wK5m">
                                 <node concept="liA8E" id="6UQiGMPorB2" role="2OqNvi">
-                                  <ref role="37wK5l" to="3ju5:~FileSystem.getFile(java.lang.String)" resolve="getFile" />
+                                  <ref role="37wK5l" to="w827:~FileSystem.getFile(java.lang.String)" resolve="getFile" />
                                   <node concept="3cpWs3" id="4937uxYQns_" role="37wK5m">
                                     <node concept="2OqwBi" id="4937uxYQnsA" role="3uHU7B">
                                       <node concept="37vLTw" id="3GM_nagTwhk" role="2Oq$k0">
@@ -5488,10 +5474,15 @@
                       <node concept="2ShNRf" id="4937uxYQntc" role="37wK5m">
                         <node concept="1pGfFk" id="4937uxYQntd" role="2ShVmc">
                           <ref role="37wK5l" to="je6q:~LibDescriptor.&lt;init&gt;(jetbrains.mps.vfs.IFile,java.lang.ClassLoader)" resolve="LibDescriptor" />
-                          <node concept="1rXfSq" id="1ROuiHYWcc" role="37wK5m">
-                            <ref role="37wK5l" node="1ROuiHYRtP" resolve="toIFile" />
-                            <node concept="37vLTw" id="1ROuiHYWkn" role="37wK5m">
-                              <ref role="3cqZAo" node="1ROuiHX7HR" resolve="langLib" />
+                          <node concept="2OqwBi" id="42pPXbiGKnu" role="37wK5m">
+                            <node concept="37vLTw" id="42pPXbiGHnB" role="2Oq$k0">
+                              <ref role="3cqZAo" node="1ROuiHYzCP" resolve="fs" />
+                            </node>
+                            <node concept="liA8E" id="42pPXbiGOW$" role="2OqNvi">
+                              <ref role="37wK5l" to="w827:~FileSystem.getFile(java.io.File)" resolve="getFile" />
+                              <node concept="37vLTw" id="42pPXbiGRzi" role="37wK5m">
+                                <ref role="3cqZAo" node="1ROuiHX7HR" resolve="langLib" />
+                              </node>
                             </node>
                           </node>
                           <node concept="37vLTw" id="3GM_nagTwv_" role="37wK5m">
@@ -5559,7 +5550,7 @@
       <node concept="P$JXv" id="1ROuiI0hTi" role="lGtFl">
         <node concept="TZ5HA" id="1ROuiI0hTj" role="TZ5H$">
           <node concept="1dT_AC" id="1ROuiI0hTk" role="1dT_Ay">
-            <property role="1dT_AB" value="this method is indended for MpsEnvironment use only, when we need to duplicate IDEA's platform plugin mechanism " />
+            <property role="1dT_AB" value="this method is intended for MpsEnvironment use only, when we need to duplicate IDEA's platform plugin mechanism " />
           </node>
         </node>
         <node concept="TZ5HA" id="1ROuiI0ic2" role="TZ5H$">
@@ -5651,13 +5642,18 @@
                   <node concept="2ShNRf" id="1ROuiHYPd4" role="37wK5m">
                     <node concept="1pGfFk" id="1ROuiHYPd5" role="2ShVmc">
                       <ref role="37wK5l" to="je6q:~LibDescriptor.&lt;init&gt;(jetbrains.mps.vfs.IFile,java.lang.ClassLoader)" resolve="LibDescriptor" />
-                      <node concept="1rXfSq" id="1ROuiHYXd3" role="37wK5m">
-                        <ref role="37wK5l" node="1ROuiHYRtP" resolve="toIFile" />
-                        <node concept="2ShNRf" id="1ROuiHYQ1n" role="37wK5m">
-                          <node concept="1pGfFk" id="1ROuiHYQEW" role="2ShVmc">
-                            <ref role="37wK5l" to="guwi:~File.&lt;init&gt;(java.lang.String)" resolve="File" />
-                            <node concept="2GrUjf" id="1ROuiHYQJD" role="37wK5m">
-                              <ref role="2Gs0qQ" node="2Koq9V0rgqG" resolve="lib" />
+                      <node concept="2OqwBi" id="42pPXbiH11M" role="37wK5m">
+                        <node concept="37vLTw" id="42pPXbiGYJ4" role="2Oq$k0">
+                          <ref role="3cqZAo" node="1ROuiHYzCP" resolve="fs" />
+                        </node>
+                        <node concept="liA8E" id="42pPXbiH3K3" role="2OqNvi">
+                          <ref role="37wK5l" to="w827:~FileSystem.getFile(java.io.File)" resolve="getFile" />
+                          <node concept="2ShNRf" id="1ROuiHYQ1n" role="37wK5m">
+                            <node concept="1pGfFk" id="1ROuiHYQEW" role="2ShVmc">
+                              <ref role="37wK5l" to="guwi:~File.&lt;init&gt;(java.lang.String)" resolve="File" />
+                              <node concept="2GrUjf" id="1ROuiHYQJD" role="37wK5m">
+                                <ref role="2Gs0qQ" node="2Koq9V0rgqG" resolve="lib" />
+                              </node>
                             </node>
                           </node>
                         </node>
