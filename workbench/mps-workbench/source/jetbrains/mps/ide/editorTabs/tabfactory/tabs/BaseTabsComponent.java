@@ -101,12 +101,12 @@ public abstract class BaseTabsComponent<TabImpl extends AbstractEditorTab> imple
 
   @Override
   public SNodeReference getMainNode() {
-    return myEditorLayout.getFirstEditNode();
+    return myEditorLayout != null ? myEditorLayout.getFirstEditNode() : null;
   }
 
   @Override
   public boolean hasEditorFor(@NotNull SNodeReference reference) {
-    return myEditorLayout.hasEditor(reference);
+    return myEditorLayout != null && myEditorLayout.hasEditor(reference);
   }
 
   @Override
