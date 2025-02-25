@@ -242,7 +242,6 @@ public interface IFile {
    */
   long lastModified();
 
-@Deprecated(since = "2019.1", forRemoval = true)
   long length();
   boolean exists();
   boolean setTimeStamp(long time);
