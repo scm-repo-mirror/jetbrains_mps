@@ -15,12 +15,10 @@
  */
 package jetbrains.mps.extapi.persistence;
 
-import jetbrains.mps.core.context.PerConceptContext;
 import jetbrains.mps.extapi.module.EditableSModule;
 import jetbrains.mps.extapi.module.SModuleBase;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.module.PersistenceContextImpl;
-import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.MacroHelper;
@@ -28,13 +26,11 @@ import jetbrains.mps.util.MacroHelper.MacroNoHelper;
 import jetbrains.mps.util.MacrosFactory;
 import jetbrains.mps.util.PathSpec;
 import jetbrains.mps.vfs.IFile;
-import jetbrains.mps.vfs.openapi.FileSystem;
 import jetbrains.mps.vfs.path.Path;
-import jetbrains.mps.vfs.refresh.CachingFileSystem;
 import jetbrains.mps.vfs.refresh.FileEventProcessor;
+import jetbrains.mps.vfs.refresh.FileListener;
 import jetbrains.mps.vfs.refresh.FileListeningPreferences;
 import jetbrains.mps.vfs.refresh.FileSystemEvent;
-import jetbrains.mps.vfs.refresh.FileSystemListener;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.annotations.Immutable;
@@ -80,7 +76,7 @@ public abstract class FileBasedModelRoot extends ModelRootBase implements FileEv
   @Deprecated
   public static final String EXCLUDED = "excluded";
 
-  private /*final*/ FileSystem myFileSystem;
+  private final PathListener myFileListener = new PathListener();
 
   /**
    * This is a private model root persistence notation, ought to be concealed from the general public
@@ -101,7 +97,7 @@ public abstract class FileBasedModelRoot extends ModelRootBase implements FileEv
   private PathSpec myContentDir;
 
   private final SourcePaths mySourcePathStorage;
-  private final List<PathListener> myListeners = new ArrayList<>();
+  private final List<IFile> myTrackedFiles = new ArrayList<>();
 
   private Memento memento;
   private boolean myBrokenState = false;
@@ -304,9 +300,6 @@ public abstract class FileBasedModelRoot extends ModelRootBase implements FileEv
   @Override
   public void setModule(@NotNull SModuleBase module) {
     super.setModule(module);
-    // FIXME just for the sake of attachPathListenerForEachSourceRoot(). Uses in Java and Kotlin stubs have been refactored, uses in JPS no longer exist
-    //       refactor listener to attach to IFile directly
-    myFileSystem = module instanceof AbstractModule ? ((AbstractModule) module).getFileSystem() : null;
   }
 
   @Override
@@ -322,23 +315,16 @@ public abstract class FileBasedModelRoot extends ModelRootBase implements FileEv
                             .forEach(kind -> {
                               for (SourceRoot sourceRoot : getSourceRoots(kind)) {
                                 IFile file = sourceRoot.getAbsolutePath();
-                                PathListener listener = new PathListener(file);
-                                myListeners.add(listener);
-                                if (myFileSystem instanceof CachingFileSystem) {
-                                  ((CachingFileSystem) myFileSystem).addListener(listener);
-                                }
+                                myTrackedFiles.add(file);
+                                file.addListener(myFileListener);
                               }
                             });
   }
 
   @Override
   public void dispose() {
-    if (myFileSystem instanceof CachingFileSystem) {
-      for (PathListener listener : myListeners) {
-        ((CachingFileSystem) myFileSystem).removeListener(listener);
-      }
-    }
-    myListeners.clear();
+    myTrackedFiles.forEach(f -> f.removeListener(myFileListener));
+    myTrackedFiles.clear();
     super.dispose();
   }
 
@@ -379,7 +365,6 @@ public abstract class FileBasedModelRoot extends ModelRootBase implements FileEv
     }
 
     return Objects.equals(mySourcePathStorage, that.mySourcePathStorage)
-           && Objects.equals(myFileSystem, that.myFileSystem)
            // AM.doUpdateModelRoots() relies on equals for attached and detached MR, and these might
            // have completely different memento value. XXX perhaps, shall not clear this.memento in setModule()?
            && (memento == null || that.memento == null || Objects.equals(memento, that.memento));
@@ -412,11 +397,8 @@ public abstract class FileBasedModelRoot extends ModelRootBase implements FileEv
     return getUnixPath(getAbsolutePath(path));
   }
 
-  private final class PathListener implements FileSystemListener {
-    private final IFile myPath;
-
-    private PathListener(@NotNull IFile path) {
-      myPath = path;
+  private final class PathListener implements FileListener {
+    PathListener() {
     }
 
     @NotNull
@@ -429,20 +411,9 @@ public abstract class FileBasedModelRoot extends ModelRootBase implements FileEv
                                      .build();
     }
 
-    @NotNull
-    @Override
-    public IFile getFileToListen() {
-      return myPath;
-    }
-
     @Override
     public void update(@NotNull ProgressMonitor monitor, @NotNull FileSystemEvent event) {
       event.notify(FileBasedModelRoot.this);
-    }
-
-    @Override
-    public String toString() {
-      return "[PathListener: path: " + myPath + "; modelRoot: " + FileBasedModelRoot.this + "]";
     }
   }
 }
