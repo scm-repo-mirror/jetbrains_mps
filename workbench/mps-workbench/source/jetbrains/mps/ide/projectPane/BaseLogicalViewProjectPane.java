@@ -31,6 +31,9 @@ import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.progress.ProgressIndicator;
+import com.intellij.openapi.progress.ProgressManager;
+import com.intellij.openapi.progress.Task;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.ActionCallback;
 import com.intellij.openapi.vcs.VcsDataKeys;
@@ -101,6 +104,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
@@ -150,6 +154,27 @@ public abstract class BaseLogicalViewProjectPane extends BaseProjectViewPaneWith
     ActionCallback callback = new ActionCallback();
     EdtExecutorService.getScheduledExecutorInstance()
                       .schedule(() -> super.selectCB(elementToSelect, fileToSelect, requestFocus).notify(callback), 100, TimeUnit.MILLISECONDS);
+
+    EdtExecutorService.getScheduledExecutorInstance()
+                      .schedule(() -> {
+                        if (!callback.isDone()) {
+                          ProgressManager.getInstance().run(new Task.Backgroundable(getProject(), "Busy", false) {
+                            @Override
+                            public void run(@NotNull ProgressIndicator indicator) {
+                              indicator.setIndeterminate(true);
+                              Semaphore s = new Semaphore(0);
+                              callback.doWhenDone(s::release);
+                              if (!callback.isDone()) {
+                                try {
+                                  s.acquire();
+                                } catch (InterruptedException ignore) {
+                                }
+                              }
+                            }
+                          });
+                        }
+                      }, 1100, TimeUnit.MILLISECONDS );
+
     return callback;
   }
 
