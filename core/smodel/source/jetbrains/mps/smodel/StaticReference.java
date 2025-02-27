@@ -1,5 +1,5 @@
 /*
- * Copyright 2000-2024 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+ * Copyright 2000-2025 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
  */
 package jetbrains.mps.smodel;
 
@@ -269,16 +269,6 @@ public final class StaticReference extends SReferenceBase {
     return modelDescriptor;
   }
 
-  @Override
-  public void makeDirect() {
-    final AssociationData d = getData(); // XXX just remove volatile
-    if (d.isDirectNode()) {
-      return;
-    }
-    // FIXME basically, getTargetModel_Fair accesses d.getTargetModel, could be done inside makeDirect()
-    setData(new Transition().makeDirect(d, this::getTargetModel_Fair));
-  }
-
   @Nullable
   /*package*/ private static String getResolveInfo(SNode immatureNode) {
     // FIXME need a better approach to keep names of predefined attributes;
@@ -295,74 +285,6 @@ public final class StaticReference extends SReferenceBase {
 
   public boolean isDirect() {
     return getData().isDirectNode();
-  }
-
-  // aka makeMature
-  @Override
-  public final boolean makeIndirect() {
-    return makeIndirect(false);
-  }
-
-  /**
-   * It's possible to make reference 'mature' iff both its source and target nodes belong to a model.
-   * It's not clear what if these models are not attached to a repository, why would we care to make reference 'indirect' in this case.
-   * @return {@code true} when/if reference became 'mature' (i.e. doesn't have target node object but its identity)
-   * @deprecated to become private (it's implementation detail, after all) and to lose synchronization (perhaps, even removed at all, if I can keep
-   *             direct/indirect transitions external to this code)
-   */
-  @Deprecated(since = "2023.3", forRemoval = true)
-  public boolean makeIndirect(boolean force) {
-    final AssociationData d = getData();
-    if (!d.isDirectNode()) {
-      return true;
-    }
-
-    SNode sourceNode = getSourceNode();
-    SModel sourceModel = sourceNode.getModel();
-    if (sourceModel == null) {
-      return false /*myImmatureTargetNode == null*/;
-    }
-
-    assert d instanceof DirectNode; // myData.isDirectNode() == true, above
-    final SNode immatureTargetNode = ((DirectNode)d).myImmatureTargetNode;
-
-    if (immatureTargetNode != null && immatureTargetNode.getModel() != null) {
-      // Generally, there's little sense to 'mature' reference to a model not available in a repository, as we might
-      // later face troubles resolving the reference (especially once getTargetModel_Fair is in the game). On the other hand,
-      // not quite sure what could possibly happen if I do not 'mature' references eagerly as it used to be. There are some
-      // hard-to-reveal assumptions in transient models/generator, use of swap and general model unload.
-      if (!force && immatureTargetNode.getModel().getRepository() == null) {
-        // XXX It's unclear whether I need to respect 'force' in this case or not. Tests are fine if I don't, however,
-        //     it seems that with MPS-32709 it's more important to guard node-model attachment moment.
-        //     Once command is over, and we get here with force==true (see ImmatureReferences), I feel it's worth
-        //     to 'mature' the reference not to get hanging direct references to a node that
-        //     has not been attached anywhere. Besides, can not avoid scenarios when a model is constructed in one command
-        //     and attached to a repository in another, and force==true from IR together with !force here helps me think I tackle it.
-        //     However, what if I construct a model (or few) with cross references outside of a command (e.g. inside model read)
-        //     and then attach it to a repository in a separate command? Likely, need a code to address reference resolution on model attach.
-        //     FIXME write a test case to cover this scenario!
-        return false;
-      }
-      // assert sourceModel != null;
-      // convert 'young' reference to 'mature'
-      setData(new Transition(true).makeIndirect(d, StaticReference::getResolveInfo));
-      // FWIW, myImmatureTargetNode == null here
-    } else {
-      if (force && immatureTargetNode != null) {
-        // assert sourceModel != null;
-        final boolean targetNodeIsInModel = immatureTargetNode.getModel() != null;
-        final String m =
-            String.format("ImmatureTargetNode(modelID: %s, nodeID: %s): isRegistered = %b", immatureTargetNode.getModel(), immatureTargetNode.getNodeId(),
-                          targetNodeIsInModel);
-        // XXX makeIndirect() generally was not guarded by SReference.disableLogging() (it was getTargetNode() that has been guarded in most scenarios), that's why
-        //     I don't bother passing ProblemReporter instance here at the moment
-        error("Impossible to resolve immature reference", new ProblemDescription(immatureTargetNode.getReference(), m));
-        // FIXME used to clear myImmatureTargetNode. Not sure use of broken IndirectNodePtr is right here; contract of this
-        //       method is not well-defined. Perhaps, shall leave DirectNode as is?
-        setData(new IndirectNodePtr(null, immatureTargetNode.getNodeId(), getResolveInfo(immatureTargetNode)));
-      }
-    }
-    return !isDirect();
   }
 
   @NotNull
