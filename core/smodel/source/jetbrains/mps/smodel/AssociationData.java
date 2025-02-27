@@ -14,7 +14,6 @@ import org.jetbrains.mps.openapi.module.SRepository;
 
 import java.util.Objects;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 /**
  * internal data that describes association relation between nodes
@@ -246,14 +245,14 @@ import java.util.function.Supplier;
     }
   }
 
-  /*package*/ final class Transition {
-    private boolean myForce;
+  /*package*/ final class TransitionIndirect {
+    private final boolean myForce;
 
-    Transition() {
+    TransitionIndirect() {
       this(false);
     }
 
-    Transition(boolean force) {
+    TransitionIndirect(boolean force) {
       // FIXME takes command context? but it might not be effective to mandate its instance?
       myForce = force;
     }
@@ -265,7 +264,7 @@ import java.util.function.Supplier;
         // also covers DynamicPtr condition
         return data;
       }
-      final SNode immatureNode = ((DirectNode)data).myImmatureTargetNode;
+      final SNode immatureNode = ((DirectNode) data).myImmatureTargetNode;
       if (immatureNode == null || immatureNode.getModel() == null) {
         return data;
       }
@@ -279,9 +278,18 @@ import java.util.function.Supplier;
       final String resolveInfo = getResolveInfo.apply(immatureNode);
       return new IndirectNodePtr(targetModelReference, targetNodeId, resolveInfo);
     }
+  }
+
+  /*package*/ final class TransitionDirect {
+
+    private final SModel mySourceModel;
+
+    TransitionDirect(/*NotNull*/ SModel sourceModel) {
+      mySourceModel = sourceModel;
+    }
 
     // all arguments are not null
-    AssociationData makeDirect(AssociationData data, Supplier<SModel> fairTargetModel) {
+    AssociationData makeDirect(AssociationData data) {
       if (data.isDirectNode() || data instanceof DynamicPtr) {
         return data;
       }
@@ -289,7 +297,7 @@ import java.util.function.Supplier;
       if (targetNodeId == null) {
         return data; // keep as is
       }
-      final SModel targetModel = fairTargetModel.get();
+      final SModel targetModel = StaticReference.getTargetModel_Fair_ProvisionalStatic(data.getTargetModel(), mySourceModel);
       if (targetModel == null) {
         return data; // keep as is
       }

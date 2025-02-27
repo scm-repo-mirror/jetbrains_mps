@@ -1,10 +1,11 @@
 /*
- * Copyright 2000-2024 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+ * Copyright 2000-2025 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
  */
 package jetbrains.mps.smodel;
 
 import jetbrains.mps.smodel.AssociationData.DynamicPtr;
-import jetbrains.mps.smodel.AssociationData.Transition;
+import jetbrains.mps.smodel.AssociationData.TransitionIndirect;
+import jetbrains.mps.smodel.AssociationData.TransitionDirect;
 import jetbrains.mps.util.SNodeOperations;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.annotations.Internal;
@@ -33,26 +34,26 @@ public final class SNodeImplAccess {
 
   // for a subtree starting with initial node
   public void makeReferencesDirect() {
-    Transition transition = new Transition();
     final SModel current = myNode.getModel();
-    myNode.forEachAssociationDeep(data -> transition.makeDirect(data, () -> StaticReference.getTargetModel_Fair_ProvisionalStatic(data.getTargetModel(), current)));
+    TransitionDirect transition = new TransitionDirect(current);
+    myNode.forEachAssociationDeep(data -> transition.makeDirect(data));
   }
 
   // for a subtree starting with initial node; but only references that point to given model
   public void makeReferencesDirectWhen(@NotNull final SModelReference target) {
-    Transition transition = new Transition();
     final SModel current = myNode.getModel();
+    TransitionDirect transition = new TransitionDirect(current);
     myNode.forEachAssociationDeep(data -> {
       if (data.isDirectNode() || data instanceof DynamicPtr || !target.equals(data.getTargetModel())) {
         return data;
       }
-      return transition.makeDirect(data, () -> StaticReference.getTargetModel_Fair_ProvisionalStatic(data.getTargetModel(), current));
+      return transition.makeDirect(data);
     });
   }
 
   // for a subtree starting with initial node
   public void makeReferencesIndirect() {
-    final Transition transition = new Transition();
+    final TransitionIndirect transition = new TransitionIndirect();
     myNode.forEachAssociationDeep(data -> transition.makeIndirect(data, SNodeOperations::getResolveInfo));
   }
 
@@ -63,7 +64,7 @@ public final class SNodeImplAccess {
         return data;
       }
       // IR used to do makeIndirect(true), hence 'force'
-      return new Transition(true).makeIndirect(data, SNodeOperations::getResolveInfo);
+      return new TransitionIndirect(true).makeIndirect(data, SNodeOperations::getResolveInfo);
     });
   }
 }

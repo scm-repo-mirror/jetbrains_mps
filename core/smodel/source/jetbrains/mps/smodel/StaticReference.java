@@ -9,7 +9,7 @@ import jetbrains.mps.logging.Logger;
 import jetbrains.mps.smodel.AssociationData.DirectNode;
 import jetbrains.mps.smodel.AssociationData.IndirectNodePtr;
 import jetbrains.mps.smodel.AssociationData.SNodeAssociationUpdate;
-import jetbrains.mps.smodel.AssociationData.Transition;
+import jetbrains.mps.smodel.AssociationData.TransitionIndirect;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
@@ -93,13 +93,13 @@ public final class StaticReference extends SReferenceBase {
   public void setTargetSModelReference(@NotNull SModelReference modelReference) {
     // preserve node id and resolve info value of 'young' target, if any
     // FIXME makeMature to create proper IndirectNodePtr right away
-    final AssociationData d = new Transition().makeIndirect(getData(), StaticReference::getResolveInfo);
+    final AssociationData d = new TransitionIndirect().makeIndirect(getData(), StaticReference::getResolveInfo);
     setData(new IndirectNodePtr(modelReference, d.getTargetNode(), d.getRI()));
   }
 
   public void setTargetNodeId(SNodeId nodeId) {
     // preserve model reference and resolve info value of 'young' target, if any
-    final AssociationData d = new Transition().makeIndirect(getData(), StaticReference::getResolveInfo);
+    final AssociationData d = new TransitionIndirect().makeIndirect(getData(), StaticReference::getResolveInfo);
     setData(new IndirectNodePtr(d.getTargetModel(), nodeId, d.getRI()));
   }
 
