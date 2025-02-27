@@ -139,6 +139,47 @@ import java.util.function.Function;
     }
   }
 
+  // note, LocalNodePtr doesn't address memory consumption for model-local references (12 + 4+4 still gives 24 bytes as IndirectNodePtr (12+3*4),
+  // but helps to avoid SModelReference knowledge when reading an SModelData and not to update local associations when model reference changes.
+  // I feel this added complexity is worth it, however, may reconsider this in future (MPS works fine w/o LocalNodePtr, just with IndirectNodePtr)
+  final class LocalNodePtr implements AssociationData {
+    public final SNodeId myTargetNodeId;
+    public final String myResolveInfo;
+
+    /*package*/ LocalNodePtr(SNodeId targetNodeId, String resolveInfo) {
+      myTargetNodeId = targetNodeId;
+      myResolveInfo = resolveInfo;
+    }
+
+    @Override
+    public boolean isDirectNode() {
+      return false;
+    }
+
+    @Override
+    public AssociationData withRI(String resolveInfo) {
+      if (Objects.equals(myResolveInfo, resolveInfo)) {
+        return this;
+      }
+      return new LocalNodePtr(myTargetNodeId, resolveInfo);
+    }
+
+    @Override
+    public String getRI() {
+      return myResolveInfo;
+    }
+
+    @Override
+    public SNodeId getTargetNode() {
+      return myTargetNodeId;
+    }
+
+    @Override
+    public SModelReference getTargetModel() {
+      return null;
+    }
+  }
+
   // mature
   // REVIEW : if ref is 'mature' then 'targetModelReference' is either NOT NULL, or it is broken external reference, or it is dynamic reference
   final class IndirectNodePtr implements AssociationData {
@@ -247,13 +288,15 @@ import java.util.function.Function;
 
   /*package*/ final class TransitionIndirect {
     private final boolean myForce;
+    private final SModel mySourceModel;
 
-    TransitionIndirect() {
-      this(false);
+    TransitionIndirect(/*Nullable*/SModel model) {
+      this(model, false);
     }
 
-    TransitionIndirect(boolean force) {
+    TransitionIndirect(/*Nullable*/SModel model, boolean force) {
       // FIXME takes command context? but it might not be effective to mandate its instance?
+      mySourceModel = model;
       myForce = force;
     }
 
@@ -274,9 +317,17 @@ import java.util.function.Function;
       }
       SNodeId targetNodeId = immatureNode.getNodeId();
       final SModel targetModel = immatureNode.getModel();
-      SModelReference targetModelReference = targetModel == null ? null : targetModel.getReference();
       final String resolveInfo = getResolveInfo.apply(immatureNode);
-      return new IndirectNodePtr(targetModelReference, targetNodeId, resolveInfo);
+      if (targetModel == null) {
+        // FIXME may utilize mySourceModel (e.g. try smth like mySourceModel.getNode(targetNodeId) == immatureNode)
+        return new IndirectNodePtr(null, targetNodeId, resolveInfo);
+      } else {
+        if (mySourceModel == targetModel) {
+          return new LocalNodePtr(targetNodeId, resolveInfo);
+        } else {
+          return new IndirectNodePtr(targetModel.getReference(), targetNodeId, resolveInfo);
+        }
+      }
     }
   }
 
@@ -297,18 +348,33 @@ import java.util.function.Function;
       if (targetNodeId == null) {
         return data; // keep as is
       }
-      final SModel targetModel = StaticReference.getTargetModel_Fair_ProvisionalStatic(data.getTargetModel(), mySourceModel);
-      if (targetModel == null) {
-        return data; // keep as is
+      SNode targetNode;
+      final SModel targetModel;
+      if (data instanceof LocalNodePtr) {
+        targetModel = mySourceModel;
+      } else {
+        targetModel = StaticReference.getTargetModel_Fair_ProvisionalStatic(data.getTargetModel(), mySourceModel);
       }
-      SNode targetNode = targetModel.getNode(targetNodeId);
-      if (targetNode == null) {
-        targetNode = commandContext(targetModel).resolveUnregistered(targetNodeId);
+      if (targetModel == null) {
+        targetNode = commandContext(mySourceModel).resolveUnregistered(targetNodeId);
+        if (targetNode == null) {
+          return data; // keep as is
+        }
+        // fall through. Perhaps, shall handle this scenario explicitly (unregistered node)
+      } else {
+        targetNode = targetModel.getNode(targetNodeId);
+        if (targetNode == null) {
+          targetNode = commandContext(targetModel).resolveUnregistered(targetNodeId);
+        } else {
+          // when there's properly resolved targetModel that contains targetNode, I see no reason to use ConvertedDirectNode
+          return new DirectNodeWithResolveInfo(targetNode, data.getRI());
+        }
       }
       if (targetNode != null) {
         // we intentionally leave old value in myTargetModelReference (and could leave myTargetNodeId, too, but it's not in use at the moment)
         // to address scenario (III) outlined in #getTargetSModelReference(), above.
         return new ConvertedDirectNode(targetNode, data.getRI(), data.getTargetModel());
+        // FIXME could get here when targetModel != null (&& == mySourceModel), i.e. data == LocalNodePtr. Is it right to use data.getTargetModel() then?
       }
       // ELSE LEAVE IndirectNodePtr AS IS!
       // Explanation:

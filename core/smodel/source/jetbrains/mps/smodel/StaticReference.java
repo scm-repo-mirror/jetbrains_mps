@@ -8,6 +8,7 @@ import jetbrains.mps.extapi.model.ModelWithDisposeInfo;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.smodel.AssociationData.DirectNode;
 import jetbrains.mps.smodel.AssociationData.IndirectNodePtr;
+import jetbrains.mps.smodel.AssociationData.LocalNodePtr;
 import jetbrains.mps.smodel.AssociationData.SNodeAssociationUpdate;
 import jetbrains.mps.smodel.AssociationData.TransitionIndirect;
 import org.jetbrains.annotations.NotNull;
@@ -45,7 +46,7 @@ public final class StaticReference extends SReferenceBase {
    */
   /*package*/ StaticReference(@NotNull SReferenceLink role, @NotNull SNode sourceNode, @NotNull AssociationData data) {
     super(role, sourceNode);
-    assert data instanceof DirectNode || data instanceof IndirectNodePtr; // i.e. !DynamicPtr
+    assert data instanceof DirectNode || data instanceof IndirectNodePtr || data instanceof LocalNodePtr; // i.e. !DynamicPtr
     myData = data;
   }
 
@@ -62,7 +63,8 @@ public final class StaticReference extends SReferenceBase {
     // as the outcome is essentially the same as with immatureNode.getModel(), except for the moment reference become 'mature' (end of command or first access)
     // I don't see any strong reason to be in a hurry with that. The change dates back to commit 5ac3704, with a comment that doesn't indicate any
     // specific issue being addressed.
-    return getData().getTargetModel();
+    AssociationData data = getData();
+    return data instanceof LocalNodePtr ? mySourceNode.getReference().getModelReference() : data.getTargetModel();
   }
 
   @Override
@@ -93,20 +95,28 @@ public final class StaticReference extends SReferenceBase {
   public void setTargetSModelReference(@NotNull SModelReference modelReference) {
     // preserve node id and resolve info value of 'young' target, if any
     // FIXME makeMature to create proper IndirectNodePtr right away
-    final AssociationData d = new TransitionIndirect().makeIndirect(getData(), StaticReference::getResolveInfo);
-    setData(new IndirectNodePtr(modelReference, d.getTargetNode(), d.getRI()));
+    final AssociationData d = new TransitionIndirect(mySourceNode.getModel()).makeIndirect(getData(), StaticReference::getResolveInfo);
+    if (modelReference.equals(mySourceNode.getReference().getModelReference())) {
+      setData(new LocalNodePtr(d.getTargetNode(), d.getRI()));
+    } else {
+      setData(new IndirectNodePtr(modelReference, d.getTargetNode(), d.getRI()));
+    }
   }
 
   public void setTargetNodeId(SNodeId nodeId) {
     // preserve model reference and resolve info value of 'young' target, if any
-    final AssociationData d = new TransitionIndirect().makeIndirect(getData(), StaticReference::getResolveInfo);
-    setData(new IndirectNodePtr(d.getTargetModel(), nodeId, d.getRI()));
+    final AssociationData d = new TransitionIndirect(mySourceNode.getModel()).makeIndirect(getData(), StaticReference::getResolveInfo);
+    if (d instanceof LocalNodePtr) {
+      setData(new LocalNodePtr(nodeId, d.getRI()));
+    } else {
+      setData(new IndirectNodePtr(d.getTargetModel(), nodeId, d.getRI()));
+    }
   }
 
   @Override
   protected SNode getTargetNode_internal(ProblemReporter report) {
     AssociationData d = getData();
-    SModelReference mr = d.getTargetModel();
+    SModelReference mr = d instanceof LocalNodePtr ? getSourceNode().getReference().getModelReference() : d.getTargetModel();
     if (mr != null) {
       NodeReadAccessCasterInEditor.fireReferenceTargetReadAccessed(getSourceNode(), mr, getTargetNodeId());
     }
@@ -123,7 +133,7 @@ public final class StaticReference extends SReferenceBase {
       return null;
     }
 
-    SModel targetModel = getTargetSModel();
+    SModel targetModel = getTargetSModel(d);
     if (targetModel == null) return null;
 
     if (targetModel instanceof ModelWithDisposeInfo && ((ModelWithDisposeInfo) targetModel).isDisposed()) {
@@ -178,9 +188,11 @@ public final class StaticReference extends SReferenceBase {
    *             Until this practice is over, we have to deal with global repository
    */
   @Deprecated(since = "2018.3", forRemoval = true)
-  private SModel getTargetSModel() {
+  private SModel getTargetSModel(AssociationData d) {
     SModel current = getSourceNode().getModel();
-    if (current != null && current.getReference().equals(getTargetSModelReference())) return current;
+    if (d instanceof LocalNodePtr || (current != null && current.getReference().equals(getTargetSModelReference()))) {
+      return current;
+    }
 
     // external
     SModelReference targetModelReference = getTargetSModelReference();

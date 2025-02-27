@@ -4,6 +4,7 @@
 package jetbrains.mps.smodel;
 
 import jetbrains.mps.smodel.AssociationData.DynamicPtr;
+import jetbrains.mps.smodel.AssociationData.LocalNodePtr;
 import jetbrains.mps.smodel.AssociationData.TransitionIndirect;
 import jetbrains.mps.smodel.AssociationData.TransitionDirect;
 import jetbrains.mps.util.SNodeOperations;
@@ -42,18 +43,22 @@ public final class SNodeImplAccess {
   // for a subtree starting with initial node; but only references that point to given model
   public void makeReferencesDirectWhen(@NotNull final SModelReference target) {
     final SModel current = myNode.getModel();
+    final boolean currentIsTarget = target.equals(current.getReference()); // likely, always true, based on 2 usages. FIXME check
     TransitionDirect transition = new TransitionDirect(current);
     myNode.forEachAssociationDeep(data -> {
-      if (data.isDirectNode() || data instanceof DynamicPtr || !target.equals(data.getTargetModel())) {
+      if (data.isDirectNode() || data instanceof DynamicPtr) {
         return data;
       }
-      return transition.makeDirect(data);
+      if ((currentIsTarget && data instanceof LocalNodePtr) || target.equals(data.getTargetModel())) {
+        return transition.makeDirect(data);
+      }
+      return data;
     });
   }
 
   // for a subtree starting with initial node
   public void makeReferencesIndirect() {
-    final TransitionIndirect transition = new TransitionIndirect();
+    final TransitionIndirect transition = new TransitionIndirect(myNode.getModel());
     myNode.forEachAssociationDeep(data -> transition.makeIndirect(data, SNodeOperations::getResolveInfo));
   }
 
@@ -64,7 +69,7 @@ public final class SNodeImplAccess {
         return data;
       }
       // IR used to do makeIndirect(true), hence 'force'
-      return new TransitionIndirect(true).makeIndirect(data, SNodeOperations::getResolveInfo);
+      return new TransitionIndirect(myNode.getModel(), true).makeIndirect(data, SNodeOperations::getResolveInfo);
     });
   }
 }

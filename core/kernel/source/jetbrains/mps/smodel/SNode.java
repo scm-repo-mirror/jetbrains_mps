@@ -20,6 +20,7 @@ import jetbrains.mps.logging.Logger;
 import jetbrains.mps.smodel.AssociationData.DirectNode;
 import jetbrains.mps.smodel.AssociationData.DynamicPtr;
 import jetbrains.mps.smodel.AssociationData.IndirectNodePtr;
+import jetbrains.mps.smodel.AssociationData.LocalNodePtr;
 import jetbrains.mps.smodel.AssociationData.SNodeAssociationUpdate;
 import jetbrains.mps.smodel.event.SModelPropertyEvent;
 import jetbrains.mps.util.containers.EmptyIterable;
@@ -31,6 +32,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.ResolveInfo;
+import org.jetbrains.mps.openapi.model.ResolveInfo.D;
 import org.jetbrains.mps.openapi.model.ResolveInfo.N;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
@@ -693,7 +695,11 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode, SNodeAssoci
     } else {
       if (getModel() != null && target.getModel() != null) {
         // 'mature' reference
-        newValue = new IndirectNodePtr(target.getModel().getReference(), target.getNodeId(), target.getName());
+        if (getModel() == target.getModel()) {
+          newValue = new LocalNodePtr(target.getNodeId(), target.getName());
+        } else {
+          newValue = new IndirectNodePtr(target.getModel().getReference(), target.getNodeId(), target.getName());
+        }
       } else {
         newValue = new DirectNode(target);
       }
@@ -717,6 +723,9 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode, SNodeAssoci
     } else if (resolveInfo instanceof ResolveInfo.N) {
       assertCanChange();
       doSetAssociation(role, new DirectNode(((N) resolveInfo).getTargetNode()));
+    } else if (resolveInfo instanceof ResolveInfo.D) {
+      assertCanChange();
+      doSetAssociation(role, new LocalNodePtr(((ResolveInfo.D) resolveInfo).getTargetNode(), ((D) resolveInfo).getValue()));
     } else if (resolveInfo == null) {
       LOG.warning("Unexpected use of ResolveInfo == null. Reference would be removed, although explicit dropReference() has to be used", new Throwable());
       dropReference(role);
@@ -728,7 +737,11 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode, SNodeAssoci
   @Override
   public void setReference(@NotNull SReferenceLink role, @NotNull SNodeReference target) {
     assertCanChange();
-    doSetAssociation(role, new IndirectNodePtr(target.getModelReference(), target.getNodeId(), null));
+    if (target.getModelReference() != null && target.getModelReference().equals(getReference().getModelReference())) {
+      doSetAssociation(role, new LocalNodePtr(target.getNodeId(), null));
+    } else {
+      doSetAssociation(role, new IndirectNodePtr(target.getModelReference(), target.getNodeId(), null));
+    }
   }
 
   @Override
