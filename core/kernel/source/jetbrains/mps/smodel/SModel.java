@@ -41,6 +41,7 @@ import org.jetbrains.mps.openapi.language.SLanguage;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.model.EditableSModel;
 import org.jetbrains.mps.openapi.model.SModelId;
+import org.jetbrains.mps.openapi.model.SModelName;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.model.SReference;
 import org.jetbrains.mps.openapi.module.SModule;
@@ -140,10 +141,17 @@ public class SModel implements SModelData, UpdateModeSupport {
   }
 
 
+  @Override
   public SModelId getModelId() {
     return myReference.getModelId();
   }
 
+  @Override
+  public SModelName getModelName() {
+    return myReference.getName();
+  }
+
+  @Override
   @NotNull
   public SModelReference getReference() {
     return myReference;
@@ -268,7 +276,7 @@ public class SModel implements SModelData, UpdateModeSupport {
 
   @NotNull
   public String toString() {
-    return myReference.toString();
+    return String.format("%s(%s)", getModelName(), getModelId());
   }
 
   //todo get rid of, try to cast, show an error if not casted
@@ -361,11 +369,11 @@ public class SModel implements SModelData, UpdateModeSupport {
   private void checkNotDisposed() {
     if (myDisposed) {
       final IllegalModelAccessError ex = new IllegalModelAccessError("accessing disposed model");
-      LOG.error(String.format("Model %s is disposed", myReference), ex);
+      LOG.error(String.format("Model %s(%s) is disposed", getModelName(), getModelId()), ex);
       if (myDisposedStacktrace != null) {
         final Throwable d = new Throwable();
         d.setStackTrace(myDisposedStacktrace);
-        LOG.error(String.format("The model %s has been disposed from ", myReference), d);
+        LOG.error(String.format("The model %s(%s) has been disposed from: ", getModelName(), getModelId()), d);
       }
     }
   }
@@ -866,17 +874,7 @@ public class SModel implements SModelData, UpdateModeSupport {
   }
 
   public void changeModelReference(SModelReference newModelReference) {
-    enforceFullLoad();
-    final SModelReference oldReference = myReference;
     myReference = newModelReference;
-    for (org.jetbrains.mps.openapi.model.SNode node : myIdToNodeMap.values()) {
-      for (SReference reference : node.getReferences()) {
-        // XXX here, equals would not notice change in model name, is it what we want? In fact, I would rather not keep model reference to self at all
-        if (reference instanceof StaticReference && oldReference.equals(reference.getTargetSModelReference())) {
-          ((StaticReference) reference).setTargetSModelReference(newModelReference);
-        }
-      }
-    }
   }
 
   public SModel createEmptyCopy() {
