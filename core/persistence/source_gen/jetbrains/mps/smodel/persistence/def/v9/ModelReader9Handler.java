@@ -658,14 +658,13 @@ public class ModelReader9Handler extends XMLSAXHandler<ModelLoadResult> {
       final String riString = my_readHelperParam.internResolveInfo(attrs.getValue("resolve"));
       if (attrs.getValue("node") != null) {
         // local reference
-        // FIXME introduce dedicated RI for local references or any other mechanism to avoid need for local SModelReference 
         SNodeId targetNode = my_readHelperParam.readLocalRefTarget(attrs.getValue("node"));
         final ResolveInfo ri;
         if (targetNode == null) {
           // account for serialized dynamic references
           ri = ResolveInfo.of(riString);
         } else {
-          ri = ResolveInfo.of(new SNodePointer(my_modelField.getReference(), targetNode), riString);
+          ri = ResolveInfo.of(targetNode, riString);
         }
         return MultiTuple.<SReferenceLink,ResolveInfo>from(association, ri);
       } else {
