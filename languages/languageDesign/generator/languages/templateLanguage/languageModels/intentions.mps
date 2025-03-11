@@ -7075,27 +7075,30 @@
         </node>
         <node concept="1DcWWT" id="66pWJOyPSO3" role="3cqZAp">
           <node concept="3clFbS" id="66pWJOyPSO6" role="2LFqv$">
-            <node concept="3clFbF" id="1TASVzGM7W" role="3cqZAp">
-              <node concept="2YIFZM" id="5CFnob0Pbjg" role="3clFbG">
-                <ref role="1Pybhc" to="mhbf:~SNodeAccessUtil" resolve="SNodeAccessUtil" />
-                <ref role="37wK5l" to="mhbf:~SNodeAccessUtil.setReferenceTarget(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.language.SReferenceLink,org.jetbrains.mps.openapi.model.SNode)" resolve="setReferenceTarget" />
-                <node concept="37vLTw" id="3GM_nagTxfO" role="37wK5m">
-                  <ref role="3cqZAo" node="1TASVzGaCw" resolve="newNode" />
-                </node>
-                <node concept="2OqwBi" id="5CFnob0Pbjj" role="37wK5m">
-                  <node concept="37vLTw" id="66pWJOyPU_q" role="2Oq$k0">
-                    <ref role="3cqZAo" node="66pWJOyPSO7" resolve="reference" />
-                  </node>
-                  <node concept="liA8E" id="5CFnob0Pbjl" role="2OqNvi">
-                    <ref role="37wK5l" to="mhbf:~SReference.getLink()" resolve="getLink" />
+            <node concept="3clFbF" id="1JamMbIb7$_" role="3cqZAp">
+              <node concept="2OqwBi" id="1JamMbIb9gm" role="3clFbG">
+                <node concept="2JrnkZ" id="1JamMbIb8Yt" role="2Oq$k0">
+                  <node concept="37vLTw" id="1JamMbIb7$z" role="2JrQYb">
+                    <ref role="3cqZAo" node="1TASVzGaCw" resolve="newNode" />
                   </node>
                 </node>
-                <node concept="2OqwBi" id="5CFnob0Pbjm" role="37wK5m">
-                  <node concept="37vLTw" id="3GM_nagTuC7" role="2Oq$k0">
-                    <ref role="3cqZAo" node="66pWJOyPSO7" resolve="reference" />
+                <node concept="liA8E" id="1JamMbIb9vs" role="2OqNvi">
+                  <ref role="37wK5l" to="mhbf:~SNode.setReferenceTarget(org.jetbrains.mps.openapi.language.SReferenceLink,org.jetbrains.mps.openapi.model.SNode)" resolve="setReferenceTarget" />
+                  <node concept="2OqwBi" id="5CFnob0Pbjj" role="37wK5m">
+                    <node concept="37vLTw" id="66pWJOyPU_q" role="2Oq$k0">
+                      <ref role="3cqZAo" node="66pWJOyPSO7" resolve="reference" />
+                    </node>
+                    <node concept="liA8E" id="5CFnob0Pbjl" role="2OqNvi">
+                      <ref role="37wK5l" to="mhbf:~SReference.getLink()" resolve="getLink" />
+                    </node>
                   </node>
-                  <node concept="liA8E" id="5CFnob0Pbjo" role="2OqNvi">
-                    <ref role="37wK5l" to="mhbf:~SReference.getTargetNode()" resolve="getTargetNode" />
+                  <node concept="2OqwBi" id="5CFnob0Pbjm" role="37wK5m">
+                    <node concept="37vLTw" id="3GM_nagTuC7" role="2Oq$k0">
+                      <ref role="3cqZAo" node="66pWJOyPSO7" resolve="reference" />
+                    </node>
+                    <node concept="liA8E" id="5CFnob0Pbjo" role="2OqNvi">
+                      <ref role="37wK5l" to="mhbf:~SReference.getTargetNode()" resolve="getTargetNode" />
+                    </node>
                   </node>
                 </node>
               </node>
@@ -7112,22 +7115,28 @@
         </node>
         <node concept="1DcWWT" id="1TASVzGM8k" role="3cqZAp">
           <node concept="3clFbS" id="1TASVzGM8l" role="2LFqv$">
-            <node concept="3clFbF" id="1TASVzGM8J" role="3cqZAp">
-              <node concept="2YIFZM" id="5CFnob0PbcS" role="3clFbG">
-                <ref role="1Pybhc" to="mhbf:~SNodeAccessUtil" resolve="SNodeAccessUtil" />
-                <ref role="37wK5l" to="mhbf:~SNodeAccessUtil.setProperty(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.language.SProperty,java.lang.String)" resolve="setProperty" />
-                <node concept="37vLTw" id="3GM_nagTyec" role="37wK5m">
-                  <ref role="3cqZAo" node="1TASVzGaCw" resolve="newNode" />
+            <node concept="3clFbF" id="1JamMbIb9Md" role="3cqZAp">
+              <node concept="2OqwBi" id="1JamMbIbadL" role="3clFbG">
+                <node concept="2JrnkZ" id="1JamMbIbafW" role="2Oq$k0">
+                  <node concept="37vLTw" id="1JamMbIb9Mb" role="2JrQYb">
+                    <ref role="3cqZAo" node="1TASVzGaCw" resolve="newNode" />
+                  </node>
                 </node>
-                <node concept="37vLTw" id="3GM_nagTAmt" role="37wK5m">
-                  <ref role="3cqZAo" node="1TASVzGM8o" resolve="p" />
-                </node>
-                <node concept="2YIFZM" id="5CFnob0PbcW" role="37wK5m">
-                  <ref role="1Pybhc" to="mhbf:~SNodeAccessUtil" resolve="SNodeAccessUtil" />
-                  <ref role="37wK5l" to="mhbf:~SNodeAccessUtil.getProperty(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.language.SProperty)" resolve="getProperty" />
-                  <node concept="2Sf5sV" id="5CFnob0PbcY" role="37wK5m" />
-                  <node concept="37vLTw" id="3GM_nagTw$R" role="37wK5m">
+                <node concept="liA8E" id="1JamMbIbavB" role="2OqNvi">
+                  <ref role="37wK5l" to="mhbf:~SNode.setProperty(org.jetbrains.mps.openapi.language.SProperty,java.lang.String)" resolve="setProperty" />
+                  <node concept="37vLTw" id="1JamMbIbfZv" role="37wK5m">
                     <ref role="3cqZAo" node="1TASVzGM8o" resolve="p" />
+                  </node>
+                  <node concept="2OqwBi" id="1JamMbIbfjn" role="37wK5m">
+                    <node concept="2JrnkZ" id="1JamMbIbfjo" role="2Oq$k0">
+                      <node concept="2Sf5sV" id="1JamMbIbfyY" role="2JrQYb" />
+                    </node>
+                    <node concept="liA8E" id="1JamMbIbfjq" role="2OqNvi">
+                      <ref role="37wK5l" to="mhbf:~SNode.getProperty(org.jetbrains.mps.openapi.language.SProperty)" resolve="getProperty" />
+                      <node concept="37vLTw" id="1JamMbIbfT4" role="37wK5m">
+                        <ref role="3cqZAo" node="1TASVzGM8o" resolve="p" />
+                      </node>
+                    </node>
                   </node>
                 </node>
               </node>
