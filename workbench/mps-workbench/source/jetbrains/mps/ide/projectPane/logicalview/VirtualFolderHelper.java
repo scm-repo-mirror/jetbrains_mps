@@ -6,6 +6,7 @@ package jetbrains.mps.ide.projectPane.logicalview;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -53,21 +54,25 @@ public class VirtualFolderHelper<T> {
    * @param values all the values contained in this hierarchy
    * @param getVirtualFolder function that returns virtual folder for a given value
    */
-  protected VirtualFolderHelper(Collection<? extends T> values, Function<T, String> getVirtualFolder, Function<? super T, Collection<? extends T>> getAuxValues) {
+  protected VirtualFolderHelper(Collection<? extends T> values, Function<? super T, String> getVirtualFolder, Function<? super T, Collection<? extends T>> getAuxValues) {
     for (T value : values) {
       String virtualFolder = getVirtualFolder.apply(value);
+      // normalize virtual folder name: drop leading dot, merge all consecutive dots
       virtualFolder = virtualFolder == null ? "" : virtualFolder;
+      virtualFolder = String.join(".", Arrays.asList(virtualFolder.split("\\.+")));
+      virtualFolder = virtualFolder.startsWith(".") ? virtualFolder.substring(1) : virtualFolder;
       myValueByFolder.computeIfAbsent(virtualFolder, name -> new ArrayList<>())
                      .add(value);
       Collection<? extends T> aux = getAuxValues.apply(value);
       if (aux != null && !aux.isEmpty()) {
         myAuxValueByFolder.computeIfAbsent(virtualFolder, name -> new ArrayList<>())
-                       .addAll(aux);
+                          .addAll(aux);
       }
     }
     myVirtualFolders = new TreeSet<>(myValueByFolder.keySet());
+    myVirtualFolders.add(""); // ensure there is always the "default" empty virtual folder
 
-    // normalize virtual folders: ensure there is always an "a" for "a.b"
+    // normalize virtual folders tree: ensure there is always an "a" for "a.b"
     HashSet<String> branches = new HashSet<>();
     for (String name : myVirtualFolders) {
       int lastDot;
@@ -77,7 +82,7 @@ public class VirtualFolderHelper<T> {
           break;
         }
         branches.add(branch);
-        name = branch.substring(0, branch.length() - 1);
+        name = branch;
       }
     }
     myVirtualFolders.addAll(branches);
