@@ -1155,7 +1155,6 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
       myTable.setAutoscrolls(true);
       myTable.getTableHeader().setReorderingAllowed(false);
 
-
       myPrioritiesTableModel = new GenPrioritiesTableModel(myGenerator.getModuleDescriptor());
       myTable.setModel(myPrioritiesTableModel);
 
@@ -1196,10 +1195,10 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
 
             GeneratorPrioritiesTree.expandAllRows(checkboxTree);
 
-            // TODO: find better solution: this introduces bug, when row can't be resized to smaller height
-            table.setRowHeight(
-                row, Math.max(checkboxTree.getPreferredSize().height + 10, table.getRowHeight(row))
-            );
+//            // TODO: find better solution: this introduces bug, when row can't be resized to smaller height
+//            table.setRowHeight(
+//                row, Math.max(checkboxTree.getPreferredSize().height + 10, table.getRowHeight(row))
+//            );
 
             // Needed to set background color
             checkboxTree.setOpaque(true);
@@ -1333,7 +1332,6 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
         myPrioritiesTableModel.fireTableDataChanged();
       }).setRemoveAction(new RemoveEntryAction(myTable));
       decorator.setToolbarBorder(IdeBorderFactory.createBorder());
-      decorator.setPreferredSize(new Dimension(500, 300));
 
       panel.add(decorator.createPanel(), new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH,
                                                              GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
@@ -1350,6 +1348,7 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
                 new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_GROW,
                                     GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
 
+      panel.setPreferredSize(new Dimension(500, 300));
       setTabComponent(panel);
     }
 
