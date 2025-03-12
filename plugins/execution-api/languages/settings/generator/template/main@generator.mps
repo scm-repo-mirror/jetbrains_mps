@@ -246,9 +246,6 @@
       <concept id="1167327847730" name="jetbrains.mps.lang.generator.structure.Reduction_MappingRule" flags="lg" index="3aamgX">
         <child id="1169672767469" name="ruleConsequence" index="1lVwrX" />
       </concept>
-      <concept id="1133037731736" name="jetbrains.mps.lang.generator.structure.MapSrcListMacro" flags="ln" index="3ejVUv">
-        <child id="1168291362368" name="sourceNodesQuery" index="3_Rtg" />
-      </concept>
       <concept id="1184616041890" name="jetbrains.mps.lang.generator.structure.Weaving_MappingRule_ContextNodeQuery" flags="in" index="3gB$ML" />
       <concept id="1167514355419" name="jetbrains.mps.lang.generator.structure.Root_MappingRule" flags="lg" index="3lhOvk">
         <reference id="1167514355421" name="template" index="3lhOvi" />
@@ -2759,9 +2756,9 @@
           </node>
         </node>
       </node>
-      <node concept="3ejVUv" id="4nPCR7KFTHc" role="lGtFl">
+      <node concept="1WS0z7" id="6MbZi$kKJPU" role="lGtFl">
         <ref role="2rW$FS" node="4nPCR7KGl8h" resolve="PersistentPropertyToGetter" />
-        <node concept="3JmXsc" id="4nPCR7KFTHd" role="3_Rtg">
+        <node concept="3JmXsc" id="4nPCR7KFTHd" role="3Jn$fo">
           <node concept="3clFbS" id="4nPCR7KFTHe" role="2VODD2">
             <node concept="3clFbF" id="4nPCR7KFTHf" role="3cqZAp">
               <node concept="2OqwBi" id="4nPCR7KFTHg" role="3clFbG">
@@ -2916,9 +2913,9 @@
           </node>
         </node>
       </node>
-      <node concept="3ejVUv" id="4nPCR7KFTI6" role="lGtFl">
+      <node concept="1WS0z7" id="6MbZi$kKFKA" role="lGtFl">
         <ref role="2rW$FS" node="4nPCR7KGl8i" resolve="PersistentPropertyToSetter" />
-        <node concept="3JmXsc" id="4nPCR7KFTI7" role="3_Rtg">
+        <node concept="3JmXsc" id="4nPCR7KFTI7" role="3Jn$fo">
           <node concept="3clFbS" id="4nPCR7KFTI8" role="2VODD2">
             <node concept="3clFbF" id="4nPCR7KFTI9" role="3cqZAp">
               <node concept="2OqwBi" id="4nPCR7KFTIb" role="3clFbG">

@@ -417,9 +417,6 @@
       <concept id="1167327847730" name="jetbrains.mps.lang.generator.structure.Reduction_MappingRule" flags="lg" index="3aamgX">
         <child id="1169672767469" name="ruleConsequence" index="1lVwrX" />
       </concept>
-      <concept id="1133037731736" name="jetbrains.mps.lang.generator.structure.MapSrcListMacro" flags="ln" index="3ejVUv">
-        <child id="1168291362368" name="sourceNodesQuery" index="3_Rtg" />
-      </concept>
       <concept id="1184616041890" name="jetbrains.mps.lang.generator.structure.Weaving_MappingRule_ContextNodeQuery" flags="in" index="3gB$ML" />
       <concept id="1167514355419" name="jetbrains.mps.lang.generator.structure.Root_MappingRule" flags="lg" index="3lhOvk">
         <property id="1177959072138" name="keepSourceRoot" index="13Pg2o" />
@@ -950,8 +947,8 @@
           </node>
         </node>
         <node concept="3clFbF" id="hQJO7_e" role="3cqZAp">
-          <node concept="3ejVUv" id="hQJObpK" role="lGtFl">
-            <node concept="3JmXsc" id="hQJObpL" role="3_Rtg">
+          <node concept="1WS0z7" id="6MbZi$kJhcS" role="lGtFl">
+            <node concept="3JmXsc" id="hQJObpL" role="3Jn$fo">
               <node concept="3clFbS" id="hQJObpM" role="2VODD2">
                 <node concept="3clFbF" id="hQJOccP" role="3cqZAp">
                   <node concept="2OqwBi" id="hQJOchh" role="3clFbG">
@@ -1450,9 +1447,9 @@
             </node>
           </node>
         </node>
-        <node concept="3ejVUv" id="hQJNFcu" role="lGtFl">
+        <node concept="1WS0z7" id="6MbZi$kJjdP" role="lGtFl">
           <ref role="2rW$FS" node="hQJP2ou" resolve="map_ConstructorParameterParameter" />
-          <node concept="3JmXsc" id="hQJNFcv" role="3_Rtg">
+          <node concept="3JmXsc" id="hQJNFcv" role="3Jn$fo">
             <node concept="3clFbS" id="hQJNFcw" role="2VODD2">
               <node concept="3clFbF" id="hQJNHzT" role="3cqZAp">
                 <node concept="2OqwBi" id="hQJNHGf" role="3clFbG">
@@ -2421,9 +2418,9 @@
           </node>
         </node>
       </node>
-      <node concept="3ejVUv" id="hQKX7_N" role="lGtFl">
+      <node concept="1WS0z7" id="6MbZi$kJkT5" role="lGtFl">
         <ref role="2rW$FS" node="hQKeIZV" resolve="map_ConstructorParameterToString" />
-        <node concept="3JmXsc" id="hQKX7_O" role="3_Rtg">
+        <node concept="3JmXsc" id="hQKX7_O" role="3Jn$fo">
           <node concept="3clFbS" id="hQKX7_P" role="2VODD2">
             <node concept="3clFbF" id="hQKX89f" role="3cqZAp">
               <node concept="2OqwBi" id="hQKX89g" role="3clFbG">
