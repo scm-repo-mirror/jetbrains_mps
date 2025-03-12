@@ -242,7 +242,6 @@
       </concept>
       <concept id="1202776937179" name="jetbrains.mps.lang.generator.structure.AbandonInput_RuleConsequence" flags="lg" index="b5Tf3" />
       <concept id="1095416546421" name="jetbrains.mps.lang.generator.structure.MappingConfiguration" flags="ig" index="bUwia">
-        <property id="1184950341882" name="topPriorityGroup" index="3$yP7D" />
         <child id="1167088157977" name="createRootRule" index="2VS0gm" />
         <child id="1167328349397" name="reductionMappingRule" index="3acgRq" />
         <child id="1167514678247" name="rootMappingRule" index="3lj3bC" />
@@ -1056,7 +1055,6 @@
   <node concept="bUwia" id="4uOLjaPRkB_">
     <property role="TrG5h" value="mc_api" />
     <property role="3GE5qa" value="api" />
-    <property role="3$yP7D" value="true" />
     <node concept="3aamgX" id="4uOLjaPRkEO" role="3acgRq">
       <ref role="30HIoZ" to="tp33:5Ls_1gSlNip" resolve="ExtractInterfaceMigration" />
       <node concept="j$656" id="6a4BSIWrZRS" role="1lVwrX">

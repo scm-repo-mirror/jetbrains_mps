@@ -82,20 +82,7 @@
           <lesser-priority-mapping>
             <generator generatorUID="0e7e6e38-fc52-4859-a8a9-7c262a5ee452(jetbrains.mps.lang.script#1172274134493)" />
             <external-mapping>
-              <mapping-set>
-                <mapping-set-element>
-                  <generator generatorUID="0e7e6e38-fc52-4859-a8a9-7c262a5ee452(jetbrains.mps.lang.script#1172274134493)" />
-                  <external-mapping>
-                    <mapping-node modelUID="r:00000000-0000-4000-0000-011c89590324(jetbrains.mps.lang.script.generator.baseLanguage.template.main@generator)" nodeID="1177464516957" />
-                  </external-mapping>
-                </mapping-set-element>
-                <mapping-set-element>
-                  <generator generatorUID="8fffa437-9500-4c6b-abfc-f4cb2335b059(jetbrains.mps.lang.typesystem#1174411220599)" />
-                  <external-mapping>
-                    <all-local-mappings />
-                  </external-mapping>
-                </mapping-set-element>
-              </mapping-set>
+              <mapping-node modelUID="r:00000000-0000-4000-0000-011c89590324(jetbrains.mps.lang.script.generator.baseLanguage.template.main@generator)" nodeID="1177464516957" />
             </external-mapping>
           </lesser-priority-mapping>
         </mapping-priority-rule>
