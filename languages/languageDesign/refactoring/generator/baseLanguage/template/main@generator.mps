@@ -247,6 +247,7 @@
         <child id="1167087469900" name="conditionFunction" index="2VPoh3" />
       </concept>
       <concept id="1167087518662" name="jetbrains.mps.lang.generator.structure.CreateRootRule_Condition" flags="in" index="2VP$b9" />
+      <concept id="5133195082121471908" name="jetbrains.mps.lang.generator.structure.LabelMacro" flags="ln" index="2ZBi8u" />
       <concept id="1167168920554" name="jetbrains.mps.lang.generator.structure.BaseMappingRule_Condition" flags="in" index="30G5F_" />
       <concept id="1167169188348" name="jetbrains.mps.lang.generator.structure.TemplateFunctionParameter_sourceNode" flags="nn" index="30H73N" />
       <concept id="1167169308231" name="jetbrains.mps.lang.generator.structure.BaseMappingRule" flags="ng" index="30H$t8">
@@ -271,7 +272,6 @@
       <concept id="1167514355419" name="jetbrains.mps.lang.generator.structure.Root_MappingRule" flags="lg" index="3lhOvk">
         <reference id="1167514355421" name="template" index="3lhOvi" />
       </concept>
-      <concept id="1131073187192" name="jetbrains.mps.lang.generator.structure.MapSrcNodeMacro" flags="ln" index="1pdMLZ" />
       <concept id="982871510064032177" name="jetbrains.mps.lang.generator.structure.IParameterizedTemplate" flags="ngI" index="1s_3nv">
         <child id="982871510064032342" name="parameter" index="1s_3oS" />
       </concept>
@@ -877,7 +877,7 @@
           </node>
         </node>
       </node>
-      <node concept="1pdMLZ" id="4WjcdlXTfBU" role="lGtFl">
+      <node concept="2ZBi8u" id="6MbZi$kOavq" role="lGtFl">
         <ref role="2rW$FS" node="4WjcdlXTfBJ" resolve="refactoringClassConstructor" />
       </node>
     </node>
@@ -1413,7 +1413,7 @@
       <node concept="3cqZAl" id="6$pyvmK_iJQ" role="3clF45" />
       <node concept="3Tm1VV" id="6$pyvmK_iJR" role="1B3o_S" />
       <node concept="3clFbS" id="6$pyvmK_iJS" role="3clF47" />
-      <node concept="1pdMLZ" id="6$pyvmK_iLo" role="lGtFl">
+      <node concept="2ZBi8u" id="6MbZi$kOc9c" role="lGtFl">
         <ref role="2rW$FS" node="6$pyvmK_iL2" resolve="refactoringTargetConstructor" />
       </node>
     </node>

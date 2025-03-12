@@ -283,7 +283,6 @@
       <concept id="1167514355419" name="jetbrains.mps.lang.generator.structure.Root_MappingRule" flags="lg" index="3lhOvk">
         <reference id="1167514355421" name="template" index="3lhOvi" />
       </concept>
-      <concept id="1131073187192" name="jetbrains.mps.lang.generator.structure.MapSrcNodeMacro" flags="ln" index="1pdMLZ" />
       <concept id="982871510068000147" name="jetbrains.mps.lang.generator.structure.TemplateSwitchMacro" flags="lg" index="1sPUBX">
         <child id="982871510068000158" name="sourceNodeQuery" index="1sPUBK" />
       </concept>
@@ -1404,7 +1403,7 @@
           <node concept="3uibUv" id="7XrupC0LiKl" role="1tU5fm">
             <ref role="3uigEE" to="8qxk:3yaa4ph8tzc" resolve="Program" />
           </node>
-          <node concept="1pdMLZ" id="3QIZCvDvXVI" role="lGtFl">
+          <node concept="2ZBi8u" id="6MbZi$kNh26" role="lGtFl">
             <ref role="2rW$FS" node="3QIZCvDv_wO" resolve="funcParam" />
           </node>
         </node>
@@ -1435,7 +1434,7 @@
               </node>
             </node>
           </node>
-          <node concept="1pdMLZ" id="3QIZCvDv_wQ" role="lGtFl">
+          <node concept="2ZBi8u" id="6MbZi$kNhtL" role="lGtFl">
             <ref role="2rW$FS" node="3QIZCvDv_wO" resolve="funcParam" />
           </node>
         </node>
@@ -1908,6 +1907,7 @@
         </node>
       </node>
       <node concept="1WS0z7" id="7wwiZxTDQ18" role="lGtFl">
+        <ref role="2rW$FS" node="5S9yM2ugwUI" resolve="field" />
         <node concept="3JmXsc" id="7wwiZxTDQ19" role="3Jn$fo">
           <node concept="3clFbS" id="7wwiZxTDQ1a" role="2VODD2">
             <node concept="3clFbF" id="7wwiZxTDQ1b" role="3cqZAp">
@@ -1941,9 +1941,6 @@
             </node>
           </node>
         </node>
-      </node>
-      <node concept="1pdMLZ" id="5S9yM2ugwUH" role="lGtFl">
-        <ref role="2rW$FS" node="5S9yM2ugwUI" resolve="field" />
       </node>
     </node>
     <node concept="312cEg" id="5S9yM2ugu_3" role="jymVt">
