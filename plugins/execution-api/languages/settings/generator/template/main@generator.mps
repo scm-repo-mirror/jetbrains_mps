@@ -212,7 +212,9 @@
       <concept id="1168619357332" name="jetbrains.mps.lang.generator.structure.RootTemplateAnnotation" flags="lg" index="n94m4">
         <reference id="1168619429071" name="applicableConcept" index="n9lRv" />
       </concept>
-      <concept id="1095672379244" name="jetbrains.mps.lang.generator.structure.TemplateFragment" flags="ng" index="raruj" />
+      <concept id="1095672379244" name="jetbrains.mps.lang.generator.structure.TemplateFragment" flags="ng" index="raruj">
+        <reference id="1200916687663" name="labelDeclaration" index="2sdACS" />
+      </concept>
       <concept id="1200911316486" name="jetbrains.mps.lang.generator.structure.MappingLabelDeclaration" flags="lg" index="2rT7sh">
         <reference id="1200911342686" name="sourceConcept" index="2rTdP9" />
         <reference id="1200913004646" name="targetConcept" index="2rZz_L" />
@@ -4064,9 +4066,8 @@
       </node>
       <node concept="2tJIrI" id="7DjC5ztrTkv" role="jymVt" />
       <node concept="3clFbW" id="4nPCR7KFTOV" role="jymVt">
-        <node concept="raruj" id="4nPCR7KFTQt" role="lGtFl" />
-        <node concept="2ZBi8u" id="3xwsMyQkEyd" role="lGtFl">
-          <ref role="2rW$FS" node="4nPCR7KGl8p" resolve="PersistentConfigurationTemplateToEditorConstructor" />
+        <node concept="raruj" id="4nPCR7KFTQt" role="lGtFl">
+          <ref role="2sdACS" node="4nPCR7KGl8p" resolve="PersistentConfigurationTemplateToEditorConstructor" />
         </node>
         <node concept="37vLTG" id="4nPCR7KFTOW" role="3clF46">
           <property role="TrG5h" value="editor" />
