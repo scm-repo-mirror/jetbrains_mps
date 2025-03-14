@@ -20,12 +20,10 @@
     <import index="qgo0" ref="r:de40a5a4-f08c-4c67-ac43-e1f5c384f7d6(jetbrains.mps.console.tool)" />
     <import index="eynw" ref="r:359b1d2b-77c4-46df-9bf2-b25cbea32254(jetbrains.mps.console.base.structure)" />
     <import index="caxt" ref="r:135a606f-0376-4c5c-9ab8-4030f051a062(jetbrains.mps.console.ideCommands.structure)" />
-    <import index="1m72" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.components(MPS.IDEA/)" />
     <import index="qkt" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.actionSystem(MPS.IDEA/)" />
     <import index="qq03" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.actions(MPS.Platform/)" />
     <import index="hyam" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.awt.event(JDK/)" />
     <import index="tpce" ref="r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)" />
-    <import index="z1c3" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.project(MPS.Platform/)" />
     <import index="18ew" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util(MPS.Core/)" />
     <import index="ap4t" ref="215c4c45-ba99-49f5-9ab7-4b6901a63cfd/java:jetbrains.mps.generator(MPS.Generator/)" />
     <import index="ksba" ref="r:12d1fcfd-d198-4520-8b28-436d7e8a8ae6(jetbrains.mps.console.plugin)" />
@@ -34,8 +32,9 @@
     <import index="xlb7" ref="r:cf42fd0a-68d2-493b-8b77-961658617704(jetbrains.mps.lang.modelapi.behavior)" implicit="true" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" implicit="true" />
-    <import index="z1c4" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" implicit="true" />
+    <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" implicit="true" />
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" implicit="true" />
+    <import index="71xd" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.tools(MPS.Platform/)" implicit="true" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
     <import index="tp2c" ref="r:00000000-0000-4000-0000-011c89590338(jetbrains.mps.baseLanguage.closures.structure)" implicit="true" />
     <import index="tprs" ref="r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)" implicit="true" />
@@ -67,6 +66,12 @@
       <concept id="1203092361741" name="jetbrains.mps.lang.plugin.structure.ModificationStatement" flags="lg" index="tT9cl">
         <reference id="1204992316090" name="point" index="2f8Tey" />
         <reference id="1203092736097" name="modifiedGroup" index="tU$_T" />
+      </concept>
+      <concept id="1512255007353869535" name="jetbrains.mps.lang.plugin.structure.ActionReference" flags="ln" index="2JRCWP">
+        <reference id="1512255007353869536" name="actionDeclaration" index="2JRCWa" />
+      </concept>
+      <concept id="1512255007353869532" name="jetbrains.mps.lang.plugin.structure.NonDumbAwareActions" flags="ng" index="2JRCWQ">
+        <child id="1512255007353869533" name="actions" index="2JRCWR" />
       </concept>
       <concept id="1205679047295" name="jetbrains.mps.lang.plugin.structure.ActionParameterDeclaration" flags="ig" index="2S4$dB" />
       <concept id="1205681243813" name="jetbrains.mps.lang.plugin.structure.IsApplicableBlock" flags="in" index="2ScWuX" />
@@ -168,6 +173,9 @@
       <concept id="1068581242863" name="jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration" flags="nr" index="3cpWsn" />
       <concept id="1079359253375" name="jetbrains.mps.baseLanguage.structure.ParenthesizedExpression" flags="nn" index="1eOMI4">
         <child id="1079359253376" name="expression" index="1eOMHV" />
+      </concept>
+      <concept id="1160998861373" name="jetbrains.mps.baseLanguage.structure.AssertStatement" flags="nn" index="1gVbGN">
+        <child id="1160998896846" name="condition" index="1gVkn0" />
       </concept>
       <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ngI" index="1ndlxa">
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
@@ -745,7 +753,7 @@
                 </node>
               </node>
               <node concept="liA8E" id="3OpFSgfD7Y0" role="2OqNvi">
-                <ref role="37wK5l" to="z1c4:~Project.getModelAccess()" resolve="getModelAccess" />
+                <ref role="37wK5l" to="z1c3:~Project.getModelAccess()" resolve="getModelAccess" />
               </node>
             </node>
             <node concept="liA8E" id="3OpFSgfD8oK" role="2OqNvi">
@@ -838,6 +846,16 @@
             </node>
           </node>
         </node>
+        <node concept="1gVbGN" id="3i2f6$PQEkS" role="3cqZAp">
+          <node concept="2OqwBi" id="5gCJuqaZ5PW" role="1gVkn0">
+            <node concept="37vLTw" id="5gCJuqaZ5PX" role="2Oq$k0">
+              <ref role="3cqZAo" node="YAuj$rVJ1s" resolve="tool" />
+            </node>
+            <node concept="liA8E" id="5gCJuqaZ5PY" role="2OqNvi">
+              <ref role="37wK5l" to="71xd:~BaseTool.isAvailable()" resolve="isAvailable" />
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs8" id="EVT3pKkl$6" role="3cqZAp">
           <node concept="3cpWsn" id="EVT3pKkl$7" role="3cpWs9">
             <property role="TrG5h" value="tab" />
@@ -851,6 +869,14 @@
               <node concept="2XshWL" id="5ilxv9B9ywX" role="2OqNvi">
                 <ref role="2WH_rO" to="ksba:2$nlLZc0tw7" resolve="getCurrentEditableTab" />
               </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1gVbGN" id="3i2f6$PQGKa" role="3cqZAp">
+          <node concept="3y3z36" id="3i2f6$PQIDz" role="1gVkn0">
+            <node concept="10Nm6u" id="3i2f6$PQJtr" role="3uHU7w" />
+            <node concept="37vLTw" id="3i2f6$PQHhg" role="3uHU7B">
+              <ref role="3cqZAo" node="EVT3pKkl$7" resolve="tab" />
             </node>
           </node>
         </node>
@@ -1014,6 +1040,16 @@
             </node>
           </node>
         </node>
+        <node concept="1gVbGN" id="3i2f6$PQLGx" role="3cqZAp">
+          <node concept="2OqwBi" id="3i2f6$PQLGy" role="1gVkn0">
+            <node concept="37vLTw" id="3i2f6$PQLGz" role="2Oq$k0">
+              <ref role="3cqZAo" node="5ilxv9B9_7W" resolve="tool" />
+            </node>
+            <node concept="liA8E" id="3i2f6$PQLG$" role="2OqNvi">
+              <ref role="37wK5l" to="71xd:~BaseTool.isAvailable()" resolve="isAvailable" />
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs8" id="2UF8zdtXdD$" role="3cqZAp">
           <node concept="3cpWsn" id="2UF8zdtXdD_" role="3cpWs9">
             <property role="TrG5h" value="tab" />
@@ -1027,6 +1063,14 @@
               <node concept="2XshWL" id="5ilxv9B9ABM" role="2OqNvi">
                 <ref role="2WH_rO" to="ksba:2$nlLZc0tw7" resolve="getCurrentEditableTab" />
               </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1gVbGN" id="3i2f6$PQNkP" role="3cqZAp">
+          <node concept="3y3z36" id="3i2f6$PQNkQ" role="1gVkn0">
+            <node concept="10Nm6u" id="3i2f6$PQNkR" role="3uHU7w" />
+            <node concept="37vLTw" id="3i2f6$PQNkS" role="3uHU7B">
+              <ref role="3cqZAo" node="2UF8zdtXdD_" resolve="tab" />
             </node>
           </node>
         </node>
@@ -1152,5 +1196,17 @@
     </node>
   </node>
   <node concept="2DaZZR" id="4_3b_oIN5Sl" />
+  <node concept="2JRCWQ" id="650C6I36Ory">
+    <property role="TrG5h" value="ConsoleNonDumbAware" />
+    <node concept="2JRCWP" id="3i2f6$PQOWR" role="2JRCWR">
+      <ref role="2JRCWa" node="2Ug$oBxpv85" resolve="FindInstancesByCondition" />
+    </node>
+    <node concept="2JRCWP" id="650C6I36OvS" role="2JRCWR">
+      <ref role="2JRCWa" node="2UF8zdtXaH8" resolve="ModifyInstancesByCondition" />
+    </node>
+    <node concept="2JRCWP" id="650C6I36OwY" role="2JRCWR">
+      <ref role="2JRCWa" node="2UTM4$6j1gf" resolve="ShowGenerationPlan" />
+    </node>
+  </node>
 </model>
 

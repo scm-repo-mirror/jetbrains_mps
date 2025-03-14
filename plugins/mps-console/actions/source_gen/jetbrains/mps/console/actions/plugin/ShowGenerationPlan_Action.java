@@ -41,7 +41,7 @@ public class ShowGenerationPlan_Action extends BaseAction {
   }
   @Override
   public boolean isDumbAware() {
-    return true;
+    return false;
   }
   @Override
   public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {

@@ -36,7 +36,7 @@ public class ModifyInstancesByCondition_Action extends BaseAction {
   }
   @Override
   public boolean isDumbAware() {
-    return true;
+    return false;
   }
   @Override
   protected boolean collectActionData(AnActionEvent event, final Map<String, Object> _params) {
@@ -63,12 +63,14 @@ public class ModifyInstancesByCondition_Action extends BaseAction {
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     ConsoleTool_Tool tool = ProjectPluginManager.getInstance(event.getData(CommonDataKeys.PROJECT)).getTool(ConsoleTool_Tool.class);
+    assert tool.isAvailable();
     DialogConsoleTab tab = tool.getCurrentEditableTab();
-    SNode command = _quotation_createNode_nwjg5s_a0c0a(event.getData(MPSCommonDataKeys.NODE));
+    assert tab != null;
+    SNode command = _quotation_createNode_nwjg5s_a0e0a(event.getData(MPSCommonDataKeys.NODE));
     tab.insertCommand(command);
     tab.selectNode(SLinkOperations.getTarget(ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(tab.getRoot(), LINKS.commandHolder$LTfs), CONCEPTS.ClosureLiteral$rp, false, new SAbstractConcept[]{})).getElement(1), LINKS.body$Ujx2));
   }
-  private static SNode _quotation_createNode_nwjg5s_a0c0a(Object parameter_1) {
+  private static SNode _quotation_createNode_nwjg5s_a0e0a(Object parameter_1) {
     SNode quotedNode_2 = null;
     SNode quotedNode_3 = null;
     SNode quotedNode_4 = null;
