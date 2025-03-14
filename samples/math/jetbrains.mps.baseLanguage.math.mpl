@@ -24,9 +24,7 @@
           <classes generated="true" path="${module}/generator/classes_gen" />
         </facet>
       </facets>
-      <external-templates>
-        <generator generatorUID="5f9babc9-8d5d-4825-8e61-17b241ee6272(jetbrains.mps.baseLanguage.collections#1151699677197)" />
-      </external-templates>
+      <external-templates />
       <dependencies>
         <dependency reexport="false">83888646-71ce-4f1c-9c53-c54016f6ad4f(jetbrains.mps.baseLanguage.collections)</dependency>
         <dependency reexport="false">ed6d7656-532c-4bc2-81d1-af945aeb8280(jetbrains.mps.baseLanguage.blTypes)</dependency>
@@ -73,40 +71,6 @@
         <module reference="9ded098b-ad6a-4657-bfd9-48636cfe8bc3(jetbrains.mps.lang.traceable)" version="0" />
       </dependencyVersions>
       <mapping-priorities>
-        <mapping-priority-rule kind="strictly_before">
-          <greater-priority-mapping>
-            <generator generatorUID="a4f54010-f543-4c3d-a263-da72012ed5d5(jetbrains.mps.baseLanguage.math#1235731725718)" />
-            <external-mapping>
-              <mapping-set>
-                <mapping-set-element>
-                  <mapping-node modelUID="r:44a13e0a-5741-450e-b617-f6a7b8d52ba5(jetbrains.mps.baseLanguage.math.generator.template.types@generator)" nodeID="*" />
-                </mapping-set-element>
-                <mapping-set-element>
-                  <mapping-node modelUID="r:85be6a23-8e6d-4452-b81d-2513e76e45bd(jetbrains.mps.baseLanguage.math.generator.template.intervals@generator)" nodeID="*" />
-                </mapping-set-element>
-              </mapping-set>
-            </external-mapping>
-          </greater-priority-mapping>
-          <lesser-priority-mapping>
-            <generator generatorUID="a4f54010-f543-4c3d-a263-da72012ed5d5(jetbrains.mps.baseLanguage.math#1235731725718)" />
-            <external-mapping>
-              <mapping-set>
-                <mapping-set-element>
-                  <generator generatorUID="857d0a79-6f44-4f46-84ed-9c5b42632011(jetbrains.mps.baseLanguage.closures#1199623535494)" />
-                  <external-mapping>
-                    <mapping-node modelUID="r:00000000-0000-4000-0000-011c8959033a(jetbrains.mps.baseLanguage.closures.generator.baseLanguage.template.main@generator)" nodeID="*" />
-                  </external-mapping>
-                </mapping-set-element>
-                <mapping-set-element>
-                  <generator generatorUID="5f9babc9-8d5d-4825-8e61-17b241ee6272(jetbrains.mps.baseLanguage.collections#1151699677197)" />
-                  <external-mapping>
-                    <mapping-node modelUID="r:00000000-0000-4000-0000-011c8959032f(jetbrains.mps.baseLanguage.collections.generator.baseLanguage.template.main@generator)" nodeID="*" />
-                  </external-mapping>
-                </mapping-set-element>
-              </mapping-set>
-            </external-mapping>
-          </lesser-priority-mapping>
-        </mapping-priority-rule>
         <mapping-priority-rule kind="strictly_before">
           <greater-priority-mapping>
             <generator generatorUID="a4f54010-f543-4c3d-a263-da72012ed5d5(jetbrains.mps.baseLanguage.math#1235731725718)" />
