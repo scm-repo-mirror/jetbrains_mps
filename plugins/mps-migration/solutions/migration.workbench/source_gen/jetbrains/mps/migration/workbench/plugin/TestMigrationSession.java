@@ -71,9 +71,9 @@ import jetbrains.mps.migration.global.MigrationOptions;
       final Wrappers._T<SReference> ref = new Wrappers._T<SReference>(null);
       myProject.getRepository().getModelAccess().runReadAction(() -> {
         {
-          SearchScope scope_51bgm5_a0a0a2a2a0a5 = CommandUtil.createScope(myProject);
-          final SearchScope scope_51bgm5_a0a0a2a2a0a5_0 = new EditableFilteringScope(scope_51bgm5_a0a0a2a2a0a5);
-          QueryExecutionContext context = () -> scope_51bgm5_a0a0a2a2a0a5_0;
+          SearchScope scope_51bgm5_a0a2a2a0a5 = CommandUtil.createScope(myProject);
+          final SearchScope scope_51bgm5_a0a2a2a0a5_0 = new EditableFilteringScope(scope_51bgm5_a0a2a2a0a5);
+          QueryExecutionContext context = () -> scope_51bgm5_a0a2a2a0a5_0;
           ref.value = Sequence.fromIterable(CommandUtil.nodes(CommandUtil.selectScope(null, context))).translate((it) -> IterableUtil.asCollection(it.getReferences())).first();
         }
       });
