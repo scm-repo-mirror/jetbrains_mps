@@ -152,8 +152,9 @@ public final class GenerationTracerViewToolState {
       }
     };
 
-    if (getContentManager().isDisposed()) return;
-    getContentManager().addContentManagerListener(myContentListener);
+    final ContentManager contentManager = getContentManager();
+    if (contentManager==null || contentManager.isDisposed()) return;
+    contentManager.addContentManagerListener(myContentListener);
   }
 
   public void unregister() {
