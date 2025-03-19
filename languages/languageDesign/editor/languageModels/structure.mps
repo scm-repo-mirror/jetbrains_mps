@@ -2390,9 +2390,10 @@
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
     </node>
     <node concept="1TJgyi" id="7a3hLlC0ccL" role="1TKVEl">
-      <property role="TrG5h" value="allowEmptyText" />
+      <property role="TrG5h" value="allowEmptyTextOld" />
       <property role="IQ2nx" value="8251517099537646385" />
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+      <node concept="asaX9" id="4_KRdeo1umE" role="lGtFl" />
     </node>
     <node concept="1TJgyj" id="hGPY5io" role="1TKVEi">
       <property role="20lmBu" value="fLJjDmT/aggregation" />
@@ -2402,16 +2403,17 @@
       <ref role="20lvS9" node="hGPXuVX" resolve="TransactionalPropertyHandler" />
     </node>
     <node concept="1TJgyj" id="hGPY767" role="1TKVEi">
-      <property role="20kJfa" value="property" />
+      <property role="20kJfa" value="propertyOld" />
       <property role="20lbJX" value="fLJekj4/1" />
       <property role="IQ2ns" value="1216381219207" />
       <ref role="20lvS9" to="tpce:f_TJgxF" resolve="PropertyDeclaration" />
+      <node concept="asaX9" id="4IQFg3Z6Ax_" role="lGtFl" />
     </node>
     <node concept="PrWs8" id="4SdtvCaA7us" role="PzmwI">
       <ref role="PrY4T" to="tpck:64$4ecGX64Q" resolve="ImplementationWithStubPart" />
     </node>
     <node concept="RPilO" id="7F6fz3H$PFS" role="lGtFl">
-      <ref role="RPilL" node="hGPY767" resolve="property" />
+      <ref role="RPilL" node="hGPY767" resolve="propertyOld" />
       <node concept="ROjv2" id="7F6fz3H$PFT" role="ROhUF">
         <property role="1W_73P" value="{T " />
         <property role="1W_73K" value=" T}" />

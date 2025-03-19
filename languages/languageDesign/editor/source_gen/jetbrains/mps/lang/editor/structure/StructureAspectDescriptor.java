@@ -2727,8 +2727,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(3);
     b.stub(0x707876b4d5d2538eL);
     b.property("runInCommand", 0x11ef3250f01L).type(PrimitiveTypeId.BOOLEAN).origin("1232439938817").done();
-    b.property("allowEmptyText", 0x728347156800c331L).type(PrimitiveTypeId.BOOLEAN).origin("8251517099537646385").done();
-    b.associate("property", 0x11b35f87187L).target(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL).optional(false).origin("1216381219207").done();
+    b.property("allowEmptyTextOld", 0x728347156800c331L).type(PrimitiveTypeId.BOOLEAN).origin("8251517099537646385").done();
+    b.associate("propertyOld", 0x11b35f87187L).target(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL).optional(false).origin("1216381219207").done();
     b.aggregate("handlerBlock", 0x11b35f85498L).target(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x11b35f5eefdL).optional(false).ordered(true).multiple(false).origin("1216381211800").done();
     b.kind(ConceptKind.IMPLEMENTATION_WITH_STUB, StaticScope.GLOBAL);
     return b.create();

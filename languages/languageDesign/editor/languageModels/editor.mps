@@ -9119,7 +9119,7 @@
       </node>
       <node concept="1iCGBv" id="hGPYxmi" role="3EZMnx">
         <property role="1$x2rV" value="&lt;no property&gt;" />
-        <ref role="1NtTu8" to="tpc2:hGPY767" resolve="property" />
+        <ref role="1NtTu8" to="tpc2:hGPY767" resolve="propertyOld" />
         <node concept="1sVBvm" id="hGPYxmj" role="1sWHZn">
           <node concept="3F0A7n" id="hGPYxmk" role="2wV5jI">
             <property role="1Intyy" value="true" />
@@ -9263,7 +9263,7 @@
           </node>
           <node concept="1iCGBv" id="hGQ1sgn" role="3EZMnx">
             <property role="1$x2rV" value="&lt;no property&gt;" />
-            <ref role="1NtTu8" to="tpc2:hGPY767" resolve="property" />
+            <ref role="1NtTu8" to="tpc2:hGPY767" resolve="propertyOld" />
             <node concept="1sVBvm" id="hGQ1sgo" role="1sWHZn">
               <node concept="3F0A7n" id="hGQ1sgp" role="2wV5jI">
                 <property role="1Intyy" value="true" />
@@ -9333,7 +9333,7 @@
             <ref role="1k5W1q" node="hF4H1c8" resolve="property" />
           </node>
           <node concept="3F0A7n" id="7a3hLlC0jqm" role="3EZMnx">
-            <ref role="1NtTu8" to="tpc2:7a3hLlC0ccL" resolve="allowEmptyText" />
+            <ref role="1NtTu8" to="tpc2:7a3hLlC0ccL" resolve="allowEmptyTextOld" />
             <node concept="VPXOz" id="7a3hLlC0jqn" role="3F10Kt">
               <property role="VOm3f" value="true" />
             </node>

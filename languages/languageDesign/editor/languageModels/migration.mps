@@ -6188,7 +6188,7 @@
                         </node>
                         <node concept="359W_D" id="1tjPKfRhdbW" role="37wK5m">
                           <ref role="359W_E" to="tpc2:hGPXfkl" resolve="CellModel_TransactionalProperty" />
-                          <ref role="359W_F" to="tpc2:hGPY767" resolve="property" />
+                          <ref role="359W_F" to="tpc2:hGPY767" resolve="propertyOld" />
                         </node>
                       </node>
                     </node>
@@ -6741,7 +6741,7 @@
                                       <ref role="3cqZAo" node="5W7E4fV0W97" resolve="it" />
                                     </node>
                                     <node concept="3TrEf2" id="7Hg1hrtPR3I" role="2OqNvi">
-                                      <ref role="3Tt5mk" to="tpc2:hGPY767" resolve="property" />
+                                      <ref role="3Tt5mk" to="tpc2:hGPY767" resolve="propertyOld" />
                                     </node>
                                   </node>
                                   <node concept="1mfA1w" id="7Hg1hrtPP$W" role="2OqNvi" />
@@ -6776,7 +6776,7 @@
                                     <ref role="3cqZAo" node="5W7E4fV0W99" resolve="it" />
                                   </node>
                                   <node concept="3TrEf2" id="7Hg1hrtPRCQ" role="2OqNvi">
-                                    <ref role="3Tt5mk" to="tpc2:hGPY767" resolve="property" />
+                                    <ref role="3Tt5mk" to="tpc2:hGPY767" resolve="propertyOld" />
                                   </node>
                                 </node>
                               </node>
