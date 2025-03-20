@@ -133,6 +133,7 @@
       <modulePath path="$PROJECT_DIR$/languages/languageDesign/context.defs/jetbrains.mps.lang.context.defs.mpl" folder="core.aspects.constraints" />
       <modulePath path="$PROJECT_DIR$/languages/languageDesign/context/jetbrains.mps.lang.context.mpl" folder="core.aspects.constraints" />
       <modulePath path="$PROJECT_DIR$/languages/languageDesign/customAspect/jetbrains.mps.lang.aspect.mpl" folder="core.aspects.aspect" />
+      <modulePath path="$PROJECT_DIR$/languages/languageDesign/dataFlow.ldgen/jetbrains.mps.lang.dataFlow.ldgen.mpst" folder="core.aspects.dataflow" />
       <modulePath path="$PROJECT_DIR$/languages/languageDesign/dataFlow/jetbrains.mps.lang.dataFlow.mpl" folder="core.aspects.dataflow" />
       <modulePath path="$PROJECT_DIR$/languages/languageDesign/dataFlowRuntime/jetbrains.mps.dataFlow.runtime.msd" folder="core.aspects.dataflow" />
       <modulePath path="$PROJECT_DIR$/languages/languageDesign/documentation/jetbrains.mps.lang.documentation.genplan.msd" folder="core.devkits" />
