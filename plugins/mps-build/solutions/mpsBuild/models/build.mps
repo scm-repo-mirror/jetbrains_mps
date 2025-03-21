@@ -3247,6 +3247,9 @@
           <node concept="L2wRC" id="2d0qgmCdfZw" role="39821P">
             <ref role="L2wRA" node="7Kfy9QB6L4B" resolve="jetbrains.mps.lang.dataFlow" />
           </node>
+          <node concept="L2wRC" id="4nJZSBVnrvE" role="39821P">
+            <ref role="L2wRA" node="7YXEDum$rIk" resolve="jetbrains.mps.lang.dataFlow.ldgen" />
+          </node>
           <node concept="L2wRC" id="2d0qgmCdfZr" role="39821P">
             <ref role="L2wRA" node="7Kfy9QB6LeI" resolve="jetbrains.mps.lang.dataFlow.analyzers" />
           </node>
