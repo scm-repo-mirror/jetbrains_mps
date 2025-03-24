@@ -1716,17 +1716,17 @@
   <root nodeRef="r:3dddb2c7-b2ba-4381-896a-2e702ca1fb6e(jetbrains.mps.lang.dataFlow.framework)/4074113095384034111">
     <file name="ProgramBuilderContextImpl.java">
       <node id="4074113095384034114" at="12,0,13,0" concept="4" trace="myBuilderModes" />
-      <node id="4074113095384034126" at="13,87,14,34" concept="3" />
-      <node id="4074113095384034134" at="17,56,18,26" concept="10" />
-      <node id="4074113095384034119" at="13,0,16,0" concept="1" trace="ProgramBuilderContextImpl#(Ljava/util/Collection;)V" />
-      <node id="4074113095384034131" at="16,0,20,0" concept="8" trace="getBuilderModes#()Ljava/util/Collection;" />
-      <scope id="4074113095384034125" at="13,87,14,34" />
-      <scope id="4074113095384034133" at="17,56,18,26" />
-      <scope id="4074113095384034119" at="13,0,16,0">
+      <node id="4074113095384034126" at="14,87,15,34" concept="3" />
+      <node id="4074113095384034134" at="18,56,19,26" concept="10" />
+      <node id="4074113095384034119" at="14,0,17,0" concept="1" trace="ProgramBuilderContextImpl#(Ljava/util/Collection;)V" />
+      <node id="4074113095384034131" at="17,0,21,0" concept="8" trace="getBuilderModes#()Ljava/util/Collection;" />
+      <scope id="4074113095384034125" at="14,87,15,34" />
+      <scope id="4074113095384034133" at="18,56,19,26" />
+      <scope id="4074113095384034119" at="14,0,17,0">
         <var name="builderModes" id="4074113095384034121" />
       </scope>
-      <scope id="4074113095384034131" at="16,0,20,0" />
-      <unit id="4074113095384034111" at="11,0,21,0" name="jetbrains.mps.lang.dataFlow.framework.ProgramBuilderContextImpl" />
+      <scope id="4074113095384034131" at="17,0,21,0" />
+      <unit id="4074113095384034111" at="11,0,22,0" name="jetbrains.mps.lang.dataFlow.framework.ProgramBuilderContextImpl" />
     </file>
   </root>
   <root nodeRef="r:3dddb2c7-b2ba-4381-896a-2e702ca1fb6e(jetbrains.mps.lang.dataFlow.framework)/4074113095384034792">

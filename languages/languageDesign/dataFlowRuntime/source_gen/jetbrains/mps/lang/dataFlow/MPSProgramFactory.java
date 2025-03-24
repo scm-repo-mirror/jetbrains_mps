@@ -5,8 +5,11 @@ package jetbrains.mps.lang.dataFlow;
 import jetbrains.mps.lang.dataFlow.framework.ProgramFactory;
 import jetbrains.mps.lang.dataFlow.framework.NamedAnalyzerId;
 import jetbrains.mps.lang.dataFlow.framework.ProgramBuilderContext;
+import jetbrains.mps.components.ComponentHost;
 import java.util.Collection;
 import jetbrains.mps.lang.dataFlow.framework.IDataFlowModeId;
+import jetbrains.mps.smodel.runtime.ModuleRuntime;
+import java.util.function.Consumer;
 import jetbrains.mps.lang.dataFlow.framework.ProgramBuilderContextImpl;
 import jetbrains.mps.lang.dataFlow.framework.Program;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -15,10 +18,24 @@ import jetbrains.mps.lang.dataFlow.framework.AnalyzerRules;
 import java.util.Collections;
 
 public class MPSProgramFactory implements ProgramFactory<NamedAnalyzerId> {
-  private ProgramBuilderContext myContext;
+  private final ProgramBuilderContext myContext;
+  private final ComponentHost myPlatform;
+
+  /**
+   * 
+   * @deprecated use {@link jetbrains.mps.lang.dataFlow.MPSProgramFactory#MPSProgramFactory(ComponentHost, Collection<IDataFlowModeId>) } instead, or {@link jetbrains.mps.smodel.language.LanguageRegistry#withAvailableExtensions(Class<T>, ModuleRuntime.Extension.MatchRequest, Consumer<T>) } to get pre-initialized instance if you don't need specific modes
+   */
+  @Deprecated(forRemoval = true, since = "2025.1")
   public MPSProgramFactory(Collection<IDataFlowModeId> modes) {
+    myPlatform = null;
     this.myContext = new ProgramBuilderContextImpl(modes);
   }
+
+  public MPSProgramFactory(ComponentHost mpsPlatform, Collection<IDataFlowModeId> modes) {
+    myPlatform = mpsPlatform;
+    myContext = new ProgramBuilderContextImpl(modes);
+  }
+
   @Override
   public Program createProgram(SNode node) {
     return new MPSProgramBuilder(null, new InstructionBuilder(), myContext).buildProgram(node);
