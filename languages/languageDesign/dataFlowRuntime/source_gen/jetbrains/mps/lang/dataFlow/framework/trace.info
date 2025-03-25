@@ -1668,17 +1668,21 @@
   </root>
   <root nodeRef="r:3dddb2c7-b2ba-4381-896a-2e702ca1fb6e(jetbrains.mps.lang.dataFlow.framework)/4074113095384033841">
     <file name="ProgramFactory.java">
-      <node id="4074113095384033845" at="11,0,12,0" concept="8" trace="createProgram#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/dataFlow/framework/Program;" />
-      <node id="4074113095384033851" at="12,0,13,0" concept="8" trace="prepareProgram#(Ljetbrains/mps/lang/dataFlow/framework/Program;Lorg/jetbrains/mps/openapi/model/SNode;null)V" />
-      <scope id="4074113095384033845" at="11,0,12,0">
+      <node id="4074113095384033845" at="12,0,13,0" concept="8" trace="createProgram#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/dataFlow/framework/Program;" />
+      <node id="4074113095384033851" at="13,0,14,0" concept="8" trace="prepareProgram#(Ljetbrains/mps/lang/dataFlow/framework/Program;Lorg/jetbrains/mps/openapi/model/SNode;null)V" />
+      <node id="5562196214142136115" at="19,0,20,0" concept="8" trace="newFactory#(Ljava/util/Collection;)Ljetbrains/mps/lang/dataFlow/framework/ProgramFactory;" />
+      <scope id="4074113095384033845" at="12,0,13,0">
         <var name="node" id="4074113095384033847" />
       </scope>
-      <scope id="4074113095384033851" at="12,0,13,0">
+      <scope id="4074113095384033851" at="13,0,14,0">
         <var name="analyzerIdT" id="4074113095384033857" />
         <var name="node" id="4074113095384033855" />
         <var name="program" id="4074113095384033853" />
       </scope>
-      <unit id="4074113095384033841" at="10,0,14,0" name="jetbrains.mps.lang.dataFlow.framework.ProgramFactory" />
+      <scope id="5562196214142136115" at="19,0,20,0">
+        <var name="modes" id="5562196214142136311" />
+      </scope>
+      <unit id="4074113095384033841" at="11,0,21,0" name="jetbrains.mps.lang.dataFlow.framework.ProgramFactory" />
     </file>
   </root>
   <root nodeRef="r:3dddb2c7-b2ba-4381-896a-2e702ca1fb6e(jetbrains.mps.lang.dataFlow.framework)/4074113095384033867">

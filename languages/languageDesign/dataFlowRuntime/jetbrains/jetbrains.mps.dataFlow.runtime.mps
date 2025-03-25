@@ -131,10 +131,10 @@
         <node concept="3clFbF" id="3D2zx$UvIA2" role="3cqZAp">
           <node concept="37vLTI" id="3D2zx$UvIA4" role="3clFbG">
             <node concept="37vLTw" id="3D2zx$UvIA7" role="37vLTJ">
-              <ref role="3cqZAo" node="3D2zx$UvI_Y" resolve="myMsPlatform" />
+              <ref role="3cqZAo" node="3D2zx$UvI_Y" resolve="myPlatform" />
             </node>
             <node concept="37vLTw" id="3D2zx$UvIA8" role="37vLTx">
-              <ref role="3cqZAo" node="3D2zx$UvIzp" resolve="msPlatform" />
+              <ref role="3cqZAo" node="3D2zx$UvIzp" resolve="mpsPlatform" />
             </node>
           </node>
         </node>
@@ -236,7 +236,7 @@
                       <node concept="2ShNRf" id="3D2zx$UvLxR" role="3clFbG">
                         <node concept="1pGfFk" id="3D2zx$UvMxf" role="2ShVmc">
                           <property role="373rjd" value="true" />
-                          <ref role="37wK5l" to="aplb:3D2zx$UvQGk" />
+                          <ref role="37wK5l" to="aplb:3D2zx$UvQGk" resolve="MPSProgramFactory" />
                           <node concept="37vLTw" id="3D2zx$UvVT6" role="37wK5m">
                             <ref role="3cqZAo" node="3D2zx$UvI_Y" resolve="myPlatform" />
                           </node>
@@ -261,7 +261,6 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
-    <node concept="2tJIrI" id="3D2zx$UvKNy" role="jymVt" />
   </node>
 </model>
 

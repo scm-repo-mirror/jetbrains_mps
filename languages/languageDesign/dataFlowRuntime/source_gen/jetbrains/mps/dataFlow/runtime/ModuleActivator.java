@@ -21,5 +21,4 @@ public class ModuleActivator implements ModuleRuntime.Activator {
     // XXX here I rely on MR.Extension.of() to give new instance for each query (no instance caching!
     ctx.extension(MPSProgramFactory.class, ModuleRuntime.Extension.of(() -> new MPSProgramFactory(myPlatform, Collections.<IDataFlowModeId>emptyList())));
   }
-
 }

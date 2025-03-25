@@ -14,6 +14,7 @@ import jetbrains.mps.lang.dataFlow.framework.ProgramBuilderContextImpl;
 import jetbrains.mps.lang.dataFlow.framework.Program;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.dataFlow.framework.instructions.InstructionBuilder;
+import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.lang.dataFlow.framework.AnalyzerRules;
 import java.util.Collections;
 
@@ -38,12 +39,25 @@ public class MPSProgramFactory implements ProgramFactory<NamedAnalyzerId> {
 
   @Override
   public Program createProgram(SNode node) {
-    return new MPSProgramBuilder(null, new InstructionBuilder(), myContext).buildProgram(node);
+    MPSProgramBuilder builder;
+    if (myPlatform != null) {
+      builder = new MPSProgramBuilder(new InstructionBuilder(), myContext, myPlatform);
+    } else {
+      builder = new MPSProgramBuilder((SRepository) null, new InstructionBuilder(), myContext);
+    }
+    return builder.buildProgram(node);
   }
+
   @Override
   public void prepareProgram(Program program, SNode node, NamedAnalyzerId analyzerId) {
     new AnalyzerRules(analyzerId.getAnalyzerFqName(), Collections.singletonList(node), program, myContext).apply();
   }
+
+  @Override
+  public MPSProgramFactory newFactory(Collection<IDataFlowModeId> modes) {
+    return new MPSProgramFactory(myPlatform, modes);
+  }
+
   protected ProgramBuilderContext getContext() {
     return myContext;
   }

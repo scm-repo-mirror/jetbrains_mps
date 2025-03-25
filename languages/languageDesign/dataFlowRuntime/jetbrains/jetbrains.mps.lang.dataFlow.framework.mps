@@ -276,10 +276,14 @@
     <language id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc">
       <concept id="5349172909345501395" name="jetbrains.mps.baseLanguage.javadoc.structure.BaseDocComment" flags="ng" index="P$AiS">
         <child id="8465538089690331502" name="body" index="TZ5H$" />
+        <child id="5383422241790532083" name="tags" index="3nqlJM" />
       </concept>
       <concept id="5349172909345532724" name="jetbrains.mps.baseLanguage.javadoc.structure.MethodDocComment" flags="ng" index="P$JXv" />
       <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA">
         <child id="8970989240999019149" name="part" index="1dT_Ay" />
+      </concept>
+      <concept id="8465538089690324397" name="jetbrains.mps.baseLanguage.javadoc.structure.SinceBlockDocTag" flags="ng" index="TZ7YB">
+        <property id="8465538089690324399" name="text" index="TZ7Y_" />
       </concept>
       <concept id="8970989240999019143" name="jetbrains.mps.baseLanguage.javadoc.structure.TextCommentLinePart" flags="ng" index="1dT_AC">
         <property id="8970989240999019144" name="text" index="1dT_AB" />
@@ -1425,6 +1429,36 @@
       </node>
       <node concept="3clFbS" id="3yaa4ph8uD3" role="3clF47" />
       <node concept="3cqZAl" id="3yaa4ph8uD4" role="3clF45" />
+    </node>
+    <node concept="3clFb_" id="4OKSZMEXIWN" role="jymVt">
+      <property role="TrG5h" value="newFactory" />
+      <node concept="3clFbS" id="4OKSZMEXIWQ" role="3clF47" />
+      <node concept="3Tm1VV" id="4OKSZMEXIWR" role="1B3o_S" />
+      <node concept="3uibUv" id="4OKSZMEXIOM" role="3clF45">
+        <ref role="3uigEE" node="3yaa4ph8uCL" resolve="ProgramFactory" />
+        <node concept="16syzq" id="4OKSZMEXITF" role="11_B2D">
+          <ref role="16sUi3" node="3yaa4ph8uCN" resolve="AnalyzerIdT" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="4OKSZMEXIZR" role="3clF46">
+        <property role="TrG5h" value="modes" />
+        <node concept="3uibUv" id="4OKSZMEXIZQ" role="1tU5fm">
+          <ref role="3uigEE" to="33ny:~Collection" resolve="Collection" />
+          <node concept="3uibUv" id="4OKSZMEXRgS" role="11_B2D">
+            <ref role="3uigEE" node="3yaa4ph8tQx" resolve="IDataFlowModeId" />
+          </node>
+        </node>
+      </node>
+      <node concept="P$JXv" id="4OKSZMEXJao" role="lGtFl">
+        <node concept="TZ5HA" id="4OKSZMEXJap" role="TZ5H$">
+          <node concept="1dT_AC" id="4OKSZMEXJaq" role="1dT_Ay">
+            <property role="1dT_AB" value="create a factory with another set of analyzer ids" />
+          </node>
+        </node>
+        <node concept="TZ7YB" id="4OKSZMEXJoN" role="3nqlJM">
+          <property role="TZ7Y_" value="2025.1" />
+        </node>
+      </node>
     </node>
   </node>
   <node concept="312cEu" id="3yaa4ph8tXR">

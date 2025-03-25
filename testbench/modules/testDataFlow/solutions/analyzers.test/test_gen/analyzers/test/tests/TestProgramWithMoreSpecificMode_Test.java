@@ -56,7 +56,8 @@ public class TestProgramWithMoreSpecificMode_Test extends BaseTransformationTest
     public void test_testLessSpecificMode() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        MPSProgramBuilder builder = new MPSProgramBuilder(null, new InstructionBuilder(), new ProgramBuilderContextImpl(Collections.singletonList(new ConceptDataFlowModeId("jetbrains.mps.lang.dataFlow.structure.IntraProcedural_BuilderMode"))));
+        // Could use MPSProgramFactory (see TestProgramWithModeSpecified neighbour), just want to check direct API use
+        MPSProgramBuilder builder = new MPSProgramBuilder(new InstructionBuilder(), new ProgramBuilderContextImpl(Collections.singletonList(new ConceptDataFlowModeId("jetbrains.mps.lang.dataFlow.structure.IntraProcedural_BuilderMode"))), myProject.getPlatform());
         Program program = builder.buildProgram(getAnnotatedNode("root"));
         Assert.assertTrue(program.getInstructions().size() == ListSequence.fromList(SLinkOperations.getChildren(getAnnotatedNode("root"), LINKS.child$cKRN)).count() + 1);
       });
@@ -64,7 +65,7 @@ public class TestProgramWithMoreSpecificMode_Test extends BaseTransformationTest
     public void test_testMoreSpecificMode() throws Exception {
       initTestNodes();
       runWithinCommand(() -> {
-        MPSProgramBuilder builder = new MPSProgramBuilder(null, new InstructionBuilder(), new ProgramBuilderContextImpl(Arrays.asList(new ConceptDataFlowModeId("jetbrains.mps.testCustomDataFlow.structure.IntraProceduralSpecific_BuilderMode"), new ConceptDataFlowModeId("jetbrains.mps.lang.dataFlow.structure.IntraProcedural_BuilderMode"))));
+        MPSProgramBuilder builder = new MPSProgramBuilder(new InstructionBuilder(), new ProgramBuilderContextImpl(Arrays.asList(new ConceptDataFlowModeId("jetbrains.mps.testCustomDataFlow.structure.IntraProceduralSpecific_BuilderMode"), new ConceptDataFlowModeId("jetbrains.mps.lang.dataFlow.structure.IntraProcedural_BuilderMode"))), myProject.getPlatform());
         Program program = builder.buildProgram(getAnnotatedNode("root"));
         Assert.assertTrue(program.getInstructions().size() == ListSequence.fromList(SLinkOperations.getChildren(getAnnotatedNode("root"), LINKS.child$cKRN)).count() + Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(getAnnotatedNode("root"), LINKS.child$cKRN), LINKS.child$fPvo)).count() + 1);
       });
