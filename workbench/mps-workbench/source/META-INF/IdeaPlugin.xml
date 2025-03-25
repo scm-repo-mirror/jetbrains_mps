@@ -2845,7 +2845,7 @@
     </action>
 
     <reference ref="Vcs.VcsClone">
-      <add-to-group group-id="WelcomeScreen.QuickStart" anchor="first"/>
+      <add-to-group group-id="WelcomeScreen.QuickStart" anchor="last"/>
     </reference>
 
     <action id="Vcs.CopyRevisionNumberAction" class="com.intellij.openapi.vcs.history.actions.CopyRevisionNumberAction"
