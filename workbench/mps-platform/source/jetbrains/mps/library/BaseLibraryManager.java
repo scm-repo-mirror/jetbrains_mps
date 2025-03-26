@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2023 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@ package jetbrains.mps.library;
 
 import com.intellij.openapi.components.PersistentStateComponent;
 import jetbrains.mps.core.tool.environment.util.SetLibraryContributor;
-import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.library.BaseLibraryManager.LibraryState;
 import jetbrains.mps.library.contributor.LibDescriptor;
 import jetbrains.mps.library.contributor.LibraryContributor;
@@ -35,6 +34,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.regex.Matcher;
+import java.util.stream.Collectors;
 
 public abstract class BaseLibraryManager implements PersistentStateComponent<LibraryState> {
 
@@ -81,18 +81,10 @@ public abstract class BaseLibraryManager implements PersistentStateComponent<Lib
   }
 
   public Set<Library> getUILibraries() {
-    return new HashSet<>(myLibraryState.getLibraries().values());
+    return myLibraryState.getLibraries().values().stream().map(this::removeMacros).collect(Collectors.toSet());
   }
 
   //-------macro stuff
-
-  private LibraryState removeMacros(LibraryState state) {
-    LibraryState result = new LibraryState();
-    for (Entry<String, Library> entry : state.getLibraries().entrySet()) {
-      result.getLibraries().put(entry.getKey(), removeMacros(entry.getValue()));
-    }
-    return result;
-  }
 
   private Library addMacros(Library l) {
     Library result = l.copy();
@@ -129,8 +121,8 @@ public abstract class BaseLibraryManager implements PersistentStateComponent<Lib
 
   @Override
   public void loadState(@NotNull LibraryState state) {
-    myLibraryState = removeMacros(state);
-    MPSCoreComponents.getInstance().getLibraryInitializer().update();
+    myLibraryState = state;
+//    MPSCoreComponents.getInstance().getLibraryInitializer().update(); OMG - repo reload on component state init?!
   }
 
   static class LibraryState {
