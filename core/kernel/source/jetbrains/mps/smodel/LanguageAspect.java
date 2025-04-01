@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2024 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -100,7 +100,7 @@ public enum LanguageAspect {
   //mostly migrated
   TEXT_GEN("textGen", BootstrapLanguages.textGenLanguageRef(), LanguageAspect.HELP_CENTER_BASE + "textGen.html"),
 
-  //mostly migrated
+  //mostly migrated. No uses in MPS, 1 in mbeddr
   MIGRATION("migration", BootstrapLanguages.migrationLanguageRef(), LanguageAspect.HELP_CENTER_BASE + "migrations.html");
 
   //TODO must be changed for each major/minor version release
