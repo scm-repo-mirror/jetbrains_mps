@@ -1358,6 +1358,7 @@
         <fileset file="${artifacts.IDEA}/lib/stats.jar" />
         <fileset file="${artifacts.IDEA}/lib/platform-loader.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/kotlin-metadata-jvm-2.1.0.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/kotlinx-metadata-klib-0.0.6.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
