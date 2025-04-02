@@ -1,6 +1,7 @@
 package jetbrains.mps.kotlin.stubs.extension
 
 
+import jetbrains.mps.kotlin.stubs.extension.readSourceFile
 import kotlin.metadata.*
 import kotlin.metadata.internal.ReadContext
 import kotlin.metadata.internal.WriteContext
@@ -9,8 +10,8 @@ import kotlin.metadata.internal.extensions.*
 import kotlin.metadata.internal.extensions.KmModuleFragmentExtension
 import kotlin.metadata.internal.extensions.KmPackageExtension
 import kotlin.metadata.internal.extensions.MetadataExtensions
+import kotlin.metadata.internal.library.metadata.KlibMetadataProtoBuf
 import kotlin.metadata.internal.metadata.ProtoBuf
-import kotlin.metadata.internal.metadata.builtins.BuiltInsProtoBuf
 import kotlin.metadata.internal.metadata.deserialization.Flags
 
 /**
@@ -33,33 +34,36 @@ import kotlin.metadata.internal.metadata.deserialization.Flags
 @Suppress("DEPRECATION")
 class StubMetadataExtensions : MetadataExtensions {
     override fun readClassExtensions(kmClass: KmClass, proto: ProtoBuf.Class, c: ReadContext) {
-        readAnnotations(kmClass.getExtension(StubExtension.extensionType), proto, BuiltInsProtoBuf.classAnnotation, c)
+        readAnnotations(kmClass.getExtension(StubExtension.extensionType), proto, KlibMetadataProtoBuf.classAnnotation, c)
+        readSourceFile(kmClass.getExtension(StubExtension.extensionType), proto, KlibMetadataProtoBuf.classFile, c)
     }
 
     override fun readFunctionExtensions(v: KmFunction, proto: ProtoBuf.Function, c: ReadContext) {
-        readAnnotations(v.getExtension(StubExtension.extensionType), proto, BuiltInsProtoBuf.functionAnnotation, c)
+        readAnnotations(v.getExtension(StubExtension.extensionType), proto, KlibMetadataProtoBuf.functionAnnotation, c)
+        readSourceFile(v.getExtension(StubExtension.extensionType), proto, KlibMetadataProtoBuf.functionFile, c)
     }
 
     override fun readPropertyExtensions(v: KmProperty, proto: ProtoBuf.Property, c: ReadContext) {
-        readAnnotations(v.getExtension(StubExtension.extensionType), proto, BuiltInsProtoBuf.propertyAnnotation, c)
+        readAnnotations(v.getExtension(StubExtension.extensionType), proto, KlibMetadataProtoBuf.propertyAnnotation, c)
+        readSourceFile(v.getExtension(StubExtension.extensionType), proto, KlibMetadataProtoBuf.propertyFile, c)
     }
 
     override fun readConstructorExtensions(v: KmConstructor, proto: ProtoBuf.Constructor, c: ReadContext) {
-        readAnnotations(v.getExtension(StubExtension.extensionType), proto, BuiltInsProtoBuf.constructorAnnotation, c)
+        readAnnotations(v.getExtension(StubExtension.extensionType), proto, KlibMetadataProtoBuf.constructorAnnotation, c)
     }
 
     override fun readTypeParameterExtensions(v: KmTypeParameter, proto: ProtoBuf.TypeParameter, c: ReadContext) {
-        readAnnotations(v.getExtension(StubExtension.extensionType), proto, BuiltInsProtoBuf.typeParameterAnnotation, c)
+        readAnnotations(v.getExtension(StubExtension.extensionType), proto, KlibMetadataProtoBuf.typeParameterAnnotation, c)
     }
 
     override fun readTypeExtensions(v: KmType, proto: ProtoBuf.Type, c: ReadContext) {
-        readAnnotations(v.getExtension(StubExtension.extensionType), proto, BuiltInsProtoBuf.typeAnnotation, c)
+        readAnnotations(v.getExtension(StubExtension.extensionType), proto, KlibMetadataProtoBuf.typeAnnotation, c)
 
     }
 
     override fun readValueParameterExtensions(v: KmValueParameter, proto: ProtoBuf.ValueParameter, c: ReadContext) {
         if (Flags.HAS_ANNOTATIONS[proto.flags]) {
-            readAnnotations(v.getExtension(StubExtension.extensionType), proto, BuiltInsProtoBuf.parameterAnnotation, c)
+            readAnnotations(v.getExtension(StubExtension.extensionType), proto, KlibMetadataProtoBuf.parameterAnnotation, c)
         }
     }
 

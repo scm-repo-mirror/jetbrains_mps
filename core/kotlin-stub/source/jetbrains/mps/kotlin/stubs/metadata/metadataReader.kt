@@ -1,19 +1,24 @@
 package jetbrains.mps.kotlin.stubs.metadata
 
+import jetbrains.mps.kotlin.stubs.extension.sourceFile
 import jetbrains.mps.kotlin.stubs.platform.isKlibMetadataFileName
 import jetbrains.mps.kotlin.stubs.platform.isKotlinJsFileName
 import jetbrains.mps.kotlin.stubs.platform.isKotlinMetadataFileName
+import java.io.InputStream
 import kotlin.metadata.internal.common.KmModuleFragment
 import kotlin.metadata.internal.common.KotlinCommonMetadata
+import kotlin.metadata.internal.library.metadata.KlibMetadataProtoBuf
 import kotlin.metadata.internal.metadata.ProtoBuf
 import kotlin.metadata.internal.metadata.builtins.BuiltInsBinaryVersion
-import kotlin.metadata.internal.metadata.builtins.BuiltInsProtoBuf
 import kotlin.metadata.internal.metadata.deserialization.NameResolverImpl
-import kotlin.metadata.internal.protobuf.CodedInputStream
-import kotlin.metadata.internal.protobuf.ExtensionRegistryLite
-import java.io.InputStream
+import kotlin.metadata.internal.protobuf.*
 import kotlin.metadata.internal.toKmClass
 import kotlin.metadata.internal.toKmPackage
+
+data class KotlinMetadata(
+    val module: KmModuleFragment,
+    val sourceFileName: String? = null
+)
 
 /**
  * Component agnostic way to read metadata from a file.
@@ -23,7 +28,7 @@ import kotlin.metadata.internal.toKmPackage
  *
  * This is based on a file extension to load known formats, but should ideally be done by components themselves.
  */
-fun InputStream.readKtMetadata(fileName: String): KmModuleFragment? {
+fun InputStream.readKtMetadata(fileName: String): KotlinMetadata? {
     return when {
         fileName.isKotlinJsFileName -> {
             // This format contains: version descriptor, delimited header, package
@@ -43,19 +48,19 @@ fun InputStream.readKtMetadata(fileName: String): KmModuleFragment? {
         }
 
         fileName.isKotlinMetadataFileName ->
-            KotlinCommonMetadata.read(readAllBytes())?.kmModuleFragment
+            KotlinCommonMetadata.read(readAllBytes())?.kmModuleFragment?.let { KotlinMetadata(it) }
 
         else -> {
             // TODO load version from klib descriptor and check it
-            parseModuleFragment()
+            null
         }
     }
 }
 
-fun InputStream.parseModuleFragment(): KmModuleFragment {
+fun InputStream.parseModuleFragment(): KotlinMetadata? {
     val proto = ProtoBuf.PackageFragment.parseFrom(
         this,
-        ExtensionRegistryLite.newInstance().apply(BuiltInsProtoBuf::registerAllExtensions)
+        ExtensionRegistryLite.newInstance().apply(KlibMetadataProtoBuf::registerAllExtensions)
     )
     val fragment = KmModuleFragment()
     val strings = NameResolverImpl(proto.strings, proto.qualifiedNames)
@@ -63,5 +68,12 @@ fun InputStream.parseModuleFragment(): KmModuleFragment {
         fragment.pkg = proto.`package`.toKmPackage(strings)
     }
     proto.class_List.mapTo(fragment.classes) { it.toKmClass(strings) }
-    return fragment
+
+    // Infer the name for the whole file as the first occurring property or function name
+    // TODO this might be incorrect if several source files are merged into the current KNM
+    val sourceFile = fragment.pkg?.functions?.firstNotNullOfOrNull { it.sourceFile }
+        ?: fragment.pkg?.properties?.firstNotNullOfOrNull { it.sourceFile }
+        ?: fragment.classes.firstNotNullOfOrNull { it.sourceFile }
+
+    return KotlinMetadata(fragment, sourceFile?.name)
 }

@@ -1,9 +1,13 @@
 package jetbrains.mps.kotlin.stubs.extension
 
+import kotlinx.metadata.klib.KlibSourceFile
 import kotlin.metadata.*
 import kotlin.metadata.internal.extensions.*
 
-open class StubExtension(val annotations: MutableList<KmAnnotation> = mutableListOf()) : KmExtension {
+open class StubExtension() : KmExtension {
+    val annotations: MutableList<KmAnnotation> = mutableListOf()
+    var sourceFile: KlibSourceFile? = null
+
     override val type
         get() = extensionType
 
