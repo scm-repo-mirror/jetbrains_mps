@@ -180,7 +180,6 @@
       <zipfileset dir="${basedir}/lib/pty4j/linux/x86-64" prefix="MPS ${mpsBootstrapCore.version}/lib/pty4j/x86-64" />
       <zipfileset dir="${basedir}/lib/pty4j/win/x86-64" prefix="MPS ${mpsBootstrapCore.version}/lib/pty4j/x86-64" />
       <zipfileset dir="${basedir}/plugins/laf-macos" prefix="MPS ${mpsBootstrapCore.version}/plugins/laf-macos" />
-      <zipfileset dir="${basedir}/plugins/laf-win10" prefix="MPS ${mpsBootstrapCore.version}/plugins/laf-win10" />
       <zipfileset dir="${build.tmp}/default/_dl__lbrace_build.number_rbrace_.zip_f755" filemode="755" prefix="MPS ${mpsBootstrapCore.version}/bin" />
       <zipfileset dir="${build.tmp}/default/_dl__lbrace_build.number_rbrace_.zip_f7551" filemode="755" prefix="MPS ${mpsBootstrapCore.version}/bin/win" />
       <fileset dir="${build.tmp}/default/_dl__lbrace_build.number_rbrace_.zip" />
@@ -326,7 +325,6 @@
       <zipfileset file="${basedir}/build/resources/mps.ico" prefix="MPS ${mpsBootstrapCore.version}/bin" />
       <zipfileset file="${basedir}/lib/jna/win32-x86-64/jnidispatch.dll" prefix="MPS ${mpsBootstrapCore.version}/lib/jna" />
       <zipfileset dir="${basedir}/lib/pty4j/win/x86-64" prefix="MPS ${mpsBootstrapCore.version}/lib/pty4j/win/x86-64" />
-      <zipfileset dir="${basedir}/plugins/laf-win10" prefix="MPS ${mpsBootstrapCore.version}/plugins/laf-win10" />
       <zipfileset dir="${build.tmp}/deps/jbr-windows-x64.tar.gz1/jbr" prefix="MPS ${mpsBootstrapCore.version}/jbr" />
       <zipfileset dir="${build.tmp}/default/_dl__lbrace_build.number_rbrace_-windows.zip_f755" filemode="755" prefix="MPS ${mpsBootstrapCore.version}/bin" />
       <fileset dir="${build.tmp}/default/_dl__lbrace_build.number_rbrace_-windows.zip" />

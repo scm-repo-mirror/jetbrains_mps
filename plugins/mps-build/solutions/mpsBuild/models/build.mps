@@ -28004,23 +28004,6 @@
                 </node>
               </node>
             </node>
-            <node concept="398223" id="3OCYZvr1TYg" role="39821P">
-              <node concept="3_J27D" id="3OCYZvr1TYh" role="Nbhlr">
-                <node concept="3Mxwew" id="3OCYZvr1TYi" role="3MwsjC">
-                  <property role="3MwjfP" value="laf-win10" />
-                </node>
-              </node>
-              <node concept="2HvfSZ" id="3OCYZvr1TYj" role="39821P">
-                <node concept="55IIr" id="3OCYZvr1TYk" role="2HvfZ0">
-                  <node concept="2Ry0Ak" id="3OCYZvr1TYl" role="iGT6I">
-                    <property role="2Ry0Am" value="plugins" />
-                    <node concept="2Ry0Ak" id="3OCYZvr1TYm" role="2Ry0An">
-                      <property role="2Ry0Am" value="laf-win10" />
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
             <node concept="3_J27D" id="3OCYZvr1TUH" role="Nbhlr">
               <node concept="3Mxwew" id="3OCYZvr1TYe" role="3MwsjC">
                 <property role="3MwjfP" value="plugins" />
@@ -28836,30 +28819,6 @@
               <node concept="3_J27D" id="6DuhW0rsrz$" role="Nbhlr">
                 <node concept="3Mxwew" id="6DuhW0rsrzY" role="3MwsjC">
                   <property role="3MwjfP" value="pty4j" />
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="398223" id="3OCYZvqRyvu" role="39821P">
-            <node concept="3_J27D" id="3OCYZvqRyvv" role="Nbhlr">
-              <node concept="3Mxwew" id="3OCYZvqRyvw" role="3MwsjC">
-                <property role="3MwjfP" value="plugins" />
-              </node>
-            </node>
-            <node concept="398223" id="3OCYZvqRyvx" role="39821P">
-              <node concept="3_J27D" id="3OCYZvqRyvy" role="Nbhlr">
-                <node concept="3Mxwew" id="3OCYZvqRyvz" role="3MwsjC">
-                  <property role="3MwjfP" value="laf-win10" />
-                </node>
-              </node>
-              <node concept="2HvfSZ" id="3OCYZvqRyv$" role="39821P">
-                <node concept="55IIr" id="3OCYZvqRyv_" role="2HvfZ0">
-                  <node concept="2Ry0Ak" id="3OCYZvqRyvA" role="iGT6I">
-                    <property role="2Ry0Am" value="plugins" />
-                    <node concept="2Ry0Ak" id="3OCYZvqRyxg" role="2Ry0An">
-                      <property role="2Ry0Am" value="laf-win10" />
-                    </node>
-                  </node>
                 </node>
               </node>
             </node>
