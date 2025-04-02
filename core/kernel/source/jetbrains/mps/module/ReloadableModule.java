@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2024 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@ package jetbrains.mps.module;
 
 import jetbrains.mps.classloading.ClassLoaderManager;
 import jetbrains.mps.classloading.MPSModuleClassLoader;
-import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleReference;
@@ -87,7 +86,14 @@ public interface ReloadableModule extends SModule {
    * warning: this method is lazy implemented!
    */
   @NotNull
-  Class<?> getClass(@NotNull String classFqName) throws ClassNotFoundException;
+  default Class<?> getClass(@NotNull String classFqName) throws ClassNotFoundException {
+    MPSModuleClassLoader classLoader = getClassLoader();
+    Class<?> aClass = classLoader.loadClass(classFqName);
+    if (aClass == null) {
+      throw new LoadedClassIsNullException(classLoader, classFqName);
+    }
+    return aClass;
+  }
 
 
   /**
@@ -101,7 +107,9 @@ public interface ReloadableModule extends SModule {
    * warning: this method is lazy implemented!
    */
   @NotNull
-  Class<?> getOwnClass(@NotNull String classFqName) throws ClassNotFoundException;
+  default Class<?> getOwnClass(@NotNull String classFqName) throws ClassNotFoundException {
+    return getClassLoader().loadOwnClass(classFqName);
+  }
 
   /**
    * Currently there are MPS ModuleClassLoader, dealing with regular MPS-managed modules and their generated classes,
@@ -112,18 +120,7 @@ public interface ReloadableModule extends SModule {
    * @return not null classloader associated with the module; if a specific module-related class loader is not found than the system classloader is returned
    */
   @NotNull
-  default MPSModuleClassLoader getClassLoader() {
-    return getClassLoader0();
-  }
-
-  /**
-   * @deprecated {@link #getClassLoader()} has been updated, use it instead
-   */
-  @NotNull
-  default MPSModuleClassLoader getClassLoader0() {
-    Logger.getLogger(getClass()).warnDeprecatedUse("use getClassLoader() directly");
-    return getClassLoader();
-  }
+  MPSModuleClassLoader getClassLoader();
 
   /**
    * The only legitimate way to discover source {@code SModule} from {@code ReloadableModule}.

@@ -17,7 +17,6 @@ package jetbrains.mps.module;
 
 import jetbrains.mps.classloading.ClassLoaderManager;
 import jetbrains.mps.classloading.MPSModuleClassLoader;
-import jetbrains.mps.logging.Logger;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.NotNull;
@@ -28,38 +27,12 @@ import org.jetbrains.annotations.Nullable;
  * @author apyshkin
  */
 public class ReloadableModuleBase extends AbstractModule implements ReloadableModule {
-  private final static Logger LOG = Logger.getLogger(ReloadableModuleBase.class);
   // the plan is to drop myManager field altogether, once ReloadableModule is reduced to a slim,
   // independent of SModule, interface for use solely in CLM's own hierarchy
   private final ClassLoaderManager myManager = ClassLoaderManager.getInstance(); // to remove this I need to insert CLM into constructor and that is not an easy task
 
   protected ReloadableModuleBase(@Nullable IFile file) {
     super(file);
-  }
-
-  @NotNull
-  @Override
-  public Class<?> getClass(@NotNull String classFqName) throws ClassNotFoundException {
-    return getClass(classFqName, false);
-  }
-
-  @NotNull
-  @Override
-  public Class<?> getOwnClass(@NotNull String classFqName) throws ClassNotFoundException {
-    return getClass(classFqName, true);
-  }
-
-  @NotNull
-  protected Class<?> getClass(String classFqName, boolean ownClassOnly) throws ClassNotFoundException {
-    MPSModuleClassLoader classLoader = getClassLoader();
-    if (ownClassOnly ) {
-      return classLoader.loadOwnClass(classFqName);
-    }
-    Class<?> aClass = classLoader.loadClass(classFqName);
-    if (aClass == null) {
-      throw new LoadedClassIsNullException(classLoader, classFqName);
-    }
-    return aClass;
   }
 
   @NotNull

@@ -18,14 +18,12 @@ package jetbrains.mps.smodel.tempmodel;
 import jetbrains.mps.classloading.ClassLoaderManager;
 import jetbrains.mps.classloading.MPSModuleClassLoader;
 import jetbrains.mps.module.ReloadableModule;
-import jetbrains.mps.module.ReloadableModuleBase;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.ModuleId;
 import jetbrains.mps.project.facets.JavaModuleFacet;
 import jetbrains.mps.project.structure.model.ModelRootDescriptor;
 import jetbrains.mps.project.structure.modules.ModuleDescriptor;
 import jetbrains.mps.project.structure.modules.ModuleReference;
-import jetbrains.mps.smodel.MPSModuleOwner;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleFacet;
@@ -96,18 +94,6 @@ public class TempModule extends AbstractModule implements SModule, ReloadableMod
   @Override
   public ModuleDescriptor getModuleDescriptor() {
     return myDescriptor;
-  }
-
-  @Override
-  @NotNull
-  public Class<?> getClass(@NotNull String classFqName) throws ClassNotFoundException {
-    return getClassLoader().loadClass(classFqName);
-  }
-
-  @Override
-  @NotNull
-  public Class<?> getOwnClass(@NotNull String classFqName) throws ClassNotFoundException {
-    return getClassLoader().loadOwnClass(classFqName);
   }
 
   @Override
