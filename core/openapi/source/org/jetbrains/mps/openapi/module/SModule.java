@@ -177,9 +177,13 @@ public interface SModule {
   /**
    * Listener can be added only once, the second time it's just not added
    */
-  void addModuleListener(SModuleListener listener);
+  default void addModuleListener(SModuleListener listener) {
+    // no-op
+  }
 
-  void removeModuleListener(SModuleListener listener);
+  default void removeModuleListener(SModuleListener listener) {
+    // no-op
+  }
 
   /**
    * Generally, modules may have their models available on demand, i.e. unless anyone asked for {@link #getModels()}, module
