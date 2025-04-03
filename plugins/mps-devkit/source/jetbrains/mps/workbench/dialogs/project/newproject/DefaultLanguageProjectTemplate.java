@@ -56,7 +56,7 @@ public class DefaultLanguageProjectTemplate implements LanguageProjectTemplate {
         fireSettingsChanged();
       }
     });
-    myGenerator = new JCheckBox("Create Generator");
+    myGenerator = new JCheckBox("Create Generator (as part of the language)");
     myGenerator.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent actionEvent) {
