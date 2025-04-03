@@ -72,7 +72,8 @@ fun InputStream.parseModuleFragment(): KotlinMetadata? {
     // Infer the name for the whole file as the first occurring property or function name
     // TODO this might be incorrect if several source files are merged into the current KNM
     val sourceFile = fragment.pkg?.functions?.firstNotNullOfOrNull { it.sourceFile }
-        ?: fragment.pkg?.properties?.firstNotNullOfOrNull { it.sourceFile }
+        // TODO since the type of KmProperty.file in klibExtensions is Int?, this is useless
+        // ?: fragment.pkg?.properties?.firstNotNullOfOrNull { it.sourceFile }
         ?: fragment.classes.firstNotNullOfOrNull { it.sourceFile }
 
     return KotlinMetadata(fragment, sourceFile?.name)

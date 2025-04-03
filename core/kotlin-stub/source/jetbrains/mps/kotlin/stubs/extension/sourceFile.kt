@@ -1,43 +1,23 @@
 @file:JvmName("KlibSourceFile")
 package jetbrains.mps.kotlin.stubs.extension
 
-import kotlinx.metadata.klib.KlibSourceFile
-import kotlin.metadata.*
-import kotlin.metadata.internal.ReadContext
-import kotlin.metadata.internal.extensions.KmExtension
-import kotlin.metadata.internal.extensions.getExtension
-import kotlin.metadata.internal.protobuf.GeneratedMessageLite
-
-private fun KmExtension?.sourceFile(): KlibSourceFile? {
-    return if (this is StubExtension) this.sourceFile else null
-}
-
-val KmClass.sourceFile
-    get() = getExtension(StubExtension.extensionType).sourceFile()
-
-val KmFunction.sourceFile
-    get() = getExtension(StubExtension.extensionType).sourceFile()
-
-val KmProperty.sourceFile
-    get() = getExtension(StubExtension.extensionType).sourceFile()
+import kotlinx.metadata.klib.file
+import kotlin.metadata.KmClass
+import kotlin.metadata.KmFunction
+import kotlin.metadata.KmProperty
 
 /**
- * This method is used to actually read from protobuf
- *
- * @see StubMetadataExtensions
+ * Since abandoning the own metadata extensions for parsing protobuf
+ * the extension properties defined here are simply forwarding to
+ * the ones defined in [klibExtensions].
  */
-internal fun <MessageType : GeneratedMessageLite.ExtendableMessage<MessageType>> readSourceFile(
-    visitor: Any?,
-    element: MessageType,
-    extension: GeneratedMessageLite.GeneratedExtension<MessageType, Int>,
-    context: ReadContext
-) {
-    if (visitor !is StubExtension) return
 
-    element.getExtension(extension)?.let {
-        visitor.sourceFile = context.getSourceFile(it)
-    }
-}
+val KmClass.sourceFile
+    get() = this.file
 
-private fun ReadContext.getSourceFile(index: Int) =
-    strings.getString(index).let(::KlibSourceFile)
+val KmFunction.sourceFile
+    get() = this.file
+
+// TODO the property defined in klibExtensions has type Int?, but we need KlibSourceFile
+val KmProperty.sourceFile
+    get() = this.file
