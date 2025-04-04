@@ -94,8 +94,6 @@ public class JavaToMpsUtils {
           yur.updateWithImportsOfResolved();
         }
       }
-      NodePatcher.fixNonStatic(expected);
-      NodePatcher.fixNonStatic(result);
       NodePatcher.copyImportAttrs(result, expected);
 
       List<NodeDifference> diff = TypecheckingFacade.getFromContext().computeIsolated(() -> new NodesMatcher(result, expected).diff());
@@ -123,8 +121,6 @@ public class JavaToMpsUtils {
     expected = SNodeOperations.copyNode(expected);
 
     NodePatcher.removeStatements(expected);
-    NodePatcher.fixNonStatic(expected);
-    NodePatcher.fixNonStatic(result);
     NodePatcher.copyImportAttrs(result, expected);
 
     mr.dispose();
@@ -226,7 +222,6 @@ public class JavaToMpsUtils {
       ListSequence.fromList(binModels).addElement(m);
 
       for (SNode binRoot : ListSequence.fromList(SModelOperations.roots(m, null))) {
-        NodePatcher.fixNonStatic(binRoot);
         NodePatcher.removeConstructorName(binRoot);
         NodePatcher.removeExtendsObject(binRoot);
         NodePatcher.removeInitializers(binRoot);
@@ -246,12 +241,10 @@ public class JavaToMpsUtils {
     srcModels = src2.loadModels();
 
     for (SModel m : Sequence.fromIterable(srcModels)) {
-
       SModel zzz = m;
       ListSequence.fromList(srcModelsX).addElement(zzz);
 
       for (SNode srcRoot : ListSequence.fromList(SModelOperations.roots(zzz, null))) {
-        NodePatcher.fixNonStatic(srcRoot);
         NodePatcher.removeSourceLevelAnnotations(srcRoot, myRepo);
 
         NodePatcher.sortNestedClass(SNodeOperations.cast(srcRoot, CONCEPTS.Classifier$Ix));

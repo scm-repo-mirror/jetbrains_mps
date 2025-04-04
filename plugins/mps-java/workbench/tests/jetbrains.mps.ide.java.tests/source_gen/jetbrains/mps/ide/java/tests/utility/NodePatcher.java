@@ -33,20 +33,6 @@ import org.jetbrains.mps.openapi.language.SProperty;
       SLinkOperations.setTarget(method, LINKS.body$5xQk, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4975dc2bdcfa0c49L, "jetbrains.mps.baseLanguage.structure.StubStatementList")));
     }
   }
-  /**
-   * Sometimes editor doesn't set nonStatic to true, sometimes it does.
-   * It makes node matching hard, as we don't know whether to set this property in
-   * in the parser or not.
-   * This method normalises classifier in this respect.
-   * FIXME I wonder if it's still actual?!
-   */
-  public static void fixNonStatic(SNode node) {
-    for (SNode cls : ListSequence.fromList(SNodeOperations.getNodeDescendants(node, CONCEPTS.Classifier$Ix, true, new SAbstractConcept[]{}))) {
-      if (!(cls.hasProperty(PROPS.nonStatic$aWW8))) {
-        SPropertyOperations.assign(cls, PROPS.nonStatic$aWW8, true);
-      }
-    }
-  }
   public static void removeInitializers(SNode node) {
     for (SNode field : ListSequence.fromList(SNodeOperations.getNodeDescendants(node, CONCEPTS.VariableDeclaration$Y0, false, new SAbstractConcept[]{}))) {
       SLinkOperations.setTarget(field, LINKS.initializer$2twD, null);
@@ -122,18 +108,17 @@ import org.jetbrains.mps.openapi.language.SProperty;
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept BaseMethodDeclaration$kD = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
-    /*package*/ static final SConcept Classifier$Ix = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
     /*package*/ static final SConcept VariableDeclaration$Y0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
     /*package*/ static final SConcept ConstructorDeclaration$yG = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
     /*package*/ static final SConcept ClassConcept$bK = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
     /*package*/ static final SConcept Annotation$he = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a69dc80cL, "jetbrains.mps.baseLanguage.structure.Annotation");
     /*package*/ static final SConcept EnumConstantReference$kA = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc37588bc8L, "jetbrains.mps.baseLanguage.structure.EnumConstantReference");
     /*package*/ static final SConcept AnnotationInstance$yl = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, "jetbrains.mps.baseLanguage.structure.AnnotationInstance");
+    /*package*/ static final SConcept Classifier$Ix = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
     /*package*/ static final SConcept JavaImports$b_ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53f7c33f069862f2L, "jetbrains.mps.baseLanguage.structure.JavaImports");
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty nonStatic$aWW8 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x73c6d8a8c021f99L, "nonStatic");
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

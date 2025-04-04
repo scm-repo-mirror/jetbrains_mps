@@ -2334,7 +2334,6 @@
     <node concept="1qefOq" id="4ackmjcdW2x" role="1SKRRt">
       <node concept="312cEu" id="4ackmjcdW63" role="1qenE9">
         <property role="TrG5h" value="SelfRef" />
-        <property role="2bfB8j" value="true" />
         <node concept="3Tm1VV" id="4ackmjcdW64" role="1B3o_S" />
         <node concept="3xLA65" id="4ackmjcdW6w" role="lGtFl">
           <property role="TrG5h" value="selfRef" />
@@ -2350,7 +2349,6 @@
     <node concept="1qefOq" id="13DhuT6A_V1" role="1SKRRt">
       <node concept="312cEu" id="13DhuT6A_V5" role="1qenE9">
         <property role="TrG5h" value="ClassWithIface" />
-        <property role="2bfB8j" value="true" />
         <property role="1sVAO0" value="false" />
         <node concept="3Tm1VV" id="13DhuT6A_V6" role="1B3o_S" />
         <node concept="3xLA65" id="13DhuT6A_Vb" role="lGtFl">
@@ -2380,7 +2378,6 @@
         </node>
         <node concept="3HP615" id="13DhuT6A_Vf" role="jymVt">
           <property role="TrG5h" value="Iface" />
-          <property role="2bfB8j" value="true" />
           <node concept="3Tm1VV" id="6QGYGXhMG1C" role="1B3o_S" />
           <node concept="Wx3nA" id="13DhuT6A_Vh" role="jymVt">
             <property role="TrG5h" value="x" />
@@ -2434,7 +2431,6 @@
     <node concept="1qefOq" id="70HT6wFs4JT" role="1SKRRt">
       <node concept="312cEu" id="70HT6wFs4JU" role="1qenE9">
         <property role="TrG5h" value="NestContainer" />
-        <property role="2bfB8j" value="true" />
         <node concept="3Tm1VV" id="70HT6wFs4JV" role="1B3o_S" />
         <node concept="3xLA65" id="66hA68ph_PS" role="lGtFl">
           <property role="TrG5h" value="DeepNest" />
