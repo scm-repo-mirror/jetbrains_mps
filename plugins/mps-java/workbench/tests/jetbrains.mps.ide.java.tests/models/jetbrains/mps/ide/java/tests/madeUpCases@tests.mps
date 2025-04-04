@@ -1211,8 +1211,8 @@
   </node>
   <node concept="1lH9Xt" id="4ackmjcdW2w">
     <property role="TrG5h" value="JavaToMps" />
-    <property role="26Nn1l" value="true" />
     <property role="3DII0k" value="2hh8MJdVwqX/command" />
+    <property role="26Nn1l" value="true" />
     <node concept="2XrIbr" id="68ZF3WBB3I$" role="1qtyYc">
       <property role="TrG5h" value="testsLocation" />
       <node concept="3uibUv" id="68ZF3WBBdm_" role="3clF45">

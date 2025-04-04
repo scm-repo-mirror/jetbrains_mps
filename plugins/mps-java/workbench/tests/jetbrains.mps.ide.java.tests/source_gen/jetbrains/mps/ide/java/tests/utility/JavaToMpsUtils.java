@@ -38,9 +38,11 @@ import org.jetbrains.mps.openapi.persistence.ModelRoot;
 import jetbrains.mps.extapi.model.SModelBase;
 import jetbrains.mps.smodel.tempmodel.TemporaryModels;
 import jetbrains.mps.smodel.tempmodel.TempModuleOptions;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.java.core.newparser.JavaToMpsConverter;
 import jetbrains.mps.messages.LogHandler;
 import jetbrains.mps.logging.Logger;
+import jetbrains.mps.util.IFileUtil;
 import jetbrains.mps.persistence.java.library.JavaClassStubsModelRoot;
 import java.util.Map;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
@@ -48,7 +50,6 @@ import java.util.HashMap;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SProperty;
 
 public class JavaToMpsUtils {
@@ -173,7 +174,7 @@ public class JavaToMpsUtils {
     // normalizing
     List<SModel> expectedModels = ListSequence.fromList(new ArrayList<SModel>());
     for (SModelReference expmr : expected) {
-      SModel m = expmr.resolve(myRepo);
+      SModel m = SPointerOperations.resolveModel(expmr, myRepo);
       ListSequence.fromList(expectedModels).addElement(m);
       for (SNode root : ListSequence.fromList(SModelOperations.roots(m, null))) {
         NodePatcher.removeStatements(SNodeOperations.cast(root, CONCEPTS.Classifier$Ix));
@@ -187,8 +188,14 @@ public class JavaToMpsUtils {
     // FIXME pass myRepo to use for temp module/model
     final SModel resultModel = TemporaryModels.getInstance().createReadOnly(TempModuleOptions.nonReloadableModule());
 
+    // FIXME hack to get typesystem for concepts of these languages activated (resolving a reference sometimes introduces a concept from another language
+    //      and YetUnknownResolver, #replaceYetUnresolved()&#updateWithImportsOfResolved() don't address languages, just model deps
+    ModelImports mi = new ModelImports(resultModel);
+    mi.addUsedLanguage(MetaAdapterFactory.getLanguage(0xacfc188dd5d64598L, 0xb3706f4a983f05b2L, "jetbrains.mps.baseLanguage.methodReferences"));
+    mi.addUsedLanguage(MetaAdapterFactory.getLanguage(0xfd3920347849419dL, 0x907112563d152375L, "jetbrains.mps.baseLanguage.closures"));
+
     JavaToMpsConverter dirParser = new JavaToMpsConverter(resultModel, myRepo, new LogHandler(Logger.getLogger(getClass())));
-    dirParser.convertToMps(dirPath.getChildren(), new EmptyProgressMonitor());
+    dirParser.convertToMps(IFileUtil.getAllFiles(dirPath), new EmptyProgressMonitor());
     // It looks like dirParser and its use of YetUnknownResolver needs a model from a module attached to a
     // repository (to get references resolved). The best we can do here is to have own repository for the
     // testMaterials module which is capable to delegate to another (one supplied at construction).

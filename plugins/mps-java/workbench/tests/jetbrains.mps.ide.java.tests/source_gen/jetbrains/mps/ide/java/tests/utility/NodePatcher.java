@@ -9,7 +9,6 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
@@ -43,7 +42,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
    */
   public static void fixNonStatic(SNode node) {
     for (SNode cls : ListSequence.fromList(SNodeOperations.getNodeDescendants(node, CONCEPTS.Classifier$Ix, true, new SAbstractConcept[]{}))) {
-      if (SNodeAccessUtil.getPropertyValue(cls, PROPS.nonStatic$aWW8) == null) {
+      if (!(cls.hasProperty(PROPS.nonStatic$aWW8))) {
         SPropertyOperations.assign(cls, PROPS.nonStatic$aWW8, true);
       }
     }
