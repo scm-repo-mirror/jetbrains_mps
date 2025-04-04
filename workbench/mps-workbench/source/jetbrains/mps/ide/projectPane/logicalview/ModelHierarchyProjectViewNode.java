@@ -6,7 +6,6 @@ package jetbrains.mps.ide.projectPane.logicalview;
 import com.intellij.ide.projectView.ViewSettings;
 import com.intellij.ide.util.treeView.AbstractTreeNode;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.vfs.VirtualFile;
 import jetbrains.mps.ide.ui.tree.VirtualFolder;
 import jetbrains.mps.smodel.SObject;
 import org.jetbrains.annotations.NotNull;
@@ -44,13 +43,13 @@ public class ModelHierarchyProjectViewNode extends SimpleModelProjectViewNode {
   private boolean containsSModel(SModel sModel) {
     boolean contains = false;
     if (myHierarchy != null) {
-      String modelAsVirtualFolder = getValue().getName().getLongName();
+      String modelAsVirtualFolder = asVirtualFolderName();
       contains |= myHierarchy.allValues(modelAsVirtualFolder).anyMatch(m -> Objects.equals(sModel, m));
     }
     contains |= Objects.equals(sModel, getValue());
     return contains;
   }
-  
+
   @Override
   protected boolean canRepresentSObject(SObject sObject) {
     return !sObject.hasSNode() && sObject.testIfHasSModel(sModel -> Objects.equals(sModel, getValue()));
@@ -60,7 +59,7 @@ public class ModelHierarchyProjectViewNode extends SimpleModelProjectViewNode {
   protected void fillChildren(Collection<AbstractTreeNode<?>> children) {
     // our hierarchy
     if (myHierarchy != null) {
-      myHierarchy.fillChildren(getValue().getName().getLongName(), children);
+      myHierarchy.fillChildren(asVirtualFolderName(), children);
     }
     // children hierarchy -- delegate to superclass
     super.fillChildren(children);
@@ -78,6 +77,10 @@ public class ModelHierarchyProjectViewNode extends SimpleModelProjectViewNode {
     }
 
     return lastDot >= 0 ? fullName.substring(lastDot + 1) : fullName;
+  }
+
+  protected @NotNull String asVirtualFolderName() {
+    return getValue().getName().getLongName();
   }
 
   @Override
