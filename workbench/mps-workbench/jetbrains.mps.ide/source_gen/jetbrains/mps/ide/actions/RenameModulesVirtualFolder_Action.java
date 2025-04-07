@@ -113,11 +113,11 @@ public class RenameModulesVirtualFolder_Action extends BaseAction {
         String normalized = (virtualFolder == null ? "" : virtualFolder);
         normalized = String.join(".", Arrays.asList(normalized.split("\\.+")));
         if (!(normalized.equals(virtualFolder))) {
-          return "invalid virtual folder format";
+          return "Invalid virtual folder format";
         }
         normalized = (normalized.startsWith(".") ? normalized.substring(1) : normalized);
         if (!(normalized.equals(virtualFolder))) {
-          return "virtual folder cannot start with a '.'";
+          return "Virtual folder cannot start with a '.'";
         }
         return null;
       }
