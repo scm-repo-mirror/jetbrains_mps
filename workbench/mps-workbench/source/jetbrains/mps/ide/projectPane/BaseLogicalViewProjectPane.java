@@ -33,12 +33,13 @@ import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.progress.ProgressIndicator;
 import com.intellij.openapi.progress.ProgressManager;
-import com.intellij.openapi.progress.Task;
+import com.intellij.openapi.progress.Task.Backgroundable;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.ActionCallback;
 import com.intellij.openapi.vcs.VcsDataKeys;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiFile;
+import com.intellij.ui.stripe.ErrorStripe;
 import com.intellij.util.concurrency.EdtExecutorService;
 import com.intellij.util.containers.ContainerUtil;
 import jetbrains.mps.extapi.persistence.FileSystemBasedDataSource;
@@ -50,11 +51,14 @@ import jetbrains.mps.ide.actions.SModelActionData;
 import jetbrains.mps.ide.actions.SModuleActionData;
 import jetbrains.mps.ide.actions.SNodeActionData;
 import jetbrains.mps.ide.project.ProjectHelper;
+import jetbrains.mps.ide.projectPane.logicalview.LogicalProjectViewNode;
+import jetbrains.mps.ide.projectView.MPSProjectViewSettings;
 import jetbrains.mps.ide.ui.tree.ContextValueProvider;
 import jetbrains.mps.ide.ui.tree.VirtualFolder;
 import jetbrains.mps.ide.ui.tree.VirtualFolder.Models;
 import jetbrains.mps.ide.ui.tree.VirtualFolder.Modules;
 import jetbrains.mps.ide.ui.tree.VirtualFolder.Nodes;
+import jetbrains.mps.ide.ui.tree.VirtualFolder.Transients;
 import jetbrains.mps.ide.vfs.FileSystemBridge;
 import jetbrains.mps.ide.vfs.IdeaFileSystem;
 import jetbrains.mps.logging.Logger;
@@ -151,7 +155,7 @@ public abstract class BaseLogicalViewProjectPane extends BaseProjectViewPaneWith
     EdtExecutorService.getScheduledExecutorInstance()
                       .schedule(() -> {
                         if (!callback.isDone()) {
-                          ProgressManager.getInstance().run(new Task.Backgroundable(getProject(), "Busy", false) {
+                          ProgressManager.getInstance().run(new Backgroundable(getProject(), "Busy", false) {
                             @Override
                             public void run(@NotNull ProgressIndicator indicator) {
                               indicator.setIndeterminate(true);
@@ -366,7 +370,7 @@ public abstract class BaseLogicalViewProjectPane extends BaseProjectViewPaneWith
   }
 
   /**
-   * @deprecated use {@link jetbrains.mps.ide.projectView.MPSProjectViewSettings} instead.
+   * @deprecated use {@link MPSProjectViewSettings} instead.
    */
   @Deprecated
   public boolean isSortByConcept() {
@@ -418,6 +422,14 @@ public abstract class BaseLogicalViewProjectPane extends BaseProjectViewPaneWith
     //     IMakeService once it's updated looks nice
     mpsProject.getPlatform().findComponent(MakeServiceComponent.class).get().addListener(myMakeNotificationListener);
     mpsProject.getPlatform().findComponent(LanguageRegistry.class).addRegistryListener(myClassesListener);
+  }
+
+  @Override
+  protected ErrorStripe getStripe(Object object, boolean expanded) {
+    if (expanded && object instanceof LogicalProjectViewNode) {
+      if (!((LogicalProjectViewNode<?>) object).hasOwnProblems()) return null;
+    }
+    return super.getStripe(object, expanded);
   }
 
   private void forAllModulesInProject(Consumer<SModule> moduleConsumer) {
@@ -510,7 +522,7 @@ public abstract class BaseLogicalViewProjectPane extends BaseProjectViewPaneWith
       return ActionPlace.PROJECT_PANE_PROJECT;
     } else if (selectedValue instanceof Generator) {
       return ActionPlace.PROJECT_PANE_GENERATOR;
-    } else if (selectedValue instanceof TransientModelsModule || selectedValue instanceof VirtualFolder.Transients) {
+    } else if (selectedValue instanceof TransientModelsModule || selectedValue instanceof Transients) {
       return ActionPlace.PROJECT_PANE_TRANSIENT_MODULES;
     } else if (selectedValue instanceof Nodes) {
       return ActionPlace.PROJECT_PANE_PACKAGE;

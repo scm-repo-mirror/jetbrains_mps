@@ -40,16 +40,6 @@ public class SolutionProjectViewNode extends BaseModuleProjectViewNode<Solution>
     super(project, solution, viewSettings);
   }
 
-  @Override
-  protected boolean containsSObject(SObject sObject) {
-    return sObject.testIfHasSModule(module -> Objects.equals(module, getValue()));
-  }
-
-  @Override
-  protected boolean canRepresentSObject(SObject sObject) {
-    return !sObject.hasSModel() && sObject.testIfHasSModule(sModule -> Objects.equals(sModule, getValue()));
-  }
-
   protected void fillChildren(Collection<AbstractTreeNode<?>> children, Collection<SModel> models) {
     if (getMPSSettings().isShowDescriptorModels()) {
       models.stream().filter(SModelStereotype::isDescriptorModel).findFirst().ifPresent(m -> {

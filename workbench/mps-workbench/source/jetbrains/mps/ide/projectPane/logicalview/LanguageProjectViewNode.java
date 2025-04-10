@@ -18,6 +18,7 @@ import jetbrains.mps.ide.icons.GlobalIconManager;
 import jetbrains.mps.ide.icons.IdeIcons;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.projectPane.ProjectPane;
+import jetbrains.mps.ide.projectPane.logicalview.LogicalProjectViewNode.ProblemHierarchyNode;
 import jetbrains.mps.ide.ui.tree.module.StereotypeProvider;
 import jetbrains.mps.project.GenerationStatus;
 import jetbrains.mps.project.MPSProject;
@@ -43,7 +44,7 @@ import java.util.Objects;
 /**
  * @author Fedor Isakov
  */
-public class LanguageProjectViewNode extends BranchProjectViewNode<Language> {
+public class LanguageProjectViewNode extends BranchProjectViewNode<Language> implements ProblemHierarchyNode {
 
   protected LanguageProjectViewNode(Project project, @NotNull Language language, ViewSettings viewSettings) {
     super(project, language, viewSettings);

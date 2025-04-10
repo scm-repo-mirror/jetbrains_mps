@@ -6,7 +6,7 @@ package jetbrains.mps.ide.projectPane.logicalview;
 import com.intellij.ide.projectView.ViewSettings;
 import com.intellij.ide.util.treeView.AbstractTreeNode;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.vfs.VirtualFile;
+import jetbrains.mps.ide.projectPane.logicalview.LogicalProjectViewNode.ProblemHierarchyNode;
 import jetbrains.mps.ide.ui.tree.VirtualFolder;
 import jetbrains.mps.smodel.SObject;
 import org.jetbrains.annotations.NotNull;
@@ -22,7 +22,7 @@ import java.util.Objects;
  *
  * @author Fedor Isakov
  */
-public class ModelHierarchyProjectViewNode extends SimpleModelProjectViewNode {
+public class ModelHierarchyProjectViewNode extends SimpleModelProjectViewNode implements ProblemHierarchyNode {
 
   private final AbstractVirtualFolderHierarchy<?> myHierarchy;
 

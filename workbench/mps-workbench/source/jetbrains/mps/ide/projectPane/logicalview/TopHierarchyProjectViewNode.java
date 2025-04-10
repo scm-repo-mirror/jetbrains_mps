@@ -294,16 +294,6 @@ public abstract class TopHierarchyProjectViewNode<Value> extends BranchProjectVi
     }
 
     @Override
-    protected boolean containsSObject(SObject sObject) {
-      return sObject.testIfHasSModule(sModule -> Objects.equals(sModule, getValue()));
-    }
-
-    @Override
-    protected boolean canRepresentSObject(SObject sObject) {
-      return !sObject.hasSModel() && sObject.testIfHasSModule(sModule -> Objects.equals(sModule, getValue()));
-    }
-
-    @Override
     protected void fillChildren(Collection<AbstractTreeNode<?>> children, Collection<SModel> models) {
       AbstractVirtualFolderHierarchy<?> hierarchy = new TransientModelsVirtualFolderHierarchy(models, this::getVirtualFolder);
       hierarchy.fillChildren("", children);
