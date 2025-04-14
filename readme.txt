@@ -57,7 +57,7 @@ GETTING HELP AND REPORTING ISSUES
     - documentation https://www.jetbrains.com/mps/learn/
     - JetBrains MPS space http://confluence.jetbrains.com/display/MPS/Welcome+to+JetBrains+MPS+Space
     - issue tracker http://www.jetbrains.net/tracker/issues/MPS
-    - forum https://mps-support.jetbrains.com/hc/en-us/community/topics
+    - forum https://platform.jetbrains.com/c/mps
 
 ----------------------
 Develop with pleasure!
