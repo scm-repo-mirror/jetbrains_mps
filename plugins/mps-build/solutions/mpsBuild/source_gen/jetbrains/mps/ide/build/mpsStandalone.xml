@@ -56,10 +56,6 @@
     <copy todir="${build.layout}/plugins/vcs-github">
       <fileset dir="${basedir}/plugins/vcs-github-IC" />
     </copy>
-    <mkdir dir="${build.layout}/plugins/vcs-changeReminder" />
-    <copy todir="${build.layout}/plugins/vcs-changeReminder">
-      <fileset dir="${basedir}/plugins/vcs-changeReminder" />
-    </copy>
     <mkdir dir="${build.layout}/plugins/platform-images" />
     <copy todir="${build.layout}/plugins/platform-images">
       <fileset dir="${basedir}/plugins/platform-images" />

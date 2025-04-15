@@ -439,7 +439,6 @@
     <delete dir="${basedir}/../plugins/github" failonerror="false"/>
     <delete dir="${basedir}/../plugins/ant" failonerror="false"/>
     <delete dir="${basedir}/../plugins/sh" failonerror="false"/>
-    <delete dir="${basedir}/../plugins/vcs-changeReminder" failonerror="false"/>
     <delete dir="${basedir}/../plugins/markdown" failonerror="false"/>
     <delete dir="${basedir}/../plugins/grazie" failonerror="false"/>
     <delete dir="${basedir}/../plugins/space" failonerror="false"/>

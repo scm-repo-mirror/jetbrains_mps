@@ -76,7 +76,6 @@ teamcity-info.xml
 /plugins/yaml
 /plugins/ant
 /plugins/sh
-/plugins/vcs-changeReminder
 /plugins/markdown
 /plugins/grazie
 /plugins/space
