@@ -3902,13 +3902,55 @@
           </node>
         </node>
         <node concept="3cpWs6" id="5qGXSHdwSSz" role="3cqZAp">
-          <node concept="1rXfSq" id="5qGXSHdwSTQ" role="3cqZAk">
-            <ref role="37wK5l" node="7_8SJV8KAZN" resolve="doUpdateImportVersions" />
-            <node concept="37vLTw" id="5qGXSHdwVMn" role="37wK5m">
-              <ref role="3cqZAo" node="5qGXSHdujn2" resolve="module" />
+          <node concept="1Wc70l" id="Er$e0jHafD" role="3cqZAk">
+            <node concept="1Wc70l" id="Er$e0jHTG_" role="3uHU7B">
+              <node concept="3y3z36" id="Er$e0jIobd" role="3uHU7w">
+                <node concept="10Nm6u" id="Er$e0jIqZA" role="3uHU7w" />
+                <node concept="2OqwBi" id="Er$e0jIdRe" role="3uHU7B">
+                  <node concept="1eOMI4" id="Er$e0jI3W5" role="2Oq$k0">
+                    <node concept="10QFUN" id="Er$e0jI3W2" role="1eOMHV">
+                      <node concept="3uibUv" id="Er$e0jI7QH" role="10QFUM">
+                        <ref role="3uigEE" to="z1c3:~AbstractModule" resolve="AbstractModule" />
+                      </node>
+                      <node concept="37vLTw" id="Er$e0jHXS8" role="10QFUP">
+                        <ref role="3cqZAo" node="5qGXSHdujn2" resolve="module" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="liA8E" id="Er$e0jIhNE" role="2OqNvi">
+                    <ref role="37wK5l" to="z1c3:~AbstractModule.getModuleDescriptor()" resolve="getModuleDescriptor" />
+                  </node>
+                </node>
+              </node>
+              <node concept="1Wc70l" id="Er$e0jH$k9" role="3uHU7B">
+                <node concept="2ZW3vV" id="Er$e0jHJNr" role="3uHU7w">
+                  <node concept="3uibUv" id="Er$e0jHOdL" role="2ZW6by">
+                    <ref role="3uigEE" to="z1c3:~AbstractModule" resolve="AbstractModule" />
+                  </node>
+                  <node concept="37vLTw" id="Er$e0jHDB7" role="2ZW6bz">
+                    <ref role="3cqZAo" node="5qGXSHdujn2" resolve="module" />
+                  </node>
+                </node>
+                <node concept="3fqX7Q" id="Er$e0jHvF8" role="3uHU7B">
+                  <node concept="2OqwBi" id="Er$e0jHvFa" role="3fr31v">
+                    <node concept="37vLTw" id="Er$e0jHvFb" role="2Oq$k0">
+                      <ref role="3cqZAo" node="5qGXSHdujn2" resolve="module" />
+                    </node>
+                    <node concept="liA8E" id="Er$e0jHvFc" role="2OqNvi">
+                      <ref role="37wK5l" to="lui2:~SModule.isReadOnly()" resolve="isReadOnly" />
+                    </node>
+                  </node>
+                </node>
+              </node>
             </node>
-            <node concept="3clFbT" id="5qGXSHdwZBo" role="37wK5m">
-              <property role="3clFbU" value="true" />
+            <node concept="1rXfSq" id="5qGXSHdwSTQ" role="3uHU7w">
+              <ref role="37wK5l" node="7_8SJV8KAZN" resolve="doUpdateImportVersions" />
+              <node concept="37vLTw" id="5qGXSHdwVMn" role="37wK5m">
+                <ref role="3cqZAo" node="5qGXSHdujn2" resolve="module" />
+              </node>
+              <node concept="3clFbT" id="5qGXSHdwZBo" role="37wK5m">
+                <property role="3clFbU" value="true" />
+              </node>
             </node>
           </node>
         </node>
@@ -6428,34 +6470,76 @@
               </node>
               <node concept="9aQIb" id="2V3ml1v188P" role="9aQIa">
                 <node concept="3clFbS" id="2V3ml1v188Q" role="9aQI4">
-                  <node concept="3clFbF" id="2V3ml1v188R" role="3cqZAp">
-                    <node concept="2OqwBi" id="2V3ml1v18cU" role="3clFbG">
-                      <node concept="37vLTw" id="2V3ml1v18cT" role="2Oq$k0">
-                        <ref role="3cqZAo" node="2V3ml1v1881" resolve="newDepVersions" />
-                      </node>
-                      <node concept="liA8E" id="2V3ml1v18cV" role="2OqNvi">
-                        <ref role="37wK5l" to="33ny:~Map.put(java.lang.Object,java.lang.Object)" resolve="put" />
-                        <node concept="2OqwBi" id="2V3ml1v18dm" role="37wK5m">
-                          <node concept="37vLTw" id="2V3ml1v18dl" role="2Oq$k0">
-                            <ref role="3cqZAo" node="2V3ml1v1892" resolve="dep" />
+                  <node concept="3clFbJ" id="Er$e0jJbGJ" role="3cqZAp">
+                    <node concept="3clFbS" id="Er$e0jJbGL" role="3clFbx">
+                      <node concept="3clFbF" id="2V3ml1v188R" role="3cqZAp">
+                        <node concept="2OqwBi" id="2V3ml1v18cU" role="3clFbG">
+                          <node concept="37vLTw" id="2V3ml1v18cT" role="2Oq$k0">
+                            <ref role="3cqZAo" node="2V3ml1v1881" resolve="newDepVersions" />
                           </node>
-                          <node concept="liA8E" id="2V3ml1v18dn" role="2OqNvi">
-                            <ref role="37wK5l" to="lui2:~SModule.getModuleReference()" resolve="getModuleReference" />
-                          </node>
-                        </node>
-                        <node concept="2OqwBi" id="2V3ml1v188U" role="37wK5m">
-                          <node concept="1eOMI4" id="2V3ml1v188Y" role="2Oq$k0">
-                            <node concept="10QFUN" id="2V3ml1v188V" role="1eOMHV">
-                              <node concept="37vLTw" id="2V3ml1v188W" role="10QFUP">
+                          <node concept="liA8E" id="2V3ml1v18cV" role="2OqNvi">
+                            <ref role="37wK5l" to="33ny:~Map.put(java.lang.Object,java.lang.Object)" resolve="put" />
+                            <node concept="2OqwBi" id="2V3ml1v18dm" role="37wK5m">
+                              <node concept="37vLTw" id="2V3ml1v18dl" role="2Oq$k0">
                                 <ref role="3cqZAo" node="2V3ml1v1892" resolve="dep" />
                               </node>
-                              <node concept="3uibUv" id="2V3ml1v188X" role="10QFUM">
-                                <ref role="3uigEE" to="z1c3:~AbstractModule" resolve="AbstractModule" />
+                              <node concept="liA8E" id="2V3ml1v18dn" role="2OqNvi">
+                                <ref role="37wK5l" to="lui2:~SModule.getModuleReference()" resolve="getModuleReference" />
+                              </node>
+                            </node>
+                            <node concept="2OqwBi" id="2V3ml1v188U" role="37wK5m">
+                              <node concept="1eOMI4" id="2V3ml1v188Y" role="2Oq$k0">
+                                <node concept="10QFUN" id="2V3ml1v188V" role="1eOMHV">
+                                  <node concept="37vLTw" id="2V3ml1v188W" role="10QFUP">
+                                    <ref role="3cqZAo" node="2V3ml1v1892" resolve="dep" />
+                                  </node>
+                                  <node concept="3uibUv" id="2V3ml1v188X" role="10QFUM">
+                                    <ref role="3uigEE" to="z1c3:~AbstractModule" resolve="AbstractModule" />
+                                  </node>
+                                </node>
+                              </node>
+                              <node concept="liA8E" id="2V3ml1v188Z" role="2OqNvi">
+                                <ref role="37wK5l" to="z1c3:~AbstractModule.getModuleVersion()" resolve="getModuleVersion" />
                               </node>
                             </node>
                           </node>
-                          <node concept="liA8E" id="2V3ml1v188Z" role="2OqNvi">
-                            <ref role="37wK5l" to="z1c3:~AbstractModule.getModuleVersion()" resolve="getModuleVersion" />
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="2ZW3vV" id="Er$e0jJmv8" role="3clFbw">
+                      <node concept="3uibUv" id="Er$e0jJsnr" role="2ZW6by">
+                        <ref role="3uigEE" to="z1c3:~AbstractModule" resolve="AbstractModule" />
+                      </node>
+                      <node concept="37vLTw" id="Er$e0jJg9Z" role="2ZW6bz">
+                        <ref role="3cqZAo" node="2V3ml1v1892" resolve="dep" />
+                      </node>
+                    </node>
+                    <node concept="9aQIb" id="Er$e0jJEXl" role="9aQIa">
+                      <node concept="3clFbS" id="Er$e0jJEXm" role="9aQI4">
+                        <node concept="RRSsy" id="Er$e0jJIYa" role="3cqZAp">
+                          <property role="RRSoG" value="gZ5fksE/warn" />
+                          <node concept="2YIFZM" id="Er$e0jJUfX" role="RRSoy">
+                            <ref role="37wK5l" to="wyt6:~String.format(java.lang.String,java.lang.Object...)" resolve="format" />
+                            <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
+                            <node concept="Xl_RD" id="Er$e0jJZhj" role="37wK5m">
+                              <property role="Xl_RC" value="Module %s depends from a module w/o version information %s" />
+                            </node>
+                            <node concept="2OqwBi" id="Er$e0jKcTT" role="37wK5m">
+                              <node concept="37vLTw" id="Er$e0jK6BF" role="2Oq$k0">
+                                <ref role="3cqZAo" node="2V3ml1v1rQs" resolve="module" />
+                              </node>
+                              <node concept="liA8E" id="Er$e0jKh$f" role="2OqNvi">
+                                <ref role="37wK5l" to="lui2:~SModule.getModuleName()" resolve="getModuleName" />
+                              </node>
+                            </node>
+                            <node concept="2OqwBi" id="Er$e0jKuKN" role="37wK5m">
+                              <node concept="37vLTw" id="Er$e0jKrG_" role="2Oq$k0">
+                                <ref role="3cqZAo" node="2V3ml1v1892" resolve="dep" />
+                              </node>
+                              <node concept="liA8E" id="Er$e0jK_m5" role="2OqNvi">
+                                <ref role="37wK5l" to="lui2:~SModule.getModuleName()" resolve="getModuleName" />
+                              </node>
+                            </node>
                           </node>
                         </node>
                       </node>
