@@ -296,6 +296,14 @@ public abstract class EditableSModelBase extends SModelBase implements EditableS
   public void rename(@NotNull String newModelName, boolean changeFile) {
     assertCanChange();
 
+    if (changeFile) {
+      // make sure the model is fully loaded, so that once data source is changeed, there are no chances
+      // for full-load attempt (would go south, if happens).
+      // Rename of DS only changes the name, nothing on disk yet, then we get to save(), which notices model isn't complete and loads it to full from
+      // empty/non-existent DS
+      load();
+    }
+
     SModelReference oldName = getReference();
     fireBeforeModelRenamed(new SModelRenamedEvent(this, oldName.getModelName(), newModelName));
 
