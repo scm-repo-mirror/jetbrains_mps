@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2024 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -149,6 +149,9 @@ public class MPSProject extends ProjectBase implements FileBasedProject, Project
 
   @Override
   public <T> T getComponent(Class<T> clazz) {
+    if (isDisposed()) {
+      return null;
+    }
     T rv;
     if (clazz.getAnnotation(AccessAsPlatformService.class) != null) {
       rv = getProject().getService(clazz);
