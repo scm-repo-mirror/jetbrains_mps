@@ -69,7 +69,7 @@ import jetbrains.mps.project.structure.modules.SolutionDescriptor;
 import jetbrains.mps.util.PathSpec;
 import jetbrains.mps.util.PathSpecBundle;
 import jetbrains.mps.vfs.IFile;
-import jetbrains.mps.vfs.util.PathUtil;
+import jetbrains.mps.vfs.VFSManager;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.SModuleFacet;
@@ -256,7 +256,8 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
       final FileChooserDescriptor outputPathsChooserDescriptor = FileChooserDescriptorFactory.createSingleFolderDescriptor();
       InsertPathAction.addTo(myCompileOut, outputPathsChooserDescriptor);
       outputPathsChooserDescriptor.setHideIgnored(false);
-      BrowseFilesListener listener = new BrowseFilesListener(myCompileOut, "", "", outputPathsChooserDescriptor);
+      outputPathsChooserDescriptor.withTitle(label.getText()).withDescription("");
+      BrowseFilesListener listener = new BrowseFilesListener(myCompileOut, outputPathsChooserDescriptor);
       myCompileOutPath = new FieldPanel(myCompileOut, null, null, listener, EmptyRunnable.getInstance());
       FileChooserFactory.getInstance().installFileCompletion(myCompileOutPath.getTextField(), outputPathsChooserDescriptor, true, null);
       if (myJavaModuleFacet.getClassesGen() == null) {
@@ -406,27 +407,33 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
     final Function<Object, VirtualFile[]> chooser = start -> {
       FileChooserDescriptor descriptor = FileChooserDescriptorFactory.createMultipleFoldersDescriptor();
       descriptor.setTitle("Choose Folders with Java Sources");
-      MPSProject mpsProject = null; // FIXME need project, it's ok for UI to know one.
       VirtualFile vf = null;
       String path = null;
+      final FileSystemBridge fsb = myProject.getFileSystem();
       if (start instanceof VirtualFile) {
         vf = (VirtualFile) start;
       } else if (start instanceof PathSpec) {
-        final PathSpec ps = (PathSpec) start;
+        PathSpec ps = (PathSpec) start;
         // XXX use resolvedFile once can process IFile
-        path = ps.resolved() ? ps.resolvedPath() : ps.value();
+        if (ps.resolved()) {
+          vf = fsb.asVirtualFile(ps.resolvedFile());
+          path = ps.resolvedPath(); // just in case asVirtualFile gives null
+        } else {
+          path = ps.value();
+        }
       } else if (start instanceof IFile) {
-        // FIXME mpsProject, once there, gives access to FileSystemBridge and a handy conversion IFile->VirtualFile
-        path = ((IFile) start).getPath();
-      } else {
-        path = myJavaModuleFacet.getAbstractModule().getModuleSourceDir().getPath();
+        IFile startFile = (IFile) start;
+        vf = fsb.asVirtualFile(startFile);
+        path = startFile.getPath();
+      } else if (myJavaModuleFacet.getAbstractModule().getModuleSourceDir() != null) {
+        IFile moduleSourceDir = myJavaModuleFacet.getAbstractModule().getModuleSourceDir();
+        vf = fsb.asVirtualFile(moduleSourceDir);
+        path = moduleSourceDir.getPath();
       }
-      if (vf == null) {
-        assert path != null;
-        vf = convertStringPaths2VirtualFile(Collections.singleton(path)).stream().findFirst().get();
+      if (vf == null && path != null) {
+        vf = convertStringPaths2VirtualFile(Collections.singleton(path)).stream().findFirst().orElse(null);
       }
-      final VirtualFile[] files = FileChooser.chooseFiles(descriptor, getTabComponent(), mpsProject == null ? null : mpsProject.getProject(), vf);
-      return files;
+      return FileChooser.chooseFiles(descriptor, getTabComponent(), myProject.getProject(), vf);
     };
     decorator.setAddAction(anActionButton -> {
       mySourcePathsTableModel.addNew(chooser.apply(myJavaModuleFacet.getAbstractModule().getModuleSourceDir()));
@@ -493,30 +500,36 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
       }
     });
 
+    // FIXME looks almost identical to the chooser in getSourcePathsTable(), above
     final Function<Object, VirtualFile[]> chooseLibraryFile = start -> {
       FileChooserDescriptor descriptor = FileChooserDescriptorFactory.createAllButJarContentsDescriptor();
       descriptor.setTitle("Choose Java Library File or Folder");
-      MPSProject mpsProject = null; // FIXME need project, it's ok for UI to know one.
       VirtualFile vf = null;
       String path = null;
+      FileSystemBridge fsb = myProject.getFileSystem();
       if (start instanceof VirtualFile) {
         vf = (VirtualFile) start;
       } else if (start instanceof PathSpec) {
-        final PathSpec ps = (PathSpec) start;
-        // XXX use resolvedFile once can process IFile
-        path = ps.resolved() ? ps.resolvedPath() : ps.value();
+        PathSpec pathSpec = (PathSpec) start;
+        if (pathSpec.resolved()) {
+          vf = fsb.asVirtualFile(pathSpec.resolvedFile());
+          path = pathSpec.resolvedPath(); // just in case asVirtualFile gives null
+        } else {
+          path = pathSpec.value();
+        }
       } else if (start instanceof IFile) {
-        // FIXME mpsProject, once there, gives access to FileSystemBridge and a handy conversion IFile->VirtualFile
-        path = ((IFile) start).getPath();
-      } else {
-        path = myJavaModuleFacet.getAbstractModule().getModuleSourceDir().getPath();
+        IFile startFile = (IFile) start;
+        vf = fsb.asVirtualFile(startFile);
+        path = startFile.getPath();
+      } else if (myJavaModuleFacet.getAbstractModule().getModuleSourceDir() != null) {
+        IFile moduleSourceDir = myJavaModuleFacet.getAbstractModule().getModuleSourceDir();
+        vf = fsb.asVirtualFile(moduleSourceDir);
+        path = moduleSourceDir.getPath();
       }
-      if (vf == null) {
-        assert path != null;
-        vf = convertStringPaths2VirtualFile(Collections.singleton(path)).stream().findFirst().get();
+      if (vf == null && path != null) {
+        vf = convertStringPaths2VirtualFile(Collections.singleton(path)).stream().findFirst().orElse(null);
       }
-      final VirtualFile[] files = FileChooser.chooseFiles(descriptor, getTabComponent(), mpsProject == null ? null : mpsProject.getProject(), vf);
-      return files;
+      return FileChooser.chooseFiles(descriptor, getTabComponent(), myProject.getProject(), vf);
     };
 
     ToolbarDecorator decorator = ToolbarDecorator.createDecorator(myLibrariesTable);
@@ -610,14 +623,10 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
       SolutionDescriptor descriptor = (SolutionDescriptor) myJavaModuleFacet.getAbstractModule().getModuleDescriptor();
       assert descriptor != null;
       if(!myCompileOutPath.getText().isBlank()) {
-        VirtualFile vfCompileOut = LocalFileSystem.getInstance().findFileByPath(myCompileOutPath.getText());
-        if (vfCompileOut != null) {
-          FileSystemBridge fsb = myProject.getFileSystem();
-          IFile classesGen = fsb.fromVirtualFile(vfCompileOut);
-          myJavaModuleFacet.setGeneratedClassesLocation(new PathSpec(classesGen));
-        } else {
-          myJavaModuleFacet.setGeneratedClassesLocation(new PathSpec(PathUtil.toSystemIndependent(myCompileOutPath.getText())));
-        }
+        // Shall not use LocalFileSystem as it's not capable to get non-existent VF (and there's no straightforward way to create one missing)
+        VFSManager vfsManager = myProject.getPlatform().findComponent(VFSManager.class);
+        IFile classesGen = vfsManager.getFileSystem(VFSManager.FILE_FS).getFile(myCompileOutPath.getText());
+        myJavaModuleFacet.setGeneratedClassesLocation(new PathSpec(classesGen));
       }
       if (myCompileInMPS.isSelected()) {
         myJavaModuleFacet.setCompile(Compile.MPS);
