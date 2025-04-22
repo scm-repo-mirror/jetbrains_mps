@@ -25,29 +25,40 @@ public class BreakpointProvidersManager {
   public BreakpointProvidersManager() {
     for (BreakpointProviderBean bpb : EP.getExtensionList()) {
       IBreakpointsProvider<?, ?> bp = bpb.instantiate();
-      registerProvider(bp);
+      // to prevent circular initialization error, don't access BreakpointManagerComponent
+      // FIXME refactor tight coupling b/w BreakpointsUiComponent->BreakpointManagerComponent->BreakpointProvidersManager, see MPS-38537 for stacktrace
+      doRegisterProvider(bp);
       myProviders.put(bpb.getIdentifier(), bp);
     }
   }
 
-  public void registerProvider(IBreakpointsProvider<? extends IBreakpoint, ? extends IBreakpointKind<? extends IBreakpoint>> provider) {
+  private void doRegisterProvider(IBreakpointsProvider<?, ?> provider) {
     //  I just love generics in java
-    for (IBreakpointKind kind : provider.getAllKinds()) {
+    for (IBreakpointKind<?> kind : provider.getAllKinds()) {
       myKindToProvider.put(kind, provider);
       myNameToKind.put(kind.getName(), kind);
     }
+  }
+
+  public void registerProvider(IBreakpointsProvider<? extends IBreakpoint, ? extends IBreakpointKind<? extends IBreakpoint>> provider) {
+    doRegisterProvider(provider);
     for (Project project : ProjectManager.getInstance().getOpenProjects()) {
-      BreakpointManagerComponent.getInstance(project).reReadState();
+      BreakpointManagerComponent bmc = project.getServiceIfCreated(BreakpointManagerComponent.class);
+      if (bmc != null) {
+        bmc.reReadState();
+      }
     }
   }
 
   public void unregisterProvider(IBreakpointsProvider<? extends IBreakpoint, ? extends IBreakpointKind<? extends IBreakpoint>> provider) {
     Map<BreakpointManagerComponent, Element> states = new HashMap<BreakpointManagerComponent, Element>();
     for (Project project : ProjectManager.getInstance().getOpenProjects()) {
-      BreakpointManagerComponent component = BreakpointManagerComponent.getInstance(project);
-      states.put(component, component.getState());
+      BreakpointManagerComponent component = project.getServiceIfCreated(BreakpointManagerComponent.class);
+      if (component != null) {
+        states.put(component, component.getState());
+      }
     }
-    for (IBreakpointKind kind : provider.getAllKinds()) {
+    for (IBreakpointKind<?> kind : provider.getAllKinds()) {
       myKindToProvider.remove(kind);
       myNameToKind.remove(kind.getName());
     }
