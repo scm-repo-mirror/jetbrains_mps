@@ -181,7 +181,8 @@ public final class UsagesViewTool extends BaseTabbedProjectTool implements Persi
     showResults(null, results, new UsageToolOptions().navigateIfSingle(false).allowRunAgain(false).notFoundMessage(notFoundMsg), representator);
   }
 
-  public <T> void showResults(@Nullable SearchTaskImpl searchTask, final SearchResults<T> searchResults, UsageToolOptions options, @Nullable INodeRepresentator<T> representator) {
+  private <T> void showResults(@Nullable SearchTaskImpl searchTask, final SearchResults<T> searchResults, UsageToolOptions options, @Nullable INodeRepresentator<T> representator) {
+    register();  //Make sure the tool window is properly initialized before showing results.
     if (options.myRunAgain && searchTask == null) {
       throw new IllegalStateException("Search task should be provided to allow rerunning.");
     }
@@ -198,7 +199,7 @@ public final class UsagesViewTool extends BaseTabbedProjectTool implements Persi
         new EditorNavigator(mpsProject).shallFocus(true).selectIfChild().open(node.getReference());
         return;
       }
-      // FALL THROUGH (single result we can't navigate to)
+      // FALL THROUGH (a single result we can't navigate to)
     }
     UsagesView usagesView = createUsageView(options.myRunAgain ? searchTask : null);
     usagesView.setCustomNodeRepresentator(representator);
@@ -476,8 +477,8 @@ public final class UsagesViewTool extends BaseTabbedProjectTool implements Persi
 
   private static class Factory implements com.intellij.openapi.wm.ToolWindowFactory {
     /**
-     * Returning false when no usages data has been loaded ensures that the tool button is not shown upon start.
-     * If no usages report data was loaded, without this method the platform shows a tool button, which disappears as soon as clicked.
+     * Returning false when no usage data has been loaded ensures that the tool button is not shown upon start.
+     * If no usages report data was loaded, without this method, the platform shows a tool button, which disappears as soon as clicked.
      * This method instantiates the Usages service and loads its persistent state.
      * Special care must be taken in the service's loadState/read methods to avoid registering this tool window with ToolWindowManager,
      * since it leads to double-registering and an exception thrown.
@@ -489,7 +490,7 @@ public final class UsagesViewTool extends BaseTabbedProjectTool implements Persi
     }
 
     /**
-     * Initializes the tabs from loaded state, hides the window explicitly so as not to start with open Usages
+     * Initializes the tabs from the loaded state, hides the window explicitly so as not to start with open Usages
      */
     @Override
     public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
@@ -499,10 +500,16 @@ public final class UsagesViewTool extends BaseTabbedProjectTool implements Persi
         toolWindow.hide();
         //Propagate the loaded usages report data into actual visual tabs
         if (service.loadedTabInitializer != null) {
-          ApplicationManager.getApplication().invokeLater(() -> {
+          final Runnable runnable = () -> {
             service.loadedTabInitializer.run();
             service.loadedTabInitializer = null;
-          });
+            service.openToolLater(false);
+          };
+          if (ThreadUtils.isInEDT()) {
+            runnable.run();
+          } else {
+            ApplicationManager.getApplication().invokeLater(runnable);
+          }
         }
       }
     }
