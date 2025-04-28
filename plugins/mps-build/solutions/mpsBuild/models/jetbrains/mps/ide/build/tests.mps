@@ -9619,6 +9619,9 @@
       <node concept="m$_yC" id="6sT62Z6SkkC" role="m$_yJ">
         <ref role="m$_y1" to="ffeo:4k71ibbKLe8" resolve="jetbrains.mps.core" />
       </node>
+      <node concept="m$_yC" id="6IbFeTz9Lax" role="m$_yJ">
+        <ref role="m$_y1" to="ffeo:ymnOULATpW" />
+      </node>
     </node>
     <node concept="398rNT" id="2KA2zfKHNUv" role="1l3spd">
       <property role="TrG5h" value="kotlinc_home" />
