@@ -64,6 +64,8 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.messages.MessageKind;
 import jetbrains.mps.build.mps.util.ModuleChecker;
 import jetbrains.mps.build.mps.util.IdeaPluginDependenciesHelper;
+import jetbrains.mps.util.NameUtil;
+import java.util.stream.Collectors;
 import jetbrains.mps.build.util.FetchDependenciesProcessor;
 import jetbrains.mps.generator.template.TemplateVarContext;
 import jetbrains.mps.build.util.LocalSourcePathArtifact;
@@ -1613,13 +1615,21 @@ public class QueriesGenerated extends QueryProviderBase {
 
       for (SNode plugin : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(project, LINKS.parts$mGDj), CONCEPTS.BuildMps_IdeaPlugin$po))) {
         IdeaPluginDependenciesHelper dh = new IdeaPluginDependenciesHelper(plugin);
+        // provisional default to avoid modifying a lot of build scripts to get rid of an error
         dh.ignoreMPSWorkbenchDependency();
+        final Set<String> missing = new HashSet<>();
+        Set<String> modules = new HashSet<>();
         for (SNode m : Sequence.fromIterable(dh.getPluginContent())) {
-          if (Sequence.fromIterable(dh.getUnsatisfiedDependencies(m)).isNotEmpty()) {
-            StringBuilder sb = new StringBuilder();
-            dh.printUnsatisfiedDependencies(sb, m, false);
-            _context.showErrorMessage(m, sb.toString().strip());
+          Iterable<SNode> unsatisfiedDependencies = dh.getUnsatisfiedDependencies(m);
+          if (Sequence.fromIterable(unsatisfiedDependencies).isNotEmpty()) {
+            modules.add(SPropertyOperations.getString(m, PROPS.name$MnvL));
+            Sequence.fromIterable(unsatisfiedDependencies).visitAll((it) -> missing.add(SPropertyOperations.getString(it, PROPS.name$MnvL)));
           }
+        }
+        if (!(missing.isEmpty())) {
+          String mm1 = missing.stream().map((n) -> NameUtil.compactNamespace(n)).collect(Collectors.joining(","));
+          String mm2 = modules.stream().map((n) -> NameUtil.compactNamespace(n)).collect(Collectors.joining(","));
+          _context.showErrorMessage(plugin, String.format("Plugin %s needs other plugins to satisfy missing dependencies %s, required for %s", SPropertyOperations.getString(plugin, PROPS.id$W4AX), mm1, mm2));
         }
       }
 
