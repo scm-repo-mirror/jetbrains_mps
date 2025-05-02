@@ -24,7 +24,7 @@ import jetbrains.mps.util.IterableUtil;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.util.SModelNameComparator;
 
-@GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/2721881173282450312", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
+@GeneratedClass(nodeId = "2721881173282450312", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
 public class NewSubTestModel_Action extends BaseAction {
   private static final Logger LOG = Logger.getLogger(NewSubTestModel_Action.class);
   private static final Icon ICON = MPSIcons.Nodes.TestModel;

@@ -24,7 +24,7 @@ import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import java.util.Collection;
 import java.util.HashSet;
 
-@GeneratedClass(node = "r:2897a5d4-aed7-4a4e-ac07-fbc830f9ed9b(jetbrains.mps.vcs.history)/4498559492711807995", model = "r:2897a5d4-aed7-4a4e-ac07-fbc830f9ed9b(jetbrains.mps.vcs.history)")
+@GeneratedClass(nodeId = "4498559492711807995", model = "r:2897a5d4-aed7-4a4e-ac07-fbc830f9ed9b(jetbrains.mps.vcs.history)")
 public final class RootCommitsGraphTraverser {
 
   private final Deque<CommitsGraphNode> myBranches = DequeSequence.fromDeque(new LinkedList<CommitsGraphNode>());

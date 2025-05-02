@@ -29,7 +29,7 @@ import java.io.FileInputStream;
 import java.io.OutputStream;
 import java.io.FileOutputStream;
 
-@GeneratedClass(node = "r:39e596a9-ed2d-4e2f-b055-9544a1f3a151(jetbrains.mps.tool.builder.converter)/7841036633975757760", model = "r:39e596a9-ed2d-4e2f-b055-9544a1f3a151(jetbrains.mps.tool.builder.converter)")
+@GeneratedClass(nodeId = "7841036633975757760", model = "r:39e596a9-ed2d-4e2f-b055-9544a1f3a151(jetbrains.mps.tool.builder.converter)")
 public final class ConvertToBinaryWorker {
   private final Map<File, File> myMap;
   private final Boolean myStripImplementation;

@@ -31,7 +31,7 @@ import java.util.ArrayList;
  * JDK at all), and 'java_stubs' root, with IFile and slightly different persistence values, one have to cope with two entities instead of one. I can not imagine what would be guiding idea for any 
  * other MSPS developer to pick either of these when he needs stubs functionality.
  */
-@GeneratedClass(node = "r:adc783db-1c21-4910-9cf7-6a22bf949a4a(jetbrains.mps.persistence.java.library)/8258026808687960484", model = "r:adc783db-1c21-4910-9cf7-6a22bf949a4a(jetbrains.mps.persistence.java.library)")
+@GeneratedClass(nodeId = "8258026808687960484", model = "r:adc783db-1c21-4910-9cf7-6a22bf949a4a(jetbrains.mps.persistence.java.library)")
 public class JDKStubsModelRoot extends ModelRootBase {
   private List<QualifiedPath> myJrtPaths;
   private PackageScopeControl myScopeControl;

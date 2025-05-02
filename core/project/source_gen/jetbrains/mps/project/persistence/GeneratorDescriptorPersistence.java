@@ -26,7 +26,7 @@ import jetbrains.mps.project.structure.modules.mappingpriorities.MappingConfig_R
 /**
  * XML/DOM persistence for a descriptor of Generator module 
  */
-@GeneratedClass(node = "r:a42e26eb-bbea-4e8d-a549-0d224ab71e57(jetbrains.mps.project.persistence)/842994667883030499", model = "r:a42e26eb-bbea-4e8d-a549-0d224ab71e57(jetbrains.mps.project.persistence)")
+@GeneratedClass(nodeId = "842994667883030499", model = "r:a42e26eb-bbea-4e8d-a549-0d224ab71e57(jetbrains.mps.project.persistence)")
 public class GeneratorDescriptorPersistence {
   private final String SOURCE_GEN_DEFAULT = "${module}/generator/source_gen";
 

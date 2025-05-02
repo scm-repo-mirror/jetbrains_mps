@@ -50,7 +50,7 @@ import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.vcs.diff.StructChangeSetBuilder;
 import org.jetbrains.mps.openapi.module.ModelAccess;
 
-@GeneratedClass(node = "r:df1b052a-af27-4b87-80fc-1492fa2192be(jetbrains.mps.vcs.diff.ui)/4664177994952686123", model = "r:df1b052a-af27-4b87-80fc-1492fa2192be(jetbrains.mps.vcs.diff.ui)")
+@GeneratedClass(nodeId = "4664177994952686123", model = "r:df1b052a-af27-4b87-80fc-1492fa2192be(jetbrains.mps.vcs.diff.ui)")
 public class StructDifferencePane implements PropertyChangeListener {
   private static final String PARAM_SHOW_INSPECTOR = StructDifferencePane.class.getName() + "ShowInspector";
   private static final String PARAM_INSPECTOR_SPLITTER_POSITION = StructDifferencePane.class.getName() + "InspectorSplitterPosition";

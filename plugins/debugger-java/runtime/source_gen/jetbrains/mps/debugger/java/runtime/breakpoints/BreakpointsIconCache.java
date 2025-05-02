@@ -33,7 +33,7 @@ import jetbrains.mps.debugger.api.ui.icons.Icons;
 /**
  * Project Service "Breakpoints Icon Cache"
  */
-@GeneratedClass(node = "r:b4441af2-7d93-477f-8f98-ff1136374539(jetbrains.mps.debugger.java.runtime.breakpoints)/6951057689129812782", model = "r:b4441af2-7d93-477f-8f98-ff1136374539(jetbrains.mps.debugger.java.runtime.breakpoints)")
+@GeneratedClass(nodeId = "6951057689129812782", model = "r:b4441af2-7d93-477f-8f98-ff1136374539(jetbrains.mps.debugger.java.runtime.breakpoints)")
 public class BreakpointsIconCache implements Disposable {
   private final Map<IBreakpoint, Icon> myCache = MapSequence.fromMap(new HashMap<IBreakpoint, Icon>());
   private final Project myProject;

@@ -59,7 +59,7 @@ import jetbrains.mps.smodel.event.SModelImportEvent;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
-@GeneratedClass(node = "r:74808b88-3d1c-4dc8-8642-164154f3f3a7(typesystemIntegration.languageChecker)/5031859272495377247", model = "r:74808b88-3d1c-4dc8-8642-164154f3f3a7(typesystemIntegration.languageChecker)")
+@GeneratedClass(nodeId = "5031859272495377247", model = "r:74808b88-3d1c-4dc8-8642-164154f3f3a7(typesystemIntegration.languageChecker)")
 public class AutoResolver extends BaseEventProcessingEditorChecker {
   private boolean myForceAutofix = false;
   private final MPSProject myProject;

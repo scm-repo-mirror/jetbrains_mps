@@ -37,7 +37,7 @@ import org.jetbrains.annotations.Nullable;
  * <p>
  * Note, this is not a service/component, rather a project listener for an application-wide topic
  */
-@GeneratedClass(node = "r:c10c60c4-8193-4b28-a3f2-372a46125628(jetbrains.mps.execution.impl.configurations)/5145867626676099642", model = "r:c10c60c4-8193-4b28-a3f2-372a46125628(jetbrains.mps.execution.impl.configurations)")
+@GeneratedClass(nodeId = "5145867626676099642", model = "r:c10c60c4-8193-4b28-a3f2-372a46125628(jetbrains.mps.execution.impl.configurations)")
 public class RunConfigurationsStateManager implements PluginReloadingListener {
   private static final Logger LOG = Logger.getLogger(RunConfigurationsStateManager.class);
   private final Project myProject;

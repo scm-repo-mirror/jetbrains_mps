@@ -34,7 +34,7 @@ import jetbrains.mps.openapi.editor.EditorComponent;
 import com.intellij.openapi.wm.WindowManager;
 import jetbrains.mps.editor.runtime.ReferenceResolveInEditor;
 
-@GeneratedClass(node = "r:74808b88-3d1c-4dc8-8642-164154f3f3a7(typesystemIntegration.languageChecker)/2855655749838535756", model = "r:74808b88-3d1c-4dc8-8642-164154f3f3a7(typesystemIntegration.languageChecker)")
+@GeneratedClass(nodeId = "2855655749838535756", model = "r:74808b88-3d1c-4dc8-8642-164154f3f3a7(typesystemIntegration.languageChecker)")
 public class RefScopeCheckerInEditor extends RefScopeChecker {
   public RefScopeCheckerInEditor(@NotNull ComponentHost host) {
     super(host);

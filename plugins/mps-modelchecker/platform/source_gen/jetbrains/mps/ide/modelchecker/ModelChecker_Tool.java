@@ -10,7 +10,7 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindowAnchor;
 import jetbrains.mps.ide.modelchecker.platform.actions.ModelCheckerViewer;
 
-@GeneratedClass(node = "r:0d283619-f5e4-43a0-8e4e-02f10d404489(jetbrains.mps.ide.modelchecker)/3796319281251183236", model = "r:0d283619-f5e4-43a0-8e4e-02f10d404489(jetbrains.mps.ide.modelchecker)")
+@GeneratedClass(nodeId = "3796319281251183236", model = "r:0d283619-f5e4-43a0-8e4e-02f10d404489(jetbrains.mps.ide.modelchecker)")
 public class ModelChecker_Tool extends BaseTabbedProjectTool {
   private static final Icon ICON = MPSIcons.ToolWindows.ModelChecker;
   public ModelChecker_Tool(Project project) {

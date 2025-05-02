@@ -38,7 +38,7 @@ import org.jetbrains.annotations.Nullable;
 import com.sun.jdi.Value;
 import jetbrains.mps.debugger.java.api.evaluation.proxies.MirrorUtil;
 
-@GeneratedClass(node = "r:4388830e-b413-4ab4-a4d2-e76a7bc17a27(jetbrains.mps.debugger.java.runtime.state.customViewers)/3432969378036015275", model = "r:4388830e-b413-4ab4-a4d2-e76a7bc17a27(jetbrains.mps.debugger.java.runtime.state.customViewers)")
+@GeneratedClass(nodeId = "3432969378036015275", model = "r:4388830e-b413-4ab4-a4d2-e76a7bc17a27(jetbrains.mps.debugger.java.runtime.state.customViewers)")
 public class CustomViewersManagerImpl extends CustomViewersManager {
   private static final Logger LOG = Logger.getLogger(CustomViewersManagerImpl.class);
   private final Map<String, ValueWrapperFactory> myFactories = MapSequence.fromMap(new HashMap<String, ValueWrapperFactory>());

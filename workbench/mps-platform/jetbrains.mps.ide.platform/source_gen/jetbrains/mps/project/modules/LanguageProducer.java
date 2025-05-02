@@ -42,7 +42,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
 /**
  * Creates a new Language module and registers it with a project
  */
-@GeneratedClass(node = "r:7e5abd68-4144-4e78-a2a2-1346b70af9c3(jetbrains.mps.project.modules)/1723752571811374017", model = "r:7e5abd68-4144-4e78-a2a2-1346b70af9c3(jetbrains.mps.project.modules)")
+@GeneratedClass(nodeId = "1723752571811374017", model = "r:7e5abd68-4144-4e78-a2a2-1346b70af9c3(jetbrains.mps.project.modules)")
 public class LanguageProducer {
   private static final Logger LOG = Logger.getLogger(LanguageProducer.class);
   private final MPSProject myProject;

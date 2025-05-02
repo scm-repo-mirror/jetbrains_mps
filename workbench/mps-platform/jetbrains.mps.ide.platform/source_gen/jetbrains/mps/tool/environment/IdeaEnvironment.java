@@ -54,7 +54,7 @@ import java.util.concurrent.ExecutionException;
 /**
  * TODO: fix dispose methods
  */
-@GeneratedClass(node = "r:1d4e7c57-c144-4228-9dec-8180ddf9f0ee(jetbrains.mps.tool.environment)/7413225496542992859", model = "r:1d4e7c57-c144-4228-9dec-8180ddf9f0ee(jetbrains.mps.tool.environment)")
+@GeneratedClass(nodeId = "7413225496542992859", model = "r:1d4e7c57-c144-4228-9dec-8180ddf9f0ee(jetbrains.mps.tool.environment)")
 public final class IdeaEnvironment extends EnvironmentBase {
   private static final Logger LOG = Logger.getLogger(IdeaEnvironment.class);
   private static final String PLUGIN_PATH = "plugin.path";

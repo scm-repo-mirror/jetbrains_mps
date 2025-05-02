@@ -25,7 +25,7 @@ import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Horizontal;
 import org.jetbrains.mps.util.Condition;
 import java.util.Objects;
 
-@GeneratedClass(node = "r:ca31409d-862d-455e-85ee-8d510a57013f(jetbrains.mps.debugger.core)/8424806882555133838", model = "r:ca31409d-862d-455e-85ee-8d510a57013f(jetbrains.mps.debugger.core)")
+@GeneratedClass(nodeId = "8424806882555133838", model = "r:ca31409d-862d-455e-85ee-8d510a57013f(jetbrains.mps.debugger.core)")
 public abstract class DebuggerCellPainter<E> extends AbstractAdditionalPainter<E> {
   private static final int LEFT_MARGIN = 4;
   private Map<EditorComponent, EditorCell> myCells = MapSequence.fromMap(new HashMap<EditorComponent, EditorCell>());

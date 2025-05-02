@@ -15,7 +15,7 @@ import java.util.function.Consumer;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.NotNull;
 
-@GeneratedClass(node = "r:bf32fdbc-530f-4631-ba64-3e7b620ac47f(jetbrains.mps.baseLanguage.util)/3474473076929729944", model = "r:bf32fdbc-530f-4631-ba64-3e7b620ac47f(jetbrains.mps.baseLanguage.util)")
+@GeneratedClass(nodeId = "3474473076929729944", model = "r:bf32fdbc-530f-4631-ba64-3e7b620ac47f(jetbrains.mps.baseLanguage.util)")
 public class CodeStyleSettingsRegistry implements CoreComponent, CodeStyleSettingsProvider {
   private final Map<Project, CodeStyleSettings> myProjectToSettingsMap = MapSequence.fromMap(new HashMap<Project, CodeStyleSettings>());
 

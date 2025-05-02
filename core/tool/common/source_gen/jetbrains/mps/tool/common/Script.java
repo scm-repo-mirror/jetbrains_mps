@@ -18,7 +18,7 @@ import org.jdom.Document;
 import java.io.IOException;
 import org.jdom.JDOMException;
 
-@GeneratedClass(node = "r:067fd2c9-d009-4506-91db-a69992d65964(jetbrains.mps.tool.common)/878521226297927156", model = "r:067fd2c9-d009-4506-91db-a69992d65964(jetbrains.mps.tool.common)")
+@GeneratedClass(nodeId = "878521226297927156", model = "r:067fd2c9-d009-4506-91db-a69992d65964(jetbrains.mps.tool.common)")
 public class Script {
   private static final String ELEMENT_TODO = "todo";
   private static final String ELEMENT_MODEL = "model";

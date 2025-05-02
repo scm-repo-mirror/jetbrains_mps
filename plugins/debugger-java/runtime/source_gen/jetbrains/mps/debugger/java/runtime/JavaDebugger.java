@@ -11,7 +11,7 @@ import jetbrains.mps.debugger.java.runtime.engine.VmCreator;
 import jetbrains.mps.debug.api.breakpoints.IBreakpointsProvider;
 import jetbrains.mps.debug.api.breakpoints.BreakpointProvidersManager;
 
-@GeneratedClass(node = "r:171d7488-7735-44dd-8049-f905d8fca4b0(jetbrains.mps.debugger.java.runtime)/4352118152439837554", model = "r:171d7488-7735-44dd-8049-f905d8fca4b0(jetbrains.mps.debugger.java.runtime)")
+@GeneratedClass(nodeId = "4352118152439837554", model = "r:171d7488-7735-44dd-8049-f905d8fca4b0(jetbrains.mps.debugger.java.runtime)")
 public class JavaDebugger extends AbstractDebugger {
 
   public JavaDebugger() {

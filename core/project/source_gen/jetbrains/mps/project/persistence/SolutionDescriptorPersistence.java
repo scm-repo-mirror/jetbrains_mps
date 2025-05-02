@@ -16,7 +16,7 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 /**
  * XML/DOM persistence for a descriptor of Solution module
  */
-@GeneratedClass(node = "r:a42e26eb-bbea-4e8d-a549-0d224ab71e57(jetbrains.mps.project.persistence)/842994667883032842", model = "r:a42e26eb-bbea-4e8d-a549-0d224ab71e57(jetbrains.mps.project.persistence)")
+@GeneratedClass(nodeId = "842994667883032842", model = "r:a42e26eb-bbea-4e8d-a549-0d224ab71e57(jetbrains.mps.project.persistence)")
 public class SolutionDescriptorPersistence {
   private final String SOURCE_GEN_DEFAULT = "${module}/source_gen";
 

@@ -35,7 +35,7 @@ import jetbrains.mps.classloading.ClassLoaderManager;
  * much pain, provided rest of MPS sticks to ReloadableModule (e.g. temp models and console)
  * Although generic GenerationTargetFacet could suffice here to control output, need JMF to facilitate compilation/classloading
  */
-@GeneratedClass(node = "r:f5448de3-0d76-42bb-afa7-00b3b32de849(jetbrains.mps.debugger.java.runtime.evaluation.container)/846214144107996104", model = "r:f5448de3-0d76-42bb-afa7-00b3b32de849(jetbrains.mps.debugger.java.runtime.evaluation.container)")
+@GeneratedClass(nodeId = "846214144107996104", model = "r:f5448de3-0d76-42bb-afa7-00b3b32de849(jetbrains.mps.debugger.java.runtime.evaluation.container)")
 public final class EvaluationModule extends AbstractModule implements ReloadableModule {
   private final ModuleDescriptor myDescriptor;
   private final ComponentHost myPlatform;

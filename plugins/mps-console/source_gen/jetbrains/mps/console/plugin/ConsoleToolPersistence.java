@@ -18,7 +18,7 @@ import java.util.Objects;
 @Service(Service.Level.PROJECT)
 @State(name = "ConsoleHistory", storages = @Storage(value = StoragePathMacros.WORKSPACE_FILE)
 )
-@GeneratedClass(node = "r:12d1fcfd-d198-4520-8b28-436d7e8a8ae6(jetbrains.mps.console.plugin)/7590011715503896212", model = "r:12d1fcfd-d198-4520-8b28-436d7e8a8ae6(jetbrains.mps.console.plugin)")
+@GeneratedClass(nodeId = "7590011715503896212", model = "r:12d1fcfd-d198-4520-8b28-436d7e8a8ae6(jetbrains.mps.console.plugin)")
 public final class ConsoleToolPersistence implements PersistentStateComponent<MyState> {
   private final Project myProject;
   private MyState loadedState = null;

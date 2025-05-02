@@ -11,7 +11,7 @@ import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.nodeEditor.AdditionalPainter;
 import jetbrains.mps.debugger.core.CurrentLinePositionComponentEx;
 
-@GeneratedClass(node = "r:e85e5755-b656-44cc-a19b-af0b99b30b13(jetbrains.mps.debugger.core.breakpoints)/8589065642488591173", model = "r:e85e5755-b656-44cc-a19b-af0b99b30b13(jetbrains.mps.debugger.core.breakpoints)")
+@GeneratedClass(nodeId = "8589065642488591173", model = "r:e85e5755-b656-44cc-a19b-af0b99b30b13(jetbrains.mps.debugger.core.breakpoints)")
 public abstract class BreakpointPainterEx<B> extends DebuggerCellPainter<B> {
   private static final Color CELL_BACKGROUND_COLOR = new Color(255, 200, 200, 50);
   protected final B myBreakpoint;

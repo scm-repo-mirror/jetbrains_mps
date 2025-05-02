@@ -57,7 +57,7 @@ import jetbrains.mps.messages.IMessage;
 import java.io.StringWriter;
 import java.io.PrintWriter;
 
-@GeneratedClass(node = "r:d1867d68-bb03-4cb4-adc6-3d5ffa40e888(jetbrains.mps.testbench)/8597743085639790147", model = "r:d1867d68-bb03-4cb4-adc6-3d5ffa40e888(jetbrains.mps.testbench)")
+@GeneratedClass(nodeId = "8597743085639790147", model = "r:d1867d68-bb03-4cb4-adc6-3d5ffa40e888(jetbrains.mps.testbench)")
 public class ModuleGenerationHolder {
   private static String[] BINARY_FILE_EXTENSIONS = new String[]{".png", ".gif"};
   private Set<String> ignoredFiles = SetSequence.fromSetAndArray(new HashSet<String>(), "generated", "dependencies");

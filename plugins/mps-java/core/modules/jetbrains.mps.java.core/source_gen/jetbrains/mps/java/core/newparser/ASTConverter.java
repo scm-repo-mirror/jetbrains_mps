@@ -76,7 +76,7 @@ import org.jetbrains.mps.openapi.language.SReferenceLink;
 /**
  * Convert eclipse AST into BaseLanguage nodes.
  */
-@GeneratedClass(node = "r:b1598fca-3527-4718-b3ee-193781dbf052(jetbrains.mps.java.core.newparser)/3493766494546486454", model = "r:b1598fca-3527-4718-b3ee-193781dbf052(jetbrains.mps.java.core.newparser)")
+@GeneratedClass(nodeId = "3493766494546486454", model = "r:b1598fca-3527-4718-b3ee-193781dbf052(jetbrains.mps.java.core.newparser)")
 public class ASTConverter {
   private static final Logger LOG = Logger.getLogger(ASTConverter.class);
   private boolean myOnlyStubs = false;

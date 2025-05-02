@@ -9,7 +9,7 @@ import jetbrains.mps.project.Project;
  * 
  * @since 2024.2
  */
-@GeneratedClass(node = "r:bf32fdbc-530f-4631-ba64-3e7b620ac47f(jetbrains.mps.baseLanguage.util)/4475567139869004313", model = "r:bf32fdbc-530f-4631-ba64-3e7b620ac47f(jetbrains.mps.baseLanguage.util)")
+@GeneratedClass(nodeId = "4475567139869004313", model = "r:bf32fdbc-530f-4631-ba64-3e7b620ac47f(jetbrains.mps.baseLanguage.util)")
 public interface CodeStyleSettingsProvider {
   CodeStyleSettings getSettings(Project project);
 }

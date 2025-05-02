@@ -21,7 +21,7 @@ import jetbrains.mps.progress.ProgressMonitorAdapter;
 import com.intellij.openapi.progress.EmptyProgressIndicator;
 import com.intellij.openapi.progress.ProgressManager;
 
-@GeneratedClass(node = "r:38f1070b-d1ae-4036-84ce-ffb866741b84(jetbrains.mps.workbench.progress)/2961775013264836716", model = "r:38f1070b-d1ae-4036-84ce-ffb866741b84(jetbrains.mps.workbench.progress)")
+@GeneratedClass(nodeId = "2961775013264836716", model = "r:38f1070b-d1ae-4036-84ce-ffb866741b84(jetbrains.mps.workbench.progress)")
 public class IdeaPlatformTaskScheduler extends AbstractBackgroundTaskScheduler<Task.Backgroundable> {
 
   public IdeaPlatformTaskScheduler(Project mpsProject) {

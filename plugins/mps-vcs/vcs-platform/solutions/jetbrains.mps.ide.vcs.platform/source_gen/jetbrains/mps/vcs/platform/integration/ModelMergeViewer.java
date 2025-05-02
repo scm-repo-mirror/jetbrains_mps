@@ -48,7 +48,7 @@ import com.intellij.openapi.editor.Document;
 import java.nio.charset.Charset;
 import com.intellij.openapi.vfs.CharsetToolkit;
 
-@GeneratedClass(node = "r:f7252e75-44f2-46f6-9600-c9b291e7dd5f(jetbrains.mps.vcs.platform.integration)/5085852630254873851", model = "r:f7252e75-44f2-46f6-9600-c9b291e7dd5f(jetbrains.mps.vcs.platform.integration)")
+@GeneratedClass(nodeId = "5085852630254873851", model = "r:f7252e75-44f2-46f6-9600-c9b291e7dd5f(jetbrains.mps.vcs.platform.integration)")
 public class ModelMergeViewer implements MergeTool.MergeViewer {
   private static final Logger LOG = Logger.getLogger(ModelMergeViewer.class);
 

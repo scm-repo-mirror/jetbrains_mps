@@ -42,7 +42,7 @@ import com.intellij.openapi.vcs.changes.ByteBackedContentRevision;
 import jetbrains.mps.util.FileUtil;
 import com.intellij.openapi.vcs.VcsException;
 
-@GeneratedClass(node = "r:d634c129-ecb4-4acd-bd8c-5f057c144ffa(jetbrains.mps.vcs.changesmanager)/2253323551303625635", model = "r:d634c129-ecb4-4acd-bd8c-5f057c144ffa(jetbrains.mps.vcs.changesmanager)")
+@GeneratedClass(nodeId = "2253323551303625635", model = "r:d634c129-ecb4-4acd-bd8c-5f057c144ffa(jetbrains.mps.vcs.changesmanager)")
 /*package*/ final class BaseVersionModelLoader {
   private static final Logger LOG = Logger.getLogger(BaseVersionModelLoader.class);
   private final Project myProject;

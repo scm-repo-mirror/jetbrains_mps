@@ -33,7 +33,7 @@ import org.jetbrains.mps.openapi.model.ResolveInfo;
 import jetbrains.mps.util.Pair;
 import jetbrains.mps.smodel.SNodePointer;
 
-@GeneratedClass(node = "r:469db833-fce3-4137-9319-1d2a980eddc8(jetbrains.mps.smodel.persistence.def.v9)/5480414999147803697", model = "r:469db833-fce3-4137-9319-1d2a980eddc8(jetbrains.mps.smodel.persistence.def.v9)")
+@GeneratedClass(nodeId = "5480414999147803697", model = "r:469db833-fce3-4137-9319-1d2a980eddc8(jetbrains.mps.smodel.persistence.def.v9)")
 public class ModelReader9Handler extends XMLSAXHandler<ModelLoadResult> {
   private ModelElementHandler modelHandler = new ModelElementHandler();
   private PersistenceElementHandler persistenceHandler = new PersistenceElementHandler();

@@ -21,7 +21,7 @@ import org.jetbrains.mps.openapi.model.SModelReference;
  * XXX Now with all uses of trace info gone, this ^^^ comment deserves an update (together with removal of deprecated methods)
  *     Don't forget to check [debugger-api-api] dependencies, likely there's no need for [debuginfo] dependency (as well as in mpsDebuggerPlugin build project)
  */
-@GeneratedClass(node = "r:d910d08e-4a00-41f9-ac8b-b7c374586874(jetbrains.mps.debug.api.breakpoints)/4474271214082916065", model = "r:d910d08e-4a00-41f9-ac8b-b7c374586874(jetbrains.mps.debug.api.breakpoints)")
+@GeneratedClass(nodeId = "4474271214082916065", model = "r:d910d08e-4a00-41f9-ac8b-b7c374586874(jetbrains.mps.debug.api.breakpoints)")
 public class BreakpointLocation {
   private final SNodeReference myNode;
 

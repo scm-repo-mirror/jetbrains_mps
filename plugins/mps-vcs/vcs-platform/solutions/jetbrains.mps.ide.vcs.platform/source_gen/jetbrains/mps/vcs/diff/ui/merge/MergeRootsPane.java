@@ -76,7 +76,7 @@ import java.nio.charset.StandardCharsets;
 import com.intellij.ui.JBColor;
 import java.awt.Color;
 
-@GeneratedClass(node = "r:351fe3d9-2ce5-4ea0-8afc-9b076259a949(jetbrains.mps.vcs.diff.ui.merge)/2657001694096388534", model = "r:351fe3d9-2ce5-4ea0-8afc-9b076259a949(jetbrains.mps.vcs.diff.ui.merge)")
+@GeneratedClass(nodeId = "2657001694096388534", model = "r:351fe3d9-2ce5-4ea0-8afc-9b076259a949(jetbrains.mps.vcs.diff.ui.merge)")
 public class MergeRootsPane implements PropertyChangeListener {
   private static final String PARAM_SHOW_INSPECTOR = MergeRootsPane.class.getName() + "ShowInspector";
   private static final String PARAM_INSPECTOR_SPLITTER_POSITION = MergeRootsPane.class.getName() + "InspectorSplitterPosition";

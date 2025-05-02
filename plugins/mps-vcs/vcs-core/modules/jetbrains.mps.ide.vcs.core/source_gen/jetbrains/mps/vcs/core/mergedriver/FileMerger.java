@@ -11,7 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import jetbrains.mps.util.FileUtil;
 
-@GeneratedClass(node = "r:a178d3c3-970e-4352-b61c-4e55abc3bc24(jetbrains.mps.vcs.core.mergedriver)/3342666646761725292", model = "r:a178d3c3-970e-4352-b61c-4e55abc3bc24(jetbrains.mps.vcs.core.mergedriver)")
+@GeneratedClass(nodeId = "3342666646761725292", model = "r:a178d3c3-970e-4352-b61c-4e55abc3bc24(jetbrains.mps.vcs.core.mergedriver)")
 public class FileMerger {
   private FileMerger() {
   }

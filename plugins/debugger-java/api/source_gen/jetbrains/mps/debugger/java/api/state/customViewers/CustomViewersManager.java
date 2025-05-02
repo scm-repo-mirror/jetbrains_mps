@@ -12,7 +12,7 @@ import com.sun.jdi.Value;
 import com.sun.jdi.ThreadReference;
 import com.intellij.openapi.application.ApplicationManager;
 
-@GeneratedClass(node = "r:42278aae-7cc0-4e00-9041-018f7301c362(jetbrains.mps.debugger.java.api.state.customViewers)/3432969378036015275", model = "r:42278aae-7cc0-4e00-9041-018f7301c362(jetbrains.mps.debugger.java.api.state.customViewers)")
+@GeneratedClass(nodeId = "3432969378036015275", model = "r:42278aae-7cc0-4e00-9041-018f7301c362(jetbrains.mps.debugger.java.api.state.customViewers)")
 public abstract class CustomViewersManager {
   public static final ExtensionPointName<ValueWrapperFactory> EXT_POINT = ExtensionPointName.create("jetbrains.mps.debugger.valueViewer");
 

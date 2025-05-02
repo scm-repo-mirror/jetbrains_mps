@@ -13,7 +13,7 @@ import jetbrains.mps.openapi.editor.cells.EditorCellFactory;
 import jetbrains.mps.openapi.editor.update.UpdateSession;
 import jetbrains.mps.openapi.editor.style.StyleRegistry;
 
-@GeneratedClass(node = "r:1e25de74-7cc0-4f15-8cec-3735c776efd2(jetbrains.mps.editor.runtime.style)/3966946038721923250", model = "r:1e25de74-7cc0-4f15-8cec-3735c776efd2(jetbrains.mps.editor.runtime.style)")
+@GeneratedClass(nodeId = "3966946038721923250", model = "r:1e25de74-7cc0-4f15-8cec-3735c776efd2(jetbrains.mps.editor.runtime.style)")
 public abstract class AbstractStyleClass implements EditorBuilderEnvironment {
   private final SNode myNode;
   private final EditorBuilderEnvironment myEditorEnv;

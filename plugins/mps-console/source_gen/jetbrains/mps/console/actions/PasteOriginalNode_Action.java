@@ -22,7 +22,7 @@ import jetbrains.mps.workbench.action.ActionUtils;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.IdeActions;
 
-@GeneratedClass(node = "r:ab572aa6-6e4f-43f3-8bc9-ad4a8ae29372(jetbrains.mps.console.actions)/4830115408604521229", model = "r:ab572aa6-6e4f-43f3-8bc9-ad4a8ae29372(jetbrains.mps.console.actions)")
+@GeneratedClass(nodeId = "4830115408604521229", model = "r:ab572aa6-6e4f-43f3-8bc9-ad4a8ae29372(jetbrains.mps.console.actions)")
 public class PasteOriginalNode_Action extends BaseAction {
   private static final Icon ICON = null;
 

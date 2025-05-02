@@ -6,7 +6,7 @@ import jetbrains.mps.annotations.GeneratedClass;
 import org.jetbrains.mps.openapi.model.SNode;
 import com.intellij.openapi.application.ApplicationManager;
 
-@GeneratedClass(node = "r:9e383f3b-cf02-4e9f-861b-72b030ba5e68(jetbrains.mps.debugger.java.api.evaluation.transform)/4871586248217809898", model = "r:9e383f3b-cf02-4e9f-861b-72b030ba5e68(jetbrains.mps.debugger.java.api.evaluation.transform)")
+@GeneratedClass(nodeId = "4871586248217809898", model = "r:9e383f3b-cf02-4e9f-861b-72b030ba5e68(jetbrains.mps.debugger.java.api.evaluation.transform)")
 public abstract class TransformatorBuilder {
   public TransformatorBuilder() {
   }

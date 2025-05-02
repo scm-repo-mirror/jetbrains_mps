@@ -44,7 +44,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
  * 
  * Each visitor has a single instance and reports to the module indexer (they can be reused several times).
  */
-@GeneratedClass(node = "r:839db98b-6aa7-4fd6-a3a0-c413dbdb3e27(jetbrains.mps.kotlin.idePlugin.fastSearch)/8550542210338422830", model = "r:839db98b-6aa7-4fd6-a3a0-c413dbdb3e27(jetbrains.mps.kotlin.idePlugin.fastSearch)")
+@GeneratedClass(nodeId = "8550542210338422830", model = "r:839db98b-6aa7-4fd6-a3a0-c413dbdb3e27(jetbrains.mps.kotlin.idePlugin.fastSearch)")
 public class KtModuleIndexer {
   private Map<IdIndexEntry, Integer> entries = new HashMap<>();
 

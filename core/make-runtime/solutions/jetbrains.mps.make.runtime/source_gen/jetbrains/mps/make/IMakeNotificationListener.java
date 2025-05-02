@@ -8,7 +8,7 @@ import jetbrains.mps.annotations.GeneratedClass;
  * Note, the only entry point for the listener is {@link jetbrains.mps.make.IMakeNotificationListener#handleNotification(MakeNotification) }, other methods are just for convenience and
  * are invoked from this listener implementation, not from a make service.
  */
-@GeneratedClass(node = "r:b25dd364-bc3f-4a66-97d1-262009610c5e(jetbrains.mps.make)/8464977774480012290", model = "r:b25dd364-bc3f-4a66-97d1-262009610c5e(jetbrains.mps.make)")
+@GeneratedClass(nodeId = "8464977774480012290", model = "r:b25dd364-bc3f-4a66-97d1-262009610c5e(jetbrains.mps.make)")
 public interface IMakeNotificationListener {
 
   default void handleNotification(MakeNotification notification) {

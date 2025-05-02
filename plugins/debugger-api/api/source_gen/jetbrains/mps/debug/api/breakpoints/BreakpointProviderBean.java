@@ -10,7 +10,7 @@ import com.intellij.openapi.extensions.RequiredElement;
 import com.intellij.openapi.application.ApplicationManager;
 import org.jetbrains.annotations.NotNull;
 
-@GeneratedClass(node = "r:d910d08e-4a00-41f9-ac8b-b7c374586874(jetbrains.mps.debug.api.breakpoints)/5915610564249047170", model = "r:d910d08e-4a00-41f9-ac8b-b7c374586874(jetbrains.mps.debug.api.breakpoints)")
+@GeneratedClass(nodeId = "5915610564249047170", model = "r:d910d08e-4a00-41f9-ac8b-b7c374586874(jetbrains.mps.debug.api.breakpoints)")
 public class BreakpointProviderBean implements PluginAware {
   private PluginDescriptor myDescriptor;
 

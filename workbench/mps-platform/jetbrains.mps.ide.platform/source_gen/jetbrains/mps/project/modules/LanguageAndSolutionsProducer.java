@@ -29,7 +29,7 @@ import org.jetbrains.mps.openapi.model.SModelName;
  * Just a handy alternative to using separate LanguageProducer and SolutionProducer
  * (use producers directly in case defaults are not fine for your scenarios)
  */
-@GeneratedClass(node = "r:7e5abd68-4144-4e78-a2a2-1346b70af9c3(jetbrains.mps.project.modules)/3515481342124049796", model = "r:7e5abd68-4144-4e78-a2a2-1346b70af9c3(jetbrains.mps.project.modules)")
+@GeneratedClass(nodeId = "3515481342124049796", model = "r:7e5abd68-4144-4e78-a2a2-1346b70af9c3(jetbrains.mps.project.modules)")
 public class LanguageAndSolutionsProducer {
   private final MPSProject myProject;
   private boolean myRuntime = false;

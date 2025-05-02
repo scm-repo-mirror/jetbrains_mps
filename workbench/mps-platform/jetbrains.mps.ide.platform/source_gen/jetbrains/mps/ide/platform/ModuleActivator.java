@@ -30,7 +30,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Arrays;
 import java.util.Collections;
 
-@GeneratedClass(node = "r:c3f8847b-5450-45d4-8ef0-445954b1dc9e(jetbrains.mps.ide.platform)/4475567139869328645", model = "r:c3f8847b-5450-45d4-8ef0-445954b1dc9e(jetbrains.mps.ide.platform)")
+@GeneratedClass(nodeId = "4475567139869328645", model = "r:c3f8847b-5450-45d4-8ef0-445954b1dc9e(jetbrains.mps.ide.platform)")
 public final class ModuleActivator implements ModuleRuntime.Activator {
   private final ComponentHost myPlatform;
   private TestsModelAutoImports myTestModelImports;

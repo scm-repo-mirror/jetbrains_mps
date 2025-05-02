@@ -8,7 +8,7 @@ import jetbrains.mps.components.ComponentHost;
 import jetbrains.mps.java.core.sourceStubs.EmptyJavaSourceStubsFindUsages;
 import jetbrains.mps.persistence.PersistenceRegistry;
 
-@GeneratedClass(node = "r:9d4a2511-a545-4776-ae79-2974069a3ee1(jetbrains.mps.java.core)/4823129786885617827", model = "r:9d4a2511-a545-4776-ae79-2974069a3ee1(jetbrains.mps.java.core)")
+@GeneratedClass(nodeId = "4823129786885617827", model = "r:9d4a2511-a545-4776-ae79-2974069a3ee1(jetbrains.mps.java.core)")
 public final class ModuleActivator implements ModuleRuntime.Activator {
   private final ComponentHost myPlatform;
   private EmptyJavaSourceStubsFindUsages myFindParticipant;

@@ -19,7 +19,7 @@ import com.sun.jdi.AbsentInformationException;
 import jetbrains.mps.ide.ThreadUtils;
 import jetbrains.mps.debugger.java.api.ui.Icons;
 
-@GeneratedClass(node = "r:ac4cce94-c169-4971-be8f-807482637028(jetbrains.mps.debugger.java.api.state.proxy)/3432969378036014521", model = "r:ac4cce94-c169-4971-be8f-807482637028(jetbrains.mps.debugger.java.api.state.proxy)")
+@GeneratedClass(nodeId = "3432969378036014521", model = "r:ac4cce94-c169-4971-be8f-807482637028(jetbrains.mps.debugger.java.api.state.proxy)")
 public class JavaThread extends ProxyForJava implements IThread {
   private static final Logger LOG = Logger.getLogger(JavaThread.class);
   @NotNull

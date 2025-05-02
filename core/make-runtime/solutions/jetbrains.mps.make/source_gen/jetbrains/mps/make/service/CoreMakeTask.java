@@ -31,7 +31,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.IMapping;
 
-@GeneratedClass(node = "r:7cb72aee-d3e2-47e9-9964-3abda6a73a9a(jetbrains.mps.make.service)/7184932954667864779", model = "r:7cb72aee-d3e2-47e9-9964-3abda6a73a9a(jetbrains.mps.make.service)")
+@GeneratedClass(nodeId = "7184932954667864779", model = "r:7cb72aee-d3e2-47e9-9964-3abda6a73a9a(jetbrains.mps.make.service)")
 public class CoreMakeTask {
   private IResult myResult = null;
   private final MakeSequence myMakeSequence;

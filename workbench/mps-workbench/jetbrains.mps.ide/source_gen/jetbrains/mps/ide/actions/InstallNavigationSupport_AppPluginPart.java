@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 import jetbrains.mps.openapi.navigation.NavigationSupport;
 import jetbrains.mps.ide.navigation.NavigationSupportImpl;
 
-@GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/714352980892078453", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
+@GeneratedClass(nodeId = "714352980892078453", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
 public class InstallNavigationSupport_AppPluginPart extends ApplicationPluginPart {
   private DynamicComponentWarden.Token myNavSupportImpl;
   public InstallNavigationSupport_AppPluginPart() {

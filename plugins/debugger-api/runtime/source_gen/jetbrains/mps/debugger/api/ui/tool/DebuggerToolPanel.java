@@ -42,7 +42,7 @@ import javax.swing.AbstractListModel;
 import javax.swing.ComboBoxModel;
 import java.util.List;
 
-@GeneratedClass(node = "r:891e5016-c8e3-4b89-90ed-01a5f21e6fc3(jetbrains.mps.debugger.api.ui.tool)/4474271214083120661", model = "r:891e5016-c8e3-4b89-90ed-01a5f21e6fc3(jetbrains.mps.debugger.api.ui.tool)")
+@GeneratedClass(nodeId = "4474271214083120661", model = "r:891e5016-c8e3-4b89-90ed-01a5f21e6fc3(jetbrains.mps.debugger.api.ui.tool)")
 public class DebuggerToolPanel {
   @NotNull
   private final AbstractDebugSession myDebugSession;

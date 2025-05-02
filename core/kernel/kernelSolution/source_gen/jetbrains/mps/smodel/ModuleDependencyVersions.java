@@ -35,7 +35,7 @@ import jetbrains.mps.internal.collections.runtime.CollectionSequence;
  * Update MPS internal records of versions for module dependencies. 
  * These versions are persisted as part of module descriptor.
  */
-@GeneratedClass(node = "r:5ff047e0-2953-4750-806a-bdc16824aa89(jetbrains.mps.smodel)/6245638960928226903", model = "r:5ff047e0-2953-4750-806a-bdc16824aa89(jetbrains.mps.smodel)")
+@GeneratedClass(nodeId = "6245638960928226903", model = "r:5ff047e0-2953-4750-806a-bdc16824aa89(jetbrains.mps.smodel)")
 public final class ModuleDependencyVersions {
   private static final Logger LOG = Logger.getLogger(ModuleDependencyVersions.class);
   private final LanguageRegistry myLanguageRegistry;

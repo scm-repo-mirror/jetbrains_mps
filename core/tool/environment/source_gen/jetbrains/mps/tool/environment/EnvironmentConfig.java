@@ -21,7 +21,7 @@ import jetbrains.mps.util.PathManager;
  * 
  * @see jetbrains.mps.tool.environment.Environment 
  */
-@GeneratedClass(node = "r:2876f1ee-0b45-4db5-8c09-0682cdee5c67(jetbrains.mps.tool.environment)/7413225496542992777", model = "r:2876f1ee-0b45-4db5-8c09-0682cdee5c67(jetbrains.mps.tool.environment)")
+@GeneratedClass(nodeId = "7413225496542992777", model = "r:2876f1ee-0b45-4db5-8c09-0682cdee5c67(jetbrains.mps.tool.environment)")
 public class EnvironmentConfig {
   private static final Logger LOG = Logger.getLogger(EnvironmentConfig.class);
   private final Set<PluginData> myPlugins = SetSequence.fromSet(new LinkedHashSet<PluginData>());

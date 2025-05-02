@@ -60,7 +60,7 @@ import org.xml.sax.SAXException;
  * of the old model. It MUST produce a new SModel. 
  * (??? [Mihail Muhin] isn't it better to produce model with persistence version set to LAST_VERSION?)
  */
-@GeneratedClass(node = "r:57faf072-5a23-4c30-9cf6-da73f0e0a8ad(jetbrains.mps.vcspersistence)/5317173964874516731", model = "r:57faf072-5a23-4c30-9cf6-da73f0e0a8ad(jetbrains.mps.vcspersistence)")
+@GeneratedClass(nodeId = "5317173964874516731", model = "r:57faf072-5a23-4c30-9cf6-da73f0e0a8ad(jetbrains.mps.vcspersistence)")
 public class VCSPersistenceSupport {
   private static final Logger LOG = Logger.getLogger(VCSPersistenceSupport.class);
   public static final String TARGET_NODE_ID = "targetNodeId";

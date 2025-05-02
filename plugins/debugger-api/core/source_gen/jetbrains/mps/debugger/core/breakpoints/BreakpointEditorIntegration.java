@@ -10,7 +10,7 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 /**
  * IDEA service that captures different BP UI handling in Big MPS vs MPS-as-IDEA-plugin
  */
-@GeneratedClass(node = "r:e85e5755-b656-44cc-a19b-af0b99b30b13(jetbrains.mps.debugger.core.breakpoints)/7007659875368649495", model = "r:e85e5755-b656-44cc-a19b-af0b99b30b13(jetbrains.mps.debugger.core.breakpoints)")
+@GeneratedClass(nodeId = "7007659875368649495", model = "r:e85e5755-b656-44cc-a19b-af0b99b30b13(jetbrains.mps.debugger.core.breakpoints)")
 public interface BreakpointEditorIntegration {
   void installBreakpoints(@NotNull EditorComponent component);
   void uninstallBreakpoints(@NotNull EditorComponent component);

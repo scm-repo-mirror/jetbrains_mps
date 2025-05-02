@@ -13,7 +13,7 @@ import jetbrains.mps.util.MacroHelper;
  * Now it's CoreComponent, although without any relevant code to justify single instance / component status.
  * Perhaps, if we add configuration mechanism to plug other module persistence, CC would make more sense.
  */
-@GeneratedClass(node = "r:c7bbaee3-030a-4940-995f-2174babaf670(jetbrains.mps.project.io)/557142600900286111", model = "r:c7bbaee3-030a-4940-995f-2174babaf670(jetbrains.mps.project.io)")
+@GeneratedClass(nodeId = "557142600900286111", model = "r:c7bbaee3-030a-4940-995f-2174babaf670(jetbrains.mps.project.io)")
 public class DescriptorIOFacade implements CoreComponent {
   private final StandardDescriptorIOProvider STANDARD_FACTORY;
 

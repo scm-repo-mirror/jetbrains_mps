@@ -59,7 +59,7 @@ import com.intellij.openapi.progress.ProcessCanceledException;
 import com.intellij.openapi.project.IndexNotReadyException;
 import org.jetbrains.mps.openapi.language.SConcept;
 
-@GeneratedClass(node = "r:9e8a9ffa-c450-4841-b749-c11aa0f49452(jetbrains.mps.workbench.findusages)/2810982631457564914", model = "r:9e8a9ffa-c450-4841-b749-c11aa0f49452(jetbrains.mps.workbench.findusages)")
+@GeneratedClass(nodeId = "2810982631457564914", model = "r:9e8a9ffa-c450-4841-b749-c11aa0f49452(jetbrains.mps.workbench.findusages)")
 public class StubModelsFastFindSupport implements FindUsagesParticipant, Disposable {
   private static final Logger LOG = Logger.getLogger(StubModelsFastFindSupport.class);
   private final PersistenceRegistry myRegistry;

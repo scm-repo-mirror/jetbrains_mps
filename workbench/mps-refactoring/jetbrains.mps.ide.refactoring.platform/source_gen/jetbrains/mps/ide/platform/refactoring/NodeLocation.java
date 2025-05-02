@@ -22,7 +22,7 @@ import jetbrains.mps.smodel.language.CreateAspectContext;
 import java.util.function.Consumer;
 import java.util.Optional;
 
-@GeneratedClass(node = "r:986938bb-bdb1-4307-b062-e4647a4db0f9(jetbrains.mps.ide.platform.refactoring)/1929018697514833165", model = "r:986938bb-bdb1-4307-b062-e4647a4db0f9(jetbrains.mps.ide.platform.refactoring)")
+@GeneratedClass(nodeId = "1929018697514833165", model = "r:986938bb-bdb1-4307-b062-e4647a4db0f9(jetbrains.mps.ide.platform.refactoring)")
 public interface NodeLocation {
   boolean canInsert(SRepository repository, SNode nodeToMove);
   void insertNode(SRepository repository, SNode nodeToMove);

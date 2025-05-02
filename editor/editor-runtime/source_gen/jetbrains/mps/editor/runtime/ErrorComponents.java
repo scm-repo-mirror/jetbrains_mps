@@ -39,7 +39,7 @@ import jetbrains.mps.smodel.event.SModelDevKitEvent;
  * and for each editor component a map to the corresponding instance of 
  * {@link jetbrains.mps.editor.runtime.LanguageErrorsComponent }.
  */
-@GeneratedClass(node = "r:2af017c2-293f-4ebb-99f3-81e353b3d6e6(jetbrains.mps.editor.runtime)/8288306652661982667", model = "r:2af017c2-293f-4ebb-99f3-81e353b3d6e6(jetbrains.mps.editor.runtime)")
+@GeneratedClass(nodeId = "8288306652661982667", model = "r:2af017c2-293f-4ebb-99f3-81e353b3d6e6(jetbrains.mps.editor.runtime)")
 /*package*/ class ErrorComponents {
   private final SRepository myRepository;
 

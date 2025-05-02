@@ -18,7 +18,7 @@ import org.jetbrains.mps.openapi.model.SModelReference;
  * For now MPS seems to do the default thing: goes through the model nodes which turns out to be very slow
  * FWI, Installed into PersistenceRegistry with a help of ModuleActivator code
  */
-@GeneratedClass(node = "r:39747a8f-4d04-48b7-83c5-4b4f5e43330c(jetbrains.mps.java.core.sourceStubs)/9207707776056494296", model = "r:39747a8f-4d04-48b7-83c5-4b4f5e43330c(jetbrains.mps.java.core.sourceStubs)")
+@GeneratedClass(nodeId = "9207707776056494296", model = "r:39747a8f-4d04-48b7-83c5-4b4f5e43330c(jetbrains.mps.java.core.sourceStubs)")
 public class EmptyJavaSourceStubsFindUsages implements FindUsagesParticipant {
 
   public EmptyJavaSourceStubsFindUsages() {

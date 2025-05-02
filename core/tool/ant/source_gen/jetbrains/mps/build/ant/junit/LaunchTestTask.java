@@ -30,7 +30,7 @@ import org.apache.tools.ant.Project;
  * <li>&lt;project&gt; </li>
  * </ul>
  */
-@GeneratedClass(node = "r:df01b7a4-085b-4689-a5be-0177cb8fceea(jetbrains.mps.build.ant.junit)/5529288089450537962", model = "r:df01b7a4-085b-4689-a5be-0177cb8fceea(jetbrains.mps.build.ant.junit)")
+@GeneratedClass(nodeId = "5529288089450537962", model = "r:df01b7a4-085b-4689-a5be-0177cb8fceea(jetbrains.mps.build.ant.junit)")
 public class LaunchTestTask extends MpsLoadTask {
 
   public static final String NO_FS_ROOTS_ACCESS_CHECK_OPTION = "-DNO_FS_ROOTS_ACCESS_CHECK=true";

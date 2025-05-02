@@ -20,7 +20,7 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Label;
 import jetbrains.mps.nodeEditor.AdditionalPainter;
 import java.awt.Graphics;
 
-@GeneratedClass(node = "r:ca31409d-862d-455e-85ee-8d510a57013f(jetbrains.mps.debugger.core)/5658809246031045047", model = "r:ca31409d-862d-455e-85ee-8d510a57013f(jetbrains.mps.debugger.core)")
+@GeneratedClass(nodeId = "5658809246031045047", model = "r:ca31409d-862d-455e-85ee-8d510a57013f(jetbrains.mps.debugger.core)")
 public class CurrentLinePainter extends DebuggerCellPainter<SNodeReference> {
   @NotNull
   private final SNodeReference myNodePointer;

@@ -27,7 +27,7 @@ import com.sun.jdi.InvalidTypeException;
 import com.sun.jdi.IncompatibleThreadStateException;
 import com.sun.jdi.ClassNotLoadedException;
 
-@GeneratedClass(node = "r:f326a98e-32f7-47a0-ba29-239107a89ca4(jetbrains.mps.debugger.java.api.evaluation)/4727801710070561555", model = "r:f326a98e-32f7-47a0-ba29-239107a89ca4(jetbrains.mps.debugger.java.api.evaluation)")
+@GeneratedClass(nodeId = "4727801710070561555", model = "r:f326a98e-32f7-47a0-ba29-239107a89ca4(jetbrains.mps.debugger.java.api.evaluation)")
 public abstract class EvaluationUtils {
   private static final Logger LOG = Logger.getLogger(EvaluationUtils.class);
   public static final String JAVA_LANG_OBJECT = "Ljava/lang/Object;";

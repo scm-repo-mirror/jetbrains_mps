@@ -29,7 +29,7 @@ import com.intellij.openapi.fileEditor.FileEditorManager;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.nodeEditor.AdditionalPainter;
 
-@GeneratedClass(node = "r:ca31409d-862d-455e-85ee-8d510a57013f(jetbrains.mps.debugger.core)/5658809246031045579", model = "r:ca31409d-862d-455e-85ee-8d510a57013f(jetbrains.mps.debugger.core)")
+@GeneratedClass(nodeId = "5658809246031045579", model = "r:ca31409d-862d-455e-85ee-8d510a57013f(jetbrains.mps.debugger.core)")
 public abstract class CurrentLinePositionComponentEx<S> {
 
   private final Map<S, CurrentLinePainter> mySessionToContextPainterMap = MapSequence.fromMap(new HashMap<S, CurrentLinePainter>());

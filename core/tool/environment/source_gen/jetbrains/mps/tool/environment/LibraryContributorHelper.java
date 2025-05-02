@@ -13,7 +13,7 @@ import java.util.Collections;
 import jetbrains.mps.library.contributor.LibraryContributor;
 import jetbrains.mps.core.tool.environment.util.SetLibraryContributor;
 
-@GeneratedClass(node = "r:2876f1ee-0b45-4db5-8c09-0682cdee5c67(jetbrains.mps.tool.environment)/3727517784853294086", model = "r:2876f1ee-0b45-4db5-8c09-0682cdee5c67(jetbrains.mps.tool.environment)")
+@GeneratedClass(nodeId = "3727517784853294086", model = "r:2876f1ee-0b45-4db5-8c09-0682cdee5c67(jetbrains.mps.tool.environment)")
 /*package*/ class LibraryContributorHelper {
   private static final String MODULES_PREFIX = "!/modules";
   private final FileSystem fs;

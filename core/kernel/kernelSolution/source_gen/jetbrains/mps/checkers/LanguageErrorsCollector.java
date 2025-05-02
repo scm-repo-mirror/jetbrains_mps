@@ -17,7 +17,7 @@ import org.jetbrains.mps.openapi.model.SNode;
  * The method {@link jetbrains.mps.checkers.LanguageErrorsCollector#runCheckingAction(_FunctionTypes._return_P0_E0<? extends Result>) } can be used to automatically track and add all dependencies
  * that arise when the {@code action} is executed. 
  */
-@GeneratedClass(node = "r:ba41e9c6-15ca-4a47-95f2-6a81c2318547(jetbrains.mps.checkers)/1915871562652911288", model = "r:ba41e9c6-15ca-4a47-95f2-6a81c2318547(jetbrains.mps.checkers)")
+@GeneratedClass(nodeId = "1915871562652911288", model = "r:ba41e9c6-15ca-4a47-95f2-6a81c2318547(jetbrains.mps.checkers)")
 public abstract class LanguageErrorsCollector {
 
   public void addError(NodeReportItem reportItem) {

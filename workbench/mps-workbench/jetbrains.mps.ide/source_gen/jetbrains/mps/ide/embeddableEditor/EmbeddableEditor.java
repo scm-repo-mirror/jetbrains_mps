@@ -26,7 +26,7 @@ import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.nodefs.NodeVirtualFileSystem;
 import javax.swing.JComponent;
 
-@GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a6(jetbrains.mps.ide.embeddableEditor)/1757086175614073066", model = "r:00000000-0000-4000-0000-011c895904a6(jetbrains.mps.ide.embeddableEditor)")
+@GeneratedClass(nodeId = "1757086175614073066", model = "r:00000000-0000-4000-0000-011c895904a6(jetbrains.mps.ide.embeddableEditor)")
 public class EmbeddableEditor extends JPanel implements DataProvider {
   private final Project project;
   private final SRepository repository;

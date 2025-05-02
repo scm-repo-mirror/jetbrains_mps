@@ -19,7 +19,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
  * Collection of modules with a script to apply to them.
  * To put it another way, {@link jetbrains.mps.ide.migration.ScriptApplied } done right
  */
-@GeneratedClass(node = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)/4068647021694757046", model = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)")
+@GeneratedClass(nodeId = "4068647021694757046", model = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)")
 public abstract class AppliedScript {
   private final BaseScriptReference myScriptRef;
   protected BaseScript myScript;

@@ -33,7 +33,7 @@ import jetbrains.mps.progress.ProgressMonitorAdapter;
 import jetbrains.mps.make.MakeNotification;
 import com.intellij.openapi.vfs.VirtualFileManagerListener;
 
-@GeneratedClass(node = "r:383be79d-d39d-4dc4-9df3-57e57bcac2b5(jetbrains.mps.ide.platform.watching)/4774203567222173397", model = "r:383be79d-d39d-4dc4-9df3-57e57bcac2b5(jetbrains.mps.ide.platform.watching)")
+@GeneratedClass(nodeId = "4774203567222173397", model = "r:383be79d-d39d-4dc4-9df3-57e57bcac2b5(jetbrains.mps.ide.platform.watching)")
 public class ReloadManagerComponent extends ReloadManager implements Disposable {
   private static final Logger LOG = Logger.getLogger(ReloadManagerComponent.class);
 

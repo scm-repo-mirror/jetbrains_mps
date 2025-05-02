@@ -10,7 +10,7 @@ import com.intellij.openapi.project.Project;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 
-@GeneratedClass(node = "r:12d1fcfd-d198-4520-8b28-436d7e8a8ae6(jetbrains.mps.console.plugin)/4977236912112844125", model = "r:12d1fcfd-d198-4520-8b28-436d7e8a8ae6(jetbrains.mps.console.plugin)")
+@GeneratedClass(nodeId = "4977236912112844125", model = "r:12d1fcfd-d198-4520-8b28-436d7e8a8ae6(jetbrains.mps.console.plugin)")
 public class Console_ProjectPlugin extends BaseProjectPlugin {
   public Console_ProjectPlugin() {
   }

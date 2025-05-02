@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import jetbrains.mps.project.Project;
 
-@GeneratedClass(node = "r:4c8c6241-8bf4-4d04-84a1-f7fd7fcbdc2c(jetbrains.mps.refactoring.runtime.access)/3705010080987885620", model = "r:4c8c6241-8bf4-4d04-84a1-f7fd7fcbdc2c(jetbrains.mps.refactoring.runtime.access)")
+@GeneratedClass(nodeId = "3705010080987885620", model = "r:4c8c6241-8bf4-4d04-84a1-f7fd7fcbdc2c(jetbrains.mps.refactoring.runtime.access)")
 public abstract class RefactoringAccess implements CoreComponent {
   private static final Logger LOG = Logger.getLogger(RefactoringAccess.class);
   protected RefactoringAccess() {

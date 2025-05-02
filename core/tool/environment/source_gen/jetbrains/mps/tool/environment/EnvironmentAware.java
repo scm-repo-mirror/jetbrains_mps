@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
  * Additionally, the optional method {@link jetbrains.mps.tool.environment.EnvironmentAware#setProjectUrl(Supplier<String>) } can be overridden to store the provided supplier
  * of project URL (filesystem path) to be used when running this test instance.
  */
-@GeneratedClass(node = "r:2876f1ee-0b45-4db5-8c09-0682cdee5c67(jetbrains.mps.tool.environment)/8946405811982722281", model = "r:2876f1ee-0b45-4db5-8c09-0682cdee5c67(jetbrains.mps.tool.environment)")
+@GeneratedClass(nodeId = "8946405811982722281", model = "r:2876f1ee-0b45-4db5-8c09-0682cdee5c67(jetbrains.mps.tool.environment)")
 public interface EnvironmentAware {
   void setEnvironment(@NotNull Environment env);
 

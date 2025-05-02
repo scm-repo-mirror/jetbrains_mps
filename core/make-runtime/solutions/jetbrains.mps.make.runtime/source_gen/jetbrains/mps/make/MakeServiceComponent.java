@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
  * Add/remove listeners code here re-registers listeners the moment active make service changes. 
  * Clients can install their listeners irrespective of the moment proper {@code IMakeService} implementation is installed.
  */
-@GeneratedClass(node = "r:b25dd364-bc3f-4a66-97d1-262009610c5e(jetbrains.mps.make)/5600956479087952114", model = "r:b25dd364-bc3f-4a66-97d1-262009610c5e(jetbrains.mps.make)")
+@GeneratedClass(nodeId = "5600956479087952114", model = "r:b25dd364-bc3f-4a66-97d1-262009610c5e(jetbrains.mps.make)")
 public final class MakeServiceComponent implements CoreComponent {
   private final CopyOnWriteArrayList<IMakeNotificationListener> myListeners = new CopyOnWriteArrayList<>();
   private final IMakeNotificationListener myDelegate = new IMakeNotificationListener() {

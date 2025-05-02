@@ -13,7 +13,7 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.components.CoreComponent;
 import org.jetbrains.annotations.NotNull;
 
-@GeneratedClass(node = "r:1af8f00c-21e6-46a6-88b6-41aac706d22c(jetbrains.mps.make.facets)/2116919505573526175", model = "r:1af8f00c-21e6-46a6-88b6-41aac706d22c(jetbrains.mps.make.facets)")
+@GeneratedClass(nodeId = "2116919505573526175", model = "r:1af8f00c-21e6-46a6-88b6-41aac706d22c(jetbrains.mps.make.facets)")
 public class MPSMake extends ComponentPlugin implements ComponentHost {
   private final LanguageRegistry myLanguageRegistry;
   private MakeServiceComponent myMakeServiceComponent;

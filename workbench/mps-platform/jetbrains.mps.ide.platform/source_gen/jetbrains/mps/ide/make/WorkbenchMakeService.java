@@ -68,7 +68,7 @@ import jetbrains.mps.internal.make.runtime.script.MessageFeedbackStrategy;
 /**
  * IDEA App Service, its instance is registered into MakeServiceComponent CC from activator of [mps-platform]/j.m.ide.platform
  */
-@GeneratedClass(node = "r:abe0ad99-3ef3-4277-a170-d1efd7986b86(jetbrains.mps.ide.make)/173672751428923285", model = "r:abe0ad99-3ef3-4277-a170-d1efd7986b86(jetbrains.mps.ide.make)")
+@GeneratedClass(nodeId = "173672751428923285", model = "r:abe0ad99-3ef3-4277-a170-d1efd7986b86(jetbrains.mps.ide.make)")
 public class WorkbenchMakeService extends AbstractMakeService implements IMakeService, Disposable {
 
   private AtomicMarkableReference<MakeSession> currentSessionStickyMark = new AtomicMarkableReference<MakeSession>(null, false);

@@ -21,7 +21,7 @@ import org.jetbrains.mps.openapi.module.SModuleReference;
 /**
  * XML/DOM persistence for a descriptor of Language module 
  */
-@GeneratedClass(node = "r:a42e26eb-bbea-4e8d-a549-0d224ab71e57(jetbrains.mps.project.persistence)/842994667883031167", model = "r:a42e26eb-bbea-4e8d-a549-0d224ab71e57(jetbrains.mps.project.persistence)")
+@GeneratedClass(nodeId = "842994667883031167", model = "r:a42e26eb-bbea-4e8d-a549-0d224ab71e57(jetbrains.mps.project.persistence)")
 public class LanguageDescriptorPersistence {
   private final String SOURCE_GEN_DEFAULT = "${module}/source_gen";
 

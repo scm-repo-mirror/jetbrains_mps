@@ -21,7 +21,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 /**
  * Utility methods to be used from kotlin sources, that are not aware of Kotlin in smodel.
  */
-@GeneratedClass(node = "r:3391afe4-c131-4e6c-87cf-990834a43a93(jetbrains.mps.kotlin.stubs.smodel)/3758303616303218970", model = "r:3391afe4-c131-4e6c-87cf-990834a43a93(jetbrains.mps.kotlin.stubs.smodel)")
+@GeneratedClass(nodeId = "3758303616303218970", model = "r:3391afe4-c131-4e6c-87cf-990834a43a93(jetbrains.mps.kotlin.stubs.smodel)")
 public class KotlinLanguageUtil {
   public static final SLanguage languageId = MetaAdapterFactory.getLanguage(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, "jetbrains.mps.kotlin");
   public static final SLanguage javaRefsLanguageId = MetaAdapterFactory.getLanguage(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, "jetbrains.mps.kotlin.javaRefs");

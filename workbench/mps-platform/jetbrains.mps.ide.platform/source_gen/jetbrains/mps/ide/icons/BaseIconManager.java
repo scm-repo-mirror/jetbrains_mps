@@ -46,7 +46,7 @@ import java.util.stream.Stream;
 import com.intellij.ui.icons.CachedImageIcon;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
-@GeneratedClass(node = "r:836426ab-a6f4-4fa3-9a9c-34c02ed6ab5d(jetbrains.mps.ide.icons)/1315815304215925444", model = "r:836426ab-a6f4-4fa3-9a9c-34c02ed6ab5d(jetbrains.mps.ide.icons)")
+@GeneratedClass(nodeId = "1315815304215925444", model = "r:836426ab-a6f4-4fa3-9a9c-34c02ed6ab5d(jetbrains.mps.ide.icons)")
 public class BaseIconManager {
   private static final Logger LOG = Logger.getLogger(BaseIconManager.class);
   private Map<SAbstractConcept, IconResource> myConceptToIcon = MapSequence.fromMap(new HashMap<SAbstractConcept, IconResource>());

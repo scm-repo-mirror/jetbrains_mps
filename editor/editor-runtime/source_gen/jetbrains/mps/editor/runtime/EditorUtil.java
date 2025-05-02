@@ -38,7 +38,7 @@ import java.awt.event.ActionEvent;
 import com.intellij.openapi.fileChooser.FileChooser;
 import java.awt.Dimension;
 
-@GeneratedClass(node = "r:2af017c2-293f-4ebb-99f3-81e353b3d6e6(jetbrains.mps.editor.runtime)/7973955287399271868", model = "r:2af017c2-293f-4ebb-99f3-81e353b3d6e6(jetbrains.mps.editor.runtime)")
+@GeneratedClass(nodeId = "7973955287399271868", model = "r:2af017c2-293f-4ebb-99f3-81e353b3d6e6(jetbrains.mps.editor.runtime)")
 public class EditorUtil {
 
   /**

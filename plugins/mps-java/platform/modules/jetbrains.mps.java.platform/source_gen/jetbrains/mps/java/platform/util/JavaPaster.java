@@ -36,7 +36,7 @@ import java.awt.datatransfer.DataFlavor;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
-@GeneratedClass(node = "r:ba675e48-daa4-42f0-bb41-6ecb53e4758b(jetbrains.mps.java.platform.util)/5646944109420335310", model = "r:ba675e48-daa4-42f0-bb41-6ecb53e4758b(jetbrains.mps.java.platform.util)")
+@GeneratedClass(nodeId = "5646944109420335310", model = "r:ba675e48-daa4-42f0-bb41-6ecb53e4758b(jetbrains.mps.java.platform.util)")
 public class JavaPaster {
 
   public void pasteJava(final SNode anchor, final FeatureKind featureKind, final Project project, final ProgressMonitorAdapter progress, final SRepository repository) {

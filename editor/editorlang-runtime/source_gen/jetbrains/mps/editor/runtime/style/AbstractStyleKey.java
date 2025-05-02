@@ -8,7 +8,7 @@ import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.descriptor.EditorBuilderEnvironment;
 
-@GeneratedClass(node = "r:1e25de74-7cc0-4f15-8cec-3735c776efd2(jetbrains.mps.editor.runtime.style)/4037229630278692002", model = "r:1e25de74-7cc0-4f15-8cec-3735c776efd2(jetbrains.mps.editor.runtime.style)")
+@GeneratedClass(nodeId = "4037229630278692002", model = "r:1e25de74-7cc0-4f15-8cec-3735c776efd2(jetbrains.mps.editor.runtime.style)")
 public abstract class AbstractStyleKey {
   private final String myKey;
   private final int myPriority;

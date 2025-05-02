@@ -18,7 +18,7 @@ import org.jetbrains.mps.openapi.model.SModelReference;
 /**
  * Used to be an app component, now just a POJO
  */
-@GeneratedClass(node = "r:9e8a9ffa-c450-4841-b749-c11aa0f49452(jetbrains.mps.workbench.findusages)/4897777221271802900", model = "r:9e8a9ffa-c450-4841-b749-c11aa0f49452(jetbrains.mps.workbench.findusages)")
+@GeneratedClass(nodeId = "4897777221271802900", model = "r:9e8a9ffa-c450-4841-b749-c11aa0f49452(jetbrains.mps.workbench.findusages)")
 public class InternalModelsFindUsagesParticipant implements FindUsagesParticipant {
 
   public InternalModelsFindUsagesParticipant() {

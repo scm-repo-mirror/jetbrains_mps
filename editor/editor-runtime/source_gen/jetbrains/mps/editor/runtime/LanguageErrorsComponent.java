@@ -57,7 +57,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
  * See {@code jetbrains.mps.editor.runtime.ErrorComponents}<br>
  * See {@code jetbrains.mps.editor.runtime.LanguageEditorChecker}<br>
  */
-@GeneratedClass(node = "r:2af017c2-293f-4ebb-99f3-81e353b3d6e6(jetbrains.mps.editor.runtime)/7390982340086718486", model = "r:2af017c2-293f-4ebb-99f3-81e353b3d6e6(jetbrains.mps.editor.runtime)")
+@GeneratedClass(nodeId = "7390982340086718486", model = "r:2af017c2-293f-4ebb-99f3-81e353b3d6e6(jetbrains.mps.editor.runtime)")
 public class LanguageErrorsComponent extends LanguageErrorsCollector {
   /**
    * States:

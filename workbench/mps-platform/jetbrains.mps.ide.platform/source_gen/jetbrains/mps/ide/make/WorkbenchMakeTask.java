@@ -21,7 +21,7 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
  * CoreMakeTask that tracks state changes as it progresses and let you get outcome in non-blocking, IFuture way
  * Not supposed to be re-executed, runs once.
  */
-@GeneratedClass(node = "r:abe0ad99-3ef3-4277-a170-d1efd7986b86(jetbrains.mps.ide.make)/173672751428922083", model = "r:abe0ad99-3ef3-4277-a170-d1efd7986b86(jetbrains.mps.ide.make)")
+@GeneratedClass(nodeId = "173672751428922083", model = "r:abe0ad99-3ef3-4277-a170-d1efd7986b86(jetbrains.mps.ide.make)")
 /*package*/ class WorkbenchMakeTask extends CoreMakeTask implements Future<IResult> {
   private final AtomicReference<TaskState> myState = new AtomicReference<TaskState>(TaskState.NOT_STARTED);
   private final CountDownLatch myLatch = new CountDownLatch(1);

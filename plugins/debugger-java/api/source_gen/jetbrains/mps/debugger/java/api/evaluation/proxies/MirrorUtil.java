@@ -10,7 +10,7 @@ import java.util.List;
 import com.sun.jdi.VirtualMachine;
 import com.intellij.openapi.application.ApplicationManager;
 
-@GeneratedClass(node = "r:ea2e6d1f-eab5-4a08-8299-1abe57148f37(jetbrains.mps.debugger.java.api.evaluation.proxies)/7157912897227220271", model = "r:ea2e6d1f-eab5-4a08-8299-1abe57148f37(jetbrains.mps.debugger.java.api.evaluation.proxies)")
+@GeneratedClass(nodeId = "7157912897227220271", model = "r:ea2e6d1f-eab5-4a08-8299-1abe57148f37(jetbrains.mps.debugger.java.api.evaluation.proxies)")
 public abstract class MirrorUtil {
   public MirrorUtil() {
   }

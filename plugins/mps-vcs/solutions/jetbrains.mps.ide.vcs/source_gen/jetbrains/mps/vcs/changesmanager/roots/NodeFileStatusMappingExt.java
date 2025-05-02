@@ -12,7 +12,7 @@ import jetbrains.mps.plugins.relations.RelationDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.plugins.projectplugins.ProjectPluginManager;
 
-@GeneratedClass(node = "r:21243d57-0512-4c07-bcfd-21ee53d2aeb3(jetbrains.mps.vcs.changesmanager.roots)/2722286076674321023", model = "r:21243d57-0512-4c07-bcfd-21ee53d2aeb3(jetbrains.mps.vcs.changesmanager.roots)")
+@GeneratedClass(nodeId = "2722286076674321023", model = "r:21243d57-0512-4c07-bcfd-21ee53d2aeb3(jetbrains.mps.vcs.changesmanager.roots)")
 public class NodeFileStatusMappingExt extends NodeFileStatusMapping {
   private static final Logger LOG = Logger.getLogger(NodeFileStatusMappingExt.class);
 

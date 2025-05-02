@@ -39,7 +39,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
 /**
  * To deal with ambiguous notations in Java source code (like a.b.c.d.E.f), we need to perform few rounds of reference resolution.
  */
-@GeneratedClass(node = "r:b1598fca-3527-4718-b3ee-193781dbf052(jetbrains.mps.java.core.newparser)/4078359035437906003", model = "r:b1598fca-3527-4718-b3ee-193781dbf052(jetbrains.mps.java.core.newparser)")
+@GeneratedClass(nodeId = "4078359035437906003", model = "r:b1598fca-3527-4718-b3ee-193781dbf052(jetbrains.mps.java.core.newparser)")
 public class YetUnknownResolver {
   private final Iterable<SNode> myInitialNodes;
   private Map<SNode, SNode> myResolutionMap;

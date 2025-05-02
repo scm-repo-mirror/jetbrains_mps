@@ -35,7 +35,7 @@ import com.intellij.openapi.ui.MessageType;
 import com.intellij.openapi.vcs.history.VcsCachingHistory;
 import com.intellij.vcsUtil.VcsUtil;
 
-@GeneratedClass(node = "r:f509a650-cbd9-47e7-b2a0-79f49c562c0b(jetbrains.mps.vcs.annotate)/5864674307176422108", model = "r:f509a650-cbd9-47e7-b2a0-79f49c562c0b(jetbrains.mps.vcs.annotate)")
+@GeneratedClass(nodeId = "5864674307176422108", model = "r:f509a650-cbd9-47e7-b2a0-79f49c562c0b(jetbrains.mps.vcs.annotate)")
 public final class AnnotateBackgroundableTask extends Task.Backgroundable {
 
   private final EditorComponent myEditor;

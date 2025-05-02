@@ -47,7 +47,7 @@ import java.io.IOException;
 import com.intellij.openapi.vcs.changes.VcsDirtyScopeManager;
 import org.jetbrains.annotations.Nullable;
 
-@GeneratedClass(node = "r:f7252e75-44f2-46f6-9600-c9b291e7dd5f(jetbrains.mps.vcs.platform.integration)/7075964554776710007", model = "r:f7252e75-44f2-46f6-9600-c9b291e7dd5f(jetbrains.mps.vcs.platform.integration)")
+@GeneratedClass(nodeId = "7075964554776710007", model = "r:f7252e75-44f2-46f6-9600-c9b291e7dd5f(jetbrains.mps.vcs.platform.integration)")
 public class ConflictingModelsUtil {
   private static final Logger LOG = Logger.getLogger(ConflictingModelsUtil.class);
   public static List<VirtualFile> getConflictingModelFiles(Project proj) {

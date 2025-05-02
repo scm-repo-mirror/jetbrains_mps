@@ -37,7 +37,7 @@ import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.util.Disposer;
 import com.intellij.ide.DataManager;
 
-@GeneratedClass(node = "r:891e5016-c8e3-4b89-90ed-01a5f21e6fc3(jetbrains.mps.debugger.api.ui.tool)/4474271214083120245", model = "r:891e5016-c8e3-4b89-90ed-01a5f21e6fc3(jetbrains.mps.debugger.api.ui.tool)")
+@GeneratedClass(nodeId = "4474271214083120245", model = "r:891e5016-c8e3-4b89-90ed-01a5f21e6fc3(jetbrains.mps.debugger.api.ui.tool)")
 public class DebuggerToolContentBuilder implements Disposable {
   private static final Logger LOG = Logger.getLogger(DebuggerToolContentBuilder.class);
   @NonNls

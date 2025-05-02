@@ -54,7 +54,7 @@ import jetbrains.mps.nodeEditor.EditorSettings;
  * See {@link jetbrains.mps.errors.item.QuickFixReportItem }<br>
  * See {@code jetbrains.mps.ide.modelchecker.platform.actions.ModelCheckerViewer}<br>
  */
-@GeneratedClass(node = "r:2af017c2-293f-4ebb-99f3-81e353b3d6e6(jetbrains.mps.editor.runtime)/7390982340086719450", model = "r:2af017c2-293f-4ebb-99f3-81e353b3d6e6(jetbrains.mps.editor.runtime)")
+@GeneratedClass(nodeId = "7390982340086719450", model = "r:2af017c2-293f-4ebb-99f3-81e353b3d6e6(jetbrains.mps.editor.runtime)")
 public class LanguageEditorChecker extends BaseEditorChecker implements DisposableEditorChecker {
   private static final Logger LOG = Logger.getLogger(LanguageEditorChecker.class);
   private boolean myMessagesChanged = false;

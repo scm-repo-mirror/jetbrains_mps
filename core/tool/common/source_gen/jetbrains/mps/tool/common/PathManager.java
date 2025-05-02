@@ -11,7 +11,7 @@ import java.nio.file.Path;
  * I would think that it is better for them to rather go into MPS.Boot/startup module than in here.
  */
 @Deprecated
-@GeneratedClass(node = "r:067fd2c9-d009-4506-91db-a69992d65964(jetbrains.mps.tool.common)/4774692914340655529", model = "r:067fd2c9-d009-4506-91db-a69992d65964(jetbrains.mps.tool.common)")
+@GeneratedClass(nodeId = "4774692914340655529", model = "r:067fd2c9-d009-4506-91db-a69992d65964(jetbrains.mps.tool.common)")
 public class PathManager {
   @Deprecated
   private PathManager() {

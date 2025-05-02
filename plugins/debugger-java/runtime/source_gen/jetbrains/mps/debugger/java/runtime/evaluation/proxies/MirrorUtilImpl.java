@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.ArrayList;
 import jetbrains.mps.debugger.java.api.evaluation.proxies.ValueProxy;
 
-@GeneratedClass(node = "r:88da44e4-ffd4-490b-bf61-1da15124dd34(jetbrains.mps.debugger.java.runtime.evaluation.proxies)/3102837338444217168", model = "r:88da44e4-ffd4-490b-bf61-1da15124dd34(jetbrains.mps.debugger.java.runtime.evaluation.proxies)")
+@GeneratedClass(nodeId = "3102837338444217168", model = "r:88da44e4-ffd4-490b-bf61-1da15124dd34(jetbrains.mps.debugger.java.runtime.evaluation.proxies)")
 public class MirrorUtilImpl extends MirrorUtil {
   public MirrorUtilImpl() {
   }

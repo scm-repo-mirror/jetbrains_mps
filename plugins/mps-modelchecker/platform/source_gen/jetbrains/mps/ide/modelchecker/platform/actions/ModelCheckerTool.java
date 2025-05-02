@@ -29,7 +29,7 @@ import jetbrains.mps.ide.project.ProjectHelper;
  * A facade to deal with {@code tool<ModelChecker>}, backward compatible with existing uses of {@code ModelCheckerTool} through {@code ModelCheckerTool.getInstance}.
  * Note, legacy {@code project.getComponent(ModelCheckerTool.class} doesn't work any more.
  */
-@GeneratedClass(node = "r:5754bb7d-f802-4a0f-bd3d-0764f0d71413(jetbrains.mps.ide.modelchecker.platform.actions)/3719390199793468053", model = "r:5754bb7d-f802-4a0f-bd3d-0764f0d71413(jetbrains.mps.ide.modelchecker.platform.actions)")
+@GeneratedClass(nodeId = "3719390199793468053", model = "r:5754bb7d-f802-4a0f-bd3d-0764f0d71413(jetbrains.mps.ide.modelchecker.platform.actions)")
 public class ModelCheckerTool {
   private ModelChecker_Tool myTool;
   private final MPSProject myProject;

@@ -48,7 +48,7 @@ import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import com.intellij.openapi.project.Project;
 import org.jetbrains.mps.openapi.model.SNode;
 
-@GeneratedClass(node = "r:f7252e75-44f2-46f6-9600-c9b291e7dd5f(jetbrains.mps.vcs.platform.integration)/2146316116462344446", model = "r:f7252e75-44f2-46f6-9600-c9b291e7dd5f(jetbrains.mps.vcs.platform.integration)")
+@GeneratedClass(nodeId = "2146316116462344446", model = "r:f7252e75-44f2-46f6-9600-c9b291e7dd5f(jetbrains.mps.vcs.platform.integration)")
 public class ModelDiffViewer implements FrameDiffTool.DiffViewer {
   public static final Key<SNodeId> DIFF_SHOW_ROOTID = new Key<SNodeId>("MPS.diff.rootid");
   public static final Key<Bounds> DIFF_NAVIGATE_TO = new Key<Bounds>("MPS.diff.navigateto");

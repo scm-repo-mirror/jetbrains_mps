@@ -12,7 +12,7 @@ import jetbrains.mps.smodel.runtime.ModuleDeploymentListener;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.smodel.runtime.ModuleDeploymentChange;
 
-@GeneratedClass(node = "r:836426ab-a6f4-4fa3-9a9c-34c02ed6ab5d(jetbrains.mps.ide.icons)/1315815304215647153", model = "r:836426ab-a6f4-4fa3-9a9c-34c02ed6ab5d(jetbrains.mps.ide.icons)")
+@GeneratedClass(nodeId = "1315815304215647153", model = "r:836426ab-a6f4-4fa3-9a9c-34c02ed6ab5d(jetbrains.mps.ide.icons)")
 public class GlobalIconManager extends BaseIconManager implements Disposable {
   private MyDeployListener myListener = new MyDeployListener();
 

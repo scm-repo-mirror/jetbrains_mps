@@ -18,7 +18,7 @@ import jetbrains.mps.project.OptimizeImportsHelper;
 import jetbrains.mps.project.ModelsAutoImportsManager;
 import jetbrains.mps.progress.EmptyProgressMonitor;
 
-@GeneratedClass(node = "r:c6bc30d1-d0d1-44c6-ba7e-90e78619615e(jetbrains.mps.java.platform.actions)/5175352797999992329", model = "r:c6bc30d1-d0d1-44c6-ba7e-90e78619615e(jetbrains.mps.java.platform.actions)")
+@GeneratedClass(nodeId = "5175352797999992329", model = "r:c6bc30d1-d0d1-44c6-ba7e-90e78619615e(jetbrains.mps.java.platform.actions)")
 public class ResolveStubReferencesToMPS_Action extends BaseAction {
   private static final Icon ICON = null;
 

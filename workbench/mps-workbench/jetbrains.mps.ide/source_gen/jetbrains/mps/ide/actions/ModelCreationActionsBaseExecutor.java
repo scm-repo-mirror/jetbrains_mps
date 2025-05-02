@@ -37,7 +37,7 @@ import jetbrains.mps.ide.projectPane.ProjectPane;
  * @see jetbrains.mps.ide.actions.NewModelActionExecutor default executor for 'new model' action
  * @see jetbrains.mps.ide.actions.CloneModelActionExecutor default executor for 'clone model' action
  */
-@GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/7081154005685488008", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
+@GeneratedClass(nodeId = "7081154005685488008", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
 public abstract class ModelCreationActionsBaseExecutor {
 
   protected final Project myIdeaProject;

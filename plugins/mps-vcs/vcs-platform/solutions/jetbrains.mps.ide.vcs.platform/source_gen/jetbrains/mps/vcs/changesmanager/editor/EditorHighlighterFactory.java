@@ -14,7 +14,7 @@ import jetbrains.mps.nodeEditor.InspectorTool;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.nodeEditor.highlighter.EditorComponentCreateListener;
 
-@GeneratedClass(node = "r:06e50ed3-c893-4772-ba4a-878fc9de01d0(jetbrains.mps.vcs.changesmanager.editor)/6402272430682179765", model = "r:06e50ed3-c893-4772-ba4a-878fc9de01d0(jetbrains.mps.vcs.changesmanager.editor)")
+@GeneratedClass(nodeId = "6402272430682179765", model = "r:06e50ed3-c893-4772-ba4a-878fc9de01d0(jetbrains.mps.vcs.changesmanager.editor)")
 public class EditorHighlighterFactory {
   private final Map<EditorComponent, EditorHighlighter> myEditorsHighlighters = MapSequence.fromMap(new HashMap<EditorComponent, EditorHighlighter>());
   private final Project myProject;

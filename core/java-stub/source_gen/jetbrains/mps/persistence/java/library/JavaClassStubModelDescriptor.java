@@ -29,7 +29,7 @@ import org.jetbrains.mps.openapi.module.SModuleReference;
 import java.util.Collections;
 import jetbrains.mps.extapi.module.SModuleBase;
 
-@GeneratedClass(node = "r:adc783db-1c21-4910-9cf7-6a22bf949a4a(jetbrains.mps.persistence.java.library)/6619269785060746048", model = "r:adc783db-1c21-4910-9cf7-6a22bf949a4a(jetbrains.mps.persistence.java.library)")
+@GeneratedClass(nodeId = "6619269785060746048", model = "r:adc783db-1c21-4910-9cf7-6a22bf949a4a(jetbrains.mps.persistence.java.library)")
 public class JavaClassStubModelDescriptor extends RegularModelDescriptor implements ModelSourceChangeTracker.ReloadCallback {
   private final ModelSourceChangeTracker myTimestampTracker;
   private boolean mySkipPrivate;

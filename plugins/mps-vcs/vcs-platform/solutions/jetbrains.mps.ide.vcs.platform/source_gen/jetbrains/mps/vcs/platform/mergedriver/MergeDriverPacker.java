@@ -22,7 +22,7 @@ import java.util.LinkedHashSet;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import com.intellij.openapi.application.ApplicationManager;
 
-@GeneratedClass(node = "r:36539f52-7ec3-4937-98bf-1fbc1fbe99fc(jetbrains.mps.vcs.platform.mergedriver)/287989868854455048", model = "r:36539f52-7ec3-4937-98bf-1fbc1fbe99fc(jetbrains.mps.vcs.platform.mergedriver)")
+@GeneratedClass(nodeId = "287989868854455048", model = "r:36539f52-7ec3-4937-98bf-1fbc1fbe99fc(jetbrains.mps.vcs.platform.mergedriver)")
 public abstract class MergeDriverPacker {
   private static final Logger LOG = Logger.getLogger(MergeDriverPacker.class);
   /**

@@ -27,7 +27,7 @@ import java.awt.event.MouseEvent;
  * 
  * @param <L> location breakpoint type
  */
-@GeneratedClass(node = "r:e85e5755-b656-44cc-a19b-af0b99b30b13(jetbrains.mps.debugger.core.breakpoints)/2706316667685001040", model = "r:e85e5755-b656-44cc-a19b-af0b99b30b13(jetbrains.mps.debugger.core.breakpoints)")
+@GeneratedClass(nodeId = "2706316667685001040", model = "r:e85e5755-b656-44cc-a19b-af0b99b30b13(jetbrains.mps.debugger.core.breakpoints)")
 public abstract class BreakpointsUiComponentEx<L> implements BreakpointEditorIntegration, Disposable {
   protected final Project myProject;
   private final LeftMarginMouseListener myMouseListener = new MyLeftMarginMouseListener();

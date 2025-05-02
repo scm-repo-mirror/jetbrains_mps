@@ -22,7 +22,7 @@ import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.openapi.ui.messages.MessageDialog;
 import com.intellij.openapi.ui.Messages;
 
-@GeneratedClass(node = "r:cb723a04-ead3-4054-b750-edbb165cca03(jetbrains.mps.ide.editor.actions.core)/7711023363876674047", model = "r:cb723a04-ead3-4054-b750-edbb165cca03(jetbrains.mps.ide.editor.actions.core)")
+@GeneratedClass(nodeId = "7711023363876674047", model = "r:cb723a04-ead3-4054-b750-edbb165cca03(jetbrains.mps.ide.editor.actions.core)")
 public class ShowNodeMessages_Action extends BaseAction {
   private static final Icon ICON = null;
 

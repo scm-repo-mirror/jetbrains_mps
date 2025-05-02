@@ -37,7 +37,7 @@ import jetbrains.mps.vcs.diff.changes.ChangeType;
 import java.util.HashMap;
 import jetbrains.mps.vcs.diff.changes.WrappingNodesGroup;
 
-@GeneratedClass(node = "r:5744ed46-c83f-47cd-94ce-f24d1f92d6a1(jetbrains.mps.vcs.diff)/7699598511635693070", model = "r:5744ed46-c83f-47cd-94ce-f24d1f92d6a1(jetbrains.mps.vcs.diff)")
+@GeneratedClass(nodeId = "7699598511635693070", model = "r:5744ed46-c83f-47cd-94ce-f24d1f92d6a1(jetbrains.mps.vcs.diff)")
 /*package*/ final class NodeGroupsBuilder {
 
   @NotNull

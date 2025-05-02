@@ -40,7 +40,7 @@ import org.jetbrains.mps.openapi.util.Consumer;
  * See {@link jetbrains.mps.errors.item.NodeReportItem }<br>
  * See {@link jetbrains.mps.checkers.CheckingSession }<br>
  */
-@GeneratedClass(node = "r:ba41e9c6-15ca-4a47-95f2-6a81c2318547(jetbrains.mps.checkers)/4829978961957335527", model = "r:ba41e9c6-15ca-4a47-95f2-6a81c2318547(jetbrains.mps.checkers)")
+@GeneratedClass(nodeId = "4829978961957335527", model = "r:ba41e9c6-15ca-4a47-95f2-6a81c2318547(jetbrains.mps.checkers)")
 public class SuppressErrorsChecker extends AbstractNodeCheckerInEditor {
   private static final Logger LOG = Logger.getLogger(SuppressErrorsChecker.class);
   @Override

@@ -12,7 +12,7 @@ import jetbrains.mps.ide.tools.BaseTool;
 import com.intellij.openapi.wm.ToolWindowAnchor;
 import javax.swing.JComponent;
 
-@GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/2224660611243157895", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
+@GeneratedClass(nodeId = "2224660611243157895", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
 public class HierarchyViewTool_Tool extends GeneratedTool {
   private static final Icon ICON = AllIcons.Toolwindows.ToolWindowHierarchy;
   private HierarchyViewToolState toolState;
