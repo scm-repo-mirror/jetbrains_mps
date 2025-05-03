@@ -20,7 +20,6 @@
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" />
-    <import index="4szu" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.references(MPS.Core/)" />
     <import index="g3l6" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.extapi.model(MPS.Core/)" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
@@ -17399,7 +17398,7 @@
           </node>
         </node>
       </node>
-      <node concept="3Tm1VV" id="43$Sgt6pILA" role="1B3o_S" />
+      <node concept="3Tm6S6" id="25TBtyrqQ$e" role="1B3o_S" />
       <node concept="3cqZAl" id="43$Sgt6pJvT" role="3clF45" />
       <node concept="37vLTG" id="43$Sgt6pJVx" role="3clF46">
         <property role="TrG5h" value="parent" />
@@ -17436,6 +17435,17 @@
               <node concept="37vLTw" id="43$Sgt6dSnU" role="25WWJ7">
                 <ref role="3cqZAo" node="43$Sgt6dOVE" resolve="child" />
               </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="25TBtyrqSbB" role="3cqZAp">
+          <node concept="2OqwBi" id="25TBtyrqSM4" role="3clFbG">
+            <node concept="37vLTw" id="25TBtyrqSb_" role="2Oq$k0">
+              <ref role="3cqZAo" node="43$Sgt6dOVE" resolve="child" />
+            </node>
+            <node concept="liA8E" id="25TBtyrqTH1" role="2OqNvi">
+              <ref role="37wK5l" node="43$Sgt6pJwF" resolve="setParent" />
+              <node concept="Xjq3P" id="25TBtyrqUPm" role="37wK5m" />
             </node>
           </node>
         </node>

@@ -61,7 +61,7 @@ public final class ModifiedNode {
     return result;
   }
 
-  public void setParent(ModifiedNode parent) {
+  private void setParent(ModifiedNode parent) {
     myParent = parent;
   }
 
@@ -71,6 +71,7 @@ public final class ModifiedNode {
 
   public void addChild(ModifiedNode child) {
     CollectionSequence.fromCollection(myChildren).addElement(child);
+    child.setParent(this);
   }
 
   public SNodeId getParentId() {

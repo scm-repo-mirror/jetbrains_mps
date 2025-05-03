@@ -97,7 +97,6 @@ import jetbrains.mps.baseLanguage.closures.runtime.YieldingIterator;
       ModifiedNode parent = MapSequence.fromMap(getModifiedNodes(node.isNew())).get(node.getParentId());
       if (parent != null && parent.isMove() == node.isMove()) {
         parent.addChild(node);
-        node.setParent(parent);
       }
     });
   }
