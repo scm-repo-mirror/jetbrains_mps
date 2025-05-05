@@ -91,7 +91,7 @@ public final class ChangeSetBuilder {
   private void buildChangeSetForNode(@Nullable SNode oldNode, @Nullable SNode newNode) {
     NodeChangesBuilder builder;
     if (myTrackMovedNodes) {
-      builder = new MovesAwareChangeSetBuilder(myChangeSet, myRespectCommentedOutNodes);
+      builder = new MoveAwareNodeChangeBuilder(myChangeSet, myRespectCommentedOutNodes);
     } else {
       builder = new BasicNodeChangesBuilder(myChangeSet, myRespectCommentedOutNodes);
     }

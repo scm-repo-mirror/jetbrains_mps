@@ -14,13 +14,12 @@ import jetbrains.mps.vcs.diff.changes.HierarchicalNodeGroupChange;
 
 /**
  * Changes in a node hierarchy with respect to moved nodes.
- * FIXME rename into something w/o ChangeSet in the name - MoveAwareNodeChangeBuilder, perhaps?
  */
 @GeneratedClass(nodeId = "8137292817906104459", model = "r:5744ed46-c83f-47cd-94ce-f24d1f92d6a1(jetbrains.mps.vcs.diff)")
-/*package*/ final class MovesAwareChangeSetBuilder extends NodeChangesBuilder {
+/*package*/ final class MoveAwareNodeChangeBuilder extends NodeChangesBuilder {
   private final boolean myRespectCommentedOutNodes;
 
-  /*package*/ MovesAwareChangeSetBuilder(@NotNull ChangeSet changeSet, boolean respectCommentedOutNodes) {
+  /*package*/ MoveAwareNodeChangeBuilder(@NotNull ChangeSet changeSet, boolean respectCommentedOutNodes) {
     super(changeSet);
     myRespectCommentedOutNodes = respectCommentedOutNodes;
   }
@@ -36,24 +35,24 @@ import jetbrains.mps.vcs.diff.changes.HierarchicalNodeGroupChange;
     }
 
     // combine modified nodes into groups 
-    NodeGroupsBuilder groupsBuilder = new NodeGroupsBuilder(nodesBuilder, oldNode, newNode);
+    NodeGroupsBuilder groupsBuilder = new NodeGroupsBuilder(nodesBuilder, oldNode, newNode, myRespectCommentedOutNodes);
 
     // create the changes from the groups
     HierarchicalChangesBuilder changesBuilder = new HierarchicalChangesBuilder(groupsBuilder);
 
     CollectionSequence.fromCollection(nodesBuilder.getNodeChanges()).visitAll(new _FunctionTypes._void_P1_E0<NodeChange>() {
       public void invoke(@NotNull NodeChange change) {
-        MovesAwareChangeSetBuilder.this.recordChange(change);
+        MoveAwareNodeChangeBuilder.this.recordChange(change);
       }
     });
     CollectionSequence.fromCollection(groupsBuilder.getIdChanges()).visitAll(new _FunctionTypes._void_P1_E0<NodeIdChange>() {
       public void invoke(@NotNull NodeIdChange change) {
-        MovesAwareChangeSetBuilder.this.recordChange(change);
+        MoveAwareNodeChangeBuilder.this.recordChange(change);
       }
     });
     CollectionSequence.fromCollection(changesBuilder.getChanges()).visitAll(new _FunctionTypes._void_P1_E0<HierarchicalNodeGroupChange>() {
       public void invoke(@NotNull HierarchicalNodeGroupChange change) {
-        MovesAwareChangeSetBuilder.this.recordChange(change);
+        MoveAwareNodeChangeBuilder.this.recordChange(change);
       }
     });
   }

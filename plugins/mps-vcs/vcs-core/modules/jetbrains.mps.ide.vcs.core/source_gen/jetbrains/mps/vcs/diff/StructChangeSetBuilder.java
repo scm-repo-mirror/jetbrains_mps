@@ -261,8 +261,8 @@ outer:
         return false;
       }
     }
-    Iterable<SReference> n1References = n1.getReferences();
-    Iterable<SReference> n2References = n2.getReferences();
+    Iterable<SReference> n1References = (Iterable<SReference>) n1.getReferences();
+    Iterable<SReference> n2References = (Iterable<SReference>) n2.getReferences();
     for (SReferenceLink role : Sequence.fromIterable(n1References).concat(Sequence.fromIterable(n2References)).select((r) -> r.getLink()).distinct()) {
       if (!(equalsReference(n1.getReference(role), n2.getReference(role), tempMap, easyRef))) {
         return false;

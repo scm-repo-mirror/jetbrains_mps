@@ -1130,7 +1130,7 @@
               <node concept="37vLTI" id="735o_gma7Ue" role="3clFbG">
                 <node concept="2ShNRf" id="v5mZlMq81K" role="37vLTx">
                   <node concept="1pGfFk" id="v5mZlMq81L" role="2ShVmc">
-                    <ref role="37wK5l" node="735o_gm7Zig" resolve="MovesAwareChangeSetBuilder" />
+                    <ref role="37wK5l" node="735o_gm7Zig" resolve="MoveAwareNodeChangeBuilder" />
                     <node concept="37vLTw" id="v5mZlMq81O" role="37wK5m">
                       <ref role="3cqZAo" node="42hl10VHbu$" resolve="myChangeSet" />
                     </node>
@@ -8730,14 +8730,21 @@
         <node concept="3cpWs8" id="11Tv6CjJsDu" role="3cqZAp">
           <node concept="3cpWsn" id="11Tv6CjJsDv" role="3cpWs9">
             <property role="TrG5h" value="n1References" />
-            <node concept="2OqwBi" id="11Tv6CjJsDx" role="33vP2m">
-              <node concept="2JrnkZ" id="11Tv6CjJsDy" role="2Oq$k0">
-                <node concept="37vLTw" id="11Tv6CjJtxO" role="2JrQYb">
-                  <ref role="3cqZAo" node="11Tv6CjJm_N" resolve="n1" />
+            <node concept="10QFUN" id="5QKxCW5_qjK" role="33vP2m">
+              <node concept="2OqwBi" id="11Tv6CjJsDx" role="10QFUP">
+                <node concept="2JrnkZ" id="11Tv6CjJsDy" role="2Oq$k0">
+                  <node concept="37vLTw" id="11Tv6CjJtxO" role="2JrQYb">
+                    <ref role="3cqZAo" node="11Tv6CjJm_N" resolve="n1" />
+                  </node>
+                </node>
+                <node concept="liA8E" id="11Tv6CjJsD$" role="2OqNvi">
+                  <ref role="37wK5l" to="mhbf:~SNode.getReferences()" resolve="getReferences" />
                 </node>
               </node>
-              <node concept="liA8E" id="11Tv6CjJsD$" role="2OqNvi">
-                <ref role="37wK5l" to="mhbf:~SNode.getReferences()" resolve="getReferences" />
+              <node concept="A3Dl8" id="5QKxCW5_z3b" role="10QFUM">
+                <node concept="3uibUv" id="5QKxCW5_z3c" role="A3Ik2">
+                  <ref role="3uigEE" to="mhbf:~SReference" resolve="SReference" />
+                </node>
               </node>
             </node>
             <node concept="A3Dl8" id="735o_glDhIT" role="1tU5fm">
@@ -8750,14 +8757,21 @@
         <node concept="3cpWs8" id="11Tv6CjJsDD" role="3cqZAp">
           <node concept="3cpWsn" id="11Tv6CjJsDE" role="3cpWs9">
             <property role="TrG5h" value="n2References" />
-            <node concept="2OqwBi" id="11Tv6CjJsDG" role="33vP2m">
-              <node concept="2JrnkZ" id="11Tv6CjJsDH" role="2Oq$k0">
-                <node concept="37vLTw" id="11Tv6CjJtGC" role="2JrQYb">
-                  <ref role="3cqZAo" node="11Tv6CjJmA2" resolve="n2" />
+            <node concept="10QFUN" id="5QKxCW5_D_x" role="33vP2m">
+              <node concept="2OqwBi" id="11Tv6CjJsDG" role="10QFUP">
+                <node concept="2JrnkZ" id="11Tv6CjJsDH" role="2Oq$k0">
+                  <node concept="37vLTw" id="11Tv6CjJtGC" role="2JrQYb">
+                    <ref role="3cqZAo" node="11Tv6CjJmA2" resolve="n2" />
+                  </node>
+                </node>
+                <node concept="liA8E" id="11Tv6CjJsDJ" role="2OqNvi">
+                  <ref role="37wK5l" to="mhbf:~SNode.getReferences()" resolve="getReferences" />
                 </node>
               </node>
-              <node concept="liA8E" id="11Tv6CjJsDJ" role="2OqNvi">
-                <ref role="37wK5l" to="mhbf:~SNode.getReferences()" resolve="getReferences" />
+              <node concept="A3Dl8" id="5QKxCW5_GgN" role="10QFUM">
+                <node concept="3uibUv" id="5QKxCW5_GgO" role="A3Ik2">
+                  <ref role="3uigEE" to="mhbf:~SReference" resolve="SReference" />
+                </node>
               </node>
             </node>
             <node concept="A3Dl8" id="735o_glDYbK" role="1tU5fm">
@@ -15073,7 +15087,7 @@
     </node>
   </node>
   <node concept="312cEu" id="73Hubh$Cnyb">
-    <property role="TrG5h" value="MovesAwareChangeSetBuilder" />
+    <property role="TrG5h" value="MoveAwareNodeChangeBuilder" />
     <property role="1EXbeo" value="true" />
     <property role="3GE5qa" value="nodechange" />
     <node concept="312cEg" id="735o_gmchWR" role="jymVt">
@@ -15315,6 +15329,9 @@
                 <node concept="37vLTw" id="1TkfrtIb7Gx" role="37wK5m">
                   <ref role="3cqZAo" node="735o_gm817V" resolve="newNode" />
                 </node>
+                <node concept="37vLTw" id="5QKxCW5$Yc6" role="37wK5m">
+                  <ref role="3cqZAo" node="735o_gmchWR" resolve="myRespectCommentedOutNodes" />
+                </node>
               </node>
             </node>
           </node>
@@ -15425,11 +15442,6 @@
       <node concept="TZ5HA" id="735o_gm7XDL" role="TZ5H$">
         <node concept="1dT_AC" id="735o_gm7XDM" role="1dT_Ay">
           <property role="1dT_AB" value="Changes in a node hierarchy with respect to moved nodes." />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="735o_gm8GTE" role="TZ5H$">
-        <node concept="1dT_AC" id="735o_gm8GTF" role="1dT_Ay">
-          <property role="1dT_AB" value="FIXME rename into something w/o ChangeSet in the name - MoveAwareNodeChangeBuilder, perhaps?" />
         </node>
       </node>
     </node>
