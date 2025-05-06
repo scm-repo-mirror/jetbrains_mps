@@ -6,7 +6,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.project.structure.modules.ModuleDescriptor;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.messages.IMessageHandler;
-import jetbrains.mps.extapi.module.SRepositoryExt;
+import jetbrains.mps.smodel.RepositoryFacade;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -66,7 +66,6 @@ import jetbrains.mps.build.behavior.BuildSourcePath__BehaviorDescriptor;
 import jetbrains.mps.build.mps.behavior.BuildMps_Module__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.smodel.GeneralModuleFactory;
-import jetbrains.mps.smodel.MPSModuleOwner;
 import jetbrains.mps.generator.GenerationFacade;
 import jetbrains.mps.smodel.ModelImports;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
@@ -86,10 +85,10 @@ public final class ModuleChecker {
   /**
    * To access certain module properties (like used languages and devkits), we need to load modules temporarily.
    */
-  private final SRepositoryExt myRepository;
+  private final RepositoryFacade myRepository;
   private SModule myLoadedModule;
 
-  /*package*/ ModuleChecker(SNode module, VisibleModules visible, PathConverter pathConverter, @Nullable IFile moduleDescriptorFile, ModuleDescriptor moduleDescriptor, IMessageHandler reporter, SRepositoryExt repo) {
+  /*package*/ ModuleChecker(SNode module, VisibleModules visible, PathConverter pathConverter, @Nullable IFile moduleDescriptorFile, ModuleDescriptor moduleDescriptor, IMessageHandler reporter, RepositoryFacade repo) {
     myModule = module;
     myVisibleModules = visible;
     // seems that moduleDescriptorFile != null for partial/full import scenarios, and can be null for 'check';
@@ -1076,11 +1075,7 @@ public final class ModuleChecker {
   private SModule getLoadedModule() {
     if (myLoadedModule == null) {
       myLoadedModule = new GeneralModuleFactory().instantiate(myModuleDescriptor, myModuleDescriptorFile);
-      myRepository.registerModule(myLoadedModule, new MPSModuleOwner() {
-        public boolean isHidden() {
-          return true;
-        }
-      });
+      myRepository.registerModule(myLoadedModule);
     }
     return myLoadedModule;
   }
