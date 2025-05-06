@@ -133,6 +133,9 @@
       <concept id="1082485599095" name="jetbrains.mps.baseLanguage.structure.BlockStatement" flags="nn" index="9aQIb">
         <child id="1082485599096" name="statements" index="9aQI4" />
       </concept>
+      <concept id="7485977462274819189" name="jetbrains.mps.baseLanguage.structure.FormatOperation" flags="ng" index="2cAKMz">
+        <child id="7485977462274819664" name="arguments" index="2cAKU6" />
+      </concept>
       <concept id="1215693861676" name="jetbrains.mps.baseLanguage.structure.BaseAssignmentExpression" flags="nn" index="d038R">
         <child id="1068498886297" name="rValue" index="37vLTx" />
         <child id="1068498886295" name="lValue" index="37vLTJ" />
@@ -13919,86 +13922,81 @@
                               </node>
                             </node>
                           </node>
-                          <node concept="3SKdUt" id="QicWNw7md2" role="3cqZAp">
-                            <node concept="1PaTwC" id="ATZLwXomh2" role="1aUNEU">
-                              <node concept="3oM_SD" id="ATZLwXomh3" role="1PaTwD">
-                                <property role="3oM_SC" value="FIXME" />
+                          <node concept="3clFbF" id="4puABOeHoPh" role="3cqZAp">
+                            <node concept="1rXfSq" id="4puABOeHoPf" role="3clFbG">
+                              <ref role="37wK5l" to="lzb2:~SimpleColoredComponent.append(java.lang.String,com.intellij.ui.SimpleTextAttributes)" resolve="append" />
+                              <node concept="2OqwBi" id="4puABOeHZDX" role="37wK5m">
+                                <node concept="37vLTw" id="4puABOeHWnP" role="2Oq$k0">
+                                  <ref role="3cqZAo" node="2cFxs3P69XB" resolve="tn" />
+                                </node>
+                                <node concept="liA8E" id="4puABOeI5ss" role="2OqNvi">
+                                  <ref role="37wK5l" node="7yCf_dgMyuo" resolve="getText" />
+                                </node>
                               </node>
-                              <node concept="3oM_SD" id="ATZLwXomh4" role="1PaTwD">
-                                <property role="3oM_SC" value="this" />
-                              </node>
-                              <node concept="3oM_SD" id="ATZLwXomh5" role="1PaTwD">
-                                <property role="3oM_SC" value="code" />
-                              </node>
-                              <node concept="3oM_SD" id="ATZLwXomh6" role="1PaTwD">
-                                <property role="3oM_SC" value="is" />
-                              </node>
-                              <node concept="3oM_SD" id="ATZLwXomh7" role="1PaTwD">
-                                <property role="3oM_SC" value="poor," />
-                              </node>
-                              <node concept="3oM_SD" id="ATZLwXomh8" role="1PaTwD">
-                                <property role="3oM_SC" value="need" />
-                              </node>
-                              <node concept="3oM_SD" id="ATZLwXomh9" role="1PaTwD">
-                                <property role="3oM_SC" value="to" />
-                              </node>
-                              <node concept="3oM_SD" id="ATZLwXomha" role="1PaTwD">
-                                <property role="3oM_SC" value="check" />
-                              </node>
-                              <node concept="3oM_SD" id="ATZLwXomhb" role="1PaTwD">
-                                <property role="3oM_SC" value="TreeNode" />
-                              </node>
-                              <node concept="3oM_SD" id="ATZLwXomhc" role="1PaTwD">
-                                <property role="3oM_SC" value="subclasses" />
-                              </node>
-                              <node concept="3oM_SD" id="ATZLwXomhd" role="1PaTwD">
-                                <property role="3oM_SC" value="if" />
-                              </node>
-                              <node concept="3oM_SD" id="ATZLwXomhe" role="1PaTwD">
-                                <property role="3oM_SC" value="they" />
-                              </node>
-                              <node concept="3oM_SD" id="ATZLwXomhf" role="1PaTwD">
-                                <property role="3oM_SC" value="really" />
-                              </node>
-                              <node concept="3oM_SD" id="ATZLwXomhg" role="1PaTwD">
-                                <property role="3oM_SC" value="care" />
-                              </node>
-                              <node concept="3oM_SD" id="ATZLwXomhh" role="1PaTwD">
-                                <property role="3oM_SC" value="to" />
-                              </node>
-                              <node concept="3oM_SD" id="ATZLwXomhi" role="1PaTwD">
-                                <property role="3oM_SC" value="have" />
-                              </node>
-                              <node concept="3oM_SD" id="ATZLwXomhj" role="1PaTwD">
-                                <property role="3oM_SC" value="model" />
-                              </node>
-                              <node concept="3oM_SD" id="ATZLwXomhk" role="1PaTwD">
-                                <property role="3oM_SC" value="access" />
+                              <node concept="2ShNRf" id="7yCf_dgMzry" role="37wK5m">
+                                <node concept="1pGfFk" id="7yCf_dgMzrA" role="2ShVmc">
+                                  <ref role="37wK5l" to="lzb2:~SimpleTextAttributes.&lt;init&gt;(int,java.awt.Color)" resolve="SimpleTextAttributes" />
+                                  <node concept="2OqwBi" id="4puABOeIfet" role="37wK5m">
+                                    <node concept="37vLTw" id="2BHiRxeuPqD" role="2Oq$k0">
+                                      <ref role="3cqZAo" node="2cFxs3P69XB" resolve="tn" />
+                                    </node>
+                                    <node concept="liA8E" id="4puABOeIjRN" role="2OqNvi">
+                                      <ref role="37wK5l" node="4puABOeIL$x" resolve="getTextStyle" />
+                                    </node>
+                                  </node>
+                                  <node concept="2OqwBi" id="4puABOeIzCv" role="37wK5m">
+                                    <node concept="37vLTw" id="4puABOeIwms" role="2Oq$k0">
+                                      <ref role="3cqZAo" node="2cFxs3P69XB" resolve="tn" />
+                                    </node>
+                                    <node concept="liA8E" id="4puABOeIAV1" role="2OqNvi">
+                                      <ref role="37wK5l" node="7yCf_dgMyvo" resolve="getColor" />
+                                    </node>
+                                  </node>
+                                </node>
                               </node>
                             </node>
                           </node>
-                          <node concept="3clFbF" id="QicWNw6Zq6" role="3cqZAp">
-                            <node concept="2OqwBi" id="QicWNw74qK" role="3clFbG">
-                              <node concept="2OqwBi" id="QicWNw748c" role="2Oq$k0">
-                                <node concept="37vLTw" id="QicWNw6Zq4" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="QicWNw6BM2" resolve="myRepo" />
+                          <node concept="3clFbJ" id="7Ba8SYYmWXq" role="3cqZAp">
+                            <node concept="2OqwBi" id="7Ba8SYYmWXx" role="3clFbw">
+                              <node concept="17RvpY" id="7Ba8SYYmWXA" role="2OqNvi" />
+                              <node concept="2OqwBi" id="4puABOeJ$md" role="2Oq$k0">
+                                <node concept="37vLTw" id="2BHiRxeuW7Z" role="2Oq$k0">
+                                  <ref role="3cqZAo" node="2cFxs3P69XB" resolve="tn" />
                                 </node>
-                                <node concept="liA8E" id="QicWNw74in" role="2OqNvi">
-                                  <ref role="37wK5l" to="lui2:~SRepository.getModelAccess()" resolve="getModelAccess" />
+                                <node concept="liA8E" id="4puABOeJBKn" role="2OqNvi">
+                                  <ref role="37wK5l" node="7yCf_dgMyuC" resolve="getAdditionalText" />
                                 </node>
                               </node>
-                              <node concept="liA8E" id="QicWNw74Gt" role="2OqNvi">
-                                <ref role="37wK5l" to="lui2:~ModelAccess.runReadAction(java.lang.Runnable)" resolve="runReadAction" />
-                                <node concept="1bVj0M" id="QicWNw79kc" role="37wK5m">
-                                  <node concept="3clFbS" id="QicWNw79kd" role="1bW5cS">
-                                    <node concept="3clFbF" id="QicWNw7hIT" role="3cqZAp">
-                                      <node concept="2OqwBi" id="QicWNw7hIV" role="3clFbG">
-                                        <node concept="liA8E" id="QicWNw7iS9" role="2OqNvi">
-                                          <ref role="37wK5l" node="7yCf_dgMz21" resolve="doUpdatePresentation" />
-                                        </node>
-                                        <node concept="37vLTw" id="2cFxs3P69XF" role="2Oq$k0">
+                            </node>
+                            <node concept="3clFbS" id="7Ba8SYYmWXr" role="3clFbx">
+                              <node concept="3clFbF" id="4puABOeK0FY" role="3cqZAp">
+                                <node concept="1rXfSq" id="4puABOeK0FW" role="3clFbG">
+                                  <ref role="37wK5l" to="lzb2:~SimpleColoredComponent.append(java.lang.String,com.intellij.ui.SimpleTextAttributes)" resolve="append" />
+                                  <node concept="2OqwBi" id="4puABOeKaCk" role="37wK5m">
+                                    <node concept="Xl_RD" id="4puABOeK7Pc" role="2Oq$k0">
+                                      <property role="Xl_RC" value=" (%s)" />
+                                    </node>
+                                    <node concept="2cAKMz" id="4puABOeKdVV" role="2OqNvi">
+                                      <node concept="2OqwBi" id="4puABOeKety" role="2cAKU6">
+                                        <node concept="37vLTw" id="4puABOeKetz" role="2Oq$k0">
                                           <ref role="3cqZAo" node="2cFxs3P69XB" resolve="tn" />
                                         </node>
+                                        <node concept="liA8E" id="4puABOeKet$" role="2OqNvi">
+                                          <ref role="37wK5l" node="7yCf_dgMyuC" resolve="getAdditionalText" />
+                                        </node>
+                                      </node>
+                                    </node>
+                                  </node>
+                                  <node concept="2ShNRf" id="7Ba8SYYmWXG" role="37wK5m">
+                                    <node concept="1pGfFk" id="7Ba8SYYmWXH" role="2ShVmc">
+                                      <ref role="37wK5l" to="lzb2:~SimpleTextAttributes.&lt;init&gt;(int,java.awt.Color)" resolve="SimpleTextAttributes" />
+                                      <node concept="10M0yZ" id="7Ba8SYYmWXI" role="37wK5m">
+                                        <ref role="3cqZAo" to="lzb2:~SimpleTextAttributes.STYLE_PLAIN" resolve="STYLE_PLAIN" />
+                                        <ref role="1PxDUh" to="lzb2:~SimpleTextAttributes" resolve="SimpleTextAttributes" />
+                                      </node>
+                                      <node concept="10M0yZ" id="7Ba8SYYmWY0" role="37wK5m">
+                                        <ref role="1PxDUh" to="z60i:~Color" resolve="Color" />
+                                        <ref role="3cqZAo" to="z60i:~Color.GRAY" resolve="GRAY" />
                                       </node>
                                     </node>
                                   </node>
@@ -14006,14 +14004,29 @@
                               </node>
                             </node>
                           </node>
-                          <node concept="3clFbF" id="QicWNw7hui" role="3cqZAp">
-                            <node concept="2OqwBi" id="7yCf_dgMzrU" role="3clFbG">
-                              <node concept="liA8E" id="7yCf_dgMzrZ" role="2OqNvi">
-                                <ref role="37wK5l" node="7yCf_dgMz1P" resolve="renderTreeNode" />
-                                <node concept="Xjq3P" id="QicWNw7gA1" role="37wK5m" />
+                          <node concept="3clFbF" id="4puABOeKDbh" role="3cqZAp">
+                            <node concept="1rXfSq" id="4puABOeKDbf" role="3clFbG">
+                              <ref role="37wK5l" to="lzb2:~ColoredTextContainer.setToolTipText(java.lang.String)" resolve="setToolTipText" />
+                              <node concept="2OqwBi" id="4puABOeKVio" role="37wK5m">
+                                <node concept="37vLTw" id="4puABOeKSbK" role="2Oq$k0">
+                                  <ref role="3cqZAo" node="2cFxs3P69XB" resolve="tn" />
+                                </node>
+                                <node concept="liA8E" id="4puABOeKYEq" role="2OqNvi">
+                                  <ref role="37wK5l" node="7yCf_dgMyuS" resolve="getTooltipText" />
+                                </node>
                               </node>
-                              <node concept="37vLTw" id="2cFxs3P6i4p" role="2Oq$k0">
-                                <ref role="3cqZAo" node="2cFxs3P69XB" resolve="tn" />
+                            </node>
+                          </node>
+                          <node concept="3clFbF" id="4puABOeLrTG" role="3cqZAp">
+                            <node concept="1rXfSq" id="4puABOeLrTE" role="3clFbG">
+                              <ref role="37wK5l" to="lzb2:~SimpleColoredComponent.setIcon(javax.swing.Icon)" resolve="setIcon" />
+                              <node concept="2OqwBi" id="4puABOeLAma" role="37wK5m">
+                                <node concept="37vLTw" id="4puABOeLzgS" role="2Oq$k0">
+                                  <ref role="3cqZAo" node="2cFxs3P69XB" resolve="tn" />
+                                </node>
+                                <node concept="liA8E" id="4puABOeLDEH" role="2OqNvi">
+                                  <ref role="37wK5l" node="7yCf_dgMyv8" resolve="getIcon" />
+                                </node>
                               </node>
                             </node>
                           </node>
@@ -14725,6 +14738,37 @@
                   <ref role="3cqZAo" node="42hl10VHaNj" resolve="parentNode" />
                 </node>
               </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="4puABOeG$a2" role="3cqZAp">
+          <node concept="1PaTwC" id="4puABOeG$a3" role="1aUNEU">
+            <node concept="3oM_SD" id="4puABOeG$a4" role="1PaTwD">
+              <property role="3oM_SC" value="TODO" />
+            </node>
+            <node concept="3oM_SD" id="4puABOeGByy" role="1PaTwD">
+              <property role="3oM_SC" value="replace" />
+            </node>
+            <node concept="3oM_SD" id="4puABOeGChQ" role="1PaTwD">
+              <property role="3oM_SC" value="this" />
+            </node>
+            <node concept="3oM_SD" id="4puABOeGChR" role="1PaTwD">
+              <property role="3oM_SC" value="condition" />
+            </node>
+            <node concept="3oM_SD" id="4puABOeGChS" role="1PaTwD">
+              <property role="3oM_SC" value="with" />
+            </node>
+            <node concept="3oM_SD" id="4puABOeGChT" role="1PaTwD">
+              <property role="3oM_SC" value="explicit" />
+            </node>
+            <node concept="3oM_SD" id="4puABOeGDij" role="1PaTwD">
+              <property role="3oM_SC" value="configuration" />
+            </node>
+            <node concept="3oM_SD" id="4puABOeGDLp" role="1PaTwD">
+              <property role="3oM_SC" value="method" />
+            </node>
+            <node concept="3oM_SD" id="4puABOeGDLq" role="1PaTwD">
+              <property role="3oM_SC" value="#needsModelPropertiesNode(boolean)" />
             </node>
           </node>
         </node>
@@ -16268,115 +16312,7 @@
           </node>
         </node>
       </node>
-      <node concept="3clFb_" id="7yCf_dgMz1P" role="jymVt">
-        <property role="TrG5h" value="renderTreeNode" />
-        <node concept="3Tm1VV" id="7yCf_dgMz1R" role="1B3o_S" />
-        <node concept="3cqZAl" id="7yCf_dgMz1Q" role="3clF45" />
-        <node concept="37vLTG" id="7yCf_dgMz1T" role="3clF46">
-          <property role="TrG5h" value="coloredRenderer" />
-          <node concept="3uibUv" id="7yCf_dgMz1X" role="1tU5fm">
-            <ref role="3uigEE" to="lzb2:~ColoredTreeCellRenderer" resolve="ColoredTreeCellRenderer" />
-          </node>
-        </node>
-        <node concept="3clFbS" id="7yCf_dgMz1S" role="3clF47">
-          <node concept="3clFbF" id="7yCf_dgMz1Y" role="3cqZAp">
-            <node concept="2OqwBi" id="7yCf_dgMz2c" role="3clFbG">
-              <node concept="liA8E" id="7yCf_dgMz2i" role="2OqNvi">
-                <ref role="37wK5l" to="lzb2:~SimpleColoredComponent.append(java.lang.String,com.intellij.ui.SimpleTextAttributes)" resolve="append" />
-                <node concept="1rXfSq" id="4hiugqyzhuF" role="37wK5m">
-                  <ref role="37wK5l" node="7yCf_dgMyuo" resolve="getText" />
-                </node>
-                <node concept="2ShNRf" id="7yCf_dgMzry" role="37wK5m">
-                  <node concept="1pGfFk" id="7yCf_dgMzrA" role="2ShVmc">
-                    <ref role="37wK5l" to="lzb2:~SimpleTextAttributes.&lt;init&gt;(int,java.awt.Color)" resolve="SimpleTextAttributes" />
-                    <node concept="37vLTw" id="2BHiRxeuPqD" role="37wK5m">
-                      <ref role="3cqZAo" node="5zhK2iKPAQm" resolve="myTextStyle" />
-                    </node>
-                    <node concept="1rXfSq" id="4hiugqyzi9z" role="37wK5m">
-                      <ref role="37wK5l" node="7yCf_dgMyvo" resolve="getColor" />
-                    </node>
-                  </node>
-                </node>
-              </node>
-              <node concept="37vLTw" id="2BHiRxgmazn" role="2Oq$k0">
-                <ref role="3cqZAo" node="7yCf_dgMz1T" resolve="coloredRenderer" />
-              </node>
-            </node>
-          </node>
-          <node concept="3clFbJ" id="7Ba8SYYmWXq" role="3cqZAp">
-            <node concept="2OqwBi" id="7Ba8SYYmWXx" role="3clFbw">
-              <node concept="17RvpY" id="7Ba8SYYmWXA" role="2OqNvi" />
-              <node concept="37vLTw" id="2BHiRxeuW7Z" role="2Oq$k0">
-                <ref role="3cqZAo" node="7yCf_dgMyu8" resolve="myAdditionalText" />
-              </node>
-            </node>
-            <node concept="3clFbS" id="7Ba8SYYmWXr" role="3clFbx">
-              <node concept="3clFbF" id="7Ba8SYYmWXB" role="3cqZAp">
-                <node concept="2OqwBi" id="7Ba8SYYmWXC" role="3clFbG">
-                  <node concept="37vLTw" id="2BHiRxglqcU" role="2Oq$k0">
-                    <ref role="3cqZAo" node="7yCf_dgMz1T" resolve="coloredRenderer" />
-                  </node>
-                  <node concept="liA8E" id="7Ba8SYYmWXE" role="2OqNvi">
-                    <ref role="37wK5l" to="lzb2:~SimpleColoredComponent.append(java.lang.String,com.intellij.ui.SimpleTextAttributes)" resolve="append" />
-                    <node concept="3cpWs3" id="7Ba8SYYmWXV" role="37wK5m">
-                      <node concept="Xl_RD" id="7Ba8SYYmWXY" role="3uHU7w">
-                        <property role="Xl_RC" value=")" />
-                      </node>
-                      <node concept="3cpWs3" id="7Ba8SYYmWXP" role="3uHU7B">
-                        <node concept="37vLTw" id="2BHiRxeujRV" role="3uHU7w">
-                          <ref role="3cqZAo" node="7yCf_dgMyu8" resolve="myAdditionalText" />
-                        </node>
-                        <node concept="Xl_RD" id="7Ba8SYYmWXM" role="3uHU7B">
-                          <property role="Xl_RC" value=" (" />
-                        </node>
-                      </node>
-                    </node>
-                    <node concept="2ShNRf" id="7Ba8SYYmWXG" role="37wK5m">
-                      <node concept="1pGfFk" id="7Ba8SYYmWXH" role="2ShVmc">
-                        <ref role="37wK5l" to="lzb2:~SimpleTextAttributes.&lt;init&gt;(int,java.awt.Color)" resolve="SimpleTextAttributes" />
-                        <node concept="10M0yZ" id="7Ba8SYYmWXI" role="37wK5m">
-                          <ref role="3cqZAo" to="lzb2:~SimpleTextAttributes.STYLE_PLAIN" resolve="STYLE_PLAIN" />
-                          <ref role="1PxDUh" to="lzb2:~SimpleTextAttributes" resolve="SimpleTextAttributes" />
-                        </node>
-                        <node concept="10M0yZ" id="7Ba8SYYmWY0" role="37wK5m">
-                          <ref role="1PxDUh" to="z60i:~Color" resolve="Color" />
-                          <ref role="3cqZAo" to="z60i:~Color.GRAY" resolve="GRAY" />
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="3clFbF" id="5NyrcRREEZb" role="3cqZAp">
-            <node concept="2OqwBi" id="5NyrcRREEZf" role="3clFbG">
-              <node concept="37vLTw" id="2BHiRxgmu6x" role="2Oq$k0">
-                <ref role="3cqZAo" node="7yCf_dgMz1T" resolve="coloredRenderer" />
-              </node>
-              <node concept="liA8E" id="5NyrcRREEZk" role="2OqNvi">
-                <ref role="37wK5l" to="dxuu:~JComponent.setToolTipText(java.lang.String)" resolve="setToolTipText" />
-                <node concept="37vLTw" id="2BHiRxeuKrV" role="37wK5m">
-                  <ref role="3cqZAo" node="7yCf_dgMyuc" resolve="myTooltipText" />
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="3clFbF" id="7yCf_dgMzrF" role="3cqZAp">
-            <node concept="2OqwBi" id="7yCf_dgMzrJ" role="3clFbG">
-              <node concept="liA8E" id="7yCf_dgMzrP" role="2OqNvi">
-                <ref role="37wK5l" to="lzb2:~SimpleColoredComponent.setIcon(javax.swing.Icon)" resolve="setIcon" />
-                <node concept="1rXfSq" id="4hiugqyzhvd" role="37wK5m">
-                  <ref role="37wK5l" node="7yCf_dgMyv8" resolve="getIcon" />
-                </node>
-              </node>
-              <node concept="37vLTw" id="2BHiRxgmLrv" role="2Oq$k0">
-                <ref role="3cqZAo" node="7yCf_dgMz1T" resolve="coloredRenderer" />
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
+      <node concept="2tJIrI" id="4puABOeGVJm" role="jymVt" />
       <node concept="3clFb_" id="7yCf_dgMz21" role="jymVt">
         <property role="TrG5h" value="doUpdatePresentation" />
         <node concept="3cqZAl" id="7yCf_dgMz22" role="3clF45" />
@@ -16581,6 +16517,17 @@
         <node concept="37vLTG" id="5zhK2iKPAQ$" role="3clF46">
           <property role="TrG5h" value="textStyle" />
           <node concept="10Oyi0" id="5zhK2iKPAQ_" role="1tU5fm" />
+        </node>
+      </node>
+      <node concept="3clFb_" id="4puABOeIL$x" role="jymVt">
+        <property role="TrG5h" value="getTextStyle" />
+        <node concept="10Oyi0" id="4puABOeIR5a" role="3clF45" />
+        <node concept="3clFbS" id="4puABOeIL$_" role="3clF47">
+          <node concept="3clFbF" id="4puABOeJgJ$" role="3cqZAp">
+            <node concept="37vLTw" id="4puABOeJgJz" role="3clFbG">
+              <ref role="3cqZAo" node="5zhK2iKPAQm" resolve="myTextStyle" />
+            </node>
+          </node>
         </node>
       </node>
     </node>

@@ -12,6 +12,8 @@ import java.util.List;
 import org.jetbrains.mps.openapi.module.SRepository;
 import com.intellij.ui.ColoredTreeCellRenderer;
 import javax.swing.JTree;
+import com.intellij.ui.SimpleTextAttributes;
+import java.awt.Color;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.event.TreeSelectionEvent;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -38,8 +40,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.ide.icons.GlobalIconManager;
 import javax.swing.tree.DefaultMutableTreeNode;
-import com.intellij.ui.SimpleTextAttributes;
-import java.awt.Color;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -58,9 +58,12 @@ public abstract class DiffModelTree extends SimpleTree implements DataProvider {
       public void customizeCellRenderer(JTree p0, Object value, boolean p2, boolean p3, boolean p4, int p5, boolean p6) {
         if (value instanceof TreeNode) {
           final TreeNode tn = (TreeNode) value;
-          // FIXME this code is poor, need to check TreeNode subclasses if they really care to have model access
-          myRepo.getModelAccess().runReadAction(() -> tn.doUpdatePresentation());
-          tn.renderTreeNode(this);
+          append(tn.getText(), new SimpleTextAttributes(tn.getTextStyle(), tn.getColor()));
+          if (isNotEmptyString(tn.getAdditionalText())) {
+            append(String.format(" (%s)", tn.getAdditionalText()), new SimpleTextAttributes(SimpleTextAttributes.STYLE_PLAIN, Color.GRAY));
+          }
+          setToolTipText(tn.getTooltipText());
+          setIcon(tn.getIcon());
         }
       }
     });
@@ -119,6 +122,7 @@ public abstract class DiffModelTree extends SimpleTree implements DataProvider {
       }
       parentNode.add(rtn);
     }
+    // TODO replace this condition with explicit configuration method #needsModelPropertiesNode(boolean)
     if (Sequence.fromIterable(getAffectedRoots()).any((r) -> r == null)) {
       RootTreeNode metadataNode = new MetadataTreeNode();
       ListSequence.fromList(myRootNodes).addElement(metadataNode);
@@ -293,14 +297,7 @@ public abstract class DiffModelTree extends SimpleTree implements DataProvider {
     public TreeNode(@NotNull String text) {
       myText = text;
     }
-    public void renderTreeNode(ColoredTreeCellRenderer coloredRenderer) {
-      coloredRenderer.append(getText(), new SimpleTextAttributes(myTextStyle, getColor()));
-      if ((myAdditionalText != null && myAdditionalText.length() > 0)) {
-        coloredRenderer.append(" (" + myAdditionalText + ")", new SimpleTextAttributes(SimpleTextAttributes.STYLE_PLAIN, Color.GRAY));
-      }
-      coloredRenderer.setToolTipText(myTooltipText);
-      coloredRenderer.setIcon(getIcon());
-    }
+
     protected void doUpdatePresentation() {
     }
     @NotNull
@@ -336,6 +333,9 @@ public abstract class DiffModelTree extends SimpleTree implements DataProvider {
     }
     public void setTextStyle(int textStyle) {
       myTextStyle = textStyle;
+    }
+    /*package*/ int getTextStyle() {
+      return myTextStyle;
     }
   }
   private static String check_5x0uld_a0a33(RootTreeNode checkedDotOperand, DiffModelTree checkedDotThisExpression) {
