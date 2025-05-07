@@ -25385,7 +25385,7 @@
       <property role="3fwGa$" value="IntelliJ" />
       <property role="TZNOO" value="17" />
       <node concept="3qWCbU" id="6Za9XhmfePi" role="2_Ic$A">
-        <property role="3qWCbO" value="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.svg, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
+        <property role="3qWCbO" value="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.svg, **/*.txt, **/*.ico, **/*.zip, **/*.info, **/*.json" />
       </node>
     </node>
     <node concept="398b33" id="2eDSGe9d1ou" role="3989C9">
