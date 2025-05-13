@@ -13,11 +13,11 @@ import org.xml.sax.InputSource;
 import java.io.ByteArrayInputStream;
 import jetbrains.mps.smodel.persistence.def.ModelPersistence;
 import jetbrains.mps.smodel.loading.ModelLoadResult;
-import jetbrains.mps.persistence.ByteArrayInputSource;
 import jetbrains.mps.smodel.loading.ModelLoadingState;
 import jetbrains.mps.smodel.InvalidSModel;
 import jetbrains.mps.smodel.persistence.def.ModelReadException;
 import java.io.IOException;
+import jetbrains.mps.persistence.ByteArrayInputSource;
 import org.jetbrains.mps.openapi.persistence.StreamDataSource;
 import org.jetbrains.mps.openapi.persistence.ContentOption;
 import jetbrains.mps.persistence.MetaModelInfoProvider;
@@ -70,7 +70,7 @@ public class ModelSack {
       SModelHeader header = VCSPersistenceSupport.loadDescriptor(new InputSource(new ByteArrayInputStream(content)));
       if (header.getPersistenceVersion() < ModelPersistence.FIRST_SUPPORTED_VERSION) {
         // likely, an old persistence, try it (FIXME however, check against ModelPersistence here is an implicit assumption it's an XML persistence!)
-        final ModelLoadResult modelLoadResult = VCSPersistenceSupport.readModel(header, new ByteArrayInputSource(content), ModelLoadingState.FULLY_LOADED);
+        final ModelLoadResult modelLoadResult = VCSPersistenceSupport.readModel(header, new InputSource(new ByteArrayInputStream(content)), ModelLoadingState.FULLY_LOADED);
         jetbrains.mps.smodel.SModel model = modelLoadResult.getModel();
         if (false == model instanceof InvalidSModel) {
           return new VCSPersistenceUtil.MyModel(model, header);
