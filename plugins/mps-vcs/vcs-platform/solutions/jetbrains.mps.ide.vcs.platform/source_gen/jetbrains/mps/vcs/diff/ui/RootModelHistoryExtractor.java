@@ -10,14 +10,14 @@ import com.intellij.openapi.vcs.history.VcsFileRevision;
 import java.util.ArrayList;
 import com.intellij.openapi.vcs.history.CurrentRevision;
 import jetbrains.mps.project.MPSProject;
-import com.intellij.openapi.vfs.VirtualFile;
 import java.util.Map;
 import jetbrains.mps.vcs.history.CommitsGraphNode;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
-import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.vcs.history.CommitsGraph;
 import jetbrains.mps.vcs.history.RootCommitsGraphTraverser;
+import com.intellij.openapi.vfs.VirtualFile;
+import jetbrains.mps.vcs.history.CommitsGraph;
+import org.jetbrains.annotations.NotNull;
 import java.util.Collections;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.annotations.Nullable;
@@ -34,10 +34,7 @@ import jetbrains.mps.vcs.diff.ChangeSetBuilder;
   private final int myTotalRevisions;
   private int myProcessedRevisions;
   private final MPSProject myProject;
-  private final VirtualFile myFile;
   private final Map<VcsFileRevision, CommitsGraphNode> myRevisionToNodeMap = MapSequence.fromMap(new HashMap<VcsFileRevision, CommitsGraphNode>());
-  @NotNull
-  private final CommitsGraph myCommitsGraph;
   private final RootCommitsGraphTraverser myRootCommitsGraphTraverser;
 
 
@@ -45,12 +42,11 @@ import jetbrains.mps.vcs.diff.ChangeSetBuilder;
     myProject = project;
     myLocalRevision = ((CurrentRevision) revisions.get(0));
     myRootId = root;
-    myFile = file;
     myOnUpdate = onUpdate;
     myTotalRevisions = revisions.size();
-    myCommitsGraph = new CommitsGraph(project.getProject(), file, revisions.subList(1, revisions.size()));
-    myCommitsGraph.addLocalRevisionNode(myLocalRevision);
-    myRootCommitsGraphTraverser = new RootCommitsGraphTraverser(myCommitsGraph, myRootId, this);
+    final CommitsGraph commitsGraph = new CommitsGraph(project, file, revisions.subList(1, revisions.size()));
+    commitsGraph.addLocalRevisionNode(myLocalRevision);
+    myRootCommitsGraphTraverser = new RootCommitsGraphTraverser(commitsGraph, myRootId, this);
   }
 
   @Override

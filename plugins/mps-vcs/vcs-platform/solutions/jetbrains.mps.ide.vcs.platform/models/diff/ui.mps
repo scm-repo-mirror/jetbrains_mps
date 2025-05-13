@@ -23954,14 +23954,6 @@
         <ref role="3uigEE" to="z1c4:~MPSProject" resolve="MPSProject" />
       </node>
     </node>
-    <node concept="312cEg" id="1oWcoIBNLvj" role="jymVt">
-      <property role="TrG5h" value="myFile" />
-      <property role="3TUv4t" value="true" />
-      <node concept="3Tm6S6" id="1oWcoIBNKhb" role="1B3o_S" />
-      <node concept="3uibUv" id="1oWcoIBNLoW" role="1tU5fm">
-        <ref role="3uigEE" to="jlff:~VirtualFile" resolve="VirtualFile" />
-      </node>
-    </node>
     <node concept="312cEg" id="3Tax_YyAI4c" role="jymVt">
       <property role="TrG5h" value="myRevisionToNodeMap" />
       <property role="3TUv4t" value="true" />
@@ -23983,17 +23975,6 @@
             <ref role="3uigEE" to="5p6x:6wgNI6tBJvh" resolve="CommitsGraphNode" />
           </node>
         </node>
-      </node>
-    </node>
-    <node concept="312cEg" id="4aYE7Kdmsiq" role="jymVt">
-      <property role="TrG5h" value="myCommitsGraph" />
-      <property role="3TUv4t" value="true" />
-      <node concept="3Tm6S6" id="4aYE7KdmpIi" role="1B3o_S" />
-      <node concept="3uibUv" id="4aYE7Kdms5e" role="1tU5fm">
-        <ref role="3uigEE" to="5p6x:4aYE7KddtJc" resolve="CommitsGraph" />
-      </node>
-      <node concept="2AHcQZ" id="5OZff9qjwsa" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
       </node>
     </node>
     <node concept="312cEg" id="3szaEXSAJ_j" role="jymVt">
@@ -24087,16 +24068,6 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="1oWcoIBNOhV" role="3cqZAp">
-          <node concept="37vLTI" id="1oWcoIBNPbV" role="3clFbG">
-            <node concept="37vLTw" id="1oWcoIBNPU1" role="37vLTx">
-              <ref role="3cqZAo" node="1oWcoIBNMR6" resolve="file" />
-            </node>
-            <node concept="37vLTw" id="1oWcoIBNOhT" role="37vLTJ">
-              <ref role="3cqZAo" node="1oWcoIBNLvj" resolve="myFile" />
-            </node>
-          </node>
-        </node>
         <node concept="3clFbF" id="4arIk_lPWEG" role="3cqZAp">
           <node concept="37vLTI" id="4arIk_lPWEH" role="3clFbG">
             <node concept="37vLTw" id="4arIk_lPWEI" role="37vLTJ">
@@ -24122,21 +24093,18 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="4aYE7Kdmwn1" role="3cqZAp">
-          <node concept="37vLTI" id="4aYE7Kdmxng" role="3clFbG">
-            <node concept="37vLTw" id="4aYE7KdmwmZ" role="37vLTJ">
-              <ref role="3cqZAo" node="4aYE7Kdmsiq" resolve="myCommitsGraph" />
+        <node concept="3cpWs8" id="5Lno_XHpKeQ" role="3cqZAp">
+          <node concept="3cpWsn" id="5Lno_XHpKeT" role="3cpWs9">
+            <property role="TrG5h" value="commitsGraph" />
+            <property role="3TUv4t" value="true" />
+            <node concept="3uibUv" id="5Lno_XHpKeV" role="1tU5fm">
+              <ref role="3uigEE" to="5p6x:4aYE7KddtJc" resolve="CommitsGraph" />
             </node>
-            <node concept="2ShNRf" id="4aYE7Kdmyj5" role="37vLTx">
+            <node concept="2ShNRf" id="4aYE7Kdmyj5" role="33vP2m">
               <node concept="1pGfFk" id="4aYE7Kdmyj6" role="2ShVmc">
                 <ref role="37wK5l" to="5p6x:4aYE7KddtLQ" resolve="CommitsGraph" />
-                <node concept="2OqwBi" id="4aYE7Kdmyj7" role="37wK5m">
-                  <node concept="37vLTw" id="4aYE7Kdmz_4" role="2Oq$k0">
-                    <ref role="3cqZAo" node="4arIk_lPWEl" resolve="project" />
-                  </node>
-                  <node concept="liA8E" id="4aYE7Kdmyj9" role="2OqNvi">
-                    <ref role="37wK5l" to="z1c4:~MPSProject.getProject()" resolve="getProject" />
-                  </node>
+                <node concept="37vLTw" id="4aYE7Kdmz_4" role="37wK5m">
+                  <ref role="3cqZAo" node="4arIk_lPWEl" resolve="project" />
                 </node>
                 <node concept="37vLTw" id="4aYE7Kdm$tg" role="37wK5m">
                   <ref role="3cqZAo" node="1oWcoIBNMR6" resolve="file" />
@@ -24167,7 +24135,7 @@
         <node concept="3clFbF" id="6STmDFFbqHU" role="3cqZAp">
           <node concept="2OqwBi" id="6STmDFFbtBB" role="3clFbG">
             <node concept="37vLTw" id="4sA_pTWE8ad" role="2Oq$k0">
-              <ref role="3cqZAo" node="4aYE7Kdmsiq" resolve="myCommitsGraph" />
+              <ref role="3cqZAo" node="5Lno_XHpKeT" resolve="commitsGraph" />
             </node>
             <node concept="liA8E" id="6STmDFFbxmN" role="2OqNvi">
               <ref role="37wK5l" to="5p6x:5Lno_XH4azx" resolve="addLocalRevisionNode" />
@@ -24186,7 +24154,7 @@
               <node concept="1pGfFk" id="3szaEXSAP2U" role="2ShVmc">
                 <ref role="37wK5l" to="5p6x:5Lno_XH9J50" resolve="RootCommitsGraphTraverser" />
                 <node concept="37vLTw" id="3szaEXSAP2X" role="37wK5m">
-                  <ref role="3cqZAo" node="4aYE7Kdmsiq" resolve="myCommitsGraph" />
+                  <ref role="3cqZAo" node="5Lno_XHpKeT" resolve="commitsGraph" />
                 </node>
                 <node concept="37vLTw" id="3szaEXSAP2W" role="37wK5m">
                   <ref role="3cqZAo" node="4arIk_lPWDJ" resolve="myRootId" />

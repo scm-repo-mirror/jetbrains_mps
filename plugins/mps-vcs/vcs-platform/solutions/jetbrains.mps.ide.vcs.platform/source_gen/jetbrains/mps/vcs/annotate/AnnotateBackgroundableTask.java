@@ -91,7 +91,7 @@ public final class AnnotateBackgroundableTask extends Task.Backgroundable {
 
     CommitsGraph commitsGraph;
     try {
-      commitsGraph = new CommitsGraph(myProject, myActualFile, revisions.value);
+      commitsGraph = new CommitsGraph(myMpsProject, myActualFile, revisions.value);
     } catch (CommitsGraph.BuildException e) {
       myException = e;
       return;

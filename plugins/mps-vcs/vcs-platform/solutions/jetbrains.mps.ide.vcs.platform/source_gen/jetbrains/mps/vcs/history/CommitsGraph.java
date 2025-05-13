@@ -6,7 +6,8 @@ import jetbrains.mps.annotations.GeneratedClass;
 import org.jetbrains.annotations.NotNull;
 import java.util.Collection;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.openapi.project.Project;
+import jetbrains.mps.components.ComponentHost;
+import jetbrains.mps.project.MPSProject;
 import java.util.List;
 import com.intellij.openapi.vcs.history.VcsFileRevision;
 import org.jetbrains.annotations.Nullable;
@@ -16,7 +17,9 @@ import com.intellij.openapi.vcs.history.CurrentRevision;
 import org.jetbrains.mps.openapi.model.SModel;
 import com.intellij.openapi.vcs.VcsException;
 import java.io.IOException;
-import jetbrains.mps.vcspersistence.VCSPersistenceUtil;
+import org.jetbrains.mps.openapi.persistence.ModelLoadException;
+import jetbrains.mps.vcspersistence.ModelSack;
+import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vcs.FilePath;
 import com.intellij.vcsUtil.VcsUtil;
 import com.intellij.vcs.log.util.VcsLogUtil;
@@ -44,10 +47,12 @@ public final class CommitsGraph {
   @NotNull
   private final Collection<CommitsGraphNode> myNodes;
   private final VirtualFile myFile;
+  private final ComponentHost myPlatform;
 
-  public CommitsGraph(@NotNull Project project, @NotNull VirtualFile file, @NotNull List<VcsFileRevision> revisions) throws BuildException {
-    myNodes = buildGraph(project, file, revisions);
+  public CommitsGraph(@NotNull MPSProject project, @NotNull VirtualFile file, @NotNull List<VcsFileRevision> revisions) throws BuildException {
+    myNodes = buildGraph(project.getProject(), file, revisions);
     myFile = file;
+    myPlatform = project.getPlatform();
   }
 
   @NotNull
@@ -83,8 +88,9 @@ public final class CommitsGraph {
     return myNodes;
   }
 
-  /*package*/ SModel loadModel(VcsFileRevision revision) throws VcsException, IOException {
-    return VCSPersistenceUtil.loadModel(revision.loadContent(), myFile.getExtension());
+  /*package*/ SModel loadModel(VcsFileRevision revision) throws VcsException, IOException, ModelLoadException, IllegalArgumentException {
+    // FIXME in fact, could discover once, and reuse ModelSack, and do not keep neither VF not CH. Just don't want to deal with exceptions from cons at the moment
+    return ModelSack.discover(myPlatform, myFile.getName()).load(revision.loadContent());
   }
 
   public static class BuildException extends Exception {
@@ -106,7 +112,7 @@ public final class CommitsGraph {
   @Nullable
   private static VcsLogData getDataManager(Project project) {
     VcsLogManager logManager = VcsProjectLog.getInstance(project).getLogManager();
-    return check_2ne4bd_a1a22(logManager);
+    return check_2ne4bd_a1a32(logManager);
   }
 
   @NotNull
@@ -200,7 +206,7 @@ public final class CommitsGraph {
     }
     return nodes;
   }
-  private static VcsLogData check_2ne4bd_a1a22(VcsLogManager checkedDotOperand) {
+  private static VcsLogData check_2ne4bd_a1a32(VcsLogManager checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getDataManager();
     }

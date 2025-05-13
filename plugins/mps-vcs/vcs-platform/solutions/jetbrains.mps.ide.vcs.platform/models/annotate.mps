@@ -10691,7 +10691,7 @@
                   <node concept="1pGfFk" id="5Y_dPLMoq94" role="2ShVmc">
                     <ref role="37wK5l" to="5p6x:4aYE7KddtLQ" resolve="CommitsGraph" />
                     <node concept="37vLTw" id="5Y_dPLMoq95" role="37wK5m">
-                      <ref role="3cqZAo" to="xygl:~Task.myProject" resolve="myProject" />
+                      <ref role="3cqZAo" node="TvXi8kPG95" resolve="myMpsProject" />
                     </node>
                     <node concept="37vLTw" id="5Y_dPLMoq96" role="37wK5m">
                       <ref role="3cqZAo" node="55zwzn2DFX2" resolve="myActualFile" />
