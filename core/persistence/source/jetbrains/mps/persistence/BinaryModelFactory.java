@@ -62,12 +62,10 @@ import static org.jetbrains.mps.openapi.persistence.MFProblem.NO_PROBLEM;
  * evgeny, 11/20/12
  */
 public class BinaryModelFactory implements ModelFactory, IndexAwareModelFactory, DataLocationAwareModelFactory {
-  @NotNull
-  private static PersistenceFacade FACADE() {
-    return PersistenceFacade.getInstance();
-  }
+  private final PersistenceFacade myPersistenceRegistry;
 
-  public BinaryModelFactory() {
+  public BinaryModelFactory(@NotNull PersistenceFacade persistenceFacade) {
+    myPersistenceRegistry = persistenceFacade;
   }
 
   @NotNull
@@ -100,7 +98,7 @@ public class BinaryModelFactory implements ModelFactory, IndexAwareModelFactory,
 
     StreamDataSource source = (StreamDataSource) dataSource;
     final SModelHeader header = new SModelHeader();
-    SModelReference newModelRef = FACADE().createModelReference(null, SModelId.generate(), modelName);
+    SModelReference newModelRef = myPersistenceRegistry.createModelReference(null, SModelId.generate(), modelName);
     header.setModelReference(newModelRef);
     return new DefaultSModelDescriptor(new PersistenceFacility(this, source), header);
   }

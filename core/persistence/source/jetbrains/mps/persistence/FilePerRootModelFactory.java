@@ -72,14 +72,10 @@ import static org.jetbrains.mps.openapi.persistence.MFProblem.NO_PROBLEM;
 public class FilePerRootModelFactory implements ModelFactory, IndexAwareModelFactory, DataLocationAwareModelFactory {
   private static final Logger LOG = Logger.getLogger(FilePerRootModelFactory.class);
 
-  @NotNull
-  private static PersistenceFacade FACADE() {
-    return PersistenceFacade.getInstance();
-  }
+  private final PersistenceFacade myPersistenceRegistry;
 
-  @Internal
-  public FilePerRootModelFactory() {
-    // do not delete, it is a java service
+  public FilePerRootModelFactory(@NotNull PersistenceFacade persistenceFacade) {
+    myPersistenceRegistry = persistenceFacade;
   }
 
   @NotNull
@@ -110,7 +106,7 @@ public class FilePerRootModelFactory implements ModelFactory, IndexAwareModelFac
       throw new UnsupportedDataSourceException(dataSource);
     }
 
-    SModelReference ref = FACADE().createModelReference(null, SModelId.generate(), modelName);
+    SModelReference ref = myPersistenceRegistry.createModelReference(null, SModelId.generate(), modelName);
     final SModelHeader header = SModelHeader.create(ModelPersistence.LAST_VERSION);
     header.setModelReference(ref);
     return new DefaultSModelDescriptor(new PersistenceFacility(this, (MultiStreamDataSource) dataSource), header);

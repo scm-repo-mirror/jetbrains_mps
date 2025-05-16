@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2024 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -58,7 +58,7 @@ public final class MPSPersistence extends ComponentPlugin implements ComponentHo
     super.init();
     myDigestHelper = init(new ModelDigestHelper());
     init(new DataSourceFactoryRuleCoreService(myDataSourceService));
-    init(new ModelFactoryCoreService(myModelFactoryService));
+    init(new ModelFactoryCoreService(myModelFactoryService, myPersistenceFacade));
     final ClassStubRootProvider srp = init(new ClassStubRootProvider());
     init(new JavaClassesPersistence(myPersistenceFacade, myVfsManager, srp));
     init(new KotlinClassesPersistence(myPersistenceFacade));

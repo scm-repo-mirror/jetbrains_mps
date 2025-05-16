@@ -84,9 +84,16 @@ public class DefaultModelPersistence implements ModelFactory, IndexAwareModelFac
     INTERFACE_ONLY
   }
 
+  private final PersistenceFacade myPersistenceRegistry;
+
   @Internal
   public DefaultModelPersistence() {
-    // do not delete, it is a java service
+    // FIXME refactor single use in tests
+    this(PersistenceFacade.getInstance());
+  }
+
+  public DefaultModelPersistence(@NotNull PersistenceFacade persistenceRegistry) {
+    myPersistenceRegistry = persistenceRegistry;
   }
 
   @Override
@@ -118,7 +125,7 @@ public class DefaultModelPersistence implements ModelFactory, IndexAwareModelFac
     }
 
     final SModelHeader header = SModelHeader.create(ModelPersistence.LAST_VERSION);
-    final SModelReference modelReference = PersistenceFacade.getInstance().createModelReference(null, SModelId.generate(), modelName);
+    final SModelReference modelReference = myPersistenceRegistry.createModelReference(null, SModelId.generate(), modelName);
     header.setModelReference(modelReference);
     final DefaultSModelDescriptor rv = new DefaultSModelDescriptor(new PersistenceFacility(this, (StreamDataSource) dataSource), header);
     // Hack to ensure newly created model is indeed empty. Otherwise, with StreamDataSource pointing to existing model stream, an attempt to
