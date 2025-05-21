@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2024 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -211,7 +211,7 @@ public class SLibrary implements MPSModuleOwner, Comparable<SLibrary> {
         loaded.add(module);
         IFile file = moduleHandle.getFile();
         if (file.isInZipArchive()) {
-          file = file.getBundleHome();
+          file = file.stepUpToArchive();
         }
         myFileTracker.track(file, module);
         uniqueFiles.add(file);

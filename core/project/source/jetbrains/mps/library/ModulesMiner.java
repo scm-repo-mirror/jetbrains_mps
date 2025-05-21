@@ -385,10 +385,8 @@ public final class ModulesMiner {
     if (filePath.endsWith(SLASH_META_INF_MODULE_XML)) {
       IFile moduleHome;
       if (file.isInZipArchive()) {
-        moduleHome = file.getBundleHome();
+        moduleHome = file.stepUpToArchive();
       } else {
-        // IFile.getBundleHome is not smart enough to recognize META-INF/module.xml in a regular directory (not archive), and yields
-        // wrong result then (file.getParent() == META-INF/ location which won't help to locate libraries).
         // Instead, assume META-INF/module.xml is at the root of a module location (which if generally the case).
         moduleHome = file.getParent().getParent();
       }

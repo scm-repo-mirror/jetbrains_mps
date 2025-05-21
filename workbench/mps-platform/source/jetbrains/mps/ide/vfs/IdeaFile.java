@@ -592,7 +592,9 @@ public class IdeaFile implements IFile, CachingFile {
     if (virtualFile == null) {
       LOG.warning("could not find the virtual file for " + this);
     }
-    return virtualFile != null && virtualFile.exists() && virtualFile.getFileType() == FileTypes.ARCHIVE;
+    // XXX I wonder if virtualFile.exists() (comes from d2fd1cc3) is necessary - other implementations doesn't seem to check existence
+    // check for "!/" is to distinguish zipFile and zipFile.stepIntoArchive(), latter shall answer isZipArchive == false (but isInZipArchive == true)
+    return virtualFile != null && !myPath.endsWith(Path.ARCHIVE_SEPARATOR) && virtualFile.exists() && virtualFile.getFileType() == FileTypes.ARCHIVE;
   }
 
   @Override
@@ -606,7 +608,29 @@ public class IdeaFile implements IFile, CachingFile {
   }
 
   @Override
+  @NotNull
+  public IFile stepUpToArchive() {
+    BaseIdeaFileSystem localFS = myFS.getUmbrellaFileSystem().getLocalFS();
+    VirtualFile virtualFile = findVirtualFile();
+    if (virtualFile != null) {
+      if (virtualFile.getFileSystem() instanceof ArchiveFileSystem) {
+        VirtualFile fileForJar = ((ArchiveFileSystem) virtualFile.getFileSystem()).getLocalByEntry(virtualFile);
+        return fileForJar == null ? this : new IdeaFile(localFS, fileForJar);
+      } else {
+        return this;
+      }
+    } else {
+      if (myPath.contains("!")) {
+        return localFS.getFile(myPath.substring(0, myPath.indexOf(Path.ARCHIVE_SEPARATOR)));
+      } else {
+        return this;
+      }
+    }
+  }
+
+  @Override
   public IFile getBundleHome() {
+    // pretty much == stepUpToArchive, except for error handling, here we use null or getParent()
     BaseIdeaFileSystem localFS = myFS.getUmbrellaFileSystem().getLocalFS();
     VirtualFile virtualFile = findVirtualFile();
     if (virtualFile != null) {

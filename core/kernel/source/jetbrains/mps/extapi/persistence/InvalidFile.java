@@ -87,13 +87,19 @@ import java.util.List;
   }
 
   @Override
-  public boolean isZipArchive() throws IOException {
+  public boolean isZipArchive() {
     return false;
   }
 
   @Override
   @NotNull
   public IFile stepIntoArchive() {
+    return this;
+  }
+
+  @Override
+  @NotNull
+  public IFile stepUpToArchive() {
     return this;
   }
 

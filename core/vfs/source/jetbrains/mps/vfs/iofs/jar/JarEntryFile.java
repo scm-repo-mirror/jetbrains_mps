@@ -101,7 +101,7 @@ public class JarEntryFile implements IFile {
     for (String e : myJarFileData.getSubdirectories(myEntryPath)) {
       result.add(myFileSystem.createFile(e, myJarFileData));
     }
-    final String prefix = myEntryPath.length() > 0 ? myEntryPath + '/' : null;
+    final String prefix = myEntryPath.isEmpty() ? null : myEntryPath + '/';
     for (String e : myJarFileData.getFiles(myEntryPath)) {
       result.add(myFileSystem.createFile(prefix != null ? prefix + e : e, myJarFileData));
     }
@@ -125,6 +125,12 @@ public class JarEntryFile implements IFile {
     return true;
   }
 
+  @NotNull
+  @Override
+  public IFile stepUpToArchive() {
+    return myFileSystem.getUmbrellaFileSystem().getFile(myJarFileData.getFile());
+  }
+
   @Override
   @NotNull
   public IFile getDescendant(@NotNull String suffix) {
@@ -139,7 +145,7 @@ public class JarEntryFile implements IFile {
   @NotNull
   public IFile findChild(@NotNull String name) {
     new PathFormatChecker(name).nonEmpty().noSeparators();
-    String path = myEntryPath.length() > 0 ? myEntryPath + IFileSystem.SEPARATOR + name : name;
+    String path = myEntryPath.isEmpty() ? name : myEntryPath + IFileSystem.SEPARATOR + name;
     return myFileSystem.createFile(path, myJarFileData);
   }
 
@@ -250,7 +256,7 @@ public class JarEntryFile implements IFile {
 
   @Override
   public IFile getBundleHome() {
-    return myFileSystem.getManager().getFileSystem(VFSManager.JAVA_IO_FILE_FS).getFile(myJarFileData.getFile());
+    return stepUpToArchive();
   }
 
   @Override

@@ -126,10 +126,27 @@ public interface IFile {
   /**
    * If this file points to an archive, {@link #isZipArchive()}, then this method gives a directory listing archive files.
    * @return root of the archive, or {@code this} if this file doesn't point to an archive
+   * @see #stepUpToArchive()
    * @since 2025.1
    */
   @NotNull
   IFile stepIntoArchive();
+
+  /**
+   * If this file points to an entry in an archive file, returns closest containing archive.
+   * Otherwise, if this file is not an entry or is itself an archive, return {@code this}.
+   * <p>
+   *  Guard call to this method with {@link #isInZipArchive()} for the return value to make sense.
+   *  Then, one can assume {@link #isZipArchive()} on returned value.
+   * </p>
+   *
+   *
+   * @return archive file if this file is itself an archive file or lives inside an archive, {@code this} otherwise
+   * @see #stepIntoArchive()
+   * @since 2025.2
+   */
+  @NotNull
+  IFile stepUpToArchive();
 
   @Deprecated
   @ScheduledForRemoval(inVersion = "2022.2")

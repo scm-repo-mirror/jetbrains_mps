@@ -79,10 +79,6 @@ public final class JarIoFileSystem implements IFileSystem {
     return false;
   }
 
-  /*package*/ VFSManager getManager() {
-    return myManager;
-  }
-
   /**
    * @since 2025.1
    */
