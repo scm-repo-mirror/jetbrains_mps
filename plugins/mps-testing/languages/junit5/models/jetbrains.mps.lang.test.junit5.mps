@@ -1745,6 +1745,73 @@
           </node>
         </node>
         <node concept="3clFbH" id="5gsHVK_3M5i" role="3cqZAp" />
+        <node concept="3SKdUt" id="7ydKsop9iu1" role="3cqZAp">
+          <node concept="1PaTwC" id="7ydKsop9iu2" role="1aUNEU">
+            <node concept="3oM_SD" id="7ydKsop9juA" role="1PaTwD">
+              <property role="3oM_SC" value="use" />
+            </node>
+            <node concept="3oM_SD" id="7ydKsop9ju5" role="1PaTwD">
+              <property role="3oM_SC" value="plain" />
+            </node>
+            <node concept="3oM_SD" id="7ydKsop9jwp" role="1PaTwD">
+              <property role="3oM_SC" value="java.io-backed" />
+            </node>
+            <node concept="3oM_SD" id="7ydKsop9jwE" role="1PaTwD">
+              <property role="3oM_SC" value="FS" />
+            </node>
+            <node concept="3oM_SD" id="7ydKsop9jxb" role="1PaTwD">
+              <property role="3oM_SC" value="as" />
+            </node>
+            <node concept="3oM_SD" id="7ydKsop9jxc" role="1PaTwD">
+              <property role="3oM_SC" value="we" />
+            </node>
+            <node concept="3oM_SD" id="7ydKsop9jxH" role="1PaTwD">
+              <property role="3oM_SC" value="don't" />
+            </node>
+            <node concept="3oM_SD" id="7ydKsop9jxY" role="1PaTwD">
+              <property role="3oM_SC" value="need" />
+            </node>
+            <node concept="3oM_SD" id="7ydKsop9jyf" role="1PaTwD">
+              <property role="3oM_SC" value="anything" />
+            </node>
+            <node concept="3oM_SD" id="7ydKsop9jyg" role="1PaTwD">
+              <property role="3oM_SC" value="but" />
+            </node>
+            <node concept="3oM_SD" id="7ydKsop9jyL" role="1PaTwD">
+              <property role="3oM_SC" value="raw" />
+            </node>
+            <node concept="3oM_SD" id="7ydKsop9jzi" role="1PaTwD">
+              <property role="3oM_SC" value="contents" />
+            </node>
+            <node concept="3oM_SD" id="7ydKsop9jzz" role="1PaTwD">
+              <property role="3oM_SC" value="of" />
+            </node>
+            <node concept="3oM_SD" id="7ydKsop9jz$" role="1PaTwD">
+              <property role="3oM_SC" value="these" />
+            </node>
+            <node concept="3oM_SD" id="7ydKsop9jz_" role="1PaTwD">
+              <property role="3oM_SC" value="module" />
+            </node>
+            <node concept="3oM_SD" id="7ydKsop9j$6" role="1PaTwD">
+              <property role="3oM_SC" value="jars," />
+            </node>
+            <node concept="3oM_SD" id="7ydKsop9j$B" role="1PaTwD">
+              <property role="3oM_SC" value="no" />
+            </node>
+            <node concept="3oM_SD" id="7ydKsop9j_Y" role="1PaTwD">
+              <property role="3oM_SC" value="change" />
+            </node>
+            <node concept="3oM_SD" id="7ydKsop9jC_" role="1PaTwD">
+              <property role="3oM_SC" value="tracking" />
+            </node>
+            <node concept="3oM_SD" id="7ydKsop9jD8" role="1PaTwD">
+              <property role="3oM_SC" value="or" />
+            </node>
+            <node concept="3oM_SD" id="7ydKsop9jDp" role="1PaTwD">
+              <property role="3oM_SC" value="caching" />
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs8" id="25EyDezeLPw" role="3cqZAp">
           <node concept="3cpWsn" id="25EyDezeLPx" role="3cpWs9">
             <property role="TrG5h" value="localFS" />
@@ -1765,8 +1832,8 @@
               </node>
               <node concept="liA8E" id="25EyDezeLPC" role="2OqNvi">
                 <ref role="37wK5l" to="3ju5:~VFSManager.getFileSystem(java.lang.String)" resolve="getFileSystem" />
-                <node concept="10M0yZ" id="25EyDezeLPD" role="37wK5m">
-                  <ref role="3cqZAo" to="3ju5:~VFSManager.FILE_FS" resolve="FILE_FS" />
+                <node concept="10M0yZ" id="7ydKsop9evL" role="37wK5m">
+                  <ref role="3cqZAo" to="3ju5:~VFSManager.JAVA_IO_FILE_FS" resolve="JAVA_IO_FILE_FS" />
                   <ref role="1PxDUh" to="3ju5:~VFSManager" resolve="VFSManager" />
                 </node>
               </node>
