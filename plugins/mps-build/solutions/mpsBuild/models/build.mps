@@ -26767,6 +26767,20 @@
             </node>
           </node>
         </node>
+        <node concept="13uQ2_" id="3TA_YgKjm9j" role="39821P">
+          <node concept="3_J27D" id="3TA_YgKjm9k" role="13uQ07">
+            <node concept="3Mxwew" id="3TA_YgKjm9l" role="3MwsjC">
+              <property role="3MwjfP" value="intellij.platform.vcs.dvcs.impl.jar" />
+            </node>
+          </node>
+        </node>
+        <node concept="13uQ2_" id="3TA_YgKt6L3" role="39821P">
+          <node concept="3_J27D" id="3TA_YgKt6L4" role="13uQ07">
+            <node concept="3Mxwew" id="3TA_YgKt6L5" role="3MwsjC">
+              <property role="3MwjfP" value="intellij.platform.vcs.log.impl.jar" />
+            </node>
+          </node>
+        </node>
       </node>
       <node concept="398223" id="6eCuTcwOX2i" role="39821P">
         <node concept="3_J27D" id="6eCuTcwOX2j" role="Nbhlr">
@@ -35612,6 +35626,11 @@
       <node concept="1SiIV0" id="2dGZeUusbvB" role="3bR37C">
         <node concept="3bR9La" id="2dGZeUusbvC" role="1SiIV1">
           <ref role="3bR37D" node="HHlBn9$wJ2" resolve="org.jdom" />
+        </node>
+      </node>
+      <node concept="1SiIV0" id="6IrEpWwdikU" role="3bR37C">
+        <node concept="3bR9La" id="6IrEpWwdikV" role="1SiIV1">
+          <ref role="3bR37D" node="6IrEpWwbD4R" resolve="jetbrains.mps.vcs.idea.stubs" />
         </node>
       </node>
     </node>
@@ -49845,6 +49864,91 @@
           </node>
         </node>
       </node>
+      <node concept="1SiIV0" id="6IrEpWwbDMl" role="3bR37C">
+        <node concept="3bR9La" id="6IrEpWwbDMm" role="1SiIV1">
+          <property role="3bR36h" value="true" />
+          <ref role="3bR37D" node="6IrEpWwbD4R" resolve="jetbrains.mps.vcs.idea.stubs" />
+        </node>
+      </node>
+    </node>
+    <node concept="1E1JtA" id="6IrEpWwbD4R" role="3989C9">
+      <property role="BnDLt" value="true" />
+      <property role="TrG5h" value="jetbrains.mps.vcs.idea.stubs" />
+      <property role="3LESm3" value="f35cbfcb-ea50-4f20-9d5c-c765fbd8fd3b" />
+      <property role="3vZFNd" value="3kCd1ud3JDD/compile_ext" />
+      <node concept="55IIr" id="6IrEpWwbD4T" role="3LF7KH">
+        <node concept="2Ry0Ak" id="6IrEpWwbDdT" role="iGT6I">
+          <property role="2Ry0Am" value="plugins" />
+          <node concept="2Ry0Ak" id="6IrEpWwbDhv" role="2Ry0An">
+            <property role="2Ry0Am" value="mps-vcs" />
+            <node concept="2Ry0Ak" id="6IrEpWwbD_v" role="2Ry0An">
+              <property role="2Ry0Am" value="vcs-core" />
+              <node concept="2Ry0Ak" id="6IrEpWwbDC0" role="2Ry0An">
+                <property role="2Ry0Am" value="modules" />
+                <node concept="2Ry0Ak" id="6IrEpWwbDDs" role="2Ry0An">
+                  <property role="2Ry0Am" value="jetbrains.mps.vcs.idea.stubs" />
+                  <node concept="2Ry0Ak" id="6IrEpWwbDH2" role="2Ry0An">
+                    <property role="2Ry0Am" value="jetbrains.mps.vcs.idea.stubs.msd" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="1SiIV0" id="6IrEpWwbDJx" role="3bR37C">
+        <node concept="3bR9La" id="6IrEpWwbDJy" role="1SiIV1">
+          <ref role="3bR37D" node="1ia2VB5guYy" resolve="MPS.IDEA" />
+        </node>
+      </node>
+      <node concept="1SiIV0" id="6IrEpWwbDJB" role="3bR37C">
+        <node concept="1BurEX" id="6IrEpWwbDJC" role="1SiIV1">
+          <node concept="398BVA" id="6IrEpWwbDJz" role="1BurEY">
+            <ref role="398BVh" node="6ifcnI8$2ke" resolve="mps_home" />
+            <node concept="2Ry0Ak" id="6IrEpWwbDJ$" role="iGT6I">
+              <property role="2Ry0Am" value="lib" />
+              <node concept="2Ry0Ak" id="6IrEpWwbDJ_" role="2Ry0An">
+                <property role="2Ry0Am" value="modules" />
+                <node concept="2Ry0Ak" id="6IrEpWwbDJA" role="2Ry0An">
+                  <property role="2Ry0Am" value="intellij.platform.vcs.impl.jar" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="1SiIV0" id="6IrEpWwbDJH" role="3bR37C">
+        <node concept="1BurEX" id="6IrEpWwbDJI" role="1SiIV1">
+          <node concept="398BVA" id="6IrEpWwbDJD" role="1BurEY">
+            <ref role="398BVh" node="6ifcnI8$2ke" resolve="mps_home" />
+            <node concept="2Ry0Ak" id="6IrEpWwbDJE" role="iGT6I">
+              <property role="2Ry0Am" value="lib" />
+              <node concept="2Ry0Ak" id="6IrEpWwbDJF" role="2Ry0An">
+                <property role="2Ry0Am" value="modules" />
+                <node concept="2Ry0Ak" id="6IrEpWwbDJG" role="2Ry0An">
+                  <property role="2Ry0Am" value="intellij.platform.vcs.dvcs.impl.jar" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="1SiIV0" id="6IrEpWwbDJN" role="3bR37C">
+        <node concept="1BurEX" id="6IrEpWwbDJO" role="1SiIV1">
+          <node concept="398BVA" id="6IrEpWwbDJJ" role="1BurEY">
+            <ref role="398BVh" node="6ifcnI8$2ke" resolve="mps_home" />
+            <node concept="2Ry0Ak" id="6IrEpWwbDJK" role="iGT6I">
+              <property role="2Ry0Am" value="lib" />
+              <node concept="2Ry0Ak" id="6IrEpWwbDJL" role="2Ry0An">
+                <property role="2Ry0Am" value="modules" />
+                <node concept="2Ry0Ak" id="6IrEpWwbDJM" role="2Ry0An">
+                  <property role="2Ry0Am" value="intellij.platform.vcs.log.impl.jar" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="m$_wf" id="4wxeloVufXr" role="3989C9">
       <property role="m$_wk" value="jetbrains.mps.git4idea.stubs" />
@@ -49871,6 +49975,9 @@
       </node>
       <node concept="m$_yB" id="4wxeloV_3hA" role="m$_yh">
         <ref role="m$_yA" node="4wxeloVufXp" resolve="jetbrains.mps.git4idea.stubs" />
+      </node>
+      <node concept="m$_yB" id="6IrEpWwbDQD" role="m$_yh">
+        <ref role="m$_yA" node="6IrEpWwbD4R" resolve="jetbrains.mps.vcs.idea.stubs" />
       </node>
     </node>
     <node concept="m$_wf" id="3nGzrDDNo$o" role="3989C9">

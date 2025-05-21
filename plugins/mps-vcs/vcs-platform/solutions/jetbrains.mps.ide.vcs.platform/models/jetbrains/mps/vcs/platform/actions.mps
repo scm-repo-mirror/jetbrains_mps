@@ -66,14 +66,16 @@
     <import index="f4zo" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.cells(MPS.Editor/)" />
     <import index="px75" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor.leftHighlighter(MPS.Editor/)" />
     <import index="g1qu" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.util.ui(MPS.IDEA/)" />
-    <import index="e0ho" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.vcs.log.impl(MPS.IDEA/)" />
     <import index="5zyv" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.concurrent(JDK/)" />
     <import index="idua" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.vcs.log(MPS.IDEA/)" />
     <import index="9w4s" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.util(MPS.IDEA/)" />
     <import index="jbqa" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.ide(MPS.IDEA/)" />
-    <import index="lhm8" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.vcs.log.ui(MPS.IDEA/)" />
     <import index="5p6x" ref="r:2897a5d4-aed7-4a4e-ac07-fbc830f9ed9b(jetbrains.mps.vcs.history)" />
     <import index="ihz5" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.blame.api(MPS.Platform/)" />
+    <import index="j86p" ref="f35cbfcb-ea50-4f20-9d5c-c765fbd8fd3b/java:com.intellij.openapi.vcs.impl(jetbrains.mps.vcs.idea.stubs/)" />
+    <import index="yah1" ref="f35cbfcb-ea50-4f20-9d5c-c765fbd8fd3b/java:com.intellij.openapi.vcs.history(jetbrains.mps.vcs.idea.stubs/)" />
+    <import index="lhm8" ref="f35cbfcb-ea50-4f20-9d5c-c765fbd8fd3b/java:com.intellij.vcs.log.ui(jetbrains.mps.vcs.idea.stubs/)" />
+    <import index="e0ho" ref="f35cbfcb-ea50-4f20-9d5c-c765fbd8fd3b/java:com.intellij.vcs.log.impl(jetbrains.mps.vcs.idea.stubs/)" />
     <import index="7bx7" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.workbench.action(MPS.Platform/)" implicit="true" />
   </imports>
   <registry>
@@ -2997,14 +2999,14 @@
       <node concept="3clFbS" id="5hLQ1IgC8$v" role="3clF47">
         <node concept="3clFbF" id="5hLQ1IgC8$w" role="3cqZAp">
           <node concept="2YIFZM" id="5hLQ1IgC8$x" role="3clFbG">
-            <ref role="37wK5l" to="j86o:~BackgroundableActionLock.getLock(com.intellij.openapi.project.Project,java.lang.Object...)" resolve="getLock" />
-            <ref role="1Pybhc" to="j86o:~BackgroundableActionLock" resolve="BackgroundableActionLock" />
+            <ref role="37wK5l" to="j86p:~BackgroundableActionLock.getLock(com.intellij.openapi.project.Project,java.lang.Object...)" resolve="getLock" />
+            <ref role="1Pybhc" to="j86p:~BackgroundableActionLock" resolve="BackgroundableActionLock" />
             <node concept="37vLTw" id="5hLQ1IgC8$y" role="37wK5m">
               <ref role="3cqZAo" node="5hLQ1IgC8$D" resolve="project" />
             </node>
             <node concept="Rm8GO" id="5hLQ1IgC8$z" role="37wK5m">
-              <ref role="1Px2BO" to="j86o:~VcsBackgroundableActions" resolve="VcsBackgroundableActions" />
-              <ref role="Rm8GQ" to="j86o:~VcsBackgroundableActions.ANNOTATE" resolve="ANNOTATE" />
+              <ref role="1Px2BO" to="j86p:~VcsBackgroundableActions" resolve="VcsBackgroundableActions" />
+              <ref role="Rm8GQ" to="j86p:~VcsBackgroundableActions.ANNOTATE" resolve="ANNOTATE" />
             </node>
             <node concept="37vLTw" id="7kt42U9QwaU" role="37wK5m">
               <ref role="3cqZAo" node="5hLQ1IgC8$F" resolve="taskName" />
@@ -3013,7 +3015,7 @@
         </node>
       </node>
       <node concept="3uibUv" id="5hLQ1IgC8$u" role="3clF45">
-        <ref role="3uigEE" to="j86o:~BackgroundableActionLock" resolve="BackgroundableActionLock" />
+        <ref role="3uigEE" to="j86p:~BackgroundableActionLock" resolve="BackgroundableActionLock" />
       </node>
       <node concept="37vLTG" id="5hLQ1IgC8$D" role="3clF46">
         <property role="TrG5h" value="project" />
@@ -3950,7 +3952,7 @@
           </node>
           <node concept="2OqwBi" id="3_ALl2yyXRZ" role="3clFbw">
             <node concept="liA8E" id="3_ALl2yyYl7" role="2OqNvi">
-              <ref role="37wK5l" to="j86o:~BackgroundableActionLock.isLocked()" resolve="isLocked" />
+              <ref role="37wK5l" to="j86p:~BackgroundableActionLock.isLocked()" resolve="isLocked" />
             </node>
             <node concept="2OqwBi" id="1YeblkqUbjB" role="2Oq$k0">
               <node concept="2WthIp" id="1YeblkqUbjE" role="2Oq$k0" />
@@ -4031,13 +4033,13 @@
     <node concept="2XrIbr" id="1YeblkqU7a2" role="32lrUH">
       <property role="TrG5h" value="getAnnotateRootLock" />
       <node concept="3uibUv" id="1YeblkqU7Zv" role="3clF45">
-        <ref role="3uigEE" to="j86o:~BackgroundableActionLock" resolve="BackgroundableActionLock" />
+        <ref role="3uigEE" to="j86p:~BackgroundableActionLock" resolve="BackgroundableActionLock" />
       </node>
       <node concept="3clFbS" id="1YeblkqU7a4" role="3clF47">
         <node concept="3clFbF" id="1YeblkqU8n1" role="3cqZAp">
           <node concept="2YIFZM" id="1YeblkqU8n3" role="3clFbG">
-            <ref role="1Pybhc" to="j86o:~BackgroundableActionLock" resolve="BackgroundableActionLock" />
-            <ref role="37wK5l" to="j86o:~BackgroundableActionLock.getLock(com.intellij.openapi.project.Project,java.lang.Object...)" resolve="getLock" />
+            <ref role="1Pybhc" to="j86p:~BackgroundableActionLock" resolve="BackgroundableActionLock" />
+            <ref role="37wK5l" to="j86p:~BackgroundableActionLock.getLock(com.intellij.openapi.project.Project,java.lang.Object...)" resolve="getLock" />
             <node concept="2OqwBi" id="1YeblkqU8n4" role="37wK5m">
               <node concept="2OqwBi" id="1YeblkqU8n5" role="2Oq$k0">
                 <node concept="2WthIp" id="1YeblkqU8n6" role="2Oq$k0" />
@@ -4049,9 +4051,9 @@
                 <ref role="37wK5l" to="z1c4:~MPSProject.getProject()" resolve="getProject" />
               </node>
             </node>
-            <node concept="Rm8GO" id="1YeblkqU8n9" role="37wK5m">
-              <ref role="Rm8GQ" to="j86o:~VcsBackgroundableActions.ANNOTATE" resolve="ANNOTATE" />
-              <ref role="1Px2BO" to="j86o:~VcsBackgroundableActions" resolve="VcsBackgroundableActions" />
+            <node concept="Rm8GO" id="48Xq_bGvkh7" role="37wK5m">
+              <ref role="Rm8GQ" to="j86p:~VcsBackgroundableActions.ANNOTATE" resolve="ANNOTATE" />
+              <ref role="1Px2BO" to="j86p:~VcsBackgroundableActions" resolve="VcsBackgroundableActions" />
             </node>
             <node concept="2OqwBi" id="1YeblkqU8Y2" role="37wK5m">
               <node concept="2OqwBi" id="1YeblkqU8Y3" role="2Oq$k0">
@@ -7245,8 +7247,8 @@
         </node>
         <node concept="3clFbF" id="38wEix8aLmU" role="3cqZAp">
           <node concept="2YIFZM" id="38wEix8aLmV" role="3clFbG">
-            <ref role="1Pybhc" to="yah0:~VcsCachingHistory" resolve="VcsCachingHistory" />
-            <ref role="37wK5l" to="yah0:~VcsCachingHistory.collectInBackground(com.intellij.openapi.vcs.AbstractVcs,com.intellij.openapi.vcs.FilePath,com.intellij.openapi.vcs.impl.VcsBackgroundableActions,com.intellij.util.Consumer)" resolve="collectInBackground" />
+            <ref role="1Pybhc" to="yah1:~VcsCachingHistory" resolve="VcsCachingHistory" />
+            <ref role="37wK5l" to="yah1:~VcsCachingHistory.collectInBackground(com.intellij.openapi.vcs.AbstractVcs,com.intellij.openapi.vcs.FilePath,com.intellij.openapi.vcs.impl.VcsBackgroundableActions,com.intellij.util.Consumer)" resolve="collectInBackground" />
             <node concept="37vLTw" id="38wEix8aLmW" role="37wK5m">
               <ref role="3cqZAo" node="P$ZiSemeqt" resolve="myActiveVcs" />
             </node>
@@ -7258,8 +7260,8 @@
               </node>
             </node>
             <node concept="Rm8GO" id="38wEix8aLmZ" role="37wK5m">
-              <ref role="1Px2BO" to="j86o:~VcsBackgroundableActions" resolve="VcsBackgroundableActions" />
-              <ref role="Rm8GQ" to="j86o:~VcsBackgroundableActions.HISTORY_FOR_SELECTION" resolve="HISTORY_FOR_SELECTION" />
+              <ref role="1Px2BO" to="j86p:~VcsBackgroundableActions" resolve="VcsBackgroundableActions" />
+              <ref role="Rm8GQ" to="j86p:~VcsBackgroundableActions.HISTORY_FOR_SELECTION" resolve="HISTORY_FOR_SELECTION" />
             </node>
             <node concept="1bVj0M" id="38wEix8aLn0" role="37wK5m">
               <node concept="37vLTG" id="38wEix8aLn1" role="1bW2Oz">
@@ -7371,7 +7373,7 @@
       <node concept="37vLTG" id="3_ALl2yzh3r" role="3clF46">
         <property role="TrG5h" value="actionLock" />
         <node concept="3uibUv" id="3_ALl2yzhEo" role="1tU5fm">
-          <ref role="3uigEE" to="j86o:~BackgroundableActionLock" resolve="BackgroundableActionLock" />
+          <ref role="3uigEE" to="j86p:~BackgroundableActionLock" resolve="BackgroundableActionLock" />
         </node>
       </node>
       <node concept="3cqZAl" id="P$ZiSeqRhZ" role="3clF45" />
@@ -7451,7 +7453,7 @@
               <ref role="3cqZAo" node="3_ALl2yzh3r" resolve="actionLock" />
             </node>
             <node concept="liA8E" id="1MwXCw0Pt03" role="2OqNvi">
-              <ref role="37wK5l" to="j86o:~BackgroundableActionLock.lock()" resolve="lock" />
+              <ref role="37wK5l" to="j86p:~BackgroundableActionLock.lock()" resolve="lock" />
             </node>
           </node>
         </node>

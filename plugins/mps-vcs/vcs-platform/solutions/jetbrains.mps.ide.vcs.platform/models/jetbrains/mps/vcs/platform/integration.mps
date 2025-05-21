@@ -68,6 +68,7 @@
     <import index="r8xq" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.diff.actions(MPS.IDEA/)" />
     <import index="dush" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)" />
     <import index="wyuk" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.components(MPS.Core/)" />
+    <import index="j86p" ref="f35cbfcb-ea50-4f20-9d5c-c765fbd8fd3b/java:com.intellij.openapi.vcs.impl(jetbrains.mps.vcs.idea.stubs/)" />
   </imports>
   <registry>
     <language id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples">
@@ -4114,7 +4115,7 @@
       <node concept="3Tm1VV" id="3oPvWSRpQsk" role="1B3o_S" />
       <node concept="3clFbS" id="3oPvWSRpQsl" role="3clF47">
         <node concept="XkiVB" id="3oPvWSRpUSm" role="3cqZAp">
-          <ref role="37wK5l" to="j86o:~AbstractVcsHelperImpl.&lt;init&gt;(com.intellij.openapi.project.Project)" resolve="AbstractVcsHelperImpl" />
+          <ref role="37wK5l" to="j86p:~AbstractVcsHelperImpl.&lt;init&gt;(com.intellij.openapi.project.Project)" resolve="AbstractVcsHelperImpl" />
           <node concept="37vLTw" id="3oPvWSRpUS_" role="37wK5m">
             <ref role="3cqZAo" node="3oPvWSRpQvq" resolve="project" />
           </node>
@@ -4510,7 +4511,7 @@
                       </node>
                     </node>
                     <node concept="3nyPlj" id="2KwMPspmhrM" role="33vP2m">
-                      <ref role="37wK5l" to="j86o:~AbstractVcsHelperImpl.showMergeDialog(java.util.List,com.intellij.openapi.vcs.merge.MergeProvider,com.intellij.openapi.vcs.merge.MergeDialogCustomizer)" resolve="showMergeDialog" />
+                      <ref role="37wK5l" to="j86p:~AbstractVcsHelperImpl.showMergeDialog(java.util.List,com.intellij.openapi.vcs.merge.MergeProvider,com.intellij.openapi.vcs.merge.MergeDialogCustomizer)" resolve="showMergeDialog" />
                       <node concept="37vLTw" id="2KwMPspmT9p" role="37wK5m">
                         <ref role="3cqZAo" node="2KwMPspmy_u" resolve="toResolve" />
                       </node>
@@ -4603,7 +4604,7 @@
         <node concept="3clFbH" id="7UDnPJKjMf7" role="3cqZAp" />
         <node concept="3clFbF" id="7UDnPJKkacY" role="3cqZAp">
           <node concept="3nyPlj" id="7UDnPJKkacW" role="3clFbG">
-            <ref role="37wK5l" to="j86o:~AbstractVcsHelperImpl.showMergeDialog(java.util.List,com.intellij.openapi.vcs.merge.MergeProvider,com.intellij.openapi.vcs.merge.MergeDialogCustomizer)" resolve="showMergeDialog" />
+            <ref role="37wK5l" to="j86p:~AbstractVcsHelperImpl.showMergeDialog(java.util.List,com.intellij.openapi.vcs.merge.MergeProvider,com.intellij.openapi.vcs.merge.MergeDialogCustomizer)" resolve="showMergeDialog" />
             <node concept="37vLTw" id="7UDnPJKkaA9" role="37wK5m">
               <ref role="3cqZAo" node="3oPvWSRpVEW" resolve="files" />
             </node>
@@ -4625,8 +4626,8 @@
       </node>
     </node>
     <node concept="3Tm1VV" id="3oPvWSRo4RG" role="1B3o_S" />
-    <node concept="3uibUv" id="3oPvWSRpbfn" role="1zkMxy">
-      <ref role="3uigEE" to="j86o:~AbstractVcsHelperImpl" resolve="AbstractVcsHelperImpl" />
+    <node concept="3uibUv" id="48Xq_bGQ3oC" role="1zkMxy">
+      <ref role="3uigEE" to="j86p:~AbstractVcsHelperImpl" resolve="AbstractVcsHelperImpl" />
     </node>
   </node>
   <node concept="312cEu" id="1R9fMbxrKEY">

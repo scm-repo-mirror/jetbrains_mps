@@ -82,6 +82,9 @@
     <import index="cyi7" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.vcs.changes.ui(MPS.IDEA/)" />
     <import index="z2i8" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.icons(MPS.IDEA/)" />
     <import index="guwi" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.io(JDK/)" />
+    <import index="yah1" ref="f35cbfcb-ea50-4f20-9d5c-c765fbd8fd3b/java:com.intellij.openapi.vcs.history(jetbrains.mps.vcs.idea.stubs/)" />
+    <import index="fczg" ref="f35cbfcb-ea50-4f20-9d5c-c765fbd8fd3b/java:com.intellij.openapi.vcs.changes.issueLinks(jetbrains.mps.vcs.idea.stubs/)" />
+    <import index="cyi8" ref="f35cbfcb-ea50-4f20-9d5c-c765fbd8fd3b/java:com.intellij.openapi.vcs.changes.ui(jetbrains.mps.vcs.idea.stubs/)" />
   </imports>
   <registry>
     <language id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples">
@@ -17471,30 +17474,32 @@
             </node>
             <node concept="2ShNRf" id="2cnBllv78rU" role="33vP2m">
               <node concept="3g6Rrh" id="2cnBllv78rT" role="2ShVmc">
-                <node concept="2ShNRf" id="2cnBllv7Mm2" role="3g7hyw">
-                  <node concept="1pGfFk" id="2cnBllv7Mmf" role="2ShVmc">
-                    <ref role="37wK5l" to="yah0:~FileHistoryPanelImpl$RevisionColumnInfo.&lt;init&gt;(java.util.Comparator)" resolve="FileHistoryPanelImpl.RevisionColumnInfo" />
-                    <node concept="10Nm6u" id="2cnBllv7Mmg" role="37wK5m" />
+                <node concept="2ShNRf" id="48Xq_bGUz6C" role="3g7hyw">
+                  <node concept="1pGfFk" id="48Xq_bGUU6Y" role="2ShVmc">
+                    <property role="373rjd" value="true" />
+                    <ref role="37wK5l" to="yah1:~FileHistoryPanelImpl$RevisionColumnInfo.&lt;init&gt;(java.util.Comparator)" resolve="FileHistoryPanelImpl.RevisionColumnInfo" />
+                    <node concept="10Nm6u" id="48Xq_bGV001" role="37wK5m" />
                   </node>
                 </node>
                 <node concept="2ShNRf" id="2cnBllv7i$S" role="3g7hyw">
-                  <node concept="1pGfFk" id="2cnBllv7i$T" role="2ShVmc">
-                    <ref role="37wK5l" to="yah0:~FileHistoryPanelImpl$DateColumnInfo.&lt;init&gt;()" resolve="FileHistoryPanelImpl.DateColumnInfo" />
+                  <node concept="1pGfFk" id="48Xq_bGL36V" role="2ShVmc">
+                    <ref role="37wK5l" to="yah1:~FileHistoryPanelImpl$DateColumnInfo.&lt;init&gt;()" resolve="FileHistoryPanelImpl.DateColumnInfo" />
                   </node>
                 </node>
                 <node concept="2ShNRf" id="2cnBllv7uhg" role="3g7hyw">
-                  <node concept="1pGfFk" id="2cnBllv7uhh" role="2ShVmc">
-                    <ref role="37wK5l" to="yah0:~FileHistoryPanelImpl$AuthorColumnInfo.&lt;init&gt;()" resolve="FileHistoryPanelImpl.AuthorColumnInfo" />
+                  <node concept="1pGfFk" id="48Xq_bGL36U" role="2ShVmc">
+                    <ref role="37wK5l" to="yah1:~FileHistoryPanelImpl$AuthorColumnInfo.&lt;init&gt;()" resolve="FileHistoryPanelImpl.AuthorColumnInfo" />
                   </node>
                 </node>
-                <node concept="2ShNRf" id="2cnBllv7iiI" role="3g7hyw">
-                  <node concept="1pGfFk" id="2cnBllv7iiZ" role="2ShVmc">
-                    <ref role="37wK5l" to="yah0:~FileHistoryPanelImpl$MessageColumnInfo.&lt;init&gt;(com.intellij.openapi.project.Project)" resolve="FileHistoryPanelImpl.MessageColumnInfo" />
-                    <node concept="2OqwBi" id="2cnBllvgPH1" role="37wK5m">
-                      <node concept="37vLTw" id="2cnBllv7ij0" role="2Oq$k0">
+                <node concept="2ShNRf" id="48Xq_bGVykK" role="3g7hyw">
+                  <node concept="1pGfFk" id="48Xq_bGWhuc" role="2ShVmc">
+                    <property role="373rjd" value="true" />
+                    <ref role="37wK5l" to="yah1:~FileHistoryPanelImpl$MessageColumnInfo.&lt;init&gt;(com.intellij.openapi.project.Project)" resolve="FileHistoryPanelImpl.MessageColumnInfo" />
+                    <node concept="2OqwBi" id="48Xq_bGWqZ_" role="37wK5m">
+                      <node concept="37vLTw" id="48Xq_bGWnTK" role="2Oq$k0">
                         <ref role="3cqZAo" node="5$O_bu7tV4n" resolve="project" />
                       </node>
-                      <node concept="liA8E" id="2cnBllvgSc5" role="2OqNvi">
+                      <node concept="liA8E" id="48Xq_bGWxUD" role="2OqNvi">
                         <ref role="37wK5l" to="z1c4:~MPSProject.getProject()" resolve="getProject" />
                       </node>
                     </node>
@@ -17585,7 +17590,7 @@
           <node concept="2OqwBi" id="2cnBllv78si" role="3clFbG">
             <node concept="2ShNRf" id="2cnBllv8jNR" role="2Oq$k0">
               <node concept="1pGfFk" id="2cnBllv8jNT" role="2ShVmc">
-                <ref role="37wK5l" to="fczf:~TableLinkMouseListener.&lt;init&gt;()" resolve="TableLinkMouseListener" />
+                <ref role="37wK5l" to="fczg:~TableLinkMouseListener.&lt;init&gt;()" resolve="TableLinkMouseListener" />
               </node>
             </node>
             <node concept="liA8E" id="2cnBllv78sk" role="2OqNvi">
@@ -17959,8 +17964,8 @@
                                 <ref role="3uigEE" to="wyt6:~String" resolve="String" />
                               </node>
                               <node concept="2YIFZM" id="2cnBllv8oUu" role="33vP2m">
-                                <ref role="1Pybhc" to="fczf:~IssueLinkHtmlRenderer" resolve="IssueLinkHtmlRenderer" />
-                                <ref role="37wK5l" to="fczf:~IssueLinkHtmlRenderer.formatTextIntoHtml(com.intellij.openapi.project.Project,java.lang.String)" resolve="formatTextIntoHtml" />
+                                <ref role="1Pybhc" to="fczg:~IssueLinkHtmlRenderer" resolve="IssueLinkHtmlRenderer" />
+                                <ref role="37wK5l" to="fczg:~IssueLinkHtmlRenderer.formatTextIntoHtml(com.intellij.openapi.project.Project,java.lang.String)" resolve="formatTextIntoHtml" />
                                 <node concept="2OqwBi" id="gkhJ4Li_XG" role="37wK5m">
                                   <node concept="37vLTw" id="gkhJ4Li$rI" role="2Oq$k0">
                                     <ref role="3cqZAo" node="5$O_bu7uMl5" resolve="myMPSProject" />
@@ -18474,9 +18479,9 @@
                     <node concept="2OqwBi" id="55zwzn2BgTt" role="3clFbG">
                       <node concept="liA8E" id="55zwzn2BgTu" role="2OqNvi">
                         <ref role="37wK5l" to="jkny:~ToolWindowManager.notifyByBalloon(java.lang.String,com.intellij.openapi.ui.MessageType,java.lang.String)" resolve="notifyByBalloon" />
-                        <node concept="10M0yZ" id="55zwzn2BgTv" role="37wK5m">
-                          <ref role="3cqZAo" to="cyi7:~ChangesViewContentManager.TOOLWINDOW_ID" resolve="TOOLWINDOW_ID" />
-                          <ref role="1PxDUh" to="cyi7:~ChangesViewContentManager" resolve="ChangesViewContentManager" />
+                        <node concept="10M0yZ" id="48Xq_bGLBL9" role="37wK5m">
+                          <ref role="3cqZAo" to="cyi8:~ChangesViewContentManager.TOOLWINDOW_ID" resolve="TOOLWINDOW_ID" />
+                          <ref role="1PxDUh" to="cyi8:~ChangesViewContentManager" resolve="ChangesViewContentManager" />
                         </node>
                         <node concept="10M0yZ" id="55zwzn2BgTw" role="37wK5m">
                           <ref role="3cqZAo" to="jkm4:~MessageType.WARNING" resolve="WARNING" />

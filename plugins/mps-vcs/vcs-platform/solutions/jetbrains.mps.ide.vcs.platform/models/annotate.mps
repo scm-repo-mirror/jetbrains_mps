@@ -29,7 +29,6 @@
     <import index="bd8o" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.application(MPS.IDEA/)" />
     <import index="jlcu" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.vcs(MPS.IDEA/)" />
     <import index="xygl" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.progress(MPS.IDEA/)" />
-    <import index="de5p" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.vcs.actions(MPS.IDEA/)" />
     <import index="jmi8" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ide.util(MPS.IDEA/)" />
     <import index="4nm9" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.project(MPS.IDEA/)" />
     <import index="jkny" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.wm(MPS.IDEA/)" />
@@ -37,7 +36,6 @@
     <import index="jlff" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.vfs(MPS.IDEA/)" />
     <import index="4b2m" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.util.messages(MPS.IDEA/)" />
     <import index="jkm4" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.ui(MPS.IDEA/)" />
-    <import index="cyi7" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.vcs.changes.ui(MPS.IDEA/)" />
     <import index="1m72" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.components(MPS.IDEA/)" />
     <import index="jbqa" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.ide(MPS.IDEA/)" />
     <import index="g1qu" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.util.ui(MPS.IDEA/)" />
@@ -63,11 +61,9 @@
     <import index="ewdr" ref="f57286e3-4e19-4d8d-8045-3900761f6530/java:git4idea.log(jetbrains.mps.git4idea.stubs/)" />
     <import index="5zyv" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.concurrent(JDK/)" />
     <import index="hr4p" ref="f57286e3-4e19-4d8d-8045-3900761f6530/java:git4idea(jetbrains.mps.git4idea.stubs/)" />
-    <import index="e0ho" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.vcs.log.impl(MPS.IDEA/)" />
     <import index="k9nz" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.util.text(MPS.IDEA/)" />
     <import index="1wbl" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.idea(MPS.IDEA/)" />
     <import index="t335" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.util.ui.update(MPS.IDEA/)" />
-    <import index="j86o" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.vcs.impl(MPS.IDEA/)" />
     <import index="yrtf" ref="f57286e3-4e19-4d8d-8045-3900761f6530/java:git4idea.i18n(jetbrains.mps.git4idea.stubs/)" />
     <import index="i5cy" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.concurrent.atomic(JDK/)" />
     <import index="bmv6" ref="r:e9c4e128-4808-4224-a92b-dbeed02eb860(jetbrains.mps.vcs.diff.merge)" />
@@ -87,6 +83,11 @@
     <import index="zyr2" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor.inspector(MPS.Editor/)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
     <import index="dush" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)" />
+    <import index="j86o" ref="f35cbfcb-ea50-4f20-9d5c-c765fbd8fd3b/java:com.intellij.openapi.vcs.impl(jetbrains.mps.vcs.idea.stubs/)" />
+    <import index="cyi7" ref="f35cbfcb-ea50-4f20-9d5c-c765fbd8fd3b/java:com.intellij.openapi.vcs.changes.ui(jetbrains.mps.vcs.idea.stubs/)" />
+    <import index="yah1" ref="f35cbfcb-ea50-4f20-9d5c-c765fbd8fd3b/java:com.intellij.openapi.vcs.history(jetbrains.mps.vcs.idea.stubs/)" />
+    <import index="de5p" ref="f35cbfcb-ea50-4f20-9d5c-c765fbd8fd3b/java:com.intellij.openapi.vcs.actions(jetbrains.mps.vcs.idea.stubs/)" />
+    <import index="e0ho" ref="f35cbfcb-ea50-4f20-9d5c-c765fbd8fd3b/java:com.intellij.vcs.log.impl(jetbrains.mps.vcs.idea.stubs/)" />
     <import index="hq8m" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.options(MPS.IDEA/)" implicit="true" />
     <import index="z1c4" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" implicit="true" />
   </imports>
@@ -11276,7 +11277,7 @@
                     <node concept="2OqwBi" id="4Fz4D9NU9gi" role="3clFbG">
                       <node concept="liA8E" id="4Fz4D9NU9gj" role="2OqNvi">
                         <ref role="37wK5l" to="jkny:~ToolWindowManager.notifyByBalloon(java.lang.String,com.intellij.openapi.ui.MessageType,java.lang.String)" resolve="notifyByBalloon" />
-                        <node concept="10M0yZ" id="4Fz4D9NU9gk" role="37wK5m">
+                        <node concept="10M0yZ" id="48Xq_bGeH5k" role="37wK5m">
                           <ref role="3cqZAo" to="cyi7:~ChangesViewContentManager.TOOLWINDOW_ID" resolve="TOOLWINDOW_ID" />
                           <ref role="1PxDUh" to="cyi7:~ChangesViewContentManager" resolve="ChangesViewContentManager" />
                         </node>
@@ -11335,7 +11336,7 @@
             </node>
             <node concept="liA8E" id="1ZsRBNxPjqv" role="2OqNvi">
               <ref role="37wK5l" to="jkny:~ToolWindowManager.notifyByBalloon(java.lang.String,com.intellij.openapi.ui.MessageType,java.lang.String)" resolve="notifyByBalloon" />
-              <node concept="10M0yZ" id="1ZsRBNxPjqw" role="37wK5m">
+              <node concept="10M0yZ" id="48Xq_bGeJRg" role="37wK5m">
                 <ref role="3cqZAo" to="cyi7:~ChangesViewContentManager.TOOLWINDOW_ID" resolve="TOOLWINDOW_ID" />
                 <ref role="1PxDUh" to="cyi7:~ChangesViewContentManager" resolve="ChangesViewContentManager" />
               </node>
@@ -11453,8 +11454,8 @@
       <node concept="3clFbS" id="7H$wjRQN2tc" role="3clF47">
         <node concept="3clFbF" id="7H$wjRQN4LM" role="3cqZAp">
           <node concept="2YIFZM" id="7H$wjRQN4LO" role="3clFbG">
-            <ref role="37wK5l" to="yah0:~VcsCachingHistory.collect(com.intellij.openapi.vcs.AbstractVcs,com.intellij.openapi.vcs.FilePath,com.intellij.openapi.vcs.history.VcsRevisionNumber)" resolve="collect" />
-            <ref role="1Pybhc" to="yah0:~VcsCachingHistory" resolve="VcsCachingHistory" />
+            <ref role="37wK5l" to="yah1:~VcsCachingHistory.collect(com.intellij.openapi.vcs.AbstractVcs,com.intellij.openapi.vcs.FilePath,com.intellij.openapi.vcs.history.VcsRevisionNumber)" resolve="collect" />
+            <ref role="1Pybhc" to="yah1:~VcsCachingHistory" resolve="VcsCachingHistory" />
             <node concept="37vLTw" id="7H$wjRQN4LP" role="37wK5m">
               <ref role="3cqZAo" node="55zwzn2DFX5" resolve="myActiveVcs" />
             </node>
@@ -11662,9 +11663,9 @@
                         </node>
                         <node concept="liA8E" id="6QZNBbmZIEp" role="2OqNvi">
                           <ref role="37wK5l" to="e0ho:~VcsLogApplicationSettings.get(com.intellij.vcs.log.impl.VcsLogUiProperties$VcsLogUiProperty)" resolve="get" />
-                          <node concept="10M0yZ" id="6QZNBbmZIEq" role="37wK5m">
-                            <ref role="1PxDUh" to="e0ho:~CommonUiProperties" resolve="CommonUiProperties" />
+                          <node concept="10M0yZ" id="48Xq_bGf0ZA" role="37wK5m">
                             <ref role="3cqZAo" to="e0ho:~CommonUiProperties.PREFER_COMMIT_DATE" resolve="PREFER_COMMIT_DATE" />
+                            <ref role="1PxDUh" to="e0ho:~CommonUiProperties" resolve="CommonUiProperties" />
                           </node>
                         </node>
                       </node>
@@ -14298,7 +14299,7 @@
           <node concept="1dT_AA" id="7NXqWKNCEgP" role="1dT_Ay">
             <node concept="92FcH" id="7NXqWKNCEgQ" role="qph3F">
               <node concept="TZ5HA" id="7NXqWKNCEgR" role="2XjZqd" />
-              <node concept="VXe0Z" id="7NXqWKNCEj5" role="92FcQ">
+              <node concept="VXe0Z" id="48Xq_bGktIc" role="92FcQ">
                 <ref role="VXe0S" to="de5p:~ColorMode.isSet()" resolve="isSet" />
               </node>
             </node>
@@ -14314,7 +14315,7 @@
           <node concept="1dT_AA" id="7NXqWKNCEgW" role="1dT_Ay">
             <node concept="92FcH" id="7NXqWKNCEgX" role="qph3F">
               <node concept="TZ5HA" id="7NXqWKNCEgY" role="2XjZqd" />
-              <node concept="VXe0Z" id="7NXqWKNCEjw" role="92FcQ">
+              <node concept="VXe0Z" id="48Xq_bGktPM" role="92FcQ">
                 <ref role="VXe0S" to="de5p:~ColorMode.set()" resolve="set" />
               </node>
             </node>
@@ -14526,7 +14527,7 @@
                     <node concept="37vLTw" id="6pvJusaa5uN" role="37wK5m">
                       <ref role="3cqZAo" node="6pvJusa9NwN" resolve="name" />
                     </node>
-                    <node concept="Rm8GO" id="6pvJusaa6Jm" role="37wK5m">
+                    <node concept="Rm8GO" id="48Xq_bGeYUk" role="37wK5m">
                       <ref role="Rm8GQ" to="de5p:~ShortNameType.INITIALS" resolve="INITIALS" />
                       <ref role="1Px2BO" to="de5p:~ShortNameType" resolve="ShortNameType" />
                     </node>
@@ -14547,7 +14548,7 @@
                     <node concept="37vLTw" id="6pvJusaa6NM" role="37wK5m">
                       <ref role="3cqZAo" node="6pvJusa9NwN" resolve="name" />
                     </node>
-                    <node concept="Rm8GO" id="6pvJusaa7hL" role="37wK5m">
+                    <node concept="Rm8GO" id="48Xq_bGeYLc" role="37wK5m">
                       <ref role="Rm8GQ" to="de5p:~ShortNameType.LASTNAME" resolve="LASTNAME" />
                       <ref role="1Px2BO" to="de5p:~ShortNameType" resolve="ShortNameType" />
                     </node>
@@ -14568,7 +14569,7 @@
                     <node concept="37vLTw" id="6pvJusaa7rB" role="37wK5m">
                       <ref role="3cqZAo" node="6pvJusa9NwN" resolve="name" />
                     </node>
-                    <node concept="Rm8GO" id="6pvJusaa8Fc" role="37wK5m">
+                    <node concept="Rm8GO" id="48Xq_bGeYB7" role="37wK5m">
                       <ref role="Rm8GQ" to="de5p:~ShortNameType.FIRSTNAME" resolve="FIRSTNAME" />
                       <ref role="1Px2BO" to="de5p:~ShortNameType" resolve="ShortNameType" />
                     </node>
@@ -14589,7 +14590,7 @@
                     <node concept="37vLTw" id="6pvJusaa8KM" role="37wK5m">
                       <ref role="3cqZAo" node="6pvJusa9NwN" resolve="name" />
                     </node>
-                    <node concept="Rm8GO" id="6pvJusaab1N" role="37wK5m">
+                    <node concept="Rm8GO" id="48Xq_bGeZ3$" role="37wK5m">
                       <ref role="Rm8GQ" to="de5p:~ShortNameType.NONE" resolve="NONE" />
                       <ref role="1Px2BO" to="de5p:~ShortNameType" resolve="ShortNameType" />
                     </node>
@@ -14625,7 +14626,7 @@
           <node concept="1dT_AA" id="7NXqWKNC3cN" role="1dT_Ay">
             <node concept="92FcH" id="7NXqWKNC3cT" role="qph3F">
               <node concept="TZ5HA" id="7NXqWKNC3cV" role="2XjZqd" />
-              <node concept="VXe08" id="7NXqWKNCzSz" role="92FcQ">
+              <node concept="VXe08" id="48Xq_bGku2M" role="92FcQ">
                 <ref role="VXe09" to="de5p:~ShortNameType" resolve="ShortNameType" />
               </node>
             </node>
@@ -14646,7 +14647,7 @@
           <node concept="1dT_AA" id="7NXqWKNCzU5" role="1dT_Ay">
             <node concept="92FcH" id="7NXqWKNCzUb" role="qph3F">
               <node concept="TZ5HA" id="7NXqWKNCzUd" role="2XjZqd" />
-              <node concept="VXe0Z" id="7NXqWKNCzUk" role="92FcQ">
+              <node concept="VXe0Z" id="48Xq_bGkuc5" role="92FcQ">
                 <ref role="VXe0S" to="de5p:~ShortNameType.isSet()" resolve="isSet" />
               </node>
             </node>
@@ -14662,7 +14663,7 @@
           <node concept="1dT_AA" id="7NXqWKNC$40" role="1dT_Ay">
             <node concept="92FcH" id="7NXqWKNC$46" role="qph3F">
               <node concept="TZ5HA" id="7NXqWKNC$48" role="2XjZqd" />
-              <node concept="VXe0Z" id="7NXqWKNC$4f" role="92FcQ">
+              <node concept="VXe0Z" id="48Xq_bGkuiY" role="92FcQ">
                 <ref role="VXe0S" to="de5p:~ShortNameType.set()" resolve="set" />
               </node>
             </node>

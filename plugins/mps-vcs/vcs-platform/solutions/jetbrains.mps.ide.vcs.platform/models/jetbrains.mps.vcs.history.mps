@@ -21,10 +21,7 @@
     <import index="4nm9" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.project(MPS.IDEA/)" />
     <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
     <import index="g3l6" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.extapi.model(MPS.Core/)" />
-    <import index="e0ho" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.vcs.log.impl(MPS.IDEA/)" />
-    <import index="akqu" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.vcs.log.data(MPS.IDEA/)" />
     <import index="7g4e" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.vcsUtil(MPS.IDEA/)" />
-    <import index="ltcu" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.vcs.log.util(MPS.IDEA/)" />
     <import index="1q0i" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.vcs.log.graph(MPS.IDEA/)" />
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
     <import index="bd8o" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.application(MPS.IDEA/)" />
@@ -39,6 +36,10 @@
     <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" />
     <import index="z1c4" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.project(MPS.Platform/)" />
     <import index="wyuk" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.components(MPS.Core/)" />
+    <import index="ltcu" ref="f35cbfcb-ea50-4f20-9d5c-c765fbd8fd3b/java:com.intellij.vcs.log.util(jetbrains.mps.vcs.idea.stubs/)" />
+    <import index="akqu" ref="f35cbfcb-ea50-4f20-9d5c-c765fbd8fd3b/java:com.intellij.vcs.log.data(jetbrains.mps.vcs.idea.stubs/)" />
+    <import index="e0ho" ref="f35cbfcb-ea50-4f20-9d5c-c765fbd8fd3b/java:com.intellij.vcs.log.impl(jetbrains.mps.vcs.idea.stubs/)" />
+    <import index="8vod" ref="f35cbfcb-ea50-4f20-9d5c-c765fbd8fd3b/java:com.intellij.openapi.vcs.annotate(jetbrains.mps.vcs.idea.stubs/)" />
     <import index="1m72" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.components(MPS.IDEA/)" implicit="true" />
   </imports>
   <registry>
@@ -2726,7 +2727,7 @@
                         </node>
                         <node concept="liA8E" id="YIxS4EmxKo" role="2OqNvi">
                           <ref role="37wK5l" to="e0ho:~VcsLogApplicationSettings.get(com.intellij.vcs.log.impl.VcsLogUiProperties$VcsLogUiProperty)" resolve="get" />
-                          <node concept="10M0yZ" id="YIxS4EmxKp" role="37wK5m">
+                          <node concept="10M0yZ" id="48Xq_bG8Yrv" role="37wK5m">
                             <ref role="3cqZAo" to="e0ho:~CommonUiProperties.PREFER_COMMIT_DATE" resolve="PREFER_COMMIT_DATE" />
                             <ref role="1PxDUh" to="e0ho:~CommonUiProperties" resolve="CommonUiProperties" />
                           </node>
@@ -2758,11 +2759,11 @@
               <node concept="3cpWsn" id="YIxS4EmxKy" role="3cpWs9">
                 <property role="TrG5h" value="atb" />
                 <node concept="3uibUv" id="4YmhUET7jdV" role="1tU5fm">
-                  <ref role="3uigEE" to="8voc:~AnnotationTooltipBuilder" resolve="AnnotationTooltipBuilder" />
+                  <ref role="3uigEE" to="8vod:~AnnotationTooltipBuilder" resolve="AnnotationTooltipBuilder" />
                 </node>
                 <node concept="2ShNRf" id="YIxS4EmxK$" role="33vP2m">
                   <node concept="1pGfFk" id="YIxS4EmxK_" role="2ShVmc">
-                    <ref role="37wK5l" to="8voc:~AnnotationTooltipBuilder.&lt;init&gt;(com.intellij.openapi.project.Project,boolean)" resolve="AnnotationTooltipBuilder" />
+                    <ref role="37wK5l" to="8vod:~AnnotationTooltipBuilder.&lt;init&gt;(com.intellij.openapi.project.Project,boolean)" resolve="AnnotationTooltipBuilder" />
                     <node concept="37vLTw" id="4Zqbdud6Pmt" role="37wK5m">
                       <ref role="3cqZAo" node="4Zqbdud6MoQ" resolve="project" />
                     </node>
@@ -2780,7 +2781,7 @@
                   <ref role="3cqZAo" node="YIxS4EmxKy" resolve="atb" />
                 </node>
                 <node concept="liA8E" id="YIxS4EmxKG" role="2OqNvi">
-                  <ref role="37wK5l" to="8voc:~AnnotationTooltipBuilder.appendRevisionLine(com.intellij.openapi.vcs.history.VcsRevisionNumber,com.intellij.util.containers.Convertor)" resolve="appendRevisionLine" />
+                  <ref role="37wK5l" to="8vod:~AnnotationTooltipBuilder.appendRevisionLine(com.intellij.openapi.vcs.history.VcsRevisionNumber,com.intellij.util.containers.Convertor)" resolve="appendRevisionLine" />
                   <node concept="2OqwBi" id="YIxS4EmxKH" role="37wK5m">
                     <node concept="37vLTw" id="4Zqbdud5Wgv" role="2Oq$k0">
                       <ref role="3cqZAo" node="6wgNI6tBNi$" resolve="myRevision" />
@@ -2825,7 +2826,7 @@
                   <ref role="3cqZAo" node="YIxS4EmxKy" resolve="atb" />
                 </node>
                 <node concept="liA8E" id="YIxS4EmxKX" role="2OqNvi">
-                  <ref role="37wK5l" to="8voc:~AnnotationTooltipBuilder.appendLine(java.lang.String)" resolve="appendLine" />
+                  <ref role="37wK5l" to="8vod:~AnnotationTooltipBuilder.appendLine(java.lang.String)" resolve="appendLine" />
                   <node concept="2YIFZM" id="YIxS4EmxKY" role="37wK5m">
                     <ref role="37wK5l" to="jlcu:~VcsBundle.message(java.lang.String,java.lang.Object...)" resolve="message" />
                     <ref role="1Pybhc" to="jlcu:~VcsBundle" resolve="VcsBundle" />
@@ -2850,7 +2851,7 @@
                   <ref role="3cqZAo" node="YIxS4EmxKy" resolve="atb" />
                 </node>
                 <node concept="liA8E" id="YIxS4EmxL6" role="2OqNvi">
-                  <ref role="37wK5l" to="8voc:~AnnotationTooltipBuilder.appendLine(java.lang.String)" resolve="appendLine" />
+                  <ref role="37wK5l" to="8vod:~AnnotationTooltipBuilder.appendLine(java.lang.String)" resolve="appendLine" />
                   <node concept="2YIFZM" id="YIxS4EmxL7" role="37wK5m">
                     <ref role="1Pybhc" to="jlcu:~VcsBundle" resolve="VcsBundle" />
                     <ref role="37wK5l" to="jlcu:~VcsBundle.message(java.lang.String,java.lang.Object...)" resolve="message" />
@@ -2874,7 +2875,7 @@
                   <ref role="3cqZAo" node="YIxS4EmxKy" resolve="atb" />
                 </node>
                 <node concept="liA8E" id="YIxS4EmxLe" role="2OqNvi">
-                  <ref role="37wK5l" to="8voc:~AnnotationTooltipBuilder.appendCommitMessageBlock(java.lang.String)" resolve="appendCommitMessageBlock" />
+                  <ref role="37wK5l" to="8vod:~AnnotationTooltipBuilder.appendCommitMessageBlock(java.lang.String)" resolve="appendCommitMessageBlock" />
                   <node concept="2OqwBi" id="YIxS4EmxLf" role="37wK5m">
                     <node concept="37vLTw" id="4Zqbdud62Md" role="2Oq$k0">
                       <ref role="3cqZAo" node="6wgNI6tBNi$" resolve="myRevision" />
@@ -2893,7 +2894,7 @@
                     <ref role="3cqZAo" node="YIxS4EmxKy" resolve="atb" />
                   </node>
                   <node concept="liA8E" id="YIxS4EmxLm" role="2OqNvi">
-                    <ref role="37wK5l" to="8voc:~AnnotationTooltipBuilder.toString()" resolve="toString" />
+                    <ref role="37wK5l" to="8vod:~AnnotationTooltipBuilder.toString()" resolve="toString" />
                   </node>
                 </node>
                 <node concept="37vLTw" id="YIxS4EmxLn" role="37vLTJ">
@@ -2926,8 +2927,8 @@
                     <ref role="3cqZAo" node="YIxS4EmxK1" resolve="tooltipText" />
                   </node>
                   <node concept="2YIFZM" id="YIxS4EmxLz" role="37vLTx">
-                    <ref role="1Pybhc" to="8voc:~AnnotationTooltipBuilder" resolve="AnnotationTooltipBuilder" />
-                    <ref role="37wK5l" to="8voc:~AnnotationTooltipBuilder.buildSimpleTooltip(com.intellij.openapi.project.Project,boolean,java.lang.String,java.lang.String,java.lang.String)" resolve="buildSimpleTooltip" />
+                    <ref role="1Pybhc" to="8vod:~AnnotationTooltipBuilder" resolve="AnnotationTooltipBuilder" />
+                    <ref role="37wK5l" to="8vod:~AnnotationTooltipBuilder.buildSimpleTooltip(com.intellij.openapi.project.Project,boolean,java.lang.String,java.lang.String,java.lang.String)" resolve="buildSimpleTooltip" />
                     <node concept="37vLTw" id="4Zqbdud6Snl" role="37wK5m">
                       <ref role="3cqZAo" node="4Zqbdud6MoQ" resolve="project" />
                     </node>

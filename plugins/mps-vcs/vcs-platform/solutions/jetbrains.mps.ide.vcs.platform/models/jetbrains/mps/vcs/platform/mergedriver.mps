@@ -44,6 +44,7 @@
     <import index="wbby" ref="f57286e3-4e19-4d8d-8045-3900761f6530/java:git4idea.crlf(jetbrains.mps.git4idea.stubs/)" />
     <import index="hr4p" ref="f57286e3-4e19-4d8d-8045-3900761f6530/java:git4idea(jetbrains.mps.git4idea.stubs/)" />
     <import index="ejh2" ref="6fd1293f-7f65-4ffd-99dc-4719eca7c171/java:org.jetbrains.idea.svn(jetbrains.mps.ide.vcs.platform/)" />
+    <import index="qv1u" ref="f35cbfcb-ea50-4f20-9d5c-c765fbd8fd3b/java:com.intellij.openapi.vcs.impl.projectlevelman(jetbrains.mps.vcs.idea.stubs/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -6124,8 +6125,8 @@
                                 <node concept="2OqwBi" id="127cgHIfgZI" role="3clFbG">
                                   <node concept="2OqwBi" id="127cgHIfgZC" role="2Oq$k0">
                                     <node concept="2YIFZM" id="127cgHIfgZA" role="2Oq$k0">
-                                      <ref role="37wK5l" to="qv1t:~AllVcses.getInstance(com.intellij.openapi.project.Project)" resolve="getInstance" />
-                                      <ref role="1Pybhc" to="qv1t:~AllVcses" resolve="AllVcses" />
+                                      <ref role="37wK5l" to="qv1u:~AllVcses.getInstance(com.intellij.openapi.project.Project)" resolve="getInstance" />
+                                      <ref role="1Pybhc" to="qv1u:~AllVcses" resolve="AllVcses" />
                                       <node concept="37vLTw" id="2BHiRxeuW13" role="37wK5m">
                                         <ref role="3cqZAo" node="63ZcAL21OIS" resolve="myProject" />
                                       </node>

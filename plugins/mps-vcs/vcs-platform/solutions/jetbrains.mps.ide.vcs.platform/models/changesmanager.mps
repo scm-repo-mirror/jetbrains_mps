@@ -60,6 +60,7 @@
     <import index="9w4s" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.util(MPS.IDEA/)" />
     <import index="bd8o" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.application(MPS.IDEA/)" />
     <import index="nvd4" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.repository(MPS.OpenAPI/)" />
+    <import index="1038" ref="f35cbfcb-ea50-4f20-9d5c-c765fbd8fd3b/java:com.intellij.openapi.vcs.changes(jetbrains.mps.vcs.idea.stubs/)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
     <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" implicit="true" />
   </imports>
@@ -1327,11 +1328,11 @@
                 <node concept="3cpWsn" id="58EREyZPAic" role="3cpWs9">
                   <property role="TrG5h" value="clm" />
                   <node concept="3uibUv" id="58EREyZPAid" role="1tU5fm">
-                    <ref role="3uigEE" to="1037:~ChangeListManagerImpl" resolve="ChangeListManagerImpl" />
+                    <ref role="3uigEE" to="1038:~ChangeListManagerImpl" resolve="ChangeListManagerImpl" />
                   </node>
                   <node concept="10QFUN" id="58EREyZPCKc" role="33vP2m">
                     <node concept="3uibUv" id="58EREyZPD4T" role="10QFUM">
-                      <ref role="3uigEE" to="1037:~ChangeListManagerImpl" resolve="ChangeListManagerImpl" />
+                      <ref role="3uigEE" to="1038:~ChangeListManagerImpl" resolve="ChangeListManagerImpl" />
                     </node>
                     <node concept="2YIFZM" id="58EREyZPCuh" role="10QFUP">
                       <ref role="37wK5l" to="1037:~ChangeListManager.getInstance(com.intellij.openapi.project.Project)" resolve="getInstance" />
@@ -1349,7 +1350,7 @@
                     <ref role="3cqZAo" node="58EREyZPAic" resolve="clm" />
                   </node>
                   <node concept="liA8E" id="58EREyZPGl3" role="2OqNvi">
-                    <ref role="37wK5l" to="1037:~ChangeListManagerImpl.executeOnUpdaterThread(java.lang.Runnable)" resolve="executeOnUpdaterThread" />
+                    <ref role="37wK5l" to="1038:~ChangeListManagerImpl.executeOnUpdaterThread(java.lang.Runnable)" resolve="executeOnUpdaterThread" />
                     <node concept="37vLTw" id="7znbqLix2yp" role="37wK5m">
                       <ref role="3cqZAo" node="7znbqLiw1l0" resolve="flushingRunnable" />
                     </node>
@@ -1399,7 +1400,7 @@
                         <ref role="3cqZAo" node="58EREyZPAic" resolve="clm" />
                       </node>
                       <node concept="liA8E" id="7znbqLix8UZ" role="2OqNvi">
-                        <ref role="37wK5l" to="1037:~ChangeListManagerImpl.waitForUpdate()" resolve="waitForUpdate" />
+                        <ref role="37wK5l" to="1038:~ChangeListManagerImpl.waitForUpdate()" resolve="waitForUpdate" />
                       </node>
                     </node>
                   </node>

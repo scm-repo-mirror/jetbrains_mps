@@ -107,6 +107,7 @@
         <dependencies>
           <module ref="3f233e7f-b8a6-46d2-a57f-795d56775243(Annotations)" kind="cl" />
           <module ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5(MPS.IDEA)" kind="cl" />
+          <module ref="f35cbfcb-ea50-4f20-9d5c-c765fbd8fd3b(jetbrains.mps.vcs.idea.stubs)" kind="cl" />
         </dependencies>
         <uses />
         <library jar="../../vcs-git/lib/git4idea-rt.jar" />
@@ -150,6 +151,7 @@
       <plugin path="${artifacts.mpsCore}/mps-core" id="jetbrains.mps.core" />
       <chunk>
         <module file="${basedir}/plugins/mps-git4idea/stubs/jetbrains.mps.git4idea.stubs.msd" />
+        <module file="${basedir}/plugins/mps-vcs/vcs-core/modules/jetbrains.mps.vcs.idea.stubs/jetbrains.mps.vcs.idea.stubs.msd" />
       </chunk>
       <jvmargs>
         <arg value="-ea" />
