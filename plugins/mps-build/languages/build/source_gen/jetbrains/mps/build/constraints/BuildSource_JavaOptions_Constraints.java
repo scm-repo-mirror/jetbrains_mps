@@ -15,10 +15,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.build.util.NameUtil;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -27,10 +23,12 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class BuildSource_JavaOptions_Constraints extends BaseConstraintsDescriptor {
   /*package*/ BuildSource_JavaOptions_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.BuildSource_JavaOptions$D, initContext);
+    record(new OptionsName_PD(this));
   }
 
   @Override
@@ -48,8 +46,8 @@ public class BuildSource_JavaOptions_Constraints extends BaseConstraintsDescript
       }
     };
   }
-  public static class OptionsName_Property extends BasePropertyConstraintsDescriptor {
-    public OptionsName_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class OptionsName_PD extends BasePropertyConstraintsDescriptor {
+    public OptionsName_PD(ConstraintsDescriptor container) {
       super(PROPS.optionsName$Rr_z, container, false, false, true);
     }
     @Override
@@ -63,12 +61,6 @@ public class BuildSource_JavaOptions_Constraints extends BaseConstraintsDescript
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
       return (propertyValue == null || propertyValue.length() == 0) || NameUtil.isValidProjectPartName(propertyValue);
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.optionsName$Rr_z, new OptionsName_Property(this));
-    return properties;
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
     return SNodeOperations.isInstanceOf(parentNode, CONCEPTS.BuildProject$ae) && Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SNodeOperations.cast(parentNode, CONCEPTS.BuildProject$ae), LINKS.plugins$AsCR), CONCEPTS.BuildJavaPlugin$hn)).isNotEmpty() || (boolean) BaseConcept__BehaviorDescriptor.isInTemplates_idhEwIMij.invoke(parentNode);

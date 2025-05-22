@@ -9,10 +9,8 @@ import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeChild;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
-import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
+import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -23,16 +21,17 @@ import jetbrains.mps.scope.ListScope;
 import jetbrains.mps.execution.commands.behavior.ExecuteCommandPart__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class CommandParameterAssignment_Constraints extends BaseConstraintsDescriptor {
   /*package*/ CommandParameterAssignment_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.CommandParameterAssignment$ZP, initContext);
+    record(new RD1(this));
   }
 
   @Override
@@ -50,27 +49,24 @@ public class CommandParameterAssignment_Constraints extends BaseConstraintsDescr
       }
     };
   }
-  @Override
-  protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.parameterDeclaration$Zibc, this, true, false) {
-      @Nullable
-      @Override
-      public ReferenceScopeProvider getScopeProvider() {
-        return new BaseScopeProvider() {
-          @Override
-          public SNodeReference getSearchScopeValidatorNode() {
-            return new SNodePointer("r:fa479534-722a-48ea-9a2e-0d6cd7ab1559(jetbrains.mps.execution.commands.constraints)", "6836281137582824856");
-          }
-          @Override
-          public Scope createScope(final ReferenceConstraintsContext _context) {
-            return ListScope.forResolvableElements(ExecuteCommandPart__BehaviorDescriptor.getParameters_id5keEkmeCqHW.invoke(SLinkOperations.getTarget(SNodeOperations.cast((((_context.getReferenceNode() == null) ? _context.getContextNode() : SNodeOperations.getParent(_context.getReferenceNode()))), CONCEPTS.CommandBuilderExpression$rV), LINKS.commandPart$UR1f)));
-          }
-        };
-      }
-    };
-    Map<SReferenceLink, ReferenceConstraintsDescriptor> references = new HashMap<SReferenceLink, ReferenceConstraintsDescriptor>();
-    references.put(d0.getReference(), d0);
-    return references;
+  /*package*/ static final class RD1 extends BaseReferenceConstraintsDescriptor {
+    /*package*/ RD1(ConstraintsDescriptor container) {
+      super(LINKS.parameterDeclaration$Zibc, container, true, false);
+    }
+    @Nullable
+    @Override
+    public ReferenceScopeProvider getScopeProvider() {
+      return new BaseScopeProvider() {
+        @Override
+        public SNodeReference getSearchScopeValidatorNode() {
+          return new SNodePointer("r:fa479534-722a-48ea-9a2e-0d6cd7ab1559(jetbrains.mps.execution.commands.constraints)", "6836281137582824856");
+        }
+        @Override
+        public Scope createScope(final ReferenceConstraintsContext _context) {
+          return ListScope.forResolvableElements(ExecuteCommandPart__BehaviorDescriptor.getParameters_id5keEkmeCqHW.invoke(SLinkOperations.getTarget(SNodeOperations.cast((((_context.getReferenceNode() == null) ? _context.getContextNode() : SNodeOperations.getParent(_context.getReferenceNode()))), CONCEPTS.CommandBuilderExpression$rV), LINKS.commandPart$UR1f)));
+        }
+      };
+    }
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
     return SNodeOperations.isInstanceOf(parentNode, CONCEPTS.CommandBuilderExpression$rV);

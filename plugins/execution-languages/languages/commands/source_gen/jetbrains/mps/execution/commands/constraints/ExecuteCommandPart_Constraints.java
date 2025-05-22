@@ -27,16 +27,15 @@ import jetbrains.mps.execution.commands.behavior.ExecuteCommandPart__BehaviorDes
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.IterableUtils;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ExecuteCommandPart_Constraints extends BaseConstraintsDescriptor {
   /*package*/ ExecuteCommandPart_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.ExecuteCommandPart$hx, initContext);
+    record(new Name_PD(this));
+    record(new ShortDescription_PD(this));
   }
 
   @Override
@@ -57,8 +56,8 @@ public class ExecuteCommandPart_Constraints extends BaseConstraintsDescriptor {
       }
     };
   }
-  public static class Name_Property extends BasePropertyConstraintsDescriptor {
-    public Name_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class Name_PD extends BasePropertyConstraintsDescriptor {
+    public Name_PD(ConstraintsDescriptor container) {
       super(PROPS.name$MnvL, container, true, false, false);
     }
     @Override
@@ -72,8 +71,8 @@ public class ExecuteCommandPart_Constraints extends BaseConstraintsDescriptor {
       return null;
     }
   }
-  public static class ShortDescription_Property extends BasePropertyConstraintsDescriptor {
-    public ShortDescription_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class ShortDescription_PD extends BasePropertyConstraintsDescriptor {
+    public ShortDescription_PD(ConstraintsDescriptor container) {
       super(PROPS.shortDescription$Yd4v, container, true, false, false);
     }
     @Override
@@ -85,13 +84,6 @@ public class ExecuteCommandPart_Constraints extends BaseConstraintsDescriptor {
       String joined = IterableUtils.join(ListSequence.fromList(requiredParameters).select((it) -> SPropertyOperations.getString(it, PROPS.name$MnvL) + ", "), " ");
       return "(" + joined.substring(0, joined.length() - 2) + ")";
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.name$MnvL, new Name_Property(this));
-    properties.put(PROPS.shortDescription$Yd4v, new ShortDescription_Property(this));
-    return properties;
   }
 
   private static final class CONCEPTS {

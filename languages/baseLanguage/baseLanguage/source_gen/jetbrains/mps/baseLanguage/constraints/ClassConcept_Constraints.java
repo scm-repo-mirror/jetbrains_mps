@@ -23,16 +23,14 @@ import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import jetbrains.mps.baseLanguage.scopes.ClassifierScopes;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ClassConcept_Constraints extends BaseConstraintsDescriptor {
   /*package*/ ClassConcept_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.ClassConcept$bK, initContext);
+    record(new IsStatic_PD(this));
   }
   public IconResource getInstanceIcon(SNode node) {
     if ((boolean) Classifier__BehaviorDescriptor.isDescendant_id6dL7A1DpKo1.invoke(node, SNodeOperations.getNode("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Throwable"))) {
@@ -65,8 +63,8 @@ public class ClassConcept_Constraints extends BaseConstraintsDescriptor {
       }
     };
   }
-  public static class IsStatic_Property extends BasePropertyConstraintsDescriptor {
-    public IsStatic_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class IsStatic_PD extends BasePropertyConstraintsDescriptor {
+    public IsStatic_PD(ConstraintsDescriptor container) {
       super(PROPS.isStatic$3WAz, container, true, true, false);
     }
     @Override
@@ -80,12 +78,6 @@ public class ClassConcept_Constraints extends BaseConstraintsDescriptor {
     private static void staticSetPropertyValue(SNode node, boolean propertyValue) {
       SPropertyOperations.assign(node, PROPS.nonStatic$aWW8, !(propertyValue));
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.isStatic$3WAz, new IsStatic_Property(this));
-    return properties;
   }
 
   private static final class CONCEPTS {

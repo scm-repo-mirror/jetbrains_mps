@@ -4,10 +4,8 @@ package jetbrains.mps.kotlin.smodel.constraints;
 
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptorInitContext;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
-import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
+import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -18,36 +16,34 @@ import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import jetbrains.mps.kotlin.scopes.signed.KotlinScopes;
 import jetbrains.mps.kotlin.scopes.SignatureFilterImpl;
 import jetbrains.mps.kotlin.smodel.behavior.LinkSignature;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class LinkAccessExpression_Constraints extends BaseConstraintsDescriptor {
   /*package*/ LinkAccessExpression_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.LinkAccessExpression$dN, initContext);
+    record(new RD1(this));
   }
 
-  @Override
-  protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.link$DVhs, this, true, false) {
-      @Nullable
-      @Override
-      public ReferenceScopeProvider getScopeProvider() {
-        return new BaseScopeProvider() {
-          @Override
-          public SNodeReference getSearchScopeValidatorNode() {
-            return new SNodePointer("r:b735233f-0024-4599-9a38-ca6406285a42(jetbrains.mps.kotlin.smodel.constraints)", "6737238604821165126");
-          }
-          @Override
-          public Scope createScope(final ReferenceConstraintsContext _context) {
-            return KotlinScopes.scopeWithLegacyTypesystemFallback(_context.getContextNode(), CONCEPTS.LinkDeclaration$1p, () -> KotlinScopes.create(_context.getReferenceNode(), _context.getContextNode(), _context.getContainmentLink()).filter(new SignatureFilterImpl<>(LinkSignature.class)).navigationReceiver().noExtensionMembers().prioritizeProperties((link, kind, receiver) -> new LinkSignature(link, kind)).buildSigScope());
-          }
-        };
-      }
-    };
-    Map<SReferenceLink, ReferenceConstraintsDescriptor> references = new HashMap<SReferenceLink, ReferenceConstraintsDescriptor>();
-    references.put(d0.getReference(), d0);
-    return references;
+  /*package*/ static final class RD1 extends BaseReferenceConstraintsDescriptor {
+    /*package*/ RD1(ConstraintsDescriptor container) {
+      super(LINKS.link$DVhs, container, true, false);
+    }
+    @Nullable
+    @Override
+    public ReferenceScopeProvider getScopeProvider() {
+      return new BaseScopeProvider() {
+        @Override
+        public SNodeReference getSearchScopeValidatorNode() {
+          return new SNodePointer("r:b735233f-0024-4599-9a38-ca6406285a42(jetbrains.mps.kotlin.smodel.constraints)", "6737238604821165126");
+        }
+        @Override
+        public Scope createScope(final ReferenceConstraintsContext _context) {
+          return KotlinScopes.scopeWithLegacyTypesystemFallback(_context.getContextNode(), CONCEPTS.LinkDeclaration$1p, () -> KotlinScopes.create(_context.getReferenceNode(), _context.getContextNode(), _context.getContainmentLink()).filter(new SignatureFilterImpl<>(LinkSignature.class)).navigationReceiver().noExtensionMembers().prioritizeProperties((link, kind, receiver) -> new LinkSignature(link, kind)).buildSigScope());
+        }
+      };
+    }
   }
 
   private static final class CONCEPTS {

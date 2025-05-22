@@ -15,12 +15,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.SNodePointer;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
-import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -37,10 +31,14 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class AnonymousClass_Constraints extends BaseConstraintsDescriptor {
   /*package*/ AnonymousClass_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.AnonymousClass$Bt, initContext);
+    record(new Name_PD(this));
+    record(new RD1(this));
   }
 
   @Override
@@ -58,8 +56,8 @@ public class AnonymousClass_Constraints extends BaseConstraintsDescriptor {
       }
     };
   }
-  public static class Name_Property extends BasePropertyConstraintsDescriptor {
-    public Name_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class Name_PD extends BasePropertyConstraintsDescriptor {
+    public Name_PD(ConstraintsDescriptor container) {
       super(PROPS.name$MnvL, container, true, false, true);
     }
     @Override
@@ -78,46 +76,37 @@ public class AnonymousClass_Constraints extends BaseConstraintsDescriptor {
       return propertyValue.matches("[a-zA-Z[_]][a-zA-Z0-9$.[_]]*");
     }
   }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.name$MnvL, new Name_Property(this));
-    return properties;
-  }
-  @Override
-  protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.classifier$q_Y$, this, true, false) {
-      @Nullable
-      @Override
-      public ReferenceScopeProvider getScopeProvider() {
-        return new BaseScopeProvider() {
-          @Override
-          public SNodeReference getSearchScopeValidatorNode() {
-            return new SNodePointer("r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)", "6836281137582643224");
+  /*package*/ static final class RD1 extends BaseReferenceConstraintsDescriptor {
+    /*package*/ RD1(ConstraintsDescriptor container) {
+      super(LINKS.classifier$q_Y$, container, true, false);
+    }
+    @Nullable
+    @Override
+    public ReferenceScopeProvider getScopeProvider() {
+      return new BaseScopeProvider() {
+        @Override
+        public SNodeReference getSearchScopeValidatorNode() {
+          return new SNodePointer("r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)", "6836281137582643224");
+        }
+        @Override
+        public Scope createScope(final ReferenceConstraintsContext _context) {
+          // false is essential here: not include parent hierarchy into the scope (will lead to infinite rescursion)
+          if ((SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.NestedNewExpression$zV, true, false) == null)) {
+            return ClassifierScopes.getVisibleClassifiersScope(_context.getContextNode(), false);
           }
-          @Override
-          public Scope createScope(final ReferenceConstraintsContext _context) {
-            // false is essential here: not include parent hierarchy into the scope (will lead to infinite rescursion)
-            if ((SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.NestedNewExpression$zV, true, false) == null)) {
-              return ClassifierScopes.getVisibleClassifiersScope(_context.getContextNode(), false);
-            }
 
-            SNode type = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.DotExpression$yW, false, false), LINKS.operand$w6IR));
-            if (!(SNodeOperations.isInstanceOf(type, CONCEPTS.ClassifierType$bL))) {
-              return null;
-            }
-
-            final Iterable<SNode> memberClasses = AnonymousClassCreator__BehaviorDescriptor.retrieveInstantiationPoints_id5qAZxlfYyVZ.invoke(SNodeOperations.asSConcept(CONCEPTS.AnonymousClassCreator$fS), SNodeOperations.cast(type, CONCEPTS.ClassifierType$bL), _context.getContextNode());
-
-            return ListScope.forNamedElements(memberClasses);
-
+          SNode type = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.DotExpression$yW, false, false), LINKS.operand$w6IR));
+          if (!(SNodeOperations.isInstanceOf(type, CONCEPTS.ClassifierType$bL))) {
+            return null;
           }
-        };
-      }
-    };
-    Map<SReferenceLink, ReferenceConstraintsDescriptor> references = new HashMap<SReferenceLink, ReferenceConstraintsDescriptor>();
-    references.put(d0.getReference(), d0);
-    return references;
+
+          final Iterable<SNode> memberClasses = AnonymousClassCreator__BehaviorDescriptor.retrieveInstantiationPoints_id5qAZxlfYyVZ.invoke(SNodeOperations.asSConcept(CONCEPTS.AnonymousClassCreator$fS), SNodeOperations.cast(type, CONCEPTS.ClassifierType$bL), _context.getContextNode());
+
+          return ListScope.forNamedElements(memberClasses);
+
+        }
+      };
+    }
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
     return Objects.equals(link, LINKS.cls$Saf6);

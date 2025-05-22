@@ -10,20 +10,18 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.SNodePointer;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class XmlElement_Constraints extends BaseConstraintsDescriptor {
   /*package*/ XmlElement_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.XmlElement$fP, initContext);
+    record(new TagName_PD(this));
   }
 
-  public static class TagName_Property extends BasePropertyConstraintsDescriptor {
-    public TagName_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class TagName_PD extends BasePropertyConstraintsDescriptor {
+    public TagName_PD(ConstraintsDescriptor container) {
       super(PROPS.tagName$ZoHR, container, false, false, true);
     }
     @Override
@@ -37,12 +35,6 @@ public class XmlElement_Constraints extends BaseConstraintsDescriptor {
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
       return XmlNameUtil.isName(propertyValue);
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.tagName$ZoHR, new TagName_Property(this));
-    return properties;
   }
 
   private static final class CONCEPTS {

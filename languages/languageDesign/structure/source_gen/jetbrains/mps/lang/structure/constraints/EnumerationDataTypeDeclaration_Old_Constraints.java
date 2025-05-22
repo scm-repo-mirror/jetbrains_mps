@@ -14,12 +14,6 @@ import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
-import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -35,10 +29,14 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import jetbrains.mps.smodel.SModelStereotype;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class EnumerationDataTypeDeclaration_Old_Constraints extends BaseConstraintsDescriptor {
   /*package*/ EnumerationDataTypeDeclaration_Old_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.EnumerationDataTypeDeclaration_Old$B8, initContext);
+    record(new HasNoDefaultMember_PD(this));
+    record(new RD1(this));
   }
 
   @Override
@@ -56,8 +54,8 @@ public class EnumerationDataTypeDeclaration_Old_Constraints extends BaseConstrai
       }
     };
   }
-  public static class HasNoDefaultMember_Property extends BasePropertyConstraintsDescriptor {
-    public HasNoDefaultMember_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class HasNoDefaultMember_PD extends BasePropertyConstraintsDescriptor {
+    public HasNoDefaultMember_PD(ConstraintsDescriptor container) {
       super(PROPS.hasNoDefaultMember$e7W7, container, false, true, false);
     }
     @Override
@@ -71,34 +69,25 @@ public class EnumerationDataTypeDeclaration_Old_Constraints extends BaseConstrai
       }
     }
   }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.hasNoDefaultMember$e7W7, new HasNoDefaultMember_Property(this));
-    return properties;
-  }
-  @Override
-  protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.defaultMember$SFBr, this, true, false) {
-      @Nullable
-      @Override
-      public ReferenceScopeProvider getScopeProvider() {
-        return new BaseScopeProvider() {
-          @Override
-          public SNodeReference getSearchScopeValidatorNode() {
-            return new SNodePointer("r:00000000-0000-4000-0000-011c8959028c(jetbrains.mps.lang.structure.constraints)", "6836281137582805030");
-          }
-          @Override
-          public Scope createScope(final ReferenceConstraintsContext _context) {
-            // members declared here
-            return ListScope.forResolvableElements(SNodeOperations.getNodeDescendants(_context.getReferenceNode(), null, false, new SAbstractConcept[]{}));
-          }
-        };
-      }
-    };
-    Map<SReferenceLink, ReferenceConstraintsDescriptor> references = new HashMap<SReferenceLink, ReferenceConstraintsDescriptor>();
-    references.put(d0.getReference(), d0);
-    return references;
+  /*package*/ static final class RD1 extends BaseReferenceConstraintsDescriptor {
+    /*package*/ RD1(ConstraintsDescriptor container) {
+      super(LINKS.defaultMember$SFBr, container, true, false);
+    }
+    @Nullable
+    @Override
+    public ReferenceScopeProvider getScopeProvider() {
+      return new BaseScopeProvider() {
+        @Override
+        public SNodeReference getSearchScopeValidatorNode() {
+          return new SNodePointer("r:00000000-0000-4000-0000-011c8959028c(jetbrains.mps.lang.structure.constraints)", "6836281137582805030");
+        }
+        @Override
+        public Scope createScope(final ReferenceConstraintsContext _context) {
+          // members declared here
+          return ListScope.forResolvableElements(SNodeOperations.getNodeDescendants(_context.getReferenceNode(), null, false, new SAbstractConcept[]{}));
+        }
+      };
+    }
   }
   private static boolean staticCanBeARoot(SModel model) {
     return SModuleOperations.isAspect(model, "structure") || SModelStereotype.isGeneratorModel(model);

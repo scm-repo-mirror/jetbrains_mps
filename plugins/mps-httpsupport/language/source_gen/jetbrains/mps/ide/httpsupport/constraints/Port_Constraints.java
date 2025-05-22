@@ -10,20 +10,18 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.SNodePointer;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class Port_Constraints extends BaseConstraintsDescriptor {
   /*package*/ Port_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.Port$OX, initContext);
+    record(new PortNumber_PD(this));
   }
 
-  public static class PortNumber_Property extends BasePropertyConstraintsDescriptor {
-    public PortNumber_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class PortNumber_PD extends BasePropertyConstraintsDescriptor {
+    public PortNumber_PD(ConstraintsDescriptor container) {
       super(PROPS.portNumber$ZMk8, container, false, false, true);
     }
     @Override
@@ -37,12 +35,6 @@ public class Port_Constraints extends BaseConstraintsDescriptor {
     private static boolean staticValidateProperty(SNode node, int propertyValue) {
       return propertyValue > 0 & propertyValue < 65536;
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.portNumber$ZMk8, new PortNumber_Property(this));
-    return properties;
   }
 
   private static final class CONCEPTS {

@@ -13,19 +13,17 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.adapter.ids.SLanguageId;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class MigrationAnnotation_Constraints extends BaseConstraintsDescriptor {
   /*package*/ MigrationAnnotation_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.MigrationAnnotation$z7, initContext);
+    record(new CreatedByScript_PD(this));
   }
 
-  public static class CreatedByScript_Property extends BasePropertyConstraintsDescriptor {
-    public CreatedByScript_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class CreatedByScript_PD extends BasePropertyConstraintsDescriptor {
+    public CreatedByScript_PD(ConstraintsDescriptor container) {
       super(PROPS.createdByScript$dQMM, container, false, false, true);
     }
     @Override
@@ -47,12 +45,6 @@ public class MigrationAnnotation_Constraints extends BaseConstraintsDescriptor {
         return false;
       }
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.createdByScript$dQMM, new CreatedByScript_Property(this));
-    return properties;
   }
 
   private static final class CONCEPTS {

@@ -9,10 +9,8 @@ import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeChild;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
-import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
+import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -28,15 +26,16 @@ import jetbrains.mps.baseLanguage.scopes.Members;
 import jetbrains.mps.baseLanguage.behavior.ClassConcept__BehaviorDescriptor;
 import jetbrains.mps.baseLanguage.behavior.BaseMethodDeclaration__BehaviorDescriptor;
 import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class EvaluatorsSuperMethodCall_Constraints extends BaseConstraintsDescriptor {
   /*package*/ EvaluatorsSuperMethodCall_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.EvaluatorsSuperMethodCall$PI, initContext);
+    record(new RD1(this));
   }
 
   @Override
@@ -54,33 +53,30 @@ public class EvaluatorsSuperMethodCall_Constraints extends BaseConstraintsDescri
       }
     };
   }
-  @Override
-  protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.baseMethodDeclaration$pyYw, this, true, false) {
-      @Nullable
-      @Override
-      public ReferenceScopeProvider getScopeProvider() {
-        return new BaseScopeProvider() {
-          @Override
-          public SNodeReference getSearchScopeValidatorNode() {
-            return new SNodePointer("r:edfcb13b-e239-462c-8aae-e4b4a03e7c8b(jetbrains.mps.debugger.java.evaluation.constraints)", "6836281137582821176");
-          }
-          @Override
-          public Scope createScope(final ReferenceConstraintsContext _context) {
-            SNode thisNode = SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.EvaluatorConcept$pu, false, false), LINKS.thisNode$GzOU);
-            SNode classifier = SLinkOperations.getTarget(DebuggedType__BehaviorDescriptor.getHighClassifierType_id3WhGjgvCHCA.invoke(SLinkOperations.getTarget(thisNode, LINKS.debuggedType$boAT)), LINKS.classifier$cxMr);
-            SNode enclosingClass = SNodeOperations.cast(classifier, CONCEPTS.ClassConcept$bK);
+  /*package*/ static final class RD1 extends BaseReferenceConstraintsDescriptor {
+    /*package*/ RD1(ConstraintsDescriptor container) {
+      super(LINKS.baseMethodDeclaration$pyYw, container, true, false);
+    }
+    @Nullable
+    @Override
+    public ReferenceScopeProvider getScopeProvider() {
+      return new BaseScopeProvider() {
+        @Override
+        public SNodeReference getSearchScopeValidatorNode() {
+          return new SNodePointer("r:edfcb13b-e239-462c-8aae-e4b4a03e7c8b(jetbrains.mps.debugger.java.evaluation.constraints)", "6836281137582821176");
+        }
+        @Override
+        public Scope createScope(final ReferenceConstraintsContext _context) {
+          SNode thisNode = SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.EvaluatorConcept$pu, false, false), LINKS.thisNode$GzOU);
+          SNode classifier = SLinkOperations.getTarget(DebuggedType__BehaviorDescriptor.getHighClassifierType_id3WhGjgvCHCA.invoke(SLinkOperations.getTarget(thisNode, LINKS.debuggedType$boAT)), LINKS.classifier$cxMr);
+          SNode enclosingClass = SNodeOperations.cast(classifier, CONCEPTS.ClassConcept$bK);
 
-            Iterable<SNode> methods = Sequence.fromIterable(Members.visibleInstanceMethods(ClassConcept__BehaviorDescriptor.getSuperclass_idi3H_lLu.invoke(enclosingClass), _context.getContextNode())).where((it) -> !((boolean) BaseMethodDeclaration__BehaviorDescriptor.isAnAbstractMethod_id28P2dHxCoRl.invoke(it)) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(it), CONCEPTS.ClassConcept$bK));
+          Iterable<SNode> methods = Sequence.fromIterable(Members.visibleInstanceMethods(ClassConcept__BehaviorDescriptor.getSuperclass_idi3H_lLu.invoke(enclosingClass), _context.getContextNode())).where((it) -> !((boolean) BaseMethodDeclaration__BehaviorDescriptor.isAnAbstractMethod_id28P2dHxCoRl.invoke(it)) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(it), CONCEPTS.ClassConcept$bK));
 
-            return new NamedElementsScope(methods);
-          }
-        };
-      }
-    };
-    Map<SReferenceLink, ReferenceConstraintsDescriptor> references = new HashMap<SReferenceLink, ReferenceConstraintsDescriptor>();
-    references.put(d0.getReference(), d0);
-    return references;
+          return new NamedElementsScope(methods);
+        }
+      };
+    }
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
     return (SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.EvaluatorConcept$pu, false, false), LINKS.thisNode$GzOU) != null) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(DebuggedType__BehaviorDescriptor.getHighClassifierType_id3WhGjgvCHCA.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.EvaluatorConcept$pu, false, false), LINKS.thisNode$GzOU), LINKS.debuggedType$boAT)), LINKS.classifier$cxMr), CONCEPTS.ClassConcept$bK);

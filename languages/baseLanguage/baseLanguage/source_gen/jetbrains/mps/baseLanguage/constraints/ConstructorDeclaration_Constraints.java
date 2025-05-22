@@ -15,10 +15,6 @@ import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import java.util.Objects;
@@ -27,10 +23,14 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ConstructorDeclaration_Constraints extends BaseConstraintsDescriptor {
   /*package*/ ConstructorDeclaration_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.ConstructorDeclaration$yG, initContext);
+    record(new Name_PD(this));
+    record(new NestedName_PD(this));
+    record(new ResolveInfo_PD(this));
   }
 
   @Override
@@ -63,8 +63,8 @@ public class ConstructorDeclaration_Constraints extends BaseConstraintsDescripto
       }
     };
   }
-  public static class Name_Property extends BasePropertyConstraintsDescriptor {
-    public Name_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class Name_PD extends BasePropertyConstraintsDescriptor {
+    public Name_PD(ConstraintsDescriptor container) {
       super(PROPS.name$MnvL, container, true, false, false);
     }
     @Override
@@ -76,8 +76,8 @@ public class ConstructorDeclaration_Constraints extends BaseConstraintsDescripto
       }
     }
   }
-  public static class NestedName_Property extends BasePropertyConstraintsDescriptor {
-    public NestedName_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class NestedName_PD extends BasePropertyConstraintsDescriptor {
+    public NestedName_PD(ConstraintsDescriptor container) {
       super(PROPS.nestedName$rT$z, container, true, false, false);
     }
     @Override
@@ -85,22 +85,14 @@ public class ConstructorDeclaration_Constraints extends BaseConstraintsDescripto
       return SPropertyOperations.getString(SNodeOperations.getNodeAncestor(node, CONCEPTS.Classifier$Ix, false, false), PROPS.nestedName$Em3S);
     }
   }
-  public static class ResolveInfo_Property extends BasePropertyConstraintsDescriptor {
-    public ResolveInfo_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class ResolveInfo_PD extends BasePropertyConstraintsDescriptor {
+    public ResolveInfo_PD(ConstraintsDescriptor container) {
       super(PROPS.resolveInfo$lW9a, container, true, false, false);
     }
     @Override
     public Object getValue(SNode node) {
       return SPropertyOperations.getString(SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.IResolveInfo$$k), PROPS.resolveInfo$lW9a);
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.name$MnvL, new Name_Property(this));
-    properties.put(PROPS.nestedName$rT$z, new NestedName_Property(this));
-    properties.put(PROPS.resolveInfo$lW9a, new ResolveInfo_Property(this));
-    return properties;
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
     return SNodeOperations.isInstanceOf(parentNode, CONCEPTS.INamedConcept$Kd) && SNodeOperations.isInstanceOf(parentNode, CONCEPTS.IResolveInfo$$k);

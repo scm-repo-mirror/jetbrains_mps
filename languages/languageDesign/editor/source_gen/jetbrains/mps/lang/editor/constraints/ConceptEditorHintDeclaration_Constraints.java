@@ -14,19 +14,17 @@ import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.SNodePointer;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ConceptEditorHintDeclaration_Constraints extends BaseConstraintsDescriptor {
   /*package*/ ConceptEditorHintDeclaration_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.ConceptEditorHintDeclaration$e2, initContext);
+    record(new Name_PD(this));
   }
 
   @Override
@@ -44,8 +42,8 @@ public class ConceptEditorHintDeclaration_Constraints extends BaseConstraintsDes
       }
     };
   }
-  public static class Name_Property extends BasePropertyConstraintsDescriptor {
-    public Name_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class Name_PD extends BasePropertyConstraintsDescriptor {
+    public Name_PD(ConstraintsDescriptor container) {
       super(PROPS.name$MnvL, container, false, false, true);
     }
     @Override
@@ -59,12 +57,6 @@ public class ConceptEditorHintDeclaration_Constraints extends BaseConstraintsDes
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
       return propertyValue.matches("[a-zA-Z0-9$[_]]*");
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.name$MnvL, new Name_Property(this));
-    return properties;
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
     return SNodeOperations.isInstanceOf(parentNode, CONCEPTS.ConceptEditorContextHints$m_);

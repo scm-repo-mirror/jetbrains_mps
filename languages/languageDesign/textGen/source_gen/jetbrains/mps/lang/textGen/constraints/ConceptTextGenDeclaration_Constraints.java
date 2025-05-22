@@ -14,21 +14,19 @@ import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class ConceptTextGenDeclaration_Constraints extends BaseConstraintsDescriptor {
   /*package*/ ConceptTextGenDeclaration_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.ConceptTextGenDeclaration$vd, initContext);
+    record(new Name_PD(this));
   }
 
   @Override
@@ -46,20 +44,14 @@ public class ConceptTextGenDeclaration_Constraints extends BaseConstraintsDescri
       }
     };
   }
-  public static class Name_Property extends BasePropertyConstraintsDescriptor {
-    public Name_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class Name_PD extends BasePropertyConstraintsDescriptor {
+    public Name_PD(ConstraintsDescriptor container) {
       super(PROPS.name$MnvL, container, true, false, false);
     }
     @Override
     public Object getValue(SNode node) {
       return SPropertyOperations.getString(SLinkOperations.getTarget(node, LINKS.conceptDeclaration$$0ms), PROPS.name$MnvL) + "_TextGen";
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.name$MnvL, new Name_Property(this));
-    return properties;
   }
   private static boolean staticCanBeARoot(SModel model) {
     return SModuleOperations.isAspect(model, "textGen") || SModelStereotype.isGeneratorModel(model);

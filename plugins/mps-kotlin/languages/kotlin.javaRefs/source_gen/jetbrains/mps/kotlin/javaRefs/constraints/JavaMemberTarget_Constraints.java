@@ -4,10 +4,8 @@ package jetbrains.mps.kotlin.javaRefs.constraints;
 
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptorInitContext;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
-import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
+import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -21,59 +19,57 @@ import jetbrains.mps.kotlin.scopes.signed.FullScopeContext;
 import jetbrains.mps.kotlin.scopes.signed.NavigationHelper;
 import jetbrains.mps.kotlin.behavior.MemberReceiver;
 import jetbrains.mps.scope.CompositeScope;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class JavaMemberTarget_Constraints extends BaseConstraintsDescriptor {
   /*package*/ JavaMemberTarget_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.JavaMemberTarget$Gs, initContext);
+    record(new RD1(this));
   }
 
-  @Override
-  protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.member$UnLg, this, true, false) {
-      @Nullable
-      @Override
-      public ReferenceScopeProvider getScopeProvider() {
-        return new BaseScopeProvider() {
-          @Override
-          public SNodeReference getSearchScopeValidatorNode() {
-            return new SNodePointer("r:a8be947e-2401-458d-a5e8-7789d9a23eaf(jetbrains.mps.kotlin.javaRefs.constraints)", "8216400987860032790");
-          }
-          @Override
-          public Scope createScope(final ReferenceConstraintsContext _context) {
-            final Wrappers._boolean isStandalone = new Wrappers._boolean(false);
+  /*package*/ static final class RD1 extends BaseReferenceConstraintsDescriptor {
+    /*package*/ RD1(ConstraintsDescriptor container) {
+      super(LINKS.member$UnLg, container, true, false);
+    }
+    @Nullable
+    @Override
+    public ReferenceScopeProvider getScopeProvider() {
+      return new BaseScopeProvider() {
+        @Override
+        public SNodeReference getSearchScopeValidatorNode() {
+          return new SNodePointer("r:a8be947e-2401-458d-a5e8-7789d9a23eaf(jetbrains.mps.kotlin.javaRefs.constraints)", "8216400987860032790");
+        }
+        @Override
+        public Scope createScope(final ReferenceConstraintsContext _context) {
+          final Wrappers._boolean isStandalone = new Wrappers._boolean(false);
 
-            Scope regularScope = KotlinScopes.scopeWithLegacyTypesystemFallback(_context.getContextNode(), CONCEPTS.GenericDeclaration$bC, () -> {
-              FullScopeContext context = new FullScopeContext(_context.getReferenceNode(), _context.getContextNode(), _context.getContainmentLink());
-              final KotlinScopes scope = KotlinScopes.create(context).functions().noExtensionMembers().forceInstanceInclusion();
+          Scope regularScope = KotlinScopes.scopeWithLegacyTypesystemFallback(_context.getContextNode(), CONCEPTS.GenericDeclaration$bC, () -> {
+            FullScopeContext context = new FullScopeContext(_context.getReferenceNode(), _context.getContextNode(), _context.getContainmentLink());
+            final KotlinScopes scope = KotlinScopes.create(context).functions().noExtensionMembers().forceInstanceInclusion();
 
-              // Same as receiverMember() but store whether it is standalone
-              isStandalone.value = NavigationHelper.withMemberReceiver(context, (operand) -> {
-                scope.receiver(MemberReceiver.of(operand));
-                return false;
-              }, () -> {
-                // Add constructors for standalone member navigation
-                scope.useHierarchy();
-                return true;
-              });
-
-              return scope.buildSigScope();
+            // Same as receiverMember() but store whether it is standalone
+            isStandalone.value = NavigationHelper.withMemberReceiver(context, (operand) -> {
+              scope.receiver(MemberReceiver.of(operand));
+              return false;
+            }, () -> {
+              // Add constructors for standalone member navigation
+              scope.useHierarchy();
+              return true;
             });
 
-            if (isStandalone.value) {
-              return new CompositeScope(regularScope, JavaConstructorHelper.getConstructorsScope(_context.getContextNode()), JavaConstructorHelper.getDefaultConstructorScope(_context.getContextNode()));
-            } else {
-              return regularScope;
-            }
+            return scope.buildSigScope();
+          });
+
+          if (isStandalone.value) {
+            return new CompositeScope(regularScope, JavaConstructorHelper.getConstructorsScope(_context.getContextNode()), JavaConstructorHelper.getDefaultConstructorScope(_context.getContextNode()));
+          } else {
+            return regularScope;
           }
-        };
-      }
-    };
-    Map<SReferenceLink, ReferenceConstraintsDescriptor> references = new HashMap<SReferenceLink, ReferenceConstraintsDescriptor>();
-    references.put(d0.getReference(), d0);
-    return references;
+        }
+      };
+    }
   }
 
   private static final class CONCEPTS {

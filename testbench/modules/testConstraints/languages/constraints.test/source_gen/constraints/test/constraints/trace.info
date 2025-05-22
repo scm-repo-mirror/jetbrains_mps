@@ -17,24 +17,26 @@
   </root>
   <root nodeRef="r:6789573d-c842-4805-bb3b-05fd4fbf786e(constraints.test.constraints)/2614955748379648780">
     <file name="TestRefConstraints_BaseReference_Handler_Constraints.java">
-      <node id="2614955748379648780" at="19,114,20,77" concept="9" />
-      <node id="2614955748379649003" at="27,116,28,20" concept="5" />
-      <node id="2614955748379649018" at="31,119,32,117" concept="1" />
-      <node id="2614955748379648780" at="34,6,35,131" concept="4" />
-      <node id="2614955748379649003" at="35,131,36,42" concept="1" />
-      <node id="2614955748379648780" at="36,42,37,22" concept="5" />
-      <node id="2614955748379648780" at="41,0,42,0" concept="7" trace="TestRefConstraints_BaseReference_Handler$Sr" />
-      <node id="2614955748379648780" at="45,0,46,0" concept="7" trace="target$Ukdw" />
-      <node id="2614955748379648780" at="49,0,50,0" concept="7" trace="debug$PV3p" />
-      <node id="2614955748379648780" at="19,0,22,0" concept="0" trace="TestRefConstraints_BaseReference_Handler_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
+      <node id="2614955748379648780" at="17,114,18,77" concept="9" />
+      <node id="2614955748379649003" at="18,77,19,26" concept="1" />
+      <node id="2614955748379649003" at="23,54,24,55" concept="9" />
+      <node id="2614955748379649003" at="27,114,28,18" concept="5" />
+      <node id="2614955748379649018" at="31,117,32,115" concept="1" />
+      <node id="2614955748379648780" at="37,0,38,0" concept="7" trace="TestRefConstraints_BaseReference_Handler$Sr" />
+      <node id="2614955748379648780" at="41,0,42,0" concept="7" trace="target$Ukdw" />
+      <node id="2614955748379648780" at="45,0,46,0" concept="7" trace="debug$PV3p" />
+      <node id="2614955748379649003" at="23,0,26,0" concept="0" trace="RD1#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
+      <node id="2614955748379648780" at="17,0,21,0" concept="0" trace="TestRefConstraints_BaseReference_Handler_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
       <node id="2614955748379649003" at="26,0,30,0" concept="3" trace="validate#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
       <node id="2614955748379649003" at="30,0,34,0" concept="3" trace="onReferenceSet#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <node id="2614955748379649003" at="24,90,34,6" concept="4" />
-      <node id="2614955748379648780" at="23,0,39,0" concept="3" trace="getSpecifiedReferences#()Ljava/util/Map;" />
-      <scope id="2614955748379648780" at="19,114,20,77" />
-      <scope id="2614955748379649003" at="27,116,28,20" />
-      <scope id="2614955748379649006" at="31,119,32,117" />
-      <scope id="2614955748379648780" at="19,0,22,0">
+      <scope id="2614955748379649003" at="23,54,24,55" />
+      <scope id="2614955748379649003" at="27,114,28,18" />
+      <scope id="2614955748379649006" at="31,117,32,115" />
+      <scope id="2614955748379648780" at="17,114,19,26" />
+      <scope id="2614955748379649003" at="23,0,26,0">
+        <var name="container" id="2614955748379649003" />
+      </scope>
+      <scope id="2614955748379648780" at="17,0,21,0">
         <var name="initContext" id="2614955748379648780" />
       </scope>
       <scope id="2614955748379649003" at="26,0,30,0">
@@ -47,38 +49,35 @@
         <var name="oldReferentNode" id="2614955748379649003" />
         <var name="referenceNode" id="2614955748379649003" />
       </scope>
-      <scope id="2614955748379648780" at="24,90,37,22">
-        <var name="d0" id="2614955748379649003" />
-        <var name="references" id="2614955748379648780" />
-      </scope>
-      <scope id="2614955748379648780" at="23,0,39,0" />
-      <unit id="2614955748379648780" at="40,0,43,0" name="constraints.test.constraints.TestRefConstraints_BaseReference_Handler_Constraints$CONCEPTS" />
-      <unit id="2614955748379648780" at="44,0,47,0" name="constraints.test.constraints.TestRefConstraints_BaseReference_Handler_Constraints$LINKS" />
-      <unit id="2614955748379648780" at="48,0,51,0" name="constraints.test.constraints.TestRefConstraints_BaseReference_Handler_Constraints$PROPS" />
-      <unit id="2614955748379649003" at="25,48,34,5" name="constraints.test.constraints.TestRefConstraints_BaseReference_Handler_Constraints$1" />
-      <unit id="2614955748379648780" at="18,0,52,0" name="constraints.test.constraints.TestRefConstraints_BaseReference_Handler_Constraints" />
+      <unit id="2614955748379648780" at="36,0,39,0" name="constraints.test.constraints.TestRefConstraints_BaseReference_Handler_Constraints$CONCEPTS" />
+      <unit id="2614955748379648780" at="40,0,43,0" name="constraints.test.constraints.TestRefConstraints_BaseReference_Handler_Constraints$LINKS" />
+      <unit id="2614955748379648780" at="44,0,47,0" name="constraints.test.constraints.TestRefConstraints_BaseReference_Handler_Constraints$PROPS" />
+      <unit id="2614955748379649003" at="22,0,35,0" name="constraints.test.constraints.TestRefConstraints_BaseReference_Handler_Constraints$RD1" />
+      <unit id="2614955748379648780" at="16,0,48,0" name="constraints.test.constraints.TestRefConstraints_BaseReference_Handler_Constraints" />
     </file>
   </root>
   <root nodeRef="r:6789573d-c842-4805-bb3b-05fd4fbf786e(constraints.test.constraints)/2614955748379655528">
     <file name="TestRefConstraints_SubReference_HandlerSuperScoping_Constraints.java">
-      <node id="2614955748379655528" at="19,125,20,88" concept="9" />
-      <node id="2614955748379655751" at="27,116,28,20" concept="5" />
-      <node id="2614955748379655768" at="31,119,32,130" concept="1" />
-      <node id="2614955748379655528" at="34,6,35,131" concept="4" />
-      <node id="2614955748379655751" at="35,131,36,42" concept="1" />
-      <node id="2614955748379655528" at="36,42,37,22" concept="5" />
-      <node id="2614955748379655528" at="41,0,42,0" concept="7" trace="TestRefConstraints_SubReference_HandlerSuperScoping$GQ" />
-      <node id="2614955748379655528" at="45,0,46,0" concept="7" trace="target$Wyj6" />
-      <node id="2614955748379655528" at="49,0,50,0" concept="7" trace="debug$PV3p" />
-      <node id="2614955748379655528" at="19,0,22,0" concept="0" trace="TestRefConstraints_SubReference_HandlerSuperScoping_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
+      <node id="2614955748379655528" at="17,125,18,88" concept="9" />
+      <node id="2614955748379655751" at="18,88,19,26" concept="1" />
+      <node id="2614955748379655751" at="23,54,24,55" concept="9" />
+      <node id="2614955748379655751" at="27,114,28,18" concept="5" />
+      <node id="2614955748379655768" at="31,117,32,128" concept="1" />
+      <node id="2614955748379655528" at="37,0,38,0" concept="7" trace="TestRefConstraints_SubReference_HandlerSuperScoping$GQ" />
+      <node id="2614955748379655528" at="41,0,42,0" concept="7" trace="target$Wyj6" />
+      <node id="2614955748379655528" at="45,0,46,0" concept="7" trace="debug$PV3p" />
+      <node id="2614955748379655751" at="23,0,26,0" concept="0" trace="RD1#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
+      <node id="2614955748379655528" at="17,0,21,0" concept="0" trace="TestRefConstraints_SubReference_HandlerSuperScoping_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
       <node id="2614955748379655751" at="26,0,30,0" concept="3" trace="validate#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
       <node id="2614955748379655751" at="30,0,34,0" concept="3" trace="onReferenceSet#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <node id="2614955748379655751" at="24,90,34,6" concept="4" />
-      <node id="2614955748379655528" at="23,0,39,0" concept="3" trace="getSpecifiedReferences#()Ljava/util/Map;" />
-      <scope id="2614955748379655528" at="19,125,20,88" />
-      <scope id="2614955748379655751" at="27,116,28,20" />
-      <scope id="2614955748379655756" at="31,119,32,130" />
-      <scope id="2614955748379655528" at="19,0,22,0">
+      <scope id="2614955748379655751" at="23,54,24,55" />
+      <scope id="2614955748379655751" at="27,114,28,18" />
+      <scope id="2614955748379655756" at="31,117,32,128" />
+      <scope id="2614955748379655528" at="17,125,19,26" />
+      <scope id="2614955748379655751" at="23,0,26,0">
+        <var name="container" id="2614955748379655751" />
+      </scope>
+      <scope id="2614955748379655528" at="17,0,21,0">
         <var name="initContext" id="2614955748379655528" />
       </scope>
       <scope id="2614955748379655751" at="26,0,30,0">
@@ -91,107 +90,96 @@
         <var name="oldReferentNode" id="2614955748379655751" />
         <var name="referenceNode" id="2614955748379655751" />
       </scope>
-      <scope id="2614955748379655528" at="24,90,37,22">
-        <var name="d0" id="2614955748379655751" />
-        <var name="references" id="2614955748379655528" />
-      </scope>
-      <scope id="2614955748379655528" at="23,0,39,0" />
-      <unit id="2614955748379655528" at="40,0,43,0" name="constraints.test.constraints.TestRefConstraints_SubReference_HandlerSuperScoping_Constraints$CONCEPTS" />
-      <unit id="2614955748379655528" at="44,0,47,0" name="constraints.test.constraints.TestRefConstraints_SubReference_HandlerSuperScoping_Constraints$LINKS" />
-      <unit id="2614955748379655528" at="48,0,51,0" name="constraints.test.constraints.TestRefConstraints_SubReference_HandlerSuperScoping_Constraints$PROPS" />
-      <unit id="2614955748379655751" at="25,48,34,5" name="constraints.test.constraints.TestRefConstraints_SubReference_HandlerSuperScoping_Constraints$1" />
-      <unit id="2614955748379655528" at="18,0,52,0" name="constraints.test.constraints.TestRefConstraints_SubReference_HandlerSuperScoping_Constraints" />
+      <unit id="2614955748379655528" at="36,0,39,0" name="constraints.test.constraints.TestRefConstraints_SubReference_HandlerSuperScoping_Constraints$CONCEPTS" />
+      <unit id="2614955748379655528" at="40,0,43,0" name="constraints.test.constraints.TestRefConstraints_SubReference_HandlerSuperScoping_Constraints$LINKS" />
+      <unit id="2614955748379655528" at="44,0,47,0" name="constraints.test.constraints.TestRefConstraints_SubReference_HandlerSuperScoping_Constraints$PROPS" />
+      <unit id="2614955748379655751" at="22,0,35,0" name="constraints.test.constraints.TestRefConstraints_SubReference_HandlerSuperScoping_Constraints$RD1" />
+      <unit id="2614955748379655528" at="16,0,48,0" name="constraints.test.constraints.TestRefConstraints_SubReference_HandlerSuperScoping_Constraints" />
     </file>
   </root>
   <root nodeRef="r:6789573d-c842-4805-bb3b-05fd4fbf786e(constraints.test.constraints)/2614955748379661723">
     <file name="TestRefConstraints_SubReference_ScopingSuperScoping_Constraints.java">
-      <node id="2614955748379661723" at="30,125,31,88" concept="9" />
-      <node id="2614955748379662107" at="42,63,43,131" concept="5" />
-      <node id="2614955748379783568" at="46,80,47,369" concept="5" />
-      <node id="2614955748379661723" at="51,6,52,131" concept="4" />
-      <node id="2614955748379662107" at="52,131,53,42" concept="1" />
-      <node id="2614955748379661723" at="53,42,54,22" concept="5" />
-      <node id="2614955748379661723" at="58,0,59,0" concept="7" trace="TestRefConstraints_SubReference_ScopingSuperScoping$Gn" />
-      <node id="2614955748379661723" at="59,0,60,0" concept="7" trace="TestRefConstraints_Container$Wp" />
-      <node id="2614955748379661723" at="63,0,64,0" concept="7" trace="target$Wyj6" />
-      <node id="2614955748379661723" at="64,0,65,0" concept="7" trace="targets$T$Wx" />
-      <node id="2614955748379661723" at="68,0,69,0" concept="7" trace="inScopeAdvanced$knMw" />
-      <node id="2614955748379661723" at="69,0,70,0" concept="7" trace="inScope$PWeu" />
-      <node id="2614955748379661723" at="30,0,33,0" concept="0" trace="TestRefConstraints_SubReference_ScopingSuperScoping_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
+      <node id="2614955748379661723" at="28,125,29,88" concept="9" />
+      <node id="2614955748379662107" at="29,88,30,26" concept="1" />
+      <node id="2614955748379662107" at="34,54,35,55" concept="9" />
+      <node id="2614955748379662107" at="42,61,43,129" concept="5" />
+      <node id="2614955748379783568" at="46,78,47,367" concept="5" />
+      <node id="2614955748379661723" at="54,0,55,0" concept="7" trace="TestRefConstraints_SubReference_ScopingSuperScoping$Gn" />
+      <node id="2614955748379661723" at="55,0,56,0" concept="7" trace="TestRefConstraints_Container$Wp" />
+      <node id="2614955748379661723" at="59,0,60,0" concept="7" trace="target$Wyj6" />
+      <node id="2614955748379661723" at="60,0,61,0" concept="7" trace="targets$T$Wx" />
+      <node id="2614955748379661723" at="64,0,65,0" concept="7" trace="inScopeAdvanced$knMw" />
+      <node id="2614955748379661723" at="65,0,66,0" concept="7" trace="inScope$PWeu" />
+      <node id="2614955748379662107" at="34,0,37,0" concept="0" trace="RD1#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
+      <node id="2614955748379661723" at="28,0,32,0" concept="0" trace="TestRefConstraints_SubReference_ScopingSuperScoping_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
       <node id="2614955748379662107" at="41,0,45,0" concept="3" trace="getSearchScopeValidatorNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
       <node id="2614955748379662107" at="45,0,49,0" concept="3" trace="createScope#(Ljetbrains/mps/smodel/runtime/ReferenceConstraintsContext;)Ljetbrains/mps/scope/Scope;" />
-      <node id="2614955748379662107" at="39,56,49,10" concept="5" />
+      <node id="2614955748379662107" at="39,54,49,8" concept="5" />
       <node id="2614955748379662107" at="37,0,51,0" concept="3" trace="getScopeProvider#()Ljetbrains/mps/smodel/runtime/ReferenceScopeProvider;" />
-      <node id="2614955748379662107" at="35,90,51,6" concept="4" />
-      <node id="2614955748379661723" at="34,0,56,0" concept="3" trace="getSpecifiedReferences#()Ljava/util/Map;" />
-      <scope id="2614955748379661723" at="30,125,31,88" />
-      <scope id="2614955748379662107" at="42,63,43,131" />
-      <scope id="2614955748379662107" at="46,80,47,369" />
-      <scope id="2614955748379661723" at="30,0,33,0">
+      <scope id="2614955748379662107" at="34,54,35,55" />
+      <scope id="2614955748379662107" at="42,61,43,129" />
+      <scope id="2614955748379662107" at="46,78,47,367" />
+      <scope id="2614955748379661723" at="28,125,30,26" />
+      <scope id="2614955748379662107" at="34,0,37,0">
+        <var name="container" id="2614955748379662107" />
+      </scope>
+      <scope id="2614955748379661723" at="28,0,32,0">
         <var name="initContext" id="2614955748379661723" />
       </scope>
       <scope id="2614955748379662107" at="41,0,45,0" />
       <scope id="2614955748379662107" at="45,0,49,0">
         <var name="_context" id="2614955748379662107" />
       </scope>
-      <scope id="2614955748379662107" at="39,56,49,10" />
+      <scope id="2614955748379662107" at="39,54,49,8" />
       <scope id="2614955748379662107" at="37,0,51,0" />
-      <scope id="2614955748379661723" at="35,90,54,22">
-        <var name="d0" id="2614955748379662107" />
-        <var name="references" id="2614955748379661723" />
-      </scope>
-      <scope id="2614955748379661723" at="34,0,56,0" />
-      <unit id="2614955748379661723" at="57,0,61,0" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperScoping_Constraints$CONCEPTS" />
-      <unit id="2614955748379661723" at="62,0,66,0" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperScoping_Constraints$LINKS" />
-      <unit id="2614955748379661723" at="67,0,71,0" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperScoping_Constraints$PROPS" />
-      <unit id="2614955748379662107" at="40,19,49,9" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperScoping_Constraints$1$1" />
-      <unit id="2614955748379662107" at="36,48,51,5" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperScoping_Constraints$1" />
-      <unit id="2614955748379661723" at="29,0,72,0" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperScoping_Constraints" />
+      <unit id="2614955748379661723" at="53,0,57,0" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperScoping_Constraints$CONCEPTS" />
+      <unit id="2614955748379661723" at="58,0,62,0" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperScoping_Constraints$LINKS" />
+      <unit id="2614955748379661723" at="63,0,67,0" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperScoping_Constraints$PROPS" />
+      <unit id="2614955748379662107" at="40,17,49,7" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperScoping_Constraints$RD1$1" />
+      <unit id="2614955748379662107" at="33,0,52,0" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperScoping_Constraints$RD1" />
+      <unit id="2614955748379661723" at="27,0,68,0" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperScoping_Constraints" />
     </file>
   </root>
   <root nodeRef="r:6789573d-c842-4805-bb3b-05fd4fbf786e(constraints.test.constraints)/2614955748379901164">
     <file name="TestRefConstraints_BaseReference_Scoping_Constraints.java">
-      <node id="2614955748379901164" at="30,114,31,77" concept="9" />
-      <node id="2614955748379901165" at="42,63,43,131" concept="5" />
-      <node id="2614955748379901361" at="46,80,47,303" concept="5" />
-      <node id="2614955748379901164" at="51,6,52,131" concept="4" />
-      <node id="2614955748379901165" at="52,131,53,42" concept="1" />
-      <node id="2614955748379901164" at="53,42,54,22" concept="5" />
-      <node id="2614955748379901164" at="58,0,59,0" concept="7" trace="TestRefConstraints_BaseReference_Scoping$sR" />
-      <node id="2614955748379901164" at="59,0,60,0" concept="7" trace="TestRefConstraints_Container$Wp" />
-      <node id="2614955748379901164" at="63,0,64,0" concept="7" trace="target$Wyj6" />
-      <node id="2614955748379901164" at="64,0,65,0" concept="7" trace="targets$T$Wx" />
-      <node id="2614955748379901164" at="68,0,69,0" concept="7" trace="inScope$PWeu" />
-      <node id="2614955748379901164" at="30,0,33,0" concept="0" trace="TestRefConstraints_BaseReference_Scoping_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
+      <node id="2614955748379901164" at="28,114,29,77" concept="9" />
+      <node id="2614955748379901165" at="29,77,30,26" concept="1" />
+      <node id="2614955748379901165" at="34,54,35,55" concept="9" />
+      <node id="2614955748379901165" at="42,61,43,129" concept="5" />
+      <node id="2614955748379901361" at="46,78,47,301" concept="5" />
+      <node id="2614955748379901164" at="54,0,55,0" concept="7" trace="TestRefConstraints_BaseReference_Scoping$sR" />
+      <node id="2614955748379901164" at="55,0,56,0" concept="7" trace="TestRefConstraints_Container$Wp" />
+      <node id="2614955748379901164" at="59,0,60,0" concept="7" trace="target$Wyj6" />
+      <node id="2614955748379901164" at="60,0,61,0" concept="7" trace="targets$T$Wx" />
+      <node id="2614955748379901164" at="64,0,65,0" concept="7" trace="inScope$PWeu" />
+      <node id="2614955748379901165" at="34,0,37,0" concept="0" trace="RD1#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
+      <node id="2614955748379901164" at="28,0,32,0" concept="0" trace="TestRefConstraints_BaseReference_Scoping_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
       <node id="2614955748379901165" at="41,0,45,0" concept="3" trace="getSearchScopeValidatorNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
       <node id="2614955748379901165" at="45,0,49,0" concept="3" trace="createScope#(Ljetbrains/mps/smodel/runtime/ReferenceConstraintsContext;)Ljetbrains/mps/scope/Scope;" />
-      <node id="2614955748379901165" at="39,56,49,10" concept="5" />
+      <node id="2614955748379901165" at="39,54,49,8" concept="5" />
       <node id="2614955748379901165" at="37,0,51,0" concept="3" trace="getScopeProvider#()Ljetbrains/mps/smodel/runtime/ReferenceScopeProvider;" />
-      <node id="2614955748379901165" at="35,90,51,6" concept="4" />
-      <node id="2614955748379901164" at="34,0,56,0" concept="3" trace="getSpecifiedReferences#()Ljava/util/Map;" />
-      <scope id="2614955748379901164" at="30,114,31,77" />
-      <scope id="2614955748379901165" at="42,63,43,131" />
-      <scope id="2614955748379901165" at="46,80,47,303" />
-      <scope id="2614955748379901164" at="30,0,33,0">
+      <scope id="2614955748379901165" at="34,54,35,55" />
+      <scope id="2614955748379901165" at="42,61,43,129" />
+      <scope id="2614955748379901165" at="46,78,47,301" />
+      <scope id="2614955748379901164" at="28,114,30,26" />
+      <scope id="2614955748379901165" at="34,0,37,0">
+        <var name="container" id="2614955748379901165" />
+      </scope>
+      <scope id="2614955748379901164" at="28,0,32,0">
         <var name="initContext" id="2614955748379901164" />
       </scope>
       <scope id="2614955748379901165" at="41,0,45,0" />
       <scope id="2614955748379901165" at="45,0,49,0">
         <var name="_context" id="2614955748379901165" />
       </scope>
-      <scope id="2614955748379901165" at="39,56,49,10" />
+      <scope id="2614955748379901165" at="39,54,49,8" />
       <scope id="2614955748379901165" at="37,0,51,0" />
-      <scope id="2614955748379901164" at="35,90,54,22">
-        <var name="d0" id="2614955748379901165" />
-        <var name="references" id="2614955748379901164" />
-      </scope>
-      <scope id="2614955748379901164" at="34,0,56,0" />
-      <unit id="2614955748379901164" at="67,0,70,0" name="constraints.test.constraints.TestRefConstraints_BaseReference_Scoping_Constraints$PROPS" />
-      <unit id="2614955748379901164" at="57,0,61,0" name="constraints.test.constraints.TestRefConstraints_BaseReference_Scoping_Constraints$CONCEPTS" />
-      <unit id="2614955748379901164" at="62,0,66,0" name="constraints.test.constraints.TestRefConstraints_BaseReference_Scoping_Constraints$LINKS" />
-      <unit id="2614955748379901165" at="40,19,49,9" name="constraints.test.constraints.TestRefConstraints_BaseReference_Scoping_Constraints$1$1" />
-      <unit id="2614955748379901165" at="36,48,51,5" name="constraints.test.constraints.TestRefConstraints_BaseReference_Scoping_Constraints$1" />
-      <unit id="2614955748379901164" at="29,0,71,0" name="constraints.test.constraints.TestRefConstraints_BaseReference_Scoping_Constraints" />
+      <unit id="2614955748379901164" at="63,0,66,0" name="constraints.test.constraints.TestRefConstraints_BaseReference_Scoping_Constraints$PROPS" />
+      <unit id="2614955748379901164" at="53,0,57,0" name="constraints.test.constraints.TestRefConstraints_BaseReference_Scoping_Constraints$CONCEPTS" />
+      <unit id="2614955748379901164" at="58,0,62,0" name="constraints.test.constraints.TestRefConstraints_BaseReference_Scoping_Constraints$LINKS" />
+      <unit id="2614955748379901165" at="40,17,49,7" name="constraints.test.constraints.TestRefConstraints_BaseReference_Scoping_Constraints$RD1$1" />
+      <unit id="2614955748379901165" at="33,0,52,0" name="constraints.test.constraints.TestRefConstraints_BaseReference_Scoping_Constraints$RD1" />
+      <unit id="2614955748379901164" at="27,0,67,0" name="constraints.test.constraints.TestRefConstraints_BaseReference_Scoping_Constraints" />
     </file>
   </root>
   <root nodeRef="r:6789573d-c842-4805-bb3b-05fd4fbf786e(constraints.test.constraints)/2614955748379963975">
@@ -204,24 +192,26 @@
   </root>
   <root nodeRef="r:6789573d-c842-4805-bb3b-05fd4fbf786e(constraints.test.constraints)/2614955748380020915">
     <file name="TestRefConstraints_SubReference_HandlerSuperHandler_Constraints.java">
-      <node id="2614955748380020915" at="19,125,20,88" concept="9" />
-      <node id="2614955748380020916" at="27,116,28,20" concept="5" />
-      <node id="2614955748380021124" at="31,119,32,130" concept="1" />
-      <node id="2614955748380020915" at="34,6,35,131" concept="4" />
-      <node id="2614955748380020916" at="35,131,36,42" concept="1" />
-      <node id="2614955748380020915" at="36,42,37,22" concept="5" />
-      <node id="2614955748380020915" at="41,0,42,0" concept="7" trace="TestRefConstraints_SubReference_HandlerSuperHandler$Tn" />
-      <node id="2614955748380020915" at="45,0,46,0" concept="7" trace="target$Ukdw" />
-      <node id="2614955748380020915" at="49,0,50,0" concept="7" trace="debug$PV3p" />
-      <node id="2614955748380020915" at="19,0,22,0" concept="0" trace="TestRefConstraints_SubReference_HandlerSuperHandler_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
+      <node id="2614955748380020915" at="17,125,18,88" concept="9" />
+      <node id="2614955748380020916" at="18,88,19,26" concept="1" />
+      <node id="2614955748380020916" at="23,54,24,55" concept="9" />
+      <node id="2614955748380020916" at="27,114,28,18" concept="5" />
+      <node id="2614955748380021124" at="31,117,32,128" concept="1" />
+      <node id="2614955748380020915" at="37,0,38,0" concept="7" trace="TestRefConstraints_SubReference_HandlerSuperHandler$Tn" />
+      <node id="2614955748380020915" at="41,0,42,0" concept="7" trace="target$Ukdw" />
+      <node id="2614955748380020915" at="45,0,46,0" concept="7" trace="debug$PV3p" />
+      <node id="2614955748380020916" at="23,0,26,0" concept="0" trace="RD1#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
+      <node id="2614955748380020915" at="17,0,21,0" concept="0" trace="TestRefConstraints_SubReference_HandlerSuperHandler_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
       <node id="2614955748380020916" at="26,0,30,0" concept="3" trace="validate#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
       <node id="2614955748380020916" at="30,0,34,0" concept="3" trace="onReferenceSet#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <node id="2614955748380020916" at="24,90,34,6" concept="4" />
-      <node id="2614955748380020915" at="23,0,39,0" concept="3" trace="getSpecifiedReferences#()Ljava/util/Map;" />
-      <scope id="2614955748380020915" at="19,125,20,88" />
-      <scope id="2614955748380020916" at="27,116,28,20" />
-      <scope id="2614955748380021112" at="31,119,32,130" />
-      <scope id="2614955748380020915" at="19,0,22,0">
+      <scope id="2614955748380020916" at="23,54,24,55" />
+      <scope id="2614955748380020916" at="27,114,28,18" />
+      <scope id="2614955748380021112" at="31,117,32,128" />
+      <scope id="2614955748380020915" at="17,125,19,26" />
+      <scope id="2614955748380020916" at="23,0,26,0">
+        <var name="container" id="2614955748380020916" />
+      </scope>
+      <scope id="2614955748380020915" at="17,0,21,0">
         <var name="initContext" id="2614955748380020915" />
       </scope>
       <scope id="2614955748380020916" at="26,0,30,0">
@@ -234,61 +224,53 @@
         <var name="oldReferentNode" id="2614955748380020916" />
         <var name="referenceNode" id="2614955748380020916" />
       </scope>
-      <scope id="2614955748380020915" at="24,90,37,22">
-        <var name="d0" id="2614955748380020916" />
-        <var name="references" id="2614955748380020915" />
-      </scope>
-      <scope id="2614955748380020915" at="23,0,39,0" />
-      <unit id="2614955748380020915" at="40,0,43,0" name="constraints.test.constraints.TestRefConstraints_SubReference_HandlerSuperHandler_Constraints$CONCEPTS" />
-      <unit id="2614955748380020915" at="44,0,47,0" name="constraints.test.constraints.TestRefConstraints_SubReference_HandlerSuperHandler_Constraints$LINKS" />
-      <unit id="2614955748380020915" at="48,0,51,0" name="constraints.test.constraints.TestRefConstraints_SubReference_HandlerSuperHandler_Constraints$PROPS" />
-      <unit id="2614955748380020916" at="25,48,34,5" name="constraints.test.constraints.TestRefConstraints_SubReference_HandlerSuperHandler_Constraints$1" />
-      <unit id="2614955748380020915" at="18,0,52,0" name="constraints.test.constraints.TestRefConstraints_SubReference_HandlerSuperHandler_Constraints" />
+      <unit id="2614955748380020915" at="36,0,39,0" name="constraints.test.constraints.TestRefConstraints_SubReference_HandlerSuperHandler_Constraints$CONCEPTS" />
+      <unit id="2614955748380020915" at="40,0,43,0" name="constraints.test.constraints.TestRefConstraints_SubReference_HandlerSuperHandler_Constraints$LINKS" />
+      <unit id="2614955748380020915" at="44,0,47,0" name="constraints.test.constraints.TestRefConstraints_SubReference_HandlerSuperHandler_Constraints$PROPS" />
+      <unit id="2614955748380020916" at="22,0,35,0" name="constraints.test.constraints.TestRefConstraints_SubReference_HandlerSuperHandler_Constraints$RD1" />
+      <unit id="2614955748380020915" at="16,0,48,0" name="constraints.test.constraints.TestRefConstraints_SubReference_HandlerSuperHandler_Constraints" />
     </file>
   </root>
   <root nodeRef="r:6789573d-c842-4805-bb3b-05fd4fbf786e(constraints.test.constraints)/2614955748380029701">
     <file name="TestRefConstraints_SubReference_ScopingSuperHandler_Constraints.java">
-      <node id="2614955748380029701" at="30,125,31,88" concept="9" />
-      <node id="2614955748380029702" at="42,63,43,131" concept="5" />
-      <node id="2614955748380029898" at="46,80,47,303" concept="5" />
-      <node id="2614955748380029701" at="51,6,52,131" concept="4" />
-      <node id="2614955748380029702" at="52,131,53,42" concept="1" />
-      <node id="2614955748380029701" at="53,42,54,22" concept="5" />
-      <node id="2614955748380029701" at="58,0,59,0" concept="7" trace="TestRefConstraints_SubReference_ScopingSuperHandler$RU" />
-      <node id="2614955748380029701" at="59,0,60,0" concept="7" trace="TestRefConstraints_Container$Wp" />
-      <node id="2614955748380029701" at="63,0,64,0" concept="7" trace="target$Ukdw" />
-      <node id="2614955748380029701" at="64,0,65,0" concept="7" trace="targets$T$Wx" />
-      <node id="2614955748380029701" at="68,0,69,0" concept="7" trace="inScope$PWeu" />
-      <node id="2614955748380029701" at="30,0,33,0" concept="0" trace="TestRefConstraints_SubReference_ScopingSuperHandler_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
+      <node id="2614955748380029701" at="28,125,29,88" concept="9" />
+      <node id="2614955748380029702" at="29,88,30,26" concept="1" />
+      <node id="2614955748380029702" at="34,54,35,55" concept="9" />
+      <node id="2614955748380029702" at="42,61,43,129" concept="5" />
+      <node id="2614955748380029898" at="46,78,47,301" concept="5" />
+      <node id="2614955748380029701" at="54,0,55,0" concept="7" trace="TestRefConstraints_SubReference_ScopingSuperHandler$RU" />
+      <node id="2614955748380029701" at="55,0,56,0" concept="7" trace="TestRefConstraints_Container$Wp" />
+      <node id="2614955748380029701" at="59,0,60,0" concept="7" trace="target$Ukdw" />
+      <node id="2614955748380029701" at="60,0,61,0" concept="7" trace="targets$T$Wx" />
+      <node id="2614955748380029701" at="64,0,65,0" concept="7" trace="inScope$PWeu" />
+      <node id="2614955748380029702" at="34,0,37,0" concept="0" trace="RD1#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
+      <node id="2614955748380029701" at="28,0,32,0" concept="0" trace="TestRefConstraints_SubReference_ScopingSuperHandler_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
       <node id="2614955748380029702" at="41,0,45,0" concept="3" trace="getSearchScopeValidatorNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
       <node id="2614955748380029702" at="45,0,49,0" concept="3" trace="createScope#(Ljetbrains/mps/smodel/runtime/ReferenceConstraintsContext;)Ljetbrains/mps/scope/Scope;" />
-      <node id="2614955748380029702" at="39,56,49,10" concept="5" />
+      <node id="2614955748380029702" at="39,54,49,8" concept="5" />
       <node id="2614955748380029702" at="37,0,51,0" concept="3" trace="getScopeProvider#()Ljetbrains/mps/smodel/runtime/ReferenceScopeProvider;" />
-      <node id="2614955748380029702" at="35,90,51,6" concept="4" />
-      <node id="2614955748380029701" at="34,0,56,0" concept="3" trace="getSpecifiedReferences#()Ljava/util/Map;" />
-      <scope id="2614955748380029701" at="30,125,31,88" />
-      <scope id="2614955748380029702" at="42,63,43,131" />
-      <scope id="2614955748380029702" at="46,80,47,303" />
-      <scope id="2614955748380029701" at="30,0,33,0">
+      <scope id="2614955748380029702" at="34,54,35,55" />
+      <scope id="2614955748380029702" at="42,61,43,129" />
+      <scope id="2614955748380029702" at="46,78,47,301" />
+      <scope id="2614955748380029701" at="28,125,30,26" />
+      <scope id="2614955748380029702" at="34,0,37,0">
+        <var name="container" id="2614955748380029702" />
+      </scope>
+      <scope id="2614955748380029701" at="28,0,32,0">
         <var name="initContext" id="2614955748380029701" />
       </scope>
       <scope id="2614955748380029702" at="41,0,45,0" />
       <scope id="2614955748380029702" at="45,0,49,0">
         <var name="_context" id="2614955748380029702" />
       </scope>
-      <scope id="2614955748380029702" at="39,56,49,10" />
+      <scope id="2614955748380029702" at="39,54,49,8" />
       <scope id="2614955748380029702" at="37,0,51,0" />
-      <scope id="2614955748380029701" at="35,90,54,22">
-        <var name="d0" id="2614955748380029702" />
-        <var name="references" id="2614955748380029701" />
-      </scope>
-      <scope id="2614955748380029701" at="34,0,56,0" />
-      <unit id="2614955748380029701" at="67,0,70,0" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperHandler_Constraints$PROPS" />
-      <unit id="2614955748380029701" at="57,0,61,0" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperHandler_Constraints$CONCEPTS" />
-      <unit id="2614955748380029701" at="62,0,66,0" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperHandler_Constraints$LINKS" />
-      <unit id="2614955748380029702" at="40,19,49,9" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperHandler_Constraints$1$1" />
-      <unit id="2614955748380029702" at="36,48,51,5" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperHandler_Constraints$1" />
-      <unit id="2614955748380029701" at="29,0,71,0" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperHandler_Constraints" />
+      <unit id="2614955748380029701" at="63,0,66,0" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperHandler_Constraints$PROPS" />
+      <unit id="2614955748380029701" at="53,0,57,0" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperHandler_Constraints$CONCEPTS" />
+      <unit id="2614955748380029701" at="58,0,62,0" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperHandler_Constraints$LINKS" />
+      <unit id="2614955748380029702" at="40,17,49,7" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperHandler_Constraints$RD1$1" />
+      <unit id="2614955748380029702" at="33,0,52,0" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperHandler_Constraints$RD1" />
+      <unit id="2614955748380029701" at="27,0,67,0" name="constraints.test.constraints.TestRefConstraints_SubReference_ScopingSuperHandler_Constraints" />
     </file>
   </root>
   <root nodeRef="r:6789573d-c842-4805-bb3b-05fd4fbf786e(constraints.test.constraints)/2614955748380194136">

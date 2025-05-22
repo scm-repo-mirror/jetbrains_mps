@@ -9,10 +9,8 @@ import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeChild;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
-import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
+import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -27,15 +25,16 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.scope.ListScope;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 
 public class PatternVariableReference_Constraints extends BaseConstraintsDescriptor {
   /*package*/ PatternVariableReference_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.PatternVariableReference$jy, initContext);
+    record(new RD1(this));
   }
 
   @Override
@@ -53,33 +52,30 @@ public class PatternVariableReference_Constraints extends BaseConstraintsDescrip
       }
     };
   }
-  @Override
-  protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.variable$AVd3, this, true, false) {
-      @Nullable
-      @Override
-      public ReferenceScopeProvider getScopeProvider() {
-        return new BaseScopeProvider() {
-          @Override
-          public SNodeReference getSearchScopeValidatorNode() {
-            return new SNodePointer("r:00000000-0000-4000-0000-011c89590340(jetbrains.mps.lang.pattern.constraints)", "6836281137582794719");
-          }
-          @Override
-          public Scope createScope(final ReferenceConstraintsContext _context) {
-            List<SNode> result = new ArrayList<SNode>();
-            for (SNode declaration : SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.PatternExpression$YJ, false, false), CONCEPTS.PatternVariableDeclaration$ZH, false, new SAbstractConcept[]{})) {
-              if (SPropertyOperations.getString(declaration, PROPS.name$MnvL) != null) {
-                ListSequence.fromList(result).addElement(declaration);
-              }
+  /*package*/ static final class RD1 extends BaseReferenceConstraintsDescriptor {
+    /*package*/ RD1(ConstraintsDescriptor container) {
+      super(LINKS.variable$AVd3, container, true, false);
+    }
+    @Nullable
+    @Override
+    public ReferenceScopeProvider getScopeProvider() {
+      return new BaseScopeProvider() {
+        @Override
+        public SNodeReference getSearchScopeValidatorNode() {
+          return new SNodePointer("r:00000000-0000-4000-0000-011c89590340(jetbrains.mps.lang.pattern.constraints)", "6836281137582794719");
+        }
+        @Override
+        public Scope createScope(final ReferenceConstraintsContext _context) {
+          List<SNode> result = new ArrayList<SNode>();
+          for (SNode declaration : SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.PatternExpression$YJ, false, false), CONCEPTS.PatternVariableDeclaration$ZH, false, new SAbstractConcept[]{})) {
+            if (SPropertyOperations.getString(declaration, PROPS.name$MnvL) != null) {
+              ListSequence.fromList(result).addElement(declaration);
             }
-            return ListScope.forResolvableElements(result);
           }
-        };
-      }
-    };
-    Map<SReferenceLink, ReferenceConstraintsDescriptor> references = new HashMap<SReferenceLink, ReferenceConstraintsDescriptor>();
-    references.put(d0.getReference(), d0);
-    return references;
+          return ListScope.forResolvableElements(result);
+        }
+      };
+    }
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
     return SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.PatternExpression$YJ, false, false) != null;

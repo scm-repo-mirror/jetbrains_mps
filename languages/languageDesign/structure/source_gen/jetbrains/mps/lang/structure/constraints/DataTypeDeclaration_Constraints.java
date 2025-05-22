@@ -20,16 +20,15 @@ import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.UUID;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class DataTypeDeclaration_Constraints extends BaseConstraintsDescriptor {
   /*package*/ DataTypeDeclaration_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.DataTypeDeclaration$AD, initContext);
+    record(new DatatypeId_PD(this));
+    record(new LanguageId_PD(this));
   }
 
   @Override
@@ -50,8 +49,8 @@ public class DataTypeDeclaration_Constraints extends BaseConstraintsDescriptor {
       }
     };
   }
-  public static class DatatypeId_Property extends BasePropertyConstraintsDescriptor {
-    public DatatypeId_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class DatatypeId_PD extends BasePropertyConstraintsDescriptor {
+    public DatatypeId_PD(ConstraintsDescriptor container) {
       super(PROPS.datatypeId$$gBg, container, false, false, true);
     }
     @Override
@@ -74,8 +73,8 @@ public class DataTypeDeclaration_Constraints extends BaseConstraintsDescriptor {
       }
     }
   }
-  public static class LanguageId_Property extends BasePropertyConstraintsDescriptor {
-    public LanguageId_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class LanguageId_PD extends BasePropertyConstraintsDescriptor {
+    public LanguageId_PD(ConstraintsDescriptor container) {
       super(PROPS.languageId$$gQh, container, false, false, true);
     }
     @Override
@@ -97,13 +96,6 @@ public class DataTypeDeclaration_Constraints extends BaseConstraintsDescriptor {
         return false;
       }
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.datatypeId$$gBg, new DatatypeId_Property(this));
-    properties.put(PROPS.languageId$$gQh, new LanguageId_Property(this));
-    return properties;
   }
 
   private static final class CONCEPTS {

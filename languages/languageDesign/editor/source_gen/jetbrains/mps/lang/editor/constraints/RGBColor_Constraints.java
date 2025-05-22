@@ -10,20 +10,18 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.SNodePointer;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class RGBColor_Constraints extends BaseConstraintsDescriptor {
   /*package*/ RGBColor_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.RGBColor$ds, initContext);
+    record(new Value_PD(this));
   }
 
-  public static class Value_Property extends BasePropertyConstraintsDescriptor {
-    public Value_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class Value_PD extends BasePropertyConstraintsDescriptor {
+    public Value_PD(ConstraintsDescriptor container) {
       super(PROPS.value$kuoa, container, false, false, true);
     }
     @Override
@@ -37,12 +35,6 @@ public class RGBColor_Constraints extends BaseConstraintsDescriptor {
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
       return SPropertyOperations.getString(node, PROPS.value$kuoa) == null || propertyValue.matches("[0-9a-fA-Z]{1,6}");
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.value$kuoa, new Value_Property(this));
-    return properties;
   }
 
   private static final class CONCEPTS {

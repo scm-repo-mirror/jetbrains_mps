@@ -10,20 +10,19 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.SNodePointer;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class XmlExternalId_Constraints extends BaseConstraintsDescriptor {
   /*package*/ XmlExternalId_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.XmlExternalId$CW, initContext);
+    record(new PublicId_PD(this));
+    record(new SystemId_PD(this));
   }
 
-  public static class PublicId_Property extends BasePropertyConstraintsDescriptor {
-    public PublicId_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class PublicId_PD extends BasePropertyConstraintsDescriptor {
+    public PublicId_PD(ConstraintsDescriptor container) {
       super(PROPS.publicId$E5hn, container, false, false, true);
     }
     @Override
@@ -38,8 +37,8 @@ public class XmlExternalId_Constraints extends BaseConstraintsDescriptor {
       return XmlNameUtil.isPublicId(propertyValue);
     }
   }
-  public static class SystemId_Property extends BasePropertyConstraintsDescriptor {
-    public SystemId_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class SystemId_PD extends BasePropertyConstraintsDescriptor {
+    public SystemId_PD(ConstraintsDescriptor container) {
       super(PROPS.systemId$E5wo, container, false, false, true);
     }
     @Override
@@ -53,13 +52,6 @@ public class XmlExternalId_Constraints extends BaseConstraintsDescriptor {
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
       return XmlNameUtil.isSystemId(propertyValue);
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.publicId$E5hn, new PublicId_Property(this));
-    properties.put(PROPS.systemId$E5wo, new SystemId_Property(this));
-    return properties;
   }
 
   private static final class CONCEPTS {

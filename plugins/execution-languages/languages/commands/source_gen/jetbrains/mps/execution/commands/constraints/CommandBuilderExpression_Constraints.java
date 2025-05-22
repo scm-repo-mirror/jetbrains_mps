@@ -9,33 +9,25 @@ import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class CommandBuilderExpression_Constraints extends BaseConstraintsDescriptor {
   /*package*/ CommandBuilderExpression_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.CommandBuilderExpression$rV, initContext);
+    record(new ShortDescription_PD(this));
   }
 
-  public static class ShortDescription_Property extends BasePropertyConstraintsDescriptor {
-    public ShortDescription_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class ShortDescription_PD extends BasePropertyConstraintsDescriptor {
+    public ShortDescription_PD(ConstraintsDescriptor container) {
       super(PROPS.shortDescription$Yd4v, container, true, false, false);
     }
     @Override
     public Object getValue(SNode node) {
       return SPropertyOperations.getString(SLinkOperations.getTarget(node, LINKS.commandPart$UR1f), PROPS.shortDescription$Yd4v);
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.shortDescription$Yd4v, new ShortDescription_Property(this));
-    return properties;
   }
 
   private static final class CONCEPTS {

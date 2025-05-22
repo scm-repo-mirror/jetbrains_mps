@@ -60,33 +60,30 @@
   </root>
   <root nodeRef="r:7a404819-62e4-484e-8389-7ac268c0886e(jetbrains.mps.lang.feedback.problem.constraints)/2559059706675052980">
     <file name="ProblemPointsToKindRoot_Constraints.java">
-      <node id="2559059706675052980" at="19,97,20,60" concept="9" />
-      <node id="2559059706675052981" at="28,56,29,209" concept="5" />
-      <node id="2559059706675052980" at="31,6,32,131" concept="4" />
-      <node id="2559059706675052981" at="32,131,33,42" concept="1" />
-      <node id="2559059706675052980" at="33,42,34,22" concept="5" />
-      <node id="2559059706675052980" at="38,0,39,0" concept="7" trace="ProblemPointsToKindRoot$AQ" />
-      <node id="2559059706675052980" at="39,0,40,0" concept="7" trace="ProblemKind$fY" />
-      <node id="2559059706675052980" at="43,0,44,0" concept="7" trace="kind$EscU" />
-      <node id="2559059706675052980" at="19,0,22,0" concept="0" trace="ProblemPointsToKindRoot_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
+      <node id="2559059706675052980" at="17,97,18,60" concept="9" />
+      <node id="2559059706675052981" at="18,60,19,26" concept="1" />
+      <node id="2559059706675052981" at="23,54,24,53" concept="9" />
+      <node id="2559059706675052981" at="28,54,29,207" concept="5" />
+      <node id="2559059706675052980" at="34,0,35,0" concept="7" trace="ProblemPointsToKindRoot$AQ" />
+      <node id="2559059706675052980" at="35,0,36,0" concept="7" trace="ProblemKind$fY" />
+      <node id="2559059706675052980" at="39,0,40,0" concept="7" trace="kind$EscU" />
+      <node id="2559059706675052981" at="23,0,26,0" concept="0" trace="RD1#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
+      <node id="2559059706675052980" at="17,0,21,0" concept="0" trace="ProblemPointsToKindRoot_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
       <node id="2559059706675052981" at="26,0,31,0" concept="3" trace="getScopeProvider#()Ljetbrains/mps/smodel/runtime/ReferenceScopeProvider;" />
-      <node id="2559059706675052981" at="24,90,31,6" concept="4" />
-      <node id="2559059706675052980" at="23,0,36,0" concept="3" trace="getSpecifiedReferences#()Ljava/util/Map;" />
-      <scope id="2559059706675052980" at="19,97,20,60" />
-      <scope id="2559059706675052981" at="28,56,29,209" />
-      <scope id="2559059706675052980" at="19,0,22,0">
+      <scope id="2559059706675052981" at="23,54,24,53" />
+      <scope id="2559059706675052981" at="28,54,29,207" />
+      <scope id="2559059706675052980" at="17,97,19,26" />
+      <scope id="2559059706675052981" at="23,0,26,0">
+        <var name="container" id="2559059706675052981" />
+      </scope>
+      <scope id="2559059706675052980" at="17,0,21,0">
         <var name="initContext" id="2559059706675052980" />
       </scope>
       <scope id="2559059706675052981" at="26,0,31,0" />
-      <scope id="2559059706675052980" at="24,90,34,22">
-        <var name="d0" id="2559059706675052981" />
-        <var name="references" id="2559059706675052980" />
-      </scope>
-      <scope id="2559059706675052980" at="23,0,36,0" />
-      <unit id="2559059706675052980" at="42,0,45,0" name="jetbrains.mps.lang.feedback.problem.constraints.ProblemPointsToKindRoot_Constraints$LINKS" />
-      <unit id="2559059706675052980" at="37,0,41,0" name="jetbrains.mps.lang.feedback.problem.constraints.ProblemPointsToKindRoot_Constraints$CONCEPTS" />
-      <unit id="2559059706675052981" at="25,48,31,5" name="jetbrains.mps.lang.feedback.problem.constraints.ProblemPointsToKindRoot_Constraints$1" />
-      <unit id="2559059706675052980" at="18,0,46,0" name="jetbrains.mps.lang.feedback.problem.constraints.ProblemPointsToKindRoot_Constraints" />
+      <unit id="2559059706675052980" at="38,0,41,0" name="jetbrains.mps.lang.feedback.problem.constraints.ProblemPointsToKindRoot_Constraints$LINKS" />
+      <unit id="2559059706675052980" at="33,0,37,0" name="jetbrains.mps.lang.feedback.problem.constraints.ProblemPointsToKindRoot_Constraints$CONCEPTS" />
+      <unit id="2559059706675052981" at="22,0,32,0" name="jetbrains.mps.lang.feedback.problem.constraints.ProblemPointsToKindRoot_Constraints$RD1" />
+      <unit id="2559059706675052980" at="16,0,42,0" name="jetbrains.mps.lang.feedback.problem.constraints.ProblemPointsToKindRoot_Constraints" />
     </file>
   </root>
 </debug-info>

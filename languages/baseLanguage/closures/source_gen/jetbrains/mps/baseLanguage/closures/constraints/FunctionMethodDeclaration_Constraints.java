@@ -7,20 +7,19 @@ import jetbrains.mps.smodel.runtime.ConstraintsDescriptorInitContext;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class FunctionMethodDeclaration_Constraints extends BaseConstraintsDescriptor {
   /*package*/ FunctionMethodDeclaration_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.FunctionMethodDeclaration$ee, initContext);
+    record(new Name_PD(this));
+    record(new IsAbstract_PD(this));
   }
 
-  public static class Name_Property extends BasePropertyConstraintsDescriptor {
-    public Name_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class Name_PD extends BasePropertyConstraintsDescriptor {
+    public Name_PD(ConstraintsDescriptor container) {
       super(PROPS.name$MnvL, container, true, false, false);
     }
     @Override
@@ -28,21 +27,14 @@ public class FunctionMethodDeclaration_Constraints extends BaseConstraintsDescri
       return "invoke";
     }
   }
-  public static class IsAbstract_Property extends BasePropertyConstraintsDescriptor {
-    public IsAbstract_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class IsAbstract_PD extends BasePropertyConstraintsDescriptor {
+    public IsAbstract_PD(ConstraintsDescriptor container) {
       super(PROPS.isAbstract$VtH_, container, true, false, false);
     }
     @Override
     public Object getValue(SNode node) {
       return false;
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.name$MnvL, new Name_Property(this));
-    properties.put(PROPS.isAbstract$VtH_, new IsAbstract_Property(this));
-    return properties;
   }
 
   private static final class CONCEPTS {

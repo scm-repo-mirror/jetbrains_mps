@@ -11,20 +11,18 @@ import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SModelName;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ModelName_Constraints extends BaseConstraintsDescriptor {
   /*package*/ ModelName_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.ModelName$A4, initContext);
+    record(new Value_PD(this));
   }
 
-  public static class Value_Property extends BasePropertyConstraintsDescriptor {
-    public Value_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class Value_PD extends BasePropertyConstraintsDescriptor {
+    public Value_PD(ConstraintsDescriptor container) {
       super(PROPS.value$NlW3, container, false, false, true);
     }
     @Override
@@ -43,12 +41,6 @@ public class ModelName_Constraints extends BaseConstraintsDescriptor {
         return false;
       }
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.value$NlW3, new Value_Property(this));
-    return properties;
   }
 
   private static final class CONCEPTS {

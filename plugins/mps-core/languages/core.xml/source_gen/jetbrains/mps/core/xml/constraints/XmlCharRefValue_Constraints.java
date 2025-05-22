@@ -10,20 +10,18 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.SNodePointer;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class XmlCharRefValue_Constraints extends BaseConstraintsDescriptor {
   /*package*/ XmlCharRefValue_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.XmlCharRefValue$ZC, initContext);
+    record(new CharCode_PD(this));
   }
 
-  public static class CharCode_Property extends BasePropertyConstraintsDescriptor {
-    public CharCode_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class CharCode_PD extends BasePropertyConstraintsDescriptor {
+    public CharCode_PD(ConstraintsDescriptor container) {
       super(PROPS.charCode$OD8V, container, false, false, true);
     }
     @Override
@@ -37,12 +35,6 @@ public class XmlCharRefValue_Constraints extends BaseConstraintsDescriptor {
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
       return XmlNameUtil.isValidCharRef(propertyValue);
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.charCode$OD8V, new CharCode_Property(this));
-    return properties;
   }
 
   private static final class CONCEPTS {

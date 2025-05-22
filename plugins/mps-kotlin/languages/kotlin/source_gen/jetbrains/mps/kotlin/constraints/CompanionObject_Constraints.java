@@ -14,19 +14,18 @@ import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.SNodePointer;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class CompanionObject_Constraints extends BaseConstraintsDescriptor {
   /*package*/ CompanionObject_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.CompanionObject$TE, initContext);
+    record(new CustomName_PD(this));
+    record(new Name_PD(this));
   }
 
   @Override
@@ -44,8 +43,8 @@ public class CompanionObject_Constraints extends BaseConstraintsDescriptor {
       }
     };
   }
-  public static class CustomName_Property extends BasePropertyConstraintsDescriptor {
-    public CustomName_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class CustomName_PD extends BasePropertyConstraintsDescriptor {
+    public CustomName_PD(ConstraintsDescriptor container) {
       super(PROPS.customName$sUyF, container, false, false, true);
     }
     @Override
@@ -60,8 +59,8 @@ public class CompanionObject_Constraints extends BaseConstraintsDescriptor {
       return (propertyValue == null || propertyValue.length() == 0) || Identifiers.isValidNonKeyword(propertyValue);
     }
   }
-  public static class Name_Property extends BasePropertyConstraintsDescriptor {
-    public Name_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class Name_PD extends BasePropertyConstraintsDescriptor {
+    public Name_PD(ConstraintsDescriptor container) {
       super(PROPS.name$MnvL, container, true, false, false);
     }
     @Override
@@ -75,13 +74,6 @@ public class CompanionObject_Constraints extends BaseConstraintsDescriptor {
     private static boolean isNotEmptyString(String str) {
       return str != null && str.length() > 0;
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.customName$sUyF, new CustomName_Property(this));
-    properties.put(PROPS.name$MnvL, new Name_Property(this));
-    return properties;
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
     return !(SNodeOperations.isInstanceOf(parentNode, CONCEPTS.CompanionObject$TE));

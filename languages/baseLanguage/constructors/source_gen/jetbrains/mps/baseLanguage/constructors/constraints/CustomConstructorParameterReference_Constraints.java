@@ -10,10 +10,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeParent;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
-import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
+import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -27,15 +25,16 @@ import java.util.List;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.scope.ListScope;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class CustomConstructorParameterReference_Constraints extends BaseConstraintsDescriptor {
   /*package*/ CustomConstructorParameterReference_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.CustomConstructorParameterReference$j6, initContext);
+    record(new RD1(this));
   }
 
   @Override
@@ -68,36 +67,33 @@ public class CustomConstructorParameterReference_Constraints extends BaseConstra
       }
     };
   }
-  @Override
-  protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.parameter$3II8, this, true, false) {
-      @Nullable
-      @Override
-      public ReferenceScopeProvider getScopeProvider() {
-        return new BaseScopeProvider() {
-          @Override
-          public SNodeReference getSearchScopeValidatorNode() {
-            return new SNodePointer("r:79d4c714-b426-4aae-a835-35e7add55090(jetbrains.mps.baseLanguage.constructors.constraints)", "6836281137582648266");
+  /*package*/ static final class RD1 extends BaseReferenceConstraintsDescriptor {
+    /*package*/ RD1(ConstraintsDescriptor container) {
+      super(LINKS.parameter$3II8, container, true, false);
+    }
+    @Nullable
+    @Override
+    public ReferenceScopeProvider getScopeProvider() {
+      return new BaseScopeProvider() {
+        @Override
+        public SNodeReference getSearchScopeValidatorNode() {
+          return new SNodePointer("r:79d4c714-b426-4aae-a835-35e7add55090(jetbrains.mps.baseLanguage.constructors.constraints)", "6836281137582648266");
+        }
+        @Override
+        public Scope createScope(final ReferenceConstraintsContext _context) {
+          SNode args = SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.CustomConstructor$j9, false, false), LINKS.arguments$xto7);
+          if (SNodeOperations.isInstanceOf(args, CONCEPTS.ListArgumentsClause$L9)) {
+            List<SNode> result = new ArrayList<SNode>();
+            ListSequence.fromList(result).addElement(SLinkOperations.getTarget(SNodeOperations.cast(args, CONCEPTS.ListArgumentsClause$L9), LINKS.list$KtLY));
+            return ListScope.forResolvableElements(result);
+          } else if (SNodeOperations.isInstanceOf(args, CONCEPTS.CustomArgumentClause$LC)) {
+            return ListScope.forResolvableElements(SLinkOperations.getChildren(SNodeOperations.cast(args, CONCEPTS.CustomArgumentClause$LC), LINKS.parameter$C685));
+          } else {
+            return null;
           }
-          @Override
-          public Scope createScope(final ReferenceConstraintsContext _context) {
-            SNode args = SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.CustomConstructor$j9, false, false), LINKS.arguments$xto7);
-            if (SNodeOperations.isInstanceOf(args, CONCEPTS.ListArgumentsClause$L9)) {
-              List<SNode> result = new ArrayList<SNode>();
-              ListSequence.fromList(result).addElement(SLinkOperations.getTarget(SNodeOperations.cast(args, CONCEPTS.ListArgumentsClause$L9), LINKS.list$KtLY));
-              return ListScope.forResolvableElements(result);
-            } else if (SNodeOperations.isInstanceOf(args, CONCEPTS.CustomArgumentClause$LC)) {
-              return ListScope.forResolvableElements(SLinkOperations.getChildren(SNodeOperations.cast(args, CONCEPTS.CustomArgumentClause$LC), LINKS.parameter$C685));
-            } else {
-              return null;
-            }
-          }
-        };
-      }
-    };
-    Map<SReferenceLink, ReferenceConstraintsDescriptor> references = new HashMap<SReferenceLink, ReferenceConstraintsDescriptor>();
-    references.put(d0.getReference(), d0);
-    return references;
+        }
+      };
+    }
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
     return true;

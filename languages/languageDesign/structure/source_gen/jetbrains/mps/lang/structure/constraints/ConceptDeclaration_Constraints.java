@@ -21,11 +21,8 @@ import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeParent;
 import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeRoot;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
-import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import java.util.HashMap;
+import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import jetbrains.mps.smodel.SModelStereotype;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -36,10 +33,12 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class ConceptDeclaration_Constraints extends BaseConstraintsDescriptor {
   /*package*/ ConceptDeclaration_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.ConceptDeclaration$gH, initContext);
+    record(new RD1(this));
   }
   public IconResource getInstanceIcon(SNode node) {
     return (SPropertyOperations.getBoolean(node, PROPS.rootable$_9pz) ? IconContainer.RESOURCE_0 : IconContainer.RESOURCE_1);
@@ -93,28 +92,25 @@ public class ConceptDeclaration_Constraints extends BaseConstraintsDescriptor {
       }
     };
   }
-  @Override
-  protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.extends$_Isg, this, true, false) {
-      @Nullable
-      @Override
-      public ReferenceScopeProvider getScopeProvider() {
-        return new BaseScopeProvider() {
-          @Override
-          public SNodeReference getSearchScopeValidatorNode() {
-            return new SNodePointer("r:00000000-0000-4000-0000-011c8959028c(jetbrains.mps.lang.structure.constraints)", "6836281137582805245");
-          }
-          @Override
-          public Scope createScope(final ReferenceConstraintsContext _context) {
-            // don't allow cycling
-            return Scopes.forConceptDeclarationExtends(_context.getReferenceNode(), _context.getContextNode());
-          }
-        };
-      }
-    };
-    Map<SReferenceLink, ReferenceConstraintsDescriptor> references = new HashMap<SReferenceLink, ReferenceConstraintsDescriptor>();
-    references.put(d0.getReference(), d0);
-    return references;
+  /*package*/ static final class RD1 extends BaseReferenceConstraintsDescriptor {
+    /*package*/ RD1(ConstraintsDescriptor container) {
+      super(LINKS.extends$_Isg, container, true, false);
+    }
+    @Nullable
+    @Override
+    public ReferenceScopeProvider getScopeProvider() {
+      return new BaseScopeProvider() {
+        @Override
+        public SNodeReference getSearchScopeValidatorNode() {
+          return new SNodePointer("r:00000000-0000-4000-0000-011c8959028c(jetbrains.mps.lang.structure.constraints)", "6836281137582805245");
+        }
+        @Override
+        public Scope createScope(final ReferenceConstraintsContext _context) {
+          // don't allow cycling
+          return Scopes.forConceptDeclarationExtends(_context.getReferenceNode(), _context.getContextNode());
+        }
+      };
+    }
   }
   private static boolean staticCanBeARoot(SModel model) {
     return SModuleOperations.isAspect(model, "structure") || SModelStereotype.isGeneratorModel(model);

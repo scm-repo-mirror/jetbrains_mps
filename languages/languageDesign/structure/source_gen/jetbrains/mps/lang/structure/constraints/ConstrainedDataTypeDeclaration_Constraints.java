@@ -15,19 +15,17 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.SNodePointer;
 import java.util.regex.Pattern;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import jetbrains.mps.smodel.SModelStereotype;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ConstrainedDataTypeDeclaration_Constraints extends BaseConstraintsDescriptor {
   /*package*/ ConstrainedDataTypeDeclaration_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.ConstrainedDataTypeDeclaration$Ch, initContext);
+    record(new Constraint_PD(this));
   }
 
   @Override
@@ -45,8 +43,8 @@ public class ConstrainedDataTypeDeclaration_Constraints extends BaseConstraintsD
       }
     };
   }
-  public static class Constraint_Property extends BasePropertyConstraintsDescriptor {
-    public Constraint_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class Constraint_PD extends BasePropertyConstraintsDescriptor {
+    public Constraint_PD(ConstraintsDescriptor container) {
       super(PROPS.constraint$Gtcd, container, false, false, true);
     }
     @Override
@@ -65,12 +63,6 @@ public class ConstrainedDataTypeDeclaration_Constraints extends BaseConstraintsD
       }
       return true;
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.constraint$Gtcd, new Constraint_Property(this));
-    return properties;
   }
   private static boolean staticCanBeARoot(SModel model) {
     return SModuleOperations.isAspect(model, "structure") || SModelStereotype.isGeneratorModel(model);

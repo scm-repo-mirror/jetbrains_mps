@@ -13,19 +13,17 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SEnumerationLiteral;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class BaseToolDeclaration_Constraints extends BaseConstraintsDescriptor {
   /*package*/ BaseToolDeclaration_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.BaseToolDeclaration$cK, initContext);
+    record(new Position_PD(this));
   }
 
-  public static class Position_Property extends BasePropertyConstraintsDescriptor {
-    public Position_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class Position_PD extends BasePropertyConstraintsDescriptor {
+    public Position_PD(ConstraintsDescriptor container) {
       super(PROPS.position$vm5o, container, false, false, true);
     }
     @Override
@@ -39,12 +37,6 @@ public class BaseToolDeclaration_Constraints extends BaseConstraintsDescriptor {
     private static boolean staticValidateProperty(SNode node, SEnumerationLiteral propertyValue) {
       return propertyValue != SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x22ace24ea9f74877L, "jetbrains.mps.lang.plugin.structure.ToolPosition"), 0x22ace24ea9f74879L, "TOP");
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.position$vm5o, new Position_Property(this));
-    return properties;
   }
 
   private static final class CONCEPTS {

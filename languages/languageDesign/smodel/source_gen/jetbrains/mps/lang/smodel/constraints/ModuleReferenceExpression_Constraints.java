@@ -9,20 +9,18 @@ import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.lang.smodel.behavior.ModuleReferenceExpression__BehaviorDescriptor;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ModuleReferenceExpression_Constraints extends BaseConstraintsDescriptor {
   /*package*/ ModuleReferenceExpression_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.ModuleReferenceExpression$Nz, initContext);
+    record(new Name_PD(this));
   }
 
-  public static class Name_Property extends BasePropertyConstraintsDescriptor {
-    public Name_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class Name_PD extends BasePropertyConstraintsDescriptor {
+    public Name_PD(ConstraintsDescriptor container) {
       super(PROPS.name$cM30, container, true, false, false);
     }
     @Override
@@ -33,12 +31,6 @@ public class ModuleReferenceExpression_Constraints extends BaseConstraintsDescri
       }
       return module.getModuleName();
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.name$cM30, new Name_Property(this));
-    return properties;
   }
 
   private static final class CONCEPTS {

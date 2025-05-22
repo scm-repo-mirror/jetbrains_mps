@@ -14,20 +14,18 @@ import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.SNodePointer;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class XmlDoctypeDeclaration_Constraints extends BaseConstraintsDescriptor {
   /*package*/ XmlDoctypeDeclaration_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.XmlDoctypeDeclaration$GQ, initContext);
+    record(new DoctypeName_PD(this));
   }
 
   @Override
@@ -45,8 +43,8 @@ public class XmlDoctypeDeclaration_Constraints extends BaseConstraintsDescriptor
       }
     };
   }
-  public static class DoctypeName_Property extends BasePropertyConstraintsDescriptor {
-    public DoctypeName_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class DoctypeName_PD extends BasePropertyConstraintsDescriptor {
+    public DoctypeName_PD(ConstraintsDescriptor container) {
       super(PROPS.doctypeName$F6Zm, container, false, false, true);
     }
     @Override
@@ -60,12 +58,6 @@ public class XmlDoctypeDeclaration_Constraints extends BaseConstraintsDescriptor
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
       return XmlNameUtil.isName(propertyValue);
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.doctypeName$F6Zm, new DoctypeName_Property(this));
-    return properties;
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
     return ListSequence.fromList(SNodeOperations.getPrevSiblings(node, false)).where((it) -> SNodeOperations.isInstanceOf(it, CONCEPTS.XmlDoctypeDeclaration$GQ)).isEmpty();

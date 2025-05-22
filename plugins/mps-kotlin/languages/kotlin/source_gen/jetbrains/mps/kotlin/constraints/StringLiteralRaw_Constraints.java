@@ -10,20 +10,18 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.SNodePointer;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class StringLiteralRaw_Constraints extends BaseConstraintsDescriptor {
   /*package*/ StringLiteralRaw_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.StringLiteralRaw$ar, initContext);
+    record(new Content_PD(this));
   }
 
-  public static class Content_Property extends BasePropertyConstraintsDescriptor {
-    public Content_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class Content_PD extends BasePropertyConstraintsDescriptor {
+    public Content_PD(ConstraintsDescriptor container) {
       super(PROPS.content$3$6V, container, false, false, true);
     }
     @Override
@@ -38,12 +36,6 @@ public class StringLiteralRaw_Constraints extends BaseConstraintsDescriptor {
       // Allow to move from the right of the string when typing ", and to insert \"
       return !(propertyValue.endsWith("\"")) || propertyValue.endsWith("\\\"");
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.content$3$6V, new Content_Property(this));
-    return properties;
   }
 
   private static final class CONCEPTS {

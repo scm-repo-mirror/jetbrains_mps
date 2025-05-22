@@ -14,19 +14,17 @@ import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.SNodePointer;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ParallelLoopVariable_Constraints extends BaseConstraintsDescriptor {
   /*package*/ ParallelLoopVariable_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.ParallelLoopVariable$2L, initContext);
+    record(new IsFinal_PD(this));
   }
 
   @Override
@@ -44,8 +42,8 @@ public class ParallelLoopVariable_Constraints extends BaseConstraintsDescriptor 
       }
     };
   }
-  public static class IsFinal_Property extends BasePropertyConstraintsDescriptor {
-    public IsFinal_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class IsFinal_PD extends BasePropertyConstraintsDescriptor {
+    public IsFinal_PD(ConstraintsDescriptor container) {
       super(PROPS.isFinal$gvTP, container, false, false, true);
     }
     @Override
@@ -59,12 +57,6 @@ public class ParallelLoopVariable_Constraints extends BaseConstraintsDescriptor 
     private static boolean staticValidateProperty(SNode node, boolean propertyValue) {
       return propertyValue;
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.isFinal$gvTP, new IsFinal_Property(this));
-    return properties;
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
     return SNodeOperations.isInstanceOf(parentNode, CONCEPTS.ParallelFor$2i);

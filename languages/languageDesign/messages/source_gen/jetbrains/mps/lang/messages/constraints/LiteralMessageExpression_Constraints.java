@@ -10,20 +10,18 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.SNodePointer;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class LiteralMessageExpression_Constraints extends BaseConstraintsDescriptor {
   /*package*/ LiteralMessageExpression_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.LiteralMessageExpression$$8, initContext);
+    record(new Message_PD(this));
   }
 
-  public static class Message_Property extends BasePropertyConstraintsDescriptor {
-    public Message_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class Message_PD extends BasePropertyConstraintsDescriptor {
+    public Message_PD(ConstraintsDescriptor container) {
       super(PROPS.message$umWY, container, false, false, true);
     }
     @Override
@@ -37,12 +35,6 @@ public class LiteralMessageExpression_Constraints extends BaseConstraintsDescrip
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
       return propertyValue.matches("([^%]|\\\\%)*");
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.message$umWY, new Message_Property(this));
-    return properties;
   }
 
   private static final class CONCEPTS {

@@ -26,17 +26,15 @@ import jetbrains.mps.scope.ListScope;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class OperationDeclaration_Constraints extends BaseConstraintsDescriptor {
   /*package*/ OperationDeclaration_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.OperationDeclaration$hY, initContext);
+    record(new OperationName_PD(this));
   }
 
   @Override
@@ -62,8 +60,8 @@ public class OperationDeclaration_Constraints extends BaseConstraintsDescriptor 
       }
     };
   }
-  public static class OperationName_Property extends BasePropertyConstraintsDescriptor {
-    public OperationName_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class OperationName_PD extends BasePropertyConstraintsDescriptor {
+    public OperationName_PD(ConstraintsDescriptor container) {
       super(PROPS.operationName$gZKC, container, true, false, false);
     }
     @Override
@@ -83,12 +81,6 @@ public class OperationDeclaration_Constraints extends BaseConstraintsDescriptor 
       }
       return result.toString();
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.operationName$gZKC, new OperationName_Property(this));
-    return properties;
   }
 
   private static final class CONCEPTS {

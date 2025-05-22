@@ -10,20 +10,18 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.SNodePointer;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ChangeEvent_Constraints extends BaseConstraintsDescriptor {
   /*package*/ ChangeEvent_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.ChangeEvent$WH, initContext);
+    record(new Temperature_PD(this));
   }
 
-  public static class Temperature_Property extends BasePropertyConstraintsDescriptor {
-    public Temperature_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class Temperature_PD extends BasePropertyConstraintsDescriptor {
+    public Temperature_PD(ConstraintsDescriptor container) {
       super(PROPS.temperature$7jnX, container, false, false, true);
     }
     @Override
@@ -37,12 +35,6 @@ public class ChangeEvent_Constraints extends BaseConstraintsDescriptor {
     private static boolean staticValidateProperty(SNode node, int propertyValue) {
       return propertyValue >= 12 && propertyValue <= 30;
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.temperature$7jnX, new Temperature_Property(this));
-    return properties;
   }
 
   private static final class CONCEPTS {

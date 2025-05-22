@@ -21,16 +21,15 @@ import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class Classifier_Constraints extends BaseConstraintsDescriptor {
   /*package*/ Classifier_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.Classifier$Ix, initContext);
+    record(new NestedName_PD(this));
+    record(new ResolveInfo_PD(this));
   }
 
   @Override
@@ -51,8 +50,8 @@ public class Classifier_Constraints extends BaseConstraintsDescriptor {
       }
     };
   }
-  public static class NestedName_Property extends BasePropertyConstraintsDescriptor {
-    public NestedName_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class NestedName_PD extends BasePropertyConstraintsDescriptor {
+    public NestedName_PD(ConstraintsDescriptor container) {
       super(PROPS.nestedName$Em3S, container, true, false, false);
     }
     @Override
@@ -60,21 +59,14 @@ public class Classifier_Constraints extends BaseConstraintsDescriptor {
       return (String) Classifier__BehaviorDescriptor.getNestedName_id7q4lzBFjvIX.invoke(node);
     }
   }
-  public static class ResolveInfo_Property extends BasePropertyConstraintsDescriptor {
-    public ResolveInfo_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class ResolveInfo_PD extends BasePropertyConstraintsDescriptor {
+    public ResolveInfo_PD(ConstraintsDescriptor container) {
       super(PROPS.resolveInfo$lW9a, container, true, false, false);
     }
     @Override
     public Object getValue(SNode node) {
       return SPropertyOperations.getString(node, PROPS.nestedName$Em3S);
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.nestedName$Em3S, new NestedName_Property(this));
-    properties.put(PROPS.resolveInfo$lW9a, new ResolveInfo_Property(this));
-    return properties;
   }
 
   private static final class CONCEPTS {

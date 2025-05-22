@@ -4,10 +4,8 @@ package jetbrains.mps.lang.slanguage.constraints;
 
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptorInitContext;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
-import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
+import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -20,37 +18,35 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.scope.ModelsScope;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class OfAspectOperation_Constraints extends BaseConstraintsDescriptor {
   /*package*/ OfAspectOperation_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.OfAspectOperation$cT, initContext);
+    record(new RD1(this));
   }
 
-  @Override
-  protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.requestedAspect$fCKn, this, true, false) {
-      @Nullable
-      @Override
-      public ReferenceScopeProvider getScopeProvider() {
-        return new BaseScopeProvider() {
-          @Override
-          public SNodeReference getSearchScopeValidatorNode() {
-            return new SNodePointer("r:7cb61723-da55-40c7-a0cb-26259e0e760b(jetbrains.mps.lang.slanguage.constraints)", "6836281137582820753");
-          }
-          @Override
-          public Scope createScope(final ReferenceConstraintsContext _context) {
-            Iterable<SModule> modules = SNodeOperations.getModel(_context.getContextNode()).getModule().getRepository().getModules();
-            return new ModelsScope(Sequence.fromIterable(modules).select((it) -> SModuleOperations.getAspect(it, "plugin")), true, LINKS.requestedAspect$fCKn.getTargetConcept());
-          }
-        };
-      }
-    };
-    Map<SReferenceLink, ReferenceConstraintsDescriptor> references = new HashMap<SReferenceLink, ReferenceConstraintsDescriptor>();
-    references.put(d0.getReference(), d0);
-    return references;
+  /*package*/ static final class RD1 extends BaseReferenceConstraintsDescriptor {
+    /*package*/ RD1(ConstraintsDescriptor container) {
+      super(LINKS.requestedAspect$fCKn, container, true, false);
+    }
+    @Nullable
+    @Override
+    public ReferenceScopeProvider getScopeProvider() {
+      return new BaseScopeProvider() {
+        @Override
+        public SNodeReference getSearchScopeValidatorNode() {
+          return new SNodePointer("r:7cb61723-da55-40c7-a0cb-26259e0e760b(jetbrains.mps.lang.slanguage.constraints)", "6836281137582820753");
+        }
+        @Override
+        public Scope createScope(final ReferenceConstraintsContext _context) {
+          Iterable<SModule> modules = SNodeOperations.getModel(_context.getContextNode()).getModule().getRepository().getModules();
+          return new ModelsScope(Sequence.fromIterable(modules).select((it) -> SModuleOperations.getAspect(it, "plugin")), true, LINKS.requestedAspect$fCKn.getTargetConcept());
+        }
+      };
+    }
   }
 
   private static final class CONCEPTS {

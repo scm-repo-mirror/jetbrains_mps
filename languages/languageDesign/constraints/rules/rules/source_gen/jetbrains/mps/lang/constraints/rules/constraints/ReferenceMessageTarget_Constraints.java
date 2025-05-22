@@ -4,10 +4,8 @@ package jetbrains.mps.lang.constraints.rules.constraints;
 
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptorInitContext;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
-import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
+import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -22,41 +20,39 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Collections;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__BehaviorDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class ReferenceMessageTarget_Constraints extends BaseConstraintsDescriptor {
   /*package*/ ReferenceMessageTarget_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.ReferenceMessageTarget$Iz, initContext);
+    record(new RD1(this));
   }
 
-  @Override
-  protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.linkDeclaration$5oG8, this, true, false) {
-      @Nullable
-      @Override
-      public ReferenceScopeProvider getScopeProvider() {
-        return new BaseScopeProvider() {
-          @Override
-          public SNodeReference getSearchScopeValidatorNode() {
-            return new SNodePointer("r:52c0a9e8-a4f1-4d97-9c33-d3c28d77688f(jetbrains.mps.lang.constraints.rules.constraints)", "7386008336021455167");
+  /*package*/ static final class RD1 extends BaseReferenceConstraintsDescriptor {
+    /*package*/ RD1(ConstraintsDescriptor container) {
+      super(LINKS.linkDeclaration$5oG8, container, true, false);
+    }
+    @Nullable
+    @Override
+    public ReferenceScopeProvider getScopeProvider() {
+      return new BaseScopeProvider() {
+        @Override
+        public SNodeReference getSearchScopeValidatorNode() {
+          return new SNodePointer("r:52c0a9e8-a4f1-4d97-9c33-d3c28d77688f(jetbrains.mps.lang.constraints.rules.constraints)", "7386008336021455167");
+        }
+        @Override
+        public Scope createScope(final ReferenceConstraintsContext _context) {
+          SNode rulesRoot = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.RulesConstraintsRoot$vG, true, false);
+          if (rulesRoot == null) {
+            return ListScope.forResolvableElements(Sequence.fromIterable(Collections.<SNode>emptyList()));
           }
-          @Override
-          public Scope createScope(final ReferenceConstraintsContext _context) {
-            SNode rulesRoot = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.RulesConstraintsRoot$vG, true, false);
-            if (rulesRoot == null) {
-              return ListScope.forResolvableElements(Sequence.fromIterable(Collections.<SNode>emptyList()));
-            }
-            SNode nodeConcept = SLinkOperations.getTarget(rulesRoot, LINKS.concept$ztsG);
-            return ListScope.forResolvableElements(AbstractConceptDeclaration__BehaviorDescriptor.getLinkDeclarations_idhEwILKK.invoke(nodeConcept));
-          }
-        };
-      }
-    };
-    Map<SReferenceLink, ReferenceConstraintsDescriptor> references = new HashMap<SReferenceLink, ReferenceConstraintsDescriptor>();
-    references.put(d0.getReference(), d0);
-    return references;
+          SNode nodeConcept = SLinkOperations.getTarget(rulesRoot, LINKS.concept$ztsG);
+          return ListScope.forResolvableElements(AbstractConceptDeclaration__BehaviorDescriptor.getLinkDeclarations_idhEwILKK.invoke(nodeConcept));
+        }
+      };
+    }
   }
 
   private static final class CONCEPTS {

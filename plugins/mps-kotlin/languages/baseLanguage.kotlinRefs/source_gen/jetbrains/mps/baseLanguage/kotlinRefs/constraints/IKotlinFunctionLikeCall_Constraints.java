@@ -9,33 +9,25 @@ import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class IKotlinFunctionLikeCall_Constraints extends BaseConstraintsDescriptor {
   /*package*/ IKotlinFunctionLikeCall_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.IKotlinFunctionLikeCall$lJ, initContext);
+    record(new FunctionName_PD(this));
   }
 
-  public static class FunctionName_Property extends BasePropertyConstraintsDescriptor {
-    public FunctionName_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class FunctionName_PD extends BasePropertyConstraintsDescriptor {
+    public FunctionName_PD(ConstraintsDescriptor container) {
       super(PROPS.functionName$M4b, container, true, false, false);
     }
     @Override
     public Object getValue(SNode node) {
       return SPropertyOperations.getString(SLinkOperations.getTarget(node, LINKS.target$7dy6), PROPS.name$MnvL);
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.functionName$M4b, new FunctionName_Property(this));
-    return properties;
   }
 
   private static final class CONCEPTS {

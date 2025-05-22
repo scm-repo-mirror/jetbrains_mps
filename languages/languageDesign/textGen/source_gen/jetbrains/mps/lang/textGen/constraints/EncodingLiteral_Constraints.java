@@ -11,20 +11,18 @@ import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.SNodePointer;
 import java.nio.charset.Charset;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class EncodingLiteral_Constraints extends BaseConstraintsDescriptor {
   /*package*/ EncodingLiteral_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.EncodingLiteral$91, initContext);
+    record(new Encoding_PD(this));
   }
 
-  public static class Encoding_Property extends BasePropertyConstraintsDescriptor {
-    public Encoding_Property(ConstraintsDescriptor container) {
+  /*package*/ static final class Encoding_PD extends BasePropertyConstraintsDescriptor {
+    public Encoding_PD(ConstraintsDescriptor container) {
       super(PROPS.encoding$6Pu2, container, false, false, true);
     }
     @Override
@@ -52,12 +50,6 @@ public class EncodingLiteral_Constraints extends BaseConstraintsDescriptor {
     private static boolean isEmptyString(String str) {
       return str == null || str.isEmpty();
     }
-  }
-  @Override
-  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(PROPS.encoding$6Pu2, new Encoding_Property(this));
-    return properties;
   }
 
   private static final class CONCEPTS {

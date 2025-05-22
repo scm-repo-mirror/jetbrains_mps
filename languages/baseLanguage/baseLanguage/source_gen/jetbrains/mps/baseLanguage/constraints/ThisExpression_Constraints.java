@@ -9,10 +9,8 @@ import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeChild;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
-import java.util.Map;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
-import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
+import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -24,15 +22,16 @@ import jetbrains.mps.scope.EmptyScope;
 import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
 import jetbrains.mps.baseLanguage.behavior.ThisExpression__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
-import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class ThisExpression_Constraints extends BaseConstraintsDescriptor {
   /*package*/ ThisExpression_Constraints(ConstraintsDescriptorInitContext initContext) {
     super(CONCEPTS.ThisExpression$$o, initContext);
+    record(new RD1(this));
   }
 
   @Override
@@ -50,40 +49,37 @@ public class ThisExpression_Constraints extends BaseConstraintsDescriptor {
       }
     };
   }
-  @Override
-  protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.classConcept$zzjZ, this, true, false) {
-      @Nullable
-      @Override
-      public ReferenceScopeProvider getScopeProvider() {
-        return new BaseScopeProvider() {
-          @Override
-          public SNodeReference getSearchScopeValidatorNode() {
-            return new SNodePointer("r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)", "6836281137582643767");
+  /*package*/ static final class RD1 extends BaseReferenceConstraintsDescriptor {
+    /*package*/ RD1(ConstraintsDescriptor container) {
+      super(LINKS.classConcept$zzjZ, container, true, false);
+    }
+    @Nullable
+    @Override
+    public ReferenceScopeProvider getScopeProvider() {
+      return new BaseScopeProvider() {
+        @Override
+        public SNodeReference getSearchScopeValidatorNode() {
+          return new SNodePointer("r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)", "6836281137582643767");
+        }
+        @Override
+        public Scope createScope(final ReferenceConstraintsContext _context) {
+          if (!(SNodeOperations.isInstanceOf(_context.getReferenceNode(), CONCEPTS.ThisExpression$$o))) {
+            return new EmptyScope();
           }
-          @Override
-          public Scope createScope(final ReferenceConstraintsContext _context) {
-            if (!(SNodeOperations.isInstanceOf(_context.getReferenceNode(), CONCEPTS.ThisExpression$$o))) {
-              return new EmptyScope();
-            }
-            return new NamedElementsScope(ThisExpression__BehaviorDescriptor.getPossibleClassifiers_idhGcjiYt.invoke(SNodeOperations.cast(_context.getReferenceNode(), CONCEPTS.ThisExpression$$o))) {
-              @Nullable
-              @Override
-              public SNode resolve(SNode contextNode, @NotNull String refText) {
-                String packageName = jetbrains.mps.util.SNodeOperations.getModelLongName(SNodeOperations.getModel(contextNode)) + ".";
-                if (refText.startsWith(packageName)) {
-                  refText = refText.substring(packageName.length());
-                }
-                return super.resolve(contextNode, refText);
+          return new NamedElementsScope(ThisExpression__BehaviorDescriptor.getPossibleClassifiers_idhGcjiYt.invoke(SNodeOperations.cast(_context.getReferenceNode(), CONCEPTS.ThisExpression$$o))) {
+            @Nullable
+            @Override
+            public SNode resolve(SNode contextNode, @NotNull String refText) {
+              String packageName = jetbrains.mps.util.SNodeOperations.getModelLongName(SNodeOperations.getModel(contextNode)) + ".";
+              if (refText.startsWith(packageName)) {
+                refText = refText.substring(packageName.length());
               }
-            };
-          }
-        };
-      }
-    };
-    Map<SReferenceLink, ReferenceConstraintsDescriptor> references = new HashMap<SReferenceLink, ReferenceConstraintsDescriptor>();
-    references.put(d0.getReference(), d0);
-    return references;
+              return super.resolve(contextNode, refText);
+            }
+          };
+        }
+      };
+    }
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
     return ConstraintsUtil.isInNonStaticClasssifierContext(parentNode);
