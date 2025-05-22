@@ -54,8 +54,8 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
   private final ConstraintFunction<ConstraintContext_CanBeAncestor, Boolean> myCanBeAncestorConstraint;
   private final ConstraintFunction<ConstraintContext_DefaultScopeProvider, ReferenceScopeProvider> myDefaultScopeConstraint;
 
-  private final ConcurrentHashMap<SProperty, PropertyConstraintsDescriptor> propertiesConstraints = new ConcurrentHashMap<>();
-  private final ConcurrentHashMap<SReferenceLink, ReferenceConstraintsDescriptor> referencesConstraints = new ConcurrentHashMap<>();
+  private final ConcurrentHashMap<SProperty, PropertyConstraintsDescriptor> myPropertyConstraints = new ConcurrentHashMap<>();
+  private final ConcurrentHashMap<SReferenceLink, ReferenceConstraintsDescriptor> myReferenceConstraints = new ConcurrentHashMap<>();
   // these may become final if we inline  calculateXXX(Stream<>) methods, yet I hope to find better replacement for the methods altogether
   private boolean myCanBeChildIsDefined = true;
   private boolean myCanBeRootIsDefined = true;
@@ -71,14 +71,14 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
   @Deprecated(since = "2025.2", forRemoval = true)
   public BaseConstraintsDescriptor(@NotNull final SAbstractConcept concept) {
     this(concept, new BasicInitContext());
+
+    // these methods were overridden in legacy CD only; new (2025.2) CDs use record()
+    myPropertyConstraints.putAll(getSpecifiedProperties());
+    myReferenceConstraints.putAll(getSpecifiedReferences());
   }
 
   public BaseConstraintsDescriptor(@NotNull final SAbstractConcept concept, @NotNull final ConstraintsDescriptorInitContext initContext) {
     myConcept = concept;
-
-    // FIXME move to legacy cons
-    propertiesConstraints.putAll(getSpecifiedProperties());
-    referencesConstraints.putAll(getSpecifiedReferences());
 
     // XXX I see no reason to restrict parents to BCD, this is just the way collectParents() had it the moment I took over.
     Supplier<Stream<BaseConstraintsDescriptor>> parents = () -> initContext.getAncestorConstraints(concept)
@@ -94,11 +94,11 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
   }
 
   protected final void record(@NotNull PropertyConstraintsDescriptor pd) {
-    propertiesConstraints.put(pd.getSProperty(), pd);
+    myPropertyConstraints.put(pd.getSProperty(), pd);
   }
 
   protected final void record(@NotNull ReferenceConstraintsDescriptor rd) {
-    referencesConstraints.put(rd.getReference(), rd);
+    myReferenceConstraints.put(rd.getReference(), rd);
   }
 
   @Override
@@ -123,13 +123,13 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
 
   @Deprecated(forRemoval = true, since = "2025.2")
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
-    // XXX not sure whether shall make the method abstract or return an empty map.
+    // this method is invoked for legacy CD implementations only. CD from 2025.2 use record() method from cons
     return Collections.emptyMap();
   }
 
   @Deprecated(forRemoval = true, since = "2025.2")
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    // XXX not sure whether shall make the method abstract or return an empty map.
+    // this method is invoked for legacy CD implementations only. CD from 2025.2 use record() method from cons
     return Collections.emptyMap();
   }
 
@@ -246,33 +246,33 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
   @Override
   @Nullable
   public PropertyConstraintsDescriptor getProperty(SProperty property) {
-    if (propertiesConstraints.containsKey(property)) {
-      return propertiesConstraints.get(property);
+    if (myPropertyConstraints.containsKey(property)) {
+      return myPropertyConstraints.get(property);
     }
 
     if (!((SAbstractConceptAdapter) myConcept).hasProperty(property)) {
       return null;
     }
 
-    propertiesConstraints.put(property, new BasePropertyConstraintsDescriptor(property, this, false, false, false));
+    myPropertyConstraints.put(property, new BasePropertyConstraintsDescriptor(property, this, false, false, false));
 
-    return propertiesConstraints.get(property);
+    return myPropertyConstraints.get(property);
   }
 
   @Override
   @Nullable
   public ReferenceConstraintsDescriptor getReference(SReferenceLink ref) {
-    if (referencesConstraints.containsKey(ref)) {
-      return referencesConstraints.get(ref);
+    if (myReferenceConstraints.containsKey(ref)) {
+      return myReferenceConstraints.get(ref);
     }
 
     if (!((SAbstractConceptAdapter) myConcept).hasReference(ref)) {
       return null;
     }
 
-    referencesConstraints.put(ref, new BaseReferenceConstraintsDescriptor(ref, this, false, false));
+    myReferenceConstraints.put(ref, new BaseReferenceConstraintsDescriptor(ref, this, false, false));
 
-    return referencesConstraints.get(ref);
+    return myReferenceConstraints.get(ref);
   }
 
   @Override
