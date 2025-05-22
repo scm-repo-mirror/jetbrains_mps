@@ -64,7 +64,9 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
 
   /**
    *
-   * @deprecated Use {@link #BaseConstraintsDescriptor(SAbstractConcept, ConstraintsDescriptorInitContext)} instead
+   * @deprecated Use {@link #BaseConstraintsDescriptor(SAbstractConcept, ConstraintsDescriptorInitContext)} instead.
+   *             However, shall keep for at least a year or two, as there could be old CAD, generated to instantiate BCD
+   *             using this cons (as well as old CDs subclassing this one, with super(concept) call).
    */
   @Deprecated(since = "2025.2", forRemoval = true)
   public BaseConstraintsDescriptor(@NotNull final SAbstractConcept concept) {
@@ -74,6 +76,7 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
   public BaseConstraintsDescriptor(@NotNull final SAbstractConcept concept, @NotNull final ConstraintsDescriptorInitContext initContext) {
     myConcept = concept;
 
+    // FIXME move to legacy cons
     propertiesConstraints.putAll(getSpecifiedProperties());
     referencesConstraints.putAll(getSpecifiedReferences());
 
@@ -88,6 +91,14 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
     myCanBeParentConstraint = calculateCanBeParentConstraint(parents);
     myCanBeAncestorConstraint = calculateCanBeAncestorConstraint(parents);
     myDefaultScopeConstraint = calculateDefaultScopeConstraint(parents);
+  }
+
+  protected final void record(@NotNull PropertyConstraintsDescriptor pd) {
+    propertiesConstraints.put(pd.getSProperty(), pd);
+  }
+
+  protected final void record(@NotNull ReferenceConstraintsDescriptor rd) {
+    referencesConstraints.put(rd.getReference(), rd);
   }
 
   @Override
@@ -110,11 +121,13 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
     return myCanBeAncestorIsDefined;
   }
 
+  @Deprecated(forRemoval = true, since = "2025.2")
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     // XXX not sure whether shall make the method abstract or return an empty map.
     return Collections.emptyMap();
   }
 
+  @Deprecated(forRemoval = true, since = "2025.2")
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
     // XXX not sure whether shall make the method abstract or return an empty map.
     return Collections.emptyMap();
