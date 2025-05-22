@@ -4,6 +4,10 @@
 package jetbrains.mps.smodel.runtime;
 
 import jetbrains.mps.smodel.language.ConstraintsRegistry;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
+
+import java.util.stream.Stream;
 
 /**
  * Mechanism to provide initialization/configuration context for {@link ConstraintsDescriptor}
@@ -11,4 +15,6 @@ import jetbrains.mps.smodel.language.ConstraintsRegistry;
  */
 public interface ConstraintsDescriptorInitContext {
   ConstraintsRegistry getConstraintsRegistry();
+
+  Stream<ConstraintsDescriptor> getAncestorConstraints(@NotNull SAbstractConcept concept);
 }

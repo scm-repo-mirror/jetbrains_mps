@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2023 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,10 +15,7 @@
  */
 package jetbrains.mps.smodel.runtime.base;
 
-import jetbrains.mps.kernel.model.SModelUtil;
 import jetbrains.mps.smodel.adapter.structure.concept.SAbstractConceptAdapter;
-import jetbrains.mps.smodel.language.ConceptRegistry;
-import jetbrains.mps.smodel.language.ConstraintsRegistry;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeAncestor;
 import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeChild;
@@ -28,10 +25,12 @@ import jetbrains.mps.smodel.runtime.ConstraintContext_DefaultScopeProvider;
 import jetbrains.mps.smodel.runtime.ConstraintFunction;
 import jetbrains.mps.smodel.runtime.ConstraintFunctions;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
+import jetbrains.mps.smodel.runtime.ConstraintsDescriptorInitContext;
 import jetbrains.mps.smodel.runtime.IconResource;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
+import jetbrains.mps.smodel.runtime.impl.BasicInitContext;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -41,11 +40,9 @@ import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.SNode;
 
 import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
@@ -65,34 +62,25 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
   private boolean myCanBeAncestorIsDefined = true;
   private boolean myCanBeParentIsDefined = true;
 
+  /**
+   *
+   * @deprecated Use {@link #BaseConstraintsDescriptor(SAbstractConcept, ConstraintsDescriptorInitContext)} instead
+   */
+  @Deprecated(since = "2025.2", forRemoval = true)
   public BaseConstraintsDescriptor(@NotNull final SAbstractConcept concept) {
+    this(concept, new BasicInitContext());
+  }
+
+  public BaseConstraintsDescriptor(@NotNull final SAbstractConcept concept, @NotNull final ConstraintsDescriptorInitContext initContext) {
     myConcept = concept;
 
     propertiesConstraints.putAll(getSpecifiedProperties());
     referencesConstraints.putAll(getSpecifiedReferences());
 
-    // lazy parent calculation, just in case there are subclasses that define all possible constraints
     // XXX I see no reason to restrict parents to BCD, this is just the way collectParents() had it the moment I took over.
-    Supplier<Stream<BaseConstraintsDescriptor>> parents = new Supplier<>() {
-      private List<BaseConstraintsDescriptor> parentDescriptors;
-
-      @Override
-      public Stream<BaseConstraintsDescriptor> get() {
-        // XXX on collectParents, there's a comment to 'rewrite without recursion', but I don't quite see where recursion is?
-        if (parentDescriptors == null) {
-          // stick to ConstraintsRegistry as it's the context for ConstraintDescriptors after all;
-          // no reason to go through ConceptRegistry (well, unless utterly necessary, until we get registry instance supplied here)
-          final ConstraintsRegistry reg = ConceptRegistry.getInstance().getConstraintsRegistry();
-          List<SAbstractConcept> directSuperConcepts = SModelUtil.getDirectSuperConcepts(concept);
-          parentDescriptors = directSuperConcepts.stream()
-                                                 .map(reg::getConstraintsDescriptor)
-                                                 .filter(BaseConstraintsDescriptor.class::isInstance)
-                                                 .map(BaseConstraintsDescriptor.class::cast)
-                                                 .collect(Collectors.toUnmodifiableList());
-        }
-        return parentDescriptors.stream();
-      }
-    };
+    Supplier<Stream<BaseConstraintsDescriptor>> parents = () -> initContext.getAncestorConstraints(concept)
+                                                                       .filter(BaseConstraintsDescriptor.class::isInstance)
+                                                                       .map(BaseConstraintsDescriptor.class::cast);
     // XXX although there's no warning (IDEA doesn't see through private mediator), the pattern to invoke
     //     overrode protected methods from constructor is awful practice.
     myCanBeChildConstraint = calculateCanBeChildConstraint(parents);

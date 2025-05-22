@@ -20,12 +20,13 @@ import jetbrains.mps.core.aspects.constraints.rules.RulesConstraintsRegistry;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.smodel.runtime.ConstraintsAspectDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.runtime.ConstraintsDescriptorInitContext;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.illegal.IllegalConstraintsDescriptor;
+import jetbrains.mps.smodel.runtime.impl.BasicInitContext;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -69,16 +70,20 @@ public final class ConstraintsRegistry implements CoreAspectRegistry {
         } else {
           aspectDescriptor = languageRuntime.getAspect(ConstraintsAspectDescriptor.class);
         }
+
+        // could be lazy parent calculation, but it helps only in case there are subclasses that define all possible constraints, which is rare, I believe.
+        // FIXME for a long time (see BaseConstraintsDescriptor.collectParents) there's a comment to 'rewrite without recursion'
+        //       which I believe refers to the fact that access to CD of a concept triggers CD creation for its complete hierarchy.
+        //       I wonder if there's an easy way to deal with that here?
+        final List<ConstraintsDescriptor> parentDescriptors = new BasicInitContext(this).getAncestorConstraints(concept).toList();
+        // there could be up to 5 uses of parentDescriptors, therefore use cached value
+        BasicInitContext initContext = new BasicInitContext(this, concept, parentDescriptors);
+
         if (aspectDescriptor == null) {
           // @see jetbrains.mps.smodel.runtime.ConstraintsAspectDescriptor
-          descriptor = new BaseConstraintsDescriptor(concept);
+          descriptor = new BaseConstraintsDescriptor(concept, initContext);
         } else {
-          descriptor = aspectDescriptor.getConstraints(concept, new ConstraintsDescriptorInitContext() {
-            @Override
-            public ConstraintsRegistry getConstraintsRegistry() {
-              return ConstraintsRegistry.this;
-            }
-          });
+          descriptor = aspectDescriptor.getConstraints(concept, initContext);
         }
       } catch (Throwable e) {
         LOG.error("Exception while constraints descriptor creating", e);
