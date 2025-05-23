@@ -28,9 +28,9 @@ public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDes
   private final SProperty myProperty;
   private final ConstraintsDescriptor myContainer;
 
-  private final PropertyConstraintsDescriptor getterDescriptor;
-  private final PropertyConstraintsDescriptor setterDescriptor;
-  private final PropertyConstraintsDescriptor validatorDescriptor;
+  private final InitOncePtr<PropertyConstraintsDescriptor> getterDescriptor = new InitOncePtr<>();
+  private final InitOncePtr<PropertyConstraintsDescriptor> setterDescriptor = new InitOncePtr<>();
+  private final InitOncePtr<PropertyConstraintsDescriptor> validatorDescriptor = new InitOncePtr<>();
 
   /**
    * @since 2021.2
@@ -40,9 +40,15 @@ public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDes
     myProperty = property;
     myContainer = container;
 
-    getterDescriptor = ownGet ? this : getSomethingUsingInheritance(pd -> pd.getterDescriptor, property, container);
-    setterDescriptor = ownSet ? this : getSomethingUsingInheritance(pd -> pd.setterDescriptor, property, container);
-    validatorDescriptor = ownValidate ? this : getSomethingUsingInheritance(pd -> pd.validatorDescriptor, property, container);
+    if (ownGet) {
+      getterDescriptor.set(this);
+    }
+    if (ownSet) {
+      setterDescriptor.set(this);
+    }
+    if (ownValidate) {
+      validatorDescriptor.set(this);
+    }
   }
 
   /*package*/ BasePropertyConstraintsDescriptor(SProperty property, BaseConstraintsDescriptor container) {
@@ -50,10 +56,25 @@ public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDes
   }
 
   @Nullable
-  private static PropertyConstraintsDescriptor getSomethingUsingInheritance(final InheritanceCalculateParameters parameters, final SProperty property, ConstraintsDescriptor container) {
+  private PropertyConstraintsDescriptor getterDescriptor() {
+    return getterDescriptor.getOrElse(() -> getSomethingUsingInheritance(BasePropertyConstraintsDescriptor::getterDescriptor));
+  }
+
+  @Nullable
+  private PropertyConstraintsDescriptor setterDescriptor() {
+    return setterDescriptor.getOrElse(() -> getSomethingUsingInheritance(BasePropertyConstraintsDescriptor::setterDescriptor));
+  }
+
+  @Nullable
+  private PropertyConstraintsDescriptor validatorDescriptor() {
+    return validatorDescriptor.getOrElse(() -> getSomethingUsingInheritance(BasePropertyConstraintsDescriptor::validatorDescriptor));
+  }
+
+  @Nullable
+  private PropertyConstraintsDescriptor getSomethingUsingInheritance(final InheritanceCalculateParameters parameters) {
     // XXX there's ~identical method in BaseReferenceConstraintsDescriptor
-    return ((BaseConstraintsDescriptor) container).ancestors().map(parentDescriptor -> {
-      PropertyConstraintsDescriptor parentPropertyDescriptor = parentDescriptor.getProperty(property);
+    return ((BaseConstraintsDescriptor) myContainer).ancestors().map(parentDescriptor -> {
+      PropertyConstraintsDescriptor parentPropertyDescriptor = parentDescriptor.getProperty(myProperty);
 
       PropertyConstraintsDescriptor parentCalculated;
 
@@ -67,15 +88,15 @@ public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDes
   }
 
   public boolean isSetterDefault() {
-    return setterDescriptor == null;
+    return setterDescriptor() == null;
   }
 
   public boolean isGetterDefault() {
-    return getterDescriptor == null;
+    return getterDescriptor() == null;
   }
 
   public boolean isValidatorDefault() {
-    return validatorDescriptor == null;
+    return validatorDescriptor() == null;
   }
 
   @Override
@@ -90,17 +111,19 @@ public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDes
 
   @Override
   public Object getValue(SNode node) {
-    if (isGetterDefault()) {
+    PropertyConstraintsDescriptor gd = getterDescriptor();
+    if (gd == null) {
       return myProperty.getType().fromString(node.getProperty(myProperty));
     } else {
-      return getterDescriptor.getValue(node);
+      return gd.getValue(node);
     }
   }
 
   @Override
   public void setPropertyValue(SNode node, Object value) {
-    if (!isSetterDefault()) {
-      setterDescriptor.setPropertyValue(node, value);
+    PropertyConstraintsDescriptor sd = setterDescriptor();
+    if (sd != null) {
+      sd.setPropertyValue(node, value);
     } else {
       node.setProperty(myProperty, myProperty.getType().toString(value));
     }
@@ -108,11 +131,8 @@ public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDes
 
   @Override
   public boolean validateValue(SNode node, Object value, CheckingNodeContext checkingNodeContext) {
-    if (!isValidatorDefault()) {
-      return validatorDescriptor.validateValue(node, value, checkingNodeContext);
-    } else {
-      return true;
-    }
+    PropertyConstraintsDescriptor vd = validatorDescriptor();
+    return vd == null || vd.validateValue(node, value, checkingNodeContext);
   }
 
   @Override

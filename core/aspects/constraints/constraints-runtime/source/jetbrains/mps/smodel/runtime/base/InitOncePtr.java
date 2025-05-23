@@ -47,6 +47,18 @@ import java.util.function.Supplier;
     }
   }
 
+  void set(T value) {
+    if (!myValue.compareAndSet(null, new X<>(value))) {
+      throw new IllegalStateException("Already initialized");
+    }
+  }
+
+  // both isSet && get() == null
+  boolean isNull() {
+    X<T> x = myValue.get();
+    return x != null && x.val == null;
+  }
+
   boolean isSet() {
     return myValue.get() != null;
   }
