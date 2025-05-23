@@ -43,22 +43,22 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.Supplier;
 import java.util.stream.Stream;
 
+// FIXME refresh templates not to override calculateXXX() methods, and instead use setXXX(Function), deprecate calculateXXX()
 public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
   private final SAbstractConcept myConcept;
   private final List<ConstraintsDescriptor> myDirectAncestorConstraints;
 
-  private final ConstraintFunction<ConstraintContext_CanBeChild, Boolean> myCanBeChildConstraint;
-  private final ConstraintFunction<ConstraintContext_CanBeRoot, Boolean> myCanBeRootConstraint;
-  private final ConstraintFunction<ConstraintContext_CanBeParent, Boolean> myCanBeParentConstraint;
-  private final ConstraintFunction<ConstraintContext_CanBeAncestor, Boolean> myCanBeAncestorConstraint;
+  private final InitOncePtr<ConstraintFunction<ConstraintContext_CanBeChild, Boolean>> myCanBeChildConstraint;
+  private final InitOncePtr<ConstraintFunction<ConstraintContext_CanBeRoot, Boolean>> myCanBeRootConstraint;
+  private final InitOncePtr<ConstraintFunction<ConstraintContext_CanBeParent, Boolean>> myCanBeParentConstraint;
+  private final InitOncePtr<ConstraintFunction<ConstraintContext_CanBeAncestor, Boolean>> myCanBeAncestorConstraint;
   private final InitOncePtr<ConstraintFunction<ConstraintContext_DefaultScopeProvider, ReferenceScopeProvider>> myDefaultScopeConstraint;
 
   private final ConcurrentHashMap<SProperty, PropertyConstraintsDescriptor> myPropertyConstraints = new ConcurrentHashMap<>();
   private final ConcurrentHashMap<SReferenceLink, ReferenceConstraintsDescriptor> myReferenceConstraints = new ConcurrentHashMap<>();
-  // these may become final if we inline  calculateXXX(Stream<>) methods, yet I hope to find better replacement for the methods altogether
+  // not sure 'true' is the right default, kept as is for now
   private boolean myCanBeChildIsDefined = true;
   private boolean myCanBeRootIsDefined = true;
   private boolean myCanBeAncestorIsDefined = true;
@@ -84,16 +84,10 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
     myConcept = concept;
     myDirectAncestorConstraints = initContext.getAncestorConstraints(concept).toList();
 
-    // XXX I see no reason to restrict parents to BCD, this is just the way collectParents() had it the moment I took over.
-    Supplier<Stream<BaseConstraintsDescriptor>> parents = () -> myDirectAncestorConstraints.stream()
-                                                                                           .filter(BaseConstraintsDescriptor.class::isInstance)
-                                                                                           .map(BaseConstraintsDescriptor.class::cast);
-    // XXX although there's no warning (IDEA doesn't see through private mediator), the pattern to invoke
-    //     overrode protected methods from constructor is awful practice.
-    myCanBeChildConstraint = calculateCanBeChildConstraint(parents);
-    myCanBeRootConstraint = calculateCanBeRootConstraint(parents);
-    myCanBeParentConstraint = calculateCanBeParentConstraint(parents);
-    myCanBeAncestorConstraint = calculateCanBeAncestorConstraint(parents);
+    myCanBeChildConstraint = new InitOncePtr<>();
+    myCanBeRootConstraint = new InitOncePtr<>();
+    myCanBeParentConstraint = new InitOncePtr<>();
+    myCanBeAncestorConstraint = new InitOncePtr<>();
     myDefaultScopeConstraint = new InitOncePtr<>();
   }
 
@@ -107,22 +101,24 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
 
   @Override
   public boolean canBeChildIsDefined() {
-    return myCanBeChildIsDefined;
+    return getCanBeChildConstraint() != null && myCanBeChildIsDefined; // see canBeAncestorIsDefined(), below
   }
 
   @Override
   public boolean canBeParentIsDefined() {
-    return myCanBeParentIsDefined;
+    return getCanBeParentConstraint() != null && myCanBeParentIsDefined; // see canBeAncestorIsDefined(), below
   }
 
   @Override
   public boolean canBeRootIsDefined() {
-    return myCanBeRootIsDefined;
+    return getCanBeRootConstraint() != null && myCanBeRootIsDefined; // see canBeAncestorIsDefined(), below
   }
 
   @Override
   public boolean canBeAncestorIsDefined() {
-    return myCanBeAncestorIsDefined;
+    // null check is not really necessary, what I care about is initialization sequence in _calculateCanBeAncestorConstraint() that set
+    // myCanBeAncestorIsDefined to FALSE if there's no override
+    return getCanBeAncestorConstraint() != null && myCanBeAncestorIsDefined;
   }
 
   @Deprecated(forRemoval = true, since = "2025.2")
@@ -141,61 +137,61 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
     return myDirectAncestorConstraints.stream();
   }
 
-  private ConstraintFunction<ConstraintContext_CanBeChild, Boolean> calculateCanBeChildConstraint(Supplier<Stream<BaseConstraintsDescriptor>> parents) {
-    final ConstraintFunction<ConstraintContext_CanBeChild, Boolean> rv = calculateCanBeChildConstraint();
+  private ConstraintFunction<ConstraintContext_CanBeChild, Boolean> _calculateCanBeChildConstraint() {
+    final var rv = calculateCanBeChildConstraint();
     if (rv != null) {
       return rv;
     }
-    return ConstraintFunctions.createBooleanComposition(parents.get().map(ConstraintFunctions::getCanBeChildConstraintFunction));
+    myCanBeChildIsDefined = false;
+    return ConstraintFunctions.createBooleanComposition(ancestors().map(ConstraintFunctions::getCanBeChildConstraintFunction));
   }
 
   protected ConstraintFunction<ConstraintContext_CanBeChild, Boolean> calculateCanBeChildConstraint() {
-    myCanBeChildIsDefined = false;
     return null;
   }
 
-  private ConstraintFunction<ConstraintContext_CanBeRoot, Boolean> calculateCanBeRootConstraint(Supplier<Stream<BaseConstraintsDescriptor>> parents) {
-    final ConstraintFunction<ConstraintContext_CanBeRoot, Boolean> rv = calculateCanBeRootConstraint();
+  private ConstraintFunction<ConstraintContext_CanBeRoot, Boolean> _calculateCanBeRootConstraint() {
+    final var rv = calculateCanBeRootConstraint();
     if (rv != null) {
       return rv;
     }
-    return ConstraintFunctions.createBooleanComposition(parents.get().map(ConstraintFunctions::getCanBeRootConstraintFunction));
+    myCanBeRootIsDefined = false;
+    return ConstraintFunctions.createBooleanComposition(ancestors().map(ConstraintFunctions::getCanBeRootConstraintFunction));
   }
 
   protected ConstraintFunction<ConstraintContext_CanBeRoot, Boolean> calculateCanBeRootConstraint() {
-    myCanBeRootIsDefined = false;
     return null;
   }
 
-  private ConstraintFunction<ConstraintContext_CanBeParent, Boolean> calculateCanBeParentConstraint(Supplier<Stream<BaseConstraintsDescriptor>> parents) {
-    final ConstraintFunction<ConstraintContext_CanBeParent, Boolean> rv = calculateCanBeParentConstraint();
+  private ConstraintFunction<ConstraintContext_CanBeParent, Boolean> _calculateCanBeParentConstraint() {
+    final var rv = calculateCanBeParentConstraint();
     if (rv != null) {
       return rv;
     }
-    return ConstraintFunctions.createBooleanComposition(parents.get().map(ConstraintFunctions::getCanBeParentConstraintFunction));
+    myCanBeParentIsDefined = false;
+    return ConstraintFunctions.createBooleanComposition(ancestors().map(ConstraintFunctions::getCanBeParentConstraintFunction));
   }
 
   protected ConstraintFunction<ConstraintContext_CanBeParent, Boolean> calculateCanBeParentConstraint() {
-    myCanBeParentIsDefined = false;
     return null;
   }
 
-  private ConstraintFunction<ConstraintContext_CanBeAncestor, Boolean> calculateCanBeAncestorConstraint(Supplier<Stream<BaseConstraintsDescriptor>> parents) {
-    final ConstraintFunction<ConstraintContext_CanBeAncestor, Boolean> rv = calculateCanBeAncestorConstraint();
+  private ConstraintFunction<ConstraintContext_CanBeAncestor, Boolean> _calculateCanBeAncestorConstraint() {
+    final var rv = calculateCanBeAncestorConstraint();
     if (rv != null) {
       return rv;
     }
-    return ConstraintFunctions.createBooleanComposition(parents.get().map(ConstraintFunctions::getCanBeAncestorConstraintFunction));
+    myCanBeAncestorIsDefined = false;
+    return ConstraintFunctions.createBooleanComposition(ancestors().map(ConstraintFunctions::getCanBeAncestorConstraintFunction));
   }
 
   protected ConstraintFunction<ConstraintContext_CanBeAncestor, Boolean> calculateCanBeAncestorConstraint() {
-    myCanBeAncestorIsDefined = false;
     return null;
   }
 
   // not null
   private ConstraintFunction<ConstraintContext_DefaultScopeProvider, ReferenceScopeProvider> _calculateDefaultScopeConstraint() {
-    final ConstraintFunction<ConstraintContext_DefaultScopeProvider, ReferenceScopeProvider> rv = calculateDefaultScopeConstraint();
+    final var rv = calculateDefaultScopeConstraint();
     return rv != null ? rv : ConstraintFunctions.createScopeProviderComposition(ancestors().map(ConstraintFunctions::getDefaultScopeConstraintFunction));
   }
 
@@ -203,20 +199,47 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
     return null;
   }
 
+  // not null
   public ConstraintFunction<ConstraintContext_CanBeChild, Boolean> getCanBeChildConstraint() {
-    return myCanBeChildConstraint;
+    return myCanBeChildConstraint.getOrElse(this::_calculateCanBeChildConstraint);
   }
 
+  protected final void setCanBeChildConstraint(@NotNull ConstraintFunction<ConstraintContext_CanBeChild, Boolean> constraint) {
+    // see below, other set* methods
+    myCanBeChildConstraint.set(constraint);
+    myCanBeChildIsDefined = true;
+  }
+
+  // not null
   public ConstraintFunction<ConstraintContext_CanBeRoot, Boolean> getCanBeRootConstraint() {
-    return myCanBeRootConstraint;
+    return myCanBeRootConstraint.getOrElse(this::_calculateCanBeRootConstraint);
   }
 
+  protected final void setCanBeRoot(@NotNull ConstraintFunction<ConstraintContext_CanBeRoot, Boolean> constraint) {
+    // see below, other set* methods
+    myCanBeRootConstraint.set(constraint);
+    myCanBeRootIsDefined = true;
+  }
+
+  // not null
   public ConstraintFunction<ConstraintContext_CanBeParent, Boolean> getCanBeParentConstraint() {
-    return myCanBeParentConstraint;
+    return myCanBeParentConstraint.getOrElse(this::_calculateCanBeParentConstraint);
   }
 
+  protected final void setCanBeParent(@NotNull ConstraintFunction<ConstraintContext_CanBeParent, Boolean> constraint) {
+    myCanBeParentConstraint.set(constraint);
+    myCanBeParentIsDefined = true;
+  }
+
+  // not null
   public ConstraintFunction<ConstraintContext_CanBeAncestor, Boolean> getCanBeAncestorConstraint() {
-    return myCanBeAncestorConstraint;
+    return myCanBeAncestorConstraint.getOrElse(this::_calculateCanBeAncestorConstraint);
+  }
+
+  protected final void setCanBeAncestor(@NotNull ConstraintFunction<ConstraintContext_CanBeAncestor, Boolean> constraint) {
+    // I don't expect more than one call for set
+    myCanBeAncestorConstraint.set(constraint);
+    myCanBeAncestorIsDefined = true;
   }
 
   // not null
@@ -226,7 +249,7 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
     return myDefaultScopeConstraint.getOrElse(this::_calculateDefaultScopeConstraint);
   }
 
-  protected final void setDefaultScope(ConstraintFunction<ConstraintContext_DefaultScopeProvider, ReferenceScopeProvider> constraint) {
+  protected final void setDefaultScope(@NotNull ConstraintFunction<ConstraintContext_DefaultScopeProvider, ReferenceScopeProvider> constraint) {
     // the idea is to use this method from generated subclasses instead of overriding calculateDefaultScopeConstraint(),
     // i.e. to pass function, which is constructed in overridden method (save the method!)
     myDefaultScopeConstraint.set(constraint);
@@ -241,22 +264,22 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
 
   @Override
   public boolean canBeChild(@NotNull ConstraintContext_CanBeChild context, @Nullable CheckingNodeContext checkingNodeContext) {
-    return myCanBeChildConstraint.invoke(context, checkingNodeContext);
+    return getCanBeChildConstraint().invoke(context, checkingNodeContext);
   }
 
   @Override
   public boolean canBeRoot(@NotNull ConstraintContext_CanBeRoot context, @Nullable CheckingNodeContext checkingNodeContext) {
-    return myCanBeRootConstraint.invoke(context, checkingNodeContext);
+    return getCanBeRootConstraint().invoke(context, checkingNodeContext);
   }
 
   @Override
   public boolean canBeParent(@NotNull ConstraintContext_CanBeParent context, @Nullable CheckingNodeContext checkingNodeContext) {
-    return myCanBeParentConstraint.invoke(context, checkingNodeContext);
+    return getCanBeParentConstraint().invoke(context, checkingNodeContext);
   }
 
   @Override
   public boolean canBeAncestor(@NotNull ConstraintContext_CanBeAncestor context, @Nullable CheckingNodeContext checkingNodeContext) {
-    return myCanBeAncestorConstraint.invoke(context, checkingNodeContext);
+    return getCanBeAncestorConstraint().invoke(context, checkingNodeContext);
   }
 
   @Override
