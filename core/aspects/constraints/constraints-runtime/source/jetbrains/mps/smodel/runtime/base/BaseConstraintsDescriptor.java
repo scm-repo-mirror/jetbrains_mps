@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.smodel.runtime.base;
 
-import jetbrains.mps.smodel.adapter.structure.concept.SAbstractConceptAdapter;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeAncestor;
 import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeChild;
@@ -45,7 +44,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Stream;
 
-// FIXME refresh templates not to override calculateXXX() methods, and instead use setXXX(Function), deprecate calculateXXX()
 public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
   private final SAbstractConcept myConcept;
   private final List<ConstraintsDescriptor> myDirectAncestorConstraints;
@@ -294,13 +292,27 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
       return myPropertyConstraints.get(property);
     }
 
-    if (!((SAbstractConceptAdapter) myConcept).hasProperty(property)) {
+    if (!isFromMyHierarchy(property.getOwner())) {
       return null;
     }
 
     myPropertyConstraints.put(property, new BasePropertyConstraintsDescriptor(property, this));
 
     return myPropertyConstraints.get(property);
+  }
+
+  /*
+   * Indeed, same check could have been accomplished in various ways (except the original `((SAbstractConceptAdapter) myConcept).hasXXX`:
+   * - myConcept.getProperties().contains(property)
+   * - myConcept.isSubConceptOf(property.getConcept())
+   * - new DepthFirstConceptIterator().forEach(it.equals(property.getConcept())
+   * - and numerous other that involve accessing ConceptDescriptor.
+   * Here I stick to approach that doesn't require ConceptDescriptor, rather relies on the fact we've got concept hierarchy
+   * exposed as ConstraintsDescriptor, with the only deficiency is assuming all of them are BaseConstrainsDescriptor (which is true at the moment,
+   * but could possibly get changed eventually)
+   */
+  private boolean isFromMyHierarchy(/*not null*/ final SAbstractConcept concept) {
+    return myConcept.equals(concept) || ancestors().map(BaseConstraintsDescriptor.class::cast).anyMatch(bcd -> bcd.isFromMyHierarchy(concept));
   }
 
   @Override
@@ -310,7 +322,7 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
       return myReferenceConstraints.get(ref);
     }
 
-    if (!((SAbstractConceptAdapter) myConcept).hasReference(ref)) {
+    if (!isFromMyHierarchy(ref.getOwner())) {
       return null;
     }
 

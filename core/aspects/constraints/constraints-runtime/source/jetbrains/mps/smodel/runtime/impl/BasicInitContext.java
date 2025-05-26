@@ -3,7 +3,6 @@
  */
 package jetbrains.mps.smodel.runtime.impl;
 
-import jetbrains.mps.kernel.model.SModelUtil;
 import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.smodel.language.ConstraintsRegistry;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
@@ -12,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.annotations.Internal;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -51,7 +51,13 @@ public class BasicInitContext implements ConstraintsDescriptorInitContext {
     if (myParentDescriptors != null && concept.equals(myConcept)) {
       return myParentDescriptors.stream();
     }
-    final List<SAbstractConcept> directSuperConcepts = SModelUtil.getDirectSuperConcepts(concept);
-    return directSuperConcepts.stream().map(myRegistry::getConstraintsDescriptor);
+    // == SModelUtil.getDirectSuperConcepts(concept), without [kernel] dependency
+    final Stream.Builder<SAbstractConcept> directSuperConcepts = Stream.builder();
+    SConcept sc = concept.getSuperConcept();
+    if (sc != null) {
+      directSuperConcepts.add(sc);
+    }
+    concept.getSuperInterfaces().forEach(directSuperConcepts::add);
+    return directSuperConcepts.build().map(myRegistry::getConstraintsDescriptor);
   }
 }
