@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2024 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -57,15 +57,6 @@ public final class ConceptPresentationBuilder {
 
   public ConceptPresentationBuilder shortDesc(String desc) {
     myShortDescription = desc;
-    return this;
-  }
-
-  /**
-   * @deprecated use {@link #icon(IconResource)} instead. This method is not in use for a long time and could be removed at any moment
-   */
-  @Deprecated(since = "2024.2", forRemoval = true)
-  public ConceptPresentationBuilder icon(String icnResId, Class resourceProvider) {
-    myIcon = new IconResource(icnResId, resourceProvider);
     return this;
   }
 
