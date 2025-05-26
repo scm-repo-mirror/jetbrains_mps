@@ -19,12 +19,8 @@ import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.adapter.MetaAdapterByDeclaration;
 import jetbrains.mps.smodel.constraints.ReferenceDescriptor.OkReferenceDescriptor;
 import jetbrains.mps.smodel.language.ConceptRegistryUtil;
-import jetbrains.mps.smodel.runtime.CheckingNodeContext;
-import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeAncestor;
-import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.mps.annotations.Internal;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -46,42 +42,6 @@ import org.jetbrains.mps.openapi.model.SReference;
  * getReferenceDescriptor(node, role, index, smartConcept) gets ref descriptor for smartReference being created in "aggregation" role
  */
 public class ModelConstraints {
-  // public canBe* section
-
-  /**
-   * it seems that only canBeParentPredicate needs this method
-   * it does canBeAncestor checks for all pairs (node, parentNode)
-   *
-   * TODO: ashatalin: make containmentLink @NotNull and expose this parameter inside canBeAncestor constraint in MPS DSL.
-   * TODO: For now I did not expose it because editor is calling this method with null containmentLink from time
-   * TODO: to time -> additional refactoring is required in editor framework in order to achieve it.
-   *
-   * XXX AFAIU, use of this method can be replaced with ConstraintsCanBeFacade.checkCanBeAncestor check, just need to
-   *     mimic logic of parentNode hierarchy walking (checkCanBeAncestor sticks to single concept check).
-   *     Nullable containment link is not an obstacle, CanBeAncestorContext constructor tolerates nullable link,
-   *     just need to be careful to supply both parent and ancestor nodes
-   */
-  @Deprecated
-  @Internal
-  public static boolean canBeAncestor(@NotNull SNode parentNode,
-                                      @NotNull SAbstractConcept childConcept,
-                                      @Nullable SContainmentLink containmentLink,
-                                      @Nullable CheckingNodeContext checkingNodeContext) {
-
-    SNode currentNode = parentNode;
-    while (currentNode != null) {
-      ConstraintContext_CanBeAncestor context = new ConstraintContext_CanBeAncestor(currentNode, childConcept, parentNode, containmentLink);
-      ConstraintsDescriptor descriptor = ConceptRegistryUtil.getConstraintsDescriptor(currentNode.getConcept());
-
-      if (!descriptor.canBeAncestor(context, checkingNodeContext)) {
-        return false;
-      }
-
-      currentNode = currentNode.getParent();
-    }
-
-    return true;
-  }
 
   // scopes part
   @NotNull
