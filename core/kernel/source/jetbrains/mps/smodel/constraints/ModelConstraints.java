@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2023 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,8 +15,6 @@
  */
 package jetbrains.mps.smodel.constraints;
 
-import jetbrains.mps.core.aspects.feedback.messages.FailingPropertyConstraintContext;
-import jetbrains.mps.core.aspects.feedback.messages.FailingPropertyConstraintProblem;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.adapter.MetaAdapterByDeclaration;
 import jetbrains.mps.smodel.constraints.ReferenceDescriptor.OkReferenceDescriptor;
@@ -30,13 +28,9 @@ import org.jetbrains.mps.annotations.Internal;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
-import org.jetbrains.mps.openapi.language.SType;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SReference;
-
-import java.util.List;
 
 /**
  * API for model constraints
@@ -125,29 +119,5 @@ public class ModelConstraints {
       return cc;
     }
     return MetaAdapterByDeclaration.asInstanceConcept(concept);
-  }
-
-  // properties part
-
-  /**
-   * Validates both structure constraints ({@link SType#isInstanceOf(Object)})
-   * and language constraints (property validation functions in constraints aspect)
-   * @deprecated use {@link ConstraintsChildAndPropFacade#checkPropertyValue} directly
-   */
-  @Deprecated(since = "2023.2", forRemoval = true)
-  public static boolean validatePropertyValue(SNode node,
-                                              SProperty property,
-                                              Object propertyValue,
-                                              @Nullable CheckingNodeContext checkingNodeContext) {
-    // there's 1 use in mps-extensions, removed in mps/2023.2 branch
-    FailingPropertyConstraintContext context = new FailingPropertyConstraintContext(node, property, propertyValue);
-    List<FailingPropertyConstraintProblem> result = ConstraintsChildAndPropFacade.checkPropertyValue(context);
-    if (result.isEmpty()) {
-      return true;
-    }
-    if (checkingNodeContext != null) {
-      checkingNodeContext.setBreakingNode(result.get(0).getProblemSource());
-    }
-    return false;
   }
 }

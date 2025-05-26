@@ -45,7 +45,7 @@ public final class ConstraintsRegistry implements CoreAspectRegistry {
 
   public ConstraintsRegistry(@NotNull LanguageRegistry languageRegistry, SConceptC3StarMRO mro) {
     myLanguageRegistry = languageRegistry;
-    myNewCounterpart = new RulesConstraintsRegistry(languageRegistry, mro);
+    myNewCounterpart = new RulesConstraintsRegistry(languageRegistry, mro, this);
   }
 
   @NotNull
