@@ -9,7 +9,6 @@
   <imports>
     <import index="c2kz" ref="r:b567205c-7e17-4168-b413-945a6e17f37d(jetbrains.mps.samples.Kaja.structure)" />
     <import index="tpco" ref="r:00000000-0000-4000-0000-011c89590284(jetbrains.mps.lang.core.editor)" />
-    <import index="tpch" ref="r:00000000-0000-4000-0000-011c8959028d(jetbrains.mps.lang.structure.editor)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
     <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" implicit="true" />
     <import index="cj4x" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor(MPS.Editor/)" implicit="true" />
@@ -136,6 +135,7 @@
       </concept>
       <concept id="1233758997495" name="jetbrains.mps.lang.editor.structure.PunctuationLeftStyleClassItem" flags="ln" index="11L4FC" />
       <concept id="1233759184865" name="jetbrains.mps.lang.editor.structure.PunctuationRightStyleClassItem" flags="ln" index="11LMrY" />
+      <concept id="1240253180846" name="jetbrains.mps.lang.editor.structure.IndentLayoutNoWrapClassItem" flags="ln" index="34QqEe" />
       <concept id="3383245079137422349" name="jetbrains.mps.lang.editor.structure.StyleClassReference" flags="ng" index="14SbXO">
         <reference id="3383245079137422350" name="styleClass" index="14SbXR" />
       </concept>
@@ -1308,6 +1308,51 @@
         <node concept="1wgc9g" id="gcRXCL$K1q" role="3XvnJa">
           <ref role="1wgcnl" node="gcRXCL$ZBT" />
         </node>
+      </node>
+    </node>
+    <node concept="14StLt" id="75A9veqzBnk" role="V601i">
+      <property role="TrG5h" value="AnyBracket" />
+      <node concept="34QqEe" id="75A9veqzBnl" role="3F10Kt">
+        <property role="VOm3f" value="true" />
+      </node>
+      <node concept="Vb9p2" id="75A9veqzBnn" role="3F10Kt" />
+    </node>
+    <node concept="14StLt" id="hF$iCJm" role="V601i">
+      <property role="TrG5h" value="Parenthesis" />
+      <node concept="3Xmtl4" id="3HPX3xRcONI" role="3F10Kt">
+        <node concept="1wgc9g" id="3HPX3xRcONJ" role="3XvnJa">
+          <ref role="1wgcnl" node="75A9veqzBnk" resolve="AnyBracket" />
+        </node>
+      </node>
+      <node concept="3Xmtl4" id="3HPX3xRcOMT" role="3F10Kt">
+        <node concept="1wgc9g" id="3HPX3xRcOMU" role="3XvnJa">
+          <ref role="1wgcnl" node="1x7jha6Fktw" />
+        </node>
+      </node>
+      <node concept="3mYdg7" id="i14cPte" role="3F10Kt">
+        <property role="1413C4" value="parenthesis" />
+      </node>
+    </node>
+    <node concept="14StLt" id="hFCSAw$" role="V601i">
+      <property role="TrG5h" value="LeftParen" />
+      <node concept="3Xmtl4" id="3HPX3xRcOUj" role="3F10Kt">
+        <node concept="1wgc9g" id="3HPX3xRcOUk" role="3XvnJa">
+          <ref role="1wgcnl" node="hF$iCJm" resolve="Parenthesis" />
+        </node>
+      </node>
+      <node concept="11LMrY" id="i11Rb6B" role="3F10Kt">
+        <property role="VOm3f" value="true" />
+      </node>
+    </node>
+    <node concept="14StLt" id="hFCSUmN" role="V601i">
+      <property role="TrG5h" value="RightParen" />
+      <node concept="3Xmtl4" id="3HPX3xRcOND" role="3F10Kt">
+        <node concept="1wgc9g" id="3HPX3xRcONE" role="3XvnJa">
+          <ref role="1wgcnl" node="hF$iCJm" resolve="Parenthesis" />
+        </node>
+      </node>
+      <node concept="11L4FC" id="hX1U7Dc" role="3F10Kt">
+        <property role="VOm3f" value="true" />
       </node>
     </node>
   </node>
@@ -2888,6 +2933,9 @@
     </node>
     <node concept="2NdhxG" id="gcRXCL$ZXo" role="2NdZaQ">
       <property role="Xl_RC" value="STRING" />
+    </node>
+    <node concept="2NdhxG" id="1x7jha6Fktw" role="2NdZaQ">
+      <property role="Xl_RC" value="PARENTH" />
     </node>
   </node>
 </model>

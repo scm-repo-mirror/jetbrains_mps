@@ -18,6 +18,7 @@ import jetbrains.mps.samples.Kaja.editor.KajaStylePack_KeyPack.TODO_StyleKey;
 import jetbrains.mps.samples.Kaja.editor.KajaStylePack_KeyPack.DEFAULT_INSTANCE_FIELD_StyleKey;
 import jetbrains.mps.samples.Kaja.editor.KajaStylePack_KeyPack.STRING_StyleKey;
 import jetbrains.mps.samples.Kaja.editor.KajaStylePack_KeyPack.NUMBER_StyleKey;
+import jetbrains.mps.samples.Kaja.editor.KajaStylePack_KeyPack.PARENTH_StyleKey;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -115,6 +116,55 @@ public class KajakStyles_StyleSheet {
     @Override
     public void apply(Style style, EditorCell editorCell) {
       new NUMBER_StyleKey().apply(this, style);
+    }
+
+  }
+  public static class AnyBracketStyleClass extends AbstractStyleClass {
+    public AnyBracketStyleClass(EditorBuilderEnvironment builderEnv) {
+      super(builderEnv);
+    }
+
+    @Override
+    public void apply(Style style, EditorCell editorCell) {
+      style.set(StyleAttributes.INDENT_LAYOUT_NO_WRAP, true);
+      style.set(StyleAttributes.FONT_STYLE, MPSFonts.PLAIN);
+    }
+
+  }
+  public static class ParenthesisStyleClass extends AbstractStyleClass {
+    public ParenthesisStyleClass(EditorBuilderEnvironment builderEnv) {
+      super(builderEnv);
+    }
+
+    @Override
+    public void apply(Style style, EditorCell editorCell) {
+      new AnyBracketStyleClass(this).apply(style, editorCell);
+      new PARENTH_StyleKey().apply(this, style);
+      style.set(StyleAttributes.MATCHING_LABEL, "parenthesis");
+    }
+
+  }
+  public static class LeftParenStyleClass extends AbstractStyleClass {
+    public LeftParenStyleClass(EditorBuilderEnvironment builderEnv) {
+      super(builderEnv);
+    }
+
+    @Override
+    public void apply(Style style, EditorCell editorCell) {
+      new ParenthesisStyleClass(this).apply(style, editorCell);
+      style.set(StyleAttributes.PUNCTUATION_RIGHT, true);
+    }
+
+  }
+  public static class RightParenStyleClass extends AbstractStyleClass {
+    public RightParenStyleClass(EditorBuilderEnvironment builderEnv) {
+      super(builderEnv);
+    }
+
+    @Override
+    public void apply(Style style, EditorCell editorCell) {
+      new ParenthesisStyleClass(this).apply(style, editorCell);
+      style.set(StyleAttributes.PUNCTUATION_LEFT, true);
     }
 
   }
