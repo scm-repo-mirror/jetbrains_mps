@@ -44,6 +44,7 @@ import org.jetbrains.mps.openapi.module.SModuleReference;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Stream;
 import com.intellij.ui.icons.CachedImageIcon;
+import jetbrains.mps.classloading.ModuleClassLoader;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 @GeneratedClass(nodeId = "1315815304215925444", model = "r:836426ab-a6f4-4fa3-9a9c-34c02ed6ab5d(jetbrains.mps.ide.icons)")
@@ -229,7 +230,7 @@ public class BaseIconManager {
     }
     Icon icon = null;
     if (ir.isLegacy()) {
-      if (ir.isAlreadyReloaded()) {
+      if (isAlreadyReloaded(ir)) {
         MapSequence.fromMap(myResToIcon).removeKey(ir);
       }
       if (MapSequence.fromMap(myResToIcon).containsKey(ir)) {
@@ -279,6 +280,19 @@ public class BaseIconManager {
       }
       return icon;
     }
+  }
+
+  /**
+   * Just a copy of IconResource.isAlreadyReloaded() to eliminate excessive dependencies of IconResource class
+   * The method shall be removed along with isLegacy() branch, above.
+   */
+  private static boolean isAlreadyReloaded(IconResource ir) {
+    Class<?> c = ir.getProvider();
+    if (c == null) {
+      return true;
+    }
+    ClassLoader cl = c.getClassLoader();
+    return cl instanceof ModuleClassLoader && ((ModuleClassLoader) cl).isDisposed();
   }
 
   private static final class CONCEPTS {

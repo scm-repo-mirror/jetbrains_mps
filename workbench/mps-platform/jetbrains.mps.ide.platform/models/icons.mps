@@ -36,6 +36,7 @@
     <import index="1ctc" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.stream(JDK/)" />
     <import index="i5cy" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.concurrent.atomic(JDK/)" />
     <import index="3iga" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ui.icons(MPS.IDEA/)" />
+    <import index="3qmy" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.classloading(MPS.Core/)" />
     <import index="ze1j" ref="8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.smodel.runtime(jetbrains.mps.lang.constraints.rules.runtime/)" implicit="true" />
   </imports>
   <registry>
@@ -2198,12 +2199,10 @@
                   </node>
                 </node>
               </node>
-              <node concept="2OqwBi" id="192HKKPP2rt" role="3clFbw">
-                <node concept="37vLTw" id="192HKKPP2ru" role="2Oq$k0">
+              <node concept="1rXfSq" id="1Ib63V_gE95" role="3clFbw">
+                <ref role="37wK5l" node="1Ib63V_gkgU" resolve="isAlreadyReloaded" />
+                <node concept="37vLTw" id="1Ib63V_gGBp" role="37wK5m">
                   <ref role="3cqZAo" node="192HKKPP2t4" resolve="ir" />
-                </node>
-                <node concept="liA8E" id="192HKKPP2rv" role="2OqNvi">
-                  <ref role="37wK5l" to="ze1i:~IconResource.isAlreadyReloaded()" resolve="isAlreadyReloaded" />
                 </node>
               </node>
             </node>
@@ -2917,6 +2916,107 @@
         </node>
       </node>
       <node concept="3Tm1VV" id="192HKKPP2rd" role="1B3o_S" />
+    </node>
+    <node concept="2tJIrI" id="1Ib63V_fJVd" role="jymVt" />
+    <node concept="2YIFZL" id="1Ib63V_gkgU" role="jymVt">
+      <property role="TrG5h" value="isAlreadyReloaded" />
+      <node concept="3clFbS" id="1Ib63V_gkgW" role="3clF47">
+        <node concept="3cpWs8" id="1Ib63V_gocM" role="3cqZAp">
+          <node concept="3cpWsn" id="1Ib63V_gocN" role="3cpWs9">
+            <property role="TrG5h" value="c" />
+            <node concept="3uibUv" id="1Ib63V_gnOR" role="1tU5fm">
+              <ref role="3uigEE" to="wyt6:~Class" resolve="Class" />
+              <node concept="3qTvmN" id="1Ib63V_goQ7" role="11_B2D" />
+            </node>
+            <node concept="2OqwBi" id="1Ib63V_gocO" role="33vP2m">
+              <node concept="37vLTw" id="1Ib63V_gocP" role="2Oq$k0">
+                <ref role="3cqZAo" node="1Ib63V_gkgZ" resolve="ir" />
+              </node>
+              <node concept="liA8E" id="1Ib63V_gocQ" role="2OqNvi">
+                <ref role="37wK5l" to="ze1i:~IconResource.getProvider()" resolve="getProvider" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbJ" id="1Ib63V_gpIS" role="3cqZAp">
+          <node concept="3clFbS" id="1Ib63V_gpIU" role="3clFbx">
+            <node concept="3cpWs6" id="1Ib63V_gsci" role="3cqZAp">
+              <node concept="3clFbT" id="1Ib63V_gspp" role="3cqZAk">
+                <property role="3clFbU" value="true" />
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbC" id="1Ib63V_gr2s" role="3clFbw">
+            <node concept="10Nm6u" id="1Ib63V_grKD" role="3uHU7w" />
+            <node concept="37vLTw" id="1Ib63V_gqcK" role="3uHU7B">
+              <ref role="3cqZAo" node="1Ib63V_gocN" resolve="c" />
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs8" id="1Ib63V_gvVt" role="3cqZAp">
+          <node concept="3cpWsn" id="1Ib63V_gvVu" role="3cpWs9">
+            <property role="TrG5h" value="cl" />
+            <node concept="3uibUv" id="1Ib63V_gvCM" role="1tU5fm">
+              <ref role="3uigEE" to="wyt6:~ClassLoader" resolve="ClassLoader" />
+            </node>
+            <node concept="2OqwBi" id="1Ib63V_gvVv" role="33vP2m">
+              <node concept="37vLTw" id="1Ib63V_gvVw" role="2Oq$k0">
+                <ref role="3cqZAo" node="1Ib63V_gocN" resolve="c" />
+              </node>
+              <node concept="liA8E" id="1Ib63V_gvVx" role="2OqNvi">
+                <ref role="37wK5l" to="wyt6:~Class.getClassLoader()" resolve="getClassLoader" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs6" id="1Ib63V_gxi0" role="3cqZAp">
+          <node concept="1Wc70l" id="1Ib63V_g$bK" role="3cqZAk">
+            <node concept="2OqwBi" id="1Ib63V_gAby" role="3uHU7w">
+              <node concept="1eOMI4" id="1Ib63V_g$s$" role="2Oq$k0">
+                <node concept="10QFUN" id="1Ib63V_g$sx" role="1eOMHV">
+                  <node concept="3uibUv" id="1Ib63V_g_5D" role="10QFUM">
+                    <ref role="3uigEE" to="3qmy:~ModuleClassLoader" resolve="ModuleClassLoader" />
+                  </node>
+                  <node concept="37vLTw" id="1Ib63V_g_Gi" role="10QFUP">
+                    <ref role="3cqZAo" node="1Ib63V_gvVu" resolve="cl" />
+                  </node>
+                </node>
+              </node>
+              <node concept="liA8E" id="1Ib63V_gAHN" role="2OqNvi">
+                <ref role="37wK5l" to="3qmy:~ModuleClassLoader.isDisposed()" resolve="isDisposed" />
+              </node>
+            </node>
+            <node concept="2ZW3vV" id="1Ib63V_gy3E" role="3uHU7B">
+              <node concept="3uibUv" id="1Ib63V_gy_$" role="2ZW6by">
+                <ref role="3uigEE" to="3qmy:~ModuleClassLoader" resolve="ModuleClassLoader" />
+              </node>
+              <node concept="37vLTw" id="1Ib63V_gxBh" role="2ZW6bz">
+                <ref role="3cqZAo" node="1Ib63V_gvVu" resolve="cl" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="10P_77" id="1Ib63V_gkgY" role="3clF45" />
+      <node concept="37vLTG" id="1Ib63V_gkgZ" role="3clF46">
+        <property role="TrG5h" value="ir" />
+        <node concept="3uibUv" id="1Ib63V_gkh0" role="1tU5fm">
+          <ref role="3uigEE" to="ze1i:~IconResource" resolve="IconResource" />
+        </node>
+      </node>
+      <node concept="3Tm6S6" id="1Ib63V_gkgX" role="1B3o_S" />
+      <node concept="P$JXv" id="1Ib63V_gkh7" role="lGtFl">
+        <node concept="TZ5HA" id="1Ib63V_gkh8" role="TZ5H$">
+          <node concept="1dT_AC" id="1Ib63V_gkh9" role="1dT_Ay">
+            <property role="1dT_AB" value="Just a copy of IconResource.isAlreadyReloaded() to eliminate excessive dependencies of IconResource class" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="1Ib63V_gkha" role="TZ5H$">
+          <node concept="1dT_AC" id="1Ib63V_gkhb" role="1dT_Ay">
+            <property role="1dT_AB" value="The method shall be removed along with isLegacy() branch, above." />
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="3Tm1VV" id="192HKKPO1b5" role="1B3o_S" />
   </node>
