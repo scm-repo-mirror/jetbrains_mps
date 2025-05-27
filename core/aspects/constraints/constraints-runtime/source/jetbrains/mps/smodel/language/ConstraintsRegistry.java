@@ -18,6 +18,7 @@ package jetbrains.mps.smodel.language;
 import jetbrains.mps.core.aspects.behaviour.SConceptC3StarMRO;
 import jetbrains.mps.core.aspects.constraints.rules.RulesConstraintsRegistry;
 import jetbrains.mps.logging.Logger;
+import jetbrains.mps.smodel.constraints.ConstraintsInit;
 import jetbrains.mps.smodel.runtime.ConstraintsAspectDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
@@ -46,6 +47,7 @@ public final class ConstraintsRegistry implements CoreAspectRegistry {
   public ConstraintsRegistry(@NotNull LanguageRegistry languageRegistry, SConceptC3StarMRO mro) {
     myLanguageRegistry = languageRegistry;
     myNewCounterpart = new RulesConstraintsRegistry(languageRegistry, mro, this);
+    ConstraintsInit.init(this);
   }
 
   @NotNull
