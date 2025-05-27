@@ -21864,7 +21864,10 @@
                     <node concept="2Ry0Ak" id="73GUf$ummNi" role="2Ry0An">
                       <property role="2Ry0Am" value="structure" />
                       <node concept="2Ry0Ak" id="73GUf$ummNj" role="2Ry0An">
-                        <property role="2Ry0Am" value="generator_new" />
+                        <property role="2Ry0Am" value="generator" />
+                        <node concept="2Ry0Ak" id="p7Ozznx2fh" role="2Ry0An">
+                          <property role="2Ry0Am" value="templates" />
+                        </node>
                       </node>
                     </node>
                   </node>

@@ -17,7 +17,7 @@
     <generator alias="main" namespace="jetbrains.mps.lang.structure#1170324972255" uuid="b8e4beec-8383-4fb9-b0bb-9d1c9c159cfc">
       <models>
         <modelRoot contentPath="${module}" type="default">
-          <sourceRoot location="generator_new" />
+          <sourceRoot location="generator/templates" />
         </modelRoot>
       </models>
       <facets>

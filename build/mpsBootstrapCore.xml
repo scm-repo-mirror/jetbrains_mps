@@ -11988,8 +11988,8 @@
     <copyModels todir="${build.tmp}/customProcessors/copyModels/languages-languageDesign-structure-languageModels">
       <fileset dir="${mps_home}/languages/languageDesign/structure/languageModels" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
-    <copyModels todir="${build.tmp}/customProcessors/copyModels/languages-languageDesign-structure-generator_new">
-      <fileset dir="${mps_home}/languages/languageDesign/structure/generator_new" includes="**/*.mps, **/*.mpsr, **/.model" />
+    <copyModels todir="${build.tmp}/customProcessors/copyModels/languages-languageDesign-structure-generator-templates">
+      <fileset dir="${mps_home}/languages/languageDesign/structure/generator/templates" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/languages/languageDesign/jetbrains.mps.lang.structure-src.jar" duplicate="preserve">
       <fileset dir="${mps_home}/languages/languageDesign/structure/generator/source_gen">
@@ -12006,7 +12006,7 @@
       </fileset>
       <zipfileset file="${mps_home}/languages/languageDesign/structure/jetbrains.mps.lang.structure.mpl" prefix="module" />
       <zipfileset dir="${build.tmp}/customProcessors/copyModels/languages-languageDesign-structure-languageModels" prefix="module/languageModels" />
-      <zipfileset dir="${build.tmp}/customProcessors/copyModels/languages-languageDesign-structure-generator_new" prefix="module/generator_new" />
+      <zipfileset dir="${build.tmp}/customProcessors/copyModels/languages-languageDesign-structure-generator-templates" prefix="module/generator/templates" />
     </jar>
     <mkdir dir="${build.tmp}/default/jetbrains.mps.lang.structure.ldgen.jar" />
     <mkdir dir="${build.tmp}/default/jetbrains.mps.lang.structure.ldgen.jar/META-INF" />
