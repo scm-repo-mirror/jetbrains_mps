@@ -7451,7 +7451,7 @@
       </node>
       <node concept="2ShNRf" id="18KkhdDWiIf" role="33vP2m">
         <node concept="1pGfFk" id="18KkhdDWjdV" role="2ShVmc">
-          <ref role="37wK5l" to="ze1i:~EnumerationDescriptorBase$MembersList.&lt;init&gt;(jetbrains.mps.smodel.runtime.EnumerationDescriptorBase,jetbrains.mps.lang.smodel.EnumerationLiteralsIndex,jetbrains.mps.smodel.runtime.EnumerationDescriptor$MemberDescriptor...)" resolve="EnumerationDescriptorBase.MembersList" />
+          <ref role="37wK5l" to="ze1i:~EnumerationDescriptorBase$MembersList0.&lt;init&gt;(jetbrains.mps.lang.smodel.EnumerationLiteralsIndex,jetbrains.mps.smodel.runtime.EnumerationDescriptor$MemberDescriptor...)" resolve="EnumerationDescriptorBase.MembersList0" />
           <node concept="37vLTw" id="3hHNQslrxLU" role="37wK5m">
             <ref role="3cqZAo" node="3hHNQslrt0$" resolve="myIndex" />
           </node>

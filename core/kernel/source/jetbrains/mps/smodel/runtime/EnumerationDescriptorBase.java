@@ -33,10 +33,18 @@ public abstract class EnumerationDescriptorBase extends NamedElementDescriptorBa
     return myId;
   }
 
-  protected class MembersList extends AbstractList<MemberDescriptor> {
+  // doesn't need EnumerationDescriptorBase instance; keep for compatibility with legacy code for 1-2 releases.
+  @Deprecated(since = "2025.2", forRemoval = true)
+  protected class MembersList extends MembersList0 {
+    public MembersList(EnumerationLiteralsIndex index, MemberDescriptor ... descriptors) {
+      super(index, descriptors);
+    }
+  }
+
+  protected static class MembersList0 extends AbstractList<MemberDescriptor> {
     private final MemberDescriptor[] myDescriptors;
     private final EnumerationLiteralsIndex myIndex;
-    public MembersList(EnumerationLiteralsIndex index, MemberDescriptor ... descriptors) {
+    public MembersList0(EnumerationLiteralsIndex index, MemberDescriptor ... descriptors) {
       myIndex = index;
       myDescriptors = descriptors;
     }
