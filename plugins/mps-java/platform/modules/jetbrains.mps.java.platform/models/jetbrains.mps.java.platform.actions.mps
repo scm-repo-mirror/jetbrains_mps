@@ -1967,6 +1967,46 @@
         </node>
       </node>
     </node>
+    <node concept="2ScWuX" id="2PXs3g9bcLF" role="tmbBb">
+      <node concept="3clFbS" id="2PXs3g9bcLG" role="2VODD2">
+        <node concept="1DcWWT" id="2PXs3g9bpnG" role="3cqZAp">
+          <node concept="3cpWsn" id="2PXs3g9bpnH" role="1Duv9x">
+            <property role="TrG5h" value="model" />
+            <node concept="3uibUv" id="2PXs3g9bq30" role="1tU5fm">
+              <ref role="3uigEE" to="mhbf:~SModel" resolve="SModel" />
+            </node>
+          </node>
+          <node concept="2OqwBi" id="2PXs3g9bqb4" role="1DdaDG">
+            <node concept="2WthIp" id="2PXs3g9bqb7" role="2Oq$k0" />
+            <node concept="1DTwFV" id="2PXs3g9bqb9" role="2OqNvi">
+              <ref role="2WH_rO" node="1N_sel8h_Yv" resolve="models" />
+            </node>
+          </node>
+          <node concept="3clFbS" id="2PXs3g9bpnJ" role="2LFqv$">
+            <node concept="3clFbJ" id="2PXs3g9bxbI" role="3cqZAp">
+              <node concept="2OqwBi" id="2PXs3g9byyo" role="3clFbw">
+                <node concept="37vLTw" id="2PXs3g9bxPE" role="2Oq$k0">
+                  <ref role="3cqZAo" node="2PXs3g9bpnH" resolve="model" />
+                </node>
+                <node concept="liA8E" id="2PXs3g9bzkI" role="2OqNvi">
+                  <ref role="37wK5l" to="mhbf:~SModel.isReadOnly()" resolve="isReadOnly" />
+                </node>
+              </node>
+              <node concept="3clFbS" id="2PXs3g9bxbK" role="3clFbx">
+                <node concept="3cpWs6" id="2PXs3g9b$qG" role="3cqZAp">
+                  <node concept="3clFbT" id="2PXs3g9b_3_" role="3cqZAk" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs6" id="2PXs3g9bv_i" role="3cqZAp">
+          <node concept="3clFbT" id="2PXs3g9b_Mi" role="3cqZAk">
+            <property role="3clFbU" value="true" />
+          </node>
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="sE7Ow" id="3Kb8mGRKrf9">
     <property role="TrG5h" value="ResolveStubReferencesToMPSGlobal" />

@@ -48,7 +48,7 @@ public class CloneModel_Action extends BaseAction {
     }
     SModule module = ((SModel) MapSequence.fromMap(_params).get("model")).getModule();
     boolean isAspectModel = module instanceof Language && LanguageAspectSupport.isAspectModel(((SModel) MapSequence.fromMap(_params).get("model")));
-    presentation.setEnabledAndVisible(!(isAspectModel));
+    presentation.setEnabledAndVisible(!(isAspectModel) && !(module.isReadOnly()));
   }
   @Override
   protected boolean collectActionData(AnActionEvent event, final Map<String, Object> _params) {

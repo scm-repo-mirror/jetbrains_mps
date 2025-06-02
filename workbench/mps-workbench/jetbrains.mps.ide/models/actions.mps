@@ -1627,6 +1627,45 @@
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MODEL" resolve="MODEL" />
       <node concept="1oajcY" id="7HZe2EwZDkB" role="1oa70y" />
     </node>
+    <node concept="2ScWuX" id="3HcORs73xH9" role="tmbBb">
+      <node concept="3clFbS" id="3HcORs73xHa" role="2VODD2">
+        <node concept="3clFbF" id="3HcORs73y9N" role="3cqZAp">
+          <node concept="1Wc70l" id="3HcORs73DNr" role="3clFbG">
+            <node concept="3fqX7Q" id="3HcORs73FAr" role="3uHU7w">
+              <node concept="2OqwBi" id="3HcORs73FAt" role="3fr31v">
+                <node concept="2OqwBi" id="3HcORs73FAu" role="2Oq$k0">
+                  <node concept="2OqwBi" id="3HcORs73FAv" role="2Oq$k0">
+                    <node concept="2WthIp" id="3HcORs73FAw" role="2Oq$k0" />
+                    <node concept="1DTwFV" id="3HcORs73FAx" role="2OqNvi">
+                      <ref role="2WH_rO" node="hHNVb$S" resolve="model" />
+                    </node>
+                  </node>
+                  <node concept="liA8E" id="3HcORs73FAy" role="2OqNvi">
+                    <ref role="37wK5l" to="mhbf:~SModel.getModule()" resolve="getModule" />
+                  </node>
+                </node>
+                <node concept="liA8E" id="3HcORs73FAz" role="2OqNvi">
+                  <ref role="37wK5l" to="lui2:~SModule.isReadOnly()" resolve="isReadOnly" />
+                </node>
+              </node>
+            </node>
+            <node concept="3fqX7Q" id="3HcORs73Dh0" role="3uHU7B">
+              <node concept="2OqwBi" id="3HcORs73Dh2" role="3fr31v">
+                <node concept="2OqwBi" id="3HcORs73Dh3" role="2Oq$k0">
+                  <node concept="2WthIp" id="3HcORs73Dh4" role="2Oq$k0" />
+                  <node concept="1DTwFV" id="3HcORs73Dh5" role="2OqNvi">
+                    <ref role="2WH_rO" node="hHNVb$S" resolve="model" />
+                  </node>
+                </node>
+                <node concept="liA8E" id="3HcORs73Dh6" role="2OqNvi">
+                  <ref role="37wK5l" to="mhbf:~SModel.isReadOnly()" resolve="isReadOnly" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="sE7Ow" id="hGnLICq">
     <property role="TrG5h" value="CloneModel" />
@@ -1823,9 +1862,21 @@
             </node>
             <node concept="liA8E" id="QAhkh$$Jen" role="2OqNvi">
               <ref role="37wK5l" to="qkt:~Presentation.setEnabledAndVisible(boolean)" resolve="setEnabledAndVisible" />
-              <node concept="3fqX7Q" id="QAhkh$$MBv" role="37wK5m">
-                <node concept="37vLTw" id="QAhkh$$MBw" role="3fr31v">
-                  <ref role="3cqZAo" node="QAhkh$$K8N" resolve="isAspectModel" />
+              <node concept="1Wc70l" id="5VaOOJtJkgP" role="37wK5m">
+                <node concept="3fqX7Q" id="5VaOOJtJkPM" role="3uHU7w">
+                  <node concept="2OqwBi" id="5VaOOJtJkPO" role="3fr31v">
+                    <node concept="37vLTw" id="5VaOOJtJkPP" role="2Oq$k0">
+                      <ref role="3cqZAo" node="hMkTEYJ" resolve="module" />
+                    </node>
+                    <node concept="liA8E" id="5VaOOJtJkPQ" role="2OqNvi">
+                      <ref role="37wK5l" to="lui2:~SModule.isReadOnly()" resolve="isReadOnly" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="3fqX7Q" id="QAhkh$$MBv" role="3uHU7B">
+                  <node concept="37vLTw" id="QAhkh$$MBw" role="3fr31v">
+                    <ref role="3cqZAo" node="QAhkh$$K8N" resolve="isAspectModel" />
+                  </node>
                 </node>
               </node>
             </node>
@@ -10812,38 +10863,59 @@
           </node>
           <node concept="3clFbS" id="7l8SZlcVj2k" role="2LFqv$">
             <node concept="3clFbJ" id="7l8SZlcVj2l" role="3cqZAp">
-              <node concept="1Wc70l" id="7l8SZlcVj2m" role="3clFbw">
-                <node concept="3fqX7Q" id="7l8SZlcVj2n" role="3uHU7B">
-                  <node concept="2YIFZM" id="7l8SZlcVj2o" role="3fr31v">
-                    <ref role="37wK5l" to="w1kc:~SModelStereotype.isStubModel(org.jetbrains.mps.openapi.model.SModel)" resolve="isStubModel" />
-                    <ref role="1Pybhc" to="w1kc:~SModelStereotype" resolve="SModelStereotype" />
-                    <node concept="2GrUjf" id="7l8SZlcVj2p" role="37wK5m">
+              <node concept="22lmx$" id="3HcORs740Dh" role="3clFbw">
+                <node concept="2OqwBi" id="3HcORs747na" role="3uHU7w">
+                  <node concept="2OqwBi" id="3HcORs742dh" role="2Oq$k0">
+                    <node concept="2GrUjf" id="3HcORs741yl" role="2Oq$k0">
                       <ref role="2Gs0qQ" node="7l8SZlcVj2i" resolve="m" />
                     </node>
+                    <node concept="liA8E" id="3HcORs746$B" role="2OqNvi">
+                      <ref role="37wK5l" to="mhbf:~SModel.getModule()" resolve="getModule" />
+                    </node>
+                  </node>
+                  <node concept="liA8E" id="3HcORs749Ju" role="2OqNvi">
+                    <ref role="37wK5l" to="lui2:~SModule.isReadOnly()" resolve="isReadOnly" />
                   </node>
                 </node>
-                <node concept="3fqX7Q" id="7l8SZlcVj2q" role="3uHU7w">
-                  <node concept="2YIFZM" id="7l8SZlcVj2r" role="3fr31v">
-                    <ref role="37wK5l" to="w1kc:~SModelStereotype.isDescriptorModel(org.jetbrains.mps.openapi.model.SModel)" resolve="isDescriptorModel" />
-                    <ref role="1Pybhc" to="w1kc:~SModelStereotype" resolve="SModelStereotype" />
-                    <node concept="2GrUjf" id="7l8SZlcVj2s" role="37wK5m">
+                <node concept="22lmx$" id="3HcORs73Uo3" role="3uHU7B">
+                  <node concept="22lmx$" id="3HcORs73SWz" role="3uHU7B">
+                    <node concept="2YIFZM" id="7l8SZlcVj2o" role="3uHU7B">
+                      <ref role="37wK5l" to="w1kc:~SModelStereotype.isStubModel(org.jetbrains.mps.openapi.model.SModel)" resolve="isStubModel" />
+                      <ref role="1Pybhc" to="w1kc:~SModelStereotype" resolve="SModelStereotype" />
+                      <node concept="2GrUjf" id="7l8SZlcVj2p" role="37wK5m">
+                        <ref role="2Gs0qQ" node="7l8SZlcVj2i" resolve="m" />
+                      </node>
+                    </node>
+                    <node concept="2YIFZM" id="7l8SZlcVj2r" role="3uHU7w">
+                      <ref role="37wK5l" to="w1kc:~SModelStereotype.isDescriptorModel(org.jetbrains.mps.openapi.model.SModel)" resolve="isDescriptorModel" />
+                      <ref role="1Pybhc" to="w1kc:~SModelStereotype" resolve="SModelStereotype" />
+                      <node concept="2GrUjf" id="7l8SZlcVj2s" role="37wK5m">
+                        <ref role="2Gs0qQ" node="7l8SZlcVj2i" resolve="m" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="2OqwBi" id="3HcORs73VBY" role="3uHU7w">
+                    <node concept="2GrUjf" id="3HcORs73UXr" role="2Oq$k0">
                       <ref role="2Gs0qQ" node="7l8SZlcVj2i" resolve="m" />
+                    </node>
+                    <node concept="liA8E" id="3HcORs73Yyi" role="2OqNvi">
+                      <ref role="37wK5l" to="mhbf:~SModel.isReadOnly()" resolve="isReadOnly" />
                     </node>
                   </node>
                 </node>
               </node>
               <node concept="3clFbS" id="7l8SZlcVj2t" role="3clFbx">
                 <node concept="3cpWs6" id="7l8SZlcVj2u" role="3cqZAp">
-                  <node concept="3clFbT" id="7l8SZlcVj2v" role="3cqZAk">
-                    <property role="3clFbU" value="true" />
-                  </node>
+                  <node concept="3clFbT" id="7l8SZlcVj2v" role="3cqZAk" />
                 </node>
               </node>
             </node>
           </node>
         </node>
         <node concept="3cpWs6" id="7l8SZlcVj2w" role="3cqZAp">
-          <node concept="3clFbT" id="7l8SZlcVj2x" role="3cqZAk" />
+          <node concept="3clFbT" id="7l8SZlcVj2x" role="3cqZAk">
+            <property role="3clFbU" value="true" />
+          </node>
         </node>
       </node>
     </node>

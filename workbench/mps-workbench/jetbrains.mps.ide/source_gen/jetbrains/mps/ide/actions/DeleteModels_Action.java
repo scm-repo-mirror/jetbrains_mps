@@ -119,10 +119,10 @@ public class DeleteModels_Action extends BaseAction {
       return false;
     }
     for (SModel m : ListSequence.fromList(((List<SModel>) MapSequence.fromMap(_params).get("models")))) {
-      if (!(SModelStereotype.isStubModel(m)) && !(SModelStereotype.isDescriptorModel(m))) {
-        return true;
+      if (SModelStereotype.isStubModel(m) || SModelStereotype.isDescriptorModel(m) || m.isReadOnly() || m.getModule().isReadOnly()) {
+        return false;
       }
     }
-    return false;
+    return true;
   }
 }

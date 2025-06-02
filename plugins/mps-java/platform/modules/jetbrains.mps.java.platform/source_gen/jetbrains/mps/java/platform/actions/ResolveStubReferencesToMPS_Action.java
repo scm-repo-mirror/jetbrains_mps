@@ -8,11 +8,11 @@ import javax.swing.Icon;
 import jetbrains.mps.workbench.action.ActionAccess;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
-import jetbrains.mps.project.MPSProject;
-import jetbrains.mps.ide.actions.MPSCommonDataKeys;
-import java.util.List;
 import org.jetbrains.mps.openapi.model.SModel;
+import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.project.MPSProject;
+import java.util.List;
 import jetbrains.mps.java.platform.util.StubResolver;
 import jetbrains.mps.project.OptimizeImportsHelper;
 import jetbrains.mps.project.ModelsAutoImportsManager;
@@ -31,6 +31,19 @@ public class ResolveStubReferencesToMPS_Action extends BaseAction {
   @Override
   public boolean isDumbAware() {
     return true;
+  }
+  @Override
+  public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
+    for (SModel model : event.getData(MPSCommonDataKeys.MODELS)) {
+      if (model.isReadOnly()) {
+        return false;
+      }
+    }
+    return true;
+  }
+  @Override
+  public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
+    this.setEnabledState(event.getPresentation(), this.isApplicable(event, _params));
   }
   @Override
   protected boolean collectActionData(AnActionEvent event, final Map<String, Object> _params) {
