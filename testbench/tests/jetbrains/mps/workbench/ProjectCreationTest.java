@@ -38,7 +38,6 @@ import org.jetbrains.annotations.NotNull;
 import org.junit.Assert;
 import org.junit.Assume;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -162,7 +161,7 @@ public class ProjectCreationTest implements EnvironmentAware {
     myTmpDir = IFileUtil.createTmpDir(myEnv.getPlatform().findComponent(VFSManager.class).getUmbrellaFileSystemJavaIO());
     try {
       ProjectFactory factory = new ProjectFactory(projectOptionsProvider.getProjectOptions(myTmpDir));
-      myProject = factory.createProject();
+      myProject = factory.createProject().getProject();
       factory.activate(false);
       myProject.save();
     } catch (ProjectNotCreatedException e) {

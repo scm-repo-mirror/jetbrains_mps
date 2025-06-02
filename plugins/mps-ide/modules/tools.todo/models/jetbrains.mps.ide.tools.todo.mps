@@ -9,12 +9,10 @@
     <use id="63650c59-16c8-498a-99c8-005c7ee9515d" name="jetbrains.mps.lang.access" version="0" />
     <use id="c7fb639f-be78-4307-89b0-b5959c3fa8c8" name="jetbrains.mps.lang.text" version="0" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
-    <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="2" />
     <use id="ef7bf5ac-d06c-4342-b11d-e42104eb9343" name="jetbrains.mps.lang.plugin.standalone" version="0" />
   </languages>
   <imports>
     <import index="z2i8" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.icons(MPS.IDEA/)" />
-    <import index="1m72" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.components(MPS.IDEA/)" />
     <import index="z1c3" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.project(MPS.Platform/)" />
     <import index="z60i" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.awt(JDK/)" />
     <import index="dxuu" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:javax.swing(JDK/)" />
@@ -43,6 +41,7 @@
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" />
     <import index="yyf4" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.util(MPS.OpenAPI/)" />
     <import index="b2d5" ref="r:1a2b3027-99d2-4946-917b-f185130ac75d(jetbrains.mps.ide.findusages.findalgorithm.finders)" />
+    <import index="alof" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.project(MPS.Platform/)" />
     <import index="tprs" ref="r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)" implicit="true" />
   </imports>
   <registry>
@@ -247,9 +246,6 @@
       </concept>
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
       <concept id="1146644623116" name="jetbrains.mps.baseLanguage.structure.PrivateVisibility" flags="nn" index="3Tm6S6" />
-      <concept id="1116615150612" name="jetbrains.mps.baseLanguage.structure.ClassifierClassExpression" flags="nn" index="3VsKOn">
-        <reference id="1116615189566" name="classifier" index="3VsUkX" />
-      </concept>
       <concept id="1080120340718" name="jetbrains.mps.baseLanguage.structure.AndExpression" flags="nn" index="1Wc70l" />
       <concept id="1170345865475" name="jetbrains.mps.baseLanguage.structure.AnonymousClass" flags="ig" index="1Y3b0j">
         <reference id="1170346070688" name="classifier" index="1Y3XeK" />
@@ -358,14 +354,10 @@
             <node concept="2ShNRf" id="4HeMkQiYOc2" role="37vLTx">
               <node concept="1pGfFk" id="4HeMkQiYOc3" role="2ShVmc">
                 <ref role="37wK5l" node="4HeMkQiYPZB" resolve="TodoViewer" />
-                <node concept="2OqwBi" id="4HeMkQiYOc4" role="37wK5m">
-                  <node concept="2xqhHp" id="4HeMkQiYOc5" role="2Oq$k0" />
-                  <node concept="liA8E" id="4HeMkQiYOc6" role="2OqNvi">
-                    <ref role="37wK5l" to="1m72:~ComponentManager.getComponent(java.lang.Class)" resolve="getComponent" />
-                    <node concept="3VsKOn" id="4HeMkQiYOc7" role="37wK5m">
-                      <ref role="3VsUkX" to="z1c3:~MPSProject" resolve="MPSProject" />
-                    </node>
-                  </node>
+                <node concept="2YIFZM" id="6J69$P31Fw6" role="37wK5m">
+                  <ref role="37wK5l" to="alof:~ProjectHelper.fromIdeaProject(com.intellij.openapi.project.Project)" resolve="fromIdeaProject" />
+                  <ref role="1Pybhc" to="alof:~ProjectHelper" resolve="ProjectHelper" />
+                  <node concept="2xqhHp" id="6J69$P31FAD" role="37wK5m" />
                 </node>
                 <node concept="2WthIp" id="4HeMkQiYOc8" role="37wK5m" />
               </node>

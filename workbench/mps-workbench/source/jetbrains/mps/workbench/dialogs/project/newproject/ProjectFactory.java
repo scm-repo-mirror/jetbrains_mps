@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2023 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -63,7 +63,7 @@ public class ProjectFactory {
     myOptions = options;
   }
 
-  public Project createProject() throws ProjectNotCreatedException {
+  public MPSProject createProject() throws ProjectNotCreatedException {
     final String[] error = new String[]{null};
     ProgressManager.getInstance().run(new Task.Modal(null, "Creating Project", false) {
       @Override
@@ -138,7 +138,7 @@ public class ProjectFactory {
 
       });
     });
-    return myCreatedProject;
+    return mpsProject;
   }
 
   public void activate(boolean openInNewFrame) {

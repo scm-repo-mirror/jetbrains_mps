@@ -4142,40 +4142,40 @@
   </root>
   <root nodeRef="r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)/7223653387943513864">
     <file name="EditorMenuTrace_Tool.java">
-      <node id="7223653387943513864" at="18,0,19,0" concept="14" trace="ICON" />
-      <node id="7223653387943561055" at="19,0,20,0" concept="6" trace="myProject" />
-      <node id="7223653387943513864" at="20,48,21,76" concept="16" />
-      <node id="7223653387943513864" at="23,37,24,24" concept="5" />
-      <node id="7223653387943567608" at="24,24,25,50" concept="5" />
-      <node id="7223653387943559531" at="28,23,29,184" concept="10" />
-      <node id="7223653387943559539" at="29,184,30,40" concept="5" />
-      <node id="7223653387943559542" at="30,40,31,24" concept="5" />
-      <node id="7223653387943559548" at="32,12,33,107" concept="10" />
-      <node id="7223653387943559552" at="33,107,34,88" concept="5" />
-      <node id="7223653387943513864" at="20,0,23,0" concept="3" trace="EditorMenuTrace_Tool#(Lcom/intellij/openapi/project/Project;)V" />
-      <node id="7223653387943559545" at="32,10,35,5" concept="1" />
-      <node id="7223653387943513864" at="23,0,27,0" concept="9" trace="init#(Lcom/intellij/openapi/project/Project;)V" />
-      <node id="7223653387943559524" at="27,75,35,5" concept="8" />
-      <node id="7223653387943556759" at="27,0,37,0" concept="9" trace="showEditorMenuTraceInfo#(Ljetbrains/mps/openapi/editor/menus/EditorMenuTraceInfo;)V" />
-      <scope id="7223653387943513864" at="20,48,21,76" />
-      <scope id="7223653387943513864" at="23,37,25,50" />
-      <scope id="7223653387943559546" at="32,12,34,88">
+      <node id="7223653387943513864" at="19,0,20,0" concept="14" trace="ICON" />
+      <node id="7223653387943561055" at="20,0,21,0" concept="6" trace="myProject" />
+      <node id="7223653387943513864" at="21,48,22,76" concept="16" />
+      <node id="7223653387943513864" at="24,37,25,24" concept="5" />
+      <node id="7223653387943567608" at="25,24,26,81" concept="5" />
+      <node id="7223653387943559531" at="29,23,30,153" concept="10" />
+      <node id="7223653387943559539" at="30,153,31,40" concept="5" />
+      <node id="7223653387943559542" at="31,40,32,24" concept="5" />
+      <node id="7223653387943559548" at="33,12,34,120" concept="10" />
+      <node id="7223653387943559552" at="34,120,35,88" concept="5" />
+      <node id="7223653387943513864" at="21,0,24,0" concept="3" trace="EditorMenuTrace_Tool#(Lcom/intellij/openapi/project/Project;)V" />
+      <node id="7223653387943559545" at="33,10,36,5" concept="1" />
+      <node id="7223653387943513864" at="24,0,28,0" concept="9" trace="init#(Lcom/intellij/openapi/project/Project;)V" />
+      <node id="7223653387943559524" at="28,75,36,5" concept="8" />
+      <node id="7223653387943556759" at="28,0,38,0" concept="9" trace="showEditorMenuTraceInfo#(Ljetbrains/mps/openapi/editor/menus/EditorMenuTraceInfo;)V" />
+      <scope id="7223653387943513864" at="21,48,22,76" />
+      <scope id="7223653387943513864" at="24,37,26,81" />
+      <scope id="7223653387943559546" at="33,12,35,88">
         <var name="manager" id="7223653387943559547" />
       </scope>
-      <scope id="7223653387943513864" at="20,0,23,0">
+      <scope id="7223653387943513864" at="21,0,24,0">
         <var name="project" id="7223653387943513864" />
       </scope>
-      <scope id="7223653387943559529" at="28,23,31,24">
+      <scope id="7223653387943559529" at="29,23,32,24">
         <var name="tab" id="7223653387943559530" />
       </scope>
-      <scope id="7223653387943513864" at="23,0,27,0">
+      <scope id="7223653387943513864" at="24,0,28,0">
         <var name="project" id="7223653387943513864" />
       </scope>
-      <scope id="7223653387943556761" at="27,75,35,5" />
-      <scope id="7223653387943556759" at="27,0,37,0">
+      <scope id="7223653387943556761" at="28,75,36,5" />
+      <scope id="7223653387943556759" at="28,0,38,0">
         <var name="info" id="7223653387943558453" />
       </scope>
-      <unit id="7223653387943513864" at="17,0,38,0" name="jetbrains.mps.ide.devkit.actions.EditorMenuTrace_Tool" />
+      <unit id="7223653387943513864" at="18,0,39,0" name="jetbrains.mps.ide.devkit.actions.EditorMenuTrace_Tool" />
     </file>
     <file name="Mpsdevkit_ProjectPlugin.java">
       <node id="7223653387943513864" at="17,80,18,79" concept="5" />
@@ -4905,36 +4905,36 @@
       <node id="8878628697752593564" at="19,88,20,76" concept="5" />
     </file>
     <file name="NodeExplorer_Tool.java">
-      <node id="8878628697752593564" at="15,0,16,0" concept="14" trace="ICON" />
-      <node id="3164358630783980397" at="16,0,17,0" concept="6" trace="myProject" />
-      <node id="8878628697752593564" at="17,45,18,79" concept="16" />
-      <node id="8878628697752593564" at="20,37,21,24" concept="5" />
-      <node id="3164358630783986932" at="21,24,22,47" concept="5" />
-      <node id="8878628697752593564" at="24,25,25,20" concept="5" />
-      <node id="3164358630783845609" at="27,36,28,144" concept="10" />
-      <node id="70914372931462105" at="28,144,29,85" concept="5" />
-      <node id="3164358630783836267" at="29,85,30,127" concept="5" />
-      <node id="8878628697752593564" at="17,0,20,0" concept="3" trace="NodeExplorer_Tool#(Lcom/intellij/openapi/project/Project;)V" />
-      <node id="8878628697752593564" at="24,0,27,0" concept="9" trace="dispose#()V" />
-      <node id="8878628697752593564" at="20,0,24,0" concept="9" trace="init#(Lcom/intellij/openapi/project/Project;)V" />
-      <node id="3164358630783752838" at="27,0,32,0" concept="9" trace="showNode#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <scope id="8878628697752593564" at="17,45,18,79" />
-      <scope id="8878628697752593564" at="24,25,25,20" />
-      <scope id="8878628697752593564" at="20,37,22,47" />
-      <scope id="8878628697752593564" at="17,0,20,0">
+      <node id="8878628697752593564" at="16,0,17,0" concept="14" trace="ICON" />
+      <node id="3164358630783980397" at="17,0,18,0" concept="6" trace="myProject" />
+      <node id="8878628697752593564" at="18,45,19,79" concept="16" />
+      <node id="8878628697752593564" at="21,37,22,24" concept="5" />
+      <node id="3164358630783986932" at="22,24,23,78" concept="5" />
+      <node id="8878628697752593564" at="25,25,26,20" concept="5" />
+      <node id="3164358630783845609" at="28,36,29,113" concept="10" />
+      <node id="70914372931462105" at="29,113,30,85" concept="5" />
+      <node id="3164358630783836267" at="30,85,31,127" concept="5" />
+      <node id="8878628697752593564" at="18,0,21,0" concept="3" trace="NodeExplorer_Tool#(Lcom/intellij/openapi/project/Project;)V" />
+      <node id="8878628697752593564" at="25,0,28,0" concept="9" trace="dispose#()V" />
+      <node id="8878628697752593564" at="21,0,25,0" concept="9" trace="init#(Lcom/intellij/openapi/project/Project;)V" />
+      <node id="3164358630783752838" at="28,0,33,0" concept="9" trace="showNode#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <scope id="8878628697752593564" at="18,45,19,79" />
+      <scope id="8878628697752593564" at="25,25,26,20" />
+      <scope id="8878628697752593564" at="21,37,23,78" />
+      <scope id="8878628697752593564" at="18,0,21,0">
         <var name="project" id="8878628697752593564" />
       </scope>
-      <scope id="8878628697752593564" at="24,0,27,0" />
-      <scope id="3164358630783752840" at="27,36,30,127">
+      <scope id="8878628697752593564" at="25,0,28,0" />
+      <scope id="3164358630783752840" at="28,36,31,127">
         <var name="nodeExplorer" id="3164358630783845610" />
       </scope>
-      <scope id="8878628697752593564" at="20,0,24,0">
+      <scope id="8878628697752593564" at="21,0,25,0">
         <var name="project" id="8878628697752593564" />
       </scope>
-      <scope id="3164358630783752838" at="27,0,32,0">
+      <scope id="3164358630783752838" at="28,0,33,0">
         <var name="node" id="3164358630783826070" />
       </scope>
-      <unit id="8878628697752593564" at="14,0,33,0" name="jetbrains.mps.ide.devkit.actions.NodeExplorer_Tool" />
+      <unit id="8878628697752593564" at="15,0,34,0" name="jetbrains.mps.ide.devkit.actions.NodeExplorer_Tool" />
     </file>
   </root>
   <root nodeRef="r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)/8911797107063339974">

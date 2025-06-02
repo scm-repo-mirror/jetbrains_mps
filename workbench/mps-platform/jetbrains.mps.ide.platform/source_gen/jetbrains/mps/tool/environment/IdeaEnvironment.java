@@ -43,8 +43,8 @@ import java.util.Collections;
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.Reference;
 import java.util.concurrent.TimeUnit;
+import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.vfs.refresh.CachingFileSystem;
-import jetbrains.mps.ide.vfs.IdeaFileSystem;
 import jetbrains.mps.vfs.refresh.DefaultCachingContext;
 import jetbrains.mps.core.platform.Platform;
 import com.intellij.ide.startup.StartupManagerEx;
@@ -314,15 +314,14 @@ public final class IdeaEnvironment extends EnvironmentBase {
   }
 
   @NotNull
-  private MPSProject openProjectInIdeaEnvironment(File projectFile) {
+  private MPSProject openProjectInIdeaEnvironment(final File projectFile) {
     if (!(projectFile.exists())) {
       throw new ProjectDirectoryDoesNotExistException(projectFile.getAbsolutePath());
     }
-    final ProjectManagerEx projectManager = ProjectManagerEx.getInstanceEx();
     final String filePath = projectFile.getAbsolutePath();
 
-    final Reference<com.intellij.openapi.project.Project> project = new Reference<com.intellij.openapi.project.Project>();
-    final Reference<Exception> exc = new Reference<Exception>();
+    final Reference<MPSProject> project = new Reference<>();
+    final Reference<Exception> exc = new Reference<>();
     ApplicationManager.getApplication().invokeAndWait(new Runnable() {
       public void run() {
         try {
@@ -330,13 +329,13 @@ public final class IdeaEnvironment extends EnvironmentBase {
             LOG.info("Load and open the project with path '" + filePath + "'");
           }
           // fixme this is an IDE way of opening project
-          project.set(projectManager.loadAndOpenProject(filePath));
-          refreshProjectDir(project.get());
+          project.set(MPSProject.open(filePath));
+          refreshProjectDir(project.get(), projectFile);
         } catch (Exception e) {
           exc.set(e);
         }
       }
-    }, ModalityState.NON_MODAL);
+    }, ModalityState.nonModal());
 
     if (!(exc.isNull())) {
       throw new CouldNotLoadProjectException(String.format("ProjectManager could not load project from '%s'", projectFile.getAbsolutePath()), exc.get());
@@ -348,22 +347,24 @@ public final class IdeaEnvironment extends EnvironmentBase {
 
     // does not seem applicable in test mode
     if (!(myConfig.isTestMode())) {
-      final PostStartupActivitiesWaiter waiter = new PostStartupActivitiesWaiter(project.get());
+      final PostStartupActivitiesWaiter waiter = new PostStartupActivitiesWaiter(project.get().getProject());
       waiter.wait0(30, TimeUnit.SECONDS);
     }
 
 
-    return project.get().getComponent(MPSProject.class);
+    return project.get();
   }
 
-  private void refreshProjectDir(@NotNull com.intellij.openapi.project.Project project) {
+  private void refreshProjectDir(@Nullable MPSProject project, @NotNull File projectFile) {
     // calling sync refresh for FS in order to update all modules/models loaded from the project
     // if unit-test is executed with the "reuse caches" option.
-    String basePath = project.getBasePath();
-    if (basePath != null) {
-      CachingFileSystem fs = IdeaFileSystem.getInstance();
-      fs.getFile(basePath).refresh(new DefaultCachingContext(true, true));
+    if (project == null) {
+      return;
     }
+    CachingFileSystem fs = project.getFileSystem();
+    // XXX apparently (according to uses of Env.openProject()), we don't get path to .mps/ folder, rather to its parent, therefore, don't see a reason to use
+    //    Project.getBasePath() when we got direct project location
+    fs.getFile(projectFile).refresh(new DefaultCachingContext(true, true));
   }
 
   /**
