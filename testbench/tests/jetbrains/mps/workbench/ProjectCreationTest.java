@@ -159,6 +159,7 @@ public class ProjectCreationTest implements EnvironmentAware {
   }
 
   private void invokeTest(final ProjectOptionsProvider projectOptionsProvider, List<String> expectedPathList) {
+    Assert.fail("This tests hang currently. Make them fail instead.");
     final Reference<Throwable> refThrowable = new Reference<>();
     ApplicationManager.getApplication().invokeAndWait(() -> {
       try {
