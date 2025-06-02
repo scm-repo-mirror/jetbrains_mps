@@ -4597,12 +4597,25 @@
           <node concept="1BurEX" id="39MFrfLw3d2" role="1SiIV1">
             <node concept="398BVA" id="39MFrfLw3nl" role="1BurEY">
               <ref role="398BVh" node="3CewbsuA8IN" resolve="platform_lib" />
-              <node concept="2Ry0Ak" id="1w78goyRUDB" role="iGT6I">
-                <property role="2Ry0Am" value="lib.jar" />
+              <node concept="2Ry0Ak" id="3Ml9xWFbipd" role="iGT6I">
+                <property role="2Ry0Am" value="jaxb-api.jar" />
               </node>
             </node>
             <node concept="3yrxFa" id="39MFrfLw4kI" role="2gdwQb">
-              <ref role="3yrxFb" node="4SADOBb5p5j" />
+              <ref role="3yrxFb" node="3Ml9xWFbhQ6" />
+            </node>
+          </node>
+        </node>
+        <node concept="1SiIV0" id="3Ml9xWFbiDH" role="3bR37C">
+          <node concept="1BurEX" id="3Ml9xWFbiDI" role="1SiIV1">
+            <node concept="398BVA" id="3Ml9xWFbiDJ" role="1BurEY">
+              <ref role="398BVh" node="3CewbsuA8IN" resolve="platform_lib" />
+              <node concept="2Ry0Ak" id="3Ml9xWFbj28" role="iGT6I">
+                <property role="2Ry0Am" value="jaxb-runtime.jar" />
+              </node>
+            </node>
+            <node concept="3yrxFa" id="3Ml9xWFbiDL" role="2gdwQb">
+              <ref role="3yrxFb" node="3Ml9xWFbhXI" />
             </node>
           </node>
         </node>
@@ -26867,6 +26880,20 @@
         <node concept="3_J27D" id="4LdE6kxkoZ4" role="13uQ07">
           <node concept="3Mxwew" id="4LdE6kxkoZS" role="3MwsjC">
             <property role="3MwjfP" value="java-impl.jar" />
+          </node>
+        </node>
+      </node>
+      <node concept="13uQ2_" id="3Ml9xWFbhQ6" role="39821P">
+        <node concept="3_J27D" id="3Ml9xWFbhQ8" role="13uQ07">
+          <node concept="3Mxwew" id="3Ml9xWFbhRf" role="3MwsjC">
+            <property role="3MwjfP" value="jaxb-api.jar" />
+          </node>
+        </node>
+      </node>
+      <node concept="13uQ2_" id="3Ml9xWFbhXI" role="39821P">
+        <node concept="3_J27D" id="3Ml9xWFbhXJ" role="13uQ07">
+          <node concept="3Mxwew" id="3Ml9xWFbi3a" role="3MwsjC">
+            <property role="3MwjfP" value="jaxb-runtime.jar" />
           </node>
         </node>
       </node>
