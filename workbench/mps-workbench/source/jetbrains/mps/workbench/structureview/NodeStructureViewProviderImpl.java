@@ -42,7 +42,7 @@ public class NodeStructureViewProviderImpl implements NodeStructureViewProvider 
     SNode node = np.resolve(mpsProject.getRepository());
 
     List<RelationDescriptor> tabs = new ArrayList<>();
-    for (RelationDescriptor tab : mpsProject.getProject().getComponent(ProjectPluginManager.class).getTabDescriptors()) {
+    for (RelationDescriptor tab : ProjectPluginManager.getInstance(mpsProject.getProject()).getTabDescriptors()) {
       try {
         if (tab.getBaseNode(node) != null || tab.isApplicable(node)) {
           tabs.add(tab);

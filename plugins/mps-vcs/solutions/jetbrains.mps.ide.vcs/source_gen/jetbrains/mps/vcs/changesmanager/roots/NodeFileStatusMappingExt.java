@@ -23,7 +23,7 @@ public class NodeFileStatusMappingExt extends NodeFileStatusMapping {
   @Override
   protected void statusChanged(FileStatusManager fsm, SNode currentNode) {
     super.statusChanged(fsm, currentNode);
-    for (RelationDescriptor d : ListSequence.fromList(myProject.getProject().getComponent(ProjectPluginManager.class).getTabDescriptors())) {
+    for (RelationDescriptor d : ListSequence.fromList(ProjectPluginManager.getInstance(myProject.getProject()).getTabDescriptors())) {
       SNode baseNode = null;
       try {
         baseNode = d.getBaseNode(currentNode);

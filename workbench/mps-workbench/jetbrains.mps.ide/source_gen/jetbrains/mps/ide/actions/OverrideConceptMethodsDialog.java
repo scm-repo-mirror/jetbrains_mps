@@ -38,7 +38,7 @@ import org.jetbrains.mps.openapi.language.SReferenceLink;
   @Override
   protected void initOptions() {
     try {
-      myOptions = myProject.getComponent(ProjectPluginManager.class).getPrefsComponent(BehaviorDialogsPersistentOptions_PreferencesComponent.class);
+      myOptions = ProjectPluginManager.getInstance(myProject).getPrefsComponent(BehaviorDialogsPersistentOptions_PreferencesComponent.class);
     } catch (Exception e) {
       myOptions = null;
     }
