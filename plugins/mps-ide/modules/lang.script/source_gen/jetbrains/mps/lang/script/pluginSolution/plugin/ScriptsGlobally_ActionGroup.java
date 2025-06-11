@@ -15,6 +15,8 @@ import jetbrains.mps.workbench.action.ApplicationPlugin;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.workbench.MPSDataKeys;
+import com.intellij.openapi.project.Project;
+import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.workbench.action.BaseGroup;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.ActionManager;
@@ -35,9 +37,13 @@ public class ScriptsGlobally_ActionGroup extends GeneratedActionGroup {
     event.getPresentation().setVisible(true);
     MPSProject project = event.getData(MPSDataKeys.MPS_PROJECT);
     if (project == null) {
-      event.getPresentation().setEnabled(false);
-      event.getPresentation().setVisible(false);
-      return;
+      Project ideaProject = event.getData(MPSDataKeys.PROJECT);
+      project = ProjectHelper.fromIdeaProject(ideaProject);
+      if (project == null) {
+        event.getPresentation().setEnabled(false);
+        event.getPresentation().setVisible(false);
+        return;
+      }
     }
     event.getPresentation().setEnabled(true);
     event.getPresentation().setVisible(true);
