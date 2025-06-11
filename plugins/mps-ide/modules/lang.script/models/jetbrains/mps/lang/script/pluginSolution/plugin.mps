@@ -1088,6 +1088,22 @@
                   </node>
                 </node>
               </node>
+              <node concept="3clFbF" id="8rpvqLIAFy" role="3cqZAp">
+                <node concept="2OqwBi" id="8rpvqLIAFz" role="3clFbG">
+                  <node concept="2OqwBi" id="8rpvqLIAF$" role="2Oq$k0">
+                    <node concept="tl45R" id="8rpvqLIAF_" role="2Oq$k0" />
+                    <node concept="liA8E" id="8rpvqLIAFA" role="2OqNvi">
+                      <ref role="37wK5l" to="qkt:~AnActionEvent.getPresentation()" resolve="getPresentation" />
+                    </node>
+                  </node>
+                  <node concept="liA8E" id="8rpvqLIAFB" role="2OqNvi">
+                    <ref role="37wK5l" to="qkt:~Presentation.setVisible(boolean)" resolve="setVisible" />
+                    <node concept="3clFbT" id="8rpvqLIAFC" role="37wK5m">
+                      <property role="3clFbU" value="false" />
+                    </node>
+                  </node>
+                </node>
+              </node>
               <node concept="3cpWs6" id="4KDfkUwM96Y" role="3cqZAp" />
             </node>
             <node concept="3clFbC" id="4KDfkUwM96Z" role="3clFbw">
@@ -1108,6 +1124,22 @@
               <node concept="liA8E" id="4KDfkUwM977" role="2OqNvi">
                 <ref role="37wK5l" to="qkt:~Presentation.setEnabled(boolean)" resolve="setEnabled" />
                 <node concept="3clFbT" id="4KDfkUwM978" role="37wK5m">
+                  <property role="3clFbU" value="true" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbF" id="8rpvqLIB6W" role="3cqZAp">
+            <node concept="2OqwBi" id="8rpvqLIB6X" role="3clFbG">
+              <node concept="2OqwBi" id="8rpvqLIB6Y" role="2Oq$k0">
+                <node concept="tl45R" id="8rpvqLIB6Z" role="2Oq$k0" />
+                <node concept="liA8E" id="8rpvqLIB70" role="2OqNvi">
+                  <ref role="37wK5l" to="qkt:~AnActionEvent.getPresentation()" resolve="getPresentation" />
+                </node>
+              </node>
+              <node concept="liA8E" id="8rpvqLIB71" role="2OqNvi">
+                <ref role="37wK5l" to="qkt:~Presentation.setVisible(boolean)" resolve="setVisible" />
+                <node concept="3clFbT" id="8rpvqLIB72" role="37wK5m">
                   <property role="3clFbU" value="true" />
                 </node>
               </node>
@@ -5997,10 +6029,15 @@
       <node concept="3clFbS" id="63nwyJG1J0Z" role="3clF47">
         <node concept="3clFbH" id="63nwyJG3gqP" role="3cqZAp" />
         <node concept="1gVbGN" id="1gtFxdGPt7b" role="3cqZAp">
-          <node concept="3y3z36" id="1gtFxdGPwOv" role="1gVkn0">
-            <node concept="10Nm6u" id="1gtFxdGPykB" role="3uHU7w" />
-            <node concept="37vLTw" id="1gtFxdGPv1I" role="3uHU7B">
-              <ref role="3cqZAo" node="63nwyJG23NQ" resolve="selectedItems" />
+          <node concept="22lmx$" id="8rpvqLH2lp" role="1gVkn0">
+            <node concept="37vLTw" id="8rpvqLH4tO" role="3uHU7w">
+              <ref role="3cqZAo" node="63nwyJG1Ynp" resolve="isGlobal" />
+            </node>
+            <node concept="3y3z36" id="1gtFxdGPwOv" role="3uHU7B">
+              <node concept="37vLTw" id="1gtFxdGPv1I" role="3uHU7B">
+                <ref role="3cqZAo" node="63nwyJG23NQ" resolve="selectedItems" />
+              </node>
+              <node concept="10Nm6u" id="1gtFxdGPykB" role="3uHU7w" />
             </node>
           </node>
         </node>

@@ -28,7 +28,7 @@ import jetbrains.mps.smodel.SModelStereotype;
 
   /*package*/ static SearchScope combineModulesModelsSelectedItemsIntoScope(final boolean isGlobal, final MPSProject mpsProject, final Object[] selectedItems, final List<SModule> modules, final List<SModel> models) {
 
-    assert selectedItems != null;
+    assert selectedItems != null || isGlobal;
     if (isGlobal || (selectedItems.length == 1 && selectedItems[0] instanceof TopHierarchyProjectViewNode)) {
       return createMigrationScope(mpsProject);
     }

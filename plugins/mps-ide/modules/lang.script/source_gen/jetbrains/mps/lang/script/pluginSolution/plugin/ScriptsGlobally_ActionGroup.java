@@ -36,9 +36,11 @@ public class ScriptsGlobally_ActionGroup extends GeneratedActionGroup {
     MPSProject project = event.getData(MPSDataKeys.MPS_PROJECT);
     if (project == null) {
       event.getPresentation().setEnabled(false);
+      event.getPresentation().setVisible(false);
       return;
     }
     event.getPresentation().setEnabled(true);
+    event.getPresentation().setVisible(true);
 
     ScriptsMenuBuilder menuBuilder = new ScriptsMenuBuilder(project);
     BaseGroup catGroup = menuBuilder.createPopup(false);
