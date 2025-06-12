@@ -178,38 +178,84 @@
   </root>
   <root nodeRef="r:c7b90b26-5425-42a5-94ed-8a6e81cc7a2d(jetbrains.mps.lang.script.pluginSolution.plugin)/5487985028841902338">
     <file name="ScriptsMenuBuilder.java">
-      <node id="8083090344626179414" at="16,0,17,0" concept="5" trace="myAllScripts" />
-      <node id="8083090344626211156" at="18,52,19,39" concept="4" />
-      <node id="1411664093201142055" at="19,39,20,88" concept="10" />
-      <node id="1411664093201078948" at="20,88,21,131" concept="4" />
-      <node id="5487985028841902408" at="24,58,25,51" concept="10" />
-      <node id="5487985028841902414" at="25,51,26,25" concept="4" />
-      <node id="8083090344626832146" at="27,74,28,72" concept="4" />
-      <node id="5487985028841902428" at="29,5,30,17" concept="11" />
-      <node id="5487985028841902490" at="33,50,34,59" concept="11" />
-      <node id="8083090344626811607" at="26,25,29,5" concept="7" />
-      <node id="5487985028841902486" at="33,0,36,0" concept="9" trace="getAllScripts#()Ljava/util/List;" />
-      <node id="5487985028841902350" at="18,0,23,0" concept="2" trace="ScriptsMenuBuilder#(Ljetbrains/mps/project/MPSProject;)V" />
-      <node id="5487985028841902404" at="24,0,32,0" concept="9" trace="createPopup#(Z)Ljetbrains/mps/workbench/action/BaseGroup;" />
-      <scope id="8083090344626811613" at="27,74,28,72" />
-      <scope id="5487985028841902489" at="33,50,34,59" />
-      <scope id="5487985028841902353" at="18,52,21,131">
-        <var name="languageRegistry" id="1411664093201142056" />
+      <node id="836790233427995089" at="26,46,27,30" concept="11" />
+      <node id="1411664093201142055" at="31,52,32,88" concept="10" />
+      <node id="836790233427533121" at="33,82,34,71" concept="10" />
+      <node id="8083090344626130525" at="34,71,35,61" concept="4" />
+      <node id="836790233428811209" at="36,42,37,71" concept="10" />
+      <node id="836790233430357493" at="37,71,38,125" concept="10" />
+      <node id="836790233430414253" at="39,54,40,69" concept="4" />
+      <node id="836790233427553195" at="41,16,42,62" concept="4" />
+      <node id="5487985028841902408" at="48,58,49,59" concept="10" />
+      <node id="5487985028841902414" at="49,59,50,25" concept="4" />
+      <node id="836790233428084043" at="51,128,52,72" concept="10" />
+      <node id="836790233428084049" at="52,72,53,34" concept="4" />
+      <node id="8083090344626832146" at="54,91,55,81" concept="4" />
+      <node id="836790233428132388" at="56,7,57,30" concept="4" />
+      <node id="5487985028841902428" at="58,5,59,17" concept="11" />
+      <node id="836790233428423422" at="62,50,63,99" concept="10" />
+      <node id="836790233428351005" at="63,99,64,86" concept="10" />
+      <node id="836790233428536857" at="65,97,66,94" concept="4" />
+      <node id="5487985028841902490" at="67,5,68,52" concept="11" />
+      <node id="836790233430401153" at="41,14,43,9" concept="1" />
+      <node id="836790233428195853" at="53,34,56,7" concept="7" />
+      <node id="836790233428471235" at="64,86,67,5" concept="7" />
+      <node id="836790233427962245" at="25,0,29,0" concept="9" trace="compare#(Ljava/lang/String;Ljava/lang/String;)I" />
+      <node id="836790233430370094" at="38,125,43,9" concept="8" />
+      <node id="8083090344626179414" at="24,0,30,0" concept="5" trace="myAllScriptsByLanguage" />
+      <node id="8083090344626811607" at="50,25,58,5" concept="7" />
+      <node id="5487985028841902486" at="62,0,70,0" concept="9" trace="getAllScripts#()Ljava/util/List;" />
+      <node id="836790233427616702" at="35,61,44,7" concept="8" />
+      <node id="1411664093201078948" at="32,88,45,7" concept="4" />
+      <node id="5487985028841902404" at="48,0,61,0" concept="9" trace="createPopup#(Z)Ljetbrains/mps/workbench/action/BaseGroup;" />
+      <node id="5487985028841902350" at="31,0,47,0" concept="2" trace="ScriptsMenuBuilder#(Ljetbrains/mps/project/MPSProject;)V" />
+      <scope id="836790233427962253" at="26,46,27,30" />
+      <scope id="836790233430370096" at="39,54,40,69" />
+      <scope id="836790233430401154" at="41,16,42,62" />
+      <scope id="836790233428195859" at="54,91,55,81" />
+      <scope id="836790233428471241" at="65,97,66,94" />
+      <scope id="836790233428195853" at="53,34,56,7">
+        <var name="script" id="836790233428195855" />
       </scope>
-      <scope id="8083090344626811607" at="26,25,29,5">
-        <var name="script" id="8083090344626811609" />
+      <scope id="836790233428471235" at="64,86,67,5">
+        <var name="scriptsInLanguage" id="836790233428471237" />
       </scope>
-      <scope id="5487985028841902486" at="33,0,36,0" />
-      <scope id="5487985028841902350" at="18,0,23,0">
-        <var name="mpsProject" id="5315016546079157886" />
+      <scope id="836790233427962245" at="25,0,29,0">
+        <var name="s1" id="836790233427962249" />
+        <var name="s2" id="836790233427962251" />
       </scope>
-      <scope id="5487985028841902407" at="24,58,30,17">
+      <scope id="8083090344626811613" at="51,128,57,30">
+        <var name="currentGroup" id="836790233428084044" />
+      </scope>
+      <scope id="5487985028841902489" at="62,50,68,52">
+        <var name="allScripts" id="836790233428423423" />
+        <var name="values" id="836790233428351006" />
+      </scope>
+      <scope id="836790233427616704" at="36,42,43,9">
+        <var name="key" id="836790233430357494" />
+        <var name="ptr" id="836790233428811210" />
+      </scope>
+      <scope id="8083090344626811607" at="50,25,58,5">
+        <var name="scriptInLanguage" id="8083090344626811609" />
+      </scope>
+      <scope id="5487985028841902486" at="62,0,70,0" />
+      <scope id="8083090344626116855" at="33,82,44,7">
+        <var name="scriptsForLanguage" id="836790233427533127" />
+      </scope>
+      <scope id="5487985028841902407" at="48,58,59,17">
         <var name="group" id="5487985028841902409" />
       </scope>
-      <scope id="5487985028841902404" at="24,0,32,0">
+      <scope id="5487985028841902404" at="48,0,61,0">
         <var name="applyToSelection" id="5487985028841902402" />
       </scope>
-      <unit id="5487985028841902338" at="15,0,37,0" name="jetbrains.mps.lang.script.pluginSolution.plugin.ScriptsMenuBuilder" />
+      <scope id="5487985028841902353" at="31,52,45,7">
+        <var name="languageRegistry" id="1411664093201142056" />
+      </scope>
+      <scope id="5487985028841902350" at="31,0,47,0">
+        <var name="mpsProject" id="5315016546079157886" />
+      </scope>
+      <unit id="836790233427962229" at="24,102,29,3" name="jetbrains.mps.lang.script.pluginSolution.plugin.ScriptsMenuBuilder$1" />
+      <unit id="5487985028841902338" at="23,0,71,0" name="jetbrains.mps.lang.script.pluginSolution.plugin.ScriptsMenuBuilder" />
     </file>
   </root>
   <root nodeRef="r:c7b90b26-5425-42a5-94ed-8a6e81cc7a2d(jetbrains.mps.lang.script.pluginSolution.plugin)/5487985028841902494">
