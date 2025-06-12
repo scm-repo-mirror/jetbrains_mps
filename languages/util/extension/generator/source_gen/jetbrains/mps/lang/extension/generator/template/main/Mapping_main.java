@@ -171,7 +171,7 @@ public class Mapping_main extends MapConfigBase implements TemplateMappingConfig
     public boolean isApplicable(@NotNull TemplateContext context) throws GenerationException {
       return QueriesGenerated.createRootRule_Condition_0_0(new CreateRootRuleContext(context, getRuleNode()));
     }
-    public Collection<SNode> apply(TemplateContext context) throws GenerationException {
+    public Collection<SNode> apply(@NotNull TemplateContext context) throws GenerationException {
       final TemplateExecutionEnvironment environment = context.getEnvironment();
       Collection<SNode> result = environment.callSite(new Template_ExtensionDescriptor(), new SNodePointer("r:9b417160-a560-428b-b721-a26a33b5bd8c(jetbrains.mps.lang.extension.generator.template.main@generator)", "63012922130977734")).apply(context);
       return result;
