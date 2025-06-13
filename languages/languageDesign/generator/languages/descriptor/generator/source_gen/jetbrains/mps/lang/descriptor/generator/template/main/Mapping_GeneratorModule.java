@@ -285,7 +285,7 @@ public class Mapping_GeneratorModule extends MapConfigBase implements TemplateMa
       super(new SNodePointer("r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508(jetbrains.mps.lang.descriptor.generator.template.main@generator)", "263208052639681036"), CONCEPTS.GeneratorDescriptor$hF, false, false);
     }
     @Override
-    public boolean isApplicable(@NotNull TemplateContext context) throws GenerationException {
+    public boolean isApplicable(@NotNull TemplateContext context) {
       return QueriesGenerated.rule_Condition_1_4(new MapRootRuleContext(context, getRuleNode()));
     }
     @Override
@@ -300,7 +300,7 @@ public class Mapping_GeneratorModule extends MapConfigBase implements TemplateMa
       super(new SNodePointer("r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508(jetbrains.mps.lang.descriptor.generator.template.main@generator)", "1066600152715707458"), CONCEPTS.GeneratorDescriptor$hF, false, false);
     }
     @Override
-    public boolean isApplicable(@NotNull TemplateContext context) throws GenerationException {
+    public boolean isApplicable(@NotNull TemplateContext context) {
       return QueriesGenerated.rule_Condition_1_5(new MapRootRuleContext(context, getRuleNode()));
     }
     @Override

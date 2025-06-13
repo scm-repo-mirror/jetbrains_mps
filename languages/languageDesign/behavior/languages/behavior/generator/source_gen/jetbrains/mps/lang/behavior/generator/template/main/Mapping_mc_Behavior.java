@@ -119,7 +119,7 @@ public class Mapping_mc_Behavior extends MapConfigBase implements TemplateMappin
       super(new SNodePointer("r:229ce18d-2bb0-4d5b-a7cd-cec65841e459(jetbrains.mps.lang.behavior.generator.template.main@generator)", "4881419546810727151"));
     }
     @Override
-    public boolean isApplicable(@NotNull TemplateContext context) throws GenerationException {
+    public boolean isApplicable(@NotNull TemplateContext context) {
       return QueriesGenerated.createRootRule_Condition_0_0(new CreateRootRuleContext(context, getRuleNode()));
     }
     public Collection<SNode> apply(@NotNull TemplateContext context) throws GenerationException {
