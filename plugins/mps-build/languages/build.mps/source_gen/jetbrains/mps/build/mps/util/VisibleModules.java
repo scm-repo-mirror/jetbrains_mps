@@ -8,8 +8,6 @@ import java.util.HashMap;
 import jetbrains.mps.messages.IMessageHandler;
 import jetbrains.mps.messages.LogHandler;
 import jetbrains.mps.logging.Logger;
-import org.jetbrains.annotations.Nullable;
-import jetbrains.mps.generator.template.TemplateQueryContext;
 import org.jetbrains.annotations.NotNull;
 import java.util.Queue;
 import jetbrains.mps.internal.collections.runtime.QueueSequence;
@@ -31,6 +29,7 @@ import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.project.ModuleId;
 import jetbrains.mps.smodel.adapter.ids.MetaIdHelper;
 import org.jetbrains.mps.openapi.module.SModuleReference;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -46,24 +45,6 @@ public final class VisibleModules {
 
   public VisibleModules(SNode project) {
     this(project, new LogHandler(Logger.getLogger(VisibleModules.class)));
-  }
-
-  /**
-   * 
-   * @deprecated genContext is always null, use cons w/o genContext
-   */
-  @Deprecated(forRemoval = true, since = "2025.1")
-  public VisibleModules(SNode project, @Nullable TemplateQueryContext genContext) {
-    this(project, new LogHandler(Logger.getLogger(VisibleModules.class)));
-  }
-
-  /**
-   * 
-   * @deprecated genContext is always null, use cons w/o genContext
-   */
-  @Deprecated(forRemoval = true, since = "2025.1")
-  public VisibleModules(@NotNull SNode project, @NotNull IMessageHandler msgHandler, @Nullable TemplateQueryContext genContext) {
-    this(project, msgHandler);
   }
 
   public VisibleModules(@NotNull SNode project, @NotNull IMessageHandler msgHandler) {
@@ -90,7 +71,7 @@ public final class VisibleModules {
         SNode depproj = SLinkOperations.getTarget(projectDependency, LINKS.script$6Ehy);
         if ((depproj == null)) {
           SReference ref = SNodeOperations.getReference(projectDependency, LINKS.script$6Ehy);
-          report(String.format("Cannot find the build project dependency %s in the model %s", SLinkOperations.getResolveInfo(ref), check_xuwpka_b0a0b0e0c0e0n(ref.getTargetSModelReference())), projectDependency);
+          report(String.format("Cannot find the build project dependency %s in the model %s", SLinkOperations.getResolveInfo(ref), check_xuwpka_b0a0b0e0c0e0j(ref.getTargetSModelReference())), projectDependency);
         } else {
           QueueSequence.fromQueue(queue).addLastElement(depproj);
         }
@@ -157,7 +138,7 @@ public final class VisibleModules {
     }
     return result;
   }
-  private static String check_xuwpka_b0a0b0e0c0e0n(SModelReference checkedDotOperand) {
+  private static String check_xuwpka_b0a0b0e0c0e0j(SModelReference checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getModelName();
     }

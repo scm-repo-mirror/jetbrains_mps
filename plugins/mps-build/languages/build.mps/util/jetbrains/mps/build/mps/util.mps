@@ -99,14 +99,9 @@
       </concept>
       <concept id="1188207840427" name="jetbrains.mps.baseLanguage.structure.AnnotationInstance" flags="nn" index="2AHcQZ">
         <reference id="1188208074048" name="annotation" index="2AI5Lk" />
-        <child id="1188214630783" name="value" index="2B76xF" />
       </concept>
       <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ngI" index="2AJDlI">
         <child id="1188208488637" name="annotation" index="2AJF6D" />
-      </concept>
-      <concept id="1188214545140" name="jetbrains.mps.baseLanguage.structure.AnnotationInstanceValue" flags="ng" index="2B6LJw">
-        <reference id="1188214555875" name="key" index="2B6OnR" />
-        <child id="1188214607812" name="value" index="2B70Vg" />
       </concept>
       <concept id="1154032098014" name="jetbrains.mps.baseLanguage.structure.AbstractLoopStatement" flags="nn" index="2LF5Ji">
         <child id="1154032183016" name="body" index="2LFqv$" />
@@ -375,9 +370,6 @@
       </concept>
       <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA">
         <child id="8970989240999019149" name="part" index="1dT_Ay" />
-      </concept>
-      <concept id="8465538089690331492" name="jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag" flags="ng" index="TZ5HI">
-        <child id="2667874559098216723" name="text" index="3HnX3l" />
       </concept>
       <concept id="2217234381367530212" name="jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocReference" flags="ng" index="VXe08">
         <reference id="2217234381367530213" name="classifier" index="VXe09" />
@@ -984,14 +976,13 @@
           <node concept="37vLTI" id="6cqWk79zZ9s" role="3clFbG">
             <node concept="2ShNRf" id="50RHf4RGXF5" role="37vLTx">
               <node concept="1pGfFk" id="50RHf4RGXF7" role="2ShVmc">
-                <ref role="37wK5l" node="4zG_B4nZYu" resolve="VisibleModules" />
+                <ref role="37wK5l" node="7$cPHKxxErH" resolve="VisibleModules" />
                 <node concept="37vLTw" id="6cqWk79zYZ3" role="37wK5m">
                   <ref role="3cqZAo" node="6cqWk79z27Y" resolve="buildProject" />
                 </node>
                 <node concept="37vLTw" id="4zG_B4yDTZ" role="37wK5m">
                   <ref role="3cqZAo" node="6cqWk79z29r" resolve="msgHandler" />
                 </node>
-                <node concept="10Nm6u" id="7$cPHKxuizB" role="37wK5m" />
               </node>
             </node>
             <node concept="37vLTw" id="6cqWk79zZ9w" role="37vLTJ">
@@ -2640,133 +2631,6 @@
         <property role="TrG5h" value="project" />
         <node concept="3Tqbb2" id="4YUXsyXXP4a" role="1tU5fm">
           <ref role="ehGHo" to="3ior:4RPz6WoY4Cj" resolve="BuildProject" />
-        </node>
-      </node>
-    </node>
-    <node concept="2tJIrI" id="6DVIxeQOKGB" role="jymVt" />
-    <node concept="3clFbW" id="6DVIxeQOJcb" role="jymVt">
-      <node concept="3cqZAl" id="6DVIxeQOJcc" role="3clF45" />
-      <node concept="3Tm1VV" id="6DVIxeQOJcd" role="1B3o_S" />
-      <node concept="3clFbS" id="6DVIxeQOJce" role="3clF47">
-        <node concept="1VxSAg" id="6DVIxeQOJcf" role="3cqZAp">
-          <ref role="37wK5l" node="7$cPHKxxErH" resolve="VisibleModules" />
-          <node concept="37vLTw" id="6DVIxeQOJcg" role="37wK5m">
-            <ref role="3cqZAo" node="6DVIxeQOJcm" resolve="project" />
-          </node>
-          <node concept="2ShNRf" id="6DVIxeQOJch" role="37wK5m">
-            <node concept="1pGfFk" id="6DVIxeQOJci" role="2ShVmc">
-              <ref role="37wK5l" to="et5u:~LogHandler.&lt;init&gt;(jetbrains.mps.logging.Logger)" resolve="LogHandler" />
-              <node concept="2YIFZM" id="6DVIxeQOJcj" role="37wK5m">
-                <ref role="37wK5l" to="wwqx:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
-                <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
-                <node concept="3VsKOn" id="6DVIxeQOJck" role="37wK5m">
-                  <ref role="3VsUkX" node="50RHf4RGVPk" resolve="VisibleModules" />
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="37vLTG" id="6DVIxeQOJcm" role="3clF46">
-        <property role="TrG5h" value="project" />
-        <node concept="3Tqbb2" id="6DVIxeQOJcn" role="1tU5fm">
-          <ref role="ehGHo" to="3ior:4RPz6WoY4Cj" resolve="BuildProject" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="6DVIxeQOM0$" role="3clF46">
-        <property role="TrG5h" value="genContext" />
-        <node concept="1iwH7U" id="6DVIxeQOM0_" role="1tU5fm" />
-        <node concept="2AHcQZ" id="6DVIxeQOM0A" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="7$cPHKxxCXt" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
-        <node concept="2B6LJw" id="7$cPHKxxD7P" role="2B76xF">
-          <ref role="2B6OnR" to="wyt6:~Deprecated.forRemoval()" resolve="forRemoval" />
-          <node concept="3clFbT" id="7$cPHKxxDbk" role="2B70Vg">
-            <property role="3clFbU" value="true" />
-          </node>
-        </node>
-        <node concept="2B6LJw" id="7$cPHKxxDbE" role="2B76xF">
-          <ref role="2B6OnR" to="wyt6:~Deprecated.since()" resolve="since" />
-          <node concept="Xl_RD" id="7$cPHKxxDdJ" role="2B70Vg">
-            <property role="Xl_RC" value="2025.1" />
-          </node>
-        </node>
-      </node>
-      <node concept="P$JXv" id="7$cPHKxxCXq" role="lGtFl">
-        <node concept="TZ5HI" id="7$cPHKxxCXr" role="3nqlJM">
-          <node concept="TZ5HA" id="7$cPHKxxCXs" role="3HnX3l">
-            <node concept="1dT_AC" id="7$cPHKxxDeL" role="1dT_Ay">
-              <property role="1dT_AB" value="genContext is always null, use cons w/o genContext" />
-            </node>
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="2tJIrI" id="4zG_B4o5Du" role="jymVt" />
-    <node concept="3clFbW" id="4zG_B4nZYu" role="jymVt">
-      <node concept="3cqZAl" id="4zG_B4nZYv" role="3clF45" />
-      <node concept="3Tm1VV" id="4zG_B4nZYw" role="1B3o_S" />
-      <node concept="3clFbS" id="4zG_B4nZYx" role="3clF47">
-        <node concept="1VxSAg" id="7$cPHKxxK9x" role="3cqZAp">
-          <ref role="37wK5l" node="7$cPHKxxErH" resolve="VisibleModules" />
-          <node concept="37vLTw" id="7$cPHKxxKoI" role="37wK5m">
-            <ref role="3cqZAo" node="4zG_B4nZYC" resolve="project" />
-          </node>
-          <node concept="37vLTw" id="7$cPHKxxKI4" role="37wK5m">
-            <ref role="3cqZAo" node="4zG_B4ocg_" resolve="msgHandler" />
-          </node>
-        </node>
-      </node>
-      <node concept="37vLTG" id="4zG_B4nZYC" role="3clF46">
-        <property role="TrG5h" value="project" />
-        <node concept="3Tqbb2" id="4zG_B4nZYD" role="1tU5fm">
-          <ref role="ehGHo" to="3ior:4RPz6WoY4Cj" resolve="BuildProject" />
-        </node>
-        <node concept="2AHcQZ" id="6DVIxeQNmR0" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="4zG_B4ocg_" role="3clF46">
-        <property role="TrG5h" value="msgHandler" />
-        <node concept="3uibUv" id="4zG_B4oj7e" role="1tU5fm">
-          <ref role="3uigEE" to="et5u:~IMessageHandler" resolve="IMessageHandler" />
-        </node>
-        <node concept="2AHcQZ" id="6DVIxeQNnj$" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="6DVIxeQN6Q$" role="3clF46">
-        <property role="TrG5h" value="genContext" />
-        <node concept="1iwH7U" id="6DVIxeQN6WA" role="1tU5fm" />
-        <node concept="2AHcQZ" id="6DVIxeQNbCX" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="7$cPHKxxEcn" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
-        <node concept="2B6LJw" id="7$cPHKxxLzt" role="2B76xF">
-          <ref role="2B6OnR" to="wyt6:~Deprecated.forRemoval()" resolve="forRemoval" />
-          <node concept="3clFbT" id="7$cPHKxxLBc" role="2B70Vg">
-            <property role="3clFbU" value="true" />
-          </node>
-        </node>
-        <node concept="2B6LJw" id="7$cPHKxxLBy" role="2B76xF">
-          <ref role="2B6OnR" to="wyt6:~Deprecated.since()" resolve="since" />
-          <node concept="Xl_RD" id="7$cPHKxxLUl" role="2B70Vg">
-            <property role="Xl_RC" value="2025.1" />
-          </node>
-        </node>
-      </node>
-      <node concept="P$JXv" id="7$cPHKxxEck" role="lGtFl">
-        <node concept="TZ5HI" id="7$cPHKxxEcl" role="3nqlJM">
-          <node concept="TZ5HA" id="7$cPHKxxEcm" role="3HnX3l">
-            <node concept="1dT_AC" id="7$cPHKxxLV1" role="1dT_Ay">
-              <property role="1dT_AB" value="genContext is always null, use cons w/o genContext" />
-            </node>
-          </node>
         </node>
       </node>
     </node>

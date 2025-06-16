@@ -7,7 +7,6 @@ import jetbrains.mps.components.CoreComponent;
 import jetbrains.mps.project.structure.modules.ModuleDescriptor;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.project.MPSExtentions;
-import jetbrains.mps.util.MacroHelper;
 
 /**
  * Now it's CoreComponent, although without any relevant code to justify single instance / component status.
@@ -26,6 +25,7 @@ public class DescriptorIOFacade implements CoreComponent {
   public DescriptorIOProvider standardProvider() {
     return STANDARD_FACTORY;
   }
+
   private static DescriptorIO<? extends ModuleDescriptor> fromExtension(DescriptorIOProvider standardProvider, String path) {
     if (path.endsWith(MPSExtentions.DOT_LANGUAGE)) {
       return standardProvider.languageDescriptorIO();
@@ -45,44 +45,11 @@ public class DescriptorIOFacade implements CoreComponent {
    */
   @Deprecated
   public static DescriptorIOFacade getInstance() {
+    // 1 use in mbeddr
     return new DescriptorIOFacade();
-  }
-
-  /**
-   * 
-   * @deprecated use no-arg cons
-   */
-  @Deprecated(forRemoval = true, since = "2023.3")
-  public DescriptorIOFacade(MacroHelper.Source macroHelperSource) {
-    STANDARD_FACTORY = new StandardDescriptorIOProvider();
-  }
-
-  /**
-   * FIXME it's odd to declare DescriptorIOException provided ModuleDescriptor keeps loadException in case of load failure. 
-   * Have to align exception handling, i.e. either throw them as regular Java exception, or keep it within the ModuleDescriptor object and get clean read/write methods then.
-   * 
-   * 
-   * @deprecated use {@link jetbrains.mps.project.io.DescriptorIOFacade#fromFileType(IFile) } instead
-   * @throws DescriptorIOException now, only in case {@code moduleFile} argument is not a recognized module file (use {@link #isModuleDescriptorFile(IFile) to tell good from bad}
-   */
-  @Deprecated(forRemoval = true, since = "2023.3")
-  public ModuleDescriptor readFromModuleFile(MacroHelper macroHelper, IFile moduleFile) throws DescriptorIOException {
-    DescriptorIOProvider sp = new StandardDescriptorIOProvider();
-    DescriptorIO<? extends ModuleDescriptor> io = fromExtension(sp, moduleFile.getPath());
-    if (io == null) {
-      throw new DescriptorIOException(String.format("File %s is not a recognized module descriptor", moduleFile));
-    }
-    return io.readFromFile(moduleFile);
   }
 
   public boolean isModuleDescriptorFile(IFile file) {
     return fromExtension(standardProvider(), file.getPath()) != null;
-  }
-
-  @Override
-  public void init() {
-  }
-  @Override
-  public void dispose() {
   }
 }
