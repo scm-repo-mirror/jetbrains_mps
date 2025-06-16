@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.generator.template;
 
+import jetbrains.mps.generator.impl.CloneUtil;
 import jetbrains.mps.generator.impl.GeneratorUtil;
 import jetbrains.mps.generator.impl.TemplateExecutionEnvironmentImpl;
 import jetbrains.mps.generator.runtime.TemplateContext;
@@ -30,6 +31,8 @@ import org.jetbrains.mps.openapi.module.SRepository;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.StreamSupport;
 
 /**
  * Context for operations of genContext parameter in generator's concept functions. This is what generated code of template queries (like input nodes query,
@@ -317,6 +320,27 @@ public class TemplateQueryContext {
     SNodeReference rnr = getRuleNode();
     myGenerator.getLogger().error(rnr == null ? tn : rnr, message,
         GeneratorUtil.describeIfExists(inputNode, "input node"), GeneratorUtil.describeIfExists(tn, "template node"));
+  }
+
+  /**
+   * {@code GenerationContextOp_CopyWithTrace(node<>)}
+   * @since 2025.2
+   */
+  public SNode copyWithTrace(@Nullable SNode inputNode) {
+    // FWIW, prior to this change, GenerationContextOp_CopyWithTrace didn't have any return type, hence no proper use of this IOperation was possible
+    if (inputNode == null) {
+      return null;
+    }
+    return copyWithTrace(Collections.singletonList(inputNode)).get(0);
+  }
+
+  /**
+   * {@code GenerationContextOp_CopyWithTrace(nlist<>)}
+   * @since 2025.2
+   */
+  public List<SNode> copyWithTrace(@NotNull Iterable<? extends SNode> nodes) {
+    CloneUtil cu = new CloneUtil(getInputModel(), getOutputModel()).traceOriginalInput();
+    return StreamSupport.stream(nodes.spliterator(), false).filter(Objects::nonNull).map(cu::clone).toList();
   }
 
   /**
