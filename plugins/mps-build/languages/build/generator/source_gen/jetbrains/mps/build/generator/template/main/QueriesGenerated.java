@@ -615,9 +615,13 @@ public class QueriesGenerated extends QueryProviderBase {
     return ((String) _context.getVariable("var:targetLocation"));
   }
   public static Object propertyMacro_GetValue_2_7(final PropertyMacroContext _context) {
-    if (!((boolean) BuildLayout_Node__BehaviorDescriptor.isFile_id1bWeed$oPZ2.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.target$AFU4)))) {
-      _context.showErrorMessage(_context.getNode(), "cannot import abstract element, should be file or folder");
+    if ((boolean) BuildLayout_Node__BehaviorDescriptor.isFile_id1bWeed$oPZ2.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.target$AFU4))) {
+      return "file";
     }
+    if ((boolean) BuildLayout_Node__BehaviorDescriptor.isFolder_id1bWeed$oPYW.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.target$AFU4))) {
+      return "dir";
+    }
+    _context.showErrorMessage(_context.getNode(), "cannot import abstract element, should be file or folder");
     return "file";
   }
   public static Object propertyMacro_GetValue_2_8(final PropertyMacroContext _context) {
@@ -1766,8 +1770,6 @@ public class QueriesGenerated extends QueryProviderBase {
     String val = helper.getLocation(SLinkOperations.getTarget(_context.getNode(), LINKS.target$AFU4));
     if (val == null) {
       _context.showErrorMessage(_context.getNode(), "no location for " + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.target$AFU4)));
-    } else if ((boolean) BuildLayout_Node__BehaviorDescriptor.isFolder_id1bWeed$oPYW.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.target$AFU4))) {
-      _context.showErrorMessage(_context.getNode(), "internal error: cannot handle folders `" + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.target$AFU4)) + "'");
     }
     return val;
   }
@@ -1776,8 +1778,16 @@ public class QueriesGenerated extends QueryProviderBase {
     String fsetExt = "fileset";
     String prefix = FileSetUtil.getPrefix(_context.getNode(), macros);
     Pair<String, String> filemode = FileSetUtil.getFilemode(_context.getNode());
-    if ((prefix != null && prefix.length() > 0) || filemode != null) {
+    if ((prefix != null && prefix.length() > 0) || filemode != null || (boolean) BuildLayout_Node__BehaviorDescriptor.isFolder_id1bWeed$oPYW.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.target$AFU4))) {
       fsetExt = BuildLayout_ContainerAcceptingFileSet__BehaviorDescriptor.getFileSetExtension_id5zIo$W4pFTK.invoke(((SNode) _context.getVariable("_archive")));
+      if ((boolean) BuildLayout_Node__BehaviorDescriptor.isFolder_id1bWeed$oPYW.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.target$AFU4))) {
+        int tail = ((String) _context.getVariable("var:targetLocation")).lastIndexOf('/');
+        if ((prefix != null && prefix.length() > 0)) {
+          prefix = prefix + ((String) _context.getVariable("var:targetLocation")).substring(tail);
+        } else {
+          prefix = ((String) _context.getVariable("var:targetLocation")).substring(tail + 1);
+        }
+      }
     }
     return MultiTuple.<String,String,String,String>from(fsetExt, prefix, (filemode != null ? filemode.o1 : null), (filemode != null ? filemode.o2 : null));
   }
