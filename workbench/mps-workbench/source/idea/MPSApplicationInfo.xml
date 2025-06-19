@@ -13,7 +13,7 @@
   <about url="/about.png" foreground="FFFFFF" copyrightForeground="FFFFFF"/><!--linkColor="9b5121" logoX="300" logoY="265" logoW="75" logoH="30"-->
   <icon ico="MPS.ico" svg="/mps.svg" svg-small="/mps_16.svg"/>
   <package code="__PACKAGE_CODE__"/>
-  <names product="MPS" fullname="JetBrains MPS"/>
+  <names product="MPS" fullname="JetBrains MPS" script="mps"/>
 
   <welcome-screen logo-url="/MPS_welcomeScreen.png"/>
   <!--
