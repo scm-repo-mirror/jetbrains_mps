@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.nodeEditor;
 
-import com.intellij.ide.plugins.newui.EmptyCaret;
 import com.intellij.openapi.ui.popup.JBPopupFactory;
 import com.intellij.ui.ScrollPaneFactory;
 import com.intellij.ui.awt.RelativePoint;
@@ -28,7 +27,12 @@ import org.jetbrains.mps.openapi.model.SReference;
 import javax.swing.JEditorPane;
 import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.html.HTMLDocument;
+import javax.swing.text.html.HTMLEditorKit;
 import java.awt.Point;
+import java.io.IOException;
+import java.io.StringWriter;
 
 // name ...Dialog is a legacy (used to be a JDialog); didn't rename as this class is part of EditorComponent interface
 public final class NodeInformationDialog {
@@ -42,10 +46,37 @@ public final class NodeInformationDialog {
   }
 
   public void show(String text) {
-    final var textArea = new JEditorPane("text/html", "");
+    final var textArea = new JEditorPane("text/html", "") {
+      @Override
+      public String getSelectedText() {
+        final HTMLDocument doc = (HTMLDocument) this.getDocument();
+        final HTMLEditorKit kit = new HTMLEditorKit();
+        final StringWriter writer = new StringWriter();
+
+        // Write the plain text version of the selected range or whole doc
+        final int start = this.getSelectionStart();
+        final int end = this.getSelectionEnd();
+        try {
+          if (start != end) {
+            kit.write(writer, doc, start, end - start);
+          } else {
+            kit.write(writer, doc, 0, doc.getLength());
+          }
+        } catch (IOException | BadLocationException e) {
+          throw new RuntimeException(e);
+        }
+
+        final String content = writer.toString();
+        return content.replaceAll("\n", "")
+                      .replaceAll("(?i)<br\\s*/?>", "\n")
+                      .replaceAll("\\<.*?\\>", "")
+                      .replaceAll("[ ]+", " ")
+                      .trim();
+      }
+    };
+
     textArea.setEditable(false);
-    textArea.setCaret(new EmptyCaret());
-    textArea.setText("<html>" + text + "</html");
+    textArea.setText("<html>\n" + text + "</html>");
     textArea.setFont(JBUI.Fonts.label());
 
     textArea.setOpaque(true);
@@ -95,7 +126,7 @@ public final class NodeInformationDialog {
         result.append("<br/>\n");
       } else {
         if (target.getModel() != null) {
-          result.append("<b>Model</b> = ").append(target.getModel().getReference()).append('\n');
+          result.append("<b>Model</b> = ").append(target.getModel().getReference()).append("<br/>\n");
         } else {
           result.append("<i>Target node in role doesn't belong to a model</i>");
           if (refTargetModel != null) {
@@ -103,8 +134,8 @@ public final class NodeInformationDialog {
           }
           result.append("<br/>\n");
         }
-        result.append("<b>Node</b> = ").append(NodePresentationUtil.getPathToRoot(target)).append('\n');
-        result.append("<b>ID</b> = ").append(target.getNodeId().toString()).append('\n');
+        result.append("<b>Node</b> = ").append(NodePresentationUtil.getPathToRoot(target)).append("<br/>\n");
+        result.append("<b>ID</b> = ").append(target.getNodeId().toString()).append("<br/>\n");
       }
 
       result.append("<br/>\n");
