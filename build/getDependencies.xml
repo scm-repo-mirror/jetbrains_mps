@@ -13,11 +13,6 @@
   <loadproperties srcfile="version.properties" description="Load versions of dependencies to download"/>
   <loadproperties srcfile="lib.properties" description="Load destination paths to 3rd party libraries"/>
 
-  <uptodate property="MPSPlugin.upToDate" targetfile="${basedir}/../workbench/mps-workbench/source/META-INF/MPSPlugin.xml">
-    <srcfiles dir="${basedir}/../lib" includes="module-descriptors.xml"/>
-    <srcfiles dir="${basedir}/../workbench/mps-workbench/source/META-INF" includes="MPSPlugin.template.xml"/>
-  </uptodate>
-
   <!-- ===================================================== -->
   <!-- Help and ivy load                        -->
   <!-- ===================================================== -->
@@ -264,7 +259,7 @@
     <chmod file="${basedir}/../bin/win/WinProcessListHelper.exe" perm="755"/>
   </target>
 
-  <target name="embed-module-descriptors" unless="MPSPlugin.upToDate">
+  <target name="embed-module-descriptors">
     <loadfile property="fileContent" srcFile="${basedir}/../lib/module-descriptors.xml"/>
     <copy overwrite="true" file="${basedir}/../workbench/mps-workbench/source/META-INF/MPSPlugin.template.xml" tofile="${basedir}/../workbench/mps-workbench/source/META-INF/MPSPlugin.xml"/>
     <replace failOnNoReplacements="true" file="${basedir}/../workbench/mps-workbench/source/META-INF/MPSPlugin.xml" token="@@MODULE_DESCRIPTORS@@" value="${fileContent}"/>
