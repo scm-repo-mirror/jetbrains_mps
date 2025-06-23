@@ -26,10 +26,7 @@ import java.util.Objects;
 import jetbrains.mps.lang.core.behavior.PropertyAttribute__BehaviorDescriptor;
 import jetbrains.mps.nodeEditor.EditorManager;
 import jetbrains.mps.openapi.editor.update.AttributeKind;
-import org.jetbrains.mps.openapi.module.SModule;
-import jetbrains.mps.util.MacrosFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.vfs.FileSystem;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Image;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.nodeEditor.MPSColors;
@@ -136,12 +133,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
   private boolean nodeCondition_rpujt6_a1b0() {
-    String path = null;
-    SModule module = SNodeOperations.getModel(myNode).getModule();
-    if (module != null) {
-      path = MacrosFactory.forModule(module).expandPath(SPropertyOperations.getString(myNode, PROPS.iconPath$qD21));
-    }
-    return path != null && FileSystem.getInstance().getFile(path).exists();
+    return isNotEmptyString(SPropertyOperations.getString(myNode, PROPS.iconPath$qD21));
   }
   private EditorCell createCollection_3() {
     EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Horizontal());
@@ -200,6 +192,9 @@ import org.jetbrains.mps.openapi.language.SConcept;
   }
   private JComponent _QueryFunction_JComponent_rpujt6_a2b0() {
     return EditorUtil.createSelectImageButton(myNode, PROPS.iconPath$qD21, getEditorContext());
+  }
+  private static boolean isNotEmptyString(String str) {
+    return str != null && str.length() > 0;
   }
 
   private static final class PROPS {
