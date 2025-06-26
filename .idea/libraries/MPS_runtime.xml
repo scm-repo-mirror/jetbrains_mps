@@ -15,7 +15,6 @@
       <root url="jar://$PROJECT_DIR$/lib/mps-environment.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/mps-editor-runtime.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/mps-behavior-api.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/mps-boot-util.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/mps-behavior-runtime.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/mps-references.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/mps-tuples.jar!/" />
