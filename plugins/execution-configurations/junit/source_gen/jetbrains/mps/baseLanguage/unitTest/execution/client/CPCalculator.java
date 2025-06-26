@@ -19,7 +19,7 @@ import jetbrains.mps.util.PathManager;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.LinkedHashSet;
 import java.io.File;
-import jetbrains.mps.string.Strings;
+import java.util.Locale;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 
 /*package*/ class CPCalculator {
@@ -161,8 +161,8 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
     if (file.isDirectory()) {
       return false;
     }
-    final String name = file.getName();
-    return Strings.endsWithIgnoreCase(name, ".jar") || Strings.endsWithIgnoreCase(name, ".zip");
+    final String name = file.getName().toLowerCase(Locale.ENGLISH);
+    return name.endsWith(".jar") || name.endsWith(".zip");
   }
 
   @NotNull

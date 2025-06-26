@@ -4002,11 +4002,6 @@
             <ref role="3bR37D" node="1H905DlDUSw" resolve="MPS.OpenAPI" />
           </node>
         </node>
-        <node concept="1SiIV0" id="nj7QLbKxh8" role="3bR37C">
-          <node concept="3bR9La" id="nj7QLbKxh9" role="1SiIV1">
-            <ref role="3bR37D" node="4m1I2e4jdlp" resolve="MPS.Boot" />
-          </node>
-        </node>
         <node concept="1SiIV0" id="67xNhT4NTEL" role="3bR37C">
           <node concept="3bR9La" id="67xNhT4NTON" role="1SiIV1">
             <ref role="3bR37D" node="HHlBn9$wJ2" resolve="org.jdom" />
@@ -40334,11 +40329,6 @@
             <node concept="3qWCbU" id="73GUf$umuRl" role="3LXTna">
               <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
             </node>
-          </node>
-        </node>
-        <node concept="1SiIV0" id="4m1I2e4jpEX" role="3bR37C">
-          <node concept="3bR9La" id="4m1I2e4jpEY" role="1SiIV1">
-            <ref role="3bR37D" node="4m1I2e4jdlp" resolve="MPS.Boot" />
           </node>
         </node>
         <node concept="1SiIV0" id="2dGZeUusbWe" role="3bR37C">

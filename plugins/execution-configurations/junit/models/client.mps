@@ -46,7 +46,6 @@
     <import index="tken" ref="r:38bad86e-d92c-4ea7-ad52-a111dc6c2457(jetbrains.mps.build.mps.util)" />
     <import index="b0pz" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project.facets(MPS.Core/)" />
     <import index="zdap" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.util.text(MPS.IDEA/)" />
-    <import index="smlj" ref="3a8d80d2-32d9-f1f2-4443-6a1111e12ef3/java:jetbrains.mps.string(MPS.Boot/)" />
     <import index="mmaq" ref="f647e48e-4568-4f4c-b48a-1546492c6a2e/java:org.jdom(org.jdom/)" />
     <import index="34h4" ref="r:263b648a-3e00-426c-ab4b-ba47ccd788c9(jetbrains.mps.baselanguage.unitTest.execution.launcher)" />
     <import index="dush" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)" />
@@ -14235,36 +14234,47 @@
             <property role="TrG5h" value="name" />
             <property role="3TUv4t" value="true" />
             <node concept="17QB3L" id="1bMaI2XqGnC" role="1tU5fm" />
-            <node concept="2OqwBi" id="1bMaI2XqGnD" role="33vP2m">
-              <node concept="37vLTw" id="2BHiRxglGUG" role="2Oq$k0">
-                <ref role="3cqZAo" node="1bMaI2XqGns" resolve="file" />
+            <node concept="2OqwBi" id="2TJFE23mdKM" role="33vP2m">
+              <node concept="2OqwBi" id="1bMaI2XqGnD" role="2Oq$k0">
+                <node concept="37vLTw" id="2BHiRxglGUG" role="2Oq$k0">
+                  <ref role="3cqZAo" node="1bMaI2XqGns" resolve="file" />
+                </node>
+                <node concept="liA8E" id="1bMaI2XqGnF" role="2OqNvi">
+                  <ref role="37wK5l" to="guwi:~File.getName()" resolve="getName" />
+                </node>
               </node>
-              <node concept="liA8E" id="1bMaI2XqGnF" role="2OqNvi">
-                <ref role="37wK5l" to="guwi:~File.getName()" resolve="getName" />
+              <node concept="liA8E" id="2TJFE23mjRI" role="2OqNvi">
+                <ref role="37wK5l" to="wyt6:~String.toLowerCase(java.util.Locale)" resolve="toLowerCase" />
+                <node concept="10M0yZ" id="2TJFE23myaa" role="37wK5m">
+                  <ref role="3cqZAo" to="33ny:~Locale.ENGLISH" resolve="ENGLISH" />
+                  <ref role="1PxDUh" to="33ny:~Locale" resolve="Locale" />
+                </node>
               </node>
             </node>
           </node>
         </node>
         <node concept="3cpWs6" id="1bMaI2XqGnG" role="3cqZAp">
           <node concept="22lmx$" id="1bMaI2XqGnH" role="3cqZAk">
-            <node concept="2YIFZM" id="4reaALv8gS3" role="3uHU7B">
-              <ref role="37wK5l" to="smlj:~Strings.endsWithIgnoreCase(java.lang.String,java.lang.String)" resolve="endsWithIgnoreCase" />
-              <ref role="1Pybhc" to="smlj:~Strings" resolve="Strings" />
-              <node concept="37vLTw" id="4reaALv8gS4" role="37wK5m">
+            <node concept="2OqwBi" id="2TJFE23mG35" role="3uHU7B">
+              <node concept="37vLTw" id="4reaALv8gS4" role="2Oq$k0">
                 <ref role="3cqZAo" node="1bMaI2XqGnB" resolve="name" />
               </node>
-              <node concept="Xl_RD" id="4reaALv8gS5" role="37wK5m">
-                <property role="Xl_RC" value=".jar" />
+              <node concept="liA8E" id="2TJFE23mIU_" role="2OqNvi">
+                <ref role="37wK5l" to="wyt6:~String.endsWith(java.lang.String)" resolve="endsWith" />
+                <node concept="Xl_RD" id="4reaALv8gS5" role="37wK5m">
+                  <property role="Xl_RC" value=".jar" />
+                </node>
               </node>
             </node>
-            <node concept="2YIFZM" id="4reaALv8jQj" role="3uHU7w">
-              <ref role="37wK5l" to="smlj:~Strings.endsWithIgnoreCase(java.lang.String,java.lang.String)" resolve="endsWithIgnoreCase" />
-              <ref role="1Pybhc" to="smlj:~Strings" resolve="Strings" />
-              <node concept="37vLTw" id="4reaALv8jQk" role="37wK5m">
+            <node concept="2OqwBi" id="2TJFE23mT$H" role="3uHU7w">
+              <node concept="37vLTw" id="2TJFE23mT$I" role="2Oq$k0">
                 <ref role="3cqZAo" node="1bMaI2XqGnB" resolve="name" />
               </node>
-              <node concept="Xl_RD" id="4reaALv8jQl" role="37wK5m">
-                <property role="Xl_RC" value=".zip" />
+              <node concept="liA8E" id="2TJFE23mT$J" role="2OqNvi">
+                <ref role="37wK5l" to="wyt6:~String.endsWith(java.lang.String)" resolve="endsWith" />
+                <node concept="Xl_RD" id="2TJFE23mT$K" role="37wK5m">
+                  <property role="Xl_RC" value=".zip" />
+                </node>
               </node>
             </node>
           </node>

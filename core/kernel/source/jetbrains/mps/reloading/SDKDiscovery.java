@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.reloading;
 
-import com.intellij.openapi.util.text.StringUtil;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.vfs.IFileSystem;
 import jetbrains.mps.vfs.QualifiedPath;
@@ -252,17 +251,21 @@ public class SDKDiscovery {
    */
   @Nullable
   private static List<String> readModulesFromReleaseFile(File jrtBaseDir) throws IOException, IllegalArgumentException {
-    // XXX the only reason I moved this method here is use of StringUtil, which I don't want to expose to [kernel]
-    //     and don't want to rewrite with regular Java means (String.split/StreamTokenizer) right now.
     File releaseFile = new File(jrtBaseDir, "release");
     if (releaseFile.isFile()) {
       Properties p = new Properties();
       try (FileInputStream stream = new FileInputStream(releaseFile)) {
         p.load(stream);
         String modules = p.getProperty("MODULES");
-        if (modules != null) {
-          return StringUtil.split(StringUtil.unquoteString(modules), " ", true, true);
+        if (modules == null ||modules.length() < 2) {
+          return null;
         }
+        // not sure it's reasonable to expect quoted string as property value in 'release' file, but doesn't hurt to keep the logic.
+        if (modules.charAt(0) == modules.charAt(modules.length() - 1) && (modules.charAt(0) == '\'' || modules.charAt(0) == '"')) {
+          // StringUtilRt.unquoteString()
+          modules = modules.substring(1, modules.length() - 1);
+        }
+        return Arrays.asList(modules.split("\\s"));
       }
     }
     return null;
