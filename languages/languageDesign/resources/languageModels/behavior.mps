@@ -917,30 +917,29 @@
                 </node>
               </node>
             </node>
-            <node concept="3cpWs8" id="2NwO_B10nnz" role="3cqZAp">
-              <node concept="3cpWsn" id="2NwO_B10nn$" role="3cpWs9">
+            <node concept="3cpWs8" id="7Q4CdSkfALY" role="3cqZAp">
+              <node concept="3cpWsn" id="7Q4CdSkfALZ" role="3cpWs9">
                 <property role="TrG5h" value="imageDescriptors" />
-                <node concept="3uibUv" id="2NwO_B10mUn" role="1tU5fm">
+                <node concept="3uibUv" id="7Q4CdSkfAM0" role="1tU5fm">
                   <ref role="3uigEE" to="33ny:~List" resolve="List" />
-                  <node concept="3uibUv" id="2NwO_B10mUq" role="11_B2D">
+                  <node concept="3uibUv" id="7Q4CdSkfAM1" role="11_B2D">
                     <ref role="3uigEE" to="3iga:~ImageDescriptor" resolve="ImageDescriptor" />
                   </node>
                 </node>
-                <node concept="2YIFZM" id="6tpIqkMTliD" role="33vP2m">
-                  <ref role="37wK5l" to="3iga:~ImageDescriptorKt.getImageDescriptors(java.lang.String,boolean,boolean,com.intellij.ui.scale.ScaleContext)" resolve="getImageDescriptors" />
+                <node concept="2YIFZM" id="7Q4CdSkfKDE" role="33vP2m">
+                  <ref role="37wK5l" to="3iga:~ImageDescriptorKt.createImageDescriptorList(java.lang.String,boolean,boolean,float)" resolve="createImageDescriptorList" />
                   <ref role="1Pybhc" to="3iga:~ImageDescriptorKt" resolve="ImageDescriptorKt" />
-                  <node concept="37vLTw" id="6tpIqkMTliE" role="37wK5m">
+                  <node concept="37vLTw" id="7Q4CdSkfKDF" role="37wK5m">
                     <ref role="3cqZAo" node="5S2eoIGsuvV" resolve="sourcePath" />
                   </node>
-                  <node concept="3clFbT" id="6tpIqkMTliF" role="37wK5m">
+                  <node concept="3clFbT" id="7Q4CdSkfKDG" role="37wK5m">
                     <property role="3clFbU" value="true" />
                   </node>
-                  <node concept="3clFbT" id="6tpIqkMTOs_" role="37wK5m">
+                  <node concept="3clFbT" id="7Q4CdSkfKDH" role="37wK5m">
                     <property role="3clFbU" value="true" />
                   </node>
-                  <node concept="2YIFZM" id="6tpIqkMTliG" role="37wK5m">
-                    <ref role="37wK5l" to="l5y2:~ScaleContext.createIdentity()" resolve="createIdentity" />
-                    <ref role="1Pybhc" to="l5y2:~ScaleContext" resolve="ScaleContext" />
+                  <node concept="3cmrfG" id="7Q4CdSkfNFP" role="37wK5m">
+                    <property role="3cmrfH" value="1" />
                   </node>
                 </node>
               </node>
@@ -972,7 +971,7 @@
                       <node concept="2OqwBi" id="2NwO_B10qcD" role="2Oq$k0">
                         <property role="hSjvv" value="true" />
                         <node concept="37vLTw" id="2NwO_B10oQu" role="2Oq$k0">
-                          <ref role="3cqZAo" node="2NwO_B10nn$" resolve="imageDescriptors" />
+                          <ref role="3cqZAo" node="7Q4CdSkfALZ" resolve="imageDescriptors" />
                         </node>
                         <node concept="liA8E" id="2NwO_B10r0n" role="2OqNvi">
                           <ref role="37wK5l" to="33ny:~Collection.stream()" resolve="stream" />

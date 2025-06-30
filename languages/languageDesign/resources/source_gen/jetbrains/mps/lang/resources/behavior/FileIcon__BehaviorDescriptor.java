@@ -25,7 +25,6 @@ import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import java.util.Objects;
 import com.intellij.ui.icons.ImageDescriptor;
 import com.intellij.ui.icons.ImageDescriptorKt;
-import com.intellij.ui.scale.ScaleContext;
 import jetbrains.mps.vfs.util.PathFormatChecker;
 import java.io.InputStream;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
@@ -102,7 +101,7 @@ public final class FileIcon__BehaviorDescriptor extends BaseBHDescriptor {
 
     if (Objects.equals(ext, "svg") || Objects.equals(ext, "png")) {
       // All possibly needed files
-      List<ImageDescriptor> imageDescriptors = ImageDescriptorKt.getImageDescriptors(sourcePath, true, true, ScaleContext.createIdentity());
+      List<ImageDescriptor> imageDescriptors = ImageDescriptorKt.createImageDescriptorList(sourcePath, true, true, 1);
 
       final String prefix = FileUtil.getNameWithoutExtension(sourcePath);
       return imageDescriptors.stream().map((desc) -> desc.pathTransform.invoke(prefix, ext)).filter((path) -> !(Objects.equals(path, sourcePath))).distinct().toList();
