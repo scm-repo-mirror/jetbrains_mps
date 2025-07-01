@@ -485,7 +485,6 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
     */
 
     EditorColorsScheme colorsScheme = EditorColorsManager.getInstance().getGlobalScheme();
-    // The VCS_ANNOTATIONS_COLOR_1-5 colors in the Light scheme are way too close to each other, revert to the IntelliJ Light colors, if available
     AnnotationsSettings settings = AnnotationsSettings.getInstance();
     List<Color> initialPalette = settings.getOrderedColors(colorsScheme);
     /*
