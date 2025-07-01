@@ -93,6 +93,14 @@
       <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.vcs.log.impl.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/modules/intellij.settingsSync.core.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/nio-fs.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/modules/intellij.relaxng.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.ml.impl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.pluginManager.backend.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.pluginManager.frontend.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.pluginManager.shared.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.tasks.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.tasks.impl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/modules/intellij.spellchecker.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
