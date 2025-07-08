@@ -20,6 +20,7 @@ import jetbrains.mps.tool.common.PluginData;
 import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import com.intellij.openapi.application.PathManager;
+import com.intellij.openapi.project.impl.P3SupportInstaller;
 import java.awt.GraphicsEnvironment;
 import com.intellij.testFramework.TestApplicationManager;
 import jetbrains.mps.project.Project;
@@ -191,6 +192,7 @@ public final class IdeaEnvironment extends EnvironmentBase {
       // always true, resorting to the default behavior loading plugins from cp [apyshkin]
       System.setProperty(IDEA_USE_CORE_CL, Boolean.TRUE.toString());
     }
+    P3SupportInstaller.INSTANCE.seal();
     if (myConfig.isTestMode()) {
       // Circumvent JBUIScale.computeSystemScaleFactor "Must be precomputed" error in tests
       System.setProperty("hidpi", Boolean.FALSE.toString());

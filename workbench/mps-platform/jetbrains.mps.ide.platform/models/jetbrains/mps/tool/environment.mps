@@ -49,6 +49,7 @@
     <import index="zdap" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.util.text(MPS.IDEA/)" />
     <import index="ctgy" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ide.plugins(MPS.IDEA/)" />
     <import index="82uw" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.function(JDK/)" />
+    <import index="qmvx" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.project.impl(MPS.IDEA/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -1538,6 +1539,17 @@
               <ref role="3cqZAo" node="2Tuefk2gna8" resolve="oldValue" />
             </node>
             <node concept="10Nm6u" id="2Tuefk2gwJU" role="3uHU7w" />
+          </node>
+        </node>
+        <node concept="3clFbF" id="14a64PjWXTB" role="3cqZAp">
+          <node concept="2OqwBi" id="14a64PjX7bo" role="3clFbG">
+            <node concept="10M0yZ" id="14a64PjX3_O" role="2Oq$k0">
+              <ref role="3cqZAo" to="qmvx:~P3SupportInstaller.INSTANCE" resolve="INSTANCE" />
+              <ref role="1PxDUh" to="qmvx:~P3SupportInstaller" resolve="P3SupportInstaller" />
+            </node>
+            <node concept="liA8E" id="14a64PjXbqf" role="2OqNvi">
+              <ref role="37wK5l" to="qmvx:~P3SupportInstaller.seal()" resolve="seal" />
+            </node>
           </node>
         </node>
         <node concept="3clFbJ" id="4OPNMy2cD0Q" role="3cqZAp">
