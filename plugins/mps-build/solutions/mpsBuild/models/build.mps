@@ -27365,6 +27365,28 @@
                   <property role="3MwjfP" value="win" />
                 </node>
               </node>
+              <node concept="28jJK3" id="6wqRQFHV_GP" role="39821P">
+                <property role="28jJZ5" value="755" />
+                <node concept="2$gBol" id="6wqRQFHV_GQ" role="28jJR8">
+                  <property role="2$htvj" value="*" />
+                  <node concept="NbPM2" id="6wqRQFHV_GR" role="2$htvi">
+                    <node concept="3Mxwew" id="6wqRQFHV_GS" role="3MwsjC">
+                      <property role="3MwjfP" value="mps.exe" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="55IIr" id="6wqRQFHV_GT" role="28jJRO">
+                  <node concept="2Ry0Ak" id="6wqRQFHV_GU" role="iGT6I">
+                    <property role="2Ry0Am" value="build" />
+                    <node concept="2Ry0Ak" id="6wqRQFHV_GV" role="2Ry0An">
+                      <property role="2Ry0Am" value="resources" />
+                      <node concept="2Ry0Ak" id="6wqRQFHV_GW" role="2Ry0An">
+                        <property role="2Ry0Am" value="mps-win-64.exe" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
               <node concept="2HvfSZ" id="2lgcjg39Ytb" role="39821P">
                 <node concept="55IIr" id="2lgcjg39Ytd" role="2HvfZ0">
                   <node concept="2Ry0Ak" id="2lgcjg39Yte" role="iGT6I">
@@ -27485,6 +27507,28 @@
               </node>
             </node>
             <node concept="398223" id="6xv$4WsFwAu" role="39821P">
+              <node concept="28jJK3" id="6wqRQFFMu68" role="39821P">
+                <property role="28jJZ5" value="755" />
+                <node concept="2$gBol" id="6wqRQFFMu69" role="28jJR8">
+                  <property role="2$htvj" value="*" />
+                  <node concept="NbPM2" id="6wqRQFFMu6a" role="2$htvi">
+                    <node concept="3Mxwew" id="6wqRQFFMu6b" role="3MwsjC">
+                      <property role="3MwjfP" value="mps" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="55IIr" id="6wqRQFFMu6c" role="28jJRO">
+                  <node concept="2Ry0Ak" id="6wqRQFFMu6d" role="iGT6I">
+                    <property role="2Ry0Am" value="build" />
+                    <node concept="2Ry0Ak" id="6wqRQFFMu6e" role="2Ry0An">
+                      <property role="2Ry0Am" value="resources" />
+                      <node concept="2Ry0Ak" id="6wqRQFGJP4B" role="2Ry0An">
+                        <property role="2Ry0Am" value="mps-linux-64" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
               <node concept="28jJK3" id="2lgcjg39Yu5" role="39821P">
                 <property role="28jJZ5" value="755" />
                 <node concept="55IIr" id="2lgcjg39Yu6" role="28jJRO">
@@ -28215,6 +28259,28 @@
             </node>
           </node>
           <node concept="398223" id="6xv$4WsFwxF" role="39821P">
+            <node concept="28jJK3" id="6wqRQFFMtcC" role="39821P">
+              <property role="28jJZ5" value="755" />
+              <node concept="2$gBol" id="6wqRQFFMtVi" role="28jJR8">
+                <property role="2$htvj" value="*" />
+                <node concept="NbPM2" id="6wqRQFFMtVj" role="2$htvi">
+                  <node concept="3Mxwew" id="6wqRQFFMtVk" role="3MwsjC">
+                    <property role="3MwjfP" value="mps" />
+                  </node>
+                </node>
+              </node>
+              <node concept="55IIr" id="6wqRQFFMtcD" role="28jJRO">
+                <node concept="2Ry0Ak" id="6wqRQFFMtv5" role="iGT6I">
+                  <property role="2Ry0Am" value="build" />
+                  <node concept="2Ry0Ak" id="6wqRQFFMtxi" role="2Ry0An">
+                    <property role="2Ry0Am" value="resources" />
+                    <node concept="2Ry0Ak" id="6wqRQFGJPb6" role="2Ry0An">
+                      <property role="2Ry0Am" value="mps-linux-64" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
             <node concept="28jJK3" id="2lgcjg39hVx" role="39821P">
               <property role="28jJZ5" value="755" />
               <node concept="55IIr" id="2lgcjg39hV_" role="28jJRO">
@@ -28670,6 +28736,28 @@
                     <property role="2Ry0Am" value="win" />
                     <node concept="2Ry0Ak" id="2Rmwjku$AgM" role="2Ry0An">
                       <property role="2Ry0Am" value="amd64" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="28jJK3" id="6wqRQFFMuh4" role="39821P">
+              <property role="28jJZ5" value="755" />
+              <node concept="2$gBol" id="6wqRQFFMuh5" role="28jJR8">
+                <property role="2$htvj" value="*" />
+                <node concept="NbPM2" id="6wqRQFFMuh6" role="2$htvi">
+                  <node concept="3Mxwew" id="6wqRQFFMuh7" role="3MwsjC">
+                    <property role="3MwjfP" value="mps.exe" />
+                  </node>
+                </node>
+              </node>
+              <node concept="55IIr" id="6wqRQFFMuh8" role="28jJRO">
+                <node concept="2Ry0Ak" id="6wqRQFFMuh9" role="iGT6I">
+                  <property role="2Ry0Am" value="build" />
+                  <node concept="2Ry0Ak" id="6wqRQFFMuha" role="2Ry0An">
+                    <property role="2Ry0Am" value="resources" />
+                    <node concept="2Ry0Ak" id="6wqRQFFMum_" role="2Ry0An">
+                      <property role="2Ry0Am" value="mps-win-64.exe" />
                     </node>
                   </node>
                 </node>
@@ -48173,7 +48261,7 @@
       <property role="2DPR8u" value="    CreateDirectory &quot;${MAIN_MENU_FOLDER}&quot;" />
     </node>
     <node concept="2DRAP_" id="1w81suM8MUT" role="2DRAPQ">
-      <property role="2DPR8u" value="    CreateShortCut &quot;${PROGRAM_LINK}&quot; &quot;$INSTDIR\bin\mps.bat&quot; &quot;&quot; &quot;$INSTDIR\bin\mps.ico&quot; &quot;&quot; SW_SHOWMINIMIZED" />
+      <property role="2DPR8u" value="    CreateShortCut &quot;${PROGRAM_LINK}&quot; &quot;$INSTDIR\bin\mps.exe&quot; &quot;&quot; &quot;$INSTDIR\bin\mps.ico&quot; &quot;&quot; SW_SHOWMINIMIZED" />
     </node>
     <node concept="2DRAP_" id="1w81suM8Pj6" role="2DRAPQ">
       <property role="2DPR8u" value="    WriteIniStr &quot;$INSTDIR\${PRODUCT_NAME}.url&quot; &quot;InternetShortcut&quot; &quot;URL&quot; &quot;${PRODUCT_WEB_SITE}&quot;" />
@@ -48186,7 +48274,7 @@
       <property role="2DPR8u" value="Section &quot;Desktop Shortcut&quot; secDesktop" />
     </node>
     <node concept="2DRAP_" id="1w81suM93$Z" role="2DRAPQ">
-      <property role="2DPR8u" value="    CreateShortCut &quot;${DESKTOP_LINK}&quot; &quot;$INSTDIR\bin\mps.bat&quot; &quot;&quot; &quot;$INSTDIR\bin\mps.ico&quot; &quot;&quot; SW_SHOWMINIMIZED" />
+      <property role="2DPR8u" value="    CreateShortCut &quot;${DESKTOP_LINK}&quot; &quot;$INSTDIR\bin\mps.exe&quot; &quot;&quot; &quot;$INSTDIR\bin\mps.ico&quot; &quot;&quot; SW_SHOWMINIMIZED" />
     </node>
     <node concept="2DRAP_" id="1w81suM95Xq" role="2DRAPQ">
       <property role="2DPR8u" value="SectionEnd" />
@@ -48196,7 +48284,7 @@
       <property role="2DPR8u" value="Section &quot;Quick Launch Shortcut&quot; secQuickLaunch" />
     </node>
     <node concept="2DRAP_" id="1w81suM9d6S" role="2DRAPQ">
-      <property role="2DPR8u" value="    CreateShortCut &quot;${QL_LINK}&quot; &quot;$INSTDIR\bin\mps.bat&quot; &quot;&quot; &quot;$INSTDIR\bin\mps.ico&quot; &quot;&quot; SW_SHOWMINIMIZED" />
+      <property role="2DPR8u" value="    CreateShortCut &quot;${QL_LINK}&quot; &quot;$INSTDIR\bin\mps.exe&quot; &quot;&quot; &quot;$INSTDIR\bin\mps.ico&quot; &quot;&quot; SW_SHOWMINIMIZED" />
     </node>
     <node concept="2DRAP_" id="1w81suM9fvr" role="2DRAPQ">
       <property role="2DPR8u" value="SectionEnd" />
