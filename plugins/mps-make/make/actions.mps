@@ -93,6 +93,7 @@
     <import index="gk56" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.options.advanced(MPS.IDEA/)" />
     <import index="7e8u" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.ui.tree(MPS.Platform/)" />
     <import index="fglx" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.fileTypes(MPS.IDEA/)" />
+    <import index="82uw" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.function(JDK/)" />
     <import index="guwi" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.io(JDK/)" implicit="true" />
   </imports>
   <registry>
@@ -454,6 +455,14 @@
     </language>
     <language id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures">
       <concept id="2524418899405758586" name="jetbrains.mps.baseLanguage.closures.structure.InferredClosureParameterDeclaration" flags="ig" index="gl6BB" />
+      <concept id="1235746970280" name="jetbrains.mps.baseLanguage.closures.structure.CompactInvokeFunctionExpression" flags="nn" index="2Sg_IR">
+        <child id="1235746996653" name="function" index="2SgG2M" />
+        <child id="1235747002942" name="parameter" index="2SgHGx" />
+      </concept>
+      <concept id="1199542442495" name="jetbrains.mps.baseLanguage.closures.structure.FunctionType" flags="in" index="1ajhzC">
+        <child id="1199542457201" name="resultType" index="1ajl9A" />
+        <child id="1199542501692" name="parameterType" index="1ajw0F" />
+      </concept>
       <concept id="1199569711397" name="jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral" flags="nn" index="1bVj0M">
         <child id="1199569906740" name="parameter" index="1bW2Oz" />
         <child id="1199569916463" name="body" index="1bW5cS" />
@@ -2642,6 +2651,52 @@
         </node>
       </node>
     </node>
+    <node concept="312cEg" id="3F6n$2rTvCA" role="jymVt">
+      <property role="TrG5h" value="isModelGeneratableCheck" />
+      <node concept="3Tm6S6" id="3F6n$2rTgek" role="1B3o_S" />
+      <node concept="1bVj0M" id="3F6n$2rTzNe" role="33vP2m">
+        <node concept="37vLTG" id="3F6n$2rT_hl" role="1bW2Oz">
+          <property role="TrG5h" value="m" />
+          <node concept="3uibUv" id="3F6n$2rT_hi" role="1tU5fm">
+            <ref role="3uigEE" to="mhbf:~SModel" resolve="SModel" />
+          </node>
+        </node>
+        <node concept="3clFbS" id="3F6n$2rTzNg" role="1bW5cS">
+          <node concept="3clFbF" id="3F6n$2rT_RC" role="3cqZAp">
+            <node concept="1Wc70l" id="3F6n$2rT_RE" role="3clFbG">
+              <node concept="2YIFZM" id="3F6n$2rT_RL" role="3uHU7B">
+                <ref role="37wK5l" to="ap4t:~GenerationFacade.canGenerate(org.jetbrains.mps.openapi.model.SModel)" resolve="canGenerate" />
+                <ref role="1Pybhc" to="ap4t:~GenerationFacade" resolve="GenerationFacade" />
+                <node concept="37vLTw" id="3F6n$2rT_RM" role="37wK5m">
+                  <ref role="3cqZAo" node="3F6n$2rT_hl" resolve="m" />
+                </node>
+              </node>
+              <node concept="3fqX7Q" id="3F6n$2rT_RF" role="3uHU7w">
+                <node concept="2OqwBi" id="3F6n$2rT_RG" role="3fr31v">
+                  <node concept="2OqwBi" id="3F6n$2rT_RH" role="2Oq$k0">
+                    <node concept="37vLTw" id="3F6n$2rT_RI" role="2Oq$k0">
+                      <ref role="3cqZAo" node="3F6n$2rT_hl" resolve="m" />
+                    </node>
+                    <node concept="liA8E" id="3F6n$2rT_RJ" role="2OqNvi">
+                      <ref role="37wK5l" to="mhbf:~SModel.getModule()" resolve="getModule" />
+                    </node>
+                  </node>
+                  <node concept="liA8E" id="3F6n$2rT_RK" role="2OqNvi">
+                    <ref role="37wK5l" to="lui2:~SModule.isPackaged()" resolve="isPackaged" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="1ajhzC" id="3FS7wUToONl" role="1tU5fm">
+        <node concept="3uibUv" id="3FS7wUToONm" role="1ajw0F">
+          <ref role="3uigEE" to="mhbf:~SModel" resolve="SModel" />
+        </node>
+        <node concept="10P_77" id="3FS7wUToONn" role="1ajl9A" />
+      </node>
+    </node>
     <node concept="2tJIrI" id="6gJxm_K_gAe" role="jymVt" />
     <node concept="3clFbW" id="7iCFfvQto4Y" role="jymVt">
       <node concept="3cqZAl" id="7iCFfvQto4Z" role="3clF45" />
@@ -2857,6 +2912,41 @@
       </node>
     </node>
     <node concept="2tJIrI" id="3K9bLbY2kuK" role="jymVt" />
+    <node concept="3clFb_" id="3F6n$2rTL6E" role="jymVt">
+      <property role="TrG5h" value="withModelGeneratableCheck" />
+      <node concept="37vLTG" id="3F6n$2rTOlb" role="3clF46">
+        <property role="TrG5h" value="check" />
+        <node concept="1ajhzC" id="3F6n$2sfO02" role="1tU5fm">
+          <node concept="3uibUv" id="3F6n$2sfO03" role="1ajw0F">
+            <ref role="3uigEE" to="mhbf:~SModel" resolve="SModel" />
+          </node>
+          <node concept="10P_77" id="3F6n$2sfO04" role="1ajl9A" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="3F6n$2rTL6H" role="3clF47">
+        <node concept="3clFbF" id="3F6n$2rTSYu" role="3cqZAp">
+          <node concept="37vLTI" id="3F6n$2rU0t3" role="3clFbG">
+            <node concept="37vLTw" id="3F6n$2rU37E" role="37vLTx">
+              <ref role="3cqZAo" node="3F6n$2rTOlb" resolve="check" />
+            </node>
+            <node concept="2OqwBi" id="3F6n$2rTVzE" role="37vLTJ">
+              <node concept="Xjq3P" id="3F6n$2rTSYt" role="2Oq$k0" />
+              <node concept="2OwXpG" id="3F6n$2rTYpw" role="2OqNvi">
+                <ref role="2Oxat5" node="3F6n$2rTvCA" resolve="isModelGeneratableCheck" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs6" id="3F6n$2rUbem" role="3cqZAp">
+          <node concept="Xjq3P" id="3F6n$2rUeHw" role="3cqZAk" />
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="3F6n$2rTERF" role="1B3o_S" />
+      <node concept="3uibUv" id="3F6n$2rTKI3" role="3clF45">
+        <ref role="3uigEE" node="7tZeFupJEXV" resolve="MakeActionParameters" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="3F6n$2rU5Mv" role="jymVt" />
     <node concept="3clFb_" id="3K9bLbY2hGq" role="jymVt">
       <property role="1EzhhJ" value="false" />
       <property role="TrG5h" value="modules" />
@@ -3459,10 +3549,11 @@
                     <node concept="1bVj0M" id="7iCFfvQHE7A" role="23t8la">
                       <node concept="3clFbS" id="7iCFfvQHE7B" role="1bW5cS">
                         <node concept="3clFbF" id="7iCFfvQHE7C" role="3cqZAp">
-                          <node concept="2YIFZM" id="713BH0SCAMQ" role="3clFbG">
-                            <ref role="37wK5l" to="ap4t:~GenerationFacade.canGenerate(org.jetbrains.mps.openapi.model.SModel)" resolve="canGenerate" />
-                            <ref role="1Pybhc" to="ap4t:~GenerationFacade" resolve="GenerationFacade" />
-                            <node concept="37vLTw" id="713BH0SCAMR" role="37wK5m">
+                          <node concept="2Sg_IR" id="3F6n$2sfUyE" role="3clFbG">
+                            <node concept="37vLTw" id="3F6n$2sfUyF" role="2SgG2M">
+                              <ref role="3cqZAo" node="3F6n$2rTvCA" resolve="isModelGeneratableCheck" />
+                            </node>
+                            <node concept="37vLTw" id="3F6n$2sfXQm" role="2SgHGx">
                               <ref role="3cqZAo" node="5W7E4fV0Xuu" resolve="md" />
                             </node>
                           </node>
@@ -4049,22 +4140,33 @@
               </node>
             </node>
             <node concept="2OqwBi" id="3kXJ3GPF_vZ" role="33vP2m">
-              <node concept="2ShNRf" id="3kXJ3GPF_w0" role="2Oq$k0">
-                <node concept="1pGfFk" id="3kXJ3GPF_w1" role="2ShVmc">
-                  <ref role="37wK5l" to="fn29:2O5mK2f2Efu" resolve="ModelsToResources" />
-                  <node concept="3K4zz7" id="5xNRGk4$gNW" role="37wK5m">
-                    <node concept="37vLTw" id="5xNRGk4$iTu" role="3K4E3e">
-                      <ref role="3cqZAo" node="7iCFfvQMSPW" resolve="selectedModels" />
+              <node concept="2OqwBi" id="3F6n$2sg301" role="2Oq$k0">
+                <node concept="2ShNRf" id="3kXJ3GPF_w0" role="2Oq$k0">
+                  <node concept="1pGfFk" id="3kXJ3GPF_w1" role="2ShVmc">
+                    <ref role="37wK5l" to="fn29:2O5mK2f2Efu" resolve="ModelsToResources" />
+                    <node concept="3K4zz7" id="5xNRGk4$gNW" role="37wK5m">
+                      <node concept="37vLTw" id="5xNRGk4$iTu" role="3K4E3e">
+                        <ref role="3cqZAo" node="7iCFfvQMSPW" resolve="selectedModels" />
+                      </node>
+                      <node concept="37vLTw" id="5xNRGk4$l__" role="3K4GZi">
+                        <ref role="3cqZAo" node="5xNRGk4zYEn" resolve="dirtySelectedModels" />
+                      </node>
+                      <node concept="37vLTw" id="3kXJ3GPF_w2" role="3K4Cdx">
+                        <ref role="3cqZAo" node="7iCFfvQwao8" resolve="myCleanBuild" />
+                      </node>
                     </node>
-                    <node concept="37vLTw" id="5xNRGk4$l__" role="3K4GZi">
-                      <ref role="3cqZAo" node="5xNRGk4zYEn" resolve="dirtySelectedModels" />
-                    </node>
-                    <node concept="37vLTw" id="3kXJ3GPF_w2" role="3K4Cdx">
+                    <node concept="37vLTw" id="4yMTmII4dol" role="37wK5m">
                       <ref role="3cqZAo" node="7iCFfvQwao8" resolve="myCleanBuild" />
                     </node>
                   </node>
-                  <node concept="37vLTw" id="4yMTmII4dol" role="37wK5m">
-                    <ref role="3cqZAo" node="7iCFfvQwao8" resolve="myCleanBuild" />
+                </node>
+                <node concept="liA8E" id="3F6n$2sg6MK" role="2OqNvi">
+                  <ref role="37wK5l" to="fn29:35A2TU_A5Nk" resolve="canGenerateCondition" />
+                  <node concept="2OqwBi" id="3F6n$2sgdZE" role="37wK5m">
+                    <node concept="Xjq3P" id="3F6n$2sgafK" role="2Oq$k0" />
+                    <node concept="2OwXpG" id="3F6n$2sghqE" role="2OqNvi">
+                      <ref role="2Oxat5" node="3F6n$2rTvCA" resolve="isModelGeneratableCheck" />
+                    </node>
                   </node>
                 </node>
               </node>

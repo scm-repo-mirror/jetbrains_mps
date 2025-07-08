@@ -7,6 +7,8 @@ import java.util.List;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.make.facet.IFacet;
+import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
+import jetbrains.mps.generator.GenerationFacade;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
@@ -15,7 +17,6 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.smodel.Generator;
 import org.jetbrains.mps.openapi.module.SModuleReference;
-import jetbrains.mps.generator.GenerationFacade;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.make.resources.IResource;
 import jetbrains.mps.generator.ModelGenerationStatusManager;
@@ -37,6 +38,7 @@ public class MakeActionParameters {
   private List<SModule> myModules;
   private boolean myCleanBuild = false;
   private List<IFacet.Name> myAdditionalFacets;
+  private _FunctionTypes._return_P1_E0<? extends Boolean, ? super SModel> isModelGeneratableCheck = (SModel m) -> GenerationFacade.canGenerate(m) && !(m.getModule().isPackaged());
 
   public MakeActionParameters(@NotNull Project project) {
     myProject = project;
@@ -60,6 +62,11 @@ public class MakeActionParameters {
   }
   public List<IFacet.Name> additionalFacets() {
     return myAdditionalFacets;
+  }
+
+  public MakeActionParameters withModelGeneratableCheck(_FunctionTypes._return_P1_E0<? extends Boolean, ? super SModel> check) {
+    this.isModelGeneratableCheck = check;
+    return this;
   }
 
   public MakeActionParameters modules(@Nullable SModule contextModule, @Nullable Iterable<SModule> otherModules) {
@@ -110,7 +117,7 @@ public class MakeActionParameters {
   public String actionText() {
     String fmt = (myCleanBuild ? "Rebuild %s" : "Make %s");
     if (myModels != null && ListSequence.fromList(myModels).isNotEmpty()) {
-      if (!(ListSequence.fromList(myModels).any((md) -> GenerationFacade.canGenerate(md)))) {
+      if (!(ListSequence.fromList(myModels).any((md) -> isModelGeneratableCheck.invoke(md)))) {
         return null;
       }
       if (ListSequence.fromList(myModels).count() > 1) {
@@ -148,7 +155,7 @@ public class MakeActionParameters {
     // FIXME: this effectively aborts make if changes were made only to upstream dependencies
     List<SModel> dirtySelectedModels = ListSequence.fromList(Sequence.fromIterable(selectedModels).where((md) -> statusManager.generationRequired(md)).toList()).asUnmodifiable();
     // only the selected elements are to be rebuilt if myCleanBuild
-    Iterable<IResource> selectedResources = new ModelsToResources((myCleanBuild ? selectedModels : dirtySelectedModels), myCleanBuild).resources();
+    Iterable<IResource> selectedResources = new ModelsToResources((myCleanBuild ? selectedModels : dirtySelectedModels), myCleanBuild).canGenerateCondition(this.isModelGeneratableCheck).resources();
     Set<SModule> selectedModules = SetSequence.fromSet(SetSequence.fromSetWithValues(new HashSet<SModule>(), Sequence.fromIterable(selectedResources).ofType(MResource.class).select((mr) -> mr.module()))).asUnmodifiable();
 
     Iterable<IResource> requiredResources = null;
