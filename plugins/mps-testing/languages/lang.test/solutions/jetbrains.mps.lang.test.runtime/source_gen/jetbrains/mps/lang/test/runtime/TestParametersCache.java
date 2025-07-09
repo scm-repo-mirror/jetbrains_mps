@@ -13,6 +13,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.function.Supplier;
 import jetbrains.mps.smodel.tempmodel.TemporaryModels;
 import jetbrains.mps.util.MacrosFactory;
+import jetbrains.mps.vfs.util.PathUtil;
 import java.io.File;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.ide.ThreadUtils;
@@ -127,7 +128,12 @@ public final class TestParametersCache implements TestRule {
       throw new ProjectPathIsNullException();
     }
     // FIXME can access MacrosFactory through environment.getPlatform, if necessary.
-    String expandedProjectPath = MacrosFactory.getGlobal().expandPath(projectPath);
+    // 
+    // Here, we can get values expanded by Ant (like '${basedir}'), where we don't have control which path style is used.
+    // FIXME use of PathUtil.toSystemIndependent() is a copy of ModulePropertyConfigurable behavior when 
+    //      we translate local path/names into "system-independent", despite discouraging comment at PathUtil class
+    //      (about erroneous impl). 
+    String expandedProjectPath = MacrosFactory.getGlobal().expandPath(PathUtil.toSystemIndependent(projectPath));
     if ((expandedProjectPath == null || expandedProjectPath.length() == 0)) {
       throw new ExpandedProjectPathIsNullException(projectPath);
     }
