@@ -163,7 +163,7 @@ public class JarEntryFile implements IFile {
   @NotNull
   @Override
   public Path toPath() {
-    return PathFormats.UNIX.fromParts(myJarFileData.getFile().getAbsolutePath(), myEntryPath);
+    return PathFormats.getCurrentSystemFormat().fromParts(myJarFileData.getFile().getAbsolutePath(), myEntryPath);
   }
 
   @NotNull
