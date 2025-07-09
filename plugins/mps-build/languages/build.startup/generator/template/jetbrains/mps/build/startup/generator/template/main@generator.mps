@@ -17,9 +17,9 @@
     <import index="vbkb" ref="r:08f2b659-8469-4592-93bf-a6edb46ec86d(jetbrains.mps.build.behavior)" />
     <import index="o3n2" ref="r:26eadcf0-f275-4e90-be37-e4432772a74d(jetbrains.mps.build.util)" />
     <import index="25x5" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.text(JDK/)" />
-    <import index="v5fn" ref="r:a1f8bf7f-c66e-4481-9108-2c3944879584(jetbrains.mps.build.startup.util)" />
     <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" />
     <import index="2txq" ref="r:2c8fa2a8-11a0-4729-bd56-47f702d30278(jetbrains.mps.build.mps.behavior)" />
+    <import index="8ig8" ref="r:c3f8847b-5450-45d4-8ef0-445954b1dc9e(jetbrains.mps.ide.platform)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -2789,8 +2789,8 @@
                 <property role="TrG5h" value="p" />
               </node>
               <node concept="2YIFZM" id="2_gL36cKlwA" role="2GsD0m">
-                <ref role="37wK5l" to="v5fn:2_gL36cJXuW" resolve="getWindowsOpenedPackages" />
-                <ref role="1Pybhc" to="v5fn:2_gL36cJJGu" resolve="OpenedPackages" />
+                <ref role="37wK5l" to="8ig8:2_gL36cJXuW" resolve="getWindowsOpenedPackages" />
+                <ref role="1Pybhc" to="8ig8:2IRg8740kUe" resolve="OpenedPackages" />
               </node>
               <node concept="3clFbS" id="2_gL36cKhMs" role="2LFqv$">
                 <node concept="3clFbF" id="1$mDfZ_xJGJ" role="3cqZAp">
@@ -4543,8 +4543,8 @@
                 <property role="TrG5h" value="p" />
               </node>
               <node concept="2YIFZM" id="2_gL36cP6Uk" role="2GsD0m">
-                <ref role="37wK5l" to="v5fn:2_gL36cJXlS" resolve="getLinuxOpenedPackages" />
-                <ref role="1Pybhc" to="v5fn:2_gL36cJJGu" resolve="OpenedPackages" />
+                <ref role="37wK5l" to="8ig8:2_gL36cJXlS" resolve="getLinuxOpenedPackages" />
+                <ref role="1Pybhc" to="8ig8:2IRg8740kUe" resolve="OpenedPackages" />
               </node>
               <node concept="3clFbS" id="2_gL36cP5Tb" role="2LFqv$">
                 <node concept="3clFbF" id="2_gL36cP5Tc" role="3cqZAp">
@@ -5738,8 +5738,8 @@
               <node concept="3clFbF" id="6GoDrz8MA0l" role="3cqZAp">
                 <node concept="2OqwBi" id="6GoDrz8MA0m" role="3clFbG">
                   <node concept="2YIFZM" id="6GoDrz8MA0n" role="2Oq$k0">
-                    <ref role="37wK5l" to="v5fn:2_gL36cJUCx" resolve="getMacOpenedPackages" />
-                    <ref role="1Pybhc" to="v5fn:2_gL36cJJGu" resolve="OpenedPackages" />
+                    <ref role="37wK5l" to="8ig8:2_gL36cJUCx" resolve="getMacOpenedPackages" />
+                    <ref role="1Pybhc" to="8ig8:2IRg8740kUe" resolve="OpenedPackages" />
                   </node>
                   <node concept="3$u5V9" id="6GoDrz8MA0o" role="2OqNvi">
                     <node concept="1bVj0M" id="6GoDrz8MA0p" role="23t8la">
