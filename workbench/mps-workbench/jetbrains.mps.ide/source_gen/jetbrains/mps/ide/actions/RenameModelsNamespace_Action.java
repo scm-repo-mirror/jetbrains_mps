@@ -54,7 +54,7 @@ public class RenameModelsNamespace_Action extends BaseAction {
   @Override
   public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
     event.getPresentation().setText(IdeBundle.message("actions.virtual.package.rename.on.models.text"));
-    return !(Sequence.fromIterable(Sequence.fromStream(((DiscoveryValueProvider) MapSequence.fromMap(_params).get("selectedObject")).discoverValuesOfType(SModel.class))).isEmpty());
+    return !(Sequence.fromIterable(Sequence.fromStream(((DiscoveryValueProvider) MapSequence.fromMap(_params).get("selectedObject")).discoverValuesOfType(SModel.class))).where((it) -> !(it.isReadOnly())).isEmpty());
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {

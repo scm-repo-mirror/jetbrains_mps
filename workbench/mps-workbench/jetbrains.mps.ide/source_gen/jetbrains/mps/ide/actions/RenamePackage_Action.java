@@ -7,8 +7,9 @@ import jetbrains.mps.workbench.action.BaseAction;
 import javax.swing.Icon;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
-import jetbrains.mps.ide.ui.tree.ContextValueProvider;
+import java.util.Optional;
 import org.jetbrains.mps.openapi.model.SModel;
+import jetbrains.mps.ide.ui.tree.ContextValueProvider;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.project.MPSProject;
 import java.awt.Frame;
@@ -47,7 +48,8 @@ public class RenamePackage_Action extends BaseAction {
   }
   @Override
   public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
-    return ((ContextValueProvider) event.getData(MPSCommonDataKeys.USER_OBJECT)).contextValueOfType(SModel.class).isPresent();
+    Optional<SModel> optModel = ((ContextValueProvider) event.getData(MPSCommonDataKeys.USER_OBJECT)).contextValueOfType(SModel.class);
+    return optModel.isPresent() && !(optModel.get().isReadOnly());
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
