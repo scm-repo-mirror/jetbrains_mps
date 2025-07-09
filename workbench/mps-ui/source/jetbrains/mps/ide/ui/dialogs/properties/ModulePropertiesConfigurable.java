@@ -551,7 +551,7 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
         myPlanPickScope.reset();
       } else {
         if (myGenOut != null) {
-          String genOut = PathUtil.toSystemIndependent(myGenOut.getText());
+          final String genOut = PathUtil.toSystemIndependent(myGenOut.getText());
           if (!genOut.equals(getGenOutPath())) {
             if (genOut.isEmpty()) {
               myModule.setOutputPath(null);
@@ -562,7 +562,7 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
               // here we imply getGenOutPath() method uses AM.getOutputPath()
               IFileSystem localFS = myMPSProject.getPlatform().findComponent(VFSManager.class).getFileSystem(VFSManager.FILE_FS);
               // can not use IDEA's LocalFileSystem here as it's not friendly with non-existent files
-              IFile vfGenOut = localFS.getFile(myGenOut.getText());
+              IFile vfGenOut = localFS.getFile(genOut);
               // XXX in fact, due to save()/setMD logic (see comment above), there's no real need to set IFile, can do MD.setOutputRoot only!
               // utilize the fact AM keeps IFile (perhaps, shall resort to PathSpec, instead?)
               myModule.setOutputPath(vfGenOut);
