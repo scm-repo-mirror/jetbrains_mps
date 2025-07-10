@@ -7718,6 +7718,15 @@
         <node concept="Xl_RD" id="7q5OfCw3ADb" role="37wK5m">
           <property role="Xl_RC" value="mps-constraints-runtime.jar" />
         </node>
+        <node concept="Xl_RD" id="6Nt1OLrCUq4" role="37wK5m">
+          <property role="Xl_RC" value="mps-context.jar" />
+        </node>
+        <node concept="Xl_RD" id="6Nt1OLrCNYJ" role="37wK5m">
+          <property role="Xl_RC" value="mps-problem.jar" />
+        </node>
+        <node concept="Xl_RD" id="6Nt1OLrCYO4" role="37wK5m">
+          <property role="Xl_RC" value="mps-messages-for-legacy-constraints.jar" />
+        </node>
         <node concept="Xl_RD" id="5O4Q2W5AAH3" role="37wK5m">
           <property role="Xl_RC" value="trove.jar" />
         </node>
@@ -7728,7 +7737,7 @@
       <node concept="z59LJ" id="4DCaYFmH2h4" role="lGtFl">
         <node concept="TZ5HA" id="4DCaYFmH2h5" role="TZ5H$">
           <node concept="1dT_AC" id="4DCaYFmH2h6" role="1dT_Ay">
-            <property role="1dT_AB" value="this is essentially the list of jars identical to that in bootstrap:mps-core artifact in IDEA project" />
+            <property role="1dT_AB" value="this is essentially the list of jars identical to that in bootstrap:mps-core &amp; some of bootstrap:aspects-feedback artifacts in IDEA project" />
           </node>
         </node>
       </node>
