@@ -8400,19 +8400,29 @@
       <node id="7758166382143845280" at="41,97,42,149" concept="13" />
       <node id="3034156498063633209" at="45,116,46,57" concept="12" />
       <node id="3034156498063601781" at="46,57,47,51" concept="12" />
-      <node id="456109728135124592" at="47,51,48,0" concept="15" />
-      <node id="3034156498063605127" at="48,0,49,121" concept="12" />
-      <node id="456109728135326196" at="49,121,50,125" concept="12" />
-      <node id="456109728135347005" at="50,125,51,0" concept="15" />
-      <node id="456109728135350046" at="51,0,52,102" concept="13" />
+      <node id="910437229550675653" at="47,51,48,0" concept="15" />
+      <node id="456109728135326196" at="48,0,49,27" concept="12" />
+      <node id="910437229550723112" at="50,29,51,128" concept="14" />
+      <node id="910437229550794560" at="51,128,52,63" concept="14" />
+      <node id="910437229550731717" at="52,63,53,88" concept="6" />
+      <node id="3034156498063605127" at="54,12,55,123" concept="12" />
+      <node id="910437229550700694" at="55,123,56,112" concept="6" />
+      <node id="456109728135124592" at="57,5,58,0" concept="15" />
+      <node id="456109728135347005" at="58,0,59,0" concept="15" />
+      <node id="456109728135350046" at="59,0,60,102" concept="13" />
       <node id="3105573109492308165" at="32,0,35,0" concept="17" trace="getModelDefaultPlatform#(Lorg/jetbrains/mps/openapi/model/SModel;)Ljetbrains/mps/kotlin/stubs/platform/TargetPlatform;" />
       <node id="3034156498063811005" at="41,0,44,0" concept="17" trace="canProvide#(Lorg/jetbrains/mps/openapi/model/SModel;Ljetbrains/mps/kotlin/stubs/platform/TargetPlatform;)Z" />
+      <node id="910437229550712616" at="54,10,57,5" concept="1" />
       <node id="3034156498062779979" at="26,0,31,0" concept="17" trace="getStubPlatform#(Lorg/jetbrains/mps/openapi/model/SModelReference;)Ljava/util/Optional;" />
-      <node id="456109728135091413" at="45,0,54,0" concept="17" trace="compatibleImportedModels#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/kotlin/stubs/platform/TargetPlatform;)Ljava/util/stream/Stream;" />
+      <node id="910437229550686265" at="49,27,57,5" concept="10" />
+      <node id="456109728135091413" at="45,0,62,0" concept="17" trace="compatibleImportedModels#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/kotlin/stubs/platform/TargetPlatform;)Ljava/util/stream/Stream;" />
       <scope id="3105573109492308168" at="32,70,33,87" />
       <scope id="3034156498063811010" at="41,97,42,149" />
       <scope id="3034156498062779982" at="27,82,29,156">
         <var name="stereotype" id="3034156498062879370" />
+      </scope>
+      <scope id="910437229550712617" at="54,12,56,112">
+        <var name="resolver" id="3034156498063608375" />
       </scope>
       <scope id="3105573109492308165" at="32,0,35,0">
         <var name="model" id="3105573109492322597" />
@@ -8421,20 +8431,20 @@
         <var name="model" id="3034156498063811006" />
         <var name="queriedPlatform" id="3034156498063811008" />
       </scope>
+      <scope id="910437229550686267" at="50,29,53,88" />
       <scope id="3034156498062779979" at="26,0,31,0">
         <var name="model" id="3034156498062834480" />
       </scope>
-      <scope id="456109728135091416" at="45,116,52,102">
-        <var name="imports" id="456109728135336162" />
+      <scope id="456109728135091416" at="45,116,60,102">
+        <var name="imports" id="910437229550773867" />
         <var name="model" id="3034156498063949427" />
         <var name="repository" id="3034156498063609305" />
-        <var name="resolver" id="3034156498063608375" />
       </scope>
-      <scope id="456109728135091413" at="45,0,54,0">
+      <scope id="456109728135091413" at="45,0,62,0">
         <var name="contextNode" id="456109728135093855" />
         <var name="platform" id="456109728135135099" />
       </scope>
-      <unit id="4154096360994403173" at="23,0,55,0" name="jetbrains.mps.kotlin.behavior.PlatformHelper" />
+      <unit id="4154096360994403173" at="23,0,63,0" name="jetbrains.mps.kotlin.behavior.PlatformHelper" />
     </file>
   </root>
   <root nodeRef="r:b038209d-51a9-4919-b6e5-4fafce96fa00(jetbrains.mps.kotlin.behavior)/445544999161239260">
