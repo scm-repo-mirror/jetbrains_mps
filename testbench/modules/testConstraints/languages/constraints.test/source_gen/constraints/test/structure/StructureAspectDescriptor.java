@@ -13,6 +13,7 @@ import jetbrains.mps.smodel.runtime.impl.ConceptDescriptorBuilder2;
 import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
 
 public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
+  /*package*/ final ConceptDescriptor myConceptTestAdditionalMethods = createDescriptorForTestAdditionalMethods();
   /*package*/ final ConceptDescriptor myConceptTestConstraintsInheritance_Base = createDescriptorForTestConstraintsInheritance_Base();
   /*package*/ final ConceptDescriptor myConceptTestConstraintsInheritance_Concept_CC = createDescriptorForTestConstraintsInheritance_Concept_CC();
   /*package*/ final ConceptDescriptor myConceptTestConstraintsInheritance_Concept_CI = createDescriptorForTestConstraintsInheritance_Concept_CI();
@@ -48,13 +49,15 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptTestConstraintsInheritance_Base, myConceptTestConstraintsInheritance_Concept_CC, myConceptTestConstraintsInheritance_Concept_CI, myConceptTestConstraintsInheritance_Concept_II, myConceptTestConstraintsInheritance_Container, myConceptTestConstraintsInheritance_Derived1_Constrained, myConceptTestConstraintsInheritance_Derived1_Inherited, myConceptTestConstraintsInheritance_Derived2_Constrained, myConceptTestConstraintsInheritance_Derived2_Inherited, myConceptTestConstraintsInvocation_CanBeAncestorFail, myConceptTestConstraintsInvocation_CanBeChildFail, myConceptTestConstraintsInvocation_CanBeParentFail, myConceptTestConstraintsInvocation_Child, myConceptTestRefConstraints_BaseReference_Handler, myConceptTestRefConstraints_BaseReference_Scoping, myConceptTestRefConstraints_Container, myConceptTestRefConstraints_SubReference_HandlerSuperHandler, myConceptTestRefConstraints_SubReference_HandlerSuperScoping, myConceptTestRefConstraints_SubReference_ScopingSuperHandler, myConceptTestRefConstraints_SubReference_ScopingSuperScoping, myConceptTestRefConstraints_Target);
+    return Arrays.asList(myConceptTestAdditionalMethods, myConceptTestConstraintsInheritance_Base, myConceptTestConstraintsInheritance_Concept_CC, myConceptTestConstraintsInheritance_Concept_CI, myConceptTestConstraintsInheritance_Concept_II, myConceptTestConstraintsInheritance_Container, myConceptTestConstraintsInheritance_Derived1_Constrained, myConceptTestConstraintsInheritance_Derived1_Inherited, myConceptTestConstraintsInheritance_Derived2_Constrained, myConceptTestConstraintsInheritance_Derived2_Inherited, myConceptTestConstraintsInvocation_CanBeAncestorFail, myConceptTestConstraintsInvocation_CanBeChildFail, myConceptTestConstraintsInvocation_CanBeParentFail, myConceptTestConstraintsInvocation_Child, myConceptTestRefConstraints_BaseReference_Handler, myConceptTestRefConstraints_BaseReference_Scoping, myConceptTestRefConstraints_Container, myConceptTestRefConstraints_SubReference_HandlerSuperHandler, myConceptTestRefConstraints_SubReference_HandlerSuperScoping, myConceptTestRefConstraints_SubReference_ScopingSuperHandler, myConceptTestRefConstraints_SubReference_ScopingSuperScoping, myConceptTestRefConstraints_Target);
   }
 
   @Override
   @Nullable
   public ConceptDescriptor getDescriptor(SConceptId id) {
     switch (myIndexSwitch.index(id)) {
+      case LanguageConceptSwitch.TestAdditionalMethods:
+        return myConceptTestAdditionalMethods;
       case LanguageConceptSwitch.TestConstraintsInheritance_Base:
         return myConceptTestConstraintsInheritance_Base;
       case LanguageConceptSwitch.TestConstraintsInheritance_Concept_CC:
@@ -107,6 +110,15 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     return myIndexSwitch.index(c);
   }
 
+  private static ConceptDescriptor createDescriptorForTestAdditionalMethods() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("constraints.test", "TestAdditionalMethods", 0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x162dc4cf45e4209aL);
+    b.class_(false, false, false);
+    b.origin("r:35917c6a-b8ff-491f-83ca-d36ca2c36595(constraints.test.structure)/1598149837296246938");
+    b.version(3);
+    b.property("prop", 0x162dc4cf45e4493bL).type(PrimitiveTypeId.INTEGER).origin("1598149837296257339").done();
+    b.associate("ref", 0x162dc4cf45e4b97aL).target(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL).optional(true).origin("1598149837296286074").done();
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForTestConstraintsInheritance_Base() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("constraints.test", "TestConstraintsInheritance_Base", 0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x50b9acb92ed730ffL);
     b.interface_();

@@ -327,5 +327,21 @@
       </node>
     </node>
   </node>
+  <node concept="1TIwiD" id="1oHLcX5T22q">
+    <property role="EcuMT" value="1598149837296246938" />
+    <property role="TrG5h" value="TestAdditionalMethods" />
+    <property role="3GE5qa" value="methods" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyi" id="1oHLcX5T4$V" role="1TKVEl">
+      <property role="IQ2nx" value="1598149837296257339" />
+      <property role="TrG5h" value="prop" />
+      <ref role="AX2Wp" to="tpck:fKAQMTA" resolve="integer" />
+    </node>
+    <node concept="1TJgyj" id="1oHLcX5Tb_U" role="1TKVEi">
+      <property role="IQ2ns" value="1598149837296286074" />
+      <property role="20kJfa" value="ref" />
+      <ref role="20lvS9" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    </node>
+  </node>
 </model>
 

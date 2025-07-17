@@ -9,6 +9,7 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
+  private ConceptPresentation props_TestAdditionalMethods;
   private ConceptPresentation props_TestConstraintsInheritance_Base;
   private ConceptPresentation props_TestConstraintsInheritance_Concept_CC;
   private ConceptPresentation props_TestConstraintsInheritance_Concept_CI;
@@ -36,6 +37,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   public ConceptPresentation getDescriptor(SAbstractConcept c) {
     StructureAspectDescriptor structureDescriptor = (StructureAspectDescriptor) myLanguageRuntime.getAspect(jetbrains.mps.smodel.runtime.StructureAspectDescriptor.class);
     switch (structureDescriptor.internalIndex(c)) {
+      case LanguageConceptSwitch.TestAdditionalMethods:
+        if (props_TestAdditionalMethods == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("TestAdditionalMethods");
+          props_TestAdditionalMethods = cpb.create();
+        }
+        return props_TestAdditionalMethods;
       case LanguageConceptSwitch.TestConstraintsInheritance_Base:
         if (props_TestConstraintsInheritance_Base == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

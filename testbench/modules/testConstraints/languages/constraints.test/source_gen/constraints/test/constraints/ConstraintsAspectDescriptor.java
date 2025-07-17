@@ -22,34 +22,36 @@ public class ConstraintsAspectDescriptor extends BaseConstraintsAspectDescriptor
     SAbstractConcept cncpt = concept;
     switch (conceptIndex.index(cncpt)) {
       case 0:
-        return new TestConstraintsInheritance_Base_Constraints(context);
+        return new TestAdditionalMethods_Constraints(context);
       case 1:
-        return new TestConstraintsInheritance_Derived1_Constrained_Constraints(context);
+        return new TestConstraintsInheritance_Base_Constraints(context);
       case 2:
-        return new TestConstraintsInheritance_Derived2_Constrained_Constraints(context);
+        return new TestConstraintsInheritance_Derived1_Constrained_Constraints(context);
       case 3:
-        return new TestConstraintsInvocation_CanBeAncestorFail_Constraints(context);
+        return new TestConstraintsInheritance_Derived2_Constrained_Constraints(context);
       case 4:
-        return new TestConstraintsInvocation_CanBeChildFail_Constraints(context);
+        return new TestConstraintsInvocation_CanBeAncestorFail_Constraints(context);
       case 5:
-        return new TestConstraintsInvocation_CanBeParentFail_Constraints(context);
+        return new TestConstraintsInvocation_CanBeChildFail_Constraints(context);
       case 6:
-        return new TestRefConstraints_BaseReference_Handler_Constraints(context);
+        return new TestConstraintsInvocation_CanBeParentFail_Constraints(context);
       case 7:
-        return new TestRefConstraints_BaseReference_Scoping_Constraints(context);
+        return new TestRefConstraints_BaseReference_Handler_Constraints(context);
       case 8:
-        return new TestRefConstraints_SubReference_HandlerSuperHandler_Constraints(context);
+        return new TestRefConstraints_BaseReference_Scoping_Constraints(context);
       case 9:
-        return new TestRefConstraints_SubReference_HandlerSuperScoping_Constraints(context);
+        return new TestRefConstraints_SubReference_HandlerSuperHandler_Constraints(context);
       case 10:
-        return new TestRefConstraints_SubReference_ScopingSuperHandler_Constraints(context);
+        return new TestRefConstraints_SubReference_HandlerSuperScoping_Constraints(context);
       case 11:
-        return new TestRefConstraints_SubReference_ScopingSuperScoping_Constraints(context);
+        return new TestRefConstraints_SubReference_ScopingSuperHandler_Constraints(context);
       case 12:
+        return new TestRefConstraints_SubReference_ScopingSuperScoping_Constraints(context);
+      case 13:
         return new TestRefConstraints_Target_Constraints(context);
       default:
     }
     return null;
   }
-  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x50b9acb92ed730ffL), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x50b9acb92ed73116L), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x50b9acb92ed73112L), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x7438d976714223ebL), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x7438d976714223eaL), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x7438d976714223ecL), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a30660588e212L), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a306605641c73L), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a3066058dc091L), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a306605641c7fL), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a3066058dc08eL), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a306605641c7eL), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a306605641c74L)).seal();
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x162dc4cf45e4209aL), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x50b9acb92ed730ffL), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x50b9acb92ed73116L), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x50b9acb92ed73112L), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x7438d976714223ebL), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x7438d976714223eaL), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x7438d976714223ecL), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a30660588e212L), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a306605641c73L), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a3066058dc091L), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a306605641c7fL), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a3066058dc08eL), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a306605641c7eL), MetaIdFactory.conceptId(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a306605641c74L)).seal();
 }

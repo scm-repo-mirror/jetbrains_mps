@@ -12423,6 +12423,11 @@
           <ref role="3bR37D" to="ffeo:7Kfy9QB6LfQ" resolve="jetbrains.mps.kernel" />
         </node>
       </node>
+      <node concept="1SiIV0" id="1oHLcX5Toik" role="3bR37C">
+        <node concept="3bR9La" id="1oHLcX5Toil" role="1SiIV1">
+          <ref role="3bR37D" to="ffeo:mXGwHwhVPj" resolve="JDK" />
+        </node>
+      </node>
       <node concept="3rtmxn" id="EpEP7iiihZ" role="3bR31x">
         <node concept="3LXTmp" id="EpEP7iiii0" role="3rtmxm">
           <node concept="3qWCbU" id="EpEP7iiii1" role="3LXTna">
