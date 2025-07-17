@@ -42112,71 +42112,213 @@
             <node concept="PeGgZ" id="2Crvk9$1$Ro" role="1tU5fm" />
           </node>
         </node>
-        <node concept="3clFbH" id="pkrm6k61pK" role="3cqZAp" />
-        <node concept="3cpWs8" id="2Crvk9$1zQ7" role="3cqZAp">
-          <node concept="3KEzu6" id="2Crvk9$1$CR" role="3cpWs9">
-            <property role="TrG5h" value="resolver" />
-            <node concept="2ShNRf" id="2Crvk9$1$D1" role="33vP2m">
-              <node concept="1pGfFk" id="2Crvk9$1$D2" role="2ShVmc">
-                <property role="373rjd" value="true" />
-                <ref role="37wK5l" to="w1kc:~ModelDependencyResolver.&lt;init&gt;(jetbrains.mps.smodel.language.LanguageRegistry,org.jetbrains.mps.openapi.module.SRepository)" resolve="ModelDependencyResolver" />
-                <node concept="2YIFZM" id="2Crvk9$1$D3" role="37wK5m">
-                  <ref role="37wK5l" to="vndm:~LanguageRegistry.getInstance(org.jetbrains.mps.openapi.module.SRepository)" resolve="getInstance" />
-                  <ref role="1Pybhc" to="vndm:~LanguageRegistry" resolve="LanguageRegistry" />
-                  <node concept="37vLTw" id="2Crvk9$1$D4" role="37wK5m">
-                    <ref role="3cqZAo" node="2Crvk9$1$Rp" resolve="repository" />
-                  </node>
-                </node>
-                <node concept="37vLTw" id="2Crvk9$1$D5" role="37wK5m">
-                  <ref role="3cqZAo" node="2Crvk9$1$Rp" resolve="repository" />
-                </node>
-              </node>
-            </node>
-            <node concept="PeGgZ" id="2Crvk9$1$CQ" role="1tU5fm" />
-          </node>
-        </node>
+        <node concept="3clFbH" id="MyxtoDEar5" role="3cqZAp" />
         <node concept="3cpWs8" id="pkrm6k6MBO" role="3cqZAp">
-          <node concept="3KEzu6" id="pkrm6k6P3y" role="3cpWs9">
+          <node concept="3cpWsn" id="MyxtoDEypF" role="3cpWs9">
             <property role="TrG5h" value="imports" />
-            <node concept="2YIFZM" id="pkrm6k6P3O" role="33vP2m">
-              <ref role="37wK5l" to="1ctc:~Stream.concat(java.util.stream.Stream,java.util.stream.Stream)" resolve="concat" />
-              <ref role="1Pybhc" to="1ctc:~Stream" resolve="Stream" />
-              <node concept="2OqwBi" id="pkrm6k6P3P" role="37wK5m">
-                <node concept="2OqwBi" id="pkrm6k6P3Q" role="2Oq$k0">
-                  <node concept="37vLTw" id="pkrm6k6P3R" role="2Oq$k0">
-                    <ref role="3cqZAo" node="2Crvk9$1$CR" resolve="resolver" />
-                  </node>
-                  <node concept="liA8E" id="pkrm6k6P3S" role="2OqNvi">
-                    <ref role="37wK5l" to="w1kc:~ModelDependencyResolver.directImports(org.jetbrains.mps.openapi.model.SModel)" resolve="directImports" />
-                    <node concept="37vLTw" id="pkrm6k6P3T" role="37wK5m">
-                      <ref role="3cqZAo" node="2Crvk9$2RTN" resolve="model" />
-                    </node>
-                  </node>
+            <node concept="3uibUv" id="MyxtoDEypE" role="1tU5fm">
+              <ref role="3uigEE" to="1ctc:~Stream" resolve="Stream" />
+              <node concept="H_c77" id="MyxtoDEzYa" role="11_B2D" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbJ" id="MyxtoDEd0T" role="3cqZAp">
+          <node concept="3clFbS" id="MyxtoDEd0V" role="3clFbx">
+            <node concept="3SKdUt" id="MyxtoDEm0C" role="3cqZAp">
+              <node concept="1PaTwC" id="MyxtoDEm0D" role="1aUNEU">
+                <node concept="3oM_SD" id="MyxtoDEm0E" role="1PaTwD">
+                  <property role="3oM_SC" value="hack" />
                 </node>
-                <node concept="liA8E" id="pkrm6k6P3U" role="2OqNvi">
-                  <ref role="37wK5l" to="33ny:~Collection.stream()" resolve="stream" />
+                <node concept="3oM_SD" id="MyxtoDEmGc" role="1PaTwD">
+                  <property role="3oM_SC" value="for" />
                 </node>
-              </node>
-              <node concept="2OqwBi" id="pkrm6k6P3V" role="37wK5m">
-                <node concept="2OqwBi" id="pkrm6k6P3W" role="2Oq$k0">
-                  <node concept="37vLTw" id="pkrm6k6P3X" role="2Oq$k0">
-                    <ref role="3cqZAo" node="2Crvk9$1$CR" resolve="resolver" />
-                  </node>
-                  <node concept="liA8E" id="pkrm6k6P3Y" role="2OqNvi">
-                    <ref role="37wK5l" to="w1kc:~ModelDependencyResolver.implicitImports(org.jetbrains.mps.openapi.model.SModel)" resolve="implicitImports" />
-                    <node concept="37vLTw" id="pkrm6k6P3Z" role="37wK5m">
-                      <ref role="3cqZAo" node="2Crvk9$2RTN" resolve="model" />
-                    </node>
-                  </node>
+                <node concept="3oM_SD" id="MyxtoDEmGe" role="1PaTwD">
+                  <property role="3oM_SC" value="scenarios" />
                 </node>
-                <node concept="liA8E" id="pkrm6k6P40" role="2OqNvi">
-                  <ref role="37wK5l" to="33ny:~Collection.stream()" resolve="stream" />
+                <node concept="3oM_SD" id="MyxtoDEmGv" role="1PaTwD">
+                  <property role="3oM_SC" value="when" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDEmGK" role="1PaTwD">
+                  <property role="3oM_SC" value="one" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDEmHx" role="1PaTwD">
+                  <property role="3oM_SC" value="needs" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDEmHy" role="1PaTwD">
+                  <property role="3oM_SC" value="scope" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDEmHz" role="1PaTwD">
+                  <property role="3oM_SC" value="for" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDEmH$" role="1PaTwD">
+                  <property role="3oM_SC" value="a" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDEmH_" role="1PaTwD">
+                  <property role="3oM_SC" value="dynamic" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDEmIA" role="1PaTwD">
+                  <property role="3oM_SC" value="reference" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDEmJD" role="1PaTwD">
+                  <property role="3oM_SC" value="during" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDEmJE" role="1PaTwD">
+                  <property role="3oM_SC" value="generation" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDEmJV" role="1PaTwD">
+                  <property role="3oM_SC" value="(transient" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDEmKc" role="1PaTwD">
+                  <property role="3oM_SC" value="models" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDEmKd" role="1PaTwD">
+                  <property role="3oM_SC" value="are" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDEmKe" role="1PaTwD">
+                  <property role="3oM_SC" value="not" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDEmKf" role="1PaTwD">
+                  <property role="3oM_SC" value="in" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDEmKg" role="1PaTwD">
+                  <property role="3oM_SC" value="a" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDEmKh" role="1PaTwD">
+                  <property role="3oM_SC" value="repo)," />
                 </node>
               </node>
             </node>
-            <node concept="PeGgZ" id="pkrm6k6P3x" role="1tU5fm" />
+            <node concept="3SKdUt" id="MyxtoDEBt0" role="3cqZAp">
+              <node concept="1PaTwC" id="MyxtoDEBt1" role="1aUNEU">
+                <node concept="3oM_SD" id="MyxtoDEBt2" role="1PaTwD">
+                  <property role="3oM_SC" value="we" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDEBt5" role="1PaTwD">
+                  <property role="3oM_SC" value="use" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDEBMK" role="1PaTwD">
+                  <property role="3oM_SC" value="deprecated" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDECcw" role="1PaTwD">
+                  <property role="3oM_SC" value="method" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDECcx" role="1PaTwD">
+                  <property role="3oM_SC" value="kept" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDECcM" role="1PaTwD">
+                  <property role="3oM_SC" value="for" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDECd3" role="1PaTwD">
+                  <property role="3oM_SC" value="the" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDECd4" role="1PaTwD">
+                  <property role="3oM_SC" value="very" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDECd5" role="1PaTwD">
+                  <property role="3oM_SC" value="same" />
+                </node>
+                <node concept="3oM_SD" id="MyxtoDECd6" role="1PaTwD">
+                  <property role="3oM_SC" value="reason" />
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="MyxtoDEo75" role="3cqZAp">
+              <node concept="37vLTI" id="MyxtoDEoFD" role="3clFbG">
+                <node concept="2OqwBi" id="MyxtoDErYC" role="37vLTx">
+                  <node concept="2YIFZM" id="MyxtoDEpWV" role="2Oq$k0">
+                    <ref role="37wK5l" to="w1kc:~SModelOperations.allImportedModels(org.jetbrains.mps.openapi.model.SModel)" resolve="allImportedModels" />
+                    <ref role="1Pybhc" to="w1kc:~SModelOperations" resolve="SModelOperations" />
+                    <node concept="37vLTw" id="MyxtoDEqA3" role="37wK5m">
+                      <ref role="3cqZAo" node="2Crvk9$2RTN" resolve="model" />
+                    </node>
+                  </node>
+                  <node concept="liA8E" id="MyxtoDEt_x" role="2OqNvi">
+                    <ref role="37wK5l" to="33ny:~Collection.stream()" resolve="stream" />
+                  </node>
+                </node>
+                <node concept="37vLTw" id="MyxtoDEo73" role="37vLTJ">
+                  <ref role="3cqZAo" node="MyxtoDEypF" resolve="imports" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbC" id="MyxtoDEf0U" role="3clFbw">
+            <node concept="10Nm6u" id="MyxtoDEfEW" role="3uHU7w" />
+            <node concept="37vLTw" id="MyxtoDEekU" role="3uHU7B">
+              <ref role="3cqZAo" node="2Crvk9$1$Rp" resolve="repository" />
+            </node>
+          </node>
+          <node concept="9aQIb" id="MyxtoDEjsC" role="9aQIa">
+            <node concept="3clFbS" id="MyxtoDEjsD" role="9aQI4">
+              <node concept="3cpWs8" id="2Crvk9$1zQ7" role="3cqZAp">
+                <node concept="3KEzu6" id="2Crvk9$1$CR" role="3cpWs9">
+                  <property role="TrG5h" value="resolver" />
+                  <node concept="2ShNRf" id="2Crvk9$1$D1" role="33vP2m">
+                    <node concept="1pGfFk" id="2Crvk9$1$D2" role="2ShVmc">
+                      <property role="373rjd" value="true" />
+                      <ref role="37wK5l" to="w1kc:~ModelDependencyResolver.&lt;init&gt;(jetbrains.mps.smodel.language.LanguageRegistry,org.jetbrains.mps.openapi.module.SRepository)" resolve="ModelDependencyResolver" />
+                      <node concept="2YIFZM" id="2Crvk9$1$D3" role="37wK5m">
+                        <ref role="37wK5l" to="vndm:~LanguageRegistry.getInstance(org.jetbrains.mps.openapi.module.SRepository)" resolve="getInstance" />
+                        <ref role="1Pybhc" to="vndm:~LanguageRegistry" resolve="LanguageRegistry" />
+                        <node concept="37vLTw" id="2Crvk9$1$D4" role="37wK5m">
+                          <ref role="3cqZAo" node="2Crvk9$1$Rp" resolve="repository" />
+                        </node>
+                      </node>
+                      <node concept="37vLTw" id="2Crvk9$1$D5" role="37wK5m">
+                        <ref role="3cqZAo" node="2Crvk9$1$Rp" resolve="repository" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="PeGgZ" id="2Crvk9$1$CQ" role="1tU5fm" />
+                </node>
+              </node>
+              <node concept="3clFbF" id="MyxtoDEgym" role="3cqZAp">
+                <node concept="37vLTI" id="MyxtoDEgyo" role="3clFbG">
+                  <node concept="2YIFZM" id="pkrm6k6P3O" role="37vLTx">
+                    <ref role="37wK5l" to="1ctc:~Stream.concat(java.util.stream.Stream,java.util.stream.Stream)" resolve="concat" />
+                    <ref role="1Pybhc" to="1ctc:~Stream" resolve="Stream" />
+                    <node concept="2OqwBi" id="pkrm6k6P3P" role="37wK5m">
+                      <node concept="2OqwBi" id="pkrm6k6P3Q" role="2Oq$k0">
+                        <node concept="37vLTw" id="pkrm6k6P3R" role="2Oq$k0">
+                          <ref role="3cqZAo" node="2Crvk9$1$CR" resolve="resolver" />
+                        </node>
+                        <node concept="liA8E" id="pkrm6k6P3S" role="2OqNvi">
+                          <ref role="37wK5l" to="w1kc:~ModelDependencyResolver.directImports(org.jetbrains.mps.openapi.model.SModel)" resolve="directImports" />
+                          <node concept="37vLTw" id="pkrm6k6P3T" role="37wK5m">
+                            <ref role="3cqZAo" node="2Crvk9$2RTN" resolve="model" />
+                          </node>
+                        </node>
+                      </node>
+                      <node concept="liA8E" id="pkrm6k6P3U" role="2OqNvi">
+                        <ref role="37wK5l" to="33ny:~Collection.stream()" resolve="stream" />
+                      </node>
+                    </node>
+                    <node concept="2OqwBi" id="pkrm6k6P3V" role="37wK5m">
+                      <node concept="2OqwBi" id="pkrm6k6P3W" role="2Oq$k0">
+                        <node concept="37vLTw" id="pkrm6k6P3X" role="2Oq$k0">
+                          <ref role="3cqZAo" node="2Crvk9$1$CR" resolve="resolver" />
+                        </node>
+                        <node concept="liA8E" id="pkrm6k6P3Y" role="2OqNvi">
+                          <ref role="37wK5l" to="w1kc:~ModelDependencyResolver.implicitImports(org.jetbrains.mps.openapi.model.SModel)" resolve="implicitImports" />
+                          <node concept="37vLTw" id="pkrm6k6P3Z" role="37wK5m">
+                            <ref role="3cqZAo" node="2Crvk9$2RTN" resolve="model" />
+                          </node>
+                        </node>
+                      </node>
+                      <node concept="liA8E" id="pkrm6k6P40" role="2OqNvi">
+                        <ref role="37wK5l" to="33ny:~Collection.stream()" resolve="stream" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="37vLTw" id="MyxtoDEgys" role="37vLTJ">
+                    <ref role="3cqZAo" node="MyxtoDEypF" resolve="imports" />
+                  </node>
+                </node>
+              </node>
+            </node>
           </node>
         </node>
+        <node concept="3clFbH" id="pkrm6k61pK" role="3cqZAp" />
         <node concept="3clFbH" id="pkrm6k6RGX" role="3cqZAp" />
         <node concept="3cpWs6" id="pkrm6k6Ssu" role="3cqZAp">
           <node concept="2OqwBi" id="pkrm6k71TZ" role="3cqZAk">
@@ -42192,7 +42334,7 @@
                   </node>
                 </node>
                 <node concept="37vLTw" id="pkrm6k70ao" role="37wK5m">
-                  <ref role="3cqZAo" node="pkrm6k6P3y" resolve="imports" />
+                  <ref role="3cqZAo" node="MyxtoDEypF" resolve="imports" />
                 </node>
               </node>
               <node concept="liA8E" id="2Gpd$BZl1uo" role="2OqNvi">

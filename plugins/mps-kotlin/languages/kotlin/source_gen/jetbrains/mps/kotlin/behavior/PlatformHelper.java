@@ -46,8 +46,16 @@ public class PlatformHelper {
     SModel model = SNodeOperations.getModel(contextNode);
     SRepository repository = model.getRepository();
 
-    ModelDependencyResolver resolver = new ModelDependencyResolver(LanguageRegistry.getInstance(repository), repository);
-    Stream<SModel> imports = Stream.concat(resolver.directImports(model).stream(), resolver.implicitImports(model).stream());
+    Stream<SModel> imports;
+    if (repository == null) {
+      // hack for scenarios when one needs scope for a dynamic reference during generation (transient models are not in a repo),
+      // we use deprecated method kept for the very same reason
+      imports = jetbrains.mps.smodel.SModelOperations.allImportedModels(model).stream();
+    } else {
+      ModelDependencyResolver resolver = new ModelDependencyResolver(LanguageRegistry.getInstance(repository), repository);
+      imports = Stream.concat(resolver.directImports(model).stream(), resolver.implicitImports(model).stream());
+    }
+
 
     return Stream.concat(Stream.of(model), imports).distinct().filter((m) -> canProvide(m, platform));
   }
