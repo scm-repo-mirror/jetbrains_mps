@@ -3836,5 +3836,25 @@
       </node>
     </node>
   </node>
+  <node concept="13h7C7" id="7tcRu9qvGfT">
+    <property role="3GE5qa" value="icons.descriptors" />
+    <ref role="13h7C2" to="1oap:7tcRu9qvxgB" resolve="FactoryMethodIcon" />
+    <node concept="13i0hz" id="7tcRu9qvGim" role="13h7CS">
+      <property role="TrG5h" value="getResourceId" />
+      <ref role="13i0hy" node="2p1v3tOadt0" resolve="getResourceId" />
+      <node concept="3Tm1VV" id="7tcRu9qvGin" role="1B3o_S" />
+      <node concept="3clFbS" id="7tcRu9qvGio" role="3clF47">
+        <node concept="3clFbF" id="7tcRu9qvGip" role="3cqZAp">
+          <node concept="10Nm6u" id="7tcRu9qvGiq" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="3uibUv" id="7tcRu9qvGir" role="3clF45">
+        <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+      </node>
+    </node>
+    <node concept="13hLZK" id="7tcRu9qvGfU" role="13h7CW">
+      <node concept="3clFbS" id="7tcRu9qvGfV" role="2VODD2" />
+    </node>
+  </node>
 </model>
 

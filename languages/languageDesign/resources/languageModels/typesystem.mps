@@ -778,5 +778,36 @@
       <ref role="1YaFvo" to="1oap:6S5fI02sJjS" resolve="ConstantFieldIcon" />
     </node>
   </node>
+  <node concept="1YbPZF" id="7tcRu9qvLtH">
+    <property role="TrG5h" value="typeof_FactoryMethodIcon" />
+    <property role="3GE5qa" value="icons.descriptors" />
+    <node concept="3clFbS" id="7tcRu9qvLtI" role="18ibNy">
+      <node concept="2NvLDW" id="7tcRu9qvLw0" role="3cqZAp">
+        <node concept="mw_s8" id="7tcRu9qvLw1" role="1ZfhKB">
+          <node concept="2c44tf" id="7tcRu9qvLw2" role="mwGJk">
+            <node concept="3uibUv" id="7tcRu9qvLw3" role="2c44tc">
+              <ref role="3uigEE" to="dxuu:~Icon" resolve="Icon" />
+            </node>
+          </node>
+        </node>
+        <node concept="mw_s8" id="7tcRu9qvLw4" role="1ZfhK$">
+          <node concept="1Z2H0r" id="7tcRu9qvLw5" role="mwGJk">
+            <node concept="2OqwBi" id="7tcRu9qvLw6" role="1Z2MuG">
+              <node concept="1YBJjd" id="7tcRu9qvLw7" role="2Oq$k0">
+                <ref role="1YBMHb" node="7tcRu9qvLtK" resolve="factoryMethodIcon" />
+              </node>
+              <node concept="3TrEf2" id="7tcRu9qvLw8" role="2OqNvi">
+                <ref role="3Tt5mk" to="1oap:7tcRu9qvxgD" resolve="factoryMethod" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="7tcRu9qvLtK" role="1YuTPh">
+      <property role="TrG5h" value="factoryMethodIcon" />
+      <ref role="1YaFvo" to="1oap:7tcRu9qvxgB" resolve="FactoryMethodIcon" />
+    </node>
+  </node>
 </model>
 

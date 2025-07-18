@@ -17,6 +17,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ColorLiteral;
   private ConceptPresentation props_ConceptIconResourceExpression;
   private ConceptPresentation props_ConstantFieldIcon;
+  private ConceptPresentation props_FactoryMethodIcon;
   private ConceptPresentation props_FileIcon;
   private ConceptPresentation props_GeneratedImage;
   private ConceptPresentation props_HelpURL;
@@ -91,6 +92,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ConstantFieldIcon = cpb.create();
         }
         return props_ConstantFieldIcon;
+      case LanguageConceptSwitch.FactoryMethodIcon:
+        if (props_FactoryMethodIcon == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("factory method");
+          props_FactoryMethodIcon = cpb.create();
+        }
+        return props_FactoryMethodIcon;
       case LanguageConceptSwitch.FileIcon:
         if (props_FileIcon == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6bbL);

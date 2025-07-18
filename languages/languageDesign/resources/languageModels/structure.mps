@@ -435,5 +435,25 @@
       </node>
     </node>
   </node>
+  <node concept="1TIwiD" id="7tcRu9qvxgB">
+    <property role="EcuMT" value="8596489752993993767" />
+    <property role="3GE5qa" value="icons.descriptors" />
+    <property role="TrG5h" value="FactoryMethodIcon" />
+    <property role="34LRSv" value="factory method" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="PrWs8" id="7tcRu9qvxgC" role="PzmwI">
+      <ref role="PrY4T" node="2p1v3tOa9VI" resolve="Icon" />
+    </node>
+    <node concept="1TJgyj" id="7tcRu9qvxgD" role="1TKVEi">
+      <property role="IQ2ns" value="8596489752993993769" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="factoryMethod" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="tpee:fIYIFW9" resolve="StaticMethodCall" />
+      <node concept="t5JxF" id="7tcRu9qvxgE" role="lGtFl">
+        <property role="t5JxN" value="use to reference some distributed icons factory methods, like MPSIcons.Actions.obtainSuppressedError" />
+      </node>
+    </node>
+  </node>
 </model>
 

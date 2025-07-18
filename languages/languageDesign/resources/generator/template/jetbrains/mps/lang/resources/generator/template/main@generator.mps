@@ -2584,6 +2584,28 @@
         </node>
       </node>
     </node>
+    <node concept="3aamgX" id="7tcRu9qvOmN" role="3aUrZf">
+      <property role="36QftV" value="true" />
+      <ref role="30HIoZ" to="1oap:7tcRu9qvxgB" resolve="FactoryMethodIcon" />
+      <node concept="gft3U" id="7tcRu9qvOmO" role="1lVwrX">
+        <node concept="10Nm6u" id="7tcRu9qvOmP" role="gfFT$">
+          <node concept="29HgVG" id="7tcRu9qvOmQ" role="lGtFl">
+            <node concept="3NFfHV" id="7tcRu9qvOmR" role="3NFExx">
+              <node concept="3clFbS" id="7tcRu9qvOmS" role="2VODD2">
+                <node concept="3clFbF" id="7tcRu9qvOmT" role="3cqZAp">
+                  <node concept="2OqwBi" id="7tcRu9qvOmU" role="3clFbG">
+                    <node concept="30H73N" id="7tcRu9qvOmV" role="2Oq$k0" />
+                    <node concept="3TrEf2" id="7tcRu9qvOmW" role="2OqNvi">
+                      <ref role="3Tt5mk" to="1oap:7tcRu9qvxgD" resolve="factoryMethod" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
     <node concept="3aamgX" id="6S5fI02uInW" role="3aUrZf">
       <property role="36QftV" value="true" />
       <property role="2n97ot" value="specific case to handle image files relative to module (only old UI)" />

@@ -17,20 +17,21 @@ public final class LanguageConceptSwitch {
   public static final int ColorLiteral = 5;
   public static final int ConceptIconResourceExpression = 6;
   public static final int ConstantFieldIcon = 7;
-  public static final int FileIcon = 8;
-  public static final int GeneratedImage = 9;
-  public static final int HelpURL = 10;
-  public static final int Icon = 11;
-  public static final int IconExpression = 12;
-  public static final int IconLayerDescription = 13;
-  public static final int IconResourceExpression = 14;
-  public static final int Image = 15;
-  public static final int NodeIconResourceExpression = 16;
-  public static final int Primitive = 17;
-  public static final int Rect = 18;
-  public static final int Resource = 19;
-  public static final int Text = 20;
-  public static final int TextIcon = 21;
+  public static final int FactoryMethodIcon = 8;
+  public static final int FileIcon = 9;
+  public static final int GeneratedImage = 10;
+  public static final int HelpURL = 11;
+  public static final int Icon = 12;
+  public static final int IconExpression = 13;
+  public static final int IconLayerDescription = 14;
+  public static final int IconResourceExpression = 15;
+  public static final int Image = 16;
+  public static final int NodeIconResourceExpression = 17;
+  public static final int Primitive = 18;
+  public static final int Rect = 19;
+  public static final int Resource = 20;
+  public static final int Text = 21;
+  public static final int TextIcon = 22;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0x982eb8df2c964bd7L, 0x996311712ea622e5L);
@@ -42,6 +43,7 @@ public final class LanguageConceptSwitch {
     builder.put(0x19d079f4ec114bddL, ColorLiteral);
     builder.put(0x7ce01982590bd1eL, ConceptIconResourceExpression);
     builder.put(0x6e053ee00272f4f8L, ConstantFieldIcon);
+    builder.put(0x774cdde25a7e1427L, FactoryMethodIcon);
     builder.put(0x7c8b08a50a39c6bbL, FileIcon);
     builder.put(0x324fe10378a9d167L, GeneratedImage);
     builder.put(0x47d8f9811b73d397L, HelpURL);

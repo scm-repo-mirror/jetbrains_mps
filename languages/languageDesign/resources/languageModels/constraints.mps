@@ -296,5 +296,185 @@
       </node>
     </node>
   </node>
+  <node concept="1M2fIO" id="7tcRu9qvKXc">
+    <property role="3GE5qa" value="icons.descriptors" />
+    <ref role="1M2myG" to="1oap:7tcRu9qvxgB" resolve="FactoryMethodIcon" />
+    <node concept="9S07l" id="7tcRu9qvKYi" role="9Vyp8">
+      <node concept="3clFbS" id="7tcRu9qvKYj" role="2VODD2">
+        <node concept="3SKdUt" id="7tcRu9qvL4d" role="3cqZAp">
+          <node concept="1PaTwC" id="7tcRu9qvL4e" role="1aUNEU">
+            <node concept="3oM_SD" id="7tcRu9qvL4f" role="1PaTwD">
+              <property role="3oM_SC" value="IconResource" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4g" role="1PaTwD">
+              <property role="3oM_SC" value="doesn't" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4h" role="1PaTwD">
+              <property role="3oM_SC" value="know" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4i" role="1PaTwD">
+              <property role="3oM_SC" value="how" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4j" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4k" role="1PaTwD">
+              <property role="3oM_SC" value="deal" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4l" role="1PaTwD">
+              <property role="3oM_SC" value="with" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4m" role="1PaTwD">
+              <property role="3oM_SC" value="Icon" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4n" role="1PaTwD">
+              <property role="3oM_SC" value="instance" />
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="7tcRu9qvL4o" role="3cqZAp">
+          <node concept="1PaTwC" id="7tcRu9qvL4p" role="1aUNEU">
+            <node concept="3oM_SD" id="7tcRu9qvL4q" role="1PaTwD">
+              <property role="3oM_SC" value="FIXME" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4r" role="1PaTwD">
+              <property role="3oM_SC" value="proper" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4s" role="1PaTwD">
+              <property role="3oM_SC" value="way" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4t" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4u" role="1PaTwD">
+              <property role="3oM_SC" value="do" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4v" role="1PaTwD">
+              <property role="3oM_SC" value="the" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4w" role="1PaTwD">
+              <property role="3oM_SC" value="same" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4x" role="1PaTwD">
+              <property role="3oM_SC" value="is" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4y" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4z" role="1PaTwD">
+              <property role="3oM_SC" value="introduce" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4$" role="1PaTwD">
+              <property role="3oM_SC" value="an" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4_" role="1PaTwD">
+              <property role="3oM_SC" value="interface," />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4A" role="1PaTwD">
+              <property role="3oM_SC" value="like" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4B" role="1PaTwD">
+              <property role="3oM_SC" value="&quot;IconResource&quot;" />
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="7tcRu9qvL4C" role="3cqZAp">
+          <node concept="1PaTwC" id="7tcRu9qvL4D" role="1aUNEU">
+            <node concept="3oM_SD" id="7tcRu9qvL4E" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4F" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4G" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4H" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4I" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4J" role="1PaTwD">
+              <property role="3oM_SC" value="and" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4K" role="1PaTwD">
+              <property role="3oM_SC" value="use" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4L" role="1PaTwD">
+              <property role="3oM_SC" value="it" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4M" role="1PaTwD">
+              <property role="3oM_SC" value="as" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4N" role="1PaTwD">
+              <property role="3oM_SC" value="IconResourceExpression" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4O" role="1PaTwD">
+              <property role="3oM_SC" value="child," />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4P" role="1PaTwD">
+              <property role="3oM_SC" value="with" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4Q" role="1PaTwD">
+              <property role="3oM_SC" value="FileIcon" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4R" role="1PaTwD">
+              <property role="3oM_SC" value="and" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4S" role="1PaTwD">
+              <property role="3oM_SC" value="TextIcon," />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4T" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="7tcRu9qvL4U" role="3cqZAp">
+          <node concept="1PaTwC" id="7tcRu9qvL4V" role="1aUNEU">
+            <node concept="3oM_SD" id="7tcRu9qvL4W" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4X" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4Y" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL4Z" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL50" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL51" role="1PaTwD">
+              <property role="3oM_SC" value="not" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL52" role="1PaTwD">
+              <property role="3oM_SC" value="ConstantFieldIcon" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL53" role="1PaTwD">
+              <property role="3oM_SC" value="implementing" />
+            </node>
+            <node concept="3oM_SD" id="7tcRu9qvL54" role="1PaTwD">
+              <property role="3oM_SC" value="it" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="7tcRu9qvL55" role="3cqZAp">
+          <node concept="3fqX7Q" id="7tcRu9qvL56" role="3clFbG">
+            <node concept="2OqwBi" id="7tcRu9qvL57" role="3fr31v">
+              <node concept="nLn13" id="7tcRu9qvL58" role="2Oq$k0" />
+              <node concept="1mIQ4w" id="7tcRu9qvL59" role="2OqNvi">
+                <node concept="chp4Y" id="7tcRu9qvL5a" role="cj9EA">
+                  <ref role="cht4Q" to="1oap:5bVxHVEuklu" resolve="IconResourceExpression" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
 </model>
 

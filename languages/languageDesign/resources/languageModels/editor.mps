@@ -1228,5 +1228,18 @@
       <node concept="l2Vlx" id="6S5fI02tqsr" role="2iSdaV" />
     </node>
   </node>
+  <node concept="24kQdi" id="7tcRu9qvNeO">
+    <property role="3GE5qa" value="icons.descriptors" />
+    <ref role="1XX52x" to="1oap:7tcRu9qvxgB" resolve="FactoryMethodIcon" />
+    <node concept="3EZMnI" id="7tcRu9qvNfV" role="2wV5jI">
+      <node concept="3F0ifn" id="7tcRu9qvNfW" role="3EZMnx">
+        <property role="3F0ifm" value="factory method" />
+      </node>
+      <node concept="3F1sOY" id="7tcRu9qvNfX" role="3EZMnx">
+        <ref role="1NtTu8" to="1oap:7tcRu9qvxgD" resolve="factoryMethod" />
+      </node>
+      <node concept="l2Vlx" id="7tcRu9qvNfY" role="2iSdaV" />
+    </node>
+  </node>
 </model>
 

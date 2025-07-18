@@ -28,6 +28,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptColorLiteral = createDescriptorForColorLiteral();
   /*package*/ final ConceptDescriptor myConceptConceptIconResourceExpression = createDescriptorForConceptIconResourceExpression();
   /*package*/ final ConceptDescriptor myConceptConstantFieldIcon = createDescriptorForConstantFieldIcon();
+  /*package*/ final ConceptDescriptor myConceptFactoryMethodIcon = createDescriptorForFactoryMethodIcon();
   /*package*/ final ConceptDescriptor myConceptFileIcon = createDescriptorForFileIcon();
   /*package*/ final ConceptDescriptor myConceptGeneratedImage = createDescriptorForGeneratedImage();
   /*package*/ final ConceptDescriptor myConceptHelpURL = createDescriptorForHelpURL();
@@ -63,7 +64,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptBaseURL, myConceptBaseURLFunction, myConceptBaseURLLiteral, myConceptCircle, myConceptColor, myConceptColorLiteral, myConceptConceptIconResourceExpression, myConceptConstantFieldIcon, myConceptFileIcon, myConceptGeneratedImage, myConceptHelpURL, myConceptIcon, myConceptIconExpression, myConceptIconLayerDescription, myConceptIconResourceExpression, myConceptImage, myConceptNodeIconResourceExpression, myConceptPrimitive, myConceptRect, myConceptResource, myConceptText, myConceptTextIcon);
+    return Arrays.asList(myConceptBaseURL, myConceptBaseURLFunction, myConceptBaseURLLiteral, myConceptCircle, myConceptColor, myConceptColorLiteral, myConceptConceptIconResourceExpression, myConceptConstantFieldIcon, myConceptFactoryMethodIcon, myConceptFileIcon, myConceptGeneratedImage, myConceptHelpURL, myConceptIcon, myConceptIconExpression, myConceptIconLayerDescription, myConceptIconResourceExpression, myConceptImage, myConceptNodeIconResourceExpression, myConceptPrimitive, myConceptRect, myConceptResource, myConceptText, myConceptTextIcon);
   }
 
   @Override
@@ -86,6 +87,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptConceptIconResourceExpression;
       case LanguageConceptSwitch.ConstantFieldIcon:
         return myConceptConstantFieldIcon;
+      case LanguageConceptSwitch.FactoryMethodIcon:
+        return myConceptFactoryMethodIcon;
       case LanguageConceptSwitch.FileIcon:
         return myConceptFileIcon;
       case LanguageConceptSwitch.GeneratedImage:
@@ -204,6 +207,16 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(3);
     b.aggregate("field", 0x6e053ee00272f8eaL).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940c80846L).optional(false).ordered(true).multiple(false).origin("7927811850890311914").done();
     b.alias("constant");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForFactoryMethodIcon() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.resources", "FactoryMethodIcon", 0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x774cdde25a7e1427L);
+    b.class_(false, false, false);
+    b.parent(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c3774289eeeL);
+    b.origin("r:03d44d4c-3d65-461c-9085-0f48e9569e59(jetbrains.mps.lang.resources.structure)/8596489752993993767");
+    b.version(3);
+    b.aggregate("factoryMethod", 0x774cdde25a7e1429L).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf09L).optional(false).ordered(true).multiple(false).origin("8596489752993993769").done();
+    b.alias("factory method");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForFileIcon() {
