@@ -33,6 +33,8 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
+import jetbrains.mps.lang.editor.menus.ParameterizedMenuPart;
+import java.util.Collections;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.editor.runtime.cells.CellIdManager;
@@ -85,7 +87,7 @@ public class ConceptDeclaration_TransformationMenu extends TransformationMenuBas
       }
       @Override
       protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts() {
-        return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new TMP_Action_dubn3u_a0a0(), new TMP_Action_dubn3u_b0a0());
+        return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new TMP_Action_dubn3u_a0a0(), new TMP_Param_dubn3u_b0a0());
       }
       private class TMP_Action_dubn3u_a0a0 extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
         @Nullable
@@ -130,21 +132,22 @@ public class ConceptDeclaration_TransformationMenu extends TransformationMenuBas
 
           @Override
           public boolean canExecute(@NotNull String pattern) {
-            if (Sequence.fromIterable(AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspects_id4G9PD8$NvPM.invoke(_context.getNode(), SModuleOperations.getAspect(SNodeOperations.getModel(_context.getNode()).getModule(), "editor"))).any((a) -> SNodeOperations.isInstanceOf(a, CONCEPTS.ConceptEditorDeclaration$BH))) {
+            if (Sequence.fromIterable(SNodeOperations.ofConcept(AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspects_id4G9PD8$NvPM.invoke(_context.getNode(), SModuleOperations.getAspect(SNodeOperations.getModel(_context.getNode()).getModule(), "editor")), CONCEPTS.ConceptEditorDeclaration$BH)).isNotEmpty()) {
               // there is an editor defined
               return false;
             }
 
             if (ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.propertyDeclaration$YUgg)).isEmpty() && ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.linkDeclaration$YU1f)).isEmpty()) {
               // concept has no own features -> looking for an editor defined for structurally-equal super-concept
-              if (ListSequence.fromList(new ConceptDeclarationAssistantUtil(_context.getNode()).getStructurallyEqualSuperConcepts()).any((it) -> Sequence.fromIterable(AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspects_id4G9PD8$NvPM.invoke(it, SModuleOperations.getAspect(SNodeOperations.getModel(it).getModule(), "editor"))).any((a) -> SNodeOperations.isInstanceOf(a, CONCEPTS.ConceptEditorDeclaration$BH)))) {
+              // [artem] I don't quite agree why not to suggest to create an editor here, even if there are no features. LD could want to customize an editor
+              if (ListSequence.fromList(new ConceptDeclarationAssistantUtil(_context.getNode()).getStructurallyEqualSuperConcepts()).any((it) -> Sequence.fromIterable(SNodeOperations.ofConcept(AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspects_id4G9PD8$NvPM.invoke(it, SModuleOperations.getAspect(SNodeOperations.getModel(it).getModule(), "editor")), CONCEPTS.ConceptEditorDeclaration$BH)).isNotEmpty())) {
                 return false;
               }
             }
 
             if (SPropertyOperations.getBoolean(_context.getNode(), PROPS.abstract$ibpT)) {
               // Suppressing assistant for abstract concepts if any sub-concept has an editor defined
-              if (ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(_context.getNode()), CONCEPTS.AbstractConceptDeclaration$KA)).where((it) -> Sequence.fromIterable(AbstractConceptDeclaration__BehaviorDescriptor.getAllSuperConcepts_id2A8AB0rAWpG.invoke(it, ((boolean) false))).contains(_context.getNode())).any((it) -> Sequence.fromIterable(AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspects_id4G9PD8$NvPM.invoke(it, SModuleOperations.getAspect(SNodeOperations.getModel(it).getModule(), "editor"))).any((a) -> SNodeOperations.isInstanceOf(a, CONCEPTS.ConceptEditorDeclaration$BH)))) {
+              if (ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(_context.getNode()), CONCEPTS.AbstractConceptDeclaration$KA)).where((it) -> Sequence.fromIterable(AbstractConceptDeclaration__BehaviorDescriptor.getAllSuperConcepts_id2A8AB0rAWpG.invoke(it, ((boolean) false))).contains(_context.getNode())).any((it) -> Sequence.fromIterable(SNodeOperations.ofConcept(AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspects_id4G9PD8$NvPM.invoke(it, SModuleOperations.getAspect(SNodeOperations.getModel(it).getModule(), "editor")), CONCEPTS.ConceptEditorDeclaration$BH)).isNotEmpty())) {
                 return false;
               }
             }
@@ -155,67 +158,89 @@ public class ConceptDeclaration_TransformationMenu extends TransformationMenuBas
 
         }
       }
-      private class TMP_Action_dubn3u_b0a0 extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
-        @Nullable
-        protected TransformationMenuItem createItem(TransformationMenuContext context) {
-          return new Item(context).resetTraceInfo();
+      private class TMP_Param_dubn3u_b0a0 extends ParameterizedMenuPart<SNode, TransformationMenuItem, TransformationMenuContext> {
+        /*package*/ TMP_Param_dubn3u_b0a0() {
+          super(new EditorMenuDescriptorBase("parameterized transformation menu part", new SNodePointer("r:00000000-0000-4000-0000-011c8959028d(jetbrains.mps.lang.structure.editor)", "1022940362748132446")));
+        }
+        @NotNull
+        @Override
+        protected List<TransformationMenuItem> createItems(SNode parameter, TransformationMenuContext context) {
+          return new TMP_Action_dubn3u_a1a0a(parameter).createItems(context);
         }
 
-        private class Item extends ActionItemBase {
-          /*package*/ Item(TransformationMenuContext context) {
-            super(context);
+        @Nullable
+        @Override
+        protected Iterable<? extends SNode> getParameters(TransformationMenuContext _context) {
+          // This is a single action contributed as a parameterised one, to avoid calculating "structurally equal concepts" again and again
+          if (ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.propertyDeclaration$YUgg)).isNotEmpty() || ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.linkDeclaration$YU1f)).isNotEmpty()) {
+            return Sequence.fromIterable(Collections.<SNode>emptyList());
           }
-          /*package*/ Item resetTraceInfo() {
-            updateTraceInfo("single item: " + getLabelText(""), new SNodePointer("r:00000000-0000-4000-0000-011c8959028d(jetbrains.mps.lang.structure.editor)", "8887077936715824733"));
-            return this;
+          if (Sequence.fromIterable(SNodeOperations.ofConcept(AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspects_id4G9PD8$NvPM.invoke(_context.getNode(), SModuleOperations.getAspect(SNodeOperations.getModel(_context.getNode()).getModule(), "editor")), CONCEPTS.ConceptEditorDeclaration$BH)).isNotEmpty()) {
+            // there is an editor for this concept - not necessary to suggest new editor creation for super-concepts
+            return Sequence.fromIterable(Collections.<SNode>emptyList());
+          }
+          List<SNode> superConcepts = new ConceptDeclarationAssistantUtil(_context.getNode()).getStructurallyEqualSuperConcepts();
+          if (ListSequence.fromList(superConcepts).isNotEmpty() && ListSequence.fromList(superConcepts).all((superConcept) -> Sequence.fromIterable(SNodeOperations.ofConcept(AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspects_id4G9PD8$NvPM.invoke(superConcept, SModuleOperations.getAspect(SNodeOperations.getModel(superConcept).getModule(), "editor")), CONCEPTS.ConceptEditorDeclaration$BH)).isEmpty())) {
+            return Sequence.<SNode>singleton(ListSequence.fromList(superConcepts).last());
+          }
+          return Sequence.fromIterable(Collections.<SNode>emptyList());
+        }
+
+        private class TMP_Action_dubn3u_a1a0a extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
+          private final SNode myParameterObject;
+          public TMP_Action_dubn3u_a1a0a(SNode parameterObject) {
+            myParameterObject = parameterObject;
           }
           @Nullable
-          @Override
-          public String getLabelText(String pattern) {
-            // XXX I wonder why it's not a parameterised action, to avoid calculating "structurally equal concepts" again and again?
-            return "Create Editor for " + SPropertyOperations.getString(ListSequence.fromList(new ConceptDeclarationAssistantUtil(_context.getNode()).getStructurallyEqualSuperConcepts()).last(), PROPS.name$MnvL);
+          protected TransformationMenuItem createItem(TransformationMenuContext context) {
+            return new Item(context).resetTraceInfo();
           }
 
-          @Override
-          public void execute(@NotNull String pattern) {
-            SModule langModule = SNodeOperations.getModel(_context.getNode()).getModule();
-            SModel editorAspectModel = SModuleOperations.getAspect(langModule, "editor");
-            if (editorAspectModel == null) {
-              LanguageAspectDescriptor ad = LanguageAspectSupport.getAspectDescriptorById("editor");
-              // FIXME this use of OperationContext.getProject() waits for the moment EditorComponent/EditorContext answers with CH right away
-              CreateAspectContext cac = CreateAspectContext.create(langModule, _context.getEditorContext().getOperationContext().getProject().getPlatform(), null);
-              if (ad != null && ad.canCreate(cac)) {
-                ad.create(cac);
-                editorAspectModel = SModuleOperations.getAspect(langModule, "editor");
+          private class Item extends ActionItemBase {
+            /*package*/ Item(TransformationMenuContext context) {
+              super(context);
+            }
+            /*package*/ Item resetTraceInfo() {
+              updateTraceInfo("single item: " + getLabelText(""), new SNodePointer("r:00000000-0000-4000-0000-011c8959028d(jetbrains.mps.lang.structure.editor)", "1022940362748136378"));
+              return this;
+            }
+            @Nullable
+            @Override
+            public String getLabelText(String pattern) {
+              return String.format("Create Editor for %s", SPropertyOperations.getString(myParameterObject, PROPS.name$MnvL));
+            }
+
+            @Override
+            public void execute(@NotNull String pattern) {
+              SModule langModule = SNodeOperations.getModel(myParameterObject).getModule();
+              SModel editorAspectModel = SModuleOperations.getAspect(langModule, "editor");
+              if (editorAspectModel == null) {
+                LanguageAspectDescriptor ad = LanguageAspectSupport.getAspectDescriptorById("editor");
+                // FIXME this use of OperationContext.getProject() waits for the moment EditorComponent/EditorContext answers with CH right away
+                CreateAspectContext cac = CreateAspectContext.create(langModule, _context.getEditorContext().getOperationContext().getProject().getPlatform(), null);
+                if (ad != null && ad.canCreate(cac)) {
+                  ad.create(cac);
+                  editorAspectModel = SModuleOperations.getAspect(langModule, "editor");
+                }
               }
+              if (editorAspectModel == null) {
+                return;
+              }
+              SNode editor = SNodeFactoryOperations.createNewRootNode(editorAspectModel, CONCEPTS.ConceptEditorDeclaration$BH, null);
+              ConceptAspectsHelper.attachNewConceptAspect(myParameterObject, editor, editorAspectModel);
+              _context.getEditorContext().getEditorPanelManager().openEditor(editor);
             }
-            if (editorAspectModel == null) {
-              return;
+
+            @Override
+            public boolean canExecute(@NotNull String pattern) {
+              // while node is in a editable model (MPS doesn't show context assistant for r/o models,
+              // its super-concept (here, parameterObject), could come from a read-only model and we shall not attempt to create 
+              // a new aspect there
+              return !(SNodeOperations.getModel(myParameterObject).isReadOnly());
             }
-            SNode concept = ListSequence.fromList(new ConceptDeclarationAssistantUtil(_context.getNode()).getStructurallyEqualSuperConcepts()).last();
-            SNode editor = SNodeFactoryOperations.createNewRootNode(editorAspectModel, CONCEPTS.ConceptEditorDeclaration$BH, null);
-            ConceptAspectsHelper.attachNewConceptAspect(concept, editor, editorAspectModel);
-            _context.getEditorContext().getEditorPanelManager().openEditor(editor);
+
+
           }
-
-          @Override
-          public boolean canExecute(@NotNull String pattern) {
-            if (ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.propertyDeclaration$YUgg)).isNotEmpty() || ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.linkDeclaration$YU1f)).isNotEmpty()) {
-              return false;
-            }
-            if (Sequence.fromIterable(AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspects_id4G9PD8$NvPM.invoke(_context.getNode(), SModuleOperations.getAspect(SNodeOperations.getModel(_context.getNode()).getModule(), "editor"))).any((a) -> SNodeOperations.isInstanceOf(a, CONCEPTS.ConceptEditorDeclaration$BH))) {
-              // there is an editor for this concept - not necessary to suggest new editor creation for super-concepts
-              return false;
-            }
-
-            List<SNode> superConcepts = new ConceptDeclarationAssistantUtil(_context.getNode()).getStructurallyEqualSuperConcepts();
-            return ListSequence.fromList(superConcepts).isNotEmpty() && ListSequence.fromList(superConcepts).all((superConcept) -> {
-              Iterable<SNode> aspects = AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspects_id4G9PD8$NvPM.invoke(superConcept, SModuleOperations.getAspect(SNodeOperations.getModel(superConcept).getModule(), "editor"));
-              return Sequence.fromIterable(aspects).all((aspect) -> !(SNodeOperations.isInstanceOf(aspect, CONCEPTS.ConceptEditorDeclaration$BH)));
-            });
-          }
-
-
         }
       }
     }
