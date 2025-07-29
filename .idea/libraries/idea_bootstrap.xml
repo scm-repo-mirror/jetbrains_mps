@@ -8,6 +8,7 @@
     <JAVADOC />
     <SOURCES>
       <root url="jar://$PROJECT_DIR$/lib/app.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/src/platform-sources.zip!/" />
     </SOURCES>
   </library>
 </component>
