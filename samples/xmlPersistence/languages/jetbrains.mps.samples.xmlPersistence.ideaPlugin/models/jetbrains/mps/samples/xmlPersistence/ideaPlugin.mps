@@ -115,12 +115,6 @@
             </node>
           </node>
         </node>
-        <node concept="2pNNFK" id="7ZoWiKcey$B" role="3o6s8t">
-          <property role="2pNNFO" value="depends" />
-          <node concept="3o6iSG" id="7ZoWiKcey$U" role="3o6s8t">
-            <property role="3o6i5n" value="jetbrains.mps.core" />
-          </node>
-        </node>
         <node concept="3o6iSG" id="7ZoWiKcey_n" role="3o6s8t" />
         <node concept="2pNNFK" id="7ZoWiKceyAv" role="3o6s8t">
           <property role="2pNNFO" value="extensions" />

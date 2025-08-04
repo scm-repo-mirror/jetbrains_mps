@@ -12,7 +12,6 @@
   <dependencies>    
     <plugin id="jetbrains.mps.core"></plugin>
   </dependencies>
-  <depends>jetbrains.mps.core</depends>
   
   <extensions defaultExtensionNs="com.intellij">
     <mps.ModelFactoryProvider implementationClass="jetbrains.mps.persistence.XmlModelPersistence" />
