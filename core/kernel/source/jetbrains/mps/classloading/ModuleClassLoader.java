@@ -25,6 +25,7 @@ import jetbrains.mps.util.iterable.MergeIterator;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.module.SModuleReference;
 
 import java.io.IOException;
 import java.net.URL;
@@ -64,7 +65,7 @@ public final class ModuleClassLoader extends MPSModuleClassLoader {
 
 
   private final IClassPathItem myClassPathItem;
-  private final ReloadableModule myModule;
+  private final SModuleReference myModule;
   private Supplier<List<ClassLoader>> myDependencySupplier;
   // null values are not allowed => using <code>Optional</code>
   private final ConcurrentMap<String, Optional<Class<?>>> myClasses = new ConcurrentHashMap<>();
@@ -97,21 +98,8 @@ public final class ModuleClassLoader extends MPSModuleClassLoader {
     }
   }
 
-  /**
-   * @deprecated coupling b/w ModuleClassLoaderSupport and ModuleClassLoader isn't right. If it's the former to instantiate latter,
-   *             it shall pass all relevant initialization pieces in here, instead of `this`.
-   *             May become package-local, if necessary (to avoid long construction argument list)
-   */
-  @Deprecated(forRemoval = true, since = "2024.1")
-  public ModuleClassLoader(@NotNull ModuleClassLoaderSupport support) {
-    super(support.suggestClassLoaderName(), support.getRootClassLoader());
-    myModule = support.getModule();
-    myClassPathItem = support.getClassPathItem();
-    myDependencySupplier = support.getCompileDependencies();
-  }
-
   // XXX could use MPSModuleClassLoader for dependencies
-  /**/ ModuleClassLoader(@NotNull String clName, @NotNull ClassLoader parent, @NotNull ReloadableModule module, @NotNull IClassPathItem cp, @NotNull Supplier<List<ClassLoader>> dependencies) {
+  /**/ ModuleClassLoader(@NotNull String clName, @NotNull ClassLoader parent, @NotNull SModuleReference module, @NotNull IClassPathItem cp, @NotNull Supplier<List<ClassLoader>> dependencies) {
     super(clName, parent);
     myModule = module;
     myClassPathItem = cp;
@@ -129,13 +117,17 @@ public final class ModuleClassLoader extends MPSModuleClassLoader {
   }
 
   @NotNull
-  public ReloadableModule getModule() {
+  public SModuleReference getModule() {
     return myModule;
   }
 
   @Override
   protected Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException {
-    return loadClass(name, resolve, false);
+    try {
+      return loadClass(name, resolve, false);
+    } catch (ModuleClassLoaderIsDisposedException e) {
+      throw createCLNFException(name);
+    }
   }
 
   private Class<?> loadClass(String fqName, boolean resolve, boolean onlyFromSelf) throws ClassNotFoundException {
@@ -185,10 +177,9 @@ public final class ModuleClassLoader extends MPSModuleClassLoader {
   }
 
   private ModuleClassNotFoundException createCLNFException(String name) {
-    ReloadableModule module = getModule();
-    return new ModuleClassNotFoundException(module.getModuleReference(),
-                                            String.format("Unable to load class: '%s' using ModuleClassLoader of the '%s' module", name,
-                                                          module.getModuleName()));
+    SModuleReference module = getModule();
+    String msg = String.format("Unable to load class: '%s' using ModuleClassLoader of the module '%s'", name, module.getModuleName());
+    return new ModuleClassNotFoundException(module, msg);
   }
 
   /**
@@ -401,23 +392,15 @@ public final class ModuleClassLoader extends MPSModuleClassLoader {
     return new ProtectionDomain(cs, null);
   }
 
-  public static class ModuleClassLoaderIsDisposedException extends IllegalStateException {
-    private final ReloadableModule myModule;
-    private final Throwable myDisposeTrace;
+  public static final class ModuleClassLoaderIsDisposedException extends IllegalStateException {
 
-    /*package*/ ModuleClassLoaderIsDisposedException(@NotNull ReloadableModule module, @Nullable Throwable disposeTrace) {
-      super(String.format("ClassLoader of the module '%s' is disposed and not operable!", module), disposeTrace);
-      myModule = module;
-      myDisposeTrace = disposeTrace;
-    }
-
-    public ReloadableModule getModule() {
-      return myModule;
+    /*package*/ ModuleClassLoaderIsDisposedException(@NotNull SModuleReference module, @Nullable Throwable disposeTrace) {
+      super(String.format("ClassLoader of the module '%s' is disposed and not operable!", module.getModuleName()), disposeTrace);
     }
 
     @Nullable
     public Throwable getDisposeTrace() {
-      return myDisposeTrace;
+      return getCause();
     }
   }
 }

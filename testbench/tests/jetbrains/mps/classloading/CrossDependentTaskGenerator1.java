@@ -50,7 +50,7 @@ final class CrossDependentTaskGenerator1 extends TaskGenerator {
     return () -> {
       try {
         LOG.info("Creating first classloader");
-        ModuleClassLoader cl1 = createCL(s1, FIRST.class, mySecond);
+        ModuleClassLoader cl1 = createCL(s1.getModuleReference(), Collections.singletonList(FIRST.class), mySecond);
         myFirst.set(cl1);
         barrier.await(TIMEOUT, TimeUnit.MILLISECONDS);
         Class<?> aClass = cl1.loadClass(SECOND.class.getName());
@@ -76,7 +76,7 @@ final class CrossDependentTaskGenerator1 extends TaskGenerator {
     return () -> {
       try {
         LOG.info("Creating second classloader");
-        ModuleClassLoader cl2 = createCL(s2, SECOND.class, myFirst);
+        ModuleClassLoader cl2 = createCL(s2.getModuleReference(), Collections.singletonList(SECOND.class), myFirst);
         mySecond.set(cl2);
         barrier.await(TIMEOUT, TimeUnit.MILLISECONDS);
         Class<?> aClass = cl2.loadClass(FIRST.class.getName());
@@ -95,14 +95,6 @@ final class CrossDependentTaskGenerator1 extends TaskGenerator {
       }
       return null;
     };
-  }
-
-  private ModuleClassLoader createCL(ReloadableModule module, Class<?> aClass, AtomicReference<ModuleClassLoader> dep) {
-    ModuleClassLoaderSupport support = new ModuleClassLoaderSupport(module,
-                                                                    () -> Collections.singletonList(dep.get()),
-                                                                    new FakeClassPathItem(aClass));
-    // with a new ModuleClassLoader constructor exposing all necessary bits, do I care to get ModuleClassLoaderSupport here?
-    return support.getModuleClassLoader();
   }
 
   @NotNull

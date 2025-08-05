@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2024 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,8 +16,6 @@
 package jetbrains.mps.classloading;
 
 import jetbrains.mps.logging.Logger;
-import jetbrains.mps.module.ReloadableModule;
-import jetbrains.mps.reloading.FakeClassPathItem;
 import jetbrains.mps.smodel.ExecutorServiceShutdownHelper;
 import org.jetbrains.annotations.NotNull;
 
@@ -45,7 +43,7 @@ final class ModuleClassLoaderThreadSafetyTaskGenerator extends TaskGenerator {
   private Callable<Object> loadingTask(FakeReloadableModule s1) {
     return () -> {
       try {
-        @NotNull ModuleClassLoader cl = createCL(s1, FIRST.class);
+        @NotNull ModuleClassLoader cl = createCL(s1.getModuleReference(), Collections.singletonList(FIRST.class), null);
         LOG.info("Loading class from classloader " + cl);
         List<Callable<Object>> tasks = new ArrayList<>(nThreads);
         for (int i = 0; i < nThreads; ++i) {
@@ -78,13 +76,6 @@ final class ModuleClassLoaderThreadSafetyTaskGenerator extends TaskGenerator {
   @Override
   public void dispose() {
     new ExecutorServiceShutdownHelper(myService).shutdownAndAwaitTermination(1000);
-  }
-
-  private ModuleClassLoader createCL(ReloadableModule module, Class<?> aClass) {
-    ModuleClassLoaderSupport support = new ModuleClassLoaderSupport(module,
-                                                                    Collections::emptyList,
-                                                                    new FakeClassPathItem(aClass));
-    return support.getModuleClassLoader();
   }
 
   @NotNull

@@ -97,7 +97,7 @@ final class MPSClassLoadersRegistry {
    */
   private synchronized void prepareExternalClassLoader(@NotNull Collection<ReloadableModule> modules) {
     for (ReloadableModule m : modules) {
-      myIDEAClassLoaders.computeIfAbsent(m.getModuleReference(), (ref) -> createDelegateClassLoader(m));
+      myIDEAClassLoaders.computeIfAbsent(m.getModuleReference(), (ref) -> createDelegateClassLoader(m.getModule()));
     }
   }
 
@@ -157,6 +157,8 @@ final class MPSClassLoadersRegistry {
   }
 
   /**
+   * Once this method finishes, registry doesn't keep record of SModule or ReloadableModule instances.
+   *
    * @param toLoad for these modules ModuleClassLoaders were actually created
    * @param deps answers with dependencies of a module
    */
@@ -166,11 +168,12 @@ final class MPSClassLoadersRegistry {
       SModuleReference moduleReference = module.getModuleReference();
       ClassLoadingProgress progress = getClassLoadingProgress(moduleReference);
       if (progress == ClassLoadingProgress.UNLOADED) {
-        throw new IllegalStateException("Module " + moduleReference + " is in UNLOADED state, i.e. the class loading clients know nothing about this module");
+        LOG.error(String.format("Module %s is in UNLOADED state, i.e. the class loading clients know nothing about this module", moduleReference));
+        // used to be ISE, don't see how it helps, just keep going but report the error.
       } else if (progress == ClassLoadingProgress.LAZY_LOADED) {
         final JavaModuleFacet jmf = module.getFacet(JavaModuleFacet.class);
         if (jmf.getLoadClasses() == LoadClasses.ManagedByMPS) {
-          ModuleClassLoaderSupport clSupport = prepareModuleClassLoader(module, deps);
+          ModuleClassLoaderSupport clSupport = prepareModuleClassLoader(module.getModule(), deps.apply(moduleReference));
           myMPSClassLoaders.put(moduleReference, clSupport);
         } else if (jmf.getLoadClasses() == LoadClasses.ManagedByContributor) {
           forExtLoader.add(module); // do these at once later
@@ -184,34 +187,26 @@ final class MPSClassLoadersRegistry {
     prepareExternalClassLoader(forExtLoader);
   }
 
-  private ModuleClassLoaderSupport prepareModuleClassLoader(@NotNull ReloadableModule module, Function<SModuleReference, Collection<SModuleReference>> dependencies) {
+  private ModuleClassLoaderSupport prepareModuleClassLoader(@NotNull SModule module, Collection<SModuleReference> deps) {
     LOG.debug("Creating ModuleClassLoader for " + module);
-    final Collection<SModuleReference> deps = dependencies.apply(module.getModuleReference());
-    // we don't need SModule/ReloadableModule instance for dependencies, all CLs (or at least their respective support)
-    // have to be initialized the moment we ask for dependencies
-    // XXX I wonder if for dependencies we have to go through CLM.getClassLoader() instead of this.getClassLoader(), for uniformity.
-    final ModuleClassLoaderSupport support = ModuleClassLoaderSupport.create(module, () -> deps.stream()
-                                                                                               .map(this::getClassLoader)
-                                                                                               .distinct()
-                                                                                               .collect(Collectors.toList()));
-    return support;
+    return ModuleClassLoaderSupport.create(module, this, deps);
   }
 
   @Nullable
-  private MPSModuleClassLoader createDelegateClassLoader(@NotNull ReloadableModule module) {
+  private MPSModuleClassLoader createDelegateClassLoader(@NotNull SModule module) {
     LOG.debug("Creating DelegateClassLoader for " + module);
     final JavaModuleFacet jmf = module.getFacet(JavaModuleFacet.class);
     if (jmf != null && jmf.getLoadClasses() == LoadClasses.ManagedByContributor) {
       // FIXME refactor this code to avoid unnecessary nesting of classloaders (if possible)
       final ClassLoader classLoader = new RootClassloaderLookup(module).get();
-      return new IDEADelegatingModuleClassLoader(module, classLoader);
+      return new IDEADelegatingModuleClassLoader(module.getModuleReference(), classLoader);
     }
     // FIXME this piece of code is to address uses of IPMF still out there, e.g. in MPS-as-IDEA-plugin scenario
     CustomClassLoadingFacet customClassLoadingFacet = module.getFacet(CustomClassLoadingFacet.class);
     if (customClassLoadingFacet != null) {
       ClassLoader dd;
       if (customClassLoadingFacet.isValid() && (dd = customClassLoadingFacet.getClassLoader()) != null) {
-        return new IDEADelegatingModuleClassLoader(module, dd);
+        return new IDEADelegatingModuleClassLoader(module.getModuleReference(), dd);
       }
     }
     return null;

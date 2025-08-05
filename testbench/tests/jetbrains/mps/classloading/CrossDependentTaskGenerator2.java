@@ -16,15 +16,11 @@
 package jetbrains.mps.classloading;
 
 import jetbrains.mps.logging.Logger;
-import jetbrains.mps.module.ReloadableModule;
-import jetbrains.mps.reloading.FakeClassPathItem;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.TimeUnit;
@@ -47,7 +43,7 @@ final class CrossDependentTaskGenerator2 extends TaskGenerator {
     return () -> {
       try {
         LOG.debug("Creating first classloader");
-        ModuleClassLoader cl1 = createCL(s1, Arrays.asList(A.class, D.class), mySecond);
+        ModuleClassLoader cl1 = createCL(s1.getModuleReference(), Arrays.asList(A.class, D.class), mySecond);
         myFirst.set(cl1);
         myBarrier.await(TIMEOUT, TimeUnit.MILLISECONDS);
         LOG.debug("First loaded " + cl1.loadClass(A.class.getName()));
@@ -74,7 +70,7 @@ final class CrossDependentTaskGenerator2 extends TaskGenerator {
     return () -> {
       try {
         LOG.debug("Creating second classloader");
-        ModuleClassLoader cl2 = createCL(s2, Arrays.asList(B.class, C.class), myFirst);
+        ModuleClassLoader cl2 = createCL(s2.getModuleReference(), Arrays.asList(B.class, C.class), myFirst);
         mySecond.set(cl2);
         myBarrier.await(TIMEOUT, TimeUnit.MILLISECONDS);
         LOG.debug("Second loaded " + cl2.loadClass(B.class.getName()));
@@ -94,13 +90,6 @@ final class CrossDependentTaskGenerator2 extends TaskGenerator {
       }
       return null;
     };
-  }
-
-  private ModuleClassLoader createCL(ReloadableModule module, List<Class<?>> classes, AtomicReference<ModuleClassLoader> dep) {
-    ModuleClassLoaderSupport support = new ModuleClassLoaderSupport(module,
-                                                                    () -> Collections.singletonList(dep.get()),
-                                                                    new FakeClassPathItem(classes));
-    return support.getModuleClassLoader();
   }
 
   @NotNull

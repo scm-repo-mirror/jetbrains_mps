@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2024 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,30 +15,32 @@
  */
 package jetbrains.mps.classloading;
 
-import jetbrains.mps.module.ReloadableModule;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.facets.JavaModuleFacet;
 import jetbrains.mps.reloading.CompositeClassPathItem;
 import jetbrains.mps.reloading.IClassPathItem;
 import jetbrains.mps.util.NameUtil;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.openapi.module.SModule;
+import org.jetbrains.mps.openapi.module.SModuleReference;
 
 import java.io.File;
+import java.util.Collection;
 import java.util.List;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class ModuleClassLoaderSupport {
-  private final ReloadableModule myModule;
+  private final SModuleReference myModule;
   private final IClassPathItem myClassPathItem;
-  private volatile List<ClassLoader> myCompileDependencies;
-  private final Supplier<List<ClassLoader>> myDependenciesSupplier;
+  private final MPSClassLoadersRegistry myClassLoadersRegistry;
+  private final Collection<SModuleReference> myDependencies;
+  private final ClassLoader myRootClassLoader;
 
   private ModuleClassLoader myModuleClassLoader;
 
-  private final ClassLoader myRootClassLoader;
-
-  private static IClassPathItem calcClassPath(@NotNull ReloadableModule module) {
+  private static IClassPathItem calcClassPath(@NotNull SModule module) {
     JavaModuleFacet facet = module.getFacet(JavaModuleFacet.class);
     assert facet != null;
     IClassPathItem rv = IClassPathItem.createClassPathItem(facet.getClassPath());
@@ -49,19 +51,21 @@ public class ModuleClassLoaderSupport {
     return rv;
   }
 
-  ModuleClassLoaderSupport(@NotNull ReloadableModule module,
-                           Supplier<List<ClassLoader>> dependencySupplier,
-                           IClassPathItem classPathItem) {
+  /*package*/ ModuleClassLoaderSupport(@NotNull SModuleReference module,
+                           @NotNull Collection<SModuleReference> dependencies,
+                           @NotNull MPSClassLoadersRegistry classLoadersRegistry,
+                           @NotNull IClassPathItem classPathItem,
+                           @NotNull ClassLoader rootClassLoader) {
     myModule = module;
-    myDependenciesSupplier = dependencySupplier;
+    myDependencies = dependencies;
+    myClassLoadersRegistry = classLoadersRegistry;
     myClassPathItem = classPathItem;
     // module access needs model lock, walk it as long as the instance is valid, do not delay.
-    myRootClassLoader = new RootClassloaderLookup(module).get();
+    myRootClassLoader = rootClassLoader;
   }
 
-  public static ModuleClassLoaderSupport create(@NotNull ReloadableModule module,
-                                                Supplier<List<ClassLoader>> dependencySupplier) {
-    return new ModuleClassLoaderSupport(module, dependencySupplier, calcClassPath(module));
+  /*package*/ static ModuleClassLoaderSupport create(@NotNull SModule module, MPSClassLoadersRegistry registry, @NotNull Collection<SModuleReference> deps) {
+    return new ModuleClassLoaderSupport(module.getModuleReference(), deps, registry, calcClassPath(module), new RootClassloaderLookup(module).get());
   }
 
   /*package*/ ModuleClassLoader getModuleClassLoader() {
@@ -71,16 +75,15 @@ public class ModuleClassLoaderSupport {
     }
     synchronized (this) {
       if (myModuleClassLoader == null) {
-        myModuleClassLoader = new ModuleClassLoader(this);
+        myModuleClassLoader = new ModuleClassLoader(suggestClassLoaderName(), getRootClassLoader(), getModule(), getClassPathItem(), getCompileDependencies());
       }
       return myModuleClassLoader;
     }
   }
 
   @NotNull
-  public ReloadableModule getModule() {
-    // seems to be necessary for reporting purposes only. Means can get replaced with a value not retaining SModule instance, e.g. important for
-    // scenarios where module is gone but CL is still in use. OTOH, CL is an intimate friend of a module, might be worth keeping the bond.
+  public SModuleReference getModule() {
+    // seems to be necessary for reporting purposes only, and despite CL is an intimate friend of a module, don't wont to keep the bond
     return myModule;
   }
 
@@ -88,7 +91,15 @@ public class ModuleClassLoaderSupport {
    * important to have the calculation of dependency CLs delayed: at the time of construction the classloaders might be not available yet
    */
   /*package*/ Supplier<List<ClassLoader>> getCompileDependencies() {
-    return myDependenciesSupplier;
+    // FIXME Do I still need Supplier here? Can't I pass list of CLs right away? Is comment above ^^^ still valid? Perhaps, shall stick to
+    //       MCLSupport instances, which we know have been created by the time we access CL?
+    // we don't need SModule/ReloadableModule instance for dependencies, all CLs (or at least their respective support)
+    // have to be initialized the moment we ask for dependencies
+    // XXX I wonder if for dependencies we have to go through CLM.getClassLoader() instead of registry.getClassLoader(), for uniformity.
+    return () -> myDependencies.stream()
+                     .map(myClassLoadersRegistry::getClassLoader)
+                     .distinct()
+                     .collect(Collectors.toList());
   }
 
   /**

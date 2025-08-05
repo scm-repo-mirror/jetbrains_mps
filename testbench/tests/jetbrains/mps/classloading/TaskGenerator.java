@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,11 +15,17 @@
  */
 package jetbrains.mps.classloading;
 
+import jetbrains.mps.reloading.FakeClassPathItem;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.module.SModuleReference;
 
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author apyshkin
@@ -40,5 +46,9 @@ public abstract class TaskGenerator {
 
   public final boolean isSuccessful() {
     return !myErrorFlag.get();
+  }
+
+  protected final ModuleClassLoader createCL(SModuleReference module, List<Class<?>> classes, @Nullable AtomicReference<ModuleClassLoader> dep) {
+    return new ModuleClassLoader("TestCL4" + module.getModuleName(), ModuleClassLoader.class.getClassLoader(), module, new FakeClassPathItem(classes), () -> dep == null ? Collections.emptyList() : Collections.singletonList(dep.get()));
   }
 }
