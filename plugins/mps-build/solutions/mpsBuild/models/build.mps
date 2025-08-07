@@ -30218,7 +30218,7 @@
         </node>
         <node concept="NbPM2" id="6Iq8148f_YW" role="HFWMp">
           <node concept="3Mxwew" id="5AfPObSmudR" role="3MwsjC">
-            <property role="3MwjfP" value="MPS252EAP" />
+            <property role="3MwjfP" value="MPS252" />
           </node>
         </node>
       </node>
