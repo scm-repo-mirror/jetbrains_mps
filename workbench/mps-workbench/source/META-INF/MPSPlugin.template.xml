@@ -10,8 +10,6 @@
   <xi:include href="/META-INF/IdeTipsAndTricks.xml"/>
   <xi:include href="/META-INF/PlatformLangPlugin.xml"/>
 
-  <!-- Next three includes can be removed if PlatformLangXmlPlugin.xml will be imported instead of PlatformLangPlugin.xml -->
-  <xi:include href="/META-INF/XmlPlugin.xml"/>
   <xi:include href="intellij.json.xml">
     <xi:fallback/>
   </xi:include>
