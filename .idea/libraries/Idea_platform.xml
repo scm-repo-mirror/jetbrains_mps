@@ -47,8 +47,6 @@
       <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.find.backend.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.frontend.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.ide.impl.wsl.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.images.backend.svg.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.images.copyright.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.inline.completion.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.jewel.foundation.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.jewel.ideLafBridge.jar!/" />
@@ -81,7 +79,6 @@
       <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.tips.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.vcs.dvcs.impl.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.vcs.dvcs.impl.shared.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.vcs.impl.backend.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.vcs.impl.exec.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.vcs.impl.frontend.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.vcs.impl.jar!/" />
@@ -103,6 +100,11 @@
       <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.scopes.backend.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.scopes.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.lang.impl.backend.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.vcs.log.graph.impl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.vcs.log.graph.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.vcs.log.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/modules/intellij.platform.vcs.dvcs.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/modules/intellij.spellchecker.xml.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
