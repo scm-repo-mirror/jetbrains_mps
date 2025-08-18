@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2023 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,8 +29,6 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-
-import static java.util.stream.Collectors.toList;
 
 public class GeneratorDescriptor extends ModuleDescriptor {
   private String myAlias;
@@ -122,13 +120,6 @@ public class GeneratorDescriptor extends ModuleDescriptor {
     myGenOutputPath = path;
   }
 
-  @Override
-  public boolean getCompileInMPS() {
-    // although it's unlikely anyone gonna load classes of a generator from a dependent module, technically generator is compiled by MPS
-    // and it's better to say 'yes' rather than to fail with UnsupportedOperationException.
-    return true;
-  }
-
   /**
    * For a long time, Generator modules were part of Language declaration. Now we move towards full-fledged Generator
    * modules and use this flag to tell Generator modules that are part of any language from modules on their on.
@@ -195,7 +186,7 @@ public class GeneratorDescriptor extends ModuleDescriptor {
     copy.setOutputPath(getOutputPath());
     copy.setSourceLanguage(getSourceLanguage());
     copy.getDepGenerators().addAll(getDepGenerators());
-    copy.getPriorityRules().addAll(getPriorityRules().stream().map(MappingPriorityRule::copy).collect(toList()));
+    copy.getPriorityRules().addAll(getPriorityRules().stream().map(MappingPriorityRule::copy).toList());
     copy.standaloneModule(isStandaloneModule());
     return copy;
   }

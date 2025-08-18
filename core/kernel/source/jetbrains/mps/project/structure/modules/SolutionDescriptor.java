@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2023 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,8 +24,6 @@ import java.io.IOException;
 
 public class SolutionDescriptor extends ModuleDescriptor {
   private String myOutputPath;
-  private SolutionKind myKind = SolutionKind.NONE;
-  private boolean myCompileInMPS = true;
   private boolean myRequestCompileIDEA = false;
   private boolean myReadOnlyStubModule = false;
 
@@ -45,26 +43,6 @@ public class SolutionDescriptor extends ModuleDescriptor {
     myOutputPath = outputPath;
   }
 
-  /**
-   * @deprecated no direct replacement, check {@link jetbrains.mps.project.facets.JavaModuleFacet.LoadExtensions}
-   */
-  // seems to be not null, although doesn't manifest explicitly.
-  @Deprecated(since = "2022.3", forRemoval = true)
-  public final SolutionKind getKind() {
-    return myKind;
-  }
-
-  @Deprecated(since = "2022.3", forRemoval = true)
-  public final void setKind(@NotNull SolutionKind kind) {
-    myKind = kind;
-  }
-
-  @Override
-  @Deprecated(since = "2022.3", forRemoval = true)
-  public final boolean getCompileInMPS() {
-    return myCompileInMPS;
-  }
-
   @Override
   public boolean needsExternalIdeaCompile() {
     return myRequestCompileIDEA;
@@ -78,14 +56,6 @@ public class SolutionDescriptor extends ModuleDescriptor {
   @Override
   public void setNeedsExternalIdeaCompile(boolean value) {
     myRequestCompileIDEA = value;
-  }
-
-  /**
-   * @deprecated no direct replacement, check {@link jetbrains.mps.project.facets.JavaModuleFacet.Compile}
-   */
-  @Deprecated(since = "2022.3", forRemoval = true)
-  public final void setCompileInMPS(boolean compileInMPS) {
-    myCompileInMPS = compileInMPS;
   }
 
   /**

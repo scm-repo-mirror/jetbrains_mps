@@ -15,14 +15,8 @@
  */
 package jetbrains.mps.project.facets;
 
-import jetbrains.mps.classloading.IdeaPluginModuleFacet;
 import jetbrains.mps.generator.fileGenerator.FileGenerationUtil;
 import jetbrains.mps.project.AbstractModule;
-import jetbrains.mps.project.ProjectPathUtil;
-import jetbrains.mps.project.Solution;
-import jetbrains.mps.project.structure.modules.SolutionKind;
-import jetbrains.mps.smodel.Language;
-import jetbrains.mps.util.MacrosFactory;
 import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -213,14 +207,6 @@ public interface JavaModuleFacet extends SModuleFacet, GenerationTargetFacet {
    */
   @NotNull
   default LoadClasses getLoadClasses() {
-    if (isCompileInMps()) {
-      return LoadClasses.ManagedByMPS;
-    }
-    final SModule module = getModule();
-    // compatibility code
-    if (module != null && module.getFacet(IdeaPluginModuleFacet.class) != null) {
-      return LoadClasses.ManagedByContributor;
-    }
     return LoadClasses.NotAvailable;
   }
 
@@ -237,14 +223,7 @@ public interface JavaModuleFacet extends SModuleFacet, GenerationTargetFacet {
    * @since 2022.3
    */
   default LoadExtensions getLoadExtensions() {
-    final SModule module = getModule();
-    if (module instanceof Solution) {
-      return ((Solution) module).getKind() == SolutionKind.NONE ? LoadExtensions.NotAvailable : LoadExtensions.Plugin;
-    }
-    // this logic is different from SModuleOperations.canSupplyExtensionsForMPS(), which was derived from legacy implementation
-    // and had to address scenarios where no separate CL/Ext decision could be made (lack of relevant JMF API). Now, with this new API,
-    // I believe we can go less relaxed and don't allow modules not deemed to supply extensions.
-    return module instanceof Language ? LoadExtensions.Plugin : LoadExtensions.NotAvailable;
+    return LoadExtensions.NotAvailable;
   }
 
   /**
@@ -253,7 +232,6 @@ public interface JavaModuleFacet extends SModuleFacet, GenerationTargetFacet {
   default void setLoadExtensions(LoadExtensions loadExtensions) {
     // no-op to satisfy subclasses
   }
-
 
   /**
    * Describes what MPS knows about compilation of a given module, see individual options for more details.

@@ -26,7 +26,6 @@ import org.jetbrains.mps.openapi.module.SDependencyScope;
 import java.util.Collection;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.project.structure.model.ModelRootDescriptor;
-import jetbrains.mps.util.MacroHelper;
 import org.jetbrains.mps.openapi.persistence.Memento;
 import jetbrains.mps.persistence.MementoImpl;
 import jetbrains.mps.project.structure.modules.ModuleFacetDescriptor;
@@ -157,7 +156,6 @@ public class ModuleDescriptorPersistence {
   }
 
   public static List<ModelRootDescriptor> loadModelRoots(Iterable<Element> modelRootElements) {
-    MacroHelper macroHelper = null;
     List<ModelRootDescriptor> result = ListSequence.fromList(new ArrayList<ModelRootDescriptor>());
     for (Element element : modelRootElements) {
       Memento m = new MementoImpl();
@@ -165,10 +163,7 @@ public class ModuleDescriptorPersistence {
       String type = element.getAttributeValue("type");
       if (type == null) {
         // This is debug code to find out cause of https://youtrack.jetbrains.com/issue/MPS-22589.
-        String msg = String.format("Unsupported model root detected in module at %s. Likely outdated module is being loaded, please check your environment", macroHelper.expandPath("${module}"));
-        if (LOG.isErrorLevel()) {
-          LOG.error(msg);
-        }
+        String msg = "Model root with unspecified type  detected. Likely outdated module is being loaded, please check your environment";
         throw new IllegalStateException(msg);
       }
       ListSequence.fromList(result).addElement(new ModelRootDescriptor(type, m));

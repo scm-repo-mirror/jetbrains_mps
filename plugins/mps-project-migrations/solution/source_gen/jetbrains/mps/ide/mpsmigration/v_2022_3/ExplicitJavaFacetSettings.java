@@ -43,7 +43,7 @@ public class ExplicitJavaFacetSettings extends BaseProjectMigration {
       jmf.setCompile(jmf.getCompile());
       jmf.setLoadClasses(jmf.getLoadClasses());
       jmf.setLoadExtensions(jmf.getLoadExtensions());
-      // Would be great to clean 'kind', if any. However, without kind, my hack in SModuleOperations.canSupplyExtensionsForMPS
+      // Would be great to clean 'kind' (i.e. sd.setKind(NONE), if any. However, without kind, my hack in SModuleOperations.canSupplyExtensionsForMPS
       // for detached modules would stop working. Keep the value for now.
       if (ideaMF != null) {
         sd.removeFacetDescriptor(ideaMF);

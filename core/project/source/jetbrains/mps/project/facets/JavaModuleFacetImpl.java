@@ -15,19 +15,16 @@
  */
 package jetbrains.mps.project.facets;
 
-import jetbrains.mps.classloading.IdeaPluginModuleFacet;
 import jetbrains.mps.extapi.module.ModuleFacetBase;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.module.PersistenceContextImpl;
 import jetbrains.mps.persistence.MementoImpl;
 import jetbrains.mps.project.AbstractModule;
-import jetbrains.mps.project.Solution;
 import jetbrains.mps.project.structure.modules.DeploymentDescriptor;
 import jetbrains.mps.project.structure.modules.GeneratorDescriptor;
 import jetbrains.mps.project.structure.modules.LanguageDescriptor;
 import jetbrains.mps.project.structure.modules.ModuleDescriptor;
 import jetbrains.mps.project.structure.modules.ModuleFacetDescriptor;
-import jetbrains.mps.project.structure.modules.SolutionKind;
 import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.util.MacroHelper;
@@ -62,7 +59,7 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
   private static final String LIBRARY_KEY = "library";
   private static final String SOURCE_KEY = "source";
 
-  // just an indicator this entry describes classes derived from generated source code. Not sure I ever get to other entries,
+  // just an indicator this entry describes classes derived from generated source code. Not sure if I ever get to other entries,
   // though eventually I'd like to move everything Java-related stuff out of MD to this facet (e.g. Java libraries)
   private static final String GENERATED_KEY = "generated";
   // there's hardcoded knowledge in ModuleDescriptorPersistence that 'path' attributes are FS location and
@@ -86,10 +83,6 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
   private JavaLanguageLevel myJavaLanguageLevel = null;
   private PathSpecBundle myLibraryBundle = new PathSpecBundle();
   private PathSpecBundle myAdditionalSources = new PathSpecBundle();
-
-  // myTransitionLibraryBundle and myTransitionExtraSources stay in 23.3; we still write these back on save (unless 23.2 migration moved them to JMF)
-  private boolean myTransitionLibraryBundle = true;
-  private boolean myTransitionExtraSources = true;
 
   public JavaModuleFacetImpl(@NotNull SModule module) {
     super(FACET_TYPE, module);
@@ -153,7 +146,7 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
   public final Set<String> getClassPath() {
     Set<String> result = new LinkedHashSet<>(getLibraryClassPath());
     // XXX CP entry for IDEA-compiled modules (classes/) is part of library CP. Is it right?
-    //     On the one hand, we might need classes compiled outside of a module to build it, OTOH, it makes classes/
+    //     On the one hand, we might need classes compiled outside a module to build it, OTOH, it makes classes/
     //     somewhat different from classes_gen/
     IFile classesGen = getClassesGen();
     AbstractModule abstractModule = getAbstractModule();
@@ -165,7 +158,7 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
         result.addAll(moduleDescriptor.getDeploymentDescriptor().getClasspath());
       } else {
         // Compatibility code:
-        // Case 1. Deployed generator modules have no DD and are read independently from their source languages.
+        // Case 1. Deployed generator modules have no DD and are read independently of their source languages.
         //         Include their separate jar (hard-coded knowledge about build layout) into classpath.
         if (abstractModule instanceof Generator) {
           LOG.error(String.format("Deployed generator module %s without deployment descriptor. Generator classes would be missing. File: %s",
@@ -238,21 +231,17 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
     memento.put(KEY_COMPILE, myCompile.toPersistenceValue());
     memento.put(KEY_CLASSLOADER, myLoadClasses.toPersistenceValue());
     memento.put(KEY_EXTENSION, myLoadExtensions.toPersistenceValue());
-    if (!myTransitionLibraryBundle) {
-      memento.clearChildren(LIBRARY_KEY);
-      for (PathSpec jl : myLibraryBundle) {
-        final Memento mm = memento.createChild(LIBRARY_KEY);
-        // to avoid MDP logic to process "path" attributes with MacroHelper. Not ready yet to
-        // turn it off, and likely shall have it deprecated for some time to ensure compatibility/transition
-        mm.put(LOCATION_KEY, jl.shrink(mh));
-      }
+    memento.clearChildren(LIBRARY_KEY);
+    for (PathSpec jl : myLibraryBundle) {
+      final Memento mm = memento.createChild(LIBRARY_KEY);
+      // to avoid MDP logic to process "path" attributes with MacroHelper. Not ready yet to
+      // turn it off, and likely shall have it deprecated for some time to ensure compatibility/transition
+      mm.put(LOCATION_KEY, jl.shrink(mh));
     }
-    if (!myTransitionExtraSources) {
-      memento.clearChildren(SOURCE_KEY);
-      for (PathSpec sl : myAdditionalSources) {
-        final Memento mm = memento.createChild(SOURCE_KEY);
-        mm.put(LOCATION_KEY, sl.shrink(mh));
-      }
+    memento.clearChildren(SOURCE_KEY);
+    for (PathSpec sl : myAdditionalSources) {
+      final Memento mm = memento.createChild(SOURCE_KEY);
+      mm.put(LOCATION_KEY, sl.shrink(mh));
     }
   }
 
@@ -311,10 +300,8 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
               libraries.add(new PathSpec(p));
             }
           }
-          moduleDescriptor.getJavaLibPersistedValues().stream().map(PathSpec::new).forEach(libraries::add);
         }
       }
-      myTransitionLibraryBundle = true;
     } else {
       // JFTR, intentionally pretty much the same logic is below in classGenPath
       // FYI, pure stub modules that claim to be 'java' but don't have any generated classes are fine with
@@ -334,11 +321,6 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
         // XXX shall I warn about bad value here or in persistence? Latter seems to be generic and shall not care about mandatory attributes.
         // Perhaps, makes sense to keep some sort of 'invalid' path specification?
       }
-      // don't care if we import some legacy values, as long as there's at least 1 pathspec already, save these
-      myTransitionLibraryBundle = libraries.isEmpty();
-      if (moduleDescriptor != null) {
-        moduleDescriptor.getJavaLibPersistedValues().stream().map(PathSpec::new).forEach(libraries::add);
-      }
     }
     // extract sources regardless the fact we are not going to use them for deployed modules. Just for the sake of
     // completeness (user can see original values in module properties)
@@ -348,10 +330,6 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
       if (p != null) {
         sources.add(new PathSpec(p));
       }
-    }
-    myTransitionExtraSources = sources.isEmpty();
-    if (moduleDescriptor != null) {
-      moduleDescriptor.getSourcePathPersistedValue().stream().map(PathSpec::new).forEach(sources::add);
     }
     // resolve PathSpec instances
     // XXX I wonder if one more FS#getFile(String path, Nullable MacroHelper) is better than separate expandPath()?
@@ -370,49 +348,7 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
       myGeneratedClassesLocation.resolve(tr);
     }
 
-    // configure defaults for transition
-    AbstractModule module = getAbstractModule();
-    ModuleDescriptor descriptor = module.getModuleDescriptor();
-    if (descriptor != null) {
-      final boolean ideaFacetPresent = descriptor.getModuleFacetDescriptors().stream().anyMatch(d -> IdeaPluginModuleFacet.FACET_TYPE.equals(d.getType()));
-      if (descriptor.getCompileInMPS()) {
-        myCompile = Compile.MPS;
-        myLoadClasses = ideaFacetPresent ? LoadClasses.ManagedByContributor : LoadClasses.ManagedByMPS;
-      } else {
-        if (ideaFacetPresent) {
-          myCompile = Compile.External;
-          myLoadClasses = LoadClasses.ManagedByContributor;
-        } else {
-          myCompile = Compile.None;
-          myLoadClasses = LoadClasses.NotAvailable;
-        }
-      }
-      if (module instanceof Language) {
-        myLoadExtensions = LoadExtensions.Plugin;
-      } else if (module instanceof Solution) {
-        // this is provisional hack to get ready to migration, to capture scenario when MPS relied on some assumptions
-        if (((Solution) module).getKind() != SolutionKind.NONE) {
-          myLoadExtensions = LoadExtensions.Plugin;
-        } else {
-          // we've got plain stub modules, with ideaPlugin and no extensions,
-          // quite some modules like language runtimes that are compiled in IDEA (e.g. behavior rt),
-          // as well as 3 modules that got ideaPlugin and contribute extensions (either with <mps.PluginComponentContributor>
-          // ext-point or through lang.extensions). I don't feel we have to detect this scenario as it's quite rare,
-          // not it is easy to accomplish. I'd say users could go and fix one argument in Java facet tab if they encounter troubles
-          // (there are checking rules for lang.plugin and lang.extensions)
-          myLoadExtensions = LoadExtensions.NotAvailable;
-        }
-      } else {
-        // XXX revisit Generator/Devkit scenario. Generator can load classes, but not extensions. Devkit is capable of neither at the moment.
-        myLoadExtensions = LoadExtensions.NotAvailable;
-      }
-    } else {
-      myCompile = Compile.None;
-      myLoadClasses = LoadClasses.NotAvailable;
-      myLoadExtensions = LoadExtensions.NotAvailable;
-    }
-    //
-    // if there are serialized values, use them
+    // we used to configure defaults for transition (detect from MD), but as persisted values are out there for quite some time, just use serialized values
     final String compileValue = memento.get(KEY_COMPILE);
     if (compileValue != null) {
       myCompile = Compile.fromPersistenceValue(compileValue, Compile.None);
@@ -578,7 +514,6 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
   // libraries of DeploymentDescriptor
   public void setJavaLibrarySpec(@NotNull PathSpecBundle javaLibPaths) {
     myLibraryBundle = javaLibPaths;
-    myTransitionLibraryBundle = false;
   }
 
   /**
@@ -592,7 +527,6 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
 
   public void setSourcePathSpec(@NotNull PathSpecBundle extraSources) {
     myAdditionalSources = extraSources;
-    myTransitionExtraSources = false;
   }
 
   /**

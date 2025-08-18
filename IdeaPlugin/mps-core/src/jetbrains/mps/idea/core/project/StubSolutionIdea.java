@@ -154,7 +154,7 @@ public abstract class StubSolutionIdea extends Solution {
     SolutionDescriptor sd = new SolutionDescriptor();
     sd.setNamespace(name);
     sd.setId(ModuleId.foreign(name));
-    sd.setCompileInMPS(false);
+//    sd.setCompileInMPS(false);
     // ext+contrib is just to replace IdeaPluginModuleFacet. Not quite sure if it is proper configuration for JavaModuleFacet here.
     sd.getModuleFacetDescriptors().add(JavaModuleFacetImpl.forJavaCodeModule(Compile.External, LoadClasses.ManagedByContributor, LoadExtensions.NotAvailable));
     if (!isJdk) {

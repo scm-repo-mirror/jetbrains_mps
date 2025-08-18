@@ -7,7 +7,7 @@ import jetbrains.mps.migration.global.ProjectMigration;
 
 public class Migrations_2023_1 {
   public void offerInto(Deque<ProjectMigration> migrations) {
-    migrations.offer(new JavaModuleSettingsToFacet());
+    // FWIW, we used to have JavaModuleSettingsToFacet migration here, removed in 2025.3 due to removal of support code in MD
     migrations.offer(new DataFlowStubsToRegularNodes());
   }
 }

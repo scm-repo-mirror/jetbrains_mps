@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2024 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,9 +28,9 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class DevkitDescriptor extends ModuleDescriptor {
-  private Set<SModuleReference> myExportedLanguages;
-  private Set<SModuleReference> myExportedSolutions;
-  private Set<SModuleReference> myExtendedDevkits;
+  private final Set<SModuleReference> myExportedLanguages;
+  private final Set<SModuleReference> myExportedSolutions;
+  private final Set<SModuleReference> myExtendedDevkits;
   private SModelReference myAssociatedGenerationPlan;
 
   public DevkitDescriptor() {

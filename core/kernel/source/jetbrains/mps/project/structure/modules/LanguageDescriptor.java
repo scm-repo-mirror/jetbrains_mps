@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2024 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,10 +34,10 @@ public class LanguageDescriptor extends ModuleDescriptor {
 
   private int myLanguageVersion;
 
-  private Set<SModelReference> myAccessoryModels;
-  private List<GeneratorDescriptor> myGenerators;
-  private Set<SModuleReference> myExtendedLanguages;
-  private Set<SModuleReference> myRuntimeModules;
+  private final Set<SModelReference> myAccessoryModels;
+  private final List<GeneratorDescriptor> myGenerators;
+  private final Set<SModuleReference> myExtendedLanguages;
+  private final Set<SModuleReference> myRuntimeModules;
 
   public LanguageDescriptor() {
     super();
@@ -77,11 +77,6 @@ public class LanguageDescriptor extends ModuleDescriptor {
 
   public Set<SModuleReference> getRuntimeModules() {
     return myRuntimeModules;
-  }
-
-  @Override
-  public boolean getCompileInMPS() {
-    return true;
   }
 
   @Override
@@ -175,7 +170,7 @@ public class LanguageDescriptor extends ModuleDescriptor {
     target.setGenPath(getGenPath());
     target.setLanguageVersion(getLanguageVersion());
     target.getAccessoryModels().addAll(getAccessoryModels());
-    target.getGenerators().addAll(getGenerators().stream().map(GeneratorDescriptor::copy).collect(Collectors.toList()));
+    target.getGenerators().addAll(getGenerators().stream().map(GeneratorDescriptor::copy).toList());
     target.getExtendedLanguages().addAll(getExtendedLanguages());
     target.getRuntimeModules().addAll(getRuntimeModules());
     return target;

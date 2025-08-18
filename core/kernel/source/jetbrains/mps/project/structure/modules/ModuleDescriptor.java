@@ -15,13 +15,11 @@
  */
 package jetbrains.mps.project.structure.modules;
 
-import jetbrains.mps.logging.Logger;
 import jetbrains.mps.module.PersistenceContextImpl;
 import jetbrains.mps.persistence.MementoImpl;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.ModuleId;
 import jetbrains.mps.project.structure.model.ModelRootDescriptor;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.util.io.ModelInputStream;
 import jetbrains.mps.util.io.ModelOutputStream;
 import org.jetbrains.annotations.NotNull;
@@ -35,7 +33,6 @@ import org.jetbrains.mps.openapi.persistence.ModulePersistenceContext;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 
 import java.io.IOException;
-import java.util.AbstractCollection;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -90,59 +87,6 @@ public class ModuleDescriptor implements CopyableDescriptor<ModuleDescriptor>  {
   private final Collection<SModuleReference> myUsedDevkits = new LinkedHashSet<>();
   private final Map<SLanguage, Integer> myLanguageVersions = new LinkedHashMap<>();
   private final Map<SModuleReference, Integer> myDependencyVersions = new LinkedHashMap<>();
-  private final Collection<String> myJavaLibsWarnWrap = new AbstractCollection<>() {
-    private void warnUse() {
-      Logger.getLogger(ModuleDescriptor.this.getClass()).warnDeprecatedUse("Stop using ModuleDescriptor.getJavaLibs()!");
-    }
-
-    @Override
-    public boolean add(String s) {
-      warnUse();
-      return myJavaLibs.add(s);
-    }
-
-    @Override
-    public boolean addAll(@NotNull Collection<? extends String> c) {
-      warnUse();
-      return myJavaLibs.addAll(c);
-    }
-
-    @Override
-    public boolean remove(Object o) {
-      warnUse();
-      return myJavaLibs.remove(o);
-    }
-
-    @Override
-    public boolean removeAll(@NotNull Collection<?> c) {
-      warnUse();
-      return myJavaLibs.removeAll(c);
-    }
-
-    @Override
-    public boolean retainAll(@NotNull Collection<?> c) {
-      warnUse();
-      return myJavaLibs.retainAll(c);
-    }
-
-    @NotNull
-    @Override
-    public Iterator<String> iterator() {
-      warnUse();
-      // I did consider using 2 iterators to combine 'migrated' values from JMF and 'legacy' from MD, but
-      // there's no easy way to get to SModule->JMF from MD, and I don't feel it's reasonable to introduce one
-      // just for the sake of this transition.
-      return myJavaLibs.iterator();
-    }
-
-    @Override
-    public int size() {
-      warnUse();
-      return myJavaLibs.size();
-    }
-  };
-  private final Collection<String> myJavaLibs = new LinkedHashSet<>();
-  private final Collection<String> mySourcePaths = new LinkedHashSet<>();
   private DeploymentDescriptor myDeploymentDescriptor; // FIXME must be removed
 
   /**
@@ -203,16 +147,6 @@ public class ModuleDescriptor implements CopyableDescriptor<ModuleDescriptor>  {
   @Deprecated(since = "2022.3")
   public final void setTimestamp(String timestamp) {
     myTimestamp = timestamp;
-  }
-
-  /**
-   * @deprecated no direct replacement, depending on usage scenario, mihgt mean compilation or classloading story.
-   *             check {@link jetbrains.mps.project.facets.JavaModuleFacet.Compile} and
-   *             check {@link jetbrains.mps.project.facets.JavaModuleFacet.LoadClasses}
-   */
-  @Deprecated(since = "2022.3", forRemoval = true)
-  public boolean getCompileInMPS() {
-    throw new UnsupportedOperationException(this + " does not support 'compile in mps'");
   }
 
   /**
@@ -353,21 +287,6 @@ public class ModuleDescriptor implements CopyableDescriptor<ModuleDescriptor>  {
     return myUsedDevkits;
   }
 
-
-  /**
-   * Provisional API to migrate usages of {@code MD.getJavaLibs()} to libraries from {@code JavaModuleFacet}
-   * This field reflects legacy persisted values, these are converted to respective elements in JMF
-   */
-  @Deprecated(forRemoval = true, since = "0")
-  public final Collection<String> getJavaLibPersistedValues() {
-    return myJavaLibs;
-  }
-
-  @Deprecated(forRemoval = true, since = "0")
-  public final Collection<String> getSourcePathPersistedValue() {
-    return mySourcePaths;
-  }
-
   @Nullable
   public final DeploymentDescriptor getDeploymentDescriptor() {
     return myDeploymentDescriptor;
@@ -468,8 +387,6 @@ public class ModuleDescriptor implements CopyableDescriptor<ModuleDescriptor>  {
       myUsedDevkits.add(stream.readModuleReference());
     }
 
-    myJavaLibs.clear();
-    mySourcePaths.clear();
     myOutputRoot = stream.readString();
 
     byte b = stream.readByte();
@@ -512,8 +429,6 @@ public class ModuleDescriptor implements CopyableDescriptor<ModuleDescriptor>  {
     descriptorCopy.getUsedDevkits().addAll(getUsedDevkits());
     descriptorCopy.getLanguageVersions().putAll(getLanguageVersions());
     descriptorCopy.getDependencyVersions().putAll(getDependencyVersions());
-    descriptorCopy.getJavaLibPersistedValues().addAll(getJavaLibPersistedValues());
-    descriptorCopy.getSourcePathPersistedValue().addAll(getSourcePathPersistedValue());
     copyDeploymentDescriptor(descriptorCopy);
     descriptorCopy.setLoadException(getLoadException());
     descriptorCopy.setOutputRoot(getOutputRoot());

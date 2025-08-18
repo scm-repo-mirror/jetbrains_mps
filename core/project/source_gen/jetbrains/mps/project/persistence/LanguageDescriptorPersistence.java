@@ -12,7 +12,6 @@ import jetbrains.mps.util.xml.XmlUtil;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.project.structure.modules.GeneratorDescriptor;
-import java.util.List;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -94,16 +93,6 @@ public class LanguageDescriptorPersistence {
           gd.setSourceLanguage(result_v3r4p8_a0a0a0c0e.getModuleReference());
           result_v3r4p8_a0a0a0c0e.getGenerators().add(gd);
         }
-
-        // next 2 entries, java libs and source paths, to be removed once 2023.3 is out
-        //  for now, we keep them for the sake of 2023 project migration (i.e. if users use modern version w/o using intermediate one)
-
-        // odd 'stubModelEntry' name for auxiliary classpath is due to legacy
-        List<String> javaLibs = Sequence.fromIterable(XmlUtil.children(XmlUtil.first(languageElement, "stubModelEntries"), "stubModelEntry")).select((mee) -> mee.getAttributeValue("path")).toList();
-        result_v3r4p8_a0a0a0c0e.getJavaLibPersistedValues().addAll(javaLibs);
-
-        List<String> sources = Sequence.fromIterable(XmlUtil.children(XmlUtil.first(languageElement, "sourcePath"), "source")).select((it) -> it.getAttributeValue("path")).toList();
-        result_v3r4p8_a0a0a0c0e.getSourcePathPersistedValue().addAll(sources);
         return result_v3r4p8_a0a0a0c0e;
       }).invoke();
     } catch (ModuleReadException ex) {

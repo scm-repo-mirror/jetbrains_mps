@@ -21,7 +21,6 @@ import jetbrains.mps.project.io.DescriptorIO;
 import jetbrains.mps.project.io.DescriptorIOFacade;
 import jetbrains.mps.project.structure.modules.ModuleDescriptor;
 import jetbrains.mps.project.structure.modules.SolutionDescriptor;
-import jetbrains.mps.project.structure.modules.SolutionKind;
 import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -86,15 +85,5 @@ public class Solution extends AbstractModule implements ReloadableModule {
 
   public String toString() {
     return getModuleName() + " [solution]";
-  }
-
-  /**
-   * @deprecated no direct replacement, check {@link jetbrains.mps.project.facets.JavaModuleFacet.LoadExtensions}
-   */
-  @Deprecated(since = "2022.3", forRemoval = true)
-  public SolutionKind getKind() {
-    // there are uses of the method in JMFI to set up defaults
-    // Logger.getLogger(getClass()).warnDeprecatedUse("Solution.getKind() and SolutionKind are deprecated, don't use");
-    return getModuleDescriptor().getKind();
   }
 }

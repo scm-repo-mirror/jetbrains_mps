@@ -476,8 +476,6 @@ public final class ModulesMiner {
         // updated by build language at deployment time and still points to design-time lib location.
         // In fact, code shall resort to libraries of DD if present (e.g. JavaModuleFacetImpl shall do it), but it doesn't hurt to have source
         // module updated anyway.
-        // Here we ignore stub libraries from source module descriptor, use libs from DeploymentDescriptor
-        result.getJavaLibPersistedValues().clear();
         // XXX I don't like this assumption that libraries are siblings to module home, but have no better idea now.
         IFile bundleParent = moduleHome.getParent();
         for (String jarFile : deploymentDescriptor.getLibraries()) {
@@ -485,12 +483,6 @@ public final class ModulesMiner {
               ? bundleParent.getFileSystem().getFile(PathManager.getHomePath() + jarFile)
               : bundleParent.getDescendant(jarFile);
           deploymentLibraries.add(jar);
-          if (jar.exists()) {
-            String path = jar.getPath();
-            // FWIW, we mangle getJavaLibPersistedValues() here, and don't touch getJavaLibOriginalValues(), but as long as we are
-            // processing deployed modules (not project), I don't expect this to break anything.
-            result.getJavaLibPersistedValues().add(path);
-          }
         }
         // hack, see DD.getLibrariesResolved() for explanation
         deploymentDescriptor.getLibrariesResolved().clear();
@@ -655,15 +647,6 @@ public final class ModulesMiner {
       // and as for jars (-src.jar and -generator.jar) that used to be excluded if descriptorFile.isReadOnly(),
       // check readModuleDescriptorsFromFolder(IFile) - it reads jar only if there's META-INF/module.xml or modules/, neither of this happens to
       // -generator.jar nor -src.jar, so no reason to put their roots into excludes (on a side note, why not ".jar" itself, but ".jar!/"?)
-    }
-
-    // I can tolerate use of MD.getSourcePaths here as MM knows about MD anyway
-    for (String p : descriptor.getSourcePathPersistedValue()) {
-      myExcludes.add(fileSystem.getFile(macroHelper.expandPath(p)));
-    }
-
-    for (String entry : descriptor.getJavaLibPersistedValues()) {
-      myExcludes.add(fileSystem.getFile(macroHelper.expandPath(entry)));
     }
   }
 

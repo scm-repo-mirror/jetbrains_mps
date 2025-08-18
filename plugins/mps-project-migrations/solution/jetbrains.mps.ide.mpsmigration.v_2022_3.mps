@@ -42,10 +42,6 @@
         <child id="1197027771414" name="operand" index="2Oq$k0" />
         <child id="1197027833540" name="operation" index="2OqNvi" />
       </concept>
-      <concept id="1083260308424" name="jetbrains.mps.baseLanguage.structure.EnumConstantReference" flags="nn" index="Rm8GO">
-        <reference id="1083260308426" name="enumConstantDeclaration" index="Rm8GQ" />
-        <reference id="1144432896254" name="enumClass" index="1Px2BO" />
-      </concept>
       <concept id="1145552977093" name="jetbrains.mps.baseLanguage.structure.GenericNewExpression" flags="nn" index="2ShNRf">
         <child id="1145553007750" name="creator" index="2ShVmc" />
       </concept>
@@ -196,13 +192,6 @@
       <concept id="4222318806802425298" name="jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation" flags="ng" index="15s5l7">
         <property id="8575328350543493365" name="message" index="huDt6" />
         <property id="2423417345669755629" name="filter" index="1eyWvh" />
-      </concept>
-      <concept id="709746936026466394" name="jetbrains.mps.lang.core.structure.ChildAttribute" flags="ng" index="3VBwX9">
-        <property id="709746936026609031" name="linkId" index="3V$3ak" />
-        <property id="709746936026609029" name="role_DebugInfo" index="3V$3am" />
-      </concept>
-      <concept id="4452961908202556907" name="jetbrains.mps.lang.core.structure.BaseCommentAttribute" flags="ng" index="1X3_iC">
-        <child id="3078666699043039389" name="commentedNode" index="8Wnug" />
       </concept>
     </language>
     <language id="c7fb639f-be78-4307-89b0-b5959c3fa8c8" name="jetbrains.mps.lang.text">
@@ -716,7 +705,13 @@
                   <property role="3oM_SC" value="clean" />
                 </node>
                 <node concept="3oM_SD" id="X4wh$rzS3p" role="1PaTwD">
-                  <property role="3oM_SC" value="'kind'," />
+                  <property role="3oM_SC" value="'kind'" />
+                </node>
+                <node concept="3oM_SD" id="219kJsF1PLt" role="1PaTwD">
+                  <property role="3oM_SC" value="(i.e." />
+                </node>
+                <node concept="3oM_SD" id="219kJsF1PNb" role="1PaTwD">
+                  <property role="3oM_SC" value="sd.setKind(NONE)," />
                 </node>
                 <node concept="3oM_SD" id="X4wh$rzS3q" role="1PaTwD">
                   <property role="3oM_SC" value="if" />
@@ -781,24 +776,6 @@
                 </node>
                 <node concept="3oM_SD" id="ZtDxBUQGuz" role="1PaTwD">
                   <property role="3oM_SC" value="now." />
-                </node>
-              </node>
-            </node>
-            <node concept="1X3_iC" id="ZtDxBUQDFu" role="lGtFl">
-              <property role="3V$3am" value="statement" />
-              <property role="3V$3ak" value="f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123136/1068581517665" />
-              <node concept="3clFbF" id="X4wh$rzjMs" role="8Wnug">
-                <node concept="2OqwBi" id="X4wh$rzk$n" role="3clFbG">
-                  <node concept="37vLTw" id="X4wh$rzjMq" role="2Oq$k0">
-                    <ref role="3cqZAo" node="X4wh$ryrx4" resolve="sd" />
-                  </node>
-                  <node concept="liA8E" id="X4wh$rzljn" role="2OqNvi">
-                    <ref role="37wK5l" to="w0gx:~SolutionDescriptor.setKind(jetbrains.mps.project.structure.modules.SolutionKind)" resolve="setKind" />
-                    <node concept="Rm8GO" id="X4wh$rzm$P" role="37wK5m">
-                      <ref role="Rm8GQ" to="w0gx:~SolutionKind.NONE" resolve="NONE" />
-                      <ref role="1Px2BO" to="w0gx:~SolutionKind" resolve="SolutionKind" />
-                    </node>
-                  </node>
                 </node>
               </node>
             </node>
