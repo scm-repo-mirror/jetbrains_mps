@@ -170,6 +170,7 @@ public final class ModuleClassLoader extends MPSModuleClassLoader {
    */
   private Class<?> recordClass(String fqName, Class<?> aClass) {
     Optional<Class<?>> previousValue = myClasses.putIfAbsent(fqName, Optional.ofNullable(aClass));
+    //noinspection OptionalAssignedToNull
     if (previousValue != null) { // class has been already defined in a concurrent thread
       aClass = previousValue.orElse(null);
     }
@@ -188,11 +189,10 @@ public final class ModuleClassLoader extends MPSModuleClassLoader {
    */
   private Class<?> getClassFromCache(String name) throws ClassNotFoundException {
     Optional<Class<?>> optionalClass = myClasses.get(name);
-    //noinspection OptionalAssignedToNull
     if (optionalClass == null) {
       return null;
     }
-    if (!optionalClass.isPresent()) {
+    if (optionalClass.isEmpty()) {
       throw createCLNFException(name);
     }
     return optionalClass.get();
@@ -206,12 +206,15 @@ public final class ModuleClassLoader extends MPSModuleClassLoader {
       }
       ClassBytes classBytes = myClassPathItem.getClassBytes(fqName);
       if (classBytes != null) {
-        String pack = NameUtil.namespaceFromLongName(fqName);
-        synchronized (myPackageLock) {
-          if (getPackage(pack) == null) {
-            definePackage(pack, null, null, null, null, null, null, null);
-          }
-        }
+        // originates from 8cf2bde5
+        // no reason to explicitly define package, at least here. defineClass(), below, invoked postDefineClass(),
+        // which records NamedPackage in CL.packages(), so that later getDefinedPackage() would "define" the package when necessary.
+//        String pack = NameUtil.namespaceFromLongName(fqName);
+//        synchronized (myPackageLock) {
+//          if (getPackage(pack) == null) {
+//            definePackage(pack, null, null, null, null, null, null, null);
+//          }
+//        }
         ProtectionDomain newProtectionDomain = loadedClassDomain(classBytes.getPath());
         byte[] bytes = classBytes.getBytes();
         aClass = defineClass(fqName, bytes, 0, bytes.length, newProtectionDomain);
@@ -230,11 +233,10 @@ public final class ModuleClassLoader extends MPSModuleClassLoader {
 
     // loading from ModuleClassLoaders firstly; it's faster, we can tell right here if we can find class there.
     for (ClassLoader depCL : dependencyClassLoaders) {
-      if (depCL instanceof ModuleClassLoader) {
+      if (depCL instanceof ModuleClassLoader depCL1) {
         if (LOG.isTraceLevel()) {
           LOG.trace("checking dep moduleclassloader " + depCL);
         }
-        ModuleClassLoader depCL1 = (ModuleClassLoader) depCL;
         depCL1.checkNotDisposed();
         if (depCL1.myClassPathItem.hasClass(name)) {
           // here it will certainly load with class loader depCL
