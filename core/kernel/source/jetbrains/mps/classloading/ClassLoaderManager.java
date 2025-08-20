@@ -292,13 +292,6 @@ public class ClassLoaderManager implements CoreComponent {
 //      return DEFAULT_DELEGATING_TO_SYSTEM_CL;
 //    }
 
-    if (myRepository.getModelAccess().canWrite()) {
-      // fixme awful solution, unpredictable return value;
-      //  however we need this in the during long writes where we want to see the update without explicit  #reload invocation
-      // FIXME FIXME FIXME I don't quite understand the reason to get fresh CL even during long write!
-      refresh();
-
-    }
     // first, check if status of this module is valid in the dependencies graph
     //    however, not sure there's need to, myClassLoadersHolder.getClassLoader(), below, gives the same result
     //    here is just a tribute to myValidCondition
