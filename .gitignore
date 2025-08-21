@@ -76,7 +76,7 @@ teamcity-info.xml
 /plugins/vcs-github
 /plugins/yaml
 /plugins/ant
-/plugins/sh
+/plugins/sh-plugin
 /plugins/markdown
 /plugins/grazie
 /plugins/space

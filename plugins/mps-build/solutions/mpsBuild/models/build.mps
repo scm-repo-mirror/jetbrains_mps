@@ -45742,16 +45742,16 @@
         </node>
         <node concept="398223" id="_VJVSUXfUt" role="39821P">
           <node concept="3_J27D" id="_VJVSUXfUu" role="Nbhlr">
-            <node concept="3Mxwew" id="_VJVSUXfUv" role="3MwsjC">
-              <property role="3MwjfP" value="sh" />
+            <node concept="3Mxwew" id="4MrbZXIDnFd" role="3MwsjC">
+              <property role="3MwjfP" value="sh-plugin" />
             </node>
           </node>
           <node concept="2HvfSZ" id="_VJVSUXfUw" role="39821P">
             <node concept="55IIr" id="_VJVSUXfUx" role="2HvfZ0">
               <node concept="2Ry0Ak" id="_VJVSUXfUy" role="iGT6I">
                 <property role="2Ry0Am" value="plugins" />
-                <node concept="2Ry0Ak" id="_VJVSUXfVP" role="2Ry0An">
-                  <property role="2Ry0Am" value="sh" />
+                <node concept="2Ry0Ak" id="4MrbZXIDnHo" role="2Ry0An">
+                  <property role="2Ry0Am" value="sh-plugin" />
                 </node>
               </node>
             </node>
