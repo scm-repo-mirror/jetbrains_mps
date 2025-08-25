@@ -1,5 +1,5 @@
 /*
- * Copyright 2000-2024 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+ * Copyright 2000-2025 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
  */
 package jetbrains.mps.make.kotlin.cache;
 
@@ -8,11 +8,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 /**
  * Kotlin output cache for a single module. It contains the list of all inputs for each
@@ -50,7 +48,8 @@ public class JvmKotlinModuleCache implements KotlinModuleCache {
    */
   @Nullable
   public List<File> getSourcesFor(@NotNull File outputFile, @NotNull PackagePrefix prefix) {
-    return myOutputToSourceFiles.getOrDefault(prefix.pathWithTail(outputFile.getName()), null);
+//    return myOutputToSourceFiles.getOrDefault(prefix.pathWithTail(outputFile.getName()), null);
+    return myOutputToSourceFiles.get(outputFile);
   }
 
   @Override
