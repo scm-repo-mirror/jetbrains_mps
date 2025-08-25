@@ -27,6 +27,7 @@ public class Runtime_ApplicationPlugin extends BaseApplicationPlugin {
     addAction(new CopyValueAction_Action());
     addAction(new EditWatchAction_Action());
     addAction(new RemoveWatchAction_Action());
+    addAction(new ViewAsNotReady_Action());
     // groups
     addGroup(new JavaWatchableNodeActions_ActionGroup(this));
     addGroup(new ViewAs_Group_ActionGroup(this));

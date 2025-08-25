@@ -25,10 +25,7 @@
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
     <import index="i5cy" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.concurrent.atomic(JDK/)" />
     <import index="xygl" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.progress(MPS.IDEA/)" />
-    <import index="ot7" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.progress.util(MPS.IDEA/)" />
     <import index="bd8o" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.application(MPS.IDEA/)" />
-    <import index="zn9m" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.util(MPS.IDEA/)" />
-    <import index="5zyv" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.concurrent(JDK/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -80,15 +77,9 @@
         <property id="1070475926801" name="value" index="Xl_RC" />
       </concept>
       <concept id="4952749571008284462" name="jetbrains.mps.baseLanguage.structure.CatchVariable" flags="ng" index="XOnhg" />
-      <concept id="1182160077978" name="jetbrains.mps.baseLanguage.structure.AnonymousClassCreator" flags="nn" index="YeOm9">
-        <child id="1182160096073" name="cls" index="YeSDq" />
-      </concept>
       <concept id="1081236700938" name="jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" flags="ig" index="2YIFZL" />
       <concept id="1081236700937" name="jetbrains.mps.baseLanguage.structure.StaticMethodCall" flags="nn" index="2YIFZM">
         <reference id="1144433194310" name="classConcept" index="1Pybhc" />
-      </concept>
-      <concept id="1164991038168" name="jetbrains.mps.baseLanguage.structure.ThrowStatement" flags="nn" index="YS8fn">
-        <child id="1164991057263" name="throwable" index="YScLw" />
       </concept>
       <concept id="1081256982272" name="jetbrains.mps.baseLanguage.structure.InstanceOfExpression" flags="nn" index="2ZW3vV">
         <child id="1081256993305" name="classType" index="2ZW6by" />
@@ -193,9 +184,7 @@
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
       </concept>
-      <concept id="1212685548494" name="jetbrains.mps.baseLanguage.structure.ClassCreator" flags="nn" index="1pGfFk">
-        <child id="1212687122400" name="typeParameter" index="1pMfVU" />
-      </concept>
+      <concept id="1212685548494" name="jetbrains.mps.baseLanguage.structure.ClassCreator" flags="nn" index="1pGfFk" />
       <concept id="1107461130800" name="jetbrains.mps.baseLanguage.structure.Classifier" flags="ng" index="3pOWGL">
         <property id="521412098689998745" name="nonStatic" index="2bfB8j" />
         <child id="5375687026011219971" name="member" index="jymVt" unordered="true" />
@@ -235,9 +224,6 @@
       <concept id="1146644623116" name="jetbrains.mps.baseLanguage.structure.PrivateVisibility" flags="nn" index="3Tm6S6" />
       <concept id="1146644641414" name="jetbrains.mps.baseLanguage.structure.ProtectedVisibility" flags="nn" index="3Tmbuc" />
       <concept id="1080120340718" name="jetbrains.mps.baseLanguage.structure.AndExpression" flags="nn" index="1Wc70l" />
-      <concept id="1170345865475" name="jetbrains.mps.baseLanguage.structure.AnonymousClass" flags="ig" index="1Y3b0j">
-        <reference id="1170346070688" name="classifier" index="1Y3XeK" />
-      </concept>
       <concept id="8064396509828172209" name="jetbrains.mps.baseLanguage.structure.UnaryMinus" flags="nn" index="1ZRNhn" />
     </language>
     <language id="774bf8a0-62e5-41e1-af63-f4812e60e48b" name="jetbrains.mps.baseLanguage.checkedDots">
@@ -2397,18 +2383,6 @@
       </node>
       <node concept="3Tm1VV" id="47Hi8V$YpY2" role="1B3o_S" />
       <node concept="3clFbS" id="47Hi8V$YpY3" role="3clF47">
-        <node concept="3clFbF" id="1nuoWSHToFW" role="3cqZAp">
-          <node concept="2OqwBi" id="1nuoWSHToMI" role="3clFbG">
-            <node concept="2YIFZM" id="1nuoWSHToFY" role="2Oq$k0">
-              <ref role="37wK5l" to="bd8o:~ApplicationManager.getApplication()" resolve="getApplication" />
-              <ref role="1Pybhc" to="bd8o:~ApplicationManager" resolve="ApplicationManager" />
-            </node>
-            <node concept="liA8E" id="1nuoWSHTsVs" role="2OqNvi">
-              <ref role="37wK5l" to="bd8o:~Application.assertIsDispatchThread()" resolve="assertIsDispatchThread" />
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbH" id="1nuoWSHToEk" role="3cqZAp" />
         <node concept="3cpWs8" id="7_cOjZe5fzr" role="3cqZAp">
           <node concept="3cpWsn" id="7_cOjZe5fzs" role="3cpWs9">
             <property role="TrG5h" value="resultReference" />
@@ -2427,215 +2401,54 @@
           </node>
         </node>
         <node concept="3clFbH" id="6iKTdy44Ll8" role="3cqZAp" />
-        <node concept="3cpWs8" id="6iKTdy44w$g" role="3cqZAp">
-          <node concept="3cpWsn" id="6iKTdy44w$h" role="3cpWs9">
-            <property role="TrG5h" value="progress" />
-            <property role="3TUv4t" value="true" />
-            <node concept="3uibUv" id="4sfZAWyrxDB" role="1tU5fm">
-              <ref role="3uigEE" to="ot7:~ProgressWindow" resolve="ProgressWindow" />
+        <node concept="3clFbF" id="7HL8a2gQofm" role="3cqZAp">
+          <node concept="2OqwBi" id="7HL8a2gQ_gz" role="3clFbG">
+            <node concept="2YIFZM" id="7HL8a2gQt8I" role="2Oq$k0">
+              <ref role="1Pybhc" to="xygl:~ProgressManager" resolve="ProgressManager" />
+              <ref role="37wK5l" to="xygl:~ProgressManager.getInstance()" resolve="getInstance" />
             </node>
-            <node concept="2ShNRf" id="6iKTdy44w_X" role="33vP2m">
-              <node concept="1pGfFk" id="6iKTdy44Cd7" role="2ShVmc">
-                <ref role="37wK5l" to="ot7:~ProgressWindow.&lt;init&gt;(boolean,boolean,com.intellij.openapi.project.Project)" resolve="ProgressWindow" />
-                <node concept="3clFbT" id="6iKTdy44CpM" role="37wK5m">
-                  <property role="3clFbU" value="true" />
-                </node>
-                <node concept="3clFbT" id="6iKTdy44CqH" role="37wK5m">
-                  <property role="3clFbU" value="false" />
-                </node>
-                <node concept="37vLTw" id="6iKTdy44Crt" role="37wK5m">
-                  <ref role="3cqZAo" node="47Hi8V_09tm" resolve="myProject" />
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="6iKTdy44Cu$" role="3cqZAp">
-          <node concept="2OqwBi" id="6iKTdy44CDj" role="3clFbG">
-            <node concept="37vLTw" id="6iKTdy44Cuz" role="2Oq$k0">
-              <ref role="3cqZAo" node="6iKTdy44w$h" resolve="progress" />
-            </node>
-            <node concept="liA8E" id="6iKTdy44Hyy" role="2OqNvi">
-              <ref role="37wK5l" to="ot7:~ProgressWindow.setTitle(java.lang.String)" resolve="setTitle" />
-              <node concept="Xl_RD" id="6iKTdy44CsI" role="37wK5m">
-                <property role="Xl_RC" value="Evaluating" />
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbH" id="4IpZL7CsOjn" role="3cqZAp" />
-        <node concept="3cpWs8" id="4sfZAWyrFGQ" role="3cqZAp">
-          <node concept="3cpWsn" id="4sfZAWyrFGR" role="3cpWs9">
-            <property role="TrG5h" value="progressIndicatorListener" />
-            <property role="3TUv4t" value="true" />
-            <node concept="3uibUv" id="4sfZAWyrQH5" role="1tU5fm">
-              <ref role="3uigEE" to="ot7:~ProgressIndicatorListener" resolve="ProgressIndicatorListener" />
-            </node>
-            <node concept="2ShNRf" id="4sfZAWyrFGS" role="33vP2m">
-              <node concept="YeOm9" id="4sfZAWyrFGT" role="2ShVmc">
-                <node concept="1Y3b0j" id="4sfZAWyrFGU" role="YeSDq">
-                  <property role="2bfB8j" value="true" />
-                  <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
-                  <ref role="1Y3XeK" to="ot7:~ProgressIndicatorListener" resolve="ProgressIndicatorListener" />
-                  <node concept="3Tm1VV" id="4sfZAWyrFGV" role="1B3o_S" />
-                  <node concept="3clFb_" id="4sfZAWyrFGW" role="jymVt">
-                    <property role="1EzhhJ" value="false" />
-                    <property role="TrG5h" value="cancelled" />
-                    <property role="DiZV1" value="false" />
-                    <node concept="3Tm1VV" id="4sfZAWyrFGX" role="1B3o_S" />
-                    <node concept="3cqZAl" id="4sfZAWyrFGY" role="3clF45" />
-                    <node concept="3clFbS" id="4sfZAWyrFGZ" role="3clF47">
-                      <node concept="3clFbF" id="4sfZAWyrFH0" role="3cqZAp">
-                        <node concept="2OqwBi" id="4sfZAWyrFH1" role="3clFbG">
-                          <node concept="37vLTw" id="4sfZAWyrFH2" role="2Oq$k0">
-                            <ref role="3cqZAo" node="6iKTdy44w$h" resolve="progress" />
-                          </node>
-                          <node concept="liA8E" id="4sfZAWyrFH3" role="2OqNvi">
-                            <ref role="37wK5l" to="ot7:~ProgressWindow.stop()" resolve="stop" />
+            <node concept="liA8E" id="7HL8a2gQ_g$" role="2OqNvi">
+              <ref role="37wK5l" to="xygl:~ProgressManager.runProcessWithProgressSynchronously(java.lang.Runnable,java.lang.String,boolean,com.intellij.openapi.project.Project)" resolve="runProcessWithProgressSynchronously" />
+              <node concept="1bVj0M" id="7HL8a2gQ_g_" role="37wK5m">
+                <node concept="3clFbS" id="7HL8a2gQ_gA" role="1bW5cS">
+                  <node concept="9aQIb" id="7HL8a2gQ_gB" role="3cqZAp">
+                    <node concept="3clFbS" id="7HL8a2gQ_gC" role="9aQI4">
+                      <node concept="3clFbF" id="7HL8a2gQ_gD" role="3cqZAp">
+                        <node concept="1rXfSq" id="7HL8a2gQ_gE" role="3clFbG">
+                          <ref role="37wK5l" node="6DVSY0NICuI" resolve="startEvaluation" />
+                          <node concept="37vLTw" id="7HL8a2gQ_gF" role="37wK5m">
+                            <ref role="3cqZAo" node="47Hi8V$YpXZ" resolve="threadToEvaluateIn" />
                           </node>
                         </node>
                       </node>
-                    </node>
-                    <node concept="2AHcQZ" id="4sfZAWyrFH4" role="2AJF6D">
-                      <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="4sfZAWyrOdD" role="3cqZAp">
-          <node concept="2OqwBi" id="4sfZAWyrQer" role="3clFbG">
-            <node concept="37vLTw" id="4sfZAWyrOdB" role="2Oq$k0">
-              <ref role="3cqZAo" node="4sfZAWyrFGR" resolve="progressIndicatorListener" />
-            </node>
-            <node concept="liA8E" id="4sfZAWyrQNV" role="2OqNvi">
-              <ref role="37wK5l" to="ot7:~ProgressIndicatorListener.installToProgress(com.intellij.openapi.wm.ex.ProgressIndicatorEx)" resolve="installToProgress" />
-              <node concept="37vLTw" id="4sfZAWyrQWz" role="37wK5m">
-                <ref role="3cqZAo" node="6iKTdy44w$h" resolve="progress" />
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbH" id="4sfZAWyrI5t" role="3cqZAp" />
-        <node concept="3clFbF" id="4IpZL7CsIm0" role="3cqZAp">
-          <node concept="2OqwBi" id="4IpZL7CsJo0" role="3clFbG">
-            <node concept="2YIFZM" id="4IpZL7CsJdE" role="2Oq$k0">
-              <ref role="37wK5l" to="bd8o:~ApplicationManager.getApplication()" resolve="getApplication" />
-              <ref role="1Pybhc" to="bd8o:~ApplicationManager" resolve="ApplicationManager" />
-            </node>
-            <node concept="liA8E" id="4IpZL7CsMpy" role="2OqNvi">
-              <ref role="37wK5l" to="bd8o:~Application.executeOnPooledThread(java.lang.Runnable)" resolve="executeOnPooledThread" />
-              <node concept="1bVj0M" id="4IpZL7CsMqw" role="37wK5m">
-                <node concept="3clFbS" id="4IpZL7CsMqx" role="1bW5cS">
-                  <node concept="3J1_TO" id="6iKTdy44H$U" role="3cqZAp">
-                    <node concept="3clFbS" id="6iKTdy44H$W" role="1zxBo7">
-                      <node concept="3clFbF" id="7$iWx78nu5O" role="3cqZAp">
-                        <node concept="2OqwBi" id="6pYUqzDdNt$" role="3clFbG">
-                          <node concept="2YIFZM" id="6pYUqzDdNqC" role="2Oq$k0">
-                            <ref role="37wK5l" to="xygl:~ProgressManager.getInstance()" resolve="getInstance" />
-                            <ref role="1Pybhc" to="xygl:~ProgressManager" resolve="ProgressManager" />
-                          </node>
-                          <node concept="liA8E" id="6pYUqzDdO1K" role="2OqNvi">
-                            <ref role="37wK5l" to="xygl:~ProgressManager.runProcess(java.lang.Runnable,com.intellij.openapi.progress.ProgressIndicator)" resolve="runProcess" />
-                            <node concept="1bVj0M" id="6iKTdy449TW" role="37wK5m">
-                              <node concept="3clFbS" id="6iKTdy449TX" role="1bW5cS">
-                                <node concept="3clFbF" id="1nuoWSHLftS" role="3cqZAp">
-                                  <node concept="1rXfSq" id="1nuoWSHLftR" role="3clFbG">
-                                    <ref role="37wK5l" node="6DVSY0NICuI" resolve="startEvaluation" />
-                                    <node concept="37vLTw" id="1nuoWSHLf_Z" role="37wK5m">
-                                      <ref role="3cqZAo" node="47Hi8V$YpXZ" resolve="threadToEvaluateIn" />
-                                    </node>
-                                  </node>
+                      <node concept="3J1_TO" id="7HL8a2gQ_gG" role="3cqZAp">
+                        <node concept="1wplmZ" id="7HL8a2gQ_gH" role="1zxBo6">
+                          <node concept="3clFbS" id="7HL8a2gQ_gI" role="1wplMD">
+                            <node concept="3clFbF" id="7HL8a2gQ_gJ" role="3cqZAp">
+                              <node concept="1rXfSq" id="7HL8a2gQ_gK" role="3clFbG">
+                                <ref role="37wK5l" node="6DVSY0NICxz" resolve="finishEvaluation" />
+                                <node concept="37vLTw" id="7HL8a2gQ_gL" role="37wK5m">
+                                  <ref role="3cqZAo" node="47Hi8V$YpXZ" resolve="threadToEvaluateIn" />
                                 </node>
-                                <node concept="3J1_TO" id="47Hi8V$ZasF" role="3cqZAp">
-                                  <node concept="3clFbS" id="47Hi8V$ZasG" role="1zxBo7">
-                                    <node concept="3clFbF" id="7_cOjZe5nwM" role="3cqZAp">
-                                      <node concept="2OqwBi" id="7_cOjZe5nOU" role="3clFbG">
-                                        <node concept="37vLTw" id="7_cOjZe5nwL" role="2Oq$k0">
-                                          <ref role="3cqZAo" node="7_cOjZe5fzs" resolve="resultReference" />
-                                        </node>
-                                        <node concept="liA8E" id="7_cOjZe5pYs" role="2OqNvi">
-                                          <ref role="37wK5l" to="i5cy:~AtomicReference.set(java.lang.Object)" resolve="set" />
-                                          <node concept="2Sg_IR" id="47Hi8V$ZasL" role="37wK5m">
-                                            <node concept="37vLTw" id="47Hi8V$ZasM" role="2SgG2M">
-                                              <ref role="3cqZAo" node="47Hi8V$YpXW" resolve="evaluationCommand" />
-                                            </node>
-                                          </node>
-                                        </node>
-                                      </node>
-                                    </node>
-                                  </node>
-                                  <node concept="1wplmZ" id="xvs04dH6C9" role="1zxBo6">
-                                    <node concept="3clFbS" id="47Hi8V$ZasN" role="1wplMD">
-                                      <node concept="3clFbF" id="1nuoWSHLfAS" role="3cqZAp">
-                                        <node concept="1rXfSq" id="1nuoWSHLfAR" role="3clFbG">
-                                          <ref role="37wK5l" node="6DVSY0NICxz" resolve="finishEvaluation" />
-                                          <node concept="37vLTw" id="1nuoWSHLfKf" role="37wK5m">
-                                            <ref role="3cqZAo" node="47Hi8V$YpXZ" resolve="threadToEvaluateIn" />
-                                          </node>
-                                        </node>
-                                      </node>
-                                    </node>
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                        <node concept="3clFbS" id="7HL8a2gQ_gM" role="1zxBo7">
+                          <node concept="3clFbF" id="7HL8a2gQ_gN" role="3cqZAp">
+                            <node concept="2OqwBi" id="7HL8a2gQ_gO" role="3clFbG">
+                              <node concept="37vLTw" id="7HL8a2gQ_gP" role="2Oq$k0">
+                                <ref role="3cqZAo" node="7_cOjZe5fzs" resolve="resultReference" />
+                              </node>
+                              <node concept="liA8E" id="7HL8a2gQ_gQ" role="2OqNvi">
+                                <ref role="37wK5l" to="i5cy:~AtomicReference.set(java.lang.Object)" resolve="set" />
+                                <node concept="2Sg_IR" id="7HL8a2gR4gQ" role="37wK5m">
+                                  <node concept="37vLTw" id="7HL8a2gR4gR" role="2SgG2M">
+                                    <ref role="3cqZAo" node="47Hi8V$YpXW" resolve="evaluationCommand" />
                                   </node>
                                 </node>
                               </node>
                             </node>
-                            <node concept="37vLTw" id="6iKTdy44Jjh" role="37wK5m">
-                              <ref role="3cqZAo" node="6iKTdy44w$h" resolve="progress" />
-                            </node>
-                          </node>
-                        </node>
-                      </node>
-                    </node>
-                    <node concept="3uVAMA" id="6iKTdy44H$X" role="1zxBo5">
-                      <node concept="XOnhg" id="6iKTdy44H$Z" role="1zc67B">
-                        <property role="3TUv4t" value="false" />
-                        <property role="TrG5h" value="e" />
-                        <node concept="nSUau" id="xvs04dGZVI" role="1tU5fm">
-                          <node concept="3uibUv" id="6iKTdy44Jnp" role="nSUat">
-                            <ref role="3uigEE" to="xygl:~ProcessCanceledException" resolve="ProcessCanceledException" />
-                          </node>
-                        </node>
-                      </node>
-                      <node concept="3clFbS" id="6iKTdy44H_3" role="1zc67A">
-                        <node concept="3clFbF" id="6iKTdy44JnU" role="3cqZAp">
-                          <node concept="2OqwBi" id="6iKTdy44Jxq" role="3clFbG">
-                            <node concept="37vLTw" id="6iKTdy44JnT" role="2Oq$k0">
-                              <ref role="3cqZAo" node="6iKTdy44w$h" resolve="progress" />
-                            </node>
-                            <node concept="liA8E" id="6iKTdy44L0$" role="2OqNvi">
-                              <ref role="37wK5l" to="ot7:~ProgressIndicatorBase.cancel()" resolve="cancel" />
-                            </node>
-                          </node>
-                        </node>
-                      </node>
-                    </node>
-                    <node concept="3uVAMA" id="6iKTdy44L0A" role="1zxBo5">
-                      <node concept="XOnhg" id="6iKTdy44L0B" role="1zc67B">
-                        <property role="3TUv4t" value="false" />
-                        <property role="TrG5h" value="e" />
-                        <node concept="nSUau" id="xvs04dGZVK" role="1tU5fm">
-                          <node concept="3uibUv" id="6iKTdy44L0Q" role="nSUat">
-                            <ref role="3uigEE" to="wyt6:~RuntimeException" resolve="RuntimeException" />
-                          </node>
-                        </node>
-                      </node>
-                      <node concept="3clFbS" id="6iKTdy44L0D" role="1zc67A">
-                        <node concept="3clFbF" id="6iKTdy44LmE" role="3cqZAp">
-                          <node concept="2OqwBi" id="6iKTdy44Lwa" role="3clFbG">
-                            <node concept="37vLTw" id="6iKTdy44LmD" role="2Oq$k0">
-                              <ref role="3cqZAo" node="6iKTdy44w$h" resolve="progress" />
-                            </node>
-                            <node concept="liA8E" id="6iKTdy44OF9" role="2OqNvi">
-                              <ref role="37wK5l" to="ot7:~ProgressIndicatorBase.cancel()" resolve="cancel" />
-                            </node>
-                          </node>
-                        </node>
-                        <node concept="YS8fn" id="6iKTdy44OFJ" role="3cqZAp">
-                          <node concept="37vLTw" id="6iKTdy44OIc" role="YScLw">
-                            <ref role="3cqZAo" node="6iKTdy44L0B" resolve="e" />
                           </node>
                         </node>
                       </node>
@@ -2643,66 +2456,14 @@
                   </node>
                 </node>
               </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbH" id="6iKTdy44OJs" role="3cqZAp" />
-        <node concept="3cpWs8" id="1w78gokcY2P" role="3cqZAp">
-          <node concept="3cpWsn" id="1w78gokcY2Q" role="3cpWs9">
-            <property role="TrG5h" value="future" />
-            <node concept="3uibUv" id="1w78gokcY2N" role="1tU5fm">
-              <ref role="3uigEE" to="5zyv:~CompletableFuture" resolve="CompletableFuture" />
-              <node concept="3uibUv" id="1w78gokd1lQ" role="11_B2D">
-                <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
+              <node concept="Xl_RD" id="7HL8a2gQ_gS" role="37wK5m">
+                <property role="Xl_RC" value="Evaluating" />
               </node>
-            </node>
-            <node concept="2ShNRf" id="1w78gokd9_8" role="33vP2m">
-              <node concept="1pGfFk" id="1w78gokd9$U" role="2ShVmc">
-                <ref role="37wK5l" to="5zyv:~CompletableFuture.&lt;init&gt;()" resolve="CompletableFuture" />
-                <node concept="3uibUv" id="1w78gokd9$V" role="1pMfVU">
-                  <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
-                </node>
+              <node concept="3clFbT" id="7HL8a2gQ_gT" role="37wK5m">
+                <property role="3clFbU" value="true" />
               </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="1w78gokdlU3" role="3cqZAp">
-          <node concept="2YIFZM" id="1w78gokdp60" role="3clFbG">
-            <ref role="37wK5l" to="zn9m:~Disposer.register(com.intellij.openapi.Disposable,com.intellij.openapi.Disposable)" resolve="register" />
-            <ref role="1Pybhc" to="zn9m:~Disposer" resolve="Disposer" />
-            <node concept="37vLTw" id="1w78gokdx_M" role="37wK5m">
-              <ref role="3cqZAo" node="6iKTdy44w$h" resolve="progress" />
-            </node>
-            <node concept="1bVj0M" id="1w78gokdAAk" role="37wK5m">
-              <node concept="3clFbS" id="1w78gokdAAm" role="1bW5cS">
-                <node concept="3clFbF" id="1w78gokdDUm" role="3cqZAp">
-                  <node concept="2OqwBi" id="1w78gokdGWX" role="3clFbG">
-                    <node concept="37vLTw" id="1w78gokdDUl" role="2Oq$k0">
-                      <ref role="3cqZAo" node="1w78gokcY2Q" resolve="future" />
-                    </node>
-                    <node concept="liA8E" id="1w78gokdL$w" role="2OqNvi">
-                      <ref role="37wK5l" to="5zyv:~CompletableFuture.complete(java.lang.Object)" resolve="complete" />
-                      <node concept="10Nm6u" id="1w78gokdOR0" role="37wK5m" />
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="6iKTdy456DT" role="3cqZAp">
-          <node concept="2OqwBi" id="6iKTdy456Pb" role="3clFbG">
-            <node concept="37vLTw" id="6iKTdy456DS" role="2Oq$k0">
-              <ref role="3cqZAo" node="6iKTdy44w$h" resolve="progress" />
-            </node>
-            <node concept="liA8E" id="6iKTdy45bwt" role="2OqNvi">
-              <ref role="37wK5l" to="ot7:~ProgressWindow.startBlocking(java.lang.Runnable,java.util.concurrent.CompletableFuture)" resolve="startBlocking" />
-              <node concept="2YIFZM" id="19qkOsND2rU" role="37wK5m">
-                <ref role="37wK5l" to="zn9m:~EmptyRunnable.getInstance()" resolve="getInstance" />
-                <ref role="1Pybhc" to="zn9m:~EmptyRunnable" resolve="EmptyRunnable" />
-              </node>
-              <node concept="37vLTw" id="1w78gokdfyq" role="37wK5m">
-                <ref role="3cqZAo" node="1w78gokcY2Q" resolve="future" />
+              <node concept="37vLTw" id="7HL8a2gQ_gU" role="37wK5m">
+                <ref role="3cqZAo" node="47Hi8V_09tm" resolve="myProject" />
               </node>
             </node>
           </node>

@@ -19,7 +19,6 @@ import jetbrains.mps.debugger.api.ui.tree.VariablesTree;
 import jetbrains.mps.debugger.java.api.state.proxy.ValueWrapper;
 import jetbrains.mps.debug.api.AbstractDebugSession;
 import jetbrains.mps.debugger.api.ui.DebugActionsUtil;
-import jetbrains.mps.debugger.java.api.state.JavaUiState;
 import jetbrains.mps.debugger.java.api.state.proxy.ValueWrapperFactory;
 import jetbrains.mps.debugger.java.runtime.state.customViewers.CustomViewersManagerImpl;
 import org.jetbrains.annotations.Nullable;
@@ -33,31 +32,30 @@ public class ViewAs_Group_ActionGroup extends GeneratedActionGroup {
     super("View As", ID, plugin);
     setIsInternal(false);
     setPopup(true);
+    updateInBackground(true);
   }
   public void doUpdate(AnActionEvent event) {
     removeAll();
-    final IValue value = VariablesTree.MPS_DEBUGGER_VALUE.getData(event.getDataContext());
+    IValue value = VariablesTree.MPS_DEBUGGER_VALUE.getData(event.getDataContext());
     if (value == null || !(value instanceof ValueWrapper)) {
       event.getPresentation().setVisible(false);
       return;
     }
-
     AbstractDebugSession debugSession = DebugActionsUtil.getDebugSession(event);
     if (debugSession == null) {
       event.getPresentation().setVisible(false);
       return;
     }
 
-    JavaUiState uiState = (JavaUiState) debugSession.getUiState();
-    final Set<ValueWrapperFactory> factories = SetSequence.fromSet(new HashSet<ValueWrapperFactory>());
-    uiState.invokeEvaluationSynchronously(() -> SetSequence.fromSet(factories).addSequence(SetSequence.fromSet(CustomViewersManagerImpl.getInstanceImpl().getValueWrapperFactories(((ValueWrapper) value).getValue()))));
+    Set<ValueWrapperFactory> factories = CustomViewersManagerImpl.getInstanceImpl().getValueWrapperFactoriesForViewAs(((ValueWrapper) value).getValue(), debugSession);
 
-    if (SetSequence.fromSet(factories).count() <= 1) {
-      event.getPresentation().setVisible(false);
-      return;
-    }
-    for (ValueWrapperFactory factory : SetSequence.fromSet(factories)) {
-      ViewAs_Group_ActionGroup.this.addParameterizedAction(new ViewAs_Action(factory), factory);
+    if (factories != null) {
+      for (ValueWrapperFactory factory : SetSequence.fromSet(factories)) {
+        ViewAs_Group_ActionGroup.this.addParameterizedAction(new ViewAs_Action(factory), factory);
+      }
+    } else {
+      // add disabled "calculating..."  action while the list of suitable factories is calculating
+      ViewAs_Group_ActionGroup.this.addAction("jetbrains.mps.debugger.java.runtime.ui.actions.ViewAsNotReady_Action");
     }
     for (Pair<ActionPlace, Condition<BaseAction>> p : this.myPlaces) {
       this.addPlace(p.first, p.second);

@@ -369,6 +369,27 @@
       </node>
     </node>
     <node concept="2tJIrI" id="3qzU$0EcOKC" role="jymVt" />
+    <node concept="312cEg" id="3zmidk09k9s" role="jymVt">
+      <property role="34CwA1" value="true" />
+      <property role="TrG5h" value="myViewAsValue" />
+      <node concept="3Tm6S6" id="3zmidk0dbRF" role="1B3o_S" />
+      <node concept="3uibUv" id="3zmidk09q2d" role="1tU5fm">
+        <ref role="3uigEE" to="dcbi:46sxDGTfnwG" resolve="IValueProxy" />
+      </node>
+      <node concept="10Nm6u" id="3zmidk09pfC" role="33vP2m" />
+    </node>
+    <node concept="312cEg" id="7Oan$rFkUu" role="jymVt">
+      <property role="34CwA1" value="true" />
+      <property role="TrG5h" value="myViewAsFactories" />
+      <node concept="3Tm6S6" id="3zmidk0deqG" role="1B3o_S" />
+      <node concept="2hMVRd" id="7Oan$rFkuF" role="1tU5fm">
+        <node concept="3uibUv" id="7Oan$rFkG$" role="2hN53Y">
+          <ref role="3uigEE" to="y3sp:2Y$mRnICmxQ" resolve="ValueWrapperFactory" />
+        </node>
+      </node>
+      <node concept="10Nm6u" id="3zmidk09o6U" role="33vP2m" />
+    </node>
+    <node concept="2tJIrI" id="7Oan$rF0Px" role="jymVt" />
     <node concept="3clFbW" id="2Y$mRnICmvN" role="jymVt">
       <node concept="3Tm1VV" id="2Y$mRnICmvO" role="1B3o_S" />
       <node concept="3cqZAl" id="2Y$mRnICmvP" role="3clF45" />
@@ -551,13 +572,13 @@
           </node>
         </node>
       </node>
-      <node concept="3Tm6S6" id="1MgGTZ24$QK" role="1B3o_S" />
       <node concept="3rvAFt" id="1MgGTZ24Bm1" role="3clF45">
         <node concept="17QB3L" id="1MgGTZ24Lk9" role="3rvQeY" />
         <node concept="3uibUv" id="1MgGTZ24N9H" role="3rvSg0">
           <ref role="3uigEE" to="y3sp:2Y$mRnICmxQ" resolve="ValueWrapperFactory" />
         </node>
       </node>
+      <node concept="3Tm6S6" id="1MgGTZ24$QK" role="1B3o_S" />
     </node>
     <node concept="2tJIrI" id="2I1kig2x_XK" role="jymVt" />
     <node concept="3clFb_" id="2Y$mRnICmwA" role="jymVt">
@@ -650,6 +671,244 @@
         </node>
       </node>
     </node>
+    <node concept="2tJIrI" id="3zmidk0oS7r" role="jymVt" />
+    <node concept="3clFb_" id="3zmidk08wpr" role="jymVt">
+      <property role="TrG5h" value="getValueWrapperFactoriesForViewAs" />
+      <node concept="37vLTG" id="3zmidk08AzF" role="3clF46">
+        <property role="TrG5h" value="originalValue" />
+        <property role="3TUv4t" value="true" />
+        <node concept="3uibUv" id="3zmidk08AzG" role="1tU5fm">
+          <ref role="3uigEE" to="dcbi:46sxDGTfnwG" resolve="IValueProxy" />
+        </node>
+        <node concept="2AHcQZ" id="3zmidk08AzH" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="3zmidk0bzZ6" role="3clF46">
+        <property role="TrG5h" value="session" />
+        <node concept="3uibUv" id="3zmidk0bCls" role="1tU5fm">
+          <ref role="3uigEE" to="1l1h:3SnNvqCaJaG" resolve="AbstractDebugSession" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="3zmidk08wpu" role="3clF47">
+        <node concept="3SKdUt" id="3zmidk0cQ2J" role="3cqZAp">
+          <node concept="1PaTwC" id="3zmidk0cQ2K" role="1aUNEU">
+            <node concept="3oM_SD" id="3zmidk0cQ2L" role="1PaTwD">
+              <property role="3oM_SC" value="we" />
+            </node>
+            <node concept="3oM_SD" id="3zmidk0cSAL" role="1PaTwD">
+              <property role="3oM_SC" value="return" />
+            </node>
+            <node concept="3oM_SD" id="3zmidk0cSBj" role="1PaTwD">
+              <property role="3oM_SC" value="null" />
+            </node>
+            <node concept="3oM_SD" id="3zmidk0cSDq" role="1PaTwD">
+              <property role="3oM_SC" value="if" />
+            </node>
+            <node concept="3oM_SD" id="3zmidk0cSDF" role="1PaTwD">
+              <property role="3oM_SC" value="factories" />
+            </node>
+            <node concept="3oM_SD" id="3zmidk0cSDW" role="1PaTwD">
+              <property role="3oM_SC" value="were" />
+            </node>
+            <node concept="3oM_SD" id="3zmidk0cSDX" role="1PaTwD">
+              <property role="3oM_SC" value="not" />
+            </node>
+            <node concept="3oM_SD" id="3zmidk0cSEe" role="1PaTwD">
+              <property role="3oM_SC" value="calculated" />
+            </node>
+            <node concept="3oM_SD" id="3zmidk0cSEv" role="1PaTwD">
+              <property role="3oM_SC" value="yet" />
+            </node>
+            <node concept="3oM_SD" id="3zmidk0cSF0" role="1PaTwD">
+              <property role="3oM_SC" value="and" />
+            </node>
+            <node concept="3oM_SD" id="3zmidk0cSFh" role="1PaTwD">
+              <property role="3oM_SC" value="start" />
+            </node>
+            <node concept="3oM_SD" id="3zmidk0cSFM" role="1PaTwD">
+              <property role="3oM_SC" value="factories" />
+            </node>
+            <node concept="3oM_SD" id="3zmidk0cSHn" role="1PaTwD">
+              <property role="3oM_SC" value="calculation" />
+            </node>
+            <node concept="3oM_SD" id="3zmidk0dgXN" role="1PaTwD">
+              <property role="3oM_SC" value="in" />
+            </node>
+            <node concept="3oM_SD" id="3zmidk0dgXO" role="1PaTwD">
+              <property role="3oM_SC" value="background" />
+            </node>
+            <node concept="3oM_SD" id="3zmidk0dgYP" role="1PaTwD">
+              <property role="3oM_SC" value="thread" />
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs8" id="3zmidk0ac56" role="3cqZAp">
+          <node concept="3cpWsn" id="3zmidk0ac5c" role="3cpWs9">
+            <property role="TrG5h" value="factories" />
+            <node concept="2hMVRd" id="3zmidk0ac5e" role="1tU5fm">
+              <node concept="3uibUv" id="3zmidk0akeJ" role="2hN53Y">
+                <ref role="3uigEE" to="y3sp:2Y$mRnICmxQ" resolve="ValueWrapperFactory" />
+              </node>
+            </node>
+            <node concept="1rXfSq" id="3zmidk0apry" role="33vP2m">
+              <ref role="37wK5l" node="3zmidk08QdY" resolve="getCachedFactories" />
+              <node concept="37vLTw" id="3zmidk0as7$" role="37wK5m">
+                <ref role="3cqZAo" node="3zmidk08AzF" resolve="originalValue" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbJ" id="3zmidk0axWK" role="3cqZAp">
+          <node concept="3clFbS" id="3zmidk0axWM" role="3clFbx">
+            <node concept="3clFbF" id="3zmidk0ckPj" role="3cqZAp">
+              <node concept="2OqwBi" id="3zmidk0coks" role="3clFbG">
+                <node concept="liA8E" id="3zmidk0cu_2" role="2OqNvi">
+                  <ref role="37wK5l" to="1l1h:$msJHFHYEn" resolve="invokeEvaluation" />
+                  <node concept="1bVj0M" id="3zmidk0cya_" role="37wK5m">
+                    <node concept="3clFbS" id="3zmidk0cyaD" role="1bW5cS">
+                      <node concept="3clFbF" id="3zmidk0aVGM" role="3cqZAp">
+                        <node concept="1rXfSq" id="3zmidk0aVGK" role="3clFbG">
+                          <ref role="37wK5l" node="3zmidk099La" resolve="setCachedFactories" />
+                          <node concept="37vLTw" id="3zmidk0b1CP" role="37wK5m">
+                            <ref role="3cqZAo" node="3zmidk08AzF" resolve="originalValue" />
+                          </node>
+                          <node concept="1rXfSq" id="3zmidk0b72a" role="37wK5m">
+                            <ref role="37wK5l" node="2Y$mRnICmwA" resolve="getValueWrapperFactories" />
+                            <node concept="37vLTw" id="3zmidk0baq_" role="37wK5m">
+                              <ref role="3cqZAo" node="3zmidk08AzF" resolve="originalValue" />
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="2OqwBi" id="3zmidk0d2mR" role="2Oq$k0">
+                  <node concept="liA8E" id="3zmidk0d2mS" role="2OqNvi">
+                    <ref role="37wK5l" to="1l1h:3SnNvqCaKcb" resolve="getUiState" />
+                  </node>
+                  <node concept="37vLTw" id="3zmidk0d2mT" role="2Oq$k0">
+                    <ref role="3cqZAo" node="3zmidk0bzZ6" resolve="session" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbC" id="3zmidk0aBYe" role="3clFbw">
+            <node concept="10Nm6u" id="3zmidk0aEIG" role="3uHU7w" />
+            <node concept="37vLTw" id="3zmidk0a$Q_" role="3uHU7B">
+              <ref role="3cqZAo" node="3zmidk0ac5c" resolve="factories" />
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs6" id="3zmidk0aKGt" role="3cqZAp">
+          <node concept="37vLTw" id="3zmidk0aPRH" role="3cqZAk">
+            <ref role="3cqZAo" node="3zmidk0ac5c" resolve="factories" />
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="3zmidk08sY2" role="1B3o_S" />
+      <node concept="2hMVRd" id="3zmidk08vXg" role="3clF45">
+        <node concept="3uibUv" id="3zmidk08wbl" role="2hN53Y">
+          <ref role="3uigEE" to="y3sp:2Y$mRnICmxQ" resolve="ValueWrapperFactory" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="3zmidk08F88" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="3zmidk08QdY" role="jymVt">
+      <property role="TrG5h" value="getCachedFactories" />
+      <property role="od$2w" value="true" />
+      <node concept="37vLTG" id="3zmidk08VVX" role="3clF46">
+        <property role="TrG5h" value="value" />
+        <property role="3TUv4t" value="true" />
+        <node concept="3uibUv" id="3zmidk08VVY" role="1tU5fm">
+          <ref role="3uigEE" to="dcbi:46sxDGTfnwG" resolve="IValueProxy" />
+        </node>
+        <node concept="2AHcQZ" id="3zmidk08VVZ" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="3zmidk08Qe1" role="3clF47">
+        <node concept="3clFbF" id="3zmidk09OId" role="3cqZAp">
+          <node concept="3K4zz7" id="3zmidk09Y8F" role="3clFbG">
+            <node concept="37vLTw" id="3zmidk0a0MC" role="3K4E3e">
+              <ref role="3cqZAo" node="7Oan$rFkUu" resolve="myViewAsFactories" />
+            </node>
+            <node concept="10Nm6u" id="3zmidk0a3xz" role="3K4GZi" />
+            <node concept="3clFbC" id="3zmidk09RQm" role="3K4Cdx">
+              <node concept="37vLTw" id="3zmidk09Vky" role="3uHU7w">
+                <ref role="3cqZAo" node="3zmidk08VVX" resolve="value" />
+              </node>
+              <node concept="37vLTw" id="3zmidk09OIc" role="3uHU7B">
+                <ref role="3cqZAo" node="3zmidk09k9s" resolve="myViewAsValue" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm6S6" id="3zmidk08Ndm" role="1B3o_S" />
+      <node concept="2hMVRd" id="3zmidk08TFA" role="3clF45">
+        <node concept="3uibUv" id="3zmidk08TFB" role="2hN53Y">
+          <ref role="3uigEE" to="y3sp:2Y$mRnICmxQ" resolve="ValueWrapperFactory" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="3zmidk0dgZW" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="3zmidk099La" role="jymVt">
+      <property role="TrG5h" value="setCachedFactories" />
+      <property role="od$2w" value="true" />
+      <node concept="37vLTG" id="3zmidk09fXr" role="3clF46">
+        <property role="TrG5h" value="value" />
+        <property role="3TUv4t" value="true" />
+        <node concept="3uibUv" id="3zmidk09fXs" role="1tU5fm">
+          <ref role="3uigEE" to="dcbi:46sxDGTfnwG" resolve="IValueProxy" />
+        </node>
+        <node concept="2AHcQZ" id="3zmidk09fXt" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="3zmidk09dff" role="3clF46">
+        <property role="TrG5h" value="factories" />
+        <node concept="2hMVRd" id="3zmidk09igO" role="1tU5fm">
+          <node concept="3uibUv" id="3zmidk09igP" role="2hN53Y">
+            <ref role="3uigEE" to="y3sp:2Y$mRnICmxQ" resolve="ValueWrapperFactory" />
+          </node>
+        </node>
+        <node concept="2AHcQZ" id="3zmidk09iEU" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="3zmidk099Ld" role="3clF47">
+        <node concept="3clFbF" id="3zmidk09rbA" role="3cqZAp">
+          <node concept="37vLTI" id="3zmidk09ufT" role="3clFbG">
+            <node concept="37vLTw" id="3zmidk09xqU" role="37vLTx">
+              <ref role="3cqZAo" node="3zmidk09fXr" resolve="value" />
+            </node>
+            <node concept="37vLTw" id="3zmidk09rb_" role="37vLTJ">
+              <ref role="3cqZAo" node="3zmidk09k9s" resolve="myViewAsValue" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="3zmidk09AvU" role="3cqZAp">
+          <node concept="37vLTI" id="3zmidk09DHu" role="3clFbG">
+            <node concept="37vLTw" id="3zmidk09Gxj" role="37vLTx">
+              <ref role="3cqZAo" node="3zmidk09dff" resolve="factories" />
+            </node>
+            <node concept="37vLTw" id="3zmidk09AvS" role="37vLTJ">
+              <ref role="3cqZAo" node="7Oan$rFkUu" resolve="myViewAsFactories" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm6S6" id="3zmidk096eA" role="1B3o_S" />
+      <node concept="3cqZAl" id="3zmidk099zS" role="3clF45" />
+    </node>
+    <node concept="2tJIrI" id="3zmidk0oO40" role="jymVt" />
     <node concept="3clFb_" id="5j5ipK2fL$6" role="jymVt">
       <property role="1EzhhJ" value="false" />
       <property role="TrG5h" value="getBestFactory" />

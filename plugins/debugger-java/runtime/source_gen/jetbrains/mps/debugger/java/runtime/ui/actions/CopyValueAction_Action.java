@@ -58,10 +58,12 @@ public class CopyValueAction_Action extends BaseAction {
       return;
     }
 
-    String result = javaUiState.invokeEvaluationSynchronously(() -> EvaluationUtils.getInstance().getStringPresentation(((JavaValue) value).getValue().getJDIValue(), thread));
-    if ((result != null && result.length() > 0)) {
-      CopyPasteUtil.copyTextToClipboard(result);
-    }
+    javaUiState.invokeEvaluation(() -> {
+      String result = EvaluationUtils.getInstance().getStringPresentation(((JavaValue) value).getValue().getJDIValue(), thread);
+      if ((result != null && result.length() > 0)) {
+        CopyPasteUtil.copyTextToClipboard(result);
+      }
+    });
   }
   private static AbstractUiState check_d54g7t_a0d0a(AbstractDebugSession checkedDotOperand) {
     if (null != checkedDotOperand) {
