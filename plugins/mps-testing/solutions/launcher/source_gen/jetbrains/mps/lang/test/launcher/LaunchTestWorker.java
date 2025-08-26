@@ -28,11 +28,6 @@ public class LaunchTestWorker extends WorkerBase implements WorkerCallback {
   }
 
   @Override
-  public void setForceFailOnError() {
-    myForceFailOnError = true;
-  }
-
-  @Override
   protected Environment createEnvironment() {
     EnvironmentConfig config = createEnvironmentConfig(myWhatToDo);
     config = config.withTestModeOn();
@@ -91,14 +86,21 @@ public class LaunchTestWorker extends WorkerBase implements WorkerCallback {
   }
 
   @Override
-  protected void failBuild(String name) {
-    if (myForceFailOnError || (!(myErrors.isEmpty()) && myWhatToDo.getFailOnError())) {
-      forceFailBuild(name);
-    }
+  public void fatal(String text, Throwable ex) {
+    error(text, ex);
+    // for severe errors we ignore "failOnError=false" flag users may supplied to the task
+    myForceFailOnError = true;
   }
 
   @Override
-  public void failBuild() {
+  protected void failBuild(String name) {
+    if (myForceFailOnError) {
+      forceFailBuild(name);
+    }
+    super.failBuild(name);
+  }
+
+  private void failBuild() {
     failBuild("launchtests");
   }
 

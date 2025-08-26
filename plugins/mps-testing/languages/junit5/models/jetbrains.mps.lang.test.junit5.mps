@@ -818,23 +818,13 @@
                         </node>
                         <node concept="3uVAMA" id="HwplGM6Hpd" role="1zxBo5">
                           <node concept="3clFbS" id="HwplGM6Hpe" role="1zc67A">
-                            <node concept="3clFbF" id="cYEb9BjTe6" role="3cqZAp">
-                              <node concept="2OqwBi" id="cYEb9BjUq6" role="3clFbG">
-                                <node concept="37vLTw" id="cYEb9BjTe4" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="7MSVDs2A7en" resolve="myWorkerCallback" />
-                                </node>
-                                <node concept="liA8E" id="cYEb9BjVMu" role="2OqNvi">
-                                  <ref role="37wK5l" to="4f8w:1xUpa7QSI9c" resolve="setForceFailOnError" />
-                                </node>
-                              </node>
-                            </node>
                             <node concept="3clFbF" id="HwplGM6Hpf" role="3cqZAp">
                               <node concept="2OqwBi" id="7MSVDs2Avgv" role="3clFbG">
                                 <node concept="37vLTw" id="7MSVDs2AxoV" role="2Oq$k0">
                                   <ref role="3cqZAo" node="7MSVDs2A7en" resolve="myWorkerCallback" />
                                 </node>
                                 <node concept="liA8E" id="7MSVDs2Avgy" role="2OqNvi">
-                                  <ref role="37wK5l" to="4f8w:7MSVDs2A_uu" resolve="error" />
+                                  <ref role="37wK5l" to="4f8w:5tXD4tyH5RB" resolve="fatal" />
                                   <node concept="Xl_RD" id="HwplGM6Hph" role="37wK5m">
                                     <property role="Xl_RC" value="error building test suite" />
                                   </node>
@@ -935,24 +925,6 @@
       </node>
     </node>
     <node concept="2tJIrI" id="HwplGM6pVU" role="jymVt" />
-    <node concept="3clFb_" id="HwplGM6nto" role="jymVt">
-      <property role="TrG5h" value="isHaltOnFailure" />
-      <node concept="3Tm6S6" id="HwplGM6ntp" role="1B3o_S" />
-      <node concept="10P_77" id="HwplGM6ntq" role="3clF45" />
-      <node concept="3clFbS" id="HwplGM6nt0" role="3clF47">
-        <node concept="3cpWs6" id="400sF7Fsn$6" role="3cqZAp">
-          <node concept="2OqwBi" id="400sF7Fss1O" role="3cqZAk">
-            <node concept="37vLTw" id="400sF7FsqJ3" role="2Oq$k0">
-              <ref role="3cqZAo" node="7MSVDs2AkBw" resolve="myWhatToDo" />
-            </node>
-            <node concept="liA8E" id="400sF7FstvL" role="2OqNvi">
-              <ref role="37wK5l" to="asz6:KL8Aql8etu" resolve="getFailOnError" />
-            </node>
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="2tJIrI" id="5HBbAYqGVlg" role="jymVt" />
     <node concept="3clFb_" id="5HBbAYqGVkX" role="jymVt">
       <property role="TrG5h" value="getTestReportsDir" />
       <node concept="3Tmbuc" id="3OA_Uj9gJBa" role="1B3o_S" />

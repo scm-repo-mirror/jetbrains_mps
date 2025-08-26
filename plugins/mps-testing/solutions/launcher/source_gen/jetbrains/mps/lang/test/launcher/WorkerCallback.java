@@ -15,9 +15,5 @@ public interface WorkerCallback {
 
   void error(String text, Throwable ex);
 
-  void failBuild();
-
-  default void setForceFailOnError() {
-    // NOP
-  }
+  void fatal(String text, Throwable ex);
 }

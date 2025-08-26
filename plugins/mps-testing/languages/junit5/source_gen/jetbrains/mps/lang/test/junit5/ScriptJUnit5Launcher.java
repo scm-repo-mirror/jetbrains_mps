@@ -76,8 +76,7 @@ public class ScriptJUnit5Launcher extends AbstractJUnit5Launcher {
           testClasses.add(moduleClassLoader.loadClass(testClassName));
 
         } catch (ClassNotFoundException e) {
-          myWorkerCallback.setForceFailOnError();
-          myWorkerCallback.error("error building test suite", e);
+          myWorkerCallback.fatal("error building test suite", e);
         }
       }
     };
@@ -89,10 +88,6 @@ public class ScriptJUnit5Launcher extends AbstractJUnit5Launcher {
     });
 
     return testClasses;
-  }
-
-  private boolean isHaltOnFailure() {
-    return myWhatToDo.getFailOnError();
   }
 
   @Override
