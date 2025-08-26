@@ -19,6 +19,10 @@ import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.classloading.MPSModuleClassLoader;
 import jetbrains.mps.project.SModuleOperations;
 
+/**
+ * Takes {@link jetbrains.mps.baselanguage.unitTest.execution.launcher.ExecutorScript.TestRecord }, takes respective 
+ * class from MPS and uses factory methods to produce JUnit4/JUnit5 test descriptions.
+ */
 public abstract class AbstractTestConverter<T> {
 
   protected List<T> transfigure(@NotNull final Environment env, @NotNull final Collection<ExecutorScript.TestRecord> tests) {

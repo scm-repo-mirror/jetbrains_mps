@@ -8,12 +8,14 @@ import org.junit.platform.engine.DiscoverySelector;
 import java.util.LinkedList;
 import org.junit.platform.engine.discovery.DiscoverySelectors;
 
+/**
+ * No-platform alternative to supply JUnit5 tests, much like {@code JUnit5ScriptTestContributor}, just no MPS modules and classloading
+ */
 /*package*/ class JUnit5TestContributorConverter implements JUnit5TestContributor {
   private static final Logger LOG = Logger.getLogger(JUnit5TestContributorConverter.class);
   private final TestsContributor myTestsContributor;
 
   public JUnit5TestContributorConverter(TestsContributor toConvert) {
-    assert toConvert.newAPI();
     myTestsContributor = toConvert;
   }
 

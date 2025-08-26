@@ -31,7 +31,8 @@ public class CommandLineTestExecutor implements TestExecutor {
   @Override
   public void init() {
     if (myExecScript.getStartupArguments().getCompatibilityMode()) {
-      // FIXME proper RunnerBuilder into JUnit4TestExecutor!!! (push env) - now in ScriptTestContributor, as long as it doesn't use newAPI()
+      // It's ScriptTestContributor that ensures proper RunnerBuilder (push env) into JUnit4TestExecutor
+      // XXX I wonder why don't I make this decision (compatibility mode) sooner, in WithPlatformTestExecutor?
       myTestExecutor = new JUnit4TestExecutor(new ScriptTestContributor(myEnv, myExecScript.getTests()), true);
     } else {
       // FIXME similar override in JUnitInProcessRunStarter, need to unify
