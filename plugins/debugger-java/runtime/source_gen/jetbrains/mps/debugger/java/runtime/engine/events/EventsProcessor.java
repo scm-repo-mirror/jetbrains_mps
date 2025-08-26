@@ -31,13 +31,7 @@ import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import com.intellij.openapi.application.ApplicationManager;
 import org.jetbrains.annotations.Nullable;
 import java.util.concurrent.atomic.AtomicReference;
-import com.intellij.openapi.progress.util.ProgressWindow;
-import com.intellij.openapi.progress.util.ProgressIndicatorListener;
 import com.intellij.openapi.progress.ProgressManager;
-import com.intellij.openapi.progress.ProcessCanceledException;
-import java.util.concurrent.CompletableFuture;
-import com.intellij.openapi.util.Disposer;
-import com.intellij.openapi.util.EmptyRunnable;
 import jetbrains.mps.debugger.java.runtime.engine.DebugProcessListener;
 import com.sun.jdi.event.EventQueue;
 import com.sun.jdi.event.EventSet;
@@ -233,42 +227,16 @@ public class EventsProcessor {
   }
   @Nullable
   public <R> R invokeEvaluationUnderProgress(final _FunctionTypes._return_P0_E0<? extends R> evaluationCommand, final ThreadReference threadToEvaluateIn) {
-    ApplicationManager.getApplication().assertIsDispatchThread();
-
     final AtomicReference<R> resultReference = new AtomicReference();
 
-    final ProgressWindow progress = new ProgressWindow(true, false, myProject);
-    progress.setTitle("Evaluating");
-
-    final ProgressIndicatorListener progressIndicatorListener = new ProgressIndicatorListener() {
-      @Override
-      public void cancelled() {
-        progress.stop();
-      }
-    };
-    progressIndicatorListener.installToProgress(progress);
-
-    ApplicationManager.getApplication().executeOnPooledThread(() -> {
+    ProgressManager.getInstance().runProcessWithProgressSynchronously(() -> {
+      startEvaluation(threadToEvaluateIn);
       try {
-        ProgressManager.getInstance().runProcess(() -> {
-          startEvaluation(threadToEvaluateIn);
-          try {
-            resultReference.set(evaluationCommand.invoke());
-          } finally {
-            finishEvaluation(threadToEvaluateIn);
-          }
-        }, progress);
-      } catch (ProcessCanceledException e) {
-        progress.cancel();
-      } catch (RuntimeException e) {
-        progress.cancel();
-        throw e;
+        resultReference.set(evaluationCommand.invoke());
+      } finally {
+        finishEvaluation(threadToEvaluateIn);
       }
-    });
-
-    final CompletableFuture<Object> future = new CompletableFuture<Object>();
-    Disposer.register(progress, () -> future.complete(null));
-    progress.startBlocking(EmptyRunnable.getInstance(), future);
+    }, "Evaluating", true, myProject);
 
     return resultReference.get();
   }

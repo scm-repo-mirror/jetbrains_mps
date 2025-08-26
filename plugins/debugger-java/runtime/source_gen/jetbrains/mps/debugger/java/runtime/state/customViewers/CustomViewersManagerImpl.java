@@ -10,11 +10,13 @@ import jetbrains.mps.debugger.java.api.state.proxy.ValueWrapperFactory;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import jetbrains.mps.debugger.java.runtime.state.DebugSession;
-import org.jetbrains.annotations.NotNull;
-import java.util.Set;
 import jetbrains.mps.debugger.java.api.evaluation.proxies.IValueProxy;
+import java.util.Set;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.LinkedHashSet;
+import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.debug.api.AbstractDebugSession;
 import com.sun.jdi.VirtualMachine;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import com.sun.jdi.Type;
@@ -31,10 +33,8 @@ import java.util.Objects;
 import com.sun.jdi.ObjectReference;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManager;
-import jetbrains.mps.debug.api.AbstractDebugSession;
 import jetbrains.mps.debug.api.DebugSessionManagerComponent;
 import jetbrains.mps.debugger.java.api.state.proxy.JavaValue;
-import org.jetbrains.annotations.Nullable;
 import com.sun.jdi.Value;
 import jetbrains.mps.debugger.java.api.evaluation.proxies.MirrorUtil;
 
@@ -43,6 +43,9 @@ public class CustomViewersManagerImpl extends CustomViewersManager {
   private static final Logger LOG = Logger.getLogger(CustomViewersManagerImpl.class);
   private final Map<String, ValueWrapperFactory> myFactories = MapSequence.fromMap(new HashMap<String, ValueWrapperFactory>());
   private final Map<DebugSession, Map<Long, String>> myObjectIdToFactory = MapSequence.fromMap(new HashMap<DebugSession, Map<Long, String>>());
+
+  private volatile IValueProxy myViewAsValue = null;
+  private volatile Set<ValueWrapperFactory> myViewAsFactories = null;
 
   public CustomViewersManagerImpl() {
   }
@@ -74,6 +77,25 @@ public class CustomViewersManagerImpl extends CustomViewersManager {
     }
     return result;
   }
+
+  @Nullable
+  public Set<ValueWrapperFactory> getValueWrapperFactoriesForViewAs(@NotNull final IValueProxy originalValue, AbstractDebugSession session) {
+    // we return null if factories were not calculated yet and start factories calculation in background thread
+    Set<ValueWrapperFactory> factories = getCachedFactories(originalValue);
+    if (factories == null) {
+      session.getUiState().invokeEvaluation(() -> setCachedFactories(originalValue, getValueWrapperFactories(originalValue)));
+    }
+    return factories;
+  }
+  @Nullable
+  private synchronized Set<ValueWrapperFactory> getCachedFactories(@NotNull final IValueProxy value) {
+    return (myViewAsValue == value ? myViewAsFactories : null);
+  }
+  private synchronized void setCachedFactories(@NotNull final IValueProxy value, @NotNull Set<ValueWrapperFactory> factories) {
+    myViewAsValue = value;
+    myViewAsFactories = factories;
+  }
+
   private ValueWrapperFactory getBestFactory(Set<ValueWrapperFactory> factories, DebugSession session) {
     VirtualMachine vm = session.getEventsProcessor().getVirtualMachine();
     Tuples._2<ValueWrapperFactory, Type> currentBest = MultiTuple.<ValueWrapperFactory,Type>from(null, null);

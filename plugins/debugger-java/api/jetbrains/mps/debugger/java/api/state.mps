@@ -234,7 +234,7 @@
       <node concept="P$JXv" id="1nuoWSHKO0t" role="lGtFl">
         <node concept="TZ5HA" id="1nuoWSHKO0u" role="TZ5H$">
           <node concept="1dT_AC" id="1nuoWSHKO0v" role="1dT_Ay">
-            <property role="1dT_AB" value="Invokes evaluation while blocking current thread (must be EDT by the way) and showing a progress window." />
+            <property role="1dT_AB" value="Invokes evaluation while blocking current thread and showing a progress window." />
           </node>
         </node>
       </node>
