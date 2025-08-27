@@ -6,7 +6,6 @@ import jetbrains.mps.baselanguage.unitTest.execution.launcher.TestExecutor;
 import jetbrains.mps.tool.environment.Environment;
 import jetbrains.mps.baselanguage.unitTest.execution.launcher.ExecutorScript;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.baselanguage.unitTest.execution.launcher.JUnit4TestExecutor;
 import jetbrains.mps.baselanguage.unitTest.execution.launcher.JUnit5TestExecutor;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestSessionConfig;
 import jetbrains.mps.baseLanguage.unitTest.platform.SystemProperties;
@@ -30,25 +29,19 @@ public class CommandLineTestExecutor implements TestExecutor {
 
   @Override
   public void init() {
-    if (myExecScript.getStartupArguments().getCompatibilityMode()) {
-      // It's ScriptTestContributor that ensures proper RunnerBuilder (push env) into JUnit4TestExecutor
-      // XXX I wonder why don't I make this decision (compatibility mode) sooner, in WithPlatformTestExecutor?
-      myTestExecutor = new JUnit4TestExecutor(new ScriptTestContributor(myEnv, myExecScript.getTests()), true);
-    } else {
-      // FIXME similar override in JUnitInProcessRunStarter, need to unify
-      myTestExecutor = new JUnit5TestExecutor(new JUnit5ScriptTestContributor(myEnv, myExecScript.getTests()), true) {
-        @Override
-        protected void executeSafe() throws Throwable {
-          TestSessionConfig sessionConfig = new TestSessionConfig().withAccessory(Environment.class, myEnv).withSystemProperty(SystemProperties.PROJECT_PATH, myExecScript.getProjectUrl());
-          TestSession testSession = TestPlatform.getInstance().openSession(sessionConfig);
-          try {
-            super.executeSafe();
-          } finally {
-            TestPlatform.getInstance().closeSession(testSession);
-          }
+    // FIXME similar override in JUnitInProcessRunStarter, need to unify
+    myTestExecutor = new JUnit5TestExecutor(new JUnit5ScriptTestContributor(myEnv, myExecScript.getTests()), true) {
+      @Override
+      protected void executeSafe() throws Throwable {
+        TestSessionConfig sessionConfig = new TestSessionConfig().withAccessory(Environment.class, myEnv).withSystemProperty(SystemProperties.PROJECT_PATH, myExecScript.getProjectUrl());
+        TestSession testSession = TestPlatform.getInstance().openSession(sessionConfig);
+        try {
+          super.executeSafe();
+        } finally {
+          TestPlatform.getInstance().closeSession(testSession);
         }
-      };
-    }
+      }
+    };
     myTestExecutor.init();
   }
   @Override

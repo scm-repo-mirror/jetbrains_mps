@@ -48,6 +48,10 @@ public class WithPlatformTestExecutor extends DefaultTestExecutor {
       error("Need MPS startup arguments to launch tests that require MPS environment");
       fail();
     }
+    if (execScript.getStartupArguments().getCompatibilityMode()) {
+      error("MPS doesn't support legacy (JUnit3) tests with @MPSLaunch");
+      fail();
+    }
 
     try {
       Environment env = startIdea(execScript.getStartupArguments());
@@ -60,31 +64,10 @@ public class WithPlatformTestExecutor extends DefaultTestExecutor {
       //     I wonder how come [cmdline]ExecutorScript.class == [mps-exec-cfg:unitTestLauncher]ExecutorScript.class. Perhaps, parent CL delegation?
       TestExecutor exec = (TestExecutor) instantiate(env, className, argTypes, new Object[]{env, execScript});
 
-      //  FIXME copied from DefaultTestExecutor.runAndQuit; needs refactoring
-      int exitCode = EXIT_CODE_FOR_EXCEPTION;
-      try {
-        try {
-          exec.init();
-          exec.execute();
-        } finally {
-          Throwable executionError = exec.getExecutionError();
-          if (executionError != null) {
-            exitCode = EXIT_CODE_FOR_EXCEPTION;
-          } else {
-            exitCode = exec.getFailureCount();
-          }
-          exec.dispose();
-        }
-      } catch (Exception ex) {
-        error(ex);
-        exitCode = EXIT_CODE_FOR_EXCEPTION;
-      } finally {
-        System.exit(exitCode);
-      }
+      DefaultTestExecutor.runAndQuit(exec);
     } catch (Exception ex) {
       error(ex);
-      //  why not EXIT_CODE_FOR_EXCEPTION?
-      fail();
+      System.exit(EXIT_CODE_FOR_EXCEPTION);
     }
   }
 

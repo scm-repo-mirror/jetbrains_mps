@@ -86,14 +86,11 @@ public class TestDescriptorWrapper implements ITestNodeWrapper {
   @Override
   public TestParameters getTestRunParameters() {
     if (myDescriptor.getProperty(TestProperties.REQUIRES_MPS_PLATFORM)) {
+      // here, 'compatibilityMode' always 'false'
       return new TestParameters(WithPlatformTestExecutor.class, true, null, null);
     } else {
       final boolean cm = useCompatibilityMode();
-      // FIXME once we split junit5 and junit4 executors, there's no use for 'compatibilityMode' during command-line execution
-      //      and the only place we use its value is for scenarios when MPS starts (WithPlatformTestExecutor), where the value is always false.
-      //      Therefore, shall remove it altogether (I doubt we ever need to run JUnit3 classes, annotated with MPSLaunch presumably, under MPS)
-      //      In fact, I doubt we even need to think about JUnit3 test classes (the only test that activates compatibility mode is
-      //      o.j.TestCase subclass, see JUnitTestDiscoveryParticipants) in 2024, and can drop this code altogether.
+      // FIXME with MPS-38953 in plan, we can drop JUnit3 discovery code which seems to be the only source for compatibilityMode
       // Note, LegacyTestLauncher is not compatible with DefaultTestExecutor or its WithPlatformTestExecutor subclass; it's ok as we impose this 
       // limitation elsewhere anyway (e.g. JUnitInProcessRunStarter cons)
       return new TestParameters((cm ? LegacyTestLauncher.class : DefaultTestExecutor.class), cm, null);
