@@ -73,6 +73,9 @@ public class TestDiscoveryContributor implements JUnit5TestContributor {
 
   @Override
   public List<DiscoverySelector> collectSelectors() throws Exception {
+    // FIXME resort to global repo (test modules come with code, hence expect them to show up there), however, shall 
+    //      access platform.find(LanguageRegistry).withModuleRuntime(modulePtr).loadClass() or findResource(), instead (especially when there's explicit list of tests in TestData, w/o auto-discovery)
+    // 
     // XXX for whatever reason, can't parameterise toList(), only collect(Collectors) works
     return discoverTestClasses(myPlatform.findComponent(MPSModuleRepository.class)).stream().map(DiscoverySelectors::selectClass).collect(Collectors.<DiscoverySelector>toList());
   }
