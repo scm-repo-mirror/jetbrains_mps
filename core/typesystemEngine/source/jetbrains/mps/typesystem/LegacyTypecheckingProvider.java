@@ -325,12 +325,12 @@ public class LegacyTypecheckingProvider implements TypecheckingProvider<LegacyTy
 
     @Override
     protected <R> R compute(Function<? super TypeCheckingContext, R> fun) {
-      return fun.apply(myTypecheckingContext);
+      return myTypecheckingContext.compute(fun);
     }
 
     @Override
     protected void run(Consumer<? super TypeCheckingContext> fun) {
-      fun.accept(myTypecheckingContext);
+      myTypecheckingContext.run(fun);
     }
 
     @Override

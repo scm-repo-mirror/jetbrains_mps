@@ -32,6 +32,8 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
 
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 /**
  * User: fyodor
@@ -218,6 +220,18 @@ public abstract class BaseTypecheckingContext extends TypeCheckingContext {
   @Override
   public void checkRootInTraceMode(final boolean refreshTypes) {
     assert false;
+  }
+
+  public  <R> R compute(Function<? super TypeCheckingContext, R> fun) {
+    synchronized (TYPECHECKING_LOCK) {
+      return fun.apply(this);
+    }
+  }
+
+  public void run(Consumer<? super TypeCheckingContext> fun) {
+    synchronized (TYPECHECKING_LOCK) {
+      fun.accept(this);
+    }
   }
 
 }
