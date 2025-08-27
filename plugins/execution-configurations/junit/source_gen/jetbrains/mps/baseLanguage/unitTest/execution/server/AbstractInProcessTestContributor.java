@@ -5,6 +5,12 @@ package jetbrains.mps.baseLanguage.unitTest.execution.server;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.classloading.ClassLoaderManager;
+import java.util.List;
+import jetbrains.mps.smodel.ModelAccessHelper;
+import java.util.ArrayList;
+import org.jetbrains.mps.openapi.module.SModule;
+import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.model.SModel;
 import com.intellij.execution.runners.ExecutionUtil;
 import com.intellij.openapi.wm.ToolWindowId;
 import javax.swing.event.HyperlinkListener;
@@ -12,11 +18,10 @@ import javax.swing.event.HyperlinkEvent;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.classloading.MPSModuleClassLoader;
 import jetbrains.mps.classloading.ModuleClassLoader;
 
-public abstract class AbstractInProcessTestContributor {
+public abstract class AbstractInProcessTestContributor<T> {
 
   protected final String myConfigurationName;
   protected final Iterable<? extends ITestNodeWrapper> myTestNodes;
@@ -28,6 +33,36 @@ public abstract class AbstractInProcessTestContributor {
     myTestNodes = testNodes;
     myProject = mpsProject;
     myClassloaderManager = mpsProject.getComponent(ClassLoaderManager.class);
+  }
+
+  protected List<T> collect() {
+    return new ModelAccessHelper(myProject.getModelAccess()).runReadAction(() -> {
+      final List<T> selectorsList = new ArrayList<>();
+      InProcessExecutionFilter filter = new InProcessExecutionFilter();
+      for (ITestNodeWrapper testNode : myTestNodes) {
+        String fqName = testNode.getFqName();
+        final SModule testModule = testNode.getTestNodeModule().resolve(myProject.getRepository());
+        SNode testNodeSrc = testNode.getNodePointer().resolve(myProject.getRepository());
+        SModel testModel = (testNodeSrc == null ? null : testNodeSrc.getModel());
+        try {
+          filter.check(testNode, testModel);
+
+          if (testNode.isTestCase()) {
+            selectorsList.add(processTestCase(testNode, testModule, fqName));
+          } else {
+            selectorsList.add(processTestMethod(testNode, testModule, fqName));
+          }
+        } catch (InProcessExecutionFilter.InProcessCheckException e) {
+          notifyByBaloonCheckException(e, testNode);
+          if (testNode.isTestCase()) {
+            selectorsList.add(createFailedTestForClass(fqName, e));
+          } else {
+            selectorsList.add(createFailedTestForMethod(fqName.substring(0, fqName.lastIndexOf('.')), fqName.substring(fqName.lastIndexOf('.') + 1), e));
+          }
+        }
+      }
+      return selectorsList;
+    });
   }
 
   protected void notifyByBaloon(String msg, final ITestNodeWrapper wrapper, Exception e) {
@@ -59,4 +94,13 @@ public abstract class AbstractInProcessTestContributor {
       return cl.loadClass(fqName);
     }
   }
+
+  @NotNull
+  protected abstract T processTestCase(ITestNodeWrapper testNode, SModule testModule, String fqName);
+  @NotNull
+  protected abstract T processTestMethod(ITestNodeWrapper testNode, SModule testModule, String fqName);
+  @NotNull
+  protected abstract T createFailedTestForClass(String fqName, Exception e);
+  @NotNull
+  protected abstract T createFailedTestForMethod(String fqName, String methodName, Exception e);
 }
