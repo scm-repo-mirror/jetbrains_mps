@@ -6,9 +6,9 @@ import jetbrains.mps.tool.environment.Environment;
 import jetbrains.mps.tool.common.WorkerCallback;
 import java.io.File;
 import jetbrains.mps.tool.common.TestData;
+import org.junit.platform.launcher.TestExecutionListener;
 import java.util.List;
 import org.junit.platform.engine.DiscoverySelector;
-import org.junit.platform.launcher.TestExecutionListener;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestSessionConfig;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestSession;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform;
@@ -73,6 +73,10 @@ public class ScriptJUnit5Launcher extends AbstractJUnit5Launcher {
       failureDetector.flushErrors(myWorkerCallback);
     }
     return failureDetector.failuresCount();
+  }
+
+  public void launchTests(TestExecutionListener listener) {
+    launchTestsWithSession(collectTestClasses(), listener);
   }
 
   protected void launchTestsWithSession(List<DiscoverySelector> tests, TestExecutionListener executionListener) {

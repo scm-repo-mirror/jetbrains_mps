@@ -22,9 +22,9 @@ import jetbrains.mps.baseLanguage.unitTest.execution.server.NodeWrappersTestsCon
 import jetbrains.mps.baseLanguage.unitTest.execution.server.JUnit5InprocessTestsContributor;
 import jetbrains.mps.baselanguage.unitTest.execution.launcher.AbstractJUnitTestMixin;
 import jetbrains.mps.tool.common.WorkerCallback;
+import jetbrains.mps.baselanguage.unitTest.execution.launcher.DefaultTestExecutionListener;
 import jetbrains.mps.lang.test.junit5.ScriptJUnit5Launcher;
 import java.io.File;
-import jetbrains.mps.baselanguage.unitTest.execution.launcher.DefaultTestExecutionListener;
 import com.intellij.execution.process.ProcessHandler;
 import java.util.concurrent.Future;
 import com.intellij.openapi.application.ApplicationManager;
@@ -104,24 +104,16 @@ public class JUnitInProcessRunStarter implements JUnitProcessStarter {
               }
             }
           };
-          new ScriptJUnit5Launcher(inProcessEnv, tc, wc, new File(((MPSProject) mpsProject).getProject().getPresentableUrl())) {
+          // JUnit5TestExecutor.createTestExecutionListener
+          final DefaultTestExecutionListener listener = new DefaultTestExecutionListener(myOutStream) {
             @Override
-            public int launchTests() {
-              // JUnit5TestExecutor.createTestExecutionListener
-              final DefaultTestExecutionListener listener = new DefaultTestExecutionListener(myOutStream) {
-                @Override
-                protected void flush() {
-                  // NOP: avoid attempting to flush stdout/stderr in order not to deadlock; MPS-37852
-                }
-              };
-              try {
-                launchTestsWithSession(collectTestClasses(), listener);
-              } finally {
-                myFailureCount = listener.getFailuresCount();
-              }
-              return myFailureCount;
+            protected void flush() {
+              // NOP: avoid attempting to flush stdout/stderr in order not to deadlock; MPS-37852
             }
-          }.launchTests();
+          };
+
+          new ScriptJUnit5Launcher(inProcessEnv, tc, wc, new File(((MPSProject) mpsProject).getProject().getPresentableUrl())).launchTests(listener);
+          myFailureCount = listener.getFailuresCount();
         }
       };
     }

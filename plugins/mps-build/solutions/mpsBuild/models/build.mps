@@ -40188,11 +40188,6 @@
             <ref role="3bR37D" node="4MVYzzgl7sL" resolve="jetbrains.mps.lang.test.junit5" />
           </node>
         </node>
-        <node concept="1SiIV0" id="kdZzJS2s6n" role="3bR37C">
-          <node concept="3bR9La" id="kdZzJS2s6o" role="1SiIV1">
-            <ref role="3bR37D" node="7MSVDs2F8XQ" resolve="jetbrains.mps.lang.test.launcher" />
-          </node>
-        </node>
       </node>
       <node concept="1E1JtA" id="5xa9wY2vhbf" role="2G$12L">
         <property role="BnDLt" value="true" />

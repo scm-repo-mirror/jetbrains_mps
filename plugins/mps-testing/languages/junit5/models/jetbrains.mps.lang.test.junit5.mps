@@ -706,6 +706,31 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
+    <node concept="2tJIrI" id="a_kj510Ix6" role="jymVt" />
+    <node concept="3clFb_" id="a_kj510LdV" role="jymVt">
+      <property role="TrG5h" value="launchTests" />
+      <node concept="3clFbS" id="a_kj510LdY" role="3clF47">
+        <node concept="3clFbF" id="a_kj510NI3" role="3cqZAp">
+          <node concept="1rXfSq" id="a_kj510NI4" role="3clFbG">
+            <ref role="37wK5l" node="7XWzEIxxLMp" resolve="launchTestsWithSession" />
+            <node concept="1rXfSq" id="a_kj510NI5" role="37wK5m">
+              <ref role="37wK5l" node="HwplGM6HpS" resolve="collectTestClasses" />
+            </node>
+            <node concept="37vLTw" id="a_kj510NI6" role="37wK5m">
+              <ref role="3cqZAo" node="a_kj510LON" resolve="listener" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="a_kj510KFC" role="1B3o_S" />
+      <node concept="3cqZAl" id="a_kj510KFN" role="3clF45" />
+      <node concept="37vLTG" id="a_kj510LON" role="3clF46">
+        <property role="TrG5h" value="listener" />
+        <node concept="3uibUv" id="a_kj510LOM" role="1tU5fm">
+          <ref role="3uigEE" to="bws1:~TestExecutionListener" resolve="TestExecutionListener" />
+        </node>
+      </node>
+    </node>
     <node concept="2tJIrI" id="5TX$EBEaRjH" role="jymVt" />
     <node concept="3clFb_" id="7XWzEIxxLMp" role="jymVt">
       <property role="TrG5h" value="launchTestsWithSession" />

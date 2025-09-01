@@ -6,6 +6,13 @@ import java.io.File;
 import org.jdom.Document;
 import jetbrains.mps.tool.common.JDOMUtil;
 import jetbrains.mps.tool.environment.Environment;
+import jetbrains.mps.tool.common.TestData;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicReference;
+import jetbrains.mps.tool.common.WorkerCallback;
+import jetbrains.mps.logging.Logger;
+import java.lang.reflect.Method;
 import jetbrains.mps.tool.environment.IdeaEnvironment;
 import jetbrains.mps.tool.common.ScriptData;
 import jetbrains.mps.tool.environment.EnvironmentBase;
@@ -15,12 +22,10 @@ import jetbrains.mps.internal.collections.runtime.IMapping;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.tool.common.PluginData;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import java.util.concurrent.atomic.AtomicReference;
 import jetbrains.mps.tool.run.ModuleClassCode;
 import java.util.Optional;
 import java.lang.reflect.Constructor;
-import java.util.Arrays;
-import java.lang.reflect.InvocationTargetException;
+import org.junit.platform.launcher.TestExecutionListener;
 
 /**
  * Command-line front-end to launch MPS tests that need MPS environment (ITestable, including BTestCase, and JUnit3/JUnit4 ClassConcept with respective annotation/superclass) 
@@ -30,7 +35,10 @@ import java.lang.reflect.InvocationTargetException;
  * Note, it's essential to extend DefaultTestExecutor as TestParameters.comprises() relies on the fact
  */
 public class WithPlatformTestExecutor extends DefaultTestExecutor {
-  private static final String EXECUTION_SOLUTION = "f618e99a-2641-465c-bb54-31fe76f9e285(jetbrains.mps.baseLanguage.unitTest.execution)";
+  private static final String LAUNCHER_CLASS = "jetbrains.mps.lang.test.junit5.ScriptJUnit5Launcher";
+  private static final String LAUNCHER_METHOD = "launchTests";
+  private static final String LAUNCHER_SOLUTION = "c234a56a-502f-4751-aded-6f9846fff7ce(jetbrains.mps.lang.test.junit5)";
+
 
   public WithPlatformTestExecutor() {
   }
@@ -45,40 +53,121 @@ public class WithPlatformTestExecutor extends DefaultTestExecutor {
     Document scriptDoc = JDOMUtil.loadDocument(file);
     execScript.read(scriptDoc.getRootElement());
     if (execScript.getStartupArguments() == null) {
-      error("Need MPS startup arguments to launch tests that require MPS environment");
-      fail();
+      fail("Need MPS startup arguments to launch tests that require MPS environment");
     }
     if (execScript.getStartupArguments().getCompatibilityMode()) {
-      error("MPS doesn't support legacy (JUnit3) tests with @MPSLaunch");
-      fail();
+      fail("MPS doesn't support legacy (JUnit3) tests with @MPSLaunch");
     }
 
     try {
       Environment env = startIdea(execScript.getStartupArguments());
 
-      String className = "jetbrains.mps.baseLanguage.unitTest.execution.server.CommandLineTestExecutor";
-      Class<?>[] argTypes = new Class<?>[]{Environment.class, ExecutorScript.class};
-      // XXX I'm a bit concerned about ExecutorScript.class matching - here vs CommandLineTestExecutor cons. Here, we've got plain 
-      //     Java CL built from command-line classpath spec, while for CommandLineTestExecutor cons, ExecutorScript.class comes from
-      //     unitTest.launcher module with 'plugin' classloader ("provided"), which is a delegate to IDEA's PluginClassloader.
-      //     I wonder how come [cmdline]ExecutorScript.class == [mps-exec-cfg:unitTestLauncher]ExecutorScript.class. Perhaps, parent CL delegation?
-      TestExecutor exec = (TestExecutor) instantiate(env, className, argTypes, new Object[]{env, execScript});
+      final TestData testPlan = new TestData();
+      for (ExecutorScript.TestRecord tr : execScript.getTests()) {
+        final TestData.ModuleRecord mr = new TestData.ModuleRecord(tr.myTestModule, false);
+        testPlan.testModules.add(mr);
+        Map<String, TestData.TestContainerRecord> class2record = new HashMap<>();
+        for (int i = 0, x = tr.myTestQualifiedName.size(); i < x; i++) {
+          String qualifiedName = tr.myTestQualifiedName.get(i);
+          final boolean isTestCase = Boolean.parseBoolean(tr.isTestCase.get(i));
+          TestData.TestContainerRecord tcr;
+          final String testClassName;
+          final String testMethod;
+          if (isTestCase) {
+            testClassName = qualifiedName;
+            testMethod = null;
+          } else {
+            int index = qualifiedName.lastIndexOf('.');
+            testClassName = qualifiedName.substring(0, index);
+            testMethod = qualifiedName.substring(index + 1);
+          }
+          tcr = class2record.computeIfAbsent(testClassName, (qn) -> {
+            TestData.TestContainerRecord rv = new TestData.TestContainerRecord(qn);
+            mr.testCases.add(rv);
+            return rv;
+          });
+          if (testMethod != null) {
+            tcr.tests.add(new TestData.TestRecord(testMethod));
+          }
+        }
+      }
+      final AtomicReference<RuntimeException> fatalEx = new AtomicReference<>();
+      // FIXME need a better idea how to report feedback
+      final WorkerCallback wc = new WorkerCallback() {
+        @Override
+        public void info(String text) {
+          Logger.getLogger(WithPlatformTestExecutor.class).info(text);
+        }
+
+        @Override
+        public void warning(String text) {
+          Logger.getLogger(WithPlatformTestExecutor.class).warning(text);
+        }
+
+        @Override
+        public void debug(String text) {
+          Logger.getLogger(WithPlatformTestExecutor.class).debug(text);
+        }
+
+        @Override
+        public void error(String text) {
+          error(text, null);
+        }
+
+        @Override
+        public void error(String text, Throwable ex) {
+          Logger.getLogger(WithPlatformTestExecutor.class).error(text, ex);
+        }
+
+        @Override
+        public void fatal(String text, Throwable ex) {
+          error(text, ex);
+          fatalEx.set(new RuntimeException(text, ex));
+        }
+      };
+      final File projectDir = new File(execScript.getProjectUrl());
+
+      final AtomicReference<Method> launchTestsMethod = new AtomicReference<>(null);
+
+      final Object launcher = instantiate(env, testPlan, wc, projectDir, launchTestsMethod);
+
+      // FIXME similar override in JUnitInProcessRunStarter, need to unify
+      // FIXME figure out if all this mangling with stdout/stderr output is necessary, if I can produce event by other means (e.g. file or another stream/pipe?)
+      //      anyway, the exec listener that dumps to stdout/another stream could be part of lang.test.junit5, turned on by simple call `mpsStdoutReport()`
+      TestExecutor exec = new AbstractJUnitTestMixin(true) {
+        @Override
+        protected void executeSafe() throws Throwable {
+          final DefaultTestExecutionListener listener = new DefaultTestExecutionListener(myOutStream) {
+            @Override
+            protected void flush() {
+              // NOP: avoid attempting to flush stdout/stderr in order not to deadlock; MPS-37852
+            }
+          };
+          launchTestsMethod.get().invoke(launcher, listener);
+          myFailureCount = listener.getFailuresCount();
+        }
+      };
 
       DefaultTestExecutor.runAndQuit(exec);
+      if (fatalEx.get() != null) {
+        throw fatalEx.get();
+      }
     } catch (Exception ex) {
-      error(ex);
+      System.err.println("unexpected error");
+      ex.printStackTrace(System.err);
       System.exit(EXIT_CODE_FOR_EXCEPTION);
     }
   }
 
   private static IdeaEnvironment startIdea(ScriptData startupArguments) {
+    //  FIXME quite similar to LaunchTestWorker, I wonder if I could use LaunchTestWorker instead of WithPlatformTestExecutor?
     EnvironmentBase.initializeLog();
     // XXX would be great to have this code as part of init() method, but it's too much of refactoring now. Shall drop init/dispose of TestExecutor.
     EnvironmentConfig cfg = EnvironmentConfig.emptyConfig().withBootstrapLibraries().withWorkbenchPath();
     if (startupArguments.getAutomaticPLuginDiscoveryMode()) {
       cfg = cfg.withAutomaticPluginDiscovery();
     } else {
-      cfg = cfg.withDefaultPlugins().withExecutionPlugins();
+      cfg = cfg.withDefaultPlugins().withTestingPlugin();
     }
 
     // Same code is in MpsWorker, we'd better share it
@@ -110,45 +199,33 @@ public class WithPlatformTestExecutor extends DefaultTestExecutor {
     return rv;
   }
 
-  protected static Object instantiate(Environment environment, String fqClassName, Class<?>[] argTypes, Object[] args) throws Exception {
-    AtomicReference<Object> object = new AtomicReference<Object>();
-    ModuleClassCode code = new ModuleClassCode(EXECUTION_SOLUTION);
+  protected static Object instantiate(Environment environment, TestData testPlan, WorkerCallback cb, File testProject, AtomicReference<Method> ltMethod) throws Exception {
+    // copied from LaunchTestWorker
+    ModuleClassCode code = new ModuleClassCode(LAUNCHER_SOLUTION);
     try {
-      code.load(environment.getPlatform(), fqClassName);
-      Optional<Constructor<?>> ctor = code.cons(argTypes);
-      if (ctor.isPresent()) {
-        object.set(ctor.get().newInstance(args));
+      code.load(environment.getPlatform(), LAUNCHER_CLASS);
+      Optional<Constructor<?>> ctor = code.cons(Environment.class, TestData.class, WorkerCallback.class, File.class);
+      // XXX I'm a bit concerned about class matching - e.g TestExecutionListener here vs TestExecutionListener in launchTests() method.
+      //     Here, we've got plain Java CL built from command-line classpath spec, while for the method, TestExecutionListener.class comes
+      //     through another MPS module (likely, with 'plugin' classloader ("provided"), which is a delegate to IDEA's PluginClassloader).
+      //     I wonder it is parent CL delegation?
+      Optional<Method> meth = code.instanceMethod(LAUNCHER_METHOD, TestExecutionListener.class);
 
+      if (ctor.isPresent() && meth.isPresent()) {
+        ltMethod.set(meth.get());
+        return ctor.get().newInstance(environment, testPlan, cb, testProject);
       } else {
-        error("not found constructor in " + fqClassName + " with arguments " + Arrays.stream(argTypes).map(Class::getName).toList());
+        throw new IllegalStateException(String.format("Unexpected %s class, constructor present: %b, method present: %b", ctor.isPresent(), meth.isPresent()));
       }
-
     } catch (ClassNotFoundException e) {
-      error("not found class " + fqClassName + " among classes of " + EXECUTION_SOLUTION, e);
-
-    } catch (InstantiationException | InvocationTargetException | IllegalAccessException e) {
-      error("unexpected error ", e);
+      throw new IllegalStateException(String.format("not found class %s among classes of %s", LAUNCHER_CLASS, LAUNCHER_SOLUTION), e);
     }
+  }
 
-    if (object.get() == null) {
-      fail();
+  protected static void fail(String message) {
+    if (message != null) {
+      System.err.println(message);
     }
-    return object.get();
-  }
-
-  protected static void error(Exception e) {
-    e.printStackTrace();
-  }
-
-  protected static void error(String msg) {
-    (new RuntimeException(msg)).printStackTrace();
-  }
-
-  protected static void error(String msg, Throwable t) {
-    (new RuntimeException(msg, t)).printStackTrace();
-  }
-
-  protected static void fail() throws Exception {
     System.exit(-1);
   }
 }
