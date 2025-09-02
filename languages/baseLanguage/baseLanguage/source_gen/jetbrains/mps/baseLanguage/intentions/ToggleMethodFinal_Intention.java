@@ -74,7 +74,7 @@ public final class ToggleMethodFinal_Intention extends AbstractIntentionDescript
       if (SNodeOperations.isInstanceOf(node, CONCEPTS.ConstructorDeclaration$yG) || SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.Interface$db)) {
         return false;
       }
-      if ((boolean) BaseMethodDeclaration__BehaviorDescriptor.isAnAbstractMethod_id28P2dHxCoRl.invoke(node)) {
+      if ((boolean) BaseMethodDeclaration__BehaviorDescriptor.isAnAbstractMethod_id28P2dHxCoRl.invoke(node) || !((boolean) BaseMethodDeclaration__BehaviorDescriptor.canBeFinal_id7viyBkzj9CS.invoke(node))) {
         return false;
       }
       SNode contextNode = editorContext.getSelectedNode();
