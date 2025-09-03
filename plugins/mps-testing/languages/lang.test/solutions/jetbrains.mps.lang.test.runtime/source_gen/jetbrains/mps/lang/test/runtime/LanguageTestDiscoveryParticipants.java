@@ -21,8 +21,6 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import java.util.List;
 import java.util.Collections;
-import jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform;
-import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -82,18 +80,6 @@ public enum LanguageTestDiscoveryParticipants implements TestDiscoveryParticipan
   @Override
   public List<SAbstractConcept> sourceConcepts() {
     return Collections.singletonList(myWrappedConcept);
-  }
-
-  public static void registerTestDiscoveryParticipants(TestPlatform testPlatform) {
-    for (LanguageTestDiscoveryParticipants factory : Sequence.fromArray(LanguageTestDiscoveryParticipants.values())) {
-      testPlatform.addTestDiscoveryParticipant(factory);
-    }
-  }
-
-  public static void unregisterTestDiscoveryParticipants(TestPlatform testPlatform) {
-    for (LanguageTestDiscoveryParticipants factory : Sequence.fromArray(LanguageTestDiscoveryParticipants.values())) {
-      testPlatform.removeTestDiscoveryParticipant(factory);
-    }
   }
 
   private static final class CONCEPTS {

@@ -26,6 +26,7 @@ import jetbrains.mps.ide.findusages.model.scopes.ProjectScope;
 import java.util.Collections;
 import org.jetbrains.mps.openapi.util.SubProgressKind;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
+import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import com.intellij.openapi.project.Project;
 
 public class TestListPanel extends ListPanel<ITestNodeWrapper> {
@@ -56,7 +57,7 @@ public class TestListPanel extends ListPanel<ITestNodeWrapper> {
     final SRepository repo = mpsProject.getRepository();
     return new ModelAccessHelper(repo).runReadAction(() -> {
       List<SNode> nodesList = new ArrayList<SNode>();
-      TestDiscoveryParticipant tdp = TestPlatform.getInstance().getAggregateDiscoveryParticipant();
+      TestDiscoveryParticipant tdp = mpsProject.getComponent(TestPlatform.class).getAggregateDiscoveryParticipant();
       Iterable<SAbstractConcept> wrappedRootConcepts = tdp.sourceConcepts();
       progress.start("Looking up test roots...", Sequence.fromIterable(wrappedRootConcepts).count());
       for (SAbstractConcept c : Sequence.fromIterable(wrappedRootConcepts)) {
@@ -75,7 +76,7 @@ public class TestListPanel extends ListPanel<ITestNodeWrapper> {
         }
         return methodsList;
       } else {
-        return ListSequence.fromList(nodesList).select((it) -> wrap(it)).where((it) -> it != null).toList();
+        return ListSequence.fromList(nodesList).select((it) -> wrap(it)).where(new NotNullWhereFilter()).toList();
       }
     });
   }

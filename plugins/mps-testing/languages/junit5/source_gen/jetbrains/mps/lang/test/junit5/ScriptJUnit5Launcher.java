@@ -10,8 +10,8 @@ import org.junit.platform.launcher.TestExecutionListener;
 import java.util.List;
 import org.junit.platform.engine.DiscoverySelector;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestSessionConfig;
-import jetbrains.mps.baseLanguage.unitTest.platform.TestSession;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestSession;
 import jetbrains.mps.baseLanguage.unitTest.platform.SystemProperties;
 import jetbrains.mps.lang.test.junit5.tcutil.JUnit5TestExecutionListener;
 import java.util.Collections;
@@ -81,13 +81,14 @@ public class ScriptJUnit5Launcher extends AbstractJUnit5Launcher {
 
   protected void launchTestsWithSession(List<DiscoverySelector> tests, TestExecutionListener executionListener) {
     TestSessionConfig sessionConfig = new TestSessionConfig();
-    TestSession testSession = TestPlatform.getInstance().openSession(configureSession(sessionConfig));
+    final TestPlatform testPlatform = myEnvironment.getPlatform().findComponent(TestPlatform.class);
+    TestSession testSession = testPlatform.openSession(configureSession(sessionConfig));
     try {
       // this class is instantiated via ModuleClassCode which ensures proper MPS classloader for the code.
       ClassLoader contextCL = getClass().getClassLoader();
       launchTestsWithContextCL(contextCL, tests, executionListener);
     } finally {
-      TestPlatform.getInstance().closeSession(testSession);
+      testPlatform.closeSession(testSession);
     }
   }
 

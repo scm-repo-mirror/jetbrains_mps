@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2023 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,7 +51,6 @@ import java.util.stream.Stream.Builder;
  * @author Artem Tikhomirov
  * @since 2018.3
  */
-@SuppressWarnings("UnstableApiUsage")
 public final class ModuleRuntime {
   @NotNull
   private final SModuleReference myModuleReference;
@@ -62,7 +61,7 @@ public final class ModuleRuntime {
   @Nullable
   private Activator myModuleActivator;
 
-  private ActivatorFactory myActivatorFactory;
+  private final ActivatorFactory myActivatorFactory;
 
   public ModuleRuntime(@NotNull SModuleReference moduleReference, @NotNull ClassLoader moduleClassLoader, Flags... flags) {
     this(moduleReference, moduleClassLoader, new StandardActivatorFactory(), flags);
@@ -192,8 +191,8 @@ public final class ModuleRuntime {
       if (myBasicExtensionKeys[i] == kind) {
         if (builder == null) {
           builder = Stream.builder();
-          builder.add((Extension<T>) myBasicExtensionValues[i]);
         }
+        builder.add((Extension<T>) myBasicExtensionValues[i]);
       }
     }
     return builder == null ? Stream.empty() : builder.build();
@@ -215,7 +214,6 @@ public final class ModuleRuntime {
    * keeps ModuleRuntime for every module and LanguageRuntime/GeneratorRuntime as activators
    */
   @Internal
-  @NotNull
   public <T extends Activator> void forActivatorIfInstance(@NotNull Class<T> activatorClass, Consumer<T> code) {
     if (activatorClass.isInstance(myModuleActivator)) {
       code.accept(activatorClass.cast(myModuleActivator));
@@ -268,16 +266,21 @@ public final class ModuleRuntime {
    * @since 2023.3
    */
   public interface Extension<T> {
-    public interface MatchRequest {
+    interface MatchRequest {
       // e.g. something simple as Tags(=Set<String>) and intersection/contains (extSet.allOf(((Tags)matchRequest).tagsAsSet()),
     }
     boolean matches(MatchRequest matchRequest);
     Optional<T> get();
 
     static <E> Extension<E> of(Supplier<E> factory, String ... tags) {
-      return new ExtImpl(factory);
+      return new ExtImpl<>(factory);
+    }
+
+    static <E> Extension<E> of(E instance, String ... tags) {
+      return new ExtImpl<>(() -> instance);
     }
   }
+
   private static class ExtImpl<E> implements Extension<E> {
 
     private final Supplier<E> myFactory;

@@ -4,23 +4,16 @@ package jetbrains.mps.lang.test.runtime;
 
 import jetbrains.mps.smodel.runtime.ModuleRuntime;
 import jetbrains.mps.components.ComponentHost;
-import jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform;
+import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestDiscoveryParticipant;
 
 public class ModuleActivator implements ModuleRuntime.Activator {
-
-  private final ComponentHost myPlatform;
-
   public ModuleActivator(ComponentHost platform) {
-    myPlatform = platform;
   }
 
   @Override
-  public void activate() {
-    LanguageTestDiscoveryParticipants.registerTestDiscoveryParticipants(TestPlatform.getInstance());
-  }
-
-  @Override
-  public void deactivate() {
-    LanguageTestDiscoveryParticipants.unregisterTestDiscoveryParticipants(TestPlatform.getInstance());
+  public void contribute(@NotNull ModuleRuntime.ActivatorContext ctx) {
+    ctx.extension(TestDiscoveryParticipant.class, ModuleRuntime.Extension.of(LanguageTestDiscoveryParticipants.LanguageTestCase));
+    ctx.extension(TestDiscoveryParticipant.class, ModuleRuntime.Extension.of(LanguageTestDiscoveryParticipants.LanguageTestMethod));
   }
 }

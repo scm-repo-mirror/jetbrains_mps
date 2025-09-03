@@ -25,7 +25,6 @@ import jetbrains.mps.baseLanguage.behavior.IClassifier__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import java.util.List;
 import java.util.Collections;
-import jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -178,18 +177,6 @@ public enum JUnitTestDiscoveryParticipants implements TestDiscoveryParticipant {
   @Override
   public List<SAbstractConcept> sourceConcepts() {
     return Collections.singletonList(myWrappedConcept);
-  }
-
-  public static void registerTestDiscoveryParticipants(TestPlatform testPlatform) {
-    for (JUnitTestDiscoveryParticipants factory : Sequence.fromArray(JUnitTestDiscoveryParticipants.values())) {
-      testPlatform.addTestDiscoveryParticipant(factory);
-    }
-  }
-
-  public static void unregisterTestDiscoveryParticipants(TestPlatform testPlatform) {
-    for (JUnitTestDiscoveryParticipants factory : Sequence.fromArray(JUnitTestDiscoveryParticipants.values())) {
-      testPlatform.removeTestDiscoveryParticipant(factory);
-    }
   }
   private static SNode check_utvw48_a0a0a0b0a0b0a0(SNode checkedDotOperand) {
     if (null != checkedDotOperand) {

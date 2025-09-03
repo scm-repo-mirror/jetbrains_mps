@@ -5,26 +5,44 @@ package jetbrains.mps.baseLanguage.unitTest.runtime;
 import jetbrains.mps.smodel.runtime.ModuleRuntime;
 import jetbrains.mps.baseLanguage.unitTest.runtime.plugin.EnvironmentAccessoryHandler;
 import jetbrains.mps.components.ComponentHost;
+import jetbrains.mps.core.platform.DynamicComponentWarden;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform;
+import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestDiscoveryParticipant;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestSessionListener;
 
 public class ModuleActivator implements ModuleRuntime.Activator {
 
   private EnvironmentAccessoryHandler myEnvironmentAccessoryHandler = new EnvironmentAccessoryHandler();
   private final ComponentHost myPlatform;
+  private DynamicComponentWarden.Token myTestPlatformToken;
+  private final TestPlatform myProvisionalInstance;
+
 
   public ModuleActivator(ComponentHost platform) {
     myPlatform = platform;
+    myProvisionalInstance = TestPlatform.getInstance();
+
   }
 
   @Override
   public void activate() {
-    JUnitTestDiscoveryParticipants.registerTestDiscoveryParticipants(TestPlatform.getInstance());
-    TestPlatform.getInstance().addTestSessionLisnener(myEnvironmentAccessoryHandler);
+    // FIXME replace myProvisionalInstance with a factory (once explicit discovery participant and listener is done as extensions)
+    myTestPlatformToken = myPlatform.findComponent(DynamicComponentWarden.class).publish(TestPlatform.class, myProvisionalInstance);
+    myProvisionalInstance.addTestSessionLisnener(myEnvironmentAccessoryHandler);
   }
 
   @Override
+  public void contribute(@NotNull ModuleRuntime.ActivatorContext ctx) {
+    for (JUnitTestDiscoveryParticipants p : JUnitTestDiscoveryParticipants.values()) {
+      ctx.extension(TestDiscoveryParticipant.class, ModuleRuntime.Extension.of(p));
+    }
+    ctx.extension(TestSessionListener.class, ModuleRuntime.Extension.of(() -> new EnvironmentAccessoryHandler()));
+  }
+  @Override
   public void deactivate() {
-    JUnitTestDiscoveryParticipants.unregisterTestDiscoveryParticipants(TestPlatform.getInstance());
-    TestPlatform.getInstance().removeTestSessionLisnener(myEnvironmentAccessoryHandler);
+    myProvisionalInstance.removeTestSessionLisnener(myEnvironmentAccessoryHandler);
+    myTestPlatformToken.discard();
+    myTestPlatformToken = null;
   }
 }

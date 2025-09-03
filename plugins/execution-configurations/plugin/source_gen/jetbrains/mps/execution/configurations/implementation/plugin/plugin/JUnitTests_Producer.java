@@ -26,10 +26,10 @@ import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.TestNodeWrapperFactory;
+import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.execution.lib.PointerUtils;
-import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.baseLanguage.unitTest.behavior.ITestCase__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.baseLanguage.unitTest.behavior.ITestMethod__BehaviorDescriptor;
@@ -199,8 +199,9 @@ public final class JUnitTests_Producer {
     @Override
     protected JUnitTests_Configuration doCreateConfiguration(final SNode source) {
       setSourceElement(MPSPsiElement.createFor(source, getMpsProject()));
+      final TestNodeWrapperFactory tnf = new TestNodeWrapperFactory(ProjectHelper.fromIdeaProjectOrFail(getContext().getProject()).getPlatform());
       // this is a producer for root; below you can find the producer for a test method
-      SNode testableMethod = TestNodeWrapperFactory.findWrappableAncestor(source, false);
+      SNode testableMethod = tnf.findWrappableAncestor(source, false);
       if (testableMethod != null) {
         ITestNodeWrapper testWrapper = TestNodeWrapperFactory.tryToWrap(testableMethod);
         if (testWrapper != null && !(testWrapper.isTestCase())) {
@@ -209,7 +210,7 @@ public final class JUnitTests_Producer {
         }
       }
 
-      SNode testRoot = TestNodeWrapperFactory.findWrappableAncestor(source, true);
+      SNode testRoot = tnf.findWrappableAncestor(source, true);
       if (testRoot == null) {
         return null;
       }
@@ -245,14 +246,16 @@ public final class JUnitTests_Producer {
       }
       if (context.getPsiLocation() instanceof MPSPsiElement) {
         final MPSPsiElement element = (MPSPsiElement) context.getPsiLocation();
-        ModelAccessHelper mah = new ModelAccessHelper(element.getMPSProject().getRepository());
-        Object mpsItem = mah.runReadAction(() -> element.getMPSItem());
-        if (!(mpsItem instanceof SNode)) {
-          return false;
-        }
-        final SNode sourceNode = (SNode) mpsItem;
-        // no test for testableMethod since the run type are different for these two producers
-        SNode testableRoot = mah.runReadAction(() -> TestNodeWrapperFactory.findWrappableAncestor(sourceNode, true));
+        SNode testableRoot = element.getMPSProject().getModelAccess().computeReadAction(() -> {
+          Object mpsItem = element.getMPSItem();
+          if (!(mpsItem instanceof SNode)) {
+            return null;
+          }
+          SNode sourceNode = (SNode) mpsItem;
+          TestNodeWrapperFactory tnf = new TestNodeWrapperFactory(element.getMPSProject().getPlatform());
+          // no test for testableMethod since the run type are different for these two producers
+          return tnf.findWrappableAncestor(sourceNode, true);
+        });
         if (testableRoot == null) {
           return false;
         }
@@ -280,8 +283,9 @@ public final class JUnitTests_Producer {
     @Override
     protected JUnitTests_Configuration doCreateConfiguration(final SNode source) {
       setSourceElement(MPSPsiElement.createFor(source, getMpsProject()));
+      final TestNodeWrapperFactory tnf = new TestNodeWrapperFactory(ProjectHelper.fromIdeaProjectOrFail(getContext().getProject()).getPlatform());
       // this is a producer for test method
-      SNode method = TestNodeWrapperFactory.findWrappableAncestor(source, false);
+      SNode method = tnf.findWrappableAncestor(source, false);
       if (method == null) {
         return null;
       }
@@ -311,13 +315,15 @@ public final class JUnitTests_Producer {
       }
       if (context.getPsiLocation() instanceof MPSPsiElement) {
         final MPSPsiElement element = (MPSPsiElement) context.getPsiLocation();
-        ModelAccessHelper mah = new ModelAccessHelper(element.getMPSProject().getRepository());
-        Object mpsItem = mah.runReadAction(() -> element.getMPSItem());
-        if (!(mpsItem instanceof SNode)) {
-          return false;
-        }
-        final SNode sourceNode = (SNode) mpsItem;
-        SNode testableMethod = mah.runReadAction(() -> TestNodeWrapperFactory.findWrappableAncestor(sourceNode, false));
+        SNode testableMethod = element.getMPSProject().getModelAccess().computeReadAction(() -> {
+          Object mpsItem = element.getMPSItem();
+          if (!(mpsItem instanceof SNode)) {
+            return null;
+          }
+          SNode sourceNode = (SNode) mpsItem;
+          TestNodeWrapperFactory tnf = new TestNodeWrapperFactory(element.getMPSProject().getPlatform());
+          return tnf.findWrappableAncestor(sourceNode, false);
+        });
         if (testableMethod == null) {
           return false;
         }

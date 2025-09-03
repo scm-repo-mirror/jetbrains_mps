@@ -766,6 +766,31 @@
             </node>
           </node>
         </node>
+        <node concept="3cpWs8" id="2xHx_dlwVTW" role="3cqZAp">
+          <node concept="3cpWsn" id="2xHx_dlwVTX" role="3cpWs9">
+            <property role="TrG5h" value="testPlatform" />
+            <property role="3TUv4t" value="true" />
+            <node concept="3uibUv" id="2xHx_dlwVTY" role="1tU5fm">
+              <ref role="3uigEE" to="4u8o:4chG8iItd4i" resolve="TestPlatform" />
+            </node>
+            <node concept="2OqwBi" id="2xHx_dlwZN7" role="33vP2m">
+              <node concept="2OqwBi" id="2xHx_dlwYDv" role="2Oq$k0">
+                <node concept="37vLTw" id="2xHx_dlwY6O" role="2Oq$k0">
+                  <ref role="3cqZAo" node="7MSVDs2_8tx" resolve="myEnvironment" />
+                </node>
+                <node concept="liA8E" id="2xHx_dlwZe3" role="2OqNvi">
+                  <ref role="37wK5l" to="79ha:8Pnvxgloc_" resolve="getPlatform" />
+                </node>
+              </node>
+              <node concept="liA8E" id="2xHx_dlx0K2" role="2OqNvi">
+                <ref role="37wK5l" to="wyuk:~ComponentHost.findComponent(java.lang.Class)" resolve="findComponent" />
+                <node concept="3VsKOn" id="2xHx_dlx2z9" role="37wK5m">
+                  <ref role="3VsUkX" to="4u8o:4chG8iItd4i" resolve="TestPlatform" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs8" id="7XWzEIxxUiY" role="3cqZAp">
           <node concept="3cpWsn" id="7XWzEIxxUiZ" role="3cpWs9">
             <property role="TrG5h" value="testSession" />
@@ -773,9 +798,8 @@
               <ref role="3uigEE" to="4u8o:4rQ9_5dBfWe" resolve="TestSession" />
             </node>
             <node concept="2OqwBi" id="7XWzEIxxUj1" role="33vP2m">
-              <node concept="2YIFZM" id="7XWzEIxxUj2" role="2Oq$k0">
-                <ref role="37wK5l" to="4u8o:4chG8iIteHp" resolve="getInstance" />
-                <ref role="1Pybhc" to="4u8o:4chG8iItd4i" resolve="TestPlatform" />
+              <node concept="37vLTw" id="2xHx_dlx3Wx" role="2Oq$k0">
+                <ref role="3cqZAo" node="2xHx_dlwVTX" resolve="testPlatform" />
               </node>
               <node concept="liA8E" id="7XWzEIxxUj3" role="2OqNvi">
                 <ref role="37wK5l" to="4u8o:4rQ9_5dKw2Z" resolve="openSession" />
@@ -872,9 +896,8 @@
             <node concept="3clFbS" id="7XWzEIxxT3A" role="1wplMD">
               <node concept="3clFbF" id="7XWzEIxxWGr" role="3cqZAp">
                 <node concept="2OqwBi" id="7XWzEIxxWGs" role="3clFbG">
-                  <node concept="2YIFZM" id="7XWzEIxxWGt" role="2Oq$k0">
-                    <ref role="37wK5l" to="4u8o:4chG8iIteHp" resolve="getInstance" />
-                    <ref role="1Pybhc" to="4u8o:4chG8iItd4i" resolve="TestPlatform" />
+                  <node concept="37vLTw" id="2xHx_dlx61j" role="2Oq$k0">
+                    <ref role="3cqZAo" node="2xHx_dlwVTX" resolve="testPlatform" />
                   </node>
                   <node concept="liA8E" id="7XWzEIxxWGu" role="2OqNvi">
                     <ref role="37wK5l" to="4u8o:4rQ9_5dKJcw" resolve="closeSession" />
