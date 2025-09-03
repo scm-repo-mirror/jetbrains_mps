@@ -26,6 +26,7 @@
     <import index="zn9m" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.util(MPS.IDEA/)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
     <import index="zdap" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.util.text(MPS.IDEA/)" />
+    <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" />
   </imports>
   <registry>
     <language id="f3347d8a-0e79-4f35-8ac9-1574f25c986f" name="jetbrains.mps.execution.commands">
@@ -266,16 +267,21 @@
             <node concept="37vLTw" id="7hSRFL3Kjt5" role="37vLTJ">
               <ref role="3cqZAo" node="7hSRFL3KjsW" resolve="myRepo" />
             </node>
-            <node concept="37vLTw" id="7hSRFL3Kjt6" role="37vLTx">
-              <ref role="3cqZAo" node="7hSRFL3Kjso" resolve="repo" />
+            <node concept="2OqwBi" id="2U7qfjSribv" role="37vLTx">
+              <node concept="37vLTw" id="7hSRFL3Kjt6" role="2Oq$k0">
+                <ref role="3cqZAo" node="7hSRFL3Kjso" resolve="project" />
+              </node>
+              <node concept="liA8E" id="2U7qfjSriJv" role="2OqNvi">
+                <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
+              </node>
             </node>
           </node>
         </node>
       </node>
       <node concept="37vLTG" id="7hSRFL3Kjso" role="3clF46">
-        <property role="TrG5h" value="repo" />
+        <property role="TrG5h" value="project" />
         <node concept="3uibUv" id="7hSRFL3Kjsn" role="1tU5fm">
-          <ref role="3uigEE" to="lui2:~SRepository" resolve="SRepository" />
+          <ref role="3uigEE" to="z1c3:~Project" resolve="Project" />
         </node>
       </node>
     </node>

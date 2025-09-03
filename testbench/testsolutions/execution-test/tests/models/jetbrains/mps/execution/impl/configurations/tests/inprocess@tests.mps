@@ -899,12 +899,7 @@
               <node concept="2ShNRf" id="2_AUN5Gs1WV" role="2Oq$k0">
                 <node concept="1pGfFk" id="2_AUN5Gs1WW" role="2ShVmc">
                   <ref role="37wK5l" to="v3va:7hSRFL3Kjlg" resolve="TestNodeWrapHelper" />
-                  <node concept="2OqwBi" id="2_AUN5Gs1WX" role="37wK5m">
-                    <node concept="1jxXqW" id="2_AUN5Gs1WY" role="2Oq$k0" />
-                    <node concept="liA8E" id="7hSRFL3KFz6" role="2OqNvi">
-                      <ref role="37wK5l" to="z1c4:~Project.getRepository()" resolve="getRepository" />
-                    </node>
-                  </node>
+                  <node concept="1jxXqW" id="2_AUN5Gs1WY" role="37wK5m" />
                 </node>
               </node>
               <node concept="liA8E" id="2_AUN5Gs1X0" role="2OqNvi">
@@ -954,12 +949,7 @@
               <node concept="2ShNRf" id="2_AUN5Gsxmr" role="2Oq$k0">
                 <node concept="1pGfFk" id="2_AUN5Gsxms" role="2ShVmc">
                   <ref role="37wK5l" to="v3va:7hSRFL3Kjlg" resolve="TestNodeWrapHelper" />
-                  <node concept="2OqwBi" id="2_AUN5Gsxmt" role="37wK5m">
-                    <node concept="1jxXqW" id="2_AUN5Gsxmu" role="2Oq$k0" />
-                    <node concept="liA8E" id="2_AUN5Gsxmv" role="2OqNvi">
-                      <ref role="37wK5l" to="z1c4:~Project.getRepository()" resolve="getRepository" />
-                    </node>
-                  </node>
+                  <node concept="1jxXqW" id="2_AUN5Gsxmu" role="37wK5m" />
                 </node>
               </node>
               <node concept="liA8E" id="7hSRFL3KL$b" role="2OqNvi">
@@ -1586,12 +1576,7 @@
                 <node concept="2ShNRf" id="7hSRFL3KRmJ" role="2Oq$k0">
                   <node concept="1pGfFk" id="7hSRFL3KRmK" role="2ShVmc">
                     <ref role="37wK5l" to="v3va:7hSRFL3Kjlg" resolve="TestNodeWrapHelper" />
-                    <node concept="2OqwBi" id="7hSRFL3KRmL" role="37wK5m">
-                      <node concept="1jxXqW" id="7hSRFL3KRmM" role="2Oq$k0" />
-                      <node concept="liA8E" id="7hSRFL3KRmN" role="2OqNvi">
-                        <ref role="37wK5l" to="z1c4:~Project.getRepository()" resolve="getRepository" />
-                      </node>
-                    </node>
+                    <node concept="1jxXqW" id="7hSRFL3KRmM" role="37wK5m" />
                   </node>
                 </node>
                 <node concept="liA8E" id="7hSRFL3KRmO" role="2OqNvi">
@@ -2009,12 +1994,7 @@
               <node concept="2ShNRf" id="2_AUN5GsHki" role="2Oq$k0">
                 <node concept="1pGfFk" id="2_AUN5GsHkj" role="2ShVmc">
                   <ref role="37wK5l" to="v3va:7hSRFL3Kjlg" resolve="TestNodeWrapHelper" />
-                  <node concept="2OqwBi" id="2_AUN5GsHkk" role="37wK5m">
-                    <node concept="1jxXqW" id="2_AUN5GsHkl" role="2Oq$k0" />
-                    <node concept="liA8E" id="2_AUN5GsHkm" role="2OqNvi">
-                      <ref role="37wK5l" to="z1c4:~Project.getRepository()" resolve="getRepository" />
-                    </node>
-                  </node>
+                  <node concept="1jxXqW" id="2_AUN5GsHkl" role="37wK5m" />
                 </node>
               </node>
               <node concept="liA8E" id="7hSRFL3KT62" role="2OqNvi">

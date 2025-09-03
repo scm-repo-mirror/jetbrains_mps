@@ -307,7 +307,7 @@
     <property role="TrG5h" value="JUnitOutOfProcess" />
     <property role="3OwPAg" value="false" />
     <property role="26Nn1l" value="true" />
-    <property role="3DII0k" value="2hh8MJdVwqX/command" />
+    <property role="3DII0k" value="2hh8MJdVwqT/none" />
     <node concept="2XrIbr" id="6bfDvj8bCm1" role="1qtyYc">
       <property role="TrG5h" value="runTestsWithSettings" />
       <node concept="3cqZAl" id="6bfDvj8bCm4" role="3clF45" />
@@ -640,12 +640,7 @@
               <node concept="2ShNRf" id="4rbJdZOvdxL" role="2Oq$k0">
                 <node concept="1pGfFk" id="4rbJdZOvdxM" role="2ShVmc">
                   <ref role="37wK5l" to="v3va:7hSRFL3Kjlg" resolve="TestNodeWrapHelper" />
-                  <node concept="2OqwBi" id="4rbJdZOvdxN" role="37wK5m">
-                    <node concept="1jxXqW" id="4rbJdZOvdxO" role="2Oq$k0" />
-                    <node concept="liA8E" id="4rbJdZOvdxP" role="2OqNvi">
-                      <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
-                    </node>
-                  </node>
+                  <node concept="1jxXqW" id="4rbJdZOvdxO" role="37wK5m" />
                 </node>
               </node>
               <node concept="liA8E" id="4rbJdZOvdxQ" role="2OqNvi">
@@ -711,12 +706,7 @@
               <node concept="2ShNRf" id="7hSRFL3KBZr" role="2Oq$k0">
                 <node concept="1pGfFk" id="7hSRFL3KBZs" role="2ShVmc">
                   <ref role="37wK5l" to="v3va:7hSRFL3Kjlg" resolve="TestNodeWrapHelper" />
-                  <node concept="2OqwBi" id="7hSRFL3KBZt" role="37wK5m">
-                    <node concept="1jxXqW" id="7hSRFL3KBZu" role="2Oq$k0" />
-                    <node concept="liA8E" id="7hSRFL3KBZv" role="2OqNvi">
-                      <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
-                    </node>
-                  </node>
+                  <node concept="1jxXqW" id="7hSRFL3KBZu" role="37wK5m" />
                 </node>
               </node>
               <node concept="liA8E" id="7hSRFL3KBZw" role="2OqNvi">
@@ -771,12 +761,7 @@
               <node concept="2ShNRf" id="4rbJdZOuzgy" role="2Oq$k0">
                 <node concept="1pGfFk" id="4rbJdZOuzgz" role="2ShVmc">
                   <ref role="37wK5l" to="v3va:7hSRFL3Kjlg" resolve="TestNodeWrapHelper" />
-                  <node concept="2OqwBi" id="4rbJdZOuzg$" role="37wK5m">
-                    <node concept="1jxXqW" id="4rbJdZOuzg_" role="2Oq$k0" />
-                    <node concept="liA8E" id="4rbJdZOuzgA" role="2OqNvi">
-                      <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
-                    </node>
-                  </node>
+                  <node concept="1jxXqW" id="4rbJdZOuzg_" role="37wK5m" />
                 </node>
               </node>
               <node concept="liA8E" id="4rbJdZOuzgB" role="2OqNvi">
@@ -916,12 +901,7 @@
               <node concept="2ShNRf" id="4rbJdZOvE7j" role="2Oq$k0">
                 <node concept="1pGfFk" id="4rbJdZOvE7k" role="2ShVmc">
                   <ref role="37wK5l" to="v3va:7hSRFL3Kjlg" resolve="TestNodeWrapHelper" />
-                  <node concept="2OqwBi" id="4rbJdZOvE7l" role="37wK5m">
-                    <node concept="1jxXqW" id="4rbJdZOvE7m" role="2Oq$k0" />
-                    <node concept="liA8E" id="4rbJdZOvE7n" role="2OqNvi">
-                      <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
-                    </node>
-                  </node>
+                  <node concept="1jxXqW" id="4rbJdZOvE7m" role="37wK5m" />
                 </node>
               </node>
               <node concept="liA8E" id="4rbJdZOvE7o" role="2OqNvi">
@@ -1041,12 +1021,7 @@
               <node concept="2ShNRf" id="4zlCqr4EDlG" role="2Oq$k0">
                 <node concept="1pGfFk" id="4zlCqr4EDlH" role="2ShVmc">
                   <ref role="37wK5l" to="v3va:7hSRFL3Kjlg" resolve="TestNodeWrapHelper" />
-                  <node concept="2OqwBi" id="4zlCqr4EDlI" role="37wK5m">
-                    <node concept="1jxXqW" id="4zlCqr4EDlJ" role="2Oq$k0" />
-                    <node concept="liA8E" id="4zlCqr4EDlK" role="2OqNvi">
-                      <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
-                    </node>
-                  </node>
+                  <node concept="1jxXqW" id="4zlCqr4EDlJ" role="37wK5m" />
                 </node>
               </node>
               <node concept="liA8E" id="4zlCqr4EDlL" role="2OqNvi">
