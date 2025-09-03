@@ -40183,6 +40183,11 @@
             <ref role="3bR37D" node="465rK6MmPl5" resolve="jetbrains.mps.baselanguage.unitTest.launcher" />
           </node>
         </node>
+        <node concept="1SiIV0" id="2lMuMRUf7AL" role="3bR37C">
+          <node concept="3bR9La" id="2lMuMRUf7AM" role="1SiIV1">
+            <ref role="3bR37D" node="2Oogzg3vg0R" resolve="jetbrains.mps.baseLanguage.unitTest.platform" />
+          </node>
+        </node>
         <node concept="1SiIV0" id="2Oogzg3RlY6" role="3bR37C">
           <node concept="3bR9La" id="2Oogzg3RlY7" role="1SiIV1">
             <ref role="3bR37D" node="4MVYzzgl7sL" resolve="jetbrains.mps.lang.test.junit5" />

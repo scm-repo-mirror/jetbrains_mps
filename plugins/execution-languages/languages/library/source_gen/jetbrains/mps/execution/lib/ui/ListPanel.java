@@ -35,9 +35,9 @@ import javax.swing.AbstractListModel;
 import javax.swing.JList;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.actionSystem.AnActionEvent;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.actionSystem.ActionUpdateThread;
+import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 
 /**
  * This class was split up without thinking, just to make something work quickly.
@@ -188,22 +188,25 @@ public abstract class ListPanel<T> extends JBPanel {
       final SNodeReference resultNode = chooserDialog.getResult();
 
       // FIXME please refactor this, please, please!!!
+      //  PRETTY PLEASE! wrap/unwrap, really?!
       if (resultNode == null) {
         return;
       }
-      final Wrappers._T<T> wrapper = new Wrappers._T<T>();
-      myMpsProject.getModelAccess().runReadAction(() -> wrapper.value = wrap(resultNode.resolve(myMpsProject.getRepository())));
-      if (wrapper.value == null) {
+      T wrapper = myMpsProject.getModelAccess().computeReadAction(() -> {
+        SNode resolved = resultNode.resolve(myMpsProject.getRepository());
+        return (resolved == null ? null : wrap(resolved));
+      });
+      if (wrapper == null) {
         return;
       }
-      ListSequence.fromList(ListPanel.this.myValues).addElement(wrapper.value);
+      ListSequence.fromList(ListPanel.this.myValues).addElement(wrapper);
       if (ListPanel.this.myListener != null) {
         ListPanel.this.myListener.actionPerformed(null);
       }
       ListPanel.this.myListComponent.updateUI();
       ListPanel.this.myListModel.fireSomethingChanged();
       // return value used to be an index to select (though, in a bit cryptic manner, see BaseAddAction)
-      myList.setSelectedIndex(ListSequence.fromList(ListPanel.this.myValues).indexOf(wrapper.value));
+      myList.setSelectedIndex(ListSequence.fromList(ListPanel.this.myValues).indexOf(wrapper));
     }
 
     @Override

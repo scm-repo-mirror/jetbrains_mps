@@ -27,9 +27,10 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.TestNodeWrapperFactory;
 import jetbrains.mps.ide.project.ProjectHelper;
-import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
-import jetbrains.mps.internal.collections.runtime.Sequence;
+import java.util.Optional;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestDescriptor;
 import jetbrains.mps.execution.lib.PointerUtils;
+import jetbrains.mps.baseLanguage.unitTest.execution.client.TestDescriptorWrapper;
 import jetbrains.mps.baseLanguage.unitTest.behavior.ITestCase__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.baseLanguage.unitTest.behavior.ITestMethod__BehaviorDescriptor;
@@ -203,8 +204,8 @@ public final class JUnitTests_Producer {
       // this is a producer for root; below you can find the producer for a test method
       SNode testableMethod = tnf.findWrappableAncestor(source, false);
       if (testableMethod != null) {
-        ITestNodeWrapper testWrapper = TestNodeWrapperFactory.tryToWrap(testableMethod);
-        if (testWrapper != null && !(testWrapper.isTestCase())) {
+        Optional<TestDescriptor> testWrapper = tnf.findTestDescriptor(testableMethod);
+        if (testWrapper.isPresent() && !(testWrapper.get().isContainer())) {
           // no need to run the whole test case if we are inside a test method
           return null;
         }
@@ -215,20 +216,15 @@ public final class JUnitTests_Producer {
         return null;
       }
 
-      ITestNodeWrapper wrapper = TestNodeWrapperFactory.tryToWrap(testRoot);
-      if (wrapper == null || Sequence.fromIterable(wrapper.getTestMethods()).isEmpty()) {
+      Optional<TestDescriptor> wrapper = tnf.findTestDescriptor(testRoot);
+      if (wrapper.isEmpty() || wrapper.get().getTests().isEmpty()) {
         return null;
       }
 
-      String name = wrapper.getName();
-      if (name == null) {
-        return null;
-      }
-
-      JUnitTests_Configuration configuration = ((JUnitTests_Configuration) getConfigurationFactory().createConfiguration("" + name, getContext().getRunManager().getConfigurationTemplate(getConfigurationFactory()).getConfiguration()));
+      JUnitTests_Configuration configuration = ((JUnitTests_Configuration) getConfigurationFactory().createConfiguration("" + wrapper.get().getShortName(), getContext().getRunManager().getConfigurationTemplate(getConfigurationFactory()).getConfiguration()));
       configuration.getJUnitSettings().setJUnitRunType(JUnitRunTypes.NODE);
       configuration.getJUnitSettings().setTestCases(PointerUtils.nodeToCloneableList(testRoot));
-      if (!(wrapper.canRunInProcess())) {
+      if (!(TestDescriptorWrapper.canRunInProcess(wrapper.get()))) {
         configuration.getJUnitSettings().setInProcessFlag(false);
       }
       return configuration;
@@ -289,15 +285,15 @@ public final class JUnitTests_Producer {
       if (method == null) {
         return null;
       }
-      ITestNodeWrapper wrapper = TestNodeWrapperFactory.tryToWrap(method);
-      if (wrapper == null || wrapper.isTestCase()) {
+      Optional<TestDescriptor> wrapper = tnf.findTestDescriptor(method);
+      if (wrapper.isEmpty() || wrapper.get().isContainer()) {
         return null;
       }
 
-      JUnitTests_Configuration configuration = ((JUnitTests_Configuration) getConfigurationFactory().createConfiguration("" + wrapper.getName(), getContext().getRunManager().getConfigurationTemplate(getConfigurationFactory()).getConfiguration()));
+      JUnitTests_Configuration configuration = ((JUnitTests_Configuration) getConfigurationFactory().createConfiguration("" + wrapper.get().getShortName(), getContext().getRunManager().getConfigurationTemplate(getConfigurationFactory()).getConfiguration()));
       configuration.getJUnitSettings().setJUnitRunType(JUnitRunTypes.METHOD);
       configuration.getJUnitSettings().setTestMethods(PointerUtils.nodeToCloneableList(method));
-      if (!(wrapper.canRunInProcess())) {
+      if (!(TestDescriptorWrapper.canRunInProcess(wrapper.get()))) {
         configuration.getJUnitSettings().setInProcessFlag(false);
       }
       return configuration;

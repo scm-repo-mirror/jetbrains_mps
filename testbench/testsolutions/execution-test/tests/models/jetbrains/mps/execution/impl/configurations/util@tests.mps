@@ -12,7 +12,6 @@
   </languages>
   <imports>
     <import index="sfqd" ref="r:63a75970-913d-4a7b-99e2-8ca72ff6f509(jetbrains.mps.baseLanguage.unitTest.execution.client)" />
-    <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
     <import index="guwi" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.io(JDK/)" />
@@ -102,6 +101,9 @@
         <property id="1176718929932" name="isFinal" index="3TUv4t" />
         <child id="1068431790190" name="initializer" index="33vP2m" />
       </concept>
+      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ngI" index="366HgL">
+        <property id="1513279640906337053" name="inferTypeParams" index="373rjd" />
+      </concept>
       <concept id="1068498886296" name="jetbrains.mps.baseLanguage.structure.VariableReference" flags="nn" index="37vLTw">
         <reference id="1068581517664" name="variableDeclaration" index="3cqZAo" />
       </concept>
@@ -122,6 +124,7 @@
       <concept id="1068580123165" name="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" flags="ig" index="3clFb_">
         <property id="1178608670077" name="isAbstract" index="1EzhhJ" />
       </concept>
+      <concept id="1068580123152" name="jetbrains.mps.baseLanguage.structure.EqualsExpression" flags="nn" index="3clFbC" />
       <concept id="1068580123155" name="jetbrains.mps.baseLanguage.structure.ExpressionStatement" flags="nn" index="3clFbF">
         <child id="1068580123156" name="expression" index="3clFbG" />
       </concept>
@@ -186,6 +189,11 @@
       <concept id="1081855346303" name="jetbrains.mps.baseLanguage.structure.BreakStatement" flags="nn" index="3zACq4" />
       <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ngI" index="1B3ioH">
         <child id="1178549979242" name="visibility" index="1B3o_S" />
+      </concept>
+      <concept id="1163668896201" name="jetbrains.mps.baseLanguage.structure.TernaryOperatorExpression" flags="nn" index="3K4zz7">
+        <child id="1163668914799" name="condition" index="3K4Cdx" />
+        <child id="1163668922816" name="ifTrue" index="3K4E3e" />
+        <child id="1163668934364" name="ifFalse" index="3K4GZi" />
       </concept>
       <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
         <child id="8356039341262087992" name="line" index="1aUNEU" />
@@ -257,6 +265,15 @@
         <ref role="3uigEE" to="lui2:~SRepository" resolve="SRepository" />
       </node>
     </node>
+    <node concept="312cEg" id="2lMuMRTRy_X" role="jymVt">
+      <property role="TrG5h" value="myTestFactory" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm6S6" id="2lMuMRTRy_Y" role="1B3o_S" />
+      <node concept="3uibUv" id="2lMuMRTRyqI" role="1tU5fm">
+        <ref role="3uigEE" to="sfqd:1KnTQt4Oin6" resolve="TestNodeWrapperFactory" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="2lMuMRTRwR6" role="jymVt" />
     <node concept="2tJIrI" id="7hSRFL3Kj7B" role="jymVt" />
     <node concept="3clFbW" id="7hSRFL3Kjlg" role="jymVt">
       <node concept="3cqZAl" id="7hSRFL3Kjli" role="3clF45" />
@@ -274,6 +291,27 @@
               <node concept="liA8E" id="2U7qfjSriJv" role="2OqNvi">
                 <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
               </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="2lMuMRTRyQT" role="3cqZAp">
+          <node concept="37vLTI" id="2lMuMRTRz6x" role="3clFbG">
+            <node concept="2ShNRf" id="2lMuMRTRzaB" role="37vLTx">
+              <node concept="1pGfFk" id="2lMuMRTR_xm" role="2ShVmc">
+                <property role="373rjd" value="true" />
+                <ref role="37wK5l" to="sfqd:2xHx_dl$Sv9" resolve="TestNodeWrapperFactory" />
+                <node concept="2OqwBi" id="2lMuMRTR_SS" role="37wK5m">
+                  <node concept="37vLTw" id="2lMuMRTR_Aw" role="2Oq$k0">
+                    <ref role="3cqZAo" node="7hSRFL3Kjso" resolve="project" />
+                  </node>
+                  <node concept="liA8E" id="2lMuMRTRANF" role="2OqNvi">
+                    <ref role="37wK5l" to="z1c3:~Project.getPlatform()" resolve="getPlatform" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="37vLTw" id="2lMuMRTRyQR" role="37vLTJ">
+              <ref role="3cqZAo" node="2lMuMRTRy_X" resolve="myTestFactory" />
             </node>
           </node>
         </node>
@@ -295,16 +333,8 @@
       <node concept="3clFbS" id="7hSRFL3KjZK" role="3clF47">
         <node concept="3cpWs6" id="7hSRFL3Ko9c" role="3cqZAp">
           <node concept="2OqwBi" id="7hSRFL3Kn1c" role="3cqZAk">
-            <node concept="2ShNRf" id="7hSRFL3Km5e" role="2Oq$k0">
-              <node concept="1pGfFk" id="7hSRFL3KmRE" role="2ShVmc">
-                <ref role="37wK5l" to="w1kc:~ModelAccessHelper.&lt;init&gt;(org.jetbrains.mps.openapi.module.SRepository)" resolve="ModelAccessHelper" />
-                <node concept="37vLTw" id="7hSRFL3KmUh" role="37wK5m">
-                  <ref role="3cqZAo" node="7hSRFL3KjsW" resolve="myRepo" />
-                </node>
-              </node>
-            </node>
             <node concept="liA8E" id="7hSRFL3Kn9H" role="2OqNvi">
-              <ref role="37wK5l" to="w1kc:~ModelAccessHelper.runReadAction(jetbrains.mps.util.Computable)" resolve="runReadAction" />
+              <ref role="37wK5l" to="lui2:~ModelAccess.computeReadAction(java.util.function.Supplier)" resolve="computeReadAction" />
               <node concept="1bVj0M" id="7hSRFL3Kne$" role="37wK5m">
                 <node concept="3clFbS" id="7hSRFL3Kne_" role="1bW5cS">
                   <node concept="3cpWs8" id="7hSRFL3KnB0" role="3cqZAp">
@@ -355,11 +385,24 @@
                           <node concept="3uibUv" id="7hSRFL3KulW" role="1tU5fm">
                             <ref role="3uigEE" to="sfqd:56tRMpP_ej7" resolve="ITestNodeWrapper" />
                           </node>
-                          <node concept="2YIFZM" id="7hSRFL3Kumg" role="33vP2m">
-                            <ref role="37wK5l" to="sfqd:1KnTQt4Oin7" resolve="tryToWrap" />
-                            <ref role="1Pybhc" to="sfqd:1KnTQt4Oin6" resolve="TestNodeWrapperFactory" />
-                            <node concept="37vLTw" id="7hSRFL3Kumh" role="37wK5m">
-                              <ref role="3cqZAo" node="7hSRFL3KqQa" resolve="resolved" />
+                          <node concept="3K4zz7" id="2lMuMRTRDE0" role="33vP2m">
+                            <node concept="10Nm6u" id="2lMuMRTRDOk" role="3K4E3e" />
+                            <node concept="3clFbC" id="2lMuMRTRDct" role="3K4Cdx">
+                              <node concept="10Nm6u" id="2lMuMRTRDw9" role="3uHU7w" />
+                              <node concept="37vLTw" id="2lMuMRTRCQH" role="3uHU7B">
+                                <ref role="3cqZAo" node="7hSRFL3KqQa" resolve="resolved" />
+                              </node>
+                            </node>
+                            <node concept="2OqwBi" id="2lMuMRTRBpT" role="3K4GZi">
+                              <node concept="37vLTw" id="2lMuMRTRB6P" role="2Oq$k0">
+                                <ref role="3cqZAo" node="2lMuMRTRy_X" resolve="myTestFactory" />
+                              </node>
+                              <node concept="liA8E" id="2lMuMRTRBHB" role="2OqNvi">
+                                <ref role="37wK5l" to="sfqd:2lMuMRTPps6" resolve="tryToWrap" />
+                                <node concept="37vLTw" id="2lMuMRTRClZ" role="37wK5m">
+                                  <ref role="3cqZAo" node="7hSRFL3KqQa" resolve="resolved" />
+                                </node>
+                              </node>
                             </node>
                           </node>
                         </node>
@@ -394,6 +437,14 @@
                     </node>
                   </node>
                 </node>
+              </node>
+            </node>
+            <node concept="2OqwBi" id="2lMuMRTRFtV" role="2Oq$k0">
+              <node concept="37vLTw" id="2lMuMRTRFcG" role="2Oq$k0">
+                <ref role="3cqZAo" node="7hSRFL3KjsW" resolve="myRepo" />
+              </node>
+              <node concept="liA8E" id="2lMuMRTRFRU" role="2OqNvi">
+                <ref role="37wK5l" to="lui2:~SRepository.getModelAccess()" resolve="getModelAccess" />
               </node>
             </node>
           </node>

@@ -296,24 +296,18 @@
   </root>
   <root nodeRef="r:a7abd5f1-5d9a-4c90-a542-3e14c173186d(jetbrains.mps.baseLanguage.unitTest.platform)/3026137572286690218">
     <file name="TestDiscoveryRequest.java">
-      <node id="3026137572301831414" at="13,0,14,0" concept="3" trace="myRootContainer" />
-      <node id="3026137572301831418" at="15,61,16,36" concept="2" />
-      <node id="3026137572301904235" at="22,47,23,27" concept="7" />
-      <node id="3374283831513583413" at="26,57,27,95" concept="7" />
-      <node id="3026137572301714628" at="15,0,18,0" concept="1" trace="TestDiscoveryRequest#(Ljetbrains/mps/baseLanguage/unitTest/platform/TestDescriptor;)V" />
-      <node id="3026137572286705151" at="22,0,25,0" concept="5" trace="peekContainer#()Ljetbrains/mps/baseLanguage/unitTest/platform/TestDescriptor;" />
-      <node id="3374283831513577386" at="26,0,29,0" concept="5" trace="discover#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/util/Optional;" />
-      <scope id="3026137572301714632" at="15,61,16,36" />
-      <scope id="3026137572286705155" at="22,47,23,27" />
-      <scope id="3374283831513577390" at="26,57,27,95" />
-      <scope id="3026137572301714628" at="15,0,18,0">
+      <node id="3026137572301831414" at="11,0,12,0" concept="3" trace="myRootContainer" />
+      <node id="3026137572301831418" at="13,61,14,36" concept="2" />
+      <node id="3026137572301904235" at="20,47,21,27" concept="7" />
+      <node id="3026137572301714628" at="13,0,16,0" concept="1" trace="TestDiscoveryRequest#(Ljetbrains/mps/baseLanguage/unitTest/platform/TestDescriptor;)V" />
+      <node id="3026137572286705151" at="20,0,23,0" concept="5" trace="peekContainer#()Ljetbrains/mps/baseLanguage/unitTest/platform/TestDescriptor;" />
+      <scope id="3026137572301714632" at="13,61,14,36" />
+      <scope id="3026137572286705155" at="20,47,21,27" />
+      <scope id="3026137572301714628" at="13,0,16,0">
         <var name="rootContainer" id="3026137572301805774" />
       </scope>
-      <scope id="3026137572286705151" at="22,0,25,0" />
-      <scope id="3374283831513577386" at="26,0,29,0">
-        <var name="sNode" id="3374283831513580785" />
-      </scope>
-      <unit id="3026137572286690218" at="11,0,31,0" name="jetbrains.mps.baseLanguage.unitTest.platform.TestDiscoveryRequest" />
+      <scope id="3026137572286705151" at="20,0,23,0" />
+      <unit id="3026137572286690218" at="9,0,24,0" name="jetbrains.mps.baseLanguage.unitTest.platform.TestDiscoveryRequest" />
     </file>
   </root>
   <root nodeRef="r:a7abd5f1-5d9a-4c90-a542-3e14c173186d(jetbrains.mps.baseLanguage.unitTest.platform)/3026137572291359464">

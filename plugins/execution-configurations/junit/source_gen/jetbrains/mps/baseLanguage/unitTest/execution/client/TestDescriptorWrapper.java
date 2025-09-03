@@ -4,11 +4,11 @@ package jetbrains.mps.baseLanguage.unitTest.execution.client;
 
 import jetbrains.mps.baseLanguage.unitTest.platform.TestDescriptor;
 import java.util.List;
+import org.jetbrains.annotations.NotNull;
 import java.util.Collections;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.NonNls;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestProperties;
 import jetbrains.mps.baselanguage.unitTest.execution.launcher.WithPlatformTestExecutor;
@@ -16,26 +16,29 @@ import jetbrains.mps.baselanguage.unitTest.execution.launcher.LegacyTestLauncher
 import jetbrains.mps.baselanguage.unitTest.execution.launcher.DefaultTestExecutor;
 import java.util.Objects;
 
-public class TestDescriptorWrapper implements ITestNodeWrapper {
+public final class TestDescriptorWrapper implements ITestNodeWrapper {
 
   private final TestDescriptor myDescriptor;
-  private final ITestNodeWrapper myTestCase;
-  private final List<ITestNodeWrapper> myTestMethods;
+  private final TestDescriptorWrapper myTestCase;
+  private final List<TestDescriptorWrapper> myTestMethods;
 
-  public TestDescriptorWrapper(TestDescriptor container) {
-    this(container, null);
-  }
-
-  public TestDescriptorWrapper(TestDescriptor testDescriptor, TestDescriptorWrapper container) {
+  /*package*/ TestDescriptorWrapper(@NotNull TestDescriptor testDescriptor) {
     myDescriptor = testDescriptor;
-    myTestCase = container;
     if (testDescriptor.isContainer()) {
-      final TestDescriptorWrapper thisTestCase = this;
-      myTestMethods = testDescriptor.getTests().stream().<ITestNodeWrapper>map((td) -> new TestDescriptorWrapper(td, thisTestCase)).toList();
+      myTestCase = this;
+      myTestMethods = testDescriptor.getTests().stream().map((td) -> new TestDescriptorWrapper(myTestCase, td)).toList();
 
     } else {
+      myTestCase = new TestDescriptorWrapper(testDescriptor.getContainer());
       myTestMethods = Collections.emptyList();
     }
+  }
+
+  private TestDescriptorWrapper(TestDescriptorWrapper testCase, TestDescriptor testDescriptor) {
+    assert !(testDescriptor.isContainer());
+    myDescriptor = testDescriptor;
+    myTestCase = testCase;
+    myTestMethods = Collections.emptyList();
   }
 
   public TestDescriptor getDescriptor() {
@@ -67,7 +70,7 @@ public class TestDescriptorWrapper implements ITestNodeWrapper {
   @Override
   public Iterable<ITestNodeWrapper> getTestMethods() {
     // FIXME usages of ITestNodeWrapper are really inconsistent: some generic, some raw
-    return ((List<ITestNodeWrapper>) ((List) myTestMethods));
+    return ((List<ITestNodeWrapper>) ((List<?>) myTestMethods));
   }
 
   @NonNls
@@ -99,7 +102,7 @@ public class TestDescriptorWrapper implements ITestNodeWrapper {
 
   @Override
   public boolean canRunInProcess() {
-    return myDescriptor.getProperty(TestProperties.CAN_RUN_IN_PROCESS);
+    return canRunInProcess(myDescriptor);
   }
 
   @Override
@@ -118,5 +121,9 @@ public class TestDescriptorWrapper implements ITestNodeWrapper {
       return false;
     }
     return Objects.equals(this.myDescriptor.getSource(), ((TestDescriptorWrapper) that).myDescriptor.getSource()) && this.isTestCase() == ((TestDescriptorWrapper) that).isTestCase();
+  }
+
+  public static boolean canRunInProcess(TestDescriptor testDescriptor) {
+    return testDescriptor.getProperty(TestProperties.CAN_RUN_IN_PROCESS);
   }
 }

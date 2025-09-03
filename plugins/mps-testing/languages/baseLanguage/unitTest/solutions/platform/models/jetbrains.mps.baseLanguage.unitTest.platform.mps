@@ -2307,46 +2307,6 @@
         </node>
       </node>
     </node>
-    <node concept="2tJIrI" id="2VjRkhsHvat" role="jymVt" />
-    <node concept="3clFb_" id="2VjRkhsHvuE" role="jymVt">
-      <property role="TrG5h" value="discover" />
-      <node concept="37vLTG" id="2VjRkhsHwjL" role="3clF46">
-        <property role="TrG5h" value="sNode" />
-        <node concept="3uibUv" id="2VjRkhsHwDN" role="1tU5fm">
-          <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
-        </node>
-      </node>
-      <node concept="3Tm1VV" id="2VjRkhsHvuH" role="1B3o_S" />
-      <node concept="3clFbS" id="2VjRkhsHvuI" role="3clF47">
-        <node concept="3clFbF" id="2VjRkhsHwWP" role="3cqZAp">
-          <node concept="2OqwBi" id="2VjRkhsHxja" role="3clFbG">
-            <node concept="2OqwBi" id="2VjRkhsHx6m" role="2Oq$k0">
-              <node concept="2YIFZM" id="2VjRkhsHx0t" role="2Oq$k0">
-                <ref role="37wK5l" node="4chG8iIteHp" resolve="getInstance" />
-                <ref role="1Pybhc" node="4chG8iItd4i" resolve="TestPlatform" />
-              </node>
-              <node concept="liA8E" id="2VjRkhsHxct" role="2OqNvi">
-                <ref role="37wK5l" node="2VjRkhsGS9E" resolve="getAggregateDiscoveryParticipant" />
-              </node>
-            </node>
-            <node concept="liA8E" id="2VjRkhsHxq9" role="2OqNvi">
-              <ref role="37wK5l" node="2BZ01qXB6ZH" resolve="discover" />
-              <node concept="37vLTw" id="2VjRkhsHxuN" role="37wK5m">
-                <ref role="3cqZAo" node="2VjRkhsHwjL" resolve="sNode" />
-              </node>
-              <node concept="Xjq3P" id="2VjRkhsHx_i" role="37wK5m" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="3uibUv" id="2VjRkhsHw48" role="3clF45">
-        <ref role="3uigEE" to="33ny:~Optional" resolve="Optional" />
-        <node concept="3uibUv" id="2VjRkhsHwgZ" role="11_B2D">
-          <ref role="3uigEE" node="X4wbLw1YY5" resolve="TestDescriptor" />
-        </node>
-      </node>
-    </node>
-    <node concept="2tJIrI" id="2BZ01qXTu0B" role="jymVt" />
     <node concept="3Tm1VV" id="2BZ01qXB7eF" role="1B3o_S" />
     <node concept="3UR2Jj" id="642Zr9KzERm" role="lGtFl">
       <node concept="TZ5HA" id="642Zr9KzERn" role="TZ5H$">

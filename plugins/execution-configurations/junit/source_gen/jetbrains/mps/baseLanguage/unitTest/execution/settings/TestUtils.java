@@ -9,13 +9,9 @@ import jetbrains.mps.project.Project;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
-import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
-import java.util.Iterator;
-import jetbrains.mps.baseLanguage.closures.runtime.YieldingIterator;
-import jetbrains.mps.execution.lib.PointerUtils;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.TestNodeWrapperFactory;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.execution.lib.PointerUtils;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
 /**
@@ -25,85 +21,23 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 @Deprecated
 public class TestUtils {
   @NotNull
-  public static List<ITestNodeWrapper> wrapPointerStrings(final Project mpsProject, @Nullable final Iterable<String> strings) {
+  public static List<ITestNodeWrapper> wrapPointerStrings(Project mpsProject, @Nullable Iterable<String> strings) {
+    List<ITestNodeWrapper> rv = ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
     if (strings == null) {
-      return ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
+      return rv;
     }
-    return Sequence.fromIterable(Sequence.fromClosure(new _FunctionTypes._return_P0_E0<Iterable<ITestNodeWrapper>>() {
-      public Iterable<ITestNodeWrapper> invoke() {
-        return new Iterable<ITestNodeWrapper>() {
-          public Iterator<ITestNodeWrapper> iterator() {
-            return new YieldingIterator<ITestNodeWrapper>() {
-              private int __CP__ = 0;
-              protected boolean moveToNext() {
-__loop__:
-                do {
-__switch__:
-                  switch (this.__CP__) {
-                    case -1:
-                      assert false : "Internal error";
-                      return false;
-                    case 2:
-                      this._2_pointerString_it = strings.iterator();
-                    case 3:
-                      if (!(this._2_pointerString_it.hasNext())) {
-                        this.__CP__ = 1;
-                        break;
-                      }
-                      this._2_pointerString = this._2_pointerString_it.next();
-                      this.__CP__ = 4;
-                      break;
-                    case 7:
-                      if (_6_node != null) {
-                        this.__CP__ = 8;
-                        break;
-                      }
-                      this.__CP__ = 3;
-                      break;
-                    case 11:
-                      if (_10_wrapper != null) {
-                        this.__CP__ = 12;
-                        break;
-                      }
-                      this.__CP__ = 3;
-                      break;
-                    case 13:
-                      this.__CP__ = 3;
-                      this.yield(_10_wrapper);
-                      return true;
-                    case 0:
-                      this.__CP__ = 2;
-                      break;
-                    case 4:
-                      this._6_node = check_6qi07j_a0a0a0a0a0b0a(PointerUtils.stringToPointer(_2_pointerString), mpsProject);
-                      this.__CP__ = 7;
-                      break;
-                    case 8:
-                      this._10_wrapper = TestNodeWrapperFactory.tryToWrap(_6_node);
-                      this.__CP__ = 11;
-                      break;
-                    case 12:
-                      this.__CP__ = 13;
-                      break;
-                    default:
-                      break __loop__;
-                  }
-                } while (true);
-                return false;
-              }
-              private String _2_pointerString;
-              private Iterator<String> _2_pointerString_it;
-              private SNode _6_node;
-              private ITestNodeWrapper _10_wrapper;
-            };
-          }
-        };
-
+    TestNodeWrapperFactory testFactory = new TestNodeWrapperFactory(mpsProject.getPlatform());
+    for (String pointerString : strings) {
+      SNode node = check_6qi07j_a0a0d0a(PointerUtils.stringToPointer(pointerString), mpsProject);
+      ITestNodeWrapper wrapper = (node == null ? null : testFactory.tryToWrap(node));
+      if (wrapper != null) {
+        ListSequence.fromList(rv).addElement(wrapper);
       }
-    })).toList();
+    }
+    return rv;
   }
 
-  private static SNode check_6qi07j_a0a0a0a0a0b0a(SNodeReference checkedDotOperand, Project mpsProject) {
+  private static SNode check_6qi07j_a0a0d0a(SNodeReference checkedDotOperand, Project mpsProject) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.resolve(mpsProject.getRepository());
     }

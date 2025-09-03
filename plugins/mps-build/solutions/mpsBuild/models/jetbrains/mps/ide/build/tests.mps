@@ -757,11 +757,6 @@
             </node>
           </node>
         </node>
-        <node concept="1SiIV0" id="2Oogzg47WLb" role="3bR37C">
-          <node concept="3bR9La" id="2Oogzg47WLc" role="1SiIV1">
-            <ref role="3bR37D" to="ffeo:2Oogzg3vg0R" resolve="jetbrains.mps.baseLanguage.unitTest.platform" />
-          </node>
-        </node>
         <node concept="1SiIV0" id="7rIOKY4dbPP" role="3bR37C">
           <node concept="3bR9La" id="7rIOKY4dbPQ" role="1SiIV1">
             <ref role="3bR37D" to="ffeo:465rK6MmPl5" resolve="jetbrains.mps.baselanguage.unitTest.launcher" />

@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.util.IterableUtil;
-import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.TestNodeWrapperFactory;
+import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 
 public class ModelTestCollector extends TestCollector {
   private final Project myProject;
@@ -36,12 +36,14 @@ public class ModelTestCollector extends TestCollector {
     List<ITestNodeWrapper> result = ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
     Collection<SNode> roots = IterableUtil.asCollection(myModel.getRootNodes());
     monitor.start("model " + myModel.getName(), roots.size());
+    TestNodeWrapperFactory testFactory = new TestNodeWrapperFactory(myProject.getPlatform());
+    // XXX FWIW, there's TestDiscovery in lang.test.junit5, perhaps, we can unify test discovery code?
     try {
       for (SNode root : CollectionSequence.fromCollection(roots)) {
         if (monitor.isCanceled()) {
           return ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
         }
-        ITestNodeWrapper wrappedNode = TestNodeWrapperFactory.tryToWrap(root);
+        ITestNodeWrapper wrappedNode = testFactory.tryToWrap(root);
         if (wrappedNode != null) {
           ListSequence.fromList(result).addElement(wrappedNode);
           if (breakOnFirstFound) {

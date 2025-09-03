@@ -4,9 +4,9 @@ package jetbrains.mps.baseLanguage.unitTest.execution.settings;
 
 import jetbrains.mps.execution.lib.ui.ListPanel;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
+import jetbrains.mps.baseLanguage.unitTest.execution.client.TestNodeWrapperFactory;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.baseLanguage.unitTest.execution.client.TestNodeWrapperFactory;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import java.util.List;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
@@ -15,7 +15,6 @@ import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import org.jetbrains.mps.openapi.module.SRepository;
-import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestDiscoveryParticipant;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -26,16 +25,17 @@ import jetbrains.mps.ide.findusages.model.scopes.ProjectScope;
 import java.util.Collections;
 import org.jetbrains.mps.openapi.util.SubProgressKind;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
-import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import com.intellij.openapi.project.Project;
 
 public class TestListPanel extends ListPanel<ITestNodeWrapper> {
-  private boolean myIsTestMethods;
+  private final boolean myIsTestMethods;
+  private final TestNodeWrapperFactory myTestFactory;
+
 
   @Nullable
   @Override
   protected ITestNodeWrapper wrap(SNode node) {
-    return TestNodeWrapperFactory.tryToWrap(node);
+    return myTestFactory.tryToWrap(node);
   }
 
   @Override
@@ -55,7 +55,7 @@ public class TestListPanel extends ListPanel<ITestNodeWrapper> {
       return ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
     }
     final SRepository repo = mpsProject.getRepository();
-    return new ModelAccessHelper(repo).runReadAction(() -> {
+    return repo.getModelAccess().computeReadAction(() -> {
       List<SNode> nodesList = new ArrayList<SNode>();
       TestDiscoveryParticipant tdp = mpsProject.getComponent(TestPlatform.class).getAggregateDiscoveryParticipant();
       Iterable<SAbstractConcept> wrappedRootConcepts = tdp.sourceConcepts();
@@ -65,25 +65,32 @@ public class TestListPanel extends ListPanel<ITestNodeWrapper> {
         ListSequence.fromList(nodesList).addSequence(SetSequence.fromSet(usages));
       }
       progress.done();
-      if (myIsTestMethods) {
-        List<ITestNodeWrapper> methodsList = ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
-        for (SNode testCase : nodesList) {
-          ITestNodeWrapper wrapper = TestNodeWrapperFactory.tryToWrap(testCase);
-          if (wrapper == null) {
-            continue;
-          }
-          ListSequence.fromList(methodsList).addSequence(Sequence.fromIterable(wrapper.getTestMethods()));
+      //  FIXME here's some stupid code, imo - during construction, we supply whether we're interested in individual tests (aka methods) or test cases (aka roots)
+      //      however, nodesList here comes with instances both of classes and methods, and we discover tests (ITestNodeWrapper) for all of them, effectively duplicating effort
+      //      (ITestNodeWrapper(TestDescriptor(Method)) is no-op for wrapper.getTestMethod() - but we did create it nevertheless)
+      //      At the same time, ITestNodeWrapper(TestDescriptor(Method)) && myIsTestMethods==false still add this wrapper, while the idea seems to be to add 'containers' only
+      //      (if I correctly understand what myIsTestMethod means)
+      List<ITestNodeWrapper> rv = ListSequence.fromList(new ArrayList<>());
+      for (SNode test : nodesList) {
+        ITestNodeWrapper wrapper = myTestFactory.tryToWrap(test);
+        if (wrapper == null) {
+          continue;
         }
-        return methodsList;
-      } else {
-        return ListSequence.fromList(nodesList).select((it) -> wrap(it)).where(new NotNullWhereFilter()).toList();
+        if (myIsTestMethods) {
+          ListSequence.fromList(rv).addSequence(Sequence.fromIterable(wrapper.getTestMethods()));
+        } else {
+          // FIXME shall I check isTestCase() here, first?!?
+          ListSequence.fromList(rv).addElement(wrapper);
+        }
       }
+      return rv;
     });
   }
 
   public TestListPanel(Project project, boolean isTestMethods) {
     super(project, "Test " + ((isTestMethods ? "methods" : "roots")));
     myIsTestMethods = isTestMethods;
+    myTestFactory = new TestNodeWrapperFactory(ProjectHelper.fromIdeaProjectOrFail(project).getPlatform());
     super.setData(ListSequence.fromList(new ArrayList<ITestNodeWrapper>()));
   }
 }

@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.junit.platform.engine.discovery.DiscoverySelectors;
 import jetbrains.mps.classloading.ClassLoaderManager;
+import jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform;
 import jetbrains.mps.persistence.PersistenceRegistry;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.project.SModuleOperations;
@@ -62,7 +63,7 @@ public class TestDiscoveryContributor implements JUnit5TestContributor {
     };
     repository.getModelAccess().runReadAction(() -> {
       final ClassLoaderManager clm = myPlatform.findComponent(ClassLoaderManager.class);
-      TestDiscovery discovery = new TestDiscovery(clm, visitor);
+      TestDiscovery discovery = new TestDiscovery(clm, myPlatform.findComponent(TestPlatform.class), visitor);
       PersistenceRegistry pf = myPlatform.findComponent(PersistenceRegistry.class);
 
       for (TestData.ModuleRecord tm : myTestPlan.testModules) {

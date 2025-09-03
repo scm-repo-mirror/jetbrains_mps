@@ -11,13 +11,13 @@ import org.jetbrains.mps.openapi.module.SModule;
 import java.util.ArrayList;
 import jetbrains.mps.project.SModuleOperations;
 import org.jetbrains.mps.openapi.model.SModel;
+import jetbrains.mps.baseLanguage.unitTest.execution.client.TestNodeWrapperFactory;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.execution.lib.PointerUtils;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.baseLanguage.unitTest.execution.client.TestNodeWrapperFactory;
 import jetbrains.mps.progress.EmptyProgressMonitor;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import com.intellij.openapi.progress.ProgressManager;
@@ -133,6 +133,7 @@ public enum JUnitRunTypes implements JUnitRunType {
         return "Classes list is empty.";
       }
       if (configuration.getTestCases() != null) {
+        final TestNodeWrapperFactory tnf = new TestNodeWrapperFactory(project.getPlatform());
         for (String testCase : configuration.getTestCases()) {
           SNodeReference pointer = PointerUtils.stringToPointer(testCase);
           if (pointer == null) {
@@ -141,11 +142,11 @@ public enum JUnitRunTypes implements JUnitRunType {
               SModel model = testNode.getModel();
               SNode module = SModelOperations.getModuleStub(model);
               if (!(SPropertyOperations.getBoolean(module, PROPS.compileInMPS$2Q_X))) {
-                return "The module's " + SNodeOperations.present(module) + " compile output is not managed by MPS.";
+                return String.format("The module's %s compile output is not managed by MPS.", SNodeOperations.present(module));
               }
             }
-            if (testNode == null || TestNodeWrapperFactory.tryToWrap(testNode) == null) {
-              return "Could not find test case for id " + testCase + ".";
+            if (testNode == null || tnf.findTestDescriptor(testNode).isEmpty()) {
+              return String.format("Could not find test case for id %s.", testCase);
             }
           }
         }
@@ -168,6 +169,8 @@ public enum JUnitRunTypes implements JUnitRunType {
         return "Methods list is empty.";
       }
       if (configuration.getTestMethods() != null) {
+        // XXX why not to collect all tests in model (ModelTestCollector), and compare node pointers, instead?
+        final TestNodeWrapperFactory tnf = new TestNodeWrapperFactory(project.getPlatform());
         for (String method : configuration.getTestMethods()) {
           SNodeReference pointer = PointerUtils.stringToPointer(method);
           if (pointer == null) {
@@ -176,11 +179,11 @@ public enum JUnitRunTypes implements JUnitRunType {
               SModel model = testMethodNode.getModel();
               SNode module = SModelOperations.getModuleStub(model);
               if (!(SPropertyOperations.getBoolean(module, PROPS.compileInMPS$2Q_X))) {
-                return "The module's " + SNodeOperations.present(module) + " compile output is not managed by MPS.";
+                return String.format("The module's %s compile output is not managed by MPS.", SNodeOperations.present(module));
               }
             }
-            if (testMethodNode == null || TestNodeWrapperFactory.tryToWrap(testMethodNode) == null) {
-              return "Could not find test method for id " + method + ".";
+            if (testMethodNode == null || tnf.findTestDescriptor(testMethodNode).isEmpty()) {
+              return String.format("Could not find test method for id %s.", method);
             }
           }
         }
