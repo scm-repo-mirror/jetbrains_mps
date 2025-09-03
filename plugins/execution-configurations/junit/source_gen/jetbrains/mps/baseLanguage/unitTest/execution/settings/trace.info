@@ -850,160 +850,175 @@
   </root>
   <root nodeRef="r:e12fc70b-3d1d-4dc2-9467-5147656e0455(jetbrains.mps.baseLanguage.unitTest.execution.settings)/5740494279799512421">
     <file name="TestCollector.java">
-      <node id="5740494279799522133" at="15,0,16,0" concept="7" trace="myBreakOnFirstFound" />
-      <node id="5740494279799523940" at="17,86,18,73" concept="6" />
-      <node id="5740494279799525873" at="18,73,19,44" concept="6" />
-      <node id="5740494279799521340" at="13,0,15,0" concept="7" trace="myMonitor" />
-      <node id="5740494279799517049" at="22,0,24,0" concept="11" trace="collect#()Ljava/util/List;" />
-      <node id="5740494279799518756" at="17,0,21,0" concept="3" trace="TestCollector#(Lorg/jetbrains/mps/openapi/util/ProgressMonitor;Z)V" />
-      <scope id="5740494279799518759" at="17,86,19,44" />
-      <scope id="5740494279799517049" at="22,0,24,0" />
-      <scope id="5740494279799518756" at="17,0,21,0">
-        <var name="breakOnFirstFound" id="5740494279799519076" />
-        <var name="monitor" id="5740494279799519058" />
+      <node id="5740494279799518756" at="12,0,14,0" concept="3" trace="TestCollector#()V" />
+      <node id="5740494279799517049" at="15,0,17,0" concept="11" trace="collect#(Lorg/jetbrains/mps/openapi/util/ProgressMonitor;Z)Ljava/util/List;" />
+      <scope id="5740494279799518759" at="12,26,12,26" />
+      <scope id="5740494279799518756" at="12,0,14,0" />
+      <scope id="5740494279799517049" at="15,0,17,0">
+        <var name="breakOnFirstFound" id="3352763848950072827" />
+        <var name="monitor" id="3352763848950072824" />
       </scope>
-      <unit id="5740494279799512421" at="12,0,25,0" name="jetbrains.mps.baseLanguage.unitTest.execution.settings.TestCollector" />
+      <unit id="5740494279799512421" at="10,0,18,0" name="jetbrains.mps.baseLanguage.unitTest.execution.settings.TestCollector" />
     </file>
   </root>
   <root nodeRef="r:e12fc70b-3d1d-4dc2-9467-5147656e0455(jetbrains.mps.baseLanguage.unitTest.execution.settings)/5740494279799528464">
     <file name="ModelTestCollector.java">
-      <node id="5740494279799535020" at="20,0,21,0" concept="7" trace="myModel" />
-      <node id="5740494279799531999" at="22,114,23,38" concept="18" />
-      <node id="5740494279799535571" at="23,38,24,20" concept="6" />
-      <node id="8652009603352301058" at="29,43,30,93" concept="12" />
-      <node id="5740494279799734647" at="30,93,31,80" concept="12" />
-      <node id="8652009603352311739" at="31,80,32,64" concept="6" />
-      <node id="8652009603352348720" at="35,37,36,74" concept="13" />
-      <node id="8652009603352422878" at="37,9,38,78" concept="12" />
-      <node id="8652009603352405317" at="39,34,40,64" concept="6" />
-      <node id="8652009603352936713" at="41,36,42,26" concept="13" />
-      <node id="8652009603352360120" at="44,9,45,29" concept="6" />
-      <node id="8652009603352329446" at="47,15,48,23" concept="6" />
-      <node id="8652009603352339229" at="49,5,50,18" concept="13" />
-      <node id="8652009603352348069" at="34,67,37,9" concept="10" />
-      <node id="8652009603352936711" at="40,64,43,11" concept="10" />
-      <node id="5740494279799530190" at="22,0,26,0" concept="3" trace="ModelTestCollector#(Lorg/jetbrains/mps/openapi/model/SModel;Lorg/jetbrains/mps/openapi/util/ProgressMonitor;Z)V" />
-      <node id="8652009603352397000" at="38,78,44,9" concept="10" />
-      <node id="8652009603352308950" at="33,9,46,7" concept="9" />
-      <node id="8652009603352327995" at="32,64,49,5" concept="21" />
-      <node id="5740494279799528705" at="27,0,52,0" concept="11" trace="collect#()Ljava/util/List;" />
-      <scope id="8652009603352348070" at="35,37,36,74" />
-      <scope id="8652009603352936712" at="41,36,42,26" />
-      <scope id="8652009603352327997" at="47,15,48,23" />
-      <scope id="5740494279799530192" at="22,114,24,20" />
-      <scope id="5740494279799530190" at="22,0,26,0">
-        <var name="breakOnFirstFound" id="5740494279799530205" />
+      <node id="3352763848950517315" at="21,0,22,0" concept="7" trace="myProject" />
+      <node id="5740494279799535020" at="22,0,23,0" concept="7" trace="myModel" />
+      <node id="3352763848950517319" at="24,78,25,24" concept="6" />
+      <node id="3352763848950545474" at="25,24,26,87" concept="14" />
+      <node id="5740494279799535571" at="26,87,27,20" concept="6" />
+      <node id="3352763848950525719" at="33,26,34,43" concept="6" />
+      <node id="8652009603352301058" at="35,5,36,93" concept="12" />
+      <node id="5740494279799734647" at="36,93,37,80" concept="12" />
+      <node id="8652009603352311739" at="37,80,38,62" concept="6" />
+      <node id="8652009603352348720" at="41,35,42,74" concept="13" />
+      <node id="8652009603352422878" at="43,9,44,78" concept="12" />
+      <node id="8652009603352405317" at="45,34,46,64" concept="6" />
+      <node id="8652009603352936713" at="47,34,48,26" concept="13" />
+      <node id="8652009603352360120" at="50,9,51,27" concept="6" />
+      <node id="8652009603352329446" at="53,15,54,21" concept="6" />
+      <node id="8652009603352339229" at="55,5,56,18" concept="13" />
+      <node id="3352763848950525717" at="32,93,35,5" concept="10" />
+      <node id="8652009603352348069" at="40,67,43,9" concept="10" />
+      <node id="8652009603352936711" at="46,64,49,11" concept="10" />
+      <node id="5740494279799530190" at="24,0,29,0" concept="3" trace="ModelTestCollector#(Ljetbrains/mps/project/Project;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <node id="8652009603352397000" at="44,78,50,9" concept="10" />
+      <node id="8652009603352308950" at="39,9,52,7" concept="9" />
+      <node id="8652009603352327995" at="38,62,55,5" concept="21" />
+      <node id="5740494279799528705" at="30,0,58,0" concept="11" trace="collect#(Lorg/jetbrains/mps/openapi/util/ProgressMonitor;Z)Ljava/util/List;" />
+      <scope id="3352763848950525718" at="33,26,34,43" />
+      <scope id="8652009603352348070" at="41,35,42,74" />
+      <scope id="8652009603352936712" at="47,34,48,26" />
+      <scope id="8652009603352327997" at="53,15,54,21" />
+      <scope id="5740494279799530192" at="24,78,27,20" />
+      <scope id="8652009603352397003" at="45,34,49,11" />
+      <scope id="5740494279799530190" at="24,0,29,0">
         <var name="model" id="5740494279799533076" />
-        <var name="monitor" id="5740494279799530202" />
+        <var name="project" id="3352763848950513895" />
       </scope>
-      <scope id="8652009603352397003" at="39,34,43,11" />
-      <scope id="8652009603352308956" at="34,67,45,29">
+      <scope id="8652009603352308956" at="40,67,51,27">
         <var name="wrappedNode" id="8652009603352422879" />
       </scope>
-      <scope id="8652009603352308950" at="33,9,46,7">
+      <scope id="8652009603352308950" at="39,9,52,7">
         <var name="root" id="8652009603352308952" />
       </scope>
-      <scope id="8652009603352327996" at="33,9,46,7" />
-      <scope id="5740494279799528711" at="29,43,50,18">
+      <scope id="8652009603352327996" at="39,9,52,7" />
+      <scope id="5740494279799528711" at="32,93,56,18">
         <var name="result" id="8652009603352301059" />
         <var name="roots" id="5740494279799734648" />
       </scope>
-      <scope id="5740494279799528705" at="27,0,52,0" />
-      <unit id="5740494279799528464" at="19,0,53,0" name="jetbrains.mps.baseLanguage.unitTest.execution.settings.ModelTestCollector" />
+      <scope id="5740494279799528705" at="30,0,58,0">
+        <var name="breakOnFirstFound" id="5740494279799530205" />
+        <var name="monitor" id="5740494279799530202" />
+      </scope>
+      <unit id="5740494279799528464" at="20,0,59,0" name="jetbrains.mps.baseLanguage.unitTest.execution.settings.ModelTestCollector" />
     </file>
   </root>
   <root nodeRef="r:e12fc70b-3d1d-4dc2-9467-5147656e0455(jetbrains.mps.baseLanguage.unitTest.execution.settings)/5740494279799537416">
     <file name="ProjectTestCollector.java">
       <node id="5740494279799537417" at="17,0,18,0" concept="7" trace="myProject" />
-      <node id="5740494279799537424" at="19,119,20,38" concept="18" />
-      <node id="5740494279799537427" at="20,38,21,24" concept="6" />
-      <node id="4023783813282810394" at="26,43,27,93" concept="12" />
-      <node id="4023783813282810410" at="27,93,28,0" concept="15" />
-      <node id="4023783813282810411" at="28,0,29,65" concept="12" />
-      <node id="4023783813282810419" at="29,65,30,78" concept="6" />
-      <node id="4023783813282810428" at="30,78,31,0" concept="15" />
-      <node id="2853743909049279480" at="34,37,35,74" concept="13" />
-      <node id="5740494279799831299" at="36,9,37,157" concept="12" />
-      <node id="4023783813282810445" at="37,157,38,86" concept="6" />
-      <node id="4023783813282810450" at="38,86,39,29" concept="6" />
-      <node id="4023783813282863254" at="40,85,41,24" concept="13" />
-      <node id="4023783813282810456" at="44,15,45,23" concept="6" />
-      <node id="4023783813282810460" at="46,5,47,18" concept="13" />
-      <node id="2853743909049279478" at="33,68,36,9" concept="10" />
-      <node id="4023783813282858811" at="39,29,42,9" concept="10" />
-      <node id="5740494279799537421" at="19,0,23,0" concept="3" trace="ProjectTestCollector#(Ljetbrains/mps/project/Project;Lorg/jetbrains/mps/openapi/util/ProgressMonitor;Z)V" />
-      <node id="4023783813282810431" at="32,9,43,7" concept="9" />
-      <node id="4023783813282810429" at="31,0,46,5" concept="21" />
-      <node id="5740494279799537443" at="24,0,49,0" concept="11" trace="collect#()Ljava/util/List;" />
-      <scope id="2853743909049279479" at="34,37,35,74" />
-      <scope id="4023783813282858814" at="40,85,41,24" />
-      <scope id="4023783813282810455" at="44,15,45,23" />
-      <scope id="5740494279799537423" at="19,119,21,24" />
-      <scope id="5740494279799537421" at="19,0,23,0">
-        <var name="breakOnFirstFound" id="5740494279799537438" />
-        <var name="monitor" id="5740494279799537435" />
+      <node id="5740494279799537427" at="19,57,20,24" concept="6" />
+      <node id="4023783813282810394" at="25,93,26,93" concept="12" />
+      <node id="3352763848950122932" at="26,93,27,0" concept="15" />
+      <node id="3352763848950143239" at="28,26,29,43" concept="6" />
+      <node id="4023783813282810410" at="30,5,31,0" concept="15" />
+      <node id="4023783813282810411" at="31,0,32,65" concept="12" />
+      <node id="4023783813282810419" at="32,65,33,76" concept="6" />
+      <node id="4023783813282810428" at="33,76,34,0" concept="15" />
+      <node id="2853743909049279480" at="37,35,38,74" concept="13" />
+      <node id="5740494279799831299" at="39,9,40,162" concept="12" />
+      <node id="4023783813282810445" at="40,162,41,86" concept="6" />
+      <node id="4023783813282810450" at="41,86,42,27" concept="6" />
+      <node id="4023783813282863254" at="43,83,44,24" concept="13" />
+      <node id="4023783813282810456" at="47,15,48,21" concept="6" />
+      <node id="4023783813282810460" at="49,5,50,18" concept="13" />
+      <node id="5740494279799537421" at="19,0,22,0" concept="3" trace="ProjectTestCollector#(Ljetbrains/mps/project/Project;)V" />
+      <node id="3352763848950125504" at="27,0,30,5" concept="10" />
+      <node id="2853743909049279478" at="36,68,39,9" concept="10" />
+      <node id="4023783813282858811" at="42,27,45,9" concept="10" />
+      <node id="4023783813282810431" at="35,9,46,7" concept="9" />
+      <node id="4023783813282810429" at="34,0,49,5" concept="21" />
+      <node id="5740494279799537443" at="23,0,52,0" concept="11" trace="collect#(Lorg/jetbrains/mps/openapi/util/ProgressMonitor;Z)Ljava/util/List;" />
+      <scope id="5740494279799537423" at="19,57,20,24" />
+      <scope id="3352763848950125506" at="28,26,29,43" />
+      <scope id="2853743909049279479" at="37,35,38,74" />
+      <scope id="4023783813282858814" at="43,83,44,24" />
+      <scope id="4023783813282810455" at="47,15,48,21" />
+      <scope id="5740494279799537421" at="19,0,22,0">
         <var name="project" id="5740494279799537432" />
       </scope>
-      <scope id="4023783813282810434" at="33,68,42,9">
+      <scope id="4023783813282810434" at="36,68,45,9">
         <var name="moduleTests" id="5740494279799831300" />
       </scope>
-      <scope id="4023783813282810430" at="32,9,43,7" />
-      <scope id="4023783813282810431" at="32,9,43,7">
+      <scope id="4023783813282810430" at="35,9,46,7" />
+      <scope id="4023783813282810431" at="35,9,46,7">
         <var name="module" id="4023783813282810432" />
       </scope>
-      <scope id="5740494279799537448" at="26,43,47,18">
+      <scope id="5740494279799537448" at="25,93,50,18">
         <var name="projectModules" id="4023783813282810412" />
         <var name="result" id="4023783813282810395" />
       </scope>
-      <scope id="5740494279799537443" at="24,0,49,0" />
-      <unit id="5740494279799537416" at="16,0,50,0" name="jetbrains.mps.baseLanguage.unitTest.execution.settings.ProjectTestCollector" />
+      <scope id="5740494279799537443" at="23,0,52,0">
+        <var name="breakOnFirstFound" id="3352763848950115478" />
+        <var name="monitor" id="3352763848950115475" />
+      </scope>
+      <unit id="5740494279799537416" at="16,0,53,0" name="jetbrains.mps.baseLanguage.unitTest.execution.settings.ProjectTestCollector" />
     </file>
   </root>
   <root nodeRef="r:e12fc70b-3d1d-4dc2-9467-5147656e0455(jetbrains.mps.baseLanguage.unitTest.execution.settings)/5740494279799537656">
     <file name="ModuleTestCollector.java">
-      <node id="5740494279799537657" at="19,0,20,0" concept="7" trace="myModule" />
-      <node id="5740494279799537664" at="21,117,22,38" concept="18" />
-      <node id="5740494279799537667" at="22,38,23,22" concept="6" />
-      <node id="4023783813282659276" at="28,43,29,93" concept="12" />
-      <node id="4023783813282780210" at="29,93,30,51" concept="12" />
-      <node id="4023783813282670176" at="30,51,31,120" concept="6" />
-      <node id="2853743909049264696" at="35,39,36,76" concept="13" />
-      <node id="5740494279800406603" at="37,11,38,129" concept="12" />
-      <node id="4023783813282661443" at="38,129,39,87" concept="6" />
-      <node id="4023783813282885630" at="40,86,41,26" concept="13" />
-      <node id="4023783813282762193" at="43,9,44,29" concept="6" />
-      <node id="4023783813282767812" at="46,15,47,23" concept="6" />
-      <node id="4023783813282772155" at="48,5,49,18" concept="13" />
-      <node id="2853743909049261609" at="34,53,37,11" concept="10" />
-      <node id="4023783813282878838" at="39,87,42,11" concept="10" />
-      <node id="5740494279799537661" at="21,0,25,0" concept="3" trace="ModuleTestCollector#(Lorg/jetbrains/mps/openapi/module/SModule;Lorg/jetbrains/mps/openapi/util/ProgressMonitor;Z)V" />
-      <node id="4023783813282660971" at="33,58,43,9" concept="10" />
-      <node id="4023783813282659682" at="32,9,45,7" concept="9" />
-      <node id="4023783813282776865" at="31,120,48,5" concept="21" />
-      <node id="5740494279799537683" at="26,0,51,0" concept="11" trace="collect#()Ljava/util/List;" />
-      <scope id="2853743909049261612" at="35,39,36,76" />
-      <scope id="4023783813282878841" at="40,86,41,26" />
-      <scope id="4023783813282776867" at="46,15,47,23" />
-      <scope id="5740494279799537663" at="21,117,23,22" />
-      <scope id="5740494279799537661" at="21,0,25,0">
-        <var name="breakOnFirstFound" id="5740494279799537678" />
+      <node id="3352763848950370678" at="20,0,21,0" concept="7" trace="myProject" />
+      <node id="5740494279799537657" at="21,0,22,0" concept="7" trace="myModule" />
+      <node id="3352763848950370682" at="23,81,24,24" concept="6" />
+      <node id="3352763848950633488" at="24,24,25,125" concept="14" />
+      <node id="5740494279799537667" at="25,125,26,22" concept="6" />
+      <node id="3352763848950387219" at="32,26,33,43" concept="6" />
+      <node id="3352763848950387216" at="34,5,35,0" concept="15" />
+      <node id="4023783813282659276" at="35,0,36,93" concept="12" />
+      <node id="4023783813282780210" at="36,93,37,51" concept="12" />
+      <node id="4023783813282670176" at="37,51,38,118" concept="6" />
+      <node id="2853743909049264696" at="42,37,43,76" concept="13" />
+      <node id="5740494279800406603" at="44,11,45,134" concept="12" />
+      <node id="4023783813282661443" at="45,134,46,87" concept="6" />
+      <node id="4023783813282885630" at="47,84,48,26" concept="13" />
+      <node id="4023783813282762193" at="50,9,51,27" concept="6" />
+      <node id="4023783813282767812" at="53,15,54,21" concept="6" />
+      <node id="4023783813282772155" at="55,5,56,18" concept="13" />
+      <node id="3352763848950387217" at="31,93,34,5" concept="10" />
+      <node id="2853743909049261609" at="41,53,44,11" concept="10" />
+      <node id="4023783813282878838" at="46,87,49,11" concept="10" />
+      <node id="5740494279799537661" at="23,0,28,0" concept="3" trace="ModuleTestCollector#(Ljetbrains/mps/project/Project;Lorg/jetbrains/mps/openapi/module/SModule;)V" />
+      <node id="4023783813282660971" at="40,58,50,9" concept="10" />
+      <node id="4023783813282659682" at="39,9,52,7" concept="9" />
+      <node id="4023783813282776865" at="38,118,55,5" concept="21" />
+      <node id="5740494279799537683" at="29,0,58,0" concept="11" trace="collect#(Lorg/jetbrains/mps/openapi/util/ProgressMonitor;Z)Ljava/util/List;" />
+      <scope id="3352763848950387218" at="32,26,33,43" />
+      <scope id="2853743909049261612" at="42,37,43,76" />
+      <scope id="4023783813282878841" at="47,84,48,26" />
+      <scope id="4023783813282776867" at="53,15,54,21" />
+      <scope id="5740494279799537663" at="23,81,26,22" />
+      <scope id="5740494279799537661" at="23,0,28,0">
         <var name="module" id="5740494279799537672" />
-        <var name="monitor" id="5740494279799537675" />
+        <var name="project" id="3352763848950369823" />
       </scope>
-      <scope id="4023783813282660972" at="34,53,42,11">
+      <scope id="4023783813282660972" at="41,53,49,11">
         <var name="modelTests" id="5740494279800406604" />
       </scope>
-      <scope id="4023783813282659688" at="33,58,44,29" />
-      <scope id="4023783813282659682" at="32,9,45,7">
+      <scope id="4023783813282659688" at="40,58,51,27" />
+      <scope id="4023783813282659682" at="39,9,52,7">
         <var name="model" id="4023783813282659684" />
       </scope>
-      <scope id="4023783813282776866" at="32,9,45,7" />
-      <scope id="5740494279799537688" at="28,43,49,18">
+      <scope id="4023783813282776866" at="39,9,52,7" />
+      <scope id="5740494279799537688" at="31,93,56,18">
         <var name="models" id="4023783813282780211" />
         <var name="result" id="4023783813282659279" />
       </scope>
-      <scope id="5740494279799537683" at="26,0,51,0" />
-      <unit id="5740494279799537656" at="18,0,52,0" name="jetbrains.mps.baseLanguage.unitTest.execution.settings.ModuleTestCollector" />
+      <scope id="5740494279799537683" at="29,0,58,0">
+        <var name="breakOnFirstFound" id="5740494279799537678" />
+        <var name="monitor" id="5740494279799537675" />
+      </scope>
+      <unit id="5740494279799537656" at="19,0,59,0" name="jetbrains.mps.baseLanguage.unitTest.execution.settings.ModuleTestCollector" />
     </file>
   </root>
   <root nodeRef="r:e12fc70b-3d1d-4dc2-9467-5147656e0455(jetbrains.mps.baseLanguage.unitTest.execution.settings)/6062668769034852749">
@@ -1667,15 +1682,15 @@
   </root>
   <root nodeRef="r:e12fc70b-3d1d-4dc2-9467-5147656e0455(jetbrains.mps.baseLanguage.unitTest.execution.settings)/6062668769034855735">
     <file name="JUnitRunTypes.java">
-      <node id="4023783813282848357" at="38,133,39,73" concept="13" />
+      <node id="4023783813282848357" at="38,133,39,71" concept="13" />
       <node id="4023783813281575812" at="42,88,43,31" concept="14" />
       <node id="4023783813281576099" at="43,31,44,21" concept="14" />
       <node id="6062668769034856123" at="45,53,46,49" concept="13" />
       <node id="6062668769034856129" at="47,7,48,18" concept="13" />
-      <node id="4023783813282902238" at="50,92,51,105" concept="13" />
+      <node id="4023783813282902238" at="50,92,51,103" concept="13" />
       <node id="6062668769034856010" at="57,133,58,78" concept="12" />
       <node id="6062668769034856019" at="59,27,60,72" concept="13" />
-      <node id="5740494279800538379" at="61,7,62,71" concept="13" />
+      <node id="5740494279800538379" at="61,7,62,78" concept="13" />
       <node id="6062668769034856041" at="65,55,66,41" concept="13" />
       <node id="6062668769034856048" at="67,7,68,78" concept="12" />
       <node id="6062668769034856057" at="69,27,70,128" concept="13" />
@@ -1684,10 +1699,10 @@
       <node id="6062668769034856082" at="77,7,78,18" concept="13" />
       <node id="4023783813282945609" at="80,92,81,78" concept="12" />
       <node id="4023783813282951990" at="82,27,83,21" concept="13" />
-      <node id="4023783813282926330" at="84,7,85,103" concept="13" />
+      <node id="4023783813282926330" at="84,7,85,110" concept="13" />
       <node id="6062668769034855930" at="91,133,92,74" concept="12" />
       <node id="6062668769034855939" at="93,26,94,72" concept="13" />
-      <node id="5740494279800576928" at="95,7,96,69" concept="13" />
+      <node id="5740494279800576928" at="95,7,96,76" concept="13" />
       <node id="6062668769034855961" at="100,54,101,40" concept="13" />
       <node id="6062668769034855968" at="102,7,103,74" concept="12" />
       <node id="6062668769034855977" at="104,26,105,90" concept="13" />
@@ -1697,7 +1712,7 @@
       <node id="6062668769034856000" at="113,7,114,18" concept="13" />
       <node id="4023783813282973838" at="117,92,118,74" concept="12" />
       <node id="4023783813282973847" at="119,26,120,21" concept="13" />
-      <node id="4023783813282982657" at="121,7,122,101" concept="13" />
+      <node id="4023783813282982657" at="121,7,122,108" concept="13" />
       <node id="6062668769034855847" at="128,133,129,81" concept="13" />
       <node id="6062668769034855864" at="132,93,133,40" concept="13" />
       <node id="6062668769034855886" at="136,62,137,74" concept="12" />
@@ -1778,9 +1793,9 @@
       <node id="6062668769034855855" at="131,0,155,0" concept="11" trace="check#(Ljetbrains/mps/execution/api/settings/IPersistentConfiguration;Ljetbrains/mps/project/MPSProject;)Ljava/lang/String;" />
       <node id="6062668769034855772" at="165,0,190,0" concept="11" trace="check#(Ljetbrains/mps/execution/api/settings/IPersistentConfiguration;Ljetbrains/mps/project/MPSProject;)Ljava/lang/String;" />
       <scope id="6062668769034855756" at="197,27,197,27" />
-      <scope id="6062668769034856091" at="38,133,39,73" />
+      <scope id="6062668769034856091" at="38,133,39,71" />
       <scope id="6062668769034856122" at="45,53,46,49" />
-      <scope id="4023783813282010860" at="50,92,51,105" />
+      <scope id="4023783813282010860" at="50,92,51,103" />
       <scope id="6062668769034856018" at="59,27,60,72" />
       <scope id="6062668769034856040" at="65,55,66,41" />
       <scope id="6062668769034856056" at="69,27,70,128" />
@@ -1838,16 +1853,16 @@
       </scope>
       <scope id="6062668769034855588" at="214,77,218,53" />
       <scope id="6062668769034855622" at="222,81,226,54" />
-      <scope id="6062668769034856009" at="57,133,62,71">
+      <scope id="6062668769034856009" at="57,133,62,78">
         <var name="module" id="6062668769034856011" />
       </scope>
-      <scope id="4023783813282924278" at="80,92,85,103">
+      <scope id="4023783813282924278" at="80,92,85,110">
         <var name="module" id="4023783813282945610" />
       </scope>
-      <scope id="6062668769034855929" at="91,133,96,69">
+      <scope id="6062668769034855929" at="91,133,96,76">
         <var name="model" id="6062668769034855931" />
       </scope>
-      <scope id="4023783813282968587" at="117,92,122,101">
+      <scope id="4023783813282968587" at="117,92,122,108">
         <var name="model" id="4023783813282973839" />
       </scope>
       <scope id="8617997997504904469" at="140,35,145,15">

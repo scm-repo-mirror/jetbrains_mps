@@ -4,45 +4,48 @@ package jetbrains.mps.baseLanguage.unitTest.execution.settings;
 
 import jetbrains.mps.project.Project;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import java.util.List;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
+import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
+import jetbrains.mps.progress.EmptyProgressMonitor;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.util.SubProgressKind;
 
 public class ProjectTestCollector extends TestCollector {
   private final Project myProject;
 
-  public ProjectTestCollector(@NotNull Project project, @Nullable ProgressMonitor monitor, boolean breakOnFirstFound) {
-    super(monitor, breakOnFirstFound);
+  public ProjectTestCollector(@NotNull Project project) {
     myProject = project;
   }
 
   @NotNull
   @Override
-  public List<ITestNodeWrapper> collect() {
+  public List<ITestNodeWrapper> collect(ProgressMonitor monitor, boolean breakOnFirstFound) {
     List<ITestNodeWrapper> result = ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
 
+    if (monitor == null) {
+      monitor = new EmptyProgressMonitor();
+    }
+
     List<SModule> projectModules = myProject.getProjectModules();
-    myMonitor.start("Fetching tests from modules", 2 * projectModules.size());
+    monitor.start("Fetching tests from modules", 2 * projectModules.size());
 
     try {
       for (SModule module : ListSequence.fromList(projectModules)) {
-        if (myMonitor.isCanceled()) {
+        if (monitor.isCanceled()) {
           return ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
         }
-        List<ITestNodeWrapper> moduleTests = new ModuleTestCollector(module, myMonitor.subTask(1, SubProgressKind.REPLACING), myBreakOnFirstFound).collect();
+        List<ITestNodeWrapper> moduleTests = new ModuleTestCollector(myProject, module).collect(monitor.subTask(1, SubProgressKind.REPLACING), breakOnFirstFound);
         ListSequence.fromList(result).addSequence(ListSequence.fromList(moduleTests));
-        myMonitor.advance(1);
-        if (myBreakOnFirstFound && ListSequence.fromList(moduleTests).isNotEmpty()) {
+        monitor.advance(1);
+        if (breakOnFirstFound && ListSequence.fromList(moduleTests).isNotEmpty()) {
           return result;
         }
       }
     } finally {
-      myMonitor.done();
+      monitor.done();
     }
     return result;
   }

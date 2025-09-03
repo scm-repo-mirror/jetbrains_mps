@@ -36,7 +36,7 @@ public enum JUnitRunTypes implements JUnitRunType {
   PROJECT() {
     @Override
     public List<ITestNodeWrapper> doCollect(JUnitSettings_Configuration configuration, MPSProject project, ProgressMonitor monitor) {
-      return new ProjectTestCollector(project, monitor, false).collect();
+      return new ProjectTestCollector(project).collect(monitor, false);
     }
     @Override
     public String check(JUnitSettings_Configuration configuration, MPSProject project) {
@@ -48,7 +48,7 @@ public enum JUnitRunTypes implements JUnitRunType {
       return null;
     }
     public boolean hasTests(JUnitSettings_Configuration configuration, MPSProject project) {
-      return ListSequence.fromList(new ProjectTestCollector(project, null, true).collect()).isNotEmpty();
+      return ListSequence.fromList(new ProjectTestCollector(project).collect(null, true)).isNotEmpty();
     }
 
   },
@@ -59,7 +59,7 @@ public enum JUnitRunTypes implements JUnitRunType {
       if (module == null) {
         return ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
       }
-      return new ModuleTestCollector(module, monitor, false).collect();
+      return new ModuleTestCollector(project, module).collect(monitor, false);
     }
     public String check(JUnitSettings_Configuration configuration, MPSProject project) {
       if (configuration.getModuleReference() == null) {
@@ -82,7 +82,7 @@ public enum JUnitRunTypes implements JUnitRunType {
       if (module == null) {
         return false;
       }
-      return ListSequence.fromList(new ModuleTestCollector(module, null, true).collect()).isNotEmpty();
+      return ListSequence.fromList(new ModuleTestCollector(project, module).collect(null, true)).isNotEmpty();
     }
 
   },
@@ -93,7 +93,7 @@ public enum JUnitRunTypes implements JUnitRunType {
       if (model == null) {
         return ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
       }
-      return new ModelTestCollector(model, monitor, false).collect();
+      return new ModelTestCollector(project, model).collect(monitor, false);
     }
     @Override
     public String check(JUnitSettings_Configuration configuration, MPSProject project) {
@@ -119,7 +119,7 @@ public enum JUnitRunTypes implements JUnitRunType {
       if (model == null) {
         return false;
       }
-      return ListSequence.fromList(new ModelTestCollector(model, null, true).collect()).isNotEmpty();
+      return ListSequence.fromList(new ModelTestCollector(project, model).collect(null, true)).isNotEmpty();
     }
 
   },
