@@ -321,6 +321,17 @@
                   </node>
                 </node>
               </node>
+              <node concept="2pJPED" id="ZaK_3nGEyf" role="36be1Z">
+                <ref role="2pJxaS" to="s7om:3nFPImNgRk9" resolve="ClassPathItem" />
+                <node concept="2pJxcG" id="ZaK_3nGEyg" role="2pJxcM">
+                  <ref role="2pJxcJ" to="s7om:3nFPImNgRka" resolve="path" />
+                  <node concept="WxPPo" id="ZaK_3nGEyh" role="28ntcv">
+                    <node concept="Xl_RD" id="ZaK_3nGEyi" role="WxPPp">
+                      <property role="Xl_RC" value="lib/rhino.jar" />
+                    </node>
+                  </node>
+                </node>
+              </node>
               <node concept="2pJPED" id="3rleFKvpGXQ" role="36be1Z">
                 <ref role="2pJxaS" to="s7om:3nFPImNgRk9" resolve="ClassPathItem" />
                 <node concept="2pJxcG" id="3rleFKvpGXR" role="2pJxcM">

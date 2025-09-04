@@ -36,6 +36,7 @@
         "javac2.jar",
         "jaxb-api.jar",
         "jaxb-runtime.jar",
+        "rhino.jar",
         "jetbrains-annotations.jar",
         "jps-model.jar",
         "junit4.jar",
