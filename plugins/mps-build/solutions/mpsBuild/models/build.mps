@@ -42885,6 +42885,10 @@
     <property role="3GE5qa" value="ide.data" />
     <property role="26EafI" value="bin" />
     <ref role="1_kbm$" node="6Iq8148fw_a" resolve="JetBrains MPS ${version.major}.${version.minor}" />
+    <node concept="26Ea6D" id="1t_0ZyxyXAT" role="26FZ21">
+      <property role="2eq24a" value="true" />
+      <property role="26Ea6C" value="MPS no longer uses 32-bit version of mps.vmoptions" />
+    </node>
     <node concept="26Ea6D" id="6KekG3H$kFM" role="2hID6k">
       <property role="26Ea6C" value="Common IntelliJ Platform options:" />
       <property role="2eq24a" value="true" />
@@ -42975,10 +42979,6 @@
       <property role="2eq24a" value="true" />
       <property role="26Ea6C" value="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5071" />
     </node>
-    <node concept="26Ea6D" id="1t_0ZyxyXAT" role="26FZ21">
-      <property role="2eq24a" value="true" />
-      <property role="26Ea6C" value="MPS no longer uses 32-bit version of mps.vmoptions" />
-    </node>
     <node concept="26EafG" id="4nX__hM7qzi" role="26Ea7d">
       <property role="26EafJ" value="lib/annotations.jar" />
     </node>
@@ -42991,14 +42991,8 @@
     <node concept="26EafG" id="9nERkLKyGf" role="26Ea7d">
       <property role="26EafJ" value="lib/branding.jar" />
     </node>
-    <node concept="26EafG" id="4nX__hM7qzB" role="26Ea7d">
-      <property role="26EafJ" value="lib/byte-buddy-agent.jar" />
-    </node>
     <node concept="26EafG" id="4nX__hM7qzK" role="26Ea7d">
       <property role="26EafJ" value="lib/eclipse.jar" />
-    </node>
-    <node concept="26EafG" id="4nX__hM7qzU" role="26Ea7d">
-      <property role="26EafJ" value="lib/error-prone-annotations.jar" />
     </node>
     <node concept="26EafG" id="4nX__hM7q$5" role="26Ea7d">
       <property role="26EafJ" value="lib/external-system-rt.jar" />
@@ -43012,20 +43006,8 @@
     <node concept="26EafG" id="4nX__hM7q$G" role="26Ea7d">
       <property role="26EafJ" value="lib/groovy.jar" />
     </node>
-    <node concept="26EafG" id="9nERkLKyJr" role="26Ea7d">
-      <property role="26EafJ" value="lib/grpc.jar" />
-    </node>
     <node concept="26EafG" id="4nX__hM7q$V" role="26Ea7d">
       <property role="26EafJ" value="lib/idea_rt.jar" />
-    </node>
-    <node concept="26EafG" id="4nX__hM7q_b" role="26Ea7d">
-      <property role="26EafJ" value="lib/intellij-coverage-agent-1.0.723.jar" />
-    </node>
-    <node concept="26EafG" id="4nX__hM7q_s" role="26Ea7d">
-      <property role="26EafJ" value="lib/intellij-test-discovery.jar" />
-    </node>
-    <node concept="26EafG" id="47XxXqF8myE" role="26Ea7d">
-      <property role="26EafJ" value="lib/java-frontback.jar" />
     </node>
     <node concept="26EafG" id="4nX__hM7q_I" role="26Ea7d">
       <property role="26EafJ" value="lib/java-impl.jar" />
@@ -43033,14 +43015,20 @@
     <node concept="26EafG" id="4nX__hM7qA1" role="26Ea7d">
       <property role="26EafJ" value="lib/javac2.jar" />
     </node>
+    <node concept="26EafG" id="ZaK_3oczXD" role="26Ea7d">
+      <property role="26EafJ" value="lib/javax.activation.jar" />
+    </node>
+    <node concept="26EafG" id="ZaK_3oczYJ" role="26Ea7d">
+      <property role="26EafJ" value="lib/javax.annotation-api.jar" />
+    </node>
     <node concept="26EafG" id="1RKeUBbef6i" role="26Ea7d">
       <property role="26EafJ" value="lib/jaxb-api.jar" />
     </node>
     <node concept="26EafG" id="1RKeUBbefdc" role="26Ea7d">
       <property role="26EafJ" value="lib/jaxb-runtime.jar" />
     </node>
-    <node concept="26EafG" id="4nX__hM7qAl" role="26Ea7d">
-      <property role="26EafJ" value="lib/jetbrains-annotations.jar" />
+    <node concept="26EafG" id="ZaK_3nJzF8" role="26Ea7d">
+      <property role="26EafJ" value="lib/rhino.jar" />
     </node>
     <node concept="26EafG" id="4nX__hM7qAE" role="26Ea7d">
       <property role="26EafJ" value="lib/jps-model.jar" />
@@ -43054,11 +43042,17 @@
     <node concept="26EafG" id="4nX__hM7qCy" role="26Ea7d">
       <property role="26EafJ" value="lib/kotlin-metadata-jvm-2.1.0.jar" />
     </node>
+    <node concept="26EafG" id="ZaK_3oc$Bl" role="26Ea7d">
+      <property role="26EafJ" value="lib/kotlinx-coroutines-slf4j-1.10.1-intellij.jar" />
+    </node>
     <node concept="26EafG" id="3vFdno4LV98" role="26Ea7d">
       <property role="26EafJ" value="lib/kotlinx-metadata-klib-0.0.6.jar" />
     </node>
     <node concept="26EafG" id="9nERkLKyHi" role="26Ea7d">
       <property role="26EafJ" value="lib/lib.jar" />
+    </node>
+    <node concept="26EafG" id="ZaK_3oc$Oo" role="26Ea7d">
+      <property role="26EafJ" value="lib/maven-resolver-provider.jar" />
     </node>
     <node concept="26EafG" id="4nX__hM7qCX" role="26Ea7d">
       <property role="26EafJ" value="lib/mps-annotations.jar" />
@@ -43192,11 +43186,11 @@
     <node concept="26EafG" id="44nat7ZsP5s" role="26Ea7d">
       <property role="26EafJ" value="lib/trove.jar" />
     </node>
-    <node concept="26EafG" id="4nX__hM7qVZ" role="26Ea7d">
-      <property role="26EafJ" value="lib/util.jar" />
-    </node>
     <node concept="26EafG" id="3_YjmvD08yb" role="26Ea7d">
       <property role="26EafJ" value="lib/util-8.jar" />
+    </node>
+    <node concept="26EafG" id="4nX__hM7qVZ" role="26Ea7d">
+      <property role="26EafJ" value="lib/util.jar" />
     </node>
     <node concept="26EafG" id="4nX__hM7qWS" role="26Ea7d">
       <property role="26EafJ" value="lib/util_rt.jar" />
