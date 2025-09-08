@@ -36,7 +36,9 @@ public class MPSProjectRule implements UiDataRule {
 
   @Override
   public void uiDataSnapshot(@NotNull DataSink dataSink, @NotNull DataSnapshot dataSnapshot) {
-    // XXX fwiw, lazyValue didn't work out in FrameRule (didn't ever get into the method to get value), perhaps, need to change here as well.
+    // lazyValue alone doesn't work, as in fact it is to initialize BGT_DATA_PROVIDER (surprise)
+    dataSink.set(MPSCommonDataKeys.MPS_PROJECT, deduceFromIJProject(dataSnapshot));
+    // however, keep lazyValue in hope it helps to get MPS project in actions with BGT update thread
     dataSink.lazyValue(MPSCommonDataKeys.MPS_PROJECT, this::deduceFromIJProject);
   }
 
