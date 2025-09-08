@@ -1260,6 +1260,16 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbF" id="3o81WJmrlXB" role="3cqZAp">
+          <node concept="d57v9" id="3o81WJmrlXC" role="3clFbG">
+            <node concept="37vLTw" id="3o81WJmrlXD" role="37vLTJ">
+              <ref role="3cqZAo" node="4GjpmeeeqXy" resolve="vmOptions" />
+            </node>
+            <node concept="Xl_RD" id="3o81WJmrlXE" role="37vLTx">
+              <property role="Xl_RC" value=" --add-opens=java.base/jdk.internal.ref=ALL-UNNAMED" />
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs8" id="4rbJdZOYJub" role="3cqZAp">
           <node concept="3cpWsn" id="4rbJdZOYJuc" role="3cpWs9">
             <property role="TrG5h" value="javaRunParametersTuple" />

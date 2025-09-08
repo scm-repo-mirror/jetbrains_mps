@@ -1555,6 +1555,9 @@
         <node concept="Xl_RD" id="1$mDfZ_AvMs" role="2BsfMF">
           <property role="Xl_RC" value="java.base/java.util.concurrent.atomic" />
         </node>
+        <node concept="Xl_RD" id="2ogclj_C7XM" role="2BsfMF">
+          <property role="Xl_RC" value="java.base/jdk.internal.ref" />
+        </node>
         <node concept="Xl_RD" id="1$mDfZ_AvMC" role="2BsfMF">
           <property role="Xl_RC" value="java.base/jdk.internal.vm" />
         </node>

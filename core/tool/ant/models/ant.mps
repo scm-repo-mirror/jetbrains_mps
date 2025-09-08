@@ -1485,14 +1485,14 @@
           <node concept="3clFbS" id="3ufQioQQtgf" role="3clFbx">
             <node concept="3cpWs6" id="3ufQioQQtgg" role="3cqZAp">
               <node concept="2OqwBi" id="3ufQioQQtgh" role="3cqZAk">
+                <node concept="liA8E" id="3ufQioQQtgm" role="2OqNvi">
+                  <ref role="37wK5l" node="3ufQioQQtg8" resolve="getMergedArgs" />
+                </node>
                 <node concept="1rXfSq" id="4hiugqyyZZO" role="2Oq$k0">
                   <ref role="37wK5l" to="rg95:~DataType.getCheckedRef(java.lang.Class)" resolve="getCheckedRef" />
                   <node concept="3VsKOn" id="1hBlbKBN7Ra" role="37wK5m">
                     <ref role="3VsUkX" node="3ufQioQQtf7" resolve="JvmArgs" />
                   </node>
-                </node>
-                <node concept="liA8E" id="3ufQioQQtgm" role="2OqNvi">
-                  <ref role="37wK5l" node="3ufQioQQtg8" resolve="getMergedArgs" />
                 </node>
               </node>
             </node>
@@ -1808,9 +1808,6 @@
       <property role="TrG5h" value="myJvmArgs" />
       <property role="34CwA1" value="false" />
       <property role="3TUv4t" value="true" />
-      <node concept="3uibUv" id="1hBlbKBTOrj" role="1tU5fm">
-        <ref role="3uigEE" node="3ufQioQQtf7" resolve="JvmArgs" />
-      </node>
       <node concept="3Tm6S6" id="3ufQioQQtju" role="1B3o_S" />
       <node concept="2ShNRf" id="1hBlbKBU6Be" role="33vP2m">
         <node concept="1pGfFk" id="1hBlbKBUdnj" role="2ShVmc">
@@ -1820,6 +1817,9 @@
             <property role="3clFbU" value="true" />
           </node>
         </node>
+      </node>
+      <node concept="3uibUv" id="1hBlbKBTOrj" role="1tU5fm">
+        <ref role="3uigEE" node="3ufQioQQtf7" resolve="JvmArgs" />
       </node>
     </node>
     <node concept="312cEg" id="4fMXdiUKqlq" role="jymVt">
@@ -4610,6 +4610,9 @@
                       <node concept="Xl_RD" id="1$mDfZ_AvMs" role="2BsfMF">
                         <property role="Xl_RC" value="java.base/java.util.concurrent.atomic" />
                       </node>
+                      <node concept="Xl_RD" id="4RTpV3VB8f4" role="2BsfMF">
+                        <property role="Xl_RC" value="java.base/jdk.internal.ref" />
+                      </node>
                       <node concept="Xl_RD" id="1$mDfZ_AvMC" role="2BsfMF">
                         <property role="Xl_RC" value="java.base/jdk.internal.vm" />
                       </node>
@@ -5553,6 +5556,9 @@
         </node>
         <node concept="3cpWs6" id="3QFNug6BUv1" role="3cqZAp">
           <node concept="2OqwBi" id="3QFNug6C7$B" role="3cqZAk">
+            <node concept="liA8E" id="3QFNug6Ccu0" role="2OqNvi">
+              <ref role="37wK5l" to="t6h5:~Constructor.newInstance(java.lang.Object...)" resolve="newInstance" />
+            </node>
             <node concept="2OqwBi" id="1hBlbKBYBNz" role="2Oq$k0">
               <node concept="37vLTw" id="3QFNug6C3p4" role="2Oq$k0">
                 <ref role="3cqZAo" node="3QFNug6_BrL" resolve="workerClass" />
@@ -5560,9 +5566,6 @@
               <node concept="liA8E" id="1hBlbKBYNFH" role="2OqNvi">
                 <ref role="37wK5l" to="wyt6:~Class.getDeclaredConstructor(java.lang.Class...)" resolve="getDeclaredConstructor" />
               </node>
-            </node>
-            <node concept="liA8E" id="3QFNug6Ccu0" role="2OqNvi">
-              <ref role="37wK5l" to="t6h5:~Constructor.newInstance(java.lang.Object...)" resolve="newInstance" />
             </node>
           </node>
         </node>
@@ -6548,9 +6551,6 @@
           </node>
         </node>
         <node concept="1gVbGN" id="4yJL2wVNmT0" role="3cqZAp">
-          <node concept="Xl_RD" id="4yJL2wVNmSZ" role="1gVpfI">
-            <property role="Xl_RC" value="MPS home folder is the folder where build.txt file is located. Please correct mpshome attribute, mps_home/mps.home property, depending on which was set" />
-          </node>
           <node concept="2OqwBi" id="4yJL2wVNGgN" role="1gVkn0">
             <node concept="2ShNRf" id="4yJL2wVN_P6" role="2Oq$k0">
               <node concept="1pGfFk" id="4yJL2wVN_Pq" role="2ShVmc">
@@ -6566,6 +6566,9 @@
             <node concept="liA8E" id="4yJL2wVNGgO" role="2OqNvi">
               <ref role="37wK5l" to="guwi:~File.exists()" resolve="exists" />
             </node>
+          </node>
+          <node concept="Xl_RD" id="4yJL2wVNmSZ" role="1gVpfI">
+            <property role="Xl_RC" value="MPS home folder is the folder where build.txt file is located. Please correct mpshome attribute, mps_home/mps.home property, depending on which was set" />
           </node>
         </node>
         <node concept="3clFbH" id="4OPNMy29iTu" role="3cqZAp" />

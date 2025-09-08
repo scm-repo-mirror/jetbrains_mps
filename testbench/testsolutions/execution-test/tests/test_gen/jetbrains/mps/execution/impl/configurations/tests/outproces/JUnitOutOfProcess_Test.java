@@ -150,6 +150,7 @@ public class JUnitOutOfProcess_Test extends BaseTransformationTest {
       Project ideaProject = ((MPSProject) myProject).getProject();
       String vmOptions = "-Djna.boot.library.path=\"" + ideaProject.getBasePath() + "/lib/jna\"";
       vmOptions += " -Dintellij.platform.load.app.info.from.resources=true";
+      vmOptions += " --add-opens=java.base/jdk.internal.ref=ALL-UNNAMED";
       JavaRunParameters javaRunParametersTuple = new JavaRunParameters("", vmOptions, "", ".", false);
       JavaRunParameters_Configuration javaRunParams = new JavaRunParameters_Configuration(ideaProject);
       javaRunParams.setJavaParameters(javaRunParametersTuple);
