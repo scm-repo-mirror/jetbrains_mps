@@ -6,6 +6,7 @@ import jetbrains.mps.annotations.GeneratedClass;
 import org.apache.tools.ant.types.DataType;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 
 @GeneratedClass(nodeId = "4003657351907890119", model = "r:7b2ffdb7-2bfc-4488-8c0c-ee8fe93fe3c1(jetbrains.mps.build.ant)")
@@ -17,11 +18,12 @@ public final class JvmArgs extends DataType {
     // although I feel withDefaults == 'false' is right, use 'true' to mimic current behavior, just in case it matters
   }
 
-  public JvmArgs(boolean withDefaults) {
+  public JvmArgs(boolean withDefaults, Arg... otherDefaults) {
     if (withDefaults) {
       myArgs.add(new Arg("-Xmx512m", "-Xmx"));
       myArgs.add(new Arg("-XX:+HeapDumpOnOutOfMemoryError", "HeapDumpOnOutOfMemoryError"));
     }
+    myArgs.addAll(Arrays.asList(otherDefaults));
   }
 
   public void addConfiguredArg(Arg arg) {

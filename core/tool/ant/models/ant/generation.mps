@@ -444,6 +444,97 @@
             <property role="Xl_RC" value="jetbrains.mps.tool.builder.make.GeneratorWorker" />
           </node>
         </node>
+        <node concept="3SKdUt" id="1hBlbKC8hjA" role="3cqZAp">
+          <node concept="1PaTwC" id="1hBlbKC8hjB" role="1aUNEU">
+            <node concept="3oM_SD" id="1hBlbKC8hjC" role="1PaTwD">
+              <property role="3oM_SC" value="as" />
+            </node>
+            <node concept="3oM_SD" id="1hBlbKC8huZ" role="1PaTwD">
+              <property role="3oM_SC" value="long" />
+            </node>
+            <node concept="3oM_SD" id="1hBlbKC8hv_" role="1PaTwD">
+              <property role="3oM_SC" value="as" />
+            </node>
+            <node concept="3oM_SD" id="1hBlbKC8hvQ" role="1PaTwD">
+              <property role="3oM_SC" value="we" />
+            </node>
+            <node concept="3oM_SD" id="1hBlbKC8hw7" role="1PaTwD">
+              <property role="3oM_SC" value="don't" />
+            </node>
+            <node concept="3oM_SD" id="1hBlbKC8hw8" role="1PaTwD">
+              <property role="3oM_SC" value="use" />
+            </node>
+            <node concept="3oM_SD" id="1hBlbKC8hwp" role="1PaTwD">
+              <property role="3oM_SC" value="setOpenPackage(true)," />
+            </node>
+            <node concept="3oM_SD" id="1hBlbKC8muD" role="1PaTwD">
+              <property role="3oM_SC" value="keep" />
+            </node>
+            <node concept="3oM_SD" id="1hBlbKC8muU" role="1PaTwD">
+              <property role="3oM_SC" value="the" />
+            </node>
+            <node concept="3oM_SD" id="1hBlbKC8mxj" role="1PaTwD">
+              <property role="3oM_SC" value="restricted" />
+            </node>
+            <node concept="3oM_SD" id="1hBlbKC8muV" role="1PaTwD">
+              <property role="3oM_SC" value="list" />
+            </node>
+            <node concept="3oM_SD" id="1hBlbKC8mvc" role="1PaTwD">
+              <property role="3oM_SC" value="of" />
+            </node>
+            <node concept="3oM_SD" id="1hBlbKC8mx1" role="1PaTwD">
+              <property role="3oM_SC" value="packages" />
+            </node>
+            <node concept="3oM_SD" id="1hBlbKC8mxP" role="1PaTwD">
+              <property role="3oM_SC" value="here," />
+            </node>
+            <node concept="3oM_SD" id="1hBlbKC8mxQ" role="1PaTwD">
+              <property role="3oM_SC" value="yet" />
+            </node>
+            <node concept="3oM_SD" id="1hBlbKC8my7" role="1PaTwD">
+              <property role="3oM_SC" value="allow" />
+            </node>
+            <node concept="3oM_SD" id="1hBlbKC8my8" role="1PaTwD">
+              <property role="3oM_SC" value="clients" />
+            </node>
+            <node concept="3oM_SD" id="1hBlbKC8myT" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="1hBlbKC8myU" role="1PaTwD">
+              <property role="3oM_SC" value="supply" />
+            </node>
+            <node concept="3oM_SD" id="1hBlbKC8mzb" role="1PaTwD">
+              <property role="3oM_SC" value="their" />
+            </node>
+            <node concept="3oM_SD" id="1hBlbKC8mzs" role="1PaTwD">
+              <property role="3oM_SC" value="own" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="1hBlbKC8mKa" role="3cqZAp">
+          <node concept="1rXfSq" id="1hBlbKC8mK8" role="3clFbG">
+            <ref role="37wK5l" to="644x:3ufQioQQtns" resolve="addConfiguredJvmArgs" />
+            <node concept="2ShNRf" id="1hBlbKC8nag" role="37wK5m">
+              <node concept="1pGfFk" id="1hBlbKC8orL" role="2ShVmc">
+                <property role="373rjd" value="true" />
+                <ref role="37wK5l" to="644x:1hBlbKBX2QW" resolve="JvmArgs" />
+                <node concept="3clFbT" id="1hBlbKC8oCI" role="37wK5m" />
+                <node concept="2ShNRf" id="1hBlbKC8z3z" role="37wK5m">
+                  <node concept="1pGfFk" id="1hBlbKC8$2L" role="2ShVmc">
+                    <property role="373rjd" value="true" />
+                    <ref role="37wK5l" to="644x:1hBlbKBNftw" resolve="Arg" />
+                    <node concept="Xl_RD" id="1hBlbKC8$9V" role="37wK5m">
+                      <property role="Xl_RC" value="--add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED" />
+                    </node>
+                    <node concept="Xl_RD" id="1hBlbKC8$nV" role="37wK5m">
+                      <property role="Xl_RC" value="--add-opens" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
       </node>
       <node concept="3Tm1VV" id="4VsuddjqnLt" role="1B3o_S" />
     </node>

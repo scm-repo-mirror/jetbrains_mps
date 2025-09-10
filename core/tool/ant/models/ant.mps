@@ -1308,10 +1308,35 @@
             <ref role="3cqZAo" node="1hBlbKBX9Z4" resolve="withDefaults" />
           </node>
         </node>
+        <node concept="3clFbF" id="1hBlbKC8tHK" role="3cqZAp">
+          <node concept="2OqwBi" id="1hBlbKC8uLf" role="3clFbG">
+            <node concept="37vLTw" id="1hBlbKC8tHI" role="2Oq$k0">
+              <ref role="3cqZAo" node="3ufQioQQtfa" resolve="myArgs" />
+            </node>
+            <node concept="liA8E" id="1hBlbKC8wxR" role="2OqNvi">
+              <ref role="37wK5l" to="33ny:~List.addAll(java.util.Collection)" resolve="addAll" />
+              <node concept="2YIFZM" id="1hBlbKC8xHJ" role="37wK5m">
+                <ref role="37wK5l" to="33ny:~Arrays.asList(java.lang.Object...)" resolve="asList" />
+                <ref role="1Pybhc" to="33ny:~Arrays" resolve="Arrays" />
+                <node concept="37vLTw" id="1hBlbKC8y7B" role="37wK5m">
+                  <ref role="3cqZAo" node="1hBlbKC8sUu" resolve="otherDefaults" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
       </node>
       <node concept="37vLTG" id="1hBlbKBX9Z4" role="3clF46">
         <property role="TrG5h" value="withDefaults" />
         <node concept="10P_77" id="1hBlbKBX9Z3" role="1tU5fm" />
+      </node>
+      <node concept="37vLTG" id="1hBlbKC8sUu" role="3clF46">
+        <property role="TrG5h" value="otherDefaults" />
+        <node concept="8X2XB" id="1hBlbKC8thL" role="1tU5fm">
+          <node concept="3uibUv" id="1hBlbKC8tfv" role="8Xvag">
+            <ref role="3uigEE" node="3ufQioQQsm3" resolve="Arg" />
+          </node>
+        </node>
       </node>
     </node>
     <node concept="2tJIrI" id="1hBlbKBWYSn" role="jymVt" />

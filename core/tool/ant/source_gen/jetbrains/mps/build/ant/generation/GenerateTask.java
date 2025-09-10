@@ -5,6 +5,8 @@ package jetbrains.mps.build.ant.generation;
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.build.ant.MpsLoadTask;
 import jetbrains.mps.build.ant.GeneratorSettings;
+import jetbrains.mps.build.ant.JvmArgs;
+import jetbrains.mps.build.ant.Arg;
 import jetbrains.mps.build.ant.ModuleJarDataType;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -23,6 +25,8 @@ public class GenerateTask extends MpsLoadTask {
 
   public GenerateTask() {
     super("jetbrains.mps.tool.builder.make.GeneratorWorker");
+    // as long as we don't use setOpenPackage(true), keep the restricted list of packages here, yet allow clients to supply their own
+    addConfiguredJvmArgs(new JvmArgs(false, new Arg("--add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED", "--add-opens")));
   }
 
   public void addConfiguredChunk(Chunk chunk) {
