@@ -326,6 +326,10 @@ public class PluginLoaderRegistry implements Disposable {
    */
   private void update() {
     if (myUpdateIsScheduledInEDT.compareAndSet(false, true)) {
+
+      // logging more details to catch IJPL-205891
+      LOG.info("update. Current ThreadContext: " + ThreadContext.currentThreadContext());
+
       // doesn't make sense to ask PI from pooled thread, the only chance to get not null, imo, is here.
       final ProgressIndicator globalProgressIndicator = ProgressManager.getGlobalProgressIndicator();
       // no idea which executor/thread pool to use, e.g. seen uses of AppExecutorUtil.getAppExecutorService()
@@ -370,6 +374,7 @@ public class PluginLoaderRegistry implements Disposable {
     assert (!ApplicationManager.getApplication().isReadAccessAllowed());
     assert !ThreadUtils.isInEDT(); // we are in EDT iff we have 'write'
 
+
     LOG.trace("running task with old/new indicator");
     UpdatingTask task = new UpdatingTask(null);
     if (!isAppLoaded()) {
@@ -389,6 +394,11 @@ public class PluginLoaderRegistry implements Disposable {
       // usually this section is called after rebuild/make
       // we have no indicator -- lets create one
       LOG.trace("queued with the new PI");
+      // logging more details to catch IJPL-205891
+      LOG.info("run task @" + System.identityHashCode(task) +
+               " Current ThreadContext: " + ThreadContext.currentThreadContext() +
+               " Application.isTopmostReadAccessAllowed=" + ApplicationManager.getApplication().isTopmostReadAccessAllowed() +
+               " Application.isReadAccessAllowed=" + ApplicationManager.getApplication().isReadAccessAllowed());
       task.queue();
     }
   }
@@ -447,6 +457,11 @@ public class PluginLoaderRegistry implements Disposable {
 //          } catch (InterruptedException e) {
 //            e.printStackTrace();
 //          }
+
+          // logging more details to catch IJPL-205891
+          LOG.info("calling invokeAndWait @" + System.identityHashCode(this) +
+                   " Current ThreadContext: " + ThreadContext.currentThreadContext());
+
           ApplicationManager.getApplication().invokeAndWait(() -> update(new EmptyProgressMonitor()), modalityState);
         } catch (IllegalStateException ise) {
           // Collect additional diagnostics information for MPS-38737
