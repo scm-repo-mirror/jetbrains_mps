@@ -43,6 +43,7 @@ public class ProjectTest {
   }
 
   public static void initTestEnvironment() throws InvocationTargetException, InterruptedException {
+    // XXX I wonder if we need to configure loggers (now that MpsEnvironment doesn't initialize logs) or we're fine with defaults
     ourEnvironment = new MpsEnvironment(EnvironmentConfig.defaultConfig().withKotlinPlugin().withTestModeOn());
     ourEnvironment.init();
     ourContextProject = ourEnvironment.createProject(new FromProjectPathProjectStrategy());

@@ -65,11 +65,6 @@ public final class IdeaEnvironment extends EnvironmentBase {
 
   private Object myIdeaApplication;
 
-  static {
-    // initialize before ij
-    EnvironmentBase.initializeLog();
-  }
-
   public IdeaEnvironment(@NotNull EnvironmentConfig config) {
     super(config);
     System.setProperty(PlatformUtils.PLATFORM_PREFIX_KEY, "MPS");
@@ -91,8 +86,10 @@ public final class IdeaEnvironment extends EnvironmentBase {
       }
     }
 
-    // fixme IJ must allow to use our own logging initialization
-    // FIXME why do I care to initialize again once IDEA did its own log configuration?
+    // FIXME IJ doesn't allow to use our own logging initialization.
+    //      to trick it into using our configuration, we initialize one prior to IdeaEnviroment init
+    //      so that Logger instances get appropriate level assigned to them. It's bit more tricky with handlers
+    //      but at least we could get MPS messages into MPS-own log (instead of IDEA's idea.log)
 
     MPSCoreComponents coreComponents = getMPSCoreComponents();
     super.init(coreComponents.getPlatform());

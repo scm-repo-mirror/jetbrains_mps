@@ -18,6 +18,7 @@ import jetbrains.mps.internal.collections.runtime.IMapping;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.tool.common.PluginData;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.core.tool.environment.util.LogInitializer;
 import java.util.logging.Logger;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.components.ComponentHost;
@@ -131,9 +132,9 @@ public abstract class WorkerBase {
 
   public void workFromMain() {
     try {
-      // FIXME I don't like the way log initialization happens (from static{} blocks in MpsEnv/IdeaEnv)
-      //      I'd rather have it initialized here explicitly. However, seems too much to change now
-      //      to make sure log is ready before any code in EnvBase or Launcher uses it.
+      // First thing we do is get log initialized, just in case there are some assignments important for env startup code
+      // We used to initialize logs from static{} blocks in MpsEnv/IdeaEnv, and I find that approach much less predictable.
+      LogInitializer.init();
       Logger.getLogger("").setLevel(myWhatToDo.getLogLevel());
       myEnvironment = createEnvironment();
       try {

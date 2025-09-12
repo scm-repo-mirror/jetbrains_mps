@@ -92,6 +92,9 @@ public class TestMergeDialog {
       String line = new Scanner(System.in).nextLine();
       args = new String[]{((line == null ? null : line.trim()))};
     }
+    // here, I don't care to initialize MPS log, hope nobody's interested in custom MPS category handing for TestMergeDialog scenario.
+    // If necessary, not a rocket science to add LogInitializer.init() call here, and replace instances of j.u.bl.logging with plain Java code 
+    // (to avoid static LOG field triggering intermediate Logger instantiations)
     IdeaEnvironment ENV = new IdeaEnvironment(EnvironmentConfig.defaultConfig().withTestModeOn());
     ENV.init();
     IconLoader.activate();

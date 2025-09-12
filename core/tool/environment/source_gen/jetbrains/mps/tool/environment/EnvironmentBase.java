@@ -34,7 +34,13 @@ public abstract class EnvironmentBase implements Environment {
   private ProjectContainer myProjectContainer;
   private ClassLoader myRootClassLoader = null;
 
+  /**
+   * 
+   * @deprecated this method has been replaced with explicit LogInitializer.init() call *BEFORE* any env get to get initialized.
+   */
+  @Deprecated(since = "2025.3", forRemoval = true)
   public static void initializeLog() {
+    System.err.println("Don't use this method, use LogInitializer directly, and only if your code truly need to manage log initialization (usually - no)");
     try {
       LogInitializer.init();
     } catch (Exception e) {

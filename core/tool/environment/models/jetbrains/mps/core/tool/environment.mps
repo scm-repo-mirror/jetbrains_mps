@@ -38,6 +38,7 @@
     <import index="82uw" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.function(JDK/)" />
     <import index="embf" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.jar(JDK/)" />
     <import index="w827" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.vfs.openapi(MPS.Core/)" />
+    <import index="wwqx" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.logging(MPS.Core/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -68,9 +69,14 @@
       </concept>
       <concept id="1188207840427" name="jetbrains.mps.baseLanguage.structure.AnnotationInstance" flags="nn" index="2AHcQZ">
         <reference id="1188208074048" name="annotation" index="2AI5Lk" />
+        <child id="1188214630783" name="value" index="2B76xF" />
       </concept>
       <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ngI" index="2AJDlI">
         <child id="1188208488637" name="annotation" index="2AJF6D" />
+      </concept>
+      <concept id="1188214545140" name="jetbrains.mps.baseLanguage.structure.AnnotationInstanceValue" flags="ng" index="2B6LJw">
+        <reference id="1188214555875" name="key" index="2B6OnR" />
+        <child id="1188214607812" name="value" index="2B70Vg" />
       </concept>
       <concept id="4678410916365116210" name="jetbrains.mps.baseLanguage.structure.DefaultModifier" flags="ng" index="2JFqV2" />
       <concept id="1154032098014" name="jetbrains.mps.baseLanguage.structure.AbstractLoopStatement" flags="nn" index="2LF5Ji">
@@ -269,9 +275,6 @@
         <child id="1163668934364" name="ifFalse" index="3K4GZi" />
       </concept>
       <concept id="1082113931046" name="jetbrains.mps.baseLanguage.structure.ContinueStatement" flags="nn" index="3N13vt" />
-      <concept id="1221737317277" name="jetbrains.mps.baseLanguage.structure.StaticInitializer" flags="lg" index="1Pe0a1">
-        <child id="1221737317278" name="statementList" index="1Pe0a2" />
-      </concept>
       <concept id="1208890769693" name="jetbrains.mps.baseLanguage.structure.ArrayLengthOperation" flags="nn" index="1Rwk04" />
       <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
         <child id="8356039341262087992" name="line" index="1aUNEU" />
@@ -317,6 +320,9 @@
       </concept>
       <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA">
         <child id="8970989240999019149" name="part" index="1dT_Ay" />
+      </concept>
+      <concept id="8465538089690331492" name="jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag" flags="ng" index="TZ5HI">
+        <child id="2667874559098216723" name="text" index="3HnX3l" />
       </concept>
       <concept id="2217234381367190443" name="jetbrains.mps.baseLanguage.javadoc.structure.SeeBlockDocTag" flags="ng" index="VUp57">
         <child id="2217234381367190458" name="reference" index="VUp5m" />
@@ -2235,17 +2241,6 @@
         <ref role="3uigEE" node="1ROuiHUyBT" resolve="PlatformPlugins" />
       </node>
     </node>
-    <node concept="2tJIrI" id="1ROuiHZhEc" role="jymVt" />
-    <node concept="1Pe0a1" id="2VDNdDcdQaX" role="jymVt">
-      <node concept="3clFbS" id="2VDNdDcdQaY" role="1Pe0a2">
-        <node concept="3clFbF" id="2VDNdDcdQsw" role="3cqZAp">
-          <node concept="2YIFZM" id="1lYeGr01i49" role="3clFbG">
-            <ref role="37wK5l" node="4Plof0GDw7T" resolve="initializeLog" />
-            <ref role="1Pybhc" node="3eUNqOk4feo" resolve="EnvironmentBase" />
-          </node>
-        </node>
-      </node>
-    </node>
     <node concept="2tJIrI" id="2VDNdDcdPEp" role="jymVt" />
     <node concept="3clFbW" id="6rx4kZDkRyV" role="jymVt">
       <node concept="3cqZAl" id="6rx4kZDkRz7" role="3clF45" />
@@ -2276,10 +2271,49 @@
       <property role="DiZV1" value="false" />
       <property role="2aFKle" value="false" />
       <node concept="3clFbS" id="3eUNqOk7hq1" role="3clF47">
-        <node concept="RRSsy" id="3jYQuSB37nz" role="3cqZAp">
-          <property role="RRSoG" value="h1akgim/info" />
-          <node concept="Xl_RD" id="5lulEoOd9oU" role="RRSoy">
-            <property role="Xl_RC" value="Creating MPS environment" />
+        <node concept="3SKdUt" id="107wlcQnGTx" role="3cqZAp">
+          <node concept="1PaTwC" id="107wlcQnGTy" role="1aUNEU">
+            <node concept="3oM_SD" id="107wlcQnGTz" role="1PaTwD">
+              <property role="3oM_SC" value="please" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnHp3" role="1PaTwD">
+              <property role="3oM_SC" value="don't" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnHpl" role="1PaTwD">
+              <property role="3oM_SC" value="use" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnHpm" role="1PaTwD">
+              <property role="3oM_SC" value="j.m.bl.logging" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnHqB" role="1PaTwD">
+              <property role="3oM_SC" value="language" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnHqS" role="1PaTwD">
+              <property role="3oM_SC" value="in" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnHqT" role="1PaTwD">
+              <property role="3oM_SC" value="this" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnHqU" role="1PaTwD">
+              <property role="3oM_SC" value="class" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="107wlcQnDOL" role="3cqZAp">
+          <node concept="2OqwBi" id="107wlcQnDOM" role="3clFbG">
+            <node concept="2YIFZM" id="107wlcQnDON" role="2Oq$k0">
+              <ref role="37wK5l" to="wwqx:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
+              <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
+              <node concept="1rXfSq" id="107wlcQnDOO" role="37wK5m">
+                <ref role="37wK5l" to="wyt6:~Object.getClass()" resolve="getClass" />
+              </node>
+            </node>
+            <node concept="liA8E" id="107wlcQnDOP" role="2OqNvi">
+              <ref role="37wK5l" to="wwqx:~Logger.info(java.lang.String)" resolve="info" />
+              <node concept="Xl_RD" id="5lulEoOd9oU" role="37wK5m">
+                <property role="Xl_RC" value="Creating MPS environment" />
+              </node>
+            </node>
           </node>
         </node>
         <node concept="3SKdUt" id="5KQbV2Rzfu$" role="3cqZAp">
@@ -2926,10 +2960,21 @@
             <ref role="37wK5l" node="6LlhC3WLEQ3" resolve="checkInitialized" />
           </node>
         </node>
-        <node concept="RRSsy" id="3jYQuSB37nD" role="3cqZAp">
-          <property role="RRSoG" value="h1akgim/info" />
-          <node concept="Xl_RD" id="kMLKV374WC" role="RRSoy">
-            <property role="Xl_RC" value="Creating an empty project" />
+        <node concept="3clFbF" id="107wlcQn$FQ" role="3cqZAp">
+          <node concept="2OqwBi" id="107wlcQnALa" role="3clFbG">
+            <node concept="2YIFZM" id="107wlcQn_HJ" role="2Oq$k0">
+              <ref role="37wK5l" to="wwqx:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
+              <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
+              <node concept="1rXfSq" id="107wlcQnAcb" role="37wK5m">
+                <ref role="37wK5l" to="wyt6:~Object.getClass()" resolve="getClass" />
+              </node>
+            </node>
+            <node concept="liA8E" id="107wlcQnBru" role="2OqNvi">
+              <ref role="37wK5l" to="wwqx:~Logger.info(java.lang.String)" resolve="info" />
+              <node concept="Xl_RD" id="kMLKV374WC" role="37wK5m">
+                <property role="Xl_RC" value="Creating an empty project" />
+              </node>
+            </node>
           </node>
         </node>
         <node concept="3cpWs8" id="5A5jZrz4f7E" role="3cqZAp">
@@ -3867,6 +3912,20 @@
       <property role="DiZV1" value="false" />
       <property role="2aFKle" value="false" />
       <node concept="3clFbS" id="4Plof0GDw7U" role="3clF47">
+        <node concept="3clFbF" id="107wlcQqkhn" role="3cqZAp">
+          <node concept="2OqwBi" id="107wlcQqkhk" role="3clFbG">
+            <node concept="10M0yZ" id="107wlcQqkhl" role="2Oq$k0">
+              <ref role="1PxDUh" to="wyt6:~System" resolve="System" />
+              <ref role="3cqZAo" to="wyt6:~System.err" resolve="err" />
+            </node>
+            <node concept="liA8E" id="107wlcQqkhm" role="2OqNvi">
+              <ref role="37wK5l" to="guwi:~PrintStream.println(java.lang.String)" resolve="println" />
+              <node concept="Xl_RD" id="107wlcQqkyc" role="37wK5m">
+                <property role="Xl_RC" value="Don't use this method, use LogInitializer directly, and only if your code truly need to manage log initialization (usually - no)" />
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3J1_TO" id="7o_691ts_nD" role="3cqZAp">
           <node concept="3uVAMA" id="7o_691ts_nE" role="1zxBo5">
             <node concept="XOnhg" id="7o_691ts_nF" role="1zc67B">
@@ -3920,6 +3979,30 @@
       </node>
       <node concept="3Tm1VV" id="4Plof0GDw8e" role="1B3o_S" />
       <node concept="3cqZAl" id="4Plof0GDw8f" role="3clF45" />
+      <node concept="P$JXv" id="107wlcQqkQC" role="lGtFl">
+        <node concept="TZ5HI" id="107wlcQqkQD" role="3nqlJM">
+          <node concept="TZ5HA" id="107wlcQqkQE" role="3HnX3l">
+            <node concept="1dT_AC" id="107wlcQql0k" role="1dT_Ay">
+              <property role="1dT_AB" value="this method has been replaced with explicit LogInitializer.init() call *BEFORE* any env get to get initialized." />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="107wlcQqkQF" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
+        <node concept="2B6LJw" id="107wlcQrEkX" role="2B76xF">
+          <ref role="2B6OnR" to="wyt6:~Deprecated.since()" resolve="since" />
+          <node concept="Xl_RD" id="107wlcQrEm0" role="2B70Vg">
+            <property role="Xl_RC" value="2025.3" />
+          </node>
+        </node>
+        <node concept="2B6LJw" id="107wlcQrEJR" role="2B76xF">
+          <ref role="2B6OnR" to="wyt6:~Deprecated.forRemoval()" resolve="forRemoval" />
+          <node concept="3clFbT" id="107wlcQrEME" role="2B70Vg">
+            <property role="3clFbU" value="true" />
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="2tJIrI" id="2HmhDwzk30X" role="jymVt" />
     <node concept="3clFbW" id="3eUNqOk4feY" role="jymVt">

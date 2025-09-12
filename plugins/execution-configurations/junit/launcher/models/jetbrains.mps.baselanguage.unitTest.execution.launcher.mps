@@ -34,6 +34,7 @@
     <import index="s3rp" ref="63b449db-0918-4a4a-a891-2c430ab133e4/java:org.junit.platform.engine.discovery(org.junit.junit5/)" />
     <import index="9pnt" ref="63b449db-0918-4a4a-a891-2c430ab133e4/java:org.junit.platform.engine.support.descriptor(org.junit.junit5/)" />
     <import index="wwqx" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.logging(MPS.Core/)" />
+    <import index="v9gs" ref="r:a139668a-5a0e-46e2-a802-102190e497e5(jetbrains.mps.core.tool.environment.util)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -1808,6 +1809,73 @@
       <node concept="3cqZAl" id="2RMg39tnddS" role="3clF45" />
       <node concept="3Tm1VV" id="2RMg39tnddT" role="1B3o_S" />
       <node concept="3clFbS" id="2RMg39tnddU" role="3clF47">
+        <node concept="3SKdUt" id="107wlcQnhEp" role="3cqZAp">
+          <node concept="1PaTwC" id="107wlcQnhEq" role="1aUNEU">
+            <node concept="3oM_SD" id="107wlcQnhEr" role="1PaTwD">
+              <property role="3oM_SC" value="would" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnjSd" role="1PaTwD">
+              <property role="3oM_SC" value="be" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnjTw" role="1PaTwD">
+              <property role="3oM_SC" value="wonderful" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnmlY" role="1PaTwD">
+              <property role="3oM_SC" value="NOT" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnmO7" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnn2L" role="1PaTwD">
+              <property role="3oM_SC" value="use" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnn4u" role="1PaTwD">
+              <property role="3oM_SC" value="j.m.bl.logging" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnnDe" role="1PaTwD">
+              <property role="3oM_SC" value="in" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnoju" role="1PaTwD">
+              <property role="3oM_SC" value="this" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnolA" role="1PaTwD">
+              <property role="3oM_SC" value="class" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnoo9" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnoAN" role="1PaTwD">
+              <property role="3oM_SC" value="avoid" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnoEc" role="1PaTwD">
+              <property role="3oM_SC" value="static" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnoXm" role="1PaTwD">
+              <property role="3oM_SC" value="LOG" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnoZ3" role="1PaTwD">
+              <property role="3oM_SC" value="field" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnpDI" role="1PaTwD">
+              <property role="3oM_SC" value="that" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnq1f" role="1PaTwD">
+              <property role="3oM_SC" value="circumvents" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnqNM" role="1PaTwD">
+              <property role="3oM_SC" value="this" />
+            </node>
+            <node concept="3oM_SD" id="107wlcQnqPU" role="1PaTwD">
+              <property role="3oM_SC" value="initialization" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="107wlcQn5SG" role="3cqZAp">
+          <node concept="2YIFZM" id="107wlcQndEK" role="3clFbG">
+            <ref role="37wK5l" to="v9gs:4B1FZuRjhXP" resolve="init" />
+            <ref role="1Pybhc" to="v9gs:4B1FZuRjhXN" resolve="LogInitializer" />
+          </node>
+        </node>
         <node concept="3cpWs8" id="4yT2m3ddVud" role="3cqZAp">
           <node concept="3cpWsn" id="4yT2m3ddVue" role="3cpWs9">
             <property role="TrG5h" value="file" />
@@ -3252,12 +3320,6 @@
             <node concept="3oM_SD" id="a_kj51hDey" role="1PaTwD">
               <property role="3oM_SC" value="WithPlatformTestExecutor?" />
             </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="4Plof0GEzL9" role="3cqZAp">
-          <node concept="2YIFZM" id="4Plof0GE_c6" role="3clFbG">
-            <ref role="37wK5l" to="79ha:4Plof0GDw7T" resolve="initializeLog" />
-            <ref role="1Pybhc" to="79ha:3eUNqOk4feo" resolve="EnvironmentBase" />
           </node>
         </node>
         <node concept="3SKdUt" id="1_D5Bk1SzbV" role="3cqZAp">

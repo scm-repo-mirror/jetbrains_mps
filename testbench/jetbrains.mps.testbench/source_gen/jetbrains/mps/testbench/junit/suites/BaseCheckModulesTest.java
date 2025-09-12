@@ -43,6 +43,7 @@ public class BaseCheckModulesTest {
   }
 
   protected static void initEnvironment() throws InvocationTargetException, InterruptedException {
+    // XXX I wonder if we need to configure loggers (now that MpsEnvironment doesn't initialize logs) or we're fine with defaults
     ourEnvironment = new MpsEnvironment(EnvironmentConfig.defaultConfig().withTestModeOn());
     ourEnvironment.init();
     ProjectStrategy strategy = new MPSCompositeProjectStrategy();

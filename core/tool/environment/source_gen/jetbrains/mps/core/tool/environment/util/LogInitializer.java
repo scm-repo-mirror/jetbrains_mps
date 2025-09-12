@@ -17,17 +17,22 @@ import java.util.logging.SimpleFormatter;
 import java.util.logging.ConsoleHandler;
 
 /**
- *  With switch from log4j to JUL in IDEA 22.1, {@code j.m.tool.environment.Log4jInitializer} needs a replacement.
- *  This class is responsible for initial, basic configuration of JUL, which is sufficient to get MPS started.
  *  MPS starts by different means, either as a standalone application through {@code [startup]/j.m.Launcher} or through an
  *  {@code Environment} mechanism. With the latter, there are 2 options, basic {@code MpsEnvironment} and sophisticated
  *  {@code IdeaEnvironment}. Latter manages log initialization itself, while with the former responsibility is all ours.
- *  However, even with {@code IdeaEnvironment} or {@code Launcher}, we need to make sure initial log messages (if any, e.g. from
- *  {@code EnvironmentConfig} or {@code ClassPathReader}) get directed to same log file where user expects them to be, and here
- *  comes this initial, rudimentary configuration.
  * 
- *  @author Artem Tikhomirov
- *  @since 2022.2
+ * With {@code Launcher} (IDE start), we don't initialize log, and pass responsibility to IDE means.
+ * With IDEA start, we'd love to keep initial messages (if any, e.g. from {@code EnvironmentConfig} or {@code Launcher} itself)
+ * in the same log file as the platform, once it's initialized, but IDEA doesn't provide a way to control Logger configuration ATM.
+ * Therefore, we try not to log anything when launching an IDE, and for IdeaEnvironment scenario, we facilitate using custom log configuration
+ * that can hold MPS messages (see bin/log.properties for an example)
+ * 
+ * Note, when IDEA starts and applies its hard-coded configuration, it removes any global handler already installed. That's why it's important to have
+ * custom handlers installed for MPS-specific sub-categories ('jetbrains.mps' and 'org.jetbrains.mps') to make sure MPS messages get reported to a 
+ * designated file.
+ * 
+ * @author Artem Tikhomirov
+ * @since 2022.2
  */
 @GeneratedClass(nodeId = "5314722513740963699", model = "r:a139668a-5a0e-46e2-a802-102190e497e5(jetbrains.mps.core.tool.environment.util)")
 public final class LogInitializer {
@@ -52,7 +57,12 @@ public final class LogInitializer {
       }
       if (Files.exists(logCfgPath)) {
         try (InputStream in = Files.newInputStream(logCfgPath)) {
-          LogManager.getLogManager().readConfiguration(in);
+          // IDEA's TestLoggerFactory, where this code comes from, uses readConfiguration(), however, if there are Logger instances already
+          // (and there were at the time of this writing, e.g. static LOG field in EnvironmentBase got some shared MPS categories initialized),
+          // they won't get update with 'handlers' value (although their 'level' and, perhaps, some other configuration properties would get updated).
+          // As initially 'handlers' are empty, messages get propagated to IDEA's log (which is not bad, per se, yet missing messages in MPS own log
+          // makes users feel as their configuration is not working)
+          LogManager.getLogManager().updateConfiguration(in, null);
         }
         System.out.printf("Log has been initialized from configuration file %s\n", logCfgPath.toAbsolutePath());
         return;
