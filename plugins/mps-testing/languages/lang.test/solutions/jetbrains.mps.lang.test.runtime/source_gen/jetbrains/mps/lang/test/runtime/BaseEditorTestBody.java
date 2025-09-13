@@ -42,6 +42,7 @@ import jetbrains.mps.errors.item.QuickFixReportItem;
 import java.util.Collection;
 import jetbrains.mps.errors.item.EditorQuickFix;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import org.junit.jupiter.api.Assertions;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.errors.item.QuickFixRuntimeAdapter;
 import org.jetbrains.mps.util.Condition;
@@ -289,7 +290,7 @@ public abstract class BaseEditorTestBody extends BaseTestBody {
           for (EditorQuickFix fix : CollectionSequence.fromCollection(fixes)) {
             if (matches(quickFixNodeId, fix)) {
               if (fixToRun != null) {
-                Assert.fail("More than one quick fix to run is available");
+                Assertions.fail("More than one quick fix to run is available");
                 return;
               }
               fixToRun = fix;
@@ -300,7 +301,7 @@ public abstract class BaseEditorTestBody extends BaseTestBody {
       if (fixToRun != null) {
         fixToRun.execute(repository);
       } else {
-        Assert.fail("QuickFix not found: " + ((quickFixNodeId == null ? "<theOneAvailable>" : quickFixNodeId)));
+        Assertions.fail("QuickFix not found: " + ((quickFixNodeId == null ? "<theOneAvailable>" : quickFixNodeId)));
       }
     });
   }

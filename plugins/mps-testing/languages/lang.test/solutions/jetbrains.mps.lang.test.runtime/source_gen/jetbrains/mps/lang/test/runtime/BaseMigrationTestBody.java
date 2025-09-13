@@ -19,6 +19,7 @@ import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import org.junit.Assert;
 import jetbrains.mps.lang.test.matcher.NodeDifference;
 import jetbrains.mps.lang.test.matcher.NodesMatcher;
+import org.junit.jupiter.api.Assertions;
 import jetbrains.mps.lang.migration.runtime.base.Problem;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Map;
@@ -66,11 +67,11 @@ public abstract class BaseMigrationTestBody extends BaseTestBody {
     Assert.assertEquals(Integer.valueOf(ListSequence.fromList(roots).count()), Integer.valueOf(ListSequence.fromList(outputNodes).count()));
     List<NodeDifference> differences = new NodesMatcher(roots, outputNodes).diff();
     for (NodeDifference difference : ListSequence.fromList(differences)) {
-      Assert.fail("Migration result differs from expected:\n" + difference.print());
+      Assertions.fail("Migration result differs from expected:\n" + difference.print());
     }
     for (MigrationScript script : scripts) {
       for (Problem problem : Sequence.fromIterable(script.check(model.getModule()))) {
-        Assert.fail("Post-migration check for script '" + script + "' failed with problem: " + problem.toString());
+        Assertions.fail("Post-migration check for script '" + script + "' failed with problem: " + problem.toString());
       }
     }
     if (shouldCheckStableIds()) {

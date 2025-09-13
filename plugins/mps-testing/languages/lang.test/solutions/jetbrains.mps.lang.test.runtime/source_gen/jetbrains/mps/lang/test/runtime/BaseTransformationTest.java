@@ -9,17 +9,12 @@ import jetbrains.mps.logging.Logger;
 import jetbrains.mps.project.Project;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.tool.environment.Environment;
-import org.junit.Rule;
-import org.junit.rules.TestRule;
-import java.util.function.Supplier;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.BeforeEach;
 import java.awt.GraphicsEnvironment;
 import java.awt.datatransfer.Clipboard;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
-import org.junit.runners.model.Statement;
-import org.junit.runner.Description;
 
 @ExtendWith(value = EnvironmentAwareExtension.class)
 public abstract class BaseTransformationTest implements TransformationTest, EnvironmentAware {
@@ -30,13 +25,8 @@ public abstract class BaseTransformationTest implements TransformationTest, Envi
   private final TestParametersCache myParamCache;
   private Environment myEnvironment;
 
-  @Rule
-  public final TestRule myBeforeAsRule;
-  private Supplier<String> myProjectUrlSupplier;
-
   protected BaseTransformationTest(TestParametersCache paramCache) {
     myParamCache = paramCache;
-    myBeforeAsRule = new AlternativeBefore(this);
   }
 
   @Override
@@ -44,19 +34,11 @@ public abstract class BaseTransformationTest implements TransformationTest, Envi
     myEnvironment = env;
   }
 
-  @Override
-  public void setProjectUrl(Supplier<String> projectUrlSupplier) {
-    myProjectUrlSupplier = projectUrlSupplier;
-  }
-
-  /**
-   * To respect @Rule in subclasses, has to be invoked as part of a TestRule, not with @Before
-   */
   @BeforeEach
   /*package*/ void setup() throws Exception {
-    setProject(myParamCache.getProject());
-    setModelDescriptor(myParamCache.getTestModel());
-    setTransientModelDescriptor(myParamCache.getTransientModel());
+    myProject = myParamCache.getProject();
+    myModel = myParamCache.getTestModel();
+    myTransientModel = myParamCache.getTransientModel();
     clearSystemClipboard();
   }
 
@@ -75,18 +57,6 @@ public abstract class BaseTransformationTest implements TransformationTest, Envi
     return myTransientModel;
   }
 
-  /*package*/ void setModelDescriptor(SModel descriptor) {
-    myModel = descriptor;
-  }
-
-  /*package*/ void setTransientModelDescriptor(SModel descriptor) {
-    myTransientModel = descriptor;
-  }
-
-  /*package*/ void setProject(Project project) {
-    myProject = project;
-  }
-
   private static void clearSystemClipboard() {
     if (GraphicsEnvironment.isHeadless()) {
       return;
@@ -100,42 +70,6 @@ public abstract class BaseTransformationTest implements TransformationTest, Envi
       if (LOG.isWarningLevel()) {
         LOG.warning("Could not clear the clipboard, probably it was busy", null);
       }
-    }
-  }
-
-  /**
-   * This is an alternative to a setup() method annotated with @Before, to deal with peculiarities of JUnit processing of @Rule and @Before.
-   * Subclasses of BaseTransformationTest may use own @Rule, and their statement would wrap not only test method itself,
-   * but also @Before and @After methods as well (see BlockJUnit4ClassRunner#methodBlock).
-   * Therefore, if we place initialization code in @Before method of this class,
-   * it's invoked from inside a statement created by TestRule of a subclass.
-   * If that TestRule uses any facilities of the base class (e.g. project/transient model),
-   * it fails as these are not yet initialized.
-   * With AlternativeBefore rule, we get into regular @Rule sequence.
-   * Rules are processed from child to parent (see TestClass#scanAnnotatedMembers()) therefore @Rule from superclass
-   * gives outer Statement and is executed first.
-   * Therefore, AlternativeBefore from BTT is executed sooner than any rule from test subclass and initialize the test properly.
-   * NOTE, we have to use field with @Rule, not method with @Rule annotation as BlockJUnit4ClassRunner#getTestRules() 
-   * adds methods with @Rule first, therefore placing their Statements in the end of execution chain.
-   */
-  private static class AlternativeBefore implements TestRule {
-    private final BaseTransformationTest myTest;
-
-    /*package*/ AlternativeBefore(BaseTransformationTest test) {
-      myTest = test;
-    }
-
-    @Override
-    public Statement apply(final Statement base, Description description) {
-      if (myTest == null) {
-        return base;
-      }
-      return new Statement() {
-        public void evaluate() throws Throwable {
-          myTest.setup();
-          base.evaluate();
-        }
-      };
     }
   }
 }

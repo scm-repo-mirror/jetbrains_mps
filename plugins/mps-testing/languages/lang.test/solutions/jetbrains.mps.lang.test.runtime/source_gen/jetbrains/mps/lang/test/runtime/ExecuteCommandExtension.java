@@ -33,6 +33,8 @@ public class ExecuteCommandExtension implements InvocationInterceptor {
       }
     };
 
+    // FIXME Likely, shall replace project's model access with MA to BaseTestBody.myModel (initialized with #getTransientModelDescriptor() value) as it's the model we deal with
+
     ThreadUtils.runInUIThreadAndWait(() -> myOwner.getProject().getModelAccess().executeCommand(proceed));
 
     Throwable t = throwable.get();

@@ -8,7 +8,6 @@ import jetbrains.mps.tool.environment.EnvironmentAware;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestSession;
 import java.util.Optional;
 import jetbrains.mps.tool.environment.Environment;
-import jetbrains.mps.baseLanguage.unitTest.platform.SystemProperties;
 
 public class EnvironmentAwareExtension implements TestInstancePostProcessor {
 
@@ -22,9 +21,7 @@ public class EnvironmentAwareExtension implements TestInstancePostProcessor {
       ExtensionContext.Store store = context.getStore(ExtensionContext.StoreScope.LAUNCHER_SESSION, ExtensionContext.Namespace.create("MPS"));
       TestSession mpsTestSession = store.get("TestSession", TestSession.class);
       Optional<Environment> sv = mpsTestSession.getAccessory(Environment.class);
-      final String pp = mpsTestSession.getSystemProperty(SystemProperties.PROJECT_PATH);
       ((EnvironmentAware) object).setEnvironment(sv.get());
-      ((EnvironmentAware) object).setProjectUrl(() -> pp);
     }
   }
 

@@ -5,8 +5,6 @@ package jetbrains.mps.lang.test.runtime;
 import org.junit.jupiter.api.extension.Extension;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.AfterAllCallback;
-import org.junit.jupiter.api.extension.BeforeEachCallback;
-import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import jetbrains.mps.baseLanguage.unitTest.platform.TestSession;
 import java.util.Optional;
@@ -16,9 +14,9 @@ import jetbrains.mps.baseLanguage.unitTest.platform.SystemProperties;
 /**
  * Support for {@code TestParametersCache} rule to work on JUnit5 platform.
  */
-public class TestParametersCacheExtension implements Extension, BeforeAllCallback, AfterAllCallback, BeforeEachCallback, AfterEachCallback {
+public class TestParametersCacheExtension implements Extension, BeforeAllCallback, AfterAllCallback {
 
-  private TestParametersCache myParametersCache;
+  private final TestParametersCache myParametersCache;
 
   public TestParametersCacheExtension(TestParametersCache cache) {
     this.myParametersCache = cache;
@@ -42,13 +40,5 @@ public class TestParametersCacheExtension implements Extension, BeforeAllCallbac
   @Override
   public void afterAll(ExtensionContext context) throws Exception {
     myParametersCache.clean();
-  }
-
-  @Override
-  public void beforeEach(ExtensionContext context) throws Exception {
-  }
-
-  @Override
-  public void afterEach(ExtensionContext context) throws Exception {
   }
 }

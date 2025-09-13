@@ -1430,16 +1430,11 @@
   </root>
   <root nodeRef="r:2876f1ee-0b45-4db5-8c09-0682cdee5c67(jetbrains.mps.tool.environment)/8946405811982722281">
     <file name="EnvironmentAware.java">
-      <node id="8946405811982722386" at="18,0,19,0" concept="10" trace="setEnvironment#(Ljetbrains/mps/tool/environment/Environment;)V" />
-      <node id="7156297676436747534" at="20,0,22,0" concept="10" trace="setProjectUrl#(Ljava/util/function/Supplier;)V" />
-      <scope id="7156297676436747537" at="20,67,20,67" />
-      <scope id="8946405811982722386" at="18,0,19,0">
+      <node id="8946405811982722386" at="14,0,15,0" concept="10" trace="setEnvironment#(Ljetbrains/mps/tool/environment/Environment;)V" />
+      <scope id="8946405811982722386" at="14,0,15,0">
         <var name="env" id="8946405811982722416" />
       </scope>
-      <scope id="7156297676436747534" at="20,0,22,0">
-        <var name="projectUrlSupplier" id="7156297676436747637" />
-      </scope>
-      <unit id="8946405811982722281" at="16,0,23,0" name="jetbrains.mps.tool.environment.EnvironmentAware" />
+      <unit id="8946405811982722281" at="12,0,16,0" name="jetbrains.mps.tool.environment.EnvironmentAware" />
     </file>
   </root>
 </debug-info>
