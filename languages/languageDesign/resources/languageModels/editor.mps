@@ -15,6 +15,7 @@
     <import index="18ew" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util(MPS.Core/)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
+    <import index="tpch" ref="r:00000000-0000-4000-0000-011c8959028d(jetbrains.mps.lang.structure.editor)" implicit="true" />
   </imports>
   <registry>
     <language id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor">
@@ -46,6 +47,7 @@
         <child id="8329266386016685951" name="editorContext" index="2xHN3q" />
         <child id="8979250711607012232" name="cellSelector" index="3a7HXU" />
       </concept>
+      <concept id="1078938745671" name="jetbrains.mps.lang.editor.structure.EditorComponentDeclaration" flags="ig" index="PKFIW" />
       <concept id="1078939183254" name="jetbrains.mps.lang.editor.structure.CellModel_Component" flags="sg" stub="3162947552742194261" index="PMmxH">
         <reference id="1078939183255" name="editorComponent" index="PMmxG" />
       </concept>
@@ -824,6 +826,9 @@
       <node concept="3F0A7n" id="1ng4Vf3VLdY" role="3EZMnx">
         <ref role="1NtTu8" to="1oap:3Ftr4R6BH86" resolve="r" />
       </node>
+      <node concept="PMmxH" id="4rOpugP4jx4" role="3EZMnx">
+        <ref role="PMmxG" node="4rOpugP4iUV" resolve="TextIconThemeSelection" />
+      </node>
     </node>
   </node>
   <node concept="24kQdi" id="2p1v3tObZtw">
@@ -896,6 +901,9 @@
       <node concept="3F0A7n" id="2p1v3tObZtS" role="3EZMnx">
         <ref role="1NtTu8" to="1oap:3Ftr4R6BH88" resolve="r" />
       </node>
+      <node concept="PMmxH" id="4rOpugP4jx6" role="3EZMnx">
+        <ref role="PMmxG" node="4rOpugP4iUV" resolve="TextIconThemeSelection" />
+      </node>
     </node>
   </node>
   <node concept="24kQdi" id="2p1v3tObZuU">
@@ -926,6 +934,9 @@
       </node>
       <node concept="3F0A7n" id="2p1v3tObZx5" role="3EZMnx">
         <ref role="1NtTu8" to="1oap:2p1v3tObyyY" resolve="text" />
+      </node>
+      <node concept="PMmxH" id="4rOpugP4jx8" role="3EZMnx">
+        <ref role="PMmxG" node="4rOpugP4iUV" resolve="TextIconThemeSelection" />
       </node>
     </node>
   </node>
@@ -1015,6 +1026,9 @@
             </node>
           </node>
         </node>
+      </node>
+      <node concept="PMmxH" id="4rOpugP4jrD" role="3EZMnx">
+        <ref role="PMmxG" node="4rOpugP4iUV" resolve="TextIconThemeSelection" />
       </node>
       <node concept="l2Vlx" id="Ib_Fk7zNge" role="2iSdaV" />
     </node>
@@ -1239,6 +1253,33 @@
         <ref role="1NtTu8" to="1oap:7tcRu9qvxgD" resolve="factoryMethod" />
       </node>
       <node concept="l2Vlx" id="7tcRu9qvNfY" role="2iSdaV" />
+    </node>
+  </node>
+  <node concept="PKFIW" id="4rOpugP4iUV">
+    <property role="3GE5qa" value="icons.descriptors.text" />
+    <property role="TrG5h" value="TextIconThemeSelection" />
+    <ref role="1XX52x" to="1oap:2p1v3tObwT_" resolve="IconLayerDescription" />
+    <node concept="3EZMnI" id="4rOpugP4iUX" role="2wV5jI">
+      <node concept="3F0ifn" id="4rOpugP4iV3" role="3EZMnx">
+        <property role="3F0ifm" value="apply to:" />
+      </node>
+      <node concept="3F1sOY" id="4rOpugP5j8B" role="3EZMnx">
+        <property role="2ru_X1" value="true" />
+        <ref role="1NtTu8" to="1oap:4rOpugP5j8y" resolve="targetTheme" />
+        <node concept="3F0ifn" id="4rOpugP5j8D" role="2ruayu">
+          <property role="3F0ifm" value="all themes" />
+          <ref role="1k5W1q" to="tpch:6t_vhrzKdF" resolve="Comment" />
+        </node>
+      </node>
+      <node concept="2iRfu4" id="4rOpugP4iV0" role="2iSdaV" />
+    </node>
+  </node>
+  <node concept="24kQdi" id="4rOpugP5x3w">
+    <property role="3GE5qa" value="icons.descriptors.text" />
+    <ref role="1XX52x" to="1oap:4rOpugP5j8z" resolve="TargetTextIconTheme" />
+    <node concept="PMmxH" id="4rOpugP5x3y" role="2wV5jI">
+      <ref role="PMmxG" to="tpco:2wZex4PafBj" resolve="alias" />
+      <ref role="1k5W1q" to="tpch:24YP6ZDyde4" resolve="Keyword" />
     </node>
   </node>
 </model>

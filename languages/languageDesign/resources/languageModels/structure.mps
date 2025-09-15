@@ -172,6 +172,7 @@
       <property role="20kJfa" value="layers" />
       <property role="20lbJX" value="fLJekj6/_1__n" />
       <ref role="20lvS9" node="2p1v3tObwT_" resolve="IconLayerDescription" />
+      <node concept="asaX9" id="5F8tIkv_pB" role="lGtFl" />
     </node>
     <node concept="1TJgyj" id="7MKI4BBUT$V" role="1TKVEi">
       <property role="IQ2ns" value="8984883884167239995" />
@@ -210,6 +211,12 @@
     <property role="EcuMT" value="2756621024541675109" />
     <property role="3GE5qa" value="icons.descriptors.text" />
     <property role="TrG5h" value="IconLayerDescription" />
+    <node concept="1TJgyj" id="4rOpugP5j8y" role="1TKVEi">
+      <property role="IQ2ns" value="5112823507789885986" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="targetTheme" />
+      <ref role="20lvS9" node="4rOpugP5j8z" resolve="TargetTextIconTheme" />
+    </node>
   </node>
   <node concept="1TIwiD" id="2p1v3tObyyL">
     <property role="EcuMT" value="2756621024541681841" />
@@ -454,6 +461,27 @@
         <property role="t5JxN" value="use to reference some distributed icons factory methods, like MPSIcons.Actions.obtainSuppressedError" />
       </node>
     </node>
+  </node>
+  <node concept="1TIwiD" id="4rOpugP5j8z">
+    <property role="EcuMT" value="5112823507789885987" />
+    <property role="3GE5qa" value="icons.descriptors.text" />
+    <property role="TrG5h" value="TargetTextIconTheme" />
+    <property role="R5$K7" value="true" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+  </node>
+  <node concept="1TIwiD" id="4rOpugP5j8$">
+    <property role="EcuMT" value="5112823507789885988" />
+    <property role="3GE5qa" value="icons.descriptors.text" />
+    <property role="TrG5h" value="LightTargetTheme" />
+    <property role="34LRSv" value="light themes" />
+    <ref role="1TJDcQ" node="4rOpugP5j8z" resolve="TargetTextIconTheme" />
+  </node>
+  <node concept="1TIwiD" id="4rOpugP5j8_">
+    <property role="EcuMT" value="5112823507789885989" />
+    <property role="3GE5qa" value="icons.descriptors.text" />
+    <property role="TrG5h" value="DarkTargetTheme" />
+    <property role="34LRSv" value="dark themes" />
+    <ref role="1TJDcQ" node="4rOpugP5j8z" resolve="TargetTextIconTheme" />
   </node>
 </model>
 

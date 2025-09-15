@@ -51,6 +51,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     setCellContext(editorCell);
     editorCell.addEditorCell(createAlternation_0());
     editorCell.addEditorCell(createJComponent_0());
+    editorCell.addEditorCell(createComponent_0());
     return editorCell;
   }
   private EditorCell createAlternation_0() {
@@ -125,6 +126,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
   }
   private JComponent _QueryFunction_JComponent_w2956w_a1a() {
     return EditorUtil.createSelectImageButton(myNode, PROPS.file$He6o, getEditorContext());
+  }
+  private EditorCell createComponent_0() {
+    EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "jetbrains.mps.lang.resources.editor.TextIconThemeSelection");
+    return editorCell;
   }
   private static boolean isEmptyString(String str) {
     return str == null || str.isEmpty();
