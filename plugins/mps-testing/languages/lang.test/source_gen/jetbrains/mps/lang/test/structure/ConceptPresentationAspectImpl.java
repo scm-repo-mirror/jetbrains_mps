@@ -22,7 +22,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_AssertMatch;
   private ConceptPresentation props_BeforeTestsMethod;
   private ConceptPresentation props_BootstrapActionReference;
-  private ConceptPresentation props_CheckDataFlowOperation;
   private ConceptPresentation props_CheckNodeForErrorMessagesOperation;
   private ConceptPresentation props_CheckNodeForErrors;
   private ConceptPresentation props_DragMouseStatement;
@@ -31,7 +30,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_EditorTestCase;
   private ConceptPresentation props_ExpectedMessageContainer;
   private ConceptPresentation props_ExpressionContainer;
-  private ConceptPresentation props_ICheckForExpectedRule;
   private ConceptPresentation props_INodesTestMethod;
   private ConceptPresentation props_IReferenceAttachable;
   private ConceptPresentation props_IRuleReference;
@@ -175,14 +173,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_BootstrapActionReference = cpb.create();
         }
         return props_BootstrapActionReference;
-      case LanguageConceptSwitch.CheckDataFlowOperation:
-        if (props_CheckDataFlowOperation == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.deprecated(true);
-          cpb.presentationByName();
-          props_CheckDataFlowOperation = cpb.create();
-        }
-        return props_CheckDataFlowOperation;
       case LanguageConceptSwitch.CheckNodeForErrorMessagesOperation:
         if (props_CheckNodeForErrorMessagesOperation == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -243,13 +233,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ExpressionContainer = cpb.create();
         }
         return props_ExpressionContainer;
-      case LanguageConceptSwitch.ICheckForExpectedRule:
-        if (props_ICheckForExpectedRule == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.deprecated(true);
-          props_ICheckForExpectedRule = cpb.create();
-        }
-        return props_ICheckForExpectedRule;
       case LanguageConceptSwitch.INodesTestMethod:
         if (props_INodesTestMethod == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

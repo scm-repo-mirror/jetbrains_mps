@@ -71,20 +71,6 @@
       <unit id="1076434250334885860" at="10,0,17,0" name="jetbrains.mps.lang.test.runtime.FixtureTestable" />
     </file>
   </root>
-  <root nodeRef="r:00000000-0000-4000-0000-011c895903a2(jetbrains.mps.lang.test.runtime)/1215078243118">
-    <file name="NodeDataFlowCheckerUtil.java">
-      <node id="244475129990531206" at="19,54,20,129" concept="6" />
-      <node id="8042441407353530942" at="15,0,18,0" concept="3" trace="NodeDataFlowCheckerUtil#()V" />
-      <node id="1215611932104" at="19,0,22,0" concept="16" trace="checkDataFlow#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <scope id="8042441407353530945" at="16,36,16,36" />
-      <scope id="1215611932107" at="19,54,20,129" />
-      <scope id="8042441407353530942" at="15,0,18,0" />
-      <scope id="1215611932104" at="19,0,22,0">
-        <var name="node" id="1215611999300" />
-      </scope>
-      <unit id="1215078243118" at="12,0,24,0" name="jetbrains.mps.lang.test.runtime.NodeDataFlowCheckerUtil" />
-    </file>
-  </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895903a2(jetbrains.mps.lang.test.runtime)/1221569991485">
     <file name="BaseTestBody.java">
       <node id="1221570095729" at="29,0,30,0" concept="7" trace="myModel" />

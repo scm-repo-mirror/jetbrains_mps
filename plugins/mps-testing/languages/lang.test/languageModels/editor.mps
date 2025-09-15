@@ -1541,40 +1541,6 @@
       <node concept="l2Vlx" id="JjtHGBNrEQ" role="2iSdaV" />
     </node>
   </node>
-  <node concept="24kQdi" id="hG87ek7">
-    <property role="3GE5qa" value="nodeOperation" />
-    <ref role="1XX52x" to="tp5g:hG8792U" resolve="CheckDataFlowOperation" />
-    <node concept="3EZMnI" id="7uNrZ$pv6CY" role="2wV5jI">
-      <node concept="PMmxH" id="yji4X$8TGU" role="3EZMnx">
-        <ref role="PMmxG" to="tpco:2wZex4PafBj" resolve="alias" />
-        <ref role="1k5W1q" node="hGdEPg1" resolve="NodeOperation" />
-        <ref role="1ERwB7" node="hG2S5d1" resolve="Annotation_Actions" />
-        <node concept="VPxyj" id="yji4X$8THG" role="3F10Kt">
-          <property role="VOm3f" value="false" />
-        </node>
-      </node>
-      <node concept="2YWUlR" id="7uNrZ$pvggn" role="3EZMnx">
-        <ref role="1k5W1q" node="7uNrZ$pp7Rn" resolve="TestLabel" />
-        <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
-      </node>
-      <node concept="2iRfu4" id="7uNrZ$pv6D1" role="2iSdaV" />
-    </node>
-    <node concept="3EZMnI" id="7uNrZ$pxdxx" role="6VMZX">
-      <node concept="3F0ifn" id="7uNrZ$pxdxy" role="3EZMnx">
-        <property role="3F0ifm" value="name:" />
-      </node>
-      <node concept="3F0A7n" id="7uNrZ$pxdxz" role="3EZMnx">
-        <property role="1O74Pk" value="true" />
-        <property role="1$x2rV" value="default" />
-        <property role="39s7Ar" value="false" />
-        <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
-        <node concept="ljvvj" id="7uNrZ$pxdx$" role="3F10Kt">
-          <property role="VOm3f" value="true" />
-        </node>
-      </node>
-      <node concept="l2Vlx" id="7uNrZ$pxdx_" role="2iSdaV" />
-    </node>
-  </node>
   <node concept="24kQdi" id="hHlHjiu">
     <ref role="1XX52x" to="tp5g:hHlH9T6" resolve="NodesTestCase" />
     <node concept="3EZMnI" id="hHlIOwQ" role="2wV5jI">

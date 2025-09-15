@@ -291,16 +291,6 @@
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
     </node>
   </node>
-  <node concept="1TIwiD" id="hG8792U">
-    <property role="R5$K7" value="false" />
-    <property role="R5$K2" value="false" />
-    <property role="TrG5h" value="CheckDataFlowOperation" />
-    <property role="3GE5qa" value="nodeOperation" />
-    <property role="34LRSv" value="for dataflow messages" />
-    <property role="EcuMT" value="1215611834554" />
-    <ref role="1TJDcQ" node="hG7unSw" resolve="NodeCheckOperation" />
-    <node concept="asaX9" id="4WJIKojNGFk" role="lGtFl" />
-  </node>
   <node concept="1TIwiD" id="hHlH9T6">
     <property role="19KtqR" value="true" />
     <property role="TrG5h" value="NodesTestCase" />
@@ -881,14 +871,6 @@
       <ref role="PrY4T" node="2wBFdLy7HeG" resolve="IReferenceAttachable" />
     </node>
   </node>
-  <node concept="PlHQZ" id="7scb9XIYnWK">
-    <property role="3GE5qa" value="nodeOperation" />
-    <property role="TrG5h" value="ICheckForExpectedRule" />
-    <property role="EcuMT" value="8578280453507219248" />
-    <node concept="asaX9" id="7OB8Y3vWmXR" role="lGtFl">
-      <property role="YLQ7P" value="to be merged with concept AbstractNodeRuleCheckOperation" />
-    </node>
-  </node>
   <node concept="1TIwiD" id="7scb9XJ6VZa">
     <property role="3GE5qa" value="nodeOperation" />
     <property role="TrG5h" value="NodeTypeSystemWarningCheckOperation" />
@@ -968,9 +950,6 @@
     <property role="R5$K2" value="false" />
     <property role="EcuMT" value="7835233914439520906" />
     <ref role="1TJDcQ" node="hG7unSw" resolve="NodeCheckOperation" />
-    <node concept="PrWs8" id="6MWlVHUgHab" role="PzmwI">
-      <ref role="PrY4T" node="7scb9XIYnWK" resolve="ICheckForExpectedRule" />
-    </node>
     <node concept="1TJgyj" id="Bszh9w5Xnr" role="1TKVEi">
       <property role="IQ2ns" value="710597951278798299" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
