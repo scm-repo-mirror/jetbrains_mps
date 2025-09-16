@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.plugins;
 
+import com.intellij.concurrency.ThreadContext;
 import com.intellij.configurationStore.JdomSerializer;
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.actionSystem.ActionManager;
