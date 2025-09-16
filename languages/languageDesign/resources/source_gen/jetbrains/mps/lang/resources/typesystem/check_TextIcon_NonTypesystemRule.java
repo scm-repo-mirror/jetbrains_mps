@@ -19,7 +19,6 @@ import jetbrains.mps.errors.messageTargets.PropertyMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
-import jetbrains.mps.lang.resources.behavior.IconLayerDescription__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -50,7 +49,7 @@ public class check_TextIcon_NonTypesystemRule extends AbstractNonTypesystemRule_
         }
       }
     } else {
-      if (ListSequence.fromList(SLinkOperations.getChildren(textIcon, LINKS.newuiLayers$lptJ)).all((it) -> (boolean) IconLayerDescription__BehaviorDescriptor.isForDarkTheme_id4rOpugPearf.invoke(it))) {
+      if (ListSequence.fromList(SLinkOperations.getChildren(textIcon, LINKS.newuiLayers$lptJ)).all((it) -> SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.targetThemeKind$7fjQ), CONCEPTS.DarkTargetThemes$Km))) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(textIcon, "Missing a layer applicable to the default (light) theme.", "r:cafe8450-2876-42f2-9c43-75da10155c47(jetbrains.mps.lang.resources.typesystem)", "2063474025451361217", null, errorTarget);
@@ -74,10 +73,12 @@ public class check_TextIcon_NonTypesystemRule extends AbstractNonTypesystemRule_
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept TextIcon$X0 = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0d45L, "jetbrains.mps.lang.resources.structure.TextIcon");
+    /*package*/ static final SConcept DarkTargetThemes$Km = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x46f465e435153225L, "jetbrains.mps.lang.resources.structure.DarkTargetThemes");
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink layers$pqJD = MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0d45L, 0x26417c37742e0e66L, "layers");
     /*package*/ static final SContainmentLink newuiLayers$lptJ = MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0d45L, 0x7cb0b849e7eb993bL, "newuiLayers");
+    /*package*/ static final SContainmentLink targetThemeKind$7fjQ = MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0e65L, 0x46f465e435153222L, "targetThemeKind");
   }
 }

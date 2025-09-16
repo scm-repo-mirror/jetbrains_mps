@@ -17,7 +17,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ColorLiteral;
   private ConceptPresentation props_ConceptIconResourceExpression;
   private ConceptPresentation props_ConstantFieldIcon;
-  private ConceptPresentation props_DarkTargetTheme;
+  private ConceptPresentation props_DarkTargetThemes;
   private ConceptPresentation props_FactoryMethodIcon;
   private ConceptPresentation props_FileIcon;
   private ConceptPresentation props_GeneratedImage;
@@ -28,12 +28,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_IconResourceExpression;
   private ConceptPresentation props_Image;
   private ConceptPresentation props_JBColorLiteral;
-  private ConceptPresentation props_LightTargetTheme;
+  private ConceptPresentation props_LightTargetThemes;
   private ConceptPresentation props_NodeIconResourceExpression;
   private ConceptPresentation props_Primitive;
   private ConceptPresentation props_Rect;
   private ConceptPresentation props_Resource;
-  private ConceptPresentation props_TargetTextIconTheme;
+  private ConceptPresentation props_TargetTextIconThemeKind;
   private ConceptPresentation props_Text;
   private ConceptPresentation props_TextIcon;
 
@@ -96,13 +96,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ConstantFieldIcon = cpb.create();
         }
         return props_ConstantFieldIcon;
-      case LanguageConceptSwitch.DarkTargetTheme:
-        if (props_DarkTargetTheme == null) {
+      case LanguageConceptSwitch.DarkTargetThemes:
+        if (props_DarkTargetThemes == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.rawPresentation("dark themes");
-          props_DarkTargetTheme = cpb.create();
+          props_DarkTargetThemes = cpb.create();
         }
-        return props_DarkTargetTheme;
+        return props_DarkTargetThemes;
       case LanguageConceptSwitch.FactoryMethodIcon:
         if (props_FactoryMethodIcon == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -174,13 +174,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_JBColorLiteral = cpb.create();
         }
         return props_JBColorLiteral;
-      case LanguageConceptSwitch.LightTargetTheme:
-        if (props_LightTargetTheme == null) {
+      case LanguageConceptSwitch.LightTargetThemes:
+        if (props_LightTargetThemes == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.rawPresentation("light themes");
-          props_LightTargetTheme = cpb.create();
+          props_LightTargetThemes = cpb.create();
         }
-        return props_LightTargetTheme;
+        return props_LightTargetThemes;
       case LanguageConceptSwitch.NodeIconResourceExpression:
         if (props_NodeIconResourceExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -207,12 +207,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Resource = cpb.create();
         }
         return props_Resource;
-      case LanguageConceptSwitch.TargetTextIconTheme:
-        if (props_TargetTextIconTheme == null) {
+      case LanguageConceptSwitch.TargetTextIconThemeKind:
+        if (props_TargetTextIconThemeKind == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          props_TargetTextIconTheme = cpb.create();
+          props_TargetTextIconThemeKind = cpb.create();
         }
-        return props_TargetTextIconTheme;
+        return props_TargetTextIconThemeKind;
       case LanguageConceptSwitch.Text:
         if (props_Text == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

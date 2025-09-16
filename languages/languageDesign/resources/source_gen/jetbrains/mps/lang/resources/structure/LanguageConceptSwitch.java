@@ -17,7 +17,7 @@ public final class LanguageConceptSwitch {
   public static final int ColorLiteral = 5;
   public static final int ConceptIconResourceExpression = 6;
   public static final int ConstantFieldIcon = 7;
-  public static final int DarkTargetTheme = 8;
+  public static final int DarkTargetThemes = 8;
   public static final int FactoryMethodIcon = 9;
   public static final int FileIcon = 10;
   public static final int GeneratedImage = 11;
@@ -28,12 +28,12 @@ public final class LanguageConceptSwitch {
   public static final int IconResourceExpression = 16;
   public static final int Image = 17;
   public static final int JBColorLiteral = 18;
-  public static final int LightTargetTheme = 19;
+  public static final int LightTargetThemes = 19;
   public static final int NodeIconResourceExpression = 20;
   public static final int Primitive = 21;
   public static final int Rect = 22;
   public static final int Resource = 23;
-  public static final int TargetTextIconTheme = 24;
+  public static final int TargetTextIconThemeKind = 24;
   public static final int Text = 25;
   public static final int TextIcon = 26;
 
@@ -47,7 +47,7 @@ public final class LanguageConceptSwitch {
     builder.put(0x19d079f4ec114bddL, ColorLiteral);
     builder.put(0x7ce01982590bd1eL, ConceptIconResourceExpression);
     builder.put(0x6e053ee00272f4f8L, ConstantFieldIcon);
-    builder.put(0x46f465e435153225L, DarkTargetTheme);
+    builder.put(0x46f465e435153225L, DarkTargetThemes);
     builder.put(0x774cdde25a7e1427L, FactoryMethodIcon);
     builder.put(0x7c8b08a50a39c6bbL, FileIcon);
     builder.put(0x324fe10378a9d167L, GeneratedImage);
@@ -58,12 +58,12 @@ public final class LanguageConceptSwitch {
     builder.put(0x52fb86deea79455eL, IconResourceExpression);
     builder.put(0xb8b96b5078f3367L, Image);
     builder.put(0x46f465e43534a2d4L, JBColorLiteral);
-    builder.put(0x46f465e435153224L, LightTargetTheme);
+    builder.put(0x46f465e435153224L, LightTargetThemes);
     builder.put(0x7ce019825925c1aL, NodeIconResourceExpression);
     builder.put(0x26417c37742e28b1L, Primitive);
     builder.put(0x26417c37742e0e61L, Rect);
     builder.put(0x7c8b08a50a39c6caL, Resource);
-    builder.put(0x46f465e435153223L, TargetTextIconTheme);
+    builder.put(0x46f465e435153223L, TargetTextIconThemeKind);
     builder.put(0x26417c37742e28b9L, Text);
     builder.put(0x26417c37742e0d45L, TextIcon);
     myIndex = builder.seal();

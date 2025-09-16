@@ -48,6 +48,7 @@
         <child id="8329266386016685951" name="editorContext" index="2xHN3q" />
         <child id="8979250711607012232" name="cellSelector" index="3a7HXU" />
       </concept>
+      <concept id="6718020819487620876" name="jetbrains.mps.lang.editor.structure.TransformationMenuReference_Default" flags="ng" index="A1WHr" />
       <concept id="1078938745671" name="jetbrains.mps.lang.editor.structure.EditorComponentDeclaration" flags="ig" index="PKFIW" />
       <concept id="1078939183254" name="jetbrains.mps.lang.editor.structure.CellModel_Component" flags="sg" stub="3162947552742194261" index="PMmxH">
         <reference id="1078939183255" name="editorComponent" index="PMmxG" />
@@ -69,6 +70,9 @@
       </concept>
       <concept id="1186414860679" name="jetbrains.mps.lang.editor.structure.EditableStyleClassItem" flags="ln" index="VPxyj" />
       <concept id="1186414928363" name="jetbrains.mps.lang.editor.structure.SelectableStyleSheetItem" flags="ln" index="VPM3Z" />
+      <concept id="1630016958697718209" name="jetbrains.mps.lang.editor.structure.IMenuReference_Default" flags="ngI" index="2Z_bC8">
+        <reference id="1630016958698373342" name="concept" index="2ZyFGn" />
+      </concept>
       <concept id="1233758997495" name="jetbrains.mps.lang.editor.structure.PunctuationLeftStyleClassItem" flags="ln" index="11L4FC" />
       <concept id="1233759184865" name="jetbrains.mps.lang.editor.structure.PunctuationRightStyleClassItem" flags="ln" index="11LMrY" />
       <concept id="8313721352726366579" name="jetbrains.mps.lang.editor.structure.CellModel_Empty" flags="ng" index="35HoNQ" />
@@ -105,6 +109,7 @@
         <reference id="1139959269582" name="actionMap" index="1ERwB7" />
         <child id="1142887637401" name="renderingCondition" index="pqm2j" />
         <child id="4323500428121274054" name="id" index="2SqHTX" />
+        <child id="4202667662392416064" name="transformationMenu" index="3vIgyS" />
       </concept>
       <concept id="1073389446423" name="jetbrains.mps.lang.editor.structure.CellModel_Collection" flags="sn" stub="3013115976261988961" index="3EZMnI">
         <property id="1160590353935" name="usesFolding" index="S$Qs1" />
@@ -790,6 +795,9 @@
       <node concept="l2Vlx" id="2p1v3tObyz6" role="2iSdaV" />
       <node concept="3F0ifn" id="2p1v3tObyz7" role="3EZMnx">
         <property role="3F0ifm" value="circle" />
+        <node concept="A1WHr" id="6o_U3kAWqJI" role="3vIgyS">
+          <ref role="2ZyFGn" to="1oap:2p1v3tObyyL" resolve="Primitive" />
+        </node>
       </node>
       <node concept="3F0ifn" id="2p1v3tObyzc" role="3EZMnx">
         <property role="3F0ifm" value="fill" />
@@ -871,6 +879,9 @@
       <node concept="l2Vlx" id="2p1v3tObZtz" role="2iSdaV" />
       <node concept="3F0ifn" id="2p1v3tObZt$" role="3EZMnx">
         <property role="3F0ifm" value="rect" />
+        <node concept="A1WHr" id="6o_U3kAWqkA" role="3vIgyS">
+          <ref role="2ZyFGn" to="1oap:2p1v3tObyyL" resolve="Primitive" />
+        </node>
       </node>
       <node concept="3F0ifn" id="2p1v3tObZtD" role="3EZMnx">
         <property role="3F0ifm" value="fillColor" />
@@ -1321,7 +1332,7 @@
         </node>
         <node concept="3F1sOY" id="4rOpugP5j8B" role="3EZMnx">
           <property role="2ru_X1" value="true" />
-          <ref role="1NtTu8" to="1oap:4rOpugP5j8y" resolve="targetTheme" />
+          <ref role="1NtTu8" to="1oap:4rOpugP5j8y" resolve="targetThemeKind" />
           <node concept="3F0ifn" id="4rOpugP5j8D" role="2ruayu">
             <property role="3F0ifm" value="all themes" />
             <ref role="1k5W1q" to="tpch:6t_vhrzKdF" resolve="Comment" />
@@ -1341,7 +1352,7 @@
   </node>
   <node concept="24kQdi" id="4rOpugP5x3w">
     <property role="3GE5qa" value="icons.descriptors.text" />
-    <ref role="1XX52x" to="1oap:4rOpugP5j8z" resolve="TargetTextIconTheme" />
+    <ref role="1XX52x" to="1oap:4rOpugP5j8z" resolve="TargetTextIconThemeKind" />
     <node concept="PMmxH" id="4rOpugP5x3y" role="2wV5jI">
       <ref role="PMmxG" to="tpco:2wZex4PafBj" resolve="alias" />
       <ref role="1k5W1q" to="tpch:24YP6ZDyde4" resolve="Keyword" />

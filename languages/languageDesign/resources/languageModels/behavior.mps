@@ -2248,65 +2248,6 @@
       </node>
       <node concept="3clFbS" id="2p1v3tObyx0" role="3clF47" />
     </node>
-    <node concept="13i0hz" id="4rOpugPeqgL" role="13h7CS">
-      <property role="13i0it" value="true" />
-      <property role="TrG5h" value="getDarkImageForGeneration" />
-      <node concept="3Tm1VV" id="4rOpugPeqgM" role="1B3o_S" />
-      <node concept="10Q1$e" id="4rOpugPeqgN" role="3clF45">
-        <node concept="10PrrI" id="4rOpugPeqgO" role="10Q1$1" />
-      </node>
-      <node concept="3clFbS" id="4rOpugPeqgP" role="3clF47">
-        <node concept="3cpWs6" id="4rOpugPequ8" role="3cqZAp">
-          <node concept="BsUDl" id="4rOpugPeqvm" role="3cqZAk">
-            <ref role="37wK5l" node="2p1v3tObywX" resolve="getImageForGeneration" />
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="13i0hz" id="4rOpugPe88R" role="13h7CS">
-      <property role="TrG5h" value="isForLightTheme" />
-      <node concept="3Tm1VV" id="4rOpugPe88S" role="1B3o_S" />
-      <node concept="10P_77" id="4rOpugPe89b" role="3clF45" />
-      <node concept="3clFbS" id="4rOpugPe88U" role="3clF47">
-        <node concept="3clFbF" id="4rOpugPe8bu" role="3cqZAp">
-          <node concept="2OqwBi" id="4rOpugPea9g" role="3clFbG">
-            <node concept="2OqwBi" id="4rOpugPe9CB" role="2Oq$k0">
-              <node concept="13iPFW" id="4rOpugPe9uH" role="2Oq$k0" />
-              <node concept="3TrEf2" id="4rOpugPe9Oy" role="2OqNvi">
-                <ref role="3Tt5mk" to="1oap:4rOpugP5j8y" resolve="targetTheme" />
-              </node>
-            </node>
-            <node concept="1mIQ4w" id="4rOpugPealu" role="2OqNvi">
-              <node concept="chp4Y" id="4rOpugPeamD" role="cj9EA">
-                <ref role="cht4Q" to="1oap:4rOpugP5j8$" resolve="LightTargetTheme" />
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="13i0hz" id="4rOpugPearf" role="13h7CS">
-      <property role="TrG5h" value="isForDarkTheme" />
-      <node concept="3Tm1VV" id="4rOpugPearg" role="1B3o_S" />
-      <node concept="10P_77" id="4rOpugPearh" role="3clF45" />
-      <node concept="3clFbS" id="4rOpugPeari" role="3clF47">
-        <node concept="3clFbF" id="4rOpugPearj" role="3cqZAp">
-          <node concept="2OqwBi" id="4rOpugPearl" role="3clFbG">
-            <node concept="2OqwBi" id="4rOpugPearm" role="2Oq$k0">
-              <node concept="13iPFW" id="4rOpugPearn" role="2Oq$k0" />
-              <node concept="3TrEf2" id="4rOpugPearo" role="2OqNvi">
-                <ref role="3Tt5mk" to="1oap:4rOpugP5j8y" resolve="targetTheme" />
-              </node>
-            </node>
-            <node concept="1mIQ4w" id="4rOpugPearp" role="2OqNvi">
-              <node concept="chp4Y" id="4rOpugPearq" role="cj9EA">
-                <ref role="cht4Q" to="1oap:4rOpugP5j8_" resolve="DarkTargetTheme" />
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-    </node>
     <node concept="13i0hz" id="4rOpugPeaF2" role="13h7CS">
       <property role="TrG5h" value="hasDistinctColorsForThemes" />
       <node concept="3Tm1VV" id="4rOpugPeaF3" role="1B3o_S" />
@@ -2318,7 +2259,7 @@
               <node concept="2OqwBi" id="1MyVF62gYwd" role="2Oq$k0">
                 <node concept="13iPFW" id="1MyVF62gYkn" role="2Oq$k0" />
                 <node concept="3TrEf2" id="1MyVF62gYKa" role="2OqNvi">
-                  <ref role="3Tt5mk" to="1oap:4rOpugP5j8y" resolve="targetTheme" />
+                  <ref role="3Tt5mk" to="1oap:4rOpugP5j8y" resolve="targetThemeKind" />
                 </node>
               </node>
               <node concept="3w_OXm" id="1MyVF62gZrI" role="2OqNvi" />
@@ -3398,37 +3339,6 @@
     <node concept="13hLZK" id="7AIFj4M8XD" role="13h7CW">
       <node concept="3clFbS" id="7AIFj4M8XE" role="2VODD2" />
     </node>
-    <node concept="13i0hz" id="4rOpugPexzE" role="13h7CS">
-      <property role="TrG5h" value="getDarkImageForGeneration" />
-      <ref role="13i0hy" node="4rOpugPeqgL" resolve="getDarkImageForGeneration" />
-      <node concept="3Tm1VV" id="4rOpugPexzF" role="1B3o_S" />
-      <node concept="3clFbS" id="4rOpugPexzL" role="3clF47">
-        <node concept="3clFbF" id="4rOpugPexzR" role="3cqZAp">
-          <node concept="BsUDl" id="4rOpugPeAWQ" role="3clFbG">
-            <ref role="37wK5l" node="4rOpugPeyzE" resolve="getImage" />
-            <node concept="2ShNRf" id="4rOpugPeAWR" role="37wK5m">
-              <node concept="1pGfFk" id="4rOpugPeAWS" role="2ShVmc">
-                <ref role="37wK5l" to="z60i:~Color.&lt;init&gt;(int)" resolve="Color" />
-                <node concept="2OqwBi" id="4rOpugPeAWT" role="37wK5m">
-                  <node concept="2OqwBi" id="4rOpugPeAWU" role="2Oq$k0">
-                    <node concept="13iPFW" id="4rOpugPeAWV" role="2Oq$k0" />
-                    <node concept="3TrEf2" id="4rOpugPeAWW" role="2OqNvi">
-                      <ref role="3Tt5mk" to="1oap:1BguvjG4kKm" resolve="color" />
-                    </node>
-                  </node>
-                  <node concept="2qgKlT" id="4rOpugPeAWX" role="2OqNvi">
-                    <ref role="37wK5l" node="4rOpugPdD$J" resolve="getDarkIntValue" />
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="10Q1$e" id="4rOpugPexzM" role="3clF45">
-        <node concept="10PrrI" id="4rOpugPexzN" role="10Q1$1" />
-      </node>
-    </node>
   </node>
   <node concept="13h7C7" id="Ib_Fk7zRKE">
     <property role="3GE5qa" value="icons.descriptors.text" />
@@ -4209,53 +4119,6 @@
       </node>
       <node concept="10Q1$e" id="4rOpugPeP8g" role="3clF45">
         <node concept="10PrrI" id="4rOpugPeP8h" role="10Q1$1" />
-      </node>
-    </node>
-    <node concept="13i0hz" id="4rOpugPeP8i" role="13h7CS">
-      <property role="TrG5h" value="getDarkImageForGeneration" />
-      <ref role="13i0hy" node="4rOpugPeqgL" resolve="getDarkImageForGeneration" />
-      <node concept="3Tm1VV" id="4rOpugPeP8j" role="1B3o_S" />
-      <node concept="3clFbS" id="4rOpugPeP8p" role="3clF47">
-        <node concept="3clFbF" id="4rOpugPePi3" role="3cqZAp">
-          <node concept="BsUDl" id="4rOpugPePi4" role="3clFbG">
-            <ref role="37wK5l" node="4rOpugPeFSA" resolve="getImage" />
-            <node concept="2ShNRf" id="4rOpugPePSC" role="37wK5m">
-              <node concept="1pGfFk" id="4rOpugPePSD" role="2ShVmc">
-                <ref role="37wK5l" to="z60i:~Color.&lt;init&gt;(int)" resolve="Color" />
-                <node concept="2OqwBi" id="4rOpugPePSE" role="37wK5m">
-                  <node concept="2OqwBi" id="4rOpugPePSF" role="2Oq$k0">
-                    <node concept="13iPFW" id="4rOpugPePSG" role="2Oq$k0" />
-                    <node concept="3TrEf2" id="4rOpugPePSH" role="2OqNvi">
-                      <ref role="3Tt5mk" to="1oap:1BguvjG4kKh" resolve="fillColor" />
-                    </node>
-                  </node>
-                  <node concept="2qgKlT" id="4rOpugPePSI" role="2OqNvi">
-                    <ref role="37wK5l" node="4rOpugPdD$J" resolve="getDarkIntValue" />
-                  </node>
-                </node>
-              </node>
-            </node>
-            <node concept="2ShNRf" id="4rOpugPeQ3Z" role="37wK5m">
-              <node concept="1pGfFk" id="4rOpugPeQ40" role="2ShVmc">
-                <ref role="37wK5l" to="z60i:~Color.&lt;init&gt;(int)" resolve="Color" />
-                <node concept="2OqwBi" id="4rOpugPeQ41" role="37wK5m">
-                  <node concept="2OqwBi" id="4rOpugPeQ42" role="2Oq$k0">
-                    <node concept="13iPFW" id="4rOpugPeQ43" role="2Oq$k0" />
-                    <node concept="3TrEf2" id="4rOpugPeQ44" role="2OqNvi">
-                      <ref role="3Tt5mk" to="1oap:1BguvjG4kKj" resolve="borderColor" />
-                    </node>
-                  </node>
-                  <node concept="2qgKlT" id="4rOpugPeQ45" role="2OqNvi">
-                    <ref role="37wK5l" node="4rOpugPdD$J" resolve="getDarkIntValue" />
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="10Q1$e" id="4rOpugPeP8q" role="3clF45">
-        <node concept="10PrrI" id="4rOpugPeP8r" role="10Q1$1" />
       </node>
     </node>
   </node>

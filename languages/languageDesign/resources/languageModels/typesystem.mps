@@ -10,7 +10,6 @@
     <import index="ze1i" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.runtime(MPS.Core/)" />
     <import index="zf81" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.net(JDK/)" />
     <import index="tpd5" ref="r:00000000-0000-4000-0000-011c895902b5(jetbrains.mps.lang.typesystem.dependencies)" />
-    <import index="3767" ref="r:7f24d329-a444-4288-af92-f8ef91dfd241(jetbrains.mps.lang.resources.behavior)" implicit="true" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
   </imports>
   <registry>
@@ -187,12 +186,14 @@
       <concept id="1177026924588" name="jetbrains.mps.lang.smodel.structure.RefConcept_Reference" flags="nn" index="chp4Y">
         <reference id="1177026940964" name="conceptDeclaration" index="cht4Q" />
       </concept>
-      <concept id="1179409122411" name="jetbrains.mps.lang.smodel.structure.Node_ConceptMethodCall" flags="nn" index="2qgKlT" />
       <concept id="1143234257716" name="jetbrains.mps.lang.smodel.structure.Node_GetModelOperation" flags="nn" index="I4A8Y" />
       <concept id="1171323947159" name="jetbrains.mps.lang.smodel.structure.Model_NodesOperation" flags="nn" index="2SmgA7">
         <child id="1758937410080001570" name="conceptArgument" index="1dBWTz" />
       </concept>
       <concept id="6677504323281689838" name="jetbrains.mps.lang.smodel.structure.SConceptType" flags="in" index="3bZ5Sz" />
+      <concept id="1139621453865" name="jetbrains.mps.lang.smodel.structure.Node_IsInstanceOfOperation" flags="nn" index="1mIQ4w">
+        <child id="1177027386292" name="conceptArgument" index="cj9EA" />
+      </concept>
       <concept id="1172008320231" name="jetbrains.mps.lang.smodel.structure.Node_IsNotNullOperation" flags="nn" index="3x8VRR" />
       <concept id="1138055754698" name="jetbrains.mps.lang.smodel.structure.SNodeType" flags="in" index="3Tqbb2" />
       <concept id="1138056022639" name="jetbrains.mps.lang.smodel.structure.SPropertyAccess" flags="nn" index="3TrcHB">
@@ -442,12 +443,19 @@
                   <node concept="1bVj0M" id="1MyVF62hvQL" role="23t8la">
                     <node concept="3clFbS" id="1MyVF62hvQM" role="1bW5cS">
                       <node concept="3clFbF" id="1MyVF62hw15" role="3cqZAp">
-                        <node concept="2OqwBi" id="1MyVF62hwir" role="3clFbG">
-                          <node concept="37vLTw" id="1MyVF62hw14" role="2Oq$k0">
-                            <ref role="3cqZAo" node="1MyVF62hvQN" resolve="it" />
+                        <node concept="2OqwBi" id="3CuULxILDSh" role="3clFbG">
+                          <node concept="2OqwBi" id="1MyVF62hwir" role="2Oq$k0">
+                            <node concept="37vLTw" id="1MyVF62hw14" role="2Oq$k0">
+                              <ref role="3cqZAo" node="1MyVF62hvQN" resolve="it" />
+                            </node>
+                            <node concept="3TrEf2" id="3CuULxILDy7" role="2OqNvi">
+                              <ref role="3Tt5mk" to="1oap:4rOpugP5j8y" resolve="targetThemeKind" />
+                            </node>
                           </node>
-                          <node concept="2qgKlT" id="1MyVF62hx3V" role="2OqNvi">
-                            <ref role="37wK5l" to="3767:4rOpugPearf" resolve="isForDarkTheme" />
+                          <node concept="1mIQ4w" id="3CuULxILE7o" role="2OqNvi">
+                            <node concept="chp4Y" id="3CuULxILEb_" role="cj9EA">
+                              <ref role="cht4Q" to="1oap:4rOpugP5j8_" resolve="DarkTargetThemes" />
+                            </node>
                           </node>
                         </node>
                       </node>

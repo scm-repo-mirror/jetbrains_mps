@@ -49,7 +49,7 @@ public class EditorAspectDescriptorImpl extends EditorAspectDescriptorBase {
       case 14:
         return Collections.<ConceptEditor>singletonList(new Rect_Editor());
       case 15:
-        return Collections.<ConceptEditor>singletonList(new TargetTextIconTheme_Editor());
+        return Collections.<ConceptEditor>singletonList(new TargetTextIconThemeKind_Editor());
       case 16:
         return Collections.<ConceptEditor>singletonList(new Text_Editor());
       case 17:

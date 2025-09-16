@@ -215,8 +215,8 @@
     <node concept="1TJgyj" id="4rOpugP5j8y" role="1TKVEi">
       <property role="IQ2ns" value="5112823507789885986" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="targetTheme" />
-      <ref role="20lvS9" node="4rOpugP5j8z" resolve="TargetTextIconTheme" />
+      <property role="20kJfa" value="targetThemeKind" />
+      <ref role="20lvS9" node="4rOpugP5j8z" resolve="TargetTextIconThemeKind" />
     </node>
   </node>
   <node concept="1TIwiD" id="2p1v3tObyyL">
@@ -421,11 +421,6 @@
       <property role="TrG5h" value="fileName" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
     </node>
-    <node concept="1TJgyi" id="1MyVF62e$SL" role="1TKVEl">
-      <property role="IQ2nx" value="2063474025450589745" />
-      <property role="TrG5h" value="isDarkVariant" />
-      <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
-    </node>
     <node concept="1AhYRh" id="39fSgdSEt90" role="lGtFl" />
   </node>
   <node concept="1TIwiD" id="6S5fI02sJjS">
@@ -471,23 +466,23 @@
   <node concept="1TIwiD" id="4rOpugP5j8z">
     <property role="EcuMT" value="5112823507789885987" />
     <property role="3GE5qa" value="icons.descriptors.text" />
-    <property role="TrG5h" value="TargetTextIconTheme" />
+    <property role="TrG5h" value="TargetTextIconThemeKind" />
     <property role="R5$K7" value="true" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
   </node>
   <node concept="1TIwiD" id="4rOpugP5j8$">
     <property role="EcuMT" value="5112823507789885988" />
     <property role="3GE5qa" value="icons.descriptors.text" />
-    <property role="TrG5h" value="LightTargetTheme" />
+    <property role="TrG5h" value="LightTargetThemes" />
     <property role="34LRSv" value="light themes" />
-    <ref role="1TJDcQ" node="4rOpugP5j8z" resolve="TargetTextIconTheme" />
+    <ref role="1TJDcQ" node="4rOpugP5j8z" resolve="TargetTextIconThemeKind" />
   </node>
   <node concept="1TIwiD" id="4rOpugP5j8_">
     <property role="EcuMT" value="5112823507789885989" />
     <property role="3GE5qa" value="icons.descriptors.text" />
-    <property role="TrG5h" value="DarkTargetTheme" />
+    <property role="TrG5h" value="DarkTargetThemes" />
     <property role="34LRSv" value="dark themes" />
-    <ref role="1TJDcQ" node="4rOpugP5j8z" resolve="TargetTextIconTheme" />
+    <ref role="1TJDcQ" node="4rOpugP5j8z" resolve="TargetTextIconThemeKind" />
   </node>
   <node concept="1TIwiD" id="4rOpugPdabk">
     <property role="EcuMT" value="5112823507791946452" />

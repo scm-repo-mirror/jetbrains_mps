@@ -28,7 +28,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptColorLiteral = createDescriptorForColorLiteral();
   /*package*/ final ConceptDescriptor myConceptConceptIconResourceExpression = createDescriptorForConceptIconResourceExpression();
   /*package*/ final ConceptDescriptor myConceptConstantFieldIcon = createDescriptorForConstantFieldIcon();
-  /*package*/ final ConceptDescriptor myConceptDarkTargetTheme = createDescriptorForDarkTargetTheme();
+  /*package*/ final ConceptDescriptor myConceptDarkTargetThemes = createDescriptorForDarkTargetThemes();
   /*package*/ final ConceptDescriptor myConceptFactoryMethodIcon = createDescriptorForFactoryMethodIcon();
   /*package*/ final ConceptDescriptor myConceptFileIcon = createDescriptorForFileIcon();
   /*package*/ final ConceptDescriptor myConceptGeneratedImage = createDescriptorForGeneratedImage();
@@ -39,12 +39,12 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptIconResourceExpression = createDescriptorForIconResourceExpression();
   /*package*/ final ConceptDescriptor myConceptImage = createDescriptorForImage();
   /*package*/ final ConceptDescriptor myConceptJBColorLiteral = createDescriptorForJBColorLiteral();
-  /*package*/ final ConceptDescriptor myConceptLightTargetTheme = createDescriptorForLightTargetTheme();
+  /*package*/ final ConceptDescriptor myConceptLightTargetThemes = createDescriptorForLightTargetThemes();
   /*package*/ final ConceptDescriptor myConceptNodeIconResourceExpression = createDescriptorForNodeIconResourceExpression();
   /*package*/ final ConceptDescriptor myConceptPrimitive = createDescriptorForPrimitive();
   /*package*/ final ConceptDescriptor myConceptRect = createDescriptorForRect();
   /*package*/ final ConceptDescriptor myConceptResource = createDescriptorForResource();
-  /*package*/ final ConceptDescriptor myConceptTargetTextIconTheme = createDescriptorForTargetTextIconTheme();
+  /*package*/ final ConceptDescriptor myConceptTargetTextIconThemeKind = createDescriptorForTargetTextIconThemeKind();
   /*package*/ final ConceptDescriptor myConceptText = createDescriptorForText();
   /*package*/ final ConceptDescriptor myConceptTextIcon = createDescriptorForTextIcon();
   /*package*/ final EnumerationDescriptor myEnumerationSize = new EnumerationDescriptor_Size();
@@ -68,7 +68,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptBaseURL, myConceptBaseURLFunction, myConceptBaseURLLiteral, myConceptCircle, myConceptColor, myConceptColorLiteral, myConceptConceptIconResourceExpression, myConceptConstantFieldIcon, myConceptDarkTargetTheme, myConceptFactoryMethodIcon, myConceptFileIcon, myConceptGeneratedImage, myConceptHelpURL, myConceptIcon, myConceptIconExpression, myConceptIconLayerDescription, myConceptIconResourceExpression, myConceptImage, myConceptJBColorLiteral, myConceptLightTargetTheme, myConceptNodeIconResourceExpression, myConceptPrimitive, myConceptRect, myConceptResource, myConceptTargetTextIconTheme, myConceptText, myConceptTextIcon);
+    return Arrays.asList(myConceptBaseURL, myConceptBaseURLFunction, myConceptBaseURLLiteral, myConceptCircle, myConceptColor, myConceptColorLiteral, myConceptConceptIconResourceExpression, myConceptConstantFieldIcon, myConceptDarkTargetThemes, myConceptFactoryMethodIcon, myConceptFileIcon, myConceptGeneratedImage, myConceptHelpURL, myConceptIcon, myConceptIconExpression, myConceptIconLayerDescription, myConceptIconResourceExpression, myConceptImage, myConceptJBColorLiteral, myConceptLightTargetThemes, myConceptNodeIconResourceExpression, myConceptPrimitive, myConceptRect, myConceptResource, myConceptTargetTextIconThemeKind, myConceptText, myConceptTextIcon);
   }
 
   @Override
@@ -91,8 +91,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptConceptIconResourceExpression;
       case LanguageConceptSwitch.ConstantFieldIcon:
         return myConceptConstantFieldIcon;
-      case LanguageConceptSwitch.DarkTargetTheme:
-        return myConceptDarkTargetTheme;
+      case LanguageConceptSwitch.DarkTargetThemes:
+        return myConceptDarkTargetThemes;
       case LanguageConceptSwitch.FactoryMethodIcon:
         return myConceptFactoryMethodIcon;
       case LanguageConceptSwitch.FileIcon:
@@ -113,8 +113,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptImage;
       case LanguageConceptSwitch.JBColorLiteral:
         return myConceptJBColorLiteral;
-      case LanguageConceptSwitch.LightTargetTheme:
-        return myConceptLightTargetTheme;
+      case LanguageConceptSwitch.LightTargetThemes:
+        return myConceptLightTargetThemes;
       case LanguageConceptSwitch.NodeIconResourceExpression:
         return myConceptNodeIconResourceExpression;
       case LanguageConceptSwitch.Primitive:
@@ -123,8 +123,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptRect;
       case LanguageConceptSwitch.Resource:
         return myConceptResource;
-      case LanguageConceptSwitch.TargetTextIconTheme:
-        return myConceptTargetTextIconTheme;
+      case LanguageConceptSwitch.TargetTextIconThemeKind:
+        return myConceptTargetTextIconThemeKind;
       case LanguageConceptSwitch.Text:
         return myConceptText;
       case LanguageConceptSwitch.TextIcon:
@@ -221,10 +221,10 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.alias("constant");
     return b.create();
   }
-  private static ConceptDescriptor createDescriptorForDarkTargetTheme() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.resources", "DarkTargetTheme", 0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x46f465e435153225L);
+  private static ConceptDescriptor createDescriptorForDarkTargetThemes() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.resources", "DarkTargetThemes", 0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x46f465e435153225L);
     b.class_(false, false, false);
-    // extends: jetbrains.mps.lang.resources.structure.TargetTextIconTheme
+    // extends: jetbrains.mps.lang.resources.structure.TargetTextIconThemeKind
     b.super_(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x46f465e435153223L);
     b.origin("r:03d44d4c-3d65-461c-9085-0f48e9569e59(jetbrains.mps.lang.resources.structure)/5112823507789885989");
     b.version(3);
@@ -259,7 +259,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:03d44d4c-3d65-461c-9085-0f48e9569e59(jetbrains.mps.lang.resources.structure)/3625363630082085223");
     b.version(3);
     b.property("fileName", 0x324fe10378a9d34fL).type(PrimitiveTypeId.STRING).origin("3625363630082085711").done();
-    b.property("isDarkVariant", 0x1ca2eeb1823a4e31L).type(PrimitiveTypeId.BOOLEAN).origin("2063474025450589745").done();
     b.aggregate("layers", 0x324fe10378b5b580L).target(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0e65L).optional(false).ordered(true).multiple(true).origin("3625363630082864512").done();
     return b.create();
   }
@@ -297,7 +296,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.interface_();
     b.origin("r:03d44d4c-3d65-461c-9085-0f48e9569e59(jetbrains.mps.lang.resources.structure)/2756621024541675109");
     b.version(3);
-    b.aggregate("targetTheme", 0x46f465e435153222L).target(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x46f465e435153223L).optional(true).ordered(true).multiple(false).origin("5112823507789885986").done();
+    b.aggregate("targetThemeKind", 0x46f465e435153222L).target(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x46f465e435153223L).optional(true).ordered(true).multiple(false).origin("5112823507789885986").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForIconResourceExpression() {
@@ -331,10 +330,10 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.alias("##");
     return b.create();
   }
-  private static ConceptDescriptor createDescriptorForLightTargetTheme() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.resources", "LightTargetTheme", 0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x46f465e435153224L);
+  private static ConceptDescriptor createDescriptorForLightTargetThemes() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.resources", "LightTargetThemes", 0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x46f465e435153224L);
     b.class_(false, false, false);
-    // extends: jetbrains.mps.lang.resources.structure.TargetTextIconTheme
+    // extends: jetbrains.mps.lang.resources.structure.TargetTextIconThemeKind
     b.super_(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x46f465e435153223L);
     b.origin("r:03d44d4c-3d65-461c-9085-0f48e9569e59(jetbrains.mps.lang.resources.structure)/5112823507789885988");
     b.version(3);
@@ -379,8 +378,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(3);
     return b.create();
   }
-  private static ConceptDescriptor createDescriptorForTargetTextIconTheme() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.resources", "TargetTextIconTheme", 0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x46f465e435153223L);
+  private static ConceptDescriptor createDescriptorForTargetTextIconThemeKind() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.resources", "TargetTextIconThemeKind", 0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x46f465e435153223L);
     b.class_(false, true, false);
     b.origin("r:03d44d4c-3d65-461c-9085-0f48e9569e59(jetbrains.mps.lang.resources.structure)/5112823507789885987");
     b.version(3);

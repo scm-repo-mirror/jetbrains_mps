@@ -31,9 +31,8 @@ public final class Text__BehaviorDescriptor extends BaseBHDescriptor {
 
   /*package*/ static final SMethod<byte[]> getImage_id4rOpugPeyzE = new SMethodBuilder<byte[]>(new SJavaCompoundTypeImpl(byte[].class)).name("getImage").modifiers(0, AccessPrivileges.PRIVATE).concept(CONCEPT).baseMethodId(5112823507792308458L).languageId(0x996311712ea622e5L, 0x982eb8df2c964bd7L).build2(SMethodBuilder.createJavaParameter(Color.class, ""));
   public static final SMethod<byte[]> getImageForGeneration_id2p1v3tObywX = new SMethodBuilder<byte[]>(new SJavaCompoundTypeImpl(byte[].class)).name("getImageForGeneration").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2756621024541681725L).languageId(0x996311712ea622e5L, 0x982eb8df2c964bd7L).build2();
-  public static final SMethod<byte[]> getDarkImageForGeneration_id4rOpugPeqgL = new SMethodBuilder<byte[]>(new SJavaCompoundTypeImpl(byte[].class)).name("getDarkImageForGeneration").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5112823507792274481L).languageId(0x996311712ea622e5L, 0x982eb8df2c964bd7L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getImage_id4rOpugPeyzE, getImageForGeneration_id2p1v3tObywX, getDarkImageForGeneration_id4rOpugPeqgL);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getImage_id4rOpugPeyzE, getImageForGeneration_id2p1v3tObywX);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -53,9 +52,6 @@ public final class Text__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static byte[] getImageForGeneration_id2p1v3tObywX(@NotNull SNode __thisNode__) {
     return Text__BehaviorDescriptor.getImage_id4rOpugPeyzE.invokeSpecial(__thisNode__, new Color((int) Color__BehaviorDescriptor.getIntValue_id1BguvjG4ybo.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.color$VAO2))));
-  }
-  /*package*/ static byte[] getDarkImageForGeneration_id4rOpugPeqgL(@NotNull SNode __thisNode__) {
-    return ((byte[]) Text__BehaviorDescriptor.getImage_id4rOpugPeyzE.invokeSpecial(__thisNode__, new Color((int) Color__BehaviorDescriptor.getDarkIntValue_id4rOpugPdD$J.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.color$VAO2)))));
   }
 
   /*package*/ Text__BehaviorDescriptor() {
@@ -77,8 +73,6 @@ public final class Text__BehaviorDescriptor extends BaseBHDescriptor {
         return (T) ((byte[]) getImage_id4rOpugPeyzE(node, (Color) parameters[0]));
       case 1:
         return (T) ((byte[]) getImageForGeneration_id2p1v3tObywX(node));
-      case 2:
-        return (T) ((byte[]) getDarkImageForGeneration_id4rOpugPeqgL(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

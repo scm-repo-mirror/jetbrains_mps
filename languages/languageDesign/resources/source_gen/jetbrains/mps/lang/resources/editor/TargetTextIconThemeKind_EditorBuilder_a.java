@@ -12,11 +12,11 @@ import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.lang.structure.editor.structure_StyleSheet.KeywordStyleClass;
 
-/*package*/ class TargetTextIconTheme_EditorBuilder_a extends AbstractEditorBuilder {
+/*package*/ class TargetTextIconThemeKind_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
   private SNode myNode;
 
-  public TargetTextIconTheme_EditorBuilder_a(@NotNull EditorContext context, @NotNull SNode node) {
+  public TargetTextIconThemeKind_EditorBuilder_a(@NotNull EditorContext context, @NotNull SNode node) {
     super(context);
     myNode = node;
   }

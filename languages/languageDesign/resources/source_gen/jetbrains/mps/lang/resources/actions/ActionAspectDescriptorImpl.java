@@ -16,6 +16,8 @@ public class ActionAspectDescriptorImpl extends BaseActionAspectDescriptor imple
   public Collection<NodeFactory> getFactories(SAbstractConcept concept) {
     if (LANGUAGE_FQ_NAME.equals(concept.getLanguage().getQualifiedName())) {
       switch (concept.getName()) {
+        case "Primitive":
+          return Collections.<NodeFactory>singletonList(new InitTextIcon.NodeFactory_7360544480991162344());
         case "TextIcon":
           return Collections.<NodeFactory>singletonList(new InitTextIcon.NodeFactory_1860120738943413796());
         default:
