@@ -115,6 +115,9 @@ public class DefaultEditor extends AbstractDefaultEditor {
         editorCell.setSubstituteInfo(new EnumSPropertySubstituteInfo(getNode(), property, getEditorContext()));
       }
       addCellWithRole(IterableUtils.first(AttributeOperations.getPropertyAttributes(getNode(), property)), AttributeKind.PROPERTY, editorCell);
+      if (editorCell.getCellContext() == null) {
+        editorCell.setCellContext(getCellFactory().getCellContext());
+      }
     } finally {
       getCellFactory().popCellContext();
     }
