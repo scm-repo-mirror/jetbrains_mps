@@ -232,7 +232,7 @@ public class DefaultEditor extends AbstractDefaultEditor {
     noRefCell.setSRole(referenceLink);
 
     setIndent(noRefCell);
-    addCell(noRefCell);
+    addCellWithRole(IterableUtils.first(AttributeOperations.getLinkAttributes(getNode(), referenceLink)), AttributeKind.REFERENCE, noRefCell);
   }
 
   protected EditorCell createErrorCell(String error, SReferenceLink link) {
