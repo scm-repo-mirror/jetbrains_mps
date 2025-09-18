@@ -153,6 +153,9 @@ public class CustomViewersManagerImpl extends CustomViewersManager {
   }
 
   public synchronized void setValueWrapper(@NotNull IValueProxy value, @NotNull ValueWrapperFactory factory, @NotNull DebugSession session) {
+    if (!(value instanceof IObjectValueProxy)) {
+      return;
+    }
     Map<Long, String> objectIdToFactory = MapSequence.fromMap(myObjectIdToFactory).get(session);
     if (objectIdToFactory == null) {
       objectIdToFactory = MapSequence.fromMap(new HashMap<Long, String>());

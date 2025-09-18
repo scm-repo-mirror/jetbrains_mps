@@ -1558,6 +1558,23 @@
       <property role="od$2w" value="true" />
       <property role="DiZV1" value="false" />
       <node concept="3clFbS" id="3x4PZFhpf_8" role="3clF47">
+        <node concept="3clFbJ" id="1LArolycvpx" role="3cqZAp">
+          <node concept="3clFbS" id="1LArolycvpz" role="3clFbx">
+            <node concept="3cpWs6" id="1LArolycOxr" role="3cqZAp" />
+          </node>
+          <node concept="3fqX7Q" id="1LArolycFn7" role="3clFbw">
+            <node concept="1eOMI4" id="1LArolycLx5" role="3fr31v">
+              <node concept="2ZW3vV" id="1LArolycFn9" role="1eOMHV">
+                <node concept="3uibUv" id="1LArolycFna" role="2ZW6by">
+                  <ref role="3uigEE" to="dcbi:46sxDGTfobM" resolve="IObjectValueProxy" />
+                </node>
+                <node concept="37vLTw" id="1LArolycFnb" role="2ZW6bz">
+                  <ref role="3cqZAo" node="3x4PZFhpfCv" resolve="value" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs8" id="3edepbv0AiS" role="3cqZAp">
           <node concept="3cpWsn" id="3edepbv0AiT" role="3cpWs9">
             <property role="TrG5h" value="objectIdToFactory" />
