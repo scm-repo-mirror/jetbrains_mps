@@ -151,7 +151,7 @@
 }, {
   "name" : "Compose Multiplatform",
   "url" : "https://github.com/JetBrains/compose-multiplatform",
-  "version" : "1.8.0-alpha04",
+  "version" : "1.9.0-beta03",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://github.com/JetBrains/compose-multiplatform/blob/master/LICENSE.txt"
 }, {
@@ -589,13 +589,13 @@
 }, {
   "name" : "Skiko",
   "url" : "https://github.com/JetBrains/skiko/",
-  "version" : "0.9.2",
+  "version" : "0.9.22",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://github.com/JetBrains/skiko/blob/master/LICENSE"
 }, {
   "name" : "Skiko Runtime",
   "url" : "https://github.com/JetBrains/skiko/",
-  "version" : "0.9.2",
+  "version" : "0.9.22",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://github.com/JetBrains/skiko/blob/master/LICENSE"
 }, {
@@ -1009,7 +1009,7 @@
 }, {
   "name" : "pty4j",
   "url" : "https://github.com/JetBrains/pty4j",
-  "version" : "0.13.8",
+  "version" : "0.13.11",
   "license" : "EPL 1.0",
   "licenseUrl" : "https://github.com/JetBrains/pty4j/blob/master/LICENSE"
 }, {
