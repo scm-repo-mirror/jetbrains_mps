@@ -3,7 +3,6 @@
   <persistence version="9" />
   <languages>
     <devkit ref="78434eb8-b0e5-444b-850d-e7c4ad2da9ab(jetbrains.mps.devkit.aspect.structure)" />
-    <devkit ref="c9983bff-58c7-4465-88f7-3d854bbf1736(jetbrains.mps.devkit.documentation)" />
   </languages>
   <imports>
     <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" />
@@ -13,16 +12,6 @@
     <import index="tp2c" ref="r:00000000-0000-4000-0000-011c89590338(jetbrains.mps.baseLanguage.closures.structure)" implicit="true" />
   </imports>
   <registry>
-    <language id="d304f247-4944-479d-ac8b-972b953bcdfe" name="jetbrains.mps.lang.doctext">
-      <concept id="747542936069611173" name="jetbrains.mps.lang.doctext.structure.DocText" flags="ng" index="3W_X3N">
-        <child id="4404258161274814728" name="lines" index="2WYp1Y" />
-      </concept>
-    </language>
-    <language id="343f8205-dc88-465b-9c5b-ce46b5f1c193" name="jetbrains.mps.lang.core.doc">
-      <concept id="4293932951803486388" name="jetbrains.mps.lang.core.doc.structure.DocumentationAnnotation" flags="ng" index="3207RK">
-        <child id="2217810310728609106" name="text" index="SU_fC" />
-      </concept>
-    </language>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
       <concept id="3348158742936976480" name="jetbrains.mps.lang.structure.structure.EnumerationMemberDeclaration" flags="ng" index="25R33">
         <property id="1421157252384165432" name="memberId" index="3tVfz5" />
@@ -85,14 +74,6 @@
       </concept>
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ngI" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
-      </concept>
-    </language>
-    <language id="c7fb639f-be78-4307-89b0-b5959c3fa8c8" name="jetbrains.mps.lang.text">
-      <concept id="155656958578482948" name="jetbrains.mps.lang.text.structure.Word" flags="nn" index="3oM_SD">
-        <property id="155656958578482949" name="value" index="3oM_SC" />
-      </concept>
-      <concept id="2535923850359271782" name="jetbrains.mps.lang.text.structure.Line" flags="nn" index="1PaTwC">
-        <child id="2535923850359271783" name="elements" index="1PaTwD" />
       </concept>
     </language>
   </registry>
@@ -531,135 +512,14 @@
     <property role="EcuMT" value="4188043193671928227" />
     <property role="3GE5qa" value="icons.descriptors.text" />
     <property role="TrG5h" value="IThemeKindSpecific" />
-    <node concept="3207RK" id="6cky_RDKSWF" role="lGtFl">
-      <node concept="3W_X3N" id="6cky_RDKSWH" role="SU_fC">
-        <node concept="1PaTwC" id="6cky_RDKSWJ" role="2WYp1Y">
-          <node concept="3oM_SD" id="6cky_RDKSWK" role="1PaTwD">
-            <property role="3oM_SC" value="Allows" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKSWL" role="1PaTwD">
-            <property role="3oM_SC" value="TextIcon's" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKSWN" role="1PaTwD">
-            <property role="3oM_SC" value="layers" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKSWO" role="1PaTwD">
-            <property role="3oM_SC" value="to" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKSWP" role="1PaTwD">
-            <property role="3oM_SC" value="indicate" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKSWQ" role="1PaTwD">
-            <property role="3oM_SC" value="whether" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKSWR" role="1PaTwD">
-            <property role="3oM_SC" value="they" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKSWS" role="1PaTwD">
-            <property role="3oM_SC" value="are" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKSWT" role="1PaTwD">
-            <property role="3oM_SC" value="specific" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKSWU" role="1PaTwD">
-            <property role="3oM_SC" value="to" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKSWV" role="1PaTwD">
-            <property role="3oM_SC" value="either" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKSWW" role="1PaTwD">
-            <property role="3oM_SC" value="of" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKSWX" role="1PaTwD">
-            <property role="3oM_SC" value="the" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKSWY" role="1PaTwD">
-            <property role="3oM_SC" value="light" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKSWZ" role="1PaTwD">
-            <property role="3oM_SC" value="or" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKSX0" role="1PaTwD">
-            <property role="3oM_SC" value="dark" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKSX1" role="1PaTwD">
-            <property role="3oM_SC" value="color" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKSX2" role="1PaTwD">
-            <property role="3oM_SC" value="themes" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKSX3" role="1PaTwD">
-            <property role="3oM_SC" value="or" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKSX4" role="1PaTwD">
-            <property role="3oM_SC" value="none." />
-          </node>
-        </node>
-        <node concept="1PaTwC" id="6cky_RDKT6C" role="2WYp1Y">
-          <node concept="3oM_SD" id="6cky_RDKT6B" role="1PaTwD">
-            <property role="3oM_SC" value="Only" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKT7j" role="1PaTwD">
-            <property role="3oM_SC" value="allowed" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKT7l" role="1PaTwD">
-            <property role="3oM_SC" value="for" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKT7m" role="1PaTwD">
-            <property role="3oM_SC" value="new" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKT7n" role="1PaTwD">
-            <property role="3oM_SC" value="UI" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKT7o" role="1PaTwD">
-            <property role="3oM_SC" value="icons." />
-          </node>
-        </node>
-        <node concept="1PaTwC" id="6cky_RDKTrm" role="2WYp1Y">
-          <node concept="3oM_SD" id="6cky_RDKTrl" role="1PaTwD">
-            <property role="3oM_SC" value="The" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKTr_" role="1PaTwD">
-            <property role="3oM_SC" value="behavior" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKTrB" role="1PaTwD">
-            <property role="3oM_SC" value="methods" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKTJ$" role="1PaTwD">
-            <property role="3oM_SC" value="contain" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKTJ_" role="1PaTwD">
-            <property role="3oM_SC" value="most" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKTJA" role="1PaTwD">
-            <property role="3oM_SC" value="of" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKTJB" role="1PaTwD">
-            <property role="3oM_SC" value="the" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKTJC" role="1PaTwD">
-            <property role="3oM_SC" value="decision" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKTJD" role="1PaTwD">
-            <property role="3oM_SC" value="logic" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKTJE" role="1PaTwD">
-            <property role="3oM_SC" value="used" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKTJF" role="1PaTwD">
-            <property role="3oM_SC" value="during" />
-          </node>
-          <node concept="3oM_SD" id="6cky_RDKTJG" role="1PaTwD">
-            <property role="3oM_SC" value="generation." />
-          </node>
-        </node>
-      </node>
-    </node>
     <node concept="1TJgyj" id="3CuULxINMq$" role="1TKVEi">
       <property role="IQ2ns" value="4188043193671952036" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="targetThemeKind" />
       <ref role="20lvS9" node="4rOpugP5j8z" resolve="TargetTextIconThemeKind" />
+    </node>
+    <node concept="t5JxF" id="4dvO4p5Gtyt" role="lGtFl">
+      <property role="t5JxN" value="Allows TextIcon's layers to indicate whether they are specific to either of the light or dark color themes or none. The behavior methods contain most of the decision logic used during generation." />
     </node>
   </node>
 </model>
