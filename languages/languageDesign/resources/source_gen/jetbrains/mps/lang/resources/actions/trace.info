@@ -11,69 +11,117 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1076505808687:jetbrains.mps.baseLanguage.structure.WhileStatement" />
   <root>
     <file name="ActionAspectDescriptorImpl.java">
-      <unit at="12,0,32,0" name="jetbrains.mps.lang.resources.actions.ActionAspectDescriptorImpl" />
+      <unit at="12,0,36,0" name="jetbrains.mps.lang.resources.actions.ActionAspectDescriptorImpl" />
     </file>
   </root>
   <root nodeRef="r:b921e97e-c79b-49a1-bb6f-d836bc131175(jetbrains.mps.lang.resources.actions)/1860120738943413795">
     <file name="InitTextIcon.java">
-      <node id="4188043193672068904" at="20,7,21,42" concept="4" />
-      <node id="4188043193672069046" at="22,85,23,138" concept="1" />
-      <node id="7360544480991162367" at="30,7,31,42" concept="4" />
-      <node id="7360544480991162482" at="32,76,33,126" concept="1" />
-      <node id="7360544480991172579" at="33,126,34,130" concept="1" />
-      <node id="1860120738943467684" at="40,102,41,89" concept="1" />
-      <node id="1860120738943413795" at="46,0,47,0" concept="6" trace="IThemeKindSpecific$G4" />
-      <node id="1860120738943413795" at="47,0,48,0" concept="6" trace="Primitive$zu" />
-      <node id="1860120738943413795" at="51,0,52,0" concept="6" trace="targetThemeKind$gOwm" />
-      <node id="1860120738943413795" at="52,0,53,0" concept="6" trace="fillColor$VwDK" />
-      <node id="1860120738943413795" at="53,0,54,0" concept="6" trace="borderColor$VA37" />
-      <node id="1860120738943413795" at="57,0,58,0" concept="6" trace="iconId$SZ3g" />
-      <node id="4188043193672068904" at="21,42,24,9" concept="2" />
-      <node id="1860120738943413796" at="40,0,43,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <node id="7360544480991162367" at="31,42,35,9" concept="2" />
-      <node id="4188043193672068904" at="19,102,25,7" concept="0" />
-      <node id="7360544480991162367" at="29,102,36,7" concept="0" />
-      <node id="4188043193672068881" at="19,0,27,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <node id="7360544480991162344" at="29,0,38,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <scope id="4188043193672068906" at="22,85,23,138" />
-      <scope id="1860120738943413796" at="40,102,41,89" />
-      <scope id="7360544480991162369" at="32,76,34,130" />
-      <scope id="1860120738943413796" at="40,0,43,0">
+      <node id="4188043193672068904" at="21,7,22,42" concept="4" />
+      <node id="4188043193672069046" at="23,85,24,138" concept="1" />
+      <node id="7360544480991162367" at="31,7,32,42" concept="4" />
+      <node id="7360544480991162482" at="33,76,34,126" concept="1" />
+      <node id="7360544480991172579" at="34,126,35,130" concept="1" />
+      <node id="1860120738943467684" at="41,102,42,89" concept="1" />
+      <node id="7139483445243161626" at="47,7,48,41" concept="4" />
+      <node id="7139483445243161768" at="49,78,50,128" concept="1" />
+      <node id="7139483445243170707" at="50,128,51,127" concept="1" />
+      <node id="7139483445243167053" at="58,7,59,41" concept="4" />
+      <node id="7139483445243167056" at="61,223,62,129" concept="1" />
+      <node id="7139483445247116949" at="63,18,64,130" concept="1" />
+      <node id="1860120738943413795" at="72,0,73,0" concept="6" trace="IThemeKindSpecific$G4" />
+      <node id="1860120738943413795" at="73,0,74,0" concept="6" trace="Primitive$zu" />
+      <node id="1860120738943413795" at="74,0,75,0" concept="6" trace="ColorLiteral$LB" />
+      <node id="1860120738943413795" at="75,0,76,0" concept="6" trace="JBColorLiteral$9I" />
+      <node id="1860120738943413795" at="76,0,77,0" concept="6" trace="DarkTargetThemes$Km" />
+      <node id="1860120738943413795" at="80,0,81,0" concept="6" trace="targetThemeKind$gOwm" />
+      <node id="1860120738943413795" at="81,0,82,0" concept="6" trace="fillColor$VwDK" />
+      <node id="1860120738943413795" at="82,0,83,0" concept="6" trace="borderColor$VA37" />
+      <node id="1860120738943413795" at="86,0,87,0" concept="6" trace="iconId$SZ3g" />
+      <node id="1860120738943413795" at="87,0,88,0" concept="6" trace="lightThemeVal$C0cI" />
+      <node id="1860120738943413795" at="88,0,89,0" concept="6" trace="val$$ZaE" />
+      <node id="1860120738943413795" at="89,0,90,0" concept="6" trace="darkThemeVal$C0rJ" />
+      <node id="7139483445247118728" at="63,16,65,11" concept="0" />
+      <node id="4188043193672068904" at="22,42,25,9" concept="2" />
+      <node id="1860120738943413796" at="41,0,44,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <node id="7360544480991162367" at="32,42,36,9" concept="2" />
+      <node id="7139483445243161626" at="48,41,52,9" concept="2" />
+      <node id="7139483445247095200" at="60,80,65,11" concept="2" />
+      <node id="4188043193672068904" at="20,102,26,7" concept="0" />
+      <node id="7360544480991162367" at="30,102,37,7" concept="0" />
+      <node id="7139483445243161626" at="46,102,53,7" concept="0" />
+      <node id="7139483445243167053" at="59,41,66,9" concept="2" />
+      <node id="4188043193672068881" at="20,0,28,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <node id="7360544480991162344" at="30,0,39,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <node id="7139483445243161603" at="46,0,55,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <node id="7139483445243167053" at="57,102,67,7" concept="0" />
+      <node id="7139483445243167050" at="57,0,69,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="4188043193672068906" at="23,85,24,138" />
+      <scope id="1860120738943413796" at="41,102,42,89" />
+      <scope id="7139483445247095202" at="61,223,62,129" />
+      <scope id="7139483445247118729" at="63,18,64,130" />
+      <scope id="7360544480991162369" at="33,76,35,130" />
+      <scope id="7139483445243161628" at="49,78,51,127" />
+      <scope id="1860120738943413796" at="41,0,44,0">
         <var name="enclosingNode" id="1860120738943413796" />
         <var name="index" id="1860120738943413796" />
         <var name="model" id="1860120738943413796" />
         <var name="newNode" id="1860120738943413796" />
         <var name="sampleNode" id="1860120738943413796" />
       </scope>
-      <scope id="4188043193672068904" at="20,7,24,9">
+      <scope id="4188043193672068904" at="21,7,25,9">
         <var name="original" id="4188043193672068904" />
       </scope>
-      <scope id="7360544480991162367" at="30,7,35,9">
+      <scope id="7360544480991162367" at="31,7,36,9">
         <var name="original" id="7360544480991162367" />
       </scope>
-      <scope id="4188043193672068881" at="19,102,25,7" />
-      <scope id="7360544480991162344" at="29,102,36,7" />
-      <scope id="4188043193672068881" at="19,0,27,0">
+      <scope id="7139483445243161626" at="47,7,52,9">
+        <var name="jbcolor" id="7139483445243161626" />
+      </scope>
+      <scope id="7139483445243167055" at="60,80,65,11" />
+      <scope id="4188043193672068881" at="20,102,26,7" />
+      <scope id="7360544480991162344" at="30,102,37,7" />
+      <scope id="7139483445243161603" at="46,102,53,7" />
+      <scope id="4188043193672068881" at="20,0,28,0">
         <var name="enclosingNode" id="4188043193672068881" />
         <var name="index" id="4188043193672068881" />
         <var name="model" id="4188043193672068881" />
         <var name="newNode" id="4188043193672068881" />
         <var name="sampleNode" id="4188043193672068881" />
       </scope>
-      <scope id="7360544480991162344" at="29,0,38,0">
+      <scope id="7139483445243167053" at="58,7,66,9">
+        <var name="jbcolor" id="7139483445243167053" />
+      </scope>
+      <scope id="7360544480991162344" at="30,0,39,0">
         <var name="enclosingNode" id="7360544480991162344" />
         <var name="index" id="7360544480991162344" />
         <var name="model" id="7360544480991162344" />
         <var name="newNode" id="7360544480991162344" />
         <var name="sampleNode" id="7360544480991162344" />
       </scope>
-      <unit id="1860120738943413795" at="56,0,59,0" name="jetbrains.mps.lang.resources.actions.InitTextIcon$PROPS" />
-      <unit id="1860120738943413795" at="45,0,49,0" name="jetbrains.mps.lang.resources.actions.InitTextIcon$CONCEPTS" />
-      <unit id="1860120738943413796" at="39,0,44,0" name="jetbrains.mps.lang.resources.actions.InitTextIcon$NodeFactory_1860120738943413796" />
-      <unit id="1860120738943413795" at="50,0,55,0" name="jetbrains.mps.lang.resources.actions.InitTextIcon$LINKS" />
-      <unit id="4188043193672068881" at="18,0,28,0" name="jetbrains.mps.lang.resources.actions.InitTextIcon$NodeFactory_4188043193672068881" />
-      <unit id="7360544480991162344" at="28,0,39,0" name="jetbrains.mps.lang.resources.actions.InitTextIcon$NodeFactory_7360544480991162344" />
-      <unit id="1860120738943413795" at="17,0,60,0" name="jetbrains.mps.lang.resources.actions.InitTextIcon" />
+      <scope id="7139483445243161603" at="46,0,55,0">
+        <var name="enclosingNode" id="7139483445243161603" />
+        <var name="index" id="7139483445243161603" />
+        <var name="model" id="7139483445243161603" />
+        <var name="newNode" id="7139483445243161603" />
+        <var name="sampleNode" id="7139483445243161603" />
+      </scope>
+      <scope id="7139483445243167050" at="57,102,67,7" />
+      <scope id="7139483445243167050" at="57,0,69,0">
+        <var name="enclosingNode" id="7139483445243167050" />
+        <var name="index" id="7139483445243167050" />
+        <var name="model" id="7139483445243167050" />
+        <var name="newNode" id="7139483445243167050" />
+        <var name="sampleNode" id="7139483445243167050" />
+      </scope>
+      <unit id="1860120738943413796" at="40,0,45,0" name="jetbrains.mps.lang.resources.actions.InitTextIcon$NodeFactory_1860120738943413796" />
+      <unit id="1860120738943413795" at="79,0,84,0" name="jetbrains.mps.lang.resources.actions.InitTextIcon$LINKS" />
+      <unit id="1860120738943413795" at="85,0,91,0" name="jetbrains.mps.lang.resources.actions.InitTextIcon$PROPS" />
+      <unit id="1860120738943413795" at="71,0,78,0" name="jetbrains.mps.lang.resources.actions.InitTextIcon$CONCEPTS" />
+      <unit id="4188043193672068881" at="19,0,29,0" name="jetbrains.mps.lang.resources.actions.InitTextIcon$NodeFactory_4188043193672068881" />
+      <unit id="7360544480991162344" at="29,0,40,0" name="jetbrains.mps.lang.resources.actions.InitTextIcon$NodeFactory_7360544480991162344" />
+      <unit id="7139483445243161603" at="45,0,56,0" name="jetbrains.mps.lang.resources.actions.InitTextIcon$NodeFactory_7139483445243161603" />
+      <unit id="7139483445243167050" at="56,0,70,0" name="jetbrains.mps.lang.resources.actions.InitTextIcon$NodeFactory_7139483445243167050" />
+      <unit id="1860120738943413795" at="18,0,92,0" name="jetbrains.mps.lang.resources.actions.InitTextIcon" />
     </file>
   </root>
   <root nodeRef="r:b921e97e-c79b-49a1-bb6f-d836bc131175(jetbrains.mps.lang.resources.actions)/8130203123066046342">

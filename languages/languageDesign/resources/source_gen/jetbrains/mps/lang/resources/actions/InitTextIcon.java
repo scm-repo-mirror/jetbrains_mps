@@ -8,6 +8,7 @@ import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.resources.behavior.IThemeKindSpecific__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -41,10 +42,38 @@ public class InitTextIcon {
       SPropertyOperations.assign(newNode, PROPS.iconId$SZ3g, IconHelper.createId(model));
     }
   }
+  public static class NodeFactory_7139483445243161603 implements NodeFactory {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
+      {
+        final SNode jbcolor = sampleNode;
+        if (SNodeOperations.isInstanceOf(jbcolor, CONCEPTS.ColorLiteral$LB)) {
+          SPropertyOperations.assign(newNode, PROPS.lightThemeVal$C0cI, SPropertyOperations.getString(jbcolor, PROPS.val$$ZaE));
+          SPropertyOperations.assign(newNode, PROPS.darkThemeVal$C0rJ, SPropertyOperations.getString(jbcolor, PROPS.val$$ZaE));
+        }
+      }
+    }
+  }
+  public static class NodeFactory_7139483445243167050 implements NodeFactory {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
+      {
+        final SNode jbcolor = sampleNode;
+        if (SNodeOperations.isInstanceOf(jbcolor, CONCEPTS.JBColorLiteral$9I)) {
+          if ((boolean) IThemeKindSpecific__BehaviorDescriptor.isSpecificFor_id3CuULxINXoF.invoke(SNodeOperations.getNodeAncestor(enclosingNode, CONCEPTS.IThemeKindSpecific$G4, true, false), CONCEPTS.DarkTargetThemes$Km)) {
+            SPropertyOperations.assign(newNode, PROPS.val$$ZaE, SPropertyOperations.getString(jbcolor, PROPS.darkThemeVal$C0rJ));
+          } else {
+            SPropertyOperations.assign(newNode, PROPS.val$$ZaE, SPropertyOperations.getString(jbcolor, PROPS.lightThemeVal$C0cI));
+          }
+        }
+      }
+    }
+  }
 
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IThemeKindSpecific$G4 = MetaAdapterFactory.getInterfaceConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x3a1eeb186ecec9a3L, "jetbrains.mps.lang.resources.structure.IThemeKindSpecific");
     /*package*/ static final SConcept Primitive$zu = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b1L, "jetbrains.mps.lang.resources.structure.Primitive");
+    /*package*/ static final SConcept ColorLiteral$LB = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x19d079f4ec114bddL, "jetbrains.mps.lang.resources.structure.ColorLiteral");
+    /*package*/ static final SConcept JBColorLiteral$9I = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x46f465e43534a2d4L, "jetbrains.mps.lang.resources.structure.JBColorLiteral");
+    /*package*/ static final SConcept DarkTargetThemes$Km = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x46f465e435153225L, "jetbrains.mps.lang.resources.structure.DarkTargetThemes");
   }
 
   private static final class LINKS {
@@ -55,5 +84,8 @@ public class InitTextIcon {
 
   private static final class PROPS {
     /*package*/ static final SProperty iconId$SZ3g = MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0d45L, 0x12dbb53bb6b60039L, "iconId");
+    /*package*/ static final SProperty lightThemeVal$C0cI = MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x46f465e43534a2d4L, 0x46f465e43534aaa3L, "lightThemeVal");
+    /*package*/ static final SProperty val$$ZaE = MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x19d079f4ec114bddL, 0x19d079f4ec114be1L, "val");
+    /*package*/ static final SProperty darkThemeVal$C0rJ = MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x46f465e43534a2d4L, 0x46f465e43534aaa4L, "darkThemeVal");
   }
 }

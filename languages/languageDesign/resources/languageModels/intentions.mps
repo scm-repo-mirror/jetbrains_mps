@@ -4,6 +4,7 @@
   <languages>
     <use id="d7a92d38-f7db-40d0-8431-763b0c3c9f20" name="jetbrains.mps.lang.intentions" version="1" />
     <use id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources" version="3" />
+    <use id="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" name="jetbrains.mps.lang.actions" version="4" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
   <imports>
@@ -56,6 +57,9 @@
         <child id="2522969319638198291" name="executeFunction" index="2ZfgGD" />
         <child id="2522969319638093993" name="descriptionFunction" index="2ZfVej" />
       </concept>
+    </language>
+    <language id="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" name="jetbrains.mps.lang.actions">
+      <concept id="767145758118872828" name="jetbrains.mps.lang.actions.structure.NF_Node_ReplaceWithNewOperation" flags="nn" index="2DeJnW" />
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
       <concept id="1139867745658" name="jetbrains.mps.lang.smodel.structure.Node_ReplaceWithNewOperation" flags="nn" index="1_qnLN">
@@ -121,6 +125,58 @@
               <node concept="3TrEf2" id="33BZsHocnGj" role="2OqNvi">
                 <ref role="3Tt5mk" to="1oap:5bVxHVEur_0" resolve="icon" />
               </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="2S6QgY" id="6cky_RDwesi">
+    <property role="3GE5qa" value="icons.descriptors.text" />
+    <property role="TrG5h" value="TurnToColorLiteral" />
+    <ref role="2ZfgGC" to="1oap:4rOpugPdabk" resolve="JBColorLiteral" />
+    <node concept="2S6ZIM" id="6cky_RDwesj" role="2ZfVej">
+      <node concept="3clFbS" id="6cky_RDwesk" role="2VODD2">
+        <node concept="3clFbF" id="6cky_RDwezh" role="3cqZAp">
+          <node concept="Xl_RD" id="6cky_RDwezg" role="3clFbG">
+            <property role="Xl_RC" value="Turn to Single-Color Literal" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2Sbjvc" id="6cky_RDwesl" role="2ZfgGD">
+      <node concept="3clFbS" id="6cky_RDwesm" role="2VODD2">
+        <node concept="3clFbF" id="6cky_RDwla$" role="3cqZAp">
+          <node concept="2OqwBi" id="6cky_RDwla_" role="3clFbG">
+            <node concept="2Sf5sV" id="6cky_RDwlaA" role="2Oq$k0" />
+            <node concept="2DeJnW" id="6cky_RDwmhX" role="2OqNvi">
+              <ref role="1_rbq0" to="1oap:1BguvjG4kJt" resolve="ColorLiteral" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="2S6QgY" id="6cky_RDwhZP">
+    <property role="3GE5qa" value="icons.descriptors.text" />
+    <property role="TrG5h" value="TurnToJBColorLiteral" />
+    <ref role="2ZfgGC" to="1oap:1BguvjG4kJt" resolve="ColorLiteral" />
+    <node concept="2S6ZIM" id="6cky_RDwhZQ" role="2ZfVej">
+      <node concept="3clFbS" id="6cky_RDwhZR" role="2VODD2">
+        <node concept="3clFbF" id="6cky_RDwhZS" role="3cqZAp">
+          <node concept="Xl_RD" id="6cky_RDwhZT" role="3clFbG">
+            <property role="Xl_RC" value="Turn to Double-Color Literal" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2Sbjvc" id="6cky_RDwhZU" role="2ZfgGD">
+      <node concept="3clFbS" id="6cky_RDwhZV" role="2VODD2">
+        <node concept="3clFbF" id="6cky_RDwipM" role="3cqZAp">
+          <node concept="2OqwBi" id="6cky_RDwi$0" role="3clFbG">
+            <node concept="2Sf5sV" id="6cky_RDwipL" role="2Oq$k0" />
+            <node concept="2DeJnW" id="6cky_RDwmg1" role="2OqNvi">
+              <ref role="1_rbq0" to="1oap:4rOpugPdabk" resolve="JBColorLiteral" />
             </node>
           </node>
         </node>

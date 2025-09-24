@@ -2,6 +2,7 @@
 <model ref="r:cafe8450-2876-42f2-9c43-75da10155c47(jetbrains.mps.lang.resources.typesystem)">
   <persistence version="9" />
   <languages>
+    <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="5" />
     <devkit ref="00000000-0000-4000-0000-1de82b3a4936(jetbrains.mps.devkit.aspect.typesystem)" />
   </languages>
   <imports>
@@ -39,6 +40,9 @@
       </concept>
       <concept id="1145552977093" name="jetbrains.mps.baseLanguage.structure.GenericNewExpression" flags="nn" index="2ShNRf">
         <child id="1145553007750" name="creator" index="2ShVmc" />
+      </concept>
+      <concept id="1137021947720" name="jetbrains.mps.baseLanguage.structure.ConceptFunction" flags="in" index="2VMwT0">
+        <child id="1137022507850" name="body" index="2VODD2" />
       </concept>
       <concept id="1070475926800" name="jetbrains.mps.baseLanguage.structure.StringLiteral" flags="nn" index="Xl_RD">
         <property id="1070475926801" name="value" index="Xl_RC" />
@@ -154,13 +158,24 @@
       <concept id="1227096498176" name="jetbrains.mps.lang.typesystem.structure.PropertyMessageTarget" flags="ng" index="2ODE4t">
         <reference id="1227096521710" name="propertyDeclaration" index="2ODJFN" />
       </concept>
+      <concept id="1216383170661" name="jetbrains.mps.lang.typesystem.structure.TypesystemQuickFix" flags="ng" index="Q5z_Y">
+        <child id="1216383424566" name="executeBlock" index="Q6x$H" />
+        <child id="1216391046856" name="descriptionBlock" index="QzAvj" />
+      </concept>
+      <concept id="1216383287005" name="jetbrains.mps.lang.typesystem.structure.QuickFixExecuteBlock" flags="in" index="Q5ZZ6" />
+      <concept id="1216383337216" name="jetbrains.mps.lang.typesystem.structure.ConceptFunctionParameter_node" flags="nn" index="Q6c8r" />
+      <concept id="1216390987552" name="jetbrains.mps.lang.typesystem.structure.QuickFixDescriptionBlock" flags="in" index="QznSV" />
       <concept id="1195213580585" name="jetbrains.mps.lang.typesystem.structure.AbstractCheckingRule" flags="ig" index="18hYwZ">
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
       <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
         <child id="3937244445246643443" name="messageTarget" index="1urrC5" />
+        <child id="3937244445246643221" name="helginsIntention" index="1urrFz" />
         <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
+      </concept>
+      <concept id="1210784285454" name="jetbrains.mps.lang.typesystem.structure.TypesystemIntention" flags="ng" index="3Cnw8n">
+        <reference id="1216388525179" name="quickFix" index="QpYPw" />
       </concept>
       <concept id="1174642788531" name="jetbrains.mps.lang.typesystem.structure.ConceptReference" flags="ig" index="1YaCAy">
         <reference id="1174642800329" name="concept" index="1YaFvo" />
@@ -183,6 +198,9 @@
         <child id="1174660783414" name="rightExpression" index="1ZfhKB" />
       </concept>
     </language>
+    <language id="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" name="jetbrains.mps.lang.actions">
+      <concept id="767145758118872828" name="jetbrains.mps.lang.actions.structure.NF_Node_ReplaceWithNewOperation" flags="nn" index="2DeJnW" />
+    </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
       <concept id="1177026924588" name="jetbrains.mps.lang.smodel.structure.RefConcept_Reference" flags="nn" index="chp4Y">
         <reference id="1177026940964" name="conceptDeclaration" index="cht4Q" />
@@ -200,7 +218,11 @@
         <reference id="2644386474300074837" name="conceptDeclaration" index="35c_gD" />
       </concept>
       <concept id="6677504323281689838" name="jetbrains.mps.lang.smodel.structure.SConceptType" flags="in" index="3bZ5Sz" />
+      <concept id="1139613262185" name="jetbrains.mps.lang.smodel.structure.Node_GetParentOperation" flags="nn" index="1mfA1w" />
       <concept id="1172008320231" name="jetbrains.mps.lang.smodel.structure.Node_IsNotNullOperation" flags="nn" index="3x8VRR" />
+      <concept id="1139867745658" name="jetbrains.mps.lang.smodel.structure.Node_ReplaceWithNewOperation" flags="nn" index="1_qnLN">
+        <reference id="1139867957129" name="concept" index="1_rbq0" />
+      </concept>
       <concept id="1140137987495" name="jetbrains.mps.lang.smodel.structure.SNodeTypeCastExpression" flags="nn" index="1PxgMI">
         <property id="1238684351431" name="asCast" index="1BlNFB" />
       </concept>
@@ -929,6 +951,76 @@
     <node concept="1YaCAy" id="7tcRu9qvLtK" role="1YuTPh">
       <property role="TrG5h" value="factoryMethodIcon" />
       <ref role="1YaFvo" to="1oap:7tcRu9qvxgB" resolve="FactoryMethodIcon" />
+    </node>
+  </node>
+  <node concept="18kY7G" id="6cky_RDwnyo">
+    <property role="TrG5h" value="check_JBColorLiteral" />
+    <property role="3GE5qa" value="icons.descriptors.text" />
+    <node concept="3clFbS" id="6cky_RDwnyp" role="18ibNy">
+      <node concept="3clFbJ" id="6cky_RDwnz7" role="3cqZAp">
+        <node concept="2OqwBi" id="6cky_RDwoWp" role="3clFbw">
+          <node concept="2OqwBi" id="6cky_RDwoAg" role="2Oq$k0">
+            <node concept="1PxgMI" id="6cky_RDwool" role="2Oq$k0">
+              <property role="1BlNFB" value="true" />
+              <node concept="chp4Y" id="6cky_RDwotf" role="3oSUPX">
+                <ref role="cht4Q" to="1oap:3CuULxINGAz" resolve="IThemeKindSpecific" />
+              </node>
+              <node concept="2OqwBi" id="6cky_RDwnHo" role="1m5AlR">
+                <node concept="1YBJjd" id="6cky_RDwnzg" role="2Oq$k0">
+                  <ref role="1YBMHb" node="6cky_RDwnyr" resolve="jbColorLiteral" />
+                </node>
+                <node concept="1mfA1w" id="6cky_RDwnV$" role="2OqNvi" />
+              </node>
+            </node>
+            <node concept="3TrEf2" id="6cky_RDwoJJ" role="2OqNvi">
+              <ref role="3Tt5mk" to="1oap:3CuULxINMq$" resolve="targetThemeKind" />
+            </node>
+          </node>
+          <node concept="3x8VRR" id="6cky_RDwp96" role="2OqNvi" />
+        </node>
+        <node concept="3clFbS" id="6cky_RDwnz9" role="3clFbx">
+          <node concept="a7r0C" id="6cky_RDwpec" role="3cqZAp">
+            <node concept="Xl_RD" id="6cky_RDwpel" role="a7wSD">
+              <property role="Xl_RC" value="Single color can be used for a theme-specific layer." />
+            </node>
+            <node concept="1YBJjd" id="6cky_RDwpg2" role="1urrMF">
+              <ref role="1YBMHb" node="6cky_RDwnyr" resolve="jbColorLiteral" />
+            </node>
+            <node concept="3Cnw8n" id="6cky_RDwpLH" role="1urrFz">
+              <ref role="QpYPw" node="6cky_RDwpgo" resolve="ReplaceUnneededJBColorLiteral" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="6cky_RDwnyr" role="1YuTPh">
+      <property role="TrG5h" value="jbColorLiteral" />
+      <ref role="1YaFvo" to="1oap:4rOpugPdabk" resolve="JBColorLiteral" />
+    </node>
+  </node>
+  <node concept="Q5z_Y" id="6cky_RDwpgo">
+    <property role="3GE5qa" value="icons.descriptors.text" />
+    <property role="TrG5h" value="ReplaceUnneededJBColorLiteral" />
+    <node concept="Q5ZZ6" id="6cky_RDwpgp" role="Q6x$H">
+      <node concept="3clFbS" id="6cky_RDwpgq" role="2VODD2">
+        <node concept="3clFbF" id="6cky_RDwptQ" role="3cqZAp">
+          <node concept="2OqwBi" id="6cky_RDwpAw" role="3clFbG">
+            <node concept="Q6c8r" id="6cky_RDwptP" role="2Oq$k0" />
+            <node concept="2DeJnW" id="6cky_RDwpKH" role="2OqNvi">
+              <ref role="1_rbq0" to="1oap:1BguvjG4kJt" resolve="ColorLiteral" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="QznSV" id="6cky_RDwpgN" role="QzAvj">
+      <node concept="3clFbS" id="6cky_RDwpgO" role="2VODD2">
+        <node concept="3clFbF" id="6cky_RDwpni" role="3cqZAp">
+          <node concept="Xl_RD" id="6cky_RDwpnh" role="3clFbG">
+            <property role="Xl_RC" value="Replace with Single-Color Literal" />
+          </node>
+        </node>
+      </node>
     </node>
   </node>
 </model>

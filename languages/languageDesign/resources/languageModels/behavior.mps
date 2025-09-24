@@ -234,8 +234,12 @@
       </concept>
     </language>
     <language id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc">
+      <concept id="5858074156537516430" name="jetbrains.mps.baseLanguage.javadoc.structure.ReturnBlockDocTag" flags="ng" index="x79VA">
+        <property id="5858074156537516431" name="text" index="x79VB" />
+      </concept>
       <concept id="5349172909345501395" name="jetbrains.mps.baseLanguage.javadoc.structure.BaseDocComment" flags="ng" index="P$AiS">
         <child id="8465538089690331502" name="body" index="TZ5H$" />
+        <child id="5383422241790532083" name="tags" index="3nqlJM" />
       </concept>
       <concept id="5349172909345532724" name="jetbrains.mps.baseLanguage.javadoc.structure.MethodDocComment" flags="ng" index="P$JXv" />
       <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA">
@@ -4119,6 +4123,13 @@
           </node>
         </node>
       </node>
+      <node concept="P$JXv" id="6cky_RDKU3D" role="lGtFl">
+        <node concept="TZ5HA" id="6cky_RDKU3E" role="TZ5H$">
+          <node concept="1dT_AC" id="6cky_RDKU3F" role="1dT_Ay">
+            <property role="1dT_AB" value="Tests whether the provided theme kind matches the one set in this.targetThemeKind." />
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="13i0hz" id="3CuULxINMCV" role="13h7CS">
       <property role="TrG5h" value="hasDistinctColorsForThemes" />
@@ -4165,6 +4176,26 @@
               </node>
             </node>
           </node>
+        </node>
+      </node>
+      <node concept="P$JXv" id="6cky_RDKUdk" role="lGtFl">
+        <node concept="TZ5HA" id="6cky_RDKUdl" role="TZ5H$">
+          <node concept="1dT_AC" id="6cky_RDKUdm" role="1dT_Ay">
+            <property role="1dT_AB" value="Indicates whether this layer mandates different images for light and dark themes." />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="6cky_RDKVdJ" role="TZ5H$">
+          <node concept="1dT_AC" id="6cky_RDKVdK" role="1dT_Ay">
+            <property role="1dT_AB" value="Only layers not bound to any specific theme kind (this.targetThemeKind == null) that also contain at least one" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="6cky_RDKWxD" role="TZ5H$">
+          <node concept="1dT_AC" id="6cky_RDKWxE" role="1dT_Ay">
+            <property role="1dT_AB" value="instance of JBColorLiteral will influence differently icons for both light and dark themes." />
+          </node>
+        </node>
+        <node concept="x79VA" id="6cky_RDKUdn" role="3nqlJM">
+          <property role="x79VB" value="true, if this layer will be displayed differently in light and dark themes." />
         </node>
       </node>
     </node>
