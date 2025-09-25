@@ -27,7 +27,7 @@ public class check_FileIcon_NonTypesystemRule extends AbstractNonTypesystemRule_
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(fileIcon, "The standard UI icon must be specified.", "r:cafe8450-2876-42f2-9c43-75da10155c47(jetbrains.mps.lang.resources.typesystem)", "1364341579416303586", null, errorTarget);
       }
     }
-    if ((boolean) FileIcon__BehaviorDescriptor.isFileValid_id1$fQzw7$hd7.invoke(fileIcon, FileIcon__BehaviorDescriptor.getNamingConventionNewuiFileName_id1$fQzw7$wcx.invoke(fileIcon)) && isNotEmptyString(SPropertyOperations.getString(fileIcon, PROPS.newuiFile$Eed5))) {
+    if (isNotEmptyString(SPropertyOperations.getString(fileIcon, PROPS.file$686H)) && (boolean) FileIcon__BehaviorDescriptor.isFileValid_id1$fQzw7$hd7.invoke(fileIcon, FileIcon__BehaviorDescriptor.getNamingConventionNewuiFileName_id1$fQzw7$wcx.invoke(fileIcon)) && isNotEmptyString(SPropertyOperations.getString(fileIcon, PROPS.newuiFile$Eed5))) {
       {
         final MessageTarget errorTarget = new PropertyMessageTarget(PROPS.file$686H);
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(fileIcon, "Both implicit (aka '_newui.svg') and explicit files for a new UI icons are available. The explicitly specified icon will be used under new UI.", "r:cafe8450-2876-42f2-9c43-75da10155c47(jetbrains.mps.lang.resources.typesystem)", "2325064555394987275", null, errorTarget);

@@ -15,8 +15,8 @@ import jetbrains.mps.vfs.IFile;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.util.MacrosFactory;
@@ -61,7 +61,7 @@ public final class FileIcon__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static String getNamingConventionNewuiFileName_id1$fQzw7$wcx(@NotNull SNode __thisNode__) {
-    return FileUtil.getNameWithoutExtension(SPropertyOperations.getString(__thisNode__, PROPS.file$686H)) + "_newui.svg";
+    return ((isNotEmptyString(SPropertyOperations.getString(__thisNode__, PROPS.file$686H)) ? FileUtil.getNameWithoutExtension(SPropertyOperations.getString(__thisNode__, PROPS.file$686H)) : "")) + "_newui.svg";
   }
   /*package*/ static String getNewuiFileName_id1$fQzw7yhpR(@NotNull SNode __thisNode__) {
     if (isNotEmptyString(SPropertyOperations.getString(__thisNode__, PROPS.newuiFile$Eed5))) {
@@ -147,6 +147,9 @@ public final class FileIcon__BehaviorDescriptor extends BaseBHDescriptor {
     return ((boolean) FileIcon__BehaviorDescriptor.isFileValid_id1$fQzw7$hd7.invoke(__thisNode__, FileIcon__BehaviorDescriptor.getNewuiFileName_id1$fQzw7yhpR.invoke(__thisNode__)));
   }
   /*package*/ static boolean isFileValid_id1$fQzw7$hd7(@NotNull SNode __thisNode__, String name) {
+    if ((name == null || name.length() == 0)) {
+      return false;
+    }
     SModule module = SNodeOperations.getModel(__thisNode__).getModule();
     if (module == null) {
       return false;

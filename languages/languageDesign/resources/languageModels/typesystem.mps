@@ -898,20 +898,33 @@
             </node>
             <node concept="17RvpY" id="214iujSaQqZ" role="2OqNvi" />
           </node>
-          <node concept="2OqwBi" id="214iujSaQr1" role="3uHU7B">
-            <node concept="1YBJjd" id="214iujSaQr2" role="2Oq$k0">
-              <ref role="1YBMHb" node="1bJ7n0ppNCp" resolve="fileIcon" />
-            </node>
-            <node concept="2qgKlT" id="214iujSaQYM" role="2OqNvi">
-              <ref role="37wK5l" to="3767:1$fQzw7$hd7" resolve="isFileValid" />
-              <node concept="2OqwBi" id="214iujSaRf_" role="37wK5m">
-                <node concept="1YBJjd" id="214iujSaR2s" role="2Oq$k0">
-                  <ref role="1YBMHb" node="1bJ7n0ppNCp" resolve="fileIcon" />
-                </node>
-                <node concept="2qgKlT" id="214iujSaRib" role="2OqNvi">
-                  <ref role="37wK5l" to="3767:1$fQzw7$wcx" resolve="getNamingConventionNewuiFileName" />
+          <node concept="1Wc70l" id="214iujSrr1x" role="3uHU7B">
+            <node concept="2OqwBi" id="214iujSaQr1" role="3uHU7w">
+              <node concept="1YBJjd" id="214iujSaQr2" role="2Oq$k0">
+                <ref role="1YBMHb" node="1bJ7n0ppNCp" resolve="fileIcon" />
+              </node>
+              <node concept="2qgKlT" id="214iujSaQYM" role="2OqNvi">
+                <ref role="37wK5l" to="3767:1$fQzw7$hd7" resolve="isFileValid" />
+                <node concept="2OqwBi" id="214iujSaRf_" role="37wK5m">
+                  <node concept="1YBJjd" id="214iujSaR2s" role="2Oq$k0">
+                    <ref role="1YBMHb" node="1bJ7n0ppNCp" resolve="fileIcon" />
+                  </node>
+                  <node concept="2qgKlT" id="214iujSaRib" role="2OqNvi">
+                    <ref role="37wK5l" to="3767:1$fQzw7$wcx" resolve="getNamingConventionNewuiFileName" />
+                  </node>
                 </node>
               </node>
+            </node>
+            <node concept="2OqwBi" id="214iujSrxdx" role="3uHU7B">
+              <node concept="2OqwBi" id="214iujSrr3I" role="2Oq$k0">
+                <node concept="1YBJjd" id="214iujSrr3J" role="2Oq$k0">
+                  <ref role="1YBMHb" node="1bJ7n0ppNCp" resolve="fileIcon" />
+                </node>
+                <node concept="3TrcHB" id="214iujSrwpX" role="2OqNvi">
+                  <ref role="3TsBF5" to="1oap:2p1v3tOafqN" resolve="file" />
+                </node>
+              </node>
+              <node concept="17RvpY" id="214iujSry4_" role="2OqNvi" />
             </node>
           </node>
         </node>
