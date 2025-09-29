@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<debug-info version="2">
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123140:jetbrains.mps.baseLanguage.structure.ConstructorDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123155:jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068390468200:jetbrains.mps.baseLanguage.structure.FieldDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1144226303539:jetbrains.mps.baseLanguage.structure.ForeachStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123165:jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242864:jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242878:jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+  <root nodeRef="r:bbd3ef6f-ab29-4c9e-9a9f-3a8ff6ffef86(jetbrains.mps.generator.extensions)/4969086367659893015">
+    <file name="ModuleActivator.java">
+      <node id="4969086367659934110" at="11,0,12,0" concept="2" trace="myPlatform" />
+      <node id="4969086367659934114" at="13,53,14,29" concept="1" />
+      <node id="4969086367659935057" at="18,71,19,121" concept="1" />
+      <node id="4969086367659933868" at="13,0,16,0" concept="0" trace="ModuleActivator#(Ljetbrains/mps/components/ComponentHost;)V" />
+      <node id="4969086367659927752" at="17,0,21,0" concept="4" trace="contribute#(Ljetbrains/mps/smodel/runtime/ModuleRuntime/ActivatorContext;)V" />
+      <scope id="4969086367659933872" at="13,53,14,29" />
+      <scope id="4969086367659927760" at="18,71,19,121" />
+      <scope id="4969086367659933868" at="13,0,16,0">
+        <var name="mpsPlatform" id="4475567139869330395" />
+      </scope>
+      <scope id="4969086367659927752" at="17,0,21,0">
+        <var name="ctx" id="4969086367659927757" />
+      </scope>
+      <unit id="4969086367659893015" at="10,0,22,0" name="jetbrains.mps.generator.extensions.ModuleActivator" />
+    </file>
+  </root>
+  <root nodeRef="r:bbd3ef6f-ab29-4c9e-9a9f-3a8ff6ffef86(jetbrains.mps.generator.extensions)/4969086367659944373">
+    <file name="ModuleFacetPlanParameterContributor.java">
+      <node id="3566725138273384087" at="15,0,16,0" concept="2" trace="myFacetParam" />
+      <node id="4969086367660105198" at="18,53,19,58" concept="6" />
+      <node id="4969086367660129726" at="22,87,23,49" concept="5" />
+      <node id="4969086367660134521" at="24,47,25,50" concept="1" />
+      <node id="4969086367660152161" at="23,49,26,5" concept="3" />
+      <node id="4969086367659944444" at="17,0,21,0" concept="4" trace="parameters#()Ljava/util/stream/Stream;" />
+      <node id="4969086367659944453" at="21,0,28,0" concept="4" trace="contributeParameters#(Ljetbrains/mps/generator/plan/PlanParameterContributor/Context;)V" />
+      <scope id="4969086367659944449" at="18,53,19,58" />
+      <scope id="4969086367660152164" at="24,47,25,50" />
+      <scope id="4969086367660152161" at="23,49,26,5">
+        <var name="f" id="4969086367660152165" />
+      </scope>
+      <scope id="4969086367659944444" at="17,0,21,0" />
+      <scope id="4969086367659944460" at="22,87,26,5">
+        <var name="module" id="4969086367660129727" />
+      </scope>
+      <scope id="4969086367659944453" at="21,0,28,0">
+        <var name="context" id="4969086367659944457" />
+      </scope>
+      <unit id="4969086367659944373" at="13,0,29,0" name="jetbrains.mps.generator.extensions.ModuleFacetPlanParameterContributor" />
+    </file>
+  </root>
+</debug-info>
+

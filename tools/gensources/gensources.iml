@@ -111,6 +111,7 @@
       <sourceFolder url="file://$MODULE_DIR$/../../languages/languageDesign/feedback/skeleton/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../languages/languageDesign/findUsages/generator/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../languages/languageDesign/findUsages/source_gen" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../languages/languageDesign/generator/genext/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../languages/languageDesign/generator/languages/descriptor/generator/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../languages/languageDesign/generator/languages/descriptor/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../languages/languageDesign/generator/languages/errorReporting/generator/source_gen" isTestSource="false" />
@@ -346,6 +347,7 @@
       <excludeFolder url="file://$MODULE_DIR$/../../languages/languageDesign/feedback/skeleton/generator/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../languages/languageDesign/findUsages/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../languages/languageDesign/findUsages/generator/classes_gen" />
+      <excludeFolder url="file://$MODULE_DIR$/../../languages/languageDesign/generator/genext/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../languages/languageDesign/generator/languages/descriptor/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../languages/languageDesign/generator/languages/descriptor/generator/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../languages/languageDesign/generator/languages/errorReporting/classes_gen" />
