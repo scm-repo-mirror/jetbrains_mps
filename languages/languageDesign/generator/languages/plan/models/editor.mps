@@ -209,7 +209,6 @@
       <concept id="1068580123136" name="jetbrains.mps.baseLanguage.structure.StatementList" flags="sn" stub="5293379017992965193" index="3clFbS">
         <child id="1068581517665" name="statement" index="3cqZAp" />
       </concept>
-      <concept id="1068580123137" name="jetbrains.mps.baseLanguage.structure.BooleanConstant" flags="nn" index="3clFbT" />
       <concept id="1068581242878" name="jetbrains.mps.baseLanguage.structure.ReturnStatement" flags="nn" index="3cpWs6">
         <child id="1068581517676" name="expression" index="3cqZAk" />
       </concept>
@@ -1076,13 +1075,6 @@
       <node concept="2iRkQZ" id="1UCZ1x2IYEJ" role="2iSdaV" />
       <node concept="3F1sOY" id="1UCZ1x2IYE2" role="3EZMnx">
         <ref role="1NtTu8" to="bjdw:1UCZ1x2IYvJ" resolve="filter" />
-        <node concept="pkWqt" id="79_qHBo9ZbY" role="pqm2j">
-          <node concept="3clFbS" id="79_qHBo9ZbZ" role="2VODD2">
-            <node concept="3clFbF" id="79_qHBo9ZuC" role="3cqZAp">
-              <node concept="3clFbT" id="79_qHBo9ZuB" role="3clFbG" />
-            </node>
-          </node>
-        </node>
       </node>
     </node>
   </node>
@@ -1339,12 +1331,14 @@
       <node concept="2iRfu4" id="3ghxc3zn$us" role="2iSdaV" />
       <node concept="3F0ifn" id="3ghxc3zn$uu" role="3EZMnx">
         <property role="3F0ifm" value="when " />
+        <node concept="VPM3Z" id="2x_nSvNi6d8" role="3F10Kt" />
       </node>
       <node concept="3F1sOY" id="3ghxc3zn$uw" role="3EZMnx">
         <ref role="1NtTu8" to="bjdw:3ghxc3znno4" resolve="parameter" />
       </node>
       <node concept="3F0ifn" id="3ghxc3zn$u$" role="3EZMnx">
         <property role="3F0ifm" value=" equals " />
+        <node concept="VPM3Z" id="2x_nSvNi6d7" role="3F10Kt" />
       </node>
       <node concept="3F0A7n" id="3ghxc3zn$uC" role="3EZMnx">
         <ref role="1NtTu8" to="bjdw:3ghxc3znno5" resolve="value" />

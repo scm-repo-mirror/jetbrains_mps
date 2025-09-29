@@ -43,13 +43,8 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     editorCell.setCellId("Collection_6ryrph_0");
     editorCell.setBig(true);
     setCellContext(editorCell);
-    if (nodeCondition_6ryrph_a0a()) {
-      editorCell.addEditorCell(createRefNode_0());
-    }
+    editorCell.addEditorCell(createRefNode_0());
     return editorCell;
-  }
-  private boolean nodeCondition_6ryrph_a0a() {
-    return false;
   }
   private EditorCell createRefNode_0() {
     SingleRoleCellProvider provider = new filterSingleRoleHandler_6ryrph_a0(myNode, LINKS.filter$OzSR, getEditorContext());
