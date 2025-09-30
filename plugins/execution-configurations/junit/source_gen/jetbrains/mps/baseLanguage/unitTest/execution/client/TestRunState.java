@@ -26,6 +26,8 @@ import com.intellij.openapi.util.Key;
 import jetbrains.mps.baseLanguage.unitTest.execution.TextTestEvent;
 import org.jetbrains.mps.annotations.ImmutableReturn;
 import java.util.Collections;
+import java.util.LinkedList;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.TestOnly;
 
 /**
@@ -299,6 +301,21 @@ public final class TestRunState {
    */
   public TestNodeKey keyForTest(ITestNodeWrapper nw) {
     return myConverter.reverseLookup(nw);
+  }
+
+  public List<TestNodeKey> childrenOf(TestNodeKey test) {
+    if (test instanceof TestCaseNodeKey) {
+      return ListSequence.fromList(getMethodsForTestCase(test.getNode())).select((it) -> keyForTest(it)).toList();
+    }
+    return ListSequence.fromList(new LinkedList<>());
+  }
+
+  @Nullable
+  public TestNodeKey parentOf(TestNodeKey test) {
+    if (test instanceof TestMethodNodeKey) {
+      return keyForTest(test.getNode().getTestCase());
+    }
+    return null;
   }
 
   @TestOnly

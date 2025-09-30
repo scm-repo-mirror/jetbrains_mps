@@ -6,7 +6,6 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.baseLanguage.unitTest.execution.TestNodeKey;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
 
 public abstract class NonRootTestTreeNode extends TestTreeNode {
   protected final SNodeReference myNodePointer;
@@ -20,6 +19,7 @@ public abstract class NonRootTestTreeNode extends TestTreeNode {
     setUserObject(test);
     // we use nodeIdentifier of a tree element in BaseMPSTestProxy subclasses for #getLocationUrl(),
     // which seem to serve the only purpose to copy string representation of a test into clipboard
+    // seems that can use TestKey.getQualifiedName(), instead
     setNodeIdentifier(test.getNode().getFqName());
     setText(test.getNode().getName());
   }
@@ -27,11 +27,6 @@ public abstract class NonRootTestTreeNode extends TestTreeNode {
   @Nullable
   public SNodeReference getNavigateTarget() {
     return myNodePointer;
-  }
-
-  @NotNull
-  public ITestNodeWrapper getTestNode() {
-    return myTest.getNode();
   }
 
   public TestNodeKey testKey() {
