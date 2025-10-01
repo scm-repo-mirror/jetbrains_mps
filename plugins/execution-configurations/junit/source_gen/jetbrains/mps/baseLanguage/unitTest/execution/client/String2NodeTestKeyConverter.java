@@ -9,14 +9,17 @@ import jetbrains.mps.baselanguage.unitTest.execution.TestRawKey;
 import jetbrains.mps.baseLanguage.unitTest.execution.TestNodeKey;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
-import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.baseLanguage.unitTest.execution.TestCaseNodeKey;
 import java.util.List;
+import jetbrains.mps.baseLanguage.unitTest.execution.TestMethodNodeKey;
+import java.util.LinkedHashMap;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.baselanguage.unitTest.execution.TestCaseStringKey;
-import jetbrains.mps.baseLanguage.unitTest.execution.TestCaseNodeKey;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import java.util.ArrayList;
 import jetbrains.mps.baselanguage.unitTest.execution.TestMethodStringKey;
-import jetbrains.mps.baseLanguage.unitTest.execution.TestMethodNodeKey;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * The conversion from the raw test case/method represenation (ie strings or TestRawKey)
@@ -28,7 +31,8 @@ import jetbrains.mps.baseLanguage.unitTest.execution.TestMethodNodeKey;
 /*package*/ final class String2NodeTestKeyConverter {
   private static final Logger LOG = Logger.getLogger(String2NodeTestKeyConverter.class);
   private final Map<TestRawKey, TestNodeKey> myKeyMapping = MapSequence.fromMap(new HashMap<>());
-  private final Map<ITestNodeWrapper, TestNodeKey> myWrapper2NodeKey = MapSequence.fromMap(new HashMap<>());
+  private final Map<TestCaseNodeKey, List<TestMethodNodeKey>> myTests = MapSequence.fromMap(new LinkedHashMap<>(16, (float) 0.75, false));
+  private final Map<TestMethodNodeKey, TestCaseNodeKey> myChild2Container = MapSequence.fromMap(new LinkedHashMap<>(16, (float) 0.75, false));
 
   /*package*/ String2NodeTestKeyConverter(@NotNull Map<ITestNodeWrapper, List<ITestNodeWrapper>> testCase2TestMethodMap) {
     for (ITestNodeWrapper testCaseNode : SetSequence.fromSet(MapSequence.fromMap(testCase2TestMethodMap).keySet())) {
@@ -36,15 +40,16 @@ import jetbrains.mps.baseLanguage.unitTest.execution.TestMethodNodeKey;
       TestCaseStringKey rawKey = new TestCaseStringKey(testCaseNode.getFqName());
       TestCaseNodeKey keyA = new TestCaseNodeKey(testCaseNode);
       MapSequence.fromMap(myKeyMapping).put(rawKey, keyA);
-      MapSequence.fromMap(myWrapper2NodeKey).put(testCaseNode, keyA);
-      List<ITestNodeWrapper> methodNodes = MapSequence.fromMap(testCase2TestMethodMap).get(testCaseNode);
-      for (ITestNodeWrapper testMethodNode : ListSequence.fromList(methodNodes)) {
+      List<TestMethodNodeKey> methods = ListSequence.fromList(new ArrayList<>());
+      MapSequence.fromMap(myTests).put(keyA, methods);
+      for (ITestNodeWrapper testMethodNode : ListSequence.fromList(MapSequence.fromMap(testCase2TestMethodMap).get(testCaseNode))) {
         assert !(testMethodNode.isTestCase());
 
         TestMethodStringKey rawMethodKey = new TestMethodStringKey(testCaseNode.getFqName(), testMethodNode.getName());
         TestMethodNodeKey keyB = new TestMethodNodeKey(testMethodNode);
         MapSequence.fromMap(myKeyMapping).put(rawMethodKey, keyB);
-        MapSequence.fromMap(myWrapper2NodeKey).put(testMethodNode, keyB);
+        ListSequence.fromList(methods).addElement(keyB);
+        MapSequence.fromMap(myChild2Container).put(keyB, keyA);
       }
     }
   }
@@ -65,7 +70,17 @@ import jetbrains.mps.baseLanguage.unitTest.execution.TestMethodNodeKey;
     return key;
   }
 
-  /*package*/ TestNodeKey reverseLookup(ITestNodeWrapper nw) {
-    return MapSequence.fromMap(myWrapper2NodeKey).get(nw);
+  /*package*/ Iterable<TestCaseNodeKey> top() {
+    return MapSequence.fromMap(myTests).keySet();
   }
+
+  /*package*/ List<TestMethodNodeKey> childrenOf(TestCaseNodeKey test) {
+    return MapSequence.fromMap(myTests).get(test);
+  }
+
+  @Nullable
+  /*package*/ TestCaseNodeKey parentOf(TestMethodNodeKey test) {
+    return MapSequence.fromMap(myChild2Container).get(test);
+  }
+
 }

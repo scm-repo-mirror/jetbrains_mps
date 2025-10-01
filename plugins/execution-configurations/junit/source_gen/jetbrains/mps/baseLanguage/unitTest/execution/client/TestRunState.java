@@ -10,12 +10,12 @@ import java.util.HashSet;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
-import org.jetbrains.mps.annotations.Immutable;
+import jetbrains.mps.baseLanguage.unitTest.execution.TestNodeKey;
+import org.jetbrains.annotations.NotNull;
 import java.util.Map;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.LinkedHashMap;
-import jetbrains.mps.baseLanguage.unitTest.execution.TestNodeKey;
-import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.baseLanguage.unitTest.execution.TestCaseNodeKey;
 import jetbrains.mps.baseLanguage.unitTest.execution.TestMethodNodeKey;
 import jetbrains.mps.baseLanguage.unitTest.execution.TestNodeEvent;
 import jetbrains.mps.baselanguage.unitTest.execution.TestRawEvent;
@@ -23,7 +23,7 @@ import org.jetbrains.mps.annotations.Internal;
 import jetbrains.mps.baseLanguage.unitTest.execution.TerminationTestEvent;
 import com.intellij.openapi.util.Key;
 import jetbrains.mps.baseLanguage.unitTest.execution.TextTestEvent;
-import jetbrains.mps.baseLanguage.unitTest.execution.TestCaseNodeKey;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.LinkedList;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.TestOnly;
@@ -44,8 +44,6 @@ public final class TestRunState {
   private static final Logger LOG = Logger.getLogger(TestRunState.class);
   private final Set<TestRunStateUpdateListener> myUpdateListenersList = SetSequence.fromSet(new HashSet<TestRunStateUpdateListener>());
   private final List<TestStateListener> myListeners = ListSequence.fromList(new ArrayList<TestStateListener>());
-  @Immutable
-  private final Map<ITestNodeWrapper, List<ITestNodeWrapper>> myTestCase2MethodsMap = MapSequence.fromMap(new LinkedHashMap<ITestNodeWrapper, List<ITestNodeWrapper>>(16, (float) 0.75, false));
 
   private final String2NodeTestKeyConverter myConverter;
 
@@ -58,26 +56,26 @@ public final class TestRunState {
 
 
   public TestRunState(@NotNull List<ITestNodeWrapper> tests) {
+    Map<ITestNodeWrapper, List<ITestNodeWrapper>> testCase2MethodsMap = MapSequence.fromMap(new LinkedHashMap<ITestNodeWrapper, List<ITestNodeWrapper>>(16, (float) 0.75, false));
     for (ITestNodeWrapper testCase : ListSequence.fromList(tests).where((it) -> it.isTestCase())) {
-      MapSequence.fromMap(myTestCase2MethodsMap).put(testCase, ListSequence.fromListWithValues(new ArrayList<ITestNodeWrapper>(), testCase.getTestMethods()));
+      MapSequence.fromMap(testCase2MethodsMap).put(testCase, ListSequence.fromListWithValues(new ArrayList<ITestNodeWrapper>(), testCase.getTestMethods()));
     }
     for (ITestNodeWrapper testMethod : ListSequence.fromList(tests).where((it) -> !(it.isTestCase()))) {
       ITestNodeWrapper enclosingTestCase = testMethod.getTestCase();
-      List<ITestNodeWrapper> currentTestMethods = MapSequence.fromMap(myTestCase2MethodsMap).get(enclosingTestCase);
+      List<ITestNodeWrapper> currentTestMethods = MapSequence.fromMap(testCase2MethodsMap).get(enclosingTestCase);
       if (currentTestMethods == null) {
         currentTestMethods = ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
-        MapSequence.fromMap(myTestCase2MethodsMap).put(enclosingTestCase, currentTestMethods);
+        MapSequence.fromMap(testCase2MethodsMap).put(enclosingTestCase, currentTestMethods);
       }
       if (!(ListSequence.fromList(currentTestMethods).contains(testMethod))) {
         ListSequence.fromList(currentTestMethods).addElement(testMethod);
       }
     }
-    myConverter = new String2NodeTestKeyConverter(myTestCase2MethodsMap);
-    for (ITestNodeWrapper testCase : MapSequence.fromMap(myTestCase2MethodsMap).keySet()) {
-      for (ITestNodeWrapper testMethod : MapSequence.fromMap(myTestCase2MethodsMap).get(testCase)) {
-        // == keyForTest(), just don't want to use public method from within a cons
-        // FIXME remove cast, revisit myTestMethodsLeftToRun (do we need to keep track of these?
-        ListSequence.fromList(myInnerData.myTestMethodsLeftToRun).addElement((TestMethodNodeKey) myConverter.reverseLookup(testMethod));
+    myConverter = new String2NodeTestKeyConverter(testCase2MethodsMap);
+    for (TestCaseNodeKey testCase : myConverter.top()) {
+      for (TestMethodNodeKey testMethod : myConverter.childrenOf(testCase)) {
+        // FIXME revisit myTestMethodsLeftToRun (do we need to keep track of these, when myConverter does anyway?)
+        ListSequence.fromList(myInnerData.myTestMethodsLeftToRun).addElement(testMethod);
       }
     }
     myInnerData.myTotalTests = ListSequence.fromList(myInnerData.myTestMethodsLeftToRun).count();
@@ -275,12 +273,12 @@ public final class TestRunState {
   }
 
   public Iterable<TestNodeKey> getTopTests() {
-    return SetSequence.fromSet(MapSequence.fromMap(myTestCase2MethodsMap).keySet()).select((it) -> myConverter.reverseLookup(it));
+    return Sequence.fromIterable(myConverter.top()).ofType(TestNodeKey.class);
   }
 
   public List<TestNodeKey> childrenOf(TestNodeKey test) {
     if (test instanceof TestCaseNodeKey) {
-      return ListSequence.fromList(MapSequence.fromMap(myTestCase2MethodsMap).get(test.getNode())).select((it) -> myConverter.reverseLookup(it)).toList();
+      return ListSequence.fromList(myConverter.childrenOf((TestCaseNodeKey) test)).ofType(TestNodeKey.class).toList();
     }
     return ListSequence.fromList(new LinkedList<>());
   }
@@ -288,7 +286,7 @@ public final class TestRunState {
   @Nullable
   public TestNodeKey parentOf(TestNodeKey test) {
     if (test instanceof TestMethodNodeKey) {
-      return myConverter.reverseLookup(test.getNode().getTestCase());
+      return myConverter.parentOf((TestMethodNodeKey) test);
     }
     return null;
   }

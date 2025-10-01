@@ -171,14 +171,14 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c89590405(jetbrains.mps.baseLanguage.unitTest.execution)/3443931564293454799">
     <file name="TestNodeKey.java">
-      <node id="8101552278272409335" at="17,0,18,0" concept="5" trace="match#(Ljetbrains/mps/baseLanguage/unitTest/execution/TestNodeKey;)Ljetbrains/mps/baseLanguage/unitTest/execution/TestNodeKey/Relation;" />
-      <node id="3443931564293454831" at="11,0,13,0" concept="5" trace="getNode#()Ljetbrains/mps/baseLanguage/unitTest/execution/client/ITestNodeWrapper;" />
-      <scope id="8101552278272409335" at="17,0,18,0">
+      <node id="8101552278272409335" at="23,0,24,0" concept="5" trace="match#(Ljetbrains/mps/baseLanguage/unitTest/execution/TestNodeKey;)Ljetbrains/mps/baseLanguage/unitTest/execution/TestNodeKey/Relation;" />
+      <node id="3443931564293454831" at="16,0,19,0" concept="5" trace="getNode#()Ljetbrains/mps/baseLanguage/unitTest/execution/client/ITestNodeWrapper;" />
+      <scope id="8101552278272409335" at="23,0,24,0">
         <var name="other" id="8101552278272409984" />
       </scope>
-      <scope id="3443931564293454831" at="11,0,13,0" />
-      <unit id="8101552278272406897" at="19,0,24,0" name="jetbrains.mps.baseLanguage.unitTest.execution.TestNodeKey$Relation" />
-      <unit id="3443931564293454799" at="10,0,25,0" name="jetbrains.mps.baseLanguage.unitTest.execution.TestNodeKey" />
+      <scope id="3443931564293454831" at="16,0,19,0" />
+      <unit id="8101552278272406897" at="25,0,30,0" name="jetbrains.mps.baseLanguage.unitTest.execution.TestNodeKey$Relation" />
+      <unit id="3443931564293454799" at="10,0,31,0" name="jetbrains.mps.baseLanguage.unitTest.execution.TestNodeKey" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c89590405(jetbrains.mps.baseLanguage.unitTest.execution)/3443931564293496786">

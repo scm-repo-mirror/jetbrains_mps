@@ -8,7 +8,13 @@ import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
 import org.jetbrains.annotations.Nullable;
 
 public interface TestNodeKey extends TestKey {
+
+  /**
+   * 
+   * @deprecated don't introduce new uses; refactor the last few left
+   */
   @NotNull
+  @Deprecated
   ITestNodeWrapper getNode();
 
   /**
