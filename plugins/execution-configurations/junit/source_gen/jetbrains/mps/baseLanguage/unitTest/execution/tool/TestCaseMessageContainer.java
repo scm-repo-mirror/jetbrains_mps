@@ -9,7 +9,6 @@ import jetbrains.mps.baseLanguage.unitTest.execution.TestNodeKey;
 import jetbrains.mps.baseLanguage.unitTest.execution.TextTestEvent;
 import jetbrains.mps.baseLanguage.unitTest.execution.TestMethodNodeKey;
 import jetbrains.mps.baselanguage.unitTest.execution.TestType;
-import java.util.Objects;
 
 public class TestCaseMessageContainer extends MessageContainerBase<MethodMessageContainer> implements TestMessage {
   @Nullable
@@ -22,11 +21,20 @@ public class TestCaseMessageContainer extends MessageContainerBase<MethodMessage
 
   @Override
   public boolean matches(@NotNull MessageFilter filter) {
+    // XXX some weird inversion of MessageFilter.accept(), would be nice to fix the concept of filtering (no access to filter's key)
     TestNodeKey filterNode = filter.getNode();
-    if (filterNode == null || filterNode.getTestCaseNodeKey().equals(myTestCaseNode)) {
+    if (filterNode == null) {
       return true;
     }
-    return false;
+    if (myTestCaseNode == null) {
+      // Weird and confusing part. My logic introducing this 'true' return value here is if we happen to create a message container for a TestMethodNodeKey
+      // (see cons use in RMC), we shall let contained messages decide if they need to get printed with the filter, and not to forbid it here
+      // However, uses of matches() and MessageFilter construction argument are quite confusing and misguiding, worth another round of attention
+      return true;
+    }
+    TestNodeKey.Relation match = filterNode.match(myTestCaseNode);
+    // if filter is for my testcase or for an individual test within the testcase, good
+    return match == TestNodeKey.Relation.SAME || match == TestNodeKey.Relation.PARTOF;
   }
 
   @NotNull
@@ -44,11 +52,11 @@ public class TestCaseMessageContainer extends MessageContainerBase<MethodMessage
 
   @Override
   public boolean accepts(@NotNull TextTestEvent event) {
-    TestCaseNodeKey testCase = null;
     TestNodeKey currentTestNode = event.getCurrentTestNode();
     if (currentTestNode != null) {
-      testCase = currentTestNode.getTestCaseNodeKey();
+      TestNodeKey.Relation match = currentTestNode.match(myTestCaseNode);
+      return match == TestNodeKey.Relation.SAME || match == TestNodeKey.Relation.PARTOF;
     }
-    return Objects.equals(myTestCaseNode, testCase);
+    return false;
   }
 }

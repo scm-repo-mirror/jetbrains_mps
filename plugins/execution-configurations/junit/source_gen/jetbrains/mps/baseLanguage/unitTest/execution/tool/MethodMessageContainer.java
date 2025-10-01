@@ -10,7 +10,6 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.baseLanguage.unitTest.execution.TextTestEvent;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.baseLanguage.unitTest.execution.TestNodeKey;
-import java.util.Objects;
 import jetbrains.mps.util.FileUtil;
 import java.io.DataOutputStream;
 import java.io.BufferedOutputStream;
@@ -57,7 +56,7 @@ public class MethodMessageContainer extends MessageContainerBase<LeafTestMessage
   public boolean accepts(@NotNull TextTestEvent event) {
     TestNodeKey testNodeKey = event.getCurrentTestNode();
 
-    return myMethodNode == null || Objects.equals(myMethodNode, testNodeKey);
+    return myMethodNode == null || myMethodNode.match(testNodeKey) == TestNodeKey.Relation.SAME;
   }
 
   @Override

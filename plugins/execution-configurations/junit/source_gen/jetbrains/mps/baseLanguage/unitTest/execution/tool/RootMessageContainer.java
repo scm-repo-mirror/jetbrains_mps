@@ -4,9 +4,8 @@ package jetbrains.mps.baseLanguage.unitTest.execution.tool;
 
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.baseLanguage.unitTest.execution.TextTestEvent;
-import jetbrains.mps.baseLanguage.unitTest.execution.TestCaseNodeKey;
-import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.baseLanguage.unitTest.execution.TestNodeKey;
+import jetbrains.mps.baseLanguage.unitTest.execution.TestCaseNodeKey;
 
 public class RootMessageContainer extends MessageContainerBase<TestCaseMessageContainer> {
   public RootMessageContainer(@NotNull MessageFilter filter) {
@@ -16,20 +15,15 @@ public class RootMessageContainer extends MessageContainerBase<TestCaseMessageCo
   @Override
   @NotNull
   public TestCaseMessageContainer createChildMessage(@NotNull TextTestEvent event) {
-    TestCaseNodeKey key = calcTestCaseNode(event);
-    TestCaseMessageContainer message = new TestCaseMessageContainer(key, getFilter());
+    TestNodeKey tk = event.getCurrentTestNode();
+    // FIXME I don't quite get hierarchical approach to messages, (root->testcase->method). it implies messages come in proper order
+    //      and superclass assumes last container is likely the one for the next message. What if 2 methods of 2 different testcases report
+    //      sequentially, ending up creating multiple TCMC with individual messages?
+    // Note, here we are ok to create TCMC in case event comes for a TestMethodNodeKey. We need to record the message anyway, and I hope
+    // we can access it later (e.g. print) just based on TCMC.matches being permissive (see doc inside the method)
+    TestCaseMessageContainer message = new TestCaseMessageContainer((tk instanceof TestCaseNodeKey ? (TestCaseNodeKey) tk : null), getFilter());
     message.addMessage(event);
     return message;
-  }
-
-  @Nullable
-  private TestCaseNodeKey calcTestCaseNode(TextTestEvent event) {
-    TestNodeKey currentTestNode = event.getCurrentTestNode();
-    if (currentTestNode != null) {
-      return currentTestNode.getTestCaseNodeKey();
-    } else {
-      return null;
-    }
   }
 
   @Override

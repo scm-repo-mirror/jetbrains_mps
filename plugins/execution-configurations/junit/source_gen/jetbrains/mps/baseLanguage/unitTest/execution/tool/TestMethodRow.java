@@ -110,12 +110,7 @@ public class TestMethodRow implements TestStatisticsRow {
     if (testKey == null) {
       return true;
     }
-    if (testKey.equals(myKey)) {
-      return true;
-    }
-    if (myKey.getNode().getTestCase().equals(testKey.getNode())) {
-      return true;
-    }
-    return false;
+    TestNodeKey.Relation match = myKey.match(testKey);
+    return match == TestNodeKey.Relation.SAME || match == TestNodeKey.Relation.PARTOF;
   }
 }

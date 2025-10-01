@@ -6,6 +6,7 @@ import org.jetbrains.mps.annotations.Immutable;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.baselanguage.unitTest.execution.TestType;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * messages from the process come as strings so the keys here are strings
@@ -27,11 +28,6 @@ public final class TestCaseNodeKey implements TestNodeKey {
   @Override
   public String getTestCaseFqName() {
     return myTestCaseFqName;
-  }
-
-  @NotNull
-  public TestCaseNodeKey getTestCaseNodeKey() {
-    return this;
   }
 
   @NotNull
@@ -67,5 +63,10 @@ public final class TestCaseNodeKey implements TestNodeKey {
   @Override
   public TestType getType() {
     return TestType.TESTCASE;
+  }
+
+  @Override
+  public TestNodeKey.Relation match(@Nullable TestNodeKey other) {
+    return (this.equals(other) ? TestNodeKey.Relation.SAME : TestNodeKey.Relation.NONE);
   }
 }

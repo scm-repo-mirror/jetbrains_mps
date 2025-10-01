@@ -4,8 +4,6 @@ package jetbrains.mps.baseLanguage.unitTest.execution.tool;
 
 import jetbrains.mps.baseLanguage.unitTest.execution.TestNodeKey;
 import org.jetbrains.annotations.Nullable;
-import jetbrains.mps.baselanguage.unitTest.execution.TestType;
-import java.util.Objects;
 
 public final class MessageFilter {
   private TestNodeKey myTestNodeKey;
@@ -27,12 +25,9 @@ public final class MessageFilter {
       return false;
     }
 
-    if (filterNode.getType() == TestType.METHOD) {
-      return filterNode.equals(nodeKey);
-    } else {
-      assert filterNode.getType() == TestType.TESTCASE;
-      return Objects.equals(filterNode, nodeKey.getTestCaseNodeKey());
-    }
+    // if a candidate message comes with the same key, or it's part of a "wider" key we use for filtering, accept it
+    TestNodeKey.Relation match = nodeKey.match(filterNode);
+    return match == TestNodeKey.Relation.SAME || match == TestNodeKey.Relation.PARTOF;
   }
 
   @Nullable

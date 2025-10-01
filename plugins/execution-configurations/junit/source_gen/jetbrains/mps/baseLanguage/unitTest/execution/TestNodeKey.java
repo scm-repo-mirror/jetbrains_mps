@@ -5,11 +5,20 @@ package jetbrains.mps.baseLanguage.unitTest.execution;
 import jetbrains.mps.baselanguage.unitTest.execution.TestKey;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
+import org.jetbrains.annotations.Nullable;
 
 public interface TestNodeKey extends TestKey {
   @NotNull
   ITestNodeWrapper getNode();
 
-  @NotNull
-  TestCaseNodeKey getTestCaseNodeKey();
+  /**
+   * Tells if a test identified by this key is either the same, or is part of another test.
+   */
+  Relation match(@Nullable TestNodeKey other);
+
+  enum Relation {
+    SAME(),
+    PARTOF(),
+    NONE()
+  }
 }

@@ -25,7 +25,7 @@ public class TestOutputContainer implements TestStateListener {
   /*package*/ static final int MAX_MESSAGES_BEFORE_DUMP = 10000;
 
   private final ConsoleView myConsoleView;
-  private final MessageContainerBase myRootMessageContainer;
+  private final RootMessageContainer myRootMessageContainer;
 
   @NotNull
   private final MessageFilter myFilter = new MessageFilter();
@@ -64,6 +64,8 @@ public class TestOutputContainer implements TestStateListener {
 
   public void appendWithParameters(@NotNull TextTestEvent event) {
     TestMessage message = myRootMessageContainer.addMessage(event);
+    // FIXME why not message.matches(myFilter), isn't this api method exactly for this purpose?
+    //      and why do we pass myFilter into RootMessageContainer then?
     if (myFilter.accept(event.getCurrentTestNode())) {
       message.printOn(myDefaultPrinter);
     }

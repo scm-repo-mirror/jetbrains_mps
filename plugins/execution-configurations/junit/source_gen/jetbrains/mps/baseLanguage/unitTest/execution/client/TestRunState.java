@@ -20,12 +20,12 @@ import jetbrains.mps.baseLanguage.unitTest.execution.TestNodeEvent;
 import jetbrains.mps.baselanguage.unitTest.execution.TestRawEvent;
 import jetbrains.mps.baseLanguage.unitTest.execution.TestNodeKey;
 import org.jetbrains.mps.annotations.Internal;
-import jetbrains.mps.baseLanguage.unitTest.execution.TestCaseNodeKey;
 import jetbrains.mps.baseLanguage.unitTest.execution.TerminationTestEvent;
 import com.intellij.openapi.util.Key;
 import jetbrains.mps.baseLanguage.unitTest.execution.TextTestEvent;
 import org.jetbrains.mps.annotations.ImmutableReturn;
 import java.util.Collections;
+import jetbrains.mps.baseLanguage.unitTest.execution.TestCaseNodeKey;
 import java.util.LinkedList;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.TestOnly;
@@ -214,16 +214,10 @@ public final class TestRunState {
   }
 
   private void removeFinishedTestEvent(TestRawEvent event) {
-    final TestNodeEvent nodeEvent = convertRawEventToNodeEvent(event);
-    if (nodeEvent.isTestCaseEvent()) {
-      ListSequence.fromList(myInnerData.myTestMethodsLeftToRun).removeWhere((it) -> {
-        TestCaseNodeKey testCaseKey = (TestCaseNodeKey) nodeEvent.getTestKey();
-        return it.getTestCaseNodeKey().equals(testCaseKey);
-      });
-    } else {
-      @NotNull TestMethodNodeKey methodKey = (TestMethodNodeKey) nodeEvent.getTestKey();
-      ListSequence.fromList(myInnerData.myTestMethodsLeftToRun).removeElement(methodKey);
-    }
+    TestNodeEvent nodeEvent = convertRawEventToNodeEvent(event);
+    final TestNodeKey testCaseKey = nodeEvent.getTestKey();
+    // TestMethodNodeKey could be either SAME or PARTOF a key from event (only former for method event and latter for testcase event)
+    ListSequence.fromList(myInnerData.myTestMethodsLeftToRun).removeWhere((it) -> it.match(testCaseKey) != TestNodeKey.Relation.NONE);
   }
 
   private void startTest(@NotNull TestNodeEvent event) {
