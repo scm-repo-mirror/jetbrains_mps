@@ -224,9 +224,7 @@ import jetbrains.mps.internal.collections.runtime.CollectionSequence;
   }
 
   /*package*/ void collectRetainedFiles(Iterable<SModel> retainedModels) {
-    if (Sequence.fromIterable(retainedModels).isEmpty()) {
-      return;
-    }
+    // FIXME FIXME FIXME need empty "module" delta to make sure per-model individual deltas get merged properly
     // each file we know as generated from a retained model reported as kept
     final FilesDelta fd = new FilesDelta(new DeltaKey(myModule));
     final Consumer<IFile> f = new Consumer<IFile>() {
