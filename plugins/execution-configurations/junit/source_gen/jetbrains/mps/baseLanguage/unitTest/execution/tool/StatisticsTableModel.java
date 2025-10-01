@@ -17,8 +17,7 @@ import jetbrains.mps.baseLanguage.unitTest.execution.TestNodeEvent;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.baseLanguage.unitTest.execution.TerminationTestEvent;
 import jetbrains.mps.baseLanguage.unitTest.execution.TestMethodNodeKey;
-import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
-import jetbrains.mps.internal.collections.runtime.SetSequence;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.application.ApplicationManager;
 import javax.swing.event.TableModelEvent;
@@ -115,8 +114,7 @@ public class StatisticsTableModel implements TableModel {
     TotalRow totalRow = new TotalRow();
     ListSequence.fromList(myRows).addElement(totalRow);
     MapSequence.fromMap(myNodeKey2RowMap).clear();
-    for (ITestNodeWrapper testCase : SetSequence.fromSet(MapSequence.fromMap(testSession.getTestsMap()).keySet())) {
-      TestNodeKey testCaseKey = testSession.keyForTest(testCase);
+    for (TestNodeKey testCaseKey : Sequence.fromIterable(testSession.getTopTests())) {
       TestCaseRow testCaseRow = new TestCaseRow(testCaseKey);
       totalRow.addRow(testCaseRow);
       ListSequence.fromList(myRows).addElement(testCaseRow);

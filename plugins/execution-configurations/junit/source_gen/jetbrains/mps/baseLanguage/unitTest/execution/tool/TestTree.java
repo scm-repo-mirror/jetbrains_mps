@@ -13,15 +13,15 @@ import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.LinkedHashMap;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.util.Disposer;
-import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
-import java.util.List;
+import jetbrains.mps.baselanguage.unitTest.execution.TestType;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import com.intellij.openapi.actionSystem.ActionGroup;
 import jetbrains.mps.ide.ui.tree.MPSTreeNode;
 import jetbrains.mps.workbench.action.ActionUtils;
 import javax.swing.SwingUtilities;
 import org.jetbrains.annotations.Nullable;
-import jetbrains.mps.internal.collections.runtime.SetSequence;
+import java.util.List;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
 import jetbrains.mps.baseLanguage.unitTest.execution.TestNodeEvent;
 import jetbrains.mps.internal.collections.runtime.IMapping;
@@ -60,18 +60,16 @@ public class TestTree extends MPSTree implements Disposable, TestStateListener {
 
   private static Map<TestNodeKey, NonRootTestTreeNode> buildModelUIMapping(TestRunState state) {
     Map<TestNodeKey, NonRootTestTreeNode> result = MapSequence.fromMap(new LinkedHashMap<>(16, (float) 0.75, false));
-    Map<ITestNodeWrapper, List<ITestNodeWrapper>> container2method = state.getTestsMap();
 
-    for (ITestNodeWrapper testCase : MapSequence.fromMap(container2method).keySet()) {
-      assert testCase.isTestCase();
-      TestNodeKey keyForTest = state.keyForTest(testCase);
+    for (TestNodeKey keyForTest : state.getTopTests()) {
+      assert keyForTest.getType() == TestType.TESTCASE;
       MapSequence.fromMap(result).put(keyForTest, new TestCaseTreeNode(keyForTest));
-      for (ITestNodeWrapper testMethod : ListSequence.fromList(MapSequence.fromMap(container2method).get(testCase))) {
-        assert !(testMethod.isTestCase());
-        TestNodeKey keyForMethod = state.keyForTest(testMethod);
+      for (TestNodeKey keyForMethod : ListSequence.fromList(state.childrenOf(keyForTest))) {
+        assert keyForMethod.getType() == TestType.METHOD;
         MapSequence.fromMap(result).put(keyForMethod, new TestMethodTreeNode(keyForMethod));
       }
     }
+
     return result;
   }
 
@@ -196,15 +194,13 @@ public class TestTree extends MPSTree implements Disposable, TestStateListener {
       // FIXME why removeAllChildren if we re-create root anyway?!
     }
     this.myRoot = new RootTestTreeNode();
-    Map<ITestNodeWrapper, List<ITestNodeWrapper>> container2method = myTestSession.getTestsMap();
 
-    for (ITestNodeWrapper testCase : SetSequence.fromSet(MapSequence.fromMap(container2method).keySet())) {
-      assert testCase != null;
+    for (TestNodeKey testCase : Sequence.fromIterable(myTestSession.getTopTests())) {
       boolean allTestMethodsPassed = true;
-      NonRootTestTreeNode testCaseTreeNode = getUINodeByModelNode(myTestSession.keyForTest(testCase));
+      NonRootTestTreeNode testCaseTreeNode = getUINodeByModelNode(testCase);
       testCaseTreeNode.removeAllChildren();
-      for (ITestNodeWrapper method : ListSequence.fromList(MapSequence.fromMap(container2method).get(testCase))) {
-        NonRootTestTreeNode methodTreeNode = getUINodeByModelNode(myTestSession.keyForTest(method));
+      for (TestNodeKey method : ListSequence.fromList(myTestSession.childrenOf(testCase))) {
+        NonRootTestTreeNode methodTreeNode = getUINodeByModelNode(method);
         if (!(hidePassed) || !(isPassed(methodTreeNode))) {
           testCaseTreeNode.add(methodTreeNode);
         }

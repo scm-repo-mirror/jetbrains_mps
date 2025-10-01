@@ -23,8 +23,6 @@ import org.jetbrains.mps.annotations.Internal;
 import jetbrains.mps.baseLanguage.unitTest.execution.TerminationTestEvent;
 import com.intellij.openapi.util.Key;
 import jetbrains.mps.baseLanguage.unitTest.execution.TextTestEvent;
-import org.jetbrains.mps.annotations.ImmutableReturn;
-import java.util.Collections;
 import jetbrains.mps.baseLanguage.unitTest.execution.TestCaseNodeKey;
 import java.util.LinkedList;
 import org.jetbrains.annotations.Nullable;
@@ -276,22 +274,13 @@ public final class TestRunState {
     ListSequence.fromList(myListeners).removeElement(listener);
   }
 
-  @ImmutableReturn
-  public Map<ITestNodeWrapper, List<ITestNodeWrapper>> getTestsMap() {
-    return Collections.unmodifiableMap(myTestCase2MethodsMap);
-  }
-
-  /**
-   * PROVISIONAL, I'd like to hide ITestNodeWrapper and replace it with an object that holds state of a specific test within the session
-   * (including TestState), but for transition, need to stick to TestNodeKey now
-   */
-  public TestNodeKey keyForTest(ITestNodeWrapper nw) {
-    return myConverter.reverseLookup(nw);
+  public Iterable<TestNodeKey> getTopTests() {
+    return SetSequence.fromSet(MapSequence.fromMap(myTestCase2MethodsMap).keySet()).select((it) -> myConverter.reverseLookup(it));
   }
 
   public List<TestNodeKey> childrenOf(TestNodeKey test) {
     if (test instanceof TestCaseNodeKey) {
-      return ListSequence.fromList(MapSequence.fromMap(myTestCase2MethodsMap).get(test.getNode())).select((it) -> keyForTest(it)).toList();
+      return ListSequence.fromList(MapSequence.fromMap(myTestCase2MethodsMap).get(test.getNode())).select((it) -> myConverter.reverseLookup(it)).toList();
     }
     return ListSequence.fromList(new LinkedList<>());
   }
@@ -299,7 +288,7 @@ public final class TestRunState {
   @Nullable
   public TestNodeKey parentOf(TestNodeKey test) {
     if (test instanceof TestMethodNodeKey) {
-      return keyForTest(test.getNode().getTestCase());
+      return myConverter.reverseLookup(test.getNode().getTestCase());
     }
     return null;
   }
