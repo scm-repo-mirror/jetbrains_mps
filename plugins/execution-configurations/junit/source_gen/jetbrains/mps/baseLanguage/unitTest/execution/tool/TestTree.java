@@ -22,6 +22,7 @@ import javax.swing.SwingUtilities;
 import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
 import jetbrains.mps.baseLanguage.unitTest.execution.TestNodeEvent;
 import jetbrains.mps.internal.collections.runtime.IMapping;
@@ -230,8 +231,11 @@ public class TestTree extends MPSTree implements Disposable, TestStateListener {
 
   @Override
   protected void doubleClick(@NotNull MPSTreeNode nodeToClick) {
-    if (nodeToClick instanceof NonRootTestTreeNode && ((NonRootTestTreeNode) nodeToClick).getNavigateTarget() != null) {
-      new EditorNavigator(myProject).shallFocus(true).shallSelect(nodeToClick.isLeaf()).open(((NonRootTestTreeNode) nodeToClick).getNavigateTarget());
+    if (nodeToClick instanceof NonRootTestTreeNode) {
+      SNodeReference ptr = ((NonRootTestTreeNode) nodeToClick).testKey().origin();
+      if (ptr != null) {
+        new EditorNavigator(myProject).shallFocus(true).shallSelect(nodeToClick.isLeaf()).open(ptr);
+      }
     } else {
       super.doubleClick(nodeToClick);
     }

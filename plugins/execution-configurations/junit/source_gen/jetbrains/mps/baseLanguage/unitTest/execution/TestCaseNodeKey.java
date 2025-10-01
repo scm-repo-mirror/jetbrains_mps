@@ -5,8 +5,9 @@ package jetbrains.mps.baseLanguage.unitTest.execution;
 import org.jetbrains.mps.annotations.Immutable;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.baselanguage.unitTest.execution.TestType;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.model.SNodeReference;
+import jetbrains.mps.baselanguage.unitTest.execution.TestType;
 
 /**
  * messages from the process come as strings so the keys here are strings
@@ -30,10 +31,10 @@ public final class TestCaseNodeKey implements TestNodeKey {
     return myTestCaseFqName;
   }
 
-  @NotNull
+  @Nullable
   @Override
-  public ITestNodeWrapper getNode() {
-    return myNode;
+  public SNodeReference origin() {
+    return myNode.getNodePointer();
   }
 
   @Override

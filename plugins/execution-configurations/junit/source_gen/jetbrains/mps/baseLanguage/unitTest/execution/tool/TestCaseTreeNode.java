@@ -10,6 +10,6 @@ import jetbrains.mps.baseLanguage.unitTest.execution.TestNodeKey;
   /*package*/ TestCaseTreeNode(@NotNull TestNodeKey testCase) {
     super(testCase);
     setToggleClickCount(-1);
-    setAdditionalText(myNodePointer.getModelReference().getName().getLongName());
+    setAdditionalText(testCase.getQualifiedName());
   }
 }

@@ -5,7 +5,6 @@ package jetbrains.mps.baseLanguage.unitTest.execution;
 import org.jetbrains.mps.annotations.Immutable;
 import jetbrains.mps.baselanguage.unitTest.execution.TestRawEvent;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.baselanguage.unitTest.execution.TestType;
 import java.util.Objects;
 
@@ -27,18 +26,6 @@ public final class TestNodeEvent {
   @Override
   public String toString() {
     return myTestNodeKey.toString() + myRawEvent;
-  }
-
-  public String getTestCaseFqName() {
-    return myTestNodeKey.getTestCaseFqName();
-  }
-
-  @Nullable
-  public String getTestMethodFqName() {
-    if (myTestNodeKey.getType() == TestType.METHOD) {
-      return ((TestMethodNodeKey) myTestNodeKey).getTestMethodName();
-    }
-    return null;
   }
 
   @NotNull

@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.unitTest.execution.tool;
 
 import jetbrains.mps.baseLanguage.unitTest.execution.TestNodeKey;
 import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.util.NameUtil;
 import org.jetbrains.annotations.Nullable;
 import java.util.Objects;
 
@@ -11,7 +12,7 @@ public class TestCaseRow extends TestContainerRow {
   private final TestNodeKey myKey;
 
   public TestCaseRow(@NotNull TestNodeKey key) {
-    super(key.getTestCaseFqName(), key.getNode().getNodePointer().getModelReference().getName().getLongName());
+    super(NameUtil.shortNameFromLongName(key.getTestCaseFqName()), key.getTestCaseFqName());
     myKey = key;
   }
 
