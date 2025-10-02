@@ -2563,6 +2563,10 @@
     <node concept="PrWs8" id="7c$ruAHVbwe" role="PzmwI">
       <ref role="PrY4T" node="7c$ruAHVa5N" resolve="GeneratorIdentity" />
     </node>
+    <node concept="asaX9" id="7pmXawfdrSM" role="lGtFl">
+      <property role="YLPcu" value="2025.3" />
+      <property role="YLQ7P" value="No apparent need (once lang.generation.plan introduced own alternative)" />
+    </node>
   </node>
   <node concept="PlHQZ" id="7c$ruAHVa5N">
     <property role="EcuMT" value="8296877263936070003" />

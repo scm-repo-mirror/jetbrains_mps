@@ -28,6 +28,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptFork = createDescriptorForFork();
   /*package*/ final ConceptDescriptor myConceptForkAs = createDescriptorForForkAs();
   /*package*/ final ConceptDescriptor myConceptForkSelector = createDescriptorForForkSelector();
+  /*package*/ final ConceptDescriptor myConceptGeneratorModulePointer = createDescriptorForGeneratorModulePointer();
   /*package*/ final ConceptDescriptor myConceptInPlaceCheckpointRefSpec = createDescriptorForInPlaceCheckpointRefSpec();
   /*package*/ final ConceptDescriptor myConceptInPlaceCheckpointSpec = createDescriptorForInPlaceCheckpointSpec();
   /*package*/ final ConceptDescriptor myConceptIncludePlan = createDescriptorForIncludePlan();
@@ -50,12 +51,14 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   @Override
   public void reportDependencies(jetbrains.mps.smodel.runtime.StructureAspectDescriptor.Dependencies deps) {
     deps.extendedLanguage(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, "jetbrains.mps.lang.core");
+    deps.extendedLanguage(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, "jetbrains.mps.lang.smodel");
     deps.aggregatedLanguage(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, "jetbrains.mps.lang.smodel");
+    deps.aggregatedLanguage(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, "jetbrains.mps.lang.modelapi");
   }
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptApplyGenerators, myConceptCheckpoint, myConceptCheckpointDeclaration, myConceptCheckpointSpecification, myConceptCheckpointSynchronization, myConceptConceptListSelector, myConceptDeclaredCheckpointSpec, myConceptDocumentationLine, myConceptDocumentationStep, myConceptFork, myConceptForkAs, myConceptForkSelector, myConceptInPlaceCheckpointRefSpec, myConceptInPlaceCheckpointSpec, myConceptIncludePlan, myConceptLanguageEntry, myConceptParameterDeclaration, myConceptParameterEquals, myConceptParameterReference, myConceptPlan, myConceptStep, myConceptTextDocLine, myConceptTransform);
+    return Arrays.asList(myConceptApplyGenerators, myConceptCheckpoint, myConceptCheckpointDeclaration, myConceptCheckpointSpecification, myConceptCheckpointSynchronization, myConceptConceptListSelector, myConceptDeclaredCheckpointSpec, myConceptDocumentationLine, myConceptDocumentationStep, myConceptFork, myConceptForkAs, myConceptForkSelector, myConceptGeneratorModulePointer, myConceptInPlaceCheckpointRefSpec, myConceptInPlaceCheckpointSpec, myConceptIncludePlan, myConceptLanguageEntry, myConceptParameterDeclaration, myConceptParameterEquals, myConceptParameterReference, myConceptPlan, myConceptStep, myConceptTextDocLine, myConceptTransform);
   }
 
   @Override
@@ -86,6 +89,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptForkAs;
       case LanguageConceptSwitch.ForkSelector:
         return myConceptForkSelector;
+      case LanguageConceptSwitch.GeneratorModulePointer:
+        return myConceptGeneratorModulePointer;
       case LanguageConceptSwitch.InPlaceCheckpointRefSpec:
         return myConceptInPlaceCheckpointRefSpec;
       case LanguageConceptSwitch.InPlaceCheckpointSpec:
@@ -236,6 +241,15 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.interface_();
     b.origin("r:4a23ef0d-9c2f-48a6-8597-fbdd5b11f792(jetbrains.mps.lang.generator.plan.structure)/2209292798354253806");
     b.version(3);
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForGeneratorModulePointer() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.generator.plan", "GeneratorModulePointer", 0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x205e11b2358519b2L);
+    b.class_(false, false, false);
+    b.parent(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x73246de9adeca173L);
+    b.origin("r:4a23ef0d-9c2f-48a6-8597-fbdd5b11f792(jetbrains.mps.lang.generator.plan.structure)/2332321114124261810");
+    b.version(3);
+    b.aggregate("module", 0x205e11b2358519b4L).target(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e361L).optional(false).ordered(true).multiple(false).origin("2332321114124261812").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForInPlaceCheckpointRefSpec() {

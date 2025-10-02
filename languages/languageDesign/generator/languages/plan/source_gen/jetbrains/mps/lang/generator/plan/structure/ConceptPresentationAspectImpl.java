@@ -21,6 +21,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_Fork;
   private ConceptPresentation props_ForkAs;
   private ConceptPresentation props_ForkSelector;
+  private ConceptPresentation props_GeneratorModulePointer;
   private ConceptPresentation props_InPlaceCheckpointRefSpec;
   private ConceptPresentation props_InPlaceCheckpointSpec;
   private ConceptPresentation props_IncludePlan;
@@ -126,6 +127,14 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ForkSelector = cpb.create();
         }
         return props_ForkSelector;
+      case LanguageConceptSwitch.GeneratorModulePointer:
+        if (props_GeneratorModulePointer == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("There's no runtime identity for generators (like SLanguage for language). GeneratorIdentity doesn't specify any behaviour methods, and we use SModuleReference here.");
+          cpb.rawPresentation("GeneratorModulePointer");
+          props_GeneratorModulePointer = cpb.create();
+        }
+        return props_GeneratorModulePointer;
       case LanguageConceptSwitch.InPlaceCheckpointRefSpec:
         if (props_InPlaceCheckpointRefSpec == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

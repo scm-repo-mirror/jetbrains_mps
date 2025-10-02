@@ -149,6 +149,7 @@
       <concept id="1163200647017" name="jetbrains.mps.lang.constraints.structure.ConstraintFunctionParameter_referenceNode" flags="nn" index="3kakTB" />
       <concept id="1213093968558" name="jetbrains.mps.lang.constraints.structure.ConceptConstraints" flags="ng" index="1M2fIO">
         <reference id="1213093996982" name="concept" index="1M2myG" />
+        <reference id="1213106917431" name="defaultConcreteConcept" index="1MND4H" />
         <child id="1213098023997" name="property" index="1MhHOB" />
         <child id="1213100494875" name="referent" index="1Mr941" />
       </concept>
@@ -746,6 +747,21 @@
         </node>
       </node>
     </node>
+  </node>
+  <node concept="1M2fIO" id="7CgE8IEmN3o">
+    <property role="3GE5qa" value="identity" />
+    <ref role="1M2myG" to="dvox:7PoJpZpMbrj" resolve="ModelIdentity" />
+    <ref role="1MND4H" to="dvox:k2ZBl8Cedw" resolve="ModelPointer" />
+  </node>
+  <node concept="1M2fIO" id="7CgE8IEmN3p">
+    <property role="3GE5qa" value="identity" />
+    <ref role="1M2myG" to="dvox:_GDk1qZ2J9" resolve="ModuleIdentity" />
+    <ref role="1MND4H" to="dvox:k2ZBl8Cedx" resolve="ModulePointer" />
+  </node>
+  <node concept="1M2fIO" id="7CgE8IEmN3q">
+    <property role="3GE5qa" value="identity" />
+    <ref role="1M2myG" to="dvox:k2ZBl8CwzR" resolve="NodeIdentity" />
+    <ref role="1MND4H" to="dvox:k2ZBl8Cedv" resolve="NodePointer" />
   </node>
 </model>
 

@@ -126,8 +126,16 @@ public final class GenPlanTranslator {
       } else if (SNodeOperations.isInstanceOf(stepNode, CONCEPTS.ApplyGenerators$PQ)) {
         SNode applyGeneratorsStep = SNodeOperations.as(stepNode, CONCEPTS.ApplyGenerators$PQ);
         final boolean withExtended = SPropertyOperations.getBoolean(applyGeneratorsStep, PROPS.withExtended$Vq9q);
+        // remove after 2025.3 is out
         for (SNode generator : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(applyGeneratorsStep, LINKS.generator$bWty), CONCEPTS.GeneratorModulePointer$49))) {
-          SModuleReference mr = ((SModuleReference) BHReflection.invoke0(SLinkOperations.getTarget(generator, LINKS.module$u1do), CONCEPTS.ModuleIdentity$U1, SMethodIdV2.create("getModuleReference", 427659576753753658L, 0xf9dadaaf9d633926L)));
+          SModuleReference mr = ((SModuleReference) BHReflection.invoke0(SLinkOperations.getTarget(generator, LINKS.module$u1do), CONCEPTS.ModuleIdentity$2y, SMethodIdV2.create("toModuleReference", 1863527487545911885L, 0xdf59ded48ef93eceL)));
+          if (mr == null) {
+            continue;
+          }
+          generators.add(mr);
+        }
+        for (SNode generator : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(applyGeneratorsStep, LINKS.generator$bWty), CONCEPTS.GeneratorModulePointer$Qh))) {
+          SModuleReference mr = ((SModuleReference) BHReflection.invoke0(SLinkOperations.getTarget(generator, LINKS.module$wPxG), CONCEPTS.ModuleIdentity$2y, SMethodIdV2.create("toModuleReference", 1863527487545911885L, 0xdf59ded48ef93eceL)));
           if (mr == null) {
             continue;
           }
@@ -215,8 +223,9 @@ public final class GenPlanTranslator {
     /*package*/ static final SConcept Transform$a_ = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a2071802L, "jetbrains.mps.lang.generator.plan.structure.Transform");
     /*package*/ static final SInterfaceConcept LanguageIdentity$cN = MetaAdapterFactory.getInterfaceConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x312abca18ab8c318L, "jetbrains.mps.lang.smodel.structure.LanguageIdentity");
     /*package*/ static final SConcept ApplyGenerators$PQ = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x73246de9adeca171L, "jetbrains.mps.lang.generator.plan.structure.ApplyGenerators");
-    /*package*/ static final SInterfaceConcept ModuleIdentity$U1 = MetaAdapterFactory.getInterfaceConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5ef5a1e85338e1eL, "jetbrains.mps.lang.smodel.structure.ModuleIdentity");
+    /*package*/ static final SInterfaceConcept ModuleIdentity$2y = MetaAdapterFactory.getInterfaceConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x96ca5405afc2bc9L, "jetbrains.mps.lang.modelapi.structure.ModuleIdentity");
     /*package*/ static final SConcept GeneratorModulePointer$49 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x73246de9adecb80dL, "jetbrains.mps.lang.smodel.structure.GeneratorModulePointer");
+    /*package*/ static final SConcept GeneratorModulePointer$Qh = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x205e11b2358519b2L, "jetbrains.mps.lang.generator.plan.structure.GeneratorModulePointer");
     /*package*/ static final SConcept CheckpointSynchronization$DV = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0xc11e5088a794d07L, "jetbrains.mps.lang.generator.plan.structure.CheckpointSynchronization");
     /*package*/ static final SConcept CheckpointDeclaration$4L = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x56d679ca1f4b53ceL, "jetbrains.mps.lang.generator.plan.structure.CheckpointDeclaration");
     /*package*/ static final SConcept IncludePlan$sw = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x336c2500000e1b2fL, "jetbrains.mps.lang.generator.plan.structure.IncludePlan");
@@ -236,6 +245,7 @@ public final class GenPlanTranslator {
     /*package*/ static final SContainmentLink language$pqOb = MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x100024c0a63c480fL, 0x100024c0a63c4810L, "language");
     /*package*/ static final SContainmentLink module$u1do = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x73246de9adecb80dL, 0x73246de9adecb874L, "module");
     /*package*/ static final SContainmentLink generator$bWty = MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x73246de9adeca171L, 0x73246de9adf5a45cL, "generator");
+    /*package*/ static final SContainmentLink module$wPxG = MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x205e11b2358519b2L, 0x205e11b2358519b4L, "module");
     /*package*/ static final SContainmentLink checkpoint$18uq = MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0xc11e5088a794d07L, 0x340cd07aedd21238L, "checkpoint");
     /*package*/ static final SReferenceLink plan$8HNy = MetaAdapterFactory.getReferenceLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x336c2500000e1b2fL, 0x336c2500000e1b32L, "plan");
     /*package*/ static final SReferenceLink plan$IYKb = MetaAdapterFactory.getReferenceLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x2bf683196b12a3cbL, 0x2bf683196b12a3ccL, "plan");

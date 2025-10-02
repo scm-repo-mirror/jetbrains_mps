@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.behavior.ModuleIdentity__BehaviorDescriptor;
+import jetbrains.mps.lang.modelapi.behavior.ModulePointer__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.smodel.Generator;
@@ -58,9 +58,8 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
     }
 
     if (myUseGenerators) {
-      SNode gmp = SModelOperations.createNewNode(myTargetModel, null, CONCEPTS.GeneratorModulePointer$49);
-      SLinkOperations.setNewChild(gmp, LINKS.module$u1do, null);
-      ModuleIdentity__BehaviorDescriptor.setModuleReference_idnJmxU5cSTj.invoke(SLinkOperations.getTarget(gmp, LINKS.module$u1do), generatorIdentity);
+      SNode gmp = SModelOperations.createNewNode(myTargetModel, null, CONCEPTS.GeneratorModulePointer$Qh);
+      SLinkOperations.setTarget(gmp, LINKS.module$wPxG, ModulePointer__BehaviorDescriptor.create_id1Bs_61$mIAC.invoke(SNodeOperations.asSConcept(CONCEPTS.ModulePointer$7i), myTargetModel, generatorIdentity));
 
       SNode generatorStep;
       if (myDistinctSteps || mySharedGeneratorsStep == null) {
@@ -95,14 +94,15 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept GeneratorModulePointer$49 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x73246de9adecb80dL, "jetbrains.mps.lang.smodel.structure.GeneratorModulePointer");
+    /*package*/ static final SConcept GeneratorModulePointer$Qh = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x205e11b2358519b2L, "jetbrains.mps.lang.generator.plan.structure.GeneratorModulePointer");
+    /*package*/ static final SConcept ModulePointer$7i = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e361L, "jetbrains.mps.lang.modelapi.structure.ModulePointer");
     /*package*/ static final SConcept ApplyGenerators$PQ = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x73246de9adeca171L, "jetbrains.mps.lang.generator.plan.structure.ApplyGenerators");
     /*package*/ static final SConcept LanguageId$UR = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x312abca18ab8c8c0L, "jetbrains.mps.lang.smodel.structure.LanguageId");
     /*package*/ static final SConcept Transform$a_ = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a2071802L, "jetbrains.mps.lang.generator.plan.structure.Transform");
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink module$u1do = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x73246de9adecb80dL, 0x73246de9adecb874L, "module");
+    /*package*/ static final SContainmentLink module$wPxG = MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x205e11b2358519b2L, 0x205e11b2358519b4L, "module");
     /*package*/ static final SContainmentLink steps$Xwbb = MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a20717fbL, 0x19443180a2071807L, "steps");
     /*package*/ static final SContainmentLink generator$bWty = MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x73246de9adeca171L, 0x73246de9adf5a45cL, "generator");
     /*package*/ static final SContainmentLink languages$AUhz = MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a2071802L, 0x28dd6d5a7549fa8dL, "languages");

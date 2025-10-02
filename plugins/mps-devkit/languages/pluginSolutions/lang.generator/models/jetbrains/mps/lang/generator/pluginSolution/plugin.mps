@@ -54,6 +54,8 @@
     <import index="exr9" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor(MPS.Editor/)" />
     <import index="tpfd" ref="r:00000000-0000-4000-0000-011c895902e5(jetbrains.mps.lang.generator.intentions)" />
     <import index="guwi" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.io(JDK/)" implicit="true" />
+    <import index="dvox" ref="r:9dfd3567-3b1f-4edb-85a0-3981ca2bfd8c(jetbrains.mps.lang.modelapi.structure)" implicit="true" />
+    <import index="xlb7" ref="r:cf42fd0a-68d2-493b-8b77-961658617704(jetbrains.mps.lang.modelapi.behavior)" implicit="true" />
     <import index="tpeu" ref="r:00000000-0000-4000-0000-011c895902fa(jetbrains.mps.lang.smodel.behavior)" implicit="true" />
     <import index="tpfj" ref="r:00000000-0000-4000-0000-011c895902e3(jetbrains.mps.lang.generator.editor)" implicit="true" />
   </imports>
@@ -352,7 +354,6 @@
         <child id="1138662048170" name="value" index="tz02z" />
       </concept>
       <concept id="7453996997717780434" name="jetbrains.mps.lang.smodel.structure.Node_GetSConceptOperation" flags="nn" index="2yIwOk" />
-      <concept id="1138757581985" name="jetbrains.mps.lang.smodel.structure.Link_SetNewChildOperation" flags="nn" index="zfrQC" />
       <concept id="1173122760281" name="jetbrains.mps.lang.smodel.structure.Node_GetAncestorsOperation" flags="nn" index="z$bX8" />
       <concept id="2396822768958367367" name="jetbrains.mps.lang.smodel.structure.AbstractTypeCastExpression" flags="nn" index="$5XWr">
         <child id="6733348108486823193" name="leftExpression" index="1m5AlR" />
@@ -383,6 +384,9 @@
       <concept id="1171407110247" name="jetbrains.mps.lang.smodel.structure.Node_GetAncestorOperation" flags="nn" index="2Xjw5R" />
       <concept id="3562215692195599741" name="jetbrains.mps.lang.smodel.structure.SLinkImplicitSelect" flags="nn" index="13MTOL">
         <reference id="3562215692195600259" name="link" index="13MTZf" />
+      </concept>
+      <concept id="2644386474300074836" name="jetbrains.mps.lang.smodel.structure.ConceptIdRefExpression" flags="nn" index="35c_gC">
+        <reference id="2644386474300074837" name="conceptDeclaration" index="35c_gD" />
       </concept>
       <concept id="1176109685393" name="jetbrains.mps.lang.smodel.structure.Model_RootsIncludingImportedOperation" flags="nn" index="3lApI0">
         <child id="6750920497477143611" name="conceptArgument" index="3MHPDn" />
@@ -5600,45 +5604,40 @@
               <node concept="3cpWsn" id="5PAPEu$cg5b" role="3cpWs9">
                 <property role="TrG5h" value="gmp" />
                 <node concept="3Tqbb2" id="5PAPEu$cg5c" role="1tU5fm">
-                  <ref role="ehGHo" to="tp25:7c$ruAHVbwd" resolve="GeneratorModulePointer" />
+                  <ref role="ehGHo" to="bjdw:21u4r8PxhAM" resolve="GeneratorModulePointer" />
                 </node>
                 <node concept="2OqwBi" id="5PAPEu$cg5d" role="33vP2m">
                   <node concept="37vLTw" id="5PAPEu$fdV9" role="2Oq$k0">
                     <ref role="3cqZAo" node="5PAPEu$b$CV" resolve="myTargetModel" />
                   </node>
                   <node concept="I8ghe" id="5PAPEu$cg5f" role="2OqNvi">
-                    <ref role="I8UWU" to="tp25:7c$ruAHVbwd" resolve="GeneratorModulePointer" />
+                    <ref role="I8UWU" to="bjdw:21u4r8PxhAM" resolve="GeneratorModulePointer" />
                   </node>
                 </node>
               </node>
             </node>
             <node concept="3clFbF" id="5PAPEu$cg5g" role="3cqZAp">
-              <node concept="2OqwBi" id="5PAPEu$cg5h" role="3clFbG">
-                <node concept="2OqwBi" id="5PAPEu$cg5i" role="2Oq$k0">
+              <node concept="37vLTI" id="21u4r8PzxfR" role="3clFbG">
+                <node concept="2OqwBi" id="21u4r8Pz$xG" role="37vLTx">
+                  <node concept="35c_gC" id="21u4r8PzyHe" role="2Oq$k0">
+                    <ref role="35c_gD" to="dvox:k2ZBl8Cedx" resolve="ModulePointer" />
+                  </node>
+                  <node concept="2qgKlT" id="21u4r8Pz_HR" role="2OqNvi">
+                    <ref role="37wK5l" to="xlb7:1Bs_61$mIAC" resolve="create" />
+                    <node concept="37vLTw" id="21u4r8PzAJs" role="37wK5m">
+                      <ref role="3cqZAo" node="5PAPEu$b$CV" resolve="myTargetModel" />
+                    </node>
+                    <node concept="37vLTw" id="21u4r8PzCbj" role="37wK5m">
+                      <ref role="3cqZAo" node="5PAPEu$bL0n" resolve="generatorIdentity" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="2OqwBi" id="5PAPEu$cg5i" role="37vLTJ">
                   <node concept="37vLTw" id="5PAPEu$cg5j" role="2Oq$k0">
                     <ref role="3cqZAo" node="5PAPEu$cg5b" resolve="gmp" />
                   </node>
                   <node concept="3TrEf2" id="5PAPEu$cg5k" role="2OqNvi">
-                    <ref role="3Tt5mk" to="tp25:7c$ruAHVbxO" resolve="module" />
-                  </node>
-                </node>
-                <node concept="zfrQC" id="5PAPEu$cg5l" role="2OqNvi" />
-              </node>
-            </node>
-            <node concept="3clFbF" id="5PAPEu$cg5m" role="3cqZAp">
-              <node concept="2OqwBi" id="5PAPEu$cg5n" role="3clFbG">
-                <node concept="2OqwBi" id="5PAPEu$cg5o" role="2Oq$k0">
-                  <node concept="37vLTw" id="5PAPEu$cg5p" role="2Oq$k0">
-                    <ref role="3cqZAo" node="5PAPEu$cg5b" resolve="gmp" />
-                  </node>
-                  <node concept="3TrEf2" id="5PAPEu$cg5q" role="2OqNvi">
-                    <ref role="3Tt5mk" to="tp25:7c$ruAHVbxO" resolve="module" />
-                  </node>
-                </node>
-                <node concept="2qgKlT" id="5PAPEu$cg5r" role="2OqNvi">
-                  <ref role="37wK5l" to="tpeu:nJmxU5cSTj" resolve="setModuleReference" />
-                  <node concept="37vLTw" id="5PAPEu$feTf" role="37wK5m">
-                    <ref role="3cqZAo" node="5PAPEu$bL0n" resolve="generatorIdentity" />
+                    <ref role="3Tt5mk" to="bjdw:21u4r8PxhAO" resolve="module" />
                   </node>
                 </node>
               </node>

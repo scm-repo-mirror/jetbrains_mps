@@ -37,6 +37,7 @@
     <import index="tp2b" ref="r:00000000-0000-4000-0000-011c8959033f(jetbrains.mps.lang.pattern.behavior)" implicit="true" />
     <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" implicit="true" />
     <import index="1ctc" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.stream(JDK/)" implicit="true" />
+    <import index="xlb7" ref="r:cf42fd0a-68d2-493b-8b77-961658617704(jetbrains.mps.lang.modelapi.behavior)" implicit="true" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -10581,6 +10582,25 @@
                       </node>
                     </node>
                   </node>
+                  <node concept="3SKdUt" id="21u4r8PyCDR" role="3cqZAp">
+                    <node concept="1PaTwC" id="21u4r8PyCDS" role="1aUNEU">
+                      <node concept="3oM_SD" id="21u4r8PyCDT" role="1PaTwD">
+                        <property role="3oM_SC" value="remove" />
+                      </node>
+                      <node concept="3oM_SD" id="21u4r8PyJms" role="1PaTwD">
+                        <property role="3oM_SC" value="after" />
+                      </node>
+                      <node concept="3oM_SD" id="21u4r8PyJmI" role="1PaTwD">
+                        <property role="3oM_SC" value="2025.3" />
+                      </node>
+                      <node concept="3oM_SD" id="21u4r8PyJnf" role="1PaTwD">
+                        <property role="3oM_SC" value="is" />
+                      </node>
+                      <node concept="3oM_SD" id="21u4r8PyJng" role="1PaTwD">
+                        <property role="3oM_SC" value="out" />
+                      </node>
+                    </node>
+                  </node>
                   <node concept="2Gpval" id="2$rgQOfwuK$" role="3cqZAp">
                     <node concept="2GrKxI" id="2$rgQOfwuK_" role="2Gsz3X">
                       <property role="TrG5h" value="generator" />
@@ -10617,7 +10637,7 @@
                               </node>
                             </node>
                             <node concept="2qgKlT" id="2$rgQOfwuKO" role="2OqNvi">
-                              <ref role="37wK5l" to="tpeu:nJmxU5cSSU" resolve="getModuleReference" />
+                              <ref role="37wK5l" to="xlb7:1Bs_61$mqDd" resolve="toModuleReference" />
                             </node>
                           </node>
                         </node>
@@ -10642,6 +10662,73 @@
                             <ref role="37wK5l" to="33ny:~ArrayList.add(java.lang.Object)" resolve="add" />
                             <node concept="37vLTw" id="2$rgQOfwuKZ" role="37wK5m">
                               <ref role="3cqZAo" node="2$rgQOfwuKI" resolve="mr" />
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="2Gpval" id="21u4r8PykDW" role="3cqZAp">
+                    <node concept="2GrKxI" id="21u4r8PykDX" role="2Gsz3X">
+                      <property role="TrG5h" value="generator" />
+                    </node>
+                    <node concept="2OqwBi" id="21u4r8PykDY" role="2GsD0m">
+                      <node concept="2OqwBi" id="21u4r8PykDZ" role="2Oq$k0">
+                        <node concept="37vLTw" id="21u4r8PykE0" role="2Oq$k0">
+                          <ref role="3cqZAo" node="2$rgQOfwuKp" resolve="applyGeneratorsStep" />
+                        </node>
+                        <node concept="3Tsc0h" id="21u4r8PykE1" role="2OqNvi">
+                          <ref role="3TtcxE" to="bjdw:7c$ruAHXqhs" resolve="generator" />
+                        </node>
+                      </node>
+                      <node concept="v3k3i" id="21u4r8PykE2" role="2OqNvi">
+                        <node concept="chp4Y" id="21u4r8PykE3" role="v3oSu">
+                          <ref role="cht4Q" to="bjdw:21u4r8PxhAM" resolve="GeneratorModulePointer" />
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="3clFbS" id="21u4r8PykE4" role="2LFqv$">
+                      <node concept="3cpWs8" id="21u4r8PykE5" role="3cqZAp">
+                        <node concept="3cpWsn" id="21u4r8PykE6" role="3cpWs9">
+                          <property role="TrG5h" value="mr" />
+                          <node concept="3uibUv" id="21u4r8PykE7" role="1tU5fm">
+                            <ref role="3uigEE" to="lui2:~SModuleReference" resolve="SModuleReference" />
+                          </node>
+                          <node concept="2OqwBi" id="21u4r8PykE8" role="33vP2m">
+                            <node concept="2OqwBi" id="21u4r8PykE9" role="2Oq$k0">
+                              <node concept="2GrUjf" id="21u4r8PykEa" role="2Oq$k0">
+                                <ref role="2Gs0qQ" node="21u4r8PykDX" resolve="generator" />
+                              </node>
+                              <node concept="3TrEf2" id="21u4r8PykEb" role="2OqNvi">
+                                <ref role="3Tt5mk" to="bjdw:21u4r8PxhAO" resolve="module" />
+                              </node>
+                            </node>
+                            <node concept="2qgKlT" id="21u4r8PykEc" role="2OqNvi">
+                              <ref role="37wK5l" to="xlb7:1Bs_61$mqDd" resolve="toModuleReference" />
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                      <node concept="3clFbJ" id="21u4r8PykEd" role="3cqZAp">
+                        <node concept="3clFbS" id="21u4r8PykEe" role="3clFbx">
+                          <node concept="3N13vt" id="21u4r8PykEf" role="3cqZAp" />
+                        </node>
+                        <node concept="3clFbC" id="21u4r8PykEg" role="3clFbw">
+                          <node concept="10Nm6u" id="21u4r8PykEh" role="3uHU7w" />
+                          <node concept="37vLTw" id="21u4r8PykEi" role="3uHU7B">
+                            <ref role="3cqZAo" node="21u4r8PykE6" resolve="mr" />
+                          </node>
+                        </node>
+                      </node>
+                      <node concept="3clFbF" id="21u4r8PykEj" role="3cqZAp">
+                        <node concept="2OqwBi" id="21u4r8PykEk" role="3clFbG">
+                          <node concept="37vLTw" id="21u4r8PykEl" role="2Oq$k0">
+                            <ref role="3cqZAo" node="2$rgQOfwuGf" resolve="generators" />
+                          </node>
+                          <node concept="liA8E" id="21u4r8PykEm" role="2OqNvi">
+                            <ref role="37wK5l" to="33ny:~ArrayList.add(java.lang.Object)" resolve="add" />
+                            <node concept="37vLTw" id="21u4r8PykEn" role="37wK5m">
+                              <ref role="3cqZAo" node="21u4r8PykE6" resolve="mr" />
                             </node>
                           </node>
                         </node>

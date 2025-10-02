@@ -655,6 +655,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.GeneratorModulePointer:
         if (props_GeneratorModulePointer == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.deprecated(true);
           cpb.shortDesc("As long as there's no runtime identity for generators (like SLanguage for language), GeneratorIdentity doesn't specify any behaviour methods, and we use SModuleReference here.");
           cpb.rawPresentation("GeneratorModulePointer");
           props_GeneratorModulePointer = cpb.create();
