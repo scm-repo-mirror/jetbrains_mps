@@ -425,33 +425,38 @@ public class TransientModelsModule extends SModuleBase implements TransientSModu
         if (m == null) {
           throw new IllegalStateException("lost swapped out model");
         }
-        // ensure imports are back
-        // XXX don't ask me why we don't swap out models with imports, but bare nodes only.
-        // TransientModelsModule is not necessarily inside a repository, need to take one
-        // where it would end up if published
-        SRepository repository = TransientModelsModule.this.myComponent.getRepository();
-        // next code is just an inlined copy of ModelDependencyUpdate, which can't be used here as
-        // it deals with [openapi].SModel, while here we've got detached model data only ([smodel].SModel)
-        // Note, here I assume 'm' holds nodes only, no imports or used languages (MDU does).
-        // new ModelDependencyUpdate(this).updateUsedLanguages().updateImportedModels(repository);
-        final ModelDependencyScanner mds = new ModelDependencyScanner();
-        mds.crossModelReferences(true).usedLanguages(true).walk(SNodeUtil.getDescendants(m.getRootNodes()));
-        for (SLanguage language : mds.getUsedLanguages()) {
-          m.addLanguage(language);
-          // XXX see ModelDependencyUpdate#updateImportedModels() for further questions/rant
-          SModuleReference langModuleRef = language.getSourceModuleReference();
-          SModule languageModule = langModuleRef == null ? null : langModuleRef.resolve(repository);
-          if (false == languageModule instanceof Language) {
-            continue;
-          }
-          // XXX I wonder if this is necessary, provided MDS could detect accessory model references
-          for (SModel am : ((Language) languageModule).getAccessoryModels()) {
-            m.addModelImport(new ImportElement(am.getReference()));
-          }
-        }
+        // FIXME restoreFromSwap is supposed to get imports (and not only imports!) back
+        //noinspection UnnecessaryUnboxing
+        if (Boolean.FALSE.booleanValue()) {
 
-        for (SModelReference targetModuleReference : mds.getCrossModelReferences()) {
-          m.addModelImport(new ImportElement(targetModuleReference));
+          // ensure imports are back
+          // XXX don't ask me why we don't swap out models with imports, but bare nodes only.
+          // TransientModelsModule is not necessarily inside a repository, need to take one
+          // where it would end up if published
+          SRepository repository = TransientModelsModule.this.myComponent.getRepository();
+          // next code is just an inlined copy of ModelDependencyUpdate, which can't be used here as
+          // it deals with [openapi].SModel, while here we've got detached model data only ([smodel].SModel)
+          // Note, here I assume 'm' holds nodes only, no imports or used languages (MDU does).
+          // new ModelDependencyUpdate(this).updateUsedLanguages().updateImportedModels(repository);
+          final ModelDependencyScanner mds = new ModelDependencyScanner();
+          mds.crossModelReferences(true).usedLanguages(true).walk(SNodeUtil.getDescendants(m.getRootNodes()));
+          for (SLanguage language : mds.getUsedLanguages()) {
+            m.addLanguage(language);
+            // XXX see ModelDependencyUpdate#updateImportedModels() for further questions/rant
+            SModuleReference langModuleRef = language.getSourceModuleReference();
+            SModule languageModule = langModuleRef == null ? null : langModuleRef.resolve(repository);
+            if (false == languageModule instanceof Language) {
+              continue;
+            }
+            // XXX I wonder if this is necessary, provided MDS could detect accessory model references
+            for (SModel am : ((Language) languageModule).getAccessoryModels()) {
+              m.addModelImport(new ImportElement(am.getReference()));
+            }
+          }
+
+          for (SModelReference targetModuleReference : mds.getCrossModelReferences()) {
+            m.addModelImport(new ImportElement(targetModuleReference));
+          }
         }
 
         wasUnloaded = false;

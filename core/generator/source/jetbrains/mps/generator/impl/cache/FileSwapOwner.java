@@ -20,8 +20,11 @@ import jetbrains.mps.extapi.model.SModelData;
 import jetbrains.mps.generator.TransientModelsProvider.TransientSwapOwner;
 import jetbrains.mps.generator.TransientModelsProvider.TransientSwapSpace;
 import jetbrains.mps.logging.Logger;
+import jetbrains.mps.persistence.UserObjectsPersistence;
 import jetbrains.mps.persistence.binary.BareNodeReader;
 import jetbrains.mps.persistence.binary.BareNodeWriter;
+import jetbrains.mps.persistence.binary.BinaryPersistence;
+import jetbrains.mps.smodel.CopyUtil;
 import jetbrains.mps.smodel.ModelDependencyUpdate;
 import jetbrains.mps.smodel.TrivialModelDescriptor;
 import jetbrains.mps.util.FileUtil;
@@ -35,12 +38,12 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * fyodor, 1/10/11
@@ -125,13 +128,10 @@ public abstract class FileSwapOwner implements TransientSwapOwner {
         return false;
       }
 
-      ArrayList<SNode> roots = new ArrayList<>();
-      for (SNode next : model.getRootNodes()) {
-        roots.add(next);
-      }
       IOException ioex = null;
       try (ModelOutputStream mos = new ModelOutputStream(new FileOutputStream(swapFile))) {
-        saveModel(roots, mos);
+        mos.writeInt(VERSION);
+        BinaryPersistence.writeModel(((jetbrains.mps.smodel.SModel) model).getModelDescriptor(), mos, UserObjectsPersistence.REQUIRED);
       } catch (IOException e) {
         ioex = e;
         LOG.error(e);
@@ -156,11 +156,33 @@ public abstract class FileSwapOwner implements TransientSwapOwner {
         throw new IllegalStateException("no swap file");
       }
 
-      try (ModelInputStream mis = new ModelInputStream(new FileInputStream(swapFile))) {
-        return loadModel(mis, modelData);
+      try (FileInputStream fis = new FileInputStream(swapFile)) {
+        int version = new DataInputStream(fis).readInt();
+        if (version != VERSION) {
+          return null;
+        }
+        SModelData md = BinaryPersistence.getModelData(fis, false);
+        // FIXME ugly code, refactor
+        if (md instanceof jetbrains.mps.smodel.SModel && modelData instanceof jetbrains.mps.smodel.SModel) {
+          CopyUtil.copyModelProperties((jetbrains.mps.smodel.SModel) md, (jetbrains.mps.smodel.SModel) modelData);
+        }
+        // known SModelData impl doesn't tolerate root iteration with removal
+        ArrayList<SNode> roots = new ArrayList<>();
+        md.getRootNodes().forEach(roots::add);
+        // FIXME update mode is to deal with NPE when removing a root from a model w/o ModelDescriptor
+        ((jetbrains.mps.smodel.SModel) md).enterUpdateMode();
+        ((jetbrains.mps.smodel.SModel) modelData).enterUpdateMode();
+
+        for (SNode rootNode : roots) {
+          md.removeRootNode(rootNode);
+          modelData.addRootNode(rootNode);
+        }
+        ((jetbrains.mps.smodel.SModel) modelData).leaveUpdateMode();
+        ((jetbrains.mps.smodel.SModel) md).leaveUpdateMode();
+        return modelData;
       } catch (IOException e) {
         LOG.error(e);
-        throw new RuntimeException(e);
+        return null;
       } finally {
         if (!swapFile.delete()) {
           LOG.error("Couldn't delete swap file");
@@ -176,23 +198,7 @@ public abstract class FileSwapOwner implements TransientSwapOwner {
       mySpaceDir = null;
     }
 
-    private static final int VERSION = 49;
-
-    private <T extends SModelData> T loadModel(ModelInputStream is, T model) throws IOException {
-      int version = is.readInt();
-      if (version != VERSION) {
-        return null;
-      }
-
-      new BareNodeReader(is).readNodesInto(model);
-      return model;
-    }
-
-    private void saveModel(List<SNode> roots, ModelOutputStream os) throws IOException {
-      os.writeInt(VERSION);
-      new BareNodeWriter(os).writeNodes(roots);
-    }
-
+    private static final int VERSION = 50;
   }
 
   // method created for testing

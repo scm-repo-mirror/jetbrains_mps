@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2024 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -286,8 +286,10 @@ public class TransientModelsProvider {
 
   public interface TransientSwapSpace {
 
+    // FIXME likely not SModelData but extapi.model.TransientSModel, perhaps. Or any other openapi.SModel? Or custom BinaryPersistance variant dealing with SModelData?
     boolean swapOut(SModelData model);
 
+    // FIXME swapOut():Token and use token here, instead of SModelReference
     <T extends SModelData> T restoreFromSwap(SModelReference mref, T modelData);
 
     void clear();
