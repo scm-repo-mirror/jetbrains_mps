@@ -903,9 +903,8 @@ class GenerationSession {
       return;
     }
     ttrace.push("discard transients"); // XXX not nice to use it here once we've shared the instance with status object.
-    if (!myControlEnv.getOptions().isSaveTransientModels()) {
-      mySessionContext.getModule().clearUnused();
-    }
+    boolean discardNonPublishedTransients = !myControlEnv.getOptions().isSaveTransientModels();
+    mySessionContext.getModule().clearUnused(discardNonPublishedTransients);
     if (myQuerySource != null) {
       // exception may happen prior to initialization of myQuerySource field
       myQuerySource.dispose();

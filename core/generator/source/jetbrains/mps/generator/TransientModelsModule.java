@@ -162,7 +162,7 @@ public class TransientModelsModule extends SModuleBase implements TransientSModu
     }
   }
 
-  public void clearUnused() {
+  public void clearUnused(boolean dropNotExplicitlyPublished) {
     // mature references as a distinct step (not as part of unload()) just in case there are reference
     // between the models to publish and unload (hence, mature) in improper order may leave reference broken.
     for (TransientSModelDescriptor model : myModelVault.modelsToPublish()) {
@@ -187,8 +187,12 @@ public class TransientModelsModule extends SModuleBase implements TransientSModu
       //       both input and output models (now it doesn't access neither)
       unloadModel(model);
     }
-    for (SModel model : myModelVault.modelsNotToPublish()) {
-      removeModel(model);
+    for (TransientSModelDescriptor model : myModelVault.modelsNotToPublish()) {
+      if (dropNotExplicitlyPublished) {
+        removeModel(model);
+      } else {
+        unloadModel(model);
+      }
     }
   }
 
@@ -419,6 +423,9 @@ public class TransientModelsModule extends SModuleBase implements TransientSModu
           // if we got here, it means doUnload managed to access swap and wrote model down there.
           throw new IllegalStateException("no swap space");
         }
+
+        // FIXME need lazy loading now (with transient models unloaded at the end of a model generation) - navigating to transients module
+        //       triggers complete loading of all models at once
 
         TransientSModel m = swap.restoreFromSwap(getReference(), new TransientSModel(getReference()));
 
