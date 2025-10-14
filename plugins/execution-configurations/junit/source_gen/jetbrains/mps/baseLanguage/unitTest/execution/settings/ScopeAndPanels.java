@@ -38,6 +38,11 @@ import jetbrains.mps.execution.lib.PointerUtils;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import jetbrains.mps.persistence.PersistenceRegistry;
 import org.jetbrains.mps.openapi.module.SModuleReference;
+import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.baseLanguage.unitTest.execution.client.TestNodeWrapperFactory;
+import org.jetbrains.mps.openapi.model.SNodeReference;
+import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.baseLanguage.unitTest.execution.client.BrokenTestWrapper;
 import java.awt.Component;
 
 public final class ScopeAndPanels {
@@ -316,7 +321,7 @@ public final class ScopeAndPanels {
   private List<ITestNodeWrapper> loadMethodsFromPersistence(final JUnitSettings_Configuration settings) {
     final List<ITestNodeWrapper> methods = ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
     if (myProject != null) {
-      myProject.getModelAccess().runReadAction(() -> ListSequence.fromList(TestUtils.wrapPointerStrings(myProject, settings.getTestMethods())).visitAll((it) -> ListSequence.fromList(methods).addElement(it)));
+      myProject.getModelAccess().runReadAction(() -> ListSequence.fromList(resolveTestsPointers(settings.getTestMethods())).visitAll((it) -> ListSequence.fromList(methods).addElement(it)));
     }
     return methods;
   }
@@ -324,9 +329,27 @@ public final class ScopeAndPanels {
   private List<ITestNodeWrapper> loadTestCasesFromPersistence(final JUnitSettings_Configuration settings) {
     final List<ITestNodeWrapper> classes = ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
     if (myProject != null) {
-      myProject.getModelAccess().runReadAction(() -> ListSequence.fromList(TestUtils.wrapPointerStrings(myProject, settings.getTestCases())).visitAll((it) -> ListSequence.fromList(classes).addElement(it)));
+      myProject.getModelAccess().runReadAction(() -> ListSequence.fromList(resolveTestsPointers(settings.getTestCases())).visitAll((it) -> ListSequence.fromList(classes).addElement(it)));
     }
     return classes;
+  }
+
+  @NotNull
+  private List<ITestNodeWrapper> resolveTestsPointers(@Nullable Iterable<String> pointerStrings) {
+    List<ITestNodeWrapper> rv = ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
+    if (pointerStrings == null) {
+      return rv;
+    }
+    TestNodeWrapperFactory testFactory = new TestNodeWrapperFactory(myProject.getPlatform());
+    for (String pointerString : pointerStrings) {
+      SNodeReference pointer = PointerUtils.stringToPointer(pointerString);
+      SNode node = check_t8l1bd_a0b0d0cc(pointer, myProject);
+      ITestNodeWrapper wrapper = (node == null ? new BrokenTestWrapper(pointer) : testFactory.tryToWrap(node));
+      if (wrapper != null) {
+        ListSequence.fromList(rv).addElement(wrapper);
+      }
+    }
+    return rv;
   }
 
   public static final class PanelPerScope {
@@ -357,5 +380,11 @@ public final class ScopeAndPanels {
 
     public void setShowFunction(Runnable runnable) {
     }
+  }
+  private static SNode check_t8l1bd_a0b0d0cc(SNodeReference checkedDotOperand, Project myProject) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.resolve(myProject.getRepository());
+    }
+    return null;
   }
 }

@@ -70,7 +70,7 @@ public enum JUnitRunTypes implements JUnitRunType {
         return "The module " + configuration.getModuleReference().getModuleName() + " does not exist in the project " + project;
       }
       if (!(SModuleOperations.isCompileInMps(module))) {
-        return "The module's " + module + " compile output is not managed by MPS.";
+        return String.format("Module %s must be compiled by MPS. Can't run tests.", module);
       }
       if (!(this.hasTests(configuration, project))) {
         return "No tests found in module " + configuration.getModuleReference().getModuleName() + "";
@@ -106,7 +106,7 @@ public enum JUnitRunTypes implements JUnitRunType {
       }
       SModule module = model.getModule();
       if (!(SModuleOperations.isCompileInMps(module))) {
-        return "The module's " + module + " (which is hosting the model " + model.getName().getSimpleName() + ") compile output is not managed by MPS.";
+        return String.format("Module %s containing %s must be compiled by MPS. Can't run tests.", module, model.getName().getSimpleName());
       }
       if (!(this.hasTests(configuration, project))) {
         return "No tests found in model " + configuration.getModelReference().getName() + ".";
@@ -126,27 +126,27 @@ public enum JUnitRunTypes implements JUnitRunType {
   NODE() {
     @Override
     public List<ITestNodeWrapper> doCollect(JUnitSettings_Configuration configuration, MPSProject project, ProgressMonitor monitor) {
-      return TestUtils.wrapPointerStrings(project, configuration.getTestCases());
+      return JUnitRunTypes.resolveTestPointers(project, configuration.getTestCases());
     }
     public String check(JUnitSettings_Configuration configuration, MPSProject project) {
       if ((configuration.getTestCases() == null || configuration.getTestCases().isEmpty())) {
-        return "Classes list is empty.";
+        return "No tests to run.";
       }
       if (configuration.getTestCases() != null) {
         final TestNodeWrapperFactory tnf = new TestNodeWrapperFactory(project.getPlatform());
         for (String testCase : configuration.getTestCases()) {
           SNodeReference pointer = PointerUtils.stringToPointer(testCase);
-          if (pointer == null) {
+          if (pointer != null) {
             SNode testNode = pointer.resolve(project.getRepository());
             if (testNode != null) {
               SModel model = testNode.getModel();
               SNode module = SModelOperations.getModuleStub(model);
               if (!(SPropertyOperations.getBoolean(module, PROPS.compileInMPS$2Q_X))) {
-                return String.format("The module's %s compile output is not managed by MPS.", SNodeOperations.present(module));
+                return String.format("Module %s must be compiled by MPS. Can't run tests.", SNodeOperations.present(module));
               }
             }
             if (testNode == null || tnf.findTestDescriptor(testNode).isEmpty()) {
-              return String.format("Could not find test case for id %s.", testCase);
+              return String.format("Not found node for id: %s.", testCase);
             }
           }
         }
@@ -161,29 +161,29 @@ public enum JUnitRunTypes implements JUnitRunType {
   METHOD() {
     @Override
     public List<ITestNodeWrapper> doCollect(JUnitSettings_Configuration configuration, MPSProject project, ProgressMonitor monitor) {
-      return TestUtils.wrapPointerStrings(project, configuration.getTestMethods());
+      return JUnitRunTypes.resolveTestPointers(project, configuration.getTestMethods());
     }
     @Override
     public String check(JUnitSettings_Configuration configuration, MPSProject project) {
       if ((configuration.getTestMethods() == null || configuration.getTestMethods().isEmpty())) {
-        return "Methods list is empty.";
+        return "No tests to run.";
       }
       if (configuration.getTestMethods() != null) {
         // XXX why not to collect all tests in model (ModelTestCollector), and compare node pointers, instead?
         final TestNodeWrapperFactory tnf = new TestNodeWrapperFactory(project.getPlatform());
         for (String method : configuration.getTestMethods()) {
           SNodeReference pointer = PointerUtils.stringToPointer(method);
-          if (pointer == null) {
+          if (pointer != null) {
             SNode testMethodNode = pointer.resolve(project.getRepository());
             if (testMethodNode != null) {
               SModel model = testMethodNode.getModel();
               SNode module = SModelOperations.getModuleStub(model);
               if (!(SPropertyOperations.getBoolean(module, PROPS.compileInMPS$2Q_X))) {
-                return String.format("The module's %s compile output is not managed by MPS.", SNodeOperations.present(module));
+                return String.format("Module %s must be compiled by MPS. Can't run tests.", SNodeOperations.present(module));
               }
             }
             if (testMethodNode == null || tnf.findTestDescriptor(testMethodNode).isEmpty()) {
-              return String.format("Could not find test method for id %s.", method);
+              return String.format("Not found node for id: %s.", method);
             }
           }
         }
@@ -227,6 +227,30 @@ public enum JUnitRunTypes implements JUnitRunType {
       return null;
     }
     return module.resolve(mpsProject.getRepository());
+  }
+
+  @NotNull
+  private static List<ITestNodeWrapper> resolveTestPointers(Project mpsProject, @Nullable Iterable<String> pointerStrings) {
+    List<ITestNodeWrapper> rv = ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
+    if (pointerStrings == null) {
+      return rv;
+    }
+    TestNodeWrapperFactory testFactory = new TestNodeWrapperFactory(mpsProject.getPlatform());
+    for (String pointerString : pointerStrings) {
+      SNode node = check_23pwwu_a0a0d0i(PointerUtils.stringToPointer(pointerString), mpsProject);
+      ITestNodeWrapper wrapper = (node == null ? null : testFactory.tryToWrap(node));
+      if (wrapper != null) {
+        ListSequence.fromList(rv).addElement(wrapper);
+      }
+    }
+    return rv;
+  }
+
+  private static SNode check_23pwwu_a0a0d0i(SNodeReference checkedDotOperand, Project mpsProject) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.resolve(mpsProject.getRepository());
+    }
+    return null;
   }
 
   private static final class PROPS {

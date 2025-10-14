@@ -16540,5 +16540,323 @@
       </node>
     </node>
   </node>
+  <node concept="312cEu" id="sqcu5ikLZf">
+    <property role="TrG5h" value="BrokenTestWrapper" />
+    <node concept="2tJIrI" id="sqcu5ikMf7" role="jymVt" />
+    <node concept="312cEg" id="sqcu5ikYfE" role="jymVt">
+      <property role="TrG5h" value="myPointer" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm6S6" id="sqcu5ikYfF" role="1B3o_S" />
+      <node concept="3uibUv" id="sqcu5ikYfH" role="1tU5fm">
+        <ref role="3uigEE" to="mhbf:~SNodeReference" resolve="SNodeReference" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="sqcu5ikYu6" role="jymVt" />
+    <node concept="3clFbW" id="sqcu5ikMf$" role="jymVt">
+      <node concept="37vLTG" id="sqcu5ikMg6" role="3clF46">
+        <property role="TrG5h" value="pointer" />
+        <node concept="3uibUv" id="sqcu5ikY88" role="1tU5fm">
+          <ref role="3uigEE" to="mhbf:~SNodeReference" resolve="SNodeReference" />
+        </node>
+        <node concept="2AHcQZ" id="sqcu5ilv3Z" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+        </node>
+      </node>
+      <node concept="3cqZAl" id="sqcu5ikMfA" role="3clF45" />
+      <node concept="3Tm1VV" id="sqcu5ikMfB" role="1B3o_S" />
+      <node concept="3clFbS" id="sqcu5ikMfC" role="3clF47">
+        <node concept="3clFbF" id="sqcu5ikYfI" role="3cqZAp">
+          <node concept="37vLTI" id="sqcu5ikYfK" role="3clFbG">
+            <node concept="37vLTw" id="sqcu5ikYfN" role="37vLTJ">
+              <ref role="3cqZAo" node="sqcu5ikYfE" resolve="myPointer" />
+            </node>
+            <node concept="37vLTw" id="sqcu5ikYfO" role="37vLTx">
+              <ref role="3cqZAo" node="sqcu5ikMg6" resolve="pointer" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="sqcu5ikXr8" role="jymVt" />
+    <node concept="3clFb_" id="sqcu5ikXrx" role="jymVt">
+      <property role="TrG5h" value="getNodePointer" />
+      <node concept="3Tm1VV" id="sqcu5ikXry" role="1B3o_S" />
+      <node concept="3uibUv" id="sqcu5ikXr$" role="3clF45">
+        <ref role="3uigEE" to="mhbf:~SNodeReference" resolve="SNodeReference" />
+      </node>
+      <node concept="3clFbS" id="sqcu5ikXr_" role="3clF47">
+        <node concept="3clFbF" id="sqcu5ikYXW" role="3cqZAp">
+          <node concept="37vLTw" id="sqcu5ikYXV" role="3clFbG">
+            <ref role="3cqZAo" node="sqcu5ikYfE" resolve="myPointer" />
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="sqcu5ikXrA" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="sqcu5ikZcZ" role="jymVt" />
+    <node concept="3clFb_" id="sqcu5ikXrD" role="jymVt">
+      <property role="2aFKle" value="false" />
+      <property role="TrG5h" value="getTestNodeModule" />
+      <node concept="3Tm1VV" id="sqcu5ikXrF" role="1B3o_S" />
+      <node concept="3uibUv" id="sqcu5ikXrG" role="3clF45">
+        <ref role="3uigEE" to="lui2:~SModuleReference" resolve="SModuleReference" />
+      </node>
+      <node concept="2AHcQZ" id="sqcu5ikXrX" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+      </node>
+      <node concept="3clFbS" id="sqcu5ikXrY" role="3clF47">
+        <node concept="YS8fn" id="sqcu5ikZF_" role="3cqZAp">
+          <node concept="2ShNRf" id="sqcu5ikZV6" role="YScLw">
+            <node concept="1pGfFk" id="sqcu5ilesZ" role="2ShVmc">
+              <property role="373rjd" value="true" />
+              <ref role="37wK5l" to="wyt6:~IllegalStateException.&lt;init&gt;(java.lang.String)" resolve="IllegalStateException" />
+              <node concept="Xl_RD" id="sqcu5ileKc" role="37wK5m">
+                <property role="Xl_RC" value="invalid test reference" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="sqcu5ikXrZ" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="sqcu5ilgkP" role="jymVt" />
+    <node concept="3clFb_" id="sqcu5ikXs2" role="jymVt">
+      <property role="TrG5h" value="isTestCase" />
+      <node concept="10P_77" id="sqcu5ikXs3" role="3clF45" />
+      <node concept="3Tm1VV" id="sqcu5ikXs4" role="1B3o_S" />
+      <node concept="3clFbS" id="sqcu5ikXs9" role="3clF47">
+        <node concept="3clFbF" id="sqcu5ikXsc" role="3cqZAp">
+          <node concept="3clFbT" id="sqcu5ikXsb" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="sqcu5ikXsa" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="sqcu5ilg_d" role="jymVt" />
+    <node concept="3clFb_" id="sqcu5ikXsd" role="jymVt">
+      <property role="TrG5h" value="getTestCase" />
+      <node concept="3uibUv" id="sqcu5ikXse" role="3clF45">
+        <ref role="3uigEE" node="56tRMpP_ej7" resolve="ITestNodeWrapper" />
+      </node>
+      <node concept="3Tm1VV" id="sqcu5ikXsf" role="1B3o_S" />
+      <node concept="2AHcQZ" id="sqcu5ikXsh" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+      </node>
+      <node concept="3clFbS" id="sqcu5ikXsk" role="3clF47">
+        <node concept="3clFbF" id="sqcu5ikXsn" role="3cqZAp">
+          <node concept="10Nm6u" id="sqcu5ikXsm" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="sqcu5ikXsl" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="sqcu5ilgMJ" role="jymVt" />
+    <node concept="3clFb_" id="sqcu5ikXso" role="jymVt">
+      <property role="TrG5h" value="getTestMethods" />
+      <node concept="A3Dl8" id="sqcu5ikXsp" role="3clF45">
+        <node concept="3uibUv" id="sqcu5ikXsq" role="A3Ik2">
+          <ref role="3uigEE" node="56tRMpP_ej7" resolve="ITestNodeWrapper" />
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="sqcu5ikXsr" role="1B3o_S" />
+      <node concept="2AHcQZ" id="sqcu5ikXst" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+      </node>
+      <node concept="3clFbS" id="sqcu5ikXsu" role="3clF47">
+        <node concept="YS8fn" id="sqcu5ilhdP" role="3cqZAp">
+          <node concept="2ShNRf" id="sqcu5ilhdQ" role="YScLw">
+            <node concept="1pGfFk" id="sqcu5ilhdR" role="2ShVmc">
+              <property role="373rjd" value="true" />
+              <ref role="37wK5l" to="wyt6:~IllegalStateException.&lt;init&gt;(java.lang.String)" resolve="IllegalStateException" />
+              <node concept="Xl_RD" id="sqcu5ilhdS" role="37wK5m">
+                <property role="Xl_RC" value="invalid test reference" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="sqcu5ikXsv" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="sqcu5ilh0h" role="jymVt" />
+    <node concept="3clFb_" id="sqcu5ikXsw" role="jymVt">
+      <property role="TrG5h" value="getName" />
+      <node concept="17QB3L" id="sqcu5ikXsx" role="3clF45" />
+      <node concept="3Tm1VV" id="sqcu5ikXsy" role="1B3o_S" />
+      <node concept="2AHcQZ" id="sqcu5ikXs$" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~NonNls" resolve="NonNls" />
+      </node>
+      <node concept="3clFbS" id="sqcu5ikXsC" role="3clF47">
+        <node concept="3cpWs8" id="sqcu5ilqdF" role="3cqZAp">
+          <node concept="3cpWsn" id="sqcu5ilqdG" role="3cpWs9">
+            <property role="TrG5h" value="name" />
+            <node concept="3uibUv" id="sqcu5ilq0_" role="1tU5fm">
+              <ref role="3uigEE" to="mhbf:~SModelName" resolve="SModelName" />
+            </node>
+            <node concept="2EnYce" id="sqcu5irI4f" role="33vP2m">
+              <node concept="2EnYce" id="sqcu5irH_M" role="2Oq$k0">
+                <node concept="37vLTw" id="sqcu5ilqdJ" role="2Oq$k0">
+                  <ref role="3cqZAo" node="sqcu5ikYfE" resolve="myPointer" />
+                </node>
+                <node concept="liA8E" id="sqcu5ilqdK" role="2OqNvi">
+                  <ref role="37wK5l" to="mhbf:~SNodeReference.getModelReference()" resolve="getModelReference" />
+                </node>
+              </node>
+              <node concept="liA8E" id="sqcu5ilqdL" role="2OqNvi">
+                <ref role="37wK5l" to="mhbf:~SModelReference.getName()" resolve="getName" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="sqcu5ikXsF" role="3cqZAp">
+          <node concept="3cpWs3" id="sqcu5iljWZ" role="3clFbG">
+            <node concept="3cpWs3" id="sqcu5ilkIB" role="3uHU7B">
+              <node concept="2EnYce" id="sqcu5irJk$" role="3uHU7w">
+                <node concept="37vLTw" id="sqcu5ill1d" role="2Oq$k0">
+                  <ref role="3cqZAo" node="sqcu5ikYfE" resolve="myPointer" />
+                </node>
+                <node concept="liA8E" id="sqcu5ilm8m" role="2OqNvi">
+                  <ref role="37wK5l" to="mhbf:~SNodeReference.getNodeId()" resolve="getNodeId" />
+                </node>
+              </node>
+              <node concept="3cpWs3" id="sqcu5iltaZ" role="3uHU7B">
+                <node concept="Xl_RD" id="sqcu5iltrv" role="3uHU7w">
+                  <property role="Xl_RC" value="/" />
+                </node>
+                <node concept="3cpWs3" id="sqcu5ilsdr" role="3uHU7B">
+                  <node concept="Xl_RD" id="sqcu5iljX5" role="3uHU7B">
+                    <property role="Xl_RC" value="Broken reference [" />
+                  </node>
+                  <node concept="2EnYce" id="sqcu5irIJC" role="3uHU7w">
+                    <node concept="37vLTw" id="sqcu5ilssF" role="2Oq$k0">
+                      <ref role="3cqZAo" node="sqcu5ilqdG" resolve="name" />
+                    </node>
+                    <node concept="liA8E" id="sqcu5ilssG" role="2OqNvi">
+                      <ref role="37wK5l" to="mhbf:~SModelName.getShortNameWithStereotype()" resolve="getShortNameWithStereotype" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="Xl_RD" id="sqcu5iljX7" role="3uHU7w">
+              <property role="Xl_RC" value="]" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="sqcu5ikXsD" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="sqcu5ilhDR" role="jymVt" />
+    <node concept="3clFb_" id="sqcu5ikXsG" role="jymVt">
+      <property role="TrG5h" value="getFqName" />
+      <node concept="17QB3L" id="sqcu5ikXsH" role="3clF45" />
+      <node concept="3Tm1VV" id="sqcu5ikXsI" role="1B3o_S" />
+      <node concept="2AHcQZ" id="sqcu5ikXsK" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~NonNls" resolve="NonNls" />
+      </node>
+      <node concept="3clFbS" id="sqcu5ikXsO" role="3clF47">
+        <node concept="3clFbF" id="sqcu5iwJjA" role="3cqZAp">
+          <node concept="3cpWs3" id="sqcu5iwLTd" role="3clFbG">
+            <node concept="Xl_RD" id="sqcu5iwLTT" role="3uHU7w">
+              <property role="Xl_RC" value="]" />
+            </node>
+            <node concept="3cpWs3" id="sqcu5iwKBr" role="3uHU7B">
+              <node concept="Xl_RD" id="sqcu5iwJj_" role="3uHU7B">
+                <property role="Xl_RC" value="Broken reference [" />
+              </node>
+              <node concept="2EnYce" id="sqcu5iwKRz" role="3uHU7w">
+                <node concept="37vLTw" id="sqcu5iwKR$" role="2Oq$k0">
+                  <ref role="3cqZAo" node="sqcu5ikYfE" resolve="myPointer" />
+                </node>
+                <node concept="liA8E" id="sqcu5iwKR_" role="2OqNvi">
+                  <ref role="37wK5l" to="wyt6:~Object.toString()" resolve="toString" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="sqcu5ikXsP" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="sqcu5ilhRp" role="jymVt" />
+    <node concept="3clFb_" id="sqcu5ikXsS" role="jymVt">
+      <property role="TrG5h" value="getTestRunParameters" />
+      <node concept="3uibUv" id="sqcu5ikXsT" role="3clF45">
+        <ref role="3uigEE" node="46IpDBc0vKu" resolve="TestParameters" />
+      </node>
+      <node concept="3Tm1VV" id="sqcu5ikXsU" role="1B3o_S" />
+      <node concept="2AHcQZ" id="sqcu5ikXsW" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+      </node>
+      <node concept="3clFbS" id="sqcu5ikXsX" role="3clF47">
+        <node concept="YS8fn" id="sqcu5iliiv" role="3cqZAp">
+          <node concept="2ShNRf" id="sqcu5iliiw" role="YScLw">
+            <node concept="1pGfFk" id="sqcu5iliix" role="2ShVmc">
+              <property role="373rjd" value="true" />
+              <ref role="37wK5l" to="wyt6:~IllegalStateException.&lt;init&gt;(java.lang.String)" resolve="IllegalStateException" />
+              <node concept="Xl_RD" id="sqcu5iliiy" role="37wK5m">
+                <property role="Xl_RC" value="invalid test reference" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="sqcu5ikXsY" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="sqcu5ili4V" role="jymVt" />
+    <node concept="3clFb_" id="sqcu5ikXt1" role="jymVt">
+      <property role="2aFKle" value="false" />
+      <property role="TrG5h" value="canRunInProcess" />
+      <node concept="3Tm1VV" id="sqcu5ikXt3" role="1B3o_S" />
+      <node concept="10P_77" id="sqcu5ikXt4" role="3clF45" />
+      <node concept="3clFbS" id="sqcu5ikXt5" role="3clF47">
+        <node concept="3clFbF" id="sqcu5ikXt8" role="3cqZAp">
+          <node concept="3clFbT" id="sqcu5ikXt7" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="sqcu5ikXt6" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="sqcu5iliwK" role="jymVt" />
+    <node concept="3clFb_" id="sqcu5ikXt9" role="jymVt">
+      <property role="TrG5h" value="useCompatibilityMode" />
+      <node concept="10P_77" id="sqcu5ikXta" role="3clF45" />
+      <node concept="3Tm1VV" id="sqcu5ikXtb" role="1B3o_S" />
+      <node concept="3clFbS" id="sqcu5ikXtd" role="3clF47">
+        <node concept="3clFbF" id="sqcu5ikXtg" role="3cqZAp">
+          <node concept="3clFbT" id="sqcu5ikXtf" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="sqcu5ikXte" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="sqcu5ikMf9" role="jymVt" />
+    <node concept="3Tm1VV" id="sqcu5ikLZg" role="1B3o_S" />
+    <node concept="3uibUv" id="sqcu5ikMeS" role="EKbjA">
+      <ref role="3uigEE" node="56tRMpP_ej7" resolve="ITestNodeWrapper" />
+    </node>
+    <node concept="3UR2Jj" id="sqcu5ilxwr" role="lGtFl">
+      <node concept="TZ5HA" id="sqcu5ilxws" role="TZ5H$">
+        <node concept="1dT_AC" id="sqcu5ilxwt" role="1dT_Ay">
+          <property role="1dT_AB" value="Only used to display broken references to tests in the UI." />
+        </node>
+      </node>
+    </node>
+  </node>
 </model>
 
