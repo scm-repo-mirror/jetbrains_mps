@@ -10389,17 +10389,17 @@
         <property role="pLAjc" value="ctrl" />
       </node>
     </node>
-    <node concept="Zd509" id="6ZAxAckaean" role="Zd508">
+    <node concept="Zd509" id="3pt7jE8lpRL" role="Zd508">
       <ref role="1bYAoF" node="5SnwAr0vAm_" resolve="ShowReflectiveEditor" />
-      <node concept="pLAjd" id="6ZAxAckaeao" role="Zd501">
-        <property role="pLAjc" value="ctrl" />
+      <node concept="pLAjd" id="3pt7jE8lpRM" role="Zd501">
+        <property role="pLAjc" value="meta" />
         <property role="pLAjf" value="VK_BACK_SLASH" />
       </node>
     </node>
     <node concept="Zd509" id="6ZAxAckaeap" role="Zd508">
       <ref role="1bYAoF" node="1wo9YwOHLtB" resolve="ShowReflectiveEditorsForSubtree" />
       <node concept="pLAjd" id="6ZAxAckaeaq" role="Zd501">
-        <property role="pLAjc" value="ctrl+alt" />
+        <property role="pLAjc" value="meta+alt" />
         <property role="pLAjf" value="VK_BACK_SLASH" />
       </node>
     </node>
