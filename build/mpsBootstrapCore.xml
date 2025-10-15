@@ -16473,6 +16473,7 @@
         <module file="${mps_home}/languages/core/stub/MPS.Editor/MPS.Editor.msd" />
         <module file="${mps_home}/languages/core/stub/MPS.Generator/MPS.Generator.msd" />
         <module file="${mps_home}/languages/core/stub/MPS.IDEA/MPS.IDEA.msd" />
+        <module file="${mps_home}/languages/core/stub/MPS.IDEA.Modules/MPS.IDEA.Modules.msd" />
         <module file="${mps_home}/languages/core/stub/MPS.OpenAPI/MPS.OpenAPI.msd" />
         <module file="${mps_home}/languages/core/stub/MPS.Platform/MPS.Platform.msd" />
         <module file="${mps_home}/languages/core/stub/MPS.TextGen/MPS.TextGen.msd" />
