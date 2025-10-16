@@ -222,8 +222,8 @@
     <action id="jetbrains.mps.ide.editor.actions.ShowRegularEditor_Action" class="jetbrains.mps.ide.editor.actions.ShowRegularEditor_Action">
       <keyboard-shortcut first-keystroke="ctrl CLOSE_BRACKET" keymap="$default" />
       <keyboard-shortcut first-keystroke="ctrl shift CLOSE_BRACKET" keymap="$default" />
-      <keyboard-shortcut first-keystroke="ctrl BACK_SLASH" keymap="Mac OS X 10.5+" />
-      <keyboard-shortcut first-keystroke="ctrl alt BACK_SLASH" keymap="Mac OS X 10.5+" />
+      <keyboard-shortcut first-keystroke="meta BACK_SLASH" keymap="Mac OS X 10.5+" />
+      <keyboard-shortcut first-keystroke="meta alt BACK_SLASH" keymap="Mac OS X 10.5+" />
     </action>
     <action id="jetbrains.mps.ide.editor.actions.ShowSuppressedErrors_Action" class="jetbrains.mps.ide.editor.actions.ShowSuppressedErrors_Action"></action>
     <action id="jetbrains.mps.ide.editor.actions.ShowSurroundWithIntentions_Action" class="jetbrains.mps.ide.editor.actions.ShowSurroundWithIntentions_Action">

@@ -10406,11 +10406,11 @@
     <node concept="Zd509" id="6ZAxAckaear" role="Zd508">
       <ref role="1bYAoF" node="1XfowaweGRd" resolve="ShowRegularEditor" />
       <node concept="pLAjd" id="6ZAxAckarZs" role="Zd501">
-        <property role="pLAjc" value="ctrl" />
+        <property role="pLAjc" value="meta" />
         <property role="pLAjf" value="VK_BACK_SLASH" />
       </node>
       <node concept="pLAjd" id="6ZAxAckarZw" role="Zd501">
-        <property role="pLAjc" value="ctrl+alt" />
+        <property role="pLAjc" value="meta+alt" />
         <property role="pLAjf" value="VK_BACK_SLASH" />
       </node>
     </node>
