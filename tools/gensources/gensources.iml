@@ -1640,6 +1640,6 @@
     <orderEntry type="library" name="junit.platform.launcher" level="project" />
     <orderEntry type="module" module-name="mps-refactoring" />
     <orderEntry type="library" name="junit.platform.reporting" level="project" />
+    <orderEntry type="module" module-name="mps-make-plugin" />
   </component>
 </module>
-
