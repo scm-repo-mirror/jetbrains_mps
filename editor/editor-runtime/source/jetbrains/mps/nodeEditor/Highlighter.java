@@ -585,8 +585,14 @@ public class Highlighter implements IHighlighter, Disposable {
     long timeToCheck4ExpiredGracePeriod() {
       final long time = System.currentTimeMillis();
       final long delta = time - myGracePeriodResetTime.get();
-      assert delta >= 0;
-      final long left = myGracePeriod.get() - delta;
+      final long left;
+      if (delta < 0) {
+        // a rare case myGracePeriodResetTime has been updated simultaneously. Just use whatever actual value for the grace period there's at the moment.
+        // either it's smaller than heartbeat period, and it's fine to check by that time, or it's bigger and it is EXPIRATION_HEARTBEAT_MS then - perfectly ok.
+        left = myGracePeriod.get();
+      } else {
+        left = myGracePeriod.get() - delta;
+      }
       // max(left,DEFAULT_GRACE_PERIOD_MS) ensures we don't scheduleNext one by one with 0 delay just because there's e.g. make session
       // and isGoodTimeToUpdate() == false.
       // EXPIRATION_HEARTBEAT_MS helps to react promptly to grace period change due to commands, i.e.
