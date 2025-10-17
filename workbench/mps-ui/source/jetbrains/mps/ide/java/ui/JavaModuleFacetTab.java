@@ -315,7 +315,7 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
       myExtNone.setSelected(myJavaModuleFacet.getLoadExtensions() == LoadExtensions.NotAvailable);
       jmfSettings.add(pn3);
       final ActionLink al = new ActionLink("Help: master the Java facet settings", (e) -> {
-        BrowserUtil.browse("https://www.jetbrains.com/help/mps/getting-the-dependencies-right.html#java ");
+        BrowserUtil.browse("https://www.jetbrains.com/help/mps/getting-the-dependencies-right.html#java");
       });
       al.setBorder(JBUI.Borders.empty(5,5,0,0));
       jmfSettings.add(al);
