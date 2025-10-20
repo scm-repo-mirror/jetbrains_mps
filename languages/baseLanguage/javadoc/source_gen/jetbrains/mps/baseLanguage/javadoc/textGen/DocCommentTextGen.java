@@ -33,12 +33,13 @@ public abstract class DocCommentTextGen {
         generateLine.handleLine(line, ctx);
       });
       tgs.newLine();
-    }
-    if (ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.body$OAGp)).isNotEmpty()) {
-      tgs.newLine();
-      DocCommentTextGen.javadocIndent(ctx);
-      for (SNode item : SLinkOperations.getChildren(node, LINKS.body$OAGp)) {
-        tgs.appendNode(item);
+    } else {
+      if (ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.body$OAGp)).isNotEmpty()) {
+        tgs.newLine();
+        DocCommentTextGen.javadocIndent(ctx);
+        for (SNode item : SLinkOperations.getChildren(node, LINKS.body$OAGp)) {
+          tgs.appendNode(item);
+        }
       }
     }
 

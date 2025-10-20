@@ -23,7 +23,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
     SNode comment = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(commentConcept));
     SNode tag = SLinkOperations.addNewChild(comment, LINKS.tags$stUD, CONCEPTS.DeprecatedBlockDocTag$8n);
     SLinkOperations.setNewChild(tag, LINKS.text$c2BW, null);
-    SNode line = SLinkOperations.setNewChild(tag, LINKS.comment$8pLM, null);
+    SNode line = SLinkOperations.setNewChild(tag, LINKS.comment$IhdF, null);
     Line__BehaviorDescriptor.addTextElement_idWJz9iAYdP6.invoke(line, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, "jetbrains.mps.lang.text.structure.Word")));
     return comment;
   }
@@ -31,7 +31,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
   private static final class LINKS {
     /*package*/ static final SContainmentLink tags$stUD = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4ab5c2019ddc99f3L, "tags");
     /*package*/ static final SContainmentLink text$c2BW = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, 0x250631c6c859e113L, "text");
-    /*package*/ static final SContainmentLink comment$8pLM = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, 0x4693b55d3c85881aL, "comment");
+    /*package*/ static final SContainmentLink comment$IhdF = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, 0x4693b55d3d5e0465L, "comment");
   }
 
   private static final class CONCEPTS {

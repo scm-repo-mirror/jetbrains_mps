@@ -32,9 +32,8 @@ public final class BaseDocComment__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<String> getMessage_idhP43_8K = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getMessage").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1225207468592L).languageId(0x9b92103b95ca8c0cL, 0xceab519525ea4f22L).build2();
   public static final SMethod<List<SNode>> getLines_id6GJhO0n1Xys = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getLines").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7723470226553559196L).languageId(0x89b0b5959c3fa8c8L, 0xc7fb639fbe784307L).build2();
   public static final SMethod<Void> addLine_id7q4YwcerggR = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addLine").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8540225684435174455L).languageId(0x89b0b5959c3fa8c8L, 0xc7fb639fbe784307L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
-  public static final SMethod<Boolean> enforceExternalIndentation_id4qjHlOWQ7Jg = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("enforceExternalIndentation").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5085607816288828368L).languageId(0x89b0b5959c3fa8c8L, 0xc7fb639fbe784307L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isTagSectionEmpty_id7lVCwDcz6WN, hasTags_id4iGwz$GSfd_, getMessage_idhP43_8K, getLines_id6GJhO0n1Xys, addLine_id7q4YwcerggR, enforceExternalIndentation_id4qjHlOWQ7Jg);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isTagSectionEmpty_id7lVCwDcz6WN, hasTags_id4iGwz$GSfd_, getMessage_idhP43_8K, getLines_id6GJhO0n1Xys, addLine_id7q4YwcerggR);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -48,7 +47,7 @@ public final class BaseDocComment__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static String getMessage_idhP43_8K(@NotNull SNode __thisNode__) {
     SNode tag = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.tags$stUD), CONCEPTS.DeprecatedBlockDocTag$8n)).first();
 
-    SNode comment = SLinkOperations.getTarget(tag, LINKS.comment$8pLM);
+    SNode comment = SLinkOperations.getTarget(tag, LINKS.comment$IhdF);
     String commentText = Line__BehaviorDescriptor.representAsText_id2iG$EWuTXv2.invoke(comment);
     if ((commentText != null && commentText.length() > 0)) {
       return commentText;
@@ -62,9 +61,6 @@ public final class BaseDocComment__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static void addLine_id7q4YwcerggR(@NotNull SNode __thisNode__, SNode l) {
     ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.commentBody$fIEQ)).addElement(l);
-  }
-  /*package*/ static boolean enforceExternalIndentation_id4qjHlOWQ7Jg(@NotNull SNode __thisNode__) {
-    return true;
   }
 
   /*package*/ BaseDocComment__BehaviorDescriptor() {
@@ -93,8 +89,6 @@ public final class BaseDocComment__BehaviorDescriptor extends BaseBHDescriptor {
       case 4:
         addLine_id7q4YwcerggR(node, (SNode) parameters[0]);
         return null;
-      case 5:
-        return (T) ((Boolean) enforceExternalIndentation_id4qjHlOWQ7Jg(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -131,7 +125,7 @@ public final class BaseDocComment__BehaviorDescriptor extends BaseBHDescriptor {
     /*package*/ static final SContainmentLink since$M6dH = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x757ba20a4c87f962L, "since");
     /*package*/ static final SContainmentLink version$M6sI = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x757ba20a4c87f963L, "version");
     /*package*/ static final SContainmentLink tags$stUD = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4ab5c2019ddc99f3L, "tags");
-    /*package*/ static final SContainmentLink comment$8pLM = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, 0x4693b55d3c85881aL, "comment");
+    /*package*/ static final SContainmentLink comment$IhdF = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, 0x4693b55d3d5e0465L, "comment");
     /*package*/ static final SContainmentLink text$c2BW = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, 0x250631c6c859e113L, "text");
     /*package*/ static final SContainmentLink commentBody$fIEQ = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x6475d1cc79f5556bL, "commentBody");
   }

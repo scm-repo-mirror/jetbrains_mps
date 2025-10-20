@@ -61,10 +61,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     return editorCell;
   }
   private boolean nodeCondition_y08oko_a2a() {
-    return (SLinkOperations.getTarget(myNode, LINKS.text$c2BW) != null);
+    return (SLinkOperations.getTarget(myNode, LINKS.comment$IhdF) == null);
   }
   private boolean nodeCondition_y08oko_a3a() {
-    return (SLinkOperations.getTarget(myNode, LINKS.text$c2BW) != null);
+    return (SLinkOperations.getTarget(myNode, LINKS.comment$IhdF) == null);
   }
   private EditorCell createConstant_0() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "@deprecated");
@@ -77,7 +77,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     return editorCell;
   }
   private EditorCell createRefNode_0() {
-    SingleRoleCellProvider provider = new commentSingleRoleHandler_y08oko_b0(myNode, LINKS.comment$8pLM, getEditorContext());
+    SingleRoleCellProvider provider = new commentSingleRoleHandler_y08oko_b0(myNode, LINKS.comment$IhdF, getEditorContext());
     return provider.createCell();
   }
   private static class commentSingleRoleHandler_y08oko_b0 extends SingleRoleCellProvider {
@@ -97,8 +97,8 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
     protected EditorCell createChildCell(SNode child) {
       EditorCell editorCell = getUpdateSession().updateChildNodeCell(child);
-      editorCell.setAction(CellActionType.DELETE, new CellAction_DeleteSmart(getNode(), LINKS.comment$8pLM, child));
-      editorCell.setAction(CellActionType.BACKSPACE, new CellAction_DeleteSmart(getNode(), LINKS.comment$8pLM, child));
+      editorCell.setAction(CellActionType.DELETE, new CellAction_DeleteSmart(getNode(), LINKS.comment$IhdF, child));
+      editorCell.setAction(CellActionType.BACKSPACE, new CellAction_DeleteSmart(getNode(), LINKS.comment$IhdF, child));
       installCellInfo(child, editorCell, false);
       return editorCell;
     }
@@ -110,7 +110,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
         editorCell.setSubstituteInfo((isEmpty ? new SEmptyContainmentSubstituteInfo(editorCell) : new SChildSubstituteInfo(editorCell)));
       }
       if (editorCell.getSRole() == null) {
-        editorCell.setSRole(LINKS.comment$8pLM);
+        editorCell.setSRole(LINKS.comment$IhdF);
       }
       if (true) {
         editorCell.getStyle().set(StyleAttributes.FOCUS_POLICY, FocusPolicy.ATTRACTS_RECURSIVELY);
@@ -120,7 +120,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     @Override
     protected EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(getNode(), LINKS.comment$8pLM));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(getNode(), LINKS.comment$IhdF));
       try {
         EditorCell editorCell = super.createEmptyCell();
         editorCell.setCellId("empty_comment");
@@ -136,7 +136,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     }
   }
   private EditorCell createConstant_1() {
-    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, ":->");
+    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "old:");
     editorCell.setCellId("Constant_y08oko_c0");
     editorCell.setDefaultText("");
     return editorCell;
@@ -202,7 +202,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
   }
 
   private static final class LINKS {
+    /*package*/ static final SContainmentLink comment$IhdF = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, 0x4693b55d3d5e0465L, "comment");
     /*package*/ static final SContainmentLink text$c2BW = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, 0x250631c6c859e113L, "text");
-    /*package*/ static final SContainmentLink comment$8pLM = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, 0x4693b55d3c85881aL, "comment");
   }
 }

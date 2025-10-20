@@ -27,7 +27,7 @@
       <node id="992603585967257187" at="52,41,53,168" concept="3" />
       <node id="992603585967257187" at="57,0,58,0" concept="4" trace="DeprecatedBlockDocTag$8n" />
       <node id="992603585967257187" at="61,0,62,0" concept="4" trace="text$c2BW" />
-      <node id="992603585967257187" at="62,0,63,0" concept="4" trace="comment$8pLM" />
+      <node id="992603585967257187" at="62,0,63,0" concept="4" trace="comment$IhdF" />
       <node id="992603585967261966" at="22,0,26,0" concept="2" trace="getName#()Ljava/lang/String;" />
       <node id="992603585967261966" at="26,0,30,0" concept="2" trace="getAdditionalInfo#()Ljava/lang/String;" />
       <node id="992603585967261966" at="30,0,34,0" concept="2" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />

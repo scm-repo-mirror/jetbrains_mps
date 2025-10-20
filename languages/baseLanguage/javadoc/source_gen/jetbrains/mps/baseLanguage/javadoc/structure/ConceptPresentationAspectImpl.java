@@ -139,7 +139,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         return props_CodeSnippetText;
       case LanguageConceptSwitch.CommentLine:
         if (props_CommentLine == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f96cL);
+          cpb.deprecateAggregation(0x7c7f5b2f3199028dL, "part");
           cpb.rawPresentation("CommentLine");
           props_CommentLine = cpb.create();
         }
