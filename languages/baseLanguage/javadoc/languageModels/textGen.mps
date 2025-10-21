@@ -1180,9 +1180,6 @@
                 </node>
               </node>
             </node>
-            <node concept="lc7rE" id="6hPOsLU813j" role="3cqZAp">
-              <node concept="l8MVK" id="6hPOsLU81lw" role="lcghm" />
-            </node>
           </node>
           <node concept="2OqwBi" id="6BkpuGOHb4_" role="3clFbw">
             <node concept="2OqwBi" id="6BkpuGOH0pp" role="2Oq$k0">

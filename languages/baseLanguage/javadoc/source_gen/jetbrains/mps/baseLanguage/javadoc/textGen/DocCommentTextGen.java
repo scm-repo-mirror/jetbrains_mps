@@ -32,7 +32,6 @@ public abstract class DocCommentTextGen {
         DocCommentTextGen.javadocIndent(ctx);
         DocumentationLines.handleLine(line, ctx);
       });
-      tgs.newLine();
     } else {
       if (ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.body$OAGp)).isNotEmpty()) {
         tgs.newLine();
