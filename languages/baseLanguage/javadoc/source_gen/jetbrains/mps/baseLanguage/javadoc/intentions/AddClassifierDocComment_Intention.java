@@ -71,7 +71,7 @@ public final class AddClassifierDocComment_Intention extends AbstractIntentionDe
       }
 
       SNodeFactoryOperations.setNewAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.ClassifierDocComment$mh), CONCEPTS.ClassifierDocComment$mh);
-      SNode firstLine = SNodeFactoryOperations.addNewChild(new IAttributeDescriptor.NodeAttribute(CONCEPTS.ClassifierDocComment$mh).get(node), LINKS.commentBody$sIzh, null);
+      SNode firstLine = ListSequence.fromList(SLinkOperations.getChildren(new IAttributeDescriptor.NodeAttribute(CONCEPTS.ClassifierDocComment$mh).get(node), LINKS.commentBody$sIzh)).first();
 
       //  Type variables
       for (SNode typeVariableDeclaration : ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.typeVariableDeclaration$Lipp))) {

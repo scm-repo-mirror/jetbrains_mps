@@ -698,6 +698,9 @@
           <node concept="ljvvj" id="6hPOsLTZlkn" role="3F10Kt">
             <property role="VOm3f" value="true" />
           </node>
+          <node concept="2SqB2G" id="17vi3ZrDw$A" role="2SqHTX">
+            <property role="TrG5h" value="comment_body" />
+          </node>
         </node>
         <node concept="3F0ifn" id="6hPOsLTZlko" role="3EZMnx">
           <property role="3F0ifm" value="Old style comment:" />
@@ -1543,6 +1546,9 @@
           </node>
           <node concept="ljvvj" id="6hPOsLTZ9Z6" role="3F10Kt">
             <property role="VOm3f" value="true" />
+          </node>
+          <node concept="2SqB2G" id="17vi3ZrCH9t" role="2SqHTX">
+            <property role="TrG5h" value="comment_body" />
           </node>
         </node>
         <node concept="3F0ifn" id="6hPOsLTZaPD" role="3EZMnx">
@@ -10896,7 +10902,7 @@
             </node>
             <node concept="3clFbH" id="17vi3ZqXIGt" role="3cqZAp" />
             <node concept="3clFbF" id="17vi3ZqYFCi" role="3cqZAp">
-              <node concept="10Nm6u" id="17vi3ZqYFCf" role="3clFbG" />
+              <node concept="10Nm6u" id="17vi3ZrKnZC" role="3clFbG" />
             </node>
           </node>
         </node>

@@ -14,6 +14,8 @@ import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
@@ -59,7 +61,7 @@ public final class AddFieldDocComment_Intention extends AbstractIntentionDescrip
 
       if ((new IAttributeDescriptor.NodeAttribute(CONCEPTS.FieldDocComment$wl).get(node) == null)) {
         SNodeFactoryOperations.setNewAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.FieldDocComment$wl), CONCEPTS.FieldDocComment$wl);
-        SNode firstLine = SNodeFactoryOperations.addNewChild(new IAttributeDescriptor.NodeAttribute(CONCEPTS.FieldDocComment$wl).get(node), LINKS.commentBody$sIzh, null);
+        SNode firstLine = ListSequence.fromList(SLinkOperations.getChildren(new IAttributeDescriptor.NodeAttribute(CONCEPTS.FieldDocComment$wl).get(node), LINKS.commentBody$sIzh)).first();
         SelectionUtil.selectCell(editorContext, firstLine, SelectionManager.FIRST_CELL);
       } else {
         new IAttributeDescriptor.NodeAttribute(CONCEPTS.FieldDocComment$wl).set(node, null);

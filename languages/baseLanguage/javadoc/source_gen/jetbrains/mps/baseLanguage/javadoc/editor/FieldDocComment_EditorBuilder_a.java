@@ -127,7 +127,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
   private EditorCell createRefNodeList_0() {
     AbstractCellListHandler handler = new commentBodyListHandler_c4imx1_b0a(myNode, getEditorContext());
     EditorCell_Collection editorCell = handler.createCells(new CellLayout_Vertical(), false);
-    editorCell.setCellId("refNodeList_commentBody");
+    editorCell.setCellId("comment_body");
     Style style = new StyleImpl();
     new JavaDocStyleClass(this).apply(style, editorCell);
     style.set(StyleAttributes.INDENT_LAYOUT_INDENT, true);

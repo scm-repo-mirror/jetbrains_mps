@@ -29,7 +29,6 @@ import jetbrains.mps.openapi.editor.menus.transformation.ConstraintsVerifiableAc
 import jetbrains.mps.baseLanguage.actions.ModuleDependencyUtils;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
-import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
 import jetbrains.mps.editor.runtime.menus.EditorMenuItemModifyingCustomizationContext;
@@ -40,7 +39,6 @@ import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class PlaceholderMember_TransformationMenu extends TransformationMenuBase {
   public PlaceholderMember_TransformationMenu() {
@@ -123,23 +121,17 @@ public class PlaceholderMember_TransformationMenu extends TransformationMenuBase
           if (SNodeOperations.isInstanceOf(nextSibling, CONCEPTS.StaticFieldDeclaration$jR)) {
             SNode fieldDeclaration = SNodeOperations.cast(nextSibling, CONCEPTS.StaticFieldDeclaration$jR);
             SNodeFactoryOperations.setNewAttribute(fieldDeclaration, new IAttributeDescriptor.NodeAttribute(CONCEPTS.FieldDocComment$wl), CONCEPTS.FieldDocComment$wl);
-            SNode line = SNodeFactoryOperations.addNewChild(new IAttributeDescriptor.NodeAttribute(CONCEPTS.FieldDocComment$wl).get(fieldDeclaration), LINKS.body$OAGp, CONCEPTS.CommentLine$hJ);
-            SNodeFactoryOperations.addNewChild(line, LINKS.part$QuzQ, CONCEPTS.TextCommentLinePart$Eb);
-            SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), new IAttributeDescriptor.NodeAttribute(CONCEPTS.FieldDocComment$wl).get(fieldDeclaration), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
+            SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), new IAttributeDescriptor.NodeAttribute(CONCEPTS.FieldDocComment$wl).get(fieldDeclaration), "comment_body", -1);
             return;
           } else if (SNodeOperations.isInstanceOf(nextSibling, CONCEPTS.FieldDeclaration$ie)) {
             SNode fieldDeclaration = SNodeOperations.cast(nextSibling, CONCEPTS.FieldDeclaration$ie);
             SNodeFactoryOperations.setNewAttribute(fieldDeclaration, new IAttributeDescriptor.NodeAttribute(CONCEPTS.FieldDocComment$wl), CONCEPTS.FieldDocComment$wl);
-            SNode line = SNodeFactoryOperations.addNewChild(new IAttributeDescriptor.NodeAttribute(CONCEPTS.FieldDocComment$wl).get(fieldDeclaration), LINKS.body$OAGp, CONCEPTS.CommentLine$hJ);
-            SNodeFactoryOperations.addNewChild(line, LINKS.part$QuzQ, CONCEPTS.TextCommentLinePart$Eb);
-            SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), new IAttributeDescriptor.NodeAttribute(CONCEPTS.FieldDocComment$wl).get(fieldDeclaration), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
+            SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), new IAttributeDescriptor.NodeAttribute(CONCEPTS.FieldDocComment$wl).get(fieldDeclaration), "comment_body", -1);
             return;
           } else {
             SNode methodDeclaration = SNodeOperations.cast(nextSibling, CONCEPTS.BaseMethodDeclaration$kD);
             SNodeFactoryOperations.setNewAttribute(methodDeclaration, new IAttributeDescriptor.NodeAttribute(CONCEPTS.MethodDocComment$HI), CONCEPTS.MethodDocComment$HI);
-            SNode line = SNodeFactoryOperations.addNewChild(new IAttributeDescriptor.NodeAttribute(CONCEPTS.MethodDocComment$HI).get(methodDeclaration), LINKS.body$OAGp, CONCEPTS.CommentLine$hJ);
-            SNodeFactoryOperations.addNewChild(line, LINKS.part$QuzQ, CONCEPTS.TextCommentLinePart$Eb);
-            SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), new IAttributeDescriptor.NodeAttribute(CONCEPTS.MethodDocComment$HI).get(methodDeclaration), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
+            SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), new IAttributeDescriptor.NodeAttribute(CONCEPTS.MethodDocComment$HI).get(methodDeclaration), "comment_body", -1);
             return;
           }
         }
@@ -175,12 +167,5 @@ public class PlaceholderMember_TransformationMenu extends TransformationMenuBase
     /*package*/ static final SConcept BaseMethodDeclaration$kD = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
     /*package*/ static final SConcept MethodDocComment$HI = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7faeeb34L, "jetbrains.mps.baseLanguage.javadoc.structure.MethodDocComment");
     /*package*/ static final SConcept BaseDocComment$bU = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, "jetbrains.mps.baseLanguage.javadoc.structure.BaseDocComment");
-    /*package*/ static final SConcept CommentLine$hJ = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f96cL, "jetbrains.mps.baseLanguage.javadoc.structure.CommentLine");
-    /*package*/ static final SConcept TextCommentLinePart$Eb = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990287L, "jetbrains.mps.baseLanguage.javadoc.structure.TextCommentLinePart");
-  }
-
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink body$OAGp = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x757ba20a4c87f96eL, "body");
-    /*package*/ static final SContainmentLink part$QuzQ = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f96cL, 0x7c7f5b2f3199028dL, "part");
   }
 }
