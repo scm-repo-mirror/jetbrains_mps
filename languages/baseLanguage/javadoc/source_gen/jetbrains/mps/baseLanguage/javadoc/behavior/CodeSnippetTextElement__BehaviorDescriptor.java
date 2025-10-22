@@ -9,30 +9,69 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
+import jetbrains.mps.scope.Scope;
+import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.baseLanguage.scopes.Scopes;
+import jetbrains.mps.scope.EmptyScope;
+import jetbrains.mps.lang.core.behavior.ScopeProvider__BehaviorDescriptor;
+import java.util.ArrayList;
+import jetbrains.mps.baseLanguage.behavior.ILocalVariableElement__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class CodeSnippetTextElement__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3c7e4fd1L, "jetbrains.mps.baseLanguage.javadoc.structure.CodeSnippetTextElement");
 
   public static final SMethod<String> getTextualRepresentation_idfB3l81it7u = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getTextualRepresentation").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(281208147594039774L).languageId(0x89b0b5959c3fa8c8L, 0xc7fb639fbe784307L).build2();
+  public static final SMethod<Scope> getScope_id52_Geb4QDV$ = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5811245382203252452L).languageId(0x9b92103b95ca8c0cL, 0xceab519525ea4f22L).build2(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<List<SNode>> getLocalVariableDeclarations_id3tkxRydYUUs = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getLocalVariableDeclarations").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3986960521977638556L).languageId(0xbb1b463a8781b786L, 0xf280165065d5424eL).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getTextualRepresentation_idfB3l81it7u);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getTextualRepresentation_idfB3l81it7u, getScope_id52_Geb4QDV$, getLocalVariableDeclarations_id3tkxRydYUUs);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
   /*package*/ static String getTextualRepresentation_idfB3l81it7u(@NotNull SNode __thisNode__) {
     return "Code snippet: " + ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.statement$BQHd)).select((it) -> (String) BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(it)).foldLeft("", (String s, String it) -> it + "\n");
+  }
+  /*package*/ static Scope getScope_id52_Geb4QDV$(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
+    if (SConceptOperations.isExactly(SNodeOperations.asSConcept(kind), CONCEPTS.VariableDeclaration$Y0)) {
+      return Scopes.forVariables(kind, CodeSnippetTextElement__BehaviorDescriptor.getLocalVariableDeclarations_id3tkxRydYUUs.invoke(__thisNode__, child), new EmptyScope());
+    }
+
+    return ((Scope) ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke0(__thisNode__, CONCEPTS.ScopeProvider$aq, kind, child));
+  }
+  /*package*/ static List<SNode> getLocalVariableDeclarations_id3tkxRydYUUs(@NotNull SNode __thisNode__, SNode child) {
+    List<SNode> result = new ArrayList<SNode>();
+
+    SNode childStatement = child;
+    while (childStatement != null && SNodeOperations.getParent(childStatement) != __thisNode__) {
+      childStatement = SNodeOperations.getParent(childStatement);
+    }
+
+    for (SNode statement : SLinkOperations.getChildren(__thisNode__, LINKS.statement$BQHd)) {
+      if (childStatement == statement) {
+        break;
+      }
+      List<SNode> vars = ILocalVariableElement__BehaviorDescriptor.getAllLocalVariableDeclarations_id3xYtul1v6S1.invoke(statement);
+      if (ListSequence.fromList(vars).isNotEmpty()) {
+        ListSequence.fromList(result).addSequence(ListSequence.fromList(vars));
+      }
+    }
+
+    return result;
   }
 
   /*package*/ CodeSnippetTextElement__BehaviorDescriptor() {
@@ -52,6 +91,10 @@ public final class CodeSnippetTextElement__BehaviorDescriptor extends BaseBHDesc
     switch (methodIndex) {
       case 0:
         return (T) ((String) getTextualRepresentation_idfB3l81it7u(node));
+      case 1:
+        return (T) ((Scope) getScope_id52_Geb4QDV$(node, (SAbstractConcept) parameters[0], (SNode) parameters[1]));
+      case 2:
+        return (T) ((List<SNode>) getLocalVariableDeclarations_id3tkxRydYUUs(node, (SNode) parameters[0]));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -83,5 +126,10 @@ public final class CodeSnippetTextElement__BehaviorDescriptor extends BaseBHDesc
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink statement$BQHd = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3c7e4fd1L, 0x4693b55d3c7e4fd2L, "statement");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept VariableDeclaration$Y0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
+    /*package*/ static final SInterfaceConcept ScopeProvider$aq = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x33d23ee961a0cbf3L, "jetbrains.mps.lang.core.structure.ScopeProvider");
   }
 }

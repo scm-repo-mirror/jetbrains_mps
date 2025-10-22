@@ -642,6 +642,9 @@
       <property role="IQ2ns" value="5085607816282918866" />
       <ref role="20lvS9" to="tpee:fzclF8l" resolve="Statement" />
     </node>
+    <node concept="PrWs8" id="17vi3ZqNTh_" role="PzmwI">
+      <ref role="PrY4T" to="tpck:3fifI_xCcJN" resolve="ScopeProvider" />
+    </node>
   </node>
   <node concept="PlHQZ" id="4qjHlOXEoGg">
     <property role="EcuMT" value="5085607816302529296" />
