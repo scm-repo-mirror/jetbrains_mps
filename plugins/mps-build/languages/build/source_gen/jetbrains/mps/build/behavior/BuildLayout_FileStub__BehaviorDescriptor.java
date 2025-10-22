@@ -57,9 +57,7 @@ public final class BuildLayout_FileStub__BehaviorDescriptor extends BaseBHDescri
     return (String) BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.fileName$AZfX), null);
   }
   /*package*/ static boolean exports_id5FtnUVJQES1(@NotNull SNode __thisNode__, Object artifactId) {
-    //  turn off, see BuildSourceArchiveRelativePath#unpack
-    final boolean BuildSourceArchiveRelativePath_support = Boolean.FALSE.booleanValue();
-    if (artifactId instanceof SNode && BuildSourceArchiveRelativePath_support) {
+    if (artifactId instanceof SNode) {
       //  copied from BuildLayout_File, with narrow cast, BuildRelativePath instead of BuildSourcePath as I need to match a tail part only (BRP.getPathTail), without any macro or project
       //  I would recieve from BuildSourcePath.getRelativePath() otherwise
       SNode node = (SNode) artifactId;
