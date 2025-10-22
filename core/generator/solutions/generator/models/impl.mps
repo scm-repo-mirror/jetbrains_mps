@@ -10482,10 +10482,18 @@
           <node concept="9aQIb" id="3DA3u$g_ClE" role="9aQIa">
             <node concept="3clFbS" id="3DA3u$g_ClF" role="9aQI4">
               <node concept="3cpWs6" id="2$rgQOfwuN9" role="3cqZAp">
-                <node concept="1rXfSq" id="2$rgQOfwuN8" role="3cqZAk">
-                  <ref role="37wK5l" node="2$rgQOfwuN4" resolve="feedSteps" />
-                  <node concept="37vLTw" id="2$rgQOfwuN7" role="37wK5m">
-                    <ref role="3cqZAo" node="1UVrAZQmUB_" resolve="planBuilder" />
+                <node concept="2OqwBi" id="7tXkKy5E1MP" role="3cqZAk">
+                  <node concept="1rXfSq" id="7tXkKy5DNS9" role="2Oq$k0">
+                    <ref role="37wK5l" node="7tXkKy5CC0t" resolve="modelConfiguratorOpt" />
+                    <node concept="37vLTw" id="7tXkKy5DV0M" role="37wK5m">
+                      <ref role="3cqZAo" node="1UVrAZQmUB_" resolve="planBuilder" />
+                    </node>
+                  </node>
+                  <node concept="liA8E" id="7tXkKy5EhDa" role="2OqNvi">
+                    <ref role="37wK5l" node="2$rgQOfwuN4" resolve="feedSteps" />
+                    <node concept="37vLTw" id="7tXkKy5Eoox" role="37wK5m">
+                      <ref role="3cqZAo" node="1UVrAZQmUB_" resolve="planBuilder" />
+                    </node>
                   </node>
                 </node>
               </node>
@@ -11829,11 +11837,19 @@
         </node>
         <node concept="3clFbF" id="1CAhW0wVntT" role="3cqZAp">
           <node concept="2OqwBi" id="1CAhW0wVntU" role="3clFbG">
-            <node concept="2ShNRf" id="1CAhW0wVntV" role="2Oq$k0">
-              <node concept="1pGfFk" id="1CAhW0wVntW" role="2ShVmc">
-                <ref role="37wK5l" node="1UVrAZQmUpe" resolve="GenPlanTranslator" />
-                <node concept="37vLTw" id="1CAhW0wVnul" role="37wK5m">
-                  <ref role="3cqZAo" node="1CAhW0wVnud" resolve="branchPlan" />
+            <node concept="2OqwBi" id="7tXkKy5D83V" role="2Oq$k0">
+              <node concept="2ShNRf" id="1CAhW0wVntV" role="2Oq$k0">
+                <node concept="1pGfFk" id="1CAhW0wVntW" role="2ShVmc">
+                  <ref role="37wK5l" node="1UVrAZQmUpe" resolve="GenPlanTranslator" />
+                  <node concept="37vLTw" id="1CAhW0wVnul" role="37wK5m">
+                    <ref role="3cqZAo" node="1CAhW0wVnud" resolve="branchPlan" />
+                  </node>
+                </node>
+              </node>
+              <node concept="liA8E" id="7tXkKy5Df2E" role="2OqNvi">
+                <ref role="37wK5l" node="7tXkKy5CC0t" resolve="modelConfiguratorOpt" />
+                <node concept="37vLTw" id="7tXkKy5DlKF" role="37wK5m">
+                  <ref role="3cqZAo" node="1CAhW0wVntJ" resolve="branchBuilder" />
                 </node>
               </node>
             </node>
@@ -11990,6 +12006,147 @@
       </node>
       <node concept="3Tm6S6" id="z3dgY7YI4s" role="1B3o_S" />
       <node concept="3cqZAl" id="z3dgY7YOKv" role="3clF45" />
+    </node>
+    <node concept="2tJIrI" id="7tXkKy5Ckg0" role="jymVt" />
+    <node concept="3clFb_" id="7tXkKy5CC0t" role="jymVt">
+      <property role="TrG5h" value="modelConfiguratorOpt" />
+      <node concept="37vLTG" id="7tXkKy5CKiQ" role="3clF46">
+        <property role="TrG5h" value="planBuilder" />
+        <node concept="3uibUv" id="7tXkKy5CKiR" role="1tU5fm">
+          <ref role="3uigEE" to="ap4t:~GenerationPlanBuilder" resolve="GenerationPlanBuilder" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="7tXkKy5CC0w" role="3clF47">
+        <node concept="3clFbJ" id="7tXkKy5EC0n" role="3cqZAp">
+          <node concept="3clFbS" id="7tXkKy5EC0p" role="3clFbx">
+            <node concept="3cpWs8" id="7tXkKy5HgBD" role="3cqZAp">
+              <node concept="3cpWsn" id="7tXkKy5HgBE" role="3cpWs9">
+                <property role="TrG5h" value="attrMap" />
+                <node concept="3uibUv" id="7tXkKy5HgBB" role="1tU5fm">
+                  <ref role="3uigEE" to="33ny:~Map" resolve="Map" />
+                  <node concept="3uibUv" id="7tXkKy5Hnls" role="11_B2D">
+                    <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+                  </node>
+                  <node concept="3uibUv" id="7tXkKy5HvsD" role="11_B2D">
+                    <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+                  </node>
+                </node>
+                <node concept="2ShNRf" id="7tXkKy5HUiD" role="33vP2m">
+                  <node concept="1pGfFk" id="7tXkKy5I5BI" role="2ShVmc">
+                    <property role="373rjd" value="true" />
+                    <ref role="37wK5l" to="33ny:~HashMap.&lt;init&gt;()" resolve="HashMap" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="1DcWWT" id="7tXkKy5IO7D" role="3cqZAp">
+              <node concept="3clFbS" id="7tXkKy5IO7G" role="2LFqv$">
+                <node concept="3clFbF" id="7tXkKy5JmbO" role="3cqZAp">
+                  <node concept="2OqwBi" id="7tXkKy5JwlJ" role="3clFbG">
+                    <node concept="37vLTw" id="7tXkKy5JmbN" role="2Oq$k0">
+                      <ref role="3cqZAo" node="7tXkKy5HgBE" resolve="attrMap" />
+                    </node>
+                    <node concept="liA8E" id="7tXkKy5JCWs" role="2OqNvi">
+                      <ref role="37wK5l" to="33ny:~Map.put(java.lang.Object,java.lang.Object)" resolve="put" />
+                      <node concept="2OqwBi" id="7tXkKy5KbgE" role="37wK5m">
+                        <node concept="2OqwBi" id="7tXkKy5JSWW" role="2Oq$k0">
+                          <node concept="37vLTw" id="7tXkKy5JL9H" role="2Oq$k0">
+                            <ref role="3cqZAo" node="7tXkKy5IO7H" resolve="maa" />
+                          </node>
+                          <node concept="3TrEf2" id="7tXkKy5K2uH" role="2OqNvi">
+                            <ref role="3Tt5mk" to="bjdw:5Djf22$m0sc" resolve="attribute" />
+                          </node>
+                        </node>
+                        <node concept="3TrcHB" id="7tXkKy5KjAt" role="2OqNvi">
+                          <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
+                        </node>
+                      </node>
+                      <node concept="2OqwBi" id="7tXkKy5L$pr" role="37wK5m">
+                        <node concept="1PxgMI" id="7tXkKy5L7Vy" role="2Oq$k0">
+                          <property role="1BlNFB" value="true" />
+                          <node concept="chp4Y" id="7tXkKy5LhYG" role="3oSUPX">
+                            <ref role="cht4Q" to="bjdw:5Djf22$m142" resolve="StringAttributeValue" />
+                          </node>
+                          <node concept="2OqwBi" id="7tXkKy5KPQa" role="1m5AlR">
+                            <node concept="37vLTw" id="7tXkKy5KIqG" role="2Oq$k0">
+                              <ref role="3cqZAo" node="7tXkKy5IO7H" resolve="maa" />
+                            </node>
+                            <node concept="3TrEf2" id="7tXkKy5KYO5" role="2OqNvi">
+                              <ref role="3Tt5mk" to="bjdw:5Djf22$m0F9" resolve="value" />
+                            </node>
+                          </node>
+                        </node>
+                        <node concept="3TrcHB" id="7tXkKy5LGKd" role="2OqNvi">
+                          <ref role="3TsBF5" to="bjdw:5Djf22$m1eP" resolve="value" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="3cpWsn" id="7tXkKy5IO7H" role="1Duv9x">
+                <property role="TrG5h" value="maa" />
+                <node concept="3Tqbb2" id="7tXkKy5IO7L" role="1tU5fm">
+                  <ref role="ehGHo" to="bjdw:5Djf22$m0if" resolve="ModelAttributeAssignment" />
+                </node>
+              </node>
+              <node concept="2OqwBi" id="7tXkKy5IO7M" role="1DdaDG">
+                <node concept="2OqwBi" id="7tXkKy5IO7N" role="2Oq$k0">
+                  <node concept="37vLTw" id="7tXkKy5IO7O" role="2Oq$k0">
+                    <ref role="3cqZAo" node="1UVrAZQmUqz" resolve="myPlanDeclaration" />
+                  </node>
+                  <node concept="3TrEf2" id="7tXkKy5IO7P" role="2OqNvi">
+                    <ref role="3Tt5mk" to="bjdw:5Djf22$miSu" resolve="modelAttributes" />
+                  </node>
+                </node>
+                <node concept="3Tsc0h" id="7tXkKy5IO7Q" role="2OqNvi">
+                  <ref role="3TtcxE" to="bjdw:5Djf22$m1LG" resolve="entries" />
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="7tXkKy5Gzzh" role="3cqZAp">
+              <node concept="2OqwBi" id="7tXkKy5GDTm" role="3clFbG">
+                <node concept="37vLTw" id="7tXkKy5Gzzf" role="2Oq$k0">
+                  <ref role="3cqZAo" node="7tXkKy5CKiQ" resolve="planBuilder" />
+                </node>
+                <node concept="liA8E" id="7tXkKy5GLU6" role="2OqNvi">
+                  <ref role="37wK5l" to="ap4t:~GenerationPlanBuilder.modelSetup(jetbrains.mps.generator.plan.ModelSetup)" resolve="modelSetup" />
+                  <node concept="2YIFZM" id="7tXkKy5H2BY" role="37wK5m">
+                    <ref role="37wK5l" to="cgca:~ModelSetup.withAttributes(java.util.Map)" resolve="withAttributes" />
+                    <ref role="1Pybhc" to="cgca:~ModelSetup" resolve="ModelSetup" />
+                    <node concept="37vLTw" id="7tXkKy5Icsq" role="37wK5m">
+                      <ref role="3cqZAo" node="7tXkKy5HgBE" resolve="attrMap" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="2OqwBi" id="7tXkKy5G1Rt" role="3clFbw">
+            <node concept="2OqwBi" id="7tXkKy5FLpO" role="2Oq$k0">
+              <node concept="2OqwBi" id="7tXkKy5ERfP" role="2Oq$k0">
+                <node concept="37vLTw" id="7tXkKy5EKp8" role="2Oq$k0">
+                  <ref role="3cqZAo" node="1UVrAZQmUqz" resolve="myPlanDeclaration" />
+                </node>
+                <node concept="3TrEf2" id="7tXkKy5EZmu" role="2OqNvi">
+                  <ref role="3Tt5mk" to="bjdw:5Djf22$miSu" resolve="modelAttributes" />
+                </node>
+              </node>
+              <node concept="3Tsc0h" id="7tXkKy5FTSi" role="2OqNvi">
+                <ref role="3TtcxE" to="bjdw:5Djf22$m1LG" resolve="entries" />
+              </node>
+            </node>
+            <node concept="3GX2aA" id="7tXkKy5GbkO" role="2OqNvi" />
+          </node>
+        </node>
+        <node concept="3cpWs6" id="7tXkKy5CTow" role="3cqZAp">
+          <node concept="Xjq3P" id="7tXkKy5CTs3" role="3cqZAk" />
+        </node>
+      </node>
+      <node concept="3Tm6S6" id="7tXkKy5Cv88" role="1B3o_S" />
+      <node concept="3uibUv" id="7tXkKy5CBsB" role="3clF45">
+        <ref role="3uigEE" node="1UVrAZQmEH$" resolve="GenPlanTranslator" />
+      </node>
     </node>
     <node concept="2tJIrI" id="274NGw8PC0w" role="jymVt" />
     <node concept="3clFb_" id="274NGw8PHc0" role="jymVt">

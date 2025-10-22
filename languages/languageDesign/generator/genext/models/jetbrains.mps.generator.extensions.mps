@@ -14,6 +14,7 @@
     <import index="1ctc" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.stream(JDK/)" />
     <import index="tft2" ref="215c4c45-ba99-49f5-9ab7-4b6901a63cfd/java:jetbrains.mps.generator.impl.plan(MPS.Generator/)" />
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" />
+    <import index="dhah" ref="r:342b977c-a485-4fdb-b891-66244eff644a(jetbrains.mps.generator.extensions.common)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" implicit="true" />
   </imports>
@@ -112,11 +113,6 @@
       <concept id="1146644623116" name="jetbrains.mps.baseLanguage.structure.PrivateVisibility" flags="nn" index="3Tm6S6" />
       <concept id="1116615150612" name="jetbrains.mps.baseLanguage.structure.ClassifierClassExpression" flags="nn" index="3VsKOn">
         <reference id="1116615189566" name="classifier" index="3VsUkX" />
-      </concept>
-    </language>
-    <language id="7ab1a6fa-0a11-4b95-9e48-75f363d6cb00" name="jetbrains.mps.lang.generator.plan">
-      <concept id="3751925928559474173" name="jetbrains.mps.lang.generator.plan.structure.ParameterDeclaration" flags="ng" index="3njf4X">
-        <property id="3751925928559522063" name="description" index="3njVnf" />
       </concept>
     </language>
     <language id="98b646bc-88d3-4578-a7f8-6ba9693eb7d4" name="jetbrains.mps.lang.generator.plan.bl">
@@ -222,7 +218,7 @@
         <ref role="3uigEE" to="cgca:~PlanParameterIdentity" resolve="PlanParameterIdentity" />
       </node>
       <node concept="2k5qQN" id="2yQWmqWLyCp" role="33vP2m">
-        <ref role="2k5p1Z" node="4jPJr_qBRKv" resolve="module-facet" />
+        <ref role="2k5p1Z" to="dhah:4jPJr_qBRKv" resolve="module-facet" />
       </node>
     </node>
     <node concept="2tJIrI" id="4jPJr_qAQBz" role="jymVt" />
@@ -336,10 +332,6 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
-  </node>
-  <node concept="3njf4X" id="4jPJr_qBRKv">
-    <property role="TrG5h" value="module-facet" />
-    <property role="3njVnf" value="Gives identities of module facets for a module of a transformed model" />
   </node>
 </model>
 

@@ -10,6 +10,7 @@ import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_ApplyGenerators;
+  private ConceptPresentation props_AttributeValue;
   private ConceptPresentation props_Checkpoint;
   private ConceptPresentation props_CheckpointDeclaration;
   private ConceptPresentation props_CheckpointSpecification;
@@ -25,13 +26,18 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_InPlaceCheckpointRefSpec;
   private ConceptPresentation props_InPlaceCheckpointSpec;
   private ConceptPresentation props_IncludePlan;
+  private ConceptPresentation props_InitModelAttributes;
   private ConceptPresentation props_LanguageEntry;
+  private ConceptPresentation props_ModelAttributeAssignment;
+  private ConceptPresentation props_ModelAttributeDeclaration;
+  private ConceptPresentation props_ModelAttributes;
   private ConceptPresentation props_ParameterDeclaration;
   private ConceptPresentation props_ParameterEquals;
   private ConceptPresentation props_ParameterReference;
   private ConceptPresentation props_Plan;
   private ConceptPresentation props_PlanContribution;
   private ConceptPresentation props_Step;
+  private ConceptPresentation props_StringAttributeValue;
   private ConceptPresentation props_TextDocLine;
   private ConceptPresentation props_Transform;
 
@@ -48,6 +54,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ApplyGenerators = cpb.create();
         }
         return props_ApplyGenerators;
+      case LanguageConceptSwitch.AttributeValue:
+        if (props_AttributeValue == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_AttributeValue = cpb.create();
+        }
+        return props_AttributeValue;
       case LanguageConceptSwitch.Checkpoint:
         if (props_Checkpoint == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -109,7 +121,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         return props_DocumentationStep;
       case LanguageConceptSwitch.Fork:
         if (props_Fork == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x2bf683196b12a3cbL);
+          cpb.deprecateProperty(0x33ac1343399331bdL, "gentarget");
           cpb.shortDesc("fork a new transformation branch with specified plan");
           cpb.rawPresentation("fork");
           props_Fork = cpb.create();
@@ -161,6 +174,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_IncludePlan = cpb.create();
         }
         return props_IncludePlan;
+      case LanguageConceptSwitch.InitModelAttributes:
+        if (props_InitModelAttributes == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("InitModelAttributes");
+          props_InitModelAttributes = cpb.create();
+        }
+        return props_InitModelAttributes;
       case LanguageConceptSwitch.LanguageEntry:
         if (props_LanguageEntry == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -168,6 +188,27 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_LanguageEntry = cpb.create();
         }
         return props_LanguageEntry;
+      case LanguageConceptSwitch.ModelAttributeAssignment:
+        if (props_ModelAttributeAssignment == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByReference(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x5a533c20a458048fL, 0x5a533c20a458070cL, "attribute", "", "");
+          props_ModelAttributeAssignment = cpb.create();
+        }
+        return props_ModelAttributeAssignment;
+      case LanguageConceptSwitch.ModelAttributeDeclaration:
+        if (props_ModelAttributeDeclaration == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_ModelAttributeDeclaration = cpb.create();
+        }
+        return props_ModelAttributeDeclaration;
+      case LanguageConceptSwitch.ModelAttributes:
+        if (props_ModelAttributes == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("ModelAttributes");
+          props_ModelAttributes = cpb.create();
+        }
+        return props_ModelAttributes;
       case LanguageConceptSwitch.ParameterDeclaration:
         if (props_ParameterDeclaration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -211,6 +252,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Step = cpb.create();
         }
         return props_Step;
+      case LanguageConceptSwitch.StringAttributeValue:
+        if (props_StringAttributeValue == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("StringAttributeValue");
+          props_StringAttributeValue = cpb.create();
+        }
+        return props_StringAttributeValue;
       case LanguageConceptSwitch.TextDocLine:
         if (props_TextDocLine == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

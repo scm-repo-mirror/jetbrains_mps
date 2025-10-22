@@ -94,6 +94,12 @@
         <property role="YLQ7P" value="Replaced with PlanContribution" />
       </node>
     </node>
+    <node concept="1TJgyj" id="5Djf22$miSu" role="1TKVEi">
+      <property role="IQ2ns" value="6508611997374426654" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="modelAttributes" />
+      <ref role="20lvS9" node="5Djf22$m0yP" resolve="InitModelAttributes" />
+    </node>
     <node concept="PrWs8" id="1_4co2y1LvX" role="PzmwI">
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
     </node>
@@ -324,6 +330,10 @@
       <node concept="t5JxF" id="6_DCGR5BBoa" role="lGtFl">
         <property role="t5JxN" value="tag to use when deciding whether to actually activate the fork" />
       </node>
+      <node concept="asaX9" id="5WGQDGB6Ed$" role="lGtFl">
+        <property role="YLPcu" value="2025.3" />
+        <property role="YLQ7P" value="Use filter and plan's modelAttributes, instead" />
+      </node>
     </node>
   </node>
   <node concept="1TIwiD" id="1009c2Af4wf">
@@ -493,6 +503,85 @@
     </node>
     <node concept="t5JxF" id="1N6UnlaCOOw" role="lGtFl">
       <property role="t5JxN" value="Mechanism to conditionally fork a transformation process without touching original plan(s). &quot;Contribution&quot; here means &quot;to a whole GP process&quot;, rather than &quot;to a specific plan&quot;" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="5Djf22$lZZ8">
+    <property role="EcuMT" value="6508611997374349256" />
+    <property role="TrG5h" value="ModelAttributes" />
+    <property role="3GE5qa" value="ma" />
+    <property role="19KtqR" value="true" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyj" id="5Djf22$m1xU" role="1TKVEi">
+      <property role="IQ2ns" value="6508611997374355578" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="declarations" />
+      <property role="20lbJX" value="fLJekj6/_1__n" />
+      <ref role="20lvS9" node="5Djf22$m06A" resolve="ModelAttributeDeclaration" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="5Djf22$m06A">
+    <property role="EcuMT" value="6508611997374349734" />
+    <property role="3GE5qa" value="ma" />
+    <property role="TrG5h" value="ModelAttributeDeclaration" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="PrWs8" id="5Djf22$m0fI" role="PzmwI">
+      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    </node>
+    <node concept="1TJgyi" id="5WGQDGB9wWq" role="1TKVEl">
+      <property role="IQ2nx" value="6858096692490014490" />
+      <property role="TrG5h" value="description" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="5Djf22$m0if">
+    <property role="EcuMT" value="6508611997374350479" />
+    <property role="3GE5qa" value="ma" />
+    <property role="TrG5h" value="ModelAttributeAssignment" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyj" id="5Djf22$m0F9" role="1TKVEi">
+      <property role="IQ2ns" value="6508611997374352073" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="value" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" node="5Djf22$m0AZ" resolve="AttributeValue" />
+    </node>
+    <node concept="1TJgyj" id="5Djf22$m0sc" role="1TKVEi">
+      <property role="IQ2ns" value="6508611997374351116" />
+      <property role="20kJfa" value="attribute" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" node="5Djf22$m06A" resolve="ModelAttributeDeclaration" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="5Djf22$m0yP">
+    <property role="EcuMT" value="6508611997374351541" />
+    <property role="3GE5qa" value="ma" />
+    <property role="TrG5h" value="InitModelAttributes" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyj" id="5Djf22$m1LG" role="1TKVEi">
+      <property role="IQ2ns" value="6508611997374356588" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="entries" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <ref role="20lvS9" node="5Djf22$m0if" resolve="ModelAttributeAssignment" />
+    </node>
+  </node>
+  <node concept="PlHQZ" id="5Djf22$m0AZ">
+    <property role="EcuMT" value="6508611997374351807" />
+    <property role="3GE5qa" value="ma" />
+    <property role="TrG5h" value="AttributeValue" />
+  </node>
+  <node concept="1TIwiD" id="5Djf22$m142">
+    <property role="EcuMT" value="6508611997374353666" />
+    <property role="3GE5qa" value="ma" />
+    <property role="TrG5h" value="StringAttributeValue" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyi" id="5Djf22$m1eP" role="1TKVEl">
+      <property role="IQ2nx" value="6508611997374354357" />
+      <property role="TrG5h" value="value" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+    <node concept="PrWs8" id="5Djf22$m1dZ" role="PzmwI">
+      <ref role="PrY4T" node="5Djf22$m0AZ" resolve="AttributeValue" />
     </node>
   </node>
 </model>

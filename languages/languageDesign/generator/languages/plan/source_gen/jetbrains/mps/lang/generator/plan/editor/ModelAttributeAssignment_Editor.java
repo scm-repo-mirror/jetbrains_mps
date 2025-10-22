@@ -7,11 +7,8 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.EditorContext;
 import org.jetbrains.mps.openapi.model.SNode;
 
-public class Plan_Editor extends DefaultNodeEditor {
+public class ModelAttributeAssignment_Editor extends DefaultNodeEditor {
   public EditorCell createEditorCell(EditorContext editorContext, SNode node) {
-    return new Plan_EditorBuilder_a(editorContext, node).createCell();
-  }
-  public EditorCell createInspectedCell(EditorContext editorContext, SNode node) {
-    return new Plan_InspectorBuilder_a(editorContext, node).createCell();
+    return new ModelAttributeAssignment_EditorBuilder_a(editorContext, node).createCell();
   }
 }

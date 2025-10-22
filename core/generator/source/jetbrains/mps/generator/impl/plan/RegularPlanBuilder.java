@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.generator.impl.plan;
 
-import jetbrains.mps.extapi.model.ModelWithAttributes;
 import jetbrains.mps.generator.GenerationPlanBuilder;
 import jetbrains.mps.generator.ModelGenerationPlan;
 import jetbrains.mps.generator.ModelGenerationPlan.Checkpoint;
@@ -26,6 +25,7 @@ import jetbrains.mps.generator.RigidGenerationPlan;
 import jetbrains.mps.generator.plan.CheckpointIdentity;
 import jetbrains.mps.generator.plan.ForkCondition;
 import jetbrains.mps.generator.plan.ForkConditionBuilder;
+import jetbrains.mps.generator.plan.ModelSetup;
 import jetbrains.mps.generator.plan.PlanIdentity;
 import jetbrains.mps.generator.runtime.TemplateMappingConfiguration;
 import jetbrains.mps.generator.runtime.TemplateModel;
@@ -43,20 +43,17 @@ import jetbrains.mps.smodel.language.LanguageRuntime;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SLanguage;
-import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -91,6 +88,7 @@ public class RegularPlanBuilder implements GenerationPlanBuilder {
   private final Collection<TemplateModule> myEngagedGenerators;
   private final IMessageHandler myMessageHandler;
   private final List<StepEntry> mySteps = new ArrayList<>();
+  private ModelSetup myModelSetup;
 
   public RegularPlanBuilder(@NotNull LanguageRegistry languageRegistry, Collection<TemplateModule> allEngagedGenerators) {
     this(languageRegistry, allEngagedGenerators, new LogHandler(Logger.getLogger(RegularPlanBuilder.class)));
@@ -304,7 +302,7 @@ public class RegularPlanBuilder implements GenerationPlanBuilder {
     }
     ArrayList<Step> steps = new ArrayList<>(mySteps.size());
     mySteps.forEach(s -> s.createStep(steps));
-    return new RigidGenerationPlan(planIdentity, steps);
+    return new RigidGenerationPlan(planIdentity, steps, myModelSetup);
   }
 
   @Override
@@ -315,13 +313,14 @@ public class RegularPlanBuilder implements GenerationPlanBuilder {
       @SuppressWarnings("removal")
       @Override
       public void setGenerationTarget(String targetHint) {
+        if (targetHint == null) {
+          return;
+        }
         // if myForkSelector has been initialized using withFConditionSelector().complete(), do not overwrite with this legacy support value
         if (forkStep.myForkSelector == null) {
-          forkStep.selector(targetHint != null ? new ModuleFacetPresentLegacyForkCondition(targetHint) : null);
+          forkStep.selector(new ModuleFacetPresentLegacyForkCondition(targetHint));
         }
-        if (targetHint != null) {
-          forkStep.myForkModelAttributes.put(GenerationTargetFacet.TARGET_MODEL_ATTR, targetHint);
-        }
+        forkStep.configurator(ModelSetup.withAttributes(Map.of(GenerationTargetFacet.TARGET_MODEL_ATTR, targetHint)));
       }
 
       @Override
@@ -329,14 +328,27 @@ public class RegularPlanBuilder implements GenerationPlanBuilder {
         return new ConditionBuilder(forkStep::selector);
       }
 
+      @Override
+      public void modelSetup(@NotNull ModelSetup configurator) {
+        // FIXME why not to keep ModelSetup as part of Plan only, and use RigidGenerationPlan instance in forkStep:ForkEntry instead
+        //       of explicit list of steps (== getEntries(), see wrapUp(), below)?
+        forkStep.configurator(configurator);
+      }
+
       @NotNull
       @Override
       public ModelGenerationPlan wrapUp(@NotNull PlanIdentity planIdentity) {
         forkStep.steps(getEntries());
         // blank, non-null return value, shall be ignored
+        //   OTOH, why not to use this value in forkStep???
         return new RigidGenerationPlan(planIdentity, Collections.emptyList());
       }
     };
+  }
+
+  @Override
+  public void modelSetup(@NotNull ModelSetup configurator) {
+    myModelSetup = configurator;
   }
 
   // just to ensure subclass in fork() accesses right mySteps field (not the one from enclosing entry)
@@ -585,7 +597,7 @@ public class RegularPlanBuilder implements GenerationPlanBuilder {
   private static class ForkEntry implements StepEntry {
     private List<StepEntry> mySteps = Collections.emptyList();
     private ForkCondition myForkSelector = null;
-    private Map<String, String> myForkModelAttributes = new HashMap<>();
+    private ModelSetup mySetup;
 
     public void steps(List<StepEntry> steps) {
       assert !steps.contains(this) : "Fork step shall not include itself";
@@ -611,22 +623,17 @@ public class RegularPlanBuilder implements GenerationPlanBuilder {
     public void createStep(List<Step> steps) {
       final ArrayList<Step> branch = new ArrayList<>();
       mySteps.forEach(s -> s.createStep(branch));
-      Consumer<SModel> f;
-      if (myForkModelAttributes.isEmpty()) {
-        f = null;
-      } else {
-        // FIXME need a separate class not to drag ForkEntry instance down to GP
-        f = mm -> {
-          if (mm instanceof ModelWithAttributes mwa) {
-            myForkModelAttributes.forEach(mwa::setAttribute);
-          }
-        };
-      }
-      steps.add(new Fork(branch, myForkSelector, f));
+      steps.add(new Fork(branch, myForkSelector, mySetup));
     }
 
     void selector(ForkCondition condition) {
       myForkSelector = condition;
+    }
+
+    void configurator(ModelSetup modelSetup) {
+      // ATM, allow multiple calls/value overrides to support legacy setGenerationTarget() along with new GPB.modelSetup()
+      // perhaps, once setGenerationTarget() is history, may want to forbid override or introduce some logic to combine/merge values
+      mySetup = modelSetup;
     }
   }
 }

@@ -197,6 +197,7 @@ class GenerationSession {
       majorBranch.branch = myGenerationPlan.getSteps();
       majorBranch.transitionTrace = transitionTrace;
       forkQueue.add(majorBranch);
+      myGenerationPlan.configure(currInputModel);
       while (!forkQueue.isEmpty()) {
         PlanBranchInfo branchInfo = forkQueue.removeFirst();
         SModel output = processGenPlanBranch(branchInfo, forkQueue, monitor);

@@ -20,6 +20,7 @@ import jetbrains.mps.generator.impl.TemplateSwitchGraph;
 import jetbrains.mps.generator.impl.plan.ModuleFacetPresentLegacyForkCondition;
 import jetbrains.mps.generator.plan.CheckpointIdentity;
 import jetbrains.mps.generator.plan.ForkCondition;
+import jetbrains.mps.generator.plan.ModelSetup;
 import jetbrains.mps.generator.runtime.TemplateMappingConfiguration;
 import jetbrains.mps.generator.runtime.TemplateModel;
 import jetbrains.mps.generator.runtime.TemplateModule;
@@ -32,8 +33,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
 
 /**
  * Is it a final breakdown of shall I treat list of TMC as a raw input and re-order them as appropriate?
@@ -67,6 +66,14 @@ public interface ModelGenerationPlan {
 //  default ModelGenerationPlan prepare(@NotNull GeneratorTask task) {
 //    return this;
 //  }
+
+  /**
+   * <p>PROVISIONAL API</p>
+   * <p>Chances for a plan to perform some additional model mutations, e.g. set/clear model attributes or user objects</p>
+   * <p>Still can't decide whether to use dedicated {@code Step} subclass or explicit configure() method</p>
+   * @param model a model to apply plan to, subject to modifications
+   */
+  default void configure(@NotNull SModel model) {}
 
   interface Step {
     // e.g. to print MCs that take part, if Transform step populates objects rather than return list of MC
@@ -159,8 +166,7 @@ public interface ModelGenerationPlan {
   final class Fork implements Step {
     private final List<Step> myBranch;
     private final ForkCondition myForkSelector;
-    // FIXME introduce a dedicated interface e.g. ModelConfigurator, but for now Consumer is ok
-    private final Consumer<SModel> myModelConfigurator;
+    private final ModelSetup myModelConfigurator;
 
     public Fork(List<Step> branch) {
       this(branch, null, null);
@@ -174,7 +180,7 @@ public interface ModelGenerationPlan {
       this(branch, generationTarget != null ? new ModuleFacetPresentLegacyForkCondition(generationTarget) : null, null);
     }
 
-    public Fork(List<Step> branch, @Nullable ForkCondition forkSelector, @Nullable Consumer<SModel> modelConfiguration) {
+    public Fork(List<Step> branch, @Nullable ForkCondition forkSelector, @Nullable ModelSetup modelConfiguration) {
       myBranch = branch;
       myForkSelector = forkSelector;
       myModelConfigurator = modelConfiguration;
@@ -191,7 +197,7 @@ public interface ModelGenerationPlan {
 
     public void configure(@NotNull SModel model) {
       if (myModelConfigurator != null) {
-        myModelConfigurator.accept(model);
+        myModelConfigurator.apply(model);
       }
     }
   }

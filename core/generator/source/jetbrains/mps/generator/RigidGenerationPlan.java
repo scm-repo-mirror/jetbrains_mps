@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,11 +15,14 @@
  */
 package jetbrains.mps.generator;
 
+import jetbrains.mps.generator.plan.ModelSetup;
 import jetbrains.mps.generator.plan.PlanIdentity;
 import jetbrains.mps.generator.runtime.TemplateModel;
 import jetbrains.mps.generator.runtime.TemplateModule;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SLanguage;
+import org.jetbrains.mps.openapi.model.SModel;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -35,15 +38,22 @@ import java.util.List;
 public class RigidGenerationPlan implements ModelGenerationPlan {
   private final PlanIdentity myIdentity;
   private final Step[] mySteps;
+  private final ModelSetup myModelSetup;
 
   public RigidGenerationPlan(@NotNull PlanIdentity planIdentity, @NotNull Step... steps) {
     myIdentity = planIdentity;
     mySteps = steps;
+    myModelSetup = null;
   }
 
   public RigidGenerationPlan(@NotNull PlanIdentity planIdentity, @NotNull Collection<Step> steps) {
+    this(planIdentity, steps.toArray(new Step[0]));
+  }
+
+  public RigidGenerationPlan(@NotNull PlanIdentity planIdentity, @NotNull Collection<Step> steps, @Nullable ModelSetup modelSetup) {
     myIdentity = planIdentity;
     mySteps = steps.toArray(new Step[0]);
+    myModelSetup = modelSetup;
   }
 
   @Override
@@ -77,5 +87,12 @@ public class RigidGenerationPlan implements ModelGenerationPlan {
   public boolean coversLanguage(SLanguage language) {
     // doesn't check by default
     return true;
+  }
+
+  @Override
+  public void configure(@NotNull SModel model) {
+    if (myModelSetup != null) {
+      myModelSetup.apply(model);
+    }
   }
 }

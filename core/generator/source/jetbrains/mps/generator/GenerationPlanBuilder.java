@@ -17,6 +17,7 @@ package jetbrains.mps.generator;
 
 import jetbrains.mps.generator.plan.CheckpointIdentity;
 import jetbrains.mps.generator.plan.ForkConditionBuilder;
+import jetbrains.mps.generator.plan.ModelSetup;
 import jetbrains.mps.generator.plan.PlanIdentity;
 import jetbrains.mps.generator.plan.PlanParameterIdentity;
 import jetbrains.mps.generator.runtime.TemplateMappingConfiguration;
@@ -144,6 +145,17 @@ public interface GenerationPlanBuilder {
   @Deprecated(since = "2025.3", forRemoval = true)
   default void setGenerationTarget(String targetHint) {
     // NOP by default
+  }
+
+  /**
+   * Extra setup activity for a branch/model. Generally, it's expected to be invoked at most one (i.e. no logic combining multiple
+   * configurators is expected), although this might get changed eventually.
+   * @param configurator code to apply once there's a model for a plan/branch
+   * @since 2025.3
+   */
+  default void modelSetup(@NotNull ModelSetup configurator) {
+    // unlike some other methods of this class (e.g. fork() or withConditionSelector()), this one is not a builder (e.g. modelSetup():ModelSetupBuilder),
+    // I'd like to explore this way of constructing as well; although I do think would be nice to have consistent API
   }
 
   /**
