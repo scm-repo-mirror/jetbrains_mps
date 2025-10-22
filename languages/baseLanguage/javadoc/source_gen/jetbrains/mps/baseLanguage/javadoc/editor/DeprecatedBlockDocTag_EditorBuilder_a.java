@@ -177,9 +177,6 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
       if (editorCell.getSRole() == null) {
         editorCell.setSRole(LINKS.text$c2BW);
       }
-      if (true) {
-        editorCell.getStyle().set(StyleAttributes.FOCUS_POLICY, FocusPolicy.ATTRACTS_RECURSIVELY);
-      }
       DeleteDocTag.setCellActions(editorCell, getNode(), getEditorContext());
     }
     @Override

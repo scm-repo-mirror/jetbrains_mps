@@ -7,6 +7,8 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.editor.runtime.selection.SelectionUtil;
+import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -24,7 +26,12 @@ public class DeleteTagsAndHandleDeprecationOnAttributedNode {
         if (DeletionApproverUtil.approve(editorContext, node)) {
           return;
         }
+        SNode candidate = ((SNodeOperations.getPrevSibling(node) != null) ? SNodeOperations.getPrevSibling(node) : ((SNodeOperations.getNextSibling(node) != null) ? SNodeOperations.getNextSibling(node) : SNodeOperations.getParent(node)));
         SNodeOperations.deleteNode(node);
+        if (candidate != null) {
+          SelectionUtil.selectCell(editorContext, candidate, SelectionManager.FIRST_EDITABLE_CELL);
+        }
+
       }
 
     };

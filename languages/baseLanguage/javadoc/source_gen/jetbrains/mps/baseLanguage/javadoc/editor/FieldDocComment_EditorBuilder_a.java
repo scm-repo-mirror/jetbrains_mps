@@ -122,7 +122,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     return ListSequence.fromList(SLinkOperations.getChildren(getNode(), LINKS.body$OAGp)).isNotEmpty() || ListSequence.fromList(SLinkOperations.getChildren(getNode(), LINKS.commentBody$sIzh)).isNotEmpty();
   }
   private boolean nodeCondition_c4imx1_a0a0() {
-    return SLinkOperations.getChildren(myNode, LINKS.body$OAGp) == null || ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.body$OAGp)).isEmpty();
+    return SLinkOperations.getChildren(myNode, LINKS.commentBody$sIzh) == null || ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.commentBody$sIzh)).isEmpty();
   }
   private EditorCell createRefNodeList_0() {
     AbstractCellListHandler handler = new commentBodyListHandler_c4imx1_b0a(myNode, getEditorContext());
@@ -221,6 +221,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     Style style = new StyleImpl();
     style.set(StyleAttributes.INDENT_LAYOUT_NEW_LINE, true);
     style.set(StyleAttributes.INDENT_LAYOUT_INDENT, true);
+    style.set(StyleAttributes.SELECTABLE, false);
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
     return editorCell;
