@@ -129,18 +129,18 @@
           <module ref="b00f36f0-49b7-456c-8405-740447ebb192(MPS.IDEA.Modules)" kind="cl" />
         </dependencies>
         <uses />
-        <library jar="/lib/modules/intellij.platform.vcs.impl.jar" />
         <library jar="/lib/modules/intellij.platform.vcs.dvcs.impl.jar" />
-        <library jar="/lib/modules/intellij.platform.vcs.log.impl.jar" />
         <library jar="/lib/modules/intellij.platform.vcs.dvcs.impl.shared.jar" />
         <library jar="/lib/modules/intellij.platform.vcs.dvcs.jar" />
         <library jar="/lib/modules/intellij.platform.vcs.impl.exec.jar" />
         <library jar="/lib/modules/intellij.platform.vcs.impl.frontend.jar" />
+        <library jar="/lib/modules/intellij.platform.vcs.impl.jar" />
         <library jar="/lib/modules/intellij.platform.vcs.impl.lang.actions.jar" />
         <library jar="/lib/modules/intellij.platform.vcs.impl.lang.jar" />
         <library jar="/lib/modules/intellij.platform.vcs.impl.shared.jar" />
         <library jar="/lib/modules/intellij.platform.vcs.log.graph.impl.jar" />
         <library jar="/lib/modules/intellij.platform.vcs.log.graph.jar" />
+        <library jar="/lib/modules/intellij.platform.vcs.log.impl.jar" />
         <library jar="/lib/modules/intellij.platform.vcs.log.jar" />
         <sources jar="." descriptor="jetbrains.mps.vcs.idea.stubs.msd" />
       </module>

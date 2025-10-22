@@ -2,7 +2,7 @@
 <debug-info version="2">
   <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/1392391688312941958">
     <file name="mpsStandalone.xml">
-      <unit id="1392391688312941958" at="1,0,141,10" name="jetbrains.mps.ide.build.mpsStandalone" />
+      <unit id="1392391688312941958" at="1,0,137,10" name="jetbrains.mps.ide.build.mpsStandalone" />
     </file>
   </root>
   <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/1432730276628307864">
@@ -137,12 +137,12 @@
   </root>
   <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/7759561396119470053">
     <file name="mpsTrueBootstrap.xml">
-      <unit id="7759561396119470053" at="1,0,859,10" name="jetbrains.mps.ide.build.mpsTrueBootstrap" />
+      <unit id="7759561396119470053" at="1,0,860,10" name="jetbrains.mps.ide.build.mpsTrueBootstrap" />
     </file>
   </root>
   <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/7926701909975931624">
     <file name="mpsBootstrapCore.xml">
-      <unit id="7926701909975931624" at="1,0,32271,10" name="jetbrains.mps.ide.build.mpsBootstrapCore" />
+      <unit id="7926701909975931624" at="1,0,33210,10" name="jetbrains.mps.ide.build.mpsBootstrapCore" />
     </file>
   </root>
   <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/8006829063600512192">

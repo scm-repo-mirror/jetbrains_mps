@@ -226,8 +226,8 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-project-check.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-icons.jar" />
         <fileset file="${artifacts.mpsWorkbench}/lib/mps-workbench.jar" />
-        <fileset file="${artifacts.IDEA}/lib/modules/intellij.spellchecker.jar" />
-        <fileset file="${artifacts.IDEA}/lib/modules/intellij.spellchecker.xml.jar" />
+        <fileset file="${mps_home}/lib/modules/intellij.spellchecker.jar" />
+        <fileset file="${mps_home}/lib/modules/intellij.spellchecker.xml.jar" />
         <fileset file="${artifacts.IDEA}/lib/app.jar" />
         <fileset file="${artifacts.IDEA}/lib/app-client.jar" />
         <fileset file="${artifacts.IDEA}/lib/lib.jar" />
