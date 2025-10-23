@@ -24,6 +24,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.model.ResolveInfo;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodIdV2;
 import org.eclipse.jdt.internal.core.util.RecordedParsingInformation;
@@ -42,6 +43,7 @@ import org.jetbrains.mps.openapi.model.SReference;
 import jetbrains.mps.smodel.SModelInternal;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 
 @GeneratedClass(nodeId = "3493766494546492073", model = "r:b1598fca-3527-4718-b3ee-193781dbf052(jetbrains.mps.java.core.newparser)")
@@ -155,10 +157,11 @@ public class JavaParser {
     return new JavaParseResult(resultNodes, converter.getAdditionalLanguages(), resultPackageName, problemDescription(util.recordedParsingInformation));
   }
 
-  private SNode extractJavadocBlockTag(String comment) {
+  private SNode extractJavadocBlockTag(String comment, SNode doc) {
     if (comment == null || comment.isEmpty() || !(comment.contains("@"))) {
       return null;
     }
+    boolean isClassDoc = SNodeOperations.isInstanceOf(doc, CONCEPTS.ClassifierDocComment$mh);
     String regex = "(@\\w+)(\\s.+)?";
     // More concise and generally effective.
     Pattern pattern = Pattern.compile(regex);
@@ -170,63 +173,74 @@ public class JavaParser {
     SNode foundTag = null;
     if (tagName.equals("@author")) {
       SNode tag = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7faee13eL, "jetbrains.mps.baseLanguage.javadoc.structure.AuthorBlockDocTag"));
-      SPropertyOperations.assign(tag, PROPS.text$sEPS, trim_9quruo_a2a1a8a6(matcher.group(2)));
+      SPropertyOperations.assign(tag, PROPS.text$sEPS, trim_9quruo_a2a1a9a6(matcher.group(2)));
       foundTag = tag;
     }
     if (tagName.equals("@since")) {
       SNode tag = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87ddadL, "jetbrains.mps.baseLanguage.javadoc.structure.SinceBlockDocTag"));
-      SPropertyOperations.assign(tag, PROPS.text$$ome, trim_9quruo_a2a1a9a6(matcher.group(2)));
+      SPropertyOperations.assign(tag, PROPS.text$$ome, trim_9quruo_a2a1a01a6(matcher.group(2)));
       foundTag = tag;
     }
     if (tagName.equals("@see")) {
       SNode tag = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec252ca3abL, "jetbrains.mps.baseLanguage.javadoc.structure.SeeBlockDocTag"));
-      String content = trim_9quruo_a0a1a01a6(matcher.group(2));
+      String content = trim_9quruo_a0a1a11a6(matcher.group(2));
       if ((content != null && content.length() > 0)) {
         int indexOfSpace = content.indexOf(" ");
-        String refString = (indexOfSpace == -1 ? content : trim_9quruo_a0a0b0c0k0g(content.substring(0, indexOfSpace)));
+        String refString = (indexOfSpace == -1 ? content : trim_9quruo_a0a0b0c0l0g(content.substring(0, indexOfSpace)));
         if ((refString != null && refString.length() > 0)) {
-          SPropertyOperations.assign(tag, PROPS.text$f7yH, trim_9quruo_a2a0a2a2a01a6(content.substring(indexOfSpace)));
+          SPropertyOperations.assign(tag, PROPS.text$f7yH, trim_9quruo_a2a0a2a2a11a6(content.substring(indexOfSpace)));
         }
       }
       foundTag = tag;
     }
     if (tagName.equals("@version")) {
       SNode tag = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87dda0L, "jetbrains.mps.baseLanguage.javadoc.structure.VersionBlockDocTag"));
-      SPropertyOperations.assign(tag, PROPS.text$$fSd, trim_9quruo_a2a1a11a6(matcher.group(2)));
+      SPropertyOperations.assign(tag, PROPS.text$$fSd, trim_9quruo_a2a1a21a6(matcher.group(2)));
       foundTag = tag;
     }
     if (tagName.equals("@return")) {
       SNode tag = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x514c0f687050918eL, "jetbrains.mps.baseLanguage.javadoc.structure.ReturnBlockDocTag"));
-      SPropertyOperations.assign(tag, PROPS.text$eo0d, trim_9quruo_a2a1a21a6(matcher.group(2)));
+      SPropertyOperations.assign(tag, PROPS.text$eo0d, trim_9quruo_a2a1a31a6(matcher.group(2)));
       foundTag = tag;
     }
     if (tagName.equals("@throws")) {
       SNode tag = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x514c0f68704ec270L, "jetbrains.mps.baseLanguage.javadoc.structure.ThrowsBlockDocTag"));
-      String content = trim_9quruo_a0a1a31a6(matcher.group(2));
+      String content = trim_9quruo_a0a1a41a6(matcher.group(2));
       if ((content != null && content.length() > 0)) {
         int indexOfSpace = content.indexOf(" ");
-        String refString = (indexOfSpace == -1 ? content : trim_9quruo_a0a0b0c0n0g(content.substring(0, indexOfSpace)));
+        String refString = (indexOfSpace == -1 ? content : trim_9quruo_a0a0b0c0o0g(content.substring(0, indexOfSpace)));
         if ((refString != null && refString.length() > 0)) {
-          SPropertyOperations.assign(tag, PROPS.text$w_DI, trim_9quruo_a2a0a2a2a31a6(content.substring(indexOfSpace)));
+          ResolveInfo ri = ResolveInfo.of(trim_9quruo_a0a0a0c0c0o0g(content.substring(0, indexOfSpace)));
+          SLinkOperations.setTarget(tag, LINKS.exceptionType$7VDs, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType")));
+          SNodeOperations.as(SLinkOperations.getTarget(tag, LINKS.exceptionType$7VDs), CONCEPTS.ClassifierType$bL).setReference(LINKS.classifier$cxMr, ri);
+          SPropertyOperations.assign(tag, PROPS.text$w_DI, trim_9quruo_a2a3a2a2a41a6(content.substring(indexOfSpace)));
         }
       }
       foundTag = tag;
     }
     if (tagName.equals("@param")) {
       SNode tag = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c905f8aL, "jetbrains.mps.baseLanguage.javadoc.structure.ParameterBlockDocTag"));
-      String content = trim_9quruo_a0a1a41a6(matcher.group(2));
+      String content = trim_9quruo_a0a1a51a6(matcher.group(2));
       if ((content != null && content.length() > 0)) {
         int indexOfSpace = content.indexOf(" ");
-        String refString = (indexOfSpace == -1 ? content : trim_9quruo_a0a0b0c0o0g(content.substring(0, indexOfSpace)));
+        String refString = (indexOfSpace == -1 ? content : trim_9quruo_a0a0b0c0p0g(content.substring(0, indexOfSpace)));
         if ((refString != null && refString.length() > 0)) {
-          SPropertyOperations.assign(tag, PROPS.text$99vK, trim_9quruo_a2a0a2a2a41a6(content.substring(indexOfSpace)));
+          ResolveInfo ri = ResolveInfo.of(trim_9quruo_a0a0a0c0c0p0g(content.substring(0, indexOfSpace)));
+          if (isClassDoc) {
+            SLinkOperations.setTarget(tag, LINKS.parameter$eWDw, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x5ed0d79d7dbe86dbL, "jetbrains.mps.baseLanguage.javadoc.structure.DocTypeParameterReference")));
+            SNodeOperations.as(SLinkOperations.getTarget(tag, LINKS.parameter$eWDw), CONCEPTS.DocTypeParameterReference$Qk).setReference(LINKS.param$eUNL, ri);
+          } else {
+            SLinkOperations.setTarget(tag, LINKS.parameter$eWDw, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x5ed0d79d7dbe86d8L, "jetbrains.mps.baseLanguage.javadoc.structure.DocMethodParameterReference")));
+            SNodeOperations.as(SLinkOperations.getTarget(tag, LINKS.parameter$eWDw), CONCEPTS.DocMethodParameterReference$OR).setReference(LINKS.param$eUNL, ri);
+          }
+          SPropertyOperations.assign(tag, PROPS.text$99vK, trim_9quruo_a2a2a2a2a51a6(content.substring(indexOfSpace)));
         }
       }
       foundTag = tag;
     }
     if (tagName.equals("@deprecated")) {
       SNode tag = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, "jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag"));
-      String desc = trim_9quruo_a0a1a51a6(matcher.group(2));
+      String desc = trim_9quruo_a0a1a61a6(matcher.group(2));
       if ((desc != null && desc.length() > 0)) {
         BHReflection.invoke0(SLinkOperations.getTarget(tag, LINKS.comment$IhdF), CONCEPTS.Line$yC, SMethodIdV2.create("removeTextElementAt", 1094247804558425274L, 0x4e4bd60a2247ebcfL), ((int) 0));
         BHReflection.invoke0(SLinkOperations.getTarget(tag, LINKS.comment$IhdF), CONCEPTS.Line$yC, SMethodIdV2.create("parseAndAppendText", 7068855900723867743L, 0x4e4bd60a2247ebcfL), desc);
@@ -262,7 +276,7 @@ public class JavaParser {
 
         List<String> lines = CommentHelper.processJavadoc(CommentHelper.splitString(content, lineends, comment[0], comment[1]));
         for (String text : lines) {
-          SNode tag = extractJavadocBlockTag(text);
+          SNode tag = extractJavadocBlockTag(text, doc);
           if (tag != null) {
             ListSequence.fromList(SLinkOperations.getChildren(doc, LINKS.tags$stUD)).addElement(tag);
           } else {
@@ -449,34 +463,25 @@ public class JavaParser {
       }
     }
   }
-  public static String trim_9quruo_a2a1a8a6(String str) {
-    return (str == null ? null : str.trim());
-  }
   public static String trim_9quruo_a2a1a9a6(String str) {
     return (str == null ? null : str.trim());
   }
-  public static String trim_9quruo_a0a1a01a6(String str) {
+  public static String trim_9quruo_a2a1a01a6(String str) {
     return (str == null ? null : str.trim());
   }
-  public static String trim_9quruo_a0a0b0c0k0g(String str) {
+  public static String trim_9quruo_a0a1a11a6(String str) {
     return (str == null ? null : str.trim());
   }
-  public static String trim_9quruo_a2a0a2a2a01a6(String str) {
+  public static String trim_9quruo_a0a0b0c0l0g(String str) {
     return (str == null ? null : str.trim());
   }
-  public static String trim_9quruo_a2a1a11a6(String str) {
+  public static String trim_9quruo_a2a0a2a2a11a6(String str) {
     return (str == null ? null : str.trim());
   }
   public static String trim_9quruo_a2a1a21a6(String str) {
     return (str == null ? null : str.trim());
   }
-  public static String trim_9quruo_a0a1a31a6(String str) {
-    return (str == null ? null : str.trim());
-  }
-  public static String trim_9quruo_a0a0b0c0n0g(String str) {
-    return (str == null ? null : str.trim());
-  }
-  public static String trim_9quruo_a2a0a2a2a31a6(String str) {
+  public static String trim_9quruo_a2a1a31a6(String str) {
     return (str == null ? null : str.trim());
   }
   public static String trim_9quruo_a0a1a41a6(String str) {
@@ -485,15 +490,34 @@ public class JavaParser {
   public static String trim_9quruo_a0a0b0c0o0g(String str) {
     return (str == null ? null : str.trim());
   }
-  public static String trim_9quruo_a2a0a2a2a41a6(String str) {
+  public static String trim_9quruo_a0a0a0c0c0o0g(String str) {
+    return (str == null ? null : str.trim());
+  }
+  public static String trim_9quruo_a2a3a2a2a41a6(String str) {
     return (str == null ? null : str.trim());
   }
   public static String trim_9quruo_a0a1a51a6(String str) {
     return (str == null ? null : str.trim());
   }
+  public static String trim_9quruo_a0a0b0c0p0g(String str) {
+    return (str == null ? null : str.trim());
+  }
+  public static String trim_9quruo_a0a0a0c0c0p0g(String str) {
+    return (str == null ? null : str.trim());
+  }
+  public static String trim_9quruo_a2a2a2a2a51a6(String str) {
+    return (str == null ? null : str.trim());
+  }
+  public static String trim_9quruo_a0a1a61a6(String str) {
+    return (str == null ? null : str.trim());
+  }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept Classifier$Ix = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept ClassifierDocComment$mh = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1cb65d9fe66a764cL, "jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocComment");
+    /*package*/ static final SConcept ClassifierType$bL = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
+    /*package*/ static final SConcept DocTypeParameterReference$Qk = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x5ed0d79d7dbe86dbL, "jetbrains.mps.baseLanguage.javadoc.structure.DocTypeParameterReference");
+    /*package*/ static final SConcept DocMethodParameterReference$OR = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x5ed0d79d7dbe86d8L, "jetbrains.mps.baseLanguage.javadoc.structure.DocMethodParameterReference");
     /*package*/ static final SConcept Line$yC = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, "jetbrains.mps.lang.text.structure.Line");
     /*package*/ static final SConcept SingleLineComment$Kw = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, "jetbrains.mps.baseLanguage.structure.SingleLineComment");
     /*package*/ static final SConcept MultiLineComment$_e = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1809ed668dda555fL, "jetbrains.mps.baseLanguage.structure.MultiLineComment");
@@ -501,6 +525,10 @@ public class JavaParser {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink statement$53DE = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
+    /*package*/ static final SContainmentLink exceptionType$7VDs = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x514c0f68704ec270L, 0x5ed0d79d7dbd76f9L, "exceptionType");
+    /*package*/ static final SReferenceLink classifier$cxMr = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
+    /*package*/ static final SContainmentLink parameter$eWDw = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c905f8aL, 0x5ed0d79d7dbe86ebL, "parameter");
+    /*package*/ static final SReferenceLink param$eUNL = MetaAdapterFactory.getReferenceLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x5ed0d79d7dbe86d7L, 0x5ed0d79d7dbe86dcL, "param");
     /*package*/ static final SContainmentLink comment$IhdF = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, 0x4693b55d3d5e0465L, "comment");
     /*package*/ static final SContainmentLink tags$stUD = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4ab5c2019ddc99f3L, "tags");
     /*package*/ static final SContainmentLink commentBody$sIzh = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3da98b10L, 0x4693b55d3da98c33L, "commentBody");
