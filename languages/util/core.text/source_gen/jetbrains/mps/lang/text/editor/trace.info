@@ -3799,121 +3799,120 @@
       <node id="2535923850360708133" at="55,141,56,81" concept="11" />
       <node id="2535923850360714965" at="57,217,58,105" concept="12" />
       <node id="2535923850360727168" at="59,14,60,81" concept="12" />
-      <node id="2535923850360685857" at="62,5,63,0" concept="14" />
-      <node id="2535923850360431200" at="67,0,68,0" concept="6" trace="myCurrentWord" />
-      <node id="2535923850360129542" at="68,0,69,0" concept="6" trace="myNeighbour" />
-      <node id="2535923850361945393" at="69,0,70,0" concept="6" trace="myCurrentWordValue" />
-      <node id="2535923850361951307" at="70,0,71,0" concept="6" trace="myNeighbourValue" />
-      <node id="2535923850360125297" at="72,131,73,38" concept="17" />
-      <node id="2535923850360449192" at="73,38,74,34" concept="5" />
-      <node id="2535923850360129549" at="74,34,75,34" concept="5" />
-      <node id="2535923850361945403" at="75,34,76,107" concept="5" />
-      <node id="2535923850361951317" at="76,107,77,103" concept="5" />
-      <node id="2535923850360231225" at="81,27,82,99" concept="11" />
-      <node id="3133179214568733107" at="82,99,83,20" concept="11" />
-      <node id="3133179214568746854" at="84,77,85,56" concept="5" />
-      <node id="3133179214568756902" at="86,14,87,58" concept="5" />
-      <node id="2535923850361739598" at="88,7,89,75" concept="5" />
-      <node id="2535923850360183434" at="89,75,90,46" concept="5" />
-      <node id="3133179214568769091" at="90,46,91,65" concept="5" />
-      <node id="2535923850360210745" at="91,65,92,135" concept="5" />
-      <node id="2535923850361778561" at="94,34,95,50" concept="11" />
-      <node id="2535923850361854444" at="96,24,97,43" concept="5" />
-      <node id="2535923850361854436" at="97,43,98,41" concept="5" />
-      <node id="2535923850361843892" at="99,14,100,41" concept="5" />
-      <node id="2535923850361792043" at="100,41,101,43" concept="5" />
-      <node id="2535923850361866242" at="102,7,103,32" concept="12" />
-      <node id="2535923850361823528" at="107,26,108,18" concept="12" />
-      <node id="2535923850361836427" at="109,14,110,21" concept="12" />
-      <node id="6681408443910405653" at="115,0,116,0" concept="6" trace="myCurrentWord" />
-      <node id="6681408443910405650" at="116,0,117,0" concept="6" trace="myNeighbour" />
-      <node id="6681408443910405666" at="118,121,119,38" concept="17" />
-      <node id="6681408443910405669" at="119,38,120,34" concept="5" />
-      <node id="6681408443910405673" at="120,34,121,30" concept="5" />
-      <node id="6681408443910447829" at="125,27,126,48" concept="5" />
-      <node id="6681408443910457265" at="127,24,128,110" concept="5" />
-      <node id="6681408443910463908" at="129,14,130,110" concept="5" />
-      <node id="2535923850360247961" at="135,0,136,0" concept="6" trace="myNeighbour" />
-      <node id="2535923850360247968" at="137,102,138,38" concept="17" />
-      <node id="2535923850360247972" at="138,38,139,30" concept="5" />
-      <node id="2535923850360260090" at="143,27,144,87" concept="11" />
-      <node id="2535923850360268194" at="145,27,146,48" concept="5" />
-      <node id="474718489010765837" at="151,0,152,0" concept="6" trace="myNeighbour" />
-      <node id="474718489010765844" at="153,106,154,38" concept="17" />
-      <node id="474718489010765847" at="154,38,155,30" concept="5" />
-      <node id="474718489010774962" at="160,24,161,110" concept="5" />
-      <node id="474718489010806778" at="162,14,163,110" concept="5" />
-      <node id="2535923850360271343" at="168,0,169,0" concept="6" trace="myLine" />
-      <node id="2535923850360271350" at="170,100,171,38" concept="17" />
-      <node id="2535923850360271354" at="171,38,172,20" concept="5" />
-      <node id="2535923850360271370" at="176,27,177,82" concept="11" />
-      <node id="7015101378948637765" at="179,442,180,72" concept="5" />
-      <node id="2535923850360271379" at="181,16,182,45" concept="5" />
-      <node id="2535923850360277404" at="188,0,189,0" concept="6" trace="myNeighbourLine" />
-      <node id="2535923850360324569" at="189,0,190,0" concept="6" trace="myCurrentLine" />
-      <node id="2535923850361631158" at="190,0,191,0" concept="6" trace="myCurrentNode" />
-      <node id="2535923850360277411" at="193,143,194,38" concept="17" />
-      <node id="2535923850361631165" at="194,38,195,34" concept="5" />
-      <node id="2535923850360336440" at="195,34,196,34" concept="5" />
-      <node id="2535923850360277415" at="196,34,197,38" concept="5" />
-      <node id="2535923850361516527" at="201,27,202,24" concept="11" />
-      <node id="2535923850361532167" at="203,24,204,119" concept="5" />
-      <node id="2535923850360293986" at="204,119,205,217" concept="5" />
-      <node id="1211637016817821436" at="205,217,206,84" concept="5" />
-      <node id="2535923850361574126" at="207,14,208,117" concept="5" />
-      <node id="2535923850360585263" at="208,117,209,217" concept="5" />
-      <node id="3162968188866453086" at="209,217,210,82" concept="5" />
-      <node id="2535923850361658127" at="212,137,213,110" concept="5" />
-      <node id="6681408443910393302" at="217,52,218,40" concept="12" />
-      <node id="2535923850360120154" at="222,0,223,0" concept="15" trace="TextElement$WN" />
-      <node id="2535923850360120154" at="223,0,224,0" concept="15" trace="Word$Dn" />
-      <node id="2535923850360120154" at="224,0,225,0" concept="15" trace="Line$yC" />
-      <node id="2535923850360120154" at="225,0,226,0" concept="15" trace="IHoldLines$ky" />
-      <node id="2535923850360120154" at="229,0,230,0" concept="15" trace="value$zQr_" />
-      <node id="2535923850360120154" at="233,0,234,0" concept="15" trace="elements$_j45" />
+      <node id="2535923850360431200" at="66,0,67,0" concept="6" trace="myCurrentWord" />
+      <node id="2535923850360129542" at="67,0,68,0" concept="6" trace="myNeighbour" />
+      <node id="2535923850361945393" at="68,0,69,0" concept="6" trace="myCurrentWordValue" />
+      <node id="2535923850361951307" at="69,0,70,0" concept="6" trace="myNeighbourValue" />
+      <node id="2535923850360125297" at="71,131,72,38" concept="17" />
+      <node id="2535923850360449192" at="72,38,73,34" concept="5" />
+      <node id="2535923850360129549" at="73,34,74,34" concept="5" />
+      <node id="2535923850361945403" at="74,34,75,107" concept="5" />
+      <node id="2535923850361951317" at="75,107,76,103" concept="5" />
+      <node id="2535923850360231225" at="80,27,81,99" concept="11" />
+      <node id="3133179214568733107" at="81,99,82,20" concept="11" />
+      <node id="3133179214568746854" at="83,77,84,56" concept="5" />
+      <node id="3133179214568756902" at="85,14,86,58" concept="5" />
+      <node id="2535923850361739598" at="87,7,88,75" concept="5" />
+      <node id="2535923850360183434" at="88,75,89,46" concept="5" />
+      <node id="3133179214568769091" at="89,46,90,65" concept="5" />
+      <node id="2535923850360210745" at="90,65,91,135" concept="5" />
+      <node id="2535923850361778561" at="93,34,94,50" concept="11" />
+      <node id="2535923850361854444" at="95,24,96,43" concept="5" />
+      <node id="2535923850361854436" at="96,43,97,41" concept="5" />
+      <node id="2535923850361843892" at="98,14,99,41" concept="5" />
+      <node id="2535923850361792043" at="99,41,100,43" concept="5" />
+      <node id="2535923850361866242" at="101,7,102,32" concept="12" />
+      <node id="2535923850361823528" at="106,26,107,18" concept="12" />
+      <node id="2535923850361836427" at="108,14,109,21" concept="12" />
+      <node id="6681408443910405653" at="114,0,115,0" concept="6" trace="myCurrentWord" />
+      <node id="6681408443910405650" at="115,0,116,0" concept="6" trace="myNeighbour" />
+      <node id="6681408443910405666" at="117,121,118,38" concept="17" />
+      <node id="6681408443910405669" at="118,38,119,34" concept="5" />
+      <node id="6681408443910405673" at="119,34,120,30" concept="5" />
+      <node id="6681408443910447829" at="124,27,125,48" concept="5" />
+      <node id="6681408443910457265" at="126,24,127,110" concept="5" />
+      <node id="6681408443910463908" at="128,14,129,110" concept="5" />
+      <node id="2535923850360247961" at="134,0,135,0" concept="6" trace="myNeighbour" />
+      <node id="2535923850360247968" at="136,102,137,38" concept="17" />
+      <node id="2535923850360247972" at="137,38,138,30" concept="5" />
+      <node id="2535923850360260090" at="142,27,143,87" concept="11" />
+      <node id="2535923850360268194" at="144,27,145,48" concept="5" />
+      <node id="474718489010765837" at="150,0,151,0" concept="6" trace="myNeighbour" />
+      <node id="474718489010765844" at="152,106,153,38" concept="17" />
+      <node id="474718489010765847" at="153,38,154,30" concept="5" />
+      <node id="474718489010774962" at="159,24,160,110" concept="5" />
+      <node id="474718489010806778" at="161,14,162,110" concept="5" />
+      <node id="2535923850360271343" at="167,0,168,0" concept="6" trace="myLine" />
+      <node id="2535923850360271350" at="169,100,170,38" concept="17" />
+      <node id="2535923850360271354" at="170,38,171,20" concept="5" />
+      <node id="2535923850360271370" at="175,27,176,82" concept="11" />
+      <node id="7015101378948637765" at="178,442,179,72" concept="5" />
+      <node id="2535923850360271379" at="180,16,181,45" concept="5" />
+      <node id="2535923850360277404" at="187,0,188,0" concept="6" trace="myNeighbourLine" />
+      <node id="2535923850360324569" at="188,0,189,0" concept="6" trace="myCurrentLine" />
+      <node id="2535923850361631158" at="189,0,190,0" concept="6" trace="myCurrentNode" />
+      <node id="2535923850360277411" at="192,143,193,38" concept="17" />
+      <node id="2535923850361631165" at="193,38,194,34" concept="5" />
+      <node id="2535923850360336440" at="194,34,195,34" concept="5" />
+      <node id="2535923850360277415" at="195,34,196,38" concept="5" />
+      <node id="2535923850361516527" at="200,27,201,24" concept="11" />
+      <node id="2535923850361532167" at="202,24,203,119" concept="5" />
+      <node id="2535923850360293986" at="203,119,204,217" concept="5" />
+      <node id="1211637016817821436" at="204,217,205,84" concept="5" />
+      <node id="2535923850361574126" at="206,14,207,117" concept="5" />
+      <node id="2535923850360585263" at="207,117,208,217" concept="5" />
+      <node id="3162968188866453086" at="208,217,209,82" concept="5" />
+      <node id="2535923850361658127" at="211,137,212,110" concept="5" />
+      <node id="6681408443910393302" at="216,52,217,40" concept="12" />
+      <node id="2535923850360120154" at="221,0,222,0" concept="15" trace="TextElement$WN" />
+      <node id="2535923850360120154" at="222,0,223,0" concept="15" trace="Word$Dn" />
+      <node id="2535923850360120154" at="223,0,224,0" concept="15" trace="Line$yC" />
+      <node id="2535923850360120154" at="224,0,225,0" concept="15" trace="IHoldLines$ky" />
+      <node id="2535923850360120154" at="228,0,229,0" concept="15" trace="value$zQr_" />
+      <node id="2535923850360120154" at="232,0,233,0" concept="15" trace="elements$_j45" />
       <node id="6681408443910569135" at="24,0,26,0" concept="3" trace="TextDeleteStrategyFactory#()V" />
       <node id="474718489010815781" at="48,12,50,7" concept="1" />
       <node id="2535923850360726492" at="59,12,61,7" concept="1" />
-      <node id="3133179214568754709" at="86,12,88,7" concept="1" />
-      <node id="2535923850361832785" at="109,12,111,7" concept="1" />
-      <node id="6681408443910463715" at="129,12,131,7" concept="1" />
-      <node id="474718489010806554" at="162,12,164,7" concept="1" />
-      <node id="7015101378948649824" at="181,14,183,9" concept="1" />
-      <node id="2535923850360187937" at="99,12,102,7" concept="1" />
-      <node id="2535923850360263157" at="144,87,147,7" concept="9" />
-      <node id="2535923850361495581" at="211,7,214,7" concept="9" />
-      <node id="6681408443910393302" at="217,0,220,0" concept="16" trace="isEmptyString#(Ljava/lang/String;)Z" />
+      <node id="3133179214568754709" at="85,12,87,7" concept="1" />
+      <node id="2535923850361832785" at="108,12,110,7" concept="1" />
+      <node id="6681408443910463715" at="128,12,130,7" concept="1" />
+      <node id="474718489010806554" at="161,12,163,7" concept="1" />
+      <node id="7015101378948649824" at="180,14,182,9" concept="1" />
+      <node id="2535923850360187937" at="98,12,101,7" concept="1" />
+      <node id="2535923850360263157" at="143,87,146,7" concept="9" />
+      <node id="2535923850361495581" at="210,7,213,7" concept="9" />
+      <node id="6681408443910393302" at="216,0,219,0" concept="16" trace="isEmptyString#(Ljava/lang/String;)Z" />
       <node id="6681408443911218486" at="30,0,34,0" concept="3" trace="TextDeleteStrategy#(Ljetbrains/mps/openapi/editor/EditorContext;Z)V" />
-      <node id="2535923850360247965" at="137,0,141,0" concept="3" trace="RemoveNeighbourStrategy#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;Z)V" />
-      <node id="474718489010765841" at="153,0,157,0" concept="3" trace="SelectNeighbourWordStrategy#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;Z)V" />
-      <node id="2535923850360271347" at="170,0,174,0" concept="3" trace="RemoveLastLineStrategy#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;Z)V" />
-      <node id="2535923850360284033" at="207,12,211,7" concept="1" />
+      <node id="2535923850360247965" at="136,0,140,0" concept="3" trace="RemoveNeighbourStrategy#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;Z)V" />
+      <node id="474718489010765841" at="152,0,156,0" concept="3" trace="SelectNeighbourWordStrategy#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;Z)V" />
+      <node id="2535923850360271347" at="169,0,173,0" concept="3" trace="RemoveLastLineStrategy#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;Z)V" />
+      <node id="2535923850360284033" at="206,12,210,7" concept="1" />
       <node id="6681408443910361727" at="38,93,43,7" concept="9" />
       <node id="474718489010810502" at="45,30,50,7" concept="9" />
       <node id="2535923850360710235" at="56,81,61,7" concept="9" />
-      <node id="3133179214568735685" at="83,20,88,7" concept="9" />
-      <node id="2535923850361817217" at="106,50,111,7" concept="9" />
-      <node id="6681408443910405663" at="118,0,123,0" concept="3" trace="DeleteEmptyWordStrategy#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;Z)V" />
-      <node id="6681408443910453333" at="126,48,131,7" concept="9" />
-      <node id="474718489010773298" at="159,27,164,7" concept="9" />
-      <node id="7015101378948613349" at="178,27,183,9" concept="9" />
-      <node id="2535923850360277408" at="193,0,199,0" concept="3" trace="RemoveLineStrategy#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;Z)V" />
+      <node id="3133179214568735685" at="82,20,87,7" concept="9" />
+      <node id="2535923850361817217" at="105,50,110,7" concept="9" />
+      <node id="6681408443910405663" at="117,0,122,0" concept="3" trace="DeleteEmptyWordStrategy#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;Z)V" />
+      <node id="6681408443910453333" at="125,48,130,7" concept="9" />
+      <node id="474718489010773298" at="158,27,163,7" concept="9" />
+      <node id="7015101378948613349" at="177,27,182,9" concept="9" />
+      <node id="2535923850360277408" at="192,0,198,0" concept="3" trace="RemoveLineStrategy#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;Z)V" />
       <node id="2535923850360793873" at="37,173,44,5" concept="9" />
-      <node id="2535923850360125292" at="72,0,79,0" concept="3" trace="GlueNeighbourWordStrategy#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;Z)V" />
-      <node id="2535923850360133539" at="95,50,102,7" concept="9" />
-      <node id="2535923850361806858" at="106,0,113,0" concept="10" trace="getValueOrEmpty#(Ljava/lang/String;)Ljava/lang/String;" />
-      <node id="2535923850360247985" at="142,0,149,0" concept="10" trace="execute#()V" />
-      <node id="2535923850360271377" at="177,82,184,7" concept="9" />
-      <node id="474718489010765859" at="158,0,166,0" concept="10" trace="execute#()V" />
-      <node id="6681408443910405700" at="124,0,133,0" concept="10" trace="execute#()V" />
-      <node id="2535923850360284018" at="202,24,211,7" concept="9" />
+      <node id="2535923850360125292" at="71,0,78,0" concept="3" trace="GlueNeighbourWordStrategy#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;Z)V" />
+      <node id="2535923850360133539" at="94,50,101,7" concept="9" />
+      <node id="2535923850361806858" at="105,0,112,0" concept="10" trace="getValueOrEmpty#(Ljava/lang/String;)Ljava/lang/String;" />
+      <node id="2535923850360247985" at="141,0,148,0" concept="10" trace="execute#()V" />
+      <node id="2535923850360271377" at="176,82,183,7" concept="9" />
+      <node id="474718489010765859" at="157,0,165,0" concept="10" trace="execute#()V" />
+      <node id="6681408443910405700" at="123,0,132,0" concept="10" trace="execute#()V" />
+      <node id="2535923850360284018" at="201,24,210,7" concept="9" />
       <node id="6681408443910399731" at="51,10,62,5" concept="1" />
-      <node id="2535923850361734706" at="94,0,105,0" concept="10" trace="getNewValue#()Ljava/lang/String;" />
-      <node id="2535923850360271367" at="175,0,186,0" concept="10" trace="execute#()V" />
-      <node id="2535923850360121410" at="80,0,94,0" concept="10" trace="execute#()V" />
-      <node id="2535923850360277428" at="200,0,216,0" concept="10" trace="execute#()V" />
+      <node id="2535923850361734706" at="93,0,104,0" concept="10" trace="getNewValue#()Ljava/lang/String;" />
+      <node id="2535923850360271367" at="174,0,185,0" concept="10" trace="execute#()V" />
+      <node id="2535923850360121410" at="79,0,93,0" concept="10" trace="execute#()V" />
+      <node id="2535923850360277428" at="199,0,215,0" concept="10" trace="execute#()V" />
       <node id="6681408443910397600" at="44,5,62,5" concept="9" />
-      <node id="2535923850360675258" at="36,0,65,0" concept="16" trace="createDeleteStrategy#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;Z)Ljetbrains/mps/lang/text/editor/TextStrategy;" />
+      <node id="2535923850360675258" at="36,0,64,0" concept="16" trace="createDeleteStrategy#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;Z)Ljetbrains/mps/lang/text/editor/TextStrategy;" />
       <scope id="6681408443910569138" at="24,39,24,39" />
       <scope id="6681408443910361729" at="39,70,40,175" />
       <scope id="6681408443910365380" at="41,135,42,133" />
@@ -3921,129 +3920,129 @@
       <scope id="474718489010815782" at="48,14,49,80" />
       <scope id="2535923850360710237" at="57,217,58,105" />
       <scope id="2535923850360726493" at="59,14,60,81" />
-      <scope id="3133179214568735687" at="84,77,85,56" />
-      <scope id="3133179214568754710" at="86,14,87,58" />
-      <scope id="2535923850361817219" at="107,26,108,18" />
-      <scope id="2535923850361832786" at="109,14,110,21" />
-      <scope id="6681408443910453335" at="127,24,128,110" />
-      <scope id="6681408443910463716" at="129,14,130,110" />
-      <scope id="2535923850360263159" at="145,27,146,48" />
-      <scope id="474718489010773300" at="160,24,161,110" />
-      <scope id="474718489010806555" at="162,14,163,110" />
-      <scope id="7015101378948613351" at="179,442,180,72" />
-      <scope id="7015101378948649825" at="181,16,182,45" />
-      <scope id="2535923850361495583" at="212,137,213,110" />
-      <scope id="6681408443910393302" at="217,52,218,40" />
+      <scope id="3133179214568735687" at="83,77,84,56" />
+      <scope id="3133179214568754710" at="85,14,86,58" />
+      <scope id="2535923850361817219" at="106,26,107,18" />
+      <scope id="2535923850361832786" at="108,14,109,21" />
+      <scope id="6681408443910453335" at="126,24,127,110" />
+      <scope id="6681408443910463716" at="128,14,129,110" />
+      <scope id="2535923850360263159" at="144,27,145,48" />
+      <scope id="474718489010773300" at="159,24,160,110" />
+      <scope id="474718489010806555" at="161,14,162,110" />
+      <scope id="7015101378948613351" at="178,442,179,72" />
+      <scope id="7015101378948649825" at="180,16,181,45" />
+      <scope id="2535923850361495583" at="211,137,212,110" />
+      <scope id="6681408443910393302" at="216,52,217,40" />
       <scope id="6681408443910569135" at="24,0,26,0" />
       <scope id="6681408443911218490" at="30,80,32,30" />
-      <scope id="2535923850360133541" at="96,24,98,41" />
-      <scope id="2535923850360187938" at="99,14,101,43" />
-      <scope id="2535923850360247967" at="137,102,139,30" />
-      <scope id="474718489010765843" at="153,106,155,30" />
-      <scope id="2535923850360271349" at="170,100,172,20" />
-      <scope id="6681408443910405665" at="118,121,121,30" />
-      <scope id="2535923850360284020" at="203,24,206,84" />
-      <scope id="2535923850360284034" at="207,14,210,82" />
-      <scope id="6681408443910393302" at="217,0,220,0">
+      <scope id="2535923850360133541" at="95,24,97,41" />
+      <scope id="2535923850360187938" at="98,14,100,43" />
+      <scope id="2535923850360247967" at="136,102,138,30" />
+      <scope id="474718489010765843" at="152,106,154,30" />
+      <scope id="2535923850360271349" at="169,100,171,20" />
+      <scope id="6681408443910405665" at="117,121,120,30" />
+      <scope id="2535923850360284020" at="202,24,205,84" />
+      <scope id="2535923850360284034" at="206,14,209,82" />
+      <scope id="6681408443910393302" at="216,0,219,0">
         <var name="str" id="6681408443910393302" />
       </scope>
       <scope id="6681408443911218486" at="30,0,34,0">
         <var name="editorContext" id="6681408443911218493" />
         <var name="isForward" id="6681408443911218497" />
       </scope>
-      <scope id="2535923850360247965" at="137,0,141,0">
+      <scope id="2535923850360247965" at="136,0,140,0">
         <var name="editorContext" id="2535923850360247980" />
         <var name="isForward" id="2535923850360247978" />
         <var name="neighbour" id="2535923850360247982" />
       </scope>
-      <scope id="2535923850360247987" at="143,27,147,7">
+      <scope id="2535923850360247987" at="142,27,146,7">
         <var name="wasApproved" id="2535923850360260091" />
       </scope>
-      <scope id="474718489010765841" at="153,0,157,0">
+      <scope id="474718489010765841" at="152,0,156,0">
         <var name="editorContext" id="474718489010765853" />
         <var name="isForward" id="474718489010765855" />
         <var name="neighbour" id="474718489010765851" />
       </scope>
-      <scope id="2535923850360271347" at="170,0,174,0">
+      <scope id="2535923850360271347" at="169,0,173,0">
         <var name="editorContext" id="2535923850360271362" />
         <var name="isForward" id="2535923850360271360" />
         <var name="text" id="2535923850360271364" />
       </scope>
-      <scope id="2535923850360277410" at="193,143,197,38" />
+      <scope id="2535923850360277410" at="192,143,196,38" />
       <scope id="2535923850360793875" at="38,93,43,7" />
       <scope id="6681408443910397602" at="45,30,50,7" />
-      <scope id="2535923850360125295" at="72,131,77,103" />
-      <scope id="2535923850361806861" at="106,50,111,7" />
-      <scope id="6681408443910405663" at="118,0,123,0">
+      <scope id="2535923850360125295" at="71,131,76,103" />
+      <scope id="2535923850361806861" at="105,50,110,7" />
+      <scope id="6681408443910405663" at="117,0,122,0">
         <var name="currentWord" id="6681408443910405691" />
         <var name="editorContext" id="6681408443910405695" />
         <var name="isForward" id="6681408443910405697" />
         <var name="neighbour" id="6681408443910405693" />
       </scope>
-      <scope id="474718489010765861" at="159,27,164,7" />
-      <scope id="2535923850360271378" at="178,27,183,9" />
-      <scope id="6681408443910405702" at="125,27,131,7" />
-      <scope id="2535923850360277408" at="193,0,199,0">
+      <scope id="474718489010765861" at="158,27,163,7" />
+      <scope id="2535923850360271378" at="177,27,182,9" />
+      <scope id="6681408443910405702" at="124,27,130,7" />
+      <scope id="2535923850360277408" at="192,0,198,0">
         <var name="currentLine" id="2535923850360277419" />
         <var name="currentNode" id="2535923850361622082" />
         <var name="editorContext" id="2535923850360277423" />
         <var name="isForward" id="2535923850360277421" />
         <var name="neighbourLine" id="2535923850360277425" />
       </scope>
-      <scope id="2535923850360125292" at="72,0,79,0">
+      <scope id="2535923850360125292" at="71,0,78,0">
         <var name="currentWord" id="2535923850360152308" />
         <var name="editorContext" id="2535923850360177142" />
         <var name="isForward" id="2535923850360125298" />
         <var name="neighbourWord" id="2535923850360126809" />
       </scope>
-      <scope id="2535923850361806858" at="106,0,113,0">
+      <scope id="2535923850361806858" at="105,0,112,0">
         <var name="value" id="2535923850361808930" />
       </scope>
-      <scope id="2535923850360247985" at="142,0,149,0" />
-      <scope id="474718489010765859" at="158,0,166,0" />
-      <scope id="2535923850360271369" at="176,27,184,7">
+      <scope id="2535923850360247985" at="141,0,148,0" />
+      <scope id="474718489010765859" at="157,0,165,0" />
+      <scope id="2535923850360271369" at="175,27,183,7">
         <var name="wasApproved" id="2535923850360271371" />
       </scope>
-      <scope id="2535923850361734709" at="94,34,103,32">
+      <scope id="2535923850361734709" at="93,34,102,32">
         <var name="builder" id="2535923850361778562" />
       </scope>
-      <scope id="6681408443910405700" at="124,0,133,0" />
+      <scope id="6681408443910405700" at="123,0,132,0" />
       <scope id="6681408443910399732" at="51,12,61,7">
         <var name="currentLine" id="2535923850360678752" />
         <var name="lineContainer" id="1211637016816802010" />
         <var name="neighbourContainer" id="1211637016817924482" />
         <var name="neighbourLine" id="2535923850360708134" />
       </scope>
-      <scope id="2535923850360121413" at="81,27,92,135">
+      <scope id="2535923850360121413" at="80,27,91,135">
         <var name="newWord" id="3133179214568733108" />
         <var name="selectionIndex" id="2535923850360231228" />
       </scope>
-      <scope id="2535923850361734706" at="94,0,105,0" />
-      <scope id="2535923850360271367" at="175,0,186,0" />
-      <scope id="2535923850360277430" at="201,27,214,7">
+      <scope id="2535923850361734706" at="93,0,104,0" />
+      <scope id="2535923850360271367" at="174,0,185,0" />
+      <scope id="2535923850360277430" at="200,27,213,7">
         <var name="edgeElement" id="2535923850361516530" />
       </scope>
-      <scope id="2535923850360121410" at="80,0,94,0" />
-      <scope id="2535923850360277428" at="200,0,216,0" />
-      <scope id="2535923850360675259" at="36,118,63,0">
+      <scope id="2535923850360121410" at="79,0,93,0" />
+      <scope id="2535923850360277428" at="199,0,215,0" />
+      <scope id="2535923850360675259" at="36,118,62,5">
         <var name="neighbour" id="2535923850360675261" />
       </scope>
-      <scope id="2535923850360675258" at="36,0,65,0">
+      <scope id="2535923850360675258" at="36,0,64,0">
         <var name="currentNode" id="2535923850360675288" />
         <var name="editorContext" id="2535923850360675290" />
         <var name="isForward" id="2535923850360675292" />
       </scope>
-      <unit id="2535923850360120154" at="228,0,231,0" name="jetbrains.mps.lang.text.editor.TextDeleteStrategyFactory$PROPS" />
-      <unit id="2535923850360120154" at="232,0,235,0" name="jetbrains.mps.lang.text.editor.TextDeleteStrategyFactory$LINKS" />
-      <unit id="2535923850360120154" at="221,0,227,0" name="jetbrains.mps.lang.text.editor.TextDeleteStrategyFactory$CONCEPTS" />
+      <unit id="2535923850360120154" at="227,0,230,0" name="jetbrains.mps.lang.text.editor.TextDeleteStrategyFactory$PROPS" />
+      <unit id="2535923850360120154" at="231,0,234,0" name="jetbrains.mps.lang.text.editor.TextDeleteStrategyFactory$LINKS" />
+      <unit id="2535923850360120154" at="220,0,226,0" name="jetbrains.mps.lang.text.editor.TextDeleteStrategyFactory$CONCEPTS" />
       <unit id="6681408443911187234" at="27,0,35,0" name="jetbrains.mps.lang.text.editor.TextDeleteStrategyFactory$TextDeleteStrategy" />
-      <unit id="2535923850360247960" at="134,0,150,0" name="jetbrains.mps.lang.text.editor.TextDeleteStrategyFactory$RemoveNeighbourStrategy" />
-      <unit id="474718489010765836" at="150,0,167,0" name="jetbrains.mps.lang.text.editor.TextDeleteStrategyFactory$SelectNeighbourWordStrategy" />
-      <unit id="6681408443910405649" at="114,0,134,0" name="jetbrains.mps.lang.text.editor.TextDeleteStrategyFactory$DeleteEmptyWordStrategy" />
-      <unit id="2535923850360271342" at="167,0,187,0" name="jetbrains.mps.lang.text.editor.TextDeleteStrategyFactory$RemoveLastLineStrategy" />
-      <unit id="2535923850360277403" at="187,0,217,0" name="jetbrains.mps.lang.text.editor.TextDeleteStrategyFactory$RemoveLineStrategy" />
-      <unit id="2535923850360120777" at="66,0,114,0" name="jetbrains.mps.lang.text.editor.TextDeleteStrategyFactory$GlueNeighbourWordStrategy" />
-      <unit id="2535923850360120154" at="23,0,236,0" name="jetbrains.mps.lang.text.editor.TextDeleteStrategyFactory" />
+      <unit id="2535923850360247960" at="133,0,149,0" name="jetbrains.mps.lang.text.editor.TextDeleteStrategyFactory$RemoveNeighbourStrategy" />
+      <unit id="474718489010765836" at="149,0,166,0" name="jetbrains.mps.lang.text.editor.TextDeleteStrategyFactory$SelectNeighbourWordStrategy" />
+      <unit id="6681408443910405649" at="113,0,133,0" name="jetbrains.mps.lang.text.editor.TextDeleteStrategyFactory$DeleteEmptyWordStrategy" />
+      <unit id="2535923850360271342" at="166,0,186,0" name="jetbrains.mps.lang.text.editor.TextDeleteStrategyFactory$RemoveLastLineStrategy" />
+      <unit id="2535923850360277403" at="186,0,216,0" name="jetbrains.mps.lang.text.editor.TextDeleteStrategyFactory$RemoveLineStrategy" />
+      <unit id="2535923850360120777" at="65,0,113,0" name="jetbrains.mps.lang.text.editor.TextDeleteStrategyFactory$GlueNeighbourWordStrategy" />
+      <unit id="2535923850360120154" at="23,0,235,0" name="jetbrains.mps.lang.text.editor.TextDeleteStrategyFactory" />
     </file>
   </root>
   <root nodeRef="r:ad87c166-8161-4e40-b79b-3d7ba4070d9e(jetbrains.mps.lang.text.editor)/3129707072769387646">

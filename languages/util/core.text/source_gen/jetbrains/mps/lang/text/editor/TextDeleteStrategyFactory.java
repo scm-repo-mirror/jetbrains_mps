@@ -60,10 +60,9 @@ public class TextDeleteStrategyFactory {
         return new RemoveLastLineStrategy(currentLine, editorContext, isForward);
       }
     }
-
   }
 
-  private static class GlueNeighbourWordStrategy extends TextDeleteStrategy {
+  private static final class GlueNeighbourWordStrategy extends TextDeleteStrategy {
     private SNode myCurrentWord;
     private SNode myNeighbour;
     private String myCurrentWordValue;
@@ -111,7 +110,7 @@ public class TextDeleteStrategyFactory {
       }
     }
   }
-  private static class DeleteEmptyWordStrategy extends TextDeleteStrategy {
+  private static final class DeleteEmptyWordStrategy extends TextDeleteStrategy {
     private SNode myCurrentWord;
     private SNode myNeighbour;
 
@@ -147,7 +146,7 @@ public class TextDeleteStrategyFactory {
       }
     }
   }
-  private static class SelectNeighbourWordStrategy extends TextDeleteStrategy {
+  private static final class SelectNeighbourWordStrategy extends TextDeleteStrategy {
     private SNode myNeighbour;
 
     private SelectNeighbourWordStrategy(SNode neighbour, EditorContext editorContext, boolean isForward) {
@@ -184,7 +183,7 @@ public class TextDeleteStrategyFactory {
       }
     }
   }
-  private static class RemoveLineStrategy extends TextDeleteStrategy {
+  private static final class RemoveLineStrategy extends TextDeleteStrategy {
     private SNode myNeighbourLine;
     private SNode myCurrentLine;
     private SNode myCurrentNode;

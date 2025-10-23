@@ -6348,7 +6348,6 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbH" id="2cLqkTmc8kx" role="3cqZAp" />
       </node>
       <node concept="3uibUv" id="5MT8pi2_MBh" role="3clF45">
         <ref role="3uigEE" node="5MT8pi2_dFl" resolve="TextStrategy" />
@@ -6375,6 +6374,7 @@
     <node concept="312cEu" id="2cLqkTm9Yn9" role="jymVt">
       <property role="2bfB8j" value="false" />
       <property role="TrG5h" value="GlueNeighbourWordStrategy" />
+      <property role="1EXbeo" value="true" />
       <node concept="312cEg" id="2cLqkTmba9w" role="jymVt">
         <property role="TrG5h" value="myCurrentWord" />
         <property role="3TUv4t" value="false" />
@@ -6781,6 +6781,7 @@
     <node concept="312cEu" id="5MT8pi2$NSh" role="jymVt">
       <property role="2bfB8j" value="false" />
       <property role="TrG5h" value="DeleteEmptyWordStrategy" />
+      <property role="1EXbeo" value="true" />
       <node concept="312cEg" id="5MT8pi2$NSl" role="jymVt">
         <property role="TrG5h" value="myCurrentWord" />
         <property role="3TUv4t" value="false" />
@@ -7035,6 +7036,7 @@
     <node concept="312cEu" id="qmyvdpN00c" role="jymVt">
       <property role="2bfB8j" value="false" />
       <property role="TrG5h" value="SelectNeighbourWordStrategy" />
+      <property role="1EXbeo" value="true" />
       <node concept="312cEg" id="qmyvdpN00d" role="jymVt">
         <property role="TrG5h" value="myNeighbour" />
         <node concept="3Tm6S6" id="qmyvdpN00e" role="1B3o_S" />
@@ -7330,6 +7332,7 @@
     <node concept="312cEu" id="2cLqkTma$Ar" role="jymVt">
       <property role="2bfB8j" value="false" />
       <property role="TrG5h" value="RemoveLineStrategy" />
+      <property role="1EXbeo" value="true" />
       <node concept="312cEg" id="2cLqkTma$As" role="jymVt">
         <property role="TrG5h" value="myNeighbourLine" />
         <node concept="3Tm6S6" id="2cLqkTma$At" role="1B3o_S" />
