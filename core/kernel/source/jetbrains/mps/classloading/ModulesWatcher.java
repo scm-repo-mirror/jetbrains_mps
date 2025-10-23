@@ -92,7 +92,7 @@ public class ModulesWatcher {
     synchronized (myDepGraphLock) {
       CModule cm = myDepGraph.get(mRef);
       if (cm == null) {
-        LOG.warning("No classloading information found for the module " + mRef);
+        LOG.debug("No classloading information found for the module " + mRef);
         return INVALID_NO_RECORD;
       } else {
         return cm.getStatus();
