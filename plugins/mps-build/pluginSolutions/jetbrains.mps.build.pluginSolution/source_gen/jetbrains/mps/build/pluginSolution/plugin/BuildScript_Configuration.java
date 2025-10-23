@@ -52,12 +52,16 @@ public final class BuildScript_Configuration extends BaseMpsRunConfiguration imp
     NodeByConcept_Configuration nodePointer = this.getNodePointer();
     final SNodeReference reference = nodePointer.getNodeRef();
     if (reference == null) {
-      throw new RuntimeConfigurationError("The target of the node reference cannot be discovered " + nodePointer);
+      throw new RuntimeConfigurationError("Build project not selected");
     }
+    final Wrappers._T<SNode> node = new Wrappers._T<SNode>(null);
     repo.getModelAccess().runReadAction(() -> {
-      SNode node = reference.resolve(repo);
-      isPackaged.value = node != null && SNodeOperations.getModel(node).getModule().isPackaged();
+      node.value = reference.resolve(repo);
+      isPackaged.value = node.value != null && SNodeOperations.getModel(node.value).getModule().isPackaged();
     });
+    if (node.value == null) {
+      throw new RuntimeConfigurationError("Build project node not found [" + reference + "]");
+    }
     if (isPackaged.value) {
       throw new RuntimeConfigurationError("Can not execute packaged build script.");
     }

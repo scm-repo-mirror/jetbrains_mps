@@ -415,13 +415,8 @@
         <node concept="3clFbJ" id="2XiYkJc35fq" role="3cqZAp">
           <node concept="3clFbS" id="2XiYkJc35fs" role="3clFbx">
             <node concept="yHkDM" id="2XiYkJc35MY" role="3cqZAp">
-              <node concept="3cpWs3" id="2XiYkJc367A" role="yHkDO">
-                <node concept="37vLTw" id="2XiYkJc383V" role="3uHU7w">
-                  <ref role="3cqZAo" node="2XiYkJc331X" resolve="nodePointer" />
-                </node>
-                <node concept="Xl_RD" id="2XiYkJc35Nc" role="3uHU7B">
-                  <property role="Xl_RC" value="The target of the node reference cannot be discovered " />
-                </node>
+              <node concept="Xl_RD" id="k06Em_Yb77" role="yHkDO">
+                <property role="Xl_RC" value="Build project not selected" />
               </node>
             </node>
           </node>
@@ -432,17 +427,22 @@
             </node>
           </node>
         </node>
+        <node concept="3cpWs8" id="1KUoCipv$ww" role="3cqZAp">
+          <node concept="3cpWsn" id="1KUoCipv$wx" role="3cpWs9">
+            <property role="TrG5h" value="node" />
+            <node concept="3Tqbb2" id="1KUoCipv$wy" role="1tU5fm" />
+            <node concept="10Nm6u" id="k06Em_YYIz" role="33vP2m" />
+          </node>
+        </node>
         <node concept="1QHqEK" id="_dGddVTnEI" role="3cqZAp">
           <node concept="37vLTw" id="1MVY3kFAxh5" role="ukAjM">
             <ref role="3cqZAo" node="1MVY3kFAxh1" resolve="repo" />
           </node>
           <node concept="1QHqEC" id="_dGddVTnEK" role="1QHqEI">
             <node concept="3clFbS" id="_dGddVTnEM" role="1bW5cS">
-              <node concept="3cpWs8" id="1KUoCipv$ww" role="3cqZAp">
-                <node concept="3cpWsn" id="1KUoCipv$wx" role="3cpWs9">
-                  <property role="TrG5h" value="node" />
-                  <node concept="3Tqbb2" id="1KUoCipv$wy" role="1tU5fm" />
-                  <node concept="2OqwBi" id="5QqGGkvq81Q" role="33vP2m">
+              <node concept="3clFbF" id="k06Em_YY9n" role="3cqZAp">
+                <node concept="37vLTI" id="k06Em_YY9p" role="3clFbG">
+                  <node concept="2OqwBi" id="5QqGGkvq81Q" role="37vLTx">
                     <node concept="37vLTw" id="2XiYkJc380R" role="2Oq$k0">
                       <ref role="3cqZAo" node="2XiYkJc380N" resolve="reference" />
                     </node>
@@ -452,6 +452,9 @@
                         <ref role="3cqZAo" node="1MVY3kFAxh1" resolve="repo" />
                       </node>
                     </node>
+                  </node>
+                  <node concept="37vLTw" id="k06Em_YY9t" role="37vLTJ">
+                    <ref role="3cqZAo" node="1KUoCipv$wx" resolve="node" />
                   </node>
                 </node>
               </node>
@@ -488,6 +491,31 @@
                   </node>
                 </node>
               </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbJ" id="k06Em_YCST" role="3cqZAp">
+          <node concept="3clFbS" id="k06Em_YCSV" role="3clFbx">
+            <node concept="yHkDM" id="k06Em_YLrz" role="3cqZAp">
+              <node concept="3cpWs3" id="k06Em_YN72" role="yHkDO">
+                <node concept="Xl_RD" id="k06Em_YNa3" role="3uHU7w">
+                  <property role="Xl_RC" value="]" />
+                </node>
+                <node concept="3cpWs3" id="k06Em_YMod" role="3uHU7B">
+                  <node concept="Xl_RD" id="k06Em_YLr$" role="3uHU7B">
+                    <property role="Xl_RC" value="Build project node not found [" />
+                  </node>
+                  <node concept="37vLTw" id="k06Em_YMsc" role="3uHU7w">
+                    <ref role="3cqZAo" node="2XiYkJc380N" resolve="reference" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbC" id="k06Em_YD9f" role="3clFbw">
+            <node concept="10Nm6u" id="k06Em_YDgZ" role="3uHU7w" />
+            <node concept="37vLTw" id="k06Em_YCYa" role="3uHU7B">
+              <ref role="3cqZAo" node="1KUoCipv$wx" resolve="node" />
             </node>
           </node>
         </node>
