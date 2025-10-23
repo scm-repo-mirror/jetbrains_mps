@@ -47,8 +47,9 @@ public final class Line__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<String> representAsText_id2iG$EWuTXv2 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("representAsText").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2642648362195081154L).languageId(0x89b0b5959c3fa8c8L, 0xc7fb639fbe784307L).build2();
   public static final SMethod<Boolean> isFirstLine_id647WjQal7cZ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isFirstLine").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6991822193132073791L).languageId(0x89b0b5959c3fa8c8L, 0xc7fb639fbe784307L).build2();
   public static final SMethod<Boolean> isLastLine_id647WjQalOgm = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLastLine").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6991822193132258326L).languageId(0x89b0b5959c3fa8c8L, 0xc7fb639fbe784307L).build2();
+  public static final SMethod<Void> parseAndAppendText_id68pBJP34v1v = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("parseAndAppendText").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7068855900723867743L).languageId(0x89b0b5959c3fa8c8L, 0xc7fb639fbe784307L).build2(SMethodBuilder.createJavaParameter(String.class, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(initializeFromParagraphs_id2iG$EWuZbnH, merge_id1YnOZxALrLu, merge_id1YnOZxAMHtO, split_id1YnOZxANc9P, createParagraphInstance_id7q4Ywce6rMl, addTextElement_idWJz9iAYdP6, addAllTextElements_idWJz9iAYdPl, isEmptyLine_id1YnOZxAO76B, getTextElements_idWJz9iATjyN, removeTextElementAt_idWJz9iAXbMU, wrapTextForClipboard_id2iG$EWuTXuU, representAsText_id2iG$EWuTXv2, isFirstLine_id647WjQal7cZ, isLastLine_id647WjQalOgm);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(initializeFromParagraphs_id2iG$EWuZbnH, merge_id1YnOZxALrLu, merge_id1YnOZxAMHtO, split_id1YnOZxANc9P, createParagraphInstance_id7q4Ywce6rMl, addTextElement_idWJz9iAYdP6, addAllTextElements_idWJz9iAYdPl, isEmptyLine_id1YnOZxAO76B, getTextElements_idWJz9iATjyN, removeTextElementAt_idWJz9iAXbMU, wrapTextForClipboard_id2iG$EWuTXuU, representAsText_id2iG$EWuTXv2, isFirstLine_id647WjQal7cZ, isLastLine_id647WjQalOgm, parseAndAppendText_id68pBJP34v1v);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -123,7 +124,7 @@ public final class Line__BehaviorDescriptor extends BaseBHDescriptor {
 
     final Wrappers._T<SNode> currentPosition = new Wrappers._T<SNode>(position);
     ListSequence.fromList(SLinkOperations.getChildren(other, LINKS.elements$_j45)).visitAll((element) -> currentPosition.value = SNodeOperations.insertNextSiblingChild(currentPosition.value, element));
-    if (ListSequence.fromList(SLinkOperations.getChildren(other, LINKS.elements$_j45)).isNotEmpty() && isEmptyString(trim_chdj22_a0a0e0x(SPropertyOperations.getString(SNodeOperations.as(position, CONCEPTS.Word$Dn), PROPS.value$zQr_)))) {
+    if (ListSequence.fromList(SLinkOperations.getChildren(other, LINKS.elements$_j45)).isNotEmpty() && isEmptyString(trim_chdj22_a0a0e0y(SPropertyOperations.getString(SNodeOperations.as(position, CONCEPTS.Word$Dn), PROPS.value$zQr_)))) {
       SNodeOperations.deleteNode(position);
     }
   }
@@ -194,6 +195,12 @@ public final class Line__BehaviorDescriptor extends BaseBHDescriptor {
     }
     return false;
   }
+  /*package*/ static void parseAndAppendText_id68pBJP34v1v(@NotNull SNode __thisNode__, String text) {
+    SNode word = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, "jetbrains.mps.lang.text.structure.Word"));
+    SPropertyOperations.assign(word, PROPS.value$zQr_, text);
+    Line__BehaviorDescriptor.addTextElement_idWJz9iAYdP6.invoke(__thisNode__, word);
+    Word__BehaviorDescriptor.normalize_id3yV2h2COV$s.invoke(word);
+  }
 
   /*package*/ Line__BehaviorDescriptor() {
   }
@@ -244,6 +251,9 @@ public final class Line__BehaviorDescriptor extends BaseBHDescriptor {
         return (T) ((Boolean) isFirstLine_id647WjQal7cZ(node));
       case 13:
         return (T) ((Boolean) isLastLine_id647WjQalOgm(node));
+      case 14:
+        parseAndAppendText_id68pBJP34v1v(node, (String) parameters[0]);
+        return null;
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -275,7 +285,7 @@ public final class Line__BehaviorDescriptor extends BaseBHDescriptor {
   private static boolean isEmptyString(String str) {
     return str == null || str.isEmpty();
   }
-  public static String trim_chdj22_a0a0e0x(String str) {
+  public static String trim_chdj22_a0a0e0y(String str) {
     return (str == null ? null : str.trim());
   }
 
