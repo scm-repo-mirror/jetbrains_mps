@@ -64,6 +64,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.function.Consumer;
@@ -134,6 +135,8 @@ public final class LanguageRegistry implements CoreComponent, DeployListener {
   private final Supplier<ComponentHost> myPlatformAccess;
 
   private final DeploymentNotificationImpl myDeploymentNotification;
+
+  private final AtomicBoolean myReportedMissingRuntime = new AtomicBoolean(false);
 
   public LanguageRegistry(ClassLoaderManager loaderManager, Supplier<ComponentHost> platformAccess) {
     myClassLoaderManager = loaderManager;
@@ -212,10 +215,14 @@ public final class LanguageRegistry implements CoreComponent, DeployListener {
       }
       return null;
     } catch (NoSuchMethodException | ClassNotFoundException ex) {
+      if (!myReportedMissingRuntime.get()) {
+        myReportedMissingRuntime.set(true);
+        LOG.warning("Failed to load classes for some modules. Set log level to debug for more info.");
+      }
       // would like to have error + exception here, but there are tests (e.g. ModulesReloadTest) that legitimately expect non-compiled modules
       // and no distinction between source and deployed modules. Now, we try to load any module added to the global repository, even if it's
       // a source module just added to a project. Once we tell deployed modules from sources (two distinct repositories would likely suffice),
-      LOG.warning(String.format("Missing language runtime class for module %s (make failed?); returning null", l.getModuleName()));
+      LOG.debug(String.format("Missing language runtime class for module %s (make failed?); returning null", l.getModuleName()));
       return null;
     } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
       LOG.error(String.format("Failed to load language %s", l.getModuleName()), e);
