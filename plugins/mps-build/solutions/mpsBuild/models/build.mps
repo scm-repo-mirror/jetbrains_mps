@@ -2613,6 +2613,9 @@
             <node concept="1bldCd" id="6Mwky1B4umx" role="39821P">
               <ref role="3$exzV" node="uqqfP8JWSl" resolve="MPS.IDEA.Modules" />
             </node>
+            <node concept="1bldCd" id="2cUAfn2XNNH" role="39821P">
+              <ref role="3$exzV" node="1uyFnK9vtIN" resolve="MPS.IDEA.testFramework" />
+            </node>
             <node concept="1bldCd" id="1OSlDLmrG9E" role="39821P">
               <ref role="3$exzV" node="1TaHNgiIbIQ" resolve="MPS.Core" />
             </node>
@@ -5876,6 +5879,60 @@
                 </node>
               </node>
             </node>
+          </node>
+        </node>
+      </node>
+      <node concept="1E1JtA" id="1uyFnK9vtIN" role="2G$12L">
+        <property role="TrG5h" value="MPS.IDEA.testFramework" />
+        <property role="3LESm3" value="320a7d92-2f09-4a63-9adc-ee2fc4d9ea30" />
+        <property role="3vZFNd" value="3kCd1ud3JDD/compile_ext" />
+        <property role="BnDLt" value="true" />
+        <node concept="398BVA" id="1uyFnK9vtIO" role="3LF7KH">
+          <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
+          <node concept="2Ry0Ak" id="1uyFnK9vtIP" role="iGT6I">
+            <property role="2Ry0Am" value="languages" />
+            <node concept="2Ry0Ak" id="1uyFnK9vtIQ" role="2Ry0An">
+              <property role="2Ry0Am" value="core" />
+              <node concept="2Ry0Ak" id="1uyFnK9vtIR" role="2Ry0An">
+                <property role="2Ry0Am" value="stub" />
+                <node concept="2Ry0Ak" id="1uyFnK9vtIS" role="2Ry0An">
+                  <property role="2Ry0Am" value="MPS.testFramework" />
+                  <node concept="2Ry0Ak" id="6q2jvCjlhYc" role="2Ry0An">
+                    <property role="2Ry0Am" value="MPS.IDEA.testFramework.msd" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1SiIV0" id="6q2jvCjligO" role="3bR37C">
+          <node concept="3bR9La" id="6q2jvCjligP" role="1SiIV1">
+            <property role="3bR36h" value="true" />
+            <ref role="3bR37D" node="1xb0AuwN7WS" resolve="JUnit" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="6q2jvCjligT" role="3bR37C">
+          <node concept="1BurEX" id="6q2jvCjligU" role="1SiIV1">
+            <node concept="398BVA" id="6q2jvCjligQ" role="1BurEY">
+              <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
+              <node concept="2Ry0Ak" id="6q2jvCjligR" role="iGT6I">
+                <property role="2Ry0Am" value="lib" />
+                <node concept="2Ry0Ak" id="6q2jvCjligS" role="2Ry0An">
+                  <property role="2Ry0Am" value="testFramework.jar" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1SiIV0" id="2cUAfn2ZF3Q" role="3bR37C">
+          <node concept="3bR9La" id="2cUAfn2ZF3R" role="1SiIV1">
+            <property role="3bR36h" value="true" />
+            <ref role="3bR37D" node="mXGwHwhVPj" resolve="JDK" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="2cUAfn2ZF3S" role="3bR37C">
+          <node concept="3bR9La" id="2cUAfn2ZF3T" role="1SiIV1">
+            <ref role="3bR37D" node="1ia2VB5guYy" resolve="MPS.IDEA" />
           </node>
         </node>
       </node>
@@ -49847,11 +49904,6 @@
               <ref role="3bR37D" node="1CtrbKI23Wm" resolve="jetbrains.mps.lang.migration" />
             </node>
           </node>
-          <node concept="1SiIV0" id="1xb0AuwNnfC" role="3bR37C">
-            <node concept="3bR9La" id="1xb0AuwNnfD" role="1SiIV1">
-              <ref role="3bR37D" node="1xb0AuwN7WS" resolve="JUnit" />
-            </node>
-          </node>
           <node concept="1SiIV0" id="2Ft10KpNiQj" role="3bR37C">
             <node concept="3bR9La" id="2Ft10KpNiQk" role="1SiIV1">
               <ref role="3bR37D" node="7Kfy9QB6L9O" resolve="jetbrains.mps.lang.smodel" />
@@ -50538,6 +50590,11 @@
         <node concept="1SiIV0" id="2Oogzg3vgc5" role="3bR37C">
           <node concept="3bR9La" id="2Oogzg3vgc6" role="1SiIV1">
             <ref role="3bR37D" node="2Oogzg3vg0R" resolve="jetbrains.mps.baseLanguage.unitTest.platform" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="2cUAfn2ZOOr" role="3bR37C">
+          <node concept="3bR9La" id="2cUAfn2ZOOs" role="1SiIV1">
+            <ref role="3bR37D" node="1uyFnK9vtIN" resolve="MPS.IDEA.testFramework" />
           </node>
         </node>
       </node>

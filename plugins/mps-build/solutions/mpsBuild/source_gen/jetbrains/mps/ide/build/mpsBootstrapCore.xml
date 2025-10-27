@@ -205,6 +205,7 @@
       <zipfileset file="${mps_home}/languages/core/stub/MPS.Platform/MPS.Platform.msd" prefix="modules/MPS.Platform" />
       <zipfileset file="${mps_home}/languages/core/stub/MPS.IDEA/MPS.IDEA.msd" prefix="modules/MPS.IDEA" />
       <zipfileset file="${mps_home}/languages/core/stub/MPS.IDEA.Modules/MPS.IDEA.Modules.msd" prefix="modules/MPS.IDEA.Modules" />
+      <zipfileset file="${mps_home}/languages/core/stub/MPS.testFramework/MPS.IDEA.testFramework.msd" prefix="modules/MPS.IDEA.testFramework" />
       <zipfileset file="${mps_home}/languages/core/stub/MPS.Core/MPS.Core.msd" prefix="modules/MPS.Core" />
       <zipfileset file="${mps_home}/languages/core/stub/MPS.Boot/MPS.Boot.msd" prefix="modules/MPS.Boot" />
       <zipfileset file="${mps_home}/languages/core/stub/Testbench/Testbench.msd" prefix="modules/Testbench" />
@@ -16614,6 +16615,7 @@
         <module file="${mps_home}/languages/core/stub/MPS.Generator/MPS.Generator.msd" />
         <module file="${mps_home}/languages/core/stub/MPS.IDEA/MPS.IDEA.msd" />
         <module file="${mps_home}/languages/core/stub/MPS.IDEA.Modules/MPS.IDEA.Modules.msd" />
+        <module file="${mps_home}/languages/core/stub/MPS.testFramework/MPS.IDEA.testFramework.msd" />
         <module file="${mps_home}/languages/core/stub/MPS.OpenAPI/MPS.OpenAPI.msd" />
         <module file="${mps_home}/languages/core/stub/MPS.Platform/MPS.Platform.msd" />
         <module file="${mps_home}/languages/core/stub/MPS.TextGen/MPS.TextGen.msd" />
