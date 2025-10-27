@@ -4671,31 +4671,54 @@
             </node>
           </node>
         </node>
-        <node concept="3cpWs6" id="2lMuMRTN3rL" role="3cqZAp">
-          <node concept="2OqwBi" id="2lMuMRTJbOZ" role="3cqZAk">
-            <node concept="2OqwBi" id="2lMuMRTJbP0" role="2Oq$k0">
-              <node concept="2OqwBi" id="2lMuMRTJbP1" role="2Oq$k0">
-                <node concept="37vLTw" id="2lMuMRTJbP2" role="2Oq$k0">
-                  <ref role="3cqZAo" node="39Qo54czGOa" resolve="myPlatform" />
-                </node>
-                <node concept="liA8E" id="2lMuMRTJbP3" role="2OqNvi">
-                  <ref role="37wK5l" to="wyuk:~ComponentHost.findComponent(java.lang.Class)" resolve="findComponent" />
-                  <node concept="3VsKOn" id="2lMuMRTJbP4" role="37wK5m">
-                    <ref role="3VsUkX" to="4u8o:4chG8iItd4i" resolve="TestPlatform" />
-                  </node>
-                </node>
+        <node concept="3cpWs8" id="rsau0wuW83" role="3cqZAp">
+          <node concept="3cpWsn" id="rsau0wuW84" role="3cpWs9">
+            <property role="TrG5h" value="component" />
+            <node concept="3uibUv" id="rsau0wuVZO" role="1tU5fm">
+              <ref role="3uigEE" to="4u8o:4chG8iItd4i" resolve="TestPlatform" />
+            </node>
+            <node concept="2OqwBi" id="rsau0wuW85" role="33vP2m">
+              <node concept="37vLTw" id="rsau0wuW86" role="2Oq$k0">
+                <ref role="3cqZAo" node="39Qo54czGOa" resolve="myPlatform" />
               </node>
-              <node concept="liA8E" id="2lMuMRTJbP5" role="2OqNvi">
-                <ref role="37wK5l" to="4u8o:2VjRkhsGS9E" resolve="getAggregateDiscoveryParticipant" />
+              <node concept="liA8E" id="rsau0wuW87" role="2OqNvi">
+                <ref role="37wK5l" to="wyuk:~ComponentHost.findComponent(java.lang.Class)" resolve="findComponent" />
+                <node concept="3VsKOn" id="rsau0wuW88" role="37wK5m">
+                  <ref role="3VsUkX" to="4u8o:4chG8iItd4i" resolve="TestPlatform" />
+                </node>
               </node>
             </node>
-            <node concept="liA8E" id="2lMuMRTJbP6" role="2OqNvi">
-              <ref role="37wK5l" to="4u8o:2BZ01qXB6ZH" resolve="discover" />
-              <node concept="37vLTw" id="2lMuMRTJbP7" role="37wK5m">
-                <ref role="3cqZAo" node="2lMuMRTJ2Ae" resolve="node" />
+          </node>
+        </node>
+        <node concept="3cpWs6" id="2lMuMRTN3rL" role="3cqZAp">
+          <node concept="3K4zz7" id="rsau0wv58n" role="3cqZAk">
+            <node concept="2YIFZM" id="rsau0wvg6x" role="3K4GZi">
+              <ref role="37wK5l" to="33ny:~Optional.empty()" resolve="empty" />
+              <ref role="1Pybhc" to="33ny:~Optional" resolve="Optional" />
+            </node>
+            <node concept="3y3z36" id="rsau0wv4gl" role="3K4Cdx">
+              <node concept="10Nm6u" id="rsau0wv4LR" role="3uHU7w" />
+              <node concept="37vLTw" id="rsau0wv3Je" role="3uHU7B">
+                <ref role="3cqZAo" node="rsau0wuW84" resolve="component" />
               </node>
-              <node concept="37vLTw" id="2lMuMRTJbP8" role="37wK5m">
-                <ref role="3cqZAo" node="2lMuMRTJ4q0" resolve="request" />
+            </node>
+            <node concept="2OqwBi" id="2lMuMRTJbOZ" role="3K4E3e">
+              <node concept="2OqwBi" id="2lMuMRTJbP0" role="2Oq$k0">
+                <node concept="37vLTw" id="rsau0wuW89" role="2Oq$k0">
+                  <ref role="3cqZAo" node="rsau0wuW84" resolve="component" />
+                </node>
+                <node concept="liA8E" id="2lMuMRTJbP5" role="2OqNvi">
+                  <ref role="37wK5l" to="4u8o:2VjRkhsGS9E" resolve="getAggregateDiscoveryParticipant" />
+                </node>
+              </node>
+              <node concept="liA8E" id="2lMuMRTJbP6" role="2OqNvi">
+                <ref role="37wK5l" to="4u8o:2BZ01qXB6ZH" resolve="discover" />
+                <node concept="37vLTw" id="2lMuMRTJbP7" role="37wK5m">
+                  <ref role="3cqZAo" node="2lMuMRTJ2Ae" resolve="node" />
+                </node>
+                <node concept="37vLTw" id="2lMuMRTJbP8" role="37wK5m">
+                  <ref role="3cqZAo" node="2lMuMRTJ4q0" resolve="request" />
+                </node>
               </node>
             </node>
           </node>

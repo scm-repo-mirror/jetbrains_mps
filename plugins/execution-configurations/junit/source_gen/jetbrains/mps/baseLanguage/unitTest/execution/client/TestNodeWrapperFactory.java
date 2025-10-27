@@ -31,7 +31,8 @@ public final class TestNodeWrapperFactory {
    */
   public Optional<TestDescriptor> findTestDescriptor(@NotNull SNode node) {
     TestDiscoveryRequest request = new TestDiscoveryRequest(new TestDescriptor());
-    return myPlatform.findComponent(TestPlatform.class).getAggregateDiscoveryParticipant().discover(node, request);
+    TestPlatform component = myPlatform.findComponent(TestPlatform.class);
+    return (component != null ? component.getAggregateDiscoveryParticipant().discover(node, request) : Optional.empty());
   }
 
   @Nullable
