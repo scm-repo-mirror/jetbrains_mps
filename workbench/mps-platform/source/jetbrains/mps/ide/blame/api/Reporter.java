@@ -58,6 +58,8 @@ public class Reporter {
   public static final String SUBSYSTEM_VERSION_CONTROL = "Version Control";
   private static final String TYPE_FIELD = "Type";
   private static final String TYPE_FIELD_TYPE = "SingleEnumIssueCustomField";
+  public static final String TYPE_AUTOREPORTED_EXCEPTION = "Auto-reported Exception";
+  public static final String TYPE_PROBLEM = "Problem";
 
   private static final String ISSUES = "/api/issues";
   private static final String ADD_ISSUE_URL = YOUTRACK_BASE_URL + ISSUES + "?fields=id,idReadable";

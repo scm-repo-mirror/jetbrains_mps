@@ -99,6 +99,7 @@ public class BlameDialog extends DialogWrapper {
   private List<Throwable> myThrowableList = new ArrayList<>();
   private List<File> myFilesToAttach = new ArrayList<>();
   private String mySubsystem = null;
+  private String myType = Reporter.TYPE_AUTOREPORTED_EXCEPTION;
   private PluginDescriptor myPluginDescriptor;
   private volatile String myToken;
 
@@ -136,6 +137,10 @@ public class BlameDialog extends DialogWrapper {
 
   public void setSubsystem(String subsystem) {
     mySubsystem = subsystem;
+  }
+
+  public void setType(String type) {
+    myType = type;
   }
 
   public void setPluginDescriptor(PluginDescriptor pluginDescriptor) {
@@ -480,6 +485,7 @@ public class BlameDialog extends DialogWrapper {
     // add version only if it is JetBrains MPS application itself, not other application or IDEA plugin
     final String affectedVersion = FULL_PRODUCT_NAME.equals(ApplicationNamesInfo.getInstance().getFullProductName()) ? ApplicationInfo.getInstance().getFullVersion() : null;
     final String subsystem = mySubsystem;
+    final String type = myType;
     final File[] files = myFilesToAttach.toArray(new File[0]);
 
     // result[0] - id of new issue or null if not successful
@@ -491,7 +497,7 @@ public class BlameDialog extends DialogWrapper {
       public void run(@NotNull ProgressIndicator indicator) {
         try {
           Reporter reporter = new Reporter(token);
-          result[0] = reporter.postIssue(summary, descript, affectedVersion, hidden, null, subsystem, files);
+          result[0] = reporter.postIssue(summary, descript, affectedVersion, hidden, type, subsystem, files);
         } catch (Throwable e) {
           result[0] = null;
           result[1] = e.toString();

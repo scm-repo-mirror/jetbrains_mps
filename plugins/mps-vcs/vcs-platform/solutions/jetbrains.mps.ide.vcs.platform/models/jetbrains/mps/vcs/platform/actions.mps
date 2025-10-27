@@ -3188,6 +3188,20 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbF" id="2gV3$ksh5Tw" role="3cqZAp">
+          <node concept="2OqwBi" id="2gV3$ksh5Tx" role="3clFbG">
+            <node concept="37vLTw" id="2gV3$ksh5Ty" role="2Oq$k0">
+              <ref role="3cqZAo" node="341WClvYTWy" resolve="blameDialog" />
+            </node>
+            <node concept="liA8E" id="2gV3$ksh5Tz" role="2OqNvi">
+              <ref role="37wK5l" to="qy69:~BlameDialog.setType(java.lang.String)" resolve="setType" />
+              <node concept="10M0yZ" id="2gV3$ksh8fB" role="37wK5m">
+                <ref role="3cqZAo" to="ihz5:~Reporter.TYPE_PROBLEM" resolve="TYPE_PROBLEM" />
+                <ref role="1PxDUh" to="ihz5:~Reporter" resolve="Reporter" />
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3clFbF" id="341WClvYTWR" role="3cqZAp">
           <node concept="2OqwBi" id="341WClvYTWS" role="3clFbG">
             <node concept="37vLTw" id="3GM_nagTxMQ" role="2Oq$k0">

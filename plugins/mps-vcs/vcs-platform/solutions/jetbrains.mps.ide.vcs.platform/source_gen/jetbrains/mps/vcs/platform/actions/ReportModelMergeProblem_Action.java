@@ -71,6 +71,7 @@ public class ReportModelMergeProblem_Action extends BaseAction {
     blameDialog.initDialog();
     blameDialog.setIssueHidden(true);
     blameDialog.setSubsystem(Reporter.SUBSYSTEM_VERSION_CONTROL);
+    blameDialog.setType(Reporter.TYPE_PROBLEM);
     blameDialog.setIssueTitle("Model merge problem");
     List<File> filesToAttach = ListSequence.fromList(new ArrayList<File>());
     ListSequence.fromList(filesToAttach).addElement(new File(System.getProperty("user.home") + File.separator + ".gitconfig"));
