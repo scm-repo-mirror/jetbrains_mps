@@ -85,7 +85,6 @@ public class BlameDialog extends DialogWrapper {
   private JCheckBox myDoNotIncludeAppInfo;
   private JPanel myExceptionContainer;
   private JTextArea myException;
-  private JCheckBox mySkipTrace;
   private JCheckBox myHiddenCheckBox;
   private HyperlinkLabel myCredentialsLabel;
   private JBCheckBox myShareDataAgreementCheck;
@@ -190,9 +189,6 @@ public class BlameDialog extends DialogWrapper {
     final JBScrollPane exceptionScrollPane = new JBScrollPane();
     exceptionScrollPane.setViewportView(myException);
     myExceptionContainer.add(exceptionScrollPane, getConstraints(myExceptionContainer.getComponentCount()));
-    mySkipTrace = new JBCheckBox("Exclude exception trace from description", false);
-    mySkipTrace.addChangeListener(changeEvent -> myException.setEnabled(!mySkipTrace.isSelected()));
-    myExceptionContainer.add(mySkipTrace, getConstraints(myExceptionContainer.getComponentCount()));
 
     myPanel.add(myExceptionContainer, getConstraints(myPanel.getComponentCount()));
 
@@ -453,7 +449,7 @@ public class BlameDialog extends DialogWrapper {
   protected void doOKAction() {
     StringBuilder description = new StringBuilder(myDescriptionField.getText().length()
                                                   + (myDoNotIncludeAppInfo.isSelected() ? 0 : 1000) // approximate application info length
-                                                  + (mySkipTrace.isSelected() ? 50 : 5000 * myThrowableList.size())  // approximate stacktrace info length
+                                                  + (5000 * myThrowableList.size())  // approximate stacktrace info length
     );
 
     if (myDescriptionField.getText().trim().length() != 0) {
@@ -466,15 +462,11 @@ public class BlameDialog extends DialogWrapper {
     }
 
     if (!myThrowableList.isEmpty()) {
-      if (!mySkipTrace.isSelected()) {
-        for (Throwable ex : myThrowableList) {
-          description.append("\n\n");
-          description.append("```stacktrace\n");
-          description.append(ex2str(ex));
-          description.append("\n```");
-        }
-      } else {
-        description.append("Exception trace was hidden by submitter\n");
+      for (Throwable ex : myThrowableList) {
+        description.append("\n\n");
+        description.append("```stacktrace\n");
+        description.append(ex2str(ex));
+        description.append("\n```");
       }
     }
 
