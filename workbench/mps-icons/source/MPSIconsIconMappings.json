@@ -15,6 +15,7 @@
       "showOnlyStrongSubtypes.svg": "actions/showOnlyStrongSubtypes.png"
     },
     "ant": {
+      "build_newui.svg": "ant/build.png"
     },
     "cellExplorer": {
       "cellActionKey.svg": "cellExplorer/cellActionKey.png",
