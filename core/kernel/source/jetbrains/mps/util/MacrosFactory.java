@@ -269,10 +269,6 @@ public final class MacrosFactory implements MacroHelper.Source {
         String relationalPath = shrink(absolutePath, libExtPath());
         alternatives.add(LIB_EXT + relationalPath);
       }
-      if (pathStartsWith(absolutePath, platformLibPath())) {
-        String relationalPath = shrink(absolutePath, platformLibPath());
-        alternatives.add(PLATFORM_LIB + relationalPath);
-      }
       if (pathStartsWith(absolutePath, homePath())) {
         String relationalPath = shrink(absolutePath, homePath());
         alternatives.add(MPS_HOME + relationalPath);
