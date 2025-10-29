@@ -2,7 +2,7 @@
 <solution name="jetbrains.mps.kotin.ui.dsl" uuid="398d67d2-c2e9-11e2-ad49-6cf049e62ea4" compileInMPS="false">
   <readOnlyStubs/>
   <models>
-    <modelRoot contentPath="${platform_lib}" type="kotlin_jvm">
+    <modelRoot contentPath="${mps_home}/lib" type="kotlin_jvm">
       <sourceRoot location="app.jar" />
       <PackageScope>
         <!-- we only care about kotlin ui dsl here-->
