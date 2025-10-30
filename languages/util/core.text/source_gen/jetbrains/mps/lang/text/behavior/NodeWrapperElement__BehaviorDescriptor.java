@@ -15,6 +15,14 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import org.jetbrains.mps.openapi.module.SRepository;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.editor.runtime.HeadlessEditorComponent;
+import jetbrains.mps.nodeEditor.cells.EditorCell;
+import jetbrains.mps.openapi.editor.TextBuilder;
+import javax.swing.SwingUtilities;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -31,8 +39,43 @@ public final class NodeWrapperElement__BehaviorDescriptor extends BaseBHDescript
   }
 
   /*package*/ static String getTextualRepresentation_idfB3l81it7u(@NotNull SNode __thisNode__) {
-    // todo maybe a better way to visualize the wrapped node should be used
-    return (String) BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.node$KGJq));
+    final String[] result = new String[]{BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.node$KGJq))};
+
+    try {
+      final Runnable r = new Runnable() {
+        @Override
+        public void run() {
+          final SRepository repository = SNodeOperations.getModel(__thisNode__).getRepository();
+          repository.getModelAccess().runReadAction(new Runnable() {
+            @Override
+            public void run() {
+              HeadlessEditorComponent editorComponent = new HeadlessEditorComponent(repository);
+              editorComponent.editNode(__thisNode__);
+              EditorCell cell = editorComponent.getRootCell();
+              if (cell != null) {
+                TextBuilder text = cell.renderText();
+                result[0] = text.getText();
+              }
+            }
+          });
+        }
+      };
+      if (SwingUtilities.isEventDispatchThread()) {
+        r.run();
+      } else {
+        final CountDownLatch latch = new CountDownLatch(1);
+        SwingUtilities.invokeLater(new Runnable() {
+          @Override
+          public void run() {
+            r.run();
+            latch.countDown();
+          }
+        });
+        latch.await(1, TimeUnit.SECONDS);
+      }
+    } catch (InterruptedException e) {
+    }
+    return result[0];
   }
 
   /*package*/ NodeWrapperElement__BehaviorDescriptor() {
