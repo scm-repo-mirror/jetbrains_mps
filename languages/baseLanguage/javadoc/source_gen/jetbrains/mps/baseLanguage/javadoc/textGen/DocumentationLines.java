@@ -44,13 +44,50 @@ public abstract class DocumentationLines extends DocCommentTextGen {
           tgs.append(" ");
         }
         if ((textualRepresentation != null && textualRepresentation.length() > 0)) {
-          tgs.append(TextElement__BehaviorDescriptor.getTextualRepresentation_idfB3l81it7u.invoke(w));
+          if (SNodeOperations.isInstanceOf(w, CONCEPTS.Word$Dn)) {
+            boolean isBold = SPropertyOperations.getBoolean(SNodeOperations.as(w, CONCEPTS.Word$Dn), PROPS.bold$SBR1);
+            boolean isItalic = SPropertyOperations.getBoolean(SNodeOperations.as(w, CONCEPTS.Word$Dn), PROPS.italic$SC$4);
+            boolean isUnderline = SPropertyOperations.getBoolean(SNodeOperations.as(w, CONCEPTS.Word$Dn), PROPS.underlined$SQS1);
+            boolean isUrl = isNotEmptyString(SPropertyOperations.getString(SNodeOperations.as(w, CONCEPTS.Word$Dn), PROPS.url$SIrt));
+            if (isUrl) {
+              tgs.append("<a href=\"");
+              tgs.append(SPropertyOperations.getString(SNodeOperations.as(w, CONCEPTS.Word$Dn), PROPS.url$SIrt));
+              tgs.append("\">");
+            }
+            if (isUnderline) {
+              tgs.append("<u>");
+            }
+            if (isBold) {
+              tgs.append("<b>");
+            }
+            if (isItalic) {
+              tgs.append("<i>");
+            }
+            tgs.append(textualRepresentation);
+            if (isItalic) {
+              tgs.append("</i>");
+            }
+            if (isBold) {
+              tgs.append("</b>");
+            }
+            if (isUnderline) {
+              tgs.append("</u>");
+            }
+            if (isUrl) {
+              tgs.append("</a>");
+            }
+          } else {
+            tgs.append(textualRepresentation);
+          }
         }
       }
     }
     if (SNodeOperations.isInstanceOf(line, CONCEPTS.Header$d7)) {
       tgs.append("</" + ("H" + SPropertyOperations.getEnum(SNodeOperations.as(line, CONCEPTS.Header$d7), PROPS.level$YKTp) + ">"));
     }
+  }
+  private static boolean isNotEmptyString(String str) {
+    return str != null && str.length() > 0;
   }
 
   private static final class CONCEPTS {
@@ -60,9 +97,14 @@ public abstract class DocumentationLines extends DocCommentTextGen {
     /*package*/ static final SConcept InlineTagCommentTextElement$48 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de762d0L, "jetbrains.mps.baseLanguage.javadoc.structure.InlineTagCommentTextElement");
     /*package*/ static final SConcept CodeSnippetTextElement$I3 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3c7e4fd1L, "jetbrains.mps.baseLanguage.javadoc.structure.CodeSnippetTextElement");
     /*package*/ static final SConcept HTMLElementTextElement$Wi = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3db92dd2L, "jetbrains.mps.baseLanguage.javadoc.structure.HTMLElementTextElement");
+    /*package*/ static final SConcept Word$Dn = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, "jetbrains.mps.lang.text.structure.Word");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty level$YKTp = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x6cb23f222fb47accL, 0x6cb23f222fb47b9dL, "level");
+    /*package*/ static final SProperty bold$SBR1 = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d47eL, "bold");
+    /*package*/ static final SProperty italic$SC$4 = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d481L, "italic");
+    /*package*/ static final SProperty underlined$SQS1 = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d494L, "underlined");
+    /*package*/ static final SProperty url$SIrt = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d485L, "url");
   }
 }
