@@ -61,6 +61,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new LinkInlineDocTag_TextGen();
       case LanguageConceptSwitch.LinkInlineDocTagTE:
         return new LinkInlineDocTagTE_TextGen();
+      case LanguageConceptSwitch.LiteralInlineDocTagTE:
+        return new LiteralInlineDocTagTE_TextGen();
       case LanguageConceptSwitch.MethodDocComment:
         return new MethodDocComment_TextGen();
       case LanguageConceptSwitch.MethodDocReference:

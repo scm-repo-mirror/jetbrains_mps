@@ -5,6 +5,7 @@ package jetbrains.mps.baseLanguage.javadoc.textGen;
 import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
+import jetbrains.mps.lang.text.behavior.Line__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -14,9 +15,18 @@ public class CodeInlineDocTagTE_TextGen extends TextGenDescriptorBase {
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.append("code ");
-    if ((SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.commentBody$_6eD) != null)) {
+
+    if (isNotEmptyString(trim_o7ixym_a0a3a0(Line__BehaviorDescriptor.representAsText_id2iG$EWuTXv2.invoke(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.commentBody$_6eD))))) {
       DocumentationLines.handleLine(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.commentBody$_6eD), ctx);
+    } else {
+      tgs.append("<no code>");
     }
+  }
+  private static boolean isNotEmptyString(String str) {
+    return str != null && str.length() > 0;
+  }
+  public static String trim_o7ixym_a0a3a0(String str) {
+    return (str == null ? null : str.trim());
   }
 
   private static final class LINKS {

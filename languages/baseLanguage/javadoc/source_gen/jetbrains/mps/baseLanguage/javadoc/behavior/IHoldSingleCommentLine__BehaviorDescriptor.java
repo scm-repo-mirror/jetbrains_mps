@@ -33,6 +33,7 @@ public final class IHoldSingleCommentLine__BehaviorDescriptor extends BaseBHDesc
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(enforceExternalIndentation_id4qjHlOWQ7Jg, getLines_id6GJhO0n1Xys, addLine_id7q4YwcerggR, representLinesAsText_id62Y1B7f_avX);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
+
   }
 
   /*package*/ static boolean enforceExternalIndentation_id4qjHlOWQ7Jg(@NotNull SNode __thisNode__) {

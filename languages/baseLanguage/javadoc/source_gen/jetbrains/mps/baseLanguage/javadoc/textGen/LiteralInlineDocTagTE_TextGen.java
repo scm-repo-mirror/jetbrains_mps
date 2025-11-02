@@ -5,31 +5,30 @@ package jetbrains.mps.baseLanguage.javadoc.textGen;
 import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.text.behavior.Line__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
-public class LinkInlineDocTagTE_TextGen extends TextGenDescriptorBase {
+public class LiteralInlineDocTagTE_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
-    tgs.append("link ");
-    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.reference$Bpyd));
-    if (isNotEmptyString(trim_87u179_a0a3a0(Line__BehaviorDescriptor.representAsText_id2iG$EWuTXv2.invoke(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.commentBody$_6eD))))) {
-      tgs.append(" ");
+    tgs.append("literal ");
+    if (isNotEmptyString(trim_jwgqun_a0a2a0(Line__BehaviorDescriptor.representAsText_id2iG$EWuTXv2.invoke(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.commentBody$_6eD))))) {
       DocumentationLines.handleLine(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.commentBody$_6eD), ctx);
+    } else {
+      tgs.append("<no text>");
     }
   }
   private static boolean isNotEmptyString(String str) {
     return str != null && str.length() > 0;
   }
-  public static String trim_87u179_a0a3a0(String str) {
+  public static String trim_jwgqun_a0a2a0(String str) {
     return (str == null ? null : str.trim());
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink reference$Bpyd = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de862c2L, 0x4693b55d3de862c3L, "reference");
     /*package*/ static final SContainmentLink commentBody$_6eD = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x60be0671cf949a05L, 0x60be0671cf949f82L, "commentBody");
   }
 }

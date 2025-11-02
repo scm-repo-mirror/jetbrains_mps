@@ -41,6 +41,7 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
   private final BHDescriptor myBaseInlineDocTag__BehaviorDescriptor = new BaseInlineDocTag__BehaviorDescriptor();
   private final BHDescriptor myValueInlineDocTag__BehaviorDescriptor = new ValueInlineDocTag__BehaviorDescriptor();
   private final BHDescriptor myIHoldSingleCommentLine__BehaviorDescriptor = new IHoldSingleCommentLine__BehaviorDescriptor();
+  private final BHDescriptor myLiteralInlineDocTagTE__BehaviorDescriptor = new LiteralInlineDocTagTE__BehaviorDescriptor();
   private final BHDescriptor myVersionBlockDocTag__BehaviorDescriptor = new VersionBlockDocTag__BehaviorDescriptor();
   private final BHDescriptor mySinceBlockDocTag__BehaviorDescriptor = new SinceBlockDocTag__BehaviorDescriptor();
   private final BHDescriptor myDeprecatedBlockDocTag__BehaviorDescriptor = new DeprecatedBlockDocTag__BehaviorDescriptor();
@@ -112,28 +113,30 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
       case 26:
         return myLinkInlineDocTagTE__BehaviorDescriptor;
       case 27:
-        return myMethodDocComment__BehaviorDescriptor;
+        return myLiteralInlineDocTagTE__BehaviorDescriptor;
       case 28:
-        return myParameterBlockDocTag__BehaviorDescriptor;
+        return myMethodDocComment__BehaviorDescriptor;
       case 29:
-        return myReturnBlockDocTag__BehaviorDescriptor;
+        return myParameterBlockDocTag__BehaviorDescriptor;
       case 30:
-        return mySeeBlockDocTag__BehaviorDescriptor;
+        return myReturnBlockDocTag__BehaviorDescriptor;
       case 31:
-        return mySinceBlockDocTag__BehaviorDescriptor;
+        return mySeeBlockDocTag__BehaviorDescriptor;
       case 32:
-        return myTextCommentLinePart__BehaviorDescriptor;
+        return mySinceBlockDocTag__BehaviorDescriptor;
       case 33:
-        return myThrowsBlockDocTag__BehaviorDescriptor;
+        return myTextCommentLinePart__BehaviorDescriptor;
       case 34:
-        return myValueInlineDocTag__BehaviorDescriptor;
+        return myThrowsBlockDocTag__BehaviorDescriptor;
       case 35:
-        return myValueInlineDocTagTE__BehaviorDescriptor;
+        return myValueInlineDocTag__BehaviorDescriptor;
       case 36:
+        return myValueInlineDocTagTE__BehaviorDescriptor;
+      case 37:
         return myVersionBlockDocTag__BehaviorDescriptor;
       default:
     }
     return null;
   }
-  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7faee13eL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7faee13dL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1162ca6ff7208067L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec252c9a26L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x60a0f9237ac5e838L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de7bde9L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1cb65d9fe66a764cL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec252a7b73L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de82b71L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x2398cefbc261e3ffL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3c7e4fd1L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f96cL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990286L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x44ac82392ce5c6b0L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x5ed0d79d7dc44bf2L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x5bc4aa08e154b399L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3db92dd2L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3da98b10L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x60be0671cf949a05L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x41a6af3499e5305fL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de8265aL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990289L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de762d0L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x235789022a5d3a2fL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de862c2L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7faeeb34L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c905f8aL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x514c0f687050918eL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec252ca3abL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87ddadL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990287L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x514c0f68704ec270L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x60a0f9237ac5e83bL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de80a39L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87dda0L)).seal();
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7faee13eL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7faee13dL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1162ca6ff7208067L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec252c9a26L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x60a0f9237ac5e838L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de7bde9L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1cb65d9fe66a764cL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec252a7b73L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de82b71L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x2398cefbc261e3ffL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3c7e4fd1L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f96cL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990286L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x44ac82392ce5c6b0L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x5ed0d79d7dc44bf2L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x5bc4aa08e154b399L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3db92dd2L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3da98b10L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x60be0671cf949a05L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x41a6af3499e5305fL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de8265aL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990289L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de762d0L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x235789022a5d3a2fL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de862c2L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x60be0671cfb80405L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7faeeb34L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c905f8aL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x514c0f687050918eL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec252ca3abL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87ddadL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990287L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x514c0f68704ec270L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x60a0f9237ac5e83bL), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de80a39L), MetaIdFactory.conceptId(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87dda0L)).seal();
 }

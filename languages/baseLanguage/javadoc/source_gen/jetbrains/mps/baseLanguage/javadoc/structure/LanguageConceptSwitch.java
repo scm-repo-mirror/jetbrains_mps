@@ -42,18 +42,19 @@ public final class LanguageConceptSwitch {
   public static final int InlineTagCommentTextElement = 30;
   public static final int LinkInlineDocTag = 31;
   public static final int LinkInlineDocTagTE = 32;
-  public static final int MethodDocComment = 33;
-  public static final int MethodDocReference = 34;
-  public static final int ParameterBlockDocTag = 35;
-  public static final int ReturnBlockDocTag = 36;
-  public static final int SeeBlockDocTag = 37;
-  public static final int SinceBlockDocTag = 38;
-  public static final int StaticFieldDocReference = 39;
-  public static final int TextCommentLinePart = 40;
-  public static final int ThrowsBlockDocTag = 41;
-  public static final int ValueInlineDocTag = 42;
-  public static final int ValueInlineDocTagTE = 43;
-  public static final int VersionBlockDocTag = 44;
+  public static final int LiteralInlineDocTagTE = 33;
+  public static final int MethodDocComment = 34;
+  public static final int MethodDocReference = 35;
+  public static final int ParameterBlockDocTag = 36;
+  public static final int ReturnBlockDocTag = 37;
+  public static final int SeeBlockDocTag = 38;
+  public static final int SinceBlockDocTag = 39;
+  public static final int StaticFieldDocReference = 40;
+  public static final int TextCommentLinePart = 41;
+  public static final int ThrowsBlockDocTag = 42;
+  public static final int ValueInlineDocTag = 43;
+  public static final int ValueInlineDocTagTE = 44;
+  public static final int VersionBlockDocTag = 45;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0xf280165065d5424eL, 0xbb1b463a8781b786L);
@@ -90,6 +91,7 @@ public final class LanguageConceptSwitch {
     builder.put(0x4693b55d3de762d0L, InlineTagCommentTextElement);
     builder.put(0x235789022a5d3a2fL, LinkInlineDocTag);
     builder.put(0x4693b55d3de862c2L, LinkInlineDocTagTE);
+    builder.put(0x60be0671cfb80405L, LiteralInlineDocTagTE);
     builder.put(0x4a3c146b7faeeb34L, MethodDocComment);
     builder.put(0x1ec532ec2531d2d3L, MethodDocReference);
     builder.put(0x757ba20a4c905f8aL, ParameterBlockDocTag);

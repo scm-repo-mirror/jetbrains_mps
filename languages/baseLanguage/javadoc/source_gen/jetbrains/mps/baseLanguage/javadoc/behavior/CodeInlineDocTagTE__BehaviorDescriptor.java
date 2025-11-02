@@ -15,6 +15,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.text.behavior.Line__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -29,14 +30,17 @@ public final class CodeInlineDocTagTE__BehaviorDescriptor extends BaseBHDescript
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(buildCommentText_id4qjHlOXTWlm);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
-    SLinkOperations.setNewChild(__thisNode__, LINKS.commentBody$_6eD, CONCEPTS.Line$yC);
+    SNode l = SLinkOperations.setNewChild(__thisNode__, LINKS.commentBody$_6eD, CONCEPTS.Line$yC);
+    Line__BehaviorDescriptor.addTextElement_idWJz9iAYdP6.invoke(l, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, "jetbrains.mps.lang.text.structure.Word")));
   }
 
   /*package*/ static String buildCommentText_id4qjHlOXTWlm(@NotNull SNode __thisNode__) {
-    if ((SLinkOperations.getTarget(__thisNode__, LINKS.commentBody$_6eD) != null)) {
-      return "code: " + Line__BehaviorDescriptor.representAsText_id2iG$EWuTXv2.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.commentBody$_6eD));
+    assert (SLinkOperations.getTarget(__thisNode__, LINKS.commentBody$_6eD) != null);
+    String text = Line__BehaviorDescriptor.representAsText_id2iG$EWuTXv2.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.commentBody$_6eD));
+    if (isNotEmptyString(((text == null ? null : text.trim())))) {
+      return "code " + text;
     } else {
-      return "code:\n";
+      return "code <no code>";
     }
   }
 
@@ -84,6 +88,9 @@ public final class CodeInlineDocTagTE__BehaviorDescriptor extends BaseBHDescript
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
+  }
+  private static boolean isNotEmptyString(String str) {
+    return str != null && str.length() > 0;
   }
 
   private static final class LINKS {

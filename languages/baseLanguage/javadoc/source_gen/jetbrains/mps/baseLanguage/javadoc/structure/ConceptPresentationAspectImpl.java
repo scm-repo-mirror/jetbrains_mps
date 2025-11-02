@@ -42,6 +42,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_InlineTagCommentTextElement;
   private ConceptPresentation props_LinkInlineDocTag;
   private ConceptPresentation props_LinkInlineDocTagTE;
+  private ConceptPresentation props_LiteralInlineDocTagTE;
   private ConceptPresentation props_MethodDocComment;
   private ConceptPresentation props_MethodDocReference;
   private ConceptPresentation props_ParameterBlockDocTag;
@@ -306,6 +307,14 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_LinkInlineDocTagTE = cpb.create();
         }
         return props_LinkInlineDocTagTE;
+      case LanguageConceptSwitch.LiteralInlineDocTagTE:
+        if (props_LiteralInlineDocTagTE == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("literal text without the code formatting");
+          cpb.rawPresentation("literal");
+          props_LiteralInlineDocTagTE = cpb.create();
+        }
+        return props_LiteralInlineDocTagTE;
       case LanguageConceptSwitch.MethodDocComment:
         if (props_MethodDocComment == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7faeeb34L);

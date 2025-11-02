@@ -16,15 +16,14 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.text.behavior.Line__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
-public final class LinkInlineDocTagTE__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de862c2L, "jetbrains.mps.baseLanguage.javadoc.structure.LinkInlineDocTagTE");
+public final class LiteralInlineDocTagTE__BehaviorDescriptor extends BaseBHDescriptor {
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x60be0671cfb80405L, "jetbrains.mps.baseLanguage.javadoc.structure.LiteralInlineDocTagTE");
 
   public static final SMethod<String> buildCommentText_id4qjHlOXTWlm = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("buildCommentText").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5085607816306607446L).languageId(0xbb1b463a8781b786L, 0xf280165065d5424eL).build2();
 
@@ -36,17 +35,16 @@ public final class LinkInlineDocTagTE__BehaviorDescriptor extends BaseBHDescript
   }
 
   /*package*/ static String buildCommentText_id4qjHlOXTWlm(@NotNull SNode __thisNode__) {
-    String result = "link " + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.reference$Bpyd));
     assert (SLinkOperations.getTarget(__thisNode__, LINKS.commentBody$_6eD) != null);
     String text = Line__BehaviorDescriptor.representAsText_id2iG$EWuTXv2.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.commentBody$_6eD));
     if (isNotEmptyString(((text == null ? null : text.trim())))) {
-      return result + " " + text;
+      return "literal " + text;
     } else {
-      return result;
+      return "literal <no text>";
     }
   }
 
-  /*package*/ LinkInlineDocTagTE__BehaviorDescriptor() {
+  /*package*/ LiteralInlineDocTagTE__BehaviorDescriptor() {
   }
 
   @Override
@@ -97,7 +95,6 @@ public final class LinkInlineDocTagTE__BehaviorDescriptor extends BaseBHDescript
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink commentBody$_6eD = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x60be0671cf949a05L, 0x60be0671cf949f82L, "commentBody");
-    /*package*/ static final SContainmentLink reference$Bpyd = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de862c2L, 0x4693b55d3de862c3L, "reference");
   }
 
   private static final class CONCEPTS {
