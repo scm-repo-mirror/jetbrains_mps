@@ -196,23 +196,8 @@ public class JavaParser {
         final int indexOfSpace = content.indexOf(" ");
         final String refString = (indexOfSpace == -1 ? content : trim_9quruo_a0a0b0c0l0g(content.substring(0, indexOfSpace)));
         if ((refString != null && refString.length() > 0)) {
-          ResolveInfo ri = ResolveInfo.of(refString);
-          if (refString.contains("#")) {
-            if (refString.contains("(")) {
-              SNode ref = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec2531d2d3L, "jetbrains.mps.baseLanguage.javadoc.structure.MethodDocReference"));
-              ref.setReference(LINKS.methodDeclaration$z_UH, ri);
-              SLinkOperations.setTarget(tag, LINKS.reference$ffKg, ref);
-            } else {
-              SNode ref = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec252c9a28L, "jetbrains.mps.baseLanguage.javadoc.structure.FieldDocReference"));
-              ref.setReference(LINKS.declaration$Ptq3, ri);
-              SLinkOperations.setTarget(tag, LINKS.reference$ffKg, ref);
-            }
-          } else {
-            SNode ref = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec2531d2e4L, "jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocReference"));
-            ref.setReference(LINKS.classifier$AhRH, ri);
-            SLinkOperations.setTarget(tag, LINKS.reference$ffKg, ref);
-          }
-          String desc = (indexOfSpace != -1 ? trim_9quruo_a0a0c0c0c0l0g(content.substring(indexOfSpace)) : "");
+          SLinkOperations.setTarget(tag, LINKS.reference$ffKg, resolveReferenceForTag(refString, false));
+          String desc = (indexOfSpace != -1 ? trim_9quruo_a0a0b0c0c0l0g(content.substring(indexOfSpace)) : "");
           if ((desc != null && desc.length() > 0)) {
             BHReflection.invoke0(ListSequence.fromList(SLinkOperations.getChildren(tag, LINKS.commentBody$sIzh)).first(), CONCEPTS.Line$yC, SMethodIdV2.create("removeTextElementAt", 1094247804558425274L, 0x4e4bd60a2247ebcfL), ((int) 0));
             parseCommentLineDetectInlineTags(ListSequence.fromList(SLinkOperations.getChildren(tag, LINKS.commentBody$sIzh)).first(), desc);
@@ -314,8 +299,8 @@ public class JavaParser {
           }
           if (tagBody.startsWith("{@value ") && tagBody.length() > 8) {
             tag = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de80a39L, "jetbrains.mps.baseLanguage.javadoc.structure.ValueInlineDocTagTE"));
-            String referenceText = tagBody.substring(9);
-            SLinkOperations.setTarget(SNodeOperations.as(tag, CONCEPTS.ValueInlineDocTagTE$LX), LINKS.variableReference$voEd, SNodeOperations.as(resolveReferenceForTag(referenceText), CONCEPTS.BaseVariableDocReference$L8));
+            String referenceText = tagBody.substring(8);
+            SLinkOperations.setTarget(SNodeOperations.as(tag, CONCEPTS.ValueInlineDocTagTE$LX), LINKS.variableReference$voEd, SNodeOperations.as(resolveReferenceForTag(referenceText, true), CONCEPTS.BaseVariableDocReference$L8));
           }
           if (tagBody.startsWith("{@literal ") && tagBody.length() > 10) {
             tag = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x60be0671cfb80405L, "jetbrains.mps.baseLanguage.javadoc.structure.LiteralInlineDocTagTE"));
@@ -340,7 +325,7 @@ public class JavaParser {
             } else {
               linkReference = linkBody;
             }
-            SLinkOperations.setTarget(SNodeOperations.as(tag, CONCEPTS.LinkInlineDocTagTE$NH), LINKS.reference$Bpyd, resolveReferenceForTag(linkReference));
+            SLinkOperations.setTarget(SNodeOperations.as(tag, CONCEPTS.LinkInlineDocTagTE$NH), LINKS.reference$Bpyd, resolveReferenceForTag(linkReference, false));
           }
           SLinkOperations.setTarget(element, LINKS.tag$axJH, tag);
           if (tag == null) {
@@ -362,9 +347,15 @@ public class JavaParser {
     }
   }
 
-  private SNode resolveReferenceForTag(String refString) {
+  private SNode resolveReferenceForTag(String refString, boolean staticFieldReference) {
     if ((refString != null && refString.length() > 0)) {
       ResolveInfo ri = ResolveInfo.of(refString);
+      if (staticFieldReference) {
+        SNode ref = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x5a38b07c2d6d7c7bL, "jetbrains.mps.baseLanguage.javadoc.structure.StaticFieldDocReference"));
+        ref.setReference(LINKS.declaration$Ptq3, ri);
+        return ref;
+      }
+
       if (refString.contains("#")) {
         if (refString.contains("(")) {
           SNode ref = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec2531d2d3L, "jetbrains.mps.baseLanguage.javadoc.structure.MethodDocReference"));
@@ -615,7 +606,7 @@ public class JavaParser {
   public static String trim_9quruo_a0a0b0c0l0g(String str) {
     return (str == null ? null : str.trim());
   }
-  public static String trim_9quruo_a0a0c0c0c0l0g(String str) {
+  public static String trim_9quruo_a0a0b0c0c0l0g(String str) {
     return (str == null ? null : str.trim());
   }
   public static String trim_9quruo_a0a1a21a6(String str) {
@@ -665,10 +656,7 @@ public class JavaParser {
   private static final class LINKS {
     /*package*/ static final SContainmentLink statement$53DE = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
     /*package*/ static final SContainmentLink commentBody$sIzh = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3da98b10L, 0x4693b55d3da98c33L, "commentBody");
-    /*package*/ static final SReferenceLink methodDeclaration$z_UH = MetaAdapterFactory.getReferenceLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec2531d2d3L, 0x1ec532ec2531d2d4L, "methodDeclaration");
     /*package*/ static final SContainmentLink reference$ffKg = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec252ca3abL, 0x1ec532ec252ca3baL, "reference");
-    /*package*/ static final SReferenceLink declaration$Ptq3 = MetaAdapterFactory.getReferenceLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4d316b5973d644c2L, 0x4d316b5973d644c4L, "declaration");
-    /*package*/ static final SReferenceLink classifier$AhRH = MetaAdapterFactory.getReferenceLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec2531d2e4L, 0x1ec532ec2531d2e5L, "classifier");
     /*package*/ static final SContainmentLink exceptionType$7VDs = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x514c0f68704ec270L, 0x5ed0d79d7dbd76f9L, "exceptionType");
     /*package*/ static final SReferenceLink classifier$cxMr = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
     /*package*/ static final SContainmentLink parameter$eWDw = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c905f8aL, 0x5ed0d79d7dbe86ebL, "parameter");
@@ -677,6 +665,9 @@ public class JavaParser {
     /*package*/ static final SContainmentLink commentBody$_6eD = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x60be0671cf949a05L, 0x60be0671cf949f82L, "commentBody");
     /*package*/ static final SContainmentLink reference$Bpyd = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de862c2L, 0x4693b55d3de862c3L, "reference");
     /*package*/ static final SContainmentLink tag$axJH = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de762d0L, 0x4693b55d3de762d1L, "tag");
+    /*package*/ static final SReferenceLink declaration$Ptq3 = MetaAdapterFactory.getReferenceLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4d316b5973d644c2L, 0x4d316b5973d644c4L, "declaration");
+    /*package*/ static final SReferenceLink methodDeclaration$z_UH = MetaAdapterFactory.getReferenceLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec2531d2d3L, 0x1ec532ec2531d2d4L, "methodDeclaration");
+    /*package*/ static final SReferenceLink classifier$AhRH = MetaAdapterFactory.getReferenceLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec2531d2e4L, 0x1ec532ec2531d2e5L, "classifier");
     /*package*/ static final SContainmentLink tags$stUD = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4ab5c2019ddc99f3L, "tags");
     /*package*/ static final SContainmentLink lines$lpTr = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1809ed668dda555fL, 0x1809ed668ddac789L, "lines");
     /*package*/ static final SContainmentLink entries$neZo = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53f7c33f069862f2L, 0x64c0181e6020a7L, "entries");
