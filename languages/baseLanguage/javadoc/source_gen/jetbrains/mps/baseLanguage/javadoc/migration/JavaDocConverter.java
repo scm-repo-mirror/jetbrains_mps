@@ -69,7 +69,10 @@ public class JavaDocConverter {
         if (noneMatched && SConceptOperations.isSubConceptOf(cncpt, CONCEPTS.TextCommentLinePart$Eb)) {
           noneMatched = false;
           String text = SPropertyOperations.getString(SNodeOperations.as(part, CONCEPTS.TextCommentLinePart$Eb), PROPS.text$aOLd);
-          Line__BehaviorDescriptor.parseAndAppendText_id68pBJP34v1v.invoke(line, (firstOnLine.value ? text : ((text == null ? null : text.trim()))));
+          String value = (firstOnLine.value ? text : ((text == null ? null : text.trim())));
+          if ((value != null && value.length() > 0)) {
+            Line__BehaviorDescriptor.parseAndAppendText_id68pBJP34v1v.invoke(line, value);
+          }
         }
         if (noneMatched && SConceptOperations.isSubConceptOf(cncpt, CONCEPTS.HTMLElement$SD)) {
           noneMatched = false;
