@@ -8,6 +8,8 @@ import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
+import jetbrains.mps.lang.migration.runtime.base.Problem;
+import jetbrains.mps.lang.migration.runtime.base.DeprecatedConceptNotMigratedProblem;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -29,11 +31,18 @@ public class UpdateJavadocToTextLanguage extends MigrationScriptBase {
     Iterable<SModel> models = m.getModels();
     Sequence.fromIterable(models).ofType(SModel.class).translate((model) -> SModelOperations.nodes(model, CONCEPTS.BaseDocComment$bU)).visitAll((it) -> JavaDocConverter.convertBaseDocCommentToLangText(it));
   }
+  @Override
+  public Iterable<Problem> check(SModule m) {
+    Iterable<SModel> models = m.getModels();
+    Iterable<SNode> instances = Sequence.fromIterable(models).ofType(SModel.class).translate((it) -> SModelOperations.nodes(it, CONCEPTS.CommentLine$hJ));
+    return Sequence.fromIterable(instances).select((it) -> new DeprecatedConceptNotMigratedProblem(it));
+  }
   public MigrationScriptReference getReference() {
     return new MigrationScriptReference(MetaAdapterFactory.getLanguage(0xf280165065d5424eL, 0xbb1b463a8781b786L, "jetbrains.mps.baseLanguage.javadoc"), 2);
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept BaseDocComment$bU = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, "jetbrains.mps.baseLanguage.javadoc.structure.BaseDocComment");
+    /*package*/ static final SConcept CommentLine$hJ = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f96cL, "jetbrains.mps.baseLanguage.javadoc.structure.CommentLine");
   }
 }
