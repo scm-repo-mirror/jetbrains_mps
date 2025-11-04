@@ -93,11 +93,8 @@ public class JavaDocConverter {
         }
         firstOnLine.value = false;
       });
-      if (ListSequence.fromList(SLinkOperations.getChildren(line, LINKS.elements$_j45)).isEmpty()) {
-        Line__BehaviorDescriptor.parseAndAppendText_id68pBJP34v1v.invoke(line, "");
-      }
       return line;
-    });
+    }).where((line) -> ListSequence.fromList(SLinkOperations.getChildren(line, LINKS.elements$_j45)).isNotEmpty());
     return Sequence.fromIterable(lines).toList();
   }
   private static SNode convertInlineTag(SNode oldTag) {
