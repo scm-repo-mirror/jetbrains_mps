@@ -23,6 +23,7 @@ import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.vcspersistence.ModelSack;
 import jetbrains.mps.vcs.util.MergeConstants;
+import jetbrains.mps.vcs.diff.merge.MergeTemporaryModel;
 import jetbrains.mps.smodel.ModelImports;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.vcs.diff.ui.merge.ISaveMergedModel;
@@ -71,8 +72,19 @@ public class ModelMergeViewer implements MergeTool.MergeViewer {
       final MPSProject mpsProject = ProjectHelper.fromIdeaProjectOrFail(context.getProject());
       final ModelSack ms = ModelSack.discover(mpsProject.getPlatform(), file.getName());
       final SModel baseModel = ms.load(byteContents[MergeConstants.ORIGINAL]);
-      final SModel mineModel = (byteContents[MergeConstants.CURRENT].length == 0 ? null : ms.load(byteContents[MergeConstants.CURRENT]));
-      final SModel newModel = (byteContents[MergeConstants.LAST_REVISION].length == 0 ? null : ms.load(byteContents[MergeConstants.LAST_REVISION]));
+      SModel mineModel = (byteContents[MergeConstants.CURRENT].length == 0 ? null : ms.load(byteContents[MergeConstants.CURRENT]));
+      SModel newModel = (byteContents[MergeConstants.LAST_REVISION].length == 0 ? null : ms.load(byteContents[MergeConstants.LAST_REVISION]));
+      // Allow to resolve conflict change/delete root for per-root persistence
+      if (ms.isPerRootPersistenceRoot()) {
+        // create an empty model if the root was deleted
+        if (mineModel == null) {
+          mineModel = new MergeTemporaryModel(baseModel.getReference(), true);
+        }
+        if (newModel == null) {
+          newModel = new MergeTemporaryModel(baseModel.getReference(), true);
+        }
+
+      }
       if (baseModel != null && mineModel != null && newModel != null) {
         if (ms.isPerRootPersistenceRoot()) {
           // fix imports and languages for per-root persistence root file to allow completion
@@ -98,18 +110,24 @@ public class ModelMergeViewer implements MergeTool.MergeViewer {
 
             try {
               final byte[] resultContent = ms.save(resultModel);
-              if (resultContent != null) {
-                ApplicationManager.getApplication().runWriteAction(() -> {
-                  try {
+              ApplicationManager.getApplication().runWriteAction(() -> {
+                try {
+                  if (resultContent != null) {
                     file.setBinaryContent(resultContent);
-                  } catch (IOException e) {
+                  } else if (ms.isPerRootPersistenceRoot()) {
+                    file.delete(null);
+                  } else {
                     if (LOG.isErrorLevel()) {
-                      LOG.error("Cannot save merge result into " + file.getPath(), e);
+                      LOG.error("Null after saving to " + file.getPath(), new Throwable());
                     }
                   }
-                });
-                MergeBackupUtil.packMergeResult(backupFile, file.getName(), resultContent);
-              }
+                } catch (IOException e) {
+                  if (LOG.isErrorLevel()) {
+                    LOG.error("Cannot save merge result into " + file.getPath(), e);
+                  }
+                }
+              });
+              MergeBackupUtil.packMergeResult(backupFile, file.getName(), (resultContent != null ? resultContent : new byte[0]));
             } catch (Throwable error) {
               if (LOG.isErrorLevel()) {
                 LOG.error("Cannot save merge resulting model " + SModelOperations.getModelName(resultModel), error);

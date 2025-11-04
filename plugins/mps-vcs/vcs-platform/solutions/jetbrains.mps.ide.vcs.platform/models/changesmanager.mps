@@ -8558,8 +8558,15 @@
               </node>
             </node>
             <node concept="3cpWs6" id="4henvQNvC8J" role="3cqZAp">
-              <node concept="3clFbT" id="4henvQNvCct" role="3cqZAk">
-                <property role="3clFbU" value="true" />
+              <node concept="3fqX7Q" id="13t7RZlu$Ka" role="3cqZAk">
+                <node concept="2OqwBi" id="13t7RZlu$Kc" role="3fr31v">
+                  <node concept="37vLTw" id="13t7RZlu$Kd" role="2Oq$k0">
+                    <ref role="3cqZAo" node="2JwSLRbzll2" resolve="myModelDescriptor" />
+                  </node>
+                  <node concept="liA8E" id="13t7RZlu$Ke" role="2OqNvi">
+                    <ref role="37wK5l" to="mhbf:~SModel.isReadOnly()" resolve="isReadOnly" />
+                  </node>
+                </node>
               </node>
             </node>
           </node>

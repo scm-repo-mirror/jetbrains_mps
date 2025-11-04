@@ -308,7 +308,7 @@ public final class ChangesTracking {
   public boolean isTracked() {
     if (myModelDescriptor instanceof MergeTemporaryModel) {
       // RootDiffPane brings this on us, fixme
-      return true;
+      return !(myModelDescriptor.isReadOnly());
     }
     FileStatus status = getStatusOfMetaDescriptor();
     return status != FileStatus.IGNORED && status != FileStatus.UNKNOWN && status != FileStatus.DELETED && status != FileStatus.DELETED_FROM_FS;
