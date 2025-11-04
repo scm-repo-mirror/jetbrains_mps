@@ -322,6 +322,7 @@
       </concept>
       <concept id="1160666733551" name="jetbrains.mps.baseLanguage.collections.structure.AddAllElementsOperation" flags="nn" index="X8dFx" />
       <concept id="1201792049884" name="jetbrains.mps.baseLanguage.collections.structure.TranslateOperation" flags="nn" index="3goQfb" />
+      <concept id="1165525191778" name="jetbrains.mps.baseLanguage.collections.structure.GetFirstOperation" flags="nn" index="1uHKPH" />
       <concept id="1202120902084" name="jetbrains.mps.baseLanguage.collections.structure.WhereOperation" flags="nn" index="3zZkjj" />
       <concept id="1202128969694" name="jetbrains.mps.baseLanguage.collections.structure.SelectOperation" flags="nn" index="3$u5V9" />
       <concept id="1176501494711" name="jetbrains.mps.baseLanguage.collections.structure.IsNotEmptyOperation" flags="nn" index="3GX2aA" />
@@ -2542,45 +2543,7 @@
                     <node concept="37vLTw" id="6P3_ffusIfX" role="2Oq$k0">
                       <ref role="3cqZAo" node="6P3_ffusIfQ" resolve="convertedLines" />
                     </node>
-                    <node concept="1MD8d$" id="6P3_ffusRwO" role="2OqNvi">
-                      <node concept="1bVj0M" id="6P3_ffusRwQ" role="23t8la">
-                        <node concept="3clFbS" id="6P3_ffusRwR" role="1bW5cS">
-                          <node concept="3clFbF" id="6P3_ffusUvl" role="3cqZAp">
-                            <node concept="2OqwBi" id="6P3_ffusVZ_" role="3clFbG">
-                              <node concept="37vLTw" id="6P3_ffusUvk" role="2Oq$k0">
-                                <ref role="3cqZAo" node="6P3_ffusRwS" resolve="s" />
-                              </node>
-                              <node concept="2qgKlT" id="6P3_ffusY3N" role="2OqNvi">
-                                <ref role="37wK5l" to="vdrq:1YnOZxALrLu" resolve="merge" />
-                                <node concept="37vLTw" id="6P3_ffusYCq" role="37wK5m">
-                                  <ref role="3cqZAo" node="6P3_ffusRwU" resolve="it" />
-                                </node>
-                              </node>
-                            </node>
-                          </node>
-                          <node concept="3cpWs6" id="6P3_ffut7VF" role="3cqZAp">
-                            <node concept="37vLTw" id="6P3_ffut9Jd" role="3cqZAk">
-                              <ref role="3cqZAo" node="6P3_ffusRwS" resolve="s" />
-                            </node>
-                          </node>
-                        </node>
-                        <node concept="gl6BB" id="6P3_ffusRwS" role="1bW2Oz">
-                          <property role="TrG5h" value="s" />
-                          <node concept="2jxLKc" id="6P3_ffusRwT" role="1tU5fm" />
-                        </node>
-                        <node concept="gl6BB" id="6P3_ffusRwU" role="1bW2Oz">
-                          <property role="TrG5h" value="it" />
-                          <node concept="2jxLKc" id="6P3_ffusRwV" role="1tU5fm" />
-                        </node>
-                      </node>
-                      <node concept="2ShNRf" id="6P3_ffusScE" role="1MDeny">
-                        <node concept="3zrR0B" id="6P3_ffusTof" role="2ShVmc">
-                          <node concept="3Tqbb2" id="6P3_ffusToh" role="3zrR0E">
-                            <ref role="ehGHo" to="zqge:2cLqkTm6J5A" resolve="Line" />
-                          </node>
-                        </node>
-                      </node>
-                    </node>
+                    <node concept="1uHKPH" id="4KShyVEnVLf" role="2OqNvi" />
                   </node>
                   <node concept="2OqwBi" id="6P3_ffus$7U" role="37vLTJ">
                     <node concept="37vLTw" id="6P3_ffusyMg" role="2Oq$k0">
@@ -2664,7 +2627,7 @@
                         </node>
                       </node>
                       <node concept="3Tsc0h" id="6P3_ffutan7" role="2OqNvi">
-                        <ref role="3TtcxE" to="m373:2GsHTemka4x" resolve="line" />
+                        <ref role="3TtcxE" to="m373:2GsHTemkO4u" resolve="line" />
                       </node>
                     </node>
                   </node>

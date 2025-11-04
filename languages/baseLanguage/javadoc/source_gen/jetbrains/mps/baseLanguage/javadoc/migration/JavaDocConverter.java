@@ -105,17 +105,14 @@ public class JavaDocConverter {
       noneMatched = false;
       SNode tag = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de82b71L, "jetbrains.mps.baseLanguage.javadoc.structure.CodeInlineDocTagTE"));
       List<SNode> convertedLines = convertCommentLinesToLines(SLinkOperations.getChildren(SNodeOperations.as(oldTag, CONCEPTS.CodeInlineDocTag$Gw), LINKS.line$ymTj));
-      SLinkOperations.setTarget(tag, LINKS.commentBody$_6eD, ListSequence.fromList(convertedLines).foldLeft(SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, "jetbrains.mps.lang.text.structure.Line")), (s, it) -> {
-        Line__BehaviorDescriptor.merge_id1YnOZxALrLu.invoke(s, it);
-        return s;
-      }));
+      SLinkOperations.setTarget(tag, LINKS.commentBody$_6eD, ListSequence.fromList(convertedLines).first());
       return tag;
     }
     if (noneMatched && SConceptOperations.isSubConceptOf(cncpt, CONCEPTS.LinkInlineDocTag$lF)) {
       noneMatched = false;
       SNode tag = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de862c2L, "jetbrains.mps.baseLanguage.javadoc.structure.LinkInlineDocTagTE"));
       SLinkOperations.setTarget(tag, LINKS.reference$Bpyd, SLinkOperations.getTarget(SNodeOperations.as(oldTag, CONCEPTS.LinkInlineDocTag$lF), LINKS.reference$AFth));
-      List<SNode> convertedLines = convertCommentLinesToLines(SLinkOperations.getChildren(SNodeOperations.as(oldTag, CONCEPTS.LinkInlineDocTag$lF), LINKS.line$ymTj));
+      List<SNode> convertedLines = convertCommentLinesToLines(SLinkOperations.getChildren(SNodeOperations.as(oldTag, CONCEPTS.LinkInlineDocTag$lF), LINKS.line$27GN));
       SLinkOperations.setTarget(tag, LINKS.commentBody$_6eD, ListSequence.fromList(convertedLines).foldLeft(SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, "jetbrains.mps.lang.text.structure.Line")), (s, it) -> {
         Line__BehaviorDescriptor.merge_id1YnOZxALrLu.invoke(s, it);
         return s;
@@ -212,6 +209,7 @@ public class JavaDocConverter {
     /*package*/ static final SContainmentLink commentBody$_6eD = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x60be0671cf949a05L, 0x60be0671cf949f82L, "commentBody");
     /*package*/ static final SContainmentLink reference$Bpyd = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de862c2L, 0x4693b55d3de862c3L, "reference");
     /*package*/ static final SContainmentLink reference$AFth = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x235789022a5d3a2fL, 0x235789022a5d3a34L, "reference");
+    /*package*/ static final SContainmentLink line$27GN = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x235789022a5d3a2fL, 0x2b1cb7939653411eL, "line");
     /*package*/ static final SContainmentLink variableReference$voEd = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de80a39L, 0x4693b55d3de80a3aL, "variableReference");
     /*package*/ static final SContainmentLink variableReference$ASK4 = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x60a0f9237ac5e83bL, 0x2398cefbc25f6d46L, "variableReference");
     /*package*/ static final SContainmentLink text$c2BW = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, 0x250631c6c859e113L, "text");
