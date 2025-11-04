@@ -5,15 +5,16 @@ package jetbrains.mps.baseLanguage.javadoc.migration;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptBase;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.module.SModule;
-import org.jetbrains.mps.openapi.model.SModel;
-import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
-import jetbrains.mps.lang.migration.runtime.base.Problem;
 import org.jetbrains.mps.openapi.module.SearchScope;
 import jetbrains.mps.lang.smodel.query.runtime.CommandUtil;
 import jetbrains.mps.project.EditableFilteringScope;
 import jetbrains.mps.lang.smodel.query.runtime.QueryExecutionContext;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
+import jetbrains.mps.lang.migration.runtime.base.Problem;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import jetbrains.mps.ide.findusages.model.scopes.ModelsScope;
+import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.migration.runtime.base.DeprecatedConceptNotMigratedProblem;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -33,16 +34,20 @@ public class UpdateJavadocToTextLanguage extends MigrationScriptBase {
     return null;
   }
   public void doExecute(final SModule m) {
-    Iterable<SModel> models = m.getModels();
-    Sequence.fromIterable(models).ofType(SModel.class).translate((model) -> SModelOperations.nodes(model, CONCEPTS.BaseDocComment$bU)).visitAll((it) -> JavaDocConverter.convertBaseDocCommentToLangText(it));
+    {
+      SearchScope scope_j3qr52_a0e = CommandUtil.createScope(m);
+      final SearchScope scope_j3qr52_a0e_0 = new EditableFilteringScope(scope_j3qr52_a0e);
+      QueryExecutionContext context = () -> scope_j3qr52_a0e_0;
+      Sequence.fromIterable(CommandUtil.models(CommandUtil.selectScope(null, context))).translate((model) -> SModelOperations.nodes(model, CONCEPTS.BaseDocComment$bU)).visitAll((it) -> JavaDocConverter.convertBaseDocCommentToLangText(it));
+    }
   }
   @Override
   public Iterable<Problem> check(SModule m) {
     {
       SearchScope scope_j3qr52_a0f = CommandUtil.createScope(m);
       final SearchScope scope_j3qr52_a0f_0 = new EditableFilteringScope(scope_j3qr52_a0f);
-      QueryExecutionContext context = () -> scope_j3qr52_a0f_0;
-      return CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.CommentLine$hJ, false)).select((it) -> new DeprecatedConceptNotMigratedProblem(it));
+      final QueryExecutionContext context = () -> scope_j3qr52_a0f_0;
+      return Sequence.fromIterable(CommandUtil.models(CommandUtil.selectScope(null, context))).translate((currentModel) -> CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(new ModelsScope(Sequence.<SModel>singleton(currentModel)), context), CONCEPTS.CommentLine$hJ, false)).select((it) -> new DeprecatedConceptNotMigratedProblem(it)));
     }
   }
   public MigrationScriptReference getReference() {
