@@ -37,6 +37,7 @@ import jetbrains.mps.openapi.editor.EditorComponentSettings;
 import jetbrains.mps.openapi.editor.cells.EditorFontMetrics;
 import java.awt.event.MouseEvent;
 import java.awt.Cursor;
+import jetbrains.mps.vcs.platform.actions.VcsActionsUtil;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.ui.EditorNotifications;
 import javax.swing.JPopupMenu;
@@ -59,7 +60,6 @@ import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.idea.ActionsBundle;
 import com.intellij.openapi.actionSystem.IdeActions;
 import git4idea.i18n.GitBundle;
-import jetbrains.mps.vcs.platform.actions.VcsActionsUtil;
 
 @GeneratedClass(nodeId = "309173295241373953", model = "r:f509a650-cbd9-47e7-b2a0-79f49c562c0b(jetbrains.mps.vcs.annotate)")
 public final class AnnotationColumn extends AbstractLeftColumn {
@@ -287,7 +287,11 @@ public final class AnnotationColumn extends AbstractLeftColumn {
       event.consume();
       LineAnnotation la = getLineAnnotation(event.getY());
       if (la != null && !(la.getRevisionsGraphNode().isLocalRevision())) {
-        myEditorAnnotation.showPathsAffectedByRevision(la.getRevision());
+        if (myEditorAnnotation.isGit()) {
+          VcsActionsUtil.showCommitInGitLog(la.getRevision(), myProject);
+        } else {
+          myEditorAnnotation.showPathsAffectedByRevision(la.getRevision());
+        }
       }
     } else {
       super.mousePressed(event);

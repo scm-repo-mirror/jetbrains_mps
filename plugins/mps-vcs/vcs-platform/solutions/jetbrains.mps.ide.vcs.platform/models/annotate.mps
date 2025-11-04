@@ -3050,19 +3050,52 @@
             </node>
             <node concept="3clFbJ" id="3W5qyJLH1Gr" role="3cqZAp">
               <node concept="3clFbS" id="3W5qyJLH1Gt" role="3clFbx">
-                <node concept="3clFbF" id="1jG3ZCb5tyK" role="3cqZAp">
-                  <node concept="2OqwBi" id="1jG3ZCb5u93" role="3clFbG">
-                    <node concept="37vLTw" id="1jG3ZCb5tyI" role="2Oq$k0">
+                <node concept="3clFbJ" id="76C2P_YXEaF" role="3cqZAp">
+                  <node concept="2OqwBi" id="76C2P_YY35_" role="3clFbw">
+                    <node concept="37vLTw" id="76C2P_YXOBG" role="2Oq$k0">
                       <ref role="3cqZAo" node="1jG3ZCatsRC" resolve="myEditorAnnotation" />
                     </node>
-                    <node concept="liA8E" id="1jG3ZCb5uRU" role="2OqNvi">
-                      <ref role="37wK5l" node="CLCVuHrauP" resolve="showPathsAffectedByRevision" />
-                      <node concept="2OqwBi" id="5vQ$xCpjLjU" role="37wK5m">
-                        <node concept="liA8E" id="5vQ$xCpjLk1" role="2OqNvi">
-                          <ref role="37wK5l" node="5vQ$xCpgP_Y" resolve="getRevision" />
+                    <node concept="liA8E" id="76C2P_YY35A" role="2OqNvi">
+                      <ref role="37wK5l" node="10YBiB19SOH" resolve="isGit" />
+                    </node>
+                  </node>
+                  <node concept="9aQIb" id="76C2P_YXEaN" role="9aQIa">
+                    <node concept="3clFbS" id="76C2P_YXEaO" role="9aQI4">
+                      <node concept="3clFbF" id="1jG3ZCb5tyK" role="3cqZAp">
+                        <node concept="2OqwBi" id="1jG3ZCb5u93" role="3clFbG">
+                          <node concept="37vLTw" id="1jG3ZCb5tyI" role="2Oq$k0">
+                            <ref role="3cqZAo" node="1jG3ZCatsRC" resolve="myEditorAnnotation" />
+                          </node>
+                          <node concept="liA8E" id="1jG3ZCb5uRU" role="2OqNvi">
+                            <ref role="37wK5l" node="CLCVuHrauP" resolve="showPathsAffectedByRevision" />
+                            <node concept="2OqwBi" id="5vQ$xCpjLjU" role="37wK5m">
+                              <node concept="liA8E" id="5vQ$xCpjLk1" role="2OqNvi">
+                                <ref role="37wK5l" node="5vQ$xCpgP_Y" resolve="getRevision" />
+                              </node>
+                              <node concept="37vLTw" id="3W5qyJLH6Jm" role="2Oq$k0">
+                                <ref role="3cqZAo" node="3W5qyJLGZCk" resolve="la" />
+                              </node>
+                            </node>
+                          </node>
                         </node>
-                        <node concept="37vLTw" id="3W5qyJLH6Jm" role="2Oq$k0">
-                          <ref role="3cqZAo" node="3W5qyJLGZCk" resolve="la" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="3clFbS" id="76C2P_YXEaI" role="3clFbx">
+                    <node concept="3clFbF" id="76C2P_YXEaJ" role="3cqZAp">
+                      <node concept="2YIFZM" id="76C2P_YXOAA" role="3clFbG">
+                        <ref role="1Pybhc" to="zbx9:78RbNhWi9Md" resolve="VcsActionsUtil" />
+                        <ref role="37wK5l" to="zbx9:9ijxdaXUnE" resolve="showCommitInGitLog" />
+                        <node concept="2OqwBi" id="76C2P_YYz2V" role="37wK5m">
+                          <node concept="37vLTw" id="76C2P_YY35M" role="2Oq$k0">
+                            <ref role="3cqZAo" node="3W5qyJLGZCk" resolve="la" />
+                          </node>
+                          <node concept="liA8E" id="76C2P_YYz2W" role="2OqNvi">
+                            <ref role="37wK5l" node="5vQ$xCpgP_Y" resolve="getRevision" />
+                          </node>
+                        </node>
+                        <node concept="37vLTw" id="76C2P_Z3dD5" role="37wK5m">
+                          <ref role="3cqZAo" node="24CQeTtvuPN" resolve="myProject" />
                         </node>
                       </node>
                     </node>
