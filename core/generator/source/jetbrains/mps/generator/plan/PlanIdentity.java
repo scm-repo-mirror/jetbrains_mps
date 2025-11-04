@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ import org.jetbrains.annotations.NotNull;
  * @since 3.4
  */
 public final class PlanIdentity {
-  private String myName;
+  private final String myName;
 
   public PlanIdentity(@NotNull String name) {
     // FIXME when GenPlanTranslator creates a PlanIdentity, it has human-readable name only.

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ import jetbrains.mps.extapi.model.TransientSModel;
 import jetbrains.mps.extapi.persistence.ModelFactoryService;
 import jetbrains.mps.generator.impl.GenPlanTranslator;
 import jetbrains.mps.generator.impl.plan.TemplateModelScanner;
+import jetbrains.mps.generator.plan.PlanIdentity;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.progress.EmptyProgressMonitor;
 import jetbrains.mps.project.AbstractModule;
@@ -32,12 +33,10 @@ import jetbrains.mps.smodel.SModelOperations;
 import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.smodel.language.LanguageRuntime;
-import jetbrains.mps.util.Pair;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelReference;
-import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.module.SRepository;
@@ -48,8 +47,11 @@ import org.jetbrains.mps.openapi.persistence.datasource.DataSourceType;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 /**
  * @author Artem Tikhomirov
@@ -82,7 +84,7 @@ public final class ModelValidator {
       repository.getModelAccess().checkReadAccess();
     }
     // FIXME I don't think it's right to exclude transients model here. Why can't I check a transient model, after all?
-    //       Perpahs, this check shall relocate to caller.
+    //       Perhaps, this check shall relocate to caller.
     if (model instanceof TransientSModel) {
       return;
     }
@@ -198,8 +200,7 @@ public final class ModelValidator {
       }
     }
 
-    // FIXME force myComponentHost != null
-    LanguageRegistry languageRegistry = myComponentHost != null ? myComponentHost.findComponent(LanguageRegistry.class) : LanguageRegistry.getInstance(repository);
+    LanguageRegistry languageRegistry = myComponentHost.findComponent(LanguageRegistry.class);
     for (SLanguage lang : ((SModelInternal) model).importedLanguageIds()) {
       if (progress.isCanceled()) {
         return;
@@ -225,43 +226,43 @@ public final class ModelValidator {
       }
     }
 
-    Pair<DevKit, SNode> devkitAssociatedPlan = null;
+    List<GenPlanTranslator> associatedPlans = new ArrayList<>();
     for (SModuleReference devKit : ((SModelInternal) model).importedDevkits()) {
       if (progress.isCanceled()) {
         return;
       }
       final SModule devkitModule = devKit.resolve(repository);
       if (devkitModule == null) {
-        result.accept(new ModelValidationProblem(model, MessageStatus.ERROR, "Can't find devkit: " + devKit.getModuleName()));
+        result.accept(new ModelValidationProblem(model, MessageStatus.ERROR, "Can't find devkit %s".formatted(devKit.getModuleName())));
       } else if (devkitModule instanceof DevKit) {
         final SModelReference planModelRef = ((DevKit) devkitModule).getModuleDescriptor().getAssociatedGenPlan();
         if (planModelRef != null) {
           SModel planModel = planModelRef.resolve(repository);
           if (planModel == null) {
-            result.accept(new ModelValidationProblem(model, MessageStatus.ERROR, "Can't resolve genplan model: " + planModelRef));
+            result.accept(new ModelValidationProblem(model, MessageStatus.ERROR, "Can't resolve generation plan model %s".formatted(planModelRef.getName())));
           } else {
-            SNode planNode = planModel.getRootNodes().iterator().next();
-            if (devkitAssociatedPlan == null) {
-              devkitAssociatedPlan = new Pair<>((DevKit) devkitModule, planNode);
+            GenPlanTranslator gpt = GenPlanTranslator.fromGenPlanModel(planModel);
+            if (gpt != null) {
+              associatedPlans.add(gpt);
             } else {
-              SNode otherPlan = devkitAssociatedPlan.o2;
-              String otherGenTarget = GenPlanTranslator.getForkGenerationTarget(otherPlan);
-              String getTarget = GenPlanTranslator.getForkGenerationTarget(planNode);
-              if (getTarget == null && otherGenTarget == null)
-              {
-                  String m = String.format("Both devkit %s and %s supply generation plan, ", devkitModule.getModuleName(), devkitAssociatedPlan.o1.getModuleName());
-                  result.accept(new ModelValidationProblem(model, MessageStatus.ERROR, m));
-              }
-              else if (getTarget != null && otherGenTarget != null){
-                String m = String.format("Both devkit %s and %s supply a fork of a generation plan, ", devkitModule.getModuleName(), devkitAssociatedPlan.o1.getModuleName());
-                result.accept(new ModelValidationProblem(model, MessageStatus.ERROR, m));
-              }
-              else if (otherGenTarget != null) {
-                // ensure only one plan can have generationTarget == null (that is, not a fork)
-                devkitAssociatedPlan = new Pair<>((DevKit)devkitModule, planNode);
-              }
+              result.accept(new ModelValidationProblem(model, MessageStatus.ERROR, "Failed to retrieve generation plan from model %s".formatted(planModelRef.getName())));
             }
           }
+        }
+      }
+      if (associatedPlans.size() > 1) {
+        final Predicate<GenPlanTranslator> contributedPlan = GenPlanTranslator::contributedPlan;
+        List<GenPlanTranslator> nonContributors = associatedPlans.stream().filter(contributedPlan.negate()).toList();
+        if (nonContributors.size() > 1) {
+          String m = "%d devkits supply independent generation plans (not contributing to others): %s".formatted(nonContributors.size(),
+                                   nonContributors.stream().map(GenPlanTranslator::getPlanIdentity).map(PlanIdentity::getName).toList());
+          // XXX in fact, could be a warning, perhaps. We can deal with several standalone plans now, except for predictable ordering
+          //     yet for now, stick to not more than 1 "main" plan, and relax limitations gradually, as needed (up to INFO, perhaps).
+          result.accept(new ModelValidationProblem(model, MessageStatus.ERROR, m));
+        } else if (nonContributors.isEmpty()) {
+          // more than 1 plan, and all are contributions. Again, we could handle that, except for predictable step ordering.
+          String m = "No devkit with a \"primary\" generation plan, but %d contributors".formatted(associatedPlans.size());
+          result.accept(new ModelValidationProblem(model, MessageStatus.ERROR, m));
         }
       }
     }

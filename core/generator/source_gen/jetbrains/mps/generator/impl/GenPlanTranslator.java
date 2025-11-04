@@ -92,10 +92,6 @@ public final class GenPlanTranslator {
     return null;
   }
 
-  public static String getForkGenerationTarget(SNode maybeFork) {
-    return SPropertyOperations.getString(SLinkOperations.getTarget(maybeFork, LINKS.forkAs$K6gO), PROPS.gentarget$4yRi);
-  }
-
   public GenPlanTranslator(@NotNull SNode planDeclaration) {
     this(planDeclaration, null, false, false);
   }
@@ -327,8 +323,8 @@ public final class GenPlanTranslator {
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty gentarget$4yRi = MetaAdapterFactory.getProperty(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x177eaafe20561e5fL, 0x177eaafe20561ecaL, "gentarget");
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty gentarget$4yRi = MetaAdapterFactory.getProperty(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x177eaafe20561e5fL, 0x177eaafe20561ecaL, "gentarget");
     /*package*/ static final SProperty individualStepPerGenerator$EG46 = MetaAdapterFactory.getProperty(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a2071802L, 0x1ea8fc1842b8cc6aL, "individualStepPerGenerator");
     /*package*/ static final SProperty withExtended$Vq9q = MetaAdapterFactory.getProperty(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x73246de9adeca171L, 0xc11e5088a799353L, "withExtended");
     /*package*/ static final SProperty withPriorityRules$G6xp = MetaAdapterFactory.getProperty(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x73246de9adeca171L, 0xf738996443c35afL, "withPriorityRules");
