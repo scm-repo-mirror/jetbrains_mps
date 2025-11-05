@@ -5100,13 +5100,13 @@
         <node concept="1pGfFk" id="2eQzkDLlytV" role="2ShVmc">
           <ref role="37wK5l" to="z60i:~Color.&lt;init&gt;(int,int,int)" resolve="Color" />
           <node concept="3cmrfG" id="2eQzkDLlytW" role="37wK5m">
-            <property role="3cmrfH" value="200" />
+            <property role="3cmrfH" value="150" />
           </node>
           <node concept="3cmrfG" id="2eQzkDLlytX" role="37wK5m">
-            <property role="3cmrfH" value="200" />
+            <property role="3cmrfH" value="150" />
           </node>
           <node concept="3cmrfG" id="2eQzkDLlytY" role="37wK5m">
-            <property role="3cmrfH" value="200" />
+            <property role="3cmrfH" value="150" />
           </node>
         </node>
       </node>

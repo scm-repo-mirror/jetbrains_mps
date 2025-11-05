@@ -21,7 +21,7 @@ import javax.swing.JComponent;
 import javax.swing.border.Border;
 
 public class Folder {
-  private static final Color TITLE_BACKGROUND_COLOR = new Color(200, 200, 200);
+  private static final Color TITLE_BACKGROUND_COLOR = new Color(150, 150, 150);
   private static final Color TITLE_BORDER_COLOR = new Color(170, 170, 170);
 
   private static Set<String> ourCollapsedStates = SetSequence.fromSet(new HashSet<String>());
