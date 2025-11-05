@@ -167,6 +167,12 @@
         <reference id="1204992316090" name="point" index="2f8Tey" />
         <reference id="1203092736097" name="modifiedGroup" index="tU$_T" />
       </concept>
+      <concept id="1512255007353869535" name="jetbrains.mps.lang.plugin.structure.ActionReference" flags="ln" index="2JRCWP">
+        <reference id="1512255007353869536" name="actionDeclaration" index="2JRCWa" />
+      </concept>
+      <concept id="1512255007353869532" name="jetbrains.mps.lang.plugin.structure.NonDumbAwareActions" flags="ng" index="2JRCWQ">
+        <child id="1512255007353869533" name="actions" index="2JRCWR" />
+      </concept>
       <concept id="1205679047295" name="jetbrains.mps.lang.plugin.structure.ActionParameterDeclaration" flags="ig" index="2S4$dB" />
       <concept id="1205681243813" name="jetbrains.mps.lang.plugin.structure.IsApplicableBlock" flags="in" index="2ScWuX" />
       <concept id="1562714432501166198" name="jetbrains.mps.lang.plugin.structure.SimpleShortcutChange" flags="lg" index="Zd509">
@@ -28269,6 +28275,30 @@
     </node>
     <node concept="tT9cl" id="2Mc3Cvw10MU" role="2f5YQi">
       <ref role="tU$_T" to="ekwn:2C5h550i4Al" resolve="ActionsAsErrorIntentions" />
+    </node>
+  </node>
+  <node concept="2JRCWQ" id="2CCG0gwbuCi">
+    <property role="TrG5h" value="IndexSensitive" />
+    <node concept="2JRCWP" id="2CCG0gwc31e" role="2JRCWR">
+      <ref role="2JRCWa" node="8qS5$SbNw" resolve="InlineMethod" />
+    </node>
+    <node concept="2JRCWP" id="2CCG0gwbuSz" role="2JRCWR">
+      <ref role="2JRCWa" node="cvGLnZnRlJ" resolve="RenameMethod" />
+    </node>
+    <node concept="2JRCWP" id="2CCG0gwb$jb" role="2JRCWR">
+      <ref role="2JRCWa" node="cvGLnZnRnA" resolve="MakeFieldFinal" />
+    </node>
+    <node concept="2JRCWP" id="2CCG0gwbAKU" role="2JRCWR">
+      <ref role="2JRCWa" node="cvGLnZnRoe" resolve="MakeFieldStatic" />
+    </node>
+    <node concept="2JRCWP" id="2CCG0gwbGMc" role="2JRCWR">
+      <ref role="2JRCWa" node="oaQhpl0FsM" resolve="ReplaceFieldWithProperty" />
+    </node>
+    <node concept="2JRCWP" id="2CCG0gwbGMd" role="2JRCWR">
+      <ref role="2JRCWa" node="5zQW9FQjNuK" resolve="ReplacePropertyWithField" />
+    </node>
+    <node concept="2JRCWP" id="2CCG0gwbHgA" role="2JRCWR">
+      <ref role="2JRCWa" node="2o0RM2fztWF" resolve="SafeDeleteConceptMethod" />
     </node>
   </node>
 </model>
