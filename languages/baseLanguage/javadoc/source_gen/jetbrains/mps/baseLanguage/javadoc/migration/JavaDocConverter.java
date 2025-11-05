@@ -73,10 +73,12 @@ public class JavaDocConverter {
           noneMatched = false;
           String text = SPropertyOperations.getString(SNodeOperations.as(part, CONCEPTS.TextCommentLinePart$Eb), PROPS.text$aOLd);
           if (text != null) {
+            // Do not trim when first on line - could be indentation
             String value = (firstOnLine.value ? text : ((text == null ? null : text.trim())));
             Line__BehaviorDescriptor.parseAndAppendText_id68pBJP34v1v.invoke(line, value);
           } else {
             if ((SNodeOperations.getNextSibling(part) == null)) {
+              // this is perhaps an intentionally empty line
               Line__BehaviorDescriptor.parseAndAppendText_id68pBJP34v1v.invoke(line, "");
             }
           }
