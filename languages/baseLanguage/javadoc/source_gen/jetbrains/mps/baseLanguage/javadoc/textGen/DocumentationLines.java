@@ -43,7 +43,7 @@ public abstract class DocumentationLines extends DocCommentTextGen {
         tgs.appendNode(w);
       } else {
         String textualRepresentation = TextElement__BehaviorDescriptor.getTextualRepresentation_idfB3l81it7u.invoke(w);
-        if ((textualRepresentation != null && textualRepresentation.length() > 0)) {
+        if (textualRepresentation != null) {
           if (SNodeOperations.isInstanceOf(w, CONCEPTS.Word$Dn)) {
             boolean isBold = SPropertyOperations.getBoolean(SNodeOperations.as(w, CONCEPTS.Word$Dn), PROPS.bold$SBR1);
             boolean isItalic = SPropertyOperations.getBoolean(SNodeOperations.as(w, CONCEPTS.Word$Dn), PROPS.italic$SC$4);
