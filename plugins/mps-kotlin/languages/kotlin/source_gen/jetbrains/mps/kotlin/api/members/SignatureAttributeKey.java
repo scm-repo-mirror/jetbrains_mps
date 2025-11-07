@@ -10,7 +10,7 @@ import java.util.Map;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Attribute that can be attached to a scope signature. Allows to return attributes that are not 
+ * Attribute that can be attached to a scope signature. Allows to return attributes that are not
  * part of the signature but can be applied to most kind of members.
  * 
  * Such attributes may be inherited in an instance context (when a signature override another, it gets all non overridden

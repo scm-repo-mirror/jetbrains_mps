@@ -44,7 +44,7 @@ public class TargetsView extends UsagesView {
 
   /**
    * Usually, all reference targets external to initial nodes are represented in this view. However, in certain scenarios
-   * we are interested in specific targets only, and therefore here's the scope to limit nodes of this view. 
+   * we are interested in specific targets only, and therefore here's the scope to limit nodes of this view.
    * \Generally null, which means all external reference targets.
    */
   /*package*/ void limitTo(@Nullable DependencyViewerScope scope) {

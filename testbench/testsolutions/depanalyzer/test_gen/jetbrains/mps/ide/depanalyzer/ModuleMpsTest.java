@@ -24,9 +24,9 @@ import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.project.AbstractModule;
 
 /**
- * This is a verbatim copy of {@link jetbrains.mps.testbench.ModuleMpsTest } saved here temporarily
- * to avoid breaking of {@code CoreTestSuite} while in transition to JUnit5 API. 
- * This copy differs only in annotations used on methods to run before/after test. 
+ * This is a verbatim copy of {@link jetbrains.mps.testbench.ModuleMpsTest} saved here temporarily
+ * to avoid breaking of {@code CoreTestSuite} while in transition to JUnit5 API.
+ * This copy differs only in annotations used on methods to run before/after test.
  */
 /*package*/ class ModuleMpsTest implements EnvironmentAware {
   private TestModuleFactory myTestModuleFactory;

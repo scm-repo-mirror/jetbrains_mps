@@ -15,7 +15,7 @@ import org.junit.platform.engine.UniqueId;
 import java.util.List;
 
 /**
- * Adaptation of {@code DefaultRunListener} class to JUnit5 API. 
+ * Adaptation of {@code DefaultRunListener} class to JUnit5 API.
  */
 public class DefaultTestExecutionListener implements TestExecutionListener {
   private final CommandOutputStream myOutput;

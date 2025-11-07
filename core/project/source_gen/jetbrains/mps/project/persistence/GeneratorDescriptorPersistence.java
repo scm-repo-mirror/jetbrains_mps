@@ -24,7 +24,7 @@ import jetbrains.mps.project.structure.modules.mappingpriorities.MappingConfig_E
 import jetbrains.mps.project.structure.modules.mappingpriorities.MappingConfig_RefSet;
 
 /**
- * XML/DOM persistence for a descriptor of Generator module 
+ * XML/DOM persistence for a descriptor of Generator module
  */
 @GeneratedClass(nodeId = "842994667883030499", model = "r:a42e26eb-bbea-4e8d-a549-0d224ab71e57(jetbrains.mps.project.persistence)")
 public class GeneratorDescriptorPersistence {

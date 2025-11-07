@@ -17,7 +17,7 @@ import java.util.List;
  * 
  * Package-local as we don't need it outside now. If found useful, could be generalized, parameterized with
  * Condition and lambda that takes collection of T and made public.
- * Use {@link jetbrains.mps.vcs.suspicious.BaseTaskQueue#start(long, TimeUnit) } and {@link jetbrains.mps.vcs.suspicious.BaseTaskQueue#stop() } to control queue lifecycle
+ * Use {@link jetbrains.mps.vcs.suspicious.BaseTaskQueue#start(long, TimeUnit)} and {@link jetbrains.mps.vcs.suspicious.BaseTaskQueue#stop()} to control queue lifecycle
  * 
  * @param <T> something one can queue and process in batch.
  */
@@ -88,7 +88,7 @@ import java.util.List;
    */
   protected abstract boolean isProcessingAllowed();
   /**
-   * invoked iff {@link jetbrains.mps.vcs.suspicious.BaseTaskQueue#isProcessingAllowed() } returned {@code true} from the same thread, with non-empty collections of tasks schduled to the moment
+   * invoked iff {@link jetbrains.mps.vcs.suspicious.BaseTaskQueue#isProcessingAllowed()} returned {@code true} from the same thread, with non-empty collections of tasks schduled to the moment
    */
   protected abstract void processTask(List<T> tasks);
 }

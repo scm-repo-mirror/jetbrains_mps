@@ -5,7 +5,7 @@ package jetbrains.mps.baselanguage.unitTest.execution.launcher;
 import org.junit.runner.Request;
 
 /**
- * Much like {@link jetbrains.mps.baselanguage.unitTest.execution.launcher.JUnit5TestContributor }, to run JUnit4 tests
+ * Much like {@link jetbrains.mps.baselanguage.unitTest.execution.launcher.JUnit5TestContributor} , to run JUnit4 tests
  */
 public interface JUnit4TestContributor {
   Iterable<Request> gatherTests() throws Exception;

@@ -23,7 +23,7 @@ import jetbrains.mps.core.tool.environment.util.SetLibraryContributor;
   }
 
   /**
-   * The logic here intersects with that of IDEA platform. Here, we build plugin classpath and 
+   * The logic here intersects with that of IDEA platform. Here, we build plugin classpath and
    * contribute mps modules from plugins, the tasks accomplished by IDEA itself in 'big' MPS and IdeaEnvironment scenarios
    */
   private Set<LibDescriptor> getPluginLibDescriptors(PlatformPlugins pp) {
@@ -47,7 +47,7 @@ import jetbrains.mps.core.tool.environment.util.SetLibraryContributor;
 
 
   /**
-   * this method is intended for MpsEnvironment use only, when we need to duplicate IDEA's platform plugin mechanism 
+   * this method is intended for MpsEnvironment use only, when we need to duplicate IDEA's platform plugin mechanism
    * 
    */
   /*package*/ LibraryContributor createLibContributorForPlugins(PlatformPlugins pp) {

@@ -124,7 +124,7 @@ public class VisibleArtifacts {
 
   /**
    * Logic to look artifacts up kept separate to facilitate caching during generation.
-   * Clients that are capable of caching (has access to DependenciesHelper) shall override {@link jetbrains.mps.build.util.VisibleArtifacts#createLookup() }
+   * Clients that are capable of caching (has access to DependenciesHelper) shall override {@link jetbrains.mps.build.util.VisibleArtifacts#createLookup()} 
    */
   public ArtifactLookup getLookup() {
     if (myLookup == null) {

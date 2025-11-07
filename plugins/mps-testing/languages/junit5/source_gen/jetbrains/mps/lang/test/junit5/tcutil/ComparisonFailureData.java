@@ -13,7 +13,7 @@ import java.io.FileOutputStream;
 import java.nio.charset.StandardCharsets;
 
 /**
- * Copied with minor corrections from 
+ * Copied with minor corrections from
  * https://github.com/JetBrains/intellij-community/blob/6b5926a43065aa592ca6d298d0a58484592f5d24/java/java-runtime/src/com/intellij/rt/execution/junit/ComparisonFailureData.java
  */
 public class ComparisonFailureData {

@@ -42,7 +42,7 @@ import java.util.Scanner;
  * Generally, MPS Ant tasks have very limited classpath (j.m.tool.common and j.m.tool.ant, respectively [ant-mps] and [ant-mps-common])
  * while actual 'worker' class likely to employ full power of MPS (either with MpsEnvironment or IdeaEnvironment).
  * Hence, the idea of the task is to get worker's classpath ready to use whatever MPS functionality needed.
- * Specific task subclasses may control exact classpath with {@link jetbrains.mps.build.ant.MpsLoadTask#calculateClassPath(boolean) } based on their worker's demand.
+ * Specific task subclasses may control exact classpath with {@link jetbrains.mps.build.ant.MpsLoadTask#calculateClassPath(boolean)} based on their worker's demand.
  */
 @GeneratedClass(nodeId = "4003657351907890310", model = "r:7b2ffdb7-2bfc-4488-8c0c-ee8fe93fe3c1(jetbrains.mps.build.ant)")
 public class MpsLoadTask extends Task {
@@ -124,13 +124,13 @@ public class MpsLoadTask extends Task {
   }
 
   /**
-   * JNA library is needed by IdeaEnvironment class which bootstraps the platform using 
+   * JNA library is needed by IdeaEnvironment class which bootstraps the platform using
    * PlatformStarter.startApplicationAsync() via MPSHeadlessPlatformStarter. MpsEnvironment on the other hand
    * does not require JNA libraries. This setter is therefore currently used only in MigrationTask and MpsRunnerTask.
    * 
    * NOTE, with some tasks using explicit jvmarg with {@code -Djna.boot.library.path=} conflicts with the way value supplied here ends up in a command line.
-   *       Perhaps, shall use {@code addConfiguredJvmArgs()}, instead, to facilitate proper replacement (if user supplies own jvmarg) and a single occurrence of the argument.
-   *       However, with {@code getMpsHome_Checked()} not available at construction time, there's no easy way to use {@code addConfiguredJvmArgs()}.
+   *       Perhaps, shall use {@code addConfiguredJvmArgs()} , instead, to facilitate proper replacement (if user supplies own jvmarg) and a single occurrence of the argument.
+   *       However, with {@code getMpsHome_Checked()} not available at construction time, there's no easy way to use {@code addConfiguredJvmArgs()} .
    * 
    * @param jnaLibraryPath path to a directory containing native JNA library, relative to MPS home (the one we use to launch the task)
    */
@@ -211,7 +211,7 @@ public class MpsLoadTask extends Task {
   }
 
   /**
-   * Gives subclasses a chance to put anything necessary into the script prior to {@link jetbrains.mps.build.ant.MpsLoadTask#execute() }.
+   * Gives subclasses a chance to put anything necessary into the script prior to {@link jetbrains.mps.build.ant.MpsLoadTask#execute()} .
    * If you override the method, don't forget to invoke super implementation
    * 
    * @param whatToDo description of what and how to run
@@ -346,7 +346,7 @@ public class MpsLoadTask extends Task {
 
   /**
    * Receives properly loaded worker class and may start worker as appropriate.
-   * By default, instantiates an object and fires its no-arg "work" method, see {@link jetbrains.mps.build.ant.MpsLoadTask#instantiateInProcessWorker(Class<?>) } and {@link jetbrains.mps.build.ant.MpsLoadTask#invokeInProcessMain(Class<?>, Object) }
+   * By default, instantiates an object and fires its no-arg "work" method, see {@link jetbrains.mps.build.ant.MpsLoadTask#instantiateInProcessWorker(Class<?>)} and {@link jetbrains.mps.build.ant.MpsLoadTask#invokeInProcessMain(Class<?>, Object)} 
    */
   protected void doInProcessWork(@NotNull Class<?> workerClass) throws Exception {
     Object worker = instantiateInProcessWorker(workerClass);
@@ -355,7 +355,7 @@ public class MpsLoadTask extends Task {
 
   /**
    * Controls construction of a new worker instance, subclasses may override e.g. to pass arguments to a worker through constructor.
-   * This method is part of {@link jetbrains.mps.build.ant.MpsLoadTask#doInProcessWork(Class<?>) }.
+   * This method is part of {@link jetbrains.mps.build.ant.MpsLoadTask#doInProcessWork(Class<?>)} .
    */
   protected Object instantiateInProcessWorker(@NotNull Class<?> workerClass) throws Exception {
     // First, check if there's a desire to get ProjectComponent, i.e. a worker that is Ant-aware
@@ -384,7 +384,7 @@ public class MpsLoadTask extends Task {
 
   /**
    * Controls execution of a worker code, by default just invokes "work" no-arg method for supplied worker instance.
-   * Subclasses may override. This method is part of {@link jetbrains.mps.build.ant.MpsLoadTask#doInProcessWork(Class<?>) }.
+   * Subclasses may override. This method is part of {@link jetbrains.mps.build.ant.MpsLoadTask#doInProcessWork(Class<?>)} .
    */
   protected void invokeInProcessMain(@NotNull Class<?> workerClass, @NotNull Object workerInstance) throws Exception {
     Method method = workerClass.getMethod("work");
@@ -512,8 +512,7 @@ public class MpsLoadTask extends Task {
   }
 
   /**
-   * Override to set the appropriate {@code ExecuteStreamHandler
-   * } on a forked process.
+   * Override to set the appropriate {@code ExecuteStreamHandler} on a forked process.
    */
   protected ExecuteStreamHandler createStreamHandler() {
     return new MyExecuteStreamHandler(this);

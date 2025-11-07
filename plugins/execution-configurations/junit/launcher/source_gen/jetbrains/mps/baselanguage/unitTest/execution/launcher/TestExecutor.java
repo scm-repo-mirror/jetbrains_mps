@@ -6,7 +6,7 @@ import org.jetbrains.annotations.Nullable;
 
 /**
  * Responsible for test execution on the test code running side
- * SO in the case of the separate process test execution the TestExecutor 
+ * SO in the case of the separate process test execution the TestExecutor
  * instance is invoked in the separate process
  */
 public interface TestExecutor {

@@ -22,7 +22,7 @@ import jetbrains.mps.smodel.ModelDependencyUpdate;
 
 /**
  * Th problem is: we need to initialize, dispose and share data between instances of the same class (JUnit by default gets new instance for each test method).
- * We need something like instance field, but preserved for all instances of the same class. As long as there's no easy way to have external configuration for a test 
+ * We need something like instance field, but preserved for all instances of the same class. As long as there's no easy way to have external configuration for a test
  * even with JUnit5 extensions, we use static field in each generated test class.
  * We use extensions, though, to get these parameters initialized and cleaned up once per testcase/class.
  */

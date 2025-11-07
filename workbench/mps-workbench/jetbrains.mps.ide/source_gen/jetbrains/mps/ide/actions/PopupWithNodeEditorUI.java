@@ -181,8 +181,8 @@ public final class PopupWithNodeEditorUI implements Disposable {
   }
 
   /**
-   * Update contents of the editor with new nodes. 
-   * Editor will show the first one, 
+   * Update contents of the editor with new nodes.
+   * Editor will show the first one,
    * others will be available through combo box.
    * 
    * @param nodes nodes to display

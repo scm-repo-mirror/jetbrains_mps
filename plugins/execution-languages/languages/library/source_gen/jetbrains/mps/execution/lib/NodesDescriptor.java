@@ -8,7 +8,7 @@ import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import org.jetbrains.mps.openapi.model.SNode;
 
 /**
- * Use {@link jetbrains.mps.execution.lib.NodesFilter }.
+ * Use {@link jetbrains.mps.execution.lib.NodesFilter} .
  * 
  * @deprecated 
  */

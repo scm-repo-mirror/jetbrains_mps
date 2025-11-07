@@ -28,7 +28,7 @@ import org.jetbrains.annotations.Nullable;
 /**
  * This piece of code allows us to create reloadable (!) run configurations within MPS.
  * It listens to the project plugins manager because we use custom project plugins to register custom 'before' tasks (like 'make' etc.)
- * It saves all run configurations at the plugin unload and then restores them at the plugin load event
+ * It saves all run configurations at the plugin unload and then restores them at the plugin load event 
  * Currently before tasks are saved but not loaded (they are loaded from template configurations) due to change in IDEA api
  * FIX need to try creating a special proxy class which wraps the MPS-owned classes and turns them to IDEA while delegating all the method invocations
  * to the right class.

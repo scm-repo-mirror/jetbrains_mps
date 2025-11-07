@@ -36,9 +36,9 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 
 /**
- * Mediator between a model with Plan node and {@link jetbrains.mps.generator.ModelGenerationPlan } run-time presentation.
- * Translates sequence of plan steps from model into sequence of {@link jetbrains.mps.generator.GenerationPlanBuilder } calls.
- * I use {@link jetbrains.mps.generator.GenerationPlanBuilder } although it seems like an excessive mediator to hide implementation details and to facilitate
+ * Mediator between a model with Plan node and {@link jetbrains.mps.generator.ModelGenerationPlan} run-time presentation.
+ * Translates sequence of plan steps from model into sequence of {@link jetbrains.mps.generator.GenerationPlanBuilder} calls.
+ * I use {@link jetbrains.mps.generator.GenerationPlanBuilder} although it seems like an excessive mediator to hide implementation details and to facilitate
  * plan creation not from a model-backed description.
  */
 @GeneratedClass(nodeId = "2214485068936293220", model = "r:ab837574-aa54-4b18-9762-b783ef089263(jetbrains.mps.generator.impl)")

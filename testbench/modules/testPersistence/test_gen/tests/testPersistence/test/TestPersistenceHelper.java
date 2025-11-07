@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * This is test class for _supported_ persistences. 
+ * This is test class for _supported_ persistences.
  * Note the difference between supported persistence and vcs persistence.
  * For info, read doc comments in ModelPersistence/VCSPersistenceSupport classes
  */

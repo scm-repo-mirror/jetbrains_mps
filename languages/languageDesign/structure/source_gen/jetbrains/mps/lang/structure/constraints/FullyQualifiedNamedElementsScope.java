@@ -13,7 +13,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /**
  * A simple scope for a sequence of concepts which uses the concept's fully qualified name as its reference text.
- * [artem] I don't quite understand the benefit of this scope, does it make sense when regular refInfo is not enough? 
+ * [artem] I don't quite understand the benefit of this scope, does it make sense when regular refInfo is not enough?
  * What's the process preserves result of getReferenceText() for later use in resolve()?
  */
 public class FullyQualifiedNamedElementsScope extends SimpleScope {

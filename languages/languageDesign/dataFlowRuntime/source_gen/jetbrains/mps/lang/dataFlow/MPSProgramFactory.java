@@ -24,7 +24,7 @@ public class MPSProgramFactory implements ProgramFactory<NamedAnalyzerId> {
 
   /**
    * 
-   * @deprecated use {@link jetbrains.mps.lang.dataFlow.MPSProgramFactory#MPSProgramFactory(ComponentHost, Collection<IDataFlowModeId>) } instead, or {@link jetbrains.mps.smodel.language.LanguageRegistry#withAvailableExtensions(Class<T>, ModuleRuntime.Extension.MatchRequest, Consumer<T>) } to get pre-initialized instance if you don't need specific modes
+   * @deprecated use {@link jetbrains.mps.lang.dataFlow.MPSProgramFactory#MPSProgramFactory(ComponentHost, Collection<IDataFlowModeId>)} instead, or {@link jetbrains.mps.smodel.language.LanguageRegistry#withAvailableExtensions(Class<T>, ModuleRuntime.Extension.MatchRequest, Consumer<T>)} to get pre-initialized instance if you don't need specific modes
    */
   @Deprecated(forRemoval = true, since = "2025.1")
   public MPSProgramFactory(Collection<IDataFlowModeId> modes) {

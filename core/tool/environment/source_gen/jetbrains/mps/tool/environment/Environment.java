@@ -23,8 +23,8 @@ import jetbrains.mps.core.platform.Platform;
  * 
  * AP: TODO consider merging all the project creation methods
  * 
- * There are two base implementations, {@link jetbrains.mps.tool.environment.EnvironmentBase } which is deemed for full-fledged runtime instances, and
- *  {@link jetbrains.mps.tool.environment.AbstractEnvironment } generally intended for lightweight, API-like access to existing runtime instance.
+ * There are two base implementations, {@link jetbrains.mps.tool.environment.EnvironmentBase} which is deemed for full-fledged runtime instances, and
+ *   {@link jetbrains.mps.tool.environment.AbstractEnvironment} generally intended for lightweight, API-like access to existing runtime instance.
  */
 @GeneratedClass(nodeId = "824372260173098491", model = "r:2876f1ee-0b45-4db5-8c09-0682cdee5c67(jetbrains.mps.tool.environment)")
 public interface Environment {
@@ -48,7 +48,7 @@ public interface Environment {
   Project openProject(@NotNull File projectFile);
 
   /**
-   * Discards previously opened project. 
+   * Discards previously opened project.
    * Environment does its best to close the project but may choose to ignore request in certain scenarions (like in-process test execution, when closing an active project may affect user experience)
    * 
    * @param project an instance obtained from {@link #openProject(java.io.File)}

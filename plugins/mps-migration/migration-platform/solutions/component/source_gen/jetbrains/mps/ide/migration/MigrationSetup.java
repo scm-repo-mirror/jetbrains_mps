@@ -27,7 +27,7 @@ public class MigrationSetup {
   private boolean myNeedImportVersionUpdate;
 
   /**
-   * Fill with migrations for all project modules. 
+   * Fill with migrations for all project modules.
    * Requires model read
    */
   public MigrationSetup(@NotNull Project mpsProject) {
@@ -97,7 +97,7 @@ public class MigrationSetup {
   }
 
   /**
-   * {@code true} if any of configured modules needs imports update
+   *  {@code true} if any of configured modules needs imports update
    */
   public boolean importVersionsUpdateRequired() {
     return !(myBrokenDepsOfProjectModules) && myNeedImportVersionUpdate;

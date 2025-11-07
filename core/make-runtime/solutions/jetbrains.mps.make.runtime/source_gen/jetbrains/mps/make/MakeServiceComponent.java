@@ -9,10 +9,10 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * Part of MPS platform that gives access to active facility to perform project make.
- * Its {@link jetbrains.mps.make.MakeServiceComponent#install(IMakeService) } and {@link jetbrains.mps.make.MakeServiceComponent#uninstall(IMakeService) } methods are intended for other MPS components that contribute 
- * particular facility implementation. Clients access active service using {@link jetbrains.mps.make.MakeServiceComponent#get() }
+ * Its {@link jetbrains.mps.make.MakeServiceComponent#install(IMakeService)} and {@link jetbrains.mps.make.MakeServiceComponent#uninstall(IMakeService)} methods are intended for other MPS components that contribute
+ * particular facility implementation. Clients access active service using {@link jetbrains.mps.make.MakeServiceComponent#get()} 
  * 
- * Add/remove listeners code here re-registers listeners the moment active make service changes. 
+ * Add/remove listeners code here re-registers listeners the moment active make service changes.
  * Clients can install their listeners irrespective of the moment proper {@code IMakeService} implementation is installed.
  */
 @GeneratedClass(nodeId = "5600956479087952114", model = "r:b25dd364-bc3f-4a66-97d1-262009610c5e(jetbrains.mps.make)")
@@ -62,7 +62,7 @@ public final class MakeServiceComponent implements CoreComponent {
   }
 
   /**
-   * null-safe shorthand for {@code get().isSessionActive()}
+   * null-safe shorthand for {@code get().isSessionActive()} 
    * 
    * @return true iff there's registered IMakeService and it got an active session
    */

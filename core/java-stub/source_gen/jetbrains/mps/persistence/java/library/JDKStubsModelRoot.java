@@ -27,8 +27,8 @@ import java.util.ArrayList;
  * This is for faster implementing model roots that can handle J9 modules.
  * A better solution is to use QualifiedPaths everywhere in model roots and utilize the regular JavaClassStubsModelRoot
  * In fact, this class is no different from JavaClassStubsModelRoot except that it works through VFSManager, QualifiedPath and doesn't group source locations under a source root
- * It's an example of poor approach to MPS development, as it duplicates functionality instead of refactoring existing one. Now with 'jdk' stub root (which is basically VFS+QP root, not related to 
- * JDK at all), and 'java_stubs' root, with IFile and slightly different persistence values, one have to cope with two entities instead of one. I can not imagine what would be guiding idea for any 
+ * It's an example of poor approach to MPS development, as it duplicates functionality instead of refactoring existing one. Now with 'jdk' stub root (which is basically VFS+QP root, not related to
+ * JDK at all), and 'java_stubs' root, with IFile and slightly different persistence values, one have to cope with two entities instead of one. I can not imagine what would be guiding idea for any
  * other MSPS developer to pick either of these when he needs stubs functionality.
  */
 @GeneratedClass(nodeId = "8258026808687960484", model = "r:adc783db-1c21-4910-9cf7-6a22bf949a4a(jetbrains.mps.persistence.java.library)")

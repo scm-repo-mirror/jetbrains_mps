@@ -21,18 +21,18 @@ import jetbrains.mps.ide.projectPane.ProjectPane;
  * Provides a generic template for building various model-creation actions.
  * 
  * Template algorithm consists of 4 steps that are performed sequentially:
- * 1) {@link jetbrains.mps.ide.actions.ModelCreationActionsBaseExecutor#selectModule() } - select module 
- * in which new model will be placed. The module can be either predefined by particular executor or chosen by user 
+ * 1) {@link jetbrains.mps.ide.actions.ModelCreationActionsBaseExecutor#selectModule()} - select module
+ * in which new model will be placed. The module can be either predefined by particular executor or chosen by user
  * in the dialogue, that is shown with this method.
- * 2) {@link jetbrains.mps.ide.actions.ModelCreationActionsBaseExecutor#canBeCreatedInModule(SModule) } - ensure that 
+ * 2) {@link jetbrains.mps.ide.actions.ModelCreationActionsBaseExecutor#canBeCreatedInModule(SModule)} - ensure that
  * the selected module can obtain models that can be created with this executor.
- * 3) {@link jetbrains.mps.ide.actions.ModelCreationActionsBaseExecutor#showDialog(SModule) } - show the dialogue
- * for configuring and creating the model. If the dialogue ends up with creating new model then the newly created model 
+ * 3) {@link jetbrains.mps.ide.actions.ModelCreationActionsBaseExecutor#showDialog(SModule)} - show the dialogue
+ * for configuring and creating the model. If the dialogue ends up with creating new model then the newly created model
  * should be attached to the selected module and returned by this method.
- * 4) {@link jetbrains.mps.ide.actions.ModelCreationActionsBaseExecutor#onModelCreated(SModel) } - performs various 
+ * 4) {@link jetbrains.mps.ide.actions.ModelCreationActionsBaseExecutor#onModelCreated(SModel)} - performs various
  * post-creation activities, e.g. showing model properties window, navigating to the model in logical view, etc.
  * 
- * To perform the algorithm, use {@link jetbrains.mps.ide.actions.ModelCreationActionsBaseExecutor#execute() } method.
+ * To perform the algorithm, use {@link jetbrains.mps.ide.actions.ModelCreationActionsBaseExecutor#execute()} method.
  * 
  * @see jetbrains.mps.ide.actions.NewModelActionExecutor default executor for 'new model' action
  * @see jetbrains.mps.ide.actions.CloneModelActionExecutor default executor for 'clone model' action
@@ -75,14 +75,14 @@ public abstract class ModelCreationActionsBaseExecutor {
   protected abstract SModule selectModule();
 
   /**
-   * Ensures that selected module can obtain the model that will be created with this executor. Optionally, can show 
+   * Ensures that selected module can obtain the model that will be created with this executor. Optionally, can show
    * dialogs that modifies module to make it suitable for new model. If method returns false, model creation will be
    * aborted.
    * 
-   * Default implementation says that model can be created in a module with at least one model root of any type. 
+   * Default implementation says that model can be created in a module with at least one model root of any type.
    * If there no model roots, asks user for creating new model root in given module.
    * 
-   * Custom executors can alter this method. It can be reasonable in cases when executor creates some specific models 
+   * Custom executors can alter this method. It can be reasonable in cases when executor creates some specific models
    * that can be only placed in specific modules, e.g. has some custom model root or facet.
    */
   protected boolean canBeCreatedInModule(@NotNull SModule module) {
@@ -100,10 +100,10 @@ public abstract class ModelCreationActionsBaseExecutor {
 
 
   /**
-   * Shows the dialogue for configuring and creating new model in given module. If the dialogue ends up creating 
+   * Shows the dialogue for configuring and creating new model in given module. If the dialogue ends up creating
    * new model then this model should be attached to given module and then returned by this method.
    * 
-   * If model can not be created for some reason or user cancels the dialog, method returns {@code null}, 
+   * If model can not be created for some reason or user cancels the dialog, method returns {@code null} ,
    * otherwise returns newly created model.
    */
   @Nullable
@@ -114,8 +114,8 @@ public abstract class ModelCreationActionsBaseExecutor {
    * 
    * By default, navigates to the model in a project view.
    * 
-   * If additional actions has to be done after model creation, consider to override this method. If only navigation 
-   * logic has to be customised, consider to override {@link jetbrains.mps.ide.actions.ModelCreationActionsBaseExecutor#showCreatedModelnProjectView(SModel) } instead.
+   * If additional actions has to be done after model creation, consider to override this method. If only navigation
+   * logic has to be customised, consider to override {@link jetbrains.mps.ide.actions.ModelCreationActionsBaseExecutor#showCreatedModelnProjectView(SModel)} instead.
    */
   protected void onModelCreated(@NotNull final SModel result) {
     // Model creation will lead to indexes update, navigation should be performed after that

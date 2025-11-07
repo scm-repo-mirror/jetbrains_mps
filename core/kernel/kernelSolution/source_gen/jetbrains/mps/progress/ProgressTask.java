@@ -13,10 +13,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 /**
- * A task that is supposed to run with {@link org.jetbrains.mps.openapi.util.ProgressMonitor }.
- * <p>The method {@link jetbrains.mps.progress.ProgressTask#schedule(TaskScheduler) } is called at some point after {@link jetbrains.mps.progress.ProgressTask#initMonitor(ProgressMonitor) }. 
+ * A task that is supposed to run with {@link org.jetbrains.mps.openapi.util.ProgressMonitor} .
+ * <p>The method {@link jetbrains.mps.progress.ProgressTask#schedule(TaskScheduler)} is called at some point after {@link jetbrains.mps.progress.ProgressTask#initMonitor(ProgressMonitor)} .
  * The latter method is intended to be overridden by subclasses of this class that wish
- * to allocate a portion (a sub-task) of the parent monitor's total work. 
+ * to allocate a portion (a sub-task) of the parent monitor's total work.
  */
 @GeneratedClass(nodeId = "6032839525407361830", model = "r:37761ffb-9538-49ac-a331-c8121d2c14b2(jetbrains.mps.progress)")
 public abstract class ProgressTask {
@@ -54,10 +54,10 @@ public abstract class ProgressTask {
   }
 
   /**
-   * Schedule the task with the specified instance of {@link jetbrains.mps.progress.TaskScheduler }.
+   * Schedule the task with the specified instance of {@link jetbrains.mps.progress.TaskScheduler} .
    * <p>
-   * A task may choose to either schedule execution of its computation directly, or use some of 
-   * the schedule* methods in {@link jetbrains.mps.progress.TaskScheduler } to schedule children tasks.
+   * A task may choose to either schedule execution of its computation directly, or use some of
+   * the schedule* methods in {@link jetbrains.mps.progress.TaskScheduler} to schedule children tasks.
    */
   public abstract RunnableFuture schedule(TaskScheduler scheduler);
 

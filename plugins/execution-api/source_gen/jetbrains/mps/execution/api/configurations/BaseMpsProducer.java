@@ -27,7 +27,7 @@ import jetbrains.mps.util.EqualUtil;
 
 /**
  * Currently extends the deprecated RuntimeConfigurationProducer
- * To be migrated in 3.5 to the {@link com.intellij.execution.actions.RunConfigurationProducer }
+ * To be migrated in 3.5 to the {@link com.intellij.execution.actions.RunConfigurationProducer} 
  * 
  * @param <T> denotes the MpsPsiElement's item which is the 'key' of the subclassing producer
  */
@@ -90,7 +90,7 @@ public abstract class BaseMpsProducer<T> extends RuntimeConfigurationProducer {
    * Supposed to return whether the given location is created from the given context
    * By default compares by names
    * 
-   * TODO keep it after migration to the {@link com.intellij.execution.actions.RunConfigurationProducer }
+   * TODO keep it after migration to the {@link com.intellij.execution.actions.RunConfigurationProducer} 
    */
   protected boolean isConfigurationFromContext(@NotNull RunConfiguration configuration, @NotNull ConfigurationContext context) {
     RunnerAndConfigurationSettings given = getConfiguration();

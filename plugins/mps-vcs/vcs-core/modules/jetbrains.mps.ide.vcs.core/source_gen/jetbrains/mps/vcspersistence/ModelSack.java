@@ -41,8 +41,8 @@ import jetbrains.mps.vcs.core.mergedriver.FileType;
 
 /**
  * Model and associated information relevant for the purposes of VCS.
- * Note, due to the nature of VCS and per-file merge, model instance here doesn't 
- * represent 'complete' model here. For per-root persistence, model here serves as a 
+ * Note, due to the nature of VCS and per-file merge, model instance here doesn't
+ * represent 'complete' model here. For per-root persistence, model here serves as a
  * mere container for this one root.
  */
 @GeneratedClass(nodeId = "3381696175115146301", model = "r:57faf072-5a23-4c30-9cf6-da73f0e0a8ad(jetbrains.mps.vcspersistence)")

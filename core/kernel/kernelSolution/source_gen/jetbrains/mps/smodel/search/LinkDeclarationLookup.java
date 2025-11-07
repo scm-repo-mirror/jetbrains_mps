@@ -69,10 +69,10 @@ public final class LinkDeclarationLookup {
   /**
    * 
    * Three concepts, each with a link declaration. C3 extends C2, C2 extends C1. (C1.ld1), (C2.ld2) and (C3.ld3)
-   * Case 1, transitive: 
-   *   ld3 specializes ld2, ld2 specialize ld1. 
+   * Case 1, transitive:
+   *   ld3 specializes ld2, ld2 specialize ld1.
    *   C3.getLinkDeclarations() = { ld3 }, LinkDeclarationLookup(C3).getMostSpecificLinkDeclarationFor(ld1) == ld3
-   * Case 2, two overrides for same base link: 
+   * Case 2, two overrides for same base link:
    *   ld3 specializes ld1, ld2 specializes ld1.
    *   C3.getLinkDeclarations() = { ld3, ld2 } (order!). LinkDeclarationLookup(C3).getMostSpecificLinkDeclarationFor(ld1) == ld3
    */

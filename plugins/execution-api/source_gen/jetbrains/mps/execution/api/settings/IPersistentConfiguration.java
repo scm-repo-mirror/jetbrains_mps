@@ -20,9 +20,9 @@ public interface IPersistentConfiguration extends JDOMExternalizable {
    */
   SettingsEditorEx<? extends IPersistentConfiguration> getEditor();
   /**
-   * Although public, intended for alternative implementations of clone() method in owner class (RunConfiguration has clone() in superclass, 
+   * Although public, intended for alternative implementations of clone() method in owner class (RunConfiguration has clone() in superclass,
    * while PersistentConfigurationTemplate does not. Both share clone() implementation supplied by PersistentConfiguration template.
-   * I feel there's no need in the method, nor in shared clone() implementation (iow, superclass for PCT that supports clone() would eliminate need for 
+   * I feel there's no need in the method, nor in shared clone() implementation (iow, superclass for PCT that supports clone() would eliminate need for
    * createCloneTemplate)
    */
   IPersistentConfiguration createCloneTemplate();

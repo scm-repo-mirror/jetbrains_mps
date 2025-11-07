@@ -30,7 +30,7 @@ public class DependencyTreeNode extends MPSTreeNode {
   }
   /**
    * 
-   * @deprecated use {@link jetbrains.mps.ide.depanalyzer.DependencyTreeNode#getModuleReference() } instead (otherwise there's hidden assumption about model access)
+   * @deprecated use {@link jetbrains.mps.ide.depanalyzer.DependencyTreeNode#getModuleReference()} instead (otherwise there's hidden assumption about model access)
    */
   @Deprecated
   public SModule getModule() {

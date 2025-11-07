@@ -43,7 +43,7 @@ public class SNodeOperations {
    * Empty list of nodes that can't be modified helps to detect otherwise hard to catch
    * errors when role of non-existent parent is modified.
    * For example, if there's NodeA.nodeB [0..1] and NodeB.nodeC[0..*], the query
-   * <code>myA.nodeB.nodeC.add(new NodeC)</code> used to pass silently even if nodeB was not set.
+   *  <code>myA.nodeB.nodeC.add(new NodeC)</code> used to pass silently even if nodeB was not set.
    */
   /*package*/ static final List<SNode> EMPTY_LIST = new EmptyList<SNode>("Attempt to add node to non-existent parent or role. Node: %s");
   public SNodeOperations() {

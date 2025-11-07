@@ -145,7 +145,7 @@ public class MPSModulesClosure {
 
   /**
    * For each module, collect execution-time dependencies, based on runtime solution of languages which were used to
-   * generate given module. Dependencies are transitive (i.e. include RTs for runtime solutions). 
+   * generate given module. Dependencies are transitive (i.e. include RTs for runtime solutions).
    * 
    * Dependencies necessary to load RT solutions are also included. For an input module, DOES NOT include dependencies other than RT solutions.
    * 
@@ -254,8 +254,8 @@ public class MPSModulesClosure {
    * 
    * Its use in MPSModulesPartitioner is another way of saying "if I generate a model and there's a language, which has runtime coming from another build script, add it to dependencies"
    * Although it's not clear why would one need language runtime during generation.
-   * XXX Perhaps, {@link jetbrains.mps.build.mps.util.MPSModulesClosure#generationDependenciesClosure() } shall collect module's dependencies (collectDependencies(false)) instead
-   * XXX There's {@link jetbrains.mps.build.mps.util.RuntimeDependencies } that builds a set of dependencies we record in deployment MD (extracted from this class), perhaps, could refactor both classes to reuse knowledge?
+   * XXX Perhaps, {@link jetbrains.mps.build.mps.util.MPSModulesClosure#generationDependenciesClosure()} shall collect module's dependencies (collectDependencies(false)) instead
+   * XXX There's {@link jetbrains.mps.build.mps.util.RuntimeDependencies} that builds a set of dependencies we record in deployment MD (extracted from this class), perhaps, could refactor both classes to reuse knowledge?
    */
   public MPSModulesClosure runtimeClosure() {
     SetSequence.fromSet(myModules).addSequence(ListSequence.fromList(myInitialModules));
@@ -305,7 +305,7 @@ public class MPSModulesClosure {
    * To generate a module, we need its languages and all their dependencies.
    * Since we assume that the generator might address any aspect of input language during the generation procedure
    * we include all the runtime dependencies of used languages into the result as well.
-   * Unlike {@link jetbrains.mps.build.mps.util.MPSModulesClosure#runtimeClosure() } or {@link jetbrains.mps.build.mps.util.MPSModulesClosure#designtimeClosure() }, dependencies of the module itself (aka classpath) doesn't look
+   * Unlike {@link jetbrains.mps.build.mps.util.MPSModulesClosure#runtimeClosure()} or {@link jetbrains.mps.build.mps.util.MPSModulesClosure#designtimeClosure()} , dependencies of the module itself (aka classpath) doesn't look
    * that important (although what if there's utility class in the generator, which depends on external module, and is queried during generation?)
    * todo: Generator's dependencies obviously must be considered separately
    */

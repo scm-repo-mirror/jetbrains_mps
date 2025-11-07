@@ -10,7 +10,7 @@ import org.apache.tools.ant.Task;
 
 /**
  * A stream handler that forwards each line from output and error streams to the task's
- * {@code log()} and {@code logError()} methods respectively.
+ *  {@code log()} and {@code logError()} methods respectively.
  * Logged lines are analyzed for TeamCity's "service messages", among which "testStarted" and "testFinished" indicate
  * the start and end of a block corresponding to a test run. All messages within such a block are
  * wrapped into a new service message, correspondingly "testStdOut" and "testStdErr", which is forwarded

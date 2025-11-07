@@ -5,7 +5,7 @@ package jetbrains.mps.baseLanguage.textGen;
 import org.jetbrains.mps.openapi.model.SNode;
 
 /**
- * Common context for any Classifier TextUnit (top-level), manages imports for shorter names and tracks dependencies 
+ * Common context for any Classifier TextUnit (top-level), manages imports for shorter names and tracks dependencies
  * to facilitate further creation of bl dependencies file
  */
 public class ClassifierUnitContext {

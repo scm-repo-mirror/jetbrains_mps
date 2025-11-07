@@ -6,14 +6,14 @@ import org.jetbrains.mps.openapi.model.SNode;
 
 public interface RequiredDependenciesBuilder {
   /**
-   * Tells that specified layout node is required to build a project. 
+   * Tells that specified layout node is required to build a project.
    * All parent layout nodes (as determined by VisibleArtifacts#parent() are marked as required (with content), too.
    * Not sure whether it has to be _PathElement or _Node, as it's _PathElement that supports subsequent #unpack() call, though.
    */
   void add(SNode node);
 
   /**
-   * Tells layout node is required to build a project and denote it with an easy to reference 'tag' to find 
+   * Tells layout node is required to build a project and denote it with an easy to reference 'tag' to find
    * the artifact later (through DependenciesHelper.getArtifact(artifactId))
    */
   void addWithTag(SNode node, String artifactId);

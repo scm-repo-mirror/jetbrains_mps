@@ -136,10 +136,10 @@ public class AnnotationOptions {
   }
 
   /**
-   * Copied from {@link com.intellij.openapi.vcs.actions.ColorMode } 
-   * which can not be use directly since the methods 
-   * {@link com.intellij.openapi.vcs.actions.ColorMode#isSet() }
-   * and {@link com.intellij.openapi.vcs.actions.ColorMode#set() }
+   * Copied from {@link com.intellij.openapi.vcs.actions.ColorMode} 
+   * which can not be use directly since the methods
+   *  {@link com.intellij.openapi.vcs.actions.ColorMode#isSet()} 
+   * and {@link com.intellij.openapi.vcs.actions.ColorMode#set()} 
    * are not public.
    */
   public enum ColorMode {
@@ -169,10 +169,10 @@ public class AnnotationOptions {
   }
 
   /**
-   * Copied from {@link com.intellij.openapi.vcs.actions.ShortNameType } 
-   * which can not be use directly since the methods 
-   * {@link com.intellij.openapi.vcs.actions.ShortNameType#isSet() }
-   * and {@link com.intellij.openapi.vcs.actions.ShortNameType#set() }
+   * Copied from {@link com.intellij.openapi.vcs.actions.ShortNameType} 
+   * which can not be use directly since the methods
+   *  {@link com.intellij.openapi.vcs.actions.ShortNameType#isSet()} 
+   * and {@link com.intellij.openapi.vcs.actions.ShortNameType#set()} 
    * are not public.
    */
   public enum MpsShortNameType {

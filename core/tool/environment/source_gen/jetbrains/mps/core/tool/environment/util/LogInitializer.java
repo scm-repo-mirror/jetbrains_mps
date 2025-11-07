@@ -28,7 +28,7 @@ import java.util.logging.ConsoleHandler;
  * that can hold MPS messages (see bin/log.properties for an example)
  * 
  * Note, when IDEA starts and applies its hard-coded configuration, it removes any global handler already installed. That's why it's important to have
- * custom handlers installed for MPS-specific sub-categories ('jetbrains.mps' and 'org.jetbrains.mps') to make sure MPS messages get reported to a 
+ * custom handlers installed for MPS-specific sub-categories ('jetbrains.mps' and 'org.jetbrains.mps') to make sure MPS messages get reported to a
  * designated file.
  * 
  * @author Artem Tikhomirov
@@ -38,7 +38,7 @@ import java.util.logging.ConsoleHandler;
 public final class LogInitializer {
 
   /**
-   * FIXME perhaps, shall use {@code java -Djava.util.logging.config.class} or {@code java -Djava.util.logging.config.file}
+   * FIXME perhaps, shall use {@code java -Djava.util.logging.config.class} or {@code java -Djava.util.logging.config.file} 
    * instead of explicit LogInitializer.init() call?
    */
   public static void init() throws Exception {

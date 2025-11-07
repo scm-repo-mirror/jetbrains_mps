@@ -21,9 +21,9 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /**
- * Note, public methods shall not use smodel concepts like node&lt;&gt; as they get referenced from templates of 
- * lang.smodel language and therefore could get life of subsequent generators harder (i.e. if they copy smodel type and 
- * inject it elsewhere - it won't get reduced as lang.smodel generator is already over). Private/protected methods are 
+ * Note, public methods shall not use smodel concepts like node&lt;&gt; as they get referenced from templates of
+ * lang.smodel language and therefore could get life of subsequent generators harder (i.e. if they copy smodel type and
+ * inject it elsewhere - it won't get reduced as lang.smodel generator is already over). Private/protected methods are
  * not referenced from outside and are safe to use whatever deemed necessary.
  */
 @GeneratedClass(nodeId = "6407023681583030432", model = "r:c3548bac-30eb-4a2a-937c-0111d5697309(jetbrains.mps.lang.smodel.generator.smodelAdapter)")

@@ -4,7 +4,7 @@ package jetbrains.mps.baseLanguage.javadoc.sandbox.sandbox;
 
 
 /**
- * Comment for class 
+ * Comment for class
  * 
  * @param <TT> param
  */
@@ -28,12 +28,10 @@ public class ABC<TT> {
   public ABC() {
   }
   /**
-   * The quick {@inheritDoc}brown fox {@code } over t{he lazy dog.
-   * And then... {@link jetbrains.mps.baseLanguage.javadoc.sandbox.sandbox.ABC#SOME_CONSTANT } {@value}
+   * The quick {@inheritDoc} brown fox {@code <no code>} over t{he lazy dog.
+   * And then... {@link jetbrains.mps.baseLanguage.javadoc.sandbox.sandbox.ABC#SOME_CONSTANT}  {@value} 
    * Blah {@value java.awt.GridBagConstraints#NORTH} blah
-   * {{
-      int t = 5;
-   * }}
+   * 
    * 
    * 
    * @author Ludwig Zoo
@@ -55,7 +53,7 @@ public class ABC<TT> {
    * teij jk
    * asdfasdf
    * asfadsfasdfasdf
-   * asfasdfasdasdfasdf<code>asdf<strong />asdf</code>
+   * asfasdfasdasdfasdf <code>asdf <strong /> asdf</code> 
    * asdfbhj
    * asdf
    * asdf
@@ -63,7 +61,7 @@ public class ABC<TT> {
    * s
    * tsdfasdfasfoo
    * as dfndfasffasline2
-   * {@code fasdfasdf}
+   * {@code fasdfasdf} 
    * line3
    * line4bar
    * asdf

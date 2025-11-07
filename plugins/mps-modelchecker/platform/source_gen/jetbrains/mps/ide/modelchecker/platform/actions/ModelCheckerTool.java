@@ -26,7 +26,7 @@ import jetbrains.mps.plugins.projectplugins.ProjectPluginManager;
 import jetbrains.mps.ide.project.ProjectHelper;
 
 /**
- * A facade to deal with {@code tool<ModelChecker>}, backward compatible with existing uses of {@code ModelCheckerTool} through {@code ModelCheckerTool.getInstance}.
+ * A facade to deal with {@code tool<ModelChecker>} , backward compatible with existing uses of {@code ModelCheckerTool} through {@code ModelCheckerTool.getInstance} .
  * Note, legacy {@code project.getComponent(ModelCheckerTool.class} doesn't work any more.
  */
 @GeneratedClass(nodeId = "3719390199793468053", model = "r:5754bb7d-f802-4a0f-bd3d-0764f0d71413(jetbrains.mps.ide.modelchecker.platform.actions)")
@@ -46,8 +46,8 @@ public class ModelCheckerTool {
   }
 
   /**
-   * Does what the name says. For convenience, checkers specified explicitly, if any, override the default  "specific" 
-   * checkers that are returned by {@link jetbrains.mps.ide.modelchecker.platform.actions.ModelCheckerSettings#getSpecificCheckers(Project) }.
+   * Does what the name says. For convenience, checkers specified explicitly, if any, override the default  "specific"
+   * checkers that are returned by {@link jetbrains.mps.ide.modelchecker.platform.actions.ModelCheckerSettings#getSpecificCheckers(Project)} .
    */
   public void checkModelsAndShowResult(List<SModel> models, IChecker<?, ?>... checkers) {
     ModelCheckerViewer newViewer = createViewerForTab();

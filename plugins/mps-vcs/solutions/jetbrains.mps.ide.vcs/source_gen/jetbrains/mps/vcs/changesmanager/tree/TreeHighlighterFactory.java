@@ -63,7 +63,7 @@ public class TreeHighlighterFactory implements Disposable {
   }
 
   /**
-   * Alternative to {@link jetbrains.mps.vcs.changesmanager.tree.TreeHighlighterFactory#instantiateHighlighter(MPSTree, TreeNodeFeatureExtractor) } with some bogus boolean argument I'd like to get rid of
+   * Alternative to {@link jetbrains.mps.vcs.changesmanager.tree.TreeHighlighterFactory#instantiateHighlighter(MPSTree, TreeNodeFeatureExtractor)} with some bogus boolean argument I'd like to get rid of
    */
   public TreeHighlighter instantiateHighlighter(MPSTree tree, TreeNodeFeatureExtractor featureExtractor, boolean removeNodesOnModelDisposal) {
     CurrentDifferenceRegistry registry = CurrentDifferenceRegistry.getInstance(myProject);

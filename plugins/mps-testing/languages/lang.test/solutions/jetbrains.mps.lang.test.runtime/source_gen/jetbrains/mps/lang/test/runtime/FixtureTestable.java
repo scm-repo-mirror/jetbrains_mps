@@ -5,7 +5,7 @@ package jetbrains.mps.lang.test.runtime;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
- * A variant of {@link jetbrains.mps.lang.test.runtime.Testable } that accepts {@link jetbrains.mps.lang.test.runtime.Fixture }.
+ * A variant of {@link jetbrains.mps.lang.test.runtime.Testable} that accepts {@link jetbrains.mps.lang.test.runtime.Fixture} .
  */
 @FunctionalInterface
 @ApiStatus.Experimental

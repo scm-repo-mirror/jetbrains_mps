@@ -98,7 +98,7 @@ public class MakeActionParameters {
   }
 
   /**
-   * By default, parameters are set for make, not clean build (i.e. <code>cleanMake(false)</code>.
+   * By default, parameters are set for make, not clean build (i.e. <code>cleanMake(false)</code> .
    * 
    * @param clean indicates whether to perform clean build
    * @return this for convenience

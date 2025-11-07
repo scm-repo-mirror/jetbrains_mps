@@ -28,7 +28,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 @GeneratedClass(nodeId = "404112845802897353", model = "r:ab837574-aa54-4b18-9762-b783ef089263(jetbrains.mps.generator.impl)")
 public class MappingLabelExtractor {
   /**
-   * Reverse operation to {@link jetbrains.mps.generator.impl.DebugMappingsBuilder#build(SModel, GeneratorMappings) }, restore mappings information from debug node.
+   * Reverse operation to {@link jetbrains.mps.generator.impl.DebugMappingsBuilder#build(SModel, GeneratorMappings)} , restore mappings information from debug node.
    * Likely shall use same mapping API in both build() and restore() (MappingsMemento or its newer, better version)
    * or even split restore code into separate class (provided it may need different initialization values)
    */

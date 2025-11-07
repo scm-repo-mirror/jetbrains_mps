@@ -15,7 +15,7 @@ import java.util.Iterator;
  * IDEA doesn't support RunConfiguration instances that come and go (reloadable; see RunnerAndConfigurationSettingsImpl, which stores RunConfiguration instance), therefore, we have to register
  * non-MPS managed (i.e. IDEA-managed) classes to respective extension points, so that reload of an MPS module doesn't lead to classloading exceptions when accessing classes from the previous CL run.
  * 
- * RunConfiguration comes from ConfigurationFactory which is supplied by ConfigurationType. This class is non-reloadable ConfigurationType implementation, aware of imermanent nature of run configurations 
+ * RunConfiguration comes from ConfigurationFactory which is supplied by ConfigurationType. This class is non-reloadable ConfigurationType implementation, aware of imermanent nature of run configurations
  * contributed by MPS modules.
  * 
  * FIXME This is work in progress, need to introduce proxy classes for factory and run configuration. This class doesn't bear 'proxy' as it is full-fledged implementation (GenericConfigType? NonReloadableConfigType?)

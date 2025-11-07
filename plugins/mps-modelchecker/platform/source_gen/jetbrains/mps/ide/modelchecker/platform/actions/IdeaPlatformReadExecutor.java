@@ -22,7 +22,7 @@ public class IdeaPlatformReadExecutor implements Executor {
   }
 
   /**
-   * See {@link com.intellij.openapi.progress.util.ProgressIndicatorUtils#runInReadActionWithWriteActionPriority(Runnable, ProgressIndicator) }
+   * See {@link com.intellij.openapi.progress.util.ProgressIndicatorUtils#runInReadActionWithWriteActionPriority(Runnable, ProgressIndicator)}
    */
   @Override
   public void execute(final Runnable runnable) {

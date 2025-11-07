@@ -12,7 +12,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /**
- * Alternative implementation of java types explorer that does not require {@code MembersPopulatingContext}
+ * Alternative implementation of java types explorer that does not require {@code MembersPopulatingContext} 
  */
 public class JavaSupertypesVisitor implements ClassifierHierarchyVisitor {
 

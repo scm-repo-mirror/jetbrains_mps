@@ -32,7 +32,7 @@ public abstract class AbstractDebugger<B extends IBreakpoint, K extends IBreakpo
   }
 
   /**
-   * see {@code #init()}, above
+   * see {@code #init()} , above
    */
   public void dispose() {
     BreakpointProvidersManager.getInstance().unregisterProvider(getBreakpointsProvider());

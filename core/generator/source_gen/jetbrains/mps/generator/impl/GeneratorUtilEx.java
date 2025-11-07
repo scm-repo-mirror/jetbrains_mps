@@ -49,10 +49,10 @@ public final class GeneratorUtilEx {
   }
 
   /**
-   * Arguments for ITemplateCall are expressions we need to evaluate. 
-   * Simple expressions, like literals or variable references we know how to process, don't require generated function while complex expressions 
-   * need a java code to get evaluated (unless we implement support for evaluation some day). 
-   * Simple expressions are to get evaluated with {@link jetbrains.mps.generator.impl.GeneratorUtilEx#evaluateExpression(SNode) }
+   * Arguments for ITemplateCall are expressions we need to evaluate.
+   * Simple expressions, like literals or variable references we know how to process, don't require generated function while complex expressions
+   * need a java code to get evaluated (unless we implement support for evaluation some day).
+   * Simple expressions are to get evaluated with {@link jetbrains.mps.generator.impl.GeneratorUtilEx#evaluateExpression(SNode)}  
    * 
    * @param expr expression to check
    * @return true if expression is not simple enough to get evaluated in runtime without actual Java code generated

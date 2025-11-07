@@ -30,7 +30,7 @@ public class NodeUncommenter {
 
   /**
    * Uncomments the node which is under the comment node specified in constructor
-   * <p></p>
+   *  <p></p> 
    * Also if containment link of the commented node is singular and non optional comments or deletes the existing child whether it is instance of abstract concept or not respectively
    * 
    * @throws IllegalStateException if node to uncomment does not have parent

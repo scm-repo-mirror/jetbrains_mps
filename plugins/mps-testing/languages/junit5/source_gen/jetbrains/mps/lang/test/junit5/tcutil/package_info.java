@@ -7,11 +7,11 @@ import org.jetbrains.mps.annotations.Internal;
 /**
  * This package contains classes copied from IDEA IC GitHub repository that provide
  * necessary functionality for reporting test progress and test results to the TC agent.
- * No changes in the API has been made, only a couple of unimportant features removed. 
- * These classes can easily be replaced with the originals should MPS ever decide to 
+ * No changes in the API has been made, only a couple of unimportant features removed.
+ * These classes can easily be replaced with the originals should MPS ever decide to
  * include them as dependency.
  * 
- * NB! Do not modify code and do not create new classes in this package! 
+ * NB! Do not modify code and do not create new classes in this package!
  * 
  */
 @Internal

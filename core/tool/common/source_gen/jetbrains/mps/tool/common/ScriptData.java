@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import org.jdom.Element;
 
 /**
- * Keeps properties necessary to start an MPS instance and to execute a worker class within this new instance. 
+ * Keeps properties necessary to start an MPS instance and to execute a worker class within this new instance.
  * Primary purpose is to supply persistence of the attributes to ensure they get passed between Java process boundaries.
  * Primary scenario for this class is to get MPS started in a distinct setup (e.g. by configuring IdeaEnvionment with EnvironmentConfig which gets populated with the properties serialized by this class)
  * Unlike Script counterpart, doesn't know anything about specific ant tasks and their possible arguments.

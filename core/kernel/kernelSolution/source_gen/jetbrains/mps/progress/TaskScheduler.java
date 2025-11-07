@@ -8,7 +8,7 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import java.util.Collection;
 
 /**
- * Represents the central point of control for launching a series of {@link jetbrains.mps.progress.ProgressTask }
+ * Represents the central point of control for launching a series of {@link jetbrains.mps.progress.ProgressTask} 
  * that can be all executed as a single job.
  * <p>
  * Classes implementing this interface may utilize different strategies for running
@@ -18,28 +18,28 @@ import java.util.Collection;
 public interface TaskScheduler {
 
   /**
-   * Schedule a single task. 
+   * Schedule a single task.
    * 
    * @return a future that will schedule and run the specified task
    */
   RunnableFuture<Void> scheduleTask(ProgressTask task, ProgressMonitor monitor);
 
   /**
-   * Schedule a collection of tasks in sequence. 
+   * Schedule a collection of tasks in sequence.
    * 
    * @return a future that will schedule and run all the specified tasks one by one
    */
   RunnableFuture<Void> scheduleAllSequential(Collection<ProgressTask> tasks, ProgressMonitor monitor);
 
   /**
-   * Schedule a collection of tasks in parallel. 
+   * Schedule a collection of tasks in parallel.
    * 
    * @return a future that will schedule and run all the specified tasks in parallel on a shared threads pool
    */
   RunnableFuture<Void> scheduleAllParallel(Collection<ProgressTask> tasks, ProgressMonitor monitor);
 
   /**
-   * Execute runnable. 
+   * Execute runnable.
    * 
    * @return a future that will execute the specified runnable
    */

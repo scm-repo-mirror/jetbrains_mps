@@ -46,7 +46,7 @@ public class Scopes {
 
   /**
    * 
-   * @deprecated use {@link jetbrains.mps.lang.structure.constraints.Scopes#forConcepts(SNode, SAbstractConcept) } instead
+   * @deprecated use {@link jetbrains.mps.lang.structure.constraints.Scopes#forConcepts(SNode, SAbstractConcept)} instead
    */
   @Deprecated(forRemoval = true, since = "2023.2")
   public static Scope forLanguageConcepts(SNode contextNode, SAbstractConcept metaConcept) {

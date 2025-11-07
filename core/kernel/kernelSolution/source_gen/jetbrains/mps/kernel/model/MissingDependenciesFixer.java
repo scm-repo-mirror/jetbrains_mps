@@ -13,7 +13,7 @@ import jetbrains.mps.smodel.ModelDependencyUpdate;
  * 
  * Methods of this class shall be invoked within command/model write lock
  * 
- * @deprecated use {@link jetbrains.mps.smodel.ModelDependencyUpdate } instead
+ * @deprecated use {@link jetbrains.mps.smodel.ModelDependencyUpdate} instead
  */
 @Deprecated(since = "2025.1", forRemoval = true)
 @GeneratedClass(nodeId = "4193578441192064991", model = "r:2c4d9270-b6d6-44af-aecd-e01a223680db(jetbrains.mps.kernel.model)")

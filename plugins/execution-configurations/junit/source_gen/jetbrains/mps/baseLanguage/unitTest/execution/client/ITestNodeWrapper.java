@@ -22,7 +22,7 @@ public interface ITestNodeWrapper {
    * PROVISIONAL API, DON'T USE OUTSIDE OF MPS
    * 
    * Perhaps, we have to replace this one with a generic 'DependencyConsumer' callback, with distinct methods to register
-   * required deployed modules vs required project/source modules, and to keep the number of this dependencies != exactly 1 as in 
+   * required deployed modules vs required project/source modules, and to keep the number of this dependencies != exactly 1 as in
    * present approach. However, first need to figure out what's TestParameters role would be.
    * 
    * @return module of the test node represented by this wrapper

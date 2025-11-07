@@ -11,21 +11,21 @@ import java.util.ArrayList;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Each test kind (represented by ITestWrapper) uses this class to pass process startup information 
+ * Each test kind (represented by ITestWrapper) uses this class to pass process startup information
  * to JUnit command. Of most importance is Java class to start and to receive set of arguments
  * that describe tests to run. Besides, there's extra classpath and jvmArgs that help the process to start.
  * 
- * Note, generally classpath shall include executorClass, though for executors coming with MPS ({@link jetbrains.mps.baselanguage.unitTest.execution.launcher.DefaultTestExecutor },
- * {@link jetbrains.mps.baselanguage.unitTest.execution.launcher.WithPlatformTestExecutor }, classpath is provided by JUnit command itself (it adds bl.unitTest.execution module 
+ * Note, generally classpath shall include executorClass, though for executors coming with MPS ( {@link jetbrains.mps.baselanguage.unitTest.execution.launcher.DefaultTestExecutor} ,
+ *  {@link jetbrains.mps.baselanguage.unitTest.execution.launcher.WithPlatformTestExecutor} , classpath is provided by JUnit command itself (it adds bl.unitTest.execution module
  * into CP). If the story of TestParameters class evolves, we might want to move this information here (as in fact it's
  * TestParameters instantiating code that knows where executorClass resides). I'd combine this activity with a replacement
- * of Class of executorClass, as JUnit command needs nothing but its FQN, and the only place we use its Class nature is 
- * dubious #comprises method, that assumes subclassing is used for executors. node-ptr[ClassConcept] might be one 
+ * of Class of executorClass, as JUnit command needs nothing but its FQN, and the only place we use its Class nature is
+ * dubious #comprises method, that assumes subclassing is used for executors. node-ptr[ClassConcept] might be one
  * (though not necessarily the best) alternative.
  * 
  * OTOH, if there's no use case for custom executorClass (which I believe to be true), the only information vital here
  * would be needsMPS, and JUnit command could pick proper executor itself. I feel it's much more appealing to provide
- * extra initialization code by means of unitTest language features (transformed into JUnit5 facilities), rather than 
+ * extra initialization code by means of unitTest language features (transformed into JUnit5 facilities), rather than
  * allowing some class runner that has to fulfil odd contract (subclassing, argument processing).
  */
 @Immutable

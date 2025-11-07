@@ -12,17 +12,17 @@ import jetbrains.mps.project.IProject;
 import org.jetbrains.mps.openapi.module.SModule;
 
 /**
- * Abstraction of center settings panel in the 'new model' dialogue. Provides attributes used by model creation in 
+ * Abstraction of center settings panel in the 'new model' dialogue. Provides attributes used by model creation in
  * 'new model' dialogue:
  * - fully qualified name of new model
  * - new model stereotype
  * - model root where new model should be placed
  * - model factory that should be used to create new model
  * 
- * Each attribute can be either predefined of configured by user via {@link jetbrains.mps.ide.dialogs.project.creation.NewModelDialogDefaultSettings#getSettingsPanel() }.
+ * Each attribute can be either predefined of configured by user via {@link jetbrains.mps.ide.dialogs.project.creation.NewModelDialogDefaultSettings#getSettingsPanel()} .
  * 
- * For adoption of 'new model' dialogue in RCPs, custom implementations can be provided to 
- * {@link jetbrains.mps.ide.dialogs.project.creation.NewModelDialog }.
+ * For adoption of 'new model' dialogue in RCPs, custom implementations can be provided to
+ *  {@link jetbrains.mps.ide.dialogs.project.creation.NewModelDialog} .
  */
 @GeneratedClass(nodeId = "7081154005682091284", model = "r:478bf62d-84fb-4fba-aeda-183fb2769e64(jetbrains.mps.ide.dialogs.project.creation)")
 public interface NewModelDialogSettings {

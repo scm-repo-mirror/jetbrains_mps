@@ -19,7 +19,7 @@ import java.io.FileOutputStream;
  * Utility class to deal with classpath length limitation.
  * Creates a temporary jar file with META-INF/MANIFEST.MF holding Main-Class and Class-Path entries one could pass to java executable
  * (e.g. 'java -jar filename args').
- * Kept local to Java command though likely shall find a place somewhere in a shared location as it's not the 
+ * Kept local to Java command though likely shall find a place somewhere in a shared location as it's not the
  * only place in MPS we deal with long classpath issue.
  * Package-private as 'api' is not the best package for this utility class. Besides, the whole 'api' model has
  * to be restructured so that Java command is separate from JavaConfigurationEditorComponent

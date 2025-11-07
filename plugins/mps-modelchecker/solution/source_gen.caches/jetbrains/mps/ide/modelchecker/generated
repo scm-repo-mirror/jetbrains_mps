@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="-5bkdz3uf4ksqk6z7xbwqj8ahdoh8a7u">
+<product version="3" modelHash="-5iv4drp3rdaiayy6ih94d24hbpm2wii">
   <files names="GeneratorTemplatesChecker.java:ModelValidatorAdapter.java:ModuleActivator.java:ProperGenPlanChecker.java:SpecificChecker.java:UnresolvedReferencesChecker.java" />
 </product>
 

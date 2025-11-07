@@ -15,7 +15,7 @@ public class OutputPathRedirects implements IRedirects {
 
   /**
    * 
-   * @deprecated there's no reason to bound IRedirects to string, if we know about IFile anyway. OutputPathRedirects shall not make assumptions about FS (or shall get FS as cons argument directly). Use {@link jetbrains.mps.tool.builder.paths.OutputPathRedirects#OutputPathRedirects(ModuleOutputPaths, IFile, IFile, boolean) }instead.
+   * @deprecated there's no reason to bound IRedirects to string, if we know about IFile anyway. OutputPathRedirects shall not make assumptions about FS (or shall get FS as cons argument directly). Use {@link jetbrains.mps.tool.builder.paths.OutputPathRedirects#OutputPathRedirects(ModuleOutputPaths, IFile, IFile, boolean)} instead.
    */
   @Deprecated
   public OutputPathRedirects(ModuleOutputPaths outputPaths, File outputRoot, File cachesOutputRoot, boolean useTransientOutput) {

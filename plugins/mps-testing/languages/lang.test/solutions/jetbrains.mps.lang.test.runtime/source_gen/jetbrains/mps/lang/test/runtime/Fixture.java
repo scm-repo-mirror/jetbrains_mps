@@ -26,7 +26,7 @@ public interface Fixture {
 
   /**
    * Looks up and returns a copied root with given ID.
-   * Must be invoked from read action. 
+   * Must be invoked from read action.
    */
   SNode copied(String id);
 

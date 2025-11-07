@@ -73,7 +73,7 @@ public interface MigrationSession {
 
   /**
    * Indicates migration process (as specified by required steps) has been completed.
-   * Doesn't indicate success, there could be an {@link jetbrains.mps.ide.migration.wizard.MigrationSession#getError() error}.
+   * Doesn't indicate success, there could be an {@link jetbrains.mps.ide.migration.wizard.MigrationSession#getError() error} .
    */
   void completed();
 

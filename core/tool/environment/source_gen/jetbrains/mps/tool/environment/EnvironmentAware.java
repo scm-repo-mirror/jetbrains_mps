@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * Indication that a class implementing this interface needs an Environment dependency injected. Implementors
- * must override method {@link jetbrains.mps.tool.environment.EnvironmentAware#setEnvironment(Environment) } and store the passed value.
+ * must override method {@link jetbrains.mps.tool.environment.EnvironmentAware#setEnvironment(Environment)} and store the passed value.
  */
 @GeneratedClass(nodeId = "8946405811982722281", model = "r:2876f1ee-0b45-4db5-8c09-0682cdee5c67(jetbrains.mps.tool.environment)")
 public interface EnvironmentAware {

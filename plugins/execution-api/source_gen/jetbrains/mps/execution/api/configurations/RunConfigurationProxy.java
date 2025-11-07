@@ -25,7 +25,7 @@ import jetbrains.mps.execution.api.settings.SettingsEditorEx;
  * Idea is to replace generated RunConfiguration classes with this proxy so that IDEA's RunnerAndConfigurationSettingsImpl can hold
  * an instance after generated delegate RunConfiguration class has been disposed/got invalid classloader.
  * I don't use it at the moment as there are producers that expect specific instance of RunConfiguration to come from ConfigurationFactory
- * (see reduce_RunConfigurationCreator), and I'd like to refactor producers first (including switch to RunConfigurationProducer instead of 
+ * (see reduce_RunConfigurationCreator), and I'd like to refactor producers first (including switch to RunConfigurationProducer instead of
  * deprecated RuntimeConfigurationProducer) and then consider options for use of the proxy.
  */
 @GeneratedClass(nodeId = "897795129551221893", model = "r:49e72ff8-8ace-42fd-8f9f-5961eed9792e(jetbrains.mps.execution.api.configurations)")

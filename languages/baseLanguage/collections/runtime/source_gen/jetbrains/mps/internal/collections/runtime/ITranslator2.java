@@ -6,7 +6,7 @@ import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 
 /**
  * 
- * @deprecated use closures, if usage is necessary, create an interface instead of this class
+ * @deprecated use closures, if usage is necessary, create an interface instead of this class 
  */
 @Deprecated
 public abstract class ITranslator2<T, S> implements _FunctionTypes._return_P1_E0<Iterable<S>, T> {

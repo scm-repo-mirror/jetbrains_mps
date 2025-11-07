@@ -85,8 +85,8 @@ public final class PushEnvironmentRunnerBuilder extends RunnerBuilder {
   }
 
   /**
-   * The reason we have to be Filterable is that JUnit38ClassRunner creates new TestSuite() rather than our subclass when asked to filter out some test cases 
-   * (see its JUnit38ClassRunner.filter() implementation). Alternative is to subclass JUnit38ClassRunner and provide own filter implementation that would create proper 
+   * The reason we have to be Filterable is that JUnit38ClassRunner creates new TestSuite() rather than our subclass when asked to filter out some test cases
+   * (see its JUnit38ClassRunner.filter() implementation). Alternative is to subclass JUnit38ClassRunner and provide own filter implementation that would create proper
    * TestSuite subclass
    */
   /*package*/ class JUnit38SuiteAdapter extends TestSuite implements Filterable {

@@ -32,7 +32,7 @@ import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 
 /**
- * Update MPS internal records of versions for module dependencies. 
+ * Update MPS internal records of versions for module dependencies.
  * These versions are persisted as part of module descriptor.
  */
 @GeneratedClass(nodeId = "6245638960928226903", model = "r:5ff047e0-2953-4750-806a-bdc16824aa89(jetbrains.mps.smodel)")
@@ -48,8 +48,8 @@ public final class ModuleDependencyVersions {
   }
 
   /**
-   * Relevant for {@link jetbrains.mps.smodel.ModuleDependencyVersions#needsUpdate(SModule) } and {@link jetbrains.mps.smodel.ModuleDependencyVersions#update(SModule) }, by default update methods don't change recorded
-   * version of a dependency that's not among actual module dependencies. Change behavior to record only actual 
+   * Relevant for {@link jetbrains.mps.smodel.ModuleDependencyVersions#needsUpdate(SModule)} and {@link jetbrains.mps.smodel.ModuleDependencyVersions#update(SModule)} , by default update methods don't change recorded
+   * version of a dependency that's not among actual module dependencies. Change behavior to record only actual
    * dependencies and their versions with this method.
    * The flag is quite dubious, and is not easy to explain use cases. Primarily employed by Migration code and likely
    * shall be ignored by others.
@@ -60,7 +60,7 @@ public final class ModuleDependencyVersions {
   }
 
   /**
-   * Tells if version of module dependencies are not in accordance with expectations and it's worth to {@link jetbrains.mps.smodel.ModuleDependencyVersions#update(SModule) } them.
+   * Tells if version of module dependencies are not in accordance with expectations and it's worth to {@link jetbrains.mps.smodel.ModuleDependencyVersions#update(SModule)} them.
    * Needs read access to a repository
    */
   public boolean needsUpdate(@NotNull SModule module) {
@@ -85,7 +85,7 @@ public final class ModuleDependencyVersions {
 
   /**
    * Tells if supplied language/module repository contain all necessary dependencies of the module.
-   * Unlike {@link jetbrains.mps.smodel.ModuleDependencyVersions#needsUpdate(SModule) }, this method doesn't check language/module versions, just the fact they could be discovered.
+   * Unlike {@link jetbrains.mps.smodel.ModuleDependencyVersions#needsUpdate(SModule)} , this method doesn't check language/module versions, just the fact they could be discovered.
    */
   public boolean dependenciesPresent(SModule module) {
     myModuleRepo.getModelAccess().checkReadAccess();

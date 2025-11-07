@@ -23,8 +23,8 @@ import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.classloading.MPSModuleClassLoader;
 
 /**
- * Transforms {@link jetbrains.mps.tool.common.TestData } into JUnit5 selectors, capable
- *  to discover all tests in an MPS module, if requested ({@code TestData.ModuleRecord.autoDiscovery}
+ * Transforms {@link jetbrains.mps.tool.common.TestData} into JUnit5 selectors, capable
+ *  to discover all tests in an MPS module, if requested ( {@code TestData.ModuleRecord.autoDiscovery} 
  * <p>
  * Now, we use ClassSelector and MethodSelector, although we may end up with our own selectors, if we manage to add custom TestEngine.
  */

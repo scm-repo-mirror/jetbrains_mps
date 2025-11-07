@@ -114,7 +114,7 @@ public class RenameModuleDialog extends RenameDialog {
 
 
   /**
-   * Have to update info panel after initialization in {@link jetbrains.mps.ide.refactoring.RenameModuleDialog#createCenterPanel() }, because last one happens in super constructor before {@link jetbrains.mps.ide.refactoring.RenameModuleDialog#myModule } is set.
+   * Have to update info panel after initialization in {@link jetbrains.mps.ide.refactoring.RenameModuleDialog#createCenterPanel()} , because last one happens in super constructor before {@link jetbrains.mps.ide.refactoring.RenameModuleDialog#myModule} is set.
    * i.e. infamous init() in cons call design defect. Perhaps, shall not use RenameDialog superclass?
    */
   private void updateCentralPanel() {

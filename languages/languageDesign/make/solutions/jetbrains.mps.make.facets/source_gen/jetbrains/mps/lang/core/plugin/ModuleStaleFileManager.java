@@ -95,7 +95,7 @@ import jetbrains.mps.internal.collections.runtime.CollectionSequence;
     }
 
     /**
-     * Alternative to {@link jetbrains.mps.lang.core.plugin.ModuleStaleFileManager.ModelStaleFileManager#collectGeneratedFiles() }, with all files under model's output root considered as 'stale'. Walks actual FS to find out existing files
+     * Alternative to {@link jetbrains.mps.lang.core.plugin.ModuleStaleFileManager.ModelStaleFileManager#collectGeneratedFiles()} , with all files under model's output root considered as 'stale'. Walks actual FS to find out existing files
      */
     /*package*/ void collectGeneratedFilesForceClean() {
       final GenerationTargetFacet gtf = myGenerationTargetFacet;

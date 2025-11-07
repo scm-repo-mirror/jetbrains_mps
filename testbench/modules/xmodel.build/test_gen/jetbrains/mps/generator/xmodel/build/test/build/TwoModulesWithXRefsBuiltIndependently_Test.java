@@ -26,15 +26,15 @@ import jetbrains.mps.tool.environment.IdeaEnvironment;
  *     Location of this test module. In addition to test class, the module include 2 build projects to run
  *     during tests. Modules built by these projects are not part of "MPS" project itself, and live in a separate project,
  *     "project.xmodel.test1".
- *     This location is also home for p1.xml and p2.xml, as these use "../.." as their base directory to get 
+ *     This location is also home for p1.xml and p2.xml, as these use "../.." as their base directory to get
  *     to generator/test/../../project.xmodel.test1/ home of test modules.
  *    mps/languages/languageDesign/generator/project.xmodel.test1
  *      Location of solutions, languages and devkits we use during tests. Namely, p1 and p2 build projects from this module
  *      build these modules
  * 
  * p1 and p2 generate their respective xmls relative to basedir, hence use test/xmodel.build/name.xml to get them into proper place.
- * Basedir is set to ../../, not individual modules are loaded from ../../ as Build Language for whatever reason doesn't 
- * tolerate modules not under project's basedir.
+ * Basedir is set to ../../, not individual modules are loaded from ../../ as Build Language for whatever reason doesn't
+ * tolerate modules not under project's basedir. 
  * 
  * Test process:
  *  First, we generate set of modules (language, devkit and solution with x-ref target) with p1.xml.

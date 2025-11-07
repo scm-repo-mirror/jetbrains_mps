@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
  * EXPERIMENTAL PROVISIONAL API
  * 
  * A generic data holder to be passed around whenever there is a need to have a collection
- * of arbitrary key-value pairs with typed value. 
+ * of arbitrary key-value pairs with typed value.
  * 
  */
 public interface Dictionary {

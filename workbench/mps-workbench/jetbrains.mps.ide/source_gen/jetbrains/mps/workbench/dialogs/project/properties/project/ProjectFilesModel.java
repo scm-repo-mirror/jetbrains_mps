@@ -39,7 +39,7 @@ import java.util.Comparator;
   }
 
   /**
-   * Adds element if collection does not contains such element. 
+   * Adds element if collection does not contains such element.
    * Method maintains collection sorting and elements uniqueness.
    * 
    * @param files to add

@@ -21,9 +21,9 @@ import jetbrains.mps.nodeEditor.configuration.EditorConfigurationBuilder;
 public class HeadlessEditorComponent extends EditorComponent {
 
   /**
-   * Use {@link jetbrains.mps.editor.runtime.HeadlessEditorComponent#HeadlessEditorComponent(SRepository) } and {@link jetbrains.mps.nodeEditor.EditorComponent#editNode(SNode) } instead.
+   * Use {@link jetbrains.mps.editor.runtime.HeadlessEditorComponent#HeadlessEditorComponent(SRepository)} and {@link jetbrains.mps.nodeEditor.EditorComponent#editNode(SNode)} instead.
    * 
-   * Using this constructor defeats the purpose of {@link jetbrains.mps.openapi.editor.EditorComponent#dispose() } in try-finally blocks, since it makes impossible to dispose on exceptions thrown from {@code editNode}
+   * Using this constructor defeats the purpose of {@link jetbrains.mps.openapi.editor.EditorComponent#dispose()} in try-finally blocks, since it makes impossible to dispose on exceptions thrown from {@code editNode} 
    */
   @Deprecated
   public HeadlessEditorComponent(SNode node, SRepository repository) {

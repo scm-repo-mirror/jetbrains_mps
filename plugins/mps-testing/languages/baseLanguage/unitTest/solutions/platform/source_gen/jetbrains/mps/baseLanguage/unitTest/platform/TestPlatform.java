@@ -42,7 +42,7 @@ public class TestPlatform implements CoreComponent {
 
   /**
    * 
-   * @deprecated Instead, use {@code extensions} registered through {@code ModuleRuntime.ActivatorContext}
+   * @deprecated Instead, use {@code extensions} registered through {@code ModuleRuntime.ActivatorContext} 
    */
   @Deprecated(since = "2025.3", forRemoval = true)
   public synchronized void addTestDiscoveryParticipant(TestDiscoveryParticipant participant) {
@@ -61,7 +61,7 @@ public class TestPlatform implements CoreComponent {
 
   /**
    * 
-   * @deprecated Instead, use {@code extensions} registered through {@code ModuleRuntime.ActivatorContext}
+   * @deprecated Instead, use {@code extensions} registered through {@code ModuleRuntime.ActivatorContext} 
    */
   @Deprecated(since = "2025.3", forRemoval = true)
   public void addTestSessionLisnener(TestSessionListener listener) {

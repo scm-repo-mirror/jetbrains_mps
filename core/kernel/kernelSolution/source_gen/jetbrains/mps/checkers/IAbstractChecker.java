@@ -14,7 +14,7 @@ import jetbrains.mps.progress.ProgressTask;
  * A misnomer composite checker.
  * <p>
  * An instance of this interface is never a "concrete" (a.k.a. "specific") checker, rather it is always composed
- * of other checkers, abstract or otherwise. 
+ * of other checkers, abstract or otherwise.
  * 
  */
 @GeneratedClass(nodeId = "4057642946561766034", model = "r:ba41e9c6-15ca-4a47-95f2-6a81c2318547(jetbrains.mps.checkers)")
@@ -24,10 +24,10 @@ public interface IAbstractChecker<O, I extends ReportItem> {
 
   /**
    * Alternative way to construct a composite checker: instead of running all aggregated checkers in sequence
-   * one may choose to construct a batch job with optionally launching a certain "branch" in background. 
+   * one may choose to construct a batch job with optionally launching a certain "branch" in background.
    * <p>
-   * See {@link jetbrains.mps.progress.ProgressTask }.<br>
-   * See {@link jetbrains.mps.progress.TaskScheduler }.<br>
+   * See {@link jetbrains.mps.progress.ProgressTask} .<br>
+   * See {@link jetbrains.mps.progress.TaskScheduler} .<br>
    */
   @ApiStatus.Experimental
   default ProgressTask checkTask(final O toCheck, final SRepository repository, final Consumer<? super I> errorCollector) {

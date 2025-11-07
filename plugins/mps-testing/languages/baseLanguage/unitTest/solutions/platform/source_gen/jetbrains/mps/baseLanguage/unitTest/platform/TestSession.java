@@ -21,9 +21,9 @@ public class TestSession {
 
   /**
    * Enables to retrieve an accessory object associated with this test session at the
-   * moment it is created. 
+   * moment it is created.
    * <p>
-   * The only accessory kind currently supported is {@code jetbrains.mps.tool.Environment}.
+   * The only accessory kind currently supported is {@code jetbrains.mps.tool.Environment} .
    * This accessory object is necessary in order to provide tests with possibility
    * to interact with SModel API and other interfaces in MPS platform.
    */
@@ -36,8 +36,8 @@ public class TestSession {
 
   /**
    * Serves to facilitate overriding of system properties for tests that are run with this session.
-   * Instead of calling directly {@code System.getProperty()}, this method should be used, which 
-   * delegates to {@link java.lang.System } for properties that are not defined for this session.
+   * Instead of calling directly {@code System.getProperty()} , this method should be used, which
+   * delegates to {@link java.lang.System} for properties that are not defined for this session.
    */
   public String getSystemProperty(String key) {
     if (myProperties.containsKey(key)) {

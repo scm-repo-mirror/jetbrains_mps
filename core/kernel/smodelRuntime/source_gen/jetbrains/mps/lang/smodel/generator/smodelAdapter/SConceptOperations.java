@@ -65,7 +65,7 @@ public final class SConceptOperations {
   }
   /**
    * Find all concepts that extend supplied one, and are declared in a language either imported directly in to the model,
-   * or the language extended by those imported. 
+   * or the language extended by those imported.
    * Intention is to get possible concepts which instances, added to model, would not require any dependency change.
    */
   @NotNull
@@ -73,7 +73,7 @@ public final class SConceptOperations {
     return getAllSubConcepts(concept, new SLanguageHierarchy(SModelOperations.getAllLanguageImports(model)).getExtended());
   }
   /**
-   * Alternative {@link jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations#getAllSubConcepts(SAbstractConcept, SModel) }, tailored for non-interface concepts
+   * Alternative {@link jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations#getAllSubConcepts(SAbstractConcept, SModel)} , tailored for non-interface concepts
    */
   @NotNull
   public static List<SConcept> getAllSubConcepts2(SConcept concept, SModel model) {

@@ -47,31 +47,41 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /**
- * Used by {@code jetbrains.mps.editor.runtime.ErrorComponent}. 
+ * Used by {@code jetbrains.mps.editor.runtime.ErrorComponent} .
  * Responsible for collecting and tracking errors reported by instances of
- * {@link jetbrains.mps.checkers.AbstractNodeCheckerInEditor } for a specific editor component.
+ *  {@link jetbrains.mps.checkers.AbstractNodeCheckerInEditor} for a specific editor component.
  * <p>
  * Maintains internal map of nodes to error items reported, and tries to correctly guess when entries in this map
  * are to be cleared (invalidated).
  * <p>
- * See {@code jetbrains.mps.editor.runtime.ErrorComponents}<br>
- * See {@code jetbrains.mps.editor.runtime.LanguageEditorChecker}<br>
+ * See {@code jetbrains.mps.editor.runtime.ErrorComponents} <br>
+ * See {@code jetbrains.mps.editor.runtime.LanguageEditorChecker} <br> 
  */
 @GeneratedClass(nodeId = "7390982340086718486", model = "r:2af017c2-293f-4ebb-99f3-81e353b3d6e6(jetbrains.mps.editor.runtime)")
 public class LanguageErrorsComponent extends LanguageErrorsCollector {
   /**
    * States:
-   * <ul>
-   *   <li>{@code !myFullCheckCompleted && myFullCheckIterator == null}:
-   *     state is UNCHECKED (default after creation)</li>
-   *   <li>{@code !myFullCheckCompleted && myFullCheckIterator != null}:
-   *     state is PARTIALLY CHECKED (a check was interrupted)</li>
-   *   <li>{@code myFullCheckCompleted && no invalid nodes}:
-   *     state is FULLY CHECKED (a full check was completed and results are up to date)</li>
-   *   <li>{@code myFullCheckCompleted && invalid nodes present}:
-   *     state is FULLY CHECKED & INVALID (a full check was completed, but results are no longer up to date)</li>
-   * </ul>
-   * (with the caveat that {@link jetbrains.mps.editor.runtime.LanguageErrorsComponent#myInvalidNodes } are valid only after a call to {@link jetbrains.mps.editor.runtime.LanguageErrorsComponent#invalidate() }).
+   *  <ul>
+   * 
+   *    <li>
+   *  {@code !myFullCheckCompleted && myFullCheckIterator == null} :
+   *     state is UNCHECKED (default after creation)
+   * </li> 
+   *    <li>
+   *  {@code !myFullCheckCompleted && myFullCheckIterator != null} :
+   *     state is PARTIALLY CHECKED (a check was interrupted)
+   * </li> 
+   *    <li>
+   *  {@code myFullCheckCompleted && no invalid nodes} :
+   *     state is FULLY CHECKED (a full check was completed and results are up to date)
+   * </li> 
+   *    <li>
+   *  {@code myFullCheckCompleted && invalid nodes present} :
+   *     state is FULLY CHECKED & INVALID (a full check was completed, but results are no longer up to date)
+   * </li> 
+   * 
+   * </ul> 
+   * (with the caveat that {@link jetbrains.mps.editor.runtime.LanguageErrorsComponent#myInvalidNodes} are valid only after a call to {@link jetbrains.mps.editor.runtime.LanguageErrorsComponent#invalidate()} ).
    */
   private DescendantsTreeIterator myFullCheckIterator;
 

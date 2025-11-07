@@ -18,7 +18,7 @@ import org.jdom.JDOMException;
 
 /**
  * Integrates with TeamCity's statistics. Contribute statistical values with teamcity-info.xml
- * To use, add a field annotated with {@link org.junit.Rule } or {@link org.junit.ClassRule } to your test
+ * To use, add a field annotated with {@link org.junit.Rule} or {@link org.junit.ClassRule} to your test
  * Evgeny Gryaznov, Oct 7, 2010
  */
 @GeneratedClass(nodeId = "5294483648489413878", model = "r:c7fd1483-2eda-4417-bb41-aecb48302c10(jetbrains.mps.testbench)")

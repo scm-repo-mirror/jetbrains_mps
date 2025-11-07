@@ -111,7 +111,7 @@ public final class RuleUtil {
   /**
    * Some node macro ignore template node they are attached to, e.g. COPY-SRC, CALL (when template doesn't use
    * call site), etc. Languages of these template nodes could be safely ignored as they are not going to show up
-   * in an output model. Though it's unlikely a big deal, as most of such macros would be attached to a node 
+   * in an output model. Though it's unlikely a big deal, as most of such macros would be attached to a node
    * with a language used elsewhere in templates, I still think it's worth to avoid superfluous languages
    * e.g. in case pieces of a template has been copied between different template models.
    */

@@ -233,7 +233,7 @@ public final class SLinkOperations {
   /**
    * For each element of supplied collection, take child from specified role (if any), and return these as a sequence.
    * Result sequence doesn't contain null values.
-   * Null elements in the source collections are tolerated (and ignored)
+   * Null elements in the source collections are tolerated (and ignored) 
    */
   public static Iterable<SNode> collect(Iterable<SNode> collection, final SContainmentLink l) {
     return Sequence.fromIterable(collection).select((it) -> getTarget(it, l)).where(new NotNullWhereFilter());
@@ -241,8 +241,8 @@ public final class SLinkOperations {
 
   /**
    * For each element of supplied collection, collect all children from specified role and return them as flattened sequence.
-   * Result sequence doesn't contain null values.
-   * Null elements in the source collections are tolerated (and ignored)
+   * Result sequence doesn't contain null values. 
+   * Null elements in the source collections are tolerated (and ignored) 
    */
   public static Iterable<SNode> collectMany(Iterable<SNode> collection, final SContainmentLink l) {
     return Sequence.fromIterable(collection).translate((it) -> getChildren(it, l));

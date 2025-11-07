@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * JUnit test listener that spits out control sequences into supplied stream. 
+ * JUnit test listener that spits out control sequences into supplied stream.
  * These control sequences are for external process to receive JUnit events.
  * 
  * for the explicit contract for the events

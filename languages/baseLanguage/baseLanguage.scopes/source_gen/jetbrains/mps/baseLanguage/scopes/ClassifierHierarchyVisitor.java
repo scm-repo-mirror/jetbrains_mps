@@ -7,10 +7,10 @@ import org.jetbrains.mps.openapi.model.SNode;
 /**
  * Simple visitor pattern for enumerating all super types of a classifier type.
  * 
- * This interface helps decouple the logic that implements walking classifier types 
- * hierarchy and the logic that enumerates/populates classifier members. 
- * The code in {@link jetbrains.mps.baseLanguage.scopes.MembersPopulatingContext } and subconcepts of {@code IClassifier}
- * has been retrofitted to use this new API. 
+ * This interface helps decouple the logic that implements walking classifier types
+ * hierarchy and the logic that enumerates/populates classifier members.
+ * The code in {@link jetbrains.mps.baseLanguage.scopes.MembersPopulatingContext} and subconcepts of {@code IClassifier} 
+ * has been retrofitted to use this new API.
  * 
  * 
  */

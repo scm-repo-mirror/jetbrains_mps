@@ -96,7 +96,7 @@ public class NewModelActionExecutor extends ModelCreationActionsBaseExecutor {
   /**
    * Executed when new model is just created
    * 
-   * By default, opens settings of the created model, via {@link jetbrains.mps.ide.actions.NewModelActionExecutor#showSettingsForCreatedModel(SModel) } and then navigates to the model in a project view, via {@link jetbrains.mps.ide.actions.ModelCreationActionsBaseExecutor#showCreatedModelnProjectView(SModel) }
+   * By default, opens settings of the created model, via {@link jetbrains.mps.ide.actions.NewModelActionExecutor#showSettingsForCreatedModel(SModel)} and then navigates to the model in a project view, via {@link jetbrains.mps.ide.actions.ModelCreationActionsBaseExecutor#showCreatedModelnProjectView(SModel)} 
    */
   @Override
   protected void onModelCreated(final SModel model) {
@@ -111,7 +111,7 @@ public class NewModelActionExecutor extends ModelCreationActionsBaseExecutor {
   /**
    * Shows settings for created model
    * 
-   * By default, uses {@link jetbrains.mps.ide.ui.dialogs.properties.ModelPropertiesConfigurable }
+   * By default, uses {@link jetbrains.mps.ide.ui.dialogs.properties.ModelPropertiesConfigurable} 
    */
   protected void showSettingsForCreatedModel(SModel model) {
     MPSPropertiesConfigurable configurable = new ModelPropertiesConfigurable(model, myProject);

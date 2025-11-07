@@ -269,7 +269,7 @@ public class BreakpointManagerComponent implements Disposable, PersistentStateCo
     }
   }
   /**
-   * Generic implementation that relies on BP kind extensions through {@code BreakpointProvidersManager}
+   * Generic implementation that relies on BP kind extensions through {@code BreakpointProvidersManager} 
    */
   private static class MyBreakpointsIO implements IBreakpointsIO {
     private static final String BREAKPOINT_ELEMENT = "breakpoint";

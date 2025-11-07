@@ -62,7 +62,7 @@ public class NewModuleCheck {
 
   /**
    * 
-   * @param repo scope to check name uniqueness in 
+   * @param repo scope to check name uniqueness in
    */
   public NewModuleCheck withScope(@Nullable SRepository repo) {
     myNameScope = repo;

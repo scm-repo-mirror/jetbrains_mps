@@ -22,28 +22,28 @@ import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /**
- * Experimental alternative support for implementing tests that make use of SModel API. 
+ * Experimental alternative support for implementing tests that make use of SModel API.
  * <p>
- * This class can be used as a drop-in replacement for code that is usually generated for {@code NodeTestCase}.
+ * This class can be used as a drop-in replacement for code that is usually generated for {@code NodeTestCase} .
  * Test that make use of this class must declare themselves dependent on MPS platform.
- * See {@link jetbrains.mps.baseLanguage.unitTest.platform.TestProperties#REQUIRES_MPS_PLATFORM }
+ * See {@link jetbrains.mps.baseLanguage.unitTest.platform.TestProperties#REQUIRES_MPS_PLATFORM} 
  * <p>
  * The usual workflow with this helper is as follows:
  * <p>
  * <ul>
- *   <li>An instance of {@link jetbrains.mps.lang.test.runtime.ProjectTestHelper } is created as a field in a test class. Invocation of the 
- *       only constructor that accepts project path and a reference to the original test model 
+ *   <li>An instance of {@link jetbrains.mps.lang.test.runtime.ProjectTestHelper} is created as a field in a test class. Invocation of the
+ *       only constructor that accepts project path and a reference to the original test model
  *       is usually automatically generated.</li>
- *   <li>Before a test is executed, the method {@link jetbrains.mps.lang.test.runtime.ProjectTestHelper#setEnvironment(Environment) }  is called with an instance of {@link jetbrains.mps.tool.environment.Environment } that is provided as 
- *       an accessory to the {@link jetbrains.mps.baseLanguage.unitTest.platform.TestSession } instance.
+ *   <li>Before a test is executed, the method {@link jetbrains.mps.lang.test.runtime.ProjectTestHelper#setEnvironment(Environment)} is called with an instance of {@link jetbrains.mps.tool.environment.Environment} that is provided as
+ *       an accessory to the {@link jetbrains.mps.baseLanguage.unitTest.platform.TestSession} instance.
  *       The actual implementation of the code that does this initialization depends on the realization
  *       of test engine. For JUnit Jupiter this can be done from "before*" method.</li>
- *   <li>Any test method that is invoked by the test engine first creates an instance of {@link jetbrains.mps.lang.test.runtime.ProjectTestHelper.TestCase } test fixture object and then configures it with copies of
- *       nodes from the original model that are created in the "sandbox" model initialized specifically 
- *       for this test by the helper object. This is done by invoking {@code withCopyOf()}
+ *   <li>Any test method that is invoked by the test engine first creates an instance of {@link jetbrains.mps.lang.test.runtime.ProjectTestHelper.TestCase} test fixture object and then configures it with copies of
+ *       nodes from the original model that are created in the "sandbox" model initialized specifically
+ *       for this test by the helper object. This is done by invoking {@code withCopyOf()} 
  *       method on the test fixture.</li>
  *   <li>Finally, either {@code read()} or {@code command()} is invoked on the fixture object,
- *       which triggers execution of the actual test code in the appropriate settings. 
+ *       which triggers execution of the actual test code in the appropriate settings.
  *       The actual test code is passed as a closure to the {@code read()} or {@code command()} method.</li>
  *   <li>A call to {@code done()} method must be made last in order to clear the copied nodes.</li>
  * </ul>
@@ -61,9 +61,9 @@ public class ProjectTestHelper {
   private Environment myEnvironment;
 
   /**
-   * Creates an instance of {@code ProjectTestHelper} corresponding to the 
+   * Creates an instance of {@code ProjectTestHelper} corresponding to the
    * project specified by {@code projectPath} 
-   * and initialized with the model referenced to by {@code modelRef}.
+   * and initialized with the model referenced to by {@code modelRef} .
    * 
    * @param projectPath local path to the project to be opened
    * @param modelRef model reference serialized to string
@@ -74,9 +74,9 @@ public class ProjectTestHelper {
 
   /**
    * Sets the environment and initializes internal structures.
-   * Must be called before any operations are performed on an instance of this class. 
-   * An instance of {@link jetbrains.mps.tool.environment.Environment } can be retrieved as an accessory
-   * of the corresponding class from an instance of {@link jetbrains.mps.baseLanguage.unitTest.platform.TestSession }
+   * Must be called before any operations are performed on an instance of this class.
+   * An instance of {@link jetbrains.mps.tool.environment.Environment} can be retrieved as an accessory
+   * of the corresponding class from an instance of {@link jetbrains.mps.baseLanguage.unitTest.platform.TestSession} 
    */
   public void setEnvironment(Environment environment) throws Exception {
     this.myEnvironment = environment;
@@ -105,8 +105,8 @@ public class ProjectTestHelper {
   }
 
   /**
-   * Wraps an instance of {@link jetbrains.mps.lang.test.runtime.Testable } into an MPS command and executes it.
-   * Any exception caught while running code in {@code testable} is propagated further by this method.
+   * Wraps an instance of {@link jetbrains.mps.lang.test.runtime.Testable} into an MPS command and executes it.
+   * Any exception caught while running code in {@code testable} is propagated further by this method. 
    */
   public void asCommand(final Testable testable) throws Exception {
     final AtomicReference<Exception> testableEx = new AtomicReference<Exception>();
@@ -131,7 +131,7 @@ public class ProjectTestHelper {
   }
 
   /**
-   * Wraps an instance of {@link jetbrains.mps.lang.test.runtime.Testable } into a "read action" closure and executes it.
+   * Wraps an instance of {@link jetbrains.mps.lang.test.runtime.Testable} into a "read action" closure and executes it.
    * Any exception caught while running code in {@code testable} is propagated further by this method.
    */
   public void asRead(final Testable testable) throws Exception {
@@ -150,7 +150,7 @@ public class ProjectTestHelper {
 
   /**
    * Creates a new instance of TestCase, the internal class that implements a simple DSL for building test
-   * that have access a {@link jetbrains.mps.lang.test.runtime.ProjectTestHelper } instance and are able to execute read actions or commands.
+   * that have access a {@link jetbrains.mps.lang.test.runtime.ProjectTestHelper} instance and are able to execute read actions or commands.
    */
   public TestCase testCase() {
     return new TestCase(this);

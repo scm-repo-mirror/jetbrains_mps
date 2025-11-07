@@ -21,7 +21,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
  * - right now intended ONLY to replace support for BwfStatements/emit() in BuildLayout_Zip & co, so that no behavior code
  *   is responsible to produce bwf statements.
  * 
- * Note, present use of the dependencyLayoutNodeWithContent() elements in unpackDependency switch IS BOUND to 
+ * Note, present use of the dependencyLayoutNodeWithContent() elements in unpackDependency switch IS BOUND to
  * FetchDependenciesProcessor invoking unpack(), as we keep consulting DH.getContentLocation/getLocation for zip files.
  */
 public class FDP2 {

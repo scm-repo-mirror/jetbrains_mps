@@ -48,7 +48,7 @@ public interface IScriptController {
    * targets without this change. Alternative is to change IScript, but it doesn't suggest a mechanism to pass MakeSession furher
    * to the task's IJob, while IJobMonitor of the controller does. Now, I need a make session there, and don't want to spend time with IScript refactoring.
    * XXX Nevertheless consider alternative IScript implementation with a mechanism to pass MakeSession to tasks. Script is truly session-sensitive, after all.
-   *     Even then this class makes sense with generic code to employ {@link jetbrains.mps.make.script.PropertyPoolInitializer } to set up tasks.
+   *     Even then this class makes sense with generic code to employ {@link jetbrains.mps.make.script.PropertyPoolInitializer} to set up tasks.
    *     To pass MakeSession with Script, I can utilize the fact that MakeSession creates IScript in its {@code toScript(ScriptBuilder)} method. Script would further
    *     to ITarget.createJob(), and pass MakeSession in there (if supported. Could even introduce createJob(MakeSession)). The reason I stick to
    *     IJobMonitor is that (a) once IProgress is history, there'd be nothing in IJobMonitor, (b) IJobMonitor gives clear scope when one could ask for session (with alternative approach,

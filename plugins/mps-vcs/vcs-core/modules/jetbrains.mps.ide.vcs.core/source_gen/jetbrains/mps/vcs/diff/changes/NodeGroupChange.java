@@ -153,7 +153,7 @@ public class NodeGroupChange extends StructureChange {
 
 
   /**
-   * We store the anchor node itself rather than its ID since the ID can be a subject of another change of {@link jetbrains.mps.vcs.diff.changes.NodeIdChange } type.
+   * We store the anchor node itself rather than its ID since the ID can be a subject of another change of {@link jetbrains.mps.vcs.diff.changes.NodeIdChange} type.
    */
   public void prepare() {
     if (myPreparedIdsToDelete == null) {

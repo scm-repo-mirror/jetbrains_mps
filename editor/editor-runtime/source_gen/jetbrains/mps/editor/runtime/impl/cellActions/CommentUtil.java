@@ -44,7 +44,7 @@ public class CommentUtil {
    * 
    * 
    * @param attribute attribute containing commented node. This node must have parent
-   * @throws IllegalArgumentException if attribute has no parent   
+   * @throws IllegalArgumentException if attribute has no parent
    */
   public static SNode uncomment(@NotNull SNode attribute) {
     SNode parent = SNodeOperations.getParent(attribute);

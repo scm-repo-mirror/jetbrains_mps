@@ -15,7 +15,7 @@ import java.util.Arrays;
 
   /**
    * Helps to replace/remove one prefix with another in namespace like string.
-   * <br></br>
+   *  <br></br> 
    * Prefix in namespace like string is any prefix substring that is either followed by '.' in namespace or namespace itself.
    * 
    * @param originalString containing originalPrefix to be replaced

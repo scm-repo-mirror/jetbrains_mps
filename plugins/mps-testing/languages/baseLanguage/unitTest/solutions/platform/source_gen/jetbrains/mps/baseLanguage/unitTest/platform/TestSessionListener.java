@@ -4,7 +4,7 @@ package jetbrains.mps.baseLanguage.unitTest.platform;
 
 
 /**
- * Implement this interface to receive notifications from the {@link jetbrains.mps.baseLanguage.unitTest.platform.TestSession }.
+ * Implement this interface to receive notifications from the {@link jetbrains.mps.baseLanguage.unitTest.platform.TestSession} .
  */
 public interface TestSessionListener {
 

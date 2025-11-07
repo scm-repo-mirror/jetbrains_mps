@@ -96,7 +96,7 @@ public class ProjectDependency {
    * XXX I got doubts why whole MPS project is treated as a scope. On one hand, we might have
    * scope limited to the model/module of myProject (and take anything else as 'external' dependency),
    * OTOH, with absence of project module deployment story, it's not clear whether scenario of
-   * two dependant build solutions inside single MPS project won't get broken. 
+   * two dependant build solutions inside single MPS project won't get broken.
    * According to BuildProject.isPackaged(), any BuildProject from non-packaged module is ok,
    * as well as any BuildProject from transient module, provided we're inside generation (always true
    * for this particular class). This assumption doesn't seem to work well with

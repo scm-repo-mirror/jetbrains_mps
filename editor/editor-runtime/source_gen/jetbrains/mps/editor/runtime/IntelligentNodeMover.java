@@ -57,7 +57,7 @@ public class IntelligentNodeMover {
   /**
    * move nodes
    * Throws exception if mover has invalid state. State of mover is valid iff all of the following conditions are met
-   * 1) Collection of nodes to move is not empty
+   * 1) Collection of nodes to move is not empty 
    * 2) All nodes to move have same non-null parent
    * 3) All nodes to move have same non-null containment link
    * Check for isValid() before running this method

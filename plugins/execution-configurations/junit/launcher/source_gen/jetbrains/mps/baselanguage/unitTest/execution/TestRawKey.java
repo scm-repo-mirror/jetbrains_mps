@@ -6,9 +6,9 @@ package jetbrains.mps.baselanguage.unitTest.execution;
 /**
  * Obsolete.
  * <p>
- * An abstraction of a test corresponding to legacy JUnit dichotomy: test case / test method. 
+ * An abstraction of a test corresponding to legacy JUnit dichotomy: test case / test method.
  * <p>
- * Used in {@link jetbrains.mps.baselanguage.unitTest.execution.TestRawEvent }.
+ * Used in {@link jetbrains.mps.baselanguage.unitTest.execution.TestRawEvent} .
  */
 public interface TestRawKey extends TestKey {
 }

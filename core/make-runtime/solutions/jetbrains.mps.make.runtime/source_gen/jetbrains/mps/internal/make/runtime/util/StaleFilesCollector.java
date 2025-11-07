@@ -72,7 +72,7 @@ public class StaleFilesCollector {
 
   /**
    * May be invoked multiple times, updates internal state of what files are considered 'touched' according to delta supplied
-   * These files are not reported as 'stale' by {@link jetbrains.mps.internal.make.runtime.util.StaleFilesCollector#reportStaleFilesInto(FilesDelta) }
+   * These files are not reported as 'stale' by {@link jetbrains.mps.internal.make.runtime.util.StaleFilesCollector#reportStaleFilesInto(FilesDelta)} 
    */
   public void recordFilesToKeep(FilesDelta delta) {
     delta.acceptVisitor(new FilesDelta.Visitor() {
@@ -96,7 +96,7 @@ public class StaleFilesCollector {
   }
 
   /**
-   * This method assumes there's no other delta for the root other than passed as an argument, which is wrong for forked generation plans with multiple models that save output into the same location. 
+   * This method assumes there's no other delta for the root other than passed as an argument, which is wrong for forked generation plans with multiple models that save output into the same location.
    * Then there are few deltas reported for the same location, some reporting files as stale while other report as added
    * 
    * @deprecated 

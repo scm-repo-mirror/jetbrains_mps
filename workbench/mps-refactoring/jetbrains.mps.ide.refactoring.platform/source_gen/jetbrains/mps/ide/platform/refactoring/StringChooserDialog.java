@@ -123,14 +123,18 @@ public class StringChooserDialog extends RefactoringDialog {
   }
 
   /**
-   * <p>
-   * Allows to check value before refactoring.<br />
-   * To do this, add validation code to this method and return text with error.<br />
+   *  <p>
+   * 
+   * Allows to check value before refactoring. <br />  
+   * To do this, add validation code to this method and return text with error. <br />  
    * If no errors are found return {@code null} 
-   * </p>
-   * <p>
+   * 
+   * </p> 
+   *  <p>
+   * 
    * This method will be called on every text change event.
-   * </p>
+   * 
+   * </p> 
    * 
    * @return Error text to display in refactoring dialog or {@code null} if new value is valid.
    */

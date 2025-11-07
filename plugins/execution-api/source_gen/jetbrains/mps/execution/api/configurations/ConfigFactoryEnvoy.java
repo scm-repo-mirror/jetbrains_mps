@@ -16,7 +16,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
 
 /**
- * Non-reloadable factory for Run Configurations. Instances of this class are safe to operate even once original 
+ * Non-reloadable factory for Run Configurations. Instances of this class are safe to operate even once original
  * MPS module that contributed them (with a help of app plugin part) has been disposed - IDEA's RunnerAndConfigurationSettingsImpl holds
  * run configuration instance and accesses its factory.
  */
@@ -91,7 +91,7 @@ import java.lang.reflect.InvocationTargetException;
 
   /**
    * 
-   * @return true iff this factory has not been notified that 
+   * @return true iff this factory has not been notified that
    */
   /*package*/ boolean isValid() {
     return !(myIsIvalid);

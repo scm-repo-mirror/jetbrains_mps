@@ -31,9 +31,9 @@ import jetbrains.mps.errors.item.ModuleReportItemBase;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 
 /**
- * Builder that is capable to create composite checker out of a collection of "specific" checkers, 
- * which can be any of the subclasses of {@link jetbrains.mps.checkers.IChecker.AbstractChecker }. 
- * The resulting checker is an instance of {@link jetbrains.mps.checkers.IAbstractChecker } and can accept {@link jetbrains.mps.checkers.ModelCheckerBuilder.ItemsToCheck }.
+ * Builder that is capable to create composite checker out of a collection of "specific" checkers,
+ * which can be any of the subclasses of {@link jetbrains.mps.checkers.IChecker.AbstractChecker} .
+ * The resulting checker is an instance of {@link jetbrains.mps.checkers.IAbstractChecker} and can accept {@link jetbrains.mps.checkers.ModelCheckerBuilder.ItemsToCheck} .
  * 
  */
 @GeneratedClass(nodeId = "3719390199793466458", model = "r:ba41e9c6-15ca-4a47-95f2-6a81c2318547(jetbrains.mps.checkers)")
@@ -111,8 +111,8 @@ public class ModelCheckerBuilder {
   }
 
   /**
-   * Creates a composite checker from all "specific" checkers that is intended to process objects 
-   * of type {@link jetbrains.mps.checkers.ModelCheckerBuilder.ItemsToCheck }.
+   * Creates a composite checker from all "specific" checkers that is intended to process objects
+   * of type {@link jetbrains.mps.checkers.ModelCheckerBuilder.ItemsToCheck} .
    */
   public IAbstractChecker<ItemsToCheck, IssueKindReportItem> createChecker(final List<? extends IChecker<?, ? extends IssueKindReportItem>> specificCheckers) {
     List<IChecker<SModel, ? extends IssueKindReportItem>> modelCheckers = ListSequence.fromList(new ArrayList<IChecker<SModel, ? extends IssueKindReportItem>>());

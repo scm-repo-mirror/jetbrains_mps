@@ -84,12 +84,14 @@ public class ProjectPropertiesComponent extends JBPanel implements Modifiable {
     final Consumer<List<VirtualFile>> filesToModulePathsProcessor = new Consumer<>() {
       /**
        * Process list of files:<br>
-       * <ul>
-       * <li>Sort input files by path (to add elements in correct order)</li>
-       * <li>Filter out files that are already included in project</li>
-       * <li>Add rest of the files to the project as module paths</li>
-       * <li>Select chosen elements (only new ones) in UI</li>
-       * </ul>
+       *  <ul>
+       * 
+       *  <li>Sort input files by path (to add elements in correct order)</li> 
+       *  <li>Filter out files that are already included in project</li> 
+       *  <li>Add rest of the files to the project as module paths</li> 
+       *  <li>Select chosen elements (only new ones) in UI</li> 
+       * 
+       * </ul> 
        * 
        * @param files to be added to the project as MPS modules
        */

@@ -19,7 +19,7 @@ import com.intellij.unscramble.AnalyzeStacktraceUtil;
 
 /**
  * 
- * @deprecated It is not used anymore. It is duplication of {@link com.intellij.unscramble.AnalyzeStacktraceDialog }}.
+ * @deprecated It is not used anymore. It is duplication of {@link com.intellij.unscramble.AnalyzeStacktraceDialog} }.
  */
 @Deprecated(since = "2019.3", forRemoval = true)
 @GeneratedClass(nodeId = "4221956679900513516", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")

@@ -12,9 +12,9 @@ import com.intellij.execution.process.ProcessOutputTypes;
 import jetbrains.mps.baselanguage.unitTest.execution.TestRawEvent;
 
 /**
- * Listener for an output of a Process, that parses TestEvent tokens in process's output stream and update {@link jetbrains.mps.baseLanguage.unitTest.execution.client.TestRunState }.
- * Works in conjunction with {@code DefaultTestExecutionListener}, the one that embellish output stream with indicators of test start/finish/failure
- * You likely don't need this one unless there's {@link jetbrains.mps.baseLanguage.unitTest.execution.client.TestRunState } you'd like to refresh.
+ * Listener for an output of a Process, that parses TestEvent tokens in process's output stream and update {@link jetbrains.mps.baseLanguage.unitTest.execution.client.TestRunState} .
+ * Works in conjunction with {@code DefaultTestExecutionListener} , the one that embellish output stream with indicators of test start/finish/failure
+ * You likely don't need this one unless there's {@link jetbrains.mps.baseLanguage.unitTest.execution.client.TestRunState} you'd like to refresh.
  */
 public final class UnitTestProcessListener implements ProcessListener {
   private final Object myToken = new Object();

@@ -27,7 +27,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
 
 /**
  * [artem] I don't quite agree with deprecation reason. These methods come handy when we deal with structure model,
- * there's no point in using S-entities in this case. However, utility class approach is generally bad and should 
+ * there's no point in using S-entities in this case. However, utility class approach is generally bad and should
  * be avoided
  * 
  * @deprecated use S-entities instead

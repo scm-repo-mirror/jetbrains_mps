@@ -18,7 +18,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 
 /**
- * XML/DOM persistence for a descriptor of Language module 
+ * XML/DOM persistence for a descriptor of Language module
  */
 @GeneratedClass(nodeId = "842994667883031167", model = "r:a42e26eb-bbea-4e8d-a549-0d224ab71e57(jetbrains.mps.project.persistence)")
 public class LanguageDescriptorPersistence {

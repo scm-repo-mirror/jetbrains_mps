@@ -127,7 +127,7 @@ public class LanguageProducer {
 
   /**
    * Fill in new descriptor of Generator module with defaults.
-   * This code is shared with NewGeneratorDialog. Please refactor this class, full of static, to something that 
+   * This code is shared with NewGeneratorDialog. Please refactor this class, full of static, to something that
    * an occasional OOP stroller would admire.
    * 
    * 

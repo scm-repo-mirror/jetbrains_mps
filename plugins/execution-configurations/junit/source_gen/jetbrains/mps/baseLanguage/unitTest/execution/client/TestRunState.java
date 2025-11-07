@@ -29,11 +29,11 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.TestOnly;
 
 /**
- * A misnomer Test Session. 
+ * A misnomer Test Session.
  * Maintains a map of test case -> {test method} collection.
- * Translates "raw" events received from a spawned process listener to instances of {@link jetbrains.mps.baseLanguage.unitTest.execution.TestNodeEvent }
+ * Translates "raw" events received from a spawned process listener to instances of {@link jetbrains.mps.baseLanguage.unitTest.execution.TestNodeEvent} 
  * <p>
- * State of test execution; updates associated {@link jetbrains.mps.baseLanguage.unitTest.execution.client.TestRunStateUpdateListener } when there's a change.
+ * State of test execution; updates associated {@link jetbrains.mps.baseLanguage.unitTest.execution.client.TestRunStateUpdateListener} when there's a change.
  * fix mutability by implementing TestStateListener in all listeners
  * 
  * probable fix: store the state for each test here (not in TestTree for instance), since we use the state notion at least in TestTree, TestProgressLine (and TestStatisticsTable)

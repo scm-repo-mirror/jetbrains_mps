@@ -23,13 +23,13 @@ public abstract class RepositoryFacade {
   public abstract void registerModule(@NotNull SModule module);
 
   /**
-   * unregisters modules earlier registered through {@link jetbrains.mps.smodel.RepositoryFacade#registerModule(SModule) } (any other module, if any, is left intact)
+   * unregisters modules earlier registered through {@link jetbrains.mps.smodel.RepositoryFacade#registerModule(SModule)} (any other module, if any, is left intact)
    */
   public void dispose() {
   }
 
   /**
-   * {@code SRepository} instance intended for local/scoped use, with no shared access to modules
+   *  {@code SRepository} instance intended for local/scoped use, with no shared access to modules
    */
   public static RepositoryFacade createPlainRegistrationRepo() {
     final Repo repo = new Repo(new ModelAccessNoLimit());

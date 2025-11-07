@@ -54,7 +54,7 @@ public class SNodeOperations {
   }
   /**
    * 
-   * @deprecated there is no full equivalent to this, use SNode.getChildren or node/../.children operations if possible
+   * @deprecated there is no full equivalent to this, use SNode.getChildren or node/../.children operations if possible 
    */
   @Deprecated
   public static List<SNode> getChildren(SNode node, boolean includeAttributes) {
@@ -68,7 +68,7 @@ public class SNodeOperations {
   }
   /**
    * 
-   * @deprecated use node/../.ancestors.where 
+   * @deprecated use node/../.ancestors.where
    */
   @Deprecated
   public static SNode findParent(SNode node, Condition<SNode> condition) {
@@ -96,7 +96,7 @@ public class SNodeOperations {
   /**
    * todo rewrite the code using this
    * 
-   * @deprecated rewrite to SContainmentLink, don't use by-name roles, use SNode methods 
+   * @deprecated rewrite to SContainmentLink, don't use by-name roles, use SNode methods
    */
   @Deprecated
   public static Set<String> getChildRoles(SNode n) {
@@ -141,7 +141,7 @@ public class SNodeOperations {
   /**
    * this is an utility method common to all nodes but needed only for our debug purposes, so we don't put it into SNode
    * 
-   * @deprecated use SNode.getName, SNode.getModel or whatever info you really need. 
+   * @deprecated use SNode.getName, SNode.getModel or whatever info you really need.
    */
   @Deprecated
   public static String getDebugText(SNode node) {
@@ -207,7 +207,7 @@ public class SNodeOperations {
   }
   /**
    * This will be replaced by getting resolve info from a reference in a context containing it
-   * [artem] Well, I believe this one has to be replaced with Scope, with IResolveInfo being a default fallback. 
+   * [artem] Well, I believe this one has to be replaced with Scope, with IResolveInfo being a default fallback.
    *   This method shall be used by MPS code as it makes an assumption scope impl complies with the way we build resolveInfo here.
    *   Instead, it's Scope responsibility to build and process resolveInfo
    * 

@@ -50,7 +50,7 @@ public final class ModelNameValidator {
    * When renaming on case-insensitive file systems it should be permitted to rename to a name that differs from existing names in capitalization.
    * When creating new models this should not be allowed.
    * <br>
-   * See {@link jetbrains.mps.ide.refactoring.ModelNameValidator#validate(SModelName, EditableSModel) }
+   * See {@link jetbrains.mps.ide.refactoring.ModelNameValidator#validate(SModelName, EditableSModel)} 
    * 
    * @param modelName string containing fully qualified model name
    * @param currentModelDescriptor The current model that is going to be renamed
@@ -68,7 +68,7 @@ public final class ModelNameValidator {
   /**
    * Try to construct SModelName from input and validate it.
    * <br>
-   * See {@link jetbrains.mps.ide.refactoring.ModelNameValidator#validate(SModelName, EditableSModel) }
+   * See {@link jetbrains.mps.ide.refactoring.ModelNameValidator#validate(SModelName, EditableSModel)} 
    * 
    * @param modelLongName string containing long model name
    * @param stereotype string containing model stereotype
@@ -85,9 +85,9 @@ public final class ModelNameValidator {
   }
 
   /**
-   * Check that model with provided model name can be created under {@link jetbrains.mps.ide.refactoring.ModelNameValidator#myModelRoot }.
+   * Check that model with provided model name can be created under {@link jetbrains.mps.ide.refactoring.ModelNameValidator#myModelRoot} .
    * <br>
-   * See {@link org.jetbrains.mps.openapi.model.SModelName }
+   * See {@link org.jetbrains.mps.openapi.model.SModelName} 
    * 
    * @param modelName SModelName for validation
    * @param currentModelDescriptor The current model that is going to be renamed, null if a new model is being created

@@ -11,9 +11,9 @@ import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.util.Consumer;
 
 /**
- * Defines an API for a checker that analyzes an instance of {@link org.jetbrains.mps.openapi.model.SModel } and produces a list of {@link jetbrains.mps.errors.item.IssueKindReportItem }.
+ * Defines an API for a checker that analyzes an instance of {@link org.jetbrains.mps.openapi.model.SModel} and produces a list of {@link jetbrains.mps.errors.item.IssueKindReportItem} .
  * <p>
- * Really unfortunately named class that essentially is just an adapter for {@link jetbrains.mps.checkers.IChecker }.
+ * Really unfortunately named class that essentially is just an adapter for {@link jetbrains.mps.checkers.IChecker} .
  */
 public abstract class SpecificChecker extends IChecker.AbstractModelChecker<IssueKindReportItem> {
 

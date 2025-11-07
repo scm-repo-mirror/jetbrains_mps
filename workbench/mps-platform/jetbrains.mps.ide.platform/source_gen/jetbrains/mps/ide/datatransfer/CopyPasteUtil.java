@@ -187,7 +187,7 @@ public final class CopyPasteUtil {
 
   /**
    * 
-   * @deprecated use {@link jetbrains.mps.ide.datatransfer.CopyPasteUtil#putToClipboard(Iterable<SNode>, Map<SNode, Set<SNode>>, String, boolean) } instead, or {@code EditorContext.getClipboard()} if you're in editor.
+   * @deprecated use {@link jetbrains.mps.ide.datatransfer.CopyPasteUtil#putToClipboard(Iterable<SNode>, Map<SNode, Set<SNode>>, String, boolean)} instead, or {@code EditorContext.getClipboard()} if you're in editor.
    */
   @Deprecated(forRemoval = true, since = "2025.1")
   public static void copyNodesAndTextToClipboard(List<SNode> nodes, Map<SNode, Set<SNode>> nodesAndAttributes, String text) {
@@ -251,7 +251,7 @@ public final class CopyPasteUtil {
 
   /**
    * 
-   * @deprecated use {@link jetbrains.mps.ide.datatransfer.CopyPasteUtil#putToClipboard(Iterable<SNode>, Map<SNode, Set<SNode>>, String, boolean) } instead
+   * @deprecated use {@link jetbrains.mps.ide.datatransfer.CopyPasteUtil#putToClipboard(Iterable<SNode>, Map<SNode, Set<SNode>>, String, boolean)} instead
    */
   @Deprecated
   public static void copyNodesToClipboard(List<SNode> nodes) {

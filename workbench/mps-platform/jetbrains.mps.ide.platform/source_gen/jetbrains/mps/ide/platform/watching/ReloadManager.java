@@ -16,7 +16,7 @@ public abstract class ReloadManager {
   }
 
   /**
-   * Shorthand for {@link jetbrains.mps.ide.platform.watching.ReloadManager#runReload(Object, Supplier<T>, ReloadAction<T>) } with {@code participantClass} serving both as key and as a factory for participant instance
+   * Shorthand for {@link jetbrains.mps.ide.platform.watching.ReloadManager#runReload(Object, Supplier<T>, ReloadAction<T>)} with {@code participantClass} serving both as key and as a factory for participant instance
    */
   public final <T extends ReloadParticipant> void runReload(final Class<T> participantClass, ReloadAction<T> reloadAction) {
     runReload(participantClass, () -> {

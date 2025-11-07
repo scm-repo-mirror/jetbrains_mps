@@ -30,7 +30,7 @@ import org.junit.platform.launcher.TestExecutionListener;
 /**
  * Command-line front-end to launch MPS tests that need MPS environment (ITestable, including BTestCase, and JUnit3/JUnit4 ClassConcept with respective annotation/superclass) 
  * 
- * FIXME At the moment, starts MPS on top of IDEA platform with no explicitly specified plugins (effectively means any available). 
+ * FIXME At the moment, starts MPS on top of IDEA platform with no explicitly specified plugins (effectively means any available).
  *       Would be great to configure that.
  * Note, it's essential to extend DefaultTestExecutor as TestParameters.comprises() relies on the fact
  */

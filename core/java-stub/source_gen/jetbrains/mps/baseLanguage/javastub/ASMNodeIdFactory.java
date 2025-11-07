@@ -62,7 +62,7 @@ import jetbrains.mps.baseLanguage.javastub.asm.ASMEnumValue;
   }
 
   /**
-   * If ASMClassType represents a nested/inner class, gives id for its topmost classifier, otherwise just the same as {@link jetbrains.mps.baseLanguage.javastub.ASMNodeIdFactory#createId(ASMClassType) }
+   * If ASMClassType represents a nested/inner class, gives id for its topmost classifier, otherwise just the same as {@link jetbrains.mps.baseLanguage.javastub.ASMNodeIdFactory#createId(ASMClassType)} 
    */
   public org.jetbrains.mps.openapi.model.SNodeId createTopClassifierId(ASMClassType t) {
     String className = NameUtil.shortNameFromLongName(t.getName());

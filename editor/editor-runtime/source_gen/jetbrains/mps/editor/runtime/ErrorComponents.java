@@ -32,12 +32,12 @@ import jetbrains.mps.smodel.event.SModelLanguageEvent;
 import jetbrains.mps.smodel.event.SModelDevKitEvent;
 
 /**
- * A part of {@link jetbrains.mps.editor.runtime.LanguageEditorChecker }.
+ * A part of {@link jetbrains.mps.editor.runtime.LanguageEditorChecker} .
  * <p>
- * Aggregates several instances of {@link jetbrains.mps.editor.runtime.LanguageErrorsComponent } by maintaining a map
- * from {@link org.jetbrains.mps.openapi.model.SModel } to a set of {@link jetbrains.mps.nodeEditor.EditorComponent },
- * and for each editor component a map to the corresponding instance of 
- * {@link jetbrains.mps.editor.runtime.LanguageErrorsComponent }.
+ * Aggregates several instances of {@link jetbrains.mps.editor.runtime.LanguageErrorsComponent} by maintaining a map
+ * from {@link org.jetbrains.mps.openapi.model.SModel} to a set of {@link jetbrains.mps.nodeEditor.EditorComponent} ,
+ * and for each editor component a map to the corresponding instance of
+ *  {@link jetbrains.mps.editor.runtime.LanguageErrorsComponent} .
  */
 @GeneratedClass(nodeId = "8288306652661982667", model = "r:2af017c2-293f-4ebb-99f3-81e353b3d6e6(jetbrains.mps.editor.runtime)")
 /*package*/ class ErrorComponents {
@@ -49,7 +49,7 @@ import jetbrains.mps.smodel.event.SModelDevKitEvent;
   }
 
   /**
-   * The two maps below are accessed from EDT (by {@link jetbrains.mps.editor.runtime.ErrorComponents#myDisposeListener }) and from the background highlighter
+   * The two maps below are accessed from EDT (by {@link jetbrains.mps.editor.runtime.ErrorComponents#myDisposeListener} ) and from the background highlighter
    * thread. Access to the maps must be therefore guarded by this lock.
    */
   private final Object myMapsLock = new Object();

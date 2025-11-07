@@ -22,8 +22,8 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /**
- * Scanner of a model with {@code ConceptDeclarations}to find cross-model dependencies.
- * Much like {@link jetbrains.mps.smodel.ModelDependencyScanner } albeit narrow tailored for structure models and extends relation between Language modules.
+ * Scanner of a model with {@code ConceptDeclarations}  to find cross-model dependencies.
+ * Much like {@link jetbrains.mps.smodel.ModelDependencyScanner} albeit narrow tailored for structure models and extends relation between Language modules.
  */
 @GeneratedClass(nodeId = "7408719695775110713", model = "r:5ff047e0-2953-4750-806a-bdc16824aa89(jetbrains.mps.smodel)")
 public class ConceptDeclarationScanner {
@@ -38,8 +38,8 @@ public class ConceptDeclarationScanner {
 
   /**
    * As long as languages implicitly extend j.m.lang.core, any ConceptDeclaration implies import of
-   * j.m.lang.core.structure.BaseConcept. 
-   * By default, this scanner gives all cross-model dependencies, including one of {@code BaseConcept}.
+   * j.m.lang.core.structure.BaseConcept.
+   * By default, this scanner gives all cross-model dependencies, including one of {@code BaseConcept} .
    * However, generally, there's little use for explicit lang.core import and we can safely omit it.
    * 
    * @return {@code this} for convenience

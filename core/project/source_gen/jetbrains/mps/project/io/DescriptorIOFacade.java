@@ -41,7 +41,7 @@ public class DescriptorIOFacade implements CoreComponent {
 
   /**
    * 
-   * @deprecated It's {@code CoreComponent}, obtain proper instance though platform
+   * @deprecated It's {@code CoreComponent} , obtain proper instance though platform
    */
   @Deprecated
   public static DescriptorIOFacade getInstance() {

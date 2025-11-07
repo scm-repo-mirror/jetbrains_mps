@@ -23,7 +23,7 @@ public class TestProperties {
   /**
    * An instance of the MPS platform should be launched before the test can be executed.
    * <p>
-   * See {@code jetbrains.mps.lang.test.runtime.ProjectTestHelper}.
+   * See {@code jetbrains.mps.lang.test.runtime.ProjectTestHelper} .
    */
   public static Key<Boolean> REQUIRES_MPS_PLATFORM = TestProperties.keyOf("requiresMpsPlatform", Boolean.FALSE);
 

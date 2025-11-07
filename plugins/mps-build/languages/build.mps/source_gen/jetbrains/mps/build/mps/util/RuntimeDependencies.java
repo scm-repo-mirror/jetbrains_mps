@@ -29,14 +29,14 @@ import org.jetbrains.mps.openapi.language.SProperty;
  * Indeed, we collect all language runtimes, but we do not collect their dependencies.
  * 
  * There are few questionable decisions made here:
- * 1) Runtime solutions are collected not only for languages directly in use, but also for languages they extend, due to historical reasons. 
+ * 1) Runtime solutions are collected not only for languages directly in use, but also for languages they extend, due to historical reasons.
  *    I don't know if it's justified and need to investigate this further. The reason might be to get a snapshot of RT dependencies the moment code was generated, so that
  *    any later change to language's RTs do not affect deployed modules
  * 2) *All* languages from used devkits (including extended devkits!) are reported as 'used'. Perhaps, there's nothing wrong with that, especially if we manage to get rid of 'used languages' in deployed modules altogether.
  * 3) However, we don't collect extended languages of those used (except for purposes of RT collection, see (1), above), as it much more effective to build closure of extended languages in
  *    runtime (compiled classes report relations b/w modules), rather than at this moment.
  * 4) Solutions exported from devkits are no longer reported as deployment/classloading dependencies.
- *    Unfortunately, devkit story and therefore their status is not clear. If it's in 'used', not in 'depends', perhaps, these solution shall constitute 'design' time dependencies with 
+ *    Unfortunately, devkit story and therefore their status is not clear. If it's in 'used', not in 'depends', perhaps, these solution shall constitute 'design' time dependencies with
  *    reference targets but no CL dependency. OTOH, there's no mechanism to specify 'depends' other than with explicit module reference, and it would be odd to require users to specify these
  *    in addition to 'used' devkit.
  */
@@ -46,8 +46,8 @@ public final class RuntimeDependencies {
   private Set<SNode> myCompileDeps = new THashSet<SNode>();
 
   /**
-   * Calculates and  aggregates dependencies of the module. 
-   * Access collected values using {@link jetbrains.mps.build.mps.util.RuntimeDependencies#usedLanguages() }, {@link jetbrains.mps.build.mps.util.RuntimeDependencies#languageRuntimes() } and {@link jetbrains.mps.build.mps.util.RuntimeDependencies#deploymentDependencies() }
+   * Calculates and  aggregates dependencies of the module.
+   * Access collected values using {@link jetbrains.mps.build.mps.util.RuntimeDependencies#usedLanguages()} , {@link jetbrains.mps.build.mps.util.RuntimeDependencies#languageRuntimes()} and {@link jetbrains.mps.build.mps.util.RuntimeDependencies#deploymentDependencies()} 
    */
   public void collectFor(SNode module) {
     Iterable<SNode> ul = SLinkOperations.collect(SNodeOperations.ofConcept(declaredDependencies(module), CONCEPTS.BuildMps_ModuleDependencyUseLanguage$uH), LINKS.language$udAS);

@@ -62,7 +62,7 @@ public class MoveRefactoringUtils {
   }
   /**
    * 
-   * @deprecated ineffective code, shall use some generic functionality like {@link jetbrains.mps.smodel.ModelDependencyUpdate }
+   * @deprecated ineffective code, shall use some generic functionality like {@link jetbrains.mps.smodel.ModelDependencyUpdate}
    */
   @Deprecated
   public static void addNodeModelImportIfNeed(SNode node, SNode toImport) {

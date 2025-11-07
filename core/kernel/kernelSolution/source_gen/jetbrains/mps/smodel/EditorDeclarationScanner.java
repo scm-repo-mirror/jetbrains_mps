@@ -21,12 +21,12 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 /**
  * Scan an editor aspect model to find cross-model dependencies.
- * Similar to {@link jetbrains.mps.smodel.ConceptDeclarationScanner }, tailored to figure out necessary 
+ * Similar to {@link jetbrains.mps.smodel.ConceptDeclarationScanner} , tailored to figure out necessary
  * extends dependency between languages due to editor aspect dependencies
  * 
- * NOTE, 'extends' dependency is a design-time dependency, not necessarily manifested as 'extends' for 
- * language runtime. Here we collect references to other structure models and their languages, implying 
- * use of a concept from a foreign language is sort of "extension". Discovered dependencies shall not get 
+ * NOTE, 'extends' dependency is a design-time dependency, not necessarily manifested as 'extends' for
+ * language runtime. Here we collect references to other structure models and their languages, implying
+ * use of a concept from a foreign language is sort of "extension". Discovered dependencies shall not get
  * translated directly into 'extends' between languages, rather as a notion of a general extension contribution.
  */
 @GeneratedClass(nodeId = "4375757543141667420", model = "r:5ff047e0-2953-4750-806a-bdc16824aa89(jetbrains.mps.smodel)")

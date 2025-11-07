@@ -10,7 +10,7 @@ package jetbrains.mps.baseLanguage.closures.runtime;
  */
 public class DelayedException extends RuntimeException {
   /**
-   * * 
+   * *
    */
   private static final long serialVersionUID = 1L;
   public DelayedException() {

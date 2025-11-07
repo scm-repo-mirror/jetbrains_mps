@@ -14,7 +14,7 @@ import org.jetbrains.mps.openapi.model.SModelReference;
  * Connects node breakpoint with target code location using generation trace information.
  * Given debug info may disappear between debug sessions, location may become invalid. It's up to specific breakpoint to update the location.
  * XXX Seems reasonable to have persistence-friendly abstraction for location (i.e. smth we persist regardless of actual node/trace info availability)
- *     Now it's SNodeReference, while this class serves both to identify location and perform logic around it. Perhaps, shall strip this class down to 
+ *     Now it's SNodeReference, while this class serves both to identify location and perform logic around it. Perhaps, shall strip this class down to
  *     persistence stuff (i.e. SNodeReference), and move target code association code elsewhere?
  * 
  * NOTE, with all the attempts to improve it, it's bad design anyway. Location API shall not expose implementation details like TraceablePositionInfo at all.

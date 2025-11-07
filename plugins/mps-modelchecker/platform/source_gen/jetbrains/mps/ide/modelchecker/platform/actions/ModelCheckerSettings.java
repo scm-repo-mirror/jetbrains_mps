@@ -19,9 +19,9 @@ import jetbrains.mps.errors.item.IssueKindReportItem;
 /**
  * A persistent state component responsible for accessing and editing "Model Checker" settings.
  * <p>
- * See {@link jetbrains.mps.checkers.IChecker }
- * See {@link jetbrains.mps.ide.modelchecker.platform.actions.ModelCheckerTool }
- * See {@link jetbrains.mps.ide.modelchecker.platform.actions.ModelCheckerViewer }
+ * See {@link jetbrains.mps.checkers.IChecker} 
+ * See {@link jetbrains.mps.ide.modelchecker.platform.actions.ModelCheckerTool} 
+ * See {@link jetbrains.mps.ide.modelchecker.platform.actions.ModelCheckerViewer} 
  */
 @State(name = "ModelCheckerSettings", storages = @Storage(value = "modelCheckerSettings.xml")
 , reportStatistic = true)
@@ -47,11 +47,11 @@ public class ModelCheckerSettings implements PersistentStateComponent<ModelCheck
   }
 
   /**
-   * Retrieves the list of all "specific" (in the sense that they are doing some job themselves) checkers 
-   * currently active according to the settings. 
+   * Retrieves the list of all "specific" (in the sense that they are doing some job themselves) checkers
+   * currently active according to the settings.
    * <p>
-   * See {@link jetbrains.mps.errors.item.IssueKindReportItem } for the list of checker levels. 
-   * Checkers registered at the level {@code KindLevel.MANUAL } are included if "additional checks" is selected.
+   * See {@link jetbrains.mps.errors.item.IssueKindReportItem} for the list of checker levels.
+   * Checkers registered at the level {@code KindLevel.MANUAL} are included if "additional checks" is selected.
    * <p>
    */
   public List<IChecker<?, ?>> getSpecificCheckers(@NotNull Project mpsProject) {

@@ -12,9 +12,9 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * Represents a single test in MPS Test Platform.
- * See {@link jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform }.
+ * See {@link jetbrains.mps.baseLanguage.unitTest.platform.TestPlatform} .
  * <p>
- * A test can be: 
+ * A test can be:
  * <ul>
  *   <li>regular test</li>
  *   <li>test container</li>

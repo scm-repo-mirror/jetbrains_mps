@@ -114,7 +114,7 @@ public class BaseTestBody {
   }
 
   /**
-   * access copy of a node given identity from original model; copy is clean 
+   * access copy of a node given identity from original model; copy is clean
    * ATM requires model read for transient test model (once/if we introduce repository and separate MA for test transients, we may lift this requirement as well)
    */
   public final SNode getNodeById(String id) {
@@ -145,7 +145,7 @@ public class BaseTestBody {
   }
 
   /**
-   * Access complete test node by its id from original model. 
+   * Access complete test node by its id from original model.
    * Note, test node comes from a transient model which is a clone of original test model
    */
   public final SNode getRealNodeById(String id) {

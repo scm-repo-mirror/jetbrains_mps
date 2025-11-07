@@ -29,7 +29,7 @@ import org.junit.platform.engine.support.descriptor.FileSource;
 import java.io.File;
 
 /**
- * Copied with minor modifications from 
+ * Copied with minor modifications from
  * https://github.com/JetBrains/intellij-community/blob/a20f7a3caf8cf1aa5a74caaedf4a7a9b31e849aa/plugins/junit5_rt/src/com/intellij/junit5/JUnit5TestExecutionListener.java
  */
 public class JUnit5TestExecutionListener implements TestExecutionListener {

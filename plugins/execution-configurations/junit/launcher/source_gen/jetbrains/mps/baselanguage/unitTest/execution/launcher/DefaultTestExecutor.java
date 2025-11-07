@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /**
  * Command-line front-end to launch BTestCase or JUnit5 ClassConcept without need for MPS instance/environment
  * XXX Unfortunate name, no idea what 'default' refers to. Now, 'TestExecutor' suffix doesn't make much sense either.
- *     This is merely an POJO main to launch tests in a given mode.
+ *     This is merely an POJO main to launch tests in a given mode. 
  */
 public class DefaultTestExecutor {
   public static final int EXIT_CODE_FOR_EXCEPTION = -12345;

@@ -142,10 +142,10 @@ public class DebugMappingsBuilder {
    * nodes from the very last step (i.e. if there's a transformation step that records ML and subsequent post-processing
    * script that modifies the model again, SNode values in GeneratorMappings would be 'stale' and likely from a model already
    * disposed (unless transients are kept). That's why we stick to SNodeId only.
-   * It's unlikely (i.e. I can't imagine a reasonable scenario, other than explicit genContext.registerLabel) that an output node won't be from a transient model 
+   * It's unlikely (i.e. I can't imagine a reasonable scenario, other than explicit genContext.registerLabel) that an output node won't be from a transient model
    * or that we would mistakenly take a wrong one (i.e. if aforementioned script removes a node registered as an output and adds another one with the same id).
    * 
-   * Note, as MPSSPRT-335 suggests, when a generator that records labeled mappings is part of group of generators that may further transform 
+   * Note, as MPSSPRT-335 suggests, when a generator that records labeled mappings is part of group of generators that may further transform
    * output node, we may face errors here.
    */
   private SNode substituteOutputNode(SModel checkpointModel, SNode n, String lm) {

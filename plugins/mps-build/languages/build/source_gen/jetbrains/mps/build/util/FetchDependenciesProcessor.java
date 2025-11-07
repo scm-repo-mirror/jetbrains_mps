@@ -20,7 +20,7 @@ public class FetchDependenciesProcessor {
 
   /**
    * 
-   * {@code token} identifies transformation phase. Phases are build.mps -> build -> workflow, and it's expected that 
+   *  {@code token} identifies transformation phase. Phases are build.mps -> build -> workflow, and it's expected that
    * DH with the token of the first phase are used at that phase only. Now we use DH for two phases, one with build.mps-aware parts,
    * and another for j.m.build language parts (respectively identified as "build.mps" and "j.m.build")
    */

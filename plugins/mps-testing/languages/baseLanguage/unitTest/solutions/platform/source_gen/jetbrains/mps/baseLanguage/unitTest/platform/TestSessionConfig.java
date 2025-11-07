@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.HashMap;
 
 /**
- * Configures and creates an instance of {@link jetbrains.mps.baseLanguage.unitTest.platform.TestSession }
+ * Configures and creates an instance of {@link jetbrains.mps.baseLanguage.unitTest.platform.TestSession} 
  */
 public class TestSessionConfig {
 
@@ -19,7 +19,7 @@ public class TestSessionConfig {
   /**
    * Associates an accessory object with a to be created session.
    * <p>
-   * The only accessory kind currently supported is {@code jetbrains.mps.tool.Environment}.
+   * The only accessory kind currently supported is {@code jetbrains.mps.tool.Environment} .
    * This accessory object is necessary in order to provide tests with possibility
    * to interact with SModel API and other interfaces in MPS platform.
    */

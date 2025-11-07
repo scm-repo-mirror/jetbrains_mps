@@ -16,11 +16,11 @@ public class MakeSession {
   private final boolean myIsCleanMake;
   private final boolean myIsSticky;
   /**
-   * <code>MakeSession</code> captures global parameters for the make session to run
+   *  <code>MakeSession</code> captures global parameters for the make session to run
    * Note, unlike earlier versions, <code>null</code> message handler is no longer supported.
    * Use <code>IMessageHandler.NULL_HANDLER</code> if <code>/dev/null</code> for messages is indeed what you want.
-   * Otherwise, use meaningful handler, e.g. <code>DefaultMakeMessageHandler</code> or 
-   * <code>DefaultMessageHandler</code>from IDE, <code>IMessageHandler.LogHandler</code> or any tailored handler for non-IDE uses.
+   * Otherwise, use meaningful handler, e.g. <code>DefaultMakeMessageHandler</code> or
+   *  <code>DefaultMessageHandler</code> from IDE, <code>IMessageHandler.LogHandler</code> or any tailored handler for non-IDE uses.
    * 
    * @param mpsProject MPS project to run make at
    * @param messageHandler where to pipe make messages

@@ -89,7 +89,7 @@ public class DependenciesPanel extends JPanel {
   }
 
   /**
-   * corresponds to active selection in DependencyTree, same as {@link jetbrains.mps.ide.depanalyzer.DependenciesPanel#getInitialScope() } if none selected
+   * corresponds to active selection in DependencyTree, same as {@link jetbrains.mps.ide.depanalyzer.DependenciesPanel#getInitialScope()} if none selected
    */
   /*package*/ DependencyViewerScope getCurrentScope() {
     return myActiveScope;

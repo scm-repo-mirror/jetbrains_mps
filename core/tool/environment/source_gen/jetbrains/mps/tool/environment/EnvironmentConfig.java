@@ -34,7 +34,7 @@ public class EnvironmentConfig {
    */
   private boolean myCreatePluginClassLoaders = true;
   /**
-   * Whether we are going to load all preinstalled plugins, 
+   * Whether we are going to load all preinstalled plugins,
    *  bundled plugins, plugins in cp, plugins in plugin.path system property,
    * By default set to false because we are unable to run without errors in our tests when all of the plugins are on.
    * Probably that should change.

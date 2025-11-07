@@ -158,7 +158,7 @@ public class YetUnknownResolver {
   }
 
   /**
-   * Update imports of a source model with references to newly resolved targets (discovered from replacement nodes of most recent {@link jetbrains.mps.java.core.newparser.YetUnknownResolver#replaceYetUnresolved(ProgressMonitor) } run).
+   * Update imports of a source model with references to newly resolved targets (discovered from replacement nodes of most recent {@link jetbrains.mps.java.core.newparser.YetUnknownResolver#replaceYetUnresolved(ProgressMonitor)} run).
    * Although it's not necessary to update imports after *each* replacement step, it might be vital for replacement of further IYetUnresolved as model imports affect scope.
    */
   public void updateWithImportsOfResolved() {

@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
  * That would allow to get rid of all this mutability in the TestRunState
  * 
  * [artem] AFAIK, TestRunData here gives overview of the whole test execution process, and can't be easily substituted
- *         by TestRunStateListener, which is more per-test event listener. Removing either listener would require some 
+ *         by TestRunStateListener, which is more per-test event listener. Removing either listener would require some
  *         effort.
  * 
  * @deprecated 

@@ -6,9 +6,9 @@ import java.util.Map;
 import java.util.HashMap;
 
 /**
- * A builder for {@link jetbrains.mps.baseLanguage.unitTest.platform.TestDescriptor }.
+ * A builder for {@link jetbrains.mps.baseLanguage.unitTest.platform.TestDescriptor} .
  * <p>
- * Only one of {@link jetbrains.mps.baseLanguage.unitTest.platform.TestDescriptorBuilder#newTest(String, SNodeTestSource) } or {@link jetbrains.mps.baseLanguage.unitTest.platform.TestDescriptorBuilder#newTestContainer(String, SNodeTestSource) } should be called.
+ * Only one of {@link jetbrains.mps.baseLanguage.unitTest.platform.TestDescriptorBuilder#newTest(String, SNodeTestSource)} or {@link jetbrains.mps.baseLanguage.unitTest.platform.TestDescriptorBuilder#newTestContainer(String, SNodeTestSource)} should be called.
  */
 public class TestDescriptorBuilder {
 
@@ -23,7 +23,7 @@ public class TestDescriptorBuilder {
   }
 
   /**
-   * Call this to create a new test. 
+   * Call this to create a new test.
    */
   public TestDescriptorBuilder newTest(String name, SNodeTestSource testSource) {
     myName = name;

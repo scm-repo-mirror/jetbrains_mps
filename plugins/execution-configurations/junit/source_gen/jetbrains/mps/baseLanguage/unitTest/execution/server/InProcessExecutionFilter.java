@@ -39,7 +39,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     }
 
     /**
-     * this message is supposed to be passed into String#format(result, #getNode())
+     * this message is supposed to be passed into String#format(result, #getNode()) 
      */
     @NotNull
     public abstract String getFormattedMsg();

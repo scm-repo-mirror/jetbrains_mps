@@ -41,7 +41,7 @@ public class ModelsToResources {
   }
 
   /**
-   * Occasionally, we need to override default 'can generate a model' criteria, e.g. when one needs to transform a model that is not {@code GeneratableSModel}, like temporary or transient
+   * Occasionally, we need to override default 'can generate a model' criteria, e.g. when one needs to transform a model that is not {@code GeneratableSModel} , like temporary or transient
    */
   public ModelsToResources canGenerateCondition(_FunctionTypes._return_P1_E0<? extends Boolean, ? super SModel> condition) {
     myCanGenerateCondition = condition;

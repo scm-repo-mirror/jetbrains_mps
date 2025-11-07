@@ -122,7 +122,7 @@ public abstract class AbstractHierarchyTree extends MPSTree {
 
   /**
    * Override if you need to control text displayed for a node in a hierarchy.
-   * By default, uses node's name, if any. 
+   * By default, uses node's name, if any.
    */
   protected String nodePresentation(SNode n) {
     String name = n.getName();

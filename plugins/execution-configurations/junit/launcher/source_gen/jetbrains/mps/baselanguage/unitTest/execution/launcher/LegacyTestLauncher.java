@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import org.junit.runner.Description;
 
 /**
- * XXX I wonder if this class shall not be in some relation with DefaultTestExecutor - for the same reason 
+ * XXX I wonder if this class shall not be in some relation with DefaultTestExecutor - for the same reason
  * WithPlatformTestExecutor extends DefaultTestExecutor
  */
 public class LegacyTestLauncher {

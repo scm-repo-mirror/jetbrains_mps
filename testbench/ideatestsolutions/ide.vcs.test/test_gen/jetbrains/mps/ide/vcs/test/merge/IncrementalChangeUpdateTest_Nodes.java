@@ -23,7 +23,7 @@ import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /**
- * These tests check that incremental changes building works well with 
+ * These tests check that incremental changes building works well with
  */
 @GeneratedClass(nodeId = "8885850892994830683", model = "r:b4fd80fc-7d6c-4c99-be6d-090ae8779bdc(jetbrains.mps.ide.vcs.test.merge@tests)")
 public class IncrementalChangeUpdateTest_Nodes extends ChangesTestBase {

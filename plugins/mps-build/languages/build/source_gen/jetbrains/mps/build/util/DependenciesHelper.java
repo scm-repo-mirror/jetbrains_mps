@@ -95,7 +95,7 @@ public class DependenciesHelper {
   }
 
   /**
-   * {@link jetbrains.mps.build.util.DependenciesHelper#getArtifact(SNode) }
+   *  {@link jetbrains.mps.build.util.DependenciesHelper#getArtifact(SNode)} 
    * 
    * @param layoutNode artifact, likely from getArtifact()
    * @param key node that has a path relative to layoutNode, likely from the same model as layoutNode
@@ -175,7 +175,7 @@ public class DependenciesHelper {
   /**
    * Check if layout node comes from build project being transformed, or the one being transformed along with it, i.e. if we CAN and NEED to associate
    * location values with it. Layout nodes are not necessarily belong to the generated project, an import from external
-   * layout brings foreign nodes, which can't get changed if they come from another model, non-transient, and the value associated would affect 
+   * layout brings foreign nodes, which can't get changed if they come from another model, non-transient, and the value associated would affect
    * any dependant project until the model is unloaded.
    * If an external node comes from another project from the same model (few projects may get transformed simultaneously), we need to record location
    * that is specific to each project (given projects A, B and C in a single model, where B and C re-use artifacts declared in A, layout nodes of A shall

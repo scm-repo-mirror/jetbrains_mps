@@ -12,7 +12,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 
 /**
  * Computable ready to be executed inside approapriate model read to build name of node under breakpoint.
- * To use, call {@link jetbrains.mps.debugger.java.runtime.breakpoints.BreakpointPresentation#getText() }. Instances could be reused.
+ * To use, call {@link jetbrains.mps.debugger.java.runtime.breakpoints.BreakpointPresentation#getText()} . Instances could be reused.
  */
 @GeneratedClass(nodeId = "4254805887755785821", model = "r:b4441af2-7d93-477f-8f98-ff1136374539(jetbrains.mps.debugger.java.runtime.breakpoints)")
 /*package*/ class BreakpointPresentation implements Computable<String> {

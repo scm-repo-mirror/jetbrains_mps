@@ -24,7 +24,7 @@ import jetbrains.mps.lang.dataFlow.framework.IDataFlowModeId;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 
 /**
- * XXX likely, we need a factory for MPSProgramBuilder registered as a CoreComponent, so that we can supply proper LanguageRegistry instance 
+ * XXX likely, we need a factory for MPSProgramBuilder registered as a CoreComponent, so that we can supply proper LanguageRegistry instance
  * in here without need to force clients to care about proper context.
  */
 public class MPSProgramBuilder extends StructuralProgramBuilder<SNode> {
@@ -34,7 +34,7 @@ public class MPSProgramBuilder extends StructuralProgramBuilder<SNode> {
 
   /**
    * 
-   * @deprecated use {@link jetbrains.mps.lang.dataFlow.MPSProgramBuilder#MPSProgramBuilder(InstructionBuilder, ProgramBuilderContext, ComponentHost) }
+   * @deprecated use {@link jetbrains.mps.lang.dataFlow.MPSProgramBuilder#MPSProgramBuilder(InstructionBuilder, ProgramBuilderContext, ComponentHost)} 
    */
   @Deprecated(forRemoval = true, since = "2025.1")
   public MPSProgramBuilder() {
@@ -43,7 +43,7 @@ public class MPSProgramBuilder extends StructuralProgramBuilder<SNode> {
   }
   /**
    * 
-   * @deprecated use {@link jetbrains.mps.lang.dataFlow.MPSProgramBuilder#MPSProgramBuilder(InstructionBuilder, ProgramBuilderContext, ComponentHost) }
+   * @deprecated use {@link jetbrains.mps.lang.dataFlow.MPSProgramBuilder#MPSProgramBuilder(InstructionBuilder, ProgramBuilderContext, ComponentHost)} 
    */
   @Deprecated(forRemoval = true, since = "2025.1")
   public MPSProgramBuilder(InstructionBuilder builder) {
@@ -53,7 +53,7 @@ public class MPSProgramBuilder extends StructuralProgramBuilder<SNode> {
   }
   /**
    * 
-   * @deprecated use {@link jetbrains.mps.lang.dataFlow.MPSProgramBuilder#MPSProgramBuilder(InstructionBuilder, ProgramBuilderContext, ComponentHost) }
+   * @deprecated use {@link jetbrains.mps.lang.dataFlow.MPSProgramBuilder#MPSProgramBuilder(InstructionBuilder, ProgramBuilderContext, ComponentHost)} 
    */
   @Deprecated(forRemoval = true, since = "2025.1")
   public MPSProgramBuilder(SRepository repository) {
@@ -62,7 +62,7 @@ public class MPSProgramBuilder extends StructuralProgramBuilder<SNode> {
   }
   /**
    * 
-   * @deprecated use {@link jetbrains.mps.lang.dataFlow.MPSProgramBuilder#MPSProgramBuilder(InstructionBuilder, ProgramBuilderContext, ComponentHost) }
+   * @deprecated use {@link jetbrains.mps.lang.dataFlow.MPSProgramBuilder#MPSProgramBuilder(InstructionBuilder, ProgramBuilderContext, ComponentHost)} 
    */
   @Deprecated(forRemoval = true, since = "2025.1")
   public MPSProgramBuilder(SRepository repository, InstructionBuilder builder) {

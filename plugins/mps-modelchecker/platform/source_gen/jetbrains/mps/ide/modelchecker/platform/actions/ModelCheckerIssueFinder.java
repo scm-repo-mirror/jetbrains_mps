@@ -36,9 +36,9 @@ import jetbrains.mps.util.Pair;
  * The main engine that launches the checkers specified in the constructor.
  * <p>
  * The "scope" of the operation, that is the object to run checkers on, can be specified by calling
- * {@link jetbrains.mps.ide.modelchecker.platform.actions.ModelCheckerIssueFinder#addModelScope(Iterable<SModel>) } and {@link jetbrains.mps.ide.modelchecker.platform.actions.ModelCheckerIssueFinder#addModuleScope(Iterable<SModule>) }.
+ *  {@link jetbrains.mps.ide.modelchecker.platform.actions.ModelCheckerIssueFinder#addModelScope(Iterable<SModel>)} and {@link jetbrains.mps.ide.modelchecker.platform.actions.ModelCheckerIssueFinder#addModuleScope(Iterable<SModule>)} .
  * <p>
- * Checkers are executed using a helper object: {@link jetbrains.mps.checkers.ModelCheckerBuilder }.
+ * Checkers are executed using a helper object: {@link jetbrains.mps.checkers.ModelCheckerBuilder} . 
  */
 @GeneratedClass(nodeId = "3719390199793465345", model = "r:5754bb7d-f802-4a0f-bd3d-0764f0d71413(jetbrains.mps.ide.modelchecker.platform.actions)")
 public class ModelCheckerIssueFinder implements SearchTask {

@@ -4,7 +4,7 @@ package jetbrains.mps.baseLanguage.unitTest.platform;
 
 
 /**
- * The request object that is sent to a {@link jetbrains.mps.baseLanguage.unitTest.platform.TestDiscoveryParticipant }.
+ * The request object that is sent to a {@link jetbrains.mps.baseLanguage.unitTest.platform.TestDiscoveryParticipant} .
  */
 public class TestDiscoveryRequest {
 

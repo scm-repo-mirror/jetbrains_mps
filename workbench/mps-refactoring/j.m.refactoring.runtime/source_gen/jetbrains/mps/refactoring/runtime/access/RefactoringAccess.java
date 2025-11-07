@@ -34,7 +34,7 @@ public abstract class RefactoringAccess implements CoreComponent {
   }
 
   /**
-   * NPE-safe shorthand for {@code isApplicable(getRefactoringByClassName(refactoringClassName), target)}
+   * NPE-safe shorthand for {@code isApplicable(getRefactoringByClassName(refactoringClassName), target)} 
    */
   public boolean isApplicable(@NotNull String refactoringClassName, Object target) {
     IRefactoring r = getRefactoringByClassName(refactoringClassName);
@@ -95,7 +95,7 @@ public abstract class RefactoringAccess implements CoreComponent {
 
   /**
    * IMPORTANT: DON'T USE THIS METHOD, ITS VISIBILITY WILL CHANGE TO protected.
-   * IT'S PROVISIONALLY PUBLIC FOR MIGRATION PURPOSES ONLY. Once RefactoringUtil is history (past 2018.2), we expect no clients 
+   * IT'S PROVISIONALLY PUBLIC FOR MIGRATION PURPOSES ONLY. Once RefactoringUtil is history (past 2018.2), we expect no clients
    * to access collection of all available refactorings. If this is wrong, please file an issue.
    */
   protected abstract Collection<IRefactoring> getAllRefactorings();

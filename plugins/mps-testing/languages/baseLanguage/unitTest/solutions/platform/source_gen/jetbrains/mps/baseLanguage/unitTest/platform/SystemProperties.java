@@ -4,8 +4,8 @@ package jetbrains.mps.baseLanguage.unitTest.platform;
 
 
 /**
- * Defines the system property keys that are used internally by the test platform. 
- * <p>See {@link jetbrains.mps.baseLanguage.unitTest.platform.TestSession#getSystemProperty(String) }
+ * Defines the system property keys that are used internally by the test platform.
+ * <p>See {@link jetbrains.mps.baseLanguage.unitTest.platform.TestSession#getSystemProperty(String)} 
  */
 public class SystemProperties {
 

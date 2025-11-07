@@ -74,7 +74,7 @@ import jetbrains.mps.ide.platform.watching.ReloadListener;
   }
 
   /**
-   * FIXME perhaps, this class, SMVU, shall keep responsibility to collect changes only, and notify 
+   * FIXME perhaps, this class, SMVU, shall keep responsibility to collect changes only, and notify
    *  MigrationTrigger of the changes. MT then would be responsible for updateModuleDescriptors + runMigrationsIfNeeded
    */
   private class ModuleBatchUpdater implements Runnable {

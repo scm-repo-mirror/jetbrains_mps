@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="-ciq1z9ct8dfxy4skr4l6nali6uspd23">
+<product version="3" modelHash="-ceaanan4q24if8qixgf9vlkitwrlh9s">
   <files names="AbstractInProcessTestContributor.java:AbstractTestConverter.java:AssumptionFailedRunner.java:InProcessExecutionFilter.java:JUnit5InprocessTestsContributor.java:JUnit5ScriptTestContributor.java:NodeWrappersTestsContributor.java" />
 </product>
 

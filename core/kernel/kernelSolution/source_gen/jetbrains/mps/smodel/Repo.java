@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Straightforward {@link jetbrains.mps.extapi.module.SRepositoryExt } implementation, with a limitation of single owner per module (unlike e.g. {@code MPSModuleRepository)}
+ * Straightforward {@link jetbrains.mps.extapi.module.SRepositoryExt} implementation, with a limitation of single owner per module (unlike e.g. {@code MPSModuleRepository)} 
  */
 @GeneratedClass(nodeId = "2204323622700131110", model = "r:5ff047e0-2953-4750-806a-bdc16824aa89(jetbrains.mps.smodel)")
 /*package*/ class Repo extends SRepositoryBase implements SRepositoryExt {

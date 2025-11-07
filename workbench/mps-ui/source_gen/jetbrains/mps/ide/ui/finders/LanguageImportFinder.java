@@ -22,14 +22,14 @@ import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.smodel.SModelOperations;
 
 /**
- * Look up language uses in scope module's imports and their models. 
+ * Look up language uses in scope module's imports and their models.
  * Name of the class might not be precise (yet - if we decide to split look up in imports and in models).
  * SearchResult include both modules and models.
  * 
  * Note, this finder looks up SLanguage, not a Language module uses, thus it shall not be used when
  * we care about module dependencies.
  * 
- * Unlike {@link jetbrains.mps.ide.ui.finders.LanguageModelImportFinder }, this finder focuses on modules. I'm not confident we need
+ * Unlike {@link jetbrains.mps.ide.ui.finders.LanguageModelImportFinder} , this finder focuses on modules. I'm not confident we need
  * both finders, though.
  * 
  * FIXME perhaps, shall either use LanguageUsageFinder for uses in models (i.e. build another scope from caller and pass to LUF), or

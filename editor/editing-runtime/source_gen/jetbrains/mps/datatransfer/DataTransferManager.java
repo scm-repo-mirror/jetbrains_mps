@@ -77,7 +77,7 @@ public final class DataTransferManager implements LanguageRegistryListener {
 
   /**
    * 
-   * @deprecated Do not use it if children in {@code copy} and {@code original} may differ (E.g. when not all attributes has been copied). Use {@link jetbrains.mps.datatransfer.DataTransferManager#preProcessNode(SNode, Map<SNode, SNode>) } instead.
+   * @deprecated Do not use it if children in {@code copy} and {@code original} may differ (E.g. when not all attributes has been copied). Use {@link jetbrains.mps.datatransfer.DataTransferManager#preProcessNode(SNode, Map<SNode, SNode>)} instead.
    */
   @Deprecated
   public void preProcessNode(SNode copy, SNode original) {

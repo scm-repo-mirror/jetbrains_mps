@@ -28,7 +28,7 @@ import java.util.List;
  * 
  * FWIW, we used to keep per-root/per-class dependencies as FQ Java class names. This approach helps to detect set of
  * classes one needs to rebuild when any given class changes, indeed. However, it didn't prove itself, as we compile
- * whole model and processing per-class dependencies takes more time than it saves. First, we need to collect them during 
+ * whole model and processing per-class dependencies takes more time than it saves. First, we need to collect them during
  * textgen phase. Next, we had to proceed them when building classpath (to detect 'dirty' modules and which dependants need
  * to be rebuild). Besides, it used to work for modules with sources only (present approach uses 'dependencies' for sources, too
  * but at least these dependencies are expressed in uniform 'module' way, not a unique 'class fqn' way).
@@ -78,7 +78,7 @@ public class ModelDependencies {
   }
 
   /**
-   * Provisional, once new approach proves itself, we gonna throw away RootDependencies and 
+   * Provisional, once new approach proves itself, we gonna throw away RootDependencies and
    * exact class names they record
    * 
    * @since 2021.2

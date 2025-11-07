@@ -88,7 +88,7 @@ public final class ReferencesFinder {
   }
 
   /**
-   * Subset of input nodes that have their reference targets in supplied target scope 
+   * Subset of input nodes that have their reference targets in supplied target scope
    * XXX similar to findRefsFromScopeToOuter, which reports reference targets, while this one reports sources
    */
   public SearchResults<SNode> getRefsBetweenScopes(DependencyViewerScope selection, DependencyViewerScope to, ProgressMonitor monitor) {

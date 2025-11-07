@@ -11,7 +11,7 @@ import jetbrains.mps.tool.common.GeneratorProperties;
 /**
  * Ant data type to capture settings for M2M transformations (e.g. part of {@code <generate>} task.
  * Unlike [ant-mps-common].GeneratorProperties, is Ant-bound integration class, while GeneratorProperties
- * are about serialization/de-serialization of these values into Script, to pass these options from Ant task 
+ * are about serialization/de-serialization of these values into Script, to pass these options from Ant task
  * to a worker, generally running in another classpath. I need to keep GeneratorProperties independent of Ant,
  * hence this class, which indeed looks quite similar
  */

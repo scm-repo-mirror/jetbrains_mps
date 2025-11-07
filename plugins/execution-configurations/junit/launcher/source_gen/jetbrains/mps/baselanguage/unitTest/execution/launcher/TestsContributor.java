@@ -4,7 +4,7 @@ package jetbrains.mps.baselanguage.unitTest.execution.launcher;
 
 
 /**
- * Generic mechanism to describe tests as {@link jetbrains.mps.baselanguage.unitTest.execution.launcher.ExecutorScript.TestRecord }, without knowledge whether they are tailored for JUnit5 or JUnit4
+ * Generic mechanism to describe tests as {@link jetbrains.mps.baselanguage.unitTest.execution.launcher.ExecutorScript.TestRecord} , without knowledge whether they are tailored for JUnit5 or JUnit4
  */
 public interface TestsContributor {
 

@@ -53,7 +53,7 @@ public final class MPSVcsManager {
   /**
    * This method is not in use now, but hold your temptation to remove it.
    * First, get some historic insight, read comment in problemsDetected() of ModelMergeConflictTracker.
-   * Then, please explain me the difference between use of FileStatusManager in ConflictsUtil vs 
+   * Then, please explain me the difference between use of FileStatusManager in ConflictsUtil vs
    * use of ChangeProvider in this method. Which one is right?
    */
   public boolean isInConflict(final VirtualFile vfile) {

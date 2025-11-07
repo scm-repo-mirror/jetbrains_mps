@@ -5,7 +5,7 @@ package jetbrains.mps.refactoring.runtime;
 import jetbrains.mps.annotations.GeneratedClass;
 
 /**
- * Base implementation of {@link jetbrains.mps.refactoring.runtime.RefactoringAspect } to subclass from generated code
+ * Base implementation of {@link jetbrains.mps.refactoring.runtime.RefactoringAspect} to subclass from generated code
  * 
  * @author Artem Tikhomirov
  * @since 2018.2

@@ -25,7 +25,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
 public class TestNodeUtil {
 
   /**
-   * Check if class or any its superclass got MPSLaunch annotation, or extends/implements EnvironmentAware. 
+   * Check if class or any its superclass got MPSLaunch annotation, or extends/implements EnvironmentAware.
    * If true, we assume the class needs running MPS instance to get executed.
    * Note, this method doesn't look into annotations on distinct test methods (therefore, we could use it for both JUnit3 and JUnit4 ClassConcepts)
    * 

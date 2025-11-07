@@ -21,15 +21,17 @@ import org.apache.tools.ant.Project;
 
 /**
  * A runtime object representing Ant task &lt;launchtest&gt;.
- * Executes tests in a forked process.<p></p>
+ * Executes tests in a forked process. <p></p> 
  * Supports children tags:
- * <ul>
- * <li>&lt;library&gt; </li>
- * <li>&lt;macro&gt; </li>
- * <li>&lt;plugin&gt; </li>
- * <li>&lt;testmodules&gt; </li>
- * <li>&lt;project&gt; </li>
- * </ul>
+ *  <ul>
+ * 
+ *  <li>&lt;library&gt;</li> 
+ *  <li>&lt;macro&gt;</li> 
+ *  <li>&lt;plugin&gt;</li>  
+ *  <li>&lt;testmodules&gt;</li> 
+ *  <li>&lt;project&gt;</li>   
+ * 
+ * </ul> 
  */
 @GeneratedClass(nodeId = "5529288089450537962", model = "r:df01b7a4-085b-4689-a5be-0177cb8fceea(jetbrains.mps.build.ant.junit)")
 public class LaunchTestTask extends MpsLoadTask {

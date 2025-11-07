@@ -7,10 +7,10 @@ import jetbrains.mps.annotations.GeneratedClass;
 
 /**
  * Abstraction of search activity one could execute several times.
- * It's distinct from {@link jetbrains.mps.ide.findusages.model.IResultProvider } being non-externalizable and unrestricted to use of {@link jetbrains.mps.ide.findusages.model.SearchQuery }.
- * It is intended rather for customized tools that re-use 'Find Usages' presentation functionality, but generally 
+ * It's distinct from {@link jetbrains.mps.ide.findusages.model.IResultProvider} being non-externalizable and unrestricted to use of {@link jetbrains.mps.ide.findusages.model.SearchQuery} .
+ * It is intended rather for customized tools that re-use 'Find Usages' presentation functionality, but generally
  * provide search result by means other that Finder and SearchQuery.
- * Use {@link jetbrains.mps.ide.findusages.model.SearchTask#canExecute() } and {@link jetbrains.mps.ide.findusages.model.SearchTask#execute(ProgressMonitor) }.
+ * Use {@link jetbrains.mps.ide.findusages.model.SearchTask#canExecute()} and {@link jetbrains.mps.ide.findusages.model.SearchTask#execute(ProgressMonitor)} .
  */
 @GeneratedClass(nodeId = "8821602715297203211", model = "r:d98d04fb-4a60-4106-81cf-6cb40b67de4d(jetbrains.mps.ide.findusages.model)")
 public interface SearchTask {

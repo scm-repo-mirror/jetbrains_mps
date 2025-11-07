@@ -25,12 +25,12 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
  * 
  * Gives {@code TransitionTrace} a chance to clear UO on save(); but doesn't drop node attribute on load().
  * 
- * The whole idea of this class is to fix https://youtrack.jetbrains.com/issue/MPS-28373 in a 2018.2 bugfix with least possible change. 
+ * The whole idea of this class is to fix https://youtrack.jetbrains.com/issue/MPS-28373 in a 2018.2 bugfix with least possible change.
  * Generally, may want to re-consider use of UO for origin trace and the way I save extra information along with CP model.
- * At the moment, I stick to using UO as it's most effective way (persistence-wise) to perform node->TTvalue mapping. Besides, I don't need to care about node id change once I renumber 
- * CP nodes in attempt to make them relatively stable. The drawback of using UO (itself being not a positive moment) 
- * is the need to use persistence that supports UO serialization (e.g. default xml v9 didn't support until recently) and the need to modify user data in the model (compared to 
- * {@code GeneratorDebug_Mappings} node which is completely under our control). Perhaps, approach like {@code TransientModelWithMetainfo} could be an alternative, to keep user model intact, and 
+ * At the moment, I stick to using UO as it's most effective way (persistence-wise) to perform node->TTvalue mapping. Besides, I don't need to care about node id change once I renumber
+ * CP nodes in attempt to make them relatively stable. The drawback of using UO (itself being not a positive moment)
+ * is the need to use persistence that supports UO serialization (e.g. default xml v9 didn't support until recently) and the need to modify user data in the model (compared to
+ * {@code GeneratorDebug_Mappings} node which is completely under our control). Perhaps, approach like {@code TransientModelWithMetainfo} could be an alternative, to keep user model intact, and
  * keep both {@code GeneratorDebug_Mappings} and node->TTvalue mapping as 'metainfo' next to the model itself. Not sure if this would help tackle issue of the model serialized size (UO per node doesn't need
  * to write source node id, while any other map has to).
  */
