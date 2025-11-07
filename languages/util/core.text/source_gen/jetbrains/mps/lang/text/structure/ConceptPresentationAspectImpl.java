@@ -158,6 +158,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.SingleLineHtmlTag:
         if (props_SingleLineHtmlTag == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.deprecated(true);
           cpb.shortDesc("single line html tag");
           cpb.rawPresentation("tag");
           props_SingleLineHtmlTag = cpb.create();

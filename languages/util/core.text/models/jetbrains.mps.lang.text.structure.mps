@@ -17,6 +17,7 @@
         <reference id="1075010451642646892" name="defaultMember" index="1H5jkz" />
         <child id="3348158742936976577" name="members" index="25R1y" />
       </concept>
+      <concept id="1224240836180" name="jetbrains.mps.lang.structure.structure.DeprecatedNodeAnnotation" flags="ig" index="asaX9" />
       <concept id="7862711839422615209" name="jetbrains.mps.lang.structure.structure.DocumentedNodeAnnotation" flags="ng" index="t5JxF">
         <property id="7862711839422615217" name="text" index="t5JxN" />
       </concept>
@@ -464,6 +465,7 @@
       <property role="IQ2nx" value="6666499814681415862" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
     </node>
+    <node concept="asaX9" id="3siJVeP5cc6" role="lGtFl" />
   </node>
   <node concept="PlHQZ" id="3fm7HO1ENRN">
     <property role="EcuMT" value="3735206875515010547" />
