@@ -13707,15 +13707,14 @@
       <node id="537222088365503481" at="19,34,20,60" concept="11" />
       <node id="537222088365503481" at="24,56,25,36" concept="2" />
       <node id="537222088365503481" at="30,52,31,19" concept="11" />
-      <node id="537222088365503481" at="35,51,36,70" concept="2" />
-      <node id="537222088367702071" at="36,70,37,27" concept="2" />
+      <node id="537222088365503481" at="35,51,36,71" concept="2" />
+      <node id="537222088367702071" at="36,71,37,27" concept="2" />
       <node id="537222088367702090" at="37,27,38,27" concept="2" />
-      <node id="537222088367702109" at="38,27,39,27" concept="2" />
       <node id="537222088365503481" at="16,0,18,0" concept="9" trace="ourParametersCacheExtension" />
       <node id="537222088365503481" at="19,0,22,0" concept="1" trace="CutMethodComment_Test#()V" />
       <node id="537222088365503481" at="30,0,33,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
       <node id="537222088365503481" at="23,0,27,0" concept="5" trace="test_CutMethodComment#()V" />
-      <node id="537222088365503481" at="34,0,41,0" concept="5" trace="testMethodImpl#()V" />
+      <node id="537222088365503481" at="34,0,40,0" concept="5" trace="testMethodImpl#()V" />
       <scope id="537222088365503481" at="19,34,20,60" />
       <scope id="537222088365503481" at="24,56,25,36" />
       <scope id="537222088365503481" at="30,52,31,19" />
@@ -13723,11 +13722,11 @@
       <scope id="537222088365503481" at="30,0,33,0">
         <var name="owner" id="537222088365503481" />
       </scope>
+      <scope id="537222088365503481" at="35,51,38,27" />
       <scope id="537222088365503481" at="23,0,27,0" />
-      <scope id="537222088365503481" at="35,51,39,27" />
-      <scope id="537222088365503481" at="34,0,41,0" />
-      <unit id="537222088365503481" at="28,0,42,0" name="jetbrains.mps.editorTest.CutMethodComment_Test$TestBody" />
-      <unit id="537222088365503481" at="14,0,43,0" name="jetbrains.mps.editorTest.CutMethodComment_Test" />
+      <scope id="537222088365503481" at="34,0,40,0" />
+      <unit id="537222088365503481" at="28,0,41,0" name="jetbrains.mps.editorTest.CutMethodComment_Test$TestBody" />
+      <unit id="537222088365503481" at="14,0,42,0" name="jetbrains.mps.editorTest.CutMethodComment_Test" />
     </file>
   </root>
   <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/537222088366582145">
