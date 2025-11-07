@@ -11650,6 +11650,11 @@
             <ref role="1Busuk" node="3HV74$ebibC" resolve="jetbrains.mps.lang.text" />
           </node>
         </node>
+        <node concept="1SiIV0" id="ictaxxo7Gl" role="3bR37C">
+          <node concept="3bR9La" id="ictaxxo7Gm" role="1SiIV1">
+            <ref role="3bR37D" node="3HV74$ebibC" resolve="jetbrains.mps.lang.text" />
+          </node>
+        </node>
       </node>
       <node concept="1E1JtD" id="7Kfy9QB6L25" role="2G$12L">
         <property role="BnDLt" value="true" />
