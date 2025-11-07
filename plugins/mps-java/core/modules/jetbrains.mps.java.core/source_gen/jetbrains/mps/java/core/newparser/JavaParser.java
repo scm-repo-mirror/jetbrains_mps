@@ -290,7 +290,9 @@ public class JavaParser {
         if (endPosition != -1) {
           String tagBody = suffix.substring(0, endPosition);
           String rest = (suffix.length() > tagBody.length() + 1 ? suffix.substring(endPosition + 1) : "");
-          BHReflection.invoke0(line, CONCEPTS.Line$yC, SMethodIdV2.create("parseAndAppendText", 7068855900723867743L, 0x4e4bd60a2247ebcfL), prefix);
+          if ((prefix != null && prefix.length() > 0)) {
+            BHReflection.invoke0(line, CONCEPTS.Line$yC, SMethodIdV2.create("parseAndAppendText", 7068855900723867743L, 0x4e4bd60a2247ebcfL), prefix);
+          }
           textToProcess = rest;
           SNode element = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de762d0L, "jetbrains.mps.baseLanguage.javadoc.structure.InlineTagCommentTextElement"));
           SNode tag = null;
