@@ -81,6 +81,9 @@
         <property id="1176718929932" name="isFinal" index="3TUv4t" />
         <child id="1068431790190" name="initializer" index="33vP2m" />
       </concept>
+      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ngI" index="366HgL">
+        <property id="1513279640906337053" name="inferTypeParams" index="373rjd" />
+      </concept>
       <concept id="1068498886296" name="jetbrains.mps.baseLanguage.structure.VariableReference" flags="nn" index="37vLTw">
         <reference id="1068581517664" name="variableDeclaration" index="3cqZAo" />
       </concept>
@@ -625,7 +628,14 @@
         <ref role="3uigEE" to="sfqd:56tRMpP_ej7" resolve="ITestNodeWrapper" />
       </node>
     </node>
-    <node concept="2tJIrI" id="2ZbjobgtRHu" role="jymVt" />
+    <node concept="312cEg" id="6U5_Io5RXlD" role="jymVt">
+      <property role="TrG5h" value="myTestCaseNodeKey" />
+      <node concept="3Tm6S6" id="6U5_Io5RXlB" role="1B3o_S" />
+      <node concept="3uibUv" id="6U5_Io5RXlC" role="1tU5fm">
+        <ref role="3uigEE" node="2ZbjobgtRG2" resolve="TestCaseNodeKey" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="6U5_Io5RYC7" role="jymVt" />
     <node concept="3clFbW" id="2ZbjobgtRHv" role="jymVt">
       <node concept="3cqZAl" id="2ZbjobgtRHw" role="3clF45" />
       <node concept="3clFbS" id="2ZbjobgtRHx" role="3clF47">
@@ -712,6 +722,30 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbF" id="6U5_Io5RXlO" role="3cqZAp">
+          <node concept="37vLTI" id="6U5_Io5RXlP" role="3clFbG">
+            <node concept="2OqwBi" id="6U5_Io5RXlQ" role="37vLTJ">
+              <node concept="Xjq3P" id="6U5_Io5RXlR" role="2Oq$k0" />
+              <node concept="2OwXpG" id="6U5_Io5RXlS" role="2OqNvi">
+                <ref role="2Oxat5" node="6U5_Io5RXlD" resolve="myTestCaseNodeKey" />
+              </node>
+            </node>
+            <node concept="2ShNRf" id="6U5_Io5RXlT" role="37vLTx">
+              <node concept="1pGfFk" id="6U5_Io5RXlU" role="2ShVmc">
+                <property role="373rjd" value="true" />
+                <ref role="37wK5l" node="2ZbjobgtRG7" resolve="TestCaseNodeKey" />
+                <node concept="2OqwBi" id="6U5_Io5RXlV" role="37wK5m">
+                  <node concept="37vLTw" id="6U5_Io5RXlW" role="2Oq$k0">
+                    <ref role="3cqZAo" node="2ZbjobgtTIb" resolve="myNode" />
+                  </node>
+                  <node concept="liA8E" id="6U5_Io5RXlX" role="2OqNvi">
+                    <ref role="37wK5l" to="sfqd:56tRMpP_ejk" resolve="getTestCase" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
       </node>
       <node concept="37vLTG" id="2ZbjobgtRHE" role="3clF46">
         <property role="TrG5h" value="node" />
@@ -725,6 +759,24 @@
       <node concept="3Tm1VV" id="2ZbjobgtRHK" role="1B3o_S" />
     </node>
     <node concept="2tJIrI" id="2ZbjobgtRHL" role="jymVt" />
+    <node concept="3clFb_" id="6U5_Io5RM13" role="jymVt">
+      <property role="TrG5h" value="getTestCaseNodeKey" />
+      <node concept="3uibUv" id="6U5_Io5RMEq" role="3clF45">
+        <ref role="3uigEE" node="2ZbjobgtRG2" resolve="TestCaseNodeKey" />
+      </node>
+      <node concept="3Tm1VV" id="6U5_Io5RM16" role="1B3o_S" />
+      <node concept="3clFbS" id="6U5_Io5RM17" role="3clF47">
+        <node concept="3clFbF" id="6U5_Io5RWXh" role="3cqZAp">
+          <node concept="2OqwBi" id="6U5_Io5RXlY" role="3clFbG">
+            <node concept="Xjq3P" id="6U5_Io5RXlZ" role="2Oq$k0" />
+            <node concept="2OwXpG" id="6U5_Io5RXm0" role="2OqNvi">
+              <ref role="2Oxat5" node="6U5_Io5RXlD" resolve="myTestCaseNodeKey" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="6U5_Io5RLjY" role="jymVt" />
     <node concept="3clFb_" id="2ZbjobgtRHM" role="jymVt">
       <property role="1EzhhJ" value="false" />
       <property role="TrG5h" value="getTestCaseFqName" />

@@ -17,6 +17,7 @@ public final class TestMethodNodeKey implements TestNodeKey {
   private final String myTestCaseFqName;
   private final String myTestMethodName;
   private final ITestNodeWrapper myNode;
+  private TestCaseNodeKey myTestCaseNodeKey;
 
   public TestMethodNodeKey(@NotNull ITestNodeWrapper node) {
     if (node.isTestCase()) {
@@ -26,6 +27,11 @@ public final class TestMethodNodeKey implements TestNodeKey {
     assert node.getTestCase() != null : "the contract is broken: the node is not a test case however #getTestCase returns null";
     myTestCaseFqName = node.getTestCase().getFqName();
     myTestMethodName = node.getName();
+    this.myTestCaseNodeKey = new TestCaseNodeKey(myNode.getTestCase());
+  }
+
+  public TestCaseNodeKey getTestCaseNodeKey() {
+    return this.myTestCaseNodeKey;
   }
 
   @Override

@@ -5,6 +5,7 @@ package jetbrains.mps.baseLanguage.unitTest.execution.tool;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.baseLanguage.unitTest.execution.TextTestEvent;
 import jetbrains.mps.baseLanguage.unitTest.execution.TestNodeKey;
+import jetbrains.mps.baseLanguage.unitTest.execution.TestMethodNodeKey;
 import jetbrains.mps.baseLanguage.unitTest.execution.TestCaseNodeKey;
 
 public class RootMessageContainer extends MessageContainerBase<TestCaseMessageContainer> {
@@ -21,6 +22,9 @@ public class RootMessageContainer extends MessageContainerBase<TestCaseMessageCo
     //      sequentially, ending up creating multiple TCMC with individual messages?
     // Note, here we are ok to create TCMC in case event comes for a TestMethodNodeKey. We need to record the message anyway, and I hope
     // we can access it later (e.g. print) just based on TCMC.matches being permissive (see doc inside the method)
+
+    // in case we're given a TestMethodNodeKey let's create a parent container for its TestCaseNodeKey
+    tk = (tk instanceof TestMethodNodeKey ? ((TestMethodNodeKey) tk).getTestCaseNodeKey() : tk);
     TestCaseMessageContainer message = new TestCaseMessageContainer((tk instanceof TestCaseNodeKey ? (TestCaseNodeKey) tk : null), getFilter());
     message.addMessage(event);
     return message;
