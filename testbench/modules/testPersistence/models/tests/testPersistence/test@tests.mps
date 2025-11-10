@@ -2767,7 +2767,7 @@
             <node concept="liA8E" id="6KB5CHbF_Dx" role="2OqNvi">
               <ref role="37wK5l" to="33ny:~Set.contains(java.lang.Object)" resolve="contains" />
               <node concept="Xl_RD" id="6KB5CHbFFDC" role="37wK5m">
-                <property role="Xl_RC" value="instance of ClassConcept" />
+                <property role="Xl_RC" value="instance_of_ClassConcept" />
               </node>
             </node>
           </node>

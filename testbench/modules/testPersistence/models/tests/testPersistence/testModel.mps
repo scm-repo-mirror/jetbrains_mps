@@ -150,14 +150,8 @@
     <node concept="3Tm1VV" id="3ofMfJ4WzhO" role="1B3o_S" />
     <node concept="3UR2Jj" id="3ofMfJ50O4B" role="lGtFl">
       <node concept="1PaTwC" id="1E1X3WHsDLK" role="1Vez_I">
-        <node concept="3oM_SD" id="1E1X3WHsDLL" role="1PaTwD">
-          <property role="3oM_SC" value="instance" />
-        </node>
-        <node concept="3oM_SD" id="1E1X3WHsDLM" role="1PaTwD">
-          <property role="3oM_SC" value="of" />
-        </node>
-        <node concept="3oM_SD" id="1E1X3WHsDLN" role="1PaTwD">
-          <property role="3oM_SC" value="ClassConcept" />
+        <node concept="3oM_SD" id="4fZ6p38OPRc" role="1PaTwD">
+          <property role="3oM_SC" value="instance_of_ClassConcept" />
         </node>
       </node>
     </node>
