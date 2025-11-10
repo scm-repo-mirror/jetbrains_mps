@@ -11,10 +11,11 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.text.behavior.TextElement__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.text.behavior.IndentedPoint__BehaviorDescriptor;
+import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public abstract class DocumentationLines extends DocCommentTextGen {
@@ -97,22 +98,40 @@ public abstract class DocumentationLines extends DocCommentTextGen {
   }
   public static void handleLine(SNode line, final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
-    boolean first = true;
-    if (SNodeOperations.isInstanceOf(line, CONCEPTS.BulletLine$ef)) {
-      String indentString = IndentedPoint__BehaviorDescriptor.getIndentString_idfcFkhVQ0er.invoke(SNodeOperations.as(line, CONCEPTS.BulletLine$ef));
-      tgs.append(indentString);
-      tgs.append("- ");
-    }
-    if (SNodeOperations.isInstanceOf(line, CONCEPTS.NumberedLine$k0)) {
-      String indentString = IndentedPoint__BehaviorDescriptor.getIndentString_idfcFkhVQ0er.invoke(SNodeOperations.as(line, CONCEPTS.NumberedLine$k0));
-      int position = (int) IndentedPoint__BehaviorDescriptor.calculatePosition_id6pDt4TBBQHh.invoke(SNodeOperations.as(line, CONCEPTS.NumberedLine$k0));
-      tgs.append(indentString);
-      tgs.append("" + position);
-      tgs.append(". ");
+    boolean isNumberedPoint = false;
+    boolean needToAddStartTag = false;
+    boolean needToAddEndTag = false;
+    if (SNodeOperations.isInstanceOf(line, CONCEPTS.IndentedPoint$BF)) {
+      // Each indented line inserts a list start tag as well as the end tag for itself, if needed 
+      int myIndentation = SPropertyOperations.getInteger(SNodeOperations.as(line, CONCEPTS.IndentedPoint$BF), PROPS.indentation$8ZOp);
+      isNumberedPoint = SNodeOperations.isInstanceOf(line, CONCEPTS.NumberedLine$k0);
+      if ((SNodeOperations.getPrevSibling(line) != null) && SNodeOperations.isInstanceOf(SNodeOperations.getPrevSibling(line), CONCEPTS.IndentedPoint$BF)) {
+        SNode previousLine = SNodeOperations.as(SNodeOperations.getPrevSibling(line), CONCEPTS.IndentedPoint$BF);
+        if (SPropertyOperations.getInteger(previousLine, PROPS.indentation$8ZOp) < myIndentation || (SPropertyOperations.getInteger(previousLine, PROPS.indentation$8ZOp) == myIndentation && !(Objects.equals(SNodeOperations.getConcept(SNodeOperations.getPrevSibling(line)), SNodeOperations.getConcept(line))))) {
+          needToAddStartTag = true;
+        }
+      } else {
+        needToAddStartTag = true;
+      }
+
+      if ((SNodeOperations.getNextSibling(line) != null) && SNodeOperations.isInstanceOf(SNodeOperations.getNextSibling(line), CONCEPTS.IndentedPoint$BF)) {
+        SNode nextLine = SNodeOperations.as(SNodeOperations.getNextSibling(line), CONCEPTS.IndentedPoint$BF);
+        if (SPropertyOperations.getInteger(nextLine, PROPS.indentation$8ZOp) < myIndentation || (SPropertyOperations.getInteger(nextLine, PROPS.indentation$8ZOp) == myIndentation && !(Objects.equals(SNodeOperations.getConcept(SNodeOperations.getNextSibling(line)), SNodeOperations.getConcept(line))))) {
+          needToAddEndTag = true;
+        }
+      } else {
+        needToAddEndTag = true;
+      }
+      String openListTag = (isNumberedPoint ? "<ol>" : "<ul>");
+      if (needToAddStartTag) {
+        tgs.append(openListTag);
+      }
+      tgs.append("<li>");
     }
     if (SNodeOperations.isInstanceOf(line, CONCEPTS.Header$d7)) {
       tgs.append("<" + ("H" + SPropertyOperations.getEnum(SNodeOperations.as(line, CONCEPTS.Header$d7), PROPS.level$YKTp) + ">"));
     }
+    boolean first = true;
     for (SNode w : Line__BehaviorDescriptor.getTextElements_idWJz9iATjyN.invoke(line)) {
       if (first) {
         first = false;
@@ -137,6 +156,14 @@ public abstract class DocumentationLines extends DocCommentTextGen {
     if (SNodeOperations.isInstanceOf(line, CONCEPTS.Header$d7)) {
       tgs.append("</" + ("H" + SPropertyOperations.getEnum(SNodeOperations.as(line, CONCEPTS.Header$d7), PROPS.level$YKTp) + ">"));
     }
+    if (SNodeOperations.isInstanceOf(line, CONCEPTS.IndentedPoint$BF)) {
+      tgs.append("<li>");
+      String closeListTag = (isNumberedPoint ? "</ol>" : "</ul>");
+      if (needToAddEndTag) {
+        tgs.append(closeListTag);
+      }
+    }
+
   }
   private static boolean isEmptyString(String str) {
     return str == null || str.isEmpty();
@@ -152,6 +179,7 @@ public abstract class DocumentationLines extends DocCommentTextGen {
     /*package*/ static final SProperty italic$SC$4 = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d481L, "italic");
     /*package*/ static final SProperty underlined$SQS1 = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d494L, "underlined");
     /*package*/ static final SProperty url$SIrt = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d485L, "url");
+    /*package*/ static final SProperty indentation$8ZOp = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x46ded40cf13ae6c4L, 0x46ded40cf13ae6fbL, "indentation");
     /*package*/ static final SProperty level$YKTp = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x6cb23f222fb47accL, 0x6cb23f222fb47b9dL, "level");
   }
 
@@ -161,7 +189,7 @@ public abstract class DocumentationLines extends DocCommentTextGen {
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept BulletLine$ef = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0xf2f8c94a6f2a8faL, "jetbrains.mps.lang.text.structure.BulletLine");
+    /*package*/ static final SInterfaceConcept IndentedPoint$BF = MetaAdapterFactory.getInterfaceConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x46ded40cf13ae6c4L, "jetbrains.mps.lang.text.structure.IndentedPoint");
     /*package*/ static final SConcept NumberedLine$k0 = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x603abc0b9c5e5042L, "jetbrains.mps.lang.text.structure.NumberedLine");
     /*package*/ static final SConcept Header$d7 = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x6cb23f222fb47accL, "jetbrains.mps.lang.text.structure.Header");
     /*package*/ static final SConcept InlineTagCommentTextElement$48 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3de762d0L, "jetbrains.mps.baseLanguage.javadoc.structure.InlineTagCommentTextElement");
