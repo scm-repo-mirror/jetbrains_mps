@@ -50,45 +50,25 @@ public class InputMethodListenerImpl implements InputMethodListener {
 
   @NotNull
   private TextChangeEvent createTextChangeEvent(InputMethodEvent event) {
-    AttributedCharacterIterator text = event.getText();
+    String text = extractText(event);
     int committedCharacterCount = event.getCommittedCharacterCount();
+    int charactersToReplace = myUncommittedText.length();
 
-    int offset;
-    if (myUncommittedText.isEmpty() && committedCharacterCount > 0 && text != null) {
-      // replacing last entered char with committed text immediately
-      // "press & hold -> choose" mode to enter symbols like: ē
-      // in this case we receive event with (one) committed character without any
-      // preceding event containing uncommitted chars
-      // TODO: ? for mac os only ?
-      offset = 1;
-    } else {
-      offset = myUncommittedText.length();
-    }
-
-    String replacementText;
-    if (text != null) {
-      StringBuilder wholeText = new StringBuilder();
-      for (char c = text.first(); c != CharacterIterator.DONE; c = text.next()) {
-        wholeText.append(c);
-      }
-      replacementText = wholeText.toString();
-      myUncommittedText = wholeText.length() > committedCharacterCount ? wholeText.substring(committedCharacterCount) : "";
-    } else {
-      replacementText = myUncommittedText = "";
-    }
-    return new TextChangeEvent(replacementText, offset);
+    myUncommittedText = text.substring(committedCharacterCount);
+    return new TextChangeEvent(text, charactersToReplace);
   }
 
   /**
    * Can be used to get text, entered by user, from the input event (if applicable).
    *
    * @param event {@link InputMethodEvent}
-   * @return text, entered by user, or null if there is no text
+   * @return text, entered by user
    */
-  public static String getText(InputMethodEvent event) {
+  @NotNull
+  private String extractText(@NotNull InputMethodEvent event) {
     AttributedCharacterIterator text = event.getText();
     if (text == null) {
-      return null;
+      return "";
     }
     StringBuilder replacement = new StringBuilder();
     for (char c = text.first(); c != CharacterIterator.DONE; c = text.next()) {
