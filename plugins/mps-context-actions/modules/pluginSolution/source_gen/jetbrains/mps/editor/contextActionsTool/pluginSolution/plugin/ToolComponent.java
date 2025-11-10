@@ -75,7 +75,7 @@ public class ToolComponent extends JComponent {
   public void setBounds(int x, int y, int w, int h) {
     // Relayout the folders after resizing the tool
 
-    boolean widthChanged = w != getSize().width;
+    boolean widthChanged = w != getWidth();
     super.setBounds(x, y, w, h);
     if (widthChanged) {
       ThreadUtils.runInUIThreadNoWait(() -> reloadItems());
@@ -83,7 +83,7 @@ public class ToolComponent extends JComponent {
   }
 
   public boolean isToolVisible() {
-    return check_cnbxua_a0a61(myTool.getToolWindow());
+    return ((ContextActionsTool_Tool) myTool).hasBeenRegistered() && check_cnbxua_a0a0q(myTool.getToolWindow());
   }
 
   /**
@@ -216,7 +216,7 @@ public class ToolComponent extends JComponent {
     CommandPolicy getCommandPolicy();
     void execute();
   }
-  private static boolean check_cnbxua_a0a61(ToolWindow checkedDotOperand) {
+  private static boolean check_cnbxua_a0a0q(ToolWindow checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.isVisible();
     }

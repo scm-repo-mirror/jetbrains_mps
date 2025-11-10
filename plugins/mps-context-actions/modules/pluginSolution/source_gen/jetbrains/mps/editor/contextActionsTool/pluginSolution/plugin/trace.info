@@ -21,6 +21,11 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1164991038168:jetbrains.mps.baseLanguage.structure.ThrowStatement" />
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/5351203823916750322:jetbrains.mps.baseLanguage.structure.TryUniversalStatement" />
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1076505808687:jetbrains.mps.baseLanguage.structure.WhileStatement" />
+  <root>
+    <file name="IconContainer.java">
+      <unit at="8,0,11,0" name="jetbrains.mps.editor.contextActionsTool.pluginSolution.plugin.IconContainer" />
+    </file>
+  </root>
   <root nodeRef="r:e1663f0e-a433-4acc-be78-d50e0f2be978(jetbrains.mps.editor.contextActionsTool.pluginSolution.plugin)/1108075632710592791">
     <file name="HoverLabel.java">
       <node id="1108075632710592793" at="15,0,16,0" concept="5" trace="isHovered" />
@@ -558,10 +563,10 @@
       <node id="8637411062072918018" at="70,33,71,29" concept="4" />
       <node id="8009069486212360596" at="75,53,76,51" concept="11" />
       <node id="8009069486212360997" at="76,51,77,0" concept="12" />
-      <node id="8009069486211190098" at="77,0,78,48" concept="9" />
-      <node id="8009069486211478273" at="78,48,79,32" concept="4" />
+      <node id="8009069486211190098" at="77,0,78,43" concept="9" />
+      <node id="8009069486211478273" at="78,43,79,32" concept="4" />
       <node id="8009069486212176390" at="80,23,81,59" concept="4" />
-      <node id="4989530492595959052" at="85,34,86,54" concept="10" />
+      <node id="4989530492595959052" at="85,34,86,112" concept="10" />
       <node id="4989530492596383224" at="95,24,96,60" concept="4" />
       <node id="3516849893152707295" at="97,5,98,26" concept="4" />
       <node id="2125324258649129055" at="98,26,99,28" concept="4" />
@@ -650,7 +655,7 @@
       <node id="6155355352095752363" at="45,0,50,0" concept="2" trace="ToolComponent#(Ljetbrains/mps/ide/tools/BaseTool;)V" />
       <node id="8532164657614067577" at="138,0,143,5" concept="7" />
       <node id="8532164657614116850" at="102,0,108,5" concept="6" />
-      <node id="4989530492596802588" at="219,0,225,0" concept="14" trace="check_cnbxua_a0a61#(Lcom/intellij/openapi/wm/ToolWindow;)Z" />
+      <node id="4989530492596802588" at="219,0,225,0" concept="14" trace="check_cnbxua_a0a0q#(Lcom/intellij/openapi/wm/ToolWindow;)Z" />
       <node id="9172396873438606644" at="34,0,41,0" concept="5" trace="mySearchField" />
       <node id="3978061912952952054" at="172,0,181,0" concept="14" trace="abbreviate#(Ljava/lang/String;I)Ljava/lang/String;" />
       <node id="8009069486211478250" at="74,0,84,0" concept="8" trace="setBounds#(IIII)V" />
@@ -663,7 +668,7 @@
       <node id="8532164657614067737" at="136,0,171,0" concept="8" trace="createLabel#(Ljetbrains/mps/editor/contextActionsTool/pluginSolution/plugin/ToolComponent/IItem;)Ljavax/swing/JLabel;" />
       <scope id="8532164657613182535" at="51,58,52,34" />
       <scope id="8009069486212172283" at="80,23,81,59" />
-      <scope id="4989530492596002970" at="85,34,86,54" />
+      <scope id="4989530492596002970" at="85,34,86,112" />
       <scope id="4989530492596365332" at="95,24,96,60" />
       <scope id="8532164657614616937" at="104,35,105,17" />
       <scope id="1779623201570438945" at="110,79,111,45" />
@@ -799,55 +804,64 @@
       <node id="6294660000051114344" at="17,0,18,0" concept="13" trace="ICON" />
       <node id="6294660000051138132" at="18,0,19,0" concept="5" trace="myComponent" />
       <node id="8532164657612867886" at="19,0,20,0" concept="5" trace="myController" />
-      <node id="6294660000051114344" at="20,51,21,81" concept="15" />
-      <node id="6294660000051114344" at="23,37,24,24" concept="4" />
-      <node id="8819548362878453213" at="24,24,25,67" concept="9" />
-      <node id="8819548362878467651" at="26,29,27,74" concept="18" />
-      <node id="8819548362878469344" at="28,5,29,0" concept="12" />
-      <node id="6294660000051139892" at="29,0,30,95" concept="4" />
-      <node id="2112251309117629586" at="30,95,31,200" concept="4" />
-      <node id="8532164657612892831" at="33,25,34,56" concept="4" />
-      <node id="6294660000051114344" at="34,56,35,20" concept="4" />
-      <node id="6294660000051114344" at="38,44,39,16" concept="10" />
-      <node id="4103857878012134023" at="41,54,42,66" concept="9" />
-      <node id="4103857878012134031" at="43,45,44,96" concept="4" />
-      <node id="4103857878012134042" at="45,5,46,27" concept="10" />
-      <node id="6616378837757830259" at="48,36,49,128" concept="4" />
-      <node id="6294660000051167774" at="49,128,50,52" concept="10" />
-      <node id="6294660000051114344" at="20,0,23,0" concept="2" trace="ContextActionsTool_Tool#(Lcom/intellij/openapi/project/Project;)V" />
-      <node id="8819548362878465129" at="25,67,28,5" concept="7" />
-      <node id="4103857878012134028" at="42,66,45,5" concept="6" />
-      <node id="6294660000051114344" at="33,0,37,0" concept="8" trace="dispose#()V" />
-      <node id="6294660000051114344" at="37,0,41,0" concept="8" trace="isInitiallyAvailable#()Z" />
-      <node id="6294660000051114344" at="48,0,52,0" concept="8" trace="getComponent#()Ljavax/swing/JComponent;" />
-      <node id="4103857878012134046" at="41,0,48,0" concept="8" trace="createGearActionGroup#()Lcom/intellij/openapi/actionSystem/DefaultActionGroup;" />
-      <node id="6294660000051114344" at="23,0,33,0" concept="8" trace="init#(Lcom/intellij/openapi/project/Project;)V" />
-      <scope id="6294660000051114344" at="20,51,21,81" />
-      <scope id="8819548362878465131" at="26,29,27,74" />
-      <scope id="6294660000051114344" at="38,44,39,16" />
-      <scope id="4103857878012134030" at="43,45,44,96" />
-      <scope id="6294660000051114344" at="33,25,35,20" />
-      <scope id="6294660000051114346" at="48,36,50,52" />
-      <scope id="6294660000051114344" at="20,0,23,0">
+      <node id="6230110817807087907" at="20,0,21,0" concept="5" trace="hasBeenRegistered" />
+      <node id="6294660000051114344" at="21,51,22,81" concept="15" />
+      <node id="6294660000051114344" at="24,37,25,24" concept="4" />
+      <node id="8819548362878453213" at="25,24,26,67" concept="9" />
+      <node id="8819548362878467651" at="27,29,28,74" concept="18" />
+      <node id="8819548362878469344" at="29,5,30,0" concept="12" />
+      <node id="6294660000051139892" at="30,0,31,95" concept="4" />
+      <node id="2112251309117629586" at="31,95,32,200" concept="4" />
+      <node id="8532164657612892831" at="34,25,35,56" concept="4" />
+      <node id="6294660000051114344" at="35,56,36,20" concept="4" />
+      <node id="6294660000051114344" at="39,44,40,16" concept="10" />
+      <node id="6230110817807091601" at="42,31,43,58" concept="4" />
+      <node id="6230110817807099168" at="45,38,46,58" concept="10" />
+      <node id="4103857878012134023" at="48,54,49,66" concept="9" />
+      <node id="4103857878012134031" at="50,45,51,96" concept="4" />
+      <node id="4103857878012134042" at="52,5,53,27" concept="10" />
+      <node id="6616378837757830259" at="55,36,56,128" concept="4" />
+      <node id="6294660000051167774" at="56,128,57,52" concept="10" />
+      <node id="6294660000051114344" at="21,0,24,0" concept="2" trace="ContextActionsTool_Tool#(Lcom/intellij/openapi/project/Project;)V" />
+      <node id="8819548362878465129" at="26,67,29,5" concept="7" />
+      <node id="6230110817807066476" at="42,0,45,0" concept="8" trace="doRegister#()V" />
+      <node id="6230110817807095292" at="45,0,48,0" concept="8" trace="hasBeenRegistered#()Z" />
+      <node id="4103857878012134028" at="49,66,52,5" concept="6" />
+      <node id="6294660000051114344" at="34,0,38,0" concept="8" trace="dispose#()V" />
+      <node id="6294660000051114344" at="38,0,42,0" concept="8" trace="isInitiallyAvailable#()Z" />
+      <node id="6294660000051114344" at="55,0,59,0" concept="8" trace="getComponent#()Ljavax/swing/JComponent;" />
+      <node id="4103857878012134046" at="48,0,55,0" concept="8" trace="createGearActionGroup#()Lcom/intellij/openapi/actionSystem/DefaultActionGroup;" />
+      <node id="6294660000051114344" at="24,0,34,0" concept="8" trace="init#(Lcom/intellij/openapi/project/Project;)V" />
+      <scope id="6294660000051114344" at="21,51,22,81" />
+      <scope id="8819548362878465131" at="27,29,28,74" />
+      <scope id="6294660000051114344" at="39,44,40,16" />
+      <scope id="6230110817807066478" at="42,31,43,58" />
+      <scope id="6230110817807095294" at="45,38,46,58" />
+      <scope id="4103857878012134030" at="50,45,51,96" />
+      <scope id="6294660000051114344" at="34,25,36,20" />
+      <scope id="6294660000051114346" at="55,36,57,52" />
+      <scope id="6294660000051114344" at="21,0,24,0">
         <var name="project" id="6294660000051114344" />
       </scope>
-      <scope id="4103857878012134028" at="42,66,45,5">
+      <scope id="6230110817807066476" at="42,0,45,0" />
+      <scope id="6230110817807095292" at="45,0,48,0" />
+      <scope id="4103857878012134028" at="49,66,52,5">
         <var name="type" id="4103857878012134029" />
       </scope>
-      <scope id="6294660000051114344" at="33,0,37,0" />
-      <scope id="6294660000051114344" at="37,0,41,0" />
-      <scope id="6294660000051114344" at="48,0,52,0" />
-      <scope id="4103857878012134020" at="41,54,46,27">
+      <scope id="6294660000051114344" at="34,0,38,0" />
+      <scope id="6294660000051114344" at="38,0,42,0" />
+      <scope id="6294660000051114344" at="55,0,59,0" />
+      <scope id="4103857878012134020" at="48,54,53,27">
         <var name="gearActionGroup" id="4103857878012134024" />
       </scope>
-      <scope id="4103857878012134046" at="41,0,48,0" />
-      <scope id="6294660000051114344" at="23,37,31,200">
+      <scope id="4103857878012134046" at="48,0,55,0" />
+      <scope id="6294660000051114344" at="24,37,32,200">
         <var name="mpsProject" id="8819548362878453214" />
       </scope>
-      <scope id="6294660000051114344" at="23,0,33,0">
+      <scope id="6294660000051114344" at="24,0,34,0">
         <var name="project" id="6294660000051114344" />
       </scope>
-      <unit id="6294660000051114344" at="16,0,53,0" name="jetbrains.mps.editor.contextActionsTool.pluginSolution.plugin.ContextActionsTool_Tool" />
+      <unit id="6294660000051114344" at="16,0,60,0" name="jetbrains.mps.editor.contextActionsTool.pluginSolution.plugin.ContextActionsTool_Tool" />
     </file>
     <file name="PluginSolution_ProjectPlugin.java">
       <node id="6294660000051114344" at="16,76,17,82" concept="4" />

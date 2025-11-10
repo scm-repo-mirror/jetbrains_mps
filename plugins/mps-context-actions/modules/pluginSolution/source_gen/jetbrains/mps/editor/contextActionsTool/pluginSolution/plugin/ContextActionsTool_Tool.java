@@ -14,9 +14,10 @@ import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import javax.swing.JComponent;
 
 public class ContextActionsTool_Tool extends GeneratedTool {
-  private static final Icon ICON = null;
+  private static final Icon ICON = IconContainer.ICON0;
   private ToolComponent myComponent;
   private ToolController myController;
+  private boolean hasBeenRegistered;
   public ContextActionsTool_Tool(Project project) {
     super(project, "Context Actions", null, ICON, ToolWindowAnchor.RIGHT, false);
   }
@@ -37,6 +38,12 @@ public class ContextActionsTool_Tool extends GeneratedTool {
   @Override
   protected boolean isInitiallyAvailable() {
     return true;
+  }
+  protected void doRegister() {
+    ContextActionsTool_Tool.this.hasBeenRegistered = true;
+  }
+  public boolean hasBeenRegistered() {
+    return ContextActionsTool_Tool.this.hasBeenRegistered;
   }
   private DefaultActionGroup createGearActionGroup() {
     DefaultActionGroup gearActionGroup = new DefaultActionGroup();
