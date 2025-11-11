@@ -54907,11 +54907,6 @@
           <ref role="3bR37D" node="1ia2VB5guYy" resolve="MPS.IDEA" />
         </node>
       </node>
-      <node concept="1SiIV0" id="2ucthr8W$Ua" role="3bR37C">
-        <node concept="3bR9La" id="2ucthr8W$Ub" role="1SiIV1">
-          <ref role="3bR37D" node="7Kfy9QB6KYK" resolve="jetbrains.mps.baseLanguage.util" />
-        </node>
-      </node>
       <node concept="1SiIV0" id="2ucthr8W$Uc" role="3bR37C">
         <node concept="3bR9La" id="2ucthr8W$Ud" role="1SiIV1">
           <ref role="3bR37D" node="1TaHNgiIbJ$" resolve="jetbrains.mps.ide.editor" />
@@ -55027,6 +55022,11 @@
               </node>
             </node>
           </node>
+        </node>
+      </node>
+      <node concept="1SiIV0" id="2$S165s5iaV" role="3bR37C">
+        <node concept="3bR9La" id="2$S165s5iaW" role="1SiIV1">
+          <ref role="3bR37D" node="7Kfy9QB6L1S" resolve="jetbrains.mps.baseLanguage.javadoc" />
         </node>
       </node>
     </node>

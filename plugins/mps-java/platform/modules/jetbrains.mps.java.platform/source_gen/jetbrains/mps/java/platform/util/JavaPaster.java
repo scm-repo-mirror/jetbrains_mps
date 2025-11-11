@@ -20,6 +20,11 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import jetbrains.mps.ide.IdeBundle;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import java.util.Objects;
+import jetbrains.mps.smodel.behaviour.BHReflection;
+import jetbrains.mps.core.aspects.behaviour.SMethodIdV2;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import com.intellij.openapi.application.ModalityState;
 import jetbrains.mps.smodel.ModelImports;
@@ -31,13 +36,36 @@ import jetbrains.mps.java.core.newparser.JavaParseException;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import java.awt.datatransfer.DataFlavor;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 @GeneratedClass(nodeId = "5646944109420335310", model = "r:ba675e48-daa4-42f0-bb41-6ecb53e4758b(jetbrains.mps.java.platform.util)")
 public class JavaPaster {
+
+  public void pasteJavaDoc(final SNode anchor, final FeatureKind featureKind, final Project project, final ProgressMonitorAdapter progress, final SRepository repository) {
+    String javaCode = getStringFromClipboard();
+    if (javaCode == null) {
+      ApplicationManager.getApplication().invokeLater(new Runnable() {
+        @Override
+        public void run() {
+          Messages.showInfoMessage("No data to parse found in the clipboard", "Parsing error");
+        }
+      });
+      return;
+    }
+    progress.advance(1);
+    javaCode = ((javaCode == null ? null : javaCode.trim()));
+    if (!(javaCode.startsWith("/**"))) {
+      javaCode = "/**\n" + javaCode;
+    }
+    if (!(javaCode.endsWith("*/"))) {
+      javaCode = javaCode + "\n*/";
+    }
+    javaCode = javaCode + ((featureKind == FeatureKind.CLASS ? "\nclass Foo{}" : "\nprivate void foo(){}"));
+    pasteJavaAsNode(anchor, anchor.getModel(), javaCode, featureKind, project, progress, repository, true);
+    progress.advance(1);
+  }
 
   public void pasteJava(final SNode anchor, final FeatureKind featureKind, final Project project, final ProgressMonitorAdapter progress, final SRepository repository) {
     String javaCode = getStringFromClipboard();
@@ -51,7 +79,7 @@ public class JavaPaster {
       return;
     }
     progress.advance(1);
-    pasteJavaAsNode(anchor, anchor.getModel(), javaCode, featureKind, project, progress, repository);
+    pasteJavaAsNode(anchor, anchor.getModel(), javaCode, featureKind, project, progress, repository, false);
     progress.advance(1);
   }
 
@@ -67,7 +95,7 @@ public class JavaPaster {
       return;
     }
     progress.advance(1);
-    pasteJavaAsNode(null, model, javaCode, FeatureKind.CLASS, project, progress, repository);
+    pasteJavaAsNode(null, model, javaCode, FeatureKind.CLASS, project, progress, repository, false);
     progress.advance(1);
   }
 
@@ -75,7 +103,7 @@ public class JavaPaster {
     return SNodeClip.peekStringFlavor(CopyPasteManagerEx.getInstanceEx().getAllContents()).orElse(null);
   }
 
-  public void pasteJavaAsNode(final SNode anchor, final SModel model, String javaCode, final FeatureKind featureKind, final Project project, final ProgressMonitorAdapter progress, final SRepository repository) {
+  public void pasteJavaAsNode(final SNode anchor, final SModel model, String javaCode, final FeatureKind featureKind, final Project project, final ProgressMonitorAdapter progress, final SRepository repository, final boolean isJavadocComment) {
     //         This value seems to be the maximum that the parser can parse and the editor can than render
     if (javaCode.length() > 50000) {
       ApplicationManager.getApplication().invokeLater(new Runnable() {
@@ -113,40 +141,74 @@ public class JavaPaster {
         @Override
         public void run() {
           repository.getModelAccess().executeCommand(() -> {
-            switch (featureKind) {
-              case CLASS:
-                ListSequence.fromList(nodes).visitAll((node) -> {
-                  SModelOperations.addRootNode(model, node);
-                  pastingSubtask.advance(1);
-                });
-                break;
-              case CLASS_CONTENT:
-                for (SNode node : ListSequence.fromList(nodes)) {
-                  if (SNodeOperations.isInstanceOf(node, CONCEPTS.InstanceMethodDeclaration$39)) {
-                    pasteMember(SNodeOperations.cast(node, CONCEPTS.InstanceMethodDeclaration$39), anchor, CONCEPTS.Classifier$Ix);
-                  } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.StaticFieldDeclaration$jR)) {
-                    pasteMember(SNodeOperations.cast(node, CONCEPTS.StaticFieldDeclaration$jR), anchor, CONCEPTS.Classifier$Ix);
-                  } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.FieldDeclaration$ie)) {
-                    pasteMember(SNodeOperations.cast(node, CONCEPTS.FieldDeclaration$ie), anchor, CONCEPTS.ClassConcept$bK);
-                  } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.StaticMethodDeclaration$FJ)) {
-                    pasteMember(SNodeOperations.cast(node, CONCEPTS.StaticMethodDeclaration$FJ), anchor, CONCEPTS.Classifier$Ix);
-                  } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.ConstructorDeclaration$yG)) {
-                    pasteMember(SNodeOperations.cast(node, CONCEPTS.ConstructorDeclaration$yG), anchor, CONCEPTS.ClassConcept$bK);
-                  } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.AnnotationMethodDeclaration$4O)) {
-                    pasteMember(SNodeOperations.cast(node, CONCEPTS.AnnotationMethodDeclaration$4O), anchor, CONCEPTS.Annotation$he);
-                  } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.Classifier$Ix)) {
-                    pasteMember(SNodeOperations.cast(node, CONCEPTS.Classifier$Ix), anchor, CONCEPTS.Classifier$Ix);
+            if (isJavadocComment) {
+              if (ListSequence.fromList(nodes).isEmpty()) {
+                return;
+              }
+              SNode containingDocComment = SNodeOperations.getNodeAncestor(anchor, CONCEPTS.BaseDocComment$bU, true, false);
+              // The line could be inside a tag
+              SNode containingDocLine = SNodeOperations.getNodeAncestor(anchor, CONCEPTS.Line$yC, true, false);
+              SNode parsedDocComment = null;
+              switch (featureKind) {
+                case CLASS:
+                  SNode parsedClass = SNodeOperations.as(ListSequence.fromList(nodes).getElement(0), CONCEPTS.ClassConcept$bK);
+                  parsedDocComment = new IAttributeDescriptor.NodeAttribute(CONCEPTS.ClassifierDocComment$mh).get(parsedClass);
+                  break;
+                case CLASS_CONTENT:
+                  SNode parsedMethod = SNodeOperations.as(ListSequence.fromList(nodes).getElement(0), CONCEPTS.BaseMethodDeclaration$kD);
+                  parsedDocComment = new IAttributeDescriptor.NodeAttribute(CONCEPTS.MethodDocComment$HI).get(parsedMethod);
+                  break;
+              }
+              if ((parsedDocComment == null)) {
+                return;
+              }
+              if ((containingDocLine != null)) {
+                final Wrappers._T<SNode> current = new Wrappers._T<SNode>(containingDocLine);
+                ListSequence.fromList(SLinkOperations.getChildren(parsedDocComment, LINKS.commentBody$sIzh)).visitAll((it) -> current.value = SNodeOperations.insertNextSiblingChild(current.value, it));
+                if (Objects.equals(trim_9qv3ps_a0a2a7a0a0a0a0a0a0a0o0e0j(((String) BHReflection.invoke0(containingDocLine, CONCEPTS.Line$yC, SMethodIdV2.create("representAsText", 2642648362195081154L, 0x4e4bd60a2247ebcfL)))), "")) {
+                  SNodeOperations.deleteNode(containingDocLine);
+                }
+              } else {
+                ListSequence.fromList(SLinkOperations.getChildren(containingDocComment, LINKS.commentBody$sIzh)).addSequence(ListSequence.fromList(SLinkOperations.getChildren(parsedDocComment, LINKS.commentBody$sIzh)));
+              }
+              ListSequence.fromList(SLinkOperations.getChildren(containingDocComment, LINKS.tags$stUD)).addSequence(ListSequence.fromList(SLinkOperations.getChildren(parsedDocComment, LINKS.tags$stUD)));
+              pastingSubtask.advance(1);
+            } else {
+              switch (featureKind) {
+                case CLASS:
+                  ListSequence.fromList(nodes).visitAll((node) -> {
+                    SModelOperations.addRootNode(model, node);
+                    pastingSubtask.advance(1);
+                  });
+                  break;
+                case CLASS_CONTENT:
+                  for (SNode node : ListSequence.fromList(nodes)) {
+                    if (SNodeOperations.isInstanceOf(node, CONCEPTS.InstanceMethodDeclaration$39)) {
+                      pasteMember(SNodeOperations.cast(node, CONCEPTS.InstanceMethodDeclaration$39), anchor, CONCEPTS.Classifier$Ix);
+                    } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.StaticFieldDeclaration$jR)) {
+                      pasteMember(SNodeOperations.cast(node, CONCEPTS.StaticFieldDeclaration$jR), anchor, CONCEPTS.Classifier$Ix);
+                    } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.FieldDeclaration$ie)) {
+                      pasteMember(SNodeOperations.cast(node, CONCEPTS.FieldDeclaration$ie), anchor, CONCEPTS.ClassConcept$bK);
+                    } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.StaticMethodDeclaration$FJ)) {
+                      pasteMember(SNodeOperations.cast(node, CONCEPTS.StaticMethodDeclaration$FJ), anchor, CONCEPTS.Classifier$Ix);
+                    } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.ConstructorDeclaration$yG)) {
+                      pasteMember(SNodeOperations.cast(node, CONCEPTS.ConstructorDeclaration$yG), anchor, CONCEPTS.ClassConcept$bK);
+                    } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.AnnotationMethodDeclaration$4O)) {
+                      pasteMember(SNodeOperations.cast(node, CONCEPTS.AnnotationMethodDeclaration$4O), anchor, CONCEPTS.Annotation$he);
+                    } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.Classifier$Ix)) {
+                      pasteMember(SNodeOperations.cast(node, CONCEPTS.Classifier$Ix), anchor, CONCEPTS.Classifier$Ix);
+                    }
+                    pastingSubtask.advance(1);
                   }
-                  pastingSubtask.advance(1);
-                }
-                break;
-              case STATEMENTS:
-                for (SNode node : ListSequence.fromList(nodes)) {
-                  pasteAtAnchorInRole(node, anchor, CONCEPTS.StatementList$m_, LINKS.statement$53DE);
-                  pastingSubtask.advance(1);
-                }
-                break;
-              default:
+                  break;
+                case STATEMENTS:
+                  for (SNode node : ListSequence.fromList(nodes)) {
+                    pasteAtAnchorInRole(node, anchor, CONCEPTS.StatementList$m_, LINKS.statement$53DE);
+                    pastingSubtask.advance(1);
+                  }
+                  break;
+                default:
+              }
             }
           });
         }
@@ -218,13 +280,21 @@ public class JavaPaster {
   public static boolean isStringOnlyDataAvailableInClipboard() {
     return CopyPasteManagerEx.getInstanceEx().areDataFlavorsAvailable(DataFlavor.stringFlavor) && !(CopyPasteManagerEx.getInstanceEx().areDataFlavorsAvailable(SNodeClip.NODE));
   }
+  public static String trim_9qv3ps_a0a2a7a0a0a0a0a0a0a0o0e0j(String str) {
+    return (str == null ? null : str.trim());
+  }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept Classifier$Ix = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept BaseDocComment$bU = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, "jetbrains.mps.baseLanguage.javadoc.structure.BaseDocComment");
+    /*package*/ static final SConcept Line$yC = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, "jetbrains.mps.lang.text.structure.Line");
+    /*package*/ static final SConcept ClassConcept$bK = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept ClassifierDocComment$mh = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1cb65d9fe66a764cL, "jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocComment");
+    /*package*/ static final SConcept BaseMethodDeclaration$kD = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+    /*package*/ static final SConcept MethodDocComment$HI = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7faeeb34L, "jetbrains.mps.baseLanguage.javadoc.structure.MethodDocComment");
     /*package*/ static final SConcept InstanceMethodDeclaration$39 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
     /*package*/ static final SConcept StaticFieldDeclaration$jR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93c84351fL, "jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration");
     /*package*/ static final SConcept FieldDeclaration$ie = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
-    /*package*/ static final SConcept ClassConcept$bK = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
     /*package*/ static final SConcept StaticMethodDeclaration$FJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf0aL, "jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration");
     /*package*/ static final SConcept ConstructorDeclaration$yG = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
     /*package*/ static final SConcept AnnotationMethodDeclaration$4O = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6a17a27L, "jetbrains.mps.baseLanguage.structure.AnnotationMethodDeclaration");
@@ -234,6 +304,8 @@ public class JavaPaster {
   }
 
   private static final class LINKS {
+    /*package*/ static final SContainmentLink commentBody$sIzh = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4693b55d3da98b10L, 0x4693b55d3da98c33L, "commentBody");
+    /*package*/ static final SContainmentLink tags$stUD = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4ab5c2019ddc99f3L, "tags");
     /*package*/ static final SContainmentLink statement$53DE = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
     /*package*/ static final SContainmentLink member$L_2d = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member");
   }

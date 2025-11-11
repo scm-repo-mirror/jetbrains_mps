@@ -30,6 +30,8 @@
     </action>
     <action id="jetbrains.mps.java.platform.actions.OverrideMethodsAsIntention_Action" class="jetbrains.mps.java.platform.actions.OverrideMethodsAsIntention_Action"></action>
     <action id="jetbrains.mps.java.platform.actions.PasteAsJavaClass_Action" class="jetbrains.mps.java.platform.actions.PasteAsJavaClass_Action"></action>
+    <action id="jetbrains.mps.java.platform.actions.PasteAsJavaDocAndAttach_Action" class="jetbrains.mps.java.platform.actions.PasteAsJavaDocAndAttach_Action"></action>
+    <action id="jetbrains.mps.java.platform.actions.PasteAsJavaDoc_Action" class="jetbrains.mps.java.platform.actions.PasteAsJavaDoc_Action"></action>
     <action id="jetbrains.mps.java.platform.actions.PasteAsJavaMethods_Action" class="jetbrains.mps.java.platform.actions.PasteAsJavaMethods_Action"></action>
     <action id="jetbrains.mps.java.platform.actions.PasteAsJavaStatements_Action" class="jetbrains.mps.java.platform.actions.PasteAsJavaStatements_Action"></action>
     <action id="jetbrains.mps.java.platform.actions.ResolveStubReferencesToMPS_Action" class="jetbrains.mps.java.platform.actions.ResolveStubReferencesToMPS_Action"></action>
@@ -54,6 +56,8 @@
     <group id="jetbrains.mps.java.platform.actions.EditorPopup_paste_ActionGroup">
       <reference ref="jetbrains.mps.java.platform.actions.PasteAsJavaStatements_Action" />
       <reference ref="jetbrains.mps.java.platform.actions.PasteAsJavaMethods_Action" />
+      <reference ref="jetbrains.mps.java.platform.actions.PasteAsJavaDoc_Action" />
+      <reference ref="jetbrains.mps.java.platform.actions.PasteAsJavaDocAndAttach_Action" />
       <add-to-group group-id="EditorPopup_ActionGrouppaste" anchor="last" />
       <add-to-group group-id="EditMenu" anchor="last" />
     </group>
