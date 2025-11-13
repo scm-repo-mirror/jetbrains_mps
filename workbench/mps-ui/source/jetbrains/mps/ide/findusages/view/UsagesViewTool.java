@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2023 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,8 @@ import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.DataContext;
+import com.intellij.openapi.actionSystem.impl.SimpleDataContext;
+import com.intellij.openapi.actionSystem.impl.SimpleDataContext.Builder;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.Service;
@@ -42,6 +44,8 @@ import com.intellij.ui.content.Content;
 import jetbrains.mps.ide.ThreadUtils;
 import jetbrains.mps.ide.actions.MPSActions;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
+import jetbrains.mps.ide.actions.SModelActionData;
+import jetbrains.mps.ide.actions.SNodeActionData;
 import jetbrains.mps.ide.findusages.CantLoadSomethingException;
 import jetbrains.mps.ide.findusages.CantSaveSomethingException;
 import jetbrains.mps.ide.findusages.model.IResultProvider;
@@ -427,7 +431,11 @@ public final class UsagesViewTool extends BaseTabbedProjectTool implements Persi
 
     @Override
     public void update(AnActionEvent e) {
-      e.getPresentation().setEnabled(ActionManager.getInstance().getAction(MPSActions.FIND_USAGES_WITH_DIALOG_ACTION) != null);
+      if (mySearchTask.canExecute() && mySearchTask.getSearchObject() instanceof SNodeReference) {
+        e.getPresentation().setEnabled(ActionManager.getInstance().getAction(MPSActions.FIND_USAGES_WITH_DIALOG_ACTION) != null);
+      } else {
+        e.getPresentation().setEnabled(false);
+      }
     }
 
     @Override
@@ -437,41 +445,31 @@ public final class UsagesViewTool extends BaseTabbedProjectTool implements Persi
 
     @Override
     public void actionPerformed(final AnActionEvent e) {
-      if (!mySearchTask.canExecute()) {
-        return;
-      }
-      if (!(mySearchTask.getSearchObject() instanceof SNodeReference)) {
-        return; //object of an incompatible kind (see #getData() below)
-      }
       final SNodeReference searchedNode = (SNodeReference) mySearchTask.getSearchObject();
-
-      DataContext dataContext = new DataContext() {
-        private final DataContext myDelegate = e.getDataContext();
-
-        @Nullable
-        @Override
-        public Object getData(@NotNull String dataId) {
-          if (MPSCommonDataKeys.CONTEXT_MODEL.is(dataId)) {
-            SNode resolved = searchedNode.resolve(myRepository);
-            return resolved == null ? null : resolved.getModel();
-          }
-          // if a caller asks for an SNode, I assume it has appropriate model read, otherwise what would be SNode for?
-          if (MPSCommonDataKeys.NODE.is(dataId)) {
-            // FIXME have to keep this code (legacy NODE DataKey) as long as our own actions query NODE, not SNodeActionData.
-            //    Once templates for actions switch to SNodeActionData, shall fix this code to handle respective KEY.
-            //    Besides, this is dynamic context, not visible to IDEA's PreCachedDataContext, no need to worry it
-            //    is accessed in not appropriate moment of time
-            // FIXME this code traces back to 5ec439b5 (2013), and I'm confused whether we still need it
-            //    or can contribute FIND_USAGES_WITH_DIALOG_ACTION action by regular IDEA means (contributor to toolbar?)
-            return searchedNode.resolve(myRepository);
-          }
-          return myDelegate.getData(dataId);
+      final DataContext dc = myRepository.getModelAccess().computeReadAction(() -> {
+        final Builder dcBuilder = SimpleDataContext.builder().setParent(e.getDataContext());
+        SNode resolved = searchedNode.resolve(myRepository);
+        if (resolved != null) {
+          // XXX FWIW, jetbrains.mps.ide.actions.FindSpecificNodeUsages_Action doesn't look into CONTEXT_MODEL, likely no need to pass one.
+          dcBuilder.add(MPSCommonDataKeys.CONTEXT_MODEL, resolved.getModel());
+          // FIXME have to keep this code (legacy NODE DataKey) as long as our own actions query NODE, not SNodeActionData.
+          //    Once templates for actions switch to SNodeActionData, shall fix this code to handle respective KEY.
+          //    Besides, this is dynamic context, not visible to IDEA's PreCachedDataContext, no need to worry it
+          //    is accessed in not appropriate moment of time
+          // FIXME this code traces back to 5ec439b5 (2013), and I'm confused whether we still need it
+          //    or can contribute FIND_USAGES_WITH_DIALOG_ACTION action by regular IDEA means (contributor to toolbar?)
+          dcBuilder.add(MPSCommonDataKeys.NODE, resolved);
+          // XXX not sure if this is needed, just an attempt to avoid LegacyDataContextBridge (see BaseAction.legacyWrap) to override values we've just set
+          //     with values of SNodeActionData/SModelActionData from parent (event's) data context
+          dcBuilder.addNull(SModelActionData.KEY);
+          dcBuilder.addNull(SNodeActionData.KEY);
         }
-      };
-      AnActionEvent event = new AnActionEvent(e.getInputEvent(), dataContext, e.getPlace(), e.getPresentation(), e.getActionManager(), e.getModifiers());
+        return dcBuilder.build();
+      });
 
+      // XXX consider ActionManager.tryToExecute(), just need a mechanism to alter DataContext
       AnAction action = ActionManager.getInstance().getAction(MPSActions.FIND_USAGES_WITH_DIALOG_ACTION);
-      action.actionPerformed(event);
+      action.actionPerformed(e.withDataContext(dc));
     }
   }
 
