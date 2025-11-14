@@ -36,5 +36,20 @@
     <property role="3njVnf" value="Gives identities of module facets for a module of a transformed model" />
     <property role="3njfb6" value="jetbrains.mps.generator.extensions" />
   </node>
+  <node concept="3njf4X" id="4wc7eHqyivn">
+    <property role="TrG5h" value="test-mode" />
+    <property role="3njVnf" value="Present when MPS runs in a test mode. Values include &quot;on&quot;, &quot;true&quot; and specific mode, like &quot;regular&quot; or &quot;in-process&quot;" />
+    <property role="3njfb6" value="jetbrains.mps.generator.extensions" />
+  </node>
+  <node concept="3njf4X" id="3VSu72t6oqm">
+    <property role="TrG5h" value="run-mode" />
+    <property role="3njVnf" value="Includes flags describing execution environment, e.g. &quot;headless&quot;, &quot;teamcity&quot;, etc." />
+    <property role="3njfb6" value="jetbrains.mps.generator.extensions" />
+  </node>
+  <node concept="3njf4X" id="6TG9eu9HjiN">
+    <property role="3njfb6" value="jetbrains.mps.generator.extensions" />
+    <property role="TrG5h" value="input-model-stereotype" />
+    <property role="3njVnf" value="Experimental parameter exposing stereotype of an input model for a transformation branch, e.g. &quot;tests&quot;. Present only of model name got one." />
+  </node>
 </model>
 

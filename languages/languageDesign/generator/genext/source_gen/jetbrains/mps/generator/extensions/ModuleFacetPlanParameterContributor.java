@@ -9,20 +9,45 @@ import java.util.stream.Stream;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleFacet;
+import jetbrains.mps.TestMode;
+import jetbrains.mps.RuntimeFlags;
+import org.jetbrains.mps.openapi.model.SModelName;
 
 public class ModuleFacetPlanParameterContributor implements PlanParameterContributor {
 
   private final PlanParameterIdentity myFacetParam = new TrivialParameterIdentity("jetbrains.mps.generator.extensions.module-facet");
+  private final PlanParameterIdentity myRunModeParam = new TrivialParameterIdentity("jetbrains.mps.generator.extensions.run-mode");
+  private final PlanParameterIdentity myTestModeParam = new TrivialParameterIdentity("jetbrains.mps.generator.extensions.run-mode");
 
   @Override
   public Stream<PlanParameterIdentity> parameters() {
-    return Stream.<PlanParameterIdentity>of(myFacetParam);
+    return Stream.<PlanParameterIdentity>of(myFacetParam, myRunModeParam, myTestModeParam);
   }
   @Override
   public void contributeParameters(@NotNull PlanParameterContributor.Context context) {
     SModule module = context.model().getModule();
     for (SModuleFacet f : module.getFacets()) {
       context.put(myFacetParam, f.getFacetType());
+    }
+    TestMode testMode = RuntimeFlags.getTestMode();
+    if (testMode.isInsideTestEnvironment()) {
+      context.put(myTestModeParam, "on");
+      context.put(myTestModeParam, Boolean.TRUE.toString());
+      if (testMode == TestMode.USUAL) {
+        context.put(myTestModeParam, "regular");
+      } else if (testMode == TestMode.IN_PROCESS) {
+        context.put(myTestModeParam, "in-process");
+      }
+    }
+    if (Boolean.getBoolean("java.awt.headless")) {
+      context.put(myRunModeParam, "headless");
+    }
+    if (System.getProperty("teamcity.version") != null) {
+      context.put(myRunModeParam, "teamcity");
+    }
+    SModelName modelName = context.model().getName();
+    if (modelName.hasStereotype()) {
+      context.put(myRunModeParam, modelName.getStereotype());
     }
   }
 }

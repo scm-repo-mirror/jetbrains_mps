@@ -4,6 +4,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123155:jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068390468200:jetbrains.mps.baseLanguage.structure.FieldDeclaration" />
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1144226303539:jetbrains.mps.baseLanguage.structure.ForeachStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123159:jetbrains.mps.baseLanguage.structure.IfStatement" />
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123165:jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" />
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242864:jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242878:jetbrains.mps.baseLanguage.structure.ReturnStatement" />
@@ -13,7 +14,7 @@
       <node id="4969086367659934114" at="13,53,14,29" concept="1" />
       <node id="4969086367659935057" at="18,71,19,121" concept="1" />
       <node id="4969086367659933868" at="13,0,16,0" concept="0" trace="ModuleActivator#(Ljetbrains/mps/components/ComponentHost;)V" />
-      <node id="4969086367659927752" at="17,0,21,0" concept="4" trace="contribute#(Ljetbrains/mps/smodel/runtime/ModuleRuntime/ActivatorContext;)V" />
+      <node id="4969086367659927752" at="17,0,21,0" concept="5" trace="contribute#(Ljetbrains/mps/smodel/runtime/ModuleRuntime/ActivatorContext;)V" />
       <scope id="4969086367659933872" at="13,53,14,29" />
       <scope id="4969086367659927760" at="18,71,19,121" />
       <scope id="4969086367659933868" at="13,0,16,0">
@@ -27,26 +28,50 @@
   </root>
   <root nodeRef="r:bbd3ef6f-ab29-4c9e-9a9f-3a8ff6ffef86(jetbrains.mps.generator.extensions)/4969086367659944373">
     <file name="ModuleFacetPlanParameterContributor.java">
-      <node id="3566725138273384087" at="15,0,16,0" concept="2" trace="myFacetParam" />
-      <node id="4969086367660105198" at="18,53,19,58" concept="6" />
-      <node id="4969086367660129726" at="22,87,23,49" concept="5" />
-      <node id="4969086367660134521" at="24,47,25,50" concept="1" />
-      <node id="4969086367660152161" at="23,49,26,5" concept="3" />
-      <node id="4969086367659944444" at="17,0,21,0" concept="4" trace="parameters#()Ljava/util/stream/Stream;" />
-      <node id="4969086367659944453" at="21,0,28,0" concept="4" trace="contributeParameters#(Ljetbrains/mps/generator/plan/PlanParameterContributor/Context;)V" />
-      <scope id="4969086367659944449" at="18,53,19,58" />
-      <scope id="4969086367660152164" at="24,47,25,50" />
-      <scope id="4969086367660152161" at="23,49,26,5">
+      <node id="3566725138273384087" at="18,0,19,0" concept="2" trace="myFacetParam" />
+      <node id="4537509049643151933" at="19,0,20,0" concept="2" trace="myRunModeParam" />
+      <node id="4537509049643158330" at="20,0,21,0" concept="2" trace="myTestModeParam" />
+      <node id="4969086367660105198" at="23,53,24,91" concept="7" />
+      <node id="4969086367660129726" at="27,87,28,49" concept="6" />
+      <node id="4969086367660134521" at="29,47,30,50" concept="1" />
+      <node id="4537509049643220754" at="31,5,32,51" concept="6" />
+      <node id="4537509049643229603" at="33,45,34,41" concept="1" />
+      <node id="4537509049643238519" at="34,41,35,60" concept="1" />
+      <node id="4537509049643241125" at="36,39,37,48" concept="1" />
+      <node id="4537509049643276564" at="38,51,39,51" concept="1" />
+      <node id="8688286696813480094" at="42,50,43,46" concept="1" />
+      <node id="8688286696813490535" at="45,57,46,46" concept="1" />
+      <node id="9113516051507527071" at="47,5,48,53" concept="6" />
+      <node id="9113516051507552285" at="49,36,50,61" concept="1" />
+      <node id="4969086367660152161" at="28,49,31,5" concept="3" />
+      <node id="4537509049643282513" at="41,5,44,5" concept="4" />
+      <node id="8688286696813490533" at="44,5,47,5" concept="4" />
+      <node id="9113516051507541160" at="48,53,51,5" concept="4" />
+      <node id="4969086367659944444" at="22,0,26,0" concept="5" trace="parameters#()Ljava/util/stream/Stream;" />
+      <node id="4537509049643264318" at="35,60,40,7" concept="4" />
+      <node id="4537509049643223142" at="32,51,41,5" concept="4" />
+      <node id="4969086367659944453" at="26,0,53,0" concept="5" trace="contributeParameters#(Ljetbrains/mps/generator/plan/PlanParameterContributor/Context;)V" />
+      <scope id="4969086367659944449" at="23,53,24,91" />
+      <scope id="4969086367660152164" at="29,47,30,50" />
+      <scope id="4537509049643264320" at="36,39,37,48" />
+      <scope id="4537509049643268039" at="38,51,39,51" />
+      <scope id="4537509049643282515" at="42,50,43,46" />
+      <scope id="8688286696813490534" at="45,57,46,46" />
+      <scope id="9113516051507541162" at="49,36,50,61" />
+      <scope id="4969086367660152161" at="28,49,31,5">
         <var name="f" id="4969086367660152165" />
       </scope>
-      <scope id="4969086367659944444" at="17,0,21,0" />
-      <scope id="4969086367659944460" at="22,87,26,5">
+      <scope id="4969086367659944444" at="22,0,26,0" />
+      <scope id="4537509049643223144" at="33,45,40,7" />
+      <scope id="4969086367659944460" at="27,87,51,5">
+        <var name="modelName" id="9113516051507527072" />
         <var name="module" id="4969086367660129727" />
+        <var name="testMode" id="4537509049643220755" />
       </scope>
-      <scope id="4969086367659944453" at="21,0,28,0">
+      <scope id="4969086367659944453" at="26,0,53,0">
         <var name="context" id="4969086367659944457" />
       </scope>
-      <unit id="4969086367659944373" at="13,0,29,0" name="jetbrains.mps.generator.extensions.ModuleFacetPlanParameterContributor" />
+      <unit id="4969086367659944373" at="16,0,54,0" name="jetbrains.mps.generator.extensions.ModuleFacetPlanParameterContributor" />
     </file>
   </root>
 </debug-info>
