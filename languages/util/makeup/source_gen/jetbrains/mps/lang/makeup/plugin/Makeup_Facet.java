@@ -32,6 +32,7 @@ import jetbrains.mps.internal.make.runtime.util.DeltaKey;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.make.script.IFeedback;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.smodel.resources.DResource;
@@ -122,6 +123,9 @@ public class Makeup_Facet extends IFacet.Stub {
                     if (MacrosFactory.containsMacro(destination)) {
                       destination = moduleMacros.expandPath(destination);
                     }
+                    // next logic comes from IdeaFileSystem umbrella FS, as individual FS are picky about path format
+                    // FIXME make FS less picky and/or use a structure for path instead of plain string
+                    destination = FileUtil.resolveParentDirs(FileUtil.normalize(destination));
                     monitor.reportFeedback(new IFeedback.INFORMATION(String.valueOf(String.format("copy textgen outcome: %s --> %s", tu.getFileName(), destination))));
 
                     // next code could be outside of model read
