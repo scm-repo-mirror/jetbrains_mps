@@ -28,12 +28,12 @@ import java.util.function.Function;
 import jetbrains.mps.extapi.persistence.FileSystemBasedDataSource;
 import jetbrains.mps.vfs.IFile;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.openapi.vcs.changes.ChangeListManager;
 import java.util.Objects;
 import org.jetbrains.mps.openapi.persistence.datasource.DataSourceType;
 import jetbrains.mps.persistence.StreamDataSourceBase;
 import java.io.InputStream;
 import java.io.IOException;
-import com.intellij.openapi.vcs.changes.ChangeListManager;
 import java.io.ByteArrayInputStream;
 import java.io.OutputStream;
 import com.intellij.openapi.vcs.changes.Change;
@@ -131,6 +131,14 @@ import com.intellij.openapi.vcs.VcsException;
                   }
                   return null;
                 }
+                if (isUnderVcsButNoBaseVersion(vFile, ChangeListManager.getInstance(project))) {
+                  // it is normal: the model or root is just added
+                  if (LOG.isInfoLevel()) {
+                    LOG.info("before revision is null for " + file);
+                  }
+                  return null;
+                }
+
                 return new StreamRelay(dataSource.getStreamName(), dataSource.getLocation(), project, vFile);
               }
             }).filter(Objects::nonNull);
@@ -198,6 +206,11 @@ import com.intellij.openapi.vcs.VcsException;
       public boolean isReadOnly() {
         return true;
       }
+    }
+
+    private static boolean isUnderVcsButNoBaseVersion(@NotNull VirtualFile file, ChangeListManager clManager) {
+      Change change = clManager.getChange(file);
+      return change != null && change.getBeforeRevision() == null;
     }
 
     @Nullable
