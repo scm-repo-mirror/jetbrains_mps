@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -84,7 +84,10 @@ public final class UsedModulesCollector {
           if (false == dk instanceof DevKit) {
             continue;
           }
-          result.addAll(((DevKit) dk).getExportedSolutions());
+          // FIXME see collectLanguagesAndDevkits() comment, where I stumbled which approach to extended devkits to take.
+          //       Need some consistency here, whether collectLanguagesAndDevkits() give direct deps (like it does for .devkits),
+          //       or a closure (as it does for .languages). Perhaps, shall not rely on collectLanguagesAndDevkits() at all?
+          result.addAll(((DevKit) dk).getAllExportedSolutions());
         }
       }
       if (runtimes) {
