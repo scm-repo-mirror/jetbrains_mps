@@ -1073,6 +1073,14 @@
             <node concept="2ShNRf" id="9D0Ba05vdF" role="37wK5m">
               <node concept="1pGfFk" id="9D0Ba05vdG" role="2ShVmc">
                 <ref role="37wK5l" to="hfuk:7lTD6YZtg3_" resolve="MakeNotification" />
+                <node concept="2OqwBi" id="54Qi_O4kRhS" role="37wK5m">
+                  <node concept="37vLTw" id="54Qi_O4kKoI" role="2Oq$k0">
+                    <ref role="3cqZAo" node="9D0Ba05vcW" resolve="session" />
+                  </node>
+                  <node concept="liA8E" id="54Qi_O4l3eB" role="2OqNvi">
+                    <ref role="37wK5l" to="hfuk:2BjwmTxTf34" resolve="getProject" />
+                  </node>
+                </node>
                 <node concept="Xjq3P" id="9D0Ba05vdH" role="37wK5m" />
                 <node concept="Rm8GO" id="9D0Ba05vdI" role="37wK5m">
                   <ref role="Rm8GQ" to="hfuk:5O50Cn9WpA7" resolve="SESSION_OPENED" />
@@ -1221,6 +1229,14 @@
                     <node concept="2ShNRf" id="9D0Ba05veD" role="37wK5m">
                       <node concept="1pGfFk" id="9D0Ba05veE" role="2ShVmc">
                         <ref role="37wK5l" to="hfuk:7lTD6YZtg3_" resolve="MakeNotification" />
+                        <node concept="2OqwBi" id="54Qi_O4lmgc" role="37wK5m">
+                          <node concept="37vLTw" id="54Qi_O4lgyD" role="2Oq$k0">
+                            <ref role="3cqZAo" node="9D0Ba05vdM" resolve="session" />
+                          </node>
+                          <node concept="liA8E" id="54Qi_O4lsFA" role="2OqNvi">
+                            <ref role="37wK5l" to="hfuk:2BjwmTxTf34" resolve="getProject" />
+                          </node>
+                        </node>
                         <node concept="Xjq3P" id="9D0Ba05veF" role="37wK5m" />
                         <node concept="Rm8GO" id="9D0Ba05veG" role="37wK5m">
                           <ref role="Rm8GQ" to="hfuk:5O50Cn9WpYr" resolve="SESSION_CLOSED" />
@@ -1489,6 +1505,14 @@
                 <node concept="2ShNRf" id="9D0Ba05vhJ" role="37wK5m">
                   <node concept="1pGfFk" id="9D0Ba05vhK" role="2ShVmc">
                     <ref role="37wK5l" to="hfuk:7lTD6YZtg3_" resolve="MakeNotification" />
+                    <node concept="2OqwBi" id="54Qi_O4lJE4" role="37wK5m">
+                      <node concept="37vLTw" id="54Qi_O4lCxs" role="2Oq$k0">
+                        <ref role="3cqZAo" node="9D0Ba05vh_" resolve="sess" />
+                      </node>
+                      <node concept="liA8E" id="54Qi_O4lPth" role="2OqNvi">
+                        <ref role="37wK5l" to="hfuk:2BjwmTxTf34" resolve="getProject" />
+                      </node>
+                    </node>
                     <node concept="Xjq3P" id="9D0Ba05vhL" role="37wK5m" />
                     <node concept="Rm8GO" id="9D0Ba05vhM" role="37wK5m">
                       <ref role="Rm8GQ" to="hfuk:5O50Cn9WpYr" resolve="SESSION_CLOSED" />
@@ -1605,6 +1629,14 @@
                 <node concept="2ShNRf" id="9D0Ba05vix" role="37wK5m">
                   <node concept="1pGfFk" id="9D0Ba05viy" role="2ShVmc">
                     <ref role="37wK5l" to="hfuk:7lTD6YZtg3_" resolve="MakeNotification" />
+                    <node concept="2OqwBi" id="54Qi_O4m9rj" role="37wK5m">
+                      <node concept="37vLTw" id="54Qi_O4m2R9" role="2Oq$k0">
+                        <ref role="3cqZAo" node="9D0Ba05vih" resolve="sess" />
+                      </node>
+                      <node concept="liA8E" id="54Qi_O4mf_s" role="2OqNvi">
+                        <ref role="37wK5l" to="hfuk:2BjwmTxTf34" resolve="getProject" />
+                      </node>
+                    </node>
                     <node concept="Xjq3P" id="9D0Ba05viz" role="37wK5m" />
                     <node concept="Rm8GO" id="9D0Ba05vi$" role="37wK5m">
                       <ref role="Rm8GQ" to="hfuk:5O50Cn9WpYr" resolve="SESSION_CLOSED" />
@@ -2060,6 +2092,14 @@
                           <node concept="2ShNRf" id="41innpAoSuM" role="37wK5m">
                             <node concept="1pGfFk" id="41innpAoSuN" role="2ShVmc">
                               <ref role="37wK5l" to="hfuk:7lTD6YZtg3_" resolve="MakeNotification" />
+                              <node concept="2OqwBi" id="54Qi_O4nGco" role="37wK5m">
+                                <node concept="37vLTw" id="54Qi_O4n_gU" role="2Oq$k0">
+                                  <ref role="3cqZAo" node="41innpApzBL" resolve="session" />
+                                </node>
+                                <node concept="liA8E" id="54Qi_O4nM0B" role="2OqNvi">
+                                  <ref role="37wK5l" to="hfuk:2BjwmTxTf34" resolve="getProject" />
+                                </node>
+                              </node>
                               <node concept="Xjq3P" id="41innpAoSuO" role="37wK5m">
                                 <ref role="1HBi2w" node="9D0Ba05uYl" resolve="WorkbenchMakeService" />
                               </node>
@@ -2487,6 +2527,14 @@
                           <node concept="2ShNRf" id="41innpAoSv5" role="37wK5m">
                             <node concept="1pGfFk" id="41innpAoSv6" role="2ShVmc">
                               <ref role="37wK5l" to="hfuk:7lTD6YZtg3_" resolve="MakeNotification" />
+                              <node concept="2OqwBi" id="54Qi_O4o6g9" role="37wK5m">
+                                <node concept="37vLTw" id="54Qi_O4nZiV" role="2Oq$k0">
+                                  <ref role="3cqZAo" node="41innpApzBL" resolve="session" />
+                                </node>
+                                <node concept="liA8E" id="54Qi_O4ocwo" role="2OqNvi">
+                                  <ref role="37wK5l" to="hfuk:2BjwmTxTf34" resolve="getProject" />
+                                </node>
+                              </node>
                               <node concept="Xjq3P" id="41innpAoSv7" role="37wK5m">
                                 <ref role="1HBi2w" node="9D0Ba05uYl" resolve="WorkbenchMakeService" />
                               </node>

@@ -154,28 +154,44 @@
   </root>
   <root nodeRef="r:b25dd364-bc3f-4a66-97d1-262009610c5e(jetbrains.mps.make)/8464977774479999203">
     <file name="MakeNotification.java">
-      <node id="8464977774480012337" at="10,0,11,0" concept="4" trace="kind" />
-      <node id="8464977774480011644" at="11,59,12,18" concept="8" />
-      <node id="8464977774480012340" at="12,18,13,21" concept="3" />
-      <node id="8464977774480006578" at="16,35,17,44" concept="6" />
-      <node id="8464977774480012346" at="19,25,20,16" concept="6" />
-      <node id="8464977774480012303" at="28,0,30,0" concept="2" trace="Kind#()V" />
-      <node id="8464977774480012329" at="19,0,22,0" concept="5" trace="getKind#()Ljetbrains/mps/make/MakeNotification/Kind;" />
-      <node id="8464977774479999205" at="11,0,15,0" concept="2" trace="MakeNotification#(Ljetbrains/mps/make/IMakeService;Ljetbrains/mps/make/MakeNotification/Kind;)V" />
-      <node id="8464977774480006573" at="15,0,19,0" concept="5" trace="getSource#()Ljetbrains/mps/make/IMakeService;" />
-      <scope id="8464977774480012306" at="28,12,28,12" />
-      <scope id="8464977774480006576" at="16,35,17,44" />
-      <scope id="8464977774480012332" at="19,25,20,16" />
-      <scope id="8464977774479999208" at="11,59,13,21" />
-      <scope id="8464977774480012303" at="28,0,30,0" />
-      <scope id="8464977774480012329" at="19,0,22,0" />
-      <scope id="8464977774479999205" at="11,0,15,0">
+      <node id="8464977774480012337" at="11,0,12,0" concept="4" trace="kind" />
+      <node id="5851946529179314931" at="12,0,13,0" concept="4" trace="project" />
+      <node id="8464977774480011644" at="13,76,14,18" concept="8" />
+      <node id="8464977774480012340" at="14,18,15,21" concept="3" />
+      <node id="5851946529179314935" at="15,21,16,27" concept="3" />
+      <node id="5851946529180450204" at="18,59,19,18" concept="8" />
+      <node id="5851946529180450206" at="19,18,20,21" concept="3" />
+      <node id="5851946529180450212" at="20,21,21,24" concept="3" />
+      <node id="8464977774480006578" at="24,35,25,44" concept="6" />
+      <node id="5851946529179331108" at="27,31,28,19" concept="6" />
+      <node id="8464977774480012346" at="30,25,31,16" concept="6" />
+      <node id="8464977774480012303" at="39,0,41,0" concept="2" trace="Kind#()V" />
+      <node id="5851946529179328172" at="27,0,30,0" concept="5" trace="getProject#()Ljetbrains/mps/project/Project;" />
+      <node id="8464977774480012329" at="30,0,33,0" concept="5" trace="getKind#()Ljetbrains/mps/make/MakeNotification/Kind;" />
+      <node id="8464977774480006573" at="23,0,27,0" concept="5" trace="getSource#()Ljetbrains/mps/make/IMakeService;" />
+      <node id="8464977774479999205" at="13,0,18,0" concept="2" trace="MakeNotification#(Ljetbrains/mps/project/Project;Ljetbrains/mps/make/IMakeService;Ljetbrains/mps/make/MakeNotification/Kind;)V" />
+      <node id="5851946529180450200" at="18,0,23,0" concept="2" trace="MakeNotification#(Ljetbrains/mps/make/IMakeService;Ljetbrains/mps/make/MakeNotification/Kind;)V" />
+      <scope id="8464977774480012306" at="39,12,39,12" />
+      <scope id="8464977774480006576" at="24,35,25,44" />
+      <scope id="5851946529179328176" at="27,31,28,19" />
+      <scope id="8464977774480012332" at="30,25,31,16" />
+      <scope id="8464977774480012303" at="39,0,41,0" />
+      <scope id="8464977774479999208" at="13,76,16,27" />
+      <scope id="5851946529180450203" at="18,59,21,24" />
+      <scope id="5851946529179328172" at="27,0,30,0" />
+      <scope id="8464977774480012329" at="30,0,33,0" />
+      <scope id="8464977774480006573" at="23,0,27,0" />
+      <scope id="8464977774479999205" at="13,0,18,0">
         <var name="kind" id="8464977774480012334" />
+        <var name="project" id="5851946529179299486" />
         <var name="source" id="8464977774480006567" />
       </scope>
-      <scope id="8464977774480006573" at="15,0,19,0" />
-      <unit id="8464977774480012301" at="22,0,31,0" name="jetbrains.mps.make.MakeNotification$Kind" />
-      <unit id="8464977774479999203" at="8,0,32,0" name="jetbrains.mps.make.MakeNotification" />
+      <scope id="5851946529180450200" at="18,0,23,0">
+        <var name="kind" id="5851946529180450222" />
+        <var name="source" id="5851946529180450220" />
+      </scope>
+      <unit id="8464977774480012301" at="33,0,42,0" name="jetbrains.mps.make.MakeNotification$Kind" />
+      <unit id="8464977774479999203" at="9,0,43,0" name="jetbrains.mps.make.MakeNotification" />
     </file>
   </root>
   <root nodeRef="r:b25dd364-bc3f-4a66-97d1-262009610c5e(jetbrains.mps.make)/8464977774480012290">

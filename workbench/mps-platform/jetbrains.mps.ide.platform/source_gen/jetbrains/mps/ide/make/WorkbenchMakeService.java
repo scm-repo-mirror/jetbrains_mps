@@ -138,7 +138,7 @@ public class WorkbenchMakeService extends AbstractMakeService implements IMakeSe
     if (!(currentSessionStickyMark.compareAndSet(null, session, false, session.isSticky()))) {
       return false;
     }
-    notifyListeners(new MakeNotification(this, MakeNotification.Kind.SESSION_OPENED));
+    notifyListeners(new MakeNotification(session.getProject(), this, MakeNotification.Kind.SESSION_OPENED));
     return true;
   }
 
@@ -150,7 +150,7 @@ public class WorkbenchMakeService extends AbstractMakeService implements IMakeSe
     Future<IResult> cp = currentProcess.get();
     if (cp == null || cp.isDone()) {
       if (currentSessionStickyMark.compareAndSet(session, null, false, false) || currentSessionStickyMark.compareAndSet(session, null, true, false)) {
-        notifyListeners(new MakeNotification(this, MakeNotification.Kind.SESSION_CLOSED));
+        notifyListeners(new MakeNotification(session.getProject(), this, MakeNotification.Kind.SESSION_CLOSED));
       }
     }
   }
@@ -179,7 +179,7 @@ public class WorkbenchMakeService extends AbstractMakeService implements IMakeSe
     boolean[] mark = new boolean[1];
     MakeSession sess = currentSessionStickyMark.get(mark);
     if (sess != null && !(mark[0]) && currentSessionStickyMark.compareAndSet(sess, null, false, false)) {
-      notifyListeners(new MakeNotification(this, MakeNotification.Kind.SESSION_CLOSED));
+      notifyListeners(new MakeNotification(sess.getProject(), this, MakeNotification.Kind.SESSION_CLOSED));
     }
   }
 
@@ -188,7 +188,7 @@ public class WorkbenchMakeService extends AbstractMakeService implements IMakeSe
     MakeSession sess = currentSessionStickyMark.get(mark);
     currentSessionStickyMark.set(null, false);
     if (sess != null) {
-      notifyListeners(new MakeNotification(this, MakeNotification.Kind.SESSION_CLOSED));
+      notifyListeners(new MakeNotification(sess.getProject(), this, MakeNotification.Kind.SESSION_CLOSED));
     }
   }
 
@@ -237,7 +237,7 @@ public class WorkbenchMakeService extends AbstractMakeService implements IMakeSe
 
       @Override
       protected void doRun(ProgressMonitor monitor) {
-        notifyListeners(new MakeNotification(WorkbenchMakeService.this, MakeNotification.Kind.SCRIPT_ABOUT_TO_START));
+        notifyListeners(new MakeNotification(session.getProject(), WorkbenchMakeService.this, MakeNotification.Kind.SCRIPT_ABOUT_TO_START));
         super.doRun(monitor);
       }
 
@@ -265,7 +265,7 @@ public class WorkbenchMakeService extends AbstractMakeService implements IMakeSe
         }
         currentProcess.compareAndSet(this, null);
         attemptCloseSession();
-        notifyListeners(new MakeNotification(WorkbenchMakeService.this, MakeNotification.Kind.SCRIPT_FINISHED));
+        notifyListeners(new MakeNotification(session.getProject(), WorkbenchMakeService.this, MakeNotification.Kind.SCRIPT_FINISHED));
       }
     };
     PerformInBackgroundOption bg = MakeServiceConfiguration.getInstance(ideaPrj).getMakeInBackgroundOption();

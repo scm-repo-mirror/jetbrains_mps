@@ -1083,6 +1083,14 @@
         <ref role="3uigEE" node="7lTD6YZtjgd" resolve="MakeNotification.Kind" />
       </node>
     </node>
+    <node concept="312cEg" id="54Qi_O4k2FN" role="jymVt">
+      <property role="TrG5h" value="project" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm6S6" id="54Qi_O4k2FO" role="1B3o_S" />
+      <node concept="3uibUv" id="54Qi_O4k2FQ" role="1tU5fm">
+        <ref role="3uigEE" to="z1c3:~Project" resolve="Project" />
+      </node>
+    </node>
     <node concept="3clFbW" id="7lTD6YZtg3_" role="jymVt">
       <node concept="3cqZAl" id="7lTD6YZtg3A" role="3clF45" />
       <node concept="3Tm1VV" id="7lTD6YZua3_" role="1B3o_S" />
@@ -1106,6 +1114,25 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbF" id="54Qi_O4k2FR" role="3cqZAp">
+          <node concept="37vLTI" id="54Qi_O4k2FT" role="3clFbG">
+            <node concept="2OqwBi" id="54Qi_O4k2Y$" role="37vLTJ">
+              <node concept="Xjq3P" id="54Qi_O4k31m" role="2Oq$k0" />
+              <node concept="2OwXpG" id="54Qi_O4k2YB" role="2OqNvi">
+                <ref role="2Oxat5" node="54Qi_O4k2FN" resolve="project" />
+              </node>
+            </node>
+            <node concept="37vLTw" id="54Qi_O4k2FX" role="37vLTx">
+              <ref role="3cqZAo" node="54Qi_O4jYUu" resolve="project" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="37vLTG" id="54Qi_O4jYUu" role="3clF46">
+        <property role="TrG5h" value="project" />
+        <node concept="3uibUv" id="54Qi_O4k2CG" role="1tU5fm">
+          <ref role="3uigEE" to="z1c3:~Project" resolve="Project" />
+        </node>
       </node>
       <node concept="37vLTG" id="7lTD6YZthQB" role="3clF46">
         <property role="TrG5h" value="source" />
@@ -1116,6 +1143,54 @@
       <node concept="37vLTG" id="7lTD6YZtjgI" role="3clF46">
         <property role="TrG5h" value="kind" />
         <node concept="3uibUv" id="7lTD6YZtjgK" role="1tU5fm">
+          <ref role="3uigEE" node="7lTD6YZtjgd" resolve="MakeNotification.Kind" />
+        </node>
+      </node>
+    </node>
+    <node concept="3clFbW" id="54Qi_O4onQo" role="jymVt">
+      <node concept="3cqZAl" id="54Qi_O4onQp" role="3clF45" />
+      <node concept="3Tm1VV" id="54Qi_O4onQq" role="1B3o_S" />
+      <node concept="3clFbS" id="54Qi_O4onQr" role="3clF47">
+        <node concept="XkiVB" id="54Qi_O4onQs" role="3cqZAp">
+          <ref role="37wK5l" to="33ny:~EventObject.&lt;init&gt;(java.lang.Object)" resolve="EventObject" />
+          <node concept="37vLTw" id="54Qi_O4onQt" role="37wK5m">
+            <ref role="3cqZAo" node="54Qi_O4onQG" resolve="source" />
+          </node>
+        </node>
+        <node concept="3clFbF" id="54Qi_O4onQu" role="3cqZAp">
+          <node concept="37vLTI" id="54Qi_O4onQv" role="3clFbG">
+            <node concept="2OqwBi" id="54Qi_O4onQw" role="37vLTJ">
+              <node concept="Xjq3P" id="54Qi_O4onQx" role="2Oq$k0" />
+              <node concept="2OwXpG" id="54Qi_O4onQy" role="2OqNvi">
+                <ref role="2Oxat5" node="7lTD6YZtjgL" resolve="kind" />
+              </node>
+            </node>
+            <node concept="37vLTw" id="54Qi_O4onQz" role="37vLTx">
+              <ref role="3cqZAo" node="54Qi_O4onQI" resolve="kind" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="54Qi_O4onQ$" role="3cqZAp">
+          <node concept="37vLTI" id="54Qi_O4onQ_" role="3clFbG">
+            <node concept="2OqwBi" id="54Qi_O4onQA" role="37vLTJ">
+              <node concept="Xjq3P" id="54Qi_O4onQB" role="2Oq$k0" />
+              <node concept="2OwXpG" id="54Qi_O4onQC" role="2OqNvi">
+                <ref role="2Oxat5" node="54Qi_O4k2FN" resolve="project" />
+              </node>
+            </node>
+            <node concept="10Nm6u" id="54Qi_O4ov25" role="37vLTx" />
+          </node>
+        </node>
+      </node>
+      <node concept="37vLTG" id="54Qi_O4onQG" role="3clF46">
+        <property role="TrG5h" value="source" />
+        <node concept="3uibUv" id="54Qi_O4onQH" role="1tU5fm">
+          <ref role="3uigEE" node="1NAY6bPd4nM" resolve="IMakeService" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="54Qi_O4onQI" role="3clF46">
+        <property role="TrG5h" value="kind" />
+        <node concept="3uibUv" id="54Qi_O4onQJ" role="1tU5fm">
           <ref role="3uigEE" node="7lTD6YZtjgd" resolve="MakeNotification.Kind" />
         </node>
       </node>
@@ -1142,6 +1217,20 @@
       </node>
       <node concept="2AHcQZ" id="7lTD6YZthQL" role="2AJF6D">
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="54Qi_O4k5UG" role="jymVt">
+      <property role="TrG5h" value="getProject" />
+      <node concept="3uibUv" id="54Qi_O4k6xg" role="3clF45">
+        <ref role="3uigEE" to="z1c3:~Project" resolve="Project" />
+      </node>
+      <node concept="3Tm1VV" id="54Qi_O4k5UJ" role="1B3o_S" />
+      <node concept="3clFbS" id="54Qi_O4k5UK" role="3clF47">
+        <node concept="3clFbF" id="54Qi_O4k6C$" role="3cqZAp">
+          <node concept="37vLTw" id="54Qi_O4k6Cz" role="3clFbG">
+            <ref role="3cqZAo" node="54Qi_O4k2FN" resolve="project" />
+          </node>
+        </node>
       </node>
     </node>
     <node concept="3clFb_" id="7lTD6YZtjgD" role="jymVt">

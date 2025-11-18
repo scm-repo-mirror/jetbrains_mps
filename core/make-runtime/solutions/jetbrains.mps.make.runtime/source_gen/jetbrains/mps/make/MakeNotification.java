@@ -4,17 +4,28 @@ package jetbrains.mps.make;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import java.util.EventObject;
+import jetbrains.mps.project.Project;
 
 @GeneratedClass(nodeId = "8464977774479999203", model = "r:b25dd364-bc3f-4a66-97d1-262009610c5e(jetbrains.mps.make)")
 public class MakeNotification extends EventObject {
   private Kind kind;
+  private final Project project;
+  public MakeNotification(Project project, IMakeService source, Kind kind) {
+    super(source);
+    this.kind = kind;
+    this.project = project;
+  }
   public MakeNotification(IMakeService source, Kind kind) {
     super(source);
     this.kind = kind;
+    this.project = null;
   }
   @Override
   public IMakeService getSource() {
     return (IMakeService) super.getSource();
+  }
+  public Project getProject() {
+    return project;
   }
   public Kind getKind() {
     return kind;
