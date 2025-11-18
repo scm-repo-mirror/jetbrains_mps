@@ -377,12 +377,14 @@ public class ProjectPane extends BaseLogicalViewProjectPane {
    */
   @Deprecated
   public void expandTransientsFolder() {
-    TreeModel model = getTree().getModel();
+    ProjectViewTree tree = getTree();
+    if (tree == null) return;
+    TreeModel model = tree.getModel();
     Object o = TreeUtil.nodeChildren(model.getRoot(), model).find(n -> isTransientsFolderNode(TreeUtil.getUserObject(n)));
     TreeNode toExpand = o instanceof TreeNode ? (TreeNode) o : null;
     if (toExpand != null) {
       TreePath path = TreeUtil.getPath((TreeNode) model.getRoot(), toExpand);
-      getTree().expandPath(path);
+      tree.expandPath(path);
     }
   }
 
