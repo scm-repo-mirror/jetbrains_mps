@@ -19,12 +19,10 @@ import jetbrains.mps.generator.ModelGenerationStatusManager;
 import javax.swing.SwingUtilities;
 import jetbrains.mps.ide.make.actions.MakeActionImpl;
 import jetbrains.mps.ide.make.actions.MakeActionParameters;
-import java.util.function.Consumer;
-import jetbrains.mps.vfs.IFile;
-import org.jetbrains.mps.openapi.module.SModuleFacet;
-import jetbrains.mps.project.facets.GenerationTargetFacet;
-import jetbrains.mps.project.facets.JavaModuleFacet;
-import jetbrains.mps.project.facets.TestsFacet;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.model.ModelDeleteHelper;
+import jetbrains.mps.module.ModuleDeleteHelper;
 import java.util.Map;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
@@ -37,8 +35,6 @@ import com.intellij.openapi.actionSystem.ex.ActionUtil;
 import jetbrains.mps.workbench.action.ActionUtils;
 import com.intellij.openapi.actionSystem.ActionPlaces;
 import com.intellij.openapi.actionSystem.DataContext;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import com.intellij.openapi.actionSystem.DataKey;
 import com.intellij.openapi.actionSystem.impl.SimpleDataContext;
 import jetbrains.mps.project.MPSProject;
@@ -92,56 +88,16 @@ public class IdeCommandUtil {
     project.getComponent(ModelGenerationStatusManager.class).discard(ListSequence.fromList(modelsToClean.value).where((it) -> GenerationFacade.canGenerate(it)));
   }
 
-  public static void removeGenSources(final Project project, final Iterable<? extends SModel> models, Iterable<? extends SModule> modules, final boolean wholeProject) {
-    final Wrappers._T<Iterable<? extends SModule>> _modules = new Wrappers._T<Iterable<? extends SModule>>(modules);
-    project.getRepository().getModelAccess().runReadAction(() -> {
-      if (wholeProject) {
-        _modules.value = (Iterable<? extends SModule>) (Iterable<SModule>) project.getProjectModulesWithGenerators();
-      }
-      final Consumer<IFile> deleteIfFile = new Consumer<IFile>() {
-        public void accept(IFile file) {
-          if (!(file.isDirectory())) {
-            file.deleteIfExists();
-          }
-        }
-      };
-      Sequence.fromIterable(models).where((it) -> !(it.getModule().isPackaged()) && GenerationFacade.canGenerate(it)).visitAll(new _FunctionTypes._void_P1_E0<SModel>() {
-        public void invoke(SModel model) {
-          for (SModuleFacet mf : model.getModule().getFacets()) {
-            if (mf instanceof GenerationTargetFacet) {
-              GenerationTargetFacet genFacet = ((GenerationTargetFacet) mf);
-
-              check_nf7729_a2a0a0a0a0c0a0a4(check_nf7729_a0c0a0a0a0a2a0a0e(genFacet.getOutputLocation(model)), deleteIfFile);
-              check_nf7729_a3a0a0a0a0c0a0a4(check_nf7729_a0d0a0a0a0a2a0a0e(genFacet.getOutputCacheLocation(model)), deleteIfFile);
-            }
-            if (mf instanceof JavaModuleFacet) {
-              check_nf7729_a0a1a0a0a0c0a0a4(check_nf7729_a0a0b0a0a0a2a0a0e(((JavaModuleFacet) mf).getClassesLocation(model)), deleteIfFile);
-            }
-          }
-        }
-      });
-    });
-    Sequence.fromIterable(_modules.value).visitAll((module) -> {
-      // would be nice to handle all GenerationTargetFacet here, but for transition, rely on only facets we are aware at the moment (and those with single-root output)
-      // FWIF, DeleteModuleHelper.deleteModuleFiles is pretty much about the same.
-      ArrayList<IFile> roots = new ArrayList<IFile>(5);
-      JavaModuleFacet jmf = module.getFacet(JavaModuleFacet.class);
-      if (jmf != null) {
-        roots.add(jmf.getOutputRoot());
-        roots.add(jmf.getOutputCacheRoot());
-        roots.add(jmf.getClassesGen());
-      }
-      TestsFacet testsFacet = module.getFacet(TestsFacet.class);
-      if (testsFacet != null) {
-        roots.add(testsFacet.getTestsOutputPath());
-        roots.add(testsFacet.getOutputCacheRoot());
-      }
-      for (IFile f : roots) {
-        if (f != null) {
-          f.deleteIfExists();
-        }
-      }
-    });
+  public static void removeGenSources(@NotNull Project project, @Nullable Iterable<? extends SModel> models, @Nullable Iterable<? extends SModule> modules, boolean wholeProject) {
+    if (wholeProject) {
+      modules = (Iterable<? extends SModule>) (Iterable<SModule>) project.getProjectModulesWithGenerators();
+    }
+    if (Sequence.fromIterable(models).isNotEmpty()) {
+      Sequence.fromIterable(models).visitAll((it) -> new ModelDeleteHelper(it).removeGeneratedArtifacts());
+    }
+    if (Sequence.fromIterable(modules).isNotEmpty()) {
+      new ModuleDeleteHelper(project).removeGeneratedArtifacts(Sequence.fromIterable(modules).ofType(SModule.class));
+    }
   }
 
   public static Map<String, Object> prepareParameters(Iterable<Tuples._2<String, Object>> parameters) {
@@ -179,40 +135,4 @@ public class IdeCommandUtil {
     ActionUtil.performAction(action, event);
   }
 
-  private static void check_nf7729_a2a0a0a0a0c0a0a4(List<IFile> checkedDotOperand, Consumer<IFile> deleteIfFile) {
-    if (null != checkedDotOperand) {
-      checkedDotOperand.forEach(deleteIfFile);
-    }
-
-  }
-  private static List<IFile> check_nf7729_a0c0a0a0a0a2a0a0e(IFile checkedDotOperand) {
-    if (null != checkedDotOperand) {
-      return checkedDotOperand.getChildren();
-    }
-    return null;
-  }
-  private static void check_nf7729_a3a0a0a0a0c0a0a4(List<IFile> checkedDotOperand, Consumer<IFile> deleteIfFile) {
-    if (null != checkedDotOperand) {
-      checkedDotOperand.forEach(deleteIfFile);
-    }
-
-  }
-  private static List<IFile> check_nf7729_a0d0a0a0a0a2a0a0e(IFile checkedDotOperand) {
-    if (null != checkedDotOperand) {
-      return checkedDotOperand.getChildren();
-    }
-    return null;
-  }
-  private static void check_nf7729_a0a1a0a0a0c0a0a4(List<IFile> checkedDotOperand, Consumer<IFile> deleteIfFile) {
-    if (null != checkedDotOperand) {
-      checkedDotOperand.forEach(deleteIfFile);
-    }
-
-  }
-  private static List<IFile> check_nf7729_a0a0b0a0a0a2a0a0e(IFile checkedDotOperand) {
-    if (null != checkedDotOperand) {
-      return checkedDotOperand.getChildren();
-    }
-    return null;
-  }
 }
