@@ -28,14 +28,20 @@ public class DemoApp {
   public static Component createComponent_a() {
     JButton component = new JButton();
     component.setText("Hello");
-    component.setEnabled(false);
+    {
+      component.setEnabled(false);
+    }
     return component;
   }
   public static Component createComponent_a_0() {
     JLabel component = new JLabel();
     component.setText("world!");
-    component.setOpaque(true);
-    component.setBackground(Color.orange);
+    {
+      {
+        component.setOpaque(true);
+        component.setBackground(Color.orange);
+      }
+    }
     return component;
   }
 }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dev-kit name="jetbrains.mps.samples.generator_demo.DemoLang7DevKit" uuid="84dde805-0d54-4a5d-a1f8-97f4ef65e0a5">
+  <exported-language name="b1ccc903-f5a9-42d1-add9-80ac0e69d662(jetbrains.mps.samples.generator_demo.demoLang7)" />
+  <exported-solutions>
+    <exported-solution>dfcb692b-c8e7-465b-a0d2-4c3e9ba216e1(jetbrains.mps.samples.generator_demo.gen_plans)</exported-solution>
+  </exported-solutions>
+  <generation-plan model="r:fb5172ec-9223-430e-81c3-06ca526131e7(jetbrains.mps.samples.generator_demo.gen_plans.demoLang7)" />
+</dev-kit>
+

@@ -3,7 +3,7 @@
   <persistence version="9" />
   <languages>
     <use id="772f6dcd-8c0d-48f7-869c-908e036f7c8e" name="jetbrains.mps.sampleXML" version="0" />
-    <engage id="fae29102-8774-4e55-af5d-93fa67387f38" name="jetbrains.mps.samples.generator_demo.demoLang1" />
+    <devkit ref="96ea01dc-4679-4fec-abdd-e8c7a71b1b25(jetbrains.mps.samples.generator_demo.DemoLang1DevKit)" />
   </languages>
   <imports />
   <registry>

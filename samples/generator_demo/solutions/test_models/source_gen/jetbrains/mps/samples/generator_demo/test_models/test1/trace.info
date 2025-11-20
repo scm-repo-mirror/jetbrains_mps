@@ -13,7 +13,7 @@
       <node id="1228437239252" at="16,33,17,17" concept="0" />
       <node id="1228437239252" at="17,17,18,38" concept="0" />
       <node id="1228437239252" at="18,38,19,27" concept="0" />
-      <node id="1228437239252" at="11,0,21,0" concept="2" trace="main#([Ljava/lang/String;)V" />
+      <node id="1228437239252" at="11,0,21,0" concept="2" trace="main#([null)V" />
       <scope id="1228437239252" at="11,42,19,27">
         <var name="container" id="1228437239252" />
         <var name="frame" id="1228437239252" />
@@ -34,7 +34,7 @@
       <node id="1228437250754" at="16,32,17,17" concept="0" />
       <node id="1228437250754" at="17,17,18,38" concept="0" />
       <node id="1228437250754" at="18,38,19,27" concept="0" />
-      <node id="1228437250754" at="11,0,21,0" concept="2" trace="main#([Ljava/lang/String;)V" />
+      <node id="1228437250754" at="11,0,21,0" concept="2" trace="main#([null)V" />
       <scope id="1228437250754" at="11,42,19,27">
         <var name="container" id="1228437250754" />
         <var name="frame" id="1228437250754" />

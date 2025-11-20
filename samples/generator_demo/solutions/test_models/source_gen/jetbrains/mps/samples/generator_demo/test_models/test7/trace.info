@@ -25,7 +25,7 @@
       <node id="3618324829955935393" at="23,0,27,0" concept="3" trace="addContent#(Ljava/awt/Container;)V" />
       <node id="3618324829955941167" at="27,0,32,0" concept="3" trace="createComponent_a#()Ljava/awt/Component;" />
       <node id="3618324829955941195" at="32,0,37,0" concept="3" trace="createComponent_b#()Ljava/awt/Component;" />
-      <node id="3618324829955935393" at="13,0,23,0" concept="3" trace="main#([Ljava/lang/String;)V" />
+      <node id="3618324829955935393" at="13,0,23,0" concept="3" trace="main#([null)V" />
       <scope id="3618324829955935393" at="23,54,25,39" />
       <scope id="3618324829955941167" at="27,47,30,21">
         <var name="component" id="3618324829955941167" />

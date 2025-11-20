@@ -3,8 +3,6 @@
   <uses language="l:f3061a53-9226-4cc5-a443-f952ceaf5816:jetbrains.mps.baseLanguage" />
   <uses language="l:c7fb639f-be78-4307-89b0-b5959c3fa8c8:jetbrains.mps.lang.text" />
   <uses language="l:772f6dcd-8c0d-48f7-869c-908e036f7c8e:jetbrains.mps.sampleXML" />
-  <uses language="l:fae29102-8774-4e55-af5d-93fa67387f38:jetbrains.mps.samples.generator_demo.demoLang1" />
-  <uses language="l:ef47f5be-76c4-4166-8925-2b415ec6b840:jetbrains.mps.samples.generator_demo.demoLang2" />
   <uses language="l:7a4dedfe-9c99-4610-b299-d4a37832823b:jetbrains.mps.samples.generator_demo.demoLang3" />
   <uses language="l:1409a436-ea24-4d03-a196-53795139ce8d:jetbrains.mps.samples.generator_demo.demoLang4" />
   <uses language="l:594bd850-39e3-46a5-9ef2-40c70d782c8c:jetbrains.mps.samples.generator_demo.demoLang5" />

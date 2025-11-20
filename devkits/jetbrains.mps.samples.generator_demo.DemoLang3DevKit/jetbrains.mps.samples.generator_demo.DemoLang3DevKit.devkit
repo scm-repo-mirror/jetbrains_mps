@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dev-kit name="jetbrains.mps.samples.generator_demo.DemoLang3DevKit" uuid="d2fefa66-9adb-4aa9-896d-ad4bf4e415c0">
+  <exported-solutions>
+    <exported-solution>dfcb692b-c8e7-465b-a0d2-4c3e9ba216e1(jetbrains.mps.samples.generator_demo.gen_plans)</exported-solution>
+  </exported-solutions>
+  <generation-plan model="r:01221e95-2f4d-4122-a13f-dc5df1b1c786(jetbrains.mps.samples.generator_demo.gen_plans.demoLang3)" />
+</dev-kit>
+
