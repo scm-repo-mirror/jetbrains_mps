@@ -112,6 +112,9 @@
     <node concept="PrWs8" id="6tSARFM3zlt" role="PzmwI">
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
     </node>
+    <node concept="PrWs8" id="62f7TWv0tK6" role="PzmwI">
+      <ref role="PrY4T" to="tpck:3fifI_xCcJN" resolve="ScopeProvider" />
+    </node>
   </node>
   <node concept="1TIwiD" id="XHjpmeKJb6">
     <property role="3GE5qa" value="response.interactive" />
