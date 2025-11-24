@@ -155,6 +155,12 @@ public final class ModuleDeleteHelper {
     }
   }
 
+  public void removeGeneratedArtifacts(Iterable<SModule> modules) {
+    myFilesToDelete.clear();
+    modules.forEach(this::collectGeneratedArtifactsToDelete);
+    myFilesToDelete.forEach(IFile::deleteIfExists);
+  }
+
   /**
    * If generator shares descriptor file with its language, update the descriptor.
    * Otherwise, we just drop the whole file
@@ -179,6 +185,11 @@ public final class ModuleDeleteHelper {
   // IMPORTANT: module shall not be detached/disposed when we collect its files, otherwise there'd be
   //     no facets nor models
   private void collectModelsAndArtifactsToDelete(SModule module) {
+    collectDisposableDataSources(module);
+    collectGeneratedArtifactsToDelete(module);
+  }
+
+  private void collectGeneratedArtifactsToDelete(SModule module) {
     final ArrayList<GenerationTargetFacet> gtf = new ArrayList<>(4);
     for (SModuleFacet f : module.getFacets()) {
       // no, it's not better with lambdas
@@ -187,11 +198,6 @@ public final class ModuleDeleteHelper {
       }
     }
     for (SModel model : module.getModels()) {
-      // see ModelDeleteHelper#deleteDataSource()
-      final DataSource ds = model.getSource();
-      if (ds instanceof DisposableDataSource) {
-        myDataSources.put((DisposableDataSource) ds, null);
-      }
       for (GenerationTargetFacet f : gtf) {
         // XXX what if output root is in use for anything else but model output, e.g. custom files?
         //     do we want to delete them as well? We used to remove javaModuleFacet.getOutputRoot() in deleteJavaFacet(), hence
@@ -205,6 +211,16 @@ public final class ModuleDeleteHelper {
     for (GenerationTargetFacet f : gtf) {
       if (f instanceof JavaModuleFacet) {
         recordForceDelete(((JavaModuleFacet) f).getClassesGen());
+      }
+    }
+  }
+
+  private void collectDisposableDataSources(SModule module) {
+    for (SModel model : module.getModels()) {
+      // see ModelDeleteHelper#deleteDataSource()
+      final DataSource ds = model.getSource();
+      if (ds instanceof DisposableDataSource) {
+        myDataSources.put((DisposableDataSource) ds, null);
       }
     }
   }

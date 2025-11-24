@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -119,11 +119,10 @@ public class ModelDeleteHelper {
 
   public void deleteDataSource() {
     DataSource source = myModel.getSource();
-    String modelName = myModel.getModelName();
     if (source instanceof DisposableDataSource) {
       ((DisposableDataSource) source).delete();
     } else {
-      String msg = String.format("DataSource (%s) of model %s doesn't support delete operation.", source.getClass().getName(), modelName);
+      String msg = String.format("DataSource (%s) of model %s doesn't support delete operation.", source.getClass().getName(), myModel.getName());
       Logger.getLogger(ModelDeleteHelper.class).info(msg);
     }
   }
