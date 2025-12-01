@@ -1,4 +1,4 @@
-modelsLocation tests/makeTests/models;
+modelsLocation jps/testData/makeTests/models;
 modelsToCopy ManifestXml;
 modelsDirName models;
 moduleName makeTests;
