@@ -304,10 +304,8 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
       if (!(m.isStatic())) {
         continue;
       }
+      // XXX ClassifierUpdater.updateStaticMethod checks for isSynthetic(), why don't we check it here?
       if (m.isCompilerGenerated()) {
-        continue;
-      }
-      if (kind == ClassifierKind.ENUM && isGeneratedEnumMethod(m)) {
         continue;
       }
 
@@ -342,16 +340,6 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     for (ASMAnnotation annotation : m.getAnnotations()) {
       createAnnotation(annotation);
     }
-  }
-  private boolean isGeneratedEnumMethod(ASMMethod m) {
-    if (m.getName().equals("values") && m.getParameterTypes().isEmpty()) {
-      return true;
-    }
-    if (m.getName().equals("valueOf") && m.getParameterTypes().size() == 1 && m.getParameterTypes().get(0) instanceof ASMClassType) {
-      ASMClassType type = (ASMClassType) m.getParameterTypes().get(0);
-      return type.getName().equals("java.lang.String");
-    }
-    return false;
   }
   protected void createVisibility(ASMMethod m) {
     if (m.isPublic()) {

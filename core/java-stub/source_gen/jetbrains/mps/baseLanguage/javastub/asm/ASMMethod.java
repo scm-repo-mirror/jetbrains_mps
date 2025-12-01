@@ -52,7 +52,7 @@ public class ASMMethod {
         i++;
       }
       // FWIW, for some weird reason, valueOf(String) in enum doesn't bear 'synthetic' attribute (access = 0x9, static private), but
-      //     its String parameter IS ACC_MANDATED
+      //     its String parameter IS ACC_MANDATED. See #isGeneratedEnumMember(), below, to see how do we handle this case.
       paramIndexOffset = i;
     } else {
       paramIndexOffset = 0;
@@ -244,6 +244,23 @@ public class ASMMethod {
   }
   public List<ASMType> getExceptionTypes() {
     return Collections.unmodifiableList(myExceptions);
+  }
+
+  /*package*/ static boolean isGeneratedEnumMember(MethodNode method) {
+    // pre: method belongs to ClassNode with ACC_ENUM
+    // Note, the need for this method stems from the fact these methods are not denoted as 'synthetic' in .class, while parameter of valuesOf is ACC_MANDATED (a kind we generally ignore)
+    final int f = Opcodes.ACC_STATIC | Opcodes.ACC_PRIVATE;
+    if ((method.access & f) != f) {
+      return false;
+    }
+    if ("values".equals(method.name) && (method.parameters == null || method.parameters.isEmpty())) {
+      return true;
+    }
+    if ("valueOf".equals(method.name) && method.parameters != null && method.parameters.size() == 1) {
+      Type[] parameterTypes = Type.getArgumentTypes(method.desc);
+      return parameterTypes.length == 1 && String.class.getName().equals(parameterTypes[0].getClassName());
+    }
+    return false;
   }
 
   private static class ByOrderInStackFrame implements Comparator<LocalVariableNode> {
