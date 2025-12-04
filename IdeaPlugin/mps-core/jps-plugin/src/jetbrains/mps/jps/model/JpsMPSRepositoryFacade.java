@@ -34,8 +34,10 @@ import jetbrains.mps.library.ModulesMiner.ModuleHandle;
 import jetbrains.mps.persistence.DefaultModelRoot;
 import jetbrains.mps.persistence.PersistenceRegistry;
 import jetbrains.mps.project.ModuleId;
+import jetbrains.mps.project.Solution;
 import jetbrains.mps.project.facets.JavaModuleFacet;
 import jetbrains.mps.project.facets.JavaModuleFacetImpl;
+import jetbrains.mps.project.structure.model.ModelRootDescriptor;
 import jetbrains.mps.project.structure.modules.SolutionDescriptor;
 import jetbrains.mps.smodel.MPSModuleOwner;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
@@ -248,8 +250,8 @@ public class JpsMPSRepositoryFacade implements MPSModuleOwner {
       for (JpsLibrary sdk: getModuleSdks(mod, context)) {
         MPSCompilerUtil.debug(context, "SDK name" + sdk.getName() + " type: " + sdk.getType());
 
-        JpsLibSolution sdkSolution = createLibSolution(sdk, jdk, context);
-        JpsLibSolution regSolution = myRepository.registerModule(sdkSolution, myProject);
+        Solution sdkSolution = createLibSolution(sdk, jdk, context);
+        Solution regSolution = myRepository.registerModule(sdkSolution, myProject);
         MPSCompilerUtil.debug(context, "SDK " + regSolution.getModuleReference().toString());
         if (sdkSolution == regSolution) {
           MPSCompilerUtil.debug(context, "SDK updating model set for " + sdk.getName());
@@ -270,8 +272,8 @@ public class JpsMPSRepositoryFacade implements MPSModuleOwner {
     // maybe libraries should be put into repository before modules, so that SolutionIdea already has its dependencies at hand
 
     for (JpsLibrary jpsLib : jpsProject.getLibraryCollection().getLibraries()) {
-      JpsLibSolution libSolution = createLibSolution(jpsLib, jdk, context);
-      JpsLibSolution regSolution = myRepository.registerModule(libSolution, myProject);
+      Solution libSolution = createLibSolution(jpsLib, jdk, context);
+      Solution regSolution = myRepository.registerModule(libSolution, myProject);
       MPSCompilerUtil.debug(context, "LIB " + regSolution.getModuleReference().toString());
       if (libSolution == regSolution) {
         MPSCompilerUtil.debug(context, "LIB updating model set for " + jpsLib.getName());
@@ -310,27 +312,38 @@ public class JpsMPSRepositoryFacade implements MPSModuleOwner {
     }
   }
 
-  private JpsLibSolution createLibSolution(JpsLibrary lib, JpsLibrary jdk, CompileContext ctx) {
+  private Solution createLibSolution(JpsLibrary lib, JpsLibrary jdk, CompileContext ctx) {
     String name = lib.getName();
     SolutionDescriptor desc = new SolutionDescriptor();
     desc.setNamespace(name);
 
     if (JpsJavaSdkType.INSTANCE.equals(lib.getType()) && jdk == null) {
       ModuleId jdkId = ModuleId.regular(JDK_UUID);
+      desc.setId(jdkId);
+
       SModule existingModule = myRepository.getModule(jdkId);
       if (existingModule != null) {
         desc.setNamespace(existingModule.getModuleName());
         JavaModuleFacet facet = existingModule.getFacet(JavaModuleFacet.class);
         assert facet != null;
         desc.getModuleFacetDescriptors().add(JavaModuleFacetImpl.forJavaCodeModule(facet));
+
+        if (existingModule instanceof Solution) {
+          for (ModelRootDescriptor mdr : ((Solution) existingModule).getModuleDescriptor().getModelRootDescriptors()) {
+            ModelRootDescriptor newMdr = new ModelRootDescriptor(mdr.getType(), mdr.getMemento().copy());
+            desc.getModelRootDescriptors().add(newMdr);
+          }
+        }
+
         // XXX here used to be a check not to unregister from owner == this, but as long as it was commented out, just
         // use a method that unregisters from all owners at once.
         new ModuleRepositoryFacade(myRepository).unregisterModule(existingModule);
+
+        // Avoid loading roots from JpsLibrary, as its COMPILED roots seem to be empty (at least in tests)
+        return new Solution(desc, null);
       }
-      desc.setId(jdkId);
-    } else {
-      desc.setId(ModuleId.foreign(name));
     }
+    desc.setId(ModuleId.foreign(name));
     return new JpsLibSolution(desc, lib, jdk, ctx, myPlatform.findComponent(VFSManager.class));
   }
 
