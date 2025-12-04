@@ -7,10 +7,11 @@ import jetbrains.mps.lang.typesystem.runtime.NonTypesystemRule_Runtime;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
+import jetbrains.mps.smodel.SModelStereotype;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.baseLanguage.behavior.IFixableMethodReference__BehaviorDescriptor;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.PropertyMessageTarget;
@@ -27,22 +28,25 @@ public class check_UnusedPackageProtectedMethod_NonTypesystemRule extends Abstra
   public check_UnusedPackageProtectedMethod_NonTypesystemRule() {
   }
   public void applyRule(final SNode classifierMember, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
+    if (SModelStereotype.isStubModel(SNodeOperations.getModel(classifierMember))) {
+      return;
+    }
     if ((SLinkOperations.getTarget(classifierMember, LINKS.visibility$Yyua) == null)) {
       {
-        final SNode matchedNode_toq0jf_a0a0 = classifierMember;
+        final SNode matchedNode_toq0jf_a0b0 = classifierMember;
         {
-          boolean matches_toq0jf_a0a0a = false;
+          boolean matches_toq0jf_a0a1a = false;
           {
-            SNode matchingNode_toq0jf_a0a0a = classifierMember;
-            if (matchingNode_toq0jf_a0a0a != null) {
-              matches_toq0jf_a0a0a = matchingNode_toq0jf_a0a0a.getConcept().isSubConceptOf(CONCEPTS.BaseMethodDeclaration$kD);
+            SNode matchingNode_toq0jf_a0a1a = classifierMember;
+            if (matchingNode_toq0jf_a0a1a != null) {
+              matches_toq0jf_a0a1a = matchingNode_toq0jf_a0a1a.getConcept().isSubConceptOf(CONCEPTS.BaseMethodDeclaration$kD);
             }
           }
-          if (matches_toq0jf_a0a0a) {
-            if (!(ListSequence.fromList(SModelOperations.nodes(SNodeOperations.getModel(matchedNode_toq0jf_a0a0), CONCEPTS.IFixableMethodReference$z6)).any((call) -> IFixableMethodReference__BehaviorDescriptor.getMethodDeclaration_id5DBbMQ3xohB.invoke(call) == matchedNode_toq0jf_a0a0 && !(ListSequence.fromList(SNodeOperations.getNodeAncestors(call, null, false)).contains(matchedNode_toq0jf_a0a0))))) {
+          if (matches_toq0jf_a0a1a) {
+            if (!(ListSequence.fromList(SModelOperations.nodes(SNodeOperations.getModel(matchedNode_toq0jf_a0b0), CONCEPTS.IFixableMethodReference$z6)).any((call) -> IFixableMethodReference__BehaviorDescriptor.getMethodDeclaration_id5DBbMQ3xohB.invoke(call) == matchedNode_toq0jf_a0b0 && !(ListSequence.fromList(SNodeOperations.getNodeAncestors(call, null, false)).contains(matchedNode_toq0jf_a0b0))))) {
               {
                 final MessageTarget errorTarget = new PropertyMessageTarget(PROPS.name$MnvL);
-                IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(matchedNode_toq0jf_a0a0, "Package protected method " + SNodeOperations.present(matchedNode_toq0jf_a0a0) + " is never used", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "7938578788781949884", null, errorTarget);
+                IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(matchedNode_toq0jf_a0b0, "Package protected method " + SNodeOperations.present(matchedNode_toq0jf_a0b0) + " is never used", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "7938578788781949884", null, errorTarget);
                 {
                   BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.baseLanguage.typesystem.RemoveUnusedMethod_QuickFix", "7938578788781949885", false);
                   _reporter_2309309498.addIntentionProvider(intentionProvider);

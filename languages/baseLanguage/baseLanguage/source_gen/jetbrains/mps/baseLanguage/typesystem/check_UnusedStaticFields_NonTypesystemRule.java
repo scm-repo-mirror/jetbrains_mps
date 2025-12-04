@@ -7,6 +7,7 @@ import jetbrains.mps.lang.typesystem.runtime.NonTypesystemRule_Runtime;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
+import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -21,6 +22,9 @@ public class check_UnusedStaticFields_NonTypesystemRule extends AbstractNonTypes
   public check_UnusedStaticFields_NonTypesystemRule() {
   }
   public void applyRule(final SNode staticFieldDeclaration, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
+    if (SModelStereotype.isStubModel(SNodeOperations.getModel(staticFieldDeclaration))) {
+      return;
+    }
     if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(staticFieldDeclaration, LINKS.visibility$Yyua), CONCEPTS.PrivateVisibility$l0)) {
       Iterable<SNode> refs = ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getContainingRoot(staticFieldDeclaration), CONCEPTS.VariableReference$TC, false, new SAbstractConcept[]{})).where((it) -> SLinkOperations.getTarget(it, LINKS.variableDeclaration$N1XG) == staticFieldDeclaration).where((it) -> (SNodeOperations.getNodeAncestor(it, CONCEPTS.SingleLineComment$Kw, false, false) == null));
       VariableReferenceUtil.checkField(typeCheckingContext, staticFieldDeclaration, refs);

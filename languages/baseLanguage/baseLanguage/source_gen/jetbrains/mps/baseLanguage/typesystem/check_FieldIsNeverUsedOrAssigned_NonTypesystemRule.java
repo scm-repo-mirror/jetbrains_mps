@@ -7,8 +7,9 @@ import jetbrains.mps.lang.typesystem.runtime.NonTypesystemRule_Runtime;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import java.util.List;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
@@ -24,6 +25,9 @@ public class check_FieldIsNeverUsedOrAssigned_NonTypesystemRule extends Abstract
   public check_FieldIsNeverUsedOrAssigned_NonTypesystemRule() {
   }
   public void applyRule(final SNode field, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
+    if (SModelStereotype.isStubModel(SNodeOperations.getModel(field))) {
+      return;
+    }
     if ((SLinkOperations.getTarget(field, LINKS.visibility$Yyua) == null) || SNodeOperations.isInstanceOf(SLinkOperations.getTarget(field, LINKS.visibility$Yyua), CONCEPTS.PrivateVisibility$l0)) {
       if (SNodeOperations.isInstanceOf(field, CONCEPTS.IMember$zu)) {
         final SNode member = SNodeOperations.cast(field, CONCEPTS.IMember$zu);

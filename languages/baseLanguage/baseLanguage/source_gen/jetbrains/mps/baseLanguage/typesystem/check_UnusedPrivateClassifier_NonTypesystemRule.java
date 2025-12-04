@@ -7,6 +7,7 @@ import jetbrains.mps.lang.typesystem.runtime.NonTypesystemRule_Runtime;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
+import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -25,6 +26,9 @@ public class check_UnusedPrivateClassifier_NonTypesystemRule extends AbstractNon
   public check_UnusedPrivateClassifier_NonTypesystemRule() {
   }
   public void applyRule(final SNode classifier, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
+    if (SModelStereotype.isStubModel(SNodeOperations.getModel(classifier))) {
+      return;
+    }
     if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(classifier, LINKS.visibility$Yyua), CONCEPTS.PrivateVisibility$l0)) {
       if (!(ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getContainingRoot(classifier), CONCEPTS.BaseConcept$gP, false, new SAbstractConcept[]{})).where((it) -> ListSequence.fromList(SNodeOperations.getNodeAncestors(it, CONCEPTS.SingleLineComment$Kw, false)).isEmpty()).translate((it) -> SNodeOperations.getReferences(it)).any((it) -> {
         return Objects.equals(SLinkOperations.getTargetNode(it), classifier) || ListSequence.fromList(SNodeOperations.getNodeAncestors(SLinkOperations.getTargetNode(it), CONCEPTS.Classifier$Ix, false)).any(new _FunctionTypes._return_P1_E0<Boolean, SNode>() {
