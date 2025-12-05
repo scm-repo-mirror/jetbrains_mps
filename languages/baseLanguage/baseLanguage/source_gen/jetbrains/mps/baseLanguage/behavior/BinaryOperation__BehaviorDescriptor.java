@@ -36,8 +36,9 @@ public final class BinaryOperation__BehaviorDescriptor extends BaseBHDescriptor 
   public static final SMethod<SNode> getFlippedOperator_id14Lzlw0K236 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getFlippedOperator").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1238926781612826822L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
   public static final SMethod<Boolean> flipChangesSemantics_id14Lzlw0RrBK = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("flipChangesSemantics").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1238926781614766576L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
   public static final SMethod<PrecedenceUtil.Precedence> getPrecedenceLevel_id1O90zDONSxM = new SMethodBuilder<PrecedenceUtil.Precedence>(new SJavaCompoundTypeImpl(PrecedenceUtil.Precedence.class)).name("getPrecedenceLevel").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2092205951981422706L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
+  public static final SMethod<Boolean> canBeMultiline_id5EmmRHy2ZwK = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("canBeMultiline").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6527505295404169264L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPriority_id1653mnvAgo2, setSyntacticallyLeftSideExpression_id1wHCnsn58ZK, setSyntacticallyRightSideExpression_id1wHCnsn58ZY, getSyntacticallyLeftSideExpression_id1wHCnsn590c, getSyntacticallyRightSideExpression_id1wHCnsn590i, isCompileTimeConstant_idi1LOPRp, getCompileTimeConstantValue_idi1LP2xI, calculateCompileTimeConstantValue_id1o8Ht9sN5Hn, bothShouldBeWidenedTo_id5otPu$gIcHo, getFlippedOperator_id14Lzlw0K236, flipChangesSemantics_id14Lzlw0RrBK, getPrecedenceLevel_id1O90zDONSxM);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPriority_id1653mnvAgo2, setSyntacticallyLeftSideExpression_id1wHCnsn58ZK, setSyntacticallyRightSideExpression_id1wHCnsn58ZY, getSyntacticallyLeftSideExpression_id1wHCnsn590c, getSyntacticallyRightSideExpression_id1wHCnsn590i, isCompileTimeConstant_idi1LOPRp, getCompileTimeConstantValue_idi1LP2xI, calculateCompileTimeConstantValue_id1o8Ht9sN5Hn, bothShouldBeWidenedTo_id5otPu$gIcHo, getFlippedOperator_id14Lzlw0K236, flipChangesSemantics_id14Lzlw0RrBK, getPrecedenceLevel_id1O90zDONSxM, canBeMultiline_id5EmmRHy2ZwK);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -113,6 +114,9 @@ public final class BinaryOperation__BehaviorDescriptor extends BaseBHDescriptor 
         return PrecedenceUtil.Precedence.DEFAULT;
     }
   }
+  /*package*/ static boolean canBeMultiline_id5EmmRHy2ZwK(@NotNull SNode __thisNode__) {
+    return true;
+  }
 
   /*package*/ BinaryOperation__BehaviorDescriptor() {
   }
@@ -149,6 +153,8 @@ public final class BinaryOperation__BehaviorDescriptor extends BaseBHDescriptor 
         return (T) ((SNode) getFlippedOperator_id14Lzlw0K236(node));
       case 10:
         return (T) ((Boolean) flipChangesSemantics_id14Lzlw0RrBK(node));
+      case 12:
+        return (T) ((Boolean) canBeMultiline_id5EmmRHy2ZwK(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

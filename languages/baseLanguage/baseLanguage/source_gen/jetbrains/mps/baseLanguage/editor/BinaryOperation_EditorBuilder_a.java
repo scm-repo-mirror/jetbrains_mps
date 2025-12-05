@@ -9,6 +9,11 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Collection;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Indent;
+import jetbrains.mps.openapi.editor.style.Style;
+import jetbrains.mps.editor.runtime.style.StyleImpl;
+import jetbrains.mps.editor.runtime.style.StyleAttributes;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.editor.cellProviders.SingleRoleCellProvider;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -17,14 +22,12 @@ import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
-import jetbrains.mps.openapi.editor.style.Style;
-import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.OperatorStyleClass;
-import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.lang.editor.menus.transformation.NamedTransformationMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 /*package*/ class BinaryOperation_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -50,10 +53,16 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.setCellId("Collection_tdrdn7_a");
     editorCell.setBig(true);
     setCellContext(editorCell);
+    Style style = new StyleImpl();
+    style.set(StyleAttributes.INDENT_LAYOUT_INDENT_ANCHOR, _StyleParameter_QueryFunction_tdrdn7_a0a());
+    editorCell.getStyle().putAll(style);
     editorCell.addEditorCell(createRefNode_0());
     editorCell.addEditorCell(createComponent_0());
     editorCell.addEditorCell(createRefNode_1());
     return editorCell;
+  }
+  private boolean _StyleParameter_QueryFunction_tdrdn7_a0a() {
+    return SPropertyOperations.getBoolean(getNode(), PROPS.isMultiline$TmpA) && !(SPropertyOperations.getBoolean(SNodeOperations.as(SNodeOperations.getParent(getNode()), CONCEPTS.BinaryOperation$W1), PROPS.isMultiline$TmpA));
   }
   private EditorCell createRefNode_0() {
     SingleRoleCellProvider provider = new leftExpressionSingleRoleHandler_tdrdn7_a0(myNode, LINKS.leftExpression$sEj, getEditorContext());
@@ -117,11 +126,15 @@ import org.jetbrains.mps.openapi.language.SConcept;
     new OperatorStyleClass(this).apply(style, editorCell);
     style.set(StyleAttributes.SELECTABLE, true);
     style.set(StyleAttributes.EDITABLE, true);
+    style.set(StyleAttributes.INDENT_LAYOUT_ON_NEW_LINE, _StyleParameter_QueryFunction_tdrdn7_a2b0());
     editorCell.getStyle().putAll(style);
     BinaryOperation_Symbol_Actions.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.setTransformationMenuLookup(new NamedTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), CONCEPTS.BinaryOperation$W1, "jetbrains.mps.baseLanguage.editor.BinaryOperation_Alias_TransformationMenu"));
     editorCell.setSubstituteInfo(new SChildSubstituteInfo(editorCell));
     return editorCell;
+  }
+  private boolean _StyleParameter_QueryFunction_tdrdn7_a2b0() {
+    return SPropertyOperations.getBoolean(getNode(), PROPS.isMultiline$TmpA);
   }
   private EditorCell createRefNode_1() {
     SingleRoleCellProvider provider = new rightExpressionSingleRoleHandler_tdrdn7_c0(myNode, LINKS.rightExpression$nvX, getEditorContext());
@@ -180,12 +193,16 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
   }
 
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BinaryOperation$W1 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty isMultiline$TmpA = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0x5a965b7b61ef2eebL, "isMultiline");
+  }
+
   private static final class LINKS {
     /*package*/ static final SContainmentLink leftExpression$sEj = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression");
     /*package*/ static final SContainmentLink rightExpression$nvX = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression");
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SConcept BinaryOperation$W1 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
   }
 }
