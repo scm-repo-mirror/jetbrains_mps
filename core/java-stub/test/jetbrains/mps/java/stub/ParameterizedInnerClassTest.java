@@ -43,6 +43,8 @@ public class ParameterizedInnerClassTest {
     ASMField f4 = field(ac, "f4");
     ASMField f5 = field(ac, "f5");
     ASMField f6 = field(ac, "f6");
+    ASMField f7 = field(ac, "f7");
+    ASMField f8 = field(ac, "f8");
     print(f1.getType(), sb);
     sb.append("\t\t");
     print(f1.getGenericType(), sb);
@@ -67,6 +69,14 @@ public class ParameterizedInnerClassTest {
     print(f6.getType(), sb);
     sb.append("\t\t");
     print(f6.getGenericType(), sb);
+    sb.append("\n\n");
+    print(f7.getType(), sb);
+    sb.append("\t\t");
+    print(f7.getGenericType(), sb);
+    sb.append("\n\n");
+    print(f8.getType(), sb);
+    sb.append("\t\t");
+    print(f8.getGenericType(), sb);
     //
     System.out.println(sb);
   }
@@ -88,5 +98,7 @@ public class ParameterizedInnerClassTest {
     public BiFunction<? super T, ? extends T, T> f4;
     public BiConsumer<int[][], BiFunction<? extends T, long[][][], ? super T>> f5;
     public BiFunction<? super T, ? extends T, long[][]>[][] f6;
+    public Consumer<T[][]>[] f7;
+    public T[][] f8;
   }
 }

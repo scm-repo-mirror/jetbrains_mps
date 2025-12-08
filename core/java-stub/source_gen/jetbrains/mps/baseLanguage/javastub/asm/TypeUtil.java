@@ -9,7 +9,7 @@ import org.jetbrains.org.objectweb.asm.signature.SignatureVisitor;
 import java.util.List;
 import java.util.Collections;
 import java.util.ArrayList;
-import java.util.Stack;
+import java.util.function.Consumer;
 
 @GeneratedClass(nodeId = "7241381882860007306", model = "r:eafb5d8e-2952-4826-b4ad-be2b9011f598(jetbrains.mps.baseLanguage.javastub.asm)")
 /*package*/ class TypeUtil {
@@ -180,141 +180,99 @@ import java.util.Stack;
     reader.acceptType(builder);
     return builder.getResult();
   }
-  /*package*/ static class TypeBuilderVisitor extends SignatureVisitorAdapter {
+  /**
+   * JavaTypeSignature := ClassTypeSignature | TypeVariable | ArrayType | BaseType
+   * ClassTypeSignature is visitClassType + any number of optional visitTypeAttribute + visitEnd (terminates, propagates result)
+   * TypeVariable is visitTypeVariable (terminates, propagates result)
+   * ArrayType - visitArrayType (another instance, terminates, propagates result)
+   * BaseType - visitBaseType (terminates, propagates result)
+   * I.e. it's only ClassTypeSignature when we have to account for possible type arguments, therefore there's no immediate setResult() but
+   * rather addPart(), to construct result in visitEnd()
+   */
+  /*package*/ static final class TypeBuilderVisitor extends SignatureVisitorAdapter {
     private ASMType myResult;
-    private Stack<ASMType> myTypes = new Stack<ASMType>();
-    private char myWildcard;
-    private TypeBuilderVisitor myArrayVisitor = null;
+    private List<ASMType> myTypes = new ArrayList<>(4);
+    private final Consumer<ASMType> myParent;
+
     public TypeBuilderVisitor() {
+      myParent = null;
     }
-    protected void setResult(ASMType type) {
-      myResult = type;
+
+    private TypeBuilderVisitor(Consumer<ASMType> parentVisitor) {
+      myParent = parentVisitor;
     }
-    protected void addPart(ASMType type) {
+
+    /*package*/ void setResult(ASMType type) {
+      if (myParent != null) {
+        myParent.accept(type);
+      } else {
+        myResult = type;
+      }
+    }
+
+    /*package*/ void addPart(ASMType type) {
       // the idea behind this odd code is to add 'parts' of type specification, where parts are elements 
       // of generic declaration, e.g. Function<A[], ? extends B>, A and B are parts for `Function` type
-      if (myTypes.isEmpty()) {
-        myTypes.add(type);
-        return;
-      }
-      if (myTypes.peek() instanceof ASMClassType) {
-        ASMClassType ct = (ASMClassType) myTypes.pop();
-        ASMParameterizedType replacement = new ASMParameterizedType(ct, new ArrayList<ASMType>(4));
-        if (!(myTypes.isEmpty())) {
-          ASMParameterizedType parent = (ASMParameterizedType) unwrap(myTypes.peek());
-          parent.removeArgument(ct);
-          parent.addArgument(replacement);
-        }
-        myTypes.push(replacement);
-      } else if (myTypes.peek() instanceof ASMBoundedType) {
-        ASMBoundedType bounded = (ASMBoundedType) myTypes.peek();
-        ASMType bound = bounded.getBound();
-        ASMType wrapped = wrap(type);
-        if (bound instanceof ASMParameterizedType) {
-          ((ASMParameterizedType) bound).addArgument(wrapped);
-        } else {
-          ASMParameterizedType newBound = new ASMParameterizedType(bound, new ArrayList<ASMType>());
-          newBound.addArgument(wrapped);
-          bounded.setBound(newBound);
-        }
-      }
-      ASMType wrapped = wrap(type);
-      if (myTypes.peek() instanceof ASMParameterizedType) {
-        ((ASMParameterizedType) myTypes.peek()).addArgument(wrapped);
-      }
-      if (type instanceof ASMClassType) {
-        myTypes.push(wrapped);
-      }
+      myTypes.add(type);
     }
-    private void finish() {
-      if (myTypes.size() == 1) {
-        setResult(myTypes.peek());
-      }
-      if (!(myTypes.isEmpty())) {
-        myTypes.pop();
-      }
-    }
-    private ASMType wrap(ASMType type) {
-      //  I hate this idea of wildcard state and wrap/unwrap logic, just don't want to refactor this right now
-      if (myWildcard == '+') {
-        myWildcard = '=';
-        return new ASMExtendsType(type);
-      }
-      if (myWildcard == '-') {
-        myWildcard = '=';
-        return new ASMSuperType(type);
-      }
-      return type;
-    }
-    private ASMType unwrap(ASMType type) {
-      if (type instanceof ASMBoundedType) {
-        return ((ASMBoundedType) type).getBound();
-      } else {
-        return type;
-      }
-    }
+
     @Override
     public void visitTypeArgument() {
-      // see #visitTypeArgument(char)
-      consumeArrayTypes();
       addPart(new ASMUnboundedType());
     }
     @Override
-    public SignatureVisitor visitTypeArgument(char wildcard) {
-      // in case prev type argument was an array, add its part
-      // AFAIK, visitTypeArgument() comes for every type argument, therefore it's sufficient to account
-      // for consumeArrayTypes() only inside 2 visitTypeArgument() methods, others (like visitClassType or 
-      // visitTypeVariable) are preceded by visitTypeArgument() call.
-      consumeArrayTypes();
-      // XXX why not addPart(new ? extends ASMBoundedType()), with subsequent setBound() instead of wrap/unwrap?
-      myWildcard = wildcard;
-      return this;
+    public SignatureVisitor visitTypeArgument(final char wildcard) {
+      Consumer<ASMType> cc = new Consumer<ASMType>() {
+        @Override
+        public void accept(ASMType ta) {
+          if (wildcard == '+') {
+            addPart(new ASMExtendsType(ta));
+          } else if (wildcard == '-') {
+            addPart(new ASMSuperType(ta));
+          } else {
+            addPart(ta);
+          }
+        }
+      };
+      return new TypeBuilderVisitor(cc);
     }
     @Override
     public void visitBaseType(char descriptor) {
       // not aware of a scenario, where baseType (e.g. int) could come as 'part' after an array, hence no consumeArrayTypes()
-      addPart(ASMPrimitiveType.from(descriptor));
+      setResult(ASMPrimitiveType.from(descriptor));
     }
     @Override
     public void visitTypeVariable(String name) {
-      addPart(new ASMTypeVariable(name));
+      setResult(new ASMTypeVariable(name));
     }
     @Override
     public SignatureVisitor visitArrayType() {
-      assert myArrayVisitor == null : "more than 1 array per type?";
-      myArrayVisitor = new TypeBuilderVisitor();
-      return myArrayVisitor;
+      return new TypeBuilderVisitor(new Consumer<ASMType>() {
+        @Override
+        public void accept(ASMType arrayType) {
+          setResult(new ASMArrayType(arrayType));
+        }
+      });
     }
     @Override
     public void visitClassType(String name) {
-      addPart(new ASMClassType(name.replace('/', '.')));
+      ASMClassType ct = new ASMClassType(name.replace('/', '.'));
+      addPart(ct);
     }
     @Override
     public void visitEnd() {
-      // JFTR, this method is invoked for every class name followed by ';', i.e. comes twice for "LConsumer<LString;>;"
-      if (myArrayVisitor != null) {
-        consumeArrayTypes();
+      // JFTR, this method is invoked for every class name (starting with 'L', followed by ';'), i.e. comes twice for "LConsumer<LString;>;",
+      // first for TypeBuilderVisitor instance obtained from visitTypeArguments(), second for enclosing TBV with myTypes: = {ASMCLassType(Consumer), ASMClassType(String)}
+      if (myTypes.size() == 1) {
+        setResult(myTypes.get(0));
       } else {
-        // XXX no idea why no finish() when a type (e.g. LFunction<int[], long[]>); has been encountered
-        finish();
+        ASMType ct = myTypes.get(0);
+        assert ct instanceof ASMClassType;
+        setResult(new ASMParameterizedType(ct, myTypes.subList(1, myTypes.size())));
       }
-    }
-
-    private void consumeArrayTypes() {
-      if (myArrayVisitor == null) {
-        return;
-      }
-      addPart(new ASMArrayType(myArrayVisitor.getResult()));
-      myArrayVisitor = null;
     }
 
     /*package*/ ASMType getResult() {
-      // XXX I don't like this duplication of visitEnd and getResult, but visitEnd is not invoked for primitive types and
-      // don't want to dive too deep into this code
-      consumeArrayTypes();
-      if (myResult == null) {
-        finish();
-      }
       return myResult;
     }
   }
