@@ -51,6 +51,8 @@ import org.junit.runners.Suite.SuiteClasses;
     jetbrains.mps.core.platform.DynamicComponentsTest.class,
     jetbrains.mps.make.JavaCompilerTest.class,
     jetbrains.mps.ide.ThreadUtilsTest.class,
+    jetbrains.mps.java.stub.GenericArrayParametersTest.class,
+    jetbrains.mps.java.stub.ParameterizedInnerClassTest.class,
     jetbrains.mps.ide.projectPane.logicalview.VirtualFolderHelperTest.class
 })
 public class NoPlatformTestSuite {

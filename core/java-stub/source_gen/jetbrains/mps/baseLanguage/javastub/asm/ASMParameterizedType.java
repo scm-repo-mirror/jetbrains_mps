@@ -4,15 +4,24 @@ package jetbrains.mps.baseLanguage.javastub.asm;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import java.util.List;
+import org.jetbrains.annotations.Nullable;
 import java.util.Collections;
 import java.util.ArrayList;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @GeneratedClass(nodeId = "7241381882860009267", model = "r:eafb5d8e-2952-4826-b4ad-be2b9011f598(jetbrains.mps.baseLanguage.javastub.asm)")
 public class ASMParameterizedType extends ASMType {
-  private final ASMType myRawType;
+  private final ASMClassType myRawType;
   private final List<ASMType> myTypeArguments;
+  private final ASMParameterizedType myOwnerType;
 
-  public ASMParameterizedType(ASMType rawType, List<? extends ASMType> typeArguments) {
+  public ASMParameterizedType(ASMClassType rawType, List<? extends ASMType> typeArguments) {
+    this(null, rawType, typeArguments);
+  }
+
+  public ASMParameterizedType(@Nullable ASMParameterizedType ownerType, ASMClassType rawType, List<? extends ASMType> typeArguments) {
+    myOwnerType = ownerType;
     myRawType = rawType;
     if (typeArguments == null || typeArguments.isEmpty()) {
       myTypeArguments = Collections.emptyList();
@@ -20,8 +29,13 @@ public class ASMParameterizedType extends ASMType {
       myTypeArguments = Collections.unmodifiableList(new ArrayList<>(typeArguments));
     }
   }
-  public ASMType getRawType() {
+
+  public ASMClassType getRawType() {
     return myRawType;
+  }
+
+  public ASMParameterizedType getOwnerType() {
+    return myOwnerType;
   }
 
   public List<ASMType> getActualTypeArguments() {
@@ -29,6 +43,16 @@ public class ASMParameterizedType extends ASMType {
   }
   @Override
   public String toString() {
-    return "" + myRawType + getActualTypeArguments();
+    String args = myTypeArguments.stream().map(new Function<ASMType, String>() {
+      @Override
+      public String apply(ASMType p) {
+        return String.valueOf(p);
+      }
+    }).collect(Collectors.joining(",", "<", ">"));
+    if (myOwnerType != null) {
+      String simpleName = myRawType.getName().substring(myRawType.getName().lastIndexOf('$') + 1);
+      return "" + myOwnerType + '.' + simpleName + ((args.length() < 3 ? "" : args));
+    }
+    return "" + myRawType + args;
   }
 }

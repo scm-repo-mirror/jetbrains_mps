@@ -257,19 +257,49 @@ import java.util.function.Consumer;
     }
     @Override
     public void visitClassType(String name) {
+      // name is internal ('/') qualified name, possibly including '$' for inner classes (e.g. when it's inner class that got type argument)
       addPart(new ASMClassType(name.replace('/', '.')));
     }
+
+    @Override
+    public void visitInnerClassType(String name) {
+      assert myTypes != null && !(myTypes.isEmpty());
+      // FTR, 'name' here is just a simple name of the class, not fq path
+      ASMType first = myTypes.getFirst();
+      ASMParameterizedType ownerType;
+      if (first instanceof ASMClassType) {
+        assert myTypes.size() > 1;
+        ownerType = new ASMParameterizedType(((ASMClassType) first), myTypes.subList(1, myTypes.size()));
+      } else if (first instanceof ASMParameterizedType) {
+        assert myTypes.size() == 1;
+        ownerType = (ASMParameterizedType) first;
+      } else {
+        assert false : first.toString();
+        return;
+      }
+      myTypes.clear();
+      ASMClassType rawType = ownerType.getRawType();
+
+      addPart(new ASMParameterizedType(ownerType, new ASMClassType(rawType.getName() + '$' + name), null));
+    }
+
     @Override
     public void visitEnd() {
       assert myTypes != null;
       // JFTR, this method is invoked for every class name (starting with 'L', followed by ';'), i.e. comes twice for "LConsumer<LString;>;",
       // first for TypeBuilderVisitor instance obtained from visitTypeArguments(), second for enclosing TBV with myTypes: = {ASMCLassType(Consumer), ASMClassType(String)}
       if (myTypes.size() == 1) {
-        setResult(myTypes.get(0));
+        setResult(myTypes.getFirst());
       } else {
-        ASMType ct = myTypes.get(0);
-        assert ct instanceof ASMClassType;
-        setResult(new ASMParameterizedType(ct, myTypes.subList(1, myTypes.size())));
+        ASMType ct = myTypes.getFirst();
+        if (ct instanceof ASMClassType) {
+          setResult(new ASMParameterizedType((ASMClassType) ct, myTypes.subList(1, myTypes.size())));
+        } else if (ct instanceof ASMParameterizedType) {
+          ASMParameterizedType pt = (ASMParameterizedType) ct;
+          assert pt.getActualTypeArguments().isEmpty() : "has to be PT with null for actual parameters, last addPart() in visitInnerClassType()";
+          // rewrite same parameterized type but with additional parameters
+          setResult(new ASMParameterizedType(pt.getOwnerType(), pt.getRawType(), myTypes.subList(1, myTypes.size())));
+        }
       }
     }
 
