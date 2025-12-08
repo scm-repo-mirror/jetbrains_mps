@@ -40,7 +40,7 @@ public class ASMAnnotation {
     }
     if (value instanceof String[]) {
       String[] svalue = (String[]) value;
-      return new ASMEnumValue(svalue[0], svalue[1]);
+      return new ASMEnumValue(TypeUtil.fromDescriptor(svalue[0]), svalue[1]);
     }
     if (value instanceof List) {
       List list = (List) value;

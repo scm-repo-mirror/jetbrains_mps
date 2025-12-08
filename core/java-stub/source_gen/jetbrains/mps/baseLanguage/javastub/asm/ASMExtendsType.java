@@ -10,7 +10,6 @@ public class ASMExtendsType extends ASMBoundedType {
     super(bound);
   }
 
-
   @Override
   public String toString() {
     return "? extends " + getBound();

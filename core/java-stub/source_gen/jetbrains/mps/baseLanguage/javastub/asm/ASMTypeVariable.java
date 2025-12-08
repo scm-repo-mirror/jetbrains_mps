@@ -6,7 +6,8 @@ import jetbrains.mps.annotations.GeneratedClass;
 
 @GeneratedClass(nodeId = "7241381882860008701", model = "r:eafb5d8e-2952-4826-b4ad-be2b9011f598(jetbrains.mps.baseLanguage.javastub.asm)")
 public class ASMTypeVariable extends ASMType {
-  private String myName;
+  private final String myName;
+
   public ASMTypeVariable(String name) {
     myName = name;
   }

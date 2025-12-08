@@ -6,10 +6,11 @@ import jetbrains.mps.annotations.GeneratedClass;
 
 @GeneratedClass(nodeId = "7241381882860008658", model = "r:eafb5d8e-2952-4826-b4ad-be2b9011f598(jetbrains.mps.baseLanguage.javastub.asm)")
 public class ASMEnumValue {
-  private ASMType myType;
-  private String myConstant;
-  /*package*/ ASMEnumValue(String type, String name) {
-    myType = TypeUtil.fromDescriptor(type);
+  private final ASMType myType;
+  private final String myConstant;
+
+  /*package*/ ASMEnumValue(ASMType type, String name) {
+    myType = type;
     myConstant = name;
   }
   public ASMType getType() {

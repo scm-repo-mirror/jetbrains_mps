@@ -191,7 +191,7 @@ import java.util.function.Consumer;
    */
   /*package*/ static final class TypeBuilderVisitor extends SignatureVisitorAdapter {
     private ASMType myResult;
-    private List<ASMType> myTypes = new ArrayList<>(4);
+    private List<ASMType> myTypes;
     private final Consumer<ASMType> myParent;
 
     public TypeBuilderVisitor() {
@@ -211,8 +211,9 @@ import java.util.function.Consumer;
     }
 
     /*package*/ void addPart(ASMType type) {
-      // the idea behind this odd code is to add 'parts' of type specification, where parts are elements 
-      // of generic declaration, e.g. Function<A[], ? extends B>, A and B are parts for `Function` type
+      if (myTypes == null) {
+        myTypes = new ArrayList<>(4);
+      }
       myTypes.add(type);
     }
 
@@ -256,11 +257,11 @@ import java.util.function.Consumer;
     }
     @Override
     public void visitClassType(String name) {
-      ASMClassType ct = new ASMClassType(name.replace('/', '.'));
-      addPart(ct);
+      addPart(new ASMClassType(name.replace('/', '.')));
     }
     @Override
     public void visitEnd() {
+      assert myTypes != null;
       // JFTR, this method is invoked for every class name (starting with 'L', followed by ';'), i.e. comes twice for "LConsumer<LString;>;",
       // first for TypeBuilderVisitor instance obtained from visitTypeArguments(), second for enclosing TBV with myTypes: = {ASMCLassType(Consumer), ASMClassType(String)}
       if (myTypes.size() == 1) {

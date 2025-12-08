@@ -10,7 +10,6 @@ public class ASMSuperType extends ASMBoundedType {
     super(bound);
   }
 
-
   @Override
   public String toString() {
     return "? super " + getBound();

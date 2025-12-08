@@ -4,29 +4,28 @@ package jetbrains.mps.baseLanguage.javastub.asm;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
+import java.util.ArrayList;
 
 @GeneratedClass(nodeId = "7241381882860009267", model = "r:eafb5d8e-2952-4826-b4ad-be2b9011f598(jetbrains.mps.baseLanguage.javastub.asm)")
 public class ASMParameterizedType extends ASMType {
-  private ASMType myRawType;
-  private List<ASMType> myTypeArguments;
+  private final ASMType myRawType;
+  private final List<ASMType> myTypeArguments;
+
   public ASMParameterizedType(ASMType rawType, List<? extends ASMType> typeArguments) {
     myRawType = rawType;
-    myTypeArguments = new ArrayList<ASMType>(((Collection<? extends ASMType>) ((typeArguments == null ? Collections.emptyList() : typeArguments))));
+    if (typeArguments == null || typeArguments.isEmpty()) {
+      myTypeArguments = Collections.emptyList();
+    } else {
+      myTypeArguments = Collections.unmodifiableList(new ArrayList<>(typeArguments));
+    }
   }
   public ASMType getRawType() {
     return myRawType;
   }
-  /*package*/ void addArgument(ASMType t) {
-    myTypeArguments.add(t);
-  }
-  /*package*/ void removeArgument(ASMType t) {
-    myTypeArguments.remove(t);
-  }
+
   public List<ASMType> getActualTypeArguments() {
-    return Collections.unmodifiableList(myTypeArguments);
+    return myTypeArguments;
   }
   @Override
   public String toString() {

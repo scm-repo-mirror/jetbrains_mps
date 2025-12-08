@@ -9,7 +9,6 @@ public class ASMUnboundedType extends ASMType {
   public ASMUnboundedType() {
   }
 
-
   @Override
   public String toString() {
     return "?";

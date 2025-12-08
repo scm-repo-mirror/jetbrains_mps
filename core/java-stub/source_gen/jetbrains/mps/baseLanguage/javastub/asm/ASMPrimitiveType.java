@@ -15,7 +15,8 @@ public class ASMPrimitiveType extends ASMType {
   public static final ASMPrimitiveType FLOAT = new ASMPrimitiveType("float");
   public static final ASMPrimitiveType LONG = new ASMPrimitiveType("long");
   public static final ASMPrimitiveType DOUBLE = new ASMPrimitiveType("double");
-  private String myName;
+  private final String myName;
+
   private ASMPrimitiveType(String name) {
     myName = name;
   }

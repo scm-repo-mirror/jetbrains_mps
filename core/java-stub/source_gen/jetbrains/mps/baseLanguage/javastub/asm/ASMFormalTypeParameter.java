@@ -9,17 +9,22 @@ import java.util.ArrayList;
 
 @GeneratedClass(nodeId = "7241381882860008759", model = "r:eafb5d8e-2952-4826-b4ad-be2b9011f598(jetbrains.mps.baseLanguage.javastub.asm)")
 public class ASMFormalTypeParameter extends ASMTypeVariable {
-  private ASMType myClassBound;
-  private List<ASMType> myInterfaceBounds;
+  private final ASMType myClassBound;
+  private final List<ASMType> myInterfaceBounds;
+
   public ASMFormalTypeParameter(String name, ASMType classBound, List<ASMType> interfaceBounds) {
     super(name);
     myClassBound = classBound;
-    myInterfaceBounds = ((List<ASMType>) ((interfaceBounds.isEmpty() ? Collections.emptyList() : new ArrayList<ASMType>(interfaceBounds))));
+    if (interfaceBounds == null || interfaceBounds.isEmpty()) {
+      myInterfaceBounds = Collections.emptyList();
+    } else {
+      myInterfaceBounds = Collections.unmodifiableList(new ArrayList<>(interfaceBounds));
+    }
   }
   public ASMType getClassBound() {
     return myClassBound;
   }
   public List<ASMType> getInterfaceBounds() {
-    return Collections.unmodifiableList(myInterfaceBounds);
+    return myInterfaceBounds;
   }
 }

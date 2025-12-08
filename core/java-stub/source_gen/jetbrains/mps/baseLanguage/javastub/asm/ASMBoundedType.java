@@ -6,7 +6,7 @@ import jetbrains.mps.annotations.GeneratedClass;
 
 @GeneratedClass(nodeId = "3275604661365085736", model = "r:eafb5d8e-2952-4826-b4ad-be2b9011f598(jetbrains.mps.baseLanguage.javastub.asm)")
 public abstract class ASMBoundedType extends ASMType {
-  private ASMType myBound;
+  private final ASMType myBound;
 
   public ASMBoundedType(ASMType bound) {
     myBound = bound;
@@ -14,8 +14,4 @@ public abstract class ASMBoundedType extends ASMType {
   public ASMType getBound() {
     return myBound;
   }
-  public void setBound(ASMType bound) {
-    myBound = bound;
-  }
-
 }

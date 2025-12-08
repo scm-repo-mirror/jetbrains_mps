@@ -6,10 +6,12 @@ import jetbrains.mps.annotations.GeneratedClass;
 
 @GeneratedClass(nodeId = "7241381882860007172", model = "r:eafb5d8e-2952-4826-b4ad-be2b9011f598(jetbrains.mps.baseLanguage.javastub.asm)")
 public class ASMVarArgType extends ASMType {
-  private ASMType myElementType;
+  private final ASMType myElementType;
+
   /*package*/ ASMVarArgType(ASMType elementType) {
     myElementType = elementType;
   }
+
   public ASMType getElementType() {
     return myElementType;
   }
