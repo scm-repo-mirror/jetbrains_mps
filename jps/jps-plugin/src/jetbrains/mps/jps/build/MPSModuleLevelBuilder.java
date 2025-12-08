@@ -322,7 +322,7 @@ public class MPSModuleLevelBuilder extends ModuleLevelBuilder {
       if (success) {
         status = ExitCode.OK;
       }
-    } catch (Exception ex) {
+    } catch (Throwable ex) {
       throw new ProjectBuildException(ex);
     }
 

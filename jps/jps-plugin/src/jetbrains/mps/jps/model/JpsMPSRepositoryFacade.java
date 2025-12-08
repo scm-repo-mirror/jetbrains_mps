@@ -81,7 +81,7 @@ public class JpsMPSRepositoryFacade implements MPSModuleOwner {
   public static final UUID JDK_UUID = UUID.fromString("6354ebe7-c22a-4a0f-ac54-50b52ab9b065");
 
   private Platform myPlatform;
-  private volatile boolean isInitialized = false;
+  private volatile Status myStatus = Status.UNINITIALIZED;
   private CachedRepositoryData myRepo;
   private Map<JpsModule, JpsSolutionIdea> myJpsToMpsModules = new HashMap<JpsModule, JpsSolutionIdea>();
   private JpsMPSProject myProject;
@@ -95,8 +95,11 @@ public class JpsMPSRepositoryFacade implements MPSModuleOwner {
   }
 
   public void init(final CompileContext context) {
-    if (isInitialized) {
-      return;
+    switch (myStatus) {
+      case INITIALIZED: return;
+      case ERROR:   throw new IllegalStateException("Invalid status " + myStatus);
+      case UNINITIALIZED: // ok, fall-through
+      case DISPOSED: // also ok, fall-through
     }
     initMPS();
 
@@ -118,11 +121,12 @@ public class JpsMPSRepositoryFacade implements MPSModuleOwner {
             context.processMessage(
                 new CompilerMessage(MPSMakeConstants.BUILDER_ID, Kind.INFO, String.format("MPS loaded in %d ms", (System.nanoTime() - start) / 1000000)));
           }
-        } catch (Exception ex) {
+        } catch (Throwable ex) {
           context.processMessage(CompilerMessage.createInternalBuilderError(MPSMakeConstants.BUILDER_ID, ex));
-          // fall-through, it doesn't make sense to attempt init() once again
+          myStatus = Status.ERROR;
+          throw new IllegalStateException("Failed to initialize", ex);
         }
-        isInitialized = true;
+        myStatus = Status.INITIALIZED;
       }
     });
   }
@@ -132,7 +136,7 @@ public class JpsMPSRepositoryFacade implements MPSModuleOwner {
   }
 
   public JpsSolutionIdea getSolution(JpsModule module) {
-    if (!isInitialized) throw new IllegalStateException("Not initialized yet");
+    if (myStatus != Status.INITIALIZED) throw new IllegalStateException("Not initialized yet");
     return myJpsToMpsModules.get(module);
   }
 
@@ -361,7 +365,7 @@ public class JpsMPSRepositoryFacade implements MPSModuleOwner {
   }
 
   public void dispose() {
-    if (!isInitialized) {
+    if (myStatus == Status.DISPOSED) {
       return;
     }
     myRepository.getModelAccess().runWriteAction(new Runnable() {
@@ -374,7 +378,7 @@ public class JpsMPSRepositoryFacade implements MPSModuleOwner {
       }
     });
     disposeMPS();
-    isInitialized = false;
+    myStatus = Status.DISPOSED;
   }
 
 
@@ -391,5 +395,12 @@ public class JpsMPSRepositoryFacade implements MPSModuleOwner {
   @Override
   public boolean isHidden() {
     return true;
+  }
+
+  enum Status {
+    UNINITIALIZED,
+    INITIALIZED,
+    DISPOSED,
+    ERROR
   }
 }

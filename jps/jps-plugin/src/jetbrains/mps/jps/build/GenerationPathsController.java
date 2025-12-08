@@ -19,8 +19,9 @@ package jetbrains.mps.jps.build;
 import jetbrains.mps.jps.model.JpsMPSExtensionService;
 import jetbrains.mps.jps.model.JpsMPSModuleExtension;
 import jetbrains.mps.jps.project.JpsMPSProject;
+import jetbrains.mps.make.LocalPathConverter;
+import jetbrains.mps.make.MakeServiceProvider;
 import jetbrains.mps.smodel.resources.MResource;
-import jetbrains.mps.tool.builder.paths.ModuleOutputPaths;
 import org.jetbrains.jps.incremental.CompileContext;
 import org.jetbrains.jps.incremental.ModuleBuildTarget;
 import org.jetbrains.jps.incremental.storage.BuildDataManager;
@@ -37,13 +38,16 @@ import java.util.stream.StreamSupport;
 
 public class GenerationPathsController {
   private final CompileContext myContext;
-  private final JpsRedirects myRedirects = new JpsRedirects();
+  private final MakeServiceProvider myMakeServiceProvider;
   private final Map<ModuleBuildTarget, File> myOutputRootsPerTarget = new HashMap<ModuleBuildTarget, File>();
+  private final JpsRedirects myRedirects;
 
-  private ModuleOutputPaths myOutputPaths;
+  private LocalPathConverter myOutputPaths;
 
-  public GenerationPathsController(CompileContext context) {
+  public GenerationPathsController(CompileContext context, MakeServiceProvider makeServiceProvider) {
     myContext = context;
+    myMakeServiceProvider = makeServiceProvider;
+    myRedirects = new JpsRedirects(makeServiceProvider);
   }
 
   public JpsRedirects getRedirects() {
@@ -78,7 +82,7 @@ public class GenerationPathsController {
   }
 
   public void init(JpsMPSProject project, Iterable<MResource> modelResources, Collection<ModuleBuildTarget> targets) {
-    project.getModelAccess().runReadAction(() -> myOutputPaths = new ModuleOutputPaths(getModulesInvolved(modelResources)));
+    project.getModelAccess().runReadAction(() -> myOutputPaths = myMakeServiceProvider.getLocalPathConverter(getModulesInvolved(modelResources)) );
     initWithTargets(targets);
   }
 }

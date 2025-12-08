@@ -15,12 +15,11 @@
     <orderEntry type="library" name="Idea-platform" level="project" />
     <orderEntry type="library" name="jps-builders" level="project" />
     <orderEntry type="module" module-name="mps-jps-common" />
-    <orderEntry type="module" module-name="mps-ant" />
     <orderEntry type="library" name="gnu.trove" level="project" />
     <orderEntry type="library" scope="TEST" name="jps-build-test" level="project" />
     <orderEntry type="library" scope="TEST" name="JUnit4" level="project" />
     <orderEntry type="module" module-name="mps-java-jps-plugin" scope="TEST" />
-    <orderEntry type="module" module-name="kernel" />
+    <orderEntry type="module" module-name="kernel" scope="PROVIDED" />
     <orderEntry type="module" module-name="kernel-resources" />
     <orderEntry type="module" module-name="java-stub" />
     <orderEntry type="module" module-name="make-runtime" />

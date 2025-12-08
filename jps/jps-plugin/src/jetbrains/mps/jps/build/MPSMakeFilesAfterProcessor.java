@@ -19,8 +19,8 @@ package jetbrains.mps.jps.build;
 import com.intellij.openapi.util.io.FileUtil;
 import jetbrains.mps.extapi.persistence.FileSystemBasedDataSource;
 import jetbrains.mps.idea.core.make.MPSMakeConstants;
+import jetbrains.mps.make.MakeSessionFiles;
 import jetbrains.mps.project.MPSExtentions;
-import jetbrains.mps.tool.builder.make.ReducedMakeFacetConfiguration;
 import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.Nullable;
@@ -61,7 +61,7 @@ public class MPSMakeFilesAfterProcessor {
     myContext = context;
   }
 
-  public boolean process(final ReducedMakeFacetConfiguration makeConfig) {
+  public boolean process(final MakeSessionFiles makeConfig) {
     boolean success = processWrittenFiles(makeConfig);
     success &= processDeletedFiles(makeConfig);
     return success;
@@ -71,9 +71,9 @@ public class MPSMakeFilesAfterProcessor {
     return myContext.getLoggingManager().getProjectBuilderLogger();
   }
 
-  private boolean processDeletedFiles(ReducedMakeFacetConfiguration makeConfig) {
+  private boolean processDeletedFiles(MakeSessionFiles makeConfig) {
     boolean success = true;
-    List<String> deletedFiles = makeConfig.getDeletedFiles();
+    Collection<String> deletedFiles = makeConfig.getDeletedFiles();
     ProjectBuilderLogger logger = getBuilderLogger();
     if (logger.isEnabled()) {
       logger.logDeletedFiles(deletedFiles);
@@ -90,7 +90,7 @@ public class MPSMakeFilesAfterProcessor {
     return success;
   }
 
-  private boolean processWrittenFiles(ReducedMakeFacetConfiguration makeConfig) {
+  private boolean processWrittenFiles(MakeSessionFiles makeConfig) {
     Collection<String> writtenPaths = makeConfig.getWrittenFiles();
     boolean success = true;
     logGenerated(makeConfig);
@@ -122,7 +122,7 @@ public class MPSMakeFilesAfterProcessor {
     return success;
   }
 
-  private void logGenerated(ReducedMakeFacetConfiguration makeFacetConfiguration) {
+  private void logGenerated(MakeSessionFiles makeFacetConfiguration) {
     ProjectBuilderLogger logger = getBuilderLogger();
     if (logger.isEnabled()) {
       try {

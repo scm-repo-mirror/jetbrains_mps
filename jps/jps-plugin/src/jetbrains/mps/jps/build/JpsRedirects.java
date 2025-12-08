@@ -16,27 +16,32 @@
 
 package jetbrains.mps.jps.build;
 
-import jetbrains.mps.tool.builder.paths.IRedirects;
-import jetbrains.mps.tool.builder.paths.ModuleOutputPaths;
-import jetbrains.mps.tool.builder.paths.OutputPathRedirects;
+import jetbrains.mps.make.LocalPathConverter;
+import jetbrains.mps.make.MakeServiceProvider;
+import jetbrains.mps.make.OutputRedirects;
 import jetbrains.mps.vfs.IFile;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JpsRedirects implements IRedirects {
-  private List<OutputPathRedirects> myOutputRedirects = new ArrayList<OutputPathRedirects>();
+public class JpsRedirects implements OutputRedirects {
+  private final MakeServiceProvider myMakeServiceProvider;
+  private List<OutputRedirects> myOutputRedirects = new ArrayList<OutputRedirects>();
 
-  public OutputPathRedirects addRedirects(ModuleOutputPaths moduleOutputPaths, File outputRoot, File cachesOutputRoot, boolean useTransientOutputFolder) {
-    OutputPathRedirects redirects = new OutputPathRedirects(moduleOutputPaths, outputRoot, cachesOutputRoot, useTransientOutputFolder);
+  public JpsRedirects(MakeServiceProvider makeServiceProvider) {
+    myMakeServiceProvider = makeServiceProvider;
+  }
+
+  public OutputRedirects addRedirects(LocalPathConverter moduleOutputPaths, File outputRoot, File cachesOutputRoot, boolean useTransientOutputFolder) {
+    OutputRedirects redirects = myMakeServiceProvider.getOutputRedirects(moduleOutputPaths, outputRoot, cachesOutputRoot, useTransientOutputFolder);
     myOutputRedirects.add(redirects);
     return redirects;
   }
 
   @Override
   public IFile getRedirect(IFile path) {
-    for (OutputPathRedirects redirects : myOutputRedirects) {
+    for (OutputRedirects redirects : myOutputRedirects) {
       IFile file = redirects.getRedirect(path);
       if (file != null) {
         return file;
@@ -46,7 +51,7 @@ public class JpsRedirects implements IRedirects {
   }
 
   public boolean isInCacheOutput(File fullPath) {
-    for (OutputPathRedirects redirects : myOutputRedirects) {
+    for (OutputRedirects redirects : myOutputRedirects) {
       if (redirects.isInCacheOutput(fullPath)) return true;
     }
     return false;

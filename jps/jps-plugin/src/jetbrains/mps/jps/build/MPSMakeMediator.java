@@ -19,17 +19,19 @@ package jetbrains.mps.jps.build;
 import jetbrains.mps.idea.core.make.MPSMakeConstants;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.jps.project.JpsMPSProject;
+import jetbrains.mps.make.MakeServiceProvider;
+import jetbrains.mps.make.MakeSessionConfig;
+import jetbrains.mps.make.MakeSessionFiles;
 import jetbrains.mps.make.MakeSession;
 import jetbrains.mps.make.resources.IResource;
 import jetbrains.mps.make.script.IResult;
 import jetbrains.mps.make.script.IScriptController;
+import jetbrains.mps.make.service.AbstractMakeService;
 import jetbrains.mps.messages.IMessage;
 import jetbrains.mps.messages.IMessageHandler;
 import jetbrains.mps.messages.MessageKind;
 import jetbrains.mps.smodel.resources.MResource;
 import jetbrains.mps.smodel.resources.ModelsToResources;
-import jetbrains.mps.tool.builder.make.BuildMakeService;
-import jetbrains.mps.tool.builder.make.ReducedMakeFacetConfiguration;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.jps.incremental.CompileContext;
@@ -41,7 +43,9 @@ import org.jetbrains.mps.openapi.model.SModel;
 
 import java.util.Collection;
 import java.util.Map;
+import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.ServiceLoader;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -70,11 +74,18 @@ public class MPSMakeMediator {
    * @return true if successful
    */
   public boolean build() {
+    ServiceLoader<MakeServiceProvider> loader = ServiceLoader.load(MakeServiceProvider.class);
+    Optional<MakeServiceProvider> maybeProvider = loader.findFirst();
+    if (maybeProvider.isEmpty()) {
+      throw new IllegalStateException("No MakeServiceProvider found");
+    }
+
+    MakeServiceProvider makeServiceProvider = maybeProvider.get();
     Iterable<MResource> resources = collectResources(myModelToTargetMap.keySet());
-    GenerationPathsController pathsController = new GenerationPathsController(myContext);
+    GenerationPathsController pathsController = new GenerationPathsController(myContext, makeServiceProvider);
     pathsController.init(myProject, resources, myModelToTargetMap.values());
 
-    BuildMakeService buildMakeService = new BuildMakeService();
+    AbstractMakeService buildMakeService = makeServiceProvider.createMakeService();
 
     // here we use default ScriptBuilder logic to collect all required facets (e.g. including JavaCompile, CopyTraceInfo)
     // and then turn some of them off in #configureFacet. Note, #createCleanMakeSession(), above, augments
@@ -82,7 +93,7 @@ public class MPSMakeMediator {
     // XXX I don't quite get the approach to turn facets off with dedicated 'facet properties'. Instead,
     // it seems removing them from the builder is more fruitful approach.
     // XXX With JavaCompile facet effectively off, I wonder what's with ReloadClasses, is it active?
-    ReducedMakeFacetConfiguration makeFacetConfiguration = new ReducedMakeFacetConfiguration(pathsController.getRedirects());
+    MakeSessionConfig makeFacetConfiguration = makeServiceProvider.getMakeSessionConfig(pathsController.getRedirects());
     MakeSession makeSession = makeFacetConfiguration.createCleanMakeSession(myProject, myMessageHandler);
     IScriptController scriptCtl = makeFacetConfiguration.configureFacets(makeSession);
 
@@ -91,7 +102,8 @@ public class MPSMakeMediator {
       boolean success = res.get().isSucessful();
 
       final MPSMakeFilesAfterProcessor afterProcessor = new MPSMakeFilesAfterProcessor(myModelToTargetMap, pathsController, myOutputConsumer, myContext);
-      success &= afterProcessor.process(makeFacetConfiguration);
+      // FIXME: need a better idea of how to get MakeSessionFiles
+      success &= afterProcessor.process((MakeSessionFiles) makeFacetConfiguration);
       return success;
     } catch (InterruptedException | ExecutionException e) {
       reportError(BUNDLE.getString("error.while.make"), e);
