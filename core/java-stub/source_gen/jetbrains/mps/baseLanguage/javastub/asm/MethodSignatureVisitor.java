@@ -13,6 +13,11 @@ import org.jetbrains.org.objectweb.asm.signature.SignatureVisitor;
   /*package*/ final List<ASMType> myParameters = new ArrayList<>();
   /*package*/ final List<ASMType> myExceptions = new ArrayList<>(4);
   /*package*/ final FormalTypeParameterBuilder myTypeParams = new FormalTypeParameterBuilder();
+  private final ASMClassType.Factory myClassTypeFactory;
+
+  /*package*/ MethodSignatureVisitor(ASMClassType.Factory ctFactory) {
+    myClassTypeFactory = ctFactory;
+  }
 
   @Override
   public void visitFormalTypeParameter(String name) {
@@ -20,26 +25,26 @@ import org.jetbrains.org.objectweb.asm.signature.SignatureVisitor;
   }
   @Override
   public SignatureVisitor visitClassBound() {
-    return new TypeUtil.TypeBuilderVisitor(myTypeParams::classBound);
+    return new TypeUtil.TypeBuilderVisitor(myClassTypeFactory, myTypeParams::classBound);
   }
   @Override
   public SignatureVisitor visitInterfaceBound() {
-    return new TypeUtil.TypeBuilderVisitor(myTypeParams::interfaceBound);
+    return new TypeUtil.TypeBuilderVisitor(myClassTypeFactory, myTypeParams::interfaceBound);
   }
 
   @Override
   public SignatureVisitor visitReturnType() {
     myTypeParams.complete();
-    return new TypeUtil.TypeBuilderVisitor(this::setReturnType);
+    return new TypeUtil.TypeBuilderVisitor(myClassTypeFactory, this::setReturnType);
   }
 
   @Override
   public SignatureVisitor visitParameterType() {
-    return new TypeUtil.TypeBuilderVisitor(myParameters::add);
+    return new TypeUtil.TypeBuilderVisitor(myClassTypeFactory, myParameters::add);
   }
   @Override
   public SignatureVisitor visitExceptionType() {
-    return new TypeUtil.TypeBuilderVisitor(myExceptions::add);
+    return new TypeUtil.TypeBuilderVisitor(myClassTypeFactory, myExceptions::add);
   }
 
   private void setReturnType(ASMType retType) {

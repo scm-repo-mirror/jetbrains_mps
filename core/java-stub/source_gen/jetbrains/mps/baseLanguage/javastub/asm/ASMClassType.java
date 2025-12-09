@@ -31,4 +31,14 @@ public class ASMClassType extends ASMType {
     }
     return obj != null && obj.getClass() == getClass() && myName.equals(((ASMClassType) obj).myName);
   }
+
+  public static class Factory {
+    /*package*/ ASMClassType fromBinaryName(String internalClassNamePresentation) {
+      return new ASMClassType(internalClassNamePresentation.replace('/', '.'));
+    }
+
+    /*package*/ ASMClassType fromQualifiedName(String classNamePresentation) {
+      return new ASMClassType(classNamePresentation);
+    }
+  }
 }

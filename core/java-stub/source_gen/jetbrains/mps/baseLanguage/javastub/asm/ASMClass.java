@@ -30,6 +30,7 @@ public class ASMClass {
   private final List<ASMMethod> myMethods = new ArrayList<ASMMethod>();
   private final List<ASMMethod> myConstructors = new ArrayList<ASMMethod>();
   private final List<ASMAnnotation> myAnnotations;
+  private final ASMClassType myOwnType;
   /**
    * 
    * 
@@ -37,7 +38,7 @@ public class ASMClass {
    */
   @Deprecated
   public ASMClass(ClassReader reader, boolean needParamNames) {
-    this(reader, new ClassReaderOptions.Builder().withMethodParameters(true).withCompilerInjectedMembers(true).withSyntheticMembers(true).build());
+    this(reader, new ClassReaderOptions.Builder().withMethodParameters(needParamNames).withCompilerInjectedMembers(true).withSyntheticMembers(true).build());
   }
 
   /**
@@ -58,10 +59,13 @@ public class ASMClass {
       myGenericSuperclass = null;
       myGenericInterfaces = Collections.emptyList();
       myAnnotations = Collections.emptyList();
+      myOwnType = null;
       return;
     }
     myName = classNode.name;
     myAccess = classNode.access;
+    final ASMClassType.Factory classTypeFactory = options.classTypeFactory;
+    myOwnType = classTypeFactory.fromBinaryName(classNode.name);
     {
       ArrayList<ASMInnerClass> ic = new ArrayList<>(classNode.innerClasses.size());
       for (InnerClassNode cn : classNode.innerClasses) {
@@ -86,7 +90,7 @@ public class ASMClass {
       myInnerClasses = (ic.isEmpty() ? Collections.<ASMInnerClass>emptyList() : Collections.unmodifiableList(ic));
     }
     if (classNode.signature != null) {
-      ClassSignatureVisitor csv = new ClassSignatureVisitor();
+      ClassSignatureVisitor csv = new ClassSignatureVisitor(classTypeFactory);
       new SignatureReader(classNode.signature).accept(csv);
       myGenericSuperclass = (csv.myGenericSuperclass.size() == 1 ? csv.myGenericSuperclass.getFirst() : null);
       if (!(csv.myGenericInterfaces.isEmpty())) {
@@ -98,12 +102,10 @@ public class ASMClass {
       myTypeVariables = Collections.<ASMTypeVariable>unmodifiableList(csv.myTypeParams.result());
     } else {
       // XXX no idea why we don't make distinction generic vs regular elements like we do e.g. for a method/field
-      myGenericSuperclass = (classNode.superName != null ? new ASMClassType(classNode.superName.replace('/', '.')) : null);
+      myGenericSuperclass = (classNode.superName != null ? classTypeFactory.fromBinaryName(classNode.superName) : null);
       if (!(classNode.interfaces.isEmpty())) {
         ArrayList<ASMType> ii = new ArrayList<>(classNode.interfaces.size());
-        for (String intfc : classNode.interfaces) {
-          ii.add(new ASMClassType(intfc.replace('/', '.')));
-        }
+        classNode.interfaces.stream().map(classTypeFactory::fromBinaryName).forEach(ii::add);
         myGenericInterfaces = Collections.unmodifiableList(ii);
       } else {
         myGenericInterfaces = Collections.emptyList();
@@ -114,7 +116,7 @@ public class ASMClass {
       if (options.skipSyntheticFields && ASMField.isSynthetic(fn)) {
         continue;
       }
-      myFields.add(new ASMField(fn));
+      myFields.add(new ASMField(fn, classTypeFactory));
     }
     final boolean isEnumClass = ClassifierKind.getClassifierKind(classNode.access) == ClassifierKind.ENUM;
     for (MethodNode mn : classNode.methods) {
@@ -131,7 +133,7 @@ public class ASMClass {
         continue;
       }
       // XXX I wonder why don't we check synthetic field right away and skip MN if yes, and instead do isSynthetic check later?
-      ASMMethod am = new ASMMethod(mn);
+      ASMMethod am = new ASMMethod(mn, classTypeFactory);
       if (am.isConstructor()) {
         myConstructors.add(am);
       } else {
@@ -142,18 +144,22 @@ public class ASMClass {
       ArrayList<ASMAnnotation> ll = new ArrayList<>();
       if (classNode.visibleAnnotations != null) {
         for (AnnotationNode an : classNode.visibleAnnotations) {
-          ll.add(new ASMAnnotation(an));
+          ll.add(new ASMAnnotation(an, classTypeFactory));
         }
       }
       if (classNode.invisibleAnnotations != null) {
         for (AnnotationNode an : classNode.invisibleAnnotations) {
-          ll.add(new ASMAnnotation(an));
+          ll.add(new ASMAnnotation(an, classTypeFactory));
         }
       }
       myAnnotations = Collections.unmodifiableList(ll);
     } else {
       myAnnotations = Collections.emptyList();
     }
+  }
+
+  public ASMClassType ownType() {
+    return myOwnType;
   }
 
   public boolean isAbstract() {

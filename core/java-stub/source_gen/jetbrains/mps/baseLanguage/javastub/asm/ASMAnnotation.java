@@ -5,22 +5,23 @@ package jetbrains.mps.baseLanguage.javastub.asm;
 import jetbrains.mps.annotations.GeneratedClass;
 import java.util.Map;
 import org.jetbrains.org.objectweb.asm.tree.AnnotationNode;
+import org.jetbrains.org.objectweb.asm.Type;
 import java.util.LinkedHashMap;
 import java.util.Collections;
-import org.jetbrains.org.objectweb.asm.Type;
 import java.util.List;
 
 @GeneratedClass(nodeId = "6849912058625332189", model = "r:eafb5d8e-2952-4826-b4ad-be2b9011f598(jetbrains.mps.baseLanguage.javastub.asm)")
-public class ASMAnnotation {
-  private ASMType myType;
+public final class ASMAnnotation {
+  private final ASMType myType;
   private Map<String, Object> myValues;
-  public ASMAnnotation(AnnotationNode node) {
-    myType = TypeUtil.fromDescriptor(node.desc);
+
+  /*package*/ ASMAnnotation(AnnotationNode node, ASMClassType.Factory classTypeFactory) {
+    myType = TypeUtil.fromType(classTypeFactory, Type.getType(node.desc));
     if (node.values != null) {
-      myValues = new LinkedHashMap<String, Object>(node.values.size() / 2);
+      myValues = new LinkedHashMap<>(node.values.size() / 2);
       for (int i = 0; i < node.values.size(); i += 2) {
         Object key = node.values.get(i);
-        Object value = ASMAnnotation.processValue(node.values.get(i + 1));
+        Object value = ASMAnnotation.processValue(node.values.get(i + 1), classTypeFactory);
         myValues.put(key.toString(), value);
       }
     }
@@ -31,21 +32,22 @@ public class ASMAnnotation {
   public ASMType getType() {
     return myType;
   }
-  public static Object processValue(Object value) {
+  public static Object processValue(Object value, ASMClassType.Factory classTypeFactory) {
     if (value instanceof AnnotationNode) {
-      return new ASMAnnotation((AnnotationNode) value);
+      return new ASMAnnotation((AnnotationNode) value, classTypeFactory);
     }
     if (value instanceof Type) {
-      return TypeUtil.fromType((Type) value);
+      return TypeUtil.fromType(classTypeFactory, (Type) value);
     }
     if (value instanceof String[]) {
       String[] svalue = (String[]) value;
-      return new ASMEnumValue(TypeUtil.fromDescriptor(svalue[0]), svalue[1]);
+      Type type = Type.getType(svalue[0]);
+      return new ASMEnumValue(TypeUtil.fromType(classTypeFactory, type), svalue[1]);
     }
     if (value instanceof List) {
       List list = (List) value;
       for (int i = 0; i < list.size(); i++) {
-        list.set(i, ASMAnnotation.processValue(list.get(i)));
+        list.set(i, ASMAnnotation.processValue(list.get(i), classTypeFactory));
       }
       return list;
     }

@@ -32,10 +32,10 @@ public final class ASMMethod {
   private List<ASMAnnotation> myAnnotations;
   private final Object myAnnotationDefault;
 
-  /*package*/ ASMMethod(MethodNode method) {
+  /*package*/ ASMMethod(MethodNode method, ASMClassType.Factory classTypeFactory) {
     myName = method.name;
     myAccess = method.access;
-    myReturnType = TypeUtil.fromType(Type.getReturnType(method.desc));
+    myReturnType = TypeUtil.fromType(classTypeFactory, Type.getReturnType(method.desc));
     Type[] argumentTypes = Type.getArgumentTypes(method.desc);
     myParameterTypes = (argumentTypes.length > 0 ? new ArrayList<ASMType>(argumentTypes.length) : Collections.<ASMType>emptyList());
     int paramIndexOffset;
@@ -51,11 +51,11 @@ public final class ASMMethod {
       paramIndexOffset = 0;
     }
     for (int i = paramIndexOffset; i < argumentTypes.length; i++) {
-      myParameterTypes.add(TypeUtil.fromType(argumentTypes[i]));
+      myParameterTypes.add(TypeUtil.fromType(classTypeFactory, argumentTypes[i]));
     }
     final List<ASMType> exceptions;
     if (method.signature != null) {
-      final MethodSignatureVisitor msv = new MethodSignatureVisitor();
+      final MethodSignatureVisitor msv = new MethodSignatureVisitor(classTypeFactory);
       new SignatureReader(method.signature).accept(msv);
       myGenericReturnType = msv.myReturnType;
       myGenericParameterTypes = new ArrayList<>(msv.myParameters);
@@ -99,7 +99,7 @@ public final class ASMMethod {
           if (annotations == null) {
             annotations = new ArrayList<ASMAnnotation>();
           }
-          annotations.add(new ASMAnnotation(an));
+          annotations.add(new ASMAnnotation(an, classTypeFactory));
         }
       }
       if (method.invisibleParameterAnnotations != null && method.invisibleParameterAnnotations[i] != null) {
@@ -107,7 +107,7 @@ public final class ASMMethod {
           if (annotations == null) {
             annotations = new ArrayList<ASMAnnotation>();
           }
-          annotations.add(new ASMAnnotation(an));
+          annotations.add(new ASMAnnotation(an, classTypeFactory));
         }
       }
       myParameterAnnotations.add((annotations == null ? Collections.<ASMAnnotation>emptyList() : annotations));
@@ -117,23 +117,19 @@ public final class ASMMethod {
     } else {
       // sic, see JVMS21, 4.7.9.1. Signatures
       myExceptions = new ArrayList<ASMType>(method.exceptions.size());
-      for (String s : method.exceptions) {
-        myExceptions.add(new ASMClassType(s.replace('/', '.')));
-      }
+      method.exceptions.stream().map(classTypeFactory::fromBinaryName).forEach(myExceptions::add);
     }
     if (method.visibleAnnotations != null || method.invisibleAnnotations != null) {
       int size = ((method.visibleAnnotations != null ? method.visibleAnnotations.size() : 0)) + ((method.invisibleAnnotations != null ? method.invisibleAnnotations.size() : 0));
       myAnnotations = new ArrayList<ASMAnnotation>(size);
       if (method.visibleAnnotations != null) {
         for (AnnotationNode an : method.visibleAnnotations) {
-          ASMAnnotation aa = new ASMAnnotation(an);
-          myAnnotations.add(aa);
+          myAnnotations.add(new ASMAnnotation(an, classTypeFactory));
         }
       }
       if (method.invisibleAnnotations != null) {
         for (AnnotationNode an : method.invisibleAnnotations) {
-          ASMAnnotation aa = new ASMAnnotation(an);
-          myAnnotations.add(aa);
+          myAnnotations.add(new ASMAnnotation(an, classTypeFactory));
         }
       }
     }
@@ -168,7 +164,7 @@ public final class ASMMethod {
     } else {
       myParameterNames = Collections.<String>emptyList();
     }
-    myAnnotationDefault = (method.annotationDefault != null ? ASMAnnotation.processValue(method.annotationDefault) : null);
+    myAnnotationDefault = (method.annotationDefault != null ? ASMAnnotation.processValue(method.annotationDefault, classTypeFactory) : null);
   }
   public Object getAnnotationDefault() {
     return myAnnotationDefault;

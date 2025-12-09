@@ -4,7 +4,6 @@ package jetbrains.mps.baseLanguage.javastub.asm;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import org.jetbrains.org.objectweb.asm.Type;
-import org.jetbrains.org.objectweb.asm.signature.SignatureReader;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.ArrayList;
@@ -14,10 +13,7 @@ import org.jetbrains.org.objectweb.asm.signature.SignatureVisitor;
 /*package*/ class TypeUtil {
   private TypeUtil() {
   }
-  /*package*/ static ASMType fromDescriptor(String desc) {
-    return TypeUtil.fromType(Type.getType(desc));
-  }
-  /*package*/ static ASMType fromType(Type type) {
+  /*package*/ static ASMType fromType(ASMClassType.Factory classTypeFactory, Type type) {
     switch (type.getSort()) {
       case Type.VOID:
         return ASMPrimitiveType.VOID;
@@ -38,10 +34,10 @@ import org.jetbrains.org.objectweb.asm.signature.SignatureVisitor;
       case Type.DOUBLE:
         return ASMPrimitiveType.DOUBLE;
       case Type.OBJECT:
-        return new ASMClassType(type.getClassName());
+        return classTypeFactory.fromBinaryName(type.getInternalName());
       case Type.ARRAY:
         {
-          ASMType result = new ASMArrayType(TypeUtil.fromType(type.getElementType()));
+          ASMType result = new ASMArrayType(TypeUtil.fromType(classTypeFactory, type.getElementType()));
           for (int i = 1; i < type.getDimensions(); i++) {
             result = new ASMArrayType(result);
           }
@@ -51,15 +47,7 @@ import org.jetbrains.org.objectweb.asm.signature.SignatureVisitor;
     }
     return null;
   }
-  public static ASMType getFieldType(String signature) {
-    if (signature == null) {
-      return null;
-    }
-    final TypeBuilderVisitor builder = new TypeBuilderVisitor();
-    SignatureReader reader = new SignatureReader(signature);
-    reader.acceptType(builder);
-    return builder.getResult();
-  }
+
   /**
    * JavaTypeSignature := ClassTypeSignature | TypeVariable | ArrayType | BaseType
    * ClassTypeSignature is visitClassType + any number of optional visitTypeAttribute + visitEnd (terminates, propagates result)
@@ -73,12 +61,14 @@ import org.jetbrains.org.objectweb.asm.signature.SignatureVisitor;
     private ASMType myResult;
     private List<ASMType> myTypes;
     private final Consumer<ASMType> myParent;
+    private final ASMClassType.Factory myClassTypeFactory;
 
-    public TypeBuilderVisitor() {
-      myParent = null;
+    public TypeBuilderVisitor(ASMClassType.Factory classTypeFactory) {
+      this(classTypeFactory, null);
     }
 
-    /*package*/ TypeBuilderVisitor(Consumer<ASMType> parentVisitor) {
+    /*package*/ TypeBuilderVisitor(ASMClassType.Factory classTypeFactory, Consumer<ASMType> parentVisitor) {
+      myClassTypeFactory = classTypeFactory;
       myParent = parentVisitor;
     }
 
@@ -115,7 +105,7 @@ import org.jetbrains.org.objectweb.asm.signature.SignatureVisitor;
           }
         }
       };
-      return new TypeBuilderVisitor(cc);
+      return new TypeBuilderVisitor(myClassTypeFactory, cc);
     }
     @Override
     public void visitBaseType(char descriptor) {
@@ -128,7 +118,7 @@ import org.jetbrains.org.objectweb.asm.signature.SignatureVisitor;
     }
     @Override
     public SignatureVisitor visitArrayType() {
-      return new TypeBuilderVisitor(new Consumer<ASMType>() {
+      return new TypeBuilderVisitor(myClassTypeFactory, new Consumer<ASMType>() {
         @Override
         public void accept(ASMType arrayType) {
           setResult(new ASMArrayType(arrayType));
@@ -138,7 +128,7 @@ import org.jetbrains.org.objectweb.asm.signature.SignatureVisitor;
     @Override
     public void visitClassType(String name) {
       // name is internal ('/') qualified name, possibly including '$' for inner classes (e.g. when it's inner class that got type argument)
-      addPart(new ASMClassType(name.replace('/', '.')));
+      addPart(myClassTypeFactory.fromBinaryName(name));
     }
 
     @Override
@@ -160,7 +150,7 @@ import org.jetbrains.org.objectweb.asm.signature.SignatureVisitor;
       myTypes.clear();
       ASMClassType rawType = ownerType.getRawType();
 
-      addPart(new ASMParameterizedType(ownerType, new ASMClassType(rawType.getName() + '$' + name), null));
+      addPart(new ASMParameterizedType(ownerType, myClassTypeFactory.fromQualifiedName(rawType.getName() + '$' + name), null));
     }
 
     @Override

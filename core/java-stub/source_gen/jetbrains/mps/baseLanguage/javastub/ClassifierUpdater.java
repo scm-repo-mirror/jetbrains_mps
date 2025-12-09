@@ -24,11 +24,11 @@ import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import jetbrains.mps.baseLanguage.javastub.asm.ASMAnnotation;
 import jetbrains.mps.baseLanguage.javastub.asm.ASMField;
-import jetbrains.mps.baseLanguage.javastub.asm.ASMClassType;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Iterator;
 import java.util.List;
+import jetbrains.mps.baseLanguage.javastub.asm.ASMClassType;
 import jetbrains.mps.baseLanguage.javastub.asm.ASMPrimitiveType;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ArrayUtils;
@@ -317,7 +317,7 @@ public class ClassifierUpdater {
 
   private void updateAnnotationMethods(final SNode annotation) {
     for (ASMMethod m : myParsedClass.getDeclaredMethods()) {
-      SNode md = _quotation_createNode_ol94f8_a0a0a0hb(null, myNodeFactory.createAnnotationMethodId(new ASMClassType(myParsedClass.getFqName()), m.getName()), getTypeByASMType(m.getGenericReturnType(), null, annotation), m.getName());
+      SNode md = _quotation_createNode_ol94f8_a0a0a0hb(null, myNodeFactory.createAnnotationMethodId(myParsedClass.ownType(), m.getName()), getTypeByASMType(m.getGenericReturnType(), null, annotation), m.getName());
       SLinkOperations.setTarget(md, LINKS.visibility$Yyua, _quotation_createNode_ol94f8_a0b0a0hb());
       if (m.getAnnotationDefault() != null) {
         SLinkOperations.setTarget(md, LINKS.defaultValue$85b5, getValueAsExpression(m.getAnnotationDefault()));
@@ -1173,9 +1173,9 @@ public class ClassifierUpdater {
   private static final class PROPS {
     /*package*/ static final SProperty abstractClass$Ta1X = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xfa5cee6dfaL, "abstractClass");
     /*package*/ static final SProperty isFinal$f7C_ = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x11c6af4b284L, "isFinal");
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
     /*package*/ static final SProperty isFinal$gvTP = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0x111f9e9f00cL, "isFinal");
     /*package*/ static final SProperty text$aOLd = MetaAdapterFactory.getProperty(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990287L, 0x7c7f5b2f31990288L, "text");
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
     /*package*/ static final SProperty isAbstract$VtH_ = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, 0x1126a8d157dL, "isAbstract");
     /*package*/ static final SProperty isFinal$eVPk = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x113294bffd2L, "isFinal");
     /*package*/ static final SProperty isSynchronized$58UL = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x3b576cda23612c7aL, "isSynchronized");

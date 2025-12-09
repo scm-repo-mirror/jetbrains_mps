@@ -12,6 +12,11 @@ import org.jetbrains.org.objectweb.asm.signature.SignatureVisitor;
   /*package*/ final List<ASMType> myGenericSuperclass = new ArrayList<>(2);
   /*package*/ final List<ASMType> myGenericInterfaces = new ArrayList<>();
   /*package*/ final FormalTypeParameterBuilder myTypeParams = new FormalTypeParameterBuilder();
+  private final ASMClassType.Factory myClassTypeFactory;
+
+  /*package*/ ClassSignatureVisitor(ASMClassType.Factory ctFactory) {
+    myClassTypeFactory = ctFactory;
+  }
 
   @Override
   public void visitFormalTypeParameter(String name) {
@@ -19,22 +24,22 @@ import org.jetbrains.org.objectweb.asm.signature.SignatureVisitor;
   }
   @Override
   public SignatureVisitor visitClassBound() {
-    return new TypeUtil.TypeBuilderVisitor(myTypeParams::classBound);
+    return new TypeUtil.TypeBuilderVisitor(myClassTypeFactory, myTypeParams::classBound);
   }
   @Override
   public SignatureVisitor visitInterfaceBound() {
-    return new TypeUtil.TypeBuilderVisitor(myTypeParams::interfaceBound);
+    return new TypeUtil.TypeBuilderVisitor(myClassTypeFactory, myTypeParams::interfaceBound);
   }
 
   @Override
   public SignatureVisitor visitSuperclass() {
     myTypeParams.complete();
-    return new TypeUtil.TypeBuilderVisitor(myGenericSuperclass::add);
+    return new TypeUtil.TypeBuilderVisitor(myClassTypeFactory, myGenericSuperclass::add);
   }
 
   @Override
   public SignatureVisitor visitInterface() {
-    return new TypeUtil.TypeBuilderVisitor(myGenericInterfaces::add);
+    return new TypeUtil.TypeBuilderVisitor(myClassTypeFactory, myGenericInterfaces::add);
   }
 
 }

@@ -7,6 +7,8 @@ import java.util.List;
 import org.jetbrains.org.objectweb.asm.tree.FieldNode;
 import java.util.ArrayList;
 import org.jetbrains.org.objectweb.asm.tree.AnnotationNode;
+import org.jetbrains.org.objectweb.asm.Type;
+import org.jetbrains.org.objectweb.asm.signature.SignatureReader;
 import org.jetbrains.org.objectweb.asm.Opcodes;
 import java.util.Collections;
 
@@ -19,22 +21,24 @@ public class ASMField {
   private final ASMType myType;
   private final ASMType myGenericType;
 
-  /*package*/ ASMField(FieldNode field) {
+  /*package*/ ASMField(FieldNode field, ASMClassType.Factory classTypeFactory) {
     myName = field.name;
     myAccess = field.access;
     myValue = field.value;
     if (field.visibleAnnotations != null) {
       myAnnotations = new ArrayList<>(field.visibleAnnotations.size());
       for (AnnotationNode an : field.visibleAnnotations) {
-        ASMAnnotation aa = new ASMAnnotation(an);
+        ASMAnnotation aa = new ASMAnnotation(an, classTypeFactory);
         myAnnotations.add(aa);
       }
     } else {
       myAnnotations = null;
     }
-    myType = TypeUtil.fromDescriptor(field.desc);
+    myType = TypeUtil.fromType(classTypeFactory, Type.getType(field.desc));
     if (field.signature != null) {
-      myGenericType = TypeUtil.getFieldType(field.signature);
+      final TypeUtil.TypeBuilderVisitor builder = new TypeUtil.TypeBuilderVisitor(classTypeFactory);
+      new SignatureReader(field.signature).acceptType(builder);
+      myGenericType = builder.getResult();
     } else {
       myGenericType = myType;
     }
