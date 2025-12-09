@@ -90,66 +90,35 @@ import java.util.function.Consumer;
     if (signature == null) {
       return Collections.emptyList();
     }
-    final List<ASMFormalTypeParameter> result = new ArrayList<ASMFormalTypeParameter>();
+
+    final FormalTypeParameterBuilder typeParams = new FormalTypeParameterBuilder();
+
     SignatureReader reader = new SignatureReader(signature);
     reader.accept(new SignatureVisitorAdapter() {
-      private String name = null;
-      private TypeBuilderVisitor classBoundVisitor = new TypeBuilderVisitor();
-      private List<TypeBuilderVisitor> interfaceBoundVisitors = new ArrayList<TypeBuilderVisitor>();
       @Override
       public void visitFormalTypeParameter(String name) {
-        if (this.name != null) {
-          flush();
-        }
-        this.name = name;
+        typeParams.next(name);
       }
       @Override
       public SignatureVisitor visitClassBound() {
-        classBoundVisitor = new TypeBuilderVisitor();
-        return classBoundVisitor;
+        return new TypeBuilderVisitor(typeParams::classBound);
       }
       @Override
       public SignatureVisitor visitInterfaceBound() {
-        TypeBuilderVisitor visitor = new TypeBuilderVisitor();
-        interfaceBoundVisitors.add(visitor);
-        return visitor;
+        return new TypeBuilderVisitor(typeParams::interfaceBound);
       }
       @Override
       public SignatureVisitor visitReturnType() {
-        if (name != null) {
-          flush();
-        }
+        typeParams.complete();
         return super.visitReturnType();
       }
       @Override
       public SignatureVisitor visitSuperclass() {
-        if (name != null) {
-          flush();
-        }
+        typeParams.complete();
         return super.visitSuperclass();
       }
-      private void flush() {
-        List<ASMType> interfaceBounds = new ArrayList<ASMType>(interfaceBoundVisitors.size());
-        for (TypeBuilderVisitor v : interfaceBoundVisitors) {
-          interfaceBounds.add(v.getResult());
-        }
-        ASMType formalType = null;
-        if (classBoundVisitor != null) {
-          formalType = classBoundVisitor.getResult();
-          if (formalType instanceof ASMClassType) {
-            ASMClassType classFormalType = (ASMClassType) formalType;
-            if (classFormalType.getName().equals(Object.class.getName())) {
-              formalType = null;
-            }
-          }
-        }
-        result.add(new ASMFormalTypeParameter(name, formalType, interfaceBounds));
-        name = null;
-        classBoundVisitor = null;
-        interfaceBoundVisitors.clear();
-      }
     });
-    return result;
+    return typeParams.result();
   }
   public static List<ASMType> getExceptionTypes(String signature) {
     if (signature == null) {
@@ -198,7 +167,7 @@ import java.util.function.Consumer;
       myParent = null;
     }
 
-    private TypeBuilderVisitor(Consumer<ASMType> parentVisitor) {
+    /*package*/ TypeBuilderVisitor(Consumer<ASMType> parentVisitor) {
       myParent = parentVisitor;
     }
 

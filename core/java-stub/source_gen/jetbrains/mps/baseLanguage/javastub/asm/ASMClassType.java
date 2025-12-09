@@ -26,6 +26,9 @@ public class ASMClassType extends ASMType {
   }
   @Override
   public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
     return obj != null && obj.getClass() == getClass() && myName.equals(((ASMClassType) obj).myName);
   }
 }
