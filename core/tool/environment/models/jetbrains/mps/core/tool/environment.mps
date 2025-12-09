@@ -2263,17 +2263,28 @@
       <property role="2aFKle" value="false" />
       <node concept="3clFbS" id="2btCvgzFJ_I" role="3clF47">
         <node concept="3cpWs6" id="2btCvgzFPl$" role="3cqZAp">
-          <node concept="2OqwBi" id="2btCvgzFRtS" role="3cqZAk">
-            <node concept="1rXfSq" id="2btCvgzFQg3" role="2Oq$k0">
-              <ref role="37wK5l" node="6BLo1MgrFYe" resolve="withCorePlugin" />
-            </node>
-            <node concept="liA8E" id="2btCvgzFSuX" role="2OqNvi">
-              <ref role="37wK5l" node="5avE1b7v6tC" resolve="addDistributedPlugin" />
-              <node concept="Xl_RD" id="2btCvgzFTbQ" role="37wK5m">
-                <property role="Xl_RC" value="mps-make" />
+          <node concept="2OqwBi" id="rB9yNGkm2m" role="3cqZAk">
+            <node concept="2OqwBi" id="2btCvgzFRtS" role="2Oq$k0">
+              <node concept="1rXfSq" id="2btCvgzFQg3" role="2Oq$k0">
+                <ref role="37wK5l" node="6BLo1MgrFYe" resolve="withCorePlugin" />
               </node>
-              <node concept="Xl_RD" id="2btCvgzFYS1" role="37wK5m">
-                <property role="Xl_RC" value="jetbrains.mps.ide.make" />
+              <node concept="liA8E" id="2btCvgzFSuX" role="2OqNvi">
+                <ref role="37wK5l" node="5avE1b7v6tC" resolve="addDistributedPlugin" />
+                <node concept="Xl_RD" id="2btCvgzFTbQ" role="37wK5m">
+                  <property role="Xl_RC" value="mps-make" />
+                </node>
+                <node concept="Xl_RD" id="2btCvgzFYS1" role="37wK5m">
+                  <property role="Xl_RC" value="jetbrains.mps.ide.make" />
+                </node>
+              </node>
+            </node>
+            <node concept="liA8E" id="rB9yNGko0t" role="2OqNvi">
+              <ref role="37wK5l" node="5avE1b7v6tC" resolve="addDistributedPlugin" />
+              <node concept="Xl_RD" id="rB9yNGkpB9" role="37wK5m">
+                <property role="Xl_RC" value="java" />
+              </node>
+              <node concept="Xl_RD" id="rB9yNGku4L" role="37wK5m">
+                <property role="Xl_RC" value="com.intellij.java" />
               </node>
             </node>
           </node>

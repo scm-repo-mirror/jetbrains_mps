@@ -127,7 +127,7 @@ public class EnvironmentConfig {
   }
 
   public EnvironmentConfig withMakePlugin() {
-    return withCorePlugin().addDistributedPlugin("mps-make", "jetbrains.mps.ide.make");
+    return withCorePlugin().addDistributedPlugin("mps-make", "jetbrains.mps.ide.make").addDistributedPlugin("java", "com.intellij.java");
   }
 
   public EnvironmentConfig withTestingPlugin() {
