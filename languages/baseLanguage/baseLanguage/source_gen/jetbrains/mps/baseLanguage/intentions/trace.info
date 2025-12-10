@@ -2482,77 +2482,61 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c6(jetbrains.mps.baseLanguage.intentions)/1206063267399">
     <file name="AddElsifClause_Intention.java">
-      <node id="1206063267399" at="23,0,24,0" concept="6" trace="myCachedExecutable" />
-      <node id="1206063267399" at="25,37,26,146" concept="16" />
-      <node id="1206063267399" at="30,35,31,28" concept="11" />
-      <node id="1206063267399" at="35,35,36,17" concept="11" />
-      <node id="1206063267399" at="40,37,41,105" concept="5" />
-      <node id="1206063267399" at="42,5,43,30" concept="11" />
-      <node id="1206063377737" at="50,87,51,32" concept="11" />
-      <node id="1231779257578" at="55,78,56,83" concept="10" />
-      <node id="1231779289916" at="56,83,57,73" concept="5" />
-      <node id="1206063419140" at="57,73,58,78" concept="5" />
-      <node id="1231779315694" at="58,78,59,76" concept="5" />
-      <node id="1206063267399" at="64,55,65,21" concept="11" />
-      <node id="1206063267399" at="66,7,67,18" concept="11" />
-      <node id="1206063397663" at="70,93,71,105" concept="11" />
-      <node id="1206063267399" at="76,48,77,43" concept="11" />
-      <node id="1206063267399" at="83,0,84,0" concept="14" trace="ifFalseStatement$psZK" />
-      <node id="1206063267399" at="84,0,85,0" concept="14" trace="elsifClauses$EVJW" />
-      <node id="1206063267399" at="46,0,48,0" concept="2" trace="IntentionImplementation#()V" />
-      <node id="1206063267399" at="25,0,28,0" concept="2" trace="AddElsifClause_Intention#()V" />
-      <node id="1206063267399" at="39,99,42,5" concept="8" />
-      <node id="1206063267399" at="63,86,66,7" concept="8" />
-      <node id="1206063267399" at="70,0,73,0" concept="9" trace="isApplicableToNode#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;)Z" />
-      <node id="1206063267399" at="29,0,33,0" concept="9" trace="getPresentation#()Ljava/lang/String;" />
-      <node id="1206063267399" at="34,0,38,0" concept="9" trace="isSurroundWith#()Z" />
-      <node id="1206063267399" at="49,0,53,0" concept="9" trace="getDescription#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;)Ljava/lang/String;" />
-      <node id="1206063267399" at="75,0,79,0" concept="9" trace="getDescriptor#()Ljetbrains/mps/openapi/intentions/IntentionDescriptor;" />
-      <node id="1206063267399" at="39,0,45,0" concept="9" trace="instances#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;)Ljava/util/Collection;" />
-      <node id="1206063267399" at="54,0,61,0" concept="9" trace="execute#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;)V" />
-      <node id="1206063267399" at="62,0,69,0" concept="9" trace="isApplicable#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;)Z" />
-      <scope id="1206063267399" at="46,38,46,38" />
-      <scope id="1206063267399" at="25,37,26,146" />
-      <scope id="1206063267399" at="30,35,31,28" />
-      <scope id="1206063267399" at="35,35,36,17" />
-      <scope id="1206063267399" at="40,37,41,105" />
-      <scope id="1206063267401" at="50,87,51,32" />
-      <scope id="1206063267399" at="64,55,65,21" />
-      <scope id="1206063393365" at="70,93,71,105" />
-      <scope id="1206063267399" at="76,48,77,43" />
-      <scope id="1206063267399" at="46,0,48,0" />
-      <scope id="1206063267399" at="25,0,28,0" />
-      <scope id="1206063267399" at="70,0,73,0">
+      <node id="1206063267399" at="21,0,22,0" concept="6" trace="myCachedExecutable" />
+      <node id="1206063267399" at="23,37,24,146" concept="16" />
+      <node id="1206063267399" at="28,35,29,28" concept="11" />
+      <node id="1206063267399" at="33,35,34,17" concept="11" />
+      <node id="1206063267399" at="38,37,39,105" concept="5" />
+      <node id="1206063267399" at="40,5,41,30" concept="11" />
+      <node id="1206063377737" at="48,87,49,32" concept="11" />
+      <node id="1206063419140" at="53,78,54,78" concept="5" />
+      <node id="1206063267399" at="58,86,59,18" concept="11" />
+      <node id="1206063267399" at="65,48,66,43" concept="11" />
+      <node id="1206063267399" at="72,0,73,0" concept="14" trace="elsifClauses$EVJW" />
+      <node id="1206063267399" at="44,0,46,0" concept="2" trace="IntentionImplementation#()V" />
+      <node id="1206063267399" at="23,0,26,0" concept="2" trace="AddElsifClause_Intention#()V" />
+      <node id="1206063267399" at="37,99,40,5" concept="8" />
+      <node id="1206063267399" at="27,0,31,0" concept="9" trace="getPresentation#()Ljava/lang/String;" />
+      <node id="1206063267399" at="32,0,36,0" concept="9" trace="isSurroundWith#()Z" />
+      <node id="1206063267399" at="47,0,51,0" concept="9" trace="getDescription#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;)Ljava/lang/String;" />
+      <node id="1206063267399" at="52,0,56,0" concept="9" trace="execute#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;)V" />
+      <node id="1206063267399" at="57,0,61,0" concept="9" trace="isApplicable#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;)Z" />
+      <node id="1206063267399" at="64,0,68,0" concept="9" trace="getDescriptor#()Ljetbrains/mps/openapi/intentions/IntentionDescriptor;" />
+      <node id="1206063267399" at="37,0,43,0" concept="9" trace="instances#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;)Ljava/util/Collection;" />
+      <scope id="1206063267399" at="44,38,44,38" />
+      <scope id="1206063267399" at="23,37,24,146" />
+      <scope id="1206063267399" at="28,35,29,28" />
+      <scope id="1206063267399" at="33,35,34,17" />
+      <scope id="1206063267399" at="38,37,39,105" />
+      <scope id="1206063267401" at="48,87,49,32" />
+      <scope id="1206063267403" at="53,78,54,78" />
+      <scope id="1206063267399" at="58,86,59,18" />
+      <scope id="1206063267399" at="65,48,66,43" />
+      <scope id="1206063267399" at="44,0,46,0" />
+      <scope id="1206063267399" at="23,0,26,0" />
+      <scope id="1206063267399" at="27,0,31,0" />
+      <scope id="1206063267399" at="32,0,36,0" />
+      <scope id="1206063267399" at="37,99,41,30" />
+      <scope id="1206063267399" at="47,0,51,0">
         <var name="editorContext" id="1206063267399" />
         <var name="node" id="1206063267399" />
       </scope>
-      <scope id="1206063267399" at="29,0,33,0" />
-      <scope id="1206063267399" at="34,0,38,0" />
-      <scope id="1206063267399" at="39,99,43,30" />
-      <scope id="1206063267399" at="49,0,53,0">
+      <scope id="1206063267399" at="52,0,56,0">
         <var name="editorContext" id="1206063267399" />
         <var name="node" id="1206063267399" />
       </scope>
-      <scope id="1206063267403" at="55,78,59,76">
-        <var name="ifFalse" id="1231779257579" />
+      <scope id="1206063267399" at="57,0,61,0">
+        <var name="editorContext" id="1206063267399" />
+        <var name="node" id="1206063267399" />
       </scope>
-      <scope id="1206063267399" at="63,86,67,18" />
-      <scope id="1206063267399" at="75,0,79,0" />
-      <scope id="1206063267399" at="39,0,45,0">
+      <scope id="1206063267399" at="64,0,68,0" />
+      <scope id="1206063267399" at="37,0,43,0">
         <var name="context" id="1206063267399" />
         <var name="node" id="1206063267399" />
       </scope>
-      <scope id="1206063267399" at="54,0,61,0">
-        <var name="editorContext" id="1206063267399" />
-        <var name="node" id="1206063267399" />
-      </scope>
-      <scope id="1206063267399" at="62,0,69,0">
-        <var name="editorContext" id="1206063267399" />
-        <var name="node" id="1206063267399" />
-      </scope>
-      <unit id="1206063267399" at="82,0,86,0" name="jetbrains.mps.baseLanguage.intentions.AddElsifClause_Intention$LINKS" />
-      <unit id="1206063267399" at="45,0,81,0" name="jetbrains.mps.baseLanguage.intentions.AddElsifClause_Intention$IntentionImplementation" />
-      <unit id="1206063267399" at="22,0,87,0" name="jetbrains.mps.baseLanguage.intentions.AddElsifClause_Intention" />
+      <unit id="1206063267399" at="71,0,74,0" name="jetbrains.mps.baseLanguage.intentions.AddElsifClause_Intention$LINKS" />
+      <unit id="1206063267399" at="43,0,70,0" name="jetbrains.mps.baseLanguage.intentions.AddElsifClause_Intention$IntentionImplementation" />
+      <unit id="1206063267399" at="20,0,75,0" name="jetbrains.mps.baseLanguage.intentions.AddElsifClause_Intention" />
     </file>
     <file name="IntentionsDescriptor.java">
       <node id="1206063267399" at="255,60,256,57" concept="5" />
