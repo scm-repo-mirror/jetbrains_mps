@@ -20,7 +20,6 @@ import jetbrains.mps.lang.migration.runtime.base.MigrationScript;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Set;
-import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 
 @GeneratedClass(nodeId = "1520098040411268050", model = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)")
@@ -128,11 +127,6 @@ import org.jetbrains.mps.openapi.module.SModuleReference;
     @Override
     public void refreshScriptInstances(Project mpsProject) {
       myScript = MigrationScriptReference.resolve(mpsProject.getComponent(LanguageRegistry.class), scriptReference());
-      Sequence.fromIterable(asLegacy()).visitAll(new _FunctionTypes._void_P1_E0<ScriptApplied>() {
-        public void invoke(ScriptApplied it) {
-          it.updateScriptInstance(myScript);
-        }
-      });
     }
 
   }

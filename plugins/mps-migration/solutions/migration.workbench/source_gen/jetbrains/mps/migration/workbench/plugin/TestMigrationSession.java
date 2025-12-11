@@ -12,11 +12,12 @@ import jetbrains.mps.ide.migration.ScriptApplied;
 import jetbrains.mps.ide.migration.MigrationChecker;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import org.jetbrains.mps.openapi.util.Processor;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
-import org.jetbrains.mps.openapi.module.SModule;
-import org.jetbrains.mps.openapi.module.SRepository;
+import jetbrains.mps.ide.migration.AppliedScript;
+import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.util.Pair;
+import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.errors.item.IssueKindReportItem;
+import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import org.jetbrains.mps.openapi.model.SReference;
 import org.jetbrains.mps.openapi.module.SearchScope;
 import jetbrains.mps.lang.smodel.query.runtime.CommandUtil;
@@ -29,11 +30,11 @@ import jetbrains.mps.lang.migration.runtime.base.Problem;
 import jetbrains.mps.ide.migration.MigrationExecutor;
 import jetbrains.mps.migration.global.CleanupProjectMigration;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScript;
-import jetbrains.mps.ide.migration.AppliedScript;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.ide.migration.MigrationSetup;
 import java.util.Collection;
+import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptBase;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
@@ -51,14 +52,12 @@ import jetbrains.mps.migration.global.MigrationOptions;
   private final List<ProjectMigration> passedP = ListSequence.fromList(new ArrayList<ProjectMigration>());
   private final List<ScriptApplied> passedM = ListSequence.fromList(new ArrayList<ScriptApplied>());
   private final MigrationChecker myChecker = new MigrationChecker() {
-    public void checkMigrations(ProgressMonitor m, Processor<ScriptApplied> processor) {
+    @Override
+    public void checkMigrations(ProgressMonitor m, Processor<AppliedScript> processor) {
       if (mySettings.preError != 2) {
         return;
       }
-      final Wrappers._T<SModule> module = new Wrappers._T<SModule>();
-      final SRepository repo = myProject.getRepository();
-      repo.getModelAccess().runReadAction(() -> module.value = repo.getModules().iterator().next());
-      processor.process(new ScriptApplied(module.value, ListSequence.fromList(getModuleMig()).first()));
+      processor.process(CollectionSequence.fromCollection(getModuleMigrations()).first());
     }
     public void checkLibs(ProgressMonitor m, Processor<Pair<SModule, SModule>> processor) {
       // todo

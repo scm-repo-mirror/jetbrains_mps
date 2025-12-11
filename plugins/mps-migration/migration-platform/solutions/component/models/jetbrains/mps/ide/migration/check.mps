@@ -273,11 +273,6 @@
           <ref role="3uigEE" to="6f4m:2RG318eWpZ8" resolve="MigrationScriptReference" />
         </node>
       </node>
-      <node concept="312cEg" id="6Z8qT6OVnWy" role="jymVt">
-        <property role="TrG5h" value="myUsedVersion" />
-        <node concept="3Tm6S6" id="6Z8qT6OVnWz" role="1B3o_S" />
-        <node concept="10Oyi0" id="6Z8qT6OVo49" role="1tU5fm" />
-      </node>
       <node concept="2tJIrI" id="2htE_P_SIXq" role="jymVt" />
       <node concept="3clFbW" id="2htE_P_SIXr" role="jymVt">
         <node concept="37vLTG" id="6dYNaa8mCer" role="3clF46">
@@ -287,7 +282,7 @@
           </node>
         </node>
         <node concept="37vLTG" id="6Z8qT6OVmHV" role="3clF46">
-          <property role="TrG5h" value="usedVersion" />
+          <property role="TrG5h" value="ignored" />
           <node concept="10Oyi0" id="6Z8qT6OVmJF" role="1tU5fm" />
         </node>
         <node concept="3cqZAl" id="2htE_P_SIXs" role="3clF45" />
@@ -316,16 +311,6 @@
               </node>
               <node concept="37vLTw" id="6Z8qT6OV1S5" role="37vLTJ">
                 <ref role="3cqZAo" node="6Z8qT6OV1yX" resolve="myScriptReference" />
-              </node>
-            </node>
-          </node>
-          <node concept="3clFbF" id="6I45OGz04p7" role="3cqZAp">
-            <node concept="37vLTI" id="6I45OGz05iO" role="3clFbG">
-              <node concept="37vLTw" id="6I45OGz05F8" role="37vLTx">
-                <ref role="3cqZAo" node="6Z8qT6OVmHV" resolve="usedVersion" />
-              </node>
-              <node concept="37vLTw" id="6I45OGz04p5" role="37vLTJ">
-                <ref role="3cqZAo" node="6Z8qT6OVnWy" resolve="myUsedVersion" />
               </node>
             </node>
           </node>
@@ -358,7 +343,7 @@
           <node concept="3cpWs6" id="2htE_P_SIXI" role="3cqZAp">
             <node concept="2OqwBi" id="6I45OGz0qn1" role="3cqZAk">
               <node concept="Xl_RD" id="6I45OGz0i4$" role="2Oq$k0">
-                <property role="Xl_RC" value="The language %s  does not provide migration from version %d. Some modules use this language with version %d  while current version is %d." />
+                <property role="Xl_RC" value="The language %s does not provide migration from version %d. There are modules using some old version this language while current version is %d." />
               </node>
               <node concept="2cAKMz" id="6I45OGz0qNx" role="2OqNvi">
                 <node concept="2OqwBi" id="1UfEnA_FyU$" role="2cAKU6">
@@ -376,9 +361,6 @@
                   <node concept="liA8E" id="6Z8qT6OVjWI" role="2OqNvi">
                     <ref role="37wK5l" to="6f4m:2RG318eWpZE" resolve="getFromVersion" />
                   </node>
-                </node>
-                <node concept="37vLTw" id="6I45OGz0xBP" role="2cAKU6">
-                  <ref role="3cqZAo" node="6Z8qT6OVnWy" resolve="myUsedVersion" />
                 </node>
                 <node concept="2OqwBi" id="6Z8qT6OVpTI" role="2cAKU6">
                   <node concept="liA8E" id="6Z8qT6OVpTJ" role="2OqNvi">
@@ -412,11 +394,6 @@
           <ref role="3uigEE" to="6f4m:4uVwhQyPurf" resolve="RefactoringScriptReference" />
         </node>
       </node>
-      <node concept="312cEg" id="6Z8qT6OW_4K" role="jymVt">
-        <property role="TrG5h" value="myUsedVersion" />
-        <node concept="3Tm6S6" id="6Z8qT6OW_4L" role="1B3o_S" />
-        <node concept="10Oyi0" id="6Z8qT6OW_4M" role="1tU5fm" />
-      </node>
       <node concept="2tJIrI" id="6Z8qT6OW_4N" role="jymVt" />
       <node concept="3clFbW" id="6Z8qT6OW_4O" role="jymVt">
         <node concept="37vLTG" id="6Z8qT6OW_4P" role="3clF46">
@@ -426,7 +403,7 @@
           </node>
         </node>
         <node concept="37vLTG" id="6Z8qT6OW_4R" role="3clF46">
-          <property role="TrG5h" value="usedVersion" />
+          <property role="TrG5h" value="ignored" />
           <node concept="10Oyi0" id="6Z8qT6OW_4S" role="1tU5fm" />
         </node>
         <node concept="3cqZAl" id="6Z8qT6OW_4T" role="3clF45" />
@@ -453,16 +430,6 @@
               </node>
             </node>
           </node>
-          <node concept="3clFbF" id="4EpASiE69aL" role="3cqZAp">
-            <node concept="37vLTI" id="4EpASiE6a9A" role="3clFbG">
-              <node concept="37vLTw" id="4EpASiE6akw" role="37vLTx">
-                <ref role="3cqZAo" node="6Z8qT6OW_4R" resolve="usedVersion" />
-              </node>
-              <node concept="37vLTw" id="4EpASiE69aJ" role="37vLTJ">
-                <ref role="3cqZAo" node="6Z8qT6OW_4K" resolve="myUsedVersion" />
-              </node>
-            </node>
-          </node>
         </node>
       </node>
       <node concept="3clFb_" id="6Z8qT6OW_56" role="jymVt">
@@ -476,7 +443,7 @@
           <node concept="3cpWs6" id="6Z8qT6OW_5O" role="3cqZAp">
             <node concept="2OqwBi" id="6I45OGz0KvY" role="3cqZAk">
               <node concept="Xl_RD" id="6I45OGz0Bjd" role="2Oq$k0">
-                <property role="Xl_RC" value="The module %s does not provide refactoring log for version %d. Some modules use this module with version %d while current version is %d." />
+                <property role="Xl_RC" value="The module %s, current version %d, does not provide refactoring log for version %d. There are uses of an old version of the module." />
               </node>
               <node concept="2cAKMz" id="6I45OGz0KW5" role="2OqNvi">
                 <node concept="2OqwBi" id="6Z8qT6OW_5v" role="2cAKU6">
@@ -492,23 +459,20 @@
                     <ref role="37wK5l" to="lui2:~SModuleReference.getModuleName()" resolve="getModuleName" />
                   </node>
                 </node>
-                <node concept="2OqwBi" id="6Z8qT6OW_5_" role="2cAKU6">
-                  <node concept="37vLTw" id="6Z8qT6OW_5A" role="2Oq$k0">
-                    <ref role="3cqZAo" node="6Z8qT6OW_4H" resolve="myScriptReference" />
-                  </node>
-                  <node concept="liA8E" id="6Z8qT6OW_5B" role="2OqNvi">
-                    <ref role="37wK5l" to="6f4m:4uVwhQyPurL" resolve="getFromVersion" />
-                  </node>
-                </node>
-                <node concept="37vLTw" id="6I45OGz0POG" role="2cAKU6">
-                  <ref role="3cqZAo" node="6Z8qT6OW_4K" resolve="myUsedVersion" />
-                </node>
                 <node concept="2OqwBi" id="6I45OGz1s5y" role="2cAKU6">
                   <node concept="37vLTw" id="6I45OGz1ruu" role="2Oq$k0">
                     <ref role="3cqZAo" node="6Z8qT6OW_4H" resolve="myScriptReference" />
                   </node>
                   <node concept="liA8E" id="6I45OGz1sCX" role="2OqNvi">
                     <ref role="37wK5l" to="6f4m:6I45OGz1i6$" resolve="getModuleActualVersion" />
+                  </node>
+                </node>
+                <node concept="2OqwBi" id="6Z8qT6OW_5_" role="2cAKU6">
+                  <node concept="37vLTw" id="6Z8qT6OW_5A" role="2Oq$k0">
+                    <ref role="3cqZAo" node="6Z8qT6OW_4H" resolve="myScriptReference" />
+                  </node>
+                  <node concept="liA8E" id="6Z8qT6OW_5B" role="2OqNvi">
+                    <ref role="37wK5l" to="6f4m:4uVwhQyPurL" resolve="getFromVersion" />
                   </node>
                 </node>
               </node>

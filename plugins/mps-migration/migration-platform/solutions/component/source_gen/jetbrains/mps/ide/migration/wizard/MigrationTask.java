@@ -11,7 +11,7 @@ import com.intellij.openapi.application.ApplicationManager;
 import org.jetbrains.mps.openapi.util.SubProgressKind;
 import jetbrains.mps.util.Status;
 import java.util.List;
-import jetbrains.mps.ide.migration.ScriptApplied;
+import jetbrains.mps.ide.migration.AppliedScript;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.Map;
 import org.jetbrains.mps.openapi.module.SModule;
@@ -35,11 +35,11 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicBoolean;
 import jetbrains.mps.classloading.ClassLoaderManager;
 import java.util.ArrayList;
-import org.jetbrains.mps.openapi.util.Processor;
 import java.util.HashMap;
 import jetbrains.mps.util.Pair;
 import jetbrains.mps.errors.item.IssueKindReportItem;
 import jetbrains.mps.project.AbstractModule;
+import org.jetbrains.mps.openapi.util.Processor;
 import jetbrains.mps.lang.migration.runtime.base.Problem;
 import jetbrains.mps.migration.global.ProjectMigration;
 import jetbrains.mps.migration.global.CleanupProjectMigration;
@@ -128,9 +128,9 @@ public class MigrationTask {
     }
 
     if (checkAndIncStage(2)) {
-      List<ScriptApplied> missingMigrations = findMissingMigrations(monitor.subTask(5, SubProgressKind.REPLACING));
+      List<AppliedScript> missingMigrations = findMissingMigrations(monitor.subTask(5, SubProgressKind.REPLACING));
       if (ListSequence.fromList(missingMigrations).isNotEmpty()) {
-        throw new MigrationsMissingError(missingMigrations, mySession.getProject().getRepository());
+        throw new MigrationsMissingError(missingMigrations);
       }
     }
 
@@ -308,13 +308,11 @@ public class MigrationTask {
     return result.get();
   }
 
-  private List<ScriptApplied> findMissingMigrations(ProgressMonitor m) {
-    final List<ScriptApplied> res = ListSequence.fromList(new ArrayList<ScriptApplied>());
-    mySession.getChecker().checkMigrations(m, new Processor<ScriptApplied>() {
-      public boolean process(ScriptApplied sa) {
-        ListSequence.fromList(res).addElement(sa);
-        return true;
-      }
+  private List<AppliedScript> findMissingMigrations(ProgressMonitor m) {
+    final List<AppliedScript> res = ListSequence.fromList(new ArrayList<>());
+    mySession.getChecker().checkMigrations(m, (it) -> {
+      ListSequence.fromList(res).addElement(it);
+      return true;
     });
     return res;
   }

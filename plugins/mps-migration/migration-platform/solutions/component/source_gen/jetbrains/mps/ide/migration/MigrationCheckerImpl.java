@@ -8,11 +8,10 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import org.jetbrains.mps.openapi.util.Processor;
 import java.util.Collection;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
-import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
-import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.util.Pair;
 import org.jetbrains.mps.openapi.module.SModule;
 import java.util.List;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.migration.runtime.base.MigrationModuleUtil;
 import java.util.HashSet;
 import jetbrains.mps.project.dependency.GlobalModuleDependenciesManager;
@@ -37,6 +36,7 @@ import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import jetbrains.mps.progress.ProgressMonitorDecorator;
 import jetbrains.mps.lang.migration.runtime.base.Problem;
+import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
@@ -58,22 +58,14 @@ public class MigrationCheckerImpl implements MigrationChecker {
   }
 
   @Override
-  public void checkMigrations(ProgressMonitor m, final Processor<ScriptApplied> processor) {
+  public void checkMigrations(ProgressMonitor m, Processor<AppliedScript> processor) {
     m.start("Checking migrations consistency...", 1);
-    myProject.getRepository().getModelAccess().runReadAction(() -> {
-      // FIXME do I need model read here. not for AppliedScript, but for Processor, perhaps?
-      Collection<AppliedScript> scripts = myManager.getModuleMigrations();
-      Iterable<ScriptApplied> problems = CollectionSequence.fromCollection(scripts).where((it) -> !(it.scriptPresent())).translate(new _FunctionTypes._return_P1_E0<Iterable<ScriptApplied>, AppliedScript>() {
-        public Iterable<ScriptApplied> invoke(AppliedScript this0) {
-          return this0.asLegacy();
-        }
-      });
-      for (ScriptApplied problem : Sequence.fromIterable(problems)) {
-        if (!(processor.process(problem))) {
-          break;
-        }
+    Collection<AppliedScript> scripts = myManager.getModuleMigrations();
+    for (AppliedScript problem : CollectionSequence.fromCollection(scripts).where((it) -> !(it.scriptPresent()))) {
+      if (!(processor.process(problem))) {
+        break;
       }
-    });
+    }
     m.done();
   }
   @Override

@@ -20,30 +20,26 @@ public abstract class MissingMigrationProblem extends Problem<SModuleReference> 
 
   public static class MissingMigrationScriptProblem extends MissingMigrationProblem {
     private MigrationScriptReference myScriptReference;
-    private int myUsedVersion;
 
-    public MissingMigrationScriptProblem(MigrationScriptReference migration, int usedVersion) {
+    public MissingMigrationScriptProblem(MigrationScriptReference migration, int ignored) {
       super(migration.getLanguage().getSourceModuleReference());
       myScriptReference = migration;
-      myUsedVersion = usedVersion;
     }
     public String getMessage() {
       SLanguage l = myScriptReference.getLanguage();
-      return String.format("The language %s  does not provide migration from version %d. Some modules use this language with version %d  while current version is %d.", l.getQualifiedName(), myScriptReference.getFromVersion(), myUsedVersion, l.getLanguageVersion());
+      return String.format("The language %s does not provide migration from version %d. There are modules using some old version this language while current version is %d.", l.getQualifiedName(), myScriptReference.getFromVersion(), l.getLanguageVersion());
     }
   }
 
   public static class MissingRefactoringLogProblem extends MissingMigrationProblem {
     private RefactoringScriptReference myScriptReference;
-    private int myUsedVersion;
 
-    public MissingRefactoringLogProblem(RefactoringScriptReference migration, int usedVersion) {
+    public MissingRefactoringLogProblem(RefactoringScriptReference migration, int ignored) {
       super(migration.getModuleReference());
       myScriptReference = migration;
-      myUsedVersion = usedVersion;
     }
     public String getMessage() {
-      return String.format("The module %s does not provide refactoring log for version %d. Some modules use this module with version %d while current version is %d.", myScriptReference.getModuleReference().getModuleName(), myScriptReference.getFromVersion(), myUsedVersion, myScriptReference.getModuleActualVersion());
+      return String.format("The module %s, current version %d, does not provide refactoring log for version %d. There are uses of an old version of the module.", myScriptReference.getModuleReference().getModuleName(), myScriptReference.getModuleActualVersion(), myScriptReference.getFromVersion());
     }
   }
 

@@ -6517,7 +6517,7 @@
                 <node concept="3uibUv" id="4biA4YBv2d_" role="1tU5fm">
                   <ref role="3uigEE" to="yyf4:~Processor" resolve="Processor" />
                   <node concept="3uibUv" id="4biA4YBv2dA" role="11_B2D">
-                    <ref role="3uigEE" to="bim2:6fMyXCHDaRA" resolve="ScriptApplied" />
+                    <ref role="3uigEE" to="bim2:3xQJezs$iyQ" resolve="AppliedScript" />
                   </node>
                 </node>
               </node>
@@ -6542,65 +6542,6 @@
                     </node>
                   </node>
                 </node>
-                <node concept="3cpWs8" id="4biA4YBv2dM" role="3cqZAp">
-                  <node concept="3cpWsn" id="4biA4YBv2dN" role="3cpWs9">
-                    <property role="TrG5h" value="module" />
-                    <node concept="3uibUv" id="4biA4YBv2dO" role="1tU5fm">
-                      <ref role="3uigEE" to="lui2:~SModule" resolve="SModule" />
-                    </node>
-                  </node>
-                </node>
-                <node concept="3cpWs8" id="7q5dBpSbYXq" role="3cqZAp">
-                  <node concept="3cpWsn" id="7q5dBpSbYXr" role="3cpWs9">
-                    <property role="TrG5h" value="repo" />
-                    <property role="3TUv4t" value="true" />
-                    <node concept="3uibUv" id="7q5dBpSbYXn" role="1tU5fm">
-                      <ref role="3uigEE" to="lui2:~SRepository" resolve="SRepository" />
-                    </node>
-                    <node concept="2OqwBi" id="7q5dBpSbYXs" role="33vP2m">
-                      <node concept="37vLTw" id="7q5dBpSbYXt" role="2Oq$k0">
-                        <ref role="3cqZAo" node="5pUhUVGMybv" resolve="myProject" />
-                      </node>
-                      <node concept="liA8E" id="7q5dBpSbYXu" role="2OqNvi">
-                        <ref role="37wK5l" to="z1c4:~Project.getRepository()" resolve="getRepository" />
-                      </node>
-                    </node>
-                  </node>
-                </node>
-                <node concept="1QHqEK" id="4biA4YBv2dP" role="3cqZAp">
-                  <node concept="1QHqEC" id="4biA4YBv2dQ" role="1QHqEI">
-                    <node concept="3clFbS" id="4biA4YBv2dR" role="1bW5cS">
-                      <node concept="3clFbF" id="4biA4YBv2dS" role="3cqZAp">
-                        <node concept="37vLTI" id="4biA4YBv2dT" role="3clFbG">
-                          <node concept="2OqwBi" id="4biA4YBv2dU" role="37vLTx">
-                            <node concept="2OqwBi" id="4biA4YBv2dV" role="2Oq$k0">
-                              <node concept="2OqwBi" id="4biA4YBv2dW" role="2Oq$k0">
-                                <node concept="37vLTw" id="7q5dBpSbZWd" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="7q5dBpSbYXr" resolve="repo" />
-                                </node>
-                                <node concept="liA8E" id="4biA4YBv2dY" role="2OqNvi">
-                                  <ref role="37wK5l" to="lui2:~SRepository.getModules()" resolve="getModules" />
-                                </node>
-                              </node>
-                              <node concept="liA8E" id="4biA4YBv2dZ" role="2OqNvi">
-                                <ref role="37wK5l" to="wyt6:~Iterable.iterator()" resolve="iterator" />
-                              </node>
-                            </node>
-                            <node concept="liA8E" id="4biA4YBv2e0" role="2OqNvi">
-                              <ref role="37wK5l" to="33ny:~Iterator.next()" resolve="next" />
-                            </node>
-                          </node>
-                          <node concept="37vLTw" id="4biA4YBv2e1" role="37vLTJ">
-                            <ref role="3cqZAo" node="4biA4YBv2dN" resolve="module" />
-                          </node>
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                  <node concept="37vLTw" id="7q5dBpSbYXv" role="ukAjM">
-                    <ref role="3cqZAo" node="7q5dBpSbYXr" resolve="repo" />
-                  </node>
-                </node>
                 <node concept="3clFbF" id="4biA4YBv2e2" role="3cqZAp">
                   <node concept="2OqwBi" id="4biA4YBv2e3" role="3clFbG">
                     <node concept="37vLTw" id="4biA4YBv2e4" role="2Oq$k0">
@@ -6608,23 +6549,18 @@
                     </node>
                     <node concept="liA8E" id="4biA4YBv2e5" role="2OqNvi">
                       <ref role="37wK5l" to="yyf4:~Processor.process(java.lang.Object)" resolve="process" />
-                      <node concept="2ShNRf" id="4biA4YBv2e6" role="37wK5m">
-                        <node concept="1pGfFk" id="4biA4YBv2e7" role="2ShVmc">
-                          <ref role="37wK5l" to="bim2:3xQJezt_h0_" resolve="ScriptApplied" />
-                          <node concept="37vLTw" id="4biA4YBv2e8" role="37wK5m">
-                            <ref role="3cqZAo" node="4biA4YBv2dN" resolve="module" />
-                          </node>
-                          <node concept="2OqwBi" id="4biA4YBv2ea" role="37wK5m">
-                            <node concept="1uHKPH" id="3xQJeztAAUo" role="2OqNvi" />
-                            <node concept="1rXfSq" id="4WgzjbQVCql" role="2Oq$k0">
-                              <ref role="37wK5l" node="5waAvQsY$OP" resolve="getModuleMig" />
-                            </node>
-                          </node>
+                      <node concept="2OqwBi" id="3sU4a6ar_Vh" role="37wK5m">
+                        <node concept="1rXfSq" id="3sU4a6arx6O" role="2Oq$k0">
+                          <ref role="37wK5l" node="4WgzjbQSS$q" resolve="getModuleMigrations" />
                         </node>
+                        <node concept="1uHKPH" id="3sU4a6arEes" role="2OqNvi" />
                       </node>
                     </node>
                   </node>
                 </node>
+              </node>
+              <node concept="2AHcQZ" id="3sU4a6anPvf" role="2AJF6D">
+                <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
               </node>
             </node>
             <node concept="3clFb_" id="4biA4YBv2eg" role="jymVt">
