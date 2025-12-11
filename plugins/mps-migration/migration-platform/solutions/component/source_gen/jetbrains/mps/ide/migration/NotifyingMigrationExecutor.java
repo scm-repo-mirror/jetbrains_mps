@@ -4,34 +4,50 @@ package jetbrains.mps.ide.migration;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.project.Project;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.migration.global.ProjectMigration;
-import jetbrains.mps.smodel.structure.ExtensionPoint;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.migration.global.CleanupProjectMigration;
+import jetbrains.mps.smodel.structure.ExtensionPoint;
 
 @GeneratedClass(nodeId = "7423808107305764555", model = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)")
-public class NotifyingMigrationExecutor extends MigrationExecutorImpl {
-  public NotifyingMigrationExecutor(final Project project) {
-    super(project);
+public class NotifyingMigrationExecutor implements MigrationExecutor {
+  private final Project myProject;
+  private final MigrationExecutor myDelegate;
+
+  public NotifyingMigrationExecutor(@NotNull Project project, @NotNull MigrationExecutor delegate) {
+    myDelegate = delegate;
+    myProject = project;
   }
 
   @Override
   public void execute(final ProjectMigration pm) {
-    Iterable<MigrationListener> seq = new ExtensionPoint<MigrationListener>("jetbrains.mps.migration.listener.MigrationListenerEP").getObjects();
+    Iterable<MigrationListener> seq = listeners();
     Sequence.fromIterable(seq).visitAll((it) -> it.projectMigrationStarted(pm, myProject));
     try {
-      super.execute(pm);
+      myDelegate.execute(pm);
     } finally {
       Sequence.fromIterable(seq).visitAll((it) -> it.projectMigrationEnded(pm, myProject));
     }
   }
+
+  @Override
+  public void execute(CleanupProjectMigration pm) {
+    this.execute((ProjectMigration) pm);
+  }
+
   @Override
   public void execute(final ScriptApplied s) {
-    Iterable<MigrationListener> seq = new ExtensionPoint<MigrationListener>("jetbrains.mps.migration.listener.MigrationListenerEP").getObjects();
+    Iterable<MigrationListener> seq = listeners();
     Sequence.fromIterable(seq).visitAll((it) -> it.migrationScriptStarted(s.getScriptInstance(), s.getModule(myProject.getRepository()), myProject));
     try {
-      super.execute(s);
+      myDelegate.execute(s);
     } finally {
       Sequence.fromIterable(seq).visitAll((it) -> it.migrationScriptEnded(s.getScriptInstance(), s.getModule(myProject.getRepository()), myProject));
     }
+  }
+
+  protected Iterable<MigrationListener> listeners() {
+    return new ExtensionPoint<MigrationListener>("jetbrains.mps.migration.listener.MigrationListenerEP").getObjects();
   }
 }

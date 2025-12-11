@@ -29,28 +29,28 @@ public class AntTaskExecutionUtil {
     // FWIW, MigrationWorker starts this in EDT
     final AtomicReference<Boolean> rv = new AtomicReference<>(null);
 
-    MigrationExecutorImpl tracingExecutor = new NotifyingMigrationExecutor(project) {
+    final NotifyingMigrationExecutor ex = new NotifyingMigrationExecutor(project, new MigrationExecutorImpl(project));
+    MigrationExecutor tracingExecutor = new MigrationExecutor() {
       @Override
       public void execute(ScriptApplied s) {
         if (LOG.isTraceLevel()) {
           LOG.trace("Apply " + s);
         }
-        super.execute(s);
+        ex.execute(s);
       }
       @Override
       public void execute(ProjectMigration pm) {
         if (LOG.isTraceLevel()) {
           LOG.trace("Apply " + pm);
         }
-        super.execute(pm);
+        ex.execute(pm);
       }
-
       @Override
       public void execute(CleanupProjectMigration pm) {
         if (LOG.isTraceLevel()) {
           LOG.trace("Apply " + pm);
         }
-        super.execute(pm);
+        ex.execute(pm);
       }
     };
 

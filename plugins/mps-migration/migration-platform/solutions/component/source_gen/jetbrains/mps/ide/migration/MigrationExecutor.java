@@ -8,13 +8,7 @@ import jetbrains.mps.migration.global.ProjectMigration;
 
 @GeneratedClass(nodeId = "4815078419490446027", model = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)")
 public interface MigrationExecutor {
-  default void execute(ScriptApplied sa) {
-    // no-op
-  }
-  default void execute(CleanupProjectMigration pm) {
-    // no-op
-  }
-  default void execute(ProjectMigration pm) {
-    // no-op
-  }
+  void execute(ScriptApplied sa);
+  void execute(CleanupProjectMigration pm);
+  void execute(ProjectMigration pm);
 }
