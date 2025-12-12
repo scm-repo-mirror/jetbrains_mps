@@ -62,10 +62,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.setCellId("Collection_m1u4l8_a");
     editorCell.setBig(true);
     setCellContext(editorCell);
-    editorCell.addEditorCell(createHtmlTag_1());
+    editorCell.addEditorCell(createHtmlTag_0());
     return editorCell;
   }
-  private EditorCell createHtmlTag_0(final EditorContext editorContext, final SNode node) {
+  private EditorCell createHtmlTag_0() {
     EditorCell openBracket1 = createConstant_0();
     EditorCell closeBracket1 = createConstant_1();
     EditorCell openBracket2 = createConstant_2();
@@ -75,12 +75,9 @@ import org.jetbrains.mps.openapi.language.SConcept;
     EditorCell_Property openTagCell = (EditorCell_Property) createProperty_0();
     EditorCell_Property closedTagCell = (EditorCell_Property) createProperty_0();
 
-    EditorCell_HtmlTag editorCell = new EditorCell_HtmlTag(editorContext, node, openBracket1, openTagCell, closeBracket1, conetntCell, openBracket2, closedTagCell, closeBracket2);
+    EditorCell_HtmlTag editorCell = new EditorCell_HtmlTag(getEditorContext(), myNode, openBracket1, openTagCell, closeBracket1, conetntCell, openBracket2, closedTagCell, closeBracket2);
     editorCell.setCellId("HtmlTag_m1u4l8_a0");
     return editorCell;
-  }
-  private EditorCell createHtmlTag_1() {
-    return createHtmlTag_0(getEditorContext(), myNode);
   }
   private EditorCell createConstant_0() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "<");

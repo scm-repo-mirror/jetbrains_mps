@@ -26,6 +26,7 @@
   <uses module="d936855b-48da-4812-a8a0-2bfddd633ac5(jetbrains.mps.lang.behavior.api)" kind="rt+dp" />
   <uses module="d936855b-48da-4812-a8a0-2bfddd633ac4(jetbrains.mps.lang.behavior.runtime)" kind="rt" />
   <uses module="ceab5195-25ea-4f22-9b92-103b95ca8c0c(jetbrains.mps.lang.core)" kind="dp" />
+  <uses module="0647eca7-da98-422a-8a8b-6ebc0bd014ea(jetbrains.mps.lang.editor#1129914002149)" kind="dp" />
   <uses module="af52e9df-2136-4ef8-81b2-bec0babe5e4c(jetbrains.mps.lang.editor.tooltips.runtime)" kind="rt+dp" />
   <uses module="9a4afe51-f114-4595-b5df-048ce3c596be(jetbrains.mps.runtime)" kind="rt+dp" />
   <uses module="a8c4631e-640d-42a1-ba26-250ba067c2c2(tooltips.example)" kind="dp" />

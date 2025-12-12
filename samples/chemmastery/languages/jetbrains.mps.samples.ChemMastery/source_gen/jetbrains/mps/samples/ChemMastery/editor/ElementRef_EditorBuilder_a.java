@@ -76,7 +76,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     style.set(StyleAttributes.PUNCTUATION_LEFT, true);
     style.set(StyleAttributes.PUNCTUATION_RIGHT, true);
     editorCell.getStyle().putAll(style);
-    editorCell.addEditorCell(createTooltip_1());
+    editorCell.addEditorCell(createTooltip_0());
     if (nodeCondition_mwjwii_a1a()) {
       editorCell.addEditorCell(createCollection_1());
     }
@@ -85,16 +85,13 @@ import org.jetbrains.mps.openapi.language.SConcept;
   private boolean nodeCondition_mwjwii_a1a() {
     return SPropertyOperations.getBoolean(myNode, PROPS.cardinalityVisible$Vfns);
   }
-  private EditorCell createTooltip_0(final EditorContext editorContext, final SNode node) {
-    LazyTooltipCellEvaluator tooltip = new LazyTooltipCellEvaluator(editorContext, node, "jetbrains.mps.samples.ChemMastery.editor.GeneratedHints.tooltipHint_mwjwii_a0", true);
+  private EditorCell createTooltip_0() {
+    LazyTooltipCellEvaluator tooltip = new LazyTooltipCellEvaluator(getEditorContext(), myNode, "jetbrains.mps.samples.ChemMastery.editor.GeneratedHints.tooltipHint_mwjwii_a0", true);
     EditorCell visibleCell = createRefCell_0();
 
-    TooltipWrapper editorCell = new TooltipWrapper(editorContext, node, visibleCell, tooltip, TooltipTimingProperties.DEFAULT);
+    TooltipWrapper editorCell = new TooltipWrapper(getEditorContext(), myNode, visibleCell, tooltip, TooltipTimingProperties.DEFAULT);
     editorCell.setCellId("Tooltip_mwjwii_a0");
     return editorCell;
-  }
-  private EditorCell createTooltip_1() {
-    return createTooltip_0(getEditorContext(), myNode);
   }
   private EditorCell createRefCell_0() {
     final SReferenceLink referenceLink = LINKS.element$uhEr;

@@ -59,24 +59,21 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.setCellId("Collection_6m31uf_a");
     editorCell.setBig(true);
     setCellContext(editorCell);
-    editorCell.addEditorCell(createTooltip_1());
+    editorCell.addEditorCell(createTooltip_0());
     editorCell.addEditorCell(createConstant_1());
-    editorCell.addEditorCell(createTooltip_3());
+    editorCell.addEditorCell(createTooltip_1());
     editorCell.addEditorCell(createConstant_3());
     editorCell.addEditorCell(createCollection_1());
     editorCell.addEditorCell(createConstant_7());
     return editorCell;
   }
-  private EditorCell createTooltip_0(final EditorContext editorContext, final SNode node) {
-    LazyTooltipCellEvaluator tooltip = new LazyTooltipCellEvaluator(editorContext, node, "tooltips.example.editor.GeneratedHints.tooltipHint_6m31uf_a0", true);
+  private EditorCell createTooltip_0() {
+    LazyTooltipCellEvaluator tooltip = new LazyTooltipCellEvaluator(getEditorContext(), myNode, "tooltips.example.editor.GeneratedHints.tooltipHint_6m31uf_a0", true);
     EditorCell visibleCell = createConstant_0();
 
-    TooltipWrapper editorCell = new TooltipWrapper(editorContext, node, visibleCell, tooltip, TooltipTimingProperties.DEFAULT);
+    TooltipWrapper editorCell = new TooltipWrapper(getEditorContext(), myNode, visibleCell, tooltip, TooltipTimingProperties.DEFAULT);
     editorCell.setCellId("Tooltip_6m31uf_a0");
     return editorCell;
-  }
-  private EditorCell createTooltip_1() {
-    return createTooltip_0(getEditorContext(), myNode);
   }
   private EditorCell createConstant_0() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "hover to see a tooltip");
@@ -90,16 +87,13 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.setDefaultText("");
     return editorCell;
   }
-  private EditorCell createTooltip_2(final EditorContext editorContext, final SNode node) {
-    LazyTooltipCellEvaluator tooltip = new LazyTooltipCellEvaluator(editorContext, node, "tooltips.example.editor.GeneratedHints.tooltipHint_6m31uf_c0", true);
+  private EditorCell createTooltip_1() {
+    LazyTooltipCellEvaluator tooltip = new LazyTooltipCellEvaluator(getEditorContext(), myNode, "tooltips.example.editor.GeneratedHints.tooltipHint_6m31uf_c0", true);
     EditorCell visibleCell = createConstant_2();
 
-    TooltipWrapper editorCell = new TooltipWrapper(editorContext, node, visibleCell, tooltip, TooltipTimingProperties.DEFAULT);
+    TooltipWrapper editorCell = new TooltipWrapper(getEditorContext(), myNode, visibleCell, tooltip, TooltipTimingProperties.DEFAULT);
     editorCell.setCellId("Tooltip_6m31uf_c0");
     return editorCell;
-  }
-  private EditorCell createTooltip_3() {
-    return createTooltip_2(getEditorContext(), myNode);
   }
   private EditorCell createConstant_2() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "hold ctrl and move the mouse to highlight the available tooltips");
@@ -122,7 +116,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.addEditorCell(createConstant_4());
     editorCell.addEditorCell(createProperty_0());
     editorCell.addEditorCell(createConstant_5());
-    editorCell.addEditorCell(createTooltip_5());
+    editorCell.addEditorCell(createTooltip_2());
     return editorCell;
   }
   private EditorCell createConstant_4() {
@@ -165,16 +159,13 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.setDefaultText("");
     return editorCell;
   }
-  private EditorCell createTooltip_4(final EditorContext editorContext, final SNode node) {
-    LazyTooltipCellEvaluator tooltip = new LazyTooltipCellEvaluator(editorContext, node, "tooltips.example.editor.GeneratedHints.tooltipHint_6m31uf_d4a", true);
+  private EditorCell createTooltip_2() {
+    LazyTooltipCellEvaluator tooltip = new LazyTooltipCellEvaluator(getEditorContext(), myNode, "tooltips.example.editor.GeneratedHints.tooltipHint_6m31uf_d4a", true);
     EditorCell visibleCell = createConstant_6();
 
-    TooltipWrapper editorCell = new TooltipWrapper(editorContext, node, visibleCell, tooltip, TooltipTimingProperties.DEFAULT);
+    TooltipWrapper editorCell = new TooltipWrapper(getEditorContext(), myNode, visibleCell, tooltip, TooltipTimingProperties.DEFAULT);
     editorCell.setCellId("Tooltip_6m31uf_d4a");
     return editorCell;
-  }
-  private EditorCell createTooltip_5() {
-    return createTooltip_4(getEditorContext(), myNode);
   }
   private EditorCell createConstant_6() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "you can show cells of different kinds in a tooltip");
