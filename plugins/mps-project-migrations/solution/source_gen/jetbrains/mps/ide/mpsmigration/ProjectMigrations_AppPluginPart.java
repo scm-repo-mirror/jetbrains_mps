@@ -6,11 +6,6 @@ import jetbrains.mps.plugins.part.ApplicationPluginPart;
 import java.util.ArrayDeque;
 import jetbrains.mps.migration.global.ProjectMigration;
 import jetbrains.mps.migration.global.ProjectMigrationsRegistry;
-import jetbrains.mps.ide.mpsmigration.v_2017_1.Migrations_2017_1;
-import jetbrains.mps.ide.mpsmigration.v_2017_2.Migrations_2017_2;
-import jetbrains.mps.ide.mpsmigration.v_2018_2.Migrations_2018_2;
-import jetbrains.mps.ide.mpsmigration.v_2019_1.Migrations_2019_1;
-import jetbrains.mps.ide.mpsmigration.v_2019_3.Migrations_2019_3;
 import jetbrains.mps.ide.mpsmigration.v_2021_2.Migrations_2021_2;
 import jetbrains.mps.ide.mpsmigration.v_2021_3.Migrations_2021_3;
 import jetbrains.mps.ide.mpsmigration.v_2022_3.Migrations_2022_3;
@@ -28,11 +23,6 @@ public class ProjectMigrations_AppPluginPart extends ApplicationPluginPart {
     ProjectMigrations_AppPluginPart.this.myRegistry = ProjectMigrationsRegistry.getInstance();
     // block of migrations. In fact, there's no need to use dedicated Migrations_XXX class,
     // it's just the way it used to be when individual AppComponents served as a registration mechanism.
-    new Migrations_2017_1().offerInto(ProjectMigrations_AppPluginPart.this.myMigrations);
-    new Migrations_2017_2().offerInto(ProjectMigrations_AppPluginPart.this.myMigrations);
-    new Migrations_2018_2().offerInto(ProjectMigrations_AppPluginPart.this.myMigrations);
-    new Migrations_2019_1().offerInto(ProjectMigrations_AppPluginPart.this.myMigrations);
-    new Migrations_2019_3().offerInto(ProjectMigrations_AppPluginPart.this.myMigrations);
     new Migrations_2021_2().offerInto(ProjectMigrations_AppPluginPart.this.myMigrations);
     new Migrations_2021_3().offerInto(ProjectMigrations_AppPluginPart.this.myMigrations);
     new Migrations_2022_3().offerInto(ProjectMigrations_AppPluginPart.this.myMigrations);

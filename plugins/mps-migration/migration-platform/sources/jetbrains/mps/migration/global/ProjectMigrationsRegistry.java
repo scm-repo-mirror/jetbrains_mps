@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2025 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,8 +30,8 @@ public class ProjectMigrationsRegistry {
   private static final String MIGRATION_BASELINE_KEY = "project.baseline.version";
   private static final String MIGRATION_APPLIED_KEY = "project.migrated.version";
   private static ProjectMigrationsRegistry ourInstance = new ProjectMigrationsRegistry();
-  // don't expect to see projects older than those coming from MPS 2018.1; 3 years old seems good enough.
-  private static final int defaultBaselineVersionWhenUnspecified = 181;
+  // don't expect to see projects older than those coming from MPS 2021.1; 4 years old seems good enough.
+  private static final int defaultBaselineVersionWhenUnspecified = 211;
 
   public static ProjectMigrationsRegistry getInstance() {
     return ourInstance;

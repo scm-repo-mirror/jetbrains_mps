@@ -562,22 +562,6 @@
           </node>
         </node>
       </node>
-      <node concept="3clFb_" id="5KDKp$lLLjo" role="jymVt">
-        <property role="TrG5h" value="newFactoryMethod" />
-        <node concept="3uibUv" id="5KDKp$lLLjp" role="3clF45">
-          <ref role="3uigEE" to="f4zo:~EditorCell" resolve="EditorCell" />
-        </node>
-        <node concept="3clFbS" id="5KDKp$lLLjq" role="3clF47">
-          <node concept="3cpWs6" id="5KDKp$lLLjr" role="3cqZAp">
-            <node concept="10Nm6u" id="5KDKp$lLLjs" role="3cqZAk" />
-          </node>
-        </node>
-        <node concept="raruj" id="5KDKp$lLLjt" role="lGtFl" />
-        <node concept="5jKBG" id="5KDKp$lLLju" role="lGtFl">
-          <ref role="v9R2y" to="tpc3:2dNBF9rt5kk" resolve="template_cellFactoryCompatibility" />
-        </node>
-        <node concept="3Tm6S6" id="5KDKp$lLLjv" role="1B3o_S" />
-      </node>
       <node concept="3clFb_" id="7XU1fOGpj1R" role="jymVt">
         <property role="TrG5h" value="cellFactory" />
         <node concept="3uibUv" id="7XU1fOGppxQ" role="3clF45">
