@@ -1,27 +1,24 @@
 package jetbrains.mps
 
 import com.intellij.openapi.application.ApplicationInfo
+import com.intellij.openapi.application.InitialConfigImportState
 import com.intellij.platform.whatsNew.ContentSource
 import com.intellij.platform.whatsNew.ResourceContentSource
 import com.intellij.platform.whatsNew.WhatsNewInVisionContentProvider
 import kotlin.jvm.java
 
 class MPSWhatsNewInVisionContentProvider : WhatsNewInVisionContentProvider() {
-      override fun getResourceNameByPath(path: String): String {
-            return "jetbrains/mps/whatsNew/$path"
-          }
+    override val baseResourcePathInClassLoader: String = "jetbrains/mps/whatsNew"
+    override val visionJsonFileNames: List<String> = listOf("vision-in-product-pages-" + ApplicationInfo.getInstance().shortVersion + ".json")
 
-      override fun getResource(resourceName: String): ContentSource =
-            ResourceContentSource(MPSWhatsNewInVisionContentProvider::class.java.classLoader, resourceName)
-
-    override fun getResource(): ContentSource {
+    override suspend fun isAvailable(): Boolean {
         val appInfo = ApplicationInfo.getInstance()
-        // return a vision file for the current version
-        val resourceName = if(appInfo != null
+        if(appInfo != null
             && appInfo.getShortCompanyName() == "JetBrains"
             && appInfo.getFullApplicationName() != null
-            && appInfo.getFullApplicationName().startsWith("JetBrains MPS")) "jetbrains/mps/whatsNew/vision-in-product-pages-" + appInfo.shortVersion + ".json" else ""
-        val resourceContentSource = ResourceContentSource(jetbrains.mps.MPSWhatsNewInVisionContentProvider::class.java.classLoader, resourceName)
-        return resourceContentSource
+            && appInfo.getFullApplicationName().startsWith("JetBrains MPS")) {
+            return super.isAvailable()
+        }
+        return false;
     }
 }
