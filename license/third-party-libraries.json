@@ -157,19 +157,25 @@
 }, {
   "name" : "Compose Multiplatform",
   "url" : "https://github.com/JetBrains/compose-multiplatform",
-  "version" : "1.10.0-alpha01",
+  "version" : "1.10.0-beta01",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://github.com/JetBrains/compose-multiplatform/blob/master/LICENSE.txt"
 }, {
   "name" : "Compose Runtime",
   "url" : "https://source.android.com/",
-  "version" : "1.10.0-alpha02",
+  "version" : "1.10.0-beta01",
+  "license" : "Apache 2.0",
+  "licenseUrl" : "https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:LICENSE.txt"
+}, {
+  "name" : "Compose Runtime Retained",
+  "url" : "https://source.android.com/",
+  "version" : "1.10.0-beta01",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:LICENSE.txt"
 }, {
   "name" : "Compose Runtime Saveable Desktop",
   "url" : "https://source.android.com/",
-  "version" : "1.10.0-alpha02",
+  "version" : "1.10.0-beta01",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:LICENSE.txt"
 }, {
@@ -625,13 +631,13 @@
 }, {
   "name" : "Skiko",
   "url" : "https://github.com/JetBrains/skiko/",
-  "version" : "0.9.24",
+  "version" : "0.9.30",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://github.com/JetBrains/skiko/blob/master/LICENSE"
 }, {
   "name" : "Skiko Runtime",
   "url" : "https://github.com/JetBrains/skiko/",
-  "version" : "0.9.24",
+  "version" : "0.9.30",
   "license" : "Apache 2.0",
   "licenseUrl" : "https://github.com/JetBrains/skiko/blob/master/LICENSE"
 }, {
@@ -847,13 +853,13 @@
 }, {
   "name" : "jediterm-core",
   "url" : "https://github.com/JetBrains/jediterm",
-  "version" : "3.56",
+  "version" : "3.57",
   "license" : "LGPL 3.0",
   "licenseUrl" : "https://github.com/JetBrains/jediterm/blob/master/LICENSE-LGPLv3.txt"
 }, {
   "name" : "jediterm-ui",
   "url" : "https://github.com/JetBrains/jediterm",
-  "version" : "3.56",
+  "version" : "3.57",
   "license" : "LGPL 3.0",
   "licenseUrl" : "https://github.com/JetBrains/jediterm/blob/master/LICENSE-LGPLv3.txt"
 }, {
