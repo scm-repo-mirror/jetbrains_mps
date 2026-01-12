@@ -15,6 +15,8 @@
  */
 package jetbrains.mps.plugins.projectplugins;
 
+import com.intellij.openapi.Disposable;
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.ProjectComponent;
 import com.intellij.openapi.components.State;
@@ -22,12 +24,14 @@ import com.intellij.openapi.components.Storage;
 import com.intellij.openapi.components.StoragePathMacros;
 import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.project.ProjectCloseListener;
 import com.intellij.util.xmlb.annotations.MapAnnotation;
 import jetbrains.mps.ide.editor.MPSFileNodeEditor;
 import jetbrains.mps.ide.editor.NodeEditor;
 import jetbrains.mps.ide.editor.tabs.TabbedEditor;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.tools.BaseTool;
+import jetbrains.mps.ide.util.MPSProjectActivity;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.nodeEditor.highlighter.EditorsHelper;
 import jetbrains.mps.plugins.BasePluginManager;
@@ -48,14 +52,29 @@ import java.util.Map;
 
 /**
  * Is a {@link BasePluginManager} which is responsible for loading project plugins {@link BaseProjectPlugin};
- * Starts listening to the reload events of {@link jetbrains.mps.plugins.PluginReloadingListener} on {@link #projectOpened()}.
+ * Starts listening to the reload events of {@link jetbrains.mps.plugins.PluginReloadingListener} on {@link #runStartupActivity()} ()}.
  * The plugin creation/disposal is triggered from the superclass (#afterPluginsCreated).
  */
 @State(
     name = "ProjectPluginManager",
     storages = @Storage(StoragePathMacros.WORKSPACE_FILE)
 )
-public class ProjectPluginManager extends BasePluginManager<BaseProjectPlugin> implements ProjectComponent, PersistentStateComponent<PluginsState> {
+public class ProjectPluginManager extends BasePluginManager<BaseProjectPlugin> implements PersistentStateComponent<PluginsState>, Disposable {
+
+  public static class Activity extends MPSProjectActivity {
+    @Override
+    public void runActivity(@NotNull Project project) {
+      project.getService(ProjectPluginManager.class).runStartupActivity();
+    }
+  }
+
+  public static class Listener implements ProjectCloseListener {
+    @Override
+    public void projectClosed(@NotNull Project p) {
+      p.getComponent(ProjectPluginManager.class).runShutDownActivity();
+    }
+  }
+
   private static final Logger LOG = Logger.getLogger(ProjectPluginManager.class);
 
   private PluginsState myState = new PluginsState();
@@ -65,6 +84,7 @@ public class ProjectPluginManager extends BasePluginManager<BaseProjectPlugin> i
   // FIXME in 2023.3, we changed tool<> template to use this method instead of project.getComponent(). In few releases from 23.3
   //       can replace ProjectComponent with project service
   public static ProjectPluginManager getInstance(Project ideaProject) {
+    // FIXME avoid calling ComponentManger.getComponent
     return ideaProject.getComponent(ProjectPluginManager.class);
   }
 
@@ -74,19 +94,13 @@ public class ProjectPluginManager extends BasePluginManager<BaseProjectPlugin> i
   }
 
   @Override
-  public void projectOpened() {
-    runStartupActivity();
+  public void dispose() {
   }
 
   private void runStartupActivity() {
     LOG.debug("Running startup activity");
     register();
     LOG.debug("Finished running startup activity");
-  }
-
-  @Override
-  public void projectClosed() {
-    runShutDownActivity();
   }
 
   private void runShutDownActivity() {
