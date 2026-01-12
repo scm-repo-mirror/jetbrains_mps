@@ -143,6 +143,7 @@ public class MPSCoreComponents implements Disposable {
    */
   public static MPSCoreComponents getInstance() {
     // With IDEA's "service" approach, I don't have other option but to follow platform's approach at least for few elements like MPSCoreComponents
+    // FIXME avoid calling ComponentManger.getComponent
     return ApplicationManager.getApplication().getComponent(MPSCoreComponents.class);
   }
 }

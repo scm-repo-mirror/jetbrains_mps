@@ -147,6 +147,7 @@ public abstract class MPSProject extends ProjectBase implements FileBasedProject
     if (project == null) {
       return null;
     }
+    // FIXME avoid calling ComponentManger.getComponent
     return project.getComponent(MPSProject.class);
   }
 
@@ -160,6 +161,7 @@ public abstract class MPSProject extends ProjectBase implements FileBasedProject
       rv = getProject().getService(clazz);
     } else {
       //noinspection UnstableApiUsage
+      // FIXME avoid calling ComponentManger.getComponent
       rv = getProject().getComponent(clazz);
     }
     // though would be great to support both components and services, I didn't find a reliable

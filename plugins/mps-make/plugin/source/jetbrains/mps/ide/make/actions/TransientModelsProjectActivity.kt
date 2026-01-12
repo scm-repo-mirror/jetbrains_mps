@@ -16,6 +16,7 @@ class TransientModelsProjectActivity : ProjectActivity {
 
     override suspend fun execute(project: Project) {
         if (ApplicationManager.getApplication().isHeadlessEnvironment) { return }
+        // FIXME avoid calling ComponentManger.getComponent
         val notification = TransientModelsNotification(project.getComponent(MPSProject::class.java))
         notification.projectOpened();
         val listener = object : com.intellij.openapi.project.ProjectManagerListener {
