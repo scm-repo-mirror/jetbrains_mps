@@ -9,7 +9,12 @@ import com.intellij.openapi.progress.ProgressIndicator;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import jetbrains.mps.ide.migration.MigrationChecker;
+import org.jetbrains.mps.openapi.module.SModuleReference;
+import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import org.jetbrains.mps.openapi.module.SRepository;
 import java.util.ArrayList;
+import org.jetbrains.mps.openapi.module.SModule;
+import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 
 @GeneratedClass(nodeId = "4930617085363954527", model = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:49062720-8530-4489-916a-fdd3a02a7b82(jetbrains.mps.migration.component/jetbrains.mps.ide.migration.wizard)")
 public class PreCheckError extends MigrationError {
@@ -38,15 +43,24 @@ public class PreCheckError extends MigrationError {
     return ListSequence.fromList(myErrors).isNotEmpty();
   }
 
-  /*package*/ static PreCheckError prepare(MigrationSession session, ProgressMonitor pm) {
-    MigrationChecker checker = session.getChecker();
-    final List<IssueKindReportItem> res = ListSequence.fromList(new ArrayList<IssueKindReportItem>());
+  /*package*/ static PreCheckError prepare(MigrationSession session, final ProgressMonitor pm) {
+    final MigrationChecker checker = session.getChecker();
+    final List<SModuleReference> affectedModules = CollectionSequence.fromCollection(session.getModuleMigrations()).translate((it) -> it.affectedModules()).distinct().toList();
+    final SRepository repo = session.getProject().getRepository();
     // XXXX next todo is original one, no idea what annotations it refers to
     // todo remove this hacky code after reload elimination and introducing migration annotations
-    checker.checkProject(pm, (IssueKindReportItem p) -> {
-      ListSequence.fromList(res).addElement(p);
-      return true;
+    List<IssueKindReportItem> ri = repo.getModelAccess().computeReadAction(() -> {
+      final List<IssueKindReportItem> res = ListSequence.fromList(new ArrayList<IssueKindReportItem>());
+      // XXX not sure about withoutNull here, as generally one shall expect all modules supplied for session to get resolved, and
+      // assert != null is reasonable. OTOH, don't want to handle null inside checkModulesToMigrate - can't report anything; and don't
+      // want to pass repo there as well (at least ATM)
+      List<SModule> mmm = ListSequence.fromList(affectedModules).select((it) -> it.resolve(repo)).where(new NotNullWhereFilter()).toList();
+      checker.checkModulesToMigrate(mmm, pm, (IssueKindReportItem p) -> {
+        ListSequence.fromList(res).addElement(p);
+        return true;
+      });
+      return res;
     });
-    return new PreCheckError(res);
+    return new PreCheckError(ri);
   }
 }

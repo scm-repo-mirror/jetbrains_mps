@@ -6607,9 +6607,17 @@
             </node>
             <node concept="3clFb_" id="4biA4YBv2et" role="jymVt">
               <property role="1EzhhJ" value="false" />
-              <property role="TrG5h" value="checkProject" />
+              <property role="TrG5h" value="checkModulesToMigrate" />
+              <node concept="37vLTG" id="EG0U$tSuME" role="3clF46">
+                <property role="TrG5h" value="modules" />
+                <node concept="A3Dl8" id="EG0U$tSuMF" role="1tU5fm">
+                  <node concept="3uibUv" id="EG0U$tSuMG" role="A3Ik2">
+                    <ref role="3uigEE" to="lui2:~SModule" resolve="SModule" />
+                  </node>
+                </node>
+              </node>
               <node concept="37vLTG" id="4biA4YBv2eu" role="3clF46">
-                <property role="TrG5h" value="m" />
+                <property role="TrG5h" value="pm" />
                 <node concept="3uibUv" id="4biA4YBv2ev" role="1tU5fm">
                   <ref role="3uigEE" to="yyf4:~ProgressMonitor" resolve="ProgressMonitor" />
                 </node>
@@ -6653,64 +6661,50 @@
                     <node concept="10Nm6u" id="8yMGLHLgl_" role="33vP2m" />
                   </node>
                 </node>
-                <node concept="1QHqEK" id="8yMGLHL2bR" role="3cqZAp">
-                  <node concept="2OqwBi" id="7nggT466Izr" role="ukAjM">
-                    <node concept="37vLTw" id="7nggT466GXh" role="2Oq$k0">
-                      <ref role="3cqZAo" node="5pUhUVGMybv" resolve="myProject" />
-                    </node>
-                    <node concept="liA8E" id="7nggT466Kqk" role="2OqNvi">
-                      <ref role="37wK5l" to="z1c4:~Project.getRepository()" resolve="getRepository" />
-                    </node>
-                  </node>
-                  <node concept="1QHqEC" id="8yMGLHL2bT" role="1QHqEI">
-                    <node concept="3clFbS" id="8yMGLHL2bV" role="1bW5cS">
-                      <node concept="L3pyB" id="8yMGLHL2Wp" role="3cqZAp">
-                        <node concept="3clFbS" id="8yMGLHL2Wq" role="L3pyw">
-                          <node concept="3clFbF" id="8yMGLHLd$I" role="3cqZAp">
-                            <node concept="37vLTI" id="8yMGLHLd$K" role="3clFbG">
-                              <node concept="2OqwBi" id="8yMGLHLdq8" role="37vLTx">
-                                <node concept="2OqwBi" id="8yMGLHLdq9" role="2Oq$k0">
-                                  <node concept="2Jgcaq" id="8yMGLHLdqa" role="2Oq$k0" />
-                                  <node concept="3goQfb" id="8yMGLHLdqb" role="2OqNvi">
-                                    <node concept="1bVj0M" id="8yMGLHLdqc" role="23t8la">
-                                      <node concept="3clFbS" id="8yMGLHLdqd" role="1bW5cS">
-                                        <node concept="3clFbF" id="8yMGLHLdqe" role="3cqZAp">
-                                          <node concept="2YIFZM" id="8yMGLHMfPt" role="3clFbG">
-                                            <ref role="37wK5l" to="18ew:~IterableUtil.asCollection(java.lang.Iterable)" resolve="asCollection" />
-                                            <ref role="1Pybhc" to="18ew:~IterableUtil" resolve="IterableUtil" />
-                                            <node concept="2OqwBi" id="8yMGLHLdqf" role="37wK5m">
-                                              <node concept="2JrnkZ" id="8yMGLHLdqg" role="2Oq$k0">
-                                                <node concept="37vLTw" id="8yMGLHLdqh" role="2JrQYb">
-                                                  <ref role="3cqZAo" node="5W7E4fV0XwS" resolve="it" />
-                                                </node>
-                                              </node>
-                                              <node concept="liA8E" id="8yMGLHLdqi" role="2OqNvi">
-                                                <ref role="37wK5l" to="mhbf:~SNode.getReferences()" resolve="getReferences" />
-                                              </node>
-                                            </node>
+                <node concept="L3pyB" id="8yMGLHL2Wp" role="3cqZAp">
+                  <node concept="3clFbS" id="8yMGLHL2Wq" role="L3pyw">
+                    <node concept="3clFbF" id="8yMGLHLd$I" role="3cqZAp">
+                      <node concept="37vLTI" id="8yMGLHLd$K" role="3clFbG">
+                        <node concept="2OqwBi" id="8yMGLHLdq8" role="37vLTx">
+                          <node concept="2OqwBi" id="8yMGLHLdq9" role="2Oq$k0">
+                            <node concept="2Jgcaq" id="8yMGLHLdqa" role="2Oq$k0" />
+                            <node concept="3goQfb" id="8yMGLHLdqb" role="2OqNvi">
+                              <node concept="1bVj0M" id="8yMGLHLdqc" role="23t8la">
+                                <node concept="3clFbS" id="8yMGLHLdqd" role="1bW5cS">
+                                  <node concept="3clFbF" id="8yMGLHLdqe" role="3cqZAp">
+                                    <node concept="2YIFZM" id="8yMGLHMfPt" role="3clFbG">
+                                      <ref role="37wK5l" to="18ew:~IterableUtil.asCollection(java.lang.Iterable)" resolve="asCollection" />
+                                      <ref role="1Pybhc" to="18ew:~IterableUtil" resolve="IterableUtil" />
+                                      <node concept="2OqwBi" id="8yMGLHLdqf" role="37wK5m">
+                                        <node concept="2JrnkZ" id="8yMGLHLdqg" role="2Oq$k0">
+                                          <node concept="37vLTw" id="8yMGLHLdqh" role="2JrQYb">
+                                            <ref role="3cqZAo" node="5W7E4fV0XwS" resolve="it" />
                                           </node>
                                         </node>
-                                      </node>
-                                      <node concept="gl6BB" id="5W7E4fV0XwS" role="1bW2Oz">
-                                        <property role="TrG5h" value="it" />
-                                        <node concept="2jxLKc" id="5W7E4fV0XwT" role="1tU5fm" />
+                                        <node concept="liA8E" id="8yMGLHLdqi" role="2OqNvi">
+                                          <ref role="37wK5l" to="mhbf:~SNode.getReferences()" resolve="getReferences" />
+                                        </node>
                                       </node>
                                     </node>
                                   </node>
                                 </node>
-                                <node concept="1uHKPH" id="8yMGLHLdql" role="2OqNvi" />
-                              </node>
-                              <node concept="37vLTw" id="8yMGLHLd$O" role="37vLTJ">
-                                <ref role="3cqZAo" node="8yMGLHLdq6" resolve="ref" />
+                                <node concept="gl6BB" id="5W7E4fV0XwS" role="1bW2Oz">
+                                  <property role="TrG5h" value="it" />
+                                  <node concept="2jxLKc" id="5W7E4fV0XwT" role="1tU5fm" />
+                                </node>
                               </node>
                             </node>
                           </node>
+                          <node concept="1uHKPH" id="8yMGLHLdql" role="2OqNvi" />
                         </node>
-                        <node concept="37vLTw" id="8yMGLHL3nZ" role="L3pyr">
-                          <ref role="3cqZAo" node="5pUhUVGMybv" resolve="myProject" />
+                        <node concept="37vLTw" id="8yMGLHLd$O" role="37vLTJ">
+                          <ref role="3cqZAo" node="8yMGLHLdq6" resolve="ref" />
                         </node>
                       </node>
                     </node>
+                  </node>
+                  <node concept="37vLTw" id="8yMGLHL3nZ" role="L3pyr">
+                    <ref role="3cqZAo" node="EG0U$tSuME" resolve="modules" />
                   </node>
                 </node>
                 <node concept="1gVbGN" id="8yMGLHLikq" role="3cqZAp">

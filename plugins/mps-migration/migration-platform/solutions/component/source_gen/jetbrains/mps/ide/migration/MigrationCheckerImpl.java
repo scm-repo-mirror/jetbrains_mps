@@ -27,14 +27,12 @@ import org.jetbrains.mps.openapi.model.EditableSModel;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.util.SubProgressKind;
 import jetbrains.mps.util.NameUtil;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.checkers.IChecker;
 import jetbrains.mps.errors.item.NodeReportItem;
 import jetbrains.mps.project.validation.StructureChecker;
 import jetbrains.mps.errors.item.UnresolvedReferenceReportItem;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
-import jetbrains.mps.progress.ProgressMonitorDecorator;
 import jetbrains.mps.lang.migration.runtime.base.Problem;
 import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -52,11 +50,11 @@ public class MigrationCheckerImpl implements MigrationChecker {
   private final Project myProject;
 
   /**
-   * 
+   * Drop once 2026.1 is out. I don't expect any uses, just in case anyone instantiated it directly
    * 
    * @deprecated use alternative w/o MigrationSetup
    */
-  @Deprecated
+  @Deprecated(since = "2026.1", forRemoval = true)
   public MigrationCheckerImpl(Project p, MigrationSetup manager) {
     // FIXME MigrationSetup is an initial set of migrations for a project/set of modules, and is in use in checkMigrations() only
     //      implying checker knows about specific migrations. However, findNotMigrated() takes specific (sub-?)set of migrations
@@ -103,70 +101,62 @@ public class MigrationCheckerImpl implements MigrationChecker {
     m.done();
   }
   @Override
-  public void checkProject(final ProgressMonitor pm, final Processor<IssueKindReportItem> processor) {
-    myProject.getRepository().getModelAccess().runReadAction(() -> {
-      // todo inline
-      List<SModule> modules = Sequence.fromIterable(MigrationModuleUtil.getMigrateableModulesFromProject(myProject)).toList();
-      pm.start("Checking...", 10 + ListSequence.fromList(modules).count());
+  public void checkModulesToMigrate(Iterable<SModule> modules, ProgressMonitor pm, final Processor<IssueKindReportItem> processor) {
+    // todo inline
+    pm.start("Checking...", 10 + Sequence.fromIterable(modules).count());
 
-      for (SModule module : ListSequence.fromList(modules)) {
-        Iterable<SDependency> deps = Sequence.fromIterable(((Iterable<SDependency>) module.getDeclaredDependencies())).where((it) -> it.getTarget() == null);
-        for (SDependency dep : Sequence.fromIterable(deps)) {
-          if (!(processor.process(new DependencyProblem(module, String.format("Unresolved dependency in module %s: Module %s not found in repository", module.getModuleName(), dep.getTargetModule().getModuleName()))))) {
-            pm.done();
+    for (SModule module : Sequence.fromIterable(modules)) {
+      Iterable<SDependency> deps = Sequence.fromIterable(((Iterable<SDependency>) module.getDeclaredDependencies())).where((it) -> it.getTarget() == null);
+      for (SDependency dep : Sequence.fromIterable(deps)) {
+        if (!(processor.process(new DependencyProblem(module, String.format("Unresolved dependency in module %s: Module %s not found in repository", module.getModuleName(), dep.getTargetModule().getModuleName()))))) {
+          pm.done();
+          return;
+        }
+      }
+    }
+
+    pm.advance(10);
+
+    final Set<Map<FlavouredItem.ReportItemFlavour<?, ?>, Object>> alreadyReported = SetSequence.fromSet(new HashSet<Map<FlavouredItem.ReportItemFlavour<?, ?>, Object>>());
+
+    try {
+      for (SModule module : Sequence.fromIterable(modules)) {
+        List<EditableSModel> models = Sequence.fromIterable(((Iterable<SModel>) module.getModels())).ofType(EditableSModel.class).toList();
+        ProgressMonitor moduleSubtask = pm.subTask(1, SubProgressKind.AS_COMMENT);
+        moduleSubtask.start(NameUtil.compactNamespace(module.getModuleName()), ListSequence.fromList(models).count());
+        // find missing concepts, when language's not missing
+        // find missing concept features when concept's not missing
+        for (EditableSModel model : ListSequence.fromList(models)) {
+          IChecker.AbstractModelChecker<NodeReportItem> checker = new StructureChecker().withoutCardinalities().asModelChecker();
+          final ProgressMonitor subpm = moduleSubtask.subTask(1);
+          checker.check(model, myProject.getRepository(), (NodeReportItem vp) -> {
+            if (!(vp instanceof UnresolvedReferenceReportItem)) {
+              Map<FlavouredItem.ReportItemFlavour<?, ?>, Object> kindFlavours = MapSequence.fromMap(new HashMap<FlavouredItem.ReportItemFlavour<?, ?>, Object>());
+              for (FlavouredItem.ReportItemFlavour<?, ?> flavour : SetSequence.fromSet(vp.getIdFlavours())) {
+                MapSequence.fromMap(kindFlavours).put(flavour, flavour.tryToGet(vp));
+              }
+              MapSequence.fromMap(kindFlavours).removeKey(NodeReportItem.FLAVOUR_NODE);
+              if (!(SetSequence.fromSet(alreadyReported).contains(kindFlavours))) {
+                if (!(processor.process(vp))) {
+                  subpm.cancel();
+                }
+                SetSequence.fromSet(alreadyReported).addElement(kindFlavours);
+              }
+            } else {
+              if (!(processor.process(vp))) {
+                subpm.cancel();
+              }
+            }
+          }, subpm);
+          if (subpm.isCanceled()) {
             return;
           }
         }
+        moduleSubtask.done();
       }
-
-      pm.advance(10);
-
-      final Set<Map<FlavouredItem.ReportItemFlavour<?, ?>, Object>> alreadyReported = SetSequence.fromSet(new HashSet<Map<FlavouredItem.ReportItemFlavour<?, ?>, Object>>());
-
-      try {
-        for (SModule module : ListSequence.fromList(modules)) {
-          List<EditableSModel> models = Sequence.fromIterable(((Iterable<SModel>) module.getModels())).ofType(EditableSModel.class).toList();
-          ProgressMonitor moduleSubtask = pm.subTask(1, SubProgressKind.AS_COMMENT);
-          moduleSubtask.start(NameUtil.compactNamespace(module.getModuleName()), ListSequence.fromList(models).count());
-          // find missing concepts, when language's not missing
-          // find missing concept features when concept's not missing
-          for (EditableSModel model : ListSequence.fromList(models)) {
-            final Wrappers._boolean stop = new Wrappers._boolean(false);
-            IChecker.AbstractModelChecker<NodeReportItem> checker = new StructureChecker().withoutCardinalities().asModelChecker();
-            checker.check(model, myProject.getRepository(), (NodeReportItem vp) -> {
-              if (!(vp instanceof UnresolvedReferenceReportItem)) {
-                Map<FlavouredItem.ReportItemFlavour<?, ?>, Object> kindFlavours = MapSequence.fromMap(new HashMap<FlavouredItem.ReportItemFlavour<?, ?>, Object>());
-                for (FlavouredItem.ReportItemFlavour<?, ?> flavour : SetSequence.fromSet(vp.getIdFlavours())) {
-                  MapSequence.fromMap(kindFlavours).put(flavour, flavour.tryToGet(vp));
-                }
-                MapSequence.fromMap(kindFlavours).removeKey(NodeReportItem.FLAVOUR_NODE);
-                if (!(SetSequence.fromSet(alreadyReported).contains(kindFlavours))) {
-                  if (!(processor.process(vp))) {
-                    stop.value = true;
-                  }
-                  SetSequence.fromSet(alreadyReported).addElement(kindFlavours);
-                }
-              } else {
-                if (!(processor.process(vp))) {
-                  stop.value = true;
-                }
-              }
-            }, new ProgressMonitorDecorator(moduleSubtask.subTask(1)) {
-              @Override
-              public boolean isCanceled() {
-                return super.isCanceled() && !(stop.value);
-              }
-            });
-            if (stop.value) {
-              return;
-            }
-          }
-          moduleSubtask.done();
-        }
-      } finally {
-        pm.done();
-      }
-    });
+    } finally {
+      pm.done();
+    }
   }
   @Override
   public void findNotMigrated(final ProgressMonitor m, final Iterable<AppliedScript> migrationsToCheck, final Processor<Problem> processor) {

@@ -21,10 +21,10 @@ public interface MigrationChecker {
    */
   void checkLibs(ProgressMonitor m, Processor<Pair<SModule, SModule>> processor);
   /**
-   * FIXME bad api, implicit assumption
-   *   (a) we run migration on a whole project (while specific session, which is the origin for checker, could be limited to a subset of project modules;
-   *   (b) check here is for module dependencies and broken references inside models.                     
+   * External code makes sure that present state of a module which is subject to migration is ok
+   *  and doesn't prevent migration (e.g. missing dependencies or broken references).
+   * Method is invoked with proper model read access
    */
-  void checkProject(ProgressMonitor m, Processor<IssueKindReportItem> processor);
+  void checkModulesToMigrate(Iterable<SModule> modules, ProgressMonitor pm, Processor<IssueKindReportItem> processor);
   void findNotMigrated(ProgressMonitor m, Iterable<AppliedScript> toCheck, Processor<Problem> processor);
 }

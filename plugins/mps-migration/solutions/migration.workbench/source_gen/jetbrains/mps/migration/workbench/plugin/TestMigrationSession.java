@@ -17,7 +17,6 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.util.Pair;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.errors.item.IssueKindReportItem;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import org.jetbrains.mps.openapi.model.SReference;
 import org.jetbrains.mps.openapi.module.SearchScope;
 import jetbrains.mps.lang.smodel.query.runtime.CommandUtil;
@@ -62,21 +61,19 @@ import jetbrains.mps.migration.global.MigrationOptions;
       // todo
     }
     @Override
-    public void checkProject(ProgressMonitor m, Processor<IssueKindReportItem> processor) {
+    public void checkModulesToMigrate(Iterable<SModule> modules, ProgressMonitor pm, Processor<IssueKindReportItem> processor) {
       if (mySettings.preError != 1) {
         return;
       }
-      final Wrappers._T<SReference> ref = new Wrappers._T<SReference>(null);
-      myProject.getRepository().getModelAccess().runReadAction(() -> {
-        {
-          SearchScope scope_51bgm5_a0a2a2a0a5 = CommandUtil.createScope(myProject);
-          final SearchScope scope_51bgm5_a0a2a2a0a5_0 = new EditableFilteringScope(scope_51bgm5_a0a2a2a0a5);
-          QueryExecutionContext context = () -> scope_51bgm5_a0a2a2a0a5_0;
-          ref.value = Sequence.fromIterable(CommandUtil.nodes(CommandUtil.selectScope(null, context))).translate((it) -> IterableUtil.asCollection(it.getReferences())).first();
-        }
-      });
-      assert ref.value != null;
-      processor.process(new UnresolvedReferenceReportItem(ref.value, null));
+      SReference ref = null;
+      {
+        SearchScope scope_51bgm5_c0c0a0f = CommandUtil.createScope(modules);
+        final SearchScope scope_51bgm5_c0c0a0f_0 = new EditableFilteringScope(scope_51bgm5_c0c0a0f);
+        QueryExecutionContext context = () -> scope_51bgm5_c0c0a0f_0;
+        ref = Sequence.fromIterable(CommandUtil.nodes(CommandUtil.selectScope(null, context))).translate((it) -> IterableUtil.asCollection(it.getReferences())).first();
+      }
+      assert ref != null;
+      processor.process(new UnresolvedReferenceReportItem(ref, null));
     }
     @Override
     public void findNotMigrated(ProgressMonitor m, Iterable<AppliedScript> toCheck, Processor<Problem> processor) {
