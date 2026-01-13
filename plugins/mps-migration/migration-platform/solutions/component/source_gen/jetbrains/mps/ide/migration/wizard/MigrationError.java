@@ -21,6 +21,7 @@ public abstract class MigrationError extends Exception {
   public abstract String getMessage();
 
   /**
+   * FIXME quite confusing method. If we throw an exception with canIgnore() == true, what does it actually mean? 
    * 
    * @return if migrations can start despite of errors
    */

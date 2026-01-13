@@ -4,27 +4,26 @@ package jetbrains.mps.ide.migration.check;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.lang.migration.runtime.base.Problem;
-import org.jetbrains.mps.openapi.module.SModule;
-import jetbrains.mps.errors.item.ModuleReportItem;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.SModuleReference;
+import jetbrains.mps.errors.item.ModuleReportItem;
+import org.jetbrains.mps.openapi.module.SModule;
+import org.jetbrains.annotations.NotNull;
 
 @GeneratedClass(nodeId = "699020670023251098", model = "r:5c426f30-a9c9-463b-90a5-2fae21a10696(jetbrains.mps.ide.migration.check)")
-public class DependencyOnNotMigratedLibProblem extends Problem<SModule> implements ModuleReportItem {
-  private SModule myDepModule;
-  private SModule myProjectModule;
+public class DependencyOnNotMigratedLibProblem extends Problem<SModuleReference> implements ModuleReportItem {
+  private final SModuleReference myDepModule;
+
   public DependencyOnNotMigratedLibProblem(SModule projectModule, SModule depModule) {
-    super(projectModule);
-    myProjectModule = projectModule;
-    myDepModule = depModule;
+    super(projectModule.getModuleReference());
+    myDepModule = depModule.getModuleReference();
   }
   public String getMessage() {
-    return "Module " + myProjectModule.getModuleName() + " depends on module " + myDepModule + ", which is not in project and is not fully migrated.";
+    return String.format("Module %s depends on module %s, which is not in project and is not fully migrated.", getReason().getModuleName(), myDepModule.getModuleName());
   }
   @NotNull
   @Override
   public SModuleReference getModule() {
-    return getReason().getModuleReference();
+    return getReason();
   }
   @Override
   public String getCategory() {

@@ -86,29 +86,27 @@
   <root nodeRef="r:5c426f30-a9c9-463b-90a5-2fae21a10696(jetbrains.mps.ide.migration.check)/699020670023251098">
     <file name="DependencyOnNotMigratedLibProblem.java">
       <node id="699020670023439303" at="14,0,15,0" concept="2" trace="myDepModule" />
-      <node id="699020670023440403" at="15,0,16,0" concept="2" trace="myProjectModule" />
-      <node id="699020670023431824" at="16,86,17,25" concept="6" />
-      <node id="699020670023441699" at="17,25,18,36" concept="1" />
-      <node id="699020670023439307" at="18,36,19,28" concept="1" />
-      <node id="699020670023438194" at="21,30,22,150" concept="5" />
-      <node id="8429637132261938980" at="26,39,27,44" concept="5" />
-      <node id="699020670023467254" at="30,31,31,40" concept="5" />
-      <node id="699020670023251122" at="21,0,24,0" concept="3" trace="getMessage#()Ljava/lang/String;" />
-      <node id="699020670023466300" at="29,0,33,0" concept="3" trace="getCategory#()Ljava/lang/String;" />
-      <node id="699020670023251106" at="16,0,21,0" concept="0" trace="DependencyOnNotMigratedLibProblem#(Lorg/jetbrains/mps/openapi/module/SModule;Lorg/jetbrains/mps/openapi/module/SModule;)V" />
-      <node id="8429637132261936971" at="24,0,29,0" concept="3" trace="getModule#()Lorg/jetbrains/mps/openapi/module/SModuleReference;" />
-      <scope id="699020670023251125" at="21,30,22,150" />
-      <scope id="8429637132261936983" at="26,39,27,44" />
-      <scope id="699020670023466304" at="30,31,31,40" />
-      <scope id="699020670023251113" at="16,86,19,28" />
-      <scope id="699020670023251122" at="21,0,24,0" />
-      <scope id="699020670023466300" at="29,0,33,0" />
-      <scope id="699020670023251106" at="16,0,21,0">
+      <node id="699020670023431824" at="16,86,17,46" concept="6" />
+      <node id="699020670023439307" at="17,46,18,49" concept="1" />
+      <node id="699020670023438194" at="20,30,21,169" concept="5" />
+      <node id="8429637132261938980" at="25,39,26,23" concept="5" />
+      <node id="699020670023467254" at="29,31,30,40" concept="5" />
+      <node id="699020670023251122" at="20,0,23,0" concept="3" trace="getMessage#()Ljava/lang/String;" />
+      <node id="699020670023251106" at="16,0,20,0" concept="0" trace="DependencyOnNotMigratedLibProblem#(Lorg/jetbrains/mps/openapi/module/SModule;Lorg/jetbrains/mps/openapi/module/SModule;)V" />
+      <node id="699020670023466300" at="28,0,32,0" concept="3" trace="getCategory#()Ljava/lang/String;" />
+      <node id="8429637132261936971" at="23,0,28,0" concept="3" trace="getModule#()Lorg/jetbrains/mps/openapi/module/SModuleReference;" />
+      <scope id="699020670023251125" at="20,30,21,169" />
+      <scope id="8429637132261936983" at="25,39,26,23" />
+      <scope id="699020670023466304" at="29,31,30,40" />
+      <scope id="699020670023251113" at="16,86,18,49" />
+      <scope id="699020670023251122" at="20,0,23,0" />
+      <scope id="699020670023251106" at="16,0,20,0">
         <var name="depModule" id="699020670023412929" />
         <var name="projectModule" id="699020670023412600" />
       </scope>
-      <scope id="8429637132261936971" at="24,0,29,0" />
-      <unit id="699020670023251098" at="12,0,34,0" name="jetbrains.mps.ide.migration.check.DependencyOnNotMigratedLibProblem" />
+      <scope id="699020670023466300" at="28,0,32,0" />
+      <scope id="8429637132261936971" at="23,0,28,0" />
+      <unit id="699020670023251098" at="12,0,33,0" name="jetbrains.mps.ide.migration.check.DependencyOnNotMigratedLibProblem" />
     </file>
   </root>
 </debug-info>

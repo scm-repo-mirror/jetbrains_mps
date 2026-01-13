@@ -10,12 +10,6 @@ import jetbrains.mps.persistence.PersistenceRegistry;
 import com.intellij.openapi.application.ApplicationManager;
 import org.jetbrains.mps.openapi.util.SubProgressKind;
 import jetbrains.mps.util.Status;
-import java.util.List;
-import jetbrains.mps.ide.migration.AppliedScript;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import java.util.Map;
-import org.jetbrains.mps.openapi.module.SModule;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.messages.LogHandler;
 import jetbrains.mps.ide.migration.MigrationListener;
 import jetbrains.mps.internal.collections.runtime.Sequence;
@@ -34,9 +28,9 @@ import com.intellij.configurationStore.StoreUtil;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicBoolean;
 import jetbrains.mps.classloading.ClassLoaderManager;
-import java.util.ArrayList;
-import java.util.HashMap;
-import jetbrains.mps.util.Pair;
+import java.util.List;
+import org.jetbrains.mps.openapi.module.SModule;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.migration.global.ProjectMigration;
 import jetbrains.mps.migration.global.CleanupProjectMigration;
@@ -125,23 +119,23 @@ public class MigrationTask {
     }
 
     if (checkAndIncStage(2)) {
-      List<AppliedScript> missingMigrations = findMissingMigrations(monitor.subTask(5, SubProgressKind.REPLACING));
-      if (ListSequence.fromList(missingMigrations).isNotEmpty()) {
-        throw new MigrationsMissingError(missingMigrations);
+      MigrationsMissingError mme = MigrationsMissingError.prepare(mySession, monitor.subTask(5, SubProgressKind.REPLACING));
+      if (mme.hasErrors()) {
+        throw mme;
       }
     }
 
     if (checkAndIncStage(3)) {
-      Map<SModule, SModule> errsToShow = checkMigratedLibs(monitor.subTask(5, SubProgressKind.REPLACING));
-      if (MapSequence.fromMap(errsToShow).isNotEmpty()) {
-        final NotMigratedLibsError error = new NotMigratedLibsError(errsToShow);
+      final NotMigratedLibsError nmle = NotMigratedLibsError.prepare(mySession, monitor.subTask(5, SubProgressKind.REPLACING));
+      if (nmle.hasErrors()) {
         if (myHaltOnNotMigratedLibs) {
-          throw error;
+          throw nmle;
         } else {
           if (LOG.isWarningLevel()) {
             LOG.warning("Some dependent modules are not migrated, ignoring...");
           }
-          mySession.getProject().getModelAccess().runReadAction(() -> error.logProblems(new LogHandler(Logger.getLogger(MigrationTask.class))));
+          // FIXME no read needed!
+          mySession.getProject().getModelAccess().runReadAction(() -> nmle.logProblems(new LogHandler(Logger.getLogger(MigrationTask.class))));
         }
       }
     }
@@ -303,24 +297,6 @@ public class MigrationTask {
       refreshScriptInstances();
     }
     return result.get();
-  }
-
-  private List<AppliedScript> findMissingMigrations(ProgressMonitor m) {
-    final List<AppliedScript> res = ListSequence.fromList(new ArrayList<>());
-    mySession.getChecker().checkMigrations(m, (it) -> {
-      ListSequence.fromList(res).addElement(it);
-      return true;
-    });
-    return res;
-  }
-
-  private Map<SModule, SModule> checkMigratedLibs(ProgressMonitor m) {
-    final Map<SModule, SModule> res = MapSequence.fromMap(new HashMap<SModule, SModule>());
-    mySession.getChecker().checkLibs(m, (Pair<SModule, SModule> p) -> {
-      MapSequence.fromMap(res).put(p.o1, p.o2);
-      return true;
-    });
-    return res;
   }
 
   private void runVersionsUpdate(final ProgressMonitor m) {

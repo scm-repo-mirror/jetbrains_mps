@@ -13,12 +13,14 @@ import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
 import jetbrains.mps.ide.migration.check.MissingMigrationProblem;
 import jetbrains.mps.lang.migration.runtime.base.RefactoringScriptReference;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import org.jetbrains.mps.openapi.util.ProgressMonitor;
+import java.util.ArrayList;
 
 @GeneratedClass(nodeId = "2620437876316539590", model = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:49062720-8530-4489-916a-fdd3a02a7b82(jetbrains.mps.migration.component/jetbrains.mps.ide.migration.wizard)")
 public class MigrationsMissingError extends MigrationError {
   private final List<AppliedScript> myErrors;
 
-  public MigrationsMissingError(List<AppliedScript> errors) {
+  private MigrationsMissingError(List<AppliedScript> errors) {
     this.myErrors = errors;
   }
   @Override
@@ -41,5 +43,18 @@ public class MigrationsMissingError extends MigrationError {
   @Override
   public boolean canIgnore() {
     return false;
+  }
+
+  /*package*/ boolean hasErrors() {
+    return ListSequence.fromList(myErrors).isNotEmpty();
+  }
+
+  /*package*/ static MigrationsMissingError prepare(MigrationSession session, ProgressMonitor pm) {
+    final List<AppliedScript> res = ListSequence.fromList(new ArrayList<>());
+    session.getChecker().checkMigrations(pm, (it) -> {
+      ListSequence.fromList(res).addElement(it);
+      return true;
+    });
+    return new MigrationsMissingError(res);
   }
 }
