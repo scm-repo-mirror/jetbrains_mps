@@ -838,6 +838,11 @@
       <concept id="1500819558095907805" name="jetbrains.mps.build.mps.structure.BuildMps_Group" flags="ng" index="2G$12M">
         <child id="1500819558095907806" name="modules" index="2G$12L" />
       </concept>
+      <concept id="781140262677906392" name="jetbrains.mps.build.mps.structure.BuildMps_BrandingCompany" flags="ng" index="IuM$Q">
+        <child id="781140262677906402" name="url" index="IuM$c" />
+        <child id="781140262677906401" name="name" index="IuM$f" />
+        <child id="2355727383336213970" name="copyrightStar" index="3fQQh0" />
+      </concept>
       <concept id="8174907532631382425" name="jetbrains.mps.build.mps.structure.BuildMps_TipsMps" flags="ng" index="3jmSaf" />
       <concept id="8174907532628842428" name="jetbrains.mps.build.mps.structure.BuildMps_Tips" flags="ng" index="3jsGME">
         <child id="8174907532631382423" name="imports" index="3jmSa1" />
@@ -856,6 +861,7 @@
         <child id="6108265972537372847" name="product" index="2EtHGA" />
         <child id="6108265972537372848" name="fullName" index="2EtHGT" />
         <child id="8795525031433238889" name="textColor" index="HFo83" />
+        <child id="781140262677914381" name="company" index="IuKBz" />
         <child id="1462305029084462472" name="buildDate" index="R$TG_" />
         <child id="62678610895108195" name="svg_small" index="1hH5mY" />
         <child id="62678610895108142" name="svg" index="1hH5nN" />
@@ -12704,6 +12710,19 @@
                           </node>
                         </node>
                         <node concept="NbPM2" id="1h9jmP$lyNy" role="3ZAF11" />
+                      </node>
+                      <node concept="IuM$Q" id="2TyaLZJiUY9" role="IuKBz">
+                        <node concept="3_J27D" id="2TyaLZJiUYa" role="IuM$f">
+                          <node concept="3Mxwew" id="2TyaLZJjbj3" role="3MwsjC">
+                            <property role="3MwjfP" value="NoCompany" />
+                          </node>
+                        </node>
+                        <node concept="3_J27D" id="2TyaLZJiUYb" role="IuM$c">
+                          <node concept="3Mxwew" id="2TyaLZJjbj4" role="3MwsjC">
+                            <property role="3MwjfP" value="https://www.company" />
+                          </node>
+                        </node>
+                        <node concept="NbPM2" id="2TyaLZJiUYc" role="3fQQh0" />
                       </node>
                     </node>
                   </node>

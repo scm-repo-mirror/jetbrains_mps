@@ -73,7 +73,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     editorCell.addEditorCell(createRefNode_0());
     editorCell.addEditorCell(createConstant_2());
     editorCell.addEditorCell(createRefNode_1());
-    editorCell.addEditorCell(createConstant_3());
+    editorCell.addEditorCell(createConstant_4());
     editorCell.addEditorCell(createRefNode_2());
     return editorCell;
   }
@@ -198,8 +198,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
       getCellFactory().pushCellContext();
       getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(getNode(), LINKS.url$a85x));
       try {
-        EditorCell editorCell = super.createEmptyCell();
-        editorCell.setCellId("empty_url");
+        EditorCell editorCell = createConstant_3();
         installCellInfo(null, editorCell, true);
         setCellContext(editorCell);
         return editorCell;
@@ -207,11 +206,14 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
         getCellFactory().popCellContext();
       }
     }
-    protected String getNoTargetText() {
-      return "<no url>";
+    private EditorCell createConstant_3() {
+      EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "no url");
+      editorCell.setCellId("Constant_jz46yb_a3b0");
+      editorCell.setDefaultText("");
+      return editorCell;
     }
   }
-  private EditorCell createConstant_3() {
+  private EditorCell createConstant_4() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "copyrightStart");
     editorCell.setCellId("Constant_jz46yb_e1a");
     editorCell.setDefaultText("");
@@ -281,11 +283,11 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     Style style = new StyleImpl();
     style.set(StyleAttributes.SELECTABLE, false);
     editorCell.getStyle().putAll(style);
-    editorCell.addEditorCell(createConstant_4());
+    editorCell.addEditorCell(createConstant_5());
     editorCell.addEditorCell(createRefNode_3());
     return editorCell;
   }
-  private EditorCell createConstant_4() {
+  private EditorCell createConstant_5() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "Company");
     editorCell.setCellId("Constant_jz46yb_a0a");
     Style style = new StyleImpl();

@@ -238,6 +238,7 @@
       </concept>
       <concept id="1073389882823" name="jetbrains.mps.lang.editor.structure.CellModel_RefNode" flags="sg" stub="730538219795960754" index="3F1sOY">
         <property id="16410578721444372" name="customizeEmptyCell" index="2ru_X1" />
+        <child id="16410578721629643" name="emptyCellModel" index="2ruayu" />
       </concept>
       <concept id="1073390211982" name="jetbrains.mps.lang.editor.structure.CellModel_RefNodeList" flags="sg" stub="2794558372793454595" index="3F2HdR" />
       <concept id="4233361609415247331" name="jetbrains.mps.lang.editor.structure.QueryFunction_TransformationMenu_Parameter" flags="ig" index="1GhMSn" />
@@ -5520,9 +5521,13 @@
           <ref role="1k5W1q" to="ot6o:hwW5xkg" resolve="keyword" />
         </node>
         <node concept="3F1sOY" id="FnaIS$FaHt" role="3EZMnx">
+          <property role="2ru_X1" value="true" />
           <ref role="1NtTu8" to="kdzh:FnaIS$F0fy" resolve="url" />
           <node concept="ljvvj" id="FnaIS$FaHu" role="3F10Kt">
             <property role="VOm3f" value="true" />
+          </node>
+          <node concept="3F0ifn" id="2WGz$C5E8XB" role="2ruayu">
+            <property role="3F0ifm" value="no url" />
           </node>
         </node>
         <node concept="3F0ifn" id="22LepbIRaBr" role="3EZMnx">
