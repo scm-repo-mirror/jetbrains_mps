@@ -26,12 +26,12 @@ import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.util.IStatus;
 import jetbrains.mps.migration.global.ProjectMigrationsRegistry;
-import jetbrains.mps.lang.migration.runtime.base.MigrationModuleUtil;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.lang.migration.runtime.base.MigrationModuleUtil;
 import jetbrains.mps.migration.global.ProjectMigration;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.migration.global.CleanupProjectMigration;
@@ -123,7 +123,9 @@ public class MigrationTrigger implements IStartupMigrationExecutor {
     this.myVersionUpdater = new SilentModuleVersionUpdater(myMpsProject, () -> myMigrationRunning) {
       @Override
       protected void runMigrationsIfNeeded(List<SModule> toUpdate) {
-        checkMigrationNeededOnModuleChange(toUpdate);
+        if (!(checkMigrationForbidden())) {
+          scheduleIfNewMigrations(new MigrationSetup(myMpsProject, toUpdate));
+        }
       }
     };
   }
@@ -200,29 +202,33 @@ public class MigrationTrigger implements IStartupMigrationExecutor {
     IStatus checkProjectVersion = ProjectMigrationsRegistry.getInstance().checkMigratedToNewerVersion(myMpsProject);
     if (checkProjectVersion.isError()) {
       myNotifications.showProjectVersionError(checkProjectVersion.getMessage());
-    } else {
-      myMpsProject.getRepository().getModelAccess().runReadAction(() -> checkMigrationNeededOnModuleChange(MigrationModuleUtil.getMigrateableModulesFromProject(myMpsProject)));
+    } else if (!(checkMigrationForbidden())) {
+      scheduleIfNewMigrations(myMpsProject.getModelAccess().computeReadAction(() -> new MigrationSetup(myMpsProject)));
     }
   }
 
   private void checkMigrationNeededOnLanguageReload(final List<SLanguage> addedLanguages) {
-    // if a new language is added to a repo, all modules in project using it
-    // should be checked for whether their migration is needed
-    final Set<SModule> modules2Check = SetSequence.fromSet(new HashSet<SModule>());
-    Sequence.fromIterable(MigrationModuleUtil.getMigrateableModulesFromProject(myMpsProject)).visitAll((it) -> {
-      Set<SLanguage> used = new HashSet<SLanguage>(it.getUsedLanguages());
-      used.retainAll(addedLanguages);
-      if (!(used.isEmpty())) {
-        SetSequence.fromSet(modules2Check).addElement(it);
-      }
-    });
+    if (!(checkMigrationForbidden())) {
+      // if a new language is added to a repo, all modules in project using it
+      // should be checked for whether their migration is needed
+      final Set<SModule> modules2Check = SetSequence.fromSet(new HashSet<SModule>());
+      Sequence.fromIterable(MigrationModuleUtil.getMigrateableModulesFromProject(myMpsProject)).visitAll((it) -> {
+        Set<SLanguage> used = new HashSet<SLanguage>(it.getUsedLanguages());
+        used.retainAll(addedLanguages);
+        if (!(used.isEmpty())) {
+          SetSequence.fromSet(modules2Check).addElement(it);
+        }
+      });
+      // FIXME LanguageRegistryListener DOES NOT guarantee model read, grab one here!
+      // TODO Let MigrationSetup collect used languages and tell them, instead of explicit activity here
 
-    checkMigrationNeededOnModuleChange(modules2Check);
+      scheduleIfNewMigrations(new MigrationSetup(myMpsProject, modules2Check));
+    }
   }
 
-  private void checkMigrationNeededOnModuleChange(@NotNull Iterable<SModule> modules) {
+  private boolean checkMigrationForbidden() {
     if (myMigrationBlock.isMigrationForbiddenWithout(MigrationNotificationsSupport.NOT_DEPLOYED)) {
-      return;
+      return true;
     }
 
     if (myMigrationBlock.isMigrationForbidden()) {
@@ -237,21 +243,21 @@ public class MigrationTrigger implements IStartupMigrationExecutor {
       // hence, no model read
       boolean hasCleanups = ListSequence.fromList(projectMigrations).ofType(CleanupProjectMigration.class).any((it) -> it.shouldBeExecuted(myMpsProject));
       myNotifications.showDeployWarn(hasCleanups);
-      return;
+      return true;
     }
-
-    if (getNewMigrations(modules).hasSomethingToApply()) {
-      scheduleMigration(false);
-    }
+    return false;
   }
 
-  private PostponedState getNewMigrations(@NotNull Iterable<SModule> modules2Check) {
-    PostponedState current = PostponedState.current(new MigrationSetup(myMpsProject, modules2Check));
+  private void scheduleIfNewMigrations(@NotNull MigrationSetup ms) {
+    PostponedState current = PostponedState.current(ms);
     PostponedState saved = myPostponedState.get();
     if (saved != null) {
       current = current.substract(saved);
     }
-    return current;
+    if (current.hasSomethingToApply()) {
+      scheduleMigration(false);
+
+    }
   }
 
   /**
