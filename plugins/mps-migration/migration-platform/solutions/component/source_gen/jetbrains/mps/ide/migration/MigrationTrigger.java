@@ -26,6 +26,7 @@ import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.util.IStatus;
 import jetbrains.mps.migration.global.ProjectMigrationsRegistry;
+import jetbrains.mps.smodel.ModelReadRunnable;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
@@ -203,26 +204,28 @@ public class MigrationTrigger implements IStartupMigrationExecutor {
     if (checkProjectVersion.isError()) {
       myNotifications.showProjectVersionError(checkProjectVersion.getMessage());
     } else if (!(checkMigrationForbidden())) {
-      scheduleIfNewMigrations(myMpsProject.getModelAccess().computeReadAction(() -> new MigrationSetup(myMpsProject)));
+      ApplicationManager.getApplication().executeOnPooledThread(new ModelReadRunnable(myMpsProject.getRepository(), () -> scheduleIfNewMigrations(new MigrationSetup(myMpsProject))));
     }
   }
 
   private void checkMigrationNeededOnLanguageReload(final List<SLanguage> addedLanguages) {
     if (!(checkMigrationForbidden())) {
-      // if a new language is added to a repo, all modules in project using it
-      // should be checked for whether their migration is needed
-      final Set<SModule> modules2Check = SetSequence.fromSet(new HashSet<SModule>());
-      Sequence.fromIterable(MigrationModuleUtil.getMigrateableModulesFromProject(myMpsProject)).visitAll((it) -> {
-        Set<SLanguage> used = new HashSet<SLanguage>(it.getUsedLanguages());
-        used.retainAll(addedLanguages);
-        if (!(used.isEmpty())) {
-          SetSequence.fromSet(modules2Check).addElement(it);
-        }
-      });
-      // FIXME LanguageRegistryListener DOES NOT guarantee model read, grab one here!
-      // TODO Let MigrationSetup collect used languages and tell them, instead of explicit activity here
+      // LanguageRegistryListener DOES NOT guarantee model read, grab one here explicitly. And use another thread, don't pause notifications
+      ApplicationManager.getApplication().executeOnPooledThread(new ModelReadRunnable(myMpsProject.getRepository(), () -> {
+        // if a new language is added to a repo, all modules in project using it
+        // should be checked for whether their migration is needed
+        final Set<SModule> modules2Check = SetSequence.fromSet(new HashSet<SModule>());
+        Sequence.fromIterable(MigrationModuleUtil.getMigrateableModulesFromProject(myMpsProject)).visitAll((it) -> {
+          Set<SLanguage> used = new HashSet<SLanguage>(it.getUsedLanguages());
+          used.retainAll(addedLanguages);
+          if (!(used.isEmpty())) {
+            SetSequence.fromSet(modules2Check).addElement(it);
+          }
+        });
+        // XXX perhaps, can use MigrationSetup to collect used languages and tell them, instead of explicit activity here?
 
-      scheduleIfNewMigrations(new MigrationSetup(myMpsProject, modules2Check));
+        scheduleIfNewMigrations(new MigrationSetup(myMpsProject, modules2Check));
+      }));
     }
   }
 
