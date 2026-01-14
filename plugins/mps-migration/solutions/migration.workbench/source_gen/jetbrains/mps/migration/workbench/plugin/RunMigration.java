@@ -14,7 +14,7 @@ import com.intellij.openapi.progress.ProgressManager;
 import com.intellij.openapi.progress.Task;
 import com.intellij.openapi.progress.ProgressIndicator;
 import jetbrains.mps.progress.ProgressMonitorAdapter;
-import com.intellij.util.WaitForProgressToShow;
+import com.intellij.openapi.application.ApplicationManager;
 import java.util.List;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.internal.collections.runtime.Sequence;
@@ -53,7 +53,7 @@ public class RunMigration extends BaseAction {
     ProgressManager.getInstance().run(new Task.Modal(myMPSProject.getProject(), "Run Migration", true) {
       public void run(@NotNull ProgressIndicator progressIndicator) {
         final ProgressMonitorAdapter progressMonitor = new ProgressMonitorAdapter(progressIndicator);
-        WaitForProgressToShow.runOrInvokeAndWaitAboveProgress(() -> RunMigration.this.myMPSProject.getRepository().getModelAccess().executeCommand(() -> {
+        ApplicationManager.getApplication().invokeAndWait(() -> RunMigration.this.myMPSProject.getRepository().getModelAccess().executeCommand(() -> {
           final List<SModule> migrateableModulesFromProject = Sequence.fromIterable(MigrationModuleUtil.getMigrateableModulesFromProject(myMPSProject)).toList();
           progressMonitor.start(myScript.getCaption(), ListSequence.fromList(migrateableModulesFromProject).count());
           for (SModule module : ListSequence.fromList(migrateableModulesFromProject)) {

@@ -20,7 +20,7 @@ import org.jetbrains.mps.openapi.language.SLanguage;
 import java.util.List;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScript;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
-import com.intellij.util.WaitForProgressToShow;
+import com.intellij.openapi.application.ApplicationManager;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.migration.runtime.base.MigrationModuleUtil;
@@ -69,8 +69,10 @@ public class ExecuteRerunnableMigrations_Action extends BaseAction {
         final ProgressMonitorAdapter progressMonitor = new ProgressMonitorAdapter(progressIndicator);
         final LanguageRegistry languageRegistry = mpsProject.getComponent(LanguageRegistry.class);
         final Map<SLanguage, List<MigrationScript>> availableScripts = MigrationScriptReference.availableScripts(languageRegistry, null);
-        WaitForProgressToShow.runOrInvokeAndWaitAboveProgress(() -> {
-          // FIXME deal with deprecated runOrInvoke... method and check if command is truly necessary (can I undo migrations?)
+        ApplicationManager.getApplication().invokeAndWait(() -> {
+          // FIXME check if command is truly necessary (can I undo this execution of migrations?). Even if command isn't necessary, 
+          //      likely I'll still need EDT, so that we can grab write and access FS (unless IDEA allows FAS write from any thread AND 
+          //      our ModelAccess would start IDEA's write in any thread as well
           mpsProject.getRepository().getModelAccess().executeCommand(() -> {
             List<SModule> migrateableModulesFromProject = Sequence.fromIterable(MigrationModuleUtil.getMigrateableModulesFromProject(mpsProject)).toList();
             progressMonitor.start("Running...", ListSequence.fromList(migrateableModulesFromProject).count());
