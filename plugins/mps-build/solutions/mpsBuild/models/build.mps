@@ -49872,7 +49872,7 @@
       </node>
     </node>
     <node concept="m$_wf" id="1KlmwaFzufs" role="3989C9">
-      <property role="m$_wk" value="Java" />
+      <property role="m$_wk" value="com.intellij.java" />
       <property role="1NdglO" value="true" />
       <node concept="3_J27D" id="1KlmwaFzuft" role="m$_yQ">
         <node concept="3Mxwew" id="1KlmwaFzufu" role="3MwsjC">
@@ -49930,7 +49930,7 @@
         <ref role="m$_yA" node="71aLKqdKvPp" resolve="jetbrains.mps.ide.make" />
       </node>
       <node concept="m$_yC" id="1KlmwaFzult" role="m$_yJ">
-        <ref role="m$_y1" node="1KlmwaFzufs" resolve="Java" />
+        <ref role="m$_y1" node="1KlmwaFzufs" resolve="com.intellij.java" />
       </node>
       <node concept="m$_yC" id="7aWTg_1mQj7" role="m$_yJ">
         <ref role="m$_y1" node="4k71ibbKLe8" resolve="jetbrains.mps.core" />
@@ -49953,7 +49953,7 @@
     </node>
     <node concept="1l3spV" id="5rNMDvYzen4" role="1l3spN">
       <node concept="m$_wl" id="1KlmwaFzuoK" role="39821P">
-        <ref role="m_rDy" node="1KlmwaFzufs" resolve="Java" />
+        <ref role="m_rDy" node="1KlmwaFzufs" resolve="com.intellij.java" />
         <node concept="pUk6x" id="1KlmwaFzuoL" role="pUk7w" />
         <node concept="2HvfSZ" id="1KlmwaFzuoM" role="39821P">
           <node concept="55IIr" id="1KlmwaFzuoN" role="2HvfZ0">

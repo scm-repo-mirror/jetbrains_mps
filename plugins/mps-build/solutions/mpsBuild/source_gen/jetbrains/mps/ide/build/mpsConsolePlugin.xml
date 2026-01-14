@@ -1090,7 +1090,7 @@
     <generate fork="true" targetJavaVersion="21" logLevel="${mps.ant.log}">      
       <settings refid="m2m-defaults" />
       <plugin path="${artifacts.mpsCore}/mps-core" id="jetbrains.mps.core" />
-      <plugin path="${artifacts.mpsMakePlugin}/java" id="Java" />
+      <plugin path="${artifacts.mpsMakePlugin}/java" id="com.intellij.java" />
       <plugin path="${artifacts.mpsMakePlugin}/mps-make" id="jetbrains.mps.ide.make" />
       <plugin path="${artifacts.mpsWorkbench}/lib/mps-workbench.jar" id="com.intellij.modules.mps" />
       <library file="${artifacts.mpsWorkbench}/languages/editor/jetbrains.mps.ide.editor.jar" />

@@ -173,7 +173,7 @@
     <generate fork="true" targetJavaVersion="21" logLevel="${mps.ant.log}">      
       <settings refid="m2m-defaults" />
       <plugin path="${artifacts.mps}/lib/mps-workbench.jar" id="com.intellij.modules.mps" />
-      <plugin path="${artifacts.mps}/plugins/java" id="Java" />
+      <plugin path="${artifacts.mps}/plugins/java" id="com.intellij.java" />
       <plugin path="${artifacts.mps}/plugins/mps-console" id="jetbrains.mps.console" />
       <plugin path="${artifacts.mps}/plugins/mps-core" id="jetbrains.mps.core" />
       <plugin path="${artifacts.mps}/plugins/mps-junit5" id="jetbrains.mps.junit5" />
@@ -361,7 +361,7 @@
       <library file="${artifacts.mps}/languages/workbench/jetbrains.mps.ide.jar" />
       
       <plugin id="com.intellij.modules.mps" path="${artifacts.mps}/lib/mps-workbench.jar" />
-      <plugin id="Java" path="${artifacts.mps}/plugins/java" />
+      <plugin id="com.intellij.java" path="${artifacts.mps}/plugins/java" />
       <plugin id="jetbrains.mps.console" path="${artifacts.mps}/plugins/mps-console" />
       <plugin id="jetbrains.mps.core" path="${artifacts.mps}/plugins/mps-core" />
       <plugin id="jetbrains.mps.junit5" path="${artifacts.mps}/plugins/mps-junit5" />
