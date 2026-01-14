@@ -1287,26 +1287,31 @@
       <node id="699020670022587364" at="32,30,33,16" concept="13" />
       <node id="699020670023238467" at="35,89,36,20" concept="13" />
       <node id="768993661255170944" at="39,35,40,56" concept="13" />
-      <node id="961570622492684767" at="43,97,44,91" concept="12" />
-      <node id="2885477569136079233" at="45,70,46,47" concept="6" />
-      <node id="2885477569136039762" at="46,47,47,18" concept="13" />
-      <node id="768993661255625169" at="48,7,49,179" concept="12" />
-      <node id="961570622492589345" at="49,179,50,40" concept="13" />
+      <node id="1210828747870277213" at="43,109,44,66" concept="12" />
+      <node id="1210828747870295891" at="44,66,45,176" concept="12" />
+      <node id="1210828747870295890" at="45,176,46,0" concept="15" />
+      <node id="961570622492684767" at="47,58,48,85" concept="12" />
+      <node id="1210828747870310762" at="48,85,49,59" concept="14" />
+      <node id="1210828747870299440" at="49,59,50,139" concept="12" />
+      <node id="1210828747870250325" at="51,82,52,49" concept="6" />
+      <node id="2885477569136039762" at="52,49,53,20" concept="13" />
+      <node id="961570622492589345" at="54,9,55,43" concept="13" />
       <node id="699020670022587334" at="22,0,25,0" concept="3" trace="NotMigratedLibsError#(Ljava/util/List;)V" />
       <node id="699020670022587348" at="29,0,32,0" concept="11" trace="getMessage#()Ljava/lang/String;" />
       <node id="699020670022587360" at="32,0,35,0" concept="11" trace="canIgnore#()Z" />
       <node id="699020670022587366" at="35,0,38,0" concept="11" trace="getProblems#(Lcom/intellij/openapi/progress/ProgressIndicator;)Ljava/lang/Iterable;" />
       <node id="768993661255159512" at="39,0,42,0" concept="11" trace="hasErrors#()Z" />
       <node id="5985196147111759718" at="25,0,29,0" concept="11" trace="getShortMessage#()Ljava/lang/String;" />
-      <node id="2885477569136039747" at="44,91,48,7" concept="6" />
-      <node id="768993661255147555" at="43,0,52,0" concept="17" trace="prepare#(Ljetbrains/mps/ide/migration/wizard/MigrationSession;Lorg/jetbrains/mps/openapi/util/ProgressMonitor;)Ljetbrains/mps/ide/migration/wizard/NotMigratedLibsError;" />
+      <node id="2885477569136039747" at="50,139,54,9" concept="6" />
+      <node id="1210828747870334553" at="46,0,56,7" concept="13" />
+      <node id="768993661255147555" at="43,0,58,0" concept="17" trace="prepare#(Ljetbrains/mps/ide/migration/wizard/MigrationSession;Lorg/jetbrains/mps/openapi/util/ProgressMonitor;)Ljetbrains/mps/ide/migration/wizard/NotMigratedLibsError;" />
       <scope id="699020670022587338" at="22,70,23,22" />
       <scope id="5985196147111759722" at="26,35,27,54" />
       <scope id="699020670022587351" at="29,30,30,220" />
       <scope id="699020670022587363" at="32,30,33,16" />
       <scope id="699020670022587370" at="35,89,36,20" />
       <scope id="768993661255159516" at="39,35,40,56" />
-      <scope id="2885477569136039756" at="45,70,47,18" />
+      <scope id="2885477569136039756" at="51,82,53,20" />
       <scope id="699020670022587334" at="22,0,25,0">
         <var name="errors" id="699020670022587335" />
       </scope>
@@ -1317,15 +1322,19 @@
       </scope>
       <scope id="768993661255159512" at="39,0,42,0" />
       <scope id="5985196147111759718" at="25,0,29,0" />
-      <scope id="768993661255146425" at="43,97,50,40">
-        <var name="ii" id="768993661255625172" />
+      <scope id="1210828747870284693" at="47,58,55,43">
+        <var name="mmm" id="1210828747870299441" />
         <var name="res" id="961570622492684770" />
       </scope>
-      <scope id="768993661255147555" at="43,0,52,0">
+      <scope id="768993661255146425" at="43,109,56,7">
+        <var name="affectedModules" id="1210828747870295892" />
+        <var name="repo" id="1210828747870277214" />
+      </scope>
+      <scope id="768993661255147555" at="43,0,58,0">
         <var name="pm" id="768993661255154312" />
         <var name="session" id="768993661255153764" />
       </scope>
-      <unit id="699020670022587329" at="18,0,53,0" name="jetbrains.mps.ide.migration.wizard.NotMigratedLibsError" />
+      <unit id="699020670022587329" at="18,0,59,0" name="jetbrains.mps.ide.migration.wizard.NotMigratedLibsError" />
     </file>
   </root>
   <root nodeRef="a5b1c28d-abeb-49a6-a58c-559039616d64/r:49062720-8530-4489-916a-fdd3a02a7b82(jetbrains.mps.migration.component/jetbrains.mps.ide.migration.wizard)/961570622494166185">

@@ -8,12 +8,12 @@ import jetbrains.mps.errors.item.IssueKindReportItem;
 import com.intellij.openapi.progress.ProgressIndicator;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
-import java.util.Map;
+import org.jetbrains.mps.openapi.module.SRepository;
+import org.jetbrains.mps.openapi.module.SModuleReference;
+import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import java.util.ArrayList;
 import org.jetbrains.mps.openapi.module.SModule;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
-import java.util.HashMap;
-import jetbrains.mps.util.Pair;
-import jetbrains.mps.ide.migration.check.DependencyOnNotMigratedLibProblem;
+import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 
 @GeneratedClass(nodeId = "699020670022587329", model = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:49062720-8530-4489-916a-fdd3a02a7b82(jetbrains.mps.migration.component/jetbrains.mps.ide.migration.wizard)")
 public class NotMigratedLibsError extends MigrationError {
@@ -40,13 +40,19 @@ public class NotMigratedLibsError extends MigrationError {
     return ListSequence.fromList(myErrors).isNotEmpty();
   }
 
-  /*package*/ static NotMigratedLibsError prepare(MigrationSession session, ProgressMonitor pm) {
-    final Map<SModule, SModule> res = MapSequence.fromMap(new HashMap<SModule, SModule>());
-    session.getChecker().checkLibs(pm, (Pair<SModule, SModule> p) -> {
-      MapSequence.fromMap(res).put(p.o1, p.o2);
-      return true;
+  /*package*/ static NotMigratedLibsError prepare(final MigrationSession session, final ProgressMonitor pm) {
+    final SRepository repo = session.getProject().getRepository();
+    final List<SModuleReference> affectedModules = CollectionSequence.fromCollection(session.getModuleMigrations()).translate((it) -> it.affectedModules()).distinct().toList();
+
+    return repo.getModelAccess().computeReadAction(() -> {
+      final List<IssueKindReportItem> res = ListSequence.fromList(new ArrayList<>());
+      // XXX see PreCheckError regarding use of withoutNull
+      List<SModule> mmm = ListSequence.fromList(affectedModules).select((it) -> it.resolve(repo)).where(new NotNullWhereFilter()).toList();
+      session.getChecker().checkDependencies(mmm, pm, (IssueKindReportItem p) -> {
+        ListSequence.fromList(res).addElement(p);
+        return true;
+      });
+      return new NotMigratedLibsError(res);
     });
-    List<IssueKindReportItem> ii = MapSequence.fromMap(res).select((it) -> new DependencyOnNotMigratedLibProblem(it.value(), it.key())).ofType(IssueKindReportItem.class).toList();
-    return new NotMigratedLibsError(ii);
   }
 }

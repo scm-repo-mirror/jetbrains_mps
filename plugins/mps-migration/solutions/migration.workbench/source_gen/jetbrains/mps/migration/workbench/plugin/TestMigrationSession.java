@@ -14,8 +14,8 @@ import jetbrains.mps.ide.migration.AppliedScript;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import org.jetbrains.mps.openapi.util.Processor;
 import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.util.Pair;
 import org.jetbrains.mps.openapi.module.SModule;
+import jetbrains.mps.util.Pair;
 import jetbrains.mps.errors.item.IssueKindReportItem;
 import org.jetbrains.mps.openapi.model.SReference;
 import org.jetbrains.mps.openapi.module.SearchScope;
@@ -57,7 +57,8 @@ import jetbrains.mps.migration.global.MigrationOptions;
       }
       processor.process(Sequence.fromIterable(scripts).first());
     }
-    public void checkLibs(ProgressMonitor m, Processor<Pair<SModule, SModule>> processor) {
+    @Override
+    public void checkDependencies(Iterable<SModule> modules, ProgressMonitor m, Processor<Pair<SModule, SModule>> processor) {
       // todo
     }
     @Override

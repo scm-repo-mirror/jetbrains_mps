@@ -7,16 +7,16 @@ import jetbrains.mps.project.Project;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import org.jetbrains.mps.openapi.util.Processor;
 import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.util.Pair;
 import org.jetbrains.mps.openapi.module.SModule;
+import jetbrains.mps.errors.item.IssueKindReportItem;
 import java.util.List;
-import jetbrains.mps.lang.migration.runtime.base.MigrationModuleUtil;
 import java.util.Collection;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import java.util.HashSet;
 import jetbrains.mps.project.dependency.GlobalModuleDependenciesManager;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.errors.item.IssueKindReportItem;
+import jetbrains.mps.lang.migration.runtime.base.MigrationModuleUtil;
+import jetbrains.mps.ide.migration.check.DependencyOnNotMigratedLibProblem;
 import org.jetbrains.mps.openapi.module.SDependency;
 import jetbrains.mps.ide.migration.check.DependencyProblem;
 import java.util.Set;
@@ -78,27 +78,37 @@ public class MigrationCheckerImpl implements MigrationChecker {
   }
 
   @Override
-  public void checkLibs(ProgressMonitor m, final Processor<Pair<SModule, SModule>> processor) {
-    m.start("Checking dependencies...", 1);
-    myProject.getRepository().getModelAccess().runReadAction(new Runnable() {
-      public void run() {
-        List<SModule> projectModules = Sequence.fromIterable(MigrationModuleUtil.getMigrateableModulesFromProject(myProject)).toList();
-        Collection<SModule> depModules = CollectionSequence.fromCollectionWithValues(new HashSet<SModule>(), new GlobalModuleDependenciesManager(projectModules).getModules(GlobalModuleDependenciesManager.Deptype.VISIBLE));
-        CollectionSequence.fromCollection(depModules).removeSequence(Sequence.fromIterable((Iterable<SModule>) myProject.getProjectModulesWithGenerators()));
-        depModules = CollectionSequence.fromCollection(depModules).where((it) -> MigrationModuleUtil.wouldBeMigrateableWhenNotPacked(it)).toList();
-        // XXX can't we get dependency targets (with improper verions? or how do we define non-migrated?) from myManager? Why build another set of migrations
-        Collection<AppliedScript> depMigrationsToRun = new MigrationSetup(myProject, depModules).getModuleMigrations();
-        Iterable<SModule> notMigratedModules = CollectionSequence.fromCollection(depMigrationsToRun).translate((it) -> Sequence.fromIterable(it.affectedModules()).distinct().select((mr) -> mr.resolve(myProject.getRepository())));
-        for (final SModule notMigrated : Sequence.fromIterable(notMigratedModules)) {
-          SModule m = ListSequence.fromList(projectModules).findFirst((depCandidate) -> new GlobalModuleDependenciesManager(depCandidate).getModules(GlobalModuleDependenciesManager.Deptype.VISIBLE).contains(notMigrated));
-          if (m == null) {
-            continue;
-          }
-          processor.process(new Pair(notMigrated, m));
-        }
+  public void checkDependencies(Iterable<SModule> modules, ProgressMonitor pm, Processor<IssueKindReportItem> processor) {
+    pm.start("Checking dependencies...", 1);
+    List<SModule> modules2migrate = Sequence.fromIterable(modules).toList();
+    Collection<SModule> depModules = CollectionSequence.fromCollectionWithValues(new HashSet<SModule>(), new GlobalModuleDependenciesManager(modules2migrate).getModules(GlobalModuleDependenciesManager.Deptype.VISIBLE));
+    if (pm.isCanceled()) {
+      return;
+    }
+    CollectionSequence.fromCollection(depModules).removeSequence(ListSequence.fromList(modules2migrate));
+    // XXX quite confusing wouldBeMigrateableWhenNotPacked method, at least try to name it better
+    depModules = CollectionSequence.fromCollection(depModules).where((it) -> MigrationModuleUtil.wouldBeMigrateableWhenNotPacked(it)).toList();
+    // XXX can't we get dependency targets (with improper versions? or how do we define non-migrated?)? Building another set of migrations is expensive.
+    //    Can't I instead use MigrationScriptCollector here directly?
+    Collection<AppliedScript> depMigrationsToRun = new MigrationSetup(myProject, depModules).getModuleMigrations();
+    if (pm.isCanceled()) {
+      return;
+    }
+    Iterable<SModule> notMigratedModules = CollectionSequence.fromCollection(depMigrationsToRun).translate((it) -> Sequence.fromIterable(it.affectedModules()).distinct().select((mr) -> mr.resolve(myProject.getRepository())));
+    for (final SModule notMigrated : Sequence.fromIterable(notMigratedModules)) {
+      if (pm.isCanceled()) {
+        break;
       }
-    });
-    m.done();
+      SModule m = ListSequence.fromList(modules2migrate).findFirst((depCandidate) -> new GlobalModuleDependenciesManager(depCandidate).getModules(GlobalModuleDependenciesManager.Deptype.VISIBLE).contains(notMigrated));
+      if (m == null) {
+        continue;
+      }
+      if (!(processor.process(new DependencyOnNotMigratedLibProblem(notMigrated, m)))) {
+        pm.cancel();
+        break;
+      }
+    }
+    pm.done();
   }
   @Override
   public void checkModulesToMigrate(Iterable<SModule> modules, ProgressMonitor pm, final Processor<IssueKindReportItem> processor) {

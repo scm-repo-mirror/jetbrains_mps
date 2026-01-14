@@ -6731,7 +6731,15 @@
             </node>
             <node concept="3clFb_" id="4biA4YBv2eg" role="jymVt">
               <property role="1EzhhJ" value="false" />
-              <property role="TrG5h" value="checkLibs" />
+              <property role="TrG5h" value="checkDependencies" />
+              <node concept="37vLTG" id="13dI_iSzYEf" role="3clF46">
+                <property role="TrG5h" value="modules" />
+                <node concept="A3Dl8" id="13dI_iSzYEg" role="1tU5fm">
+                  <node concept="3uibUv" id="13dI_iSzYEh" role="A3Ik2">
+                    <ref role="3uigEE" to="lui2:~SModule" resolve="SModule" />
+                  </node>
+                </node>
+              </node>
               <node concept="37vLTG" id="4biA4YBv2eh" role="3clF46">
                 <property role="TrG5h" value="m" />
                 <node concept="3uibUv" id="4biA4YBv2ei" role="1tU5fm">
@@ -6763,6 +6771,9 @@
                     </node>
                   </node>
                 </node>
+              </node>
+              <node concept="2AHcQZ" id="13dI_iS_0Rj" role="2AJF6D">
+                <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
               </node>
             </node>
             <node concept="3clFb_" id="4biA4YBv2et" role="jymVt">

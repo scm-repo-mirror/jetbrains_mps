@@ -5,7 +5,6 @@ package jetbrains.mps.ide.migration;
 import jetbrains.mps.annotations.GeneratedClass;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import org.jetbrains.mps.openapi.util.Processor;
-import jetbrains.mps.util.Pair;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.errors.item.IssueKindReportItem;
 import jetbrains.mps.lang.migration.runtime.base.Problem;
@@ -17,9 +16,9 @@ public interface MigrationChecker {
    */
   void checkMigrationScripts(Iterable<AppliedScript> scripts, ProgressMonitor pm, Processor<AppliedScript> processor);
   /**
-   * FIXME bad api, pair of SModule, really?
+   * Looks into dependencies of supplied modules and reports if any dependency requires any migration
    */
-  void checkLibs(ProgressMonitor m, Processor<Pair<SModule, SModule>> processor);
+  void checkDependencies(Iterable<SModule> modules, ProgressMonitor m, Processor<IssueKindReportItem> processor);
   /**
    * External code makes sure that present state of a module which is subject to migration is ok
    *  and doesn't prevent migration (e.g. missing dependencies or broken references).
