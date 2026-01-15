@@ -61,6 +61,10 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       this.myNonTypesystemRules.add(nonTypesystemRule);
     }
     {
+      NonTypesystemRule_Runtime nonTypesystemRule = new check_AntiquotationContents_NonTypesystemRule();
+      this.myNonTypesystemRules.add(nonTypesystemRule);
+    }
+    {
       NonTypesystemRule_Runtime nonTypesystemRule = new check_LightQuotationNode_multipleInitializers_NonTypesystemRule();
       this.myNonTypesystemRules.add(nonTypesystemRule);
     }
