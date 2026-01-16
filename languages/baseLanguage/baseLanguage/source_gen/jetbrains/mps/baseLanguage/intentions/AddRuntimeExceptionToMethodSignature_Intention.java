@@ -18,9 +18,8 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
-import jetbrains.mps.smodel.builder.SNodeBuilder;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 
@@ -86,7 +85,7 @@ public final class AddRuntimeExceptionToMethodSignature_Intention extends Abstra
         return false;
       }
       // check it's instance of RuntimeException
-      if (!((boolean) Classifier__BehaviorDescriptor.isDescendant_id6dL7A1DpKo1.invoke(exceptionJavaType, (SNode) SLinkOperations.getTarget(_quotation_createNode_7gg82q_a0a0a0j0a(), LINKS.classifier$cxMr)))) {
+      if (!((boolean) Classifier__BehaviorDescriptor.isDescendant_id3HluQRcSv_J.invoke(exceptionJavaType, new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~RuntimeException")))) {
         return false;
       }
       // check if it's not thrown by a method yet
@@ -102,13 +101,6 @@ public final class AddRuntimeExceptionToMethodSignature_Intention extends Abstra
       return AddRuntimeExceptionToMethodSignature_Intention.this;
     }
 
-  }
-  private static SNode _quotation_createNode_7gg82q_a0a0a0j0a() {
-    SNode quotedNode_1 = null;
-    SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x101de48bf9eL, "ClassifierType"));
-    quotedNode_1 = nb.getResult();
-    nb.setReference(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), "6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)/~RuntimeException");
-    return quotedNode_1;
   }
 
   private static final class CONCEPTS {

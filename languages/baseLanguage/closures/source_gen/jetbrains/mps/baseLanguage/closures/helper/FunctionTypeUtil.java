@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
+import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.baseLanguage.closures.util.FunctionalInterfaceHelper;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.generator.template.TemplateQueryContext;
@@ -75,7 +76,7 @@ with_throws:
     for (SNode tt : ttypes) {
       SNode clstt = SNodeOperations.as(tt, CONCEPTS.ClassifierType$bL);
       if (clstt != null) {
-        if (!((boolean) Classifier__BehaviorDescriptor.isDescendant_id6dL7A1DpKo1.invoke(SLinkOperations.getTarget(clstt, LINKS.classifier$cxMr), SLinkOperations.getTarget(_quotation_createNode_2t0coq_a0a0a0a1a2a4(), LINKS.classifier$cxMr)))) {
+        if (!((boolean) Classifier__BehaviorDescriptor.isDescendant_id3HluQRcSv_J.invoke(SLinkOperations.getTarget(clstt, LINKS.classifier$cxMr), new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~RuntimeException")))) {
           for (int i = 0; i < ListSequence.fromList(visited).count(); ++i) {
             SNode restt = ListSequence.fromList(visited).getElement(i);
             if ((boolean) Classifier__BehaviorDescriptor.isDescendant_id6dL7A1DpKo1.invoke(SLinkOperations.getTarget(restt, LINKS.classifier$cxMr), SLinkOperations.getTarget(clstt, LINKS.classifier$cxMr))) {
@@ -234,13 +235,6 @@ with_meet:
     if ((adTVD != null) && (trgTVD != null)) {
       MapSequence.fromMap(theMap).put(adTVD, trgTVD);
     }
-  }
-  private static SNode _quotation_createNode_2t0coq_a0a0a0a1a2a4() {
-    SNode quotedNode_1 = null;
-    SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x101de48bf9eL, "ClassifierType"));
-    quotedNode_1 = nb.getResult();
-    nb.setReference(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), "6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)/~RuntimeException");
-    return quotedNode_1;
   }
   private static SNode _quotation_createNode_2t0coq_a1a1a6() {
     SNode quotedNode_1 = null;

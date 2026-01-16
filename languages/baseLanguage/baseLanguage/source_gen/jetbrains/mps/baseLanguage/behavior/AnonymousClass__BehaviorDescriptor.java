@@ -12,6 +12,7 @@ import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.model.SNodeReference;
 import java.util.Set;
 import jetbrains.mps.baseLanguage.util.StubClassDiscovery;
 import jetbrains.mps.scope.Scope;
@@ -25,8 +26,9 @@ import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.core.behavior.INamedConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
+import java.util.Objects;
+import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.scopes.runtime.ScopeUtils;
 import jetbrains.mps.lang.core.behavior.ScopeProvider__BehaviorDescriptor;
 import jetbrains.mps.typechecking.TypecheckingFacade;
@@ -54,6 +56,7 @@ public final class AnonymousClass__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<SNode> getSuperclass_idi3H_lLu = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getSuperclass").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1240936569950L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
   public static final SMethod<Iterable<SNode>> getAvailableMethodDeclarations_id50EF2fWdwEN = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getAvailableMethodDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5776618742611315379L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter(String.class, ""));
   /*package*/ static final SMethod<Integer> getIndexInContainingClass_id3BacVlMg8ub = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("getIndexInContainingClass").modifiers(0, AccessPrivileges.PRIVATE).concept(CONCEPT).baseMethodId(4164197659856373643L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
+  public static final SMethod<SNode> findAncestor_id3HluQRcXTJl = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("findAncestor").modifiers(8, AccessPrivileges.PROTECTED).concept(CONCEPT).baseMethodId(4275459132778585045L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter((Class<SNodeReference>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<Set<SNode>>) ((Class) Object.class), ""));
   public static final SMethod<Boolean> isDescendant_checkLoops_id6dL7A1DpKoA = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isDescendant_checkLoops").modifiers(8, AccessPrivileges.PROTECTED).concept(CONCEPT).baseMethodId(7165541881557222950L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<Set<SNode>>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(StubClassDiscovery.class, ""));
   public static final SMethod<String> getNestedName_id7q4lzBFjvIX = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getNestedName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8540045600162184125L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
   public static final SMethod<String> getFqName_idhEwIO9y = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getFqName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1213877404258L).languageId(0x9b92103b95ca8c0cL, 0xceab519525ea4f22L).build2();
@@ -71,7 +74,7 @@ public final class AnonymousClass__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Boolean> canBeAbstract_id6aeBP5Qh1A$ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("canBeAbstract").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7101788834635192740L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
   public static final SMethod<Boolean> canBeStatic_id2L7NFMAtrRg = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("canBeStatic").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3190746170657193424L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getUnitName_id4pl5GY7LKmR, getExtendedClassifierTypes_id1UeCwxlWKny, getJavaName_id2_jKYQ0K_an, getSuperclass_idi3H_lLu, getAvailableMethodDeclarations_id50EF2fWdwEN, getIndexInContainingClass_id3BacVlMg8ub, isDescendant_checkLoops_id6dL7A1DpKoA, getNestedName_id7q4lzBFjvIX, getFqName_idhEwIO9y, getAnonymousClassPresentation_id6xEo7wt3U0_, getScope_id52_Geb4QDV$, enumerateMembers_id65_8Gi2s6iV, enumerateSupertypes_id65_8Gi1dKDs, isStatic_id6r77ob2USS8, getTargetClassifier_id1k0fX3j6Qov, getTypeParameter_id1HUOkcfjoPx, getInferredTypeByTypeVar_id4H6sh0LDcte, getConcreteTypeParameter_id4H6sh0LUNF7, getThisType_id2RtWPFZ12w7, canBeFinal_id6aeBP5Qha2s, canBeAbstract_id6aeBP5Qh1A$, canBeStatic_id2L7NFMAtrRg);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getUnitName_id4pl5GY7LKmR, getExtendedClassifierTypes_id1UeCwxlWKny, getJavaName_id2_jKYQ0K_an, getSuperclass_idi3H_lLu, getAvailableMethodDeclarations_id50EF2fWdwEN, getIndexInContainingClass_id3BacVlMg8ub, findAncestor_id3HluQRcXTJl, isDescendant_checkLoops_id6dL7A1DpKoA, getNestedName_id7q4lzBFjvIX, getFqName_idhEwIO9y, getAnonymousClassPresentation_id6xEo7wt3U0_, getScope_id52_Geb4QDV$, enumerateMembers_id65_8Gi2s6iV, enumerateSupertypes_id65_8Gi1dKDs, isStatic_id6r77ob2USS8, getTargetClassifier_id1k0fX3j6Qov, getTypeParameter_id1HUOkcfjoPx, getInferredTypeByTypeVar_id4H6sh0LDcte, getConcreteTypeParameter_id4H6sh0LUNF7, getThisType_id2RtWPFZ12w7, canBeFinal_id6aeBP5Qha2s, canBeAbstract_id6aeBP5Qh1A$, canBeStatic_id2L7NFMAtrRg);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
     SPropertyOperations.assign(__thisNode__, PROPS.nonStatic$aWW8, true);
@@ -114,6 +117,24 @@ public final class AnonymousClass__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static int getIndexInContainingClass_id3BacVlMg8ub(@NotNull SNode __thisNode__) {
     final SNode ancestor = SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.Classifier$Ix, false, false);
     return ListSequence.fromList(SNodeOperations.getNodeDescendants(ancestor, CONCEPTS.AnonymousClass$Bt, false, new SAbstractConcept[]{})).where((it) -> SNodeOperations.getNodeAncestor(it, CONCEPTS.Classifier$Ix, false, false) == ancestor).indexOf(__thisNode__) + 1;
+  }
+  /*package*/ static SNode findAncestor_id3HluQRcXTJl(@NotNull SNode __thisNode__, SNodeReference target, Set<SNode> visited) {
+    if (SetSequence.fromSet(visited).contains(__thisNode__)) {
+      // quite unlikely to happen for an anonymous class, right?
+      if (LOG.isErrorLevel()) {
+        LOG.error("circular hierarchy in class " + INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(__thisNode__));
+      }
+      return null;
+    }
+    SetSequence.fromSet(visited).addElement(__thisNode__);
+    SNode cc = SLinkOperations.getTarget(__thisNode__, LINKS.classifier$q_Y$);
+    if (cc == null) {
+      return null;
+    }
+    if (Objects.equals(SNodeOperations.getPointer(cc), target)) {
+      return cc;
+    }
+    return Classifier__BehaviorDescriptor.findAncestor_id3HluQRcXTJl.invoke(cc, target, visited);
   }
   /*package*/ static boolean isDescendant_checkLoops_id6dL7A1DpKoA(@NotNull SNode __thisNode__, SNode nodeToCompare, Set<SNode> visited, StubClassDiscovery scd) {
     if (SNodeOperations.is(nodeToCompare, new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object"))) {
@@ -259,34 +280,36 @@ public final class AnonymousClass__BehaviorDescriptor extends BaseBHDescriptor {
       case 5:
         return (T) ((Integer) getIndexInContainingClass_id3BacVlMg8ub(node));
       case 6:
-        return (T) ((Boolean) isDescendant_checkLoops_id6dL7A1DpKoA(node, (SNode) parameters[0], (Set<SNode>) parameters[1], (StubClassDiscovery) parameters[2]));
+        return (T) ((SNode) findAncestor_id3HluQRcXTJl(node, (SNodeReference) parameters[0], (Set<SNode>) parameters[1]));
       case 7:
-        return (T) ((String) getNestedName_id7q4lzBFjvIX(node));
+        return (T) ((Boolean) isDescendant_checkLoops_id6dL7A1DpKoA(node, (SNode) parameters[0], (Set<SNode>) parameters[1], (StubClassDiscovery) parameters[2]));
       case 8:
-        return (T) ((String) getFqName_idhEwIO9y(node));
+        return (T) ((String) getNestedName_id7q4lzBFjvIX(node));
       case 9:
-        return (T) ((String) getAnonymousClassPresentation_id6xEo7wt3U0_(node, (SNode) parameters[0]));
+        return (T) ((String) getFqName_idhEwIO9y(node));
       case 10:
-        return (T) ((Scope) getScope_id52_Geb4QDV$(node, (SAbstractConcept) parameters[0], (SNode) parameters[1]));
+        return (T) ((String) getAnonymousClassPresentation_id6xEo7wt3U0_(node, (SNode) parameters[0]));
       case 11:
+        return (T) ((Scope) getScope_id52_Geb4QDV$(node, (SAbstractConcept) parameters[0], (SNode) parameters[1]));
+      case 12:
         enumerateMembers_id65_8Gi2s6iV(node, (ClassifierHierarchyVisitor) parameters[0]);
         return null;
-      case 12:
+      case 13:
         enumerateSupertypes_id65_8Gi1dKDs(node, (ClassifierHierarchyVisitor) parameters[0]);
         return null;
-      case 13:
-        return (T) ((Boolean) isStatic_id6r77ob2USS8(node));
       case 14:
-        return (T) ((SNode) getTargetClassifier_id1k0fX3j6Qov(node));
+        return (T) ((Boolean) isStatic_id6r77ob2USS8(node));
       case 15:
-        return (T) ((List<SNode>) getTypeParameter_id1HUOkcfjoPx(node));
+        return (T) ((SNode) getTargetClassifier_id1k0fX3j6Qov(node));
       case 16:
-        return (T) ((Map<SNode, SNode>) getInferredTypeByTypeVar_id4H6sh0LDcte(node));
+        return (T) ((List<SNode>) getTypeParameter_id1HUOkcfjoPx(node));
       case 17:
-        return (T) ((Iterable<SNode>) getConcreteTypeParameter_id4H6sh0LUNF7(node));
+        return (T) ((Map<SNode, SNode>) getInferredTypeByTypeVar_id4H6sh0LDcte(node));
       case 18:
+        return (T) ((Iterable<SNode>) getConcreteTypeParameter_id4H6sh0LUNF7(node));
+      case 19:
         return (T) ((SNode) getThisType_id2RtWPFZ12w7(node));
-      case 21:
+      case 22:
         return (T) ((Boolean) canBeStatic_id2L7NFMAtrRg(node));
       default:
         throw new BHMethodNotFoundException(this, method);
@@ -300,9 +323,9 @@ public final class AnonymousClass__BehaviorDescriptor extends BaseBHDescriptor {
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
-      case 19:
-        return (T) ((Boolean) canBeFinal_id6aeBP5Qha2s(concept));
       case 20:
+        return (T) ((Boolean) canBeFinal_id6aeBP5Qha2s(concept));
+      case 21:
         return (T) ((Boolean) canBeAbstract_id6aeBP5Qh1A$(concept));
       default:
         throw new BHMethodNotFoundException(this, method);

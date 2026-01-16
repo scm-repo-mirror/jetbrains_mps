@@ -7,10 +7,11 @@ import jetbrains.mps.logging.Logger;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
+import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.model.SNodeReference;
 import java.util.Set;
 import jetbrains.mps.baseLanguage.util.StubClassDiscovery;
 import jetbrains.mps.scope.Scope;
@@ -20,19 +21,20 @@ import jetbrains.mps.baseLanguage.scopes.ClassifierHierarchyVisitor;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import java.util.Objects;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import jetbrains.mps.lang.core.behavior.INamedConcept__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import java.util.HashSet;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.traceable.behavior.UnitConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
 import jetbrains.mps.lang.core.behavior.ScopeProvider__BehaviorDescriptor;
-import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.ArrayList;
-import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.smodel.SNodePointer;
@@ -41,8 +43,8 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -51,6 +53,7 @@ public final class Interface__BehaviorDescriptor extends BaseBHDescriptor {
   private static final Logger LOG = Logger.getLogger(Interface__BehaviorDescriptor.class);
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
 
+  public static final SMethod<SNode> findAncestor_id3HluQRcXTJl = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("findAncestor").modifiers(8, AccessPrivileges.PROTECTED).concept(CONCEPT).baseMethodId(4275459132778585045L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter((Class<SNodeReference>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<Set<SNode>>) ((Class) Object.class), ""));
   public static final SMethod<Boolean> isDescendant_checkLoops_id6dL7A1DpKoA = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isDescendant_checkLoops").modifiers(8, AccessPrivileges.PROTECTED).concept(CONCEPT).baseMethodId(7165541881557222950L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<Set<SNode>>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(StubClassDiscovery.class, ""));
   public static final SMethod<Boolean> checkLoops_id3sXyOQUqKq5 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("checkLoops").modifiers(8, AccessPrivileges.PROTECTED).concept(CONCEPT).baseMethodId(3980490811621705349L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter((Class<Set<SNode>>) ((Class) Object.class), ""));
   public static final SMethod<String> getUnitName_id4pl5GY7LKmR = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getUnitName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5067982036267369911L).languageId(0xbfd948636cfe8bc3L, 0x9ded098bad6a4657L).build2();
@@ -65,25 +68,33 @@ public final class Interface__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Void> unmarkDeprecated_id6Va_BJex$aE = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("unmarkDeprecated").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7983358747957674666L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
   public static final SMethod<Void> markLoadedNodeAsDeprecated_id5H8W9_EDv7w = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("markLoadedNodeAsDeprecated").modifiers(1, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6577771797484532192L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isDescendant_checkLoops_id6dL7A1DpKoA, checkLoops_id3sXyOQUqKq5, getUnitName_id4pl5GY7LKmR, getScope_id52_Geb4QDV$, getExtendedClassifierTypes_id1UeCwxlWKny, populateMembers_id6r77ob2USUV, enumerateMembers_id65_8Gi2s6iV, enumerateSupertypes_id65_8Gi1dKDs, enumerateObjectMembers_id9QjKR8ksDs, canBeStatic_id2L7NFMC7$9I, markDeprecated_id6Va_BJexupi, unmarkDeprecated_id6Va_BJex$aE, markLoadedNodeAsDeprecated_id5H8W9_EDv7w);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(findAncestor_id3HluQRcXTJl, isDescendant_checkLoops_id6dL7A1DpKoA, checkLoops_id3sXyOQUqKq5, getUnitName_id4pl5GY7LKmR, getScope_id52_Geb4QDV$, getExtendedClassifierTypes_id1UeCwxlWKny, populateMembers_id6r77ob2USUV, enumerateMembers_id65_8Gi2s6iV, enumerateSupertypes_id65_8Gi1dKDs, enumerateObjectMembers_id9QjKR8ksDs, canBeStatic_id2L7NFMC7$9I, markDeprecated_id6Va_BJexupi, unmarkDeprecated_id6Va_BJex$aE, markLoadedNodeAsDeprecated_id5H8W9_EDv7w);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
+  /*package*/ static SNode findAncestor_id3HluQRcXTJl(@NotNull SNode __thisNode__, final SNodeReference target, final Set<SNode> visited) {
+    if (SetSequence.fromSet(visited).contains(__thisNode__)) {
+      return null;
+    }
+    SetSequence.fromSet(visited).addElement(__thisNode__);
+    SNode ic = Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(__thisNode__, LINKS.extendedInterface$PDVO), LINKS.classifier$cxMr)).findFirst((it) -> Objects.equals(SNodeOperations.getPointer(it), target));
+    if (ic != null) {
+      return ic;
+    }
+    return Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(__thisNode__, LINKS.extendedInterface$PDVO), LINKS.classifier$cxMr)).select((it) -> (SNode) Classifier__BehaviorDescriptor.findAncestor_id3HluQRcXTJl.invoke(it, target, visited)).where(new NotNullWhereFilter()).first();
+  }
   /*package*/ static boolean isDescendant_checkLoops_id6dL7A1DpKoA(@NotNull SNode __thisNode__, SNode nodeToCompare, Set<SNode> visited, StubClassDiscovery scd) {
     if (SetSequence.fromSet(visited).contains(__thisNode__)) {
-      if (LOG.isErrorLevel()) {
-        LOG.error("circular hierarchy in interface " + INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(__thisNode__));
-      }
+      // we could see same interface among visited multiple times, it's not an error
       return false;
     }
-    if (scd.areTheSame(__thisNode__, nodeToCompare)) {
+    if (Objects.equals(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(__thisNode__), INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(nodeToCompare)) && scd.areTheSame(__thisNode__, nodeToCompare)) {
       return true;
     }
     SetSequence.fromSet(visited).addElement(__thisNode__);
     for (SNode extended : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.extendedInterface$PDVO))) {
-      Set<SNode> classifiers = SetSequence.fromSetWithValues(new HashSet<SNode>(), visited);
-      if ((boolean) Classifier__BehaviorDescriptor.isDescendant_checkLoops_id6dL7A1DpKoA.invoke(SLinkOperations.getTarget(extended, LINKS.classifier$cxMr), nodeToCompare, classifiers, scd)) {
+      if ((boolean) Classifier__BehaviorDescriptor.isDescendant_checkLoops_id6dL7A1DpKoA.invoke(SLinkOperations.getTarget(extended, LINKS.classifier$cxMr), nodeToCompare, visited, scd)) {
         return true;
       }
     }
@@ -123,7 +134,7 @@ public final class Interface__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static List<SNode> getExtendedClassifierTypes_id1UeCwxlWKny(@NotNull SNode __thisNode__) {
     Iterable<SNode> extendedClassifiers = ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.extendedInterface$PDVO)).where((it) -> (SLinkOperations.getTarget(it, LINKS.classifier$cxMr) != null));
     if (Sequence.fromIterable(extendedClassifiers).isEmpty()) {
-      return ListSequence.fromListAndArray(new ArrayList<SNode>(), createClassifierType_8wwxv0_a0a0a1a4());
+      return ListSequence.fromListAndArray(new ArrayList<SNode>(), createClassifierType_8wwxv0_a0a0a1a5());
     } else {
       return ListSequence.fromListWithValues(new ArrayList<SNode>(), extendedClassifiers);
     }
@@ -153,7 +164,7 @@ public final class Interface__BehaviorDescriptor extends BaseBHDescriptor {
       // although it seems odd to add Object methods into any Interface, guess, the reason
       // is that the members query goes through ClassifierType. Given Iface i = new IfaceImpl(); 
       // one needs to see Object methods for i anyway.        
-      IClassifierType__BehaviorDescriptor.enumerateMembers_id65_8Gi2shR6.invoke(createClassifierType_8wwxv0_a0d0c0i(), visitor);
+      IClassifierType__BehaviorDescriptor.enumerateMembers_id65_8Gi2shR6.invoke(createClassifierType_8wwxv0_a0d0c0j(), visitor);
     }
   }
   /*package*/ static boolean canBeStatic_id2L7NFMC7$9I(@NotNull SNode __thisNode__) {
@@ -194,33 +205,35 @@ public final class Interface__BehaviorDescriptor extends BaseBHDescriptor {
     }
     switch (methodIndex) {
       case 0:
-        return (T) ((Boolean) isDescendant_checkLoops_id6dL7A1DpKoA(node, (SNode) parameters[0], (Set<SNode>) parameters[1], (StubClassDiscovery) parameters[2]));
+        return (T) ((SNode) findAncestor_id3HluQRcXTJl(node, (SNodeReference) parameters[0], (Set<SNode>) parameters[1]));
       case 1:
-        return (T) ((Boolean) checkLoops_id3sXyOQUqKq5(node, (Set<SNode>) parameters[0]));
+        return (T) ((Boolean) isDescendant_checkLoops_id6dL7A1DpKoA(node, (SNode) parameters[0], (Set<SNode>) parameters[1], (StubClassDiscovery) parameters[2]));
       case 2:
-        return (T) ((String) getUnitName_id4pl5GY7LKmR(node));
+        return (T) ((Boolean) checkLoops_id3sXyOQUqKq5(node, (Set<SNode>) parameters[0]));
       case 3:
-        return (T) ((Scope) getScope_id52_Geb4QDV$(node, (SAbstractConcept) parameters[0], (SNode) parameters[1]));
+        return (T) ((String) getUnitName_id4pl5GY7LKmR(node));
       case 4:
-        return (T) ((List<SNode>) getExtendedClassifierTypes_id1UeCwxlWKny(node));
+        return (T) ((Scope) getScope_id52_Geb4QDV$(node, (SAbstractConcept) parameters[0], (SNode) parameters[1]));
       case 5:
+        return (T) ((List<SNode>) getExtendedClassifierTypes_id1UeCwxlWKny(node));
+      case 6:
         populateMembers_id6r77ob2USUV(node, (MembersPopulatingContext) parameters[0], (SNode) parameters[1]);
         return null;
-      case 6:
+      case 7:
         enumerateMembers_id65_8Gi2s6iV(node, (ClassifierHierarchyVisitor) parameters[0]);
         return null;
-      case 7:
+      case 8:
         enumerateSupertypes_id65_8Gi1dKDs(node, (ClassifierHierarchyVisitor) parameters[0]);
         return null;
-      case 8:
+      case 9:
         enumerateObjectMembers_id9QjKR8ksDs(node, (ClassifierHierarchyVisitor) parameters[0]);
         return null;
-      case 9:
-        return (T) ((Boolean) canBeStatic_id2L7NFMC7$9I(node));
       case 10:
+        return (T) ((Boolean) canBeStatic_id2L7NFMC7$9I(node));
+      case 11:
         markDeprecated_id6Va_BJexupi(node);
         return null;
-      case 11:
+      case 12:
         unmarkDeprecated_id6Va_BJex$aE(node);
         return null;
       default:
@@ -235,7 +248,7 @@ public final class Interface__BehaviorDescriptor extends BaseBHDescriptor {
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
-      case 12:
+      case 13:
         markLoadedNodeAsDeprecated_id5H8W9_EDv7w(concept, (SNode) parameters[0]);
         return null;
       default:
@@ -254,13 +267,13 @@ public final class Interface__BehaviorDescriptor extends BaseBHDescriptor {
   public SAbstractConcept getConcept() {
     return CONCEPT;
   }
-  private static SNode createClassifierType_8wwxv0_a0a0a1a4() {
+  private static SNode createClassifierType_8wwxv0_a0a0a1a5() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.ClassifierType$bL);
     n0.setReference(LINKS.classifier$cxMr, new SNodePointer(facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~Object")));
     return n0.getResult();
   }
-  private static SNode createClassifierType_8wwxv0_a0d0c0i() {
+  private static SNode createClassifierType_8wwxv0_a0d0c0j() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.ClassifierType$bL);
     n0.setReference(LINKS.classifier$cxMr, new SNodePointer(facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~Object")));
@@ -268,8 +281,8 @@ public final class Interface__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   private static final class LINKS {
-    /*package*/ static final SReferenceLink classifier$cxMr = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
     /*package*/ static final SContainmentLink extendedInterface$PDVO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, 0x101eddadad7L, "extendedInterface");
+    /*package*/ static final SReferenceLink classifier$cxMr = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
     /*package*/ static final SContainmentLink tags$stUD = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4ab5c2019ddc99f3L, "tags");
   }
 

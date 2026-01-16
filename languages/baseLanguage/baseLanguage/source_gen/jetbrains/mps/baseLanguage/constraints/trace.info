@@ -780,82 +780,82 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)/1213104847625">
     <file name="ClassConcept_Constraints.java">
-      <node id="1213104847625" at="31,86,32,49" concept="13" />
-      <node id="4980874121082275158" at="32,49,33,34" concept="3" />
-      <node id="1213104847625" at="39,63,40,141" concept="8" />
-      <node id="6836281137582643425" at="43,80,44,86" concept="8" />
-      <node id="1426851521647136695" at="52,75,53,40" concept="8" />
-      <node id="1426851521647145711" at="54,7,55,38" concept="8" />
-      <node id="1382946559831559085" at="57,73,58,38" concept="8" />
-      <node id="1382946559831559097" at="59,5,60,16" concept="8" />
-      <node id="4980874121082275158" at="64,57,65,63" concept="13" />
-      <node id="4980874121082275161" at="68,40,69,75" concept="8" />
-      <node id="4980874121082275158" at="72,68,73,83" concept="3" />
-      <node id="4980874121082275172" at="75,83,76,79" concept="3" />
-      <node id="1213104847625" at="81,0,82,0" concept="11" trace="ClassConcept$bK" />
-      <node id="1213104847625" at="85,0,86,0" concept="11" trace="abstractClass$Ta1X" />
-      <node id="1213104847625" at="86,0,87,0" concept="11" trace="isStatic$3WAz" />
-      <node id="1213104847625" at="87,0,88,0" concept="11" trace="nonStatic$aWW8" />
-      <node id="5363084893386562003" at="51,191,54,7" concept="5" />
-      <node id="1382946559831559076" at="56,5,59,5" concept="5" />
-      <node id="4980874121082275158" at="64,0,67,0" concept="2" trace="IsStatic_PD#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
-      <node id="4980874121082275158" at="75,0,78,0" concept="12" trace="staticSetPropertyValue#(Lorg/jetbrains/mps/openapi/model/SNode;Z)V" />
-      <node id="1213104847625" at="38,0,42,0" concept="6" trace="getSearchScopeValidatorNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
-      <node id="1213104847625" at="42,0,46,0" concept="6" trace="createScope#(Ljetbrains/mps/smodel/runtime/ReferenceConstraintsContext;)Ljetbrains/mps/scope/Scope;" />
-      <node id="4980874121082275158" at="67,0,71,0" concept="6" trace="getValue#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/Object;" />
-      <node id="4980874121082275158" at="71,0,75,0" concept="6" trace="setPropertyValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/Object;)V" />
-      <node id="5363084893386560588" at="50,51,56,5" concept="5" />
-      <node id="1213104847625" at="36,152,46,10" concept="8" />
-      <node id="1213104847625" at="50,0,62,0" concept="6" trace="getInstanceIcon#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/smodel/runtime/IconResource;" />
-      <node id="1213104847625" at="35,0,48,0" concept="6" trace="invoke#(Ljetbrains/mps/smodel/runtime/ConstraintContext_DefaultScopeProvider;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Ljetbrains/mps/smodel/runtime/ReferenceScopeProvider;" />
-      <node id="1213104847625" at="33,34,48,7" concept="3" />
-      <node id="1213104847625" at="31,0,50,0" concept="2" trace="ClassConcept_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
-      <scope id="1213104847625" at="39,63,40,141" />
-      <scope id="1213104847625" at="43,80,44,86" />
-      <scope id="5363084893386562004" at="52,75,53,40" />
-      <scope id="1382946559831559078" at="57,73,58,38" />
-      <scope id="4980874121082275158" at="64,57,65,63" />
-      <scope id="4980874121082275160" at="68,40,69,75" />
-      <scope id="4980874121082275158" at="72,68,73,83" />
-      <scope id="4980874121082275171" at="75,83,76,79" />
-      <scope id="4980874121082275158" at="64,0,67,0">
+      <node id="1213104847625" at="30,86,31,49" concept="13" />
+      <node id="4980874121082275158" at="31,49,32,34" concept="3" />
+      <node id="1213104847625" at="38,63,39,141" concept="8" />
+      <node id="6836281137582643425" at="42,80,43,86" concept="8" />
+      <node id="1426851521647136695" at="51,75,52,40" concept="8" />
+      <node id="1426851521647145711" at="53,7,54,38" concept="8" />
+      <node id="1382946559831559085" at="56,73,57,38" concept="8" />
+      <node id="1382946559831559097" at="58,5,59,16" concept="8" />
+      <node id="4980874121082275158" at="63,57,64,63" concept="13" />
+      <node id="4980874121082275161" at="67,40,68,75" concept="8" />
+      <node id="4980874121082275158" at="71,68,72,83" concept="3" />
+      <node id="4980874121082275172" at="74,83,75,79" concept="3" />
+      <node id="1213104847625" at="80,0,81,0" concept="11" trace="ClassConcept$bK" />
+      <node id="1213104847625" at="84,0,85,0" concept="11" trace="abstractClass$Ta1X" />
+      <node id="1213104847625" at="85,0,86,0" concept="11" trace="isStatic$3WAz" />
+      <node id="1213104847625" at="86,0,87,0" concept="11" trace="nonStatic$aWW8" />
+      <node id="5363084893386562003" at="50,184,53,7" concept="5" />
+      <node id="1382946559831559076" at="55,5,58,5" concept="5" />
+      <node id="4980874121082275158" at="63,0,66,0" concept="2" trace="IsStatic_PD#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
+      <node id="4980874121082275158" at="74,0,77,0" concept="12" trace="staticSetPropertyValue#(Lorg/jetbrains/mps/openapi/model/SNode;Z)V" />
+      <node id="1213104847625" at="37,0,41,0" concept="6" trace="getSearchScopeValidatorNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
+      <node id="1213104847625" at="41,0,45,0" concept="6" trace="createScope#(Ljetbrains/mps/smodel/runtime/ReferenceConstraintsContext;)Ljetbrains/mps/scope/Scope;" />
+      <node id="4980874121082275158" at="66,0,70,0" concept="6" trace="getValue#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/Object;" />
+      <node id="4980874121082275158" at="70,0,74,0" concept="6" trace="setPropertyValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/Object;)V" />
+      <node id="5363084893386560588" at="49,51,55,5" concept="5" />
+      <node id="1213104847625" at="35,152,45,10" concept="8" />
+      <node id="1213104847625" at="49,0,61,0" concept="6" trace="getInstanceIcon#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/smodel/runtime/IconResource;" />
+      <node id="1213104847625" at="34,0,47,0" concept="6" trace="invoke#(Ljetbrains/mps/smodel/runtime/ConstraintContext_DefaultScopeProvider;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Ljetbrains/mps/smodel/runtime/ReferenceScopeProvider;" />
+      <node id="1213104847625" at="32,34,47,7" concept="3" />
+      <node id="1213104847625" at="30,0,49,0" concept="2" trace="ClassConcept_Constraints#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptorInitContext;)V" />
+      <scope id="1213104847625" at="38,63,39,141" />
+      <scope id="1213104847625" at="42,80,43,86" />
+      <scope id="5363084893386562004" at="51,75,52,40" />
+      <scope id="1382946559831559078" at="56,73,57,38" />
+      <scope id="4980874121082275158" at="63,57,64,63" />
+      <scope id="4980874121082275160" at="67,40,68,75" />
+      <scope id="4980874121082275158" at="71,68,72,83" />
+      <scope id="4980874121082275171" at="74,83,75,79" />
+      <scope id="4980874121082275158" at="63,0,66,0">
         <var name="container" id="4980874121082275158" />
       </scope>
-      <scope id="4980874121082275158" at="75,0,78,0">
+      <scope id="4980874121082275158" at="74,0,77,0">
         <var name="node" id="4980874121082275158" />
         <var name="propertyValue" id="4980874121082275158" />
       </scope>
-      <scope id="1213104847625" at="38,0,42,0" />
-      <scope id="1213104847625" at="42,0,46,0">
+      <scope id="1213104847625" at="37,0,41,0" />
+      <scope id="1213104847625" at="41,0,45,0">
         <var name="_context" id="1213104847625" />
       </scope>
-      <scope id="5363084893386560589" at="51,191,55,38" />
-      <scope id="4980874121082275158" at="67,0,71,0">
+      <scope id="5363084893386560589" at="50,184,54,38" />
+      <scope id="4980874121082275158" at="66,0,70,0">
         <var name="node" id="4980874121082275158" />
       </scope>
-      <scope id="4980874121082275158" at="71,0,75,0">
+      <scope id="4980874121082275158" at="70,0,74,0">
         <var name="node" id="4980874121082275158" />
         <var name="propertyValue" id="4980874121082275158" />
       </scope>
-      <scope id="1213104847625" at="36,152,46,10" />
-      <scope id="1426851521647082451" at="50,51,60,16" />
-      <scope id="1213104847625" at="50,0,62,0">
+      <scope id="1213104847625" at="35,152,45,10" />
+      <scope id="1426851521647082451" at="49,51,59,16" />
+      <scope id="1213104847625" at="49,0,61,0">
         <var name="node" id="1213104847625" />
       </scope>
-      <scope id="1213104847625" at="35,0,48,0">
+      <scope id="1213104847625" at="34,0,47,0">
         <var name="checkingNodeContext" id="1213104847625" />
         <var name="context" id="1213104847625" />
       </scope>
-      <scope id="1213104847625" at="31,86,48,7" />
-      <scope id="1213104847625" at="31,0,50,0">
+      <scope id="1213104847625" at="30,86,47,7" />
+      <scope id="1213104847625" at="30,0,49,0">
         <var name="initContext" id="1213104847625" />
       </scope>
-      <unit id="1213104847625" at="80,0,83,0" name="jetbrains.mps.baseLanguage.constraints.ClassConcept_Constraints$CONCEPTS" />
-      <unit id="1213104847625" at="84,0,89,0" name="jetbrains.mps.baseLanguage.constraints.ClassConcept_Constraints$PROPS" />
-      <unit id="1213104847625" at="37,19,46,9" name="jetbrains.mps.baseLanguage.constraints.ClassConcept_Constraints$1$1" />
-      <unit id="1213104847625" at="34,24,48,5" name="jetbrains.mps.baseLanguage.constraints.ClassConcept_Constraints$1" />
-      <unit id="4980874121082275158" at="63,0,79,0" name="jetbrains.mps.baseLanguage.constraints.ClassConcept_Constraints$IsStatic_PD" />
-      <unit id="1213104847625" at="30,0,90,0" name="jetbrains.mps.baseLanguage.constraints.ClassConcept_Constraints" />
+      <unit id="1213104847625" at="79,0,82,0" name="jetbrains.mps.baseLanguage.constraints.ClassConcept_Constraints$CONCEPTS" />
+      <unit id="1213104847625" at="83,0,88,0" name="jetbrains.mps.baseLanguage.constraints.ClassConcept_Constraints$PROPS" />
+      <unit id="1213104847625" at="36,19,45,9" name="jetbrains.mps.baseLanguage.constraints.ClassConcept_Constraints$1$1" />
+      <unit id="1213104847625" at="33,24,47,5" name="jetbrains.mps.baseLanguage.constraints.ClassConcept_Constraints$1" />
+      <unit id="4980874121082275158" at="62,0,78,0" name="jetbrains.mps.baseLanguage.constraints.ClassConcept_Constraints$IsStatic_PD" />
+      <unit id="1213104847625" at="29,0,89,0" name="jetbrains.mps.baseLanguage.constraints.ClassConcept_Constraints" />
     </file>
     <file name="IconContainer.java">
       <node id="1229065756974287006" at="10,0,11,0" concept="11" trace="RESOURCE_0" />

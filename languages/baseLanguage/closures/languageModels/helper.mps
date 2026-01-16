@@ -331,6 +331,11 @@
         <child id="1196350785114" name="quotedNode" index="2c44tc" />
       </concept>
     </language>
+    <language id="446c26eb-2b7b-4bf0-9b35-f83fa582753e" name="jetbrains.mps.lang.modelapi">
+      <concept id="4733039728785194814" name="jetbrains.mps.lang.modelapi.structure.NamedNodeReference" flags="ng" index="ZC_QK">
+        <reference id="7256306938026143658" name="target" index="2aWVGs" />
+      </concept>
+    </language>
     <language id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem">
       <concept id="1176543928247" name="jetbrains.mps.lang.typesystem.structure.IsSubtypeExpression" flags="nn" index="3JuTUA">
         <child id="1176543945045" name="subtypeExpression" index="3JuY14" />
@@ -365,6 +370,9 @@
       <concept id="1179409122411" name="jetbrains.mps.lang.smodel.structure.Node_ConceptMethodCall" flags="nn" index="2qgKlT" />
       <concept id="1138661924179" name="jetbrains.mps.lang.smodel.structure.Property_SetOperation" flags="nn" index="tyxLq">
         <child id="1138662048170" name="value" index="tz02z" />
+      </concept>
+      <concept id="7400021826774799413" name="jetbrains.mps.lang.smodel.structure.NodePointerExpression" flags="ng" index="2tJFMh">
+        <child id="7400021826774799510" name="ref" index="2tJFKM" />
       </concept>
       <concept id="4065387505485742749" name="jetbrains.mps.lang.smodel.structure.AbstractPointerResolveOperation" flags="ng" index="2yCiFS">
         <child id="3648723375513868575" name="repositoryArg" index="Vysub" />
@@ -5516,15 +5524,10 @@
                         </node>
                       </node>
                       <node concept="2qgKlT" id="2ZrgyPlTQqh" role="2OqNvi">
-                        <ref role="37wK5l" to="tpek:6dL7A1DpKo1" resolve="isDescendant" />
-                        <node concept="2OqwBi" id="2ZrgyPlTQqi" role="37wK5m">
-                          <node concept="2c44tf" id="2ZrgyPlTQqj" role="2Oq$k0">
-                            <node concept="3uibUv" id="2ZrgyPlTQqk" role="2c44tc">
-                              <ref role="3uigEE" to="wyt6:~RuntimeException" resolve="RuntimeException" />
-                            </node>
-                          </node>
-                          <node concept="3TrEf2" id="2ZrgyPlTQql" role="2OqNvi">
-                            <ref role="3Tt5mk" to="tpee:g7uigIF" resolve="classifier" />
+                        <ref role="37wK5l" to="tpek:3HluQRcSv_J" resolve="isDescendant" />
+                        <node concept="2tJFMh" id="3HluQRdLRnD" role="37wK5m">
+                          <node concept="ZC_QK" id="3HluQRdLTHH" role="2tJFKM">
+                            <ref role="2aWVGs" to="wyt6:~RuntimeException" resolve="RuntimeException" />
                           </node>
                         </node>
                       </node>

@@ -19,7 +19,6 @@ import jetbrains.mps.baseLanguage.scopes.ClassifierScopes;
 import jetbrains.mps.smodel.runtime.IconResource;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
@@ -48,7 +47,7 @@ public class ClassConcept_Constraints extends BaseConstraintsDescriptor {
     });
   }
   public IconResource getInstanceIcon(SNode node) {
-    if ((boolean) Classifier__BehaviorDescriptor.isDescendant_id6dL7A1DpKo1.invoke(node, SNodeOperations.getNode("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Throwable"))) {
+    if ((boolean) Classifier__BehaviorDescriptor.isDescendant_id3HluQRcSv_J.invoke(node, new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Throwable"))) {
       if (SPropertyOperations.getBoolean(node, PROPS.abstractClass$Ta1X)) {
         return IconContainer.RESOURCE_0;
       }

@@ -14,6 +14,7 @@ import jetbrains.mps.baseLanguage.behavior.IOperation__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.baseLanguage.behavior.TypeDerivable__BehaviorDescriptor;
 import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
+import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.baseLanguage.collections.generator.baseLanguage.template.util.CreatorUseCase;
 import jetbrains.mps.baseLanguage.collections.generator.baseLanguage.template.util.Values;
 import jetbrains.mps.generator.template.PropertyMacroContext;
@@ -21,7 +22,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.generator.template.ReferenceMacroContext;
 import java.util.List;
-import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.baseLanguage.collections.generator.baseLanguage.template.util.CreatorMethod;
 import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
@@ -297,7 +297,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return (TypecheckingFacade.getFromContext().coerceType(((SNode) _context.getVariable("nodeType")), CONCEPTS.SequenceType$_s) != null);
   }
   public static boolean rule_Condition_14_0(final BaseMappingRuleContext _context) {
-    return (boolean) Classifier__BehaviorDescriptor.isDescendant_id6dL7A1DpKo1.invoke(SLinkOperations.getTarget(TypecheckingFacade.getFromContext().coerceType(((SNode) _context.getVariable("exprType")), CONCEPTS.ClassifierType$bL), LINKS.classifier$cxMr), SLinkOperations.getTarget(_quotation_createNode_x583g4_a0a0a0dc(), LINKS.classifier$cxMr));
+    return (boolean) Classifier__BehaviorDescriptor.isDescendant_id3HluQRcSv_J.invoke(SLinkOperations.getTarget(TypecheckingFacade.getFromContext().coerceType(((SNode) _context.getVariable("exprType")), CONCEPTS.ClassifierType$bL), LINKS.classifier$cxMr), new SNodePointer("r:fc76aa36-3cff-41c7-b94b-eee0e8341932(jetbrains.mps.internal.collections.runtime)", "6543581031674024311"));
   }
   public static boolean rule_Condition_14_1(final BaseMappingRuleContext _context) {
     return (TypecheckingFacade.getFromContext().coerceType(((SNode) _context.getVariable("exprType")), CONCEPTS.LinkedListType$qf) != null);
@@ -2883,13 +2883,6 @@ public class QueriesGenerated extends QueryProviderBase {
     SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x101de48bf9eL, "ClassifierType"));
     quotedNode_1 = nb.getResult();
     nb.setReference(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), "r:fc76aa36-3cff-41c7-b94b-eee0e8341932(jetbrains.mps.internal.collections.runtime)/6543581031674026272");
-    return quotedNode_1;
-  }
-  private static SNode _quotation_createNode_x583g4_a0a0a0dc() {
-    SNode quotedNode_1 = null;
-    SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x101de48bf9eL, "ClassifierType"));
-    quotedNode_1 = nb.getResult();
-    nb.setReference(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), "r:fc76aa36-3cff-41c7-b94b-eee0e8341932(jetbrains.mps.internal.collections.runtime)/6543581031674024311");
     return quotedNode_1;
   }
   private static SNode _quotation_createNode_x583g4_a0b0a0a0pc() {

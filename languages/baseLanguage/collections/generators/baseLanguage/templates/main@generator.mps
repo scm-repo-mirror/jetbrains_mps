@@ -7913,15 +7913,10 @@
                 </node>
               </node>
               <node concept="2qgKlT" id="51IbNMbJf6x" role="2OqNvi">
-                <ref role="37wK5l" to="tpek:6dL7A1DpKo1" resolve="isDescendant" />
-                <node concept="2OqwBi" id="51IbNMbJf6A" role="37wK5m">
-                  <node concept="2c44tf" id="51IbNMbJf6y" role="2Oq$k0">
-                    <node concept="3uibUv" id="51IbNMbJf6_" role="2c44tc">
-                      <ref role="3uigEE" to="urs3:5Ffu4tBUx5R" resolve="ISequence" />
-                    </node>
-                  </node>
-                  <node concept="3TrEf2" id="51IbNMbJf6E" role="2OqNvi">
-                    <ref role="3Tt5mk" to="tpee:g7uigIF" resolve="classifier" />
+                <ref role="37wK5l" to="tpek:3HluQRcSv_J" resolve="isDescendant" />
+                <node concept="2tJFMh" id="3HluQRdLRnD" role="37wK5m">
+                  <node concept="ZC_QK" id="3HluQRdLTHH" role="2tJFKM">
+                    <ref role="2aWVGs" to="urs3:5Ffu4tBUx5R" resolve="ISequence" />
                   </node>
                 </node>
               </node>

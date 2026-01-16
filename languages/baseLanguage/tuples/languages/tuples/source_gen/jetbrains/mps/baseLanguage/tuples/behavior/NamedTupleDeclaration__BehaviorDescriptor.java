@@ -12,6 +12,7 @@ import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.model.SNodeReference;
 import java.util.Set;
 import jetbrains.mps.baseLanguage.util.StubClassDiscovery;
 import jetbrains.mps.baseLanguage.scopes.ClassifierHierarchyVisitor;
@@ -22,10 +23,13 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.ArrayList;
-import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.lang.core.behavior.INamedConcept__BehaviorDescriptor;
+import java.util.Objects;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
+import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
+import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.baseLanguage.behavior.IClassifier__BehaviorDescriptor;
 import jetbrains.mps.baseLanguage.behavior.IClassifierType__BehaviorDescriptor;
@@ -52,6 +56,7 @@ public final class NamedTupleDeclaration__BehaviorDescriptor extends BaseBHDescr
   public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1213877396640L).languageId(0x9b92103b95ca8c0cL, 0xceab519525ea4f22L).build2();
   public static final SMethod<List<SNode>> allExtends_id2ItBWjOSZqc = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("allExtends").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3142843783245461132L).languageId(0xb8d207e93feba96aL, 0xa247e09e243545baL).build2();
   public static final SMethod<List<SNode>> getExtendedClassifierTypes_id1UeCwxlWKny = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getExtendedClassifierTypes").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2201875424516179426L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
+  public static final SMethod<SNode> findAncestor_id3HluQRcXTJl = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("findAncestor").modifiers(8, AccessPrivileges.PROTECTED).concept(CONCEPT).baseMethodId(4275459132778585045L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter((Class<SNodeReference>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<Set<SNode>>) ((Class) Object.class), ""));
   public static final SMethod<Boolean> isDescendant_checkLoops_id6dL7A1DpKoA = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isDescendant_checkLoops").modifiers(8, AccessPrivileges.PROTECTED).concept(CONCEPT).baseMethodId(7165541881557222950L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<Set<SNode>>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(StubClassDiscovery.class, ""));
   public static final SMethod<SNode> getThisType_id2RtWPFZ12w7 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getThisType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3305065273710880775L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
   public static final SMethod<Void> enumerateMembers_id65_8Gi2s6iV = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("enumerateMembers").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7018053821724124347L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2(SMethodBuilder.createJavaParameter(ClassifierHierarchyVisitor.class, ""));
@@ -62,7 +67,7 @@ public final class NamedTupleDeclaration__BehaviorDescriptor extends BaseBHDescr
   public static final SMethod<Void> unmarkDeprecated_id6Va_BJex$aE = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("unmarkDeprecated").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7983358747957674666L).languageId(0xa443f952ceaf5816L, 0xf3061a5392264cc5L).build2();
   public static final SMethod<Void> markLoadedNodeAsDeprecated_id5H8W9_ECA0g = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("markLoadedNodeAsDeprecated").modifiers(1, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6577771797484298256L).languageId(0xb8d207e93feba96aL, 0xa247e09e243545baL).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPresentation_idhEwIMiw, allExtends_id2ItBWjOSZqc, getExtendedClassifierTypes_id1UeCwxlWKny, isDescendant_checkLoops_id6dL7A1DpKoA, getThisType_id2RtWPFZ12w7, enumerateMembers_id65_8Gi2s6iV, enumerateSupertypes_id65_8Gi1dKDs, getLeftBracket_id1653mnvAgnc, getRightBracket_id1653mnvAgs3, markDeprecated_id6Va_BJexupi, unmarkDeprecated_id6Va_BJex$aE, markLoadedNodeAsDeprecated_id5H8W9_ECA0g);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPresentation_idhEwIMiw, allExtends_id2ItBWjOSZqc, getExtendedClassifierTypes_id1UeCwxlWKny, findAncestor_id3HluQRcXTJl, isDescendant_checkLoops_id6dL7A1DpKoA, getThisType_id2RtWPFZ12w7, enumerateMembers_id65_8Gi2s6iV, enumerateSupertypes_id65_8Gi1dKDs, getLeftBracket_id1653mnvAgnc, getRightBracket_id1653mnvAgs3, markDeprecated_id6Va_BJexupi, unmarkDeprecated_id6Va_BJex$aE, markLoadedNodeAsDeprecated_id5H8W9_ECA0g);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -95,7 +100,34 @@ public final class NamedTupleDeclaration__BehaviorDescriptor extends BaseBHDescr
     ListSequence.fromList(result).addSequence(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.implements$1gsv)));
     return result;
   }
-  /*package*/ static boolean isDescendant_checkLoops_id6dL7A1DpKoA(@NotNull SNode __thisNode__, final SNode nodeToCompare, Set<SNode> visited, StubClassDiscovery scd) {
+  /*package*/ static SNode findAncestor_id3HluQRcXTJl(@NotNull SNode __thisNode__, final SNodeReference target, final Set<SNode> visited) {
+    if (SetSequence.fromSet(visited).contains(__thisNode__)) {
+      if (LOG.isErrorLevel()) {
+        LOG.error("circular hierarchy in class " + INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(__thisNode__));
+      }
+      return null;
+    }
+    SetSequence.fromSet(visited).addElement(__thisNode__);
+    if (SLinkOperations.getTarget(__thisNode__, LINKS.extended$2Fzf) == null && ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.implements$1gsv)).isEmpty()) {
+      return null;
+    }
+    SNode sc = SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.extended$2Fzf), LINKS.classifier$cxMr);
+    if (sc != null && Objects.equals(SNodeOperations.getPointer(sc), target)) {
+      return sc;
+    }
+    SNode ic = Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(__thisNode__, LINKS.implements$1gsv), LINKS.classifier$cxMr)).findFirst((it) -> Objects.equals(SNodeOperations.getPointer(it), target));
+    if (ic != null) {
+      return ic;
+    }
+    if (sc != null) {
+      ic = Classifier__BehaviorDescriptor.findAncestor_id3HluQRcXTJl.invoke(sc, target, visited);
+      if (ic != null) {
+        return ic;
+      }
+    }
+    return Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(__thisNode__, LINKS.implements$1gsv), LINKS.classifier$cxMr)).select((it) -> (SNode) Classifier__BehaviorDescriptor.findAncestor_id3HluQRcXTJl.invoke(it, target, visited)).where(new NotNullWhereFilter()).first();
+  }
+  /*package*/ static boolean isDescendant_checkLoops_id6dL7A1DpKoA(@NotNull SNode __thisNode__, final SNode nodeToCompare, final Set<SNode> visited, final StubClassDiscovery scd) {
     if (SNodeOperations.is(nodeToCompare, new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object"))) {
       return true;
     }
@@ -105,7 +137,7 @@ public final class NamedTupleDeclaration__BehaviorDescriptor extends BaseBHDescr
       }
       return false;
     }
-    if (scd.areTheSame(__thisNode__, nodeToCompare)) {
+    if (Objects.equals(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(__thisNode__), INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(nodeToCompare)) && scd.areTheSame(__thisNode__, nodeToCompare)) {
       return true;
     }
     if ((SLinkOperations.getTarget(__thisNode__, LINKS.extended$2Fzf) == null) && ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.implements$1gsv)).isEmpty()) {
@@ -116,13 +148,13 @@ public final class NamedTupleDeclaration__BehaviorDescriptor extends BaseBHDescr
       return true;
     }
     if (SNodeOperations.isInstanceOf(nodeToCompare, CONCEPTS.Interface$db)) {
-      return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.implements$1gsv)).select((ct) -> SLinkOperations.getTarget(ct, LINKS.classifier$cxMr)).any((ifc) -> (boolean) Classifier__BehaviorDescriptor.isDescendant_id6dL7A1DpKo1.invoke(ifc, nodeToCompare));
+      return Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(__thisNode__, LINKS.implements$1gsv), LINKS.classifier$cxMr)).any((ifc) -> (boolean) Classifier__BehaviorDescriptor.isDescendant_checkLoops_id6dL7A1DpKoA.invoke(ifc, nodeToCompare, visited, scd));
     }
     return false;
   }
   /*package*/ static SNode getThisType_id2RtWPFZ12w7(@NotNull SNode __thisNode__) {
-    _FunctionTypes._return_P1_E0<? extends SNode, ? super SNode> tvd2tvr = (SNode tvr) -> _quotation_createNode_ds5lpv_a0a0a0a4(tvr);
-    return _quotation_createNode_ds5lpv_a1a4(__thisNode__, ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.typeVariableDeclaration$Lipp)).select(tvd2tvr).toList());
+    _FunctionTypes._return_P1_E0<? extends SNode, ? super SNode> tvd2tvr = (SNode tvr) -> _quotation_createNode_ds5lpv_a0a0a0a5(tvr);
+    return _quotation_createNode_ds5lpv_a1a5(__thisNode__, ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.typeVariableDeclaration$Lipp)).select(tvd2tvr).toList());
   }
   /*package*/ static void enumerateMembers_id65_8Gi2s6iV(@NotNull SNode __thisNode__, ClassifierHierarchyVisitor visitor) {
     for (SNode method : SLinkOperations.getChildren(__thisNode__, LINKS.method$_DCK)) {
@@ -187,19 +219,21 @@ public final class NamedTupleDeclaration__BehaviorDescriptor extends BaseBHDescr
       case 2:
         return (T) ((List<SNode>) getExtendedClassifierTypes_id1UeCwxlWKny(node));
       case 3:
-        return (T) ((Boolean) isDescendant_checkLoops_id6dL7A1DpKoA(node, (SNode) parameters[0], (Set<SNode>) parameters[1], (StubClassDiscovery) parameters[2]));
+        return (T) ((SNode) findAncestor_id3HluQRcXTJl(node, (SNodeReference) parameters[0], (Set<SNode>) parameters[1]));
       case 4:
-        return (T) ((SNode) getThisType_id2RtWPFZ12w7(node));
+        return (T) ((Boolean) isDescendant_checkLoops_id6dL7A1DpKoA(node, (SNode) parameters[0], (Set<SNode>) parameters[1], (StubClassDiscovery) parameters[2]));
       case 5:
+        return (T) ((SNode) getThisType_id2RtWPFZ12w7(node));
+      case 6:
         enumerateMembers_id65_8Gi2s6iV(node, (ClassifierHierarchyVisitor) parameters[0]);
         return null;
-      case 6:
+      case 7:
         enumerateSupertypes_id65_8Gi1dKDs(node, (ClassifierHierarchyVisitor) parameters[0]);
         return null;
-      case 9:
+      case 10:
         markDeprecated_id6Va_BJexupi(node);
         return null;
-      case 10:
+      case 11:
         unmarkDeprecated_id6Va_BJex$aE(node);
         return null;
       default:
@@ -214,11 +248,11 @@ public final class NamedTupleDeclaration__BehaviorDescriptor extends BaseBHDescr
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
-      case 7:
-        return (T) ((String) getLeftBracket_id1653mnvAgnc(concept));
       case 8:
+        return (T) ((String) getLeftBracket_id1653mnvAgnc(concept));
+      case 9:
         return (T) ((String) getRightBracket_id1653mnvAgs3(concept));
-      case 11:
+      case 12:
         markLoadedNodeAsDeprecated_id5H8W9_ECA0g(concept, (SNode) parameters[0]);
         return null;
       default:
@@ -243,14 +277,14 @@ public final class NamedTupleDeclaration__BehaviorDescriptor extends BaseBHDescr
     n0.setReference(LINKS.classifier$cxMr, new SNodePointer(facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~Object")));
     return n0.getResult();
   }
-  private static SNode _quotation_createNode_ds5lpv_a0a0a0a4(Object parameter_1) {
+  private static SNode _quotation_createNode_ds5lpv_a0a0a0a5(Object parameter_1) {
     SNode quotedNode_2 = null;
     SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x102467229d8L, "TypeVariableReference"));
     quotedNode_2 = nb.getResult();
     SNodeAccessUtil.setReferenceTarget(quotedNode_2, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102467229d8L, 0x1024673a581L, "typeVariableDeclaration"), (SNode) parameter_1);
     return quotedNode_2;
   }
-  private static SNode _quotation_createNode_ds5lpv_a1a4(Object parameter_1, Object parameter_2) {
+  private static SNode _quotation_createNode_ds5lpv_a1a5(Object parameter_1, Object parameter_2) {
     SNode quotedNode_3 = null;
     SNode quotedNode_4 = null;
     SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xa247e09e243545baL, 0xb8d207e93feba96aL, "jetbrains.mps.baseLanguage.tuples"), 0x12099dc1365L, "NamedTupleType"));
