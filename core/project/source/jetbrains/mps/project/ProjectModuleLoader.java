@@ -54,10 +54,15 @@ import java.util.stream.Stream;
  * Input: {@link ProjectDescriptor} (see {@link #reloadProjectModules}).
  * <br>
  * The inner class {@link Update} implements a two-stage update procedure: its construction in {@link #reloadProjectModules}
- * is IO-bound, while {@link Update#doUpdate} requires write action.
+ * is IO-bound, while {@link Update#run} requires write action.
+ * <p>
+ * The state is managed by the inner class {@link Store}, which is a table indexed by {@link SModuleReference}.
  * <br>
- *
- *
+ * Active modules are accessible via {@link #activeModules()}.
+ * Method {@link #allFiles()} returns the list of all module descriptors currently loaded.
+ * Errors detected by {@link #loadDiscoveredModules} are logged and made available via {@link #getErrors()},
+ * and also reported via {@link ProjectModuleLoadingListener}.
+ * <p>
  * <blockquote>
  * FIXME what about modules without path, i.e. those without descriptor file. Perhaps PML shall care about
  *       ModulePath-backed modules, while ProjectBase could deal with non-MP modules? Alternatively, keep
@@ -70,7 +75,16 @@ import java.util.stream.Stream;
 /*package*/ final class ProjectModuleLoader {
   private static final Logger LOG = Logger.getLogger(ProjectModuleLoader.class);
 
-  public class Update {
+  /**
+   * Captures the update logic.
+   * <br>
+   * Dropped descriptor files correspond to modules that need to be unloaded.
+   * <br>
+   * Discovered module handles represent modules that need to be loaded.
+   * <p>
+   * <strong>NB!</strong>Must be run in a write action, as it performs module loading and updating operations.
+   */
+  public class Update implements Runnable {
 
     private final ProjectBase myProject;
     private final Set<IFile> myDroppedDescriptorFiles;
@@ -82,14 +96,14 @@ import java.util.stream.Stream;
       myDiscoveredModuleHandles = discoveredModuleHandles;
     }
 
-    /*package*/ void doUpdate() {
+    @Override
+    public void run() {
       LOG.info("Loading modules...");
       clearErrorsBuffer();
-      removeDroppedModules(myDroppedDescriptorFiles, myProject);
+      detachDroppedModules(myDroppedDescriptorFiles, myProject);
       int loadedModules = loadDiscoveredModules(myDiscoveredModuleHandles, myProject);
       LOG.info(String.format("Modules are loaded: %d new; %d removed", loadedModules, myDroppedDescriptorFiles.size()));
     }
-
   }
   
   private enum ModuleStateChange {
@@ -99,7 +113,7 @@ import java.util.stream.Stream;
   }
 
   /*
-   * Must not be modified directly.
+   * Must not be modified directly. Use Store#insertOrUpdate to update entries.
    */
   private static class Entry {
     private IFile descriptorFile;
@@ -110,7 +124,6 @@ import java.util.stream.Stream;
   private static class Store {
     // internal state
     private final Map<SModuleReference, Entry> myModuleReferenceToEntry = new HashMap<>();
-
 
     /*
      * This operation may not be implemented very efficiently, since it's impossible to build
@@ -226,6 +239,20 @@ import java.util.stream.Stream;
     return String.join(System.lineSeparator(), myErrors);
   }
 
+  /**
+   * Reloads project modules. Uses {@link ModulesMiner} to read descriptors. Should be invoked
+   * in an IO-bound context (read action).
+   * <br>
+   * Input: {@code projectDescriptor} containing list of module descriptor files.
+   * <br>
+   * Output: {@link Update} object that performs the update.
+   * <br>
+   * The returned {@link Update} must be executed in a write action, as it performs
+   * module loading and updating operations.
+   * @param project
+   * @param projectDescriptor
+   * @return a {@link Runnable} that performs the actual update
+   */
   /*package*/ Update reloadProjectModules(ProjectBase project, @NotNull ProjectDescriptor projectDescriptor) {
     Map<IFile, Pair<ModuleStateChange, String>> diff = buildDiff(projectDescriptor);
     Set<IFile> dropped = new HashSet<>();
@@ -283,11 +310,8 @@ import java.util.stream.Stream;
         } else {
           error(String.format("Can't load module from %s. File doesn't exist.", descriptorFile.getPath()));
           fireModuleNotFound(descriptorFile);
-          myStore.insertOrUpdate(null, descriptorFile, null);
         }
       } catch (PathFormatException e) {
-        myStore.insertOrUpdate(null, descriptorFile, null);
-
         // fixme apyshkin
         Matcher matcher = MacroHelper.MACRO_PATTERN.matcher(e.getProblemPath());
         if (matcher.find()) {
@@ -301,9 +325,9 @@ import java.util.stream.Stream;
   }
 
   // needs model write
-  private void removeDroppedModules(Set<IFile> detached, ProjectBase project) {
+  private void detachDroppedModules(Set<IFile> droppedDescriptors, ProjectBase project) {
     final SRepository projectRepo = project.getRepository();
-    myStore.select(detached).forEach( e -> {
+    myStore.select(droppedDescriptors).forEach( e -> {
       // XXX I wonder is project.getScope().resolve isn't a better alternative (provided I fix its linear
       //     search implementation. I do care about modules belonging to the project only, scope seems to be fair
       //     alternative to a repository which may provide access to foreign modules.
@@ -323,13 +347,13 @@ import java.util.stream.Stream;
   /**
    * @return the number of successfully loaded modules
    */
-  private int loadDiscoveredModules(Collection<ModuleHandle> collectedModules, ProjectBase project) {
+  private int loadDiscoveredModules(Collection<ModuleHandle> discovered, ProjectBase project) {
     // at the moment, MRF is not capable to register a generator sooner that its language. To make sure no generator comes first,
     // there's sorter in MM.
     ModuleInstanceFactory moduleFactory = new ModuleRepositoryFacade(project);
     // XXX This code resembles ProjectModulesFiller (ProjectStrategyBase). Do we need to keep them separate?
     int loadedModules = 0;
-    for (ModuleHandle handle: collectedModules) {
+    for (ModuleHandle handle: discovered) {
       IFile descriptorFile = handle.getFile();
       ModuleDescriptor descriptorObject = handle.getDescriptor();
       if (descriptorObject != null) {
@@ -343,7 +367,6 @@ import java.util.stream.Stream;
       } else {
         error(String.format("Can't load module from %s. Unknown file type.", descriptorFile.getPath()));
         fireModuleTypeIsUnknown(descriptorFile);
-        myStore.insertOrUpdate(null, descriptorFile, null);
       }
     }
     return loadedModules;

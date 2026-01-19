@@ -44,6 +44,7 @@ import org.jdom.JDOMException;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * This class is for MPS as a standalone IDE, while MPSProject is in use in MPS as IDEA plugin.
@@ -82,13 +83,12 @@ public class StandaloneMPSProject extends MPSProject implements PersistentStateC
 
   private final ModelStorageProblemsListener myProblemsListener;
 
-  // AP fixme must be final, however StandaloneMpsProject exposes it (a client can publicly reset the project descriptor)
-  private ProjectDescriptor myProjectDescriptor;
+  // empty by default until the state is initialized
+  private ProjectDescriptor myProjectDescriptor = ProjectDescriptor.EMPTY;
 
   @SuppressWarnings("UnusedParameters")
   public StandaloneMPSProject(final Project project) {
     super(project);
-    myProjectDescriptor = null;
     // we used to have ProjectLibraryManager in dependencies to ensure project libraries are ready,
     // but now project libraries get initialized from a lifecycle listener, and I see no point to care to init PLM here.
     // The dependency was introduced in db00760f. Proper dispose order is ensured by the listener now.
@@ -145,29 +145,26 @@ public class StandaloneMPSProject extends MPSProject implements PersistentStateC
   @NotNull
   @Deprecated(since = "3.3", forRemoval = true)
   public ProjectDescriptor getProjectDescriptor() {
-    Builder builder = new Builder(getName());
-    // read access here is just a way to guard myModuleLoader (in allModulePaths) changes from a write action (e.g. update())
-    // perhaps, shall introduce a separate lock, rather than use MA.
-    getModelAccess().runReadAction(() -> {
-      forEachModuleEntry(builder::addModuleEntry);
-    });
-    return builder.build();
+    // project descriptor is set either in load() or in setDescriptor()
+    // in either case it's a sealed instance
+    // no information about the loaded state of project modules is kept in the descriptor
+    return myProjectDescriptor;
   }
 
   // todo remove
   @Deprecated(since = "3.3", forRemoval = true)
   public void setProjectDescriptor(ProjectDescriptor projectDescriptor) {
-    myProjectDescriptor = projectDescriptor;
+    myProjectDescriptor = projectDescriptor.asSealed();
     update();
   }
 
+  /**
+   * Force the set of project module descriptors to be re-scanned.
+   * This causes the project modules to be unloaded if the descriptor files are missing.
+   */
   // AP fixme : public update exposes the project internals too much (as it looks for me)
   @Override
   public final void update() {
-    if (myProjectDescriptor == null) {
-      // nothing to update
-      return;
-    }
     ProgressIndicator progressIndicator = ProgressManager.getInstance().getProgressIndicator();
     long beginTime = System.nanoTime();
     LOG.info("Updating " + getName());
@@ -175,16 +172,33 @@ public class StandaloneMPSProject extends MPSProject implements PersistentStateC
       if (progressIndicator != null) {
         progressIndicator.setText2("Loading project modules");
       }
-      getModelAccess().runWriteAction(() -> {
-        reloadProject(myProjectDescriptor);
-        myProjectDescriptor = null; // indicate it's all in RT now.
-      });
+      Runnable update = getModelAccess().computeReadAction(() -> reloadProject(myProjectDescriptor));
+      getModelAccess().runWriteAction(update);
       if (progressIndicator != null) {
         progressIndicator.setText2("");
       }
     } finally {
       LOG.info(String.format("Updating %s took %.3f s", getName(), (System.nanoTime() - beginTime) / 1e9));
     }
+  }
+
+  @Override
+  protected void moduleAdded(@NotNull IFile descriptorFile, String virtualFolder) {
+    Builder builder = new Builder(getName());
+    myProjectDescriptor.forEachEntry(builder::addModuleEntry);
+    builder.addModuleEntry(descriptorFile, virtualFolder);
+    myProjectDescriptor = builder.build();
+  }
+
+  @Override
+  protected void moduleRemoved(@NotNull IFile descriptorFile) {
+    Builder builder = new Builder(getName());
+    myProjectDescriptor.forEachEntry((file, folder) -> {
+      if (!Objects.equals(descriptorFile, file)) {
+        builder.addModuleEntry(file, folder);
+      }
+    });
+    myProjectDescriptor = builder.build();
   }
 
   public static StandaloneMPSProject open(@NotNull String projectPath) throws JDOMException, InvalidDataException, IOException {

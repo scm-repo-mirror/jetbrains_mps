@@ -20,7 +20,6 @@ import jetbrains.mps.components.CoreComponent;
 import jetbrains.mps.extapi.module.SRepositoryExt;
 import jetbrains.mps.extapi.module.SRepositoryRegistry;
 import jetbrains.mps.logging.Logger;
-import jetbrains.mps.project.ProjectModuleLoader.Update;
 import jetbrains.mps.project.structure.modules.GeneratorDescriptor;
 import jetbrains.mps.project.structure.project.ModulePath;
 import jetbrains.mps.project.structure.project.ProjectDescriptor;
@@ -154,6 +153,7 @@ public abstract class ProjectBase extends Project {
       //  Beware, ProjectModuleFileChangeListener may need attention.
       //  It seems to work with MP being announced for a Generator (seen live), but thorough check won't hurt.
       myModuleLoader.attachModule(module, descriptorFile, null);
+      moduleAdded(descriptorFile, null);
       // project repository listeners may consult project.isProjectModule(moduleAdded), treat module being added as one from the project
       associateWithProjectRepo(module);
     } else {
@@ -172,10 +172,25 @@ public abstract class ProjectBase extends Project {
   @Override
   public final void removeModule(@NotNull SModule module) {
     removeModule0(module,
-                  (file, folder) ->
-                      // client code can ask us to forget Generator module owned by a Language. We don't keep ModulePath for these
-                      myModuleLoader.detachModule(module, file)
-                   );
+                  (file, folder) -> {
+                    // client code can ask us to forget Generator module owned by a Language. We don't keep ModulePath for these
+                    myModuleLoader.detachModule(module, file);
+                    moduleRemoved(file);
+                  });
+  }
+
+  /**
+   * Called after a module is added to the project as a result of calling {@link #addModule}.
+   * Subclasses can update the internal state of the project to reflect the addition of a module.
+   */
+  protected void moduleAdded(@NotNull IFile descriptorFile, String virtualFolder) {
+  }
+
+  /**
+   * Called after a module is removed from the project as a result of calling {@link #removeModule}.
+   * Subclasses can update the internal state of the project to reflect the removal of a module.
+   */
+  protected void moduleRemoved(@NotNull IFile descriptorFile) {
   }
 
   /**
@@ -268,24 +283,25 @@ public abstract class ProjectBase extends Project {
   protected void update() {
   }
 
-  /**
+  /*
    * AP todo : this logic must be redone alongside with filling the SLibraries with modules.
    * filling libraries and projects with modules externally seems to me the best solution
-   * Requires model write
    */
-//  @Hack
-//  @Deprecated
-//  protected final void loadModules(@NotNull Collection<ModulePath> modulePaths) {
-//    // FIXME present approach is unfortunate, as it's impossible to split module discovery (ModulesMiner for a path, and even up to SModule instantiation)
-//    //       from its registration in a project/its repo. First step could be initiated in parallel with project startup and done in non-UI thread. Even
-//    //       actual registration of the modules could be done in a project repo write w/o EDT access. It's only UI update that MAY (not necessarily SHALL)
-//    //       require EDT (with new project model, perhaps, even this might be no longer a requirement).
-//    myModuleLoader.updatePathsInProject(modulePaths);
-//  }
 
-  protected final void reloadProject(@NotNull ProjectDescriptor projectDescriptor) {
-    Update update = myModuleLoader.reloadProjectModules(this, projectDescriptor);
-    update.doUpdate();
+  /**
+   * Reloads project modules. Should be invoked in an IO-bound context (read action).
+   * <br>
+   * Input: {@code projectDescriptor} containing list of module descriptor files.
+   * <br>
+   * Output: {@link Runnable} that performs the update.
+   * <br>
+   * The returned {@link Runnable} must be executed in a write action, as
+   * it performs module loading and updating operations.
+   * @param projectDescriptor
+   * @return runnable object that does (re-)loading of project modules.
+   */
+  protected final Runnable reloadProject(@NotNull ProjectDescriptor projectDescriptor) {
+    return myModuleLoader.reloadProjectModules(this, projectDescriptor);
   }
 
   /**
