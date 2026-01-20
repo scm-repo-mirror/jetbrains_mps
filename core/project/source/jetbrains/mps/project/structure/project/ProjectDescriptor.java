@@ -26,18 +26,27 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.function.BiConsumer;
 
 /**
  * Represents set of project modules to address project state persistence.
- * Use {@code Builder} to construct instances.
+ * <br>
+ * Project descriptor is a list of pairs: module descriptor file and the assigned virtual folder.
+ * The list can only be modified by the user by means external to this api, such as a UI dialog
+ * or a text editor.
+ * <br>
+ * Use {@code Builder} to construct instances. Instances constructed this way are sealed.
  * <p>
- * <strong>NB!</strong> This class is supposed to be immutable. Currently, this contract is broken.
+ * <strong>NB!</strong> This class is supposed to be immutable. Though this contract is broken,
+ * the immutability is enforced on sealed instances: once sealed, the object cannot be modified.
  */
 public final class ProjectDescriptor {
 
   public static final Logger LOG = Logger.getLogger(ProjectDescriptor.class);
+
+  public static ProjectDescriptor EMPTY = new ProjectDescriptor("<noname>", List.of());
 
   public static class Builder {
 
@@ -65,23 +74,42 @@ public final class ProjectDescriptor {
     }
   }
 
+  @SuppressWarnings("deprecation")
+  private static @NotNull Pair<IFile, String> asPair(ModulePath modulePath) {
+    return new Pair<>(modulePath.getFile(), modulePath.getVirtualFolder());
+  }
+
+  @SuppressWarnings("deprecation")
+  private static boolean modulePathEquals(@NotNull ModulePath path, Pair<IFile, String> p) {
+    return Objects.equals(p.o1, path.getFile()) && Objects.equals(p.o2, path.getVirtualFolder());
+  }
+
   private final String myName;
-  private final List<ModulePath> myPaths = new ArrayList<>();
+
+  private final List<Pair<IFile, String>> myPaths = new ArrayList<>();
+
+  private final boolean mySealed;
 
   /**
    * @deprecated use {@code Builder} to construct instances
-   * @param name 
+   * @param name
    */
   @Deprecated
   public ProjectDescriptor(@Nullable String name) {
     myName = name;
+    mySealed = false;
   }
 
   private ProjectDescriptor(@Nullable String name, List<Pair<IFile, String>> moduleEntries) {
     myName = name;
     for (Pair<IFile, String> moduleEntry : moduleEntries) {
-      myPaths.add(new ModulePath(moduleEntry.o1, moduleEntry.o2));
+      myPaths.add(new Pair<>(moduleEntry.o1, moduleEntry.o2));
     }
+    mySealed = true;
+  }
+
+  public ProjectDescriptor asSealed() {
+    return mySealed ? this : new ProjectDescriptor(myName, myPaths);
   }
 
   @Nullable
@@ -91,11 +119,11 @@ public final class ProjectDescriptor {
 
   @Deprecated
   public List<ModulePath> getModulePaths() {
-    return Collections.unmodifiableList(myPaths);
+    return myPaths.stream().map(p -> new ModulePath(p.o1, p.o2)).toList();
   }
 
   public void forEachEntry(BiConsumer<IFile, String> consumer) {
-    myPaths.stream().forEach(modulePath -> consumer.accept(modulePath.getFile(), modulePath.getVirtualFolder()));
+    myPaths.forEach(p -> consumer.accept(p.o1, p.o2));
   }
 
   private static boolean isEmpty(String s) {
@@ -104,8 +132,11 @@ public final class ProjectDescriptor {
 
   @Deprecated
   public void addModulePath(@NotNull ModulePath path) {
+    if (mySealed) {
+      throw new IllegalStateException("sealed ProjectDescriptor");
+    }
     final IFile candidate = path.getFile();
-    if (myPaths.stream().map(ModulePath::getFile).anyMatch(candidate::equals)) {
+    if (myPaths.stream().map(p -> p.o1).anyMatch(candidate::equals)) {
       if (isEmpty(path.getVirtualFolder())) {
         // I don't completely understand the reason for this warning, and what scenario may cause it.
         LOG.warning("Not adding module path with an empty virtual folder; already have one: " + candidate);
@@ -115,21 +146,26 @@ public final class ProjectDescriptor {
       //    However, with updated PD scenario, might not be true any more.
       return;
     }
-    myPaths.add(path);
+    myPaths.add(asPair(path));
   }
 
   @Deprecated
   public void removeModulePath(@NotNull ModulePath path) {
-    myPaths.remove(path);
+    if (mySealed) {
+      throw new IllegalStateException("sealed ProjectDescriptor");
+    }
+    myPaths.removeIf(p -> modulePathEquals(path, p));
   }
 
   // unlikely any possible use, PD is 'transient' now and there's no need to maintain its
   // state/module ordering
   @Deprecated
   public void replacePath(@NotNull ModulePath modulePath, @NotNull ModulePath newPath) {
-    int i = myPaths.indexOf(modulePath);
-    assert i != -1;
-    myPaths.set(i, newPath);
+    if (mySealed) {
+      throw new IllegalStateException("sealed ProjectDescriptor");
+    }
+    myPaths.replaceAll(p ->
+                           modulePathEquals(modulePath, p) ? asPair(newPath) : p);
   }
 
   public String toString() {
