@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2025 JetBrains s.r.o.
+ * Copyright 2003-2026 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,6 @@ import jetbrains.mps.components.ComponentHost;
 import jetbrains.mps.extapi.module.SModuleBase;
 import jetbrains.mps.extapi.persistence.FolderSetDataSource;
 import jetbrains.mps.persistence.java.library.JavaClassStubModelDescriptor;
-import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.ModuleId;
 import jetbrains.mps.project.structure.modules.ModuleReference;
 import jetbrains.mps.smodel.SNodeId.Foreign;
@@ -31,7 +30,6 @@ import jetbrains.mps.vfs.IFileSystem;
 import jetbrains.mps.vfs.VFSManager;
 import jetbrains.mps.vfs.util.PathUtil;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelReference;
@@ -39,7 +37,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.module.SDependency;
 import org.jetbrains.mps.openapi.module.SModuleFacet;
-import org.jetbrains.mps.openapi.module.SModuleId;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.persistence.ModelRoot;
 import org.junit.Assert;
@@ -105,21 +102,6 @@ public class StubModelLazyLoadStressTest implements EnvironmentAware {
       }
     };
     model.setModule(new SModuleBase() {
-      @Override
-      public @NotNull SModuleId getModuleId() {
-        return getModuleReference().getModuleId();
-      }
-
-      @Override
-      public @Nullable String getModuleName() {
-        return getModuleReference().getModuleName();
-      }
-
-      @Override
-      public int getUsedLanguageVersion(@NotNull SLanguage usedLanguage) {
-        return -1;
-      }
-
       @Override
       public @NotNull SModuleReference getModuleReference() {
         return moduleRef;

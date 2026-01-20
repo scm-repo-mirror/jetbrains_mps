@@ -10,8 +10,6 @@ import java.util.List;
 import org.jetbrains.mps.openapi.module.SModule;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SLanguage;
-import jetbrains.mps.smodel.SLanguageHierarchy;
-import jetbrains.mps.smodel.language.LanguageRuntime;
 import jetbrains.mps.lang.migration.runtime.base.MigrationModuleUtil;
 import java.util.ArrayList;
 import jetbrains.mps.project.Project;
@@ -37,39 +35,49 @@ import org.jetbrains.mps.openapi.module.SModuleReference;
   /*package*/ void fillFor(final SModule module) {
     // XXX perhaps, shall start with MSR.availableScripts(), collected once, mapped per language, to use deployed MS instances as a sole source of data?
     //    However, need to deal with subsequent script reloading anyway.
-    final SLanguageHierarchy lh = new SLanguageHierarchy(myLanguageRegistry, module.getUsedLanguages());
-    lh.forEachExtended(new SLanguageHierarchy.HierarchyVisitor() {
-      @Override
-      public void accept(LanguageRuntime lr) {
-        SLanguage lang = lr.getIdentity();
-        MigrationScriptReference[] langScripts = myLanguage2Scripts.get(lang);
-        if (langScripts == null) {
-          // XXX rather assert than Math.max; it's bad language to give anything <0 from getVersion
-          final int actualLangVersion = Math.max(lr.getVersion(), 0);
-          langScripts = new MigrationScriptReference[actualLangVersion];
-          // we don't necessarily gonna use all versions, but as long as it's cheaper 
-          // to create a new MigrationScriptReference than to walk same range of versions again and again,
-          // instantiating MSR just for the sake of equals, do it once for the whole range
-          for (int i = 0; i < actualLangVersion; i++) {
-            langScripts[i] = new MigrationScriptReference(lang, i);
-          }
-          // alternatively, may keep a Pair<MSR,List>([]?) right in myLanguage2Scripts, to avoid extra myGroupedByScript map
-          myLanguage2Scripts.put(lang, langScripts);
+    final Map<SLanguage, Integer> recordedVersions = MigrationModuleUtil.getRecordedUsedLanguageVersions(module);
+    if (recordedVersions.isEmpty()) {
+      // note, this effectively excludes stub-only modules that don't have any recorded versions in their MD
+      return;
+    }
+    // XXX it was not explicit what's our approach to migrations in extended languages here. AFAIU, models keeps track of actual imports
+    //      (i.e. not recording any extended language unless explicitly instructed to), yet when we update recorded set
+    //      (see ModuleDependencyVersions#collectActualLanguageVersions(), we record extended languages in the map as well.
+    //      However, that would mean we didn't need to walk hierarchy here (provided module.getUsedLanguages() gives keyset of the map, not
+    //      just a result of getModels().usedLanguageIds()). However, AM.getUsedLanguages() suggests it's the latter.
+    // Now, I stick to the set of languages recorded with their versions, not trying to imply present 
+    // language hierarchy matches that of the language the moment it was employed to edit a model.
+    myLanguageRegistry.withAvailableLanguages(recordedVersions.keySet().stream(), (lr) -> {
+      SLanguage lang = lr.getIdentity();
+      MigrationScriptReference[] langScripts = myLanguage2Scripts.get(lang);
+      if (langScripts == null) {
+        // XXX rather assert than Math.max; it's bad language to give anything <0 from getVersion
+        final int actualLangVersion = Math.max(lr.getVersion(), 0);
+        langScripts = new MigrationScriptReference[actualLangVersion];
+        // we don't necessarily gonna use all versions, but as long as it's cheaper 
+        // to create a new MigrationScriptReference than to walk same range of versions again and again,
+        // instantiating MSR just for the sake of equals, do it once for the whole range
+        for (int i = 0; i < actualLangVersion; i++) {
+          langScripts[i] = new MigrationScriptReference(lang, i);
         }
-        final int engagedVer = MigrationModuleUtil.getUsedLanguageVersion(module, lang);
+        // alternatively, may keep a Pair<MSR,List>([]?) right in myLanguage2Scripts, to avoid extra myGroupedByScript map
+        myLanguage2Scripts.put(lang, langScripts);
+      }
+      // if by any chance we face -1 (unknown), assume it's the very first one. Alternatively, may stick to lr.getVersion(), instead
+      final int engagedVer = Math.max(recordedVersions.get(lang), 0);
 
-        myLanguageStats.reportUse(lang, module, engagedVer);
+      myLanguageStats.reportUse(lang, module, engagedVer);
 
-        for (int i = engagedVer; i < langScripts.length; i++) {
-          List<SModule> v = myGroupedByScript.get(langScripts[i]);
-          if (v == null) {
-            v = new ArrayList<>();
-            myGroupedByScript.put(langScripts[i], v);
-          }
-          v.add(module);
+      for (int i = engagedVer; i < langScripts.length; i++) {
+        List<SModule> v = myGroupedByScript.get(langScripts[i]);
+        if (v == null) {
+          v = new ArrayList<>();
+          myGroupedByScript.put(langScripts[i], v);
         }
+        v.add(module);
       }
     });
+    // XXX I wonder if I shall report any missing RT here, e.g. if a module uses non-deployed language?
   }
 
   /*package*/ void reportInto(ModuleMigrationSequence mseq, Project mpsProject) {
@@ -100,7 +108,12 @@ import org.jetbrains.mps.openapi.module.SModuleReference;
     @Override
     public AppliedScript.ApplyState ready(@NotNull final SModule moduleToMigrate) {
       assert scriptPresent();
-      final int v = MigrationModuleUtil.getUsedLanguageVersion(moduleToMigrate, scriptReference().getLanguage());
+      Map<SLanguage, Integer> recordedVersions = MigrationModuleUtil.getRecordedUsedLanguageVersions(moduleToMigrate);
+      if (!(recordedVersions.containsKey(scriptReference().getLanguage()))) {
+        // assume we got so far rightfully, and it's just some other change that this particular module don't list this language as used any more
+        return AppliedScript.ApplyState.AlreadyMigrated;
+      }
+      final int v = recordedVersions.get(scriptReference().getLanguage());
       if (v != scriptReference().getFromVersion()) {
         return (v < scriptReference().getFromVersion() ? AppliedScript.ApplyState.ErrorState : AppliedScript.ApplyState.AlreadyMigrated);
       }
@@ -117,10 +130,11 @@ import org.jetbrains.mps.openapi.module.SModuleReference;
     }
 
     private static boolean needsToBeApplied(MigrationScriptReference ref, SModule m) {
-      if (!(SetSequence.fromSet(MigrationModuleUtil.getUsedLanguages(m)).contains(ref.getLanguage()))) {
+      Map<SLanguage, Integer> recordedVersions = MigrationModuleUtil.getRecordedUsedLanguageVersions(m);
+      if (!(recordedVersions.containsKey(ref.getLanguage()))) {
         return false;
       }
-      int dv = MigrationModuleUtil.getUsedLanguageVersion(m, ref.getLanguage());
+      int dv = recordedVersions.get(ref.getLanguage());
       return dv <= ref.getFromVersion();
     }
 

@@ -13,13 +13,13 @@ import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
 import jetbrains.mps.project.dependency.GlobalModuleDependenciesManager;
-import org.jetbrains.mps.openapi.language.SLanguage;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.smodel.SLanguageHierarchy;
-import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.project.AbstractModule;
-import org.jetbrains.mps.openapi.module.SModuleReference;
+import java.util.Map;
+import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.project.structure.modules.ModuleDescriptor;
+import java.util.Collections;
+import org.jetbrains.mps.openapi.module.SModuleReference;
 
 @GeneratedClass(nodeId = "5464540062512236006", model = "528ff3b9-5fc4-40dd-931f-c6ce3650640e/r:f69c3fa1-0e30-4980-84e2-190ae44e4c3d(jetbrains.mps.lang.migration.runtime/jetbrains.mps.lang.migration.runtime.base)")
 public class MigrationModuleUtil {
@@ -42,10 +42,6 @@ public class MigrationModuleUtil {
     return dependencies;
   }
 
-  public static Set<SLanguage> getUsedLanguages(@NotNull SModule module) {
-    return new SLanguageHierarchy(LanguageRegistry.getInstance(module.getRepository()), module.getUsedLanguages()).getExtended();
-  }
-
   public static int getDependencyVersion(@NotNull SModule module, @NotNull SModule dependency) {
     if (module instanceof AbstractModule) {
       return ((AbstractModule) module).getDependencyVersion(dependency, false);
@@ -54,19 +50,17 @@ public class MigrationModuleUtil {
   }
 
   /**
-   * 
-   * @return version >= 0
+   * State of all used languages and their prerequisites (e.g. extended languages not used explicitly) as recorded for a module
    */
-  public static int getUsedLanguageVersion(@NotNull SModule module, @NotNull SLanguage usedLang) {
-    int ver = module.getUsedLanguageVersion(usedLang);
-    // we shall process -1, legal value from the method, here as there are r/o stub solutions where we don't
-    // keep versions of used languages but still report these languages as used. If we answer with 0=max (0,-1)
-    // we face all migrations up to current language versions for our stub models. This likely affects MPS only, and
-    // FIXME shall be approached in a different way as it's wrong to access version through SLanguage
-    if (ver == -1) {
-      return usedLang.getLanguageVersion();
+  public static Map<SLanguage, Integer> getRecordedUsedLanguageVersions(@NotNull SModule module) {
+    if (module instanceof AbstractModule) {
+      ModuleDescriptor md = ((AbstractModule) module).getModuleDescriptor();
+      if (md != null) {
+        return md.getLanguageVersions();
+      }
+      // fall through
     }
-    return Math.max(0, ver);
+    return Collections.emptyMap();
   }
   public static void putUsedLanguageVersion(@NotNull SModule module, @NotNull SLanguage usedLang, int version) {
     if (module instanceof AbstractModule) {

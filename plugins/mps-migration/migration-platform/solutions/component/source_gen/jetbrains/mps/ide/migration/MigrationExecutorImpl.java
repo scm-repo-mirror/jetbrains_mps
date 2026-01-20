@@ -82,7 +82,7 @@ public class MigrationExecutorImpl implements MigrationExecutor {
 
   private void executeMigrationScript(MigrationScript script, SModule module) {
     SLanguage fromLanguage = script.getReference().getLanguage();
-    final int usedVersion = MigrationModuleUtil.getUsedLanguageVersion(module, fromLanguage);
+    final int usedVersion = MigrationModuleUtil.getRecordedUsedLanguageVersions(module).get(fromLanguage);
     assert usedVersion == script.getReference().getFromVersion();
 
     script.setDataCollector(myDataCollector);
