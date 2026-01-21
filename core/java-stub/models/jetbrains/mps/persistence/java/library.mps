@@ -1272,9 +1272,12 @@
                   <ref role="3cqZAo" node="5JsnGMj1qem" resolve="model" />
                 </node>
                 <node concept="liA8E" id="5JsnGMj1qe_" role="2OqNvi">
-                  <ref role="37wK5l" to="w1kc:~SModel.addLanguage(org.jetbrains.mps.openapi.language.SLanguage)" resolve="addLanguage" />
+                  <ref role="37wK5l" to="w1kc:~SModel.addLanguage(org.jetbrains.mps.openapi.language.SLanguage,int)" resolve="addLanguage" />
                   <node concept="37vLTw" id="LlD8Ew9E93" role="37wK5m">
                     <ref role="3cqZAo" node="5JsnGMj1qev" resolve="l" />
+                  </node>
+                  <node concept="3cmrfG" id="6ixEaXJATSY" role="37wK5m">
+                    <property role="3cmrfH" value="-1" />
                   </node>
                 </node>
               </node>

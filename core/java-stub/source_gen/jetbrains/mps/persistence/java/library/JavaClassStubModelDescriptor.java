@@ -135,7 +135,7 @@ public class JavaClassStubModelDescriptor extends RegularModelDescriptor impleme
   protected ModelLoadResult<SModel> createModel() {
     SModel model = new SModel(getReference());
     for (SLanguage l : getLanguagesToImport()) {
-      model.addLanguage(l);
+      model.addLanguage(l, -1);
     }
     ASMModelLoader loader = new ASMModelLoader(getModule(), getSource().getAffectedFiles());
     loader.skipPrivateMembers(mySkipPrivate);

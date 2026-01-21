@@ -125,7 +125,7 @@
       <node id="4423331261408312381" at="54,100,55,32" concept="15" />
       <node id="391138107891845720" at="60,51,61,46" concept="9" />
       <node id="336459899657494926" at="61,46,62,55" concept="3" />
-      <node id="2298109797585608784" at="63,82,64,27" concept="3" />
+      <node id="2298109797585608784" at="63,82,64,31" concept="3" />
       <node id="7063495380183180972" at="65,5,66,83" concept="10" />
       <node id="4423331261408513423" at="70,55,71,34" concept="3" />
       <node id="1436063320239756558" at="71,34,72,29" concept="3" />
@@ -254,7 +254,7 @@
       <node id="336459899657308097" at="114,0,155,0" concept="8" trace="processStreams#(Ljava/util/stream/Stream;Ljetbrains/mps/extapi/model/SModelData;)V" />
       <node id="503891309338708122" at="190,0,232,0" concept="8" trace="readInputStream#(Ljava/io/InputStream;)Ljava/lang/String;" />
       <scope id="4423331261408224794" at="54,100,55,32" />
-      <scope id="2298109797585610943" at="63,82,64,27" />
+      <scope id="2298109797585610943" at="63,82,64,31" />
       <scope id="4423331261408313231" at="83,44,84,53" />
       <scope id="1639340979886776928" at="95,27,96,13" />
       <scope id="4423331261408517217" at="104,51,105,13" />

@@ -58,7 +58,7 @@ class KotlinStubModelDescriptor(val packageName: PackageName, modelReference: SM
             }
 
             // Add roots to the model
-            importedLanguageIds().forEach { model.addLanguage(it) }
+            importedLanguageIds().forEach { model.addLanguage(it, -1) }
         }
 
         if (state == ModelLoadingState.FULLY_LOADED) {

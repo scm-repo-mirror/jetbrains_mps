@@ -61,7 +61,7 @@ public class JavaSourceStubModelDescriptor extends RegularModelDescriptor implem
     SModel model = new SModel(getReference());
     processStreams(getSource().getSubStreams(), model);
     for (SLanguage l : CollectionSequence.fromCollection(importedLanguageIds())) {
-      model.addLanguage(l);
+      model.addLanguage(l, -1);
     }
     return new ModelLoadResult<SModel>(model, ModelLoadingState.NO_IMPLEMENTATION);
   }

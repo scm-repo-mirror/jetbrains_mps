@@ -1201,9 +1201,12 @@
                   <ref role="3cqZAo" node="lHAw_F0KDp" resolve="model" />
                 </node>
                 <node concept="liA8E" id="1Z$xEXrVQi5" role="2OqNvi">
-                  <ref role="37wK5l" to="w1kc:~SModel.addLanguage(org.jetbrains.mps.openapi.language.SLanguage)" resolve="addLanguage" />
+                  <ref role="37wK5l" to="w1kc:~SModel.addLanguage(org.jetbrains.mps.openapi.language.SLanguage,int)" resolve="addLanguage" />
                   <node concept="2GrUjf" id="1Z$xEXrVRj$" role="37wK5m">
                     <ref role="2Gs0qQ" node="1Z$xEXrVQyX" resolve="l" />
+                  </node>
+                  <node concept="3cmrfG" id="6ixEaXJBkNz" role="37wK5m">
+                    <property role="3cmrfH" value="-1" />
                   </node>
                 </node>
               </node>
