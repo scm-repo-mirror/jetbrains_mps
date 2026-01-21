@@ -85,6 +85,8 @@ public class PluginLoaderRegistry implements Disposable {
   public static final int SEMAPHORE_WAIT_TIMEOUT = 100; // ms
 
   private final Semaphore myUpdateSemaphore = new Semaphore();
+  // used exclusively for debugging purposes
+  private Throwable semaphoreDown = null;
 
   private final SchedulingUpdateListener myClassesListener = new SchedulingUpdateListener();
   private final Set<PluginContributor> myCurrentContributors = new LinkedHashSet<>();
@@ -121,10 +123,11 @@ public class PluginLoaderRegistry implements Disposable {
     //     guarantee NOT EDT, while run() here asserts !EDT
     if (!myUpdateSemaphore.waitFor(SEMAPHORE_WAIT_TIMEOUT)) {
       // reschedule the task
-      LOG.debug("congestion on semaphore", new Throwable("Semaphore wait timeout exceeded"));
-      ApplicationManager.getApplication().invokeLater(() -> update());
+      LOG.debug("congestion on semaphore", new Throwable("Semaphore wait timeout exceeded", semaphoreDown));
+      ApplicationManager.getApplication().invokeLater(this::update);
       return;
     }
+    semaphoreDown = new Throwable();
     myUpdateSemaphore.down();
     try {
       new UpdatingTask(null).run(new EmptyProgressIndicator());
@@ -353,8 +356,8 @@ public class PluginLoaderRegistry implements Disposable {
           // reschedule the task
           // undo flag set
           myUpdateIsScheduledInEDT.set(false);
-          LOG.debug("congestion on semaphore", new Throwable("Semaphore wait timeout exceeded"));
-          ApplicationManager.getApplication().invokeLater(() -> update());
+          LOG.debug("congestion on semaphore", new Throwable("Semaphore wait timeout exceeded", semaphoreDown));
+          ApplicationManager.getApplication().invokeLater(this::update);
           return;
         };
         myUpdateSemaphore.down();
@@ -388,6 +391,7 @@ public class PluginLoaderRegistry implements Disposable {
           ApplicationManager.getApplication().invokeLater(() -> update());
           return;
         }
+        semaphoreDown = new Throwable();
         myUpdateSemaphore.down();
         try {
           UpdatingTask task = new UpdatingTask(null);
