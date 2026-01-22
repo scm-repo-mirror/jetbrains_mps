@@ -443,12 +443,11 @@ public final class BinaryPersistence {
       SLanguageId id = new SLanguageId(is.readUUID());
       String name = is.readString();
       SLanguage l = MetaAdapterFactory.getLanguage(id, name);
-      // Although there's no reason to attempt guessing actual version number - after all,
+      // There's no reason to attempt guessing actual version number - after all,
       //   we don't migrate binary models ATM. Nor it's reasonable to expect all referenced
       //   languages are present by this time (i.e. SLanguage.getLanguageVersion() inside
-      //   addLanguage() would give -1 anyway), there's some mbeddr test that expects versions
-      //   in binary model to match that in original xml (SModelAsNode_Test.test_usedLanguages_model)
-      myModelData.addLanguage(l, l.getLanguageVersion());
+      //   addLanguage() would give -1 anyway). Last but not least, it's V2, old version now.
+      myModelData.addLanguage(l, -1);
     }
   }
   private void loadUsedLanguagesV3(ModelInputStream is) throws IOException {
