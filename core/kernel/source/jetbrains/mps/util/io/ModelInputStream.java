@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2026 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import org.jetbrains.mps.openapi.language.SLanguage;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.SModelId;
+import org.jetbrains.mps.openapi.model.SModelName;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -58,6 +59,7 @@ import static jetbrains.mps.util.io.ModelOutputStream.MODELID_INTEGER;
 import static jetbrains.mps.util.io.ModelOutputStream.MODELID_REGULAR;
 import static jetbrains.mps.util.io.ModelOutputStream.MODELID_STRING;
 import static jetbrains.mps.util.io.ModelOutputStream.MODELREF_INDEX;
+import static jetbrains.mps.util.io.ModelOutputStream.MODEL_NAME;
 import static jetbrains.mps.util.io.ModelOutputStream.MODULEID_FOREIGN;
 import static jetbrains.mps.util.io.ModelOutputStream.MODULEID_REGULAR;
 import static jetbrains.mps.util.io.ModelOutputStream.MODULEREF_INDEX;
@@ -193,6 +195,18 @@ public class ModelInputStream extends DataInputStream {
       throw new IOException("unknown id");
     }
   }
+
+  public SModelName readModelName() throws IOException {
+    int c = readByte();
+    if (c == NULL) {
+      return null;
+    } else if (c == MODEL_NAME) {
+      return new SModelName(readString());
+    } else {
+      throw new IOException("unknown model name");
+    }
+  }
+
 
   public SNodeId readNodeId() throws IOException {
     int c = readByte();

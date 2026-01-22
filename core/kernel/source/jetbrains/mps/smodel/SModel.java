@@ -47,7 +47,6 @@ import org.jetbrains.mps.openapi.model.SReference;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.module.SRepository;
-import org.jetbrains.mps.openapi.project.Project;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -94,7 +93,7 @@ public class SModel implements SModelData, UpdateModeSupport {
   private SModelReference myReference;
   private boolean myDisposed;
   private List<SLanguage> myLanguagesEngagedOnGeneration = new ArrayList<>();
-  private Map<SLanguage, Integer> myLanguagesIds = new LinkedHashMap<>();
+  private final Map<SLanguage, Integer> myLanguagesIds = new LinkedHashMap<>();
   // FIXME introduce UniqueList or ArraySet to avoid "if (!myList.contains && myList.add())" on change
   //       for both myDevKits and myImports. There's intellij's ArrayListSet, but it's dull and introduces unnecessary dependency
   private List<SModuleReference> myDevKits = new ArrayList<>();
@@ -758,16 +757,6 @@ public class SModel implements SModelData, UpdateModeSupport {
       return true;
     }
     return false;
-  }
-
-
-  /**
-   * @deprecated though it's our internal API, there's 1 use in mbeddr of this exact method we need to fix first.
-   * Once mbeddr use and 2 uses in our model persistence gone, remove the method
-   */
-@Deprecated(since = "0", forRemoval = true)
-  public List<SModuleReference> engagedOnGenerationLanguages() {
-    return new SModelLegacy(this).engagedOnGenerationLanguages();
   }
 
   private void markChanged() {

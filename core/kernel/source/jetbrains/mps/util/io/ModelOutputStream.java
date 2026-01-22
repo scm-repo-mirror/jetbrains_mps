@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2026 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,6 +34,7 @@ import org.jetbrains.mps.openapi.language.SLanguage;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.SModelId;
+import org.jetbrains.mps.openapi.model.SModelName;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -61,6 +62,7 @@ public class ModelOutputStream extends DataOutputStream {
   static final byte NODEPTR = 0x44;
   static final byte MODULEID_FOREIGN = 0x47;
   static final byte MODULEID_REGULAR = 0x48;
+  static final byte MODEL_NAME = 0x50;
   static final byte MODELREF = 7;
   static final byte MODELREF_INDEX = 9;
   static final byte MODULEREF_MODULEID = 0x17;
@@ -188,7 +190,15 @@ public class ModelOutputStream extends DataOutputStream {
       writeByte(MODELID_STRING);
       writeString(id.toString());
     }
+  }
 
+  public void writeModelName(SModelName name) throws IOException {
+    if (name == null) {
+      writeByte(NULL);
+    } else {
+      writeByte(MODEL_NAME);
+      writeString(name.getValue());
+    }
   }
 
   public void writeNodeId(SNodeId id) throws IOException {

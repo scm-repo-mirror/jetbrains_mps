@@ -32,8 +32,6 @@ import jetbrains.mps.persistence.registry.PropertyInfo;
 import jetbrains.mps.smodel.DefaultSModel;
 import jetbrains.mps.smodel.SModel;
 import jetbrains.mps.smodel.SModelHeader;
-import jetbrains.mps.smodel.SModelLegacy;
-import jetbrains.mps.smodel.adapter.ids.MetaIdHelper;
 import jetbrains.mps.smodel.adapter.ids.SConceptId;
 import jetbrains.mps.smodel.adapter.ids.SContainmentLinkId;
 import jetbrains.mps.smodel.adapter.ids.SLanguageId;
@@ -55,11 +53,14 @@ import jetbrains.mps.util.io.ModelOutputStream;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SLanguage;
+import org.jetbrains.mps.openapi.model.SModelId;
+import org.jetbrains.mps.openapi.model.SModelName;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.persistence.ModelSaveOption;
+import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.persistence.StreamDataSource;
 
 import java.io.IOException;
@@ -88,7 +89,9 @@ public final class BinaryPersistence {
     ModelInputStream mis = null;
     try {
       mis = new ModelInputStream(source.openInputStream());
-      return loadHeader(mis);
+      SModelHeader rv = new SModelHeader();
+      loadHeader(mis, rv);
+      return rv;
     } catch (IOException e) {
       throw new ModelReadException("Couldn't read model: " + e.getMessage(), e);
     } finally {
@@ -129,7 +132,8 @@ public final class BinaryPersistence {
   private static final int HEADER_START   = 0x91ABABA9;
   private static final int STREAM_ID_V1   = 0x00000300;
   private static final int STREAM_ID_V2   = 0x00000400;
-  private static final int STREAM_ID      = STREAM_ID_V2;
+  private static final int STREAM_ID_V3   = 0x00000500;
+  private static final int STREAM_ID      = STREAM_ID_V3;
   private static final byte HEADER_ATTRIBUTES = 0x7e;
   private static final int HEADER_END     = 0xabababab;
   private static final int MODEL_START    = 0xbabababa;
@@ -137,11 +141,11 @@ public final class BinaryPersistence {
   private static final int REGISTRY_END   = 0xa5a5a5a5;
   private static final byte STUB_NONE     = 0x12;
   private static final byte STUB_ID       = 0x13;
+  private static final byte DEPENDENCY_V1 = 0x01;
 
 
-
-  @NotNull
-  private static SModelHeader loadHeader(ModelInputStream is) throws IOException {
+  // once we drop support for V2, may revert back to SModelHeader as return value
+  private static int loadHeader(ModelInputStream is, SModelHeader result) throws IOException {
     if (is.readInt() != HEADER_START) {
       throw new IOException("bad stream, no header");
     }
@@ -150,39 +154,57 @@ public final class BinaryPersistence {
     if (streamId == STREAM_ID_V1) {
       throw new IOException(String.format("Can't read old binary persistence version (%x), please re-save models", streamId));
     }
-    if (streamId != STREAM_ID) {
+    if (streamId != STREAM_ID_V2 && streamId != STREAM_ID_V3) {
       throw new IOException(String.format("bad stream, unknown version: %x", streamId));
     }
+    // TODO keep V2 read support for a year or two (just in case we read old deployed modules), and then drop it (much like V1, ask to re-save)
 
-    SModelReference modelRef = is.readModelReference();
-    SModelHeader result = new SModelHeader();
-    result.setModelReference(modelRef);
-    is.readInt(); //left for compatibility: old version was here
-    is.mark(4);
-    if (is.readByte() == HEADER_ATTRIBUTES) {
-      is.readBoolean(); // just skip placeholder boolean value, see saveModelProperties(), below
-      int propsCount = is.readShort();
-      for (; propsCount > 0; propsCount--) {
-        String key = is.readString();
-        String value = is.readString();
-        result.setOptionalProperty(key, value);
+    final int propsCount;
+    if (streamId == STREAM_ID_V2) {
+      SModelReference modelRef = is.readModelReference();
+      result.setModelReference(modelRef);
+      is.readInt(); // left for compatibility: model version was here
+      is.mark(4);
+      if (is.readByte() == HEADER_ATTRIBUTES) {
+        is.readBoolean(); // just skip placeholder boolean value we used to keep in V2
+        propsCount = is.readShort();
+      } else {
+        is.reset();
+        propsCount = 0;
       }
     } else {
-      is.reset();
+      assert streamId == STREAM_ID_V3;
+      SModuleReference moduleRef = is.readModuleReference(); // could be null for all I care.
+      // In fact, should be, eventually - once we keep model id + name, and re-construct full ModelReference once model is attached to a module
+      SModelId modelId = is.readModelID();
+      SModelName modelName = is.readModelName();
+      result.setModelReference(PersistenceFacade.getInstance().createModelReference(moduleRef, modelId, modelName));
+      final byte syncByte = is.readByte();
+      if (syncByte != HEADER_ATTRIBUTES) {
+        throw new IOException("bad stream, no sync token");
+      }
+      propsCount = is.readShort(); // could be 0
+    }
+    for (int i = 0; i < propsCount; i++) {
+      String key = is.readString();
+      String value = is.readString();
+      result.setOptionalProperty(key, value);
     }
     assertSyncToken(is, HEADER_END);
-    return result;
+    return streamId;
   }
+
   @NotNull
   private static ModelLoadResult loadModel(InputStream is, boolean interfaceOnly, @Nullable MetaModelInfoProvider mmiProvider) throws IOException {
     ModelInputStream mis = null;
     try {
       mis = new ModelInputStream(is);
-      SModelHeader modelHeader = loadHeader(mis);
+      SModelHeader modelHeader = new SModelHeader();
+      final int version = loadHeader(mis, modelHeader);
 
       DefaultSModel model = new DefaultSModel(modelHeader.getModelReference(), modelHeader);
       BinaryPersistence bp = new BinaryPersistence(mmiProvider == null ? new RegularMetaModelInfo() : mmiProvider, model);
-      ReadHelper rh = bp.loadModelProperties(mis);
+      ReadHelper rh = bp.loadModelProperties(mis, version);
       rh.requestInterfaceOnly(interfaceOnly);
 
       NodesReader reader = new NodesReader(mis, rh);
@@ -222,20 +244,27 @@ public final class BinaryPersistence {
     myModelData = modelData;
   }
 
-  private ReadHelper loadModelProperties(ModelInputStream is) throws IOException {
+  private ReadHelper loadModelProperties(ModelInputStream is, int version) throws IOException {
     final ReadHelper readHelper = loadRegistry(is);
 
-    loadUsedLanguages(is);
-
-    for (SModuleReference ref : loadModuleRefList(is)) {
-      // FIXME add temporary code to read both module ref and SLanguage in 3.4 (write SLangugae, read both)
-      new SModelLegacy(myModelData).addEngagedOnGenerationLanguage(ref);
+    if (version == STREAM_ID_V2) {
+      loadUsedLanguagesV2(is);
+      loadModuleRefList(is).stream().map(MetaAdapterFactory::getLanguage).forEach(myModelData::addEngagedOnGenerationLanguage);
+      loadModuleRefList(is).forEach(myModelData::addDevKit);
+      loadImports(is).forEach(myModelData::addModelImport);
+    } else {
+      assert version == STREAM_ID_V3;
+      // next is just for future improvement of dependency recording w/o need to bump the version of the whole persistence
+      // I expect format for devkit dependencies to change in the future (e.g. include module version?)
+      final byte dependencyFormat = is.readByte();
+      if (dependencyFormat != DEPENDENCY_V1) {
+        throw new IOException(String.format("Unknown format for recorded dependencies: %x", dependencyFormat));
+      }
+      loadUsedLanguagesV3(is);
+      loadEngagedOnGenerationLanguages(is);
+      loadModuleRefList(is).forEach(myModelData::addDevKit);
+      loadImports(is).forEach(myModelData::addModelImport);
     }
-    for (SModuleReference ref : loadModuleRefList(is)) {
-      myModelData.addDevKit(ref);
-    }
-
-    for (ImportElement imp : loadImports(is)) myModelData.addModelImport(imp);
 
     assertSyncToken(is, MODEL_START);
 
@@ -246,29 +275,31 @@ public final class BinaryPersistence {
     // header
     os.writeInt(HEADER_START);
     os.writeInt(STREAM_ID);
-    os.writeModelReference(myModelData.getReference());
-    os.writeInt(-1);  //old model version
+    SModuleReference moduleReference = myModelData.getReference().getModuleReference();
+    // moduleReference could be null, and once we don't need ModelReference for SModelData, we could safely replace this with `null` literal
+    os.writeModuleReference(moduleReference);
+    os.writeModelID(myModelData.getModelId());
+    os.writeModelName(myModelData.getModelName());
+    os.writeByte(HEADER_ATTRIBUTES); // for V3, we always write this, with 0 for scenarios when there are no attributes or model doesn't support them
     if (myModelData instanceof DefaultSModel) {
-      os.writeByte(HEADER_ATTRIBUTES);
       SModelHeader mh = ((DefaultSModel) myModelData).getSModelHeader();
-      // FIXME just a placeholder value instead of SModelHeader.isDoNotGenerate() to avoid persistence version change.
-      //       Actual value is serialized as part of optionalProperties now. Once/if binary persistence version changes,
-      //       we shall throw this placeholder away
-      os.writeBoolean(false);
       Map<String, String> props = new HashMap<>(mh.getOptionalProperties());
       os.writeShort(props.size());
       for (Entry<String, String> e : props.entrySet()) {
         os.writeString(e.getKey());
         os.writeString(e.getValue());
       }
+    } else {
+      os.writeShort(0);
     }
     os.writeInt(HEADER_END);
 
     final IdInfoRegistry rv = saveRegistry(os);
 
+    os.writeByte(DEPENDENCY_V1);
     //languages
     saveUsedLanguages(os);
-    saveModuleRefList(myModelData.engagedOnGenerationLanguages(), os);
+    saveEngagedOnGenerationLanguages(os);
     saveModuleRefList(myModelData.importedDevkits(), os);
 
     // imports
@@ -400,22 +431,45 @@ public final class BinaryPersistence {
     Collection<SLanguage> refs = myModelData.usedLanguages();
     os.writeShort(refs.size());
     for (SLanguage l : refs) {
-      // id, name, version
-      os.writeUUID(MetaIdHelper.getLanguage(l).getIdValue());
-      os.writeString(l.getQualifiedName());
+      // lang identifier + used version
+      os.writeLanguage(l);
+      os.writeInt(myModelData.getLanguageImportVersion(l));
     }
   }
 
-  private void loadUsedLanguages(ModelInputStream is) throws IOException {
+  private void loadUsedLanguagesV2(ModelInputStream is) throws IOException {
     int size = is.readShort();
     for (int i = 0; i < size; i++) {
       SLanguageId id = new SLanguageId(is.readUUID());
       String name = is.readString();
       SLanguage l = MetaAdapterFactory.getLanguage(id, name);
-      // I see no reason to attempt guessing actual version number, after all, we don't migrate binary models ATM
-      //   nor it's reasonable to expect all referenced languages are present by this time
-      //   (i.e. SLanguage.getLanguageVersion() inside addLanguage() would give -1 anyway)
-      myModelData.addLanguage(l, -1);
+      // Although there's no reason to attempt guessing actual version number - after all,
+      //   we don't migrate binary models ATM. Nor it's reasonable to expect all referenced
+      //   languages are present by this time (i.e. SLanguage.getLanguageVersion() inside
+      //   addLanguage() would give -1 anyway), there's some mbeddr test that expects versions
+      //   in binary model to match that in original xml (SModelAsNode_Test.test_usedLanguages_model)
+      myModelData.addLanguage(l, l.getLanguageVersion());
+    }
+  }
+  private void loadUsedLanguagesV3(ModelInputStream is) throws IOException {
+    int size = is.readShort();
+    for (int i = 0; i < size; i++) {
+      SLanguage l = is.readLanguage();
+      myModelData.addLanguage(l, is.readInt());
+    }
+  }
+
+  private void saveEngagedOnGenerationLanguages(ModelOutputStream os) throws IOException {
+    Collection<SLanguage> ll = myModelData.getLanguagesEngagedOnGeneration();
+    os.writeShort(ll.size());
+    for (SLanguage l : ll) {
+      os.writeLanguage(l);
+    }
+  }
+  private void loadEngagedOnGenerationLanguages(ModelInputStream is) throws IOException {
+    final int size = is.readShort();
+    for (int i = 0; i < size; i++) {
+      myModelData.addEngagedOnGenerationLanguage(is.readLanguage());
     }
   }
 
@@ -457,10 +511,11 @@ public final class BinaryPersistence {
     ModelInputStream mis = null;
     try {
       mis = new ModelInputStream(content);
-      SModelHeader modelHeader = loadHeader(mis);
+      SModelHeader modelHeader = new SModelHeader();
+      final int version = loadHeader(mis, modelHeader);
       SModel model = new DefaultSModel(modelHeader.getModelReference(), modelHeader);
       BinaryPersistence bp = new BinaryPersistence(new StuffedMetaModelInfo(new BaseMetaModelInfo()), model);
-      final ReadHelper readHelper = bp.loadModelProperties(mis);
+      final ReadHelper readHelper = bp.loadModelProperties(mis, version);
       for (ImportElement element : model.importedModels()) {
         consumer.imports(element.getModelReference());
       }
