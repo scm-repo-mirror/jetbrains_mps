@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2026 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ import jetbrains.mps.project.structure.modules.Dependency;
 import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.ModelDependencyScanner;
-import jetbrains.mps.smodel.SModelOperations;
+import jetbrains.mps.smodel.ModelImports;
 import jetbrains.mps.smodel.SModelStereotype;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -36,8 +36,10 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 // FIXME (1) OrganizeImports (there's no optimization)
@@ -47,6 +49,7 @@ import java.util.Set;
 public class OptimizeImportsHelper {
   private final SRepository myRepository;
   private final ModelsAutoImportsManager myAutoImports;
+  private final Map<SLanguage, Set<SModelReference>> myAccessoryModels = new HashMap<>();
 
   /**
    * @param repository -- is a context repository which contains the modules/models the client want to resolve
@@ -186,7 +189,7 @@ public class OptimizeImportsHelper {
         monitor.step(model.toString());
         if (SModelStereotype.isStubModel(model)) {
           // todo: looks like WTF
-          result.add(collectModelDependencies(model));
+          result.add(collectActualDependencies(model));
         } else {
           result.add(optimizeModelImports_internal(model));
         }
@@ -202,34 +205,28 @@ public class OptimizeImportsHelper {
   }
 
   private Result optimizeModelImports_internal(SModel modelDescriptor) {
-    Result result = collectModelDependencies(modelDescriptor);
+    Result result = collectActualDependencies(modelDescriptor);
 
+    ModelImports mi = new ModelImports(modelDescriptor);
     Set<SModelReference> unusedModels = new HashSet<>();
-    for (SModelReference model : SModelOperations.getImportedModelUIDs(modelDescriptor)) {
+    for (SModelReference model : mi.getImportedModels()) {
       if (result.myUsedModels.contains(model)) continue;
 
-      // FIXME
-      //this is a temp code to fix http://youtrack.jetbrains.com/issue/MPS-19621
-      //we should re-save models and make them findModules through modules, not just by ID
-      //this code is supposed to be deleted after 3.1 release
-      SModel md = model.resolve(myRepository);
-      if (md == null) continue;
-
-      if (result.myUsedModels.contains(md.getReference())) continue;
-      //end of tmp code
+      // XXX here used to be temp code to fix http://youtrack.jetbrains.com/issue/MPS-19621
+      //     which resolved model in a repo and used its fresh reference. I believe we no longer need this
 
       unusedModels.add(model);
     }
 
     Set<SLanguage> unusedLanguages = new HashSet<>();
-    for (SLanguage languageRef : ((jetbrains.mps.smodel.SModelInternal) modelDescriptor).importedLanguageIds()) {
+    for (SLanguage languageRef : mi.getUsedLanguages()) {
       if (isUnusedLanguageRef(result, languageRef)) {
         unusedLanguages.add(languageRef);
       }
     }
 
     Set<SModuleReference> unusedDevkits = new HashSet<>();
-    for (SModuleReference devkitRef : ((jetbrains.mps.smodel.SModelInternal) modelDescriptor).importedDevkits()) {
+    for (SModuleReference devkitRef : mi.getUsedDevKits()) {
       if (myAutoImports != null && myAutoImports.getDevkitsToImport(modelDescriptor.getModule(), modelDescriptor).contains(devkitRef)) {
         continue;
       }
@@ -242,7 +239,7 @@ public class OptimizeImportsHelper {
     return result;
   }
 
-  private Result collectModelDependencies(SModel model) {
+  private Result collectActualDependencies(SModel model) {
     Result result = new Result();
 
     /*
@@ -322,18 +319,34 @@ public class OptimizeImportsHelper {
     return true;
   }
 
-  private boolean isUnusedLanguageRef(Result result, SLanguage languageRef) {
-    if (result.myUsedLanguages.contains(languageRef)) {
+  private boolean isUnusedLanguageRef(Result result, SLanguage lang) {
+    if (result.myUsedLanguages.contains(lang)) {
       return false;
     }
 
-    final SModule sourceModule = languageRef.getSourceModule();
-    if (sourceModule instanceof Language) {
-      for (SModel md : ((Language) sourceModule).getAccessoryModels()) {
-        if (result.myUsedModels.contains(md.getReference())) return false;
+    Set<SModelReference> accessoryModels = myAccessoryModels.get(lang);
+    if (accessoryModels == null) {
+      // I wonder if we can use accessory model information from deployed language once there is any (not ATM) -
+      //   on one hand, we can still work with a language (LD designs/modifies the language and uses it in a solution being OI'd)
+      //   on the other, it's attempt to *use* a language here, perhaps, sticking to deployed information is right.
+      final SModule sourceModule = lang.getSourceModuleReference().resolve(myRepository);
+      if (sourceModule instanceof Language) {
+        accessoryModels = new HashSet<>();
+        ((Language) sourceModule).getAccessoryModels().stream().map(SModel::getReference).forEach(accessoryModels::add);
+      } else {
+        accessoryModels = Collections.emptySet();
       }
+      myAccessoryModels.put(lang, accessoryModels);
     }
 
+    if (accessoryModels.isEmpty()) {
+      return true;
+    }
+    for (SModelReference am : accessoryModels) {
+      if (result.myUsedModels.contains(am)) {
+        return false;
+      }
+    }
     return true;
   }
 
