@@ -50,7 +50,9 @@ public final class FSTests extends ModuleInProjectTest { // e.g. in order to get
     saveProjectInTest();
     invokeInCommand(() -> {
       @NotNull Language lang = langRef.get();
+      Assert.assertNotNull("Language is not attached", lang.getRepository());
       @NotNull Solution solution = solutionRef.get();
+      Assert.assertNotNull("Solution is not attached", solution.getRepository());
       projectBackup.doBackup();
 
       lang.addDependency(solution.getModuleReference(), false);
@@ -82,7 +84,9 @@ public final class FSTests extends ModuleInProjectTest { // e.g. in order to get
     invokeInCommand(() -> solutionRef.set(new SolutionProducer(myProject).create(solutionName, createNewDirInProject())));
     invokeInCommand(() -> {
       @NotNull Language lang = langRef.get();
+      Assert.assertNotNull("Language is not attached", lang.getRepository());
       @NotNull Solution solution = solutionRef.get();
+      Assert.assertNotNull("Solution is not attached", solution.getRepository());
       lang.addDependency(solution.getModuleReference(), false);
       lang.save();
       lang.getGenerators().forEach(Generator::save);
