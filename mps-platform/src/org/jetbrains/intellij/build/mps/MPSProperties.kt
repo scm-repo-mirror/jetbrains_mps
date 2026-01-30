@@ -50,6 +50,7 @@ class MPSProperties : JetBrainsProductProperties() {
             "intellij.java.ide.customization",
             "intellij.json",
             "intellij.copyright",
+            "intellij.mcpserver",
             "intellij.properties",
             "intellij.properties.resource.bundle.editor",
             "intellij.terminal",
