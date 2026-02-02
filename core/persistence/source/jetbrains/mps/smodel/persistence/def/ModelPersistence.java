@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2025 JetBrains s.r.o.
+ * Copyright 2003-2026 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -186,30 +186,6 @@ public class ModelPersistence {
       throw new ModelReadException("Couldn't read model: " + e.getMessage(), e, header);
     } finally {
       FileUtil.closeFileSafe(in);
-    }
-  }
-
-  @Nullable
-  public static List<LineContent> getLineToContentMap(String content) throws ModelReadException {
-    try {
-      SModelHeader header = new SModelHeader();
-      parseAndHandleExceptions(new InputSource(new StringReader(content)), new HeaderOnlyHandler(header));
-      IModelPersistence mp = getPersistence(header.getPersistenceVersion());
-
-      if (mp == null) {
-        return null;
-      }
-
-      XMLSAXHandler<List<LineContent>> handler = mp.getLineToContentMapReaderHandler();
-      if (handler == null) {
-        return null;
-      }
-
-      parseAndHandleExceptions(new InputSource(new StringReader(content)), handler);
-      return handler.getResult();
-    } catch (Exception ex) {
-      Throwable th = ex.getCause() == null ? ex : ex.getCause();
-      throw new ModelReadException(String.format("Failed to load line to content map: %s", th.getMessage()), th);
     }
   }
 

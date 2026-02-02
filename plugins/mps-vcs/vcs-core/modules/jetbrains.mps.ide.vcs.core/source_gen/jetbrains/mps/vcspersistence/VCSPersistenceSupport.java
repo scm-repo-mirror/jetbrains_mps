@@ -11,11 +11,11 @@ import jetbrains.mps.smodel.persistence.def.v5.ModelPersistence5;
 import jetbrains.mps.smodel.persistence.def.v6.ModelPersistence6;
 import jetbrains.mps.smodel.persistence.def.v7.ModelPersistence7;
 import jetbrains.mps.smodel.persistence.def.v8.ModelPersistence8;
-import jetbrains.mps.smodel.persistence.def.ModelPersistence;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.smodel.SModelHeader;
 import org.xml.sax.InputSource;
 import jetbrains.mps.smodel.persistence.def.ModelReadException;
+import jetbrains.mps.smodel.persistence.def.ModelPersistence;
 import jetbrains.mps.smodel.loading.ModelLoadResult;
 import jetbrains.mps.smodel.loading.ModelLoadingState;
 import jetbrains.mps.smodel.persistence.def.PersistenceVersionNotFoundException;
@@ -110,9 +110,8 @@ public class VCSPersistenceSupport {
       return new ModelPersistence8();
     }
 
-    // FIXME remove this after removing usages of VCSPersistenceSupport from everywhere except VCSPersistenceUtil
-    // There are 2 external uses ATM: 1 through readModel (MergeBackupUtil. local ModelSack guards against newer version once header has been read) + 1 getLineToContentMap in RootFileHistoryExtractor
-    return ModelPersistence.getPersistence(version);
+    LOG.warning("unsupported version requested " + version, new Throwable());
+    return null;
   }
 
   @NotNull
@@ -124,6 +123,7 @@ public class VCSPersistenceSupport {
     if (header.getPersistenceVersion() < 0) {
       throw new ModelReadException("Couldn't read model because of unknown persistence version", null);
     }
+    assert header.getPersistenceVersion() < ModelPersistence.FIRST_SUPPORTED_VERSION;
     IModelPersistence mp = getPersistence(header.getPersistenceVersion());
 
     String m = "Can not find appropriate persistence version for model %s. Requested version %d." + "\n Use other/newer version of JetBrains MPS to load this model.";
@@ -164,7 +164,13 @@ public class VCSPersistenceSupport {
   public static List<LineContent> getLineToContentMap(byte[] content, boolean withValues) throws ModelReadException {
     SModelHeader header;
     header = loadDescriptor(new InputSource(new ByteArrayInputStream(content)));
-    IModelPersistence mp = getPersistence(header.getPersistenceVersion());
+    IModelPersistence mp;
+    // this is the only place in VCS (I'm aware of) where we expect to see both old and new persistence versions, hence shall make a choice
+    if (ModelPersistence.isSupported(header.getPersistenceVersion())) {
+      mp = ModelPersistence.getPersistence(header.getPersistenceVersion());
+    } else {
+      mp = getPersistence(header.getPersistenceVersion());
+    }
     if (mp == null) {
       return null;
     }
