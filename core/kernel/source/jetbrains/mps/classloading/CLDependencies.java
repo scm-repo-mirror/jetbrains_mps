@@ -1,9 +1,8 @@
 /*
- * Copyright 2000-2025 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+ * Copyright 2000-2026 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
  */
 package jetbrains.mps.classloading;
 
-import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.make.java.ModelDependencies;
 import jetbrains.mps.project.AbstractModule;
@@ -38,8 +37,6 @@ import java.util.LinkedHashSet;
  * @since 2022.2
  */
 /*package*/ final class CLDependencies {
-  private final boolean USE_DD = !RuntimeFlags.legacyCLDependencies();
-
   private final UsedModulesCollector myModulesCollector;
   private boolean myUseDD, myUseDepsCP, myCalculateDeps;
 
@@ -57,7 +54,7 @@ import java.util.LinkedHashSet;
     myUseDD = myUseDepsCP = myCalculateDeps = false;
     final Collection<SModuleReference> rv = new LinkedHashSet<>(20);
     DeploymentDescriptor dd = ddIfPresent(module);
-    if (USE_DD && dd != null) {
+    if (dd != null) {
       // process all dependencies, irrespective of "rt"/"cl" (RUNTIME/DEFAULT) scope
       for (Dependency dependency : dd.getDependencies()) {
         rv.add(dependency.getModuleRef());

@@ -32,9 +32,6 @@ public final class RuntimeFlags {
   private static Boolean ourCustomNodeIdentitySupport;
   private static Boolean ourExperimentalScopedNodeId;
 
-
-  private static Boolean ourLegacyCLDeps = null;
-
   private RuntimeFlags() {
   }
 
@@ -115,14 +112,6 @@ public final class RuntimeFlags {
       // ourLegacyLoadModels = val == null || Boolean.parseBoolean(val);
     }
     return ourLegacyLoadModels;
-  }
-
-  public static boolean legacyCLDependencies() {
-    if (ourLegacyCLDeps == null) {
-      // we're good with new approach unless forced to use the old one
-      ourLegacyCLDeps = Boolean.getBoolean("mps.clm.deps.legacy");
-    }
-    return ourLegacyCLDeps;
   }
 
   public static boolean customNodeIdentitySupport() {
