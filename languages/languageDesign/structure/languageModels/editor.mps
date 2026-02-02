@@ -37,6 +37,7 @@
     <import index="9anm" ref="r:6f374023-1b4e-4a80-8bf6-2cc3148faa52(jetbrains.mps.lang.editor.plugin)" />
     <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" />
     <import index="vndm" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.language(MPS.Core/)" />
+    <import index="fyhk" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps(MPS.Core/)" />
     <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" implicit="true" />
     <import index="o8zo" ref="r:314576fc-3aee-4386-a0a5-a38348ac317d(jetbrains.mps.scope)" implicit="true" />
   </imports>
@@ -2683,6 +2684,44 @@
         </node>
         <node concept="3F1sOY" id="5vfjF5ck0fr" role="3EZMnx">
           <ref role="1NtTu8" to="tpce:5vfjF5cjTVP" resolve="icon" />
+        </node>
+      </node>
+      <node concept="3F0ifn" id="5_v6yKlJicH" role="3EZMnx">
+        <node concept="pkWqt" id="5_v6yKlMLh6" role="pqm2j">
+          <node concept="3clFbS" id="5_v6yKlMLh7" role="2VODD2">
+            <node concept="3clFbF" id="5_v6yKlMMHO" role="3cqZAp">
+              <node concept="2YIFZM" id="5_v6yKlMRc$" role="3clFbG">
+                <ref role="37wK5l" to="fyhk:~RuntimeFlags.isInternalMode()" resolve="isInternalMode" />
+                <ref role="1Pybhc" to="fyhk:~RuntimeFlags" resolve="RuntimeFlags" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3EZMnI" id="5_v6yKlJhJy" role="3EZMnx">
+        <node concept="VPM3Z" id="5_v6yKlJhJz" role="3F10Kt">
+          <property role="VOm3f" value="false" />
+        </node>
+        <node concept="3F0ifn" id="5_v6yKlJhJ$" role="3EZMnx">
+          <property role="3F0ifm" value="scope:" />
+          <ref role="1k5W1q" node="24YP6ZDyde4" resolve="Keyword" />
+        </node>
+        <node concept="3F0A7n" id="5_v6yKlJhJ_" role="3EZMnx">
+          <ref role="1NtTu8" to="tpce:3Ftr4R6BH8E" resolve="staticScope" />
+          <node concept="ljvvj" id="5_v6yKlJhJA" role="3F10Kt">
+            <property role="VOm3f" value="true" />
+          </node>
+        </node>
+        <node concept="2iRfu4" id="5_v6yKlJibQ" role="2iSdaV" />
+        <node concept="pkWqt" id="5_v6yKlMRol" role="pqm2j">
+          <node concept="3clFbS" id="5_v6yKlMRom" role="2VODD2">
+            <node concept="3clFbF" id="5_v6yKlMRoo" role="3cqZAp">
+              <node concept="2YIFZM" id="5_v6yKlMRop" role="3clFbG">
+                <ref role="37wK5l" to="fyhk:~RuntimeFlags.isInternalMode()" resolve="isInternalMode" />
+                <ref role="1Pybhc" to="fyhk:~RuntimeFlags" resolve="RuntimeFlags" />
+              </node>
+            </node>
+          </node>
         </node>
       </node>
       <node concept="2iRkQZ" id="i2IuJLQ" role="2iSdaV" />
