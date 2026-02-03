@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2025 JetBrains s.r.o.
+ * Copyright 2003-2026 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -302,11 +302,6 @@ public class FilePerRootModelFactory implements ModelFactory, IndexAwareModelFac
     @Override
     public ModelLoadResult readModel(@NotNull SModelHeader header, @NotNull ModelLoadingState state) throws ModelReadException {
       return FilePerRootFormatUtil.readModel(header, getSource0(), state);
-    }
-
-    @Override
-    public boolean doesSaveUpgradePersistence(@NotNull SModelHeader header) {
-      return FilePerRootFormatUtil.actualPersistenceVersion(header.getPersistenceVersion()) != header.getPersistenceVersion();
     }
 
     @Override

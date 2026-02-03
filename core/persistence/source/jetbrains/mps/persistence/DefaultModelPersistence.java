@@ -373,12 +373,6 @@ public class DefaultModelPersistence implements ModelFactory, IndexAwareModelFac
     }
 
     @Override
-    public boolean doesSaveUpgradePersistence(@NotNull SModelHeader header) {
-      //not sure !=-1 is really needed, just left to be ensured about compatibility
-      return header.getPersistenceVersion() != ModelPersistence.LAST_VERSION && header.getPersistenceVersion() != -1;
-    }
-
-    @Override
     public void saveModel(@NotNull SModelHeader header, SModelData modelData) throws ModelSaveException {
       ModelPersistence.saveModel((jetbrains.mps.smodel.SModel) modelData, getSource0(), header.getPersistenceVersion());
     }

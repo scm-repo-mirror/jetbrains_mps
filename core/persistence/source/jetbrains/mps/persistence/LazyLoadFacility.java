@@ -79,12 +79,5 @@ public abstract class LazyLoadFacility {
   @NotNull
   public abstract ModelLoadResult readModel(@NotNull SModelHeader header, @NotNull ModelLoadingState state) throws ModelReadException;
 
-  /**
-   * The method is quite questionable, though better than saveModel returning != null value to indicate persistence has changed during save.
-   * One of alternatives is to alter header's field (persistenceVersion) on saveModel so that caller gets a chance to find out persistence had changed
-   * @return true if model could not be saved with persistence version indicated in the header.
-   */
-  public abstract boolean doesSaveUpgradePersistence(@NotNull SModelHeader header);
-
   public abstract void saveModel(@NotNull SModelHeader header, SModelData modelData) throws ModelSaveException, IOException;
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2024 JetBrains s.r.o.
+ * Copyright 2003-2026 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -131,8 +131,10 @@ public class DefaultSModelDescriptor extends LazyEditableSModelBase implements G
       // if we do save model, ensure we write proper references. It's not the best possible solution, see MPS-22440 for details
       smodel.updateExternalReferences(getRepository());
     }
-    boolean upgraded = myPersistence.doesSaveUpgradePersistence(myHeader);
+    final int versionBeforeSave = getPersistenceVersion();
     myPersistence.saveModel(myHeader, smodel);
+    //noinspection UnnecessaryLocalVariable
+    final boolean upgraded = getPersistenceVersion()  > versionBeforeSave;
     return upgraded;
   }
 
