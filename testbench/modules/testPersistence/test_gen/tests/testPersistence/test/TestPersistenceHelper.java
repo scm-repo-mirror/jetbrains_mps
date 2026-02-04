@@ -56,9 +56,10 @@ import java.util.Arrays;
 
   /*package*/ void saveTestModelInPersistence(PersistenceUtil.InMemoryStreamDataSource dataSource, int persistence) {
     try {
+      // FIXME can't use trick with PVA here, as myTestModel is a TrivialModelDescriptor, unaware of persistence version, and there's no
+      // other way to specify persistence version ATM
       ModelPersistence.saveModel(myTestModel.getSModel(), dataSource, persistence);
     } catch (Exception e) {
-      e.printStackTrace();
       Assert.fail("Exception during test. See log for details");
     }
   }

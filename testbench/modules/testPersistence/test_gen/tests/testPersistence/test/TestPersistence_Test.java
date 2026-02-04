@@ -26,8 +26,13 @@ import jetbrains.mps.smodel.SModelHeader;
 import jetbrains.mps.smodel.loading.ModelLoadResult;
 import jetbrains.mps.persistence.ByteArrayInputSource;
 import jetbrains.mps.smodel.loading.ModelLoadingState;
+import jetbrains.mps.smodel.TrivialModelDescriptor;
+import org.jetbrains.mps.openapi.persistence.ModelFactory;
+import org.jetbrains.mps.openapi.model.SModel;
+import jetbrains.mps.persistence.PersistenceVersionAware;
+import org.jetbrains.mps.openapi.persistence.ModelSaveOption;
 import jetbrains.mps.extapi.model.SModelBase;
-import jetbrains.mps.smodel.SModel;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.HashMap;
 import java.util.Set;
@@ -43,7 +48,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import java.util.ArrayList;
-import java.util.Collections;
+import jetbrains.mps.smodel.ModelImports;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -111,10 +116,11 @@ public class TestPersistence_Test extends BaseTransformationTest {
           byte[] content = dataSource.getContentBytes();
           SModelHeader mh = SModelHeader.create(i);
           mh.setModelReference(helper.getTestModel().getReference());
+          // XXX not sure I understand the reason why readModel() and ModelLoadResult, while other methods use loadModel() and openapi.SModel?
           ModelLoadResult result = ModelPersistence.readModel(mh, new ByteArrayInputSource(content), ModelLoadingState.FULLY_LOADED);
 
           Assert.assertTrue(result.getState() == ModelLoadingState.FULLY_LOADED);
-          TestBody.this.assertDeepModelEquals(helper.getTestModel().getSModel(), result.getModel());
+          TestBody.this.assertDeepModelEquals(helper.getTestModel(), new TrivialModelDescriptor(result.getModel()));
           result.getModel().dispose();
         }
       });
@@ -125,6 +131,8 @@ public class TestPersistence_Test extends BaseTransformationTest {
         TestPersistenceHelper helper = new TestPersistenceHelper(myProject.getRepository());
 
         final ModelFactoryService mfsvc = myProject.getComponent(ModelFactoryService.class);
+        final ModelFactory xmlMF = mfsvc.getFactoryByType(PreinstalledModelFactoryTypes.PLAIN_XML);
+        assert xmlMF != null;
         // tests that it's possible to upgrade to the latest persistence from any supported persistence
         for (int fromVersion = TestPersistenceHelper.START_PERSISTENCE_TEST_VERSION; fromVersion < ModelPersistence.LAST_VERSION; fromVersion++) {
           // prepare data source in requested version
@@ -132,27 +140,37 @@ public class TestPersistence_Test extends BaseTransformationTest {
           helper.saveTestModelInPersistence(notUpgradedData, fromVersion);
 
           // load model from source version
-          SModelBase notUpgradedModel = ((SModelBase) PersistenceUtil.loadModel(notUpgradedData.getContentBytes(), mfsvc.getFactoryByType(PreinstalledModelFactoryTypes.PLAIN_XML)));
+          SModel notUpgradedModel = PersistenceUtil.loadModel(notUpgradedData.getContentBytes(), xmlMF);
+          Assert.assertNotNull(notUpgradedModel);
+          assert notUpgradedModel != null;
+          // TODO shall I check notUpgradedModel.getPersistenceVersion == fromVersion?!
 
           // save model in last persistence
           PersistenceUtil.InMemoryStreamDataSource upgradedData = new PersistenceUtil.InMemoryStreamDataSource();
-          ModelPersistence.saveModel(notUpgradedModel.getSModel(), upgradedData, ModelPersistence.LAST_VERSION);
+          try {
+            // FIXME instead of forcing version through PVA, shall specify save option to upgrade persistence
+            //      Note, unlike with helper.getTestModel(), we can cast notUpgradedModel to PVA as the latter has been loaded through MF
+            ((PersistenceVersionAware) notUpgradedModel).setPersistenceVersion(ModelPersistence.LAST_VERSION);
+            xmlMF.save(notUpgradedModel, upgradedData, new ModelSaveOption[0]);
+          } catch (Exception ex) {
+            Assert.fail(ex.getMessage());
+          }
 
           // load model in last persistence from saved
-          SModelBase upgradedModel = ((SModelBase) PersistenceUtil.loadModel(upgradedData.getContentBytes(), mfsvc.getFactoryByType(PreinstalledModelFactoryTypes.PLAIN_XML)));
+          SModel upgradedModel = PersistenceUtil.loadModel(upgradedData.getContentBytes(), xmlMF);
 
           // do test
-          TestBody.this.assertDeepModelEquals(notUpgradedModel.getSModel(), upgradedModel.getSModel());
+          TestBody.this.assertDeepModelEquals(notUpgradedModel, upgradedModel);
 
-          notUpgradedModel.getSModel().dispose();
-          upgradedModel.getSModel().dispose();
+          ((SModelBase) notUpgradedModel).detach();
+          ((SModelBase) upgradedModel).detach();
         }
       });
     }
 
     public void assertDeepModelEquals(SModel expectedModel, SModel actualModel) {
       this.assertSameModelImports(expectedModel, actualModel);
-      this.assertSameNodesCollections("root", expectedModel.getRootNodes(), actualModel.getRootNodes());
+      this.assertSameNodesCollections("root", SModelOperations.roots(expectedModel, null), SModelOperations.roots(actualModel, null));
     }
     public void assertSameNodesCollections(String objectName, Iterable<SNode> expected, Iterable<SNode> actual) {
       HashMap<org.jetbrains.mps.openapi.model.SNodeId, SNode> actualIdToNodeMap = new HashMap<org.jetbrains.mps.openapi.model.SNodeId, SNode>();
@@ -169,7 +187,7 @@ public class TestPersistence_Test extends BaseTransformationTest {
       Assert.assertTrue("Found not expected " + objectName + " " + actualIdToNodeMap, actualIdToNodeMap.isEmpty());
     }
     public void assertSameModelImports(SModel expectedModel, SModel actualModel) {
-      TestPersistenceHelper.assertListsEqual(this.getImportedModelUIDs(expectedModel), this.getImportedModelUIDs(actualModel), "model import");
+      TestPersistenceHelper.assertListsEqual(this.getImportedModels(expectedModel), this.getImportedModels(actualModel), "model import");
     }
     public void assertDeepNodeEquals(SNode expectedNode, SNode actualNode) {
       Assert.assertEquals(this.getErrorString("concept", expectedNode, actualNode), expectedNode.getConcept().getQualifiedName(), actualNode.getConcept().getQualifiedName());
@@ -261,12 +279,8 @@ public class TestPersistence_Test extends BaseTransformationTest {
       Assert.assertNotNull(errorString, actualNode);
       Assert.assertEquals(errorString, expectedNode.getNodeId(), actualNode.getNodeId());
     }
-    public List<SModelReference> getImportedModelUIDs(SModel sModel) {
-      List<SModelReference> references = new ArrayList<SModelReference>();
-      for (SModel.ImportElement importElement : sModel.importedModels()) {
-        references.add(importElement.getModelReference());
-      }
-      return Collections.unmodifiableList(references);
+    public List<SModelReference> getImportedModels(SModel m) {
+      return new ArrayList<>(new ModelImports(m).getImportedModels());
     }
   }
 
