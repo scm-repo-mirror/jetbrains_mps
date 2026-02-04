@@ -242,24 +242,9 @@ public class DefaultModelPersistence implements ModelFactory, IndexAwareModelFac
   }
 
 
-  // XXX if this method is removed and replaced with the one with ModelSaveOption..., please make sure mmiProvider extraction from SModelHeader is there!
   @Override
   public void save(@NotNull SModel model, @NotNull DataSource dataSource) throws ModelSaveException, UnsupportedDataSourceException {
-    // FIXME revisit, likely default in super is ok, just need to make sure persistenceVersion handling matches and
-    //       also may need to remove MP.saveModel() method, perhaps
-    if (!(dataSource instanceof StreamDataSource)) {
-      throw new UnsupportedDataSourceException(dataSource);
-    }
-    int persistenceVersion = -1;
-    if (model instanceof PersistenceVersionAware) {
-      persistenceVersion = ((PersistenceVersionAware) model).getPersistenceVersion();
-    }
-    if (persistenceVersion == -1) {
-      persistenceVersion = ModelPersistence.LAST_VERSION;
-    }
-    // FIXME MP.saveModel() deduces ModelSaveOptions using MP.saveOptionsFor(SModelData). Can't use empty ModelSaveOptions[0] here,
-    //       shall refactor and come up with a logic similar to MP.saveOptionsFor()
-    ModelPersistence.saveModel(((SModelBase) model).getSModel(), (StreamDataSource) dataSource, persistenceVersion);
+    save(model, dataSource, ModelPersistence.saveOptionsFor(((SModelBase) model).getSModel()));
   }
 
   @Override
@@ -385,13 +370,8 @@ public class DefaultModelPersistence implements ModelFactory, IndexAwareModelFac
 
     @Override
     public void saveModel(@NotNull SModel modelData) throws ModelSaveException {
-      // see #save(SMode, DataSource), above, for reasons I can't use default impl from super
-      // FIXME deduce ModelSaveOptions, use them here
-      try {
-        getModelFactory().save(modelData, getSource0());
-      } catch (IOException ex) {
-        throw new ModelSaveException(ex.getMessage(), Collections.emptySet(), ex);
-      }
+      // same as #save(SMode, DataSource), above, as I can't use default impl from super - need to detect proper options based on header values
+      getModelFactory().save(modelData, getSource0(), ModelPersistence.saveOptionsFor(((SModelBase) modelData).getSModel()));
     }
   }
 }

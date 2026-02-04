@@ -188,10 +188,12 @@ public class ModelPersistence {
   }
 
   /*
+   * NOTE, use of this method is discouraged, there are 2 uses in tests that shall get refactored to use ModelDataFactory, instead
    * FIXME why on earth we pass SModelData here, not openapi.SModel?
    * FIXME why does this method do silent update? Would be better to update explicitly, and fail from the method if can't save with specified version
    *  returns upgraded model, or null if the model doesn't require update
    */
+  @Deprecated(forRemoval = true)
   public static DefaultSModel saveModel(@NotNull SModel model, @NotNull StreamDataSource source, int persistenceVersion) throws ModelSaveException {
     LOG.debug("Saving model " + model.getReference() + " to " + source.getLocation());
 
@@ -242,7 +244,11 @@ public class ModelPersistence {
     }
   }
 
-  private static ModelSaveOption[] saveOptionsFor(SModelData model) {
+  /*
+   * perhaps, shall become part of DefaultModelPersistence class
+   */
+  @Nullable
+  public static ModelSaveOption[] saveOptionsFor(SModelData model) {
     final SModelHeader header = model instanceof DefaultSModel ? ((DefaultSModel) model).getSModelHeader() : null;
     if (header != null) {
       if (RuntimeFlags.customNodeIdentitySupport()) {
