@@ -190,43 +190,38 @@ public class ModelPersistence {
   /*
    * NOTE, use of this method is discouraged, there are 2 uses in tests that shall get refactored to use ModelDataFactory, instead
    * FIXME why on earth we pass SModelData here, not openapi.SModel?
-   * FIXME why does this method do silent update? Would be better to update explicitly, and fail from the method if can't save with specified version
-   *  returns upgraded model, or null if the model doesn't require update
    */
   @Deprecated(forRemoval = true)
   public static DefaultSModel saveModel(@NotNull SModel model, @NotNull StreamDataSource source, int persistenceVersion) throws ModelSaveException {
     LOG.debug("Saving model " + model.getReference() + " to " + source.getLocation());
 
     if (source.isReadOnly()) {
-      final PersistenceProblem p = new PersistenceProblem(Kind.Save, String.format("`%s' is read-only", source.getLocation()), source.getLocation(), true);
-      throw new ModelSaveException(p.getText(), Collections.singleton(p));
-    }
-
-    // upgrade?
-    int oldVersion = persistenceVersion;
-    if (model instanceof DefaultSModel) {
-      DefaultSModel dsm = (DefaultSModel) model;
-      SModelHeader modelHeader = dsm.getSModelHeader();
-      oldVersion = modelHeader.getPersistenceVersion();
-      if (oldVersion != persistenceVersion) {
-        modelHeader.setPersistenceVersion(persistenceVersion);
-      }
+      throw new ModelSaveException(PersistenceProblem.errorSave(String.format("`%s' is read-only", source.getLocation()), source));
     }
 
     // save model
     try {
-      Document document = modelToXml(model, persistenceVersion);
-      JDOMUtil.writeDocument(document, source);
-
-      if (oldVersion != persistenceVersion) {
-        LOG.info("persistence upgraded: " + oldVersion + "->" + persistenceVersion + " " + model.getReference());
-        return (DefaultSModel) model;
+      IModelPersistence modelPersistence = getPersistence(persistenceVersion);
+      if (modelPersistence == null) {
+        final String m = String.format("Unknown persistence version %d", persistenceVersion);
+        PersistenceProblem p = new PersistenceProblem(Kind.Save, m, String.valueOf(model.getReference()), true);
+        throw new ModelSaveException(p);
       }
-      return null;
+      final MetaModelInfoProvider mmiProvider = mmiProviderFor(model);
+      final ModelSaveOption[] opts = saveOptionsFor(model);
+      IModelWriter writer = modelPersistence.getModelWriter(mmiProvider, opts);
+      if (writer == null) {
+        final String m = String.format("Persistence has no writer. Version %d", persistenceVersion);
+        PersistenceProblem p = new PersistenceProblem(Kind.Save, m, String.valueOf(model.getReference()), true);
+        throw new ModelSaveException(m, Collections.singleton(p));
+      }
+      Document document = writer.saveModel(model);
+      JDOMUtil.writeDocument(document, source);
     } catch (IOException ex) {
-      PersistenceProblem p = new PersistenceProblem(Kind.Save, "Failed to serialize XML document into stream", source.getLocation(), true);
+      PersistenceProblem p = PersistenceProblem.errorSave("Failed to serialize XML document into stream", source);
       throw new ModelSaveException(p.getText(), Collections.singleton(p), ex);
     }
+    return null;
   }
 
   /**
@@ -258,29 +253,6 @@ public class ModelPersistence {
       return value != null ? new UserObjectsPersistence[]{UserObjectsPersistence.valueOf(value)} : null;
     }
     return null;
-  }
-
-  /**
-   * Serialize model to xml in conformance with given persistence version.
-   *
-   * @throws ModelSaveException if persistenceVersion is invalid (use {@link #LAST_VERSION} if uncertain
-   */
-  private static Document modelToXml(@NotNull SModel model, int persistenceVersion) throws ModelSaveException {
-    IModelPersistence modelPersistence = getPersistence(persistenceVersion);
-    if (modelPersistence == null) {
-      final String m = String.format("Unknown persistence version %d", persistenceVersion);
-      PersistenceProblem p = new PersistenceProblem(Kind.Save, m, String.valueOf(model.getReference()), true);
-      throw new ModelSaveException(p);
-    }
-    final MetaModelInfoProvider mmiProvider = mmiProviderFor(model);
-    final ModelSaveOption[] opts = saveOptionsFor(model);
-    IModelWriter writer = modelPersistence.getModelWriter(mmiProvider, opts);
-    if (writer == null) {
-      final String m = String.format("Persistence has no writer. Version %d", persistenceVersion);
-      PersistenceProblem p = new PersistenceProblem(Kind.Save, m, String.valueOf(model.getReference()), true);
-      throw new ModelSaveException(m, Collections.singleton(p));
-    }
-    return writer.saveModel(model);
   }
 
   @NotNull
