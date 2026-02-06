@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2024 JetBrains s.r.o.
+ * Copyright 2003-2026 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,17 +30,19 @@ import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Set;
 
 /**
- * Runtime support for jetbrains.mps.lang.quotations
+ * Runtime support for jetbrains.mps.lang.quotations. This is an API generated code for quotations shall use, instead of generic SNode openapi or
+ * smodel/impl-specific runtime classes (like SModelOperations, SConceptOperations and alike from j.m.lang.smodel.generator.smodelAdapter package.
+ * The reason to have distinct builder is that quotations might have own expectations about what get initialized when (e.g. whether Behavior constructor is
+ * invoked for a new node). Besides, I'd like to control this in a single place, suitable for change without regeneration of the whole project.
+ * Last but not least, this class helps to keep quotation templates concise and clean
  */
 public class SNodeBuilder implements AbstractNodeBuilder {
 
-  private SModel myModel;
-  private SNodeId myNodeIdHint;
+  private final SModel myModel;
+  private final SNodeId myNodeIdHint;
 
   public SNodeBuilder() {
     this(null, null);
@@ -83,6 +85,10 @@ public class SNodeBuilder implements AbstractNodeBuilder {
 
   protected SNode myNode;
 
+  /**
+   * Hides the fact it instantiates {@code [smodel].SNode} and assumes quotation is never attached to anything but {@code SConcept}
+   * (can't instantiate an abstract concepts in an editor).
+   */
   @Override
   public SNodeBuilder init(SConcept c) {
     initNode(createNode(c), null, false);
@@ -158,16 +164,11 @@ public class SNodeBuilder implements AbstractNodeBuilder {
     }
   }
 
-  private Set<SContainmentLink> childrenInitialized = new HashSet<>();
   private boolean siblingInitialized = false;
 
   @Override
   public SNodeBuilder forChild(SContainmentLink link) {
     // todo: perhaps should throw exception if the same link instantiated twice, it's quite inconvenient to read such code
-    //if (childrenInitialized.contains(link)) {
-    //  throw new IllegalStateException("double initialization");
-    //}
-    childrenInitialized.add(link);
     return new ChildNodeBuilder(link, myNode, myModel, null);
   }
 
