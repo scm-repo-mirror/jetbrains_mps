@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2024 JetBrains s.r.o.
+ * Copyright 2003-2026 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,19 +15,18 @@
  */
 package jetbrains.mps.smodel;
 
-import org.jetbrains.mps.openapi.model.SModel;
-
 import javax.swing.SwingUtilities;
 
 /**
- * This is an instance available from {@code smodel.ModelAccess.instance()} for uses from non-IDE ant tasks and tests, and for initial IDE use
- * unless WorkbenchModelAccess is installed. We won't need it once {@code MA.instance()} gone.
- *
- * Evgeny Gryaznov, Sep 3, 2010
+ * This is an instance available from {@code smodel.ModelAccess.instance()} for uses from non-IDE ant tasks and tests.
+ * There should be no uses of this MA in IDE scenario, even for initial IDE activities (i.e. until WorkbenchModelAccess is installed).
+ * Generally, WMA shall get installed prior to any model/repository-related activity.
+ * Once {@code MA.instance()} gone, we may opt to use this (or similar) implementation for a (mostly) read-only repository with deployed modules
+ * not to share the same lock with the project's repository. 'Default' in the name would be unfortunate, then, as it is just some rudimentary MA impl.
+ * However, if such use come to life, we might need to implement executeCommand() methods here that are final (and throw exceptions) in superclass.
+ * Then, there's an intersection with {@link GlobalModelAccess}, which would need to get sorted out.
  */
 class DefaultModelAccess extends ModelAccess {
-  private final DefaultUndoHandler myUndoHandler = new DefaultUndoHandler();
-
   DefaultModelAccess() {
   }
 
@@ -82,12 +81,5 @@ class DefaultModelAccess extends ModelAccess {
     // The order of command/write notifications is different, does it matter? Is there contract for that? WorkbenchModelAccess sends out
     // command notifications from within a write!
     runWriteAction(myCommandActionDispatcher.wrap(r));
-  }
-
-  @Override
-  protected UndoHandler getUndoHandler(SModel model) {
-    // XXX perhaps, could be null?
-    // With no singleton UndoHelper.getInstance(), do we ever get to undo with DMA?
-    return myUndoHandler;
   }
 }

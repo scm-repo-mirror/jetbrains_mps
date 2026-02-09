@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2024 JetBrains s.r.o.
+ * Copyright 2003-2026 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,7 +49,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  *
  * @see org.jetbrains.mps.openapi.module.ModelAccess
  */
-public abstract class ModelAccess extends AbstractModelAccess implements org.jetbrains.mps.openapi.module.ModelAccess, ModelCommandContext.Provider {
+public abstract class ModelAccess extends AbstractModelAccess implements org.jetbrains.mps.openapi.module.ModelAccess {
   protected static final Logger LOG = Logger.getLogger(ModelAccess.class);
 
   protected static ModelAccess ourInstance = newInstance();
@@ -62,8 +62,6 @@ public abstract class ModelAccess extends AbstractModelAccess implements org.jet
   }
 
   private final ReentrantReadWriteLockEx myReadWriteLock = new ReentrantReadWriteLockEx();
-
-  private final CommandContextProvider myCommandContextProvider = new CommandContextProvider();
 
   protected ModelAccess() {
   }
@@ -117,7 +115,7 @@ public abstract class ModelAccess extends AbstractModelAccess implements org.jet
   public abstract void executeCommand(Runnable r);
 
   @Override
-  public final void executeCommandInEDT(Runnable r) {
+  public final void executeCommandInEDT(@NotNull Runnable r) {
     // this method is not invoked from generated code (generated code uses MA.instance().runCommandInEDT(R, P)), and hand-written shall not
     // use MA.instance() any longer. Therefore neither DefaultModelAccess nor WorkbenchModelAccess shall override this method.
     throw new UnsupportedOperationException();
@@ -133,24 +131,6 @@ public abstract class ModelAccess extends AbstractModelAccess implements org.jet
   public boolean isCommandAction() {
     return canWrite() && myCommandActionDispatcher.isInsideAction();
   }
-
-  protected void onCommandStarted() {
-    myCommandContextProvider.engage();
-  }
-
-  protected void onCommandFinished() {
-    myCommandContextProvider.discard();
-  }
-
-  @Nullable
-  @Override
-  public ModelCommandContext getCommandContext(SModel model) {
-    // isCommandAction might be excessive, just want to make sure there's not access to MCC from a thread other than the command one.
-    return isCommandAction() ? myCommandContextProvider.get(model, getUndoHandler(model)) : null;
-  }
-
-  @Nullable
-  protected abstract UndoHandler getUndoHandler(/*NotNull*/ SModel model);
 
   protected final void sharedReadIsOver() {
     ReadAccessToken token = myReadFlagTokens.get();
@@ -214,89 +194,6 @@ public abstract class ModelAccess extends AbstractModelAccess implements org.jet
 
     public boolean hasScheduledWrites() {
       return !this.getQueuedWriterThreads().isEmpty();
-    }
-  }
-
-  private static class CommandContextProvider {
-    // don't care about multi-threaded access as command are executed inside 1 thread only
-    private boolean myEngaged = false;
-    private final Map<SModel, CommandContextImpl> myModel2Context = new IdentityHashMap<>();
-
-    /**/CommandContextProvider() {
-    }
-
-    void engage() {
-      assert !myEngaged;
-      myEngaged = true;
-    }
-
-    void discard() {
-      myModel2Context.values().forEach(CommandContextImpl::onCommandOver);
-      myModel2Context.clear();
-      assert myEngaged;
-      myEngaged = false;
-    }
-
-    ModelCommandContext get(SModel model, UndoHandler undoHandler) {
-      if (myEngaged) {
-        return myModel2Context.computeIfAbsent(model, m -> new CommandContextImpl(undoHandler, m));
-      }
-      return null;
-    }
-  }
-
-  private static class CommandContextImpl implements ModelCommandContext {
-    private final UndoHandler myUndoHandler;
-    private final SModel myModel;
-    private final UnregisteredNodes myUN;
-    private ImmatureReferences myIR;
-
-    public CommandContextImpl(@Nullable UndoHandler undoHandler, /*NotNull*/ SModel m) {
-      myUndoHandler = undoHandler == null ? new DefaultUndoHandler() : undoHandler;
-      myModel = m;
-      myUN = new UnregisteredNodes(myModel.getReference());
-    }
-
-    @Override
-    public void nodeAttached(/*NotNull*/ SNode node) {
-      myUN.remove(node);
-    }
-
-    @Override
-    public void nodeDetached(/*NotNull*/ SNode node) {
-      myUN.put(node);
-    }
-
-    @Override
-    public void associationSet(SNode node, SReferenceLink link, AssociationData association) {
-      if (association != null && association.isDirectNode()) {
-        if (myIR == null) {
-          myIR = new ImmatureReferences();
-        }
-        myIR.add(node, link);
-      }
-    }
-
-    @Nullable
-    @Override
-    public SNode resolveUnregistered(SNodeId nodeId) {
-      return myUN.get(myModel.getReference(), nodeId);
-    }
-
-    @Override
-    public void registerActionWithUndo(SNodeUndoableAction action) {
-      myUndoHandler.addUndoableAction(action);
-    }
-
-    @Override
-    public void registerActionWithUndo(ModelRenameUndoableAction action) {
-      myUndoHandler.addUndoableAction(action);
-    }
-
-    /*package*/void onCommandOver() {
-      if (myIR != null) {
-        myIR.cleanup();
-      }
     }
   }
 }

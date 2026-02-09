@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2026 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ import org.jetbrains.mps.openapi.model.SNodeId;
  * Perhaps, would be better if SModel registers its own UN/IR instance with MCC rather than MCC being yet another dedicated listener for attach/detach/set events.
  * Given the pattern UN is used, SModel is consulted for UN, and all we need from MA as MCC supplier is cleanup at appropriate moment. IR, however, is different, though still can follow this approach.
  * What I don't like about Model registering UN/IR it keeps is that it needs to be aware of conditions that make UN/IR track reasonable (i.e. 'inside command') which is easier to track inside MA rather than inside model.
+ * <p>For implementation, check {code CommandContextProvider}.</p>
  * @author Artem Tikhomirov
  */
 public interface ModelCommandContext {

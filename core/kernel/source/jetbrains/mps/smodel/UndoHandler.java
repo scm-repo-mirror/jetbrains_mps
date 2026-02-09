@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2026 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,8 @@ public interface UndoHandler {
    *
    * @param action never {@code null}
    */
-  void addUndoableAction(SNodeUndoableAction action);
-  void addUndoableAction(ModelRenameUndoableAction action);
+  default void addUndoableAction(SNodeUndoableAction action) {
+  }
+  default void addUndoableAction(ModelRenameUndoableAction action) {
+  }
 }

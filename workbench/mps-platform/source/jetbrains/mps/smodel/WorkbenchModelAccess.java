@@ -25,6 +25,7 @@ import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.undo.DefaultUndoContext;
 import jetbrains.mps.smodel.undo.UndoContext;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.annotations.Immutable;
 import org.jetbrains.mps.annotations.Internal;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -39,7 +40,7 @@ import static java.math.BigDecimal.valueOf;
  * We access IDEA locking mechanism here in order to prevent different way of acquiring locks
  * We always first acquire IDEA's lock and only then acquire MPS's lock
  */
-public final class WorkbenchModelAccess extends ModelAccess implements Disposable {
+public final class WorkbenchModelAccess extends ModelAccess implements Disposable, ModelCommandContext.Provider {
   private static final int WAIT_FOR_WRITE_LOCK_MILLIS = 200;
   private static final String IDEA_WRITE_LOCK_FAIL = "Failed to acquire the IDEA write lock after having waited for %.3f s";
 
@@ -48,6 +49,10 @@ public final class WorkbenchModelAccess extends ModelAccess implements Disposabl
   private final WorkbenchUndoHandler myUndoHandler;
   private final CancellableReadsManager myCancellableReads;
   private final ModelAccess mySubstitutedModelAccess;
+
+  private final CommandContextProvider myCommandContextProvider = new CommandContextProvider();
+
+
 
   /**
    * PROVISIONAL CODE
@@ -349,8 +354,23 @@ public final class WorkbenchModelAccess extends ModelAccess implements Disposabl
     return myPlatformWriteHelper.hasScheduledWrites() || super.hasScheduledWrites();
   }
 
+  protected void onCommandStarted() {
+    myCommandContextProvider.engage();
+  }
+
+  protected void onCommandFinished() {
+    myCommandContextProvider.discard();
+  }
+
+  @Nullable
   @Override
-  protected UndoHandler getUndoHandler(SModel model) {
+  public ModelCommandContext getCommandContext(SModel model) {
+    // isCommandAction might be excessive, just want to make sure there's not access to MCC from a thread other than the command one.
+    return isCommandAction() ? myCommandContextProvider.get(model, getUndoHandler(model)) : null;
+  }
+
+  @Nullable
+  private UndoHandler getUndoHandler(/*NotNull*/ SModel model) {
     return myUndoHandler;
   }
 
