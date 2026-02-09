@@ -16,17 +16,9 @@
 package jetbrains.mps.smodel;
 
 import jetbrains.mps.logging.Logger;
-import jetbrains.mps.smodel.references.ImmatureReferences;
-import jetbrains.mps.smodel.references.UnregisteredNodes;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
-import org.jetbrains.mps.openapi.model.SModel;
-import org.jetbrains.mps.openapi.model.SNode;
-import org.jetbrains.mps.openapi.model.SNodeId;
 
-import java.util.IdentityHashMap;
-import java.util.Map;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -109,10 +101,10 @@ public abstract class ModelAccess extends AbstractModelAccess implements org.jet
     return myReadWriteLock.isWriteLockedByCurrentThread();
   }
 
-  // ExecuteCommandStatement with repo == null generates into executeCommand(Runnable)
-  // left abstract method (though could have deleted method) as there might be references from MPS code to the implementation that used to be here
   @Override
-  public abstract void executeCommand(Runnable r);
+  public final void executeCommand(Runnable r) {
+    throw new UnsupportedOperationException("Commands are associated with a project. Use ModelAccess from a repository associated with a Project rather than global ModelAccess instance");
+  }
 
   @Override
   public final void executeCommandInEDT(@NotNull Runnable r) {

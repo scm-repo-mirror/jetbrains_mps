@@ -17,8 +17,7 @@ package jetbrains.mps.project;
 
 import jetbrains.mps.smodel.ModelAccess;
 import jetbrains.mps.smodel.ModelAccessBase;
-
-import javax.swing.SwingUtilities;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * This class represents a ModelAccess for cases when there is an available project in scope.
@@ -38,45 +37,41 @@ public class ProjectModelAccess extends ModelAccessBase {
   }
 
   public ProjectModelAccess(Project project, org.jetbrains.mps.openapi.module.ModelAccess delegate) {
-    super(delegate);
+    super(delegate, true);
     myProject = project;
   }
 
+  public Project getProject() {
+    return myProject;
+  }
 
   @Override
   public void executeCommand(Runnable r) {
     // MA for a repository associated with an MPSProject has different implementation that interacts with IDEA Platform undo mechanism.
-    // We can get here through p.getModelAccess().executeCommand() only(MA.instance().executeCommand() is implemented in DMA and WMA and doesn't delegate here)
-    // therefore there's no reason to use myProject, we are already in its MA. Therefore, delegate to either DMA or WMA, available globally.
-    //
-    // Perhaps, the right way would be to do what DefaultModelAccess does for executeCommand (so that DMA doesn't keep executeCommand() implementation)
-    // to keep execute* implementations specific to an individual MA instance rather than global one. However, as MA.instance().executeCommand()
-    // has been exposed through lang.access constructs, we have to keep its implementation there for another release. With no global MA, implementation of
-    // DMA.executeCommand() would be here.
-    // Another aspect that prevents me from implementing DMA's executeCommand here is the need to access commandActionDispatcher, which is protected to
-    // hierarchy of 'true' MA (unlike this one, delegation-based, 'true' have locks and record/notify listeners)
-    // [2026] In fact, I believe the only reason to use delegateImpl() here is that we could get GlobalModelAccess instance here as a delegate, and simply
-    //        using getDelegate() will break any commands executed over project's repo (GMA doesn't support commands). What I need here is to support
-    //        listeners and notifications here so that don't need to expect any certain behavior from a delegate.
-    delegateImpl().executeCommand(r);
+    // We can get here through p.getModelAccess().executeCommand() only therefore there's no reason to use myProject,
+    // we are already in its MA. And as long as there's ProjectModelAccess2 for MPSProject, we don't generally expect delegate to be WMA
+    // or a proxy for WMA. In other words, I expect delegate to be either DMA or a proxy for DMA (e.g. GMA). Not that it matter that much
+    // now that I introduce "own command dispatch" (true for this PMA), in attempt to keep commands on a per-MA basis.
+    getDelegate().runWriteAction(wrapForCommandAction(r));
+    // WorkbenchModelAccess sends out command notifications from within a write, so do we
   }
 
   @Override
-  public void executeCommandInEDT(Runnable r) {
-    // we can get here either with p.getModelAccess() or through MA.instance().runCommandInEDT re-dispatch.
-    // see #executeCommand(Runnable) above why we don't use myProject
+  public void executeCommandInEDT(@NotNull Runnable r) {
+    // we can get here through p.getModelAccess(), see #executeCommand(Runnable) above why we don't use myProject
     // Since this method have not been used through MA.instance(), we are free to implement it the way DMA would implement it, right here
-    SwingUtilities.invokeLater(() -> executeCommand(r));
+    // however, I don't want to keep knowledge of SwingUtilities.invokeLater() or any other mechanism to get into EDT anywhere else, hence
+    // runWriteInEDT
+    getDelegate().runWriteInEDT(wrapForCommandAction(r));
   }
 
   @Override
   public void executeUndoTransparentCommand(Runnable r) {
-    // see #executeCommand(Runnable) above why we don't delegate anywhere
-    r.run();
-  }
-
-  @Override
-  public boolean isCommandAction() {
-    return delegateImpl().isCommandAction();
+    if (isCommandAction()) {
+      // not 100% sure this check makes sense, just copied from WMA impl
+      throw new IllegalStateException("undo transparent action cannot be invoked in a command");
+    }
+    // executeUndoTransparentCommand() contract states it's a write, hence delegation to appropriate write
+    getDelegate().runWriteAction(r);
   }
 }

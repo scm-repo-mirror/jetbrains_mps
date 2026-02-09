@@ -70,16 +70,4 @@ class DefaultModelAccess extends ModelAccess {
   public void runWriteInEDT(final Runnable r) {
     SwingUtilities.invokeLater(() -> runWriteAction(r));
   }
-
-  /**
-   * one might not expect that the command is equal to write action here
-   */
-  @Override
-  public void executeCommand(Runnable r) {
-    // XXX alternatively:
-    //   myCommandActionDispatcher.dispatch(() -> runWriteAction(r));
-    // The order of command/write notifications is different, does it matter? Is there contract for that? WorkbenchModelAccess sends out
-    // command notifications from within a write!
-    runWriteAction(myCommandActionDispatcher.wrap(r));
-  }
 }

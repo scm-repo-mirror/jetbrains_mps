@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2024 JetBrains s.r.o.
+ * Copyright 2003-2026 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,18 +23,26 @@ import org.jetbrains.mps.openapi.repository.ReadActionListener;
 import org.jetbrains.mps.openapi.repository.WriteActionListener;
 
 /**
- * ModelAccess basic implementation: all non-command methods are implemented here.
- * Currently it delegates everything to the {@link jetbrains.mps.smodel.ModelAccess},
- * it is planned to rewrite this class when multiple repositories are supported.
+ * ModelAccess basic implementation: all non-command methods are implemented here, with an option for a subclass
+ * to have own command implementation along with event dispatching.
  *
- * Created by Alex Pyshkin on 9/3/14.
+ * @author Alex Pyshkin
+ * @author Artem.Tikhomirov
  */
 public abstract class ModelAccessBase implements org.jetbrains.mps.openapi.module.ModelAccess, ModelCommandContext.Provider {
 
   private final org.jetbrains.mps.openapi.module.ModelAccess myDelegate;
+  private final ActionDispatcher<CommandListener> myCommandActionDispatcher;
 
   protected ModelAccessBase(@NotNull org.jetbrains.mps.openapi.module.ModelAccess delegate) {
+    this(delegate, false);
+  }
+
+  // have to use protected cons with an argument not to make ActionDispatcher class public (can access from j.m.smodel package only)
+  protected ModelAccessBase(@NotNull org.jetbrains.mps.openapi.module.ModelAccess delegate, boolean ownCommandDispatch) {
     myDelegate = delegate;
+    // taken from AbstractModelAccess cons, and as long as there's no subclass that makes use of onCommandStarted()/onCommandFinished(), no pre/post listener
+    myCommandActionDispatcher = ownCommandDispatch ? new ActionDispatcher<>(CommandListener::commandStarted, CommandListener::commandFinished) : null;
   }
 
   @Override
@@ -79,11 +87,19 @@ public abstract class ModelAccessBase implements org.jetbrains.mps.openapi.modul
   }
 
   public void addCommandListener(CommandListener listener) {
-    getDelegate().addCommandListener(listener);
+    if (myCommandActionDispatcher == null) {
+      getDelegate().addCommandListener(listener);
+    } else {
+      myCommandActionDispatcher.addActionListener(listener);
+    }
   }
 
   public void removeCommandListener(CommandListener listener) {
-    getDelegate().removeCommandListener(listener);
+    if (myCommandActionDispatcher == null) {
+      getDelegate().removeCommandListener(listener);
+    } else {
+      myCommandActionDispatcher.removeActionListener(listener);
+    }
   }
 
   @Override
@@ -106,6 +122,22 @@ public abstract class ModelAccessBase implements org.jetbrains.mps.openapi.modul
     getDelegate().removeReadActionListener(listener);
   }
 
+  protected Runnable wrapForCommandAction(Runnable r) {
+    if (myCommandActionDispatcher == null) {
+      throw new IllegalModelAccessException("MS shall get initialized with a custom command dispatch");
+    }
+    return myCommandActionDispatcher.wrap(r);
+  }
+
+  @Override
+  public boolean isCommandAction() {
+    if (myCommandActionDispatcher == null) {
+      return getDelegate().isCommandAction();
+    } else {
+      return canWrite() && myCommandActionDispatcher.isInsideAction();
+    }
+  }
+
   // not null
   protected final org.jetbrains.mps.openapi.module.ModelAccess getDelegate() {
     return myDelegate;
@@ -113,7 +145,7 @@ public abstract class ModelAccessBase implements org.jetbrains.mps.openapi.modul
 
   // provisional code. as long as there are 2 "real" smodel.MA implementations, DMA and WMA, and few "frontend" openapi.MA, we
   // need to reach "real" MA in certain scenarios.
-  protected final ModelAccess delegateImpl() {
+  private ModelAccess delegateImpl() {
     org.jetbrains.mps.openapi.module.ModelAccess d = myDelegate;
     do {
       if (d instanceof ModelAccess) {
@@ -130,10 +162,11 @@ public abstract class ModelAccessBase implements org.jetbrains.mps.openapi.modul
   /**
    * @since 2019.3
    * @return an executor object to share read lock of a current thread, if any
-   * @throws IllegalModelAccessError
+   * @throws IllegalModelAccessError if underlying MA doesn't support read sharing
    */
   public SharedReadModelAccess shareRead() throws IllegalModelAccessError {
     checkReadAccess();
+    // FIXME refactor shared read support (out of smodel.MA) so that MAB doesn't need to go to delegate impl
     ModelAccess actualImpl = delegateImpl();
     if (actualImpl == null) {
       throw new IllegalModelAccessError(String.format("MA instance (%s) doesn't support shared reads", myDelegate));
@@ -143,12 +176,13 @@ public abstract class ModelAccessBase implements org.jetbrains.mps.openapi.modul
     //       there'd be no need in the code, therefore I opted not to bother (except this note).
     //       Check MA.shareRead() implementation for further considerations. Shall move the call here and make a decision whether
     //       to give SRMA or throw an error.
-    return new SharedReadModelAccessImpl(actualImpl);
+    return new SharedReadModelAccessImpl(actualImpl.shareRead());
   }
 
   @Nullable
   @Override
   public ModelCommandContext getCommandContext(SModel model) {
+    // fwiw, if it's WMA delegate, it is MCC.Provider.
     return getDelegate() instanceof ModelCommandContext.Provider ? ((ModelCommandContext.Provider) getDelegate()).getCommandContext(model) : null;
   }
 

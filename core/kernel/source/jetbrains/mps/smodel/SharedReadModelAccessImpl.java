@@ -6,16 +6,11 @@ package jetbrains.mps.smodel;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Utility class to facitilate "shared read access".
- * Can be constructed with either a {@link ModelAccess} instance, which is then
- * asked for the "shared read token", or directly with {@link ReadAccessToken}.
+ * Utility class to facilitate "shared read access".
+ * Can be constructed with a "shared read token", {@link ReadAccessToken}.
  */
-public class SharedReadModelAccessImpl implements SharedReadModelAccess {
+final class SharedReadModelAccessImpl implements SharedReadModelAccess {
   private final ReadAccessToken myAccessControl;
-
-  public SharedReadModelAccessImpl(ModelAccess delegate) {
-    myAccessControl = delegate.shareRead();
-  }
 
   public SharedReadModelAccessImpl(ReadAccessToken token) {
     myAccessControl = token;
