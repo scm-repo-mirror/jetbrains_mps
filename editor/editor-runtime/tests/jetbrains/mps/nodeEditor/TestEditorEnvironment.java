@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2026 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,19 +17,24 @@ package jetbrains.mps.nodeEditor;
 
 import jetbrains.mps.editor.runtime.HeadlessEditorComponent;
 import jetbrains.mps.ide.ThreadUtils;
-import jetbrains.mps.smodel.MPSModuleRepository;
+import jetbrains.mps.smodel.RepositoryFacade;
+import org.jetbrains.mps.openapi.module.SRepository;
 
 /**
  * User: shatalin
  * Date: 18/05/16
  */
 public class TestEditorEnvironment {
+  private RepositoryFacade myRepoHelper;
   private EditorContext myEditorContext;
   private TestEditorComponent myEditorComponent;
 
   public TestEditorEnvironment() throws Exception {
+    // XXX there are few SRepository impl one could consider using, e.g. TestRepository in TestModelFactory.
+    //     I believe any SRepo impl would do here, nothing specific is expected, but I didn't check that
+    myRepoHelper = RepositoryFacade.createPlainRegistrationRepo();
     Exception exception = ThreadUtils.runInUIThreadAndWait(() -> {
-      myEditorComponent = new TestEditorComponent();
+      myEditorComponent = new TestEditorComponent(myRepoHelper.get());
       myEditorContext = myEditorComponent.getEditorContext();
     });
     if (exception != null) {
@@ -43,6 +48,8 @@ public class TestEditorEnvironment {
       myEditorComponent = null;
       myEditorContext = null;
     });
+    myRepoHelper.dispose();
+    myRepoHelper = null;
     if (exception != null) {
       throw exception;
     }
@@ -57,9 +64,8 @@ public class TestEditorEnvironment {
   }
 
   private static class TestEditorComponent extends HeadlessEditorComponent {
-    private TestEditorComponent() {
-      super(new MPSModuleRepository(null));
-      // I could have used 'new SRepositoryRegistry()' instead of null, but don't see a point unless there's a need.
+    private TestEditorComponent(SRepository repo) {
+      super(repo);
     }
     @Override
     public boolean isReadOnly() {
