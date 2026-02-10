@@ -4,9 +4,13 @@
 package jetbrains.mps.ide.editor;
 
 import com.intellij.openapi.Disposable;
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.project.ProjectCloseListener;
+import com.intellij.openapi.util.Disposer;
 import jetbrains.mps.ide.project.ProjectHelper;
+import jetbrains.mps.ide.util.MPSProjectActivity;
 import jetbrains.mps.nodefs.NodeVirtualFileSystem;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.RepoListenerRegistrar;
@@ -26,13 +30,31 @@ import java.util.Collection;
 import java.util.HashSet;
 
 /**
- * Analogous to jetbrains.mps.ide.editor.tabs.TabRootNodesTracker
+ * A listener for SModel changes that updates file presentation in the editor.
  * Collect change events and call com.intellij.openapi.fileEditor.FileEditorManager#updateFilePresentation(com.intellij.openapi.vfs.VirtualFile)
  * For the pattern see com.intellij.openapi.fileEditor.impl.FileEditorPsiTreeChangeListener
  *
  * @author Fedor Isakov
  */
 class NodeEditorSModelChangeListener extends SRepositoryContentAdapter implements Disposable {
+
+  public static class Activity extends MPSProjectActivity {
+    @Override
+    public void runActivity(@NotNull final Project project) {
+      final NodeEditorSModelChangeListener listener = new NodeEditorSModelChangeListener(project);
+      class ListenerDisposer implements ProjectCloseListener {
+        @Override
+        public void projectClosed(@NotNull Project p) {
+          if (p == project) {
+            Disposer.dispose(listener);
+          }
+        }
+      }
+      ApplicationManager.getApplication().getMessageBus()
+                        .connect(listener)
+                        .subscribe(ProjectCloseListener.TOPIC, new ListenerDisposer());
+    }
+  }
 
   private final Collection<SNodeReference> myEditedRoots = new HashSet<>();
 
