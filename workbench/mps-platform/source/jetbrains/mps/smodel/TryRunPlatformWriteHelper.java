@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2026 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import org.jetbrains.mps.annotations.Immutable;
 import java.util.concurrent.DelayQueue;
 import java.util.concurrent.Delayed;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
@@ -42,51 +43,72 @@ import static java.util.concurrent.TimeUnit.MILLISECONDS;
  */
 @Immutable
 final class TryRunPlatformWriteHelper implements Disposable {
-  private static final int WAIT_FOR_WRITE_LOCK_MS = 200;
+  // no justification for the 3 sec value, just an assumption user is ok with such a freeze in UI
+  // (provided we run writes in EDT, which is true ATM but could get eventually changed, if MPS supports background writes)
+  private static final int WAIT_FOR_WRITE_LOCK_MS = 3000;
 
   // track attempts to grab IDEA platform write lock
-  private final WriteActionTracker myPlatformWriteActionTracker;
-  private final DelayQueue<DelayedInterrupt> myInterruptQueue = new DelayQueue<>();
+  private final AtomicInteger myWritesScheduled = new AtomicInteger();
 
-  TryRunPlatformWriteHelper() {
-    myPlatformWriteActionTracker = new WriteActionTracker();
-    myInterruptingThread.start();
-  }
+  private static final class DelayTrackThread extends Thread {
+    /*
+     * Once there's an attempt to perform a write, we put an object here that tracks amount of time we are ready to wait for
+     * the write action to start. If it elapses, we cancel the original thread (the one that attempts to grab platform write, now EDT)
+     * Note, the thread starts only once there's first write attempt to track
+     */
+    private final DelayQueue<DelayedInterrupt> myInterruptQueue = new DelayQueue<>();
+    private volatile boolean myDisposed = false;
 
-  private final Thread myInterruptingThread = new Thread(() -> {
-    while (true) {
-      try {
-        DelayedInterrupt di = myInterruptQueue.take();
-        di.timeIsUp();
-      } catch (InterruptedException e) {
-        Application app = ApplicationManager.getApplication();
-        if (app == null || app.isDisposeInProgress() || app.isDisposed()) {
-          return;
+    DelayTrackThread() {
+      super("MPS interrupting thread");
+    }
+
+    // record current thread attempts a write, and if it doesn't succeed within specified delay, it is to get interrupted
+    DelayedInterrupt enqueue(long nanoDelay, @NotNull Runnable action) {
+      if (!isAlive() && !myDisposed) {
+        start();
+      }
+      assert Thread.currentThread() != this;
+      return new DelayedInterrupt(Thread.currentThread(), nanoDelay, myInterruptQueue, action).enqueue();
+    }
+
+    @Override
+    public void run() {
+      while (!myDisposed) {
+        try {
+          DelayedInterrupt di = myInterruptQueue.take();
+          di.timeIsUp();
+        } catch (InterruptedException e) {
+          Application app = ApplicationManager.getApplication();
+          if (app == null || app.isDisposed()) {
+            return;
+          }
         }
       }
     }
-  }, "MPS interrupting thread");
 
-  @Override
-  public void dispose() {
-    for (int attempt = 3; attempt > 0 && myInterruptingThread.isAlive(); --attempt) {
-      myInterruptingThread.interrupt();
-      try {
-        myInterruptingThread.join(500);
-      } catch (InterruptedException e) {
-        break;
+    void dispose() {
+      myDisposed = true;
+      for (int attempt = 3; attempt > 0 && isAlive(); --attempt) {
+        interrupt();
       }
     }
   }
 
-  private void cancelInterrupt(DelayedInterrupt di) {
-    myInterruptQueue.remove(di);
+  TryRunPlatformWriteHelper() {
   }
 
-  private DelayedInterrupt interruptLater(Thread toInterrupt, long delay, TimeUnit unit) {
-    DelayedInterrupt di = new DelayedInterrupt(toInterrupt, delay, unit);
-    myInterruptQueue.put(di);
-    return di;
+  // XXX I wonder if I could use virtual thread here
+  private final DelayTrackThread myInterruptingThread = new DelayTrackThread();
+
+  @Override
+  public void dispose() {
+    myInterruptingThread.dispose();
+    try {
+      myInterruptingThread.join(500);
+    } catch (InterruptedException e) {
+      // ignore
+    }
   }
 
   /**
@@ -99,44 +121,40 @@ final class TryRunPlatformWriteHelper implements Disposable {
   /*package*/ void runWrite(Runnable r) {
     ApplicationManager.getApplication().assertIsDispatchThread();
     try {
-      myPlatformWriteActionTracker.writeActionScheduled();
+      myWritesScheduled.incrementAndGet();
       ApplicationManager.getApplication().runWriteAction(r);
     } finally {
-      myPlatformWriteActionTracker.writeActionProcessed();
+      myWritesScheduled.decrementAndGet();
     }
   }
 
   /*package*/ boolean hasScheduledWrites() {
-    return myPlatformWriteActionTracker.hasScheduledWrites();
+    return myWritesScheduled.get() > 0;
   }
 
   // makes an attempt to grab IDEA's write action and executes a runnable if succeeds.
   /*package*/ void tryWrite(Runnable r) throws WriteTimeOutException {
+    // XXX if we ever to utilize IDEA's background writes, need to remove assertions like this
     ApplicationManager.getApplication().assertIsDispatchThread();
+    //noinspection ResultOfMethodCallIgnored
+    Thread.interrupted(); // I believe this one is here to clear 'interrupted' state of the thread, if any, as we rely on thread interruption when delay expires
     // workaround for IDEA's locks shortcoming: timeout on write action
-    Thread.interrupted();
-    final DelayedInterrupt delayedInterrupt = interruptLater(Thread.currentThread(), WAIT_FOR_WRITE_LOCK_MS, MILLISECONDS);
+    final DelayedInterrupt delayedInterrupt = myInterruptingThread.enqueue(MILLISECONDS.toNanos(WAIT_FOR_WRITE_LOCK_MS), r);
     try {
-      runWrite(() -> {
-        cancelInterrupt(delayedInterrupt);
-        r.run();
-      });
+      runWrite(delayedInterrupt);
     } catch (RuntimeException re) {
-      dealWithRuntimeException(delayedInterrupt, re);
-    }
-  }
-
-  private void dealWithRuntimeException(DelayedInterrupt delayedInterrupt, RuntimeException re) throws WriteTimeOutException {
-    cancelInterrupt(delayedInterrupt);
-    RuntimeException cause = getCause(re);
-    if (cause.getCause() instanceof InterruptedException) {
-      if (delayedInterrupt.isInterruptSuccessful()) {
-        throw new WriteTimeOutException(cause.getCause());
+      // Application.runWriteAction() doesn't manifest InterruptedException, we expect one to get propagated with RuntimeException
+      delayedInterrupt.cancel();
+      RuntimeException cause = getCause(re);
+      if (cause.getCause() instanceof InterruptedException) {
+        if (delayedInterrupt.isInterruptSuccessful()) {
+          throw new WriteTimeOutException(cause.getCause());
+        } else {
+          throw cause;
+        }
       } else {
         throw cause;
       }
-    } else {
-      throw cause;
     }
   }
 
@@ -148,22 +166,43 @@ final class TryRunPlatformWriteHelper implements Disposable {
     return re;
   }
 
-  private static class DelayedInterrupt implements Delayed {
+  private static class DelayedInterrupt implements Delayed, Runnable {
     private final long myAlarmTimeNanos;
     private final Thread myToInterrupt;
+    private final DelayQueue<DelayedInterrupt> myQueue;
+    private final Runnable myAction;
     private boolean myInterruptSuccess;
 
-    private DelayedInterrupt(@NotNull Thread toInterrupt, long delay, TimeUnit unit) {
+    private DelayedInterrupt(@NotNull Thread toInterrupt, long nanoDelay, @NotNull DelayQueue<DelayedInterrupt> queue, @NotNull Runnable action) {
       myToInterrupt = toInterrupt;
-      myAlarmTimeNanos = System.nanoTime() + unit.toNanos(delay);
+      myQueue = queue;
+      myAction = action;
+      myAlarmTimeNanos = System.nanoTime() + nanoDelay;
     }
 
-    private void timeIsUp() {
+    DelayedInterrupt enqueue() {
+      myQueue.offer(this);
+      return this;
+    }
+
+    void timeIsUp() {
+      myToInterrupt.interrupt();
       myInterruptSuccess = myToInterrupt.isInterrupted();
     }
 
     boolean isInterruptSuccessful() {
       return myInterruptSuccess;
+    }
+
+    void cancel() {
+      //noinspection ResultOfMethodCallIgnored
+      myQueue.remove(this);
+    }
+
+    @Override
+    public void run() {
+      cancel();
+      myAction.run();
     }
 
     @Override
