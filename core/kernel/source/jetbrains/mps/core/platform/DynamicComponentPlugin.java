@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2022 JetBrains s.r.o.
+ * Copyright 2003-2026 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -148,9 +148,11 @@ public class DynamicComponentPlugin extends ComponentPlugin implements Component
    * Either token or component iface class gone, shall clear respective records!
    */
 
-  // FIXME this class to be unaware of threading, while its outer shall take care
+  // FIXME initial idea was this class to be unaware of threading, while its outer shall take care
   //       (findComponent(SameIface) may come from different threads)
   //       HOWEVER, not clear what's the contract for discard(), can we ensure it doesn't come from different threads?
+  //       AND ACTUAL TAKE is to stick to plain old Java mutexes (don't expect to be a performance issue) to address
+  //       the fact access (instantiate) and population (publish) could happen in unpredictable moments.
   private class WardenImpl implements DynamicComponentWarden {
     // (A) Token as a POJO, WeakReference separate
     // (B) Token is WeakReference (using whatever identity object as a referent)
@@ -182,7 +184,7 @@ public class DynamicComponentPlugin extends ComponentPlugin implements Component
     private final WeakHashMap<TokenImpl, CoreComponent> myInstances = new WeakHashMap<>();
 
     @Nullable
-    /*package*/ <T extends CoreComponent> T instantiate(Class<T> componentClass) {
+    /*package*/synchronized <T extends CoreComponent> T instantiate(Class<T> componentClass) {
       final List<TokenWeakRef> tokenRefs = myIssuedTokens.get(componentClass);
       if (tokenRefs == null) {
         return null;
@@ -241,7 +243,7 @@ public class DynamicComponentPlugin extends ComponentPlugin implements Component
       }
     }
 
-    /*package*/ void purge() {
+    /*package*/ synchronized void purge() {
       // FIXME threading! impl doesn't expect multiple threads to enter this code!
       // there's no explicit way to call WeakHashMap#expungeStaleEntries(),
       // rely on its size() implementation to invoke the method.
@@ -259,7 +261,7 @@ public class DynamicComponentPlugin extends ComponentPlugin implements Component
       }
     }
 
-    /*package*/ void discard(final TokenImpl token) {
+    /*package*/ synchronized void discard(final TokenImpl token) {
       // FIXME what about threading?
       final CoreComponent instance = myInstances.remove(token);
       if (instance != null) {
@@ -291,7 +293,7 @@ public class DynamicComponentPlugin extends ComponentPlugin implements Component
     }
 
     @Override
-    public <T extends CoreComponent> Token publish(@NotNull Class<T> componentIface, @NotNull T componentInstance) {
+    public synchronized <T extends CoreComponent> Token publish(@NotNull Class<T> componentIface, @NotNull T componentInstance) {
       final List<TokenWeakRef> existingTokens = myIssuedTokens.get(componentIface);
       // FIXME likely, shall check if there's already component instance published for this iface.
       TokenImpl t = new TokenImpl(this);
@@ -305,7 +307,7 @@ public class DynamicComponentPlugin extends ComponentPlugin implements Component
     }
 
     @Override
-    public <T extends CoreComponent> Token publish(@NotNull Class<T> componentIface, @NotNull Supplier<? extends T> componentFactory) {
+    public synchronized <T extends CoreComponent> Token publish(@NotNull Class<T> componentIface, @NotNull Supplier<? extends T> componentFactory) {
       TokenImpl t = new TokenImpl(this);
       recordIssued(componentIface, t);
       myFactories.put(t, componentFactory);
@@ -313,7 +315,7 @@ public class DynamicComponentPlugin extends ComponentPlugin implements Component
     }
 
     @Override
-    public <T extends CoreComponent> Token whenAvailable(@NotNull Class<T> componentIface, @NotNull Consumer<? super T> componentListener) {
+    public synchronized <T extends CoreComponent> Token whenAvailable(@NotNull Class<T> componentIface, @NotNull Consumer<? super T> componentListener) {
       final T instance = findDynamicIfExists(componentIface);
       if (instance != null) {
         componentListener.accept(instance);
@@ -328,14 +330,6 @@ public class DynamicComponentPlugin extends ComponentPlugin implements Component
     private void recordIssued(@NotNull Class<?> componentIface, TokenImpl t) {
       final List<TokenWeakRef> tokens = myIssuedTokens.computeIfAbsent(componentIface, (ci) -> new ArrayList<>(4));
       tokens.add(new TokenWeakRef(t, myTokenQueue));
-    }
-
-    @Override
-    public void init() {
-    }
-
-    @Override
-    public void dispose() {
     }
   }
 
